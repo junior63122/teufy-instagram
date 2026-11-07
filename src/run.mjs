@@ -259,12 +259,15 @@ async function prepare(slot, now, id) {
       res = await motion.motionReel({ scenes, out: video, root: ROOT, genre: 'club', tmp });
       pub = { video, legende: captionExplicatif({ sujet, ch, r }), duree: +res.total.toFixed(1), titre: sujet.titre, sujet: sujet.id };
     } else {
-      let win = windowFor([5, 6, 7], now);
+      // Week-end visé : celui de la semaine, ou le suivant s'il est déjà trop entamé (règle des 24 h).
+      const weFor = () => { const w = windowFor([5, 6, 7], now); return w.to.getTime() - debutMin < 36 * 3600e3 ? windowFor([5, 6, 7], new Date(now.getTime() + 7 * 86400e3)) : w; };
+      let win = weFor();
       const preds = { weekend: () => true, techno: isTechno, 'petits-prix': cheap };
       let list = await pickEv(win, preds[variante]);
       let elargi = false;
       if (list.length < 3 && variante !== 'weekend') { win = rolling(now, 0, 9); list = await pickEv(win, preds[variante]); elargi = true; }
-      if (list.length < 3) { variante = 'weekend'; win = windowFor([5, 6, 7], now); list = await pickEv(win); elargi = false; }
+      if (list.length < 3) { variante = 'weekend'; win = weFor(); list = await pickEv(win); elargi = false; }
+      if (list.length < 2) { win = rolling(now, 1, 10); list = await pickEv(win); elargi = true; }
       need(list, 2);
       const chosen = pickReel(best(list, 40), R.soirees_par_reel);
       const hooks = TENDANCES.accroches_reels;
