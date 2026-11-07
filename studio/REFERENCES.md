@@ -31,3 +31,10 @@ Jamais : bonjour, « dans cette vidéo », une question fermée évidente, du co
 La vivacité se mesure : variation de hauteur (demi-tons) et étendue. Sur la même phrase, Corentin (eleven_v3,
 mode « Creative ») varie de 5,7 demi-tons sur 20 d'étendue, contre 3,7 sur 10,5 pour la voix de la première démo.
 Balises d'émotion d'eleven_v3 (`[excited]`, `[curious]`) au début des phrases clés.
+
+## 2e série de références (films de marque)
+
+Amazon, Uber, Duolingo, Twitch, Walmart, Google Maps, Spotify, Revolut, McDonald's, ugoki… : 15 à 30 s, **sans voix**,
+un seul plan piloté par la musique, noir + halo de la couleur de marque, une traînée ou un objet qui s'allume dès la
+1re image, une carte ou une ville survolée en 3D, des mots qui claquent sur les temps avec flou de mouvement, un mur de
+tuiles, et **le logo qui naît de la lumière** pour finir. Appliqué dans `src/concepts/Marque.tsx` (« Ce soir, la Côte s'allume »).

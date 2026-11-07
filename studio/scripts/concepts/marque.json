@@ -1,0 +1,54 @@
+{
+  "id": "marque",
+  "concept": "marque",
+  "type": "immersif",
+  "titre": "Ce soir, la Côte s'allume",
+  "whooshEntreScenes": false,
+  "queue": 0,
+  "musique": {
+    "src": "musique/electro-dreams.mp3",
+    "volume": 0.9,
+    "ducking": 1,
+    "debut": 31.03
+  },
+  "scenes": [
+    {
+      "id": "film",
+      "texte": "",
+      "duree": 17.932,
+      "sons": [
+        {
+          "son": "impact",
+          "decalage": 0.0,
+          "volume": 0.5
+        },
+        {
+          "son": "riser",
+          "decalage": 5.353999999999999,
+          "volume": 0.45
+        },
+        {
+          "son": "aspiration",
+          "decalage": 7.553999999999999,
+          "volume": 0.5
+        },
+        {
+          "son": "basse",
+          "decalage": 8.724,
+          "volume": 0.8
+        },
+        {
+          "son": "riser",
+          "decalage": 13.109,
+          "volume": 0.5
+        },
+        {
+          "son": "impact",
+          "decalage": 15.509,
+          "volume": 0.6
+        }
+      ]
+    }
+  ],
+  "legende": "Ce soir, la Côte s'allume ✨\n\nMenton, Monaco, Nice, Antibes, Cannes, Saint-Tropez : techno, afro, house, shatta, rap, amapiano… Toutes les soirées de la Côte d'Azur, au même endroit.\n\nTu sors où ce week-end ? 👇\n\n#TeufyParty #CoteDAzur #Nice #nightlife #soirée"
+}

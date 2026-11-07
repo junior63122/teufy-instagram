@@ -8,10 +8,11 @@ import {Paliers} from './concepts/Paliers';
 import {Potes} from './concepts/Potes';
 import {Nuit} from './concepts/Nuit';
 import {Paliers2} from './concepts/Paliers2';
+import {Marque} from './concepts/Marque';
 
 
 // Une composition par concept. La durée vient de la spec (voix off + scènes), lue au rendu.
-const CONCEPTS: Record<string, React.FC<{spec: Spec}>> = {paliers: Paliers, potes: Potes, nuit: Nuit, paliers2: Paliers2};
+const CONCEPTS: Record<string, React.FC<{spec: Spec}>> = {paliers: Paliers, potes: Potes, nuit: Nuit, paliers2: Paliers2, marque: Marque};
 
 const vide: Spec = {id: 'vide', concept: 'paliers', duree: 3, mots: [], scenes: []};
 

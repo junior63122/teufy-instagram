@@ -1,0 +1,86 @@
+{
+ "id": "marque",
+ "concept": "marque",
+ "fps": 30,
+ "duree": 17.932,
+ "mots": [],
+ "scenes": [
+  {
+   "id": "film",
+   "texte": "",
+   "duree": 17.932,
+   "sons": [
+    {
+     "son": "impact",
+     "decalage": 0,
+     "volume": 0.5
+    },
+    {
+     "son": "riser",
+     "decalage": 5.353999999999999,
+     "volume": 0.45
+    },
+    {
+     "son": "aspiration",
+     "decalage": 7.553999999999999,
+     "volume": 0.5
+    },
+    {
+     "son": "basse",
+     "decalage": 8.724,
+     "volume": 0.8
+    },
+    {
+     "son": "riser",
+     "decalage": 13.109,
+     "volume": 0.5
+    },
+    {
+     "son": "impact",
+     "decalage": 15.509,
+     "volume": 0.6
+    }
+   ],
+   "start": 0,
+   "end": 17.932
+  }
+ ],
+ "bruits": [
+  {
+   "src": "sfx/impact.mp3",
+   "at": 0,
+   "volume": 0.5
+  },
+  {
+   "src": "sfx/riser.mp3",
+   "at": 5.354,
+   "volume": 0.45
+  },
+  {
+   "src": "sfx/aspiration.mp3",
+   "at": 7.554,
+   "volume": 0.5
+  },
+  {
+   "src": "sfx/basse.mp3",
+   "at": 8.724,
+   "volume": 0.8
+  },
+  {
+   "src": "sfx/riser.mp3",
+   "at": 13.109,
+   "volume": 0.5
+  },
+  {
+   "src": "sfx/impact.mp3",
+   "at": 15.509,
+   "volume": 0.6
+  }
+ ],
+ "musique": {
+  "src": "musique/electro-dreams.mp3",
+  "volume": 0.9,
+  "debut": 31.03,
+  "ducking": 1
+ }
+}
