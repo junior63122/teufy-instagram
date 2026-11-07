@@ -250,8 +250,9 @@ async function prepare(slot, now, id) {
     const motion = await import('./motion.mjs');
     // Voix off (Piper) : voix féminine, masculine ou sans voix ; le bot garde ce qui marche.
     const { voixDisponibles } = await import('./audio.mjs');
-    const dispo = voixDisponibles();
-    const choixVoix = val('voix') || (dispo.length ? ch.pick('voix-off', [...dispo, 'aucune'], (x) => x) : 'aucune');
+    const dispo = voixDisponibles(config);
+    // ElevenLabs : voix off sur tous les reels (avec ou sans, le bot peut le tester via voix_off.tester_sans_voix).
+    const choixVoix = val('voix') || (dispo.length ? (config.voix_off?.tester_sans_voix ? ch.pick('voix-off', [...dispo, 'aucune'], (x) => x) : dispo[0]) : 'aucune');
     const voix = choixVoix === 'aucune' ? null : choixVoix;
     const jourDit = (d) => new Intl.DateTimeFormat('fr-FR', { timeZone: 'Europe/Paris', weekday: 'long' }).format(new Date(Date.parse(d) - 6 * 3600e3));
     const tmp = path.join(ROOT, 'out', `reel-${id}`);
@@ -266,7 +267,7 @@ async function prepare(slot, now, id) {
       const { th, photos } = await visuel(/techno/.test(sujet.sous || '') ? 'techno' : 'club');
       const scenes = [...motion.scenesExplication(th, { titre: sujet.titre, sous: sujet.sous, points: sujet.points, photos }),
         motion.sceneFin(th, { compte: config.compte, photo: photos.next(), texte: 'Enregistre pour plus tard 📌' })];
-      res = await motion.motionReel({ scenes, out: video, root: ROOT, genre: 'club', tmp, voix });
+      res = await motion.motionReel({ scenes, out: video, root: ROOT, genre: 'club', tmp, voix, config });
       pub = { video, legende: captionExplicatif({ sujet, ch, r }), duree: +res.total.toFixed(1), titre: sujet.titre, sujet: sujet.id };
     } else {
       // Week-end visé : celui de la semaine, ou le suivant s'il est déjà trop entamé (règle des 24 h).
@@ -279,7 +280,7 @@ async function prepare(slot, now, id) {
       if (list.length < 3) { variante = 'weekend'; win = weFor(); list = await pickEv(win); elargi = false; }
       if (list.length < 2) { win = rolling(now, 1, 10); list = await pickEv(win); elargi = true; }
       need(list, 2);
-      const chosen = pickReel(best(list, 40), voix ? Math.min(5, R.soirees_par_reel) : R.soirees_par_reel);
+      const chosen = pickReel(best(list, 40), voix ? Math.min(4, R.soirees_par_reel) : R.soirees_par_reel);
       const hooks = TENDANCES.accroches_reels;
       const sansWeekend = hooks[variante].filter((h) => !elargi || !/week-end/i.test(h.titre + h.sous));
       const hook = ch.pick(`hook-${variante}`, sansWeekend.length ? sansWeekend : hooks[variante], (h) => hash(h.titre));
@@ -294,7 +295,7 @@ async function prepare(slot, now, id) {
         motion.sceneFin(th, { compte: config.compte, photo: photos.next() }),
       ];
       try {
-        res = await motion.motionReel({ scenes, out: video, root: ROOT, genre: variante === 'techno' ? 'techno' : 'club', tmp, voix });
+        res = await motion.motionReel({ scenes, out: video, root: ROOT, genre: variante === 'techno' ? 'techno' : 'club', tmp, voix, config });
       } catch (err) {
         // Repli : diaporama simple si le rendu animé échoue.
         console.error(`[${id}] motion impossible (${err.message}), diaporama simple.`);

@@ -10,6 +10,7 @@ import { heure } from './dates.mjs';
 import { genresList, styleLabel } from './genres.mjs';
 import { pickMusic } from './reel.mjs';
 import { parler, bruitages, mixer } from './audio.mjs';
+import { genererBeat, surLaGrille } from './beat.mjs';
 
 const W = 1080, H = 1920;
 const esc = (s) => String(s ?? '').replace(/ ([?!:;»])/g, ' $1').replace(/« /g, '« ').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -142,7 +143,19 @@ export function scenesExplication(th, { titre, sous, points, photos }) {
 
 // --- Rendu et montage -----------------------------------------------------------
 
-export async function motionReel({ scenes, out, root, genre = 'club', fps = 30, tmp, voix = null }) {
+// Sous-titres karaoké : groupes de 3 mots, le mot prononcé passe en corail (minutage ElevenLabs).
+function karaoke(mots, decalage) {
+  if (!mots?.length) return '';
+  const groupes = [];
+  for (let i = 0; i < mots.length; i += 3) groupes.push(mots.slice(i, i + 3));
+  return `<div style="position:absolute;left:50px;right:50px;top:1235px;display:flex;justify-content:center;z-index:5">${groupes.map((g, k) => {
+    const debut = decalage + g[0].debut - 0.05;
+    const fin = decalage + (groupes[k + 1] ? groupes[k + 1][0].debut : g.at(-1).fin + 0.4);
+    return `<p class="large" style="position:absolute;text-align:center;font-size:64px;line-height:1.1;padding:14px 26px;border-radius:18px;background:rgba(0,0,0,.6);opacity:0;animation:kv ${(fin - debut).toFixed(2)}s linear ${debut.toFixed(2)}s both">${g.map((w) => `<span style="animation:kw .01s linear ${(decalage + w.debut).toFixed(2)}s both">${esc(w.mot)}</span>`).join(' ')}</p>`;
+  }).join('')}</div><style>@keyframes kv{0%{opacity:0;transform:scale(.92)}8%{opacity:1;transform:none}92%{opacity:1}100%{opacity:0}}@keyframes kw{to{color:var(--corail)}}</style>`;
+}
+
+export async function motionReel({ scenes, out, root, genre = 'club', fps = 30, tmp, voix = null, config = {} }) {
   await rm(tmp, { recursive: true, force: true });
   await mkdir(tmp, { recursive: true });
   const adir = `${tmp}-audio`;
@@ -155,13 +168,17 @@ export async function motionReel({ scenes, out, root, genre = 'club', fps = 30, 
   let t = 0;
   for (const [k, s] of scenes.entries()) {
     if (voix && s.voix) {
-      const v = await parler(s.voix, { voix, dossier: adir, nom: `voix-${k}` });
+      const v = await parler(s.voix, { voix, dossier: adir, nom: `voix-${k}`, config });
       if (v) {
-        const d = +(v.duree + 0.55).toFixed(2);
+        const d = Math.max(s.duree, v.duree + 0.55);
         if (d > s.duree) { s.html = s.html.replace(`--d:${s.duree}s`, `--d:${d}s`); s.duree = d; }
+        if (v.mots?.length) s.html = s.html.replace('</body>', `${karaoke(v.mots, 0.2)}</body>`);
         pistesVoix.push({ fichier: v.fichier, debut: t + 0.2 });
       }
     }
+    // Coupes sur la grille du tempo : chaque scène dure un nombre entier de temps.
+    const g = +surLaGrille(s.duree, genre === 'techno' ? 'techno' : 'club').toFixed(3);
+    if (g !== s.duree) { s.html = s.html.replace(`--d:${s.duree}s`, `--d:${g}s`); s.duree = g; }
     if (k > 0) pistesSfx.push({ fichier: sons.whoosh, debut: Math.max(0, t - 0.22), volume: 0.45 });
     for (const [nom, at, vol] of s.sfx || []) pistesSfx.push({ fichier: sons[nom], debut: t + at, volume: vol * 0.6 });
     t += s.duree;
@@ -187,7 +204,9 @@ export async function motionReel({ scenes, out, root, genre = 'club', fps = 30, 
   const total = n / fps;
 
   // 3. Son : musique baissée sous la voix, bruitages, volume égalisé ; puis montage final.
-  const musique = (await pickMusic(path.join(root, 'assets', 'musiques', genre))) || (await pickMusic(path.join(root, 'assets', 'musiques')));
+  // Musique : un .mp3 de assets/musiques s'il y en a, sinon une boucle générée au même tempo que les coupes.
+  const musique = (await pickMusic(path.join(root, 'assets', 'musiques', genre))) || (await pickMusic(path.join(root, 'assets', 'musiques')))
+    || await genererBeat({ style: genre === 'techno' ? 'techno' : 'club', duree: total, sortie: path.join(adir, 'beat.wav'), seed: Math.round(total * 1000) });
   const wav = await mixer({ total, musique, voix: pistesVoix, sfx: pistesSfx, sortie: path.join(adir, 'mix.wav') });
   await run('ffmpeg', ['-y', '-framerate', String(fps), '-i', path.join(tmp, '%05d.jpg'), '-i', wav,
     '-map', '0:v', '-map', '1:a', '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'medium', '-crf', '19', '-pix_fmt', 'yuv420p', '-r', String(fps),

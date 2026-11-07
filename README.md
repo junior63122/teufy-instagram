@@ -53,24 +53,28 @@ Le 3e reel du mois alterne entre « petits prix » et **reel explicatif** : astu
 
 **Musique** : dépose des .mp3 dans `assets/musiques/club/` et `assets/musiques/techno/`. Par exemple, la bibliothèque musicale de Pixabay (pixabay.com/music) est gratuite et autorisée pour un usage commercial. Les morceaux trop courts sont mis en boucle et le volume est égalisé. Sans musique, les reels sont muets.
 
-## Voix off, bruitages et formats
+## Voix off, sous-titres, musique et formats
 
-- **Voix off française** générée par **Piper** (synthèse vocale open source, gratuite, sans compte) : voix féminine « siwis » ou masculine « tom ». Elle lit l'accroche, présente chaque soirée (« Numéro 1. Vendredi, DJ Mayoff, Glass Club à Cannes… ») et les points des reels explicatifs. Chaque scène dure le temps de sa phrase. Le bot teste voix féminine, masculine ou sans voix, et garde ce qui marche.
-- **Bruitages** fabriqués par ffmpeg, donc sans droits : whoosh à chaque transition, impact quand une affiche tombe, pop sur les numéros.
-- **Mixage** : la musique baisse automatiquement quand la voix parle, et le volume est égalisé au niveau Instagram.
-- **Carrousel ou post unique** : avec 1 ou 2 soirées, le bot fait un post unique « programme » (toutes les soirées sur une image, à enregistrer). Au-delà, il teste carrousel et post unique et garde le meilleur.
+- **Voix off ElevenLabs** (modèle `eleven_v3`, voix naturelles en français). Elle lit l'accroche, présente chaque soirée et les points des reels explicatifs. Secret GitHub `ELEVENLABS_API_KEY`. L'usage commercial demande au moins l'offre Starter (environ 6 $/mois). Choisis une voix française dans la bibliothèque ElevenLabs et mets son identifiant dans le secret `ELEVENLABS_VOICE_ID` ou dans `config.json` → `voix_off.voice_id`. Sans identifiant, le bot prend une voix française du compte. Sans clé, les reels n'ont pas de voix off : les voix de synthèse gratuites (Piper) sont désactivées.
+- **Sous-titres karaoké** synchronisés mot à mot sur la voix (minutage fourni par ElevenLabs) : par groupes de 3 mots, le mot prononcé passe en corail.
+- **Musique** : un .mp3 de `assets/musiques/club/` ou `techno/` s'il y en a. Sinon, une boucle house (124 BPM) ou techno (132 BPM) générée par le code, sans droits. Les coupes tombent sur les temps de la musique, comme dans HyperFrames.
+- **Bruitages** générés par ffmpeg (whoosh, impact, pop) et **mixage** : la musique baisse quand la voix parle, et le volume est réglé au niveau Instagram.
+- **Carrousel ou post unique** : avec 1 ou 2 soirées, post unique « programme ». Au-delà, le bot teste les deux formats.
 
 ### Outils utilisés (tous gratuits)
 
 | Besoin | Outil |
 | --- | --- |
-| Animation des reels | Pages HTML/CSS animées, capturées image par image avec Chromium (même principe que Remotion / HyperFrames, sans licence) |
+| Animation des reels | Pages HTML/CSS animées, capturées image par image avec Chromium : même principe que HyperFrames (Apache 2.0), dont j'ai repris la grille de tempo et la musique générée |
 | Montage, son, bruitages | ffmpeg |
-| Voix off | Piper (voix françaises libres) |
+| Voix off | ElevenLabs (payant, offre Starter minimum pour un usage commercial) |
+| Musique | Boucles générées par le code au tempo des coupes, ou tes .mp3 |
 | Photos | Banque CC0 (StockSnap via Openverse), Pexels en option |
 | Recherche des soirées, analyse | Claude (clé API, payant à l'usage) |
 
-Pas utilisés : yt-dlp, pour ne pas reprendre de vidéos d'autres comptes (droits d'auteur, et Instagram pénalise le contenu non original), et les générateurs vidéo IA payants (Higgsfield…).
+Règles de légende reprises de sergebulaev/instagram-skills (MIT) : accroche dans les 125 premiers caractères, 3 à 5 hashtags ciblés, jamais de chiffre inventé.
+
+Pas utilisés : OpenMontage (licence AGPL, pensé pour être piloté à la main), yt-dlp, pour ne pas reprendre de vidéos d'autres comptes (droits d'auteur, et Instagram pénalise le contenu non original), et les générateurs vidéo IA payants (Higgsfield…).
 
 ## Visuels qui s'adaptent
 
