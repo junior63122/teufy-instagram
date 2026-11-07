@@ -109,6 +109,16 @@ jobs:
         if: steps.choix.outputs.rien != 'true'
         run: node src/run.mjs ${{ steps.choix.outputs.quoi }} preparer
 
+      - name: Sauvegarder la recherche de soirées (réutilisée 3 jours, évite de payer deux fois)
+        if: always() && steps.choix.outputs.rien != 'true'
+        run: |
+          git config user.name "teufy-bot"
+          git config user.email "teufy-bot@users.noreply.github.com"
+          git add evenements-web.json contenus/organisateurs.json 2>/dev/null || true
+          git diff --cached --quiet && exit 0
+          git commit -m "Teufy : soirées trouvées le $(date -u +%F)"
+          for i in 1 2 3; do git pull --rebase && git push && break; sleep 5; done
+
       - name: Aperçu téléchargeable (visuels, vidéos, légendes, pages récupérées)
         if: always() && steps.choix.outputs.rien != 'true'
         uses: actions/upload-artifact@v4
