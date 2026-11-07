@@ -46,10 +46,9 @@
       "https://shotgun.live/fr/cities/antibes"
     ],
     "dice": [
-      "https://dice.fm/browse/nice",
-      "https://dice.fm/browse/cannes",
-      "https://dice.fm/browse/monaco"
-    ]
+      "https://dice.fm/browse/nice-60d0784c7645c67f491834e4"
+    ],
+    "_note": "DICE : adresse de ville avec son identifiant (dice.fm/browse/nice-<id>). Shotgun protège ses pages par une vérification anti-robot (Vercel) : le bot ne la contourne pas."
   },
   "calendrier_explication": "Chaque ligne = une publication par mois. jour : 1 = lundi … 7 = dimanche. rang : 1 = premier de ce jour dans le mois, 2 = deuxième… (1 à 4). Heure : voir le workflow.",
   "calendrier": [

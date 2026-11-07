@@ -41,10 +41,16 @@ async function fetchHtml(url, tries = 3) {
         redirect: 'follow',
         signal: AbortSignal.timeout(30000),
       });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      if (!res.ok) {
+        const txt = await res.text().catch(() => '');
+        // Page de vérification anti-robot (Vercel, Cloudflare…) : inutile d'insister, et on ne la contourne pas.
+        if (/Security Checkpoint|cf-chl|challenge-platform|captcha/i.test(txt)) { const e = new Error(`bloqué par une vérification anti-robot (HTTP ${res.status})`); e.definitif = true; throw e; }
+        throw new Error(`HTTP ${res.status}`);
+      }
       return await res.text();
     } catch (err) {
       last = err;
+      if (err.definitif) break;
       await new Promise((r) => setTimeout(r, 2000 * (i + 1)));
     }
   }

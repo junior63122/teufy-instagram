@@ -52,3 +52,14 @@ test('fenêtres et libellés en heure de Paris', () => {
   const ete = windowFor([5, 6, 0], new Date('2026-07-01T10:00:00Z'));
   assert.equal(ete.from.toISOString(), '2026-07-03T04:00:00.000Z');
 });
+
+test('vraie page DICE (Nice, novembre 2026)', () => {
+  const html = readFileSync(new URL('./fixtures-reelles/dice-nice.html', import.meta.url), 'utf8');
+  const ev = extractEvents(html, { source: 'dice', baseUrl: 'https://dice.fm/browse/nice-60d0784c7645c67f491834e4' });
+  const e = ev.find((x) => x.name === 'UNDRGRND 1 YEAR ANNIVERSARY');
+  assert.ok(e, 'soirée trouvée');
+  assert.equal(e.venue, 'Blue Coast Brewing');
+  assert.equal(e.city, 'Nice');
+  assert.equal(e.price, 16.51);
+  assert.match(e.image, /^https:\/\/dice-media\.imgix\.net\//);
+});
