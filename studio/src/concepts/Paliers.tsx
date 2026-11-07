@@ -59,6 +59,13 @@ export const Paliers: React.FC<{spec: Spec}> = ({spec}) => {
   return (
     <AbsoluteFill style={{background: C.nuit, fontFamily: F.wide}}>
       <Fond t={t} teinte={t > S[8].start - 0.2 && t < S[8].end + 0.2 ? '#5a1e14' : C.nuit2} />
+      {/* caméra vivante : petit « punch » à chaque nouvelle phrase, dérive lente le reste du temps */}
+      <AbsoluteFill style={{transform: (() => {
+        const k = S.findIndex((sc, n) => t >= sc.start && (n === S.length - 1 || t < S[n + 1].start));
+        const t0 = S[Math.max(0, k)]?.start ?? 0;
+        const punch = 1 + 0.06 * (1 - p(t, t0, 0.45, E.outExpo));
+        return `scale(${punch * (1.02 + 0.015 * Math.sin(t * 0.7))}) translate(${Math.sin(t * 0.5) * 10}px, ${Math.cos(t * 0.43) * 8}px)`;
+      })()}}>
 
       {/* ---------- SCÈNES 0-1 : le prix qui grimpe, « arnaque ? » ---------- */}
       {telVisible ? (
@@ -97,9 +104,9 @@ export const Paliers: React.FC<{spec: Spec}> = ({spec}) => {
       ) : null}
 
       {/* ---------- SCÈNES 2 et 6 : l'escalier des paliers ---------- */}
-      {(dans(spec, 2, t) || dans(spec, 6, t)) ? (
-        <AbsoluteFill style={{opacity: dans(spec, 2, t) ? p(t, S[2].start - 0.2, 0.3) * (1 - p(t, S[2].end - 0.15, 0.3)) : p(t, sc6.start - 0.2, 0.3) * (1 - p(t, sc6.end - 0.1, 0.3))}}>
-          {dans(spec, 2, t) ? (
+      {(dans(spec, 2, t, 0.25, 0.45) || dans(spec, 6, t)) ? (
+        <AbsoluteFill style={{opacity: dans(spec, 2, t, 0.25, 0.45) ? p(t, S[2].start - 0.2, 0.3) * (1 - p(t, S[2].end + 0.2, 0.2)) : p(t, sc6.start - 0.2, 0.3) * (1 - p(t, sc6.end - 0.1, 0.3))}}>
+          {dans(spec, 2, t, 0.25, 0.45) ? (
             <div style={{position: 'absolute', left: 90, top: 250}}>
               <MotsMasques taille={190} largeur="68%" mots={[{w: 'le', t: S[2].start}, {w: 'système', t: S[2].start + 0.08}, {w: 'des', t: S[2].start + 0.16}, {w: 'paliers', t: q('paliers', 2) - 0.1, accent: true}]} italiqueAccent accent={C.jaune} style={{width: 900}} />
             </div>
@@ -133,9 +140,9 @@ export const Paliers: React.FC<{spec: Spec}> = ({spec}) => {
 
       {/* ---------- SCÈNE 3 : l'organisateur ne sait pas combien viendront ---------- */}
       {(dans(spec, 3, t) || dans(spec, 4, t) || dans(spec, 5, t)) ? (
-        <AbsoluteFill style={{opacity: p(t, S[3].start - 0.2, 0.3) * (1 - p(t, S[5].end - 0.1, 0.3))}}>
-          <Perso look={ORGA} taille={760} x={dans(spec, 3, t) ? 360 : mix(360, 280, p(t, S[4].start, 0.6))} y={1290 + (1 - sp(t, S[3].start - 0.1, fps, SPR.doux)) * 800}
-            pose={{parle: false, sourcils: dans(spec, 3, t) ? -0.6 : 0.6, bouche: dans(spec, 5, t) ? 'dents' : dans(spec, 3, t) ? 'plat' : 'sourire', brasD: dans(spec, 4, t) ? -110 : 15, brasG: dans(spec, 3, t) ? -150 : 12, tete: dans(spec, 3, t) ? -8 : 4, yeux: dans(spec, 5, t) ? 'plisses' : 'ouverts'}} />
+        <AbsoluteFill style={{opacity: p(t, S[3].start + 0.3, 0.3) * (1 - p(t, S[5].end - 0.1, 0.3))}}>
+          <Perso look={ORGA} taille={760} x={dans(spec, 3, t) ? 360 : mix(360, 280, p(t, S[4].start, 0.6))} y={1290 + (1 - sp(t, S[3].start + 0.4, fps, SPR.doux)) * 800}
+            pose={{parle: spec.mots.some((m) => t >= m.start && t <= m.end + 0.04), sourcils: dans(spec, 3, t) ? -0.6 : 0.6, bouche: dans(spec, 5, t) ? 'dents' : dans(spec, 3, t) ? 'plat' : 'sourire', brasD: dans(spec, 4, t) ? -110 : 15, brasG: dans(spec, 3, t) ? -150 : 12, tete: dans(spec, 3, t) ? -8 : 4, yeux: dans(spec, 5, t) ? 'plisses' : 'ouverts'}} />
           {dans(spec, 3, t) ? (
             <>
               {[0, 1, 2].map((i) => {
@@ -219,10 +226,11 @@ export const Paliers: React.FC<{spec: Spec}> = ({spec}) => {
               background: b.c, color: C.encre, fontWeight: 900, fontStretch: '110%', fontSize: 66, padding: '22px 44px', borderRadius: 999, whiteSpace: 'nowrap', textTransform: 'uppercase'}}>{b.txt}</div>
           ))}
           <div style={{position: 'absolute', left: 540, top: 820, fontFamily: F.serif, fontStyle: 'italic', fontSize: 90, color: '#fff', transform: 'translate(-50%,0)', opacity: p(t, q('dernière', 9) + 0.3, 0.4)}}>ou</div>
-          <Commentaire texte="dernière minute, toujours 😅" t0={q('minute', 9) + 0.4} style={{left: 540, top: 1060}} pseudo="un pote" />
+          {t > q('minute', 9) + 0.2 ? <Commentaire texte="dernière minute, toujours 😅" t0={q('minute', 9) + 0.4} style={{left: 540, top: 1060, transform: `translate(-50%,-50%) scale(${sp(t, q('minute', 9) + 0.2, fps, SPR.pop)})`}} pseudo="un pote" /> : null}
         </AbsoluteFill>
       ) : null}
 
+      </AbsoluteFill>
       <SousTitres mots={spec.mots} y={1330} taille={70} cles={['arnaque', 'paliers', 'early', 'bird', 'vite', 'cher', 'fort', 'tôt']} accent={dans(spec, 8, t, 0, 0) ? C.encre : C.corail} couleur={dans(spec, 8, t, 0, 0) ? C.blanc : '#fff'} />
       <Vignette force={0.5} />
       <Grain force={0.07} />

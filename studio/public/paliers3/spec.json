@@ -1,0 +1,763 @@
+{
+ "id": "paliers3",
+ "concept": "paliers",
+ "fps": 30,
+ "duree": 30.606,
+ "mots": [
+  {
+   "w": "Lundi,",
+   "scene": 0,
+   "start": 0.12,
+   "end": 0.6
+  },
+  {
+   "w": "ta",
+   "scene": 0,
+   "start": 0.64,
+   "end": 0.72
+  },
+  {
+   "w": "place",
+   "scene": 0,
+   "start": 0.747,
+   "end": 0.88
+  },
+  {
+   "w": "était",
+   "scene": 0,
+   "start": 0.92,
+   "end": 1.12
+  },
+  {
+   "w": "à",
+   "scene": 0,
+   "start": 1.16,
+   "end": 1.2
+  },
+  {
+   "w": "12",
+   "scene": 0,
+   "start": 1.28,
+   "end": 1.44
+  },
+  {
+   "w": "euros.",
+   "scene": 0,
+   "start": 1.48,
+   "end": 2.08
+  },
+  {
+   "w": "Jeudi…",
+   "scene": 0,
+   "start": 2.133,
+   "end": 2.96
+  },
+  {
+   "w": "elle",
+   "scene": 0,
+   "start": 2.976,
+   "end": 3.04
+  },
+  {
+   "w": "est",
+   "scene": 0,
+   "start": 3.08,
+   "end": 3.2
+  },
+  {
+   "w": "à",
+   "scene": 0,
+   "start": 3.24,
+   "end": 3.28
+  },
+  {
+   "w": "20",
+   "scene": 0,
+   "start": 3.44,
+   "end": 3.6
+  },
+  {
+   "w": "!",
+   "scene": 0,
+   "start": 3.84,
+   "end": 4.08
+  },
+  {
+   "w": "Arnaque",
+   "scene": 1,
+   "start": 4.222,
+   "end": 4.56
+  },
+  {
+   "w": "?",
+   "scene": 1,
+   "start": 4.76,
+   "end": 4.96
+  },
+  {
+   "w": "Non.",
+   "scene": 1,
+   "start": 5,
+   "end": 5.2
+  },
+  {
+   "w": "C'est",
+   "scene": 2,
+   "start": 5.36,
+   "end": 5.68
+  },
+  {
+   "w": "juste",
+   "scene": 2,
+   "start": 5.72,
+   "end": 5.92
+  },
+  {
+   "w": "le",
+   "scene": 2,
+   "start": 5.973,
+   "end": 6.08
+  },
+  {
+   "w": "système",
+   "scene": 2,
+   "start": 6.14,
+   "end": 6.56
+  },
+  {
+   "w": "des",
+   "scene": 2,
+   "start": 6.58,
+   "end": 6.64
+  },
+  {
+   "w": "paliers.",
+   "scene": 2,
+   "start": 6.72,
+   "end": 7.2
+  },
+  {
+   "w": "Au",
+   "scene": 3,
+   "start": 7.333,
+   "end": 7.6
+  },
+  {
+   "w": "début,",
+   "scene": 3,
+   "start": 7.64,
+   "end": 7.88
+  },
+  {
+   "w": "l'organisateur",
+   "scene": 3,
+   "start": 7.9,
+   "end": 8.56
+  },
+  {
+   "w": "ne",
+   "scene": 3,
+   "start": 8.587,
+   "end": 8.64
+  },
+  {
+   "w": "sait",
+   "scene": 3,
+   "start": 8.667,
+   "end": 8.8
+  },
+  {
+   "w": "pas",
+   "scene": 3,
+   "start": 8.82,
+   "end": 8.88
+  },
+  {
+   "w": "combien",
+   "scene": 3,
+   "start": 8.912,
+   "end": 9.12
+  },
+  {
+   "w": "de",
+   "scene": 3,
+   "start": 9.173,
+   "end": 9.28
+  },
+  {
+   "w": "personnes",
+   "scene": 3,
+   "start": 9.32,
+   "end": 9.68
+  },
+  {
+   "w": "vont",
+   "scene": 3,
+   "start": 9.712,
+   "end": 9.84
+  },
+  {
+   "w": "venir.",
+   "scene": 3,
+   "start": 9.92,
+   "end": 10.48
+  },
+  {
+   "w": "Alors",
+   "scene": 4,
+   "start": 10.507,
+   "end": 10.64
+  },
+  {
+   "w": "il",
+   "scene": 4,
+   "start": 10.693,
+   "end": 10.8
+  },
+  {
+   "w": "vend",
+   "scene": 4,
+   "start": 10.832,
+   "end": 10.96
+  },
+  {
+   "w": "les",
+   "scene": 4,
+   "start": 10.98,
+   "end": 11.04
+  },
+  {
+   "w": "premières",
+   "scene": 4,
+   "start": 11.088,
+   "end": 11.36
+  },
+  {
+   "w": "places",
+   "scene": 4,
+   "start": 11.406,
+   "end": 11.68
+  },
+  {
+   "w": "moins",
+   "scene": 4,
+   "start": 11.72,
+   "end": 11.92
+  },
+  {
+   "w": "cher",
+   "scene": 4,
+   "start": 11.984,
+   "end": 12.24
+  },
+  {
+   "w": ":",
+   "scene": 4,
+   "start": 12.36,
+   "end": 12.48
+  },
+  {
+   "w": "c'est",
+   "scene": 4,
+   "start": 12.52,
+   "end": 12.64
+  },
+  {
+   "w": "l'early",
+   "scene": 4,
+   "start": 12.72,
+   "end": 13.12
+  },
+  {
+   "w": "bird.",
+   "scene": 4,
+   "start": 13.2,
+   "end": 13.6
+  },
+  {
+   "w": "Ça",
+   "scene": 5,
+   "start": 14.026,
+   "end": 14.086
+  },
+  {
+   "w": "le",
+   "scene": 5,
+   "start": 14.113,
+   "end": 14.166
+  },
+  {
+   "w": "rassure,",
+   "scene": 5,
+   "start": 14.206,
+   "end": 14.806
+  },
+  {
+   "w": "et",
+   "scene": 5,
+   "start": 14.833,
+   "end": 14.886
+  },
+  {
+   "w": "ces",
+   "scene": 5,
+   "start": 14.926,
+   "end": 15.046
+  },
+  {
+   "w": "places",
+   "scene": 5,
+   "start": 15.08,
+   "end": 15.286
+  },
+  {
+   "w": "partent",
+   "scene": 5,
+   "start": 15.318,
+   "end": 15.606
+  },
+  {
+   "w": "très",
+   "scene": 5,
+   "start": 15.638,
+   "end": 15.766
+  },
+  {
+   "w": "vite.",
+   "scene": 5,
+   "start": 15.846,
+   "end": 16.246
+  },
+  {
+   "w": "Dès",
+   "scene": 6,
+   "start": 16.486,
+   "end": 16.806
+  },
+  {
+   "w": "qu'un",
+   "scene": 6,
+   "start": 16.833,
+   "end": 16.966
+  },
+  {
+   "w": "palier",
+   "scene": 6,
+   "start": 17.006,
+   "end": 17.286
+  },
+  {
+   "w": "est",
+   "scene": 6,
+   "start": 17.306,
+   "end": 17.366
+  },
+  {
+   "w": "vendu,",
+   "scene": 6,
+   "start": 17.414,
+   "end": 17.846
+  },
+  {
+   "w": "le",
+   "scene": 6,
+   "start": 17.899,
+   "end": 18.006
+  },
+  {
+   "w": "suivant",
+   "scene": 6,
+   "start": 18.07,
+   "end": 18.566
+  },
+  {
+   "w": "ouvre,",
+   "scene": 6,
+   "start": 18.646,
+   "end": 19.126
+  },
+  {
+   "w": "un",
+   "scene": 6,
+   "start": 19.179,
+   "end": 19.286
+  },
+  {
+   "w": "peu",
+   "scene": 6,
+   "start": 19.306,
+   "end": 19.366
+  },
+  {
+   "w": "plus",
+   "scene": 6,
+   "start": 19.414,
+   "end": 19.606
+  },
+  {
+   "w": "cher.",
+   "scene": 6,
+   "start": 19.67,
+   "end": 20.006
+  },
+  {
+   "w": "Et",
+   "scene": 7,
+   "start": 20.113,
+   "end": 20.326
+  },
+  {
+   "w": "sur",
+   "scene": 7,
+   "start": 20.366,
+   "end": 20.486
+  },
+  {
+   "w": "place",
+   "scene": 7,
+   "start": 20.553,
+   "end": 20.886
+  },
+  {
+   "w": "?",
+   "scene": 7,
+   "start": 20.926,
+   "end": 20.966
+  },
+  {
+   "w": "C'est",
+   "scene": 7,
+   "start": 21.126,
+   "end": 21.446
+  },
+  {
+   "w": "souvent",
+   "scene": 7,
+   "start": 21.476,
+   "end": 21.686
+  },
+  {
+   "w": "le",
+   "scene": 7,
+   "start": 21.713,
+   "end": 21.766
+  },
+  {
+   "w": "prix",
+   "scene": 7,
+   "start": 21.814,
+   "end": 22.006
+  },
+  {
+   "w": "fort.",
+   "scene": 7,
+   "start": 22.086,
+   "end": 22.646
+  },
+  {
+   "w": "Donc",
+   "scene": 8,
+   "start": 22.951,
+   "end": 23.046
+  },
+  {
+   "w": "si",
+   "scene": 8,
+   "start": 23.099,
+   "end": 23.206
+  },
+  {
+   "w": "une",
+   "scene": 8,
+   "start": 23.226,
+   "end": 23.286
+  },
+  {
+   "w": "soirée",
+   "scene": 8,
+   "start": 23.334,
+   "end": 23.606
+  },
+  {
+   "w": "te",
+   "scene": 8,
+   "start": 23.659,
+   "end": 23.766
+  },
+  {
+   "w": "tente,",
+   "scene": 8,
+   "start": 23.806,
+   "end": 24.246
+  },
+  {
+   "w": "prends",
+   "scene": 8,
+   "start": 24.273,
+   "end": 24.486
+  },
+  {
+   "w": "ta",
+   "scene": 8,
+   "start": 24.513,
+   "end": 24.566
+  },
+  {
+   "w": "place",
+   "scene": 8,
+   "start": 24.619,
+   "end": 24.886
+  },
+  {
+   "w": "tôt",
+   "scene": 8,
+   "start": 24.926,
+   "end": 25.126
+  },
+  {
+   "w": "!",
+   "scene": 8,
+   "start": 25.326,
+   "end": 25.526
+  },
+  {
+   "w": "Et",
+   "scene": 9,
+   "start": 25.553,
+   "end": 25.606
+  },
+  {
+   "w": "toi,",
+   "scene": 9,
+   "start": 25.646,
+   "end": 25.845
+  },
+  {
+   "w": "t'es",
+   "scene": 9,
+   "start": 25.846,
+   "end": 26.006
+  },
+  {
+   "w": "team",
+   "scene": 9,
+   "start": 26.054,
+   "end": 26.246
+  },
+  {
+   "w": "à",
+   "scene": 9,
+   "start": 26.366,
+   "end": 26.486
+  },
+  {
+   "w": "l'avance,",
+   "scene": 9,
+   "start": 26.526,
+   "end": 27.046
+  },
+  {
+   "w": "ou",
+   "scene": 9,
+   "start": 27.073,
+   "end": 27.126
+  },
+  {
+   "w": "team",
+   "scene": 9,
+   "start": 27.19,
+   "end": 27.446
+  },
+  {
+   "w": "dernière",
+   "scene": 9,
+   "start": 27.49,
+   "end": 27.846
+  },
+  {
+   "w": "minute",
+   "scene": 9,
+   "start": 27.903,
+   "end": 28.246
+  },
+  {
+   "w": "?",
+   "scene": 9,
+   "start": 28.326,
+   "end": 28.406
+  }
+ ],
+ "scenes": [
+  {
+   "id": "accroche",
+   "texte": "[excited] Lundi, ta place était à 12 euros. Jeudi… elle est à 20 !",
+   "sons": [
+    {
+     "son": "caisse",
+     "mot": "jeudi",
+     "decalage": 0.15,
+     "volume": 0.6
+    },
+    {
+     "son": "basse",
+     "mot": "20",
+     "volume": 0.8
+    }
+   ],
+   "start": 0,
+   "end": 4.102
+  },
+  {
+   "id": "arnaque",
+   "texte": "[surprised] Arnaque ? Non.",
+   "sons": [
+    {
+     "son": "tampon",
+     "mot": "arnaque",
+     "volume": 0.85
+    }
+   ],
+   "start": 4.102,
+   "end": 5.24
+  },
+  {
+   "id": "paliers",
+   "texte": "C'est juste le système des paliers.",
+   "sons": [
+    {
+     "son": "aspiration",
+     "decalage": -0.35,
+     "volume": 0.55
+    }
+   ],
+   "start": 5.24,
+   "end": 7.213
+  },
+  {
+   "id": "organisateur",
+   "texte": "Au début, l'organisateur ne sait pas combien de personnes vont venir.",
+   "sons": [],
+   "start": 7.213,
+   "end": 10.387
+  },
+  {
+   "id": "early",
+   "texte": "Alors il vend les premières places moins cher : c'est l'early bird.",
+   "sons": [],
+   "start": 10.387,
+   "end": 13.906
+  },
+  {
+   "id": "sold-out",
+   "texte": "[excited] Ça le rassure, et ces places partent très vite.",
+   "sons": [
+    {
+     "son": "tampon",
+     "mot": "vite",
+     "volume": 0.75
+    }
+   ],
+   "start": 13.906,
+   "end": 16.366
+  },
+  {
+   "id": "escalier",
+   "texte": "Dès qu'un palier est vendu, le suivant ouvre, un peu plus cher.",
+   "sons": [],
+   "start": 16.366,
+   "end": 19.993
+  },
+  {
+   "id": "sur-place",
+   "texte": "Et sur place ? C'est souvent le prix fort.",
+   "sons": [
+    {
+     "son": "caisse",
+     "mot": "prix",
+     "volume": 0.6
+    }
+   ],
+   "start": 19.993,
+   "end": 22.831
+  },
+  {
+   "id": "regle",
+   "texte": "[excited] Donc si une soirée te tente, prends ta place tôt !",
+   "sons": [
+    {
+     "son": "basse",
+     "mot": "tôt",
+     "volume": 0.8
+    }
+   ],
+   "start": 22.831,
+   "end": 25.433
+  },
+  {
+   "id": "question",
+   "texte": "Et toi, t'es team à l'avance, ou team dernière minute ?",
+   "sons": [
+    {
+     "son": "message",
+     "mot": "minute",
+     "decalage": 0.5,
+     "volume": 0.55
+    }
+   ],
+   "start": 25.433,
+   "end": 30.606
+  }
+ ],
+ "bruits": [
+  {
+   "src": "sfx/caisse.mp3",
+   "at": 2.283,
+   "volume": 0.6
+  },
+  {
+   "src": "sfx/basse.mp3",
+   "at": 3.44,
+   "volume": 0.8
+  },
+  {
+   "src": "sfx/tampon.mp3",
+   "at": 4.222,
+   "volume": 0.85
+  },
+  {
+   "src": "sfx/aspiration.mp3",
+   "at": 4.89,
+   "volume": 0.55
+  },
+  {
+   "src": "sfx/tampon.mp3",
+   "at": 15.846,
+   "volume": 0.75
+  },
+  {
+   "src": "sfx/caisse.mp3",
+   "at": 21.814,
+   "volume": 0.6
+  },
+  {
+   "src": "sfx/basse.mp3",
+   "at": 24.926,
+   "volume": 0.8
+  },
+  {
+   "src": "sfx/message.mp3",
+   "at": 28.403,
+   "volume": 0.55
+  }
+ ],
+ "voix": {
+  "src": "paliers3/voix.mp3",
+  "volume": 1
+ },
+ "musique": {
+  "src": "musique/electro-dreams.mp3",
+  "volume": 0.32,
+  "debut": 8,
+  "ducking": 0.42
+ }
+}
