@@ -203,3 +203,37 @@ export async function renderPages(pages, outDir, prefix, { width, height, png = 
   }
   return files;
 }
+
+// --- Post unique « programme » : toutes les soirées sur une image (à enregistrer, à partager) ---
+
+export function afficheProgramme({ th, titre, sous, events, photos }) {
+  const liste = events.slice(0, 6);
+  const lignes = liste.map((e) => {
+    const g = genresList(e).slice(0, 2).join(', ') || styleLabel(e) || '';
+    return `<li>${e.image ? `<span class="vig" style="${bg(e.image)}"></span>` : '<span class="vig vide"></span>'}
+      <span class="d">${esc(dateCourte(e.start))}<small>${esc(heure(e.start))}</small></span>
+      <span class="n">${esc(e.name)}<small>${esc([e.venue, ville(e), g].filter(Boolean).join(' · '))}</small></span></li>`;
+  }).join('');
+  return [page(th, 1080, 1350, `
+  ${photo(photos.next(liste[0]?.image), 'inset:0', { voile: 'linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.72) 32%,rgba(0,0,0,.82))' })}
+  ${decor(th, 1080, 1350, 6)}
+  <div class="wrap">
+    <div class="tete">${logo(th, 70)}<h1 class="large fit ombre" data-maxh="300">${nl(titre)}</h1>${sous ? `<h2 class="large">${esc(sous)}</h2>` : ''}</div>
+    <ul>${lignes}</ul>
+  </div>
+  <p class="pied">📌 Enregistre · Envoie à ton crew</p>`, `
+  .wrap{position:absolute;top:60px;left:64px;right:64px;bottom:120px;display:flex;flex-direction:column;gap:30px}
+  .tete{display:flex;flex-direction:column;align-items:flex-start;gap:14px}
+  .tete .logo{width:auto}
+  .tete h1{font-size:72px;line-height:1.02;width:100%}
+  .tete h2{font-size:44px;color:var(--corail)}
+  ul{flex:1;list-style:none;display:flex;flex-direction:column;justify-content:center;gap:16px}
+  li{display:flex;align-items:center;gap:24px;padding:12px 16px;border-radius:20px;background:rgba(255,255,255,.08);backdrop-filter:blur(6px)}
+  .vig{flex:0 0 108px;height:108px;border-radius:14px;background-size:cover;background-position:center}
+  .vig.vide{background:linear-gradient(135deg,var(--logo1),var(--logo2))}
+  .d{flex:0 0 190px;font-weight:900;font-size:32px;color:var(--corail);text-transform:uppercase;line-height:1.1}
+  .d small{display:block;font-size:26px;color:#fff;opacity:.85}
+  .n{flex:1;font-weight:800;font-size:33px;line-height:1.15;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+  .n small{display:block;font-weight:600;font-stretch:100%;font-size:24px;opacity:.8;margin-top:4px}
+  .pied{position:absolute;bottom:46px;left:0;right:0;text-align:center;font-weight:800;font-stretch:100%;font-size:32px}`)];
+}

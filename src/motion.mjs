@@ -9,6 +9,7 @@ import path from 'node:path';
 import { heure } from './dates.mjs';
 import { genresList, styleLabel } from './genres.mjs';
 import { pickMusic } from './reel.mjs';
+import { parler, bruitages, mixer } from './audio.mjs';
 
 const W = 1080, H = 1920;
 const esc = (s) => String(s ?? '').replace(/ ([?!:;»])/g, ' $1').replace(/« /g, '« ').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -71,20 +72,20 @@ const mots = (texte, debut = 0.15, pas = 0.11) => esc(texte).split(' ').map((m, 
 
 // --- Scènes --------------------------------------------------------------------
 
-export function sceneAccroche(th, { titre, sous, photo, duree = 2.1 }) {
-  return { duree, html: page(th, duree, `<div class="scene">${fond(th, photo)}${deco(th, 3)}
+export function sceneAccroche(th, { titre, sous, photo, duree = 2.1, voix }) {
+  return { duree, voix: voix ?? titre, sfx: [['impact', 0.03, 0.9]], html: page(th, duree, `<div class="scene">${fond(th, photo)}${deco(th, 3)}
   <div style="position:absolute;top:140px;left:0;right:0;display:flex;justify-content:center;animation:pop .5s .05s both">${logo(th, 120)}</div>
   <h1 class="large ombre titre-anim" style="position:absolute;left:70px;right:70px;top:640px;text-align:center;font-size:${titre.length > 34 ? 96 : 118}px">${mots(titre)}</h1>
   ${sous ? `<h2 class="large" style="position:absolute;left:60px;right:60px;bottom:280px;text-align:center;font-size:72px;color:var(--corail);animation:gauche .45s ease-out .9s both">${esc(sous)}</h2>` : ''}
   ${strobe(th)}<div class="flash"></div></div>`) };
 }
 
-export function sceneSoiree(th, { e, n, haut, bas, milieu, duree = 2.0 }) {
+export function sceneSoiree(th, { e, n, haut, bas, milieu, duree = 2.0, voix }) {
   const g = genresList(e);
   const titreBas = g.length ? g.join(', ') : styleLabel(e) || e.venue || e.name;
   const info = [e.venue !== titreBas ? e.venue : null, heure(e.start), prix(e), e.instagram?.[0] ? `@${e.instagram[0]}` : null].filter(Boolean).join(' · ');
   const bh = 500;
-  return { duree, html: page(th, duree, `<div class="scene">
+  return { duree, voix, sfx: [['impact', 0.12, 0.8], ['pop', 0.32, 0.7]], html: page(th, duree, `<div class="scene">
   <div style="position:absolute;left:0;right:0;top:0;height:${bh}px;overflow:hidden;animation:haut .35s cubic-bezier(.2,1,.3,1) both">${fond(th, haut, th.techno)}
     <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:space-between;padding:0 70px">
       <span class="large" style="font-size:54px;white-space:nowrap;animation:gauche .4s .15s both">${esc(dateCourte(e.start))}</span>${logo(th, 140)}<span class="large" style="font-size:54px;white-space:nowrap;text-transform:none;animation:droite .4s .15s both">${esc(ville(e))}</span>
@@ -104,8 +105,8 @@ export function sceneSoiree(th, { e, n, haut, bas, milieu, duree = 2.0 }) {
   ${deco(th, n * 7, 8)}${strobe(th)}</div>`) };
 }
 
-export function sceneQuestion(th, { question, events, photo, duree = 2.8 }) {
-  return { duree, html: page(th, duree, `<div class="scene">${fond(th, photo)}${deco(th, 11)}
+export function sceneQuestion(th, { question, events, photo, duree = 2.8, voix }) {
+  return { duree, voix: voix ?? `${question} Dis-le en commentaire.`, sfx: [['pop', 0.5, 0.5], ['pop', 0.62, 0.5], ['pop', 0.74, 0.5]], html: page(th, duree, `<div class="scene">${fond(th, photo)}${deco(th, 11)}
   <h1 class="large ombre titre-anim" style="position:absolute;left:70px;right:70px;top:420px;text-align:center;font-size:120px">${mots(question)}</h1>
   <div style="position:absolute;left:70px;right:70px;top:880px;display:flex;flex-direction:column;gap:22px">
     ${events.slice(0, 6).map((e, i) => `<p style="font-weight:800;font-size:44px;display:flex;gap:26px;align-items:center;animation:gauche .4s ${(0.5 + i * 0.12).toFixed(2)}s both"><b class="large" style="flex:0 0 90px;height:90px;border-radius:50%;background:linear-gradient(135deg,var(--logo1),var(--logo2));display:flex;align-items:center;justify-content:center;font-size:52px">${i + 1}</b>${esc(e.name)}</p>`).join('')}
@@ -114,8 +115,8 @@ export function sceneQuestion(th, { question, events, photo, duree = 2.8 }) {
   ${strobe(th)}</div>`) };
 }
 
-export function sceneFin(th, { compte, photo, texte = 'Les soirées de la Côte, chaque semaine', duree = 2.2 }) {
-  return { duree, html: page(th, duree, `<div class="scene" style="animation:none">${fond(th, photo)}${deco(th, 23)}
+export function sceneFin(th, { compte, photo, texte = 'Les soirées de la Côte, chaque semaine', duree = 2.2, voix }) {
+  return { duree, voix: voix ?? 'Abonne-toi pour ne rien rater.', sfx: [['impact', 0.05, 0.7]], html: page(th, duree, `<div class="scene" style="animation:none">${fond(th, photo)}${deco(th, 23)}
   <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:56px;text-align:center;padding:0 70px">
     <div style="animation:pop .55s .05s both">${logo(th, 230)}</div>
     <p class="large ombre" style="font-size:78px;color:var(--corail);animation:mot .5s .4s both">Abonne-toi</p>
@@ -126,10 +127,10 @@ export function sceneFin(th, { compte, photo, texte = 'Les soirées de la Côte,
 
 // Reel explicatif : un titre puis un point par scène (numéro, texte qui se révèle).
 export function scenesExplication(th, { titre, sous, points, photos }) {
-  const out = [sceneAccroche(th, { titre, sous, photo: photos.next(), duree: 2.4 })];
+  const out = [sceneAccroche(th, { titre, sous, photo: photos.next(), duree: 2.4, voix: titre })];
   points.slice(0, 5).forEach((pt, i) => {
     const duree = Math.min(4.2, Math.max(2.6, pt.length / 22));
-    out.push({ duree, html: page(th, duree, `<div class="scene">${fond(th, photos.next())}${deco(th, 40 + i, 8)}
+    out.push({ duree, voix: pt, sfx: [['pop', 0.08, 0.7]], html: page(th, duree, `<div class="scene">${fond(th, photos.next())}${deco(th, 40 + i, 8)}
     <span class="large" style="position:absolute;left:70px;top:300px;font-size:260px;color:var(--corail);animation:pop .45s .05s both">${i + 1}</span>
     <div style="position:absolute;left:70px;right:70px;top:700px">
       <div style="height:14px;width:260px;background:var(--corail);transform-origin:left;animation:balaie .4s .25s both;margin-bottom:46px"></div>
@@ -141,9 +142,32 @@ export function scenesExplication(th, { titre, sous, points, photos }) {
 
 // --- Rendu et montage -----------------------------------------------------------
 
-export async function motionReel({ scenes, out, root, genre = 'club', fps = 30, tmp }) {
+export async function motionReel({ scenes, out, root, genre = 'club', fps = 30, tmp, voix = null }) {
   await rm(tmp, { recursive: true, force: true });
   await mkdir(tmp, { recursive: true });
+  const adir = `${tmp}-audio`;
+  await rm(adir, { recursive: true, force: true });
+
+  // 1. Voix off : chaque scène dure au moins le temps de sa phrase (+ une respiration).
+  const sons = await bruitages(adir);
+  const pistesVoix = [];
+  const pistesSfx = [];
+  let t = 0;
+  for (const [k, s] of scenes.entries()) {
+    if (voix && s.voix) {
+      const v = await parler(s.voix, { voix, dossier: adir, nom: `voix-${k}` });
+      if (v) {
+        const d = +(v.duree + 0.55).toFixed(2);
+        if (d > s.duree) { s.html = s.html.replace(`--d:${s.duree}s`, `--d:${d}s`); s.duree = d; }
+        pistesVoix.push({ fichier: v.fichier, debut: t + 0.2 });
+      }
+    }
+    if (k > 0) pistesSfx.push({ fichier: sons.whoosh, debut: Math.max(0, t - 0.22), volume: 0.45 });
+    for (const [nom, at, vol] of s.sfx || []) pistesSfx.push({ fichier: sons[nom], debut: t + at, volume: vol * 0.6 });
+    t += s.duree;
+  }
+
+  // 2. Images : chaque scène est rejouée image par image.
   const browser = await chromium.launch();
   let n = 0;
   try {
@@ -154,22 +178,21 @@ export async function motionReel({ scenes, out, root, genre = 'club', fps = 30, 
       await pg.evaluate(() => document.fonts?.ready).catch(() => {});
       const frames = Math.round(s.duree * fps);
       for (let f = 0; f < frames; f++) {
-        const t = (f / fps) * 1000;
-        await pg.evaluate((ms) => { for (const a of document.getAnimations()) { a.pause(); a.currentTime = ms; } }, t);
+        const ms = (f / fps) * 1000;
+        await pg.evaluate((x) => { for (const a of document.getAnimations()) { a.pause(); a.currentTime = x; } }, ms);
         await pg.screenshot({ path: path.join(tmp, `${String(n++).padStart(5, '0')}.jpg`), type: 'jpeg', quality: 88 });
       }
     }
   } finally { await browser.close(); }
   const total = n / fps;
+
+  // 3. Son : musique baissée sous la voix, bruitages, volume égalisé ; puis montage final.
   const musique = (await pickMusic(path.join(root, 'assets', 'musiques', genre))) || (await pickMusic(path.join(root, 'assets', 'musiques')));
-  const audio = musique
-    ? ['-stream_loop', '-1', '-i', musique] // boucle si le morceau est plus court que le reel
-    : ['-f', 'lavfi', '-t', String(total), '-i', 'anullsrc=channel_layout=stereo:sample_rate=44100'];
-  await run('ffmpeg', ['-y', '-framerate', String(fps), '-i', path.join(tmp, '%05d.jpg'), ...audio,
-    '-filter_complex', `[1:a]atrim=0:${total.toFixed(3)},loudnorm=I=-14:TP=-1.5,afade=t=in:d=0.2,afade=t=out:st=${Math.max(0, total - 1).toFixed(3)}:d=1,asetpts=PTS-STARTPTS[a]`,
-    '-map', '0:v', '-map', '[a]', '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'medium', '-crf', '19', '-pix_fmt', 'yuv420p', '-r', String(fps),
+  const wav = await mixer({ total, musique, voix: pistesVoix, sfx: pistesSfx, sortie: path.join(adir, 'mix.wav') });
+  await run('ffmpeg', ['-y', '-framerate', String(fps), '-i', path.join(tmp, '%05d.jpg'), '-i', wav,
+    '-map', '0:v', '-map', '1:a', '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'medium', '-crf', '19', '-pix_fmt', 'yuv420p', '-r', String(fps),
     '-c:a', 'aac', '-b:a', '160k', '-ar', '44100', '-t', total.toFixed(3), '-movflags', '+faststart', out]);
-  return { out, total, musique, premiereImage: path.join(tmp, '00012.jpg') };
+  return { out, total, musique, voix: pistesVoix.length ? voix : null };
 }
 
 function run(cmd, args) {

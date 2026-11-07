@@ -94,6 +94,31 @@ jobs:
           echo "publier=$PUBLIER" >> "$GITHUB_OUTPUT"
           echo "Cible : $QUOI · publication : $PUBLIER"
 
+      - uses: actions/setup-python@v5
+        if: steps.choix.outputs.rien != 'true'
+        with:
+          python-version: '3.12'
+
+      - name: Voix off (Piper, voix françaises libres) en cache
+        if: steps.choix.outputs.rien != 'true'
+        uses: actions/cache@v4
+        with:
+          path: ~/.teufy-voix
+          key: piper-voix-fr-v1
+
+      - name: Installer la voix off
+        if: steps.choix.outputs.rien != 'true'
+        run: |
+          pip install --quiet piper-tts
+          mkdir -p ~/.teufy-voix
+          for v in siwis tom; do
+            f=~/.teufy-voix/fr_FR-$v-medium.onnx
+            u=https://huggingface.co/rhasspy/piper-voices/resolve/main/fr/fr_FR/$v/medium/fr_FR-$v-medium.onnx
+            [ -s "$f" ] || curl -sSLf -o "$f" "$u" || rm -f "$f"
+            [ -s "$f.json" ] || curl -sSLf -o "$f.json" "$u.json" || rm -f "$f.json"
+          done
+          ls -la ~/.teufy-voix
+
       - name: Installer Chromium, ffmpeg et polices
         if: steps.choix.outputs.rien != 'true'
         run: |

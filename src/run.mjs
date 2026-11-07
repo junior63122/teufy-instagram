@@ -134,7 +134,7 @@ if (echecs.length) die(`Échec : ${echecs.join(', ')}`);
 // --- Préparation ------------------------------------------------------------
 
 async function prepare(slot, now, id) {
-  const { renderPages, carouselPages, reelPages, debatPage, bonPlanManuelPage } = await import('./render.mjs');
+  const { renderPages, carouselPages, reelPages, debatPage, bonPlanManuelPage, afficheProgramme } = await import('./render.mjs');
   const { photoSource } = await import('./photos.mjs');
   const dir = path.join(MEDIA_DIR, id);
   await rm(dir, { recursive: true, force: true });
@@ -156,6 +156,9 @@ async function prepare(slot, now, id) {
     return list.filter((e) => e.source !== 'web' || (!e.douteux && (e.verifie || (e.confiance ?? 0) >= 0.85))).filter(pred);
   };
   const best = (list, n) => selectBest(list, n, MODEL, r);
+  // Carrousel ou post unique « programme » : unique s'il y a 1 ou 2 soirées, sinon le bot teste les deux.
+  const formatPost = (n) => (n <= 2 ? 'unique' : ch.pick('format-post', ['carrousel', 'unique'], (x) => x));
+  const programme = (pages, chosen, opts) => (formatPost(chosen.length) === 'unique' ? afficheProgramme({ ...opts, events: chosen }) : pages);
   const cheap = (e) => e.price != null && e.price <= R.petit_prix_max;
   const MOIS = (d) => new Intl.DateTimeFormat('fr-FR', { timeZone: 'Europe/Paris', month: 'long' }).format(d);
   const sousPlage = (win) => plage(win.from, win.to).toUpperCase();
@@ -212,7 +215,8 @@ async function prepare(slot, now, id) {
           ? { texte: 'Prends tes places tant qu\'il en reste.', pied: `Abonne-toi à ${config.compte} 👇` }
           : { texte: 'Partage le bon plan à ton pote toujours fauché.', pied: `Abonne-toi à ${config.compte} 👇` },
       });
-      const files = await renderPages(pages, dir, `bonplan-${stamp}`, { width: 1080, height: 1350 });
+      const { th: thp, photos: php } = await visuel('club');
+      const files = await renderPages(programme(pages, chosen, { th: thp, photos: php, titre: reserve ? 'À réserver avant sold out' : 'Sortir sans se ruiner', sous: reserve ? 'Les grosses dates' : `Moins de ${R.petit_prix_max} €` }), dir, `bonplan-${stamp}`, { width: 1080, height: 1350 });
       pub = { images: files, legende: captionBonPlan({ variante, events: chosen, ...win, ch, r }), soirees: chosen };
     }
   } else if (slot.type === 'incontournables') {
@@ -237,13 +241,19 @@ async function prepare(slot, now, id) {
         ? { texte: 'On se voit sur le dancefloor.\nTu seras à laquelle ?', pied: `Abonne-toi à ${config.compte} 👇` }
         : { texte: 'Tu sors où cette semaine ?\nDis-le en commentaire.', pied: `Abonne-toi à ${config.compte} 👇` },
     });
-    const files = await renderPages(pages, dir, `incontournables-${stamp}`, { width: 1080, height: 1350 });
+    const files = await renderPages(programme(pages, chosen, { th, photos, titre, sous: fort ? `En ${MOIS(now)}` : elargi ? 'Ces prochains jours' : 'Cette semaine' }), dir, `incontournables-${stamp}`, { width: 1080, height: 1350 });
     pub = { images: files, legende: captionIncontournables({ variante: slot.variante, events: chosen, ...win, ch, r }), soirees: chosen, titre };
   } else if (slot.type === 'reel') {
     let variante = slot.variante;
     // 3e reel du mois : petits prix ou explicatif (astuces, sujets du moment) ; le bot garde ce qui marche.
     if (variante === 'petits-prix') variante = ch.pick('format-reel-3', ['petits-prix', 'explicatif'], (x) => x);
     const motion = await import('./motion.mjs');
+    // Voix off (Piper) : voix féminine, masculine ou sans voix ; le bot garde ce qui marche.
+    const { voixDisponibles } = await import('./audio.mjs');
+    const dispo = voixDisponibles();
+    const choixVoix = val('voix') || (dispo.length ? ch.pick('voix-off', [...dispo, 'aucune'], (x) => x) : 'aucune');
+    const voix = choixVoix === 'aucune' ? null : choixVoix;
+    const jourDit = (d) => new Intl.DateTimeFormat('fr-FR', { timeZone: 'Europe/Paris', weekday: 'long' }).format(new Date(Date.parse(d) - 6 * 3600e3));
     const tmp = path.join(ROOT, 'out', `reel-${id}`);
     const video = path.join(dir, `reel-${stamp}.mp4`);
     let res;
@@ -256,7 +266,7 @@ async function prepare(slot, now, id) {
       const { th, photos } = await visuel(/techno/.test(sujet.sous || '') ? 'techno' : 'club');
       const scenes = [...motion.scenesExplication(th, { titre: sujet.titre, sous: sujet.sous, points: sujet.points, photos }),
         motion.sceneFin(th, { compte: config.compte, photo: photos.next(), texte: 'Enregistre pour plus tard 📌' })];
-      res = await motion.motionReel({ scenes, out: video, root: ROOT, genre: 'club', tmp });
+      res = await motion.motionReel({ scenes, out: video, root: ROOT, genre: 'club', tmp, voix });
       pub = { video, legende: captionExplicatif({ sujet, ch, r }), duree: +res.total.toFixed(1), titre: sujet.titre, sujet: sujet.id };
     } else {
       // Week-end visé : celui de la semaine, ou le suivant s'il est déjà trop entamé (règle des 24 h).
@@ -269,7 +279,7 @@ async function prepare(slot, now, id) {
       if (list.length < 3) { variante = 'weekend'; win = weFor(); list = await pickEv(win); elargi = false; }
       if (list.length < 2) { win = rolling(now, 1, 10); list = await pickEv(win); elargi = true; }
       need(list, 2);
-      const chosen = pickReel(best(list, 40), R.soirees_par_reel);
+      const chosen = pickReel(best(list, 40), voix ? Math.min(5, R.soirees_par_reel) : R.soirees_par_reel);
       const hooks = TENDANCES.accroches_reels;
       const sansWeekend = hooks[variante].filter((h) => !elargi || !/week-end/i.test(h.titre + h.sous));
       const hook = ch.pick(`hook-${variante}`, sansWeekend.length ? sansWeekend : hooks[variante], (h) => hash(h.titre));
@@ -278,12 +288,13 @@ async function prepare(slot, now, id) {
       // Motion design : accroche animée, une scène par soirée, question, fin.
       const scenes = [
         motion.sceneAccroche(th, { titre: hook.titre, sous: hook.sous, photo: photos.next(), duree: Math.max(1.6, TENDANCES.regles_instagram.accroche_max_s + 0.4) }),
-        ...chosen.map((e, i) => motion.sceneSoiree(th, { e, n: i + 1, haut: photos.next(), bas: photos.next(), milieu: e.image ? undefined : photos.next(), duree: Math.max(1.8, R.secondes_par_soiree_reel) })),
+        ...chosen.map((e, i) => motion.sceneSoiree(th, { e, n: i + 1, haut: photos.next(), bas: photos.next(), milieu: e.image ? undefined : photos.next(), duree: Math.max(1.8, R.secondes_par_soiree_reel),
+          voix: `Numéro ${i + 1}. ${jourDit(e.start)}, ${e.name}${e.venue ? `, ${e.venue}` : ''}${e.city ? ` à ${e.city}` : ''}.${e.accroche && e.accroche.length <= 90 ? ` ${e.accroche}` : ''}` })),
         motion.sceneQuestion(th, { question, events: chosen, photo: photos.next() }),
         motion.sceneFin(th, { compte: config.compte, photo: photos.next() }),
       ];
       try {
-        res = await motion.motionReel({ scenes, out: video, root: ROOT, genre: variante === 'techno' ? 'techno' : 'club', tmp });
+        res = await motion.motionReel({ scenes, out: video, root: ROOT, genre: variante === 'techno' ? 'techno' : 'club', tmp, voix });
       } catch (err) {
         // Repli : diaporama simple si le rendu animé échoue.
         console.error(`[${id}] motion impossible (${err.message}), diaporama simple.`);
@@ -298,14 +309,18 @@ async function prepare(slot, now, id) {
     const cover = path.join(dir, `reel-${stamp}-couverture.jpg`);
     spawnSync('ffmpeg', ['-y', '-loglevel', 'error', '-ss', '1.2', '-i', video, '-frames:v', '1', '-q:v', '2', cover]);
     pub.couverture = cover;
-    console.log(`[${id}] reel ${variante} ${res.total.toFixed(1)} s${res.musique ? ` avec ${path.basename(res.musique)}` : ' (muet : ajoute des musiques dans assets/musiques/)'}`);
+    console.log(`[${id}] reel ${variante} ${res.total.toFixed(1)} s, voix ${res.voix || 'aucune'}${res.musique ? ` avec ${path.basename(res.musique)}` : ' (sans musique : ajoute des .mp3 dans assets/musiques/)'}`);
   } else {
     throw new Error(`Type inconnu : ${slot.type}`);
   }
 
   const rel = (f) => path.basename(f);
   // Identifications par image : diapo 1 = couverture, puis une diapo par soirée (même ordre que `soirees`).
-  if (pub.images && pub.soirees) pub.tags = [[], ...pub.soirees.slice(0, 8).map((e) => e.instagram || [])];
+  if (pub.images && pub.soirees) {
+    pub.tags = pub.images.length === 1
+      ? [[...new Set(pub.soirees.flatMap((e) => e.instagram || []))].slice(0, 5)] // post unique : tous les comptes sur l'image
+      : [[], ...pub.soirees.slice(0, 8).map((e) => e.instagram || [])];
+  }
   const out = { id, type: slot.type, variante: slot.variante || null, date: stamp, ...pub, choix: ch.choix,
     features: (pub.soirees || []).flatMap(eventFeatures), nb_images: pub.images?.length || 0 };
   if (out.images) out.images = out.images.map(rel);

@@ -53,6 +53,25 @@ Le 3e reel du mois alterne entre « petits prix » et **reel explicatif** : astu
 
 **Musique** : dépose des .mp3 dans `assets/musiques/club/` et `assets/musiques/techno/`. Par exemple, la bibliothèque musicale de Pixabay (pixabay.com/music) est gratuite et autorisée pour un usage commercial. Les morceaux trop courts sont mis en boucle et le volume est égalisé. Sans musique, les reels sont muets.
 
+## Voix off, bruitages et formats
+
+- **Voix off française** générée par **Piper** (synthèse vocale open source, gratuite, sans compte) : voix féminine « siwis » ou masculine « tom ». Elle lit l'accroche, présente chaque soirée (« Numéro 1. Vendredi, DJ Mayoff, Glass Club à Cannes… ») et les points des reels explicatifs. Chaque scène dure le temps de sa phrase. Le bot teste voix féminine, masculine ou sans voix, et garde ce qui marche.
+- **Bruitages** fabriqués par ffmpeg, donc sans droits : whoosh à chaque transition, impact quand une affiche tombe, pop sur les numéros.
+- **Mixage** : la musique baisse automatiquement quand la voix parle, et le volume est égalisé au niveau Instagram.
+- **Carrousel ou post unique** : avec 1 ou 2 soirées, le bot fait un post unique « programme » (toutes les soirées sur une image, à enregistrer). Au-delà, il teste carrousel et post unique et garde le meilleur.
+
+### Outils utilisés (tous gratuits)
+
+| Besoin | Outil |
+| --- | --- |
+| Animation des reels | Pages HTML/CSS animées, capturées image par image avec Chromium (même principe que Remotion / HyperFrames, sans licence) |
+| Montage, son, bruitages | ffmpeg |
+| Voix off | Piper (voix françaises libres) |
+| Photos | Banque CC0 (StockSnap via Openverse), Pexels en option |
+| Recherche des soirées, analyse | Claude (clé API, payant à l'usage) |
+
+Pas utilisés : yt-dlp, pour ne pas reprendre de vidéos d'autres comptes (droits d'auteur, et Instagram pénalise le contenu non original), et les générateurs vidéo IA payants (Higgsfield…).
+
 ## Visuels qui s'adaptent
 
 Le bot teste lui-même plusieurs options et garde celles qui ont la meilleure note : mise en page de la couverture (titre centré ou en bas), accroches, intros, photos, format du 3e reel, heure de publication. L'analyse hebdomadaire peut aussi proposer de nouveaux tests.
