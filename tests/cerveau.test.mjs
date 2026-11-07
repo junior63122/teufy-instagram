@@ -29,7 +29,7 @@ test('notes /100, objectif et traits qui font monter la note', () => {
   assert.ok(generalFeatures(d.posts[5]).includes('hashtag:#cannes') || generalFeatures(d.posts[4]).includes('hashtag:#nice'));
 });
 
-test('analyse hebdomadaire : garde-fous sur ce que propose Claude', async () => {
+test('analyse hebdomadaire : garde-fous sur ce que propose l’IA', async () => {
   const reponses = [
     'Veille : Instagram teste les carrousels de 20 images. Source : https://about.instagram.com/blog/x',
     JSON.stringify({
@@ -49,9 +49,9 @@ test('analyse hebdomadaire : garde-fous sur ce que propose Claude', async () => 
     }),
   ];
   let i = 0;
-  const client = { beta: { messages: { stream: () => ({ finalMessage: async () => ({ stop_reason: 'end_turn', content: [{ type: 'text', text: reponses[i++] }] }) }) } } };
+  const ia = { rechercher: async () => reponses[i++], json: async () => JSON.parse(reponses[i++]) };
   const avant = readFileSync(new URL('../contenus/tendances.json', import.meta.url), 'utf8');
-  const res = await analyserSemaine({ client, dryRun: true, log: () => {} });
+  const res = await analyserSemaine({ ia, config: {}, dryRun: true, log: () => {} });
   assert.equal(readFileSync(new URL('../contenus/tendances.json', import.meta.url), 'utf8'), avant, 'aperçu : aucun fichier modifié');
   const a = res.appliques.join('\n');
   assert.match(a, /Ton week-end commence ici/);

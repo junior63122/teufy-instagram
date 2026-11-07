@@ -1,4 +1,5 @@
-// Recherche des soirées sur tout le web de la Côte d'Azur, par Claude (API Anthropic) :
+// Recherche des soirées sur tout le web de la Côte d'Azur, par une IA gratuite (Gemini avec
+// recherche Google, voir llm.mjs) :
 //  - agendas des villes et offices de tourisme, billetteries (Shotgun via les moteurs de
 //    recherche, DICE, Resident Advisor, Weezevent, Billetweb, Eventbrite…), sites des clubs,
 //    presse locale, pages d'événements publiques ;
@@ -6,7 +7,7 @@
 //    avec l'affiche du post.
 // Chaque soirée reçoit une note de pertinence pour les 17-30 ans ; le reste est écarté.
 // Résultat mis en cache dans evenements-web.json (rafraîchi tous les N jours).
-import Anthropic from '@anthropic-ai/sdk';
+import * as LLM from './llm.mjs';
 import { readFileSync, existsSync } from 'node:fs';
 import { writeFile } from 'node:fs/promises';
 import path from 'node:path';
@@ -15,7 +16,6 @@ import { fileURLToPath } from 'node:url';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const CACHE = path.join(ROOT, 'evenements-web.json');
 const ORGAS = path.join(ROOT, 'contenus', 'organisateurs.json');
-const MODEL = 'claude-opus-5-5';
 
 export function lireCache() {
   return existsSync(CACHE) ? JSON.parse(readFileSync(CACHE, 'utf8')) : { maj: null, evenements: [] };
@@ -54,20 +54,6 @@ const CIBLE = `Public visé par Teufy : les 17-30 ans qui sortent sur la Côte d
 À garder : soirées en club, DJ sets, techno, house, afro, shatta, amapiano, rap, RnB, électro, soirées étudiantes, open airs, rooftops, day parties, festivals, concerts qui attirent ce public, soirées à thème.
 À écarter (public_17_30 bas) : théâtre, musique classique, opéra, conférences, salons, événements enfants ou seniors, dîners spectacles chers, sport.`;
 
-// Appel Claude : réflexion adaptative, repli serveur en cas de refus, reprise des tours en pause.
-async function appel(client, params) {
-  const messages = [...params.messages];
-  for (let tour = 0; tour < 6; tour++) {
-    const res = await client.beta.messages.stream({
-      model: MODEL, betas: ['server-side-fallback-2026-07-01'], fallbacks: 'default', thinking: { type: 'adaptive' }, ...params, messages,
-    }).finalMessage();
-    if (res.stop_reason === 'refusal') throw new Error('Claude a refusé la demande.');
-    if (res.stop_reason === 'pause_turn') { messages.push({ role: 'assistant', content: res.content }); continue; }
-    return res.content.filter((b) => b.type === 'text').map((b) => b.text).join('\n').trim();
-  }
-  throw new Error('La recherche n\'a pas abouti.');
-}
-
 // Posts récents des comptes d'organisateurs (légende + affiche), pour extraction.
 async function postsOrganisateurs({ ig, api, comptes, now, log }) {
   const out = [];
@@ -85,33 +71,24 @@ async function postsOrganisateurs({ ig, api, comptes, now, log }) {
   return { posts: out.slice(0, 120), valides };
 }
 
-export async function rechercherSoirees({ config, now = new Date(), ig = null, api = {}, client, log = console.log, force = false } = {}) {
+export async function rechercherSoirees({ config, now = new Date(), ig = null, api = {}, ia = LLM, log = console.log, force = false } = {}) {
   const R = config.recherche_web || {};
   const cache = lireCache();
   if (R.actif === false) return cache;
   const ageJours = cache.maj ? (now - new Date(cache.maj)) / 86400e3 : Infinity;
   if (!force && ageJours < (R.rafraichir_jours ?? 3)) return cache;
-  if (!client) {
-    if (!process.env.ANTHROPIC_API_KEY && !process.env.ANTHROPIC_AUTH_TOKEN) { log('ANTHROPIC_API_KEY absent : pas de recherche web.'); return cache; }
-    client = new Anthropic();
-  }
+  if (ia === LLM && !LLM.fournisseurs(config).length) { log('Aucune IA configurée (secret gratuit GEMINI_API_KEY) : pas de recherche web.'); return cache; }
   const jour = now.toISOString().slice(0, 10);
   const fin = new Date(now.getTime() + (R.horizon_jours ?? 45) * 86400e3).toISOString().slice(0, 10);
 
   // 1. Recherche sur le web.
   log(`Recherche web des soirées du ${jour} au ${fin}…`);
-  const web = await appel(client, {
-    max_tokens: 32000,
-    tools: [
-      { type: 'web_search_20260209', name: 'web_search', max_uses: R.max_recherches ?? 20, user_location: { type: 'approximate', city: 'Nice', region: 'Provence-Alpes-Côte d\'Azur', country: 'FR', timezone: 'Europe/Paris' } },
-      { type: 'web_fetch_20260209', name: 'web_fetch', max_uses: R.max_pages ?? 25 },
-    ],
+  const web = await ia.rechercher({
+    config,
     system: `Tu recenses les soirées de la Côte d'Azur pour le compte Instagram Teufy. Tu ne rapportes que des soirées réelles et vérifiées sur une page web, jamais inventées.\n${CIBLE}`,
-    messages: [{
-      role: 'user',
-      content: `Trouve un maximum de soirées entre le ${jour} et le ${fin}. Vérifie chaque soirée sur sa page officielle ou sa billetterie (date, heure, lieu) : une info non confirmée doit être signalée comme telle. Note aussi ce qui donne envie d'y aller (line-up, concept, lieu) et les comptes Instagram de l'organisateur et du lieu. Ratisse large et croise les sources : agendas des villes (Nice, Cannes, Antibes, Monaco, Menton…) et offices de tourisme (dont cotedazurfrance.com), billetteries (shotgun.live via les résultats de recherche, dice.fm, ra.co, weezevent, billetweb, eventbrite, helloasso, fever…), sites et pages des clubs et bars de nuit, collectifs et organisateurs, presse locale (Nice-Matin…), festivals, pages d'événements publiques. Pour chaque soirée : nom, date et heure, lieu, ville, prix minimum, styles musicaux, URL de l'affiche si tu la vois, URL de la page, site source. Liste aussi les comptes Instagram d'organisateurs, clubs et collectifs que tu croises. Termine par la liste complète, une soirée par ligne.`,
-    }],
+    prompt: `Trouve un maximum de soirées entre le ${jour} et le ${fin}. Vérifie chaque soirée sur sa page officielle ou sa billetterie (date, heure, lieu) : une info non confirmée doit être signalée comme telle. Note aussi ce qui donne envie d'y aller (line-up, concept, lieu) et les comptes Instagram de l'organisateur et du lieu. Ratisse large et croise les sources : agendas des villes (Nice, Cannes, Antibes, Monaco, Menton…) et offices de tourisme (dont cotedazurfrance.com), billetteries (shotgun.live, dice.fm, ra.co, weezevent, billetweb, eventbrite, helloasso, fever…), sites et pages des clubs et bars de nuit, collectifs et organisateurs, presse locale (Nice-Matin…), festivals, pages d'événements publiques. Pour chaque soirée : nom, date et heure, lieu, ville, prix minimum, styles musicaux, URL de l'affiche si tu la vois, URL de la page, site source. Liste aussi les comptes Instagram d'organisateurs, clubs et collectifs que tu croises. Termine par la liste complète, une soirée par ligne.`,
   });
+  if (!web) log('Pas de recherche web possible (GEMINI_API_KEY absent ou quota atteint) : seulement Instagram et les billetteries.');
 
   // 2. Posts Instagram des organisateurs (comptes connus + suggérés).
   const orgas = existsSync(ORGAS) ? JSON.parse(readFileSync(ORGAS, 'utf8')) : { comptes: [], suggeres: [] };
@@ -125,17 +102,15 @@ export async function rechercherSoirees({ config, now = new Date(), ig = null, a
   }
 
   // 3. Mise en forme structurée et tri.
-  const brut = await appel(client, {
-    max_tokens: 32000,
-    system: `Tu transformes des informations de soirées en données propres. N'invente rien : une soirée sans date ou sans lieu certain est écartée ou reçoit une confiance basse. Dates au fuseau Europe/Paris.\n${CIBLE}`,
-    messages: [{
-      role: 'user',
-      content: `Aujourd'hui : ${jour}. Garde les soirées entre ${jour} et ${fin}, fusionne les doublons (même soirée trouvée sur plusieurs sites).\n\nRésultats de la recherche web :\n${web}\n\nPosts Instagram récents d'organisateurs (l'URL "affiche" est l'image du post, à reprendre comme image de la soirée annoncée) :\n${JSON.stringify(posts)}`,
-    }],
-    output_config: { effort: 'medium', format: { type: 'json_schema', schema: SCHEMA } },
-  });
+  if (!web && !posts.length) return cache;
   let d;
-  try { d = JSON.parse(brut); } catch { log('Réponse de recherche illisible : on garde le cache.'); return cache; }
+  try {
+    d = await ia.json({
+      config, nom: 'soirees', schema: SCHEMA,
+      system: `Tu transformes des informations de soirées en données propres. N'invente rien : une soirée sans date ou sans lieu certain est écartée ou reçoit une confiance basse. Dates au fuseau Europe/Paris.\n${CIBLE}`,
+      prompt: `Aujourd'hui : ${jour}. Garde les soirées entre ${jour} et ${fin}, fusionne les doublons (même soirée trouvée sur plusieurs sites).\n\nRésultats de la recherche web :\n${web || '(aucun)'}\n\nPosts Instagram récents d'organisateurs (l'URL "affiche" est l'image du post, à reprendre comme image de la soirée annoncée) :\n${JSON.stringify(posts)}`,
+    });
+  } catch (err) { log(`Mise en forme impossible (${err.message}) : on garde le cache.`); return cache; }
 
   const min = R.pertinence_min ?? 0.5;
   const evenements = (d.evenements || [])

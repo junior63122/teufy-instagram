@@ -126,7 +126,7 @@
     "_note": "Recherche des soirées sur le web et chez les organisateurs Instagram par Claude (clé ANTHROPIC_API_KEY). Coût indicatif : 1 à 3 € par recherche, environ 2 par semaine."
   },
   "voix_off": {
-    "fournisseur": "elevenlabs",
+    "fournisseur": "aucune",
     "modele": "eleven_v3",
     "voice_id": "",
     "vitesse": 1.05,
@@ -135,5 +135,12 @@
     "tester_sans_voix": false,
     "piper": false,
     "_note": "Voix off ElevenLabs (secret ELEVENLABS_API_KEY ; usage commercial à partir de l'offre Starter). voice_id : l'identifiant d'une voix française de ta bibliothèque ElevenLabs (vide = le bot prend une voix française du compte). modele : eleven_v3 (ou eleven_v4 si disponible sur ton compte). Piper (voix de synthèse gratuite) est désactivé."
+  },
+  "llm": {
+    "explication": "IA gratuite : Gemini (secret GEMINI_API_KEY, avec recherche Google) puis GitHub Models (gratuit dans GitHub Actions). Claude seulement si payant_autorise = true.",
+    "payant_autorise": false,
+    "github_models": true,
+    "modele_gemini": "gemini-2.5-flash",
+    "modele_github": "openai/gpt-4.1-mini"
   }
 }

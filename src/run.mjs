@@ -3,7 +3,7 @@
 //   node src/run.mjs auto   [preparer|publier]   → la publication prévue aujourd'hui dans le calendrier (ou rien)
 //   node src/run.mjs mois                          → aperçu des 9 publications du mois (jamais publié)
 //   node src/run.mjs collecter [--cerveau]         → relève les statistiques Instagram (apprentissage.json, RAPPORT.md)
-//                                                    et, une fois par semaine, l'analyse Claude (veille Meta, pourquoi, tests)
+//                                                    et, une fois par semaine, l'analyse IA gratuite (veille Meta, pourquoi, tests)
 //   node src/run.mjs <type>[:variante] [preparer|publier]
 //        types : incontournables:commercial, incontournables:techno, bonplan:petits-prix, bonplan:a-reserver,
 //                debat, reel:weekend, reel:techno, reel:petits-prix
@@ -56,7 +56,7 @@ if (cible === 'collecter') {
   if (!t.deja) console.log(`Tendances : ${Object.keys(t.comptes || {}).length} compte(s) analysé(s), ${Object.keys(t.hashtags || {}).length} hashtag(s) repéré(s).`);
   const n = await collect({ hist, ig, api: { insights, followers, compteMedia } });
   console.log(`Statistiques mises à jour pour ${n} publication(s). Voir RAPPORT.md`);
-  // Analyse hebdomadaire par Claude (veille Meta, pourquoi, nouveaux tests), une fois par semaine.
+  // Analyse hebdomadaire par IA gratuite (veille Meta, pourquoi, nouveaux tests), une fois par semaine.
   const derniere = TENDANCES.derniere_analyse ? new Date(TENDANCES.derniere_analyse) : null;
   if (flag('cerveau') || !derniere || (NOW - derniere) / 86400e3 >= 6.5) {
     const { analyserSemaine } = await import('./cerveau.mjs');
@@ -102,7 +102,7 @@ async function events() {
     const fixtures = val('fixtures');
     let webEvents = [];
     if (!fixtures) {
-      // Soirées trouvées sur le web et chez les organisateurs Instagram (Claude), cache de quelques jours.
+      // Soirées trouvées sur le web et chez les organisateurs Instagram (IA gratuite), cache de quelques jours.
       const { rechercherSoirees } = await import('./recherche.mjs');
       try {
         const ig = igConfig();

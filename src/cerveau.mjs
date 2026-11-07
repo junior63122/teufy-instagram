@@ -1,4 +1,4 @@
-// Le « cerveau » hebdomadaire du bot (Claude, via l'API Anthropic) :
+// Le « cerveau » hebdomadaire du bot (IA gratuite : Gemini ou GitHub Models, voir llm.mjs) :
 //  1. Veille : cherche sur le web les nouveautés Instagram / Meta des 14 derniers jours
 //     (sources officielles en priorité) et leur impact pour un compte de soirées.
 //  2. Analyse : lit les notes /100 de tous les posts (bot et équipe), les traits qui font
@@ -7,7 +7,7 @@
 //     (hashtags max, durée des reels…) si une source officielle le confirme, fixe l'objectif.
 // Tout passe par des garde-fous dans le code avant d'être appliqué, et est journalisé
 // dans ANALYSE.md (repris dans RAPPORT.md) et veille/AAAA-MM-JJ.md.
-import Anthropic from '@anthropic-ai/sdk';
+import * as LLM from './llm.mjs';
 import { readFileSync, existsSync } from 'node:fs';
 import { writeFile, mkdir } from 'node:fs/promises';
 import path from 'node:path';
@@ -19,7 +19,29 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const TENDANCES_FILE = path.join(ROOT, 'contenus', 'tendances.json');
 const DEBATS_FILE = path.join(ROOT, 'contenus', 'debats.json');
 const ANALYSE_FILE = path.join(ROOT, 'ANALYSE.md');
-const MODEL = 'claude-opus-5-5';
+const CONFIG_FILE = path.join(ROOT, 'config.json');
+
+// Sans recherche web (pas de clé Gemini) : veille par les flux RSS officiels de Meta.
+const FLUX = ['https://about.fb.com/news/feed/', 'https://about.instagram.com/blog/rss'];
+export async function veilleRss(now = new Date(), get = fetch) {
+  const lignes = [];
+  for (const url of FLUX) {
+    try {
+      const res = await get(url, { headers: { 'user-agent': 'TeufyBot/1.0 (+veille RSS)' }, signal: AbortSignal.timeout(20000) });
+      if (!res.ok) continue;
+      const xml = await res.text();
+      for (const it of xml.split(/<item[\s>]/).slice(1)) {
+        const champ = (n) => (it.match(new RegExp(`<${n}[^>]*>(?:<!\\[CDATA\\[)?([\\s\\S]*?)(?:\\]\\]>)?</${n}>`)) || [])[1]?.trim() || '';
+        const date = new Date(champ('pubDate'));
+        const titre = champ('title');
+        if (!titre || isNaN(date) || now - date > 14 * 86400e3) continue;
+        if (!/instagram|reels?|threads|creator|algorithm|meta ai/i.test(titre + champ('description'))) continue;
+        lignes.push(`- ${date.toISOString().slice(0, 10)} · ${titre} (${champ('link')}) [officiel]`);
+      }
+    } catch { /* flux indisponible */ }
+  }
+  return lignes.length ? `Annonces officielles Meta des 14 derniers jours :\n${lignes.slice(0, 20).join('\n')}` : 'Aucune annonce officielle Instagram repérée dans les flux RSS de Meta ces 14 derniers jours.';
+}
 
 const STYLE = `Ton de @teufy_official : français, phrases courtes et sensorielles, proche du public des soirées de la Côte d'Azur.
 Exemples réels du compte : « Cette semaine, la Côte d'Azur ne dort pas. Nice, Cannes, Monaco… des ambiances, des styles, des vibes pour tous. »,
@@ -31,13 +53,11 @@ Interdits : tiret cadratin (—), « lien en bio », toute invitation à téléc
 const texteOk = (s, max) => typeof s === 'string' && s.trim().length > 2 && s.length <= max && !/—|lien en bio|t[ée]l[ée]charg/i.test(s);
 const hashtagOk = (h) => /^#[\p{L}\p{N}_]{2,40}$/u.test(h);
 
-export async function analyserSemaine({ now = new Date(), dryRun = false, log = console.log, client } = {}) {
-  if (!client) {
-    if (!process.env.ANTHROPIC_API_KEY && !process.env.ANTHROPIC_AUTH_TOKEN) {
-      log('ANTHROPIC_API_KEY absent : pas d\'analyse hebdomadaire.');
-      return null;
-    }
-    client = new Anthropic();
+export async function analyserSemaine({ now = new Date(), dryRun = false, log = console.log, ia = LLM, config } = {}) {
+  config ||= existsSync(CONFIG_FILE) ? JSON.parse(readFileSync(CONFIG_FILE, 'utf8')) : {};
+  if (ia === LLM && !LLM.fournisseurs(config).length) {
+    log('Aucune IA configurée (secret gratuit GEMINI_API_KEY) : pas d\'analyse hebdomadaire.');
+    return null;
   }
   const today = now.toISOString().slice(0, 10);
   const tendances = JSON.parse(readFileSync(TENDANCES_FILE, 'utf8'));
@@ -46,15 +66,12 @@ export async function analyserSemaine({ now = new Date(), dryRun = false, log = 
   const model = buildModel(data);
 
   // 1. Veille web ---------------------------------------------------------------
-  const veille = await appel(client, {
-    max_tokens: 16000,
-    tools: [{ type: 'web_search_20260209', name: 'web_search', max_uses: 8 }],
+  let veille = await ia.rechercher({
+    config,
     system: 'Tu fais la veille Instagram d\'un compte de soirées (Côte d\'Azur, France). Tu ne rapportes que des faits vérifiables, avec source et date.',
-    messages: [{
-      role: 'user',
-      content: `Nous sommes le ${today}. Cherche les nouveautés Instagram et Meta des 14 derniers jours qui peuvent changer ce qu'un compte de soirées doit publier : algorithme, règles (hashtags, formats, durée des reels, originalité), nouvelles fonctions (carrousels, reels, trial reels, musique), API de publication (Graph API, changelog développeurs), tendances de formats et de sons. Priorité aux sources officielles (about.instagram.com, creators.instagram.com, about.fb.com, developers.facebook.com, déclarations d'Adam Mosseri), puis médias spécialisés. Pour chaque point : date, source (URL), si c'est officiel ou non, et l'impact concret pour nous. Dis clairement s'il n'y a rien de nouveau.`,
-    }],
+    prompt: `Nous sommes le ${today}. Cherche les nouveautés Instagram et Meta des 14 derniers jours qui peuvent changer ce qu'un compte de soirées doit publier : algorithme, règles (hashtags, formats, durée des reels, originalité), nouvelles fonctions (carrousels, reels, trial reels, musique), API de publication (Graph API, changelog développeurs), tendances de formats et de sons. Priorité aux sources officielles (about.instagram.com, creators.instagram.com, about.fb.com, developers.facebook.com, déclarations d'Adam Mosseri), puis médias spécialisés. Pour chaque point : date, source (URL), si c'est officiel ou non, et l'impact concret pour nous. Dis clairement s'il n'y a rien de nouveau.`,
   });
+  if (!veille) veille = await veilleRss(now);
   log('Veille faite.');
 
   // 2 et 3. Analyse et décisions (sortie JSON contrôlée par un schéma) -----------
@@ -93,17 +110,14 @@ export async function analyserSemaine({ now = new Date(), dryRun = false, log = 
       objectif_prochaine_semaine: { type: 'integer', description: 'Note /100 visée pour les posts de la semaine prochaine.' },
     },
   };
-  const brut = await appel(client, {
-    max_tokens: 16000,
-    system: `Tu es le directeur de la stratégie Instagram de Teufy (soirées de la Côte d'Azur). Ton but : faire monter la note /100 des posts (engagement, enregistrements, partages, abonnés gagnés) à chaque fois. Tu raisonnes à partir des chiffres fournis, tu expliques pourquoi un post a mieux marché (heure, jour, sujet, titre, photo, lieu, nom et source de l'événement, styles, hashtags, forme de la légende) et tu proposes des tests précis.\n\n${STYLE}`,
-    messages: [{
-      role: 'user',
-      content: `Veille de la semaine :\n${veille}\n\nDonnées du compte (JSON) :\n${JSON.stringify(contexte)}\n\nRends ta décision selon le schéma. Peu de données (moins de 8 posts notés) : dis-le dans le résumé et privilégie des tests variés.`,
-    }],
-    output_config: { effort: 'high', format: { type: 'json_schema', schema } },
-  });
   let d;
-  try { d = JSON.parse(brut); } catch { log('Réponse non lisible, rien n\'est appliqué.'); return null; }
+  try {
+    d = await ia.json({
+      config, nom: 'decision', schema,
+      system: `Tu es le directeur de la stratégie Instagram de Teufy (soirées de la Côte d'Azur). Ton but : faire monter la note /100 des posts (engagement, enregistrements, partages, abonnés gagnés) à chaque fois. Tu raisonnes à partir des chiffres fournis, tu expliques pourquoi un post a mieux marché (heure, jour, sujet, titre, photo, lieu, nom et source de l'événement, styles, hashtags, forme de la légende) et tu proposes des tests précis.\n\n${STYLE}`,
+      prompt: `Veille de la semaine :\n${veille}\n\nDonnées du compte (JSON) :\n${JSON.stringify(contexte)}\n\nRends ta décision selon le schéma. Peu de données (moins de 8 posts notés) : dis-le dans le résumé et privilégie des tests variés.`,
+    });
+  } catch (err) { log(`Analyse impossible (${err.message}), rien n'est appliqué.`); return null; }
 
   // 4. Application avec garde-fous ----------------------------------------------
   const appliques = [];
@@ -183,25 +197,4 @@ ${appliques.map((x) => `- ${x}`).join('\n') || '- Rien.'}
 
 export function derniereAnalyse() {
   return existsSync(ANALYSE_FILE) ? readFileSync(ANALYSE_FILE, 'utf8') : '';
-}
-
-// Appel Claude (Opus 5.5, réflexion adaptative) avec repli serveur en cas de refus,
-// reprise des tours mis en pause par la recherche web, et texte final concaténé.
-async function appel(client, params) {
-  const messages = [...params.messages];
-  for (let tour = 0; tour < 4; tour++) {
-    const stream = client.beta.messages.stream({
-      model: MODEL,
-      betas: ['server-side-fallback-2026-07-01'],
-      fallbacks: 'default',
-      thinking: { type: 'adaptive' },
-      ...params,
-      messages,
-    });
-    const res = await stream.finalMessage();
-    if (res.stop_reason === 'refusal') throw new Error('Claude a refusé la demande.');
-    if (res.stop_reason === 'pause_turn') { messages.push({ role: 'assistant', content: res.content }); continue; }
-    return res.content.filter((b) => b.type === 'text').map((b) => b.text).join('\n').trim();
-  }
-  throw new Error('La recherche web n\'a pas abouti.');
 }

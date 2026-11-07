@@ -1,8 +1,8 @@
 name: Teufy - Instagram automatique
 
 # Chaque jour, de 15h à 19h UTC (16h-20h l'hiver, 17h-21h l'été à Paris) :
-#  - une fois par semaine, l'analyse Claude : veille des nouveautés Instagram/Meta, pourquoi
-#    certains posts marchent mieux, nouvelles accroches/intros/débats à tester (si ANTHROPIC_API_KEY) ;
+#  - une fois par semaine, l'analyse par IA gratuite (Gemini / GitHub Models) : veille des nouveautés
+#    Instagram/Meta, pourquoi certains posts marchent mieux, nouvelles accroches/intros/débats à tester ;
 #  - relève les statistiques Instagram des derniers posts
 #    (apprentissage.json + RAPPORT.md) pour améliorer les choix suivants ;
 #  - si le calendrier de config.json prévoit une publication ce jour-là,
@@ -36,6 +36,7 @@ on:
 
 permissions:
   contents: write
+  models: read # GitHub Models : IA gratuite incluse dans GitHub Actions
 
 concurrency:
   group: teufy-instagram
@@ -50,9 +51,8 @@ jobs:
       IG_USER_ID: ${{ secrets.IG_USER_ID }}
       IG_API_HOST: ${{ vars.IG_API_HOST || 'graph.facebook.com' }}
       PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
-      ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
-      ELEVENLABS_VOICE_ID: ${{ secrets.ELEVENLABS_VOICE_ID }}
-      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }} # gratuit : aistudio.google.com, sans carte bancaire
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub Models, gratuit
       MEDIA_BASE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/media
       MEDIA_FALLBACK_URL: https://raw.githubusercontent.com/${{ github.repository }}/${{ github.ref_name }}/media
     steps:

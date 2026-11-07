@@ -27,7 +27,7 @@ Tes propres soirées vont dans `evenements-manuels.json` et passent toujours en 
 ## Toutes les soirées de la Côte d'Azur
 
 Shotgun protège ses pages par une vérification anti-robot, que le bot ne contourne pas. Les soirées viennent donc de quatre sources :
-1. **Recherche web par Claude**, tous les 3 jours, sur les 45 jours à venir : agendas des villes (Nice, Cannes, Antibes, Monaco, Menton…), offices de tourisme, billetteries (Shotgun via les moteurs de recherche, DICE, Resident Advisor, Weezevent, Billetweb, Eventbrite, HelloAsso, Fever…), sites des clubs, collectifs, presse locale, festivals.
+1. **Recherche web par IA gratuite** (Gemini avec la recherche Google intégrée), tous les 3 jours, sur les 45 jours à venir : agendas des villes (Nice, Cannes, Antibes, Monaco, Menton…), offices de tourisme, billetteries (Shotgun tel qu'il apparaît dans Google, DICE, Resident Advisor, Weezevent, Billetweb, Eventbrite, HelloAsso, Fever…), sites des clubs, collectifs, presse locale, festivals.
 2. **Posts Instagram des organisateurs et clubs** listés dans `contenus/organisateurs.json`. Le bot lit leurs posts des 3 dernières semaines via l'API officielle et en tire les soirées annoncées, avec l'affiche du post. L'API ne donne pas la liste des comptes que Teufy suit : ajoute-les dans `comptes`. Ceux que la recherche web découvre arrivent dans `suggeres` et sont aussi lus.
 3. **DICE**, directement.
 4. **Tes soirées** dans `evenements-manuels.json`, toujours prioritaires.
@@ -51,14 +51,13 @@ Les **temps forts** sont dans `contenus/da.json` → `temps_forts` : Nouvel An �
 
 Le 3e reel du mois alterne entre « petits prix » et **reel explicatif** : astuces et sujets du moment (payer moins cher, éviter les arnaques aux billets, rentrer en sécurité, dress code, première rave…), dans `contenus/sujets-reels.json`. L'analyse hebdomadaire propose de nouveaux sujets d'actualité, et le bot garde le format qui marche le mieux.
 
-**Musique** : dépose des .mp3 dans `assets/musiques/club/` et `assets/musiques/techno/`. Par exemple, la bibliothèque musicale de Pixabay (pixabay.com/music) est gratuite et autorisée pour un usage commercial. Les morceaux trop courts sont mis en boucle et le volume est égalisé. Sans musique, les reels sont muets.
+**Musique** : dépose des .mp3 dans `assets/musiques/club/` et `assets/musiques/techno/`. Par exemple, la bibliothèque musicale de Pixabay (pixabay.com/music) est gratuite et autorisée pour un usage commercial. Les morceaux trop courts sont mis en boucle et le volume est égalisé. Sans .mp3, le bot génère sa propre musique (voir plus bas).
 
 ## Voix off, sous-titres, musique et formats
 
-- **Voix off ElevenLabs** (modèle `eleven_v3`, voix naturelles en français). Elle lit l'accroche, présente chaque soirée et les points des reels explicatifs. Secret GitHub `ELEVENLABS_API_KEY`. L'usage commercial demande au moins l'offre Starter (environ 6 $/mois). Choisis une voix française dans la bibliothèque ElevenLabs et mets son identifiant dans le secret `ELEVENLABS_VOICE_ID` ou dans `config.json` → `voix_off.voice_id`. Sans identifiant, le bot prend une voix française du compte. Sans clé, les reels n'ont pas de voix off : les voix de synthèse gratuites (Piper) sont désactivées.
-- **Sous-titres karaoké** synchronisés mot à mot sur la voix (minutage fourni par ElevenLabs) : par groupes de 3 mots, le mot prononcé passe en corail.
+- **Pas de voix off** (`config.json` → `voix_off.fournisseur` = `aucune`) : les voix gratuites sonnent trop « IA ». Les reels misent sur le motion design, le texte animé, la musique et les bruitages, comme la plupart des reels de soirées. Le code de la voix ElevenLabs reste en place (payant) si tu changes d'avis un jour : `fournisseur` = `elevenlabs` et le secret `ELEVENLABS_API_KEY`, ajouté au workflow.
 - **Musique** : un .mp3 de `assets/musiques/club/` ou `techno/` s'il y en a. Sinon, une boucle house (124 BPM) ou techno (132 BPM) générée par le code, sans droits. Les coupes tombent sur les temps de la musique, comme dans HyperFrames.
-- **Bruitages** générés par ffmpeg (whoosh, impact, pop) et **mixage** : la musique baisse quand la voix parle, et le volume est réglé au niveau Instagram.
+- **Bruitages** générés par ffmpeg (whoosh, impact, pop, riser) calés sur les coupes, et **mixage** au niveau sonore d'Instagram.
 - **Carrousel ou post unique** : avec 1 ou 2 soirées, post unique « programme ». Au-delà, le bot teste les deux formats.
 
 ### Outils utilisés (tous gratuits)
@@ -67,10 +66,9 @@ Le 3e reel du mois alterne entre « petits prix » et **reel explicatif** : astu
 | --- | --- |
 | Animation des reels | Pages HTML/CSS animées, capturées image par image avec Chromium : même principe que HyperFrames (Apache 2.0), dont j'ai repris la grille de tempo et la musique générée |
 | Montage, son, bruitages | ffmpeg |
-| Voix off | ElevenLabs (payant, offre Starter minimum pour un usage commercial) |
 | Musique | Boucles générées par le code au tempo des coupes, ou tes .mp3 |
 | Photos | Banque CC0 (StockSnap via Openverse), Pexels en option |
-| Recherche des soirées, analyse | Claude (clé API, payant à l'usage) |
+| Recherche des soirées, analyse | Gemini (offre gratuite de Google AI Studio, recherche Google incluse), puis GitHub Models (gratuit dans GitHub Actions) |
 
 Règles de légende reprises de sergebulaev/instagram-skills (MIT) : accroche dans les 125 premiers caractères, 3 à 5 hashtags ciblés, jamais de chiffre inventé.
 
@@ -116,15 +114,15 @@ Tu peux ajouter tes propres photos dans ces dossiers. Pinterest n'est pas une ba
 
 **Objectif** : chaque post doit battre la note médiane des 10 derniers posts (+5 points). `RAPPORT.md` montre ✅ ou ❌ pour chaque post récent, compare la moyenne du bot à celle de l'équipe, et liste **ce qui fait monter ou baisser la note** : heure, jour, format, type de post, style musical, lieu, ville, source (Shotgun/DICE), prix, hashtags, forme de la légende, accroche, titre, photos…
 
-**Analyse hebdomadaire par Claude** (si le secret `ANTHROPIC_API_KEY` est défini), une fois par semaine :
-1. **Veille** : recherche sur le web des nouveautés Instagram et Meta des 14 derniers jours (sources officielles en priorité : about.instagram.com, creators.instagram.com, about.fb.com, changelog développeurs Meta, Adam Mosseri).
+**Analyse hebdomadaire par IA gratuite** (Gemini, sinon GitHub Models), une fois par semaine :
+1. **Veille** : recherche Google (Gemini) des nouveautés Instagram et Meta des 14 derniers jours (sources officielles en priorité : about.instagram.com, creators.instagram.com, about.fb.com, changelog développeurs Meta, Adam Mosseri). Sans clé Gemini, la veille lit les flux RSS officiels de Meta.
 2. **Pourquoi** : explication des meilleurs et moins bons posts, chiffres à l'appui, avec une action pour chaque constat.
 3. **Tests** : nouvelles accroches de reels, intros de légende, sujets de débat et hashtags à essayer, ajoutés automatiquement au bot. L'apprentissage les garde s'ils font mieux. Les options testées au moins 4 fois et nettement sous la moyenne sont retirées.
 4. **Règles** : hashtags max, durée des reels et durée de l'accroche ne sont changés que si une **source officielle** Instagram ou Meta le confirme.
 
 Garde-fous : rien n'est publié sans passer par le code. Pas de tiret « — », pas de « lien en bio », pas d'invitation à télécharger l'app, longueurs limitées, hashtags valides. Tout est journalisé dans `ANALYSE.md` (repris en haut de `RAPPORT.md`) et dans `veille/AAAA-MM-JJ.md`.
 
-Coût : deux appels à Claude par semaine (dont une recherche web), soit quelques dizaines de centimes à environ 1 € par semaine selon la quantité de veille.
+Coût : **0 €**. L'offre gratuite de Gemini suffit largement (quelques appels par semaine). Claude n'est utilisé que si tu mets `llm.payant_autorise` à `true` dans `config.json`.
 
 ## Tendances et règles Instagram
 
@@ -164,7 +162,7 @@ L'app n'est pas encore disponible. Les visuels et légendes poussent à **s'abon
    - Dans Meta Business Suite → Paramètres → Utilisateurs système, crée un utilisateur **Admin** et donne-lui accès à la Page et au compte Instagram.
    - Génère un jeton qui n'expire **jamais**, avec ces autorisations : `instagram_basic`, `instagram_content_publish`, **`instagram_manage_insights`** (indispensable pour l'apprentissage), `pages_show_list`, `pages_read_engagement`, `business_management`.
    - Trouve l'identifiant du compte avec `https://graph.facebook.com/v21.0/me/accounts?fields=name,instagram_business_account&access_token=TON_JETON`. La valeur `instagram_business_account.id` est ton IG_USER_ID.
-3. **Secrets GitHub** (Settings → Secrets and variables → Actions) : `IG_ACCESS_TOKEN` et `IG_USER_ID` (sans eux, rien n'est publié), `ANTHROPIC_API_KEY` pour l'analyse hebdomadaire (clé sur <https://console.anthropic.com>), et `PEXELS_API_KEY` en option.
+3. **Secrets GitHub** (Settings → Secrets and variables → Actions) : `IG_ACCESS_TOKEN` et `IG_USER_ID` (sans eux, rien n'est publié), **`GEMINI_API_KEY`** (gratuit, sans carte bancaire : <https://aistudio.google.com/apikey> → « Create API key ») pour la recherche des soirées et l'analyse hebdomadaire, et `PEXELS_API_KEY` en option. GitHub Models n'a besoin d'aucun secret : il passe par le jeton automatique de GitHub Actions.
 4. **GitHub Pages** : Settings → Pages → Source « Deploy from a branch », branche `main`, dossier `/ (root)`. Instagram a besoin d'une adresse publique pour récupérer les images et vidéos : elles sont servies depuis `https://junior63122.github.io/teufy-instagram/media/…`.
 5. **Actions** : Settings → Actions → General → « Workflow permissions » sur **Read and write**, pour que le bot puisse enregistrer médias, historique et statistiques.
 6. **Aperçu** : Actions → « Teufy - Instagram automatique » → Run workflow → **mois**. Les 9 publications sont générées avec les vraies soirées, sans rien publier. Tout est dans l'artefact `teufy-…`.

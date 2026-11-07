@@ -14,9 +14,9 @@ test('recherche web : tri 17-30 ans, fiabilité, comptes Instagram', async () =>
     comptes_instagram: ['@HighClubNice', 'pas valide !'],
   })];
   let i = 0;
-  const client = { beta: { messages: { stream: () => ({ finalMessage: async () => ({ stop_reason: 'end_turn', content: [{ type: 'text', text: reponses[i++] }] }) }) } } };
+  const ia = { rechercher: async () => reponses[i++], json: async () => JSON.parse(reponses[i++]) };
   try {
-    const r = await rechercherSoirees({ config: { recherche_web: { actif: true } }, client, force: true, now: new Date('2026-11-09T12:00:00Z'), log: () => {} });
+    const r = await rechercherSoirees({ config: { recherche_web: { actif: true } }, ia, force: true, now: new Date('2026-11-09T12:00:00Z'), log: () => {} });
     assert.deepEqual(r.evenements.map((e) => e.name), ['Afro Night']);
     assert.equal(r.evenements[0].public_cible, 0.9);
     assert.deepEqual(r.evenements[0].tags, ['afro house']);
