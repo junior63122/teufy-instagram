@@ -1,0 +1,254 @@
+[
+  {
+    "id": "mario-kart-club",
+    "q": "Une soirée pyjama Mario Kart sur écran géant, dans une vraie boîte de nuit.",
+    "a": "Je viens en pyjama",
+    "b": "Laissez la boîte tranquille",
+    "legende": "On en parle depuis une semaine dans l'équipe et on n'est pas d'accord.\nÉcran géant, tournoi Mario Kart, tout le monde en pyjama, DJ entre les manches.\n\nVous venez ou c'est non ? Si vous êtes assez nombreux à dire oui, on regarde sérieusement pour l'organiser."
+  },
+  {
+    "id": "just-dance-club",
+    "q": "Just Dance sur l'écran du club à 2h du matin. Génie ou honte totale ?",
+    "a": "Génie",
+    "b": "Honte totale",
+    "legende": "Imagine : le DJ coupe, l'écran s'allume, Just Dance. 4 joueurs sur scène, toute la boîte qui juge.\n\nDans l'équipe c'est 50/50. À vous de trancher."
+  },
+  {
+    "id": "filmer-set",
+    "q": "Filmer tout le set avec son téléphone : on devrait interdire ?",
+    "a": "Oui, profitez",
+    "b": "Chacun fait ce qu'il veut",
+    "legende": "Certains clubs collent un sticker sur la caméra à l'entrée. D'autres s'en fichent complètement.\n\nVous êtes team souvenirs ou team « range ton tel » ?"
+  },
+  {
+    "id": "entree-20",
+    "q": "20 € l'entrée pour finir à 3h. Ça vaut encore le coup ?",
+    "a": "Oui si la soirée est bonne",
+    "b": "Non, c'est abusé",
+    "legende": "Question sérieuse, on veut des vrais avis.\nC'est quoi pour vous le prix max pour une entrée sur la Côte ? Mettez votre chiffre en commentaire."
+  },
+  {
+    "id": "nice-cannes",
+    "q": "Pour sortir : Nice ou Cannes ?",
+    "a": "Nice",
+    "b": "Cannes",
+    "legende": "Le débat qui divise toute la Côte.\nDéfendez votre ville en commentaire, et soyez convaincants (Monaco, vous avez le droit de participer)."
+  },
+  {
+    "id": "techno-vs-commercial",
+    "q": "Qui fait les meilleures soirées sur la Côte : la techno ou le commercial ?",
+    "a": "Techno",
+    "b": "Commercial",
+    "legende": "On sait que ça va partir loin dans les commentaires.\nRestez polis, mais donnez vos arguments."
+  },
+  {
+    "id": "dj-demandes",
+    "q": "Le DJ qui prend les demandes du public : oui ou jamais ?",
+    "a": "Oui, c'est convivial",
+    "b": "Jamais, respectez l'artiste",
+    "legende": "On a tous vu quelqu'un taper sur l'épaule du DJ avec son téléphone pour demander un son.\n\nVous en pensez quoi ? Et c'est quoi la pire demande que vous ayez entendue ?"
+  },
+  {
+    "id": "shazam",
+    "q": "Shazamer un son en pleine soirée : normal ou malaise ?",
+    "a": "Normal",
+    "b": "Malaise",
+    "legende": "Le bras levé avec le téléphone vers l'enceinte, on l'a tous fait au moins une fois.\nAvouez en commentaire."
+  },
+  {
+    "id": "sortir-seul",
+    "q": "Sortir en soirée tout seul : vous l'avez déjà fait ?",
+    "a": "Oui, et j'adore",
+    "b": "Jamais de la vie",
+    "legende": "Certains disent que c'est la meilleure façon de rencontrer du monde. D'autres préfèrent rester chez eux.\n\nVous êtes de quel côté ?"
+  },
+  {
+    "id": "6h-vs-minuit",
+    "q": "Soirée qui finit à 6h ou soirée 18h - minuit ?",
+    "a": "Jusqu'à 6h",
+    "b": "18h - minuit",
+    "legende": "De plus en plus de soirées commencent tôt et finissent avant minuit. Et franchement, on comprend le délire.\n\nVous, vous choisissez quoi ?"
+  },
+  {
+    "id": "karaoke-club",
+    "q": "Un karaoké géant au milieu de la piste, micro qui tourne dans le public.",
+    "a": "Je prends le micro",
+    "b": "Je m'enfuis",
+    "legende": "Une heure de karaoké en début de soirée, puis le DJ reprend la main.\nVous chanteriez quoi en premier ? On veut le titre en commentaire."
+  },
+  {
+    "id": "blind-test",
+    "q": "Un blind test géant dans un club, à gagner : des entrées pour toute l'année.",
+    "a": "Je m'inscris",
+    "b": "Pas pour moi",
+    "legende": "Équipes de 4, buzzers, et le DJ qui balance les extraits.\nSi vous voulez qu'on l'organise, tagguez votre équipe ici."
+  },
+  {
+    "id": "silent-disco-plage",
+    "q": "Silent disco sur la plage au coucher du soleil : vous venez ?",
+    "a": "Grave",
+    "b": "Bof",
+    "legende": "Casques sur les oreilles, 3 DJ en même temps, les pieds dans le sable.\nOn lit toutes vos réponses, promis."
+  },
+  {
+    "id": "dress-code",
+    "q": "Le dress code en boîte, en 2026 : utile ou dépassé ?",
+    "a": "Utile",
+    "b": "Dépassé",
+    "legende": "Baskets refusées, chemise obligatoire… Certains clubs de la Côte y tiennent encore.\n\nVous vous êtes déjà fait recaler pour votre tenue ? Racontez."
+  },
+  {
+    "id": "pire-file-vestiaire",
+    "q": "Le pire en soirée : la file d'attente ou le vestiaire à 4 € ?",
+    "a": "La file d'attente",
+    "b": "Le vestiaire",
+    "legende": "Les deux font mal, mais il faut choisir.\nBonus : votre record de temps dans une file, en commentaire."
+  },
+  {
+    "id": "dj-pas-connu",
+    "q": "Vous allez plutôt à une soirée pour le DJ ou pour le lieu ?",
+    "a": "Pour le DJ",
+    "b": "Pour le lieu",
+    "legende": "Certains suivent leurs artistes partout. D'autres ont leur club et n'en bougent pas.\nC'est quoi votre critère numéro 1 ?"
+  },
+  {
+    "id": "phone-free",
+    "q": "Une soirée 100 % sans téléphone (pochette scellée à l'entrée).",
+    "a": "Enfin",
+    "b": "Impossible pour moi",
+    "legende": "Ça se fait déjà dans plusieurs villes. Pas de story, pas de vidéo, juste la musique.\n\nVous tiendriez toute la nuit ?"
+  },
+  {
+    "id": "bateau",
+    "q": "Une soirée sur un bateau au large de la Côte, retour à l'aube.",
+    "a": "Je réserve direct",
+    "b": "J'ai le mal de mer",
+    "legende": "On a déjà une idée de qui viendrait.\nTagguez la personne qui finirait par tomber à l'eau."
+  },
+  {
+    "id": "annees-2000",
+    "q": "Une soirée 100 % années 2000, tenue d'époque obligatoire.",
+    "a": "Je ressors mon jean taille basse",
+    "b": "Plus jamais ces années",
+    "legende": "Sean Paul, Shakira, Usher, et des lunettes papillon partout.\nC'est quoi LE son qui doit passer en premier ?"
+  },
+  {
+    "id": "sortir-dimanche",
+    "q": "Faire la fête le dimanche après-midi : bonne idée ou lundi détruit ?",
+    "a": "Bonne idée",
+    "b": "Lundi détruit",
+    "legende": "Les day parties du dimanche, ça prend de plus en plus sur la Côte.\nVous êtes chauds ou vous gardez le dimanche pour dormir ?"
+  },
+  {
+    "id": "hard-techno",
+    "q": "La hard techno : la meilleure chose arrivée à la scène, ou trop c'est trop ?",
+    "a": "Meilleure chose",
+    "b": "Trop c'est trop",
+    "legende": "Les BPM n'arrêtent pas de monter et la communauté grandit chaque mois.\nOn veut l'avis des puristes ET des nouveaux."
+  },
+  {
+    "id": "monaco-surcote",
+    "q": "Sortir à Monaco : surcoté ou incomparable ?",
+    "a": "Surcoté",
+    "b": "Incomparable",
+    "legende": "Les prix, l'ambiance, les clubs… Tout le monde a un avis sur la question.\nDonnez le vôtre, sans filtre."
+  },
+  {
+    "id": "pre-soiree",
+    "q": "La pré-soirée est parfois mieux que la soirée. Vrai ou faux ?",
+    "a": "Vrai",
+    "b": "Faux",
+    "legende": "On connaît tous quelqu'un qui n'arrive jamais jusqu'au club.\nTagguez-le."
+  },
+  {
+    "id": "danser-premier",
+    "q": "Être le premier à danser sur une piste vide : héros ou suicidaire ?",
+    "a": "Héros",
+    "b": "Suicidaire",
+    "legende": "Il faut toujours quelqu'un pour lancer la piste.\nVous êtes cette personne ou vous attendez que ça se remplisse ?"
+  },
+  {
+    "id": "speed-dating-club",
+    "q": "Un speed dating en début de soirée, avant que le DJ démarre.",
+    "a": "Je tente",
+    "b": "Gênance maximale",
+    "legende": "Une heure pour rencontrer du monde, ensuite tout le monde danse ensemble.\nVous viendriez seul ou en mission avec vos potes ?"
+  },
+  {
+    "id": "musique-mieux-avant",
+    "q": "La musique en soirée, c'était mieux il y a 10 ans ?",
+    "a": "Oui, clairement",
+    "b": "Non, c'est mieux maintenant",
+    "legende": "Sujet dangereux, on le sait.\nCitez un son d'il y a 10 ans qui mettait le feu, on en fera une playlist."
+  },
+  {
+    "id": "rave-foret",
+    "q": "Une rave dans l'arrière-pays, en pleine nature, navettes depuis Nice.",
+    "a": "J'y suis",
+    "b": "Je reste en ville",
+    "legende": "Les gens de la techno vont comprendre direct.\nVous seriez prêts à faire combien de kilomètres pour une bonne soirée ?"
+  },
+  {
+    "id": "eau-gratuite",
+    "q": "L'eau gratuite au bar devrait être obligatoire dans toutes les soirées.",
+    "a": "Évidemment",
+    "b": "Pas forcément",
+    "legende": "Un sujet plus sérieux qu'il n'y paraît.\nDans les soirées où vous allez, c'est comment ?"
+  },
+  {
+    "id": "laser-game",
+    "q": "Une soirée laser game géant, avec DJ et bar, dans un hangar.",
+    "a": "Team rouge direct",
+    "b": "Je regarde depuis le bar",
+    "legende": "On teste vos envies de soirées un peu différentes.\nDites-nous la soirée la plus étrange que vous aimeriez vivre sur la Côte."
+  },
+  {
+    "id": "heure-arrivee",
+    "q": "Arriver en soirée avant minuit : normal ou trop tôt ?",
+    "a": "Normal",
+    "b": "Beaucoup trop tôt",
+    "legende": "Vous êtes du genre à attendre l'ouverture ou à arriver quand tout le monde part ?\nDonnez votre heure d'arrivée idéale."
+  },
+  {
+    "id": "rooftop-cave",
+    "q": "Rooftop au coucher du soleil ou cave sombre jusqu'au matin ?",
+    "a": "Rooftop",
+    "b": "Cave sombre",
+    "legende": "Les deux ont leurs fans sur la Côte.\nVous, vous êtes plutôt lumière ou obscurité ?"
+  },
+  {
+    "id": "soiree-jeux-video",
+    "q": "Un tournoi FIFA ou Smash Bros dans un bar, avec DJ set à la fin.",
+    "a": "Je m'inscris",
+    "b": "Pas mon truc",
+    "legende": "On voit de plus en plus de soirées qui mélangent jeux et musique.\nVous joueriez à quel jeu ?"
+  },
+  {
+    "id": "taxi-retour",
+    "q": "Le vrai problème des soirées sur la Côte, c'est le retour.",
+    "a": "Tellement vrai",
+    "b": "Moi ça va",
+    "legende": "Taxi introuvable, VTC hors de prix, pas de transports la nuit…\nComment vous rentrez, vous ? On cherche des solutions."
+  },
+  {
+    "id": "artiste-surprise",
+    "q": "Une soirée où l'artiste n'est révélé qu'à minuit.",
+    "a": "Le frisson",
+    "b": "Je veux savoir avant",
+    "legende": "Billets vendus à l'aveugle, line-up secret jusqu'au bout.\nVous prendriez le risque ?"
+  },
+  {
+    "id": "age-boite",
+    "q": "Il y a un âge pour arrêter d'aller en boîte ?",
+    "a": "Oui",
+    "b": "Jamais",
+    "legende": "On a déjà notre réponse, mais on veut la vôtre.\nEt soyez honnêtes."
+  },
+  {
+    "id": "ladies-night",
+    "q": "Ladies night : bon plan ou concept dépassé ?",
+    "a": "Bon plan",
+    "b": "Dépassé",
+    "legende": "Entrée gratuite pour certaines, plein tarif pour les autres.\nDébat ouvert, on lit tout."
+  }
+]

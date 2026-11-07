@@ -1,0 +1,48 @@
+{
+  "_explication": "Tendances et règles Instagram utilisées par le bot. La partie « comptes_a_suivre » est analysée chaque semaine via l'API officielle (Business Discovery) ; le résultat est écrit dans tendances-auto.json et sert à choisir hashtags, accroches et horaires.",
+  "regles_instagram": {
+    "_sources": "Annonce @creators du 18/12/2025 (5 hashtags max), guides algorithme 2026 (partages, enregistrements, rétention des reels, originalité).",
+    "hashtags_max": 5,
+    "reel_duree_cible_s": [7, 30],
+    "accroche_max_s": 1.6,
+    "format_feed": "1080x1350 (4:5) : seul format sûr via l'API ; contenu important dans la zone centrale",
+    "originalite": "Pas de filigrane d'autres plateformes, pas de repost brut : chaque visuel est recomposé",
+    "mots_cles_legende": true
+  },
+  "hashtags_candidats": {
+    "marque": "#TeufyParty",
+    "local": ["#nice", "#cannes", "#monaco", "#antibes", "#cotedazur", "#frenchriviera", "#nicefrance", "#soireenice", "#nicenightlife", "#sortiranice", "#cannesnightlife", "#monaconightlife", "#juanlespins", "#riviera"],
+    "commercial": ["#clubbing", "#nightlife", "#afrohouse", "#housemusic", "#shatta", "#amapiano", "#afrobeats", "#dancehall", "#soiree", "#teuf"],
+    "techno": ["#techno", "#technoparty", "#technomusic", "#hardtechno", "#rave", "#technofamily", "#underground", "#technolovers"],
+    "general": ["#soiree", "#nightlife", "#clubbing", "#teuf", "#sortir", "#weekend"]
+  },
+  "accroches_reels": {
+    "_note": "Accroches courtes, lisibles sans le son, qui posent une question ou une tension dès la 1re seconde.",
+    "weekend": [
+      { "titre": "POV : t'as toujours pas de plan ce week-end", "sous": "Swipe pas" },
+      { "titre": "Ne me dis pas que tu restes chez toi", "sous": "Ce week-end" },
+      { "titre": "3 soirées. 1 seule nuit. Tu choisis laquelle ?", "sous": "Côte d'Azur" },
+      { "titre": "Ceux qui savent, savent", "sous": "Ce week-end" },
+      { "titre": "Envoie ça à la personne qui dit toujours « on sort ce week-end »", "sous": "Côte d'Azur" }
+    ],
+    "techno": [
+      { "titre": "Ce week-end ça tape", "sous": "Techno only" },
+      { "titre": "Si tu connais, tu connais", "sous": "Techno · Côte d'Azur" },
+      { "titre": "Rentrer avant 6h ? Non.", "sous": "Techno only" },
+      { "titre": "Où sont les vrais ce week-end ?", "sous": "Techno · Côte d'Azur" }
+    ],
+    "petits-prix": [
+      { "titre": "Le week-end à moins de 10 €", "sous": "Bon plan" },
+      { "titre": "Fin de mois ? Sors quand même", "sous": "Petits prix" },
+      { "titre": "Personne ne parle de ces soirées à moins de 10 €", "sous": "Bon plan" }
+    ]
+  },
+  "comptes_a_suivre": {
+    "_note": "Comptes professionnels publics (soirées, clubs, médias nightlife de la Côte). Ajoute ou retire des noms : le bot analyse leurs 25 derniers posts chaque semaine.",
+    "liste": ["downtown.nice", "uptown.nice", "la_dinette__", "lebarathymtoulon"]
+  },
+  "reels_essai": {
+    "_note": "Trial Reels : le reel est d'abord montré aux non-abonnés, puis publié sur le profil s'il performe. Mettre true pour l'activer.",
+    "actif": false
+  }
+}

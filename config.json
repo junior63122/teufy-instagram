@@ -1,0 +1,122 @@
+{
+  "fuseau": "Europe/Paris",
+  "marque": "Teufy",
+  "compte": "@teufy_official",
+  "villes": [
+    "nice",
+    "cannes",
+    "antibes",
+    "juan-les-pins",
+    "monaco",
+    "monte-carlo",
+    "menton",
+    "cagnes-sur-mer",
+    "saint-laurent-du-var",
+    "villefranche-sur-mer",
+    "beaulieu-sur-mer",
+    "eze",
+    "cap-d'ail",
+    "roquebrune-cap-martin",
+    "grasse",
+    "mandelieu",
+    "theoule-sur-mer",
+    "golfe-juan",
+    "vallauris",
+    "valbonne",
+    "sophia-antipolis",
+    "biot",
+    "villeneuve-loubet",
+    "saint-tropez",
+    "frejus",
+    "saint-raphael",
+    "sainte-maxime",
+    "ramatuelle",
+    "carros",
+    "la-colle-sur-loup",
+    "vence",
+    "saint-paul-de-vence",
+    "le-cannet",
+    "mougins"
+  ],
+  "sources": {
+    "shotgun": [
+      "https://shotgun.live/fr/cities/nice",
+      "https://shotgun.live/fr/cities/cannes",
+      "https://shotgun.live/fr/cities/monaco",
+      "https://shotgun.live/fr/cities/antibes"
+    ],
+    "dice": [
+      "https://dice.fm/browse/nice",
+      "https://dice.fm/browse/cannes",
+      "https://dice.fm/browse/monaco"
+    ]
+  },
+  "calendrier_explication": "Chaque ligne = une publication par mois. jour : 1 = lundi … 7 = dimanche. rang : 1 = premier de ce jour dans le mois, 2 = deuxième… (1 à 4). Heure : voir le workflow.",
+  "calendrier": [
+    {
+      "jour": 1,
+      "rang": 1,
+      "type": "incontournables",
+      "variante": "commercial"
+    },
+    {
+      "jour": 4,
+      "rang": 1,
+      "type": "reel",
+      "variante": "weekend"
+    },
+    {
+      "jour": 3,
+      "rang": 2,
+      "type": "debat"
+    },
+    {
+      "jour": 5,
+      "rang": 2,
+      "type": "bonplan",
+      "variante": "petits-prix"
+    },
+    {
+      "jour": 1,
+      "rang": 3,
+      "type": "incontournables",
+      "variante": "techno"
+    },
+    {
+      "jour": 4,
+      "rang": 3,
+      "type": "reel",
+      "variante": "techno"
+    },
+    {
+      "jour": 2,
+      "rang": 4,
+      "type": "bonplan",
+      "variante": "a-reserver"
+    },
+    {
+      "jour": 3,
+      "rang": 4,
+      "type": "debat"
+    },
+    {
+      "jour": 5,
+      "rang": 4,
+      "type": "reel",
+      "variante": "petits-prix"
+    }
+  ],
+  "reglages": {
+    "soirees_par_carrousel": 8,
+    "soirees_par_reel": 6,
+    "secondes_par_soiree_reel": 1.8,
+    "petit_prix_max": 10,
+    "creneaux_utc": [
+      15,
+      16,
+      17,
+      18
+    ],
+    "_creneaux": "Heures (UTC) parmi lesquelles le bot choisit l'heure de publication selon ce qui marche (16h-19h l'hiver, 17h-20h l'été à Paris). Le passage de 19h UTC sert de rattrapage."
+  }
+}

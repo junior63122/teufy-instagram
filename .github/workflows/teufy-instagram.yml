@@ -1,0 +1,144 @@
+name: Teufy - Instagram automatique
+
+# Chaque jour, de 15h à 19h UTC (16h-20h l'hiver, 17h-21h l'été à Paris) :
+#  - une fois par semaine, l'analyse Claude : veille des nouveautés Instagram/Meta, pourquoi
+#    certains posts marchent mieux, nouvelles accroches/intros/débats à tester (si ANTHROPIC_API_KEY) ;
+#  - relève les statistiques Instagram des derniers posts
+#    (apprentissage.json + RAPPORT.md) pour améliorer les choix suivants ;
+#  - si le calendrier de config.json prévoit une publication ce jour-là,
+#    publie à l'heure qui a le mieux marché jusqu'ici (apprise automatiquement).
+# 9 publications par mois : 2 incontournables (commercial, techno), 2 bons plans, 2 débats, 3 reels.
+on:
+  schedule:
+    - cron: "7 15-19 * * *" # 15h-18h UTC : créneaux possibles ; 19h : rattrapage
+  workflow_dispatch:
+    inputs:
+      quoi:
+        description: "Quoi générer"
+        type: choice
+        options:
+          - mois (aperçu des 9 publications du mois)
+          - auto (la publication prévue aujourd'hui)
+          - collecter (statistiques Instagram)
+          - incontournables:commercial
+          - incontournables:techno
+          - bonplan:petits-prix
+          - bonplan:a-reserver
+          - debat
+          - reel:weekend
+          - reel:techno
+          - reel:petits-prix
+        default: mois (aperçu des 9 publications du mois)
+      publier:
+        description: "Publier vraiment sur Instagram (sinon : aperçu téléchargeable seulement)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: teufy-instagram
+  cancel-in-progress: false
+
+jobs:
+  publier:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+      IG_USER_ID: ${{ secrets.IG_USER_ID }}
+      IG_API_HOST: ${{ vars.IG_API_HOST || 'graph.facebook.com' }}
+      PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      MEDIA_BASE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/media
+      MEDIA_FALLBACK_URL: https://raw.githubusercontent.com/${{ github.repository }}/${{ github.ref_name }}/media
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Relever les statistiques (apprentissage)
+        # Chaque post est mesuré au plus une fois par jour (de J+1 à J+21) : les passages suivants ne font presque rien.
+        if: github.event_name == 'schedule' || startsWith(inputs.quoi, 'collecter')
+        run: |
+          npm install --no-audit --no-fund
+          node src/run.mjs collecter
+          git config user.name "teufy-bot"
+          git config user.email "teufy-bot@users.noreply.github.com"
+          git add apprentissage.json RAPPORT.md ANALYSE.md tendances-auto.json contenus veille 2>/dev/null || true
+          git diff --cached --quiet && exit 0
+          git commit -m "Teufy Instagram : statistiques du $(date -u +%F)"
+          for i in 1 2 3; do git pull --rebase && git push && break; sleep 5; done
+
+      - name: Quelle publication ?
+        id: choix
+        run: |
+          QUOI="${{ inputs.quoi || 'auto' }}"
+          QUOI="${QUOI%% *}"
+          if [ "$QUOI" = "collecter" ]; then echo "rien=true" >> "$GITHUB_OUTPUT"; exit 0; fi
+          if [ "$QUOI" = "auto" ]; then
+            if [ "${{ github.event_name }}" = "schedule" ]; then SLOT=$(node src/run.mjs auto --quoi --horaire); else SLOT=$(node src/run.mjs auto --quoi); fi
+            [ "$SLOT" = "rien" ] && echo "Rien à publier maintenant." && echo "rien=true" >> "$GITHUB_OUTPUT"
+          fi
+          PUBLIER=false
+          if [ "${{ github.event_name }}" = "schedule" ] || [ "${{ inputs.publier }}" = "true" ]; then PUBLIER=true; fi
+          [ "$QUOI" = "mois" ] && PUBLIER=false
+          if [ -z "$IG_ACCESS_TOKEN" ] || [ -z "$IG_USER_ID" ]; then
+            echo "::warning::Secrets IG_ACCESS_TOKEN / IG_USER_ID absents : aperçu seulement, rien n'est publié."
+            PUBLIER=false
+          fi
+          echo "quoi=$QUOI" >> "$GITHUB_OUTPUT"
+          echo "publier=$PUBLIER" >> "$GITHUB_OUTPUT"
+          echo "Cible : $QUOI · publication : $PUBLIER"
+
+      - name: Installer Chromium, ffmpeg et polices
+        if: steps.choix.outputs.rien != 'true'
+        run: |
+          npm install --no-audit --no-fund
+          npx playwright install --with-deps chromium
+          sudo apt-get install -y --no-install-recommends ffmpeg fonts-noto-color-emoji
+
+      - name: Tests
+        if: steps.choix.outputs.rien != 'true'
+        run: npm test
+
+      - name: Récupérer les soirées et générer les visuels
+        if: steps.choix.outputs.rien != 'true'
+        run: node src/run.mjs ${{ steps.choix.outputs.quoi }} preparer
+
+      - name: Aperçu téléchargeable (visuels, vidéos, légendes, pages récupérées)
+        if: always() && steps.choix.outputs.rien != 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: teufy-${{ github.run_number }}
+          path: |
+            media/
+            out/debug/
+          retention-days: 14
+
+      - name: Mettre les médias en ligne (GitHub Pages)
+        if: steps.choix.outputs.publier == 'true' && steps.choix.outputs.rien != 'true'
+        run: |
+          git config user.name "teufy-bot"
+          git config user.email "teufy-bot@users.noreply.github.com"
+          git add media
+          git diff --cached --quiet && exit 0
+          git commit -m "Teufy Instagram : médias ${{ steps.choix.outputs.quoi }} du $(date -u +%F)"
+          for i in 1 2 3; do git pull --rebase && git push && break; sleep 5; done
+
+      - name: Publier sur Instagram
+        if: steps.choix.outputs.publier == 'true' && steps.choix.outputs.rien != 'true'
+        run: node src/run.mjs ${{ steps.choix.outputs.quoi }} publier
+
+      - name: Enregistrer l'historique
+        if: always() && steps.choix.outputs.publier == 'true' && steps.choix.outputs.rien != 'true'
+        run: |
+          git config user.name "teufy-bot"
+          git config user.email "teufy-bot@users.noreply.github.com"
+          git add historique.json 2>/dev/null || true
+          git diff --cached --quiet && exit 0
+          git commit -m "Teufy Instagram : publié (${{ steps.choix.outputs.quoi }})"
+          for i in 1 2 3; do git pull --rebase && git push && break; sleep 5; done
