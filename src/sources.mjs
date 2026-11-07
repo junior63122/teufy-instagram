@@ -5,10 +5,11 @@ import { extractEvents, dedupe, keyOf } from './extract.mjs';
 
 const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36';
 
-export async function collectEvents(config, { root, debugDir, fixturesDir } = {}) {
+export async function collectEvents(config, { root, debugDir, fixturesDir, webEvents = [] } = {}) {
   const all = [];
   const report = [];
   for (const [source, urls] of Object.entries(config.sources)) {
+    if (!Array.isArray(urls)) continue;
     for (const url of urls) {
       let html = '';
       try {
@@ -26,6 +27,8 @@ export async function collectEvents(config, { root, debugDir, fixturesDir } = {}
       all.push(...evs);
     }
   }
+  if (webEvents.length || !fixturesDir) report.push({ source: 'web', evenements: webEvents.length });
+  all.push(...webEvents);
   const manual = await readManual(root);
   report.push({ source: 'manuel', evenements: manual.length });
   all.push(...manual);

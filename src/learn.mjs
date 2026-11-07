@@ -125,6 +125,7 @@ export function scoreEvent(e, model, r) {
   if (e.price != null) s += 0.5;
   if (e.sources) s += 1.5; // en vente sur Shotgun ET DICE : soirée importante
   if (e.popularite) s += Math.log10(1 + e.popularite) * 1.5;
+  if (typeof e.public_cible === 'number') s += 4 * (e.public_cible - 0.5); // pertinence 17-30 ans (recherche web)
   for (const f of eventFeatures(e)) {
     const st = model.feats[f];
     if (st) s += 2 * Math.log(shrunk(st)) + (r ? gauss(r) * 0.3 / Math.sqrt(st.n + 1) : 0);

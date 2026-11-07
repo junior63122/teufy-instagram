@@ -100,7 +100,16 @@ let cache;
 async function events() {
   if (!cache) {
     const fixtures = val('fixtures');
-    cache = await collectEvents(config, { root: ROOT, debugDir: path.join(ROOT, 'out', 'debug'), fixturesDir: fixtures && path.resolve(fixtures) });
+    let webEvents = [];
+    if (!fixtures) {
+      // Soirées trouvées sur le web et chez les organisateurs Instagram (Claude), cache de quelques jours.
+      const { rechercherSoirees } = await import('./recherche.mjs');
+      try {
+        const ig = igConfig();
+        webEvents = (await rechercherSoirees({ config, now: NOW, ig, api: ig ? { businessDiscovery } : {}, force: !!flag('recherche') })).evenements || [];
+      } catch (err) { console.error(`Recherche web impossible : ${err.message}`); webEvents = (await import('./recherche.mjs')).lireCache().evenements || []; }
+    }
+    cache = await collectEvents(config, { root: ROOT, debugDir: path.join(ROOT, 'out', 'debug'), fixturesDir: fixtures && path.resolve(fixtures), webEvents });
     console.log('Sources :');
     for (const r of cache.report) console.log(`  ${r.source.padEnd(8)} ${r.erreur ? '✗ ' + r.erreur : `${r.evenements} événement(s)`}  ${r.url || ''}`);
     console.log(`  → ${cache.events.length} événement(s) uniques au total`);

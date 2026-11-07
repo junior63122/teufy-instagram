@@ -1,0 +1,11 @@
+{
+  "_explication": "Comptes Instagram d'organisateurs, clubs et collectifs de la Côte d'Azur. Le bot lit leurs posts récents (API officielle) pour trouver les soirées annoncées, avec l'affiche. « comptes » : ta liste (ajoute les comptes que Teufy suit). « suggeres » : trouvés automatiquement par la recherche web. « valides » : comptes professionnels lisibles par l'API.",
+  "comptes": [
+    "downtown.nice",
+    "uptown.nice",
+    "la_dinette__",
+    "lebarathymtoulon"
+  ],
+  "suggeres": [],
+  "valides": []
+}

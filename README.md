@@ -24,6 +24,18 @@ Sur les visuels, l'affiche est montrée **en entier**, sans recadrage, avec le s
 
 Tes propres soirées vont dans `evenements-manuels.json` et passent toujours en tête.
 
+## Toutes les soirées de la Côte d'Azur
+
+Shotgun protège ses pages par une vérification anti-robot, que le bot ne contourne pas. Les soirées viennent donc de quatre sources :
+1. **Recherche web par Claude**, tous les 3 jours, sur les 45 jours à venir : agendas des villes (Nice, Cannes, Antibes, Monaco, Menton…), offices de tourisme, billetteries (Shotgun via les moteurs de recherche, DICE, Resident Advisor, Weezevent, Billetweb, Eventbrite, HelloAsso, Fever…), sites des clubs, collectifs, presse locale, festivals.
+2. **Posts Instagram des organisateurs et clubs** listés dans `contenus/organisateurs.json`. Le bot lit leurs posts des 3 dernières semaines via l'API officielle et en tire les soirées annoncées, avec l'affiche du post. L'API ne donne pas la liste des comptes que Teufy suit : ajoute-les dans `comptes`. Ceux que la recherche web découvre arrivent dans `suggeres` et sont aussi lus.
+3. **DICE**, directement.
+4. **Tes soirées** dans `evenements-manuels.json`, toujours prioritaires.
+
+**Tri pour les 17-30 ans** : chaque soirée trouvée sur le web reçoit une note de pertinence (clubs, DJ, techno, afro, shatta, rap, soirées étudiantes, open airs… en tête ; théâtre, classique, enfants, seniors écartés) et une note de fiabilité. En dessous de 0,5 de pertinence ou 0,6 de fiabilité, la soirée est écartée. Les soirées gardées sont mises en cache dans `evenements-web.json`.
+
+Coût indicatif : 1 à 3 € par recherche, deux par semaine environ (réglages dans `config.json` → `recherche_web`).
+
 ## Il choisit les meilleures soirées et apprend tout seul
 
 Chaque jour, le bot relève les statistiques des posts des 3 dernières semaines : portée, likes, commentaires, enregistrements, partages, abonnements gagnés, visites du profil et temps de visionnage des reels. Il note aussi le nombre d'abonnés. Tout est enregistré dans `apprentissage.json`, avec un résumé lisible dans **`RAPPORT.md`**.
