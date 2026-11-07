@@ -156,8 +156,9 @@ async function prepare(slot, now, id) {
     return list.filter((e) => e.source !== 'web' || (!e.douteux && (e.verifie || (e.confiance ?? 0) >= 0.85))).filter(pred);
   };
   const best = (list, n) => selectBest(list, n, MODEL, r);
-  // Carrousel ou post unique « programme » : unique s'il y a 1 ou 2 soirées, sinon le bot teste les deux.
-  const formatPost = (n) => (n <= 2 ? 'unique' : ch.pick('format-post', ['carrousel', 'unique'], (x) => x));
+  // Les programmes de soirées sont toujours en carrousel : le post unique est réservé aux annonces
+  // exceptionnelles repérées par la veille (une vraie raison d'exister, pas une soirée parmi d'autres).
+  const formatPost = () => 'carrousel';
   const programme = (pages, chosen, opts) => (formatPost(chosen.length) === 'unique' ? afficheProgramme({ ...opts, events: chosen }) : pages);
   const cheap = (e) => e.price != null && e.price <= R.petit_prix_max;
   const MOIS = (d) => new Intl.DateTimeFormat('fr-FR', { timeZone: 'Europe/Paris', month: 'long' }).format(d);
@@ -171,7 +172,30 @@ async function prepare(slot, now, id) {
 
   // Conversation : débat, ou appel aux organisateurs #TeufyParty (le format qui fait le plus commenter).
   const format = slot.type === 'debat' ? ch.pick('format-conversation', ['debat', 'orgas'], (x) => x) : null;
-  if (format === 'orgas') {
+  if (slot.type === 'veille') {
+    // Veille : un post unique tout de suite si une annonce exceptionnelle et vérifiée vient de tomber.
+    const { veiller } = await import('./veille.mjs');
+    const ig = igConfig();
+    const v = await veiller({ config, now, ig, api: ig ? { businessDiscovery } : {}, dryRun: DRY });
+    if (!v.apublier) { await output('rien', 'true'); console.log('Veille : rien à publier tout de suite.'); return; }
+    const s = v.apublier;
+    const STUDIO = path.join(ROOT, 'studio');
+    let image;
+    if (/^https?:/.test(s.image || '')) {
+      const res = await fetch(s.image).catch(() => null);
+      if (res?.ok) { image = `evenements/auto/flash-${hash(s.titre)}.jpg`; await mkdir(path.join(STUDIO, 'public', 'evenements', 'auto'), { recursive: true }); await writeFile(path.join(STUDIO, 'public', image), Buffer.from(await res.arrayBuffer())); }
+    }
+    const jourH = new Intl.DateTimeFormat('fr-FR', { timeZone: 'Europe/Paris', weekday: 'short', day: 'numeric', month: 'short' }).format(new Date(s.date_publication)).toUpperCase();
+    const domaine = (() => { try { return new URL(s.source_url).hostname.replace(/^www\./, ''); } catch { return s.source_url; } })();
+    const f = { type: s.type, surtitre: s.post.surtitre.toUpperCase().slice(0, 22), titre: s.post.titre, sous_titre: s.post.sous_titre, faits: s.post.faits.slice(0, 4), source: s.comptes_instagram?.[0] ? `@${s.comptes_instagram[0]} · ${domaine}` : domaine, date: jourH, image };
+    if (!existsSync(path.join(STUDIO, 'node_modules'))) spawnSync('npm', ['ci', '--no-audit', '--no-fund'], { cwd: STUDIO, stdio: 'inherit' });
+    const fichier = path.join(dir, `flash-${stamp}.jpg`);
+    const B = '/opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell';
+    const rr = spawnSync(path.join(STUDIO, 'node_modules', '.bin', 'remotion'), ['still', 'src/index.ts', 'flash', fichier, `--props=${JSON.stringify({ f })}`, '--image-format=jpeg', '--jpeg-quality=92', '--log=error', ...(existsSync(B) ? [`--browser-executable=${B}`] : [])], { cwd: STUDIO, stdio: 'inherit' });
+    if (rr.status !== 0) throw new Error('Rendu du post de veille impossible');
+    pub = { images: [fichier], legende: s.post.legende, titre: s.post.titre, veille: { titre: s.titre, source: s.source_url, importance: s.importance }, tags: [(s.comptes_instagram || []).map((h) => h.replace(/^@/, '')).slice(0, 5)] };
+    console.log(`[${id}] post de veille : « ${s.post.titre} » (${s.importance}/100, ${s.source_url})`);
+  } else if (format === 'orgas') {
     const th = theme(now, 'club');
     const nouvelAn = th.tempsFort?.titre?.includes('Nouvel An');
     const quand = nouvelAn ? 'pour le Nouvel An' : 'ce week-end';
@@ -455,7 +479,7 @@ function need(list, n) {
 async function publishPrepared(id) {
   const dir = path.join(MEDIA_DIR, id);
   const f = path.join(dir, 'publication.json');
-  if (!existsSync(f)) throw new Error(`Rien de préparé (media/${id}/publication.json absent).`);
+  if (!existsSync(f)) { if (id === 'veille') return; throw new Error(`Rien de préparé (media/${id}/publication.json absent).`); }
   const p = JSON.parse(await readFile(f, 'utf8'));
   const ig = igConfig();
   if (DRY || !ig) { console.log(`[${id}] ${DRY ? 'Aperçu' : 'IG_ACCESS_TOKEN / IG_USER_ID absents'} : pas de publication Instagram.`); return; }

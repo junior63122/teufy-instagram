@@ -1,0 +1,87 @@
+name: Teufy - Veille et publication réactive
+
+# Toutes les heures de 8h à 22h (heure de Paris, à une heure près selon la saison) :
+#  - lit les posts récents des organisateurs suivis et cherche les annonces et l'actu du jour (IA gratuite) ;
+#  - si une annonce exceptionnelle et vérifiée vient de tomber, crée le post et le publie tout de suite
+#    (1 par jour maximum) ; sinon ne fait que noter les idées dans contenus/idees.json.
+# La détection est légère : Chromium, ffmpeg et le studio ne s'installent que s'il y a quelque chose à publier.
+on:
+  schedule:
+    - cron: "41 6-20 * * *"
+  workflow_dispatch:
+    inputs:
+      publier:
+        description: "Publier vraiment sur Instagram si un sujet exceptionnel est trouvé"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  models: read
+
+concurrency:
+  group: teufy-instagram
+  cancel-in-progress: false
+
+jobs:
+  veille:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+      IG_USER_ID: ${{ secrets.IG_USER_ID }}
+      IG_API_HOST: ${{ vars.IG_API_HOST || 'graph.facebook.com' }}
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      MEDIA_BASE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/media
+      MEDIA_FALLBACK_URL: https://raw.githubusercontent.com/${{ github.repository }}/${{ github.ref_name }}/media
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Veille (détection)
+        id: veille
+        run: |
+          npm install --no-audit --no-fund
+          PUBLIER=false
+          if [ "${{ github.event_name }}" = "schedule" ] || [ "${{ inputs.publier }}" = "true" ]; then PUBLIER=true; fi
+          [ -z "$IG_ACCESS_TOKEN" ] && PUBLIER=false
+          echo "publier=$PUBLIER" >> "$GITHUB_OUTPUT"
+          # La préparation s'arrête seule (rien=true) si aucun sujet ne mérite un post immédiat.
+          sudo apt-get install -y --no-install-recommends ffmpeg >/dev/null 2>&1 || true
+          npm ci --prefix studio --no-audit --no-fund
+          node src/run.mjs veille preparer $([ "$PUBLIER" = "true" ] || echo --dry-run)
+
+      - name: Enregistrer la veille (sujets vus, idées, journal)
+        if: always()
+        run: |
+          git config user.name "teufy-bot"
+          git config user.email "teufy-bot@users.noreply.github.com"
+          git add contenus/veille-vus.json contenus/idees.json veille 2>/dev/null || true
+          git diff --cached --quiet && exit 0
+          git commit -m "Teufy : veille du $(date -u +'%F %Hh')"
+          for i in 1 2 3; do git pull --rebase && git push && break; sleep 5; done
+
+      - name: Aperçu
+        if: steps.veille.outputs.rien != 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: veille-${{ github.run_number }}
+          path: media/veille/
+          retention-days: 14
+          if-no-files-found: ignore
+
+      - name: Mettre le visuel en ligne et publier
+        if: steps.veille.outputs.rien != 'true' && steps.veille.outputs.publier == 'true'
+        run: |
+          [ -f media/veille/publication.json ] || exit 0
+          git add media/veille
+          git commit -m "Teufy : post de veille du $(date -u +'%F %Hh')"
+          for i in 1 2 3; do git pull --rebase && git push && break; sleep 5; done
+          node src/run.mjs veille publier
+          git add historique.json 2>/dev/null || true
+          git diff --cached --quiet || git commit -m "Teufy : post de veille publié"
+          for i in 1 2 3; do git pull --rebase && git push && break; sleep 5; done

@@ -35,8 +35,10 @@ if (C.avant) spawnSync('node', [path.join(STUDIO, C.avant)], {stdio: 'inherit'})
 
 // 1. Voix off ElevenLabs avec minutage caractère par caractère (une seule prise pour tout le texte :
 //    l'intonation reste continue d'une scène à l'autre).
+// Les balises d'émotion d'eleven_v3 ([excited], [laughs]…) guident la voix mais ne sont ni dites ni sous-titrées.
+const TAG = /^\[[^\]]*\]$/;
 const texte = C.scenes.map((s) => s.texte).join(' ');
-const jetons = C.scenes.flatMap((s, k) => s.texte.split(/\s+/).filter(Boolean).map((w) => ({w, scene: k})));
+const jetons = C.scenes.flatMap((s, k) => s.texte.split(/\s+/).filter((w) => w && !TAG.test(w)).map((w) => ({w, scene: k})));
 let mots = [];
 const voixMp3 = path.join(pub, 'voix.mp3');
 const cacheTexte = path.join(pub, 'voix.txt');
@@ -67,6 +69,7 @@ if (!arg('sans-voix') && C.voix && texte.trim()) {
     cur.w += c; cur.end = al.character_end_times_seconds[i];
   });
   if (cur) bruts.push(cur);
+  for (let i = bruts.length - 1; i >= 0; i--) if (TAG.test(bruts[i].w)) bruts.splice(i, 1);
   if (bruts.length !== jetons.length) console.warn(`Attention : ${bruts.length} mots minutés pour ${jetons.length} mots écrits.`);
   mots = jetons.map((j, i) => ({...j, start: +(bruts[Math.min(i, bruts.length - 1)]?.start ?? 0).toFixed(3), end: +(bruts[Math.min(i, bruts.length - 1)]?.end ?? 0).toFixed(3)}));
 }

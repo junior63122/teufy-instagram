@@ -124,3 +124,55 @@ export const Carrousel: React.FC<{soirees: Soiree[]; slide: number; titre: strin
     </AbsoluteFill>
   );
 };
+
+/** Post unique « flash » de la veille : une annonce exceptionnelle (fond nuit) ou une actu décryptée (papier). */
+export type Flash = {type: 'annonce' | 'actu'; surtitre: string; titre: string; sous_titre: string; faits: string[]; source: string; date: string; image?: string; maquette?: boolean};
+export const PostFlash: React.FC<{f: Flash}> = ({f}) => {
+  const papier = f.type === 'actu';
+  const fond = papier ? '#f3eee4' : '#0b0a10';
+  const encre = papier ? '#121212' : '#f6f1ea';
+  const accent = papier ? '#e5372a' : '#ff6b4a';
+  return (
+    <AbsoluteFill style={{background: fond, fontFamily: F.wide, overflow: 'hidden'}}>
+      {!papier ? <AbsoluteFill style={{background: 'radial-gradient(circle at 80% 15%, #ff6b4a40, transparent 45%), radial-gradient(circle at 10% 90%, #7b2cff30, transparent 50%)'}} /> : null}
+      {f.image ? (
+        <div style={{position: 'absolute', right: 60, top: 150, width: 430, transform: 'rotate(3deg)', background: papier ? '#fff' : '#f6f1ea', padding: '14px 14px 14px', boxShadow: '0 30px 70px rgba(0,0,0,.45)'}}>
+          <Img src={staticFile(f.image)} style={{width: '100%', display: 'block', maxHeight: 560, objectFit: 'cover'}} />
+        </div>
+      ) : null}
+      <div style={{position: 'absolute', left: 64, top: 70, display: 'flex', gap: 16, alignItems: 'center'}}>
+        <div style={{fontFamily: F.mono, fontWeight: 700, fontSize: 30, letterSpacing: '0.14em', background: accent, color: papier ? '#fff' : '#0b0a10', padding: '10px 22px', borderRadius: 999}}>{f.surtitre}</div>
+        <div style={{fontFamily: F.mono, fontWeight: 700, fontSize: 24, color: papier ? '#12121299' : '#f6f1ea99', letterSpacing: '0.1em'}}>{f.date}</div>
+      </div>
+      <div style={{position: 'absolute', left: 64, top: f.image ? 760 : 230, right: f.image ? 64 : 64, fontWeight: 900, fontStretch: '70%', fontSize: f.titre.length > 40 ? 104 : 128, lineHeight: 0.9, color: encre, textTransform: 'uppercase', maxWidth: f.image ? 950 : 950}}>
+        {f.image ? null : null}{f.titre}
+      </div>
+      <div style={{position: 'absolute', left: 64, right: 64, top: f.image ? 1010 : 640, fontFamily: F.serif, fontStyle: 'italic', fontSize: 58, color: accent, lineHeight: 1.05}}>{f.sous_titre}</div>
+      {!f.image ? (
+        <div style={{position: 'absolute', left: 64, right: 64, top: 780}}>
+          {f.faits.slice(0, 4).map((x, i) => (
+            <div key={i} style={{display: 'flex', gap: 22, alignItems: 'baseline', borderTop: `2px solid ${papier ? '#12121233' : '#f6f1ea33'}`, padding: '18px 0'}}>
+              <span style={{fontFamily: F.mono, fontWeight: 700, fontSize: 28, color: accent}}>{String(i + 1).padStart(2, '0')}</span>
+              <span style={{fontWeight: 700, fontStretch: '100%', fontSize: 40, color: encre, lineHeight: 1.15}}>{x}</span>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div style={{position: 'absolute', left: 64, top: 160, width: 470}}>
+          {f.faits.slice(0, 4).map((x, i) => (
+            <div key={i} style={{borderTop: `2px solid ${papier ? '#12121233' : '#f6f1ea33'}`, padding: '16px 0'}}>
+              <div style={{fontFamily: F.mono, fontWeight: 700, fontSize: 24, color: accent}}>{String(i + 1).padStart(2, '0')}</div>
+              <div style={{fontWeight: 700, fontStretch: '100%', fontSize: 36, color: encre, lineHeight: 1.15, marginTop: 6}}>{x}</div>
+            </div>
+          ))}
+        </div>
+      )}
+      <div style={{position: 'absolute', left: 64, right: 64, bottom: 56, display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+        <div style={{fontFamily: F.mono, fontWeight: 700, fontSize: 22, color: papier ? '#12121299' : '#f6f1ea99', letterSpacing: '0.06em', maxWidth: 780}}>SOURCE : {f.source}</div>
+        <Img src={staticFile('logo.png')} style={{height: 56, filter: 'drop-shadow(3px 3px 0 #ff6b4a)'}} />
+      </div>
+      {f.maquette ? <div style={{position: 'absolute', left: -120, top: 600, width: 1400, transform: 'rotate(-28deg)', textAlign: 'center', fontFamily: F.mono, fontWeight: 700, fontSize: 90, color: 'rgba(255,0,0,.28)', letterSpacing: '0.2em'}}>MAQUETTE · EXEMPLE FICTIF</div> : null}
+      <Grain o={papier ? 0.18 : 0.1} />
+    </AbsoluteFill>
+  );
+};

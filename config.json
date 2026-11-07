@@ -146,5 +146,14 @@
   "studio": {
     "explication": "Reels = créations (explicatif, humour, immersif) produites par le studio Remotion (studio/). Les soirées passent dans les posts et carrousels. Chaque concept est un script dans studio/scripts/concepts/*.json ; le bot prend le prochain concept du bon type pas encore publié.",
     "actif": true
+  },
+  "veille": {
+    "explication": "Veille horaire (workflow teufy-veille.yml) : un post unique est publié tout de suite si une annonce est exceptionnelle (importance ≥ seuil), vérifiée sur une source officielle, publiée il y a moins de fenetre_heures, et pas déjà traitée. Le reste va dans contenus/idees.json.",
+    "actif": true,
+    "seuil": 80,
+    "fenetre_heures": 36,
+    "max_par_jour": 1,
+    "heure_min": 8,
+    "heure_max": 23
   }
 }

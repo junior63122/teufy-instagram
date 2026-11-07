@@ -163,7 +163,8 @@ export const MotsMasques: React.FC<{mots: {w: string; t: number; accent?: boolea
 export const motsScene = (spec: Spec, k: number) => spec.mots.filter((m) => m.scene === k);
 /** Instant où un mot est prononcé (premier mot qui commence par `w` dans la scène k, ou à partir de `apres`). */
 export const quand = (spec: Spec, w: string, k?: number, apres = 0) => {
-  const n = (x: string) => x.toLowerCase().replace(/[^\p{L}\p{N}']/gu, '');
+  // On ignore les élisions (l', d', qu'…) : « l'early » correspond à « early ».
+  const n = (x: string) => x.toLowerCase().replace(/^(?:\p{L}{1,2}|qu)['’]/u, '').replace(/[^\p{L}\p{N}']/gu, '');
   const m = spec.mots.find((x) => (k == null || x.scene === k) && x.start >= apres - 0.001 && n(x.w).startsWith(n(w)));
   return m ? m.start : k != null ? spec.scenes[k]?.start ?? 0 : 0;
 };

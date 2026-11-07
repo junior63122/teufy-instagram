@@ -1,0 +1,97 @@
+{
+  "id": "paliers2",
+  "concept": "paliers2",
+  "type": "explicatif",
+  "titre": "Arrête d'acheter ta place la veille",
+  "voix": {
+    "voice_id": "IHngRooVccHyPqB4uQkG",
+    "nom": "Corentin",
+    "modele": "eleven_v3",
+    "stabilite": 0.0,
+    "style": 0.8,
+    "vitesse": 1.1
+  },
+  "musique": {
+    "src": "musique/electro-dreams.mp3",
+    "volume": 0.34,
+    "ducking": 0.42,
+    "debut": 8
+  },
+  "whooshEntreScenes": false,
+  "queue": 2.2,
+  "scenes": [
+    {
+      "id": "stop",
+      "texte": "[excited] Arrête d'acheter ta place la veille de la soirée !",
+      "sons": [
+        {
+          "son": "impact",
+          "decalage": 0.0,
+          "volume": 0.75
+        }
+      ]
+    },
+    {
+      "id": "lundi",
+      "texte": "Lundi, elle était à 12 euros.",
+      "avance": 0.15
+    },
+    {
+      "id": "jeudi",
+      "texte": "Jeudi : 20. Et sur place… 25 !",
+      "sons": [
+        {
+          "son": "riser",
+          "mot": "25",
+          "decalage": -1.2,
+          "volume": 0.5
+        },
+        {
+          "son": "basse",
+          "mot": "25",
+          "volume": 0.9
+        }
+      ]
+    },
+    {
+      "id": "pourquoi",
+      "texte": "[curious] Pourquoi ? Les paliers."
+    },
+    {
+      "id": "early",
+      "texte": "L'organisateur lance d'abord des places pas chères, pour démarrer les ventes : l'early bird."
+    },
+    {
+      "id": "suivant",
+      "texte": "Dès qu'elles partent, le palier suivant ouvre. Plus cher."
+    },
+    {
+      "id": "vite",
+      "texte": "Et parfois, tout part en quelques heures.",
+      "sons": [
+        {
+          "son": "tampon",
+          "mot": "heures",
+          "volume": 0.85
+        }
+      ]
+    },
+    {
+      "id": "regle",
+      "texte": "[excited] Alors la règle : la soirée te tente ? Tu prends ta place direct."
+    },
+    {
+      "id": "cta",
+      "texte": "Commente AVANCE si t'es organisé… ou ARRACHE si t'es team dernière minute !",
+      "sons": [
+        {
+          "son": "message",
+          "mot": "arrache",
+          "decalage": 0.6,
+          "volume": 0.6
+        }
+      ]
+    }
+  ],
+  "legende": "Lundi 12 €, jeudi 20 €, sur place 25 € 😳\n\nCe n'est pas une arnaque : la plupart des billetteries de soirées vendent par paliers (early bird, release 1, release 2, last release…). Les premières places partent moins cher pour lancer les ventes, puis le prix monte palier par palier. Et parfois, tout part en quelques heures.\n\nLa règle : la soirée te tente ? Tu prends ta place direct.\n\nCommente AVANCE si t'es organisé, ou ARRACHE si t'es team dernière minute 👇\n\n#TeufyParty #soirée #billetterie #Nice #CoteDAzur"
+}

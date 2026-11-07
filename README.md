@@ -28,7 +28,16 @@ Tes propres soirées vont dans `evenements-manuels.json` et passent toujours en 
 
 Les **reels** sont des créations (explicatif, humour, immersif) produites par le studio Remotion du dossier `studio/` :
 voix off ElevenLabs calée au mot, animations déclenchées par les mots, sound design, mastering et contrôle qualité.
-Les **soirées** passent dans les posts et carrousels (affiches officielles, infos vérifiées). Détails : `studio/LISEZMOI.md`.
+Les **soirées** passent dans les carrousels (affiches officielles, infos vérifiées). Détails : `studio/LISEZMOI.md`.
+
+## Veille et publication réactive
+
+Toutes les heures de 8h à 22h (`.github/workflows/teufy-veille.yml`), le bot lit les posts récents des organisateurs
+suivis et cherche les annonces et l'actualité du jour (Gemini gratuit). Une annonce **exceptionnelle**, **vérifiée sur
+une source officielle**, publiée il y a moins de 36 h et pas encore traitée devient tout de suite un **post unique**
+(1 par jour maximum) : c'est le seul cas de post unique. L'actualité qui touche les sorties (prix, lois, grèves,
+transports de nuit…) et les sujets intéressants mais moins forts vont dans `contenus/idees.json` pour les reels et
+carrousels. Réglages : `config.json` → `veille`. Journal : `veille/AAAA-MM-JJ-flash.md`.
 
 ## Toutes les soirées de la Côte d'Azur
 

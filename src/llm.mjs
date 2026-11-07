@@ -8,13 +8,14 @@
 const GEMINI = 'https://generativelanguage.googleapis.com/v1beta/models';
 const GH = 'https://models.github.ai/inference/chat/completions';
 
-export function fournisseurs(config = {}) {
+// `gratuit: true` : les IA gratuites passent devant Claude (veille horaire, tâches fréquentes et peu coûteuses).
+export function fournisseurs(config = {}, { gratuit = false } = {}) {
   const L = config.llm || {};
   const out = [];
   if (process.env.GEMINI_API_KEY) out.push('gemini');
   if (process.env.GITHUB_TOKEN && L.github_models !== false) out.push('github');
   // Claude passe en premier quand le payant est autorisé (meilleure qualité), les IA gratuites restent en secours.
-  if (L.payant_autorise && (process.env.ANTHROPIC_API_KEY || process.env.ANTHROPIC_AUTH_TOKEN)) out.unshift('anthropic');
+  if (L.payant_autorise && (process.env.ANTHROPIC_API_KEY || process.env.ANTHROPIC_AUTH_TOKEN)) out[gratuit ? 'push' : 'unshift']('anthropic');
   return out;
 }
 export const rechercheWebDisponible = (config) => fournisseurs(config).some((f) => f === 'gemini' || f === 'anthropic');
@@ -30,9 +31,9 @@ const texteGemini = (j) => (j.candidates?.[0]?.content?.parts || []).map((p) => 
 
 // --- Recherche web (texte libre, sources citées) ----------------------------------
 
-export async function rechercher({ config, system, prompt }) {
+export async function rechercher({ config, system, prompt, gratuit = false }) {
   const L = config.llm || {};
-  for (const f of fournisseurs(config)) {
+  for (const f of fournisseurs(config, { gratuit })) {
     try {
       if (f === 'gemini') {
         const j = await post(`${GEMINI}/${L.modele_gemini || 'gemini-2.5-flash'}:generateContent?key=${process.env.GEMINI_API_KEY.trim()}`, {
@@ -51,9 +52,9 @@ export async function rechercher({ config, system, prompt }) {
 
 // --- Réponse JSON contrôlée par un schéma -----------------------------------------
 
-export async function json({ config, system, prompt, schema, nom = 'reponse' }) {
+export async function json({ config, system, prompt, schema, nom = 'reponse', gratuit = false }) {
   const L = config.llm || {};
-  for (const f of fournisseurs(config)) {
+  for (const f of fournisseurs(config, { gratuit })) {
     try {
       if (f === 'gemini') {
         const base = { systemInstruction: { parts: [{ text: system }] }, contents: [{ role: 'user', parts: [{ text: prompt }] }] };
