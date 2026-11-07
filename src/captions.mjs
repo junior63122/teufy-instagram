@@ -47,7 +47,7 @@ const liste = (events, n = 12) => {
 const SUIVRE = [
   'Abonne-toi pour ne rien rater de ce qui se passe sur la Côte.',
   'Chaque semaine, les meilleures soirées de la Côte sont ici.',
-  'Enregistre le post, tu nous remercieras vendredi.',
+  'Suis le compte : chaque semaine, les soirées à ne pas rater.',
   'Envoie-le à ceux avec qui tu sors.',
 ];
 
@@ -102,7 +102,7 @@ export function captionBonPlan({ variante, events, from, to, ch, r, manuel }) {
       `À réserver maintenant, pas le jour J. Les dates qu'on surveille pour les prochaines semaines.`,
     ]);
     const fin = ch.pick('fin-a-reserver', ['Envoie ça à ton groupe avant d\'oublier.', 'Enregistre le post, ça t\'évitera le « c\'est complet ».', 'Laquelle vous tente le plus ?']);
-    return clip(`${intro}\n\n${liste(events)}\n\n${fin}\n\nBillets sur Shotgun et DICE. ${suivre}\n\n${hashtags(ch)}`);
+    return clip(`${intro}\n\n${liste(events)}\n\n${fin}\n\nBillets sur les pages des soirées (Shotgun, DICE, organisateurs). ${suivre}\n\n${hashtags(ch)}`);
   }
   const intro = ch.pick('intro-petits-prix', [
     `Bon plan : sortir sur la Côte sans se ruiner. Gratuit ou petit prix, ${plage(from, to)}.`,
@@ -133,7 +133,7 @@ export function captionReel({ variante, events, ch, r, elargi = false }) {
   const hook = ch.pick(`legende-reel-${variante}`, hooks.length ? hooks : ['Laquelle tu choisis ? Ton numéro en commentaire.']);
   const cta = ch.pick('cta-reel', ['Envoie ce reel à ton crew.', 'Tag ceux qui viennent avec toi.', 'Enregistre pour ne pas oublier.']);
   const suivre = ch.pick('suivre', SUIVRE);
-  return clip(`${hook}\n\n${events.map((e, i) => `${i + 1}. ${ligne(e)}`).join('\n')}\n\n${cta} ${suivre}\n\n${hashtags(ch, variante === 'techno' ? 'techno' : 'general')}`);
+  return clip(`${hook}\n\n${events.map((e, i) => `${i + 1}. ${ligne(e).replace(/^→ /, '')}`).join('\n')}\n\n${cta} ${suivre}\n\n${hashtags(ch, variante === 'techno' ? 'techno' : 'general')}`);
 }
 
 function clip(s) { return s.length <= 2200 ? s : s.slice(0, 2190) + '…'; }

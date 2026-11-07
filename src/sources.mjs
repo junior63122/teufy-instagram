@@ -114,10 +114,17 @@ export async function enrich(events, { max = 25, debugDir } = {}) {
       if (debugDir) { await mkdir(debugDir, { recursive: true }); await writeFile(path.join(debugDir, `detail-${slug(e.url)}.html`), html); }
       const found = extractEvents(html, { source: e.source, baseUrl: e.url });
       const m = found.find((x) => keyOf(x) === keyOf(e)) || found.find((x) => x.start.slice(0, 10) === e.start.slice(0, 10)) || found[0];
-      if (!m) continue;
-      for (const f of ['image', 'venue', 'city', 'address', 'description', 'popularite']) if (!e[f] && m[f]) e[f] = m[f];
-      if (e.price == null && m.price != null) e.price = m.price;
-      if (m.tags?.length) e.tags = [...new Set([...(e.tags || []), ...m.tags])];
+      if (m) {
+        for (const f of ['image', 'venue', 'city', 'address', 'description', 'popularite']) if (!e[f] && m[f]) e[f] = m[f];
+        if (e.price == null && m.price != null) e.price = m.price;
+        if (m.tags?.length) e.tags = [...new Set([...(e.tags || []), ...m.tags])];
+      }
+      // Pas d'affiche dans les données : image de partage de la page (og:image), souvent l'affiche.
+      if (!e.image) {
+        const og = html.match(/<meta[^>]+(?:property|name)=["'](?:og:image|twitter:image)(?::src)?["'][^>]*content=["']([^"']+)["']/i)
+          || html.match(/<meta[^>]+content=["']([^"']+)["'][^>]*(?:property|name)=["'](?:og:image|twitter:image)["']/i);
+        if (og && /^https?:\/\//.test(og[1]) && !/logo|favicon|default/i.test(og[1])) e.image = og[1].replace(/&amp;/g, '&');
+      }
     } catch { /* page indisponible : on garde ce qu'on a */ }
   }
   return events;

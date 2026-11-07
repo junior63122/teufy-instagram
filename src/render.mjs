@@ -17,7 +17,9 @@ const nl = (s) => esc(s).replace(/\n/g, '<br>');
 const bg = (url) => (url ? `background-image:url('${esc(url)}')` : '');
 const prix = (e) => (e.price == null ? '' : e.price === 0 ? 'Gratuit' : `dès ${String(Math.round(e.price * 100) / 100).replace('.', ',')} €`);
 const dateCourte = (d) => new Intl.DateTimeFormat('fr-FR', { timeZone: 'Europe/Paris', day: '2-digit', month: '2-digit' }).format(new Date(new Date(d).getTime() - 6 * 3600e3));
-const ville = (e) => (e.city || e.venue || "Côte d'Azur").replace(/^./, (c) => c.toUpperCase());
+// Nom de ville court pour le bandeau (Mandelieu-la-Napoule → Mandelieu, Saint-Laurent-du-Var → St-Laurent).
+const ville = (e) => (e.city || e.venue || "Côte d'Azur").replace(/^./, (c) => c.toUpperCase())
+  .replace(/-(sur-Mer|la-Napoule|du-Var|Cap-Martin|les-Pins|Loubet|sur-Loup)$/i, '').replace(/^Saint-/i, 'St-').replace(/^Sainte-/i, 'Ste-');
 
 const BASE_CSS = `
 *{box-sizing:border-box;margin:0;padding:0}
@@ -80,19 +82,21 @@ function couverture(th, w, h, { titre, sous, src }) {
 
 // --- Soirée en 3 bandeaux ---------------------------------------------------
 
-function soiree(th, w, h, { e, haut, bas }) {
+function soiree(th, w, h, { e, haut, bas, milieu = { url: '', photo: false } }) {
   const bh = Math.round(h * 0.275);
   const genres = genresList(e);
-  const info = [e.name, e.venue, heure(e.start), prix(e)].filter(Boolean).join(' · ');
+  // En bas : les styles musicaux ; à défaut, le lieu (le nom est déjà sur l'affiche ou au milieu).
+  const titreBas = genres.length ? genres.join(', ') : styleLabel(e) || e.venue || e.name;
+  const info = [titreBas === e.venue ? null : e.venue, e.name !== titreBas ? e.name : null, heure(e.start), prix(e)].filter(Boolean).join(' · ');
   return page(th, w, h, `
   ${photo(haut, `left:0;right:0;top:0;height:${bh}px`, { nb: th.techno, voile: 'rgba(0,0,0,.28)' })}
   <div class="bande haut"><span class="large d">${esc(dateCourte(e.start))}</span>${logo(th, Math.round(bh * 0.36))}<span class="large fit v">${esc(ville(e))}</span></div>
   <div class="aff" style="top:${bh}px;height:${h - 2 * bh}px">
     <div class="flou" style="${bg(e.image)}"></div>
-    ${e.image ? `<div class="net" style="${bg(e.image)}"></div>` : `<div class="sans"><span class="large fit" data-maxh="${h - 2 * bh - 80}">${esc(e.name)}</span></div>`}
+    ${e.image ? `<div class="net" style="${bg(e.image)}"></div>` : `${photo(milieu, 'inset:0', { voile: 'rgba(0,0,0,.45)' })}<div class="sans"><span class="large fit ombre" data-maxh="${h - 2 * bh - 80}">${esc(e.name)}</span></div>`}
   </div>
   ${photo(bas, `left:0;right:0;bottom:0;height:${bh}px`, { nb: th.techno, voile: 'rgba(0,0,0,.38)' })}
-  <div class="bande bas"><p class="g fit" data-maxh="${Math.round(bh * 0.55)}">${esc(genres.length ? genres.join(', ') : styleLabel(e) || e.name)}</p><p class="i fit">${esc(info)}</p></div>`, `
+  <div class="bande bas"><p class="g fit" data-maxh="${Math.round(bh * 0.55)}">${esc(titreBas)}</p><p class="i fit">${esc(info)}</p></div>`, `
   .bande{position:absolute;left:0;right:0;height:${bh}px;display:flex;align-items:center;padding:0 70px}
   .haut{top:0;justify-content:space-between;gap:30px}
   .haut .d{font-size:${Math.round(bh * 0.17)}px;flex:1}
@@ -103,7 +107,7 @@ function soiree(th, w, h, { e, haut, bas }) {
   .aff{position:absolute;left:0;right:0;overflow:hidden;background:#000}
   .aff .flou{position:absolute;inset:-60px;background-size:cover;background-position:center;filter:blur(36px) brightness(.5)}
   .aff .net{position:absolute;inset:0;background-size:contain;background-repeat:no-repeat;background-position:center}
-  .aff .sans{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:40px 70px;text-align:center;background:linear-gradient(135deg,var(--logo1),var(--logo2))}
+  .aff .sans{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:40px 70px;text-align:center}
   .aff .sans span{font-size:90px;width:100%}`);
 }
 
@@ -133,7 +137,7 @@ export function carouselPages({ th, titre, sous, events, photos, fin }) {
   const details = events.slice(0, 8); // couverture + 8 soirées + fin = 10 (max Instagram)
   return [
     couverture(th, 1080, 1350, { titre, sous, src: photos.next(events[0]?.image) }),
-    ...details.map((e) => soiree(th, 1080, 1350, { e, haut: photos.next(e.image), bas: photos.next(e.image) })),
+    ...details.map((e) => soiree(th, 1080, 1350, { e, haut: photos.next(e.image), bas: photos.next(e.image), milieu: e.image ? undefined : photos.next() })),
     message(th, 1080, 1350, { src: photos.next(events.at(-1)?.image), pill: th.hashtag, texte: fin.texte, pied: fin.pied }),
   ];
 }
@@ -153,7 +157,7 @@ export function bonPlanManuelPage({ th, bp, photos }) {
 export function reelPages({ th, events, photos, titre, sous, question, compte }) {
   return [
     couverture(th, 1080, 1920, { titre, sous, src: photos.next(events[0]?.image) }),
-    ...events.map((e) => soiree(th, 1080, 1920, { e, haut: photos.next(e.image), bas: photos.next(e.image) })),
+    ...events.map((e) => soiree(th, 1080, 1920, { e, haut: photos.next(e.image), bas: photos.next(e.image), milieu: e.image ? undefined : photos.next() })),
     message(th, 1080, 1920, { src: photos.next(events[0]?.image), pill: th.hashtag, texte: question, options: events.map((e, i) => [String(i + 1), e.name]).slice(0, 6), pied: 'Ton numéro en commentaire 👇' }),
     message(th, 1080, 1920, { src: photos.next(events.at(-1)?.image), texte: `Abonne-toi à ${compte}`, pied: 'Les soirées de la Côte, chaque semaine. Envoie à ton crew 📲' }),
   ];
