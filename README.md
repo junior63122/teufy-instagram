@@ -64,7 +64,7 @@ Le 3e reel du mois alterne entre « petits prix » et **reel explicatif** : astu
 
 | Besoin | Outil |
 | --- | --- |
-| Animation des reels | Pages HTML/CSS animées, capturées image par image avec Chromium : même principe que HyperFrames (Apache 2.0), dont j'ai repris la grille de tempo et la musique générée |
+| Animation des reels | Pages HTML/CSS animées, capturées image par image avec Chromium : même principe que Remotion et HyperFrames. Repris du skill « animated reels » (Remotion) : ressorts physiques (rebond naturel), mots qui montent d'un masque puis repartent, cartes qui pivotent en 3D, éclats de particules, grain de film, zones sûres des Reels, 1re image jamais vide. Repris de HyperFrames (Apache 2.0) : grille de tempo et musique générée |
 | Montage, son, bruitages | ffmpeg |
 | Musique | Boucles générées par le code au tempo des coupes, ou tes .mp3 |
 | Photos | Banque CC0 (StockSnap via Openverse), Pexels en option |

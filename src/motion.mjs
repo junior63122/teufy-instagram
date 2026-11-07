@@ -21,6 +21,29 @@ const ville = (e) => (e.city || e.venue || "Côte d'Azur").replace(/-(sur-Mer|la
 
 function rnd(seed) { let h = seed >>> 0 || 1; return () => ((h = Math.imul(h ^ (h >>> 13), 1597334677) >>> 0) / 4294967296); }
 
+// Ressorts physiques (repris du skill « animated reels » pour Remotion) : la courbe d'un vrai
+// ressort (raideur, amortissement, masse) est simulée puis traduite en easing CSS linear(),
+// ce qui donne le même dépassement naturel que spring() de Remotion, sans dépendance.
+export function ressort({ damping = 18, stiffness = 120, mass = 0.9 } = {}) {
+  const dt = 1 / 600; let x = 0, v = 0, t = 0; const pts = [];
+  while (t < 3) {
+    const a = (-stiffness * (x - 1) - damping * v) / mass;
+    v += a * dt; x += v * dt; t += dt; pts.push(x);
+    if (t > 0.1 && Math.abs(x - 1) < 0.002 && Math.abs(v) < 0.02) break;
+  }
+  const N = 40;
+  const vals = Array.from({ length: N + 1 }, (_, i) => (i === 0 ? 0 : i === N ? 1 : +pts[Math.round((i / N) * (pts.length - 1))].toFixed(4)));
+  return { dur: +t.toFixed(3), ease: `linear(${vals.join(',')})` };
+}
+const SPR = { soft: ressort({ damping: 18, stiffness: 120, mass: 0.9 }), pop: ressort({ damping: 11, stiffness: 170, mass: 0.7 }), snappy: ressort({ damping: 20, stiffness: 260, mass: 0.6 }) };
+const OUT_EXPO = 'cubic-bezier(.16,1,.3,1)', IN_CUBIC = 'cubic-bezier(.32,0,.67,0)';
+const A = (nom, sp, delai) => `${nom} ${sp.dur}s ${sp.ease} ${delai.toFixed(2)}s both`;
+// Entrée « Pop » : monte et grossit sur un ressort, se défloute ; « net » gère opacité et flou à part
+// (un ressort qui dépasse 1 ne doit pas rendre le flou négatif).
+const entre = (delai, sp = SPR.soft, nom = 'monte') => `animation:${A(nom, sp, delai)},net .35s ${OUT_EXPO} ${delai.toFixed(2)}s both`;
+
+const GRAIN = `url("data:image/svg+xml,${encodeURIComponent("<svg xmlns='http://www.w3.org/2000/svg' width='320' height='320'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%' height='100%' filter='url(#n)'/></svg>")}")`;
+
 const BASE = `
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{width:${W}px;height:${H}px;overflow:hidden;background:var(--nuit);color:#fff;font-family:'TeufyWide',Archivo,'DejaVu Sans',sans-serif;font-stretch:var(--wdth)}
@@ -34,27 +57,36 @@ html,body{width:${W}px;height:${H}px;overflow:hidden;background:var(--nuit);colo
 .logo{height:110px;filter:drop-shadow(7px 7px 0 var(--ombre))}
 .p{position:absolute;top:0;animation:tombe var(--t) linear var(--dl) infinite;font-size:var(--s);opacity:.9}
 .flash{position:absolute;inset:0;background:#fff;animation:flash .25s ease-out both;pointer-events:none}
+.grain{position:absolute;inset:-40%;background:${GRAIN};opacity:.09;mix-blend-mode:overlay;pointer-events:none;z-index:9;animation:grain .5s steps(1) infinite}
+.m{display:inline-block;overflow:hidden;vertical-align:top;padding:.14em .03em .14em;margin:-.14em -.03em -.14em}
+.mi{display:inline-block}
+.e{position:absolute;width:0;height:0;pointer-events:none;z-index:6}
+.e i{position:absolute;font-style:normal;animation:eclat .9s ${OUT_EXPO} var(--t0) both}
 @keyframes kb{from{transform:scale(1.14)}to{transform:scale(1)}}
 @keyframes sortie{to{transform:translateX(-18%) scale(1.06);filter:blur(14px);opacity:0}}
 @keyframes tombe{from{transform:translate(0,-12vh) rotate(0)}50%{transform:translate(40px,50vh) rotate(180deg)}to{transform:translate(-30px,112vh) rotate(360deg)}}
 @keyframes flash{from{opacity:.85}to{opacity:0}}
-@keyframes mot{from{opacity:0;transform:translateY(90px) scale(.8)}70%{opacity:1;transform:translateY(-8px) scale(1.04)}to{opacity:1;transform:none}}
-@keyframes gauche{from{opacity:0;transform:translateX(-120px)}to{opacity:1;transform:none}}
-@keyframes droite{from{opacity:0;transform:translateX(120px)}to{opacity:1;transform:none}}
+@keyframes monte{from{transform:translateY(46px) scale(.9)}to{transform:none}}
+@keyframes grossit{from{transform:scale(0) rotate(-12deg)}to{transform:none}}
+@keyframes net{from{opacity:0;filter:blur(10px)}to{opacity:1;filter:blur(0)}}
+@keyframes roll{from{transform:translateY(115%);filter:blur(6px)}to{transform:none;filter:blur(0)}}
+@keyframes rollout{to{transform:translateY(-115%);filter:blur(6px)}}
+@keyframes swing{from{transform:translateX(260px) rotateY(34deg) scale(.88)}to{transform:none}}
+@keyframes gauche{from{transform:translateX(-140px)}to{transform:none}}
 @keyframes haut{from{transform:translateY(-105%)}to{transform:none}}
 @keyframes bas{from{transform:translateY(105%)}to{transform:none}}
-@keyframes chute{from{opacity:0;transform:scale(1.35) rotate(-6deg)}65%{opacity:1;transform:scale(.97) rotate(1deg)}to{opacity:1;transform:scale(1) rotate(0)}}
-@keyframes pop{from{opacity:0;transform:scale(0)}60%{opacity:1;transform:scale(1.25)}to{opacity:1;transform:scale(1)}}
+@keyframes eclat{from{transform:translate(0,0) scale(1.2) rotate(0);opacity:1}to{transform:translate(var(--x),var(--y)) scale(.35) rotate(170deg);opacity:0}}
 @keyframes zoomlent{from{transform:scale(1)}to{transform:scale(1.05)}}
 @keyframes glitch{0%,100%{text-shadow:0 0 0 transparent}20%{text-shadow:-6px 0 #ff004c,6px 0 #00e5ff}22%{text-shadow:0 0 0 transparent}55%{text-shadow:5px 0 #ff004c,-5px 0 #00e5ff}57%{text-shadow:0 0 0 transparent}}
 @keyframes strobe{0%,100%{opacity:0}5%{opacity:.35}12%{opacity:0}}
 @keyframes balaie{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 @keyframes remue{0%,100%{transform:rotate(0)}25%{transform:rotate(-6deg)}75%{transform:rotate(6deg)}}
+@keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-7%,4%)}40%{transform:translate(5%,-6%)}60%{transform:translate(-3%,8%)}80%{transform:translate(8%,2%)}}
 `;
 
 function page(th, duree, body, css = '') {
   return `<!doctype html><html lang="fr"><head><meta charset="utf-8"><style>${th.css}
-:root{--d:${duree}s}${BASE}${th.techno ? '.titre-anim{animation:glitch 1.2s steps(1) .3s infinite}' : ''}${css}</style></head><body>${body}</body></html>`;
+:root{--d:${duree}s}${BASE}${th.techno ? '.titre-anim{animation:glitch 1.2s steps(1) .3s infinite}' : ''}${css}</style></head><body>${body}<div class="grain"></div></body></html>`;
 }
 const fond = (th, src, nb = false) => `<div class="fond${nb ? ' nb' : ''}" style="${bg(src?.url)}"></div><div class="teinte"></div><div class="voile"></div>`;
 const logo = (th, h = 110) => (th.logo ? `<img class="logo" style="height:${h}px" src="${th.logo}" alt="">` : '<span class="large" style="font-size:90px">T</span>');
@@ -69,73 +101,106 @@ function deco(th, seed = 1, n = 16) {
   return out;
 }
 const strobe = (th) => (th.techno ? '<div style="position:absolute;inset:0;background:#fff;animation:strobe .5s linear infinite;mix-blend-mode:overlay"></div>' : '');
-const mots = (texte, debut = 0.15, pas = 0.11) => esc(texte).split(' ').map((m, i) => `<span style="display:inline-block;animation:mot .5s cubic-bezier(.2,1.3,.4,1) ${(debut + i * pas).toFixed(2)}s both">${m}</span>`).join(' ');
+
+// Mots qui montent d'un masque, un par un (RollText), et repartent vers le haut en fin de scène.
+// *mot* = mot en corail.
+function roll(texte, debut = 0.15, pas = 0.08) {
+  let corail = false;
+  return esc(texte).split(' ').filter(Boolean).map((brut, i) => {
+    if (brut.startsWith('*')) corail = true;
+    const mot = brut.replace(/\*/g, '');
+    const c = corail;
+    if (/\*[.,?!:;]*$/.test(brut)) corail = false;
+    return `<span class="m"><span class="mi" style="${c ? 'color:var(--corail);' : ''}animation:roll .75s ${OUT_EXPO} ${(debut + i * pas).toFixed(2)}s both,rollout .42s ${IN_CUBIC} calc(var(--d) - .55s + ${(i * 0.025).toFixed(3)}s) forwards">${mot}</span></span>`;
+  }).join(' ');
+}
+
+// Éclat de particules (Burst) : points corail et motifs de la saison, projetés en cercle.
+function eclat(th, x, y, t0, { n = 12, r = 230, seed = 5 } = {}) {
+  const g = rnd(seed);
+  const motifs = th.particules?.length ? th.particules : [];
+  let out = '';
+  for (let i = 0; i < n; i++) {
+    const ang = (i / n) * Math.PI * 2 + g() * 0.5, rr = r * (0.6 + g() * 0.5), s = Math.round(18 + g() * 22);
+    const contenu = i % 3 === 0 && motifs.length ? `<span style="font-size:${s * 1.6}px">${motifs[i % motifs.length]}</span>` : `<span style="display:block;width:${s}px;height:${s}px;border-radius:50%;background:var(--corail)"></span>`;
+    out += `<i style="--x:${Math.round(Math.cos(ang) * rr)}px;--y:${Math.round(Math.sin(ang) * rr)}px;--t0:${t0.toFixed(2)}s;left:${-s / 2}px;top:${-s / 2}px">${contenu}</i>`;
+  }
+  return `<div class="e" style="left:${x}px;top:${y}px">${out}</div>`;
+}
 
 // --- Scènes --------------------------------------------------------------------
+// Zones sûres (règles Reels) : contenu entre y≈180 et y≈1400, rien d'important dans les 300 px du bas
+// ni contre le bord droit (boutons Instagram). La 1re image n'est jamais vide : c'est la vignette du fil.
 
 export function sceneAccroche(th, { titre, sous, photo, duree = 2.1, voix }) {
   return { duree, voix: voix ?? titre, sfx: [['impact', 0.03, 0.9]], html: page(th, duree, `<div class="scene">${fond(th, photo)}${deco(th, 3)}
-  <div style="position:absolute;top:140px;left:0;right:0;display:flex;justify-content:center;animation:pop .5s .05s both">${logo(th, 120)}</div>
-  <h1 class="large ombre titre-anim" style="position:absolute;left:70px;right:70px;top:640px;text-align:center;font-size:${titre.length > 34 ? 96 : 118}px">${mots(titre)}</h1>
-  ${sous ? `<h2 class="large" style="position:absolute;left:60px;right:60px;bottom:280px;text-align:center;font-size:72px;color:var(--corail);animation:gauche .45s ease-out .9s both">${esc(sous)}</h2>` : ''}
-  ${strobe(th)}<div class="flash"></div></div>`) };
+  <div style="position:absolute;top:190px;left:0;right:0;display:flex;justify-content:center;${entre(-0.25, SPR.pop, 'grossit')}">${logo(th, 120)}</div>
+  <div style="position:absolute;left:70px;right:70px;top:560px;height:760px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:44px;text-align:center">
+    <h1 class="large ombre titre-anim" style="font-size:${titre.length > 34 ? 96 : 118}px">${roll(titre, -0.4, 0.09)}</h1>
+    ${sous ? `<h2 class="large ombre" style="font-size:70px;color:var(--corail)">${roll(sous, 0.75, 0.07)}</h2>` : ''}
+  </div>
+  ${eclat(th, 540, 900, 0.02, { seed: 3, r: 300, n: 14 })}${strobe(th)}</div>`) };
 }
 
 export function sceneSoiree(th, { e, n, haut, bas, milieu, duree = 2.0, voix }) {
   const g = genresList(e);
   const titreBas = g.length ? g.join(', ') : styleLabel(e) || e.venue || e.name;
   const info = [e.venue !== titreBas ? e.venue : null, heure(e.start), prix(e), e.instagram?.[0] ? `@${e.instagram[0]}` : null].filter(Boolean).join(' · ');
-  const bh = 500;
+  const h1 = 460, h2 = 1180; // bandeau haut 0-460, affiche 460-1180, bandeau bas 1180-1920 (texte en haut du bandeau)
   return { duree, voix, sfx: [['impact', 0.12, 0.8], ['pop', 0.32, 0.7]], html: page(th, duree, `<div class="scene">
-  <div style="position:absolute;left:0;right:0;top:0;height:${bh}px;overflow:hidden;animation:haut .35s cubic-bezier(.2,1,.3,1) both">${fond(th, haut, th.techno)}
-    <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:space-between;padding:0 70px">
-      <span class="large" style="font-size:54px;white-space:nowrap;animation:gauche .4s .15s both">${esc(dateCourte(e.start))}</span>${logo(th, 140)}<span class="large" style="font-size:54px;white-space:nowrap;text-transform:none;animation:droite .4s .15s both">${esc(ville(e))}</span>
+  <div style="position:absolute;left:0;right:0;top:0;height:${h1}px;overflow:hidden;animation:${A('haut', SPR.snappy, 0)}">${fond(th, haut, th.techno)}
+    <div style="position:absolute;left:0;right:0;top:150px;bottom:0;display:flex;align-items:center;justify-content:space-between;padding:0 70px">
+      <span class="large" style="font-size:52px;white-space:nowrap">${roll(dateCourte(e.start), 0.12, 0.06)}</span>${logo(th, 130)}<span class="large" style="font-size:52px;white-space:nowrap;text-transform:none">${roll(ville(e), 0.18, 0.06)}</span>
     </div></div>
-  <div style="position:absolute;left:0;right:0;top:${bh}px;bottom:${bh}px;overflow:hidden;background:#000">
+  <div style="position:absolute;left:0;right:0;top:${h1}px;height:${h2 - h1}px;overflow:hidden;background:#000;perspective:1800px">
     ${e.image
       ? `<div style="position:absolute;inset:-60px;${bg(e.image)};background-size:cover;background-position:center;filter:blur(36px) brightness(.5)"></div>
-         <div style="position:absolute;inset:24px;${bg(e.image)};background-size:contain;background-repeat:no-repeat;background-position:center;animation:chute .55s cubic-bezier(.2,1.2,.4,1) .1s both,zoomlent ${duree}s linear .65s both"></div>`
-      : `${fond(th, milieu)}<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:60px"><h1 class="large ombre titre-anim" style="text-align:center;font-size:${e.name.length > 22 ? 92 : 120}px">${mots(e.name, .15, .09)}</h1></div>`}
-    <span class="large" style="position:absolute;left:40px;top:30px;font-size:200px;color:var(--corail);-webkit-text-stroke:4px #000;animation:pop .45s .3s both">${n}</span>
+         <div style="position:absolute;inset:22px;${entre(0.08, SPR.soft, 'swing')}"><div style="position:absolute;inset:0;${bg(e.image)};background-size:contain;background-repeat:no-repeat;background-position:center;animation:zoomlent ${duree}s linear .6s both"></div></div>`
+      : `${fond(th, milieu)}<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:60px"><h1 class="large ombre titre-anim" style="text-align:center;font-size:${e.name.length > 22 ? 92 : 118}px">${roll(e.name, 0.12, 0.08)}</h1></div>`}
+    <span class="large" style="position:absolute;left:44px;top:24px;font-size:190px;color:var(--corail);-webkit-text-stroke:4px #000;${entre(0.3, SPR.pop, 'grossit')}">${n}</span>
+    ${eclat(th, 120, 130, 0.32, { n: 10, r: 170, seed: n * 13 })}
   </div>
-  <div style="position:absolute;left:0;right:0;bottom:0;height:${bh}px;overflow:hidden;animation:bas .35s cubic-bezier(.2,1,.3,1) .2s both">${fond(th, bas, th.techno)}
-    <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;padding:0 70px;text-align:center">
-      <p style="font-weight:900;font-size:${titreBas.length > 28 ? 62 : 80}px;line-height:1.1;animation:mot .45s .45s both">${esc(titreBas)}</p>
-      <p style="font-weight:600;font-stretch:100%;font-size:38px;opacity:.92;animation:gauche .4s .6s both">${esc(e.name !== titreBas && e.image ? `${e.name} · ${info}` : info)}</p>
+  <div style="position:absolute;left:0;right:0;top:${h2}px;bottom:0;overflow:hidden;animation:${A('bas', SPR.snappy, 0.15)}">${fond(th, bas, th.techno)}
+    <div style="position:absolute;left:0;right:0;top:0;height:250px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:0 140px;text-align:center">
+      <p style="font-weight:900;font-size:${titreBas.length > 28 ? 58 : 76}px;line-height:1.1">${roll(titreBas, 0.4, 0.07)}</p>
+      <p style="font-weight:600;font-stretch:100%;font-size:36px;opacity:.92;${entre(0.62, SPR.soft)}">${esc(e.name !== titreBas && e.image ? `${e.name} · ${info}` : info)}</p>
     </div></div>
   ${deco(th, n * 7, 8)}${strobe(th)}</div>`) };
 }
 
 export function sceneQuestion(th, { question, events, photo, duree = 2.8, voix }) {
+  const liste = events.slice(0, 6);
   return { duree, voix: voix ?? `${question} Dis-le en commentaire.`, sfx: [['pop', 0.5, 0.5], ['pop', 0.62, 0.5], ['pop', 0.74, 0.5]], html: page(th, duree, `<div class="scene">${fond(th, photo)}${deco(th, 11)}
-  <h1 class="large ombre titre-anim" style="position:absolute;left:70px;right:70px;top:420px;text-align:center;font-size:120px">${mots(question)}</h1>
-  <div style="position:absolute;left:70px;right:70px;top:880px;display:flex;flex-direction:column;gap:22px">
-    ${events.slice(0, 6).map((e, i) => `<p style="font-weight:800;font-size:44px;display:flex;gap:26px;align-items:center;animation:gauche .4s ${(0.5 + i * 0.12).toFixed(2)}s both"><b class="large" style="flex:0 0 90px;height:90px;border-radius:50%;background:linear-gradient(135deg,var(--logo1),var(--logo2));display:flex;align-items:center;justify-content:center;font-size:52px">${i + 1}</b>${esc(e.name)}</p>`).join('')}
+  <h1 class="large ombre titre-anim" style="position:absolute;left:70px;right:70px;top:230px;text-align:center;font-size:${question.length > 26 ? 96 : 116}px">${roll(question, 0.05, 0.09)}</h1>
+  <div style="position:absolute;left:0;right:0;top:${question.length > 26 ? 640 : 600}px;display:flex;justify-content:center;${entre(0.4, SPR.pop)}"><p style="font-weight:800;font-stretch:100%;font-size:44px;padding:16px 34px;border-radius:999px;background:var(--corail);box-shadow:0 10px 30px rgba(0,0,0,.35)">Ton numéro en commentaire <span style="display:inline-block;animation:remue .6s .9s infinite">👇</span></p></div>
+  <div style="position:absolute;left:70px;right:150px;top:780px;display:flex;flex-direction:column;gap:${liste.length > 4 ? 16 : 26}px">
+    ${liste.map((e, i) => `<p style="font-weight:800;font-size:42px;display:flex;gap:24px;align-items:center;${entre(0.55 + i * 0.1, SPR.snappy, 'gauche')}"><b class="large" style="flex:0 0 80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--logo1),var(--logo2));display:flex;align-items:center;justify-content:center;font-size:46px">${i + 1}</b><span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(e.name)}</span></p>`).join('')}
   </div>
-  <p style="position:absolute;left:0;right:0;bottom:200px;text-align:center;font-weight:800;font-stretch:100%;font-size:52px;animation:pop .4s 1.3s both">Ton numéro en commentaire <span style="display:inline-block;animation:remue .6s 1.6s infinite">👇</span></p>
   ${strobe(th)}</div>`) };
 }
 
 export function sceneFin(th, { compte, photo, texte = 'Les soirées de la Côte, chaque semaine', duree = 2.2, voix }) {
   return { duree, voix: voix ?? 'Abonne-toi pour ne rien rater.', sfx: [['impact', 0.05, 0.7]], html: page(th, duree, `<div class="scene" style="animation:none">${fond(th, photo)}${deco(th, 23)}
-  <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:56px;text-align:center;padding:0 70px">
-    <div style="animation:pop .55s .05s both">${logo(th, 230)}</div>
-    <p class="large ombre" style="font-size:78px;color:var(--corail);animation:mot .5s .4s both">Abonne-toi</p>
-    <p style="font-weight:800;font-size:54px;animation:mot .5s .55s both">${esc(compte)}</p>
-    <p style="font-weight:700;font-stretch:100%;font-size:42px;opacity:.92;animation:gauche .45s .8s both">${esc(texte)}</p>
-  </div></div>`) };
+  <div style="position:absolute;left:70px;right:70px;top:420px;height:900px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:50px;text-align:center">
+    <div style="${entre(0.03, SPR.pop, 'grossit')}">${logo(th, 230)}</div>
+    <p class="large ombre" style="font-size:80px;color:var(--corail)">${roll('Abonne-toi', 0.35, 0.08)}</p>
+    <p style="font-weight:800;font-size:54px;${entre(0.55, SPR.soft)}">${esc(compte)}</p>
+    <p style="font-weight:700;font-stretch:100%;font-size:42px;opacity:.92">${roll(texte, 0.75, 0.05)}</p>
+  </div>
+  ${eclat(th, 540, 700, 0.08, { n: 16, r: 330, seed: 23 })}</div>`) };
 }
 
-// Reel explicatif : un titre puis un point par scène (numéro, texte qui se révèle).
+// Reel explicatif : un titre puis un point par scène (numéro qui saute, trait qui balaie, texte qui monte).
 export function scenesExplication(th, { titre, sous, points, photos }) {
   const out = [sceneAccroche(th, { titre, sous, photo: photos.next(), duree: 2.4, voix: titre })];
   points.slice(0, 5).forEach((pt, i) => {
     const duree = Math.min(4.2, Math.max(2.6, pt.length / 22));
     out.push({ duree, voix: pt, sfx: [['pop', 0.08, 0.7]], html: page(th, duree, `<div class="scene">${fond(th, photos.next())}${deco(th, 40 + i, 8)}
-    <span class="large" style="position:absolute;left:70px;top:300px;font-size:260px;color:var(--corail);animation:pop .45s .05s both">${i + 1}</span>
-    <div style="position:absolute;left:70px;right:70px;top:700px">
-      <div style="height:14px;width:260px;background:var(--corail);transform-origin:left;animation:balaie .4s .25s both;margin-bottom:46px"></div>
-      <p class="ombre" style="font-weight:800;font-size:${pt.length > 90 ? 62 : 74}px;line-height:1.18">${mots(pt, .3, .06)}</p>
+    <span class="large" style="position:absolute;left:70px;top:230px;font-size:250px;color:var(--corail);${entre(0.03, SPR.pop, 'grossit')}">${i + 1}</span>
+    ${eclat(th, 170, 380, 0.06, { n: 10, r: 190, seed: 40 + i })}
+    <div style="position:absolute;left:70px;right:150px;top:620px">
+      <div style="height:14px;width:260px;background:var(--corail);transform-origin:left;animation:balaie .45s ${OUT_EXPO} .2s both;margin-bottom:46px"></div>
+      <p class="ombre" style="font-weight:800;font-size:${pt.length > 90 ? 60 : 72}px;line-height:1.2">${roll(pt, 0.28, 0.045)}</p>
     </div>${strobe(th)}</div>`) });
   });
   return out;
