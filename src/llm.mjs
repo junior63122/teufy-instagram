@@ -3,7 +3,7 @@
 //     Google intégrée (« grounding ») pour trouver les soirées et faire la veille.
 //  2. GitHub Models (gratuit dans GitHub Actions avec le GITHUB_TOKEN, permission models: read) :
 //     texte et JSON, sans recherche web.
-//  3. Claude (API Anthropic, payante) : seulement si config.llm.payant_autorise = true.
+//  3. Claude (API Anthropic, payante) : seulement si config.llm.payant_autorise = true, et alors en premier.
 
 const GEMINI = 'https://generativelanguage.googleapis.com/v1beta/models';
 const GH = 'https://models.github.ai/inference/chat/completions';
@@ -13,7 +13,8 @@ export function fournisseurs(config = {}) {
   const out = [];
   if (process.env.GEMINI_API_KEY) out.push('gemini');
   if (process.env.GITHUB_TOKEN && L.github_models !== false) out.push('github');
-  if (L.payant_autorise && (process.env.ANTHROPIC_API_KEY || process.env.ANTHROPIC_AUTH_TOKEN)) out.push('anthropic');
+  // Claude passe en premier quand le payant est autorisé (meilleure qualité), les IA gratuites restent en secours.
+  if (L.payant_autorise && (process.env.ANTHROPIC_API_KEY || process.env.ANTHROPIC_AUTH_TOKEN)) out.unshift('anthropic');
   return out;
 }
 export const rechercheWebDisponible = (config) => fournisseurs(config).some((f) => f === 'gemini' || f === 'anthropic');

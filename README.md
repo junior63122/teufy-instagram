@@ -122,7 +122,7 @@ Tu peux ajouter tes propres photos dans ces dossiers. Pinterest n'est pas une ba
 
 Garde-fous : rien n'est publié sans passer par le code. Pas de tiret « — », pas de « lien en bio », pas d'invitation à télécharger l'app, longueurs limitées, hashtags valides. Tout est journalisé dans `ANALYSE.md` (repris en haut de `RAPPORT.md`) et dans `veille/AAAA-MM-JJ.md`.
 
-Coût : **0 €**. L'offre gratuite de Gemini suffit largement (quelques appels par semaine). Claude n'est utilisé que si tu mets `llm.payant_autorise` à `true` dans `config.json`.
+Coût : avec Claude (`llm.payant_autorise` = `true`, secret `ANTHROPIC_API_KEY`), environ 30 à 50 $ par mois, surtout pour la recherche des soirées tous les 3 jours. Avec `false`, **0 €** : Gemini (gratuit) fait tout. Si Claude n'a plus de crédit, Gemini prend le relais automatiquement.
 
 ## Tendances et règles Instagram
 

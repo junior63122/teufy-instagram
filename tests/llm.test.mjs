@@ -12,7 +12,7 @@ const env = (vars, fn) => async () => {
 
 test('gratuit par défaut : Claude seulement si payant autorisé', env({ GEMINI_API_KEY: 'g', GITHUB_TOKEN: 't', ANTHROPIC_API_KEY: 'a' }, async () => {
   assert.deepEqual(fournisseurs({}), ['gemini', 'github']);
-  assert.deepEqual(fournisseurs({ llm: { payant_autorise: true } }), ['gemini', 'github', 'anthropic']);
+  assert.deepEqual(fournisseurs({ llm: { payant_autorise: true } }), ['anthropic', 'gemini', 'github']);
 }));
 
 test('JSON : Gemini en panne → GitHub Models prend le relais', env({ GEMINI_API_KEY: 'g', GITHUB_TOKEN: 't' }, async () => {
