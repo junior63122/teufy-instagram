@@ -1,0 +1,986 @@
+{
+ "id": "paliers",
+ "concept": "paliers",
+ "fps": 30,
+ "duree": 34.92,
+ "mots": [
+  {
+   "w": "Lundi,",
+   "scene": 0,
+   "start": 0,
+   "end": 0.64
+  },
+  {
+   "w": "ta",
+   "scene": 0,
+   "start": 0.72,
+   "end": 0.88
+  },
+  {
+   "w": "place",
+   "scene": 0,
+   "start": 0.92,
+   "end": 1.12
+  },
+  {
+   "w": "était",
+   "scene": 0,
+   "start": 1.147,
+   "end": 1.28
+  },
+  {
+   "w": "à",
+   "scene": 0,
+   "start": 1.32,
+   "end": 1.36
+  },
+  {
+   "w": "12",
+   "scene": 0,
+   "start": 1.44,
+   "end": 1.68
+  },
+  {
+   "w": "euros.",
+   "scene": 0,
+   "start": 1.72,
+   "end": 2
+  },
+  {
+   "w": "Jeudi,",
+   "scene": 0,
+   "start": 2.213,
+   "end": 3.12
+  },
+  {
+   "w": "elle",
+   "scene": 0,
+   "start": 3.152,
+   "end": 3.28
+  },
+  {
+   "w": "est",
+   "scene": 0,
+   "start": 3.3,
+   "end": 3.36
+  },
+  {
+   "w": "à",
+   "scene": 0,
+   "start": 3.4,
+   "end": 3.44
+  },
+  {
+   "w": "20.",
+   "scene": 0,
+   "start": 3.6,
+   "end": 3.84
+  },
+  {
+   "w": "Arnaque",
+   "scene": 1,
+   "start": 4.053,
+   "end": 4.72
+  },
+  {
+   "w": "?",
+   "scene": 1,
+   "start": 4.8,
+   "end": 4.88
+  },
+  {
+   "w": "Non.",
+   "scene": 1,
+   "start": 5.08,
+   "end": 6
+  },
+  {
+   "w": "C'est",
+   "scene": 2,
+   "start": 6.16,
+   "end": 6.4
+  },
+  {
+   "w": "juste",
+   "scene": 2,
+   "start": 6.44,
+   "end": 6.64
+  },
+  {
+   "w": "le",
+   "scene": 2,
+   "start": 6.693,
+   "end": 6.8
+  },
+  {
+   "w": "système",
+   "scene": 2,
+   "start": 6.85,
+   "end": 7.2
+  },
+  {
+   "w": "des",
+   "scene": 2,
+   "start": 7.24,
+   "end": 7.36
+  },
+  {
+   "w": "paliers.",
+   "scene": 2,
+   "start": 7.42,
+   "end": 7.92
+  },
+  {
+   "w": "Au",
+   "scene": 3,
+   "start": 8.08,
+   "end": 8.4
+  },
+  {
+   "w": "début,",
+   "scene": 3,
+   "start": 8.453,
+   "end": 9.12
+  },
+  {
+   "w": "l'organisateur",
+   "scene": 3,
+   "start": 9.14,
+   "end": 9.76
+  },
+  {
+   "w": "ne",
+   "scene": 3,
+   "start": 9.787,
+   "end": 9.84
+  },
+  {
+   "w": "sait",
+   "scene": 3,
+   "start": 9.893,
+   "end": 10.08
+  },
+  {
+   "w": "pas",
+   "scene": 3,
+   "start": 10.12,
+   "end": 10.24
+  },
+  {
+   "w": "combien",
+   "scene": 3,
+   "start": 10.304,
+   "end": 10.64
+  },
+  {
+   "w": "de",
+   "scene": 3,
+   "start": 10.667,
+   "end": 10.72
+  },
+  {
+   "w": "personnes",
+   "scene": 3,
+   "start": 10.76,
+   "end": 11.12
+  },
+  {
+   "w": "vont",
+   "scene": 3,
+   "start": 11.152,
+   "end": 11.28
+  },
+  {
+   "w": "venir.",
+   "scene": 3,
+   "start": 11.347,
+   "end": 11.76
+  },
+  {
+   "w": "Alors",
+   "scene": 4,
+   "start": 11.947,
+   "end": 12.4
+  },
+  {
+   "w": "il",
+   "scene": 4,
+   "start": 12.48,
+   "end": 12.64
+  },
+  {
+   "w": "vend",
+   "scene": 4,
+   "start": 12.672,
+   "end": 12.8
+  },
+  {
+   "w": "les",
+   "scene": 4,
+   "start": 12.82,
+   "end": 12.88
+  },
+  {
+   "w": "premières",
+   "scene": 4,
+   "start": 12.912,
+   "end": 13.2
+  },
+  {
+   "w": "places",
+   "scene": 4,
+   "start": 13.257,
+   "end": 13.6
+  },
+  {
+   "w": "moins",
+   "scene": 4,
+   "start": 13.64,
+   "end": 13.84
+  },
+  {
+   "w": "cher",
+   "scene": 4,
+   "start": 13.904,
+   "end": 14.16
+  },
+  {
+   "w": ":",
+   "scene": 4,
+   "start": 14.36,
+   "end": 14.56
+  },
+  {
+   "w": "c'est",
+   "scene": 4,
+   "start": 14.58,
+   "end": 14.64
+  },
+  {
+   "w": "l'early",
+   "scene": 4,
+   "start": 14.68,
+   "end": 15.04
+  },
+  {
+   "w": "bird.",
+   "scene": 4,
+   "start": 15.104,
+   "end": 15.44
+  },
+  {
+   "w": "Ça",
+   "scene": 5,
+   "start": 15.76,
+   "end": 16.16
+  },
+  {
+   "w": "le",
+   "scene": 5,
+   "start": 16.187,
+   "end": 16.24
+  },
+  {
+   "w": "rassure,",
+   "scene": 5,
+   "start": 16.28,
+   "end": 16.96
+  },
+  {
+   "w": "et",
+   "scene": 5,
+   "start": 16.987,
+   "end": 17.04
+  },
+  {
+   "w": "ces",
+   "scene": 5,
+   "start": 17.1,
+   "end": 17.28
+  },
+  {
+   "w": "places",
+   "scene": 5,
+   "start": 17.326,
+   "end": 17.6
+  },
+  {
+   "w": "partent",
+   "scene": 5,
+   "start": 17.632,
+   "end": 17.92
+  },
+  {
+   "w": "très",
+   "scene": 5,
+   "start": 17.952,
+   "end": 18.08
+  },
+  {
+   "w": "vite.",
+   "scene": 5,
+   "start": 18.144,
+   "end": 18.48
+  },
+  {
+   "w": "Dès",
+   "scene": 6,
+   "start": 18.88,
+   "end": 19.32
+  },
+  {
+   "w": "qu'un",
+   "scene": 6,
+   "start": 19.333,
+   "end": 19.52
+  },
+  {
+   "w": "palier",
+   "scene": 6,
+   "start": 19.56,
+   "end": 19.76
+  },
+  {
+   "w": "est",
+   "scene": 6,
+   "start": 19.8,
+   "end": 19.92
+  },
+  {
+   "w": "vendu,",
+   "scene": 6,
+   "start": 19.952,
+   "end": 20.56
+  },
+  {
+   "w": "le",
+   "scene": 6,
+   "start": 20.613,
+   "end": 20.72
+  },
+  {
+   "w": "suivant",
+   "scene": 6,
+   "start": 20.768,
+   "end": 21.2
+  },
+  {
+   "w": "ouvre,",
+   "scene": 6,
+   "start": 21.253,
+   "end": 21.84
+  },
+  {
+   "w": "un",
+   "scene": 6,
+   "start": 21.867,
+   "end": 21.92
+  },
+  {
+   "w": "peu",
+   "scene": 6,
+   "start": 21.96,
+   "end": 22.08
+  },
+  {
+   "w": "plus",
+   "scene": 6,
+   "start": 22.112,
+   "end": 22.24
+  },
+  {
+   "w": "cher.",
+   "scene": 6,
+   "start": 22.304,
+   "end": 22.64
+  },
+  {
+   "w": "Et",
+   "scene": 7,
+   "start": 22.907,
+   "end": 23.44
+  },
+  {
+   "w": "sur",
+   "scene": 7,
+   "start": 23.48,
+   "end": 23.6
+  },
+  {
+   "w": "place,",
+   "scene": 7,
+   "start": 23.667,
+   "end": 24.24
+  },
+  {
+   "w": "c'est",
+   "scene": 7,
+   "start": 24.28,
+   "end": 24.4
+  },
+  {
+   "w": "souvent",
+   "scene": 7,
+   "start": 24.43,
+   "end": 24.64
+  },
+  {
+   "w": "le",
+   "scene": 7,
+   "start": 24.667,
+   "end": 24.72
+  },
+  {
+   "w": "prix",
+   "scene": 7,
+   "start": 24.768,
+   "end": 24.96
+  },
+  {
+   "w": "fort.",
+   "scene": 7,
+   "start": 25.024,
+   "end": 25.36
+  },
+  {
+   "w": "Donc",
+   "scene": 8,
+   "start": 25.52,
+   "end": 26.08
+  },
+  {
+   "w": "si",
+   "scene": 8,
+   "start": 26.133,
+   "end": 26.24
+  },
+  {
+   "w": "une",
+   "scene": 8,
+   "start": 26.26,
+   "end": 26.32
+  },
+  {
+   "w": "soirée",
+   "scene": 8,
+   "start": 26.368,
+   "end": 26.64
+  },
+  {
+   "w": "te",
+   "scene": 8,
+   "start": 26.693,
+   "end": 26.8
+  },
+  {
+   "w": "tente,",
+   "scene": 8,
+   "start": 26.84,
+   "end": 27.52
+  },
+  {
+   "w": "prends",
+   "scene": 8,
+   "start": 27.547,
+   "end": 27.76
+  },
+  {
+   "w": "ta",
+   "scene": 8,
+   "start": 27.813,
+   "end": 27.92
+  },
+  {
+   "w": "place",
+   "scene": 8,
+   "start": 27.973,
+   "end": 28.24
+  },
+  {
+   "w": "tôt.",
+   "scene": 8,
+   "start": 28.32,
+   "end": 28.56
+  },
+  {
+   "w": "Et",
+   "scene": 9,
+   "start": 28.827,
+   "end": 29.36
+  },
+  {
+   "w": "toi,",
+   "scene": 9,
+   "start": 29.42,
+   "end": 30
+  },
+  {
+   "w": "t'es",
+   "scene": 9,
+   "start": 30.04,
+   "end": 30.16
+  },
+  {
+   "w": "team",
+   "scene": 9,
+   "start": 30.208,
+   "end": 30.4
+  },
+  {
+   "w": "à",
+   "scene": 9,
+   "start": 30.48,
+   "end": 30.56
+  },
+  {
+   "w": "l'avance,",
+   "scene": 9,
+   "start": 30.6,
+   "end": 31.12
+  },
+  {
+   "w": "ou",
+   "scene": 9,
+   "start": 31.227,
+   "end": 31.44
+  },
+  {
+   "w": "team",
+   "scene": 9,
+   "start": 31.504,
+   "end": 31.76
+  },
+  {
+   "w": "dernière",
+   "scene": 9,
+   "start": 31.804,
+   "end": 32.16
+  },
+  {
+   "w": "minute",
+   "scene": 9,
+   "start": 32.217,
+   "end": 32.56
+  },
+  {
+   "w": "?",
+   "scene": 9,
+   "start": 32.64,
+   "end": 32.72
+  }
+ ],
+ "scenes": [
+  {
+   "id": "accroche",
+   "texte": "Lundi, ta place était à 12 euros. Jeudi, elle est à 20.",
+   "sons": [
+    {
+     "son": "pop",
+     "mot": "lundi",
+     "volume": 0.6
+    },
+    {
+     "son": "caisse",
+     "mot": "jeudi",
+     "decalage": 0.15,
+     "volume": 0.7
+    },
+    {
+     "son": "basse",
+     "mot": "jeudi",
+     "decalage": 0.1,
+     "volume": 0.8
+    }
+   ],
+   "start": 0,
+   "end": 3.933
+  },
+  {
+   "id": "arnaque",
+   "texte": "Arnaque ? Non.",
+   "sons": [
+    {
+     "son": "tampon",
+     "mot": "arnaque",
+     "volume": 0.9
+    },
+    {
+     "son": "zoom",
+     "mot": "non",
+     "volume": 0.6
+    }
+   ],
+   "start": 3.933,
+   "end": 6.04
+  },
+  {
+   "id": "paliers",
+   "texte": "C'est juste le système des paliers.",
+   "sons": [
+    {
+     "son": "aspiration",
+     "decalage": -0.35,
+     "volume": 0.7
+    },
+    {
+     "son": "pop",
+     "decalage": 0.25
+    },
+    {
+     "son": "pop",
+     "decalage": 0.41
+    },
+    {
+     "son": "pop",
+     "decalage": 0.57
+    },
+    {
+     "son": "pop",
+     "decalage": 0.73
+    }
+   ],
+   "start": 6.04,
+   "end": 7.96
+  },
+  {
+   "id": "organisateur",
+   "texte": "Au début, l'organisateur ne sait pas combien de personnes vont venir.",
+   "sons": [
+    {
+     "son": "pop-long",
+     "mot": "combien",
+     "volume": 0.5
+    },
+    {
+     "son": "pop-long",
+     "mot": "combien",
+     "decalage": 0.12,
+     "volume": 0.45
+    },
+    {
+     "son": "pop-long",
+     "mot": "combien",
+     "decalage": 0.24,
+     "volume": 0.4
+    }
+   ],
+   "start": 7.96,
+   "end": 11.827
+  },
+  {
+   "id": "early",
+   "texte": "Alors il vend les premières places moins cher : c'est l'early bird.",
+   "sons": [
+    {
+     "son": "ailes",
+     "mot": "early",
+     "decalage": -0.6,
+     "volume": 0.6
+    },
+    {
+     "son": "oiseau",
+     "mot": "early",
+     "decalage": 0.25,
+     "volume": 0.6
+    }
+   ],
+   "start": 11.827,
+   "end": 15.64
+  },
+  {
+   "id": "sold-out",
+   "texte": "Ça le rassure, et ces places partent très vite.",
+   "sons": [
+    {
+     "son": "tampon",
+     "mot": "vite",
+     "volume": 0.85
+    },
+    {
+     "son": "acclamation",
+     "mot": "vite",
+     "decalage": 0.1,
+     "volume": 0.25
+    }
+   ],
+   "start": 15.64,
+   "end": 18.76
+  },
+  {
+   "id": "escalier",
+   "texte": "Dès qu'un palier est vendu, le suivant ouvre, un peu plus cher.",
+   "sons": [
+    {
+     "son": "coche",
+     "mot": "palier",
+     "volume": 0.6
+    },
+    {
+     "son": "coche",
+     "mot": "suivant",
+     "volume": 0.6
+    },
+    {
+     "son": "coche",
+     "mot": "cher",
+     "volume": 0.6
+    }
+   ],
+   "start": 18.76,
+   "end": 22.787
+  },
+  {
+   "id": "sur-place",
+   "texte": "Et sur place, c'est souvent le prix fort.",
+   "sons": [
+    {
+     "son": "grondement",
+     "volume": 0.5
+    },
+    {
+     "son": "caisse",
+     "mot": "prix",
+     "volume": 0.75
+    }
+   ],
+   "start": 22.787,
+   "end": 25.4
+  },
+  {
+   "id": "regle",
+   "texte": "Donc si une soirée te tente, prends ta place tôt.",
+   "sons": [
+    {
+     "son": "impact",
+     "decalage": -0.1,
+     "volume": 0.5
+    },
+    {
+     "son": "basse",
+     "mot": "tôt",
+     "volume": 0.8
+    }
+   ],
+   "start": 25.4,
+   "end": 28.707
+  },
+  {
+   "id": "question",
+   "texte": "Et toi, t'es team à l'avance, ou team dernière minute ?",
+   "sons": [
+    {
+     "son": "pop-dur",
+     "mot": "avance",
+     "decalage": -0.2,
+     "volume": 0.6
+    },
+    {
+     "son": "pop-dur",
+     "mot": "dernière",
+     "decalage": -0.2,
+     "volume": 0.6
+    },
+    {
+     "son": "clavier",
+     "mot": "minute",
+     "decalage": 0.4,
+     "volume": 0.5
+    }
+   ],
+   "start": 28.707,
+   "end": 34.92
+  }
+ ],
+ "bruits": [
+  {
+   "src": "sfx/pop.mp3",
+   "at": 0,
+   "volume": 0.6
+  },
+  {
+   "src": "sfx/caisse.mp3",
+   "at": 2.363,
+   "volume": 0.7
+  },
+  {
+   "src": "sfx/basse.mp3",
+   "at": 2.313,
+   "volume": 0.8
+  },
+  {
+   "src": "sfx/tampon.mp3",
+   "at": 4.053,
+   "volume": 0.9
+  },
+  {
+   "src": "sfx/zoom.mp3",
+   "at": 5.08,
+   "volume": 0.6
+  },
+  {
+   "src": "sfx/aspiration.mp3",
+   "at": 5.69,
+   "volume": 0.7
+  },
+  {
+   "src": "sfx/pop.mp3",
+   "at": 6.29,
+   "volume": 0.6
+  },
+  {
+   "src": "sfx/pop.mp3",
+   "at": 6.45,
+   "volume": 0.6
+  },
+  {
+   "src": "sfx/pop.mp3",
+   "at": 6.61,
+   "volume": 0.6
+  },
+  {
+   "src": "sfx/pop.mp3",
+   "at": 6.77,
+   "volume": 0.6
+  },
+  {
+   "src": "sfx/pop-long.mp3",
+   "at": 10.304,
+   "volume": 0.5
+  },
+  {
+   "src": "sfx/pop-long.mp3",
+   "at": 10.424,
+   "volume": 0.45
+  },
+  {
+   "src": "sfx/pop-long.mp3",
+   "at": 10.544,
+   "volume": 0.4
+  },
+  {
+   "src": "sfx/ailes.mp3",
+   "at": 11.227,
+   "volume": 0.6
+  },
+  {
+   "src": "sfx/oiseau.mp3",
+   "at": 12.077,
+   "volume": 0.6
+  },
+  {
+   "src": "sfx/tampon.mp3",
+   "at": 18.144,
+   "volume": 0.85
+  },
+  {
+   "src": "sfx/acclamation.mp3",
+   "at": 18.244,
+   "volume": 0.25
+  },
+  {
+   "src": "sfx/coche.mp3",
+   "at": 19.56,
+   "volume": 0.6
+  },
+  {
+   "src": "sfx/coche.mp3",
+   "at": 20.768,
+   "volume": 0.6
+  },
+  {
+   "src": "sfx/coche.mp3",
+   "at": 22.304,
+   "volume": 0.6
+  },
+  {
+   "src": "sfx/grondement.mp3",
+   "at": 22.787,
+   "volume": 0.5
+  },
+  {
+   "src": "sfx/caisse.mp3",
+   "at": 24.768,
+   "volume": 0.75
+  },
+  {
+   "src": "sfx/impact.mp3",
+   "at": 25.3,
+   "volume": 0.5
+  },
+  {
+   "src": "sfx/basse.mp3",
+   "at": 28.32,
+   "volume": 0.8
+  },
+  {
+   "src": "sfx/pop-dur.mp3",
+   "at": 28.507,
+   "volume": 0.6
+  },
+  {
+   "src": "sfx/pop-dur.mp3",
+   "at": 31.604,
+   "volume": 0.6
+  },
+  {
+   "src": "sfx/clavier.mp3",
+   "at": 32.617,
+   "volume": 0.5
+  },
+  {
+   "src": "sfx/swoosh.mp3",
+   "at": 3.7529999999999997,
+   "volume": 0.35
+  },
+  {
+   "src": "sfx/swoosh.mp3",
+   "at": 5.86,
+   "volume": 0.35
+  },
+  {
+   "src": "sfx/swoosh.mp3",
+   "at": 7.78,
+   "volume": 0.35
+  },
+  {
+   "src": "sfx/swoosh.mp3",
+   "at": 11.647,
+   "volume": 0.35
+  },
+  {
+   "src": "sfx/swoosh.mp3",
+   "at": 15.46,
+   "volume": 0.35
+  },
+  {
+   "src": "sfx/swoosh.mp3",
+   "at": 18.580000000000002,
+   "volume": 0.35
+  },
+  {
+   "src": "sfx/swoosh.mp3",
+   "at": 22.607,
+   "volume": 0.35
+  },
+  {
+   "src": "sfx/swoosh.mp3",
+   "at": 25.22,
+   "volume": 0.35
+  },
+  {
+   "src": "sfx/swoosh.mp3",
+   "at": 28.527,
+   "volume": 0.35
+  }
+ ],
+ "voix": {
+  "src": "paliers/voix.mp3",
+  "volume": 1
+ },
+ "musique": {
+  "src": "musique/trap.mp3",
+  "volume": 0.32,
+  "debut": 4,
+  "ducking": 0.38
+ }
+}

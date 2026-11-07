@@ -9,7 +9,7 @@
 //                debat, reel:weekend, reel:techno, reel:petits-prix
 // Options : --dry-run  --now=2026-11-09T12:00:00Z  --fixtures=tests/fixtures
 //           --quoi (affiche seulement la publication du jour)  --horaire (avec --quoi : attend l'heure apprise)
-import { readFile, writeFile, rm, mkdir, appendFile } from 'node:fs/promises';
+import { readFile, writeFile, rm, mkdir, appendFile, readdir, copyFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import path from 'node:path';
@@ -241,8 +241,49 @@ async function prepare(slot, now, id) {
         ? { texte: 'On se voit sur le dancefloor.\nTu seras à laquelle ?', pied: `Abonne-toi à ${config.compte} 👇` }
         : { texte: 'Tu sors où cette semaine ?\nDis-le en commentaire.', pied: `Abonne-toi à ${config.compte} 👇` },
     });
-    const files = await renderPages(programme(pages, chosen, { th, photos, titre, sous: fort ? `En ${MOIS(now)}` : elargi ? 'Ces prochains jours' : 'Cette semaine' }), dir, `incontournables-${stamp}`, { width: 1080, height: 1350 });
+    let files = null;
+    // Carrousel du studio (affiches officielles, DA éditoriale) ; repli sur l'ancien gabarit si impossible.
+    if (config.studio?.affiches !== false && chosen.filter((e) => e.image).length >= 2 && existsSync(path.join(ROOT, 'studio', 'node_modules'))) {
+      const { heure } = await import('./dates.mjs');
+      const { genresList } = await import('./genres.mjs');
+      const jourC = (d) => new Intl.DateTimeFormat('fr-FR', { timeZone: 'Europe/Paris', weekday: 'short', day: 'numeric', month: 'short' }).format(new Date(Date.parse(d) - 6 * 3600e3)).replace(/^./, (c) => c.toUpperCase());
+      const avecImage = chosen.filter((e) => e.image).slice(0, 8);
+      const villes = [...new Set(avecImage.map((e) => e.city).filter(Boolean))];
+      const entree = { titre: [titre, fort ? `en ${MOIS(now)}` : elargi ? 'ces prochains jours' : 'cette semaine'], lieu: (villes.length === 1 ? villes[0] : "CÔTE D'AZUR").toUpperCase(), pied: villes.slice(0, 3).join(' · ').toUpperCase(),
+        soirees: avecImage.map((e, i) => ({ id: `${i}-${hash(e.name)}`, nom: e.name, genre: (genresList(e).join(' & ') || 'soirée').toLowerCase(), jour: jourC(e.start), heures: `dès ${heure(e.start)}`,
+          prix: e.price == null ? 'prix sur la billetterie' : e.price === 0 ? 'gratuit' : `dès ${String(Math.round(e.price * 100) / 100).replace('.', ',')} €`, lieu: [e.venue, e.city].filter(Boolean).join(' · '), image: e.image })) };
+      const fe = path.join(ROOT, 'out', `carrousel-${id}.json`);
+      await mkdir(path.dirname(fe), { recursive: true });
+      await writeFile(fe, JSON.stringify(entree));
+      const r = spawnSync('node', [path.join(ROOT, 'studio', 'scripts', 'affiches.mjs'), fe, dir], { cwd: path.join(ROOT, 'studio'), stdio: 'inherit', env: { ...process.env, NODE_USE_ENV_PROXY: '1' } });
+      if (r.status === 0) {
+        files = JSON.parse(await readFile(path.join(dir, 'carrousel.json'), 'utf8')).fichiers;
+        const gardesIds = new Set(JSON.parse(await readFile(path.join(dir, 'carrousel.json'), 'utf8')).soirees);
+        chosen.splice(0, chosen.length, ...avecImage.filter((e, i) => gardesIds.has(`${i}-${hash(e.name)}`)));
+      } else console.error(`[${id}] carrousel studio impossible, ancien gabarit.`);
+    }
+    files ||= await renderPages(programme(pages, chosen, { th, photos, titre, sous: fort ? `En ${MOIS(now)}` : elargi ? 'Ces prochains jours' : 'Cette semaine' }), dir, `incontournables-${stamp}`, { width: 1080, height: 1350 });
     pub = { images: files, legende: captionIncontournables({ variante: slot.variante, events: chosen, ...win, ch, r }), soirees: chosen, titre };
+  } else if (slot.type === 'reel' && config.studio?.actif && ['explicatif', 'humour', 'immersif'].includes(slot.variante)) {
+    // Reels = créations du studio (Remotion) : explicatif, humour ou immersif, jamais un catalogue de soirées.
+    const STUDIO = path.join(ROOT, 'studio');
+    const dirC = path.join(STUDIO, 'scripts', 'concepts');
+    const tous = await Promise.all((await readdir(dirC)).filter((f) => f.endsWith('.json')).map(async (f) => ({fichier: path.join(dirC, f), ...JSON.parse(await readFile(path.join(dirC, f), 'utf8'))})));
+    const faits = new Set([...hist.map((h) => h.concept).filter(Boolean), ...usedHere]);
+    const dispo = tous.filter((c) => !faits.has(c.id));
+    const c = val('concept') ? tous.find((x) => x.id === val('concept')) : dispo.find((x) => x.type === slot.variante) || dispo[0];
+    if (!c) throw new Error('Banque de concepts de reels épuisée : ajoute des concepts dans studio/scripts/concepts (voir studio/LISEZMOI.md).');
+    usedHere.add(c.id);
+    if (!existsSync(path.join(STUDIO, 'node_modules'))) spawnSync('npm', ['ci', '--no-audit', '--no-fund'], {cwd: STUDIO, stdio: 'inherit'});
+    const r = spawnSync('node', [path.join(STUDIO, 'scripts', 'produire.mjs'), c.fichier], {cwd: STUDIO, stdio: 'inherit', env: {...process.env, NODE_USE_ENV_PROXY: '1'}});
+    if (r.status !== 0) throw new Error(`Studio : rendu ou contrôle qualité en échec pour « ${c.id} »`);
+    const video = path.join(dir, `reel-${stamp}.mp4`);
+    await copyFile(path.join(STUDIO, 'out', `${c.id}.mp4`), video);
+    const cover = path.join(dir, `reel-${stamp}-couverture.jpg`);
+    spawnSync('ffmpeg', ['-y', '-loglevel', 'error', '-ss', String(c.couverture ?? 1.5), '-i', video, '-frames:v', '1', '-q:v', '2', cover]);
+    const d = parseFloat(spawnSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', video]).stdout?.toString()) || 0;
+    pub = { video, couverture: cover, legende: c.legende, titre: c.titre, concept: c.id, duree: +d.toFixed(1) };
+    console.log(`[${id}] reel studio « ${c.id} » (${c.type}) ${d.toFixed(1)} s`);
   } else if (slot.type === 'reel') {
     let variante = slot.variante;
     // 3e reel du mois : petits prix ou explicatif (astuces, sujets du moment) ; le bot garde ce qui marche.
@@ -442,7 +483,7 @@ async function publishPrepared(id) {
       : await publishCarousel(p.images.map(url), p.legende, ig, { tags: p.tags });
   const link = await permalink(res.id, ig);
   console.log(`[${id}] ✅ publié : ${link || res.id}`);
-  hist.push({ id, date: p.date, media: res.id, lien: link, debat: p.debat, bonplan: p.bonplan, sujet: p.sujet, son: p.son, le: new Date().toISOString(),
+  hist.push({ id, date: p.date, media: res.id, lien: link, debat: p.debat, bonplan: p.bonplan, sujet: p.sujet, son: p.son, concept: p.concept, le: new Date().toISOString(),
     publication: { id: p.id, type: p.type, variante: p.variante, date: p.date, choix: p.choix, features: p.features, nb_images: p.nb_images, duree: p.duree, legende: p.legende, titre: p.titre } });
   await writeFile(HIST_FILE, JSON.stringify(hist.slice(-300), null, 2));
 }

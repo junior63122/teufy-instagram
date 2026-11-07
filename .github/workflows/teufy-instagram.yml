@@ -25,9 +25,10 @@ on:
           - bonplan:petits-prix
           - bonplan:a-reserver
           - debat
+          - reel:explicatif
+          - reel:humour
+          - reel:immersif
           - reel:weekend
-          - reel:techno
-          - reel:petits-prix
         default: mois (aperçu des 9 publications du mois)
       publier:
         description: "Publier vraiment sur Instagram (sinon : aperçu téléchargeable seulement)"
@@ -52,6 +53,7 @@ jobs:
       IG_API_HOST: ${{ vars.IG_API_HOST || 'graph.facebook.com' }}
       PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }} # gratuit : vidéos de soirée en plus (pexels.com/api)
       PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }} # gratuit : vidéos de soirée en plus (pixabay.com/api/docs)
+      ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }} # voix off des reels du studio (offre Creator)
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }} # gratuit : aistudio.google.com, sans carte bancaire
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub Models, gratuit
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }} # Claude (payant), utilisé en premier si llm.payant_autorise
@@ -104,6 +106,7 @@ jobs:
           npm install --no-audit --no-fund
           npx playwright install --with-deps chromium
           sudo apt-get install -y --no-install-recommends ffmpeg fonts-noto-color-emoji
+          npm ci --prefix studio --no-audit --no-fund # studio Remotion (reels créatifs)
 
       - name: Tests
         if: steps.choix.outputs.rien != 'true'

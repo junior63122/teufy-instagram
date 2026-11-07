@@ -24,6 +24,12 @@ Sur les visuels, l'affiche est montrée **en entier**, sans recadrage, avec le s
 
 Tes propres soirées vont dans `evenements-manuels.json` et passent toujours en tête.
 
+## Studio de création (reels et affiches)
+
+Les **reels** sont des créations (explicatif, humour, immersif) produites par le studio Remotion du dossier `studio/` :
+voix off ElevenLabs calée au mot, animations déclenchées par les mots, sound design, mastering et contrôle qualité.
+Les **soirées** passent dans les posts et carrousels (affiches officielles, infos vérifiées). Détails : `studio/LISEZMOI.md`.
+
 ## Toutes les soirées de la Côte d'Azur
 
 Shotgun protège ses pages par une vérification anti-robot, que le bot ne contourne pas. Les soirées viennent donc de quatre sources :

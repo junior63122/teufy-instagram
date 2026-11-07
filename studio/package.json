@@ -1,0 +1,21 @@
+{
+  "name": "teufy-studio",
+  "private": true,
+  "type": "module",
+  "description": "Studio motion design des reels Teufy (Remotion). Une composition par concept, pilotée par un script JSON et le minutage de la voix off.",
+  "scripts": {
+    "studio": "remotion studio",
+    "render": "remotion render"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.300",
+    "@remotion/google-fonts": "4.0.300",
+    "@remotion/paths": "4.0.300",
+    "@remotion/shapes": "4.0.300",
+    "@remotion/transitions": "4.0.300",
+    "@remotion/noise": "4.0.300",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "remotion": "4.0.300"
+  }
+}

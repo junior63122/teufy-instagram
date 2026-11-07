@@ -1,0 +1,190 @@
+{
+  "id": "potes",
+  "concept": "potes",
+  "titre": "Les 4 potes qu'on a TOUS en soirée",
+  "voix": {
+    "voice_id": "GPAQQPp9dazaB2bl4zg9",
+    "nom": "Victor",
+    "modele": "eleven_v3",
+    "stabilite": 0.3,
+    "style": 0.6,
+    "vitesse": 1.08
+  },
+  "musique": {
+    "src": "musique/odd-beats.mp3",
+    "volume": 0.3,
+    "ducking": 0.45
+  },
+  "queue": 2.6,
+  "scenes": [
+    {
+      "id": "bande",
+      "texte": "Dans chaque groupe de potes, en soirée, il y a ces quatre-là.",
+      "sons": [
+        {
+          "son": "pop",
+          "mot": "groupe"
+        },
+        {
+          "son": "pop",
+          "mot": "groupe",
+          "decalage": 0.13
+        },
+        {
+          "son": "pop",
+          "mot": "groupe",
+          "decalage": 0.26
+        },
+        {
+          "son": "pop",
+          "mot": "groupe",
+          "decalage": 0.39
+        },
+        {
+          "son": "glisse",
+          "mot": "quatre",
+          "decalage": 0.05,
+          "volume": 0.7
+        },
+        {
+          "son": "flash",
+          "mot": "quatre",
+          "decalage": 0.1,
+          "volume": 0.6
+        }
+      ]
+    },
+    {
+      "id": "une-heure",
+      "texte": "Un : celui qui dit “je reste une heure”… et qui ferme la boîte.",
+      "sons": [
+        {
+          "son": "pop-dur",
+          "mot": "heure",
+          "decalage": -0.2
+        },
+        {
+          "son": "glisse",
+          "mot": "ferme",
+          "volume": 0.5
+        },
+        {
+          "son": "batterie-blague",
+          "mot": "boîte",
+          "decalage": 0.3,
+          "volume": 0.7
+        }
+      ]
+    },
+    {
+      "id": "dj",
+      "texte": "Deux : celui qui va demander SA musique au DJ. Toutes les dix minutes.",
+      "sons": [
+        {
+          "son": "clic",
+          "mot": "toutes"
+        },
+        {
+          "son": "clic",
+          "mot": "toutes",
+          "decalage": 0.2
+        },
+        {
+          "son": "clic",
+          "mot": "toutes",
+          "decalage": 0.4
+        },
+        {
+          "son": "clic",
+          "mot": "toutes",
+          "decalage": 0.6
+        },
+        {
+          "son": "boing",
+          "mot": "minutes",
+          "decalage": 0.1,
+          "volume": 0.6
+        }
+      ]
+    },
+    {
+      "id": "kebab",
+      "texte": "Trois : celui qui disparaît d'un coup… et qu'on retrouve au kebab.",
+      "sons": [
+        {
+          "son": "pop-long",
+          "mot": "disparaît",
+          "decalage": 0.25,
+          "volume": 0.7
+        },
+        {
+          "son": "zoom",
+          "mot": "kebab",
+          "volume": 0.7
+        },
+        {
+          "son": "rire-cartoon",
+          "mot": "kebab",
+          "decalage": 0.5,
+          "volume": 0.35
+        }
+      ]
+    },
+    {
+      "id": "mvp",
+      "texte": "Et quatre : celui qui envoie “bien rentré ?” à tout le monde. Le vrai MVP.",
+      "sons": [
+        {
+          "son": "message",
+          "mot": "rentré"
+        },
+        {
+          "son": "message",
+          "mot": "rentré",
+          "decalage": 0.22
+        },
+        {
+          "son": "message",
+          "mot": "rentré",
+          "decalage": 0.44
+        },
+        {
+          "son": "message",
+          "mot": "rentré",
+          "decalage": 0.66
+        },
+        {
+          "son": "acclamation",
+          "mot": "mvp",
+          "volume": 0.5
+        },
+        {
+          "son": "piece",
+          "mot": "mvp",
+          "volume": 0.5
+        }
+      ]
+    },
+    {
+      "id": "tague",
+      "texte": "Tague ton numéro un en commentaire.",
+      "sons": [
+        {
+          "son": "pop-dur"
+        },
+        {
+          "son": "clavier",
+          "decalage": 0.9,
+          "volume": 0.5
+        },
+        {
+          "son": "rires-public",
+          "decalage": 1.6,
+          "volume": 0.35
+        }
+      ]
+    }
+  ],
+  "type": "humour",
+  "legende": "Dans chaque groupe, il y a ces quatre-là 😭\n\n01 · « je reste une heure » (il ferme la boîte)\n02 · celui qui demande SA musique au DJ\n03 · celui qui disparaît… au kebab\n04 · le « bien rentré ? » du groupe, le vrai MVP 👑\n\nTague ton numéro un 👇\n\n#TeufyParty #soirée #potes #humour #CoteDAzur"
+}

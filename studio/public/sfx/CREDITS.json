@@ -1,0 +1,242 @@
+{
+ "whoosh": {
+  "source": "Mixkit",
+  "titre": "Cinematic whoosh fast transition",
+  "url": "https://assets.mixkit.co/active_storage/sfx/1491/1491-preview.mp3",
+  "licence": "Mixkit Free License (usage commercial, sans attribution)"
+ },
+ "whoosh2": {
+  "source": "Mixkit",
+  "titre": "Fast whoosh transition",
+  "url": "https://assets.mixkit.co/active_storage/sfx/1486/1486-preview.mp3",
+  "licence": "Mixkit Free License (usage commercial, sans attribution)"
+ },
+ "swoosh": {
+  "source": "Mixkit",
+  "titre": "Quick swoosh accent",
+  "url": "https://assets.mixkit.co/active_storage/sfx/3205/3205-preview.mp3",
+  "licence": "Mixkit Free License (usage commercial, sans attribution)"
+ },
+ "pop-whoosh": {
+  "source": "Mixkit",
+  "titre": "Explainer video pops whoosh light pop",
+  "url": "https://assets.mixkit.co/active_storage/sfx/2350/2350-preview.mp3",
+  "licence": "Mixkit Free License (usage commercial, sans attribution)"
+ },
+ "pop": {
+  "source": "Mixkit",
+  "titre": "Dry pop up notification alert",
+  "url": "https://assets.mixkit.co/active_storage/sfx/2925/2925-preview.mp3",
+  "licence": "Mixkit Free License (usage commercial, sans attribution)"
+ },
+ "pop-long": {
+  "source": "Mixkit",
+  "titre": "Long pop",
+  "url": "https://assets.mixkit.co/active_storage/sfx/2354/2354-preview.mp3",
+  "licence": "Mixkit Free License (usage commercial, sans attribution)"
+ },
+ "pop-dur": {
+  "source": "Mixkit",
+  "titre": "Hard pop click",
+  "url": "https://assets.mixkit.co/active_storage/sfx/471/471-preview.mp3",
+  "licence": "Mixkit Free License (usage commercial, sans attribution)"
+ },
+ "zoom": {
+  "source": "Mixkit",
+  "titre": "Quick zoom impact",
+  "url": "https://assets.mixkit.co/active_storage/sfx/2804/2804-preview.mp3",
+  "licence": "Mixkit Free License (usage commercial, sans attribution)"
+ },
+ "basse": {
+  "source": "Mixkit",
+  "titre": "Short bass hit",
+  "url": "https://assets.mixkit.co/active_storage/sfx/2150/2150-preview.mp3",
+  "licence": "Mixkit Free License (usage commercial, sans attribution)"
+ },
+ "tampon": {
+  "source": "Mixkit",
+  "titre": "Hard and quick punch",
+  "url": "https://assets.mixkit.co/active_storage/sfx/2765/2765-preview.mp3",
+  "licence": "Mixkit Free License (usage commercial, sans attribution)"
+ },
+ "impact": {
+  "source": "Mixkit",
+  "titre": "Epic movie impact",
+  "url": "https://assets.mixkit.co/active_storage/sfx/2780/2780-preview.mp3",
+  "licence": "Mixkit Free License (usage commercial, sans attribution)"
+ },
+ "trombone": {
+  "source": "Mixkit",
+  "titre": "Trombone disappoint",
+  "url": "https://assets.mixkit.co/active_storage/sfx/2194/2194-preview.mp3",
+  "licence": "Mixkit Free License (usage commercial, sans attribution)"
+ },
+ "etourdi": {
+  "source": "Mixkit",
+  "titre": "Cartoon dazzle hit and birds",
+  "url": "https://assets.mixkit.co/active_storage/sfx/343/343-preview.mp3",
+  "licence": "Mixkit Free License (usage commercial, sans attribution)"
+ },
+ "batterie-blague": {
+  "source": "Mixkit",
+  "titre": "Drum joke accent",
+  "url": "https://assets.mixkit.co/active_storage/sfx/923/923-preview.mp3",
+  "licence": "Mixkit Free License (usage commercial, sans attribution)"
+ },
+ "boing": {
+  "source": "Mixkit",
+  "titre": "Boing hit sound",
+  "url": "https://assets.mixkit.co/active_storage/sfx/2813/2813-preview.mp3",
+  "licence": "Mixkit Free License (usage commercial, sans attribution)"
+ },
+ "chute": {
+  "source": "Mixkit",
+  "titre": "Cartoon falling whistle",
+  "url": "https://assets.mixkit.co/active_storage/sfx/429/429-preview.mp3",
+  "licence": "Mixkit Free License (usage commercial, sans attribution)"
+ },
+ "glisse": {
+  "source": "Mixkit",
+  "titre": "Funny video game slide",
+  "url": "https://assets.mixkit.co/active_storage/sfx/2891/2891-preview.mp3",
+  "licence": "Mixkit Free License (usage commercial, sans attribution)"
+ },
+ "game-over": {
+  "source": "Mixkit",
+  "titre": "Musical game over",
+  "url": "https://assets.mixkit.co/active_storage/sfx/2880/2880-preview.mp3",
+  "licence": "Mixkit Free License (usage commercial, sans attribution)"
+ },
+ "rire-cartoon": {
+  "source": "Mixkit",
+  "titre": "Cartoon laugh voice",
+  "url": "https://assets.mixkit.co/active_storage/sfx/2364/2364-preview.mp3",
+  "licence": "Mixkit Free License (usage commercial, sans attribution)"
+ },
+ "rires-public": {
+  "source": "Mixkit",
+  "titre": "Small crowd laugh and applause",
+  "url": "https://assets.mixkit.co/active_storage/sfx/2889/2889-preview.mp3",
+  "licence": "Mixkit Free License (usage commercial, sans attribution)"
+ },
+ "clic": {
+  "source": "Mixkit",
+  "titre": "Classic click",
+  "url": "https://assets.mixkit.co/active_storage/sfx/2585/2585-preview.mp3",
+  "licence": "Mixkit Free License (usage commercial, sans attribution)"
+ },
+ "clavier": {
+  "source": "Mixkit",
+  "titre": "Typing on a laptop keyboard",
+  "url": "https://assets.mixkit.co/active_storage/sfx/3124/3124-preview.mp3",
+  "licence": "Mixkit Free License (usage commercial, sans attribution)"
+ },
+ "flash": {
+  "source": "Mixkit",
+  "titre": "Old camera shutter click",
+  "url": "https://assets.mixkit.co/active_storage/sfx/1124/1124-preview.mp3",
+  "licence": "Mixkit Free License (usage commercial, sans attribution)"
+ },
+ "coche": {
+  "source": "Mixkit",
+  "titre": "Modern click box check",
+  "url": "https://assets.mixkit.co/active_storage/sfx/2997/2997-preview.mp3",
+  "licence": "Mixkit Free License (usage commercial, sans attribution)"
+ },
+ "piece": {
+  "source": "Mixkit",
+  "titre": "Winning an extra bonus",
+  "url": "https://assets.mixkit.co/active_storage/sfx/2888/2888-preview.mp3",
+  "licence": "Mixkit Free License (usage commercial, sans attribution)"
+ },
+ "oiseau": {
+  "source": "Mixkit",
+  "titre": "Double little bird chirp",
+  "url": "https://assets.mixkit.co/active_storage/sfx/1241/1241-preview.mp3",
+  "licence": "Mixkit Free License (usage commercial, sans attribution)"
+ },
+ "ailes": {
+  "source": "Mixkit",
+  "titre": "Fly wings movement",
+  "url": "https://assets.mixkit.co/active_storage/sfx/62/62-preview.mp3",
+  "licence": "Mixkit Free License (usage commercial, sans attribution)"
+ },
+ "fete": {
+  "source": "Mixkit",
+  "titre": "Very crowded pub or party loop",
+  "url": "https://assets.mixkit.co/active_storage/sfx/502/502-preview.mp3",
+  "licence": "Mixkit Free License (usage commercial, sans attribution)"
+ },
+ "acclamation": {
+  "source": "Mixkit",
+  "titre": "Birthday crowd party cheer",
+  "url": "https://assets.mixkit.co/active_storage/sfx/458/458-preview.mp3",
+  "licence": "Mixkit Free License (usage commercial, sans attribution)"
+ },
+ "applaudissements": {
+  "source": "Mixkit",
+  "titre": "Audience light applause",
+  "url": "https://assets.mixkit.co/active_storage/sfx/376/376-preview.mp3",
+  "licence": "Mixkit Free License (usage commercial, sans attribution)"
+ },
+ "message": {
+  "source": "Mixkit",
+  "titre": "Message pop alert",
+  "url": "https://assets.mixkit.co/active_storage/sfx/2574/2574-preview.mp3",
+  "licence": "Mixkit Free License (usage commercial, sans attribution)"
+ },
+ "cloche": {
+  "source": "Mixkit",
+  "titre": "Bell notification",
+  "url": "https://assets.mixkit.co/active_storage/sfx/2357/2357-preview.mp3",
+  "licence": "Mixkit Free License (usage commercial, sans attribution)"
+ },
+ "glitch": {
+  "source": "Mixkit",
+  "titre": "Intro text glitch",
+  "url": "https://assets.mixkit.co/active_storage/sfx/1022/1022-preview.mp3",
+  "licence": "Mixkit Free License (usage commercial, sans attribution)"
+ },
+ "glitch2": {
+  "source": "Mixkit",
+  "titre": "Digital glitch break",
+  "url": "https://assets.mixkit.co/active_storage/sfx/2558/2558-preview.mp3",
+  "licence": "Mixkit Free License (usage commercial, sans attribution)"
+ },
+ "aspiration": {
+  "source": "Mixkit",
+  "titre": "Air zoom vacuum",
+  "url": "https://assets.mixkit.co/active_storage/sfx/2909/2909-preview.mp3",
+  "licence": "Mixkit Free License (usage commercial, sans attribution)"
+ },
+ "grondement": {
+  "source": "Mixkit",
+  "titre": "Bass rumble hum",
+  "url": "https://assets.mixkit.co/active_storage/sfx/2615/2615-preview.mp3",
+  "licence": "Mixkit Free License (usage commercial, sans attribution)"
+ },
+ "riser": {
+  "source": "Mixkit",
+  "titre": "Cinematic riser helicopter engine",
+  "url": "https://assets.mixkit.co/active_storage/sfx/2289/2289-preview.mp3",
+  "licence": "Mixkit Free License (usage commercial, sans attribution)"
+ },
+ "caisse": {
+  "source": "Mixkit",
+  "titre": "Atm cash machine key press",
+  "url": "https://assets.mixkit.co/active_storage/sfx/2320/2320-preview.mp3",
+  "licence": "Mixkit Free License (usage commercial, sans attribution)"
+ },
+ "baiser": {
+  "source": "Mixkit",
+  "titre": "Quick funny kiss",
+  "url": "https://assets.mixkit.co/active_storage/sfx/2873/2873-preview.mp3",
+  "licence": "Mixkit Free License (usage commercial, sans attribution)"
+ },
+ "fail": {
+  "source": "Mixkit",
+  "titre": "Funny fail low tone",
+  "url": "https://assets.mixkit.co/active_storage/sfx/2060/2060-preview.mp3",
+  "licence": "Mixkit Free License (usage commercial, sans attribution)"
+ }
+}

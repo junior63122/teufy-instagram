@@ -1,0 +1,21 @@
+{
+ "id": "nuit",
+ "concept": "nuit",
+ "fps": 30,
+ "duree": 23.6,
+ "mots": [],
+ "scenes": [
+  {
+   "id": "film",
+   "texte": "",
+   "duree": 23.6,
+   "start": 0,
+   "end": 23.6
+  }
+ ],
+ "bruits": [],
+ "bande": {
+  "src": "nuit/bande.wav",
+  "volume": 1
+ }
+}

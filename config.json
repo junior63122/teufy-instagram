@@ -56,7 +56,7 @@
       "jour": 4,
       "rang": 1,
       "type": "reel",
-      "variante": "weekend"
+      "variante": "humour"
     },
     {
       "jour": 3,
@@ -79,7 +79,7 @@
       "jour": 4,
       "rang": 3,
       "type": "reel",
-      "variante": "techno"
+      "variante": "immersif"
     },
     {
       "jour": 2,
@@ -96,7 +96,7 @@
       "jour": 5,
       "rang": 4,
       "type": "reel",
-      "variante": "petits-prix"
+      "variante": "explicatif"
     }
   ],
   "reglages": {
@@ -142,5 +142,9 @@
     "github_models": true,
     "modele_gemini": "gemini-2.5-flash",
     "modele_github": "openai/gpt-4.1-mini"
+  },
+  "studio": {
+    "explication": "Reels = créations (explicatif, humour, immersif) produites par le studio Remotion (studio/). Les soirées passent dans les posts et carrousels. Chaque concept est un script dans studio/scripts/concepts/*.json ; le bot prend le prochain concept du bon type pas encore publié.",
+    "actif": true
   }
 }

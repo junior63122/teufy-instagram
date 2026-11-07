@@ -1,0 +1,224 @@
+{
+  "id": "paliers",
+  "concept": "paliers",
+  "titre": "Pourquoi ta place coûte plus cher chaque semaine",
+  "voix": {
+    "voice_id": "Jrq4GqCKqYpigdQsZRkP",
+    "nom": "Anatole",
+    "modele": "eleven_v3",
+    "stabilite": 0.5,
+    "style": 0.45,
+    "vitesse": 1.05
+  },
+  "musique": {
+    "src": "musique/trap.mp3",
+    "volume": 0.32,
+    "ducking": 0.38,
+    "debut": 4
+  },
+  "queue": 2.2,
+  "scenes": [
+    {
+      "id": "accroche",
+      "texte": "Lundi, ta place était à 12 euros. Jeudi, elle est à 20.",
+      "sons": [
+        {
+          "son": "pop",
+          "mot": "lundi",
+          "volume": 0.6
+        },
+        {
+          "son": "caisse",
+          "mot": "jeudi",
+          "decalage": 0.15,
+          "volume": 0.7
+        },
+        {
+          "son": "basse",
+          "mot": "jeudi",
+          "decalage": 0.1,
+          "volume": 0.8
+        }
+      ]
+    },
+    {
+      "id": "arnaque",
+      "texte": "Arnaque ? Non.",
+      "sons": [
+        {
+          "son": "tampon",
+          "mot": "arnaque",
+          "volume": 0.9
+        },
+        {
+          "son": "zoom",
+          "mot": "non",
+          "volume": 0.6
+        }
+      ]
+    },
+    {
+      "id": "paliers",
+      "texte": "C'est juste le système des paliers.",
+      "sons": [
+        {
+          "son": "aspiration",
+          "decalage": -0.35,
+          "volume": 0.7
+        },
+        {
+          "son": "pop",
+          "decalage": 0.25
+        },
+        {
+          "son": "pop",
+          "decalage": 0.41
+        },
+        {
+          "son": "pop",
+          "decalage": 0.57
+        },
+        {
+          "son": "pop",
+          "decalage": 0.73
+        }
+      ]
+    },
+    {
+      "id": "organisateur",
+      "texte": "Au début, l'organisateur ne sait pas combien de personnes vont venir.",
+      "sons": [
+        {
+          "son": "pop-long",
+          "mot": "combien",
+          "volume": 0.5
+        },
+        {
+          "son": "pop-long",
+          "mot": "combien",
+          "decalage": 0.12,
+          "volume": 0.45
+        },
+        {
+          "son": "pop-long",
+          "mot": "combien",
+          "decalage": 0.24,
+          "volume": 0.4
+        }
+      ]
+    },
+    {
+      "id": "early",
+      "texte": "Alors il vend les premières places moins cher : c'est l'early bird.",
+      "sons": [
+        {
+          "son": "ailes",
+          "mot": "early",
+          "decalage": -0.6,
+          "volume": 0.6
+        },
+        {
+          "son": "oiseau",
+          "mot": "early",
+          "decalage": 0.25,
+          "volume": 0.6
+        }
+      ]
+    },
+    {
+      "id": "sold-out",
+      "texte": "Ça le rassure, et ces places partent très vite.",
+      "sons": [
+        {
+          "son": "tampon",
+          "mot": "vite",
+          "volume": 0.85
+        },
+        {
+          "son": "acclamation",
+          "mot": "vite",
+          "decalage": 0.1,
+          "volume": 0.25
+        }
+      ]
+    },
+    {
+      "id": "escalier",
+      "texte": "Dès qu'un palier est vendu, le suivant ouvre, un peu plus cher.",
+      "sons": [
+        {
+          "son": "coche",
+          "mot": "palier",
+          "volume": 0.6
+        },
+        {
+          "son": "coche",
+          "mot": "suivant",
+          "volume": 0.6
+        },
+        {
+          "son": "coche",
+          "mot": "cher",
+          "volume": 0.6
+        }
+      ]
+    },
+    {
+      "id": "sur-place",
+      "texte": "Et sur place, c'est souvent le prix fort.",
+      "sons": [
+        {
+          "son": "grondement",
+          "volume": 0.5
+        },
+        {
+          "son": "caisse",
+          "mot": "prix",
+          "volume": 0.75
+        }
+      ]
+    },
+    {
+      "id": "regle",
+      "texte": "Donc si une soirée te tente, prends ta place tôt.",
+      "sons": [
+        {
+          "son": "impact",
+          "decalage": -0.1,
+          "volume": 0.5
+        },
+        {
+          "son": "basse",
+          "mot": "tôt",
+          "volume": 0.8
+        }
+      ]
+    },
+    {
+      "id": "question",
+      "texte": "Et toi, t'es team à l'avance, ou team dernière minute ?",
+      "sons": [
+        {
+          "son": "pop-dur",
+          "mot": "avance",
+          "decalage": -0.2,
+          "volume": 0.6
+        },
+        {
+          "son": "pop-dur",
+          "mot": "dernière",
+          "decalage": -0.2,
+          "volume": 0.6
+        },
+        {
+          "son": "clavier",
+          "mot": "minute",
+          "decalage": 0.4,
+          "volume": 0.5
+        }
+      ]
+    }
+  ],
+  "type": "explicatif",
+  "legende": "Lundi 12 €, jeudi 20 € : non, ce n'est pas une arnaque 👀\n\nLa plupart des billetteries de soirées vendent par paliers : early bird, release 1, release 2, last release… et souvent le prix fort sur place. L'organisateur vend moins cher au début pour lancer les ventes, puis le prix monte palier par palier.\n\nLa règle : si une soirée te tente, prends ta place tôt.\n\nEt toi, team à l'avance ou team dernière minute ? 👇\n\n#TeufyParty #soirée #billetterie #Nice #CoteDAzur"
+}

@@ -1,0 +1,800 @@
+{
+ "id": "potes",
+ "concept": "potes",
+ "fps": 30,
+ "duree": 21.48,
+ "mots": [
+  {
+   "w": "Dans",
+   "scene": 0,
+   "start": 0,
+   "end": 0.16
+  },
+  {
+   "w": "chaque",
+   "scene": 0,
+   "start": 0.194,
+   "end": 0.4
+  },
+  {
+   "w": "groupe",
+   "scene": 0,
+   "start": 0.423,
+   "end": 0.56
+  },
+  {
+   "w": "de",
+   "scene": 0,
+   "start": 0.613,
+   "end": 0.72
+  },
+  {
+   "w": "potes,",
+   "scene": 0,
+   "start": 0.76,
+   "end": 1.04
+  },
+  {
+   "w": "en",
+   "scene": 0,
+   "start": 1.067,
+   "end": 1.12
+  },
+  {
+   "w": "soirée,",
+   "scene": 0,
+   "start": 1.168,
+   "end": 1.68
+  },
+  {
+   "w": "il",
+   "scene": 0,
+   "start": 1.707,
+   "end": 1.76
+  },
+  {
+   "w": "y",
+   "scene": 0,
+   "start": 1.8,
+   "end": 1.84
+  },
+  {
+   "w": "a",
+   "scene": 0,
+   "start": 1.88,
+   "end": 1.92
+  },
+  {
+   "w": "ces",
+   "scene": 0,
+   "start": 1.96,
+   "end": 2.08
+  },
+  {
+   "w": "quatre-là.",
+   "scene": 0,
+   "start": 2.114,
+   "end": 2.72
+  },
+  {
+   "w": "Un",
+   "scene": 1,
+   "start": 2.747,
+   "end": 2.8
+  },
+  {
+   "w": ":",
+   "scene": 1,
+   "start": 2.88,
+   "end": 2.96
+  },
+  {
+   "w": "celui",
+   "scene": 1,
+   "start": 3,
+   "end": 3.2
+  },
+  {
+   "w": "qui",
+   "scene": 1,
+   "start": 3.24,
+   "end": 3.36
+  },
+  {
+   "w": "dit",
+   "scene": 1,
+   "start": 3.4,
+   "end": 3.52
+  },
+  {
+   "w": "“je",
+   "scene": 1,
+   "start": 3.64,
+   "end": 3.84
+  },
+  {
+   "w": "reste",
+   "scene": 1,
+   "start": 3.893,
+   "end": 4.16
+  },
+  {
+   "w": "une",
+   "scene": 1,
+   "start": 4.18,
+   "end": 4.24
+  },
+  {
+   "w": "heure”…",
+   "scene": 1,
+   "start": 4.267,
+   "end": 4.64
+  },
+  {
+   "w": "et",
+   "scene": 1,
+   "start": 4.667,
+   "end": 4.72
+  },
+  {
+   "w": "qui",
+   "scene": 1,
+   "start": 4.76,
+   "end": 4.88
+  },
+  {
+   "w": "ferme",
+   "scene": 1,
+   "start": 4.92,
+   "end": 5.12
+  },
+  {
+   "w": "la",
+   "scene": 1,
+   "start": 5.147,
+   "end": 5.2
+  },
+  {
+   "w": "boîte.",
+   "scene": 1,
+   "start": 5.253,
+   "end": 5.76
+  },
+  {
+   "w": "Deux",
+   "scene": 2,
+   "start": 5.787,
+   "end": 5.92
+  },
+  {
+   "w": ":",
+   "scene": 2,
+   "start": 6,
+   "end": 6.08
+  },
+  {
+   "w": "celui",
+   "scene": 2,
+   "start": 6.12,
+   "end": 6.32
+  },
+  {
+   "w": "qui",
+   "scene": 2,
+   "start": 6.34,
+   "end": 6.4
+  },
+  {
+   "w": "va",
+   "scene": 2,
+   "start": 6.453,
+   "end": 6.56
+  },
+  {
+   "w": "demander",
+   "scene": 2,
+   "start": 6.606,
+   "end": 7.12
+  },
+  {
+   "w": "SA",
+   "scene": 2,
+   "start": 7.2,
+   "end": 7.36
+  },
+  {
+   "w": "musique",
+   "scene": 2,
+   "start": 7.42,
+   "end": 7.84
+  },
+  {
+   "w": "au",
+   "scene": 2,
+   "start": 7.893,
+   "end": 8
+  },
+  {
+   "w": "DJ.",
+   "scene": 2,
+   "start": 8.133,
+   "end": 8.56
+  },
+  {
+   "w": "Toutes",
+   "scene": 2,
+   "start": 8.6,
+   "end": 8.72
+  },
+  {
+   "w": "les",
+   "scene": 2,
+   "start": 8.76,
+   "end": 8.88
+  },
+  {
+   "w": "dix",
+   "scene": 2,
+   "start": 8.92,
+   "end": 9.16
+  },
+  {
+   "w": "minutes.",
+   "scene": 2,
+   "start": 9.185,
+   "end": 9.6
+  },
+  {
+   "w": "Trois",
+   "scene": 3,
+   "start": 9.62,
+   "end": 9.76
+  },
+  {
+   "w": ":",
+   "scene": 3,
+   "start": 9.84,
+   "end": 9.92
+  },
+  {
+   "w": "celui",
+   "scene": 3,
+   "start": 9.96,
+   "end": 10.16
+  },
+  {
+   "w": "qui",
+   "scene": 3,
+   "start": 10.2,
+   "end": 10.32
+  },
+  {
+   "w": "disparaît",
+   "scene": 3,
+   "start": 10.4,
+   "end": 10.88
+  },
+  {
+   "w": "d'un",
+   "scene": 3,
+   "start": 10.92,
+   "end": 11.04
+  },
+  {
+   "w": "coup…",
+   "scene": 3,
+   "start": 11.104,
+   "end": 11.36
+  },
+  {
+   "w": "et",
+   "scene": 3,
+   "start": 11.387,
+   "end": 11.44
+  },
+  {
+   "w": "qu'on",
+   "scene": 3,
+   "start": 11.493,
+   "end": 11.68
+  },
+  {
+   "w": "retrouve",
+   "scene": 3,
+   "start": 11.728,
+   "end": 12
+  },
+  {
+   "w": "au",
+   "scene": 3,
+   "start": 12.027,
+   "end": 12.08
+  },
+  {
+   "w": "kebab.",
+   "scene": 3,
+   "start": 12.133,
+   "end": 12.72
+  },
+  {
+   "w": "Et",
+   "scene": 4,
+   "start": 12.773,
+   "end": 12.88
+  },
+  {
+   "w": "quatre",
+   "scene": 4,
+   "start": 12.914,
+   "end": 13.12
+  },
+  {
+   "w": ":",
+   "scene": 4,
+   "start": 13.24,
+   "end": 13.36
+  },
+  {
+   "w": "celui",
+   "scene": 4,
+   "start": 13.4,
+   "end": 13.6
+  },
+  {
+   "w": "qui",
+   "scene": 4,
+   "start": 13.64,
+   "end": 13.76
+  },
+  {
+   "w": "envoie",
+   "scene": 4,
+   "start": 13.813,
+   "end": 14.08
+  },
+  {
+   "w": "“bien",
+   "scene": 4,
+   "start": 14.16,
+   "end": 14.4
+  },
+  {
+   "w": "rentré",
+   "scene": 4,
+   "start": 14.44,
+   "end": 14.8
+  },
+  {
+   "w": "?”",
+   "scene": 4,
+   "start": 14.88,
+   "end": 14.96
+  },
+  {
+   "w": "à",
+   "scene": 4,
+   "start": 15,
+   "end": 15.04
+  },
+  {
+   "w": "tout",
+   "scene": 4,
+   "start": 15.088,
+   "end": 15.28
+  },
+  {
+   "w": "le",
+   "scene": 4,
+   "start": 15.307,
+   "end": 15.36
+  },
+  {
+   "w": "monde.",
+   "scene": 4,
+   "start": 15.4,
+   "end": 15.76
+  },
+  {
+   "w": "Le",
+   "scene": 4,
+   "start": 15.787,
+   "end": 15.84
+  },
+  {
+   "w": "vrai",
+   "scene": 4,
+   "start": 15.904,
+   "end": 16.16
+  },
+  {
+   "w": "MVP.",
+   "scene": 4,
+   "start": 16.28,
+   "end": 16.88
+  },
+  {
+   "w": "Tague",
+   "scene": 5,
+   "start": 16.94,
+   "end": 17.12
+  },
+  {
+   "w": "ton",
+   "scene": 5,
+   "start": 17.14,
+   "end": 17.2
+  },
+  {
+   "w": "numéro",
+   "scene": 5,
+   "start": 17.257,
+   "end": 17.6
+  },
+  {
+   "w": "un",
+   "scene": 5,
+   "start": 17.68,
+   "end": 17.84
+  },
+  {
+   "w": "en",
+   "scene": 5,
+   "start": 17.947,
+   "end": 18.16
+  },
+  {
+   "w": "commentaire.",
+   "scene": 5,
+   "start": 18.207,
+   "end": 18.88
+  }
+ ],
+ "scenes": [
+  {
+   "id": "bande",
+   "texte": "Dans chaque groupe de potes, en soirée, il y a ces quatre-là.",
+   "sons": [
+    {
+     "son": "pop",
+     "mot": "groupe"
+    },
+    {
+     "son": "pop",
+     "mot": "groupe",
+     "decalage": 0.13
+    },
+    {
+     "son": "pop",
+     "mot": "groupe",
+     "decalage": 0.26
+    },
+    {
+     "son": "pop",
+     "mot": "groupe",
+     "decalage": 0.39
+    },
+    {
+     "son": "glisse",
+     "mot": "quatre",
+     "decalage": 0.05,
+     "volume": 0.7
+    },
+    {
+     "son": "flash",
+     "mot": "quatre",
+     "decalage": 0.1,
+     "volume": 0.6
+    }
+   ],
+   "start": 0,
+   "end": 2.627
+  },
+  {
+   "id": "une-heure",
+   "texte": "Un : celui qui dit “je reste une heure”… et qui ferme la boîte.",
+   "sons": [
+    {
+     "son": "pop-dur",
+     "mot": "heure",
+     "decalage": -0.2
+    },
+    {
+     "son": "glisse",
+     "mot": "ferme",
+     "volume": 0.5
+    },
+    {
+     "son": "batterie-blague",
+     "mot": "boîte",
+     "decalage": 0.3,
+     "volume": 0.7
+    }
+   ],
+   "start": 2.627,
+   "end": 5.667
+  },
+  {
+   "id": "dj",
+   "texte": "Deux : celui qui va demander SA musique au DJ. Toutes les dix minutes.",
+   "sons": [
+    {
+     "son": "clic",
+     "mot": "toutes"
+    },
+    {
+     "son": "clic",
+     "mot": "toutes",
+     "decalage": 0.2
+    },
+    {
+     "son": "clic",
+     "mot": "toutes",
+     "decalage": 0.4
+    },
+    {
+     "son": "clic",
+     "mot": "toutes",
+     "decalage": 0.6
+    },
+    {
+     "son": "boing",
+     "mot": "minutes",
+     "decalage": 0.1,
+     "volume": 0.6
+    }
+   ],
+   "start": 5.667,
+   "end": 9.5
+  },
+  {
+   "id": "kebab",
+   "texte": "Trois : celui qui disparaît d'un coup… et qu'on retrouve au kebab.",
+   "sons": [
+    {
+     "son": "pop-long",
+     "mot": "disparaît",
+     "decalage": 0.25,
+     "volume": 0.7
+    },
+    {
+     "son": "zoom",
+     "mot": "kebab",
+     "volume": 0.7
+    },
+    {
+     "son": "rire-cartoon",
+     "mot": "kebab",
+     "decalage": 0.5,
+     "volume": 0.35
+    }
+   ],
+   "start": 9.5,
+   "end": 12.653
+  },
+  {
+   "id": "mvp",
+   "texte": "Et quatre : celui qui envoie “bien rentré ?” à tout le monde. Le vrai MVP.",
+   "sons": [
+    {
+     "son": "message",
+     "mot": "rentré"
+    },
+    {
+     "son": "message",
+     "mot": "rentré",
+     "decalage": 0.22
+    },
+    {
+     "son": "message",
+     "mot": "rentré",
+     "decalage": 0.44
+    },
+    {
+     "son": "message",
+     "mot": "rentré",
+     "decalage": 0.66
+    },
+    {
+     "son": "acclamation",
+     "mot": "mvp",
+     "volume": 0.5
+    },
+    {
+     "son": "piece",
+     "mot": "mvp",
+     "volume": 0.5
+    }
+   ],
+   "start": 12.653,
+   "end": 16.82
+  },
+  {
+   "id": "tague",
+   "texte": "Tague ton numéro un en commentaire.",
+   "sons": [
+    {
+     "son": "pop-dur"
+    },
+    {
+     "son": "clavier",
+     "decalage": 0.9,
+     "volume": 0.5
+    },
+    {
+     "son": "rires-public",
+     "decalage": 1.6,
+     "volume": 0.35
+    }
+   ],
+   "start": 16.82,
+   "end": 21.48
+  }
+ ],
+ "bruits": [
+  {
+   "src": "sfx/pop.mp3",
+   "at": 0.423,
+   "volume": 0.6
+  },
+  {
+   "src": "sfx/pop.mp3",
+   "at": 0.553,
+   "volume": 0.6
+  },
+  {
+   "src": "sfx/pop.mp3",
+   "at": 0.683,
+   "volume": 0.6
+  },
+  {
+   "src": "sfx/pop.mp3",
+   "at": 0.813,
+   "volume": 0.6
+  },
+  {
+   "src": "sfx/glisse.mp3",
+   "at": 2.164,
+   "volume": 0.7
+  },
+  {
+   "src": "sfx/flash.mp3",
+   "at": 2.214,
+   "volume": 0.6
+  },
+  {
+   "src": "sfx/pop-dur.mp3",
+   "at": 4.067,
+   "volume": 0.6
+  },
+  {
+   "src": "sfx/glisse.mp3",
+   "at": 4.92,
+   "volume": 0.5
+  },
+  {
+   "src": "sfx/batterie-blague.mp3",
+   "at": 5.553,
+   "volume": 0.7
+  },
+  {
+   "src": "sfx/clic.mp3",
+   "at": 8.6,
+   "volume": 0.6
+  },
+  {
+   "src": "sfx/clic.mp3",
+   "at": 8.8,
+   "volume": 0.6
+  },
+  {
+   "src": "sfx/clic.mp3",
+   "at": 9,
+   "volume": 0.6
+  },
+  {
+   "src": "sfx/clic.mp3",
+   "at": 9.2,
+   "volume": 0.6
+  },
+  {
+   "src": "sfx/boing.mp3",
+   "at": 9.285,
+   "volume": 0.6
+  },
+  {
+   "src": "sfx/pop-long.mp3",
+   "at": 10.65,
+   "volume": 0.7
+  },
+  {
+   "src": "sfx/zoom.mp3",
+   "at": 12.133,
+   "volume": 0.7
+  },
+  {
+   "src": "sfx/rire-cartoon.mp3",
+   "at": 12.633,
+   "volume": 0.35
+  },
+  {
+   "src": "sfx/message.mp3",
+   "at": 14.44,
+   "volume": 0.6
+  },
+  {
+   "src": "sfx/message.mp3",
+   "at": 14.66,
+   "volume": 0.6
+  },
+  {
+   "src": "sfx/message.mp3",
+   "at": 14.88,
+   "volume": 0.6
+  },
+  {
+   "src": "sfx/message.mp3",
+   "at": 15.1,
+   "volume": 0.6
+  },
+  {
+   "src": "sfx/acclamation.mp3",
+   "at": 16.28,
+   "volume": 0.5
+  },
+  {
+   "src": "sfx/piece.mp3",
+   "at": 16.28,
+   "volume": 0.5
+  },
+  {
+   "src": "sfx/pop-dur.mp3",
+   "at": 16.82,
+   "volume": 0.6
+  },
+  {
+   "src": "sfx/clavier.mp3",
+   "at": 17.72,
+   "volume": 0.5
+  },
+  {
+   "src": "sfx/rires-public.mp3",
+   "at": 18.42,
+   "volume": 0.35
+  },
+  {
+   "src": "sfx/swoosh.mp3",
+   "at": 2.4469999999999996,
+   "volume": 0.35
+  },
+  {
+   "src": "sfx/swoosh.mp3",
+   "at": 5.487,
+   "volume": 0.35
+  },
+  {
+   "src": "sfx/swoosh.mp3",
+   "at": 9.32,
+   "volume": 0.35
+  },
+  {
+   "src": "sfx/swoosh.mp3",
+   "at": 12.473,
+   "volume": 0.35
+  },
+  {
+   "src": "sfx/swoosh.mp3",
+   "at": 16.64,
+   "volume": 0.35
+  }
+ ],
+ "voix": {
+  "src": "potes/voix.mp3",
+  "volume": 1
+ },
+ "musique": {
+  "src": "musique/odd-beats.mp3",
+  "volume": 0.3,
+  "debut": 0,
+  "ducking": 0.45
+ }
+}

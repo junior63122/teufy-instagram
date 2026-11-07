@@ -1,3 +1,8 @@
 node_modules/
 out/
 tests/fixtures/
+studio/node_modules/
+studio/out/
+studio/public/rushes/
+studio/public/*/bande.wav
+studio/public/evenements/auto/

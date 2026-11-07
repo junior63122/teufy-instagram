@@ -1,0 +1,33 @@
+{
+  "id": "nuit",
+  "concept": "nuit",
+  "titre": "23h47 — court film d'ambiance (images d'illustration)",
+  "whooshEntreScenes": false,
+  "queue": 0,
+  "bande": {
+    "src": "nuit/bande.wav",
+    "volume": 1
+  },
+  "scenes": [
+    {
+      "id": "film",
+      "texte": "",
+      "duree": 23.6
+    }
+  ],
+  "type": "immersif",
+  "legende": "Il est 23h47. La ville ralentit. Nous, non. 🌙\n\nLes meilleures nuits ne se racontent pas, elles se vivent.\n\nOn se voit où ce week-end ? 👇\n\n(images d'illustration)\n\n#TeufyParty #nightlife #CoteDAzur #Nice #soirée",
+  "rushes": [
+    4344,
+    4187,
+    4188,
+    46893,
+    46896,
+    42299,
+    830,
+    834,
+    40105,
+    46876
+  ],
+  "avant": "scripts/bande-nuit.mjs"
+}

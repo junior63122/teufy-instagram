@@ -1,0 +1,6 @@
+{
+  "trap.mp3": {"titre": "Trap", "source": "Mixkit", "licence": "Mixkit Stock Music Free License"},
+  "odd-beats.mp3": {"titre": "Odd Beats 01", "source": "Mixkit", "licence": "Mixkit Stock Music Free License"},
+  "hazy-after-hours.mp3": {"titre": "Hazy After Hours", "source": "Mixkit", "licence": "Mixkit Stock Music Free License"},
+  "note": "Musiques des démos. En publication, le bot attache de préférence un son Instagram (API Audio de Meta)."
+}

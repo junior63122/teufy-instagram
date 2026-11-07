@@ -1,0 +1,13 @@
+{
+  "verifie_le": "2026-11-07",
+  "sources": ["https://le109.nice.fr/programmation", "https://www.panda-events.com/frigo-16/", "pages événement panda-events.com/evenement/…"],
+  "lieu": "Frigo 16 · Le 109, 89 route de Turin, 06300 Nice",
+  "note": "FL = frais de location (billetterie). Heures prises sur la page ou l'affiche officielle ; absentes = non publiées.",
+  "soirees": [
+    {"id": "caravel", "nom": "Caravel", "sous": "LQB Session #7 · + No2theG & May-Li", "genre": "hard techno", "jour": "Sam. 14 nov.", "heures": "20h–04h30", "prix": "dès 5 € + frais", "lieu": "Frigo 16 · Nice", "image": "evenements/caravel.jpg", "couleur": "#b98cff", "ig": ["pandaevents06", "frigo.16"]},
+    {"id": "phaphane", "nom": "Phaphane", "sous": "AMAPIANO & AFROBEATS LOVERS", "genre": "amapiano & afrobeats lovers", "citation": "leurs sons amapiano et afrobeats du moment", "jour": "Ven. 27 nov.", "heures": "20h – 02h", "prix": "dès 12,10 €", "lieu": "Frigo 16 · Le 109, Nice", "image": "evenements/phaphane.jpg", "couleur": "#ffb347", "ig": ["pandaevents06", "frigo.16"]},
+    {"id": "tekno", "nom": "Do you like… Tekno ?", "sous": "Round 6 · Prizme Concept × Panda Events", "genre": "100 % tekno", "jour": "Sam. 28 nov.", "heures": "20h–02h", "prix": "dès 15,99 €", "lieu": "Frigo 16 · Nice", "image": "evenements/tekno.jpg", "couleur": "#ff3b3b", "ig": ["prizmeconcept", "_do.you.like", "pandaevents06", "frigo.16"]},
+    {"id": "acid-pauli", "nom": "Acid Pauli", "sous": "REF Session #18", "genre": "house psychédélique", "jour": "Ven. 4 déc.", "heures": "20h–04h", "prix": "dès 10 € + frais", "lieu": "Frigo 16 · Nice", "image": "evenements/acid-pauli.jpg", "couleur": "#f6c445", "ig": ["pandaevents06", "frigo.16"]},
+    {"id": "brodinski", "nom": "Brodinski", "sous": "+ Tobhi TM & Friends", "genre": "techno × rap", "jour": "Ven. 11 déc.", "heures": "dès 20h", "prix": "dès 15 € + frais", "lieu": "Frigo 16 · Nice", "image": "evenements/brodinski.jpg", "couleur": "#2f6bff", "ig": ["pandaevents06", "frigo.16"]}
+  ]
+}
