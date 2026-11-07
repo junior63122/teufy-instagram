@@ -43,6 +43,7 @@ test('analyse hebdomadaire : garde-fous sur ce que propose Claude', async () => 
       ],
       nouvelles_intros: [{ variante: 'commercial', texte: 'Trois villes, une seule question : tu sors où ?' }],
       nouveaux_debats: [{ q: 'Rooftop ou cave ?', a: 'Rooftop', b: 'Cave', legende: 'Choisis ton camp.' }],
+      nouveaux_sujets_reels: [{ titre: 'Le Carnaval de Nice côté soirées', sous: 'À savoir', points: ['Point un vérifié.', 'Point deux vérifié.'], legende: 'Enregistre-le.' }],
       hashtags_a_tester: ['#nicebynight', 'pas un hashtag', '#teufyparty'],
       objectif_prochaine_semaine: 62,
     }),
@@ -58,5 +59,6 @@ test('analyse hebdomadaire : garde-fous sur ce que propose Claude', async () => 
   assert.match(a, /#nicebynight/);
   assert.doesNotMatch(a, /pas un hashtag|#teufyparty/);
   assert.doesNotMatch(a, /hashtags max/, 'pas de changement de règle sans source officielle');
+  assert.match(a, /sujet de reel/);
   assert.match(res.md, /Objectif des prochains posts/);
 });

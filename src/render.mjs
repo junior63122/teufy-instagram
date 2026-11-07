@@ -71,11 +71,29 @@ const logo = (th, h) => (th.logo ? `<img class="logo" src="${th.logo}" style="he
 
 // --- Couverture -------------------------------------------------------------
 
-function couverture(th, w, h, { titre, sous, src }) {
+// Décor de saison ou de temps fort (neige, citrouilles, feux d'artifice…) parsemé en haut et en bas.
+function decor(th, w, h, n = 10) {
+  const ps = th.particules || [];
+  if (!ps.length) return '';
+  let s = 7, out = '';
+  const r = () => ((s = (s * 9301 + 49297) % 233280) / 233280);
+  for (let i = 0; i < n; i++) {
+    const enHaut = i % 2 === 0;
+    out += `<span style="position:absolute;left:${Math.round(r() * (w - 80))}px;top:${Math.round(enHaut ? 20 + r() * h * 0.14 : h * 0.8 + r() * h * 0.17)}px;font-size:${Math.round(34 + r() * 40)}px;transform:rotate(${Math.round(r() * 60 - 30)}deg);opacity:.9">${ps[i % ps.length]}</span>`;
+  }
+  return out;
+}
+
+// Deux mises en page de couverture, testées par l'apprentissage : titre centré ou titre en bas à gauche.
+function couverture(th, w, h, { titre, sous, src, mise = 'centre' }) {
+  const bas = mise === 'bas';
   return page(th, w, h, `
-  ${photo(src, 'inset:0', { voile: 'linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.35) 45%,rgba(0,0,0,.35) 65%,rgba(0,0,0,.55))' })}
+  ${photo(src, 'inset:0', { voile: bas ? 'linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.1) 40%,rgba(0,0,0,.75))' : 'linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.35) 45%,rgba(0,0,0,.35) 65%,rgba(0,0,0,.55))' })}
+  ${decor(th, w, h)}
   <h1 class="large fit ombre t" data-maxh="${Math.round(h * 0.34)}">${nl(titre)}</h1>
-  ${sous ? `<h2 class="large fit s">${esc(sous)}</h2>` : ''}`, `
+  ${sous ? `<h2 class="large fit s">${esc(sous)}</h2>` : ''}`, bas ? `
+  .t{position:absolute;left:64px;right:64px;bottom:${Math.round(h * 0.17)}px;text-align:left;font-size:${h > 1500 ? 104 : 96}px}
+  .s{position:absolute;left:64px;right:64px;bottom:${Math.round(h * 0.08)}px;text-align:left;font-size:64px;color:var(--corail);white-space:nowrap}` : `
   .t{position:absolute;left:60px;right:60px;top:${Math.round(h * 0.42)}px;text-align:center;font-size:${h > 1500 ? 92 : 84}px}
   .s{position:absolute;left:60px;right:60px;bottom:${Math.round(h * 0.09)}px;text-align:center;font-size:76px;color:var(--corail);white-space:nowrap}`);
 }
@@ -87,7 +105,7 @@ function soiree(th, w, h, { e, haut, bas, milieu = { url: '', photo: false } }) 
   const genres = genresList(e);
   // En bas : les styles musicaux ; à défaut, le lieu (le nom est déjà sur l'affiche ou au milieu).
   const titreBas = genres.length ? genres.join(', ') : styleLabel(e) || e.venue || e.name;
-  const info = [titreBas === e.venue ? null : e.venue, e.name !== titreBas ? e.name : null, heure(e.start), prix(e)].filter(Boolean).join(' · ');
+  const info = [titreBas === e.venue ? null : e.venue, e.name !== titreBas ? e.name : null, heure(e.start), prix(e), e.instagram?.[0] ? `@${e.instagram[0]}` : null].filter(Boolean).join(' · ');
   return page(th, w, h, `
   ${photo(haut, `left:0;right:0;top:0;height:${bh}px`, { nb: th.techno, voile: 'rgba(0,0,0,.28)' })}
   <div class="bande haut"><span class="large d">${esc(dateCourte(e.start))}</span>${logo(th, Math.round(bh * 0.36))}<span class="large fit v">${esc(ville(e))}</span></div>
@@ -133,10 +151,10 @@ export function message(th, w, h, { src, pill, texte, options = [], pied }) {
 
 // --- Exports -----------------------------------------------------------------
 
-export function carouselPages({ th, titre, sous, events, photos, fin }) {
+export function carouselPages({ th, titre, sous, events, photos, fin, mise }) {
   const details = events.slice(0, 8); // couverture + 8 soirées + fin = 10 (max Instagram)
   return [
-    couverture(th, 1080, 1350, { titre, sous, src: photos.next(events[0]?.image) }),
+    couverture(th, 1080, 1350, { titre, sous, src: photos.next(events[0]?.image), mise }),
     ...details.map((e) => soiree(th, 1080, 1350, { e, haut: photos.next(e.image), bas: photos.next(e.image), milieu: e.image ? undefined : photos.next() })),
     message(th, 1080, 1350, { src: photos.next(events.at(-1)?.image), pill: th.hashtag, texte: fin.texte, pied: fin.pied }),
   ];

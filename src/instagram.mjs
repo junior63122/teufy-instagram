@@ -53,10 +53,19 @@ async function publish(creationId, ig) {
   }
 }
 
-export async function publishCarousel(imageUrls, caption, ig) {
+// Identifications (organisateurs, lieux) posées sur l'image ; si Instagram refuse un compte, on publie sans.
+const userTags = (handles = []) => JSON.stringify(handles.slice(0, 5).map((username, i, a) => ({ username, x: +((i + 1) / (a.length + 1)).toFixed(2), y: 0.55 })));
+async function conteneur(params, handles, ig) {
+  if (handles?.length) {
+    try { return await call('POST', `${ig.user}/media`, { ...params, user_tags: userTags(handles) }, ig); } catch (err) { console.log(`Identification refusée (${handles.join(', ')}) : ${err.message}`); }
+  }
+  return call('POST', `${ig.user}/media`, params, ig);
+}
+
+export async function publishCarousel(imageUrls, caption, ig, { tags = [] } = {}) {
   const children = [];
-  for (const image_url of imageUrls.slice(0, 10)) {
-    const { id } = await call('POST', `${ig.user}/media`, { image_url, is_carousel_item: 'true' }, ig);
+  for (const [i, image_url] of imageUrls.slice(0, 10).entries()) {
+    const { id } = await conteneur({ image_url, is_carousel_item: 'true' }, tags[i], ig);
     children.push(id);
   }
   for (const id of children) await waitReady(id, ig, { timeoutMs: 3 * 60e3 });
@@ -65,8 +74,8 @@ export async function publishCarousel(imageUrls, caption, ig) {
   return publish(id, ig);
 }
 
-export async function publishSingle(imageUrl, caption, ig) {
-  const { id } = await call('POST', `${ig.user}/media`, { image_url: imageUrl, caption }, ig);
+export async function publishSingle(imageUrl, caption, ig, { tags = [] } = {}) {
+  const { id } = await conteneur({ image_url: imageUrl, caption }, tags[0], ig);
   await waitReady(id, ig, { timeoutMs: 3 * 60e3 });
   return publish(id, ig);
 }

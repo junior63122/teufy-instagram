@@ -35,7 +35,10 @@ const ligne = (e, avecMois = false) => {
   const lieu = [e.venue, e.city].filter(Boolean).join(', ');
   const style = styleLabel(e);
   const p = e.price === 0 ? ' · gratuit' : e.price != null ? ` · ${String(e.price).replace('.', ',')} €` : '';
-  return `→ ${jourCourt(e.start)} ${jourNum(e.start)}${avecMois ? ` ${moisCourt(e.start)}` : ''} · ${e.name}${style ? ` (${style})` : ''}${lieu ? ` · ${lieu}` : ''} · ${heure(e.start)}${p}`;
+  // Accroche qui donne envie + comptes de l'organisateur et du lieu (tagués, ils sont prévenus).
+  const tags = (e.instagram || []).slice(0, 2).map((h) => `@${h}`).join(' ');
+  const plus = [e.accroche, tags].filter(Boolean).join(' ');
+  return `→ ${jourCourt(e.start)} ${jourNum(e.start)}${avecMois ? ` ${moisCourt(e.start)}` : ''} · ${e.name}${style ? ` (${style})` : ''}${lieu ? ` · ${lieu}` : ''} · ${heure(e.start)}${p}${plus ? `\n   ${plus}` : ''}`;
 };
 // Le mois n'est ajouté que si les dates s'étalent sur plus de 9 jours.
 const liste = (events, n = 12) => {
@@ -137,3 +140,10 @@ export function captionReel({ variante, events, ch, r, elargi = false }) {
 }
 
 function clip(s) { return s.length <= 2200 ? s : s.slice(0, 2190) + '…'; }
+
+// --- Reel explicatif -----------------------------------------------------------
+
+export function captionExplicatif({ sujet, ch, r }) {
+  const fin = ch.pick('fin-explicatif', ['📌 Enregistre-le et envoie-le à ton crew.', '📌 Enregistre pour plus tard. Tu connais d\'autres astuces ? Dis-le en commentaire.', '📌 Envoie-le à celui ou celle qui en a besoin.']);
+  return clip(`${sujet.legende || sujet.titre}\n\n${sujet.points.map((p, i) => `${i + 1}. ${p}`).join('\n')}\n\n${fin}\n\n${hashtags(ch)}`);
+}

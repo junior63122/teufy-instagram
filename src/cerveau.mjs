@@ -79,7 +79,7 @@ export async function analyserSemaine({ now = new Date(), dryRun = false, log = 
   };
   const schema = {
     type: 'object', additionalProperties: false,
-    required: ['resume', 'nouveautes', 'analyse', 'regles', 'nouvelles_accroches', 'nouvelles_intros', 'nouveaux_debats', 'hashtags_a_tester', 'objectif_prochaine_semaine'],
+    required: ['resume', 'nouveautes', 'analyse', 'regles', 'nouvelles_accroches', 'nouvelles_intros', 'nouveaux_debats', 'nouveaux_sujets_reels', 'hashtags_a_tester', 'objectif_prochaine_semaine'],
     properties: {
       resume: { type: 'string', description: 'Résumé de la semaine en 3 à 6 phrases, en français, pour le fondateur.' },
       nouveautes: { type: 'array', items: { type: 'object', additionalProperties: false, required: ['titre', 'date', 'source', 'officiel', 'impact'], properties: { titre: { type: 'string' }, date: { type: 'string' }, source: { type: 'string' }, officiel: { type: 'boolean' }, impact: { type: 'string' } } } },
@@ -88,6 +88,7 @@ export async function analyserSemaine({ now = new Date(), dryRun = false, log = 
       nouvelles_accroches: { type: 'array', description: 'Au plus 4 accroches de reels à tester (texte court, lisible sans le son).', items: { type: 'object', additionalProperties: false, required: ['variante', 'titre', 'sous'], properties: { variante: { type: 'string', enum: ['weekend', 'techno', 'petits-prix'] }, titre: { type: 'string' }, sous: { type: 'string' } } } },
       nouvelles_intros: { type: 'array', description: 'Au plus 4 débuts de légende à tester pour les incontournables.', items: { type: 'object', additionalProperties: false, required: ['variante', 'texte'], properties: { variante: { type: 'string', enum: ['commercial', 'techno'] }, texte: { type: 'string' } } } },
       nouveaux_debats: { type: 'array', description: 'Au plus 2 sujets de débat (A ou B) qui font commenter, sans polémique blessante.', items: { type: 'object', additionalProperties: false, required: ['q', 'a', 'b', 'legende'], properties: { q: { type: 'string' }, a: { type: 'string' }, b: { type: 'string' }, legende: { type: 'string' } } } },
+      nouveaux_sujets_reels: { type: 'array', description: 'Au plus 2 sujets de reels explicatifs utiles ou drôles pour les 17-30 ans qui sortent (astuces, sujets du moment dans l\'événementiel ou la nuit, nouveautés locales), uniquement à partir de faits vérifiés dans la veille.', items: { type: 'object', additionalProperties: false, required: ['titre', 'sous', 'points', 'legende'], properties: { titre: { type: 'string' }, sous: { type: 'string' }, points: { type: 'array', items: { type: 'string' } }, legende: { type: 'string' } } } },
       hashtags_a_tester: { type: 'array', description: 'Au plus 5 hashtags pertinents (Côte d\'Azur, nightlife, styles) à tester.', items: { type: 'string' } },
       objectif_prochaine_semaine: { type: 'integer', description: 'Note /100 visée pour les posts de la semaine prochaine.' },
     },
@@ -143,6 +144,15 @@ export async function analyserSemaine({ now = new Date(), dryRun = false, log = 
       if (!debats.some((x) => x.q === db.q)) { debats.push({ id, q: db.q, a: db.a, b: db.b, legende: db.legende, ajout: today }); appliques.push(`débat « ${db.q} »`); }
     }
   }
+  const SUJETS_FILE = path.join(ROOT, 'contenus', 'sujets-reels.json');
+  const sujets = existsSync(SUJETS_FILE) ? JSON.parse(readFileSync(SUJETS_FILE, 'utf8')) : [];
+  for (const sj of (d.nouveaux_sujets_reels || []).slice(0, 2)) {
+    const pts = (sj.points || []).slice(0, 5);
+    if (texteOk(sj.titre, 60) && texteOk(sj.sous, 30) && texteOk(sj.legende, 300) && pts.length >= 2 && pts.every((x) => texteOk(x, 160)) && !sujets.some((x) => x.titre === sj.titre)) {
+      sujets.push({ id: `ia-${today}-${hash(sj.titre)}`, titre: sj.titre, sous: sj.sous, points: pts, legende: sj.legende, ajout: today });
+      appliques.push(`sujet de reel « ${sj.titre} »`);
+    }
+  }
   tendances.objectif_semaine = Math.max(objectif(data), Math.min(100, Number(d.objectif_prochaine_semaine) || 0));
 
   const md = `## Analyse de la semaine du ${today}
@@ -163,6 +173,7 @@ ${appliques.map((x) => `- ${x}`).join('\n') || '- Rien.'}
   if (dryRun) { log(md); return { decision: d, appliques, md }; }
   await writeFile(TENDANCES_FILE, JSON.stringify(tendances, null, 2) + '\n');
   await writeFile(DEBATS_FILE, JSON.stringify(debats, null, 2) + '\n');
+  await writeFile(SUJETS_FILE, JSON.stringify(sujets, null, 2) + '\n');
   await writeFile(ANALYSE_FILE, md);
   await mkdir(path.join(ROOT, 'veille'), { recursive: true });
   await writeFile(path.join(ROOT, 'veille', `${today}.md`), `${md}\n### Veille brute\n\n${veille}\n`);

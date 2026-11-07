@@ -15,10 +15,23 @@ export function saison(date = new Date()) {
   return 'automne';
 }
 
-// Temps fort de la date (MM-JJ heure de Paris), ou null.
+// Dimanche de Pâques (algorithme de Meeus/Jones/Butcher).
+function paques(an) {
+  const a = an % 19, b = Math.floor(an / 100), c = an % 100, d = Math.floor(b / 4), e = b % 4, f = Math.floor((b + 8) / 25), g = Math.floor((b - f + 1) / 3);
+  const h = (19 * a + b - d - g + 15) % 30, i = Math.floor(c / 4), k = c % 4, l = (32 + 2 * e + 2 * i - h - k) % 7, m = Math.floor((a + 11 * h + 22 * l) / 451);
+  const mois = Math.floor((h + l - 7 * m + 114) / 31), jour = ((h + l - 7 * m + 114) % 31) + 1;
+  return Date.UTC(an, mois - 1, jour);
+}
+
+// Temps fort de la date (Noël, Nouvel An, Halloween, ski, Carnaval, Pâques…), ou null.
 export function tempsFort(date = new Date()) {
-  const md = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Paris', month: '2-digit', day: '2-digit' }).format(date).split('/').reverse().join('-');
-  return DA.temps_forts.find((t) => t.du <= md && md <= t.au) || null;
+  const [jj, mm, aaaa] = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Paris', day: '2-digit', month: '2-digit', year: 'numeric' }).format(date).split('/');
+  const md = `${mm}-${jj}`;
+  const jour = Date.UTC(+aaaa, +mm - 1, +jj);
+  return DA.temps_forts.find((t) => {
+    if (t.paques) { const p = paques(+aaaa); return jour >= p - (t.avant ?? 7) * 86400e3 && jour <= p + (t.apres ?? 1) * 86400e3; }
+    return t.du <= md && md <= t.au;
+  }) || null;
 }
 
 const dataUri = (f, mime) => `data:${mime};base64,${readFileSync(f).toString('base64')}`;
@@ -50,10 +63,11 @@ function logo() {
 export function theme(date, univers = 'club') {
   const s = saison(date);
   const c = DA.couleurs;
-  const teinte = DA.saisons[s].teinte;
+  const fort = tempsFort(date);
+  const teinte = fort?.teinte || DA.saisons[s].teinte;
   const techno = univers === 'techno';
   return {
-    saison: s, univers, teinte, techno, logo: logo(), tempsFort: tempsFort(date), hashtag: DA.hashtag_marque,
+    saison: s, univers, teinte, techno, logo: logo(), tempsFort: fort, particules: fort?.particules || [], hashtag: DA.hashtag_marque,
     css: `${fonts()}
 :root{--blanc:${c.blanc};--corail:${c.corail};--ombre:${c.ombre_logo};--nuit:${c.nuit};--teinte:${teinte};
 --logo1:${c.degrade_logo[0]};--logo2:${c.degrade_logo[1]};--wdth:${DA.police.largeur}%;--g-titre:${DA.police.graisse_titre};--g-texte:${DA.police.graisse_texte};

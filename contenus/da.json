@@ -2,7 +2,10 @@
   "_explication": "Direction artistique reprise du compte @teufy_official : photo de soirée plein cadre teintée d'une couleur, grand titre blanc en capitales dans une police très large, sous-titre corail, logo TF blanc à ombre corail. Bandeaux photo en haut (date · logo · ville) et en bas (styles musicaux) autour de l'affiche. La teinte des photos change avec la saison.",
   "police": {
     "_note": "Archivo en largeur 125 % (proche des titres Teufy). Fichiers dans assets/fonts/.",
-    "fichiers": ["archivo-latin-wdth-normal.woff2", "archivo-latin-ext-wdth-normal.woff2"],
+    "fichiers": [
+      "archivo-latin-wdth-normal.woff2",
+      "archivo-latin-ext-wdth-normal.woff2"
+    ],
     "largeur": 125,
     "graisse_titre": 900,
     "graisse_texte": 700
@@ -11,22 +14,176 @@
     "blanc": "#ffffff",
     "corail": "#f58a6c",
     "ombre_logo": "#d9685a",
-    "degrade_logo": ["#ffbe5c", "#f9605a"],
+    "degrade_logo": [
+      "#ffbe5c",
+      "#f9605a"
+    ],
     "nuit": "#0b0606"
   },
   "saisons": {
-    "hiver": { "_mois": "décembre, janvier, février : rouge festif comme les posts de décembre", "teinte": "#d0141f" },
-    "printemps": { "_mois": "mars, avril, mai", "teinte": "#e2408a" },
-    "ete": { "_mois": "juin, juillet, août : coucher de soleil", "teinte": "#ff6a2b" },
-    "automne": { "_mois": "septembre, octobre, novembre", "teinte": "#7a2ee0" }
+    "hiver": {
+      "_mois": "décembre, janvier, février : rouge festif comme les posts de décembre",
+      "teinte": "#d0141f"
+    },
+    "printemps": {
+      "_mois": "mars, avril, mai",
+      "teinte": "#e2408a"
+    },
+    "ete": {
+      "_mois": "juin, juillet, août : coucher de soleil",
+      "teinte": "#ff6a2b"
+    },
+    "automne": {
+      "_mois": "septembre, octobre, novembre",
+      "teinte": "#7a2ee0"
+    }
   },
-  "techno": { "_note": "La techno passe en noir et blanc contrasté, avec une pointe de la teinte de saison.", "teinte_force": 0.35 },
+  "techno": {
+    "_note": "La techno passe en noir et blanc contrasté, avec une pointe de la teinte de saison.",
+    "teinte_force": 0.35
+  },
   "temps_forts": [
-    { "du": "12-20", "au": "12-31", "titre": "Les soirées du Nouvel An à ne pas manquer", "fetes": true },
-    { "du": "12-01", "au": "12-19", "titre": null, "fetes": true },
-    { "du": "10-24", "au": "10-31", "titre": "Les soirées d'Halloween à ne pas manquer", "fetes": false },
-    { "du": "02-08", "au": "02-14", "titre": "Les soirées de la Saint-Valentin", "fetes": false },
-    { "du": "06-14", "au": "06-21", "titre": "La Fête de la musique sur la Côte", "fetes": false }
+    {
+      "id": "nouvel-an",
+      "du": "12-26",
+      "au": "12-31",
+      "titre": "Les soirées du Nouvel An à ne pas manquer",
+      "fetes": true,
+      "particules": [
+        "✨",
+        "🎆",
+        "🥂"
+      ],
+      "teinte": "#c9a227"
+    },
+    {
+      "id": "nouvel-an-jour",
+      "du": "01-01",
+      "au": "01-01",
+      "titre": null,
+      "fetes": true,
+      "particules": [
+        "✨",
+        "🎆"
+      ],
+      "teinte": "#c9a227"
+    },
+    {
+      "id": "noel",
+      "du": "12-01",
+      "au": "12-25",
+      "titre": null,
+      "fetes": true,
+      "particules": [
+        "❄️",
+        "🎄",
+        "✨"
+      ],
+      "teinte": "#d0141f"
+    },
+    {
+      "id": "halloween",
+      "du": "10-20",
+      "au": "10-31",
+      "titre": "Les soirées d'Halloween à ne pas manquer",
+      "fetes": false,
+      "particules": [
+        "🎃",
+        "🦇",
+        "🕸️"
+      ],
+      "teinte": "#ff6a00"
+    },
+    {
+      "id": "saint-valentin",
+      "du": "02-08",
+      "au": "02-14",
+      "titre": "Les soirées de la Saint-Valentin",
+      "fetes": false,
+      "particules": [
+        "💘",
+        "❤️"
+      ],
+      "teinte": "#e0245e"
+    },
+    {
+      "id": "carnaval",
+      "du": "02-15",
+      "au": "03-01",
+      "titre": null,
+      "fetes": false,
+      "particules": [
+        "🎭",
+        "🎉",
+        "🎊"
+      ],
+      "teinte": "#8e2de2"
+    },
+    {
+      "id": "paques",
+      "paques": true,
+      "avant": 7,
+      "apres": 1,
+      "titre": null,
+      "fetes": false,
+      "particules": [
+        "🐣",
+        "🌸",
+        "🥚"
+      ],
+      "teinte": "#f28dbb"
+    },
+    {
+      "id": "fete-musique",
+      "du": "06-14",
+      "au": "06-21",
+      "titre": "La Fête de la musique sur la Côte",
+      "fetes": false,
+      "particules": [
+        "🎶",
+        "🎵",
+        "🎧"
+      ],
+      "teinte": "#ff4d6d"
+    },
+    {
+      "id": "ski",
+      "du": "01-02",
+      "au": "03-31",
+      "titre": null,
+      "fetes": false,
+      "particules": [
+        "❄️",
+        "🎿"
+      ],
+      "teinte": "#5b8def"
+    },
+    {
+      "id": "printemps",
+      "du": "04-01",
+      "au": "05-31",
+      "titre": null,
+      "fetes": false,
+      "particules": [
+        "🌸",
+        "🌼"
+      ],
+      "teinte": null
+    },
+    {
+      "id": "ete",
+      "du": "06-22",
+      "au": "08-31",
+      "titre": null,
+      "fetes": false,
+      "particules": [
+        "☀️",
+        "🌴",
+        "🍹"
+      ],
+      "teinte": null
+    }
   ],
-  "hashtag_marque": "#TeufyParty"
+  "hashtag_marque": "#TeufyParty",
+  "_temps_forts": "Le premier temps fort qui correspond à la date gagne. du/au au format MM-JJ ; « paques » : calculé chaque année (avant/apres en jours). « particules » : décor animé dans les reels et parsemé sur les visuels. « teinte » : remplace la teinte de saison. « titre » : remplace le titre des incontournables commerciaux."
 }

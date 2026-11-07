@@ -106,7 +106,7 @@ export async function enrich(events, { max = 25, debugDir } = {}) {
   let n = 0;
   for (const e of events) {
     if (n >= max) break;
-    if (!e.url || e.enrichi || (e.image && e.tags?.length && e.price != null)) continue;
+    if (!e.url || e.enrichi || (e.source !== 'web' && e.image && e.tags?.length && e.price != null)) continue;
     n++;
     e.enrichi = true;
     try {
@@ -114,6 +114,13 @@ export async function enrich(events, { max = 25, debugDir } = {}) {
       if (debugDir) { await mkdir(debugDir, { recursive: true }); await writeFile(path.join(debugDir, `detail-${slug(e.url)}.html`), html); }
       const found = extractEvents(html, { source: e.source, baseUrl: e.url });
       const m = found.find((x) => keyOf(x) === keyOf(e)) || found.find((x) => x.start.slice(0, 10) === e.start.slice(0, 10)) || found[0];
+      // Vérification : le nom de la soirée figure sur sa page, et la date annoncée concorde.
+      const txt = norm(html);
+      const mots = norm(e.name).split(/[^a-z0-9]+/).filter((w) => w.length >= 3);
+      e.verifie = mots.length > 0 && mots.filter((w) => txt.includes(w)).length / mots.length >= 0.6;
+      // Même soirée sur la page mais à une autre date (écart de plus de 30 h) : info douteuse.
+      const memeNom = m && m.name && norm(m.name).includes(norm(e.name).slice(0, 12));
+      if (memeNom && Math.abs(Date.parse(m.start) - Date.parse(e.start)) > 30 * 3600e3) e.douteux = true;
       if (m) {
         for (const f of ['image', 'venue', 'city', 'address', 'description', 'popularite']) if (!e[f] && m[f]) e[f] = m[f];
         if (e.price == null && m.price != null) e.price = m.price;

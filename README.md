@@ -36,6 +36,27 @@ Shotgun protège ses pages par une vérification anti-robot, que le bot ne conto
 
 Coût indicatif : 1 à 3 € par recherche, deux par semaine environ (réglages dans `config.json` → `recherche_web`).
 
+## Des posts qui donnent envie (et des infos justes)
+
+- **Jamais de soirée du soir même** : une soirée n'est montrée que si elle commence au moins 24 h après la publication (`reglages.delai_min_heures`).
+- **Infos vérifiées** : chaque soirée trouvée sur le web est contrôlée sur sa page. Le nom doit y figurer et la date concorder, sinon elle est écartée, sauf si elle est confirmée par une billetterie officielle.
+- **Accroche par soirée** : une phrase qui donne envie, uniquement à partir de faits (line-up, concept, lieu), dans la légende.
+- **Organisateurs et lieux tagués** : @mention dans la légende et identification sur la diapo de leur soirée, pour qu'ils soient prévenus et repartagent. Si Instagram refuse une identification, le post part sans elle.
+
+## Reels en motion design
+
+Les reels sont animés : accroche mot par mot, affiches qui tombent, numéros qui apparaissent, bandeaux qui glissent, transitions « whip », glitch et stroboscope pour la techno, et décor animé selon le moment de l'année.
+
+Les **temps forts** sont dans `contenus/da.json` → `temps_forts` : Nouvel An ✨🎆, Noël ❄️🎄, Halloween 🎃🦇, Saint-Valentin 💘, Carnaval de Nice 🎭, Pâques 🐣 (date calculée chaque année), Fête de la musique 🎶, ski ❄️🎿, printemps 🌸, été ☀️🌴. Pour chacun : couleur, décor animé et parfois un titre spécial. Le décor apparaît aussi sur les couvertures.
+
+Le 3e reel du mois alterne entre « petits prix » et **reel explicatif** : astuces et sujets du moment (payer moins cher, éviter les arnaques aux billets, rentrer en sécurité, dress code, première rave…), dans `contenus/sujets-reels.json`. L'analyse hebdomadaire propose de nouveaux sujets d'actualité, et le bot garde le format qui marche le mieux.
+
+**Musique** : dépose des .mp3 dans `assets/musiques/club/` et `assets/musiques/techno/`. Par exemple, la bibliothèque musicale de Pixabay (pixabay.com/music) est gratuite et autorisée pour un usage commercial. Les morceaux trop courts sont mis en boucle et le volume est égalisé. Sans musique, les reels sont muets.
+
+## Visuels qui s'adaptent
+
+Le bot teste lui-même plusieurs options et garde celles qui ont la meilleure note : mise en page de la couverture (titre centré ou en bas), accroches, intros, photos, format du 3e reel, heure de publication. L'analyse hebdomadaire peut aussi proposer de nouveaux tests.
+
 ## Il choisit les meilleures soirées et apprend tout seul
 
 Chaque jour, le bot relève les statistiques des posts des 3 dernières semaines : portée, likes, commentaires, enregistrements, partages, abonnements gagnés, visites du profil et temps de visionnage des reels. Il note aussi le nombre d'abonnés. Tout est enregistré dans `apprentissage.json`, avec un résumé lisible dans **`RAPPORT.md`**.

@@ -1,0 +1,72 @@
+[
+  {
+    "id": "payer-moins-cher",
+    "titre": "3 astuces pour payer ta soirée moins cher",
+    "sous": "Côte d'Azur",
+    "points": [
+      "Prends ta place dès l'ouverture de la billetterie : les premiers tarifs sont presque toujours les moins chers.",
+      "Regarde les soirées gratuites ou à petit prix : il y en a chaque semaine sur la Côte.",
+      "Arrive tôt : certaines soirées sont moins chères ou gratuites avant une certaine heure. Vérifie sur la page de la soirée."
+    ],
+    "legende": "Sortir sur la Côte sans exploser ton budget, c'est possible."
+  },
+  {
+    "id": "arnaques-billets",
+    "titre": "Billets de soirée : évite les arnaques",
+    "sous": "À savoir",
+    "points": [
+      "Achète sur la billetterie officielle de la soirée ou sur sa plateforme de revente officielle.",
+      "Ne paie jamais un inconnu par virement ou en carte cadeau pour un billet.",
+      "Un prix trop bas pour une soirée complète, c'est presque toujours une arnaque.",
+      "Une capture d'écran de billet ne prouve rien : le même billet peut être vendu plusieurs fois."
+    ],
+    "legende": "Chaque week-end, des gens restent devant la porte avec un faux billet. Pas toi."
+  },
+  {
+    "id": "rentrer-securite",
+    "titre": "Rentrer en sécurité après une soirée",
+    "sous": "Les bons réflexes",
+    "points": [
+      "Prévois ton retour avant de partir : navette, VTC ou un pote qui ne boit pas.",
+      "Ne laisse jamais ton verre sans surveillance.",
+      "Reste en groupe et préviens quelqu'un quand tu es rentré.",
+      "En cas d'urgence : 112. Par SMS : 114."
+    ],
+    "legende": "La meilleure soirée, c'est celle où tout le monde rentre bien."
+  },
+  {
+    "id": "sac-soiree",
+    "titre": "Ce que tu dois avoir sur toi pour sortir",
+    "sous": "Check-list",
+    "points": [
+      "Une pièce d'identité : beaucoup de clubs la demandent à l'entrée.",
+      "Ton billet téléchargé sur ton téléphone, pas seulement le lien.",
+      "Un téléphone chargé ou une petite batterie externe.",
+      "De quoi rentrer : appli de transport, appli VTC, un peu d'argent."
+    ],
+    "legende": "Enregistre-la et ressors-la vendredi soir."
+  },
+  {
+    "id": "dress-code",
+    "titre": "Dress code : comment ne pas te faire recaler",
+    "sous": "Entrée en club",
+    "points": [
+      "Regarde les photos des soirées précédentes du lieu sur Instagram.",
+      "Lis la page de la soirée : le dress code y est souvent indiqué.",
+      "Dans le doute, une tenue simple et soignée passe presque partout."
+    ],
+    "legende": "Le refus à l'entrée, ça n'arrive qu'à ceux qui n'ont pas vu ce reel."
+  },
+  {
+    "id": "premiere-rave",
+    "titre": "Ta première soirée techno : le guide",
+    "sous": "Techno",
+    "points": [
+      "Bois de l'eau régulièrement toute la nuit.",
+      "Protège tes oreilles : des bouchons, ça change tout.",
+      "Choisis un point de rendez-vous avec tes potes en arrivant.",
+      "Respecte le dancefloor : pas de téléphone en plein visage des autres."
+    ],
+    "legende": "Envoie-le à ton pote qui n'a jamais fait de rave."
+  }
+]

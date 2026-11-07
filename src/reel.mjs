@@ -52,7 +52,7 @@ export async function buildReel(images, out, { root, durees, genre = 'club' }) {
   return { out, total, musique };
 }
 
-async function pickMusic(dir) {
+export async function pickMusic(dir) {
   if (!existsSync(dir)) return null;
   const files = (await readdir(dir)).filter((f) => /\.(mp3|m4a|aac|wav)$/i.test(f));
   if (!files.length) return null;
