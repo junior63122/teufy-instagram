@@ -7,8 +7,9 @@ const VERSION = process.env.IG_API_VERSION || 'v21.0';
 const HOST = process.env.IG_API_HOST || 'graph.facebook.com';
 
 export function igConfig() {
-  const token = process.env.IG_ACCESS_TOKEN;
-  const user = process.env.IG_USER_ID;
+  // Espaces ou retours à la ligne collés par erreur autour des secrets : on les retire.
+  const token = (process.env.IG_ACCESS_TOKEN || '').trim();
+  const user = (process.env.IG_USER_ID || '').trim();
   return token && user ? { token, user } : null;
 }
 
