@@ -1,0 +1,21 @@
+{
+  "explication": "Rushes vidéo de soirée triés à la main (Mixkit, licence gratuite, usage commercial sans mention). Les plans posés, mariages, boucles VJ et fonds trop clairs sont écartés. Tags : foule, dj, potes, lumieres. Pexels et Pixabay complètent si les clés PEXELS_API_KEY / PIXABAY_API_KEY sont présentes.",
+  "mixkit": [
+    { "id": 830, "tags": ["dj"] }, { "id": 832, "tags": ["potes", "foule"] }, { "id": 834, "tags": ["dj"] },
+    { "id": 4026, "tags": ["foule", "dj"] }, { "id": 4185, "tags": ["foule"] }, { "id": 4187, "tags": ["dj", "lumieres"] },
+    { "id": 4188, "tags": ["foule", "lumieres"] }, { "id": 4344, "tags": ["foule"] }, { "id": 11942, "tags": ["lumieres", "foule"] },
+    { "id": 14088, "tags": ["foule", "lumieres"] }, { "id": 14105, "tags": ["foule", "lumieres"] }, { "id": 14116, "tags": ["foule"] },
+    { "id": 23208, "tags": ["dj"] }, { "id": 25242, "tags": ["dj"] }, { "id": 32559, "tags": ["foule", "potes"] },
+    { "id": 32590, "tags": ["foule"] }, { "id": 40105, "tags": ["potes"] }, { "id": 42299, "tags": ["potes"] },
+    { "id": 42398, "tags": ["dj"] }, { "id": 42418, "tags": ["dj"] }, { "id": 46874, "tags": ["potes"] },
+    { "id": 46876, "tags": ["potes"] }, { "id": 46893, "tags": ["potes"] }, { "id": 46896, "tags": ["potes", "foule"] },
+    { "id": 48507, "tags": ["foule", "lumieres"] }, { "id": 48509, "tags": ["foule", "lumieres"] }, { "id": 48510, "tags": ["foule"] }
+  ],
+  "recherches": {
+    "foule": ["nightclub crowd", "rave crowd", "festival crowd night", "party crowd hands"],
+    "dj": ["dj mixing", "dj booth", "dj turntables night"],
+    "potes": ["friends party night", "friends dancing club", "girls dancing party"],
+    "lumieres": ["club lights", "laser show", "concert lights"]
+  },
+  "exclure": ["wedding", "bride", "office", "business", "christmas", "kids", "child", "baby", "senior", "studio", "white background", "animation", "loop", "abstract", "3d"]
+}

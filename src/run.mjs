@@ -258,6 +258,29 @@ async function prepare(slot, now, id) {
     const tmp = path.join(ROOT, 'out', `reel-${id}`);
     const video = path.join(dir, `reel-${stamp}.mp4`);
     let res;
+    // Montage sur vraies vidéos de soirée, calé sur un son Instagram du moment (sinon boucle générée).
+    const { montageReel, GRAMMAIRES } = await import('./montage.mjs');
+    const genreDe = (v) => (v === 'techno' ? 'techno' : 'club');
+    const monter = async ({ th, contenu, genre }) => {
+      const { rassemblerRushes } = await import('./rushes.mjs');
+      const rushes = await rassemblerRushes({ r });
+      if (rushes.length < 4) throw new Error(`pas assez de rushes vidéo (${rushes.length})`);
+      const { choisirSon } = await import('./son.mjs');
+      const son = await choisirSon({ ig: igConfig(), genre, dossier: `${tmp}-son`, r, deja: hist.slice(-12).map((h) => h.son?.audio_id).filter(Boolean) }).catch(() => null);
+      const grammaire = val('grammaire') || ch.pick('grammaire-reel', GRAMMAIRES, (x) => x);
+      const videoIG = son ? video.replace(/\.mp4$/, '-instagram.mp4') : null;
+      // Sans son Instagram (pas de jeton, API indisponible) : boucle générée au tempo du montage.
+      let musique = son?.fichier || null;
+      if (!musique) {
+        const { genererBeat } = await import('./beat.mjs');
+        await mkdir(`${tmp}-son`, { recursive: true });
+        musique = await genererBeat({ style: genre, duree: 30, sortie: path.join(`${tmp}-son`, 'beat.wav'), seed: hash(seed) });
+      }
+      const m = await montageReel({ th, contenu, rushes, out: video, outSansMusique: videoIG, tmp, genre, grammaire, seed: hash(seed), compte: config.compte, now,
+        musique, tempo: son ? { bpm: son.bpm, phase: son.phase } : null });
+      return { ...m, voix: null, musique: son ? `${son.titre} – ${son.artiste} (son Instagram, ${son.bpm} BPM)` : m.musique,
+        son: son ? { audio_id: son.audio_id, titre: son.titre, artiste: son.artiste, bpm: son.bpm } : null, video_instagram: videoIG };
+    };
     if (variante === 'explicatif') {
       const used = new Set([...hist.map((h) => h.sujet).filter(Boolean), ...usedHere]);
       const tous = JSON.parse(await readFile(path.join(ROOT, 'contenus', 'sujets-reels.json'), 'utf8'));
@@ -265,10 +288,15 @@ async function prepare(slot, now, id) {
       const sujet = ch.pick('sujet-reel', pool.length ? pool : tous, (x) => x.id);
       usedHere.add(sujet.id);
       const { th, photos } = await visuel(/techno/.test(sujet.sous || '') ? 'techno' : 'club');
-      const scenes = [...motion.scenesExplication(th, { titre: sujet.titre, sous: sujet.sous, points: sujet.points, photos }),
-        motion.sceneFin(th, { compte: config.compte, photo: photos.next(), texte: 'Enregistre pour plus tard 📌' })];
-      res = await motion.motionReel({ scenes, out: video, root: ROOT, genre: 'club', tmp, voix, config });
-      pub = { video, legende: captionExplicatif({ sujet, ch, r }), duree: +res.total.toFixed(1), titre: sujet.titre, sujet: sujet.id };
+      try {
+        res = await monter({ th, genre: 'club', contenu: { hook: { titre: sujet.titre, sous: sujet.sous }, points: sujet.points, fin: 'enregistre pour plus tard 📌' } });
+      } catch (err) {
+        console.error(`[${id}] montage impossible (${err.message}), motion simple.`);
+        const scenes = [...motion.scenesExplication(th, { titre: sujet.titre, sous: sujet.sous, points: sujet.points, photos }),
+          motion.sceneFin(th, { compte: config.compte, photo: photos.next(), texte: 'Enregistre pour plus tard 📌' })];
+        res = await motion.motionReel({ scenes, out: video, root: ROOT, genre: 'club', tmp, voix, config });
+      }
+      pub = { video, video_instagram: res.video_instagram || undefined, son: res.son || undefined, legende: captionExplicatif({ sujet, ch, r }), duree: +res.total.toFixed(1), titre: sujet.titre, sujet: sujet.id };
     } else {
       // Week-end visé : celui de la semaine, ou le suivant s'il est déjà trop entamé (règle des 24 h).
       const weFor = () => { const w = windowFor([5, 6, 7], now); return w.to.getTime() - debutMin < 36 * 3600e3 ? windowFor([5, 6, 7], new Date(now.getTime() + 7 * 86400e3)) : w; };
@@ -283,7 +311,27 @@ async function prepare(slot, now, id) {
       const chosen = pickReel(best(list, 40), voix ? Math.min(4, R.soirees_par_reel) : R.soirees_par_reel);
       const hooks = TENDANCES.accroches_reels;
       const sansWeekend = hooks[variante].filter((h) => !elargi || !/week-end/i.test(h.titre + h.sous));
-      const hook = ch.pick(`hook-${variante}`, sansWeekend.length ? sansWeekend : hooks[variante], (h) => hash(h.titre));
+      // Accroches tirées des vraies soirées de la semaine (chiffre, villes, prix), en plus de celles de tendances.json.
+      const quand = elargi ? 'ces prochains jours' : 'ce week-end';
+      const villes = [...new Set(chosen.map((e) => (e.city || 'Nice').replace(/^Saint-/i, 'St-')))].slice(0, 3);
+      const prixMax = Math.max(...chosen.map((e) => e.price ?? 0));
+      const generees = {
+        weekend: [
+          { titre: `${chosen.length} soirées où tu DOIS être ${quand}`, sous: villes.join(' · ') },
+          { titre: `Arrête de scroller, ton plan ${quand} est là`, sous: villes.join(' · ') },
+          { titre: `${villes[0]} ${quand}, c'est ça ou rien`, sous: `${chosen.length} soirées` },
+        ],
+        techno: [
+          { titre: `${chosen.length} raves à pas rater ${quand}`, sous: villes.join(' · ') },
+          { titre: `Techno ${quand} : voilà où ça tape`, sous: villes.join(' · ') },
+        ],
+        'petits-prix': [
+          { titre: `${chosen.length} soirées à moins de ${Math.max(5, Math.ceil(prixMax))} €`, sous: quand },
+          { titre: `Sortir ${quand} sans te ruiner`, sous: villes.join(' · ') },
+        ],
+      }[variante] || [];
+      const pool = [...(sansWeekend.length ? sansWeekend : hooks[variante]), ...generees];
+      const hook = ch.pick(`hook-${variante}`, pool, (h) => hash(h.titre));
       const { th, photos } = await visuel(variante === 'techno' ? 'techno' : 'club');
       const question = variante === 'techno' ? 'Tu seras où ?' : variante === 'petits-prix' ? 'Laquelle tu prends ?' : 'Laquelle tu choisis ?';
       // Motion design : accroche animée, une scène par soirée, question, fin.
@@ -295,7 +343,12 @@ async function prepare(slot, now, id) {
         motion.sceneFin(th, { compte: config.compte, photo: photos.next() }),
       ];
       try {
-        res = await motion.motionReel({ scenes, out: video, root: ROOT, genre: variante === 'techno' ? 'techno' : 'club', tmp, voix, config });
+        try {
+          res = await monter({ th, genre: genreDe(variante), contenu: { hook, events: chosen, question } });
+        } catch (err) {
+          console.error(`[${id}] montage impossible (${err.message}), motion simple.`);
+          res = await motion.motionReel({ scenes, out: video, root: ROOT, genre: genreDe(variante), tmp, voix, config });
+        }
       } catch (err) {
         // Repli : diaporama simple si le rendu animé échoue.
         console.error(`[${id}] motion impossible (${err.message}), diaporama simple.`);
@@ -304,13 +357,13 @@ async function prepare(slot, now, id) {
         const { buildReel } = await import('./reel.mjs');
         res = await buildReel(imgs, video, { root: ROOT, durees: [1.6, ...chosen.map(() => 1.8), 2.6, 1.8], genre: variante === 'techno' ? 'techno' : 'club' });
       }
-      pub = { video, legende: captionReel({ variante, events: chosen, ch, r, elargi }), soirees: chosen, duree: +res.total.toFixed(1), titre: hook.titre };
+      pub = { video, video_instagram: res.video_instagram || undefined, son: res.son || undefined, legende: captionReel({ variante, events: chosen, ch, r, elargi }), soirees: chosen, duree: +res.total.toFixed(1), titre: hook.titre };
     }
     // Couverture : une image de l'accroche, une fois le titre affiché.
     const cover = path.join(dir, `reel-${stamp}-couverture.jpg`);
     spawnSync('ffmpeg', ['-y', '-loglevel', 'error', '-ss', '1.2', '-i', video, '-frames:v', '1', '-q:v', '2', cover]);
     pub.couverture = cover;
-    console.log(`[${id}] reel ${variante} ${res.total.toFixed(1)} s, voix ${res.voix || 'aucune'}${res.musique ? ` avec ${path.basename(res.musique)}` : ' (sans musique : ajoute des .mp3 dans assets/musiques/)'}`);
+    console.log(`[${id}] reel ${variante} ${res.total.toFixed(1)} s${res.grammaire ? `, montage ${res.grammaire} (${res.etalonnage})` : ''}, musique : ${res.son ? res.musique : res.musique ? path.basename(String(res.musique)) : 'aucune'}`);
   } else {
     throw new Error(`Type inconnu : ${slot.type}`);
   }
@@ -325,7 +378,7 @@ async function prepare(slot, now, id) {
   const out = { id, type: slot.type, variante: slot.variante || null, date: stamp, ...pub, choix: ch.choix,
     features: (pub.soirees || []).flatMap(eventFeatures), nb_images: pub.images?.length || 0 };
   if (out.images) out.images = out.images.map(rel);
-  if (out.video) { out.video = rel(out.video); out.couverture = rel(out.couverture); }
+  if (out.video) { out.video = rel(out.video); out.couverture = rel(out.couverture); if (out.video_instagram) out.video_instagram = rel(out.video_instagram); }
   await writeFile(path.join(dir, 'publication.json'), JSON.stringify(out, null, 2));
   await writeFile(path.join(dir, 'legende.txt'), out.legende + '\n');
   console.log(`\n[${id}] prêt dans media/${id}/\n${out.legende.split('\n').map((l) => '   ' + l).join('\n')}`);
@@ -372,7 +425,7 @@ async function publishPrepared(id) {
 
   let base = MEDIA_BASE;
   const url = (name) => `${base}/${id}/${name}`;
-  const urls = () => (p.video ? [url(p.video), url(p.couverture)] : p.images.map(url));
+  const urls = () => (p.video ? [url(p.video), url(p.couverture), ...(p.video_instagram ? [url(p.video_instagram)] : [])] : p.images.map(url));
   if (!(await waitOnline(urls(), 12 * 60e3))) {
     const fb = process.env.MEDIA_FALLBACK_URL;
     if (!fb) throw new Error(`Les fichiers ne sont pas en ligne sur ${MEDIA_BASE} après 12 min.`);
@@ -382,13 +435,14 @@ async function publishPrepared(id) {
   }
 
   const res = p.video
-    ? await publishReel(url(p.video), url(p.couverture), p.legende, ig, { essai: !!TENDANCES.reels_essai?.actif })
+    ? await publishReel(url(p.son?.audio_id && p.video_instagram ? p.video_instagram : p.video), url(p.couverture), p.legende, ig,
+      { essai: !!TENDANCES.reels_essai?.actif, audio: p.son?.audio_id ? { audio_id: p.son.audio_id } : null, videoSecours: url(p.video) })
     : p.images.length === 1
       ? await publishSingle(url(p.images[0]), p.legende, ig, { tags: p.tags })
       : await publishCarousel(p.images.map(url), p.legende, ig, { tags: p.tags });
   const link = await permalink(res.id, ig);
   console.log(`[${id}] ✅ publié : ${link || res.id}`);
-  hist.push({ id, date: p.date, media: res.id, lien: link, debat: p.debat, bonplan: p.bonplan, sujet: p.sujet, le: new Date().toISOString(),
+  hist.push({ id, date: p.date, media: res.id, lien: link, debat: p.debat, bonplan: p.bonplan, sujet: p.sujet, son: p.son, le: new Date().toISOString(),
     publication: { id: p.id, type: p.type, variante: p.variante, date: p.date, choix: p.choix, features: p.features, nb_images: p.nb_images, duree: p.duree, legende: p.legende, titre: p.titre } });
   await writeFile(HIST_FILE, JSON.stringify(hist.slice(-300), null, 2));
 }

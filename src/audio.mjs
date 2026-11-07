@@ -131,7 +131,7 @@ export async function bruitages(dossier) {
 
 // Mixage final : musique (en boucle, baissée sous la voix), voix et bruitages placés dans le temps.
 // pistes = [{ fichier, debut (s), volume }] ; voix = [{ fichier, debut }]
-export async function mixer({ total, musique, voix = [], sfx = [], sortie }) {
+export async function mixer({ total, musique, voix = [], sfx = [], sortie, niveau = -14 }) {
   const inputs = [];
   const filtres = [];
   let i = 0;
@@ -154,7 +154,7 @@ export async function mixer({ total, musique, voix = [], sfx = [], sortie }) {
     musique2 = '[musd]';
   }
   const tous = [musique2, ...(v.length ? ['[vx]'] : []), ...s];
-  filtres.push(`${tous.join('')}amix=inputs=${tous.length}:normalize=0:duration=first,atrim=0:${total.toFixed(3)},loudnorm=I=-14:TP=-1.5,afade=t=out:st=${Math.max(0, total - 0.8).toFixed(3)}:d=0.8[a]`);
+  filtres.push(`${tous.join('')}amix=inputs=${tous.length}:normalize=0:duration=first,atrim=0:${total.toFixed(3)},loudnorm=I=${niveau}:TP=-1.5,afade=t=out:st=${Math.max(0, total - 0.8).toFixed(3)}:d=0.8[a]`);
   await run('ffmpeg', ['-y', '-loglevel', 'error', ...inputs, '-filter_complex', filtres.join(';'), '-map', '[a]', '-ar', '44100', '-c:a', 'pcm_s16le', sortie]);
   return sortie;
 }

@@ -185,7 +185,7 @@ export function reelPages({ th, events, photos, titre, sous, question, compte })
 
 export async function renderPages(pages, outDir, prefix, { width, height, png = false }) {
   await mkdir(outDir, { recursive: true });
-  const browser = await chromium.launch();
+  const browser = await chromium.launch(process.env.CHROME_BIN ? { executablePath: process.env.CHROME_BIN } : {});
   const files = [];
   try {
     const ctx = await browser.newContext({ viewport: { width, height }, deviceScaleFactor: 1 });

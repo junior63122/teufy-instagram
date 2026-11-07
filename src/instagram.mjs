@@ -80,9 +80,30 @@ export async function publishSingle(imageUrl, caption, ig, { tags = [] } = {}) {
   return publish(id, ig);
 }
 
-export async function publishReel(videoUrl, coverUrl, caption, ig, { essai = false } = {}) {
+// Sons Instagram autorisés pour la publication par API (API Audio, juin 2026). Sans requête : les tendances.
+export async function chercherSons(ig, { type = 'music', requete = '' } = {}) {
+  const params = { audio_type: type, user_id: ig.user };
+  if (requete) params.search_query = requete;
+  return (await call('GET', 'ig_audio', params, ig)).audio || [];
+}
+
+// audio = { audio_id, audio_volume, video_volume } : son Instagram attaché au reel. videoSecours = la même
+// vidéo avec la musique incluse, publiée si Instagram refuse le son.
+export async function publishReel(videoUrl, coverUrl, caption, ig, { essai = false, audio = null, videoSecours = null } = {}) {
   const params = { media_type: 'REELS', video_url: videoUrl, caption, share_to_feed: 'true' };
   if (coverUrl) params.cover_url = coverUrl;
+  if (audio?.audio_id) {
+    params.audio_configuration = JSON.stringify({ audio_id: audio.audio_id, audio_volume: audio.audio_volume ?? 100, video_volume: audio.video_volume ?? 35 });
+    try {
+      const { id } = await call('POST', `${ig.user}/media`, { ...params, ...(essai ? { trial_params: JSON.stringify({ graduation_strategy: 'SS_PERFORMANCE' }) } : {}) }, ig);
+      await waitReady(id, ig);
+      return publish(id, ig);
+    } catch (err) {
+      console.log(`Son Instagram refusé (${err.message}) : vidéo avec la musique incluse.`);
+      delete params.audio_configuration;
+      if (videoSecours) params.video_url = videoSecours;
+    }
+  }
   // Trial Reel : montré d'abord aux non-abonnés, publié sur le profil s'il performe.
   if (essai) params.trial_params = JSON.stringify({ graduation_strategy: 'SS_PERFORMANCE' });
   let id;

@@ -250,7 +250,7 @@ export async function motionReel({ scenes, out, root, genre = 'club', fps = 30, 
   }
 
   // 2. Images : chaque scène est rejouée image par image.
-  const browser = await chromium.launch();
+  const browser = await chromium.launch(process.env.CHROME_BIN ? { executablePath: process.env.CHROME_BIN } : {});
   let n = 0;
   try {
     const ctx = await browser.newContext({ viewport: { width: W, height: H }, deviceScaleFactor: 1 });
