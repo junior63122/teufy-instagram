@@ -84,7 +84,7 @@ jobs:
           node src/run.mjs collecter
           # Site internet (agenda des soirées) : régénéré une fois par jour.
           sudo apt-get install -y --no-install-recommends ffmpeg >/dev/null 2>&1 || true
-          node src/run.mjs site || echo "::warning::Site non régénéré"
+          node src/run.mjs site $([ "${{ startsWith(inputs.quoi, 'site') }}" = "true" ] && echo --force) || echo "::warning::Site non régénéré"
           git config user.name "teufy-bot"
           git config user.email "teufy-bot@users.noreply.github.com"
           git add apprentissage.json RAPPORT.md ANALYSE.md tendances-auto.json contenus veille index.html .nojekyll site evenements-web.json 2>/dev/null || true
