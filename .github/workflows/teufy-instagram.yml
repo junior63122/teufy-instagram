@@ -135,6 +135,17 @@ jobs:
           git commit -m "Teufy : soirées et reels préparés le $(date -u +%F)"
           for i in 1 2 3; do git pull --rebase && git push && break; sleep 5; done
 
+      - name: Garder l'aperçu dans le dépôt (pour le relire avant publication)
+        if: steps.choix.outputs.publier != 'true' && steps.choix.outputs.rien != 'true' && steps.choix.outputs.quoi != 'mois'
+        run: |
+          git config user.name "teufy-bot"
+          git config user.email "teufy-bot@users.noreply.github.com"
+          mkdir -p apercus && rm -rf apercus/* && cp -r media/* apercus/ 2>/dev/null || true
+          git add apercus 2>/dev/null || true
+          git diff --cached --quiet && exit 0
+          git commit -m "Teufy : aperçu ${{ steps.choix.outputs.quoi }} du $(date -u +%F)"
+          for i in 1 2 3; do git pull --rebase && git push && break; sleep 5; done
+
       - name: Aperçu téléchargeable (visuels, vidéos, légendes, pages récupérées)
         if: always() && steps.choix.outputs.rien != 'true'
         uses: actions/upload-artifact@v4
