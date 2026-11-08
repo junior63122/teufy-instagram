@@ -1,0 +1,632 @@
+{
+ "id": "comment-passer-le-videur",
+ "concept": "reelflash",
+ "fps": 30,
+ "duree": 25.68,
+ "mots": [
+  {
+   "w": "Tu",
+   "scene": 0,
+   "start": 0.069,
+   "end": 0.08
+  },
+  {
+   "w": "as",
+   "scene": 0,
+   "start": 0.133,
+   "end": 0.24
+  },
+  {
+   "w": "payé",
+   "scene": 0,
+   "start": 0.28,
+   "end": 0.48
+  },
+  {
+   "w": "ta",
+   "scene": 0,
+   "start": 0.533,
+   "end": 0.64
+  },
+  {
+   "w": "prévente",
+   "scene": 0,
+   "start": 0.7,
+   "end": 1.24
+  },
+  {
+   "w": "mais",
+   "scene": 0,
+   "start": 1.264,
+   "end": 1.36
+  },
+  {
+   "w": "le",
+   "scene": 0,
+   "start": 1.413,
+   "end": 1.52
+  },
+  {
+   "w": "videur",
+   "scene": 0,
+   "start": 1.568,
+   "end": 1.84
+  },
+  {
+   "w": "te",
+   "scene": 0,
+   "start": 1.893,
+   "end": 2
+  },
+  {
+   "w": "dit",
+   "scene": 0,
+   "start": 2.06,
+   "end": 2.24
+  },
+  {
+   "w": "NON",
+   "scene": 0,
+   "start": 2.32,
+   "end": 2.56
+  },
+  {
+   "w": "?",
+   "scene": 0,
+   "start": 2.8,
+   "end": 3.04
+  },
+  {
+   "w": "Erreur",
+   "scene": 1,
+   "start": 3.179,
+   "end": 3.36
+  },
+  {
+   "w": "numéro",
+   "scene": 1,
+   "start": 3.417,
+   "end": 3.76
+  },
+  {
+   "w": "une",
+   "scene": 1,
+   "start": 3.82,
+   "end": 4
+  },
+  {
+   "w": ":",
+   "scene": 1,
+   "start": 4.2,
+   "end": 4.4
+  },
+  {
+   "w": "débarquer",
+   "scene": 1,
+   "start": 4.453,
+   "end": 4.88
+  },
+  {
+   "w": "en",
+   "scene": 1,
+   "start": 4.933,
+   "end": 5.04
+  },
+  {
+   "w": "meute",
+   "scene": 1,
+   "start": 5.093,
+   "end": 5.36
+  },
+  {
+   "w": "de",
+   "scene": 1,
+   "start": 5.44,
+   "end": 5.6
+  },
+  {
+   "w": "CINQ",
+   "scene": 1,
+   "start": 5.76,
+   "end": 6
+  },
+  {
+   "w": "mecs.",
+   "scene": 1,
+   "start": 6.08,
+   "end": 6.8
+  },
+  {
+   "w": "Séparez-vous",
+   "scene": 2,
+   "start": 6.939,
+   "end": 7.36
+  },
+  {
+   "w": "en",
+   "scene": 2,
+   "start": 7.413,
+   "end": 7.52
+  },
+  {
+   "w": "binômes",
+   "scene": 2,
+   "start": 7.58,
+   "end": 8.16
+  },
+  {
+   "w": "ou",
+   "scene": 2,
+   "start": 8.213,
+   "end": 8.32
+  },
+  {
+   "w": "venez",
+   "scene": 2,
+   "start": 8.387,
+   "end": 8.72
+  },
+  {
+   "w": "avec",
+   "scene": 2,
+   "start": 8.768,
+   "end": 8.96
+  },
+  {
+   "w": "des",
+   "scene": 2,
+   "start": 9,
+   "end": 9.12
+  },
+  {
+   "w": "FILLES,",
+   "scene": 2,
+   "start": 9.2,
+   "end": 9.84
+  },
+  {
+   "w": "le",
+   "scene": 2,
+   "start": 9.893,
+   "end": 10
+  },
+  {
+   "w": "ratio",
+   "scene": 2,
+   "start": 10.08,
+   "end": 10.48
+  },
+  {
+   "w": "c'est",
+   "scene": 2,
+   "start": 10.6,
+   "end": 10.8
+  },
+  {
+   "w": "la",
+   "scene": 2,
+   "start": 10.853,
+   "end": 10.96
+  },
+  {
+   "w": "règle",
+   "scene": 2,
+   "start": 11.013,
+   "end": 11.28
+  },
+  {
+   "w": "d'or.",
+   "scene": 2,
+   "start": 11.32,
+   "end": 11.68
+  },
+  {
+   "w": "Deuxième",
+   "scene": 3,
+   "start": 12.067,
+   "end": 12.4
+  },
+  {
+   "w": "piège",
+   "scene": 3,
+   "start": 12.46,
+   "end": 12.8
+  },
+  {
+   "w": ":",
+   "scene": 3,
+   "start": 12.96,
+   "end": 13.12
+  },
+  {
+   "w": "fixer",
+   "scene": 3,
+   "start": 13.18,
+   "end": 13.44
+  },
+  {
+   "w": "le",
+   "scene": 3,
+   "start": 13.467,
+   "end": 13.52
+  },
+  {
+   "w": "sol",
+   "scene": 3,
+   "start": 13.62,
+   "end": 13.92
+  },
+  {
+   "w": "ou",
+   "scene": 3,
+   "start": 14,
+   "end": 14.16
+  },
+  {
+   "w": "rigoler",
+   "scene": 3,
+   "start": 14.24,
+   "end": 14.64
+  },
+  {
+   "w": "TROP",
+   "scene": 3,
+   "start": 14.8,
+   "end": 15.12
+  },
+  {
+   "w": "fort.",
+   "scene": 3,
+   "start": 15.2,
+   "end": 15.6
+  },
+  {
+   "w": "Regard",
+   "scene": 4,
+   "start": 15.97,
+   "end": 16.16
+  },
+  {
+   "w": "franc,",
+   "scene": 4,
+   "start": 16.213,
+   "end": 16.72
+  },
+  {
+   "w": "bonjour",
+   "scene": 4,
+   "start": 16.78,
+   "end": 17.04
+  },
+  {
+   "w": "poli,",
+   "scene": 4,
+   "start": 17.1,
+   "end": 17.6
+  },
+  {
+   "w": "téléphone",
+   "scene": 4,
+   "start": 17.64,
+   "end": 18
+  },
+  {
+   "w": "rangé.",
+   "scene": 4,
+   "start": 18.064,
+   "end": 18.6
+  },
+  {
+   "w": "En",
+   "scene": 4,
+   "start": 18.667,
+   "end": 18.8
+  },
+  {
+   "w": "dix",
+   "scene": 4,
+   "start": 18.88,
+   "end": 19.04
+  },
+  {
+   "w": "secondes,",
+   "scene": 4,
+   "start": 19.097,
+   "end": 19.68
+  },
+  {
+   "w": "le",
+   "scene": 4,
+   "start": 19.733,
+   "end": 19.84
+  },
+  {
+   "w": "tri",
+   "scene": 4,
+   "start": 19.92,
+   "end": 20.16
+  },
+  {
+   "w": "est",
+   "scene": 4,
+   "start": 20.2,
+   "end": 20.32
+  },
+  {
+   "w": "FAIT.",
+   "scene": 4,
+   "start": 20.373,
+   "end": 20.64
+  },
+  {
+   "w": "Envoie",
+   "scene": 5,
+   "start": 21.004,
+   "end": 21.2
+  },
+  {
+   "w": "ça",
+   "scene": 5,
+   "start": 21.253,
+   "end": 21.36
+  },
+  {
+   "w": "à",
+   "scene": 5,
+   "start": 21.4,
+   "end": 21.44
+  },
+  {
+   "w": "ton",
+   "scene": 5,
+   "start": 21.48,
+   "end": 21.6
+  },
+  {
+   "w": "pote",
+   "scene": 5,
+   "start": 21.68,
+   "end": 21.84
+  },
+  {
+   "w": "qui",
+   "scene": 5,
+   "start": 21.88,
+   "end": 22
+  },
+  {
+   "w": "se",
+   "scene": 5,
+   "start": 22.053,
+   "end": 22.16
+  },
+  {
+   "w": "fait",
+   "scene": 5,
+   "start": 22.24,
+   "end": 22.56
+  },
+  {
+   "w": "TOUJOURS",
+   "scene": 5,
+   "start": 22.587,
+   "end": 23.04
+  },
+  {
+   "w": "recaler",
+   "scene": 5,
+   "start": 23.1,
+   "end": 23.44
+  },
+  {
+   "w": "à",
+   "scene": 5,
+   "start": 23.48,
+   "end": 23.52
+  },
+  {
+   "w": "la",
+   "scene": 5,
+   "start": 23.547,
+   "end": 23.6
+  },
+  {
+   "w": "porte",
+   "scene": 5,
+   "start": 23.667,
+   "end": 24
+  },
+  {
+   "w": "!",
+   "scene": 5,
+   "start": 24.04,
+   "end": 24.08
+  }
+ ],
+ "scenes": [
+  {
+   "id": "s1",
+   "texte": "[shocked] Tu as payé ta prévente mais le videur te dit NON ?",
+   "sons": [
+    {
+     "son": "tampon",
+     "mot": "non",
+     "volume": 0.6
+    }
+   ],
+   "start": 0,
+   "end": 3.059
+  },
+  {
+   "id": "s2",
+   "texte": "[curious] Erreur numéro une : débarquer en meute de CINQ mecs.",
+   "sons": [
+    {
+     "son": "impact",
+     "mot": "cinq",
+     "volume": 0.4
+    }
+   ],
+   "start": 3.059,
+   "end": 6.819
+  },
+  {
+   "id": "s3",
+   "texte": "[whispers] Séparez-vous en binômes ou venez avec des FILLES, le ratio c'est la règle d'or.",
+   "sons": [
+    {
+     "son": "pop",
+     "mot": "filles",
+     "volume": 0.6
+    }
+   ],
+   "start": 6.819,
+   "end": 11.947
+  },
+  {
+   "id": "s4",
+   "texte": "[curious] Deuxième piège : fixer le sol ou rigoler TROP fort.",
+   "sons": [],
+   "start": 11.947,
+   "end": 15.85
+  },
+  {
+   "id": "s5",
+   "texte": "[excited] Regard franc, bonjour poli, téléphone rangé. En dix secondes, le tri est FAIT.",
+   "sons": [
+    {
+     "son": "caisse",
+     "mot": "fait",
+     "volume": 0.6
+    }
+   ],
+   "start": 15.85,
+   "end": 20.884
+  },
+  {
+   "id": "s6",
+   "texte": "[laughs] Envoie ça à ton pote qui se fait TOUJOURS recaler à la porte !",
+   "sons": [
+    {
+     "son": "basse",
+     "mot": "toujours",
+     "volume": 0.6
+    }
+   ],
+   "start": 20.884,
+   "end": 25.68
+  }
+ ],
+ "bruits": [
+  {
+   "src": "sfx/tampon.mp3",
+   "at": 2.32,
+   "volume": 0.6
+  },
+  {
+   "src": "sfx/impact.mp3",
+   "at": 5.76,
+   "volume": 0.4
+  },
+  {
+   "src": "sfx/pop.mp3",
+   "at": 9.2,
+   "volume": 0.6
+  },
+  {
+   "src": "sfx/caisse.mp3",
+   "at": 20.373,
+   "volume": 0.6
+  },
+  {
+   "src": "sfx/basse.mp3",
+   "at": 22.587,
+   "volume": 0.6
+  }
+ ],
+ "voix": {
+  "src": "comment-passer-le-videur/voix.mp3",
+  "volume": 1
+ },
+ "musique": {
+  "src": "musique/electro-dreams.mp3",
+  "volume": 0.42,
+  "debut": 0,
+  "ducking": 0.3
+ },
+ "plans": [
+  {
+   "photo": "decors/reel-comment-passer-le-videur/s1.jpg",
+   "gros": [
+    {
+     "mot": "non",
+     "texte": "Entrée [refusée]",
+     "style": "titre"
+    }
+   ],
+   "sombre": 0.15
+  },
+  {
+   "photo": "decors/reel-comment-passer-le-videur/s2.jpg",
+   "gros": [
+    {
+     "mot": "cinq",
+     "texte": "Groupe [déséquilibré]",
+     "style": "sticker"
+    }
+   ],
+   "sombre": 0.15
+  },
+  {
+   "photo": "decors/reel-comment-passer-le-videur/s3.jpg",
+   "gros": [
+    {
+     "mot": "filles",
+     "texte": "Mixité [obligatoire]",
+     "style": "titre",
+     "y": 250
+    }
+   ],
+   "objet": {
+    "type": "jauge",
+    "mot": "filles",
+    "motFin": "regle",
+    "libelle": "Ratio filles / garçons"
+   },
+   "sombre": 0.4
+  },
+  {
+   "photo": "decors/reel-comment-passer-le-videur/s4.jpg",
+   "gros": [
+    {
+     "mot": "trop",
+     "texte": "Trop [bruyant]",
+     "style": "sticker"
+    }
+   ],
+   "sombre": 0.15
+  },
+  {
+   "photo": "decors/reel-comment-passer-le-videur/s5.jpg",
+   "gros": [
+    {
+     "mot": "fait",
+     "texte": "Feu [vert]",
+     "style": "titre"
+    }
+   ],
+   "sombre": 0.15
+  },
+  {
+   "photo": "decors/reel-comment-passer-le-videur/s6.jpg",
+   "gros": [
+    {
+     "mot": "toujours",
+     "texte": "Tag ton [pote]",
+     "style": "sticker"
+    }
+   ],
+   "sombre": 0.15
+  }
+ ]
+}

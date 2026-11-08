@@ -1,0 +1,27 @@
+{
+ "s1": {
+  "modele": "gemini-3-pro-image-preview",
+  "le": "2026-11-08T12:59:55.812Z"
+ },
+ "s2": {
+  "modele": "gemini-3-pro-image-preview",
+  "le": "2026-11-08T13:00:08.780Z"
+ },
+ "s3": {
+  "modele": "gemini-3-pro-image-preview",
+  "le": "2026-11-08T13:00:22.754Z"
+ },
+ "s4": {
+  "modele": "gemini-3-pro-image-preview",
+  "le": "2026-11-08T13:00:37.828Z"
+ },
+ "s5": {
+  "modele": "gemini-3-pro-image-preview",
+  "le": "2026-11-08T13:00:52.904Z"
+ },
+ "s6": {
+  "modele": "gemini-3-pro-image-preview",
+  "le": "2026-11-08T13:01:07.913Z"
+ },
+ "_note": "Images générées par Google Gemini (API) pour Teufy."
+}

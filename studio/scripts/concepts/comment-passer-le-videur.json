@@ -1,0 +1,164 @@
+{
+  "id": "comment-passer-le-videur",
+  "concept": "reelflash",
+  "type": "explicatif",
+  "rubrique": "Immersion",
+  "titre": "Les 3 erreurs qui te font recaler en boîte",
+  "titre_couverture": "Pourquoi tu te fais [recaler] en boîte ?",
+  "cree": "2026-11-08T12:59:41.789Z",
+  "voix": {
+    "voice_id": "3Tp5mYhT9wrfnry9pzvV",
+    "nom": "Hugo",
+    "modele": "eleven_v3",
+    "stabilite": 0,
+    "style": 0.85,
+    "vitesse": 1.1
+  },
+  "musique": {
+    "src": "musique/electro-dreams.mp3",
+    "volume": 0.42,
+    "ducking": 0.3
+  },
+  "queue": 1.6,
+  "whooshEntreScenes": false,
+  "scenes": [
+    {
+      "id": "s1",
+      "texte": "[shocked] Tu as payé ta prévente mais le videur te dit NON ?",
+      "sons": [
+        {
+          "son": "tampon",
+          "mot": "non",
+          "volume": 0.6
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "texte": "[curious] Erreur numéro une : débarquer en meute de CINQ mecs.",
+      "sons": [
+        {
+          "son": "impact",
+          "mot": "cinq",
+          "volume": 0.4
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "texte": "[whispers] Séparez-vous en binômes ou venez avec des FILLES, le ratio c'est la règle d'or.",
+      "sons": [
+        {
+          "son": "pop",
+          "mot": "filles",
+          "volume": 0.6
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "texte": "[curious] Deuxième piège : fixer le sol ou rigoler TROP fort.",
+      "sons": []
+    },
+    {
+      "id": "s5",
+      "texte": "[excited] Regard franc, bonjour poli, téléphone rangé. En dix secondes, le tri est FAIT.",
+      "sons": [
+        {
+          "son": "caisse",
+          "mot": "fait",
+          "volume": 0.6
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "texte": "[laughs] Envoie ça à ton pote qui se fait TOUJOURS recaler à la porte !",
+      "sons": [
+        {
+          "son": "basse",
+          "mot": "toujours",
+          "volume": 0.6
+        }
+      ]
+    }
+  ],
+  "extra": {
+    "plans": [
+      {
+        "photo": "decors/reel-comment-passer-le-videur/s1.jpg",
+        "gros": [
+          {
+            "mot": "non",
+            "texte": "Entrée [refusée]",
+            "style": "titre"
+          }
+        ],
+        "sombre": 0.15
+      },
+      {
+        "photo": "decors/reel-comment-passer-le-videur/s2.jpg",
+        "gros": [
+          {
+            "mot": "cinq",
+            "texte": "Groupe [déséquilibré]",
+            "style": "sticker"
+          }
+        ],
+        "sombre": 0.15
+      },
+      {
+        "photo": "decors/reel-comment-passer-le-videur/s3.jpg",
+        "gros": [
+          {
+            "mot": "filles",
+            "texte": "Mixité [obligatoire]",
+            "style": "titre",
+            "y": 250
+          }
+        ],
+        "objet": {
+          "type": "jauge",
+          "mot": "filles",
+          "motFin": "regle",
+          "libelle": "Ratio filles / garçons"
+        },
+        "sombre": 0.4
+      },
+      {
+        "photo": "decors/reel-comment-passer-le-videur/s4.jpg",
+        "gros": [
+          {
+            "mot": "trop",
+            "texte": "Trop [bruyant]",
+            "style": "sticker"
+          }
+        ],
+        "sombre": 0.15
+      },
+      {
+        "photo": "decors/reel-comment-passer-le-videur/s5.jpg",
+        "gros": [
+          {
+            "mot": "fait",
+            "texte": "Feu [vert]",
+            "style": "titre"
+          }
+        ],
+        "sombre": 0.15
+      },
+      {
+        "photo": "decors/reel-comment-passer-le-videur/s6.jpg",
+        "gros": [
+          {
+            "mot": "toujours",
+            "texte": "Tag ton [pote]",
+            "style": "sticker"
+          }
+        ],
+        "sombre": 0.15
+      }
+    ]
+  },
+  "legende": "Avoir sa prévente ne garantit JAMAIS l'entrée en club… 🚪⛔\n\nSur la Côte d'Azur, la sélection à l'entrée est souvent impitoyable pendant le week-end :\n- Évite les groupes de plus de 3 garçons d'un coup (séparez-vous).\n- Pas d'excès visible avant la porte (bouteilles tenues à la main, cris dans la file).\n- Un regard poli et calme au staff change tout.\n\nC'est quoi la pire excuse qu'un videur t'a déjà sortie ? Raconte en comm ! 👇\n\n#TeufyParty #SortirSurLaCote #VieNocturne #NightclubTips #ClubbingNice"
+}

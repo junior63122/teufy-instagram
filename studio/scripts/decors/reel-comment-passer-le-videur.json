@@ -1,0 +1,36 @@
+{
+  "concept": "reel-comment-passer-le-videur",
+  "style": "Candid editorial nightlife photograph shot on a 35mm point-and-shoot film camera with hard direct on-camera flash: subjects crisp and bright, background falling off into deep black, slightly blown highlights, natural film grain, subtle vignetting, warm skin tones with coral-red and magenta accents from club lights, authentic and energetic, like a cool Gen Z party photographer's Instagram. Real-looking people aged 20 to 28, diverse, stylish casual outfits, genuine emotion and a bit of motion blur. Absolutely no text, no letters, no logos, no brand names, no watermarks, no drugs, no visible alcohol bottles. Vertical 9:16 framing, subject in the middle, room at the top and bottom for big text.",
+  "decors": [
+    {
+      "id": "s1",
+      "format": "9:16",
+      "prompt": "Young frustrated guy standing outside an upscale nightclub entrance at night, bouncer in black jacket in background"
+    },
+    {
+      "id": "s2",
+      "format": "9:16",
+      "prompt": "Group of four young men waiting in line outside a nightclub, looking anxious under neon lights"
+    },
+    {
+      "id": "s3",
+      "format": "9:16",
+      "prompt": "Mixed group of young friends laughing while entering a club terrace, warm neon lighting"
+    },
+    {
+      "id": "s4",
+      "format": "9:16",
+      "prompt": "Close up of an imposing security guard at club door looking sternly at incoming crowd"
+    },
+    {
+      "id": "s5",
+      "format": "9:16",
+      "prompt": "Stylish young man smiling politely and nodding to the doorman at a party entrance"
+    },
+    {
+      "id": "s6",
+      "format": "9:16",
+      "prompt": "Two friends laughing outside a venue holding drinks, party atmosphere at night"
+    }
+  ]
+}
