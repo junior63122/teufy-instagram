@@ -77,6 +77,8 @@ if (cible === 'auto') {
   const s = slotFor(NOW);
   if (flag('quoi')) {
     let rep = s ? slotId(s) : 'rien';
+    // Pause : la nouvelle direction artistique doit être validée avant toute publication automatique.
+    if (R.pause_publication) { console.error(`Publications automatiques en pause : ${R.pause_publication}`); rep = 'rien'; }
     if (s && hist.some((h) => h.id === slotId(s) && h.date === slotOfDay(NOW).date)) rep = 'rien'; // déjà publié aujourd'hui
     else if (s && flag('horaire')) {
       const choisi = +creneauDuJour(NOW);
@@ -177,6 +179,7 @@ async function prepare(slot, now, id) {
     const { veiller } = await import('./veille.mjs');
     const ig = igConfig();
     const v = await veiller({ config, now, ig, api: ig ? { businessDiscovery } : {}, dryRun: DRY });
+    if (R.pause_publication) v.apublier = null; // pause : la veille note les sujets mais ne publie pas
     if (!v.apublier) { await output('rien', 'true'); console.log('Veille : rien à publier tout de suite.'); return; }
     const s = v.apublier;
     const STUDIO = path.join(ROOT, 'studio');

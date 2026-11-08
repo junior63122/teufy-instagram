@@ -184,7 +184,8 @@
     ],
     "_creneaux": "Heures (UTC) parmi lesquelles le bot choisit l'heure de publication selon ce qui marche (16h-19h l'hiver, 17h-20h l'été à Paris). Le passage de 19h UTC sert de rattrapage.",
     "delai_min_heures": 24,
-    "_delai": "Une soirée n'est montrée que si elle commence au moins 24 h après la publication (le temps que les gens voient le post)."
+    "_delai": "Une soirée n'est montrée que si elle commence au moins 24 h après la publication (le temps que les gens voient le post).",
+    "pause_publication": "nouvelle DA en préparation (demande du 8 novembre 2026), à retirer une fois validée"
   },
   "sources_note": "Shotgun protège ses pages par une vérification anti-robot (Vercel) : le bot ne la contourne pas. Ses soirées arrivent par la recherche web (moteurs de recherche) et les posts Instagram des organisateurs. DICE : dice.fm/browse/nice-<id>.",
   "recherche_web": {
