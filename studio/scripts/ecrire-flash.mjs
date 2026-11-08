@@ -2,7 +2,7 @@
 // qui portent l'info, voix expressive). Écrit :
 //   scripts/concepts/<id>.json        concept prêt pour produire.mjs (moteur « reelflash »)
 //   scripts/decors/reel-<id>.json     photos verticales à générer par decors.mjs (Gemini)
-//   node scripts/ecrire-flash.mjs [rubrique]      (Explicatif | Astuce | Humour | Actu nuit | Immersion)
+//   node scripts/ecrire-flash.mjs [rubrique]      (Explicatif | Astuce | Humour | Actu nuit)
 // Dernière ligne affichée : chemin du concept.
 import {readFileSync, readdirSync, existsSync} from 'node:fs';
 import {writeFile} from 'node:fs/promises';
@@ -20,11 +20,12 @@ const hist = lire(path.join(ROOT, 'historique.json'), []);
 const STYLE_PHOTO = lire(path.join(STUDIO, 'scripts', 'decors', 'reel-paliers.json'), {}).style;
 
 // Rubrique : la moins utilisée récemment (l'apprentissage peut la forcer en argument).
-const RUBRIQUES = ['Explicatif', 'Astuce', 'Humour', 'Actu nuit', 'Immersion'];
+const RUBRIQUES = ['Explicatif', 'Astuce', 'Humour', 'Actu nuit'];
 const recents = concepts.filter((c) => c.concept === 'reelflash').sort((a, b) => String(b.cree || '').localeCompare(String(a.cree || ''))).slice(0, 8).map((c) => c.rubrique);
-const rubrique = RUBRIQUES.includes(process.argv[2]) ? process.argv[2] : [...RUBRIQUES].sort((a, b) => recents.filter((x) => x === a).length - recents.filter((x) => x === b).length)[0];
+let rubrique = RUBRIQUES.includes(process.argv[2]) ? process.argv[2] : [...RUBRIQUES].sort((a, b) => recents.filter((x) => x === a).length - recents.filter((x) => x === b).length)[0];
 
 const idees = lire(path.join(ROOT, 'contenus', 'idees.json'), []).filter((i) => new Date(i.ajout) > new Date(Date.now() - 10 * 864e5)).sort((a, b) => (b.importance || 0) - (a.importance || 0)).slice(0, 15);
+if (rubrique === 'Actu nuit' && !idees.length) rubrique = 'Explicatif'; // pas d'actu vérifiée sous la main
 const dejaFaits = [...concepts.map((c) => c.titre), ...hist.map((h) => h.titre)].filter(Boolean).slice(-80);
 const tendances = lire(path.join(ROOT, 'tendances-auto.json'), {});
 const accroches = (tendances.accroches || []).slice(0, 8).map((a) => (typeof a === 'string' ? a : a.texte || a.accroche || '')).filter(Boolean);
@@ -99,7 +100,7 @@ Règles :
 - Tous les « mot », « mot_apres », « mots », « mot_son » sont des mots EXACTS de la réplique de leur scène.
 - Si le titre ou l'accroche annonce un nombre d'éléments (« 3 erreurs »), le reel en donne exactement ce nombre, numérotés.
 - Jamais de conseil ni de blague fondés sur le genre, l'origine, l'apparence physique ou le poids ; pas de stéréotypes ; pas de « règle » de videur présentée comme une vérité générale.
-- La rubrique doit correspondre au contenu (Astuce = conseils concrets ; Explicatif = un mécanisme expliqué ; Humour = situations ; Actu nuit = une actu sourcée ; Immersion = vivre une soirée).`;
+- La rubrique doit correspondre au contenu (Astuce = conseils concrets ; Explicatif = un mécanisme expliqué ; Humour = situations ; Actu nuit = une actu sourcée).`;
 
 const prompt = `Rubrique demandée : ${rubrique}.
 ${idees.length ? `Actualité vérifiée de la veille (prioritaire pour « Actu nuit » et « Explicatif ») :\n${idees.map((i) => `- ${i.titre} — ${i.angle || i.resume || ''} (${i.source || 'sans source'})`).join('\n')}\n` : ''}Sujets possibles : ${SUJETS.join(' ; ')}.
@@ -114,12 +115,12 @@ const relire = (script) => json({config, nom: 'relecture', gratuit: true, schema
   prompt: `Rubrique : ${rubrique}\nScript :\n${JSON.stringify({titre: script.titre, titre_couverture: script.titre_couverture, scenes: script.scenes.map((x) => ({texte: x.texte, gros: x.gros, objet: x.objet?.type})), legende: script.legende})}`});
 let r = process.env.ECRIRE_REPONSE ? lire(process.env.ECRIRE_REPONSE, {}) : await json({config, system, prompt, schema: SCHEMA, nom: 'reel_flash'});
 if (!process.env.ECRIRE_REPONSE && r?.scenes?.length) {
-  for (let essai = 0; essai < 2; essai++) {
+  for (let essai = 0; essai < 3; essai++) {
     let avis;
     try { avis = await relire(r); } catch (err) { console.error(`Relecture impossible : ${err.message}`); break; }
     console.error(`Relecture : ${avis.note}/10${avis.problemes?.length ? ` — ${avis.problemes.join(' ; ')}` : ''}`);
     if (avis.note >= 7) break;
-    if (essai === 1) { console.error('Script refusé par la relecture : pas de reel.'); process.exit(1); }
+    if (essai === 2) { console.error('Script refusé par la relecture : pas de reel.'); process.exit(1); }
     r = await json({config, system, schema: SCHEMA, nom: 'reel_flash', prompt: `${prompt}\n\nUne première version a été refusée par la relecture (${avis.note}/10). Problèmes à corriger : ${avis.problemes.join(' ; ')}.\nVersion refusée : ${JSON.stringify(r).slice(0, 6000)}\nRéécris un reel meilleur selon le schéma.`});
   }
 }

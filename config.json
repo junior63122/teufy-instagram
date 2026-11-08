@@ -240,7 +240,7 @@
     "modele_github": "openai/gpt-4.1-mini"
   },
   "studio": {
-    "explication": "Reels = format « Flash » (validé le 8 novembre 2026) : le scénariste IA (studio/scripts/ecrire-flash.mjs) choisit un sujet utile, écrit le script (voix Hugo, émotions), les plans (photo flash par scène, mots géants, objets animés) ; Gemini génère les photos verticales ; ElevenLabs la voix ; Remotion le rendu (studio/src/concepts/Flash.tsx) ; contrôle qualité ; couverture au gabarit de la DA ; publication + story. La rubrique (Explicatif, Astuce, Humour, Actu nuit, Immersion) est choisie par l'apprentissage selon les notes.",
+    "explication": "Reels = format « Flash » (validé le 8 novembre 2026) : le scénariste IA (studio/scripts/ecrire-flash.mjs) choisit un sujet utile, écrit le script (voix Hugo, émotions), les plans (photo flash par scène, mots géants, objets animés) ; Gemini génère les photos verticales ; ElevenLabs la voix ; Remotion le rendu (studio/src/concepts/Flash.tsx) ; contrôle qualité ; couverture au gabarit de la DA ; publication + story. La rubrique (Explicatif, Astuce, Humour, Actu nuit) est choisie par l'apprentissage selon les notes. Chaque script est relu et noté /10 par l'IA ; sous 7 il est réécrit (2 fois max), sinon pas de reel.",
     "actif": true,
     "voix": {
       "voice_id": "3Tp5mYhT9wrfnry9pzvV",

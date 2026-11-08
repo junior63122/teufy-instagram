@@ -276,7 +276,7 @@ async function prepare(slot, now, id) {
     const dispo = tous.filter((c) => !faits.has(c.id));
     // reel:nouveau = forcer un reel inédit écrit par l'IA (sans passer par la banque).
     // Format validé : « Flash ». La rubrique est choisie par l'apprentissage (celle qui marche le mieux revient plus souvent).
-    const rubriqueFlash = () => ch.pick('rubrique-reel', ['Explicatif', 'Astuce', 'Humour', 'Actu nuit', 'Immersion'], (x) => x);
+    const rubriqueFlash = () => ch.pick('rubrique-reel', ['Explicatif', 'Astuce', 'Humour', 'Actu nuit'], (x) => x);
     let c = slot.variante === 'nouveau' ? await nouveauFlash(STUDIO, id, rubriqueFlash())
       : val('concept') ? tous.find((x) => x.id === val('concept'))
       : slot.variante === 'flash' ? dispo.find((x) => x.concept === 'reelflash')
