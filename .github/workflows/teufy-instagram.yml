@@ -65,7 +65,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Clés disponibles (noms seulement, jamais les valeurs)
-        run: for v in ELEVENLABS_API_KEY GEMINI_API_KEY ANTHROPIC_API_KEY IG_ACCESS_TOKEN IG_USER_ID PEXELS_API_KEY PIXABAY_API_KEY; do if [ -n "${!v}" ]; then echo "$v : ok"; else echo "$v : absente"; fi; done
+        run: |
+          for v in ELEVENLABS_API_KEY GEMINI_API_KEY ANTHROPIC_API_KEY IG_ACCESS_TOKEN IG_USER_ID PEXELS_API_KEY PIXABAY_API_KEY; do
+            if [ -n "${!v}" ]; then echo "$v : ok"; else echo "$v : absente"; fi
+          done
 
       - uses: actions/setup-node@v4
         with:
