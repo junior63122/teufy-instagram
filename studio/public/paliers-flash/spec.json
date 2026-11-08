@@ -689,7 +689,9 @@
   "src": "musique/trap.mp3",
   "volume": 0.42,
   "debut": 0,
-  "ducking": 0.3
+  "ducking": 0.3,
+  "bpm": 104.95,
+  "phase": 0.244
  },
  "plans": [
   {

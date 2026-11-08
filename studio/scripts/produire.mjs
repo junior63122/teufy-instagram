@@ -100,7 +100,7 @@ if (C.whooshEntreScenes !== false) scenes.slice(1).forEach((s) => bruits.push({s
 
 const spec = {id: C.id, concept: C.concept, fps: C.fps ?? 30, duree: +fin.toFixed(3), mots, scenes, bruits,
   voix: mots.length ? {src: `${C.id}/voix.mp3`, volume: C.voix?.volume ?? 1} : undefined,
-  musique: C.musique ? {src: C.musique.src, volume: C.musique.volume ?? 0.35, debut: C.musique.debut ?? 0, ducking: C.musique.ducking ?? 0.4} : undefined,
+  musique: C.musique ? {src: C.musique.src, volume: C.musique.volume ?? 0.35, debut: C.musique.debut ?? 0, ducking: C.musique.ducking ?? 0.4, ...(await tempoMusique(C.musique.src, C.musique.debut ?? 0))} : undefined,
   bande: C.bande, ...(C.extra || {})};
 await writeFile(path.join(pub, 'spec.json'), JSON.stringify(spec, null, 1));
 console.log(`${C.id} : ${spec.duree.toFixed(1)} s, ${mots.length} mots, ${scenes.length} scènes, ${bruits.length} bruitages`);
@@ -127,4 +127,15 @@ if (!still) {
   // 6. Contrôle qualité : on refuse l'export s'il y a un défaut bloquant.
   const qc = spawnSync('node', [path.join(STUDIO, 'scripts', 'controle.mjs'), sortie], {stdio: 'inherit'});
   if (qc.status !== 0) { console.error('Contrôle qualité : export refusé.'); process.exit(2); }
+}
+
+// Tempo de la musique (bpm + premier temps), pour caler les pulsations et lumières des reels sur le beat.
+async function tempoMusique(src, debut = 0) {
+  try {
+    const {analyserSon} = await import('../../src/son.mjs');
+    const t = await analyserSon(path.join(STUDIO, 'public', src));
+    // phase ramenée au début de l'extrait utilisé
+    const per = 60 / t.bpm;
+    return {bpm: t.bpm, phase: ((t.phase - debut) % per + per) % per};
+  } catch (err) { console.error(`Tempo de la musique inconnu : ${err.message}`); return {}; }
 }

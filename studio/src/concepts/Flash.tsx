@@ -41,12 +41,32 @@ export const Flash: React.FC<{spec: any}> = ({spec}) => {
   // Flash blanc à chaque changement de scène (sauf la toute première image).
   const flash = k > 0 ? 1 - clamp((t - debut) / FLASH) : 0;
 
+  // --- photos animées ---
+  // Pulsation sur le beat de la musique (lumière + micro-zoom).
+  const per = spec.musique?.bpm ? 60 / spec.musique.bpm : 0.5;
+  const phase = spec.musique?.phase ?? 0;
+  const beat = Math.exp(-(((t - phase) % per + per) % per) * 9);
+  // Secousse de caméra sur chaque bruitage fort (basse, impact, tampon, caisse).
+  const coups = ((spec.bruits as {src: string; at: number}[]) || []).filter((b) => /basse|impact|tampon|caisse/.test(b.src)).map((b) => b.at);
+  const coup = coups.reduce((m, at) => Math.max(m, t >= at && t < at + 0.35 ? 1 - (t - at) / 0.35 : 0), 0);
+  const sx = Math.sin(t * 90) * 14 * coup, sy = Math.cos(t * 77) * 10 * coup;
+  // Transition « à travers » la photo : on fonce dans l'image juste avant la coupe, la suivante arrive en reculant.
+  const fin = S[k + 1] ? S[k + 1].start : Infinity;
+  const plonge = E.inCubic(clamp((t - (fin - 0.24)) / 0.24));
+  const arrive = k > 0 ? 1 - E.outExpo(clamp((t - debut) / 0.45)) : 0;
+  const zoomTr = plonge * 0.55 + arrive * 0.22;
+  const flou = plonge * 10 + arrive * 6;
+  // Respiration 3D : la photo glisse doucement en diagonale (sens alterné d'une scène à l'autre).
+  const derive = (t - debut) * 14 * (k % 2 ? -1 : 1);
+
   return (
     <AbsoluteFill style={{background: C.nuit, overflow: 'hidden'}}>
       {/* photo de la scène */}
-      <AbsoluteFill style={{transform: `scale(${kb + choc}) rotate(${(k % 2 ? -1 : 1) * 0.6}deg)`}}>
+      <AbsoluteFill style={{transform: `translate(${sx + derive}px, ${sy - derive * 0.4}px) scale(${kb + choc + beat * 0.012 + zoomTr}) rotate(${(k % 2 ? -1 : 1) * 0.6 + coup * 0.8}deg)`, filter: `blur(${flou}px) brightness(${1 + beat * 0.1 + coup * 0.15})`}}>
         <Img src={staticFile(plan.photo)} style={{width: '100%', height: '100%', objectFit: 'cover', objectPosition: plan.position || 'center', filter: 'contrast(1.08) saturate(1.08)'}} />
       </AbsoluteFill>
+      <Lumieres t={t} k={k} beat={beat} />
+      <Particules t={t} k={k} />
       <AbsoluteFill style={{background: `linear-gradient(180deg, rgba(11,11,15,.55) 0%, rgba(11,11,15,${plan.sombre ?? 0.15}) 30%, rgba(11,11,15,${plan.sombre ?? 0.15}) 55%, rgba(11,11,15,.85) 100%)`}} />
 
       {/* mot clé géant */}
@@ -88,7 +108,7 @@ const MotGeant: React.FC<{g: Gros & {t0: number}; t: number; fps: number}> = ({g
   if (style === 'sticker') {
     return (
       <div style={{position: 'absolute', left: 60, right: 60, top: y, display: 'flex', justifyContent: 'center'}}>
-        <div style={{transform: `scale(${s}) rotate(-3deg)`, background: C.corail, color: C.nuit, fontFamily: T, fontWeight: 800, fontStretch: '80%', fontSize: 104, lineHeight: 0.95, padding: '18px 34px 22px', borderRadius: 12, textTransform: 'uppercase', textAlign: 'center', boxShadow: '0 20px 50px rgba(0,0,0,.45)', maxWidth: 940}}>{g.texte.split(/(\[[^\]]+\])/).map((x, i) => (x.startsWith('[') ? <span key={i} style={{color: C.creme}}>{x.slice(1, -1)}</span> : <React.Fragment key={i}>{x}</React.Fragment>))}</div>
+        <div style={{transform: `scale(${s * (1 + Math.sin(t * 6) * 0.015)}) rotate(${-3 + Math.sin(t * 2.6) * 1.6}deg)`, background: C.corail, color: C.nuit, fontFamily: T, fontWeight: 800, fontStretch: '80%', fontSize: 104, lineHeight: 0.95, padding: '18px 34px 22px', borderRadius: 12, textTransform: 'uppercase', textAlign: 'center', boxShadow: '0 20px 50px rgba(0,0,0,.45)', maxWidth: 940}}>{g.texte.split(/(\[[^\]]+\])/).map((x, i) => (x.startsWith('[') ? <span key={i} style={{color: C.creme}}>{x.slice(1, -1)}</span> : <React.Fragment key={i}>{x}</React.Fragment>))}</div>
       </div>
     );
   }
@@ -181,3 +201,39 @@ const ObjetAnime: React.FC<{o: Objet; t: number; fps: number; q: (w: string) => 
     </Carte>
   );
 };
+
+/** Faisceaux de lumière de club qui balaient la photo (mode « screen »), plus forts sur le beat. */
+const COULEURS_LUM = [['#ff5a3c', '#ff2e88'], ['#7b5cff', '#ff5a3c'], ['#2ec4ff', '#ff2e88']];
+const Lumieres: React.FC<{t: number; k: number; beat: number}> = ({t, k, beat}) => {
+  const cols = COULEURS_LUM[k % COULEURS_LUM.length];
+  return (
+    <AbsoluteFill style={{mixBlendMode: 'screen', pointerEvents: 'none', opacity: 0.32 + beat * 0.22}}>
+      {[0, 1, 2].map((i) => {
+        const angle = Math.sin(t * (0.7 + i * 0.23) + i * 2 + k) * 28 + (i - 1) * 22;
+        return (
+          <div key={i} style={{position: 'absolute', left: 140 + i * 400, top: -200, width: 240, height: 2600, transformOrigin: '50% 0%', transform: `rotate(${angle}deg)`,
+            background: `linear-gradient(180deg, ${cols[i % 2]}cc 0%, ${cols[i % 2]}55 35%, transparent 75%)`, filter: 'blur(28px)'}} />
+        );
+      })}
+    </AbsoluteFill>
+  );
+};
+
+/** Poussières et confettis qui flottent dans la lumière (déterministes, pas de hasard entre deux rendus). */
+const hasard = (i: number) => { const x = Math.sin(i * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); };
+const Particules: React.FC<{t: number; k: number}> = ({t, k}) => (
+  <AbsoluteFill style={{pointerEvents: 'none', mixBlendMode: 'screen'}}>
+    {Array.from({length: 46}).map((_, i) => {
+      const r = hasard(i + k * 100), r2 = hasard(i * 3 + 7), r3 = hasard(i * 7 + 13);
+      const confetti = i % 4 === 0;
+      const v = 40 + r2 * 90; // px/s
+      const y = ((r * 2100 + t * v * (confetti ? 1 : -0.5)) % 2100 + 2100) % 2100 - 90;
+      const x = r3 * 1080 + Math.sin(t * (0.8 + r) + i) * 40;
+      const tl = confetti ? 10 + r * 12 : 3 + r2 * 6;
+      return (
+        <div key={i} style={{position: 'absolute', left: x, top: y, width: tl, height: confetti ? tl * 0.45 : tl, borderRadius: confetti ? 2 : '50%',
+          background: confetti ? (i % 8 === 0 ? '#ff5a3c' : '#f4efe6') : '#fff', opacity: confetti ? 0.75 : 0.35 + r * 0.35, transform: `rotate(${t * 200 * (r - 0.5) + i * 40}deg)`, filter: confetti ? 'none' : 'blur(1px)'}} />
+      );
+    })}
+  </AbsoluteFill>
+);
