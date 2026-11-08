@@ -7,36 +7,38 @@
     "carrousel-00.jpg",
     "carrousel-01.jpg",
     "carrousel-02.jpg",
-    "carrousel-03.jpg"
+    "carrousel-03.jpg",
+    "carrousel-04.jpg",
+    "carrousel-05.jpg",
+    "carrousel-06.jpg"
   ],
-  "legende": "Les événements techno de la semaine.\nDes line-up solides, des lieux qui comptent, une communauté qui répond toujours présent.\n\n→ Mar 10 · La Platurne invite Fenrick @ Frigo 16 · Frigo 16 (Le 109), Nice · 20h00 · 19,99 €\n   Gros BPM et basses lourdes avec Fenrick, Arman Shadow et Leanne pour la veille de férié. @laplaturne @panda_events\n→ Ven 13 · Søund Køld — Bounce / Hard Groove (Techno) · L'Antre Bar Electro, Nice · 21h00 · 5,99 €\n   Session clubbing rapide et bouncy à prix doux dans la cave de L'Antre. @lantre_nice\n\nOn se retrouve où ? Envoie-le à ceux avec qui tu sors.\n\n#TeufyParty #vieuxnice #riviera #rave #technomusic",
+  "legende": "Les événements techno de la semaine.\nDes line-up solides, des lieux qui comptent, une communauté qui répond toujours présent.\n\n→ Mar 10 · Rétro Party w/ Nivau (Années 2000) · Down Town Club, Nice · 23h00 · gratuit\n   Entrée gratuite et classiques des années 90 à 2010 mixés par Nivau au Down Town Club. @downtown.nice\n→ Ven 13 · Søund Køld — Bounce / Hard Groove (Techno) · L'Antre Bar Electro, Nice · 21h00 · 5,99 €\n   Session clubbing rapide et bouncy à prix doux dans la cave de L'Antre. @lantre_nice\n→ Ven 13 · Lanonchalance pres. Malive @ Twiga Monte Carlo (Tech house · Afro) · Twiga Monte Carlo, Monaco · 23h59 · 15 €\n   Le DJ brésilien Malive invité par Lanonchalance au Twiga pour une nuit afro tech intense. @lanonchalance @twiga_mc\n→ Sam 14 · Club Bizarre w/ Sensoria — At Blue Coast (Techno · Tech house) · Blue Coast Brewing Company, Nice · 19h00 · 5,99 €\n   Soirée indus, happy hour géant et sets tech house affûtés avec Sensoria et KidSeven. @clubbizarre_music @bluecoastbrewing\n→ Sam 14 · Les Bonnes Franquettes — Winter Edition (Disco · House) · Ancien jazz club (2416 Route de Saint-Laurent), Saint-Laurent-du-Var · 20h30\n   Ambiance mini boiler room intime avec le DJ au centre et un sound system chaleureux. @les.bonnesfranquettes\n\nOn se retrouve où ? Envoie-le à ceux avec qui tu sors.\n\n#TeufyParty #vieuxnice #riviera #rave #technomusic",
   "soirees": [
     {
       "source": "web",
-      "source_site": "shotgun.live",
-      "name": "La Platurne invite Fenrick @ Frigo 16",
-      "start": "2026-11-10T19:00:00.000Z",
-      "venue": "Frigo 16 (Le 109)",
+      "source_site": "instagram",
+      "name": "Rétro Party w/ Nivau",
+      "start": "2026-11-10T22:00:00.000Z",
+      "venue": "Down Town Club",
       "city": "Nice",
       "address": "",
-      "url": "https://shotgun.live",
-      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto/production/artworks/SHOTGUN_14_qgjwfa.png",
-      "price": 19.99,
+      "url": "https://www.instagram.com/p/DfSd8sUjQyu/",
+      "image": "https://scontent-ord5-2.cdninstagram.com/v/t51.82787-15/886810147_18053410106815469_1691285490903456219_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=107&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=R4mueHWE6UcQ7kNvwEaMvj1&_nc_oc=AdqbaG9JasEfm3QAqQJMP67okdDZfGvzdgI2_SkCoscruDcOQhYJGAzwZtmrSsC2bJk&_nc_zt=23&_nc_ht=scontent-ord5-2.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=edmabpHOq0PvTUxy0-dKCQ&oh=00_AQTNImjiWvq43h7cd5iNlRbYcXMkOSordYQw_AhQpVdEzQ&oe=6AF6476C",
+      "price": 0,
       "tags": [
-        "hard groove",
-        "uk garage",
-        "bounce"
+        "retro",
+        "hits 90s",
+        "hits 2000s"
       ],
       "description": "",
-      "public_cible": 0.95,
-      "confiance": 0.95,
-      "accroche": "Gros BPM et basses lourdes avec Fenrick, Arman Shadow et Leanne pour la veille de férié.",
+      "public_cible": 0.9,
+      "confiance": 0.9,
+      "accroche": "Entrée gratuite et classiques des années 90 à 2010 mixés par Nivau au Down Town Club.",
       "instagram": [
-        "laplaturne",
-        "panda_events",
-        "le109nice"
+        "downtown.nice"
       ],
-      "enrichi": true
+      "enrichi": true,
+      "verifie": false
     },
     {
       "source": "web",
@@ -62,18 +64,106 @@
         "lantre_nice"
       ],
       "enrichi": true
+    },
+    {
+      "source": "web",
+      "source_site": "shotgun.live",
+      "name": "Lanonchalance pres. Malive @ Twiga Monte Carlo",
+      "start": "2026-11-13T22:59:00.000Z",
+      "venue": "Twiga Monte Carlo",
+      "city": "Monaco",
+      "address": "",
+      "url": "https://shotgun.live",
+      "image": "https://scontent-ord5-2.cdninstagram.com/v/t51.82787-15/882487887_18649521727041727_3665433883267723839_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=107&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=h1VINhAZ8DIQ7kNvwEHfZku&_nc_oc=Adpum_jevvsqFoITShTzMwCwpRzsIMu1H7XnGxaIDKSuAmZ0sFPsKDsdzD5TN4ZiBQA&_nc_zt=23&_nc_ht=scontent-ord5-2.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=VxB6s_0LaZo2Acak_WEFNA&oh=00_AQT7i8T9j-Jak_ugeBq9Ag7rH5kYYKFztMJVCKvf5GMGpQ&oe=6AF63A31",
+      "price": 15,
+      "tags": [
+        "afro house",
+        "tech house",
+        "latin house"
+      ],
+      "description": "",
+      "public_cible": 0.9,
+      "confiance": 0.95,
+      "accroche": "Le DJ brésilien Malive invité par Lanonchalance au Twiga pour une nuit afro tech intense.",
+      "instagram": [
+        "lanonchalance",
+        "twiga_mc"
+      ],
+      "enrichi": true
+    },
+    {
+      "source": "web",
+      "source_site": "shotgun.live",
+      "name": "Club Bizarre w/ Sensoria — At Blue Coast",
+      "start": "2026-11-14T18:00:00.000Z",
+      "venue": "Blue Coast Brewing Company",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,w_384,fl_lossy,f_webp,q_5/production/artworks/CLUB_BIZARRE_Banni%C3%A8re_Shotgun_bl0vwh.png",
+      "price": 5.99,
+      "tags": [
+        "tech house",
+        "techno",
+        "deep tech",
+        "indie dance"
+      ],
+      "description": "",
+      "public_cible": 0.9,
+      "confiance": 0.95,
+      "accroche": "Soirée indus, happy hour géant et sets tech house affûtés avec Sensoria et KidSeven.",
+      "instagram": [
+        "clubbizarre_music",
+        "bluecoastbrewing"
+      ],
+      "enrichi": true
+    },
+    {
+      "source": "web",
+      "source_site": "instagram",
+      "name": "Les Bonnes Franquettes — Winter Edition",
+      "start": "2026-11-14T19:30:00.000Z",
+      "venue": "Ancien jazz club (2416 Route de Saint-Laurent)",
+      "city": "Saint-Laurent-du-Var",
+      "address": "",
+      "url": "https://www.instagram.com/p/DfRu6XwiC0i/",
+      "image": "https://scontent-ord5-2.cdninstagram.com/v/t51.82787-15/885019106_18116214527031263_1214653049463649616_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=105&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=avUJgzcnjJYQ7kNvwEGhAhu&_nc_oc=AdphXUaiGwPbb2O90YwTHIk6n3dTsX2KGvmth-tgZynUPOb1Q6waVkAlVY7k80tKSak&_nc_zt=23&_nc_ht=scontent-ord5-2.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=xRR-Le2diYk15r1DCwNMqw&oh=00_AQTx7xGwwK2zPdmGFq6WUHv8zbOAS-Wf61tlNsXzPYYfWA&oe=6AF65288",
+      "price": null,
+      "tags": [
+        "house",
+        "pop",
+        "disco"
+      ],
+      "description": "",
+      "public_cible": 0.9,
+      "confiance": 0.9,
+      "accroche": "Ambiance mini boiler room intime avec le DJ au centre et un sound system chaleureux.",
+      "instagram": [
+        "les.bonnesfranquettes"
+      ],
+      "enrichi": true,
+      "verifie": false
     }
   ],
   "titre": "Les dates techno à ne pas manquer",
   "tags": [
     [],
     [
-      "laplaturne",
-      "panda_events",
-      "le109nice"
+      "downtown.nice"
     ],
     [
       "lantre_nice"
+    ],
+    [
+      "lanonchalance",
+      "twiga_mc"
+    ],
+    [
+      "clubbizarre_music",
+      "bluecoastbrewing"
+    ],
+    [
+      "les.bonnesfranquettes"
     ]
   ],
   "choix": {
@@ -92,11 +182,12 @@
     ]
   },
   "features": [
-    "genre:techno",
+    "genre:commercial",
     "source:web",
-    "lieu:frigo-16-le-109",
+    "style:annees-2000",
+    "lieu:down-town-club",
     "ville:nice",
-    "prix:moyen",
+    "prix:gratuit",
     "horaire:nuit",
     "genre:techno",
     "source:web",
@@ -104,7 +195,31 @@
     "lieu:l-antre-bar-electro",
     "ville:nice",
     "prix:petit",
+    "horaire:nuit",
+    "genre:commercial",
+    "source:web",
+    "style:tech-house",
+    "style:afro",
+    "lieu:twiga-monte-carlo",
+    "ville:monaco",
+    "prix:moyen",
+    "horaire:nuit",
+    "genre:commercial",
+    "source:web",
+    "style:techno",
+    "style:tech-house",
+    "lieu:blue-coast-brewing-company",
+    "ville:nice",
+    "prix:petit",
+    "horaire:jour",
+    "genre:commercial",
+    "source:web",
+    "style:disco",
+    "style:house",
+    "lieu:ancien-jazz-club-2416-route-de-saint-laurent",
+    "ville:saint-laurent-du-var",
+    "prix:inconnu",
     "horaire:nuit"
   ],
-  "nb_images": 4
+  "nb_images": 7
 }
