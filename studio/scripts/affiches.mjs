@@ -40,7 +40,40 @@ for (const [i, s] of E.soirees.entries()) {
   const ratio = dims?.length === 2 && dims[1] ? dims[0] / dims[1] : undefined;
   soirees.push({...s, image, ratio, couleur: s.couleur || accent(path.join(STUDIO, 'public', image))});
 }
-if (soirees.length < 2) { console.error('Moins de 2 soirées avec affiche officielle : carrousel studio annulé.'); process.exit(3); }
+// Vérification par Gemini (vision) : l'affiche correspond-elle bien à CETTE soirée (nom, artiste, date, lieu) ?
+// Une affiche d'une autre soirée = soirée retirée du carrousel (jamais de visuel trompeur).
+async function verifierAffiche(s) {
+  const CLE = (process.env.GEMINI_API_KEY || '').trim();
+  if (!CLE) return {ok: true, raison: 'pas de clé Gemini, non vérifié'};
+  const API = 'https://generativelanguage.googleapis.com/v1beta/models';
+  try {
+    const liste = await (await fetch(`${API}?pageSize=200&key=${CLE}`)).json();
+    const noms = (liste.models || []).filter((m) => (m.supportedGenerationMethods || []).includes('generateContent')).map((m) => m.name.replace('models/', ''))
+      .filter((n) => /^gemini-[\d.]+-flash/.test(n) && !/image|tts|audio|live|lite/.test(n)).sort((a, b) => parseFloat(b.slice(7)) - parseFloat(a.slice(7)));
+    const brut = readFileSync(path.join(STUDIO, 'public', s.image)); const img = brut.toString('base64');
+    const mime = brut[0] === 0x89 ? 'image/png' : brut.subarray(8, 12).toString() === 'WEBP' ? 'image/webp' : 'image/jpeg';
+    const consigne = `Voici l'affiche censée illustrer cette soirée : « ${s.nom} », ${s.jour}, ${s.lieu}. ` +
+      `Regarde le texte et les noms sur l'image. Réponds en JSON {"correspond": true|false, "raison": "..."} : false seulement si l'affiche annonce clairement une AUTRE soirée (autre nom, autre artiste principal, autre lieu ou autre date). ` +
+      `Une affiche sans texte, un visuel d'artiste ou de lieu cohérent = true.`;
+    for (const m of noms.slice(0, 3)) {
+      const r = await fetch(`${API}/${m}:generateContent?key=${CLE}`, {method: 'POST', headers: {'content-type': 'application/json'}, body: JSON.stringify({
+        contents: [{role: 'user', parts: [{inline_data: {mime_type: mime, data: img}}, {text: consigne}]}], generationConfig: {responseMimeType: 'application/json'}})});
+      if (r.status === 404) continue;
+      const j = await r.json();
+      const t = (j.candidates?.[0]?.content?.parts || []).map((x) => x.text || '').join('');
+      const v = JSON.parse(t || '{}');
+      return {ok: v.correspond !== false, raison: v.raison || ''};
+    }
+  } catch (err) { return {ok: true, raison: `vérification impossible (${err.message})`}; }
+  return {ok: true, raison: 'aucun modèle'};
+}
+for (let i = soirees.length - 1; i >= 0; i--) {
+  const v = await verifierAffiche(soirees[i]);
+  console.log(`Affiche « ${soirees[i].nom} » : ${v.ok ? 'ok' : 'NE CORRESPOND PAS, soirée retirée'} (${v.raison})`);
+  if (!v.ok) soirees.splice(i, 1);
+}
+const MINI = E.minimum ?? 3;
+if (soirees.length < MINI) { console.error(`Seulement ${soirees.length} soirée(s) avec une affiche officielle vérifiée (minimum ${MINI}) : carrousel annulé.`); process.exit(3); }
 // DA « Flash nuit » : photo de couverture et de fin tirées de la banque (decors/da), qui tourne d'une semaine à l'autre.
 const d0 = new Date(); const semaine = Math.floor(d0 / (7 * 864e5));
 const COUV = ['danse', 'foule', 'dj', 'rire', 'terrasse', 'plage', 'lasers'];

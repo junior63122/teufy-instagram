@@ -241,8 +241,11 @@ async function prepare(slot, now, id) {
     win.from = new Date(Math.max(win.from.getTime(), now.getTime() - 6 * 3600e3));
     let list = await pickEv(win, pred);
     let elargi = false;
-    if (list.length < 3) { win = rolling(now, 0, 14); list = await pickEv(win, pred); elargi = true; }
-    need(list, 2);
+    const avecAffiche = (l) => l.filter((e) => e.image).length;
+    if (avecAffiche(list) < 4) { win = rolling(now, 0, 14); list = await pickEv(win, pred); elargi = true; }
+    // Trop peu de dates de ce genre : on prend toutes les soirées plutôt qu'un carrousel maigre.
+    if (avecAffiche(list) < 4) { const tout = await pickEv(win); if (avecAffiche(tout) > avecAffiche(list)) list = tout; }
+    need(list, 3);
     const chosen = chrono(best(list, R.soirees_par_carrousel));
     const { th, photos } = await visuel(techno ? 'techno' : 'club');
     const fort = !techno && th.tempsFort?.titre;
