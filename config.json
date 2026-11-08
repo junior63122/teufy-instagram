@@ -265,8 +265,8 @@
     "heure_max": 23
   },
   "commentaires": {
-    "actif": true,
-    "explication": "Toutes les 30 min (workflow de veille) : réponse aux nouveaux commentaires des 14 derniers jours, dans le ton Teufy, uniquement avec les infos du post (src/commentaires.mjs). Spam et insultes ignorés. Suivi : contenus/commentaires.json."
+    "actif": false,
+    "explication": "Toutes les 30 min (workflow de veille) : réponse aux nouveaux commentaires des 14 derniers jours, dans le ton Teufy, uniquement avec les infos du post (src/commentaires.mjs). Spam et insultes ignorés. Suivi : contenus/commentaires.json. Désactivé le 8 novembre 2026 : le jeton n'a pas la permission instagram_manage_comments. Pour l'activer : ajouter cette permission à l'app Meta, régénérer IG_ACCESS_TOKEN, puis remettre actif à true."
   },
   "stories": {
     "actif": true,
