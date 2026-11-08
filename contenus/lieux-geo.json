@@ -1,8 +1,9 @@
 {
  "blue coast brewing company|nice": {
-  "introuvable": true,
-  "v": 2,
-  "le": "2026-11-08T22:07:30.497Z"
+  "lat": 43.7087,
+  "lng": 7.1949,
+  "le": "2026-11-08T22:22:44.848Z",
+  "ia": true
  },
  "mama shelter nice|nice": {
   "lat": 43.70288,
@@ -15,29 +16,34 @@
   "le": "2026-11-08T21:52:34.585Z"
  },
  "frigo 16 - le 109|nice": {
-  "introuvable": true,
-  "v": 2,
-  "le": "2026-11-08T22:07:35.000Z"
+  "lat": 43.7196,
+  "lng": 7.2848,
+  "le": "2026-11-08T22:22:44.848Z",
+  "ia": true
  },
  "frigo 16|nice": {
-  "introuvable": true,
-  "v": 2,
-  "le": "2026-11-08T22:07:37.499Z"
+  "lat": 43.7196,
+  "lng": 7.2848,
+  "le": "2026-11-08T22:22:44.848Z",
+  "ia": true
  },
  "l'antre bar electro|nice": {
-  "introuvable": true,
-  "v": 2,
-  "le": "2026-11-08T22:07:42.373Z"
+  "lat": 43.7001,
+  "lng": 7.2818,
+  "le": "2026-11-08T22:22:44.848Z",
+  "ia": true
  },
  "la suite restaurant festif|vallauris": {
   "introuvable": true,
   "v": 2,
-  "le": "2026-11-08T22:07:46.725Z"
+  "le": "2026-11-08T22:07:46.725Z",
+  "ia": true
  },
  "le barathym|toulon": {
-  "introuvable": true,
-  "v": 2,
-  "le": "2026-11-08T22:07:50.943Z"
+  "lat": 43.1221,
+  "lng": 5.9325,
+  "le": "2026-11-08T22:22:44.848Z",
+  "ia": true
  },
  "down town|nice": {
   "lat": 43.69696,
@@ -50,24 +56,28 @@
   "le": "2026-11-08T21:52:45.674Z"
  },
  "l'antre & kosma club|nice": {
-  "introuvable": true,
-  "v": 2,
-  "le": "2026-11-08T22:07:55.122Z"
+  "lat": 43.7001,
+  "lng": 7.2818,
+  "le": "2026-11-08T22:22:44.848Z",
+  "ia": true
  },
  "twiga monte carlo|monaco": {
-  "introuvable": true,
-  "v": 2,
-  "le": "2026-11-08T22:07:57.851Z"
+  "lat": 43.7448,
+  "lng": 7.4326,
+  "le": "2026-11-08T22:22:44.848Z",
+  "ia": true
  },
  "glass club cannes|cannes": {
-  "introuvable": true,
-  "v": 2,
-  "le": "2026-11-08T22:08:02.648Z"
+  "lat": 43.5512,
+  "lng": 7.0215,
+  "le": "2026-11-08T22:22:44.848Z",
+  "ia": true
  },
  "so blue hotel restaurant|antibes": {
   "introuvable": true,
   "v": 2,
-  "le": "2026-11-08T22:08:07.393Z"
+  "le": "2026-11-08T22:08:07.393Z",
+  "ia": true
  },
  "le calypso - frejus plage|frejus": {
   "lat": 43.38772,
@@ -85,9 +95,10 @@
   "le": "2026-11-08T22:08:15.904Z"
  },
  "elva club cannes|cannes": {
-  "introuvable": true,
-  "v": 2,
-  "le": "2026-11-08T22:08:20.184Z"
+  "lat": 43.5513,
+  "lng": 7.0222,
+  "le": "2026-11-08T22:22:44.848Z",
+  "ia": true
  },
  "twiga monaco|monaco": {
   "lat": 43.74368,
@@ -95,19 +106,22 @@
   "le": "2026-11-08T21:52:59.562Z"
  },
  "le mas d'hiver|puget-sur-argens": {
-  "introuvable": true,
-  "v": 2,
-  "le": "2026-11-08T22:08:24.412Z"
+  "lat": 43.4682,
+  "lng": 6.6803,
+  "le": "2026-11-08T22:22:44.848Z",
+  "ia": true
  },
  "ancien jazz club|nice": {
   "introuvable": true,
   "v": 2,
-  "le": "2026-11-08T22:08:28.488Z"
+  "le": "2026-11-08T22:08:28.488Z",
+  "ia": true
  },
  "green musik|antibes": {
   "introuvable": true,
   "v": 2,
-  "le": "2026-11-08T22:08:31.284Z"
+  "le": "2026-11-08T22:08:31.284Z",
+  "ia": true
  },
  "bocca mar|nice": {
   "lat": 43.6945,
@@ -117,12 +131,14 @@
  "switch club|roquebrune-sur-argens": {
   "introuvable": true,
   "v": 2,
-  "le": "2026-11-08T22:08:35.403Z"
+  "le": "2026-11-08T22:08:35.403Z",
+  "ia": true
  },
  "skyfall cannes x kingdom|cannes": {
   "introuvable": true,
   "v": 2,
-  "le": "2026-11-08T22:08:38.132Z"
+  "le": "2026-11-08T22:08:38.132Z",
+  "ia": true
  },
  "rooftop le meridien|nice": {
   "lat": 43.69528,
@@ -140,25 +156,34 @@
   "le": "2026-11-08T22:08:51.026Z"
  },
  "le 109 - frigo 16|nice": {
-  "introuvable": true,
-  "v": 2,
-  "le": "2026-11-08T22:08:54.002Z"
+  "lat": 43.7196,
+  "lng": 7.2848,
+  "le": "2026-11-08T22:22:44.848Z",
+  "ia": true
  },
  "l'antre bar electro bar a cocktails|nice": {
-  "introuvable": true,
-  "le": "2026-11-08T21:53:14.487Z"
+  "lat": 43.7001,
+  "lng": 7.2818,
+  "le": "2026-11-08T22:22:44.848Z",
+  "ia": true
  },
  "playa chica|mandelieu-la-napoule": {
-  "introuvable": true,
-  "le": "2026-11-08T21:53:16.132Z"
+  "lat": 43.5152,
+  "lng": 6.9407,
+  "le": "2026-11-08T22:22:44.848Z",
+  "ia": true
  },
  "le green musik|antibes": {
   "introuvable": true,
-  "le": "2026-11-08T21:53:17.683Z"
+  "v": 2,
+  "le": "2026-11-08T22:22:01.575Z",
+  "ia": true
  },
  "le 109 / frigo 16|nice": {
-  "introuvable": true,
-  "le": "2026-11-08T21:53:19.137Z"
+  "lat": 43.7196,
+  "lng": 7.2848,
+  "le": "2026-11-08T22:22:44.848Z",
+  "ia": true
  },
  "palais nikaia|nice": {
   "lat": 43.67851,
@@ -166,24 +191,32 @@
   "le": "2026-11-08T21:53:20.753Z"
  },
  "le stockfish|nice": {
-  "introuvable": true,
-  "le": "2026-11-08T21:53:21.985Z"
+  "lat": 43.7106,
+  "lng": 7.28543,
+  "le": "2026-11-08T22:22:09.526Z"
  },
  "le dix-huit|nice": {
-  "introuvable": true,
-  "le": "2026-11-08T21:53:23.374Z"
+  "lat": 43.69642,
+  "lng": 7.26469,
+  "le": "2026-11-08T22:22:13.464Z"
  },
  "mjc picaud / studio 13|cannes": {
-  "introuvable": true,
-  "le": "2026-11-08T21:53:24.655Z"
+  "lat": 43.5501,
+  "lng": 7.0016,
+  "le": "2026-11-08T22:22:44.848Z",
+  "ia": true
  },
  "salle le stockfish - maison de l'etudiant|nice": {
-  "introuvable": true,
-  "le": "2026-11-08T21:53:26.282Z"
+  "lat": 43.7088,
+  "lng": 7.2882,
+  "le": "2026-11-08T22:22:44.848Z",
+  "ia": true
  },
  "grande halle / frigo 16 - le 109|nice": {
-  "introuvable": true,
-  "le": "2026-11-08T21:53:27.737Z"
+  "lat": 43.7196,
+  "lng": 7.2848,
+  "le": "2026-11-08T22:22:44.848Z",
+  "ia": true
  },
  "le blanchon - auron 1600|auron": {
   "lat": 44.22253,
