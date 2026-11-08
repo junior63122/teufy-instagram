@@ -288,14 +288,16 @@ async function prepare(slot, now, id) {
     }
     files ||= await renderPages(programme(pages, chosen, { th, photos, titre, sous: fort ? `En ${MOIS(now)}` : elargi ? 'Ces prochains jours' : 'Cette semaine' }), dir, `incontournables-${stamp}`, { width: 1080, height: 1350 });
     pub = { images: files, legende: captionIncontournables({ variante: slot.variante, events: chosen, ...win, ch, r }), soirees: chosen, titre };
-  } else if (slot.type === 'reel' && config.studio?.actif && ['histoire', 'explicatif', 'humour', 'immersif'].includes(slot.variante)) {
+  } else if (slot.type === 'reel' && config.studio?.actif && ['histoire', 'nouveau', 'explicatif', 'humour', 'immersif'].includes(slot.variante)) {
     // Reels = créations du studio (Remotion) : explicatif, humour ou immersif, jamais un catalogue de soirées.
     const STUDIO = path.join(ROOT, 'studio');
     const dirC = path.join(STUDIO, 'scripts', 'concepts');
     const tous = await Promise.all((await readdir(dirC)).filter((f) => f.endsWith('.json')).map(async (f) => ({fichier: path.join(dirC, f), ...JSON.parse(await readFile(path.join(dirC, f), 'utf8'))})));
     const faits = new Set([...hist.map((h) => h.concept).filter(Boolean), ...usedHere]);
     const dispo = tous.filter((c) => !faits.has(c.id));
-    let c = val('concept') ? tous.find((x) => x.id === val('concept'))
+    // reel:nouveau = forcer un reel inédit écrit par l'IA (sans passer par la banque).
+    let c = slot.variante === 'nouveau' ? await nouvelleHistoire(STUDIO, id)
+      : val('concept') ? tous.find((x) => x.id === val('concept'))
       : slot.variante === 'histoire' ? dispo.find((x) => ['histoire', 'potesfluide'].includes(x.concept))
       : dispo.find((x) => x.type === slot.variante) || dispo[0];
     if (!c && slot.variante === 'histoire') c = DRY ? tous.find((x) => x.concept === 'histoire') : await nouvelleHistoire(STUDIO, id);

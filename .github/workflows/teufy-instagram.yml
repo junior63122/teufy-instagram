@@ -26,6 +26,7 @@ on:
           - bonplan:a-reserver
           - debat
           - reel:histoire
+          - reel:nouveau (reel inédit écrit par l'IA, décors Gemini)
           - reel:explicatif
           - reel:humour
           - reel:immersif
