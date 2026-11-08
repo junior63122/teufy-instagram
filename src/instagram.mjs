@@ -63,7 +63,8 @@ async function avecCollabs(params, collabs, ig) {
 }
 
 // Identifications (organisateurs, lieux) posées sur l'image ; si Instagram refuse un compte, on publie sans.
-const userTags = (handles = []) => JSON.stringify(handles.slice(0, 5).map((username, i, a) => ({ username, x: +((i + 1) / (a.length + 1)).toFixed(2), y: 0.55 })));
+// Placées sur l'affiche de la soirée (centre de la diapo, zone de l'affiche), réparties si plusieurs comptes.
+const userTags = (handles = []) => JSON.stringify(handles.slice(0, 5).map((username, i, a) => ({ username, x: +(a.length === 1 ? 0.5 : 0.32 + (0.36 * i) / (a.length - 1)).toFixed(2), y: +(0.4 + (i % 2) * 0.06).toFixed(2) })));
 async function conteneur(params, handles, ig) {
   if (handles?.length) {
     try { return await call('POST', `${ig.user}/media`, { ...params, user_tags: userTags(handles) }, ig); } catch (err) { console.log(`Identification refusée (${handles.join(', ')}) : ${err.message}`); }

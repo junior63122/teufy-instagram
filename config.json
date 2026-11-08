@@ -273,7 +273,7 @@
     "explication": "Chaque publication est relayée en story juste après : visuel 9:16 de la DA pour les posts photo, la vidéo elle-même pour les reels. L'API Instagram ne permet pas d'ajouter un sticker lien."
   },
   "collaborations": {
-    "actif": false,
-    "explication": "Posts en collaboration : sur les carrousels, invite jusqu'à 3 organisateurs des soirées les plus attendues comme co-auteurs (s'ils acceptent, le post apparaît aussi sur leur profil : beaucoup plus de portée). Désactivé tant que le propriétaire du compte ne l'a pas validé."
+    "actif": true,
+    "explication": "Posts en collaboration (activé le 8 novembre 2026) : sur chaque carrousel, les organisateurs des 3 soirées vedettes (meilleur potentiel de buzz) sont invités comme co-auteurs ; leurs 3 affiches sont en couverture (c'est ce que leurs abonnés voient en premier) et chaque organisateur est identifié sur sa propre affiche."
   }
 }

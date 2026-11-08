@@ -109,7 +109,7 @@ export const DiapoFin: React.FC<{soirees: Soiree[]; photo: string; question?: st
 /** Carrousel complet des sorties (même props que l'ancien, plus les photos de la DA). */
 export const CarrouselFlash: React.FC<{soirees: Soiree[]; slide: number; titre: string; sous?: string; photo?: string; photoFin?: string; rubrique?: string; question?: string}> = ({soirees, slide, titre, sous, photo = 'decors/da/danse.jpg', photoFin = 'decors/da/selfie.jpg', rubrique = "Sorties · Côte d'Azur", question}) => {
   const n = soirees.length;
-  if (slide === 0) return <Couverture photo={photo} rubrique={rubrique} titre={titre} sous={sous} vignettes={soirees.map((s) => s.image)} glisse />;
+  if (slide === 0) return <Couverture photo={photo} rubrique={rubrique} titre={titre} sous={sous} vignettes={[...soirees.filter((s: any) => s.vedette), ...soirees.filter((s: any) => !s.vedette)].map((s) => s.image)} glisse />;
   if (slide > n) return <DiapoFin soirees={soirees} photo={photoFin} question={question} />;
   return <DiapoSoiree s={soirees[slide - 1]} i={slide} n={n} />;
 };

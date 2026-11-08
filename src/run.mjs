@@ -448,8 +448,8 @@ async function prepare(slot, now, id) {
       ? [[...new Set(pub.soirees.flatMap((e) => e.instagram || []))].slice(0, 5)] // post unique : tous les comptes sur l'image
       : [[], ...pub.soirees.slice(0, 8).map((e) => e.instagram || [])];
   }
-  // Collaboration : les organisateurs des soirées les plus attendues du carrousel (comptes certains seulement).
-  if (pub.soirees?.length && pub.images?.length > 1) pub.collabs = [...new Set([...pub.soirees].sort((a, b) => (b.buzz ?? 0.5) - (a.buzz ?? 0.5)).map((e) => e.instagram?.[0]).filter(Boolean))].slice(0, 3);
+  // Collaboration : les organisateurs des 3 soirées vedettes (celles affichées sur la couverture).
+  if (pub.soirees?.length && pub.images?.length > 1) pub.collabs = [...new Set(vedettes(pub.soirees).map((e) => e.instagram[0]))].slice(0, 3);
   const out = { id, type: slot.type, variante: slot.variante || null, date: stamp, ...pub, choix: ch.choix,
     features: (pub.soirees || []).flatMap(eventFeatures), nb_images: pub.images?.length || 0 };
   if (out.images) out.images = out.images.map(rel);
@@ -615,7 +615,7 @@ async function carrouselDA({ chosen, id, dir, now, titre = [], titreFlash, rubri
       const sous = dts.length ? (fmt(dts[0], { day: 'numeric', month: 'long' }) === fmt(dts.at(-1), { day: 'numeric', month: 'long' }) ? `le ${fmt(dts[0], { weekday: 'long', day: 'numeric', month: 'long' })}`
         : `du ${fmt(dts[0], { day: 'numeric', ...(fmt(dts[0], { month: 'long' }) === fmt(dts.at(-1), { month: 'long' }) ? {} : { month: 'long' }) })} au ${fmt(dts.at(-1), { day: 'numeric', month: 'long' })}`) : '';
       const entree = { sous, titre, titreFlash, rubrique, question, lieu: (villes.length === 1 ? villes[0] : "CÔTE D'AZUR").toUpperCase(), pied: villes.slice(0, 3).map((v) => v.replace(/-du-.*$/i, '')).join(' · ').toUpperCase(),
-        soirees: avecImage.map((e, i) => ({ id: `${i}-${hash(e.name)}`, nom: e.name, genre: (genresList(e).slice(0, 2).join(' & ') || 'soirée').toLowerCase(), jour: jourC(e.start), heures: `dès ${heure(e.start)}`,
+        soirees: avecImage.map((e, i) => ({ id: `${i}-${hash(e.name)}`, vedette: vedettes(avecImage).includes(e), nom: e.name, genre: (genresList(e).slice(0, 2).join(' & ') || 'soirée').toLowerCase(), jour: jourC(e.start), heures: `dès ${heure(e.start)}`,
           prix: e.price == null ? 'prix sur la billetterie' : e.price === 0 ? 'gratuit' : `dès ${String(Math.round(e.price * 100) / 100).replace('.', ',')} €`, lieu: [e.venue, e.city].filter(Boolean).join(' · '), image: e.image })) };
       const fe = path.join(ROOT, 'out', `carrousel-${id}.json`);
       await mkdir(path.dirname(fe), { recursive: true });
@@ -650,4 +650,10 @@ async function nouveauFlash(STUDIO, id, rubrique) {
   });
   await writeFile(fichier, JSON.stringify(c, null, 2) + '\n');
   return { fichier, ...c };
+}
+
+// Les 3 soirées vedettes d'un carrousel : meilleur potentiel de buzz parmi celles dont l'organisateur a un compte
+// Instagram certain. Elles sont en couverture ET leurs organisateurs sont invités en collaboration.
+function vedettes(soirees) {
+  return [...soirees].filter((e) => e.instagram?.length).sort((a, b) => (b.buzz ?? 0.5) - (a.buzz ?? 0.5)).slice(0, 3);
 }
