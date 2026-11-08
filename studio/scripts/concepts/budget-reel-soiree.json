@@ -1,0 +1,196 @@
+{
+  "id": "budget-reel-soiree",
+  "concept": "histoire",
+  "type": "explicatif",
+  "genre": "explicatif",
+  "titre": "Le vrai coût d'une soirée sur la Côte",
+  "cree": "2026-11-08T11:08:40.076Z",
+  "voix": {
+    "voice_id": "IHngRooVccHyPqB4uQkG",
+    "nom": "Corentin",
+    "modele": "eleven_v3",
+    "stabilite": 0,
+    "style": 0.8,
+    "vitesse": 1.08
+  },
+  "musique": {
+    "src": "musique/electro-dreams.mp3",
+    "volume": 0.5,
+    "ducking": 0.55
+  },
+  "queue": 2.6,
+  "whooshEntreScenes": false,
+  "scenes": [
+    {
+      "id": "accroche",
+      "texte": "[excited] Tu pensais dépenser quinze euros ce soir ? Erreur fatale !",
+      "sons": [
+        {
+          "son": "impact",
+          "volume": 0.5
+        }
+      ]
+    },
+    {
+      "id": "monde-1",
+      "texte": "À minuit au guichet, ta prévente oubliée te coûte vingt euros de plus !",
+      "sons": [
+        {
+          "son": "caisse",
+          "mot": "vingt",
+          "decalage": 0.05,
+          "volume": 0.65
+        }
+      ]
+    },
+    {
+      "id": "monde-2",
+      "texte": "[curious] Deux petites boissons au bar et voilà vingt-cinq euros envolés !",
+      "sons": [
+        {
+          "son": "impact",
+          "mot": "envoles",
+          "decalage": 0.05,
+          "volume": 0.65
+        }
+      ]
+    },
+    {
+      "id": "monde-3",
+      "texte": "[sighs] À quatre heures du matin, le taxi majore la note à cinquante euros !",
+      "sons": [
+        {
+          "son": "tampon",
+          "mot": "cinquante",
+          "decalage": 0.05,
+          "volume": 0.65
+        }
+      ]
+    },
+    {
+      "id": "fin",
+      "texte": "Tague le pote qui explose toujours le budget en soirée !",
+      "sons": [
+        {
+          "son": "clavier",
+          "decalage": 1,
+          "volume": 0.56
+        }
+      ]
+    }
+  ],
+  "extra": {
+    "titreLignes": [
+      "LE VRAI COÛT",
+      "D'UNE SOIRÉE"
+    ],
+    "finLignes": [
+      "TAGUE TON POTE",
+      "PANIQUE BANCAIRE"
+    ],
+    "commentaire": "J'avais dit juste un verre 😭",
+    "mondes": [
+      {
+        "decor": "decors/budget-reel-soiree/monde-1.jpg",
+        "ambiance": "sfx/ambiance-rue.mp3",
+        "couleur": "#3a86ff",
+        "etiquette": "Le billet sur place",
+        "zoom": "vingt",
+        "persos": [
+          {
+            "look": {
+              "peau": "#f2c09b",
+              "cheveux": "#3b2416",
+              "haut": "#3a86ff",
+              "coiffure": "court",
+              "trait": "#141414",
+              "epaisseur": 7
+            },
+            "x": -120,
+            "pose": "reflechit",
+            "poseApres": "choc",
+            "motApres": "vingt"
+          }
+        ],
+        "props": [
+          {
+            "type": "billet",
+            "mot": "vingt",
+            "x": 150,
+            "y": -940,
+            "de": 15,
+            "a": 35,
+            "suffixe": " €"
+          }
+        ]
+      },
+      {
+        "decor": "decors/budget-reel-soiree/monde-2.jpg",
+        "ambiance": "sfx/ambiance-club.mp3",
+        "couleur": "#ff8c42",
+        "etiquette": "La pause au bar",
+        "zoom": "envoles",
+        "persos": [
+          {
+            "look": {
+              "peau": "#f9dcc4",
+              "cheveux": "#e8c15a",
+              "haut": "#9b5de5",
+              "coiffure": "long",
+              "trait": "#141414",
+              "epaisseur": 7
+            },
+            "x": -120,
+            "pose": "danse",
+            "poseApres": "agace",
+            "motApres": "vingt"
+          }
+        ],
+        "props": [
+          {
+            "type": "compteur",
+            "mot": "vingt",
+            "x": 150,
+            "y": -940,
+            "de": 0,
+            "a": 25,
+            "suffixe": " €"
+          }
+        ]
+      },
+      {
+        "decor": "decors/budget-reel-soiree/monde-3.jpg",
+        "ambiance": "sfx/ambiance-mer.mp3",
+        "couleur": "#9b5de5",
+        "etiquette": "Le retour de 4h",
+        "zoom": "cinquante",
+        "persos": [
+          {
+            "look": {
+              "peau": "#8d5a3b",
+              "cheveux": "#1a1a1a",
+              "haut": "#ffd60a",
+              "coiffure": "bouclé",
+              "trait": "#141414",
+              "epaisseur": 7
+            },
+            "x": -120,
+            "pose": "telephone",
+            "poseApres": "triste",
+            "motApres": "cinquante"
+          }
+        ],
+        "props": [
+          {
+            "type": "tampon",
+            "mot": "cinquante",
+            "x": 150,
+            "y": -940,
+            "texte": "SURTAXE"
+          }
+        ]
+      }
+    ]
+  },
+  "legende": "La fameuse soirée à « 15 balles » qui finit à 110 €... 💸\n\nEntre la prévente prise trop tard, le vestiaire et la course de retour majorée, l'addition grimpe très vite sur la Côte.\n\nAnticipe tes billets et tes trajets pour profiter sans vider ton compte !\n\nC'est quoi ton pire record de budget imprévu ? 👇\n\n#TeufyParty #NiceNightlife #CannesNight #SortirNice #BonsPlans06"
+}

@@ -1,0 +1,21 @@
+{
+  "concept": "budget-reel-soiree",
+  "style": "Flat 2D cartoon illustration in a bold pop-art style: thick black outlines, flat saturated colors, subtle halftone dot texture, clean shapes, playful and premium, like a modern animated series background. Setting: French Riviera, Nice. Background plate only: absolutely NO people, NO characters, NO text, NO letters, NO logos. Vertical 9:16 composition. Keep the lower third of the image as a clear, open, flat floor so characters can stand in front; put the main recognizable element in the middle third, fully visible. Camera at standing eye level.",
+  "decors": [
+    {
+      "id": "monde-1",
+      "format": "9:16",
+      "prompt": "Crowded nightclub entrance queue under neon violet signs, metallic barriers and cobblestones, cool blue tones"
+    },
+    {
+      "id": "monde-2",
+      "format": "9:16",
+      "prompt": "Modern cocktail club bar counter with glowing bottles shelves and golden reflections, warm amber tones"
+    },
+    {
+      "id": "monde-3",
+      "format": "9:16",
+      "prompt": "Empty seaside road at night with palm trees silhouettes under streetlights, deep dark blue atmosphere"
+    }
+  ]
+}

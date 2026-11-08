@@ -1,0 +1,15 @@
+{
+ "monde-1": {
+  "modele": "gemini-3-pro-image-preview",
+  "le": "2026-11-08T11:08:55.203Z"
+ },
+ "monde-2": {
+  "modele": "gemini-3-pro-image-preview",
+  "le": "2026-11-08T11:09:08.996Z"
+ },
+ "monde-3": {
+  "modele": "gemini-3-pro-image-preview",
+  "le": "2026-11-08T11:09:22.093Z"
+ },
+ "_note": "Images générées par Google Gemini (API) pour Teufy."
+}
