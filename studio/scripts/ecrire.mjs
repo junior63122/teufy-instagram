@@ -138,6 +138,8 @@ const mondes = r.mondes.slice(0, 4);
 const total = [r.accroche, ...mondes.map((m) => m.replique), r.fin].map(sansTags).join(' ').length;
 if (total > 520) console.warn(`Scénariste : script long (${total} caractères), le reel dépassera 30 s.`);
 
+// Lignes à l'écran courtes (≤ 16 caractères) : on garde les premiers mots.
+const court = (l) => String(l).split(/\s+/).reduce((acc, w) => (acc && (acc + ' ' + w).length > 16 ? acc : acc ? `${acc} ${w}` : w), '');
 const persos = mondes.map((m, i) => LOOKS[(Number.isInteger(m.perso) ? m.perso : i) % LOOKS.length]);
 const concept = {
   id, concept: 'histoire', type: type === 'actu' ? 'explicatif' : type, genre: type, titre: r.titre, cree: new Date().toISOString(), source: r.source || undefined,
@@ -153,7 +155,7 @@ const concept = {
     {id: 'fin', texte: r.fin, sons: [{son: 'clavier', decalage: 1.0, volume: 0.56}]},
   ],
   extra: {
-    titreLignes: r.titre_lignes, finLignes: r.fin_lignes, commentaire: r.commentaire,
+    titreLignes: (r.titre_lignes || []).map(court), finLignes: (r.fin_lignes || []).map(court), commentaire: r.commentaire,
     mondes: mondes.map((m, i) => ({
       decor: `decors/${id}/monde-${i + 1}.jpg`, ambiance: AMBIANCES[m.ambiance] || undefined, couleur: COULEURS[(persos.indexOf(persos[i]) + i) % COULEURS.length],
       etiquette: m.etiquette, zoom: motDans(m.zoom, m.replique),

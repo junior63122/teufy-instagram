@@ -1,0 +1,591 @@
+{
+ "id": "budget-reel-soiree",
+ "concept": "histoire",
+ "fps": 30,
+ "duree": 19.16,
+ "mots": [
+  {
+   "w": "Tu",
+   "scene": 0,
+   "start": 0.139,
+   "end": 0.16
+  },
+  {
+   "w": "pensais",
+   "scene": 0,
+   "start": 0.208,
+   "end": 0.48
+  },
+  {
+   "w": "dépenser",
+   "scene": 0,
+   "start": 0.52,
+   "end": 0.96
+  },
+  {
+   "w": "quinze",
+   "scene": 0,
+   "start": 0.987,
+   "end": 1.12
+  },
+  {
+   "w": "euros",
+   "scene": 0,
+   "start": 1.173,
+   "end": 1.44
+  },
+  {
+   "w": "ce",
+   "scene": 0,
+   "start": 1.467,
+   "end": 1.52
+  },
+  {
+   "w": "soir",
+   "scene": 0,
+   "start": 1.6,
+   "end": 1.92
+  },
+  {
+   "w": "?",
+   "scene": 0,
+   "start": 2.08,
+   "end": 2.24
+  },
+  {
+   "w": "Erreur",
+   "scene": 0,
+   "start": 2.293,
+   "end": 2.56
+  },
+  {
+   "w": "fatale",
+   "scene": 0,
+   "start": 2.6,
+   "end": 3.04
+  },
+  {
+   "w": "!",
+   "scene": 0,
+   "start": 3.28,
+   "end": 3.52
+  },
+  {
+   "w": "À",
+   "scene": 1,
+   "start": 3.6,
+   "end": 3.68
+  },
+  {
+   "w": "minuit",
+   "scene": 1,
+   "start": 3.72,
+   "end": 4
+  },
+  {
+   "w": "au",
+   "scene": 1,
+   "start": 4.027,
+   "end": 4.08
+  },
+  {
+   "w": "guichet,",
+   "scene": 1,
+   "start": 4.133,
+   "end": 4.64
+  },
+  {
+   "w": "ta",
+   "scene": 1,
+   "start": 4.693,
+   "end": 4.8
+  },
+  {
+   "w": "prévente",
+   "scene": 1,
+   "start": 4.84,
+   "end": 5.2
+  },
+  {
+   "w": "oubliée",
+   "scene": 1,
+   "start": 5.28,
+   "end": 5.6
+  },
+  {
+   "w": "te",
+   "scene": 1,
+   "start": 5.653,
+   "end": 5.76
+  },
+  {
+   "w": "coûte",
+   "scene": 1,
+   "start": 5.787,
+   "end": 6.08
+  },
+  {
+   "w": "vingt",
+   "scene": 1,
+   "start": 6.12,
+   "end": 6.24
+  },
+  {
+   "w": "euros",
+   "scene": 1,
+   "start": 6.28,
+   "end": 6.48
+  },
+  {
+   "w": "de",
+   "scene": 1,
+   "start": 6.507,
+   "end": 6.56
+  },
+  {
+   "w": "plus",
+   "scene": 1,
+   "start": 6.64,
+   "end": 6.96
+  },
+  {
+   "w": "!",
+   "scene": 1,
+   "start": 7,
+   "end": 7.04
+  },
+  {
+   "w": "Deux",
+   "scene": 2,
+   "start": 7.493,
+   "end": 7.52
+  },
+  {
+   "w": "petites",
+   "scene": 2,
+   "start": 7.55,
+   "end": 7.76
+  },
+  {
+   "w": "boissons",
+   "scene": 2,
+   "start": 7.792,
+   "end": 8.08
+  },
+  {
+   "w": "au",
+   "scene": 2,
+   "start": 8.107,
+   "end": 8.16
+  },
+  {
+   "w": "bar",
+   "scene": 2,
+   "start": 8.24,
+   "end": 8.48
+  },
+  {
+   "w": "et",
+   "scene": 2,
+   "start": 8.533,
+   "end": 8.64
+  },
+  {
+   "w": "voilà",
+   "scene": 2,
+   "start": 8.667,
+   "end": 8.88
+  },
+  {
+   "w": "vingt-cinq",
+   "scene": 2,
+   "start": 8.96,
+   "end": 9.36
+  },
+  {
+   "w": "euros",
+   "scene": 2,
+   "start": 9.413,
+   "end": 9.68
+  },
+  {
+   "w": "envolés",
+   "scene": 2,
+   "start": 9.72,
+   "end": 10.08
+  },
+  {
+   "w": "!",
+   "scene": 2,
+   "start": 10.32,
+   "end": 10.56
+  },
+  {
+   "w": "À",
+   "scene": 3,
+   "start": 10.633,
+   "end": 10.64
+  },
+  {
+   "w": "quatre",
+   "scene": 3,
+   "start": 10.663,
+   "end": 10.8
+  },
+  {
+   "w": "heures",
+   "scene": 3,
+   "start": 10.834,
+   "end": 11.04
+  },
+  {
+   "w": "du",
+   "scene": 3,
+   "start": 11.067,
+   "end": 11.12
+  },
+  {
+   "w": "matin,",
+   "scene": 3,
+   "start": 11.16,
+   "end": 11.52
+  },
+  {
+   "w": "le",
+   "scene": 3,
+   "start": 11.547,
+   "end": 11.6
+  },
+  {
+   "w": "taxi",
+   "scene": 3,
+   "start": 11.664,
+   "end": 11.92
+  },
+  {
+   "w": "majore",
+   "scene": 3,
+   "start": 11.98,
+   "end": 12.32
+  },
+  {
+   "w": "la",
+   "scene": 3,
+   "start": 12.347,
+   "end": 12.4
+  },
+  {
+   "w": "note",
+   "scene": 3,
+   "start": 12.464,
+   "end": 12.72
+  },
+  {
+   "w": "à",
+   "scene": 3,
+   "start": 12.84,
+   "end": 12.96
+  },
+  {
+   "w": "cinquante",
+   "scene": 3,
+   "start": 13,
+   "end": 13.36
+  },
+  {
+   "w": "euros",
+   "scene": 3,
+   "start": 13.4,
+   "end": 13.6
+  },
+  {
+   "w": "!",
+   "scene": 3,
+   "start": 13.8,
+   "end": 14
+  },
+  {
+   "w": "Tague",
+   "scene": 4,
+   "start": 14.04,
+   "end": 14.24
+  },
+  {
+   "w": "le",
+   "scene": 4,
+   "start": 14.293,
+   "end": 14.4
+  },
+  {
+   "w": "pote",
+   "scene": 4,
+   "start": 14.44,
+   "end": 14.56
+  },
+  {
+   "w": "qui",
+   "scene": 4,
+   "start": 14.6,
+   "end": 14.72
+  },
+  {
+   "w": "explose",
+   "scene": 4,
+   "start": 14.76,
+   "end": 15.2
+  },
+  {
+   "w": "toujours",
+   "scene": 4,
+   "start": 15.236,
+   "end": 15.52
+  },
+  {
+   "w": "le",
+   "scene": 4,
+   "start": 15.573,
+   "end": 15.68
+  },
+  {
+   "w": "budget",
+   "scene": 4,
+   "start": 15.726,
+   "end": 16
+  },
+  {
+   "w": "en",
+   "scene": 4,
+   "start": 16.027,
+   "end": 16.08
+  },
+  {
+   "w": "soirée",
+   "scene": 4,
+   "start": 16.128,
+   "end": 16.4
+  },
+  {
+   "w": "!",
+   "scene": 4,
+   "start": 16.48,
+   "end": 16.56
+  }
+ ],
+ "scenes": [
+  {
+   "id": "accroche",
+   "texte": "[excited] Tu pensais dépenser quinze euros ce soir ? Erreur fatale !",
+   "sons": [
+    {
+     "son": "impact",
+     "volume": 0.5
+    }
+   ],
+   "start": 0,
+   "end": 3.48
+  },
+  {
+   "id": "monde-1",
+   "texte": "À minuit au guichet, ta prévente oubliée te coûte vingt euros de plus !",
+   "sons": [
+    {
+     "son": "caisse",
+     "mot": "vingt",
+     "decalage": 0.05,
+     "volume": 0.65
+    }
+   ],
+   "start": 3.48,
+   "end": 7.373
+  },
+  {
+   "id": "monde-2",
+   "texte": "[curious] Deux petites boissons au bar et voilà vingt-cinq euros envolés !",
+   "sons": [
+    {
+     "son": "impact",
+     "mot": "envoles",
+     "decalage": 0.05,
+     "volume": 0.65
+    }
+   ],
+   "start": 7.373,
+   "end": 10.513
+  },
+  {
+   "id": "monde-3",
+   "texte": "[sighs] À quatre heures du matin, le taxi majore la note à cinquante euros !",
+   "sons": [
+    {
+     "son": "tampon",
+     "mot": "cinquante",
+     "decalage": 0.05,
+     "volume": 0.65
+    }
+   ],
+   "start": 10.513,
+   "end": 13.92
+  },
+  {
+   "id": "fin",
+   "texte": "Tague le pote qui explose toujours le budget en soirée !",
+   "sons": [
+    {
+     "son": "clavier",
+     "decalage": 1,
+     "volume": 0.56
+    }
+   ],
+   "start": 13.92,
+   "end": 19.16
+  }
+ ],
+ "bruits": [
+  {
+   "src": "sfx/impact.mp3",
+   "at": 0,
+   "volume": 0.5
+  },
+  {
+   "src": "sfx/caisse.mp3",
+   "at": 6.17,
+   "volume": 0.65
+  },
+  {
+   "src": "sfx/impact.mp3",
+   "at": 9.77,
+   "volume": 0.65
+  },
+  {
+   "src": "sfx/tampon.mp3",
+   "at": 13.05,
+   "volume": 0.65
+  },
+  {
+   "src": "sfx/clavier.mp3",
+   "at": 14.92,
+   "volume": 0.56
+  }
+ ],
+ "voix": {
+  "src": "budget-reel-soiree/voix.mp3",
+  "volume": 1
+ },
+ "musique": {
+  "src": "musique/electro-dreams.mp3",
+  "volume": 0.5,
+  "debut": 0,
+  "ducking": 0.55
+ },
+ "titreLignes": [
+  "LE VRAI COÛT",
+  "D'UNE SOIRÉE"
+ ],
+ "finLignes": [
+  "TAGUE TON POTE",
+  "PANIQUE BANCAIRE"
+ ],
+ "commentaire": "J'avais dit juste un verre 😭",
+ "mondes": [
+  {
+   "decor": "decors/budget-reel-soiree/monde-1.jpg",
+   "ambiance": "sfx/ambiance-rue.mp3",
+   "couleur": "#3a86ff",
+   "etiquette": "Le billet sur place",
+   "zoom": "vingt",
+   "persos": [
+    {
+     "look": {
+      "peau": "#f2c09b",
+      "cheveux": "#3b2416",
+      "haut": "#3a86ff",
+      "coiffure": "court",
+      "trait": "#141414",
+      "epaisseur": 7
+     },
+     "x": -120,
+     "pose": "reflechit",
+     "poseApres": "choc",
+     "motApres": "vingt"
+    }
+   ],
+   "props": [
+    {
+     "type": "billet",
+     "mot": "vingt",
+     "x": 150,
+     "y": -940,
+     "de": 15,
+     "a": 35,
+     "suffixe": " €"
+    }
+   ]
+  },
+  {
+   "decor": "decors/budget-reel-soiree/monde-2.jpg",
+   "ambiance": "sfx/ambiance-club.mp3",
+   "couleur": "#ff8c42",
+   "etiquette": "La pause au bar",
+   "zoom": "envoles",
+   "persos": [
+    {
+     "look": {
+      "peau": "#f9dcc4",
+      "cheveux": "#e8c15a",
+      "haut": "#9b5de5",
+      "coiffure": "long",
+      "trait": "#141414",
+      "epaisseur": 7
+     },
+     "x": -120,
+     "pose": "danse",
+     "poseApres": "agace",
+     "motApres": "vingt"
+    }
+   ],
+   "props": [
+    {
+     "type": "compteur",
+     "mot": "vingt",
+     "x": 150,
+     "y": -940,
+     "de": 0,
+     "a": 25,
+     "suffixe": " €"
+    }
+   ]
+  },
+  {
+   "decor": "decors/budget-reel-soiree/monde-3.jpg",
+   "ambiance": "sfx/ambiance-mer.mp3",
+   "couleur": "#9b5de5",
+   "etiquette": "Le retour de 4h",
+   "zoom": "cinquante",
+   "persos": [
+    {
+     "look": {
+      "peau": "#8d5a3b",
+      "cheveux": "#1a1a1a",
+      "haut": "#ffd60a",
+      "coiffure": "bouclé",
+      "trait": "#141414",
+      "epaisseur": 7
+     },
+     "x": -120,
+     "pose": "telephone",
+     "poseApres": "triste",
+     "motApres": "cinquante"
+    }
+   ],
+   "props": [
+    {
+     "type": "tampon",
+     "mot": "cinquante",
+     "x": 150,
+     "y": -940,
+     "texte": "SURTAXE"
+    }
+   ]
+  }
+ ]
+}
