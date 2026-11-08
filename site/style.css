@@ -48,8 +48,8 @@ em{font-style:normal;color:var(--corail)}
 @media(min-width:640px){.grille{grid-template-columns:1fr 1fr}}
 @media(min-width:980px){.grille{grid-template-columns:1fr 1fr 1fr}}
 .carte{background:var(--papier);color:var(--nuit);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
-.affiche{position:relative;background:#0b0b0f;aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.affiche img{width:100%;height:100%;object-fit:contain;background:#0b0b0f}
+.affiche{position:relative;background:#0b0b0f;overflow:hidden}
+.affiche img{width:100%;height:auto;max-height:80vh;object-fit:cover}
 .affiche.sans{aspect-ratio:16/9}
 .affiche.sans img{object-fit:cover;filter:contrast(1.08) brightness(.8)}
 .date{position:absolute;left:12px;top:12px;background:var(--corail);color:var(--nuit);font-weight:800;font-size:14px;text-transform:uppercase;letter-spacing:.06em;padding:6px 10px;border-radius:6px}
@@ -97,3 +97,11 @@ footer{padding:40px 16px 60px;max-width:1180px;margin:0 auto;font-size:14px;opac
 .faq summary{font-weight:800;cursor:pointer}
 .faq details p{margin-top:8px;font-size:16px}
 footer a{color:inherit}
+/* partenaires */
+.logos{display:grid;grid-template-columns:repeat(auto-fill,minmax(72px,1fr));gap:12px;margin-top:8px}
+.logos img{width:100%;height:auto;aspect-ratio:1;border-radius:50%;background:#fff1;box-shadow:0 6px 18px rgba(0,0,0,.35)}
+.logos a,.logos span{display:block;transition:transform .15s}
+.logos a:hover{transform:scale(1.06)}
+.et-plus{font-family:var(--titre);font-weight:800;font-size:28px;text-align:center;margin-top:10px}
+.grille{align-items:start}
+.bouton.secondaire{background:transparent;color:var(--nuit);border:2px solid var(--nuit)}

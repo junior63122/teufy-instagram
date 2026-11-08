@@ -155,8 +155,8 @@ function carte(s, vedette = false, base = '') {
     ${s.genres ? `<p class="genre">${esc(s.genres)}</p>` : ''}
     <h3>${esc(s.nom)}</h3>
     ${s.accroche ? `<p class="accroche">${esc(s.accroche)}</p>` : ''}
-    <p class="meta"><span>${esc(heureTxt)}</span>${prix ? `<span>${esc(prix)}</span>` : ''}<span>${esc([s.lieu, s.ville].filter(Boolean).join(', '))}</span></p>
-    <p class="actions">${s.url ? `<a class="bouton" href="${esc(s.url)}" target="_blank" rel="noopener">Billets</a>` : ''}${s.instagram ? `<a class="lien" href="https://www.instagram.com/${esc(s.instagram)}/" target="_blank" rel="noopener">@${esc(s.instagram)}</a>` : ''}</p>
+    <p class="meta"><span>${esc(heureTxt)}</span><span>${esc(prix || 'Prix sur la billetterie')}</span><span>${esc([s.lieu, s.ville].filter(Boolean).join(', '))}</span></p>
+    <p class="actions">${s.url ? `<a class="bouton" href="${esc(s.url)}" target="_blank" rel="noopener">Billets</a>` : `<a class="bouton secondaire" href="https://www.google.com/search?q=${encodeURIComponent(`${s.nom} ${s.lieu} billetterie`)}" target="_blank" rel="noopener">Trouver les billets</a>`}${s.instagram ? `<a class="lien" href="https://www.instagram.com/${esc(s.instagram)}/" target="_blank" rel="noopener">@${esc(s.instagram)}</a>` : ''}</p>
   </div>
 </article>`;
 }
@@ -260,6 +260,18 @@ function agenda(soirees, base, { filtresVille = true } = {}) {
 </section>`;
 }
 
+function blocPartenaires(T, base) {
+  const P = lire(path.join(ROOT, 'contenus', 'partenaires.json'), { liste: [] }).liste || [];
+  if (!P.length) return '';
+  return `<section class="qui partenaires">
+  <p class="etiquette">Partenaires</p>
+  <h2>${esc(T.partenaires.replace(/^plus de /, 'Plus de '))} <em>partenaires</em> sur la Côte</h2>
+  <p>Clubs, bars, beach clubs, organisateurs, collectifs, festivals et artistes : ils travaillent avec Teufy au quotidien.</p>
+  <div class="logos">${P.map((x) => { const img = `<img src="${base}${esc(x.fichier)}" alt="${esc(x.nom || 'Partenaire Teufy')}" loading="lazy" width="80" height="80">`; return x.instagram ? `<a href="https://www.instagram.com/${esc(x.instagram)}/" target="_blank" rel="noopener" title="${esc(x.nom || x.instagram)}">${img}</a>` : `<span>${img}</span>`; }).join('')}</div>
+  <p class="et-plus">Et bien plus encore !</p>
+</section>`;
+}
+
 function blocTeufy(T, base, nb) {
   return `<section class="qui">
   <p class="etiquette">Qui sommes-nous</p>
@@ -290,6 +302,7 @@ function page({ soirees, posts, now, compte, T, base }) {
 ${vedette ? `<section class="la-plus"><p class="etiquette">🔥 La plus attendue cette semaine</p>${carte(vedette, true, base)}</section>` : ''}
 ${agenda(soirees, base)}
 ${blocTeufy(T, base, soirees.length)}
+${blocPartenaires(T, base)}
 ${posts.length ? `<section class="insta"><h2>Sur Instagram</h2><div class="posts">${posts.map((p) => `<a href="${esc(p.lien)}" target="_blank" rel="noopener"><img src="${esc(p.image)}" alt="${esc(p.titre)}" loading="lazy"></a>`).join('')}</div><a class="bouton" href="https://www.instagram.com/${esc(handle)}/" target="_blank" rel="noopener">${esc(compte)}</a></section>` : ''}
 ${blocOrga(handle, base)}`;
   return gabarit({ titre: "Teufy · Soirées sur la Côte d'Azur : où sortir ce soir à Nice, Cannes, Monaco", description: `Toutes les soirées de la Côte d'Azur au même endroit : ${soirees.length} soirées vérifiées à Nice, Cannes, Monaco et Antibes, mises à jour chaque jour. Clubs, techno, afro, rooftops, soirées étudiantes.`, chemin: '', base, corps, ld: [...ldOrganisation(T, compte), ...jsonld(soirees)], compte });
@@ -364,6 +377,7 @@ function aPropos({ now, compte, T, base, nb }) {
   <p>Teufy, c'est ${esc(T.equipe)} : repérage des soirées, vérification des infos, création des visuels et des vidéos, relation avec les organisateurs. Et un réseau de ${esc(T.partenaires)} partenaires sur la Côte d'Azur (clubs, beach clubs, bars, organisateurs, collectifs et artistes) avec qui nous travaillons au quotidien.</p>
   <p>Tu organises des soirées, tu gères un lieu ou tu es artiste ? Rejoins les partenaires Teufy : <a class="lien" href="https://ig.me/m/${esc(handle)}" target="_blank" rel="noopener">écris-nous sur Instagram</a>.</p>
 </section>
+${blocPartenaires(T, base)}
 ${blocOrga(handle, base)}`;
   return gabarit({ titre: "Qui sommes-nous · Teufy, le guide des soirées de la Côte d'Azur", description: `Teufy réunit toutes les soirées de la Côte d'Azur. Dirigé par ${T.directeur}, une équipe de ${T.equipe.replace(/^une /, '')} personnes et ${T.partenaires} partenaires de Nice à Monaco.`, chemin: 'a-propos/', base, corps, compte, ld: ldOrganisation(T, compte), image: 'site/img/selfie.jpg' });
 }

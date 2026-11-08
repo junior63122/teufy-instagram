@@ -153,6 +153,7 @@ export async function rechercherSoirees({ config, now = new Date(), ig = null, a
   // On cumule avec les soirées encore à venir des recherches précédentes : la liste s'enrichit au fil des jours.
   const anciennes = (cache.evenements || []).filter((e) => Date.parse(e.start) > now.getTime() - 6 * 3600e3);
   const uniques = fusionner([...evenements, ...anciennes]);
+  await completerBilletterie({ liste: uniques, ia, config, log });
   const nouveaux = (d.comptes_instagram || []).map((h) => String(h).replace(/^@/, '').trim().toLowerCase()).filter((h) => /^[a-z0-9._]{2,30}$/.test(h));
   orgas.suggeres = [...new Set([...(orgas.suggeres || []), ...nouveaux])].filter((h) => !(orgas.comptes || []).includes(h)).slice(0, 80);
   const out = { maj: now.toISOString(), du: jour, au: fin, nb_bruts: (d.evenements || []).length, evenements: uniques };
@@ -190,4 +191,37 @@ export function fusionner(liste) {
     out[out.indexOf(prev)] = garde;
   }
   return out;
+}
+
+// --- Billetterie et prix manquants -----------------------------------------------------------
+// Une soirée sans lien exact vers sa billetterie (ou avec seulement « shotgun.live ») ou sans prix : on cherche sa page
+// de billetterie et son prix le plus bas, par lots de 8. Chaque soirée n'est cherchée qu'une fois.
+const lienPrecis = (u) => /^https?:\/\/[^/]+\/.+/.test(u || '') && !/^https?:\/\/[^/]+\/?(fr|en|events?)?\/?$/i.test(u);
+export async function completerBilletterie({ liste, ia, config, log = console.log, max = 48 }) {
+  const a = liste.filter((e) => !e.billetterie_cherchee && (!lienPrecis(e.url) || e.price == null)).slice(0, max);
+  if (!a.length) return;
+  const SCHEMA_B = { type: 'object', additionalProperties: false, required: ['soirees'], properties: { soirees: { type: 'array', items: { type: 'object', additionalProperties: false, required: ['n', 'url', 'prix'], properties: {
+    n: { type: 'integer', description: 'numéro de la soirée dans la liste' },
+    url: { type: 'string', description: 'URL exacte de la page de la soirée sur sa billetterie (pas la page d\'accueil), vide si introuvable' },
+    prix: { type: ['number', 'null'], description: 'prix le moins cher en euros, 0 si gratuit, null si inconnu' },
+  } } } } };
+  let trouves = 0;
+  for (let i = 0; i < a.length; i += 8) {
+    const lot = a.slice(i, i + 8);
+    const texte = lot.map((e, k) => `${k + 1}. ${e.name} | ${new Intl.DateTimeFormat('fr-FR', { timeZone: 'Europe/Paris', dateStyle: 'full', timeStyle: 'short' }).format(new Date(e.start))} | ${e.venue}, ${e.city}${e.source_site ? ` | vu sur ${e.source_site}` : ''}`).join('\n');
+    try {
+      const web = await ia.rechercher({ config, gratuit: true, system: 'Tu retrouves la page de billetterie officielle de soirées précises. Tu ne donnes que des liens que tu as réellement trouvés.',
+        prompt: `Pour chacune de ces soirées de la Côte d'Azur, trouve l'URL exacte de sa page de billetterie (Shotgun, DICE, Weezevent, Billetweb, Eventbrite, HelloAsso, Fever, site du club…) et son prix le moins cher :\n${texte}` });
+      if (!web) continue;
+      const r = await ia.json({ config, gratuit: true, nom: 'billetterie', schema: SCHEMA_B, system: 'Tu extrais des liens et des prix sans rien inventer.', prompt: `Soirées :\n${texte}\n\nRésultats de recherche :\n${web}\n\nDonne pour chaque numéro l'URL exacte de la page de la soirée et le prix le moins cher, selon le schéma.` });
+      for (const x of r.soirees || []) {
+        const e = lot[x.n - 1];
+        if (!e) continue;
+        if (lienPrecis(x.url) && !lienPrecis(e.url)) { e.url = x.url; trouves++; }
+        if (e.price == null && typeof x.prix === 'number' && x.prix >= 0 && x.prix < 500) e.price = x.prix;
+      }
+    } catch (err) { log(`  billetterie : lot impossible (${err.message})`); }
+    lot.forEach((e) => { e.billetterie_cherchee = true; });
+  }
+  log(`  billetterie : ${trouves} lien(s) trouvé(s) pour ${a.length} soirée(s) à compléter.`);
 }
