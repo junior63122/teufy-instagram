@@ -1,0 +1,76 @@
+/* Site Teufy : DA « Flash nuit » (mêmes couleurs, polices et photos que le compte Instagram). */
+@font-face{font-family:'Bricolage';src:url(fonts/bricolage.woff2) format('woff2');font-weight:200 800;font-stretch:75% 100%;font-display:swap}
+@font-face{font-family:'Bricolage';src:url(fonts/bricolage-ext.woff2) format('woff2');font-weight:200 800;font-stretch:75% 100%;unicode-range:U+0100-024F,U+1E00-1EFF,U+2000-206F;font-display:swap}
+@font-face{font-family:'InterTight';src:url(fonts/inter-tight.woff2) format('woff2');font-weight:100 900;font-display:swap}
+@font-face{font-family:'InterTight';src:url(fonts/inter-tight-ext.woff2) format('woff2');font-weight:100 900;unicode-range:U+0100-024F,U+1E00-1EFF,U+2000-206F;font-display:swap}
+:root{--nuit:#0B0B0F;--nuit2:#16161C;--creme:#F4EFE6;--papier:#EDE6DA;--corail:#FF5A3C;--gris:#8C877F;--titre:'Bricolage',system-ui,sans-serif;--texte:'InterTight',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--nuit);color:var(--creme);font-family:var(--texte);font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--titre);font-weight:800;font-stretch:80%;letter-spacing:-.02em;line-height:.95}
+em{font-style:normal;color:var(--corail)}
+.etiquette{display:inline-block;background:var(--corail);color:var(--nuit);font-weight:800;font-size:13px;letter-spacing:.14em;text-transform:uppercase;padding:6px 12px 5px;border-radius:5px;margin-bottom:14px}
+.bouton{display:inline-block;background:var(--corail);color:var(--nuit);font-weight:800;text-decoration:none;padding:13px 22px;border-radius:999px;transition:transform .15s}
+.bouton:hover{transform:translateY(-2px)}
+.bouton.petit{padding:9px 16px;font-size:14px}
+.lien{font-weight:700;opacity:.85;text-decoration:none;border-bottom:1px solid currentColor}
+
+/* barre */
+.barre{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px;background:rgba(11,11,15,.85);backdrop-filter:blur(10px);border-bottom:1px solid #ffffff14}
+.marque{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--titre);font-weight:800;font-size:22px}
+.marque img{height:30px}
+
+/* hero et bloc organisateurs */
+.hero,.orga{position:relative;min-height:78vh;display:flex;align-items:flex-end;overflow:hidden}
+.orga{min-height:60vh;margin-top:64px}
+.hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:contrast(1.08) saturate(1.05)}
+.hero::after,.orga::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,11,15,.35) 0%,rgba(11,11,15,0) 30%,rgba(11,11,15,.92) 85%)}
+.hero-texte{position:relative;z-index:1;padding:32px 16px 40px;max-width:760px}
+.hero h1{font-size:clamp(52px,13vw,120px);margin-bottom:16px}
+.orga h2{font-size:clamp(42px,9vw,84px);margin-bottom:14px}
+.hero-texte p:not(.etiquette){font-size:18px;opacity:.9;margin-bottom:22px;max-width:560px}
+
+/* la plus attendue */
+.la-plus{padding:40px 16px 0;max-width:1180px;margin:0 auto}
+
+/* agenda */
+.agenda{max-width:1180px;margin:0 auto;padding:24px 16px 0}
+.filtres{position:static;z-index:5;background:var(--nuit);padding:12px 0;display:flex;flex-direction:column;gap:8px;border-bottom:1px solid #ffffff14}
+.groupe{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
+.groupe::-webkit-scrollbar{display:none}
+.groupe button{flex:none;font:inherit;font-size:14px;font-weight:700;color:var(--creme);background:var(--nuit2);border:1.5px solid #ffffff22;border-radius:999px;padding:7px 14px;cursor:pointer}
+.groupe button.actif{background:var(--creme);color:var(--nuit);border-color:var(--creme)}
+.jour{margin-top:34px}
+.jour h2{font-size:clamp(30px,6vw,46px);margin-bottom:16px}
+.grille{display:grid;grid-template-columns:1fr;gap:18px}
+@media(min-width:640px){.grille{grid-template-columns:1fr 1fr}}
+@media(min-width:980px){.grille{grid-template-columns:1fr 1fr 1fr}}
+.carte{background:var(--papier);color:var(--nuit);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.affiche{position:relative;background:#0b0b0f;aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.affiche img{width:100%;height:100%;object-fit:contain;background:#0b0b0f}
+.affiche.sans{aspect-ratio:16/9}
+.affiche.sans img{object-fit:cover;filter:contrast(1.08) brightness(.8)}
+.date{position:absolute;left:12px;top:12px;background:var(--corail);color:var(--nuit);font-weight:800;font-size:14px;text-transform:uppercase;letter-spacing:.06em;padding:6px 10px;border-radius:6px}
+.infos{padding:16px 18px 20px;display:flex;flex-direction:column;gap:6px;flex:1}
+.genre{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gris)}
+.carte h3{font-size:30px}
+.accroche{font-size:15px;opacity:.8}
+.meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.meta span{font-size:13px;font-weight:700;border:1.5px solid #0b0b0f33;border-radius:999px;padding:4px 10px}
+.actions{display:flex;align-items:center;gap:16px;margin-top:auto;padding-top:10px}
+.carte .bouton{padding:10px 18px;font-size:15px}
+.vedette{display:grid;grid-template-columns:1fr}
+@media(min-width:760px){.vedette{grid-template-columns:minmax(0,420px) 1fr}.vedette .infos{justify-content:center;padding:32px}.vedette h3{font-size:52px}}
+.vide{padding:40px 0;opacity:.7}
+[hidden]{display:none!important}
+
+/* instagram */
+.insta{max-width:1180px;margin:64px auto 0;padding:0 16px;text-align:center}
+.insta h2{font-size:clamp(36px,7vw,60px);margin-bottom:18px;text-align:left}
+.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-bottom:22px}
+.posts img{aspect-ratio:3/4;object-fit:cover;width:100%}
+
+footer{padding:40px 16px 60px;max-width:1180px;margin:0 auto;font-size:14px;opacity:.75;display:flex;flex-direction:column;gap:6px}
+@media(min-width:760px){.filtres{position:sticky;top:57px}}

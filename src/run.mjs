@@ -127,6 +127,17 @@ async function events() {
   return cache.events;
 }
 
+// Site internet : agenda des soirées vérifiées, régénéré chaque jour (index.html + site/).
+if (cible === 'site') {
+  // Une fois par jour suffit (sauf --force) : l'agenda change peu dans la journée.
+  const marque = path.join(ROOT, 'site', '.maj');
+  if (!flag('force') && existsSync(marque) && (await readFile(marque, 'utf8')).trim() === isoLocal(NOW)) { console.log('Site déjà à jour aujourd\'hui.'); process.exit(0); }
+  const { construireSite } = await import('./site.mjs');
+  await construireSite({ events: await events(), hist, config, now: NOW });
+  await writeFile(marque, isoLocal(NOW) + '\n');
+  process.exit(0);
+}
+
 if (cible === 'mois') await rm(MEDIA_DIR, { recursive: true, force: true });
 const echecs = [];
 for (const j of jobs) {
