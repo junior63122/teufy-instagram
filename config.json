@@ -354,11 +354,11 @@
     ]
   },
   "site": {
-    "explication": "Site internet (src/site.mjs). Champs modifiables : directeur, directeur_bio, equipe, partenaires, photo_directeur (chemin d'une photo dans le dépôt, ex. site/img/junior.jpg), google_verification (code fourni par Google Search Console).",
+    "explication": "Site internet (src/site.mjs). Champs modifiables : directeur, directeur_bio, equipe, partenaires, photo_directeur (chemin d'une photo dans le dépôt), google_verification (code fourni par Google Search Console).",
     "directeur": "Junior Joyant",
     "equipe": "une dizaine de personnes",
     "partenaires": "plus de 200",
-    "photo_directeur": "",
+    "photo_directeur": "site/img/equipe/junior-joyant.jpg",
     "google_verification": ""
   }
 }
