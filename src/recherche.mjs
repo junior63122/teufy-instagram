@@ -150,7 +150,9 @@ export async function rechercherSoirees({ config, now = new Date(), ig = null, a
       accroche: typeof e.accroche === 'string' && e.accroche.length <= 120 && !/—/.test(e.accroche) ? e.accroche.trim() : '',
       instagram: [...new Set((e.instagram || []).map((h) => String(h).replace(/^@/, '').trim().toLowerCase()).filter((h) => /^[a-z0-9._]{2,30}$/.test(h)))].slice(0, 3),
     }));
-  const uniques = fusionner(evenements);
+  // On cumule avec les soirées encore à venir des recherches précédentes : la liste s'enrichit au fil des jours.
+  const anciennes = (cache.evenements || []).filter((e) => Date.parse(e.start) > now.getTime() - 6 * 3600e3);
+  const uniques = fusionner([...evenements, ...anciennes]);
   const nouveaux = (d.comptes_instagram || []).map((h) => String(h).replace(/^@/, '').trim().toLowerCase()).filter((h) => /^[a-z0-9._]{2,30}$/.test(h));
   orgas.suggeres = [...new Set([...(orgas.suggeres || []), ...nouveaux])].filter((h) => !(orgas.comptes || []).includes(h)).slice(0, 80);
   const out = { maj: now.toISOString(), du: jour, au: fin, nb_bruts: (d.evenements || []).length, evenements: uniques };
