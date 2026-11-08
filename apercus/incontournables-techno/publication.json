@@ -1,0 +1,110 @@
+{
+  "id": "incontournables-techno",
+  "type": "incontournables",
+  "variante": "techno",
+  "date": "2026-11-08",
+  "images": [
+    "carrousel-00.jpg",
+    "carrousel-01.jpg",
+    "carrousel-02.jpg",
+    "carrousel-03.jpg"
+  ],
+  "legende": "Les événements techno de la semaine.\nDes line-up solides, des lieux qui comptent, une communauté qui répond toujours présent.\n\n→ Mar 10 · La Platurne invite Fenrick @ Frigo 16 · Frigo 16 (Le 109), Nice · 20h00 · 19,99 €\n   Gros BPM et basses lourdes avec Fenrick, Arman Shadow et Leanne pour la veille de férié. @laplaturne @panda_events\n→ Ven 13 · Søund Køld — Bounce / Hard Groove (Techno) · L'Antre Bar Electro, Nice · 21h00 · 5,99 €\n   Session clubbing rapide et bouncy à prix doux dans la cave de L'Antre. @lantre_nice\n\nOn se retrouve où ? Envoie-le à ceux avec qui tu sors.\n\n#TeufyParty #vieuxnice #riviera #rave #technomusic",
+  "soirees": [
+    {
+      "source": "web",
+      "source_site": "shotgun.live",
+      "name": "La Platurne invite Fenrick @ Frigo 16",
+      "start": "2026-11-10T19:00:00.000Z",
+      "venue": "Frigo 16 (Le 109)",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto/production/artworks/SHOTGUN_14_qgjwfa.png",
+      "price": 19.99,
+      "tags": [
+        "hard groove",
+        "uk garage",
+        "bounce"
+      ],
+      "description": "",
+      "public_cible": 0.95,
+      "confiance": 0.95,
+      "accroche": "Gros BPM et basses lourdes avec Fenrick, Arman Shadow et Leanne pour la veille de férié.",
+      "instagram": [
+        "laplaturne",
+        "panda_events",
+        "le109nice"
+      ],
+      "enrichi": true
+    },
+    {
+      "source": "web",
+      "source_site": "shotgun.live",
+      "name": "Søund Køld — Bounce / Hard Groove",
+      "start": "2026-11-13T20:00:00.000Z",
+      "venue": "L'Antre Bar Electro",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live",
+      "image": "https://assets.shotgun.live/image/upload/v1794081005/production/artworks/IMG_2013_d5xouz.jpg",
+      "price": 5.99,
+      "tags": [
+        "bounce",
+        "hard groove",
+        "fast techno"
+      ],
+      "description": "",
+      "public_cible": 0.9,
+      "confiance": 0.95,
+      "accroche": "Session clubbing rapide et bouncy à prix doux dans la cave de L'Antre.",
+      "instagram": [
+        "lantre_nice"
+      ],
+      "enrichi": true
+    }
+  ],
+  "titre": "Les dates techno à ne pas manquer",
+  "tags": [
+    [],
+    [
+      "laplaturne",
+      "panda_events",
+      "le109nice"
+    ],
+    [
+      "lantre_nice"
+    ]
+  ],
+  "choix": {
+    "titre-techno": "bynnf",
+    "mise-couverture": "bas",
+    "intro-techno": "4l7ya6",
+    "question-techno": "aftz2b",
+    "suivre": "tgkzd2",
+    "hashtags-local": [
+      "#vieuxnice",
+      "#riviera"
+    ],
+    "hashtags-techno": [
+      "#rave",
+      "#technomusic"
+    ]
+  },
+  "features": [
+    "genre:techno",
+    "source:web",
+    "lieu:frigo-16-le-109",
+    "ville:nice",
+    "prix:moyen",
+    "horaire:nuit",
+    "genre:techno",
+    "source:web",
+    "style:techno",
+    "lieu:l-antre-bar-electro",
+    "ville:nice",
+    "prix:petit",
+    "horaire:nuit"
+  ],
+  "nb_images": 4
+}

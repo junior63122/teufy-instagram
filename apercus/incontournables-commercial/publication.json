@@ -11,28 +11,28 @@
     "carrousel-04.jpg",
     "carrousel-05.jpg"
   ],
-  "legende": "Certaines soirées se racontent pendant des semaines.\nCelles-là en font partie.\n\n→ Mar 10 · Rétro Party @ Down Town (Années 2000) · Down Town Club, Nice · 23h00 · gratuit\n   Les meilleurs hits des années 90 à 2010 mixés par Nivau au Vieux-Nice, entrée gratuite. @downtown.nice\n→ Ven 13 · Nightly x DOVnROBS (ELVA Cannes Takeover) (Afro · House) · ELVA Club, Cannes · 23h59 · 16,5 €\n   Le duo londonien DOVnROBS débarque pour un set afro house exclusif à deux pas de la Croisette. @elvaclubcannes @nightlyfr\n→ Ven 13 · Lanonchalance pres. MALIVE (Tech house · Afro) · Twiga Monte Carlo, Monaco · 23h59 · 12 €\n   Le collectif Lanonchalance investit le Twiga avec le producteur Malive aux platines. @twigamontecarlo @lanonchalance\n→ Sam 14 · Les Bonnes Franquettes — Winter Edition (Disco · House) · Ancien jazz club (2416 Route de Saint-Laurent), Nice · 20h30\n   Mini boiler room intimiste avec DJ au centre dans un ancien jazz club. @les.bonnesfranquettes\n\nTu sors où cette semaine ? Chaque semaine, les meilleures soirées de la Côte sont ici.\n\n#TeufyParty #monaconightlife #soireenice #soiree #clubbing",
+  "legende": "Certaines soirées se racontent pendant des semaines.\nCelles-là en font partie.\n\n→ Mar 10 · Rétro Party w/ Nivau (Années 2000) · Down Town Club, Nice · 23h00 · gratuit\n   Entrée gratuite et classiques des années 90 à 2010 mixés par Nivau au Down Town Club. @downtown.nice\n→ Ven 13 · Lanonchalance pres. Malive @ Twiga Monte Carlo (Tech house · Afro) · Twiga Monte Carlo, Monaco · 23h59 · 15 €\n   Le DJ brésilien Malive invité par Lanonchalance au Twiga pour une nuit afro tech intense. @lanonchalance @twiga_mc\n→ Sam 14 · Club Bizarre w/ Sensoria — At Blue Coast (Techno · Tech house) · Blue Coast Brewing Company, Nice · 19h00 · 5,99 €\n   Soirée indus, happy hour géant et sets tech house affûtés avec Sensoria et KidSeven. @clubbizarre_music @bluecoastbrewing\n→ Sam 14 · Les Bonnes Franquettes — Winter Edition (Disco · House) · Ancien jazz club (2416 Route de Saint-Laurent), Saint-Laurent-du-Var · 20h30\n   Ambiance mini boiler room intime avec le DJ au centre et un sound system chaleureux. @les.bonnesfranquettes\n\nTu sors où cette semaine ? Chaque semaine, les meilleures soirées de la Côte sont ici.\n\n#TeufyParty #monaconightlife #soireenice #soiree #clubbing",
   "soirees": [
     {
       "source": "web",
-      "source_site": "Instagram @downtown.nice",
-      "name": "Rétro Party @ Down Town",
+      "source_site": "instagram",
+      "name": "Rétro Party w/ Nivau",
       "start": "2026-11-10T22:00:00.000Z",
       "venue": "Down Town Club",
       "city": "Nice",
       "address": "",
       "url": "https://www.instagram.com/p/DfSd8sUjQyu/",
-      "image": "https://scontent-ord5-2.cdninstagram.com/v/t51.82787-15/886810147_18053410106815469_1691285490903456219_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=107&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=R4mueHWE6UcQ7kNvwHe6eSP&_nc_oc=Adr-JSS2p5nfYJVRqpGDDsh2JOdyxGqj5OrBX-C_1vZsYYr3eOpyxNOTXpp_K6cvUZQ&_nc_zt=23&_nc_ht=scontent-ord5-2.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=uHNO8aezcKyxRLoVoF2SVQ&oh=00_AQTFC7db_1pPM5hb4a0TOBtPcylAp65isPe9RuATQKEwfQ&oe=6AF6476C",
+      "image": "https://scontent-ord5-2.cdninstagram.com/v/t51.82787-15/886810147_18053410106815469_1691285490903456219_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=107&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=R4mueHWE6UcQ7kNvwEaMvj1&_nc_oc=AdqbaG9JasEfm3QAqQJMP67okdDZfGvzdgI2_SkCoscruDcOQhYJGAzwZtmrSsC2bJk&_nc_zt=23&_nc_ht=scontent-ord5-2.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=edmabpHOq0PvTUxy0-dKCQ&oh=00_AQTNImjiWvq43h7cd5iNlRbYcXMkOSordYQw_AhQpVdEzQ&oe=6AF6476C",
       "price": 0,
       "tags": [
+        "retro",
         "hits 90s",
-        "hits 2000s",
-        "retro"
+        "hits 2000s"
       ],
       "description": "",
-      "public_cible": 0.85,
+      "public_cible": 0.9,
       "confiance": 0.9,
-      "accroche": "Les meilleurs hits des années 90 à 2010 mixés par Nivau au Vieux-Nice, entrée gratuite.",
+      "accroche": "Entrée gratuite et classiques des années 90 à 2010 mixés par Nivau au Down Town Club.",
       "instagram": [
         "downtown.nice"
       ],
@@ -41,41 +41,15 @@
     },
     {
       "source": "web",
-      "source_site": "Shotgun",
-      "name": "Nightly x DOVnROBS (ELVA Cannes Takeover)",
-      "start": "2026-11-13T22:59:00.000Z",
-      "venue": "ELVA Club",
-      "city": "Cannes",
-      "address": "",
-      "url": "https://shotgun.live/events/nightly-x-dovnrobs-elva-cannes-takover",
-      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto/production/artworks/NOV_13_i4dvhj.png",
-      "price": 16.5,
-      "tags": [
-        "afro house",
-        "melodic house"
-      ],
-      "description": "",
-      "public_cible": 0.9,
-      "confiance": 0.95,
-      "accroche": "Le duo londonien DOVnROBS débarque pour un set afro house exclusif à deux pas de la Croisette.",
-      "instagram": [
-        "elvaclubcannes",
-        "nightlyfr",
-        "dovnrobs"
-      ],
-      "enrichi": true
-    },
-    {
-      "source": "web",
-      "source_site": "Shotgun",
-      "name": "Lanonchalance pres. MALIVE",
+      "source_site": "shotgun.live",
+      "name": "Lanonchalance pres. Malive @ Twiga Monte Carlo",
       "start": "2026-11-13T22:59:00.000Z",
       "venue": "Twiga Monte Carlo",
       "city": "Monaco",
       "address": "",
-      "url": "https://shotgun.live/events/lanonchalance-pres-malive",
-      "image": "https://scontent-ord5-2.cdninstagram.com/v/t51.82787-15/882487887_18649521727041727_3665433883267723839_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=107&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=h1VINhAZ8DIQ7kNvwEk-dei&_nc_oc=AdpMTRQZ_MniAeWpSQoyYQYkeV4oKyNSEmPXV6pDulyNSp78i-JUCPdVHGbs-D0VU0U&_nc_zt=23&_nc_ht=scontent-ord5-2.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=arppmMQgzXbOml8l30K24w&oh=00_AQSTYYERir_RLOciDDsPfWZa9PP0b57JHxgs8Xm5ZDhoHQ&oe=6AF63A31",
-      "price": 12,
+      "url": "https://shotgun.live",
+      "image": "https://scontent-ord5-2.cdninstagram.com/v/t51.82787-15/882487887_18649521727041727_3665433883267723839_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=107&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=h1VINhAZ8DIQ7kNvwEHfZku&_nc_oc=Adpum_jevvsqFoITShTzMwCwpRzsIMu1H7XnGxaIDKSuAmZ0sFPsKDsdzD5TN4ZiBQA&_nc_zt=23&_nc_ht=scontent-ord5-2.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=VxB6s_0LaZo2Acak_WEFNA&oh=00_AQT7i8T9j-Jak_ugeBq9Ag7rH5kYYKFztMJVCKvf5GMGpQ&oe=6AF63A31",
+      "price": 15,
       "tags": [
         "afro house",
         "tech house",
@@ -84,23 +58,50 @@
       "description": "",
       "public_cible": 0.9,
       "confiance": 0.95,
-      "accroche": "Le collectif Lanonchalance investit le Twiga avec le producteur Malive aux platines.",
+      "accroche": "Le DJ brésilien Malive invité par Lanonchalance au Twiga pour une nuit afro tech intense.",
       "instagram": [
-        "twigamontecarlo",
-        "lanonchalance"
+        "lanonchalance",
+        "twiga_mc"
       ],
       "enrichi": true
     },
     {
       "source": "web",
-      "source_site": "Instagram @les.bonnesfranquettes",
+      "source_site": "shotgun.live",
+      "name": "Club Bizarre w/ Sensoria — At Blue Coast",
+      "start": "2026-11-14T18:00:00.000Z",
+      "venue": "Blue Coast Brewing Company",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,w_384,fl_lossy,f_webp,q_5/production/artworks/CLUB_BIZARRE_Banni%C3%A8re_Shotgun_bl0vwh.png",
+      "price": 5.99,
+      "tags": [
+        "tech house",
+        "techno",
+        "deep tech",
+        "indie dance"
+      ],
+      "description": "",
+      "public_cible": 0.9,
+      "confiance": 0.95,
+      "accroche": "Soirée indus, happy hour géant et sets tech house affûtés avec Sensoria et KidSeven.",
+      "instagram": [
+        "clubbizarre_music",
+        "bluecoastbrewing"
+      ],
+      "enrichi": true
+    },
+    {
+      "source": "web",
+      "source_site": "instagram",
       "name": "Les Bonnes Franquettes — Winter Edition",
       "start": "2026-11-14T19:30:00.000Z",
       "venue": "Ancien jazz club (2416 Route de Saint-Laurent)",
-      "city": "Nice",
+      "city": "Saint-Laurent-du-Var",
       "address": "",
-      "url": "https://www.instagram.com/p/De95DS1INkE/",
-      "image": "https://scontent-ord5-2.cdninstagram.com/v/t51.82787-15/885019106_18116214527031263_1214653049463649616_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=105&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=avUJgzcnjJYQ7kNvwFvPVFM&_nc_oc=AdpmtDr4upD_e1bPPH4pTA-e8xgQz0QrMconunYBuItpGPjRfWH9Bsl3482q4dS7I9Q&_nc_zt=23&_nc_ht=scontent-ord5-2.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=dmCKD5xFikbx2QOxYpH4fA&oh=00_AQSmucTnZ5uE4e5b_9WWXXtqrOtOJkF-WM76K0tzs-zDvQ&oe=6AF61A48",
+      "url": "https://www.instagram.com/p/DfRu6XwiC0i/",
+      "image": "https://scontent-ord5-2.cdninstagram.com/v/t51.82787-15/885019106_18116214527031263_1214653049463649616_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=105&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=avUJgzcnjJYQ7kNvwEGhAhu&_nc_oc=AdphXUaiGwPbb2O90YwTHIk6n3dTsX2KGvmth-tgZynUPOb1Q6waVkAlVY7k80tKSak&_nc_zt=23&_nc_ht=scontent-ord5-2.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=xRR-Le2diYk15r1DCwNMqw&oh=00_AQTx7xGwwK2zPdmGFq6WUHv8zbOAS-Wf61tlNsXzPYYfWA&oe=6AF65288",
       "price": null,
       "tags": [
         "house",
@@ -110,7 +111,7 @@
       "description": "",
       "public_cible": 0.9,
       "confiance": 0.9,
-      "accroche": "Mini boiler room intimiste avec DJ au centre dans un ancien jazz club.",
+      "accroche": "Ambiance mini boiler room intime avec le DJ au centre et un sound system chaleureux.",
       "instagram": [
         "les.bonnesfranquettes"
       ],
@@ -125,13 +126,12 @@
       "downtown.nice"
     ],
     [
-      "elvaclubcannes",
-      "nightlyfr",
-      "dovnrobs"
+      "lanonchalance",
+      "twiga_mc"
     ],
     [
-      "twigamontecarlo",
-      "lanonchalance"
+      "clubbizarre_music",
+      "bluecoastbrewing"
     ],
     [
       "les.bonnesfranquettes"
@@ -162,14 +162,6 @@
     "horaire:nuit",
     "genre:commercial",
     "source:web",
-    "style:afro",
-    "style:house",
-    "lieu:elva-club",
-    "ville:cannes",
-    "prix:moyen",
-    "horaire:nuit",
-    "genre:commercial",
-    "source:web",
     "style:tech-house",
     "style:afro",
     "lieu:twiga-monte-carlo",
@@ -178,10 +170,18 @@
     "horaire:nuit",
     "genre:commercial",
     "source:web",
+    "style:techno",
+    "style:tech-house",
+    "lieu:blue-coast-brewing-company",
+    "ville:nice",
+    "prix:petit",
+    "horaire:jour",
+    "genre:commercial",
+    "source:web",
     "style:disco",
     "style:house",
     "lieu:ancien-jazz-club-2416-route-de-saint-laurent",
-    "ville:nice",
+    "ville:saint-laurent-du-var",
     "prix:inconnu",
     "horaire:nuit"
   ],
