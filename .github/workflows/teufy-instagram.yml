@@ -25,7 +25,7 @@ on:
           - bonplan:petits-prix
           - bonplan:a-reserver
           - debat
-          - reel:histoire
+          - reel:flash (prochain reel de la banque, sinon écrit par l'IA)
           - reel:nouveau (reel inédit écrit par l'IA, décors Gemini)
           - reel:explicatif
           - reel:humour
