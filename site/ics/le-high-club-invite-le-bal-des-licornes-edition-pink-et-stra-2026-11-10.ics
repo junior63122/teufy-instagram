@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:le-high-club-invite-le-bal-des-licornes-edition-pink-et-stra-2026-11-10@teufy
+DTSTAMP:20261108T220637Z
+DTSTART:20261110T225000Z
+DTEND:20261111T035000Z
+SUMMARY:LE HIGH CLUB INVITE LE BAL DES LICORNES – ÉDITION PINK & STRASS
+LOCATION:High Club\, Nice
+DESCRIPTION:Édition XXL Pink & Strass au High Club avec 8 performeurs et scénographie immersive.\nBillets : https://www.billetweb.fr/le-high-club-invite-le-bal-des-licornes\nVia Teufy @teufy_official
+URL:https://www.billetweb.fr/le-high-club-invite-le-bal-des-licornes
+END:VEVENT
+END:VCALENDAR

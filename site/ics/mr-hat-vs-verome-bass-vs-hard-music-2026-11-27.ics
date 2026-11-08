@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:mr-hat-vs-verome-bass-vs-hard-music-2026-11-27@teufy
+DTSTAMP:20261108T220637Z
+DTSTART:20261127T200000Z
+DTEND:20261128T010000Z
+SUMMARY:Mr Hat Vs Verome — Bass Vs Hard Music
+LOCATION:L'Antre Bar Electro\, Nice
+DESCRIPTION:Clash sonore Bass vs Hard music entre Mr Hat et Verome dans la cave du Vieux-Nice.\nBillets : https://shotgun.live/fr/venues/l-antre\nVia Teufy @teufy_official
+URL:https://shotgun.live/fr/venues/l-antre
+END:VEVENT
+END:VCALENDAR

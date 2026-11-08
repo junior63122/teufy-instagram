@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:the-show-club-sonore-nice-2026-11-26@teufy
+DTSTAMP:20261108T220637Z
+DTSTART:20261126T180000Z
+DTEND:20261126T230000Z
+SUMMARY:The Show Club Sonore - Nice
+LOCATION:Mama Shelter Nice\, Nice
+DESCRIPTION:Le collectif Club Sonore réunit les jeunes créatifs au Mama Shelter.\nBillets : https://shotgun.live/fr/events/the-show-club-sonore-nice-novembre-2026\nVia Teufy @teufy_official
+URL:https://shotgun.live/fr/events/the-show-club-sonore-nice-novembre-2026
+END:VEVENT
+END:VCALENDAR

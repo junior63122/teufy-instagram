@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:blue-coast-x-club-vivy-x-la-treille-2026-11-10@teufy
+DTSTAMP:20261108T220637Z
+DTSTART:20261110T160000Z
+DTEND:20261110T210000Z
+SUMMARY:Blue Coast X Club Vivy X La Treille
+LOCATION:Blue Coast Brewing Company\, Nice
+DESCRIPTION:Club Vivy et La Treille s'associent pour une veille de férié house à la brasserie.\nBillets : https://shotgun.live/events/blue-coast-x-club-vivy-x-la-treille\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/blue-coast-x-club-vivy-x-la-treille
+END:VEVENT
+END:VCALENDAR

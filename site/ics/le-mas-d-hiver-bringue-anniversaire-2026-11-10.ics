@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:le-mas-d-hiver-bringue-anniversaire-2026-11-10@teufy
+DTSTAMP:20261108T220637Z
+DTSTART:20261110T183000Z
+DTEND:20261110T233000Z
+SUMMARY:Le Mas d'Hiver : Bringue Anniversaire
+LOCATION:Le Mas des Escaravatiers\, Puget-sur-Argens
+DESCRIPTION:Grosse bringue anniversaire en entrée libre la veille du 11 novembre au Mas des Escaravatiers.\nBillets : https://lemas-concert.com/line-up-hiver-2026/\nVia Teufy @teufy_official
+URL:https://lemas-concert.com/line-up-hiver-2026/
+END:VEVENT
+END:VCALENDAR

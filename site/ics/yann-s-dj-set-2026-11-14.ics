@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:yann-s-dj-set-2026-11-14@teufy
+DTSTAMP:20261108T220637Z
+DTSTART:20261114T210000Z
+DTEND:20261115T020000Z
+SUMMARY:Yann-S DJ Set
+LOCATION:Le Barathym\, Toulon
+DESCRIPTION:Yann-S du Barrio Chicago prend le contrôle des platines pour faire danser le Mourillon.\nBillets : https://www.instagram.com/p/Dfcn1I-MUD8/\nVia Teufy @teufy_official
+URL:https://www.instagram.com/p/Dfcn1I-MUD8/
+END:VEVENT
+END:VCALENDAR

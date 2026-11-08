@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:zona-de-perreo-by-latin-addict-frigo-16-nice-2026-12-19@teufy
+DTSTAMP:20261108T220637Z
+DTSTART:20261219T190000Z
+DTEND:20261220T000000Z
+SUMMARY:Zona De Perreo By Latin Addict • Frigo 16 Nice
+LOCATION:Frigo 16 - Le 109\, Nice
+DESCRIPTION:Cours de salsa à 20h puis nuit clubbing perreo et dembow non-stop jusqu'à 2h.\nBillets : https://shotgun.live/events/zona-de-perreo-frigo-16-nice\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/zona-de-perreo-frigo-16-nice
+END:VEVENT
+END:VCALENDAR

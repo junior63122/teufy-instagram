@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:mamacita-frigo-16-2026-12-05@teufy
+DTSTAMP:20261108T220637Z
+DTSTART:20261205T223000Z
+DTEND:20261206T033000Z
+SUMMARY:Mamacita @ Frigo 16
+LOCATION:Le 109 / Frigo 16\, Nice
+DESCRIPTION:Format warehouse géant 100% reggaeton\, baile funk et shatta avec Mamacita.\nBillets : https://shotgun.live/events/mamacita-frigo-16\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/mamacita-frigo-16
+END:VEVENT
+END:VCALENDAR

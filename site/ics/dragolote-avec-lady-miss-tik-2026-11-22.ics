@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:dragolote-avec-lady-miss-tik-2026-11-22@teufy
+DTSTAMP:20261108T220637Z
+DTSTART:20261122T180000Z
+DTEND:20261122T230000Z
+SUMMARY:Dragolote avec Lady Miss Tik
+LOCATION:Mama Shelter Nice\, Nice
+DESCRIPTION:Loto décalé et performances drag animés par Lady Miss Tik au Mama Shelter Nice.\nBillets : https://www.instagram.com/p/DfSV2FJDoP9/\nVia Teufy @teufy_official
+URL:https://www.instagram.com/p/DfSV2FJDoP9/
+END:VEVENT
+END:VCALENDAR

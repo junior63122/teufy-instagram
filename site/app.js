@@ -41,8 +41,11 @@
   }
 
   // --- Filtres ---------------------------------------------------------------------------------------------
-  const etat = { quand: 'tout', ville: 'tout', style: 'tout', prix: 'tout' };
-  const dansQuand = (j) => etat.quand === 'tout' || (etat.quand === 'soir' && j === auj)
+  const etat = { quand: 'tout', ville: 'tout', style: 'tout', prix: 'tout', q: '' };
+  const norm = (x) => String(x || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
+  let favoris = new Set();
+  try { favoris = new Set(JSON.parse(localStorage.getItem('teufy-favoris') || '[]')); } catch { /* stockage indisponible */ }
+  const dansQuand = (j, c) => etat.quand === 'tout' || (etat.quand === 'soir' && j === auj) || (etat.quand === 'favoris' && favoris.has(c.dataset.id))
     || (etat.quand === 'semaine' && j >= auj && j <= jPlus(6))
     || (etat.quand === 'weekend' && j >= (dow >= 5 || dow === 0 ? auj : vendredi) && j <= dimanche);
   let visibles = 0;
@@ -50,13 +53,15 @@
     visibles = 0;
     for (const c of cartes) {
       const p = c.dataset.prix === '' ? null : +c.dataset.prix;
-      const ok = !finies.has(c) && dansQuand(c.dataset.jour) && (etat.ville === 'tout' || c.dataset.ville === etat.ville)
+      const ok = !finies.has(c) && dansQuand(c.dataset.jour, c) && (!etat.q || etat.q.split(/\s+/).every((m) => (c.dataset.q || '').includes(m))) && (etat.ville === 'tout' || c.dataset.ville === etat.ville)
         && (etat.style === 'tout' || c.dataset.styles.split(' ').includes(etat.style))
         && (etat.prix === 'tout' || (etat.prix === 'gratuit' ? p === 0 : p != null && p < 10));
       c.hidden = !ok; if (ok) visibles++;
     }
     document.querySelectorAll('.liste .jour').forEach((j) => { j.hidden = !j.querySelector('.carte:not([hidden])'); });
-    const aucune = document.getElementById('aucune'); if (aucune) aucune.hidden = visibles > 0 || !cartes.length;
+    const aucune = document.getElementById('aucune');
+    if (aucune) { aucune.hidden = visibles > 0 || !cartes.length; if (etat.q && !visibles) aucune.textContent = (T.aucunRes || '').replace('{q}', etat.qBrut); else if (aucune.dataset.texte) aucune.textContent = aucune.dataset.texte; }
+    document.querySelectorAll('.nb-res').forEach((p) => { p.textContent = etat.q ? (T.resultats || '').replace('{n}', visibles).replace('{q}', etat.qBrut) : ''; });
     document.querySelectorAll('.ouvrir-filtres .compte').forEach((b) => { b.textContent = cartes.length ? visibles : ''; });
     animerCartes();
     if (vue === 'carte') dessiner();
@@ -67,6 +72,53 @@
     g.querySelectorAll('button').forEach((x) => x.classList.toggle('actif', x === b));
     etat[g.dataset.filtre] = b.dataset.v; appliquer();
   });
+
+
+  // --- Recherche -------------------------------------------------------------------------------------------
+  const champs = [...document.querySelectorAll('.recherche input')];
+  const aucuneP = document.getElementById('aucune'); if (aucuneP) aucuneP.dataset.texte = aucuneP.textContent;
+  let minuteur = 0;
+  const chercher = (v, source) => {
+    etat.qBrut = v.trim(); etat.q = norm(v);
+    champs.forEach((c) => { if (c !== source) c.value = v; c.parentElement.querySelector('.effacer').hidden = !v; });
+    clearTimeout(minuteur);
+    minuteur = setTimeout(() => {
+      appliquer();
+      const u = new URL(location.href); if (etat.q) u.searchParams.set('q', etat.qBrut); else u.searchParams.delete('q');
+      history.replaceState(null, '', u);
+    }, 120);
+  };
+  champs.forEach((c) => {
+    c.addEventListener('input', () => chercher(c.value, c));
+    c.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); c.blur(); if (vue === 'liste') document.querySelector('.liste')?.scrollIntoView({ behavior: reduit ? 'auto' : 'smooth' }); } });
+    c.parentElement.querySelector('.effacer')?.addEventListener('click', () => { c.value = ''; chercher('', null); c.focus(); });
+  });
+  document.querySelector('.hero-recherche')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    agenda?.scrollIntoView({ behavior: reduit ? 'auto' : 'smooth' });
+  });
+
+  // --- Favoris (gardés dans ce navigateur uniquement) ------------------------------------------------------
+  const majCoeurs = () => document.querySelectorAll('[data-id] .coeur').forEach((b) => b.setAttribute('aria-pressed', favoris.has(b.closest('[data-id]').dataset.id)));
+  document.addEventListener('click', (ev) => {
+    const b = ev.target.closest('.coeur'); if (!b) return;
+    const id = b.closest('[data-id]')?.dataset.id; if (!id) return;
+    if (favoris.has(id)) favoris.delete(id); else favoris.add(id);
+    try { localStorage.setItem('teufy-favoris', JSON.stringify([...favoris])); } catch { /* navigation privée */ }
+    majCoeurs(); b.classList.remove('pop'); void b.offsetWidth; b.classList.add('pop');
+    if (etat.quand === 'favoris') appliquer();
+  });
+  majCoeurs();
+
+  // --- Partage, toast, retour en haut ----------------------------------------------------------------------
+  const toast = (m) => { const t = document.querySelector('.toast'); if (!t) return; t.textContent = m; t.hidden = false; clearTimeout(toast.t); toast.t = setTimeout(() => { t.hidden = true; }, 2200); };
+  document.addEventListener('click', async (ev) => {
+    if (!ev.target.closest('.partager')) return;
+    const d = { title: document.title, url: location.href.split('#')[0] };
+    try { if (navigator.share) await navigator.share(d); else { await navigator.clipboard.writeText(d.url); toast(T.lienCopie); } } catch { /* partage annulé */ }
+  });
+  const haut = document.querySelector('.haut');
+  haut?.addEventListener('click', () => scrollTo({ top: 0, behavior: reduit ? 'auto' : 'smooth' }));
 
   // --- Filtres flottants (mobile) : un bouton en bas de l'écran ouvre les filtres en feuille ----------------
   const place = document.querySelector('.filtres-place'), filtres = document.querySelector('.filtres'), agenda = document.getElementById('agenda');
@@ -95,12 +147,13 @@
     const r = place.getBoundingClientRect(), a = agenda.getBoundingClientRect();
     flottant.hidden = !(mobile.matches && r.bottom < 0 && a.bottom > innerHeight * 0.6);
   };
+  if (!place && haut) addEventListener('scroll', () => { haut.hidden = scrollY < 1400; }, { passive: true });
   if (place && flottant) {
     flottant.querySelector('button').addEventListener('click', ouvrir);
     filtres.querySelector('.fermer-filtres')?.addEventListener('click', fermer);
     addEventListener('keydown', (e) => { if (e.key === 'Escape') fermer(); });
     let attente = false;
-    addEventListener('scroll', () => { if (!attente) { attente = true; requestAnimationFrame(() => { attente = false; majFlottant(); }); } }, { passive: true });
+    addEventListener('scroll', () => { if (!attente) { attente = true; requestAnimationFrame(() => { attente = false; majFlottant(); if (haut) haut.hidden = scrollY < 1400; }); } }, { passive: true });
     mobile.addEventListener?.('change', majFlottant);
   }
 
@@ -179,7 +232,7 @@
     requestAnimationFrame(pas);
   };
   const montrer = (e) => { e.classList.add('vu'); e.querySelectorAll('[data-compte]').forEach(compter); };
-  const obs = io ? new IntersectionObserver((es) => es.forEach((x) => { if (x.isIntersecting) { montrer(x.target); obs.unobserve(x.target); } }), { rootMargin: '0px 0px -12% 0px' }) : null;
+  const obs = io ? new IntersectionObserver((es) => es.forEach((x) => { if (x.isIntersecting) { montrer(x.target); obs.unobserve(x.target); } }), { rootMargin: '0px 0px -4% 0px' }) : null;
   document.querySelectorAll('.reveal').forEach((e) => (obs ? obs.observe(e) : montrer(e)));
 
   const obsCartes = io && !reduit ? new IntersectionObserver((es) => es.forEach((x) => {
@@ -196,7 +249,12 @@
   }
   if (reduit) document.querySelectorAll('video').forEach((v) => { v.removeAttribute('autoplay'); v.pause(); });
 
+  const q0 = new URLSearchParams(location.search).get('q');
+  if (q0 && champs.length) { champs.forEach((c) => { c.value = q0; }); etat.qBrut = q0; etat.q = norm(q0); champs.forEach((c) => { c.parentElement.querySelector('.effacer').hidden = false; }); setTimeout(() => agenda?.scrollIntoView(), 60); }
   appliquer();
   majFlottant();
+  if (location.hash === '#recherche') { const c = document.getElementById('recherche'); if (c) { agenda.scrollIntoView(); setTimeout(() => c.focus({ preventScroll: true }), 80); } }
+  document.querySelector('a.loupe[href="#recherche"]')?.addEventListener('click', (e) => { const c = document.getElementById('recherche'); if (!c) return; e.preventDefault(); if (vue !== 'liste') choisirVue('liste'); agenda.scrollIntoView({ behavior: reduit ? 'auto' : 'smooth' }); setTimeout(() => c.focus({ preventScroll: true }), 350); });
+  addEventListener('hashchange', () => { if (location.hash === '#recherche') { agenda?.scrollIntoView({ behavior: reduit ? 'auto' : 'smooth' }); setTimeout(() => document.getElementById('recherche')?.focus({ preventScroll: true }), 350); } });
   if (location.hash === '#carte') { choisirVue('carte'); setTimeout(() => agenda?.scrollIntoView(), 50); }
 })();

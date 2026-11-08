@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:wado-x-l-antre-2-2026-12-19@teufy
+DTSTAMP:20261108T220637Z
+DTSTART:20261219T210000Z
+DTEND:20261220T020000Z
+SUMMARY:Wado X L'Antre 2
+LOCATION:L'Antre Bar Electro\, Nice
+DESCRIPTION:Deuxième round acid tekno et TB-303 survitaminé avec Wado dans le Vieux-Nice.\nBillets : https://shotgun.live/fr/events/wado-x-l-antre-2\nVia Teufy @teufy_official
+URL:https://shotgun.live/fr/events/wado-x-l-antre-2
+END:VEVENT
+END:VCALENDAR

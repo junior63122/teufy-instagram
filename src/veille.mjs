@@ -27,7 +27,7 @@ const SCHEMA = {
       type: 'array',
       items: {
         type: 'object', additionalProperties: false,
-        required: ['titre', 'type', 'resume', 'date_publication', 'source_url', 'source_officielle', 'importance', 'raison', 'angle', 'format', 'post', 'comptes_instagram', 'image'],
+        required: ['titre', 'type', 'resume', 'date_publication', 'source_url', 'source_officielle', 'importance', 'raison', 'angle', 'format', 'post', 'comptes_instagram', 'image', 'article'],
         properties: {
           titre: { type: 'string', description: 'Titre factuel court.' },
           type: { type: 'string', enum: ['annonce', 'actu'], description: 'annonce = événement / lieu / line-up ; actu = actualité générale qui touche les sorties.' },
@@ -51,6 +51,16 @@ const SCHEMA = {
           },
           comptes_instagram: { type: 'array', items: { type: 'string' }, description: 'Comptes Instagram officiels concernés, certains seulement (sans @).' },
           image: { type: 'string', description: "URL de l'image officielle de l'annonce si connue (post Instagram, affiche), sinon chaîne vide." },
+          article: {
+            type: 'object', additionalProperties: false, required: ['titre', 'chapo', 'paragraphes', 'ville'],
+            description: "Article pour la rubrique « Actus » du site, écrit pour quelqu'un qui n'a jamais entendu parler du sujet : simple, clair, factuel, sans jargon.",
+            properties: {
+              titre: { type: 'string', description: 'Titre clair et informatif (8 à 14 mots), ex. « Le Delta Festival n\'aura pas lieu cette année : ce que l\'on sait ».' },
+              chapo: { type: 'string', description: "L'essentiel en une ou deux phrases (qui, quoi, quand, où)." },
+              paragraphes: { type: 'array', items: { type: 'string' }, description: "3 à 5 paragraphes courts : le contexte (c'est quoi, depuis quand), ce qui se passe exactement, pourquoi, ce que ça change concrètement pour ceux qui sortent (billets, remboursement, dates, alternatives), ce qu'on ne sait pas encore. Uniquement des faits sourcés." },
+              ville: { type: 'string', description: 'Ville ou zone concernée (ex. Nice, Côte d\'Azur, France).' },
+            },
+          },
         },
       },
     },
@@ -130,6 +140,14 @@ Pour chaque point : titre, date et heure de publication, URL de la source la plu
     await mkdir(path.dirname(VUS), { recursive: true });
     await writeFile(VUS, JSON.stringify(Object.fromEntries(Object.entries(vus).slice(-1500)), null, 1) + '\n');
     await writeFile(IDEES, JSON.stringify(banque.slice(-300), null, 1) + '\n');
+    // Rubrique « Actus » du site : sujets sourcés et assez importants, expliqués simplement.
+    const ACTUS = path.join(ROOT, 'contenus', 'actus.json');
+    const actus = lire(ACTUS, []);
+    for (const s of sujets.filter((x) => x.importance >= (V.seuil_site ?? 60) && x.source_officielle && /^https?:\/\//.test(x.source_url) && x.article?.paragraphes?.length >= 2)) {
+      if (actus.some((a) => a.cle === cle(s))) continue;
+      actus.push({ cle: cle(s), date: s.date_publication || now.toISOString(), ajout: now.toISOString(), type: s.type, importance: s.importance, source: s.source_url, image: s.image || '', ...s.article });
+    }
+    await writeFile(ACTUS, JSON.stringify(actus.slice(-200), null, 1) + '\n');
     await mkdir(path.join(ROOT, 'veille'), { recursive: true });
     const md = `## Veille du ${now.toISOString().slice(0, 16).replace('T', ' ')} UTC\n\n${sujets.map((s) => `- **${s.importance}/100** · ${s.type} · ${s.titre} (${s.source_officielle ? 'source officielle' : 'à confirmer'} : ${s.source_url})\n  ${s.raison}`).join('\n') || '- Rien de nouveau.'}\n\n${apublier ? `**Publié tout de suite : ${apublier.titre}**` : eligibles.length ? '_Sujet exceptionnel trouvé, mais hors créneau ou quota du jour atteint._' : '_Rien d\'assez exceptionnel pour un post immédiat._'}\n`;
     const f = path.join(ROOT, 'veille', `${jour}-flash.md`);

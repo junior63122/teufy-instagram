@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:nor-nights-oriental-rhythms-2026-11-13@teufy
+DTSTAMP:20261108T220637Z
+DTSTART:20261113T183000Z
+DTEND:20261113T233000Z
+SUMMARY:Nōr — Nights . Oriental . Rhythms
+LOCATION:So Blue Hôtel Restaurant\, Antibes
+DESCRIPTION:Fusion percussions live et clubbing chic oriental et afro house face à la mer à Antibes.\nBillets : https://shotgun.live/fr/events/nor-nights-oriental-rhythms\nVia Teufy @teufy_official
+URL:https://shotgun.live/fr/events/nor-nights-oriental-rhythms
+END:VEVENT
+END:VCALENDAR

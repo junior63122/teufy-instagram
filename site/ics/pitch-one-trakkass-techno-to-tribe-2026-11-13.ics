@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:pitch-one-trakkass-techno-to-tribe-2026-11-13@teufy
+DTSTAMP:20261108T220637Z
+DTSTART:20261114T040000Z
+DTEND:20261114T090000Z
+SUMMARY:Pitch One (Trakkass) — Techno To Tribe
+LOCATION:L'Antre Bar Electro\, Nice
+DESCRIPTION:After tekno et acidcore au lever du soleil avec Pitch One du crew Trakkass.\nBillets : https://shotgun.live/fr/events/pitch-one-trakkass-techno-to-tribe\nVia Teufy @teufy_official
+URL:https://shotgun.live/fr/events/pitch-one-trakkass-techno-to-tribe
+END:VEVENT
+END:VCALENDAR

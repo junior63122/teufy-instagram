@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:mama-x-episode-culture-2026-11-10@teufy
+DTSTAMP:20261108T220637Z
+DTSTART:20261110T190000Z
+DTEND:20261111T000000Z
+SUMMARY:Mama x Épisode Culture
+LOCATION:Mama Shelter Nice\, Nice
+DESCRIPTION:Rendez-vous au Mama Shelter Nice pour une soirée musicale signée Épisode Culture.\nBillets : https://www.instagram.com/p/DfSV2FJDoP9/\nVia Teufy @teufy_official
+URL:https://www.instagram.com/p/DfSV2FJDoP9/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:the-saturday-society-2026-11-21@teufy
+DTSTAMP:20261108T220637Z
+DTSTART:20261121T225500Z
+DTEND:20261122T035500Z
+SUMMARY:The Saturday Society
+LOCATION:OMA CLUB\, Nice
+DESCRIPTION:Soirée clubbing hip-hop et house incontournable du samedi soir à l'OMA Club.\nBillets : https://shotgun.live/fr/events/the-saturday-society-every-sarurday-oma-club-21-11\nVia Teufy @teufy_official
+URL:https://shotgun.live/fr/events/the-saturday-society-every-sarurday-oma-club-21-11
+END:VEVENT
+END:VCALENDAR

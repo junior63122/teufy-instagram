@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:coachellito-et-le-blanchon-auron-1600-opening-edition-2026-12-19@teufy
+DTSTAMP:20261108T220637Z
+DTSTART:20261219T133000Z
+DTEND:20261219T183000Z
+SUMMARY:Coachellito & Le Blanchon Auron 1600 - Opening Edition
+LOCATION:Le Blanchon - Auron 1600\, Auron
+DESCRIPTION:Day party d'opening sur les pistes à Auron avec le crew Coachellito.\nBillets : https://shotgun.live/fr/events/coachellito-le-blanchon-auron-1600-opening-edition\nVia Teufy @teufy_official
+URL:https://shotgun.live/fr/events/coachellito-le-blanchon-auron-1600-opening-edition
+END:VEVENT
+END:VCALENDAR

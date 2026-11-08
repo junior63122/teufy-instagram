@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:durdenhauer-fastlane-1-an-switch-club-westfall-2026-11-21@teufy
+DTSTAMP:20261108T220637Z
+DTSTART:20261121T223000Z
+DTEND:20261122T033000Z
+SUMMARY:Durdenhauer Fastlane 1 An - Switch Club - Westfall
+LOCATION:Switch Club\, Roquebrune-sur-Argens
+DESCRIPTION:1 an de Fastlane au Switch avec Durdenhauer aux platines pour une nuit fast techno.\nBillets : https://shotgun.live/events/durdenhauer-fastlane-1-an-switch-club-westfall\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/durdenhauer-fastlane-1-an-switch-club-westfall
+END:VEVENT
+END:VCALENDAR

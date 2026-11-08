@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:ponte-loca-mama-shelter-nice-2026-11-19@teufy
+DTSTAMP:20261108T220637Z
+DTSTART:20261119T190000Z
+DTEND:20261120T000000Z
+SUMMARY:Ponte Loca @ Mama Shelter Nice
+LOCATION:Mama Shelter Nice\, Nice
+DESCRIPTION:Soirée latino gratuite du jeudi entre reggaeton et salsa au Mama Shelter Nice.\nBillets : https://shotgun.live/events/jeu-19-nov-ponte-loca-mama-shelter-nice\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/jeu-19-nov-ponte-loca-mama-shelter-nice
+END:VEVENT
+END:VCALENDAR

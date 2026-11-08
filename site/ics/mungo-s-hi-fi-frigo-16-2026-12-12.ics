@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:mungo-s-hi-fi-frigo-16-2026-12-12@teufy
+DTSTAMP:20261108T220637Z
+DTSTART:20261212T190000Z
+DTEND:20261213T000000Z
+SUMMARY:Mungo's Hi Fi @ Frigo 16
+LOCATION:Frigo 16 - Le 109\, Nice
+DESCRIPTION:Les pionniers écossais du sound system dub Mungo's Hi Fi en live au Frigo 16.\nBillets : https://shotgun.live/fr/events/mungo-s-hifi-frigo-16\nVia Teufy @teufy_official
+URL:https://shotgun.live/fr/events/mungo-s-hifi-frigo-16
+END:VEVENT
+END:VCALENDAR

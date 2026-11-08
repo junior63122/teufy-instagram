@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:redline-frejus-bienvenue-en-enfer-2026-11-21@teufy
+DTSTAMP:20261108T220637Z
+DTSTART:20261121T210000Z
+DTEND:20261122T020000Z
+SUMMARY:Redline Frejus - Bienvenue En Enfer
+LOCATION:Switch Club\, Roquebrune-sur-Argens
+DESCRIPTION:Nuit acid et hard techno immersive au Switch Club pour les adeptes de kicks industriels.\nBillets : https://shotgun.live/fr/events/redline-frejus-bienvenue-en-enfer\nVia Teufy @teufy_official
+URL:https://shotgun.live/fr/events/redline-frejus-bienvenue-en-enfer
+END:VEVENT
+END:VCALENDAR

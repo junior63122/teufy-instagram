@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:dj-set-jordan-kowen-2026-11-21@teufy
+DTSTAMP:20261108T220637Z
+DTSTART:20261121T193000Z
+DTEND:20261122T003000Z
+SUMMARY:DJ Set - Jordan Kowen
+LOCATION:Mama Shelter Nice\, Nice
+DESCRIPTION:DJ set house et disco par Jordan Kowen au Mama Shelter\, entrée gratuite.\nBillets : https://shotgun.live/fr/events/dj-set-jordan-kowen\nVia Teufy @teufy_official
+URL:https://shotgun.live/fr/events/dj-set-jordan-kowen
+END:VEVENT
+END:VCALENDAR

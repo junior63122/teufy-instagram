@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:do-you-like-tekno-frigo16-le-109-nice-2026-11-28@teufy
+DTSTAMP:20261108T220637Z
+DTSTART:20261128T190000Z
+DTEND:20261129T000000Z
+SUMMARY:Do You Like... Tekno ? @ Frigo16 - Le 109 [Nice]
+LOCATION:Frigo 16 - Le 109\, Nice
+DESCRIPTION:Live 2h du duo 23HZ avec Banditik sur le système Meyer Sound du Frigo 16.\nBillets : https://shotgun.live/events/do-you-like-tekno-frigo-16-le-109-nice\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/do-you-like-tekno-frigo-16-le-109-nice
+END:VEVENT
+END:VCALENDAR

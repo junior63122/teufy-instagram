@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:l-app-prom-en-rose-bocca-mar-2026-11-15@teufy
+DTSTAMP:20261108T220637Z
+DTSTART:20261115T083000Z
+DTEND:20261115T133000Z
+SUMMARY:L'App'Prom En Rose - Bocca Mar
+LOCATION:Bocca Mar\, Nice
+DESCRIPTION:Day party sur la Promenade des Anglais avec DJ sets house et vue mer imprenable.\nBillets : https://shotgun.live/fr/events/l-app-prom-en-rose-bocca-mar\nVia Teufy @teufy_official
+URL:https://shotgun.live/fr/events/l-app-prom-en-rose-bocca-mar
+END:VEVENT
+END:VCALENDAR

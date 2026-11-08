@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:plk-tour-2026-2026-12-06@teufy
+DTSTAMP:20261108T220637Z
+DTSTART:20261206T180000Z
+DTEND:20261206T230000Z
+SUMMARY:PLK – Tour 2026
+LOCATION:Palais Nikaïa\, Nice
+DESCRIPTION:Le rappeur PLK débarque au Nikaïa pour un show monumental très attendu.\nBillets : https://www.nikaia.fr/programmation/plk\nVia Teufy @teufy_official
+URL:https://www.nikaia.fr/programmation/plk
+END:VEVENT
+END:VCALENDAR

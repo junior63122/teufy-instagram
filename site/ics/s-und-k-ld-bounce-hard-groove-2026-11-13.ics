@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:s-und-k-ld-bounce-hard-groove-2026-11-13@teufy
+DTSTAMP:20261108T220637Z
+DTSTART:20261113T200000Z
+DTEND:20261114T010000Z
+SUMMARY:Søund Køld — Bounce / Hard Groove
+LOCATION:L'Antre Bar Electro\, Nice
+DESCRIPTION:Before underground axé sonorités berlinoises et UK bounce dans le Vieux-Nice.\nBillets : https://shotgun.live/fr/events/sound-kold-bounce-hard-groove\nVia Teufy @teufy_official
+URL:https://shotgun.live/fr/events/sound-kold-bounce-hard-groove
+END:VEVENT
+END:VCALENDAR

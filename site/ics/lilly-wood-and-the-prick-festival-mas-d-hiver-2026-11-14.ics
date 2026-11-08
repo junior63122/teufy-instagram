@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:lilly-wood-and-the-prick-festival-mas-d-hiver-2026-11-14@teufy
+DTSTAMP:20261108T220637Z
+DTSTART:20261114T183000Z
+DTEND:20261114T233000Z
+SUMMARY:Lilly Wood and The Prick — Festival Mas d'Hiver
+LOCATION:Le Mas d'Hiver\, Puget-sur-Argens
+DESCRIPTION:Le duo culte de Prayer in C en live intime au Mas d'Hiver.\nBillets : https://lemas-concert.com/line-up-hiver-2026/\nVia Teufy @teufy_official
+URL:https://lemas-concert.com/line-up-hiver-2026/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:jetlag-gang-premiere-partie-frigo-16-2026-11-13@teufy
+DTSTAMP:20261108T220637Z
+DTSTART:20261113T223000Z
+DTEND:20261114T033000Z
+SUMMARY:Jetlag Gang + Première Partie @ Frigo 16
+LOCATION:Frigo 16 - Le 109\, Nice
+DESCRIPTION:Gros perreo et beats reggaeton en warehouse au 109 avec le Jetlag Gang.\nBillets : https://shotgun.live/events/jetlag-gang-premiere-partie-frigo-16\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/jetlag-gang-premiere-partie-frigo-16
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:da-grow-uk-bass-gangsta-house-2026-11-27@teufy
+DTSTAMP:20261108T220637Z
+DTSTART:20261128T040000Z
+DTEND:20261128T090000Z
+SUMMARY:Da Grow — UK Bass / Gangsta House
+LOCATION:L'Antre Bar Electro\, Nice
+DESCRIPTION:After matinal aux rythmes UK bass et gangsta house musclée avec Da Grow à L'Antre.\nBillets : https://shotgun.live/fr/venues/l-antre\nVia Teufy @teufy_official
+URL:https://shotgun.live/fr/venues/l-antre
+END:VEVENT
+END:VCALENDAR

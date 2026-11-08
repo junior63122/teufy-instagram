@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:lizzie-et-friends-saturday-house-session-2026-11-14@teufy
+DTSTAMP:20261108T220637Z
+DTSTART:20261114T225900Z
+DTEND:20261115T035900Z
+SUMMARY:Lizzie & Friends — Saturday House Session
+LOCATION:Glass Club Cannes\, Cannes
+DESCRIPTION:Nuit du samedi house\, afro house et tech house avec Lizzie au Glass Club.\nBillets : https://shotgun.live/events/lizzie-friends-saturday-house-session\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/lizzie-friends-saturday-house-session
+END:VEVENT
+END:VCALENDAR

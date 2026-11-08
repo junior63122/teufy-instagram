@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:jerrycans-release-party-frigo-16-2026-11-26@teufy
+DTSTAMP:20261108T220637Z
+DTSTART:20261126T190000Z
+DTEND:20261127T000000Z
+SUMMARY:Jerrycans Release Party @ Frigo 16
+LOCATION:Frigo 16 - Le 109\, Nice
+DESCRIPTION:Release party gratuite aux vibes pop festive et italo-disco au Frigo 16.\nBillets : https://shotgun.live/fr/events/jerrycans-release-party-frigo-16\nVia Teufy @teufy_official
+URL:https://shotgun.live/fr/events/jerrycans-release-party-frigo-16
+END:VEVENT
+END:VCALENDAR

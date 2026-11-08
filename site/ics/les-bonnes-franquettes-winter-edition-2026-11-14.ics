@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:les-bonnes-franquettes-winter-edition-2026-11-14@teufy
+DTSTAMP:20261108T220637Z
+DTSTART:20261114T193000Z
+DTEND:20261115T003000Z
+SUMMARY:Les Bonnes Franquettes Winter Edition
+LOCATION:Ancien jazz club\, Nice
+DESCRIPTION:Mini boiler room avec le DJ au centre du club et sets house\, disco et pop.\nBillets : https://www.instagram.com/p/De95DS1INkE/\nVia Teufy @teufy_official
+URL:https://www.instagram.com/p/De95DS1INkE/
+END:VEVENT
+END:VCALENDAR

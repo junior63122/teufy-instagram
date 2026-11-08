@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:dub-coast-magam-et-lyff-dub-2026-11-10@teufy
+DTSTAMP:20261108T220637Z
+DTSTART:20261110T200000Z
+DTEND:20261111T010000Z
+SUMMARY:Dub Coast / Magam & Lyff — Dub
+LOCATION:L'Antre Bar Electro\, Nice
+DESCRIPTION:Session dub et bass music en sous-sol pour attaquer la veille de férié.\nBillets : https://shotgun.live/fr/events/dub-coast-magam-lyff-dub\nVia Teufy @teufy_official
+URL:https://shotgun.live/fr/events/dub-coast-magam-lyff-dub
+END:VEVENT
+END:VCALENDAR

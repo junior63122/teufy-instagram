@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:sensoria-into-the-frequency-w-nico-v-2026-11-21@teufy
+DTSTAMP:20261108T220637Z
+DTSTART:20261121T225900Z
+DTEND:20261122T035900Z
+SUMMARY:Sensoria — Into The Frequency w/ Nico.V
+LOCATION:Glass Club Cannes\, Cannes
+DESCRIPTION:Immersion melodic techno et tech house emmenée par Nico.V au Glass Club.\nBillets : https://shotgun.live/fr/venues/glass-club-cannes\nVia Teufy @teufy_official
+URL:https://shotgun.live/fr/venues/glass-club-cannes
+END:VEVENT
+END:VCALENDAR

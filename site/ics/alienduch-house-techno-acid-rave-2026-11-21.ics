@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:alienduch-house-techno-acid-rave-2026-11-21@teufy
+DTSTAMP:20261108T220637Z
+DTSTART:20261121T200000Z
+DTEND:20261122T010000Z
+SUMMARY:Alienduch — House / Techno / Acid / Rave
+LOCATION:L'Antre Bar Electro\, Nice
+DESCRIPTION:Alienduch aux platines pour un set énergique entre house\, rave et acid techno.\nBillets : https://shotgun.live/fr/venues/l-antre\nVia Teufy @teufy_official
+URL:https://shotgun.live/fr/venues/l-antre
+END:VEVENT
+END:VCALENDAR

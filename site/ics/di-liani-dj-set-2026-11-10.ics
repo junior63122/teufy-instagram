@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:di-liani-dj-set-2026-11-10@teufy
+DTSTAMP:20261108T220637Z
+DTSTART:20261110T210000Z
+DTEND:20261111T020000Z
+SUMMARY:Di Liani DJ Set
+LOCATION:Le Barathym\, Toulon
+DESCRIPTION:Veille de férié avec Di Liani aux platines : house\, électro\, shatta et dancehall jusqu'à 4h.\nBillets : https://www.instagram.com/p/DfcmxXUOwIr/\nVia Teufy @teufy_official
+URL:https://www.instagram.com/p/DfcmxXUOwIr/
+END:VEVENT
+END:VCALENDAR

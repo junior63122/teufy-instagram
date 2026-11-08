@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:rupture-2026-11-13@teufy
+DTSTAMP:20261108T220637Z
+DTSTART:20261113T220000Z
+DTEND:20261114T030000Z
+SUMMARY:Rupture
+LOCATION:Le Calypso - Fréjus Plage\, Fréjus
+DESCRIPTION:6h de rave clubbing non-stop avec 5 DJs trance et hardtek en bord de mer.\nBillets : https://shotgun.live/events/rupture\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/rupture
+END:VEVENT
+END:VCALENDAR

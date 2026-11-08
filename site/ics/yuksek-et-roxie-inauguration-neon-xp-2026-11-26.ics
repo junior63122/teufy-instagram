@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:yuksek-et-roxie-inauguration-neon-xp-2026-11-26@teufy
+DTSTAMP:20261108T220637Z
+DTSTART:20261126T193000Z
+DTEND:20261127T003000Z
+SUMMARY:Yuksek & Roxie (Inauguration NEON XP)
+LOCATION:Le Dix-Huit - Adresse d'Expériences\, Nice
+DESCRIPTION:Yuksek en live intime au Dix-Huit pour le lancement des soirées NEON XP.\nBillets : https://shotgun.live/fr/events/yuksek-roxie\nVia Teufy @teufy_official
+URL:https://shotgun.live/fr/events/yuksek-roxie
+END:VEVENT
+END:VCALENDAR

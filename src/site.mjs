@@ -6,7 +6,7 @@
 //   (une affiche d'une autre soirée n'est pas montrée). Résultats gardés dans contenus/affiches-verifiees.json.
 // - Les lieux sont placés sur la carte grâce à OpenStreetMap (cache contenus/lieux-geo.json).
 // - Le JavaScript (site/app.js) gère les filtres, « Ce soir / En ce moment », la carte et les animations.
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync, readdirSync, rmSync } from 'node:fs';
 import { writeFile, mkdir, copyFile } from 'node:fs/promises';
 import { spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
@@ -14,6 +14,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { genresList, isTechno } from './genres.mjs';
 import { LANGUES, TXT } from './site-langues.mjs';
+import { STYLES as STYLES_MUSIQUE, PAGES_STYLES, FESTIVALS, RENDEZ_VOUS, PARTENAIRE, AMBASSADEUR, BDE, LEGAL, RE_ETUDIANT, RE_FESTIVAL } from './site-contenus.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SITE = path.join(ROOT, 'site');
@@ -31,17 +32,11 @@ const pre = (l) => (l === 'fr' ? '' : `${l}/`);
 const dort = (ms) => new Promise((r) => setTimeout(r, ms));
 
 const VILLES = ['Nice', 'Cannes', 'Monaco', 'Antibes'];
-const STYLES = [
-  ['techno', /techno|hard|acid|trance|rave|indus|minimal|tekno/i],
-  ['house', /house|disco|deep|garage|french touch|electro/i],
-  ['afro', /afro|amapiano|shatta|dancehall|reggaeton|perreo|latin|bouyon|kompa/i],
-  ['rap', /rap|hip.?hop|rnb|r&b|trap|drill/i],
-  ['commercial', /commercial|ann[ée]es|80|90|2000|pop|généraliste|open format|club/i],
-];
 const styleDe = (e) => {
-  const t = [...(e.tags || []), e.name].join(' ');
-  return STYLES.filter(([, re]) => re.test(t)).map(([k]) => k).slice(0, 2);
+  const t = [...(e.tags || []), e.name, e.description || ''].join(' ');
+  return STYLES_MUSIQUE.filter(({ re }) => re.test(t)).map(({ cle }) => cle).slice(0, 3);
 };
+const slug = (x) => String(x).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/&/g, ' et ').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 60).replace(/-$/, '');
 
 // Centres des villes : position de secours quand le lieu exact est introuvable (marqué « approximatif » sur la carte).
 const CENTRES = [
@@ -108,18 +103,27 @@ async function geocoder(soirees, log) {
   for (const s of soirees) {
     const k = cleLieu(s);
     const c = cache[k];
-    const aRetenter = c && c.introuvable && Date.now() - Date.parse(c.le) > 14 * 864e5;
-    if (s.lieu && (!c || aRetenter) && requetes < 40 && !coupe) {
-      requetes++;
-      const u = new URL('https://nominatim.openstreetmap.org/search');
-      Object.entries({ format: 'json', limit: '1', q: `${s.lieu}, ${s.ville}`, countrycodes: 'fr,mc', viewbox: '5.6,44.4,7.8,42.9', bounded: '1' }).forEach(([a, b]) => u.searchParams.set(a, b));
-      const r = await fetch(u, { headers: { 'User-Agent': 'TeufySite/1.0 (+https://junior63122.github.io/teufy-instagram/)', 'Accept-Language': 'fr' }, signal: AbortSignal.timeout(12000) }).catch(() => null);
-      if (r?.ok) {
-        const [p] = await r.json().catch(() => []);
-        cache[k] = p ? { lat: +(+p.lat).toFixed(5), lng: +(+p.lon).toFixed(5), le: new Date().toISOString() } : { introuvable: true, le: new Date().toISOString() };
-        if (p) trouves++;
+    const aRetenter = c && c.introuvable && (c.v !== 2 || Date.now() - Date.parse(c.le) > 14 * 864e5);
+    if (s.lieu && (!c || aRetenter) && requetes < 60 && !coupe) {
+      // Plusieurs formulations : adresse, « lieu, ville », lieu seul (dans la zone Côte d'Azur), lieu sans mots génériques.
+      const court = s.lieu.replace(/\b(club|bar|restaurant|plage|beach|rooftop|le|la|les)\b/gi, ' ').replace(/[-–—@|].*$/, '').replace(/\s+/g, ' ').trim();
+      const essais = [...new Set([s.adresse, `${s.lieu}, ${s.ville}`, s.lieu, court && `${court}, ${s.ville}`].filter((x) => x && x.length > 2))];
+      let p = null;
+      for (const q of essais) {
+        if (requetes >= 60 || coupe) break;
+        requetes++;
+        const u = new URL('https://nominatim.openstreetmap.org/search');
+        Object.entries({ format: 'json', limit: '1', q, countrycodes: 'fr,mc', viewbox: '5.6,44.4,7.8,42.9', bounded: '1' }).forEach(([a, b]) => u.searchParams.set(a, b));
+        const r = await fetch(u, { headers: { 'User-Agent': 'TeufySite/1.0 (+https://junior63122.github.io/teufy-instagram/)', 'Accept-Language': 'fr' }, signal: AbortSignal.timeout(12000) }).catch(() => null);
+        if (!r?.ok) { coupe = true; break; } // pas de réseau ou service refusé : on réessaiera au prochain passage
+        [p] = await r.json().catch(() => []);
         await dort(1100);
-      } else coupe = true; // pas de réseau ou service refusé : on réessaiera au prochain passage
+        if (p) break;
+      }
+      if (!coupe) {
+        cache[k] = p ? { lat: +(+p.lat).toFixed(5), lng: +(+p.lon).toFixed(5), le: new Date().toISOString() } : { introuvable: true, v: 2, le: new Date().toISOString() };
+        if (p) trouves++;
+      }
     }
     const g = cache[k];
     if (g && !g.introuvable) Object.assign(s, { lat: g.lat, lng: g.lng, approx: false });
@@ -133,23 +137,51 @@ async function geocoder(soirees, log) {
   if (requetes) log(`Site : carte, ${trouves} lieu(x) trouvé(s) sur OpenStreetMap${coupe ? ' (service injoignable : positions approximatives en attendant)' : ''}`);
 }
 
-// Accroches traduites par l'IA (une fois par texte et par langue). Sans clé : on garde le français.
+// --- Traductions : tout le texte français (accroches, descriptions, pages éditoriales, actus) est traduit par l'IA
+// une seule fois par texte et par langue (cache contenus/traductions.json). Sans clé : le français reste affiché.
 const NOMS_LANGUE = { en: 'English', it: 'Italian', es: 'Spanish', zh: 'Simplified Chinese', ar: 'Arabic' };
-async function traduire(textes, log) {
-  const cache = lire(TRAD, {});
-  for (const l of LANGUES.filter((x) => x !== 'fr')) {
-    const manque = [...new Set(textes)].filter((t) => t && !cache[`${l}|${h(t)}`]);
-    for (let i = 0; i < manque.length; i += 40) {
-      const lot = manque.slice(i, i + 40);
-      const r = await gemini([{ text: `Translate these short French nightlife taglines into ${NOMS_LANGUE[l]}. Keep party names, artist names, venue names and emojis unchanged, keep the same casual tone. Answer with a JSON array of ${lot.length} strings, same order.\n${JSON.stringify(lot)}` }]);
-      if (!Array.isArray(r) || r.length !== lot.length) break;
-      lot.forEach((t, j) => { if (typeof r[j] === 'string' && r[j].trim()) cache[`${l}|${h(t)}`] = r[j].trim(); });
-      log(`Site : ${lot.length} accroche(s) traduite(s) (${l})`);
+const TR = { cache: {}, manque: {} };
+const trad = (lang, x) => {
+  if (lang === 'fr' || !x || !/[a-zà-ÿ]/i.test(x)) return x;
+  const v = TR.cache[`${lang}|${h(x)}`];
+  if (v) return v;
+  (TR.manque[lang] ||= new Set()).add(x);
+  return x;
+};
+async function traduireManquants(log) {
+  let n = 0;
+  if (!(process.env.GEMINI_API_KEY || '').trim()) { TR.manque = {}; return 0; }
+  for (const [l, set] of Object.entries(TR.manque)) {
+    const liste = [...set];
+    for (let i = 0; i < liste.length;) {
+      const lot = []; let taille = 0;
+      while (i < liste.length && lot.length < 40 && taille < 7000) { lot.push(liste[i]); taille += liste[i].length; i++; }
+      const r = await gemini([{ text: `Translate these French texts from a nightlife guide website (French Riviera) into ${NOMS_LANGUE[l]}. Keep every HTML tag exactly as it is (<em>, <strong>, <a …>). Keep names of parties, artists, venues, brands and festivals unchanged (Teufy, Shotgun, DICE, Nice Jazz Festival…). Natural, casual tone for 17-30 year olds. Answer with a JSON array of ${lot.length} strings, same order.\n${JSON.stringify(lot)}` }]);
+      if (!Array.isArray(r) || r.length !== lot.length) { log(`Site : traduction ${l} interrompue (réponse invalide)`); break; }
+      lot.forEach((x, j) => { if (typeof r[j] === 'string' && r[j].trim()) { TR.cache[`${l}|${h(x)}`] = r[j].trim(); n++; } });
     }
   }
-  await writeFile(TRAD, JSON.stringify(cache, null, 1) + '\n');
-  return (l, t) => (l === 'fr' || !t ? t : cache[`${l}|${h(t)}`] || t);
+  TR.manque = {};
+  if (n) log(`Site : ${n} texte(s) traduit(s)`);
+  return n;
 }
+
+// Taille d'un JPEG (largeur, hauteur) : évite que la page saute pendant le chargement des affiches.
+function tailleJpeg(f) {
+  try {
+    const b = readFileSync(f);
+    for (let i = 2; i < b.length;) {
+      if (b[i] !== 0xff) return null;
+      const m = b[i + 1], l = b.readUInt16BE(i + 2);
+      if (m >= 0xc0 && m <= 0xcf && ![0xc4, 0xc8, 0xcc].includes(m)) return [b.readUInt16BE(i + 7), b.readUInt16BE(i + 5)];
+      i += 2 + l;
+    }
+  } catch { /* illisible */ }
+  return null;
+}
+
+const PLATEFORMES = { 'shotgun.live': 'Shotgun', 'dice.fm': 'DICE', 'link.dice.fm': 'DICE', 'ra.co': 'Resident Advisor', 'residentadvisor.net': 'Resident Advisor', 'weezevent.com': 'Weezevent', 'billetweb.fr': 'Billetweb', 'eventbrite.fr': 'Eventbrite', 'eventbrite.com': 'Eventbrite', 'helloasso.com': 'HelloAsso', 'feverup.com': 'Fever', 'fnacspectacles.com': 'Fnac Spectacles', 'ticketmaster.fr': 'Ticketmaster', 'seetickets.com': 'See Tickets', 'yurplan.com': 'Yurplan', 'xceed.me': 'Xceed' };
+const nomPlateforme = (u) => { try { const d = new URL(u).hostname.replace(/^www\./, ''); return PLATEFORMES[d] || Object.entries(PLATEFORMES).find(([k]) => d.endsWith(k))?.[1] || d; } catch { return ''; } };
 
 export async function construireSite({ events, hist = [], config = {}, now = new Date(), log = console.log }) {
   await mkdir(path.join(SITE, 'affiches'), { recursive: true });
@@ -163,26 +195,33 @@ export async function construireSite({ events, hist = [], config = {}, now = new
     .sort((a, b) => a.start.localeCompare(b.start));
 
   const soirees = [];
+  const pris = new Set();
   for (const e of fiables) {
-    let affiche = '';
+    let affiche = '', dims = null;
     if (e.image) {
       const f = path.join(SITE, 'affiches', `${h(e.image)}.jpg`);
       if (existsSync(f) || await telecharger(e.image, f)) {
-        if (await verifier(e, f, cache)) affiche = `site/affiches/${path.basename(f)}`;
+        if (await verifier(e, f, cache)) { affiche = `site/affiches/${path.basename(f)}`; dims = tailleJpeg(f); }
         else log(`Site : affiche écartée (ne correspond pas) pour « ${e.name} »`);
       }
     }
     const ville = VILLES.find((v) => new RegExp(v, 'i').test(`${e.city} ${e.venue}`)) || 'autres';
+    let id = `${slug(e.name) || 'soiree'}-${cle(e.start)}`;
+    for (let k = 2; pris.has(id); k++) id = `${slug(e.name)}-${cle(e.start)}-${k}`;
+    pris.add(id);
+    const url = /^https?:\/\//.test(e.url || '') && !/^https?:\/\/[^/]+\/?$/.test(e.url) ? e.url : '';
+    const offres = (e.offres || []).filter((o) => o.url).sort((a, b) => (a.prix ?? 1e9) - (b.prix ?? 1e9));
     soirees.push({
-      nom: e.name, debut: e.start, jour: cle(e.start), lieu: e.venue || '', ville: e.city || '', filtreVille: ville.toLowerCase(),
-      prix: e.price == null ? null : e.price, styles: styleDe(e), genres: genresList(e, 3).join(' · '), techno: isTechno(e),
-      url: /^https?:\/\//.test(e.url || '') && !/^https?:\/\/[^/]+\/?$/.test(e.url) ? e.url : '', affiche, accroche: e.accroche || '',
-      instagram: (e.instagram || [])[0] || '', buzz: e.buzz ?? null,
+      id, nom: e.name, debut: e.start, jour: cle(e.start), lieu: e.venue || '', ville: e.city || '', adresse: e.address || '', filtreVille: ville.toLowerCase(),
+      prix: e.price == null ? null : e.price, styles: styleDe(e), genres: genresList(e, 3).join(' · '), techno: isTechno(e), tags: e.tags || [],
+      url, affiche, dims, accroche: e.accroche || '', description: e.description || '',
+      instagram: (e.instagram || [])[0] || '', buzz: e.buzz ?? null, offres: offres.length >= 2 ? offres : [],
+      festival: RE_FESTIVAL.test(`${e.name} ${(e.tags || []).join(' ')}`), etudiant: RE_ETUDIANT.test(`${e.name} ${(e.tags || []).join(' ')} ${e.public_cible || ''}`),
     });
   }
   await writeFile(VERIF, JSON.stringify(cache, null, 1) + '\n');
   await geocoder(soirees, log);
-  const tr = await traduire(soirees.map((s) => s.accroche), log);
+  TR.cache = lire(TRAD, {});
 
   // Derniers posts Instagram du compte (couverture gardée dans media/).
   const posts = hist.filter((x) => x.lien).slice(-9).reverse().map((x) => {
@@ -191,38 +230,72 @@ export async function construireSite({ events, hist = [], config = {}, now = new
     return { lien: x.lien, titre: (x.titre || x.publication?.titre || '').replace(/[[\]]/g, ''), image: img ? `media/${id}/${img}` : '' };
   }).filter((x) => x.image && existsSync(path.join(ROOT, x.image)));
 
-  await assets();
+  // Actus (rubrique alimentée par la veille, src/veille.mjs).
+  const actus = lire(path.join(ROOT, 'contenus', 'actus.json'), [])
+    .filter((a) => a.titre && a.paragraphes?.length).sort((a, b) => String(b.date).localeCompare(String(a.date)))
+    .map((a) => ({ ...a, id: `${slug(a.titre)}-${String(a.date).slice(0, 10)}` }));
+
+  await assets(soirees);
   const compte = config.compte || '@teufy_official';
   const T = { ...TEUFY, ...(config.site || {}) };
   T.nbPartenaires = (String(T.partenaires).match(/\d+/) || ['200'])[0];
   GOOGLE = (config.site?.google_verification || '').trim();
+  const majTexte = (t) => t.majLe.replace('{d}', paris(now, { day: 'numeric', month: 'long' }, t.locale));
 
-  const pages = [];
-  for (const lang of LANGUES) {
-    const t = TXT[lang];
-    const P = pre(lang);
-    const prof = (sous) => '../'.repeat((lang === 'fr' ? 0 : 1) + (sous ? 1 : 0));
-    const sl = soirees.map((s) => ({ ...s, accroche: tr(lang, s.accroche) }));
-    const ctx = (chemin) => ({ lang, t, chemin, base: prof(!!chemin), compte, T });
-    pages.push([P, page({ ...ctx(''), soirees: sl, posts, now })]);
-    pages.push([`${P}a-propos/`, aPropos({ ...ctx('a-propos/'), nb: sl.length })]);
-    for (const v of VILLES_SEO) pages.push([`${P}${v.slug}/`, pageVille({ ...ctx(`${v.slug}/`), v, soirees: sl.filter((x) => v.re.test(`${x.ville} ${x.lieu}`)), now })]);
+  const rendre = () => {
+    const pages = [];
+    for (const lang of LANGUES) {
+      const t = TXT[lang];
+      const P = pre(lang);
+      const tr = (x) => trad(lang, x);
+      const sl = soirees.map((s) => ({ ...s, accroche: tr(s.accroche), description: tr(s.description) }));
+      const ctx = (chemin) => ({ lang, t, tr, chemin, base: '../'.repeat((lang === 'fr' ? 0 : 1) + chemin.split('/').filter(Boolean).length), compte, T, maj: majTexte(t), actus });
+      const ajoute = (chemin, f) => pages.push([`${P}${chemin}`, f(ctx(chemin))]);
+      ajoute('', (c) => page({ ...c, soirees: sl, posts, now }));
+      ajoute('a-propos/', (c) => aPropos({ ...c, nb: sl.length }));
+      for (const v of VILLES_SEO) ajoute(`${v.slug}/`, (c) => pageVille({ ...c, v, soirees: sl.filter((x) => v.re.test(`${x.ville} ${x.lieu}`)), now }));
+      for (const k of PAGES_STYLES) ajoute(`soirees-${k}/`, (c) => pageStyle({ ...c, cleStyle: k, soirees: sl.filter((x) => x.styles.includes(k)) }));
+      ajoute('festivals/', (c) => pageFestivals({ ...c, soirees: sl.filter((x) => x.festival) }));
+      ajoute('actus/', (c) => pageActus(c));
+      for (const a of actus) ajoute(`actus/${a.id}/`, (c) => pageActu({ ...c, a }));
+      ajoute('partenaires/', (c) => pagePartenaire(c));
+      ajoute('ambassadeurs/', (c) => pageAmbassadeur(c));
+      ajoute('bde/', (c) => pageBde({ ...c, soirees: sl.filter((x) => x.etudiant) }));
+      ajoute('mentions-legales/', (c) => pageLegal(c));
+      for (const s of sl) ajoute(`soiree/${s.id}/`, (c) => pageSoiree({ ...c, s, soirees: sl }));
+    }
+    return pages;
+  };
+  let pages = rendre();
+  if (Object.keys(TR.manque).length && await traduireManquants(log)) pages = rendre();
+  await writeFile(TRAD, JSON.stringify(TR.cache, null, 1) + '\n');
+
+  // Anciennes pages de soirées (passées) : supprimées pour ne pas garder de liens morts dans Google.
+  for (const l of LANGUES) {
+    const d = path.join(ROOT, pre(l), 'soiree');
+    if (existsSync(d)) for (const x of readdirSync(d)) if (!pris.has(x)) rmSync(path.join(d, x), { recursive: true, force: true });
+    const da = path.join(ROOT, pre(l), 'actus');
+    if (existsSync(da)) for (const x of readdirSync(da, { withFileTypes: true })) if (x.isDirectory() && !actus.some((a) => a.id === x.name)) rmSync(path.join(da, x.name), { recursive: true, force: true });
   }
   for (const [dossier, html] of pages) {
     await mkdir(path.join(ROOT, dossier), { recursive: true });
     await writeFile(path.join(ROOT, dossier, 'index.html'), html);
   }
+  await writeFile(path.join(ROOT, '404.html'), page404(TXT.fr));
+  await ics(soirees, compte);
+
   const jourIso = new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Paris' }).format(now);
-  const chemins = ['', 'a-propos/', ...VILLES_SEO.map((v) => `${v.slug}/`)];
-  const urls = LANGUES.flatMap((l) => chemins.map((c) => `  <url><loc>${URL_SITE}${pre(l)}${c}</loc><lastmod>${jourIso}</lastmod><changefreq>daily</changefreq><priority>${c ? '0.8' : l === 'fr' ? '1.0' : '0.9'}</priority>${LANGUES.map((x) => `<xhtml:link rel="alternate" hreflang="${x}" href="${URL_SITE}${pre(x)}${c}"/>`).join('')}<xhtml:link rel="alternate" hreflang="x-default" href="${URL_SITE}${c}"/></url>`));
+  const chemins = [...new Set(pages.map(([d]) => d.replace(/^(en|it|es|zh|ar)\//, '')))];
+  const prio = (c) => (!c ? '1.0' : /^soiree\//.test(c) ? '0.6' : /^(actus\/.|mentions)/.test(c) ? '0.5' : '0.8');
+  const urls = LANGUES.flatMap((l) => chemins.map((c) => `  <url><loc>${URL_SITE}${pre(l)}${c}</loc><lastmod>${jourIso}</lastmod><changefreq>daily</changefreq><priority>${prio(c)}</priority>${LANGUES.map((x) => `<xhtml:link rel="alternate" hreflang="${x}" href="${URL_SITE}${pre(x)}${c}"/>`).join('')}<xhtml:link rel="alternate" hreflang="x-default" href="${URL_SITE}${c}"/></url>`));
   await writeFile(path.join(ROOT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls.join('\n')}\n</urlset>\n`);
   await writeFile(path.join(ROOT, 'robots.txt'), `User-agent: *\nAllow: /\nDisallow: /out/\nDisallow: /apercus/\nDisallow: /livrables/\nSitemap: ${URL_SITE}sitemap.xml\n`);
   await writeFile(path.join(ROOT, '.nojekyll'), '');
-  log(`Site : ${soirees.length} soirée(s), ${soirees.filter((s) => s.affiche).length} avec affiche, ${soirees.filter((s) => !s.approx).length} placée(s) précisément sur la carte, ${posts.length} post(s) Instagram, ${pages.length} page(s) en ${LANGUES.length} langues`);
+  log(`Site : ${soirees.length} soirée(s), ${soirees.filter((s) => s.affiche).length} avec affiche, ${soirees.filter((s) => !s.approx).length} placée(s) précisément sur la carte, ${soirees.filter((s) => s.offres.length).length} avec comparateur de prix, ${actus.length} actu(s), ${pages.length} page(s) en ${LANGUES.length} langues`);
   return soirees;
 }
 
-// Polices, logo et photos de la DA copiés depuis le studio (une seule source de vérité).
+// Polices, logo, photos de la DA, icônes et manifeste (site installable sur le téléphone).
 async function assets() {
   const S = path.join(ROOT, 'studio', 'public');
   await mkdir(path.join(SITE, 'fonts'), { recursive: true });
@@ -233,6 +306,26 @@ async function assets() {
     const out = path.join(SITE, 'img', `${f}.jpg`);
     if (!existsSync(out)) spawnSync('ffmpeg', ['-v', 'error', '-y', '-i', path.join(S, 'decors', 'da', `${f}.jpg`), '-vf', "scale='min(1200,iw)':-2", '-q:v', '5', out]);
   }
+  await writeFile(path.join(SITE, 'manifest.webmanifest'), JSON.stringify({
+    name: "Teufy · Soirées de la Côte d'Azur", short_name: 'Teufy', start_url: '../', scope: '../', display: 'standalone', background_color: '#0B0B0F', theme_color: '#0B0B0F', lang: 'fr',
+    icons: [{ src: 'img/icone-192.png', sizes: '192x192', type: 'image/png' }, { src: 'img/icone-512.png', sizes: '512x512', type: 'image/png' }],
+  }, null, 1));
+}
+
+// Fichiers calendrier (.ics) : « Ajouter au calendrier » sur chaque page de soirée.
+async function ics(soirees, compte) {
+  const d = path.join(SITE, 'ics');
+  await mkdir(d, { recursive: true });
+  for (const x of readdirSync(d)) if (!soirees.some((s) => `${s.id}.ics` === x)) rmSync(path.join(d, x), { force: true });
+  const f = (t) => new Date(t).toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
+  const e = (x) => String(x || '').replace(/[\\,;]/g, (c) => `\\${c}`).replace(/\n/g, '\\n');
+  for (const s of soirees) {
+    const t = Date.parse(s.debut);
+    await writeFile(path.join(d, `${s.id}.ics`), ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Teufy//Agenda//FR', 'CALSCALE:GREGORIAN', 'BEGIN:VEVENT',
+      `UID:${s.id}@teufy`, `DTSTAMP:${f(Date.now())}`, `DTSTART:${f(t)}`, `DTEND:${f(t + 5 * 3600e3)}`, `SUMMARY:${e(s.nom)}`,
+      `LOCATION:${e([s.lieu, s.adresse, s.ville].filter(Boolean).join(', '))}`, `DESCRIPTION:${e(`${s.accroche ? `${s.accroche}\n` : ''}${s.url ? `Billets : ${s.url}\n` : ''}Via Teufy ${compte}`)}`,
+      ...(s.url ? [`URL:${s.url}`] : []), 'END:VEVENT', 'END:VCALENDAR', ''].join('\r\n'));
+  }
 }
 
 const PHOTOS = ['danse', 'foule', 'selfie', 'rire', 'dj', 'lasers', 'rooftop', 'terrasse'];
@@ -241,34 +334,58 @@ const GALERIE = ['fourrure', 'scene-dj', 'bal-des-fous', 'cowboys', 'bresil', 'c
 const nombre = (p, t) => new Intl.NumberFormat(t.locale, { maximumFractionDigits: 2 }).format(p);
 const prixTexte = (p, t) => (p == null ? '' : p === 0 ? t.gratuit : t.des(nombre(Math.round(p * 100) / 100, t)));
 const heure = (d, t) => (t.locale === 'fr-FR' ? paris(d, { hour: '2-digit', minute: '2-digit' }).replace(':', 'h') : paris(d, { hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }, t.locale));
+const dateCourte = (d, t) => paris(d, { weekday: 'short', day: 'numeric', month: 'short' }, t.locale).replace(/\.(?=\s|$)/g, '');
+const dateLongue = (d, t) => { const x = paris(d, { weekday: 'long', day: 'numeric', month: 'long' }, t.locale); return x.charAt(0).toUpperCase() + x.slice(1); };
 
-function carte(s, { t, base, vedette = false }) {
-  const date = paris(s.debut, { weekday: 'short', day: 'numeric', month: 'short' }, t.locale).replace(/\.(?=\s|$)/g, '');
-  const heureTxt = heure(s.debut, t);
+// Noms des styles dans chaque langue.
+const SN = {
+  fr: { afro: 'Afro', shatta: 'Shatta · Dancehall', latino: 'Latino · Reggaeton', live: 'Concerts · Live' },
+  en: { afro: 'Afro', shatta: 'Shatta · Dancehall', latino: 'Latin · Reggaeton', live: 'Live music' },
+  it: { afro: 'Afro', shatta: 'Shatta · Dancehall', latino: 'Latino · Reggaeton', live: 'Concerti · Live' },
+  es: { afro: 'Afro', shatta: 'Shatta · Dancehall', latino: 'Latino · Reggaeton', live: 'Conciertos · Directo' },
+  zh: { afro: 'Afro', shatta: 'Shatta · 舞厅雷鬼', latino: '拉丁 · 雷鬼顿', live: '现场演出' },
+  ar: { afro: 'أفرو', shatta: 'شاتا · دانسهول', latino: 'لاتيني · ريغيتون', live: 'حفلات حية' },
+};
+const nomStyle = (k, t, lang) => SN[lang][k] || { techno: t.sons[1], house: t.sons[2], rap: t.sons[4], commercial: t.sons[5] }[k] || k;
+const sansAccent = (x) => String(x || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+
+function carte(s, { t, base, lang, vedette = false }) {
   const prix = prixTexte(s.prix, t);
-  return `<article class="carte${vedette ? ' vedette' : ''}" data-jour="${s.jour}" data-debut="${esc(s.debut)}" data-heure="${esc(heureTxt)}" data-ville="${s.filtreVille}" data-styles="${s.styles.join(' ')}" data-prix="${s.prix ?? ''}" data-lat="${s.lat ?? ''}" data-lng="${s.lng ?? ''}"${s.approx ? ' data-approx="1"' : ''}>
-  <div class="affiche${s.affiche ? '' : ' sans'}">${s.affiche ? `<img src="${base}${s.affiche}" alt="${esc(t.affiche + s.nom)}" loading="lazy" decoding="async">` : `<img src="${base}site/img/${PHOTOS[parseInt(h(s.nom), 16) % PHOTOS.length]}.jpg" alt="" loading="lazy" decoding="async">`}<span class="date">${esc(date)}</span></div>
+  const lien = `${base}${pre(lang)}soiree/${s.id}/`;
+  const q = sansAccent([s.nom, s.lieu, s.ville, s.genres, s.tags.join(' '), s.styles.map((k) => `${nomStyle(k, t, 'fr')} ${nomStyle(k, t, lang)}`).join(' '), s.accroche].join(' ')).replace(/\s+/g, ' ');
+  const img = s.affiche
+    ? `<img src="${base}${s.affiche}" alt="${esc(t.affiche + s.nom)}" loading="lazy" decoding="async"${s.dims ? ` width="${s.dims[0]}" height="${s.dims[1]}"` : ''}>`
+    : `<img src="${base}site/img/${PHOTOS[parseInt(h(s.nom), 16) % PHOTOS.length]}.jpg" alt="" loading="lazy" decoding="async">`;
+  return `<article class="carte${vedette ? ' vedette' : ''}" data-id="${s.id}" data-jour="${s.jour}" data-debut="${esc(s.debut)}" data-heure="${esc(heure(s.debut, t))}" data-ville="${s.filtreVille}" data-styles="${s.styles.join(' ')}" data-prix="${s.prix ?? ''}" data-lat="${s.lat ?? ''}" data-lng="${s.lng ?? ''}"${s.approx ? ' data-approx="1"' : ''} data-q="${esc(q)}">
+  <a class="affiche${s.affiche ? '' : ' sans'}" href="${lien}" tabindex="-1" aria-hidden="true">${img}<span class="date">${esc(dateCourte(s.debut, t))}</span></a>
+  <button type="button" class="coeur" aria-label="${esc(t.ajouterFav)}" aria-pressed="false"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 21s-8-5.3-8-11a4.6 4.6 0 0 1 8-3 4.6 4.6 0 0 1 8 3c0 5.7-8 11-8 11z"/></svg></button>
   <div class="infos">
     ${s.genres ? `<p class="genre">${esc(s.genres)}</p>` : ''}
-    <h3>${esc(s.nom)}</h3>
+    <h3><a href="${lien}">${esc(s.nom)}</a></h3>
     ${s.accroche ? `<p class="accroche">${esc(s.accroche)}</p>` : ''}
-    <p class="meta"><span>${esc(heureTxt)}</span><span>${esc(prix || t.prixBillet)}</span><span class="ou">${esc([s.lieu, s.ville].filter(Boolean).join(', '))}</span></p>
-    <p class="actions">${s.url ? `<a class="bouton" href="${esc(s.url)}" target="_blank" rel="noopener">${esc(t.billets)}</a>` : `<a class="bouton secondaire" href="https://www.google.com/search?q=${encodeURIComponent(`${s.nom} ${s.lieu} billetterie`)}" target="_blank" rel="noopener">${esc(t.trouverBillets)}</a>`}${s.instagram ? `<a class="lien" href="https://www.instagram.com/${esc(s.instagram)}/" target="_blank" rel="noopener">@${esc(s.instagram)}</a>` : ''}</p>
+    <p class="meta"><span>${esc(heure(s.debut, t))}</span><span>${esc(prix || t.prixBillet)}</span>${s.offres.length ? `<span class="comparer">${esc(t.comparer)} · ${s.offres.length}</span>` : ''}<span class="ou">${esc([s.lieu, s.ville].filter(Boolean).join(', '))}</span></p>
+    <p class="actions">${boutonBillets(s, t)}<a class="lien" href="${lien}">${esc(t.voir)}</a></p>
   </div>
 </article>`;
 }
+const boutonBillets = (s, t) => (s.url
+  ? `<a class="bouton" href="${esc(s.url)}" target="_blank" rel="noopener">${esc(t.billets)}</a>`
+  : `<a class="bouton secondaire" href="https://www.google.com/search?q=${encodeURIComponent(`${s.nom} ${s.lieu} billetterie`)}" target="_blank" rel="noopener">${esc(t.trouverBillets)}</a>`);
 
-function jsonld(soirees) {
-  return soirees.slice(0, 60).map((s) => ({
+function jsonEvent(s, lang) {
+  const offres = s.offres.length ? s.offres : s.prix != null ? [{ url: s.url, prix: s.prix }] : [];
+  return {
     '@context': 'https://schema.org', '@type': 'Event', name: s.nom, startDate: s.debut, eventStatus: 'https://schema.org/EventScheduled',
-    eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
-    location: { '@type': 'Place', name: s.lieu || s.ville, address: { '@type': 'PostalAddress', addressLocality: s.ville, addressRegion: "Provence-Alpes-Côte d'Azur", addressCountry: 'FR' }, ...(s.approx === false ? { geo: { '@type': 'GeoCoordinates', latitude: s.lat, longitude: s.lng } } : {}) },
+    eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode', url: `${URL_SITE}${pre(lang)}soiree/${s.id}/`,
+    ...(s.accroche ? { description: s.accroche } : {}),
+    location: { '@type': 'Place', name: s.lieu || s.ville, address: { '@type': 'PostalAddress', ...(s.adresse ? { streetAddress: s.adresse } : {}), addressLocality: s.ville, addressRegion: "Provence-Alpes-Côte d'Azur", addressCountry: /monaco|monte/i.test(s.ville) ? 'MC' : 'FR' }, ...(s.approx === false ? { geo: { '@type': 'GeoCoordinates', latitude: s.lat, longitude: s.lng } } : {}) },
     ...(s.affiche ? { image: [URL_SITE + s.affiche] } : {}),
-    ...(s.url ? { url: s.url } : {}),
-    ...(s.prix != null ? { offers: { '@type': 'Offer', price: s.prix, priceCurrency: 'EUR', ...(s.url ? { url: s.url } : {}), availability: 'https://schema.org/InStock' } } : {}),
+    ...(offres.length ? { offers: offres.filter((o) => o.prix != null).map((o) => ({ '@type': 'Offer', price: o.prix, priceCurrency: 'EUR', ...(o.url ? { url: o.url } : {}), availability: 'https://schema.org/InStock' })) } : {}),
     ...(s.instagram ? { organizer: { '@type': 'Organization', name: `@${s.instagram}`, url: `https://www.instagram.com/${s.instagram}/` } } : {}),
-  }));
+  };
 }
+const jsonld = (soirees, lang) => soirees.slice(0, 60).map((s) => jsonEvent(s, lang));
+const fil = (lang, liste) => ({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: liste.map(([nom, c], i) => ({ '@type': 'ListItem', position: i + 1, name: nom, item: `${URL_SITE}${pre(lang)}${c}` })) });
 
 // --- Présentation de Teufy (modifiable dans config.json, rubrique « site ») -------------------------------------
 const TEUFY = {
@@ -277,6 +394,7 @@ const TEUFY = {
   equipe: 'une dizaine de personnes',
   partenaires: 'plus de 200',
   photo_directeur: 'site/img/equipe/junior-joyant.jpg',
+  // Mentions légales (affichées seulement si remplies) : raison_sociale, forme, siret, adresse, email.
 };
 const VILLES_SEO = [
   { slug: 'soirees-nice', cle: 'nice', re: /nice|saint-laurent|cagnes|villefranche/i, photo: 'club' },
@@ -284,19 +402,20 @@ const VILLES_SEO = [
   { slug: 'soirees-monaco', cle: 'monaco', re: /monaco|monte.?carlo|beausoleil/i, photo: 'monaco', video: true },
   { slug: 'soirees-antibes', cle: 'antibes', re: /antibes|juan|biot|vallauris|golfe/i, photo: 'bresil' },
 ];
+const PHOTO_STYLE = { techno: 'lasers', house: 'rooftop', afro: 'danse', shatta: 'foule', latino: 'rire', rap: 'dj' };
 
 let GOOGLE = ''; // code de vérification Google Search Console (config.site.google_verification)
-function gabarit({ lang, t, titre, description, chemin, base, corps, ld = [], image = 'site/img/equipe/monaco.jpg', compte }) {
+function gabarit({ lang, t, titre, description, chemin, base, corps, ld = [], image = 'site/img/equipe/monaco.jpg', compte, maj = '', agendaIci = false }) {
   const handle = compte.replace(/^@/, '');
   const P = pre(lang);
   const accueil = `${base}${P}`;
-  const nav = [['', t.agenda], ...VILLES_SEO.map((v) => [`${v.slug}/`, t.villes[v.cle === 'antibes' ? 'antibesCourt' : v.cle]]), ['#carte', t.carte], ['a-propos/', t.qui]];
-  const jsT = { ...t.js, base, langue: lang, locale: t.locale };
+  const nav = [['', t.agenda], ...VILLES_SEO.map((v) => [`${v.slug}/`, t.villes[v.cle === 'antibes' ? 'antibesCourt' : v.cle]]), ['#carte', t.carte], ['festivals/', t.festivals], ['actus/', t.actus], ['partenaires/', t.partenaires], ['a-propos/', t.qui]];
+  const jsT = { ...t.js, base, langue: lang, locale: t.locale, resultats: t.resultats, aucunRes: t.aucunRes, lienCopie: t.lienCopie, ajouterFav: t.ajouterFav };
   return `<!doctype html>
 <html lang="${lang}" dir="${t.dir}">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>${esc(titre)}</title>
 <meta name="description" content="${esc(description)}">
 <link rel="canonical" href="${URL_SITE}${P}${chemin}">
@@ -304,36 +423,49 @@ ${LANGUES.map((l) => `<link rel="alternate" hreflang="${l}" href="${URL_SITE}${p
 <link rel="alternate" hreflang="x-default" href="${URL_SITE}${chemin}">
 <meta property="og:title" content="${esc(titre)}">
 <meta property="og:description" content="${esc(description)}">
-<meta property="og:image" content="${URL_SITE}${image}">
+<meta property="og:image" content="${/^https?:/.test(image) ? image : URL_SITE + image}">
 <meta property="og:url" content="${URL_SITE}${P}${chemin}">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="Teufy">
 <meta property="og:locale" content="${t.og}">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0B0B0F">
 ${GOOGLE ? `<meta name="google-site-verification" content="${esc(GOOGLE)}">` : ''}
 <link rel="icon" href="${base}site/img/logo.png">
+<link rel="apple-touch-icon" href="${base}site/img/icone-192.png">
+<link rel="manifest" href="${base}site/manifest.webmanifest">
+<link rel="preload" href="${base}site/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="${base}site/style.css">
 <script>document.documentElement.classList.add('js')</script>
 ${ld.length ? `<script type="application/ld+json">${JSON.stringify(ld).replace(/</g, '\\u003c')}</script>` : ''}
 </head>
 <body>
+<a class="saut" href="#contenu">${esc(t.contenu)}</a>
 <header class="barre">
-  <a class="marque" href="${accueil || './'}" aria-label="Teufy"><img src="${base}site/img/logo.png" alt="Teufy"></a>
+  <a class="marque" href="${accueil || './'}" aria-label="Teufy"><img src="${base}site/img/logo.png" alt="Teufy" width="39" height="32"></a>
   <div class="barre-droite">
+    <a class="loupe" href="${agendaIci ? '' : accueil}#recherche" aria-label="${esc(t.rechercher)}"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M15.5 15.5 21 21" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></a>
     <details class="langues"><summary aria-label="${esc(t.langue)}">${lang.toUpperCase()}</summary><div>${LANGUES.map((l) => `<a href="${base}${pre(l)}${chemin}" hreflang="${l}" lang="${l}"${l === lang ? ' aria-current="true"' : ''}>${esc(TXT[l].nom)}</a>`).join('')}</div></details>
     <a class="bouton petit" href="https://www.instagram.com/${esc(handle)}/" target="_blank" rel="noopener">Instagram</a>
   </div>
 </header>
-<nav class="nav">${nav.map(([d, n]) => `<a href="${accueil}${d}"${d === chemin ? ' aria-current="page"' : ''}>${esc(n)}</a>`).join('')}</nav>
-<main>
+<nav class="nav" aria-label="Menu">${nav.map(([d, n]) => `<a href="${accueil}${d}"${d === chemin ? ' aria-current="page"' : ''}>${esc(n)}</a>`).join('')}</nav>
+<main id="contenu">
 ${corps}
 </main>
 <footer>
-  <p><strong>Teufy</strong> · ${esc(t.pied1)} · <a href="${accueil}a-propos/">${esc(t.qui)}</a> · <a href="https://www.instagram.com/${esc(handle)}/" target="_blank" rel="noopener">${esc(compte)}</a></p>
-  <p>${esc(t.pied2)} <a href="${accueil}soirees-nice/">${esc(t.villes.nice)}</a>, <a href="${accueil}soirees-cannes/">${esc(t.villes.cannes)}</a>, <a href="${accueil}soirees-monaco/">${esc(t.villes.monaco)}</a>, <a href="${accueil}soirees-antibes/">${esc(t.villes.antibes)}</a>, ${esc(t.pied2b)}</p>
-  <p>${esc(t.pied3)}</p>
-  <p class="langues-pied">${LANGUES.map((l) => `<a href="${base}${pre(l)}${chemin}" hreflang="${l}" lang="${l}">${esc(TXT[l].nom)}</a>`).join(' · ')}</p>
+  <div class="pied-colonnes">
+    <div><p class="pied-titre">${esc(t.villesL)}</p>${VILLES_SEO.map((v) => `<a href="${accueil}${v.slug}/">${esc(t.villes[v.cle])}</a>`).join('')}<a href="${accueil}festivals/">${esc(t.festivals)}</a></div>
+    <div><p class="pied-titre">${esc(t.stylesL)}</p>${PAGES_STYLES.map((k) => `<a href="${accueil}soirees-${k}/">${esc(nomStyle(k, t, lang))}</a>`).join('')}</div>
+    <div><p class="pied-titre">${esc(t.teufyL)}</p><a href="${accueil}a-propos/">${esc(t.qui)}</a><a href="${accueil}actus/">${esc(t.actus)}</a><a href="${accueil}partenaires/">${esc(t.partenaires)}</a><a href="${accueil}ambassadeurs/">${esc(t.ambassadeurs)}</a><a href="${accueil}bde/">${esc(t.bde)}</a><a href="https://www.instagram.com/${esc(handle)}/" target="_blank" rel="noopener">${esc(compte)}</a></div>
+    <div><p class="pied-titre">${esc(t.langue)}</p>${LANGUES.map((l) => `<a href="${base}${pre(l)}${chemin}" hreflang="${l}" lang="${l}">${esc(TXT[l].nom)}</a>`).join('')}</div>
+  </div>
+  <p><strong>Teufy</strong> · ${esc(t.pied1)}${maj ? ` · ${esc(maj)}` : ''}</p>
+  <p>${esc(t.pied3)} · <a href="${accueil}mentions-legales/">${esc(t.legal)}</a></p>
 </footer>
 <div class="flottant" hidden><button type="button" class="ouvrir-filtres"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M3 5h18M6 12h12M10 19h4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg><span>${esc(t.js.filtres)}</span><b class="compte"></b></button></div>
+<button type="button" class="haut" aria-label="${esc(t.haut)}" hidden><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M6 14l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+<p class="toast" role="status" hidden></p>
 <script type="application/json" id="teufy-t">${JSON.stringify(jsT).replace(/</g, '\\u003c')}</script>
 <script src="${base}site/app.js" defer></script>
 </body>
@@ -341,7 +473,7 @@ ${corps}
 `;
 }
 
-// Organisation + site (schema.org) : qui est Teufy, qui la dirige, où la suivre.
+// Organisation + site (schema.org) : qui est Teufy, qui la dirige, où la suivre, recherche interne.
 function ldOrganisation(T, compte, t, lang) {
   const handle = compte.replace(/^@/, '');
   return [{
@@ -349,7 +481,8 @@ function ldOrganisation(T, compte, t, lang) {
     description: t.orgDesc,
     founder: { '@type': 'Person', name: T.directeur, jobTitle: 'Directeur', ...(T.photo_directeur ? { image: URL_SITE + T.photo_directeur } : {}) },
     areaServed: ["Côte d'Azur", 'Nice', 'Cannes', 'Monaco', 'Antibes'], sameAs: [`https://www.instagram.com/${handle}/`],
-  }, { '@context': 'https://schema.org', '@type': 'WebSite', name: 'Teufy', url: `${URL_SITE}${pre(lang)}`, inLanguage: lang, publisher: { '@id': `${URL_SITE}#teufy` } }];
+  }, { '@context': 'https://schema.org', '@type': 'WebSite', name: 'Teufy', url: `${URL_SITE}${pre(lang)}`, inLanguage: lang, publisher: { '@id': `${URL_SITE}#teufy` },
+    potentialAction: { '@type': 'SearchAction', target: { '@type': 'EntryPoint', urlTemplate: `${URL_SITE}${pre(lang)}?q={search_term_string}` }, 'query-input': 'required name=search_term_string' } }];
 }
 
 // Bandeau qui défile sous le hero.
@@ -361,21 +494,23 @@ const ceSoir = (t) => `<section id="ce-soir" class="ce-soir" hidden>
   <div class="rangee"></div>
 </section>`;
 
-function agenda(soirees, { t, base, filtresVille = true }) {
+const champRecherche = (t, id = 'recherche') => `<div class="recherche" role="search"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M15.5 15.5 21 21" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg><input id="${id}" type="search" name="q" placeholder="${esc(t.placeholder)}" aria-label="${esc(t.rechercher)}" autocomplete="off" enterkeyhint="search"><button type="button" class="effacer" aria-label="${esc(t.effacer)}" hidden>×</button></div>`;
+
+function agenda(soirees, { t, base, lang, filtresVille = true, filtreStyle = true }) {
   const parJour = {};
   for (const s of soirees) (parJour[s.jour] ||= []).push(s);
-  const jours = Object.entries(parJour).map(([jour, l]) => {
-    const titre = paris(`${jour}T12:00:00Z`, { weekday: 'long', day: 'numeric', month: 'long' }, t.locale);
-    return `<section class="jour" data-jour="${jour}"><h2>${esc(titre.charAt(0).toUpperCase() + titre.slice(1))}</h2><div class="grille">${l.map((s) => carte(s, { t, base })).join('\n')}</div></section>`;
-  }).join('\n');
+  const jours = Object.entries(parJour).map(([jour, l]) => `<section class="jour" data-jour="${jour}"><h2>${esc(dateLongue(`${jour}T12:00:00Z`, t))}</h2><div class="grille">${l.map((s) => carte(s, { t, base, lang })).join('\n')}</div></section>`).join('\n');
   const groupe = (f, valeurs, libelles) => `<div class="groupe" data-filtre="${f}">${valeurs.map((v, i) => `<button type="button"${i ? '' : ' class="actif"'} data-v="${v}">${esc(libelles[i])}</button>`).join('')}</div>`;
+  const styles = STYLES_MUSIQUE.map((x) => x.cle).filter((k) => soirees.some((s) => s.styles.includes(k)));
   return `<section id="agenda" class="agenda">
   <div class="filtres-place"><div class="filtres" role="toolbar" aria-label="${esc(t.js.filtres)}">
     <div class="vues"><button type="button" class="actif" data-vue="liste">${esc(t.agenda)}</button><button type="button" data-vue="carte">${esc(t.carte)}</button><button type="button" class="fermer-filtres">${esc(t.js.fermer)}</button></div>
-    ${groupe('quand', ['tout', 'soir', 'weekend', 'semaine'], t.quand)}
+    ${champRecherche(t)}
+    ${groupe('quand', ['tout', 'soir', 'weekend', 'semaine', 'favoris'], [...t.quand, t.favoris])}
     ${filtresVille ? groupe('ville', ['tout', ...VILLES.map((v) => v.toLowerCase()), 'autres'], [t.partout, t.villes.nice, t.villes.cannes, t.villes.monaco, t.villes.antibesCourt, t.ailleurs]) : ''}
-    ${groupe('style', ['tout', 'techno', 'house', 'afro', 'rap', 'commercial'], t.sons)}
+    ${filtreStyle && styles.length > 1 ? groupe('style', ['tout', ...styles], [t.sons[0], ...styles.map((k) => nomStyle(k, t, lang))]) : ''}
     ${groupe('prix', ['tout', 'gratuit', '10'], t.prix)}
+    <p class="nb-res" aria-live="polite"></p>
   </div></div>
   <div id="carte" class="carte-soirees" hidden><div class="leaflet-zone"></div><p class="carte-vide" hidden>${esc(t.js.carteVide)}</p></div>
   <div class="liste">
@@ -420,83 +555,221 @@ function galerie({ t, base }) {
 </section>`;
 }
 
-// Fond du hero : la vidéo du port de Monaco (muette, en boucle) ou une photo de l'équipe.
+// Bloc « Tu fais vivre la nuit ? » : partenaires, ambassadeurs, BDE.
+const blocPros = ({ t, base, lang }) => `<section class="pros reveal">
+  <h2>${t.prosH2}</h2>
+  <div class="pros-cartes">${[['partenaires/', 'scene-dj'], ['ambassadeurs/', 'fourrure'], ['bde/', 'aperol']].map(([c, img], i) => `<a class="pro" href="${base}${pre(lang)}${c}" style="--i:${i}"><img src="${base}site/img/equipe/${img}.jpg" alt="" loading="lazy"><span><strong>${esc(t.pros[i][0])}</strong>${esc(t.pros[i][1])}<b>${esc(t.decouvrir)} →</b></span></a>`).join('')}</div>
+</section>`;
+
+const blocFaq = (titre, faq) => `<section class="qui faq reveal"><h2>${titre}</h2>${faq.map(([q, r]) => `<details><summary>${esc(q)}</summary><p>${esc(r)}</p></details>`).join('')}</section>`;
+const ldFaq = (faq) => ({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(([q, r]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: r } })) });
+
+// Fond du hero : la vidéo du port de Monaco (muette, en boucle) ou une photo.
 const fond = (base, photo, video, alt) => (video
   ? `<video class="hero-photo" autoplay muted loop playsinline preload="metadata" poster="${base}site/img/equipe/${photo}.jpg" aria-label="${esc(alt)}"><source src="${base}site/img/equipe/${photo}.mp4" type="video/mp4"></video>`
-  : `<img src="${base}site/img/equipe/${photo}.jpg" alt="${esc(alt)}" class="hero-photo">`);
+  : `<img src="${base}site/img/${PHOTOS.includes(photo) ? '' : 'equipe/'}${photo}.jpg" alt="${esc(alt)}" class="hero-photo" fetchpriority="high">`);
 
-function page({ lang, t, base, compte, T, soirees, posts, now }) {
+const heroCourt = ({ base, photo, video, alt, etiquette, h1, p, live = false }) => `<section class="hero court">
+  ${fond(base, photo, video, alt)}
+  <div class="hero-texte">
+    <p class="etiquette">${esc(etiquette)}</p>
+    <h1>${h1}</h1>
+    ${p ? `<p>${p}</p>` : ''}
+    ${live ? '<div class="hero-actions"><a class="pastille-live" href="#ce-soir" hidden><i class="point"></i><span></span></a></div>' : ''}
+  </div>
+</section>`;
+
+function page({ lang, t, base, compte, T, soirees, posts, now, maj }) {
   const handle = compte.replace(/^@/, '');
   const semaine = soirees.filter((s) => Date.parse(s.debut) < now.getTime() + 8 * 864e5);
   const vedette = [...semaine].filter((s) => s.affiche && (s.buzz ?? 0) >= 0.7).sort((a, b) => b.buzz - a.buzz)[0];
   const ctx = { lang, t, base, T };
+  const populaires = PAGES_STYLES.filter((k) => soirees.some((s) => s.styles.includes(k)));
+  const faq = t.faqHome;
   const corps = `<section class="hero">
   ${fond(base, 'monaco', true, t.heroAlt)}
   <div class="hero-texte">
     <p class="etiquette">${esc(t.heroEtiquette)}</p>
     <h1>${t.heroH1}</h1>
     <p>${esc(t.heroP(soirees.length))}</p>
-    <div class="hero-actions"><a class="bouton" href="#agenda">${esc(t.heroBouton)}</a><a class="bouton contour" href="#carte">${esc(t.heroCarte)}</a><a class="pastille-live" href="#ce-soir" hidden><i class="point"></i><span></span></a></div>
+    <form class="hero-recherche" action="" method="get" role="search">${champRecherche(t, 'recherche-hero').replace('<div class="recherche" role="search">', '<div class="recherche">')}<button class="bouton" type="submit">${esc(t.rechercher)}</button></form>
+    <p class="populaires">${esc(t.populaires)} ${populaires.map((k) => `<a href="${base}${pre(lang)}soirees-${k}/">${esc(nomStyle(k, t, lang))}</a>`).join('')}</p>
+    <div class="hero-actions"><a class="bouton contour" href="#carte">${esc(t.heroCarte)}</a><a class="pastille-live" href="#ce-soir" hidden><i class="point"></i><span></span></a></div>
   </div>
 </section>
 ${defile(t)}
 ${ceSoir(t)}
-${vedette ? `<section class="la-plus reveal"><p class="etiquette">${esc(t.laPlus)}</p>${carte(vedette, { t, base, vedette: true })}</section>` : ''}
-${agenda(soirees, { t, base })}
+${vedette ? `<section class="la-plus reveal"><p class="etiquette">${esc(t.laPlus)}</p>${carte(vedette, { t, base, lang, vedette: true })}</section>` : ''}
+${agenda(soirees, { t, base, lang })}
+${blocPros(ctx)}
 ${blocTeufy(ctx, soirees.length)}
 ${galerie(ctx)}
 ${blocPartenaires(ctx)}
+${blocFaq(t.faqH, faq)}
 ${posts.length ? `<section class="insta reveal"><h2>${esc(t.insta)}</h2><div class="posts">${posts.map((p) => `<a href="${esc(p.lien)}" target="_blank" rel="noopener"><img src="${base}${esc(p.image)}" alt="${esc(p.titre)}" loading="lazy"></a>`).join('')}</div><a class="bouton" href="https://www.instagram.com/${esc(handle)}/" target="_blank" rel="noopener">${esc(compte)}</a></section>` : ''}
-${blocOrga({ t, base, handle })}`;
-  return gabarit({ lang, t, titre: t.homeTitre, description: t.homeDesc(soirees.length), chemin: '', base, corps, ld: [...ldOrganisation(T, compte, t, lang), ...jsonld(soirees)], compte });
+${blocOrga({ t, base, handle, lang })}`;
+  return gabarit({ lang, t, titre: t.homeTitre, description: t.homeDesc(soirees.length), chemin: '', base, corps, ld: [...ldOrganisation(T, compte, t, lang), ldFaq(faq), ...jsonld(soirees, lang)], compte, maj, agendaIci: true });
 }
 
-function blocOrga({ t, base, handle }) {
+function blocOrga({ t, base, handle, lang }) {
   return `<section class="orga reveal">
   <img src="${base}site/img/equipe/scene-dj.jpg" alt="" class="hero-photo" loading="lazy">
   <div class="hero-texte">
     <p class="etiquette">${esc(t.orgaEtiquette)}</p>
     <h2>${t.orgaH2}</h2>
     <p>${esc(t.orgaP)}</p>
-    <a class="bouton" href="https://ig.me/m/${esc(handle)}" target="_blank" rel="noopener">${esc(t.orgaBouton)}</a>
+    <div class="hero-actions"><a class="bouton" href="https://ig.me/m/${esc(handle)}" target="_blank" rel="noopener">${esc(t.orgaBouton)}</a><a class="bouton contour" href="${base}${pre(lang)}partenaires/">${esc(t.partenaires)}</a></div>
   </div>
 </section>`;
 }
 
-function pageVille({ lang, t, base, compte, T, chemin, v, soirees, now }) {
+function pageVille({ lang, t, base, compte, T, chemin, v, soirees, now, maj }) {
   const ville = t.villes[v.cle];
   const n = soirees.filter((s) => s.jour === cle(now.toISOString())).length;
   const faq = t.faq(ville, n);
-  const corps = `<section class="hero court">
-  ${fond(base, v.photo, v.video, ville)}
-  <div class="hero-texte">
-    <p class="etiquette">${esc(t.villeEtiquette(ville))}</p>
-    <h1>${t.villeH1(esc(ville))}</h1>
-    <p>${esc(t.intro[v.cle])} ${esc(t.villeN(soirees.length))}</p>
-    <div class="hero-actions"><a class="pastille-live" href="#ce-soir" hidden><i class="point"></i><span></span></a></div>
-  </div>
-</section>
+  const corps = `${heroCourt({ base, photo: v.photo, video: v.video, alt: ville, etiquette: t.villeEtiquette(ville), h1: t.villeH1(esc(ville)), p: `${esc(t.intro[v.cle])} ${esc(t.villeN(soirees.length))}`, live: true })}
 ${ceSoir(t)}
-${agenda(soirees, { t, base, filtresVille: false })}
-<section class="qui faq reveal"><h2>${esc(t.faqH2(ville))}</h2>${faq.map(([q, r]) => `<details><summary>${esc(q)}</summary><p>${esc(r)}</p></details>`).join('')}</section>
-${blocOrga({ t, base, handle: compte.replace(/^@/, '') })}`;
-  return gabarit({ lang, t, titre: t.villeTitre(ville), description: t.villeDesc(ville, soirees.length), chemin, base, corps, compte,
-    ld: [...ldOrganisation(T, compte, t, lang), ...jsonld(soirees), { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(([q, r]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: r } })) }] });
+${agenda(soirees, { t, base, lang, filtresVille: false })}
+${blocFaq(esc(t.faqH2(ville)), faq)}
+${blocOrga({ t, base, handle: compte.replace(/^@/, ''), lang })}`;
+  return gabarit({ lang, t, titre: t.villeTitre(ville), description: t.villeDesc(ville, soirees.length), chemin, base, corps, compte, maj, agendaIci: true,
+    ld: [...ldOrganisation(T, compte, t, lang), ...jsonld(soirees, lang), ldFaq(faq), fil(lang, [['Teufy', ''], [ville, chemin]])] });
 }
 
-function aPropos({ lang, t, base, compte, T, chemin, nb }) {
+function pageStyle({ lang, t, tr, base, compte, T, chemin, cleStyle, soirees, maj }) {
+  const st = STYLES_MUSIQUE.find((x) => x.cle === cleStyle);
+  const nom = nomStyle(cleStyle, t, lang);
+  const corps = `${heroCourt({ base, photo: PHOTO_STYLE[cleStyle] || 'danse', alt: nom, etiquette: `${t.styleEtiquette} · ${nom}`, h1: t.styleH1(esc(nom)), p: `${esc(tr(st.intro))} ${esc(t.villeN(soirees.length))}`, live: true })}
+${ceSoir(t)}
+${agenda(soirees, { t, base, lang, filtreStyle: false })}
+<section class="qui reveal"><p class="liens-styles">${PAGES_STYLES.filter((k) => k !== cleStyle).map((k) => `<a class="puce" href="${base}${pre(lang)}soirees-${k}/">${esc(nomStyle(k, t, lang))}</a>`).join('')}</p></section>
+${blocOrga({ t, base, handle: compte.replace(/^@/, ''), lang })}`;
+  return gabarit({ lang, t, titre: t.styleTitre(nom), description: t.styleDesc(nom, soirees.length), chemin, base, corps, compte, maj, agendaIci: true,
+    ld: [...ldOrganisation(T, compte, t, lang), ...jsonld(soirees, lang), fil(lang, [['Teufy', ''], [nom, chemin]])] });
+}
+
+function pageSoiree({ lang, t, base, compte, T, chemin, s, soirees, maj }) {
+  const P = pre(lang);
+  const lieu = [s.lieu, s.adresse && s.adresse !== s.lieu ? s.adresse : '', s.ville].filter(Boolean).join(', ');
+  const meme = soirees.filter((x) => x.jour === s.jour && x.id !== s.id).slice(0, 6);
+  const style = soirees.filter((x) => x.id !== s.id && x.jour !== s.jour && x.styles.some((k) => s.styles.includes(k))).slice(0, 6);
+  const mini = (l, titre) => (l.length ? `<section class="similaires reveal"><h2>${titre}</h2><div class="grille">${l.map((x) => carte(x, { t, base, lang })).join('')}</div></section>` : '');
+  const offres = s.offres.length ? `<div class="offres"><p class="pied-titre">${esc(t.comparer)}</p>${s.offres.map((o, i) => `<a href="${esc(o.url)}" target="_blank" rel="noopener"><span>${esc(nomPlateforme(o.url))}</span><b>${esc(o.prix == null ? t.prixBillet : prixTexte(o.prix, t))}</b>${i === 0 && o.prix != null ? `<i>${esc(t.meilleurPrix)}</i>` : ''}</a>`).join('')}</div>` : '';
+  const img = s.affiche ? `<img src="${base}${s.affiche}" alt="${esc(t.affiche + s.nom)}"${s.dims ? ` width="${s.dims[0]}" height="${s.dims[1]}"` : ''} fetchpriority="high">` : `<img src="${base}site/img/${PHOTOS[parseInt(h(s.nom), 16) % PHOTOS.length]}.jpg" alt="">`;
+  const corps = `<article class="fiche carte-donnees" data-id="${s.id}" data-debut="${esc(s.debut)}">
+  <nav class="ariane"><a href="${base}${P}">Teufy</a> › <a href="${base}${P}#agenda">${esc(t.agenda)}</a> › <span>${esc(s.nom)}</span></nav>
+  <div class="fiche-grille">
+    <div class="fiche-affiche">${img}</div>
+    <div class="fiche-infos">
+      ${s.genres ? `<p class="genre">${esc(s.genres)}</p>` : ''}
+      <h1>${esc(s.nom)}</h1>
+      ${s.accroche ? `<p class="fiche-accroche">${esc(s.accroche)}</p>` : ''}
+      ${s.description && s.description !== s.accroche ? `<p>${esc(s.description)}</p>` : ''}
+      <dl>
+        <div><dt>${esc(t.quandL)}</dt><dd>${esc(dateLongue(s.debut, t))} · ${esc(heure(s.debut, t))}</dd></div>
+        <div><dt>${esc(t.ou)}</dt><dd>${esc(lieu)}</dd></div>
+        <div><dt>${esc(t.prixL)}</dt><dd>${esc(prixTexte(s.prix, t) || t.prixBillet)}</dd></div>
+      </dl>
+      <p class="fiche-actions">${boutonBillets(s, t)}
+        <a class="bouton contour sombre" href="${base}site/ics/${s.id}.ics" download>${esc(t.calendrier)}</a>
+        <a class="bouton contour sombre" href="https://www.google.com/maps/search/?api=1&amp;query=${encodeURIComponent(lieu)}" target="_blank" rel="noopener">${esc(t.itineraire)}</a>
+        <button type="button" class="bouton contour sombre partager">${esc(t.partager)}</button>
+        <button type="button" class="coeur grand" aria-label="${esc(t.ajouterFav)}" aria-pressed="false"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 21s-8-5.3-8-11a4.6 4.6 0 0 1 8-3 4.6 4.6 0 0 1 8 3c0 5.7-8 11-8 11z"/></svg></button>
+      </p>
+      ${offres}
+      ${s.instagram ? `<p class="orga-ig"><a class="lien" href="https://www.instagram.com/${esc(s.instagram)}/" target="_blank" rel="noopener">@${esc(s.instagram)}</a></p>` : ''}
+    </div>
+  </div>
+</article>
+${mini(meme, esc(t.memeSoir))}
+${mini(style, esc(t.memeStyle))}
+<p class="retour"><a class="bouton" href="${base}${P}#agenda">${esc(t.toutes)}</a></p>`;
+  return gabarit({ lang, t, titre: `${s.nom} · ${dateCourte(s.debut, t)} · ${s.lieu || s.ville} · Teufy`, description: `${s.nom}, ${dateLongue(s.debut, t)} ${heure(s.debut, t)}, ${lieu}. ${s.accroche || ''} ${prixTexte(s.prix, t)}`.trim().slice(0, 300), chemin, base, corps, compte, maj,
+    image: s.affiche || 'site/img/equipe/monaco.jpg', ld: [jsonEvent(s, lang), fil(lang, [['Teufy', ''], [t.agenda, ''], [s.nom, chemin]])] });
+}
+
+function pageFestivals({ lang, t, tr, base, compte, T, chemin, soirees, maj }) {
+  const recherche = (n) => `https://www.google.com/search?q=${encodeURIComponent(`${n} site officiel`)}`;
+  const corps = `${heroCourt({ base, photo: 'scene-dj', alt: t.festivals, etiquette: t.festivals, h1: t.festH1, p: esc(t.festP) })}
+<section class="bloc-large reveal"><h2>${t.festAgendaH2}</h2>${soirees.length ? `<div class="grille">${soirees.map((s) => carte(s, { t, base, lang })).join('')}</div>` : `<p class="vide">${esc(t.festAgendaVide)}</p>`}</section>
+<section class="bloc-large reveal"><h2>${t.festGuideH2}</h2><div class="cartes-texte">${FESTIVALS.map((f, i) => `<article class="carte-texte" style="--i:${i}"><p class="genre">${esc(tr(f.quand))} · ${esc(f.ville === 'Partout' ? tr(f.ville) : f.ville)}</p><h3>${esc(f.nom)}</h3><p class="petit">${esc(tr(f.style))}</p><p>${esc(tr(f.texte))}</p><a class="lien" href="${recherche(f.nom)}" target="_blank" rel="noopener">${esc(t.siteOfficiel)}</a></article>`).join('')}</div></section>
+<section class="bloc-large reveal"><h2>${t.festRdvH2}</h2><div class="cartes-texte">${RENDEZ_VOUS.map((f, i) => `<article class="carte-texte" style="--i:${i}"><p class="genre">${esc(tr(f.quand))}${f.ville ? ` · ${esc(f.ville)}` : ''}</p><h3>${esc(f.nom)}</h3><p>${esc(tr(f.texte))}</p></article>`).join('')}</div><p class="avert">${esc(t.festAvert)}</p></section>
+${blocOrga({ t, base, handle: compte.replace(/^@/, ''), lang })}`;
+  return gabarit({ lang, t, titre: t.festTitre, description: t.festDesc, chemin, base, corps, compte, maj, ld: [...ldOrganisation(T, compte, t, lang), ...jsonld(soirees, lang), fil(lang, [['Teufy', ''], [t.festivals, chemin]])] });
+}
+
+const dateActu = (a, t) => { const d = Date.parse(a.date); return isNaN(d) ? '' : paris(d, { day: 'numeric', month: 'long', year: 'numeric' }, t.locale); };
+function pageActus({ lang, t, tr, base, compte, T, chemin, actus, maj }) {
+  const corps = `${heroCourt({ base, photo: 'foule', alt: t.actus, etiquette: t.actus, h1: t.actusH1, p: esc(t.actusP) })}
+<section class="bloc-large reveal">${actus.length ? `<div class="actus">${actus.map((a, i) => `<a class="actu" href="${base}${pre(lang)}actus/${a.id}/" style="--i:${i % 6}"><p class="genre">${esc(dateActu(a, t))}${a.ville ? ` · ${esc(tr(a.ville))}` : ''}</p><h3>${esc(tr(a.titre))}</h3><p>${esc(tr(a.chapo))}</p><b>${esc(t.lire)} →</b></a>`).join('')}</div>` : `<p class="vide">${esc(t.actusVide)}</p>`}</section>`;
+  return gabarit({ lang, t, titre: t.actusTitre, description: t.actusDesc, chemin, base, corps, compte, maj, ld: [...ldOrganisation(T, compte, t, lang), fil(lang, [['Teufy', ''], [t.actus, chemin]])] });
+}
+function pageActu({ lang, t, tr, base, compte, chemin, a, actus, maj }) {
+  const autres = actus.filter((x) => x.id !== a.id).slice(0, 3);
+  const corps = `<article class="article">
+  <nav class="ariane"><a href="${base}${pre(lang)}">Teufy</a> › <a href="${base}${pre(lang)}actus/">${esc(t.actus)}</a></nav>
+  <p class="genre">${esc(t.publie.replace('{d}', dateActu(a, t)))}${a.ville ? ` · ${esc(tr(a.ville))}` : ''}</p>
+  <h1>${esc(tr(a.titre))}</h1>
+  <p class="chapo">${esc(tr(a.chapo))}</p>
+  ${a.paragraphes.map((p) => `<p>${esc(tr(p))}</p>`).join('\n  ')}
+  <p class="source">${esc(t.source)} : <a href="${esc(a.source)}" target="_blank" rel="noopener nofollow">${esc((() => { try { return new URL(a.source).hostname.replace(/^www\./, ''); } catch { return a.source; } })())}</a></p>
+</article>
+${autres.length ? `<section class="bloc-large reveal"><h2>${esc(t.autresActus)}</h2><div class="actus">${autres.map((x) => `<a class="actu" href="${base}${pre(lang)}actus/${x.id}/"><p class="genre">${esc(dateActu(x, t))}</p><h3>${esc(tr(x.titre))}</h3><b>${esc(t.lire)} →</b></a>`).join('')}</div></section>` : ''}`;
+  return gabarit({ lang, t, titre: `${tr(a.titre)} · Teufy`, description: tr(a.chapo), chemin, base, corps, compte, maj, image: /^https?:/.test(a.image || '') ? a.image : undefined,
+    ld: [{ '@context': 'https://schema.org', '@type': 'NewsArticle', headline: tr(a.titre).slice(0, 110), datePublished: a.date, dateModified: a.ajout || a.date, inLanguage: lang, description: tr(a.chapo), isBasedOn: a.source, publisher: { '@type': 'Organization', name: 'Teufy', logo: { '@type': 'ImageObject', url: `${URL_SITE}site/img/logo.png` } }, author: { '@type': 'Organization', name: 'Teufy', url: URL_SITE } }, fil(lang, [['Teufy', ''], [t.actus, 'actus/'], [tr(a.titre), chemin]])] });
+}
+
+// Pages « pros » : partenaires, ambassadeurs, BDE (texte français traduit par l'IA).
+const cartesTexte = (l, tr) => `<div class="cartes-texte">${l.map(([a, b], i) => `<article class="carte-texte" style="--i:${i}"><h3>${tr(a)}</h3><p>${tr(b)}</p></article>`).join('')}</div>`;
+const etapes = (l, tr) => `<ol class="etapes">${l.map(([a, b], i) => `<li style="--i:${i}"><b>${i + 1}</b><div><h3>${tr(a)}</h3><p>${tr(b)}</p></div></li>`).join('')}</ol>`;
+const ctaIg = (handle, texte, email) => `<p class="cta"><a class="bouton" href="https://ig.me/m/${esc(handle)}" target="_blank" rel="noopener">${esc(texte)}</a>${email ? `<a class="bouton contour" href="mailto:${esc(email)}">${esc(email)}</a>` : ''}</p>`;
+
+function pagePartenaire({ lang, t, tr, base, compte, T, chemin, maj }) {
+  const C = PARTENAIRE, handle = compte.replace(/^@/, '');
+  const faq = C.faq.map(([q, r]) => [tr(q), tr(r)]);
+  const corps = `${heroCourt({ base, photo: 'scene-dj', alt: t.partenaires, etiquette: tr(C.etiquette), h1: tr(C.h1), p: esc(tr(C.chapo)) })}
+<section class="bloc-large reveal">${ctaIg(handle, tr(C.cta), T.email)}<h2>${tr(C.pourquoiH2)}</h2>${cartesTexte(C.pourquoi, tr)}</section>
+<section class="bloc-large reveal"><h2>${tr(C.offreH2)}</h2>${cartesTexte(C.offre, tr)}</section>
+<section class="bloc-large reveal"><h2>${tr(C.pourQuiH2)}</h2><p class="liens-styles">${C.pourQui.map((x) => `<span class="puce">${esc(tr(x))}</span>`).join('')}</p></section>
+<section class="bloc-large reveal"><h2>${tr(C.etapesH2)}</h2>${etapes(C.etapes, tr)}${ctaIg(handle, tr(C.cta), T.email)}</section>
+${blocPartenaires({ t, T, base })}
+${blocFaq(t.faqH, faq)}`;
+  return gabarit({ lang, t, titre: tr(C.titre), description: tr(C.desc), chemin, base, corps, compte, maj, image: 'site/img/equipe/scene-dj.jpg', ld: [...ldOrganisation(T, compte, t, lang), ldFaq(faq), fil(lang, [['Teufy', ''], [t.partenaires, chemin]])] });
+}
+function pageAmbassadeur({ lang, t, tr, base, compte, T, chemin, maj }) {
+  const C = AMBASSADEUR, handle = compte.replace(/^@/, '');
+  const corps = `${heroCourt({ base, photo: 'fourrure', alt: t.ambassadeurs, etiquette: tr(C.etiquette), h1: tr(C.h1), p: esc(tr(C.chapo)) })}
+<section class="bloc-large reveal"><h2>${tr(C.roleH2)}</h2>${cartesTexte(C.role, tr)}</section>
+<section class="bloc-large reveal"><h2>${tr(C.avantagesH2)}</h2>${cartesTexte(C.avantages, tr)}</section>
+<section class="bloc-large reveal"><h2>${tr(C.profilH2)}</h2><ul class="coches">${C.profil.map((x) => `<li>${esc(tr(x))}</li>`).join('')}</ul></section>
+<section class="bloc-large reveal"><h2>${tr(C.candidatureH2)}</h2><p class="grand-texte">${esc(tr(C.candidature))}</p>${ctaIg(handle, tr(C.cta), T.email)}</section>
+${galerie({ t, base })}`;
+  return gabarit({ lang, t, titre: tr(C.titre), description: tr(C.desc), chemin, base, corps, compte, maj, image: 'site/img/equipe/fourrure.jpg', ld: [...ldOrganisation(T, compte, t, lang), fil(lang, [['Teufy', ''], [t.ambassadeurs, chemin]])] });
+}
+function pageBde({ lang, t, tr, base, compte, T, chemin, soirees, maj }) {
+  const C = BDE, handle = compte.replace(/^@/, '');
+  const corps = `${heroCourt({ base, photo: 'aperol', alt: t.bde, etiquette: tr(C.etiquette), h1: tr(C.h1), p: esc(tr(C.chapo)) })}
+<section class="bloc-large reveal"><h2>${tr(C.offreH2)}</h2>${cartesTexte(C.offre, tr)}</section>
+<section class="bloc-large reveal"><h2>${tr(C.etapesH2)}</h2>${etapes(C.etapes, tr)}${ctaIg(handle, tr(C.cta), T.email)}</section>
+${soirees.length ? `<section class="bloc-large reveal"><h2>${tr(C.soireesH2)}</h2><div class="grille">${soirees.map((s) => carte(s, { t, base, lang })).join('')}</div></section>` : ''}
+${blocPartenaires({ t, T, base })}`;
+  return gabarit({ lang, t, titre: tr(C.titre), description: tr(C.desc), chemin, base, corps, compte, maj, image: 'site/img/equipe/aperol.jpg', ld: [...ldOrganisation(T, compte, t, lang), ...jsonld(soirees, lang), fil(lang, [['Teufy', ''], [t.bde, chemin]])] });
+}
+function pageLegal({ lang, t, tr, base, compte, T, chemin, maj }) {
+  const C = LEGAL(T, compte);
+  const corps = `<article class="article">
+  <h1>${tr(C.h1)}</h1>
+  ${C.blocs.map(([titre, ps]) => `<h2>${esc(tr(titre))}</h2>${ps.map((p) => `<p>${esc(tr(p))}</p>`).join('')}`).join('\n  ')}
+</article>`;
+  return gabarit({ lang, t, titre: tr(C.titre), description: tr(C.blocs[0][1][0]), chemin, base, corps, compte, maj });
+}
+
+function aPropos({ lang, t, base, compte, T, chemin, nb, maj }) {
   const handle = compte.replace(/^@/, '');
   const initiales = T.directeur.split(/\s+/).map((x) => x[0]).join('').slice(0, 2).toUpperCase();
   const bio = lang === 'fr' && T.directeur_bio ? T.directeur_bio : t.bio;
   const ctx = { lang, t, base, T };
-  const corps = `<section class="hero court">
-  ${fond(base, 'fourrure', false, t.galAlt)}
-  <div class="hero-texte">
-    <p class="etiquette">${esc(t.apEtiquette)}</p>
-    <h1>${t.apH1}</h1>
-    <p>${esc(t.apP(T.nbPartenaires))}</p>
-  </div>
-</section>
+  const corps = `${heroCourt({ base, photo: 'fourrure', alt: t.galAlt, etiquette: t.apEtiquette, h1: t.apH1, p: esc(t.apP(T.nbPartenaires)) })}
 <section class="qui reveal">
   <h2>${t.missionH2}</h2>
   <p>${t.missionP1}</p>
@@ -504,7 +777,7 @@ function aPropos({ lang, t, base, compte, T, chemin, nb }) {
   ${chiffres(t, T, nb)}
 </section>
 <section class="qui directeur reveal">
-  <div class="portrait">${T.photo_directeur ? `<img src="${base}${esc(T.photo_directeur)}" alt="${esc(T.directeur)}" loading="lazy">` : `<span>${esc(initiales)}</span>`}</div>
+  <div class="portrait">${T.photo_directeur ? `<img src="${base}${esc(T.photo_directeur)}" alt="${esc(T.directeur)}" loading="lazy" width="900" height="1125">` : `<span>${esc(initiales)}</span>`}</div>
   <div>
     <p class="etiquette">${esc(t.dirEtiquette)}</p>
     <h2>${esc(T.directeur)}</h2>
@@ -517,7 +790,17 @@ ${galerie(ctx)}
   <p>${esc(t.equipeP1(T.nbPartenaires))}</p>
   <p>${esc(t.equipeP2)} <a class="lien" href="https://ig.me/m/${esc(handle)}" target="_blank" rel="noopener">${esc(t.equipeLien)}</a>.</p>
 </section>
+${blocPros(ctx)}
 ${blocPartenaires(ctx)}
-${blocOrga({ t, base, handle })}`;
-  return gabarit({ lang, t, titre: t.apTitre, description: t.apDesc(T.directeur, T.nbPartenaires), chemin, base, corps, compte, ld: ldOrganisation(T, compte, t, lang), image: 'site/img/equipe/junior-joyant.jpg' });
+${blocOrga({ t, base, handle, lang })}`;
+  return gabarit({ lang, t, titre: t.apTitre, description: t.apDesc(T.directeur, T.nbPartenaires), chemin, base, corps, compte, maj, ld: [...ldOrganisation(T, compte, t, lang), fil(lang, [['Teufy', ''], [t.qui, chemin]])], image: 'site/img/equipe/junior-joyant.jpg' });
+}
+
+// Page 404 (GitHub Pages la sert pour toute adresse inconnue : chemins absolus).
+function page404(t) {
+  const B = '/teufy-instagram/';
+  return `<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${esc(t.e404)} · Teufy</title><meta name="robots" content="noindex"><link rel="icon" href="${B}site/img/logo.png"><link rel="stylesheet" href="${B}site/style.css"></head>
+<body><main class="page-404"><a href="${B}"><img src="${B}site/img/logo.png" alt="Teufy" width="96" height="79"></a><h1>4<em>0</em>4</h1><p>${esc(t.e404p)}</p><p><a class="bouton" href="${B}#agenda">${esc(t.e404b)}</a></p>
+<p class="langues-pied">${LANGUES.map((l) => `<a href="${B}${pre(l)}" hreflang="${l}" lang="${l}">${esc(TXT[l].nom)}</a>`).join(' · ')}</p></main></body></html>
+`;
 }

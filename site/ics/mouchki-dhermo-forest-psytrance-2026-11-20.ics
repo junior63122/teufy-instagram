@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:mouchki-dhermo-forest-psytrance-2026-11-20@teufy
+DTSTAMP:20261108T220637Z
+DTSTART:20261120T200000Z
+DTEND:20261121T010000Z
+SUMMARY:Mouchki / Dhermo — Forest / Psytrance
+LOCATION:L'Antre Bar Electro\, Nice
+DESCRIPTION:Ambiance psychédélique et sonorités forest dans la cave de L'Antre avec Mouchki et Dhermo.\nBillets : https://shotgun.live/fr/venues/l-antre\nVia Teufy @teufy_official
+URL:https://shotgun.live/fr/venues/l-antre
+END:VEVENT
+END:VCALENDAR
