@@ -1,0 +1,199 @@
+{
+  "id": "bonplan-petits-prix",
+  "type": "bonplan",
+  "variante": "petits-prix",
+  "date": "2026-11-08",
+  "images": [
+    "carrousel-00.jpg",
+    "carrousel-01.jpg",
+    "carrousel-02.jpg",
+    "carrousel-03.jpg",
+    "carrousel-04.jpg",
+    "carrousel-05.jpg"
+  ],
+  "legende": "Bon plan : sortir sur la Côte sans se ruiner. Gratuit ou petit prix, du 8 au 18 novembre.\n\n→ Mar 10 · Rétro Party w/ Nivau (Années 2000) · Down Town Club, Nice · 23h00 · gratuit\n   Hits rétro des années 90 à 2010 avec entrée gratuite et happy hours pour la veille de férié. @downtown.nice\n→ Ven 13 · Rupture (Techno · Trance) · Le Calypso, Fréjus · 23h00 · 9 €\n   Gros kicks rave, trance et hardtek en front de mer au Calypso Fréjus Plage. @lecalypsofrejus\n→ Sam 14 · LQB Session #6 : Caravel (Hard techno · Trance) · Frigo 16 – Le 109, Nice · 20h00 · 7,49 €\n   La tornade hard techno Caravel prend les commandes du Frigo 16 à tarif ultra accessible. @panda_events @le109nice\n→ Sam 14 · La Tocardise (Techno · Trance) · Le Green Musik, Antibes · 23h00 · 9 €\n   Le collectif Les Tocards prend le contrôle du Green Musik pour une nuit trance et psytrance. @greenmusikclub @_lestocards_\n\nTag la personne qui dit toujours que c'est trop cher.\n\nAbonne-toi pour ne rien rater de ce qui se passe sur la Côte.\n\n#TeufyParty #nightlifecotedazur #antibes #sortir #weekend",
+  "soirees": [
+    {
+      "source": "web",
+      "source_site": "Instagram @downtown.nice",
+      "name": "Rétro Party w/ Nivau",
+      "start": "2026-11-10T22:00:00.000Z",
+      "venue": "Down Town Club",
+      "city": "Nice",
+      "address": "",
+      "url": "https://www.instagram.com/p/DfSd8sUjQyu/",
+      "image": "https://scontent-sjc6-1.cdninstagram.com/v/t51.82787-15/886810147_18053410106815469_1691285490903456219_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=107&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=R4mueHWE6UcQ7kNvwF_TE0c&_nc_oc=AdroOR8xXB7OiBrp08-ivKAEHhn7JoJ__07o2VJlGuQTeXvJK1QyaMk0CTFTbH3pu00&_nc_zt=23&_nc_ht=scontent-sjc6-1.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=9ONGhFYhJrv0bIrlpXDMXA&oh=00_AQSfbfhrWdbsCPW_V2OLDSKKqD9flbAtEFNpz4fTFF_X-Q&oe=6AF6476C",
+      "price": 0,
+      "tags": [
+        "Hits 90s",
+        "Hits 2000s",
+        "Hits 2010s"
+      ],
+      "description": "",
+      "public_cible": 0.88,
+      "confiance": 0.95,
+      "buzz": 0.6,
+      "buzz_raison": "Veille de jour férié avec entrée gratuite au Vieux-Nice.",
+      "accroche": "Hits rétro des années 90 à 2010 avec entrée gratuite et happy hours pour la veille de férié.",
+      "instagram": [
+        "downtown.nice"
+      ],
+      "enrichi": true,
+      "verifie": false
+    },
+    {
+      "source": "web",
+      "source_site": "Shotgun.live",
+      "name": "Rupture",
+      "start": "2026-11-13T22:00:00.000Z",
+      "venue": "Le Calypso",
+      "city": "Fréjus",
+      "address": "",
+      "url": "https://shotgun.live",
+      "image": "https://assets.shotgun.live/image/upload/production/artworks/Rupture_1920_x_1080_px_vvs35o.png",
+      "price": 9,
+      "tags": [
+        "Trance",
+        "Hardtek",
+        "Rave Techno"
+      ],
+      "description": "",
+      "public_cible": 0.91,
+      "confiance": 0.91,
+      "buzz": 0.65,
+      "buzz_raison": "Rave indoor à gros BPM en bord de plage.",
+      "accroche": "Gros kicks rave, trance et hardtek en front de mer au Calypso Fréjus Plage.",
+      "instagram": [
+        "lecalypsofrejus"
+      ],
+      "enrichi": true
+    },
+    {
+      "source": "web",
+      "source_site": "Shotgun.live",
+      "name": "LQB Session #6 : Caravel",
+      "start": "2026-11-14T19:00:00.000Z",
+      "venue": "Frigo 16 – Le 109",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live",
+      "image": "https://assets.shotgun.live/image/upload/production/artworks/FRIGO16-SAISON_sept-dec_2026-cover-3000x1000_qi4spw",
+      "price": 7.49,
+      "tags": [
+        "Hard Techno",
+        "Hard Bounce",
+        "Industrial Trance"
+      ],
+      "description": "",
+      "public_cible": 0.97,
+      "confiance": 0.95,
+      "buzz": 0.84,
+      "buzz_raison": "Tête d'affiche internationale hard techno proposée à moins de 8 euros.",
+      "accroche": "La tornade hard techno Caravel prend les commandes du Frigo 16 à tarif ultra accessible.",
+      "instagram": [
+        "panda_events",
+        "le109nice"
+      ],
+      "enrichi": true
+    },
+    {
+      "source": "web",
+      "source_site": "Shotgun.live",
+      "name": "La Tocardise",
+      "start": "2026-11-14T22:00:00.000Z",
+      "venue": "Le Green Musik",
+      "city": "Antibes",
+      "address": "",
+      "url": "https://shotgun.live",
+      "image": "https://assets.shotgun.live/image/upload/production/artworks/BANNIERE_1920_x_1080_px_i7ngne.png",
+      "price": 9,
+      "tags": [
+        "Techno",
+        "Progressive Psytrance",
+        "Hard Trance"
+      ],
+      "description": "",
+      "public_cible": 0.94,
+      "confiance": 0.92,
+      "buzz": 0.7,
+      "buzz_raison": "Collectif local très fédérateur sur la scène trance azuréenne.",
+      "accroche": "Le collectif Les Tocards prend le contrôle du Green Musik pour une nuit trance et psytrance.",
+      "instagram": [
+        "greenmusikclub",
+        "_lestocards_"
+      ],
+      "enrichi": true
+    }
+  ],
+  "tags": [
+    [],
+    [
+      "downtown.nice"
+    ],
+    [
+      "lecalypsofrejus"
+    ],
+    [
+      "panda_events",
+      "le109nice"
+    ],
+    [
+      "greenmusikclub",
+      "_lestocards_"
+    ]
+  ],
+  "collabs": [
+    "panda_events",
+    "greenmusikclub",
+    "lecalypsofrejus"
+  ],
+  "choix": {
+    "seuil-qualite": 0.6,
+    "suivre": "15xhszt",
+    "intro-petits-prix": "9c9w4w",
+    "fin-petits-prix": "1cprfgr",
+    "hashtags-local": [
+      "#nightlifecotedazur",
+      "#antibes"
+    ],
+    "hashtags-general": [
+      "#sortir",
+      "#weekend"
+    ]
+  },
+  "features": [
+    "genre:commercial",
+    "source:web",
+    "style:annees-2000",
+    "lieu:down-town-club",
+    "ville:nice",
+    "prix:gratuit",
+    "horaire:nuit",
+    "genre:techno",
+    "source:web",
+    "style:techno",
+    "style:trance",
+    "lieu:le-calypso",
+    "ville:frejus",
+    "prix:petit",
+    "horaire:nuit",
+    "genre:techno",
+    "source:web",
+    "style:hard-techno",
+    "style:trance",
+    "lieu:frigo-16-le-109",
+    "ville:nice",
+    "prix:petit",
+    "horaire:nuit",
+    "genre:techno",
+    "source:web",
+    "style:techno",
+    "style:trance",
+    "lieu:le-green-musik",
+    "ville:antibes",
+    "prix:petit",
+    "horaire:nuit"
+  ],
+  "nb_images": 6,
+  "story": "story.jpg"
+}
