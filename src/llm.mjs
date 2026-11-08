@@ -27,24 +27,31 @@ async function post(url, body, headers = {}) {
   return JSON.parse(txt);
 }
 
-// Modèle Gemini texte : celui de config.llm.modele_gemini s'il existe encore, sinon le meilleur « flash » disponible
-// pour cette clé (Google retire régulièrement d'anciens modèles aux nouveaux comptes).
-let geminiChoisi;
-async function modeleGemini(L = {}) {
-  if (geminiChoisi) return geminiChoisi;
-  const cle = process.env.GEMINI_API_KEY.trim();
-  try {
-    const r = await fetch(`${GEMINI}?pageSize=200&key=${cle}`, { signal: AbortSignal.timeout(20000) });
-    const noms = ((await r.json()).models || []).filter((m) => (m.supportedGenerationMethods || []).includes('generateContent')).map((m) => m.name.replace('models/', ''));
-    if (!noms.length) return (geminiChoisi = L.modele_gemini || 'gemini-2.5-flash');
-    if (L.modele_gemini && noms.includes(L.modele_gemini)) return (geminiChoisi = L.modele_gemini);
-    const texte = noms.filter((n) => /^gemini-[\d.]+-flash/.test(n) && !/image|tts|audio|live|lite|embedding|thinking-exp/.test(n));
-    const version = (n) => parseFloat(n.match(/^gemini-([\d.]+)/)[1]);
-    texte.sort((a, b) => version(b) - version(a) || (/preview|exp/.test(a) ? 1 : 0) - (/preview|exp/.test(b) ? 1 : 0) || a.length - b.length);
-    geminiChoisi = texte[0] || L.modele_gemini || 'gemini-2.5-flash';
-    if (geminiChoisi !== L.modele_gemini) console.error(`Gemini : modèle ${geminiChoisi}`);
-  } catch { geminiChoisi = L.modele_gemini || 'gemini-2.5-flash'; }
-  return geminiChoisi;
+// Modèles Gemini texte, du préféré au secours : celui de config.llm.modele_gemini, puis les « flash » les plus récents
+// disponibles pour cette clé (Google retire régulièrement d'anciens modèles aux nouveaux comptes : un 404 passe au suivant).
+let geminiListe;
+const geminiRetires = new Set();
+async function modelesGemini(L = {}) {
+  if (!geminiListe) {
+    let noms = [];
+    try {
+      const r = await fetch(`${GEMINI}?pageSize=200&key=${process.env.GEMINI_API_KEY.trim()}`, { signal: AbortSignal.timeout(20000) });
+      noms = ((await r.json()).models || []).filter((m) => (m.supportedGenerationMethods || []).includes('generateContent')).map((m) => m.name.replace('models/', ''));
+    } catch { /* liste indisponible : modèle de la config seulement */ }
+    const version = (n) => parseFloat(n.match(/^gemini-([\d.]+)/)?.[1] || 0);
+    const flash = noms.filter((n) => /^gemini-[\d.]+-(flash|pro)/.test(n) && !/image|tts|audio|live|lite|embedding|thinking-exp|computer/.test(n))
+      .sort((a, b) => (/-pro/.test(a) ? 1 : 0) - (/-pro/.test(b) ? 1 : 0) || version(b) - version(a) || (/preview|exp/.test(a) ? 1 : 0) - (/preview|exp/.test(b) ? 1 : 0) || a.length - b.length);
+    geminiListe = [...new Set([...(L.modele_gemini ? [L.modele_gemini] : []), ...flash, 'gemini-2.5-flash'])].slice(0, 6);
+  }
+  return geminiListe.filter((m) => !geminiRetires.has(m));
+}
+async function postGemini(L, body) {
+  let derniere;
+  for (const m of await modelesGemini(L)) {
+    try { return await post(`${GEMINI}/${m}:generateContent?key=${process.env.GEMINI_API_KEY.trim()}`, body); }
+    catch (err) { derniere = err; if (err.status !== 404) throw err; geminiRetires.add(m); console.error(`Gemini : ${m} indisponible, modèle suivant.`); }
+  }
+  throw derniere || new Error('aucun modèle Gemini');
 }
 
 const texteGemini = (j) => (j.candidates?.[0]?.content?.parts || []).map((p) => p.text || '').join('').trim();
@@ -56,7 +63,7 @@ export async function rechercher({ config, system, prompt, gratuit = false }) {
   for (const f of fournisseurs(config, { gratuit })) {
     try {
       if (f === 'gemini') {
-        const j = await post(`${GEMINI}/${await modeleGemini(L)}:generateContent?key=${process.env.GEMINI_API_KEY.trim()}`, {
+        const j = await postGemini(L, {
           systemInstruction: { parts: [{ text: system }] },
           contents: [{ role: 'user', parts: [{ text: prompt }] }],
           tools: [{ google_search: {} }],
@@ -80,11 +87,11 @@ export async function json({ config, system, prompt, schema, nom = 'reponse', gr
         const base = { systemInstruction: { parts: [{ text: system }] }, contents: [{ role: 'user', parts: [{ text: prompt }] }] };
         let j;
         try {
-          j = await post(`${GEMINI}/${await modeleGemini(L)}:generateContent?key=${process.env.GEMINI_API_KEY.trim()}`, { ...base, generationConfig: { responseMimeType: 'application/json', responseJsonSchema: schema } });
+          j = await postGemini(L, { ...base, generationConfig: { responseMimeType: 'application/json', responseJsonSchema: schema } });
         } catch (err) {
           if (err.status !== 400) throw err;
           // Ancien format : schéma dans la consigne, sortie JSON simple.
-          j = await post(`${GEMINI}/${await modeleGemini(L)}:generateContent?key=${process.env.GEMINI_API_KEY.trim()}`, { ...base, contents: [{ role: 'user', parts: [{ text: `${prompt}\n\nRéponds uniquement en JSON valide selon ce schéma :\n${JSON.stringify(schema)}` }] }], generationConfig: { responseMimeType: 'application/json' } });
+          j = await postGemini(L, { ...base, contents: [{ role: 'user', parts: [{ text: `${prompt}\n\nRéponds uniquement en JSON valide selon ce schéma :\n${JSON.stringify(schema)}` }] }], generationConfig: { responseMimeType: 'application/json' } });
         }
         return JSON.parse(texteGemini(j));
       }
