@@ -88,7 +88,7 @@ const MotGeant: React.FC<{g: Gros & {t0: number}; t: number; fps: number}> = ({g
   if (style === 'sticker') {
     return (
       <div style={{position: 'absolute', left: 60, right: 60, top: y, display: 'flex', justifyContent: 'center'}}>
-        <div style={{transform: `scale(${s}) rotate(-3deg)`, background: C.corail, color: C.nuit, fontFamily: T, fontWeight: 800, fontStretch: '80%', fontSize: 104, lineHeight: 0.95, padding: '18px 34px 22px', borderRadius: 12, textTransform: 'uppercase', textAlign: 'center', boxShadow: '0 20px 50px rgba(0,0,0,.45)', maxWidth: 940}}>{g.texte}</div>
+        <div style={{transform: `scale(${s}) rotate(-3deg)`, background: C.corail, color: C.nuit, fontFamily: T, fontWeight: 800, fontStretch: '80%', fontSize: 104, lineHeight: 0.95, padding: '18px 34px 22px', borderRadius: 12, textTransform: 'uppercase', textAlign: 'center', boxShadow: '0 20px 50px rgba(0,0,0,.45)', maxWidth: 940}}>{g.texte.split(/(\[[^\]]+\])/).map((x, i) => (x.startsWith('[') ? <span key={i} style={{color: C.creme}}>{x.slice(1, -1)}</span> : <React.Fragment key={i}>{x}</React.Fragment>))}</div>
       </div>
     );
   }

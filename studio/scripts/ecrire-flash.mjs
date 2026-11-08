@@ -95,7 +95,7 @@ Règles :
 - Chaque scène a au moins un temps fort visuel : un mot géant (gros) ou un objet. Il doit se passer quelque chose toutes les 1 à 2 secondes.
 - La 1re scène a un objet ou un mot géant visible dès la 1re image (objet.mot = « debut » pour un prix).
 - Phrases courtes, rythme rapide, tutoiement, ton complice. Pas d'alcool glorifié, pas de drogue, pas de marque citée sans raison.
-- Chiffres : vrais et vérifiables, ou présentés comme des exemples. Rien d'inventé sur une soirée ou un lieu réel.
+- Chiffres : vrais et vérifiables, ou présentés comme des exemples. Jamais de statistique, multiplicateur (« ×2 », « le double ») ou pourcentage inventé. Rien d'inventé sur une soirée ou un lieu réel.
 - La dernière scène est l'appel à l'action (s'abonner, commenter un mot-clé ou taguer un pote).
 - Tous les « mot », « mot_apres », « mots », « mot_son » sont des mots EXACTS de la réplique de leur scène.
 - Si le titre ou l'accroche annonce un nombre d'éléments (« 3 erreurs »), le reel en donne exactement ce nombre, numérotés.
@@ -111,7 +111,7 @@ Date : ${new Date().toISOString().slice(0, 10)}. Écris un reel selon le schéma
 const CRITIQUE = {type: 'object', additionalProperties: false, required: ['note', 'problemes'], properties: {
   note: {type: 'number', description: 'note sur 10'}, problemes: {type: 'array', items: {type: 'string'}, description: 'problèmes précis à corriger'}}};
 const relire = (script) => json({config, nom: 'relecture', gratuit: true, schema: CRITIQUE,
-  system: `Tu es rédacteur en chef exigeant des reels de Teufy (soirées Côte d'Azur, 17-30 ans). Note le script sur 10 : accroche (2 premières secondes), valeur apportée (on apprend ou on rit vraiment), rythme (un temps fort toutes les 1-2 s), exactitude (rien d'inventé, nombre d'éléments annoncé = nombre donné), ton (complice, inclusif, sans stéréotype de genre, d'origine ou d'apparence), cohérence rubrique/contenu, appel à l'action. Sois sévère : 7 = publiable.`,
+  system: `Tu es rédacteur en chef exigeant des reels de Teufy (soirées Côte d'Azur, 17-30 ans). Note le script sur 10 : accroche (2 premières secondes), valeur apportée (on apprend ou on rit vraiment), rythme (un temps fort toutes les 1-2 s), exactitude (nombre d'éléments annoncé = nombre donné ; TOUTE affirmation chiffrée ou présentée comme un fait — « ×2 », « le double », « 80 % », une règle générale — sans source ni mention d'exemple est une faute grave : note 5 maximum), ton (complice, inclusif, sans stéréotype de genre, d'origine ou d'apparence), cohérence rubrique/contenu, appel à l'action. Sois sévère : 7 = publiable.`,
   prompt: `Rubrique : ${rubrique}\nScript :\n${JSON.stringify({titre: script.titre, titre_couverture: script.titre_couverture, scenes: script.scenes.map((x) => ({texte: x.texte, gros: x.gros, objet: x.objet?.type})), legende: script.legende})}`});
 let r = process.env.ECRIRE_REPONSE ? lire(process.env.ECRIRE_REPONSE, {}) : await json({config, system, prompt, schema: SCHEMA, nom: 'reel_flash'});
 if (!process.env.ECRIRE_REPONSE && r?.scenes?.length) {
@@ -150,6 +150,7 @@ const plans = scenes.map((s, i) => {
   if (o.type === 'notif' && motDans(o.mot, s.texte)) objet = {type: 'notif', mot: motDans(o.mot, s.texte), titre: String(o.titre || 'Teufy').slice(0, 24), texte: String(o.texte || '').slice(0, 50)};
   // Les objets du milieu d'écran et un mot géant « chiffre » se gênent : on remonte le mot géant.
   if (objet && objet.type !== 'notif') gros.forEach((g) => { if (g.style !== 'chiffre') g.y = 250; else g.y = 300; });
+  if (objet?.type === 'notif') gros.forEach((g) => { g.y = 640; }); // la notification occupe le haut de l'écran
   return {photo: `decors/reel-${id}/s${i + 1}.jpg`, gros, ...(objet ? {objet} : {}), sombre: objet ? 0.4 : 0.15};
 });
 const vides = plans.filter((p) => !p.gros.length && !p.objet).length;
