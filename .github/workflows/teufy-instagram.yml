@@ -85,7 +85,7 @@ jobs:
           git add apprentissage.json RAPPORT.md ANALYSE.md tendances-auto.json contenus veille 2>/dev/null || true
           git diff --cached --quiet && exit 0
           git commit -m "Teufy Instagram : statistiques du $(date -u +%F)"
-          for i in 1 2 3; do git pull --rebase && git push && break; sleep 5; done
+          for i in 1 2 3; do git pull --rebase --autostash && git push && break; sleep 5; done
 
       - name: Quelle publication ?
         id: choix
@@ -133,7 +133,7 @@ jobs:
           git add studio/scripts/concepts studio/scripts/decors studio/public 2>/dev/null || true # reels écrits par l'IA + décors Gemini (jamais payés deux fois)
           git diff --cached --quiet && exit 0
           git commit -m "Teufy : soirées et reels préparés le $(date -u +%F)"
-          for i in 1 2 3; do git pull --rebase && git push && break; sleep 5; done
+          for i in 1 2 3; do git pull --rebase --autostash && git push && break; sleep 5; done
 
       - name: Garder l'aperçu dans le dépôt (pour le relire avant publication)
         if: steps.choix.outputs.publier != 'true' && steps.choix.outputs.rien != 'true' && steps.choix.outputs.quoi != 'mois'
@@ -144,7 +144,7 @@ jobs:
           git add apercus 2>/dev/null || true
           git diff --cached --quiet && exit 0
           git commit -m "Teufy : aperçu ${{ steps.choix.outputs.quoi }} du $(date -u +%F)"
-          for i in 1 2 3; do git pull --rebase && git push && break; sleep 5; done
+          for i in 1 2 3; do git pull --rebase --autostash && git push && break; sleep 5; done
 
       - name: Aperçu téléchargeable (visuels, vidéos, légendes, pages récupérées)
         if: always() && steps.choix.outputs.rien != 'true'
@@ -164,7 +164,7 @@ jobs:
           git add media evenements-web.json contenus/organisateurs.json 2>/dev/null || git add media
           git diff --cached --quiet && exit 0
           git commit -m "Teufy Instagram : médias ${{ steps.choix.outputs.quoi }} du $(date -u +%F)"
-          for i in 1 2 3; do git pull --rebase && git push && break; sleep 5; done
+          for i in 1 2 3; do git pull --rebase --autostash && git push && break; sleep 5; done
 
       - name: Publier sur Instagram
         if: steps.choix.outputs.publier == 'true' && steps.choix.outputs.rien != 'true'
@@ -178,4 +178,4 @@ jobs:
           git add historique.json 2>/dev/null || true
           git diff --cached --quiet && exit 0
           git commit -m "Teufy Instagram : publié (${{ steps.choix.outputs.quoi }})"
-          for i in 1 2 3; do git pull --rebase && git push && break; sleep 5; done
+          for i in 1 2 3; do git pull --rebase --autostash && git push && break; sleep 5; done

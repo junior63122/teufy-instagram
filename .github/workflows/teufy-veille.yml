@@ -64,7 +64,7 @@ jobs:
           git add contenus/veille-vus.json contenus/idees.json veille 2>/dev/null || true
           git diff --cached --quiet && exit 0
           git commit -m "Teufy : veille du $(date -u +'%F %Hh')"
-          for i in 1 2 3; do git pull --rebase && git push && break; sleep 5; done
+          for i in 1 2 3; do git pull --rebase --autostash && git push && break; sleep 5; done
 
       - name: Aperçu
         if: steps.veille.outputs.rien != 'true'
@@ -81,8 +81,8 @@ jobs:
           [ -f media/veille/publication.json ] || exit 0
           git add media/veille
           git commit -m "Teufy : post de veille du $(date -u +'%F %Hh')"
-          for i in 1 2 3; do git pull --rebase && git push && break; sleep 5; done
+          for i in 1 2 3; do git pull --rebase --autostash && git push && break; sleep 5; done
           node src/run.mjs veille publier
           git add historique.json 2>/dev/null || true
           git diff --cached --quiet || git commit -m "Teufy : post de veille publié"
-          for i in 1 2 3; do git pull --rebase && git push && break; sleep 5; done
+          for i in 1 2 3; do git pull --rebase --autostash && git push && break; sleep 5; done
