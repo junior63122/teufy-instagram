@@ -256,13 +256,13 @@
     }
   },
   "veille": {
-    "explication": "Veille toutes les 30 minutes de 8h à 23h (workflow teufy-veille.yml) : une info importante et vérifiée sur la nuit/l'événementiel est publiée en post unique dans l'heure (importance ≥ seuil, source officielle, publiée il y a moins de fenetre_heures, pas déjà traitée). Le reste va dans contenus/idees.json. Ces posts de dernière minute sont des posts BONUS : ils ne remplacent ni ne décalent les publications du calendrier.",
+    "explication": "Veille 24h/24, toutes les 30 min (déclencheur externe cron-job.org + GitHub en secours) : une info importante et vérifiée est publiée tout de suite entre 7h et 1h du matin (heure de Paris) ; entre 2h et 7h, elle est publiée à 7h (personne ne la verrait la nuit). Importance ≥ seuil, source officielle, publiée il y a moins de fenetre_heures, pas déjà traitée. Le reste va dans contenus/idees.json. Ces posts sont des BONUS : ils ne remplacent ni ne décalent les publications du calendrier.",
     "actif": true,
     "seuil": 80,
     "fenetre_heures": 36,
     "max_par_jour": 2,
-    "heure_min": 8,
-    "heure_max": 23
+    "heure_min": 7,
+    "heure_max": 1
   },
   "commentaires": {
     "actif": false,

@@ -113,7 +113,9 @@ Pour chaque point : titre, date et heure de publication, URL de la source la plu
 
   // 3. Décision.
   const publiesAujourdhui = Object.values(vus).filter((v) => v.publie && v.le?.startsWith(jour)).length;
-  const fenetreOk = heureParis >= (V.heure_min ?? 8) && heureParis <= (V.heure_max ?? 23);
+  // Fenêtre de publication (heure de Paris), qui peut passer minuit (ex. 7h → 1h).
+  const hMin = V.heure_min ?? 8, hMax = V.heure_max ?? 23;
+  const fenetreOk = hMin <= hMax ? heureParis >= hMin && heureParis <= hMax : heureParis >= hMin || heureParis <= hMax;
   const eligibles = sujets
     .filter((s) => s.importance >= (V.seuil ?? 80) && s.source_officielle && /^https?:\/\//.test(s.source_url) && frais(s) && s.format === 'post-annonce')
     .filter((s) => texteOk(s.post.titre, 70) && texteOk(s.post.legende, 2000) && (s.post.faits || []).length >= 2)
