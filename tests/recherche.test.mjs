@@ -8,6 +8,8 @@ const CACHE = new URL('../evenements-web.json', import.meta.url);
 
 test('recherche web : tri 17-30 ans, fiabilité, comptes Instagram', async () => {
   const sauvegarde = readFileSync(ORGAS, 'utf8');
+  const cacheAvant = existsSync(CACHE) ? readFileSync(CACHE) : null; // le vrai cache des soirées est remis après le test
+  if (existsSync(CACHE)) unlinkSync(CACHE);
   const ev = (name, extra) => ({ name, start: '2026-11-14T23:00:00+01:00', venue: 'High Club', city: 'Nice', price: 15, styles: ['afro house'], image: 'https://x/a.jpg', url: 'https://x/e', source_site: 'nice.fr', public_17_30: 0.9, confiance: 0.9, ...extra });
   const reponses = ['liste des soirées…', JSON.stringify({
     evenements: [ev('Afro Night'), ev('Opéra Carmen', { public_17_30: 0.1 }), ev('Rumeur', { confiance: 0.3 }), ev('Sans date', { start: 'bientôt' })],
@@ -26,5 +28,6 @@ test('recherche web : tri 17-30 ans, fiabilité, comptes Instagram', async () =>
   } finally {
     writeFileSync(ORGAS, sauvegarde);
     if (existsSync(CACHE)) unlinkSync(CACHE);
+    if (cacheAvant) writeFileSync(CACHE, cacheAvant);
   }
 });

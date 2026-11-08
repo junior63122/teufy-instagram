@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { existsSync, unlinkSync } from 'node:fs';
+import { existsSync, unlinkSync, readFileSync, writeFileSync } from 'node:fs';
 import { analyserComptes, scoreHashtag, rapportTendances } from '../src/tendances.mjs';
 import { hashtags, rng } from '../src/captions.mjs';
 import { chooser } from '../src/learn.mjs';
@@ -8,6 +8,8 @@ import { chooser } from '../src/learn.mjs';
 const AUTO = new URL('../tendances-auto.json', import.meta.url);
 
 test('veille : hashtags et formats des comptes suivis', async () => {
+  const avant = existsSync(AUTO) ? readFileSync(AUTO) : null; // le vrai fichier est remis après le test
+  if (existsSync(AUTO)) unlinkSync(AUTO);
   const media = (h) => Array.from({ length: 10 }, (_, i) => ({
     caption: i % 2 ? `Ce soir ça part 🔥 #nicenightlife #afrohouse #${h}` : `Programme #nice #${h}`,
     like_count: i % 2 ? 300 : 40, comments_count: i % 2 ? 30 : 2,
@@ -24,4 +26,5 @@ test('veille : hashtags et formats des comptes suivis', async () => {
   assert.equal(h[0], '#TeufyParty');
   assert.ok(h.length <= 5);
   if (existsSync(AUTO)) unlinkSync(AUTO);
+  if (avant) writeFileSync(AUTO, avant);
 });
