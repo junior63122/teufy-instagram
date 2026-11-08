@@ -53,6 +53,15 @@ async function publish(creationId, ig) {
   }
 }
 
+// Post en collaboration : jusqu'à 3 comptes invités (s'ils acceptent, le post apparaît aussi sur leur profil).
+// Si Instagram refuse l'invitation (compte inconnu, privé…), on publie sans.
+async function avecCollabs(params, collabs, ig) {
+  if (collabs?.length) {
+    try { return await call('POST', `${ig.user}/media`, { ...params, collaborators: JSON.stringify(collabs.slice(0, 3)) }, ig); } catch (err) { console.log(`Collaboration refusée (${collabs.join(', ')}) : ${err.message}`); }
+  }
+  return call('POST', `${ig.user}/media`, params, ig);
+}
+
 // Identifications (organisateurs, lieux) posées sur l'image ; si Instagram refuse un compte, on publie sans.
 const userTags = (handles = []) => JSON.stringify(handles.slice(0, 5).map((username, i, a) => ({ username, x: +((i + 1) / (a.length + 1)).toFixed(2), y: 0.55 })));
 async function conteneur(params, handles, ig) {
@@ -62,14 +71,14 @@ async function conteneur(params, handles, ig) {
   return call('POST', `${ig.user}/media`, params, ig);
 }
 
-export async function publishCarousel(imageUrls, caption, ig, { tags = [] } = {}) {
+export async function publishCarousel(imageUrls, caption, ig, { tags = [], collabs = [] } = {}) {
   const children = [];
   for (const [i, image_url] of imageUrls.slice(0, 10).entries()) {
     const { id } = await conteneur({ image_url, is_carousel_item: 'true' }, tags[i], ig);
     children.push(id);
   }
   for (const id of children) await waitReady(id, ig, { timeoutMs: 3 * 60e3 });
-  const { id } = await call('POST', `${ig.user}/media`, { media_type: 'CAROUSEL', children: children.join(','), caption }, ig);
+  const { id } = await avecCollabs({ media_type: 'CAROUSEL', children: children.join(','), caption }, collabs, ig);
   await waitReady(id, ig, { timeoutMs: 3 * 60e3 });
   return publish(id, ig);
 }

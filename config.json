@@ -271,5 +271,9 @@
   "stories": {
     "actif": true,
     "explication": "Chaque publication est relayée en story juste après : visuel 9:16 de la DA pour les posts photo, la vidéo elle-même pour les reels. L'API Instagram ne permet pas d'ajouter un sticker lien."
+  },
+  "collaborations": {
+    "actif": false,
+    "explication": "Posts en collaboration : sur les carrousels, invite jusqu'à 3 organisateurs des soirées les plus attendues comme co-auteurs (s'ils acceptent, le post apparaît aussi sur leur profil : beaucoup plus de portée). Désactivé tant que le propriétaire du compte ne l'a pas validé."
   }
 }

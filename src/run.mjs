@@ -448,10 +448,17 @@ async function prepare(slot, now, id) {
       ? [[...new Set(pub.soirees.flatMap((e) => e.instagram || []))].slice(0, 5)] // post unique : tous les comptes sur l'image
       : [[], ...pub.soirees.slice(0, 8).map((e) => e.instagram || [])];
   }
+  // Collaboration : les organisateurs des soirées les plus attendues du carrousel (comptes certains seulement).
+  if (pub.soirees?.length && pub.images?.length > 1) pub.collabs = [...new Set([...pub.soirees].sort((a, b) => (b.buzz ?? 0.5) - (a.buzz ?? 0.5)).map((e) => e.instagram?.[0]).filter(Boolean))].slice(0, 3);
   const out = { id, type: slot.type, variante: slot.variante || null, date: stamp, ...pub, choix: ch.choix,
     features: (pub.soirees || []).flatMap(eventFeatures), nb_images: pub.images?.length || 0 };
   if (out.images) out.images = out.images.map(rel);
   if (out.video) { out.video = rel(out.video); out.couverture = rel(out.couverture); if (out.video_instagram) out.video_instagram = rel(out.video_instagram); }
+  // Hashtags : 5 au maximum (règle Instagram), #TeufyParty en premier, sans doublon, regroupés en fin de légende.
+  if (out.legende) {
+    const tags = [...new Set(['#TeufyParty', ...(out.legende.match(/#[\p{L}\p{N}_]+/gu) || [])].map((h) => (h.toLowerCase() === '#teufyparty' ? '#TeufyParty' : h)))].slice(0, R.hashtags_max ?? 5);
+    out.legende = `${out.legende.replace(/(^|\s)#[\p{L}\p{N}_]+/gu, '').replace(/[ \t]+\n/g, '\n').replace(/\n{3,}/g, '\n\n').trim()}\n\n${tags.join(' ')}`;
+  }
   // Story qui relaie la publication (image : visuel 9:16 de la DA ; reel : la vidéo elle-même).
   if (out.images?.length) {
     try {
@@ -526,7 +533,7 @@ async function publishPrepared(id) {
       { essai: !!TENDANCES.reels_essai?.actif, audio: p.son?.audio_id ? { audio_id: p.son.audio_id } : null, videoSecours: url(p.video) })
     : p.images.length === 1
       ? await publishSingle(url(p.images[0]), p.legende, ig, { tags: p.tags })
-      : await publishCarousel(p.images.map(url), p.legende, ig, { tags: p.tags });
+      : await publishCarousel(p.images.map(url), p.legende, ig, { tags: p.tags, collabs: config.collaborations?.actif ? p.collabs : [] });
   const link = await permalink(res.id, ig);
   console.log(`[${id}] ✅ publié : ${link || res.id}`);
   // Relais en story (une erreur ici ne remet pas en cause la publication).

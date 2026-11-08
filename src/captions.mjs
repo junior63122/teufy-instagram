@@ -19,14 +19,20 @@ import { TENDANCES, tendancesAuto, scoreHashtag } from './tendances.mjs';
 // 5 hashtags maximum (règle Instagram depuis décembre 2025) : #TeufyParty + 2 locaux + 2 du style.
 // Le choix suit ce qui a marché sur le compte (apprentissage) et les tendances des autres comptes.
 const PERTINENT = /nice|cannes|monaco|antibes|azur|riviera|techno|house|club|night|soir|teuf|rave|party|afro|shatta|amapiano/i;
-export function hashtags(ch, genre = 'general') {
+export function hashtags(ch, genre = 'general', { events = [] } = {}) {
   const H = TENDANCES.hashtags_candidats;
   const max = TENDANCES.regles_instagram.hashtags_max;
   const tendance = Object.keys(tendancesAuto().hashtags || {}).filter((t) => PERTINENT.test(t) && t !== H.marque.toLowerCase());
   const local = [...new Set([...H.local, ...tendance.filter((t) => /nice|cannes|monaco|antibes|azur|riviera/.test(t))])];
   const style = [...new Set([...(H[genre] || H.general), ...tendance.filter((t) => !local.includes(t))])];
-  const l = ch.pickMany(`hashtags-local`, local, 2, scoreHashtag);
-  const g = ch.pickMany(`hashtags-${genre}`, style.filter((t) => !l.includes(t)), max - 3, scoreHashtag);
+  // Pertinence avant tout : hashtags locaux des villes des soirées montrées, et styles réellement à l'affiche.
+  const sl = (x) => String(x || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]/g, '');
+  const villes = [...new Set(events.map((e) => sl(e.city)).filter(Boolean))];
+  const styles = [...new Set(events.flatMap((e) => (e.tags || []).map(sl)).filter(Boolean))];
+  const localOk = villes.length ? local.filter((t) => villes.some((v) => t.includes(v.slice(0, 5))) || /cotedazur|frenchriviera|riviera|nightlifecotedazur/.test(t)) : local;
+  const styleOk = styles.length ? style.filter((t) => !/afro|shatta|amapiano|dancehall|afrobeat|house|techno|rave/.test(t) || styles.some((x) => t.includes(x.slice(0, 5)) || x.includes(t.slice(1, 6)))) : style;
+  const l = ch.pickMany(`hashtags-local`, localOk.length >= 2 ? localOk : local, 2, scoreHashtag);
+  const g = ch.pickMany(`hashtags-${genre}`, (styleOk.length >= max - 3 ? styleOk : style).filter((t) => !l.includes(t)), max - 3, scoreHashtag);
   return [H.marque, ...l, ...g].slice(0, max).join(' ');
 }
 
@@ -76,7 +82,12 @@ export function captionIncontournables({ variante, events, from, to, ch, r }) {
     ? ['Tu seras à laquelle ?', 'On se retrouve où ?', 'Laquelle t\'attire le plus ?']
     : ['Tu sors où cette semaine ?', 'Laquelle on fait ensemble ?', 'Ta préférée, c\'est laquelle ?']);
   const suivre = ch.pick('suivre', SUIVRE);
-  return clip(`${intro}\n\n${liste(events)}\n\n${question} ${suivre}\n\n${hashtags(ch, variante)}`);
+  // Mots-clés lisibles par la recherche Instagram (villes + période) et la soirée la plus attendue en premier.
+  const villes = [...new Set(events.map((e) => e.city).filter(Boolean))].slice(0, 4);
+  const motsCles = villes.length ? `📍 Soirées à ${villes.join(', ').replace(/, ([^,]*)$/, ' et $1')} ${techno ? '(techno) ' : ''}cette semaine` : '';
+  const star = [...events].filter((e) => typeof e.buzz === 'number' && e.buzz >= 0.7).sort((a, b) => b.buzz - a.buzz)[0];
+  const coeur = star ? `🔥 La plus attendue : ${star.name}${star.buzz_raison ? `, ${star.buzz_raison.replace(/\.$/, '').replace(/^\p{Lu}(?=\p{Ll})/u, (c) => c.toLowerCase())}` : ''}.` : '';
+  return clip(`${intro}\n${motsCles}\n\n${coeur ? `${coeur}\n\n` : ''}${liste(events)}\n\n${question} Enregistre le post pour ne pas oublier. ${suivre}\n\n${hashtags(ch, variante, { events })}`);
 }
 
 // --- Appel aux organisateurs (#TeufyParty) -----------------------------------
@@ -105,7 +116,7 @@ export function captionBonPlan({ variante, events, from, to, ch, r, manuel }) {
       `À réserver maintenant, pas le jour J. Les dates qu'on surveille pour les prochaines semaines.`,
     ]);
     const fin = ch.pick('fin-a-reserver', ['Envoie ça à ton groupe avant d\'oublier.', 'Enregistre le post, ça t\'évitera le « c\'est complet ».', 'Laquelle vous tente le plus ?']);
-    return clip(`${intro}\n\n${liste(events)}\n\n${fin}\n\nBillets sur les pages des soirées (Shotgun, DICE, organisateurs). ${suivre}\n\n${hashtags(ch)}`);
+    return clip(`${intro}\n\n${liste(events)}\n\n${fin}\n\nBillets sur les pages des soirées (Shotgun, DICE, organisateurs). ${suivre}\n\n${hashtags(ch, "general", { events })}`);
   }
   const intro = ch.pick('intro-petits-prix', [
     `Bon plan : sortir sur la Côte sans se ruiner. Gratuit ou petit prix, ${plage(from, to)}.`,
@@ -113,7 +124,7 @@ export function captionBonPlan({ variante, events, from, to, ch, r, manuel }) {
     `Qui a dit que sortir sur la Côte coûtait une fortune ? Petits prix et entrées gratuites 👇`,
   ]);
   const fin = ch.pick('fin-petits-prix', ['Partagez à votre pote toujours fauché.', 'Tag la personne qui dit toujours que c\'est trop cher.', 'Vous connaissez d\'autres bons plans ? Partagez en commentaire.']);
-  return clip(`${intro}\n\n${liste(events)}\n\n${fin}\n\n${suivre}\n\n${hashtags(ch)}`);
+  return clip(`${intro}\n\n${liste(events)}\n\n${fin}\n\n${suivre}\n\n${hashtags(ch, "general", { events })}`);
 }
 
 // --- Débat ------------------------------------------------------------------

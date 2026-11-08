@@ -28,7 +28,7 @@ const SCHEMA = {
       type: 'array',
       items: {
         type: 'object', additionalProperties: false,
-        required: ['name', 'start', 'venue', 'city', 'price', 'styles', 'image', 'url', 'source_site', 'public_17_30', 'confiance', 'accroche', 'instagram'],
+        required: ['name', 'start', 'venue', 'city', 'price', 'styles', 'image', 'url', 'source_site', 'public_17_30', 'confiance', 'accroche', 'instagram', 'buzz', 'buzz_raison'],
         properties: {
           name: { type: 'string', description: 'Nom exact de la soirée.' },
           start: { type: 'string', description: 'Date et heure de début, ISO 8601 avec fuseau (ex. 2026-11-14T23:00:00+01:00).' },
@@ -43,6 +43,8 @@ const SCHEMA = {
           confiance: { type: 'number', description: 'Fiabilité de l\'info (date, lieu), de 0 à 1. 0.9 et plus seulement si confirmé sur la page officielle ou la billetterie.' },
           accroche: { type: 'string', description: 'Une phrase courte (max 100 caractères) qui donne envie d\'y aller, uniquement à partir de faits vérifiés (line-up, lieu, concept, ambiance annoncée). Ton Teufy, sans tiret cadratin, sans exagération inventée.' },
           instagram: { type: 'array', items: { type: 'string' }, description: 'Comptes Instagram de l\'organisateur, du lieu ou des artistes de cette soirée, seulement s\'ils sont certains (sans @).' },
+          buzz: { type: 'number', description: 'Potentiel de buzz auprès des 17-30 ans, de 0 à 1 : notoriété de la tête d\'affiche ou du collectif, réputation du lieu, événement unique (festival, ouverture, closing, anniversaire, édition spéciale, première venue), risque de sold out, soir de week-end ou veille de férié, engagement du post de l\'organisateur (likes, commentaires rapportés aux abonnés). 0,5 = soirée ordinaire.' },
+          buzz_raison: { type: 'string', description: 'En quelques mots, pourquoi (faits vérifiés seulement).' },
         },
       },
     },
@@ -64,7 +66,7 @@ async function postsOrganisateurs({ ig, api, comptes, now, log }) {
       valides.push(handle);
       for (const m of bd.media?.data || []) {
         if ((now - new Date(m.timestamp)) / 86400e3 > 21 || !m.caption) continue;
-        out.push({ compte: handle, publie: m.timestamp.slice(0, 10), legende: m.caption.slice(0, 1200), affiche: m.media_type === 'VIDEO' ? '' : (m.media_url || ''), lien: m.permalink });
+        out.push({ compte: handle, abonnes: bd.followers_count, likes: m.like_count, commentaires: m.comments_count, publie: m.timestamp.slice(0, 10), legende: m.caption.slice(0, 1200), affiche: m.media_type === 'VIDEO' ? '' : (m.media_url || ''), lien: m.permalink });
       }
     } catch (err) { log(`  @${handle} : ${String(err.message).slice(0, 80)}`); }
   }
@@ -86,7 +88,7 @@ export async function rechercherSoirees({ config, now = new Date(), ig = null, a
   const web = await ia.rechercher({
     config,
     system: `Tu recenses les soirées de la Côte d'Azur pour le compte Instagram Teufy. Tu ne rapportes que des soirées réelles et vérifiées sur une page web, jamais inventées.\n${CIBLE}`,
-    prompt: `Trouve un maximum de soirées entre le ${jour} et le ${fin}. Vérifie chaque soirée sur sa page officielle ou sa billetterie (date, heure, lieu) : une info non confirmée doit être signalée comme telle. Note aussi ce qui donne envie d'y aller (line-up, concept, lieu) et les comptes Instagram de l'organisateur et du lieu. Ratisse large et croise les sources : agendas des villes (Nice, Cannes, Antibes, Monaco, Menton…) et offices de tourisme (dont cotedazurfrance.com), billetteries (shotgun.live, dice.fm, ra.co, weezevent, billetweb, eventbrite, helloasso, fever…), sites et pages des clubs et bars de nuit, collectifs et organisateurs, presse locale (Nice-Matin…), festivals, pages d'événements publiques. Pour chaque soirée : nom, date et heure, lieu, ville, prix minimum, styles musicaux, URL de l'affiche si tu la vois, URL de la page, site source. Liste aussi les comptes Instagram d'organisateurs, clubs et collectifs que tu croises. Termine par la liste complète, une soirée par ligne.`,
+    prompt: `Trouve un maximum de soirées entre le ${jour} et le ${fin}. Vérifie chaque soirée sur sa page officielle ou sa billetterie (date, heure, lieu) : une info non confirmée doit être signalée comme telle. Note aussi ce qui donne envie d'y aller et ce qui peut faire le buzz (tête d'affiche connue, collectif ou lieu réputé, festival, ouverture/closing, édition spéciale, sold out en vue) et les comptes Instagram de l'organisateur et du lieu. Ratisse large et croise les sources : agendas des villes (Nice, Cannes, Antibes, Monaco, Menton…) et offices de tourisme (dont cotedazurfrance.com), billetteries (shotgun.live, dice.fm, ra.co, weezevent, billetweb, eventbrite, helloasso, fever…), sites et pages des clubs et bars de nuit, collectifs et organisateurs, presse locale (Nice-Matin…), festivals, pages d'événements publiques. Pour chaque soirée : nom, date et heure, lieu, ville, prix minimum, styles musicaux, URL de l'affiche si tu la vois, URL de la page, site source. Liste aussi les comptes Instagram d'organisateurs, clubs et collectifs que tu croises. Termine par la liste complète, une soirée par ligne.`,
   });
   if (!web) log('Pas de recherche web possible (GEMINI_API_KEY absent ou quota atteint) : seulement Instagram et les billetteries.');
 
@@ -119,6 +121,7 @@ export async function rechercherSoirees({ config, now = new Date(), ig = null, a
       source: 'web', source_site: e.source_site, name: e.name.trim(), start: new Date(e.start).toISOString(), venue: e.venue, city: e.city,
       address: '', url: /^https?:\/\//.test(e.url) ? e.url : '', image: /^https?:\/\//.test(e.image) ? e.image : '',
       price: typeof e.price === 'number' ? e.price : null, tags: e.styles || [], description: '', public_cible: e.public_17_30, confiance: e.confiance,
+      buzz: typeof e.buzz === 'number' ? Math.max(0, Math.min(1, e.buzz)) : undefined, buzz_raison: e.buzz_raison || undefined,
       accroche: typeof e.accroche === 'string' && e.accroche.length <= 120 && !/—/.test(e.accroche) ? e.accroche.trim() : '',
       instagram: [...new Set((e.instagram || []).map((h) => String(h).replace(/^@/, '').trim().toLowerCase()).filter((h) => /^[a-z0-9._]{2,30}$/.test(h)))].slice(0, 3),
     }));
