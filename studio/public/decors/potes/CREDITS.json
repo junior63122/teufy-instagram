@@ -1,0 +1,19 @@
+{
+ "dancefloor": {
+  "modele": "gemini-3-pro-image-preview",
+  "le": "2026-11-08T10:14:01.324Z"
+ },
+ "dj": {
+  "modele": "gemini-3-pro-image-preview",
+  "le": "2026-11-08T10:14:14.327Z"
+ },
+ "kebab": {
+  "modele": "gemini-3-pro-image-preview",
+  "le": "2026-11-08T10:14:32.948Z"
+ },
+ "matin": {
+  "modele": "gemini-3-pro-image-preview",
+  "le": "2026-11-08T10:14:46.156Z"
+ },
+ "_note": "Images générées par Google Gemini (API) pour Teufy."
+}
