@@ -73,8 +73,8 @@ export const PotesFluide: React.FC<{spec: Spec}> = ({spec}) => {
       <div style={{position: 'absolute', left: -2400, top: -7000, width: 7600, height: 10000, background: fond}} />
       {/* décors illustrés (Gemini) : un par pote, fondus entre eux pour garder un seul plan continu */}
       {((spec.decors as string[] | undefined) || []).map((src, i) => (
-        <Img key={i} src={staticFile(src)} style={{position: 'absolute', left: xZone(i) - 1900, top: -1750, width: 3800, height: 2140, objectFit: 'cover',
-          WebkitMaskImage: 'linear-gradient(90deg, transparent 22%, #000 38%, #000 62%, transparent 78%)', maskImage: 'linear-gradient(90deg, transparent 22%, #000 38%, #000 62%, transparent 78%)'}} />
+        <Img key={i} src={staticFile(src)} style={{position: 'absolute', left: xZone(i) + 60 - 680, top: -1960, width: 1360, height: 2418, objectFit: 'cover',
+          WebkitMaskImage: 'linear-gradient(90deg, transparent 0%, #000 17%, #000 83%, transparent 100%)', maskImage: 'linear-gradient(90deg, transparent 0%, #000 17%, #000 83%, transparent 100%)'}} />
       ))}
       {spec.decors ? <div style={{position: 'absolute', left: -2400, top: -7000, width: 7600, height: 10000, background: 'rgba(10,8,20,.12)'}} /> : null}
       {/* trame de points */}
@@ -96,10 +96,10 @@ export const PotesFluide: React.FC<{spec: Spec}> = ({spec}) => {
         const nuit = p(t, ferme - 0.3, 0.8, E.inOut);
         return (
           <>
-            {/* fenêtre : la nuit devient l'aube */}
-            <div style={{position: 'absolute', left: x0 + 150, top: -1230, width: 360, height: 300, border: `9px solid ${K.noir}`, borderRadius: 16, overflow: 'hidden', background: `linear-gradient(${mix(0, 1, nuit) > 0.5 ? '#ffb86b' : '#0d1240'}, ${nuit > 0.5 ? '#ff7a59' : '#2a1a6b'})`}}>
+            {/* fenêtre : la nuit devient l'aube (seulement sans décor illustré, qui a déjà la sienne) */}
+            {spec.decors ? null : <div style={{position: 'absolute', left: x0 + 150, top: -1230, width: 360, height: 300, border: `9px solid ${K.noir}`, borderRadius: 16, overflow: 'hidden', background: `linear-gradient(${mix(0, 1, nuit) > 0.5 ? '#ffb86b' : '#0d1240'}, ${nuit > 0.5 ? '#ff7a59' : '#2a1a6b'})`}}>
               <div style={{position: 'absolute', left: 120, top: mix(-80, 150, nuit), width: 110, height: 110, borderRadius: '50%', background: nuit > 0.5 ? '#ffe27a' : '#f4f1ff', boxShadow: `0 0 40px ${nuit > 0.5 ? '#ffd23f' : '#ffffff'}`}} />
-            </div>
+            </div>}
             <div style={{position: 'absolute', left: x0 + 160, top: -880, transform: `rotate(4deg) scale(${sp(t, q('heure', 1) - 0.2, fps, SPR.pop)})`, transformOrigin: 'left top', background: K.creme, border: `8px solid ${K.noir}`, boxShadow: `10px 10px 0 ${K.noir}`, padding: '14px 26px', fontFamily: F.mono, fontWeight: 700, fontSize: 96, color: K.noir}}>
               {t < ferme ? '23:00' : `0${Math.min(6, Math.floor(mix(0, 6.99, p(t, ferme, 0.7, E.inOut))))}:${t < ferme + 0.7 ? String(Math.floor((t * 97) % 60)).padStart(2, '0') : '00'}`}
             </div>

@@ -610,5 +610,11 @@
   "volume": 0.28,
   "debut": 0,
   "ducking": 0.45
- }
+ },
+ "decors": [
+  "decors/potes/dancefloor.jpg",
+  "decors/potes/dj.jpg",
+  "decors/potes/kebab.jpg",
+  "decors/potes/matin.jpg"
+ ]
 }

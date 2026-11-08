@@ -105,5 +105,13 @@
   ],
   "type": "humour",
   "legende": "Dans chaque groupe, il y a ces quatre-là 😭\n\n01 · « je reste une heure » (il ferme la boîte)\n02 · celui qui demande SA musique au DJ\n03 · celui qui disparaît… au kebab\n04 · le « bien rentré ? » du groupe, le vrai MVP 👑\n\nTague ton numéro un 👇\n\n#TeufyParty #soirée #potes #humour #CoteDAzur",
-  "whooshEntreScenes": false
+  "whooshEntreScenes": false,
+  "extra": {
+    "decors": [
+      "decors/potes/dancefloor.jpg",
+      "decors/potes/dj.jpg",
+      "decors/potes/kebab.jpg",
+      "decors/potes/matin.jpg"
+    ]
+  }
 }
