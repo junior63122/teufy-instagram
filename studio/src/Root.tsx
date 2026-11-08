@@ -11,7 +11,7 @@ import {Paliers2} from './concepts/Paliers2';
 import {Marque} from './concepts/Marque';
 import {PotesFluide} from './concepts/PotesFluide';
 import {Histoire} from './concepts/Histoire';
-import {CarrouselFlash, Couverture, PostFlashDA} from './da/Posts';
+import {CarrouselFlash, Couverture, PostFlashDA, StoryRelais} from './da/Posts';
 import {Planche, Storyboard} from './da/Storyboard';
 
 
@@ -44,6 +44,7 @@ export const Root: React.FC = () => (
     <Still id="flash" component={((p: any) => <Polices><PostFlashDA f={p.f} photo={p.photo} /></Polices>) as React.FC<any>} width={1080} height={1350} defaultProps={{f: {type: 'annonce', surtitre: "C'EST OFFICIEL", titre: 'Titre', sous_titre: '', faits: [], source: '', date: ''}}} />
     <Still id="carrousel-flash" component={((p: any) => <Polices><CarrouselFlash soirees={p.soirees ?? donnees.soirees} slide={p.slide} titre={p.titre ?? "5 soirées à ne pas [rater]"} sous={p.sous} photo={p.photo} photoFin={p.photoFin} rubrique={p.rubrique} question={p.question} /></Polices>) as React.FC<any>} width={1080} height={1350} defaultProps={{slide: 0}} />
     <Still id="couverture" component={((p: any) => <Polices><Couverture {...p} /></Polices>) as React.FC<any>} width={1080} height={1350} defaultProps={{rubrique: 'Débat', titre: 'Titre', photo: 'decors/da/danse.jpg'}} />
+    <Still id="story" component={((p: any) => <Polices><StoryRelais {...p} /></Polices>) as React.FC<any>} width={1080} height={1920} defaultProps={{image: 'decors/da/danse.jpg'}} />
     <Still id="storyboard" component={((p: any) => <Polices><Storyboard soirees={p.soirees ?? donnees.soirees} /></Polices>) as React.FC<any>} width={1080} height={2190} defaultProps={{}} />
     <Still id="planche" component={(() => <Polices><Planche /></Polices>) as React.FC<any>} width={1080} height={1600} defaultProps={{}} />
     <Still id="carrousel" component={((p: any) => <Polices><Carrousel soirees={p.soirees ?? donnees.soirees} slide={p.slide} titre={p.titre ?? ["5 soirées à pas rater", "avant noël"]} lieu={p.lieu ?? "FRIGO 16"} pied={p.pied} fond={p.fond} /></Polices>) as React.FC<any>} width={1080} height={1350} defaultProps={{slide: 0}} />

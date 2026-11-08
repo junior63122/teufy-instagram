@@ -176,3 +176,27 @@ export async function compteMedia(ig, limit = 60) {
   const j = await call('GET', `${ig.user}/media`, { fields: 'id,caption,media_type,media_product_type,timestamp,permalink', limit: String(limit) }, ig);
   return j.data || [];
 }
+
+// --- Stories et commentaires -----------------------------------------------------------------
+
+/** Publie une story (image ou vidéo 9:16). L'API ne permet pas d'ajouter un sticker lien. */
+export async function publishStory(url, ig, { video = false } = {}) {
+  const c = await call('POST', `${ig.user}/media`, { media_type: 'STORIES', ...(video ? { video_url: url } : { image_url: url }) }, ig);
+  await waitReady(c.id, ig);
+  return publish(c.id, ig);
+}
+
+/** Nom du compte (pour reconnaître nos propres réponses). */
+export async function monCompte(ig) {
+  return (await call('GET', ig.user, { fields: 'username' }, ig)).username;
+}
+
+/** Commentaires d'une publication, avec les réponses déjà faites (permission instagram_manage_comments). */
+export async function commentaires(mediaId, ig) {
+  const j = await call('GET', `${mediaId}/comments`, { fields: 'id,text,username,timestamp,like_count,replies{id,username,text}', limit: '50' }, ig);
+  return j.data || [];
+}
+
+export async function repondre(commentId, message, ig) {
+  return call('POST', `${commentId}/replies`, { message }, ig);
+}

@@ -18,7 +18,7 @@ import { collectEvents, filterEvents, enrich } from './sources.mjs';
 import { windowFor, rolling, isoLocal, plage, slotOfDay, daysOfMonth } from './dates.mjs';
 import { isTechno } from './genres.mjs';
 import { captionIncontournables, captionBonPlan, captionDebat, captionReel, captionOrgas, captionExplicatif, rng } from './captions.mjs';
-import { igConfig, publishCarousel, publishSingle, publishReel, permalink, insights, followers, businessDiscovery, compteMedia } from './instagram.mjs';
+import { igConfig, publishCarousel, publishSingle, publishReel, publishStory, permalink, insights, followers, businessDiscovery, compteMedia } from './instagram.mjs';
 import { TENDANCES, analyserComptes } from './tendances.mjs';
 import { buildModel, chooser, selectBest, eventFeatures, collect, hash } from './learn.mjs';
 import { theme } from './theme.mjs';
@@ -429,6 +429,20 @@ async function prepare(slot, now, id) {
     features: (pub.soirees || []).flatMap(eventFeatures), nb_images: pub.images?.length || 0 };
   if (out.images) out.images = out.images.map(rel);
   if (out.video) { out.video = rel(out.video); out.couverture = rel(out.couverture); if (out.video_instagram) out.video_instagram = rel(out.video_instagram); }
+  // Story qui relaie la publication (image : visuel 9:16 de la DA ; reel : la vidéo elle-même).
+  if (out.images?.length) {
+    try {
+      const STUDIO = path.join(ROOT, 'studio');
+      const src = path.join('evenements', 'auto', `story-${id}.jpg`);
+      await mkdir(path.join(STUDIO, 'public', 'evenements', 'auto'), { recursive: true });
+      await copyFile(path.join(dir, out.images[0]), path.join(STUDIO, 'public', src));
+      const texte = String(out.titre || pub.titre || '').replace(/[[\]]/g, '').trim();
+      const props = { image: src, rubrique: slot.type === 'veille' ? 'Info de dernière minute' : 'Nouveau post', ...(texte ? { texte: `${texte} : le post complet est sur le profil` } : {}) };
+      const B = '/opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell';
+      const rs = spawnSync(path.join(STUDIO, 'node_modules', '.bin', 'remotion'), ['still', 'src/index.ts', 'story', path.join(dir, 'story.jpg'), `--props=${JSON.stringify(props)}`, '--image-format=jpeg', '--jpeg-quality=92', '--log=error', ...(existsSync(B) ? [`--browser-executable=${B}`] : [])], { cwd: STUDIO, stdio: 'inherit' });
+      if (rs.status === 0) out.story = 'story.jpg'; else console.error(`[${id}] story non conforme : pas de story pour ce post.`);
+    } catch (err) { console.error(`[${id}] story impossible : ${err.message}`); }
+  } else if (out.video) out.story_video = out.video;
   await writeFile(path.join(dir, 'publication.json'), JSON.stringify(out, null, 2));
   await writeFile(path.join(dir, 'legende.txt'), out.legende + '\n');
   console.log(`\n[${id}] prêt dans media/${id}/\n${out.legende.split('\n').map((l) => '   ' + l).join('\n')}`);
@@ -475,7 +489,7 @@ async function publishPrepared(id) {
 
   let base = MEDIA_BASE;
   const url = (name) => `${base}/${id}/${name}`;
-  const urls = () => (p.video ? [url(p.video), url(p.couverture), ...(p.video_instagram ? [url(p.video_instagram)] : [])] : p.images.map(url));
+  const urls = () => (p.video ? [url(p.video), url(p.couverture), ...(p.video_instagram ? [url(p.video_instagram)] : [])] : [...p.images.map(url), ...(p.story ? [url(p.story)] : [])]);
   if (!(await waitOnline(urls(), 12 * 60e3))) {
     const fb = process.env.MEDIA_FALLBACK_URL;
     if (!fb) throw new Error(`Les fichiers ne sont pas en ligne sur ${MEDIA_BASE} après 12 min.`);
@@ -492,6 +506,13 @@ async function publishPrepared(id) {
       : await publishCarousel(p.images.map(url), p.legende, ig, { tags: p.tags });
   const link = await permalink(res.id, ig);
   console.log(`[${id}] ✅ publié : ${link || res.id}`);
+  // Relais en story (une erreur ici ne remet pas en cause la publication).
+  if ((p.story || p.story_video) && config.stories?.actif !== false) {
+    try {
+      const st = await publishStory(url(p.story || p.story_video), ig, { video: !p.story });
+      console.log(`[${id}] ✅ story publiée (${st.id})`);
+    } catch (err) { console.error(`[${id}] story impossible : ${err.message}`); }
+  }
   hist.push({ id, date: p.date, media: res.id, lien: link, debat: p.debat, bonplan: p.bonplan, sujet: p.sujet, son: p.son, concept: p.concept, le: new Date().toISOString(),
     publication: { id: p.id, type: p.type, variante: p.variante, date: p.date, choix: p.choix, features: p.features, nb_images: p.nb_images, duree: p.duree, legende: p.legende, titre: p.titre } });
   await writeFile(HIST_FILE, JSON.stringify(hist.slice(-300), null, 2));

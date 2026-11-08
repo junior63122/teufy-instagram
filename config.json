@@ -245,12 +245,20 @@
     "reels_en_pause": "nouveau format de reel en cours (retour du 8 novembre : voix sans émotion, rien ne se passe, contenu sans valeur) ; à retirer une fois le nouveau reel validé"
   },
   "veille": {
-    "explication": "Veille toutes les 30 minutes de 8h à 23h (workflow teufy-veille.yml) : une info importante et vérifiée sur la nuit/l'événementiel est publiée en post unique dans l'heure (importance ≥ seuil, source officielle, publiée il y a moins de fenetre_heures, pas déjà traitée). Le reste va dans contenus/idees.json.",
+    "explication": "Veille toutes les 30 minutes de 8h à 23h (workflow teufy-veille.yml) : une info importante et vérifiée sur la nuit/l'événementiel est publiée en post unique dans l'heure (importance ≥ seuil, source officielle, publiée il y a moins de fenetre_heures, pas déjà traitée). Le reste va dans contenus/idees.json. Ces posts de dernière minute sont des posts BONUS : ils ne remplacent ni ne décalent les publications du calendrier.",
     "actif": true,
     "seuil": 80,
     "fenetre_heures": 36,
     "max_par_jour": 2,
     "heure_min": 8,
     "heure_max": 23
+  },
+  "commentaires": {
+    "actif": true,
+    "explication": "Toutes les 30 min (workflow de veille) : réponse aux nouveaux commentaires des 14 derniers jours, dans le ton Teufy, uniquement avec les infos du post (src/commentaires.mjs). Spam et insultes ignorés. Suivi : contenus/commentaires.json."
+  },
+  "stories": {
+    "actif": true,
+    "explication": "Chaque publication est relayée en story juste après : visuel 9:16 de la DA pour les posts photo, la vidéo elle-même pour les reels. L'API Instagram ne permet pas d'ajouter un sticker lien."
   }
 }
