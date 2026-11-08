@@ -1,166 +1,187 @@
 {
-  "maj": "2026-11-01T00:00:00.000Z",
+  "maj": "2026-11-08T20:00:22.982Z",
   "du": "2026-11-08",
   "au": "2026-12-23",
-  "nb_bruts": 25,
+  "nb_bruts": 218,
   "evenements": [
     {
       "source": "web",
       "source_site": "Shotgun.live",
-      "name": "La Platurne invite Fenrick",
+      "name": "La Platurne Invite Fenrick @Frigo16",
       "start": "2026-11-10T19:00:00.000Z",
-      "venue": "Frigo 16 – Le 109",
+      "venue": "Frigo 16 (Le 109)",
       "city": "Nice",
       "address": "",
-      "url": "https://shotgun.live",
-      "image": "https://scontent-sjc6-1.cdninstagram.com/v/t51.82787-15/870221943_18128141330312991_2583893423234487232_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=107&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=IAylvu2uSsgQ7kNvwEt7i6f&_nc_oc=AdrIQEKAs0V3VK12j0qEh9c-ca1y-RSQXFPktfn0wCs4B6-AD6zMK5wubo5ZEQc0g2o&_nc_zt=23&_nc_ht=scontent-sjc6-1.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=-qI66RZBzylAXMnCb0EIXA&oh=00_AQQU8st_aeg8omFccWRWweGa8IuYM2Ops792f1MUi-vUNQ&oe=6AF64B03",
-      "price": 19.99,
+      "url": "https://shotgun.live/fr/events/la-platurne-invite-fenrick-frigo16",
+      "image": "https://assets.shotgun.live/image/upload/production/artworks/16-9_affiche_p2azlx.png",
+      "price": 10,
       "tags": [
         "Hard Groove",
+        "Fast House",
+        "UK Garage",
+        "Speed Garage",
+        "Trance",
         "Bounce",
-        "UK Garage"
+        "hard groove",
+        "uk garage",
+        "bounce",
+        "techno",
+        "Techno"
       ],
       "description": "",
-      "public_cible": 0.98,
+      "public_cible": 0.95,
       "confiance": 0.95,
       "buzz": 0.85,
-      "buzz_raison": "Première venue de Fenrick à Nice, veille de férié et fort engouement en billetterie.",
-      "accroche": "Fenrick débarque pour la première fois à Nice pour une veille de férié hard groove survoltée.",
+      "buzz_raison": "Headliner international Fenrick, format club intimiste en veille de jour férié.",
+      "accroche": "Fenrick débarque au Frigo 16 en veille de férié pour un set hard groove et fast house explosif.",
       "instagram": [
         "laplaturne",
-        "panda_events",
-        "le109nice"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "Instagram @downtown.nice",
-      "name": "Rétro Party w/ Nivau",
-      "start": "2026-11-10T22:00:00.000Z",
-      "venue": "Down Town Club",
-      "city": "Nice",
-      "address": "",
-      "url": "https://www.instagram.com/p/DfSd8sUjQyu/",
-      "image": "https://scontent-sjc6-1.cdninstagram.com/v/t51.82787-15/886810147_18053410106815469_1691285490903456219_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=107&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=R4mueHWE6UcQ7kNvwF_TE0c&_nc_oc=AdroOR8xXB7OiBrp08-ivKAEHhn7JoJ__07o2VJlGuQTeXvJK1QyaMk0CTFTbH3pu00&_nc_zt=23&_nc_ht=scontent-sjc6-1.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=9ONGhFYhJrv0bIrlpXDMXA&oh=00_AQSfbfhrWdbsCPW_V2OLDSKKqD9flbAtEFNpz4fTFF_X-Q&oe=6AF6476C",
-      "price": 0,
-      "tags": [
-        "Hits 90s",
-        "Hits 2000s",
-        "Hits 2010s"
+        "frigo.16",
+        "fenrickmusic"
       ],
-      "description": "",
-      "public_cible": 0.88,
-      "confiance": 0.95,
-      "buzz": 0.6,
-      "buzz_raison": "Veille de jour férié avec entrée gratuite au Vieux-Nice.",
-      "accroche": "Hits rétro des années 90 à 2010 avec entrée gratuite et happy hours pour la veille de férié.",
-      "instagram": [
-        "downtown.nice"
+      "sources_sites": [
+        "Shotgun.live",
+        "Shotgun / Panda Events",
+        "Shotgun.live / panda-events.com",
+        "shotgun.live",
+        "Shotgun"
       ]
     },
     {
       "source": "web",
       "source_site": "Shotgun.live",
-      "name": "Thursday Session w/ Alex Duff",
+      "name": "Blue Coast X Club Vivy X La Treille",
+      "start": "2026-11-10T16:00:00.000Z",
+      "venue": "Blue Coast Brewing Company",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/fr/events/blue-coast-x-club-vivy-x-la-treille",
+      "image": "https://assets.shotgun.live/image/upload/production/artworks/6BE0C3BB-82E5-4638-A518-BD871E5EDFD3_qvd8em.png",
+      "price": 12.99,
+      "tags": [
+        "House",
+        "Deep House",
+        "Electro House",
+        "Tech House"
+      ],
+      "description": "",
+      "public_cible": 0.9,
+      "confiance": 0.95,
+      "buzz": 0.7,
+      "buzz_raison": "Collaboration entre collectifs locaux réputés en veille de jour férié.",
+      "accroche": "Collab festive entre Club Vivy, La Treille et bière craft pour chiller et danser toute la soirée.",
+      "instagram": [
+        "clubvivy",
+        "la_treille_nice",
+        "bluecoastbrewing"
+      ],
+      "sources_sites": [
+        "Shotgun.live",
+        "Shotgun"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Shotgun.live",
+      "name": "Je Dis Techno (Tous Les Jeudis)",
+      "start": "2026-11-12T21:00:00.000Z",
+      "venue": "L'Antre Bar puis KOSMA Live Club",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/fr/events/je-dis-techno-tous-les-jeudis",
+      "image": "https://assets.shotgun.live/image/upload/production/artworks/C1528EF5-CC23-4298-B444-580FB91EE84D_sqrlrc.png",
+      "price": 5,
+      "tags": [
+        "Hard Techno",
+        "Hard Bounce",
+        "Acid Techno",
+        "Neorave"
+      ],
+      "description": "",
+      "public_cible": 0.9,
+      "confiance": 0.95,
+      "buzz": 0.7,
+      "buzz_raison": "Rendez-vous techno hebdomadaire réputé avec format before puis club.",
+      "accroche": "Before immersif dans le Vieux-Nice puis nuit hard techno et neorave jusqu'au matin au KOSMA.",
+      "instagram": [
+        "juditechno",
+        "lantretechno",
+        "kosma_club_nice"
+      ],
+      "sources_sites": [
+        "Shotgun.live",
+        "Shotgun"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Shotgun.live",
+      "name": "Thursday Session W/ Alex Duff",
       "start": "2026-11-12T22:59:00.000Z",
       "venue": "Glass Club Cannes",
       "city": "Cannes",
       "address": "",
-      "url": "https://shotgun.live",
-      "image": "https://assets.shotgun.live/image/upload/production/artworks/42_4_lyypwn.png",
+      "url": "https://shotgun.live/fr/events/thursday-session-w-alex-duff",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto/production/artworks/37_6_harhjz.png",
       "price": 9.99,
       "tags": [
         "Tech House",
         "Deep House",
-        "House"
+        "House",
+        "tech house",
+        "deep house",
+        "house"
       ],
       "description": "",
-      "public_cible": 0.9,
-      "confiance": 0.92,
-      "buzz": 0.55,
-      "buzz_raison": "Rendez-vous clubbing récurrent dans un club branché cannois.",
-      "accroche": "Session tech house intimiste au c ur du Carré d'Or avec une conso incluse avant 00h30.",
+      "public_cible": 0.85,
+      "confiance": 0.95,
+      "buzz": 0.6,
+      "buzz_raison": "Soirée clubbing du jeudi dans le Carré d'Or avec soundsystem VOID.",
+      "accroche": "Session tech house au Glass Club Cannes avec Alex Duff sur le soundsystem VOID Acoustics.",
       "instagram": [
-        "glassclubcannes"
+        "glassclubcannes",
+        "alexduff_music"
+      ],
+      "sources_sites": [
+        "Shotgun.live",
+        "Shotgun"
       ]
     },
     {
       "source": "web",
       "source_site": "Shotgun.live",
-      "name": "NŌR Nights · Oriental · Rhythms",
+      "name": "Nōr — Nights . Oriental . Rhythms",
       "start": "2026-11-13T18:30:00.000Z",
       "venue": "So Blue Hôtel Restaurant",
       "city": "Antibes",
       "address": "",
-      "url": "https://shotgun.live",
+      "url": "https://shotgun.live/fr/events/nor-nights-oriental-rhythms",
       "image": "https://assets.shotgun.live/image/upload/production/artworks/IMG_9835_egool7.jpg",
       "price": 15,
       "tags": [
-        "Afro House",
+        "Chaâbi",
         "Arabic House",
-        "Percussions live"
+        "Afro House",
+        "Mediterranean Beats",
+        "chaâbi",
+        "arabic house",
+        "afro house",
+        "Chaâbi Club"
       ],
       "description": "",
-      "public_cible": 0.82,
-      "confiance": 0.9,
-      "buzz": 0.55,
-      "buzz_raison": "Concept original mêlant musique live et house music.",
-      "accroche": "Fusion percutante entre afro house et sonorités orientales avec musiciens live à Antibes.",
-      "instagram": [
-        "sobluehotel"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "Shotgun.live",
-      "name": "Søund Køld",
-      "start": "2026-11-13T20:00:00.000Z",
-      "venue": "L'Antre Bar Electro",
-      "city": "Nice",
-      "address": "",
-      "url": "https://shotgun.live",
-      "image": "https://assets.shotgun.live/image/upload/production/artworks/IMG_2013_d5xouz.jpg",
-      "price": 5.99,
-      "tags": [
-        "Hard Groove",
-        "Bounce",
-        "Techno"
-      ],
-      "description": "",
-      "public_cible": 0.93,
-      "confiance": 0.92,
-      "buzz": 0.58,
-      "buzz_raison": "Spot underground prisé des amateurs de techno locale.",
-      "accroche": "Immersion hard groove et bounce techno brute dans le repaire électronique du Vieux-Nice.",
-      "instagram": [
-        "lantre_bar_electro"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "Shotgun.live",
-      "name": "Jetlag Gang + Guest",
-      "start": "2026-11-13T22:30:00.000Z",
-      "venue": "Frigo 16 – Le 109",
-      "city": "Nice",
-      "address": "",
-      "url": "https://shotgun.live",
-      "image": "https://assets.shotgun.live/image/upload/production/artworks/FRIGO16-SAISON_sept-dec_2026-cover-3000x1000_qi4spw",
-      "price": 17.49,
-      "tags": [
-        "Reggaeton",
-        "Perreo",
-        "Dembow"
-      ],
-      "description": "",
-      "public_cible": 0.97,
+      "public_cible": 0.8,
       "confiance": 0.95,
-      "buzz": 0.82,
-      "buzz_raison": "Collectif perreo ultra populaire auprès des étudiants et jeunes de la région.",
-      "accroche": "La furie Jetlag Gang transforme le Frigo 16 en énorme arène perreo et reggaeton.",
+      "buzz": 0.7,
+      "buzz_raison": "Concept original mêlant percussions live et house orientale.",
+      "accroche": "Fusion percussions live et clubbing chic oriental et afro house face à la mer à Antibes.",
       "instagram": [
-        "panda_events",
-        "le109nice"
+        "alexiahobi",
+        "soblue_hotel_restaurant",
+        "maisonalexia"
+      ],
+      "sources_sites": [
+        "Shotgun.live",
+        "Shotgun"
       ]
     },
     {
@@ -168,129 +189,145 @@
       "source_site": "Shotgun.live",
       "name": "Rupture",
       "start": "2026-11-13T22:00:00.000Z",
-      "venue": "Le Calypso",
+      "venue": "Le Calypso - Fréjus Plage",
       "city": "Fréjus",
       "address": "",
-      "url": "https://shotgun.live",
+      "url": "https://shotgun.live/fr/events/rupture-frejus",
       "image": "https://assets.shotgun.live/image/upload/production/artworks/Rupture_1920_x_1080_px_vvs35o.png",
       "price": 9,
       "tags": [
-        "Trance",
+        "Techno",
         "Hardtek",
-        "Rave Techno"
+        "Trance",
+        "Hard Bounce",
+        "Hardcore"
       ],
       "description": "",
-      "public_cible": 0.91,
-      "confiance": 0.91,
-      "buzz": 0.65,
-      "buzz_raison": "Rave indoor à gros BPM en bord de plage.",
-      "accroche": "Gros kicks rave, trance et hardtek en front de mer au Calypso Fréjus Plage.",
+      "public_cible": 0.95,
+      "confiance": 0.95,
+      "buzz": 0.7,
+      "buzz_raison": "Soirée hardtek/techno de 6h avec plateau de DJs émergents de Bordeaux et du Sud.",
+      "accroche": "6h non-stop de kicks puissants techno et hardtek sur la plage de Fréjus.",
       "instagram": [
-        "lecalypsofrejus"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "Instagram @lanonchalance",
-      "name": "La Nonchalance w/ MALIVE",
-      "start": "2026-11-13T22:59:00.000Z",
-      "venue": "Twiga Monte Carlo",
-      "city": "Monaco",
-      "address": "",
-      "url": "https://www.instagram.com/lanonchalance/",
-      "image": "https://scontent-sjc6-1.cdninstagram.com/v/t51.82787-15/882487887_18649521727041727_3665433883267723839_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=107&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=h1VINhAZ8DIQ7kNvwHfht-s&_nc_oc=Adqr7MVZ-CWVS2xSQ6kNugtI6rJWyM5ph8x9XpAbNWfIJI4ozn5xq-FIk0C0IImVU9M&_nc_zt=23&_nc_ht=scontent-sjc6-1.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=5D1uvqw9gVjD-Vja0DUvJA&oh=00_AQRpSr-j-_E0cJUC9UQcvU-FzdS2Qk3NkdT0zZiiZPkWIQ&oe=6AF67271",
-      "price": null,
-      "tags": [
-        "Afro House",
-        "Melodic House"
+        "par4tek.events",
+        "lecalypso_frejus",
+        "par4tek_events"
       ],
-      "description": "",
-      "public_cible": 0.89,
-      "confiance": 0.9,
-      "buzz": 0.82,
-      "buzz_raison": "Producteur en pleine hype mondiale dans une soirée très réputée de la Riviera.",
-      "accroche": "MALIVE, auteur du hit Edge of Desire joué par Keinemusik, invité par La Nonchalance au Twiga.",
-      "instagram": [
-        "lanonchalance"
+      "sources_sites": [
+        "Shotgun.live",
+        "Shotgun"
       ]
     },
     {
       "source": "web",
       "source_site": "Shotgun.live",
-      "name": "Club Bizarre w/ Sensoria",
+      "name": "Friday Connection — Chris.A B2b Ugo Puccinelli",
+      "start": "2026-11-13T22:59:00.000Z",
+      "venue": "Glass Club Cannes",
+      "city": "Cannes",
+      "address": "",
+      "url": "https://shotgun.live/fr/events/friday-connection-chris-a-b2b-ugo-puccinelli",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto/production/artworks/37_6_harhjz.png",
+      "price": 9.99,
+      "tags": [
+        "House",
+        "Indie Dance",
+        "Deep House",
+        "house",
+        "indie dance",
+        "deep house"
+      ],
+      "description": "",
+      "public_cible": 0.85,
+      "confiance": 0.95,
+      "buzz": 0.6,
+      "buzz_raison": "B2B exclusif du vendredi soir dans le Carré d'Or cannois.",
+      "accroche": "B2B exclusif Chris.A et Ugo Puccinelli au Glass Club Cannes pour une nuit house et indie dance.",
+      "instagram": [
+        "glassclubcannes",
+        "ugo_puccinelli"
+      ],
+      "sources_sites": [
+        "Shotgun.live",
+        "Shotgun"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Shotgun.live",
+      "name": "Lqb Session #6 : Caravel @ Frigo 16",
+      "start": "2026-11-14T19:00:00.000Z",
+      "venue": "Frigo 16 (Le 109)",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/fr/events/lqb-session-6-caravel-frigo-16",
+      "image": "https://assets.shotgun.live/image/upload/production/artworks/LQB-261114_caravel_cover_neialw",
+      "price": 7.49,
+      "tags": [
+        "Techno",
+        "Hard Bounce",
+        "Trance",
+        "Hard Techno",
+        "Schranz",
+        "Acid",
+        "Psytrance",
+        "techno",
+        "hard bounce",
+        "trance",
+        "hard techno"
+      ],
+      "description": "",
+      "public_cible": 0.95,
+      "confiance": 0.95,
+      "buzz": 0.85,
+      "buzz_raison": "Présence de Caravel, artiste majeure de la scène hard techno européenne, tarif très accessible.",
+      "accroche": "La reine de la hard techno Caravel débarque à Nice pour une session LQB survoltée au Frigo 16.",
+      "instagram": [
+        "lqb_collectif",
+        "pandaevents06",
+        "frigo.16"
+      ],
+      "sources_sites": [
+        "Shotgun.live",
+        "Weezevent / Shotgun",
+        "Shotgun.live / panda-events.com",
+        "shotgun.live",
+        "Shotgun",
+        "Shotgun / Panda Events"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Shotgun.live",
+      "name": "Club Bizarre W/ Sensoria - At Blue Coast (November Session)",
       "start": "2026-11-14T18:00:00.000Z",
       "venue": "Blue Coast Brewing Company",
       "city": "Nice",
       "address": "",
-      "url": "https://shotgun.live",
-      "image": "https://assets.shotgun.live/image/upload/production/artworks/v9_1920x1080_lerpdj.png",
+      "url": "https://shotgun.live/fr/events/club-bizarre-w-sensoria-at-blue-coast-november-session",
+      "image": "https://assets.shotgun.live/image/upload/production/artworks/CLUB_BIZARRE_Banni%C3%A8re_Shotgun_bl0vwh.png",
       "price": 5.99,
       "tags": [
         "Deep Tech",
         "Deep Techno",
-        "Minimal"
+        "Tech House",
+        "Indie Tech",
+        "Clubbing"
       ],
       "description": "",
-      "public_cible": 0.92,
-      "confiance": 0.93,
-      "buzz": 0.65,
-      "buzz_raison": "Lieu alternatif atypique format hangar très coté auprès des jeunes niçois.",
-      "accroche": "Session warehouse industrielle et deep tech dans les cuves de la brasserie Blue Coast.",
-      "instagram": [
-        "bluecoastbrewing"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "Shotgun.live",
-      "name": "LQB Session #6 : Caravel",
-      "start": "2026-11-14T19:00:00.000Z",
-      "venue": "Frigo 16 – Le 109",
-      "city": "Nice",
-      "address": "",
-      "url": "https://shotgun.live",
-      "image": "https://assets.shotgun.live/image/upload/production/artworks/FRIGO16-SAISON_sept-dec_2026-cover-3000x1000_qi4spw",
-      "price": 7.49,
-      "tags": [
-        "Hard Techno",
-        "Hard Bounce",
-        "Industrial Trance"
-      ],
-      "description": "",
-      "public_cible": 0.97,
+      "public_cible": 0.85,
       "confiance": 0.95,
-      "buzz": 0.84,
-      "buzz_raison": "Tête d'affiche internationale hard techno proposée à moins de 8 euros.",
-      "accroche": "La tornade hard techno Caravel prend les commandes du Frigo 16 à tarif ultra accessible.",
+      "buzz": 0.65,
+      "buzz_raison": "Session mensuelle Club Bizarre avec guest Sensoria et happy hour.",
+      "accroche": "Guest Sensoria en tête d'affiche deep tech et happy hour bières artisanales chez Blue Coast.",
       "instagram": [
-        "panda_events",
-        "le109nice"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "Instagram @les.bonnesfranquettes",
-      "name": "Les Bonnes Franquettes — Winter Edition",
-      "start": "2026-11-14T19:30:00.000Z",
-      "venue": "Ancien Jazz Club (2416 Route de Saint-Laurent)",
-      "city": "Saint-Laurent-du-Var",
-      "address": "",
-      "url": "https://www.instagram.com/les.bonnesfranquettes/",
-      "image": "https://scontent-sjc3-1.cdninstagram.com/v/t51.82787-15/885019106_18116214527031263_1214653049463649616_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=105&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=avUJgzcnjJYQ7kNvwGF_fni&_nc_oc=Adqa7tDVUg9v725NyeI19y2rEjw6b3bwA1tHjd9vewNwZDy08Gi3DZLj3BZd-dGjX0s&_nc_zt=23&_nc_ht=scontent-sjc3-1.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=-Xakcv5N_DBRS6rtpGH-zg&oh=00_AQTc4pBtSISHBp3BUN6DDIfasYgmqHTZeO0MiZoJn-VhdA&oe=6AF65288",
-      "price": null,
-      "tags": [
-        "House",
-        "Disco",
-        "Pop"
+        "clubbizarre_",
+        "bluecoastbrewing",
+        "club_bizarre"
       ],
-      "description": "",
-      "public_cible": 0.92,
-      "confiance": 0.9,
-      "buzz": 0.72,
-      "buzz_raison": "Concept boiler room avec jauge limitée et communauté très engagée.",
-      "accroche": "Ambiance mini boiler room intimiste avec le DJ au centre de la piste et line-up house festif.",
-      "instagram": [
-        "les.bonnesfranquettes"
+      "sources_sites": [
+        "Shotgun.live",
+        "Shotgun"
       ]
     },
     {
@@ -301,368 +338,2284 @@
       "venue": "Le Green Musik",
       "city": "Antibes",
       "address": "",
-      "url": "https://shotgun.live",
-      "image": "https://assets.shotgun.live/image/upload/production/artworks/BANNIERE_1920_x_1080_px_i7ngne.png",
-      "price": 9,
+      "url": "https://shotgun.live/fr/events/la-tocardise-14-11-2026",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto/production/artworks/SHOTGUN_14_qgjwfa.png",
+      "price": 12,
       "tags": [
-        "Techno",
+        "progressive psytrance",
+        "techno",
+        "hard trance",
         "Progressive Psytrance",
+        "Techno",
         "Hard Trance"
       ],
       "description": "",
-      "public_cible": 0.94,
-      "confiance": 0.92,
+      "public_cible": 0.9,
+      "confiance": 0.95,
       "buzz": 0.7,
-      "buzz_raison": "Collectif local très fédérateur sur la scène trance azuréenne.",
-      "accroche": "Le collectif Les Tocards prend le contrôle du Green Musik pour une nuit trance et psytrance.",
+      "buzz_raison": "Line-up techno et psytrance 100% DJ locaux le samedi soir.",
+      "accroche": "Techno, psytrance et hard trance avec les DJs locaux au Green Musik.",
       "instagram": [
-        "greenmusikclub",
-        "_lestocards_"
+        "lestocards",
+        "legreenmusik",
+        "latocardise"
+      ],
+      "sources_sites": [
+        "Shotgun.live",
+        "Shotgun"
       ]
     },
     {
       "source": "web",
       "source_site": "Shotgun.live",
-      "name": "Paul Seul + Première Partie",
-      "start": "2026-11-20T19:00:00.000Z",
-      "venue": "Frigo 16 – Le 109",
-      "city": "Nice",
+      "name": "Lizzie & Friends — Saturday House Session",
+      "start": "2026-11-14T22:59:00.000Z",
+      "venue": "Glass Club Cannes",
+      "city": "Cannes",
       "address": "",
-      "url": "https://shotgun.live",
-      "image": "https://assets.shotgun.live/image/upload/production/artworks/FRIGO16-SAISON_sept-dec_2026-cover-3000x1000_qi4spw",
-      "price": 12.49,
+      "url": "https://shotgun.live/fr/events/lizzie-friends-saturday-house-session",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto/production/artworks/37_6_harhjz.png",
+      "price": 9.99,
       "tags": [
-        "Gabber Pop",
-        "Techno",
-        "Hard Dance"
+        "House",
+        "Afro House",
+        "Tech House",
+        "house",
+        "afro house",
+        "tech house"
       ],
       "description": "",
-      "public_cible": 0.96,
+      "public_cible": 0.85,
       "confiance": 0.95,
-      "buzz": 0.81,
-      "buzz_raison": "Artiste culte de la scène gabber/hard dance francophone.",
-      "accroche": "Le boss de Casual Gabberz et acolyte d Ascendant Vierge ramène ses gros kicks à Nice.",
+      "buzz": 0.6,
+      "buzz_raison": "Soirée house habituelle du samedi soir dans le Carré d'Or.",
+      "accroche": "Session house et afro house du samedi soir au Glass Club avec Lizzie & Friends.",
       "instagram": [
-        "panda_events",
-        "le109nice"
+        "glassclubcannes"
+      ],
+      "sources_sites": [
+        "Shotgun.live",
+        "Shotgun"
       ]
     },
     {
       "source": "web",
       "source_site": "Shotgun.live",
-      "name": "Redline Fréjus — Bienvenue en Enfer",
-      "start": "2026-11-21T21:00:00.000Z",
-      "venue": "Lieu secret Fréjus / Roquebrune",
-      "city": "Fréjus",
+      "name": "Paul Seul + Première Partie @ Frigo 16",
+      "start": "2026-11-20T19:00:00.000Z",
+      "venue": "Frigo 16 (Le 109)",
+      "city": "Nice",
       "address": "",
-      "url": "https://shotgun.live",
-      "image": "https://assets.shotgun.live/image/upload/production/artworks/BANNIERE_1920_x_1080_px_i7ngne.png",
-      "price": 22,
+      "url": "https://shotgun.live/fr/events/paul-seul-premiere-partie-frigo-16",
+      "image": "https://assets.shotgun.live/image/upload/production/artworks/COCLUB26_Mockup_Paul-Seul_1920x1005_yg9coc.jpg",
+      "price": 17.49,
+      "tags": [
+        "Techno",
+        "Hard Techno",
+        "Gabber",
+        "Rave",
+        "Hardcore",
+        "Fast Pop",
+        "techno",
+        "gabber",
+        "eurodance",
+        "rave",
+        "hard dance"
+      ],
+      "description": "",
+      "public_cible": 0.95,
+      "confiance": 0.95,
+      "buzz": 0.9,
+      "buzz_raison": "Co-fondateur de Casual Gabberz et membre d'Ascendant Vierge, tête d'affiche renommée.",
+      "accroche": "Le boss de Casual Gabberz et membre d'Ascendant Vierge, Paul Seul, retourne Nice au Frigo 16.",
+      "instagram": [
+        "pandaevents06",
+        "frigo.16",
+        "paulseul"
+      ],
+      "sources_sites": [
+        "Shotgun.live",
+        "Weezevent",
+        "panda-events.com / le109.nice.fr",
+        "festival-crossover.com",
+        "Shotgun",
+        "Panda Events / Frigo 16 / RaveParty"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Shotgun.live",
+      "name": "La Wave - \"Shatta Séduction\" - Cannes",
+      "start": "2026-11-21T22:00:00.000Z",
+      "venue": "Skyfall Cannes x Kingdom",
+      "city": "Cannes",
+      "address": "",
+      "url": "https://shotgun.live/fr/events/la-wave-shatta-seduction-cannes",
+      "image": "https://assets.shotgun.live/image/upload/production/artworks/WAVE_CANNES_21_NOV_COUV_jqx8di.png",
+      "price": 7.99,
+      "tags": [
+        "Shatta",
+        "Bouyon",
+        "Dancehall",
+        "Afrobeat",
+        "Rap",
+        "Zouk",
+        "shatta",
+        "dancehall",
+        "afrobeat",
+        "rap",
+        "bouyon",
+        "Afro"
+      ],
+      "description": "",
+      "public_cible": 0.95,
+      "confiance": 0.95,
+      "buzz": 0.8,
+      "buzz_raison": "Concept shatta séduction avec bracelets de couleur et duo de DJs réputé du genre.",
+      "accroche": "Ambiance shatta, bouyon et afrobeat à Cannes avec Sonny & Ticoq et concept bracelets.",
+      "instagram": [
+        "bolon_events",
+        "lawave_party",
+        "skyfallcannes"
+      ],
+      "sources_sites": [
+        "Shotgun.live",
+        "Shotgun"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Shotgun.live",
+      "name": "Redline Frejus - Bienvenue En Enfer",
+      "start": "2026-11-21T21:00:00.000Z",
+      "venue": "Switch Club",
+      "city": "Roquebrune-sur-Argens",
+      "address": "",
+      "url": "https://shotgun.live/fr/events/redline-frejus-bienvenue-en-enfer",
+      "image": "https://assets.shotgun.live/image/upload/production/artworks/gemini-image-2_A_REAL_PHOTOGRAPH_horizontal_format._Shot_on_Hasselblad_H6D_Kodak_Portra_800_fil-0_5_uuh4s6.jpg",
+      "price": 16,
       "tags": [
         "Acid Techno",
-        "Hard Techno",
-        "Industrial"
+        "Hard Techno"
       ],
       "description": "",
-      "public_cible": 0.89,
-      "confiance": 0.88,
-      "buzz": 0.65,
-      "buzz_raison": "Format warehouse secrète et esthétique dark rave.",
-      "accroche": "Rave dark techno et scénographie immersive industrielle en lieu secret dans l est-Var.",
-      "instagram": []
-    },
-    {
-      "source": "web",
-      "source_site": "Shotgun.live",
-      "name": "Sun7 Rooftop w/ House Vibes",
-      "start": "2026-11-22T13:00:00.000Z",
-      "venue": "Rooftop Hôtel Le Méridien",
-      "city": "Nice",
-      "address": "",
-      "url": "https://shotgun.live/events/sun-7-rooftop-2",
-      "image": "https://scontent-sjc6-1.cdninstagram.com/v/t51.82787-15/888386173_18095445695689296_4243305765591842514_n.webp?stp=dst-jpg_e35_tt6&_nc_cat=111&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=RxEPAjG0LC0Q7kNvwFt6ADK&_nc_oc=AdrfSYKulV3DJY4RPXT6bNDHek5Fw9QOwMRgPViOxyEgvHrjYFjltdwweR17taE4uAc&_nc_zt=23&_nc_ht=scontent-sjc6-1.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=U4QnpoyR7tr-41IOU6q3mQ&oh=00_AQTJ3K2VnxD6McgXbfTebcFvV2ojgAc3ZdiV6fTtlChiUg&oe=6AF64590",
-      "price": null,
-      "tags": [
-        "House",
-        "Deep House"
-      ],
-      "description": "",
-      "public_cible": 0.86,
-      "confiance": 0.92,
-      "buzz": 0.68,
-      "buzz_raison": "Rooftop emblématique sur la Promenade des Anglais et jauge limitée.",
-      "accroche": "Day party house face à la mer sur le rooftop du Méridien avec dress code bleu et blanc.",
+      "public_cible": 0.95,
+      "confiance": 0.95,
+      "buzz": 0.8,
+      "buzz_raison": "Soirée thématique sombre très suivie par la communauté rave locale.",
+      "accroche": "Nuit acid et hard techno immersive au Switch Club pour les adeptes de kicks industriels.",
       "instagram": [
-        "lemeridiennice"
+        "redline.event",
+        "switchclubfrejus",
+        "redline_production"
+      ],
+      "sources_sites": [
+        "Shotgun.live",
+        "Shotgun"
       ]
     },
     {
       "source": "web",
       "source_site": "Shotgun.live",
-      "name": "Yuksek & Roxie (Inauguration NEON XP)",
-      "start": "2026-11-26T19:30:00.000Z",
-      "venue": "Le Dix-Huit",
+      "name": "Durdenhauer Fastlane 1 An - Switch Club - Westfall",
+      "start": "2026-11-21T22:30:00.000Z",
+      "venue": "Switch Club",
+      "city": "Roquebrune-sur-Argens",
+      "address": "",
+      "url": "https://shotgun.live/fr/events/durdenhauer-fastlane-1-an-switch-club-westfall",
+      "image": "https://assets.shotgun.live/image/upload/production/artworks/FLY_SHOTGUN_HOR_oxu9vm.png",
+      "price": 14.99,
+      "tags": [
+        "Hard Trance",
+        "Neo-Rave",
+        "Techno",
+        "Fast Techno",
+        "Trance",
+        "Bounce"
+      ],
+      "description": "",
+      "public_cible": 0.95,
+      "confiance": 0.95,
+      "buzz": 0.85,
+      "buzz_raison": "Anniversaire de label avec la venue de Durdenhauer (remix Praise The Lord).",
+      "accroche": "Durdenhauer en guest au Switch Club pour fêter l'anniversaire du label Fastlane.",
+      "instagram": [
+        "fastlane.records",
+        "switchclubfrejus",
+        "switchclubnice"
+      ],
+      "sources_sites": [
+        "Shotgun.live",
+        "Shotgun"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Panda Events / Shotgun",
+      "name": "Marcus Gad + Première Partie @ Frigo 16",
+      "start": "2026-11-21T19:00:00.000Z",
+      "venue": "Frigo 16 (Le 109)",
       "city": "Nice",
       "address": "",
-      "url": "https://shotgun.live",
+      "url": "https://shotgun.live/fr/events/marcus-gad-premiere-partie-frigo-16",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,w_384,fl_lossy,f_webp,q_5/production/artworks/Frigo_261121_MarcusGad_event_1920x1080px_cjea17.jpg",
+      "price": 15,
+      "tags": [
+        "Reggae",
+        "Dub",
+        "Roots",
+        "Reggae Roots",
+        "World Music"
+      ],
+      "description": "",
+      "public_cible": 0.8,
+      "confiance": 0.95,
+      "buzz": 0.7,
+      "buzz_raison": "Artiste reggae dub reconnu en tournée nationale.",
+      "accroche": "Vibrations reggae roots et dub au Frigo 16 avec la voix de Marcus Gad.",
+      "instagram": [
+        "marcusgad",
+        "pandaevents06",
+        "frigo.16"
+      ],
+      "sources_sites": [
+        "Panda Events / Shotgun",
+        "Shotgun.live"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Shotgun.live",
+      "name": "Yuksek & Roxie",
+      "start": "2026-11-26T19:30:00.000Z",
+      "venue": "Le Dix-Huit - Adresse d'Expériences",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/fr/events/yuksek-roxie",
       "image": "https://assets.shotgun.live/image/upload/production/artworks/SHOTGUN1920x1080_l2xnjl.png",
+      "price": 18,
+      "tags": [
+        "House",
+        "Electro",
+        "Nu-Disco",
+        "Electro House",
+        "Disco-House",
+        "Indie Dance",
+        "Disco House",
+        "French Touch"
+      ],
+      "description": "",
+      "public_cible": 0.9,
+      "confiance": 0.95,
+      "buzz": 0.85,
+      "buzz_raison": "Inauguration officielle du club Le Dix-Huit avec Yuksek en tête d'affiche.",
+      "accroche": "Inauguration clubbing du Dix-Huit à Nice avec le grand producteur Yuksek et Roxie.",
+      "instagram": [
+        "neonfestival_",
+        "ledixhuitnice",
+        "yuksek_music"
+      ],
+      "sources_sites": [
+        "Shotgun.live",
+        "Shotgun / AllEvents",
+        "Shotgun",
+        "Neon Festival / Shotgun"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Shotgun.live",
+      "name": "Jerrycans Release Party @ Frigo 16",
+      "start": "2026-11-26T19:00:00.000Z",
+      "venue": "Frigo 16 (Le 109)",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/fr/events/jerrycans-release-party-frigo-16",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto/production/artworks/FRIGO16-SAISON_sept-dec_2026-cover-3000x1000_qi4spw",
       "price": 0,
       "tags": [
-        "House",
-        "Nu Disco",
-        "Electro"
+        "Italo Disco",
+        "Synth-Pop",
+        "Disco Electro",
+        "pop rock",
+        "live",
+        "Synthwave",
+        "Electro Pop",
+        "Indie",
+        "Rock alternati"
       ],
       "description": "",
-      "public_cible": 0.91,
-      "confiance": 0.93,
-      "buzz": 0.8,
-      "buzz_raison": "Inauguration de nouveau lieu et DJ international French Touch gratuit sur résa.",
-      "accroche": "Yuksek inaugure ce nouveau spot niçois aux côtés du NEON Festival pour un set nu-disco exclusif.",
+      "public_cible": 0.8,
+      "confiance": 0.95,
+      "buzz": 0.7,
+      "buzz_raison": "Événement release party festif et totalement gratuit sur réservation.",
+      "accroche": "Release party 100% gratuite au Frigo 16 avec les rythmes italo disco de Jerrycans.",
       "instagram": [
-        "neonfestival",
-        "ledixhuit_nice"
+        "pandaevents06",
+        "frigo.16",
+        "frigo16"
+      ],
+      "sources_sites": [
+        "Shotgun.live",
+        "panda-events.com / le109.nice.fr",
+        "Shotgun",
+        "Panda Events / Shotgun"
       ]
     },
     {
       "source": "web",
       "source_site": "Shotgun.live",
-      "name": "Phaphane à Nice — Amapiano & Afrobeats",
+      "name": "Phaphane À Nice - Amapiano & Afrobeats Lovers",
       "start": "2026-11-27T19:00:00.000Z",
-      "venue": "Frigo 16 – Le 109",
+      "venue": "Frigo 16 (Le 109)",
       "city": "Nice",
       "address": "",
-      "url": "https://shotgun.live",
-      "image": "https://assets.shotgun.live/image/upload/production/artworks/FRIGO16-SAISON_sept-dec_2026-cover-3000x1000_qi4spw",
+      "url": "https://shotgun.live/fr/events/phaphane-a-nice-amapiano-afrobeats-lovers",
+      "image": "https://assets.shotgun.live/image/upload/production/artworks/FORMAT_FB_PHAPHANE_wxp0zf.jpg",
       "price": 12.1,
       "tags": [
         "Amapiano",
+        "Afrobeat",
+        "Afropop",
         "Afrobeats",
-        "Afro House"
+        "amapiano",
+        "afrobeat",
+        "afrobeats"
       ],
       "description": "",
-      "public_cible": 0.94,
-      "confiance": 0.94,
-      "buzz": 0.72,
-      "buzz_raison": "Rare date 100% amapiano en salle clubbing à Nice.",
-      "accroche": "Soirée amapiano et afrobeats dédiée aux rythmes sud-africains qui font vibrer les réseaux.",
+      "public_cible": 0.95,
+      "confiance": 0.95,
+      "buzz": 0.8,
+      "buzz_raison": "Présence de Phaphane pour une soirée 100% Amapiano rare sur la Côte d'Azur.",
+      "accroche": "Nuit dédiée à l'amapiano et à l'afrobeat au Frigo 16 avec la venue de Phaphane.",
       "instagram": [
-        "panda_events",
-        "le109nice"
+        "twelty_events",
+        "pandaevents06",
+        "frigo.16"
+      ],
+      "sources_sites": [
+        "Shotgun.live",
+        "Shotgun / Weezevent",
+        "Shotgun.live / panda-events.com",
+        "shotgun.live",
+        "Shotgun",
+        "Panda Events / Shotgun"
       ]
     },
     {
       "source": "web",
       "source_site": "Shotgun.live",
-      "name": "Vibrance #7",
-      "start": "2026-11-28T20:00:00.000Z",
-      "venue": "L'Antre Bar Electro",
-      "city": "Nice",
-      "address": "",
-      "url": "https://shotgun.live",
-      "image": "https://assets.shotgun.live/image/upload/production/artworks/Soire%CC%81e_28_nov_bannie%CC%80re_c4u5pg.png",
-      "price": 5,
-      "tags": [
-        "Acid Techno",
-        "Progressive Psytrance",
-        "Dark Psy"
-      ],
-      "description": "",
-      "public_cible": 0.92,
-      "confiance": 0.92,
-      "buzz": 0.6,
-      "buzz_raison": "Collectif réputé pour ses nuits acid techno et psytrance intimistes.",
-      "accroche": "Le crew Aztera prend le contrôle de l Antre avec happy hour et grosse sélection psytrance.",
-      "instagram": [
-        "aztera_rec",
-        "lantre_bar_electro"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "Shotgun.live",
-      "name": "Do You Like... Tekno ?",
+      "name": "Do You Like... Tekno ? @ Frigo16 - Le 109",
       "start": "2026-11-28T19:00:00.000Z",
-      "venue": "Frigo 16 – Le 109",
+      "venue": "Frigo 16 (Le 109)",
       "city": "Nice",
       "address": "",
-      "url": "https://shotgun.live",
-      "image": "https://assets.shotgun.live/image/upload/production/artworks/FRIGO16-SAISON_sept-dec_2026-cover-3000x1000_qi4spw",
-      "price": 21,
+      "url": "https://shotgun.live/fr/events/do-you-like-tekno-frigo16-le-109-nice",
+      "image": "https://assets.shotgun.live/image/upload/production/artworks/Banni%C3%A8re_Shotgun_t785wx",
+      "price": 10.99,
       "tags": [
+        "Tekno",
         "Acidcore",
         "Tribe",
-        "Hardtek",
-        "Mental Techno"
+        "Mental",
+        "Hard Techno",
+        "acidcore",
+        "tribe",
+        "hardtek",
+        "techno",
+        "tekno",
+        "hard techno",
+        "Free Tekno",
+        "Hardtek"
       ],
       "description": "",
-      "public_cible": 0.93,
-      "confiance": 0.94,
-      "buzz": 0.74,
-      "buzz_raison": "Format free-party adapté en club industriel très attendu.",
-      "accroche": "Session tekno indoor au son acidcore et tribe pour les puristes de gros systèmes son.",
-      "instagram": [
-        "panda_events",
-        "le109nice"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "Shotgun.live",
-      "name": "REF Session #18 : Acid Pauli",
-      "start": "2026-12-04T19:00:00.000Z",
-      "venue": "Frigo 16 – Le 109",
-      "city": "Nice",
-      "address": "",
-      "url": "https://shotgun.live",
-      "image": "https://assets.shotgun.live/image/upload/production/artworks/FRIGO16-SAISON_sept-dec_2026-cover-3000x1000_qi4spw",
-      "price": 12.49,
-      "tags": [
-        "Acid House",
-        "Melodic Downtempo",
-        "Deep Techno"
-      ],
-      "description": "",
-      "public_cible": 0.91,
+      "public_cible": 0.95,
       "confiance": 0.95,
-      "buzz": 0.86,
-      "buzz_raison": "Légende mondiale de la deep house et de l acid downtempo à Nice.",
-      "accroche": "Le maître berlinois Acid Pauli invité par le REF Festival pour une session électronique rare.",
+      "buzz": 0.85,
+      "buzz_raison": "Live 2h 23HZ (Insane Teknology & Nesh Mayday), son Meyer Sound, jauge limitée à 500 places.",
+      "accroche": "Live de 2h par 23HZ, Banditik et son Meyer Sound au Frigo 16 pour les passionnés de tekno.",
       "instagram": [
-        "reffestival",
-        "panda_events",
-        "le109nice"
+        "_do.you.like",
+        "prizmeconcept",
+        "frigo.16"
+      ],
+      "sources_sites": [
+        "Shotgun.live",
+        "Shotgun / Weezevent / AllEvents",
+        "Shotgun.live / Prizme Concept",
+        "shotgun.live",
+        "Shotgun",
+        "Shotgun / Le 109"
       ]
     },
     {
       "source": "web",
       "source_site": "Shotgun.live",
-      "name": "Santa à la Playa by La Dinette",
+      "name": "Origins Invite Boticka All Night Long",
+      "start": "2026-11-28T22:30:00.000Z",
+      "venue": "Switch Club",
+      "city": "Roquebrune-sur-Argens",
+      "address": "",
+      "url": "https://shotgun.live/fr/events/origins-invite-boticka-all-night-long",
+      "image": "https://assets.shotgun.live/image/upload/production/artworks/LANDSCAPE_wznspg",
+      "price": 21,
+      "tags": [
+        "Industrial Techno",
+        "Hard Techno",
+        "Dark Trance"
+      ],
+      "description": "",
+      "public_cible": 0.95,
+      "confiance": 0.95,
+      "buzz": 0.8,
+      "buzz_raison": "Boticka All Night Long avec invité surprise Angel Karel.",
+      "accroche": "Boticka en All Night Long avec b2b surprise avec Angel Karel au Switch Club.",
+      "instagram": [
+        "originstechno",
+        "switchclubfrejus",
+        "switchclubnice"
+      ],
+      "sources_sites": [
+        "Shotgun.live",
+        "Shotgun"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Shotgun.live",
+      "name": "La Dinette - Santa À La Playa",
       "start": "2026-12-05T18:00:00.000Z",
       "venue": "Playa Chica",
       "city": "Mandelieu-la-Napoule",
       "address": "",
-      "url": "https://shotgun.live",
-      "image": "https://scontent-sjc3-1.cdninstagram.com/v/t51.82787-15/892423686_17997335058027036_9043391451509905569_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=105&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=UeD9vDuT6wUQ7kNvwGuwAlf&_nc_oc=Ado2H3NqWztaakZ4JV0ylXOk_5G9pJJJ4o4aH8DRDNW23LcL6AqE1-15nmSnF4atae0&_nc_zt=23&_nc_ht=scontent-sjc3-1.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=6WAsqFzNwrPpHoy6dazZSw&oh=00_AQR_WXMuJ6moAqS5dMaraTjJvqrUUAVkfi5P3PXWvvSylg&oe=6AF66942",
-      "price": 10,
+      "url": "https://shotgun.live/fr/events/la-dinette-santa-a-la-playa",
+      "image": "https://assets.shotgun.live/image/upload/production/artworks/ladinette-santa-169_vyehj2.png",
+      "price": 11.99,
       "tags": [
-        "Hits",
-        "Clubbing",
-        "Pop"
+        "Hip Hop",
+        "Pop",
+        "R&B",
+        "Electro House",
+        "Afro House",
+        "Hits Club",
+        "Hip-Hop",
+        "Hits Throwback",
+        "Commercial",
+        "généraliste",
+        "pop",
+        "clubbing"
       ],
       "description": "",
-      "public_cible": 0.85,
-      "confiance": 0.9,
-      "buzz": 0.69,
-      "buzz_raison": "Concept décalé de soirée de Noël sur la plage avec communauté active.",
-      "accroche": "Fêter Noël les pieds dans le sable sur une plage couverte et chauffée avec gros son et défis.",
+      "public_cible": 0.95,
+      "confiance": 0.95,
+      "buzz": 0.8,
+      "buzz_raison": "Beach party d'hiver festive couverte et chauffée très prisée des jeunes de la région.",
+      "accroche": "Christmas beach party couverte à Playa Chica : beer pong, DJ sets généralistes et ambiance festive.",
       "instagram": [
+        "ladinette_events",
+        "playachicamandelieu",
+        "la_dinette_events"
+      ],
+      "sources_sites": [
+        "Shotgun.live",
+        "Shotgun",
         "la_dinette__"
       ]
     },
     {
       "source": "web",
       "source_site": "Shotgun.live",
-      "name": "Mamacita @ Frigo 16",
-      "start": "2026-12-05T22:30:00.000Z",
-      "venue": "Frigo 16 – Le 109",
+      "name": "La Java 3",
+      "start": "2026-12-05T22:00:00.000Z",
+      "venue": "Le Green Musik",
+      "city": "Antibes",
+      "address": "",
+      "url": "https://shotgun.live/fr/events/la-java-3",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,w_1200,h_630,f_jpg,q_auto/production/artworks/LA_JAVA_3_shotgun_us3a0t.png",
+      "price": 11.99,
+      "tags": [
+        "bounce",
+        "hard techno",
+        "hardcore",
+        "Hardcore",
+        "Hard Bounce",
+        "Hard Techno"
+      ],
+      "description": "",
+      "public_cible": 0.9,
+      "confiance": 0.95,
+      "buzz": 0.6,
+      "buzz_raison": "Événement hard techno sur le soundsystem Martin Audio du Green Musik.",
+      "accroche": "Soirée gros BPM hard techno et bounce signée JOBAR Event au Green Musik.",
+      "instagram": [
+        "jobar_event",
+        "legreenmusik",
+        "green_musik_club"
+      ],
+      "sources_sites": [
+        "Shotgun.live",
+        "Shotgun"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Weezevent / Panda Events",
+      "name": "BRODINSKI (+ Tobhi TM & Friends / Lariate Club)",
+      "start": "2026-12-11T19:00:00.000Z",
+      "venue": "Frigo 16 - Le 109",
       "city": "Nice",
       "address": "",
-      "url": "https://shotgun.live",
-      "image": "https://assets.shotgun.live/image/upload/production/artworks/FRIGO16-SAISON_sept-dec_2026-cover-3000x1000_qi4spw",
-      "price": 12,
+      "url": "https://www.panda-events.com/agenda/brodinski-frigo-16/",
+      "image": "https://www.panda-events.com/wp-content/uploads/2026/06/Frigo261211_brodinski__portrait_1080x1440px.jpeg",
+      "price": 15,
+      "tags": [
+        "Techno",
+        "Trap US",
+        "Wave Atlanta",
+        "Electro Club",
+        "Dub",
+        "Reggae",
+        "Sound System Culture",
+        "Dancehall",
+        "techno",
+        "trap wave",
+        "rap us",
+        "electro",
+        "trap",
+        "hip-hop",
+        "Rap US",
+        "Trap",
+        "Dark Club",
+        "Rap américain",
+        "Electro"
+      ],
+      "description": "",
+      "public_cible": 0.95,
+      "confiance": 0.95,
+      "buzz": 0.9,
+      "buzz_raison": "Brodinski (ex-Bromance, producteur US/techno), ponte de la scène électronique.",
+      "accroche": "Brodinski fusionne techno industrielle et trap US au Frigo 16.",
+      "instagram": [
+        "brodinski",
+        "pandaevents06",
+        "frigo.16"
+      ],
+      "sources_sites": [
+        "Weezevent / Panda Events",
+        "Shotgun.live",
+        "Shotgun.live / Panda Events",
+        "panda-events.com",
+        "Shotgun"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Shotgun.live",
+      "name": "Ben Carter",
+      "start": "2026-12-17T19:30:00.000Z",
+      "venue": "Le Dix-Huit - Adresse d'Expériences",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/fr/events/ben-carter-nice",
+      "image": "https://assets.shotgun.live/image/upload/production/artworks/SHOTGUN1920x1080_zet2ay.png",
+      "price": 20,
+      "tags": [
+        "Afro House",
+        "Afro-Tech",
+        "Indie Dance",
+        "Electro",
+        "House"
+      ],
+      "description": "",
+      "public_cible": 0.9,
+      "confiance": 0.95,
+      "buzz": 0.75,
+      "buzz_raison": "DJ résident des spots réputés d'Ibiza soutenu par Fatboy Slim et Hugel.",
+      "accroche": "Le DJ star d'Ibiza Ben Carter enflamme Le Dix-Huit avec ses sonorités afro house.",
+      "instagram": [
+        "neonfestival_",
+        "ledixhuitnice",
+        "neon_festival"
+      ],
+      "sources_sites": [
+        "Shotgun.live",
+        "Shotgun"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Shotgun.live",
+      "name": "Roller Disco - Gratuit @ Frigo 16",
+      "start": "2026-12-18T17:00:00.000Z",
+      "venue": "Frigo 16 (Le 109)",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/fr/events/roller-disco-gratuit-frigo-16",
+      "image": "",
+      "price": 0,
+      "tags": [
+        "Disco",
+        "Nu-Disco",
+        "Disco House",
+        "Funk"
+      ],
+      "description": "",
+      "public_cible": 0.85,
+      "confiance": 0.95,
+      "buzz": 0.75,
+      "buzz_raison": "Concept roller disco festif en grand format warehouse et entrée gratuite.",
+      "accroche": "Piste de roller couverte et DJ sets disco funk 100% gratuits au Frigo 16.",
+      "instagram": [
+        "pandaevents06",
+        "frigo.16"
+      ],
+      "sources_sites": [
+        "Shotgun.live",
+        "Shotgun"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Resident Advisor",
+      "name": "REF Session #18 Acid Pauli - Frigo 16 - NICE",
+      "start": "2026-12-04T19:00:00.000Z",
+      "venue": "Frigo 16 - Le 109",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/fr/venues/frigo16",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,w_384,fl_lossy,f_webp,q_5/production/artworks/REF26-AGENDA-sessions-cover-facebook_k4167b",
+      "price": 12.49,
+      "tags": [
+        "house",
+        "acid house",
+        "minimal",
+        "techno",
+        "Acid House",
+        "Psychedelic House",
+        "Ambient Techno",
+        "Organic",
+        "melodic techno",
+        "acid techno",
+        "electro",
+        "Acid Techno",
+        "Melodic Techno"
+      ],
+      "description": "",
+      "public_cible": 0.95,
+      "confiance": 0.95,
+      "buzz": 0.9,
+      "buzz_raison": "Venue d'Acid Pauli, figure berlinoise, dans le spot underground Frigo 16",
+      "accroche": "Acid Pauli et Legri s'emparent du Frigo 16 pour une session house et minimale.",
+      "instagram": [
+        "ref.festival",
+        "panda_events",
+        "frigo16_nice"
+      ],
+      "sources_sites": [
+        "Resident Advisor",
+        "Shotgun / Weezevent",
+        "Shotgun.live / Panda Events",
+        "shotgun.live",
+        "Shotgun",
+        "REF / Panda Events"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Billetweb / HelloAsso",
+      "name": "LE HIGH CLUB INVITE LE BAL DES LICORNES – ÉDITION PINK & STRASS",
+      "start": "2026-11-10T22:50:00.000Z",
+      "venue": "High Club",
+      "city": "Nice",
+      "address": "",
+      "url": "https://www.billetweb.fr/le-high-club-invite-le-bal-des-licornes",
+      "image": "https://www.billetweb.fr/files/page/thumb/le-high-club-invite-le-bal-des-licornes.png?v=1787739261",
+      "price": 20,
+      "tags": [
+        "Pop",
+        "Queer Anthems",
+        "Circuit-Electro",
+        "Clubbing",
+        "clubbing",
+        "commercial",
+        "pop",
+        "electro"
+      ],
+      "description": "",
+      "public_cible": 0.95,
+      "confiance": 0.95,
+      "buzz": 0.85,
+      "buzz_raison": "Veille de férié, édition XXL Pink & Strass au High Club avec 8 performeurs.",
+      "accroche": "Édition XXL Pink & Strass au High Club avec 8 performeurs et scénographie immersive.",
+      "instagram": [
+        "lebaldeslicornes",
+        "highclubnice"
+      ],
+      "sources_sites": [
+        "Billetweb / HelloAsso",
+        "highclub.fr / cotedazurfrance.fr"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Weezevent / Shotgun",
+      "name": "JETLAG GANG + PREMIÈRE PARTIE",
+      "start": "2026-11-13T22:30:00.000Z",
+      "venue": "Frigo 16 - Le 109",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/fr/events/jetlag-gang-premiere-partie-frigo-16",
+      "image": "https://res.cloudinary.com/shotgun/image/upload/c_limit,w_384/fl_lossy/f_auto/q_5/production/artworks/Frigo_261113_JetlagGang_event_1920x1080px_fzatpr.jpg",
+      "price": 10,
       "tags": [
         "Reggaeton",
+        "Dembow",
+        "Neoperreo",
+        "Trap Latino",
+        "reggaeton",
+        "perreo",
+        "urbano",
+        "dembow",
+        "neoperreo",
+        "latino club",
+        "Perreo",
+        "Latin Urban",
+        "Urbain"
+      ],
+      "description": "",
+      "public_cible": 0.95,
+      "confiance": 0.95,
+      "buzz": 0.85,
+      "buzz_raison": "Soirée Jetlag Gang référence nationale reggaeton/perreo.",
+      "accroche": "La plus grosse soirée perreo de France débarque au Frigo 16 avec danseurs et DJs.",
+      "instagram": [
+        "jetlagang",
+        "frigo.16",
+        "pandaevents06"
+      ],
+      "sources_sites": [
+        "Weezevent / Shotgun",
+        "Shotgun.live / panda-events.com",
+        "panda-events.com",
+        "Shotgun",
+        "Panda Events / Shotgun"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Shotgun / AllEvents",
+      "name": "VIBRANCE #7 (AZTERA CREW)",
+      "start": "2026-11-28T20:00:00.000Z",
+      "venue": "L'Antre Bar Electro",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/fr/events/vibrance-7",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,w_1200,h_630,f_jpg,q_auto/production/artworks/Soire%CC%81e_28_nov_bannie%CC%80re_c4u5pg.png",
+      "price": 5,
+      "tags": [
+        "Acid Techno",
+        "PsyGroovy",
+        "Hypnotic Bush",
+        "Primal",
+        "progressive psytrance",
+        "acid techno",
+        "psytrance",
+        "Progressive Psytrance"
+      ],
+      "description": "",
+      "public_cible": 0.9,
+      "confiance": 0.95,
+      "buzz": 0.65,
+      "buzz_raison": "Cave techno culte du Vieux-Nice avec sound system Martin Audio à petit prix.",
+      "accroche": "Sound system Martin Audio et techno psychédélique dans la cave réputée du Vieux-Nice.",
+      "instagram": [
+        "aztera_prod",
+        "lantre_bar_nice",
+        "azterabooking"
+      ],
+      "sources_sites": [
+        "Shotgun / AllEvents",
+        "Shotgun.live / AZTERA",
+        "Shotgun",
+        "AZTERA / Shotgun"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Weezevent / Shotgun / Panda Events",
+      "name": "MUNGO'S HI FI (+ Red Echoes Sound System)",
+      "start": "2026-12-12T19:00:00.000Z",
+      "venue": "Frigo 16 - Le 109",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/fr/events/mungo-s-hifi-frigo-16",
+      "image": "https://www.panda-events.com/wp-content/uploads/2026/05/Frigo-261212_mungoshifi_portrait_1080x1440px-1.jpeg",
+      "price": 20,
+      "tags": [
+        "Reggae Sound System",
+        "Dub",
+        "Stepper",
+        "Bass Music",
+        "dub",
+        "reggae",
+        "sound system",
+        "bass music",
+        "Reggae",
+        "Sound System Culture",
+        "Sound System culture",
+        "Sound System"
+      ],
+      "description": "",
+      "public_cible": 0.85,
+      "confiance": 0.95,
+      "buzz": 0.85,
+      "buzz_raison": "Légende mondiale du dub sound system écossais sur sono artisanale.",
+      "accroche": "Mungo's Hi Fi pose ses sélections dub légendaires sur le sound system de Red Echoes.",
+      "instagram": [
+        "mungoshifi",
+        "redechoes",
+        "frigo.16"
+      ],
+      "sources_sites": [
+        "Weezevent / Shotgun / Panda Events",
+        "le109.nice.fr / Panda Events",
+        "panda-events.com",
+        "Shotgun",
+        "Panda Events / Shotgun"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Shotgun.live / Panda Events",
+      "name": "Zona De Perreo • Frigo 16 Nice",
+      "start": "2026-12-19T19:00:00.000Z",
+      "venue": "Frigo 16 (Le 109)",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/fr/events/zona-de-perreo-frigo-16-nice",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto/production/artworks/FRIGO16-SAISON_sept-dec_2026-cover-3000x1000_qi4spw",
+      "price": 12,
+      "tags": [
+        "reggaeton",
+        "dembow",
+        "shatta",
+        "perreo",
+        "Reggaeton",
+        "Perreo",
+        "Dembow",
+        "baile funk",
+        "Reggaeton Old School",
         "Baile Funk",
         "Shatta"
       ],
       "description": "",
-      "public_cible": 0.96,
-      "confiance": 0.94,
-      "buzz": 0.77,
-      "buzz_raison": "Format très plébiscité par les 18-25 ans pour danser jusqu au petit matin.",
-      "accroche": "Nuit chaude au Frigo 16 entre gros perreo, rythmes de baile funk et shatta brûlant.",
+      "public_cible": 0.95,
+      "confiance": 0.95,
+      "buzz": 0.85,
+      "buzz_raison": "Grosse soirée de clôture reggaeton et shatta avant Noël",
+      "accroche": "Session ultime reggaeton, dembow et shatta avant les fêtes de fin d'année au Frigo 16.",
       "instagram": [
-        "panda_events",
+        "pandaevents06",
+        "frigo16",
         "le109nice"
+      ],
+      "sources_sites": [
+        "Shotgun.live / Panda Events",
+        "Shotgun / Le 109",
+        "shotgun.live",
+        "Shotgun",
+        "Latin Addict / Shotgun"
       ]
     },
     {
       "source": "web",
-      "source_site": "Nikaia.fr",
-      "name": "PLK en Concert",
+      "source_site": "Shotgun.live",
+      "name": "Dub Coast / Magam & Lyff — Dub",
+      "start": "2026-11-10T20:00:00.000Z",
+      "venue": "L'Antre Bar Electro",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/fr/venues/l-antre",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto/production/artworks/IMG_1883_bwtzsy.jpg",
+      "price": 5.99,
+      "tags": [
+        "dub",
+        "bass music",
+        "Dub",
+        "Bass Music",
+        "Sound System"
+      ],
+      "description": "",
+      "public_cible": 0.8,
+      "confiance": 0.95,
+      "buzz": 0.6,
+      "buzz_raison": "Veille de férié dans la cave underground de L'Antre",
+      "accroche": "Session dub et bass music dans le caveau underground du Vieux-Nice en veille de férié.",
+      "instagram": [
+        "lantretechno",
+        "lantre_nice",
+        "lantrebarnice"
+      ],
+      "sources_sites": [
+        "Shotgun.live",
+        "Shotgun"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Shotgun.live",
+      "name": "Episode 10th X Mamashelter",
+      "start": "2026-11-10T18:00:00.000Z",
+      "venue": "Mama Shelter Nice",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/fr/events/episode-10th-x-mamashelter",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,w_1200,h_630,f_jpg,q_auto/dev/artworks/EPISODE_10TH_Shotgun_16x9_orange_A_h4w3uj.jpg",
+      "price": 0,
+      "tags": [
+        "hip-hop",
+        "rnb",
+        "Hip Hop",
+        "R&B",
+        "Hip-Hop",
+        "Urbain",
+        "electro",
+        "dj set"
+      ],
+      "description": "",
+      "public_cible": 0.9,
+      "confiance": 0.95,
+      "buzz": 0.7,
+      "buzz_raison": "Collectif Episode Culture au Mama Shelter, entrée gratuite en veille de férié",
+      "accroche": "Soirée hip-hop et R&B gratuite signée Episode Culture au Mama Shelter Nice.",
+      "instagram": [
+        "episodeculture",
+        "mamashelter_nice",
+        "mamashelternice"
+      ],
+      "sources_sites": [
+        "Shotgun.live",
+        "Shotgun",
+        "Instagram"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Shotgun.live",
+      "name": "Crys'Tack — Techno To Tribe",
+      "start": "2026-11-11T04:00:00.000Z",
+      "venue": "L'Antre Bar Electro",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/fr/events/crys-tack-techno-to-tribe",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,w_384,fl_lossy,f_webp,q_5/production/artworks/IMG_1903_kgv7av.jpg",
+      "price": 11,
+      "tags": [
+        "dark techno",
+        "tribe",
+        "industrial",
+        "Tribe",
+        "Hard Techno",
+        "Techno",
+        "Acid"
+      ],
+      "description": "",
+      "public_cible": 0.8,
+      "confiance": 0.95,
+      "buzz": 0.65,
+      "buzz_raison": "After tekno du 11 novembre avec le vétéran rave Crys'Tack",
+      "accroche": "After férié dès 5h du matin avec Crys'Tack entre dark techno et tribe rave.",
+      "instagram": [
+        "lantretechno",
+        "lantre_nice",
+        "lantrebarnice"
+      ],
+      "sources_sites": [
+        "Shotgun.live",
+        "Shotgun"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Shotgun.live",
+      "name": "Je Dis Techno (Before & Full Night)",
+      "start": "2026-11-12T21:00:00.000Z",
+      "venue": "L'Antre & Le Kosma Club",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/fr/events/je-dis-techno-tous-les-jeudis",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto/production/artworks/C1528EF5-CC23-4298-B444-580FB91EE84D_sqrlrc.png",
+      "price": 5,
+      "tags": [
+        "hard techno",
+        "hard bounce",
+        "acid techno",
+        "neorave"
+      ],
+      "description": "",
+      "public_cible": 0.95,
+      "confiance": 0.95,
+      "buzz": 0.7,
+      "buzz_raison": "Rendez-vous hebdomadaire étudiant très prisé, formule before et club",
+      "accroche": "Le rendez-vous techno hebdomadaire des étudiants : before à L'Antre puis nuit au Kosma.",
+      "instagram": [
+        "jedistechno",
+        "lantretechno",
+        "kosma_nice"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "highclub.fr",
+      "name": "Latin Addict",
+      "start": "2026-11-13T22:30:00.000Z",
+      "venue": "High Club",
+      "city": "Nice",
+      "address": "",
+      "url": "https://www.highclub.fr/events/",
+      "image": "https://www.highclub.fr/wp-content/uploads/2022/08/193A6968-192B-40EE-9DF0-53122D721470.jpg",
+      "price": null,
+      "tags": [
+        "reggaeton",
+        "latin house",
+        "baile funk"
+      ],
+      "description": "",
+      "public_cible": 0.85,
+      "confiance": 0.8,
+      "buzz": 0.65,
+      "buzz_raison": "Soirée latino récurrente du vendredi au High Club",
+      "accroche": "Rendez-vous latino du vendredi au High Club entre reggaeton, latin house et baile funk.",
+      "instagram": [
+        "highclubnice"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Shotgun.live",
+      "name": "Søund Køld — Bounce / Hard Groove",
+      "start": "2026-11-13T20:00:00.000Z",
+      "venue": "L'Antre Bar Electro",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/fr/venues/l-antre",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto/production/artworks/IMG_1883_bwtzsy.jpg",
+      "price": 5.99,
+      "tags": [
+        "hard groove",
+        "bounce",
+        "Bounce",
+        "Hard Groove"
+      ],
+      "description": "",
+      "public_cible": 0.9,
+      "confiance": 0.95,
+      "buzz": 0.6,
+      "buzz_raison": "Soirée hard groove pour lancer le week-end à L'Antre",
+      "accroche": "Session hard groove et bounce rythmée pour attaquer le week-end dans la cave de L'Antre.",
+      "instagram": [
+        "lantretechno",
+        "lantre_nice",
+        "lantrebarnice"
+      ],
+      "sources_sites": [
+        "Shotgun.live",
+        "Shotgun"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Shotgun.live",
+      "name": "Pitch One (Trakkass) — Techno To Tribe",
+      "start": "2026-11-14T04:00:00.000Z",
+      "venue": "L'Antre Bar Electro",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/fr/venues/l-antre",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto/production/artworks/IMG_1883_bwtzsy.jpg",
+      "price": 11,
+      "tags": [
+        "techno",
+        "tribe",
+        "Tribe",
+        "Hardtek",
+        "Techno",
+        "Hard Techno"
+      ],
+      "description": "",
+      "public_cible": 0.8,
+      "confiance": 0.95,
+      "buzz": 0.65,
+      "buzz_raison": "After underground techno to tribe au petit matin",
+      "accroche": "After tekno underground au lever du jour avec Pitch One du crew Trakkass à L'Antre.",
+      "instagram": [
+        "lantretechno",
+        "lantre_nice",
+        "lantrebarnice"
+      ],
+      "sources_sites": [
+        "Shotgun.live",
+        "Shotgun"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "highclub.fr",
+      "name": "I'm Not Rich But I'm High",
+      "start": "2026-11-14T22:30:00.000Z",
+      "venue": "High Club",
+      "city": "Nice",
+      "address": "",
+      "url": "https://www.highclub.fr/events/",
+      "image": "https://www.highclub.fr/wp-content/uploads/2022/08/193A6968-192B-40EE-9DF0-53122D721470.jpg",
+      "price": null,
+      "tags": [
+        "clubbing",
+        "edm",
+        "house",
+        "hits"
+      ],
+      "description": "",
+      "public_cible": 0.85,
+      "confiance": 0.8,
+      "buzz": 0.65,
+      "buzz_raison": "Gros rendez-vous clubbing du samedi soir au High Club",
+      "accroche": "Grand samedi soir clubbing sur la Promenade des Anglais au High Club.",
+      "instagram": [
+        "highclubnice"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Shotgun.live",
+      "name": "Dj K-Net (Resident)",
+      "start": "2026-11-15T04:00:00.000Z",
+      "venue": "L'Antre Bar Electro",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/fr/venues/l-antre",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto/production/artworks/IMG_1883_bwtzsy.jpg",
+      "price": 11,
+      "tags": [
+        "techno",
+        "acid techno"
+      ],
+      "description": "",
+      "public_cible": 0.75,
+      "confiance": 0.95,
+      "buzz": 0.55,
+      "buzz_raison": "After techno dominical avec le résident du club",
+      "accroche": "After dominical dès 5h du mat' avec le résident Dj K-Net aux platines de L'Antre.",
+      "instagram": [
+        "lantretechno"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "highclub.fr",
+      "name": "Students Only Chic",
+      "start": "2026-11-20T22:30:00.000Z",
+      "venue": "High Club",
+      "city": "Nice",
+      "address": "",
+      "url": "https://www.highclub.fr/events/",
+      "image": "https://www.highclub.fr/wp-content/uploads/2022/08/193A6968-192B-40EE-9DF0-53122D721470.jpg",
+      "price": null,
+      "tags": [
+        "open format",
+        "electro",
+        "rap club",
+        "pop"
+      ],
+      "description": "",
+      "public_cible": 0.95,
+      "confiance": 0.8,
+      "buzz": 0.75,
+      "buzz_raison": "Rassemblement étudiant phare des universités niçoises",
+      "accroche": "Grosse nuit étudiante chic au High Club réunissant les campus niçois.",
+      "instagram": [
+        "highclubnice"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Shotgun.live",
+      "name": "Mouchki / Dhermo — Forest / Psytrance",
+      "start": "2026-11-20T20:00:00.000Z",
+      "venue": "L'Antre Bar Electro",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/fr/venues/l-antre",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto/production/artworks/IMG_1883_bwtzsy.jpg",
+      "price": 5.99,
+      "tags": [
+        "forest",
+        "psytrance"
+      ],
+      "description": "",
+      "public_cible": 0.8,
+      "confiance": 0.95,
+      "buzz": 0.55,
+      "buzz_raison": "Soirée psytrance underground locale",
+      "accroche": "Ambiance psychédélique et sonorités forest dans la cave de L'Antre avec Mouchki et Dhermo.",
+      "instagram": [
+        "lantretechno"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Shotgun.live / Mojo Crew",
+      "name": "Wado X L'Antre",
+      "start": "2026-11-21T04:00:00.000Z",
+      "venue": "L'Antre Bar Electro",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/fr/events/wado-x-l-antre",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto/production/artworks/827b8c57-83c0-450d-9c69-6585ae71f449_y3nsco.jpg",
+      "price": 10,
+      "tags": [
+        "tekno",
+        "acidcore",
+        "hardmelodic",
+        "hardcore"
+      ],
+      "description": "",
+      "public_cible": 0.85,
+      "confiance": 0.95,
+      "buzz": 0.65,
+      "buzz_raison": "Live machine acidcore par Wado et collaboration Mojo Crew",
+      "accroche": "Live machine tekno et acidcore par Wado en collaboration avec le Mojo Crew dès l'aube.",
+      "instagram": [
+        "wado.music",
+        "mojocrewevent",
+        "lantretechno"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Shotgun.live",
+      "name": "Alienduch — House / Techno / Acid / Rave",
+      "start": "2026-11-21T20:00:00.000Z",
+      "venue": "L'Antre Bar Electro",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/fr/venues/l-antre",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto/production/artworks/IMG_1883_bwtzsy.jpg",
+      "price": 5.99,
+      "tags": [
+        "house",
+        "techno",
+        "acid",
+        "rave"
+      ],
+      "description": "",
+      "public_cible": 0.85,
+      "confiance": 0.95,
+      "buzz": 0.55,
+      "buzz_raison": "Set acid et rave intimiste dans le Vieux-Nice",
+      "accroche": "Alienduch aux platines pour un set énergique entre house, rave et acid techno.",
+      "instagram": [
+        "lantretechno"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "highclub.fr",
+      "name": "Good Times",
+      "start": "2026-11-21T22:30:00.000Z",
+      "venue": "High Club",
+      "city": "Nice",
+      "address": "",
+      "url": "https://www.highclub.fr/events/",
+      "image": "https://www.highclub.fr/wp-content/uploads/2022/08/193A6968-192B-40EE-9DF0-53122D721470.jpg",
+      "price": null,
+      "tags": [
+        "clubbing",
+        "electro",
+        "pop"
+      ],
+      "description": "",
+      "public_cible": 0.8,
+      "confiance": 0.8,
+      "buzz": 0.6,
+      "buzz_raison": "Soirée clubbing grand format du samedi soir",
+      "accroche": "Ambiance festive du samedi soir sur la Promenade des Anglais au High Club.",
+      "instagram": [
+        "highclubnice"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Shotgun.live",
+      "name": "Bruja / Carbur — Psytrance / Hardtrance",
+      "start": "2026-11-22T04:00:00.000Z",
+      "venue": "L'Antre Bar Electro",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/fr/venues/l-antre",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto/production/artworks/IMG_1883_bwtzsy.jpg",
+      "price": 11,
+      "tags": [
+        "hard trance",
+        "psytrance"
+      ],
+      "description": "",
+      "public_cible": 0.8,
+      "confiance": 0.95,
+      "buzz": 0.6,
+      "buzz_raison": "After hard trance et psytrance pour les habitués de kicks rapides",
+      "accroche": "After dominical sous haute tension avec Bruja et Carbur entre hard trance et psytrance.",
+      "instagram": [
+        "lantretechno"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "highclub.fr",
+      "name": "Coachellito",
+      "start": "2026-11-27T22:30:00.000Z",
+      "venue": "High Club",
+      "city": "Nice",
+      "address": "",
+      "url": "https://www.highclub.fr/events/",
+      "image": "https://www.highclub.fr/wp-content/uploads/2022/08/193A6968-192B-40EE-9DF0-53122D721470.jpg",
+      "price": null,
+      "tags": [
+        "edm",
+        "electro house",
+        "urbain"
+      ],
+      "description": "",
+      "public_cible": 0.85,
+      "confiance": 0.8,
+      "buzz": 0.65,
+      "buzz_raison": "Soirée à thème festival façon Coachella au High Club",
+      "accroche": "Ambiance festival d'inspiration Coachella sur le dancefloor du High Club.",
+      "instagram": [
+        "highclubnice"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Shotgun.live",
+      "name": "Mr Hat Vs Verome — Bass Vs Hard Music",
+      "start": "2026-11-27T20:00:00.000Z",
+      "venue": "L'Antre Bar Electro",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/fr/venues/l-antre",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto/production/artworks/IMG_1883_bwtzsy.jpg",
+      "price": 5.99,
+      "tags": [
+        "bass music",
+        "hard music",
+        "drum and bass"
+      ],
+      "description": "",
+      "public_cible": 0.85,
+      "confiance": 0.95,
+      "buzz": 0.6,
+      "buzz_raison": "Clash de styles Bass vs Hard pour les adeptes de sound systems puissants",
+      "accroche": "Clash sonore Bass vs Hard music entre Mr Hat et Verome dans la cave du Vieux-Nice.",
+      "instagram": [
+        "lantretechno"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Shotgun.live",
+      "name": "Da Grow — UK Bass / Gangsta House",
+      "start": "2026-11-28T04:00:00.000Z",
+      "venue": "L'Antre Bar Electro",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/fr/venues/l-antre",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto/production/artworks/IMG_1883_bwtzsy.jpg",
+      "price": 11,
+      "tags": [
+        "uk bass",
+        "gangsta house"
+      ],
+      "description": "",
+      "public_cible": 0.8,
+      "confiance": 0.95,
+      "buzz": 0.55,
+      "buzz_raison": "After original UK Bass et Gangsta House",
+      "accroche": "After matinal aux rythmes UK bass et gangsta house musclée avec Da Grow à L'Antre.",
+      "instagram": [
+        "lantretechno"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "highclub.fr",
+      "name": "To Have Fun",
+      "start": "2026-11-28T22:30:00.000Z",
+      "venue": "High Club",
+      "city": "Nice",
+      "address": "",
+      "url": "https://www.highclub.fr/events/",
+      "image": "https://www.highclub.fr/wp-content/uploads/2022/08/193A6968-192B-40EE-9DF0-53122D721470.jpg",
+      "price": null,
+      "tags": [
+        "clubbing",
+        "pop",
+        "edm"
+      ],
+      "description": "",
+      "public_cible": 0.8,
+      "confiance": 0.8,
+      "buzz": 0.6,
+      "buzz_raison": "Rendez-vous clubbing classique du samedi soir au High Club",
+      "accroche": "Samedi soir électro-pop et clubbing sur la Promenade des Anglais.",
+      "instagram": [
+        "highclubnice"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "highclub.fr",
+      "name": "What's Up Nice",
+      "start": "2026-12-04T22:30:00.000Z",
+      "venue": "High Club",
+      "city": "Nice",
+      "address": "",
+      "url": "https://www.highclub.fr/events/",
+      "image": "https://www.highclub.fr/wp-content/uploads/2022/08/193A6968-192B-40EE-9DF0-53122D721470.jpg",
+      "price": null,
+      "tags": [
+        "clubbing",
+        "urban",
+        "commercial"
+      ],
+      "description": "",
+      "public_cible": 0.8,
+      "confiance": 0.8,
+      "buzz": 0.6,
+      "buzz_raison": "Soirée clubbing début décembre au High Club",
+      "accroche": "Coup d'envoi du mois de décembre sur le dancefloor du High Club.",
+      "instagram": [
+        "highclubnice"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Shotgun.live / Panda Events",
+      "name": "Dakeez + Première Partie @ Frigo 16",
+      "start": "2026-12-05T19:00:00.000Z",
+      "venue": "Frigo 16 (Le 109)",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/fr/events/dakeez-premiere-partie-frigo-16",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,w_384,fl_lossy,f_webp,q_5/dev/artworks/COCLUB26_Mockup_Dakeez_1920x1080_2_ypxeqj",
+      "price": 15,
+      "tags": [
+        "rnb",
+        "trapsoul",
+        "hip-hop",
+        "reggaeton",
+        "baile funk",
+        "r&b",
+        "shatta",
+        "urban club",
+        "R&B",
+        "Trapsoul",
+        "Hip Hop",
+        "Rap",
+        "R&B francophone"
+      ],
+      "description": "",
+      "public_cible": 0.9,
+      "confiance": 0.95,
+      "buzz": 0.85,
+      "buzz_raison": "Artiste R&B en plein essor après des concerts complets à Paris",
+      "accroche": "Dakeez amène ses vibes R&B et trapsoul sur la scène du Frigo 16.",
+      "instagram": [
+        "dakeezoff",
+        "crossoverfestival",
+        "pandaevents06"
+      ],
+      "sources_sites": [
+        "Shotgun.live / Panda Events",
+        "panda-events.com",
+        "shotgun.live",
+        "Shotgun",
+        "Panda Events / Shotgun"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "highclub.fr",
+      "name": "Bad Girls",
+      "start": "2026-12-05T22:30:00.000Z",
+      "venue": "High Club",
+      "city": "Nice",
+      "address": "",
+      "url": "https://www.highclub.fr/events/",
+      "image": "https://www.highclub.fr/wp-content/uploads/2022/08/193A6968-192B-40EE-9DF0-53122D721470.jpg",
+      "price": null,
+      "tags": [
+        "pop urbaine",
+        "electro",
+        "hip-hop"
+      ],
+      "description": "",
+      "public_cible": 0.85,
+      "confiance": 0.8,
+      "buzz": 0.65,
+      "buzz_raison": "Format populaire du samedi soir avec entrée offerte aux filles avant 1h",
+      "accroche": "Rendez-vous clubbing Bad Girls au High Club avec entrée offerte aux filles avant 1h.",
+      "instagram": [
+        "highclubnice"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Shotgun.live / Mojo Crew",
+      "name": "Wado X L'Antre 2",
+      "start": "2026-12-19T21:00:00.000Z",
+      "venue": "L'Antre Bar Electro",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/fr/venues/l-antre",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,w_1200,h_630,f_jpg,q_auto/production/artworks/Sans_titre_3000_x_1000_px_mj5ygn",
+      "price": 5.99,
+      "tags": [
+        "hardcore",
+        "acidcore",
+        "tribe",
+        "Acid Tekno",
+        "Hard-Melodic Tekno"
+      ],
+      "description": "",
+      "public_cible": 0.85,
+      "confiance": 0.95,
+      "buzz": 0.7,
+      "buzz_raison": "Acte 2 tekno et acidcore avec Mojo Crew avant la fin d'année",
+      "accroche": "Deuxième volet tekno rave orchestré par le Mojo Crew et Wado avant la trêve hivernale.",
+      "instagram": [
+        "wado.music",
+        "mojocrewevent",
+        "lantretechno"
+      ],
+      "sources_sites": [
+        "Shotgun.live / Mojo Crew",
+        "Shotgun"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Shotgun.live",
+      "name": "Inauguration - 21 Lounge",
+      "start": "2026-11-10T20:00:00.000Z",
+      "venue": "La Suite Restaurant Festif",
+      "city": "Vallauris",
+      "address": "",
+      "url": "https://shotgun.live/fr/events/inauguration-21-lounge",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto/production/artworks/Mardi_10_Novembre_Bannie%CC%80re_e8twdt.png",
+      "price": 0,
+      "tags": [
+        "hip-hop",
+        "shatta",
+        "afro"
+      ],
+      "description": "",
+      "public_cible": 0.85,
+      "confiance": 0.95,
+      "buzz": 0.65,
+      "buzz_raison": "Soirée d'inauguration festive lancée par La Mescla Festival et BumBum06.",
+      "accroche": "Lancement du nouveau QG festif 21 Lounge avec La Mescla Festival et BumBum06.",
+      "instagram": [
+        "lamescla_fest",
+        "bumbum_06",
+        "lasuite_cannes"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Shotgun.live",
+      "name": "Nightly X Dovnrobs (ELVA Cannes Takeover)",
+      "start": "2026-11-13T22:59:00.000Z",
+      "venue": "ELVA Club",
+      "city": "Cannes",
+      "address": "",
+      "url": "https://shotgun.live/fr/events/nightly-x-dovnrobs-elva-cannes-takover",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,ar_16:9,w_3840,fl_lossy,f_webp,q_auto/production/artworks/NOV_13_i4dvhj.png",
+      "price": 14.3,
+      "tags": [
+        "house",
+        "afro house",
+        "tech house",
+        "Afro House",
+        "House"
+      ],
+      "description": "",
+      "public_cible": 0.9,
+      "confiance": 0.95,
+      "buzz": 0.75,
+      "buzz_raison": "Takeover d'un club cannois prisé par un collectif parisien.",
+      "accroche": "Takeover du club ELVA par le crew parisien Nightlyfr avec Dovnrobs aux platines.",
+      "instagram": [
+        "nightly_fr",
+        "elvaclubcannes",
+        "elva_cannes"
+      ],
+      "sources_sites": [
+        "Shotgun.live",
+        "Shotgun"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Shotgun.live",
+      "name": "Lanonchalance pres. Malive",
+      "start": "2026-11-13T22:59:00.000Z",
+      "venue": "Twiga Monte-Carlo",
+      "city": "Monaco",
+      "address": "",
+      "url": "https://shotgun.live/fr/events/lanonchalance-pres-malive",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,w_1200,h_630,f_jpg,q_auto/production/artworks/PHOTO-2025-04-03-17-58-01_vhhuhe",
+      "price": 12,
+      "tags": [
+        "afro house",
+        "tech house",
+        "latin house",
+        "Afro House",
+        "Tech House",
+        "Latin House",
+        "house",
+        "electro",
+        "clubbing"
+      ],
+      "description": "",
+      "public_cible": 0.9,
+      "confiance": 0.95,
+      "buzz": 0.75,
+      "buzz_raison": "DJ international Malive programmé au Twiga Monte-Carlo.",
+      "accroche": "Set afro et tech house au Twiga Monte-Carlo avec le DJ international Malive.",
+      "instagram": [
+        "lanonchalance",
+        "twigamontecarlo",
+        "malivemusic"
+      ],
+      "sources_sites": [
+        "Shotgun.live",
+        "Shotgun",
+        "Instagram"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Shotgun.live",
+      "name": "Invictus Winter Session Act II (Laurent N. - Liza - Dj Safire)",
+      "start": "2026-11-20T19:30:00.000Z",
+      "venue": "So Blue Hôtel Restaurant",
+      "city": "Antibes",
+      "address": "",
+      "url": "https://shotgun.live/fr/events/invictus-winter-session-act-ii-laurent-n-liza-dj-safire",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,w_384,fl_lossy,f_webp,q_5/production/artworks/Affiche_steampunk_Invictvs_%C3%A0_Nice_vzdwba.png",
+      "price": 15,
+      "tags": [
+        "afro house",
+        "tech house",
+        "house"
+      ],
+      "description": "",
+      "public_cible": 0.75,
+      "confiance": 0.95,
+      "buzz": 0.55,
+      "buzz_raison": "Session Invictus réunissant des figures de la scène électro azuréenne.",
+      "accroche": "Rendez-vous house avec Laurent N., Liza et DJ Safire au So Blue Antibes.",
+      "instagram": [
+        "laurentn_music",
+        "sobluehotel"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Shotgun.live",
+      "name": "Mala Jaw - Oriental House",
+      "start": "2026-12-06T18:00:00.000Z",
+      "venue": "La Suite Restaurant Festif",
+      "city": "Vallauris",
+      "address": "",
+      "url": "https://shotgun.live/fr/events/mala-jaw-oriental-house",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,w_384,fl_lossy,f_webp,q_5/production/artworks/photo_de_profil3_zn8l8j.png",
+      "price": 11,
+      "tags": [
+        "oriental house",
+        "arabic pop",
+        "afro house"
+      ],
+      "description": "",
+      "public_cible": 0.8,
+      "confiance": 0.95,
+      "buzz": 0.55,
+      "buzz_raison": "Collaboration dominicale festive entre Ahla Leila et La Mescla.",
+      "accroche": "Beats électroniques et mélodies orientales le dimanche soir à La Suite.",
+      "instagram": [
+        "ahlaleila",
+        "lamescla_fest",
+        "lasuite_cannes"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "nikaia.fr",
+      "name": "PLK - Tour 2026",
       "start": "2026-12-06T18:00:00.000Z",
       "venue": "Palais Nikaïa",
       "city": "Nice",
       "address": "",
-      "url": "https://www.nikaia.fr",
-      "image": "https://media.concerts.paris/v2/events/88daf95d0093ff260465b154de71d16b.jpg?v=8a165ea6",
-      "price": 45,
+      "url": "https://www.nikaia.fr/spectacle/plk/",
+      "image": "https://www.nikaia.fr/thumbs/1024x562r/2025-10/capture-d-e-cran-2025-10-24-a-17.55.05.png",
+      "price": 39,
       "tags": [
+        "rap",
+        "hip-hop",
         "Rap français",
+        "Trap",
         "Hip-Hop"
       ],
       "description": "",
-      "public_cible": 0.98,
+      "public_cible": 0.95,
       "confiance": 0.98,
       "buzz": 0.95,
-      "buzz_raison": "Tournée des arénas à guichets fermés et immense notoriété chez les 17-25 ans.",
-      "accroche": "Le phénomène rap français PLK débarque pour enflammer la fosse du Palais Nikaïa.",
+      "buzz_raison": "Superstar du rap français, tournée des Zéniths après deux Stades de France complets.",
+      "accroche": "PLK débarque au Palais Nikaïa avec tous ses bangers pour une date XXL à Nice !",
       "instagram": [
+        "plkpb",
+        "nikaianice",
         "palaisnikaia"
+      ],
+      "sources_sites": [
+        "nikaia.fr",
+        "Nikaia.fr / Ticketmaster",
+        "Palais Nikaïa"
       ]
     },
     {
       "source": "web",
-      "source_site": "Shotgun.live",
-      "name": "Mungo’s Hi Fi + Red Echoes Sound System",
-      "start": "2026-12-12T19:00:00.000Z",
-      "venue": "Frigo 16 – Le 109",
-      "city": "Nice",
+      "source_site": "cannes.com",
+      "name": "Showcase #5 : Luzula / Venin Carmin / Code 150 / Harfaang",
+      "start": "2026-12-12T22:00:00.000Z",
+      "venue": "MJC Picaud / Studio 13",
+      "city": "Cannes",
       "address": "",
-      "url": "https://shotgun.live",
-      "image": "https://assets.shotgun.live/image/upload/production/artworks/Frigo_261212_mungoshifi_event_1920x1080px_p6qufd.jpg",
-      "price": 15,
+      "url": "https://www.cannes.com/fr/agenda/annee-2026/decembre/showcase-5-luzula-venin-carmin-code-150-harfaang.html",
+      "image": "https://www.cannes.com/_object/ametys-internal%3Asites/www/ametys-internal%3Acontents/nouvelle-page-evenement-16/_attribute/illustration/image/luzula_960x640.jpg",
+      "price": 10,
       "tags": [
-        "Dub",
-        "Bass Music",
-        "Reggae Sound System"
+        "dark electro",
+        "post-punk",
+        "synthwave",
+        "gothique"
       ],
       "description": "",
-      "public_cible": 0.88,
-      "confiance": 0.94,
-      "buzz": 0.76,
-      "buzz_raison": "Tête d'affiche internationale respectée dans la culture bass music et sound system.",
-      "accroche": "Les géants écossais du sound system Mungo s Hi Fi font trembler les murs du Frigo 16.",
+      "public_cible": 0.75,
+      "confiance": 0.95,
+      "buzz": 0.65,
+      "buzz_raison": "Nuit clubbing alternative darkwave underground dans le spot musiques actuelles cannois.",
+      "accroche": "Nuit alternative darkwave et post-punk jusqu'à 3h du matin au Studio 13 à Cannes !",
       "instagram": [
-        "panda_events",
-        "le109nice"
+        "mjcpicaud"
       ]
     },
     {
       "source": "web",
-      "source_site": "Shotgun.live",
-      "name": "Zona De Perreo",
-      "start": "2026-12-19T19:00:00.000Z",
-      "venue": "Frigo 16 – Le 109",
+      "source_site": "etudiants.nice.fr",
+      "name": "Rakugo Up Date (Cyril Coppini x DJ Click)",
+      "start": "2026-12-16T18:00:00.000Z",
+      "venue": "Salle Le Stockfish - Maison de l'Étudiant",
       "city": "Nice",
       "address": "",
-      "url": "https://shotgun.live",
-      "image": "https://assets.shotgun.live/image/upload/production/artworks/FRIGO16-SAISON_sept-dec_2026-cover-3000x1000_qi4spw",
-      "price": 12,
+      "url": "https://etudiants.nice.fr",
+      "image": "",
+      "price": 0,
+      "tags": [
+        "electro",
+        "bass music",
+        "sound design"
+      ],
+      "description": "",
+      "public_cible": 0.8,
+      "confiance": 0.9,
+      "buzz": 0.6,
+      "buzz_raison": "DJ Click en live dans la salle de concert étudiante niçoise, entrée libre.",
+      "accroche": "DJ Click pose ses basses électro au Stockfish pour une soirée étudiante originale !",
+      "instagram": [
+        "le_stockfish",
+        "villedenice"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Shotgun",
+      "name": "L'App'Prom En Rose - Bocca Mar",
+      "start": "2026-11-15T08:30:00.000Z",
+      "venue": "Bocca Mar",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/fr/events/l-app-prom-en-rose-bocca-mar",
+      "image": "",
+      "price": 10,
+      "tags": [
+        "House",
+        "Afro House",
+        "Rap"
+      ],
+      "description": "",
+      "public_cible": 0.9,
+      "confiance": 0.95,
+      "buzz": 0.7,
+      "buzz_raison": "Day party / open air en bord de mer sur la Promenade des Anglais",
+      "accroche": "Day party sur la Promenade des Anglais avec DJ sets house et vue mer imprenable.",
+      "instagram": [
+        "boccamar_nice"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Shotgun",
+      "name": "Alex Duff Into The Night",
+      "start": "2026-11-19T22:59:00.000Z",
+      "venue": "Glass Club Cannes",
+      "city": "Cannes",
+      "address": "",
+      "url": "https://shotgun.live/fr/events/alex-duff-into-the-night",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto/production/artworks/08D5BD8F-29FD-4293-A34F-945BA0CB0301_kcje9a.png",
+      "price": 9.99,
+      "tags": [
+        "Tech House",
+        "Deep House",
+        "House"
+      ],
+      "description": "",
+      "public_cible": 0.9,
+      "confiance": 0.95,
+      "buzz": 0.55,
+      "buzz_raison": "Rendez-vous clubbing tech house du jeudi",
+      "accroche": "Alex Duff aux commandes du jeudi clubbing tech house à Cannes.",
+      "instagram": [
+        "glassclubcannes",
+        "alexduff_music"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Shotgun",
+      "name": "Ponte Loca • Mama Shelter Nice",
+      "start": "2026-11-19T19:00:00.000Z",
+      "venue": "Mama Shelter Nice",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/fr/events/jeu-19-nov-ponte-loca-mama-shelter-nice",
+      "image": "https://scontent-sjc6-1.cdninstagram.com/v/t51.82787-15/876258227_17986904040094268_5330521541180242558_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=108&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=Q55Ikfv14IcQ7kNvwGOwk9-&_nc_oc=AdqOSPjszhCR4kgcJyljGwp1HnZFUNpq4JNtE7h5mZSw10tMBLPlRVFTvhtQrKvPiGU&_nc_zt=23&_nc_ht=scontent-sjc6-1.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=NYB-2R01R5zbdp7QLpRA7w&oh=00_AQSLST4vyrFreneu_340Eh7sxUmAox5wOvL-5I9_gRx0fw&oe=6AF6BE55",
+      "price": 0,
       "tags": [
         "Reggaeton",
-        "Perreo",
-        "Latino"
+        "Shatta",
+        "Latin Urbain",
+        "latino",
+        "reggaeton"
       ],
       "description": "",
       "public_cible": 0.95,
-      "confiance": 0.93,
-      "buzz": 0.74,
-      "buzz_raison": "Dernier week-end festif avant les vacances de fin d'année.",
-      "accroche": "Dernier gros rendez-vous perreo et reggaeton de fin d année au Frigo 16.",
+      "confiance": 0.95,
+      "buzz": 0.65,
+      "buzz_raison": "Soirée festive et afterwork latino branché en entrée libre",
+      "accroche": "Soirée festive et afterwork latino reggaeton et shatta au Mama Shelter.",
       "instagram": [
-        "panda_events",
-        "le109nice"
+        "mamashelternice",
+        "latinaddict"
+      ],
+      "sources_sites": [
+        "Shotgun",
+        "Instagram"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Shotgun",
+      "name": "Sensoria — Into The Frequency w/ Nico.V",
+      "start": "2026-11-21T22:59:00.000Z",
+      "venue": "Glass Club Cannes",
+      "city": "Cannes",
+      "address": "",
+      "url": "https://shotgun.live/fr/events/sensoria-into-the-frequency-w-nico-v",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto/production/artworks/08D5BD8F-29FD-4293-A34F-945BA0CB0301_kcje9a.png",
+      "price": 9.99,
+      "tags": [
+        "Melodic Techno",
+        "Tech House",
+        "House"
+      ],
+      "description": "",
+      "public_cible": 0.9,
+      "confiance": 0.95,
+      "buzz": 0.6,
+      "buzz_raison": "Soirée clubbing melodic techno au Glass Club Cannes",
+      "accroche": "Voyage melodic techno et progressive house au Glass Club avec Sensoria.",
+      "instagram": [
+        "glassclubcannes"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Shotgun",
+      "name": "The Show Club Sonore - Nice",
+      "start": "2026-11-26T18:00:00.000Z",
+      "venue": "Mama Shelter Nice",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/fr/events/the-show-club-sonore-nice-novembre-2026",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto/production/artworks/photo-output_116_bjuzgn.png",
+      "price": 0,
+      "tags": [
+        "Nu-Disco",
+        "Disco House",
+        "Afrobeat",
+        "Afro House",
+        "Shatta",
+        "Electro",
+        "Hip Hop"
+      ],
+      "description": "",
+      "public_cible": 0.85,
+      "confiance": 0.95,
+      "buzz": 0.8,
+      "buzz_raison": "Rendez-vous créatif et musical gratuit dans un lieu prisé.",
+      "accroche": "Le collectif Club Sonore réunit les jeunes créatifs au Mama Shelter.",
+      "instagram": [
+        "clubsonore",
+        "mamashelternice"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Shotgun",
+      "name": "Ben Carter",
+      "start": "2026-12-12T19:30:00.000Z",
+      "venue": "Le Dix-Huit",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/fr/events/ben-carter",
+      "image": "",
+      "price": 18,
+      "tags": [
+        "Electro",
+        "House",
+        "Indie Dance"
+      ],
+      "description": "",
+      "public_cible": 0.9,
+      "confiance": 0.95,
+      "buzz": 0.6,
+      "buzz_raison": "Set clubbing indie dance très attendu",
+      "accroche": "Set indie dance et house soigné par Ben Carter au Dix-Huit.",
+      "instagram": [
+        "bencartermusic",
+        "ledixhuit_nice"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Shotgun",
+      "name": "Santa's House Party — Sud'Spicious X Glass Club",
+      "start": "2026-12-21T22:00:00.000Z",
+      "venue": "Glass Club Cannes",
+      "city": "Cannes",
+      "address": "",
+      "url": "https://shotgun.live/fr/events/santa-s-house-party",
+      "image": "",
+      "price": 10,
+      "tags": [
+        "Afro House",
+        "Tech House",
+        "Melodic House"
+      ],
+      "description": "",
+      "public_cible": 0.95,
+      "confiance": 0.95,
+      "buzz": 0.7,
+      "buzz_raison": "Soirée festive de Noël Sud'Spicious avec système son VOID",
+      "accroche": "Soirée de Noël du crew Sud'Spicious sur le sound system VOID du Glass Club.",
+      "instagram": [
+        "sudspicious",
+        "glassclubcannes"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Le Mas des Escaravatiers",
+      "name": "Lilly Wood and The Prick — Festival Mas d'Hiver",
+      "start": "2026-11-14T18:30:00.000Z",
+      "venue": "Le Mas d'Hiver",
+      "city": "Puget-sur-Argens",
+      "address": "",
+      "url": "https://lemas-concert.com/line-up-hiver-2026/",
+      "image": "https://lemas-concert.com/wp-content/uploads/2026/10/New-bandeau-cover-1-768x329.png",
+      "price": 18.4,
+      "tags": [
+        "Pop-Rock",
+        "Electro-Pop",
+        "Indie"
+      ],
+      "description": "",
+      "public_cible": 0.8,
+      "confiance": 0.95,
+      "buzz": 0.75,
+      "buzz_raison": "Venue du duo Lilly Wood and The Prick dans un cadre intimiste réputé.",
+      "accroche": "Le duo culte de Prayer in C en live intime au Mas d'Hiver.",
+      "instagram": [
+        "lemas_concert"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Shotgun",
+      "name": "Le Môme & Adamé",
+      "start": "2026-12-18T19:30:00.000Z",
+      "venue": "Le Dix-Huit",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/fr/events/le-mome-adame",
+      "image": "https://assets.shotgun.live/image/upload/v1793358013/production/artworks/IMG_8302_cud8oh.jpg",
+      "price": 18,
+      "tags": [
+        "Rap",
+        "Hip-Hop",
+        "Pop Urbaine"
+      ],
+      "description": "",
+      "public_cible": 0.85,
+      "confiance": 0.95,
+      "buzz": 0.65,
+      "buzz_raison": "Concert clubbing live urbain au Dix-Huit.",
+      "accroche": "Concert rap et pop urbaine en proximité totale au Dix-Huit.",
+      "instagram": [
+        "ledixhuitnice"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Instagram",
+      "name": "Les Bonnes Franquettes Winter Edition",
+      "start": "2026-11-14T19:30:00.000Z",
+      "venue": "2416 Route de Saint-Laurent",
+      "city": "Saint-Laurent-du-Var",
+      "address": "",
+      "url": "https://www.instagram.com/p/De95DS1INkE/",
+      "image": "https://scontent-sjc3-1.cdninstagram.com/v/t51.82787-15/885019106_18116214527031263_1214653049463649616_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=105&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=avUJgzcnjJYQ7kNvwG-p6He&_nc_oc=AdqZ7AKFNo0Ogsn9KFob_jCQE-YIod38YhwCskm1XaTQDZ_cYR9hv_rKJlG0y7r-b_E&_nc_zt=23&_nc_ht=scontent-sjc3-1.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=VeP1xPHUXZB5osT2GtT3Vg&oh=00_AQQF5Qz34ihtooutLsjURxcCFgGY0IeSadTawIL7jLmxlg&oe=6AF6C308",
+      "price": 18.5,
+      "tags": [
+        "house",
+        "disco",
+        "pop",
+        "House",
+        "Electro",
+        "Melodic"
+      ],
+      "description": "",
+      "public_cible": 0.9,
+      "confiance": 0.95,
+      "buzz": 0.75,
+      "buzz_raison": "Format mini boiler room au centre de la piste avec jauge limitee.",
+      "accroche": "Ambiance mini boiler room dans un ancien jazz club avec les DJs Bryanmls et Chipie.",
+      "instagram": [
+        "les.bonnesfranquettes",
+        "bryanmls",
+        "chipie_____"
+      ],
+      "sources_sites": [
+        "Instagram",
+        "Shotgun"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Shotgun / Mama Shelter",
+      "name": "DJ Set - Jordan Kowen",
+      "start": "2026-11-21T19:30:00.000Z",
+      "venue": "Mama Shelter Nice",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/fr/events/dj-set-jordan-kowen",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,w_384,fl_lossy,f_webp,q_5/production/artworks/JORDAN-KOENE_1_srxtjq.webp",
+      "price": 0,
+      "tags": [
+        "Electro",
+        "House",
+        "Disco"
+      ],
+      "description": "",
+      "public_cible": 0.85,
+      "confiance": 0.95,
+      "buzz": 0.6,
+      "buzz_raison": "Soirée festive gratuite dans un spot branché niçois.",
+      "accroche": "DJ set house et disco par Jordan Kowen au Mama Shelter, entrée gratuite.",
+      "instagram": [
+        "jordankowen",
+        "mamashelternice"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "downtown.nice",
+      "name": "Rétro Party",
+      "start": "2026-11-10T22:00:00.000Z",
+      "venue": "Down Town",
+      "city": "Nice",
+      "address": "",
+      "url": "https://www.instagram.com/p/DffbjleEhUS/",
+      "image": "https://scontent-sjc3-1.cdninstagram.com/v/t39.30808-6/897087797_122199672038898678_4306792617703179393_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=110&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=TtZKWxP-10sQ7kNvwHKT48g&_nc_oc=Adq2yZENoO9h3_SrCMdt2Xjh-IBZTTP1YKtAQTSydBeVJHPxnWsaHxqCn2dV9u0TUOY&_nc_zt=23&_nc_ht=scontent-sjc3-1.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=ZUzHsv6PCULBCkvQQ6JhlQ&oh=00_AQTR5rTE08GHEflSrWA9wE5uZEjWPcZcQqn8S5G9bojSpw&oe=6AF6BEDC",
+      "price": 0,
+      "tags": [
+        "retro",
+        "années 90",
+        "années 2000",
+        "années 2010",
+        "hits"
+      ],
+      "description": "",
+      "public_cible": 0.9,
+      "confiance": 0.95,
+      "buzz": 0.6,
+      "buzz_raison": "Veille de férié avec entrée gratuite toute la nuit dans le Vieux Nice.",
+      "accroche": "Veille de jour férié dans le Vieux Nice sur les meilleurs sons 90s, 2000s et 2010s avec nivau.music.",
+      "instagram": [
+        "downtown.nice",
+        "nivau.music"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "lebarathymtoulon",
+      "name": "Di Liani DJ Set",
+      "start": "2026-11-10T21:00:00.000Z",
+      "venue": "Le Barathym",
+      "city": "Toulon",
+      "address": "",
+      "url": "https://www.instagram.com/p/DfcmxXUOwIr/",
+      "image": "https://scontent-sjc3-1.cdninstagram.com/v/t51.82787-15/880459022_18432503965151135_300816118585670448_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=106&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=n5VL4u1dlpMQ7kNvwE3hByY&_nc_oc=AdrUiluTwvdNcI3Otej0hF0nXssXqwEQAHCkc9N-yDZejbahJaCwfP7yrjb9ltXQoug&_nc_zt=23&_nc_ht=scontent-sjc3-1.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=Ie407RbvyPgPi-Nc4oBYMQ&oh=00_AQSoHDp-N1XLL81wlE15fL-MhSG2xqaPc5F8cxgh5BLBUA&oe=6AF6B69B",
+      "price": 0,
+      "tags": [
+        "house",
+        "électro",
+        "urban",
+        "shatta",
+        "dancehall"
+      ],
+      "description": "",
+      "public_cible": 0.85,
+      "confiance": 0.95,
+      "buzz": 0.55,
+      "buzz_raison": "Veille de jour férié au Mourillon avec entrée libre jusqu'à 4h.",
+      "accroche": "Veille de férié avec Di Liani aux platines pour un set solaire entre house, shatta et dancehall.",
+      "instagram": [
+        "lebarathymtoulon"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "lebarathymtoulon",
+      "name": "La Boum du Samedi Soir avec Yann-S",
+      "start": "2026-11-14T21:00:00.000Z",
+      "venue": "Le Barathym",
+      "city": "Toulon",
+      "address": "",
+      "url": "https://www.instagram.com/p/Dfcn1I-MUD8/",
+      "image": "https://scontent-sjc6-1.cdninstagram.com/v/t51.82787-15/890358286_18432505756151135_6311885714158418046_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=108&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=bGaigM5zaA4Q7kNvwGsWNbu&_nc_oc=Adpf1QQLiOU9J7JsyepNcPnlJQ2KhteiVSKNX04u0YDeovKVUEFZD_Igb6Kzg_n0Nt8&_nc_zt=23&_nc_ht=scontent-sjc6-1.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=Ie407RbvyPgPi-Nc4oBYMQ&oh=00_AQQZz26uZJi6GxhCj55TsFsx7k7umkCzgy5-QCZSfj1ZMQ&oe=6AF69129",
+      "price": 0,
+      "tags": [
+        "généraliste",
+        "clubbing",
+        "hits"
+      ],
+      "description": "",
+      "public_cible": 0.8,
+      "confiance": 0.95,
+      "buzz": 0.5,
+      "buzz_raison": "Soirée clubbing du samedi soir au Mourillon avec DJ invité.",
+      "accroche": "Yann-S du Barrio Chicago enflamme le Barathym pour une boum du samedi soir jusqu'à 4h.",
+      "instagram": [
+        "lebarathymtoulon"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Instagram",
+      "name": "La Platurne x Panda Events : Fenrick, Leanne, Arman Shadow",
+      "start": "2026-11-10T19:00:00.000Z",
+      "venue": "Frigo 16",
+      "city": "Nice",
+      "address": "",
+      "url": "https://www.instagram.com/p/DfAkbDODs56/",
+      "image": "https://scontent-sjc6-1.cdninstagram.com/v/t51.82787-15/870221943_18128141330312991_2583893423234487232_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=107&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=IAylvu2uSsgQ7kNvwEdbdm9&_nc_oc=AdoSpCeIDXdXcz061y9tDbNnuBJIjrCSCAbLU6raMkQ8dspVAOW6PSIzwYA98vh376U&_nc_zt=23&_nc_ht=scontent-sjc6-1.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=uNO9IyPd8SEfSE5jn5doOQ&oh=00_AQTXyqU0M5mt8FfZZfs2XaicYkSybLWi3kJM-87NbdwROw&oe=6AF6BB83",
+      "price": null,
+      "tags": [
+        "techno",
+        "bounce"
+      ],
+      "description": "",
+      "public_cible": 0.95,
+      "confiance": 0.95,
+      "buzz": 0.85,
+      "buzz_raison": "Premiere date a Nice pour le producteur Fenrick en veille de ferie, billetterie quasi pleine.",
+      "accroche": "Veille de ferie au Frigo 16 avec Fenrick et une line-up internationale pour retourner Nice.",
+      "instagram": [
+        "laplaturne",
+        "fenrick_",
+        "armanshadow"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Instagram",
+      "name": "La Nonchalance x Twiga : Malive",
+      "start": "2026-11-13T22:59:00.000Z",
+      "venue": "Twiga Monaco",
+      "city": "Monaco",
+      "address": "",
+      "url": "https://www.instagram.com/p/DffISXKKU8E/",
+      "image": "https://scontent-sjc6-1.cdninstagram.com/v/t51.82787-15/890716565_18651922597041727_4845886643609070775_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=102&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=SYspqAFlukcQ7kNvwGcxajt&_nc_oc=AdqR9atF88Mc3ZpU5mNn4Kr95dKR4yDrdQVoOJIdI_hdtbyEMdu0YCQcX61NMD5IhWg&_nc_zt=23&_nc_ht=scontent-sjc6-1.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=Zzcm32xO5zWkgWdcEaxlMQ&oh=00_AQS20BkvR4220uikvzzMU_YhdMrLFXie-IyT5erxofTPIw&oe=6AF69533",
+      "price": null,
+      "tags": [
+        "afro house",
+        "house"
+      ],
+      "description": "",
+      "public_cible": 0.8,
+      "confiance": 0.95,
+      "buzz": 0.75,
+      "buzz_raison": "Soiree portee par La Nonchalance avec un artiste soutenu par Keinemusik au Twiga.",
+      "accroche": "Le producteur Malive soutenu par Keinemusik debarque a la soiree La Nonchalance au Twiga.",
+      "instagram": [
+        "lanonchalance"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Instagram",
+      "name": "Sun7 Rooftop Experience",
+      "start": "2026-11-22T13:00:00.000Z",
+      "venue": "Rooftop Hotel Le Meridien",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/events/sun-7-rooftop-2",
+      "image": "https://scontent-sjc6-1.cdninstagram.com/v/t51.82787-15/888386173_18095445695689296_4243305765591842514_n.webp?stp=dst-jpg_e35_tt6&_nc_cat=111&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=RxEPAjG0LC0Q7kNvwFzo1-u&_nc_oc=AdrElzuLJdr2HySUcap3P0XAXw-bRmNQso4sTOtCXdFKlXCVLMoGmjE3gsLgyhqqowM&_nc_zt=23&_nc_ht=scontent-sjc6-1.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=NudBREMwP_qKSJJSPsyGeQ&oh=00_AQSlxF3dm4tK7tALvRy8kmQlh3iDXiQM3sYIdfcWPBIvnQ&oe=6AF6B610",
+      "price": null,
+      "tags": [
+        "house"
+      ],
+      "description": "",
+      "public_cible": 0.8,
+      "confiance": 0.95,
+      "buzz": 0.65,
+      "buzz_raison": "Day party sur un rooftop emblematique de Nice avec jauge limitee.",
+      "accroche": "DJ set house face a la mer sur le rooftop du Meridien avec dress code bleu et blanc.",
+      "instagram": [
+        "sun7riviera"
       ]
     }
   ]
