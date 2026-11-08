@@ -132,11 +132,7 @@ export const BandeSon: React.FC<{spec: Spec}> = ({spec}) => {
             return base * (parle(s) ? spec.musique!.ducking ?? 0.35 : 1) * fin;
           }} />
       ) : null}
-      {(spec.bruits || []).map((b, i) => (
-        <Sequence key={i} from={Math.max(0, Math.round(b.at * fps))} layout="none">
-          <Audio src={staticFile(b.src)} volume={b.volume ?? 0.6} />
-        </Sequence>
-      ))}
+      {(spec.bruits || []).map((b, i) => <Bruitage key={i} spec={spec} src={b.src} at={b.at} duree={1.5} volume={b.volume ?? 0.6} sousVoix={0.6} />)}
     </>
   );
 };
@@ -167,4 +163,19 @@ export const quand = (spec: Spec, w: string, k?: number, apres = 0) => {
   const n = (x: string) => x.toLowerCase().normalize('NFD').replace(/\p{M}/gu, '').replace(/^(?:\p{L}{1,2}|qu)['’]/u, '').replace(/[^\p{L}\p{N}']/gu, '');
   const m = spec.mots.find((x) => (k == null || x.scene === k) && x.start >= apres - 0.001 && n(x.w).startsWith(n(w)));
   return m ? m.start : k != null ? spec.scenes[k]?.start ?? 0 : 0;
+};
+
+/** Bruitage de transition court : coupé après `duree` s avec un fondu, et baissé quand la voix parle. */
+export const Bruitage: React.FC<{spec: Spec; src: string; at: number; duree: number; volume: number; sousVoix?: number}> = ({spec, src, at, duree, volume, sousVoix = 0.35}) => {
+  const {fps} = useVideoConfig();
+  const from = Math.max(0, Math.round(at * fps));
+  return (
+    <Sequence from={from} durationInFrames={Math.max(1, Math.round(duree * fps))} layout="none">
+      <Audio src={staticFile(src)} volume={(f) => {
+        const s = from / fps + f / fps;
+        const parle = spec.mots.some((m) => s >= m.start - 0.05 && s <= m.end + 0.1);
+        return volume * clamp((duree - f / fps) / Math.min(0.35, duree / 2)) * (parle ? sousVoix : 1);
+      }} />
+    </Sequence>
+  );
 };

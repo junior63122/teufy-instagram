@@ -144,7 +144,7 @@ const persos = mondes.map((m, i) => LOOKS[(Number.isInteger(m.perso) ? m.perso :
 const concept = {
   id, concept: 'histoire', type: type === 'actu' ? 'explicatif' : type, genre: type, titre: r.titre, cree: new Date().toISOString(), source: r.source || undefined,
   voix: {voice_id: 'IHngRooVccHyPqB4uQkG', nom: 'Corentin', modele: 'eleven_v3', stabilite: 0.0, style: 0.8, vitesse: 1.08},
-  musique: {src: MUSIQUES[r.musique] || MUSIQUES.festive, volume: 0.5, ducking: 0.55},
+  musique: {src: MUSIQUES[r.musique] || MUSIQUES.festive, volume: 0.42, ducking: 0.3},
   queue: 2.6, whooshEntreScenes: false,
   scenes: [
     {id: 'accroche', texte: r.accroche, sons: [{son: 'impact', volume: 0.5}]},

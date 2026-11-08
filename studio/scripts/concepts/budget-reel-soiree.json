@@ -15,8 +15,8 @@
   },
   "musique": {
     "src": "musique/electro-dreams.mp3",
-    "volume": 0.5,
-    "ducking": 0.55
+    "volume": 0.42,
+    "ducking": 0.3
   },
   "queue": 2.6,
   "whooshEntreScenes": false,

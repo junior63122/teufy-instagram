@@ -1,6 +1,6 @@
 import React from 'react';
 import {AbsoluteFill, Audio, Img, Sequence, staticFile} from 'remotion';
-import {BandeSon, Eclat, Grain, SousTitres, quand, useT} from '../ui/base';
+import {BandeSon, Bruitage, Eclat, Grain, SousTitres, quand, useT} from '../ui/base';
 import {Commentaire, Perso, Telephone} from '../ui/illus';
 import type {Look} from '../ui/illus';
 import {E, SPR, clamp, mix, p, rnd, sp} from '../lib/anim';
@@ -240,16 +240,16 @@ export const PotesFluide: React.FC<{spec: Spec}> = ({spec}) => {
           const proche = clamp(1 - Math.abs(cc.x - (xZone(i) + 60)) / 1100);
           const groupe = cc.z < 0.5 ? 0.35 : 1;
           const parleF = spec.mots.some((m) => f / fps >= m.start - 0.1 && f / fps <= m.end + 0.2);
-          return 0.55 * proche * groupe * (parleF ? 0.55 : 1) * clamp((spec.duree - f / fps) / 1.2);
+          return 0.3 * proche * groupe * (parleF ? 0.35 : 1) * clamp((spec.duree - f / fps) / 1.2);
         }} />
       ) : null)}
       {/* un souffle à chaque glissade de caméra, une montée avant le recul final */}
       {[2, 3, 4].map((k) => (
-        <Sequence key={`w${k}`} from={Math.max(0, Math.round((S[k].start - 0.38) * fps))} layout="none"><Audio src={staticFile('sfx/whoosh.mp3')} volume={0.55} /></Sequence>
+        <Bruitage key={`w${k}`} spec={spec} src="sfx/whoosh.mp3" at={S[k].start - 0.38} duree={0.7} volume={0.35} />
       ))}
-      <Sequence from={Math.max(0, Math.round((S[1].start - 0.5) * fps))} layout="none"><Audio src={staticFile('sfx/aspiration.mp3')} volume={0.55} /></Sequence>
-      <Sequence from={Math.max(0, Math.round((S[5].start - 1.6) * fps))} layout="none"><Audio src={staticFile('sfx/riser.mp3')} volume={0.45} /></Sequence>
-      <Sequence from={Math.max(0, Math.round((S[5].start + 0.3) * fps))} layout="none"><Audio src={staticFile('sfx/impact.mp3')} volume={0.5} /></Sequence>
+      <Bruitage spec={spec} src="sfx/aspiration.mp3" at={S[1].start - 0.6} duree={0.8} volume={0.3} />
+      <Bruitage spec={spec} src="sfx/riser.mp3" at={S[5].start - 1.2} duree={1.3} volume={0.25} />
+      <Bruitage spec={spec} src="sfx/impact.mp3" at={S[5].start + 0.3} duree={1.2} volume={0.3} />
     </AbsoluteFill>
   );
 };
