@@ -1,7 +1,8 @@
 {
  "blue coast brewing company|nice": {
   "introuvable": true,
-  "le": "2026-11-08T21:52:31.813Z"
+  "v": 2,
+  "le": "2026-11-08T22:07:30.497Z"
  },
  "mama shelter nice|nice": {
   "lat": 43.70288,
@@ -15,23 +16,28 @@
  },
  "frigo 16 - le 109|nice": {
   "introuvable": true,
-  "le": "2026-11-08T21:52:36.278Z"
+  "v": 2,
+  "le": "2026-11-08T22:07:35.000Z"
  },
  "frigo 16|nice": {
   "introuvable": true,
-  "le": "2026-11-08T21:52:37.596Z"
+  "v": 2,
+  "le": "2026-11-08T22:07:37.499Z"
  },
  "l'antre bar electro|nice": {
   "introuvable": true,
-  "le": "2026-11-08T21:52:39.219Z"
+  "v": 2,
+  "le": "2026-11-08T22:07:42.373Z"
  },
  "la suite restaurant festif|vallauris": {
   "introuvable": true,
-  "le": "2026-11-08T21:52:41.114Z"
+  "v": 2,
+  "le": "2026-11-08T22:07:46.725Z"
  },
  "le barathym|toulon": {
   "introuvable": true,
-  "le": "2026-11-08T21:52:42.688Z"
+  "v": 2,
+  "le": "2026-11-08T22:07:50.943Z"
  },
  "down town|nice": {
   "lat": 43.69696,
@@ -45,23 +51,28 @@
  },
  "l'antre & kosma club|nice": {
   "introuvable": true,
-  "le": "2026-11-08T21:52:47.266Z"
+  "v": 2,
+  "le": "2026-11-08T22:07:55.122Z"
  },
  "twiga monte carlo|monaco": {
   "introuvable": true,
-  "le": "2026-11-08T21:52:48.857Z"
+  "v": 2,
+  "le": "2026-11-08T22:07:57.851Z"
  },
  "glass club cannes|cannes": {
   "introuvable": true,
-  "le": "2026-11-08T21:52:50.624Z"
+  "v": 2,
+  "le": "2026-11-08T22:08:02.648Z"
  },
  "so blue hotel restaurant|antibes": {
   "introuvable": true,
-  "le": "2026-11-08T21:52:52.303Z"
+  "v": 2,
+  "le": "2026-11-08T22:08:07.393Z"
  },
  "le calypso - frejus plage|frejus": {
-  "introuvable": true,
-  "le": "2026-11-08T21:52:53.623Z"
+  "lat": 43.38772,
+  "lng": 6.7217,
+  "le": "2026-11-08T22:08:11.795Z"
  },
  "305 vice club nice|nice": {
   "lat": 43.69903,
@@ -69,12 +80,14 @@
   "le": "2026-11-08T21:52:55.017Z"
  },
  "oma club|nice": {
-  "introuvable": true,
-  "le": "2026-11-08T21:52:56.418Z"
+  "lat": 43.69594,
+  "lng": 7.26532,
+  "le": "2026-11-08T22:08:15.904Z"
  },
  "elva club cannes|cannes": {
   "introuvable": true,
-  "le": "2026-11-08T21:52:57.995Z"
+  "v": 2,
+  "le": "2026-11-08T22:08:20.184Z"
  },
  "twiga monaco|monaco": {
   "lat": 43.74368,
@@ -83,15 +96,18 @@
  },
  "le mas d'hiver|puget-sur-argens": {
   "introuvable": true,
-  "le": "2026-11-08T21:53:00.813Z"
+  "v": 2,
+  "le": "2026-11-08T22:08:24.412Z"
  },
  "ancien jazz club|nice": {
   "introuvable": true,
-  "le": "2026-11-08T21:53:02.152Z"
+  "v": 2,
+  "le": "2026-11-08T22:08:28.488Z"
  },
  "green musik|antibes": {
   "introuvable": true,
-  "le": "2026-11-08T21:53:03.456Z"
+  "v": 2,
+  "le": "2026-11-08T22:08:31.284Z"
  },
  "bocca mar|nice": {
   "lat": 43.6945,
@@ -100,27 +116,33 @@
  },
  "switch club|roquebrune-sur-argens": {
   "introuvable": true,
-  "le": "2026-11-08T21:53:06.244Z"
+  "v": 2,
+  "le": "2026-11-08T22:08:35.403Z"
  },
  "skyfall cannes x kingdom|cannes": {
   "introuvable": true,
-  "le": "2026-11-08T21:53:07.455Z"
+  "v": 2,
+  "le": "2026-11-08T22:08:38.132Z"
  },
  "rooftop le meridien|nice": {
-  "introuvable": true,
-  "le": "2026-11-08T21:53:08.642Z"
+  "lat": 43.69528,
+  "lng": 7.26596,
+  "le": "2026-11-08T22:08:42.388Z"
  },
  "rooftop hotel le meridien|nice": {
-  "introuvable": true,
-  "le": "2026-11-08T21:53:10.215Z"
+  "lat": 43.69528,
+  "lng": 7.26596,
+  "le": "2026-11-08T22:08:46.665Z"
  },
  "le dix-huit - adresse d'experiences|nice": {
-  "introuvable": true,
-  "le": "2026-11-08T21:53:11.814Z"
+  "lat": 43.69642,
+  "lng": 7.26469,
+  "le": "2026-11-08T22:08:51.026Z"
  },
  "le 109 - frigo 16|nice": {
   "introuvable": true,
-  "le": "2026-11-08T21:53:13.245Z"
+  "v": 2,
+  "le": "2026-11-08T22:08:54.002Z"
  },
  "l'antre bar electro bar a cocktails|nice": {
   "introuvable": true,
