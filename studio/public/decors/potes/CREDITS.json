@@ -1,19 +1,19 @@
 {
  "dancefloor": {
   "modele": "gemini-3-pro-image-preview",
-  "le": "2026-11-08T10:14:01.324Z"
+  "le": "2026-11-08T10:20:56.761Z"
  },
  "dj": {
   "modele": "gemini-3-pro-image-preview",
-  "le": "2026-11-08T10:14:14.327Z"
+  "le": "2026-11-08T10:21:10.013Z"
  },
  "kebab": {
   "modele": "gemini-3-pro-image-preview",
-  "le": "2026-11-08T10:14:32.948Z"
+  "le": "2026-11-08T10:21:25.243Z"
  },
  "matin": {
   "modele": "gemini-3-pro-image-preview",
-  "le": "2026-11-08T10:14:46.156Z"
+  "le": "2026-11-08T10:21:39.476Z"
  },
  "_note": "Images générées par Google Gemini (API) pour Teufy."
 }
