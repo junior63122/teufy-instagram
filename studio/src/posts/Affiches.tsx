@@ -131,9 +131,9 @@ export const Carrousel: React.FC<{soirees: Soiree[]; slide: number; titre: strin
       </div>
       <Logo h={54} style={{right: 64, top: 40}} />
       {/* affiche officielle en grand, centrée, au format d'origine */}
-      <div style={{position: 'absolute', left: 0, right: 0, top: 120, height: 760, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+      <div style={{position: 'absolute', left: 0, right: 0, top: 104, height: 700, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
         <div style={{position: 'relative', boxShadow: '0 40px 100px rgba(0,0,0,.65)', border: '6px solid #f2efe9', lineHeight: 0}}>
-          <Img src={staticFile(s.image)} style={{display: 'block', maxWidth: 940, maxHeight: 748, width: 'auto', height: 'auto'}} />
+          <Img src={staticFile(s.image)} style={{display: 'block', maxWidth: 940, maxHeight: 688, width: 'auto', height: 'auto'}} />
           <div style={{position: 'absolute', left: -6, bottom: -34, background: s.couleur, color: '#0b0b0f', fontWeight: 900, fontStretch: '80%', fontSize: 44, lineHeight: 1, padding: '12px 22px', textTransform: 'uppercase', boxShadow: '0 10px 30px rgba(0,0,0,.4)'}}>
             {j1} <span style={{fontStretch: '100%'}}>{jr.slice(0, 2).join(' ')}</span>
           </div>
@@ -142,9 +142,9 @@ export const Carrousel: React.FC<{soirees: Soiree[]; slide: number; titre: strin
       {/* bas : genre, nom, infos */}
       <div style={{position: 'absolute', left: 64, right: 64, bottom: 60}}>
         <div style={{fontFamily: F.serif, fontStyle: 'italic', fontSize: 54, color: s.couleur, lineHeight: 1}}>{s.genre}</div>
-        <div style={{fontWeight: 900, fontStretch: '80%', fontSize: nom.length > 22 ? 82 : 104, lineHeight: 0.92, color: '#f2efe9', textTransform: 'uppercase', marginTop: 10}}>{nom}</div>
+        <div style={{fontWeight: 900, fontStretch: '80%', fontSize: nom.length > 22 ? 76 : 100, lineHeight: 0.92, color: '#f2efe9', textTransform: 'uppercase', marginTop: 10, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden'}}>{nom}</div>
         <div style={{display: 'flex', flexWrap: 'wrap', gap: 14, marginTop: 24}}>
-          {[s.heures, s.prix, s.lieu.split('·')[0].trim()].filter(Boolean).map((x, i) => (
+          {[s.heures, s.prix, s.lieu.split('·')[0].replace(/\s*\([^)]*\)/g, '').trim().slice(0, 30)].filter(Boolean).map((x, i) => (
             <span key={i} style={{fontFamily: F.mono, fontWeight: 700, fontSize: 28, color: '#f2efe9', border: '2px solid #f2efe966', borderRadius: 999, padding: '8px 20px'}}>{x}</span>
           ))}
         </div>
