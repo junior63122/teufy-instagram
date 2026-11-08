@@ -1,0 +1,263 @@
+{
+  "id": "paliers-flash",
+  "concept": "reelflash",
+  "type": "explicatif",
+  "titre": "Pourquoi ton billet passe de 12 à 25 € en une nuit",
+  "voix": {
+    "voice_id": "3Tp5mYhT9wrfnry9pzvV",
+    "nom": "Hugo",
+    "modele": "eleven_v3",
+    "stabilite": 0.0,
+    "style": 0.85,
+    "vitesse": 1.1
+  },
+  "musique": {
+    "src": "musique/trap.mp3",
+    "volume": 0.42,
+    "ducking": 0.3
+  },
+  "queue": 1.6,
+  "whooshEntreScenes": false,
+  "scenes": [
+    {
+      "id": "accroche",
+      "texte": "[shocked] Ton billet est passé de douze à vingt-cinq euros… en UNE nuit ?!",
+      "sons": [
+        {
+          "son": "basse",
+          "mot": "vingt-cinq",
+          "volume": 0.7
+        }
+      ]
+    },
+    {
+      "id": "paliers",
+      "texte": "[curious] Non, c'est pas une arnaque. C'est le système des PALIERS.",
+      "sons": [
+        {
+          "son": "pop",
+          "mot": "paliers",
+          "volume": 0.55
+        }
+      ]
+    },
+    {
+      "id": "trois",
+      "texte": "Les premières places, les early, partent à prix cassé. Puis ça monte : regular… et last.",
+      "sons": [
+        {
+          "son": "pop",
+          "mot": "early",
+          "volume": 0.5
+        },
+        {
+          "son": "pop",
+          "mot": "regular",
+          "volume": 0.5
+        },
+        {
+          "son": "basse",
+          "mot": "last",
+          "volume": 0.65
+        }
+      ]
+    },
+    {
+      "id": "soldout",
+      "texte": "[excited] Et dès qu'un palier est vide… SOLD OUT ! Le prix saute, direct.",
+      "sons": [
+        {
+          "son": "tampon",
+          "mot": "sold",
+          "volume": 0.6
+        },
+        {
+          "son": "basse",
+          "mot": "saute",
+          "volume": 0.65
+        }
+      ]
+    },
+    {
+      "id": "reflexe",
+      "texte": "Donc le bon réflexe ? Prends ta place dès l'annonce.",
+      "sons": [
+        {
+          "son": "pop",
+          "mot": "annonce",
+          "volume": 0.5
+        }
+      ]
+    },
+    {
+      "id": "notifs",
+      "texte": "[whispers] Et active les notifs de l'orga… [excited] t'auras toujours le prix early.",
+      "sons": [
+        {
+          "son": "message",
+          "mot": "notifs",
+          "volume": 0.55
+        }
+      ]
+    },
+    {
+      "id": "fin",
+      "texte": "Abonne-toi : chaque lundi, on te dit où sortir sur la Côte !",
+      "sons": [
+        {
+          "son": "impact",
+          "mot": "lundi",
+          "volume": 0.4
+        }
+      ]
+    }
+  ],
+  "extra": {
+    "plans": [
+      {
+        "photo": "decors/reel-paliers/choc.jpg",
+        "gros": [
+          {
+            "mot": "nuit",
+            "texte": "Arnaque ?",
+            "style": "sticker",
+            "y": 300
+          }
+        ],
+        "objet": {
+          "type": "prix",
+          "mot": "debut",
+          "motApres": "vingt-cinq",
+          "de": "12 €",
+          "a": "25 €"
+        },
+        "sombre": 0.35
+      },
+      {
+        "photo": "decors/reel-paliers/telephone.jpg",
+        "gros": [
+          {
+            "mot": "arnaque",
+            "texte": "Pas une [arnaque]",
+            "style": "titre"
+          },
+          {
+            "mot": "paliers",
+            "texte": "Les paliers",
+            "style": "sticker",
+            "y": 760
+          }
+        ]
+      },
+      {
+        "photo": "decors/reel-paliers/file.jpg",
+        "objet": {
+          "type": "paliers",
+          "mots": [
+            "early",
+            "regular",
+            "last"
+          ],
+          "paliers": [
+            {
+              "nom": "EARLY",
+              "prix": "12 €"
+            },
+            {
+              "nom": "REGULAR",
+              "prix": "18 €"
+            },
+            {
+              "nom": "LAST",
+              "prix": "25 €"
+            }
+          ]
+        },
+        "sombre": 0.45,
+        "gros": [
+          {
+            "mot": "cassé",
+            "texte": "Prix [cassé]",
+            "style": "titre",
+            "y": 250
+          },
+          {
+            "mot": "monte",
+            "texte": "Puis ça [monte]",
+            "style": "titre",
+            "y": 250
+          }
+        ]
+      },
+      {
+        "photo": "decors/reel-paliers/foule.jpg",
+        "gros": [
+          {
+            "mot": "saute",
+            "texte": "+7 €",
+            "style": "chiffre",
+            "y": 360
+          }
+        ],
+        "objet": {
+          "type": "jauge",
+          "mot": "palier",
+          "motFin": "sold",
+          "libelle": "Places early vendues"
+        },
+        "sombre": 0.3
+      },
+      {
+        "photo": "decors/reel-paliers/potes.jpg",
+        "gros": [
+          {
+            "mot": "réflexe",
+            "texte": "Le bon [réflexe]",
+            "style": "titre"
+          },
+          {
+            "mot": "annonce",
+            "texte": "Dès l'annonce",
+            "style": "sticker",
+            "y": 820
+          }
+        ]
+      },
+      {
+        "photo": "decors/reel-paliers/dj.jpg",
+        "gros": [
+          {
+            "mot": "toujours",
+            "texte": "Toujours le prix [early]",
+            "style": "titre",
+            "y": 700
+          }
+        ],
+        "objet": {
+          "type": "notif",
+          "mot": "notifs",
+          "titre": "L'organisateur",
+          "texte": "Les places early sont en ligne !"
+        }
+      },
+      {
+        "photo": "decors/da/danse.jpg",
+        "gros": [
+          {
+            "mot": "abonne",
+            "texte": "Abonne-toi",
+            "style": "sticker",
+            "y": 420
+          },
+          {
+            "mot": "lundi",
+            "texte": "Chaque [lundi], où sortir",
+            "style": "titre",
+            "y": 700
+          }
+        ]
+      }
+    ]
+  },
+  "legende": "Ton billet passe de 12 à 25 € en une nuit ? C'est pas une arnaque 👇\n\nLes soirées vendent par paliers : early (le moins cher), regular, last. Dès qu'un palier est sold out, le prix monte.\n\nLe bon réflexe : prendre sa place dès l'annonce et activer les notifs de l'organisateur.\n\n(prix de l'exemple à titre indicatif, chaque soirée fixe les siens)\n\nTu t'es déjà fait avoir ? Dis-le en commentaire.\n\n#TeufyParty #soiree #nice #bonplan #CoteDAzur"
+}

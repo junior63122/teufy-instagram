@@ -1,0 +1,839 @@
+{
+ "id": "paliers-flash",
+ "concept": "reelflash",
+ "fps": 30,
+ "duree": 29.048,
+ "mots": [
+  {
+   "w": "Ton",
+   "scene": 0,
+   "start": 0.136,
+   "end": 0.16
+  },
+  {
+   "w": "billet",
+   "scene": 0,
+   "start": 0.22,
+   "end": 0.72
+  },
+  {
+   "w": "est",
+   "scene": 0,
+   "start": 0.76,
+   "end": 0.88
+  },
+  {
+   "w": "passé",
+   "scene": 0,
+   "start": 0.933,
+   "end": 1.2
+  },
+  {
+   "w": "de",
+   "scene": 0,
+   "start": 1.227,
+   "end": 1.28
+  },
+  {
+   "w": "douze",
+   "scene": 0,
+   "start": 1.38,
+   "end": 1.76
+  },
+  {
+   "w": "à",
+   "scene": 0,
+   "start": 2,
+   "end": 2.24
+  },
+  {
+   "w": "vingt-cinq",
+   "scene": 0,
+   "start": 2.28,
+   "end": 2.64
+  },
+  {
+   "w": "euros…",
+   "scene": 0,
+   "start": 2.747,
+   "end": 3.4
+  },
+  {
+   "w": "en",
+   "scene": 0,
+   "start": 3.44,
+   "end": 3.52
+  },
+  {
+   "w": "UNE",
+   "scene": 0,
+   "start": 3.56,
+   "end": 3.76
+  },
+  {
+   "w": "nuit",
+   "scene": 0,
+   "start": 3.808,
+   "end": 4
+  },
+  {
+   "w": "?!",
+   "scene": 0,
+   "start": 4.36,
+   "end": 4.76
+  },
+  {
+   "w": "Non,",
+   "scene": 1,
+   "start": 4.865,
+   "end": 5.04
+  },
+  {
+   "w": "c'est",
+   "scene": 1,
+   "start": 5.12,
+   "end": 5.28
+  },
+  {
+   "w": "pas",
+   "scene": 1,
+   "start": 5.32,
+   "end": 5.44
+  },
+  {
+   "w": "une",
+   "scene": 1,
+   "start": 5.46,
+   "end": 5.52
+  },
+  {
+   "w": "arnaque.",
+   "scene": 1,
+   "start": 5.573,
+   "end": 6.08
+  },
+  {
+   "w": "C'est",
+   "scene": 1,
+   "start": 6.16,
+   "end": 6.32
+  },
+  {
+   "w": "le",
+   "scene": 1,
+   "start": 6.347,
+   "end": 6.4
+  },
+  {
+   "w": "système",
+   "scene": 1,
+   "start": 6.46,
+   "end": 6.88
+  },
+  {
+   "w": "des",
+   "scene": 1,
+   "start": 6.92,
+   "end": 7.04
+  },
+  {
+   "w": "PALIERS.",
+   "scene": 1,
+   "start": 7.14,
+   "end": 7.681
+  },
+  {
+   "w": "Les",
+   "scene": 2,
+   "start": 7.82,
+   "end": 8.24
+  },
+  {
+   "w": "premières",
+   "scene": 2,
+   "start": 8.272,
+   "end": 8.56
+  },
+  {
+   "w": "places,",
+   "scene": 2,
+   "start": 8.606,
+   "end": 9.04
+  },
+  {
+   "w": "les",
+   "scene": 2,
+   "start": 9.08,
+   "end": 9.2
+  },
+  {
+   "w": "early,",
+   "scene": 2,
+   "start": 9.28,
+   "end": 9.84
+  },
+  {
+   "w": "partent",
+   "scene": 2,
+   "start": 9.872,
+   "end": 10.08
+  },
+  {
+   "w": "à",
+   "scene": 2,
+   "start": 10.12,
+   "end": 10.16
+  },
+  {
+   "w": "prix",
+   "scene": 2,
+   "start": 10.208,
+   "end": 10.4
+  },
+  {
+   "w": "cassé.",
+   "scene": 2,
+   "start": 10.448,
+   "end": 10.8
+  },
+  {
+   "w": "Puis",
+   "scene": 2,
+   "start": 10.96,
+   "end": 11.2
+  },
+  {
+   "w": "ça",
+   "scene": 2,
+   "start": 11.253,
+   "end": 11.36
+  },
+  {
+   "w": "monte",
+   "scene": 2,
+   "start": 11.424,
+   "end": 11.76
+  },
+  {
+   "w": ":",
+   "scene": 2,
+   "start": 11.88,
+   "end": 12
+  },
+  {
+   "w": "regular…",
+   "scene": 2,
+   "start": 12.07,
+   "end": 12.879
+  },
+  {
+   "w": "et",
+   "scene": 2,
+   "start": 12.88,
+   "end": 12.882
+  },
+  {
+   "w": "last.",
+   "scene": 2,
+   "start": 12.977,
+   "end": 13.441
+  },
+  {
+   "w": "Et",
+   "scene": 3,
+   "start": 13.828,
+   "end": 13.841
+  },
+  {
+   "w": "dès",
+   "scene": 3,
+   "start": 13.901,
+   "end": 14.081
+  },
+  {
+   "w": "qu'un",
+   "scene": 3,
+   "start": 14.108,
+   "end": 14.241
+  },
+  {
+   "w": "palier",
+   "scene": 3,
+   "start": 14.281,
+   "end": 14.561
+  },
+  {
+   "w": "est",
+   "scene": 3,
+   "start": 14.581,
+   "end": 14.641
+  },
+  {
+   "w": "vide…",
+   "scene": 3,
+   "start": 14.689,
+   "end": 14.961
+  },
+  {
+   "w": "SOLD",
+   "scene": 3,
+   "start": 15.057,
+   "end": 15.441
+  },
+  {
+   "w": "OUT",
+   "scene": 3,
+   "start": 15.521,
+   "end": 15.761
+  },
+  {
+   "w": "!",
+   "scene": 3,
+   "start": 15.881,
+   "end": 16.001
+  },
+  {
+   "w": "Le",
+   "scene": 3,
+   "start": 16.054,
+   "end": 16.161
+  },
+  {
+   "w": "prix",
+   "scene": 3,
+   "start": 16.225,
+   "end": 16.481
+  },
+  {
+   "w": "saute,",
+   "scene": 3,
+   "start": 16.534,
+   "end": 17.041
+  },
+  {
+   "w": "direct.",
+   "scene": 3,
+   "start": 17.11,
+   "end": 17.801
+  },
+  {
+   "w": "Donc",
+   "scene": 4,
+   "start": 17.871,
+   "end": 18.161
+  },
+  {
+   "w": "le",
+   "scene": 4,
+   "start": 18.188,
+   "end": 18.241
+  },
+  {
+   "w": "bon",
+   "scene": 4,
+   "start": 18.281,
+   "end": 18.401
+  },
+  {
+   "w": "réflexe",
+   "scene": 4,
+   "start": 18.454,
+   "end": 19.001
+  },
+  {
+   "w": "?",
+   "scene": 4,
+   "start": 19.061,
+   "end": 19.121
+  },
+  {
+   "w": "Prends",
+   "scene": 4,
+   "start": 19.141,
+   "end": 19.281
+  },
+  {
+   "w": "ta",
+   "scene": 4,
+   "start": 19.334,
+   "end": 19.441
+  },
+  {
+   "w": "place",
+   "scene": 4,
+   "start": 19.494,
+   "end": 19.761
+  },
+  {
+   "w": "dès",
+   "scene": 4,
+   "start": 19.801,
+   "end": 19.921
+  },
+  {
+   "w": "l'annonce.",
+   "scene": 4,
+   "start": 19.961,
+   "end": 20.641
+  },
+  {
+   "w": "Et",
+   "scene": 5,
+   "start": 21.121,
+   "end": 21.185
+  },
+  {
+   "w": "active",
+   "scene": 5,
+   "start": 21.199,
+   "end": 21.281
+  },
+  {
+   "w": "les",
+   "scene": 5,
+   "start": 21.301,
+   "end": 21.361
+  },
+  {
+   "w": "notifs",
+   "scene": 5,
+   "start": 21.421,
+   "end": 21.761
+  },
+  {
+   "w": "de",
+   "scene": 5,
+   "start": 21.788,
+   "end": 21.841
+  },
+  {
+   "w": "l'orga…",
+   "scene": 5,
+   "start": 21.861,
+   "end": 22.4
+  },
+  {
+   "w": "t'auras",
+   "scene": 5,
+   "start": 22.448,
+   "end": 22.728
+  },
+  {
+   "w": "toujours",
+   "scene": 5,
+   "start": 22.764,
+   "end": 23.048
+  },
+  {
+   "w": "le",
+   "scene": 5,
+   "start": 23.075,
+   "end": 23.128
+  },
+  {
+   "w": "prix",
+   "scene": 5,
+   "start": 23.176,
+   "end": 23.368
+  },
+  {
+   "w": "early.",
+   "scene": 5,
+   "start": 23.421,
+   "end": 24.008
+  },
+  {
+   "w": "Abonne-toi",
+   "scene": 6,
+   "start": 24.115,
+   "end": 24.728
+  },
+  {
+   "w": ":",
+   "scene": 6,
+   "start": 24.848,
+   "end": 24.968
+  },
+  {
+   "w": "chaque",
+   "scene": 6,
+   "start": 25.002,
+   "end": 25.208
+  },
+  {
+   "w": "lundi,",
+   "scene": 6,
+   "start": 25.288,
+   "end": 25.688
+  },
+  {
+   "w": "on",
+   "scene": 6,
+   "start": 25.715,
+   "end": 25.768
+  },
+  {
+   "w": "te",
+   "scene": 6,
+   "start": 25.848,
+   "end": 26.008
+  },
+  {
+   "w": "dit",
+   "scene": 6,
+   "start": 26.028,
+   "end": 26.088
+  },
+  {
+   "w": "où",
+   "scene": 6,
+   "start": 26.195,
+   "end": 26.408
+  },
+  {
+   "w": "sortir",
+   "scene": 6,
+   "start": 26.456,
+   "end": 26.808
+  },
+  {
+   "w": "sur",
+   "scene": 6,
+   "start": 26.828,
+   "end": 26.888
+  },
+  {
+   "w": "la",
+   "scene": 6,
+   "start": 26.941,
+   "end": 27.048
+  },
+  {
+   "w": "Côte",
+   "scene": 6,
+   "start": 27.088,
+   "end": 27.368
+  },
+  {
+   "w": "!",
+   "scene": 6,
+   "start": 27.408,
+   "end": 27.448
+  }
+ ],
+ "scenes": [
+  {
+   "id": "accroche",
+   "texte": "[shocked] Ton billet est passé de douze à vingt-cinq euros… en UNE nuit ?!",
+   "sons": [
+    {
+     "son": "basse",
+     "mot": "vingt-cinq",
+     "volume": 0.7
+    }
+   ],
+   "start": 0,
+   "end": 4.745
+  },
+  {
+   "id": "paliers",
+   "texte": "[curious] Non, c'est pas une arnaque. C'est le système des PALIERS.",
+   "sons": [
+    {
+     "son": "pop",
+     "mot": "paliers",
+     "volume": 0.55
+    }
+   ],
+   "start": 4.745,
+   "end": 7.7
+  },
+  {
+   "id": "trois",
+   "texte": "Les premières places, les early, partent à prix cassé. Puis ça monte : regular… et last.",
+   "sons": [
+    {
+     "son": "pop",
+     "mot": "early",
+     "volume": 0.5
+    },
+    {
+     "son": "pop",
+     "mot": "regular",
+     "volume": 0.5
+    },
+    {
+     "son": "basse",
+     "mot": "last",
+     "volume": 0.65
+    }
+   ],
+   "start": 7.7,
+   "end": 13.708
+  },
+  {
+   "id": "soldout",
+   "texte": "[excited] Et dès qu'un palier est vide… SOLD OUT ! Le prix saute, direct.",
+   "sons": [
+    {
+     "son": "tampon",
+     "mot": "sold",
+     "volume": 0.6
+    },
+    {
+     "son": "basse",
+     "mot": "saute",
+     "volume": 0.65
+    }
+   ],
+   "start": 13.708,
+   "end": 17.751
+  },
+  {
+   "id": "reflexe",
+   "texte": "Donc le bon réflexe ? Prends ta place dès l'annonce.",
+   "sons": [
+    {
+     "son": "pop",
+     "mot": "annonce",
+     "volume": 0.5
+    }
+   ],
+   "start": 17.751,
+   "end": 21.001
+  },
+  {
+   "id": "notifs",
+   "texte": "[whispers] Et active les notifs de l'orga… [excited] t'auras toujours le prix early.",
+   "sons": [
+    {
+     "son": "message",
+     "mot": "notifs",
+     "volume": 0.55
+    }
+   ],
+   "start": 21.001,
+   "end": 23.995
+  },
+  {
+   "id": "fin",
+   "texte": "Abonne-toi : chaque lundi, on te dit où sortir sur la Côte !",
+   "sons": [
+    {
+     "son": "impact",
+     "mot": "lundi",
+     "volume": 0.4
+    }
+   ],
+   "start": 23.995,
+   "end": 29.048
+  }
+ ],
+ "bruits": [
+  {
+   "src": "sfx/basse.mp3",
+   "at": 2.28,
+   "volume": 0.7
+  },
+  {
+   "src": "sfx/pop.mp3",
+   "at": 7.14,
+   "volume": 0.55
+  },
+  {
+   "src": "sfx/pop.mp3",
+   "at": 9.28,
+   "volume": 0.5
+  },
+  {
+   "src": "sfx/pop.mp3",
+   "at": 12.07,
+   "volume": 0.5
+  },
+  {
+   "src": "sfx/basse.mp3",
+   "at": 12.977,
+   "volume": 0.65
+  },
+  {
+   "src": "sfx/tampon.mp3",
+   "at": 15.057,
+   "volume": 0.6
+  },
+  {
+   "src": "sfx/basse.mp3",
+   "at": 16.534,
+   "volume": 0.65
+  },
+  {
+   "src": "sfx/pop.mp3",
+   "at": 19.961,
+   "volume": 0.5
+  },
+  {
+   "src": "sfx/message.mp3",
+   "at": 21.421,
+   "volume": 0.55
+  },
+  {
+   "src": "sfx/impact.mp3",
+   "at": 25.288,
+   "volume": 0.4
+  }
+ ],
+ "voix": {
+  "src": "paliers-flash/voix.mp3",
+  "volume": 1
+ },
+ "musique": {
+  "src": "musique/trap.mp3",
+  "volume": 0.42,
+  "debut": 0,
+  "ducking": 0.3
+ },
+ "plans": [
+  {
+   "photo": "decors/reel-paliers/choc.jpg",
+   "gros": [
+    {
+     "mot": "nuit",
+     "texte": "Arnaque ?",
+     "style": "sticker",
+     "y": 300
+    }
+   ],
+   "objet": {
+    "type": "prix",
+    "mot": "debut",
+    "motApres": "vingt-cinq",
+    "de": "12 €",
+    "a": "25 €"
+   },
+   "sombre": 0.35
+  },
+  {
+   "photo": "decors/reel-paliers/telephone.jpg",
+   "gros": [
+    {
+     "mot": "arnaque",
+     "texte": "Pas une [arnaque]",
+     "style": "titre"
+    },
+    {
+     "mot": "paliers",
+     "texte": "Les paliers",
+     "style": "sticker",
+     "y": 760
+    }
+   ]
+  },
+  {
+   "photo": "decors/reel-paliers/file.jpg",
+   "objet": {
+    "type": "paliers",
+    "mots": [
+     "early",
+     "regular",
+     "last"
+    ],
+    "paliers": [
+     {
+      "nom": "EARLY",
+      "prix": "12 €"
+     },
+     {
+      "nom": "REGULAR",
+      "prix": "18 €"
+     },
+     {
+      "nom": "LAST",
+      "prix": "25 €"
+     }
+    ]
+   },
+   "sombre": 0.45,
+   "gros": [
+    {
+     "mot": "cassé",
+     "texte": "Prix [cassé]",
+     "style": "titre",
+     "y": 250
+    },
+    {
+     "mot": "monte",
+     "texte": "Puis ça [monte]",
+     "style": "titre",
+     "y": 250
+    }
+   ]
+  },
+  {
+   "photo": "decors/reel-paliers/foule.jpg",
+   "gros": [
+    {
+     "mot": "saute",
+     "texte": "+7 €",
+     "style": "chiffre",
+     "y": 360
+    }
+   ],
+   "objet": {
+    "type": "jauge",
+    "mot": "palier",
+    "motFin": "sold",
+    "libelle": "Places early vendues"
+   },
+   "sombre": 0.3
+  },
+  {
+   "photo": "decors/reel-paliers/potes.jpg",
+   "gros": [
+    {
+     "mot": "réflexe",
+     "texte": "Le bon [réflexe]",
+     "style": "titre"
+    },
+    {
+     "mot": "annonce",
+     "texte": "Dès l'annonce",
+     "style": "sticker",
+     "y": 820
+    }
+   ]
+  },
+  {
+   "photo": "decors/reel-paliers/dj.jpg",
+   "gros": [
+    {
+     "mot": "toujours",
+     "texte": "Toujours le prix [early]",
+     "style": "titre",
+     "y": 700
+    }
+   ],
+   "objet": {
+    "type": "notif",
+    "mot": "notifs",
+    "titre": "L'organisateur",
+    "texte": "Les places early sont en ligne !"
+   }
+  },
+  {
+   "photo": "decors/da/danse.jpg",
+   "gros": [
+    {
+     "mot": "abonne",
+     "texte": "Abonne-toi",
+     "style": "sticker",
+     "y": 420
+    },
+    {
+     "mot": "lundi",
+     "texte": "Chaque [lundi], où sortir",
+     "style": "titre",
+     "y": 700
+    }
+   ]
+  }
+ ]
+}

@@ -11,12 +11,13 @@ import {Paliers2} from './concepts/Paliers2';
 import {Marque} from './concepts/Marque';
 import {PotesFluide} from './concepts/PotesFluide';
 import {Histoire} from './concepts/Histoire';
+import {Flash} from './concepts/Flash';
 import {CarrouselFlash, Couverture, PostFlashDA, StoryRelais} from './da/Posts';
 import {Planche, Storyboard} from './da/Storyboard';
 
 
 // Une composition par concept. La durée vient de la spec (voix off + scènes), lue au rendu.
-const CONCEPTS: Record<string, React.FC<{spec: Spec}>> = {paliers: Paliers, potes: Potes, nuit: Nuit, paliers2: Paliers2, marque: Marque, potesfluide: PotesFluide, histoire: Histoire};
+const CONCEPTS: Record<string, React.FC<{spec: Spec}>> = {paliers: Paliers, potes: Potes, nuit: Nuit, paliers2: Paliers2, marque: Marque, potesfluide: PotesFluide, histoire: Histoire, reelflash: Flash};
 
 const vide: Spec = {id: 'vide', concept: 'paliers', duree: 3, mots: [], scenes: []};
 
