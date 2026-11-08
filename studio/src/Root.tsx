@@ -40,6 +40,6 @@ export const Root: React.FC = () => (
     ))}
     <Still id="post" component={((p: any) => <Polices><PostSoiree s={p.s} /></Polices>) as React.FC<any>} width={1080} height={1350} defaultProps={{s: donnees.soirees[1]}} />
     <Still id="flash" component={((p: any) => <Polices><PostFlash f={p.f} /></Polices>) as React.FC<any>} width={1080} height={1350} defaultProps={{f: {type: 'annonce', surtitre: "C'EST OFFICIEL", titre: 'Titre', sous_titre: '', faits: [], source: '', date: ''}}} />
-    <Still id="carrousel" component={((p: any) => <Polices><Carrousel soirees={p.soirees ?? donnees.soirees} slide={p.slide} titre={p.titre ?? ["5 soirées à pas rater", "avant noël"]} lieu={p.lieu ?? "FRIGO 16"} pied={p.pied} /></Polices>) as React.FC<any>} width={1080} height={1350} defaultProps={{slide: 0}} />
+    <Still id="carrousel" component={((p: any) => <Polices><Carrousel soirees={p.soirees ?? donnees.soirees} slide={p.slide} titre={p.titre ?? ["5 soirées à pas rater", "avant noël"]} lieu={p.lieu ?? "FRIGO 16"} pied={p.pied} fond={p.fond} /></Polices>) as React.FC<any>} width={1080} height={1350} defaultProps={{slide: 0}} />
   </>
 );

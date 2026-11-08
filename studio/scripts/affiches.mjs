@@ -38,11 +38,25 @@ for (const [i, s] of E.soirees.entries()) {
   soirees.push({...s, image, couleur: s.couleur || accent(path.join(STUDIO, 'public', image))});
 }
 if (soirees.length < 2) { console.error('Moins de 2 soirées avec affiche officielle : carrousel studio annulé.'); process.exit(3); }
+// Couverture : fond illustré généré par Gemini (un par semaine, gardé ensuite), sinon fond béton.
+let fond = E.fond;
+if (!fond && process.env.GEMINI_API_KEY) {
+  const d = new Date(); const semaine = `${d.getUTCFullYear()}-s${String(Math.ceil(((d - new Date(Date.UTC(d.getUTCFullYear(), 0, 1))) / 864e5 + 1) / 7)).padStart(2, '0')}`;
+  const id = `couverture-${semaine}`;
+  const def = path.join(dir, 'couverture.json');
+  await writeFile(def, JSON.stringify({concept: 'carrousel', style: '', decors: [{id, format: '4:5', prompt:
+    'Premium cinematic night scene of the French Riviera nightlife, seen from a rooftop: Nice bay and Promenade des Anglais glowing at night, palm trees, warm city lights reflected on the sea, ' +
+    'a stylish club terrace with string lights and soft haze, colorful stage light beams in coral, magenta and electric blue rising into the sky. ' +
+    'Photorealistic editorial look with rich colors and film grain, like a luxury magazine cover. No text, no letters, no logos, no recognizable faces (people only as distant silhouettes). ' +
+    'Vertical 4:5 composition; keep the top 35% darker and calm (night sky) for a big title, and the bottom 15% darker for small text.'}]}));
+  spawnSync('node', [path.join(STUDIO, 'scripts', 'decors.mjs'), def], {cwd: STUDIO, stdio: 'inherit', env: process.env});
+  if (existsSync(path.join(STUDIO, 'public', 'decors', 'carrousel', `${id}.jpg`))) fond = `decors/carrousel/${id}.jpg`;
+}
 const B = process.env.CHROME_HEADLESS_SHELL || '/opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell';
 const bin = path.join(STUDIO, 'node_modules', '.bin', 'remotion');
 const fichiers = [];
 for (let k = 0; k <= soirees.length + 1; k++) {
-  const props = JSON.stringify({slide: k, soirees, titre: E.titre, lieu: E.lieu, pied: E.pied});
+  const props = JSON.stringify({slide: k, soirees, titre: E.titre, lieu: E.lieu, pied: E.pied, fond});
   const f = path.resolve(sortie, `carrousel-${String(k).padStart(2, '0')}.jpg`);
   const r = spawnSync(bin, ['still', 'src/index.ts', 'carrousel', f, `--props=${props}`, '--image-format=jpeg', '--jpeg-quality=92', '--log=error', ...(existsSync(B) ? [`--browser-executable=${B}`] : [])], {cwd: STUDIO, stdio: 'inherit'});
   if (r.status !== 0) process.exit(r.status || 1);

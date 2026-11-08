@@ -54,8 +54,17 @@ export const PostSoiree: React.FC<{s: Soiree}> = ({s}) => (
   </AbsoluteFill>
 );
 
+/** Nom d'affiche lisible : sans le lieu (« @ … », « - Vice Club… »), sans parenthèses, sans « w/ … » trop long. */
+export const nomCourt = (nom: string, lieu = '') => {
+  let n = nom.replace(/\s*\([^)]*\)/g, '').replace(/\s+@\s+.*$/, '').trim();
+  const motsLieu = lieu.toLowerCase().split(/[\s,·]+/).filter((w) => w.length > 3);
+  n = n.split(/\s+[-–—|]\s+/).filter((part, i) => i === 0 || !motsLieu.some((w) => part.toLowerCase().includes(w))).join(' · ');
+  if (n.length > 30) n = n.replace(/\s+(w\/|x|feat\.?|avec)\s+.*$/i, '');
+  return n.length > 34 ? n.slice(0, 33).replace(/\s+\S*$/, '') + '…' : n;
+};
+
 /** Carrousel : couverture, une diapo par soirée, diapo finale « laquelle tu fais ? ». */
-export const Carrousel: React.FC<{soirees: Soiree[]; slide: number; titre: string[]; lieu: string; pied?: string}> = ({soirees, slide, titre, lieu, pied}) => {
+export const Carrousel: React.FC<{soirees: Soiree[]; slide: number; titre: string[]; lieu: string; pied?: string; fond?: string}> = ({soirees, slide, titre, lieu, pied, fond}) => {
   const n = soirees.length;
   const fondBeton = (
     <>
@@ -67,6 +76,13 @@ export const Carrousel: React.FC<{soirees: Soiree[]; slide: number; titre: strin
     return (
       <AbsoluteFill style={{fontFamily: F.wide, overflow: 'hidden'}}>
         {fondBeton}
+        {fond ? (
+          <>
+            <Img src={staticFile(fond)} style={{position: 'absolute', inset: 0, width: 1080, height: 1350, objectFit: 'cover'}} />
+            <AbsoluteFill style={{background: 'linear-gradient(180deg, rgba(8,8,12,.88) 0%, rgba(8,8,12,.35) 38%, rgba(8,8,12,.15) 60%, rgba(8,8,12,.8) 100%)'}} />
+            <Grain o={0.12} />
+          </>
+        ) : null}
         {/* éventail des affiches */}
         {soirees.slice(0, 3).map((s, i) => (
           <Img key={i} src={staticFile(s.image)} style={{position: 'absolute', width: 380, left: 360 + (i - 1) * 250, top: 560 + Math.abs(i - 1) * 40, transform: `rotate(${(i - 1) * 9}deg)`, boxShadow: '0 30px 80px rgba(0,0,0,.6)', border: '10px solid #f2efe9', zIndex: i === 1 ? 2 : 1}} />
@@ -91,7 +107,7 @@ export const Carrousel: React.FC<{soirees: Soiree[]; slide: number; titre: strin
           {soirees.map((s, i) => (
             <div key={i} style={{display: 'flex', alignItems: 'baseline', gap: 24, borderTop: '3px solid #0b0b0f', padding: '16px 0'}}>
               <span style={{fontFamily: F.mono, fontWeight: 700, fontSize: 30, color: '#0b0b0f'}}>{String(i + 1).padStart(2, '0')}</span>
-              <span style={{fontWeight: 900, fontStretch: '80%', fontSize: 50, color: '#0b0b0f', textTransform: 'uppercase', flex: 1, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis'}}>{s.nom}</span>
+              <span style={{fontWeight: 900, fontStretch: '72%', fontSize: 46, color: '#0b0b0f', textTransform: 'uppercase', flex: 1, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis'}}>{nomCourt(s.nom, s.lieu)}</span>
               <span style={{fontFamily: F.mono, fontWeight: 700, fontSize: 26, color: '#0b0b0f'}}>{s.jour.split(' ').slice(0, 3).join(' ')}</span>
             </div>
           ))}
@@ -102,25 +118,38 @@ export const Carrousel: React.FC<{soirees: Soiree[]; slide: number; titre: strin
     );
   }
   const s = soirees[slide - 1];
+  const nom = nomCourt(s.nom, s.lieu);
+  const [j1, ...jr] = s.jour.split(' ');
   return (
-    <AbsoluteFill style={{fontFamily: F.wide, overflow: 'hidden', background: '#121214'}}>
-      <Img src={staticFile(s.image)} style={{position: 'absolute', inset: -100, width: 1280, height: 1550, objectFit: 'cover', filter: 'blur(60px) saturate(1.4) brightness(0.45)'}} />
-      <AbsoluteFill style={{background: `linear-gradient(180deg, transparent 40%, rgba(10,10,12,.9) 75%)`}} />
-      {/* affiche officielle encadrée */}
-      <div style={{position: 'absolute', left: 64, top: 64, width: 600, boxShadow: '0 30px 80px rgba(0,0,0,.55)', border: `8px solid ${s.couleur}`}}>
-        <Img src={staticFile(s.image)} style={{width: '100%', display: 'block'}} />
+    <AbsoluteFill style={{fontFamily: F.wide, overflow: 'hidden', background: '#0e0e11'}}>
+      {/* l'affiche officielle, floutée, donne la couleur de toute la diapo */}
+      <Img src={staticFile(s.image)} style={{position: 'absolute', inset: -120, width: 1320, height: 1590, objectFit: 'cover', filter: 'blur(70px) saturate(1.5) brightness(0.5)'}} />
+      <AbsoluteFill style={{background: `radial-gradient(ellipse at 50% 30%, ${s.couleur}40, transparent 60%), linear-gradient(180deg, rgba(10,10,12,.35) 0%, rgba(10,10,12,0) 30%, rgba(10,10,12,.92) 70%)`}} />
+      {/* haut : compteur + logo */}
+      <div style={{position: 'absolute', left: 64, top: 52, fontFamily: F.mono, fontWeight: 700, fontSize: 28, color: '#f2efe9', letterSpacing: '0.12em'}}>
+        <span style={{color: s.couleur}}>{String(slide).padStart(2, '0')}</span> / {String(n).padStart(2, '0')}
       </div>
-      <div style={{position: 'absolute', right: 64, top: 70, textAlign: 'right'}}>
-        <div style={{fontFamily: F.mono, fontWeight: 700, fontSize: 30, color: s.couleur, letterSpacing: '0.1em'}}>{String(slide).padStart(2, '0')}/{String(n).padStart(2, '0')}</div>
-        <div style={{fontWeight: 900, fontStretch: '62%', fontSize: 120, lineHeight: 0.85, color: '#f2efe9', marginTop: 18, textTransform: 'uppercase', width: 300}}>{s.jour.split(' ')[0]}<br /><span style={{color: s.couleur}}>{s.jour.split(' ').slice(1, 3).join(' ')}</span></div>
-      </div>
-      <div style={{position: 'absolute', left: 64, right: 64, bottom: 70}}>
-        <div style={{fontFamily: F.serif, fontStyle: 'italic', fontSize: 64, color: s.couleur, lineHeight: 1}}>{s.genre}</div>
-        <div style={{fontWeight: 900, fontStretch: '80%', fontSize: s.nom.length > 18 ? 84 : 112, lineHeight: 0.9, color: '#f2efe9', textTransform: 'uppercase', marginTop: 10}}>{s.nom}</div>
-        <div style={{display: 'flex', gap: 34, marginTop: 24, fontFamily: F.mono, fontWeight: 700, fontSize: 30, color: '#f2efe9', letterSpacing: '0.04em'}}>
-          {s.heures ? <span>{s.heures}</span> : null}<span>{s.prix}</span><span style={{opacity: 0.7}}>{s.lieu.split('·')[0].trim()}</span>
+      <Logo h={54} style={{right: 64, top: 40}} />
+      {/* affiche officielle en grand, centrée, au format d'origine */}
+      <div style={{position: 'absolute', left: 0, right: 0, top: 120, height: 760, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+        <div style={{position: 'relative', boxShadow: '0 40px 100px rgba(0,0,0,.65)', border: '6px solid #f2efe9', lineHeight: 0}}>
+          <Img src={staticFile(s.image)} style={{display: 'block', maxWidth: 940, maxHeight: 748, width: 'auto', height: 'auto'}} />
+          <div style={{position: 'absolute', left: -6, bottom: -34, background: s.couleur, color: '#0b0b0f', fontWeight: 900, fontStretch: '80%', fontSize: 44, lineHeight: 1, padding: '12px 22px', textTransform: 'uppercase', boxShadow: '0 10px 30px rgba(0,0,0,.4)'}}>
+            {j1} <span style={{fontStretch: '100%'}}>{jr.slice(0, 2).join(' ')}</span>
+          </div>
         </div>
       </div>
+      {/* bas : genre, nom, infos */}
+      <div style={{position: 'absolute', left: 64, right: 64, bottom: 60}}>
+        <div style={{fontFamily: F.serif, fontStyle: 'italic', fontSize: 54, color: s.couleur, lineHeight: 1}}>{s.genre}</div>
+        <div style={{fontWeight: 900, fontStretch: '80%', fontSize: nom.length > 22 ? 82 : 104, lineHeight: 0.92, color: '#f2efe9', textTransform: 'uppercase', marginTop: 10}}>{nom}</div>
+        <div style={{display: 'flex', flexWrap: 'wrap', gap: 14, marginTop: 24}}>
+          {[s.heures, s.prix, s.lieu.split('·')[0].trim()].filter(Boolean).map((x, i) => (
+            <span key={i} style={{fontFamily: F.mono, fontWeight: 700, fontSize: 28, color: '#f2efe9', border: '2px solid #f2efe966', borderRadius: 999, padding: '8px 20px'}}>{x}</span>
+          ))}
+        </div>
+      </div>
+      <Grain o={0.1} />
     </AbsoluteFill>
   );
 };
