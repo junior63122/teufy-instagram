@@ -1,0 +1,51 @@
+{
+ "danse": {
+  "modele": "gemini-3-pro-image-preview",
+  "le": "2026-11-08T12:05:21.173Z"
+ },
+ "dj": {
+  "modele": "gemini-3-pro-image-preview",
+  "le": "2026-11-08T12:05:35.365Z"
+ },
+ "rooftop": {
+  "modele": "gemini-3-pro-image-preview",
+  "le": "2026-11-08T12:05:50.181Z"
+ },
+ "rire": {
+  "modele": "gemini-3-pro-image-preview",
+  "le": "2026-11-08T12:06:04.043Z"
+ },
+ "file": {
+  "modele": "gemini-3-pro-image-preview",
+  "le": "2026-11-08T12:06:18.242Z"
+ },
+ "plage": {
+  "modele": "gemini-3-pro-image-preview",
+  "le": "2026-11-08T12:06:31.582Z"
+ },
+ "baskets": {
+  "modele": "gemini-3-pro-image-preview",
+  "le": "2026-11-08T12:06:45.456Z"
+ },
+ "taxi": {
+  "modele": "gemini-3-pro-image-preview",
+  "le": "2026-11-08T12:07:00.313Z"
+ },
+ "foule": {
+  "modele": "gemini-3-pro-image-preview",
+  "le": "2026-11-08T12:07:15.015Z"
+ },
+ "lasers": {
+  "modele": "gemini-3-pro-image-preview",
+  "le": "2026-11-08T12:07:42.549Z"
+ },
+ "terrasse": {
+  "modele": "gemini-3-pro-image-preview",
+  "le": "2026-11-08T12:07:56.319Z"
+ },
+ "selfie": {
+  "modele": "gemini-3-pro-image-preview",
+  "le": "2026-11-08T12:08:10.859Z"
+ },
+ "_note": "Images générées par Google Gemini (API) pour Teufy."
+}
