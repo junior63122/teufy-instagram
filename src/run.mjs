@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { createHash } from 'node:crypto';
 // Usage :
 //   node src/run.mjs auto   [preparer|publier]   → la publication prévue aujourd'hui dans le calendrier (ou rien)
 //   node src/run.mjs mois                          → aperçu des publications du mois (jamais publié)
@@ -131,10 +132,13 @@ async function events() {
 if (cible === 'site') {
   // Une fois par jour suffit (sauf --force) : l'agenda change peu dans la journée.
   const marque = path.join(ROOT, 'site', '.maj');
-  if (!flag('force') && existsSync(marque) && (await readFile(marque, 'utf8')).trim() === isoLocal(NOW)) { console.log('Site déjà à jour aujourd\'hui.'); process.exit(0); }
+  // Une fois par jour, ou dès qu'une nouvelle actu est arrivée (rubrique « Actus » alimentée par la veille).
+  const actusF = path.join(ROOT, 'contenus', 'actus.json');
+  const signature = `${isoLocal(NOW)}|${existsSync(actusF) ? createHash('sha1').update(await readFile(actusF)).digest('hex').slice(0, 10) : ''}`;
+  if (!flag('force') && existsSync(marque) && (await readFile(marque, 'utf8')).trim() === signature) { console.log('Site déjà à jour.'); process.exit(0); }
   const { construireSite } = await import('./site.mjs');
   await construireSite({ events: await events(), hist, config, now: NOW });
-  await writeFile(marque, isoLocal(NOW) + '\n');
+  await writeFile(marque, signature + '\n');
   process.exit(0);
 }
 

@@ -133,6 +133,26 @@ async function geocoder(soirees, log) {
       Object.assign(s, { lat: +(lat + ((d % 100) - 50) * 0.00008).toFixed(5), lng: +(lng + ((Math.floor(d / 256) % 100) - 50) * 0.00011).toFixed(5), approx: true });
     }
   }
+  // Lieux introuvables sur OpenStreetMap : on demande à l'IA, et on ne garde que les positions sûres
+  // (confiance ≥ 0,8 et à moins de 15 km du centre de la ville annoncée).
+  const restants = [...new Map(soirees.filter((x) => x.approx && x.lieu && !cache[cleLieu(x)]?.ia).map((x) => [cleLieu(x), x])).values()].slice(0, 40);
+  if (restants.length && (process.env.GEMINI_API_KEY || '').trim()) {
+    const r = await gemini([{ text: `Coordonnées GPS de ces lieux de soirée (clubs, bars, salles, plages) de la Côte d'Azur. Réponds en JSON {"lieux":[{"n":numéro,"lat":nombre|null,"lng":nombre|null,"confiance":0..1}]}. Mets null et une confiance basse si tu n'es pas sûr : ne devine jamais.\n${restants.map((x, i) => `${i + 1}. ${x.lieu}${x.adresse ? `, ${x.adresse}` : ''}, ${x.ville}`).join('\n')}` }]);
+    let ok = 0;
+    for (const l of r?.lieux || []) {
+      const x = restants[l.n - 1];
+      if (!x) continue;
+      const k = cleLieu(x);
+      const [, clat, clng] = CENTRES.find(([re]) => re.test(`${x.ville} ${x.lieu}`)) || [null, 43.7009, 7.2683];
+      const km = Math.hypot((l.lat - clat) * 111, (l.lng - clng) * 80);
+      if (typeof l.lat === 'number' && typeof l.lng === 'number' && l.confiance >= 0.8 && km < 15) {
+        cache[k] = { lat: +l.lat.toFixed(5), lng: +l.lng.toFixed(5), le: new Date().toISOString(), ia: true };
+        ok++;
+      } else cache[k] = { ...(cache[k] || { introuvable: true, v: 2, le: new Date().toISOString() }), ia: true };
+    }
+    for (const x of soirees) { const g = cache[cleLieu(x)]; if (g && !g.introuvable && x.approx) Object.assign(x, { lat: g.lat, lng: g.lng, approx: false }); }
+    if (ok) log(`Site : ${ok} lieu(x) placé(s) grâce à l'IA`);
+  }
   await writeFile(GEO, JSON.stringify(cache, null, 1) + '\n');
   if (requetes) log(`Site : carte, ${trouves} lieu(x) trouvé(s) sur OpenStreetMap${coupe ? ' (service injoignable : positions approximatives en attendant)' : ''}`);
 }
@@ -201,7 +221,7 @@ export async function construireSite({ events, hist = [], config = {}, now = new
     if (e.image) {
       const f = path.join(SITE, 'affiches', `${h(e.image)}.jpg`);
       if (existsSync(f) || await telecharger(e.image, f)) {
-        if (await verifier(e, f, cache)) { affiche = `site/affiches/${path.basename(f)}`; dims = tailleJpeg(f); }
+        if (await verifier(e, f, cache)) { affiche = `site/affiches/${path.basename(f)}`; dims = tailleJpeg(f); webp(f, 480); webp(f, 800); }
         else log(`Site : affiche écartée (ne correspond pas) pour « ${e.name} »`);
       }
     }
@@ -300,17 +320,48 @@ async function assets() {
   const S = path.join(ROOT, 'studio', 'public');
   await mkdir(path.join(SITE, 'fonts'), { recursive: true });
   await mkdir(path.join(SITE, 'img'), { recursive: true });
-  for (const f of ['bricolage.woff2', 'bricolage-ext.woff2', 'inter-tight.woff2', 'inter-tight-ext.woff2']) await copyFile(path.join(S, 'fonts', f), path.join(SITE, 'fonts', f));
+  for (const f of ['inter-tight.woff2']) // inter-tight-ext.woff2 : version allégée committée (accents rares et ponctuation)
+    await copyFile(path.join(S, 'fonts', f), path.join(SITE, 'fonts', f));
   await copyFile(path.join(S, 'logo.png'), path.join(SITE, 'img', 'logo.png'));
   for (const f of PHOTOS) {
     const out = path.join(SITE, 'img', `${f}.jpg`);
     if (!existsSync(out)) spawnSync('ffmpeg', ['-v', 'error', '-y', '-i', path.join(S, 'decors', 'da', `${f}.jpg`), '-vf', "scale='min(1200,iw)':-2", '-q:v', '5', out]);
   }
+  // CSS minifiée (sans commentaires ni espaces inutiles) + version pour le cache.
+  const css = readFileSync(path.join(SITE, 'style.css'), 'utf8').replace(/\/\*[\s\S]*?\*\//g, '').replace(/\s+/g, ' ').replace(/\s*([{}:;,>])\s*/g, '$1').replace(/;}/g, '}').trim();
+  await writeFile(path.join(SITE, 'style.min.css'), css);
+  const js = readFileSync(path.join(SITE, 'app.js'), 'utf8').split('\n').filter((l) => !/^\s*\/\//.test(l)).map((l) => l.trim()).filter(Boolean).join('\n');
+  await writeFile(path.join(SITE, 'app.min.js'), js);
+  VERSION = h(css + js).slice(0, 8);
+  CSS_EN_LIGNE = css.replace(/url\(fonts\//g, 'url(__BASE__site/fonts/');
+  // Images en WebP, en plusieurs largeurs (le téléphone charge la petite).
+  for (const f of readdirSync(path.join(SITE, 'img'))) if (/\.jpg$/.test(f)) {
+    for (const l of [400, 800, 1200]) webp(path.join(SITE, 'img', f), l);
+    const b = path.join(SITE, 'img', f.replace(/\.jpg$/, '-169.webp')); // vignette 16:9 des cartes sans affiche
+    if (!existsSync(b)) spawnSync('ffmpeg', ['-v', 'error', '-y', '-i', path.join(SITE, 'img', f), '-vf', 'crop=iw:iw*9/16,scale=640:360', '-c:v', 'libwebp', '-quality', '72', b]);
+  }
+  for (const f of readdirSync(path.join(SITE, 'img', 'equipe'))) if (/\.jpg$/.test(f)) for (const l of [400, 600, 800, 1200]) webp(path.join(SITE, 'img', 'equipe', f), l);
   await writeFile(path.join(SITE, 'manifest.webmanifest'), JSON.stringify({
     name: "Teufy · Soirées de la Côte d'Azur", short_name: 'Teufy', start_url: '../', scope: '../', display: 'standalone', background_color: '#0B0B0F', theme_color: '#0B0B0F', lang: 'fr',
     icons: [{ src: 'img/icone-192.png', sizes: '192x192', type: 'image/png' }, { src: 'img/icone-512.png', sizes: '512x512', type: 'image/png' }],
   }, null, 1));
 }
+
+// Version WebP d'une image (largeur max), faite une seule fois.
+function webp(f, l) {
+  const out = f.replace(/\.jpg$/, `-${l}.webp`);
+  if (existsSync(out)) return out;
+  const c = spawnSync('ffmpeg', ['-v', 'error', '-y', '-i', f, '-vf', `scale='min(${l},iw)':-2`, '-c:v', 'libwebp', '-quality', '74', out]);
+  return c.status === 0 ? out : null;
+}
+// <img> avec srcset WebP (petite et grande largeur) ; retombe sur le JPEG si la conversion a échoué.
+function image(base, rel, { alt = '', sizes = '100vw', attrs = '' } = {}) {
+  const largeurs = /affiches/.test(rel) ? [480, 800] : [400, 600, 800, 1200];
+  const dispo = largeurs.map((l) => [l, rel.replace(/\.jpg$/, `-${l}.webp`)]).filter(([, f]) => existsSync(path.join(ROOT, f)));
+  if (!dispo.length) return `<img src="${base}${rel}" alt="${esc(alt)}" ${attrs}>`;
+  return `<img src="${base}${dispo.at(-1)[1]}" srcset="${dispo.map(([l, f]) => `${base}${f} ${l}w`).join(', ')}" sizes="${sizes}" alt="${esc(alt)}" ${attrs}>`;
+}
+const TAILLES = { carte: '(min-width:980px) 360px, (min-width:640px) 46vw, 92vw' };
 
 // Fichiers calendrier (.ics) : « Ajouter au calendrier » sur chaque page de soirée.
 async function ics(soirees, compte) {
@@ -354,11 +405,11 @@ function carte(s, { t, base, lang, vedette = false }) {
   const lien = `${base}${pre(lang)}soiree/${s.id}/`;
   const q = sansAccent([s.nom, s.lieu, s.ville, s.genres, s.tags.join(' '), s.styles.map((k) => `${nomStyle(k, t, 'fr')} ${nomStyle(k, t, lang)}`).join(' '), s.accroche].join(' ')).replace(/\s+/g, ' ');
   const img = s.affiche
-    ? `<img src="${base}${s.affiche}" alt="${esc(t.affiche + s.nom)}" loading="lazy" decoding="async"${s.dims ? ` width="${s.dims[0]}" height="${s.dims[1]}"` : ''}>`
-    : `<img src="${base}site/img/${PHOTOS[parseInt(h(s.nom), 16) % PHOTOS.length]}.jpg" alt="" loading="lazy" decoding="async">`;
+    ? image(base, s.affiche, { alt: t.affiche + s.nom, sizes: TAILLES.carte, attrs: `loading="lazy" decoding="async"${s.dims ? ` width="${s.dims[0]}" height="${s.dims[1]}"` : ''}` })
+    : `<img src="${base}site/img/${PHOTOS[parseInt(h(s.nom), 16) % PHOTOS.length]}-169.webp" alt="" loading="lazy" decoding="async" width="640" height="360">`;
   return `<article class="carte${vedette ? ' vedette' : ''}" data-id="${s.id}" data-jour="${s.jour}" data-debut="${esc(s.debut)}" data-heure="${esc(heure(s.debut, t))}" data-ville="${s.filtreVille}" data-styles="${s.styles.join(' ')}" data-prix="${s.prix ?? ''}" data-lat="${s.lat ?? ''}" data-lng="${s.lng ?? ''}"${s.approx ? ' data-approx="1"' : ''} data-q="${esc(q)}">
   <a class="affiche${s.affiche ? '' : ' sans'}" href="${lien}" tabindex="-1" aria-hidden="true">${img}<span class="date">${esc(dateCourte(s.debut, t))}</span></a>
-  <button type="button" class="coeur" aria-label="${esc(t.ajouterFav)}" aria-pressed="false"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 21s-8-5.3-8-11a4.6 4.6 0 0 1 8-3 4.6 4.6 0 0 1 8 3c0 5.7-8 11-8 11z"/></svg></button>
+  <button type="button" class="coeur" aria-label="${esc(t.ajouterFav)}" aria-pressed="false"></button>
   <div class="infos">
     ${s.genres ? `<p class="genre">${esc(s.genres)}</p>` : ''}
     <h3><a href="${lien}">${esc(s.nom)}</a></h3>
@@ -384,7 +435,7 @@ function jsonEvent(s, lang) {
     ...(s.instagram ? { organizer: { '@type': 'Organization', name: `@${s.instagram}`, url: `https://www.instagram.com/${s.instagram}/` } } : {}),
   };
 }
-const jsonld = (soirees, lang) => soirees.slice(0, 60).map((s) => jsonEvent(s, lang));
+const jsonld = (soirees, lang) => soirees.slice(0, 25).map((s) => jsonEvent(s, lang));
 const fil = (lang, liste) => ({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: liste.map(([nom, c], i) => ({ '@type': 'ListItem', position: i + 1, name: nom, item: `${URL_SITE}${pre(lang)}${c}` })) });
 
 // --- Présentation de Teufy (modifiable dans config.json, rubrique « site ») -------------------------------------
@@ -404,6 +455,8 @@ const VILLES_SEO = [
 ];
 const PHOTO_STYLE = { techno: 'lasers', house: 'rooftop', afro: 'danse', shatta: 'foule', latino: 'rire', rap: 'dj' };
 
+let CSS_EN_LIGNE = ''; // CSS écrite dans chaque page : affichage plus rapide (une requête de moins)
+let VERSION = '1'; // change quand le CSS ou le JS change (le navigateur recharge la bonne version)
 let GOOGLE = ''; // code de vérification Google Search Console (config.site.google_verification)
 function gabarit({ lang, t, titre, description, chemin, base, corps, ld = [], image = 'site/img/equipe/monaco.jpg', compte, maj = '', agendaIci = false }) {
   const handle = compte.replace(/^@/, '');
@@ -434,8 +487,8 @@ ${GOOGLE ? `<meta name="google-site-verification" content="${esc(GOOGLE)}">` : '
 <link rel="icon" href="${base}site/img/logo.png">
 <link rel="apple-touch-icon" href="${base}site/img/icone-192.png">
 <link rel="manifest" href="${base}site/manifest.webmanifest">
-<link rel="preload" href="${base}site/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="${base}site/style.css">
+<link rel="preload" href="${base}site/fonts/bricolage-titre.woff2" as="font" type="font/woff2" crossorigin>
+<style>${CSS_EN_LIGNE.replace(/__BASE__/g, base)}</style>
 <script>document.documentElement.classList.add('js')</script>
 ${ld.length ? `<script type="application/ld+json">${JSON.stringify(ld).replace(/</g, '\\u003c')}</script>` : ''}
 </head>
@@ -445,8 +498,8 @@ ${ld.length ? `<script type="application/ld+json">${JSON.stringify(ld).replace(/
   <a class="marque" href="${accueil || './'}" aria-label="Teufy"><img src="${base}site/img/logo.png" alt="Teufy" width="39" height="32"></a>
   <div class="barre-droite">
     <a class="loupe" href="${agendaIci ? '' : accueil}#recherche" aria-label="${esc(t.rechercher)}"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M15.5 15.5 21 21" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></a>
-    <details class="langues"><summary aria-label="${esc(t.langue)}">${lang.toUpperCase()}</summary><div>${LANGUES.map((l) => `<a href="${base}${pre(l)}${chemin}" hreflang="${l}" lang="${l}"${l === lang ? ' aria-current="true"' : ''}>${esc(TXT[l].nom)}</a>`).join('')}</div></details>
-    <a class="bouton petit" href="https://www.instagram.com/${esc(handle)}/" target="_blank" rel="noopener">Instagram</a>
+    <details class="langues"><summary><span class="vh">${esc(t.langue)} : </span>${lang.toUpperCase()}</summary><div>${LANGUES.map((l) => `<a href="${base}${pre(l)}${chemin}" hreflang="${l}" lang="${l}"${l === lang ? ' aria-current="true"' : ''}>${esc(TXT[l].nom)}</a>`).join('')}</div></details>
+    <a class="ig" href="https://www.instagram.com/${esc(handle)}/" target="_blank" rel="noopener" aria-label="Instagram ${esc(compte)}"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="17.4" cy="6.6" r="1.3" fill="currentColor"/></svg></a>
   </div>
 </header>
 <nav class="nav" aria-label="Menu">${nav.map(([d, n]) => `<a href="${accueil}${d}"${d === chemin ? ' aria-current="page"' : ''}>${esc(n)}</a>`).join('')}</nav>
@@ -467,7 +520,7 @@ ${corps}
 <button type="button" class="haut" aria-label="${esc(t.haut)}" hidden><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M6 14l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
 <p class="toast" role="status" hidden></p>
 <script type="application/json" id="teufy-t">${JSON.stringify(jsT).replace(/</g, '\\u003c')}</script>
-<script src="${base}site/app.js" defer></script>
+<script src="${base}site/app.min.js?v=${VERSION}" defer></script>
 </body>
 </html>
 `;
@@ -551,14 +604,14 @@ function blocTeufy({ t, T, base, lang }, nb) {
 function galerie({ t, base }) {
   return `<section class="galerie reveal">
   <div class="tete"><p class="etiquette">${esc(t.galEtiquette)}</p><h2>${t.galH2}</h2><p>${esc(t.galP)}</p></div>
-  <div class="photos">${GALERIE.map((f, i) => `<figure style="--i:${i}"><img src="${base}site/img/equipe/${f}.jpg" alt="${esc(t.galAlt)}" loading="lazy" decoding="async"></figure>`).join('')}</div>
+  <div class="photos">${GALERIE.map((f, i) => `<figure style="--i:${i}">${image(base, `site/img/equipe/${f}.jpg`, { alt: t.galAlt, sizes: '(max-width:430px) 70vw, (min-width:900px) 280px, 300px', attrs: 'loading="lazy" decoding="async"' })}</figure>`).join('')}</div>
 </section>`;
 }
 
 // Bloc « Tu fais vivre la nuit ? » : partenaires, ambassadeurs, BDE.
 const blocPros = ({ t, base, lang }) => `<section class="pros reveal">
   <h2>${t.prosH2}</h2>
-  <div class="pros-cartes">${[['partenaires/', 'scene-dj'], ['ambassadeurs/', 'fourrure'], ['bde/', 'aperol']].map(([c, img], i) => `<a class="pro" href="${base}${pre(lang)}${c}" style="--i:${i}"><img src="${base}site/img/equipe/${img}.jpg" alt="" loading="lazy"><span><strong>${esc(t.pros[i][0])}</strong>${esc(t.pros[i][1])}<b>${esc(t.decouvrir)} →</b></span></a>`).join('')}</div>
+  <div class="pros-cartes">${[['partenaires/', 'scene-dj'], ['ambassadeurs/', 'fourrure'], ['bde/', 'aperol']].map(([c, img], i) => `<a class="pro" href="${base}${pre(lang)}${c}" style="--i:${i}">${image(base, `site/img/equipe/${img}.jpg`, { sizes: '(min-width:760px) 380px, 92vw', attrs: 'loading="lazy"' })}<span><strong>${esc(t.pros[i][0])}</strong>${esc(t.pros[i][1])}<b>${esc(t.decouvrir)} →</b></span></a>`).join('')}</div>
 </section>`;
 
 const blocFaq = (titre, faq) => `<section class="qui faq reveal"><h2>${titre}</h2>${faq.map(([q, r]) => `<details><summary>${esc(q)}</summary><p>${esc(r)}</p></details>`).join('')}</section>`;
@@ -566,8 +619,8 @@ const ldFaq = (faq) => ({ '@context': 'https://schema.org', '@type': 'FAQPage', 
 
 // Fond du hero : la vidéo du port de Monaco (muette, en boucle) ou une photo.
 const fond = (base, photo, video, alt) => (video
-  ? `<video class="hero-photo" autoplay muted loop playsinline preload="metadata" poster="${base}site/img/equipe/${photo}.jpg" aria-label="${esc(alt)}"><source src="${base}site/img/equipe/${photo}.mp4" type="video/mp4"></video>`
-  : `<img src="${base}site/img/${PHOTOS.includes(photo) ? '' : 'equipe/'}${photo}.jpg" alt="${esc(alt)}" class="hero-photo" fetchpriority="high">`);
+  ? `<video class="hero-photo" autoplay muted loop playsinline preload="none" poster="${base}site/img/equipe/${photo}-600.webp" aria-label="${esc(alt)}"><source src="${base}site/img/equipe/${photo}.mp4" type="video/mp4"></video>`
+  : image(base, `site/img/${PHOTOS.includes(photo) ? '' : 'equipe/'}${photo}.jpg`, { alt, attrs: 'class="hero-photo" fetchpriority="high"' }));
 
 const heroCourt = ({ base, photo, video, alt, etiquette, h1, p, live = false }) => `<section class="hero court">
   ${fond(base, photo, video, alt)}
@@ -599,7 +652,7 @@ function page({ lang, t, base, compte, T, soirees, posts, now, maj }) {
 </section>
 ${defile(t)}
 ${ceSoir(t)}
-${vedette ? `<section class="la-plus reveal"><p class="etiquette">${esc(t.laPlus)}</p>${carte(vedette, { t, base, lang, vedette: true })}</section>` : ''}
+${vedette ? `<section class="la-plus reveal"><h2 class="etiquette">${esc(t.laPlus)}</h2>${carte(vedette, { t, base, lang, vedette: true })}</section>` : ''}
 ${agenda(soirees, { t, base, lang })}
 ${blocPros(ctx)}
 ${blocTeufy(ctx, soirees.length)}
@@ -613,7 +666,7 @@ ${blocOrga({ t, base, handle, lang })}`;
 
 function blocOrga({ t, base, handle, lang }) {
   return `<section class="orga reveal">
-  <img src="${base}site/img/equipe/scene-dj.jpg" alt="" class="hero-photo" loading="lazy">
+  ${image(base, 'site/img/equipe/scene-dj.jpg', { attrs: 'class="hero-photo" loading="lazy"' })}
   <div class="hero-texte">
     <p class="etiquette">${esc(t.orgaEtiquette)}</p>
     <h2>${t.orgaH2}</h2>
@@ -655,7 +708,7 @@ function pageSoiree({ lang, t, base, compte, T, chemin, s, soirees, maj }) {
   const style = soirees.filter((x) => x.id !== s.id && x.jour !== s.jour && x.styles.some((k) => s.styles.includes(k))).slice(0, 6);
   const mini = (l, titre) => (l.length ? `<section class="similaires reveal"><h2>${titre}</h2><div class="grille">${l.map((x) => carte(x, { t, base, lang })).join('')}</div></section>` : '');
   const offres = s.offres.length ? `<div class="offres"><p class="pied-titre">${esc(t.comparer)}</p>${s.offres.map((o, i) => `<a href="${esc(o.url)}" target="_blank" rel="noopener"><span>${esc(nomPlateforme(o.url))}</span><b>${esc(o.prix == null ? t.prixBillet : prixTexte(o.prix, t))}</b>${i === 0 && o.prix != null ? `<i>${esc(t.meilleurPrix)}</i>` : ''}</a>`).join('')}</div>` : '';
-  const img = s.affiche ? `<img src="${base}${s.affiche}" alt="${esc(t.affiche + s.nom)}"${s.dims ? ` width="${s.dims[0]}" height="${s.dims[1]}"` : ''} fetchpriority="high">` : `<img src="${base}site/img/${PHOTOS[parseInt(h(s.nom), 16) % PHOTOS.length]}.jpg" alt="">`;
+  const img = s.affiche ? image(base, s.affiche, { alt: t.affiche + s.nom, sizes: '(min-width:860px) 460px, 92vw', attrs: `fetchpriority="high"${s.dims ? ` width="${s.dims[0]}" height="${s.dims[1]}"` : ''}` }) : image(base, `site/img/${PHOTOS[parseInt(h(s.nom), 16) % PHOTOS.length]}.jpg`, { sizes: '(min-width:860px) 460px, 92vw', attrs: 'width="928" height="1152" fetchpriority="high"' });
   const corps = `<article class="fiche carte-donnees" data-id="${s.id}" data-debut="${esc(s.debut)}">
   <nav class="ariane"><a href="${base}${P}">Teufy</a> › <a href="${base}${P}#agenda">${esc(t.agenda)}</a> › <span>${esc(s.nom)}</span></nav>
   <div class="fiche-grille">
@@ -674,7 +727,7 @@ function pageSoiree({ lang, t, base, compte, T, chemin, s, soirees, maj }) {
         <a class="bouton contour sombre" href="${base}site/ics/${s.id}.ics" download>${esc(t.calendrier)}</a>
         <a class="bouton contour sombre" href="https://www.google.com/maps/search/?api=1&amp;query=${encodeURIComponent(lieu)}" target="_blank" rel="noopener">${esc(t.itineraire)}</a>
         <button type="button" class="bouton contour sombre partager">${esc(t.partager)}</button>
-        <button type="button" class="coeur grand" aria-label="${esc(t.ajouterFav)}" aria-pressed="false"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 21s-8-5.3-8-11a4.6 4.6 0 0 1 8-3 4.6 4.6 0 0 1 8 3c0 5.7-8 11-8 11z"/></svg></button>
+        <button type="button" class="coeur grand" aria-label="${esc(t.ajouterFav)}" aria-pressed="false"></button>
       </p>
       ${offres}
       ${s.instagram ? `<p class="orga-ig"><a class="lien" href="https://www.instagram.com/${esc(s.instagram)}/" target="_blank" rel="noopener">@${esc(s.instagram)}</a></p>` : ''}
@@ -777,7 +830,7 @@ function aPropos({ lang, t, base, compte, T, chemin, nb, maj }) {
   ${chiffres(t, T, nb)}
 </section>
 <section class="qui directeur reveal">
-  <div class="portrait">${T.photo_directeur ? `<img src="${base}${esc(T.photo_directeur)}" alt="${esc(T.directeur)}" loading="lazy" width="900" height="1125">` : `<span>${esc(initiales)}</span>`}</div>
+  <div class="portrait">${T.photo_directeur ? `${image(base, T.photo_directeur, { alt: T.directeur, sizes: '(min-width:700px) 380px, 340px', attrs: 'loading="lazy" width="900" height="1125"' })}` : `<span>${esc(initiales)}</span>`}</div>
   <div>
     <p class="etiquette">${esc(t.dirEtiquette)}</p>
     <h2>${esc(T.directeur)}</h2>
@@ -799,7 +852,7 @@ ${blocOrga({ t, base, handle, lang })}`;
 // Page 404 (GitHub Pages la sert pour toute adresse inconnue : chemins absolus).
 function page404(t) {
   const B = '/teufy-instagram/';
-  return `<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${esc(t.e404)} · Teufy</title><meta name="robots" content="noindex"><link rel="icon" href="${B}site/img/logo.png"><link rel="stylesheet" href="${B}site/style.css"></head>
+  return `<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${esc(t.e404)} · Teufy</title><meta name="robots" content="noindex"><link rel="icon" href="${B}site/img/logo.png"><link rel="stylesheet" href="${B}site/style.min.css"></head>
 <body><main class="page-404"><a href="${B}"><img src="${B}site/img/logo.png" alt="Teufy" width="96" height="79"></a><h1>4<em>0</em>4</h1><p>${esc(t.e404p)}</p><p><a class="bouton" href="${B}#agenda">${esc(t.e404b)}</a></p>
 <p class="langues-pied">${LANGUES.map((l) => `<a href="${B}${pre(l)}" hreflang="${l}" lang="${l}">${esc(TXT[l].nom)}</a>`).join(' · ')}</p></main></body></html>
 `;

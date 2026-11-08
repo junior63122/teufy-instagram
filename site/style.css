@@ -1,8 +1,8 @@
 /* Site Teufy : DA « Flash nuit » (mêmes couleurs, polices et photos que le compte Instagram). */
-@font-face{font-family:'Bricolage';src:url(fonts/bricolage.woff2) format('woff2');font-weight:200 800;font-stretch:75% 100%;font-display:swap}
-@font-face{font-family:'Bricolage';src:url(fonts/bricolage-ext.woff2) format('woff2');font-weight:200 800;font-stretch:75% 100%;unicode-range:U+0100-024F,U+1E00-1EFF,U+2000-206F;font-display:swap}
+@font-face{font-family:'Bricolage';src:url(fonts/bricolage-titre.woff2) format('woff2');font-weight:800;font-stretch:80%;font-display:swap}
+@font-face{font-family:'Bricolage';src:url(fonts/bricolage-titre-ext.woff2) format('woff2');font-weight:800;font-stretch:80%;unicode-range:U+0100-017F,U+2010-2027,U+2030-203A;font-display:swap}
 @font-face{font-family:'InterTight';src:url(fonts/inter-tight.woff2) format('woff2');font-weight:100 900;font-display:swap}
-@font-face{font-family:'InterTight';src:url(fonts/inter-tight-ext.woff2) format('woff2');font-weight:100 900;unicode-range:U+0100-024F,U+1E00-1EFF,U+2000-206F;font-display:swap}
+@font-face{font-family:'InterTight';src:url(fonts/inter-tight-ext.woff2) format('woff2');font-weight:100 900;unicode-range:U+0100-017F,U+2010-2027,U+2030-203A;font-display:swap}
 :root{--nuit:#0B0B0F;--nuit2:#16161C;--creme:#F4EFE6;--papier:#EDE6DA;--corail:#FF5A3C;--gris:#8C877F;--live:#3DFF8A;
   --titre:'Bricolage','Noto Sans Arabic','Geeza Pro','PingFang SC','Noto Sans SC','Microsoft YaHei',system-ui,sans-serif;
   --texte:'InterTight','Noto Sans Arabic','Geeza Pro','PingFang SC','Noto Sans SC','Microsoft YaHei',system-ui,sans-serif;
@@ -63,7 +63,7 @@ img.hero-photo{animation:zoom 22s ease-in-out infinite alternate}
 .pastille-live{display:inline-flex;align-items:center;gap:9px;text-decoration:none;font-weight:800;font-size:15px;padding:10px 16px;border-radius:999px;background:#0b0b0fcc;border:1.5px solid var(--live);color:var(--creme)}
 
 /* bandeau qui défile */
-.defile{overflow:hidden;background:var(--corail);color:var(--nuit);padding:12px 0;transform:rotate(-1.2deg);margin:-14px -10px 0;position:relative;z-index:2}
+.defile{overflow:hidden;background:var(--corail);color:var(--nuit);padding:12px 0;transform:rotate(-1.2deg) scale(1.03);margin:-14px 0 0;position:relative;z-index:2}
 .piste{display:flex;width:max-content;animation:defile 38s linear infinite}
 .piste span{display:flex;gap:22px;padding-right:22px;font-family:var(--titre);font-weight:800;font-stretch:80%;font-size:26px;text-transform:uppercase;white-space:nowrap}
 .piste i{font-style:normal;opacity:.6}
@@ -210,7 +210,7 @@ img.hero-photo{animation:zoom 22s ease-in-out infinite alternate}
 .posts img{aspect-ratio:3/4;object-fit:cover;width:100%;transition:opacity .3s}
 .posts a:hover img{opacity:.8}
 
-footer{padding:48px 16px 90px;max-width:1180px;margin:0 auto;font-size:14px;opacity:.75;display:flex;flex-direction:column;gap:6px}
+footer{padding:48px 16px 90px;max-width:1180px;margin:0 auto;font-size:14px;color:#d9d3c9;display:flex;flex-direction:column;gap:6px}
 footer a{color:inherit}
 .langues-pied a{text-decoration:none;font-weight:700}
 
@@ -240,7 +240,7 @@ footer a{color:inherit}
 .saut:focus{top:8px}
 .loupe{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;border:1.5px solid #ffffff33;transition:background .2s}
 .loupe:hover{background:#ffffff14}
-@media(max-width:380px){.barre .bouton.petit{display:none}}
+
 
 /* recherche */
 .recherche{position:relative;display:flex;align-items:center;gap:10px;background:var(--nuit2);border:1.5px solid #ffffff2a;border-radius:999px;padding:0 8px 0 16px;transition:border-color .2s,box-shadow .2s}
@@ -264,8 +264,9 @@ mark{background:#ff5a3c40;color:inherit;border-radius:3px;padding:0 1px}
 /* favoris */
 .carte{position:relative}
 .coeur{position:absolute;inset-inline-end:12px;top:12px;z-index:2;width:42px;height:42px;border-radius:50%;border:0;background:#0b0b0fb3;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform .2s var(--doux)}
-.coeur svg path{fill:none;stroke:var(--creme);stroke-width:2}
-.coeur[aria-pressed=true] svg path{fill:var(--corail);stroke:var(--corail)}
+.coeur::before{content:"";width:22px;height:22px;background:var(--creme);-webkit-mask:var(--coeur-vide) center/contain no-repeat;mask:var(--coeur-vide) center/contain no-repeat}
+.coeur[aria-pressed=true]::before{background:var(--corail);-webkit-mask-image:var(--coeur-plein);mask-image:var(--coeur-plein)}
+:root{--coeur-vide:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 21s-8-5.3-8-11a4.6 4.6 0 0 1 8-3 4.6 4.6 0 0 1 8 3c0 5.7-8 11-8 11z' fill='none' stroke='%23000' stroke-width='2'/%3E%3C/svg%3E");--coeur-plein:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 21s-8-5.3-8-11a4.6 4.6 0 0 1 8-3 4.6 4.6 0 0 1 8 3c0 5.7-8 11-8 11z'/%3E%3C/svg%3E")}
 .coeur:active{transform:scale(.85)}
 .coeur.pop{animation:pop .45s var(--doux)}
 @keyframes pop{40%{transform:scale(1.35)}}
@@ -300,7 +301,8 @@ a.affiche{display:block}
 .offres a:hover{transform:translateX(4px)}
 .offres a span{flex:1}
 .offres a i{font-style:normal;font-size:12px;background:#1a9b4f;color:#fff;border-radius:999px;padding:3px 9px}
-.pied-titre{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;opacity:.6}
+.pied-titre{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#b8b2a8}
+.offres .pied-titre{color:#4a4640}
 .similaires{max-width:1180px;margin:64px auto 0;padding:0 16px}
 .similaires h2{font-size:clamp(30px,6vw,46px);margin-bottom:16px}
 .retour{text-align:center;margin-top:48px}
@@ -377,3 +379,14 @@ a.puce:hover{background:var(--corail);color:var(--nuit)}
 .page-404 p{max-width:460px}
 @media(prefers-reduced-motion:reduce){.js .reveal .carte-texte,.js .reveal .etapes li,.js .reveal .pro,.js .reveal .actu{opacity:1;translate:none}}
 @media(max-width:600px){.hero-texte .populaires{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-inline:-16px;padding-inline:16px;white-space:nowrap}.hero-texte .populaires::-webkit-scrollbar{display:none}.populaires a{flex:none}}
+
+/* audit : icône Instagram, texte masqué accessible, étiquette en titre */
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.ig{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;border:1.5px solid #ffffff33;transition:background .2s,color .2s}
+.ig:hover{background:var(--corail);border-color:var(--corail);color:var(--nuit)}
+h2.etiquette{font-family:var(--texte);font-stretch:100%;font-size:13px;line-height:1.2;letter-spacing:.14em}
+.jour{content-visibility:auto;contain-intrinsic-size:auto 1400px}
+.carte-texte .genre,.actu .genre,.article .genre,.fiche .genre{color:#b8b2a8}
+.carte .genre{color:#5f5a53}
+html{overflow-x:clip}
+:lang(ar) .hero h1{font-size:clamp(38px,10vw,96px)}:lang(ar) .hero.court h1{font-size:clamp(34px,8.5vw,80px)}

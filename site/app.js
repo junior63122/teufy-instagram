@@ -238,12 +238,15 @@
   const obsCartes = io && !reduit ? new IntersectionObserver((es) => es.forEach((x) => {
     if (x.isIntersecting) { x.target.classList.add('entre'); obsCartes.unobserve(x.target); }
   }), { rootMargin: '0px 0px -6% 0px' }) : null;
+  let premier = true;
   function animerCartes() {
     if (!obsCartes) return;
+    requestAnimationFrame(() => { premier = false; });
     document.querySelectorAll('.liste .grille').forEach((g) => {
       [...g.querySelectorAll('.carte:not([hidden])')].forEach((c, i) => {
         c.style.setProperty('--i', i % 3);
-        c.classList.remove('entre'); void c.offsetWidth; obsCartes.observe(c);
+        if (!premier) c.classList.remove('entre');
+        obsCartes.observe(c);
       });
     });
   }
