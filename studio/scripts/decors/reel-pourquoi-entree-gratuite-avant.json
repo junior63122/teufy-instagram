@@ -1,0 +1,36 @@
+{
+  "concept": "reel-pourquoi-entree-gratuite-avant",
+  "style": "Candid editorial nightlife photograph shot on a 35mm point-and-shoot film camera with hard direct on-camera flash: subjects crisp and bright, background falling off into deep black, slightly blown highlights, natural film grain, subtle vignetting, warm skin tones with coral-red and magenta accents from club lights, authentic and energetic, like a cool Gen Z party photographer's Instagram. Real-looking people aged 20 to 28, diverse, stylish casual outfits, genuine emotion and a bit of motion blur. Absolutely no text, no letters, no logos, no brand names, no watermarks, no drugs, no visible alcohol bottles. Vertical 9:16 framing, subject in the middle, room at the top and bottom for big text.",
+  "decors": [
+    {
+      "id": "s1",
+      "format": "9:16",
+      "prompt": "Young people queuing at night outside a stylish neon-lit nightclub in Nice, anticipation on their faces, street atmosphere"
+    },
+    {
+      "id": "s2",
+      "format": "9:16",
+      "prompt": "Club promoter looking at an empty dancefloor with blue neon lighting before opening hours, thoughtful expression"
+    },
+    {
+      "id": "s3",
+      "format": "9:16",
+      "prompt": "A small group of friends dancing early in a spacious dimly lit club, laser beams crossing the room, dynamic movement"
+    },
+    {
+      "id": "s4",
+      "format": "9:16",
+      "prompt": "Close-up of friends ordering drinks at an illuminated nightclub bar, bartenders shaking drinks in background"
+    },
+    {
+      "id": "s5",
+      "format": "9:16",
+      "prompt": "Packed nightclub dancefloor from above with laser effects, crowded and energetic atmosphere late at night"
+    },
+    {
+      "id": "s6",
+      "format": "9:16",
+      "prompt": "Smiling young woman showing her smartphone screen happily outside an illuminated venue, candid nightlife portrait"
+    }
+  ]
+}

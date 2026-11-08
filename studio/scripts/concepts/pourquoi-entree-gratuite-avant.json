@@ -1,0 +1,171 @@
+{
+  "id": "pourquoi-entree-gratuite-avant",
+  "concept": "reelflash",
+  "type": "explicatif",
+  "rubrique": "Explicatif",
+  "titre": "Pourquoi l'entrée est gratuite avant 1h dans les clubs ?",
+  "titre_couverture": "Pourquoi l'entrée est [gratuite] avant 1h ?",
+  "cree": "2026-11-08T13:08:48.633Z",
+  "voix": {
+    "voice_id": "3Tp5mYhT9wrfnry9pzvV",
+    "nom": "Hugo",
+    "modele": "eleven_v3",
+    "stabilite": 0,
+    "style": 0.85,
+    "vitesse": 1.1
+  },
+  "musique": {
+    "src": "musique/electro-dreams.mp3",
+    "volume": 0.42,
+    "ducking": 0.3
+  },
+  "queue": 1.6,
+  "whooshEntreScenes": false,
+  "scenes": [
+    {
+      "id": "s1",
+      "texte": "[curious] Pourquoi les clubs te font entrer GRATUITEMENT avant une heure ?",
+      "sons": [
+        {
+          "son": "caisse",
+          "mot": "gratuitement",
+          "volume": 0.6
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "texte": "[whispers] Ce n'est PAS un cadeau, c'est une technique pour REMPLIR la salle.",
+      "sons": []
+    },
+    {
+      "id": "s3",
+      "texte": "[excited] Personne n'aime danser dans un club VIDE, alors tu deviens le DÉCOR.",
+      "sons": [
+        {
+          "son": "impact",
+          "mot": "vide",
+          "volume": 0.4
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "texte": "[shocked] Et surtout : coincé là dès minuit, tu passes direct au BAR pour patienter.",
+      "sons": [
+        {
+          "son": "pop",
+          "mot": "bar",
+          "volume": 0.6
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "texte": "[laughs] Bilan : ton billet gratuit leur rapporte le DOUBLE d'une entrée tardive.",
+      "sons": [
+        {
+          "son": "caisse",
+          "mot": "double",
+          "volume": 0.6
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "texte": "[excited] ABONNE-TOI à Teufy pour esquiver les pièges et réussir tes soirées !",
+      "sons": [
+        {
+          "son": "pop",
+          "mot": "abonne",
+          "volume": 0.6
+        }
+      ]
+    }
+  ],
+  "extra": {
+    "plans": [
+      {
+        "photo": "decors/reel-pourquoi-entree-gratuite-avant/s1.jpg",
+        "gros": [
+          {
+            "mot": "gratuitement",
+            "texte": "Billet à [0 €]",
+            "style": "sticker",
+            "y": 250
+          }
+        ],
+        "objet": {
+          "type": "prix",
+          "mot": "debut",
+          "motApres": "gratuitement",
+          "de": "20 €",
+          "a": "0 €"
+        },
+        "sombre": 0.4
+      },
+      {
+        "photo": "decors/reel-pourquoi-entree-gratuite-avant/s2.jpg",
+        "gros": [
+          {
+            "mot": "remplir",
+            "texte": "Mission [remplissage]",
+            "style": "titre"
+          }
+        ],
+        "sombre": 0.15
+      },
+      {
+        "photo": "decors/reel-pourquoi-entree-gratuite-avant/s3.jpg",
+        "gros": [
+          {
+            "mot": "vide",
+            "texte": "Salle [fantôme]",
+            "style": "sticker"
+          }
+        ],
+        "sombre": 0.15
+      },
+      {
+        "photo": "decors/reel-pourquoi-entree-gratuite-avant/s4.jpg",
+        "gros": [
+          {
+            "mot": "bar",
+            "texte": "Direction le [bar]",
+            "style": "titre"
+          }
+        ],
+        "objet": {
+          "type": "notif",
+          "mot": "bar",
+          "titre": "Banque",
+          "texte": "Paiement sans contact : 12,00 €"
+        },
+        "sombre": 0.4
+      },
+      {
+        "photo": "decors/reel-pourquoi-entree-gratuite-avant/s5.jpg",
+        "gros": [
+          {
+            "mot": "double",
+            "texte": "Rentabilité [x2]",
+            "style": "sticker"
+          }
+        ],
+        "sombre": 0.15
+      },
+      {
+        "photo": "decors/reel-pourquoi-entree-gratuite-avant/s6.jpg",
+        "gros": [
+          {
+            "mot": "abonne",
+            "texte": "Rejoins [Teufy]",
+            "style": "titre"
+          }
+        ],
+        "sombre": 0.15
+      }
+    ]
+  },
+  "legende": "Tu t'es déjà demandé pourquoi l'entrée est offerte avant 1h ? 🎟️\n\nCe n'est pas un geste d'amitié, c'est une stratégie rodée : \n1. Amorcer l'ambiance pour les arrivants de 2h qui payent plein tarif.\n2. T'inciter à commander au bar pendant le warm-up.\n3. Maximiser le chiffre d'affaires total de la nuit.\n\nTu préfères payer 0 € et arriver tôt ou payer 20 € et arriver quand c'est blindé ? Dis-le en com !\n\n#TeufyParty #SortirSurLaCote #NiceNightlife #CannesParty #AstuceSoiree"
+}

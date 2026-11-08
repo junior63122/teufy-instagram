@@ -1,0 +1,639 @@
+{
+ "id": "pourquoi-entree-gratuite-avant",
+ "concept": "reelflash",
+ "fps": 30,
+ "duree": 26.649,
+ "mots": [
+  {
+   "w": "Pourquoi",
+   "scene": 0,
+   "start": 0.107,
+   "end": 0.24
+  },
+  {
+   "w": "les",
+   "scene": 0,
+   "start": 0.28,
+   "end": 0.4
+  },
+  {
+   "w": "clubs",
+   "scene": 0,
+   "start": 0.44,
+   "end": 0.667
+  },
+  {
+   "w": "te",
+   "scene": 0,
+   "start": 0.72,
+   "end": 0.827
+  },
+  {
+   "w": "font",
+   "scene": 0,
+   "start": 0.88,
+   "end": 1.088
+  },
+  {
+   "w": "entrer",
+   "scene": 0,
+   "start": 1.136,
+   "end": 1.424
+  },
+  {
+   "w": "GRATUITEMENT",
+   "scene": 0,
+   "start": 1.472,
+   "end": 2.37
+  },
+  {
+   "w": "avant",
+   "scene": 0,
+   "start": 2.4,
+   "end": 2.693
+  },
+  {
+   "w": "une",
+   "scene": 0,
+   "start": 2.76,
+   "end": 2.96
+  },
+  {
+   "w": "heure",
+   "scene": 0,
+   "start": 3,
+   "end": 3.44
+  },
+  {
+   "w": "?",
+   "scene": 0,
+   "start": 3.76,
+   "end": 4.079
+  },
+  {
+   "w": "Ce",
+   "scene": 1,
+   "start": 4.141,
+   "end": 4.168
+  },
+  {
+   "w": "n'est",
+   "scene": 1,
+   "start": 4.248,
+   "end": 4.568
+  },
+  {
+   "w": "PAS",
+   "scene": 1,
+   "start": 4.608,
+   "end": 4.728
+  },
+  {
+   "w": "un",
+   "scene": 1,
+   "start": 4.781,
+   "end": 4.888
+  },
+  {
+   "w": "cadeau,",
+   "scene": 1,
+   "start": 4.936,
+   "end": 5.528
+  },
+  {
+   "w": "c'est",
+   "scene": 1,
+   "start": 5.568,
+   "end": 5.768
+  },
+  {
+   "w": "une",
+   "scene": 1,
+   "start": 5.808,
+   "end": 5.928
+  },
+  {
+   "w": "technique",
+   "scene": 1,
+   "start": 5.968,
+   "end": 6.328
+  },
+  {
+   "w": "pour",
+   "scene": 1,
+   "start": 6.392,
+   "end": 6.648
+  },
+  {
+   "w": "REMPLIR",
+   "scene": 1,
+   "start": 6.728,
+   "end": 7.288
+  },
+  {
+   "w": "la",
+   "scene": 1,
+   "start": 7.315,
+   "end": 7.368
+  },
+  {
+   "w": "salle.",
+   "scene": 1,
+   "start": 7.448,
+   "end": 8.128
+  },
+  {
+   "w": "Personne",
+   "scene": 2,
+   "start": 8.638,
+   "end": 8.809
+  },
+  {
+   "w": "n'aime",
+   "scene": 2,
+   "start": 8.849,
+   "end": 9.049
+  },
+  {
+   "w": "danser",
+   "scene": 2,
+   "start": 9.081,
+   "end": 9.369
+  },
+  {
+   "w": "dans",
+   "scene": 2,
+   "start": 9.385,
+   "end": 9.449
+  },
+  {
+   "w": "un",
+   "scene": 2,
+   "start": 9.476,
+   "end": 9.529
+  },
+  {
+   "w": "club",
+   "scene": 2,
+   "start": 9.593,
+   "end": 9.849
+  },
+  {
+   "w": "VIDE,",
+   "scene": 2,
+   "start": 9.889,
+   "end": 10.409
+  },
+  {
+   "w": "alors",
+   "scene": 2,
+   "start": 10.449,
+   "end": 10.649
+  },
+  {
+   "w": "tu",
+   "scene": 2,
+   "start": 10.702,
+   "end": 10.809
+  },
+  {
+   "w": "deviens",
+   "scene": 2,
+   "start": 10.849,
+   "end": 11.129
+  },
+  {
+   "w": "le",
+   "scene": 2,
+   "start": 11.182,
+   "end": 11.289
+  },
+  {
+   "w": "DÉCOR.",
+   "scene": 2,
+   "start": 11.369,
+   "end": 12.009
+  },
+  {
+   "w": "Et",
+   "scene": 3,
+   "start": 12.476,
+   "end": 12.489
+  },
+  {
+   "w": "surtout",
+   "scene": 3,
+   "start": 12.549,
+   "end": 12.969
+  },
+  {
+   "w": ":",
+   "scene": 3,
+   "start": 13.129,
+   "end": 13.289
+  },
+  {
+   "w": "coincé",
+   "scene": 3,
+   "start": 13.342,
+   "end": 13.689
+  },
+  {
+   "w": "là",
+   "scene": 3,
+   "start": 13.742,
+   "end": 13.849
+  },
+  {
+   "w": "dès",
+   "scene": 3,
+   "start": 13.909,
+   "end": 14.089
+  },
+  {
+   "w": "minuit,",
+   "scene": 3,
+   "start": 14.129,
+   "end": 14.489
+  },
+  {
+   "w": "tu",
+   "scene": 3,
+   "start": 14.596,
+   "end": 14.809
+  },
+  {
+   "w": "passes",
+   "scene": 3,
+   "start": 14.855,
+   "end": 15.129
+  },
+  {
+   "w": "direct",
+   "scene": 3,
+   "start": 15.175,
+   "end": 15.449
+  },
+  {
+   "w": "au",
+   "scene": 3,
+   "start": 15.502,
+   "end": 15.609
+  },
+  {
+   "w": "BAR",
+   "scene": 3,
+   "start": 15.669,
+   "end": 15.849
+  },
+  {
+   "w": "pour",
+   "scene": 3,
+   "start": 15.881,
+   "end": 16.009
+  },
+  {
+   "w": "patienter.",
+   "scene": 3,
+   "start": 16.059,
+   "end": 16.889
+  },
+  {
+   "w": "Bilan",
+   "scene": 4,
+   "start": 17.329,
+   "end": 17.529
+  },
+  {
+   "w": ":",
+   "scene": 4,
+   "start": 17.689,
+   "end": 17.849
+  },
+  {
+   "w": "ton",
+   "scene": 4,
+   "start": 17.889,
+   "end": 18.009
+  },
+  {
+   "w": "billet",
+   "scene": 4,
+   "start": 18.049,
+   "end": 18.249
+  },
+  {
+   "w": "gratuit",
+   "scene": 4,
+   "start": 18.309,
+   "end": 18.729
+  },
+  {
+   "w": "leur",
+   "scene": 4,
+   "start": 18.793,
+   "end": 19.049
+  },
+  {
+   "w": "rapporte",
+   "scene": 4,
+   "start": 19.099,
+   "end": 19.529
+  },
+  {
+   "w": "le",
+   "scene": 4,
+   "start": 19.582,
+   "end": 19.689
+  },
+  {
+   "w": "DOUBLE",
+   "scene": 4,
+   "start": 19.746,
+   "end": 20.089
+  },
+  {
+   "w": "d'une",
+   "scene": 4,
+   "start": 20.129,
+   "end": 20.249
+  },
+  {
+   "w": "entrée",
+   "scene": 4,
+   "start": 20.297,
+   "end": 20.569
+  },
+  {
+   "w": "tardive.",
+   "scene": 4,
+   "start": 20.617,
+   "end": 21.329
+  },
+  {
+   "w": "ABONNE-TOI",
+   "scene": 5,
+   "start": 21.742,
+   "end": 22.089
+  },
+  {
+   "w": "à",
+   "scene": 5,
+   "start": 22.129,
+   "end": 22.169
+  },
+  {
+   "w": "Teufy",
+   "scene": 5,
+   "start": 22.222,
+   "end": 22.649
+  },
+  {
+   "w": "pour",
+   "scene": 5,
+   "start": 22.681,
+   "end": 22.809
+  },
+  {
+   "w": "esquiver",
+   "scene": 5,
+   "start": 22.862,
+   "end": 23.209
+  },
+  {
+   "w": "les",
+   "scene": 5,
+   "start": 23.249,
+   "end": 23.369
+  },
+  {
+   "w": "pièges",
+   "scene": 5,
+   "start": 23.409,
+   "end": 23.769
+  },
+  {
+   "w": "et",
+   "scene": 5,
+   "start": 23.822,
+   "end": 23.929
+  },
+  {
+   "w": "réussir",
+   "scene": 5,
+   "start": 23.982,
+   "end": 24.409
+  },
+  {
+   "w": "tes",
+   "scene": 5,
+   "start": 24.449,
+   "end": 24.569
+  },
+  {
+   "w": "soirées",
+   "scene": 5,
+   "start": 24.617,
+   "end": 24.889
+  },
+  {
+   "w": "!",
+   "scene": 5,
+   "start": 24.969,
+   "end": 25.049
+  }
+ ],
+ "scenes": [
+  {
+   "id": "s1",
+   "texte": "[curious] Pourquoi les clubs te font entrer GRATUITEMENT avant une heure ?",
+   "sons": [
+    {
+     "son": "caisse",
+     "mot": "gratuitement",
+     "volume": 0.6
+    }
+   ],
+   "start": 0,
+   "end": 4.021
+  },
+  {
+   "id": "s2",
+   "texte": "[whispers] Ce n'est PAS un cadeau, c'est une technique pour REMPLIR la salle.",
+   "sons": [],
+   "start": 4.021,
+   "end": 8.518
+  },
+  {
+   "id": "s3",
+   "texte": "[excited] Personne n'aime danser dans un club VIDE, alors tu deviens le DÉCOR.",
+   "sons": [
+    {
+     "son": "impact",
+     "mot": "vide",
+     "volume": 0.4
+    }
+   ],
+   "start": 8.518,
+   "end": 12.356
+  },
+  {
+   "id": "s4",
+   "texte": "[shocked] Et surtout : coincé là dès minuit, tu passes direct au BAR pour patienter.",
+   "sons": [
+    {
+     "son": "pop",
+     "mot": "bar",
+     "volume": 0.6
+    }
+   ],
+   "start": 12.356,
+   "end": 17.209
+  },
+  {
+   "id": "s5",
+   "texte": "[laughs] Bilan : ton billet gratuit leur rapporte le DOUBLE d'une entrée tardive.",
+   "sons": [
+    {
+     "son": "caisse",
+     "mot": "double",
+     "volume": 0.6
+    }
+   ],
+   "start": 17.209,
+   "end": 21.622
+  },
+  {
+   "id": "s6",
+   "texte": "[excited] ABONNE-TOI à Teufy pour esquiver les pièges et réussir tes soirées !",
+   "sons": [
+    {
+     "son": "pop",
+     "mot": "abonne",
+     "volume": 0.6
+    }
+   ],
+   "start": 21.622,
+   "end": 26.649
+  }
+ ],
+ "bruits": [
+  {
+   "src": "sfx/caisse.mp3",
+   "at": 1.472,
+   "volume": 0.6
+  },
+  {
+   "src": "sfx/impact.mp3",
+   "at": 9.889,
+   "volume": 0.4
+  },
+  {
+   "src": "sfx/pop.mp3",
+   "at": 15.669,
+   "volume": 0.6
+  },
+  {
+   "src": "sfx/caisse.mp3",
+   "at": 19.746,
+   "volume": 0.6
+  },
+  {
+   "src": "sfx/pop.mp3",
+   "at": 21.742,
+   "volume": 0.6
+  }
+ ],
+ "voix": {
+  "src": "pourquoi-entree-gratuite-avant/voix.mp3",
+  "volume": 1
+ },
+ "musique": {
+  "src": "musique/electro-dreams.mp3",
+  "volume": 0.42,
+  "debut": 0,
+  "ducking": 0.3
+ },
+ "plans": [
+  {
+   "photo": "decors/reel-pourquoi-entree-gratuite-avant/s1.jpg",
+   "gros": [
+    {
+     "mot": "gratuitement",
+     "texte": "Billet à [0 €]",
+     "style": "sticker",
+     "y": 250
+    }
+   ],
+   "objet": {
+    "type": "prix",
+    "mot": "debut",
+    "motApres": "gratuitement",
+    "de": "20 €",
+    "a": "0 €"
+   },
+   "sombre": 0.4
+  },
+  {
+   "photo": "decors/reel-pourquoi-entree-gratuite-avant/s2.jpg",
+   "gros": [
+    {
+     "mot": "remplir",
+     "texte": "Mission [remplissage]",
+     "style": "titre"
+    }
+   ],
+   "sombre": 0.15
+  },
+  {
+   "photo": "decors/reel-pourquoi-entree-gratuite-avant/s3.jpg",
+   "gros": [
+    {
+     "mot": "vide",
+     "texte": "Salle [fantôme]",
+     "style": "sticker"
+    }
+   ],
+   "sombre": 0.15
+  },
+  {
+   "photo": "decors/reel-pourquoi-entree-gratuite-avant/s4.jpg",
+   "gros": [
+    {
+     "mot": "bar",
+     "texte": "Direction le [bar]",
+     "style": "titre"
+    }
+   ],
+   "objet": {
+    "type": "notif",
+    "mot": "bar",
+    "titre": "Banque",
+    "texte": "Paiement sans contact : 12,00 €"
+   },
+   "sombre": 0.4
+  },
+  {
+   "photo": "decors/reel-pourquoi-entree-gratuite-avant/s5.jpg",
+   "gros": [
+    {
+     "mot": "double",
+     "texte": "Rentabilité [x2]",
+     "style": "sticker"
+    }
+   ],
+   "sombre": 0.15
+  },
+  {
+   "photo": "decors/reel-pourquoi-entree-gratuite-avant/s6.jpg",
+   "gros": [
+    {
+     "mot": "abonne",
+     "texte": "Rejoins [Teufy]",
+     "style": "titre"
+    }
+   ],
+   "sombre": 0.15
+  }
+ ]
+}
