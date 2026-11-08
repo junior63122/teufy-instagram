@@ -135,7 +135,7 @@ export const PotesFluide: React.FC<{spec: Spec}> = ({spec}) => {
             <div style={{position: 'absolute', left: x0 - 330, top: -1160, whiteSpace: 'nowrap', transform: `scale(${revient})`, transformOrigin: 'center bottom', fontFamily: F.wide, fontWeight: 900, fontStretch: '125%', fontSize: 150, color: K.jaune, textShadow: `0 0 30px ${K.jaune}, 8px 8px 0 ${K.noir}`, WebkitTextStroke: `5px ${K.noir}`, paintOrder: 'stroke fill'}}>KEBAB</div>
             {t < pouf + 0.2 ? <Perso look={POTES[2]} taille={720} x={x0} y={0} graine={3} style={{transform: `translate(-50%,-100%) scale(${1 - p(t, pouf, 0.2)})`, transformOrigin: 'center bottom'}} pose={{bouche: 'sourire', brasD: 20, brasG: 20}} /> : null}
             <Eclat t0={pouf} x={x0} y={-400} n={22} r={420} couleurs={['#fff', K.noir, K.jaune]} taille={46} />
-            {t > pouf + 0.2 && t < kebab - 0.05 ? <div style={{position: 'absolute', left: x0 - 300, top: -560, whiteSpace: 'nowrap', fontFamily: F.serif, fontStyle: 'italic', fontSize: 120, color: K.noir}}>…où il est ?</div> : null}
+            {t > pouf + 0.2 && t < kebab - 0.05 ? <div style={{position: 'absolute', left: x0 - 300, top: -560, whiteSpace: 'nowrap', fontFamily: F.serif, fontStyle: 'italic', fontSize: 130, color: K.creme, WebkitTextStroke: `10px ${K.noir}`, paintOrder: 'stroke fill'}}>…où il est ?</div> : null}
             {t >= kebab - 0.05 ? (
               <>
                 <Perso look={POTES[2]} taille={720} x={x0} y={0} graine={3} style={{transform: `translate(-50%,-100%) scale(${revient})`, transformOrigin: 'center bottom'}} pose={{bouche: 'o', yeux: 'ronds', brasD: -100, brasG: 12}} />
