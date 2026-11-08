@@ -250,5 +250,21 @@
     "a": "Bon plan",
     "b": "Dépassé",
     "legende": "Entrée gratuite pour certaines, plein tarif pour les autres.\nDébat ouvert, on lit tout."
+  },
+  {
+    "id": "ia-2026-11-08-lon7y9",
+    "q": "Pour démarrer la nuit sur la Côte : terrasse posée ou direct dans le son ?",
+    "a": "Before en terrasse",
+    "b": "Direct dans le club",
+    "legende": "Deux écoles pour débuter la soirée. Tu te ranges dans quel camp ce vendredi ? Vote en commentaire 👇",
+    "ajout": "2026-11-08"
+  },
+  {
+    "id": "ia-2026-11-08-mzy2b",
+    "q": "Le samedi parfait : closing au lever du jour à Cannes ou warm-up intimiste à Nice ?",
+    "a": "Closing cannois à 6h",
+    "b": "Session intimiste à Nice",
+    "legende": "Chaque ville a son tempo. Dis-nous où ton équipe atterrit samedi soir 👇",
+    "ajout": "2026-11-08"
   }
 ]

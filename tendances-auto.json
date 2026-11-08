@@ -1,0 +1,189 @@
+{
+  "maj": "2026-11-08T11:26:31.414Z",
+  "comptes": {
+    "downtown.nice": {
+      "abonnes": 2395,
+      "posts": 25
+    },
+    "uptown.nice": {
+      "abonnes": 1865,
+      "posts": 25
+    },
+    "la_dinette__": {
+      "abonnes": 5654,
+      "posts": 25
+    },
+    "lebarathymtoulon": {
+      "abonnes": 10926,
+      "posts": 25
+    }
+  },
+  "hashtags": {
+    "#riviera": 1,
+    "#vieuxnice": 0.945,
+    "#halloween": 0.905,
+    "#oldtownnice": 0.828,
+    "#nice": 0.687,
+    "#cotedazur": 0.676,
+    "#djset": 0.676,
+    "#nice06": 0.535
+  },
+  "formats": {
+    "carrousel": {
+      "score": 1.18,
+      "posts": 42
+    },
+    "image": {
+      "score": 2.15,
+      "posts": 28
+    },
+    "reel": {
+      "score": 1.42,
+      "posts": 30
+    }
+  },
+  "heures": {
+    "0": {
+      "score": 2.17,
+      "posts": 1
+    },
+    "9": {
+      "score": 1.47,
+      "posts": 1
+    },
+    "11": {
+      "score": 3.13,
+      "posts": 1
+    },
+    "12": {
+      "score": 2.81,
+      "posts": 1
+    },
+    "13": {
+      "score": 2.55,
+      "posts": 1
+    },
+    "15": {
+      "score": 2.38,
+      "posts": 1
+    },
+    "16": {
+      "score": 0.52,
+      "posts": 3
+    },
+    "17": {
+      "score": 3.76,
+      "posts": 11
+    },
+    "18": {
+      "score": 0.97,
+      "posts": 27
+    },
+    "19": {
+      "score": 1.35,
+      "posts": 36
+    },
+    "20": {
+      "score": 1.22,
+      "posts": 7
+    },
+    "21": {
+      "score": 1.41,
+      "posts": 4
+    },
+    "22": {
+      "score": 0.86,
+      "posts": 4
+    },
+    "23": {
+      "score": 1.3,
+      "posts": 2
+    }
+  },
+  "accroches": [
+    {
+      "compte": "la_dinette__",
+      "format": "image",
+      "score": 29.95,
+      "accroche": "🚨 ATTENTION : ÉVÉNEMENT REPORTÉ ! 🎃",
+      "lien": "https://www.instagram.com/p/DeCb24BKjE-/"
+    },
+    {
+      "compte": "lebarathymtoulon",
+      "format": "image",
+      "score": 5.3,
+      "accroche": "🏉🔴⚫ JEU CONCOURS – 2 PLACES À GAGNER ! 🎁",
+      "lien": "https://www.instagram.com/p/DfP-6sYODvm/"
+    },
+    {
+      "compte": "uptown.nice",
+      "format": "reel",
+      "score": 4.9,
+      "accroche": "Bah voilà, on vous présente le bar 👋",
+      "lien": "https://www.instagram.com/reel/DeuXd5qNpha/"
+    },
+    {
+      "compte": "lebarathymtoulon",
+      "format": "image",
+      "score": 3.13,
+      "accroche": "🍻 LE PETIT RITUEL DE L’ÉQUIPE…",
+      "lien": "https://www.instagram.com/p/DeByI5IuMJb/"
+    },
+    {
+      "compte": "downtown.nice",
+      "format": "image",
+      "score": 3,
+      "accroche": "Le maître des soirées Afro Dancehall est de retour vendredi 23 octobre pour enflammer le club une nouvelle fois ❤️‍🔥",
+      "lien": "https://www.instagram.com/p/DeSDNBIiMwR/"
+    },
+    {
+      "compte": "la_dinette__",
+      "format": "carrousel",
+      "score": 2.81,
+      "accroche": "🐰📸 LES PHOTOS SONT EN LIGNE !!! 🔥",
+      "lien": "https://www.instagram.com/p/DeRTxkJiggs/"
+    },
+    {
+      "compte": "lebarathymtoulon",
+      "format": "image",
+      "score": 2.81,
+      "accroche": "🧱🎨 LE BARATHYM FAIT PEAU NEUVE ! 🍻",
+      "lien": "https://www.instagram.com/p/DfAw0AgOaR2/"
+    },
+    {
+      "compte": "uptown.nice",
+      "format": "carrousel",
+      "score": 2.73,
+      "accroche": "Comme ça vous savez ce que vous pouvez commander à l’Up Town ! 😇",
+      "lien": "https://www.instagram.com/p/DcMGdYxjfiH/"
+    },
+    {
+      "compte": "la_dinette__",
+      "format": "carrousel",
+      "score": 2.6,
+      "accroche": "🚨 JEU CONCOURS — 1 GAGNANT, TOUS CES LOTS ! 🎁🔥",
+      "lien": "https://www.instagram.com/p/Ddtw0wkirOX/"
+    },
+    {
+      "compte": "uptown.nice",
+      "format": "carrousel",
+      "score": 2.59,
+      "accroche": "Samedi dernier, l’Up Town a accueilli toutes les âmes terrifiantes qui hantaient le Vieux Nice ! Merci pour cette monstrueuse soirée 😈👻",
+      "lien": "https://www.instagram.com/p/DfXjSnlDUND/"
+    },
+    {
+      "compte": "downtown.nice",
+      "format": "carrousel",
+      "score": 2.58,
+      "accroche": "Halloween 2026 - Down Town horror club 💀",
+      "lien": "https://www.instagram.com/p/DfXvy6WjXWB/"
+    },
+    {
+      "compte": "lebarathymtoulon",
+      "format": "carrousel",
+      "score": 2.55,
+      "accroche": "🔨 LE BARATHYM SE REFAIT UNE BEAUTÉ ! 🍻",
+      "lien": "https://www.instagram.com/p/Ddq1WJDDhXN/"
+    }
+  ]
+}
