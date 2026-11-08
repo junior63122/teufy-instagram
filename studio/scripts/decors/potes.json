@@ -1,0 +1,10 @@
+{
+  "concept": "potes",
+  "style": "Flat 2D cartoon illustration in a bold pop-art style: thick black outlines, flat saturated colors (violet, electric blue, green, orange, hot pink), subtle halftone dot texture, clean shapes, playful and premium, like a modern animated series background. Background plate only: absolutely NO people, NO characters, NO text, NO letters, NO logos. Keep the lower third of the image as a clear, open floor so characters can stand in front. Wide establishing shot, camera at standing eye level.",
+  "decors": [
+    {"id": "dancefloor", "format": "16:9", "prompt": "Inside a lively nightclub on the French Riviera at night: a glowing dancefloor with colored light beams, a big window on the left showing the night sky over the sea, disco ball, speakers. Dominant electric blue and violet."},
+    {"id": "dj", "format": "16:9", "prompt": "Inside the same nightclub: the DJ stage seen from the dancefloor, an empty DJ booth with turntables on a raised platform, LED wall behind it, smoke and laser beams. Dominant green and teal with violet accents."},
+    {"id": "kebab", "format": "16:9", "prompt": "A narrow street of an old Mediterranean town at 3am outside the club: a small late-night kebab shop with a glowing sign shape (no readable text), warm orange light spilling on the pavement, string lights, parked scooter. Dominant orange and warm yellow, deep blue sky."},
+    {"id": "matin", "format": "16:9", "prompt": "Seafront promenade of a French Riviera city at sunrise after a party: palm trees, blue chairs facing the sea, pastel pink and orange sky, sun rising over the sea, calm and funny morning-after mood. Dominant hot pink and peach."}
+  ]
+}

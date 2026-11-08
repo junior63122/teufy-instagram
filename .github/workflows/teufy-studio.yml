@@ -1,0 +1,42 @@
+name: Teufy - Studio (décors illustrés)
+
+# Lancé à la main : génère les décors illustrés d'un concept du studio avec Gemini
+# (secret GEMINI_API_KEY) et les enregistre dans studio/public/decors/<concept>/.
+on:
+  workflow_dispatch:
+    inputs:
+      concept:
+        description: "Concept (fichier studio/scripts/decors/<concept>.json)"
+        default: "potes"
+      refaire:
+        description: "Régénérer même les images existantes"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  decors:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Générer les décors
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          REFAIRE: ${{ inputs.refaire && '1' || '' }}
+        run: |
+          sudo apt-get install -y --no-install-recommends ffmpeg >/dev/null 2>&1 || true
+          node studio/scripts/decors.mjs studio/scripts/decors/${{ inputs.concept }}.json
+      - name: Enregistrer les décors
+        run: |
+          git config user.name "teufy-bot"
+          git config user.email "teufy-bot@users.noreply.github.com"
+          git add studio/public/decors
+          git diff --cached --quiet && exit 0
+          git commit -m "Studio : décors illustrés (${{ inputs.concept }})"
+          for i in 1 2 3; do git pull --rebase && git push && break; sleep 5; done
