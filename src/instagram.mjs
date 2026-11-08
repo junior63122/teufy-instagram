@@ -200,3 +200,20 @@ export async function commentaires(mediaId, ig) {
 export async function repondre(commentId, message, ig) {
   return call('POST', `${commentId}/replies`, { message }, ig);
 }
+
+/** Validité du jeton : { valide, expire (Date|null), jours (restants|null), message }. */
+export async function etatJeton(ig) {
+  try {
+    if (HOST.includes('facebook')) {
+      const j = await call('GET', 'debug_token', { input_token: ig.token }, ig);
+      const d = j.data || {};
+      const exp = d.data_access_expires_at || d.expires_at;
+      const expire = exp ? new Date(exp * 1000) : null;
+      return { valide: d.is_valid !== false, expire, jours: expire ? Math.floor((expire - Date.now()) / 864e5) : null, permissions: d.scopes || [] };
+    }
+    await call('GET', ig.user, { fields: 'id' }, ig);
+    return { valide: true, expire: null, jours: null };
+  } catch (err) {
+    return { valide: false, expire: null, jours: null, message: err.message };
+  }
+}

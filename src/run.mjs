@@ -54,6 +54,13 @@ if (cible === 'collecter') {
   if (!ig) { console.log('IG_ACCESS_TOKEN / IG_USER_ID absents : pas de statistiques.'); process.exit(0); }
   const t = await analyserComptes({ ig, api: { businessDiscovery }, force: !!flag('force') });
   if (!t.deja) console.log(`Tendances : ${Object.keys(t.comptes || {}).length} compte(s) analysé(s), ${Object.keys(t.hashtags || {}).length} hashtag(s) repéré(s).`);
+  // Jeton Instagram : alerte (échec du workflow = e-mail de GitHub) s'il est invalide ou expire dans moins de 10 jours.
+  const { etatJeton } = await import('./instagram.mjs');
+  const jeton = await etatJeton(ig);
+  if (jeton.permissions?.length) console.log(`Jeton Instagram : permissions ${jeton.permissions.join(', ')}`);
+  if (!jeton.valide) { console.error(`::error::Jeton Instagram invalide (${jeton.message || 'expiré'}) : régénère IG_ACCESS_TOKEN dans les secrets GitHub.`); process.exitCode = 1; }
+  else if (jeton.jours != null && jeton.jours < 10) { console.error(`::error::Le jeton Instagram expire dans ${jeton.jours} jour(s) (${jeton.expire.toISOString().slice(0, 10)}) : régénère IG_ACCESS_TOKEN dans les secrets GitHub.`); process.exitCode = 1; }
+  else console.log(`Jeton Instagram valide${jeton.jours != null ? `, expire dans ${jeton.jours} jours` : ''}.`);
   const n = await collect({ hist, ig, api: { insights, followers, compteMedia } });
   console.log(`Statistiques mises à jour pour ${n} publication(s). Voir RAPPORT.md`);
   // Analyse hebdomadaire par IA gratuite (veille Meta, pourquoi, nouveaux tests), une fois par semaine.
@@ -283,7 +290,9 @@ async function prepare(slot, now, id) {
       : slot.variante === 'histoire' ? dispo.find((x) => ['histoire', 'potesfluide'].includes(x.concept))
       : dispo.find((x) => x.type === slot.variante) || dispo[0];
     if (!c && slot.variante === 'histoire') c = DRY ? tous.find((x) => x.concept === 'histoire') : await nouvelleHistoire(STUDIO, id);
-    if (!c && slot.variante === 'flash') c = DRY ? tous.find((x) => x.concept === 'reelflash') : await nouveauFlash(STUDIO, id, rubriqueFlash());
+    if (!c && slot.variante === 'flash' && DRY) c = tous.find((x) => x.concept === 'reelflash');
+    // Deux tentatives (deux rubriques) si la relecture refuse le premier script : le reel du jour sort quand même.
+    if (!c && slot.variante === 'flash') { try { c = await nouveauFlash(STUDIO, id, rubriqueFlash()); } catch (err) { console.error(`[${id}] ${err.message} : nouvel essai avec une autre rubrique.`); c = await nouveauFlash(STUDIO, id, ['Astuce', 'Explicatif', 'Humour'][new Date().getDay() % 3]); } }
     if (!c) throw new Error('Banque de concepts de reels épuisée : ajoute des concepts dans studio/scripts/concepts (voir studio/LISEZMOI.md).');
     usedHere.add(c.id);
     if (!existsSync(path.join(STUDIO, 'node_modules'))) spawnSync('npm', ['ci', '--no-audit', '--no-fund'], {cwd: STUDIO, stdio: 'inherit'});
