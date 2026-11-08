@@ -25,7 +25,7 @@ test('JSON : Gemini en panne → GitHub Models prend le relais', env({ GEMINI_AP
   };
   const r = await json({ config: {}, system: 's', prompt: 'p', schema: { type: 'object' } });
   assert.deepEqual(r, { ok: true });
-  assert.equal(appels.length, 2);
+  assert.equal(appels.filter((u) => !u.includes('pageSize')).length, 2); // (+ la liste des modèles Gemini)
 }));
 
 test('recherche Gemini : texte et sources citées', env({ GEMINI_API_KEY: 'g' }, async () => {

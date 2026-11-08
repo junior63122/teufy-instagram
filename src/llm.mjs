@@ -27,6 +27,26 @@ async function post(url, body, headers = {}) {
   return JSON.parse(txt);
 }
 
+// Modèle Gemini texte : celui de config.llm.modele_gemini s'il existe encore, sinon le meilleur « flash » disponible
+// pour cette clé (Google retire régulièrement d'anciens modèles aux nouveaux comptes).
+let geminiChoisi;
+async function modeleGemini(L = {}) {
+  if (geminiChoisi) return geminiChoisi;
+  const cle = process.env.GEMINI_API_KEY.trim();
+  try {
+    const r = await fetch(`${GEMINI}?pageSize=200&key=${cle}`, { signal: AbortSignal.timeout(20000) });
+    const noms = ((await r.json()).models || []).filter((m) => (m.supportedGenerationMethods || []).includes('generateContent')).map((m) => m.name.replace('models/', ''));
+    if (!noms.length) return (geminiChoisi = L.modele_gemini || 'gemini-2.5-flash');
+    if (L.modele_gemini && noms.includes(L.modele_gemini)) return (geminiChoisi = L.modele_gemini);
+    const texte = noms.filter((n) => /^gemini-[\d.]+-flash/.test(n) && !/image|tts|audio|live|lite|embedding|thinking-exp/.test(n));
+    const version = (n) => parseFloat(n.match(/^gemini-([\d.]+)/)[1]);
+    texte.sort((a, b) => version(b) - version(a) || (/preview|exp/.test(a) ? 1 : 0) - (/preview|exp/.test(b) ? 1 : 0) || a.length - b.length);
+    geminiChoisi = texte[0] || L.modele_gemini || 'gemini-2.5-flash';
+    if (geminiChoisi !== L.modele_gemini) console.error(`Gemini : modèle ${geminiChoisi}`);
+  } catch { geminiChoisi = L.modele_gemini || 'gemini-2.5-flash'; }
+  return geminiChoisi;
+}
+
 const texteGemini = (j) => (j.candidates?.[0]?.content?.parts || []).map((p) => p.text || '').join('').trim();
 
 // --- Recherche web (texte libre, sources citées) ----------------------------------
@@ -36,7 +56,7 @@ export async function rechercher({ config, system, prompt, gratuit = false }) {
   for (const f of fournisseurs(config, { gratuit })) {
     try {
       if (f === 'gemini') {
-        const j = await post(`${GEMINI}/${L.modele_gemini || 'gemini-2.5-flash'}:generateContent?key=${process.env.GEMINI_API_KEY.trim()}`, {
+        const j = await post(`${GEMINI}/${await modeleGemini(L)}:generateContent?key=${process.env.GEMINI_API_KEY.trim()}`, {
           systemInstruction: { parts: [{ text: system }] },
           contents: [{ role: 'user', parts: [{ text: prompt }] }],
           tools: [{ google_search: {} }],
@@ -60,11 +80,11 @@ export async function json({ config, system, prompt, schema, nom = 'reponse', gr
         const base = { systemInstruction: { parts: [{ text: system }] }, contents: [{ role: 'user', parts: [{ text: prompt }] }] };
         let j;
         try {
-          j = await post(`${GEMINI}/${L.modele_gemini || 'gemini-2.5-flash'}:generateContent?key=${process.env.GEMINI_API_KEY.trim()}`, { ...base, generationConfig: { responseMimeType: 'application/json', responseJsonSchema: schema } });
+          j = await post(`${GEMINI}/${await modeleGemini(L)}:generateContent?key=${process.env.GEMINI_API_KEY.trim()}`, { ...base, generationConfig: { responseMimeType: 'application/json', responseJsonSchema: schema } });
         } catch (err) {
           if (err.status !== 400) throw err;
           // Ancien format : schéma dans la consigne, sortie JSON simple.
-          j = await post(`${GEMINI}/${L.modele_gemini || 'gemini-2.5-flash'}:generateContent?key=${process.env.GEMINI_API_KEY.trim()}`, { ...base, contents: [{ role: 'user', parts: [{ text: `${prompt}\n\nRéponds uniquement en JSON valide selon ce schéma :\n${JSON.stringify(schema)}` }] }], generationConfig: { responseMimeType: 'application/json' } });
+          j = await post(`${GEMINI}/${await modeleGemini(L)}:generateContent?key=${process.env.GEMINI_API_KEY.trim()}`, { ...base, contents: [{ role: 'user', parts: [{ text: `${prompt}\n\nRéponds uniquement en JSON valide selon ce schéma :\n${JSON.stringify(schema)}` }] }], generationConfig: { responseMimeType: 'application/json' } });
         }
         return JSON.parse(texteGemini(j));
       }
