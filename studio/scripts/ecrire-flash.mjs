@@ -96,14 +96,33 @@ Règles :
 - Phrases courtes, rythme rapide, tutoiement, ton complice. Pas d'alcool glorifié, pas de drogue, pas de marque citée sans raison.
 - Chiffres : vrais et vérifiables, ou présentés comme des exemples. Rien d'inventé sur une soirée ou un lieu réel.
 - La dernière scène est l'appel à l'action (s'abonner, commenter un mot-clé ou taguer un pote).
-- Tous les « mot », « mot_apres », « mots », « mot_son » sont des mots EXACTS de la réplique de leur scène.`;
+- Tous les « mot », « mot_apres », « mots », « mot_son » sont des mots EXACTS de la réplique de leur scène.
+- Si le titre ou l'accroche annonce un nombre d'éléments (« 3 erreurs »), le reel en donne exactement ce nombre, numérotés.
+- Jamais de conseil ni de blague fondés sur le genre, l'origine, l'apparence physique ou le poids ; pas de stéréotypes ; pas de « règle » de videur présentée comme une vérité générale.
+- La rubrique doit correspondre au contenu (Astuce = conseils concrets ; Explicatif = un mécanisme expliqué ; Humour = situations ; Actu nuit = une actu sourcée ; Immersion = vivre une soirée).`;
 
 const prompt = `Rubrique demandée : ${rubrique}.
 ${idees.length ? `Actualité vérifiée de la veille (prioritaire pour « Actu nuit » et « Explicatif ») :\n${idees.map((i) => `- ${i.titre} — ${i.angle || i.resume || ''} (${i.source || 'sans source'})`).join('\n')}\n` : ''}Sujets possibles : ${SUJETS.join(' ; ')}.
 ${meilleurs.length ? `Nos reels les mieux notés (inspire-toi de ce qui marche) : ${meilleurs.join(' ; ')}.\n` : ''}${accroches.length ? `Accroches qui marchent chez les comptes suivis : ${accroches.join(' | ')}.\n` : ''}Déjà publiés ou en banque (ne refais pas le même sujet) :\n${dejaFaits.map((t) => `- ${t}`).join('\n') || '- aucun'}
 Date : ${new Date().toISOString().slice(0, 10)}. Écris un reel selon le schéma.`;
 
-const r = process.env.ECRIRE_REPONSE ? lire(process.env.ECRIRE_REPONSE, {}) : await json({config, system, prompt, schema: SCHEMA, nom: 'reel_flash'});
+// Écriture, puis relecture critique par l'IA (note /10) : en dessous de 7, le script est réécrit avec les remarques.
+const CRITIQUE = {type: 'object', additionalProperties: false, required: ['note', 'problemes'], properties: {
+  note: {type: 'number', description: 'note sur 10'}, problemes: {type: 'array', items: {type: 'string'}, description: 'problèmes précis à corriger'}}};
+const relire = (script) => json({config, nom: 'relecture', gratuit: true, schema: CRITIQUE,
+  system: `Tu es rédacteur en chef exigeant des reels de Teufy (soirées Côte d'Azur, 17-30 ans). Note le script sur 10 : accroche (2 premières secondes), valeur apportée (on apprend ou on rit vraiment), rythme (un temps fort toutes les 1-2 s), exactitude (rien d'inventé, nombre d'éléments annoncé = nombre donné), ton (complice, inclusif, sans stéréotype de genre, d'origine ou d'apparence), cohérence rubrique/contenu, appel à l'action. Sois sévère : 7 = publiable.`,
+  prompt: `Rubrique : ${rubrique}\nScript :\n${JSON.stringify({titre: script.titre, titre_couverture: script.titre_couverture, scenes: script.scenes.map((x) => ({texte: x.texte, gros: x.gros, objet: x.objet?.type})), legende: script.legende})}`});
+let r = process.env.ECRIRE_REPONSE ? lire(process.env.ECRIRE_REPONSE, {}) : await json({config, system, prompt, schema: SCHEMA, nom: 'reel_flash'});
+if (!process.env.ECRIRE_REPONSE && r?.scenes?.length) {
+  for (let essai = 0; essai < 2; essai++) {
+    let avis;
+    try { avis = await relire(r); } catch (err) { console.error(`Relecture impossible : ${err.message}`); break; }
+    console.error(`Relecture : ${avis.note}/10${avis.problemes?.length ? ` — ${avis.problemes.join(' ; ')}` : ''}`);
+    if (avis.note >= 7) break;
+    if (essai === 1) { console.error('Script refusé par la relecture : pas de reel.'); process.exit(1); }
+    r = await json({config, system, schema: SCHEMA, nom: 'reel_flash', prompt: `${prompt}\n\nUne première version a été refusée par la relecture (${avis.note}/10). Problèmes à corriger : ${avis.problemes.join(' ; ')}.\nVersion refusée : ${JSON.stringify(r).slice(0, 6000)}\nRéécris un reel meilleur selon le schéma.`});
+  }
+}
 if (!r?.scenes?.length) { console.error('Scénariste : aucune réponse exploitable.'); process.exit(1); }
 
 // --- vérifications ---------------------------------------------------------------------
