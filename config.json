@@ -352,5 +352,13 @@
         "legende": "Bon 14 juillet 🎆\n\nFeu d'artifice, bal, plage et soirée jusqu'au bout de la nuit : tu le fêtes où ?\n\nDis-le en commentaire 👇\n\n#TeufyParty #14juillet #nice #cotedazur #ete"
       }
     ]
+  },
+  "site": {
+    "explication": "Site internet (src/site.mjs). Champs modifiables : directeur, directeur_bio, equipe, partenaires, photo_directeur (chemin d'une photo dans le dépôt, ex. site/img/junior.jpg), google_verification (code fourni par Google Search Console).",
+    "directeur": "Junior Joyant",
+    "equipe": "une dizaine de personnes",
+    "partenaires": "plus de 200",
+    "photo_directeur": "",
+    "google_verification": ""
   }
 }

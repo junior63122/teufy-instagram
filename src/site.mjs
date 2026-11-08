@@ -113,6 +113,7 @@ export async function construireSite({ events, hist = [], config = {}, now = new
   await assets();
   const compte = config.compte || '@teufy_official';
   const T = { ...TEUFY, ...(config.site || {}) };
+  GOOGLE = (config.site?.google_verification || '').trim();
   const pages = [['', page({ soirees, posts, now, compte, T, base: '' })], ['a-propos/', aPropos({ now, compte, T, base: '../', nb: soirees.length })]];
   for (const v of VILLES_SEO) pages.push([`${v.slug}/`, pageVille({ v, soirees: soirees.filter((x) => v.re.test(`${x.ville} ${x.lieu}`)), now, compte, T, base: '../' })]);
   for (const [dossier, html] of pages) {
@@ -187,6 +188,7 @@ const VILLES_SEO = [
   { slug: 'soirees-antibes', nom: 'Antibes · Juan-les-Pins', re: /antibes|juan|biot|vallauris|golfe/i, intro: "Juan-les-Pins, le Vieil Antibes et les beach clubs du Cap : toutes les soirées d'Antibes et Juan-les-Pins, vérifiées et mises à jour chaque jour." },
 ];
 
+let GOOGLE = ''; // code de vérification Google Search Console (config.site.google_verification)
 function gabarit({ titre, description, chemin, base, corps, ld = [], image = 'site/img/danse.jpg', compte }) {
   const handle = compte.replace(/^@/, '');
   const nav = [['', 'Agenda'], ...VILLES_SEO.map((v) => [`${v.slug}/`, v.nom.split(' ·')[0]]), ['a-propos/', 'Qui sommes-nous']];
@@ -205,6 +207,7 @@ function gabarit({ titre, description, chemin, base, corps, ld = [], image = 'si
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
 <meta name="theme-color" content="#0B0B0F">
+${GOOGLE ? `<meta name="google-site-verification" content="${esc(GOOGLE)}">` : ''}
 <link rel="icon" href="${base}site/img/logo.png">
 <link rel="stylesheet" href="${base}site/style.css">
 ${ld.length ? `<script type="application/ld+json">${JSON.stringify(ld).replace(/</g, '\\u003c')}</script>` : ''}

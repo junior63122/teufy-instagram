@@ -20,7 +20,12 @@ const h = {'content-type': 'application/json', 'x-goog-api-key': CLE};
 // Modèles d'image disponibles pour cette clé, du meilleur au plus courant.
 const liste = await (await fetch(`${API}/models?pageSize=200`, {headers: h})).json();
 const noms = (liste.models || []).map((m) => ({nom: m.name.replace('models/', ''), methodes: m.supportedGenerationMethods || []}));
-const PREF = [/gemini-3.*pro.*image/, /gemini-3.*image/, /gemini-2\.5-flash-image(?!.*preview)/, /gemini-2\.5-flash-image/, /imagen-4\.0-ultra/, /imagen-4/, /imagen-3/];
+// Qualité « eco » (photos des reels, renouvelées 3 fois par semaine) : modèle flash, environ 3 fois moins cher.
+// Qualité « premium » (DA, fêtes, couvertures) : modèle pro.
+const ECO = def.qualite === 'eco' || process.env.IMAGES_ECO === '1';
+const PREF = ECO
+  ? [/gemini-3.*flash.*image(?!.*lite)/, /gemini-2\.5-flash-image(?!.*preview)/, /gemini-2\.5-flash-image/, /gemini-3.*pro.*image/, /imagen-4/]
+  : [/gemini-3.*pro.*image/, /gemini-3.*image/, /gemini-2\.5-flash-image(?!.*preview)/, /gemini-2\.5-flash-image/, /imagen-4\.0-ultra/, /imagen-4/, /imagen-3/];
 const candidats = PREF.flatMap((re) => noms.filter((m) => re.test(m.nom))).filter((m, i, a) => a.indexOf(m) === i);
 console.log(`Modèles d'image disponibles : ${candidats.map((m) => m.nom).join(', ') || 'aucun'}`);
 if (!candidats.length) { console.error('Aucun modèle d\'image accessible avec cette clé.'); process.exit(1); }

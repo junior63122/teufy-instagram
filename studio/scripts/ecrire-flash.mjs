@@ -168,7 +168,7 @@ const concept = {
   extra: {plans},
   legende: r.legende,
 };
-const decors = {concept: `reel-${id}`, style: STYLE_PHOTO, decors: scenes.map((s, i) => ({id: `s${i + 1}`, format: '9:16', prompt: s.photo}))};
+const decors = {concept: `reel-${id}`, qualite: 'eco', style: STYLE_PHOTO, decors: scenes.map((s, i) => ({id: `s${i + 1}`, format: '9:16', prompt: s.photo}))};
 await writeFile(path.join(STUDIO, 'scripts', 'decors', `reel-${id}.json`), JSON.stringify(decors, null, 2) + '\n');
 const fichier = path.join(DIR_C, `${id}.json`);
 await writeFile(fichier, JSON.stringify(concept, null, 2) + '\n');
