@@ -5,37 +5,37 @@
     {
       "id": "halloween",
       "format": "4:5",
-      "prompt": "Halloween party in a club on the French Riviera: young people in creative costumes and face paint dancing, orange and purple light, smoke, candid direct flash."
+      "prompt": "Halloween night party in a club on the French Riviera: young adults in elaborate, clearly recognizable Halloween costumes (vampire with fangs, witch hat, skeleton face paint, zombie makeup, devil horns), carved glowing jack-o'-lanterns and pumpkins everywhere, fake spiderwebs, orange and purple lights, smoke, candid direct flash."
     },
     {
       "id": "noel",
       "format": "4:5",
-      "prompt": "Christmas night on the French Riviera: a group of young friends laughing with festive sweaters and sparklers on a rooftop, Christmas lights and palm trees with fairy lights, Nice bay at night behind, candid direct flash."
+      "prompt": "Magical Christmas party night on the French Riviera: snow gently falling, young friends laughing in Santa hats and ugly Christmas sweaters, a big decorated Christmas tree with warm lights, wrapped presents, red and white decorations, string lights on palm trees, festive and cosy, candid direct flash."
     },
     {
       "id": "reveillon",
       "format": "4:5",
-      "prompt": "New Year's Eve party on the French Riviera: young friends counting down with sparklers and confetti on a terrace, fireworks over the sea in the background, glamorous outfits, candid direct flash."
+      "prompt": "New Year's Eve party on the French Riviera: young friends in glamorous gold and black outfits counting down with sparklers, gold confetti raining, gold and silver balloons, glitter everywhere, fireworks exploding over the sea behind, candid direct flash."
     },
     {
       "id": "nouvelan",
       "format": "4:5",
-      "prompt": "Morning after New Year's Eve on the French Riviera: friends watching the sunrise on the beach in party outfits, confetti in their hair, smiling, soft golden light, candid film photo."
+      "prompt": "New Year's party on the French Riviera at midnight: friends hugging and cheering under a shower of gold confetti and streamers, party hats and gold balloons, fireworks in the sky, glitter, euphoric faces, candid direct flash."
     },
     {
       "id": "saintvalentin",
       "format": "4:5",
-      "prompt": "Valentine's night in a stylish bar on the French Riviera: young couples and friends laughing, red and pink neon lights, candid direct flash."
+      "prompt": "Valentine's night party in a stylish bar on the French Riviera: red heart-shaped balloons, pink neon heart sign without text, rose petals, young couples and friends laughing, red and pink lights, candid direct flash."
     },
     {
       "id": "fetemusique",
       "format": "4:5",
-      "prompt": "Fête de la musique in the old town of Nice at night: crowded streets, a DJ playing outside, young people dancing, warm string lights, candid direct flash."
+      "prompt": "Fête de la musique in the streets of the old town of Nice: a live band and a DJ playing outside, guitars and speakers, a huge joyful crowd dancing in the street, warm string lights, summer night, candid direct flash."
     },
     {
       "id": "14juillet",
       "format": "4:5",
-      "prompt": "Bastille Day night on the French Riviera: fireworks over the sea, young friends on the beach cheering, summer outfits, candid direct flash."
+      "prompt": "Bastille Day night on the Promenade in Nice: huge blue, white and red fireworks over the sea, French tricolor flags waving, a cheering crowd of young people on the beach, summer outfits, candid direct flash."
     }
   ]
 }

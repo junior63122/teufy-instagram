@@ -14,6 +14,7 @@ import {Histoire} from './concepts/Histoire';
 import {Flash} from './concepts/Flash';
 import {CarrouselFlash, Couverture, CouvertureReel, PostFlashDA, StoryRelais} from './da/Posts';
 import {Planche, Storyboard} from './da/Storyboard';
+import {PostSpecial} from './da/Special';
 
 
 // Une composition par concept. La durée vient de la spec (voix off + scènes), lue au rendu.
@@ -47,6 +48,7 @@ export const Root: React.FC = () => (
     <Still id="couverture" component={((p: any) => <Polices><Couverture {...p} /></Polices>) as React.FC<any>} width={1080} height={1350} defaultProps={{rubrique: 'Débat', titre: 'Titre', photo: 'decors/da/danse.jpg'}} />
     <Still id="story" component={((p: any) => <Polices><StoryRelais {...p} /></Polices>) as React.FC<any>} width={1080} height={1920} defaultProps={{image: 'decors/da/danse.jpg'}} />
     <Still id="couverture-reel" component={((p: any) => <Polices><CouvertureReel {...p} /></Polices>) as React.FC<any>} width={1080} height={1920} defaultProps={{photo: 'decors/da/danse.jpg', rubrique: 'Explicatif', titre: 'Titre'}} />
+    <Still id="special" component={((p: any) => <Polices><PostSpecial {...p} /></Polices>) as React.FC<any>} width={1080} height={1350} defaultProps={{theme: 'noel', photo: 'decors/fetes/noel.jpg', titre: 'Joyeux [Noël]', rubrique: 'Joyeux Noël'}} />
     <Still id="storyboard" component={((p: any) => <Polices><Storyboard soirees={p.soirees ?? donnees.soirees} /></Polices>) as React.FC<any>} width={1080} height={2190} defaultProps={{}} />
     <Still id="planche" component={(() => <Polices><Planche /></Polices>) as React.FC<any>} width={1080} height={1600} defaultProps={{}} />
     <Still id="carrousel" component={((p: any) => <Polices><Carrousel soirees={p.soirees ?? donnees.soirees} slide={p.slide} titre={p.titre ?? ["5 soirées à pas rater", "avant noël"]} lieu={p.lieu ?? "FRIGO 16"} pied={p.pied} fond={p.fond} /></Polices>) as React.FC<any>} width={1080} height={1350} defaultProps={{slide: 0}} />

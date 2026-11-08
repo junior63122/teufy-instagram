@@ -115,6 +115,7 @@ export const CarrouselFlash: React.FC<{soirees: Soiree[]; slide: number; titre: 
 };
 
 /** Post « flash » de la veille (annonce exceptionnelle ou actu nuit) dans la DA : photo de nuit, visuel officiel, titre, source. */
+const ALERTE = '#E3261B'; // rouge d'alerte : réservé aux infos de dernière minute
 export type FlashDA = {type: 'annonce' | 'actu'; surtitre: string; titre: string; sous_titre: string; faits: string[]; source: string; date: string; image?: string};
 export const PostFlashDA: React.FC<{f: FlashDA; photo?: string}> = ({f, photo}) => {
   const fond = photo || (f.type === 'actu' ? 'decors/da/foule.jpg' : 'decors/da/lasers.jpg');
@@ -122,14 +123,31 @@ export const PostFlashDA: React.FC<{f: FlashDA; photo?: string}> = ({f, photo}) 
     <AbsoluteFill style={{background: C.nuit, overflow: 'hidden'}}>
       <Photo src={fond} assombrir={0.66} />
       <Voile bas={0.95} haut={0.6} />
-      <Signature droite={<span style={{fontFamily: B, fontWeight: 700, fontSize: 24, color: C.creme, opacity: 0.85}}>{f.date}</span>} />
+      {/* Bandeau d'alerte : on comprend au premier coup d'œil que c'est une info importante qui vient de tomber */}
+      <div style={{position: 'absolute', left: 0, right: 0, top: 0, height: 150, background: ALERTE, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 48px', boxShadow: '0 12px 40px rgba(0,0,0,.45)'}}>
+        <div style={{display: 'flex', alignItems: 'center', gap: 18}}>
+          <svg width={54} height={54} viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z" fill={C.creme} /></svg>
+          <span style={{fontFamily: T, fontWeight: 800, fontStretch: '80%', fontSize: 64, color: C.creme, letterSpacing: '-0.01em', lineHeight: 1}}>INFO DE DERNIÈRE MINUTE</span>
+        </div>
+      </div>
+      <div style={{position: 'absolute', left: 0, right: 0, top: 150, height: 22, background: `repeating-linear-gradient(-45deg, ${C.nuit} 0 22px, ${C.creme} 22px 44px)`}} />
+      <div style={{position: 'absolute', left: 48, right: 48, top: 200, display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
+        <div style={{display: 'flex', alignItems: 'center', gap: 12, background: 'rgba(11,11,15,.7)', border: `2px solid ${ALERTE}`, borderRadius: 999, padding: '8px 20px'}}>
+          <span style={{width: 18, height: 18, borderRadius: '50%', background: ALERTE, boxShadow: `0 0 0 6px ${ALERTE}55`}} />
+          <span style={{fontFamily: B, fontWeight: 800, fontSize: 26, letterSpacing: '0.12em', color: C.creme}}>EN DIRECT · {f.date}</span>
+        </div>
+        <div style={{display: 'flex', alignItems: 'center', gap: 12}}>
+          <Img src={staticFile('logo.png')} style={{height: 38}} />
+          <span style={{fontFamily: B, fontWeight: 700, fontSize: 24, color: C.creme}}>@teufy_official</span>
+        </div>
+      </div>
       {f.image ? (
-        <div style={{position: 'absolute', left: 0, right: 0, top: 120, height: 560, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-          <Img data-verif="image" src={staticFile(f.image)} style={{maxWidth: 860, maxHeight: 540, minHeight: 440, borderRadius: 14, boxShadow: '0 30px 80px rgba(0,0,0,.6)', transform: 'rotate(-2deg)'}} />
+        <div style={{position: 'absolute', left: 0, right: 0, top: 280, height: 480, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+          <Img data-verif="image" src={staticFile(f.image)} style={{maxWidth: 860, maxHeight: 470, minHeight: 430, borderRadius: 14, boxShadow: '0 30px 80px rgba(0,0,0,.6)', transform: 'rotate(-2deg)'}} />
         </div>
       ) : null}
       <div style={{position: 'absolute', left: 56, right: 56, bottom: 64}}>
-        <Etiquette style={{marginBottom: 24}}>{f.surtitre}</Etiquette>
+        <Etiquette style={{marginBottom: 24}} fond={ALERTE} couleur={C.creme}>{f.surtitre}</Etiquette>
         <Titre taille={f.titre.length > 45 ? 92 : 112}>{f.titre}</Titre>
         {f.sous_titre ? <Ajuste max={38} lignes={2} interligne={1.25} style={{fontFamily: B, fontWeight: 600, color: C.creme, marginTop: 20}}>{f.sous_titre}</Ajuste> : null}
         {!f.image && f.faits.length ? (

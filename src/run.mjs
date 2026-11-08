@@ -196,7 +196,8 @@ async function prepare(slot, now, id) {
     // Jour de fête (Noël, Nouvel An…) : un post spécial bonus, à l'heure prévue, une seule fois par an.
     const fete = feteDue(now);
     if (fete && !R.pause_publication) {
-      const fichier = await couvertureDA({ photo: await photoFete(fete), fond: 'photo', rubrique: fete.rubrique, titre: fete.titre.replace('{annee}', String(new Date(now).getFullYear())), sous: fete.sous }, path.join(dir, `fete-${stamp}.jpg`));
+      const an = String(new Date(now).getFullYear());
+      const fichier = await couvertureDA({ theme: fete.id, photo: await photoFete(fete), rubrique: fete.rubrique, titre: fete.titre.replace('{annee}', an), sous: (fete.sous || '').replace('{annee}', an) }, path.join(dir, `fete-${stamp}.jpg`), 'special');
       pub = { images: [fichier], legende: fete.legende.replace(/\{annee\}/g, String(new Date(now).getFullYear())), titre: fete.titre.replace('{annee}', String(new Date(now).getFullYear())).replace(/[[\]]/g, ''), fete: `${fete.id}-${new Date(now).getFullYear()}` };
       console.log(`[${id}] post de fête : ${fete.id}`);
     }
@@ -611,11 +612,11 @@ async function nouvelleHistoire(STUDIO, id) {
 // --- DA « Flash nuit » : carrousels et couvertures rendus par le studio, avec contrôle visuel ----------------------
 function photoDA(noms, now) { return `decors/da/${noms[Math.floor(now / (7 * 864e5)) % noms.length]}.jpg`; }
 
-async function couvertureDA(props, fichier) {
+async function couvertureDA(props, fichier, composition = 'couverture') {
   const STUDIO = path.join(ROOT, 'studio');
   if (!existsSync(path.join(STUDIO, 'node_modules'))) spawnSync('npm', ['ci', '--no-audit', '--no-fund'], { cwd: STUDIO, stdio: 'inherit' });
   const B = '/opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell';
-  const r = spawnSync(path.join(STUDIO, 'node_modules', '.bin', 'remotion'), ['still', 'src/index.ts', 'couverture', fichier, `--props=${JSON.stringify(props)}`, '--image-format=jpeg', '--jpeg-quality=92', '--log=error', ...(existsSync(B) ? [`--browser-executable=${B}`] : [])], { cwd: STUDIO, stdio: 'inherit' });
+  const r = spawnSync(path.join(STUDIO, 'node_modules', '.bin', 'remotion'), ['still', 'src/index.ts', composition, fichier, `--props=${JSON.stringify(props)}`, '--image-format=jpeg', '--jpeg-quality=92', '--log=error', ...(existsSync(B) ? [`--browser-executable=${B}`] : [])], { cwd: STUDIO, stdio: 'inherit' });
   if (r.status !== 0) throw new Error('Visuel non conforme à la DA (contrôle visuel en échec) : rien n\'est publié plutôt qu\'un visuel raté.');
   return fichier;
 }
