@@ -1,5 +1,5 @@
 import React from 'react';
-import {AbsoluteFill} from 'remotion';
+import {AbsoluteFill, Img, staticFile} from 'remotion';
 import {BandeSon, Eclat, Grain, SousTitres, quand, useT} from '../ui/base';
 import {Commentaire, Perso, Telephone} from '../ui/illus';
 import type {Look} from '../ui/illus';
@@ -71,8 +71,14 @@ export const PotesFluide: React.FC<{spec: Spec}> = ({spec}) => {
   const monde = (
     <div style={{position: 'absolute', left: 540, top: 960, width: 0, height: 0, transform: `scale(${c.z}) translate(${-c.x}px, ${-c.y}px)`}}>
       <div style={{position: 'absolute', left: -2400, top: -7000, width: 7600, height: 10000, background: fond}} />
+      {/* décors illustrés (Gemini) : un par pote, fondus entre eux pour garder un seul plan continu */}
+      {((spec.decors as string[] | undefined) || []).map((src, i) => (
+        <Img key={i} src={staticFile(src)} style={{position: 'absolute', left: xZone(i) - 1900, top: -1750, width: 3800, height: 2140, objectFit: 'cover',
+          WebkitMaskImage: 'linear-gradient(90deg, transparent 22%, #000 38%, #000 62%, transparent 78%)', maskImage: 'linear-gradient(90deg, transparent 22%, #000 38%, #000 62%, transparent 78%)'}} />
+      ))}
+      {spec.decors ? <div style={{position: 'absolute', left: -2400, top: -7000, width: 7600, height: 10000, background: 'rgba(10,8,20,.12)'}} /> : null}
       {/* trame de points */}
-      <svg style={{position: 'absolute', left: -2400, top: -3000, opacity: 0.16}} width={7600} height={6000}>
+      <svg style={{position: 'absolute', left: -2400, top: -3000, opacity: spec.decors ? 0.07 : 0.16}} width={7600} height={6000}>
         <defs><pattern id="ht2" width="40" height="40" patternUnits="userSpaceOnUse" patternTransform="rotate(20)"><circle cx="10" cy="10" r="7" fill={K.noir} /></pattern></defs>
         <rect width="100%" height="100%" fill="url(#ht2)" />
       </svg>
@@ -81,7 +87,7 @@ export const PotesFluide: React.FC<{spec: Spec}> = ({spec}) => {
         <div key={i} style={{position: 'absolute', left: -600 + i * 470, top: -2200, width: 90, height: 2200, background: 'linear-gradient(#ffffffaa, transparent)', opacity: 0.25, transformOrigin: 'top', transform: `rotate(${Math.sin(t * 1.2 + i) * 22}deg)`, filter: 'blur(8px)'}} />
       ))}
       {/* sol */}
-      <div style={{position: 'absolute', left: -2400, top: 0, width: 7600, height: 3000, background: 'rgba(0,0,0,.28)'}} />
+      <div style={{position: 'absolute', left: -2400, top: 0, width: 7600, height: 3000, background: spec.decors ? 'linear-gradient(rgba(0,0,0,.15), rgba(0,0,0,.45) 400px)' : 'rgba(0,0,0,.28)'}} />
       <div style={{position: 'absolute', left: -2400, top: -6, width: 7600, height: 12, background: K.noir}} />
 
       {/* ===== pote 1 : « je reste une heure » ===== */}
