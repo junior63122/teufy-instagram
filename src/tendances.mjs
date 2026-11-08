@@ -1,4 +1,4 @@
-// Veille des tendances : analyse chaque semaine les posts publics de comptes nightlife
+// Veille des tendances : analyse chaque jour les posts publics de comptes nightlife
 // (API officielle Instagram « Business Discovery », pas de scraping) et en tire :
 //  - les hashtags qui accompagnent les posts les plus engageants (score 0 à 1),
 //  - les formats qui marchent le mieux (carrousel, reel, image),
@@ -14,6 +14,15 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 export const TENDANCES = JSON.parse(readFileSync(path.join(ROOT, 'contenus', 'tendances.json'), 'utf8'));
 const AUTO = path.join(ROOT, 'tendances-auto.json');
 
+// Comptes suivis : la liste de contenus/tendances.json (concurrents, médias nightlife) + les organisateurs, clubs et
+// lieux repérés par la recherche de soirées (contenus/organisateurs.json). Au plus 40 comptes par jour.
+export function comptesSuivis() {
+  let orgas = {};
+  try { orgas = JSON.parse(readFileSync(path.join(ROOT, 'contenus', 'organisateurs.json'), 'utf8')); } catch { /* rien */ }
+  const tous = [...TENDANCES.comptes_a_suivre.liste, ...(TENDANCES.concurrents?.liste || []), ...(orgas.valides || []), ...(orgas.comptes || []).map((c) => c.handle || c), ...(orgas.suggeres || [])];
+  return [...new Set(tous.filter((h) => typeof h === 'string' && /^[a-z0-9._]{2,30}$/i.test(h)).map((h) => h.toLowerCase()))].slice(0, 40);
+}
+
 export function tendancesAuto() {
   return existsSync(AUTO) ? JSON.parse(readFileSync(AUTO, 'utf8')) : { hashtags: {}, formats: {}, heures: {}, accroches: [] };
 }
@@ -25,10 +34,10 @@ export function scoreHashtag(tag) {
 
 export async function analyserComptes({ ig, api, now = new Date(), force = false }) {
   const prev = tendancesAuto();
-  if (!force && prev.maj && (now - new Date(prev.maj)) / 86400e3 < 6.5) return { deja: true };
+  if (!force && prev.maj && (now - new Date(prev.maj)) / 86400e3 < 0.9) return { deja: true };
   const posts = [];
   const comptes = {};
-  for (const handle of TENDANCES.comptes_a_suivre.liste) {
+  for (const handle of comptesSuivis()) {
     try {
       const bd = await api.businessDiscovery(handle, ig);
       const followers = Math.max(bd.followers_count || 0, 100);

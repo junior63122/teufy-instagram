@@ -7,7 +7,7 @@ name: Teufy - Veille et publication réactive
 # La détection est légère : Chromium, ffmpeg et le studio ne s'installent que s'il y a quelque chose à publier.
 on:
   schedule:
-    - cron: "41 6-20 * * *"
+    - cron: "11,41 6-21 * * *" # toutes les 30 min, de 7h a 23h a Paris (publication seulement entre 8h et 23h)
   workflow_dispatch:
     inputs:
       publier:

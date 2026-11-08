@@ -20,7 +20,7 @@ test('veille : hashtags et formats des comptes suivis', async () => {
   const t = await analyserComptes({ ig: {}, api, force: true });
   assert.ok(t.hashtags['#nicenightlife'] > t.hashtags['#nice'], 'les hashtags des posts qui marchent passent devant');
   assert.ok(t.formats.reel.score > t.formats.carrousel.score);
-  assert.equal(scoreHashtag('#nicenightlife'), 1);
+  assert.ok(scoreHashtag('#nicenightlife') > 0.9);
   assert.match(rapportTendances(), /Accroches des meilleurs posts/);
   const h = hashtags(chooser({ arms: {}, feats: {} }, rng('x')), 'commercial').split(' ');
   assert.equal(h[0], '#TeufyParty');

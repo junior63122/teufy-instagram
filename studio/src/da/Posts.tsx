@@ -99,3 +99,37 @@ export const CarrouselFlash: React.FC<{soirees: Soiree[]; slide: number; titre: 
   if (slide > n) return <DiapoFin soirees={soirees} photo={photoFin} />;
   return <DiapoSoiree s={soirees[slide - 1]} i={slide} n={n} />;
 };
+
+/** Post « flash » de la veille (annonce exceptionnelle ou actu nuit) dans la DA : photo de nuit, visuel officiel, titre, source. */
+export type FlashDA = {type: 'annonce' | 'actu'; surtitre: string; titre: string; sous_titre: string; faits: string[]; source: string; date: string; image?: string};
+export const PostFlashDA: React.FC<{f: FlashDA; photo?: string}> = ({f, photo}) => {
+  const fond = photo || (f.type === 'actu' ? 'decors/da/foule.jpg' : 'decors/da/lasers.jpg');
+  return (
+    <AbsoluteFill style={{background: C.nuit, overflow: 'hidden'}}>
+      <Photo src={fond} assombrir={0.66} />
+      <Voile bas={0.95} haut={0.6} />
+      <Signature droite={<span style={{fontFamily: B, fontWeight: 700, fontSize: 24, color: C.creme, opacity: 0.85}}>{f.date}</span>} />
+      {f.image ? (
+        <div style={{position: 'absolute', left: 0, right: 0, top: 120, height: 560, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+          <Img src={staticFile(f.image)} style={{maxWidth: 860, maxHeight: 540, borderRadius: 14, boxShadow: '0 30px 80px rgba(0,0,0,.6)', transform: 'rotate(-2deg)'}} />
+        </div>
+      ) : null}
+      <div style={{position: 'absolute', left: 56, right: 56, bottom: 64}}>
+        <Etiquette style={{marginBottom: 24}}>{f.surtitre}</Etiquette>
+        <Titre taille={f.titre.length > 45 ? 92 : 112}>{f.titre}</Titre>
+        {f.sous_titre ? <div style={{fontFamily: B, fontWeight: 600, fontSize: 38, color: C.creme, marginTop: 20, lineHeight: 1.25}}>{f.sous_titre}</div> : null}
+        {!f.image && f.faits.length ? (
+          <div style={{marginTop: 26}}>
+            {f.faits.slice(0, 3).map((x, i) => (
+              <div key={i} style={{display: 'flex', gap: 18, padding: '12px 0', borderTop: `1.5px solid ${C.creme}44`, fontFamily: B, fontWeight: 500, fontSize: 30, color: C.creme, lineHeight: 1.25}}>
+                <span style={{fontFamily: T, fontWeight: 800, color: C.corail}}>{i + 1}</span>{x}
+              </div>
+            ))}
+          </div>
+        ) : null}
+        <div style={{fontFamily: B, fontWeight: 600, fontSize: 24, color: C.creme, opacity: 0.7, marginTop: 24, letterSpacing: '0.04em'}}>Source : {f.source}</div>
+      </div>
+      <Grain o={0.08} />
+    </AbsoluteFill>
+  );
+};

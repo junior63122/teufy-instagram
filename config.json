@@ -44,7 +44,7 @@
       "https://dice.fm/browse/nice-60d0784c7645c67f491834e4"
     ]
   },
-  "calendrier_explication": "Chaque ligne = une publication par mois. jour : 1 = lundi … 7 = dimanche. rang : 1 = premier de ce jour dans le mois, 2 = deuxième… (1 à 5). Reels « histoire » (plan continu illustré, sujet et script écrits par l'IA) chaque mardi, jeudi et samedi = 3 par semaine minimum ; les soirées passent dans les carrousels, bons plans et débats. Heure : voir le workflow.",
+  "calendrier_explication": "Chaque ligne = une publication. jour : 1 = lundi … 7 = dimanche. rang : 1 = premier de ce jour dans le mois… (1 à 5). Chaque semaine : 2 posts photo (lundi : carrousel des sorties, commercial ou techno en alternance ; vendredi : bon plan ou débat en alternance) + 3 reels « histoire » (mardi, jeudi, samedi). Les annonces exceptionnelles passent en plus par la veille (toutes les 30 min). Heure : voir le workflow.",
   "calendrier": [
     {
       "jour": 1,
@@ -65,21 +65,28 @@
       "variante": "histoire"
     },
     {
+      "jour": 5,
+      "rang": 1,
+      "type": "bonplan",
+      "variante": "petits-prix"
+    },
+    {
       "jour": 6,
       "rang": 1,
       "type": "reel",
       "variante": "histoire"
     },
     {
+      "jour": 1,
+      "rang": 2,
+      "type": "incontournables",
+      "variante": "techno"
+    },
+    {
       "jour": 2,
       "rang": 2,
       "type": "reel",
       "variante": "histoire"
-    },
-    {
-      "jour": 3,
-      "rang": 2,
-      "type": "debat"
     },
     {
       "jour": 4,
@@ -90,8 +97,7 @@
     {
       "jour": 5,
       "rang": 2,
-      "type": "bonplan",
-      "variante": "petits-prix"
+      "type": "debat"
     },
     {
       "jour": 6,
@@ -103,7 +109,7 @@
       "jour": 1,
       "rang": 3,
       "type": "incontournables",
-      "variante": "techno"
+      "variante": "commercial"
     },
     {
       "jour": 2,
@@ -118,21 +124,28 @@
       "variante": "histoire"
     },
     {
+      "jour": 5,
+      "rang": 3,
+      "type": "bonplan",
+      "variante": "a-reserver"
+    },
+    {
       "jour": 6,
       "rang": 3,
       "type": "reel",
       "variante": "histoire"
     },
     {
+      "jour": 1,
+      "rang": 4,
+      "type": "incontournables",
+      "variante": "techno"
+    },
+    {
       "jour": 2,
       "rang": 4,
       "type": "reel",
       "variante": "histoire"
-    },
-    {
-      "jour": 3,
-      "rang": 4,
-      "type": "debat"
     },
     {
       "jour": 4,
@@ -143,14 +156,19 @@
     {
       "jour": 5,
       "rang": 4,
-      "type": "bonplan",
-      "variante": "a-reserver"
+      "type": "debat"
     },
     {
       "jour": 6,
       "rang": 4,
       "type": "reel",
       "variante": "histoire"
+    },
+    {
+      "jour": 1,
+      "rang": 5,
+      "type": "incontournables",
+      "variante": "commercial"
     },
     {
       "jour": 2,
@@ -163,6 +181,12 @@
       "rang": 5,
       "type": "reel",
       "variante": "histoire"
+    },
+    {
+      "jour": 5,
+      "rang": 5,
+      "type": "bonplan",
+      "variante": "petits-prix"
     },
     {
       "jour": 6,
@@ -184,8 +208,7 @@
     ],
     "_creneaux": "Heures (UTC) parmi lesquelles le bot choisit l'heure de publication selon ce qui marche (16h-19h l'hiver, 17h-20h l'été à Paris). Le passage de 19h UTC sert de rattrapage.",
     "delai_min_heures": 24,
-    "_delai": "Une soirée n'est montrée que si elle commence au moins 24 h après la publication (le temps que les gens voient le post).",
-    "pause_publication": "nouvelle DA en préparation (demande du 8 novembre 2026), à retirer une fois validée"
+    "_delai": "Une soirée n'est montrée que si elle commence au moins 24 h après la publication (le temps que les gens voient le post)."
   },
   "sources_note": "Shotgun protège ses pages par une vérification anti-robot (Vercel) : le bot ne la contourne pas. Ses soirées arrivent par la recherche web (moteurs de recherche) et les posts Instagram des organisateurs. DICE : dice.fm/browse/nice-<id>.",
   "recherche_web": {
@@ -221,11 +244,11 @@
     "actif": true
   },
   "veille": {
-    "explication": "Veille horaire (workflow teufy-veille.yml) : un post unique est publié tout de suite si une annonce est exceptionnelle (importance ≥ seuil), vérifiée sur une source officielle, publiée il y a moins de fenetre_heures, et pas déjà traitée. Le reste va dans contenus/idees.json.",
+    "explication": "Veille toutes les 30 minutes de 8h à 23h (workflow teufy-veille.yml) : une info importante et vérifiée sur la nuit/l'événementiel est publiée en post unique dans l'heure (importance ≥ seuil, source officielle, publiée il y a moins de fenetre_heures, pas déjà traitée). Le reste va dans contenus/idees.json.",
     "actif": true,
     "seuil": 80,
     "fenetre_heures": 36,
-    "max_par_jour": 1,
+    "max_par_jour": 2,
     "heure_min": 8,
     "heure_max": 23
   }

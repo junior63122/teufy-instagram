@@ -10,18 +10,17 @@ const outils = (s) => { const r = rng(s); return { r, ch: chooser({ arms: {}, fe
 const config = JSON.parse(readFileSync(new URL('../config.json', import.meta.url)));
 const debats = JSON.parse(readFileSync(new URL('../contenus/debats.json', import.meta.url)));
 
-test('chaque mois : 6 posts soirées/débats + au moins 3 reels illustrés par semaine', () => {
+test('chaque semaine : 2 posts photo (lundi sorties, vendredi bon plan ou débat) + 3 reels illustrés', () => {
   for (let m = 0; m < 12; m++) {
     const jours = daysOfMonth(new Date(Date.UTC(2027, m, 15, 12)));
-    const slots = jours.map((d) => { const s = slotOfDay(d); return { d, s, c: config.calendrier.find((c) => c.jour === s.jour && c.rang === s.rang) }; });
-    const n = (t, v) => slots.filter(({ c }) => c && c.type === t && (!v || c.variante === v)).length;
-    assert.equal(n('incontournables', 'commercial'), 1, `mois ${m + 1}`);
-    assert.equal(n('incontournables', 'techno'), 1);
-    assert.equal(n('bonplan'), 2);
-    assert.equal(n('debat'), 2);
-    // Reels : chaque mardi, jeudi et samedi du mois, en « plan continu illustré ».
-    for (const { s, c } of slots) if ([2, 4, 6].includes(s.jour)) assert.deepEqual([c?.type, c?.variante], ['reel', 'histoire'], s.date);
-    assert.ok(n('reel') >= 12, `mois ${m + 1} : ${n('reel')} reels`);
+    for (const d of jours) {
+      const s = slotOfDay(d);
+      const c = config.calendrier.find((x) => x.jour === s.jour && x.rang === s.rang);
+      if ([2, 4, 6].includes(s.jour)) assert.deepEqual([c?.type, c?.variante], ['reel', 'histoire'], s.date);
+      else if (s.jour === 1) assert.equal(c?.type, 'incontournables', s.date);
+      else if (s.jour === 5) assert.ok(['bonplan', 'debat'].includes(c?.type), s.date);
+      else assert.equal(c, undefined, s.date);
+    }
   }
 });
 

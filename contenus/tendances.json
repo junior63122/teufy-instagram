@@ -164,5 +164,22 @@
     ]
   },
   "objectif_semaine": 100,
-  "derniere_analyse": "2026-11-08T11:26:31.413Z"
+  "derniere_analyse": "2026-11-08T11:26:31.413Z",
+  "concurrents": {
+    "_note": "Comptes concurrents ou similaires (guides de sorties, médias nightlife). Le bot regarde chaque jour ce qui marche chez eux (formats, accroches, hashtags, heures). Un nom inexistant est simplement ignoré.",
+    "liste": [
+      "nightlyfr",
+      "sortiranice",
+      "nice.nightlife",
+      "nicenightlife",
+      "cotedazurnightlife",
+      "monaco.nightlife",
+      "cannes.nightlife",
+      "shotgun.live",
+      "dicefm",
+      "trax_magazine",
+      "tsugi_mag",
+      "boilerroomtv"
+    ]
+  }
 }

@@ -11,7 +11,7 @@ import {Paliers2} from './concepts/Paliers2';
 import {Marque} from './concepts/Marque';
 import {PotesFluide} from './concepts/PotesFluide';
 import {Histoire} from './concepts/Histoire';
-import {CarrouselFlash} from './da/Posts';
+import {CarrouselFlash, PostFlashDA} from './da/Posts';
 import {Planche, Storyboard} from './da/Storyboard';
 
 
@@ -41,7 +41,7 @@ export const Root: React.FC = () => (
       />
     ))}
     <Still id="post" component={((p: any) => <Polices><PostSoiree s={p.s} /></Polices>) as React.FC<any>} width={1080} height={1350} defaultProps={{s: donnees.soirees[1]}} />
-    <Still id="flash" component={((p: any) => <Polices><PostFlash f={p.f} /></Polices>) as React.FC<any>} width={1080} height={1350} defaultProps={{f: {type: 'annonce', surtitre: "C'EST OFFICIEL", titre: 'Titre', sous_titre: '', faits: [], source: '', date: ''}}} />
+    <Still id="flash" component={((p: any) => <Polices><PostFlashDA f={p.f} photo={p.photo} /></Polices>) as React.FC<any>} width={1080} height={1350} defaultProps={{f: {type: 'annonce', surtitre: "C'EST OFFICIEL", titre: 'Titre', sous_titre: '', faits: [], source: '', date: ''}}} />
     <Still id="carrousel-flash" component={((p: any) => <Polices><CarrouselFlash soirees={p.soirees ?? donnees.soirees} slide={p.slide} titre={p.titre ?? "5 soirées à ne pas [rater]"} sous={p.sous} photo={p.photo} photoFin={p.photoFin} /></Polices>) as React.FC<any>} width={1080} height={1350} defaultProps={{slide: 0}} />
     <Still id="storyboard" component={((p: any) => <Polices><Storyboard soirees={p.soirees ?? donnees.soirees} /></Polices>) as React.FC<any>} width={1080} height={2190} defaultProps={{}} />
     <Still id="planche" component={(() => <Polices><Planche /></Polices>) as React.FC<any>} width={1080} height={1600} defaultProps={{}} />

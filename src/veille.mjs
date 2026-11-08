@@ -43,7 +43,7 @@ const SCHEMA = {
             type: 'object', additionalProperties: false, required: ['surtitre', 'titre', 'sous_titre', 'faits', 'legende'],
             properties: {
               surtitre: { type: 'string', description: "2 à 3 mots en capitales : C'EST OFFICIEL, NOUVEAU, ÇA CHANGE TOUT, ACTU NUIT…" },
-              titre: { type: 'string', description: 'Titre du visuel, 4 à 9 mots, percutant, sans point final.' },
+              titre: { type: 'string', description: 'Titre du visuel, 4 à 9 mots, percutant, sans point final. Mets UN mot clé entre crochets pour la couleur de la marque, ex. « Le tram roule jusqu\'à [2h] le samedi ».' },
               sous_titre: { type: 'string', description: 'Une phrase courte (≤ 70 caractères).' },
               faits: { type: 'array', items: { type: 'string' }, description: '2 à 4 faits courts et sourcés (date, lieu, prix, ce qui change).' },
               legende: { type: 'string', description: "Légende Instagram : accroche dans la 1re ligne, faits sourcés, question pour faire réagir, mention de la source (« Source : … »), 3 à 5 hashtags dont #TeufyParty. Ton Teufy, pas de tiret cadratin, pas d'invitation à télécharger une app." },
