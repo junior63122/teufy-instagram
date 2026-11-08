@@ -6,6 +6,36 @@
     "la_dinette__",
     "lebarathymtoulon"
   ],
-  "suggeres": [],
-  "valides": []
+  "suggeres": [
+    "pandaevents",
+    "clubbizarre_music",
+    "les.bonnesfranquettes",
+    "bolon_events",
+    "sun7riviera",
+    "neonfestival_",
+    "clubsonore_frenchriviera",
+    "agencetwelty",
+    "aztera_crew",
+    "laplaturne",
+    "lanonchalance",
+    "afroheatfestival",
+    "frigo16nice",
+    "bluecoastbrewing",
+    "mamashelternice",
+    "lantrenice",
+    "ledixhuit.nice",
+    "glassclubcannes",
+    "viceclubnice",
+    "skyfall_cannes",
+    "twiga_mc",
+    "playachica_mandelieu",
+    "lemeridiennice",
+    "palaisnikaia"
+  ],
+  "valides": [
+    "downtown.nice",
+    "uptown.nice",
+    "la_dinette__",
+    "lebarathymtoulon"
+  ]
 }
