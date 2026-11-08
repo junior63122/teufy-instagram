@@ -174,7 +174,8 @@ async function prepare(slot, now, id) {
     const list = filterEvents(await events(), { ...win, villes }).filter((e) => Date.parse(e.start) >= debutMin);
     if (!val('fixtures')) await enrich(list.slice(0, 60), { debugDir });
     // Soirées trouvées sur le web : gardées seulement si leur page les confirme (ou très fiables).
-    return list.filter((e) => e.source !== 'web' || (!e.douteux && (e.verifie || (e.confiance ?? 0) >= 0.85))).filter(pred);
+    // Posts : soirées fiables ET pertinentes pour les 17-30 ans (le site, lui, recense plus large).
+    return list.filter((e) => e.source !== 'web' || (!e.douteux && (e.verifie || (e.confiance ?? 0) >= 0.85) && (e.public_cible ?? 1) >= (config.recherche_web?.pertinence_min ?? 0.5))).filter(pred);
   };
   const best = (list, n) => selectBest(list, n, MODEL, r);
   // Carrousel : jusqu'à 8 soirées (10 diapos avec couverture et fin), mais seulement les bonnes. Le seuil de qualité

@@ -15,8 +15,8 @@ test('recherche web : tri 17-30 ans, fiabilité, comptes Instagram', async () =>
     evenements: [ev('Afro Night'), ev('Opéra Carmen', { public_17_30: 0.1 }), ev('Rumeur', { confiance: 0.3 }), ev('Sans date', { start: 'bientôt' })],
     comptes_instagram: ['@HighClubNice', 'pas valide !'],
   })];
-  let i = 0;
-  const ia = { rechercher: async () => reponses[i++], json: async () => JSON.parse(reponses[i++]) };
+  // plusieurs passes de recherche : chaque passe renvoie le même texte et la même mise en forme (doublons à fusionner)
+  const ia = { rechercher: async () => reponses[0], json: async () => JSON.parse(reponses[1]) };
   try {
     const r = await rechercherSoirees({ config: { recherche_web: { actif: true } }, ia, force: true, now: new Date('2026-11-09T12:00:00Z'), log: () => {} });
     assert.deepEqual(r.evenements.map((e) => e.name), ['Afro Night']);
@@ -30,4 +30,18 @@ test('recherche web : tri 17-30 ans, fiabilité, comptes Instagram', async () =>
     if (existsSync(CACHE)) unlinkSync(CACHE);
     if (cacheAvant) writeFileSync(CACHE, cacheAvant);
   }
+});
+
+test('doublons : la même soirée vue sur plusieurs billetteries est fusionnée', async () => {
+  const { fusionner } = await import('../src/recherche.mjs');
+  const r = fusionner([
+    { name: 'La Wicked - Vice Club Nice (Afro Heat Festival)', start: '2026-11-13T22:50:00Z', venue: '305 Vice Club', city: 'Nice', confiance: 0.9, source_site: 'shotgun', instagram: ['viceclubnice'] },
+    { name: 'La Wicked x Afro Heat', start: '2026-11-13T23:00:00Z', venue: 'Vice Club Nice', city: 'Nice', confiance: 0.8, source_site: 'dice', image: 'https://x/a.jpg', instagram: ['afroheatfestival'] },
+    { name: 'La Wicked', start: '2026-11-20T22:50:00Z', venue: '305 Vice Club', city: 'Nice', confiance: 0.9 }, // autre date : autre soirée
+    { name: 'Rétro Party', start: '2026-11-13T22:00:00Z', venue: 'Down Town Club', city: 'Nice', confiance: 0.9 },
+  ]);
+  assert.equal(r.length, 3);
+  const w = r.find((e) => e.start === '2026-11-13T22:50:00Z');
+  assert.equal(w.image, 'https://x/a.jpg'); // champ complété depuis l'autre source
+  assert.deepEqual(w.instagram, ['viceclubnice', 'afroheatfestival']);
 });

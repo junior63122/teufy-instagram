@@ -83,13 +83,31 @@ export async function rechercherSoirees({ config, now = new Date(), ig = null, a
   const jour = now.toISOString().slice(0, 10);
   const fin = new Date(now.getTime() + (R.horizon_jours ?? 45) * 86400e3).toISOString().slice(0, 10);
 
-  // 1. Recherche sur le web.
+  // 1. Recherche sur le web : plusieurs passes ciblées (une seule recherche ne remonte qu'une vingtaine de soirées).
   log(`Recherche web des soirées du ${jour} au ${fin}…`);
-  const web = await ia.rechercher({
-    config,
-    system: `Tu recenses les soirées de la Côte d'Azur pour le compte Instagram Teufy. Tu ne rapportes que des soirées réelles et vérifiées sur une page web, jamais inventées.\n${CIBLE}`,
-    prompt: `Trouve un maximum de soirées entre le ${jour} et le ${fin}. Vérifie chaque soirée sur sa page officielle ou sa billetterie (date, heure, lieu) : une info non confirmée doit être signalée comme telle. Note aussi ce qui donne envie d'y aller et ce qui peut faire le buzz (tête d'affiche connue, collectif ou lieu réputé, festival, ouverture/closing, édition spéciale, sold out en vue) et les comptes Instagram de l'organisateur et du lieu. Ratisse large et croise les sources : agendas des villes (Nice, Cannes, Antibes, Monaco, Menton…) et offices de tourisme (dont cotedazurfrance.com), billetteries (shotgun.live, dice.fm, ra.co, weezevent, billetweb, eventbrite, helloasso, fever…), sites et pages des clubs et bars de nuit, collectifs et organisateurs, presse locale (Nice-Matin…), festivals, pages d'événements publiques. Pour chaque soirée : nom, date et heure, lieu, ville, prix minimum, styles musicaux, URL de l'affiche si tu la vois, URL de la page, site source. Liste aussi les comptes Instagram d'organisateurs, clubs et collectifs que tu croises. Termine par la liste complète, une soirée par ligne.`,
-  });
+  const PASSES = R.passes || [
+    'la billetterie shotgun.live (pages des soirées à Nice, Cannes, Antibes, Monaco, Menton, Cagnes, Saint-Laurent-du-Var, Fréjus, Saint-Raphaël)',
+    'la billetterie dice.fm (événements Nice, Côte d\'Azur, Monaco)',
+    'Resident Advisor ra.co (événements Nice, Monaco, Cannes, Antibes)',
+    'les billetteries weezevent, billetweb, helloasso, eventbrite, fever, xceed, allevents, festik, yurplan pour la Côte d\'Azur',
+    'les clubs et discothèques de Nice (High Club, Le Glam, Frigo 16 / Le 109, Le Ghost, Down Town, La Suite, Le Seven, L\'Antre…) et leurs pages événements',
+    'les clubs et beach clubs de Cannes, Antibes, Juan-les-Pins et Monaco (Bâoli, Gotha, La Suite, Twiga, Jimmy\'z, Sea Club, Le Sporting, Medusa, Le Village, Palais Nikaïa pour les concerts)',
+    'les agendas officiels et offices de tourisme (nice.fr, cannes.com, visitmonaco.com, antibesjuanlespins.com, cotedazurfrance.fr, menton-riviera-merveilles) rubrique soirées, concerts, DJ, festivals',
+    'les soirées étudiantes, afterworks, day parties, rooftops et open airs de Nice, Cannes, Antibes et Monaco',
+    'les festivals, concerts rap, électro et techno et les grosses dates de la Côte d\'Azur et du Var (Fréjus, Saint-Raphaël, Saint-Tropez)',
+    'la presse et les médias locaux (Nice-Matin, Monaco-Matin, Nice Premium, Côte d\'Azur Dream, sortir à Nice) : agenda des soirées et nouveautés',
+  ];
+  const textes = [];
+  for (const [i, cible] of PASSES.entries()) {
+    const t = await ia.rechercher({
+      config,
+      system: `Tu recenses TOUTES les soirées de la Côte d'Azur pour le média Teufy. Tu ne rapportes que des soirées réelles, trouvées sur une page web, jamais inventées.\n${CIBLE}`,
+      prompt: `Cherche sur ${cible} toutes les soirées entre le ${jour} et le ${fin}. Vérifie chaque soirée sur sa page officielle ou sa billetterie (date, heure, lieu) : une info non confirmée doit être signalée comme telle. Pour chaque soirée : nom exact, date et heure, lieu, ville, prix minimum, styles musicaux, URL de l'affiche si tu la vois, URL de la page de la soirée, site source, ce qui peut faire le buzz (tête d'affiche, lieu réputé, festival, ouverture/closing, sold out) et les comptes Instagram de l'organisateur et du lieu. Sois exhaustif : liste-les toutes, une par ligne.`,
+    }).catch((err) => { log(`  passe ${i + 1} impossible : ${err.message}`); return ''; });
+    if (t) textes.push(`### Source : ${cible}\n${t}`);
+  }
+  const web = textes.join('\n\n');
+  log(`  ${textes.length}/${PASSES.length} recherche(s) web abouties.`);
   if (!web) log('Pas de recherche web possible (GEMINI_API_KEY absent ou quota atteint) : seulement Instagram et les billetteries.');
 
   // 2. Posts Instagram des organisateurs (comptes connus + suggérés).
@@ -103,18 +121,25 @@ export async function rechercherSoirees({ config, now = new Date(), ig = null, a
     log(`Instagram : ${posts.length} post(s) récents chez ${r.valides.length} compte(s).`);
   }
 
-  // 3. Mise en forme structurée et tri.
+  // 3. Mise en forme structurée, par lots (une seule réponse JSON tronquerait la liste), puis fusion des doublons.
   if (!web && !posts.length) return cache;
-  let d;
-  try {
-    d = await ia.json({
-      config, nom: 'soirees', schema: SCHEMA,
-      system: `Tu transformes des informations de soirées en données propres. N'invente rien : une soirée sans date ou sans lieu certain est écartée ou reçoit une confiance basse. Dates au fuseau Europe/Paris.\n${CIBLE}`,
-      prompt: `Aujourd'hui : ${jour}. Garde les soirées entre ${jour} et ${fin}, fusionne les doublons (même soirée trouvée sur plusieurs sites).\n\nRésultats de la recherche web :\n${web || '(aucun)'}\n\nPosts Instagram récents d'organisateurs (l'URL "affiche" est l'image du post, à reprendre comme image de la soirée annoncée) :\n${JSON.stringify(posts)}`,
-    });
-  } catch (err) { log(`Mise en forme impossible (${err.message}) : on garde le cache.`); return cache; }
+  const lots = [...textes.map((t) => ({ web: t, posts: [] }))];
+  for (let i = 0; i < posts.length; i += 30) lots.push({ web: '', posts: posts.slice(i, i + 30) });
+  const d = { evenements: [], comptes_instagram: [] };
+  let ok = 0;
+  for (const lot of lots) {
+    try {
+      const r = await ia.json({
+        config, nom: 'soirees', schema: SCHEMA, gratuit: true,
+        system: `Tu transformes des informations de soirées en données propres. N'invente rien : une soirée sans date ou sans lieu certain est écartée ou reçoit une confiance basse. Dates au fuseau Europe/Paris.\n${CIBLE}`,
+        prompt: `Aujourd'hui : ${jour}. Garde les soirées entre ${jour} et ${fin}, fusionne les doublons (même soirée trouvée sur plusieurs sites). Liste-les TOUTES.\n\nRésultats de la recherche web :\n${lot.web || '(aucun)'}\n\nPosts Instagram récents d'organisateurs (l'URL "affiche" est l'image du post, à reprendre comme image de la soirée annoncée) :\n${JSON.stringify(lot.posts)}`,
+      });
+      d.evenements.push(...(r.evenements || [])); d.comptes_instagram.push(...(r.comptes_instagram || [])); ok++;
+    } catch (err) { log(`  mise en forme d'un lot impossible (${err.message})`); }
+  }
+  if (!ok) { log('Mise en forme impossible : on garde le cache.'); return cache; }
 
-  const min = R.pertinence_min ?? 0.5;
+  const min = R.pertinence_min_site ?? 0.35; // le site recense tout ; les posts gardent leur propre seuil
   const evenements = (d.evenements || [])
     .filter((e) => e.name && !isNaN(Date.parse(e.start)) && e.venue && e.confiance >= 0.6 && e.public_17_30 >= min)
     .map((e) => ({
@@ -125,11 +150,42 @@ export async function rechercherSoirees({ config, now = new Date(), ig = null, a
       accroche: typeof e.accroche === 'string' && e.accroche.length <= 120 && !/—/.test(e.accroche) ? e.accroche.trim() : '',
       instagram: [...new Set((e.instagram || []).map((h) => String(h).replace(/^@/, '').trim().toLowerCase()).filter((h) => /^[a-z0-9._]{2,30}$/.test(h)))].slice(0, 3),
     }));
+  const uniques = fusionner(evenements);
   const nouveaux = (d.comptes_instagram || []).map((h) => String(h).replace(/^@/, '').trim().toLowerCase()).filter((h) => /^[a-z0-9._]{2,30}$/.test(h));
   orgas.suggeres = [...new Set([...(orgas.suggeres || []), ...nouveaux])].filter((h) => !(orgas.comptes || []).includes(h)).slice(0, 80);
-  const out = { maj: now.toISOString(), du: jour, au: fin, nb_bruts: (d.evenements || []).length, evenements };
+  const out = { maj: now.toISOString(), du: jour, au: fin, nb_bruts: (d.evenements || []).length, evenements: uniques };
   await writeFile(CACHE, JSON.stringify(out, null, 2));
   await writeFile(ORGAS, JSON.stringify(orgas, null, 2) + '\n');
-  log(`Recherche web : ${evenements.length} soirée(s) gardée(s) sur ${out.nb_bruts} trouvée(s).`);
+  log(`Recherche web : ${uniques.length} soirée(s) uniques gardées sur ${out.nb_bruts} trouvée(s).`);
+  return out;
+}
+
+// --- Doublons : la même soirée vue sur plusieurs sites ------------------------------------
+// Même nuit (heure de Paris, une soirée à 1h compte pour la veille) ET (même lieu ou nom très proche) = même soirée.
+const sansAccents = (x) => String(x || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+const mots = (x) => new Set(sansAccents(x).replace(/\b(w|x|feat|presents?|pres|avec|invite|le|la|les|de|du|des|at|the|soiree|party|night|nice|cannes|monaco|club)\b/g, ' ').split(/[^a-z0-9]+/).filter((w) => w.length >= 3));
+const jaccard = (a, b) => { const A = mots(a), B = mots(b); if (!A.size || !B.size) return 0; let n = 0; for (const w of A) if (B.has(w)) n++; return n / Math.min(A.size, B.size); };
+const nuitDe = (d) => new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Paris' }).format(new Date(Date.parse(d) - 6 * 3600e3));
+const lieuCle = (x) => sansAccents(x).replace(/[^a-z0-9]+/g, ' ').replace(/\b(le|la|les|club|nice|cannes|monaco|by|beach)\b/g, ' ').trim().split(/\s+/).filter((w) => w.length >= 3).slice(0, 2).join(' ');
+export function memeSoiree(a, b) {
+  if (nuitDe(a.start) !== nuitDe(b.start)) return false;
+  const lieu = lieuCle(a.venue) && lieuCle(a.venue) === lieuCle(b.venue);
+  const nom = jaccard(a.name, b.name);
+  return nom >= 0.8 || (lieu && nom >= 0.34) || (lieu && Math.abs(Date.parse(a.start) - Date.parse(b.start)) < 3600e3);
+}
+export function fusionner(liste) {
+  const out = [];
+  for (const e of liste) {
+    const prev = out.find((x) => memeSoiree(x, e));
+    if (!prev) { out.push({ ...e }); continue; }
+    // On garde la version la plus fiable et on complète les champs vides.
+    const [garde, autre] = (e.confiance ?? 0) > (prev.confiance ?? 0) ? [{ ...e }, prev] : [prev, e];
+    for (const k of Object.keys(autre)) if ((garde[k] == null || garde[k] === '' || (Array.isArray(garde[k]) && !garde[k].length)) && autre[k] != null) garde[k] = autre[k];
+    garde.instagram = [...new Set([...(garde.instagram || []), ...(autre.instagram || [])])].slice(0, 3);
+    garde.tags = [...new Set([...(garde.tags || []), ...(autre.tags || [])])];
+    garde.buzz = Math.max(garde.buzz ?? 0, autre.buzz ?? 0) || garde.buzz;
+    if (garde.source_site !== autre.source_site) garde.sources_sites = [...new Set([...(garde.sources_sites || [garde.source_site]), autre.source_site])];
+    out[out.indexOf(prev)] = garde;
+  }
   return out;
 }

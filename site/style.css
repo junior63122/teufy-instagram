@@ -74,3 +74,26 @@ em{font-style:normal;color:var(--corail)}
 
 footer{padding:40px 16px 60px;max-width:1180px;margin:0 auto;font-size:14px;opacity:.75;display:flex;flex-direction:column;gap:6px}
 @media(min-width:760px){.filtres{position:sticky;top:57px}}
+/* navigation, présentation, FAQ, pages villes */
+.nav{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:10px 16px;border-bottom:1px solid #ffffff14}
+.nav::-webkit-scrollbar{display:none}
+.nav a{flex:none;text-decoration:none;font-weight:700;font-size:14px;padding:6px 12px;border-radius:999px;opacity:.85}
+.nav a[aria-current]{background:var(--creme);color:var(--nuit);opacity:1}
+.hero.court{min-height:56vh}
+.hero.court h1{font-size:clamp(40px,9vw,88px)}
+.qui{max-width:900px;margin:64px auto 0;padding:0 16px;display:flex;flex-direction:column;gap:14px}
+.qui h2{font-size:clamp(36px,7vw,64px)}
+.qui p{font-size:18px;opacity:.9}
+.chiffres{list-style:none;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:10px 0}
+.chiffres li{background:var(--nuit2);border:1px solid #ffffff1a;border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:4px}
+.chiffres strong{font-family:var(--titre);font-weight:800;font-stretch:80%;font-size:clamp(28px,6vw,48px);color:var(--corail);line-height:1}
+.chiffres span{font-size:13px;opacity:.8}
+.directeur{flex-direction:row;align-items:center;gap:24px}
+.portrait{flex:none;width:130px;height:130px;border-radius:50%;overflow:hidden;background:var(--corail);display:flex;align-items:center;justify-content:center;border:4px solid var(--creme)}
+.portrait img{width:100%;height:100%;object-fit:cover}
+.portrait span{font-family:var(--titre);font-weight:800;font-size:52px;color:var(--nuit)}
+@media(max-width:600px){.directeur{flex-direction:column;align-items:flex-start}.chiffres{grid-template-columns:1fr}}
+.faq details{background:var(--nuit2);border:1px solid #ffffff1a;border-radius:14px;padding:14px 18px}
+.faq summary{font-weight:800;cursor:pointer}
+.faq details p{margin-top:8px;font-size:16px}
+footer a{color:inherit}

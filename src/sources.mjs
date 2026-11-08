@@ -2,6 +2,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { extractEvents, dedupe, keyOf } from './extract.mjs';
+import { fusionner } from './recherche.mjs';
 
 const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36';
 
@@ -32,7 +33,8 @@ export async function collectEvents(config, { root, debugDir, fixturesDir, webEv
   const manual = await readManual(root);
   report.push({ source: 'manuel', evenements: manual.length });
   all.push(...manual);
-  return { events: dedupe(all), report };
+  // Doublons exacts, puis la même soirée vue sur plusieurs sources (même nuit + même lieu ou nom proche).
+  return { events: fusionner(dedupe(all)), report };
 }
 
 async function fetchHtml(url, tries = 3) {

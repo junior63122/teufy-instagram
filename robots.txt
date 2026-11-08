@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /out/
+Disallow: /apercus/
+Disallow: /livrables/
+Sitemap: https://junior63122.github.io/teufy-instagram/sitemap.xml
