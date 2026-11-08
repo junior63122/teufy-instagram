@@ -60,7 +60,8 @@ export const nomCourt = (nom: string, lieu = '') => {
   const motsLieu = lieu.toLowerCase().split(/[\s,·]+/).filter((w) => w.length > 3);
   n = n.split(/\s+[-–—|]\s+/).filter((part, i) => i === 0 || !motsLieu.some((w) => part.toLowerCase().includes(w))).join(' · ');
   if (n.length > 30) n = n.replace(/\s+(w\/|x|feat\.?|avec)\s+.*$/i, '');
-  return n.length > 34 ? n.slice(0, 33).replace(/\s+\S*$/, '') + '…' : n;
+  // jamais de « … » : si c'est encore long, on garde le nom entier et le texte s'ajuste à la place disponible
+  return n;
 };
 
 /** Carrousel : couverture, une diapo par soirée, diapo finale « laquelle tu fais ? ». */

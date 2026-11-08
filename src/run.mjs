@@ -244,12 +244,14 @@ async function prepare(slot, now, id) {
     const avecAffiche = (l) => l.filter((e) => e.image).length;
     if (avecAffiche(list) < 4) { win = rolling(now, 0, 14); list = await pickEv(win, pred); elargi = true; }
     // Trop peu de dates de ce genre : on prend toutes les soirées plutôt qu'un carrousel maigre.
-    if (avecAffiche(list) < 4) { const tout = await pickEv(win); if (avecAffiche(tout) > avecAffiche(list)) list = tout; }
+    let melange = false;
+    if (avecAffiche(list) < 4) { const tout = await pickEv(win); if (avecAffiche(tout) > avecAffiche(list)) { list = tout; melange = true; } }
     need(list, 3);
     const chosen = chrono(best(list, R.soirees_par_carrousel));
     const { th, photos } = await visuel(techno ? 'techno' : 'club');
     const fort = !techno && th.tempsFort?.titre;
-    const titre = techno
+    const enTechno = techno && !melange; // carrousel élargi à tous les genres : on ne l'annonce plus comme « techno »
+    const titre = enTechno
       ? ch.pick('titre-techno', ['Les événements techno', 'Les dates techno à ne pas manquer'])
       : fort || ch.pick('titre-commercial', ['Nos événements coups de cœur de la semaine', 'Les soirées à ne pas manquer', 'Nos coups de cœur de la semaine']);
     const pages = carouselPages({ mise: ch.pick('mise-couverture', ['centre', 'bas'], (x) => x),
@@ -264,7 +266,7 @@ async function prepare(slot, now, id) {
     files = await carrouselDA({ chosen, id, dir, now, titre: [titre, fort ? `en ${MOIS(now)}` : elargi ? 'ces prochains jours' : 'cette semaine'] });
     if (!files) throw new Error('Carrousel de la DA impossible (studio absent ou moins de 2 affiches) : rien n\'est publié.');
     files ||= await renderPages(programme(pages, chosen, { th, photos, titre, sous: fort ? `En ${MOIS(now)}` : elargi ? 'Ces prochains jours' : 'Cette semaine' }), dir, `incontournables-${stamp}`, { width: 1080, height: 1350 });
-    pub = { images: files, legende: captionIncontournables({ variante: slot.variante, events: chosen, ...win, ch, r }), soirees: chosen, titre };
+    pub = { images: files, legende: captionIncontournables({ variante: enTechno || !techno ? slot.variante : 'commercial', events: chosen, ...win, ch, r }), soirees: chosen, titre };
   } else if (slot.type === 'reel' && config.studio?.actif && ['histoire', 'nouveau', 'explicatif', 'humour', 'immersif'].includes(slot.variante)) {
     // Reels = créations du studio (Remotion) : explicatif, humour ou immersif, jamais un catalogue de soirées.
     const STUDIO = path.join(ROOT, 'studio');
