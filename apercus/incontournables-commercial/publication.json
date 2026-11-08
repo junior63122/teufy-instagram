@@ -9,56 +9,30 @@
     "carrousel-02.jpg",
     "carrousel-03.jpg",
     "carrousel-04.jpg",
-    "carrousel-05.jpg",
-    "carrousel-06.jpg"
+    "carrousel-05.jpg"
   ],
-  "legende": "Certaines soirées se racontent pendant des semaines.\nCelles-là en font partie.\n\n→ Mar 10 nov · Épisode 10th x Mama Shelter (RnB) · Mama Shelter Nice, Nice · 19h00 · gratuit\n   Veille de jour férié festive au Mama Shelter avec cocktails et dancefloor urbain. @mamashelternice\n→ Mar 10 nov · Rétro Party w/ nivau.music (Années 2000) · Down Town Club, Nice · 23h00 · gratuit\n   Entrée gratuite dans le Vieux-Nice avec les meilleurs classiques 90s et 2000s mixés par nivau. @downtown.nice\n→ Ven 13 nov · La Wicked - Vice Club Nice (Afro Heat Festival) (Amapiano · Dancehall) · 305 Vice Club, Nice · 23h50 · 15 €\n   Nuit afro et caribéenne au Vice Club orchestrée par Afro Heat Festival avec DJ Mapouia. @viceclubnice @afroheatfestival\n→ Sam 14 nov · Club Bizarre w/ Sensoria @ Blue Coast (Techno · Tech house) · Blue Coast Brewing Company, Nice · 19h00 · 5,99 €\n   Ambiance clubbing indus avec Sensoria, happy hour et plusieurs b2b house et techno. @clubbizarre_music @bluecoastbrewing\n→ Sam 21 nov · La Wave - Shatta Séduction @ Skyfall Cannes (Shatta · Dancehall) · Skyfall Cannes x Kingdom, Cannes · 23h00 · 7,99 €\n   DJ Sonny et DJ Ticoq ambiancent Cannes sur des sons shatta, bouyon et le jeu des bracelets. @bolon_events @skyfall_cannes\n\nTu sors où cette semaine ? Chaque semaine, les meilleures soirées de la Côte sont ici.\n\n#TeufyParty #monaconightlife #soireenice #soiree #clubbing",
+  "legende": "Certaines soirées se racontent pendant des semaines.\nCelles-là en font partie.\n\n→ Mar 10 · Rétro Party @ Down Town (Années 2000) · Down Town Club, Nice · 23h00 · gratuit\n   Les meilleurs hits des années 90 à 2010 mixés par Nivau au Vieux-Nice, entrée gratuite. @downtown.nice\n→ Ven 13 · Nightly x DOVnROBS (ELVA Cannes Takeover) (Afro · House) · ELVA Club, Cannes · 23h59 · 16,5 €\n   Le duo londonien DOVnROBS débarque pour un set afro house exclusif à deux pas de la Croisette. @elvaclubcannes @nightlyfr\n→ Ven 13 · Lanonchalance pres. MALIVE (Tech house · Afro) · Twiga Monte Carlo, Monaco · 23h59 · 12 €\n   Le collectif Lanonchalance investit le Twiga avec le producteur Malive aux platines. @twigamontecarlo @lanonchalance\n→ Sam 14 · Les Bonnes Franquettes — Winter Edition (Disco · House) · Ancien jazz club (2416 Route de Saint-Laurent), Nice · 20h30\n   Mini boiler room intimiste avec DJ au centre dans un ancien jazz club. @les.bonnesfranquettes\n\nTu sors où cette semaine ? Chaque semaine, les meilleures soirées de la Côte sont ici.\n\n#TeufyParty #monaconightlife #soireenice #soiree #clubbing",
   "soirees": [
     {
       "source": "web",
-      "source_site": "Shotgun",
-      "name": "Épisode 10th x Mama Shelter",
-      "start": "2026-11-10T18:00:00.000Z",
-      "venue": "Mama Shelter Nice",
-      "city": "Nice",
-      "address": "",
-      "url": "https://shotgun.live/events/episode-10th-x-mamashelter",
-      "image": "https://assets.shotgun.live/image/upload/c_limit,w_1200,h_630,f_jpg,q_auto/dev/artworks/EPISODE_10TH_Shotgun_16x9_orange_A_h4w3uj.jpg",
-      "price": 0,
-      "tags": [
-        "hip-hop",
-        "rnb",
-        "open format"
-      ],
-      "description": "",
-      "public_cible": 0.9,
-      "confiance": 0.95,
-      "accroche": "Veille de jour férié festive au Mama Shelter avec cocktails et dancefloor urbain.",
-      "instagram": [
-        "mamashelternice"
-      ],
-      "enrichi": true
-    },
-    {
-      "source": "web",
-      "source_site": "Instagram",
-      "name": "Rétro Party w/ nivau.music",
+      "source_site": "Instagram @downtown.nice",
+      "name": "Rétro Party @ Down Town",
       "start": "2026-11-10T22:00:00.000Z",
       "venue": "Down Town Club",
       "city": "Nice",
       "address": "",
       "url": "https://www.instagram.com/p/DfSd8sUjQyu/",
-      "image": "https://scontent-ord5-2.cdninstagram.com/v/t51.82787-15/886810147_18053410106815469_1691285490903456219_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=107&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMiJ9&_nc_ohc=R4mueHWE6UcQ7kNvwE0NUBl&_nc_oc=AdoQzrNmXBM27MBLpqgl1wBSwzPkCDhe0XZVmEP-oFO7XrVoSAc2flQEZ_L6njNMTig&_nc_zt=23&_nc_ht=scontent-ord5-2.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=qzBaiBZnBVTtj29o4nSsnQ&oh=00_AQSLFIjBIeoQlnpYMX84LnpWEMCySbvH8oh4bXuuyFGFzw&oe=6AF6476C",
+      "image": "https://scontent-ord5-2.cdninstagram.com/v/t51.82787-15/886810147_18053410106815469_1691285490903456219_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=107&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=R4mueHWE6UcQ7kNvwHe6eSP&_nc_oc=Adr-JSS2p5nfYJVRqpGDDsh2JOdyxGqj5OrBX-C_1vZsYYr3eOpyxNOTXpp_K6cvUZQ&_nc_zt=23&_nc_ht=scontent-ord5-2.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=uHNO8aezcKyxRLoVoF2SVQ&oh=00_AQTFC7db_1pPM5hb4a0TOBtPcylAp65isPe9RuATQKEwfQ&oe=6AF6476C",
       "price": 0,
       "tags": [
         "hits 90s",
         "hits 2000s",
-        "open format"
+        "retro"
       ],
       "description": "",
       "public_cible": 0.85,
       "confiance": 0.9,
-      "accroche": "Entrée gratuite dans le Vieux-Nice avec les meilleurs classiques 90s et 2000s mixés par nivau.",
+      "accroche": "Les meilleurs hits des années 90 à 2010 mixés par Nivau au Vieux-Nice, entrée gratuite.",
       "instagram": [
         "downtown.nice"
       ],
@@ -68,108 +42,99 @@
     {
       "source": "web",
       "source_site": "Shotgun",
-      "name": "La Wicked - Vice Club Nice (Afro Heat Festival)",
-      "start": "2026-11-13T22:50:00.000Z",
-      "venue": "305 Vice Club",
-      "city": "Nice",
+      "name": "Nightly x DOVnROBS (ELVA Cannes Takeover)",
+      "start": "2026-11-13T22:59:00.000Z",
+      "venue": "ELVA Club",
+      "city": "Cannes",
       "address": "",
-      "url": "https://shotgun.live/events/la-wicked-305-vice-club-nice-afroheat-festival",
-      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto/production/artworks/IMG_9327_wg1oxn.png",
-      "price": 15,
+      "url": "https://shotgun.live/events/nightly-x-dovnrobs-elva-cannes-takover",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto/production/artworks/NOV_13_i4dvhj.png",
+      "price": 16.5,
       "tags": [
-        "afro",
-        "dancehall",
-        "amapiano",
-        "bouyon"
-      ],
-      "description": "",
-      "public_cible": 0.95,
-      "confiance": 0.95,
-      "accroche": "Nuit afro et caribéenne au Vice Club orchestrée par Afro Heat Festival avec DJ Mapouia.",
-      "instagram": [
-        "viceclubnice",
-        "afroheatfestival",
-        "dj_mapouia"
-      ],
-      "enrichi": true
-    },
-    {
-      "source": "web",
-      "source_site": "Shotgun",
-      "name": "Club Bizarre w/ Sensoria @ Blue Coast",
-      "start": "2026-11-14T18:00:00.000Z",
-      "venue": "Blue Coast Brewing Company",
-      "city": "Nice",
-      "address": "",
-      "url": "https://shotgun.live/events/club-bizarre-w-sensoria-at-blue-coast-november-session",
-      "image": "https://assets.shotgun.live/image/upload/c_limit,w_384,fl_lossy,f_webp,q_5/production/artworks/CLUB_BIZARRE_Banni%C3%A8re_Shotgun_bl0vwh.png",
-      "price": 5.99,
-      "tags": [
-        "tech house",
-        "techno",
-        "indie tech",
-        "deep tech"
+        "afro house",
+        "melodic house"
       ],
       "description": "",
       "public_cible": 0.9,
       "confiance": 0.95,
-      "accroche": "Ambiance clubbing indus avec Sensoria, happy hour et plusieurs b2b house et techno.",
+      "accroche": "Le duo londonien DOVnROBS débarque pour un set afro house exclusif à deux pas de la Croisette.",
       "instagram": [
-        "clubbizarre_music",
-        "bluecoastbrewing"
+        "elvaclubcannes",
+        "nightlyfr",
+        "dovnrobs"
       ],
       "enrichi": true
     },
     {
       "source": "web",
       "source_site": "Shotgun",
-      "name": "La Wave - Shatta Séduction @ Skyfall Cannes",
-      "start": "2026-11-21T22:00:00.000Z",
-      "venue": "Skyfall Cannes x Kingdom",
-      "city": "Cannes",
+      "name": "Lanonchalance pres. MALIVE",
+      "start": "2026-11-13T22:59:00.000Z",
+      "venue": "Twiga Monte Carlo",
+      "city": "Monaco",
       "address": "",
-      "url": "https://shotgun.live/events/la-wave-shatta-seduction-cannes",
-      "image": "https://assets.shotgun.live/image/upload/c_limit,ar_16:9,w_3840,fl_lossy,f_webp,q_auto/production/artworks/WAVE_CANNES_21_NOV_COUV_jqx8di.png",
-      "price": 7.99,
+      "url": "https://shotgun.live/events/lanonchalance-pres-malive",
+      "image": "https://scontent-ord5-2.cdninstagram.com/v/t51.82787-15/882487887_18649521727041727_3665433883267723839_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=107&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=h1VINhAZ8DIQ7kNvwEk-dei&_nc_oc=AdpMTRQZ_MniAeWpSQoyYQYkeV4oKyNSEmPXV6pDulyNSp78i-JUCPdVHGbs-D0VU0U&_nc_zt=23&_nc_ht=scontent-ord5-2.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=arppmMQgzXbOml8l30K24w&oh=00_AQSTYYERir_RLOciDDsPfWZa9PP0b57JHxgs8Xm5ZDhoHQ&oe=6AF63A31",
+      "price": 12,
       "tags": [
-        "shatta",
-        "dancehall",
-        "bouyon",
-        "afrobeat",
-        "rap"
+        "afro house",
+        "tech house",
+        "latin house"
       ],
       "description": "",
-      "public_cible": 0.95,
+      "public_cible": 0.9,
       "confiance": 0.95,
-      "accroche": "DJ Sonny et DJ Ticoq ambiancent Cannes sur des sons shatta, bouyon et le jeu des bracelets.",
+      "accroche": "Le collectif Lanonchalance investit le Twiga avec le producteur Malive aux platines.",
       "instagram": [
-        "bolon_events",
-        "skyfall_cannes"
+        "twigamontecarlo",
+        "lanonchalance"
       ],
       "enrichi": true
+    },
+    {
+      "source": "web",
+      "source_site": "Instagram @les.bonnesfranquettes",
+      "name": "Les Bonnes Franquettes — Winter Edition",
+      "start": "2026-11-14T19:30:00.000Z",
+      "venue": "Ancien jazz club (2416 Route de Saint-Laurent)",
+      "city": "Nice",
+      "address": "",
+      "url": "https://www.instagram.com/p/De95DS1INkE/",
+      "image": "https://scontent-ord5-2.cdninstagram.com/v/t51.82787-15/885019106_18116214527031263_1214653049463649616_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=105&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=avUJgzcnjJYQ7kNvwFvPVFM&_nc_oc=AdpmtDr4upD_e1bPPH4pTA-e8xgQz0QrMconunYBuItpGPjRfWH9Bsl3482q4dS7I9Q&_nc_zt=23&_nc_ht=scontent-ord5-2.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=dmCKD5xFikbx2QOxYpH4fA&oh=00_AQSmucTnZ5uE4e5b_9WWXXtqrOtOJkF-WM76K0tzs-zDvQ&oe=6AF61A48",
+      "price": null,
+      "tags": [
+        "house",
+        "pop",
+        "disco"
+      ],
+      "description": "",
+      "public_cible": 0.9,
+      "confiance": 0.9,
+      "accroche": "Mini boiler room intimiste avec DJ au centre dans un ancien jazz club.",
+      "instagram": [
+        "les.bonnesfranquettes"
+      ],
+      "enrichi": true,
+      "verifie": false
     }
   ],
   "titre": "Nos coups de cœur de la semaine",
   "tags": [
     [],
     [
-      "mamashelternice"
-    ],
-    [
       "downtown.nice"
     ],
     [
-      "viceclubnice",
-      "afroheatfestival",
-      "dj_mapouia"
+      "elvaclubcannes",
+      "nightlyfr",
+      "dovnrobs"
     ],
     [
-      "clubbizarre_music",
-      "bluecoastbrewing"
+      "twigamontecarlo",
+      "lanonchalance"
     ],
     [
-      "bolon_events",
-      "skyfall_cannes"
+      "les.bonnesfranquettes"
     ]
   ],
   "choix": {
@@ -190,13 +155,6 @@
   "features": [
     "genre:commercial",
     "source:web",
-    "style:rnb",
-    "lieu:mama-shelter-nice",
-    "ville:nice",
-    "prix:gratuit",
-    "horaire:jour",
-    "genre:commercial",
-    "source:web",
     "style:annees-2000",
     "lieu:down-town-club",
     "ville:nice",
@@ -204,28 +162,28 @@
     "horaire:nuit",
     "genre:commercial",
     "source:web",
-    "style:amapiano",
-    "style:dancehall",
-    "lieu:305-vice-club",
-    "ville:nice",
+    "style:afro",
+    "style:house",
+    "lieu:elva-club",
+    "ville:cannes",
     "prix:moyen",
     "horaire:nuit",
     "genre:commercial",
     "source:web",
-    "style:techno",
     "style:tech-house",
-    "lieu:blue-coast-brewing-company",
-    "ville:nice",
-    "prix:petit",
-    "horaire:jour",
+    "style:afro",
+    "lieu:twiga-monte-carlo",
+    "ville:monaco",
+    "prix:moyen",
+    "horaire:nuit",
     "genre:commercial",
     "source:web",
-    "style:shatta",
-    "style:dancehall",
-    "lieu:skyfall-cannes-x-kingdom",
-    "ville:cannes",
-    "prix:petit",
+    "style:disco",
+    "style:house",
+    "lieu:ancien-jazz-club-2416-route-de-saint-laurent",
+    "ville:nice",
+    "prix:inconnu",
     "horaire:nuit"
   ],
-  "nb_images": 7
+  "nb_images": 6
 }
