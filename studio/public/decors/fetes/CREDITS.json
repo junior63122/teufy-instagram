@@ -1,0 +1,31 @@
+{
+ "halloween": {
+  "modele": "gemini-3-pro-image-preview",
+  "le": "2026-11-08T16:12:03.199Z"
+ },
+ "noel": {
+  "modele": "gemini-3-pro-image-preview",
+  "le": "2026-11-08T16:12:16.458Z"
+ },
+ "reveillon": {
+  "modele": "gemini-3-pro-image-preview",
+  "le": "2026-11-08T16:12:32.061Z"
+ },
+ "nouvelan": {
+  "modele": "gemini-3-pro-image-preview",
+  "le": "2026-11-08T16:12:45.967Z"
+ },
+ "saintvalentin": {
+  "modele": "gemini-3-pro-image-preview",
+  "le": "2026-11-08T16:13:00.677Z"
+ },
+ "fetemusique": {
+  "modele": "gemini-3-pro-image-preview",
+  "le": "2026-11-08T16:13:14.552Z"
+ },
+ "14juillet": {
+  "modele": "gemini-3-pro-image-preview",
+  "le": "2026-11-08T16:13:31.693Z"
+ },
+ "_note": "Images générées par Google Gemini (API) pour Teufy."
+}
