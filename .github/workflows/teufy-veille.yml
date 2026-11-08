@@ -28,16 +28,17 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     env:
+      # Clés : plusieurs noms de secrets acceptés (ElevenLabs, Gemini, Claude, Instagram…)
+      IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN || secrets.INSTAGRAM_ACCESS_TOKEN || secrets.INSTAGRAM_TOKEN || secrets.IG_TOKEN || secrets.META_ACCESS_TOKEN || secrets.FB_ACCESS_TOKEN }}
+      IG_USER_ID: ${{ secrets.IG_USER_ID || secrets.INSTAGRAM_USER_ID || secrets.INSTAGRAM_ID || secrets.IG_ID || secrets.IG_ACCOUNT_ID || secrets.INSTAGRAM_ACCOUNT_ID }}
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY || secrets.GEMINI_KEY || secrets.GEMINI || secrets.GOOGLE_API_KEY || secrets.GOOGLE_AI_KEY || secrets.GOOGLE_AI_API_KEY || secrets.GEMINI_TOKEN || secrets.AI_STUDIO_KEY || secrets.CLE_GEMINI || secrets.API_GEMINI }}
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY || secrets.ANTHROPIC_KEY || secrets.ANTHROPIC || secrets.CLAUDE_API_KEY || secrets.CLAUDE_KEY || secrets.CLAUDE }}
       IG_API_HOST: ${{ vars.IG_API_HOST || 'graph.facebook.com' }}
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       MEDIA_BASE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/media
       MEDIA_FALLBACK_URL: https://raw.githubusercontent.com/${{ github.repository }}/${{ github.ref_name }}/media
     steps:
       - uses: actions/checkout@v4
-      - name: Retrouver les clés (quel que soit le nom des secrets)
-        env:
-          SECRETS_JSON: ${{ toJSON(secrets) }}
-        run: node src/cles.mjs
       - uses: actions/setup-node@v4
         with:
           node-version: 22

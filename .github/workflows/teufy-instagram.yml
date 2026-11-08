@@ -50,16 +50,22 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     env:
+      # Clés : plusieurs noms de secrets acceptés (ElevenLabs, Gemini, Claude, Instagram…)
+      ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY || secrets.ELEVENLABS_KEY || secrets.ELEVENLABS || secrets.ELEVEN_LABS || secrets.ELEVEN_LABS_API_KEY || secrets.ELEVEN_LABS_KEY || secrets.ELEVENLABS_TOKEN || secrets.ELEVEN_API_KEY || secrets.ELEVEN_KEY || secrets.ELEVEN || secrets.XI_API_KEY || secrets.ELEVENLABS_API || secrets.CLE_ELEVENLABS || secrets.ELEVENLABS_SECRET || secrets.ELEVENLABSAPIKEY || secrets.API_ELEVENLABS }}
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY || secrets.GEMINI_KEY || secrets.GEMINI || secrets.GOOGLE_API_KEY || secrets.GOOGLE_AI_KEY || secrets.GOOGLE_AI_API_KEY || secrets.GEMINI_TOKEN || secrets.AI_STUDIO_KEY || secrets.CLE_GEMINI || secrets.API_GEMINI }}
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY || secrets.ANTHROPIC_KEY || secrets.ANTHROPIC || secrets.CLAUDE_API_KEY || secrets.CLAUDE_KEY || secrets.CLAUDE }}
+      IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN || secrets.INSTAGRAM_ACCESS_TOKEN || secrets.INSTAGRAM_TOKEN || secrets.IG_TOKEN || secrets.META_ACCESS_TOKEN || secrets.FB_ACCESS_TOKEN }}
+      IG_USER_ID: ${{ secrets.IG_USER_ID || secrets.INSTAGRAM_USER_ID || secrets.INSTAGRAM_ID || secrets.IG_ID || secrets.IG_ACCOUNT_ID || secrets.INSTAGRAM_ACCOUNT_ID }}
+      PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY || secrets.PEXELS_KEY || secrets.PEXELS }}
+      PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY || secrets.PIXABAY_KEY || secrets.PIXABAY }}
       IG_API_HOST: ${{ vars.IG_API_HOST || 'graph.facebook.com' }}
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub Models, gratuit
       MEDIA_BASE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/media
       MEDIA_FALLBACK_URL: https://raw.githubusercontent.com/${{ github.repository }}/${{ github.ref_name }}/media
     steps:
       - uses: actions/checkout@v4
-      - name: Retrouver les clés (quel que soit le nom des secrets)
-        env:
-          SECRETS_JSON: ${{ toJSON(secrets) }}
-        run: node src/cles.mjs
+      - name: Clés disponibles (noms seulement, jamais les valeurs)
+        run: for v in ELEVENLABS_API_KEY GEMINI_API_KEY ANTHROPIC_API_KEY IG_ACCESS_TOKEN IG_USER_ID PEXELS_API_KEY PIXABAY_API_KEY; do if [ -n "${!v}" ]; then echo "$v : ok"; else echo "$v : absente"; fi; done
 
       - uses: actions/setup-node@v4
         with:
