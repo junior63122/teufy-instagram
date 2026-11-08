@@ -267,7 +267,7 @@ async function prepare(slot, now, id) {
     if (!files) throw new Error('Carrousel de la DA impossible (studio absent ou moins de 2 affiches) : rien n\'est publié.');
     files ||= await renderPages(programme(pages, chosen, { th, photos, titre, sous: fort ? `En ${MOIS(now)}` : elargi ? 'Ces prochains jours' : 'Cette semaine' }), dir, `incontournables-${stamp}`, { width: 1080, height: 1350 });
     pub = { images: files, legende: captionIncontournables({ variante: enTechno || !techno ? slot.variante : 'commercial', events: chosen, ...win, ch, r }), soirees: chosen, titre };
-  } else if (slot.type === 'reel' && config.studio?.actif && ['histoire', 'nouveau', 'explicatif', 'humour', 'immersif'].includes(slot.variante)) {
+  } else if (slot.type === 'reel' && config.studio?.actif && ['flash', 'histoire', 'nouveau', 'explicatif', 'humour', 'immersif'].includes(slot.variante)) {
     // Reels = créations du studio (Remotion) : explicatif, humour ou immersif, jamais un catalogue de soirées.
     const STUDIO = path.join(ROOT, 'studio');
     const dirC = path.join(STUDIO, 'scripts', 'concepts');
@@ -275,11 +275,15 @@ async function prepare(slot, now, id) {
     const faits = new Set([...hist.map((h) => h.concept).filter(Boolean), ...usedHere]);
     const dispo = tous.filter((c) => !faits.has(c.id));
     // reel:nouveau = forcer un reel inédit écrit par l'IA (sans passer par la banque).
-    let c = slot.variante === 'nouveau' ? await nouvelleHistoire(STUDIO, id)
+    // Format validé : « Flash ». La rubrique est choisie par l'apprentissage (celle qui marche le mieux revient plus souvent).
+    const rubriqueFlash = () => ch.pick('rubrique-reel', ['Explicatif', 'Astuce', 'Humour', 'Actu nuit', 'Immersion'], (x) => x);
+    let c = slot.variante === 'nouveau' ? await nouveauFlash(STUDIO, id, rubriqueFlash())
       : val('concept') ? tous.find((x) => x.id === val('concept'))
+      : slot.variante === 'flash' ? dispo.find((x) => x.concept === 'reelflash')
       : slot.variante === 'histoire' ? dispo.find((x) => ['histoire', 'potesfluide'].includes(x.concept))
       : dispo.find((x) => x.type === slot.variante) || dispo[0];
     if (!c && slot.variante === 'histoire') c = DRY ? tous.find((x) => x.concept === 'histoire') : await nouvelleHistoire(STUDIO, id);
+    if (!c && slot.variante === 'flash') c = DRY ? tous.find((x) => x.concept === 'reelflash') : await nouveauFlash(STUDIO, id, rubriqueFlash());
     if (!c) throw new Error('Banque de concepts de reels épuisée : ajoute des concepts dans studio/scripts/concepts (voir studio/LISEZMOI.md).');
     usedHere.add(c.id);
     if (!existsSync(path.join(STUDIO, 'node_modules'))) spawnSync('npm', ['ci', '--no-audit', '--no-fund'], {cwd: STUDIO, stdio: 'inherit'});
@@ -289,9 +293,19 @@ async function prepare(slot, now, id) {
     const video = path.join(dir, `reel-${stamp}.mp4`);
     await copyFile(path.join(STUDIO, 'out', `${c.id}.mp4`), video);
     const cover = path.join(dir, `reel-${stamp}-couverture.jpg`);
-    spawnSync('ffmpeg', ['-y', '-loglevel', 'error', '-ss', String(c.couverture ?? 1.5), '-i', video, '-frames:v', '1', '-q:v', '2', cover]);
+    // Couverture : gabarit de la DA (cohérent avec les posts dans la grille), sinon une image du reel.
+    let couvDA = false;
+    if (c.concept === 'reelflash') {
+      const photo = c.extra?.plans?.[c.couverture_scene ?? 0]?.photo;
+      const props = { photo, rubrique: c.rubrique || 'Explicatif', titre: c.titre_couverture || c.titre };
+      const B = '/opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell';
+      const rc = spawnSync(path.join(STUDIO, 'node_modules', '.bin', 'remotion'), ['still', 'src/index.ts', 'couverture-reel', cover, `--props=${JSON.stringify(props)}`, '--image-format=jpeg', '--jpeg-quality=92', '--log=error', ...(existsSync(B) ? [`--browser-executable=${B}`] : [])], { cwd: STUDIO, stdio: 'inherit' });
+      couvDA = rc.status === 0;
+      if (!couvDA) console.error(`[${id}] couverture DA non conforme, image du reel à la place.`);
+    }
+    if (!couvDA) spawnSync('ffmpeg', ['-y', '-loglevel', 'error', '-ss', String(c.couverture ?? 1.5), '-i', video, '-frames:v', '1', '-q:v', '2', cover]);
     const d = parseFloat(spawnSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', video]).stdout?.toString()) || 0;
-    pub = { video, couverture: cover, legende: c.legende, titre: c.titre, concept: c.id, duree: +d.toFixed(1) };
+    pub = { video, couverture: cover, legende: c.legende, titre: c.titre, concept: c.id, duree: +d.toFixed(1), rubrique: c.rubrique };
     console.log(`[${id}] reel studio « ${c.id} » (${c.type}) ${d.toFixed(1)} s`);
   } else if (slot.type === 'reel') {
     let variante = slot.variante;
@@ -598,4 +612,26 @@ async function carrouselDA({ chosen, id, dir, now, titre = [], titreFlash, rubri
         return fichiers;
       }
       throw new Error('Carrousel non conforme à la DA (contrôle visuel en échec ou moins de 2 affiches officielles) : rien n\'est publié plutôt qu\'un visuel raté.');
+}
+
+// Reel « Flash » inédit : le scénariste IA écrit (sujet utile, script, plans), Gemini fait les photos verticales.
+// Une photo manquante est remplacée par une photo de la banque de la DA (même style).
+async function nouveauFlash(STUDIO, id, rubrique) {
+  const env = { ...process.env, NODE_USE_ENV_PROXY: '1' };
+  if (!existsSync(path.join(STUDIO, 'node_modules'))) spawnSync('npm', ['ci', '--no-audit', '--no-fund'], { cwd: STUDIO, stdio: 'inherit' });
+  const e = spawnSync('node', [path.join(STUDIO, 'scripts', 'ecrire-flash.mjs'), rubrique], { cwd: STUDIO, env, stdio: ['ignore', 'pipe', 'inherit'] });
+  const sortie = (e.stdout?.toString() || '').trim().split('\n');
+  console.log(sortie.slice(0, -1).join('\n'));
+  const fichier = sortie.at(-1);
+  if (e.status !== 0 || !fichier || !existsSync(fichier)) throw new Error('Scénariste : aucun reel écrit.');
+  const c = JSON.parse(await readFile(fichier, 'utf8'));
+  if (process.env.GEMINI_API_KEY) spawnSync('node', [path.join(STUDIO, 'scripts', 'decors.mjs'), path.join(STUDIO, 'scripts', 'decors', `reel-${c.id}.json`)], { cwd: STUDIO, env, stdio: 'inherit' });
+  const BANQUE = ['decors/reel-paliers/foule.jpg', 'decors/reel-paliers/potes.jpg', 'decors/reel-paliers/file.jpg', 'decors/reel-paliers/dj.jpg', 'decors/da/danse.jpg', 'decors/da/rire.jpg'];
+  c.extra.plans.forEach((pl, i) => {
+    if (existsSync(path.join(STUDIO, 'public', pl.photo))) return;
+    pl.photo = BANQUE[i % BANQUE.length];
+    console.error(`[${id}] photo ${i + 1} manquante, photo de la banque à la place.`);
+  });
+  await writeFile(fichier, JSON.stringify(c, null, 2) + '\n');
+  return { fichier, ...c };
 }

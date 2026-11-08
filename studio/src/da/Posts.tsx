@@ -164,3 +164,20 @@ export const StoryRelais: React.FC<{image: string; rubrique?: string; texte?: st
     <ControleVisuel />
   </AbsoluteFill>
 );
+
+/** Couverture de reel (1080×1920) : même grammaire que les posts, tout le texte dans la zone 3:4 centrale
+ *  (y 240 → 1680) que la grille du profil affiche. Le feed reste cohérent entre posts et reels. */
+export const CouvertureReel: React.FC<{photo: string; position?: string; rubrique: string; titre: string; sous?: string}> = ({photo, position, rubrique, titre, sous}) => (
+  <AbsoluteFill style={{background: C.nuit, overflow: 'hidden'}}>
+    <Photo src={photo} position={position} />
+    <AbsoluteFill style={{background: 'linear-gradient(180deg, rgba(11,11,15,.55) 0%, rgba(11,11,15,.2) 22%, rgba(11,11,15,0) 40%, rgba(11,11,15,.35) 58%, rgba(11,11,15,.92) 88%, rgba(11,11,15,.95) 100%)'}} />
+    <div style={{position: 'absolute', left: 0, right: 0, top: 240 - 48}}><Signature /></div>
+    <div style={{position: 'absolute', left: 56, right: 56, bottom: 1920 - 1680 + 64}}>
+      <Etiquette style={{marginBottom: 26}}>{rubrique}</Etiquette>
+      <Titre taille={128} lignes={3}>{titre}</Titre>
+      {sous ? <Ajuste max={36} lignes={2} interligne={1.25} style={{fontFamily: B, fontWeight: 500, color: C.creme, opacity: 0.85, marginTop: 22}}>{sous}</Ajuste> : null}
+    </div>
+    <Grain o={0.08} />
+    <ControleVisuel />
+  </AbsoluteFill>
+);

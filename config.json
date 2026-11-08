@@ -56,13 +56,13 @@
       "jour": 2,
       "rang": 1,
       "type": "reel",
-      "variante": "histoire"
+      "variante": "flash"
     },
     {
       "jour": 4,
       "rang": 1,
       "type": "reel",
-      "variante": "histoire"
+      "variante": "flash"
     },
     {
       "jour": 5,
@@ -74,7 +74,7 @@
       "jour": 6,
       "rang": 1,
       "type": "reel",
-      "variante": "histoire"
+      "variante": "flash"
     },
     {
       "jour": 1,
@@ -86,13 +86,13 @@
       "jour": 2,
       "rang": 2,
       "type": "reel",
-      "variante": "histoire"
+      "variante": "flash"
     },
     {
       "jour": 4,
       "rang": 2,
       "type": "reel",
-      "variante": "histoire"
+      "variante": "flash"
     },
     {
       "jour": 5,
@@ -103,7 +103,7 @@
       "jour": 6,
       "rang": 2,
       "type": "reel",
-      "variante": "histoire"
+      "variante": "flash"
     },
     {
       "jour": 1,
@@ -115,13 +115,13 @@
       "jour": 2,
       "rang": 3,
       "type": "reel",
-      "variante": "histoire"
+      "variante": "flash"
     },
     {
       "jour": 4,
       "rang": 3,
       "type": "reel",
-      "variante": "histoire"
+      "variante": "flash"
     },
     {
       "jour": 5,
@@ -133,7 +133,7 @@
       "jour": 6,
       "rang": 3,
       "type": "reel",
-      "variante": "histoire"
+      "variante": "flash"
     },
     {
       "jour": 1,
@@ -145,13 +145,13 @@
       "jour": 2,
       "rang": 4,
       "type": "reel",
-      "variante": "histoire"
+      "variante": "flash"
     },
     {
       "jour": 4,
       "rang": 4,
       "type": "reel",
-      "variante": "histoire"
+      "variante": "flash"
     },
     {
       "jour": 5,
@@ -162,7 +162,7 @@
       "jour": 6,
       "rang": 4,
       "type": "reel",
-      "variante": "histoire"
+      "variante": "flash"
     },
     {
       "jour": 1,
@@ -174,13 +174,13 @@
       "jour": 2,
       "rang": 5,
       "type": "reel",
-      "variante": "histoire"
+      "variante": "flash"
     },
     {
       "jour": 4,
       "rang": 5,
       "type": "reel",
-      "variante": "histoire"
+      "variante": "flash"
     },
     {
       "jour": 5,
@@ -192,7 +192,7 @@
       "jour": 6,
       "rang": 5,
       "type": "reel",
-      "variante": "histoire"
+      "variante": "flash"
     }
   ],
   "reglages": {
@@ -240,9 +240,16 @@
     "modele_github": "openai/gpt-4.1-mini"
   },
   "studio": {
-    "explication": "Reels = « plan continu illustré » (règle Teufy) : le scénariste IA (studio/scripts/ecrire.mjs) choisit un sujet (veille, idées, intemporels), Gemini dessine les décors (decors.mjs), ElevenLabs fait la voix, Remotion rend la vidéo (moteur studio/src/concepts/Histoire.tsx), contrôle qualité puis publication. Les concepts déjà écrits et non publiés de studio/scripts/concepts passent en premier.",
+    "explication": "Reels = format « Flash » (validé le 8 novembre 2026) : le scénariste IA (studio/scripts/ecrire-flash.mjs) choisit un sujet utile, écrit le script (voix Hugo, émotions), les plans (photo flash par scène, mots géants, objets animés) ; Gemini génère les photos verticales ; ElevenLabs la voix ; Remotion le rendu (studio/src/concepts/Flash.tsx) ; contrôle qualité ; couverture au gabarit de la DA ; publication + story. La rubrique (Explicatif, Astuce, Humour, Actu nuit, Immersion) est choisie par l'apprentissage selon les notes.",
     "actif": true,
-    "reels_en_pause": "nouveau format de reel en cours (retour du 8 novembre : voix sans émotion, rien ne se passe, contenu sans valeur) ; à retirer une fois le nouveau reel validé"
+    "voix": {
+      "voice_id": "3Tp5mYhT9wrfnry9pzvV",
+      "nom": "Hugo",
+      "modele": "eleven_v3",
+      "stabilite": 0.0,
+      "style": 0.85,
+      "vitesse": 1.1
+    }
   },
   "veille": {
     "explication": "Veille toutes les 30 minutes de 8h à 23h (workflow teufy-veille.yml) : une info importante et vérifiée sur la nuit/l'événementiel est publiée en post unique dans l'heure (importance ≥ seuil, source officielle, publiée il y a moins de fenetre_heures, pas déjà traitée). Le reste va dans contenus/idees.json. Ces posts de dernière minute sont des posts BONUS : ils ne remplacent ni ne décalent les publications du calendrier.",

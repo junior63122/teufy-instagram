@@ -16,7 +16,7 @@ test('chaque semaine : 2 posts photo (lundi sorties, vendredi bon plan ou débat
     for (const d of jours) {
       const s = slotOfDay(d);
       const c = config.calendrier.find((x) => x.jour === s.jour && x.rang === s.rang);
-      if ([2, 4, 6].includes(s.jour)) assert.deepEqual([c?.type, c?.variante], ['reel', 'histoire'], s.date);
+      if ([2, 4, 6].includes(s.jour)) assert.deepEqual([c?.type, c?.variante], ['reel', 'flash'], s.date);
       else if (s.jour === 1) assert.equal(c?.type, 'incontournables', s.date);
       else if (s.jour === 5) assert.ok(['bonplan', 'debat'].includes(c?.type), s.date);
       else assert.equal(c, undefined, s.date);
