@@ -2440,6 +2440,83 @@
       ],
       "score": 2.064,
       "note": 100
+    },
+    {
+      "media": "18119387065811592",
+      "id": "incontournables-commercial",
+      "type": "incontournables",
+      "variante": "commercial",
+      "date": "2026-11-08",
+      "choix": {
+        "titre-commercial": "19slrht",
+        "mise-couverture": "centre",
+        "intro-commercial": "1yjthms",
+        "question-commercial": "1qt9w8f",
+        "suivre": "xlf2qa",
+        "hashtags-local": [
+          "#monaconightlife",
+          "#soireenice"
+        ],
+        "hashtags-commercial": [
+          "#soiree",
+          "#clubbing"
+        ]
+      },
+      "features": [
+        "genre:commercial",
+        "source:web",
+        "style:annees-2000",
+        "lieu:down-town-club",
+        "ville:nice",
+        "prix:gratuit",
+        "horaire:nuit",
+        "genre:commercial",
+        "source:web",
+        "style:tech-house",
+        "style:afro",
+        "lieu:twiga-monte-carlo",
+        "ville:monaco",
+        "prix:moyen",
+        "horaire:nuit",
+        "genre:commercial",
+        "source:web",
+        "style:techno",
+        "style:tech-house",
+        "lieu:blue-coast-brewing-company",
+        "ville:nice",
+        "prix:petit",
+        "horaire:jour",
+        "genre:commercial",
+        "source:web",
+        "style:disco",
+        "style:house",
+        "lieu:ancien-jazz-club-2416-route-de-saint-laurent",
+        "ville:saint-laurent-du-var",
+        "prix:inconnu",
+        "horaire:nuit"
+      ],
+      "nb_images": 6,
+      "legende": "Certaines soirées se racontent pendant des semaines.\nCelles-là en font partie.\n\n→ Mar 10 · Rétro Party w/ Nivau (Années 2000) · Down Town Club, Nice · 23h00 · gratuit\n   Entrée gratuite et classiques des années 90 à 2010 mixés par Nivau au Down Town Club. @downtown.nice\n→ Ven 13 · Lanonchalance pres. Malive @ Twiga Monte Carlo (Tech house · Afro) · Twiga Monte Carlo, Monaco · 23h59 · 15 €\n   Le DJ brésilien Malive invité par Lanonchalance au Twiga pour une nuit afro tech intense. @lanonchalance @twiga_mc\n→ Sam 14 · Club Bizarre w/ Sensoria — At Blue Coast (Techno · Tech house) · Blue Coast Brewing Company, Nice · 19h00 · 5,99 €\n   Soirée indus, happy hour géant et sets tech house affûtés avec Sensoria et KidSeven. @clubbizarre_music @bluecoastbrewing\n→ Sam 14 · Les Bonnes Franquettes — Winter Edition (Disco · House) · Ancien jazz club (2416 Route de Saint-Laurent), Saint-Laurent-du-Var · 20h30\n   Ambiance mini boiler room intime avec le DJ au centre et un sound system chaleureux. @les.bonnesfranquettes\n\nTu sors où cette semaine ? Chaque semaine, les meilleures soirées de la Côte sont ici.\n\n#TeufyParty #monaconightlife #soireenice #soiree #clubbing",
+      "titre": "Nos coups de cœur de la semaine",
+      "publie_le": "2026-11-08T12:02:00.433Z",
+      "source": "bot",
+      "caption": "Certaines soirées se racontent pendant des semaines.\nCelles-là en font partie.\n\n→ Mar 10 · Rétro Party w/ Nivau (Années 2000) · Down Town Club, Nice · 23h00 · gratuit\n  Entrée gratuite et classiques des années 90 à 2010 mixés par Nivau au Down Town Club. @downtown.nice\n→ Ven 13 · Lanonchalance pres. Malive @ Twiga Monte Carlo (Tech house · Afro) · Twiga Monte Carlo, Monaco · 23h59 · 15 €\n Le DJ brésilien Malive invité par Lanonchalance au Twiga pour une nuit afro tech intense. @lanonchalance @twiga_mc\n→ Sam 14 · Club Bizarre w/ Sensoria — At Blue Coast (Techno · Tech house) · Blue Coast Brewing Company, Nice · 19h00 · 5,99 €\n Soirée indus, happy hour géant et sets tech house affûtés avec Sensoria et KidSeven. @clubbizarre_music @bluecoastbrewing\n→ Sam 14 · Les Bonnes Franquettes — Winter Edition (Disco · House) · Ancien jazz club (2416 Route de Saint-Laurent), Saint-Laurent-du-Var · 20h30\n  Ambiance mini boiler room intime avec le DJ au centre et un sound system chaleureux. @les.bonnesfranquettes\n\nTu sors où cette semaine ? Chaque semaine, les meilleures soirées de la Côte sont ici.\n\n#TeufyParty #monaconightlife #soireenice #soiree #clubbing",
+      "features_generales": [
+        "heure:13h",
+        "jour:dim",
+        "format:carrousel",
+        "type:incontournables-commercial",
+        "legende:longue",
+        "hashtag:#teufyparty",
+        "hashtag:#monaconightlife",
+        "hashtag:#soireenice",
+        "hashtag:#soiree",
+        "hashtag:#clubbing",
+        "theme:techno",
+        "theme:gratuit",
+        "auteur:bot"
+      ],
+      "note": null
     }
   ],
   "abonnes": [
