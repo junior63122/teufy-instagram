@@ -22,12 +22,15 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
+      - name: Retrouver les clés (quel que soit le nom des secrets)
+        env:
+          SECRETS_JSON: ${{ toJSON(secrets) }}
+        run: node src/cles.mjs
       - uses: actions/setup-node@v4
         with:
           node-version: 22
       - name: Générer les décors
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           REFAIRE: ${{ inputs.refaire && '1' || '' }}
         run: |
           sudo apt-get install -y --no-install-recommends ffmpeg >/dev/null 2>&1 || true
