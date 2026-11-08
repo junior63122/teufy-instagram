@@ -1,5 +1,6 @@
 import React from 'react';
 import {AbsoluteFill, Img, staticFile} from 'remotion';
+import {Ajuste} from './controle';
 
 // Charte Teufy (DA « Flash nuit ») : une seule grammaire pour tout le compte.
 //  - 3 couleurs seulement : nuit, crème, corail (le corail = la marque, jamais plus d'un élément corail par visuel).
@@ -22,16 +23,17 @@ export const policesCharte = () => `
 @font-face{font-family:'InterTight';src:url(${staticFile('fonts/inter-tight.woff2')}) format('woff2');font-weight:100 900}
 @font-face{font-family:'InterTight';src:url(${staticFile('fonts/inter-tight-ext.woff2')}) format('woff2');font-weight:100 900;unicode-range:U+0100-024F,U+1E00-1EFF,U+20A0-20CF,U+2000-206F}`;
 
-/** Titre de la charte : Bricolage 800, serré, interlignage court. `accent` met des mots en corail ([mot]). */
-export const Titre: React.FC<{children: string; taille?: number; couleur?: string; style?: React.CSSProperties; largeur?: number}> = ({children, taille = 120, couleur = C.creme, style, largeur = 80}) => (
-  <div style={{fontFamily: T, fontWeight: 800, fontStretch: `${largeur}%`, fontVariationSettings: '"opsz" 96', fontSize: taille, lineHeight: 0.9, letterSpacing: '-0.02em', color: couleur, ...style}}>
+/** Titre de la charte : Bricolage 800, serré. Les mots entre [crochets] passent en corail.
+ *  `taille` = taille maximale : le titre rétrécit tout seul pour tenir en `lignes` lignes, jamais coupé. */
+export const Titre: React.FC<{children: string; taille?: number; couleur?: string; style?: React.CSSProperties; largeur?: number; lignes?: number}> = ({children, taille = 120, couleur = C.creme, style, largeur = 80, lignes = 3}) => (
+  <Ajuste max={taille} min={40} lignes={lignes} interligne={0.92} style={{fontFamily: T, fontWeight: 800, fontStretch: `${largeur}%`, fontVariationSettings: '"opsz" 96', letterSpacing: '-0.02em', color: couleur, ...style}}>
     {children.split(/(\[[^\]]+\])/).map((p, i) => (p.startsWith('[') ? <span key={i} style={{color: C.corail}}>{p.slice(1, -1)}</span> : <React.Fragment key={i}>{p}</React.Fragment>))}
-  </div>
+  </Ajuste>
 );
 
 /** Étiquette de rubrique : le repère qui rend le feed lisible (SORTIES, DÉBAT, BON PLAN, ACTU…). */
 export const Etiquette: React.FC<{children: string; fond?: string; couleur?: string; style?: React.CSSProperties}> = ({children, fond = C.corail, couleur = C.nuit, style}) => (
-  <div style={{display: 'inline-block', fontFamily: B, fontWeight: 800, fontSize: 26, letterSpacing: '0.14em', textTransform: 'uppercase', background: fond, color: couleur, padding: '10px 18px 9px', borderRadius: 6, ...style}}>{children}</div>
+  <div data-verif="bloc" style={{display: 'inline-block', whiteSpace: 'nowrap', fontFamily: B, fontWeight: 800, fontSize: 26, letterSpacing: '0.14em', textTransform: 'uppercase', background: fond, color: couleur, padding: '10px 18px 9px', borderRadius: 6, ...style}}>{children}</div>
 );
 
 /** Photo plein cadre, étalonnée pareil partout (contraste, noirs denses, grain). */

@@ -204,9 +204,7 @@ async function prepare(slot, now, id) {
     const nouvelAn = th.tempsFort?.titre?.includes('Nouvel An');
     const quand = nouvelAn ? 'pour le Nouvel An' : 'ce week-end';
     const photos = await photoSource({ univers: 'club', saison: th.saison, fetes: !!th.tempsFort?.fetes, ch, r });
-    const { message } = await import('./render.mjs');
-    const pages = [message(th, 1080, 1350, { src: photos.next(), pill: th.hashtag, texte: `Vous organisez une soirée ${quand} ?\nPostez-la ici 👇` })];
-    const files = await renderPages(pages, dir, `orgas-${stamp}`, { width: 1080, height: 1350 });
+    const files = [await couvertureDA({ photo: photoDA(['dj', 'foule', 'danse'], now), rubrique: 'Organisateurs', titre: `Tu organises une soirée ${quand} ? [Poste-la ici]`, sous: `Mets le lien en commentaire avec ${th.hashtag}` }, path.join(dir, `orgas-${stamp}.jpg`))];
     pub = { images: files, legende: captionOrgas({ quand, ch, r }), format: 'orgas' };
   } else if (slot.type === 'debat') {
     const used = new Set([...hist.map((h) => h.debat).filter(Boolean), ...usedHere]);
@@ -215,15 +213,13 @@ async function prepare(slot, now, id) {
     if (!pool.length) pool = all; // tout a été utilisé : on recommence
     const debat = ch.pick('debat', pool, (d) => d.id);
     usedHere.add(debat.id);
-    const { th, photos } = await visuel('club', { debat: true });
-    const files = await renderPages(debatPage({ th, debat, photos }), dir, `debat-${stamp}`, { width: 1080, height: 1350 });
+    const files = [await couvertureDA({ photo: photoDA(['lasers', 'rooftop', 'foule', 'terrasse', 'rire'], now), fond: 'nuit', rubrique: 'Débat', titre: debat.q, options: [debat.a, debat.b] }, path.join(dir, `debat-${stamp}.jpg`))];
     pub = { images: files, legende: captionDebat({ debat, ch, r }), debat: debat.id };
   } else if (slot.type === 'bonplan') {
     const manuel = await bonPlanManuel(now);
     if (manuel) {
       usedHere.add(manuel.titre);
-      const { th, photos } = await visuel('club');
-      const files = await renderPages(bonPlanManuelPage({ th, bp: manuel, photos }), dir, `bonplan-${stamp}`, { width: 1080, height: 1350 });
+      const files = [await couvertureDA({ fond: 'creme', rubrique: 'Bon plan', titre: manuel.titre, sous: String(manuel.texte).split(/(?<=[.!?])\s/)[0] }, path.join(dir, `bonplan-${stamp}.jpg`))];
       pub = { images: files, legende: captionBonPlan({ manuel, ch, r }), bonplan: manuel.titre };
     } else {
       let variante = slot.variante;
@@ -234,17 +230,8 @@ async function prepare(slot, now, id) {
       need(list, 2);
       const chosen = chrono(best(list, R.soirees_par_carrousel));
       const reserve = variante === 'a-reserver';
-      const { th, photos } = await visuel('club');
-      const pages = carouselPages({ mise: ch.pick('mise-couverture', ['centre', 'bas'], (x) => x),
-        th, photos, events: chosen,
-        titre: reserve ? 'À réserver avant sold out' : 'Sortir sans se ruiner',
-        sous: reserve ? 'Les grosses dates' : `Moins de ${R.petit_prix_max} €`,
-        fin: reserve
-          ? { texte: 'Prends tes places tant qu\'il en reste.', pied: `Abonne-toi à ${config.compte} 👇` }
-          : { texte: 'Partage le bon plan à ton pote toujours fauché.', pied: `Abonne-toi à ${config.compte} 👇` },
-      });
-      const { th: thp, photos: php } = await visuel('club');
-      const files = await renderPages(programme(pages, chosen, { th: thp, photos: php, titre: reserve ? 'À réserver avant sold out' : 'Sortir sans se ruiner', sous: reserve ? 'Les grosses dates' : `Moins de ${R.petit_prix_max} €` }), dir, `bonplan-${stamp}`, { width: 1080, height: 1350 });
+      const files = await carrouselDA({ chosen, id, dir, now, rubrique: 'Bon plan', question: reserve ? 'Tu prends [laquelle] ?' : 'Tu fais [laquelle] ?',
+        titreFlash: reserve ? 'À réserver avant le [sold out]' : `Sortir à moins de [${R.petit_prix_max} €]`, titre: ['', reserve ? 'les grosses dates' : 'sans se ruiner'] });
       pub = { images: files, legende: captionBonPlan({ variante, events: chosen, ...win, ch, r }), soirees: chosen };
     }
   } else if (slot.type === 'incontournables') {
@@ -271,29 +258,8 @@ async function prepare(slot, now, id) {
     });
     let files = null;
     // Carrousel du studio (affiches officielles, DA éditoriale) ; repli sur l'ancien gabarit si impossible.
-    if (config.studio?.affiches !== false && chosen.filter((e) => e.image).length >= 2 && existsSync(path.join(ROOT, 'studio', 'node_modules'))) {
-      const { heure } = await import('./dates.mjs');
-      const { genresList } = await import('./genres.mjs');
-      const jourC = (d) => new Intl.DateTimeFormat('fr-FR', { timeZone: 'Europe/Paris', weekday: 'short', day: 'numeric', month: 'short' }).format(new Date(Date.parse(d) - 6 * 3600e3)).replace(/^./, (c) => c.toUpperCase());
-      const avecImage = chosen.filter((e) => e.image).slice(0, 8);
-      const villes = [...new Set(avecImage.map((e) => e.city).filter(Boolean))];
-      const dts = avecImage.map((e) => new Date(Date.parse(e.start) - 6 * 3600e3)).sort((a, b) => a - b);
-      const fmt = (d, o) => new Intl.DateTimeFormat('fr-FR', { timeZone: 'Europe/Paris', ...o }).format(d);
-      const sous = dts.length ? (fmt(dts[0], { day: 'numeric', month: 'long' }) === fmt(dts.at(-1), { day: 'numeric', month: 'long' }) ? `le ${fmt(dts[0], { weekday: 'long', day: 'numeric', month: 'long' })}`
-        : `du ${fmt(dts[0], { day: 'numeric', ...(fmt(dts[0], { month: 'long' }) === fmt(dts.at(-1), { month: 'long' }) ? {} : { month: 'long' }) })} au ${fmt(dts.at(-1), { day: 'numeric', month: 'long' })}`) : '';
-      const entree = { sous, titre: [titre, fort ? `en ${MOIS(now)}` : elargi ? 'ces prochains jours' : 'cette semaine'], lieu: (villes.length === 1 ? villes[0] : "CÔTE D'AZUR").toUpperCase(), pied: villes.slice(0, 3).map((v) => v.replace(/-du-.*$/i, '')).join(' · ').toUpperCase(),
-        soirees: avecImage.map((e, i) => ({ id: `${i}-${hash(e.name)}`, nom: e.name, genre: (genresList(e).slice(0, 2).join(' & ') || 'soirée').toLowerCase(), jour: jourC(e.start), heures: `dès ${heure(e.start)}`,
-          prix: e.price == null ? 'prix sur la billetterie' : e.price === 0 ? 'gratuit' : `dès ${String(Math.round(e.price * 100) / 100).replace('.', ',')} €`, lieu: [e.venue, e.city].filter(Boolean).join(' · '), image: e.image })) };
-      const fe = path.join(ROOT, 'out', `carrousel-${id}.json`);
-      await mkdir(path.dirname(fe), { recursive: true });
-      await writeFile(fe, JSON.stringify(entree));
-      const r = spawnSync('node', [path.join(ROOT, 'studio', 'scripts', 'affiches.mjs'), fe, dir], { cwd: path.join(ROOT, 'studio'), stdio: 'inherit', env: { ...process.env, NODE_USE_ENV_PROXY: '1' } });
-      if (r.status === 0) {
-        files = JSON.parse(await readFile(path.join(dir, 'carrousel.json'), 'utf8')).fichiers;
-        const gardesIds = new Set(JSON.parse(await readFile(path.join(dir, 'carrousel.json'), 'utf8')).soirees);
-        chosen.splice(0, chosen.length, ...avecImage.filter((e, i) => gardesIds.has(`${i}-${hash(e.name)}`)));
-      } else console.error(`[${id}] carrousel studio impossible, ancien gabarit.`);
-    }
+    files = await carrouselDA({ chosen, id, dir, now, titre: [titre, fort ? `en ${MOIS(now)}` : elargi ? 'ces prochains jours' : 'cette semaine'] });
+    if (!files) throw new Error('Carrousel de la DA impossible (studio absent ou moins de 2 affiches) : rien n\'est publié.');
     files ||= await renderPages(programme(pages, chosen, { th, photos, titre, sous: fort ? `En ${MOIS(now)}` : elargi ? 'Ces prochains jours' : 'Cette semaine' }), dir, `incontournables-${stamp}`, { width: 1080, height: 1350 });
     pub = { images: files, legende: captionIncontournables({ variante: slot.variante, events: chosen, ...win, ch, r }), soirees: chosen, titre };
   } else if (slot.type === 'reel' && config.studio?.actif && ['histoire', 'nouveau', 'explicatif', 'humour', 'immersif'].includes(slot.variante)) {
@@ -565,4 +531,45 @@ async function nouvelleHistoire(STUDIO, id) {
   });
   await writeFile(fichier, JSON.stringify(c, null, 2) + '\n');
   return { fichier, ...c };
+}
+
+// --- DA « Flash nuit » : carrousels et couvertures rendus par le studio, avec contrôle visuel ----------------------
+function photoDA(noms, now) { return `decors/da/${noms[Math.floor(now / (7 * 864e5)) % noms.length]}.jpg`; }
+
+async function couvertureDA(props, fichier) {
+  const STUDIO = path.join(ROOT, 'studio');
+  if (!existsSync(path.join(STUDIO, 'node_modules'))) spawnSync('npm', ['ci', '--no-audit', '--no-fund'], { cwd: STUDIO, stdio: 'inherit' });
+  const B = '/opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell';
+  const r = spawnSync(path.join(STUDIO, 'node_modules', '.bin', 'remotion'), ['still', 'src/index.ts', 'couverture', fichier, `--props=${JSON.stringify(props)}`, '--image-format=jpeg', '--jpeg-quality=92', '--log=error', ...(existsSync(B) ? [`--browser-executable=${B}`] : [])], { cwd: STUDIO, stdio: 'inherit' });
+  if (r.status !== 0) throw new Error('Visuel non conforme à la DA (contrôle visuel en échec) : rien n\'est publié plutôt qu\'un visuel raté.');
+  return fichier;
+}
+
+async function carrouselDA({ chosen, id, dir, now, titre = [], titreFlash, rubrique, question }) {
+  const STUDIO = path.join(ROOT, 'studio');
+  if (!existsSync(path.join(STUDIO, 'node_modules'))) spawnSync('npm', ['ci', '--no-audit', '--no-fund'], { cwd: STUDIO, stdio: 'inherit' });
+  if (chosen.filter((e) => e.image).length < 2) throw new Error('Moins de 2 soirées avec affiche officielle : pas de carrousel.');
+      const { heure } = await import('./dates.mjs');
+      const { genresList } = await import('./genres.mjs');
+      const jourC = (d) => new Intl.DateTimeFormat('fr-FR', { timeZone: 'Europe/Paris', weekday: 'short', day: 'numeric', month: 'short' }).format(new Date(Date.parse(d) - 6 * 3600e3)).replace(/^./, (c) => c.toUpperCase());
+      const avecImage = chosen.filter((e) => e.image).slice(0, 8);
+      const villes = [...new Set(avecImage.map((e) => e.city).filter(Boolean))];
+      const dts = avecImage.map((e) => new Date(Date.parse(e.start) - 6 * 3600e3)).sort((a, b) => a - b);
+      const fmt = (d, o) => new Intl.DateTimeFormat('fr-FR', { timeZone: 'Europe/Paris', ...o }).format(d);
+      const sous = dts.length ? (fmt(dts[0], { day: 'numeric', month: 'long' }) === fmt(dts.at(-1), { day: 'numeric', month: 'long' }) ? `le ${fmt(dts[0], { weekday: 'long', day: 'numeric', month: 'long' })}`
+        : `du ${fmt(dts[0], { day: 'numeric', ...(fmt(dts[0], { month: 'long' }) === fmt(dts.at(-1), { month: 'long' }) ? {} : { month: 'long' }) })} au ${fmt(dts.at(-1), { day: 'numeric', month: 'long' })}`) : '';
+      const entree = { sous, titre, titreFlash, rubrique, question, lieu: (villes.length === 1 ? villes[0] : "CÔTE D'AZUR").toUpperCase(), pied: villes.slice(0, 3).map((v) => v.replace(/-du-.*$/i, '')).join(' · ').toUpperCase(),
+        soirees: avecImage.map((e, i) => ({ id: `${i}-${hash(e.name)}`, nom: e.name, genre: (genresList(e).slice(0, 2).join(' & ') || 'soirée').toLowerCase(), jour: jourC(e.start), heures: `dès ${heure(e.start)}`,
+          prix: e.price == null ? 'prix sur la billetterie' : e.price === 0 ? 'gratuit' : `dès ${String(Math.round(e.price * 100) / 100).replace('.', ',')} €`, lieu: [e.venue, e.city].filter(Boolean).join(' · '), image: e.image })) };
+      const fe = path.join(ROOT, 'out', `carrousel-${id}.json`);
+      await mkdir(path.dirname(fe), { recursive: true });
+      await writeFile(fe, JSON.stringify(entree));
+      const r = spawnSync('node', [path.join(ROOT, 'studio', 'scripts', 'affiches.mjs'), fe, dir], { cwd: path.join(ROOT, 'studio'), stdio: 'inherit', env: { ...process.env, NODE_USE_ENV_PROXY: '1' } });
+      if (r.status === 0) {
+        const fichiers = JSON.parse(await readFile(path.join(dir, 'carrousel.json'), 'utf8')).fichiers;
+        const gardesIds = new Set(JSON.parse(await readFile(path.join(dir, 'carrousel.json'), 'utf8')).soirees);
+        chosen.splice(0, chosen.length, ...avecImage.filter((e, i) => gardesIds.has(`${i}-${hash(e.name)}`)));
+        return fichiers;
+      }
+      throw new Error('Carrousel non conforme à la DA (contrôle visuel en échec ou moins de 2 affiches officielles) : rien n\'est publié plutôt qu\'un visuel raté.');
 }

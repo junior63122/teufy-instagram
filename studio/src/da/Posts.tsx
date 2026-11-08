@@ -1,6 +1,7 @@
 import React from 'react';
 import {AbsoluteFill, Img, staticFile} from 'remotion';
 import {B, C, Etiquette, Grain, Photo, Signature, T, Titre, Voile} from './charte';
+import {Ajuste, ControleVisuel} from './controle';
 import {nomCourt} from '../posts/Affiches';
 import type {Soiree} from '../posts/Affiches';
 
@@ -8,7 +9,7 @@ import type {Soiree} from '../posts/Affiches';
 // photo plein cadre + titre Bricolage en bas à gauche + étiquette de rubrique + signature en haut.
 
 /** Couverture générique (carrousel, débat, bon plan, actu, couverture de reel). */
-export const Couverture: React.FC<{photo?: string; position?: string; rubrique: string; titre: string; sous?: string; fond?: 'photo' | 'creme' | 'nuit'; grand?: string; vignettes?: string[]; glisse?: boolean}> = ({photo, position, rubrique, titre, sous, fond = 'photo', grand, vignettes, glisse}) => {
+export const Couverture: React.FC<{photo?: string; position?: string; rubrique: string; titre: string; sous?: string; fond?: 'photo' | 'creme' | 'nuit'; grand?: string; vignettes?: string[]; glisse?: boolean; options?: string[]}> = ({photo, position, rubrique, titre, sous, fond = 'photo', grand, vignettes, glisse, options}) => {
   const clair = fond === 'creme';
   const encre = clair ? C.nuit : C.creme;
   return (
@@ -21,17 +22,28 @@ export const Couverture: React.FC<{photo?: string; position?: string; rubrique: 
       ) : null}
       <div style={{position: 'absolute', left: 56, right: 56, bottom: 64}}>
         {vignettes?.length ? (
-          <div style={{display: 'flex', gap: 14, marginBottom: 34}}>
-            {vignettes.slice(0, 5).map((v, i) => (
-              <Img key={i} src={staticFile(v)} style={{width: 150, height: 190, objectFit: 'cover', borderRadius: 10, border: `3px solid ${C.creme}`, transform: `rotate(${[-4, 3, -2, 4, -3][i]}deg)`, boxShadow: '0 14px 30px rgba(0,0,0,.45)'}} />
+          <div style={{display: 'flex', marginBottom: 40, paddingLeft: 10}}>
+            {vignettes.slice(0, 3).map((v, i) => (
+              <Img key={i} src={staticFile(v)} style={{width: 270, height: 338, objectFit: 'cover', borderRadius: 12, border: `4px solid ${C.creme}`, marginLeft: i ? -40 : 0, transform: `rotate(${[-5, 2, 6][i]}deg) translateY(${[10, -8, 6][i]}px)`, boxShadow: '0 18px 40px rgba(0,0,0,.5)', zIndex: 3 - i}} />
             ))}
           </div>
         ) : null}
         <Etiquette style={{marginBottom: 26}} fond={clair ? C.nuit : C.corail} couleur={clair ? C.creme : C.nuit}>{rubrique}</Etiquette>
-        <Titre taille={titre.length > 34 ? 104 : 128} couleur={encre}>{titre}</Titre>
-        {sous || glisse ? <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', fontFamily: B, fontWeight: 500, fontSize: 36, color: encre, marginTop: 22, lineHeight: 1.25}}><span style={{opacity: 0.85}}>{sous}</span>{glisse ? <span style={{fontWeight: 700, fontSize: 30}}>glisse →</span> : null}</div> : null}
+        <Titre taille={titre.length > 34 ? 104 : 128} lignes={options?.length ? 4 : 3} couleur={encre}>{titre}</Titre>
+        {options?.length ? (
+          <div style={{display: 'flex', flexDirection: 'column', gap: 14, marginTop: 30}}>
+            {options.slice(0, 2).map((o, i) => (
+              <div key={i} style={{display: 'flex', alignItems: 'center', gap: 18, background: clair ? '#fff' : 'rgba(244,239,230,.12)', border: `2px solid ${encre}33`, borderRadius: 14, padding: '14px 20px'}}>
+                <span style={{fontFamily: T, fontWeight: 800, fontSize: 44, color: C.corail, width: 40}}>{'AB'[i]}</span>
+                <Ajuste max={36} style={{flex: 1, minWidth: 0, fontFamily: B, fontWeight: 700, color: encre}}>{o}</Ajuste>
+              </div>
+            ))}
+          </div>
+        ) : null}
+        {sous || glisse ? <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: 24, fontFamily: B, color: encre, marginTop: 22}}><Ajuste max={36} lignes={2} interligne={1.25} style={{flex: 1, minWidth: 0, fontWeight: 500, opacity: 0.85}}>{sous ?? ''}</Ajuste>{glisse ? <span data-verif="bloc" style={{fontWeight: 700, fontSize: 30, whiteSpace: 'nowrap'}}>glisse →</span> : null}</div> : null}
       </div>
       <Grain o={clair ? 0.12 : 0.08} />
+      <ControleVisuel />
     </AbsoluteFill>
   );
 };
@@ -45,7 +57,7 @@ export const DiapoSoiree: React.FC<{s: Soiree; i: number; n: number}> = ({s, i, 
     <AbsoluteFill style={{background: C.papier, overflow: 'hidden'}}>
       <Signature sombre droite={<span style={{fontFamily: B, fontWeight: 700, fontSize: 24, color: C.nuit}}>{String(i).padStart(2, '0')} / {String(n).padStart(2, '0')}</span>} />
       <div style={{position: 'absolute', left: 0, right: 0, top: 112, height: 880, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-        <Img src={staticFile(s.image)} style={w ? {width: w, height: w / s.ratio!, borderRadius: 14, boxShadow: '0 30px 70px rgba(11,11,15,.35)'} : {maxWidth: 960, maxHeight: 860, borderRadius: 14, boxShadow: '0 30px 70px rgba(11,11,15,.35)'}} />
+        <Img data-verif="image" src={staticFile(s.image)} style={w ? {width: w, height: w / s.ratio!, borderRadius: 14, boxShadow: '0 30px 70px rgba(11,11,15,.35)'} : {maxWidth: 960, maxHeight: 860, borderRadius: 14, boxShadow: '0 30px 70px rgba(11,11,15,.35)'}} />
       </div>
       <div style={{position: 'absolute', left: 56, right: 56, bottom: 60, display: 'flex', gap: 34, alignItems: 'flex-end'}}>
         <div style={{textAlign: 'center', minWidth: 170}}>
@@ -54,14 +66,15 @@ export const DiapoSoiree: React.FC<{s: Soiree; i: number; n: number}> = ({s, i, 
           <div style={{fontFamily: B, fontWeight: 800, fontSize: 28, letterSpacing: '0.12em', textTransform: 'uppercase', color: C.nuit}}>{mois}</div>
         </div>
         <div style={{flex: 1, borderLeft: `3px solid ${C.nuit}`, paddingLeft: 32, paddingBottom: 6}}>
-          <div style={{fontFamily: B, fontWeight: 700, fontSize: 26, letterSpacing: '0.12em', textTransform: 'uppercase', color: C.gris}}>{s.genre}</div>
-          <Titre taille={nom.length > 20 ? 72 : 92} couleur={C.nuit} style={{marginTop: 8, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden'}}>{nom}</Titre>
-          <div style={{fontFamily: B, fontWeight: 600, fontSize: 30, color: C.nuit, marginTop: 16, lineHeight: 1.3}}>
+          <Ajuste max={26} style={{fontFamily: B, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: C.gris}}>{s.genre}</Ajuste>
+          <Titre taille={92} lignes={2} couleur={C.nuit} style={{marginTop: 8}}>{nom}</Titre>
+          <Ajuste max={30} lignes={2} interligne={1.3} style={{fontFamily: B, fontWeight: 600, color: C.nuit, marginTop: 16}}>
             {[s.heures?.replace(/^dès /, ''), s.prix, s.lieu.split('·')[0].replace(/\s*\([^)]*\)/g, '').trim()].filter(Boolean).join('  ·  ')}
-          </div>
+          </Ajuste>
         </div>
       </div>
       <Grain o={0.12} />
+      <ControleVisuel />
     </AbsoluteFill>
   );
 };
@@ -79,24 +92,25 @@ export const DiapoFin: React.FC<{soirees: Soiree[]; photo: string; question?: st
       {soirees.map((s, i) => (
         <div key={i} style={{display: 'flex', alignItems: 'baseline', gap: 26, padding: '18px 0', borderTop: `1.5px solid ${C.creme}55`}}>
           <span style={{fontFamily: T, fontWeight: 800, fontStretch: '75%', fontSize: 52, color: C.corail, width: 60}}>{i + 1}</span>
-          <span style={{fontFamily: B, fontWeight: 700, fontSize: 38, color: C.creme, flex: 1, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis'}}>{nomCourt(s.nom, s.lieu)}</span>
-          <span style={{fontFamily: B, fontWeight: 500, fontSize: 28, color: C.creme, opacity: 0.75}}>{s.jour.split(' ').slice(0, 2).join(' ').toLowerCase()}</span>
+          <Ajuste max={38} style={{fontFamily: B, fontWeight: 700, color: C.creme, flex: 1, minWidth: 0, whiteSpace: 'nowrap'}}>{nomCourt(s.nom, s.lieu)}</Ajuste>
+          <span style={{fontFamily: B, fontWeight: 500, fontSize: 28, color: C.creme, opacity: 0.75, whiteSpace: 'nowrap'}}>{s.jour.split(' ').slice(0, 2).join(' ').toLowerCase()}</span>
         </div>
       ))}
     </div>
     <div style={{position: 'absolute', left: 56, right: 56, bottom: 64, display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
       <Etiquette>Commente le numéro</Etiquette>
-      <span style={{fontFamily: B, fontWeight: 600, fontSize: 28, color: C.creme, opacity: 0.85}}>et enregistre pour plus tard</span>
+      <span data-verif="bloc" style={{fontFamily: B, fontWeight: 600, fontSize: 28, color: C.creme, opacity: 0.85, whiteSpace: 'nowrap'}}>et enregistre pour plus tard</span>
     </div>
     <Grain o={0.08} />
+    <ControleVisuel />
   </AbsoluteFill>
 );
 
 /** Carrousel complet des sorties (même props que l'ancien, plus les photos de la DA). */
-export const CarrouselFlash: React.FC<{soirees: Soiree[]; slide: number; titre: string; sous?: string; photo?: string; photoFin?: string}> = ({soirees, slide, titre, sous, photo = 'decors/da/danse.jpg', photoFin = 'decors/da/selfie.jpg'}) => {
+export const CarrouselFlash: React.FC<{soirees: Soiree[]; slide: number; titre: string; sous?: string; photo?: string; photoFin?: string; rubrique?: string; question?: string}> = ({soirees, slide, titre, sous, photo = 'decors/da/danse.jpg', photoFin = 'decors/da/selfie.jpg', rubrique = "Sorties · Côte d'Azur", question}) => {
   const n = soirees.length;
-  if (slide === 0) return <Couverture photo={photo} rubrique="Sorties · Côte d'Azur" titre={titre} sous={sous} vignettes={soirees.map((s) => s.image)} glisse />;
-  if (slide > n) return <DiapoFin soirees={soirees} photo={photoFin} />;
+  if (slide === 0) return <Couverture photo={photo} rubrique={rubrique} titre={titre} sous={sous} vignettes={soirees.map((s) => s.image)} glisse />;
+  if (slide > n) return <DiapoFin soirees={soirees} photo={photoFin} question={question} />;
   return <DiapoSoiree s={soirees[slide - 1]} i={slide} n={n} />;
 };
 
@@ -111,13 +125,13 @@ export const PostFlashDA: React.FC<{f: FlashDA; photo?: string}> = ({f, photo}) 
       <Signature droite={<span style={{fontFamily: B, fontWeight: 700, fontSize: 24, color: C.creme, opacity: 0.85}}>{f.date}</span>} />
       {f.image ? (
         <div style={{position: 'absolute', left: 0, right: 0, top: 120, height: 560, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-          <Img src={staticFile(f.image)} style={{maxWidth: 860, maxHeight: 540, borderRadius: 14, boxShadow: '0 30px 80px rgba(0,0,0,.6)', transform: 'rotate(-2deg)'}} />
+          <Img data-verif="image" src={staticFile(f.image)} style={{maxWidth: 860, maxHeight: 540, minHeight: 440, borderRadius: 14, boxShadow: '0 30px 80px rgba(0,0,0,.6)', transform: 'rotate(-2deg)'}} />
         </div>
       ) : null}
       <div style={{position: 'absolute', left: 56, right: 56, bottom: 64}}>
         <Etiquette style={{marginBottom: 24}}>{f.surtitre}</Etiquette>
         <Titre taille={f.titre.length > 45 ? 92 : 112}>{f.titre}</Titre>
-        {f.sous_titre ? <div style={{fontFamily: B, fontWeight: 600, fontSize: 38, color: C.creme, marginTop: 20, lineHeight: 1.25}}>{f.sous_titre}</div> : null}
+        {f.sous_titre ? <Ajuste max={38} lignes={2} interligne={1.25} style={{fontFamily: B, fontWeight: 600, color: C.creme, marginTop: 20}}>{f.sous_titre}</Ajuste> : null}
         {!f.image && f.faits.length ? (
           <div style={{marginTop: 26}}>
             {f.faits.slice(0, 3).map((x, i) => (
@@ -127,9 +141,10 @@ export const PostFlashDA: React.FC<{f: FlashDA; photo?: string}> = ({f, photo}) 
             ))}
           </div>
         ) : null}
-        <div style={{fontFamily: B, fontWeight: 600, fontSize: 24, color: C.creme, opacity: 0.7, marginTop: 24, letterSpacing: '0.04em'}}>Source : {f.source}</div>
+        <Ajuste max={24} style={{fontFamily: B, fontWeight: 600, color: C.creme, opacity: 0.7, marginTop: 24, letterSpacing: '0.04em', whiteSpace: 'nowrap'}}>{`Source : ${f.source}`}</Ajuste>
       </div>
       <Grain o={0.08} />
+      <ControleVisuel />
     </AbsoluteFill>
   );
 };

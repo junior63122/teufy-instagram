@@ -57,7 +57,7 @@ const B = process.env.CHROME_HEADLESS_SHELL || '/opt/pw-browsers/chromium_headle
 const bin = path.join(STUDIO, 'node_modules', '.bin', 'remotion');
 const fichiers = [];
 for (let k = 0; k <= soirees.length + 1; k++) {
-  const props = JSON.stringify({slide: k, soirees, titre, sous, photo, photoFin});
+  const props = JSON.stringify({slide: k, soirees, titre, sous, photo, photoFin, rubrique: E.rubrique, question: E.question});
   const f = path.resolve(sortie, `carrousel-${String(k).padStart(2, '0')}.jpg`);
   const r = spawnSync(bin, ['still', 'src/index.ts', E.ancien ? 'carrousel' : 'carrousel-flash', f, `--props=${props}`, '--image-format=jpeg', '--jpeg-quality=92', '--log=error', ...(existsSync(B) ? [`--browser-executable=${B}`] : [])], {cwd: STUDIO, stdio: 'inherit'});
   if (r.status !== 0) process.exit(r.status || 1);
