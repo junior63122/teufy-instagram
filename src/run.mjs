@@ -79,6 +79,7 @@ if (cible === 'auto') {
     let rep = s ? slotId(s) : 'rien';
     // Pause : la nouvelle direction artistique doit être validée avant toute publication automatique.
     if (R.pause_publication) { console.error(`Publications automatiques en pause : ${R.pause_publication}`); rep = 'rien'; }
+    if (s?.type === 'reel' && config.studio?.reels_en_pause) { console.error(`Reels en pause : ${config.studio.reels_en_pause}`); rep = 'rien'; }
     if (s && hist.some((h) => h.id === slotId(s) && h.date === slotOfDay(NOW).date)) rep = 'rien'; // déjà publié aujourd'hui
     else if (s && flag('horaire')) {
       const choisi = +creneauDuJour(NOW);
