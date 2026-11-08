@@ -1,0 +1,66 @@
+{
+  "concept": "da",
+  "style": "Candid editorial nightlife photograph shot on a 35mm point-and-shoot film camera with hard direct on-camera flash: subjects crisp and bright, background falling off into deep black, slightly blown highlights, natural film grain, subtle vignetting, warm skin tones with coral-red and magenta accents from club lights, authentic and energetic, like a cool Gen Z party photographer's Instagram. Real-looking people aged 20 to 28, diverse, stylish casual outfits, genuine emotion and a bit of motion blur. Absolutely no text, no letters, no logos, no brand names, no watermarks, no drugs, no visible alcohol bottles. Vertical 4:5 framing.",
+  "decors": [
+    {
+      "id": "danse",
+      "format": "4:5",
+      "prompt": "Three friends dancing and laughing close to the camera on a packed dancefloor, arms up, sweat and confetti in the flash."
+    },
+    {
+      "id": "dj",
+      "format": "4:5",
+      "prompt": "Low angle on a DJ's hands on the mixer, a blurred crowd with raised hands behind, red light beams and smoke."
+    },
+    {
+      "id": "rooftop",
+      "format": "4:5",
+      "prompt": "A group of friends laughing on a rooftop terrace at night, the bay of Nice and the Promenade lights glowing far behind, string lights."
+    },
+    {
+      "id": "rire",
+      "format": "4:5",
+      "prompt": "A young woman with small sunglasses laughing out loud in the middle of a crowd, flash, hair moving, coral light rim."
+    },
+    {
+      "id": "file",
+      "format": "4:5",
+      "prompt": "A line of stylish young people waiting outside a club door at night, red neon glow on the wall, a bouncer silhouette at the entrance."
+    },
+    {
+      "id": "plage",
+      "format": "4:5",
+      "prompt": "Beach party on a Riviera pebble beach at blue hour, people dancing barefoot, a DJ booth glowing in the background by the sea."
+    },
+    {
+      "id": "baskets",
+      "format": "4:5",
+      "prompt": "Close-up of dancing sneakers and feet on a dancefloor covered in confetti and light reflections."
+    },
+    {
+      "id": "taxi",
+      "format": "4:5",
+      "prompt": "Four friends squeezed on the back seat of a taxi at 4am, laughing, flash, city lights streaking through the window."
+    },
+    {
+      "id": "foule",
+      "format": "4:5",
+      "prompt": "Wide view of a crowd from the stage at an open-air night festival by the sea, hands in the air, phone flashlights, laser beams."
+    },
+    {
+      "id": "lasers",
+      "format": "4:5",
+      "prompt": "Empty dancefloor with thick smoke and coral-red laser beams cutting through the dark, mirror ball, nobody in frame, lots of dark negative space."
+    },
+    {
+      "id": "terrasse",
+      "format": "4:5",
+      "prompt": "Two friends clinking colorful mocktail glasses at a lively beach club terrace at sunset, golden light, palm trees, the sea behind."
+    },
+    {
+      "id": "selfie",
+      "format": "4:5",
+      "prompt": "A group selfie of five friends at a club, faces close together, big smiles, flash glare, some eyes closed, very candid."
+    }
+  ]
+}
