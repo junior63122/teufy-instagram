@@ -86,7 +86,7 @@ const scenes = C.scenes.map((s, k) => {
 scenes.forEach((s, k) => { s.end = +(k + 1 < scenes.length ? scenes[k + 1].start : fin).toFixed(3); });
 
 // 3. Bruitages : posés sur un mot (« mot ») ou au début d'une scène, avec un décalage.
-const norm = (w) => w.toLowerCase().replace(/[^\p{L}\p{N}']/gu, '');
+const norm = (w) => w.toLowerCase().normalize('NFD').replace(/\p{M}/gu, '').replace(/^(?:\p{L}{1,2}|qu)['’]/u, '').replace(/[^\p{L}\p{N}']/gu, '');
 const bruits = [];
 for (const [k, s] of C.scenes.entries()) {
   for (const b of s.sons || []) {

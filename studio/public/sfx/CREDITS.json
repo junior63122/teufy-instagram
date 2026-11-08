@@ -238,5 +238,23 @@
   "titre": "Funny fail low tone",
   "url": "https://assets.mixkit.co/active_storage/sfx/2060/2060-preview.mp3",
   "licence": "Mixkit Free License (usage commercial, sans attribution)"
+ },
+ "ambiance-rue": {
+  "source": "Mixkit",
+  "titre": "City downtown crowd ambience",
+  "url": "https://assets.mixkit.co/active_storage/sfx/437/437-preview.mp3",
+  "licence": "Mixkit Free License (usage commercial, sans attribution)"
+ },
+ "ambiance-mer": {
+  "source": "Mixkit",
+  "titre": "Sea waves with birds loop",
+  "url": "https://assets.mixkit.co/active_storage/sfx/1212/1212-preview.mp3",
+  "licence": "Mixkit Free License (usage commercial, sans attribution)"
+ },
+ "ambiance-club": {
+  "source": "Mixkit",
+  "titre": "Very crowded pub or party loop",
+  "url": "https://assets.mixkit.co/active_storage/sfx/502/502-preview.mp3",
+  "licence": "Mixkit Free License (usage commercial, sans attribution)"
  }
 }

@@ -1,0 +1,238 @@
+{
+  "id": "phrases",
+  "concept": "histoire",
+  "type": "humour",
+  "titre": "Les phrases qu'on dit TOUS en soirée (et ce qui se passe vraiment)",
+  "voix": {
+    "voice_id": "IHngRooVccHyPqB4uQkG",
+    "nom": "Corentin",
+    "modele": "eleven_v3",
+    "stabilite": 0.0,
+    "style": 0.8,
+    "vitesse": 1.08
+  },
+  "musique": {
+    "src": "musique/odd-beats.mp3",
+    "volume": 0.5,
+    "ducking": 0.55
+  },
+  "queue": 2.6,
+  "whooshEntreScenes": false,
+  "scenes": [
+    {
+      "id": "intro",
+      "texte": "[excited] Les phrases qu'on dit TOUS en soirée… et ce qui se passe vraiment.",
+      "sons": [
+        {
+          "son": "impact",
+          "volume": 0.5
+        }
+      ]
+    },
+    {
+      "id": "bois",
+      "texte": "« Ce soir, je bois pas. » [laughs] Sept verres plus tard…",
+      "sons": [
+        {
+          "son": "zoom",
+          "mot": "plus",
+          "volume": 0.7
+        }
+      ]
+    },
+    {
+      "id": "derniere",
+      "texte": "« Allez, c'est la dernière. » Il est cinq heures du mat'.",
+      "sons": [
+        {
+          "son": "zoom",
+          "mot": "cinq",
+          "volume": 0.7
+        }
+      ]
+    },
+    {
+      "id": "kebab",
+      "texte": "« On prend un kebab vite fait. » Quarante-cinq minutes de queue.",
+      "sons": [
+        {
+          "son": "pop",
+          "mot": "quarante",
+          "volume": 0.6
+        }
+      ]
+    },
+    {
+      "id": "matin",
+      "texte": "[excited] Et « on va voir le lever du soleil ! » Tout le monde dort sur la plage.",
+      "sons": [
+        {
+          "son": "acclamation",
+          "mot": "dort",
+          "volume": 0.5
+        }
+      ]
+    },
+    {
+      "id": "fin",
+      "texte": "Commente la phrase que TOI tu dis à chaque fois !",
+      "sons": [
+        {
+          "son": "clavier",
+          "decalage": 1.0,
+          "volume": 0.56
+        }
+      ]
+    }
+  ],
+  "extra": {
+    "titreLignes": [
+      "LES PHRASES",
+      "qu'on dit tous"
+    ],
+    "finLignes": [
+      "ET TOI ?",
+      "ta phrase culte"
+    ],
+    "commentaire": "« je rentre tôt » 💀",
+    "mondes": [
+      {
+        "decor": "decors/potes/dancefloor.jpg",
+        "ambiance": "sfx/ambiance-club.mp3",
+        "couleur": "#3a86ff",
+        "etiquette": "« je bois pas »",
+        "zoom": "plus",
+        "persos": [
+          {
+            "look": {
+              "peau": "#f2c09b",
+              "cheveux": "#3b2416",
+              "haut": "#3a86ff",
+              "coiffure": "court",
+              "trait": "#141414",
+              "epaisseur": 7
+            },
+            "x": -120,
+            "pose": "fier",
+            "poseApres": "danse",
+            "motApres": "plus"
+          }
+        ],
+        "props": [
+          {
+            "type": "compteur",
+            "mot": "sept",
+            "de": 0,
+            "a": 7,
+            "suffixe": " 🍹",
+            "x": 250,
+            "y": -900
+          }
+        ]
+      },
+      {
+        "decor": "decors/potes/dj.jpg",
+        "ambiance": "sfx/ambiance-club.mp3",
+        "couleur": "#2ec4b6",
+        "etiquette": "« c'est la dernière »",
+        "zoom": "cinq",
+        "persos": [
+          {
+            "look": {
+              "peau": "#c98b62",
+              "cheveux": "#111",
+              "haut": "#2ec4b6",
+              "coiffure": "casquette",
+              "trait": "#141414",
+              "epaisseur": 7
+            },
+            "x": -160,
+            "pose": "salue",
+            "poseApres": "choc",
+            "motApres": "cinq"
+          }
+        ],
+        "props": [
+          {
+            "type": "horloge",
+            "mot": "cinq",
+            "heures": [
+              "01:00",
+              "05:12"
+            ],
+            "x": 230,
+            "y": -900
+          }
+        ]
+      },
+      {
+        "decor": "decors/potes/kebab.jpg",
+        "ambiance": "sfx/ambiance-rue.mp3",
+        "couleur": "#ff8c42",
+        "etiquette": "« un kebab vite fait »",
+        "persos": [
+          {
+            "look": {
+              "peau": "#8d5a3b",
+              "cheveux": "#1a1a1a",
+              "haut": "#ffd60a",
+              "coiffure": "bouclé",
+              "trait": "#141414",
+              "epaisseur": 7
+            },
+            "x": -100,
+            "pose": "pointe",
+            "poseApres": "agace",
+            "motApres": "quarante"
+          }
+        ],
+        "props": [
+          {
+            "type": "compteur",
+            "mot": "quarante",
+            "de": 5,
+            "a": 45,
+            "suffixe": " MIN",
+            "x": 240,
+            "y": -920,
+            "couleur": "#ff3b30"
+          }
+        ]
+      },
+      {
+        "decor": "decors/potes/matin.jpg",
+        "ambiance": "sfx/ambiance-mer.mp3",
+        "couleur": "#ff4d8d",
+        "etiquette": "« le lever du soleil »",
+        "persos": [
+          {
+            "look": {
+              "peau": "#f6d1b3",
+              "cheveux": "#b5532c",
+              "haut": "#ff4d8d",
+              "coiffure": "long",
+              "lunettes": true,
+              "trait": "#141414",
+              "epaisseur": 7
+            },
+            "x": -140,
+            "pose": "salue",
+            "poseApres": "triste",
+            "motApres": "dort"
+          }
+        ],
+        "props": [
+          {
+            "type": "emoji",
+            "mot": "dort",
+            "emoji": "😴",
+            "x": 240,
+            "y": -900,
+            "taille": 200
+          }
+        ]
+      }
+    ]
+  },
+  "legende": "Les phrases qu'on dit TOUS en soirée 😭\n\n🍹 « je bois pas ce soir »\n🕔 « c'est la dernière »\n🌯 « un kebab vite fait »\n🌅 « on va voir le lever du soleil »\n\nCommente TA phrase culte 👇\n\n#TeufyParty #soirée #humour #CoteDAzur #nightlife"
+}

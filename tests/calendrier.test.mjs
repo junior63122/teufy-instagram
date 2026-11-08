@@ -10,18 +10,18 @@ const outils = (s) => { const r = rng(s); return { r, ch: chooser({ arms: {}, fe
 const config = JSON.parse(readFileSync(new URL('../config.json', import.meta.url)));
 const debats = JSON.parse(readFileSync(new URL('../contenus/debats.json', import.meta.url)));
 
-test('9 publications par mois, chaque mois de l\'année', () => {
+test('chaque mois : 6 posts soirées/débats + au moins 3 reels illustrés par semaine', () => {
   for (let m = 0; m < 12; m++) {
-    const slots = daysOfMonth(new Date(Date.UTC(2027, m, 15, 12)))
-      .map((d) => { const s = slotOfDay(d); return config.calendrier.find((c) => c.jour === s.jour && c.rang === s.rang); })
-      .filter(Boolean);
-    const n = (t, v) => slots.filter((s) => s.type === t && (!v || s.variante === v)).length;
-    assert.equal(slots.length, 9, `mois ${m + 1}`);
-    assert.equal(n('incontournables', 'commercial'), 1);
+    const jours = daysOfMonth(new Date(Date.UTC(2027, m, 15, 12)));
+    const slots = jours.map((d) => { const s = slotOfDay(d); return { d, s, c: config.calendrier.find((c) => c.jour === s.jour && c.rang === s.rang) }; });
+    const n = (t, v) => slots.filter(({ c }) => c && c.type === t && (!v || c.variante === v)).length;
+    assert.equal(n('incontournables', 'commercial'), 1, `mois ${m + 1}`);
     assert.equal(n('incontournables', 'techno'), 1);
     assert.equal(n('bonplan'), 2);
     assert.equal(n('debat'), 2);
-    assert.equal(n('reel'), 3);
+    // Reels : chaque mardi, jeudi et samedi du mois, en « plan continu illustré ».
+    for (const { s, c } of slots) if ([2, 4, 6].includes(s.jour)) assert.deepEqual([c?.type, c?.variante], ['reel', 'histoire'], s.date);
+    assert.ok(n('reel') >= 12, `mois ${m + 1} : ${n('reel')} reels`);
   }
 });
 

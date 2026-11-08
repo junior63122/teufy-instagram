@@ -463,7 +463,7 @@
     {
      "son": "impact",
      "decalage": 0,
-     "volume": 0.35
+     "volume": 0.49
     }
    ],
    "start": 0,
@@ -477,7 +477,7 @@
      "son": "zoom",
      "mot": "ferme",
      "decalage": 0.15,
-     "volume": 0.5
+     "volume": 0.7
     }
    ],
    "start": 3.213,
@@ -491,7 +491,7 @@
      "son": "zoom",
      "mot": "minutes",
      "decalage": 0.05,
-     "volume": 0.5
+     "volume": 0.7
     }
    ],
    "start": 6.92,
@@ -505,12 +505,12 @@
      "son": "pop",
      "mot": "disparaît",
      "decalage": 0.25,
-     "volume": 0.45
+     "volume": 0.63
     },
     {
      "son": "zoom",
      "mot": "kebab",
-     "volume": 0.5
+     "volume": 0.7
     }
    ],
    "start": 11.43,
@@ -523,18 +523,18 @@
     {
      "son": "message",
      "mot": "rentré",
-     "volume": 0.45
+     "volume": 0.63
     },
     {
      "son": "message",
      "mot": "rentré",
      "decalage": 0.44,
-     "volume": 0.4
+     "volume": 0.56
     },
     {
      "son": "acclamation",
      "mot": "mvp",
-     "volume": 0.4
+     "volume": 0.56
     }
    ],
    "start": 15.347,
@@ -547,7 +547,7 @@
     {
      "son": "clavier",
      "decalage": 1,
-     "volume": 0.4
+     "volume": 0.56
     }
    ],
    "start": 19.8,
@@ -558,47 +558,47 @@
   {
    "src": "sfx/impact.mp3",
    "at": 0,
-   "volume": 0.35
+   "volume": 0.49
   },
   {
    "src": "sfx/zoom.mp3",
    "at": 6.05,
-   "volume": 0.5
+   "volume": 0.7
   },
   {
    "src": "sfx/zoom.mp3",
    "at": 10.83,
-   "volume": 0.5
+   "volume": 0.7
   },
   {
    "src": "sfx/pop.mp3",
    "at": 12.79,
-   "volume": 0.45
+   "volume": 0.63
   },
   {
    "src": "sfx/zoom.mp3",
    "at": 14.293,
-   "volume": 0.5
+   "volume": 0.7
   },
   {
    "src": "sfx/message.mp3",
    "at": 17.08,
-   "volume": 0.45
+   "volume": 0.63
   },
   {
    "src": "sfx/message.mp3",
    "at": 17.52,
-   "volume": 0.4
+   "volume": 0.56
   },
   {
    "src": "sfx/acclamation.mp3",
    "at": 19.2,
-   "volume": 0.4
+   "volume": 0.56
   },
   {
    "src": "sfx/clavier.mp3",
    "at": 20.8,
-   "volume": 0.4
+   "volume": 0.56
   }
  ],
  "voix": {
@@ -607,14 +607,20 @@
  },
  "musique": {
   "src": "musique/odd-beats.mp3",
-  "volume": 0.28,
+  "volume": 0.5,
   "debut": 0,
-  "ducking": 0.45
+  "ducking": 0.55
  },
  "decors": [
   "decors/potes/dancefloor.jpg",
   "decors/potes/dj.jpg",
   "decors/potes/kebab.jpg",
   "decors/potes/matin.jpg"
+ ],
+ "ambiances": [
+  "sfx/ambiance-club.mp3",
+  "sfx/ambiance-club.mp3",
+  "sfx/ambiance-rue.mp3",
+  "sfx/ambiance-mer.mp3"
  ]
 }

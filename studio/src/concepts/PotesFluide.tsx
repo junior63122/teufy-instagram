@@ -1,5 +1,5 @@
 import React from 'react';
-import {AbsoluteFill, Img, staticFile} from 'remotion';
+import {AbsoluteFill, Audio, Img, Sequence, staticFile} from 'remotion';
 import {BandeSon, Eclat, Grain, SousTitres, quand, useT} from '../ui/base';
 import {Commentaire, Perso, Telephone} from '../ui/illus';
 import type {Look} from '../ui/illus';
@@ -233,6 +233,23 @@ export const PotesFluide: React.FC<{spec: Spec}> = ({spec}) => {
       <SousTitres mots={spec.mots} y={1370} taille={70} style="contour" accent={K.jaune} cles={[]} />
       <Grain force={0.05} />
       <BandeSon spec={spec} />
+      {/* ambiance de chaque monde, qui suit la caméra (club, rue, bord de mer) */}
+      {((spec.ambiances as string[] | undefined) || []).map((src, i) => src ? (
+        <Audio key={`amb${i}`} src={staticFile(src)} loop volume={(f) => {
+          const cc = cam(f / fps);
+          const proche = clamp(1 - Math.abs(cc.x - (xZone(i) + 60)) / 1100);
+          const groupe = cc.z < 0.5 ? 0.35 : 1;
+          const parleF = spec.mots.some((m) => f / fps >= m.start - 0.1 && f / fps <= m.end + 0.2);
+          return 0.55 * proche * groupe * (parleF ? 0.55 : 1) * clamp((spec.duree - f / fps) / 1.2);
+        }} />
+      ) : null)}
+      {/* un souffle à chaque glissade de caméra, une montée avant le recul final */}
+      {[2, 3, 4].map((k) => (
+        <Sequence key={`w${k}`} from={Math.max(0, Math.round((S[k].start - 0.38) * fps))} layout="none"><Audio src={staticFile('sfx/whoosh.mp3')} volume={0.55} /></Sequence>
+      ))}
+      <Sequence from={Math.max(0, Math.round((S[1].start - 0.5) * fps))} layout="none"><Audio src={staticFile('sfx/aspiration.mp3')} volume={0.55} /></Sequence>
+      <Sequence from={Math.max(0, Math.round((S[5].start - 1.6) * fps))} layout="none"><Audio src={staticFile('sfx/riser.mp3')} volume={0.45} /></Sequence>
+      <Sequence from={Math.max(0, Math.round((S[5].start + 0.3) * fps))} layout="none"><Audio src={staticFile('sfx/impact.mp3')} volume={0.5} /></Sequence>
     </AbsoluteFill>
   );
 };

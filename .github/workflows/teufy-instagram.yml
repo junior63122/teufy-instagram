@@ -7,7 +7,7 @@ name: Teufy - Instagram automatique
 #    (apprentissage.json + RAPPORT.md) pour améliorer les choix suivants ;
 #  - si le calendrier de config.json prévoit une publication ce jour-là,
 #    publie à l'heure qui a le mieux marché jusqu'ici (apprise automatiquement).
-# 9 publications par mois : 2 incontournables (commercial, techno), 2 bons plans, 2 débats, 3 reels.
+# Par mois : 2 incontournables (commercial, techno), 2 bons plans, 2 débats + 3 reels « plan continu illustré » par semaine (mardi, jeudi, samedi).
 on:
   schedule:
     - cron: "7 15-19 * * *" # 15h-18h UTC : créneaux possibles ; 19h : rattrapage
@@ -17,7 +17,7 @@ on:
         description: "Quoi générer"
         type: choice
         options:
-          - mois (aperçu des 9 publications du mois)
+          - mois (aperçu des publications du mois)
           - auto (la publication prévue aujourd'hui)
           - collecter (statistiques Instagram)
           - incontournables:commercial
@@ -25,11 +25,12 @@ on:
           - bonplan:petits-prix
           - bonplan:a-reserver
           - debat
+          - reel:histoire
           - reel:explicatif
           - reel:humour
           - reel:immersif
           - reel:weekend
-        default: mois (aperçu des 9 publications du mois)
+        default: mois (aperçu des publications du mois)
       publier:
         description: "Publier vraiment sur Instagram (sinon : aperçu téléchargeable seulement)"
         type: boolean
@@ -122,8 +123,9 @@ jobs:
           git config user.name "teufy-bot"
           git config user.email "teufy-bot@users.noreply.github.com"
           git add evenements-web.json contenus/organisateurs.json 2>/dev/null || true
+          git add studio/scripts/concepts studio/scripts/decors studio/public 2>/dev/null || true # reels écrits par l'IA + décors Gemini (jamais payés deux fois)
           git diff --cached --quiet && exit 0
-          git commit -m "Teufy : soirées trouvées le $(date -u +%F)"
+          git commit -m "Teufy : soirées et reels préparés le $(date -u +%F)"
           for i in 1 2 3; do git pull --rebase && git push && break; sleep 5; done
 
       - name: Aperçu téléchargeable (visuels, vidéos, légendes, pages récupérées)

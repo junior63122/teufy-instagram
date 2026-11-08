@@ -1,0 +1,738 @@
+{
+ "id": "phrases",
+ "concept": "histoire",
+ "fps": 30,
+ "duree": 20.201,
+ "mots": [
+  {
+   "w": "Les",
+   "scene": 0,
+   "start": 0.136,
+   "end": 0.16
+  },
+  {
+   "w": "phrases",
+   "scene": 0,
+   "start": 0.2,
+   "end": 0.48
+  },
+  {
+   "w": "qu'on",
+   "scene": 0,
+   "start": 0.507,
+   "end": 0.64
+  },
+  {
+   "w": "dit",
+   "scene": 0,
+   "start": 0.68,
+   "end": 0.8
+  },
+  {
+   "w": "TOUS",
+   "scene": 0,
+   "start": 0.907,
+   "end": 1.28
+  },
+  {
+   "w": "en",
+   "scene": 0,
+   "start": 1.307,
+   "end": 1.36
+  },
+  {
+   "w": "soirée…",
+   "scene": 0,
+   "start": 1.424,
+   "end": 2
+  },
+  {
+   "w": "et",
+   "scene": 0,
+   "start": 2.027,
+   "end": 2.08
+  },
+  {
+   "w": "ce",
+   "scene": 0,
+   "start": 2.107,
+   "end": 2.16
+  },
+  {
+   "w": "qui",
+   "scene": 0,
+   "start": 2.18,
+   "end": 2.24
+  },
+  {
+   "w": "se",
+   "scene": 0,
+   "start": 2.293,
+   "end": 2.4
+  },
+  {
+   "w": "passe",
+   "scene": 0,
+   "start": 2.427,
+   "end": 2.56
+  },
+  {
+   "w": "vraiment.",
+   "scene": 0,
+   "start": 2.604,
+   "end": 2.96
+  },
+  {
+   "w": "«",
+   "scene": 1,
+   "start": 3.2,
+   "end": 3.44
+  },
+  {
+   "w": "Ce",
+   "scene": 1,
+   "start": 3.493,
+   "end": 3.6
+  },
+  {
+   "w": "soir,",
+   "scene": 1,
+   "start": 3.632,
+   "end": 3.84
+  },
+  {
+   "w": "je",
+   "scene": 1,
+   "start": 3.867,
+   "end": 3.92
+  },
+  {
+   "w": "bois",
+   "scene": 1,
+   "start": 3.968,
+   "end": 4.16
+  },
+  {
+   "w": "pas.",
+   "scene": 1,
+   "start": 4.2,
+   "end": 4.4
+  },
+  {
+   "w": "»",
+   "scene": 1,
+   "start": 4.52,
+   "end": 4.64
+  },
+  {
+   "w": "Sept",
+   "scene": 1,
+   "start": 5.472,
+   "end": 5.6
+  },
+  {
+   "w": "verres",
+   "scene": 1,
+   "start": 5.64,
+   "end": 5.84
+  },
+  {
+   "w": "plus",
+   "scene": 1,
+   "start": 5.872,
+   "end": 6
+  },
+  {
+   "w": "tard…",
+   "scene": 1,
+   "start": 6.064,
+   "end": 6.56
+  },
+  {
+   "w": "«",
+   "scene": 2,
+   "start": 6.6,
+   "end": 6.64
+  },
+  {
+   "w": "Allez,",
+   "scene": 2,
+   "start": 6.667,
+   "end": 6.88
+  },
+  {
+   "w": "c'est",
+   "scene": 2,
+   "start": 6.92,
+   "end": 7.04
+  },
+  {
+   "w": "la",
+   "scene": 2,
+   "start": 7.067,
+   "end": 7.12
+  },
+  {
+   "w": "dernière.",
+   "scene": 2,
+   "start": 7.182,
+   "end": 7.76
+  },
+  {
+   "w": "»",
+   "scene": 2,
+   "start": 7.84,
+   "end": 7.92
+  },
+  {
+   "w": "Il",
+   "scene": 2,
+   "start": 7.947,
+   "end": 8
+  },
+  {
+   "w": "est",
+   "scene": 2,
+   "start": 8.04,
+   "end": 8.16
+  },
+  {
+   "w": "cinq",
+   "scene": 2,
+   "start": 8.2,
+   "end": 8.32
+  },
+  {
+   "w": "heures",
+   "scene": 2,
+   "start": 8.354,
+   "end": 8.56
+  },
+  {
+   "w": "du",
+   "scene": 2,
+   "start": 8.587,
+   "end": 8.64
+  },
+  {
+   "w": "mat'.",
+   "scene": 2,
+   "start": 8.68,
+   "end": 9.04
+  },
+  {
+   "w": "«",
+   "scene": 3,
+   "start": 9.12,
+   "end": 9.2
+  },
+  {
+   "w": "On",
+   "scene": 3,
+   "start": 9.227,
+   "end": 9.28
+  },
+  {
+   "w": "prend",
+   "scene": 3,
+   "start": 9.307,
+   "end": 9.44
+  },
+  {
+   "w": "un",
+   "scene": 3,
+   "start": 9.467,
+   "end": 9.52
+  },
+  {
+   "w": "kebab",
+   "scene": 3,
+   "start": 9.573,
+   "end": 9.84
+  },
+  {
+   "w": "vite",
+   "scene": 3,
+   "start": 9.888,
+   "end": 10.08
+  },
+  {
+   "w": "fait.",
+   "scene": 3,
+   "start": 10.128,
+   "end": 10.44
+  },
+  {
+   "w": "»",
+   "scene": 3,
+   "start": 10.5,
+   "end": 10.56
+  },
+  {
+   "w": "Quarante-cinq",
+   "scene": 3,
+   "start": 10.592,
+   "end": 10.96
+  },
+  {
+   "w": "minutes",
+   "scene": 3,
+   "start": 11,
+   "end": 11.28
+  },
+  {
+   "w": "de",
+   "scene": 3,
+   "start": 11.333,
+   "end": 11.44
+  },
+  {
+   "w": "queue.",
+   "scene": 3,
+   "start": 11.48,
+   "end": 12
+  },
+  {
+   "w": "Et",
+   "scene": 4,
+   "start": 12.068,
+   "end": 12.081
+  },
+  {
+   "w": "«",
+   "scene": 4,
+   "start": 12.101,
+   "end": 12.121
+  },
+  {
+   "w": "on",
+   "scene": 4,
+   "start": 12.134,
+   "end": 12.161
+  },
+  {
+   "w": "va",
+   "scene": 4,
+   "start": 12.214,
+   "end": 12.321
+  },
+  {
+   "w": "voir",
+   "scene": 4,
+   "start": 12.353,
+   "end": 12.481
+  },
+  {
+   "w": "le",
+   "scene": 4,
+   "start": 12.508,
+   "end": 12.561
+  },
+  {
+   "w": "lever",
+   "scene": 4,
+   "start": 12.614,
+   "end": 12.881
+  },
+  {
+   "w": "du",
+   "scene": 4,
+   "start": 12.908,
+   "end": 12.961
+  },
+  {
+   "w": "soleil",
+   "scene": 4,
+   "start": 13.009,
+   "end": 13.441
+  },
+  {
+   "w": "!",
+   "scene": 4,
+   "start": 13.481,
+   "end": 13.521
+  },
+  {
+   "w": "»",
+   "scene": 4,
+   "start": 13.681,
+   "end": 13.841
+  },
+  {
+   "w": "Tout",
+   "scene": 4,
+   "start": 13.857,
+   "end": 13.921
+  },
+  {
+   "w": "le",
+   "scene": 4,
+   "start": 13.948,
+   "end": 14.001
+  },
+  {
+   "w": "monde",
+   "scene": 4,
+   "start": 14.028,
+   "end": 14.161
+  },
+  {
+   "w": "dort",
+   "scene": 4,
+   "start": 14.209,
+   "end": 14.401
+  },
+  {
+   "w": "sur",
+   "scene": 4,
+   "start": 14.441,
+   "end": 14.561
+  },
+  {
+   "w": "la",
+   "scene": 4,
+   "start": 14.588,
+   "end": 14.641
+  },
+  {
+   "w": "plage.",
+   "scene": 4,
+   "start": 14.708,
+   "end": 15.121
+  },
+  {
+   "w": "Commente",
+   "scene": 5,
+   "start": 15.181,
+   "end": 15.681
+  },
+  {
+   "w": "la",
+   "scene": 5,
+   "start": 15.708,
+   "end": 15.761
+  },
+  {
+   "w": "phrase",
+   "scene": 5,
+   "start": 15.807,
+   "end": 16.081
+  },
+  {
+   "w": "que",
+   "scene": 5,
+   "start": 16.121,
+   "end": 16.241
+  },
+  {
+   "w": "TOI",
+   "scene": 5,
+   "start": 16.294,
+   "end": 16.561
+  },
+  {
+   "w": "tu",
+   "scene": 5,
+   "start": 16.641,
+   "end": 16.801
+  },
+  {
+   "w": "dis",
+   "scene": 5,
+   "start": 16.841,
+   "end": 16.961
+  },
+  {
+   "w": "à",
+   "scene": 5,
+   "start": 17.041,
+   "end": 17.121
+  },
+  {
+   "w": "chaque",
+   "scene": 5,
+   "start": 17.144,
+   "end": 17.281
+  },
+  {
+   "w": "fois",
+   "scene": 5,
+   "start": 17.313,
+   "end": 17.441
+  },
+  {
+   "w": "!",
+   "scene": 5,
+   "start": 17.521,
+   "end": 17.601
+  }
+ ],
+ "scenes": [
+  {
+   "id": "intro",
+   "texte": "[excited] Les phrases qu'on dit TOUS en soirée… et ce qui se passe vraiment.",
+   "sons": [
+    {
+     "son": "impact",
+     "volume": 0.5
+    }
+   ],
+   "start": 0,
+   "end": 3.08
+  },
+  {
+   "id": "bois",
+   "texte": "« Ce soir, je bois pas. » [laughs] Sept verres plus tard…",
+   "sons": [
+    {
+     "son": "zoom",
+     "mot": "plus",
+     "volume": 0.7
+    }
+   ],
+   "start": 3.08,
+   "end": 6.48
+  },
+  {
+   "id": "derniere",
+   "texte": "« Allez, c'est la dernière. » Il est cinq heures du mat'.",
+   "sons": [
+    {
+     "son": "zoom",
+     "mot": "cinq",
+     "volume": 0.7
+    }
+   ],
+   "start": 6.48,
+   "end": 9
+  },
+  {
+   "id": "kebab",
+   "texte": "« On prend un kebab vite fait. » Quarante-cinq minutes de queue.",
+   "sons": [
+    {
+     "son": "pop",
+     "mot": "quarante",
+     "volume": 0.6
+    }
+   ],
+   "start": 9,
+   "end": 11.948
+  },
+  {
+   "id": "matin",
+   "texte": "[excited] Et « on va voir le lever du soleil ! » Tout le monde dort sur la plage.",
+   "sons": [
+    {
+     "son": "acclamation",
+     "mot": "dort",
+     "volume": 0.5
+    }
+   ],
+   "start": 11.948,
+   "end": 15.061
+  },
+  {
+   "id": "fin",
+   "texte": "Commente la phrase que TOI tu dis à chaque fois !",
+   "sons": [
+    {
+     "son": "clavier",
+     "decalage": 1,
+     "volume": 0.56
+    }
+   ],
+   "start": 15.061,
+   "end": 20.201
+  }
+ ],
+ "bruits": [
+  {
+   "src": "sfx/impact.mp3",
+   "at": 0,
+   "volume": 0.5
+  },
+  {
+   "src": "sfx/zoom.mp3",
+   "at": 5.872,
+   "volume": 0.7
+  },
+  {
+   "src": "sfx/zoom.mp3",
+   "at": 8.2,
+   "volume": 0.7
+  },
+  {
+   "src": "sfx/pop.mp3",
+   "at": 10.592,
+   "volume": 0.6
+  },
+  {
+   "src": "sfx/acclamation.mp3",
+   "at": 14.209,
+   "volume": 0.5
+  },
+  {
+   "src": "sfx/clavier.mp3",
+   "at": 16.061,
+   "volume": 0.56
+  }
+ ],
+ "voix": {
+  "src": "phrases/voix.mp3",
+  "volume": 1
+ },
+ "musique": {
+  "src": "musique/odd-beats.mp3",
+  "volume": 0.5,
+  "debut": 0,
+  "ducking": 0.55
+ },
+ "titreLignes": [
+  "LES PHRASES",
+  "qu'on dit tous"
+ ],
+ "finLignes": [
+  "ET TOI ?",
+  "ta phrase culte"
+ ],
+ "commentaire": "« je rentre tôt » 💀",
+ "mondes": [
+  {
+   "decor": "decors/potes/dancefloor.jpg",
+   "ambiance": "sfx/ambiance-club.mp3",
+   "couleur": "#3a86ff",
+   "etiquette": "« je bois pas »",
+   "zoom": "plus",
+   "persos": [
+    {
+     "look": {
+      "peau": "#f2c09b",
+      "cheveux": "#3b2416",
+      "haut": "#3a86ff",
+      "coiffure": "court",
+      "trait": "#141414",
+      "epaisseur": 7
+     },
+     "x": -120,
+     "pose": "fier",
+     "poseApres": "danse",
+     "motApres": "plus"
+    }
+   ],
+   "props": [
+    {
+     "type": "compteur",
+     "mot": "sept",
+     "de": 0,
+     "a": 7,
+     "suffixe": " 🍹",
+     "x": 250,
+     "y": -900
+    }
+   ]
+  },
+  {
+   "decor": "decors/potes/dj.jpg",
+   "ambiance": "sfx/ambiance-club.mp3",
+   "couleur": "#2ec4b6",
+   "etiquette": "« c'est la dernière »",
+   "zoom": "cinq",
+   "persos": [
+    {
+     "look": {
+      "peau": "#c98b62",
+      "cheveux": "#111",
+      "haut": "#2ec4b6",
+      "coiffure": "casquette",
+      "trait": "#141414",
+      "epaisseur": 7
+     },
+     "x": -160,
+     "pose": "salue",
+     "poseApres": "choc",
+     "motApres": "cinq"
+    }
+   ],
+   "props": [
+    {
+     "type": "horloge",
+     "mot": "cinq",
+     "heures": [
+      "01:00",
+      "05:12"
+     ],
+     "x": 230,
+     "y": -900
+    }
+   ]
+  },
+  {
+   "decor": "decors/potes/kebab.jpg",
+   "ambiance": "sfx/ambiance-rue.mp3",
+   "couleur": "#ff8c42",
+   "etiquette": "« un kebab vite fait »",
+   "persos": [
+    {
+     "look": {
+      "peau": "#8d5a3b",
+      "cheveux": "#1a1a1a",
+      "haut": "#ffd60a",
+      "coiffure": "bouclé",
+      "trait": "#141414",
+      "epaisseur": 7
+     },
+     "x": -100,
+     "pose": "pointe",
+     "poseApres": "agace",
+     "motApres": "quarante"
+    }
+   ],
+   "props": [
+    {
+     "type": "compteur",
+     "mot": "quarante",
+     "de": 5,
+     "a": 45,
+     "suffixe": " MIN",
+     "x": 240,
+     "y": -920,
+     "couleur": "#ff3b30"
+    }
+   ]
+  },
+  {
+   "decor": "decors/potes/matin.jpg",
+   "ambiance": "sfx/ambiance-mer.mp3",
+   "couleur": "#ff4d8d",
+   "etiquette": "« le lever du soleil »",
+   "persos": [
+    {
+     "look": {
+      "peau": "#f6d1b3",
+      "cheveux": "#b5532c",
+      "haut": "#ff4d8d",
+      "coiffure": "long",
+      "lunettes": true,
+      "trait": "#141414",
+      "epaisseur": 7
+     },
+     "x": -140,
+     "pose": "salue",
+     "poseApres": "triste",
+     "motApres": "dort"
+    }
+   ],
+   "props": [
+    {
+     "type": "emoji",
+     "mot": "dort",
+     "emoji": "😴",
+     "x": 240,
+     "y": -900,
+     "taille": 200
+    }
+   ]
+  }
+ ]
+}

@@ -44,7 +44,7 @@
       "https://dice.fm/browse/nice-60d0784c7645c67f491834e4"
     ]
   },
-  "calendrier_explication": "Chaque ligne = une publication par mois. jour : 1 = lundi … 7 = dimanche. rang : 1 = premier de ce jour dans le mois, 2 = deuxième… (1 à 4). Heure : voir le workflow.",
+  "calendrier_explication": "Chaque ligne = une publication par mois. jour : 1 = lundi … 7 = dimanche. rang : 1 = premier de ce jour dans le mois, 2 = deuxième… (1 à 5). Reels « histoire » (plan continu illustré, sujet et script écrits par l'IA) chaque mardi, jeudi et samedi = 3 par semaine minimum ; les soirées passent dans les carrousels, bons plans et débats. Heure : voir le workflow.",
   "calendrier": [
     {
       "jour": 1,
@@ -53,15 +53,39 @@
       "variante": "commercial"
     },
     {
+      "jour": 2,
+      "rang": 1,
+      "type": "reel",
+      "variante": "histoire"
+    },
+    {
       "jour": 4,
       "rang": 1,
       "type": "reel",
-      "variante": "humour"
+      "variante": "histoire"
+    },
+    {
+      "jour": 6,
+      "rang": 1,
+      "type": "reel",
+      "variante": "histoire"
+    },
+    {
+      "jour": 2,
+      "rang": 2,
+      "type": "reel",
+      "variante": "histoire"
     },
     {
       "jour": 3,
       "rang": 2,
       "type": "debat"
+    },
+    {
+      "jour": 4,
+      "rang": 2,
+      "type": "reel",
+      "variante": "histoire"
     },
     {
       "jour": 5,
@@ -70,22 +94,40 @@
       "variante": "petits-prix"
     },
     {
+      "jour": 6,
+      "rang": 2,
+      "type": "reel",
+      "variante": "histoire"
+    },
+    {
       "jour": 1,
       "rang": 3,
       "type": "incontournables",
       "variante": "techno"
     },
     {
+      "jour": 2,
+      "rang": 3,
+      "type": "reel",
+      "variante": "histoire"
+    },
+    {
       "jour": 4,
       "rang": 3,
       "type": "reel",
-      "variante": "immersif"
+      "variante": "histoire"
+    },
+    {
+      "jour": 6,
+      "rang": 3,
+      "type": "reel",
+      "variante": "histoire"
     },
     {
       "jour": 2,
       "rang": 4,
-      "type": "bonplan",
-      "variante": "a-reserver"
+      "type": "reel",
+      "variante": "histoire"
     },
     {
       "jour": 3,
@@ -93,10 +135,40 @@
       "type": "debat"
     },
     {
-      "jour": 5,
+      "jour": 4,
       "rang": 4,
       "type": "reel",
-      "variante": "explicatif"
+      "variante": "histoire"
+    },
+    {
+      "jour": 5,
+      "rang": 4,
+      "type": "bonplan",
+      "variante": "a-reserver"
+    },
+    {
+      "jour": 6,
+      "rang": 4,
+      "type": "reel",
+      "variante": "histoire"
+    },
+    {
+      "jour": 2,
+      "rang": 5,
+      "type": "reel",
+      "variante": "histoire"
+    },
+    {
+      "jour": 4,
+      "rang": 5,
+      "type": "reel",
+      "variante": "histoire"
+    },
+    {
+      "jour": 6,
+      "rang": 5,
+      "type": "reel",
+      "variante": "histoire"
     }
   ],
   "reglages": {
@@ -144,7 +216,7 @@
     "modele_github": "openai/gpt-4.1-mini"
   },
   "studio": {
-    "explication": "Reels = créations (explicatif, humour, immersif) produites par le studio Remotion (studio/). Les soirées passent dans les posts et carrousels. Chaque concept est un script dans studio/scripts/concepts/*.json ; le bot prend le prochain concept du bon type pas encore publié.",
+    "explication": "Reels = « plan continu illustré » (règle Teufy) : le scénariste IA (studio/scripts/ecrire.mjs) choisit un sujet (veille, idées, intemporels), Gemini dessine les décors (decors.mjs), ElevenLabs fait la voix, Remotion rend la vidéo (moteur studio/src/concepts/Histoire.tsx), contrôle qualité puis publication. Les concepts déjà écrits et non publiés de studio/scripts/concepts passent en premier.",
     "actif": true
   },
   "veille": {

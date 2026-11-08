@@ -12,8 +12,8 @@
   },
   "musique": {
     "src": "musique/odd-beats.mp3",
-    "volume": 0.28,
-    "ducking": 0.45
+    "volume": 0.5,
+    "ducking": 0.55
   },
   "queue": 2.6,
   "scenes": [
@@ -24,7 +24,7 @@
         {
           "son": "impact",
           "decalage": 0.0,
-          "volume": 0.35
+          "volume": 0.49
         }
       ]
     },
@@ -36,7 +36,7 @@
           "son": "zoom",
           "mot": "ferme",
           "decalage": 0.15,
-          "volume": 0.5
+          "volume": 0.7
         }
       ]
     },
@@ -48,7 +48,7 @@
           "son": "zoom",
           "mot": "minutes",
           "decalage": 0.05,
-          "volume": 0.5
+          "volume": 0.7
         }
       ]
     },
@@ -60,12 +60,12 @@
           "son": "pop",
           "mot": "disparaît",
           "decalage": 0.25,
-          "volume": 0.45
+          "volume": 0.63
         },
         {
           "son": "zoom",
           "mot": "kebab",
-          "volume": 0.5
+          "volume": 0.7
         }
       ]
     },
@@ -76,18 +76,18 @@
         {
           "son": "message",
           "mot": "rentré",
-          "volume": 0.45
+          "volume": 0.63
         },
         {
           "son": "message",
           "mot": "rentré",
           "decalage": 0.44,
-          "volume": 0.4
+          "volume": 0.56
         },
         {
           "son": "acclamation",
           "mot": "mvp",
-          "volume": 0.4
+          "volume": 0.56
         }
       ]
     },
@@ -98,7 +98,7 @@
         {
           "son": "clavier",
           "decalage": 1.0,
-          "volume": 0.4
+          "volume": 0.56
         }
       ]
     }
@@ -112,6 +112,12 @@
       "decors/potes/dj.jpg",
       "decors/potes/kebab.jpg",
       "decors/potes/matin.jpg"
+    ],
+    "ambiances": [
+      "sfx/ambiance-club.mp3",
+      "sfx/ambiance-club.mp3",
+      "sfx/ambiance-rue.mp3",
+      "sfx/ambiance-mer.mp3"
     ]
   }
 }

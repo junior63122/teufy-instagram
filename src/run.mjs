@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Usage :
 //   node src/run.mjs auto   [preparer|publier]   → la publication prévue aujourd'hui dans le calendrier (ou rien)
-//   node src/run.mjs mois                          → aperçu des 9 publications du mois (jamais publié)
+//   node src/run.mjs mois                          → aperçu des publications du mois (jamais publié)
 //   node src/run.mjs collecter [--cerveau]         → relève les statistiques Instagram (apprentissage.json, RAPPORT.md)
 //                                                    et, une fois par semaine, l'analyse IA gratuite (veille Meta, pourquoi, tests)
 //   node src/run.mjs <type>[:variante] [preparer|publier]
@@ -288,18 +288,22 @@ async function prepare(slot, now, id) {
     }
     files ||= await renderPages(programme(pages, chosen, { th, photos, titre, sous: fort ? `En ${MOIS(now)}` : elargi ? 'Ces prochains jours' : 'Cette semaine' }), dir, `incontournables-${stamp}`, { width: 1080, height: 1350 });
     pub = { images: files, legende: captionIncontournables({ variante: slot.variante, events: chosen, ...win, ch, r }), soirees: chosen, titre };
-  } else if (slot.type === 'reel' && config.studio?.actif && ['explicatif', 'humour', 'immersif'].includes(slot.variante)) {
+  } else if (slot.type === 'reel' && config.studio?.actif && ['histoire', 'explicatif', 'humour', 'immersif'].includes(slot.variante)) {
     // Reels = créations du studio (Remotion) : explicatif, humour ou immersif, jamais un catalogue de soirées.
     const STUDIO = path.join(ROOT, 'studio');
     const dirC = path.join(STUDIO, 'scripts', 'concepts');
     const tous = await Promise.all((await readdir(dirC)).filter((f) => f.endsWith('.json')).map(async (f) => ({fichier: path.join(dirC, f), ...JSON.parse(await readFile(path.join(dirC, f), 'utf8'))})));
     const faits = new Set([...hist.map((h) => h.concept).filter(Boolean), ...usedHere]);
     const dispo = tous.filter((c) => !faits.has(c.id));
-    const c = val('concept') ? tous.find((x) => x.id === val('concept')) : dispo.find((x) => x.type === slot.variante) || dispo[0];
+    let c = val('concept') ? tous.find((x) => x.id === val('concept'))
+      : slot.variante === 'histoire' ? dispo.find((x) => ['histoire', 'potesfluide'].includes(x.concept))
+      : dispo.find((x) => x.type === slot.variante) || dispo[0];
+    if (!c && slot.variante === 'histoire') c = DRY ? tous.find((x) => x.concept === 'histoire') : await nouvelleHistoire(STUDIO, id);
     if (!c) throw new Error('Banque de concepts de reels épuisée : ajoute des concepts dans studio/scripts/concepts (voir studio/LISEZMOI.md).');
     usedHere.add(c.id);
     if (!existsSync(path.join(STUDIO, 'node_modules'))) spawnSync('npm', ['ci', '--no-audit', '--no-fund'], {cwd: STUDIO, stdio: 'inherit'});
-    const r = spawnSync('node', [path.join(STUDIO, 'scripts', 'produire.mjs'), c.fichier], {cwd: STUDIO, stdio: 'inherit', env: {...process.env, NODE_USE_ENV_PROXY: '1'}});
+    const dejaRendu = DRY && existsSync(path.join(STUDIO, 'out', `${c.id}.mp4`)); // aperçu du mois : pas de rendu en double
+    const r = dejaRendu ? {status: 0} : spawnSync('node', [path.join(STUDIO, 'scripts', 'produire.mjs'), c.fichier], {cwd: STUDIO, stdio: 'inherit', env: {...process.env, NODE_USE_ENV_PROXY: '1'}});
     if (r.status !== 0) throw new Error(`Studio : rendu ou contrôle qualité en échec pour « ${c.id} »`);
     const video = path.join(dir, `reel-${stamp}.mp4`);
     await copyFile(path.join(STUDIO, 'out', `${c.id}.mp4`), video);
@@ -528,3 +532,27 @@ async function waitOnline(urls, timeoutMs) {
 
 async function output(k, v) { if (process.env.GITHUB_OUTPUT) await appendFile(process.env.GITHUB_OUTPUT, `${k}=${v}\n`); }
 function die(msg) { console.error(msg); process.exit(1); }
+
+// Reel « plan continu illustré » inédit : le scénariste IA écrit le sujet et le script, Gemini dessine les décors.
+// Un décor qui n'a pas pu être généré est remplacé par un décor existant du même type de lieu.
+async function nouvelleHistoire(STUDIO, id) {
+  const env = { ...process.env, NODE_USE_ENV_PROXY: '1' };
+  if (!existsSync(path.join(STUDIO, 'node_modules'))) spawnSync('npm', ['ci', '--no-audit', '--no-fund'], { cwd: STUDIO, stdio: 'inherit' });
+  const e = spawnSync('node', [path.join(STUDIO, 'scripts', 'ecrire.mjs')], { cwd: STUDIO, env, stdio: ['ignore', 'pipe', 'inherit'] });
+  const sortie = (e.stdout?.toString() || '').trim().split('\n');
+  console.log(sortie.slice(0, -1).join('\n'));
+  const fichier = sortie.at(-1);
+  if (e.status !== 0 || !fichier || !existsSync(fichier)) throw new Error('Scénariste : aucun script de reel écrit.');
+  const c = JSON.parse(await readFile(fichier, 'utf8'));
+  if (process.env.GEMINI_API_KEY) spawnSync('node', [path.join(STUDIO, 'scripts', 'decors.mjs'), path.join(STUDIO, 'scripts', 'decors', `${c.id}.json`)], { cwd: STUDIO, env, stdio: 'inherit' });
+  else console.error(`[${id}] GEMINI_API_KEY absente : décors de secours.`);
+  const SECOURS = { 'sfx/ambiance-club.mp3': ['decors/potes/dancefloor.jpg', 'decors/potes/dj.jpg'], 'sfx/ambiance-rue.mp3': ['decors/potes/kebab.jpg'], 'sfx/ambiance-mer.mp3': ['decors/potes/matin.jpg'] };
+  c.extra.mondes.forEach((m, i) => {
+    if (existsSync(path.join(STUDIO, 'public', m.decor))) return;
+    const l = SECOURS[m.ambiance] || SECOURS['sfx/ambiance-club.mp3'];
+    m.decor = l[i % l.length];
+    console.error(`[${id}] décor ${i + 1} manquant, secours : ${m.decor}`);
+  });
+  await writeFile(fichier, JSON.stringify(c, null, 2) + '\n');
+  return { fichier, ...c };
+}
