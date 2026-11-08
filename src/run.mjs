@@ -166,6 +166,15 @@ async function prepare(slot, now, id) {
     return list.filter((e) => e.source !== 'web' || (!e.douteux && (e.verifie || (e.confiance ?? 0) >= 0.85))).filter(pred);
   };
   const best = (list, n) => selectBest(list, n, MODEL, r);
+  // Carrousel : jusqu'à 8 soirées (10 diapos avec couverture et fin), mais seulement les bonnes. Le seuil de qualité
+  // (potentiel de buzz minimum) est lui-même appris : le bot garde celui qui donne les meilleures notes.
+  const lesBonnes = (list) => {
+    const max = Math.min(8, R.soirees_par_carrousel ?? 8);
+    const classees = best(list, Math.max(max * 2, 12)).filter((e) => e.image);
+    const seuil = ch.pick('seuil-qualite', [0.55, 0.6, 0.65, 0.7], (x) => x);
+    const bonnes = classees.filter((e) => (e.buzz ?? 0.6) >= seuil);
+    return (bonnes.length >= 3 ? bonnes : classees.slice(0, 3)).slice(0, max);
+  };
   // Les programmes de soirées sont toujours en carrousel : le post unique est réservé aux annonces
   // exceptionnelles repérées par la veille (une vraie raison d'exister, pas une soirée parmi d'autres).
   const formatPost = () => 'carrousel';
@@ -184,9 +193,17 @@ async function prepare(slot, now, id) {
   const format = slot.type === 'debat' ? ch.pick('format-conversation', ['debat', 'orgas'], (x) => x) : null;
   if (slot.type === 'veille') {
     // Veille : un post unique tout de suite si une annonce exceptionnelle et vérifiée vient de tomber.
+    // Jour de fête (Noël, Nouvel An…) : un post spécial bonus, à l'heure prévue, une seule fois par an.
+    const fete = feteDue(now);
+    if (fete && !R.pause_publication) {
+      const fichier = await couvertureDA({ photo: await photoFete(fete), fond: 'photo', rubrique: fete.rubrique, titre: fete.titre.replace('{annee}', String(new Date(now).getFullYear())), sous: fete.sous }, path.join(dir, `fete-${stamp}.jpg`));
+      pub = { images: [fichier], legende: fete.legende.replace(/\{annee\}/g, String(new Date(now).getFullYear())), titre: fete.titre.replace('{annee}', String(new Date(now).getFullYear())).replace(/[[\]]/g, ''), fete: `${fete.id}-${new Date(now).getFullYear()}` };
+      console.log(`[${id}] post de fête : ${fete.id}`);
+    }
     const { veiller } = await import('./veille.mjs');
     const ig = igConfig();
-    const v = await veiller({ config, now, ig, api: ig ? { businessDiscovery } : {}, dryRun: DRY });
+    const v = pub ? { apublier: null, fete: true } : await veiller({ config, now, ig, api: ig ? { businessDiscovery } : {}, dryRun: DRY });
+    if (v.fete) { /* post de fête prêt */ } else {
     if (R.pause_publication) v.apublier = null; // pause : la veille note les sujets mais ne publie pas
     if (!v.apublier) { await output('rien', 'true'); console.log('Veille : rien à publier tout de suite.'); return; }
     const s = v.apublier;
@@ -206,6 +223,7 @@ async function prepare(slot, now, id) {
     if (rr.status !== 0) throw new Error('Rendu du post de veille impossible');
     pub = { images: [fichier], legende: s.post.legende, titre: s.post.titre, veille: { titre: s.titre, source: s.source_url, importance: s.importance }, tags: [(s.comptes_instagram || []).map((h) => h.replace(/^@/, '')).slice(0, 5)] };
     console.log(`[${id}] post de veille : « ${s.post.titre} » (${s.importance}/100, ${s.source_url})`);
+    }
   } else if (format === 'orgas') {
     const th = theme(now, 'club');
     const nouvelAn = th.tempsFort?.titre?.includes('Nouvel An');
@@ -235,7 +253,7 @@ async function prepare(slot, now, id) {
       if (list.length < 3) { variante = 'a-reserver'; win = rolling(now, 7, 45); list = await pickEv(win); }
       if (list.length < 3) { win = rolling(now, 2, 45); list = await pickEv(win); }
       need(list, 2);
-      const chosen = chrono(best(list, R.soirees_par_carrousel));
+      const chosen = chrono(lesBonnes(list));
       const reserve = variante === 'a-reserver';
       const files = await carrouselDA({ chosen, id, dir, now, rubrique: 'Bon plan', question: reserve ? 'Tu prends [laquelle] ?' : 'Tu fais [laquelle] ?',
         titreFlash: reserve ? 'À réserver avant le [sold out]' : `Sortir à moins de [${R.petit_prix_max} €]`, titre: ['', reserve ? 'les grosses dates' : 'sans se ruiner'] });
@@ -244,22 +262,23 @@ async function prepare(slot, now, id) {
   } else if (slot.type === 'incontournables') {
     const techno = slot.variante === 'techno';
     const pred = techno ? isTechno : (e) => !isTechno(e);
-    let win = windowFor([1, 2, 3, 4, 5, 6, 7], now);
+    // Techno : un carrousel des incontournables techno DU MOIS (30 jours), pour avoir de vraies grosses dates.
+    let win = techno ? rolling(now, 0, 30) : windowFor([1, 2, 3, 4, 5, 6, 7], now);
     win.from = new Date(Math.max(win.from.getTime(), now.getTime() - 6 * 3600e3));
     let list = await pickEv(win, pred);
     let elargi = false;
     const avecAffiche = (l) => l.filter((e) => e.image).length;
-    if (avecAffiche(list) < 4) { win = rolling(now, 0, 14); list = await pickEv(win, pred); elargi = true; }
+    if (avecAffiche(list) < 4) { win = rolling(now, 0, techno ? 45 : 14); list = await pickEv(win, pred); elargi = true; }
     // Trop peu de dates de ce genre : on prend toutes les soirées plutôt qu'un carrousel maigre.
     let melange = false;
     if (avecAffiche(list) < 4) { const tout = await pickEv(win); if (avecAffiche(tout) > avecAffiche(list)) { list = tout; melange = true; } }
     need(list, 3);
-    const chosen = chrono(best(list, R.soirees_par_carrousel));
+    const chosen = chrono(lesBonnes(list));
     const { th, photos } = await visuel(techno ? 'techno' : 'club');
     const fort = !techno && th.tempsFort?.titre;
     const enTechno = techno && !melange; // carrousel élargi à tous les genres : on ne l'annonce plus comme « techno »
     const titre = enTechno
-      ? ch.pick('titre-techno', ['Les événements techno', 'Les dates techno à ne pas manquer'])
+      ? ch.pick('titre-techno', ['Les incontournables techno du mois', 'Les dates techno à ne pas manquer ce mois-ci'])
       : fort || ch.pick('titre-commercial', ['Nos événements coups de cœur de la semaine', 'Les soirées à ne pas manquer', 'Nos coups de cœur de la semaine']);
     const pages = carouselPages({ mise: ch.pick('mise-couverture', ['centre', 'bas'], (x) => x),
       th, photos, events: chosen, titre,
@@ -467,7 +486,7 @@ async function prepare(slot, now, id) {
       await mkdir(path.join(STUDIO, 'public', 'evenements', 'auto'), { recursive: true });
       await copyFile(path.join(dir, out.images[0]), path.join(STUDIO, 'public', src));
       const texte = String(out.titre || pub.titre || '').replace(/[[\]]/g, '').trim();
-      const props = { image: src, rubrique: slot.type === 'veille' ? 'Info de dernière minute' : 'Nouveau post', ...(texte ? { texte: `${texte} : le post complet est sur le profil` } : {}) };
+      const props = { image: src, rubrique: out.fete ? 'Nouveau post' : slot.type === 'veille' ? 'Info de dernière minute' : 'Nouveau post', ...(texte ? { texte: `${texte} : le post complet est sur le profil` } : {}) };
       const B = '/opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell';
       const rs = spawnSync(path.join(STUDIO, 'node_modules', '.bin', 'remotion'), ['still', 'src/index.ts', 'story', path.join(dir, 'story.jpg'), `--props=${JSON.stringify(props)}`, '--image-format=jpeg', '--jpeg-quality=92', '--log=error', ...(existsSync(B) ? [`--browser-executable=${B}`] : [])], { cwd: STUDIO, stdio: 'inherit' });
       if (rs.status === 0) out.story = 'story.jpg'; else console.error(`[${id}] story non conforme : pas de story pour ce post.`);
@@ -512,7 +531,7 @@ async function publishPrepared(id) {
   const p = JSON.parse(await readFile(f, 'utf8'));
   const ig = igConfig();
   if (DRY || !ig) { console.log(`[${id}] ${DRY ? 'Aperçu' : 'IG_ACCESS_TOKEN / IG_USER_ID absents'} : pas de publication Instagram.`); return; }
-  if (hist.some((h) => h.id === id && h.date === p.date) && !process.env.FORCE) {
+  if (hist.some((h) => h.id === id && h.date === p.date && (id !== 'veille' || (h.publication?.titre || h.titre) === p.titre)) && !process.env.FORCE) {
     console.log(`[${id}] Déjà publié le ${p.date}. (FORCE=1 pour republier)`);
     return;
   }
@@ -543,7 +562,7 @@ async function publishPrepared(id) {
       console.log(`[${id}] ✅ story publiée (${st.id})`);
     } catch (err) { console.error(`[${id}] story impossible : ${err.message}`); }
   }
-  hist.push({ id, date: p.date, media: res.id, lien: link, debat: p.debat, bonplan: p.bonplan, sujet: p.sujet, son: p.son, concept: p.concept, le: new Date().toISOString(),
+  hist.push({ id, date: p.date, media: res.id, lien: link, fete: p.fete, titre: p.titre, debat: p.debat, bonplan: p.bonplan, sujet: p.sujet, son: p.son, concept: p.concept, le: new Date().toISOString(),
     publication: { id: p.id, type: p.type, variante: p.variante, date: p.date, choix: p.choix, features: p.features, nb_images: p.nb_images, duree: p.duree, legende: p.legende, titre: p.titre } });
   await writeFile(HIST_FILE, JSON.stringify(hist.slice(-300), null, 2));
 }
@@ -656,4 +675,29 @@ async function nouveauFlash(STUDIO, id, rubrique) {
 // Instagram certain. Elles sont en couverture ET leurs organisateurs sont invités en collaboration.
 function vedettes(soirees) {
   return [...soirees].filter((e) => e.instagram?.length).sort((a, b) => (b.buzz ?? 0.5) - (a.buzz ?? 0.5)).slice(0, 3);
+}
+
+// --- Jours de fête : posts spéciaux bonus (hors calendrier) ------------------------------------
+function feteDue(now) {
+  const parts = Object.fromEntries(new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Paris', month: '2-digit', day: '2-digit', hour: 'numeric', hourCycle: 'h23', year: 'numeric' }).formatToParts(now).map((x) => [x.type, x.value]));
+  const jour = `${parts.month}-${parts.day}`;
+  const f = (config.fetes?.liste || []).find((x) => x.date === jour);
+  if (!f || config.fetes?.actif === false) return null;
+  if (+parts.hour < (f.heure ?? 12) || +parts.hour > 22) return null;
+  if (hist.some((h) => h.fete === `${f.id}-${parts.year}`)) return null; // déjà fait cette année
+  return f;
+}
+
+// Photo de la fête : générée une fois par Gemini dans le style de la DA (puis gardée), sinon une photo de la banque.
+async function photoFete(f) {
+  const STUDIO = path.join(ROOT, 'studio');
+  const rel = `decors/fetes/${f.id}.jpg`;
+  if (!existsSync(path.join(STUDIO, 'public', rel)) && process.env.GEMINI_API_KEY) {
+    const da = JSON.parse(await readFile(path.join(STUDIO, 'scripts', 'decors', 'da.json'), 'utf8'));
+    const def = path.join(ROOT, 'out', `fete-${f.id}.json`);
+    await mkdir(path.dirname(def), { recursive: true });
+    await writeFile(def, JSON.stringify({ concept: 'fetes', style: da.style, decors: [{ id: f.id, format: '4:5', prompt: f.photo }] }));
+    spawnSync('node', [path.join(STUDIO, 'scripts', 'decors.mjs'), def], { cwd: STUDIO, stdio: 'inherit', env: { ...process.env, NODE_USE_ENV_PROXY: '1' } });
+  }
+  return existsSync(path.join(STUDIO, 'public', rel)) ? rel : 'decors/da/danse.jpg';
 }

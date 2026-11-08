@@ -1,0 +1,41 @@
+{
+  "concept": "fetes",
+  "style": "Candid editorial nightlife photograph shot on a 35mm point-and-shoot film camera with hard direct on-camera flash: subjects crisp and bright, background falling off into deep black, slightly blown highlights, natural film grain, subtle vignetting, warm skin tones with coral-red and magenta accents from club lights, authentic and energetic, like a cool Gen Z party photographer's Instagram. Real-looking people aged 20 to 28, diverse, stylish casual outfits, genuine emotion and a bit of motion blur. Absolutely no text, no letters, no logos, no brand names, no watermarks, no drugs, no visible alcohol bottles. Vertical 4:5 framing.",
+  "decors": [
+    {
+      "id": "halloween",
+      "format": "4:5",
+      "prompt": "Halloween party in a club on the French Riviera: young people in creative costumes and face paint dancing, orange and purple light, smoke, candid direct flash."
+    },
+    {
+      "id": "noel",
+      "format": "4:5",
+      "prompt": "Christmas night on the French Riviera: a group of young friends laughing with festive sweaters and sparklers on a rooftop, Christmas lights and palm trees with fairy lights, Nice bay at night behind, candid direct flash."
+    },
+    {
+      "id": "reveillon",
+      "format": "4:5",
+      "prompt": "New Year's Eve party on the French Riviera: young friends counting down with sparklers and confetti on a terrace, fireworks over the sea in the background, glamorous outfits, candid direct flash."
+    },
+    {
+      "id": "nouvelan",
+      "format": "4:5",
+      "prompt": "Morning after New Year's Eve on the French Riviera: friends watching the sunrise on the beach in party outfits, confetti in their hair, smiling, soft golden light, candid film photo."
+    },
+    {
+      "id": "saintvalentin",
+      "format": "4:5",
+      "prompt": "Valentine's night in a stylish bar on the French Riviera: young couples and friends laughing, red and pink neon lights, candid direct flash."
+    },
+    {
+      "id": "fetemusique",
+      "format": "4:5",
+      "prompt": "Fête de la musique in the old town of Nice at night: crowded streets, a DJ playing outside, young people dancing, warm string lights, candid direct flash."
+    },
+    {
+      "id": "14juillet",
+      "format": "4:5",
+      "prompt": "Bastille Day night on the French Riviera: fireworks over the sea, young friends on the beach cheering, summer outfits, candid direct flash."
+    }
+  ]
+}

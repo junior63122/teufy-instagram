@@ -67,10 +67,10 @@ export function captionIncontournables({ variante, events, from, to, ch, r }) {
   const ajoutees = TENDANCES.intros_ajoutees?.[variante] || []; // proposées par l'analyse hebdomadaire
   const intro = ch.pick(`intro-${variante}`, [...ajoutees, ...(techno
     ? [
-      `Les événements techno de la semaine.\nDes line-up solides, des lieux qui comptent, une communauté qui répond toujours présent.`,
-      `Pas juste des soirées. Des nuits entières.\nLa sélection techno de la semaine sur la Côte.`,
-      `Pour ceux qui viennent pour la musique, et rien d'autre.\nVoilà où ça se passe cette semaine.`,
-      `Kicks lourds, lumières basses, jusqu'au lever du jour.\nLes dates techno à ne pas manquer.`,
+      `Les incontournables techno du mois.\nDes line-up solides, des lieux qui comptent, une communauté qui répond toujours présent.`,
+      `Pas juste des soirées. Des nuits entières.\nLa sélection techno du mois sur la Côte.`,
+      `Pour ceux qui viennent pour la musique, et rien d'autre.\nVoilà où ça se passe ce mois-ci.`,
+      `Kicks lourds, lumières basses, jusqu'au lever du jour.\nLes dates techno à ne pas manquer ce mois-ci.`,
     ]
     : [
       `Cette semaine, la Côte d'Azur ne dort pas.\nNice, Cannes, Monaco… des ambiances, des styles, des vibes pour tous.`,
@@ -84,7 +84,7 @@ export function captionIncontournables({ variante, events, from, to, ch, r }) {
   const suivre = ch.pick('suivre', SUIVRE);
   // Mots-clés lisibles par la recherche Instagram (villes + période) et la soirée la plus attendue en premier.
   const villes = [...new Set(events.map((e) => e.city).filter(Boolean))].slice(0, 4);
-  const motsCles = villes.length ? `📍 Soirées à ${villes.join(', ').replace(/, ([^,]*)$/, ' et $1')} ${techno ? '(techno) ' : ''}cette semaine` : '';
+  const motsCles = villes.length ? `📍 Soirées ${techno ? 'techno ' : ''}à ${villes.join(', ').replace(/, ([^,]*)$/, ' et $1')} ${techno ? 'ce mois-ci' : 'cette semaine'}` : '';
   const star = [...events].filter((e) => typeof e.buzz === 'number' && e.buzz >= 0.7).sort((a, b) => b.buzz - a.buzz)[0];
   const coeur = star ? `🔥 La plus attendue : ${star.name}${star.buzz_raison ? `, ${star.buzz_raison.replace(/\.$/, '').replace(/^\p{Lu}(?=\p{Ll})/u, (c) => c.toLowerCase())}` : ''}.` : '';
   return clip(`${intro}\n${motsCles}\n\n${coeur ? `${coeur}\n\n` : ''}${liste(events)}\n\n${question} Enregistre le post pour ne pas oublier. ${suivre}\n\n${hashtags(ch, variante, { events })}`);
