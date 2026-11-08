@@ -5,7 +5,7 @@ import {F} from '../lib/fonts';
 // Publications statiques (1080×1350) : un post unique et un carrousel, avec les visuels officiels
 // des organisateurs et uniquement des infos vérifiées sur leurs pages (Panda Events / Le 109).
 
-export type Soiree = {id: string; nom: string; citation?: string; sous?: string; genre: string; jour: string; heures?: string; prix: string; lieu: string; image: string; couleur: string; encre?: string; ig?: string[]};
+export type Soiree = {ratio?: number; id: string; nom: string; citation?: string; sous?: string; genre: string; jour: string; heures?: string; prix: string; lieu: string; image: string; couleur: string; encre?: string; ig?: string[]};
 
 const Grain: React.FC<{o?: number}> = ({o = 0.12}) => (
   <AbsoluteFill style={{mixBlendMode: 'overlay', opacity: o, pointerEvents: 'none'}}>
@@ -92,7 +92,7 @@ export const Carrousel: React.FC<{soirees: Soiree[]; slide: number; titre: strin
           <div style={{fontWeight: 900, fontStretch: '115%', fontSize: 96, lineHeight: 0.92, color: '#f2efe9', textTransform: 'uppercase'}}>{titre[0]}</div>
           <div style={{fontFamily: F.serif, fontStyle: 'italic', fontSize: 96, color: '#ff6b4a', lineHeight: 1}}>{titre[1]}</div>
         </div>
-        <div style={{position: 'absolute', left: 64, bottom: 70, fontFamily: F.mono, fontWeight: 700, fontSize: 28, color: '#f2efe9cc', letterSpacing: '0.14em'}}>{pied ?? 'FRIGO 16 · LE 109 · NICE'}</div>
+        <div style={{position: 'absolute', left: 64, bottom: 70, fontFamily: F.mono, fontWeight: 700, fontSize: 28, color: '#f2efe9cc', letterSpacing: '0.14em', maxWidth: 680, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis'}}>{pied ?? 'FRIGO 16 · LE 109 · NICE'}</div>
         <div style={{position: 'absolute', right: 64, bottom: 62, fontFamily: F.wide, fontWeight: 900, fontSize: 40, color: '#0b0b0f', background: '#ff6b4a', padding: '10px 24px', borderRadius: 999}}>swipe →</div>
         <Logo h={60} style={{right: 64, top: 40}} />
       </AbsoluteFill>
@@ -133,7 +133,7 @@ export const Carrousel: React.FC<{soirees: Soiree[]; slide: number; titre: strin
       {/* affiche officielle en grand, centrée, au format d'origine */}
       <div style={{position: 'absolute', left: 0, right: 0, top: 104, height: 700, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
         <div style={{position: 'relative', boxShadow: '0 40px 100px rgba(0,0,0,.65)', border: '6px solid #f2efe9', lineHeight: 0}}>
-          <Img src={staticFile(s.image)} style={{display: 'block', maxWidth: 940, maxHeight: 688, width: 'auto', height: 'auto'}} />
+          <Img src={staticFile(s.image)} style={s.ratio ? {display: 'block', width: Math.min(940, 688 * s.ratio), height: Math.min(940, 688 * s.ratio) / s.ratio} : {display: 'block', maxWidth: 940, maxHeight: 688, width: 'auto', height: 'auto'}} />
           <div style={{position: 'absolute', left: -6, bottom: -34, background: s.couleur, color: '#0b0b0f', fontWeight: 900, fontStretch: '80%', fontSize: 44, lineHeight: 1, padding: '12px 22px', textTransform: 'uppercase', boxShadow: '0 10px 30px rgba(0,0,0,.4)'}}>
             {j1} <span style={{fontStretch: '100%'}}>{jr.slice(0, 2).join(' ')}</span>
           </div>

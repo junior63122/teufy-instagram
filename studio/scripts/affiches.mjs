@@ -35,7 +35,10 @@ for (const [i, s] of E.soirees.entries()) {
     image = path.relative(path.join(STUDIO, 'public'), f);
   }
   if (!existsSync(path.join(STUDIO, 'public', image))) continue;
-  soirees.push({...s, image, couleur: s.couleur || accent(path.join(STUDIO, 'public', image))});
+  // format d'origine de l'affiche (pour l'afficher en grand même si l'image source est petite)
+  const dims = spawnSync('ffprobe', ['-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=width,height', '-of', 'csv=p=0', path.join(STUDIO, 'public', image)]).stdout?.toString().trim().split(',').map(Number);
+  const ratio = dims?.length === 2 && dims[1] ? dims[0] / dims[1] : undefined;
+  soirees.push({...s, image, ratio, couleur: s.couleur || accent(path.join(STUDIO, 'public', image))});
 }
 if (soirees.length < 2) { console.error('Moins de 2 soirées avec affiche officielle : carrousel studio annulé.'); process.exit(3); }
 // Couverture : fond illustré généré par Gemini (un par semaine, gardé ensuite), sinon fond béton.
