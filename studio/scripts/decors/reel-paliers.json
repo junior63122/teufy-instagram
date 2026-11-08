@@ -1,0 +1,36 @@
+{
+  "concept": "reel-paliers",
+  "style": "Candid editorial nightlife photograph shot on a 35mm point-and-shoot film camera with hard direct on-camera flash: subjects crisp and bright, background falling off into deep black, slightly blown highlights, natural film grain, subtle vignetting, warm skin tones with coral-red and magenta accents from club lights, authentic and energetic, like a cool Gen Z party photographer's Instagram. Real-looking people aged 20 to 28, diverse, stylish casual outfits, genuine emotion and a bit of motion blur. Absolutely no text, no letters, no logos, no brand names, no watermarks, no drugs, no visible alcohol bottles. Vertical 9:16 framing, subject in the middle, room at the top and bottom for big text.",
+  "decors": [
+    {
+      "id": "file",
+      "format": "9:16",
+      "prompt": "A long line of stylish young people waiting outside a club entrance at night, some checking their phones, red neon glow, bouncer silhouette at the door."
+    },
+    {
+      "id": "telephone",
+      "format": "9:16",
+      "prompt": "Close-up of a young woman's hand holding a smartphone in a dark club, the screen glowing with a generic ticket purchase screen (no readable text, no logo), flash light, friends blurred behind."
+    },
+    {
+      "id": "choc",
+      "format": "9:16",
+      "prompt": "A young man looking at his phone with a shocked, exaggerated face, mouth open, his friends laughing behind him, at night in a street outside a bar, direct flash."
+    },
+    {
+      "id": "foule",
+      "format": "9:16",
+      "prompt": "A packed dancefloor from above the crowd, hundreds of hands in the air, confetti, coral and magenta lights, energy at peak."
+    },
+    {
+      "id": "potes",
+      "format": "9:16",
+      "prompt": "Four friends celebrating, hugging and jumping in front of a club entrance at night, holding phones up, joyful, direct flash, motion blur."
+    },
+    {
+      "id": "dj",
+      "format": "9:16",
+      "prompt": "A DJ seen from behind facing a huge crowd, arms raised, stage lights and smoke, epic wide shot."
+    }
+  ]
+}
