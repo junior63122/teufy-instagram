@@ -1,0 +1,231 @@
+{
+  "id": "incontournables-commercial",
+  "type": "incontournables",
+  "variante": "commercial",
+  "date": "2026-11-08",
+  "images": [
+    "carrousel-00.jpg",
+    "carrousel-01.jpg",
+    "carrousel-02.jpg",
+    "carrousel-03.jpg",
+    "carrousel-04.jpg",
+    "carrousel-05.jpg",
+    "carrousel-06.jpg"
+  ],
+  "legende": "Certaines soirées se racontent pendant des semaines.\nCelles-là en font partie.\n\n→ Mar 10 nov · Épisode 10th x Mama Shelter (RnB) · Mama Shelter Nice, Nice · 19h00 · gratuit\n   Veille de jour férié festive au Mama Shelter avec cocktails et dancefloor urbain. @mamashelternice\n→ Mar 10 nov · Rétro Party w/ nivau.music (Années 2000) · Down Town Club, Nice · 23h00 · gratuit\n   Entrée gratuite dans le Vieux-Nice avec les meilleurs classiques 90s et 2000s mixés par nivau. @downtown.nice\n→ Ven 13 nov · La Wicked - Vice Club Nice (Afro Heat Festival) (Amapiano · Dancehall) · 305 Vice Club, Nice · 23h50 · 15 €\n   Nuit afro et caribéenne au Vice Club orchestrée par Afro Heat Festival avec DJ Mapouia. @viceclubnice @afroheatfestival\n→ Sam 14 nov · Club Bizarre w/ Sensoria @ Blue Coast (Techno · Tech house) · Blue Coast Brewing Company, Nice · 19h00 · 5,99 €\n   Ambiance clubbing indus avec Sensoria, happy hour et plusieurs b2b house et techno. @clubbizarre_music @bluecoastbrewing\n→ Sam 21 nov · La Wave - Shatta Séduction @ Skyfall Cannes (Shatta · Dancehall) · Skyfall Cannes x Kingdom, Cannes · 23h00 · 7,99 €\n   DJ Sonny et DJ Ticoq ambiancent Cannes sur des sons shatta, bouyon et le jeu des bracelets. @bolon_events @skyfall_cannes\n\nTu sors où cette semaine ? Chaque semaine, les meilleures soirées de la Côte sont ici.\n\n#TeufyParty #monaconightlife #soireenice #soiree #clubbing",
+  "soirees": [
+    {
+      "source": "web",
+      "source_site": "Shotgun",
+      "name": "Épisode 10th x Mama Shelter",
+      "start": "2026-11-10T18:00:00.000Z",
+      "venue": "Mama Shelter Nice",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/events/episode-10th-x-mamashelter",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,w_1200,h_630,f_jpg,q_auto/dev/artworks/EPISODE_10TH_Shotgun_16x9_orange_A_h4w3uj.jpg",
+      "price": 0,
+      "tags": [
+        "hip-hop",
+        "rnb",
+        "open format"
+      ],
+      "description": "",
+      "public_cible": 0.9,
+      "confiance": 0.95,
+      "accroche": "Veille de jour férié festive au Mama Shelter avec cocktails et dancefloor urbain.",
+      "instagram": [
+        "mamashelternice"
+      ],
+      "enrichi": true
+    },
+    {
+      "source": "web",
+      "source_site": "Instagram",
+      "name": "Rétro Party w/ nivau.music",
+      "start": "2026-11-10T22:00:00.000Z",
+      "venue": "Down Town Club",
+      "city": "Nice",
+      "address": "",
+      "url": "https://www.instagram.com/p/DfSd8sUjQyu/",
+      "image": "https://scontent-ord5-2.cdninstagram.com/v/t51.82787-15/886810147_18053410106815469_1691285490903456219_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=107&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMiJ9&_nc_ohc=R4mueHWE6UcQ7kNvwE0NUBl&_nc_oc=AdoQzrNmXBM27MBLpqgl1wBSwzPkCDhe0XZVmEP-oFO7XrVoSAc2flQEZ_L6njNMTig&_nc_zt=23&_nc_ht=scontent-ord5-2.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=qzBaiBZnBVTtj29o4nSsnQ&oh=00_AQSLFIjBIeoQlnpYMX84LnpWEMCySbvH8oh4bXuuyFGFzw&oe=6AF6476C",
+      "price": 0,
+      "tags": [
+        "hits 90s",
+        "hits 2000s",
+        "open format"
+      ],
+      "description": "",
+      "public_cible": 0.85,
+      "confiance": 0.9,
+      "accroche": "Entrée gratuite dans le Vieux-Nice avec les meilleurs classiques 90s et 2000s mixés par nivau.",
+      "instagram": [
+        "downtown.nice"
+      ],
+      "enrichi": true,
+      "verifie": false
+    },
+    {
+      "source": "web",
+      "source_site": "Shotgun",
+      "name": "La Wicked - Vice Club Nice (Afro Heat Festival)",
+      "start": "2026-11-13T22:50:00.000Z",
+      "venue": "305 Vice Club",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/events/la-wicked-305-vice-club-nice-afroheat-festival",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto/production/artworks/IMG_9327_wg1oxn.png",
+      "price": 15,
+      "tags": [
+        "afro",
+        "dancehall",
+        "amapiano",
+        "bouyon"
+      ],
+      "description": "",
+      "public_cible": 0.95,
+      "confiance": 0.95,
+      "accroche": "Nuit afro et caribéenne au Vice Club orchestrée par Afro Heat Festival avec DJ Mapouia.",
+      "instagram": [
+        "viceclubnice",
+        "afroheatfestival",
+        "dj_mapouia"
+      ],
+      "enrichi": true
+    },
+    {
+      "source": "web",
+      "source_site": "Shotgun",
+      "name": "Club Bizarre w/ Sensoria @ Blue Coast",
+      "start": "2026-11-14T18:00:00.000Z",
+      "venue": "Blue Coast Brewing Company",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/events/club-bizarre-w-sensoria-at-blue-coast-november-session",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,w_384,fl_lossy,f_webp,q_5/production/artworks/CLUB_BIZARRE_Banni%C3%A8re_Shotgun_bl0vwh.png",
+      "price": 5.99,
+      "tags": [
+        "tech house",
+        "techno",
+        "indie tech",
+        "deep tech"
+      ],
+      "description": "",
+      "public_cible": 0.9,
+      "confiance": 0.95,
+      "accroche": "Ambiance clubbing indus avec Sensoria, happy hour et plusieurs b2b house et techno.",
+      "instagram": [
+        "clubbizarre_music",
+        "bluecoastbrewing"
+      ],
+      "enrichi": true
+    },
+    {
+      "source": "web",
+      "source_site": "Shotgun",
+      "name": "La Wave - Shatta Séduction @ Skyfall Cannes",
+      "start": "2026-11-21T22:00:00.000Z",
+      "venue": "Skyfall Cannes x Kingdom",
+      "city": "Cannes",
+      "address": "",
+      "url": "https://shotgun.live/events/la-wave-shatta-seduction-cannes",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,ar_16:9,w_3840,fl_lossy,f_webp,q_auto/production/artworks/WAVE_CANNES_21_NOV_COUV_jqx8di.png",
+      "price": 7.99,
+      "tags": [
+        "shatta",
+        "dancehall",
+        "bouyon",
+        "afrobeat",
+        "rap"
+      ],
+      "description": "",
+      "public_cible": 0.95,
+      "confiance": 0.95,
+      "accroche": "DJ Sonny et DJ Ticoq ambiancent Cannes sur des sons shatta, bouyon et le jeu des bracelets.",
+      "instagram": [
+        "bolon_events",
+        "skyfall_cannes"
+      ],
+      "enrichi": true
+    }
+  ],
+  "titre": "Nos coups de cœur de la semaine",
+  "tags": [
+    [],
+    [
+      "mamashelternice"
+    ],
+    [
+      "downtown.nice"
+    ],
+    [
+      "viceclubnice",
+      "afroheatfestival",
+      "dj_mapouia"
+    ],
+    [
+      "clubbizarre_music",
+      "bluecoastbrewing"
+    ],
+    [
+      "bolon_events",
+      "skyfall_cannes"
+    ]
+  ],
+  "choix": {
+    "titre-commercial": "19slrht",
+    "mise-couverture": "centre",
+    "intro-commercial": "1yjthms",
+    "question-commercial": "1qt9w8f",
+    "suivre": "xlf2qa",
+    "hashtags-local": [
+      "#monaconightlife",
+      "#soireenice"
+    ],
+    "hashtags-commercial": [
+      "#soiree",
+      "#clubbing"
+    ]
+  },
+  "features": [
+    "genre:commercial",
+    "source:web",
+    "style:rnb",
+    "lieu:mama-shelter-nice",
+    "ville:nice",
+    "prix:gratuit",
+    "horaire:jour",
+    "genre:commercial",
+    "source:web",
+    "style:annees-2000",
+    "lieu:down-town-club",
+    "ville:nice",
+    "prix:gratuit",
+    "horaire:nuit",
+    "genre:commercial",
+    "source:web",
+    "style:amapiano",
+    "style:dancehall",
+    "lieu:305-vice-club",
+    "ville:nice",
+    "prix:moyen",
+    "horaire:nuit",
+    "genre:commercial",
+    "source:web",
+    "style:techno",
+    "style:tech-house",
+    "lieu:blue-coast-brewing-company",
+    "ville:nice",
+    "prix:petit",
+    "horaire:jour",
+    "genre:commercial",
+    "source:web",
+    "style:shatta",
+    "style:dancehall",
+    "lieu:skyfall-cannes-x-kingdom",
+    "ville:cannes",
+    "prix:petit",
+    "horaire:nuit"
+  ],
+  "nb_images": 7
+}
