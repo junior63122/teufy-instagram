@@ -2,7 +2,7 @@
 
 Mis à jour automatiquement chaque jour. **Note /100** : 50 = performance habituelle du compte pour ce format, 100 = deux fois mieux. Elle combine likes, commentaires (×2), enregistrements (×3), partages (×4), abonnés gagnés (×10), visites du profil, portée et, pour les reels, la part de la vidéo regardée.
 
-**Abonnés** : 14474 · **Posts notés** : 60 · **Moyenne bot** : - · **Moyenne posts de l'équipe** : 58
+**Abonnés** : 14472 (-2 sur 30 jours) · **Posts notés** : 60 · **Moyenne bot** : - · **Moyenne posts de l'équipe** : 58
 
 ## Objectif du prochain post : 98/100
 
