@@ -586,3 +586,23 @@ details.filtre>.groupe{position:absolute;top:calc(100% + 8px);inset-inline-start
 .rebours-bloc{background:linear-gradient(120deg,#ff5a3c26,#16161c 60%);border:1px solid #ff5a3c55;border-radius:18px;padding:14px 18px;display:flex;flex-direction:column;gap:4px}
 .rebours-grand{font-family:var(--titre);font-weight:800;font-stretch:80%;font-size:clamp(30px,4vw,44px);line-height:1;color:var(--corail);font-variant-numeric:tabular-nums}
 .rebours-bloc .petit{font-size:14px;opacity:.85}
+.carte-texte.festival.partenaire{border-color:#ff5a3c88}
+.choix-date{display:flex;align-items:center;gap:8px;flex-basis:100%;margin-top:4px;font-size:14px;font-weight:700}
+.choix-date span{opacity:.7}
+.choix-date input{font:inherit;color:var(--creme);background:var(--nuit);border:1.5px solid #ffffff33;border-radius:10px;padding:7px 10px;color-scheme:dark}
+details[data-bloc="tri"]>.groupe{inset-inline-start:auto;inset-inline-end:0}
+/* Collage d'affiches à droite des en-têtes sans photo (ordinateur) */
+.collage{display:none}
+@media(min-width:980px){
+  .hero.sans-photo{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);align-items:center;gap:48px}
+  .hero.sans-photo .hero-texte{order:1}
+  .collage{display:block;order:2;position:relative;height:340px;width:100%}
+  .collage img{position:absolute;top:50%;left:50%;width:190px;aspect-ratio:4/5;object-fit:cover;border-radius:16px;box-shadow:0 30px 60px -20px #000,0 0 0 1px #ffffff1a;transform:translate(calc(-50% + (var(--i) - 1) * 120px),-50%) rotate(calc((var(--i) - 1) * 7deg));transition:transform .5s var(--doux)}
+  .collage img:nth-child(2){z-index:2;transform:translate(-50%,-54%) scale(1.06)}
+  .collage:hover img{transform:translate(calc(-50% + (var(--i) - 1) * 140px),-50%) rotate(calc((var(--i) - 1) * 4deg))}
+  .collage:hover img:nth-child(2){transform:translate(-50%,-56%) scale(1.1)}
+  .logos-collage{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;height:auto;align-content:center}
+  .logos-collage img{position:static;width:100%;aspect-ratio:1;border-radius:50%;transform:none;box-shadow:0 10px 26px #000a;animation:apparait .7s var(--doux) both;animation-delay:calc(var(--i) * 60ms)}
+  .logos-collage:hover img,.logos-collage img:nth-child(2),.logos-collage:hover img:nth-child(2){transform:none}
+}
+@media(min-width:980px) and (hover:hover){.collage:hover img{transition-duration:.6s}}

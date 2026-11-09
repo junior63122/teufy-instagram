@@ -96,6 +96,17 @@ async function controlerPage(p, nom, u) {
     await clic('style', 'tout');
     await clic('prix', 'gratuit'); ok(await n() < total, `${nom} : filtre Gratuit sans effet`); await clic('prix', 'tout');
     await clic('quand', 'soir'); const nSoir = await n(); ok(nSoir > 0 && nSoir < total, `${nom} : filtre Ce soir incorrect (${nSoir})`); await clic('quand', 'tout');
+    // Tri par prix puis retour par date ; date précise.
+    await clic('tri', 'prix');
+    const prixOrdre = await p.$$eval('.grille-triee .carte:not([hidden])', (l) => l.map((c) => (c.dataset.prix === '' ? Infinity : +c.dataset.prix)));
+    ok(prixOrdre.length === total && prixOrdre.every((x, i) => !i || x >= prixOrdre[i - 1]), `${nom} : le tri par prix ne trie pas`);
+    await clic('tri', 'demande'); ok(await n() === total, `${nom} : le tri « plus attendues » perd des soirées`);
+    await clic('tri', 'date'); ok(await p.locator('.grille-triee').count() === 0 && await n() === total && await p.locator('.liste .jour:not([hidden])').count() > 2, `${nom} : retour au tri par date incorrect`);
+    const unJour = await p.locator('.liste .carte:not([hidden])').nth(3).getAttribute('data-jour');
+    await p.locator('details[data-bloc="quand"] summary').click(); await p.locator('.choix-date input').first().fill(unJour); await p.waitForTimeout(300);
+    const jours = await p.$$eval('.liste .carte:not([hidden])', (l) => [...new Set(l.map((c) => c.dataset.jour))]);
+    ok(jours.length === 1 && jours[0] === unJour, `${nom} : le choix d'une date précise ne filtre pas (${jours.join(',')})`);
+    await clic('quand', 'tout'); ok(await n() === total, `${nom} : « Tout » n'annule pas la date choisie`);
     // Près de moi (position simulée : Nice).
     await clic('acces', 'pres'); const nPres = await n();
     ok(nPres > 0 && nPres < total, `${nom} : « Près de moi » incorrect (${nPres}/${total})`);

@@ -440,3 +440,12 @@ const PLUS6 = {
   ar: { tresDemandee: '🔥 مطلوبة جدًا', commenceDans: 'تبدأ الحفلة بعد', reserveTot: 'حفلة منتظرة جدًا: احجز مبكرًا، فمثل هذه المواعيد تنفد سريعًا.', js: { dans: 'بعد', u: ['ي', 'س', 'د', 'ث'], cestParti: 'بدأت!' } },
 };
 for (const l of LANGUES) { const { js, ...reste } = PLUS6[l]; Object.assign(TXT[l], reste); Object.assign(TXT[l].js, js); }
+const PLUS7 = {
+  fr: { trierL: 'Trier', tris: ['Par date', 'Prix croissant', 'Les plus attendues'], choisirDate: 'Une date précise' },
+  en: { trierL: 'Sort', tris: ['By date', 'Lowest price', 'Most anticipated'], choisirDate: 'A specific date' },
+  it: { trierL: 'Ordina', tris: ['Per data', 'Prezzo crescente', 'Le più attese'], choisirDate: 'Una data precisa' },
+  es: { trierL: 'Ordenar', tris: ['Por fecha', 'Precio ascendente', 'Las más esperadas'], choisirDate: 'Una fecha concreta' },
+  zh: { trierL: '排序', tris: ['按日期', '价格从低到高', '最受期待'], choisirDate: '指定日期' },
+  ar: { trierL: 'ترتيب', tris: ['حسب التاريخ', 'الأرخص أولًا', 'الأكثر انتظارًا'], choisirDate: 'تاريخ محدد' },
+};
+for (const l of LANGUES) Object.assign(TXT[l], PLUS7[l]);

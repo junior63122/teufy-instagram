@@ -374,6 +374,21 @@ async function lieuxDeNuit({ soirees, partenaires, ig, api, log, now }) {
   return tous.filter((l) => (vus.has(l.slug) ? false : vus.add(l.slug))).sort((a, b) => b.score - a.score);
 }
 
+// --- Festivals de la Côte d'Azur et du Var : guide tenu à jour par recherche web (tous les 30 jours), partenaires compris.
+// Remplace la liste écrite à la main (gardée en secours si la recherche est impossible). Cache : contenus/festivals.json.
+const FESTIVALS_WEB = path.join(ROOT, 'contenus', 'festivals.json');
+async function festivalsDuWeb({ partenaires, now, log }) {
+  const cache = lire(FESTIVALS_WEB, { maj: null, festivals: [] });
+  if (!(process.env.GEMINI_API_KEY || '').trim() || !tempsOk() || (cache.maj && now - Date.parse(cache.maj) < 30 * 864e5 && cache.festivals.length)) return cache.festivals;
+  const partFest = (partenaires || []).filter((p) => p.categorie === 'festival' || /festival/i.test(`${p.nom} ${p.instagram}`)).map((p) => `${p.nom}${p.instagram ? ` (@${p.instagram})` : ''}`);
+  const web = await gemini([{ text: `Liste les festivals de musique et grands événements festifs de la Côte d'Azur, de Monaco et du Var (été et reste de l'année) qui intéressent les 18-30 ans : électro, techno, rap, afro, pop, jazz, soirées géantes à thème. Vérifie notamment : Le Bal des Fous (Cannes), Les Plages Électroniques (Cannes), Nice Jazz Festival, Jazz à Juan, Les Nuits du Sud (Vence), Les Nuits Carrées (Antibes), Monte-Carlo Sporting Summer Festival, Les Voix du Gaou, Festival Couleurs Urbaines (La Seyne-sur-Mer), Esprit Festival, Paranormal Festival, REF Festival, La Mescla Festival, House en Provence${partFest.length ? `, ${partFest.join(', ')}` : ''}. Pour chacun : ville, période habituelle, dates de la prochaine édition si annoncées, styles, en une phrase ce que c'est, site officiel, compte Instagram. Ne garde que les festivals qui existent toujours.` }], { recherche: true });
+  if (!web) return cache.festivals;
+  const r = await gemini([{ text: `Festivals :\n${web}\n\nRéponds en JSON {"festivals":[{"nom":string,"ville":string,"periode":string,"debut_prochaine":"AAAA-MM-JJ ou chaîne vide","styles":string,"description":string,"site":string,"instagram":string,"saison":"ete|annee"}]}. periode en français court (ex. « fin juillet », « début août »). description : une phrase factuelle en français. N'invente rien : chaîne vide si inconnu ; exclus les festivals arrêtés.` }]);
+  const l = (r?.festivals || []).filter((f) => f.nom && f.ville).map((f) => ({ ...f, site: /^https?:\/\//.test(f.site || '') ? f.site : '', instagram: String(f.instagram || '').replace(/^.*instagram\.com\//, '').replace(/[/@?].*$/, '').replace(/^@/, '').toLowerCase(), debut_prochaine: /^\d{4}-\d{2}-\d{2}$/.test(f.debut_prochaine || '') ? f.debut_prochaine : '' }));
+  if (l.length >= 5) { await writeFile(FESTIVALS_WEB, JSON.stringify({ maj: now.toISOString(), festivals: l }, null, 1) + '\n'); log(`Site : ${l.length} festivals dans le guide`); return l; }
+  return cache.festivals;
+}
+
 // --- Traductions : tout le texte français (accroches, descriptions, pages éditoriales, actus) est traduit par l'IA
 // une seule fois par texte et par langue (cache contenus/traductions.json). Sans clé : le français reste affiché.
 const NOMS_LANGUE = { en: 'English', it: 'Italian', es: 'Spanish', zh: 'Simplified Chinese', ar: 'Arabic' };
@@ -469,6 +484,8 @@ export async function construireSite({ events, eventsFrance = [], hist = [], con
   await aProximite(soirees, log);
   const partenaires = await identifierPartenaires(log, { ig, api });
   const lieux = await lieuxDeNuit({ soirees, partenaires, ig, api, log, now });
+  const festivalsGuide = await festivalsDuWeb({ partenaires, now, log });
+  AFFICHES_COLLAGE = soirees.filter((x) => x.affiche && x.dims && x.dims[0] >= 600 && x.dims[1] >= x.dims[0] * 1.1 && existsSync(path.join(ROOT, x.affiche.replace(/\.jpg$/, '-800.webp')))).sort((a, b) => (b.buzz || 0) - (a.buzz || 0)).map((x) => x.affiche).filter((x, i, l) => l.indexOf(x) === i);
   TR.cache = lire(TRAD, {});
 
   // Derniers posts Instagram du compte (couverture gardée dans media/).
@@ -499,7 +516,7 @@ export async function construireSite({ events, eventsFrance = [], hist = [], con
       const tr = (x) => trad(lang, x);
       const sl = soirees.map((s) => ({ ...s, accroche: tr(s.accroche), description: tr(s.description) }));
       const sf = soireesFrance.map((s) => ({ ...s, accroche: tr(s.accroche) }));
-      const ctx = (chemin) => ({ lang, t, tr, chemin, base: '../'.repeat((lang === 'fr' ? 0 : 1) + chemin.split('/').filter(Boolean).length), compte, T, maj: majTexte(t), actus, partenaires, lieux });
+      const ctx = (chemin) => ({ lang, t, tr, chemin, base: '../'.repeat((lang === 'fr' ? 0 : 1) + chemin.split('/').filter(Boolean).length), compte, T, maj: majTexte(t), actus, partenaires, lieux, festivalsGuide });
       const ajoute = (chemin, f) => pages.push([`${P}${chemin}`, f(ctx(chemin))]);
       ajoute('', (c) => page({ ...c, soirees: sl, posts, now }));
       ajoute('a-propos/', (c) => aPropos({ ...c, nb: sl.length }));
@@ -669,7 +686,7 @@ function carte(s, { t, base, lang, vedette = false }) {
     : vignette(s);
   const acces = accesDe(s);
   const promo = promoDe(s);
-  return `<article class="carte${vedette ? ' vedette' : ''}" data-acces="${acces.join(' ')}" data-id="${s.id}" data-jour="${s.jour}" data-debut="${esc(s.debut)}" data-heure="${esc(heure(s.debut, t))}" data-ville="${s.filtreVille}" data-styles="${s.styles.join(' ')}" data-prix="${s.prix ?? ''}" data-lat="${s.lat ?? ''}" data-lng="${s.lng ?? ''}"${s.approx ? ' data-approx="1"' : ''} data-q="${esc(q)}">
+  return `<article class="carte${vedette ? ' vedette' : ''}" data-acces="${acces.join(' ')}" data-id="${s.id}" data-jour="${s.jour}" data-debut="${esc(s.debut)}" data-heure="${esc(heure(s.debut, t))}" data-ville="${s.filtreVille}" data-styles="${s.styles.join(' ')}" data-prix="${s.prix ?? ''}" data-buzz="${s.buzz ?? ''}" data-lat="${s.lat ?? ''}" data-lng="${s.lng ?? ''}"${s.approx ? ' data-approx="1"' : ''} data-q="${esc(q)}">
   <a class="affiche${s.affiche ? '' : ' sans'}" href="${lien}" tabindex="-1" aria-hidden="true">${img}<span class="date">${esc(dateCourte(s.debut, t))}</span></a>
   <button type="button" class="coeur" aria-label="${esc(t.ajouterFav)}" aria-pressed="false"></button>
   ${(s.buzz ?? 0) >= SEUIL_DEMANDE ? `<span class="demande"><b>${esc(t.tresDemandee)}</b><i class="rebours" data-debut="${esc(s.debut)}"></i></span>` : ''}
@@ -838,7 +855,7 @@ function agenda(soirees, { t, base, lang, filtresVille = true, filtreStyle = tru
   for (const s of soirees) (parJour[s.jour] ||= []).push(s);
   const jours = Object.entries(parJour).map(([jour, l]) => `<section class="jour" data-jour="${jour}"><h2>${esc(dateLongue(`${jour}T12:00:00Z`, t))}</h2><div class="grille">${l.map((s) => carte(s, { t, base, lang })).join('\n')}</div></section>`).join('\n');
   // Chaque filtre est un menu déroulant (une seule barre sur ordinateur) ; dans la feuille mobile, ils sont tous ouverts.
-  const TITRES = { quand: t.quandL, ville: t.ou, style: t.stylesL, prix: t.prixL, acces: t.accesL };
+  const TITRES = { quand: t.quandL, ville: t.ou, style: t.stylesL, prix: t.prixL, acces: t.accesL, tri: t.trierL };
   const groupe = (f, valeurs, libelles) => `<details class="filtre" data-bloc="${f}"><summary><span>${esc(TITRES[f])}</span><b class="choix">${esc(libelles[0])}</b></summary><div class="groupe" data-filtre="${f}">${valeurs.map((v, i) => `<button type="button"${i ? '' : ' class="actif"'} data-v="${v}">${esc(libelles[i])}</button>`).join('')}</div></details>`;
   const styles = STYLES_MUSIQUE.map((x) => x.cle).filter((k) => soirees.some((s) => s.styles.includes(k)));
   return `<section id="agenda" class="agenda">
@@ -846,11 +863,12 @@ function agenda(soirees, { t, base, lang, filtresVille = true, filtreStyle = tru
     <div class="vues"><button type="button" class="actif" data-vue="liste">${esc(t.agenda)}</button><button type="button" data-vue="carte">${esc(t.carte)}</button><button type="button" class="fermer-filtres">${esc(t.js.fermer)}</button></div>
     ${champRecherche(t)}
     <div class="menus">
-    ${groupe('quand', ['tout', 'soir', 'weekend', 'semaine', 'favoris'], [...t.quand, t.favoris])}
+    ${groupe('quand', ['tout', 'soir', 'weekend', 'semaine', 'favoris'], [...t.quand, t.favoris]).replace('</div></details>', `<label class="choix-date"><span>${esc(t.choisirDate)}</span><input type="date" min="${cle(new Date().toISOString())}"></label></div></details>`)}
     ${filtresVille ? groupe('ville', ['tout', ...VILLES.map((v) => v.toLowerCase()), 'var', 'autres'], [t.partout, t.villes.nice, t.villes.cannes, t.villes.monaco, t.villes.antibesCourt, t.var, t.ailleurs]) : ''}
     ${filtreStyle && styles.length > 1 ? groupe('style', ['tout', ...styles], [t.sons[0], ...styles.map((k) => nomStyle(k, t, lang))]) : ''}
     ${groupe('prix', ['tout', 'gratuit', '10'], t.prix)}
     ${groupe('acces', ['tout', 'pres', 'tram', 'train', 'bus', 'parking'], t.acces)}
+    ${groupe('tri', ['date', 'prix', 'demande'], t.tris)}
     <p class="nb-res" aria-live="polite"></p>
     </div>
   </div></div>
@@ -907,8 +925,15 @@ const fond = (base, photo, video, alt) => (video
 // Sur ordinateur, la photo du hero est une carte à droite (jamais étirée, donc jamais floue) ; sur mobile, elle est en fond.
 const TAILLE_HERO = '(min-width:980px) 560px, 100vw';
 
-const heroCourt = ({ base, photo, video, alt, etiquette, h1, p, live = false }) => `<section class="hero court${photo ? '' : ' sans-photo'}">
-  ${photo ? `<div class="hero-media">${fond(base, photo, video, alt)}</div>` : '<div class="hero-deco" aria-hidden="true"><span></span><span></span><span></span></div>'}
+// Collage d'affiches (soirées à venir, un lot différent par page) ou de logos partenaires, à droite des en-têtes sans photo.
+let AFFICHES_COLLAGE = [];
+const collage = (base, k, logos = null) => {
+  if (logos) return `<div class="collage logos-collage" aria-hidden="true">${logos.slice(0, 12).map((f, i) => `<img src="${base}${esc(f)}" alt="" loading="lazy" style="--i:${i}">`).join('')}</div>`;
+  const l = AFFICHES_COLLAGE.length ? [0, 1, 2].map((i) => AFFICHES_COLLAGE[(k * 3 + i) % AFFICHES_COLLAGE.length]) : [];
+  return l.length ? `<div class="collage" aria-hidden="true">${l.map((a, i) => `<img src="${base}${a.replace(/\.jpg$/, '-800.webp')}" alt="" loading="lazy" style="--i:${i}">`).join('')}</div>` : '';
+};
+const heroCourt = ({ base, photo, video, alt, etiquette, h1, p, live = false, k = 0, logos = null }) => `<section class="hero court${photo ? '' : ' sans-photo'}">
+  ${photo ? `<div class="hero-media">${fond(base, photo, video, alt)}</div>` : `<div class="hero-deco" aria-hidden="true"><span></span><span></span><span></span></div>${collage(base, k, logos)}`}
   <div class="hero-texte">
     <p class="etiquette">${esc(etiquette)}</p>
     <h1>${h1}</h1>
@@ -1064,7 +1089,7 @@ function pageSorties({ lang, t, tr, base, compte, T, chemin, maj, partenaires, c
   </article>`;
   const ICONES = ['🌅', '🌊', '🌿', '🎨', '⛵'];
   const spots = cleS === 'dates' ? SPOTS_DATE.map((g, k) => `<section class="bloc-large reveal"><h2>${ICONES[k] || '✦'} ${esc(tr(g.titre))}</h2><div class="cartes-texte">${g.lieux.map(([nom, ville, texte], i) => `<article class="carte-texte spot" style="--i:${i}"><p class="genre">${esc(ville)}</p><h3>${esc(nom)}</h3><p>${esc(tr(texte))}</p><p class="lieu-liens"><a class="lien" href="https://www.google.com/maps/search/?api=1&amp;query=${encodeURIComponent(`${nom}, ${ville}`)}" target="_blank" rel="noopener">${esc(t.itineraire)}</a></p></article>`).join('')}</div></section>`).join('\n') : '';
-  const corps = `${heroCourt({ base, photo: null, alt: tr(C.etiquette), etiquette: tr(C.etiquette), h1: tr(C.h1), p: esc(tr(C.p)) })}
+  const corps = `${heroCourt({ base, photo: null, alt: tr(C.etiquette), etiquette: tr(C.etiquette), h1: tr(C.h1), p: esc(tr(C.p)), k: 8 + Object.keys(SORTIES).indexOf(cleS) })}
 ${spots}
 <section class="bloc-large reveal">${cleS === 'dates' && l.length ? `<h2>${tr('Les bonnes adresses de nos <em>partenaires</em>')}</h2>` : ''}${l.length ? `<div class="cartes-texte">${l.map(carteP).join('')}</div>` : cleS === 'dates' ? '' : `<p class="vide">${esc(tr(SORTIES.vide))}</p>`}${ctaIg(handle, t.orgaBouton, T.email)}</section>
 <section class="bloc-large reveal"><p class="liens-styles">${Object.keys(SORTIES).filter((k) => SORTIES[k].filtre && k !== cleS).map((k) => `<a class="puce" href="${base}${pre(lang)}${k}/">${esc(k === 'dates' ? t.dates : k === 'restaurants' ? t.restos : t.activites)}</a>`).join('')}<a class="puce" href="${base}${pre(lang)}#agenda">${esc(t.agenda)}</a></p></section>`;
@@ -1072,11 +1097,18 @@ ${spots}
     ...(l.length ? [{ '@context': 'https://schema.org', '@type': 'ItemList', itemListElement: l.map((p, i) => ({ '@type': 'ListItem', position: i + 1, item: { '@type': p.categorie === 'restaurant' ? 'Restaurant' : 'LocalBusiness', name: p.nom, ...(p.adresse || p.ville ? { address: { '@type': 'PostalAddress', streetAddress: p.adresse || undefined, addressLocality: p.ville || undefined } } : {}), ...(p.site ? { url: p.site } : {}) } })) }] : [])] });
 }
 
-function pageFestivals({ lang, t, tr, base, compte, T, chemin, soirees, maj }) {
+function pageFestivals({ lang, t, tr, base, compte, T, chemin, soirees, maj, festivalsGuide, partenaires }) {
   const recherche = (n) => `https://www.google.com/search?q=${encodeURIComponent(`${n} site officiel`)}`;
-  const corps = `${heroCourt({ base, photo: null, alt: t.festivals, etiquette: t.festivals, h1: t.festH1, p: esc(t.festP) })}
+  const corps = `${heroCourt({ base, photo: null, alt: t.festivals, k: 1, etiquette: t.festivals, h1: t.festH1, p: esc(t.festP) })}
 <section class="bloc-large reveal"><h2>${t.festAgendaH2}</h2>${soirees.length ? `<div class="grille">${soirees.map((s) => carte(s, { t, base, lang })).join('')}</div>` : `<p class="vide">${esc(t.festAgendaVide)}</p>`}</section>
-<section class="bloc-large reveal"><h2>${t.festGuideH2}</h2><div class="cartes-texte">${FESTIVALS.map((f, i) => `<article class="carte-texte" style="--i:${i}"><p class="genre">${esc(tr(f.quand))} · ${esc(f.ville === 'Partout' ? tr(f.ville) : f.ville)}</p><h3>${esc(f.nom)}</h3><p class="petit">${esc(tr(f.style))}</p><p>${esc(tr(f.texte))}</p><a class="lien" href="${recherche(f.nom)}" target="_blank" rel="noopener">${esc(t.siteOfficiel)}</a></article>`).join('')}</div></section>
+${(festivalsGuide || []).length ? (() => {
+  const parts = new Set((partenaires || []).map((p) => (p.instagram || '').toLowerCase()).filter(Boolean));
+  const fmt = (d) => paris(`${d}T12:00:00Z`, { day: 'numeric', month: 'long', year: 'numeric' }, t.locale);
+  const carteF = (f, i) => `<article class="carte-texte festival${parts.has(f.instagram) ? ' partenaire' : ''}" style="--i:${i % 8}"><p class="genre">${f.debut_prochaine ? esc(fmt(f.debut_prochaine)) : esc(tr(f.periode || ''))} · ${esc(f.ville)}${parts.has(f.instagram) ? ` · ${esc(t.partenaires)}` : ''}</p><h3>${esc(f.nom)}</h3>${f.styles ? `<p class="petit">${esc(tr(f.styles))}</p>` : ''}${f.description ? `<p>${esc(tr(f.description))}</p>` : ''}<p class="lieu-liens">${f.site ? `<a class="lien" href="${esc(f.site)}" target="_blank" rel="noopener">${esc(t.siteOfficiel)}</a>` : `<a class="lien" href="${recherche(f.nom)}" target="_blank" rel="noopener">${esc(t.siteOfficiel)}</a>`}${f.instagram ? `<a class="lien" href="https://www.instagram.com/${esc(f.instagram)}/" target="_blank" rel="noopener">@${esc(f.instagram)}</a>` : ''}</p></article>`;
+  const tri = (a, b) => (a.debut_prochaine || '9999').localeCompare(b.debut_prochaine || '9999');
+  const ete = festivalsGuide.filter((f) => f.saison !== 'annee').sort(tri), annee = festivalsGuide.filter((f) => f.saison === 'annee').sort(tri);
+  return `${ete.length ? `<section class="bloc-large reveal"><h2>${t.festGuideH2}</h2><div class="cartes-texte">${ete.map(carteF).join('')}</div></section>` : ''}${annee.length ? `<section class="bloc-large reveal"><h2>${tr("Toute l'<em>année</em>")}</h2><div class="cartes-texte">${annee.map(carteF).join('')}</div></section>` : ''}`;
+})() : `<section class="bloc-large reveal"><h2>${t.festGuideH2}</h2><div class="cartes-texte">${FESTIVALS.map((f, i) => `<article class="carte-texte" style="--i:${i}"><p class="genre">${esc(tr(f.quand))} · ${esc(f.ville === 'Partout' ? tr(f.ville) : f.ville)}</p><h3>${esc(f.nom)}</h3><p class="petit">${esc(tr(f.style))}</p><p>${esc(tr(f.texte))}</p><a class="lien" href="${recherche(f.nom)}" target="_blank" rel="noopener">${esc(t.siteOfficiel)}</a></article>`).join('')}</div></section>`}
 <section class="bloc-large reveal"><h2>${t.festRdvH2}</h2><div class="cartes-texte">${RENDEZ_VOUS.map((f, i) => `<article class="carte-texte" style="--i:${i}"><p class="genre">${esc(tr(f.quand))}${f.ville ? ` · ${esc(f.ville)}` : ''}</p><h3>${esc(f.nom)}</h3><p>${esc(tr(f.texte))}</p></article>`).join('')}</div><p class="avert">${esc(t.festAvert)}</p></section>
 ${blocOrga({ t, base, handle: compte.replace(/^@/, ''), lang })}`;
   return gabarit({ lang, t, titre: t.festTitre, description: t.festDesc, chemin, base, corps, compte, maj, ld: [...ldOrganisation(T, compte, t, lang), ...jsonld(soirees, lang), fil(lang, [['Teufy', ''], [t.festivals, chemin]])] });
@@ -1084,7 +1116,7 @@ ${blocOrga({ t, base, handle: compte.replace(/^@/, ''), lang })}`;
 
 const dateActu = (a, t) => { const d = Date.parse(a.date); return isNaN(d) ? '' : paris(d, { day: 'numeric', month: 'long', year: 'numeric' }, t.locale); };
 function pageActus({ lang, t, tr, base, compte, T, chemin, actus, maj }) {
-  const corps = `${heroCourt({ base, photo: null, alt: t.actus, etiquette: t.actus, h1: t.actusH1, p: esc(t.actusP) })}
+  const corps = `${heroCourt({ base, photo: null, alt: t.actus, k: 2, etiquette: t.actus, h1: t.actusH1, p: esc(t.actusP) })}
 <section class="bloc-large reveal">${actus.length ? `<div class="actus">${actus.map((a, i) => `<a class="actu" href="${base}${pre(lang)}actus/${a.id}/" style="--i:${i % 6}"><p class="genre">${esc(dateActu(a, t))}${a.ville ? ` · ${esc(tr(a.ville))}` : ''}</p><h3>${esc(tr(a.titre))}</h3><p>${esc(tr(a.chapo))}</p><b>${esc(t.lire)} →</b></a>`).join('')}</div>` : `<p class="vide">${esc(t.actusVide)}</p>`}</section>`;
   return gabarit({ lang, t, titre: t.actusTitre, description: t.actusDesc, chemin, base, corps, compte, maj, ld: [...ldOrganisation(T, compte, t, lang), fil(lang, [['Teufy', ''], [t.actus, chemin]])] });
 }
@@ -1131,7 +1163,7 @@ function pageLieux({ lang, t, tr, base, compte, T, chemin, maj, lieux }) {
   const parVille = {};
   for (const l of lieux || []) (parVille[l.ville || tr('Autres')] ||= []).push(l);
   const villes = Object.keys(parVille).sort((a, b) => parVille[b].length - parVille[a].length);
-  const corps = `${heroCourt({ base, photo: null, alt: t.lieuxNav, etiquette: t.lieuxNav, h1: tr("Les clubs et bars de la <em>Côte d'Azur</em> et du Var"), p: esc(tr("Boîtes de nuit, bars, rooftops et beach clubs de Nice à Toulon, avec ceux qui font le plus parler d'eux en ce moment.")) })}
+  const corps = `${heroCourt({ base, photo: null, alt: t.lieuxNav, k: 3, etiquette: t.lieuxNav, h1: tr("Les clubs et bars de la <em>Côte d'Azur</em> et du Var"), p: esc(tr("Boîtes de nuit, bars, rooftops et beach clubs de Nice à Toulon, avec ceux qui font le plus parler d'eux en ce moment.")) })}
 ${top.length ? `<section class="bloc-large reveal"><h2>${tr('🔥 Tendance du <em>moment</em>')}</h2><p class="avert">${esc(tr("Classement calculé chaque jour à partir de données réelles : likes et commentaires sur les publications Instagram des 3 dernières semaines, rapportés au nombre d'abonnés. Être partenaire de Teufy ne donne aucun bonus."))}</p><div class="cartes-texte">${top.map((l, i) => carteLieu(l, ctx, i, true)).join('')}</div></section>` : ''}
 <section class="bloc-large reveal"><p class="liens-styles">${villes.map((v) => `<a class="puce" href="#v-${slug(v)}">${esc(v)} · ${parVille[v].length}</a>`).join('')}</p></section>
 ${villes.map((v) => `<section class="bloc-large reveal" id="v-${slug(v)}"><h2>${esc(v)}</h2><div class="cartes-texte">${parVille[v].map((l, i) => carteLieu(l, ctx, i)).join('')}</div></section>`).join('\n')}
@@ -1145,7 +1177,7 @@ function pageFrance({ lang, t, tr, base, compte, T, chemin, maj, soirees, cleVil
   const nomVille = cleVille ? (VILLES_FRANCE.find((v) => slug(v) === cleVille) || soirees[0]?.ville || cleVille) : '';
   const villes = [...new Set(soirees.map((s) => s.filtreVille))];
   const titre = cleVille ? tr(`Soirées à ${nomVille} : les plus attendues`) : tr('Soirées dans les grandes villes de France');
-  const corps = `${heroCourt({ base, photo: null, alt: titre, etiquette: tr('Ailleurs en France'), h1: cleVille ? tr(`Les soirées à <em>${nomVille}</em>`) : tr('Les soirées des <em>grandes villes</em> de France'), p: esc(tr("Teufy, c'est d'abord la Côte d'Azur et le Var. Ici, les soirées les plus attendues des grandes villes étudiantes, pour quand tu bouges.")) })}
+  const corps = `${heroCourt({ base, photo: null, alt: titre, k: 4, etiquette: tr('Ailleurs en France'), h1: cleVille ? tr(`Les soirées à <em>${nomVille}</em>`) : tr('Les soirées des <em>grandes villes</em> de France'), p: esc(tr("Teufy, c'est d'abord la Côte d'Azur et le Var. Ici, les soirées les plus attendues des grandes villes étudiantes, pour quand tu bouges.")) })}
 <section class="bloc-large reveal"><p class="liens-styles">${cleVille ? `<a class="puce" href="${base}${pre(lang)}france/">${esc(tr('Toutes les villes'))}</a>` : ''}${VILLES_FRANCE.filter((v) => villes.includes(slug(v))).map((v) => `<a class="puce${slug(v) === cleVille ? ' actif' : ''}" href="${base}${pre(lang)}france/${slug(v)}/">${esc(v)}</a>`).join('')}<a class="puce" href="${base}${pre(lang)}#agenda">${esc(tr("Côte d'Azur et Var"))}</a></p>
 ${soirees.length ? `<div class="grille">${soirees.map((s) => carte(s, { t, base, lang })).join('')}</div>` : `<p class="vide">${esc(tr('Les soirées des grandes villes arrivent : la recherche tourne tous les deux jours.'))}</p>`}</section>`;
   return gabarit({ lang, t, titre: `${titre} · Teufy`, description: tr("Les soirées les plus attendues à Paris, Lyon, Marseille, Toulouse, Bordeaux, Lille, Nantes, Montpellier, Strasbourg, Rennes, Grenoble et Aix-en-Provence."), chemin, base, corps, compte, maj, ld: [...ldOrganisation(T, compte, t, lang), ...jsonld(soirees, lang)] });
@@ -1159,7 +1191,7 @@ const ctaIg = (handle, texte, email) => `<p class="cta"><a class="bouton" href="
 function pagePartenaire({ lang, t, tr, base, compte, T, chemin, maj, partenaires }) {
   const C = PARTENAIRE, handle = compte.replace(/^@/, '');
   const faq = C.faq.map(([q, r]) => [tr(q), tr(r)]);
-  const corps = `${heroCourt({ base, photo: null, alt: t.partenaires, etiquette: tr(C.etiquette), h1: tr(C.h1), p: esc(tr(C.chapo)) })}
+  const corps = `${heroCourt({ base, photo: null, logos: (partenaires || []).filter((x) => x.fichier).slice(0, 12).map((x) => x.fichier), alt: t.partenaires, etiquette: tr(C.etiquette), h1: tr(C.h1), p: esc(tr(C.chapo)) })}
 ${vitrine({ t, tr, base, partenaires })}
 <section class="bloc-large reveal">${ctaIg(handle, tr(C.cta), T.email)}<h2>${tr(C.pourquoiH2)}</h2>${cartesTexte(C.pourquoi, tr)}</section>
 <section class="bloc-large reveal"><h2>${tr(C.offreH2)}</h2>${cartesTexte(C.offre, tr)}</section>
@@ -1171,7 +1203,7 @@ ${blocFaq(t.faqH, faq)}`;
 }
 function pageAmbassadeur({ lang, t, tr, base, compte, T, chemin, maj }) {
   const C = AMBASSADEUR, handle = compte.replace(/^@/, '');
-  const corps = `${heroCourt({ base, photo: null, alt: t.ambassadeurs, etiquette: tr(C.etiquette), h1: tr(C.h1), p: esc(tr(C.chapo)) })}
+  const corps = `${heroCourt({ base, photo: null, alt: t.ambassadeurs, k: 5, etiquette: tr(C.etiquette), h1: tr(C.h1), p: esc(tr(C.chapo)) })}
 <section class="bloc-large reveal"><h2>${tr(C.roleH2)}</h2>${cartesTexte(C.role, tr)}</section>
 <section class="bloc-large reveal"><h2>${tr(C.avantagesH2)}</h2>${cartesTexte(C.avantages, tr)}</section>
 <section class="bloc-large reveal"><h2>${tr(C.profilH2)}</h2><ul class="coches">${C.profil.map((x) => `<li>${esc(tr(x))}</li>`).join('')}</ul></section>
@@ -1181,7 +1213,7 @@ function pageAmbassadeur({ lang, t, tr, base, compte, T, chemin, maj }) {
 }
 function pageBde({ lang, t, tr, base, compte, T, chemin, soirees, maj, partenaires }) {
   const C = BDE, handle = compte.replace(/^@/, '');
-  const corps = `${heroCourt({ base, photo: null, alt: t.bde, etiquette: tr(C.etiquette), h1: tr(C.h1), p: esc(tr(C.chapo)) })}
+  const corps = `${heroCourt({ base, photo: null, alt: t.bde, k: 6, etiquette: tr(C.etiquette), h1: tr(C.h1), p: esc(tr(C.chapo)) })}
 <section class="bloc-large reveal"><h2>${tr(C.offreH2)}</h2>${cartesTexte(C.offre, tr)}</section>
 <section class="bloc-large reveal"><h2>${tr(C.etapesH2)}</h2>${etapes(C.etapes, tr)}${ctaIg(handle, tr(C.cta), T.email)}</section>
 ${soirees.length ? `<section class="bloc-large reveal"><h2>${tr(C.soireesH2)}</h2><div class="grille">${soirees.map((s) => carte(s, { t, base, lang })).join('')}</div></section>` : ''}
@@ -1202,7 +1234,7 @@ function aPropos({ lang, t, base, compte, T, chemin, nb, maj, partenaires }) {
   const initiales = T.directeur.split(/\s+/).map((x) => x[0]).join('').slice(0, 2).toUpperCase();
   const bio = lang === 'fr' && T.directeur_bio ? T.directeur_bio : t.bio;
   const ctx = { lang, t, base, T, partenaires };
-  const corps = `${heroCourt({ base, photo: null, alt: t.heroAlt, etiquette: t.apEtiquette, h1: t.apH1, p: esc(t.apP(T.nbPartenaires)) })}
+  const corps = `${heroCourt({ base, photo: null, alt: t.heroAlt, etiquette: t.apEtiquette, k: 7, h1: t.apH1, p: esc(t.apP(T.nbPartenaires)) })}
 <section class="qui reveal">
   <h2>${t.missionH2}</h2>
   <p>${t.missionP1}</p>
