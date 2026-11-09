@@ -1,1 +1,100 @@
-{}
+{
+ "Mont Boron": {
+  "fichier": "site/img/spots/mont-boron.jpg",
+  "auteur": "CHRIS BONTEMPS",
+  "licence": "CC BY-SA 2.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/2.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Port_de_nice.jpg"
+ },
+ "Le Suquet": {
+  "fichier": "site/img/spots/le-suquet.jpg",
+  "auteur": "Miniwark",
+  "licence": "CC BY-SA 3.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Le_Suquet_01.jpg"
+ },
+ "Mont Faron": {
+  "fichier": "site/img/spots/mont-faron.jpg",
+  "auteur": "Rafi88",
+  "licence": "CC BY-SA 4.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:PortDeToulon.jpg"
+ },
+ "Sentier du littoral de Saint-Jean-Cap-Ferrat": {
+  "fichier": "site/img/spots/sentier-du-littoral-de-saint-jean-cap-ferrat.jpg",
+  "auteur": "Broenberr",
+  "licence": "CC BY-SA 3.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Cap_Ferrat,_Rade_de_Villefranche,_Nice.JPG"
+ },
+ "Sentier de Tire-Poil, Cap d'Antibes": {
+  "fichier": "site/img/spots/sentier-de-tire-poil-cap-d-antibes.jpg",
+  "auteur": "Patrick Rouzet",
+  "licence": "CC BY-SA 3.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Cap_d%27Antibes_vue_aerienne.jpg"
+ },
+ "Promenade des Anglais": {
+  "fichier": "site/img/spots/promenade-des-anglais.jpg",
+  "auteur": "Baptiste Rossi",
+  "licence": "Public domain",
+  "licence_url": "",
+  "source": "https://commons.wikimedia.org/wiki/File:Promenadedesanglais.jpg"
+ },
+ "Parc Phoenix": {
+  "fichier": "site/img/spots/parc-phoenix.jpg",
+  "auteur": "GLOBI ۞ FUZZI",
+  "licence": "CC BY-SA 2.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/2.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Parc_Phoenix_serre_Nice.jpg"
+ },
+ "Jardin exotique d'Èze": {
+  "fichier": "site/img/spots/jardin-exotique-d-eze.jpg",
+  "auteur": "Berthold Werner",
+  "licence": "Public domain",
+  "licence_url": "",
+  "source": "https://commons.wikimedia.org/wiki/File:Eze_jardin_exotique.JPG"
+ },
+ "Jardins de la Villa Ephrussi de Rothschild": {
+  "fichier": "site/img/spots/jardins-de-la-villa-ephrussi-de-rothschild.jpg",
+  "auteur": "Berthold Werner",
+  "licence": "CC BY-SA 3.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Villa_Ephrussi_de_Rothschild_BW_2011-06-10_11-24-41.JPG"
+ },
+ "Musée Picasso, château Grimaldi": {
+  "fichier": "site/img/spots/musee-picasso-chateau-grimaldi.jpg",
+  "auteur": "Ecce Art",
+  "licence": "CC BY-SA 3.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Mus%C3%A9e_Picasso_Antibes.jpg"
+ },
+ "Musée océanographique": {
+  "fichier": "site/img/spots/musee-oceanographique.jpg",
+  "auteur": "Mister No",
+  "licence": "CC BY 3.0",
+  "licence_url": "https://creativecommons.org/licenses/by/3.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Musee_Oceanographique_de_Monaco_-_panoramio.jpg"
+ },
+ "Fondation Maeght": {
+  "fichier": "site/img/spots/fondation-maeght.jpg",
+  "auteur": "Waterborough",
+  "licence": "CC BY-SA 3.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "source": "https://commons.wikimedia.org/wiki/File:08_Fondation_Maeght.JPG"
+ },
+ "Village d'Èze": {
+  "fichier": "site/img/spots/village-d-eze.jpg",
+  "auteur": "Apollinaire75",
+  "licence": "CC0",
+  "licence_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "source": "https://commons.wikimedia.org/wiki/File:Le_village_d%27Eze.jpg"
+ },
+ "Saint-Paul-de-Vence": {
+  "fichier": "site/img/spots/saint-paul-de-vence.jpg",
+  "auteur": "Jpchevreau",
+  "licence": "CC BY-SA 4.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Vue_du_village_de_Saint-Paul-de-Vence_depuis_la_route_de_La_Colle.jpg"
+ }
+}
