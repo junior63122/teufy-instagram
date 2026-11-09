@@ -32,10 +32,11 @@ const [cible = 'auto', etape = 'tout'] = args.filter((a) => !a.startsWith('--'))
 const DRY = !!flag('dry-run') || process.env.DRY_RUN === 'true' || cible === 'mois';
 const NOW = val('now') ? new Date(val('now')) : new Date();
 const MEDIA_DIR = path.join(ROOT, 'media');
-const MEDIA_BASE = (process.env.MEDIA_BASE_URL || 'https://junior63122.github.io/teufy-instagram/media').replace(/\/$/, '');
 const HIST_FILE = path.join(ROOT, 'historique.json');
 
 const config = JSON.parse(await readFile(path.join(ROOT, 'config.json'), 'utf8'));
+// Médias publiés sur Instagram : servis par le site (domaine propre s'il est branché, sinon l'adresse GitHub Pages).
+const MEDIA_BASE = (config.site?.domaine ? `https://${config.site.domaine}/media` : process.env.MEDIA_BASE_URL || 'https://junior63122.github.io/teufy-instagram/media').replace(/\/$/, '');
 const R = config.reglages;
 const hist = existsSync(HIST_FILE) ? JSON.parse(await readFile(HIST_FILE, 'utf8')) : [];
 const usedHere = new Set(); // débats / bons plans déjà pris dans ce lancement (aperçu du mois)

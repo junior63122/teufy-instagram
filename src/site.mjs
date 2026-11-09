@@ -22,7 +22,7 @@ const SITE = path.join(ROOT, 'site');
 const VERIF = path.join(ROOT, 'contenus', 'affiches-verifiees.json');
 const GEO = path.join(ROOT, 'contenus', 'lieux-geo.json');
 const TRAD = path.join(ROOT, 'contenus', 'traductions.json');
-const URL_SITE = 'https://junior63122.github.io/teufy-instagram/';
+let URL_SITE = 'https://junior63122.github.io/teufy-instagram/'; // remplacé par https://<domaine>/ quand config.site.domaine est rempli
 const h = (s) => createHash('sha1').update(String(s)).digest('hex').slice(0, 12);
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const lire = (f, d) => { try { return JSON.parse(readFileSync(f, 'utf8')); } catch { return d; } };
@@ -502,6 +502,10 @@ export async function construireSite({ events, eventsFrance = [], hist = [], con
   const T = { ...TEUFY, ...(config.site || {}) };
   T.nbPartenaires = (String(T.partenaires).match(/\d+/) || ['200'])[0];
   GOOGLE = (config.site?.google_verification || '').trim();
+  // Domaine propre (ex. teufyparty.com) : fichier CNAME lu par GitHub Pages ; vide = adresse GitHub Pages.
+  const domaine = (config.site?.domaine || '').trim().replace(/^https?:\/\//, '').replace(/\/.*$/, '');
+  if (domaine) { URL_SITE = `https://${domaine}/`; await writeFile(path.join(ROOT, 'CNAME'), `${domaine}\n`); }
+  else if (existsSync(path.join(ROOT, 'CNAME'))) spawnSync('rm', ['-f', path.join(ROOT, 'CNAME')]);
   CODES = (config.codes_promo || []).filter((c) => c.code && c.s_applique && (!c.jusqu_au || Date.parse(c.jusqu_au) >= now.getTime()));
   const majTexte = (t) => t.majLe.replace('{d}', paris(now, { day: 'numeric', month: 'long' }, t.locale));
 
@@ -980,6 +984,7 @@ ${blocOrga({ t, base, handle, lang })}`;
 function blocOrga({ t, base, handle, lang }) {
   return `<section class="orga reveal">
   <div class="hero-deco" aria-hidden="true"><span></span><span></span><span></span></div>
+  ${AFFICHES_COLLAGE.length >= 6 ? `<div class="orga-visuel" aria-hidden="true">${AFFICHES_COLLAGE.slice(-3).map((a, i) => `<img src="${base}${a.replace(/\.jpg$/, '-480.webp')}" alt="" loading="lazy" style="--i:${i}">`).join('')}${(t.orgaPuces || []).map((x, i) => `<span class="orga-puce" style="--i:${i}">${esc(x)}</span>`).join('')}</div>` : ''}
   <div class="hero-texte">
     <p class="etiquette">${esc(t.orgaEtiquette)}</p>
     <h2>${t.orgaH2}</h2>
@@ -1077,19 +1082,35 @@ function yAller(s, t, lieu) {
 // Rubriques « Pour un date », « Restos », « Activités » : partenaires identifiés et classés.
 function pageSorties({ lang, t, tr, base, compte, T, chemin, maj, partenaires, cleS }) {
   const C = SORTIES[cleS], handle = compte.replace(/^@/, '');
-  const l = (partenaires || []).filter((p) => p.nom && p.categorie && C.filtre(p));
-  const carteP = (p, i) => `<article class="carte-texte lieu" style="--i:${i % 8}">
-    <div class="lieu-tete">${p.fichier ? `<img src="${base}${esc(p.fichier)}" alt="" width="56" height="56" loading="lazy">` : `<span class="lieu-initiale">${esc((p.nom[0] || '?').toUpperCase())}</span>`}<div><p class="genre">${esc(tr(SORTIES.categories[p.categorie] || ''))}${p.ville ? ` · ${esc(p.ville)}` : ''}${p.prix ? ` · ${esc(p.prix)}` : ''}</p><h3>${esc(p.nom)}</h3></div></div>
-    ${p.description ? `<p>${esc(tr(p.description))}</p>` : ''}
+  // Seulement la région (Côte d'Azur, Var, Monaco) et une seule fiche par lieu (un même lieu a parfois deux comptes Instagram).
+  const region = (p) => !p.ville || CENTRES.some(([re]) => re.test(p.ville));
+  const nomN = (p) => sansAccent(p.nom).toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+  const l = [];
+  for (const p of (partenaires || []).filter((x) => x.nom && x.categorie && C.filtre(x) && region(x))) {
+    const d = l.find((q) => q.categorie === p.categorie && (q.ville || '') === (p.ville || '') && (nomN(q).startsWith(nomN(p)) || nomN(p).startsWith(nomN(q)) || (p.site && q.site && p.site.replace(/^https?:\/\/(www\.)?/, '').split('/')[0] === q.site.replace(/^https?:\/\/(www\.)?/, '').split('/')[0])));
+    if (!d) { l.push({ ...p }); continue; }
+    if (nomN(p).length < nomN(d).length) d.nom = p.nom; // le nom le plus court (« Great Game » plutôt que « Great Game Party Room »)
+    for (const k of ['instagram', 'site', 'fichier', 'adresse', 'prix']) d[k] ||= p[k];
+    if ((p.description || '').length > (d.description || '').length) d.description = p.description;
+  }
+  const ICO = { ig: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.3" fill="currentColor"/></svg>',
+    site: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18" fill="none" stroke="currentColor" stroke-width="2"/></svg>',
+    map: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="10" r="2.5" fill="currentColor"/></svg>' };
+  const carteP = (p, i) => `<article class="fiche" style="--i:${i % 8}">
+    <div class="fiche-banniere"${p.fichier ? ` style="--fond:url('${base}${esc(p.fichier)}')"` : ''}>${p.fichier ? `<img src="${base}${esc(p.fichier)}" alt="" width="88" height="88" loading="lazy">` : `<span class="lieu-initiale">${esc((p.nom[0] || '?').toUpperCase())}</span>`}</div>
+    <div class="fiche-corps">
+    <p class="genre">${esc(tr(SORTIES.categories[p.categorie] || ''))}${p.ville ? ` · ${esc(p.ville)}` : ''}${p.prix ? ` <span class="fiche-prix">${esc(p.prix.replace(/\s+/g, ''))}</span>` : ''}</p>
+    <h3>${esc(p.nom)}</h3>
+    ${p.description ? `<p class="fiche-desc">${esc(tr(p.description))}</p>` : ''}
     ${cleS === 'dates' && p.date_raison ? `<p class="petit">♥ ${esc(tr(p.date_raison))}</p>` : ''}
-    <p class="lieu-liens">${p.instagram ? `<a class="lien" href="https://www.instagram.com/${esc(p.instagram)}/" target="_blank" rel="noopener">@${esc(p.instagram)}</a>` : ''}${p.site ? `<a class="lien" href="${esc(p.site)}" target="_blank" rel="noopener">${esc(t.siteWeb)}</a>` : ''}${p.adresse || p.ville ? `<a class="lien" href="https://www.google.com/maps/search/?api=1&amp;query=${encodeURIComponent([p.nom, p.adresse, p.ville].filter(Boolean).join(', '))}" target="_blank" rel="noopener">${esc(t.itineraire)}</a>` : ''}</p>
+    <p class="fiche-actions">${p.instagram ? `<a href="https://www.instagram.com/${esc(p.instagram)}/" target="_blank" rel="noopener" aria-label="Instagram @${esc(p.instagram)}">${ICO.ig}<span>Instagram</span></a>` : ''}${p.site ? `<a href="${esc(p.site)}" target="_blank" rel="noopener">${ICO.site}<span>${esc(t.siteWeb)}</span></a>` : ''}${p.adresse || p.ville ? `<a href="https://www.google.com/maps/search/?api=1&amp;query=${encodeURIComponent([p.nom, p.adresse, p.ville].filter(Boolean).join(', '))}" target="_blank" rel="noopener">${ICO.map}<span>${esc(t.itineraire)}</span></a>` : ''}</p>
+    </div>
   </article>`;
   const ICONES = ['🌅', '🌊', '🌿', '🎨', '⛵'];
   const spots = cleS === 'dates' ? SPOTS_DATE.map((g, k) => `<section class="bloc-large reveal"><h2>${ICONES[k] || '✦'} ${esc(tr(g.titre))}</h2><div class="cartes-texte">${g.lieux.map(([nom, ville, texte], i) => `<article class="carte-texte spot" style="--i:${i}"><p class="genre">${esc(ville)}</p><h3>${esc(nom)}</h3><p>${esc(tr(texte))}</p><p class="lieu-liens"><a class="lien" href="https://www.google.com/maps/search/?api=1&amp;query=${encodeURIComponent(`${nom}, ${ville}`)}" target="_blank" rel="noopener">${esc(t.itineraire)}</a></p></article>`).join('')}</div></section>`).join('\n') : '';
   const corps = `${heroCourt({ base, photo: null, alt: tr(C.etiquette), etiquette: tr(C.etiquette), h1: tr(C.h1), p: esc(tr(C.p)), k: 8 + Object.keys(SORTIES).indexOf(cleS) })}
 ${spots}
-<section class="bloc-large reveal">${cleS === 'dates' && l.length ? `<h2>${tr('Les bonnes adresses de nos <em>partenaires</em>')}</h2>` : ''}${l.length ? `<div class="cartes-texte">${l.map(carteP).join('')}</div>` : cleS === 'dates' ? '' : `<p class="vide">${esc(tr(SORTIES.vide))}</p>`}${ctaIg(handle, t.orgaBouton, T.email)}</section>
-<section class="bloc-large reveal"><p class="liens-styles">${Object.keys(SORTIES).filter((k) => SORTIES[k].filtre && k !== cleS).map((k) => `<a class="puce" href="${base}${pre(lang)}${k}/">${esc(k === 'dates' ? t.dates : k === 'restaurants' ? t.restos : t.activites)}</a>`).join('')}<a class="puce" href="${base}${pre(lang)}#agenda">${esc(t.agenda)}</a></p></section>`;
+<section class="bloc-large reveal">${cleS === 'dates' && l.length ? `<h2>${tr('Les bonnes adresses de nos <em>partenaires</em>')}</h2>` : ''}${l.length ? `<div class="fiches">${l.map(carteP).join('')}</div>` : cleS === 'dates' ? '' : `<p class="vide">${esc(tr(SORTIES.vide))}</p>`}${ctaIg(handle, t.orgaBouton, T.email)}</section>`;
   return gabarit({ lang, t, titre: tr(C.titre), description: tr(C.desc), chemin, base, corps, compte, maj, ld: [...ldOrganisation(T, compte, t, lang), fil(lang, [['Teufy', ''], [tr(C.etiquette), chemin]]),
     ...(l.length ? [{ '@context': 'https://schema.org', '@type': 'ItemList', itemListElement: l.map((p, i) => ({ '@type': 'ListItem', position: i + 1, item: { '@type': p.categorie === 'restaurant' ? 'Restaurant' : 'LocalBusiness', name: p.nom, ...(p.adresse || p.ville ? { address: { '@type': 'PostalAddress', streetAddress: p.adresse || undefined, addressLocality: p.ville || undefined } } : {}), ...(p.site ? { url: p.site } : {}) } })) }] : [])] });
 }
@@ -1341,7 +1362,7 @@ ${blocOrga({ t, base, handle, lang })}`;
 
 // Page 404 (GitHub Pages la sert pour toute adresse inconnue : chemins absolus).
 function page404(t) {
-  const B = '/teufy-instagram/';
+  const B = new URL(URL_SITE).pathname; // « / » sur le domaine propre, « /teufy-instagram/ » sur GitHub Pages
   return `<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${esc(t.e404)} · Teufy</title><meta name="robots" content="noindex"><link rel="icon" href="${B}site/img/logo.png"><link rel="stylesheet" href="${B}site/style.min.css"></head>
 <body><main class="page-404"><a href="${B}"><img src="${B}site/img/logo.png" alt="Teufy" width="96" height="79"></a><h1>4<em>0</em>4</h1><p>${esc(t.e404p)}</p><p><a class="bouton" href="${B}#agenda">${esc(t.e404b)}</a></p>
 <p class="langues-pied">${LANGUES.map((l) => `<a href="${B}${pre(l)}" hreflang="${l}" lang="${l}">${esc(TXT[l].nom)}</a>`).join(' · ')}</p></main></body></html>

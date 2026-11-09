@@ -25,6 +25,7 @@ const fr = {
   insta: 'Sur Instagram',
   voirInsta: "Voir l'alerte sur Instagram",
   suivreInsta: "Suivre @teufy_official",
+  orgaPuces: ["Ajout gratuit à l'agenda", "Mise en avant sur Instagram", "Site en 6 langues"],
   orgaEtiquette: 'Organisateurs', orgaH2: 'Ta soirée sur <em>Teufy</em>', orgaP: "Envoie-nous ton affiche, la date et le lien de billetterie en message sur Instagram : on l'ajoute à l'agenda et, si elle plaît aux 17-30 ans de la Côte, on la met en avant.", orgaBouton: 'Écrire à Teufy',
   intro: {
     nice: "Clubs du Vieux-Nice et du port, rooftops, soirées étudiantes, techno au Frigo 16 ou grosses dates à Nikaïa : toutes les soirées de Nice, vérifiées et mises à jour chaque jour.",
@@ -81,6 +82,7 @@ const en = {
   insta: 'On Instagram',
   voirInsta: "See the alert on Instagram",
   suivreInsta: "Follow @teufy_official",
+  orgaPuces: ["Free listing in the agenda", "Featured on Instagram", "Site in 6 languages"],
   orgaEtiquette: 'Promoters', orgaH2: 'Your party on <em>Teufy</em>', orgaP: 'Send us your poster, the date and the ticket link on Instagram: we add it to the guide and, if the Riviera’s 17-30 crowd loves it, we feature it.', orgaBouton: 'Message Teufy',
   intro: {
     nice: 'Old Town and harbour clubs, rooftops, student nights, techno at Frigo 16 or big shows at Nikaïa: every party in Nice, checked and updated daily.',
@@ -137,6 +139,7 @@ const it = {
   insta: 'Su Instagram',
   voirInsta: "Vedi l'avviso su Instagram",
   suivreInsta: "Segui @teufy_official",
+  orgaPuces: ["Inserimento gratuito in agenda", "In evidenza su Instagram", "Sito in 6 lingue"],
   orgaEtiquette: 'Organizzatori', orgaH2: 'La tua serata su <em>Teufy</em>', orgaP: 'Mandaci la locandina, la data e il link dei biglietti su Instagram: la aggiungiamo alla guida e, se piace ai 17-30enni della Costa, la mettiamo in evidenza.', orgaBouton: 'Scrivi a Teufy',
   intro: {
     nice: 'Club della Città Vecchia e del porto, rooftop, serate universitarie, techno al Frigo 16 o grandi concerti al Nikaïa: tutte le serate di Nizza, verificate e aggiornate ogni giorno.',
@@ -193,6 +196,7 @@ const es = {
   insta: 'En Instagram',
   voirInsta: "Ver la alerta en Instagram",
   suivreInsta: "Seguir a @teufy_official",
+  orgaPuces: ["Publicación gratuita en la agenda", "Destacada en Instagram", "Web en 6 idiomas"],
   orgaEtiquette: 'Organizadores', orgaH2: 'Tu fiesta en <em>Teufy</em>', orgaP: 'Envíanos tu cartel, la fecha y el enlace de entradas por Instagram: la añadimos a la guía y, si gusta a los jóvenes de 17 a 30 años de la Costa, la destacamos.', orgaBouton: 'Escribir a Teufy',
   intro: {
     nice: 'Clubes del casco antiguo y del puerto, terrazas, fiestas universitarias, techno en el Frigo 16 o grandes conciertos en el Nikaïa: todas las fiestas de Niza, verificadas y actualizadas cada día.',
@@ -249,6 +253,7 @@ const zh = {
   insta: 'Instagram 动态',
   voirInsta: "在 Instagram 上查看快讯",
   suivreInsta: "关注 @teufy_official",
+  orgaPuces: ["免费加入活动日历", "在 Instagram 上推荐", "6 种语言网站"],
   orgaEtiquette: '主办方', orgaH2: '让你的派对登上 <em>Teufy</em>', orgaP: '在 Instagram 上把海报、日期和购票链接发给我们：我们会把它加入指南；如果蔚蓝海岸 17-30 岁的年轻人喜欢，我们还会重点推荐。', orgaBouton: '联系 Teufy',
   intro: {
     nice: '老城和港口的俱乐部、屋顶酒吧、学生派对、Frigo 16 的 Techno 之夜或 Nikaïa 的大型演出：尼斯的所有派对，每天核实并更新。',
@@ -305,6 +310,7 @@ const ar = {
   insta: 'على إنستغرام',
   voirInsta: "شاهد التنبيه على إنستغرام",
   suivreInsta: "تابع ‎@teufy_official",
+  orgaPuces: ["إضافة مجانية إلى الأجندة", "إبراز على إنستغرام", "موقع بست لغات"],
   orgaEtiquette: 'المنظمون', orgaH2: 'حفلتك على <em>Teufy</em>', orgaP: 'أرسل لنا الملصق والتاريخ ورابط التذاكر عبر إنستغرام: نضيفها إلى الدليل، وإن أعجبت شباب الساحل من 17 إلى 30 عامًا نُبرزها.', orgaBouton: 'راسل Teufy',
   intro: {
     nice: 'نوادي البلدة القديمة والميناء، الأسطح، حفلات الطلاب، التكنو في Frigo 16 أو الحفلات الكبرى في Nikaïa: كل حفلات نيس، مؤكدة ومحدّثة يوميًا.',
