@@ -99,6 +99,6 @@ jobs:
           git commit -m "Teufy : post de veille du $(date -u +'%F %Hh')"
           for i in 1 2 3; do git pull --rebase -X theirs --autostash && git push && break; git rebase --abort 2>/dev/null; sleep 5; done
           node src/run.mjs veille publier
-          git add -A -- $(ls -d historique.json 2>/dev/null) || true # seulement les chemins existants (un seul absent bloquait tout)
+          git add -A -- $(ls -d historique.json contenus/comptes-verifies.json 2>/dev/null) || true # seulement les chemins existants (un seul absent bloquait tout)
           git diff --cached --quiet || git commit -m "Teufy : post de veille publié"
           for i in 1 2 3; do git pull --rebase -X theirs --autostash && git push && break; git rebase --abort 2>/dev/null; sleep 5; done

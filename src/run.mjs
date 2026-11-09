@@ -19,6 +19,7 @@ import { collectEvents, filterEvents, enrich } from './sources.mjs';
 import { windowFor, rolling, isoLocal, plage, slotOfDay, daysOfMonth } from './dates.mjs';
 import { isTechno } from './genres.mjs';
 import { captionIncontournables, captionBonPlan, captionDebat, captionReel, captionOrgas, captionExplicatif, rng } from './captions.mjs';
+import { nettoyerComptes } from './comptes.mjs';
 import { igConfig, publishCarousel, publishSingle, publishReel, publishStory, permalink, insights, followers, businessDiscovery, compteMedia } from './instagram.mjs';
 import { TENDANCES, analyserComptes } from './tendances.mjs';
 import { buildModel, chooser, selectBest, eventFeatures, collect, hash } from './learn.mjs';
@@ -515,6 +516,8 @@ async function prepare(slot, now, id) {
       if (rs.status === 0) out.story = 'story.jpg'; else console.error(`[${id}] story non conforme : pas de story pour ce post.`);
     } catch (err) { console.error(`[${id}] story impossible : ${err.message}`); }
   } else if (out.video) out.story_video = out.video;
+  // Dès la préparation (l'aperçu montre la vraie légende) ; refait juste avant de publier.
+  { const igv = igConfig(); await nettoyerComptes(out, { ig: igv, businessDiscovery }); }
   await writeFile(path.join(dir, 'publication.json'), JSON.stringify(out, null, 2));
   await writeFile(path.join(dir, 'legende.txt'), out.legende + '\n');
   console.log(`\n[${id}] prêt dans media/${id}/\n${out.legende.split('\n').map((l) => '   ' + l).join('\n')}`);
@@ -558,6 +561,10 @@ async function publishPrepared(id) {
     console.log(`[${id}] Déjà publié le ${p.date}. (FORCE=1 pour republier)`);
     return;
   }
+
+  // Comptes tagués, invités et mentionnés : uniquement ceux dont l'existence est confirmée (jamais d'identifiant inventé).
+  await nettoyerComptes(p, { ig, businessDiscovery });
+  await writeFile(f, JSON.stringify(p, null, 2));
 
   let base = MEDIA_BASE;
   const url = (name) => `${base}/${id}/${name}`;
