@@ -97,7 +97,7 @@ const visibles = (p) => p.locator('.liste .carte:not([hidden])').count();
 
   await etape('carte hors ligne', async () => {
     const c = await b.newContext({ viewport: { width: 1280, height: 800 } }); const p = await c.newPage(); erreurs(p, 'carte');
-    await p.route('**/tile.openstreetmap.org/**', (r) => r.abort());
+    await p.route('**/tiles.openfreemap.org/**', (r) => r.abort());
     await p.goto(B + '#carte'); await p.waitForTimeout(1500);
     ok(await p.locator('.repere').count() > 0, 'carte : les repères disparaissent sans fond de carte');
     await c.close();
@@ -186,7 +186,7 @@ const visibles = (p) => p.locator('.liste .carte:not([hidden])').count();
     for (const o of [{ viewport: { width: 1440, height: 900 } }, { ...devices['iPhone 13'] }]) {
       const c = await b.newContext(o); const p = await c.newPage(); erreurs(p, 'console');
       const pb = []; let page404 = false;
-      p.on('console', (m) => { if (m.type() === 'error' && !/tile\.openstreetmap|net::ERR_(TUNNEL|NAME|CONNECTION)/.test(m.text()) && !(page404 && /status of 404/.test(m.text()))) pb.push(`console : ${m.text().slice(0, 120)}`); });
+      p.on('console', (m) => { if (m.type() === 'error' && !/openfreemap|openstreetmap|net::ERR_(TUNNEL|NAME|CONNECTION)/.test(m.text()) && !(page404 && /status of 404/.test(m.text()))) pb.push(`console : ${m.text().slice(0, 120)}`); });
       p.on('requestfailed', (r) => { const u = r.url(); if (u.startsWith(B) && !/\.mp4/.test(u)) pb.push(`requête échouée : ${u.replace(B, '/')} (${r.failure()?.errorText})`); });
       p.on('response', (r) => { if (r.url().startsWith(B) && r.status() >= 400 && !/page-inexistante/.test(r.url())) pb.push(`HTTP ${r.status()} : ${r.url().replace(B, '/')}`); });
       for (const u of ['', '#carte', 'a-propos/', 'actus/', ...un('actus'), ...un('soiree'), 'festivals/', 'clubs-bars/', 'partenaires/', 'dates/', 'restaurants/', 'activites/', 'france/', 'cgu/', 'confidentialite/', 'ar/', 'page-inexistante/']) {
@@ -206,7 +206,7 @@ const visibles = (p) => p.locator('.liste .carte:not([hidden])').count();
     for (const o of [{ viewport: { width: 1440, height: 900 } }, { ...devices['iPhone 13'] }]) {
       const c = await b.newContext(o); const p = await c.newPage(); erreurs(p, 'mini-carte');
       await p.goto(B + `soiree/${S}/`); await p.locator('.mini-carte').scrollIntoViewIfNeeded(); await p.waitForTimeout(2000);
-      ok(await p.locator('.mini-carte.leaflet-container .repere').count() === 1, `mini-carte ${o.viewport?.width || 'mobile'} : carte ou repère du lieu absent`);
+      ok(await p.locator('.mini-carte.maplibregl-map .repere').count() === 1, `mini-carte ${o.viewport?.width || 'mobile'} : carte ou repère du lieu absent`);
       await c.close();
     }
   });

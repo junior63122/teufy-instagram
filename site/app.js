@@ -313,53 +313,72 @@
     agenda.scrollIntoView({ behavior: reduit ? 'auto' : 'smooth' });
   });
 
-  let promesse = null, carteL = null, calque = null;
-  const chargerLeaflet = () => promesse ||= new Promise((ok, ko) => {
-    const css = Object.assign(document.createElement('link'), { rel: 'stylesheet', href: T.base + 'site/vendor/leaflet/leaflet.css' });
-    const js = Object.assign(document.createElement('script'), { src: T.base + 'site/vendor/leaflet/leaflet.js' });
-    js.onload = () => ok(window.L); js.onerror = () => { promesse = null; ko(); };
+  let promesse = null, carteL = null;
+  // Carte : MapLibre (version compatible CSP, hébergée sur le site) + fonds vectoriels OpenFreeMap (gratuits, sans clé),
+  // recolorés aux couleurs de Teufy (site/vendor/maplibre/teufy-style.json). Chargée seulement quand une carte s'affiche.
+  const VENDOR = T.base + 'site/vendor/maplibre/';
+  const chargerCarte = () => promesse ||= new Promise((ok, ko) => {
+    const css = Object.assign(document.createElement('link'), { rel: 'stylesheet', href: VENDOR + 'maplibre-gl.css' });
+    const js = Object.assign(document.createElement('script'), { src: VENDOR + 'maplibre-gl-csp.js' });
+    js.onload = () => { try { window.maplibregl.setWorkerUrl(new URL(VENDOR + 'maplibre-gl-csp-worker.js', location.href).href); ok(window.maplibregl); } catch (e) { ko(e); } };
+    js.onerror = () => { promesse = null; ko(); };
     document.head.append(css, js);
   });
+  const nouvelleCarte = (ml, conteneur, opts) => {
+    const m = new ml.Map({ container: conteneur, style: new URL(VENDOR + 'teufy-style.json', location.href).href, attributionControl: false, cooperativeGestures: false, dragRotate: false, pitchWithRotate: false, scrollZoom: false, ...opts });
+    m.touchZoomRotate.disableRotation();
+    m.addControl(new ml.NavigationControl({ showCompass: false }), 'top-left');
+    m.addControl(new ml.AttributionControl({ compact: true }), 'bottom-right'); // mentions OpenFreeMap / OpenStreetMap fournies par le style
+    m.on('click', () => m.scrollZoom.enable());
+    // Petites cartes (mobile, mini-carte) : crédits repliés derrière le bouton « i ».
+    m.once('load', () => { if (conteneur.clientWidth < 720) conteneur.querySelector('.maplibregl-ctrl-attrib')?.classList.remove('maplibregl-compact-show'); });
+    return m;
+  };
+  // Le conteneur est positionné par MapLibre (transform) ; la goutte tournée est à l'intérieur.
+  const repere = (html, cls = '') => { const e = document.createElement('div'); e.className = 'repere-ancre'; const r = document.createElement('div'); r.className = `repere ${cls}`.replace(/\s+/g, ' ').trim(); r.innerHTML = html; e.append(r); return e; };
+  const nommer = (marqueur, nom) => { const e = marqueur.getElement(); e.setAttribute('aria-label', nom); e.setAttribute('role', 'button'); e.tabIndex = 0; return marqueur; };
   const el = (tag, cls, txt) => { const e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; };
   const bulle = (l) => {
-    const d = el('div');
+    const d = el('div', 'pop');
     d.append(el('p', 'pop-lieu', l[0].querySelector('.ou')?.textContent || ''));
     for (const c of l) {
       const s = el('div', 'pop-soiree');
-      const titre = el('a', '', c.querySelector('h3')?.textContent || ''); titre.href = c.querySelector('h3 a')?.href || '#';
-      s.append(el('strong', '', ''), el('small', '', `${enCours(c) ? '● ' + T.live + ' · ' : ''}${c.querySelector('.date')?.textContent || ''} · ${c.dataset.heure}`));
-      s.firstChild.append(titre);
+      const titre = el('a', 'pop-titre', c.querySelector('h3')?.textContent || ''); titre.href = c.querySelector('h3 a')?.href || '#';
+      s.append(titre, el('p', 'pop-quand', `${enCours(c) ? '● ' + T.live + ' · ' : ''}${c.querySelector('.date')?.textContent || ''} · ${c.dataset.heure}`));
       const b = c.querySelector('.actions .bouton');
-      if (b) { const a = el('a', 'pop-billets', b.textContent); a.href = b.href; a.target = '_blank'; a.rel = 'noopener'; s.append(el('br'), a); }
+      const act = el('p', 'pop-actions');
+      if (b) { const a = el('a', 'pop-billets', b.textContent); a.href = b.href; a.target = '_blank'; a.rel = 'noopener'; act.append(a); }
+      const v = el('a', 'pop-voir', T.voir || '→'); v.href = titre.href; act.append(v);
+      s.append(act);
       d.append(s);
     }
     if (l[0].dataset.approx) d.append(el('p', 'pop-approx', T.approx));
     return d;
   };
+  let marqueurs = [];
   async function dessiner() {
-    let L;
-    try { L = await chargerLeaflet(); } catch { toast(T.carteErreur); return; }
+    let ml;
+    try { ml = await chargerCarte(); } catch { toast(T.carteErreur); return; }
     if (!carteL) {
-      carteL = L.map(zoneCarte.querySelector('.leaflet-zone'), { scrollWheelZoom: false, tap: true }).setView([43.62, 7.15], 10);
-      // Fond OpenStreetMap (gratuit, sans clé), assombri en CSS pour la DA (.leaflet-tile-pane).
-      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>', maxZoom: 19,
-      }).addTo(carteL);
-      carteL.on('click', () => carteL.scrollWheelZoom.enable());
-      calque = L.layerGroup().addTo(carteL);
+      carteL = nouvelleCarte(ml, zoneCarte.querySelector('.leaflet-zone'), { center: [7.15, 43.62], zoom: 9 });
+      await new Promise((r) => carteL.once('load', r).once('error', r));
     }
-    calque.clearLayers();
+    marqueurs.forEach((m) => m.remove()); marqueurs = [];
     const lieux = new Map();
     for (const c of cartes) if (!c.hidden && c.dataset.lat) { const k = c.dataset.lat + ',' + c.dataset.lng; if (!lieux.has(k)) lieux.set(k, []); lieux.get(k).push(c); }
-    const points = [];
+    const b = new ml.LngLatBounds();
     lieux.forEach((l, k) => {
-      const ll = k.split(',').map(Number); points.push(ll);
-      const html = `<div class="repere${l.some(enCours) ? ' en-cours' : ''}${l[0].dataset.approx ? ' approx' : ''}"><b>${l.length}</b></div>`;
-      L.marker(ll, { icon: L.divIcon({ className: '', html, iconSize: [34, 34], iconAnchor: [17, 40], popupAnchor: [0, -36] }) }).bindPopup(bulle(l), { maxWidth: 280 }).addTo(calque);
+      const [lat, lng] = k.split(',').map(Number); b.extend([lng, lat]);
+      const e = repere(`<b>${l.length}</b>`, `${l.some(enCours) ? 'en-cours' : ''} ${l[0].dataset.approx ? 'approx' : ''}`);
+      const pop = new ml.Popup({ offset: 30, maxWidth: `${Math.min(320, innerWidth - 48)}px`, className: 'teufy-pop', focusAfterOpen: false, anchor: 'bottom' }).setDOMContent(bulle(l));
+      // La bulle s'ouvre au-dessus du repère : la carte se recentre pour qu'elle soit entièrement visible (mobile compris).
+      pop.on('open', () => carteL.easeTo({ center: [lng, lat], offset: [0, Math.min(170, carteL.getContainer().clientHeight * 0.3)], duration: reduit ? 0 : 400 }));
+      marqueurs.push(nommer(new ml.Marker({ element: e, anchor: 'bottom' }).setLngLat([lng, lat]).setPopup(pop).addTo(carteL), `${l[0].querySelector('.ou')?.textContent || ''} : ${l.length}`));
     });
-    if (position) { points.push([position.lat, position.lng]); L.circleMarker([position.lat, position.lng], { radius: 8, color: '#3DFF8A', fillOpacity: 0.9 }).addTo(calque); }
+    if (position) { b.extend([position.lng, position.lat]); marqueurs.push(new ml.Marker({ element: el('span', 'moi') }).setLngLat([position.lng, position.lat]).addTo(carteL)); }
     zoneCarte.querySelector('.carte-vide').hidden = lieux.size > 0;
-    setTimeout(() => { carteL.invalidateSize(); if (points.length) carteL.fitBounds(points, { padding: [40, 40], maxZoom: 14 }); }, 60);
+    carteL.resize();
+    if (!b.isEmpty()) carteL.fitBounds(b, { padding: 50, maxZoom: 14, duration: 0 });
   }
 
   // --- Animations ---------------------------------------------------------------------------------------------
@@ -425,12 +444,10 @@
   const mini = document.querySelector('.mini-carte');
   if (mini) {
     const ouvrir = async () => {
-      let L; try { L = await chargerLeaflet(); } catch { mini.hidden = true; return; }
-      const ll = [+mini.dataset.lat, +mini.dataset.lng];
-      const m = L.map(mini, { scrollWheelZoom: false, zoomControl: true, attributionControl: true }).setView(ll, 16);
-      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>', maxZoom: 19 }).addTo(m);
-      L.marker(ll, { icon: L.divIcon({ className: '', html: '<div class="repere seul"><b>♪</b></div>', iconSize: [34, 34], iconAnchor: [17, 40] }), title: mini.dataset.nom, alt: mini.dataset.nom }).addTo(m);
-      m.on('click', () => m.scrollWheelZoom.enable());
+      let ml; try { ml = await chargerCarte(); } catch { mini.hidden = true; return; }
+      const ll = [+mini.dataset.lng, +mini.dataset.lat];
+      const m = nouvelleCarte(ml, mini, { center: ll, zoom: 15 });
+      nommer(new ml.Marker({ element: repere('<b>♪</b>', 'seul'), anchor: 'bottom' }).setLngLat(ll).addTo(m), mini.dataset.nom);
     };
     if ('IntersectionObserver' in window) { const o = new IntersectionObserver((e) => { if (e.some((x) => x.isIntersecting)) { o.disconnect(); ouvrir(); } }, { rootMargin: '300px' }); o.observe(mini); } else ouvrir();
   }

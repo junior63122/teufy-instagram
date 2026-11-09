@@ -351,6 +351,43 @@ async function lieuxDeNuit({ soirees, partenaires, ig, api, log, now }) {
       } catch (err) { if (/rate|limit|\(#4\)|\(#32\)/i.test(err.message)) break; cache.insta[l.instagram] = { le: now.toISOString(), absent: true }; }
     }
   }
+  // 3 bis. Logo : la photo de profil Instagram du lieu (lue par l'API), copiée sur le site (les liens Instagram expirent).
+  const dossierLogos = path.join(SITE, 'lieux');
+  await mkdir(dossierLogos, { recursive: true });
+  for (const l of tous) {
+    if (l.photo || !l.instagram) continue;
+    const f = path.join(dossierLogos, `${l.instagram.replace(/[^a-z0-9._-]/g, '')}.jpg`);
+    const w = f.replace(/\.jpg$/, '-176.webp');
+    if (!existsSync(w)) {
+      const u = cache.insta[l.instagram]?.photo;
+      if (!u || !tempsOk()) continue;
+      if (!existsSync(f) && !(await telecharger(u, f))) { cache.insta[l.instagram].photo = ''; continue; } // lien expiré : reprise à la prochaine mesure
+      spawnSync('ffmpeg', ['-v', 'error', '-y', '-i', f, '-vf', "scale='min(176,iw)':-2", '-c:v', 'libwebp', '-quality', '82', w]);
+    }
+    if (existsSync(w)) l.photo = path.relative(ROOT, w);
+  }
+  // 3 ter. Fiche pratique de chaque lieu (style de musique, dress code, horaires, prix des verres, entrée, âge minimum),
+  //        recherchée sur ses sources officielles (site, Instagram, fiche Google, presse). Rien n'est inventé : un champ
+  //        inconnu reste vide et n'est pas affiché. Revue tous les 30 jours. Cache : contenus/lieux-details.json.
+  const DETAILS = path.join(ROOT, 'contenus', 'lieux-details.json');
+  const details = lire(DETAILS, {});
+  if (cle) {
+    const aFicher = tous.filter((l) => { const d = details[slug(`${l.nom}-${l.ville}`)]; return !d || now - Date.parse(d.le) > 30 * 864e5; })
+      .sort((a, b) => (b.insta?.abonnes || 0) - (a.insta?.abonnes || 0)).slice(0, 25);
+    for (const l of aFicher) {
+      if (!tempsOk()) break;
+      const k = slug(`${l.nom}-${l.ville}`);
+      const web = await gemini([{ text: `Recherche les informations pratiques à jour du lieu de sortie « ${l.nom} » (${TYPES_NOMS[l.type] || l.type}) à ${l.ville}${l.adresse ? `, ${l.adresse}` : ''}${l.instagram ? `, Instagram @${l.instagram}` : ''}${l.site ? `, site ${l.site}` : ''}. Utilise uniquement des sources fiables et récentes (site officiel, Instagram officiel, fiche Google, billetterie, presse locale). Donne : les styles de musique joués, le dress code ou la tenue exigée, les jours et heures d'ouverture et de fermeture, le prix moyen d'un verre (bière, cocktail, soft), le prix d'entrée habituel, l'âge minimum, et les URL des sources. Si une information n'est pas trouvée, dis-le.` }], { recherche: true });
+      if (!web) continue;
+      const r = await gemini([{ text: `Informations :\n${web}\n\nRéponds en JSON {"styles":string,"dress_code":string,"horaires":string,"prix_verre":string,"entree":string,"age_min":string,"sources":[string]}. Règles : N'INVENTE RIEN, chaîne vide si l'information n'est pas clairement donnée par une source. Phrases courtes en français. styles : 2 à 4 genres séparés par « · ». horaires : jours et heures, ex. « Jeu–Sam · 23h–5h ». prix_verre : fourchette, ex. « bière 7 € · cocktail 13–16 € ». entree : ex. « gratuit avant 1h, 15 € ensuite ». age_min : ex. « 18 ans ». sources : URL réellement utilisées.` }]);
+      const ok = r && typeof r === 'object' && Array.isArray(r.sources) && r.sources.some((u) => /^https?:\/\//.test(u));
+      details[k] = ok ? { le: now.toISOString(), styles: r.styles || '', dress_code: r.dress_code || '', horaires: r.horaires || '', prix_verre: r.prix_verre || '', entree: r.entree || '', age_min: r.age_min || '', sources: r.sources.filter((u) => /^https?:\/\//.test(u)).slice(0, 4) } : { le: now.toISOString(), vide: true };
+    }
+    await writeFile(DETAILS, JSON.stringify(details, null, 1) + '\n');
+    const n = Object.values(details).filter((d) => !d.vide).length;
+    if (aFicher.length) log(`Site : fiches pratiques des lieux : ${n} renseignée(s)`);
+  }
+  for (const l of tous) { const d = details[slug(`${l.nom}-${l.ville}`)]; if (d && !d.vide) l.details = d; }
   // 4. Tendance du moment : UNIQUEMENT des données mesurées, jamais le fait d'être partenaire.
   //    Un lieu n'est classé que si son Instagram a été mesuré et qu'il a publié au moins 2 fois en 21 jours.
   //    Score = taux d'engagement (likes + 4 × commentaires, par rapport aux abonnés) et engagement brut, à parts égales
@@ -491,7 +528,8 @@ export async function construireSite({ events, eventsFrance = [], hist = [], con
     if (!existsSync(path.join(ROOT, w))) spawnSync('ffmpeg', ['-v', 'error', '-y', '-i', path.join(ROOT, x.fichier), '-vf', "scale='min(176,iw)':-2", '-c:v', 'libwebp', '-quality', '82', path.join(ROOT, w)]);
     if (existsSync(path.join(ROOT, w))) x.fichier = w;
   }
-  etape(6); const lieux = await lieuxDeNuit({ soirees, partenaires, ig, api, log, now });
+  etape(9); const lieux = await lieuxDeNuit({ soirees, partenaires, ig, api, log, now });
+  DETAILS_LIEUX = new Map(lieux.filter((l) => l.details).map((l) => [normLieu(l.nom), l.details]));
   etape(3); const festivalsGuide = await festivalsDuWeb({ partenaires, now, log });
   etape(4); await geocoder(soirees, log);
   etape(4); await aProximite(soirees, log);
@@ -787,7 +825,7 @@ function gabarit({ lang, t, titre, description, chemin, base, corps, ld = [], im
   const P = pre(lang);
   const accueil = `${base}${P}`;
   const nav = [['', t.agenda], ...VILLES_SEO.map((v) => [`${v.slug}/`, t.villes[v.cle === 'antibes' ? 'antibesCourt' : v.cle]]), ['#carte', t.carte], ['festivals/', t.festivals], ['clubs-bars/', t.lieuxNav], ['dates/', t.dates], ['restaurants/', t.restos], ['activites/', t.activites], ['actus/', t.actus], ['partenaires/', t.partenaires], ['a-propos/', t.qui]];
-  const jsT = { ...t.js, base, langue: lang, locale: t.locale, resultats: t.resultats, aucunRes: t.aucunRes, lienCopie: t.lienCopie, ajouterFav: t.ajouterFav };
+  const jsT = { ...t.js, base, langue: lang, locale: t.locale, resultats: t.resultats, aucunRes: t.aucunRes, lienCopie: t.lienCopie, ajouterFav: t.ajouterFav, voir: t.voir };
   return `<!doctype html>
 <html lang="${lang}" dir="${t.dir}">
 <head>
@@ -813,7 +851,7 @@ ${GOOGLE ? `<meta name="google-site-verification" content="${esc(GOOGLE)}">` : '
 <link rel="manifest" href="${base}site/manifest.webmanifest">
 <link rel="preload" href="${base}site/fonts/bricolage-titre.woff2" as="font" type="font/woff2" crossorigin>
 <style>${CSS_EN_LIGNE.replace(/__BASE__/g, base)}</style>
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-Du+OJKJSbdUgz5nrHeWWINvez6XKDDU/tyj/5c2uvwo='; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://tile.openstreetmap.org; font-src 'self'; media-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-Du+OJKJSbdUgz5nrHeWWINvez6XKDDU/tyj/5c2uvwo='; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://tiles.openfreemap.org; font-src 'self'; media-src 'self'; connect-src 'self' https://tiles.openfreemap.org; worker-src 'self' blob:; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <script>document.documentElement.classList.add('js')</script>
 ${ld.length ? `<script type="application/ld+json">${JSON.stringify(ld).replace(/</g, '\\u003c')}</script>` : ''}
@@ -953,6 +991,10 @@ const TAILLE_HERO = '(min-width:980px) 560px, 100vw';
 
 // Collage d'affiches (soirées à venir, un lot différent par page) ou de logos partenaires, à droite des en-têtes sans photo.
 let AFFICHES_COLLAGE = [];
+// Fiche pratique du lieu d'une soirée (dress code, âge, prix des verres), si le lieu est dans l'annuaire des clubs et bars.
+let DETAILS_LIEUX = new Map();
+const normLieu = (x) => sansAccent(String(x || '')).replace(/\b(le|la|les|l|club|bar|the)\b/g, '').replace(/[^a-z0-9]/g, '');
+const detailsDuLieu = (s) => DETAILS_LIEUX.get(normLieu(s.lieu)) || null;
 const collage = (base, k, logos = null) => {
   if (logos) return `<div class="collage logos-collage" aria-hidden="true">${logos.slice(0, 12).map((f, i) => `<img src="${base}${esc(f)}" alt="" width="160" height="160" loading="lazy" style="--i:${i}">`).join('')}</div>`;
   const l = AFFICHES_COLLAGE.length ? [0, 1, 2].map((i) => AFFICHES_COLLAGE[(k * 3 + i) % AFFICHES_COLLAGE.length]) : [];
@@ -1066,6 +1108,7 @@ function pageSoiree({ lang, t, tr, base, compte, T, chemin, s, soirees, maj }) {
         <div><dt>${esc(t.quandL)}</dt><dd>${esc(dateLongue(s.debut, t))} · ${esc(heure(s.debut, t))}</dd></div>
         <div><dt>${esc(t.ou)}</dt><dd>${esc(lieu)}</dd></div>
         <div><dt>${esc(t.prixL)}</dt><dd>${esc(prixTexte(s.prix, t) || t.prixBillet)}</dd></div>
+        ${(() => { const d = detailsDuLieu(s); if (!d) return ''; return [[tr('Dress code'), d.dress_code], [tr('Âge'), d.age_min], [tr('Verres'), d.prix_verre]].filter((x) => x[1]).map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(tr(v))}</dd></div>`).join(''); })()}
       </dl>
       <p class="fiche-actions">${boutonBillets(s, t)}
         <a class="bouton contour sombre" href="${base}site/ics/${s.id}.ics" download>${esc(t.calendrier)}</a>
@@ -1285,6 +1328,7 @@ function carteLieu(l, { t, tr, base, lang }, i = 0, tendance = false) {
     <p class="genre">${esc(tr(TYPES_NOMS[l.type] || ''))}${l.ville ? ` · ${esc(l.ville)}` : ''}${l.partenaire ? ` <span class="fiche-prix">${esc(t.partenaires)}</span>` : ''}</p>
     <h3>${esc(l.nom)}</h3>
     ${l.description ? `<p class="fiche-desc">${esc(tr(l.description))}</p>` : ''}
+    ${l.details ? (() => { const d = l.details; const lignes = [['🎵', tr('Musique'), d.styles], ['👔', tr('Dress code'), d.dress_code], ['🕒', tr('Horaires'), d.horaires], ['🍸', tr('Verres'), d.prix_verre], ['🎟️', tr('Entrée'), d.entree], ['🔞', tr('Âge'), d.age_min]].filter((x) => x[2]); return lignes.length ? `<dl class="lieu-infos">${lignes.map(([i, k, v]) => `<div><dt><span aria-hidden="true">${i}</span> ${esc(k)}</dt><dd>${esc(tr(v))}</dd></div>`).join('')}</dl><p class="lieu-maj">${esc(tr('Infos relevées le'))} ${esc(paris(d.le, { day: 'numeric', month: 'long' }, t.locale))}${d.sources?.[0] ? ` · <a href="${esc(d.sources[0])}" target="_blank" rel="noopener nofollow">${esc(tr('source'))}</a>` : ''}</p>` : ''; })() : ''}
     ${raison && tendance ? `<p class="petit">${esc(raison)}</p>` : ''}
     ${prochaines.length ? `<p class="lieu-soirees">${prochaines.slice(0, 3).map((x) => `<a href="${base}${pre(lang)}soiree/${x.id}/">${esc(x.nom)}</a>`).join('')}</p>` : ''}
     <p class="lieu-actions">${l.instagram ? `<a href="https://www.instagram.com/${esc(l.instagram)}/" target="_blank" rel="noopener" aria-label="Instagram @${esc(l.instagram)}">${ICO_LIEU.ig}<span>Instagram</span></a>` : ''}${l.site ? `<a href="${esc(l.site)}" target="_blank" rel="noopener">${ICO_LIEU.site}<span>${esc(t.siteWeb)}</span></a>` : ''}<a href="https://www.google.com/maps/search/?api=1&amp;query=${encodeURIComponent([l.nom, l.adresse, l.ville].filter(Boolean).join(', '))}" target="_blank" rel="noopener">${ICO_LIEU.map}<span>${esc(t.itineraire)}</span></a></p>

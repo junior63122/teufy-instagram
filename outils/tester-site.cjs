@@ -154,11 +154,11 @@ async function controlerPage(p, nom, u) {
     // --- Carte ---
     try {
     await p.goto(B + 'soirees-nice/', { waitUntil: 'load' }); await p.goto(B + '#carte', { waitUntil: 'load' }); await p.waitForTimeout(1500);
-    ok(await p.locator('#carte:not([hidden]) .leaflet-container').count() === 1, `${nom} : la carte ne s'affiche pas`);
+    ok(await p.locator('#carte:not([hidden]) .maplibregl-map').count() === 1, `${nom} : la carte ne s'affiche pas`);
     const reperes = await p.locator('.repere').count();
     ok(reperes > 5, `${nom} : peu de repères sur la carte (${reperes})`);
-    await p.locator('.repere').first().click({ force: true }); await p.waitForTimeout(300);
-    ok(await p.locator('.leaflet-popup').count() === 1, `${nom} : la bulle d'un repère ne s'ouvre pas`);
+    await p.locator('.repere-ancre').first().click({ force: true }); await p.waitForTimeout(500);
+    ok(await p.locator('.maplibregl-popup').count() === 1, `${nom} : la bulle d'un repère ne s'ouvre pas`);
     await p.locator('.vues [data-vue="liste"]').click(); ok(await p.locator('.liste').isVisible(), `${nom} : retour à la liste impossible`);
     await p.goto(B + 'soirees-nice/', { waitUntil: 'load' });
     if (nom === 'ordi') { await p.locator('.nav a[href$="#carte"]').click(); await p.waitForTimeout(1200); ok(/#carte$/.test(p.url()) && await p.locator('#carte:not([hidden])').count() === 1, 'ordi : le lien « Carte » du menu ne mène pas à la carte'); }

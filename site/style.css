@@ -113,22 +113,11 @@ img.hero-photo{animation:zoom 22s ease-in-out infinite alternate}
 
 /* carte interactive */
 .carte-soirees{margin-top:18px;position:relative}
-.leaflet-zone{height:min(72vh,640px);border-radius:20px;overflow:hidden;background:#15151b;border:1px solid #ffffff1a}
 .carte-vide{position:absolute;inset:auto 16px 16px;background:var(--nuit2);padding:12px 16px;border-radius:12px;z-index:500}
-.leaflet-container{font-family:var(--texte);background:#15151b}
 .repere{width:34px;height:34px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:var(--corail);border:3px solid var(--creme);box-shadow:0 6px 16px #000a;display:flex;align-items:center;justify-content:center}
 .repere b{transform:rotate(45deg);color:var(--nuit);font:800 13px var(--texte)}
 .repere.approx{opacity:.75;border-style:dashed}
 .repere.en-cours{background:var(--live);animation:pouls 1.6s infinite}
-.leaflet-popup-content-wrapper{background:var(--papier);color:var(--nuit);border-radius:16px}
-.leaflet-popup-tip{background:var(--papier)}
-.leaflet-popup-content{margin:14px 16px;font-size:14px;line-height:1.4;max-height:280px;overflow:auto}
-.pop-lieu{font-family:var(--titre);font-weight:800;font-stretch:80%;font-size:22px;line-height:1;margin-bottom:8px}
-.pop-soiree{padding:8px 0;border-top:1px solid #0b0b0f22}
-.pop-soiree strong{display:block}
-.pop-soiree small{opacity:.7}
-.pop-soiree a{display:inline-block;margin-top:5px;background:var(--corail);color:var(--nuit);font-weight:800;text-decoration:none;padding:5px 12px;border-radius:999px}
-.pop-approx{font-size:12px;opacity:.6;margin-top:6px}
 
 /* jours et cartes */
 .jour{margin-top:34px}
@@ -465,7 +454,6 @@ a.vitrine-item:hover{transform:translateY(-3px);border-color:var(--corail)}
 .vitrine-item span{display:flex;flex-direction:column;min-width:0}
 .vitrine-item strong{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .vitrine-item small{opacity:.7}
-.pop-soiree strong a{color:inherit}
 .lieu-initiale{width:56px;height:56px;border-radius:50%;flex:none;background:var(--corail);color:var(--nuit);display:flex;align-items:center;justify-content:center;font-family:var(--titre);font-size:26px}
 .carte-texte.tendance{border-color:#ff5a3c66}
 .puce.actif{background:var(--creme);color:var(--nuit)}
@@ -669,15 +657,42 @@ details[data-bloc="tri"]>.groupe{inset-inline-start:auto;inset-inline-end:0}
 .reseaux{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
 .reseaux .bouton{display:inline-flex;align-items:center;gap:8px}
 .reseaux svg{width:18px;height:18px}
-/* Carte aux couleurs de Teufy : fond OpenStreetMap passé en violet nuit, halo corail et violet, contrôles sombres */
-.leaflet-tile-pane{filter:invert(.93) grayscale(1) brightness(1.25) contrast(1.1) sepia(.35) hue-rotate(215deg) saturate(1.8)}
-.leaflet-container{background:#17151d!important}
-.leaflet-container::before{content:"";position:absolute;inset:0;z-index:250;pointer-events:none;background:radial-gradient(55% 70% at 100% 0%,#ff5a3c38,transparent 65%),radial-gradient(55% 70% at 0% 100%,#6b3cff40,transparent 65%);mix-blend-mode:screen}
-.leaflet-bar{border:0!important;box-shadow:0 8px 24px #0009!important;border-radius:12px!important;overflow:hidden}
-.leaflet-bar a,.leaflet-bar a:hover{background:var(--nuit2)!important;color:var(--creme)!important;border-bottom:1px solid #ffffff1a!important;width:36px!important;height:36px!important;line-height:36px!important}
-.leaflet-bar a:hover{background:var(--corail)!important;color:var(--nuit)!important}
-.leaflet-control-attribution{background:#0b0b0fb3!important;color:#ffffffa6!important;border-radius:8px 0 0 0;font-size:11px}
-.leaflet-control-attribution a{color:var(--creme)!important}
+/* Carte aux couleurs de Teufy : MapLibre + fond OpenFreeMap recoloré (site/vendor/maplibre/teufy-style.json) */
+.maplibregl-map{font-family:var(--texte)}
+.maplibregl-ctrl-group{background:var(--nuit2)!important;border:1px solid #ffffff1f;border-radius:12px!important;box-shadow:0 10px 26px #000a!important;overflow:hidden}
+.maplibregl-ctrl-group button{width:38px!important;height:38px!important;background:transparent!important}
+.maplibregl-ctrl-group button+button{border-top:1px solid #ffffff1a!important}
+.maplibregl-ctrl-group button .maplibregl-ctrl-icon{filter:invert(1) brightness(1.6)}
+.maplibregl-ctrl-group button:hover{background:var(--corail)!important}
+.maplibregl-ctrl-group button:hover .maplibregl-ctrl-icon{filter:none}
+.maplibregl-ctrl-attrib{background:#0b0b0fcc!important;color:#ffffff99!important;font-size:11px}
+.maplibregl-ctrl-attrib a{color:var(--creme)!important}
+.maplibregl-ctrl-attrib-button{filter:invert(1)}
+.maplibregl-marker{z-index:2}
+.repere-ancre{cursor:pointer;padding:6px 6px 10px}
+.repere-ancre:focus-visible{outline:none}.repere-ancre:focus-visible .repere{outline:3px solid var(--creme);outline-offset:3px}
+.repere.en-cours{animation:pouls 1.6s ease-in-out infinite}
+@keyframes pouls{50%{box-shadow:0 0 0 8px #ff5a3c33,0 6px 16px #000a}}
+.moi{display:block;width:16px;height:16px;border-radius:50%;background:#3dff8a;border:3px solid var(--nuit);box-shadow:0 0 0 6px #3dff8a40}
+.teufy-pop{z-index:5}
+.teufy-pop .maplibregl-popup-content{background:var(--nuit2);color:var(--creme);border:1px solid #ffffff24;border-radius:18px;padding:16px 18px 14px;box-shadow:0 24px 60px #000c;max-height:320px;overflow:auto}
+.teufy-pop.maplibregl-popup-anchor-bottom .maplibregl-popup-tip{border-top-color:var(--nuit2)}
+.teufy-pop.maplibregl-popup-anchor-top .maplibregl-popup-tip{border-bottom-color:var(--nuit2)}
+.teufy-pop.maplibregl-popup-anchor-left .maplibregl-popup-tip{border-right-color:var(--nuit2)}
+.teufy-pop.maplibregl-popup-anchor-right .maplibregl-popup-tip{border-left-color:var(--nuit2)}
+.teufy-pop .maplibregl-popup-close-button{color:var(--creme);font-size:22px;width:34px;height:34px;right:4px;top:4px;border-radius:50%}
+.teufy-pop .maplibregl-popup-close-button:hover{background:#ffffff14}
+.pop .pop-lieu{font:700 11px var(--texte);letter-spacing:.14em;text-transform:uppercase;color:var(--corail);margin:0 30px 6px 0}
+.pop .pop-soiree{padding:10px 0;border-top:1px solid #ffffff14}
+.pop .pop-soiree:first-of-type{border-top:0;padding-top:2px}
+.pop .pop-titre{display:block;font-family:var(--titre);font-weight:800;font-stretch:80%;font-size:21px;line-height:1.05;color:var(--creme);text-decoration:none}
+.pop .pop-titre:hover{color:var(--corail)}
+.pop .pop-quand{font-size:13px;opacity:.7;margin:4px 0 8px}
+.pop .pop-actions{display:flex;gap:8px;flex-wrap:wrap}
+.pop .pop-billets{background:var(--corail);color:var(--nuit);font-weight:800;font-size:13px;padding:7px 14px;border-radius:999px;text-decoration:none}
+.pop .pop-voir{color:var(--creme);font-weight:700;font-size:13px;padding:7px 12px;border-radius:999px;border:1px solid #ffffff2e;text-decoration:none}
+.pop .pop-voir:hover,.pop .pop-billets:hover{filter:brightness(1.1)}
+.pop .pop-approx{font-size:12px;opacity:.6;margin-top:8px}
 .mini-carte{height:240px;margin:14px 0 8px;border-radius:18px;overflow:hidden;border:1px solid #ffffff1a;background:#17151d;isolation:isolate}
 .repere.seul{background:var(--corail)}
 .liens-legaux{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px;padding-top:20px;border-top:1px solid #ffffff1a}
@@ -686,3 +701,12 @@ details[data-bloc="tri"]>.groupe{inset-inline-start:auto;inset-inline-end:0}
 .lieu-soirees a{display:block;padding:8px 12px;border-radius:12px;background:#ff5a3c1a;border:1px solid #ff5a3c40;color:var(--creme);font-weight:700;font-size:14px;text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .lieu-soirees a::before{content:"♪ ";color:var(--corail)}
 .lieu-soirees a:hover{background:var(--corail);color:var(--nuit)}
+.leaflet-zone{position:relative;height:min(72vh,640px);border-radius:20px;overflow:hidden;background:#0b0b0f;border:1px solid #ffffff1a}
+.leaflet-zone.maplibregl-map,.mini-carte.maplibregl-map{background:#0b0b0f}
+.leaflet-zone::after,.mini-carte::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;border-radius:inherit;background:radial-gradient(60% 70% at 100% 0%,#ff5a3c26,transparent 65%),radial-gradient(60% 70% at 0% 100%,#6b3cff2e,transparent 65%)}
+.lieu-infos{display:grid;gap:6px;margin:4px 0;padding:12px 14px;border-radius:14px;background:#ffffff08;border:1px solid #ffffff12}
+.lieu-infos div{display:grid;grid-template-columns:110px 1fr;gap:10px;align-items:baseline}
+.lieu-infos dt{font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#b8b2a8;white-space:nowrap}
+.lieu-infos dd{margin:0;font-size:14px;font-weight:600;line-height:1.35}
+.lieu-maj{font-size:12px;opacity:.55}
+.lieu-maj a{color:inherit}
