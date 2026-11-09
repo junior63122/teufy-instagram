@@ -806,3 +806,10 @@ details[data-bloc="tri"]>.groupe{inset-inline-start:auto;inset-inline-end:0}
 .spot-corps p:not(.genre):not(.lieu-actions){opacity:.85}
 .js .reveal .spot-carte{opacity:0;translate:0 26px;transition:opacity .6s,translate .6s var(--doux),transform .35s var(--doux),border-color .3s;transition-delay:calc(var(--i,0) * 80ms),calc(var(--i,0) * 80ms),0s,0s}
 .js .reveal.vu .spot-carte{opacity:1;translate:0 0}
+/* En-têtes sans photo sur téléphone : compacts (plus de bande vide sous le texte) */
+@media(max-width:979px){
+  .hero.sans-photo{padding:26px 16px 22px}
+  .hero.sans-photo h1{font-size:clamp(38px,10.5vw,60px);margin-bottom:10px}
+  .hero.sans-photo .hero-texte p:not(.etiquette){margin-bottom:6px;font-size:16.5px}
+  .hero.sans-photo .hero-actions{margin-top:8px}
+}
