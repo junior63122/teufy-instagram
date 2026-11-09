@@ -2387,7 +2387,8 @@
       "tags": [
         "Reggaeton",
         "Baile Funk",
-        "Shatta"
+        "Shatta",
+        "Dembow"
       ],
       "description": "",
       "public_cible": 0.95,
@@ -2397,7 +2398,20 @@
       "accroche": "Format warehouse géant 100% reggaeton, baile funk et shatta avec Mamacita.",
       "instagram": [
         "panda_events",
-        "le109nice"
+        "le109nice",
+        "pandaevents06"
+      ],
+      "via_veille": true,
+      "offres": [
+        {
+          "plateforme": "shotgun.live",
+          "url": "https://shotgun.live/events/mamacita-frigo-16",
+          "prix": 0
+        }
+      ],
+      "sources_sites": [
+        "Shotgun.live",
+        "instagram.com"
       ]
     },
     {
