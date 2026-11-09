@@ -1031,7 +1031,7 @@ function pageSoiree({ lang, t, tr, base, compte, T, chemin, s, soirees, maj }) {
   const style = soirees.filter((x) => x.id !== s.id && x.jour !== s.jour && x.styles.some((k) => s.styles.includes(k))).slice(0, 6);
   const mini = (l, titre) => (l.length ? `<section class="similaires reveal"><h2>${titre}</h2><div class="grille">${l.map((x) => carte(x, { t, base, lang })).join('')}</div></section>` : '');
   const offres = s.offres.length ? `<div class="offres"><p class="pied-titre">${esc(t.comparer)}</p>${s.offres.map((o, i) => `<a href="${esc(o.url)}" target="_blank" rel="noopener"><span>${esc(nomPlateforme(o.url))}</span><b>${esc(o.prix == null ? t.prixBillet : prixTexte(o.prix, t))}</b>${i === 0 && o.prix != null ? `<i>${esc(t.meilleurPrix)}</i>` : ''}</a>`).join('')}</div>` : '';
-  const img = s.affiche ? image(base, s.affiche, { alt: t.affiche + s.nom, sizes: '(min-width:860px) 460px, 92vw', attrs: `fetchpriority="high"${s.dims ? ` width="${s.dims[0]}" height="${s.dims[1]}"` : ''}` }) : `<div class="affiche-fiche">${vignette(s)}</div>`;
+  const img = s.affiche ? image(base, s.affiche, { alt: t.affiche + s.nom, sizes: '(min-width:860px) 460px, 92vw', attrs: `fetchpriority="high"${s.dims ? ` width="${s.dims[0]}" height="${s.dims[1]}"` : ''}${s.dims && s.dims[0] < 560 ? ` class="petite" style="max-width:${s.dims[0]}px"` : ''}` }) : `<div class="affiche-fiche">${vignette(s)}</div>`;
   const corps = `<article class="fiche carte-donnees" data-id="${s.id}" data-debut="${esc(s.debut)}">
   <nav class="ariane"><a href="${base}${P}">Teufy</a> › <a href="${base}${P}#agenda">${esc(t.agenda)}</a> › <span>${esc(s.nom)}</span></nav>
   <div class="fiche-grille">

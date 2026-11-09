@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:pump-up-2-2026-11-14@teufy
+DTSTAMP:20261109T172156Z
+DTSTART:20261114T220000Z
+DTEND:20261115T030000Z
+SUMMARY:Pump Up 2
+LOCATION:L'Antre\, Nice
+DESCRIPTION:Laurent N\, Elena Electronic DJ et C Tek réunis pour la deuxième édition de Pump Up.\nBillets : https://www.instagram.com/lantretechno/\nVia Teufy @teufy_official
+URL:https://www.instagram.com/lantretechno/
+END:VEVENT
+END:VCALENDAR
