@@ -1239,5 +1239,120 @@
    "nom": "",
    "m": 287
   }
+ },
+ "43.4682,6.6803": {
+  "le": "2026-11-09T19:16:28.613Z",
+  "parkings": [],
+  "transports": [],
+  "velo": null,
+  "taxi": null
+ },
+ "43.55068,7.01766": {
+  "le": "2026-11-09T19:17:13.584Z",
+  "parkings": [
+   {
+    "nom": "Parking Palais",
+    "type": "underground",
+    "payant": true,
+    "m": 22
+   },
+   {
+    "nom": "Parking Pantiero",
+    "type": "underground",
+    "payant": true,
+    "m": 281
+   },
+   {
+    "nom": "Parking du Gray D'albion",
+    "type": "underground",
+    "payant": true,
+    "m": 312
+   }
+  ],
+  "transports": [
+   {
+    "nom": "Square Mérimée",
+    "type": "bus",
+    "m": 89,
+    "lignes": ""
+   },
+   {
+    "nom": "Palais des Congrès",
+    "type": "bus",
+    "m": 147,
+    "lignes": ""
+   },
+   {
+    "nom": "Cannes",
+    "type": "train",
+    "m": 429,
+    "lignes": ""
+   }
+  ],
+  "velo": {
+   "nom": "Bike Trip",
+   "m": 345
+  },
+  "taxi": {
+   "nom": "Palais",
+   "m": 126
+  }
+ },
+ "43.69528,7.26596": {
+  "le": "2026-11-09T19:17:55.308Z",
+  "parkings": [
+   {
+    "nom": "Ruhl Méridien",
+    "type": "underground",
+    "payant": true,
+    "m": 80
+   },
+   {
+    "nom": "Palais de la Mediterranee",
+    "type": "multi-storey",
+    "payant": true,
+    "m": 225
+   },
+   {
+    "nom": "Espace Grimaldi",
+    "type": "",
+    "payant": null,
+    "m": 340
+   }
+  ],
+  "transports": [
+   {
+    "nom": "Jardin d'Arménie",
+    "type": "bus",
+    "m": 70,
+    "lignes": "8+;12+;630"
+   },
+   {
+    "nom": "Congrès / Promenade",
+    "type": "bus",
+    "m": 147,
+    "lignes": "8+;12+"
+   },
+   {
+    "nom": "Masséna",
+    "type": "tram",
+    "m": 441,
+    "lignes": ""
+   },
+   {
+    "nom": "Jean Médecin",
+    "type": "tram",
+    "m": 537,
+    "lignes": ""
+   }
+  ],
+  "velo": {
+   "nom": "",
+   "m": 52
+  },
+  "taxi": {
+   "nom": "",
+   "m": 46
+  }
  }
 }
