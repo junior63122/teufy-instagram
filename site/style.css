@@ -721,3 +721,87 @@ details[data-bloc="tri"]>.groupe{inset-inline-start:auto;inset-inline-end:0}
 @media(prefers-reduced-motion:reduce){@view-transition{navigation:none}}
 /* Accueil : les jours de l'agenda hors écran ne sont pas dessinés (moins de travail pour le téléphone) */
 .liste .jour{content-visibility:auto;contain-intrinsic-size:auto 1200px}
+
+/* === Mobile v9 : cartes à la forme de l'affiche, boutons flottants discrets, badge « Très demandée » visible === */
+.flottant,.haut{transition:transform .3s var(--doux),opacity .3s}
+.defile-bas .flottant,.defile-bas .haut{transform:translateY(160%);opacity:0;pointer-events:none}
+@media(max-width:759px){
+  /* L'affiche garde sa vraie forme (plus de bandes floues vides) ; plafonnée au format 4:5 pour les très hautes. */
+  .liste .affiche,.grille .affiche{aspect-ratio:auto;max-height:125vw}
+  .liste .affiche img.principale,.grille .affiche img.principale{position:relative;inset:auto;height:auto;max-height:125vw;object-fit:contain}
+  .liste .affiche.sans,.grille .affiche.sans{aspect-ratio:16/10}
+  .grille .affiche .vignette{position:absolute}
+  .carte .infos{padding:14px 16px 16px;gap:6px}
+  .carte h3{font-size:24px}
+}
+.demande{display:flex;align-items:center;gap:6px 10px;flex-wrap:wrap;align-self:stretch;background:var(--corail);color:var(--nuit);border-radius:12px;padding:8px 12px;margin:0 0 4px;font-size:14px;font-weight:800;line-height:1.2}
+.demande b{color:var(--nuit);font-weight:800}
+.demande i{font-style:normal;font-weight:800;font-variant-numeric:tabular-nums;background:var(--nuit);color:var(--creme);border-radius:999px;padding:3px 10px;margin-inline-start:auto}
+/* En-tête sur téléphone : la photo en haut, fondue dans la nuit, et le texte en dessous sur fond uni
+   (plus jamais de texte par-dessus les visages). */
+@media(max-width:979px){
+  .hero:has(.hero-media){display:flex;flex-direction:column;align-items:stretch;min-height:0}
+  .hero:has(.hero-media)::after{display:none}
+  .hero .hero-media{position:relative;inset:auto;z-index:0;height:min(46vh,420px);flex:none;-webkit-mask-image:linear-gradient(180deg,#000 50%,transparent 100%);mask-image:linear-gradient(180deg,#000 50%,transparent 100%)}
+  .hero .hero-media .diaporama{position:absolute;inset:0}
+  .hero .hero-media .hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .hero:has(.hero-media) .hero-texte{margin-top:-72px;padding-top:0;z-index:1}
+  .hero:has(.hero-media) h1{font-size:clamp(44px,12vw,72px)}
+}
+
+/* Page d'une soirée sur téléphone : infos en blocs compacts, barre « Billets » toujours à portée, conditions repliées */
+.promo-conditions summary{cursor:pointer;font-size:13px;font-weight:700;opacity:.75;list-style:none;margin-top:6px}
+.promo-conditions summary::before{content:"＋ "}
+.promo-conditions[open] summary::before{content:"− "}
+.promo-conditions p{margin-top:6px}
+.barre-billets{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:31;display:flex;align-items:center;justify-content:space-between;gap:12px;background:#16161ce6;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid #ffffff22;border-radius:18px;padding:10px 10px 10px 16px;box-shadow:0 18px 40px #000b;animation:monteBas .3s var(--doux)}
+.barre-billets[hidden]{display:none}
+.barre-billets div{display:flex;flex-direction:column;line-height:1.15}
+.barre-billets b{font-size:16px}
+.barre-billets small{font-size:12.5px;opacity:.7}
+.barre-billets .bouton{padding:12px 22px}
+@media(min-width:760px){.barre-billets{display:none!important}}
+@media(max-width:759px){
+  .fiche h1{font-size:clamp(34px,10vw,48px)}
+  .fiche dl{grid-template-columns:1fr 1fr;gap:8px}
+  .fiche dl div{grid-template-columns:1fr;gap:2px;padding:10px 12px}
+  .fiche dl div:nth-child(-n+2){grid-column:1/-1}
+  .fiche dt{font-size:10.5px}
+  .fiche dd{font-size:15px;line-height:1.25}
+  .fiche-actions{gap:8px}
+  .fiche-actions .bouton{padding:11px 16px;font-size:15px}
+  .rebours-bloc{padding:14px 16px}
+  .rebours-grand{font-size:30px!important}
+  .y-aller li{font-size:14.5px;padding:8px 0}
+  .y-aller li:nth-child(n+4){display:none}
+  .y-aller.tout li{display:flex}
+  .page-soiree-fin{height:84px}
+  /* « Le même soir », « Dans le même style » : liste compacte, petite affiche à gauche */
+  .similaires .grille{gap:10px}
+  .similaires .carte{display:grid;grid-template-columns:92px 1fr;align-items:stretch;border-radius:16px}
+  .similaires .carte .affiche{aspect-ratio:auto!important;width:92px;max-height:none;height:100%;min-height:118px}
+  .similaires .carte .affiche img.principale{position:absolute;inset:0;height:100%;object-fit:cover}
+  .similaires .carte .affiche .fond-flou,.similaires .carte .coeur,.similaires .carte .accroche,.similaires .carte .demande,.similaires .carte .meta .ou,.similaires .carte .meta .promo,.similaires .carte .actions .bouton{display:none}
+  .similaires .carte .affiche .date{font-size:11px;padding:3px 7px;top:6px;left:6px}
+  .similaires .carte .infos{padding:10px 12px;gap:4px}
+  .similaires .carte h3{font-size:18px}
+  .similaires .carte .genre{font-size:10.5px}
+  .similaires .carte .meta span{font-size:12px;padding:3px 9px}
+  .similaires .carte .actions{margin-top:2px}
+  .similaires .carte .actions .lien{font-size:13px}
+}
+@media(max-width:759px){.fiche ~ .retour,.similaires:last-of-type{margin-bottom:96px}}
+/* Spots pour un date : grande photo libre (crédit sous la photo), texte et itinéraire */
+.spots{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}
+.spot-carte{display:flex;flex-direction:column;background:var(--nuit2);border:1px solid #ffffff1a;border-radius:22px;overflow:hidden;transition:transform .35s var(--doux),border-color .3s}
+@media(hover:hover){.spot-carte:hover{transform:translateY(-4px);border-color:var(--corail)}.spot-carte:hover .spot-photo img{transform:scale(1.04)}}
+.spot-photo{position:relative;margin:0;aspect-ratio:3/2;overflow:hidden;background:#16161c}
+.spot-photo img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--doux)}
+.spot-photo figcaption{position:absolute;inset:auto 0 0;padding:16px 10px 6px;font-size:10.5px;color:#fffc;background:linear-gradient(transparent,#000a);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.spot-photo figcaption a{color:inherit}
+.spot-vignette{display:flex;align-items:center;justify-content:center;aspect-ratio:3/2;font-size:56px;background:radial-gradient(90% 120% at 100% 0%,#ff5a3c55,transparent 60%),radial-gradient(90% 120% at 0% 100%,#6b3cff40,transparent 60%),#16161c}
+.spot-corps{display:flex;flex-direction:column;gap:8px;padding:16px 18px 18px;flex:1}
+.spot-corps h3{font-size:26px}
+.spot-corps p:not(.genre):not(.lieu-actions){opacity:.85}
+.js .reveal .spot-carte{opacity:0;translate:0 26px;transition:opacity .6s,translate .6s var(--doux),transform .35s var(--doux),border-color .3s;transition-delay:calc(var(--i,0) * 80ms),calc(var(--i,0) * 80ms),0s,0s}
+.js .reveal.vu .spot-carte{opacity:1;translate:0 0}

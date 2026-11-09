@@ -84,6 +84,7 @@ jobs:
           node src/run.mjs collecter
           # Site internet (agenda des soirées) : régénéré une fois par jour.
           sudo apt-get install -y --no-install-recommends ffmpeg >/dev/null 2>&1 || true
+          node outils/photos-spots.mjs || echo "::warning::Photos des spots non récupérées" # photos libres (Wikimedia), seulement les manquantes
           node src/run.mjs site $([ "${{ startsWith(inputs.quoi, 'site') }}" = "true" ] && echo --force) || echo "::warning::Site non régénéré"
           git config user.name "teufy-bot"
           git config user.email "teufy-bot@users.noreply.github.com"

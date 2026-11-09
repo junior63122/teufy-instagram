@@ -766,7 +766,7 @@ function accesDe(s) {
 // Codes promo négociés avec les partenaires (config.json, rubrique « codes_promo ») : affichés sur les soirées concernées.
 let CODES = [];
 const promoDe = (s) => CODES.find((c) => (!c.jusqu_au || Date.parse(c.jusqu_au) >= Date.parse(s.debut)) && new RegExp(c.s_applique.replace(/^\(\?i\)/, ''), 'i').test(`${s.nom} ${s.lieu} ${s.url}`));
-const blocPromo = (c, t, tr) => `<div class="code-promo"><p class="pied-titre">${esc(t.codePromo)}</p><p class="code-ligne"><b>${esc(c.remise)}</b><button type="button" class="code" data-copier="${esc(c.code)}">${esc(c.code)} <span>${esc(t.copier)}</span></button></p><p>${esc(tr(c.description))}</p><p class="petit">${esc(t.conditions)} : ${esc(tr(c.conditions))}</p>${(c.liens || []).length ? `<p class="petit">${esc(t.billetsEligibles)} : ${c.liens.map((u) => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(u.replace(/^https?:\/\/(www\.)?/, ''))}</a>`).join(' · ')}</p>` : ''}</div>`;
+const blocPromo = (c, t, tr) => `<div class="code-promo"><p class="pied-titre">${esc(t.codePromo)}</p><p class="code-ligne"><b>${esc(c.remise)}</b><button type="button" class="code" data-copier="${esc(c.code)}">${esc(c.code)} <span>${esc(t.copier)}</span></button></p><p>${esc(tr(c.description))}</p><details class="promo-conditions"><summary>${esc(t.conditions)}</summary><p class="petit">${esc(tr(c.conditions))}</p>${(c.liens || []).length ? `<p class="petit">${esc(t.billetsEligibles)} : ${c.liens.map((u) => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(u.replace(/^https?:\/\/(www\.)?/, ''))}</a>`).join(' · ')}</p>` : ''}</details></div>`;
 
 // Soirée sans affiche : vignette typographique aux couleurs de la DA (dégradé propre à chaque soirée), jamais une photo répétée.
 function vignette(s) {
@@ -990,6 +990,8 @@ const TAILLE_HERO = '(min-width:980px) 560px, 100vw';
 
 // Collage d'affiches (soirées à venir, un lot différent par page) ou de logos partenaires, à droite des en-têtes sans photo.
 let AFFICHES_COLLAGE = [];
+// Photos libres des spots pour un date (outils/photos-spots.mjs) : fichier, auteur, licence, source.
+const PHOTOS_SPOTS = Object.fromEntries(Object.entries(lire(path.join(ROOT, 'contenus', 'spots-photos.json'), {})).filter(([, p]) => p.fichier && existsSync(path.join(ROOT, p.fichier))));
 // Fiche pratique du lieu d'une soirée (dress code, âge, prix des verres), si le lieu est dans l'annuaire des clubs et bars.
 let DETAILS_LIEUX = new Map();
 const normLieu = (x) => sansAccent(String(x || '')).replace(/\b(le|la|les|l|club|bar|the)\b/g, '').replace(/[^a-z0-9]/g, '');
@@ -1122,6 +1124,7 @@ function pageSoiree({ lang, t, tr, base, compte, T, chemin, s, soirees, maj }) {
     </div>
   </div>
 </article>
+<div class="barre-billets" hidden><div><b>${esc(prixTexte(s.prix, t) || t.prixBillet)}</b><small>${esc(dateCourte(s.debut, t))} · ${esc(heure(s.debut, t))}</small></div>${boutonBillets(s, t)}</div>
 ${mini(meme, esc(t.memeSoir))}
 ${mini(style, esc(t.memeStyle))}
 <p class="retour"><a class="bouton" href="${base}${P}#agenda">${esc(t.toutes)}</a></p>`;
@@ -1175,7 +1178,7 @@ function pageSorties({ lang, t, tr, base, compte, T, chemin, maj, partenaires, c
     </div>
   </article>`;
   const ICONES = ['🌅', '🌊', '🌿', '🎨', '⛵'];
-  const spots = cleS === 'dates' ? SPOTS_DATE.map((g, k) => `<section class="bloc-large reveal"><h2>${ICONES[k] || '✦'} ${esc(tr(g.titre))}</h2><div class="cartes-texte">${g.lieux.map(([nom, ville, texte], i) => `<article class="carte-texte spot" style="--i:${i}"><p class="genre">${esc(ville)}</p><h3>${esc(nom)}</h3><p>${esc(tr(texte))}</p><p class="lieu-liens"><a class="lien" href="https://www.google.com/maps/search/?api=1&amp;query=${encodeURIComponent(`${nom}, ${ville}`)}" target="_blank" rel="noopener">${esc(t.itineraire)}</a></p></article>`).join('')}</div></section>`).join('\n') : '';
+  const spots = cleS === 'dates' ? SPOTS_DATE.map((g, k) => `<section class="bloc-large reveal"><h2>${ICONES[k] || '✦'} ${esc(tr(g.titre))}</h2><div class="spots">${g.lieux.map(([nom, ville, texte], i) => { const ph = PHOTOS_SPOTS[nom]; return `<article class="spot-carte${ph ? '' : ' sans-photo'}" style="--i:${i}">${ph ? `<figure class="spot-photo">${image(base, ph.fichier, { alt: `${nom}, ${ville}`, sizes: '(min-width:980px) 380px, 92vw', attrs: 'loading="lazy" decoding="async" width="800" height="533"' })}<figcaption>${esc(tr('Photo'))} : ${esc(ph.auteur)} · <a href="${esc(ph.source)}" target="_blank" rel="noopener nofollow">${esc(ph.licence)}</a></figcaption></figure>` : `<span class="spot-vignette" aria-hidden="true">${ICONES[k] || '✦'}</span>`}<div class="spot-corps"><p class="genre">${esc(ville)}</p><h3>${esc(nom)}</h3><p>${esc(tr(texte))}</p><p class="lieu-actions"><a href="https://www.google.com/maps/search/?api=1&amp;query=${encodeURIComponent(`${nom}, ${ville}`)}" target="_blank" rel="noopener">${ICO.map}<span>${esc(t.itineraire)}</span></a></p></div></article>`; }).join('')}</div></section>`).join('\n') : '';
   const corps = `${heroCourt({ base, photo: null, alt: tr(C.etiquette), etiquette: tr(C.etiquette), h1: tr(C.h1), p: esc(tr(C.p)), k: 8 + Object.keys(SORTIES).indexOf(cleS) })}
 ${spots}
 <section class="bloc-large reveal">${l.length ? `<h2>${tr('Les bonnes adresses de nos <em>partenaires</em>')}</h2>` : ''}${l.length ? `<div class="fiches">${l.map(carteP).join('')}</div>` : cleS === 'dates' ? '' : `<p class="vide">${esc(tr(SORTIES.vide))}</p>`}${ctaIg(handle, t.orgaBouton, T.email)}</section>`;

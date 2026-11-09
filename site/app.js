@@ -140,6 +140,7 @@
   });
   const demanderPosition = () => new Promise((ok) => {
     if (!navigator.geolocation) { toast(T.geoImpossible); ok(false); return; }
+    if (T.geoAttente) toast(T.geoAttente); // tout de suite : la demande d'autorisation peut rester sans réponse
     navigator.geolocation.getCurrentPosition((p) => { position = { lat: p.coords.latitude, lng: p.coords.longitude }; ok(true); }, () => { toast(T.geoRefus); ok(false); }, { enableHighAccuracy: false, timeout: 10000, maximumAge: 600000 });
   });
   document.addEventListener('click', async (ev) => {
@@ -285,11 +286,19 @@
     flottant.querySelector('button').addEventListener('click', ouvrir);
     mobile.addEventListener?.('change', () => { if (!mobile.matches) fermer(); majFlottant(); });
   }
-  let attente = false;
+  // Boutons flottants (Filtres, retour en haut) : cachés quand on descend (ils ne masquent jamais une carte),
+  // de retour dès qu'on remonte un peu — comme la barre de Safari.
+  let attente = false, dernierY = scrollY, versLeBas = false;
   addEventListener('scroll', () => {
     if (attente || feuille) return;
     attente = true;
-    requestAnimationFrame(() => { attente = false; majFlottant(); if (haut) haut.hidden = scrollY < 1400; });
+    requestAnimationFrame(() => {
+      attente = false;
+      const y = scrollY, d = y - dernierY;
+      if (Math.abs(d) > 6) { versLeBas = d > 0; dernierY = y; }
+      majFlottant(); if (haut) haut.hidden = y < 1400;
+      document.documentElement.classList.toggle('defile-bas', versLeBas && y > 300);
+    });
   }, { passive: true });
 
   // --- Une seule vue : la liste (la carte générale a été retirée ; chaque soirée a sa mini-carte) ----------------
@@ -400,6 +409,12 @@
       nommer(new ml.Marker({ element: repere('<b>♪</b>', 'seul'), anchor: 'bottom' }).setLngLat(ll).addTo(m), mini.dataset.nom);
     };
     if ('IntersectionObserver' in window) { const o = new IntersectionObserver((e) => { if (e.some((x) => x.isIntersecting)) { o.disconnect(); ouvrir(); } }, { rootMargin: '300px' }); o.observe(mini); } else ouvrir();
+  }
+
+  // --- Page d'une soirée sur téléphone : barre « Billets » en bas dès que les boutons principaux sont hors écran ---
+  const barre = document.querySelector('.barre-billets'), actions = document.querySelector('.fiche-actions');
+  if (barre && actions && 'IntersectionObserver' in window) {
+    new IntersectionObserver(([e]) => { barre.hidden = e.isIntersecting || e.boundingClientRect.top > innerHeight; }).observe(actions);
   }
 
   // --- Démarrage -----------------------------------------------------------------------------------------------

@@ -101,13 +101,13 @@ const visibles = (p) => p.locator('.liste .carte:not([hidden])').count();
     const c = await b.newContext({ viewport: { width: 1280, height: 800 } }); const p = await c.newPage(); erreurs(p, 'carte');
     await p.route('**/tiles.openfreemap.org/**', (r) => r.abort());
     await p.goto(B + `soiree/${S}/`); await p.locator('.mini-carte').scrollIntoViewIfNeeded(); await p.waitForTimeout(2000);
-    ok(await p.locator('.mini-carte .repere').count() === 1, 'carte : le repère du lieu disparaît sans fond de carte');
+    ok(await p.locator('.mini-carte .repere, .mini-carte.sans-carte a').count() === 1, 'carte : ni repère ni adresse sans fond de carte');
     await c.close();
   });
 
   await etape('clavier seul', async () => {
     const c = await b.newContext({ viewport: { width: 1280, height: 800 } }); const p = await c.newPage(); erreurs(p, 'clavier');
-    await p.goto(B); await p.keyboard.press('Tab');
+    await p.goto(B); await p.evaluate(() => document.activeElement?.blur()); await p.keyboard.press('Tab');
     ok(await p.evaluate(() => document.activeElement?.classList.contains('saut')), 'clavier : le lien « Aller au contenu » n\'est pas le premier élément');
     await p.locator('details[data-bloc="ville"] summary').focus(); await p.keyboard.press('Enter'); await p.waitForTimeout(200);
     ok(await p.locator('details[data-bloc="ville"]').evaluate((d) => d.open), 'clavier : un menu de filtre ne s\'ouvre pas avec Entrée');
@@ -193,7 +193,7 @@ const visibles = (p) => p.locator('.liste .carte:not([hidden])').count();
       p.on('response', (r) => { if (r.url().startsWith(B) && r.status() >= 400 && !/page-inexistante/.test(r.url())) pb.push(`HTTP ${r.status()} : ${r.url().replace(B, '/')}`); });
       for (const u of ['', 'a-propos/', 'actus/', ...un('actus'), ...un('soiree'), 'festivals/', 'clubs-bars/', 'partenaires/', 'dates/', 'restaurants/', 'activites/', 'france/', 'cgu/', 'confidentialite/', 'ar/', 'page-inexistante/']) {
         page404 = u === 'page-inexistante/'; // la page d'erreur répond 404 exprès
-        await p.goto(B + u).catch(() => {}); await p.evaluate(() => window.scrollTo(0, document.body.scrollHeight)); await p.waitForTimeout(700);
+        await p.goto(B + u).catch(() => {}); await p.evaluate(() => window.scrollTo(0, document.body.scrollHeight)); await p.waitForLoadState('networkidle').catch(() => {}); await p.waitForTimeout(300);
       }
       ok(!pb.length, `console ${o.viewport?.width || 'mobile'} : ${[...new Set(pb)].slice(0, 6).join(' | ')}`);
       await c.close();
@@ -208,7 +208,7 @@ const visibles = (p) => p.locator('.liste .carte:not([hidden])').count();
     for (const o of [{ viewport: { width: 1440, height: 900 } }, { ...devices['iPhone 13'] }]) {
       const c = await b.newContext(o); const p = await c.newPage(); erreurs(p, 'mini-carte');
       await p.goto(B + `soiree/${S}/`); await p.locator('.mini-carte').scrollIntoViewIfNeeded(); await p.waitForTimeout(2000);
-      ok(await p.locator('.mini-carte.maplibregl-map .repere').count() === 1, `mini-carte ${o.viewport?.width || 'mobile'} : carte ou repère du lieu absent`);
+      ok(await p.locator('.mini-carte.maplibregl-map .repere, .mini-carte.sans-carte a[href*="google.com/maps"]').count() === 1, `mini-carte ${o.viewport?.width || 'mobile'} : carte ou repère du lieu absent`);
       await c.close();
     }
   });

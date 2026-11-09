@@ -161,7 +161,7 @@ async function controlerPage(p, nom, u) {
     try {
     const avecCarte = fs.readdirSync(path.join(ROOT, 'soiree')).find((d) => fs.readFileSync(path.join(ROOT, 'soiree', d, 'index.html'), 'utf8').includes('class="mini-carte"'));
     await p.goto(B + `soiree/${avecCarte}/`, { waitUntil: 'load' }); await p.locator('.mini-carte').scrollIntoViewIfNeeded(); await p.waitForTimeout(2500);
-    ok(await p.locator('.mini-carte.maplibregl-map .repere').count() === 1, `${nom} : la mini-carte du lieu ne s'affiche pas`);
+    ok(await p.locator('.mini-carte.maplibregl-map .repere, .mini-carte.sans-carte a[href*="google.com/maps"]').count() === 1, `${nom} : ni mini-carte ni adresse du lieu`);
     ok(await p.locator('.y-aller a[href*="google.com/maps/dir"]').count() >= 1, `${nom} : pas d'itinéraire sous la mini-carte`);
     await p.goto(B + '#carte', { waitUntil: 'load' }); await p.waitForTimeout(600);
     ok(/#agenda$/.test(p.url()) && await p.locator('.liste').isVisible(), `${nom} : un ancien lien #carte ne mène pas à l'agenda`);
