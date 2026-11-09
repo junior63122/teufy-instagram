@@ -175,7 +175,9 @@
     if (favoris.has(id)) favoris.delete(id); else { favoris.add(id); toast(T.ajoute); }
     try { localStorage.setItem('teufy-favoris', JSON.stringify([...favoris])); } catch { /* navigation privée */ }
     majCoeurs(); b.classList.remove('pop'); void b.offsetWidth; b.classList.add('pop');
-    if (etat.quand === 'favoris') appliquer();
+    // Dans la vue « Favoris », une soirée retirée reste visible (estompée) jusqu'au prochain changement de filtre :
+    // pas de saut de mise en page sous le doigt, et on peut la remettre d'un tap.
+    if (etat.quand === 'favoris') b.closest('.carte')?.classList.toggle('retiree', !favoris.has(id));
   });
   majCoeurs();
 

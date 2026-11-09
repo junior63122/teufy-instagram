@@ -610,11 +610,12 @@ async function ics(soirees, compte) {
   }
 }
 
-const PHOTOS = ['danse', 'foule', 'selfie', 'rire', 'dj', 'lasers', 'rooftop', 'terrasse'];
+// Les 12 photos d'ambiance : chacune n'est utilisée qu'à UN seul endroit du site (pas de répétition).
+const PHOTOS = ['danse', 'foule', 'selfie', 'rire', 'dj', 'lasers', 'rooftop', 'terrasse', 'plage', 'baskets', 'file', 'taxi'];
 // Photos de Junior et de l'équipe en soirée (site/img/equipe/).
 // Photos d'ambiance du hero d'accueil (diaporama) : pas de visage de l'équipe (seul le portrait du directeur est montré, page « Qui sommes-nous »).
 const GALERIE = [];
-const DIAPORAMA = ['danse', 'foule', 'lasers', 'rooftop', 'selfie'];
+const DIAPORAMA = ['danse', 'rooftop', 'selfie'];
 const nombre = (p, t) => new Intl.NumberFormat(t.locale, { maximumFractionDigits: 2 }).format(p);
 const prixTexte = (p, t) => (p == null ? '' : p === 0 ? t.gratuit : t.des(nombre(Math.round(p * 100) / 100, t)));
 const heure = (d, t) => (t.locale === 'fr-FR' ? paris(d, { hour: '2-digit', minute: '2-digit' }).replace(':', 'h') : paris(d, { hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }, t.locale));
@@ -641,7 +642,7 @@ function carte(s, { t, base, lang, vedette = false }) {
   const petite = s.affiche ? `${base}${s.affiche.replace(/\.jpg$/, '-480.webp')}` : '';
   const img = s.affiche
     ? `${existsSync(path.join(ROOT, s.affiche.replace(/\.jpg$/, '-480.webp'))) ? `<img class="fond-flou" src="${petite}" alt="" aria-hidden="true" loading="lazy" decoding="async">` : ''}${image(base, s.affiche, { alt: t.affiche + s.nom, sizes: TAILLES.carte, attrs: `class="principale${s.dims && s.dims[0] < 560 ? ' petite' : ''}" loading="lazy" decoding="async"${s.dims ? ` width="${s.dims[0]}" height="${s.dims[1]}"` : ''}` })}`
-    : image(base, `site/img/${PHOTOS[parseInt(h(s.nom), 16) % PHOTOS.length]}.jpg`, { sizes: TAILLES.carte, attrs: 'class="principale photo" loading="lazy" decoding="async" width="928" height="1152"' });
+    : vignette(s);
   const acces = accesDe(s);
   const promo = promoDe(s);
   return `<article class="carte${vedette ? ' vedette' : ''}" data-acces="${acces.join(' ')}" data-id="${s.id}" data-jour="${s.jour}" data-debut="${esc(s.debut)}" data-heure="${esc(heure(s.debut, t))}" data-ville="${s.filtreVille}" data-styles="${s.styles.join(' ')}" data-prix="${s.prix ?? ''}" data-lat="${s.lat ?? ''}" data-lng="${s.lng ?? ''}"${s.approx ? ' data-approx="1"' : ''} data-q="${esc(q)}">
@@ -668,6 +669,13 @@ function accesDe(s) {
 let CODES = [];
 const promoDe = (s) => CODES.find((c) => (!c.jusqu_au || Date.parse(c.jusqu_au) >= Date.parse(s.debut)) && new RegExp(c.s_applique.replace(/^\(\?i\)/, ''), 'i').test(`${s.nom} ${s.lieu} ${s.url}`));
 const blocPromo = (c, t, tr) => `<div class="code-promo"><p class="pied-titre">${esc(t.codePromo)}</p><p class="code-ligne"><b>${esc(c.remise)}</b><button type="button" class="code" data-copier="${esc(c.code)}">${esc(c.code)} <span>${esc(t.copier)}</span></button></p><p>${esc(tr(c.description))}</p><p class="petit">${esc(t.conditions)} : ${esc(tr(c.conditions))}</p>${(c.liens || []).length ? `<p class="petit">${esc(t.billetsEligibles)} : ${c.liens.map((u) => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(u.replace(/^https?:\/\/(www\.)?/, ''))}</a>`).join(' · ')}</p>` : ''}</div>`;
+
+// Soirée sans affiche : vignette typographique aux couleurs de la DA (dégradé propre à chaque soirée), jamais une photo répétée.
+function vignette(s) {
+  const n = parseInt(h(s.nom), 16), teintes = [[255, 90, 60], [255, 46, 110], [130, 80, 255], [40, 170, 255], [61, 255, 138], [255, 200, 60]];
+  const [a, b] = [teintes[n % 6], teintes[(Math.floor(n / 7) % 5 + 1 + n % 6) % 6]];
+  return `<span class="vignette" style="--a:rgb(${a.join(',')});--b:rgb(${b.join(',')})" aria-hidden="true"><small>${esc((s.genres || '').split(' · ')[0] || 'Soirée')}</small><b>${esc(s.nom)}</b><i>${esc(s.lieu || s.ville)}</i></span>`;
+}
 
 const boutonBillets = (s, t) => (s.url
   ? `<a class="bouton" href="${esc(s.url)}" target="_blank" rel="noopener">${esc(t.billets)}</a>`
@@ -699,11 +707,11 @@ const TEUFY = {
 };
 const VILLES_SEO = [
   { slug: 'soirees-nice', cle: 'nice', re: /nice|saint-laurent|cagnes|villefranche/i, photo: 'lasers' },
-  { slug: 'soirees-cannes', cle: 'cannes', re: /cannes|mandelieu|le cannet/i, photo: 'rooftop' },
+  { slug: 'soirees-cannes', cle: 'cannes', re: /cannes|mandelieu|le cannet/i, photo: 'plage' },
   { slug: 'soirees-monaco', cle: 'monaco', re: /monaco|monte.?carlo|beausoleil/i, photo: 'monaco', video: true },
   { slug: 'soirees-antibes', cle: 'antibes', re: /antibes|juan|biot|vallauris|golfe/i, photo: 'terrasse' },
 ];
-const PHOTO_STYLE = { techno: 'lasers', house: 'rooftop', afro: 'danse', shatta: 'foule', latino: 'rire', rap: 'dj' };
+const PHOTO_STYLE = { techno: 'foule', house: 'baskets', afro: 'rire', shatta: 'dj', latino: 'taxi', rap: 'file' };
 
 let CSS_EN_LIGNE = ''; // CSS écrite dans chaque page : affichage plus rapide (une requête de moins)
 let VERSION = '1'; // change quand le CSS ou le JS change (le navigateur recharge la bonne version)
@@ -861,7 +869,7 @@ function blocTeufy({ t, T, base, lang }, nb) {
 // Bloc « Tu fais vivre la nuit ? » : partenaires, ambassadeurs, BDE.
 const blocPros = ({ t, base, lang }) => `<section class="pros reveal">
   <h2>${t.prosH2}</h2>
-  <div class="pros-cartes">${[['partenaires/', 'lasers'], ['ambassadeurs/', 'selfie'], ['bde/', 'rire']].map(([c, img], i) => `<a class="pro" href="${base}${pre(lang)}${c}" style="--i:${i}">${image(base, `site/img/${img}.jpg`, { sizes: '(min-width:760px) 380px, 92vw', attrs: 'loading="lazy"' })}<span><strong>${esc(t.pros[i][0])}</strong>${esc(t.pros[i][1])}<b>${esc(t.decouvrir)} →</b></span></a>`).join('')}</div>
+  <div class="pros-cartes">${[['partenaires/', '🤝'], ['ambassadeurs/', '⭐'], ['bde/', '🎓']].map(([c, ic], i) => `<a class="pro sans-photo" href="${base}${pre(lang)}${c}" style="--i:${i}"><em class="pro-icone" aria-hidden="true">${ic}</em><span><strong>${esc(t.pros[i][0])}</strong>${esc(t.pros[i][1])}<b>${esc(t.decouvrir)} →</b></span></a>`).join('')}</div>
 </section>`;
 
 const blocFaq = (titre, faq) => `<section class="qui faq reveal"><h2>${titre}</h2>${faq.map(([q, r]) => `<details><summary>${esc(q)}</summary><p>${esc(r)}</p></details>`).join('')}</section>`;
@@ -874,8 +882,8 @@ const fond = (base, photo, video, alt) => (video
 // Sur ordinateur, la photo du hero est une carte à droite (jamais étirée, donc jamais floue) ; sur mobile, elle est en fond.
 const TAILLE_HERO = '(min-width:980px) 560px, 100vw';
 
-const heroCourt = ({ base, photo, video, alt, etiquette, h1, p, live = false }) => `<section class="hero court">
-  <div class="hero-media">${fond(base, photo, video, alt)}</div>
+const heroCourt = ({ base, photo, video, alt, etiquette, h1, p, live = false }) => `<section class="hero court${photo ? '' : ' sans-photo'}">
+  ${photo ? `<div class="hero-media">${fond(base, photo, video, alt)}</div>` : '<div class="hero-deco" aria-hidden="true"><span></span><span></span><span></span></div>'}
   <div class="hero-texte">
     <p class="etiquette">${esc(etiquette)}</p>
     <h1>${h1}</h1>
@@ -924,7 +932,7 @@ ${blocOrga({ t, base, handle, lang })}`;
 
 function blocOrga({ t, base, handle, lang }) {
   return `<section class="orga reveal">
-  <div class="hero-media">${image(base, 'site/img/dj.jpg', { sizes: TAILLE_HERO, attrs: 'class="hero-photo" loading="lazy"' })}</div>
+  <div class="hero-deco" aria-hidden="true"><span></span><span></span><span></span></div>
   <div class="hero-texte">
     <p class="etiquette">${esc(t.orgaEtiquette)}</p>
     <h2>${t.orgaH2}</h2>
@@ -950,7 +958,7 @@ ${blocOrga({ t, base, handle: compte.replace(/^@/, ''), lang })}`;
 function pageStyle({ lang, t, tr, base, compte, T, chemin, cleStyle, soirees, maj }) {
   const st = STYLES_MUSIQUE.find((x) => x.cle === cleStyle);
   const nom = nomStyle(cleStyle, t, lang);
-  const corps = `${heroCourt({ base, photo: PHOTO_STYLE[cleStyle] || 'danse', alt: nom, etiquette: `${t.styleEtiquette} · ${nom}`, h1: t.styleH1(esc(nom)), p: `${esc(tr(st.intro))} ${esc(t.villeN(soirees.length))}`, live: true })}
+  const corps = `${heroCourt({ base, photo: PHOTO_STYLE[cleStyle], alt: nom, etiquette: `${t.styleEtiquette} · ${nom}`, h1: t.styleH1(esc(nom)), p: `${esc(tr(st.intro))} ${esc(t.villeN(soirees.length))}`, live: true })}
 ${ceSoir(t)}
 ${agenda(soirees, { t, base, lang, filtreStyle: false })}
 <section class="qui reveal"><p class="liens-styles">${PAGES_STYLES.filter((k) => k !== cleStyle).map((k) => `<a class="puce" href="${base}${pre(lang)}soirees-${k}/">${esc(nomStyle(k, t, lang))}</a>`).join('')}</p></section>
@@ -966,7 +974,7 @@ function pageSoiree({ lang, t, tr, base, compte, T, chemin, s, soirees, maj }) {
   const style = soirees.filter((x) => x.id !== s.id && x.jour !== s.jour && x.styles.some((k) => s.styles.includes(k))).slice(0, 6);
   const mini = (l, titre) => (l.length ? `<section class="similaires reveal"><h2>${titre}</h2><div class="grille">${l.map((x) => carte(x, { t, base, lang })).join('')}</div></section>` : '');
   const offres = s.offres.length ? `<div class="offres"><p class="pied-titre">${esc(t.comparer)}</p>${s.offres.map((o, i) => `<a href="${esc(o.url)}" target="_blank" rel="noopener"><span>${esc(nomPlateforme(o.url))}</span><b>${esc(o.prix == null ? t.prixBillet : prixTexte(o.prix, t))}</b>${i === 0 && o.prix != null ? `<i>${esc(t.meilleurPrix)}</i>` : ''}</a>`).join('')}</div>` : '';
-  const img = s.affiche ? image(base, s.affiche, { alt: t.affiche + s.nom, sizes: '(min-width:860px) 460px, 92vw', attrs: `fetchpriority="high"${s.dims ? ` width="${s.dims[0]}" height="${s.dims[1]}"` : ''}` }) : image(base, `site/img/${PHOTOS[parseInt(h(s.nom), 16) % PHOTOS.length]}.jpg`, { sizes: '(min-width:860px) 460px, 92vw', attrs: 'width="928" height="1152" fetchpriority="high"' });
+  const img = s.affiche ? image(base, s.affiche, { alt: t.affiche + s.nom, sizes: '(min-width:860px) 460px, 92vw', attrs: `fetchpriority="high"${s.dims ? ` width="${s.dims[0]}" height="${s.dims[1]}"` : ''}` }) : `<div class="affiche-fiche">${vignette(s)}</div>`;
   const corps = `<article class="fiche carte-donnees" data-id="${s.id}" data-debut="${esc(s.debut)}">
   <nav class="ariane"><a href="${base}${P}">Teufy</a> › <a href="${base}${P}#agenda">${esc(t.agenda)}</a> › <span>${esc(s.nom)}</span></nav>
   <div class="fiche-grille">
@@ -1030,7 +1038,7 @@ function pageSorties({ lang, t, tr, base, compte, T, chemin, maj, partenaires, c
   </article>`;
   const ICONES = ['🌅', '🌊', '🌿', '🎨', '⛵'];
   const spots = cleS === 'dates' ? SPOTS_DATE.map((g, k) => `<section class="bloc-large reveal"><h2>${ICONES[k] || '✦'} ${esc(tr(g.titre))}</h2><div class="cartes-texte">${g.lieux.map(([nom, ville, texte], i) => `<article class="carte-texte spot" style="--i:${i}"><p class="genre">${esc(ville)}</p><h3>${esc(nom)}</h3><p>${esc(tr(texte))}</p><p class="lieu-liens"><a class="lien" href="https://www.google.com/maps/search/?api=1&amp;query=${encodeURIComponent(`${nom}, ${ville}`)}" target="_blank" rel="noopener">${esc(t.itineraire)}</a></p></article>`).join('')}</div></section>`).join('\n') : '';
-  const corps = `${heroCourt({ base, photo: C.photo, alt: tr(C.etiquette), etiquette: tr(C.etiquette), h1: tr(C.h1), p: esc(tr(C.p)) })}
+  const corps = `${heroCourt({ base, photo: null, alt: tr(C.etiquette), etiquette: tr(C.etiquette), h1: tr(C.h1), p: esc(tr(C.p)) })}
 ${spots}
 <section class="bloc-large reveal">${cleS === 'dates' && l.length ? `<h2>${tr('Les bonnes adresses de nos <em>partenaires</em>')}</h2>` : ''}${l.length ? `<div class="cartes-texte">${l.map(carteP).join('')}</div>` : cleS === 'dates' ? '' : `<p class="vide">${esc(tr(SORTIES.vide))}</p>`}${ctaIg(handle, t.orgaBouton, T.email)}</section>
 <section class="bloc-large reveal"><p class="liens-styles">${Object.keys(SORTIES).filter((k) => SORTIES[k].filtre && k !== cleS).map((k) => `<a class="puce" href="${base}${pre(lang)}${k}/">${esc(k === 'dates' ? t.dates : k === 'restaurants' ? t.restos : t.activites)}</a>`).join('')}<a class="puce" href="${base}${pre(lang)}#agenda">${esc(t.agenda)}</a></p></section>`;
@@ -1040,7 +1048,7 @@ ${spots}
 
 function pageFestivals({ lang, t, tr, base, compte, T, chemin, soirees, maj }) {
   const recherche = (n) => `https://www.google.com/search?q=${encodeURIComponent(`${n} site officiel`)}`;
-  const corps = `${heroCourt({ base, photo: 'foule', alt: t.festivals, etiquette: t.festivals, h1: t.festH1, p: esc(t.festP) })}
+  const corps = `${heroCourt({ base, photo: null, alt: t.festivals, etiquette: t.festivals, h1: t.festH1, p: esc(t.festP) })}
 <section class="bloc-large reveal"><h2>${t.festAgendaH2}</h2>${soirees.length ? `<div class="grille">${soirees.map((s) => carte(s, { t, base, lang })).join('')}</div>` : `<p class="vide">${esc(t.festAgendaVide)}</p>`}</section>
 <section class="bloc-large reveal"><h2>${t.festGuideH2}</h2><div class="cartes-texte">${FESTIVALS.map((f, i) => `<article class="carte-texte" style="--i:${i}"><p class="genre">${esc(tr(f.quand))} · ${esc(f.ville === 'Partout' ? tr(f.ville) : f.ville)}</p><h3>${esc(f.nom)}</h3><p class="petit">${esc(tr(f.style))}</p><p>${esc(tr(f.texte))}</p><a class="lien" href="${recherche(f.nom)}" target="_blank" rel="noopener">${esc(t.siteOfficiel)}</a></article>`).join('')}</div></section>
 <section class="bloc-large reveal"><h2>${t.festRdvH2}</h2><div class="cartes-texte">${RENDEZ_VOUS.map((f, i) => `<article class="carte-texte" style="--i:${i}"><p class="genre">${esc(tr(f.quand))}${f.ville ? ` · ${esc(f.ville)}` : ''}</p><h3>${esc(f.nom)}</h3><p>${esc(tr(f.texte))}</p></article>`).join('')}</div><p class="avert">${esc(t.festAvert)}</p></section>
@@ -1050,7 +1058,7 @@ ${blocOrga({ t, base, handle: compte.replace(/^@/, ''), lang })}`;
 
 const dateActu = (a, t) => { const d = Date.parse(a.date); return isNaN(d) ? '' : paris(d, { day: 'numeric', month: 'long', year: 'numeric' }, t.locale); };
 function pageActus({ lang, t, tr, base, compte, T, chemin, actus, maj }) {
-  const corps = `${heroCourt({ base, photo: 'foule', alt: t.actus, etiquette: t.actus, h1: t.actusH1, p: esc(t.actusP) })}
+  const corps = `${heroCourt({ base, photo: null, alt: t.actus, etiquette: t.actus, h1: t.actusH1, p: esc(t.actusP) })}
 <section class="bloc-large reveal">${actus.length ? `<div class="actus">${actus.map((a, i) => `<a class="actu" href="${base}${pre(lang)}actus/${a.id}/" style="--i:${i % 6}"><p class="genre">${esc(dateActu(a, t))}${a.ville ? ` · ${esc(tr(a.ville))}` : ''}</p><h3>${esc(tr(a.titre))}</h3><p>${esc(tr(a.chapo))}</p><b>${esc(t.lire)} →</b></a>`).join('')}</div>` : `<p class="vide">${esc(t.actusVide)}</p>`}</section>`;
   return gabarit({ lang, t, titre: t.actusTitre, description: t.actusDesc, chemin, base, corps, compte, maj, ld: [...ldOrganisation(T, compte, t, lang), fil(lang, [['Teufy', ''], [t.actus, chemin]])] });
 }
@@ -1097,7 +1105,7 @@ function pageLieux({ lang, t, tr, base, compte, T, chemin, maj, lieux }) {
   const parVille = {};
   for (const l of lieux || []) (parVille[l.ville || tr('Autres')] ||= []).push(l);
   const villes = Object.keys(parVille).sort((a, b) => parVille[b].length - parVille[a].length);
-  const corps = `${heroCourt({ base, photo: 'lasers', alt: t.lieuxNav, etiquette: t.lieuxNav, h1: tr("Les clubs et bars de la <em>Côte d'Azur</em> et du Var"), p: esc(tr("Boîtes de nuit, bars, rooftops et beach clubs de Nice à Toulon, avec ceux qui font le plus parler d'eux en ce moment.")) })}
+  const corps = `${heroCourt({ base, photo: null, alt: t.lieuxNav, etiquette: t.lieuxNav, h1: tr("Les clubs et bars de la <em>Côte d'Azur</em> et du Var"), p: esc(tr("Boîtes de nuit, bars, rooftops et beach clubs de Nice à Toulon, avec ceux qui font le plus parler d'eux en ce moment.")) })}
 ${top.length ? `<section class="bloc-large reveal"><h2>${tr('🔥 Tendance du <em>moment</em>')}</h2><p class="avert">${esc(tr("Classement mis à jour chaque jour : commentaires et likes sur leurs dernières publications Instagram, et soirées à venir dans l'agenda."))}</p><div class="cartes-texte">${top.map((l, i) => carteLieu(l, ctx, i, true)).join('')}</div></section>` : ''}
 <section class="bloc-large reveal"><p class="liens-styles">${villes.map((v) => `<a class="puce" href="#v-${slug(v)}">${esc(v)} · ${parVille[v].length}</a>`).join('')}</p></section>
 ${villes.map((v) => `<section class="bloc-large reveal" id="v-${slug(v)}"><h2>${esc(v)}</h2><div class="cartes-texte">${parVille[v].map((l, i) => carteLieu(l, ctx, i)).join('')}</div></section>`).join('\n')}
@@ -1111,7 +1119,7 @@ function pageFrance({ lang, t, tr, base, compte, T, chemin, maj, soirees, cleVil
   const nomVille = cleVille ? (VILLES_FRANCE.find((v) => slug(v) === cleVille) || soirees[0]?.ville || cleVille) : '';
   const villes = [...new Set(soirees.map((s) => s.filtreVille))];
   const titre = cleVille ? tr(`Soirées à ${nomVille} : les plus attendues`) : tr('Soirées dans les grandes villes de France');
-  const corps = `${heroCourt({ base, photo: 'foule', alt: titre, etiquette: tr('Ailleurs en France'), h1: cleVille ? tr(`Les soirées à <em>${nomVille}</em>`) : tr('Les soirées des <em>grandes villes</em> de France'), p: esc(tr("Teufy, c'est d'abord la Côte d'Azur et le Var. Ici, les soirées les plus attendues des grandes villes étudiantes, pour quand tu bouges.")) })}
+  const corps = `${heroCourt({ base, photo: null, alt: titre, etiquette: tr('Ailleurs en France'), h1: cleVille ? tr(`Les soirées à <em>${nomVille}</em>`) : tr('Les soirées des <em>grandes villes</em> de France'), p: esc(tr("Teufy, c'est d'abord la Côte d'Azur et le Var. Ici, les soirées les plus attendues des grandes villes étudiantes, pour quand tu bouges.")) })}
 <section class="bloc-large reveal"><p class="liens-styles">${cleVille ? `<a class="puce" href="${base}${pre(lang)}france/">${esc(tr('Toutes les villes'))}</a>` : ''}${VILLES_FRANCE.filter((v) => villes.includes(slug(v))).map((v) => `<a class="puce${slug(v) === cleVille ? ' actif' : ''}" href="${base}${pre(lang)}france/${slug(v)}/">${esc(v)}</a>`).join('')}<a class="puce" href="${base}${pre(lang)}#agenda">${esc(tr("Côte d'Azur et Var"))}</a></p>
 ${soirees.length ? `<div class="grille">${soirees.map((s) => carte(s, { t, base, lang })).join('')}</div>` : `<p class="vide">${esc(tr('Les soirées des grandes villes arrivent : la recherche tourne tous les deux jours.'))}</p>`}</section>`;
   return gabarit({ lang, t, titre: `${titre} · Teufy`, description: tr("Les soirées les plus attendues à Paris, Lyon, Marseille, Toulouse, Bordeaux, Lille, Nantes, Montpellier, Strasbourg, Rennes, Grenoble et Aix-en-Provence."), chemin, base, corps, compte, maj, ld: [...ldOrganisation(T, compte, t, lang), ...jsonld(soirees, lang)] });
@@ -1125,7 +1133,7 @@ const ctaIg = (handle, texte, email) => `<p class="cta"><a class="bouton" href="
 function pagePartenaire({ lang, t, tr, base, compte, T, chemin, maj, partenaires }) {
   const C = PARTENAIRE, handle = compte.replace(/^@/, '');
   const faq = C.faq.map(([q, r]) => [tr(q), tr(r)]);
-  const corps = `${heroCourt({ base, photo: 'lasers', alt: t.partenaires, etiquette: tr(C.etiquette), h1: tr(C.h1), p: esc(tr(C.chapo)) })}
+  const corps = `${heroCourt({ base, photo: null, alt: t.partenaires, etiquette: tr(C.etiquette), h1: tr(C.h1), p: esc(tr(C.chapo)) })}
 ${vitrine({ t, tr, base, partenaires })}
 <section class="bloc-large reveal">${ctaIg(handle, tr(C.cta), T.email)}<h2>${tr(C.pourquoiH2)}</h2>${cartesTexte(C.pourquoi, tr)}</section>
 <section class="bloc-large reveal"><h2>${tr(C.offreH2)}</h2>${cartesTexte(C.offre, tr)}</section>
@@ -1137,7 +1145,7 @@ ${blocFaq(t.faqH, faq)}`;
 }
 function pageAmbassadeur({ lang, t, tr, base, compte, T, chemin, maj }) {
   const C = AMBASSADEUR, handle = compte.replace(/^@/, '');
-  const corps = `${heroCourt({ base, photo: 'danse', alt: t.ambassadeurs, etiquette: tr(C.etiquette), h1: tr(C.h1), p: esc(tr(C.chapo)) })}
+  const corps = `${heroCourt({ base, photo: null, alt: t.ambassadeurs, etiquette: tr(C.etiquette), h1: tr(C.h1), p: esc(tr(C.chapo)) })}
 <section class="bloc-large reveal"><h2>${tr(C.roleH2)}</h2>${cartesTexte(C.role, tr)}</section>
 <section class="bloc-large reveal"><h2>${tr(C.avantagesH2)}</h2>${cartesTexte(C.avantages, tr)}</section>
 <section class="bloc-large reveal"><h2>${tr(C.profilH2)}</h2><ul class="coches">${C.profil.map((x) => `<li>${esc(tr(x))}</li>`).join('')}</ul></section>
@@ -1147,7 +1155,7 @@ function pageAmbassadeur({ lang, t, tr, base, compte, T, chemin, maj }) {
 }
 function pageBde({ lang, t, tr, base, compte, T, chemin, soirees, maj, partenaires }) {
   const C = BDE, handle = compte.replace(/^@/, '');
-  const corps = `${heroCourt({ base, photo: 'selfie', alt: t.bde, etiquette: tr(C.etiquette), h1: tr(C.h1), p: esc(tr(C.chapo)) })}
+  const corps = `${heroCourt({ base, photo: null, alt: t.bde, etiquette: tr(C.etiquette), h1: tr(C.h1), p: esc(tr(C.chapo)) })}
 <section class="bloc-large reveal"><h2>${tr(C.offreH2)}</h2>${cartesTexte(C.offre, tr)}</section>
 <section class="bloc-large reveal"><h2>${tr(C.etapesH2)}</h2>${etapes(C.etapes, tr)}${ctaIg(handle, tr(C.cta), T.email)}</section>
 ${soirees.length ? `<section class="bloc-large reveal"><h2>${tr(C.soireesH2)}</h2><div class="grille">${soirees.map((s) => carte(s, { t, base, lang })).join('')}</div></section>` : ''}
@@ -1168,7 +1176,7 @@ function aPropos({ lang, t, base, compte, T, chemin, nb, maj, partenaires }) {
   const initiales = T.directeur.split(/\s+/).map((x) => x[0]).join('').slice(0, 2).toUpperCase();
   const bio = lang === 'fr' && T.directeur_bio ? T.directeur_bio : t.bio;
   const ctx = { lang, t, base, T, partenaires };
-  const corps = `${heroCourt({ base, photo: 'foule', alt: t.heroAlt, etiquette: t.apEtiquette, h1: t.apH1, p: esc(t.apP(T.nbPartenaires)) })}
+  const corps = `${heroCourt({ base, photo: null, alt: t.heroAlt, etiquette: t.apEtiquette, h1: t.apH1, p: esc(t.apP(T.nbPartenaires)) })}
 <section class="qui reveal">
   <h2>${t.missionH2}</h2>
   <p>${t.missionP1}</p>

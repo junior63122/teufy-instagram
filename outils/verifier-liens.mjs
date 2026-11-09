@@ -23,6 +23,16 @@ for (const p of pages) {
     if (!existsSync(f)) casses.set(r + '  ←  ' + path.relative(ROOT, p), true);
   }
 }
+// Photos d'ambiance (site/img/*) : chacune sur une seule page par langue, pour éviter les répétitions.
+const usages = new Map();
+for (const p of pages) {
+  const rel = path.relative(ROOT, p); const lang = /^(en|it|es|zh|ar)\//.test(rel) ? rel.slice(0, 2) : 'fr';
+  for (const nom of new Set([...[...readFileSync(p, 'utf8').matchAll(/\s(?:src|srcset|poster|data-src|data-srcset)="([^"]+)"/g)].map((m) => m[1]).join(' ').matchAll(/site\/img\/(?:equipe\/)?([a-z]+(?:-[a-z]+)*)-(?:\d+|169)\.(?:webp)|site\/img\/(?:equipe\/)?([a-z-]+)\.(?:jpg|mp4)/g)].map((m) => m[1] || m[2]).filter((x) => !/^(logo|icone)/.test(x)))) {
+    const k = `${lang}|${nom}`; if (!usages.has(k)) usages.set(k, new Set()); usages.get(k).add(rel.replace(/index\.html$/, ''));
+  }
+}
+const repetees = [...usages].filter(([k, v]) => v.size > 1 && !k.endsWith('|junior-joyant'));
+for (const [k, v] of repetees) casses.set(`(photo répétée) ${k.split('|')[1]} sur ${[...v].slice(0, 4).join(', ')}${v.size > 4 ? '…' : ''}`, true);
 console.log(`${pages.length} pages, ${n} liens internes vérifiés, ${casses.size} cassé(s)`);
 for (const k of [...casses.keys()].slice(0, 40)) console.log('  ✗', k);
 process.exit(casses.size ? 1 : 0);

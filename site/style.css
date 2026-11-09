@@ -522,3 +522,37 @@ details.filtre>.groupe{position:absolute;top:calc(100% + 8px);inset-inline-start
 .carte-texte.spot h3{font-size:26px}
 @media(min-width:980px){.vedette .infos{padding:40px 44px}.vedette h3{font-size:56px}}
 .affiche img.principale.petite{object-fit:scale-down}
+
+/* ===== v6 : pas de photo répétée — héros typographiques, vignettes de soirée, cartes pros ===== */
+.hero.sans-photo{min-height:0;padding:72px 16px 64px;background:radial-gradient(60% 90% at 85% 10%,#ff5a3c33,transparent 60%),radial-gradient(50% 70% at 0% 100%,#8250ff26,transparent 60%),var(--nuit);overflow:hidden}
+.hero.sans-photo::after{display:none}
+.hero.sans-photo .hero-texte{max-width:900px;margin:0 auto;padding:0}
+.hero-deco{position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.hero-deco span{position:absolute;border-radius:50%;filter:blur(60px);opacity:.55;animation:flotte 16s ease-in-out infinite alternate}
+.hero-deco span:nth-child(1){width:420px;height:420px;background:#ff5a3c;top:-160px;right:-80px}
+.hero-deco span:nth-child(2){width:300px;height:300px;background:#8250ff;bottom:-140px;left:-60px;animation-delay:-5s}
+.hero-deco span:nth-child(3){width:220px;height:220px;background:#ff2e6e;top:30%;left:45%;opacity:.25;animation-delay:-9s}
+@keyframes flotte{to{transform:translate(-60px,40px) scale(1.15)}}
+@media(min-width:980px){.hero.sans-photo{display:block;padding:96px max(40px,calc((100vw - 1240px) / 2)) 88px}.hero.sans-photo .hero-texte{margin:0;max-width:880px}.hero.sans-photo h1{font-size:clamp(56px,5.6vw,96px)}}
+.orga{position:relative;isolation:isolate;overflow:hidden;background:radial-gradient(70% 120% at 100% 0%,#ff5a3c40,transparent 60%),var(--nuit2)}
+.orga::after{display:none}
+@media(min-width:980px){.orga{display:block}.orga .hero-texte{max-width:760px}}
+@media(max-width:979px){.orga{min-height:0;padding:56px 16px;margin-top:72px}}
+.vignette{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;padding:22px;background:radial-gradient(120% 90% at 100% 0%,var(--a),transparent 60%),radial-gradient(110% 90% at 0% 100%,var(--b),transparent 65%),#0b0b0f;color:var(--creme);overflow:hidden}
+.vignette::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(115deg,#ffffff08 0 2px,transparent 2px 14px)}
+.vignette small{position:relative;font-weight:800;font-size:12px;letter-spacing:.16em;text-transform:uppercase;opacity:.85}
+.vignette b{position:relative;font-family:var(--titre);font-weight:800;font-stretch:80%;font-size:clamp(28px,3vw,40px);line-height:.95;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.vignette i{position:relative;font-style:normal;font-weight:700;font-size:14px;opacity:.8}
+.affiche-fiche{position:relative;aspect-ratio:4/5}
+.pro.sans-photo{min-height:220px;background:radial-gradient(90% 90% at 100% 0%,#ff5a3c55,transparent 60%),var(--nuit2);border:1px solid #ffffff1a}
+.pro.sans-photo::after{display:none}
+.pro-icone{position:absolute;top:20px;inset-inline-start:20px;font-style:normal;font-size:44px;line-height:1}
+/* Écrans tactiles : pas d'effets de survol (la carte ne bouge pas sous le doigt, le cœur reste sous le pouce). */
+@media(hover:none){
+  .carte:hover,.carte-texte:hover,.actu:hover,a.vitrine-item:hover,.logos a:hover,.bouton:hover,.portrait:hover,.hero-media:hover{transform:none}
+  .carte:hover .affiche img.principale,.carte:hover .affiche img,.pro:hover img,.photos figure:hover img{transform:none}
+  .carte:hover{box-shadow:none}
+}
+.coeur{touch-action:manipulation}
+.coeur::after{content:"";position:absolute;inset:-8px}
+.carte.retiree{opacity:.45;filter:grayscale(.6)}

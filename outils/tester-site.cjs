@@ -174,8 +174,8 @@ async function controlerPage(p, nom, u) {
     // --- Vidéo de Monaco : elle tourne en boucle, pas seulement 2 secondes ---
     try {
     await p.goto(B + 'soirees-monaco/', { waitUntil: 'load' }); await c.clock.runFor(0).catch(() => {});
-    const t = await p.evaluate(() => new Promise((ok) => { const v = document.querySelector('video'); if (!v) return ok(-1); let max = 0, boucles = 0, prec = 0; v.addEventListener('timeupdate', () => { if (v.currentTime < prec) boucles++; prec = v.currentTime; max = Math.max(max, v.currentTime); }); setTimeout(() => ok({ max, boucles, paused: v.paused }), 9000); }));
-    ok(t !== -1 && t.max > 3 && t.boucles >= 1 && !t.paused, `${nom} : la vidéo de Monaco ne tourne pas en entier / en boucle (${JSON.stringify(t)})`);
+    const t = await p.evaluate(() => new Promise((ok) => { const v = document.querySelector('video'); if (!v) return ok(-1); let max = 0, boucles = 0, prec = 0; v.addEventListener('timeupdate', () => { if (v.currentTime < prec) boucles++; prec = v.currentTime; max = Math.max(max, v.currentTime); }); setTimeout(() => ok({ max, boucles, paused: v.paused, duree: v.duration }), 20000); }));
+    ok(t !== -1 && t.duree > 15 && t.max > t.duree - 2 && t.boucles >= 1 && !t.paused, `${nom} : la vidéo de Monaco ne tourne pas en entier / en boucle (${JSON.stringify(t)})`);
     } catch (e) { echecs.push(`${nom} : étape interrompue (${e.message.split('\n')[0]})`); }
     await c.close();
   }
