@@ -23,7 +23,12 @@
      "nom": "Students Only Chic"
     }
    ],
-   "insta": null,
+   "insta": {
+    "abonnes": 26914,
+    "likes": 906,
+    "commentaires": 1.3,
+    "posts21": 8
+   },
    "slug": "high-club-nice",
    "score": 0
   },
@@ -51,7 +56,12 @@
    "description": "Pub festif anglophone réputé pour ses concerts pop-rock live et son ambiance dansante sur les tables.",
    "soirees": [],
    "prochaines": [],
-   "insta": null,
+   "insta": {
+    "abonnes": 9275,
+    "likes": 407,
+    "commentaires": 38.3,
+    "posts21": 4
+   },
    "slug": "wayne-s-bar-nice",
    "score": 0
   },
@@ -79,7 +89,12 @@
    "description": "Rooftop végétalisé proposant des tapas méditerranéennes et des cocktails créations dans une atmosphère lounge et festive.",
    "soirees": [],
    "prochaines": [],
-   "insta": null,
+   "insta": {
+    "abonnes": 21833,
+    "likes": 10,
+    "commentaires": 0,
+    "posts21": 4
+   },
    "slug": "bocca-nissa-nice",
    "score": 0
   },
@@ -1020,5 +1035,74 @@
    "score": 0
   }
  ],
- "insta": {}
+ "insta": {
+  "highclubnice": {
+   "le": "2026-11-09T18:15:20.810Z",
+   "abonnes": 26914,
+   "posts21": 8,
+   "likes": 906,
+   "commentaires": 1.3,
+   "photo": "https://scontent-ord5-2.xx.fbcdn.net/v/t51.82787-15/869243880_18112993097607553_4194293181174367708_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=7d201b&_nc_ohc=ZcjQ-uBfFEoQ7kNvwEsbMcW&_nc_oc=AdrcoDPg4RZPnwcEq2e-mpEKPw740NTbM-z_8WjHOih7D7DOASY7nL1eLTS9nGd54Sg&_nc_zt=23&_nc_ht=scontent-ord5-2.xx&edm=AL-3X8kEAAAA&_nc_gid=UsMKNIbSYxcostKrcE_hOw&oh=00_AQTooB0m0UouhRxyktvdv_IOwTkgPkDN_ZY_Ak50QIal-w&oe=6AF7E200"
+  },
+  "kwartzclub": {
+   "le": "2026-11-09T18:15:20.810Z",
+   "absent": true
+  },
+  "waynes_bar": {
+   "le": "2026-11-09T18:15:20.810Z",
+   "abonnes": 9275,
+   "posts21": 4,
+   "likes": 407,
+   "commentaires": 38.3,
+   "photo": "https://scontent-ord5-1.xx.fbcdn.net/v/t51.82787-15/670442541_18421331881122671_169057255686607076_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=7d201b&_nc_ohc=kQ6H1W-6MqQQ7kNvwHELMmS&_nc_oc=AdpRNg6TpzUnRPPjGstqqo2BVPhOalUQL2Uuz3dEiQ5DFn4aUswsJOJxmqUZNOOKwuQ&_nc_zt=23&_nc_ht=scontent-ord5-1.xx&edm=AL-3X8kEAAAA&_nc_gid=Y5ZXCXZ9h3kAm4CNUS2Hlg&oh=00_AQTM9G7kqoJ-Et40vXXfpUsOSQgFHyf2_7hwcImUDzkkkw&oe=6AF7D4E9"
+  },
+  "movidanice": {
+   "le": "2026-11-09T18:15:20.810Z",
+   "absent": true
+  },
+  "boccanissa": {
+   "le": "2026-11-09T18:15:20.810Z",
+   "abonnes": 21833,
+   "posts21": 4,
+   "likes": 10,
+   "commentaires": 0,
+   "photo": "https://scontent-ord5-1.xx.fbcdn.net/v/t51.82787-15/658367448_18117933943726764_8122597871535881542_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=7d201b&_nc_ohc=CAZa4BZbhVcQ7kNvwFjSRSW&_nc_oc=Adqhfy7b0GQWgwOAO2JtXZ0fJH0Pg1Lok585Iw9N9izYBbGGxbF3gb9e7ziEcjBlX2g&_nc_zt=23&_nc_ht=scontent-ord5-1.xx&edm=AL-3X8kEAAAA&_nc_gid=CK5tc747oLp4v_JFLEZfPg&oh=00_AQTQkuQg9wlYlXhUP6U6cCDREcylW_8YjMiOgWY2C5aRBw&oe=6AF7D1B1"
+  },
+  "bostoncocktailbar_nice": {
+   "le": "2026-11-09T18:15:20.810Z",
+   "absent": true
+  },
+  "plagebeaurivage": {
+   "le": "2026-11-09T18:15:20.810Z",
+   "absent": true
+  },
+  "achills_restaurant": {
+   "le": "2026-11-09T18:15:20.810Z",
+   "absent": true
+  },
+  "dry.restaurant": {
+   "le": "2026-11-09T18:15:20.810Z",
+   "absent": true
+  },
+  "delibo_lesbains": {
+   "le": "2026-11-09T18:15:20.810Z",
+   "absent": true
+  },
+  "leqg_portsaintlaurent": {
+   "le": "2026-11-09T18:15:20.810Z",
+   "absent": true
+  },
+  "tree_bo_port_st_laurent": {
+   "le": "2026-11-09T18:15:20.810Z",
+   "absent": true
+  },
+  "quaiouestpub": {
+   "le": "2026-11-09T18:15:20.810Z",
+   "absent": true
+  },
+  "people_saintlaurent": {
+   "le": "2026-11-09T18:15:20.810Z",
+   "absent": true
+  }
+ }
 }

@@ -2506,6 +2506,16 @@
    "site": "https://www.panda-events.com/evenement/halloween-inter-campus/",
    "abonnes": 11641,
    "fichier": "site/partenaires/ig/frigo.16.jpg"
+  },
+  "fiche": {
+   "categorie": "club",
+   "ville": "Nice",
+   "adresse": "89 route de Turin, 06300 Nice",
+   "site": "https://le109nice.fr",
+   "description": "Ancienne chambre froide réaménagée en salle de concert et espace clubbing au sein du tiers-lieu Le 109. Le lieu accueille des soirées électro, techno, hip-hop et des événements alternatifs.",
+   "date": false,
+   "date_raison": "",
+   "prix": ""
   }
  },
  "ig:pandaevents06": {
@@ -2515,6 +2525,16 @@
    "site": "https://www.panda-events.com/evenement/tropical-nice-fest-part-2/",
    "abonnes": 15191,
    "fichier": "site/partenaires/ig/pandaevents06.jpg"
+  },
+  "fiche": {
+   "categorie": "organisateur",
+   "ville": "Nice",
+   "adresse": "89 route de Turin, 06300 Nice",
+   "site": "https://www.panda-events.com",
+   "description": "Producteur et organisateur d'événements musicaux et de festivals majeurs sur la Côte d'Azur. L'agence programme des concerts, des soirées festives et gère des temps forts culturels régionaux.",
+   "date": false,
+   "date_raison": "",
+   "prix": ""
   }
  },
  "ig:lubi.light": {
@@ -2524,6 +2544,16 @@
    "site": "",
    "abonnes": 415,
    "fichier": "site/partenaires/ig/lubi.light.jpg"
+  },
+  "fiche": {
+   "categorie": "artiste",
+   "ville": "",
+   "adresse": "",
+   "site": "https://www.instagram.com/lubi.light/",
+   "description": "Artiste et créateur de luminaires d'art et de scénographies lumineuses mêlant travail des métaux et perles. Ses installations sont conçues pour des établissements, des réceptions ou des résidences privées.",
+   "date": false,
+   "date_raison": "",
+   "prix": ""
   }
  },
  "ig:bimbeauf": {
@@ -2533,6 +2563,16 @@
    "site": "https://www.tiktok.com/@bimbeauf?_t=8kcROWd5A93&_r=1",
    "abonnes": 17120,
    "fichier": "site/partenaires/ig/bimbeauf.jpg"
+  },
+  "fiche": {
+   "categorie": "personne",
+   "ville": "Nice",
+   "adresse": "",
+   "site": "https://www.tiktok.com/@bimbeauf",
+   "description": "Créatrice de contenu vidéo humoristique et de mèmes sur TikTok et Instagram. Ses publications abordent la vie nocturne et les codes festifs de la Côte d'Azur avec second degré.",
+   "date": false,
+   "date_raison": "",
+   "prix": ""
   }
  },
  "ig:paranormalfestival": {
@@ -2542,6 +2582,16 @@
    "site": "https://my.weezevent.com/paranormal-festival-acte-vi-the-crown-of-embers",
    "abonnes": 15737,
    "fichier": "site/partenaires/ig/paranormalfestival.jpg"
+  },
+  "fiche": {
+   "categorie": "festival",
+   "ville": "Nice",
+   "adresse": "89 route de Turin, 06300 Nice",
+   "site": "https://paranormalfestival.fr",
+   "description": "Festival itinérant de musiques électroniques organisé autour de la thématique d'Halloween. L'événement propose des scènes immersives avec décors horrifiques et DJ sets.",
+   "date": false,
+   "date_raison": "",
+   "prix": ""
   }
  },
  "ig:soon.event": {
@@ -2551,11 +2601,31 @@
    "site": "https://shotgun.live/venues/soon-event",
    "abonnes": 1546,
    "fichier": "site/partenaires/ig/soon.event.jpg"
+  },
+  "fiche": {
+   "categorie": "organisateur",
+   "ville": "Nice",
+   "adresse": "54 boulevard Jean Jaurès, 06300 Nice",
+   "site": "https://shotgun.live/venues/soon-event",
+   "description": "Collectif organisateur de soirées clubbing et d'événements festifs réguliers à Nice. Il propose des DJ sets urbains, afro et house dans différents établissements locaux.",
+   "date": false,
+   "date_raison": "",
+   "prix": ""
   }
  },
  "ig:breakthefloor": {
   "profil": {
    "absent": true
+  },
+  "fiche": {
+   "categorie": "festival",
+   "ville": "Cannes",
+   "adresse": "1 boulevard de la Croisette, 06400 Cannes",
+   "site": "https://www.breakthefloor.org/",
+   "description": "Compétition et festival international de danse hip-hop et de breaking rassemblant des crews mondiaux au Palais des Festivals. L'événement propose des battles de breakdance en public rythmés par des DJs et MCs.",
+   "date": true,
+   "date_raison": "Un spectacle de danse hip-hop spectaculaire et rythmé à découvrir à deux dans un cadre emblématique.",
+   "prix": ""
   }
  },
  "ig:tweltyprod": {
@@ -2565,6 +2635,16 @@
    "site": "https://linktr.ee/agencetwelty",
    "abonnes": 5873,
    "fichier": "site/partenaires/ig/tweltyprod.jpg"
+  },
+  "fiche": {
+   "categorie": "service",
+   "ville": "Nice",
+   "adresse": "",
+   "site": "https://agencetwelty.com",
+   "description": "Agence de production événementielle, de scénographie et de direction artistique active sur la Côte d'Azur. Elle conçoit des formats musicaux et des expériences festives pour des marques, des clubs et des événements privés.",
+   "date": false,
+   "date_raison": "",
+   "prix": ""
   }
  },
  "ig:yournightyourheaven": {
@@ -2574,6 +2654,16 @@
    "site": "https://heavenband.com/products/test-anti-drogue-pour-boisson-heaven-bands",
    "abonnes": 3743,
    "fichier": "site/partenaires/ig/yournightyourheaven.jpg"
+  },
+  "fiche": {
+   "categorie": "marque",
+   "ville": "",
+   "adresse": "",
+   "site": "https://heavenband.com",
+   "description": "Heaven commercialise des kits et cartes de tests rapides pour détecter la présence de drogues et substances illicites dans les verres en milieu festif.",
+   "date": false,
+   "date_raison": "",
+   "prix": ""
   }
  },
  "ig:villadjunah": {
@@ -2583,6 +2673,16 @@
    "site": "https://linktr.ee/villadjunah",
    "abonnes": 22338,
    "fichier": "site/partenaires/ig/villadjunah.jpg"
+  },
+  "fiche": {
+   "categorie": "restaurant",
+   "ville": "Antibes Juan-les-Pins",
+   "adresse": "1 Boulevard Charles Guillaumont, 06160 Antibes",
+   "site": "https://villadjunah.com",
+   "description": "Établissement festif installé dans une bâtisse néo-mauresque des années 1920 proposant restaurant, bar lounge, rooftop et beach club avec DJ sets.",
+   "date": true,
+   "date_raison": "Le cadre néo-mauresque avec rooftop, jardin et vue mer est idéal pour partager un dîner ou un cocktail en amoureux.",
+   "prix": "€€€"
   }
  },
  "ig:therealplaykid": {
@@ -2592,6 +2692,16 @@
    "site": "https://on.soundcloud.com/seQzcGEwXqdlFM4qE6",
    "abonnes": 9906,
    "fichier": "site/partenaires/ig/therealplaykid.jpg"
+  },
+  "fiche": {
+   "categorie": "artiste",
+   "ville": "Cannes",
+   "adresse": "",
+   "site": "https://soundcloud.com/playkid",
+   "description": "DJ et producteur de house et tech house, il est également le fondateur des soirées Midweek à Cannes.",
+   "date": false,
+   "date_raison": "",
+   "prix": ""
   }
  },
  "ig:makaoklub": {
@@ -2601,6 +2711,16 @@
    "site": "",
    "abonnes": 742,
    "fichier": "site/partenaires/ig/makaoklub.jpg"
+  },
+  "fiche": {
+   "categorie": "bar",
+   "ville": "Antibes",
+   "adresse": "33 Rue Vauban, 06600 Antibes",
+   "site": "",
+   "description": "Bar lounge et club du vieil Antibes proposant tapas, cocktails, concerts live et soirées animées par des DJ.",
+   "date": true,
+   "date_raison": "Un bar animé propice à un rendez-vous décontracté autour de tapas et de cocktails en début de soirée.",
+   "prix": "€€"
   }
  },
  "ig:lacasadelabuelotudela": {
@@ -2610,6 +2730,16 @@
    "site": "http://linktr.ee/lacasadelabuelo",
    "abonnes": 551,
    "fichier": "site/partenaires/ig/lacasadelabuelotudela.jpg"
+  },
+  "fiche": {
+   "categorie": "hotel",
+   "ville": "Tudela",
+   "adresse": "Calle Rúa, 9, 31500 Tudela, Navarre, Espagne",
+   "site": "http://linktr.ee/lacasadelabuelo",
+   "description": "Location d'appartements touristiques équipés situés dans le centre historique de Tudela en Espagne.",
+   "date": false,
+   "date_raison": "",
+   "prix": "€€"
   }
  },
  "ig:reffestival": {
@@ -2619,6 +2749,16 @@
    "site": "https://shotgun.live/fr/events/ref-session-17-uma-invite-zara-frigo-16",
    "abonnes": 7176,
    "fichier": "site/partenaires/ig/reffestival.jpg"
+  },
+  "fiche": {
+   "categorie": "festival",
+   "ville": "Nice",
+   "adresse": "89 Route de Turin, 06300 Nice",
+   "site": "https://reffestival.com",
+   "description": "Festival et rendez-vous réguliers de musiques électroniques organisés notamment au Frigo 16 et au 109 à Nice.",
+   "date": false,
+   "date_raison": "",
+   "prix": ""
   }
  },
  "ig:pyroman_event": {
@@ -2628,6 +2768,16 @@
    "site": "https://linkr.bio/PYROMAN.EVENT",
    "abonnes": 2483,
    "fichier": "site/partenaires/ig/pyroman_event.jpg"
+  },
+  "fiche": {
+   "categorie": "organisateur",
+   "ville": "Nice",
+   "adresse": "",
+   "site": "https://linkr.bio/PYROMAN.EVENT",
+   "description": "Collectif organisateur de soirées techno immersives et d'événements électroniques sur la Côte d'Azur.",
+   "date": false,
+   "date_raison": "",
+   "prix": ""
   }
  },
  "ig:hotel.casarose": {
@@ -2637,11 +2787,31 @@
    "site": "https://hotelcasarose.fr/",
    "abonnes": 19643,
    "fichier": "site/partenaires/ig/hotel.casarose.jpg"
+  },
+  "fiche": {
+   "categorie": "hotel",
+   "ville": "Mandelieu-la-Napoule",
+   "adresse": "780 Avenue de la Mer, 06210 Mandelieu-la-Napoule",
+   "site": "https://hotelcasarose.fr",
+   "description": "Hôtel 4 étoiles au style rétro-chic doté d'une piscine, d'un bar lounge et d'un restaurant méditerranéen accueillant des événements festifs.",
+   "date": true,
+   "date_raison": "Le restaurant et le bar lounge au bord de la piscine offrent une ambiance élégante et décontractée pour un dîner à deux.",
+   "prix": "€€€"
   }
  },
  "ig:sunbarnice": {
   "profil": {
    "absent": true
+  },
+  "fiche": {
+   "categorie": "bar",
+   "ville": "Nice",
+   "adresse": "1 Rue de la Loge, 06300 Nice",
+   "site": "https://www.instagram.com/sunbarnice",
+   "description": "Bar à cocktails festif et d'ambiance situé dans le Vieux-Nice proposant des tapas, des fléchettes en sous-sol et des soirées musicales.",
+   "date": true,
+   "date_raison": "Un bar animé et décontracté, idéal pour partager un cocktail et quelques tapas dans le Vieux-Nice.",
+   "prix": "€€"
   }
  },
  "ig:gusta.nissa": {
@@ -2651,6 +2821,16 @@
    "site": "http://gustanissa.com/blogs/infos",
    "abonnes": 1027,
    "fichier": "site/partenaires/ig/gusta.nissa.jpg"
+  },
+  "fiche": {
+   "categorie": "media",
+   "ville": "Nice",
+   "adresse": "",
+   "site": "http://gustanissa.com/blogs/infos",
+   "description": "Média numérique niçois dédié à la gastronomie locale, présentant des adresses, des recettes et organisant des événements culinaires.",
+   "date": false,
+   "date_raison": "",
+   "prix": ""
   }
  },
  "ig:deisantidj": {
@@ -2660,6 +2840,16 @@
    "site": "https://biglink.to/deisantidj",
    "abonnes": 7575,
    "fichier": "site/partenaires/ig/deisantidj.jpg"
+  },
+  "fiche": {
+   "categorie": "artiste",
+   "ville": "Nice",
+   "adresse": "",
+   "site": "https://biglink.to/deisantidj",
+   "description": "DJ et producteur de musique électronique orienté Dance et Tech House, signé sur plusieurs labels et actif entre la France et le Portugal.",
+   "date": false,
+   "date_raison": "",
+   "prix": ""
   }
  },
  "ig:k_barre_antibes": {
@@ -2669,6 +2859,16 @@
    "site": "https://maps.app.goo.gl/VZ6kVCtkbPJAjbT2A",
    "abonnes": 1302,
    "fichier": "site/partenaires/ig/k_barre_antibes.jpg"
+  },
+  "fiche": {
+   "categorie": "bar",
+   "ville": "Antibes",
+   "adresse": "3 Avenue Niquet, 06600 Antibes",
+   "site": "https://maps.app.goo.gl/VZ6kVCtkbPJAjbT2A",
+   "description": "Pub et bar d'ambiance proposant des retransmissions sportives, des tables de billard gratuites, des concerts live et des burgers.",
+   "date": true,
+   "date_raison": "Un lieu convivial pour boire un verre et faire une partie de billard à deux.",
+   "prix": "€€"
   }
  },
  "ig:dj_mygo": {
@@ -2678,6 +2878,16 @@
    "site": "",
    "abonnes": 2062,
    "fichier": "site/partenaires/ig/dj_mygo.jpg"
+  },
+  "fiche": {
+   "categorie": "artiste",
+   "ville": "Antibes",
+   "adresse": "",
+   "site": "https://www.instagram.com/dj_mygo",
+   "description": "DJ spécialisé dans les musiques caribéennes et urbaines, se produisant dans des clubs et événements de la Côte d'Azur.",
+   "date": false,
+   "date_raison": "",
+   "prix": ""
   }
  },
  "ig:jobar.event": {
@@ -2687,6 +2897,16 @@
    "site": "https://linktr.ee/jobar.event",
    "abonnes": 499,
    "fichier": "site/partenaires/ig/jobar.event.jpg"
+  },
+  "fiche": {
+   "categorie": "organisateur",
+   "ville": "Antibes",
+   "adresse": "",
+   "site": "https://linktr.ee/jobar.event",
+   "description": "Collectif organisateur de soirées techno, rave et musiques électroniques à tempo élevé dans les Alpes-Maritimes.",
+   "date": false,
+   "date_raison": "",
+   "prix": ""
   }
  },
  "ig:kontakt_6tem": {
@@ -2696,6 +2916,214 @@
    "site": "https://linktr.ee/kontakt6tem",
    "abonnes": 4006,
    "fichier": "site/partenaires/ig/kontakt_6tem.jpg"
+  },
+  "fiche": {
+   "categorie": "organisateur",
+   "ville": "La Valette-du-Var",
+   "adresse": "",
+   "site": "https://linktr.ee/kontakt6tem",
+   "description": "Sound system et organisateur d'événements bass music et tekno, proposant également de la location de matériel de sonorisation.",
+   "date": false,
+   "date_raison": "",
+   "prix": ""
+  }
+ },
+ "ig:hug_ette_": {
+  "profil": {
+   "nom": "Hug'ette",
+   "bio": "Co-fondatrice et Dj @_lestocards_\nBooking > DM\nI'm in love with bass, music is my drug\nPsytrance Hardtrance Bass music 🎚",
+   "site": "https://on.soundcloud.com/VV6sz",
+   "abonnes": 1185,
+   "fichier": "site/partenaires/ig/hug_ette_.jpg"
+  },
+  "fiche": {
+   "categorie": "artiste",
+   "ville": "Nice",
+   "adresse": "",
+   "site": "https://on.soundcloud.com/VV6sz",
+   "description": "DJ et productrice niçoise spécialisée en psytrance et bass music, également cofondatrice du collectif Les Tocards.",
+   "date": false,
+   "date_raison": "",
+   "prix": ""
+  }
+ },
+ "ig:prizmeconcept": {
+  "profil": {
+   "nom": "PRIZME CONCEPT",
+   "bio": "South of France Techno Events  \n28.11  @_do.you.like TEKNO W/ NESH MAYDAY VS INSANE TEKNOLOGY\n13.02 MULTIPRIZME II \nTICKETS & MORE👇🏻",
+   "site": "https://linktr.ee/prizmeconcept",
+   "abonnes": 4346,
+   "fichier": "site/partenaires/ig/prizmeconcept.jpg"
+  },
+  "fiche": {
+   "categorie": "organisateur",
+   "ville": "Nice",
+   "adresse": "",
+   "site": "https://linktr.ee/prizmeconcept",
+   "description": "Collectif et organisateur d'événements de musiques électroniques et de soirées techno underground dans le Sud de la France.",
+   "date": false,
+   "date_raison": "",
+   "prix": ""
+  }
+ },
+ "ig:djopendream": {
+  "profil": {
+   "nom": "OPENDREAM",
+   "bio": "🎧International DJ & producer\n👙Swimwear brand in progress..\n📍Bali - Asia",
+   "site": "https://taplink.cc/opendreamdj",
+   "abonnes": 11559,
+   "fichier": "site/partenaires/ig/djopendream.jpg"
+  },
+  "fiche": {
+   "categorie": "artiste",
+   "ville": "Bali",
+   "adresse": "",
+   "site": "https://taplink.cc/opendreamdj",
+   "description": "DJ et productrice internationale de musique électronique, également créatrice d'une marque de maillots de bain.",
+   "date": false,
+   "date_raison": "",
+   "prix": ""
+  }
+ },
+ "ig:technokultur": {
+  "profil": {
+   "nom": "𝗧𝗘𝗖𝗛𝗡𝗢 𝗞𝗨𝗟𝗧𝗨𝗥 𝗧𝗢𝗨𝗟𝗢𝗡",
+   "bio": "𝗧𝗘𝗖𝗛𝗡𝗢 𝗞𝗨𝗟𝗧𝗨𝗥 𝗧𝗢𝗨𝗟𝗢𝗡 \n🔊 Underground techno events  \n🖤 Dark rooms • Heavy kicks • Raw energy",
+   "site": "",
+   "abonnes": 1871,
+   "fichier": "site/partenaires/ig/technokultur.jpg"
+  },
+  "fiche": {
+   "categorie": "organisateur",
+   "ville": "Toulon",
+   "adresse": "",
+   "site": "https://www.instagram.com/technokultur/",
+   "description": "Collectif nocturne toulonnais organisant des événements et soirées techno underground.",
+   "date": false,
+   "date_raison": "",
+   "prix": ""
+  }
+ },
+ "ig:fragmentsdazur06": {
+  "profil": {
+   "nom": "",
+   "bio": "Pour l’amour du sud",
+   "site": "",
+   "abonnes": 22,
+   "fichier": "site/partenaires/ig/fragmentsdazur06.jpg"
+  },
+  "fiche": {
+   "categorie": "media",
+   "ville": "Nice",
+   "adresse": "",
+   "site": "https://www.instagram.com/fragmentsdazur06/",
+   "description": "Compte de création de contenu photographique valorisant les paysages, villages et l'art de vivre de la Côte d'Azur.",
+   "date": false,
+   "date_raison": "",
+   "prix": ""
+  }
+ },
+ "ig:chiaraaaa19_": {
+  "profil": {
+   "nom": "Kiks 🪩",
+   "bio": "always outside 🪩",
+   "site": "",
+   "abonnes": 699,
+   "fichier": "site/partenaires/ig/chiaraaaa19_.jpg"
+  },
+  "fiche": {
+   "categorie": "personne",
+   "ville": "Nice",
+   "adresse": "",
+   "site": "https://www.instagram.com/chiaraaaa19_/",
+   "description": "Profil personnel d'une habituée des sorties festives et des événements nocturnes de la région azuréenne.",
+   "date": false,
+   "date_raison": "",
+   "prix": ""
+  }
+ },
+ "ig:bilal_barka": {
+  "profil": {
+   "nom": "Bilal Barka Lamour",
+   "bio": "DJ & Owner of: \n🔆 @bliss.evenement \n🔆 @zima_evenement \n🔆 @lagalante_ \n🔆 @jadis.concept",
+   "site": "https://shotgun.live/events/opening-club-sonore-friends-x-bocca-mar-x-mercredi22juillet-3?ids=1631578",
+   "abonnes": 11966,
+   "fichier": "site/partenaires/ig/bilal_barka.jpg"
+  },
+  "fiche": {
+   "categorie": "artiste",
+   "ville": "Nice",
+   "adresse": "",
+   "site": "https://shotgun.live",
+   "description": "DJ, producteur et organisateur d'événements festifs house et tech-house sur la Côte d'Azur.",
+   "date": false,
+   "date_raison": "",
+   "prix": ""
+  }
+ },
+ "ig:makora.music": {
+  "profil": {
+   "nom": "Makora",
+   "bio": "Sunset energy. Retro vibe.\nDJ duo & producers\nImmersive club collaborations",
+   "site": "https://lerougegorge.vostickets.fr/Billet/FR/representation-LE_ROUGE_GORGE-33529-0.wb",
+   "abonnes": 874,
+   "fichier": "site/partenaires/ig/makora.music.jpg"
+  },
+  "fiche": {
+   "categorie": "artiste",
+   "ville": "Avignon",
+   "adresse": "",
+   "site": "https://lerougegorge.vostickets.fr/",
+   "description": "Duo de DJs et producteurs de house music se produisant lors de soirées et événements festifs dans le Sud de la France.",
+   "date": false,
+   "date_raison": "",
+   "prix": ""
+  }
+ },
+ "ig:_boka_officiel_": {
+  "profil": {
+   "nom": "Boka",
+   "bio": "🎤 BOKA CLUB\nBar•Restaurant•Karaoké•Night Club\n🌙 Ouvert 7j/7 dès 20h\n🔥 ambiance festive",
+   "site": "http://www.bokaclub.fr/",
+   "abonnes": 3630,
+   "fichier": "site/partenaires/ig/_boka_officiel_.jpg"
+  },
+  "fiche": {
+   "categorie": "club",
+   "ville": "Toulon",
+   "adresse": "3261 Avenue de la Résistance, 83100 Toulon",
+   "site": "http://www.bokaclub.fr/",
+   "description": "Établissement nocturne combinant restaurant festif, bar à cocktails, karaoké et club ouvert tous les soirs.",
+   "date": false,
+   "date_raison": "",
+   "prix": ""
+  }
+ },
+ "ig:oneera_official": {
+  "profil": {
+   "nom": "Oneera",
+   "bio": "Ne perdez plus vos amis de vue. 📍\nLa localisation événementielle, en temps réel.\nDéjà disponible au @lebaldesfous",
+   "site": "https://beacons.ai/baldesfous?__v=14.444.0",
+   "abonnes": 164,
+   "fichier": "site/partenaires/ig/oneera_official.jpg"
+  }
+ },
+ "ig:mojocrew_event": {
+  "profil": {
+   "nom": "MOJO CREW",
+   "bio": "🪩 | Organisation d’événementiel\n🎵 | Techno to Tekno\n🧠 | MGMT : @wado.music \n✉️ | Event/Booking/Contact/Services ⬇️",
+   "site": "https://shotgun.live/fr/venues/mojo-crew",
+   "abonnes": 1173,
+   "fichier": "site/partenaires/ig/mojocrew_event.jpg"
+  }
+ },
+ "ig:n.s.r_06": {
+  "profil": {
+   "nom": "NSR.Events",
+   "bio": "Organisateur d'événements sur la côte d'Azur.",
+   "site": "",
+   "abonnes": 802,
+   "fichier": "site/partenaires/ig/n.s.r_06.jpg"
   }
  }
 }
