@@ -142,7 +142,7 @@ if (cible === 'site') {
   const igSite = igConfig();
   const { rechercherFrance } = await import('./recherche.mjs');
   const france = await rechercherFrance({ config, now: NOW }).catch((err) => { console.error(`France : ${err.message}`); return { evenements: [] }; });
-  await construireSite({ events: await events(), eventsFrance: france.evenements || [], hist, config, now: NOW, ig: igSite, api: igSite ? { businessDiscovery } : {} });
+  await construireSite({ events: await events(), eventsFrance: france.evenements || [], hist, config, now: NOW, ig: igSite, api: igSite ? { businessDiscovery, compteMedia } : {} });
   await writeFile(marque, signature + '\n');
   process.exit(0);
 }

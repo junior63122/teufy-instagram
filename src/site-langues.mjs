@@ -23,6 +23,8 @@ const fr = {
   chiffres: ["soirées à venir dans l'agenda", "partenaires sur la Côte d'Azur", "personnes dans l'équipe"], teufyLien: 'Découvrir Teufy et son équipe',
   partEtiquette: 'Partenaires', partH2: (n) => `Plus de ${n} <em>partenaires</em> sur la Côte`, partP: 'Clubs, bars, beach clubs, organisateurs, collectifs, festivals et artistes : ils travaillent avec Teufy au quotidien.', etPlus: 'Et bien plus encore !',
   insta: 'Sur Instagram',
+  voirInsta: "Voir l'alerte sur Instagram",
+  suivreInsta: "Suivre @teufy_official",
   orgaEtiquette: 'Organisateurs', orgaH2: 'Ta soirée sur <em>Teufy</em>', orgaP: "Envoie-nous ton affiche, la date et le lien de billetterie en message sur Instagram : on l'ajoute à l'agenda et, si elle plaît aux 17-30 ans de la Côte, on la met en avant.", orgaBouton: 'Écrire à Teufy',
   intro: {
     nice: "Clubs du Vieux-Nice et du port, rooftops, soirées étudiantes, techno au Frigo 16 ou grosses dates à Nikaïa : toutes les soirées de Nice, vérifiées et mises à jour chaque jour.",
@@ -77,6 +79,8 @@ const en = {
   chiffres: ['upcoming parties in the guide', 'partners on the French Riviera', 'people in the team'], teufyLien: 'Meet Teufy and the team',
   partEtiquette: 'Partners', partH2: (n) => `${n}+ <em>partners</em> on the Riviera`, partP: 'Clubs, bars, beach clubs, promoters, collectives, festivals and artists work with Teufy every day.', etPlus: 'And many more!',
   insta: 'On Instagram',
+  voirInsta: "See the alert on Instagram",
+  suivreInsta: "Follow @teufy_official",
   orgaEtiquette: 'Promoters', orgaH2: 'Your party on <em>Teufy</em>', orgaP: 'Send us your poster, the date and the ticket link on Instagram: we add it to the guide and, if the Riviera’s 17-30 crowd loves it, we feature it.', orgaBouton: 'Message Teufy',
   intro: {
     nice: 'Old Town and harbour clubs, rooftops, student nights, techno at Frigo 16 or big shows at Nikaïa: every party in Nice, checked and updated daily.',
@@ -131,6 +135,8 @@ const it = {
   chiffres: ['serate in arrivo nella guida', 'partner in Costa Azzurra', 'persone nel team'], teufyLien: 'Scopri Teufy e il team',
   partEtiquette: 'Partner', partH2: (n) => `Oltre ${n} <em>partner</em> in Costa`, partP: 'Club, bar, beach club, organizzatori, collettivi, festival e artisti lavorano con Teufy ogni giorno.', etPlus: 'E molti altri!',
   insta: 'Su Instagram',
+  voirInsta: "Vedi l'avviso su Instagram",
+  suivreInsta: "Segui @teufy_official",
   orgaEtiquette: 'Organizzatori', orgaH2: 'La tua serata su <em>Teufy</em>', orgaP: 'Mandaci la locandina, la data e il link dei biglietti su Instagram: la aggiungiamo alla guida e, se piace ai 17-30enni della Costa, la mettiamo in evidenza.', orgaBouton: 'Scrivi a Teufy',
   intro: {
     nice: 'Club della Città Vecchia e del porto, rooftop, serate universitarie, techno al Frigo 16 o grandi concerti al Nikaïa: tutte le serate di Nizza, verificate e aggiornate ogni giorno.',
@@ -185,6 +191,8 @@ const es = {
   chiffres: ['fiestas próximas en la guía', 'socios en la Costa Azul', 'personas en el equipo'], teufyLien: 'Conoce Teufy y su equipo',
   partEtiquette: 'Socios', partH2: (n) => `Más de ${n} <em>socios</em> en la Costa`, partP: 'Clubes, bares, beach clubs, organizadores, colectivos, festivales y artistas trabajan con Teufy cada día.', etPlus: '¡Y muchos más!',
   insta: 'En Instagram',
+  voirInsta: "Ver la alerta en Instagram",
+  suivreInsta: "Seguir a @teufy_official",
   orgaEtiquette: 'Organizadores', orgaH2: 'Tu fiesta en <em>Teufy</em>', orgaP: 'Envíanos tu cartel, la fecha y el enlace de entradas por Instagram: la añadimos a la guía y, si gusta a los jóvenes de 17 a 30 años de la Costa, la destacamos.', orgaBouton: 'Escribir a Teufy',
   intro: {
     nice: 'Clubes del casco antiguo y del puerto, terrazas, fiestas universitarias, techno en el Frigo 16 o grandes conciertos en el Nikaïa: todas las fiestas de Niza, verificadas y actualizadas cada día.',
@@ -239,6 +247,8 @@ const zh = {
   chiffres: ['场即将举行的派对', '个蔚蓝海岸合作伙伴', '位团队成员'], teufyLien: '了解 Teufy 和团队',
   partEtiquette: '合作伙伴', partH2: (n) => `${n} 多家<em>合作伙伴</em>`, partP: '俱乐部、酒吧、海滩俱乐部、主办方、团体、音乐节和艺人每天都与 Teufy 合作。', etPlus: '还有更多！',
   insta: 'Instagram 动态',
+  voirInsta: "在 Instagram 上查看快讯",
+  suivreInsta: "关注 @teufy_official",
   orgaEtiquette: '主办方', orgaH2: '让你的派对登上 <em>Teufy</em>', orgaP: '在 Instagram 上把海报、日期和购票链接发给我们：我们会把它加入指南；如果蔚蓝海岸 17-30 岁的年轻人喜欢，我们还会重点推荐。', orgaBouton: '联系 Teufy',
   intro: {
     nice: '老城和港口的俱乐部、屋顶酒吧、学生派对、Frigo 16 的 Techno 之夜或 Nikaïa 的大型演出：尼斯的所有派对，每天核实并更新。',
@@ -293,6 +303,8 @@ const ar = {
   chiffres: ['حفلة قادمة في الدليل', 'شريك على الكوت دازور', 'أشخاص في الفريق'], teufyLien: 'تعرّف على Teufy وفريقه',
   partEtiquette: 'الشركاء', partH2: (n) => `أكثر من ${n} <em>شريك</em> على الساحل`, partP: 'نوادٍ وبارات ونوادي شاطئ ومنظمون ومجموعات ومهرجانات وفنانون يعملون مع Teufy كل يوم.', etPlus: 'والكثير غيرهم!',
   insta: 'على إنستغرام',
+  voirInsta: "شاهد التنبيه على إنستغرام",
+  suivreInsta: "تابع ‎@teufy_official",
   orgaEtiquette: 'المنظمون', orgaH2: 'حفلتك على <em>Teufy</em>', orgaP: 'أرسل لنا الملصق والتاريخ ورابط التذاكر عبر إنستغرام: نضيفها إلى الدليل، وإن أعجبت شباب الساحل من 17 إلى 30 عامًا نُبرزها.', orgaBouton: 'راسل Teufy',
   intro: {
     nice: 'نوادي البلدة القديمة والميناء، الأسطح، حفلات الطلاب، التكنو في Frigo 16 أو الحفلات الكبرى في Nikaïa: كل حفلات نيس، مؤكدة ومحدّثة يوميًا.',

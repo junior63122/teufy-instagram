@@ -488,17 +488,14 @@ export async function construireSite({ events, eventsFrance = [], hist = [], con
   AFFICHES_COLLAGE = soirees.filter((x) => x.affiche && x.dims && x.dims[0] >= 600 && x.dims[1] >= x.dims[0] * 1.1 && existsSync(path.join(ROOT, x.affiche.replace(/\.jpg$/, '-800.webp')))).sort((a, b) => (b.buzz || 0) - (a.buzz || 0)).map((x) => x.affiche).filter((x, i, l) => l.indexOf(x) === i);
   TR.cache = lire(TRAD, {});
 
-  // Derniers posts Instagram du compte (couverture gardée dans media/).
-  const posts = hist.filter((x) => x.lien).slice(-9).reverse().map((x) => {
-    const id = x.id; const p = lire(path.join(ROOT, 'media', id, 'publication.json'), null);
-    const img = p ? (p.couverture || p.images?.[0]) : null;
-    return { lien: x.lien, titre: (x.titre || x.publication?.titre || '').replace(/[[\]]/g, ''), image: img ? `media/${id}/${img}` : '' };
-  }).filter((x) => x.image && existsSync(path.join(ROOT, x.image)));
+  // Derniers posts Instagram du compte : lus sur l'API (vignettes copiées dans site/img/insta), sinon l'historique local.
+  const posts = await fluxInstagram({ hist, ig, api, log });
 
-  // Actus (rubrique alimentée par la veille, src/veille.mjs).
-  const actus = lire(path.join(ROOT, 'contenus', 'actus.json'), [])
+  // Actus (rubrique alimentée par la veille, src/veille.mjs), chacune avec une image : le visuel d'alerte publié
+  // sur Instagram, sinon l'affiche de la soirée dont elle parle, sinon l'image de la source.
+  const actus = await imagesActus(lire(path.join(ROOT, 'contenus', 'actus.json'), [])
     .filter((a) => a.titre && a.paragraphes?.length).sort((a, b) => String(b.date).localeCompare(String(a.date)))
-    .map((a) => ({ ...a, id: `${slug(a.titre)}-${String(a.date).slice(0, 10)}` }));
+    .map((a) => ({ ...a, id: `${slug(a.titre)}-${String(a.date).slice(0, 10)}` })), { soirees, hist });
 
   await assets(soirees);
   const compte = config.compte || '@teufy_official';
@@ -975,7 +972,7 @@ ${blocPros(ctx)}
 ${blocTeufy(ctx, soirees.length)}
 ${blocPartenaires(ctx)}
 ${blocFaq(t.faqH, faq)}
-${posts.length ? `<section class="insta reveal"><h2>${esc(t.insta)}</h2><div class="posts">${posts.map((p) => `<a href="${esc(p.lien)}" target="_blank" rel="noopener"><img src="${base}${esc(p.image)}" alt="${esc(p.titre)}" loading="lazy"></a>`).join('')}</div><a class="bouton" href="https://www.instagram.com/${esc(handle)}/" target="_blank" rel="noopener">${esc(compte)}</a></section>` : ''}
+${grilleInsta(posts, { t, base, compte })}
 ${blocOrga({ t, base, handle, lang })}`;
   return gabarit({ lang, t, titre: t.homeTitre, description: t.homeDesc(soirees.length), chemin: '', base, corps, ld: [...ldOrganisation(T, compte, t, lang), ldFaq(faq), ...jsonld(soirees, lang)], compte, maj, agendaIci: true });
 }
@@ -1114,10 +1111,89 @@ ${blocOrga({ t, base, handle: compte.replace(/^@/, ''), lang })}`;
   return gabarit({ lang, t, titre: t.festTitre, description: t.festDesc, chemin, base, corps, compte, maj, ld: [...ldOrganisation(T, compte, t, lang), ...jsonld(soirees, lang), fil(lang, [['Teufy', ''], [t.festivals, chemin]])] });
 }
 
+// --- Flux Instagram du compte ----------------------------------------------------------------------------------
+const FLUX = path.join(ROOT, 'contenus', 'insta-flux.json');
+async function fluxInstagram({ hist, ig, api, log }) {
+  const dossier = path.join(SITE, 'img', 'insta');
+  await mkdir(dossier, { recursive: true });
+  let flux = lire(FLUX, []);
+  if (ig && api.compteMedia) {
+    try {
+      const m = await api.compteMedia(ig, 12, 'media_url,thumbnail_url');
+      const nouveaux = [];
+      for (const x of m) {
+        const src = x.media_type === 'VIDEO' ? x.thumbnail_url : x.media_url;
+        const f = path.join(dossier, `${x.id}.jpg`);
+        if (!existsSync(f) && !(src && await telecharger(src, f))) continue;
+        webp(f, 480); webp(f, 800);
+        nouveaux.push({ id: x.id, lien: x.permalink, image: path.relative(ROOT, f), reel: x.media_product_type === 'REELS' || x.media_type === 'VIDEO', carrousel: x.media_type === 'CAROUSEL_ALBUM', titre: String(x.caption || '').split('\n')[0].slice(0, 120), date: x.timestamp });
+      }
+      if (nouveaux.length) { flux = nouveaux; await writeFile(FLUX, JSON.stringify(flux, null, 1) + '\n'); }
+    } catch (e) { log(`Site : flux Instagram non lu (${e.message})`); }
+  }
+  flux = flux.filter((x) => existsSync(path.join(ROOT, x.image)));
+  if (flux.length >= 3) return flux.slice(0, 12);
+  // Secours : couvertures gardées dans media/ par l'historique de publication.
+  const vus = new Set();
+  return hist.filter((x) => x.lien).slice(-12).reverse().map((x) => {
+    const id = x.id; const p = lire(path.join(ROOT, 'media', id, 'publication.json'), null);
+    const img = p ? (p.couverture || p.images?.[0]) : null;
+    return { lien: x.lien, titre: (x.titre || x.publication?.titre || '').replace(/[[\]]/g, ''), image: img ? `media/${id}/${img}` : '', reel: /reel/.test(x.publication?.type || '') };
+  }).filter((x) => x.image && existsSync(path.join(ROOT, x.image)) && !vus.has(x.image) && vus.add(x.image));
+}
+function grilleInsta(posts, { t, base, compte }) {
+  if (!posts.length) return '';
+  const handle = compte.replace(/^@/, '');
+  const img = (p) => {
+    const w = [480, 800].map((l) => p.image.replace(/\.jpg$/, `-${l}.webp`)).filter((f) => existsSync(path.join(ROOT, f)));
+    return w.length ? `<img src="${base}${w.at(-1)}" srcset="${w.map((f) => `${base}${f} ${largeurWebp(path.join(ROOT, f))}w`).join(', ')}" sizes="(min-width:980px) 300px, 33vw" alt="${esc(p.titre)}" loading="lazy" decoding="async">` : `<img src="${base}${esc(p.image)}" alt="${esc(p.titre)}" loading="lazy" decoding="async">`;
+  };
+  return `<section class="insta reveal"><div class="insta-tete"><h2>${esc(t.insta)}</h2><a class="insta-compte" href="https://www.instagram.com/${esc(handle)}/" target="_blank" rel="noopener"><img src="${base}site/img/logo.png" alt="" width="40" height="40">${esc(compte)}</a></div>
+<div class="posts n${Math.min(posts.length, 9)}">${posts.slice(0, 9).map((p) => `<a href="${esc(p.lien)}" target="_blank" rel="noopener"${p.reel ? ' class="reel"' : p.carrousel ? ' class="carrousel"' : ''}>${img(p)}${p.titre ? `<span>${esc(p.titre)}</span>` : ''}</a>`).join('')}</div>
+<a class="bouton" href="https://www.instagram.com/${esc(handle)}/" target="_blank" rel="noopener">${esc(t.suivreInsta || compte)}</a></section>`;
+}
+
+// --- Images des actus -------------------------------------------------------------------------------------------
+const MOTS_VIDES = new Set('les des une pour avec dans sur par aux ses son est sont qui que nice cannes monaco antibes soirée soirees soirée festival club cette edition édition premier première nouveau nouvelle annonce annoncé confirmé janvier fevrier mars avril juin juillet aout septembre octobre novembre decembre lundi mardi mercredi jeudi vendredi samedi dimanche veille jour ferie ferié soir nuit electro techno house party night collectif events event edition programme programmation invite invités artiste artistes producteur attendu convie prochain prochaine retour'.split(' '));
+async function imagesActus(actus, { soirees, hist }) {
+  const dossier = path.join(SITE, 'img', 'actus');
+  await mkdir(dossier, { recursive: true });
+  const pub = lire(path.join(ROOT, 'media', 'veille', 'publication.json'), null);
+  const mots = (x) => new Set(sansAccent(String(x || '')).toLowerCase().split(/[^a-z0-9]+/).filter((m) => m.length > 3 && !MOTS_VIDES.has(m)));
+  for (const a of actus) {
+    const f = path.join(dossier, `${h(a.source || a.cle)}.jpg`);
+    a.visuel = false;
+    // 1. Le visuel « Info de dernière minute » publié par la veille pour cette actu.
+    if (!existsSync(f) && pub?.veille?.source && pub.veille.source === a.source) {
+      const v = path.join(ROOT, 'media', 'veille', pub.images?.[0] || '');
+      if (pub.images?.[0] && existsSync(v)) spawnSync('ffmpeg', ['-v', 'error', '-y', '-i', v, '-vf', "scale='min(1080,iw)':-2", '-q:v', '3', f]);
+    }
+    if (existsSync(f)) { a.image_site = path.relative(ROOT, f); a.visuel = true; }
+    // 2. L'affiche d'une soirée à venir dont l'actu parle (artiste, lieu ou nom en commun).
+    if (!a.image_site) {
+      const m = mots(`${a.titre} ${a.chapo}`);
+      const s = soirees.filter((x) => x.affiche).map((x) => ({ x, n: [...mots(`${x.nom} ${x.lieu}`)].filter((w) => m.has(w)).length })).sort((p, q) => q.n - p.n)[0];
+      if (s?.n) { a.image_site = s.x.affiche; a.soiree = s.x.id; }
+    }
+    // 3. L'image de la source (téléchargée une fois : les liens Instagram expirent).
+    if (!a.image_site && /^https?:/.test(a.image || '')) {
+      const g = path.join(dossier, `${h(a.image)}-src.jpg`);
+      if (existsSync(g) || await telecharger(a.image, g)) a.image_site = path.relative(ROOT, g);
+    }
+    if (a.image_site && !/affiches/.test(a.image_site)) for (const l of [400, 800]) webp(path.join(ROOT, a.image_site), l);
+    const post = hist.find((x) => x.lien && x.publication?.veille?.source && x.publication.veille.source === a.source);
+    if (post) a.insta = post.lien;
+  }
+  return actus;
+}
+function imageActu(a, { base, sizes = '(min-width:980px) 380px, 92vw', attrs = 'loading="lazy" decoding="async"' } = {}) {
+  if (!a.image_site) return `<span class="actu-flash" aria-hidden="true"><b>${esc(a.ville || 'Teufy')}</b></span>`;
+  return image(base, a.image_site, { alt: a.titre, sizes, attrs });
+}
 const dateActu = (a, t) => { const d = Date.parse(a.date); return isNaN(d) ? '' : paris(d, { day: 'numeric', month: 'long', year: 'numeric' }, t.locale); };
 function pageActus({ lang, t, tr, base, compte, T, chemin, actus, maj }) {
   const corps = `${heroCourt({ base, photo: null, alt: t.actus, k: 2, etiquette: t.actus, h1: t.actusH1, p: esc(t.actusP) })}
-<section class="bloc-large reveal">${actus.length ? `<div class="actus">${actus.map((a, i) => `<a class="actu" href="${base}${pre(lang)}actus/${a.id}/" style="--i:${i % 6}"><p class="genre">${esc(dateActu(a, t))}${a.ville ? ` · ${esc(tr(a.ville))}` : ''}</p><h3>${esc(tr(a.titre))}</h3><p>${esc(tr(a.chapo))}</p><b>${esc(t.lire)} →</b></a>`).join('')}</div>` : `<p class="vide">${esc(t.actusVide)}</p>`}</section>`;
+<section class="bloc-large reveal">${actus.length ? `<div class="actus">${actus.map((a, i) => `<a class="actu${i === 0 ? ' une' : ''}" href="${base}${pre(lang)}actus/${a.id}/" style="--i:${i % 6}"><span class="actu-img${a.visuel ? ' visuel' : ''}">${imageActu(a, { base, sizes: i === 0 ? '(min-width:980px) 560px, 92vw' : undefined })}</span><p class="genre">${esc(dateActu(a, t))}${a.ville ? ` · ${esc(tr(a.ville))}` : ''}</p><h3>${esc(tr(a.titre))}</h3><p>${esc(tr(a.chapo))}</p><b>${esc(t.lire)} →</b></a>`).join('')}</div>` : `<p class="vide">${esc(t.actusVide)}</p>`}</section>`;
   return gabarit({ lang, t, titre: t.actusTitre, description: t.actusDesc, chemin, base, corps, compte, maj, ld: [...ldOrganisation(T, compte, t, lang), fil(lang, [['Teufy', ''], [t.actus, chemin]])] });
 }
 function pageActu({ lang, t, tr, base, compte, chemin, a, actus, maj }) {
@@ -1127,11 +1203,14 @@ function pageActu({ lang, t, tr, base, compte, chemin, a, actus, maj }) {
   <p class="genre">${esc(t.publie.replace('{d}', dateActu(a, t)))}${a.ville ? ` · ${esc(tr(a.ville))}` : ''}</p>
   <h1>${esc(tr(a.titre))}</h1>
   <p class="chapo">${esc(tr(a.chapo))}</p>
+  ${a.image_site ? `<figure class="actu-figure${a.visuel ? ' visuel' : ''}">${imageActu(a, { base, sizes: '(min-width:760px) 680px, 92vw', attrs: 'decoding="async"' })}</figure>` : ''}
   ${a.paragraphes.map((p) => `<p>${esc(tr(p))}</p>`).join('\n  ')}
+  ${a.soiree ? `<p><a class="bouton" href="${base}${pre(lang)}soiree/${a.soiree}/">${esc(t.voir)}</a></p>` : ''}
+  ${a.insta ? `<p><a class="bouton" href="${esc(a.insta)}" target="_blank" rel="noopener">${esc(t.voirInsta)}</a></p>` : ''}
   <p class="source">${esc(t.source)} : <a href="${esc(a.source)}" target="_blank" rel="noopener nofollow">${esc((() => { try { return new URL(a.source).hostname.replace(/^www\./, ''); } catch { return a.source; } })())}</a></p>
 </article>
-${autres.length ? `<section class="bloc-large reveal"><h2>${esc(t.autresActus)}</h2><div class="actus">${autres.map((x) => `<a class="actu" href="${base}${pre(lang)}actus/${x.id}/"><p class="genre">${esc(dateActu(x, t))}</p><h3>${esc(tr(x.titre))}</h3><b>${esc(t.lire)} →</b></a>`).join('')}</div></section>` : ''}`;
-  return gabarit({ lang, t, titre: `${tr(a.titre)} · Teufy`, description: tr(a.chapo), chemin, base, corps, compte, maj, image: /^https?:/.test(a.image || '') ? a.image : undefined,
+${autres.length ? `<section class="bloc-large reveal"><h2>${esc(t.autresActus)}</h2><div class="actus">${autres.map((x) => `<a class="actu" href="${base}${pre(lang)}actus/${x.id}/"><span class="actu-img${x.visuel ? ' visuel' : ''}">${imageActu(x, { base })}</span><p class="genre">${esc(dateActu(x, t))}</p><h3>${esc(tr(x.titre))}</h3><b>${esc(t.lire)} →</b></a>`).join('')}</div></section>` : ''}`;
+  return gabarit({ lang, t, titre: `${tr(a.titre)} · Teufy`, description: tr(a.chapo), chemin, base, corps, compte, maj, image: a.image_site ? `${URL_SITE}${a.image_site}` : undefined,
     ld: [{ '@context': 'https://schema.org', '@type': 'NewsArticle', headline: tr(a.titre).slice(0, 110), datePublished: a.date, dateModified: a.ajout || a.date, inLanguage: lang, description: tr(a.chapo), isBasedOn: a.source, publisher: { '@type': 'Organization', name: 'Teufy', logo: { '@type': 'ImageObject', url: `${URL_SITE}site/img/logo.png` } }, author: { '@type': 'Organization', name: 'Teufy', url: URL_SITE } }, fil(lang, [['Teufy', ''], [t.actus, 'actus/'], [tr(a.titre), chemin]])] });
 }
 
