@@ -681,3 +681,8 @@ details[data-bloc="tri"]>.groupe{inset-inline-start:auto;inset-inline-end:0}
 .mini-carte{height:240px;margin:14px 0 8px;border-radius:18px;overflow:hidden;border:1px solid #ffffff1a;background:#17151d;isolation:isolate}
 .repere.seul{background:var(--corail)}
 .liens-legaux{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px;padding-top:20px;border-top:1px solid #ffffff1a}
+.fiche-banniere .rang{position:absolute;top:12px;inset-inline-start:12px;background:var(--corail);color:var(--nuit);font-weight:800;font-size:13px;padding:4px 10px;border-radius:999px}
+.lieu-soirees{display:flex;flex-direction:column;gap:6px}
+.lieu-soirees a{display:block;padding:8px 12px;border-radius:12px;background:#ff5a3c1a;border:1px solid #ff5a3c40;color:var(--creme);font-weight:700;font-size:14px;text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lieu-soirees a::before{content:"♪ ";color:var(--corail)}
+.lieu-soirees a:hover{background:var(--corail);color:var(--nuit)}
