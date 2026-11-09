@@ -630,22 +630,22 @@ details[data-bloc="tri"]>.groupe{inset-inline-start:auto;inset-inline-end:0}
 
 /* v8 : fiches partenaires (restos, activités, dates) et bloc organisateurs illustré */
 .fiches{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:18px}
-.fiche{display:flex;flex-direction:column;padding:0;background:var(--nuit2);border:1px solid #ffffff1a;border-radius:22px;overflow:hidden;transition:transform .35s var(--doux),border-color .3s}
-@media(hover:hover){.fiche:hover{transform:translateY(-4px);border-color:var(--corail)}}
+.fiche-lieu{display:flex;flex-direction:column;padding:0;background:var(--nuit2);border:1px solid #ffffff1a;border-radius:22px;overflow:hidden;transition:transform .35s var(--doux),border-color .3s}
+@media(hover:hover){.fiche-lieu:hover{transform:translateY(-4px);border-color:var(--corail)}}
 .fiche-banniere{position:relative;isolation:isolate;height:132px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:radial-gradient(90% 120% at 100% 0%,#ff5a3c55,transparent 60%),radial-gradient(90% 120% at 0% 100%,#6b3cff40,transparent 60%),#16161c}
 .fiche-banniere::before{content:"";position:absolute;inset:-30px;z-index:-1;background:var(--fond) center/cover;filter:blur(28px) saturate(1.4);opacity:.55}
 .fiche-banniere img{width:88px;height:88px;border-radius:50%;object-fit:cover;background:#fff;box-shadow:0 0 0 3px var(--nuit2),0 0 0 5px #ffffff30,0 12px 30px #0008}
 .fiche-banniere .lieu-initiale{width:88px;height:88px;font-size:40px}
 .fiche-corps{display:flex;flex-direction:column;gap:8px;padding:18px 20px 20px;flex:1}
-.fiche h3{font-size:27px}
+.fiche-lieu h3{font-size:27px}
 .fiche-prix{display:inline-block;white-space:nowrap;margin-inline-start:6px;padding:1px 8px;border-radius:999px;background:#ffffff14;color:var(--creme);letter-spacing:0}
 .fiche-desc{opacity:.85;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
-.fiche-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:8px}
-.fiche-actions a{display:inline-flex;align-items:center;gap:7px;min-height:40px;padding:0 14px;border-radius:999px;background:#ffffff12;color:var(--creme);font-weight:700;font-size:14px;text-decoration:none;transition:background .25s,color .25s}
-.fiche-actions a:hover{background:var(--corail);color:var(--nuit)}
-.fiche-actions svg{width:17px;height:17px;flex:none}
-.js .reveal .fiche{opacity:0;translate:0 26px;transition:opacity .6s,translate .6s var(--doux),transform .35s var(--doux),border-color .3s;transition-delay:calc(var(--i,0) * 80ms),calc(var(--i,0) * 80ms),0s,0s}
-.js .reveal.vu .fiche{opacity:1;translate:0 0}
+.lieu-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:8px}
+.lieu-actions a{display:inline-flex;align-items:center;gap:7px;min-height:40px;padding:0 14px;border-radius:999px;background:#ffffff12;color:var(--creme);font-weight:700;font-size:14px;text-decoration:none;transition:background .25s,color .25s}
+.lieu-actions a:hover{background:var(--corail);color:var(--nuit)}
+.lieu-actions svg{width:17px;height:17px;flex:none}
+.js .reveal .fiche-lieu{opacity:0;translate:0 26px;transition:opacity .6s,translate .6s var(--doux),transform .35s var(--doux),border-color .3s;transition-delay:calc(var(--i,0) * 80ms),calc(var(--i,0) * 80ms),0s,0s}
+.js .reveal.vu .fiche-lieu{opacity:1;translate:0 0}
 .orga-visuel{display:none}
 @media(min-width:980px){
   .orga{display:grid;grid-template-columns:minmax(0,1fr) 440px;align-items:center;gap:40px;padding-inline-end:56px}
@@ -662,3 +662,21 @@ details[data-bloc="tri"]>.groupe{inset-inline-start:auto;inset-inline-end:0}
 @media(prefers-reduced-motion:reduce){.orga-puce{animation:none}}
 .fiche-affiche img.petite{display:block;margin:0 auto} /* petite affiche : jamais agrandie (sinon floue) */
 .code-promo .petit a{color:var(--creme);text-decoration:underline;text-underline-offset:3px} /* contraste suffisant sur fond sombre atténué */
+.article a.bouton{color:var(--nuit);align-self:flex-start}
+.article a.bouton:hover{color:var(--nuit)}
+.actu-figure{align-self:center;width:100%;max-width:560px}
+.actu-figure.visuel{max-width:460px;box-shadow:0 30px 60px -30px #000}
+.reseaux{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.reseaux .bouton{display:inline-flex;align-items:center;gap:8px}
+.reseaux svg{width:18px;height:18px}
+/* Carte aux couleurs de Teufy : fond OpenStreetMap passé en violet nuit, halo corail et violet, contrôles sombres */
+.leaflet-tile-pane{filter:invert(.93) grayscale(1) brightness(1.25) contrast(1.1) sepia(.35) hue-rotate(215deg) saturate(1.8)}
+.leaflet-container{background:#17151d!important}
+.leaflet-container::before{content:"";position:absolute;inset:0;z-index:250;pointer-events:none;background:radial-gradient(55% 70% at 100% 0%,#ff5a3c38,transparent 65%),radial-gradient(55% 70% at 0% 100%,#6b3cff40,transparent 65%);mix-blend-mode:screen}
+.leaflet-bar{border:0!important;box-shadow:0 8px 24px #0009!important;border-radius:12px!important;overflow:hidden}
+.leaflet-bar a,.leaflet-bar a:hover{background:var(--nuit2)!important;color:var(--creme)!important;border-bottom:1px solid #ffffff1a!important;width:36px!important;height:36px!important;line-height:36px!important}
+.leaflet-bar a:hover{background:var(--corail)!important;color:var(--nuit)!important}
+.leaflet-control-attribution{background:#0b0b0fb3!important;color:#ffffffa6!important;border-radius:8px 0 0 0;font-size:11px}
+.leaflet-control-attribution a{color:var(--creme)!important}
+.mini-carte{height:240px;margin:14px 0 8px;border-radius:18px;overflow:hidden;border:1px solid #ffffff1a;background:#17151d;isolation:isolate}
+.repere.seul{background:var(--corail)}

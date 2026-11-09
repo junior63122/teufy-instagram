@@ -361,7 +361,11 @@
     "photo_directeur": "site/img/equipe/junior-joyant.jpg",
     "google_verification": "",
     "email": "teufy.app@gmail.com",
-    "domaine": "teufyparty.com"
+    "domaine": "teufyparty.com",
+    "directeur_reseaux": {
+      "instagram": "https://www.instagram.com/junior_joyant/",
+      "linkedin": "https://mc.linkedin.com/in/junior-joyant-99876622b"
+    }
   },
   "codes_promo": [
     {

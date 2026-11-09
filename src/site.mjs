@@ -1092,6 +1092,7 @@ function yAller(s, t, lieu) {
   return `<div class="y-aller"><p class="pied-titre">${esc(t.yAller)}</p>
     ${parkings.length ? `<p class="y-titre">${esc(t.seGarer)}</p><ul>${parkings.join('')}</ul>` : ''}
     ${trans.length ? `<p class="y-titre">${esc(t.enTransports)}</p><ul>${trans.join('')}</ul>` : ''}
+    ${s.lat && !s.approx ? `<div class="mini-carte" data-lat="${s.lat}" data-lng="${s.lng}" data-nom="${esc(lieu)}" role="img" aria-label="${esc(`${t.yAller} : ${lieu}`)}"></div>` : ''}
     <p class="y-liens"><a class="lien" href="https://www.google.com/maps/dir/?api=1&amp;destination=${dest}&amp;travelmode=transit" target="_blank" rel="noopener">${esc(t.itiTransports)}</a></p>
     <p class="y-note">${esc(t.rentrer)}</p></div>`;
 }
@@ -1113,14 +1114,14 @@ function pageSorties({ lang, t, tr, base, compte, T, chemin, maj, partenaires, c
   const ICO = { ig: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.3" fill="currentColor"/></svg>',
     site: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18" fill="none" stroke="currentColor" stroke-width="2"/></svg>',
     map: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="10" r="2.5" fill="currentColor"/></svg>' };
-  const carteP = (p, i) => `<article class="fiche" style="--i:${i % 8}">
+  const carteP = (p, i) => `<article class="fiche-lieu" style="--i:${i % 8}">
     <div class="fiche-banniere"${p.fichier ? ` style="--fond:url('${base}${esc(p.fichier)}')"` : ''}>${p.fichier ? `<img src="${base}${esc(p.fichier)}" alt="" width="88" height="88" loading="lazy">` : `<span class="lieu-initiale">${esc((p.nom[0] || '?').toUpperCase())}</span>`}</div>
     <div class="fiche-corps">
     <p class="genre">${esc(tr(SORTIES.categories[p.categorie] || ''))}${p.ville ? ` · ${esc(p.ville)}` : ''}${p.prix ? ` <span class="fiche-prix">${esc(p.prix.replace(/\s+/g, ''))}</span>` : ''}</p>
     <h3>${esc(p.nom)}</h3>
     ${p.description ? `<p class="fiche-desc">${esc(tr(p.description))}</p>` : ''}
     ${cleS === 'dates' && p.date_raison ? `<p class="petit">♥ ${esc(tr(p.date_raison))}</p>` : ''}
-    <p class="fiche-actions">${p.instagram ? `<a href="https://www.instagram.com/${esc(p.instagram)}/" target="_blank" rel="noopener" aria-label="Instagram @${esc(p.instagram)}">${ICO.ig}<span>Instagram</span></a>` : ''}${p.site ? `<a href="${esc(p.site)}" target="_blank" rel="noopener">${ICO.site}<span>${esc(t.siteWeb)}</span></a>` : ''}${p.adresse || p.ville ? `<a href="https://www.google.com/maps/search/?api=1&amp;query=${encodeURIComponent([p.nom, p.adresse, p.ville].filter(Boolean).join(', '))}" target="_blank" rel="noopener">${ICO.map}<span>${esc(t.itineraire)}</span></a>` : ''}</p>
+    <p class="lieu-actions">${p.instagram ? `<a href="https://www.instagram.com/${esc(p.instagram)}/" target="_blank" rel="noopener" aria-label="Instagram @${esc(p.instagram)}">${ICO.ig}<span>Instagram</span></a>` : ''}${p.site ? `<a href="${esc(p.site)}" target="_blank" rel="noopener">${ICO.site}<span>${esc(t.siteWeb)}</span></a>` : ''}${p.adresse || p.ville ? `<a href="https://www.google.com/maps/search/?api=1&amp;query=${encodeURIComponent([p.nom, p.adresse, p.ville].filter(Boolean).join(', '))}" target="_blank" rel="noopener">${ICO.map}<span>${esc(t.itineraire)}</span></a>` : ''}</p>
     </div>
   </article>`;
   const ICONES = ['🌅', '🌊', '🌿', '🎨', '⛵'];
@@ -1364,6 +1365,7 @@ function aPropos({ lang, t, base, compte, T, chemin, nb, maj, partenaires }) {
     <p class="etiquette">${esc(t.dirEtiquette)}</p>
     <h2>${esc(T.directeur)}</h2>
     <p>${esc(bio)}</p>
+    ${T.directeur_reseaux ? `<p class="reseaux">${T.directeur_reseaux.instagram ? `<a class="bouton contour" href="${esc(T.directeur_reseaux.instagram)}" target="_blank" rel="noopener me"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.3" fill="currentColor"/></svg>Instagram</a>` : ''}${T.directeur_reseaux.linkedin ? `<a class="bouton contour" href="${esc(T.directeur_reseaux.linkedin)}" target="_blank" rel="noopener me"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3zm7 0h3.8v1.5h.06c.53-1 1.83-1.8 3.77-1.8 4 0 4.37 2.4 4.37 5.5v5.8h-4v-5.1c0-1.3 0-2.9-1.8-2.9s-2.2 1.4-2.2 2.8v5.2h-4z"/></svg>LinkedIn</a>` : ''}</p>` : ''}
   </div>
 </section>
 <section class="qui reveal">
@@ -1380,7 +1382,7 @@ ${blocOrga({ t, base, handle, lang })}`;
 // Page 404 (GitHub Pages la sert pour toute adresse inconnue : chemins absolus).
 function page404(t) {
   const B = new URL(URL_SITE).pathname; // « / » sur le domaine propre, « /teufy-instagram/ » sur GitHub Pages
-  return `<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${esc(t.e404)} · Teufy</title><meta name="robots" content="noindex"><link rel="icon" href="${B}site/img/logo.png"><link rel="stylesheet" href="${B}site/style.min.css"></head>
+  return `<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${esc(t.e404)} · Teufy</title><meta name="robots" content="noindex"><link rel="icon" href="${B}site/img/favicon-64.png"><link rel="stylesheet" href="${B}site/style.min.css"></head>
 <body><main class="page-404"><a href="${B}"><img src="${B}site/img/logo-200.webp" alt="Teufy" width="96" height="79"></a><h1>4<em>0</em>4</h1><p>${esc(t.e404p)}</p><p><a class="bouton" href="${B}#agenda">${esc(t.e404b)}</a></p>
 <p class="langues-pied">${LANGUES.map((l) => `<a href="${B}${pre(l)}" hreflang="${l}" lang="${l}">${esc(TXT[l].nom)}</a>`).join(' · ')}</p></main></body></html>
 `;

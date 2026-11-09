@@ -341,8 +341,9 @@
     try { L = await chargerLeaflet(); } catch { toast(T.carteErreur); return; }
     if (!carteL) {
       carteL = L.map(zoneCarte.querySelector('.leaflet-zone'), { scrollWheelZoom: false, tap: true }).setView([43.62, 7.15], 10);
-      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>', subdomains: 'abcd', maxZoom: 19,
+      // Fond OpenStreetMap (gratuit, sans clé), assombri en CSS pour la DA (.leaflet-tile-pane).
+      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>', maxZoom: 19,
       }).addTo(carteL);
       carteL.on('click', () => carteL.scrollWheelZoom.enable());
       calque = L.layerGroup().addTo(carteL);
@@ -419,6 +420,20 @@
     }
   };
   if (rebours.length) { majRebours(); setInterval(majRebours, 1000); }
+
+  // --- Mini-carte du lieu (page d'une soirée) : chargée seulement quand elle arrive à l'écran ---------------------
+  const mini = document.querySelector('.mini-carte');
+  if (mini) {
+    const ouvrir = async () => {
+      let L; try { L = await chargerLeaflet(); } catch { mini.hidden = true; return; }
+      const ll = [+mini.dataset.lat, +mini.dataset.lng];
+      const m = L.map(mini, { scrollWheelZoom: false, zoomControl: true, attributionControl: true }).setView(ll, 16);
+      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>', maxZoom: 19 }).addTo(m);
+      L.marker(ll, { icon: L.divIcon({ className: '', html: '<div class="repere seul"><b>♪</b></div>', iconSize: [34, 34], iconAnchor: [17, 40] }), title: mini.dataset.nom, alt: mini.dataset.nom }).addTo(m);
+      m.on('click', () => m.scrollWheelZoom.enable());
+    };
+    if ('IntersectionObserver' in window) { const o = new IntersectionObserver((e) => { if (e.some((x) => x.isIntersecting)) { o.disconnect(); ouvrir(); } }, { rootMargin: '300px' }); o.observe(mini); } else ouvrir();
+  }
 
   // --- Démarrage -----------------------------------------------------------------------------------------------
   const q0 = new URLSearchParams(location.search).get('q');

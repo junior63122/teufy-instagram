@@ -88,7 +88,7 @@ const visibles = (p) => p.locator('.liste .carte:not([hidden])').count();
 
   await etape('carte hors ligne', async () => {
     const c = await b.newContext({ viewport: { width: 1280, height: 800 } }); const p = await c.newPage(); erreurs(p, 'carte');
-    await p.route('**/basemaps.cartocdn.com/**', (r) => r.abort());
+    await p.route('**/tile.openstreetmap.org/**', (r) => r.abort());
     await p.goto(B + '#carte'); await p.waitForTimeout(1500);
     ok(await p.locator('.repere').count() > 0, 'carte : les repères disparaissent sans fond de carte');
     await c.close();
@@ -116,6 +116,59 @@ const visibles = (p) => p.locator('.liste .carte:not([hidden])').count();
     await c.setOffline(false); await p.reload(); await p.waitForTimeout(400);
     ok(await p.locator('.liste .carte').count() > 10, 'cache : la page ne revient pas après reconnexion');
     await c.close();
+  });
+
+  await etape('textes des boutons lisibles', async () => {
+    const fs = require('fs'), path = require('path');
+    const unDe = (d, n = 1) => { try { return fs.readdirSync(path.resolve(__dirname, '..', d)).filter((x) => !x.includes('.')).slice(0, n).map((x) => `${d}/${x}/`); } catch { return []; } };
+    const pages = ['', 'soirees-nice/', 'soirees-techno/', 'a-propos/', 'partenaires/', 'ambassadeurs/', 'bde/', 'dates/', 'restaurants/', 'activites/', 'festivals/', 'clubs-bars/', 'france/', 'actus/', ...unDe('actus', 20), ...unDe('soiree', 3), 'mentions-legales/', 'page-inexistante/', 'ar/', 'en/a-propos/'];
+    for (const o of [{ viewport: { width: 1440, height: 900 } }, { ...devices['iPhone 13'] }]) {
+      const c = await b.newContext(o); const p = await c.newPage(); erreurs(p, 'lisible');
+      for (const u of pages) {
+        await p.goto(B + u); await p.waitForTimeout(150);
+        const illisibles = await p.evaluate(() => {
+          const rgb = (c) => (c.match(/[\d.]+/g) || []).map(Number);
+          const lum = ([r, g, b]) => { const f = (v) => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; }; return 0.2126 * f(r) + 0.7152 * f(g) + 0.0722 * f(b); };
+          const fond = (e) => { while (e) { const c = getComputedStyle(e).backgroundColor; const v = rgb(c); if (v.length === 3 || (v[3] ?? 1) > 0.5) return v.slice(0, 3); e = e.parentElement; } return [11, 11, 15]; };
+          return [...document.querySelectorAll('a.bouton, button.bouton, .bouton, .puce, .fiche-actions a, button')].filter((e) => e.offsetParent && e.getBoundingClientRect().width > 0).filter((e) => {
+            if (!e.textContent.trim() && !e.querySelector('svg, img') && !e.getAttribute('aria-label')) return true; // bouton vide
+            if (!e.textContent.trim()) return false;
+            const a = lum(rgb(getComputedStyle(e).color)), f = lum(fond(e));
+            return (Math.max(a, f) + 0.05) / (Math.min(a, f) + 0.05) < 3;
+          }).map((e) => (e.textContent.trim() || e.className).slice(0, 30));
+        });
+        ok(!illisibles.length, `lisible ${o.viewport?.width || 'mobile'} ${u || 'accueil'} : bouton vide ou texte illisible (${illisibles.join(' | ')})`);
+      }
+      await c.close();
+    }
+  });
+
+  await etape('textes coupés', async () => {
+    const fs = require('fs'), path = require('path');
+    const unDe = (d, n) => { try { return fs.readdirSync(path.resolve(__dirname, '..', d)).filter((x) => !x.includes('.')).slice(0, n).map((x) => `${d}/${x}/`); } catch { return []; } };
+    const pages = ['', 'a-propos/', 'actus/', ...unDe('actus', 3), ...unDe('soiree', 4), 'festivals/', 'clubs-bars/', 'restaurants/', 'activites/', 'dates/', 'partenaires/', 'france/', 'ar/', ...unDe('ar/soiree', 1)];
+    for (const o of [{ viewport: { width: 1920, height: 1000 } }, { viewport: { width: 1280, height: 800 } }, { ...devices['iPhone 13'] }]) {
+      const c = await b.newContext(o); const p = await c.newPage(); erreurs(p, 'coupé');
+      for (const u of pages) {
+        await p.goto(B + u); await p.waitForTimeout(150);
+        await p.evaluate(() => document.querySelectorAll('.reveal').forEach((e) => e.classList.add('vu')));
+        await p.waitForTimeout(700);
+        const coupes = await p.evaluate(() => [...document.querySelectorAll('main h1, main h2, main h3, .ariane, .ariane a, main .bouton, main .etiquette, main .genre, main .lien')].filter((e) => {
+          if (!e.offsetParent || e.closest('[hidden], .vh, .liste-defile, .collage, .marquee, .bandeau, .posts')) return false;
+          const r = e.getBoundingClientRect(); if (!r.width) return false;
+          for (let a = e.parentElement; a && a !== document.body; a = a.parentElement) {
+            const st = getComputedStyle(a);
+            if (/(hidden|clip)/.test(st.overflowX + st.overflowY)) {
+              const q = a.getBoundingClientRect();
+              if (r.left < q.left - 1 || r.right > q.right + 1 || r.top < q.top - 1 || r.bottom > q.bottom + 1) return true;
+            }
+          }
+          return false;
+        }).map((e) => `${e.tagName.toLowerCase()}.${e.className || ''} « ${e.textContent.trim().slice(0, 25)} »`));
+        ok(!coupes.length, `coupé ${o.viewport?.width || 'mobile'} ${u || 'accueil'} : texte rogné par son cadre (${coupes.slice(0, 4).join(' | ')})`);
+      }
+      await c.close();
+    }
   });
 
   await etape('boutons recouverts', async () => {
