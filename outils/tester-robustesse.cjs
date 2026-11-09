@@ -3,7 +3,12 @@ const { chromium, devices } = (() => { try { return require(require('child_proce
 const B = process.env.SITE || 'http://localhost:8765/';
 const echecs = [];
 const ok = (c, m) => { if (!c) echecs.push(m); };
-const erreurs = (p, nom) => { p.setDefaultTimeout(4000); p.on('pageerror', (e) => echecs.push(`${nom} : erreur JavaScript ${e.message}`)); };
+const erreurs = (p, nom) => {
+  p.setDefaultTimeout(4000);
+  p.on('pageerror', (e) => echecs.push(`${nom} : erreur JavaScript ${e.message}`));
+  // Politique de sécurité (CSP) : tout blocage d'une ressource du site est un bug.
+  p.on('console', (m) => { if (m.type() === 'error' && /Content Security Policy|Refused to/i.test(m.text())) echecs.push(`${nom} : ressource bloquée par la CSP (${m.text().slice(0, 140)})`); });
+};
 const visibles = (p) => p.locator('.liste .carte:not([hidden])').count();
 
 (async () => {
@@ -167,6 +172,23 @@ const visibles = (p) => p.locator('.liste .carte:not([hidden])').count();
         }).map((e) => `${e.tagName.toLowerCase()}.${e.className || ''} « ${e.textContent.trim().slice(0, 25)} »`));
         ok(!coupes.length, `coupé ${o.viewport?.width || 'mobile'} ${u || 'accueil'} : texte rogné par son cadre (${coupes.slice(0, 4).join(' | ')})`);
       }
+      await c.close();
+    }
+  });
+
+  await etape('console propre et requêtes', async () => {
+    const fs = require('fs'), path = require('path');
+    const un = (d) => { try { return fs.readdirSync(path.resolve(__dirname, '..', d)).filter((x) => !x.includes('.')).slice(0, 1).map((x) => `${d}/${x}/`); } catch { return []; } };
+    for (const o of [{ viewport: { width: 1440, height: 900 } }, { ...devices['iPhone 13'] }]) {
+      const c = await b.newContext(o); const p = await c.newPage(); erreurs(p, 'console');
+      const pb = [];
+      p.on('console', (m) => { if (m.type() === 'error' && !/tile\.openstreetmap|net::ERR_(TUNNEL|NAME|CONNECTION)/.test(m.text())) pb.push(`console : ${m.text().slice(0, 120)}`); });
+      p.on('requestfailed', (r) => { const u = r.url(); if (u.startsWith(B) && !/\.mp4/.test(u)) pb.push(`requête échouée : ${u.replace(B, '/')} (${r.failure()?.errorText})`); });
+      p.on('response', (r) => { if (r.url().startsWith(B) && r.status() >= 400 && !/page-inexistante/.test(r.url())) pb.push(`HTTP ${r.status()} : ${r.url().replace(B, '/')}`); });
+      for (const u of ['', '#carte', 'a-propos/', 'actus/', ...un('actus'), ...un('soiree'), 'festivals/', 'clubs-bars/', 'partenaires/', 'dates/', 'restaurants/', 'activites/', 'france/', 'cgu/', 'confidentialite/', 'ar/', 'page-inexistante/']) {
+        await p.goto(B + u).catch(() => {}); await p.evaluate(() => window.scrollTo(0, document.body.scrollHeight)); await p.waitForTimeout(700);
+      }
+      ok(!pb.length, `console ${o.viewport?.width || 'mobile'} : ${[...new Set(pb)].slice(0, 6).join(' | ')}`);
       await c.close();
     }
   });

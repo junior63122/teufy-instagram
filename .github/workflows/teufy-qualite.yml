@@ -1,0 +1,49 @@
+name: Teufy - Contrôle qualité du site
+
+# Protocole qualité permanent : à chaque modification du code du site, tous les tests sont relancés
+# (liens, SEO, scénarios d'usage sur mobile / tablette / ordinateur, scénarios « casser le site »).
+# Un échec apparaît en rouge dans l'onglet Actions avec la liste des problèmes.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/site*.mjs'
+      - 'site/app.js'
+      - 'site/style.css'
+      - 'site/sw-source.js'
+      - 'outils/**'
+      - '.github/workflows/teufy-qualite.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: teufy-qualite
+  cancel-in-progress: true
+
+jobs:
+  tester:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Installer Playwright et Chromium
+        run: |
+          npm install --no-audit --no-fund
+          npx playwright install --with-deps chromium
+      - name: Servir le site comme GitHub Pages
+        run: |
+          node outils/serveur-local.cjs &
+          sleep 2
+      - name: Liens internes
+        run: node outils/verifier-liens.mjs
+      - name: SEO, partage, images, sécurité
+        run: node outils/audit-seo.mjs
+      - name: Scénarios « casser le site »
+        run: node outils/tester-robustesse.cjs
+      - name: Scénarios d'usage (mobile, tablette, ordinateur)
+        run: node outils/tester-site.cjs

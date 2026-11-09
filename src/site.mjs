@@ -573,7 +573,7 @@ export async function construireSite({ events, eventsFrance = [], hist = [], con
   const prio = (c) => (!c ? '1.0' : /^soiree\//.test(c) ? '0.6' : /^(actus\/.|mentions)/.test(c) ? '0.5' : '0.8');
   const urls = LANGUES.flatMap((l) => chemins.map((c) => `  <url><loc>${URL_SITE}${pre(l)}${c}</loc><lastmod>${jourIso}</lastmod><changefreq>daily</changefreq><priority>${prio(c)}</priority>${LANGUES.map((x) => `<xhtml:link rel="alternate" hreflang="${x}" href="${URL_SITE}${pre(x)}${c}"/>`).join('')}<xhtml:link rel="alternate" hreflang="x-default" href="${URL_SITE}${c}"/></url>`));
   await writeFile(path.join(ROOT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls.join('\n')}\n</urlset>\n`);
-  await writeFile(path.join(ROOT, 'robots.txt'), `User-agent: *\nAllow: /\nDisallow: /out/\nDisallow: /apercus/\nDisallow: /livrables/\nSitemap: ${URL_SITE}sitemap.xml\n`);
+  await writeFile(path.join(ROOT, 'robots.txt'), `User-agent: *\nAllow: /\nDisallow: /out/\nDisallow: /apercus/\nDisallow: /livrables/\nDisallow: /tests/\nDisallow: /studio/\nDisallow: /veille/\nSitemap: ${URL_SITE}sitemap.xml\n`);
   await writeFile(path.join(ROOT, '.nojekyll'), '');
   log(`Site : ${soirees.length} soirée(s), ${soirees.filter((s) => s.affiche).length} avec affiche, ${soirees.filter((s) => !s.approx).length} placée(s) précisément sur la carte, ${soirees.filter((s) => s.offres.length).length} avec comparateur de prix, ${actus.length} actu(s), ${pages.length} page(s) en ${LANGUES.length} langues`);
   return soirees;
@@ -776,6 +776,9 @@ const PHOTO_STYLE = { techno: 'foule', house: 'baskets', afro: 'rire', shatta: '
 let CSS_EN_LIGNE = ''; // CSS écrite dans chaque page : affichage plus rapide (une requête de moins)
 let VERSION = '1'; // change quand le CSS ou le JS change (le navigateur recharge la bonne version)
 let GOOGLE = ''; // code de vérification Google Search Console (config.site.google_verification)
+// Titres et descriptions à la bonne longueur pour Google (titre ≤ 65 caractères, description ≤ 160), coupés sur un mot.
+const couper = (x, n) => { x = String(x || '').replace(/\s+/g, ' ').trim(); if (x.length <= n) return x; const c = x.slice(0, n - 1); return `${c.slice(0, Math.max(c.lastIndexOf(' '), n * 0.6)).replace(/[\s,;:·–-]+$/, '')}…`; };
+const titreCourt = (parts) => { const l = parts.filter(Boolean); while (l.length > 1 && `${l.join(' · ')} · Teufy`.length > 65) l.pop(); return `${couper(l.join(' · '), 56)} · Teufy`; };
 function gabarit({ lang, t, titre, description, chemin, base, corps, ld = [], image = 'site/img/equipe/monaco.jpg', compte, maj = '', agendaIci = false }) {
   const handle = compte.replace(/^@/, '');
   const P = pre(lang);
@@ -788,12 +791,12 @@ function gabarit({ lang, t, titre, description, chemin, base, corps, ld = [], im
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>${esc(titre)}</title>
-<meta name="description" content="${esc(description)}">
+<meta name="description" content="${esc(couper(description, 160))}">
 <link rel="canonical" href="${URL_SITE}${P}${chemin}">
 ${LANGUES.map((l) => `<link rel="alternate" hreflang="${l}" href="${URL_SITE}${pre(l)}${chemin}">`).join('\n')}
 <link rel="alternate" hreflang="x-default" href="${URL_SITE}${chemin}">
 <meta property="og:title" content="${esc(titre)}">
-<meta property="og:description" content="${esc(description)}">
+<meta property="og:description" content="${esc(couper(description, 200))}">
 <meta property="og:image" content="${/^https?:/.test(image) ? image : URL_SITE + image}">
 <meta property="og:url" content="${URL_SITE}${P}${chemin}">
 <meta property="og:type" content="website">
@@ -807,6 +810,8 @@ ${GOOGLE ? `<meta name="google-site-verification" content="${esc(GOOGLE)}">` : '
 <link rel="manifest" href="${base}site/manifest.webmanifest">
 <link rel="preload" href="${base}site/fonts/bricolage-titre.woff2" as="font" type="font/woff2" crossorigin>
 <style>${CSS_EN_LIGNE.replace(/__BASE__/g, base)}</style>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-Du+OJKJSbdUgz5nrHeWWINvez6XKDDU/tyj/5c2uvwo='; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://tile.openstreetmap.org; font-src 'self'; media-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <script>document.documentElement.classList.add('js')</script>
 ${ld.length ? `<script type="application/ld+json">${JSON.stringify(ld).replace(/</g, '\\u003c')}</script>` : ''}
 </head>
@@ -946,9 +951,9 @@ const TAILLE_HERO = '(min-width:980px) 560px, 100vw';
 // Collage d'affiches (soirées à venir, un lot différent par page) ou de logos partenaires, à droite des en-têtes sans photo.
 let AFFICHES_COLLAGE = [];
 const collage = (base, k, logos = null) => {
-  if (logos) return `<div class="collage logos-collage" aria-hidden="true">${logos.slice(0, 12).map((f, i) => `<img src="${base}${esc(f)}" alt="" loading="lazy" style="--i:${i}">`).join('')}</div>`;
+  if (logos) return `<div class="collage logos-collage" aria-hidden="true">${logos.slice(0, 12).map((f, i) => `<img src="${base}${esc(f)}" alt="" width="160" height="160" loading="lazy" style="--i:${i}">`).join('')}</div>`;
   const l = AFFICHES_COLLAGE.length ? [0, 1, 2].map((i) => AFFICHES_COLLAGE[(k * 3 + i) % AFFICHES_COLLAGE.length]) : [];
-  return l.length ? `<div class="collage" aria-hidden="true">${l.map((a, i) => `<img src="${base}${a.replace(/\.jpg$/, '-800.webp')}" alt="" loading="lazy" style="--i:${i}">`).join('')}</div>` : '';
+  return l.length ? `<div class="collage" aria-hidden="true">${l.map((a, i) => `<img src="${base}${a.replace(/\.jpg$/, '-800.webp')}" alt="" width="400" height="500" loading="lazy" style="--i:${i}">`).join('')}</div>` : '';
 };
 const heroCourt = ({ base, photo, video, alt, etiquette, h1, p, live = false, k = 0, logos = null }) => `<section class="hero court${photo ? '' : ' sans-photo'}">
   ${photo ? `<div class="hero-media">${fond(base, photo, video, alt)}</div>` : `<div class="hero-deco" aria-hidden="true"><span></span><span></span><span></span></div>${collage(base, k, logos)}`}
@@ -1001,7 +1006,7 @@ ${blocOrga({ t, base, handle, lang })}`;
 function blocOrga({ t, base, handle, lang }) {
   return `<section class="orga reveal">
   <div class="hero-deco" aria-hidden="true"><span></span><span></span><span></span></div>
-  ${AFFICHES_COLLAGE.length >= 6 ? `<div class="orga-visuel" aria-hidden="true">${AFFICHES_COLLAGE.slice(-3).map((a, i) => `<img src="${base}${a.replace(/\.jpg$/, '-480.webp')}" alt="" loading="lazy" style="--i:${i}">`).join('')}${(t.orgaPuces || []).map((x, i) => `<span class="orga-puce" style="--i:${i}">${esc(x)}</span>`).join('')}</div>` : ''}
+  ${AFFICHES_COLLAGE.length >= 6 ? `<div class="orga-visuel" aria-hidden="true">${AFFICHES_COLLAGE.slice(-3).map((a, i) => `<img src="${base}${a.replace(/\.jpg$/, '-480.webp')}" alt="" width="240" height="300" loading="lazy" style="--i:${i}">`).join('')}${(t.orgaPuces || []).map((x, i) => `<span class="orga-puce" style="--i:${i}">${esc(x)}</span>`).join('')}</div>` : ''}
   <div class="hero-texte">
     <p class="etiquette">${esc(t.orgaEtiquette)}</p>
     <h2>${t.orgaH2}</h2>
@@ -1075,7 +1080,7 @@ function pageSoiree({ lang, t, tr, base, compte, T, chemin, s, soirees, maj }) {
 ${mini(meme, esc(t.memeSoir))}
 ${mini(style, esc(t.memeStyle))}
 <p class="retour"><a class="bouton" href="${base}${P}#agenda">${esc(t.toutes)}</a></p>`;
-  return gabarit({ lang, t, titre: `${s.nom} · ${dateCourte(s.debut, t)} · ${s.lieu || s.ville} · Teufy`, description: `${s.nom}, ${dateLongue(s.debut, t)} ${heure(s.debut, t)}, ${lieu}. ${s.accroche || ''} ${prixTexte(s.prix, t)}`.trim().slice(0, 300), chemin, base, corps, compte, maj,
+  return gabarit({ lang, t, titre: titreCourt([s.nom, dateCourte(s.debut, t), s.lieu || s.ville]), description: `${s.nom}, ${dateLongue(s.debut, t)} ${heure(s.debut, t)}, ${lieu}. ${s.accroche || ''} ${prixTexte(s.prix, t)}`.trim().slice(0, 300), chemin, base, corps, compte, maj,
     image: s.affiche || 'site/img/equipe/monaco.jpg', ld: [jsonEvent(s, lang), fil(lang, [['Teufy', ''], [t.agenda, ''], [s.nom, chemin]])] });
 }
 
@@ -1128,7 +1133,7 @@ function pageSorties({ lang, t, tr, base, compte, T, chemin, maj, partenaires, c
   const spots = cleS === 'dates' ? SPOTS_DATE.map((g, k) => `<section class="bloc-large reveal"><h2>${ICONES[k] || '✦'} ${esc(tr(g.titre))}</h2><div class="cartes-texte">${g.lieux.map(([nom, ville, texte], i) => `<article class="carte-texte spot" style="--i:${i}"><p class="genre">${esc(ville)}</p><h3>${esc(nom)}</h3><p>${esc(tr(texte))}</p><p class="lieu-liens"><a class="lien" href="https://www.google.com/maps/search/?api=1&amp;query=${encodeURIComponent(`${nom}, ${ville}`)}" target="_blank" rel="noopener">${esc(t.itineraire)}</a></p></article>`).join('')}</div></section>`).join('\n') : '';
   const corps = `${heroCourt({ base, photo: null, alt: tr(C.etiquette), etiquette: tr(C.etiquette), h1: tr(C.h1), p: esc(tr(C.p)), k: 8 + Object.keys(SORTIES).indexOf(cleS) })}
 ${spots}
-<section class="bloc-large reveal">${cleS === 'dates' && l.length ? `<h2>${tr('Les bonnes adresses de nos <em>partenaires</em>')}</h2>` : ''}${l.length ? `<div class="fiches">${l.map(carteP).join('')}</div>` : cleS === 'dates' ? '' : `<p class="vide">${esc(tr(SORTIES.vide))}</p>`}${ctaIg(handle, t.orgaBouton, T.email)}</section>`;
+<section class="bloc-large reveal">${l.length ? `<h2>${tr('Les bonnes adresses de nos <em>partenaires</em>')}</h2>` : ''}${l.length ? `<div class="fiches">${l.map(carteP).join('')}</div>` : cleS === 'dates' ? '' : `<p class="vide">${esc(tr(SORTIES.vide))}</p>`}${ctaIg(handle, t.orgaBouton, T.email)}</section>`;
   return gabarit({ lang, t, titre: tr(C.titre), description: tr(C.desc), chemin, base, corps, compte, maj, ld: [...ldOrganisation(T, compte, t, lang), fil(lang, [['Teufy', ''], [tr(C.etiquette), chemin]]),
     ...(l.length ? [{ '@context': 'https://schema.org', '@type': 'ItemList', itemListElement: l.map((p, i) => ({ '@type': 'ListItem', position: i + 1, item: { '@type': p.categorie === 'restaurant' ? 'Restaurant' : 'LocalBusiness', name: p.nom, ...(p.adresse || p.ville ? { address: { '@type': 'PostalAddress', streetAddress: p.adresse || undefined, addressLocality: p.ville || undefined } } : {}), ...(p.site ? { url: p.site } : {}) } })) }] : [])] });
 }
