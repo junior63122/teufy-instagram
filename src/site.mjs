@@ -437,7 +437,8 @@ const PLATEFORMES = { 'shotgun.live': 'Shotgun', 'dice.fm': 'DICE', 'link.dice.f
 const nomPlateforme = (u) => { try { const d = new URL(u).hostname.replace(/^www\./, ''); return PLATEFORMES[d] || Object.entries(PLATEFORMES).find(([k]) => d.endsWith(k))?.[1] || d; } catch { return ''; } };
 
 export async function construireSite({ events, eventsFrance = [], hist = [], config = {}, now = new Date(), log = console.log, ig = null, api = {} }) {
-  LIMITE = Date.now() + (config.site?.minutes_enrichissement ?? 15) * 60e3;
+  const PLAFOND = Date.now() + (Number(process.env.SITE_MINUTES) || config.site?.minutes_enrichissement || 30) * 60e3;
+  LIMITE = PLAFOND;
   await mkdir(path.join(SITE, 'affiches'), { recursive: true });
   const cache = lire(VERIF, {});
   const fin = now.getTime() + 45 * 864e5;
@@ -480,11 +481,15 @@ export async function construireSite({ events, eventsFrance = [], hist = [], con
   const soireesFrance = [];
   for (const e of (eventsFrance || []).filter((x) => !x.douteux && (x.verifie || (x.confiance ?? 0) >= 0.85)).filter((x) => { const t = Date.parse(x.start); return t >= debut && t <= fin; }).sort((x, y) => x.start.localeCompare(y.start))) soireesFrance.push(await preparer(e, 'france'));
   await writeFile(VERIF, JSON.stringify(cache, null, 1) + '\n');
-  await geocoder(soirees, log);
-  await aProximite(soirees, log);
-  const partenaires = await identifierPartenaires(log, { ig, api });
-  const lieux = await lieuxDeNuit({ soirees, partenaires, ig, api, log, now });
-  const festivalsGuide = await festivalsDuWeb({ partenaires, now, log });
+  // Chaque enrichissement a son propre temps (avant, un seul budget partagé s'épuisait avant les clubs, festivals
+  // et transports), dans un plafond global pour que le passage se termine toujours.
+  const etape = (min) => { LIMITE = Math.min(Date.now() + min * 60e3, PLAFOND); };
+  etape(5); const partenaires = await identifierPartenaires(log, { ig, api });
+  etape(6); const lieux = await lieuxDeNuit({ soirees, partenaires, ig, api, log, now });
+  etape(3); const festivalsGuide = await festivalsDuWeb({ partenaires, now, log });
+  etape(4); await geocoder(soirees, log);
+  etape(4); await aProximite(soirees, log);
+  LIMITE = Math.min(Date.now(), PLAFOND); // traductions : LIMITE + 10 min
   AFFICHES_COLLAGE = soirees.filter((x) => x.affiche && x.dims && x.dims[0] >= 600 && x.dims[1] >= x.dims[0] * 1.1 && existsSync(path.join(ROOT, x.affiche.replace(/\.jpg$/, '-800.webp')))).sort((a, b) => (b.buzz || 0) - (a.buzz || 0)).map((x) => x.affiche).filter((x, i, l) => l.indexOf(x) === i);
   TR.cache = lire(TRAD, {});
 
