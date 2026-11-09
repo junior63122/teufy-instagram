@@ -1,0 +1,85 @@
+{
+ "twiga-monte-carlo-monaco": {
+  "le": "2026-11-09T19:59:29.344Z",
+  "styles": "Deep House · Afro House · Tech-House · Hip-Hop",
+  "dress_code": "Chic et élégant. Tenues de sport et tongs interdites.",
+  "horaires": "Mer–Dim · 23h30–5h",
+  "prix_verre": "cocktail 20–25 €",
+  "entree": "Sur réservation (table/dîner) ou 20–40 € avec consommation sur place",
+  "age_min": "18 ans",
+  "sources": [
+   "https://twigaworld.com/montecarlo/",
+   "https://www.instagram.com/twigamontecarlo/",
+   "https://www.myguidenice.com/nightlife/twiga-monte-carlo",
+   "https://www.portpalace.com/"
+  ]
+ },
+ "jimmy-z-monte-carlo-monaco": {
+  "le": "2026-11-09T19:59:29.344Z",
+  "styles": "House · Tech House · Electro · Hip-hop",
+  "dress_code": "Smart chic / tenue très élégante exigée, baskets et tenues de sport interdites",
+  "horaires": "Jeu–Sam · 23h30–5h/6h",
+  "prix_verre": "Bière 15–25 € · cocktail 25–35 € · soft 10–15 €",
+  "entree": "20–65 € selon programmation",
+  "age_min": "18 ans",
+  "sources": [
+   "https://www.montecarlosbm.com/fr/bar-monaco/jimmy-z-monte-carlo",
+   "https://www.instagram.com/jimmyzmc/",
+   "https://www.visitmonaco.com/fr/lieu/bars-boites/188165/jimmy-z-monte-carlo",
+   "https://monacopratique.com"
+  ]
+ },
+ "la-mome-plage-cannes": {
+  "le": "2026-11-09T19:59:29.344Z",
+  "styles": "Lounge · Deep House · House · Nu-disco",
+  "dress_code": "Smart Riviera, chic et élégant",
+  "horaires": "Lun–Dim · 11h–23h30 (en saison)",
+  "prix_verre": "bière 10–14 € · cocktail 20–26 €",
+  "entree": "Gratuit (transats à partir de 70–90 €)",
+  "age_min": "Aucun (18 ans recommandé en soirée)",
+  "sources": [
+   "https://www.lamomeplage.com",
+   "https://lamomecannes.com",
+   "https://www.cannes-france.com",
+   "https://www.alotea.com"
+  ]
+ },
+ "sass-cafe-monaco": {
+  "le": "2026-11-09T19:59:29.344Z",
+  "styles": "Musique live · Hip-hop · Commercial",
+  "dress_code": "Chic Casual / Smart Elegant (shorts et chaussures ouvertes interdits pour les hommes)",
+  "horaires": "Lun–Dim · 20h30–3h/4h",
+  "prix_verre": "cocktail 30–35 €",
+  "entree": "Sans droit d'entrée fixe, sur réservation ou consommation au bar",
+  "age_min": "18 ans (dès 23h45)",
+  "sources": [
+   "https://www.sasscafe.com/monaco/",
+   "https://www.sasscafe.com/contact/",
+   "https://monacopratique.com",
+   "https://avoroyale.com"
+  ]
+ },
+ "high-club-nice": {
+  "le": "2026-11-09T19:59:29.344Z",
+  "styles": "Généraliste · Électro · Hip-Hop · Latino",
+  "dress_code": "Tenue soignée et branchée exigée, tenues de sport et casquettes interdites.",
+  "horaires": "Ven–Sam · 23h45–5h30",
+  "prix_verre": "soft 5–8 € · bière 7–10 € · cocktail 10–15 €",
+  "entree": "10–20 € avec conso",
+  "age_min": "18 ans",
+  "sources": [
+   "https://www.highclub.fr/",
+   "https://www.highclub.fr/wp-content/uploads/2022/08/map.png",
+   "https://www.instagram.com/highclubnice/",
+   "https://shotgun.live/fr/venues/high-club"
+  ]
+ },
+ "bocca-nissa-nice": {
+  "le": "2026-11-09T19:59:29.344Z",
+  "vide": true
+ },
+ "les-bains-deli-bo-villefranche-sur-mer": {
+  "le": "2026-11-09T19:59:29.344Z",
+  "vide": true
+ }
+}

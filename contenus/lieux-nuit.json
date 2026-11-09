@@ -30,7 +30,23 @@
     "posts21": 8
    },
    "slug": "high-club-nice",
-   "score": 1.0074074074074075
+   "score": 1.0074074074074075,
+   "photo": "site/lieux/highclubnice-176.webp",
+   "details": {
+    "le": "2026-11-09T19:59:29.344Z",
+    "styles": "Généraliste · Électro · Hip-Hop · Latino",
+    "dress_code": "Tenue soignée et branchée exigée, tenues de sport et casquettes interdites.",
+    "horaires": "Ven–Sam · 23h45–5h30",
+    "prix_verre": "soft 5–8 € · bière 7–10 € · cocktail 10–15 €",
+    "entree": "10–20 € avec conso",
+    "age_min": "18 ans",
+    "sources": [
+     "https://www.highclub.fr/",
+     "https://www.highclub.fr/wp-content/uploads/2022/08/map.png",
+     "https://www.instagram.com/highclubnice/",
+     "https://shotgun.live/fr/venues/high-club"
+    ]
+   }
   },
   {
    "nom": "Kwartz Club",
@@ -63,7 +79,8 @@
     "posts21": 4
    },
    "slug": "wayne-s-bar-nice",
-   "score": 0.9814814814814814
+   "score": 0.9814814814814814,
+   "photo": "site/lieux/waynes_bar-176.webp"
   },
   {
    "nom": "Movida",
@@ -96,7 +113,8 @@
     "posts21": 4
    },
    "slug": "bocca-nissa-nice",
-   "score": 0.1111111111111111
+   "score": 0.1111111111111111,
+   "photo": "site/lieux/boccanissa-176.webp"
   },
   {
    "nom": "Le Boston Cocktail Bar",
@@ -376,7 +394,23 @@
     "posts21": 5
    },
    "slug": "la-mome-plage-cannes",
-   "score": 0
+   "score": 0,
+   "photo": "site/lieux/lamomeplage-176.webp",
+   "details": {
+    "le": "2026-11-09T19:59:29.344Z",
+    "styles": "Lounge · Deep House · House · Nu-disco",
+    "dress_code": "Smart Riviera, chic et élégant",
+    "horaires": "Lun–Dim · 11h–23h30 (en saison)",
+    "prix_verre": "bière 10–14 € · cocktail 20–26 €",
+    "entree": "Gratuit (transats à partir de 70–90 €)",
+    "age_min": "Aucun (18 ans recommandé en soirée)",
+    "sources": [
+     "https://www.lamomeplage.com",
+     "https://lamomecannes.com",
+     "https://www.cannes-france.com",
+     "https://www.alotea.com"
+    ]
+   }
   },
   {
    "nom": "Le Village",
@@ -465,7 +499,8 @@
     "posts21": 0
    },
    "slug": "absinthe-bar-antibes",
-   "score": 0
+   "score": 0,
+   "photo": "site/lieux/absinthebarantibes-176.webp"
   },
   {
    "nom": "O'Sullivans By The Beach",
@@ -484,7 +519,8 @@
     "posts21": 4
    },
    "slug": "o-sullivans-by-the-beach-mandelieu-la-napoule",
-   "score": 0.8703703703703703
+   "score": 0.8703703703703703,
+   "photo": "site/lieux/osullivans_mandelieu-176.webp"
   },
   {
    "nom": "Jimbaran Plage",
@@ -503,7 +539,8 @@
     "posts21": 5
    },
    "slug": "jimbaran-plage-golfe-juan",
-   "score": 0.2962962962962963
+   "score": 0.2962962962962963,
+   "photo": "site/lieux/jimbaran.plage-176.webp"
   },
   {
    "nom": "Le Petit Bellevue (La Maison Bellevue)",
@@ -522,7 +559,8 @@
     "posts21": 11
    },
    "slug": "le-petit-bellevue-la-maison-bellevue-le-cannet",
-   "score": 0.7592592592592593
+   "score": 0.7592592592592593,
+   "photo": "site/lieux/lamaisonbellevue-176.webp"
   },
   {
    "nom": "Jimmy’z Monte-Carlo",
@@ -541,7 +579,23 @@
     "posts21": 2
    },
    "slug": "jimmy-z-monte-carlo-monaco",
-   "score": 0.7222222222222222
+   "score": 0.7222222222222222,
+   "photo": "site/lieux/jimmyzmc-176.webp",
+   "details": {
+    "le": "2026-11-09T19:59:29.344Z",
+    "styles": "House · Tech House · Electro · Hip-hop",
+    "dress_code": "Smart chic / tenue très élégante exigée, baskets et tenues de sport interdites",
+    "horaires": "Jeu–Sam · 23h30–5h/6h",
+    "prix_verre": "Bière 15–25 € · cocktail 25–35 € · soft 10–15 €",
+    "entree": "20–65 € selon programmation",
+    "age_min": "18 ans",
+    "sources": [
+     "https://www.montecarlosbm.com/fr/bar-monaco/jimmy-z-monte-carlo",
+     "https://www.instagram.com/jimmyzmc/",
+     "https://www.visitmonaco.com/fr/lieu/bars-boites/188165/jimmy-z-monte-carlo",
+     "https://monacopratique.com"
+    ]
+   }
   },
   {
    "nom": "MK Club Monaco",
@@ -591,7 +645,23 @@
     "posts21": 8
    },
    "slug": "twiga-monte-carlo-monaco",
-   "score": 0.4277777777777778
+   "score": 0.4277777777777778,
+   "photo": "site/lieux/twigamontecarlo-176.webp",
+   "details": {
+    "le": "2026-11-09T19:59:29.344Z",
+    "styles": "Deep House · Afro House · Tech-House · Hip-Hop",
+    "dress_code": "Chic et élégant. Tenues de sport et tongs interdites.",
+    "horaires": "Mer–Dim · 23h30–5h",
+    "prix_verre": "cocktail 20–25 €",
+    "entree": "Sur réservation (table/dîner) ou 20–40 € avec consommation sur place",
+    "age_min": "18 ans",
+    "sources": [
+     "https://twigaworld.com/montecarlo/",
+     "https://www.instagram.com/twigamontecarlo/",
+     "https://www.myguidenice.com/nightlife/twiga-monte-carlo",
+     "https://www.portpalace.com/"
+    ]
+   }
   },
   {
    "nom": "Sass Café",
@@ -610,7 +680,23 @@
     "posts21": 2
    },
    "slug": "sass-cafe-monaco",
-   "score": 0.5
+   "score": 0.5,
+   "photo": "site/lieux/sasscafe-176.webp",
+   "details": {
+    "le": "2026-11-09T19:59:29.344Z",
+    "styles": "Musique live · Hip-hop · Commercial",
+    "dress_code": "Chic Casual / Smart Elegant (shorts et chaussures ouvertes interdits pour les hommes)",
+    "horaires": "Lun–Dim · 20h30–3h/4h",
+    "prix_verre": "cocktail 30–35 €",
+    "entree": "Sans droit d'entrée fixe, sur réservation ou consommation au bar",
+    "age_min": "18 ans (dès 23h45)",
+    "sources": [
+     "https://www.sasscafe.com/monaco/",
+     "https://www.sasscafe.com/contact/",
+     "https://monacopratique.com",
+     "https://avoroyale.com"
+    ]
+   }
   },
   {
    "nom": "La Rascasse",
@@ -629,7 +715,8 @@
     "posts21": 9
    },
    "slug": "la-rascasse-monaco",
-   "score": 0.37037037037037035
+   "score": 0.37037037037037035,
+   "photo": "site/lieux/larascassemc-176.webp"
   },
   {
    "nom": "Brasserie de Monaco",
@@ -662,7 +749,8 @@
     "posts21": 1
    },
    "slug": "slammers-monaco",
-   "score": 0
+   "score": 0,
+   "photo": "site/lieux/slammersmc-176.webp"
   },
   {
    "nom": "Amazónico Monte-Carlo",
@@ -709,7 +797,8 @@
     "posts21": 10
    },
    "slug": "blue-gin-monaco",
-   "score": 0.4444444444444444
+   "score": 0.4444444444444444,
+   "photo": "site/lieux/blueginmonaco-176.webp"
   },
   {
    "nom": "Rooftop Basta Pinsa",
@@ -728,7 +817,8 @@
     "posts21": 4
    },
    "slug": "rooftop-basta-pinsa-beausoleil",
-   "score": 0.48148148148148145
+   "score": 0.48148148148148145,
+   "photo": "site/lieux/bastapinsa-176.webp"
   },
   {
    "nom": "Le Corner by 3 Tapas",
@@ -775,7 +865,8 @@
     "posts21": 0
    },
    "slug": "inky-bar-menton",
-   "score": 0
+   "score": 0,
+   "photo": "site/lieux/inkybarmenton-176.webp"
   },
   {
    "nom": "Le New Pub",
@@ -808,7 +899,8 @@
     "posts21": 0
    },
    "slug": "les-incompris-menton",
-   "score": 0
+   "score": 0,
+   "photo": "site/lieux/lesincompris_menton-176.webp"
   },
   {
    "nom": "Rhumerie Ferdinand",
