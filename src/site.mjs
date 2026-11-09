@@ -762,6 +762,7 @@ function ldOrganisation(T, compte, t, lang) {
     description: t.orgDesc,
     founder: { '@type': 'Person', name: T.directeur, jobTitle: 'Directeur', ...(T.photo_directeur ? { image: URL_SITE + T.photo_directeur } : {}) },
     areaServed: ["Côte d'Azur", 'Nice', 'Cannes', 'Monaco', 'Antibes'], sameAs: [`https://www.instagram.com/${handle}/`],
+    ...(T.email ? { email: T.email, contactPoint: { '@type': 'ContactPoint', email: T.email, contactType: 'customer support', availableLanguage: ['fr', 'en'] } } : {}),
   }, { '@context': 'https://schema.org', '@type': 'WebSite', name: 'Teufy', url: `${URL_SITE}${pre(lang)}`, inLanguage: lang, publisher: { '@id': `${URL_SITE}#teufy` },
     potentialAction: { '@type': 'SearchAction', target: { '@type': 'EntryPoint', urlTemplate: `${URL_SITE}${pre(lang)}?q={search_term_string}` }, 'query-input': 'required name=search_term_string' } }];
 }

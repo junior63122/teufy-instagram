@@ -354,12 +354,13 @@
     ]
   },
   "site": {
-    "explication": "Site internet (src/site.mjs). Champs modifiables : directeur, directeur_bio, equipe, partenaires, photo_directeur (chemin d'une photo dans le dépôt), google_verification (code fourni par Google Search Console).",
+    "explication": "Site internet (src/site.mjs). Champs modifiables : directeur, directeur_bio, equipe, partenaires, photo_directeur (chemin d'une photo dans le dépôt), google_verification (code fourni par Google Search Console). Mentions légales : raison_sociale, forme, capital, siret, adresse, email (affichés seulement si remplis).",
     "directeur": "Junior Joyant",
     "equipe": "une dizaine de personnes",
     "partenaires": "plus de 200",
     "photo_directeur": "site/img/equipe/junior-joyant.jpg",
-    "google_verification": ""
+    "google_verification": "",
+    "email": "teufy.app@gmail.com"
   },
   "codes_promo": [
     {
