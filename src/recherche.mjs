@@ -179,7 +179,11 @@ const nuitDe = (d) => new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Paris
 const lieuCle = (x) => sansAccents(x).replace(/[^a-z0-9]+/g, ' ').replace(/\b(le|la|les|club|nice|cannes|monaco|by|beach)\b/g, ' ').trim().split(/\s+/).filter((w) => w.length >= 3).slice(0, 2).join(' ');
 export function memeSoiree(a, b) {
   if (nuitDe(a.start) !== nuitDe(b.start)) return false;
-  const lieu = lieuCle(a.venue) && lieuCle(a.venue) === lieuCle(b.venue);
+  // Même lieu, quel que soit l'ordre des mots (« Frigo 16 - Le 109 » = « Le 109 - Frigo 16 » = « Frigo 16 »).
+  const mots = (x) => new Set(sansAccents(x).replace(/[^a-z0-9]+/g, ' ').replace(/\b(le|la|les|club|nice|cannes|monaco|by|beach|bar|the)\b/g, ' ').trim().split(/\s+/).filter((w) => w.length >= 2));
+  const [ma, mb] = [mots(a.venue), mots(b.venue)];
+  const [petit, grand] = ma.size <= mb.size ? [ma, mb] : [mb, ma];
+  const lieu = (lieuCle(a.venue) && lieuCle(a.venue) === lieuCle(b.venue)) || (petit.size > 0 && [...petit].every((w) => grand.has(w)));
   const nom = jaccard(a.name, b.name);
   return nom >= 0.8 || (lieu && nom >= 0.34) || (lieu && Math.abs(Date.parse(a.start) - Date.parse(b.start)) < 3600e3);
 }

@@ -394,7 +394,8 @@
         "https://shotgun.live/fr/venues/ref"
       ],
       "jusqu_au": "2027-08-31",
-      "annonce_instagram": "À annoncer dans le prochain post concours (demande de Junior, 09/11/2026) ; épinglage à faire à la main (impossible par l'API)."
+      "annonce_instagram": "À annoncer dans le prochain post concours (demande de Junior, 09/11/2026) ; épinglage à faire à la main (impossible par l'API).",
+      "partenaire_nom": "Panda Events"
     }
   ]
 }

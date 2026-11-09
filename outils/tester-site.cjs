@@ -196,9 +196,9 @@ async function controlerPage(p, nom, u) {
     const t = await p.evaluate(() => new Promise((ok) => { const v = document.querySelector('video'); if (!v) return ok(-1); let max = 0, boucles = 0, prec = 0; v.addEventListener('timeupdate', () => { if (v.currentTime < prec) boucles++; prec = v.currentTime; max = Math.max(max, v.currentTime); }); setTimeout(() => ok({ max, boucles, paused: v.paused, duree: v.duration }), 20000); }));
     ok(t !== -1 && t.duree > 15 && t.max > t.duree - 2 && t.boucles >= 1 && !t.paused, `${nom} : la vidéo de Monaco ne tourne pas en entier / en boucle (${JSON.stringify(t)})`);
     } catch (e) { echecs.push(`${nom} : étape interrompue (${e.message.split('\n')[0]})`); }
-    await c.close();
+    await c.close().catch(() => {});
   }
-  await b.close();
+  await b.close().catch(() => {});
   console.log(echecs.length ? `✗ ${echecs.length} problème(s) :\n- ${[...new Set(echecs)].join('\n- ')}` : '✓ Tous les scénarios passent.');
   process.exit(echecs.length ? 1 : 0);
 })();

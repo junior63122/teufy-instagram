@@ -92,15 +92,35 @@ async function gemini(parts, { recherche = false } = {}) {
   return null;
 }
 
+// Vérification d'une affiche (v2) : l'IA LIT l'affiche (titre, artistes, lieu, dates) et le code compare avec la
+// soirée. Acceptée si la date concorde (ou si l'affiche n'en montre pas) ET qu'un artiste, le lieu ou un mot du titre
+// se retrouve dans la soirée. Avant, une simple question « ça correspond ? » rejetait de bonnes affiches.
+const motsAffiche = (x) => new Set(sansAccent(String(x || '')).toLowerCase().split(/[^a-z0-9]+/).filter((m) => m.length >= 4 && !/^(soiree|party|night|club|nice|cannes|monaco|antibes|toulon|edition|presente|presents|avec|with|special|session|live|music|musique|entree|gratuit|billets|tickets|novembre|decembre|2026|2027)$/.test(m)));
+// Image de partage officielle d'une page (balise og:image), ou '' si absente / page illisible.
+async function imageDePartage(url) {
+  try {
+    const r = await fetch(url, { headers: { 'User-Agent': UA, 'Accept-Language': 'fr' }, signal: AbortSignal.timeout(12000) });
+    if (!r.ok) return '';
+    const html = (await r.text()).slice(0, 300000);
+    const m = html.match(/<meta[^>]+property=["']og:image(?::secure_url)?["'][^>]+content=["']([^"']+)["']/i) || html.match(/<meta[^>]+content=["']([^"']+)["'][^>]+property=["']og:image["']/i);
+    return m && /^https?:\/\//.test(m[1]) ? m[1].replace(/&amp;/g, '&') : '';
+  } catch { return ''; }
+}
 async function verifier(e, fichier, cache) {
-  const k = h(`${e.image}|${e.name}`);
+  const k = `v2|${h(`${e.image}|${e.name}`)}`, ancien = cache[h(`${e.image}|${e.name}`)];
   if (cache[k]) return cache[k].ok;
-  if (!tempsOk()) return true;
-  const consigne = `Affiche censée illustrer la soirée « ${e.name} », le ${paris(e.start, { dateStyle: 'full' })}, ${e.venue || ''} ${e.city || ''}. Réponds en JSON {"correspond": true|false} : false seulement si l'affiche annonce clairement une AUTRE soirée (autre nom, autre artiste principal, autre lieu ou autre date).`;
-  const r = await gemini([{ inline_data: { mime_type: 'image/jpeg', data: readFileSync(fichier).toString('base64') } }, { text: consigne }]);
-  if (!r) return true; // vérification impossible : on montre l'affiche
-  const ok = r.correspond !== false;
-  cache[k] = { ok, le: new Date().toISOString(), nom: e.name };
+  // Sans IA disponible (ou plus de temps) : on garde l'ancien verdict s'il existe, sinon on montre l'affiche.
+  if (!tempsOk() || !(process.env.GEMINI_API_KEY || '').trim()) return ancien ? ancien.ok : true;
+  const r = await gemini([{ inline_data: { mime_type: 'image/jpeg', data: readFileSync(fichier).toString('base64') } }, { text: 'Lis cette affiche de soirée. Réponds en JSON {"titre":string,"artistes":[string],"lieu":string,"ville":string,"dates":["AAAA-MM-JJ"]}. Recopie seulement ce qui est écrit sur l\'affiche (dates au format AAAA-MM-JJ, année 2026 ou 2027 si elle n\'est pas écrite ; tableau vide si aucune date). Chaîne vide si absent.' }]);
+  if (!r || typeof r !== 'object') return ancien ? ancien.ok : true; // lecture impossible : ancien verdict, sinon on montre l'affiche
+  const jour = cle(e.start), j = Date.parse(`${jour}T12:00:00Z`);
+  const dates = (r.dates || []).filter((d) => /^\d{4}-\d{2}-\d{2}$/.test(d));
+  const dateOk = !dates.length || dates.some((d) => Math.abs(Date.parse(`${d}T12:00:00Z`) - j) <= 864e5);
+  const surAffiche = motsAffiche([r.titre, ...(r.artistes || []), r.lieu].join(' '));
+  const soiree = motsAffiche([e.name, e.venue, e.accroche, e.description, ...(e.tags || [])].join(' '));
+  const commun = [...surAffiche].filter((m) => soiree.has(m));
+  const ok = dateOk && (commun.length > 0 || !surAffiche.size);
+  cache[k] = { ok, le: new Date().toISOString(), nom: e.name, lu: { titre: r.titre, dates, artistes: (r.artistes || []).slice(0, 6) }, commun: commun.slice(0, 5) };
   return ok;
 }
 
@@ -496,6 +516,14 @@ export async function construireSite({ events, eventsFrance = [], hist = [], con
         else log(`Site : affiche écartée (ne correspond pas) pour « ${e.name} »`);
       }
     }
+    // Pas d'affiche valable : l'image de partage officielle (og:image) de la page de billetterie, vérifiée elle aussi.
+    if (!affiche && /^https?:\/\//.test(e.url || '') && tempsOk()) {
+      const og = cache[`og|${e.url}`] ?? (cache[`og|${e.url}`] = await imageDePartage(e.url));
+      if (og && og !== e.image) {
+        const f = path.join(SITE, 'affiches', `${h(og)}.jpg`);
+        if ((existsSync(f) || await telecharger(og, f)) && await verifier({ ...e, image: og }, f, cache)) { affiche = `site/affiches/${path.basename(f)}`; dims = tailleJpeg(f); webp(f, 480); webp(f, 800); webp(f, 1080); }
+      }
+    }
     const ville = zone === 'france' ? slug(VILLES_FRANCE.find((v) => sansAccent(e.city).includes(sansAccent(v).split('-')[0])) || e.city)
       : (VILLES.find((v) => new RegExp(v, 'i').test(`${e.city} ${e.venue}`)) || (RE_VAR.test(`${e.city} ${e.venue} ${e.address || ''}`) ? 'var' : 'autres')).toLowerCase();
     let id = `${slug(e.name) || 'soiree'}-${cle(e.start)}`;
@@ -766,7 +794,15 @@ function accesDe(s) {
 // Codes promo négociés avec les partenaires (config.json, rubrique « codes_promo ») : affichés sur les soirées concernées.
 let CODES = [];
 const promoDe = (s) => CODES.find((c) => (!c.jusqu_au || Date.parse(c.jusqu_au) >= Date.parse(s.debut)) && new RegExp(c.s_applique.replace(/^\(\?i\)/, ''), 'i').test(`${s.nom} ${s.lieu} ${s.url}`));
-const blocPromo = (c, t, tr) => `<div class="code-promo"><p class="pied-titre">${esc(t.codePromo)}</p><p class="code-ligne"><b>${esc(c.remise)}</b><button type="button" class="code" data-copier="${esc(c.code)}">${esc(c.code)} <span>${esc(t.copier)}</span></button></p><p>${esc(tr(c.description))}</p><details class="promo-conditions"><summary>${esc(t.conditions)}</summary><p class="petit">${esc(tr(c.conditions))}</p>${(c.liens || []).length ? `<p class="petit">${esc(t.billetsEligibles)} : ${c.liens.map((u) => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(u.replace(/^https?:\/\/(www\.)?/, ''))}</a>`).join(' · ')}</p>` : ''}</details></div>`;
+// Code promo d'un partenaire, expliqué : qui l'offre, qu'il marche pour CETTE soirée, comment s'en servir, jusqu'à quand, conditions.
+const blocPromo = (c, t, tr, s) => `<div class="code-promo">
+  <p class="pied-titre">${esc(t.codePromo)}${c.partenaire ? ` · ${esc(tr('offert par'))} <a href="https://www.instagram.com/${esc(c.partenaire)}/" target="_blank" rel="noopener">${esc(c.partenaire_nom || `@${c.partenaire}`)}</a>` : ''}</p>
+  <p class="code-ligne"><b>${esc(c.remise)}</b><button type="button" class="code" data-copier="${esc(c.code)}">${esc(c.code)} <span>${esc(t.copier)}</span></button></p>
+  <p class="code-valable">✓ ${esc(tr('Valable pour cette soirée'))}${c.jusqu_au ? ` · ${esc(tr("jusqu'au"))} ${esc(paris(`${c.jusqu_au}T12:00:00Z`, { day: 'numeric', month: 'long', year: 'numeric' }, t.locale))}` : ''}</p>
+  <p>${esc(tr(c.description))}</p>
+  <ol class="code-etapes"><li>${esc(tr('Copie le code'))}</li><li>${esc(tr('Clique sur « Billets »'))}</li><li>${esc(tr('Colle-le au moment du paiement : la réduction s\'applique'))}</li></ol>
+  <p class="petit"><b>${esc(t.conditions)} :</b> ${esc(tr(c.conditions))}</p>
+</div>`;
 
 // Soirée sans affiche : vignette typographique aux couleurs de la DA (dégradé propre à chaque soirée), jamais une photo répétée.
 function vignette(s) {
@@ -1117,7 +1153,7 @@ function pageSoiree({ lang, t, tr, base, compte, T, chemin, s, soirees, maj }) {
         <button type="button" class="bouton contour sombre partager">${esc(t.partager)}</button>
         <button type="button" class="coeur grand" aria-label="${esc(t.ajouterFav)}" aria-pressed="false"></button>
       </p>
-      ${promoDe(s) ? blocPromo(promoDe(s), t, tr) : ''}
+      ${promoDe(s) ? blocPromo(promoDe(s), t, tr, s) : ''}
       ${offres}
       ${yAller(s, t, lieu)}
       ${s.instagram ? `<p class="orga-ig"><a class="lien" href="https://www.instagram.com/${esc(s.instagram)}/" target="_blank" rel="noopener">@${esc(s.instagram)}</a></p>` : ''}

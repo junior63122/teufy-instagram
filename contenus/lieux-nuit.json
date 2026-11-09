@@ -621,8 +621,7 @@
    "description": "Établissement festif en bord de mer combinant restaurant, bar lounge et boîte de nuit sur des rythmes Afro-house et House.",
    "soirees": [
     "ium-francis-key-2026-11-12",
-    "lanonchalance-pres-malive-2026-11-13",
-    "la-nonchalance-x-twiga-monaco-malive-2026-11-13"
+    "lanonchalance-pres-malive-2026-11-13"
    ],
    "prochaines": [
     {
@@ -632,10 +631,6 @@
     {
      "id": "lanonchalance-pres-malive-2026-11-13",
      "nom": "Lanonchalance Pres. Malive"
-    },
-    {
-     "id": "la-nonchalance-x-twiga-monaco-malive-2026-11-13",
-     "nom": "La Nonchalance x Twiga Monaco : MALIVE"
     }
    ],
    "insta": {
@@ -645,7 +640,7 @@
     "posts21": 8
    },
    "slug": "twiga-monte-carlo-monaco",
-   "score": 0.4277777777777778,
+   "score": 0.37777777777777777,
    "photo": "site/lieux/twigamontecarlo-176.webp",
    "details": {
     "le": "2026-11-09T19:59:29.344Z",

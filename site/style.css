@@ -813,3 +813,7 @@ details[data-bloc="tri"]>.groupe{inset-inline-start:auto;inset-inline-end:0}
   .hero.sans-photo .hero-texte p:not(.etiquette){margin-bottom:6px;font-size:16.5px}
   .hero.sans-photo .hero-actions{margin-top:8px}
 }
+.code-promo .pied-titre a{color:var(--creme)}
+.code-valable{color:#3dff8a;font-weight:700;font-size:14px}
+.code-etapes{margin:2px 0 6px;padding-inline-start:20px;display:grid;gap:3px;font-size:14.5px;opacity:.9}
+.code-etapes li::marker{color:var(--corail);font-weight:800}
