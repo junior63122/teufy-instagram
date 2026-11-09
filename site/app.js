@@ -1,5 +1,6 @@
-// Site Teufy : filtres de l'agenda, « Ce soir / En ce moment », carte interactive, filtres flottants et animations.
-// Les soirées sont déjà dans la page (bon pour Google) : le script ne fait que trier, masquer et animer.
+// Site Teufy : agenda (filtres multiples, recherche, près de moi, transports), « Ce soir / En ce moment », carte, favoris,
+// filtres en feuille sur mobile, partage et animations. Les soirées sont déjà dans la page (bon pour Google) :
+// le script ne fait que trier, masquer et animer.
 (() => {
   const T = JSON.parse(document.getElementById('teufy-t')?.textContent || '{}');
   const reduit = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -13,6 +14,8 @@
   const debut = (c) => Date.parse(c.dataset.debut);
   const enCours = (c) => debut(c) <= maintenant && maintenant < debut(c) + DUREE;
   const nb = (n) => (n === 1 ? T.soiree : (T.soirees || '{n}').replace('{n}', n));
+  const norm = (x) => String(x || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').trim();
+  const toast = (m) => { const t = document.querySelector('.toast'); if (!t || !m) return; t.textContent = m; t.hidden = false; clearTimeout(toast.t); toast.t = setTimeout(() => { t.hidden = true; }, 2600); };
 
   const cartes = [...document.querySelectorAll('.liste .carte')];
   // Soirées terminées : elles disparaissent d'elles-mêmes (la page n'est régénérée qu'une fois par jour).
@@ -26,6 +29,7 @@
     const rangee = ceSoir.querySelector('.rangee');
     for (const c of soir) {
       const k = c.cloneNode(true);
+      k.hidden = false;
       const s = document.createElement('span');
       s.className = 'statut' + (enCours(c) ? ' en-cours' : '');
       if (enCours(c)) { const p = document.createElement('i'); p.className = 'point'; s.append(p, T.live); } else s.textContent = (T.bientot || '{h}').replace('{h}', c.dataset.heure);
@@ -40,39 +44,81 @@
     });
   }
 
-  // --- Filtres ---------------------------------------------------------------------------------------------
-  const etat = { quand: 'tout', ville: 'tout', style: 'tout', prix: 'tout', q: '' };
-  const norm = (x) => String(x || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
+  // --- Filtres : « quand » et « prix » à choix unique ; villes, styles et accès à choix multiples --------------
+  const MULTI = new Set(['ville', 'style', 'acces']);
+  const etat = { quand: 'tout', prix: 'tout', ville: new Set(), style: new Set(), acces: new Set(), q: '', qBrut: '' };
   let favoris = new Set();
   try { favoris = new Set(JSON.parse(localStorage.getItem('teufy-favoris') || '[]')); } catch { /* stockage indisponible */ }
-  const dansQuand = (j, c) => etat.quand === 'tout' || (etat.quand === 'soir' && j === auj) || (etat.quand === 'favoris' && favoris.has(c.dataset.id))
-    || (etat.quand === 'semaine' && j >= auj && j <= jPlus(6))
-    || (etat.quand === 'weekend' && j >= (dow >= 5 || dow === 0 ? auj : vendredi) && j <= dimanche);
+  let position = null; // position du visiteur (« Près de moi »), jamais envoyée nulle part
+  const RAYON = 10; // km
+  const distanceKm = (c) => {
+    if (!position || !c.dataset.lat) return null;
+    const la = +c.dataset.lat, lo = +c.dataset.lng;
+    const r = Math.PI / 180, x = (lo - position.lng) * r * Math.cos(((la + position.lat) / 2) * r), y = (la - position.lat) * r;
+    return Math.sqrt(x * x + y * y) * 6371;
+  };
+  const dansQuand = (c) => {
+    const j = c.dataset.jour;
+    return etat.quand === 'tout' || (etat.quand === 'soir' && j === auj) || (etat.quand === 'favoris' && favoris.has(c.dataset.id))
+      || (etat.quand === 'semaine' && j >= auj && j <= jPlus(6))
+      || (etat.quand === 'weekend' && j >= (dow >= 5 || dow === 0 ? auj : vendredi) && j <= dimanche);
+  };
+  const accesOk = (c) => {
+    for (const a of etat.acces) {
+      if (a === 'pres') { const d = distanceKm(c); if (d == null || d > RAYON) return false; } else if (!(c.dataset.acces || '').split(' ').includes(a)) return false;
+    }
+    return true;
+  };
   let visibles = 0;
   const appliquer = () => {
     visibles = 0;
     for (const c of cartes) {
       const p = c.dataset.prix === '' ? null : +c.dataset.prix;
-      const ok = !finies.has(c) && dansQuand(c.dataset.jour, c) && (!etat.q || etat.q.split(/\s+/).every((m) => (c.dataset.q || '').includes(m))) && (etat.ville === 'tout' || c.dataset.ville === etat.ville)
-        && (etat.style === 'tout' || c.dataset.styles.split(' ').includes(etat.style))
-        && (etat.prix === 'tout' || (etat.prix === 'gratuit' ? p === 0 : p != null && p < 10));
-      c.hidden = !ok; if (ok) visibles++;
+      const ok = !finies.has(c) && dansQuand(c)
+        && (!etat.q || etat.q.split(/\s+/).every((m) => (c.dataset.q || '').includes(m)))
+        && (!etat.ville.size || etat.ville.has(c.dataset.ville))
+        && (!etat.style.size || c.dataset.styles.split(' ').some((s) => etat.style.has(s)))
+        && (etat.prix === 'tout' || (etat.prix === 'gratuit' ? p === 0 : p != null && p < 10))
+        && accesOk(c);
+      c.hidden = !ok;
+      if (ok) visibles++;
+      const d = distanceKm(c), span = c.querySelector('.distance');
+      if (span) span.textContent = d == null ? '' : `${d < 1 ? Math.round(d * 1000) + ' m' : d.toFixed(1).replace('.', ',') + ' km'}`;
     }
     document.querySelectorAll('.liste .jour').forEach((j) => { j.hidden = !j.querySelector('.carte:not([hidden])'); });
     const aucune = document.getElementById('aucune');
-    if (aucune) { aucune.hidden = visibles > 0 || !cartes.length; if (etat.q && !visibles) aucune.textContent = (T.aucunRes || '').replace('{q}', etat.qBrut); else if (aucune.dataset.texte) aucune.textContent = aucune.dataset.texte; }
-    document.querySelectorAll('.nb-res').forEach((p) => { p.textContent = etat.q ? (T.resultats || '').replace('{n}', visibles).replace('{q}', etat.qBrut) : ''; });
-    document.querySelectorAll('.ouvrir-filtres .compte').forEach((b) => { b.textContent = cartes.length ? visibles : ''; });
+    if (aucune) { aucune.hidden = visibles > 0 || !cartes.length; aucune.textContent = etat.q && !visibles ? (T.aucunRes || '').replace('{q}', etat.qBrut) : aucune.dataset.texte || aucune.textContent; }
+    document.querySelectorAll('.nb-res').forEach((p) => { p.textContent = etat.q ? (T.resultats || '').replace('{n}', visibles).replace('{q}', etat.qBrut) : cartes.length ? nb(visibles) : ''; });
+    document.querySelectorAll('.ouvrir-filtres .compte, .voir-n').forEach((b) => { b.textContent = cartes.length ? (b.classList.contains('voir-n') ? (T.voirN || '{n}').replace('{n}', visibles) : visibles) : ''; });
+    majBoutons();
     animerCartes();
     if (vue === 'carte') dessiner();
   };
-  document.addEventListener('click', (ev) => {
-    const b = ev.target.closest('.filtres .groupe button'); if (!b) return;
-    const g = b.parentElement;
-    g.querySelectorAll('button').forEach((x) => x.classList.toggle('actif', x === b));
-    etat[g.dataset.filtre] = b.dataset.v; appliquer();
+  const majBoutons = () => document.querySelectorAll('.filtres .groupe').forEach((g) => {
+    const f = g.dataset.filtre;
+    g.querySelectorAll('button').forEach((b) => {
+      const actif = MULTI.has(f) ? (b.dataset.v === 'tout' ? !etat[f].size : etat[f].has(b.dataset.v)) : etat[f] === b.dataset.v;
+      b.classList.toggle('actif', actif);
+      b.setAttribute('aria-pressed', actif);
+    });
   });
-
+  const demanderPosition = () => new Promise((ok) => {
+    if (!navigator.geolocation) { toast(T.geoImpossible); ok(false); return; }
+    navigator.geolocation.getCurrentPosition((p) => { position = { lat: p.coords.latitude, lng: p.coords.longitude }; ok(true); }, () => { toast(T.geoRefus); ok(false); }, { enableHighAccuracy: false, timeout: 10000, maximumAge: 600000 });
+  });
+  document.addEventListener('click', async (ev) => {
+    const b = ev.target.closest('.filtres .groupe button'); if (!b) return;
+    const f = b.closest('.groupe').dataset.filtre, v = b.dataset.v;
+    if (MULTI.has(f)) {
+      if (v === 'tout') etat[f].clear();
+      else if (etat[f].has(v)) etat[f].delete(v);
+      else {
+        if (v === 'pres' && !position && !(await demanderPosition())) return;
+        etat[f].add(v);
+      }
+    } else etat[f] = v;
+    appliquer();
+  });
 
   // --- Recherche -------------------------------------------------------------------------------------------
   const champs = [...document.querySelectorAll('.recherche input')];
@@ -80,82 +126,123 @@
   let minuteur = 0;
   const chercher = (v, source) => {
     etat.qBrut = v.trim(); etat.q = norm(v);
-    champs.forEach((c) => { if (c !== source) c.value = v; c.parentElement.querySelector('.effacer').hidden = !v; });
+    champs.forEach((c) => { if (c !== source) c.value = v; const x = c.parentElement.querySelector('.effacer'); if (x) x.hidden = !v; });
     clearTimeout(minuteur);
     minuteur = setTimeout(() => {
-      appliquer();
+      if (cartes.length) appliquer();
       const u = new URL(location.href); if (etat.q) u.searchParams.set('q', etat.qBrut); else u.searchParams.delete('q');
       history.replaceState(null, '', u);
     }, 120);
   };
+  const agenda = document.getElementById('agenda');
   champs.forEach((c) => {
     c.addEventListener('input', () => chercher(c.value, c));
-    c.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); c.blur(); if (vue === 'liste') document.querySelector('.liste')?.scrollIntoView({ behavior: reduit ? 'auto' : 'smooth' }); } });
+    c.addEventListener('keydown', (e) => {
+      if (e.key !== 'Enter') return;
+      e.preventDefault(); c.blur();
+      if (feuilleOuverte()) fermer(); else if (vue === 'liste') document.querySelector('.liste')?.scrollIntoView({ behavior: reduit ? 'auto' : 'smooth' });
+    });
     c.parentElement.querySelector('.effacer')?.addEventListener('click', () => { c.value = ''; chercher('', null); c.focus(); });
   });
   document.querySelector('.hero-recherche')?.addEventListener('submit', (e) => {
     e.preventDefault();
-    agenda?.scrollIntoView({ behavior: reduit ? 'auto' : 'smooth' });
+    if (!agenda) return;
+    chercher(e.target.querySelector('input')?.value || '', null);
+    agenda.scrollIntoView({ behavior: reduit ? 'auto' : 'smooth' });
   });
 
   // --- Favoris (gardés dans ce navigateur uniquement) ------------------------------------------------------
   const majCoeurs = () => document.querySelectorAll('[data-id] .coeur').forEach((b) => b.setAttribute('aria-pressed', favoris.has(b.closest('[data-id]').dataset.id)));
   document.addEventListener('click', (ev) => {
     const b = ev.target.closest('.coeur'); if (!b) return;
+    ev.preventDefault();
     const id = b.closest('[data-id]')?.dataset.id; if (!id) return;
-    if (favoris.has(id)) favoris.delete(id); else favoris.add(id);
+    if (favoris.has(id)) favoris.delete(id); else { favoris.add(id); toast(T.ajoute); }
     try { localStorage.setItem('teufy-favoris', JSON.stringify([...favoris])); } catch { /* navigation privée */ }
     majCoeurs(); b.classList.remove('pop'); void b.offsetWidth; b.classList.add('pop');
     if (etat.quand === 'favoris') appliquer();
   });
   majCoeurs();
 
-  // --- Partage, toast, retour en haut ----------------------------------------------------------------------
-  const toast = (m) => { const t = document.querySelector('.toast'); if (!t) return; t.textContent = m; t.hidden = false; clearTimeout(toast.t); toast.t = setTimeout(() => { t.hidden = true; }, 2200); };
+  // --- Partage, copie de code promo, retour en haut ---------------------------------------------------------
   document.addEventListener('click', async (ev) => {
-    if (!ev.target.closest('.partager')) return;
-    const d = { title: document.title, url: location.href.split('#')[0] };
-    try { if (navigator.share) await navigator.share(d); else { await navigator.clipboard.writeText(d.url); toast(T.lienCopie); } } catch { /* partage annulé */ }
+    const p = ev.target.closest('.partager');
+    if (p) {
+      const d = { title: document.title, url: location.href.split('#')[0] };
+      try { if (navigator.share) await navigator.share(d); else { await navigator.clipboard.writeText(d.url); toast(T.lienCopie); } } catch { /* partage annulé */ }
+      return;
+    }
+    const code = ev.target.closest('[data-copier]');
+    if (code) { try { await navigator.clipboard.writeText(code.dataset.copier); toast(T.codeCopie); } catch { toast(code.dataset.copier); } }
   });
   const haut = document.querySelector('.haut');
   haut?.addEventListener('click', () => scrollTo({ top: 0, behavior: reduit ? 'auto' : 'smooth' }));
 
-  // --- Filtres flottants (mobile) : un bouton en bas de l'écran ouvre les filtres en feuille ----------------
-  const place = document.querySelector('.filtres-place'), filtres = document.querySelector('.filtres'), agenda = document.getElementById('agenda');
+  // --- Filtres en feuille (mobile) ----------------------------------------------------------------------------
+  // Le bloc de filtres est déplacé dans une feuille plein écran (au-dessus de tout), la page derrière est bloquée.
+  // On ferme : bouton « Voir les N soirées », croix, tap sur le fond, glisser vers le bas, touche Échap.
+  const place = document.querySelector('.filtres-place'), filtres = document.querySelector('.filtres');
   const flottant = document.querySelector('.flottant');
   const mobile = matchMedia('(max-width: 759px)');
-  let voile = null;
+  let feuille = null, scrollAvant = 0, etatAvant = '';
+  const signature = () => JSON.stringify([etat.quand, etat.prix, [...etat.ville], [...etat.style], [...etat.acces], etat.q]);
+  const feuilleOuverte = () => !!feuille;
   const ouvrir = () => {
+    if (feuille || !filtres) return;
+    scrollAvant = scrollY;
+    etatAvant = signature();
     place.style.minHeight = place.offsetHeight + 'px';
-    filtres.classList.add('feuille');
-    voile = Object.assign(document.createElement('div'), { className: 'voile' });
-    voile.addEventListener('click', fermer);
-    document.body.append(voile);
+    feuille = document.createElement('div');
+    feuille.className = 'feuille-filtres';
+    feuille.setAttribute('role', 'dialog');
+    feuille.setAttribute('aria-modal', 'true');
+    feuille.innerHTML = `<div class="feuille-fond"></div><div class="feuille-boite"><div class="feuille-poignee"><span></span><button type="button" class="feuille-x" aria-label="${T.fermerX || '×'}">×</button></div><div class="feuille-corps"></div><div class="feuille-pied"><button type="button" class="bouton voir-n"></button></div></div>`;
+    feuille.querySelector('.feuille-corps').append(filtres);
+    document.body.append(feuille);
+    document.documentElement.classList.add('bloque');
+    document.body.style.top = `-${scrollAvant}px`;
     flottant.hidden = true;
+    feuille.querySelector('.feuille-fond').addEventListener('click', fermer);
+    feuille.querySelector('.feuille-x').addEventListener('click', fermer);
+    feuille.querySelector('.voir-n').addEventListener('click', fermer);
+    // Glisser vers le bas depuis la poignée (ou depuis le haut du contenu) pour fermer.
+    const boite = feuille.querySelector('.feuille-boite'), corps = feuille.querySelector('.feuille-corps');
+    let y0 = null, dy = 0;
+    boite.addEventListener('touchstart', (e) => { if (e.target.closest('.feuille-poignee') || corps.scrollTop <= 0) { y0 = e.touches[0].clientY; dy = 0; } }, { passive: true });
+    boite.addEventListener('touchmove', (e) => { if (y0 == null) return; dy = Math.max(0, e.touches[0].clientY - y0); if (dy > 0) boite.style.transform = `translateY(${dy}px)`; }, { passive: true });
+    boite.addEventListener('touchend', () => { if (y0 == null) return; y0 = null; boite.style.transform = ''; if (dy > 90) fermer(); });
+    appliquer();
+    setTimeout(() => feuille?.querySelector('.voir-n')?.focus({ preventScroll: true }), 50);
   };
   function fermer() {
-    if (!filtres.classList.contains('feuille')) return;
-    filtres.classList.remove('feuille');
+    if (!feuille) return;
+    place.append(filtres);
     place.style.minHeight = '';
-    voile?.remove(); voile = null;
+    feuille.remove(); feuille = null;
+    document.documentElement.classList.remove('bloque');
+    document.body.style.top = '';
+    scrollTo({ top: scrollAvant, behavior: 'instant' });
+    // Filtres changés : on montre le début des résultats ; sinon on reste exactement où on était.
     const cible = vue === 'carte' ? document.getElementById('carte') : document.querySelector('.liste');
-    if (cible && cible.getBoundingClientRect().top < 0) cible.scrollIntoView({ behavior: reduit ? 'auto' : 'smooth', block: 'start' });
+    if (signature() !== etatAvant && cible && cible.getBoundingClientRect().top < 0) cible.scrollIntoView({ behavior: reduit ? 'auto' : 'smooth', block: 'start' });
     majFlottant();
   }
   const majFlottant = () => {
-    if (!flottant || !place || filtres.classList.contains('feuille')) return;
+    if (!flottant || !place || feuille) return;
     const r = place.getBoundingClientRect(), a = agenda.getBoundingClientRect();
     flottant.hidden = !(mobile.matches && r.bottom < 0 && a.bottom > innerHeight * 0.6);
   };
-  if (!place && haut) addEventListener('scroll', () => { haut.hidden = scrollY < 1400; }, { passive: true });
+  addEventListener('keydown', (e) => { if (e.key === 'Escape') fermer(); });
   if (place && flottant) {
     flottant.querySelector('button').addEventListener('click', ouvrir);
-    filtres.querySelector('.fermer-filtres')?.addEventListener('click', fermer);
-    addEventListener('keydown', (e) => { if (e.key === 'Escape') fermer(); });
-    let attente = false;
-    addEventListener('scroll', () => { if (!attente) { attente = true; requestAnimationFrame(() => { attente = false; majFlottant(); if (haut) haut.hidden = scrollY < 1400; }); } }, { passive: true });
-    mobile.addEventListener?.('change', majFlottant);
+    mobile.addEventListener?.('change', () => { if (!mobile.matches) fermer(); majFlottant(); });
   }
+  let attente = false;
+  addEventListener('scroll', () => {
+    if (attente || feuille) return;
+    attente = true;
+    requestAnimationFrame(() => { attente = false; majFlottant(); if (haut) haut.hidden = scrollY < 1400; });
+  }, { passive: true });
 
   // --- Vue liste / carte -------------------------------------------------------------------------------------
   let vue = 'liste';
@@ -163,11 +250,11 @@
   const choisirVue = (v) => {
     if (!zoneCarte) return;
     vue = v;
-    document.querySelectorAll('.vues [data-vue]').forEach((b) => b.classList.toggle('actif', b.dataset.vue === v));
+    document.querySelectorAll('.vues [data-vue]').forEach((b) => { b.classList.toggle('actif', b.dataset.vue === v); b.setAttribute('aria-pressed', b.dataset.vue === v); });
     zoneCarte.hidden = v !== 'carte'; liste.hidden = v === 'carte';
     if (v === 'carte') dessiner();
   };
-  document.querySelectorAll('.vues [data-vue]').forEach((b) => b.addEventListener('click', () => choisirVue(b.dataset.vue)));
+  document.addEventListener('click', (ev) => { const b = ev.target.closest('.vues [data-vue]'); if (b) choisirVue(b.dataset.vue); });
   // Les liens « Carte » (menu, hero) ouvrent la carte au lieu de sauter à une ancre cachée.
   document.addEventListener('click', (ev) => {
     const a = ev.target.closest('a[href$="#carte"]'); if (!a || !zoneCarte) return;
@@ -181,7 +268,7 @@
   const chargerLeaflet = () => promesse ||= new Promise((ok, ko) => {
     const css = Object.assign(document.createElement('link'), { rel: 'stylesheet', href: T.base + 'site/vendor/leaflet/leaflet.css' });
     const js = Object.assign(document.createElement('script'), { src: T.base + 'site/vendor/leaflet/leaflet.js' });
-    js.onload = () => ok(window.L); js.onerror = ko;
+    js.onload = () => ok(window.L); js.onerror = () => { promesse = null; ko(); };
     document.head.append(css, js);
   });
   const el = (tag, cls, txt) => { const e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; };
@@ -190,9 +277,11 @@
     d.append(el('p', 'pop-lieu', l[0].querySelector('.ou')?.textContent || ''));
     for (const c of l) {
       const s = el('div', 'pop-soiree');
-      s.append(el('strong', '', c.querySelector('h3')?.textContent || ''), el('small', '', `${enCours(c) ? '● ' + T.live + ' · ' : ''}${c.querySelector('.date')?.textContent || ''} · ${c.dataset.heure}`));
+      const titre = el('a', '', c.querySelector('h3')?.textContent || ''); titre.href = c.querySelector('h3 a')?.href || '#';
+      s.append(el('strong', '', ''), el('small', '', `${enCours(c) ? '● ' + T.live + ' · ' : ''}${c.querySelector('.date')?.textContent || ''} · ${c.dataset.heure}`));
+      s.firstChild.append(titre);
       const b = c.querySelector('.actions .bouton');
-      if (b) { const a = el('a', '', b.textContent); a.href = b.href; a.target = '_blank'; a.rel = 'noopener'; s.append(el('br'), a); }
+      if (b) { const a = el('a', 'pop-billets', b.textContent); a.href = b.href; a.target = '_blank'; a.rel = 'noopener'; s.append(el('br'), a); }
       d.append(s);
     }
     if (l[0].dataset.approx) d.append(el('p', 'pop-approx', T.approx));
@@ -200,9 +289,9 @@
   };
   async function dessiner() {
     let L;
-    try { L = await chargerLeaflet(); } catch { return; }
+    try { L = await chargerLeaflet(); } catch { toast(T.carteErreur); return; }
     if (!carteL) {
-      carteL = L.map(zoneCarte.querySelector('.leaflet-zone'), { scrollWheelZoom: false }).setView([43.62, 7.15], 10);
+      carteL = L.map(zoneCarte.querySelector('.leaflet-zone'), { scrollWheelZoom: false, tap: true }).setView([43.62, 7.15], 10);
       L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>', subdomains: 'abcd', maxZoom: 19,
       }).addTo(carteL);
@@ -218,7 +307,8 @@
       const html = `<div class="repere${l.some(enCours) ? ' en-cours' : ''}${l[0].dataset.approx ? ' approx' : ''}"><b>${l.length}</b></div>`;
       L.marker(ll, { icon: L.divIcon({ className: '', html, iconSize: [34, 34], iconAnchor: [17, 40], popupAnchor: [0, -36] }) }).bindPopup(bulle(l), { maxWidth: 280 }).addTo(calque);
     });
-    zoneCarte.querySelector('.carte-vide').hidden = points.length > 0;
+    if (position) { points.push([position.lat, position.lng]); L.circleMarker([position.lat, position.lng], { radius: 8, color: '#3DFF8A', fillOpacity: 0.9 }).addTo(calque); }
+    zoneCarte.querySelector('.carte-vide').hidden = lieux.size > 0;
     setTimeout(() => { carteL.invalidateSize(); if (points.length) carteL.fitBounds(points, { padding: [40, 40], maxZoom: 14 }); }, 60);
   }
 
@@ -240,7 +330,7 @@
   }), { rootMargin: '0px 0px -6% 0px' }) : null;
   let premier = true;
   function animerCartes() {
-    if (!obsCartes) return;
+    if (!obsCartes) { cartes.forEach((c) => c.classList.add('entre')); return; }
     requestAnimationFrame(() => { premier = false; });
     document.querySelectorAll('.liste .grille').forEach((g) => {
       [...g.querySelectorAll('.carte:not([hidden])')].forEach((c, i) => {
@@ -250,14 +340,24 @@
       });
     });
   }
-  if (reduit) document.querySelectorAll('video').forEach((v) => { v.removeAttribute('autoplay'); v.pause(); });
+  // Vidéos : lecture seulement si le visiteur accepte les animations ; relancées si le navigateur les a mises en pause.
+  document.querySelectorAll('video').forEach((v) => {
+    if (reduit) { v.removeAttribute('autoplay'); v.pause(); return; }
+    v.muted = true;
+    const jouer = () => v.play().catch(() => {});
+    v.addEventListener('ended', () => { v.currentTime = 0; jouer(); });
+    v.addEventListener('pause', () => { if (!document.hidden && !reduit) setTimeout(jouer, 300); });
+    jouer();
+  });
 
+  // --- Démarrage -----------------------------------------------------------------------------------------------
   const q0 = new URLSearchParams(location.search).get('q');
-  if (q0 && champs.length) { champs.forEach((c) => { c.value = q0; }); etat.qBrut = q0; etat.q = norm(q0); champs.forEach((c) => { c.parentElement.querySelector('.effacer').hidden = false; }); setTimeout(() => agenda?.scrollIntoView(), 60); }
-  appliquer();
+  if (q0 && champs.length) { champs.forEach((c) => { c.value = q0; const x = c.parentElement.querySelector('.effacer'); if (x) x.hidden = false; }); etat.qBrut = q0; etat.q = norm(q0); if (agenda) setTimeout(() => agenda.scrollIntoView(), 60); }
+  if (cartes.length || document.querySelector('.filtres')) appliquer(); else animerCartes();
   majFlottant();
-  if (location.hash === '#recherche') { const c = document.getElementById('recherche'); if (c) { agenda.scrollIntoView(); setTimeout(() => c.focus({ preventScroll: true }), 80); } }
-  document.querySelector('a.loupe[href="#recherche"]')?.addEventListener('click', (e) => { const c = document.getElementById('recherche'); if (!c) return; e.preventDefault(); if (vue !== 'liste') choisirVue('liste'); agenda.scrollIntoView({ behavior: reduit ? 'auto' : 'smooth' }); setTimeout(() => c.focus({ preventScroll: true }), 350); });
-  addEventListener('hashchange', () => { if (location.hash === '#recherche') { agenda?.scrollIntoView({ behavior: reduit ? 'auto' : 'smooth' }); setTimeout(() => document.getElementById('recherche')?.focus({ preventScroll: true }), 350); } });
+  const allerRecherche = (doux) => { const c = document.getElementById('recherche'); if (!c || !agenda) return false; if (vue !== 'liste') choisirVue('liste'); agenda.scrollIntoView({ behavior: doux && !reduit ? 'smooth' : 'auto' }); setTimeout(() => c.focus({ preventScroll: true }), doux ? 350 : 80); return true; };
+  if (location.hash === '#recherche') allerRecherche(false);
+  document.querySelector('a.loupe[href="#recherche"]')?.addEventListener('click', (e) => { if (allerRecherche(true)) e.preventDefault(); });
+  addEventListener('hashchange', () => { if (location.hash === '#recherche') allerRecherche(true); else if (location.hash === '#carte' && zoneCarte) { choisirVue('carte'); agenda?.scrollIntoView(); } });
   if (location.hash === '#carte') { choisirVue('carte'); setTimeout(() => agenda?.scrollIntoView(), 50); }
 })();

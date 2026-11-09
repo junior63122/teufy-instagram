@@ -360,5 +360,20 @@
     "partenaires": "plus de 200",
     "photo_directeur": "site/img/equipe/junior-joyant.jpg",
     "google_verification": ""
-  }
+  },
+  "codes_promo": [
+    {
+      "code": "TEUFYxPANDA20",
+      "remise": "-20 %",
+      "partenaire": "pandaevents06",
+      "description": "20 % de réduction sur chaque place achetée, saison 2026-2027.",
+      "s_applique": "(?i)frigo ?16|\\bref\\b",
+      "conditions": "Concerts au Frigo 16 (sélection éligible) et toutes les REF Sessions, hors Time Ticket, hors REF x UMA et hors Pass Family.",
+      "liens": [
+        "https://weez.li/billetterie-frigo-16",
+        "https://shotgun.live/fr/venues/ref"
+      ],
+      "jusqu_au": "2027-08-31"
+    }
+  ]
 }
