@@ -38,6 +38,17 @@
     "le-cannet",
     "mougins"
   ],
+  "sources_occitanie": {
+    "_note": "Occitanie : pages lues pour le site seulement (jamais publiées sur Instagram). Les soirées non festives (stand-up, ateliers…) sont écartées.",
+    "eventbrite": [
+      "https://www.eventbrite.fr/d/france--montpellier/parties/",
+      "https://www.eventbrite.fr/d/france--montpellier/nightlife/",
+      "https://www.eventbrite.fr/d/france--toulouse/parties/",
+      "https://www.eventbrite.fr/d/france--toulouse/nightlife/",
+      "https://www.eventbrite.fr/d/france--perpignan/parties/",
+      "https://www.eventbrite.fr/d/france--b%C3%A9ziers/parties/"
+    ]
+  },
   "sources": {
     "shotgun": [],
     "dice": [
@@ -381,7 +392,7 @@
       "telechargements_legende": "téléchargements de l'app en 2026",
       "modele": [
         ["Billetterie", "Une commission sur chaque billet vendu grâce à la plateforme."],
-        ["Sponsoring", "Des partenariats avec des marques qui veulent toucher la nuit de la Côte d'Azur."],
+        ["Sponsoring", "Des partenariats avec des marques qui veulent toucher les 18-30 ans qui sortent."],
         ["Événements", "Teufy organise aussi ses propres soirées et événements."]
       ]
     },

@@ -257,7 +257,7 @@ export async function completerBilletterie({ liste, ia, config, log = console.lo
 // --- Grandes villes étudiantes de France : rubrique séparée du site (jamais utilisée pour les posts Instagram) --------
 // Les soirées les plus attendues de chaque ville, gardées dans evenements-france.json (rafraîchi tous les 2 jours).
 const CACHE_FRANCE = path.join(ROOT, 'evenements-france.json');
-export const VILLES_FRANCE = ['Paris', 'Lyon', 'Marseille', 'Toulouse', 'Bordeaux', 'Lille', 'Nantes', 'Montpellier', 'Strasbourg', 'Rennes', 'Grenoble', 'Aix-en-Provence'];
+export const VILLES_FRANCE = ['Paris', 'Lyon', 'Marseille', 'Bordeaux', 'Lille', 'Nantes', 'Strasbourg', 'Rennes', 'Grenoble', 'Aix-en-Provence']; // Toulouse et Montpellier : rubrique Occitanie
 export function lireFrance() { return existsSync(CACHE_FRANCE) ? JSON.parse(readFileSync(CACHE_FRANCE, 'utf8')) : { maj: null, evenements: [] }; }
 export async function rechercherFrance({ config, now = new Date(), ia = LLM, log = console.log, force = false } = {}) {
   const R = config.recherche_web || {};
@@ -293,5 +293,81 @@ export async function rechercherFrance({ config, now = new Date(), ia = LLM, log
   const out = { maj: now.toISOString(), evenements: fusionner([...evenements, ...anciennes]) };
   await writeFile(CACHE_FRANCE, JSON.stringify(out, null, 2));
   log(`France : ${out.evenements.length} soirée(s) dans ${VILLES_FRANCE.length} villes.`);
+  return out;
+}
+
+// --- Occitanie : toute la région, sur le site seulement (Instagram reste 100 % Côte d'Azur) ------------------------
+// Toutes les soirées (pas seulement les plus attendues), rafraîchies chaque jour dans evenements-occitanie.json.
+const CACHE_OCCITANIE = path.join(ROOT, 'evenements-occitanie.json');
+export const VILLES_OCCITANIE = ['Montpellier', 'Toulouse', 'Nîmes', 'Perpignan', 'Béziers', 'Sète', 'Narbonne', 'Carcassonne', 'Agde', 'La Grande-Motte',
+  'Palavas-les-Flots', 'Albi', 'Montauban', 'Tarbes', 'Rodez', 'Alès', 'Castres', 'Cahors', 'Auch', 'Foix', 'Mende', 'Lourdes', 'Canet-en-Roussillon', 'Argelès-sur-Mer', 'Collioure'];
+// Code postal ou ville d'Occitanie (départements 09, 11, 12, 30, 31, 32, 34, 46, 48, 65, 66, 81, 82).
+const RE_CP_OCCITANIE = /\b(09|11|12|30|31|32|34|46|48|65|66|81|82)\d{3}\b/;
+const sansAcc = (x) => String(x || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+export function villeOccitanie(e) {
+  const t = sansAcc(`${e.city || ''} ${e.address || ''} ${e.venue || ''}`);
+  return VILLES_OCCITANIE.find((v) => t.includes(sansAcc(v).split('-')[0])) || (RE_CP_OCCITANIE.test(t) ? e.city : '');
+}
+// Ce qui n'est pas une soirée (conférences, stand-up, ateliers, rencontres pro…) : écarté des pages billetterie.
+const PAS_SOIREE = /comedy|stand ?up|humou?r|conf[ée]rence|atelier|workshop|formation|s[ée]minaire|networking|r[ée]seautage|[ée]checs|meetup|webinar|salon|rencontre(s)? (pro|d'affaires)|apéropreneur|yoga|m[ée]ditation|visite guid|dégustation de vin|speed ?dating|quiz|book ?club|lecture|jeux|vide[- ]?dressing|clothes|sale\b|afterwork|after work|[ée]loquence|brocante|march[ée] de/i;
+const EST_SOIREE = /soir[ée]e|party|club|\bdj\b|techno|house|[ée]lectro|\brap\b|afro|shatta|dancehall|reggaeton|latino|kompa|zouk|open ?air|festival|night|rave|disco|bal\b|concert|live/i;
+export function lireOccitanie() { return existsSync(CACHE_OCCITANIE) ? JSON.parse(readFileSync(CACHE_OCCITANIE, 'utf8')) : { maj: null, evenements: [] }; }
+export async function rechercherOccitanie({ config, now = new Date(), ia = LLM, log = console.log, force = false } = {}) {
+  const R = config.recherche_web || {};
+  const cache = lireOccitanie();
+  if (R.occitanie === false) return cache;
+  const ageJours = cache.maj ? (now - new Date(cache.maj)) / 86400e3 : Infinity;
+  if (!force && ageJours < (R.rafraichir_occitanie_jours ?? 1)) return cache;
+  const jour = now.toISOString().slice(0, 10);
+  const fin = new Date(now.getTime() + (R.horizon_jours ?? 45) * 86400e3).toISOString().slice(0, 10);
+  const evenements = [];
+
+  // 1. Billetteries lisibles directement (pages Eventbrite par ville, config.sources_occitanie).
+  try {
+    const { lirePagesSources } = await import('./sources.mjs');
+    const pages = await lirePagesSources(config.sources_occitanie || {}, { log });
+    for (const e of pages) {
+      if (!e.name || PAS_SOIREE.test(`${e.name} ${e.venue || ''}`) || !EST_SOIREE.test(`${e.name} ${(e.tags || []).join(' ')}`) || !villeOccitanie(e)) continue;
+      evenements.push({ ...e, source: e.source || 'billetterie', confiance: 0.9, verifie: true, tags: e.tags || [], instagram: [] });
+    }
+    log(`Occitanie : ${evenements.length} soirée(s) lues sur les billetteries.`);
+  } catch (err) { log(`Occitanie : billetteries illisibles (${err.message})`); }
+
+  // 2. Recherche web par zone (IA gratuite avec recherche Google), comme pour la Côte d'Azur.
+  if (!(ia === LLM && !LLM.fournisseurs(config).length)) {
+    const ZONES = R.passes_occitanie || [
+      'Montpellier (clubs, bars de nuit, soirées étudiantes, techno, rap, afro, open airs : Shotgun, DICE, Resident Advisor, Eventbrite, Bizouk, Midi Libre)',
+      'Toulouse (clubs, soirées étudiantes, techno, house, rap, afro, open airs, festivals : Shotgun, DICE, Resident Advisor, Eventbrite, Bizouk, La Dépêche)',
+      'le littoral de l\'Hérault et du Gard : Sète, Agde et Cap d\'Agde, La Grande-Motte, Palavas-les-Flots, Carnon, Le Grau-du-Roi (clubs, beach clubs, soirées)',
+      'Nîmes, Alès et le Gard (clubs, soirées, concerts, férias, festivals)',
+      'Perpignan et les Pyrénées-Orientales : Canet-en-Roussillon, Argelès-sur-Mer, Collioure (clubs, soirées, festivals)',
+      'Béziers, Narbonne, Carcassonne et l\'Aude (clubs, soirées, férias, festivals)',
+      'Albi, Castres, Montauban, Cahors, Rodez, Tarbes, Lourdes, Auch, Foix et Mende (clubs, soirées, concerts, festivals)',
+      'les festivals, grosses soirées électro, techno et rap et les soirées étudiantes de toute l\'Occitanie',
+    ];
+    for (const [i, zone] of ZONES.entries()) {
+      const web = await ia.rechercher({ config, gratuit: true,
+        system: "Tu recenses TOUTES les soirées d'Occitanie pour le site Teufy. Tu ne rapportes que des soirées réelles trouvées sur une page web (billetterie, club, média), jamais inventées.",
+        prompt: `Cherche les soirées à ${zone} entre le ${jour} et le ${fin}. Vérifie chaque soirée sur sa page officielle ou sa billetterie. Pour chaque soirée : nom exact, date et heure, lieu, ville, prix minimum, styles musicaux, URL de la page de la soirée, URL de l'affiche si tu la vois, site source. Sois exhaustif : une par ligne.` }).catch((err) => { log(`  Occitanie passe ${i + 1} impossible : ${err.message}`); return ''; });
+      if (!web) continue;
+      try {
+        const r = await ia.json({ config, nom: 'soirees', schema: SCHEMA, gratuit: true,
+          system: "Tu transformes des informations de soirées en données propres. N'invente rien : une soirée sans date ou sans lieu certain est écartée. Dates au fuseau Europe/Paris. Seulement des soirées en Occitanie, pour les 18-30 ans.",
+          prompt: `Aujourd'hui : ${jour}. Garde les soirées entre ${jour} et ${fin}.\n\n${web}` });
+        for (const e of r.evenements || []) {
+          if (!e.name || isNaN(Date.parse(e.start)) || !e.venue || !e.city || e.confiance < 0.75 || !villeOccitanie(e) || PAS_SOIREE.test(e.name)) continue;
+          evenements.push({ source: 'web', source_site: e.source_site, name: e.name.trim(), start: new Date(e.start).toISOString(), venue: e.venue, city: e.city, address: '',
+            url: /^https?:\/\//.test(e.url) ? e.url : '', image: /^https?:\/\//.test(e.image) ? e.image : '', price: typeof e.price === 'number' ? e.price : null, tags: e.styles || [],
+            description: '', public_cible: e.public_17_30, confiance: e.confiance, verifie: e.confiance >= 0.85, buzz: e.buzz,
+            accroche: typeof e.accroche === 'string' && e.accroche.length <= 120 && !/—/.test(e.accroche) ? e.accroche.trim() : '', instagram: [] });
+        }
+      } catch (err) { log(`  Occitanie (${zone.slice(0, 30)}…) : mise en forme impossible (${err.message})`); }
+    }
+  }
+  if (!evenements.length) return cache;
+  const anciennes = (cache.evenements || []).filter((e) => Date.parse(e.start) > now.getTime() - 6 * 3600e3);
+  const out = { maj: now.toISOString(), evenements: fusionner([...evenements, ...anciennes]) };
+  await writeFile(CACHE_OCCITANIE, JSON.stringify(out, null, 2));
+  log(`Occitanie : ${out.evenements.length} soirée(s) à venir.`);
   return out;
 }

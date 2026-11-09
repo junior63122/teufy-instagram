@@ -142,9 +142,11 @@ if (cible === 'site') {
   if (!flag('force') && existsSync(marque) && (await readFile(marque, 'utf8')).trim() === signature) { console.log('Site déjà à jour.'); process.exit(0); }
   const { construireSite } = await import('./site.mjs');
   const igSite = igConfig();
-  const { rechercherFrance } = await import('./recherche.mjs');
+  const { rechercherFrance, rechercherOccitanie } = await import('./recherche.mjs');
   const france = await rechercherFrance({ config, now: NOW }).catch((err) => { console.error(`France : ${err.message}`); return { evenements: [] }; });
-  await construireSite({ events: await events(), eventsFrance: france.evenements || [], hist, config, now: NOW, ig: igSite, api: igSite ? { businessDiscovery, compteMedia } : {} });
+  // Occitanie : rubrique du site uniquement (les posts Instagram restent 100 % Côte d'Azur).
+  const occitanie = await rechercherOccitanie({ config, now: NOW }).catch((err) => { console.error(`Occitanie : ${err.message}`); return { evenements: [] }; });
+  await construireSite({ events: await events(), eventsFrance: france.evenements || [], eventsOccitanie: occitanie.evenements || [], hist, config, now: NOW, ig: igSite, api: igSite ? { businessDiscovery, compteMedia } : {} });
   await writeFile(marque, signature + '\n');
   process.exit(0);
 }

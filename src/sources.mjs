@@ -196,3 +196,20 @@ async function soireesBizouk(html) {
   }
   return evs;
 }
+
+// Pages de billetterie d'une autre région (Occitanie : rubrique du site seulement, jamais sur Instagram).
+// Même lecture que pour la Côte d'Azur (JSON-LD, heure réelle lue sur la page Eventbrite), sans les soirées manuelles.
+export async function lirePagesSources(sources = {}, { log = console.log } = {}) {
+  const all = [], vus = new Map(), nouvelles = { n: 0 };
+  for (const [source, urls] of Object.entries(sources)) {
+    if (!Array.isArray(urls)) continue;
+    for (const url of urls) {
+      try {
+        let evs = extractEvents(await fetchHtml(url, 2), { source, baseUrl: url });
+        if (source === 'eventbrite') evs = await heuresEventbrite(evs, vus, nouvelles);
+        all.push(...evs);
+      } catch (err) { log(`  ${source} ${url} : ${err.message}`); }
+    }
+  }
+  return dedupe(all);
+}
