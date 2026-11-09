@@ -87,10 +87,10 @@ jobs:
           node src/run.mjs site $([ "${{ startsWith(inputs.quoi, 'site') }}" = "true" ] && echo --force) || echo "::warning::Site non régénéré"
           git config user.name "teufy-bot"
           git config user.email "teufy-bot@users.noreply.github.com"
-          git add apprentissage.json RAPPORT.md ANALYSE.md tendances-auto.json contenus veille index.html .nojekyll site a-propos soirees-* soiree festivals actus partenaires ambassadeurs bde mentions-legales dates restaurants activites france clubs-bars evenements-france.json 404.html en it es zh ar sitemap.xml robots.txt evenements-web.json 2>/dev/null || true
+          git add -A -- $(ls -d apprentissage.json RAPPORT.md ANALYSE.md tendances-auto.json contenus veille index.html .nojekyll site a-propos soirees-* soiree festivals actus partenaires ambassadeurs bde mentions-legales dates restaurants activites france clubs-bars evenements-france.json 404.html en it es zh ar sitemap.xml robots.txt evenements-web.json 2>/dev/null) || true # seulement les chemins existants (un seul absent bloquait tout)
           git diff --cached --quiet && exit 0
           git commit -m "Teufy Instagram : statistiques du $(date -u +%F)"
-          for i in 1 2 3; do git pull --rebase --autostash && git push && break; sleep 5; done
+          for i in 1 2 3; do git pull --rebase -X theirs --autostash && git push && break; git rebase --abort 2>/dev/null; sleep 5; done
 
       - name: Quelle publication ?
         id: choix
@@ -136,11 +136,11 @@ jobs:
         run: |
           git config user.name "teufy-bot"
           git config user.email "teufy-bot@users.noreply.github.com"
-          git add evenements-web.json contenus/organisateurs.json 2>/dev/null || true
-          git add studio/scripts/concepts studio/scripts/decors studio/public 2>/dev/null || true # reels écrits par l'IA + décors Gemini (jamais payés deux fois)
+          git add -A -- $(ls -d evenements-web.json contenus/organisateurs.json 2>/dev/null) || true # seulement les chemins existants (un seul absent bloquait tout)
+          git add -A -- $(ls -d studio/scripts/concepts studio/scripts/decors studio/public 2>/dev/null) || true # seulement les chemins existants (un seul absent bloquait tout)
           git diff --cached --quiet && exit 0
           git commit -m "Teufy : soirées et reels préparés le $(date -u +%F)"
-          for i in 1 2 3; do git pull --rebase --autostash && git push && break; sleep 5; done
+          for i in 1 2 3; do git pull --rebase -X theirs --autostash && git push && break; git rebase --abort 2>/dev/null; sleep 5; done
 
       - name: Garder l'aperçu dans le dépôt (pour le relire avant publication)
         if: steps.choix.outputs.publier != 'true' && steps.choix.outputs.rien != 'true' && steps.choix.outputs.quoi != 'mois'
@@ -148,10 +148,10 @@ jobs:
           git config user.name "teufy-bot"
           git config user.email "teufy-bot@users.noreply.github.com"
           mkdir -p apercus && rm -rf apercus/* && cp -r media/* apercus/ 2>/dev/null || true
-          git add apercus 2>/dev/null || true
+          git add -A -- $(ls -d apercus 2>/dev/null) || true # seulement les chemins existants (un seul absent bloquait tout)
           git diff --cached --quiet && exit 0
           git commit -m "Teufy : aperçu ${{ steps.choix.outputs.quoi }} du $(date -u +%F)"
-          for i in 1 2 3; do git pull --rebase --autostash && git push && break; sleep 5; done
+          for i in 1 2 3; do git pull --rebase -X theirs --autostash && git push && break; git rebase --abort 2>/dev/null; sleep 5; done
 
       - name: Aperçu téléchargeable (visuels, vidéos, légendes, pages récupérées)
         if: always() && steps.choix.outputs.rien != 'true'
@@ -168,10 +168,10 @@ jobs:
         run: |
           git config user.name "teufy-bot"
           git config user.email "teufy-bot@users.noreply.github.com"
-          git add media evenements-web.json contenus/organisateurs.json 2>/dev/null || git add media
+          git add -A -- $(ls -d media evenements-web.json contenus/organisateurs.json 2>/dev/null) || true # seulement les chemins existants (un seul absent bloquait tout)
           git diff --cached --quiet && exit 0
           git commit -m "Teufy Instagram : médias ${{ steps.choix.outputs.quoi }} du $(date -u +%F)"
-          for i in 1 2 3; do git pull --rebase --autostash && git push && break; sleep 5; done
+          for i in 1 2 3; do git pull --rebase -X theirs --autostash && git push && break; git rebase --abort 2>/dev/null; sleep 5; done
 
       - name: Publier sur Instagram
         if: steps.choix.outputs.publier == 'true' && steps.choix.outputs.rien != 'true'
@@ -182,7 +182,7 @@ jobs:
         run: |
           git config user.name "teufy-bot"
           git config user.email "teufy-bot@users.noreply.github.com"
-          git add historique.json 2>/dev/null || true
+          git add -A -- $(ls -d historique.json 2>/dev/null) || true # seulement les chemins existants (un seul absent bloquait tout)
           git diff --cached --quiet && exit 0
           git commit -m "Teufy Instagram : publié (${{ steps.choix.outputs.quoi }})"
-          for i in 1 2 3; do git pull --rebase --autostash && git push && break; sleep 5; done
+          for i in 1 2 3; do git pull --rebase -X theirs --autostash && git push && break; git rebase --abort 2>/dev/null; sleep 5; done

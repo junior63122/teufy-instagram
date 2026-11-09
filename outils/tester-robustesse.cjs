@@ -105,6 +105,26 @@ const visibles = (p) => p.locator('.liste .carte:not([hidden])').count();
     await c.close();
   });
 
+  await etape('boutons recouverts', async () => {
+    for (const o of [{ ...devices['iPhone 13'] }, { viewport: { width: 1440, height: 900 } }]) {
+      const c = await b.newContext(o); const p = await c.newPage(); erreurs(p, 'recouvert');
+      for (const u of ['', 'soirees-techno/', 'soirees-nice/']) {
+        await p.goto(B + u); await p.waitForTimeout(300);
+        const cartes = p.locator('.liste .carte:not([hidden])'); const n = Math.min(await cartes.count(), 12);
+        for (let i = 0; i < n; i++) {
+          const k = cartes.nth(i); await k.scrollIntoViewIfNeeded(); await p.waitForTimeout(80);
+          const caches = await k.evaluate((carte) => [...carte.querySelectorAll('a, button')].filter((el) => el.offsetParent && !el.closest('[aria-hidden="true"]')).filter((el) => {
+            const r = el.getBoundingClientRect(); if (r.bottom < 0 || r.top > innerHeight) return false;
+            const x = r.left + r.width / 2, y = r.top + r.height / 2; const h = document.elementFromPoint(x, y);
+            return h && !el.contains(h) && !h.contains(el);
+          }).map((el) => el.textContent.trim().slice(0, 20) || el.className));
+          ok(!caches.length, `recouvert ${u || 'accueil'} : bouton masqué par un autre élément (${caches.join(', ')})`);
+        }
+      }
+      await c.close();
+    }
+  });
+
   await etape('très petits et très grands écrans', async () => {
     for (const vp of [{ width: 320, height: 568 }, { width: 568, height: 320 }, { width: 2560, height: 1440 }]) {
       const c = await b.newContext({ viewport: vp }); const p = await c.newPage(); erreurs(p, `écran ${vp.width}`);
