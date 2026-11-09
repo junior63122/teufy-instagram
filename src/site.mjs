@@ -14,7 +14,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { genresList, isTechno } from './genres.mjs';
 import { LANGUES, TXT } from './site-langues.mjs';
-import { STYLES as STYLES_MUSIQUE, PAGES_STYLES, FESTIVALS, RENDEZ_VOUS, PARTENAIRE, AMBASSADEUR, BDE, LEGAL, RE_ETUDIANT, RE_FESTIVAL, SORTIES, SPOTS_DATE } from './site-contenus.mjs';
+import { STYLES as STYLES_MUSIQUE, PAGES_STYLES, FESTIVALS, RENDEZ_VOUS, PARTENAIRE, AMBASSADEUR, BDE, LEGAL, PAGES_LEGALES, RE_ETUDIANT, RE_FESTIVAL, SORTIES, SPOTS_DATE } from './site-contenus.mjs';
 import { VILLES_FRANCE } from './recherche.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -540,7 +540,7 @@ export async function construireSite({ events, eventsFrance = [], hist = [], con
       ajoute('partenaires/', (c) => pagePartenaire(c));
       ajoute('ambassadeurs/', (c) => pageAmbassadeur(c));
       ajoute('bde/', (c) => pageBde({ ...c, soirees: sl.filter((x) => x.etudiant) }));
-      ajoute('mentions-legales/', (c) => pageLegal(c));
+      for (const cle of Object.keys(PAGES_LEGALES)) ajoute(`${cle}/`, (c) => pageLegal({ ...c, cle }));
       for (const k of Object.keys(SORTIES).filter((x) => SORTIES[x].filtre)) ajoute(`${k}/`, (c) => pageSorties({ ...c, cleS: k }));
       for (const s of sl) ajoute(`soiree/${s.id}/`, (c) => pageSoiree({ ...c, s, soirees: sl }));
       for (const s of sf) ajoute(`soiree/${s.id}/`, (c) => pageSoiree({ ...c, s, soirees: sf }));
@@ -832,7 +832,7 @@ ${corps}
     <div><p class="pied-titre">${esc(t.langue)}</p>${LANGUES.map((l) => `<a href="${base}${pre(l)}${chemin}" hreflang="${l}" lang="${l}">${esc(TXT[l].nom)}</a>`).join('')}</div>
   </div>
   <p><strong>Teufy</strong> · ${esc(t.pied1)}${maj ? ` · ${esc(maj)}` : ''}</p>
-  <p>${esc(t.pied3)} · <a href="${accueil}mentions-legales/">${esc(t.legal)}</a></p>
+  <p>${esc(t.pied3)} · <a href="${accueil}mentions-legales/">${esc(t.legal)}</a> · <a href="${accueil}cgu/">CGU</a> · <a href="${accueil}cgv/">CGV</a> · <a href="${accueil}confidentialite/">${esc(TR_LEG[lang] || 'Confidentialité et cookies')}</a></p>
 </footer>
 <div class="flottant" hidden><button type="button" class="ouvrir-filtres"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M3 5h18M6 12h12M10 19h4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg><span>${esc(t.js.filtres)}</span><b class="compte"></b></button></div>
 <button type="button" class="haut" aria-label="${esc(t.haut)}" hidden><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M6 14l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
@@ -1338,11 +1338,14 @@ ${soirees.length ? `<section class="bloc-large reveal"><h2>${tr(C.soireesH2)}</h
 ${blocPartenaires({ t, T, base, partenaires })}`;
   return gabarit({ lang, t, titre: tr(C.titre), description: tr(C.desc), chemin, base, corps, compte, maj, image: 'site/img/selfie.jpg', ld: [...ldOrganisation(T, compte, t, lang), ...jsonld(soirees, lang), fil(lang, [['Teufy', ''], [t.bde, chemin]])] });
 }
-function pageLegal({ lang, t, tr, base, compte, T, chemin, maj }) {
-  const C = LEGAL(T, compte);
+const TR_LEG = { fr: 'Confidentialité et cookies', en: 'Privacy and cookies', it: 'Privacy e cookie', es: 'Privacidad y cookies', zh: '隐私与 Cookie', ar: 'الخصوصية وملفات تعريف الارتباط' };
+const NOMS_LEGAUX = { 'mentions-legales': 'Mentions légales', cgu: "Conditions d'utilisation (CGU)", cgv: 'Conditions de vente et de partenariat (CGV)', confidentialite: 'Confidentialité et cookies' };
+function pageLegal({ lang, t, tr, base, compte, T, chemin, maj, cle = 'mentions-legales' }) {
+  const C = (PAGES_LEGALES[cle] || LEGAL)(T, compte);
   const corps = `<article class="article">
   <h1>${tr(C.h1)}</h1>
   ${C.blocs.map(([titre, ps]) => `<h2>${esc(tr(titre))}</h2>${ps.map((p) => `<p>${esc(tr(p))}</p>`).join('')}`).join('\n  ')}
+  <nav class="liens-legaux" aria-label="${esc(tr('Informations légales'))}">${Object.keys(PAGES_LEGALES).filter((k) => k !== cle).map((k) => `<a class="puce" href="${base}${pre(lang)}${k}/">${esc(tr(NOMS_LEGAUX[k]))}</a>`).join('')}</nav>
 </article>`;
   return gabarit({ lang, t, titre: tr(C.titre), description: tr(C.blocs[0][1][0]), chemin, base, corps, compte, maj });
 }

@@ -121,7 +121,7 @@ const visibles = (p) => p.locator('.liste .carte:not([hidden])').count();
   await etape('textes des boutons lisibles', async () => {
     const fs = require('fs'), path = require('path');
     const unDe = (d, n = 1) => { try { return fs.readdirSync(path.resolve(__dirname, '..', d)).filter((x) => !x.includes('.')).slice(0, n).map((x) => `${d}/${x}/`); } catch { return []; } };
-    const pages = ['', 'soirees-nice/', 'soirees-techno/', 'a-propos/', 'partenaires/', 'ambassadeurs/', 'bde/', 'dates/', 'restaurants/', 'activites/', 'festivals/', 'clubs-bars/', 'france/', 'actus/', ...unDe('actus', 20), ...unDe('soiree', 3), 'mentions-legales/', 'page-inexistante/', 'ar/', 'en/a-propos/'];
+    const pages = ['', 'soirees-nice/', 'soirees-techno/', 'a-propos/', 'partenaires/', 'ambassadeurs/', 'bde/', 'dates/', 'restaurants/', 'activites/', 'festivals/', 'clubs-bars/', 'france/', 'actus/', ...unDe('actus', 20), ...unDe('soiree', 3), 'mentions-legales/', 'cgu/', 'cgv/', 'confidentialite/', 'page-inexistante/', 'ar/', 'en/a-propos/'];
     for (const o of [{ viewport: { width: 1440, height: 900 } }, { ...devices['iPhone 13'] }]) {
       const c = await b.newContext(o); const p = await c.newPage(); erreurs(p, 'lisible');
       for (const u of pages) {

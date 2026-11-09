@@ -130,11 +130,14 @@ export const BDE = {
 export const RE_ETUDIANT = /[ée]tudiant|student|\bbde\b|\bbds\b|erasmus|\besn\b|integ|campus|universit|[ée]cole|skema|edhec|iae|polytech|kedge|ipag|sup de co/i;
 export const RE_FESTIVAL = /festival|open ?air|fest\b|plages [ée]lectroniques|nuits (du sud|carr[ée]es)|jazz [àa] juan/i;
 
+const EDITEUR = (T) => `${T.raison_sociale || 'Teufy'}${T.forme ? `, ${T.forme}` : ''}${T.siren ? `, SIREN ${T.siren}` : T.siret ? `, SIRET ${T.siret}` : ''}${T.adresse ? `, ${T.adresse}` : ''}`;
+const MAJ = (T) => `Dernière mise à jour : ${T.maj_legales || '2026'}.`;
+
 export const LEGAL = (T, compte) => ({
   titre: 'Mentions légales · Teufy', h1: 'Mentions <em>légales</em>',
   blocs: [
     ['Éditeur du site', [
-      `Le site Teufy est édité par ${T.raison_sociale || 'Teufy'}${T.forme ? `, ${T.forme}` : ''}${T.siret ? `, SIRET ${T.siret}` : ''}${T.adresse ? `, ${T.adresse}` : ''}.`,
+      `Le site Teufy est édité par ${EDITEUR(T)}.`,
       `Directeur de la publication : ${T.directeur}.`,
       `Contact : ${T.email ? `${T.email} ou ` : ''}message privé Instagram ${compte}.`,
     ]],
@@ -146,13 +149,55 @@ export const LEGAL = (T, compte) => ({
     ['Affiches et marques', [
       "Les affiches, logos et noms des soirées appartiennent à leurs organisateurs et sont montrés uniquement pour présenter leurs événements. Pour faire retirer ou modifier un contenu, écris-nous : on le fait rapidement.",
     ]],
-    ['Données personnelles et cookies', [
-      "Le site ne demande pas de compte et n'utilise pas de cookies publicitaires ni de mesure d'audience.",
-      "Tes soirées favorites sont enregistrées uniquement dans ton navigateur (stockage local) : elles ne nous sont jamais envoyées.",
-      "La carte des soirées utilise des fonds de carte OpenStreetMap servis par CARTO : ils ne sont chargés que si tu ouvres la carte.",
+    ['Conditions et données personnelles', [
+      "L'utilisation du site est régie par les conditions générales d'utilisation (CGU) ; les billets, codes promo et partenariats par les conditions générales de vente et de partenariat (CGV). La façon dont Teufy traite les données et l'absence de cookies sont expliquées dans la politique de confidentialité.",
     ]],
   ],
 });
+
+export const CGU = (T, compte) => ({
+  titre: "Conditions générales d'utilisation · Teufy", h1: "Conditions générales d'<em>utilisation</em>",
+  blocs: [
+    ['1. Objet', [MAJ(T), `Les présentes conditions générales d'utilisation (CGU) encadrent l'accès et l'utilisation du site Teufy, guide des soirées de la Côte d'Azur et du Var, édité par ${EDITEUR(T)}. Utiliser le site vaut acceptation de ces CGU.`]],
+    ['2. Accès au site', ["Le site est gratuit, sans inscription et accessible à tous. Les soirées présentées sont destinées à un public majeur : l'accès aux événements est fixé par chaque organisateur (âge minimum, tenue, pièce d'identité).", "Teufy fait le maximum pour que le site soit disponible et à jour, sans pouvoir le garantir en permanence (maintenance, panne de l'hébergeur, mise à jour)."]],
+    ['3. Les informations publiées', ["L'agenda, les fiches des lieux, les festivals et les actus sont établis à partir des sources officielles (sites, billetteries et comptes Instagram des organisateurs) et vérifiés chaque jour. Ils peuvent néanmoins changer sans préavis : seule la billetterie ou l'organisateur fait foi.", "Les tendances, compteurs et mentions « Très demandée » reflètent des données mesurées (intérêt, engagement Instagram) et ne sont jamais achetées. Une mise en avant payée est toujours signalée comme partenariat."]],
+    ['4. Billets et liens externes', ["Teufy ne vend aucun billet. Les boutons « Billets » mènent vers les billetteries des organisateurs ou leurs revendeurs, dont les conditions de vente s'appliquent. Teufy n'est pas responsable du contenu, des prix ni du fonctionnement des sites tiers (billetteries, Instagram, Google Maps, OpenStreetMap)."]],
+    ['5. Propriété intellectuelle', ["La marque Teufy, son logo, ses textes, visuels, bases de données et l'ensemble du site sont protégés. Toute reproduction ou réutilisation sans autorisation écrite est interdite.", "Les affiches, logos et noms des soirées et des établissements restent la propriété de leurs titulaires et ne sont montrés que pour présenter leurs événements."]],
+    ['6. Signaler un contenu', [`Conformément à la loi pour la confiance dans l'économie numérique (LCEN), tout contenu inexact, illicite ou portant atteinte à tes droits peut nous être signalé par e-mail (${T.email || 'teufy.app@gmail.com'}) ou en message privé Instagram ${compte}. Il est vérifié et, si besoin, retiré rapidement.`]],
+    ['7. Bon comportement et sécurité', ["Teufy promeut une fête responsable : ne sors jamais seul, garde un œil sur ton verre, ne prends pas le volant après avoir bu, respecte le consentement et les autres. L'abus d'alcool est dangereux pour la santé, à consommer avec modération. En cas d'urgence : 112."]],
+    ['8. Responsabilité', ["Teufy ne peut être tenu responsable de l'annulation, du report ou du déroulement d'une soirée, ni des dommages indirects liés à l'utilisation du site. La responsabilité de chaque événement incombe à son organisateur."]],
+    ['9. Modification des CGU', ["Les CGU peuvent évoluer ; la version applicable est celle publiée sur cette page au moment de ta visite."]],
+    ['10. Droit applicable et litiges', ["Les CGU sont soumises au droit français. En cas de litige, une solution amiable est recherchée en priorité ; un consommateur peut aussi recourir gratuitement à un médiateur de la consommation (articles L612-1 et suivants du Code de la consommation), dont les coordonnées sont communiquées sur simple demande. À défaut, les tribunaux du ressort de Nice sont compétents, sauf disposition impérative contraire."]],
+  ],
+});
+
+export const CGV = (T, compte) => ({
+  titre: 'Conditions générales de vente et de partenariat · Teufy', h1: 'Conditions de <em>vente</em> et de partenariat',
+  blocs: [
+    ['1. Objet', [MAJ(T), `Ces conditions générales de vente et de partenariat (CGV) s'appliquent aux offres présentées sur le site Teufy et aux prestations proposées par ${EDITEUR(T)} aux professionnels (organisateurs, établissements, marques).`]],
+    ['2. Billets', ["Teufy ne vend pas de billets et n'encaisse aucun paiement pour une soirée. L'achat se fait directement auprès de l'organisateur ou de sa billetterie (Shotgun, Weezevent, Dice, etc.), selon leurs propres conditions de vente : prix, frais, remboursement, annulation, revente.", "En cas d'annulation, de report ou de litige sur un billet, la demande se fait auprès de l'organisateur ou de la billetterie qui a vendu le billet."]],
+    ['3. Comparateur de prix', ["Quand une même soirée est en vente sur plusieurs billetteries, Teufy affiche les prix relevés sur chacune pour t'aider à choisir. Ces prix sont indicatifs et peuvent évoluer : seul le prix affiché sur la billetterie au moment de l'achat compte."]],
+    ['4. Codes promo', ["Les codes promo affichés sont offerts par les partenaires de Teufy. Leurs conditions (remise, soirées concernées, date limite, nombre d'utilisations) sont fixées par le partenaire et rappelées à côté du code. Teufy ne peut garantir qu'un code reste disponible ou cumulable."]],
+    ['5. Prestations pour les professionnels', ["Mise en avant d'une soirée ou d'un lieu, publication sur Instagram, partenariat, programme ambassadeurs : chaque prestation fait l'objet d'un devis ou d'un accord écrit préalable précisant son contenu, son prix, sa durée et ses conditions de paiement. Rien n'est facturé sans accord écrit.", "Les contenus réalisés dans le cadre d'un partenariat rémunéré sont signalés comme tels (« partenariat », « collaboration commerciale »), conformément à la loi du 9 juin 2023 sur l'influence commerciale.", "Teufy garde sa liberté éditoriale : il peut refuser une soirée ou un contenu contraire à la loi, à la sécurité du public ou à sa ligne. Aucune prestation ne garantit un nombre de vues, de ventes ou d'abonnés."]],
+    ['6. Concours', ["Les concours et tirages au sort organisés avec des partenaires font l'objet d'un règlement communiqué avec le concours (conditions de participation, désignation des gagnants, lots)."]],
+    ['7. Réclamations et litiges', [`Pour toute réclamation : ${T.email || 'teufy.app@gmail.com'} ou message privé Instagram ${compte}. Les CGV sont soumises au droit français ; à défaut d'accord amiable, et après une éventuelle médiation, les tribunaux du ressort de Nice sont compétents, sauf disposition impérative contraire.`]],
+  ],
+});
+
+export const CONFIDENTIALITE = (T, compte) => ({
+  titre: 'Confidentialité et cookies · Teufy', h1: 'Confidentialité et <em>cookies</em>',
+  blocs: [
+    ['En bref', [MAJ(T), "Le site Teufy ne demande pas de compte, ne dépose aucun cookie, ne mesure pas ton audience et n'affiche pas de publicité. Tes favoris restent sur ton téléphone ou ton ordinateur."]],
+    ['Responsable du traitement', [`${EDITEUR(T)}. Contact : ${T.email || 'teufy.app@gmail.com'}.`]],
+    ['Ce qui reste sur ton appareil', ["Favoris : les soirées que tu ajoutes en favori sont enregistrées dans le stockage local de ton navigateur. Elles ne nous sont jamais envoyées ; tu peux les effacer en vidant les données du site.", "Cache : pour que le site s'ouvre plus vite, ton navigateur garde une copie des images, polices et pages déjà vues (service worker). Rien n'est envoyé à Teufy.", "Position : le bouton « Près de moi » demande l'accord de ton navigateur ; la distance est calculée sur ton appareil, ta position n'est jamais transmise ni enregistrée."]],
+    ['Ce qui passe par des services tiers', ["Hébergement : le site est hébergé par GitHub Pages (GitHub, Inc.), qui peut enregistrer l'adresse IP des visiteurs dans ses journaux techniques pour la sécurité du service.", "Cartes : quand une carte s'affiche, les fonds de carte sont chargés depuis les serveurs d'OpenStreetMap, qui reçoivent alors ton adresse IP, comme pour toute page web.", "Liens externes : billetteries, Instagram, LinkedIn et Google Maps ne sont contactés que si tu cliques sur un lien ; leurs propres politiques de confidentialité s'appliquent alors."]],
+    ['Quand tu nous écris', ["Si tu nous contactes (e-mail ou Instagram), ton message et tes coordonnées servent uniquement à te répondre et à traiter ta demande (partenariat, signalement, ambassadeur). Ils sont conservés au maximum 3 ans après notre dernier échange, puis supprimés. Ils ne sont jamais vendus."]],
+    ['Cookies', ["Teufy ne dépose aucun cookie et n'utilise aucun traceur publicitaire ou de mesure d'audience. C'est pour ça qu'aucun bandeau de consentement ne s'affiche : il n'y a rien à accepter. Si un outil soumis à ton accord était un jour ajouté, un bandeau te demanderait ton choix avant tout dépôt, avec la possibilité de refuser aussi facilement que d'accepter."]],
+    ['Tes droits', [`Conformément au RGPD et à la loi Informatique et Libertés, tu peux demander l'accès, la rectification, l'effacement, la limitation ou la portabilité de tes données, et t'opposer à leur traitement, en écrivant à ${T.email || 'teufy.app@gmail.com'}. Réponse sous 30 jours au plus.`, "Tu peux aussi adresser une réclamation à la CNIL : www.cnil.fr, ou 3 place de Fontenoy, TSA 80715, 75334 Paris Cedex 07."]],
+  ],
+});
+
+export const PAGES_LEGALES = { 'mentions-legales': LEGAL, cgu: CGU, cgv: CGV, confidentialite: CONFIDENTIALITE };
 
 // Rubriques « sorties » : uniquement des partenaires de Teufy (identifiés automatiquement, voir src/site.mjs).
 export const SORTIES = {

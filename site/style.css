@@ -680,3 +680,4 @@ details[data-bloc="tri"]>.groupe{inset-inline-start:auto;inset-inline-end:0}
 .leaflet-control-attribution a{color:var(--creme)!important}
 .mini-carte{height:240px;margin:14px 0 8px;border-radius:18px;overflow:hidden;border:1px solid #ffffff1a;background:#17151d;isolation:isolate}
 .repere.seul{background:var(--corail)}
+.liens-legaux{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px;padding-top:20px;border-top:1px solid #ffffff1a}
