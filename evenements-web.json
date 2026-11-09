@@ -3426,6 +3426,30 @@
       "instagram": [
         "lantretechno"
       ]
+    },
+    {
+      "source": "web",
+      "source_site": "instagram.com",
+      "via_veille": true,
+      "name": "Veille de jour férié au Trafalbar",
+      "start": "2026-11-10T19:00:00.000Z",
+      "venue": "Trafalbar",
+      "city": "Nice",
+      "address": "",
+      "url": "https://www.instagram.com/p/DffWalEieiZ/",
+      "image": "https://scontent-atl3-1.cdninstagram.com/v/t39.30808-6/899335347_1448216150616094_5555059200902440534_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=-ic542W0sDUQ7kNvwHAKsUU&_nc_oc=AdrEMKwLMKdSaC4HZYj-08Apw0eOv6ppd_sN0HwUa9bwd_BD6T4A3zgY7Y7KF5qE9Uk&_nc_zt=23&_nc_ht=scontent-atl3-1.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=F4tvrFYDeApOSPh1bX5Kqw&oh=00_AQTLJmltgppRc2ntXPByP0pdt-P6yXpGerTrwZa7Qm6spA&oe=6AF7EE8F",
+      "price": 0,
+      "tags": [
+        "Bar",
+        "Généraliste"
+      ],
+      "description": "",
+      "public_cible": 0.6,
+      "confiance": 0.9,
+      "accroche": "Veille de férié avec happy hour de 20h à 22h dans le Vieux-Nice.",
+      "instagram": [
+        "trafalbarnice"
+      ]
     }
   ]
 }
