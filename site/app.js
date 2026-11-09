@@ -372,6 +372,24 @@
   // Diaporama de l'accueil : les photos suivantes se chargent une fois la page affichée (la première arrive plus vite).
   addEventListener('load', () => setTimeout(() => document.querySelectorAll('.diaporama img[data-src]').forEach((i) => { if (i.dataset.srcset) i.srcset = i.dataset.srcset; i.src = i.dataset.src; }), 1500));
 
+  // --- Comptes à rebours (soirées très attendues, page de chaque soirée) : mis à jour chaque seconde -------------
+  const rebours = [...document.querySelectorAll('.rebours[data-debut]')];
+  const deux = (n) => String(n).padStart(2, '0');
+  const majRebours = () => {
+    const t0 = Date.now(), [uj, uh, um, us] = T.u || ['j', 'h', 'min', 's'];
+    for (const e of rebours) {
+      const r = Date.parse(e.dataset.debut) - t0;
+      const bloc = e.closest('.rebours-bloc, .demande');
+      if (r <= 0) { e.textContent = t0 - Date.parse(e.dataset.debut) < 6 * 3600e3 ? (T.cestParti || '') : ''; if (bloc && !e.textContent) bloc.hidden = true; continue; }
+      if (!e.dataset.long && r > 7 * 864e5) { if (bloc?.classList.contains('demande')) e.textContent = ''; continue; }
+      const j = Math.floor(r / 864e5), h = Math.floor(r / 3600e3) % 24, m = Math.floor(r / 60e3) % 60, sec = Math.floor(r / 1000) % 60;
+      e.textContent = e.dataset.long
+        ? `${j ? `${j} ${uj} ` : ''}${deux(h)} ${uh} ${deux(m)} ${um} ${deux(sec)} ${us}`
+        : `${T.dans || ''} ${j ? `${j} ${uj} ` : ''}${deux(h)} ${uh} ${deux(m)} ${um}`;
+    }
+  };
+  if (rebours.length) { majRebours(); setInterval(majRebours, 1000); }
+
   // --- Démarrage -----------------------------------------------------------------------------------------------
   const q0 = new URLSearchParams(location.search).get('q');
   if (q0 && champs.length) { champs.forEach((c) => { c.value = q0; const x = c.parentElement.querySelector('.effacer'); if (x) x.hidden = false; }); etat.qBrut = q0; etat.q = norm(q0); if (agenda) setTimeout(() => agenda.scrollIntoView(), 60); }

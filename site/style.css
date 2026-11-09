@@ -556,3 +556,33 @@ details.filtre>.groupe{position:absolute;top:calc(100% + 8px);inset-inline-start
 .coeur{touch-action:manipulation}
 .coeur::after{content:"";position:absolute;inset:-8px}
 .carte.retiree{opacity:.45;filter:grayscale(.6)}
+
+/* ===== v7 : moins de vide sur ordinateur ===== */
+.cartes-texte{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+@media(min-width:980px){
+  .hero.court{padding-top:40px;padding-bottom:44px;grid-template-columns:minmax(0,1.4fr) minmax(0,.6fr);gap:48px}
+  .hero.court .hero-media{height:min(44vh,380px);max-height:380px;transform:rotate(1.2deg)}
+  .hero.court h1{font-size:clamp(48px,4.4vw,76px)}
+  .hero.sans-photo{padding-top:56px;padding-bottom:48px}
+  .hero.sans-photo h1{font-size:clamp(48px,4.6vw,80px)}
+  .bloc-large{margin-top:56px}
+  .bloc-large>h2{font-size:clamp(34px,4vw,56px)}
+}
+/* Peu de soirées dans une rubrique : les cartes restent à taille normale, centrées, sans grand vide à droite. */
+.bloc-large .grille:has(> :nth-child(2):last-child),.bloc-large .grille:has(> :only-child){grid-template-columns:repeat(auto-fit,minmax(280px,360px));justify-content:start}
+/* Mobile : les menus de filtres s'ouvrent par-dessus la page (rien ne bouge quand ils se ferment). */
+@media(max-width:759px){
+  .menus{position:relative}
+  details.filtre{position:static}
+  details.filtre[open]{flex-basis:auto}
+  details.filtre>.groupe{position:absolute;left:0;right:0;top:calc(100% + 6px);margin:0;width:auto;max-width:none;box-shadow:0 24px 50px #000d}
+  .feuille-corps details.filtre>.groupe{position:static;box-shadow:none}
+}
+/* Très demandée + compte à rebours */
+.demande{position:absolute;inset-inline-start:12px;bottom:12px;z-index:2;display:flex;flex-direction:column;gap:2px;background:#0b0b0fd9;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:1.5px solid var(--corail);color:var(--creme);border-radius:12px;padding:7px 11px;font-size:13px;line-height:1.2}
+.demande b{color:var(--corail);font-weight:800}
+.demande i{font-style:normal;font-weight:700;font-variant-numeric:tabular-nums;opacity:.9}
+.demande i:empty{display:none}
+.rebours-bloc{background:linear-gradient(120deg,#ff5a3c26,#16161c 60%);border:1px solid #ff5a3c55;border-radius:18px;padding:14px 18px;display:flex;flex-direction:column;gap:4px}
+.rebours-grand{font-family:var(--titre);font-weight:800;font-stretch:80%;font-size:clamp(30px,4vw,44px);line-height:1;color:var(--corail);font-variant-numeric:tabular-nums}
+.rebours-bloc .petit{font-size:14px;opacity:.85}

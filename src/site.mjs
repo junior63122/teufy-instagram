@@ -65,19 +65,25 @@ async function telecharger(url, f) {
 
 // Appel Gemini (modèle flash le plus récent disponible), réponse JSON. null si pas de clé ou échec.
 let MODELES = null;
+// Budget de temps : les enrichissements (lieux, partenaires, transports…) s'arrêtent à temps pour que la mise à jour
+// se termine et s'enregistre toujours (GitHub coupe un passage au bout d'une heure). Le reste se fait au passage suivant.
+let LIMITE = Infinity;
+// « Très demandée » : seulement les soirées les plus attendues (environ 1 sur 8, et buzz ≥ 0,85).
+let SEUIL_DEMANDE = 0.85;
+const tempsOk = () => Date.now() < LIMITE;
 async function gemini(parts, { recherche = false } = {}) {
   const CLE = (process.env.GEMINI_API_KEY || '').trim();
   if (!CLE) return null;
   const API = 'https://generativelanguage.googleapis.com/v1beta/models';
   try {
     if (!MODELES) {
-      const liste = await (await fetch(`${API}?pageSize=200&key=${CLE}`)).json();
+      const liste = await (await fetch(`${API}?pageSize=200&key=${CLE}`, { signal: AbortSignal.timeout(30000) })).json();
       MODELES = (liste.models || []).map((m) => m.name.replace('models/', '')).filter((n) => /^gemini-[\d.]+-flash/.test(n) && !/image|tts|audio|live|lite/.test(n))
         .sort((a, b) => parseFloat(b.slice(7)) - parseFloat(a.slice(7)));
     }
     for (const m of MODELES.slice(0, 3)) {
       const r = await fetch(`${API}/${m}:generateContent?key=${CLE}`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({
-        contents: [{ role: 'user', parts }], ...(recherche ? { tools: [{ google_search: {} }] } : { generationConfig: { responseMimeType: 'application/json' } }) }) });
+        contents: [{ role: 'user', parts }], ...(recherche ? { tools: [{ google_search: {} }] } : { generationConfig: { responseMimeType: 'application/json' } }) }), signal: AbortSignal.timeout(120000) });
       if (r.status === 404) continue;
       const t = ((await r.json()).candidates?.[0]?.content?.parts || []).map((x) => x.text || '').join('');
       return recherche ? t : JSON.parse(t || 'null');
@@ -89,6 +95,7 @@ async function gemini(parts, { recherche = false } = {}) {
 async function verifier(e, fichier, cache) {
   const k = h(`${e.image}|${e.name}`);
   if (cache[k]) return cache[k].ok;
+  if (!tempsOk()) return true;
   const consigne = `Affiche censée illustrer la soirée « ${e.name} », le ${paris(e.start, { dateStyle: 'full' })}, ${e.venue || ''} ${e.city || ''}. Réponds en JSON {"correspond": true|false} : false seulement si l'affiche annonce clairement une AUTRE soirée (autre nom, autre artiste principal, autre lieu ou autre date).`;
   const r = await gemini([{ inline_data: { mime_type: 'image/jpeg', data: readFileSync(fichier).toString('base64') } }, { text: consigne }]);
   if (!r) return true; // vérification impossible : on montre l'affiche
@@ -106,7 +113,7 @@ async function geocoder(soirees, log) {
     const k = cleLieu(s);
     const c = cache[k];
     const aRetenter = c && c.introuvable && (c.v !== 2 || Date.now() - Date.parse(c.le) > 14 * 864e5);
-    if (s.lieu && (!c || aRetenter) && requetes < 60 && !coupe) {
+    if (s.lieu && (!c || aRetenter) && requetes < 60 && !coupe && tempsOk()) {
       // Plusieurs formulations : adresse, « lieu, ville », lieu seul (dans la zone Côte d'Azur), lieu sans mots génériques.
       const court = s.lieu.replace(/\b(club|bar|restaurant|plage|beach|rooftop|le|la|les)\b/gi, ' ').replace(/[-–—@|].*$/, '').replace(/\s+/g, ' ').trim();
       const essais = [...new Set([s.adresse, `${s.lieu}, ${s.ville}`, s.lieu, court && `${court}, ${s.ville}`].filter((x) => x && x.length > 2))];
@@ -170,7 +177,7 @@ async function aProximite(soirees, log) {
   let n = 0, coupe = false, echecs = 0;
   for (const [k, s] of lieux) {
     if (cache[k] && Date.now() - Date.parse(cache[k].le) < 60 * 864e5) continue;
-    if (n >= 40 || coupe) break;
+    if (n >= 40 || coupe || !tempsOk()) break;
     n++;
     const a = (r) => `(around:${r},${s.lat},${s.lng})`;
     const q = `[out:json][timeout:25];(nwr${a(800)}[amenity=parking][access!~"^(private|customers|no)$"];node${a(900)}[railway~"^(tram_stop|station|halt)$"];node${a(500)}[highway=bus_stop];node${a(600)}[amenity~"^(bicycle_rental|taxi)$"];);out center tags 120;`;
@@ -216,6 +223,7 @@ async function identifierPartenaires(log, { ig = null, api = {} } = {}) {
   if (cle) {
     for (const x of P.liste || []) {
       if (infos[x.fichier]?.lu || x.nom) continue;
+      if (!tempsOk()) break;
       const f = path.join(ROOT, x.fichier);
       if (!existsSync(f)) continue;
       const r = await gemini([{ inline_data: { mime_type: 'image/png', data: readFileSync(f).toString('base64') } }, { text: "Logo d'un partenaire de Teufy, guide des soirées de la Côte d'Azur (club, bar, restaurant, plage, organisateur…). Quel nom est écrit sur ce logo ? JSON {\"nom\": string|null, \"confiance\": 0..1}. null si illisible : n'invente pas." }]);
@@ -225,7 +233,7 @@ async function identifierPartenaires(log, { ig = null, api = {} } = {}) {
     }
     const aChercher = Object.entries(infos).filter(([, v]) => v.nom && !v.fiche).slice(0, 36);
     const SCHEMA = '{"lieux":[{"n":numéro,"trouve":bool,"categorie":"' + CATEGORIES.join('|') + '","ville":string,"adresse":string,"instagram":string,"site":string,"description":string,"date":bool,"date_raison":string,"prix":"€|€€|€€€|€€€€|"}]}';
-    for (let i = 0; i < aChercher.length; i += 6) {
+    for (let i = 0; i < aChercher.length && tempsOk(); i += 6) {
       const lot = aChercher.slice(i, i + 6);
       const liste = lot.map(([, v], j) => `${j + 1}. ${v.nom}`).join('\n');
       const web = await gemini([{ text: `Ces établissements et marques sont partenaires d'un guide des soirées de la Côte d'Azur (Nice, Cannes, Antibes, Monaco). Pour chacun, trouve ce que c'est (restaurant, bar, club, plage, activité, organisateur…), la ville, l'adresse, le compte Instagram et le site officiels, et ce qu'on y fait.\n${liste}` }], { recherche: true });
@@ -246,6 +254,7 @@ async function identifierPartenaires(log, { ig = null, api = {} } = {}) {
   if (ig && api.businessDiscovery) {
     await mkdir(path.join(SITE, 'partenaires', 'ig'), { recursive: true });
     for (const c of C.filter((x) => !infos[`ig:${x.instagram}`]?.profil).slice(0, 60)) {
+      if (!tempsOk()) break;
       const k = `ig:${c.instagram}`;
       try {
         const bd = await api.businessDiscovery(c.instagram, ig);
@@ -266,7 +275,7 @@ async function identifierPartenaires(log, { ig = null, api = {} } = {}) {
   if (cle) {
     const SCHEMA = '{"lieux":[{"n":numéro,"trouve":bool,"categorie":"' + CATEGORIES.join('|') + '","ville":string,"adresse":string,"site":string,"description":string,"date":bool,"date_raison":string,"prix":"€|€€|€€€|€€€€|"}]}';
     const aFicher = C.filter((x) => !infos[`ig:${x.instagram}`]?.fiche).slice(0, 64);
-    for (let i = 0; i < aFicher.length; i += 8) {
+    for (let i = 0; i < aFicher.length && tempsOk(); i += 8) {
       const lot = aFicher.slice(i, i + 8);
       const liste = lot.map((x, j) => { const pr = infos[`ig:${x.instagram}`]?.profil || {}; return `${j + 1}. @${x.instagram}${x.nom || pr.nom ? ` (${pr.nom || x.nom})` : ''}${pr.bio ? ` · bio : ${pr.bio.replace(/\s+/g, ' ')}` : ''}${pr.site ? ` · ${pr.site}` : ''}`; }).join('\n');
       const web = await gemini([{ text: `Ces comptes Instagram sont suivis par un guide des soirées de la Côte d'Azur (Nice, Cannes, Antibes, Monaco, Toulon). Pour chacun, trouve ce que c'est (restaurant, bar, club, plage, activité, organisateur, DJ, service…), la ville, l'adresse et le site officiel, et ce qu'on y fait.\n${liste}` }], { recherche: true });
@@ -310,6 +319,7 @@ async function lieuxDeNuit({ soirees, partenaires, ig, api, log, now }) {
   if (cle && (!cache.maj || now - Date.parse(cache.maj) > 7 * 864e5)) {
     const trouves = [];
     for (const z of ZONES_LIEUX) {
+      if (!tempsOk()) break;
       const web = await gemini([{ text: `Liste les boîtes de nuit, bars de nuit, bars à cocktails, rooftops, beach clubs et pubs où sortent les 18-30 ans à ${z} (lieux ouverts actuellement). Pour chacun : nom exact, type, ville, adresse, compte Instagram officiel, site, et en une phrase ce qu'on y trouve (ambiance, musique).` }], { recherche: true });
       if (!web) continue;
       const r = await gemini([{ text: `Lieux :\n${web}\n\nRéponds en JSON {"lieux":[{"nom":string,"type":"${TYPES_LIEUX.join('|')}","ville":string,"adresse":string,"instagram":string,"site":string,"description":string}]}. N'invente rien : chaîne vide si inconnu. description : une phrase factuelle en français. Exclus les lieux fermés définitivement.` }]);
@@ -332,6 +342,7 @@ async function lieuxDeNuit({ soirees, partenaires, ig, api, log, now }) {
     const aMesurer = tous.filter((l) => l.instagram && !(cache.insta[l.instagram] && now - Date.parse(cache.insta[l.instagram].le) < 3 * 864e5))
       .sort((a, b) => (Date.parse(cache.insta[a.instagram]?.le || 0)) - (Date.parse(cache.insta[b.instagram]?.le || 0))).slice(0, 40);
     for (const l of aMesurer) {
+      if (!tempsOk()) break;
       try {
         const bd = await api.businessDiscovery(l.instagram, ig);
         const recents = (bd?.media?.data || []).filter((m) => now - Date.parse(m.timestamp) < 21 * 864e5);
@@ -340,13 +351,23 @@ async function lieuxDeNuit({ soirees, partenaires, ig, api, log, now }) {
       } catch (err) { if (/rate|limit|\(#4\)|\(#32\)/i.test(err.message)) break; cache.insta[l.instagram] = { le: now.toISOString(), absent: true }; }
     }
   }
-  // 4. Score « tendance » : commentaires et likes récents (pondérés par l'activité), soirées à venir, buzz de ces soirées.
+  // 4. Tendance du moment : UNIQUEMENT des données mesurées, jamais le fait d'être partenaire.
+  //    Un lieu n'est classé que si son Instagram a été mesuré et qu'il a publié au moins 2 fois en 21 jours.
+  //    Score = taux d'engagement (likes + 4 × commentaires, par rapport aux abonnés) et engagement brut, à parts égales
+  //    (rangs), + un petit bonus si des soirées sont annoncées dans l'agenda. Pas de classement tant que moins de 12 lieux sont mesurés.
   for (const l of tous) {
     const i = cache.insta[l.instagram] || {};
-    const buzz = Math.max(0, ...l.soirees.map((id) => soirees.find((s) => s.id === id)?.buzz || 0));
-    l.insta = i.absent ? null : i.le ? { abonnes: i.abonnes, likes: i.likes, commentaires: i.commentaires, posts21: i.posts21 } : null;
-    l.score = (l.insta ? Math.log1p(l.insta.commentaires * 4 + l.insta.likes) * Math.min(1, (l.insta.posts21 || 0) / 3) : 0) + 0.8 * Math.log1p(l.soirees.length) + buzz;
+    l.insta = !i.absent && i.le ? { abonnes: i.abonnes, likes: i.likes, commentaires: i.commentaires, posts21: i.posts21 } : null;
     l.slug = slug(`${l.nom}-${l.ville}`);
+    l.score = 0;
+  }
+  const mesures = tous.filter((l) => l.insta && l.insta.posts21 >= 2 && l.insta.abonnes);
+  if (mesures.length >= 12) {
+    const brut = (l) => l.insta.likes + 4 * l.insta.commentaires;
+    const taux = (l) => brut(l) / Math.max(l.insta.abonnes, 300);
+    const rang = (f) => { const t = [...mesures].sort((a, b) => f(a) - f(b)); return (l) => t.indexOf(l) / (t.length - 1); };
+    const rTaux = rang(taux), rBrut = rang(brut);
+    for (const l of mesures) l.score = 0.5 * rTaux(l) + 0.5 * rBrut(l) + Math.min(0.15, 0.05 * l.soirees.length);
   }
   await writeFile(LIEUX, JSON.stringify({ maj: cache.maj, lieux: cache.lieux, insta: cache.insta }, null, 1) + '\n');
   const vus = new Set();
@@ -371,6 +392,7 @@ async function traduireManquants(log) {
     const liste = [...set];
     for (let i = 0; i < liste.length;) {
       const lot = []; let taille = 0;
+      if (Date.now() > LIMITE + 10 * 60e3) break; // le reste sera traduit au prochain passage
       while (i < liste.length && lot.length < 40 && taille < 7000) { lot.push(liste[i]); taille += liste[i].length; i++; }
       const r = await gemini([{ text: `Translate these French texts from a nightlife guide website (French Riviera) into ${NOMS_LANGUE[l]}. Keep every HTML tag exactly as it is (<em>, <strong>, <a …>). Keep names of parties, artists, venues, brands and festivals unchanged (Teufy, Shotgun, DICE, Nice Jazz Festival…). Natural, casual tone for 17-30 year olds. Answer with a JSON array of ${lot.length} strings, same order.\n${JSON.stringify(lot)}` }]);
       if (!Array.isArray(r) || r.length !== lot.length) { log(`Site : traduction ${l} interrompue (réponse invalide)`); break; }
@@ -400,6 +422,7 @@ const PLATEFORMES = { 'shotgun.live': 'Shotgun', 'dice.fm': 'DICE', 'link.dice.f
 const nomPlateforme = (u) => { try { const d = new URL(u).hostname.replace(/^www\./, ''); return PLATEFORMES[d] || Object.entries(PLATEFORMES).find(([k]) => d.endsWith(k))?.[1] || d; } catch { return ''; } };
 
 export async function construireSite({ events, eventsFrance = [], hist = [], config = {}, now = new Date(), log = console.log, ig = null, api = {} }) {
+  LIMITE = Date.now() + (config.site?.minutes_enrichissement ?? 15) * 60e3;
   await mkdir(path.join(SITE, 'affiches'), { recursive: true });
   const cache = lire(VERIF, {});
   const fin = now.getTime() + 45 * 864e5;
@@ -437,6 +460,7 @@ export async function construireSite({ events, eventsFrance = [], hist = [], con
   };
   const soirees = [];
   for (const e of fiables) soirees.push(await preparer(e, 'cote'));
+  { const b = soirees.map((x) => x.buzz || 0).sort((x, y) => y - x); SEUIL_DEMANDE = Math.max(0.85, b[Math.floor(b.length / 8)] ?? 1); }
   // Grandes villes de France : rubrique à part (jamais mélangée à l'agenda de la Côte d'Azur et du Var).
   const soireesFrance = [];
   for (const e of (eventsFrance || []).filter((x) => !x.douteux && (x.verifie || (x.confiance ?? 0) >= 0.85)).filter((x) => { const t = Date.parse(x.start); return t >= debut && t <= fin; }).sort((x, y) => x.start.localeCompare(y.start))) soireesFrance.push(await preparer(e, 'france'));
@@ -648,6 +672,7 @@ function carte(s, { t, base, lang, vedette = false }) {
   return `<article class="carte${vedette ? ' vedette' : ''}" data-acces="${acces.join(' ')}" data-id="${s.id}" data-jour="${s.jour}" data-debut="${esc(s.debut)}" data-heure="${esc(heure(s.debut, t))}" data-ville="${s.filtreVille}" data-styles="${s.styles.join(' ')}" data-prix="${s.prix ?? ''}" data-lat="${s.lat ?? ''}" data-lng="${s.lng ?? ''}"${s.approx ? ' data-approx="1"' : ''} data-q="${esc(q)}">
   <a class="affiche${s.affiche ? '' : ' sans'}" href="${lien}" tabindex="-1" aria-hidden="true">${img}<span class="date">${esc(dateCourte(s.debut, t))}</span></a>
   <button type="button" class="coeur" aria-label="${esc(t.ajouterFav)}" aria-pressed="false"></button>
+  ${(s.buzz ?? 0) >= SEUIL_DEMANDE ? `<span class="demande"><b>${esc(t.tresDemandee)}</b><i class="rebours" data-debut="${esc(s.debut)}"></i></span>` : ''}
   <div class="infos">
     ${s.genres ? `<p class="genre">${esc(s.genres)}</p>` : ''}
     <h3><a href="${lien}">${esc(s.nom)}</a></h3>
@@ -674,7 +699,7 @@ const blocPromo = (c, t, tr) => `<div class="code-promo"><p class="pied-titre">$
 function vignette(s) {
   const n = parseInt(h(s.nom), 16), teintes = [[255, 90, 60], [255, 46, 110], [130, 80, 255], [40, 170, 255], [61, 255, 138], [255, 200, 60]];
   const [a, b] = [teintes[n % 6], teintes[(Math.floor(n / 7) % 5 + 1 + n % 6) % 6]];
-  return `<span class="vignette" style="--a:rgb(${a.join(',')});--b:rgb(${b.join(',')})" aria-hidden="true"><small>${esc((s.genres || '').split(' · ')[0] || 'Soirée')}</small><b>${esc(s.nom)}</b><i>${esc(s.lieu || s.ville)}</i></span>`;
+  return `<span class="vignette" style="--a:rgb(${a.join(',')});--b:rgb(${b.join(',')})" aria-hidden="true"><small>${esc((s.genres || '').split(' · ')[0] || 'Soirée')}</small><b>${esc(s.lieu || s.ville || s.nom)}</b><i>${esc(s.lieu ? s.ville : '')}</i></span>`;
 }
 
 const boutonBillets = (s, t) => (s.url
@@ -893,7 +918,7 @@ const heroCourt = ({ base, photo, video, alt, etiquette, h1, p, live = false }) 
 </section>`;
 
 const blocTendance = ({ t, tr, base, lang, lieux }) => {
-  const top = (lieux || []).filter((l) => l.score > 0).slice(0, 3);
+  const top = (lieux || []).filter((l) => l.score > 0).sort((a, b) => b.score - a.score).slice(0, 3);
   if (!top.length) return '';
   return `<section class="bloc-large reveal"><h2>${tr('🔥 Les spots du <em>moment</em>')}</h2><div class="cartes-texte">${top.map((l, i) => carteLieu(l, { t, tr, base, lang }, i, true)).join('')}</div><p class="cta"><a class="bouton contour" href="${base}${pre(lang)}clubs-bars/">${esc(t.lieuxNav)}</a><a class="bouton contour" href="${base}${pre(lang)}france/">${esc(t.franceNav)}</a></p></section>`;
 };
@@ -984,6 +1009,7 @@ function pageSoiree({ lang, t, tr, base, compte, T, chemin, s, soirees, maj }) {
       <h1>${esc(s.nom)}</h1>
       ${s.accroche ? `<p class="fiche-accroche">${esc(s.accroche)}</p>` : ''}
       ${s.description && s.description !== s.accroche ? `<p>${esc(s.description)}</p>` : ''}
+      <div class="rebours-bloc" data-debut="${esc(s.debut)}"><p class="pied-titre">${esc(t.commenceDans)}</p><p class="rebours-grand rebours" data-debut="${esc(s.debut)}" data-long="1"></p>${(s.buzz ?? 0) >= SEUIL_DEMANDE ? `<p class="petit">${esc(t.tresDemandee)} · ${esc(t.reserveTot)}</p>` : ''}</div>
       <dl>
         <div><dt>${esc(t.quandL)}</dt><dd>${esc(dateLongue(s.debut, t))} · ${esc(heure(s.debut, t))}</dd></div>
         <div><dt>${esc(t.ou)}</dt><dd>${esc(lieu)}</dd></div>
@@ -1090,7 +1116,7 @@ function vitrine({ t, tr, base, partenaires }) {
 const TYPES_NOMS = { club: 'Club', bar: 'Bar', rooftop: 'Rooftop', 'beach-club': 'Beach club', 'bar-a-cocktails': 'Bar à cocktails', pub: 'Pub', lounge: 'Lounge', salle: 'Salle de concert' };
 function carteLieu(l, { t, tr, base, lang }, i = 0, tendance = false) {
   const prochaines = l.prochaines || [];
-  const raison = l.insta && l.insta.posts21 ? `${tr('En ce moment sur Instagram')} : ${l.insta.commentaires} ${tr('commentaires')} · ${l.insta.likes} ${tr('likes en moyenne')}` : '';
+  const raison = l.insta && l.insta.posts21 ? `${tr('Sur ses publications des 3 dernières semaines')} : ${l.insta.likes} ${tr('likes')} · ${l.insta.commentaires} ${tr('commentaires en moyenne')} · ${l.insta.posts21} ${tr('posts')}` : '';
   return `<article class="carte-texte lieu${tendance ? ' tendance' : ''}" id="${esc(l.slug)}" style="--i:${i % 8}" data-type="${esc(l.type)}">
     <div class="lieu-tete">${l.photo ? `<img src="${base}${esc(l.photo)}" alt="" width="56" height="56" loading="lazy">` : `<span class="lieu-initiale">${esc((l.nom[0] || '?').toUpperCase())}</span>`}<div><p class="genre">${tendance ? `🔥 #${i + 1} · ` : ''}${esc(tr(TYPES_NOMS[l.type] || ''))}${l.ville ? ` · ${esc(l.ville)}` : ''}${l.partenaire ? ` · ${esc(t.partenaires)}` : ''}</p><h3>${esc(l.nom)}</h3></div></div>
     ${l.description ? `<p>${esc(tr(l.description))}</p>` : ''}
@@ -1101,12 +1127,12 @@ function carteLieu(l, { t, tr, base, lang }, i = 0, tendance = false) {
 }
 function pageLieux({ lang, t, tr, base, compte, T, chemin, maj, lieux }) {
   const ctx = { t, tr, base, lang };
-  const top = (lieux || []).filter((l) => l.score > 0).slice(0, 6);
+  const top = (lieux || []).filter((l) => l.score > 0).sort((a, b) => b.score - a.score).slice(0, 6);
   const parVille = {};
   for (const l of lieux || []) (parVille[l.ville || tr('Autres')] ||= []).push(l);
   const villes = Object.keys(parVille).sort((a, b) => parVille[b].length - parVille[a].length);
   const corps = `${heroCourt({ base, photo: null, alt: t.lieuxNav, etiquette: t.lieuxNav, h1: tr("Les clubs et bars de la <em>Côte d'Azur</em> et du Var"), p: esc(tr("Boîtes de nuit, bars, rooftops et beach clubs de Nice à Toulon, avec ceux qui font le plus parler d'eux en ce moment.")) })}
-${top.length ? `<section class="bloc-large reveal"><h2>${tr('🔥 Tendance du <em>moment</em>')}</h2><p class="avert">${esc(tr("Classement mis à jour chaque jour : commentaires et likes sur leurs dernières publications Instagram, et soirées à venir dans l'agenda."))}</p><div class="cartes-texte">${top.map((l, i) => carteLieu(l, ctx, i, true)).join('')}</div></section>` : ''}
+${top.length ? `<section class="bloc-large reveal"><h2>${tr('🔥 Tendance du <em>moment</em>')}</h2><p class="avert">${esc(tr("Classement calculé chaque jour à partir de données réelles : likes et commentaires sur les publications Instagram des 3 dernières semaines, rapportés au nombre d'abonnés. Être partenaire de Teufy ne donne aucun bonus."))}</p><div class="cartes-texte">${top.map((l, i) => carteLieu(l, ctx, i, true)).join('')}</div></section>` : ''}
 <section class="bloc-large reveal"><p class="liens-styles">${villes.map((v) => `<a class="puce" href="#v-${slug(v)}">${esc(v)} · ${parVille[v].length}</a>`).join('')}</p></section>
 ${villes.map((v) => `<section class="bloc-large reveal" id="v-${slug(v)}"><h2>${esc(v)}</h2><div class="cartes-texte">${parVille[v].map((l, i) => carteLieu(l, ctx, i)).join('')}</div></section>`).join('\n')}
 ${(lieux || []).length ? '' : `<section class="bloc-large"><p class="vide">${esc(tr("L'annuaire se remplit : Teufy recense les clubs et bars de la Côte d'Azur et du Var."))}</p></section>`}`;
