@@ -1760,7 +1760,7 @@
    "ville": "Dubaï",
    "adresse": "",
    "site": "https://soundcloud.com/mynarya",
-   "description": "DJ et productrice de musique électronique originaire de France, résidente de l'émission Golden Hour sur Radio Monaco. Elle se produit régulièrement lors de sets club et d'événements lounge.",
+   "description": "DJ et producteur français de musique électronique, spécialisé en House et Afro House.",
    "date": false,
    "date_raison": "",
    "prix": ""
@@ -1777,12 +1777,12 @@
   "fiche": {
    "categorie": "activite",
    "ville": "Nice",
-   "adresse": "3 Port Saint-Étienne, 06300 Nice",
-   "site": "https://www.aperosartistiques.com/",
-   "description": "Concept d'apéro-peinture guidé de 1h30 dans des bars niçois, permettant de peindre une toile tout en sirotant un verre. L'activité est animée pas à pas par un artiste et s'adresse à tous les niveaux.",
+   "adresse": "3 Place du Pin, 06300 Nice",
+   "site": "",
+   "description": "Ateliers nomades apéro-peinture guidés par un artiste, permettant de créer sa propre toile tout en dégustant un verre.",
    "date": true,
-   "date_raison": "Une activité créative et ludique autour d'un verre, idéale pour briser la glace lors d'un rendez-vous à deux.",
-   "prix": "€€"
+   "date_raison": "Une activité créative et décontractée, idéale pour partager un moment complice à deux autour d'un verre.",
+   "prix": ""
   }
  },
  "ig:club_sonore": {
@@ -1796,12 +1796,12 @@
   "fiche": {
    "categorie": "organisateur",
    "ville": "Nice",
-   "adresse": "21 Boulevard de Riquier, 06300 Nice",
+   "adresse": "",
    "site": "https://shotgun.live/venues/club-sonore",
-   "description": "Collectif musical organisant des soirées clubbing éphémères et afterworks sur les rooftops et plages de la Côte d'Azur. Les événements mettent à l'honneur des DJs Tech House, Afro House et Deep House.",
+   "description": "Collectif organisant des soirées itinérantes et des open airs électroniques sur la Côte d'Azur.",
    "date": false,
    "date_raison": "",
-   "prix": "€€"
+   "prix": ""
   }
  },
  "ig:house_en_provence": {
@@ -1817,10 +1817,10 @@
    "ville": "Saint-Cézaire-sur-Siagne",
    "adresse": "Chemin du Stade, 06530 Saint-Cézaire-sur-Siagne",
    "site": "https://shotgun.live/venues/house-en-provence",
-   "description": "Festival associatif et organisateur de soirées dédiées à la musique électronique underground et aux arts. Il propose des DJ sets House et Techno ainsi qu'un village festif avec créateurs et food trucks.",
+   "description": "Festival de musique électronique underground en plein air proposant sets House et Techno, food trucks et animations.",
    "date": false,
    "date_raison": "",
-   "prix": "€€"
+   "prix": ""
   }
  },
  "ig:dreamevent_location": {
@@ -1833,10 +1833,10 @@
   },
   "fiche": {
    "categorie": "service",
-   "ville": "La Seyne-sur-Mer",
-   "adresse": "17 Chemin des Romarins, 83500 La Seyne-sur-Mer",
+   "ville": "Six-Fours-les-Plages",
+   "adresse": "83140 Six-Fours-les-Plages",
    "site": "https://www.dream-event-location.fr/",
-   "description": "Prestataire événementiel proposant la location de photobooths, la création de décors de ballons sur mesure et de murs végétaux. Il intervient pour des mariages, anniversaires et événements professionnels dans le Var.",
+   "description": "Prestataire événementiel proposant la location de mobilier, bornes photobooth et décors de ballons pour tous types d'événements.",
    "date": false,
    "date_raison": "",
    "prix": ""
@@ -1853,9 +1853,9 @@
   "fiche": {
    "categorie": "organisateur",
    "ville": "Saint-Raphaël",
-   "adresse": "",
-   "site": "https://ldpeventsproduction.com/",
-   "description": "Agence événementielle et société de production de spectacles, dîners-spectacles et soirées d'entreprise. Elle organise également des croisières festives en mer au départ du port de Nice.",
+   "adresse": "83700 Saint-Raphaël",
+   "site": "https://ldpeventsproduction.com",
+   "description": "Agence événementielle et de production organisant des dîners-spectacles, des événements d'entreprise et des soirées en mer.",
    "date": false,
    "date_raison": "",
    "prix": ""
@@ -1874,10 +1874,10 @@
    "ville": "Nice",
    "adresse": "30 Quai des États-Unis, 06300 Nice",
    "site": "https://shotgun.live/fr/venues/la-dolce",
-   "description": "Organisateur de soirées festives au bord de l'eau inspirées de la Dolce Vita, notamment à Opéra Plage. L'ambiance associe DJ sets Afro et Tech House, percussionnistes en direct et cocktails.",
+   "description": "Concept de soirées estivales en bord de mer mêlant DJ sets Afro et Tech House, percussions live et cocktails.",
    "date": false,
    "date_raison": "",
-   "prix": "€€"
+   "prix": ""
   }
  },
  "ig:azura_events_officiel": {
@@ -1891,12 +1891,12 @@
   "fiche": {
    "categorie": "organisateur",
    "ville": "Trans-en-Provence",
-   "adresse": "",
+   "adresse": "83720 Trans-en-Provence",
    "site": "https://azura-events.fr/",
-   "description": "Agence événementielle organisant des pool parties privées et des soirées à thème dans des villas du Var. Les événements réunissent animations aquatiques, restauration au barbecue et DJ sets généralistes.",
+   "description": "Agence événementielle varoise organisant des pool parties festives ainsi que des réceptions privées clé en main.",
    "date": false,
    "date_raison": "",
-   "prix": "€€"
+   "prix": ""
   }
  },
  "ig:flow.indoor": {
@@ -1906,6 +1906,16 @@
    "site": "",
    "abonnes": 108,
    "fichier": "site/partenaires/ig/flow.indoor.jpg"
+  },
+  "fiche": {
+   "categorie": "organisateur",
+   "ville": "",
+   "adresse": "",
+   "site": "",
+   "description": "Organisateur d'événements nomades proposant des soirées d'intérieur et des concepts festifs avec DJ sets en région PACA.",
+   "date": false,
+   "date_raison": "",
+   "prix": ""
   }
  },
  "ig:misterrivierablog": {
@@ -1915,6 +1925,16 @@
    "site": "http://www.mister-riviera.com/",
    "abonnes": 10449,
    "fichier": "site/partenaires/ig/misterrivierablog.jpg"
+  },
+  "fiche": {
+   "categorie": "media",
+   "ville": "Nice",
+   "adresse": "",
+   "site": "http://www.mister-riviera.com/",
+   "description": "Blog lifestyle et média local dédié aux sorties, événements, restaurants et adresses branchées de Nice et de la Côte d'Azur.",
+   "date": false,
+   "date_raison": "",
+   "prix": ""
   }
  },
  "ig:gioianice": {
@@ -1924,6 +1944,16 @@
    "site": "https://www.gioianice.fr",
    "abonnes": 5710,
    "fichier": "site/partenaires/ig/gioianice.jpg"
+  },
+  "fiche": {
+   "categorie": "restaurant",
+   "ville": "Nice",
+   "adresse": "10 Boulevard Dubouchage, 06000 Nice",
+   "site": "https://www.gioianice.fr",
+   "description": "Restaurant festif proposant des spécialités méditerranéennes et italiennes, complété par des DJ sets et des cocktails le soir.",
+   "date": true,
+   "date_raison": "Son cadre soigné, sa cuisine italienne et son ambiance musicale festive conviennent pour un dîner vivant à deux.",
+   "prix": "€€"
   }
  },
  "ig:barriochicagotoulon": {
@@ -1933,6 +1963,16 @@
    "site": "",
    "abonnes": 3474,
    "fichier": "site/partenaires/ig/barriochicagotoulon.jpg"
+  },
+  "fiche": {
+   "categorie": "bar",
+   "ville": "Toulon",
+   "adresse": "1 Rue de l'Équerre, 83000 Toulon",
+   "site": "https://barriochicago.fr",
+   "description": "Pub et bar à cocktails d'inspiration prohibition avec terrasse, petite restauration et salle de jeux à l'étage.",
+   "date": true,
+   "date_raison": "L'établissement offre une sélection de cocktails travaillés et une terrasse animée propices à un verre décontracté en tête-à-tête.",
+   "prix": "€€"
   }
  },
  "ig:lepetitchicagotoulon": {
@@ -1942,6 +1982,16 @@
    "site": "",
    "abonnes": 5444,
    "fichier": "site/partenaires/ig/lepetitchicagotoulon.jpg"
+  },
+  "fiche": {
+   "categorie": "bar",
+   "ville": "Toulon",
+   "adresse": "4-6 Rue Camille Auban, 83000 Toulon",
+   "site": "https://www.lepetitchicagotoulon.com",
+   "description": "Live bar festif accueillant concerts, plateaux de stand-up, blind tests et servant bières artisanales, cocktails et planches à partager.",
+   "date": false,
+   "date_raison": "",
+   "prix": "€€"
   }
  },
  "ig:lacalesechetoulon": {
@@ -1951,6 +2001,16 @@
    "site": "",
    "abonnes": 4033,
    "fichier": "site/partenaires/ig/lacalesechetoulon.jpg"
+  },
+  "fiche": {
+   "categorie": "bar",
+   "ville": "Toulon",
+   "adresse": "4 Place Monsenergue, 83000 Toulon",
+   "site": "",
+   "description": "Rhumerie et pub à l'ambiance marine proposant des rhums arrangés maison, des bières et des cocktails face au port.",
+   "date": false,
+   "date_raison": "",
+   "prix": "€€"
   }
  },
  "ig:lebeerboattoulon": {
@@ -1960,6 +2020,16 @@
    "site": "",
    "abonnes": 1385,
    "fichier": "site/partenaires/ig/lebeerboattoulon.jpg"
+  },
+  "fiche": {
+   "categorie": "bar",
+   "ville": "Toulon",
+   "adresse": "",
+   "site": "",
+   "description": "Bar à bière nomade en plein air intervenant sur divers événements festifs et marchés nocturnes dans le Var.",
+   "date": false,
+   "date_raison": "",
+   "prix": ""
   }
  },
  "ig:placedelequerreevents83": {
@@ -1969,6 +2039,16 @@
    "site": "https://sudist.fr/products/t-shirt-in-raclette-we-trust",
    "abonnes": 6012,
    "fichier": "site/partenaires/ig/placedelequerreevents83.jpg"
+  },
+  "fiche": {
+   "categorie": "organisateur",
+   "ville": "Toulon",
+   "adresse": "Place de l'Équerre, 83000 Toulon",
+   "site": "https://sudist.fr",
+   "description": "Collectif coordonnant les animations, concerts de rue et festivals festifs sur la place de l'Équerre à Toulon.",
+   "date": false,
+   "date_raison": "",
+   "prix": ""
   }
  },
  "ig:lebeertruckdubarathym": {
@@ -1981,7 +2061,7 @@
    "nom": "Le Barathym",
    "bio": "🎶Pub-concert-Dj Set-Night Club  \n🕦Open:17h30-2h \ndimanche -> mercredi\n17h30-4h jeudi -> samedi\n🎉HappyHour 7/7 17h30 -> 20h\n🏠32 bd cunéo 83000 toulon",
    "site": "",
-   "abonnes": 10924,
+   "abonnes": 10925,
    "fichier": "site/partenaires/ig/lebarathymtoulon.jpg"
   }
  },
