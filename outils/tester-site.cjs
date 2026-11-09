@@ -126,7 +126,7 @@ async function controlerPage(p, nom, u) {
     ok(await n() === 1, `${nom} : les favoris ne sont pas gardés après rechargement`);
     await p.locator('.liste .carte:not([hidden]) .coeur').first().click(); await clic('quand', 'tout');
 
-    } catch (e) { echecs.push(`${nom} : étape interrompue (${e.message.split('\n')[0]})`); }
+    } catch (e) { echecs.push(`${nom} : étape interrompue (${e.message.split('\n')[0]} @l.${(String(e.stack).match(/tester-site\.cjs:(\d+)/) || [])[1] || '?'})`); }
     // --- Feuille de filtres (mobile) ---
     try {
     if (nom === 'mobile') {
@@ -157,7 +157,7 @@ async function controlerPage(p, nom, u) {
       }
     }
 
-    } catch (e) { echecs.push(`${nom} : étape interrompue (${e.message.split('\n')[0]})`); }
+    } catch (e) { echecs.push(`${nom} : étape interrompue (${e.message.split('\n')[0]} @l.${(String(e.stack).match(/tester-site\.cjs:(\d+)/) || [])[1] || '?'})`); }
     // --- Mini-carte de la soirée (la carte générale a été retirée) et anciens liens #carte ---
     try {
     const avecCarte = fs.readdirSync(path.join(ROOT, 'soiree')).find((d) => fs.readFileSync(path.join(ROOT, 'soiree', d, 'index.html'), 'utf8').includes('class="mini-carte"'));
@@ -167,7 +167,7 @@ async function controlerPage(p, nom, u) {
     await p.goto(B + '#carte', { waitUntil: 'load' }); await p.waitForTimeout(600);
     ok(/#agenda$/.test(p.url()) && await p.locator('.liste').isVisible(), `${nom} : un ancien lien #carte ne mène pas à l'agenda`);
     ok(await p.locator('a[href$="#carte"]').count() === 0, `${nom} : un lien vers la carte générale existe encore`);
-    } catch (e) { echecs.push(`${nom} : étape interrompue (${e.message.split('\n')[0]})`); }
+    } catch (e) { echecs.push(`${nom} : étape interrompue (${e.message.split('\n')[0]} @l.${(String(e.stack).match(/tester-site\.cjs:(\d+)/) || [])[1] || '?'})`); }
     // --- Langues, loupe, retour en haut ---
     try {
     await p.goto(B + 'a-propos/', { waitUntil: 'load' });
@@ -178,7 +178,7 @@ async function controlerPage(p, nom, u) {
     await p.evaluate(() => scrollTo(0, 4000)); await p.waitForTimeout(400);
     if (await p.locator('.haut').isVisible()) { await p.locator('.haut').click(); await p.waitForTimeout(2500); ok(await p.evaluate(() => scrollY) < 50, `${nom} : « Haut de page » ne remonte pas`); } else echecs.push(`${nom} : bouton « Haut de page » absent`);
 
-    } catch (e) { echecs.push(`${nom} : étape interrompue (${e.message.split('\n')[0]})`); }
+    } catch (e) { echecs.push(`${nom} : étape interrompue (${e.message.split('\n')[0]} @l.${(String(e.stack).match(/tester-site\.cjs:(\d+)/) || [])[1] || '?'})`); }
     // --- Page soirée : billets, calendrier, itinéraire, partage, code promo ---
     try {
     await p.goto(B + `soiree/${soireePromo}/`, { waitUntil: 'load' });
@@ -189,13 +189,13 @@ async function controlerPage(p, nom, u) {
     ok(await p.locator('.toast:not([hidden])').count() === 1 || nom === 'mobile', `${nom} : le partage ne fait rien`);
     if (await p.locator('[data-copier]').count()) { await p.locator('[data-copier]').first().click(); await p.waitForTimeout(300); ok(await p.locator('.toast:not([hidden])').count() === 1, `${nom} : copier le code promo ne fait rien`); }
 
-    } catch (e) { echecs.push(`${nom} : étape interrompue (${e.message.split('\n')[0]})`); }
+    } catch (e) { echecs.push(`${nom} : étape interrompue (${e.message.split('\n')[0]} @l.${(String(e.stack).match(/tester-site\.cjs:(\d+)/) || [])[1] || '?'})`); }
     // --- Vidéo de Monaco : elle tourne en boucle, pas seulement 2 secondes ---
     try {
     await p.goto(B + 'soirees-monaco/', { waitUntil: 'load' }); await c.clock.runFor(0).catch(() => {});
     const t = await p.evaluate(() => new Promise((ok) => { const v = document.querySelector('video'); if (!v) return ok(-1); let max = 0, boucles = 0, prec = 0; v.addEventListener('timeupdate', () => { if (v.currentTime < prec) boucles++; prec = v.currentTime; max = Math.max(max, v.currentTime); }); setTimeout(() => ok({ max, boucles, paused: v.paused, duree: v.duration }), 20000); }));
     ok(t !== -1 && t.duree > 15 && t.max > t.duree - 2 && t.boucles >= 1 && !t.paused, `${nom} : la vidéo de Monaco ne tourne pas en entier / en boucle (${JSON.stringify(t)})`);
-    } catch (e) { echecs.push(`${nom} : étape interrompue (${e.message.split('\n')[0]})`); }
+    } catch (e) { echecs.push(`${nom} : étape interrompue (${e.message.split('\n')[0]} @l.${(String(e.stack).match(/tester-site\.cjs:(\d+)/) || [])[1] || '?'})`); }
     await c.close().catch(() => {});
   }
   await b.close().catch(() => {});

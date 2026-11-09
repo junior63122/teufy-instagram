@@ -1314,8 +1314,11 @@ async function imagesActus(actus, { soirees, hist }) {
   }
   return actus;
 }
-function imageActu(a, { base, sizes = '(min-width:980px) 380px, 92vw', attrs = 'loading="lazy" decoding="async"' } = {}) {
+function imageActu(a, { base, cadre = true, sizes = '(min-width:980px) 380px, 92vw', attrs = 'loading="lazy" decoding="async"' } = {}) {
   if (!a.image_site) return `<span class="actu-flash" aria-hidden="true"><b>${esc(a.ville || 'Teufy')}</b></span>`;
+  // Dans les cartes, le cadre est en 4/5 : une image en paysage y est recadrée donc agrandie ; on demande la taille réelle affichée.
+  const f = cadre && a.dims ? Math.max(1, 1.25 * a.dims[0] / a.dims[1]) : 1;
+  if (f > 1) sizes = sizes.replace(/(\d+)(px|vw)/g, (_, n, u) => `${Math.round(n * f)}${u}`);
   return image(base, a.image_site, { alt: a.titre, sizes, attrs: `${attrs}${a.dims ? ` width="${a.dims[0]}" height="${a.dims[1]}"` : ''}` });
 }
 const dateActu = (a, t) => { const d = Date.parse(a.date); return isNaN(d) ? '' : paris(d, { day: 'numeric', month: 'long', year: 'numeric' }, t.locale); };
@@ -1331,7 +1334,7 @@ function pageActu({ lang, t, tr, base, compte, chemin, a, actus, maj }) {
   <p class="genre">${esc(t.publie.replace('{d}', dateActu(a, t)))}${a.ville ? ` · ${esc(tr(a.ville))}` : ''}</p>
   <h1>${esc(tr(a.titre))}</h1>
   <p class="chapo">${esc(tr(a.chapo))}</p>
-  ${a.image_site ? `<figure class="actu-figure${a.visuel ? ' visuel' : ''}">${imageActu(a, { base, sizes: '(min-width:760px) 680px, 92vw', attrs: 'decoding="async"' })}</figure>` : ''}
+  ${a.image_site ? `<figure class="actu-figure${a.visuel ? ' visuel' : ''}">${imageActu(a, { base, cadre: false, sizes: '(min-width:760px) 680px, 92vw', attrs: 'decoding="async"' })}</figure>` : ''}
   ${a.paragraphes.map((p) => `<p>${esc(tr(p))}</p>`).join('\n  ')}
   ${a.soiree ? `<p><a class="bouton" href="${base}${pre(lang)}soiree/${a.soiree}/">${esc(t.voir)}</a></p>` : ''}
   ${a.insta ? `<p><a class="bouton" href="${esc(a.insta)}" target="_blank" rel="noopener">${esc(t.voirInsta)}</a></p>` : ''}
