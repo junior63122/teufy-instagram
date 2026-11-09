@@ -485,6 +485,12 @@ export async function construireSite({ events, eventsFrance = [], hist = [], con
   // et transports), dans un plafond global pour que le passage se termine toujours.
   const etape = (min) => { LIMITE = Math.min(Date.now() + min * 60e3, PLAFOND); };
   etape(5); const partenaires = await identifierPartenaires(log, { ig, api });
+  // Logos et photos des partenaires : WebP de 176 px (affichés en 88 px au plus), au lieu de PNG jusqu'à 100 Ko.
+  for (const x of partenaires) if (/\.(png|jpe?g)$/i.test(x.fichier || '') && existsSync(path.join(ROOT, x.fichier))) {
+    const w = x.fichier.replace(/\.(png|jpe?g)$/i, '-176.webp');
+    if (!existsSync(path.join(ROOT, w))) spawnSync('ffmpeg', ['-v', 'error', '-y', '-i', path.join(ROOT, x.fichier), '-vf', "scale='min(176,iw)':-2", '-c:v', 'libwebp', '-quality', '82', path.join(ROOT, w)]);
+    if (existsSync(path.join(ROOT, w))) x.fichier = w;
+  }
   etape(6); const lieux = await lieuxDeNuit({ soirees, partenaires, ig, api, log, now });
   etape(3); const festivalsGuide = await festivalsDuWeb({ partenaires, now, log });
   etape(4); await geocoder(soirees, log);
@@ -581,6 +587,9 @@ async function assets() {
   for (const f of ['inter-tight.woff2']) // inter-tight-ext.woff2 : version allégée committée (accents rares et ponctuation)
     await copyFile(path.join(S, 'fonts', f), path.join(SITE, 'fonts', f));
   await copyFile(path.join(S, 'logo.png'), path.join(SITE, 'img', 'logo.png'));
+  // Logo léger pour l'en-tête et les pastilles (le PNG d'origine fait 577 px de large).
+  for (const [l, out] of [[96, 'logo-96.webp'], [200, 'logo-200.webp']]) if (!existsSync(path.join(SITE, 'img', out))) spawnSync('ffmpeg', ['-v', 'error', '-y', '-i', path.join(SITE, 'img', 'logo.png'), '-vf', `scale=${l}:-2`, '-c:v', 'libwebp', '-quality', '90', path.join(SITE, 'img', out)]);
+  if (!existsSync(path.join(SITE, 'img', 'favicon-64.png'))) spawnSync('ffmpeg', ['-v', 'error', '-y', '-i', path.join(SITE, 'img', 'logo.png'), '-vf', 'scale=64:-2', path.join(SITE, 'img', 'favicon-64.png')]);
   for (const f of PHOTOS) {
     const out = path.join(SITE, 'img', `${f}.jpg`);
     if (!existsSync(out)) spawnSync('ffmpeg', ['-v', 'error', '-y', '-i', path.join(S, 'decors', 'da', `${f}.jpg`), '-vf', "scale='min(1200,iw)':-2", '-q:v', '5', out]);
@@ -590,6 +599,9 @@ async function assets() {
   await writeFile(path.join(SITE, 'style.min.css'), css);
   const js = readFileSync(path.join(SITE, 'app.js'), 'utf8').split('\n').filter((l) => !/^\s*\/\//.test(l)).map((l) => l.trim()).filter(Boolean).join('\n');
   await writeFile(path.join(SITE, 'app.min.js'), js);
+  // Service worker (à la racine pour couvrir tout le site) : GitHub Pages ne garde les fichiers que 10 min en cache ;
+  // les images, polices et scripts sont gardés dans le navigateur, les pages restent toujours à jour (réseau d'abord).
+  await writeFile(path.join(ROOT, 'sw.js'), readFileSync(path.join(SITE, 'sw-source.js'), 'utf8').replace('__VERSION__', h(css + js).slice(0, 8)));
   VERSION = h(css + js).slice(0, 8);
   CSS_EN_LIGNE = css.replace(/url\(fonts\//g, 'url(__BASE__site/fonts/');
   // Images en WebP, en plusieurs largeurs (le téléphone charge la petite).
@@ -790,7 +802,7 @@ ${LANGUES.map((l) => `<link rel="alternate" hreflang="${l}" href="${URL_SITE}${p
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0B0B0F">
 ${GOOGLE ? `<meta name="google-site-verification" content="${esc(GOOGLE)}">` : ''}
-<link rel="icon" href="${base}site/img/logo.png">
+<link rel="icon" href="${base}site/img/favicon-64.png">
 <link rel="apple-touch-icon" href="${base}site/img/icone-192.png">
 <link rel="manifest" href="${base}site/manifest.webmanifest">
 <link rel="preload" href="${base}site/fonts/bricolage-titre.woff2" as="font" type="font/woff2" crossorigin>
@@ -801,7 +813,7 @@ ${ld.length ? `<script type="application/ld+json">${JSON.stringify(ld).replace(/
 <body>
 <a class="saut" href="#contenu">${esc(t.contenu)}</a>
 <header class="barre">
-  <a class="marque" href="${accueil || './'}" aria-label="Teufy"><img src="${base}site/img/logo.png" alt="Teufy" width="39" height="32"></a>
+  <a class="marque" href="${accueil || './'}" aria-label="Teufy"><img src="${base}site/img/logo-96.webp" alt="Teufy" width="39" height="32"></a>
   <div class="barre-droite">
     <a class="loupe" href="${agendaIci ? '' : accueil}#recherche" aria-label="${esc(t.rechercher)}"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M15.5 15.5 21 21" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></a>
     <details class="langues"><summary><span class="vh">${esc(t.langue)} : </span>${lang.toUpperCase()}</summary><div>${LANGUES.map((l) => `<a href="${base}${pre(l)}${chemin}" hreflang="${l}" lang="${l}"${l === lang ? ' aria-current="true"' : ''}>${esc(TXT[l].nom)}</a>`).join('')}</div></details>
@@ -1174,8 +1186,8 @@ function grilleInsta(posts, { t, base, compte }) {
     const w = [480, 800].map((l) => p.image.replace(/\.jpg$/, `-${l}.webp`)).filter((f) => existsSync(path.join(ROOT, f)));
     return w.length ? `<img src="${base}${w.at(-1)}" srcset="${w.map((f) => `${base}${f} ${largeurWebp(path.join(ROOT, f))}w`).join(', ')}" sizes="(min-width:980px) 300px, 33vw" alt="${esc(p.titre)}" loading="lazy" decoding="async">` : `<img src="${base}${esc(p.image)}" alt="${esc(p.titre)}" loading="lazy" decoding="async">`;
   };
-  return `<section class="insta reveal"><div class="insta-tete"><h2>${esc(t.insta)}</h2><a class="insta-compte" href="https://www.instagram.com/${esc(handle)}/" target="_blank" rel="noopener"><img src="${base}site/img/logo.png" alt="" width="40" height="40">${esc(compte)}</a></div>
-<div class="posts n${Math.min(posts.length, 9)}">${posts.slice(0, 9).map((p) => `<a href="${esc(p.lien)}" target="_blank" rel="noopener"${p.reel ? ' class="reel"' : p.carrousel ? ' class="carrousel"' : ''}>${img(p)}${p.titre ? `<span>${esc(p.titre)}</span>` : ''}</a>`).join('')}</div>
+  return `<section class="insta reveal"><div class="insta-tete"><h2>${esc(t.insta)}</h2><a class="insta-compte" href="https://www.instagram.com/${esc(handle)}/" target="_blank" rel="noopener"><img src="${base}site/img/logo-96.webp" alt="" width="40" height="40">${esc(compte)}</a></div>
+<div class="posts n${Math.min(posts.length, 9)}">${posts.slice(0, 9).map((p) => `<a href="${esc(p.lien)}" target="_blank" rel="noopener"${p.reel ? ' class="reel"' : p.carrousel ? ' class="carrousel"' : ''}>${img({ ...p, titre: p.titre ? '' : 'Instagram' })}${p.titre ? `<span>${esc(p.titre)}</span>` : ''}</a>`).join('')}</div>
 <a class="bouton" href="https://www.instagram.com/${esc(handle)}/" target="_blank" rel="noopener">${esc(t.suivreInsta || compte)}</a></section>`;
 }
 
@@ -1369,7 +1381,7 @@ ${blocOrga({ t, base, handle, lang })}`;
 function page404(t) {
   const B = new URL(URL_SITE).pathname; // « / » sur le domaine propre, « /teufy-instagram/ » sur GitHub Pages
   return `<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${esc(t.e404)} · Teufy</title><meta name="robots" content="noindex"><link rel="icon" href="${B}site/img/logo.png"><link rel="stylesheet" href="${B}site/style.min.css"></head>
-<body><main class="page-404"><a href="${B}"><img src="${B}site/img/logo.png" alt="Teufy" width="96" height="79"></a><h1>4<em>0</em>4</h1><p>${esc(t.e404p)}</p><p><a class="bouton" href="${B}#agenda">${esc(t.e404b)}</a></p>
+<body><main class="page-404"><a href="${B}"><img src="${B}site/img/logo-200.webp" alt="Teufy" width="96" height="79"></a><h1>4<em>0</em>4</h1><p>${esc(t.e404p)}</p><p><a class="bouton" href="${B}#agenda">${esc(t.e404b)}</a></p>
 <p class="langues-pied">${LANGUES.map((l) => `<a href="${B}${pre(l)}" hreflang="${l}" lang="${l}">${esc(TXT[l].nom)}</a>`).join(' · ')}</p></main></body></html>
 `;
 }

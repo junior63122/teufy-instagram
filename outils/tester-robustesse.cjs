@@ -105,6 +105,19 @@ const visibles = (p) => p.locator('.liste .carte:not([hidden])').count();
     await c.close();
   });
 
+  await etape('cache et hors connexion', async () => {
+    const c = await b.newContext({ viewport: { width: 1280, height: 800 } }); const p = await c.newPage(); erreurs(p, 'cache');
+    await p.goto(B); await p.waitForTimeout(2500);
+    ok(await p.evaluate(async () => !!(await navigator.serviceWorker.getRegistration())?.active), 'cache : le service worker ne s\'installe pas');
+    await p.goto(B + 'soirees-nice/'); await p.waitForTimeout(600);
+    await c.setOffline(true);
+    await p.goto(B).catch(() => {});
+    ok(await p.locator('.liste .carte').count() > 10, 'cache : une page déjà vue ne s\'affiche plus sans connexion');
+    await c.setOffline(false); await p.reload(); await p.waitForTimeout(400);
+    ok(await p.locator('.liste .carte').count() > 10, 'cache : la page ne revient pas après reconnexion');
+    await c.close();
+  });
+
   await etape('boutons recouverts', async () => {
     for (const o of [{ ...devices['iPhone 13'] }, { viewport: { width: 1440, height: 900 } }]) {
       const c = await b.newContext(o); const p = await c.newPage(); erreurs(p, 'recouvert');

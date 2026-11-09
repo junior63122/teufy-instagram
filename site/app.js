@@ -431,3 +431,21 @@
   addEventListener('hashchange', () => { if (location.hash === '#recherche') allerRecherche(true); else if (location.hash === '#carte' && zoneCarte) { choisirVue('carte'); agenda?.scrollIntoView(); } });
   if (location.hash === '#carte') { choisirVue('carte'); setTimeout(() => agenda?.scrollIntoView(), 50); }
 })();
+
+// --- Vitesse : cache du navigateur (sw.js) et préchargement des pages au survol / au toucher d'un lien -----------
+(() => {
+  const icone = document.querySelector('link[rel=icon]');
+  const racine = icone ? icone.href.replace(/site\/img\/[^/]+$/, '') : null;
+  if (racine && 'serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) addEventListener('load', () => navigator.serviceWorker.register(racine + 'sw.js', { scope: racine }).catch(() => {}));
+  const vus = new Set();
+  const precharger = (e) => {
+    const a = e.target.closest?.('a[href]');
+    if (!a || a.target === '_blank' || a.origin !== location.origin || a.hash && a.pathname === location.pathname || vus.has(a.href) || /\.(ics|mp4|jpg|png|webp)$/.test(a.pathname)) return;
+    if (navigator.connection?.saveData) return;
+    vus.add(a.href);
+    const l = document.createElement('link'); l.rel = 'prefetch'; l.href = a.href; document.head.appendChild(l);
+  };
+  addEventListener('pointerover', precharger, { passive: true });
+  addEventListener('touchstart', precharger, { passive: true });
+  addEventListener('focusin', precharger);
+})();
