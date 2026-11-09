@@ -247,7 +247,7 @@
       "voice_id": "3Tp5mYhT9wrfnry9pzvV",
       "nom": "Hugo",
       "modele": "eleven_v3",
-      "stabilite": 0.0,
+      "stabilite": 0,
       "style": 0.85,
       "vitesse": 1.1
     },
@@ -361,7 +361,7 @@
     "photo_directeur": "site/img/equipe/junior-joyant.jpg",
     "google_verification": "",
     "email": "teufy.app@gmail.com",
-    "domaine": ""
+    "domaine": "teufyparty.com"
   },
   "codes_promo": [
     {
