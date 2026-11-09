@@ -83,7 +83,10 @@ const CIBLE = "Teufy est un média Instagram sur les sorties et la nuit de la C�
 // Posts Instagram récents (moins de `heures`) des comptes suivis : organisateurs, clubs, festivals.
 async function postsRecents({ ig, api, now, heures = 36, log }) {
   const orgas = lire(path.join(ROOT, 'contenus', 'organisateurs.json'), { comptes: [], suggeres: [] });
-  const comptes = [...new Set([...(orgas.comptes || []), ...(orgas.suggeres || [])])].slice(0, 45);
+  // Partenaires + organisateurs, par roulement : 40 comptes par passage (limite de l'API), tous vus en quelques heures.
+  const tous = [...new Set([...(orgas.partenaires || []), ...(orgas.comptes || []), ...(orgas.suggeres || [])])];
+  const depart = tous.length > 40 ? (Math.floor(now.getTime() / 1800e3) * 40) % tous.length : 0;
+  const comptes = [...tous.slice(depart), ...tous.slice(0, depart)].slice(0, 40);
   const out = [];
   for (const c of comptes) {
     try {

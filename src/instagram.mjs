@@ -176,7 +176,7 @@ export async function followers(ig) {
 
 // Posts publics d'un autre compte professionnel (API « Business Discovery »).
 export async function businessDiscovery(handle, ig) {
-  const fields = `business_discovery.username(${handle}){username,followers_count,media_count,media.limit(25){caption,like_count,comments_count,media_type,media_product_type,media_url,timestamp,permalink}}`;
+  const fields = `business_discovery.username(${handle}){username,name,biography,website,profile_picture_url,followers_count,media_count,media.limit(25){caption,like_count,comments_count,media_type,media_product_type,media_url,timestamp,permalink}}`;
   const j = await call('GET', ig.user, { fields }, ig);
   return j.business_discovery;
 }

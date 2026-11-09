@@ -115,7 +115,7 @@ export async function rechercherSoirees({ config, now = new Date(), ig = null, a
   const orgas = existsSync(ORGAS) ? JSON.parse(readFileSync(ORGAS, 'utf8')) : { comptes: [], suggeres: [] };
   let posts = [];
   if (ig && api.businessDiscovery) {
-    const comptes = [...new Set([...(orgas.comptes || []), ...(orgas.suggeres || [])])].slice(0, R.max_comptes ?? 40);
+    const comptes = [...new Set([...(orgas.partenaires || []), ...(orgas.comptes || []), ...(orgas.suggeres || [])])].slice(0, R.max_comptes ?? 100); // partenaires d'abord
     const r = await postsOrganisateurs({ ig, api, comptes, now, log });
     posts = r.posts;
     orgas.valides = r.valides;

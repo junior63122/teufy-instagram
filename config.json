@@ -217,7 +217,7 @@
     "horizon_jours": 45,
     "max_recherches": 20,
     "max_pages": 25,
-    "max_comptes": 40,
+    "max_comptes": 100,
     "pertinence_min": 0.5,
     "_note": "Recherche des soirées sur le web et chez les organisateurs Instagram par Claude (clé ANTHROPIC_API_KEY). Coût indicatif : 1 à 3 € par recherche, environ 2 par semaine.",
     "pertinence_min_site": 0.35

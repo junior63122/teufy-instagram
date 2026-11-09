@@ -205,8 +205,8 @@ async function aProximite(soirees, log) {
 // --- Partenaires : nom lu sur le logo par l'IA, puis fiche (type, ville, adresse, description) trouvée sur le web.
 // Sert aux rubriques « Pour un date », « Restaurants » et « Activités » (uniquement des partenaires de Teufy).
 const PART_INFOS = path.join(ROOT, 'contenus', 'partenaires-infos.json');
-const CATEGORIES = ['restaurant', 'bar', 'rooftop', 'club', 'beach-club', 'activite', 'hotel', 'organisateur', 'festival', 'artiste', 'media', 'marque', 'autre'];
-async function identifierPartenaires(log) {
+const CATEGORIES = ['restaurant', 'bar', 'rooftop', 'club', 'beach-club', 'activite', 'hotel', 'organisateur', 'festival', 'artiste', 'media', 'marque', 'service', 'personne', 'autre'];
+async function identifierPartenaires(log, { ig = null, api = {} } = {}) {
   const P = lire(path.join(ROOT, 'contenus', 'partenaires.json'), { liste: [] });
   const infos = lire(PART_INFOS, {});
   const cle = !!(process.env.GEMINI_API_KEY || '').trim();
@@ -237,9 +237,63 @@ async function identifierPartenaires(log) {
       }
     }
   }
+  // Comptes Instagram suivis par Teufy (contenus/partenaires-comptes.json) : profil via l'API (nom, bio, site, photo),
+  // puis fiche (type, ville, adresse, description) trouvée sur le web. Quelques dizaines par passage, gardés en cache.
+  const C = lire(path.join(ROOT, 'contenus', 'partenaires-comptes.json'), { comptes: [] }).comptes || [];
+  let profils = 0, fichesIg = 0;
+  if (ig && api.businessDiscovery) {
+    await mkdir(path.join(SITE, 'partenaires', 'ig'), { recursive: true });
+    for (const c of C.filter((x) => !infos[`ig:${x.instagram}`]?.profil).slice(0, 60)) {
+      const k = `ig:${c.instagram}`;
+      try {
+        const bd = await api.businessDiscovery(c.instagram, ig);
+        const photo = path.join(SITE, 'partenaires', 'ig', `${c.instagram.replace(/[^a-z0-9_.-]/gi, '_')}.jpg`);
+        let fichier = '';
+        if (bd?.profile_picture_url) {
+          const r = await fetch(bd.profile_picture_url, { signal: AbortSignal.timeout(15000) }).catch(() => null);
+          if (r?.ok) { const tmp = `${photo}.src`; await writeFile(tmp, Buffer.from(await r.arrayBuffer())); const x = spawnSync('ffmpeg', ['-v', 'error', '-y', '-i', tmp, '-vf', 'scale=160:160', '-q:v', '4', photo]); spawnSync('rm', ['-f', tmp]); if (x.status === 0) fichier = path.relative(ROOT, photo); }
+        }
+        infos[k] = { ...(infos[k] || {}), profil: { nom: bd?.name || '', bio: (bd?.biography || '').slice(0, 300), site: bd?.website || '', abonnes: bd?.followers_count ?? null, fichier } };
+        profils++;
+      } catch (err) {
+        if (/rate|limit|\(#4\)|\(#32\)/i.test(err.message)) break; // limite de l'API : on continue au prochain passage
+        infos[k] = { ...(infos[k] || {}), profil: { absent: true } }; // compte personnel (non professionnel) : pas de profil public via l'API
+      }
+    }
+  }
+  if (cle) {
+    const SCHEMA = '{"lieux":[{"n":numéro,"trouve":bool,"categorie":"' + CATEGORIES.join('|') + '","ville":string,"adresse":string,"site":string,"description":string,"date":bool,"date_raison":string,"prix":"€|€€|€€€|€€€€|"}]}';
+    const aFicher = C.filter((x) => !infos[`ig:${x.instagram}`]?.fiche).slice(0, 64);
+    for (let i = 0; i < aFicher.length; i += 8) {
+      const lot = aFicher.slice(i, i + 8);
+      const liste = lot.map((x, j) => { const pr = infos[`ig:${x.instagram}`]?.profil || {}; return `${j + 1}. @${x.instagram}${x.nom || pr.nom ? ` (${pr.nom || x.nom})` : ''}${pr.bio ? ` · bio : ${pr.bio.replace(/\s+/g, ' ')}` : ''}${pr.site ? ` · ${pr.site}` : ''}`; }).join('\n');
+      const web = await gemini([{ text: `Ces comptes Instagram sont suivis par un guide des soirées de la Côte d'Azur (Nice, Cannes, Antibes, Monaco, Toulon). Pour chacun, trouve ce que c'est (restaurant, bar, club, plage, activité, organisateur, DJ, service…), la ville, l'adresse et le site officiel, et ce qu'on y fait.\n${liste}` }], { recherche: true });
+      if (!web) break;
+      const r = await gemini([{ text: `Comptes :\n${liste}\n\nRésultats de recherche :\n${web}\n\nRéponds en JSON ${SCHEMA}. categorie « personne » pour un particulier ou un influenceur sans activité professionnelle publique ; « service » pour VTC, sécurité, location, photographe… description : 1 à 2 phrases factuelles en français, sans superlatif inventé. date = true seulement pour un lieu ou une activité agréable pour un rendez-vous à deux (restaurant, rooftop, bar à cocktails, plage, activité), avec date_raison en une phrase. trouve = false si tu n'es pas sûr. N'invente rien : chaîne vide si inconnu.` }]);
+      if (!r?.lieux) break;
+      for (const l of r.lieux) {
+        const x = lot[l.n - 1];
+        if (!x) continue;
+        const k = `ig:${x.instagram}`;
+        infos[k] = { ...(infos[k] || {}), fiche: l.trouve && CATEGORIES.includes(l.categorie) ? { categorie: l.categorie, ville: l.ville || '', adresse: l.adresse || '', site: /^https?:\/\//.test(l.site || '') ? l.site : '', description: l.description || '', date: !!l.date, date_raison: l.date_raison || '', prix: l.prix || '' } : { inconnu: true } };
+        fichesIg++;
+      }
+    }
+  }
   await writeFile(PART_INFOS, JSON.stringify(infos, null, 1) + '\n');
-  if (lus || fiches) log(`Site : ${lus} logo(s) de partenaires lu(s), ${fiches} fiche(s) trouvée(s)`);
-  return (P.liste || []).map((x) => { const i = infos[x.fichier] || {}; const f = i.fiche && !i.fiche.inconnu ? i.fiche : null; return { ...x, nom: x.nom || i.nom || '', ...(f || {}), instagram: x.instagram || f?.instagram || '' }; });
+  if (lus || fiches || profils || fichesIg) log(`Site : partenaires, ${lus} logo(s) lu(s), ${profils} profil(s) Instagram, ${fiches + fichesIg} fiche(s) trouvée(s)`);
+  const norm = (x) => sansAccent(x).replace(/[^a-z0-9]/g, '');
+  const logos = (P.liste || []).map((x) => { const i = infos[x.fichier] || {}; const f = i.fiche && !i.fiche.inconnu ? i.fiche : null; return { ...x, nom: x.nom || i.nom || '', ...(f || {}), instagram: x.instagram || f?.instagram || '' }; });
+  const comptes = C.map((c) => {
+    const i = infos[`ig:${c.instagram}`] || {}; const pr = i.profil || {}; const f = i.fiche && !i.fiche.inconnu ? i.fiche : null;
+    return { fichier: pr.fichier || '', nom: c.nom || pr.nom || c.instagram, instagram: c.instagram, ...(f || {}), site: f?.site || pr.site || '' };
+  });
+  // Un même partenaire peut avoir un logo ET un compte suivi : on fusionne (logo gardé, infos complétées).
+  for (const c of comptes) {
+    const l = logos.find((x) => (x.instagram && x.instagram === c.instagram) || (x.nom && norm(x.nom) === norm(c.nom)));
+    if (l) { for (const [a, b] of Object.entries(c)) if (!l[a] && b) l[a] = b; c.fusionne = true; }
+  }
+  return [...logos, ...comptes.filter((c) => !c.fusionne)].filter((x) => x.categorie !== 'personne');
 }
 
 // --- Traductions : tout le texte français (accroches, descriptions, pages éditoriales, actus) est traduit par l'IA
@@ -288,7 +342,7 @@ function tailleJpeg(f) {
 const PLATEFORMES = { 'shotgun.live': 'Shotgun', 'dice.fm': 'DICE', 'link.dice.fm': 'DICE', 'ra.co': 'Resident Advisor', 'residentadvisor.net': 'Resident Advisor', 'weezevent.com': 'Weezevent', 'billetweb.fr': 'Billetweb', 'eventbrite.fr': 'Eventbrite', 'eventbrite.com': 'Eventbrite', 'helloasso.com': 'HelloAsso', 'feverup.com': 'Fever', 'fnacspectacles.com': 'Fnac Spectacles', 'ticketmaster.fr': 'Ticketmaster', 'seetickets.com': 'See Tickets', 'yurplan.com': 'Yurplan', 'xceed.me': 'Xceed' };
 const nomPlateforme = (u) => { try { const d = new URL(u).hostname.replace(/^www\./, ''); return PLATEFORMES[d] || Object.entries(PLATEFORMES).find(([k]) => d.endsWith(k))?.[1] || d; } catch { return ''; } };
 
-export async function construireSite({ events, hist = [], config = {}, now = new Date(), log = console.log }) {
+export async function construireSite({ events, hist = [], config = {}, now = new Date(), log = console.log, ig = null, api = {} }) {
   await mkdir(path.join(SITE, 'affiches'), { recursive: true });
   const cache = lire(VERIF, {});
   const fin = now.getTime() + 45 * 864e5;
@@ -327,7 +381,7 @@ export async function construireSite({ events, hist = [], config = {}, now = new
   await writeFile(VERIF, JSON.stringify(cache, null, 1) + '\n');
   await geocoder(soirees, log);
   await aProximite(soirees, log);
-  const partenaires = await identifierPartenaires(log);
+  const partenaires = await identifierPartenaires(log, { ig, api });
   TR.cache = lire(TRAD, {});
 
   // Derniers posts Instagram du compte (couverture gardée dans media/).
@@ -662,7 +716,7 @@ function agenda(soirees, { t, base, lang, filtresVille = true, filtreStyle = tru
 }
 
 function blocPartenaires({ t, T, base, partenaires }) {
-  const P = partenaires || lire(path.join(ROOT, 'contenus', 'partenaires.json'), { liste: [] }).liste || [];
+  const P = (partenaires || lire(path.join(ROOT, 'contenus', 'partenaires.json'), { liste: [] }).liste || []).filter((x) => x.fichier);
   if (!P.length) return '';
   return `<section class="qui partenaires reveal">
   <p class="etiquette">${esc(t.partEtiquette)}</p>

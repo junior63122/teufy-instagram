@@ -1,0 +1,565 @@
+{
+ "_note": "Comptes suivis par @teufy_official = partenaires (relevé du 09/11/2026, 1 compte masqué non repris). Servent au site (partenaires, rubriques date / restos / activités), à la veille et à la recherche de soirées.",
+ "comptes": [
+  {
+   "instagram": "bringue_party",
+   "nom": "La Bringue Girls Only"
+  },
+  {
+   "instagram": "bazaarcannes",
+   "nom": "Bazaar Cannes"
+  },
+  {
+   "instagram": "mixparty_cannes",
+   "nom": "Mix Party Cannes"
+  },
+  {
+   "instagram": "lelixirclub",
+   "nom": "L'Élixir Club"
+  },
+  {
+   "instagram": "jokerplay17",
+   "nom": "Joker Play"
+  },
+  {
+   "instagram": "sowetolesprit",
+   "nom": "Soweto L'Esprit"
+  },
+  {
+   "instagram": "tetris.owl",
+   "nom": "Tetris Owl"
+  },
+  {
+   "instagram": "xka_music",
+   "nom": "Laura XKA"
+  },
+  {
+   "instagram": "djmvlarosa_officiel",
+   "nom": "MV Rosa"
+  },
+  {
+   "instagram": "lesfrench_nghts",
+   "nom": "Les French Nights"
+  },
+  {
+   "instagram": "djtrulli_",
+   "nom": "DJ Enzo Trulli"
+  },
+  {
+   "instagram": "pedro_martinez_musicoff",
+   "nom": "Pedro Martinez"
+  },
+  {
+   "instagram": "120bpm.event",
+   "nom": "120bpm"
+  },
+  {
+   "instagram": "jayson.wayts",
+   "nom": "Jayson Wayts"
+  },
+  {
+   "instagram": "groovzcannes",
+   "nom": "Groovz Cannes"
+  },
+  {
+   "instagram": "barrelcannespub",
+   "nom": "Barrel Pub Cannes"
+  },
+  {
+   "instagram": "mllekimberleyy",
+   "nom": "Diana"
+  },
+  {
+   "instagram": "latinaddict",
+   "nom": "Latin Addict"
+  },
+  {
+   "instagram": "nayaclubcannes",
+   "nom": "Naya Club Cannes"
+  },
+  {
+   "instagram": "junga_club",
+   "nom": "Junga Nice"
+  },
+  {
+   "instagram": "cdr_cannes",
+   "nom": "Naya Cannes"
+  },
+  {
+   "instagram": "lebayou2.0",
+   "nom": "Le Bayou"
+  },
+  {
+   "instagram": "greatgame_partyroom",
+   "nom": "Great Game Party Room"
+  },
+  {
+   "instagram": "charlotte_vtc_toulon",
+   "nom": "Charlotte VTC Toulon"
+  },
+  {
+   "instagram": "espritfestival",
+   "nom": "Esprit Festival"
+  },
+  {
+   "instagram": "le.bar.ephemere",
+   "nom": "Le Bar Éphémère"
+  },
+  {
+   "instagram": "newprivatesecurity",
+   "nom": "New Private Security"
+  },
+  {
+   "instagram": "exod.i4",
+   "nom": "Exod.ia"
+  },
+  {
+   "instagram": "fiesta_beachclub",
+   "nom": "Fiesta Beach"
+  },
+  {
+   "instagram": "phoenixevent06",
+   "nom": "Phoenix Event"
+  },
+  {
+   "instagram": "seightdj",
+   "nom": "Seight"
+  },
+  {
+   "instagram": "damnpeach__",
+   "nom": "Damn Peach"
+  },
+  {
+   "instagram": "miketraxxmusic",
+   "nom": "Mike Traxx"
+  },
+  {
+   "instagram": "punchydj",
+   "nom": "DJ Punchy"
+  },
+  {
+   "instagram": "kosma.liveclub",
+   "nom": "Kosma Live Club"
+  },
+  {
+   "instagram": "hypetypeoff",
+   "nom": "Hype Type"
+  },
+  {
+   "instagram": "skyfallinkingdom",
+   "nom": "Skyfall"
+  },
+  {
+   "instagram": "ekceschampagnegun",
+   "nom": "Ekces Champagne Gun"
+  },
+  {
+   "instagram": "lasouth_89",
+   "nom": "La South 89"
+  },
+  {
+   "instagram": "womendrivervtc",
+   "nom": "Women Driver"
+  },
+  {
+   "instagram": "downtown.nice",
+   "nom": "Down Town Club"
+  },
+  {
+   "instagram": "bulldogpompeipub",
+   "nom": "Bulldog Pompei"
+  },
+  {
+   "instagram": "trafalbarnice",
+   "nom": "Trafalbar"
+  },
+  {
+   "instagram": "barracuda.cannes",
+   "nom": "Barracuda Cannes"
+  },
+  {
+   "instagram": "frate_aperos",
+   "nom": "Fraté"
+  },
+  {
+   "instagram": "plagebeaurivagenice",
+   "nom": "Plage Beau Rivage"
+  },
+  {
+   "instagram": "letoilecannes",
+   "nom": "L'Étoile"
+  },
+  {
+   "instagram": "les_bronzes_du_nord",
+   "nom": "Les Bronzes du Nord"
+  },
+  {
+   "instagram": "osullivans_mandelieu",
+   "nom": "O'Sullivans Mandelieu"
+  },
+  {
+   "instagram": "njsevents",
+   "nom": "NJS Events"
+  },
+  {
+   "instagram": "ascal.school",
+   "nom": "Ascal School"
+  },
+  {
+   "instagram": "monsieurpabloplage",
+   "nom": "Monsieur Pablo Plage"
+  },
+  {
+   "instagram": "ascal.off",
+   "nom": "Ben Pascal"
+  },
+  {
+   "instagram": "vilprodagency",
+   "nom": "VILProd Agency"
+  },
+  {
+   "instagram": "diva__restaurant",
+   "nom": "Diva Restaurant"
+  },
+  {
+   "instagram": "lesudisme",
+   "nom": "Sudisme"
+  },
+  {
+   "instagram": "sook_concept",
+   "nom": "SooK"
+  },
+  {
+   "instagram": "azur_boat_location",
+   "nom": "Azur & Boat Location"
+  },
+  {
+   "instagram": "le.swingnice",
+   "nom": "Le Swing"
+  },
+  {
+   "instagram": "top_service_vtc_nice",
+   "nom": "Top Service VTC Nice"
+  },
+  {
+   "instagram": "flashfun.83",
+   "nom": "FlashFun"
+  },
+  {
+   "instagram": "escapenice.fr",
+   "nom": "Escape Nice"
+  },
+  {
+   "instagram": "mohamderaisrais",
+   "nom": "Raies VTC"
+  },
+  {
+   "instagram": "delta_festival",
+   "nom": "Delta Festival"
+  },
+  {
+   "instagram": "mynarya_",
+   "nom": "Mynarya"
+  },
+  {
+   "instagram": "lesaperosartistiques",
+   "nom": "Les Apéros Artistiques"
+  },
+  {
+   "instagram": "club_sonore",
+   "nom": "Club Sonore"
+  },
+  {
+   "instagram": "house_en_provence",
+   "nom": "House en Provence"
+  },
+  {
+   "instagram": "dreamevent_location",
+   "nom": "DreamEvent Location"
+  },
+  {
+   "instagram": "ldpeventsproduction",
+   "nom": "LDP Events Production"
+  },
+  {
+   "instagram": "la_dolce_events",
+   "nom": "La Dolce"
+  },
+  {
+   "instagram": "azura_events_officiel",
+   "nom": "Azura Events"
+  },
+  {
+   "instagram": "flow.indoor",
+   "nom": "Flow Indoor"
+  },
+  {
+   "instagram": "misterrivierablog",
+   "nom": "Mister Riviera Blog"
+  },
+  {
+   "instagram": "gioianice",
+   "nom": "Gioia"
+  },
+  {
+   "instagram": "barriochicagotoulon",
+   "nom": "Barrio Chicago"
+  },
+  {
+   "instagram": "lepetitchicagotoulon",
+   "nom": "Le Petit Chicago"
+  },
+  {
+   "instagram": "lacalesechetoulon",
+   "nom": "La Cale Sèche"
+  },
+  {
+   "instagram": "lebeerboattoulon",
+   "nom": "Le Beer Boat"
+  },
+  {
+   "instagram": "placedelequerreevents83",
+   "nom": "Place de l'Équerre"
+  },
+  {
+   "instagram": "lebeertruckdubarathym",
+   "nom": "Le Beer Truck du Barathym"
+  },
+  {
+   "instagram": "lebarathymtoulon",
+   "nom": "Le Barathym"
+  },
+  {
+   "instagram": "couleurs.urbaines",
+   "nom": "Festival Couleurs Urbaines"
+  },
+  {
+   "instagram": "mandelieu_tourisme",
+   "nom": "Mandelieu Tourisme"
+  },
+  {
+   "instagram": "balancia.bar",
+   "nom": "Balancia Bar"
+  },
+  {
+   "instagram": "amir.bdhiaf",
+   "nom": ""
+  },
+  {
+   "instagram": "mysafecup",
+   "nom": "My Safe Cup"
+  },
+  {
+   "instagram": "nai.bevent",
+   "nom": "Naï B'Event"
+  },
+  {
+   "instagram": "la_techno_toulonnaise",
+   "nom": "La Techno Toulonnaise"
+  },
+  {
+   "instagram": "lenoutsa",
+   "nom": "Lena"
+  },
+  {
+   "instagram": "mixpartybusinessclub",
+   "nom": "Mix Party Business Club"
+  },
+  {
+   "instagram": "insolente_music_",
+   "nom": "Stella Ramos"
+  },
+  {
+   "instagram": "magnoliacafenice",
+   "nom": "Magnolia"
+  },
+  {
+   "instagram": "la_dinette__",
+   "nom": "La Dinette"
+  },
+  {
+   "instagram": "vanina_aronica",
+   "nom": "Vanina Aronica"
+  },
+  {
+   "instagram": "aureliostella.photographe",
+   "nom": "Aurelio Stella Photographe"
+  },
+  {
+   "instagram": "lecannet.tourisme",
+   "nom": "Le Cannet Tourisme"
+  },
+  {
+   "instagram": "safeliimousine",
+   "nom": "Safe Limousine"
+  },
+  {
+   "instagram": "mandelieu_paradise",
+   "nom": "Mandelieu Paradise Water Sports"
+  },
+  {
+   "instagram": "prostcrastination",
+   "nom": "Prostcrastination"
+  },
+  {
+   "instagram": "leptiaperoimprovise",
+   "nom": "Le P'ti Apéro Improvisé"
+  },
+  {
+   "instagram": "unica_culture",
+   "nom": "Université Côte d'Azur · Culture"
+  },
+  {
+   "instagram": "je_dis_techno_nice",
+   "nom": "Je Dis Techno"
+  },
+  {
+   "instagram": "bliss.evenement",
+   "nom": "Bliss"
+  },
+  {
+   "instagram": "frigo.16",
+   "nom": "Frigo 16"
+  },
+  {
+   "instagram": "pandaevents06",
+   "nom": "Panda Events"
+  },
+  {
+   "instagram": "lubi.light",
+   "nom": "Lubi"
+  },
+  {
+   "instagram": "bimbeauf",
+   "nom": "Lolo"
+  },
+  {
+   "instagram": "paranormalfestival",
+   "nom": "Paranormal Festival"
+  },
+  {
+   "instagram": "soon.event",
+   "nom": "Soon Event"
+  },
+  {
+   "instagram": "breakthefloor",
+   "nom": "BreaktheFloor Cannes"
+  },
+  {
+   "instagram": "tweltyprod",
+   "nom": "Twelty Prod"
+  },
+  {
+   "instagram": "yournightyourheaven",
+   "nom": "Heaven"
+  },
+  {
+   "instagram": "villadjunah",
+   "nom": "Villa Djunah"
+  },
+  {
+   "instagram": "therealplaykid",
+   "nom": "Playkid"
+  },
+  {
+   "instagram": "makaoklub",
+   "nom": "Makao Klub"
+  },
+  {
+   "instagram": "lacasadelabuelotudela",
+   "nom": "La Casa del Abuelo"
+  },
+  {
+   "instagram": "reffestival",
+   "nom": "REF Festival"
+  },
+  {
+   "instagram": "pyroman_event",
+   "nom": "Pyroman Event"
+  },
+  {
+   "instagram": "hotel.casarose",
+   "nom": "Hôtel Casarose"
+  },
+  {
+   "instagram": "sunbarnice",
+   "nom": "Sunbar"
+  },
+  {
+   "instagram": "gusta.nissa",
+   "nom": "Gusta Nissa"
+  },
+  {
+   "instagram": "deisantidj",
+   "nom": "Dei Santi"
+  },
+  {
+   "instagram": "k_barre_antibes",
+   "nom": "K-BarRé"
+  },
+  {
+   "instagram": "dj_mygo",
+   "nom": "DJ MyGo"
+  },
+  {
+   "instagram": "jobar.event",
+   "nom": "Jobar"
+  },
+  {
+   "instagram": "kontakt_6tem",
+   "nom": "Kontakt Sound 6tem"
+  },
+  {
+   "instagram": "hug_ette_",
+   "nom": "Hug'ette"
+  },
+  {
+   "instagram": "prizmeconcept",
+   "nom": "Prizme Concept"
+  },
+  {
+   "instagram": "djopendream",
+   "nom": "Opendream"
+  },
+  {
+   "instagram": "technokultur",
+   "nom": "Techno Kultur Toulon"
+  },
+  {
+   "instagram": "fragmentsdazur06",
+   "nom": "Fragments d'Azur"
+  },
+  {
+   "instagram": "chiaraaaa19_",
+   "nom": "Kiks"
+  },
+  {
+   "instagram": "bilal_barka",
+   "nom": "Bilal Barka"
+  },
+  {
+   "instagram": "makora.music",
+   "nom": "Makora"
+  },
+  {
+   "instagram": "_boka_officiel_",
+   "nom": "Boka Club"
+  },
+  {
+   "instagram": "oneera_official",
+   "nom": "Oneera"
+  },
+  {
+   "instagram": "mojocrew_event",
+   "nom": "Mojo Crew"
+  },
+  {
+   "instagram": "n.s.r_06",
+   "nom": "NSR Events"
+  },
+  {
+   "instagram": "nightcore_musicoff",
+   "nom": "Nightcore"
+  }
+ ]
+}

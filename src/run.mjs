@@ -139,7 +139,8 @@ if (cible === 'site') {
   const signature = `${isoLocal(NOW)}|${await empreinte(actusF)}|${await empreinte(evF)}`;
   if (!flag('force') && existsSync(marque) && (await readFile(marque, 'utf8')).trim() === signature) { console.log('Site déjà à jour.'); process.exit(0); }
   const { construireSite } = await import('./site.mjs');
-  await construireSite({ events: await events(), hist, config, now: NOW });
+  const igSite = igConfig();
+  await construireSite({ events: await events(), hist, config, now: NOW, ig: igSite, api: igSite ? { businessDiscovery } : {} });
   await writeFile(marque, signature + '\n');
   process.exit(0);
 }
