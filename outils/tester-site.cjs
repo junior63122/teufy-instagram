@@ -2,7 +2,11 @@
 //   1. servir le dépôt : node outils/serveur-local.cjs   (port 8765, gzip, page 404 comme GitHub Pages)
 //   2. node outils/tester-site.cjs                      → liste des échecs, code de sortie 1 s'il y en a
 // Playwright installé globalement (navigateur préinstallé) si présent, sinon celui du projet.
-const { chromium, devices } = (() => { try { return require(require('child_process').execSync('npm root -g').toString().trim() + '/playwright'); } catch { return require('playwright'); } })();
+const pw = (() => { try { return require(require('child_process').execSync('npm root -g').toString().trim() + '/playwright'); } catch { return require('playwright'); } })();
+// Moteur choisi par NAVIGATEUR=chromium|webkit|firefox (WebKit = moteur de Safari / iPhone). Firefox ne gère pas isMobile.
+const NAV = process.env.NAVIGATEUR || 'chromium';
+const chromium = pw[NAV];
+const devices = new Proxy(pw.devices, { get: (o, k) => { const d = o[k]; if (!d || NAV !== 'firefox') return d; const { isMobile, ...r } = d; return r; } });
 const fs = require('fs');
 const path = require('path');
 const B = process.env.SITE || 'http://localhost:8765/';
@@ -56,7 +60,7 @@ async function controlerPage(p, nom, u) {
   const exe = null;
   const b = await chromium.launch(exe ? { executablePath: exe } : {});
   for (const [nom, opt] of Object.entries(APPAREILS)) {
-    const c = await b.newContext({ ...opt, permissions: ['geolocation', 'clipboard-read', 'clipboard-write'], geolocation: { latitude: 43.6961, longitude: 7.2718 } });
+    const c = await b.newContext({ ...opt, permissions: NAV === 'chromium' ? ['geolocation', 'clipboard-read', 'clipboard-write'] : ['geolocation'], geolocation: { latitude: 43.6961, longitude: 7.2718 } });
     await c.clock.install({ time: new Date('2026-11-14T23:30:00+01:00') });
     const p = await c.newPage();
     let total = 0;

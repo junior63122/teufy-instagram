@@ -1,5 +1,9 @@
 // Tests « essayer de casser le site » : usages extrêmes ou inattendus. Même usage que tester-site.cjs.
-const { chromium, devices } = (() => { try { return require(require('child_process').execSync('npm root -g').toString().trim() + '/playwright'); } catch { return require('playwright'); } })();
+const pw = (() => { try { return require(require('child_process').execSync('npm root -g').toString().trim() + '/playwright'); } catch { return require('playwright'); } })();
+// Moteur choisi par NAVIGATEUR=chromium|webkit|firefox (WebKit = moteur de Safari / iPhone). Firefox ne gère pas isMobile.
+const NAV = process.env.NAVIGATEUR || 'chromium';
+const chromium = pw[NAV];
+const devices = new Proxy(pw.devices, { get: (o, k) => { const d = o[k]; if (!d || NAV !== 'firefox') return d; const { isMobile, ...r } = d; return r; } });
 const B = process.env.SITE || 'http://localhost:8765/';
 const echecs = [];
 const ok = (c, m) => { if (!c) echecs.push(m); };
