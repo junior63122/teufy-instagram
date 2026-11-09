@@ -1,189 +1,367 @@
 {
-  "maj": "2026-11-08T11:26:31.414Z",
+  "maj": "2026-11-09T10:03:57.892Z",
   "comptes": {
     "downtown.nice": {
-      "abonnes": 2395,
+      "abonnes": 2392,
       "posts": 25
     },
     "uptown.nice": {
-      "abonnes": 1865,
+      "abonnes": 1866,
       "posts": 25
     },
     "la_dinette__": {
-      "abonnes": 5654,
+      "abonnes": 5657,
       "posts": 25
     },
     "lebarathymtoulon": {
-      "abonnes": 10926,
+      "abonnes": 10921,
       "posts": 25
+    },
+    "nightlyfr": {
+      "erreur": "Instagram 17841451355992040 : Invalid user id (code 110, sous-code 2207013)"
+    },
+    "sortiranice": {
+      "erreur": "Instagram 17841451355992040 : Invalid user id (code 110, sous-code 2207013)"
+    },
+    "nice.nightlife": {
+      "erreur": "Instagram 17841451355992040 : Invalid user id (code 110, sous-code 2207013)"
+    },
+    "nicenightlife": {
+      "erreur": "Instagram 17841451355992040 : Invalid user id (code 110, sous-code 2207013)"
+    },
+    "cotedazurnightlife": {
+      "erreur": "Instagram 17841451355992040 : Invalid user id (code 110, sous-code 2207013)"
+    },
+    "monaco.nightlife": {
+      "abonnes": 5413,
+      "posts": 25
+    },
+    "cannes.nightlife": {
+      "erreur": "Instagram 17841451355992040 : Invalid user id (code 110, sous-code 2207013)"
+    },
+    "shotgun.live": {
+      "erreur": "Instagram 17841451355992040 : Invalid user id (code 110, sous-code 2207013)"
+    },
+    "dicefm": {
+      "abonnes": 91187,
+      "posts": 25
+    },
+    "trax_magazine": {
+      "erreur": "Instagram 17841451355992040 : Invalid user id (code 110, sous-code 2207013)"
+    },
+    "tsugi_mag": {
+      "erreur": "Instagram 17841451355992040 : Invalid user id (code 110, sous-code 2207013)"
+    },
+    "boilerroomtv": {
+      "abonnes": 2888375,
+      "posts": 25
+    },
+    "les.bonnesfranquettes": {
+      "abonnes": 5054,
+      "posts": 25
+    },
+    "sun7riviera": {
+      "abonnes": 1264,
+      "posts": 25
+    },
+    "neonfestival_": {
+      "abonnes": 4102,
+      "posts": 25
+    },
+    "clubsonore_frenchriviera": {
+      "abonnes": 13115,
+      "posts": 25
+    },
+    "agencetwelty": {
+      "abonnes": 1088,
+      "posts": 8
+    },
+    "laplaturne": {
+      "abonnes": 8323,
+      "posts": 25
+    },
+    "lanonchalance": {
+      "abonnes": 73026,
+      "posts": 25
+    },
+    "afroheatfestival": {
+      "abonnes": 4074,
+      "posts": 25
+    },
+    "bluecoastbrewing": {
+      "abonnes": 12239,
+      "posts": 25
+    },
+    "mamashelternice": {
+      "abonnes": 26384,
+      "posts": 25
+    },
+    "lemeridiennice": {
+      "abonnes": 14198,
+      "posts": 25
+    },
+    "palaisnikaia": {
+      "abonnes": 13693,
+      "posts": 25
+    },
+    "frigo.16": {
+      "abonnes": 11637,
+      "posts": 25
+    },
+    "pandaevents06": {
+      "abonnes": 15189,
+      "posts": 25
+    },
+    "highclubnice": {
+      "abonnes": 26920,
+      "posts": 25
+    },
+    "clubvivy": {
+      "abonnes": 2416,
+      "posts": 25
+    },
+    "dovnrobs": {
+      "abonnes": 10170,
+      "posts": 25
+    },
+    "twigamontecarlo": {
+      "abonnes": 86829,
+      "posts": 25
+    },
+    "jetlagang": {
+      "abonnes": 111617,
+      "posts": 25
+    },
+    "pandaevents": {
+      "erreur": "Instagram 17841451355992040 : Invalid user id (code 110, sous-code 2207013)"
+    },
+    "clubbizarre_music": {
+      "erreur": "Instagram 17841451355992040 : Invalid user id (code 110, sous-code 2207013)"
+    },
+    "bolon_events": {
+      "erreur": "Instagram 17841451355992040 : Invalid user id (code 110, sous-code 2207013)"
+    },
+    "aztera_crew": {
+      "erreur": "Instagram 17841451355992040 : Invalid user id (code 110, sous-code 2207013)"
+    },
+    "frigo16nice": {
+      "erreur": "Instagram 17841451355992040 : Invalid user id (code 110, sous-code 2207013)"
     }
   },
   "hashtags": {
-    "#riviera": 1,
-    "#vieuxnice": 0.945,
-    "#halloween": 0.905,
-    "#oldtownnice": 0.828,
-    "#nice": 0.687,
-    "#cotedazur": 0.676,
-    "#djset": 0.676,
-    "#nice06": 0.535
+    "#antibes": 1,
+    "#monaco": 0.166,
+    "#nice": 0.08,
+    "#housemusic": 0.003,
+    "#riviera": 0.003,
+    "#vieuxnice": 0.003,
+    "#halloween": 0.003,
+    "#djset": 0.003,
+    "#party": 0.003,
+    "#nicecotedazur": 0.002,
+    "#cotedazurfrance": 0.002,
+    "#savethedate": 0.002,
+    "#oldtownnice": 0.002,
+    "#ilovenice": 0.002,
+    "#soireenice": 0.002,
+    "#nice06": 0.002,
+    "#spring": 0.002,
+    "#nostalgie": 0.002,
+    "#cotedazur": 0.002,
+    "#nightlife": 0.002,
+    "#frenchriviera": 0.002,
+    "#bar": 0.002,
+    "#techno": 0.001,
+    "#nicefrance": 0.001
   },
   "formats": {
     "carrousel": {
-      "score": 1.18,
-      "posts": 42
+      "score": 53.52,
+      "posts": 205
     },
     "image": {
-      "score": 2.15,
-      "posts": 28
+      "score": 239.35,
+      "posts": 186
     },
     "reel": {
-      "score": 1.42,
-      "posts": 30
+      "score": 61.97,
+      "posts": 242
     }
   },
   "heures": {
     "0": {
-      "score": 2.17,
+      "score": 1.11,
+      "posts": 4
+    },
+    "1": {
+      "score": 0.96,
       "posts": 1
+    },
+    "2": {
+      "score": 0.95,
+      "posts": 1
+    },
+    "5": {
+      "score": 1.15,
+      "posts": 2
+    },
+    "6": {
+      "score": 0.53,
+      "posts": 2
+    },
+    "7": {
+      "score": 1.41,
+      "posts": 1
+    },
+    "8": {
+      "score": 0.82,
+      "posts": 9
     },
     "9": {
-      "score": 1.47,
-      "posts": 1
-    },
-    "11": {
-      "score": 3.13,
-      "posts": 1
-    },
-    "12": {
-      "score": 2.81,
-      "posts": 1
-    },
-    "13": {
-      "score": 2.55,
-      "posts": 1
-    },
-    "15": {
-      "score": 2.38,
-      "posts": 1
-    },
-    "16": {
-      "score": 0.52,
-      "posts": 3
-    },
-    "17": {
-      "score": 3.76,
+      "score": 0.86,
       "posts": 11
     },
-    "18": {
+    "10": {
+      "score": 1.29,
+      "posts": 30
+    },
+    "11": {
+      "score": 108.76,
+      "posts": 22
+    },
+    "12": {
+      "score": 59.48,
+      "posts": 41
+    },
+    "13": {
+      "score": 7.92,
+      "posts": 28
+    },
+    "14": {
       "score": 0.97,
-      "posts": 27
+      "posts": 20
+    },
+    "15": {
+      "score": 26.69,
+      "posts": 35
+    },
+    "16": {
+      "score": 21.53,
+      "posts": 54
+    },
+    "17": {
+      "score": 431.66,
+      "posts": 83
+    },
+    "18": {
+      "score": 166.21,
+      "posts": 146
     },
     "19": {
-      "score": 1.35,
-      "posts": 36
+      "score": 28.08,
+      "posts": 84
     },
     "20": {
-      "score": 1.22,
-      "posts": 7
+      "score": 23.26,
+      "posts": 32
     },
     "21": {
-      "score": 1.41,
-      "posts": 4
+      "score": 2.71,
+      "posts": 16
     },
     "22": {
-      "score": 0.86,
-      "posts": 4
+      "score": 0.7,
+      "posts": 8
     },
     "23": {
-      "score": 1.3,
-      "posts": 2
+      "score": 1.91,
+      "posts": 3
     }
   },
   "accroches": [
     {
-      "compte": "la_dinette__",
+      "compte": "bluecoastbrewing",
       "format": "image",
-      "score": 29.95,
-      "accroche": "🚨 ATTENTION : ÉVÉNEMENT REPORTÉ ! 🎃",
-      "lien": "https://www.instagram.com/p/DeCb24BKjE-/"
+      "score": 31456.82,
+      "accroche": "🇫🇷 Jeu Concours Gekko x Blue Coast",
+      "lien": "https://www.instagram.com/p/DcREKUwCQs0/"
     },
     {
-      "compte": "lebarathymtoulon",
-      "format": "image",
-      "score": 5.3,
-      "accroche": "🏉🔴⚫ JEU CONCOURS – 2 PLACES À GAGNER ! 🎁",
-      "lien": "https://www.instagram.com/p/DfP-6sYODvm/"
-    },
-    {
-      "compte": "uptown.nice",
+      "compte": "sun7riviera",
       "format": "reel",
-      "score": 4.9,
-      "accroche": "Bah voilà, on vous présente le bar 👋",
-      "lien": "https://www.instagram.com/reel/DeuXd5qNpha/"
+      "score": 9493.67,
+      "accroche": "iameliott_ ⚓ sun7riviera  tentation_azur",
+      "lien": "https://www.instagram.com/reel/DcOlrR_MGOp/"
     },
     {
-      "compte": "lebarathymtoulon",
+      "compte": "sun7riviera",
+      "format": "carrousel",
+      "score": 4746.84,
+      "accroche": "",
+      "lien": "https://www.instagram.com/p/DcMAgQVDIVQ/"
+    },
+    {
+      "compte": "sun7riviera",
+      "format": "carrousel",
+      "score": 4746.84,
+      "accroche": "",
+      "lien": "https://www.instagram.com/p/Daic08PjEMw/"
+    },
+    {
+      "compte": "sun7riviera",
       "format": "image",
-      "score": 3.13,
-      "accroche": "🍻 LE PETIT RITUEL DE L’ÉQUIPE…",
-      "lien": "https://www.instagram.com/p/DeByI5IuMJb/"
+      "score": 2373.42,
+      "accroche": "",
+      "lien": "https://www.instagram.com/p/DbDMLA1sybZ/"
     },
     {
-      "compte": "downtown.nice",
+      "compte": "sun7riviera",
       "format": "image",
-      "score": 3,
-      "accroche": "Le maître des soirées Afro Dancehall est de retour vendredi 23 octobre pour enflammer le club une nouvelle fois ❤️‍🔥",
-      "lien": "https://www.instagram.com/p/DeSDNBIiMwR/"
+      "score": 2373.42,
+      "accroche": "#Cannes#Antibes#Nice#monaco",
+      "lien": "https://www.instagram.com/p/DQ88i1djKz7/"
     },
     {
-      "compte": "la_dinette__",
-      "format": "carrousel",
-      "score": 2.81,
-      "accroche": "🐰📸 LES PHOTOS SONT EN LIGNE !!! 🔥",
-      "lien": "https://www.instagram.com/p/DeRTxkJiggs/"
+      "compte": "bluecoastbrewing",
+      "format": "reel",
+      "score": 2042.65,
+      "accroche": "Les sapeurs-pompiers d’Hancy préparent L’APÉRO GÉANT ! 🚒🎉",
+      "lien": "https://www.instagram.com/reel/DdZSyXzBQl3/"
     },
     {
-      "compte": "lebarathymtoulon",
+      "compte": "bluecoastbrewing",
       "format": "image",
-      "score": 2.81,
-      "accroche": "🧱🎨 LE BARATHYM FAIT PEAU NEUVE ! 🍻",
-      "lien": "https://www.instagram.com/p/DfAw0AgOaR2/"
+      "score": 1470.71,
+      "accroche": "🇫🇷 Verre entre collègues ce soir ? Quelle est votre bière Blue Coast de choix ? Nous, c’est la Blonde : un classique indémodable, parfait ",
+      "lien": "https://www.instagram.com/p/DdCIWjNDkWI/"
     },
     {
-      "compte": "uptown.nice",
-      "format": "carrousel",
-      "score": 2.73,
-      "accroche": "Comme ça vous savez ce que vous pouvez commander à l’Up Town ! 😇",
-      "lien": "https://www.instagram.com/p/DcMGdYxjfiH/"
+      "compte": "bluecoastbrewing",
+      "format": "image",
+      "score": 1225.59,
+      "accroche": "🇫🇷 Quand nous avons créé notre charte graphique, nous voulions une identité profondément ancrée à Nice, d’où nous venons. Quoi de plus emb",
+      "lien": "https://www.instagram.com/p/DdomWIOIcfO/"
     },
     {
-      "compte": "la_dinette__",
-      "format": "carrousel",
-      "score": 2.6,
-      "accroche": "🚨 JEU CONCOURS — 1 GAGNANT, TOUS CES LOTS ! 🎁🔥",
-      "lien": "https://www.instagram.com/p/Ddtw0wkirOX/"
+      "compte": "bluecoastbrewing",
+      "format": "image",
+      "score": 1143.88,
+      "accroche": "🇫🇷 On ne sait pas vous, mais nous, on est en déni complet de l’arrivée de l’automne. ",
+      "lien": "https://www.instagram.com/p/DecT0T9ovpq/"
     },
     {
-      "compte": "uptown.nice",
+      "compte": "lanonchalance",
       "format": "carrousel",
-      "score": 2.59,
-      "accroche": "Samedi dernier, l’Up Town a accueilli toutes les âmes terrifiantes qui hantaient le Vieux Nice ! Merci pour cette monstrueuse soirée 😈👻",
-      "lien": "https://www.instagram.com/p/DfXjSnlDUND/"
+      "score": 1112.67,
+      "accroche": "WHAT A NIGHT WiTH this_is_amor ❤️‍🔥🫂.",
+      "lien": "https://www.instagram.com/p/Dee4GYaCkYx/"
     },
     {
-      "compte": "downtown.nice",
-      "format": "carrousel",
-      "score": 2.58,
-      "accroche": "Halloween 2026 - Down Town horror club 💀",
-      "lien": "https://www.instagram.com/p/DfXvy6WjXWB/"
-    },
-    {
-      "compte": "lebarathymtoulon",
-      "format": "carrousel",
-      "score": 2.55,
-      "accroche": "🔨 LE BARATHYM SE REFAIT UNE BEAUTÉ ! 🍻",
-      "lien": "https://www.instagram.com/p/Ddq1WJDDhXN/"
+      "compte": "lanonchalance",
+      "format": "reel",
+      "score": 1108.67,
+      "accroche": "A beautiful night in Monaco alongside AMOR, where music and unforgettable moments came together. ",
+      "lien": "https://www.instagram.com/reel/DehZ_NpK2op/"
     }
   ]
 }

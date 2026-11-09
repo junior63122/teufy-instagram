@@ -2516,6 +2516,48 @@
         "theme:gratuit",
         "auteur:bot"
       ],
+      "note": 5,
+      "metrics": {
+        "reach": 336,
+        "likes": 1,
+        "comments": 0,
+        "saved": 0,
+        "shares": 0,
+        "total_interactions": 1,
+        "follows": 0,
+        "profile_visits": 0
+      },
+      "mesure_le": "2026-11-09T10:04:29.269Z",
+      "score": 0.094
+    },
+    {
+      "media": "17886115122523411",
+      "id": "veille",
+      "type": "veille",
+      "variante": null,
+      "date": "2026-11-09",
+      "choix": {},
+      "features": [],
+      "nb_images": 1,
+      "legende": "HUGEL débarque pour clôturer Les Plages Électroniques 2027. L'organisation vient de confirmer le tout premier nom de sa prochaine édition : le patron de l'afro house prendra les commandes de la Main Stage le dimanche 8 août 2027 sur le sable cannois. Tu seras au rendez-vous ?\n\nSource : Radio Monaco / Les Plages Électroniques\n\n#TeufyParty #PlagesElectroniques #Hugel #Cannes #SortirACannes",
+      "titre": "HUGEL en clôture des [Plages] Électroniques",
+      "publie_le": "2026-11-09T10:01:01.908Z",
+      "source": "bot",
+      "caption": "HUGEL débarque pour clôturer Les Plages Électroniques 2027. L'organisation vient de confirmer le tout premier nom de sa prochaine édition : le patron de l'afro house prendra les commandes de la Main Stage le dimanche 8 août 2027 sur le sable cannois. Tu seras au rendez-vous ?\n\nSource : Radio Monaco / Les Plages Électroniques\n\n#TeufyParty #PlagesElectroniques #Hugel #Cannes #SortirACannes",
+      "features_generales": [
+        "heure:11h",
+        "jour:lun",
+        "format:image",
+        "type:veille",
+        "legende:moyenne",
+        "accroche:question",
+        "hashtag:#teufyparty",
+        "hashtag:#plageselectroniques",
+        "hashtag:#hugel",
+        "hashtag:#cannes",
+        "hashtag:#sortiracannes",
+        "auteur:bot"
+      ],
       "note": null
     }
   ],
