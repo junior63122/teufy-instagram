@@ -1681,6 +1681,13 @@
    "date": false,
    "date_raison": "",
    "prix": ""
+  },
+  "profil": {
+   "nom": "FlashFun | Photobooth Var & 06",
+   "bio": "📸 Photobooth chic & souvenirs fun\n💍 Mariages•Anniversaires•Événements\n🎞️ Photos imprimées&Livre d’or audio\n📍 Var•Alpes-Maritimes\n👇 Réservez votre date",
+   "site": "",
+   "abonnes": 726,
+   "fichier": "site/partenaires/ig/flashfun.83.jpg"
   }
  },
  "ig:escapenice.fr": {
@@ -1693,6 +1700,13 @@
    "date": true,
    "date_raison": "Une balade ludique en plein air qui favorise la complicité et la découverte de la ville à deux.",
    "prix": "€€"
+  },
+  "profil": {
+   "nom": "Escape Game Exterieur Nice ☀️",
+   "bio": "🕵️ Enquête pour (re)découvrir le Vieux-Nice • 2h\n🔎 Énigmes • Anecdotes • Défis photos \n🎉 Anniversaire • EVJF/EVG • Team Building\n📍Chaise bleue de SAB",
+   "site": "https://www.escapenice.fr",
+   "abonnes": 1318,
+   "fichier": "site/partenaires/ig/escapenice.fr.jpg"
   }
  },
  "ig:mohamderaisrais": {
@@ -1705,6 +1719,13 @@
    "date": false,
    "date_raison": "",
    "prix": ""
+  },
+  "profil": {
+   "nom": "RAIES VTC",
+   "bio": "",
+   "site": "https://privatedrivervtcnice.fr/avis/",
+   "abonnes": 231,
+   "fichier": "site/partenaires/ig/mohamderaisrais.jpg"
   }
  },
  "ig:delta_festival": {
@@ -1717,6 +1738,585 @@
    "date": false,
    "date_raison": "",
    "prix": "€€€"
+  },
+  "profil": {
+   "nom": "Delta Festival",
+   "bio": "merci <3",
+   "site": "",
+   "abonnes": 157571,
+   "fichier": "site/partenaires/ig/delta_festival.jpg"
+  }
+ },
+ "ig:mynarya_": {
+  "profil": {
+   "nom": "MYNARYA",
+   "bio": "DJ / PRODUCER 🇫🇷\nDubai based📍\n❤️🔏",
+   "site": "https://on.soundcloud.com/tF4xtCdrzulKQ6xjH8",
+   "abonnes": 8591,
+   "fichier": "site/partenaires/ig/mynarya_.jpg"
+  },
+  "fiche": {
+   "categorie": "artiste",
+   "ville": "Dubaï",
+   "adresse": "",
+   "site": "https://soundcloud.com/mynarya",
+   "description": "DJ et productrice de musique électronique originaire de France, résidente de l'émission Golden Hour sur Radio Monaco. Elle se produit régulièrement lors de sets club et d'événements lounge.",
+   "date": false,
+   "date_raison": "",
+   "prix": ""
+  }
+ },
+ "ig:lesaperosartistiques": {
+  "profil": {
+   "nom": "Les Apéros Artistiques - Art&Drink",
+   "bio": "📍 Sortie unique apéro-peinture de 1h30 en suivant le live artiste\n👉 Mardi 10 Novembre au Foam Pin toile automnale citrouille\nRéserve via le lien ⬇️",
+   "site": "",
+   "abonnes": 5474,
+   "fichier": "site/partenaires/ig/lesaperosartistiques.jpg"
+  },
+  "fiche": {
+   "categorie": "activite",
+   "ville": "Nice",
+   "adresse": "3 Port Saint-Étienne, 06300 Nice",
+   "site": "https://www.aperosartistiques.com/",
+   "description": "Concept d'apéro-peinture guidé de 1h30 dans des bars niçois, permettant de peindre une toile tout en sirotant un verre. L'activité est animée pas à pas par un artiste et s'adresse à tous les niveaux.",
+   "date": true,
+   "date_raison": "Une activité créative et ludique autour d'un verre, idéale pour briser la glace lors d'un rendez-vous à deux.",
+   "prix": "€€"
+  }
+ },
+ "ig:club_sonore": {
+  "profil": {
+   "nom": "CLUB SONORE©️",
+   "bio": "CONNECTING PEOPLE \n🌞 NEXT EVENT NOVEMBER\n🇫🇷 @clubsonore_frenchriviera\n🇦🇪 @clubsonore__dubai\n🗼 @clubsonore_paris",
+   "site": "https://shotgun.live/venues/club-sonore",
+   "abonnes": 41012,
+   "fichier": "site/partenaires/ig/club_sonore.jpg"
+  },
+  "fiche": {
+   "categorie": "organisateur",
+   "ville": "Nice",
+   "adresse": "21 Boulevard de Riquier, 06300 Nice",
+   "site": "https://shotgun.live/venues/club-sonore",
+   "description": "Collectif musical organisant des soirées clubbing éphémères et afterworks sur les rooftops et plages de la Côte d'Azur. Les événements mettent à l'honneur des DJs Tech House, Afro House et Deep House.",
+   "date": false,
+   "date_raison": "",
+   "prix": "€€"
+  }
+ },
+ "ig:house_en_provence": {
+  "profil": {
+   "nom": "House en provence",
+   "bio": "Festival d’Art et de musique underground 🌞\nProchain événement : 𝗝𝗨𝗜𝗟𝗟𝗘𝗧 𝟮𝟬𝟮𝟳\n🌴Côte d’Azur - France",
+   "site": "",
+   "abonnes": 2346,
+   "fichier": "site/partenaires/ig/house_en_provence.jpg"
+  },
+  "fiche": {
+   "categorie": "festival",
+   "ville": "Saint-Cézaire-sur-Siagne",
+   "adresse": "Chemin du Stade, 06530 Saint-Cézaire-sur-Siagne",
+   "site": "https://shotgun.live/venues/house-en-provence",
+   "description": "Festival associatif et organisateur de soirées dédiées à la musique électronique underground et aux arts. Il propose des DJ sets House et Techno ainsi qu'un village festif avec créateurs et food trucks.",
+   "date": false,
+   "date_raison": "",
+   "prix": "€€"
+  }
+ },
+ "ig:dreamevent_location": {
+  "profil": {
+   "nom": "DreamEvent Location ✨ Décoration et Photobooth",
+   "bio": "📍Six-fours / Var\n🎈balloons designer et décors sur mesure\n🥂location matériel événementiel \n📷 photobooth\n🧔🏻‍♂️DYLAN SCHEMBRI",
+   "site": "https://www.dream-event-location.fr/",
+   "abonnes": 3365,
+   "fichier": "site/partenaires/ig/dreamevent_location.jpg"
+  },
+  "fiche": {
+   "categorie": "service",
+   "ville": "La Seyne-sur-Mer",
+   "adresse": "17 Chemin des Romarins, 83500 La Seyne-sur-Mer",
+   "site": "https://www.dream-event-location.fr/",
+   "description": "Prestataire événementiel proposant la location de photobooths, la création de décors de ballons sur mesure et de murs végétaux. Il intervient pour des mariages, anniversaires et événements professionnels dans le Var.",
+   "date": false,
+   "date_raison": "",
+   "prix": ""
+  }
+ },
+ "ig:ldpeventsproduction": {
+  "profil": {
+   "nom": "𝕃𝔻ℙ 𝔼𝕧𝕖𝕟𝕥𝕤 ℙ𝕣𝕠𝕕𝕦𝕔𝕥𝕚𝕠𝕟",
+   "bio": "⚜️Créateur d'évènement Unique, Jeune et Innovant - Culture,Tourisme, Grand public, Entreprise - FRANCE",
+   "site": "",
+   "abonnes": 4023,
+   "fichier": "site/partenaires/ig/ldpeventsproduction.jpg"
+  },
+  "fiche": {
+   "categorie": "organisateur",
+   "ville": "Saint-Raphaël",
+   "adresse": "",
+   "site": "https://ldpeventsproduction.com/",
+   "description": "Agence événementielle et société de production de spectacles, dîners-spectacles et soirées d'entreprise. Elle organise également des croisières festives en mer au départ du port de Nice.",
+   "date": false,
+   "date_raison": "",
+   "prix": ""
+  }
+ },
+ "ig:la_dolce_events": {
+  "profil": {
+   "nom": "LA DOLCE",
+   "bio": "SAMEDI 16 AOUT 🍋 x @operaplagenice\nCréateur de moments Dolce Vita \nDJ Afro & Tech house, Percu, Drinks & Amore 💛\n19H-00H\nBOOKING ⬇️",
+   "site": "https://shotgun.live/fr/venues/la-dolce",
+   "abonnes": 2110,
+   "fichier": "site/partenaires/ig/la_dolce_events.jpg"
+  },
+  "fiche": {
+   "categorie": "organisateur",
+   "ville": "Nice",
+   "adresse": "30 Quai des États-Unis, 06300 Nice",
+   "site": "https://shotgun.live/fr/venues/la-dolce",
+   "description": "Organisateur de soirées festives au bord de l'eau inspirées de la Dolce Vita, notamment à Opéra Plage. L'ambiance associe DJ sets Afro et Tech House, percussionnistes en direct et cocktails.",
+   "date": false,
+   "date_raison": "",
+   "prix": "€€"
+  }
+ },
+ "ig:azura_events_officiel": {
+  "profil": {
+   "nom": "𝗖𝗵𝗮𝘁'𝘀 𝗔𝗹",
+   "bio": "Agence événementiel du Var. Info et réservation au ☎️ 06.25.68.74.72",
+   "site": "https://azura-events.fr/",
+   "abonnes": 1861,
+   "fichier": "site/partenaires/ig/azura_events_officiel.jpg"
+  },
+  "fiche": {
+   "categorie": "organisateur",
+   "ville": "Trans-en-Provence",
+   "adresse": "",
+   "site": "https://azura-events.fr/",
+   "description": "Agence événementielle organisant des pool parties privées et des soirées à thème dans des villas du Var. Les événements réunissent animations aquatiques, restauration au barbecue et DJ sets généralistes.",
+   "date": false,
+   "date_raison": "",
+   "prix": "€€"
+  }
+ },
+ "ig:flow.indoor": {
+  "profil": {
+   "nom": "Flow Indoor",
+   "bio": "The Sunset Experience 🌅  \n📍 Région PACA    \n📞 Infos/ Résa 0615889616",
+   "site": "",
+   "abonnes": 108,
+   "fichier": "site/partenaires/ig/flow.indoor.jpg"
+  }
+ },
+ "ig:misterrivierablog": {
+  "profil": {
+   "nom": "Mister Riviera Blog 😎",
+   "bio": "😎 Blog Nice & Côte d'Azur\n👨🏻‍💻 Team @agence_az_nice \n🎥 Chroniqueur médias @tvmonaco \n🌴 Ambassadeur #CotedAzurFrance",
+   "site": "http://www.mister-riviera.com/",
+   "abonnes": 10449,
+   "fichier": "site/partenaires/ig/misterrivierablog.jpg"
+  }
+ },
+ "ig:gioianice": {
+  "profil": {
+   "nom": "GIOIA",
+   "bio": "🍾 Restaurant Festif\n🍽️ Spécialités Méditerranéennes\n🕒 Lun 8h-17h | Mar-Sam 8h-00h\n📍 10 Bd Dubouchage, Nice\n📲 Réserver/Commander ⬇️",
+   "site": "https://www.gioianice.fr",
+   "abonnes": 5710,
+   "fichier": "site/partenaires/ig/gioianice.jpg"
+  }
+ },
+ "ig:barriochicagotoulon": {
+  "profil": {
+   "nom": "barrio chicago",
+   "bio": "Pub🍻Prohibition bar & cocktails🍸\nSalle de jeux à l’étage - privatisation\nResto -> pizzas 🍕finger food-burgers🍔\n📆 Open 7/7 - 16h30 ->2h\n☎️ 0422802515",
+   "site": "",
+   "abonnes": 3474,
+   "fichier": "site/partenaires/ig/barriochicagotoulon.jpg"
+  }
+ },
+ "ig:lepetitchicagotoulon": {
+  "profil": {
+   "nom": "Le Petit Chicago ⚓️",
+   "bio": "🎤 Live Bar 📞07 81 56 26 49 \n🗓Open : 7/7 - 17h00 à 1h\n🍺Bières artisanales & Cocktails🍹\n🍕Pizzas & Planches 🥓\n🎉Événements en tout genre 🎶",
+   "site": "",
+   "abonnes": 5444,
+   "fichier": "site/partenaires/ig/lepetitchicagotoulon.jpg"
+  }
+ },
+ "ig:lacalesechetoulon": {
+  "profil": {
+   "nom": "Lacalesechetoulon",
+   "bio": "🥃 Rhumerie & Pirate Pub\n⚓ l’embuscade des pirates\n🍹 Cocktails maison & rhums d’exception\n🌙 good music for good people\n📍 4 place Monsenergue, Toulon",
+   "site": "",
+   "abonnes": 4033,
+   "fichier": "site/partenaires/ig/lacalesechetoulon.jpg"
+  }
+ },
+ "ig:lebeerboattoulon": {
+  "profil": {
+   "nom": "Le Beer Boat de la cale sèche ⚓️",
+   "bio": "Bar en plein air 🍺\n@lacalesechetoulon ⚓️\nToulon📍",
+   "site": "",
+   "abonnes": 1385,
+   "fichier": "site/partenaires/ig/lebeerboattoulon.jpg"
+  }
+ },
+ "ig:placedelequerreevents83": {
+  "profil": {
+   "nom": "PLACE DE L’ÉQUERRE • Toulon",
+   "bio": "📆 Il se passe quoi sur la Place de l’Équerre ?\n🔜 𝗥𝗔𝗖𝗟𝗘𝗧𝗧𝗘 𝗙𝗘𝗦𝗧𝗜𝗩𝗔𝗟 🧀 11 & 12 décembre \n📍 Le ❤️ festif de #toulon\n🤙 Des bars qui s’entendent bien 🎶",
+   "site": "https://sudist.fr/products/t-shirt-in-raclette-we-trust",
+   "abonnes": 6012,
+   "fichier": "site/partenaires/ig/placedelequerreevents83.jpg"
+  }
+ },
+ "ig:lebeertruckdubarathym": {
+  "profil": {
+   "absent": true
+  }
+ },
+ "ig:lebarathymtoulon": {
+  "profil": {
+   "nom": "Le Barathym",
+   "bio": "🎶Pub-concert-Dj Set-Night Club  \n🕦Open:17h30-2h \ndimanche -> mercredi\n17h30-4h jeudi -> samedi\n🎉HappyHour 7/7 17h30 -> 20h\n🏠32 bd cunéo 83000 toulon",
+   "site": "",
+   "abonnes": 10924,
+   "fichier": "site/partenaires/ig/lebarathymtoulon.jpg"
+  }
+ },
+ "ig:couleurs.urbaines": {
+  "profil": {
+   "nom": "Festival Couleurs Urbaines",
+   "bio": "4.5.6 JUIN 2027 \nTELLEMENT HÂTE DE VOUS RETROUVER ♥️\n🎟️ BILLETTERIE ⬇️\n📍Parc de la Navale\n @laseyne_officiel",
+   "site": "http://linktr.ee/couleursurbaines",
+   "abonnes": 8478,
+   "fichier": "site/partenaires/ig/couleurs.urbaines.jpg"
+  }
+ },
+ "ig:mandelieu_tourisme": {
+  "profil": {
+   "nom": "Mandelieu Tourisme",
+   "bio": "𝐃𝐞𝐬𝐭𝐢𝐧𝐚𝐭𝐢𝐨𝐧 𝐌𝐚𝐧𝐝𝐞𝐥𝐢𝐞𝐮 \nCompte officiel de l'Office de tourisme et des Congrès \n☀️À voir • À faire • À vivre \n👉#Mandelieutourisme @mandelieu_tourisme",
+   "site": "http://www.mandelieu-tourisme.com/",
+   "abonnes": 22679,
+   "fichier": "site/partenaires/ig/mandelieu_tourisme.jpg"
+  }
+ },
+ "ig:balancia.bar": {
+  "profil": {
+   "nom": "Balancia Bar, Nice🫧",
+   "bio": "📍10 rue du Commandant Raffalli Nice\n • Ambiance et cocktail 🍸",
+   "site": "",
+   "abonnes": 555,
+   "fichier": "site/partenaires/ig/balancia.bar.jpg"
+  }
+ },
+ "ig:amir.bdhiaf": {
+  "profil": {
+   "absent": true
+  }
+ },
+ "ig:mysafecup": {
+  "profil": {
+   "nom": "My Safe Cup",
+   "bio": "🫶 Pour des événements plus Safe\n🥤 Des solutions pour faire la fête sereinement !\n💬 Envoie \"Safe\" et reçois ton cadeau \n↓ Découvrez My Safe Cup",
+   "site": "https://mysafecup.co/",
+   "abonnes": 4230,
+   "fichier": "site/partenaires/ig/mysafecup.jpg"
+  }
+ },
+ "ig:nai.bevent": {
+  "profil": {
+   "nom": "Naï B’ Event",
+   "bio": "Event✨\nBooking @deejayjcdalton 🎧\nLocation de matériel 🔉\n📍French Riviera",
+   "site": "",
+   "abonnes": 1526,
+   "fichier": "site/partenaires/ig/nai.bevent.jpg"
+  }
+ },
+ "ig:la_techno_toulonnaise": {
+  "profil": {
+   "nom": "La Techno Toulonnaise",
+   "bio": "📍 La scène techno / hard music varoise\n🎧 Tous les events Techno près de chez toi\n📆 Agenda hebdomadaire \n⬇️ Suis-nous pour ne rien rater",
+   "site": "",
+   "abonnes": 936,
+   "fichier": "site/partenaires/ig/la_techno_toulonnaise.jpg"
+  }
+ },
+ "ig:lenoutsa": {
+  "profil": {
+   "nom": "𝐋𝐄𝐍𝐀 🙏🏼🧿",
+   "bio": "Beauty • Fashion • Real life\nCreating, testing & oversharing since 2021\n📍 France • Dubai • Worldwide\n💌 pro.lenoutsa@gmail.com",
+   "site": "https://www.cosmetologieclimatique.com/fr/98-c-cosmetique-climatique-produits.html",
+   "abonnes": 544344,
+   "fichier": "site/partenaires/ig/lenoutsa.jpg"
+  }
+ },
+ "ig:mixpartybusinessclub": {
+  "profil": {
+   "nom": "Mix Party Business Club",
+   "bio": "🌐 Business Club et Formations\n🤝 Événements, networking & inspiration\n🗝 Développement de compétences & business\n📍 Côte d’Azur | 🌍 Online",
+   "site": "https://linktr.ee/mixparty.businessclub",
+   "abonnes": 899,
+   "fichier": "site/partenaires/ig/mixpartybusinessclub.jpg"
+  }
+ },
+ "ig:insolente_music_": {
+  "profil": {
+   "nom": "Stella Ramos",
+   "bio": "Dj Hard Techno - Rave 😈\n@prostcrastination\nBooking: insolentemusic33@gmail.com\nFounder @lesnuitsinsolentes @insolenteboat \nDA @je_dis_techno_nice",
+   "site": "https://shotgun.live/events/format-boiler-360-hangar-and-hard-techno?uhandle=insolente&utm_campaign=share_event&utm_term=insolente",
+   "abonnes": 3373,
+   "fichier": "site/partenaires/ig/insolente_music_.jpg"
+  }
+ },
+ "ig:magnoliacafenice": {
+  "profil": {
+   "nom": "Magnolia - Restaurant Nice",
+   "bio": "🍽️ L’ardoise du midi • cuisine de saison\n🍸Restaurant ambiance,tapas & cocktails \n🎧 DJ set vendredi & samedi\n🌺 Ouvert 7J/7 • 11h30 à 00h30",
+   "site": "https://magnolia-cafe-restaurant-nice.fr/fr/booking",
+   "abonnes": 6971,
+   "fichier": "site/partenaires/ig/magnoliacafenice.jpg"
+  }
+ },
+ "ig:la_dinette__": {
+  "profil": {
+   "nom": "la récré des grands 🥳",
+   "bio": "🎃 05.12 • SANTA A LA PLAYA\n🎟️ Billetterie ↓\n🎵 Hits d’avant → aujourd’hui\n🎲 Jeux • 🎁 Tombola • 💋 Rencontres • 💃 Danse",
+   "site": "https://linktr.ee/la_dinette__",
+   "abonnes": 5659,
+   "fichier": "site/partenaires/ig/la_dinette__.jpg"
+  }
+ },
+ "ig:vanina_aronica": {
+  "profil": {
+   "nom": "Vanina_Aronica_Pro",
+   "bio": "SingerClassicCrossover_Actress_VoiceCoach_Ambassador_ArtisticDirector_President of TheGoldenVoicesMusicAwards & Academy & Stars Concerts",
+   "site": "http://www.vanina.com/",
+   "abonnes": 14693,
+   "fichier": "site/partenaires/ig/vanina_aronica.jpg"
+  }
+ },
+ "ig:aureliostella.photographe": {
+  "profil": {
+   "nom": "Aurelio Stella Photographe",
+   "bio": "📸 Photographe professionnel \n🇫🇷 Ambassadeur Côte d’Azur France\n📍 Communication • Territoire • Rayonnement",
+   "site": "",
+   "abonnes": 2044,
+   "fichier": "site/partenaires/ig/aureliostella.photographe.jpg"
+  }
+ },
+ "ig:lecannet.tourisme": {
+  "profil": {
+   "nom": "Le Cannet Tourisme 🌴☀️",
+   "bio": "Le Cannet Côte d'Azur 🌴☀️, destination Culture et Gastronomie par excellence. 💎",
+   "site": "https://lecannet-tourisme.fr/",
+   "abonnes": 2327,
+   "fichier": "site/partenaires/ig/lecannet.tourisme.jpg"
+  }
+ },
+ "ig:safeliimousine": {
+  "profil": {
+   "nom": "Chauffeur Côte d’Azur et concierge",
+   "bio": "Safe Limousine\nL’Art du Déplacement d’Exception & Conciergerie Privée",
+   "site": "",
+   "abonnes": 572,
+   "fichier": "site/partenaires/ig/safeliimousine.jpg"
+  }
+ },
+ "ig:mandelieu_paradise": {
+  "profil": {
+   "nom": "Mandelieu Paradise Water Sports",
+   "bio": "📍 Cannes / Mandelieu-La-Napoule\n☀️ Base d’activitées nautiques \n📞 +33 6 13 27 45 95 \n🔹 Jet Ski 🔹 Bouée 🔹 Parachute 🔹Ski Nautique 🔹 Flyboard 🔹Wakeboard",
+   "site": "https://www.paradise-water-sports.fr/",
+   "abonnes": 860,
+   "fichier": "site/partenaires/ig/mandelieu_paradise.jpg"
+  }
+ },
+ "ig:prostcrastination": {
+  "profil": {
+   "nom": "Prostcrastination",
+   "bio": "• La vraie fête by @prost_techno \nVous êtes le thème \n14.11 - MATRIX - @diezewarehouse \n19.12 - Technoël 🎅\n23.01 - TBC",
+   "site": "https://linktr.ee/prostcrastination",
+   "abonnes": 19170,
+   "fichier": "site/partenaires/ig/prostcrastination.jpg"
+  }
+ },
+ "ig:leptiaperoimprovise": {
+  "profil": {
+   "nom": "Le P'ti Apéro Improvisé",
+   "bio": "𝗦𝗢𝗜𝗥𝗘́𝗘𝗦 & 𝗙𝗘𝗦𝗧𝗜𝗩𝗔𝗟𝗦 depuis 2018\nBien plus qu’un simple apéro❤️\n🇫🇷 Sud de la France\n📩 Dates • collab → DM",
+   "site": "",
+   "abonnes": 36323,
+   "fichier": "site/partenaires/ig/leptiaperoimprovise.jpg"
+  }
+ },
+ "ig:unica_culture": {
+  "profil": {
+   "nom": "Direction de la Culture",
+   "bio": "La culture à @univ_cotedazur\nNos prochains évènements ⬇️",
+   "site": "https://linktr.ee/UCArts",
+   "abonnes": 12097,
+   "fichier": "site/partenaires/ig/unica_culture.jpg"
+  }
+ },
+ "ig:je_dis_techno_nice": {
+  "profil": {
+   "nom": "Je Dis Techno",
+   "bio": "💚Ton rendez-vous techno niçois tous les jeudis\n🔊Before: @lantretechno 21h-2h\n🔊club : @kosma.liveclub 00h00-5h00\nHard Techno/Rave/Hard bounce/Acid",
+   "site": "https://shotgun.live/venues/je-dis-techno",
+   "abonnes": 7961,
+   "fichier": "site/partenaires/ig/je_dis_techno_nice.jpg"
+  }
+ },
+ "ig:bliss.evenement": {
+  "profil": {
+   "nom": "BLISS",
+   "bio": "🔶 Évènement Disco, Funk, House.\n🪩 @bilal_barka @anasg.music @maraudj_ \n🟡 Prochaine date soon …",
+   "site": "",
+   "abonnes": 503,
+   "fichier": "site/partenaires/ig/bliss.evenement.jpg"
+  }
+ },
+ "ig:frigo.16": {
+  "profil": {
+   "nom": "FRIGO 16",
+   "bio": "La plus chaude des chambres froides 🔥\n@le109_officiel📍Nice, 89 route de Turin \n@pandaevents06 \n🎟️ Billetterie👇",
+   "site": "https://www.panda-events.com/evenement/halloween-inter-campus/",
+   "abonnes": 11641,
+   "fichier": "site/partenaires/ig/frigo.16.jpg"
+  }
+ },
+ "ig:pandaevents06": {
+  "profil": {
+   "nom": "Panda Events",
+   "bio": "Diffuseur de musique live  \n☀️ Côte d’Azur & 🌎 Dans le monde \n🎫 B I L L E T T E R I E 👇",
+   "site": "https://www.panda-events.com/evenement/tropical-nice-fest-part-2/",
+   "abonnes": 15191,
+   "fichier": "site/partenaires/ig/pandaevents06.jpg"
+  }
+ },
+ "ig:lubi.light": {
+  "profil": {
+   "nom": "LUBI.",
+   "bio": "💠  • ＪＥＷＥＬＬＥＤ   ＡＲＴ   ＬＩＧＨＴＩＮＧ •  💠\n« 𝑾𝒉𝒆𝒓𝒆 𝒍𝒊𝒈𝒉𝒕 𝒎𝒆𝒆𝒕𝒔 𝒋𝒆𝒘𝒆𝒍𝒓𝒚 »             ✨                                                    【 💡𝕀𝕟 𝕔𝕣𝕖𝕒𝕥𝕚𝕠𝕟 … 】",
+   "site": "",
+   "abonnes": 415,
+   "fichier": "site/partenaires/ig/lubi.light.jpg"
+  }
+ },
+ "ig:bimbeauf": {
+  "profil": {
+   "nom": "Lolo pour les intimes 💞",
+   "bio": "shitpost & bullshit ( made with 💗) \n💌: bimbeauf@gmail.com",
+   "site": "https://www.tiktok.com/@bimbeauf?_t=8kcROWd5A93&_r=1",
+   "abonnes": 17120,
+   "fichier": "site/partenaires/ig/bimbeauf.jpg"
+  }
+ },
+ "ig:paranormalfestival": {
+  "profil": {
+   "nom": "PARANORMAL FESTIVAL",
+   "bio": "🐦‍⬛ 𝟑𝟏 𝖔𝖈𝖙𝖔𝖇𝖗𝖊 𝟐𝟎𝟐𝟔\n📍 𝕷𝖊 𝟏𝟎𝟗, 𝓝𝖎𝖈𝖊\n🎪 𝟐 𝖘𝖈è𝖓𝖊𝖘",
+   "site": "https://my.weezevent.com/paranormal-festival-acte-vi-the-crown-of-embers",
+   "abonnes": 15737,
+   "fichier": "site/partenaires/ig/paranormalfestival.jpg"
+  }
+ },
+ "ig:soon.event": {
+  "profil": {
+   "nom": "SOON EVENT✨",
+   "bio": "🗓️ Agenda du week-end\n🎧 Mar 10.11 > No Limit Party⚡️\n📍 @lesvoutesvirgo - entrée gratuite\n📲 Infos & résa : 06 23 33 71 35\n🎟️ Billetterie ici👇🏼",
+   "site": "https://shotgun.live/venues/soon-event",
+   "abonnes": 1546,
+   "fichier": "site/partenaires/ig/soon.event.jpg"
+  }
+ },
+ "ig:breakthefloor": {
+  "profil": {
+   "absent": true
+  }
+ },
+ "ig:tweltyprod": {
+  "profil": {
+   "nom": "TWELTY PROD",
+   "bio": "SIDE A @agencetwelty\nEvents Production • Music • Live Experiences \nDesigning moments that feel different.\n📍From French Riviera",
+   "site": "https://linktr.ee/agencetwelty",
+   "abonnes": 5873,
+   "fichier": "site/partenaires/ig/tweltyprod.jpg"
+  }
+ },
+ "ig:yournightyourheaven": {
+  "profil": {
+   "nom": "Heaven • Le test anti-drogue pour ta boisson",
+   "bio": "🍸𝙔𝙤𝙪𝙧 𝙣𝙞𝙜𝙝𝙩, 𝙮𝙤𝙪𝙧 𝙝𝙚𝙖𝙫𝙚𝙣 \nLe test anti-drogue le plus fiable \nTeste ton verre en 30 secondes \n⬇️ Découvre dès maintenant",
+   "site": "https://heavenband.com/products/test-anti-drogue-pour-boisson-heaven-bands",
+   "abonnes": 3743,
+   "fichier": "site/partenaires/ig/yournightyourheaven.jpg"
+  }
+ },
+ "ig:villadjunah": {
+  "profil": {
+   "nom": "VILLA DJUNAH",
+   "bio": "SEASON CLOSING 27.09 \nFestive Restaurant & Lounge | Rooftop | Garden | Beach Club | Wedding & Events Venue \n📍Antibes Juan-les-Pins\n@villadjunahbeach",
+   "site": "https://linktr.ee/villadjunah",
+   "abonnes": 22338,
+   "fichier": "site/partenaires/ig/villadjunah.jpg"
+  }
+ },
+ "ig:therealplaykid": {
+  "profil": {
+   "nom": "PLAYKID (FR)",
+   "bio": "◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤                                                  \nDj & Producer 🇫🇷🇧🇷\nFounder of @midweekcannes \nCannes-Paris-Bresil",
+   "site": "https://on.soundcloud.com/seQzcGEwXqdlFM4qE6",
+   "abonnes": 9906,
+   "fichier": "site/partenaires/ig/therealplaykid.jpg"
+  }
+ },
+ "ig:makaoklub": {
+  "profil": {
+   "nom": "MakaoKlub",
+   "bio": "Bar Club Lounge 🔥\nCocktails🍹Tapas🌮 \nLive Music🎸 Live DJ  🎧\n⏳️Mercredi au Samedi 19h - 00h30 \n📍33 Rue Vauban, ANTIBES.\n☎️Résas 0769486898",
+   "site": "",
+   "abonnes": 742,
+   "fichier": "site/partenaires/ig/makaoklub.jpg"
+  }
+ },
+ "ig:lacasadelabuelotudela": {
+  "profil": {
+   "nom": "Apartamentos en Tudela",
+   "bio": "Feel at home when you are away🏡✨\n¡Ya puedes hacer tu reserva por DM!📩\nTudela Navarra",
+   "site": "http://linktr.ee/lacasadelabuelo",
+   "abonnes": 551,
+   "fichier": "site/partenaires/ig/lacasadelabuelotudela.jpg"
+  }
+ },
+ "ig:reffestival": {
+  "profil": {
+   "nom": "REF Festival",
+   "bio": "REF FESTIVAL 7-8-9 Mai 2027 \n@le109_officiel @frigo.16 Nice 🌴☀️",
+   "site": "https://shotgun.live/fr/events/ref-session-17-uma-invite-zara-frigo-16",
+   "abonnes": 7176,
+   "fichier": "site/partenaires/ig/reffestival.jpg"
+  }
+ },
+ "ig:pyroman_event": {
+  "profil": {
+   "nom": "PYROMAN Event",
+   "bio": "▪️Événements Techno Immersifs • Côte d'Azur\n🎧DJ résident @pyro_musicoff\n▪️Follow us on @ga.ia_house",
+   "site": "https://linkr.bio/PYROMAN.EVENT",
+   "abonnes": 2483,
+   "fichier": "site/partenaires/ig/pyroman_event.jpg"
+  }
+ },
+ "ig:hotel.casarose": {
+  "profil": {
+   "nom": "Hôtel Casarose",
+   "bio": "📍 Mandelieu-la-Napoule, near Cannes\n🌴 4-Star Hotel in French Riviera\n🌊 Pool      \n🟠 @_teritoria_\n🟡 Label RSE CLOROFIL",
+   "site": "https://hotelcasarose.fr/",
+   "abonnes": 19643,
+   "fichier": "site/partenaires/ig/hotel.casarose.jpg"
   }
  }
 }
