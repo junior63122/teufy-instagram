@@ -778,7 +778,10 @@ let VERSION = '1'; // change quand le CSS ou le JS change (le navigateur recharg
 let GOOGLE = ''; // code de vérification Google Search Console (config.site.google_verification)
 // Titres et descriptions à la bonne longueur pour Google (titre ≤ 65 caractères, description ≤ 160), coupés sur un mot.
 const couper = (x, n) => { x = String(x || '').replace(/\s+/g, ' ').trim(); if (x.length <= n) return x; const c = x.slice(0, n - 1); return `${c.slice(0, Math.max(c.lastIndexOf(' '), n * 0.6)).replace(/[\s,;:·–-]+$/, '')}…`; };
-const titreCourt = (parts) => { const l = parts.filter(Boolean); while (l.length > 1 && `${l.join(' · ')} · Teufy`.length > 65) l.pop(); return `${couper(l.join(' · '), 56)} · Teufy`; };
+// Soirée : « Nom · date · lieu · Teufy » ; si trop long, le lieu saute puis le nom est raccourci (la date reste : deux dates d'un même événement gardent des titres différents).
+const titreCourt = ([nom, date, lieu]) => { const fin = ` · ${date} · Teufy`; if (`${nom} · ${date} · ${lieu} · Teufy`.length <= 66 && lieu) return `${nom} · ${date} · ${lieu} · Teufy`; return `${couper(nom, Math.max(20, 66 - fin.length))}${fin}`; };
+// Autres pages : titre raccourci en gardant la marque à la fin.
+const titrePage = (x) => { x = String(x || ''); if (x.length <= 70) return x; const m = x.match(/^(.*?)( · Teufy)$/); return m ? `${couper(m[1], 62)}${m[2]}` : couper(x, 70); };
 function gabarit({ lang, t, titre, description, chemin, base, corps, ld = [], image = 'site/img/equipe/monaco.jpg', compte, maj = '', agendaIci = false }) {
   const handle = compte.replace(/^@/, '');
   const P = pre(lang);
@@ -790,12 +793,12 @@ function gabarit({ lang, t, titre, description, chemin, base, corps, ld = [], im
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>${esc(titre)}</title>
+<title>${esc(titrePage(titre))}</title>
 <meta name="description" content="${esc(couper(description, 160))}">
 <link rel="canonical" href="${URL_SITE}${P}${chemin}">
 ${LANGUES.map((l) => `<link rel="alternate" hreflang="${l}" href="${URL_SITE}${pre(l)}${chemin}">`).join('\n')}
 <link rel="alternate" hreflang="x-default" href="${URL_SITE}${chemin}">
-<meta property="og:title" content="${esc(titre)}">
+<meta property="og:title" content="${esc(titrePage(titre))}">
 <meta property="og:description" content="${esc(couper(description, 200))}">
 <meta property="og:image" content="${/^https?:/.test(image) ? image : URL_SITE + image}">
 <meta property="og:url" content="${URL_SITE}${P}${chemin}">
@@ -1212,12 +1215,12 @@ async function imagesActus(actus, { soirees, hist }) {
       const v = path.join(ROOT, 'media', 'veille', pub.images?.[0] || '');
       if (pub.images?.[0] && existsSync(v)) spawnSync('ffmpeg', ['-v', 'error', '-y', '-i', v, '-vf', "scale='min(1080,iw)':-2", '-q:v', '3', f]);
     }
-    if (existsSync(f)) { a.image_site = path.relative(ROOT, f); a.visuel = true; }
+    if (existsSync(f)) { a.image_site = path.relative(ROOT, f); a.visuel = true; a.dims = [1080, 1350]; }
     // 2. L'affiche d'une soirée à venir dont l'actu parle (artiste, lieu ou nom en commun).
     if (!a.image_site) {
       const m = mots(`${a.titre} ${a.chapo}`);
       const s = soirees.filter((x) => x.affiche).map((x) => ({ x, n: [...mots(`${x.nom} ${x.lieu}`)].filter((w) => m.has(w)).length })).sort((p, q) => q.n - p.n)[0];
-      if (s?.n) { a.image_site = s.x.affiche; a.soiree = s.x.id; }
+      if (s?.n) { a.image_site = s.x.affiche; a.soiree = s.x.id; a.dims = s.x.dims; }
     }
     // 3. L'image de la source (téléchargée une fois : les liens Instagram expirent).
     if (!a.image_site && /^https?:/.test(a.image || '')) {
@@ -1232,7 +1235,7 @@ async function imagesActus(actus, { soirees, hist }) {
 }
 function imageActu(a, { base, sizes = '(min-width:980px) 380px, 92vw', attrs = 'loading="lazy" decoding="async"' } = {}) {
   if (!a.image_site) return `<span class="actu-flash" aria-hidden="true"><b>${esc(a.ville || 'Teufy')}</b></span>`;
-  return image(base, a.image_site, { alt: a.titre, sizes, attrs });
+  return image(base, a.image_site, { alt: a.titre, sizes, attrs: `${attrs}${a.dims ? ` width="${a.dims[0]}" height="${a.dims[1]}"` : ''}` });
 }
 const dateActu = (a, t) => { const d = Date.parse(a.date); return isNaN(d) ? '' : paris(d, { day: 'numeric', month: 'long', year: 'numeric' }, t.locale); };
 function pageActus({ lang, t, tr, base, compte, T, chemin, actus, maj }) {
@@ -1360,7 +1363,7 @@ function pageLegal({ lang, t, tr, base, compte, T, chemin, maj, cle = 'mentions-
   ${C.blocs.map(([titre, ps]) => `<h2>${esc(tr(titre))}</h2>${ps.map((p) => `<p>${esc(tr(p))}</p>`).join('')}`).join('\n  ')}
   <nav class="liens-legaux" aria-label="${esc(tr('Informations légales'))}">${Object.keys(PAGES_LEGALES).filter((k) => k !== cle).map((k) => `<a class="puce" href="${base}${pre(lang)}${k}/">${esc(tr(NOMS_LEGAUX[k]))}</a>`).join('')}</nav>
 </article>`;
-  return gabarit({ lang, t, titre: tr(C.titre), description: tr(C.blocs[0][1][0]), chemin, base, corps, compte, maj });
+  return gabarit({ lang, t, titre: tr(C.titre), description: tr(C.desc || C.blocs[0][1][0]), chemin, base, corps, compte, maj });
 }
 
 function aPropos({ lang, t, base, compte, T, chemin, nb, maj, partenaires }) {

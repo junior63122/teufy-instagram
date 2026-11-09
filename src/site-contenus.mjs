@@ -134,7 +134,7 @@ const EDITEUR = (T) => `${T.raison_sociale || 'Teufy'}${T.forme ? `, ${T.forme}`
 const MAJ = (T) => `Dernière mise à jour : ${T.maj_legales || '2026'}.`;
 
 export const LEGAL = (T, compte) => ({
-  titre: 'Mentions légales · Teufy', h1: 'Mentions <em>légales</em>',
+  titre: 'Mentions légales · Teufy', h1: 'Mentions <em>légales</em>', desc: "Mentions légales du site Teufy, guide des soirées de la Côte d'Azur et du Var : éditeur, hébergement, sources des informations et contact.",
   blocs: [
     ['Éditeur du site', [
       `Le site Teufy est édité par ${EDITEUR(T)}.`,
@@ -156,7 +156,7 @@ export const LEGAL = (T, compte) => ({
 });
 
 export const CGU = (T, compte) => ({
-  titre: "Conditions générales d'utilisation · Teufy", h1: "Conditions générales d'<em>utilisation</em>",
+  titre: "Conditions générales d'utilisation · Teufy", h1: "Conditions générales d'<em>utilisation</em>", desc: "Les règles d'utilisation du site Teufy : accès gratuit, informations sur les soirées, billets et liens externes, propriété intellectuelle et signalement.",
   blocs: [
     ['1. Objet', [MAJ(T), `Les présentes conditions générales d'utilisation (CGU) encadrent l'accès et l'utilisation du site Teufy, guide des soirées de la Côte d'Azur et du Var, édité par ${EDITEUR(T)}. Utiliser le site vaut acceptation de ces CGU.`]],
     ['2. Accès au site', ["Le site est gratuit, sans inscription et accessible à tous. Les soirées présentées sont destinées à un public majeur : l'accès aux événements est fixé par chaque organisateur (âge minimum, tenue, pièce d'identité).", "Teufy fait le maximum pour que le site soit disponible et à jour, sans pouvoir le garantir en permanence (maintenance, panne de l'hébergeur, mise à jour)."]],
@@ -172,7 +172,7 @@ export const CGU = (T, compte) => ({
 });
 
 export const CGV = (T, compte) => ({
-  titre: 'Conditions générales de vente et de partenariat · Teufy', h1: 'Conditions de <em>vente</em> et de partenariat',
+  titre: 'Conditions de vente et de partenariat · Teufy', h1: 'Conditions de <em>vente</em> et de partenariat', desc: "Billets vendus par les billetteries, comparateur de prix, codes promo et prestations de partenariat Teufy : les conditions de vente expliquées simplement.",
   blocs: [
     ['1. Objet', [MAJ(T), `Ces conditions générales de vente et de partenariat (CGV) s'appliquent aux offres présentées sur le site Teufy et aux prestations proposées par ${EDITEUR(T)} aux professionnels (organisateurs, établissements, marques).`]],
     ['2. Billets', ["Teufy ne vend pas de billets et n'encaisse aucun paiement pour une soirée. L'achat se fait directement auprès de l'organisateur ou de sa billetterie (Shotgun, Weezevent, Dice, etc.), selon leurs propres conditions de vente : prix, frais, remboursement, annulation, revente.", "En cas d'annulation, de report ou de litige sur un billet, la demande se fait auprès de l'organisateur ou de la billetterie qui a vendu le billet."]],
@@ -185,7 +185,7 @@ export const CGV = (T, compte) => ({
 });
 
 export const CONFIDENTIALITE = (T, compte) => ({
-  titre: 'Confidentialité et cookies · Teufy', h1: 'Confidentialité et <em>cookies</em>',
+  titre: 'Confidentialité et cookies · Teufy', h1: 'Confidentialité et <em>cookies</em>', desc: "Teufy ne dépose aucun cookie et ne mesure pas ton audience : favoris gardés sur ton appareil, données des services tiers et tes droits expliqués.",
   blocs: [
     ['En bref', [MAJ(T), "Le site Teufy ne demande pas de compte, ne dépose aucun cookie, ne mesure pas ton audience et n'affiche pas de publicité. Tes favoris restent sur ton téléphone ou ton ordinateur."]],
     ['Responsable du traitement', [`${EDITEUR(T)}. Contact : ${T.email || 'teufy.app@gmail.com'}.`]],

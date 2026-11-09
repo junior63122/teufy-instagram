@@ -181,11 +181,12 @@ const visibles = (p) => p.locator('.liste .carte:not([hidden])').count();
     const un = (d) => { try { return fs.readdirSync(path.resolve(__dirname, '..', d)).filter((x) => !x.includes('.')).slice(0, 1).map((x) => `${d}/${x}/`); } catch { return []; } };
     for (const o of [{ viewport: { width: 1440, height: 900 } }, { ...devices['iPhone 13'] }]) {
       const c = await b.newContext(o); const p = await c.newPage(); erreurs(p, 'console');
-      const pb = [];
-      p.on('console', (m) => { if (m.type() === 'error' && !/tile\.openstreetmap|net::ERR_(TUNNEL|NAME|CONNECTION)/.test(m.text())) pb.push(`console : ${m.text().slice(0, 120)}`); });
+      const pb = []; let page404 = false;
+      p.on('console', (m) => { if (m.type() === 'error' && !/tile\.openstreetmap|net::ERR_(TUNNEL|NAME|CONNECTION)/.test(m.text()) && !(page404 && /status of 404/.test(m.text()))) pb.push(`console : ${m.text().slice(0, 120)}`); });
       p.on('requestfailed', (r) => { const u = r.url(); if (u.startsWith(B) && !/\.mp4/.test(u)) pb.push(`requête échouée : ${u.replace(B, '/')} (${r.failure()?.errorText})`); });
       p.on('response', (r) => { if (r.url().startsWith(B) && r.status() >= 400 && !/page-inexistante/.test(r.url())) pb.push(`HTTP ${r.status()} : ${r.url().replace(B, '/')}`); });
       for (const u of ['', '#carte', 'a-propos/', 'actus/', ...un('actus'), ...un('soiree'), 'festivals/', 'clubs-bars/', 'partenaires/', 'dates/', 'restaurants/', 'activites/', 'france/', 'cgu/', 'confidentialite/', 'ar/', 'page-inexistante/']) {
+        page404 = u === 'page-inexistante/'; // la page d'erreur répond 404 exprès
         await p.goto(B + u).catch(() => {}); await p.evaluate(() => window.scrollTo(0, document.body.scrollHeight)); await p.waitForTimeout(700);
       }
       ok(!pb.length, `console ${o.viewport?.width || 'mobile'} : ${[...new Set(pb)].slice(0, 6).join(' | ')}`);
