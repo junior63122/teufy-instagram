@@ -90,7 +90,11 @@ export async function rechercherSoirees({ config, now = new Date(), ig = null, a
     'la billetterie shotgun.live (pages des soirées à Nice, Cannes, Antibes, Monaco, Menton, Cagnes, Saint-Laurent-du-Var, Fréjus, Saint-Raphaël)',
     'la billetterie dice.fm (événements Nice, Côte d\'Azur, Monaco)',
     'Resident Advisor ra.co (événements Nice, Monaco, Cannes, Antibes)',
-    'les billetteries weezevent, billetweb, helloasso, eventbrite, fever, xceed, allevents, festik, yurplan pour la Côte d\'Azur',
+    'la billetterie eventbrite.fr (événements soirées, clubs, concerts à Nice, Cannes, Antibes, Monaco, Toulon et dans le Var)',
+    'la billetterie ticketmaster.fr (concerts, soirées et festivals dans les Alpes-Maritimes, à Monaco et dans le Var : Nikaïa, Palais des Festivals, Zénith Toulon…)',
+    'la billetterie bizouk.com (soirées afro, shatta, dancehall, kompa, zouk, bouyon et caribéennes sur la Côte d\'Azur et dans le Var)',
+    'l\'agenda officiel provence-alpes-cotedazur.com rubrique « que faire / sortir / toutes les sorties » (soirées, concerts, festivals des Alpes-Maritimes et du Var)',
+    'les billetteries See Tickets (seetickets.com), HelloAsso, Billetweb, Weezevent, Fever, Xceed, Festik et Yurplan pour la Côte d\'Azur et le Var',
     'les clubs et discothèques de Nice (High Club, Le Glam, Frigo 16 / Le 109, Le Ghost, Down Town, La Suite, Le Seven, L\'Antre…) et leurs pages événements',
     'les clubs et beach clubs de Cannes, Antibes, Juan-les-Pins et Monaco (Bâoli, Gotha, La Suite, Twiga, Jimmy\'z, Sea Club, Le Sporting, Medusa, Le Village, Palais Nikaïa pour les concerts)',
     'les agendas officiels et offices de tourisme (nice.fr, cannes.com, visitmonaco.com, antibesjuanlespins.com, cotedazurfrance.fr, menton-riviera-merveilles) rubrique soirées, concerts, DJ, festivals',
@@ -229,7 +233,7 @@ export async function completerBilletterie({ liste, ia, config, log = console.lo
     const texte = lot.map((e, k) => `${k + 1}. ${e.name} | ${new Intl.DateTimeFormat('fr-FR', { timeZone: 'Europe/Paris', dateStyle: 'full', timeStyle: 'short' }).format(new Date(e.start))} | ${e.venue}, ${e.city}${e.source_site ? ` | vu sur ${e.source_site}` : ''}`).join('\n');
     try {
       const web = await ia.rechercher({ config, gratuit: true, system: 'Tu retrouves la page de billetterie officielle de soirées précises. Tu ne donnes que des liens que tu as réellement trouvés.',
-        prompt: `Pour chacune de ces soirées de la Côte d'Azur, trouve l'URL exacte de sa page de billetterie (Shotgun, DICE, Weezevent, Billetweb, Eventbrite, HelloAsso, Fever, site du club…) et son prix le moins cher. Si la même soirée est vendue sur plusieurs plateformes, donne chaque plateforme avec son prix (pour comparer) :\n${texte}` });
+        prompt: `Pour chacune de ces soirées de la Côte d'Azur, trouve l'URL exacte de sa page de billetterie (Shotgun, DICE, Ticketmaster, Eventbrite, Bizouk, See Tickets, Weezevent, Billetweb, HelloAsso, Fever, site du club…) et son prix le moins cher. Si la même soirée est vendue sur plusieurs plateformes, donne chaque plateforme avec son prix (pour comparer) :\n${texte}` });
       if (!web) continue;
       const r = await ia.json({ config, gratuit: true, nom: 'billetterie', schema: SCHEMA_B, system: 'Tu extrais des liens et des prix sans rien inventer.', prompt: `Soirées :\n${texte}\n\nRésultats de recherche :\n${web}\n\nDonne pour chaque numéro l'URL exacte de la page de la soirée et le prix le moins cher, selon le schéma.` });
       for (const x of r.soirees || []) {
