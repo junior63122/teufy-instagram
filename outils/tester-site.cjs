@@ -140,6 +140,7 @@ async function controlerPage(p, nom, u) {
           ev('touchstart', 300); ev('touchmove', 500); ev('touchend', 500);
         }); } };
       for (const [mode, fermer] of Object.entries(fermetures)) {
+        await p.evaluate(() => window.scrollBy(0, -120)); await p.waitForTimeout(400); // le bouton revient quand on remonte
         const y0 = await p.evaluate(() => scrollY);
         await p.locator('.ouvrir-filtres').click(); await p.waitForTimeout(400);
         ok(await p.locator('.feuille-filtres').count() === 1, `mobile : la feuille de filtres ne s'ouvre pas (${mode})`);

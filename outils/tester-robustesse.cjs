@@ -52,6 +52,8 @@ const visibles = (p) => p.locator('.liste .carte:not([hidden])').count();
   await etape('feuille + rotation', async () => {
     const c = await b.newContext({ ...devices['iPhone 13'] }); const p = await c.newPage(); erreurs(p, 'rotation');
     await p.goto(B); await p.locator('.liste .jour:not([hidden])').nth(2).scrollIntoViewIfNeeded(); await p.waitForTimeout(300);
+    // Le bouton « Filtres » se cache pendant la descente et revient dès qu'on remonte un peu (comme un vrai utilisateur).
+    await p.evaluate(() => window.scrollBy(0, -120)); await p.waitForTimeout(400);
     await p.locator('.ouvrir-filtres').click(); await p.waitForTimeout(300);
     await p.setViewportSize({ width: 1024, height: 700 }); await p.waitForTimeout(400);
     ok(await p.locator('.feuille-filtres').count() === 0 && await p.locator('.filtres-place .filtres').count() === 1, 'rotation : la feuille reste ouverte ou les filtres sont perdus en passant en grand écran');
@@ -224,6 +226,7 @@ const visibles = (p) => p.locator('.liste .carte:not([hidden])').count();
           const caches = await k.evaluate((carte) => [...carte.querySelectorAll('a, button')].filter((el) => el.offsetParent && !el.closest('[aria-hidden="true"]')).filter((el) => {
             const r = el.getBoundingClientRect(); if (r.bottom < 0 || r.top > innerHeight) return false;
             const x = r.left + r.width / 2, y = r.top + r.height / 2; const h = document.elementFromPoint(x, y);
+            if (h && h.closest('.flottant, .haut, .barre-billets, header')) return false; // barres flottantes de l'écran : elles s'effacent au défilement
             return h && !el.contains(h) && !h.contains(el);
           }).map((el) => el.textContent.trim().slice(0, 20) || el.className));
           ok(!caches.length, `recouvert ${u || 'accueil'} : bouton masqué par un autre élément (${caches.join(', ')})`);

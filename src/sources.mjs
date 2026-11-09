@@ -9,6 +9,11 @@ const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (
 export async function collectEvents(config, { root, debugDir, fixturesDir, webEvents = [] } = {}) {
   const all = [];
   const report = [];
+  // Pages Eventbrite déjà lues : gardées 7 jours (contenus/eventbrite-pages.json) pour ne relire que les nouvelles.
+  const FICHIER_EB = path.join(root || '.', 'contenus', 'eventbrite-pages.json');
+  const ebCache = existsSync(FICHIER_EB) ? JSON.parse(await readFile(FICHIER_EB, 'utf8').catch(() => '{}')) : {};
+  const vus = new Map(Object.entries(ebCache).filter(([, v]) => Date.now() - Date.parse(v.le) < 7 * 864e5).map(([k, v]) => [k, v.d]));
+  const nouvelles = { n: 0 };
   for (const [source, urls] of Object.entries(config.sources)) {
     if (!Array.isArray(urls)) continue;
     for (const url of urls) {
@@ -23,11 +28,13 @@ export async function collectEvents(config, { root, debugDir, fixturesDir, webEv
         await mkdir(debugDir, { recursive: true });
         await writeFile(path.join(debugDir, `${source}-${slug(url)}.html`), html);
       }
-      const evs = extractEvents(html, { source, baseUrl: url });
+      let evs = source === 'bizouk' && !fixturesDir ? await soireesBizouk(html) : extractEvents(html, { source, baseUrl: url });
+      if (source === 'eventbrite' && !fixturesDir) evs = await heuresEventbrite(evs, vus, nouvelles);
       report.push({ source, url, evenements: evs.length });
       all.push(...evs);
     }
   }
+  if (!fixturesDir && nouvelles.n) await writeFile(FICHIER_EB, JSON.stringify(Object.fromEntries([...vus].map(([k, d]) => [k, { le: ebCache[k]?.le || new Date().toISOString(), d }])), null, 1) + '\n').catch(() => {});
   if (webEvents.length || !fixturesDir) report.push({ source: 'web', evenements: webEvents.length });
   all.push(...webEvents);
   const manual = await readManual(root);
@@ -137,4 +144,55 @@ export async function enrich(events, { max = 25, debugDir } = {}) {
     } catch { /* page indisponible : on garde ce qu'on a */ }
   }
   return events;
+}
+
+// Eventbrite : les listes ne donnent que la date (sans heure). On lit la page de chaque soirée (40 au plus par
+// passage, requêtes espacées) pour l'heure exacte, le prix et la grande image. Sans heure fiable, la soirée est
+// écartée plutôt qu'affichée avec une heure inventée (elle sera retentée au passage suivant).
+async function heuresEventbrite(evs, vus, nouvelles = { n: 0 }) {
+  const sortie = [];
+  for (const e of evs) {
+    if (!/T00:00:00(\.000)?Z$/.test(e.start || '')) { sortie.push(e); continue; }
+    let d = vus.get(e.url);
+    if (d === undefined) {
+      if (!e.url || nouvelles.n >= 40) continue;
+      nouvelles.n++;
+      d = null;
+      try {
+        await new Promise((r) => setTimeout(r, 1200));
+        const detail = extractEvents(await fetchHtml(e.url, 2), { source: 'eventbrite', baseUrl: e.url });
+        d = detail.find((x) => x.start && !/T00:00:00(\.000)?Z$/.test(x.start)) || null;
+      } catch { d = null; }
+      vus.set(e.url, d);
+    }
+    if (d) sortie.push({ ...e, start: d.start, end: d.end || e.end, price: d.price ?? e.price, image: d.image || e.image, venue: e.venue || d.venue, city: e.city || d.city, address: e.address || d.address });
+  }
+  return sortie;
+}
+
+// Bizouk (soirées afro, zouk, shatta, kompa…) : pas de page par ville. La page d'accueil liste les soirées avec leur
+// ville (« Clubbing · Nice ») ; on garde celles de la Côte d'Azur, de Monaco et du Var, puis on lit leur page
+// (données structurées de l'événement : date et heure, lieu, prix, image).
+const VILLES_COTE = /\b(nice|cannes|antibes|juan|monaco|monte.?carlo|menton|cagnes|saint.?laurent.?du.?var|villeneuve.?loubet|grasse|mougins|le cannet|mandelieu|vallauris|golfe.?juan|beausoleil|villefranche|toulon|la seyne|hy[eè]res|six.?fours|sanary|bandol|fr[ée]jus|saint.?rapha[eë]l|sainte.?maxime|saint.?tropez|draguignan|puget|brignoles|la valette|la garde)\b/i;
+async function soireesBizouk(html) {
+  const liens = new Map();
+  for (const m of html.matchAll(/<div class="[^"]*kicker[^"]*">([^<]*)<\/div>\s*<a[^>]+href="(https:\/\/www\.bizouk\.com\/events\/details\/[^"]+)"/g)) {
+    const ville = (m[1].split('·').pop() || '').trim();
+    if (VILLES_COTE.test(ville)) liens.set(m[2], ville);
+  }
+  // Repli : toute fiche dont le texte voisin cite une ville de la Côte.
+  for (const m of html.matchAll(/href="(https:\/\/www\.bizouk\.com\/events\/details\/[^"]+)"/g)) {
+    if (liens.has(m[1])) continue;
+    const autour = html.slice(Math.max(0, m.index - 600), m.index + 400).replace(/<[^>]+>/g, ' ');
+    if (VILLES_COTE.test(autour)) liens.set(m[1], '');
+  }
+  const evs = [];
+  for (const u of [...liens.keys()].slice(0, 30)) {
+    try {
+      await new Promise((r) => setTimeout(r, 1200));
+      const e = extractEvents(await fetchHtml(u, 2), { source: 'bizouk', baseUrl: u })[0];
+      if (e && VILLES_COTE.test(`${e.city} ${e.address} ${e.venue}`)) evs.push({ ...e, url: e.url || u });
+    } catch { /* fiche illisible : ignorée */ }
+  }
+  return evs;
 }

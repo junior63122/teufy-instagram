@@ -778,7 +778,8 @@ details[data-bloc="tri"]>.groupe{inset-inline-start:auto;inset-inline-end:0}
   .page-soiree-fin{height:84px}
   /* « Le même soir », « Dans le même style » : liste compacte, petite affiche à gauche */
   .similaires .grille{gap:10px}
-  .similaires .carte{display:grid;grid-template-columns:92px 1fr;align-items:stretch;border-radius:16px}
+  .similaires .carte{display:grid;grid-template-columns:92px minmax(0,1fr);align-items:stretch;border-radius:16px}
+  .similaires .carte .infos{min-width:0}
   .similaires .carte .affiche{aspect-ratio:auto!important;width:92px;max-height:none;height:100%;min-height:118px}
   .similaires .carte .affiche img.principale{position:absolute;inset:0;height:100%;object-fit:cover}
   .similaires .carte .affiche .fond-flou,.similaires .carte .coeur,.similaires .carte .accroche,.similaires .carte .demande,.similaires .carte .meta .ou,.similaires .carte .meta .promo,.similaires .carte .actions .bouton{display:none}
