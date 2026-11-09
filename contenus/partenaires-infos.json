@@ -1,1 +1,542 @@
-{}
+{
+ "site/partenaires/000.png": {
+  "lu": true,
+  "nom": "Barrel Pub",
+  "fiche": {
+   "categorie": "bar",
+   "ville": "Cannes",
+   "adresse": "17 Rue Gérard Monod, 06400 Cannes",
+   "instagram": "barrelpubcannes",
+   "site": "https://lebarrelpubcannes.com",
+   "description": "Pub américain et bar de nuit proposant burgers, bières, cocktails et jeux tels que billard, fléchettes et baby-foot. L'ambiance y est festive et décomplexée avec retransmissions sportives et DJ sets jusqu'à 5h.",
+   "date": false,
+   "date_raison": "",
+   "prix": ""
+  }
+ },
+ "site/partenaires/001.png": {
+  "lu": true,
+  "nom": "BB Cannes",
+  "fiche": {
+   "categorie": "bar",
+   "ville": "Cannes",
+   "adresse": "18 Rue Victor Cousin, 06400 Cannes",
+   "instagram": "bbcannes_",
+   "site": "https://www.bbcannes.fr",
+   "description": "Bar de nuit chic et intimiste servant des cocktails créatifs et des spiritueux. L'établissement dispose d'une terrasse et propose des soirées thématiques animées par des DJs jusqu'à 2h30.",
+   "date": true,
+   "date_raison": "Son ambiance chic et intimiste accompagnée de cocktails créatifs en fait un cadre propice pour un rendez-vous en soirée.",
+   "prix": ""
+  }
+ },
+ "site/partenaires/002.png": {
+  "lu": true,
+  "nom": "GROOVZ",
+  "fiche": {
+   "categorie": "bar",
+   "ville": "Cannes",
+   "adresse": "11 Rue Victor Cousin, 06400 Cannes",
+   "instagram": "groovzcannes",
+   "site": "",
+   "description": "Bar festif proposant cocktails, bières et shooters avec terrasse. Le lieu accueille des tournois de beer-pong, des karaokés et des DJ sets dans une ambiance étudiante et animée.",
+   "date": false,
+   "date_raison": "",
+   "prix": ""
+  }
+ },
+ "site/partenaires/003.png": {
+  "lu": true,
+  "nom": "Le Kosma",
+  "fiche": {
+   "categorie": "club",
+   "ville": "Nice",
+   "adresse": "8 Rue Sacha Guitry, 06000 Nice",
+   "instagram": "kosma.liveclub",
+   "site": "https://www.kosmaclub.com",
+   "description": "Club musical et discothèque organisant des sessions piano-bar, des concerts pop-rock en direct et des soirées dansantes avec DJ. L'établissement est ouvert jusqu'à 5h du matin.",
+   "date": false,
+   "date_raison": "",
+   "prix": ""
+  }
+ },
+ "site/partenaires/004.png": {
+  "lu": true,
+  "nom": "Trafalbar",
+  "fiche": {
+   "categorie": "bar",
+   "ville": "Nice",
+   "adresse": "3 Rue Barillerie, 06300 Nice",
+   "instagram": "trafalbarnice",
+   "site": "",
+   "description": "Rhumerie à l'ambiance survoltée et au décor de cale de navire, proposant plus de 100 références de rhums, des rhums arrangés et des cocktails.",
+   "date": false,
+   "date_raison": "",
+   "prix": ""
+  }
+ },
+ "site/partenaires/005.png": {
+  "lu": true,
+  "nom": "Gioia Restaurant",
+  "fiche": {
+   "categorie": "restaurant",
+   "ville": "Nice",
+   "adresse": "10 Boulevard Dubouchage, 06000 Nice",
+   "instagram": "gioianice",
+   "site": "https://www.gioianice.fr",
+   "description": "Restaurant méditerranéen et italien installé sous une véranda avec bar central. En soirée, le lieu adopte une atmosphère festive avec DJ sets invitant à la fête.",
+   "date": true,
+   "date_raison": "Son cadre soigné sous véranda et sa cuisine méditerranéenne offrent un cadre élégant pour un dîner à deux.",
+   "prix": ""
+  }
+ },
+ "site/partenaires/006.png": {
+  "lu": true,
+  "nom": "Bäzäär Cannes",
+  "fiche": {
+   "categorie": "bar",
+   "ville": "Cannes",
+   "adresse": "5-7 Rue Victor Cousin, 06400 Cannes",
+   "instagram": "bazaarcannes",
+   "site": "https://bazaarcannes.com",
+   "description": "Cet établissement festif propose des cocktails signatures et des spécialités méditerranéennes comme des pinsas et pizzas à partager. L'ambiance y évolue au cours de la soirée avec des DJ sets et des thématiques musicales entraînantes.",
+   "date": true,
+   "date_raison": "Le cadre soigné et le format de plats à partager en début de soirée conviennent bien pour un rendez-vous à deux dans une atmosphère animée.",
+   "prix": "€€"
+  }
+ },
+ "site/partenaires/007.png": {
+  "lu": true,
+  "nom": ""
+ },
+ "site/partenaires/008.png": {
+  "lu": true,
+  "nom": "Skyfall",
+  "fiche": {
+   "categorie": "club",
+   "ville": "Cannes",
+   "adresse": "21 Boulevard de la République, 06400 Cannes",
+   "instagram": "skyfallinkingdom",
+   "site": "https://shotgun.live",
+   "description": "Ce bar d'ambiance et mini-club nocturne propose des cocktails et un service de bouteilles jusqu'au petit matin. La programmation musicale s'articule autour de DJ sets explorant l'Afro House, le Hip-Hop, le Shatta et la Deep House.",
+   "date": false,
+   "date_raison": "",
+   "prix": "€€"
+  }
+ },
+ "site/partenaires/009.png": {
+  "lu": true,
+  "nom": "Down Town Club",
+  "fiche": {
+   "categorie": "club",
+   "ville": "Nice",
+   "adresse": "25 Rue Benoît Bunico, 06300 Nice",
+   "instagram": "downtown.nice",
+   "site": "",
+   "description": "Située sous une voûte historique dans le Vieux-Nice, cette discothèque underground accueille un dancefloor actif jusqu'en fin de nuit. Elle diffuse des DJ sets généralistes et électroniques accompagnés d'un service de bar festif.",
+   "date": false,
+   "date_raison": "",
+   "prix": "€€"
+  }
+ },
+ "site/partenaires/010.png": {
+  "lu": true,
+  "nom": "Up Town Bar",
+  "fiche": {
+   "categorie": "bar",
+   "ville": "Nice",
+   "adresse": "25 Rue Benoît Bunico, 06300 Nice",
+   "instagram": "uptown.nice",
+   "site": "",
+   "description": "Ce bar d'ambiance au rez-de-chaussée est réputé pour sa large sélection de gins, ses cocktails créatifs et ses déclinaisons de Spritz. Il propose une atmosphère décontractée pour prendre un verre avant de prolonger la soirée.",
+   "date": true,
+   "date_raison": "La carte variée de gins et de cocktails personnalisables offre un cadre convivial pour échanger autour d'un verre.",
+   "prix": "€€"
+  }
+ },
+ "site/partenaires/011.png": {
+  "lu": true,
+  "nom": "120bpm",
+  "fiche": {
+   "categorie": "organisateur",
+   "ville": "Cannes",
+   "adresse": "",
+   "instagram": "",
+   "site": "https://shotgun.live",
+   "description": "Il s'agit d'un concept de soirées itinérant organisant des événements rythmés sur la Côte d'Azur. Les soirées mettent en avant des DJ sets oscillant entre Afro House, Deep House et sonorités électroniques.",
+   "date": false,
+   "date_raison": "",
+   "prix": ""
+  }
+ },
+ "site/partenaires/012.png": {
+  "lu": true,
+  "nom": "Naya Club Cannes",
+  "fiche": {
+   "categorie": "club",
+   "ville": "Cannes",
+   "adresse": "15 Rue des Frères Pradignac, 06400 Cannes",
+   "instagram": "nayaclubcannes",
+   "site": "https://nayaclubcannes.com",
+   "description": "Cette boîte de nuit cannoise propose des soirées festives jusqu'au petit matin avec espaces VIP et service de bouteilles. Les sessions clubbing accueillent des DJ sets House, EDM, Hip-Hop et des hits actuels.",
+   "date": false,
+   "date_raison": "",
+   "prix": "€€€"
+  }
+ },
+ "site/partenaires/013.png": {
+  "lu": true,
+  "nom": "L'étoile",
+  "fiche": {
+   "categorie": "club",
+   "ville": "Nice",
+   "adresse": "8 Passage Émile Négrin, 06000 Nice",
+   "instagram": "",
+   "site": "",
+   "description": "Discothèque du centre-ville niçois proposant des soirées dansantes avec DJ sets aux styles généraliste, pop et hip-hop. L'établissement dispose également d'un espace avec service de tables VIP.",
+   "date": false,
+   "date_raison": "",
+   "prix": ""
+  }
+ },
+ "site/partenaires/014.png": {
+  "lu": true,
+  "nom": ""
+ },
+ "site/partenaires/015.png": {
+  "lu": true,
+  "nom": ""
+ },
+ "site/partenaires/016.png": {
+  "lu": true,
+  "nom": "New Private Security",
+  "fiche": {
+   "categorie": "autre",
+   "ville": "Nice",
+   "adresse": "53 Boulevard de Cessole, 06100 Nice",
+   "instagram": "",
+   "site": "https://newprivatesecurity.fr/",
+   "description": "Société de sécurité privée spécialisée dans le gardiennage, la surveillance d'établissements et la sécurisation d'événements. Elle propose également des prestations de filtrage et de protection rapprochée.",
+   "date": false,
+   "date_raison": "",
+   "prix": ""
+  }
+ },
+ "site/partenaires/017.png": {
+  "lu": true,
+  "nom": "Great Game",
+  "fiche": {
+   "categorie": "activite",
+   "ville": "Antibes",
+   "adresse": "2793 Chemin de Saint-Claude, 06600 Antibes",
+   "instagram": "",
+   "site": "https://great-game.fr/",
+   "description": "Espace de loisirs privatif aménagé avec des consoles de jeux vidéo, des bornes d'arcade, des PC de jeu, du karaoké et des jeux de société. Le lieu accueille des groupes pour des soirées privées, des anniversaires ou des team buildings.",
+   "date": false,
+   "date_raison": "",
+   "prix": ""
+  }
+ },
+ "site/partenaires/018.png": {
+  "lu": true,
+  "nom": "House en Provence",
+  "fiche": {
+   "categorie": "festival",
+   "ville": "Saint-Cézaire-sur-Siagne",
+   "adresse": "Chemin du Stade, 06530 Saint-Cézaire-sur-Siagne",
+   "instagram": "",
+   "site": "https://shotgun.live/fr/venues/house-en-provence",
+   "description": "Collectif organisant des festivals et des soirées dédiés aux musiques électroniques, notamment la house et la tech house. Les événements intègrent des DJ sets, des scénographies immersives, des food trucks et diverses animations.",
+   "date": false,
+   "date_raison": "",
+   "prix": ""
+  }
+ },
+ "site/partenaires/019.png": {
+  "lu": true,
+  "nom": ""
+ },
+ "site/partenaires/020.png": {
+  "lu": true,
+  "nom": "SOOK",
+  "fiche": {
+   "categorie": "marque",
+   "ville": "Nice",
+   "adresse": "",
+   "instagram": "",
+   "site": "https://sook-paris.com/",
+   "description": "Marque de prêt-à-porter et d'accessoires au style bohème chic, inspirée de l'univers estival méditerranéen. Elle propose notamment des vêtements légers, des cabas et des paniers tressés personnalisés.",
+   "date": false,
+   "date_raison": "",
+   "prix": ""
+  }
+ },
+ "site/partenaires/021.png": {
+  "lu": true,
+  "nom": "La Mescla Festival",
+  "fiche": {
+   "categorie": "festival",
+   "ville": "Nice",
+   "adresse": "89 Route de Turin, 06300 Nice",
+   "instagram": "",
+   "site": "https://shotgun.live/fr/venues/la-mescla-festival",
+   "description": "Festival et organisateur d'événements mettant à l'honneur les musiques tropicales et urbaines comme le shatta, le dancehall et l'afrobeats. Les soirées rassemblent des DJ sets, des danseurs et des shows scéniques dans divers lieux de la région.",
+   "date": false,
+   "date_raison": "",
+   "prix": ""
+  }
+ },
+ "site/partenaires/022.png": {
+  "lu": true,
+  "nom": "Bull-Dog Pub Pompei",
+  "fiche": {
+   "categorie": "club",
+   "ville": "Nice",
+   "adresse": "16 Rue de l'Abbaye, 06300 Nice",
+   "instagram": "bulldogpompeipub",
+   "site": "https://www.bulldogpompei.com/",
+   "description": "Bar de nuit et discothèque emblématique du Vieux-Nice ouvert jusqu'au petit matin. L'ambiance y est festive et décontractée avec des DJ sets variés et des soirées étudiantes.",
+   "date": false,
+   "date_raison": "",
+   "prix": "€"
+  }
+ },
+ "site/partenaires/023.png": {
+  "lu": true,
+  "nom": "Le Barathym",
+  "fiche": {
+   "categorie": "bar",
+   "ville": "Toulon",
+   "adresse": "32 Boulevard Docteur Cuneo, 83000 Toulon",
+   "instagram": "lebarathym",
+   "site": "https://barathym.net",
+   "description": "Établissement festif du bord de mer proposant des bières pression, cocktails et tapas. Le lieu accueille régulièrement des concerts live, des DJ sets éclectiques et des soirées dansantes.",
+   "date": false,
+   "date_raison": "",
+   "prix": "€€"
+  }
+ },
+ "site/partenaires/024.png": {
+  "lu": true,
+  "nom": ""
+ },
+ "site/partenaires/025.png": {
+  "lu": true,
+  "nom": "Je Dis Techno",
+  "fiche": {
+   "categorie": "organisateur",
+   "ville": "Nice",
+   "adresse": "8 Rue Sacha Guitry, 06000 Nice",
+   "instagram": "jedistechno",
+   "site": "https://shotgun.live/fr/venues/je-dis-techno",
+   "description": "Collectif organisant des soirées de musique électronique hebdomadaires le jeudi soir à Nice. Il rassemble les adeptes de sons underground autour de sets hard techno, acid et trance.",
+   "date": false,
+   "date_raison": "",
+   "prix": "€"
+  }
+ },
+ "site/partenaires/026.png": {
+  "lu": true,
+  "nom": "La Bringue",
+  "fiche": {
+   "categorie": "organisateur",
+   "ville": "Cannes",
+   "adresse": "",
+   "instagram": "bringue_party",
+   "site": "https://linktr.ee/labringueofficial",
+   "description": "Organisateur d'événements festifs itinérants connu pour ses formats de soirées féminines Girls Only et ses concepts festifs rétro. L'ambiance y est conviviale, dansante et rythmée par des hits variés.",
+   "date": false,
+   "date_raison": "",
+   "prix": "€€"
+  }
+ },
+ "site/partenaires/027.png": {
+  "lu": true,
+  "nom": "Mix Party Cannes",
+  "fiche": {
+   "categorie": "organisateur",
+   "ville": "Cannes",
+   "adresse": "Boulevard Jean Hibert, 06400 Cannes",
+   "instagram": "mixparty_cannes",
+   "site": "https://mixparty.fr",
+   "description": "Organisateur de beach parties et de soirées clubbing festives sur les plages privées de la baie de Cannes. On y retrouve des DJ sets house et open format accompagnés de tapas et cocktails au coucher du soleil.",
+   "date": false,
+   "date_raison": "",
+   "prix": "€€€"
+  }
+ },
+ "site/partenaires/028.png": {
+  "lu": true,
+  "nom": "Le Bar Éphémère",
+  "fiche": {
+   "categorie": "bar",
+   "ville": "Antibes",
+   "adresse": "Bastion Saint-Jaume, Port Vauban, 06600 Antibes",
+   "instagram": "bar_eph",
+   "site": "https://shotgun.live/venues/le-bar-ephemere",
+   "description": "Bar lounge éphémère installé en saison face à la mer au Bastion Saint-Jaume et proposant des soirées pop-up le reste de l'année. On y déguste cocktails et planches à partager dans un cadre musical chill ou festif.",
+   "date": true,
+   "date_raison": "Le spot offre un cadre privilégié pour un verre en tête-à-tête au coucher du soleil face à la mer.",
+   "prix": "€€"
+  }
+ },
+ "site/partenaires/029.png": {
+  "lu": true,
+  "nom": "La Cale Sèche"
+ },
+ "site/partenaires/030.png": {
+  "lu": true,
+  "nom": "Louis Albert"
+ },
+ "site/partenaires/031.png": {
+  "lu": true,
+  "nom": "Fraté"
+ },
+ "site/partenaires/032.png": {
+  "lu": true,
+  "nom": "MY SAFE CUP"
+ },
+ "site/partenaires/033.png": {
+  "lu": true,
+  "nom": "EVENJOY"
+ },
+ "site/partenaires/034.png": {
+  "lu": true,
+  "nom": "Soon Event"
+ },
+ "site/partenaires/035.png": {
+  "lu": true,
+  "nom": ""
+ },
+ "site/partenaires/036.png": {
+  "lu": true,
+  "nom": "MAAT CLUB"
+ },
+ "site/partenaires/037.png": {
+  "lu": true,
+  "nom": "Makao"
+ },
+ "site/partenaires/038.png": {
+  "lu": true,
+  "nom": "R&F Festival"
+ },
+ "site/partenaires/039.png": {
+  "lu": true,
+  "nom": "Magnolia Café"
+ },
+ "site/partenaires/040.png": {
+  "lu": true,
+  "nom": "Place de l'Équerre"
+ },
+ "site/partenaires/041.png": {
+  "lu": true,
+  "nom": "Balancia Bar"
+ },
+ "site/partenaires/042.png": {
+  "lu": true,
+  "nom": "Les French Nights"
+ },
+ "site/partenaires/043.png": {
+  "lu": true,
+  "nom": "Vilprod Agency"
+ },
+ "site/partenaires/044.png": {
+  "lu": true,
+  "nom": "Hype Type"
+ },
+ "site/partenaires/045.png": {
+  "lu": true,
+  "nom": "Lou Castelet"
+ },
+ "site/partenaires/046.png": {
+  "lu": true,
+  "nom": "Naï B'Event"
+ },
+ "site/partenaires/047.png": {
+  "lu": true,
+  "nom": "O'Sullivans Mandelieu"
+ },
+ "site/partenaires/048.png": {
+  "lu": true,
+  "nom": ""
+ },
+ "site/partenaires/049.png": {
+  "lu": true,
+  "nom": "Le Swing"
+ },
+ "site/partenaires/050.png": {
+  "lu": true,
+  "nom": "Panda Events"
+ },
+ "site/partenaires/051.png": {
+  "lu": true,
+  "nom": "FRIGO 16"
+ },
+ "site/partenaires/052.png": {
+  "lu": true,
+  "nom": "Festival Couleurs Urbaines"
+ },
+ "site/partenaires/053.png": {
+  "lu": true,
+  "nom": "AZUR & BOAT LOCATION"
+ },
+ "site/partenaires/054.png": {
+  "lu": true,
+  "nom": "SPE - Summer Party Events"
+ },
+ "site/partenaires/055.png": {
+  "lu": true,
+  "nom": "Day to Night Marseille"
+ },
+ "site/partenaires/056.png": {
+  "lu": true,
+  "nom": "Le Beer Truck Le Baràthym"
+ },
+ "site/partenaires/057.png": {
+  "lu": true,
+  "nom": "La Star C'est Toi"
+ },
+ "site/partenaires/058.png": {
+  "lu": true,
+  "nom": "DP Events Production"
+ },
+ "site/partenaires/059.png": {
+  "lu": true,
+  "nom": "Barrio Chicago"
+ },
+ "site/partenaires/060.png": {
+  "lu": true,
+  "nom": "Le Pointu de la Cale Sèche"
+ },
+ "site/partenaires/061.png": {
+  "lu": true,
+  "nom": "Art & Drink"
+ },
+ "site/partenaires/062.png": {
+  "lu": true,
+  "nom": "Fiesta Beach Club"
+ },
+ "site/partenaires/063.png": {
+  "lu": true,
+  "nom": ""
+ },
+ "site/partenaires/064.png": {
+  "lu": true,
+  "nom": "89"
+ },
+ "site/partenaires/065.png": {
+  "lu": true,
+  "nom": ""
+ },
+ "site/partenaires/066.png": {
+  "lu": true,
+  "nom": ""
+ },
+ "site/partenaires/067.png": {
+  "lu": true,
+  "nom": "Soweto Lesprit"
+ },
+ "site/partenaires/068.png": {
+  "lu": true,
+  "nom": ""
+ }
+}
