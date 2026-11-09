@@ -1150,7 +1150,7 @@ function pageSoiree({ lang, t, tr, base, compte, T, chemin, s, soirees, maj }) {
       <p class="fiche-actions">${boutonBillets(s, t)}
         <a class="bouton contour sombre" href="${base}site/ics/${s.id}.ics" download>${esc(t.calendrier)}</a>
         <a class="bouton contour sombre" href="https://www.google.com/maps/search/?api=1&amp;query=${encodeURIComponent(lieu)}" target="_blank" rel="noopener">${esc(t.itineraire)}</a>
-        <button type="button" class="bouton contour sombre partager">${esc(t.partager)}</button>
+        <button type="button" class="partager icone-rond" aria-label="${esc(t.partager)}" title="${esc(t.partager)}"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 3v12M7.5 7.5 12 3l4.5 4.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 11H6.5A1.5 1.5 0 0 0 5 12.5v7A1.5 1.5 0 0 0 6.5 21h11a1.5 1.5 0 0 0 1.5-1.5v-7a1.5 1.5 0 0 0-1.5-1.5H16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         <button type="button" class="coeur grand" aria-label="${esc(t.ajouterFav)}" aria-pressed="false"></button>
       </p>
       ${promoDe(s) ? blocPromo(promoDe(s), t, tr, s) : ''}
@@ -1451,7 +1451,21 @@ function pageLegal({ lang, t, tr, base, compte, T, chemin, maj, cle = 'mentions-
   return gabarit({ lang, t, titre: tr(C.titre), description: tr(C.desc || C.blocs[0][1][0]), chemin, base, corps, compte, maj });
 }
 
-function aPropos({ lang, t, base, compte, T, chemin, nb, maj, partenaires }) {
+// Teufy en chiffres + modèle économique (données fournies par la direction dans config.json → site.entreprise).
+function blocEntreprise(E, tr, T) {
+  if (!E) return '';
+  const c = [[E.chiffre_affaires, E.chiffre_affaires_legende], [E.telechargements, E.telechargements_legende]].filter((x) => x[0]);
+  const m = (E.modele || []).filter((x) => x?.[0]);
+  if (!c.length && !m.length) return '';
+  return `<section class="qui entreprise reveal">
+  <p class="etiquette">${esc(tr('Teufy en chiffres'))}</p>
+  <h2>${esc(tr('Une entreprise monégasque qui vit de la nuit'))}</h2>
+  ${c.length ? `<ul class="chiffres chiffres-entreprise">${c.map(([v, l]) => `<li><strong>${esc(v)}</strong><span>${esc(tr(l))}</span></li>`).join('')}</ul>` : ''}
+  ${m.length ? `<h3>${esc(tr('Comment Teufy se finance'))}</h3><ul class="modele">${m.map(([titre, texte]) => `<li><b>${esc(tr(titre))}</b><span>${esc(tr(texte))}</span></li>`).join('')}</ul>` : ''}
+  ${T.raison_sociale ? `<p class="petit">${esc(T.raison_sociale)}, ${esc(tr(T.forme || ''))}.</p>` : ''}
+</section>`;
+}
+function aPropos({ lang, t, tr, base, compte, T, chemin, nb, maj, partenaires }) {
   const handle = compte.replace(/^@/, '');
   const initiales = T.directeur.split(/\s+/).map((x) => x[0]).join('').slice(0, 2).toUpperCase();
   const bio = lang === 'fr' && T.directeur_bio ? T.directeur_bio : t.bio;
@@ -1463,6 +1477,7 @@ function aPropos({ lang, t, base, compte, T, chemin, nb, maj, partenaires }) {
   <p>${esc(t.missionP2)}</p>
   ${chiffres(t, T, nb)}
 </section>
+${blocEntreprise(T.entreprise, tr, T)}
 <section class="qui directeur reveal">
   <div class="portrait">${T.photo_directeur ? `${image(base, T.photo_directeur, { alt: T.directeur, sizes: '(min-width:700px) 380px, 340px', attrs: 'loading="lazy" width="900" height="1125"' })}` : `<span>${esc(initiales)}</span>`}</div>
   <div>

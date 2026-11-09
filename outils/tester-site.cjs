@@ -175,7 +175,7 @@ async function controlerPage(p, nom, u) {
     ok(/\/en\/a-propos\/$/.test(p.url()), `${nom} : le changement de langue ne garde pas la page (${p.url()})`);
     await p.locator('a.loupe').click(); await p.waitForLoadState('load'); await p.waitForTimeout(500);
     ok(await p.evaluate(() => document.activeElement?.id === 'recherche'), `${nom} : la loupe ne place pas le curseur dans la recherche`);
-    await p.evaluate(() => scrollTo(0, 4000)); await p.waitForTimeout(400);
+    await p.evaluate(() => scrollTo(0, 4000)); await p.waitForTimeout(400); await p.evaluate(() => scrollBy(0, -150)); await p.waitForTimeout(500);
     if (await p.locator('.haut').isVisible()) { await p.locator('.haut').click(); await p.waitForTimeout(2500); ok(await p.evaluate(() => scrollY) < 50, `${nom} : « Haut de page » ne remonte pas`); } else echecs.push(`${nom} : bouton « Haut de page » absent`);
 
     } catch (e) { echecs.push(`${nom} : étape interrompue (${e.message.split('\n')[0]} @l.${(String(e.stack).match(/tester-site\.cjs:(\d+)/) || [])[1] || '?'})`); }

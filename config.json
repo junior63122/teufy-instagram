@@ -373,6 +373,18 @@
     "google_verification": "",
     "email": "teufy.app@gmail.com",
     "domaine": "teufyparty.com",
+    "entreprise": {
+      "explication": "Chiffres affichés sur la page « Qui sommes-nous » (fournis par la direction). Laisser vide pour masquer.",
+      "chiffre_affaires": "≈ 200 000 €",
+      "chiffre_affaires_legende": "de chiffre d'affaires par an, à Monaco",
+      "telechargements": "15 000",
+      "telechargements_legende": "téléchargements de l'app en 2026",
+      "modele": [
+        ["Billetterie", "Une commission sur chaque billet vendu grâce à la plateforme."],
+        ["Sponsoring", "Des partenariats avec des marques qui veulent toucher la nuit de la Côte d'Azur."],
+        ["Événements", "Teufy organise aussi ses propres soirées et événements."]
+      ]
+    },
     "directeur_reseaux": {
       "instagram": "https://www.instagram.com/junior_joyant/",
       "linkedin": "https://mc.linkedin.com/in/junior-joyant-99876622b"

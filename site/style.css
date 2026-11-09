@@ -817,3 +817,15 @@ details[data-bloc="tri"]>.groupe{inset-inline-start:auto;inset-inline-end:0}
 .code-valable{color:#3dff8a;font-weight:700;font-size:14px}
 .code-etapes{margin:2px 0 6px;padding-inline-start:20px;display:grid;gap:3px;font-size:14.5px;opacity:.9}
 .code-etapes li::marker{color:var(--corail);font-weight:800}
+/* Partager : icône ronde comme le cœur ; Teufy en chiffres */
+.icone-rond{width:48px;height:48px;border-radius:50%;border:1.5px solid #ffffff33;background:var(--nuit2);color:var(--creme);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;touch-action:manipulation;transition:transform .2s var(--doux),border-color .2s;flex:none}
+.icone-rond:hover{border-color:var(--creme)}.icone-rond:active{transform:scale(.92)}
+.icone-rond:focus-visible{outline:2px solid var(--corail);outline-offset:3px}
+.chiffres-entreprise{grid-template-columns:repeat(2,1fr)}
+.chiffres-entreprise strong{font-size:clamp(30px,6vw,50px)}
+.modele{list-style:none;padding:0;margin:8px 0 14px;display:grid;gap:10px}
+@media(min-width:760px){.modele{grid-template-columns:repeat(3,1fr)}}
+.modele li{background:var(--nuit2);border:1px solid #ffffff1a;border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:6px}
+.modele b{font-family:var(--titre);font-weight:800;font-stretch:85%;font-size:20px;color:var(--corail)}
+.modele span{color:#d8d2c8;line-height:1.45}
+.entreprise h3{margin:18px 0 4px}
