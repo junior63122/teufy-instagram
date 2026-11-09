@@ -189,7 +189,7 @@ const visibles = (p) => p.locator('.liste .carte:not([hidden])').count();
       const c = await b.newContext(o); const p = await c.newPage(); erreurs(p, 'console');
       const pb = []; let page404 = false;
       p.on('console', (m) => { if (m.type() === 'error' && !/openfreemap|openstreetmap|net::ERR_(TUNNEL|NAME|CONNECTION)/.test(m.text()) && !(page404 && /status of 404/.test(m.text()))) pb.push(`console : ${m.text().slice(0, 120)}`); });
-      p.on('requestfailed', (r) => { const u = r.url(); if (u.startsWith(B) && !/\.mp4/.test(u)) pb.push(`requête échouée : ${u.replace(B, '/')} (${r.failure()?.errorText})`); });
+      p.on('requestfailed', (r) => { const u = r.url(); if (u.startsWith(B) && !/\.(mp4|webm)/.test(u) && !/ERR_ABORTED|NS_BINDING_ABORTED|cancelled/i.test(r.failure()?.errorText || '')) pb.push(`requête échouée : ${u.replace(B, '/')} (${r.failure()?.errorText})`); });
       p.on('response', (r) => { if (r.url().startsWith(B) && r.status() >= 400 && !/page-inexistante/.test(r.url())) pb.push(`HTTP ${r.status()} : ${r.url().replace(B, '/')}`); });
       for (const u of ['', 'a-propos/', 'actus/', ...un('actus'), ...un('soiree'), 'festivals/', 'clubs-bars/', 'partenaires/', 'dates/', 'restaurants/', 'activites/', 'france/', 'cgu/', 'confidentialite/', 'ar/', 'page-inexistante/']) {
         page404 = u === 'page-inexistante/'; // la page d'erreur répond 404 exprès

@@ -983,7 +983,7 @@ const ldFaq = (faq) => ({ '@context': 'https://schema.org', '@type': 'FAQPage', 
 
 // Fond du hero : la vidéo du port de Monaco (muette, en boucle) ou une photo.
 const fond = (base, photo, video, alt) => (video
-  ? `<video class="hero-photo" autoplay muted loop playsinline preload="none" poster="${base}site/img/equipe/${photo}-600.webp" aria-label="${esc(alt)}"><source src="${base}site/img/equipe/${photo}.mp4" type="video/mp4"></video>`
+  ? `<video class="hero-photo" autoplay muted loop playsinline preload="none" poster="${base}site/img/equipe/${photo}-600.webp" aria-label="${esc(alt)}"><source src="${base}site/img/equipe/${photo}.mp4" type='video/mp4; codecs="avc1.64001F"'>${existsSync(path.join(SITE, 'img', 'equipe', `${photo}.webm`)) ? `<source src="${base}site/img/equipe/${photo}.webm" type="video/webm">` : ''}</video>`
   : image(base, `site/img/${PHOTOS.includes(photo) ? '' : 'equipe/'}${photo}.jpg`, { alt, sizes: TAILLE_HERO, attrs: 'class="hero-photo" fetchpriority="high"' }));
 // Sur ordinateur, la photo du hero est une carte à droite (jamais étirée, donc jamais floue) ; sur mobile, elle est en fond.
 const TAILLE_HERO = '(min-width:980px) 560px, 100vw';

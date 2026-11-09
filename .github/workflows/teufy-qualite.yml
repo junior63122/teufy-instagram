@@ -38,7 +38,7 @@ jobs:
         run: node outils/audit-seo.mjs
 
   navigateurs:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04 # dépendances de WebKit (Safari) prises en charge par Playwright
     timeout-minutes: 50
     strategy:
       fail-fast: false

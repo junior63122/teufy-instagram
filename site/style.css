@@ -710,3 +710,5 @@ details[data-bloc="tri"]>.groupe{inset-inline-start:auto;inset-inline-end:0}
 .lieu-infos dd{margin:0;font-size:14px;font-weight:600;line-height:1.35}
 .lieu-maj{font-size:12px;opacity:.55}
 .lieu-maj a{color:inherit}
+.mini-carte.sans-carte{height:auto;display:flex;align-items:center;justify-content:center;padding:22px;background:var(--nuit2)}
+.mini-carte.sans-carte::after{display:none}

@@ -132,7 +132,11 @@ async function controlerPage(p, nom, u) {
       await p.locator('.liste .jour:not([hidden])').nth(2).scrollIntoViewIfNeeded(); await p.waitForTimeout(400);
       ok(await p.locator('.flottant').isVisible(), 'mobile : le bouton « Filtres » flottant n\'apparaît pas');
       const fermetures = { bouton: async () => p.locator('.feuille-filtres .voir-n').click(), croix: async () => p.locator('.feuille-x').click(), fond: async () => p.mouse.click(195, 30), echap: async () => p.keyboard.press('Escape'),
-        glisser: async () => { await p.locator('.feuille-poignee').dispatchEvent('touchstart', { touches: [{ identifier: 1, clientX: 195, clientY: 300 }] }); await p.locator('.feuille-poignee').dispatchEvent('touchmove', { touches: [{ identifier: 1, clientX: 195, clientY: 500 }] }); await p.locator('.feuille-poignee').dispatchEvent('touchend', { touches: [] }); } };
+        // Vrai geste tactile (objets Touch), accepté par tous les moteurs ; repli en événements simples si Touch n'existe pas.
+        glisser: async () => { await p.locator('.feuille-poignee').evaluate((el) => {
+          const ev = (type, y) => { let e; try { const t = new Touch({ identifier: 1, target: el, clientX: 195, clientY: y }); e = new TouchEvent(type, { bubbles: true, cancelable: true, touches: type === 'touchend' ? [] : [t], changedTouches: [t] }); } catch { e = new Event(type, { bubbles: true, cancelable: true }); e.touches = type === 'touchend' ? [] : [{ clientX: 195, clientY: y }]; e.changedTouches = [{ clientX: 195, clientY: y }]; } el.dispatchEvent(e); };
+          ev('touchstart', 300); ev('touchmove', 500); ev('touchend', 500);
+        }); } };
       for (const [mode, fermer] of Object.entries(fermetures)) {
         const y0 = await p.evaluate(() => scrollY);
         await p.locator('.ouvrir-filtres').click(); await p.waitForTimeout(400);

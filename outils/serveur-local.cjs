@@ -3,7 +3,7 @@
 // par morceaux (en-tête Range, indispensable à Safari). Une erreur de fichier ne fait jamais tomber le serveur.
 const http = require('http'), fs = require('fs'), path = require('path'), zlib = require('zlib');
 const R = path.resolve(__dirname, '..');
-const T = { '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.js': 'application/javascript', '.json': 'application/json', '.webp': 'image/webp', '.jpg': 'image/jpeg', '.png': 'image/png', '.woff2': 'font/woff2', '.mp4': 'video/mp4', '.webmanifest': 'application/manifest+json', '.ics': 'text/calendar', '.xml': 'application/xml', '.txt': 'text/plain' };
+const T = { '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.js': 'application/javascript', '.json': 'application/json', '.webp': 'image/webp', '.jpg': 'image/jpeg', '.png': 'image/png', '.woff2': 'font/woff2', '.mp4': 'video/mp4', '.webm': 'video/webm', '.webmanifest': 'application/manifest+json', '.ics': 'text/calendar', '.xml': 'application/xml', '.txt': 'text/plain' };
 const page404 = (r) => { r.writeHead(404, { 'content-type': 'text/html; charset=utf-8' }); try { r.end(fs.readFileSync(path.join(R, '404.html'))); } catch { r.end('404'); } };
 
 http.createServer((q, r) => {
@@ -22,7 +22,7 @@ http.createServer((q, r) => {
     const h = { 'content-type': T[ext] || 'application/octet-stream', 'cache-control': 'max-age=600', 'accept-ranges': 'bytes' };
     const taille = fs.statSync(f).size;
     const plage = /^bytes=(\d*)-(\d*)$/.exec(q.headers.range || '');
-    if (plage && ext === '.mp4') {
+    if (plage && (ext === '.mp4' || ext === '.webm')) {
       const debut = plage[1] ? +plage[1] : Math.max(0, taille - +plage[2]);
       const fin = plage[1] && plage[2] ? Math.min(+plage[2], taille - 1) : taille - 1;
       if (debut >= taille || debut > fin) { r.writeHead(416, { 'content-range': `bytes */${taille}` }); return r.end(); }

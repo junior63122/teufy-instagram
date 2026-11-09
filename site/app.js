@@ -384,10 +384,19 @@
   // --- Mini-carte du lieu (page d'une soirée) : chargée seulement quand elle arrive à l'écran ---------------------
   const mini = document.querySelector('.mini-carte');
   if (mini) {
+    // Sans WebGL (vieux appareil, mode économie, navigateur restreint) : pas de carte, mais l'adresse et l'itinéraire.
+    const webgl = () => { try { const c = document.createElement('canvas'); return !!(c.getContext('webgl2') || c.getContext('webgl')); } catch { return false; } };
+    const repli = () => {
+      mini.classList.add('sans-carte'); mini.removeAttribute('role');
+      const a = el('a', 'bouton contour', `📍 ${mini.dataset.nom}`); a.href = `https://www.google.com/maps/search/?api=1&query=${mini.dataset.lat},${mini.dataset.lng}`; a.target = '_blank'; a.rel = 'noopener';
+      mini.replaceChildren(a);
+    };
     const ouvrir = async () => {
-      let ml; try { ml = await chargerCarte(); } catch { mini.hidden = true; return; }
+      if (!webgl()) return repli();
+      let ml; try { ml = await chargerCarte(); } catch { return repli(); }
       const ll = [+mini.dataset.lng, +mini.dataset.lat];
-      const m = nouvelleCarte(ml, mini, { center: ll, zoom: 15 });
+      let m; try { m = nouvelleCarte(ml, mini, { center: ll, zoom: 15 }); } catch { return repli(); }
+      m.on('error', (e) => { if (/webgl/i.test(String(e?.error?.message || e?.error?.statusMessage || ''))) repli(); });
       nommer(new ml.Marker({ element: repere('<b>♪</b>', 'seul'), anchor: 'bottom' }).setLngLat(ll).addTo(m), mini.dataset.nom);
     };
     if ('IntersectionObserver' in window) { const o = new IntersectionObserver((e) => { if (e.some((x) => x.isIntersecting)) { o.disconnect(); ouvrir(); } }, { rootMargin: '300px' }); o.observe(mini); } else ouvrir();
