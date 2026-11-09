@@ -854,3 +854,43 @@ details[data-bloc="tri"]>.groupe{inset-inline-start:auto;inset-inline-end:0}
 .logos-plus[open] summary{margin-bottom:14px}
 .pro .pro-et{text-shadow:0 1px 8px #000c}
 .pro::after{background:linear-gradient(180deg,#0b0b0f00 0%,#0b0b0f66 30%,#0b0b0ff5 70%)}
+/* Organisateurs v2 : carte avec affiches en éventail + 3 étapes */
+.orga2{position:relative;isolation:isolate;overflow:hidden;margin:72px 16px 0;padding:28px 20px 26px;border-radius:28px;border:1px solid #ff5a3c55;background:radial-gradient(120% 70% at 100% 0%,#ff5a3c33,transparent 60%),radial-gradient(90% 60% at 0% 100%,#6b3cff26,transparent 60%),var(--nuit2);box-shadow:0 30px 70px #0008}
+.orga2-affiches{position:relative;height:200px;margin:4px 0 18px}
+.orga2-affiches img{position:absolute;top:50%;left:50%;width:120px;aspect-ratio:4/5;object-fit:cover;border-radius:14px;border:2px solid #ffffff2a;box-shadow:0 18px 36px #000b;transform:translate(calc(-50% + (var(--i) - 1) * 92px),calc(-50% + (var(--i) - 1) * 6px)) rotate(calc((var(--i) - 1) * 8deg));transition:transform .5s var(--doux)}
+.orga2-affiches img:nth-child(2){z-index:2;width:136px}
+.orga2:hover .orga2-affiches img{transform:translate(calc(-50% + (var(--i) - 1) * 110px),calc(-50% + (var(--i) - 1) * 10px)) rotate(calc((var(--i) - 1) * 11deg))}
+.orga2 h2{font-size:clamp(34px,8vw,64px);line-height:.95;margin:10px 0 18px}
+.orga2-etapes{list-style:none;padding:0;margin:0 0 22px;display:grid;gap:10px}
+.orga2-etapes li{display:flex;gap:14px;align-items:flex-start;background:#0b0b0f99;border:1px solid #ffffff14;border-radius:16px;padding:14px}
+.orga2-etapes b{flex:none;width:32px;height:32px;border-radius:50%;background:var(--corail);color:var(--nuit);display:grid;place-items:center;font-family:var(--titre);font-size:18px}
+.orga2-etapes span{display:flex;flex-direction:column;gap:3px;color:#e3ddd2;line-height:1.4;font-size:15px}
+.orga2-etapes strong{color:var(--creme);font-size:17px}
+.orga2-actions{display:flex;flex-wrap:wrap;gap:10px;margin:0}
+.orga2-actions .bouton{display:inline-flex;align-items:center;gap:8px}
+@media(min-width:980px){
+  .orga2{margin:110px max(24px,calc((100vw - 1240px) / 2 - 40px)) 0;padding:56px 64px;display:grid;grid-template-columns:minmax(0,1fr) 420px;gap:48px;align-items:center}
+  .orga2-texte{grid-column:1;grid-row:1}
+  .orga2-affiches{grid-column:2;grid-row:1;height:380px;margin:0}
+  .orga2-affiches img{width:180px}.orga2-affiches img:nth-child(2){width:200px}
+  .orga2-affiches img{transform:translate(calc(-50% + (var(--i) - 1) * 130px),calc(-50% + (var(--i) - 1) * 12px)) rotate(calc((var(--i) - 1) * 9deg))}
+  .orga2-etapes{grid-template-columns:repeat(3,1fr)}
+  .orga2-etapes li{flex-direction:column}
+}
+[dir=rtl] .orga2-affiches img{left:auto;right:50%}
+@media(prefers-reduced-motion:reduce){.orga2-affiches img{transition:none}}
+@media(max-width:979px){.orga2-affiches{height:220px;margin:8px 0 22px}.orga2-affiches img{width:104px;transform:translate(calc(-50% + (var(--i) - 1) * 84px),calc(-50% + (var(--i) - 1) * 6px)) rotate(calc((var(--i) - 1) * 8deg))}.orga2-affiches img:nth-child(2){width:120px}}
+.orga2-affiches img{height:auto}
+@media(max-width:979px){.orga2-affiches{height:190px;margin:0 0 14px}.orga2-affiches img{width:118px;transform:translate(calc(-50% + (var(--i) - 1) * 96px),calc(-50% + (var(--i) - 1) * 6px)) rotate(calc((var(--i) - 1) * 8deg))}.orga2-affiches img:nth-child(2){width:136px}}
+/* Qui sommes-nous : en-tête = mosaïque des posts Instagram de Teufy */
+.ap-hero{display:block;min-height:0;padding:0 0 8px;background:var(--nuit)}
+.ap-hero::after{display:none}
+.ap-mosaique{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:6px;mask-image:linear-gradient(180deg,#000 55%,transparent);-webkit-mask-image:linear-gradient(180deg,#000 55%,transparent)}
+.ap-mosaique img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:12px;animation:monteBas .6s var(--doux) both;animation-delay:calc(var(--i) * 60ms)}
+.ap-hero .hero-texte{position:relative;margin-top:-70px;padding:0 16px}
+@media(min-width:980px){
+  .ap-hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:56px;padding:56px max(40px,calc((100vw - 1240px) / 2)) 64px}
+  .ap-mosaique{grid-column:2;grid-row:1;mask-image:none;-webkit-mask-image:none;padding:0;gap:10px;transform:rotate(-3deg)}
+  .ap-hero .hero-texte{grid-column:1;grid-row:1;margin:0;padding:0}
+}
+@media(prefers-reduced-motion:reduce){.ap-mosaique img{animation:none}}

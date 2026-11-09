@@ -601,7 +601,7 @@ export async function construireSite({ events, eventsFrance = [], eventsOccitani
       const ctx = (chemin) => ({ lang, t, tr, chemin, base: '../'.repeat((lang === 'fr' ? 0 : 1) + chemin.split('/').filter(Boolean).length), compte, T, maj: majTexte(t), actus, partenaires, lieux, festivalsGuide });
       const ajoute = (chemin, f) => pages.push([`${P}${chemin}`, f(ctx(chemin))]);
       ajoute('', (c) => page({ ...c, soirees: sl, posts, now }));
-      ajoute('a-propos/', (c) => aPropos({ ...c, nb: sl.length + so.length }));
+      ajoute('a-propos/', (c) => aPropos({ ...c, nb: sl.length + so.length, posts }));
       for (const v of VILLES_SEO) ajoute(`${v.slug}/`, (c) => pageVille({ ...c, v, soirees: sl.filter((x) => v.re.test(`${x.ville} ${x.lieu}`)), now }));
       for (const k of PAGES_STYLES) ajoute(`soirees-${k}/`, (c) => pageStyle({ ...c, cleStyle: k, soirees: sl.filter((x) => x.styles.includes(k)) }));
       ajoute('festivals/', (c) => pageFestivals({ ...c, soirees: sl.filter((x) => x.festival) }));
@@ -1022,14 +1022,14 @@ function blocTeufy({ t, T, base, lang }, nb) {
 // Bloc « Tu fais vivre la nuit ? » : partenaires, ambassadeurs, BDE.
 // « Travaille avec Teufy » : trois portes d'entrée en photo, avec ce que chacun y gagne et un vrai bouton.
 const PROS = [
-  ['partenaires/', 'dj', 'Clubs · Organisateurs · Artistes', 'Remplis tes soirées', "Ta soirée mise en avant sur le site et sur Instagram, devant ceux qui cherchent où sortir ce soir.", 'Devenir partenaire'],
-  ['ambassadeurs/', 'selfie', 'Ambassadeurs', 'Rejoins la team', "Tu connais toutes les soirées avant tout le monde ? Représente Teufy dans ta ville ou ton école.", 'Postuler'],
-  ['bde/', 'danse', 'BDE · Associations', 'Des soirées étudiantes en grand', "On t'aide à remplir et à organiser vos soirées, avec notre réseau de clubs partenaires.", 'Organiser avec Teufy'],
+  ['partenaires/', 0, 'Clubs · Organisateurs · Artistes', 'Remplis tes soirées', "Ta soirée mise en avant sur le site et sur Instagram, devant ceux qui cherchent où sortir ce soir.", 'Devenir partenaire'],
+  ['ambassadeurs/', 1, 'Ambassadeurs', 'Rejoins la team', "Tu connais toutes les soirées avant tout le monde ? Représente Teufy dans ta ville ou ton école.", 'Postuler'],
+  ['bde/', 2, 'BDE · Associations', 'Des soirées étudiantes en grand', "On t'aide à remplir et à organiser vos soirées, avec notre réseau de clubs partenaires.", 'Organiser avec Teufy'],
 ];
 const blocPros = ({ tr, base, lang }) => `<section class="pros reveal">
   <p class="etiquette">${esc(tr('Pros'))}</p>
   <h2>${tr('Travaille avec <em>Teufy</em>')}</h2>
-  <div class="pros-cartes">${PROS.map(([c, photo, et, titre, texte, bouton], i) => `<a class="pro" href="${base}${pre(lang)}${c}" style="--i:${i}">${image(base, `site/img/${photo}.jpg`, { alt: '', sizes: '(min-width:760px) 380px, 92vw', attrs: 'loading="lazy" decoding="async" width="800" height="1000"' })}<span><i class="pro-et">${esc(tr(et))}</i><strong>${esc(tr(titre))}</strong><em class="pro-texte">${esc(tr(texte))}</em><b class="pro-bouton">${esc(tr(bouton))} →</b></span></a>`).join('')}</div>
+  <div class="pros-cartes">${PROS.map(([c, k, et, titre, texte, bouton], i) => { const a = AFFICHES_COLLAGE.length >= 6 ? AFFICHES_COLLAGE[k] : ''; return `<a class="pro${a ? '' : ' sans-photo'}" href="${base}${pre(lang)}${c}" style="--i:${i}">${a ? `<img src="${base}${a.replace(/\.jpg$/, '-800.webp')}" alt="" width="800" height="1000" loading="lazy" decoding="async">` : ''}<span><i class="pro-et">${esc(tr(et))}</i><strong>${esc(tr(titre))}</strong><em class="pro-texte">${esc(tr(texte))}</em><b class="pro-bouton">${esc(tr(bouton))} →</b></span></a>`; }).join('')}</div>
 </section>`;
 
 const blocFaq = (titre, faq) => `<section class="qui faq reveal"><h2>${titre}</h2>${faq.map(([q, r]) => `<details><summary>${esc(q)}</summary><p>${esc(r)}</p></details>`).join('')}</section>`;
@@ -1094,29 +1094,31 @@ ${vedette ? `<section class="la-plus reveal"><h2 class="etiquette">${esc(t.laPlu
 ${agenda(soirees, { t, base, lang })}
 ${CODES.length ? `<section class="bloc-large reveal"><h2>${t.bonsPlansH2}</h2><div class="cartes-texte">${CODES.map((c) => `<article class="carte-texte">${blocPromo(c, t, (x) => trad(lang, x))}</article>`).join('')}</div></section>` : ''}
 ${blocTendance({ t, tr: (x) => trad(lang, x), base, lang, lieux })}
-${blocPros(ctx)}
 ${blocTeufy(ctx, soirees.length)}
 ${blocPartenaires(ctx)}
 ${blocFaq(t.faqH, faq)}
 ${grilleInsta(posts, { t, base, compte })}
-${blocOrga({ t, base, handle, lang })}`;
+${blocOrga({ t, tr, base, handle, lang })}`;
   return gabarit({ lang, t, titre: t.homeTitre, description: t.homeDesc(soirees.length), chemin: '', base, corps, ld: [...ldOrganisation(T, compte, t, lang), ldFaq(faq), ...jsonld(soirees, lang)], compte, maj, agendaIci: true });
 }
 
-function blocOrga({ t, base, handle, lang }) {
-  return `<section class="orga reveal">
-  <div class="hero-deco" aria-hidden="true"><span></span><span></span><span></span></div>
-  ${AFFICHES_COLLAGE.length >= 6 ? `<div class="orga-visuel" aria-hidden="true">${AFFICHES_COLLAGE.slice(-3).map((a, i) => `<img src="${base}${a.replace(/\.jpg$/, '-480.webp')}" alt="" width="240" height="300" loading="lazy" style="--i:${i}">`).join('')}${(t.orgaPuces || []).map((x, i) => `<span class="orga-puce" style="--i:${i}">${esc(x)}</span>`).join('')}</div>` : ''}
-  <div class="hero-texte">
+// Organisateurs : une carte claire (affiches réelles en éventail, 3 étapes, 2 boutons) au lieu d'un grand aplat de texte.
+const ICO_IG = '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.3" fill="currentColor"/></svg>';
+function blocOrga({ t, tr = (x) => x, base, handle, lang }) {
+  const aff = AFFICHES_COLLAGE.slice(-3);
+  const ETAPES = [['Envoie ta soirée', "L'affiche, la date et le lien de billetterie, en message sur Instagram."], ['On vérifie', 'Date, lieu et prix contrôlés sur ta billetterie.'], ["C'est en ligne", "Ta soirée apparaît dans l'agenda, et les plus attendues sont mises en avant."]];
+  return `<section class="orga2 reveal">
+  ${aff.length === 3 ? `<div class="orga2-affiches" aria-hidden="true">${aff.map((a, i) => `<img src="${base}${a.replace(/\.jpg$/, '-480.webp')}" alt="" width="240" height="300" loading="lazy" style="--i:${i}">`).join('')}</div>` : ''}
+  <div class="orga2-texte">
     <p class="etiquette">${esc(t.orgaEtiquette)}</p>
-    <h2>${t.orgaH2}</h2>
-    <p>${esc(t.orgaP)}</p>
-    <div class="hero-actions"><a class="bouton" href="https://ig.me/m/${esc(handle)}" target="_blank" rel="noopener">${esc(t.orgaBouton)}</a><a class="bouton contour" href="${base}${pre(lang)}partenaires/">${esc(t.partenaires)}</a></div>
+    <h2>${tr('Ta soirée, <em>vue par ceux qui sortent</em>')}</h2>
+    <ol class="orga2-etapes">${ETAPES.map(([a, b], i) => `<li style="--i:${i}"><b>${i + 1}</b><span><strong>${esc(tr(a))}</strong>${esc(tr(b))}</span></li>`).join('')}</ol>
+    <p class="orga2-actions"><a class="bouton" href="https://ig.me/m/${esc(handle)}" target="_blank" rel="noopener">${ICO_IG}<span>${esc(tr('Envoyer ma soirée'))}</span></a><a class="bouton contour" href="${base}${pre(lang)}partenaires/">${esc(tr('Devenir partenaire'))}</a></p>
   </div>
 </section>`;
 }
 
-function pageVille({ lang, t, base, compte, T, chemin, v, soirees, now, maj }) {
+function pageVille({ lang, t, tr, base, compte, T, chemin, v, soirees, now, maj }) {
   const ville = t.villes[v.cle];
   const n = soirees.filter((s) => s.jour === cle(now.toISOString())).length;
   const faq = t.faq(ville, n);
@@ -1124,7 +1126,7 @@ function pageVille({ lang, t, base, compte, T, chemin, v, soirees, now, maj }) {
 ${ceSoir(t)}
 ${agenda(soirees, { t, base, lang, filtresVille: false })}
 ${blocFaq(esc(t.faqH2(ville)), faq)}
-${blocOrga({ t, base, handle: compte.replace(/^@/, ''), lang })}`;
+${blocOrga({ t, tr, base, handle: compte.replace(/^@/, ''), lang })}`;
   return gabarit({ lang, t, titre: t.villeTitre(ville), description: t.villeDesc(ville, soirees.length), chemin, base, corps, compte, maj, agendaIci: true,
     ld: [...ldOrganisation(T, compte, t, lang), ...jsonld(soirees, lang), ldFaq(faq), fil(lang, [['Teufy', ''], [ville, chemin]])] });
 }
@@ -1136,7 +1138,7 @@ function pageStyle({ lang, t, tr, base, compte, T, chemin, cleStyle, soirees, ma
 ${ceSoir(t)}
 ${agenda(soirees, { t, base, lang, filtreStyle: false })}
 <section class="qui reveal"><p class="liens-styles">${PAGES_STYLES.filter((k) => k !== cleStyle).map((k) => `<a class="puce" href="${base}${pre(lang)}soirees-${k}/">${esc(nomStyle(k, t, lang))}</a>`).join('')}</p></section>
-${blocOrga({ t, base, handle: compte.replace(/^@/, ''), lang })}`;
+${blocOrga({ t, tr, base, handle: compte.replace(/^@/, ''), lang })}`;
   return gabarit({ lang, t, titre: t.styleTitre(nom), description: t.styleDesc(nom, soirees.length), chemin, base, corps, compte, maj, agendaIci: true,
     ld: [...ldOrganisation(T, compte, t, lang), ...jsonld(soirees, lang), fil(lang, [['Teufy', ''], [nom, chemin]])] });
 }
@@ -1253,7 +1255,7 @@ ${(festivalsGuide || []).length ? (() => {
   return `${ete.length ? `<section class="bloc-large reveal"><h2>${t.festGuideH2}</h2><div class="cartes-texte">${ete.map(carteF).join('')}</div></section>` : ''}${annee.length ? `<section class="bloc-large reveal"><h2>${tr("Toute l'<em>année</em>")}</h2><div class="cartes-texte">${annee.map(carteF).join('')}</div></section>` : ''}`;
 })() : `<section class="bloc-large reveal"><h2>${t.festGuideH2}</h2><div class="cartes-texte">${FESTIVALS.map((f, i) => `<article class="carte-texte" style="--i:${i}"><p class="genre">${esc(tr(f.quand))} · ${esc(f.ville === 'Partout' ? tr(f.ville) : f.ville)}</p><h3>${esc(f.nom)}</h3><p class="petit">${esc(tr(f.style))}</p><p>${esc(tr(f.texte))}</p><a class="lien" href="${recherche(f.nom)}" target="_blank" rel="noopener">${esc(t.siteOfficiel)}</a></article>`).join('')}</div></section>`}
 <section class="bloc-large reveal"><h2>${t.festRdvH2}</h2><div class="cartes-texte">${RENDEZ_VOUS.map((f, i) => `<article class="carte-texte" style="--i:${i}"><p class="genre">${esc(tr(f.quand))}${f.ville ? ` · ${esc(f.ville)}` : ''}</p><h3>${esc(f.nom)}</h3><p>${esc(tr(f.texte))}</p></article>`).join('')}</div><p class="avert">${esc(t.festAvert)}</p></section>
-${blocOrga({ t, base, handle: compte.replace(/^@/, ''), lang })}`;
+${blocOrga({ t, tr, base, handle: compte.replace(/^@/, ''), lang })}`;
   return gabarit({ lang, t, titre: t.festTitre, description: t.festDesc, chemin, base, corps, compte, maj, ld: [...ldOrganisation(T, compte, t, lang), ...jsonld(soirees, lang), fil(lang, [['Teufy', ''], [t.festivals, chemin]])] });
 }
 
@@ -1503,7 +1505,7 @@ function blocModele({ tr, T }) {
   ${T.raison_sociale ? `<p class="petit">${esc(T.raison_sociale)}, ${esc(tr(T.forme || ''))}.</p>` : ''}
 </section>`;
 }
-function aPropos({ lang, t, tr, base, compte, T, chemin, nb, maj, partenaires }) {
+function aPropos({ lang, t, tr, base, compte, T, chemin, nb, maj, partenaires, posts }) {
   const initiales = T.directeur.split(/\s+/).map((x) => x[0]).join('').slice(0, 2).toUpperCase();
   const bio = lang === 'fr' && T.directeur_bio ? T.directeur_bio : t.bio;
   const ctx = { lang, t, tr, base, T, partenaires };
@@ -1512,7 +1514,13 @@ function aPropos({ lang, t, tr, base, compte, T, chemin, nb, maj, partenaires })
     ['On vérifie', "Date, heure, lieu, prix : chaque soirée est contrôlée sur sa page officielle avant d'apparaître sur Teufy."],
     ['On y va', "Notre équipe se déplace aux événements et dans les spots qu'on te conseille. C'est sur le terrain qu'on fait les meilleures sélections."],
   ];
-  const corps = `${heroCourt({ base, photo: 'foule', alt: tr('Une soirée sur la Côte d\'Azur'), etiquette: t.apEtiquette, h1: tr('On sort. On trie. <em>Tu profites.</em>'), p: esc(tr("Teufy, c'est une équipe qui écume les soirées de la Côte d'Azur et d'Occitanie pour ne te garder que les meilleures.")) })}
+  const h1 = tr('On sort. On trie. <em>Tu profites.</em>'), chapo = esc(tr("Teufy, c'est une équipe qui écume les soirées de la Côte d'Azur et d'Occitanie pour ne te garder que les meilleures."));
+  const mosaique = (posts || []).filter((p) => p.image && existsSync(path.join(ROOT, p.image.replace(/\.jpg$/, '-480.webp')))).slice(0, 6);
+  const hero = mosaique.length >= 6 ? `<section class="hero court ap-hero">
+  <div class="ap-mosaique" aria-hidden="true">${mosaique.map((p, i) => `<img src="${base}${p.image.replace(/\.jpg$/, '-480.webp')}" alt="" width="480" height="600" ${i < 3 ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async" style="--i:${i}">`).join('')}</div>
+  <div class="hero-texte"><p class="etiquette">${esc(t.apEtiquette)}</p><h1>${h1}</h1><p>${chapo}</p></div>
+</section>` : heroCourt({ base, photo: null, alt: t.heroAlt, etiquette: t.apEtiquette, k: 7, h1, p: chapo });
+  const corps = `${hero}
 <section class="qui reveal">
   <p class="etiquette">${esc(tr('Notre méthode'))}</p>
   <h2>${tr('Comment on choisit <em>tes soirées</em>')}</h2>
@@ -1531,7 +1539,7 @@ ${T.directeur_reseaux ? `<p class="reseaux">${T.directeur_reseaux.instagram ? `<
 ${blocPartenaires(ctx)}
 ${blocModele({ tr, T })}
 ${blocPros(ctx)}`;
-  return gabarit({ lang, t, titre: t.apTitre, description: t.apDesc(T.directeur, T.nbPartenaires), chemin, base, corps, compte, maj, ld: [...ldOrganisation(T, compte, t, lang), fil(lang, [['Teufy', ''], [t.qui, chemin]])], image: 'site/img/foule.jpg' });
+  return gabarit({ lang, t, titre: t.apTitre, description: t.apDesc(T.directeur, T.nbPartenaires), chemin, base, corps, compte, maj, ld: [...ldOrganisation(T, compte, t, lang), fil(lang, [['Teufy', ''], [t.qui, chemin]])], image: 'site/img/logo.png' });
 }
 
 // Page 404 (GitHub Pages la sert pour toute adresse inconnue : chemins absolus).
