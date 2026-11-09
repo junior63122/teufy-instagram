@@ -18,7 +18,8 @@ for (const p of pages) {
     r = r.replace(/&amp;/g, '&').split('#')[0].split('?')[0];
     if (!r) continue;
     n++;
-    let f = r.startsWith('/teufy-instagram/') ? path.join(ROOT, r.slice('/teufy-instagram/'.length)) : path.resolve(path.dirname(p), r);
+    // Liens absolus : depuis la racine du domaine propre (fichier CNAME) ou depuis /teufy-instagram/ sur GitHub Pages.
+    let f = r.startsWith('/teufy-instagram/') ? path.join(ROOT, r.slice('/teufy-instagram/'.length)) : r.startsWith('/') ? path.join(ROOT, r.slice(1)) : path.resolve(path.dirname(p), r);
     if (existsSync(f) && statSync(f).isDirectory()) f = path.join(f, 'index.html');
     if (!existsSync(f)) casses.set(r + '  ←  ' + path.relative(ROOT, p), true);
   }
