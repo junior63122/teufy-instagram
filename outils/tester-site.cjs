@@ -20,12 +20,14 @@ const PAGES = ['', 'en/', 'ar/', 'zh/', 'soirees-nice/', 'soirees-cannes/', 'soi
   'festivals/', 'clubs-bars/', 'france/', 'actus/', 'partenaires/', 'ambassadeurs/', 'bde/', 'dates/', 'restaurants/', 'activites/', 'a-propos/', 'mentions-legales/', 'cgu/', 'cgv/', 'confidentialite/', 'existe-pas/'];
 const APPAREILS = { mobile: devices['iPhone 13'], tablette: devices['iPad Mini'], ordi: { viewport: { width: 1440, height: 900 } }, grand: { viewport: { width: 1920, height: 1080 } } };
 
+// Défilement : molette sur ordinateur, défilement de page sur mobile (WebKit mobile n'a pas de molette).
+const defiler = (p, dy) => p.mouse.wheel(0, dy).catch(() => p.evaluate((d) => window.scrollBy(0, d), dy));
 async function controlerPage(p, nom, u) {
   const r = await p.goto(B + u, { waitUntil: 'load' });
   await p.waitForTimeout(250);
   if (u !== 'existe-pas/') ok(r.status() === 200, `${nom} ${u} : statut ${r.status()}`);
   else ok(r.status() === 404 && (await p.locator('.page-404').count()) === 1, `${nom} : la page 404 ne s'affiche pas`);
-  for (let y = 0; y < 6; y++) { await p.mouse.wheel(0, 900); await p.waitForTimeout(80); }
+  for (let y = 0; y < 6; y++) { await defiler(p, 900); await p.waitForTimeout(80); }
   await p.evaluate(() => scrollTo(0, 0));
   const debord = await p.evaluate(() => document.documentElement.scrollWidth - innerWidth);
   ok(debord <= 1, `${nom} ${u} : la page déborde à droite de ${debord}px`);
@@ -141,7 +143,7 @@ async function controlerPage(p, nom, u) {
         const y0 = await p.evaluate(() => scrollY);
         await p.locator('.ouvrir-filtres').click(); await p.waitForTimeout(400);
         ok(await p.locator('.feuille-filtres').count() === 1, `mobile : la feuille de filtres ne s'ouvre pas (${mode})`);
-        await p.mouse.wheel(0, 600); await p.waitForTimeout(150);
+        await defiler(p, 600); await p.waitForTimeout(150);
         ok(await p.evaluate(() => document.documentElement.classList.contains('bloque')), `mobile : la page derrière la feuille n'est pas bloquée (${mode})`);
         if (mode === 'bouton') { await p.locator('.feuille-filtres [data-filtre="ville"] [data-v="nice"]').click(); await p.waitForTimeout(150); ok(/\d/.test(await p.locator('.voir-n').textContent()), 'mobile : le bouton « Voir N soirées » n\'affiche pas le nombre'); }
         await fermer(); await p.waitForTimeout(400);
