@@ -3106,6 +3106,16 @@
    "site": "https://beacons.ai/baldesfous?__v=14.444.0",
    "abonnes": 164,
    "fichier": "site/partenaires/ig/oneera_official.jpg"
+  },
+  "fiche": {
+   "categorie": "service",
+   "ville": "Nice",
+   "adresse": "20 avenue Georges Clemenceau, 06000 Nice",
+   "site": "https://apps.apple.com/app/id6503681423",
+   "description": "Oneera est une application mobile de géolocalisation en temps réel conçue pour les festivals et événements. Elle permet aux participants de localiser leurs amis et d'accéder au plan ainsi qu'à la programmation.",
+   "date": false,
+   "date_raison": "",
+   "prix": ""
   }
  },
  "ig:mojocrew_event": {
@@ -3115,6 +3125,16 @@
    "site": "https://shotgun.live/fr/venues/mojo-crew",
    "abonnes": 1173,
    "fichier": "site/partenaires/ig/mojocrew_event.jpg"
+  },
+  "fiche": {
+   "categorie": "organisateur",
+   "ville": "Nice",
+   "adresse": "",
+   "site": "https://shotgun.live/fr/venues/mojo-crew",
+   "description": "MOJO CREW est un collectif organisant des événements de musiques électroniques orientés Techno et Tekno entre les Alpes-Maritimes et le Var. Il propose des soirées thématiques et des DJ sets dans différents lieux partenaires.",
+   "date": false,
+   "date_raison": "",
+   "prix": ""
   }
  },
  "ig:n.s.r_06": {
@@ -3124,6 +3144,35 @@
    "site": "",
    "abonnes": 802,
    "fichier": "site/partenaires/ig/n.s.r_06.jpg"
+  },
+  "fiche": {
+   "categorie": "organisateur",
+   "ville": "Nice",
+   "adresse": "",
+   "site": "https://www.instagram.com/n.s.r_06",
+   "description": "NSR.Events est un collectif niçois organisant des soirées clubbing dédiées aux musiques électroniques underground telles que la Hardgroove, la Psytrance et l'Acid Techno. Ses événements se déroulent au sein de plusieurs clubs de la région.",
+   "date": false,
+   "date_raison": "",
+   "prix": ""
+  }
+ },
+ "ig:nightcore_musicoff": {
+  "profil": {
+   "nom": "nightcore",
+   "bio": "📍 Nice\n⛓️ 26/12",
+   "site": "",
+   "abonnes": 1184,
+   "fichier": "site/partenaires/ig/nightcore_musicoff.jpg"
+  },
+  "fiche": {
+   "categorie": "organisateur",
+   "ville": "Nice",
+   "adresse": "",
+   "site": "https://shotgun.live/fr/venues/nightcore-music",
+   "description": "Nightcore Music est un collectif organisateur de soirées clubbing et raves axées sur la Hard Music, la Hard Techno et l'Acid Rave. Il met en avant les artistes émergents à travers des événements itinérants à Nice et Marseille.",
+   "date": false,
+   "date_raison": "",
+   "prix": ""
   }
  }
 }
