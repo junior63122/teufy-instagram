@@ -153,3 +153,24 @@ export const LEGAL = (T, compte) => ({
     ]],
   ],
 });
+
+// Rubriques « sorties » : uniquement des partenaires de Teufy (identifiés automatiquement, voir src/site.mjs).
+export const SORTIES = {
+  dates: {
+    filtre: (p) => p.date && !['club', 'organisateur', 'festival', 'artiste', 'media', 'marque'].includes(p.categorie),
+    titre: "Les meilleurs endroits pour un date sur la Côte d'Azur · Teufy", desc: "Restaurants, rooftops, bars à cocktails, plages et activités pour un premier date à Nice, Cannes, Antibes ou Monaco : la sélection des partenaires Teufy.",
+    etiquette: 'Pour un date', h1: 'Les meilleurs spots pour un <em>date</em>', p: "Un premier verre, un dîner, une activité pour briser la glace : les adresses des partenaires Teufy qui marchent à tous les coups.", photo: 'rooftop',
+  },
+  restaurants: {
+    filtre: (p) => p.categorie === 'restaurant' || (p.categorie === 'beach-club' && /restaurant|cuisine|d[îi]ner|d[ée]jeuner/i.test(p.description || '')),
+    titre: "Restaurants partenaires de Teufy sur la Côte d'Azur · Nice, Cannes, Monaco", desc: "Les restaurants partenaires de Teufy à Nice, Cannes, Antibes et Monaco : où dîner avant de sortir.",
+    etiquette: 'Restos', h1: 'Où dîner avant de <em>sortir</em>', p: "Les restaurants partenaires de Teufy : pour dîner avant la soirée, entre potes ou en date.", photo: 'terrasse',
+  },
+  activites: {
+    filtre: (p) => p.categorie === 'activite',
+    titre: "Activités sur la Côte d'Azur : idées de sorties avec les partenaires Teufy", desc: "Activités et sorties entre amis ou en date sur la Côte d'Azur, proposées par les partenaires de Teufy.",
+    etiquette: 'Activités', h1: 'Des <em>activités</em> pour changer', p: "Quand tu veux faire autre chose que danser : les activités des partenaires Teufy, entre potes ou en date.", photo: 'rire',
+  },
+  vide: "La sélection arrive : Teufy identifie ses partenaires un par un. Tu es un restaurant, un bar ou une activité de la Côte ? Rejoins les partenaires Teufy.",
+  categories: { restaurant: 'Restaurant', bar: 'Bar', rooftop: 'Rooftop', club: 'Club', 'beach-club': 'Plage · Beach club', activite: 'Activité', hotel: 'Hôtel', organisateur: 'Organisateur', festival: 'Festival', artiste: 'Artiste', media: 'Média', marque: 'Marque', autre: 'Partenaire' },
+};

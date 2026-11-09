@@ -132,9 +132,11 @@ async function events() {
 if (cible === 'site') {
   // Une fois par jour suffit (sauf --force) : l'agenda change peu dans la journée.
   const marque = path.join(ROOT, 'site', '.maj');
-  // Une fois par jour, ou dès qu'une nouvelle actu est arrivée (rubrique « Actus » alimentée par la veille).
+  // Une fois par jour, ou dès qu'une nouvelle actu ou une nouvelle soirée est arrivée (rubrique « Actus » alimentée par la veille).
   const actusF = path.join(ROOT, 'contenus', 'actus.json');
-  const signature = `${isoLocal(NOW)}|${existsSync(actusF) ? createHash('sha1').update(await readFile(actusF)).digest('hex').slice(0, 10) : ''}`;
+  const evF = path.join(ROOT, 'evenements-web.json');
+  const empreinte = async (f) => (existsSync(f) ? createHash('sha1').update(await readFile(f)).digest('hex').slice(0, 10) : '');
+  const signature = `${isoLocal(NOW)}|${await empreinte(actusF)}|${await empreinte(evF)}`;
   if (!flag('force') && existsSync(marque) && (await readFile(marque, 'utf8')).trim() === signature) { console.log('Site déjà à jour.'); process.exit(0); }
   const { construireSite } = await import('./site.mjs');
   await construireSite({ events: await events(), hist, config, now: NOW });

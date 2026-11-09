@@ -17,6 +17,7 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const CACHE = path.join(ROOT, 'evenements-web.json');
 const ORGAS = path.join(ROOT, 'contenus', 'organisateurs.json');
 
+export const FICHIER_CACHE = CACHE;
 export function lireCache() {
   return existsSync(CACHE) ? JSON.parse(readFileSync(CACHE, 'utf8')) : { maj: null, evenements: [] };
 }
@@ -211,7 +212,7 @@ export function fusionner(liste) {
 // Une soirée sans lien exact vers sa billetterie (ou avec seulement « shotgun.live ») ou sans prix : on cherche sa page
 // de billetterie et son prix le plus bas, par lots de 8. Chaque soirée n'est cherchée qu'une fois.
 const lienPrecis = (u) => /^https?:\/\/[^/]+\/.+/.test(u || '') && !/^https?:\/\/[^/]+\/?(fr|en|events?)?\/?$/i.test(u);
-export async function completerBilletterie({ liste, ia, config, log = console.log, max = 48 }) {
+export async function completerBilletterie({ liste, ia, config, log = console.log, max = 96 }) {
   const a = liste.filter((e) => (!e.billetterie_cherchee && (!lienPrecis(e.url) || e.price == null)) || !e.offres_cherchees).slice(0, max);
   if (!a.length) return;
   const SCHEMA_B = { type: 'object', additionalProperties: false, required: ['soirees'], properties: { soirees: { type: 'array', items: { type: 'object', additionalProperties: false, required: ['n', 'url', 'prix'], properties: {

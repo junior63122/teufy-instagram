@@ -14,7 +14,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { genresList, isTechno } from './genres.mjs';
 import { LANGUES, TXT } from './site-langues.mjs';
-import { STYLES as STYLES_MUSIQUE, PAGES_STYLES, FESTIVALS, RENDEZ_VOUS, PARTENAIRE, AMBASSADEUR, BDE, LEGAL, RE_ETUDIANT, RE_FESTIVAL } from './site-contenus.mjs';
+import { STYLES as STYLES_MUSIQUE, PAGES_STYLES, FESTIVALS, RENDEZ_VOUS, PARTENAIRE, AMBASSADEUR, BDE, LEGAL, RE_ETUDIANT, RE_FESTIVAL, SORTIES } from './site-contenus.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SITE = path.join(ROOT, 'site');
@@ -63,7 +63,7 @@ async function telecharger(url, f) {
 
 // Appel Gemini (modèle flash le plus récent disponible), réponse JSON. null si pas de clé ou échec.
 let MODELES = null;
-async function gemini(parts) {
+async function gemini(parts, { recherche = false } = {}) {
   const CLE = (process.env.GEMINI_API_KEY || '').trim();
   if (!CLE) return null;
   const API = 'https://generativelanguage.googleapis.com/v1beta/models';
@@ -75,10 +75,10 @@ async function gemini(parts) {
     }
     for (const m of MODELES.slice(0, 3)) {
       const r = await fetch(`${API}/${m}:generateContent?key=${CLE}`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({
-        contents: [{ role: 'user', parts }], generationConfig: { responseMimeType: 'application/json' } }) });
+        contents: [{ role: 'user', parts }], ...(recherche ? { tools: [{ google_search: {} }] } : { generationConfig: { responseMimeType: 'application/json' } }) }) });
       if (r.status === 404) continue;
       const t = ((await r.json()).candidates?.[0]?.content?.parts || []).map((x) => x.text || '').join('');
-      return JSON.parse(t || 'null');
+      return recherche ? t : JSON.parse(t || 'null');
     }
   } catch { /* indisponible */ }
   return null;
@@ -155,6 +155,84 @@ async function geocoder(soirees, log) {
   }
   await writeFile(GEO, JSON.stringify(cache, null, 1) + '\n');
   if (requetes) log(`Site : carte, ${trouves} lieu(x) trouvé(s) sur OpenStreetMap${coupe ? ' (service injoignable : positions approximatives en attendant)' : ''}`);
+}
+
+// --- Autour de la soirée : parkings, arrêts de tram, de bus, gares, vélos et taxis (OpenStreetMap / Overpass).
+const PROCHES = path.join(ROOT, 'contenus', 'lieux-proches.json');
+const UA = 'TeufySite/1.0 (+https://junior63122.github.io/teufy-instagram/)';
+async function aProximite(soirees, log) {
+  const cache = lire(PROCHES, {});
+  const lieux = new Map();
+  for (const s of soirees) if (!s.approx && s.lat) lieux.set(`${s.lat},${s.lng}`, s);
+  let n = 0, coupe = false;
+  for (const [k, s] of lieux) {
+    if (cache[k] && Date.now() - Date.parse(cache[k].le) < 60 * 864e5) continue;
+    if (n >= 40 || coupe) break;
+    n++;
+    const a = (r) => `(around:${r},${s.lat},${s.lng})`;
+    const q = `[out:json][timeout:25];(nwr${a(800)}[amenity=parking][access!~"^(private|customers|no)$"];node${a(900)}[railway~"^(tram_stop|station|halt)$"];node${a(500)}[highway=bus_stop];node${a(600)}[amenity~"^(bicycle_rental|taxi)$"];);out center tags 120;`;
+    const r = await fetch('https://overpass-api.de/api/interpreter', { method: 'POST', body: `data=${encodeURIComponent(q)}`, headers: { 'content-type': 'application/x-www-form-urlencoded', 'User-Agent': UA }, signal: AbortSignal.timeout(40000) }).catch(() => null);
+    const d = r?.ok ? await r.json().catch(() => null) : null;
+    if (!d) { coupe = true; break; }
+    const m = (la, lo) => Math.round(Math.hypot((la - s.lat) * 111320, (lo - s.lng) * 111320 * Math.cos(s.lat * Math.PI / 180)));
+    const el = (d.elements || []).map((e) => ({ t: e.tags || {}, la: e.lat ?? e.center?.lat, lo: e.lon ?? e.center?.lon })).filter((e) => e.la).map((e) => ({ ...e, m: m(e.la, e.lo) })).sort((x, y) => x.m - y.m);
+    const parkings = el.filter((e) => e.t.amenity === 'parking' && (e.t.name || ['underground', 'multi-storey'].includes(e.t.parking))).slice(0, 3)
+      .map((e) => ({ nom: e.t.name || '', type: e.t.parking || '', payant: e.t.fee === 'no' ? false : e.t.fee ? true : null, m: e.m }));
+    const transports = [];
+    for (const e of el.filter((x) => x.t.railway || x.t.highway === 'bus_stop')) {
+      const type = e.t.railway === 'tram_stop' ? 'tram' : e.t.railway ? 'train' : 'bus';
+      if (!e.t.name || transports.some((x) => x.nom === e.t.name && x.type === type)) continue;
+      if (transports.filter((x) => x.type === type).length >= (type === 'train' ? 1 : 2)) continue;
+      transports.push({ nom: e.t.name, type, m: e.m, lignes: e.t.route_ref || '' });
+    }
+    const velo = el.find((e) => e.t.amenity === 'bicycle_rental');
+    const taxi = el.find((e) => e.t.amenity === 'taxi');
+    cache[k] = { le: new Date().toISOString(), parkings, transports: transports.sort((x, y) => x.m - y.m).slice(0, 4), velo: velo ? { nom: velo.t.name || '', m: velo.m } : null, taxi: taxi ? { nom: taxi.t.name || '', m: taxi.m } : null };
+    await dort(1500);
+  }
+  await writeFile(PROCHES, JSON.stringify(cache, null, 1) + '\n');
+  for (const s of soirees) s.proches = s.approx ? null : cache[`${s.lat},${s.lng}`] || null;
+  if (n) log(`Site : parkings et transports cherchés autour de ${n} lieu(x)${coupe ? ' (service injoignable, on réessaiera)' : ''}`);
+}
+
+// --- Partenaires : nom lu sur le logo par l'IA, puis fiche (type, ville, adresse, description) trouvée sur le web.
+// Sert aux rubriques « Pour un date », « Restaurants » et « Activités » (uniquement des partenaires de Teufy).
+const PART_INFOS = path.join(ROOT, 'contenus', 'partenaires-infos.json');
+const CATEGORIES = ['restaurant', 'bar', 'rooftop', 'club', 'beach-club', 'activite', 'hotel', 'organisateur', 'festival', 'artiste', 'media', 'marque', 'autre'];
+async function identifierPartenaires(log) {
+  const P = lire(path.join(ROOT, 'contenus', 'partenaires.json'), { liste: [] });
+  const infos = lire(PART_INFOS, {});
+  const cle = !!(process.env.GEMINI_API_KEY || '').trim();
+  let lus = 0, fiches = 0;
+  if (cle) {
+    for (const x of P.liste || []) {
+      if (infos[x.fichier]?.lu || x.nom) continue;
+      const f = path.join(ROOT, x.fichier);
+      if (!existsSync(f)) continue;
+      const r = await gemini([{ inline_data: { mime_type: 'image/png', data: readFileSync(f).toString('base64') } }, { text: "Logo d'un partenaire de Teufy, guide des soirées de la Côte d'Azur (club, bar, restaurant, plage, organisateur…). Quel nom est écrit sur ce logo ? JSON {\"nom\": string|null, \"confiance\": 0..1}. null si illisible : n'invente pas." }]);
+      if (!r) break;
+      infos[x.fichier] = { lu: true, nom: r.confiance >= 0.7 && r.nom ? String(r.nom).trim() : '' };
+      lus++;
+    }
+    const aChercher = Object.entries(infos).filter(([, v]) => v.nom && !v.fiche).slice(0, 36);
+    const SCHEMA = '{"lieux":[{"n":numéro,"trouve":bool,"categorie":"' + CATEGORIES.join('|') + '","ville":string,"adresse":string,"instagram":string,"site":string,"description":string,"date":bool,"date_raison":string,"prix":"€|€€|€€€|€€€€|"}]}';
+    for (let i = 0; i < aChercher.length; i += 6) {
+      const lot = aChercher.slice(i, i + 6);
+      const liste = lot.map(([, v], j) => `${j + 1}. ${v.nom}`).join('\n');
+      const web = await gemini([{ text: `Ces établissements et marques sont partenaires d'un guide des soirées de la Côte d'Azur (Nice, Cannes, Antibes, Monaco). Pour chacun, trouve ce que c'est (restaurant, bar, club, plage, activité, organisateur…), la ville, l'adresse, le compte Instagram et le site officiels, et ce qu'on y fait.\n${liste}` }], { recherche: true });
+      if (!web) break;
+      const r = await gemini([{ text: `Partenaires :\n${liste}\n\nRésultats de recherche :\n${web}\n\nRéponds en JSON ${SCHEMA}. description : 1 à 2 phrases factuelles en français (ce qu'on y trouve, l'ambiance), sans superlatif inventé. date = true seulement si c'est un lieu agréable pour un rendez-vous à deux (restaurant, rooftop, bar à cocktails, plage, activité), avec date_raison en une phrase. trouve = false si tu n'es pas sûr de quel établissement il s'agit. N'invente rien : chaîne vide si inconnu.` }]);
+      for (const l of r?.lieux || []) {
+        const e = lot[l.n - 1];
+        if (!e) continue;
+        infos[e[0]].fiche = l.trouve && CATEGORIES.includes(l.categorie) ? { categorie: l.categorie, ville: l.ville || '', adresse: l.adresse || '', instagram: String(l.instagram || '').replace(/^.*instagram\.com\//, '').replace(/[/@?].*$/, '').replace(/^@/, ''), site: /^https?:\/\//.test(l.site || '') ? l.site : '', description: l.description || '', date: !!l.date, date_raison: l.date_raison || '', prix: l.prix || '' } : { inconnu: true };
+        fiches++;
+      }
+    }
+  }
+  await writeFile(PART_INFOS, JSON.stringify(infos, null, 1) + '\n');
+  if (lus || fiches) log(`Site : ${lus} logo(s) de partenaires lu(s), ${fiches} fiche(s) trouvée(s)`);
+  return (P.liste || []).map((x) => { const i = infos[x.fichier] || {}; const f = i.fiche && !i.fiche.inconnu ? i.fiche : null; return { ...x, nom: x.nom || i.nom || '', ...(f || {}), instagram: x.instagram || f?.instagram || '' }; });
 }
 
 // --- Traductions : tout le texte français (accroches, descriptions, pages éditoriales, actus) est traduit par l'IA
@@ -241,6 +319,8 @@ export async function construireSite({ events, hist = [], config = {}, now = new
   }
   await writeFile(VERIF, JSON.stringify(cache, null, 1) + '\n');
   await geocoder(soirees, log);
+  await aProximite(soirees, log);
+  const partenaires = await identifierPartenaires(log);
   TR.cache = lire(TRAD, {});
 
   // Derniers posts Instagram du compte (couverture gardée dans media/).
@@ -269,7 +349,7 @@ export async function construireSite({ events, hist = [], config = {}, now = new
       const P = pre(lang);
       const tr = (x) => trad(lang, x);
       const sl = soirees.map((s) => ({ ...s, accroche: tr(s.accroche), description: tr(s.description) }));
-      const ctx = (chemin) => ({ lang, t, tr, chemin, base: '../'.repeat((lang === 'fr' ? 0 : 1) + chemin.split('/').filter(Boolean).length), compte, T, maj: majTexte(t), actus });
+      const ctx = (chemin) => ({ lang, t, tr, chemin, base: '../'.repeat((lang === 'fr' ? 0 : 1) + chemin.split('/').filter(Boolean).length), compte, T, maj: majTexte(t), actus, partenaires });
       const ajoute = (chemin, f) => pages.push([`${P}${chemin}`, f(ctx(chemin))]);
       ajoute('', (c) => page({ ...c, soirees: sl, posts, now }));
       ajoute('a-propos/', (c) => aPropos({ ...c, nb: sl.length }));
@@ -282,6 +362,7 @@ export async function construireSite({ events, hist = [], config = {}, now = new
       ajoute('ambassadeurs/', (c) => pageAmbassadeur(c));
       ajoute('bde/', (c) => pageBde({ ...c, soirees: sl.filter((x) => x.etudiant) }));
       ajoute('mentions-legales/', (c) => pageLegal(c));
+      for (const k of Object.keys(SORTIES).filter((x) => SORTIES[x].filtre)) ajoute(`${k}/`, (c) => pageSorties({ ...c, cleS: k }));
       for (const s of sl) ajoute(`soiree/${s.id}/`, (c) => pageSoiree({ ...c, s, soirees: sl }));
     }
     return pages;
@@ -462,7 +543,7 @@ function gabarit({ lang, t, titre, description, chemin, base, corps, ld = [], im
   const handle = compte.replace(/^@/, '');
   const P = pre(lang);
   const accueil = `${base}${P}`;
-  const nav = [['', t.agenda], ...VILLES_SEO.map((v) => [`${v.slug}/`, t.villes[v.cle === 'antibes' ? 'antibesCourt' : v.cle]]), ['#carte', t.carte], ['festivals/', t.festivals], ['actus/', t.actus], ['partenaires/', t.partenaires], ['a-propos/', t.qui]];
+  const nav = [['', t.agenda], ...VILLES_SEO.map((v) => [`${v.slug}/`, t.villes[v.cle === 'antibes' ? 'antibesCourt' : v.cle]]), ['#carte', t.carte], ['festivals/', t.festivals], ['dates/', t.dates], ['restaurants/', t.restos], ['activites/', t.activites], ['actus/', t.actus], ['partenaires/', t.partenaires], ['a-propos/', t.qui]];
   const jsT = { ...t.js, base, langue: lang, locale: t.locale, resultats: t.resultats, aucunRes: t.aucunRes, lienCopie: t.lienCopie, ajouterFav: t.ajouterFav };
   return `<!doctype html>
 <html lang="${lang}" dir="${t.dir}">
@@ -508,7 +589,7 @@ ${corps}
 </main>
 <footer>
   <div class="pied-colonnes">
-    <div><p class="pied-titre">${esc(t.villesL)}</p>${VILLES_SEO.map((v) => `<a href="${accueil}${v.slug}/">${esc(t.villes[v.cle])}</a>`).join('')}<a href="${accueil}festivals/">${esc(t.festivals)}</a></div>
+    <div><p class="pied-titre">${esc(t.villesL)}</p>${VILLES_SEO.map((v) => `<a href="${accueil}${v.slug}/">${esc(t.villes[v.cle])}</a>`).join('')}<a href="${accueil}festivals/">${esc(t.festivals)}</a><a href="${accueil}dates/">${esc(t.dates)}</a><a href="${accueil}restaurants/">${esc(t.restos)}</a><a href="${accueil}activites/">${esc(t.activites)}</a></div>
     <div><p class="pied-titre">${esc(t.stylesL)}</p>${PAGES_STYLES.map((k) => `<a href="${accueil}soirees-${k}/">${esc(nomStyle(k, t, lang))}</a>`).join('')}</div>
     <div><p class="pied-titre">${esc(t.teufyL)}</p><a href="${accueil}a-propos/">${esc(t.qui)}</a><a href="${accueil}actus/">${esc(t.actus)}</a><a href="${accueil}partenaires/">${esc(t.partenaires)}</a><a href="${accueil}ambassadeurs/">${esc(t.ambassadeurs)}</a><a href="${accueil}bde/">${esc(t.bde)}</a><a href="https://www.instagram.com/${esc(handle)}/" target="_blank" rel="noopener">${esc(compte)}</a></div>
     <div><p class="pied-titre">${esc(t.langue)}</p>${LANGUES.map((l) => `<a href="${base}${pre(l)}${chemin}" hreflang="${l}" lang="${l}">${esc(TXT[l].nom)}</a>`).join('')}</div>
@@ -573,8 +654,8 @@ function agenda(soirees, { t, base, lang, filtresVille = true, filtreStyle = tru
 </section>`;
 }
 
-function blocPartenaires({ t, T, base }) {
-  const P = lire(path.join(ROOT, 'contenus', 'partenaires.json'), { liste: [] }).liste || [];
+function blocPartenaires({ t, T, base, partenaires }) {
+  const P = partenaires || lire(path.join(ROOT, 'contenus', 'partenaires.json'), { liste: [] }).liste || [];
   if (!P.length) return '';
   return `<section class="qui partenaires reveal">
   <p class="etiquette">${esc(t.partEtiquette)}</p>
@@ -632,11 +713,11 @@ const heroCourt = ({ base, photo, video, alt, etiquette, h1, p, live = false }) 
   </div>
 </section>`;
 
-function page({ lang, t, base, compte, T, soirees, posts, now, maj }) {
+function page({ lang, t, base, compte, T, soirees, posts, now, maj, partenaires }) {
   const handle = compte.replace(/^@/, '');
   const semaine = soirees.filter((s) => Date.parse(s.debut) < now.getTime() + 8 * 864e5);
   const vedette = [...semaine].filter((s) => s.affiche && (s.buzz ?? 0) >= 0.7).sort((a, b) => b.buzz - a.buzz)[0];
-  const ctx = { lang, t, base, T };
+  const ctx = { lang, t, base, T, partenaires };
   const populaires = PAGES_STYLES.filter((k) => soirees.some((s) => s.styles.includes(k)));
   const faq = t.faqHome;
   const corps = `<section class="hero">
@@ -730,6 +811,7 @@ function pageSoiree({ lang, t, base, compte, T, chemin, s, soirees, maj }) {
         <button type="button" class="coeur grand" aria-label="${esc(t.ajouterFav)}" aria-pressed="false"></button>
       </p>
       ${offres}
+      ${yAller(s, t, lieu)}
       ${s.instagram ? `<p class="orga-ig"><a class="lien" href="https://www.instagram.com/${esc(s.instagram)}/" target="_blank" rel="noopener">@${esc(s.instagram)}</a></p>` : ''}
     </div>
   </div>
@@ -739,6 +821,40 @@ ${mini(style, esc(t.memeStyle))}
 <p class="retour"><a class="bouton" href="${base}${P}#agenda">${esc(t.toutes)}</a></p>`;
   return gabarit({ lang, t, titre: `${s.nom} · ${dateCourte(s.debut, t)} · ${s.lieu || s.ville} · Teufy`, description: `${s.nom}, ${dateLongue(s.debut, t)} ${heure(s.debut, t)}, ${lieu}. ${s.accroche || ''} ${prixTexte(s.prix, t)}`.trim().slice(0, 300), chemin, base, corps, compte, maj,
     image: s.affiche || 'site/img/equipe/monaco.jpg', ld: [jsonEvent(s, lang), fil(lang, [['Teufy', ''], [t.agenda, ''], [s.nom, chemin]])] });
+}
+
+// « Y aller » : parkings, transports, vélos et taxis autour du lieu (OpenStreetMap), plus un itinéraire en transports.
+function yAller(s, t, lieu) {
+  const p = s.proches;
+  const dist = (m) => t.aPied.replace('{m}', m).replace('{min}', Math.max(1, Math.round(m / 80)));
+  const dest = s.approx ? encodeURIComponent(lieu) : `${s.lat},${s.lng}`;
+  const li = (a, b) => `<li><span>${a}</span><small>${b}</small></li>`;
+  const parkings = (p?.parkings || []).map((x) => li(esc(x.nom || t.parking), esc([x.type === 'underground' ? t.souterrain : '', x.payant === false ? t.gratuitP : x.payant ? t.payantP : '', dist(x.m)].filter(Boolean).join(' · '))));
+  const trans = (p?.transports || []).map((x) => li(`<b class="ligne ${x.type}">${esc(t[x.type])}${x.lignes ? ` ${esc(x.lignes.split(';').slice(0, 3).join(' · '))}` : ''}</b> ${esc(x.nom)}`, esc(dist(x.m))));
+  if (p?.velo) trans.push(li(`<b class="ligne velo">${esc(t.velo)}</b> ${esc(p.velo.nom)}`, esc(dist(p.velo.m))));
+  if (p?.taxi) trans.push(li(`<b class="ligne taxi">${esc(t.taxi)}</b> ${esc(p.taxi.nom)}`, esc(dist(p.taxi.m))));
+  return `<div class="y-aller"><p class="pied-titre">${esc(t.yAller)}</p>
+    ${parkings.length ? `<p class="y-titre">${esc(t.seGarer)}</p><ul>${parkings.join('')}</ul>` : ''}
+    ${trans.length ? `<p class="y-titre">${esc(t.enTransports)}</p><ul>${trans.join('')}</ul>` : ''}
+    <p class="y-liens"><a class="lien" href="https://www.google.com/maps/dir/?api=1&amp;destination=${dest}&amp;travelmode=transit" target="_blank" rel="noopener">${esc(t.itiTransports)}</a></p>
+    <p class="y-note">${esc(t.rentrer)}</p></div>`;
+}
+
+// Rubriques « Pour un date », « Restos », « Activités » : partenaires identifiés et classés.
+function pageSorties({ lang, t, tr, base, compte, T, chemin, maj, partenaires, cleS }) {
+  const C = SORTIES[cleS], handle = compte.replace(/^@/, '');
+  const l = (partenaires || []).filter((p) => p.nom && p.categorie && C.filtre(p));
+  const carteP = (p, i) => `<article class="carte-texte lieu" style="--i:${i % 8}">
+    <div class="lieu-tete"><img src="${base}${esc(p.fichier)}" alt="" width="56" height="56" loading="lazy"><div><p class="genre">${esc(tr(SORTIES.categories[p.categorie] || ''))}${p.ville ? ` · ${esc(p.ville)}` : ''}${p.prix ? ` · ${esc(p.prix)}` : ''}</p><h3>${esc(p.nom)}</h3></div></div>
+    ${p.description ? `<p>${esc(tr(p.description))}</p>` : ''}
+    ${cleS === 'dates' && p.date_raison ? `<p class="petit">♥ ${esc(tr(p.date_raison))}</p>` : ''}
+    <p class="lieu-liens">${p.instagram ? `<a class="lien" href="https://www.instagram.com/${esc(p.instagram)}/" target="_blank" rel="noopener">@${esc(p.instagram)}</a>` : ''}${p.site ? `<a class="lien" href="${esc(p.site)}" target="_blank" rel="noopener">${esc(t.siteWeb)}</a>` : ''}${p.adresse || p.ville ? `<a class="lien" href="https://www.google.com/maps/search/?api=1&amp;query=${encodeURIComponent([p.nom, p.adresse, p.ville].filter(Boolean).join(', '))}" target="_blank" rel="noopener">${esc(t.itineraire)}</a>` : ''}</p>
+  </article>`;
+  const corps = `${heroCourt({ base, photo: C.photo, alt: tr(C.etiquette), etiquette: tr(C.etiquette), h1: tr(C.h1), p: esc(tr(C.p)) })}
+<section class="bloc-large reveal">${l.length ? `<div class="cartes-texte">${l.map(carteP).join('')}</div>` : `<p class="vide">${esc(tr(SORTIES.vide))}</p>`}${ctaIg(handle, t.orgaBouton, T.email)}</section>
+<section class="bloc-large reveal"><p class="liens-styles">${Object.keys(SORTIES).filter((k) => SORTIES[k].filtre && k !== cleS).map((k) => `<a class="puce" href="${base}${pre(lang)}${k}/">${esc(k === 'dates' ? t.dates : k === 'restaurants' ? t.restos : t.activites)}</a>`).join('')}<a class="puce" href="${base}${pre(lang)}#agenda">${esc(t.agenda)}</a></p></section>`;
+  return gabarit({ lang, t, titre: tr(C.titre), description: tr(C.desc), chemin, base, corps, compte, maj, ld: [...ldOrganisation(T, compte, t, lang), fil(lang, [['Teufy', ''], [tr(C.etiquette), chemin]]),
+    ...(l.length ? [{ '@context': 'https://schema.org', '@type': 'ItemList', itemListElement: l.map((p, i) => ({ '@type': 'ListItem', position: i + 1, item: { '@type': p.categorie === 'restaurant' ? 'Restaurant' : 'LocalBusiness', name: p.nom, ...(p.adresse || p.ville ? { address: { '@type': 'PostalAddress', streetAddress: p.adresse || undefined, addressLocality: p.ville || undefined } } : {}), ...(p.site ? { url: p.site } : {}) } })) }] : [])] });
 }
 
 function pageFestivals({ lang, t, tr, base, compte, T, chemin, soirees, maj }) {
@@ -777,7 +893,7 @@ const cartesTexte = (l, tr) => `<div class="cartes-texte">${l.map(([a, b], i) =>
 const etapes = (l, tr) => `<ol class="etapes">${l.map(([a, b], i) => `<li style="--i:${i}"><b>${i + 1}</b><div><h3>${tr(a)}</h3><p>${tr(b)}</p></div></li>`).join('')}</ol>`;
 const ctaIg = (handle, texte, email) => `<p class="cta"><a class="bouton" href="https://ig.me/m/${esc(handle)}" target="_blank" rel="noopener">${esc(texte)}</a>${email ? `<a class="bouton contour" href="mailto:${esc(email)}">${esc(email)}</a>` : ''}</p>`;
 
-function pagePartenaire({ lang, t, tr, base, compte, T, chemin, maj }) {
+function pagePartenaire({ lang, t, tr, base, compte, T, chemin, maj, partenaires }) {
   const C = PARTENAIRE, handle = compte.replace(/^@/, '');
   const faq = C.faq.map(([q, r]) => [tr(q), tr(r)]);
   const corps = `${heroCourt({ base, photo: 'scene-dj', alt: t.partenaires, etiquette: tr(C.etiquette), h1: tr(C.h1), p: esc(tr(C.chapo)) })}
@@ -785,7 +901,7 @@ function pagePartenaire({ lang, t, tr, base, compte, T, chemin, maj }) {
 <section class="bloc-large reveal"><h2>${tr(C.offreH2)}</h2>${cartesTexte(C.offre, tr)}</section>
 <section class="bloc-large reveal"><h2>${tr(C.pourQuiH2)}</h2><p class="liens-styles">${C.pourQui.map((x) => `<span class="puce">${esc(tr(x))}</span>`).join('')}</p></section>
 <section class="bloc-large reveal"><h2>${tr(C.etapesH2)}</h2>${etapes(C.etapes, tr)}${ctaIg(handle, tr(C.cta), T.email)}</section>
-${blocPartenaires({ t, T, base })}
+${blocPartenaires({ t, T, base, partenaires })}
 ${blocFaq(t.faqH, faq)}`;
   return gabarit({ lang, t, titre: tr(C.titre), description: tr(C.desc), chemin, base, corps, compte, maj, image: 'site/img/equipe/scene-dj.jpg', ld: [...ldOrganisation(T, compte, t, lang), ldFaq(faq), fil(lang, [['Teufy', ''], [t.partenaires, chemin]])] });
 }
@@ -799,13 +915,13 @@ function pageAmbassadeur({ lang, t, tr, base, compte, T, chemin, maj }) {
 ${galerie({ t, base })}`;
   return gabarit({ lang, t, titre: tr(C.titre), description: tr(C.desc), chemin, base, corps, compte, maj, image: 'site/img/equipe/fourrure.jpg', ld: [...ldOrganisation(T, compte, t, lang), fil(lang, [['Teufy', ''], [t.ambassadeurs, chemin]])] });
 }
-function pageBde({ lang, t, tr, base, compte, T, chemin, soirees, maj }) {
+function pageBde({ lang, t, tr, base, compte, T, chemin, soirees, maj, partenaires }) {
   const C = BDE, handle = compte.replace(/^@/, '');
   const corps = `${heroCourt({ base, photo: 'aperol', alt: t.bde, etiquette: tr(C.etiquette), h1: tr(C.h1), p: esc(tr(C.chapo)) })}
 <section class="bloc-large reveal"><h2>${tr(C.offreH2)}</h2>${cartesTexte(C.offre, tr)}</section>
 <section class="bloc-large reveal"><h2>${tr(C.etapesH2)}</h2>${etapes(C.etapes, tr)}${ctaIg(handle, tr(C.cta), T.email)}</section>
 ${soirees.length ? `<section class="bloc-large reveal"><h2>${tr(C.soireesH2)}</h2><div class="grille">${soirees.map((s) => carte(s, { t, base, lang })).join('')}</div></section>` : ''}
-${blocPartenaires({ t, T, base })}`;
+${blocPartenaires({ t, T, base, partenaires })}`;
   return gabarit({ lang, t, titre: tr(C.titre), description: tr(C.desc), chemin, base, corps, compte, maj, image: 'site/img/equipe/aperol.jpg', ld: [...ldOrganisation(T, compte, t, lang), ...jsonld(soirees, lang), fil(lang, [['Teufy', ''], [t.bde, chemin]])] });
 }
 function pageLegal({ lang, t, tr, base, compte, T, chemin, maj }) {
@@ -817,11 +933,11 @@ function pageLegal({ lang, t, tr, base, compte, T, chemin, maj }) {
   return gabarit({ lang, t, titre: tr(C.titre), description: tr(C.blocs[0][1][0]), chemin, base, corps, compte, maj });
 }
 
-function aPropos({ lang, t, base, compte, T, chemin, nb, maj }) {
+function aPropos({ lang, t, base, compte, T, chemin, nb, maj, partenaires }) {
   const handle = compte.replace(/^@/, '');
   const initiales = T.directeur.split(/\s+/).map((x) => x[0]).join('').slice(0, 2).toUpperCase();
   const bio = lang === 'fr' && T.directeur_bio ? T.directeur_bio : t.bio;
-  const ctx = { lang, t, base, T };
+  const ctx = { lang, t, base, T, partenaires };
   const corps = `${heroCourt({ base, photo: 'fourrure', alt: t.galAlt, etiquette: t.apEtiquette, h1: t.apH1, p: esc(t.apP(T.nbPartenaires)) })}
 <section class="qui reveal">
   <h2>${t.missionH2}</h2>

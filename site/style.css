@@ -390,3 +390,17 @@ h2.etiquette{font-family:var(--texte);font-stretch:100%;font-size:13px;line-heig
 .carte .genre{color:#5f5a53}
 html{overflow-x:clip}
 :lang(ar) .hero h1{font-size:clamp(38px,10vw,96px)}:lang(ar) .hero.court h1{font-size:clamp(34px,8.5vw,80px)}
+/* Y aller : parkings et transports autour de la soirée */
+.y-aller{background:var(--nuit2);border:1px solid #ffffff1a;border-radius:18px;padding:16px 18px;display:flex;flex-direction:column;gap:8px}
+.y-titre{font-weight:800;margin-top:4px}
+.y-aller ul{list-style:none;padding:0;display:flex;flex-direction:column;gap:6px}
+.y-aller li{display:flex;justify-content:space-between;gap:12px;align-items:baseline;border-top:1px solid #ffffff12;padding-top:6px}
+.y-aller small{opacity:.75;white-space:nowrap}
+.ligne{display:inline-block;font-size:12px;font-weight:800;border-radius:6px;padding:2px 7px;margin-inline-end:6px;background:#ffffff1f}
+.ligne.tram{background:#2b6cff;color:#fff}.ligne.train{background:var(--creme);color:var(--nuit)}.ligne.bus{background:#1a9b4f;color:#fff}.ligne.velo{background:#ffc93c;color:var(--nuit)}.ligne.taxi{background:#ffd600;color:var(--nuit)}
+.y-note{font-size:13px;opacity:.75}
+/* Rubriques sorties (partenaires) */
+.lieu-tete{display:flex;gap:14px;align-items:center}
+.lieu-tete img{width:56px;height:56px;border-radius:50%;flex:none;background:#fff1}
+.lieu-tete h3{font-size:26px}
+.lieu-liens{display:flex;flex-wrap:wrap;gap:14px;margin-top:auto}

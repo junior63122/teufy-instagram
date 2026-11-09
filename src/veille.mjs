@@ -27,7 +27,7 @@ const SCHEMA = {
       type: 'array',
       items: {
         type: 'object', additionalProperties: false,
-        required: ['titre', 'type', 'resume', 'date_publication', 'source_url', 'source_officielle', 'importance', 'raison', 'angle', 'format', 'post', 'comptes_instagram', 'image', 'article'],
+        required: ['titre', 'type', 'resume', 'date_publication', 'source_url', 'source_officielle', 'importance', 'raison', 'angle', 'format', 'post', 'comptes_instagram', 'image', 'article', 'soirees'],
         properties: {
           titre: { type: 'string', description: 'Titre factuel court.' },
           type: { type: 'string', enum: ['annonce', 'actu'], description: 'annonce = événement / lieu / line-up ; actu = actualité générale qui touche les sorties.' },
@@ -51,6 +51,17 @@ const SCHEMA = {
           },
           comptes_instagram: { type: 'array', items: { type: 'string' }, description: 'Comptes Instagram officiels concernés, certains seulement (sans @).' },
           image: { type: 'string', description: "URL de l'image officielle de l'annonce si connue (post Instagram, affiche), sinon chaîne vide." },
+          soirees: {
+            type: 'array',
+            description: "Soirées précises annoncées dans ce sujet (nom, date, heure, lieu certains), pour l'agenda du site. Tableau vide si le sujet n'annonce pas une soirée datée. N'invente rien.",
+            items: { type: 'object', additionalProperties: false, required: ['nom', 'debut', 'lieu', 'ville', 'billetterie', 'prix', 'affiche', 'styles', 'accroche'],
+              properties: {
+                nom: { type: 'string' }, debut: { type: 'string', description: 'Date et heure de début (ISO 8601, heure de Paris).' },
+                lieu: { type: 'string' }, ville: { type: 'string' }, billetterie: { type: 'string', description: 'URL de la billetterie ou de la page officielle, sinon vide.' },
+                prix: { type: ['number', 'null'] }, affiche: { type: 'string', description: "URL de l'affiche si connue, sinon vide." },
+                styles: { type: 'array', items: { type: 'string' } }, accroche: { type: 'string', description: 'Une phrase courte et factuelle (≤ 100 caractères), sans tiret cadratin.' },
+              } },
+          },
           article: {
             type: 'object', additionalProperties: false, required: ['titre', 'chapo', 'paragraphes', 'ville'],
             description: "Article pour la rubrique « Actus » du site, écrit pour quelqu'un qui n'a jamais entendu parler du sujet : simple, clair, factuel, sans jargon.",
@@ -140,6 +151,28 @@ Pour chaque point : titre, date et heure de publication, URL de la source la plu
     await mkdir(path.dirname(VUS), { recursive: true });
     await writeFile(VUS, JSON.stringify(Object.fromEntries(Object.entries(vus).slice(-1500)), null, 1) + '\n');
     await writeFile(IDEES, JSON.stringify(banque.slice(-300), null, 1) + '\n');
+    // Soirées annoncées (source officielle, date et lieu certains) : ajoutées tout de suite à l'agenda du site.
+    try {
+      const { lireCache, fusionner, FICHIER_CACHE } = await import('./recherche.mjs');
+      const cacheEv = lireCache();
+      const ajouts = sujets.filter((x) => x.source_officielle && /^https?:\/\//.test(x.source_url)).flatMap((x) => (x.soirees || []).map((e) => ({ e, x })))
+        .filter(({ e }) => e.nom && e.lieu && !isNaN(Date.parse(e.debut)) && Date.parse(e.debut) > now.getTime() && Date.parse(e.debut) < now.getTime() + 120 * 864e5)
+        .map(({ e, x }) => ({
+          source: 'web', source_site: (() => { try { return new URL(x.source_url).hostname.replace(/^www\./, ''); } catch { return 'veille'; } })(), via_veille: true,
+          name: e.nom.trim(), start: new Date(e.debut).toISOString(), venue: e.lieu, city: e.ville || '', address: '',
+          url: /^https?:\/\//.test(e.billetterie) ? e.billetterie : x.source_url, image: /^https?:\/\//.test(e.affiche) ? e.affiche : (x.image || ''),
+          price: typeof e.prix === 'number' && e.prix >= 0 && e.prix < 500 ? e.prix : null, tags: e.styles || [], description: '', public_cible: 0.6,
+          confiance: 0.9, accroche: e.accroche && e.accroche.length <= 120 && !/—/.test(e.accroche) ? e.accroche : '',
+          instagram: (x.comptes_instagram || []).map((h) => String(h).replace(/^@/, '').toLowerCase()).filter((h) => /^[a-z0-9._]{2,30}$/.test(h)).slice(0, 3),
+        }));
+      if (ajouts.length && cacheEv.evenements) {
+        const avant = cacheEv.evenements.length;
+        cacheEv.evenements = fusionner([...cacheEv.evenements, ...ajouts]);
+        await writeFile(FICHIER_CACHE, JSON.stringify(cacheEv, null, 2));
+        log(`Veille : ${cacheEv.evenements.length - avant} nouvelle(s) soirée(s) ajoutée(s) à l'agenda (${ajouts.length} repérée(s)).`);
+      }
+    } catch (err) { log(`Veille : ajout à l'agenda impossible (${err.message}).`); }
+
     // Rubrique « Actus » du site : sujets sourcés et assez importants, expliqués simplement.
     const ACTUS = path.join(ROOT, 'contenus', 'actus.json');
     const actus = lire(ACTUS, []);
