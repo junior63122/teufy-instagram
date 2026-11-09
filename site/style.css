@@ -712,3 +712,12 @@ details[data-bloc="tri"]>.groupe{inset-inline-start:auto;inset-inline-end:0}
 .lieu-maj a{color:inherit}
 .mini-carte.sans-carte{height:auto;display:flex;align-items:center;justify-content:center;padding:22px;background:var(--nuit2)}
 .mini-carte.sans-carte::after{display:none}
+/* Transitions entre les pages (navigateurs récents) : fondu court ; rien si l'utilisateur réduit les mouvements */
+@view-transition{navigation:auto}
+::view-transition-old(root){animation:vt-sortie .18s ease both}
+::view-transition-new(root){animation:vt-entree .28s cubic-bezier(.2,.8,.2,1) both}
+@keyframes vt-sortie{to{opacity:0}}
+@keyframes vt-entree{from{opacity:0;transform:translateY(8px)}}
+@media(prefers-reduced-motion:reduce){@view-transition{navigation:none}}
+/* Accueil : les jours de l'agenda hors écran ne sont pas dessinés (moins de travail pour le téléphone) */
+.liste .jour{content-visibility:auto;contain-intrinsic-size:auto 1200px}
