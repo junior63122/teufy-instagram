@@ -194,6 +194,19 @@ const visibles = (p) => p.locator('.liste .carte:not([hidden])').count();
     }
   });
 
+  await etape('mini-carte du lieu', async () => {
+    const fs = require('fs'), path = require('path');
+    const S = fs.readdirSync(path.resolve(__dirname, '..', 'soiree')).find((d) => fs.readFileSync(path.resolve(__dirname, '..', 'soiree', d, 'index.html'), 'utf8').includes('class="mini-carte"'));
+    ok(!!S, 'mini-carte : aucune page de soirée n\'a de mini-carte');
+    if (!S) return;
+    for (const o of [{ viewport: { width: 1440, height: 900 } }, { ...devices['iPhone 13'] }]) {
+      const c = await b.newContext(o); const p = await c.newPage(); erreurs(p, 'mini-carte');
+      await p.goto(B + `soiree/${S}/`); await p.locator('.mini-carte').scrollIntoViewIfNeeded(); await p.waitForTimeout(2000);
+      ok(await p.locator('.mini-carte.leaflet-container .repere').count() === 1, `mini-carte ${o.viewport?.width || 'mobile'} : carte ou repère du lieu absent`);
+      await c.close();
+    }
+  });
+
   await etape('boutons recouverts', async () => {
     for (const o of [{ ...devices['iPhone 13'] }, { viewport: { width: 1440, height: 900 } }]) {
       const c = await b.newContext(o); const p = await c.newPage(); erreurs(p, 'recouvert');

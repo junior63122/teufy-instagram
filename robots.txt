@@ -3,4 +3,7 @@ Allow: /
 Disallow: /out/
 Disallow: /apercus/
 Disallow: /livrables/
+Disallow: /tests/
+Disallow: /studio/
+Disallow: /veille/
 Sitemap: https://teufyparty.com/sitemap.xml
