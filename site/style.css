@@ -661,3 +661,4 @@ details[data-bloc="tri"]>.groupe{inset-inline-start:auto;inset-inline-end:0}
 @keyframes flotte-puce{to{translate:0 -8px}}
 @media(prefers-reduced-motion:reduce){.orga-puce{animation:none}}
 .fiche-affiche img.petite{display:block;margin:0 auto} /* petite affiche : jamais agrandie (sinon floue) */
+.code-promo .petit a{color:var(--creme);text-decoration:underline;text-underline-offset:3px} /* contraste suffisant sur fond sombre atténué */
