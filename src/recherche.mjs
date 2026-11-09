@@ -53,7 +53,7 @@ const SCHEMA = {
   },
 };
 
-const CIBLE = `Public visé par Teufy : les 17-30 ans qui sortent sur la Côte d'Azur (Nice, Cannes, Antibes, Juan-les-Pins, Monaco, Menton, Cagnes, Saint-Laurent-du-Var, Grasse, Fréjus, Saint-Raphaël, Saint-Tropez…).
+const CIBLE = `Public visé par Teufy : les 17-30 ans qui sortent sur la Côte d'Azur et dans le Var (Nice, Cannes, Antibes, Juan-les-Pins, Monaco, Menton, Cagnes, Saint-Laurent-du-Var, Grasse, Fréjus, Saint-Raphaël, Saint-Tropez, Toulon, Hyères…).
 À garder : soirées en club, DJ sets, techno, house, afro, shatta, amapiano, rap, RnB, électro, soirées étudiantes, open airs, rooftops, day parties, festivals, concerts qui attirent ce public, soirées à thème.
 À écarter (public_17_30 bas) : théâtre, musique classique, opéra, conférences, salons, événements enfants ou seniors, dîners spectacles chers, sport.`;
 
@@ -97,6 +97,8 @@ export async function rechercherSoirees({ config, now = new Date(), ig = null, a
     'les soirées étudiantes, afterworks, day parties, rooftops et open airs de Nice, Cannes, Antibes et Monaco',
     'les festivals, concerts rap, électro et techno et les grosses dates de la Côte d\'Azur et du Var (Fréjus, Saint-Raphaël, Saint-Tropez)',
     'la presse et les médias locaux (Nice-Matin, Monaco-Matin, Nice Premium, Côte d\'Azur Dream, sortir à Nice) : agenda des soirées et nouveautés',
+    'les soirées, clubs, bars et concerts du Var ouest : Toulon, La Seyne-sur-Mer, Hyères, Six-Fours, Sanary, Bandol, La Ciotat (clubs, bars de nuit, soirées étudiantes, Var Matin, billetteries)',
+    'les soirées, clubs, beach clubs et festivals du Var est : Fréjus, Saint-Raphaël, Sainte-Maxime, Saint-Tropez, Ramatuelle, Draguignan, Puget et Roquebrune-sur-Argens',
   ];
   const textes = [];
   for (const [i, cible] of PASSES.entries()) {
@@ -242,4 +244,46 @@ export async function completerBilletterie({ liste, ia, config, log = console.lo
     lot.forEach((e) => { e.billetterie_cherchee = true; e.offres_cherchees = true; });
   }
   log(`  billetterie : ${trouves} lien(s) trouvé(s) pour ${a.length} soirée(s) à compléter.`);
+}
+
+// --- Grandes villes étudiantes de France : rubrique séparée du site (jamais utilisée pour les posts Instagram) --------
+// Les soirées les plus attendues de chaque ville, gardées dans evenements-france.json (rafraîchi tous les 2 jours).
+const CACHE_FRANCE = path.join(ROOT, 'evenements-france.json');
+export const VILLES_FRANCE = ['Paris', 'Lyon', 'Marseille', 'Toulouse', 'Bordeaux', 'Lille', 'Nantes', 'Montpellier', 'Strasbourg', 'Rennes', 'Grenoble', 'Aix-en-Provence'];
+export function lireFrance() { return existsSync(CACHE_FRANCE) ? JSON.parse(readFileSync(CACHE_FRANCE, 'utf8')) : { maj: null, evenements: [] }; }
+export async function rechercherFrance({ config, now = new Date(), ia = LLM, log = console.log, force = false } = {}) {
+  const R = config.recherche_web || {};
+  const cache = lireFrance();
+  if (R.france === false) return cache;
+  const ageJours = cache.maj ? (now - new Date(cache.maj)) / 86400e3 : Infinity;
+  if (!force && ageJours < (R.rafraichir_france_jours ?? 2)) return cache;
+  if (ia === LLM && !LLM.fournisseurs(config).length) return cache;
+  const jour = now.toISOString().slice(0, 10);
+  const fin = new Date(now.getTime() + 30 * 86400e3).toISOString().slice(0, 10);
+  const evenements = [];
+  for (let i = 0; i < VILLES_FRANCE.length; i += 3) {
+    const villes = VILLES_FRANCE.slice(i, i + 3).join(', ');
+    const web = await ia.rechercher({ config, gratuit: true,
+      system: 'Tu recenses les soirées les plus attendues des grandes villes étudiantes de France. Tu ne rapportes que des soirées réelles trouvées sur une page web (billetterie, club, média).',
+      prompt: `Pour chacune de ces villes : ${villes}, cherche sur Shotgun, DICE, Resident Advisor, les clubs et les médias locaux les 12 soirées les plus attendues par les 18-30 ans entre le ${jour} et le ${fin} (clubs, soirées étudiantes, techno, rap, afro, open airs, festivals). Pour chaque soirée : nom exact, date et heure, lieu, ville, prix minimum, styles, URL de la page de la soirée, URL de l'affiche si tu la vois.` }).catch(() => '');
+    if (!web) continue;
+    try {
+      const r = await ia.json({ config, nom: 'soirees', schema: SCHEMA, gratuit: true,
+        system: "Tu transformes des informations de soirées en données propres. N'invente rien : une soirée sans date ou sans lieu certain est écartée. Dates au fuseau Europe/Paris. Public : les 18-30 ans qui sortent dans les grandes villes de France.",
+        prompt: `Aujourd'hui : ${jour}. Garde les soirées entre ${jour} et ${fin}.\n\n${web}` });
+      for (const e of r.evenements || []) {
+        if (!e.name || isNaN(Date.parse(e.start)) || !e.venue || !e.city || e.confiance < 0.75) continue;
+        evenements.push({ source: 'web', source_site: e.source_site, name: e.name.trim(), start: new Date(e.start).toISOString(), venue: e.venue, city: e.city, address: '',
+          url: /^https?:\/\//.test(e.url) ? e.url : '', image: /^https?:\/\//.test(e.image) ? e.image : '', price: typeof e.price === 'number' ? e.price : null, tags: e.styles || [],
+          description: '', public_cible: e.public_17_30, confiance: e.confiance, verifie: e.confiance >= 0.85, buzz: e.buzz,
+          accroche: typeof e.accroche === 'string' && e.accroche.length <= 120 && !/—/.test(e.accroche) ? e.accroche.trim() : '', instagram: [] });
+      }
+    } catch (err) { log(`  France (${villes}) : mise en forme impossible (${err.message})`); }
+  }
+  if (!evenements.length) return cache;
+  const anciennes = (cache.evenements || []).filter((e) => Date.parse(e.start) > now.getTime() - 6 * 3600e3);
+  const out = { maj: now.toISOString(), evenements: fusionner([...evenements, ...anciennes]) };
+  await writeFile(CACHE_FRANCE, JSON.stringify(out, null, 2));
+  log(`France : ${out.evenements.length} soirée(s) dans ${VILLES_FRANCE.length} villes.`);
+  return out;
 }

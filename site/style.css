@@ -445,3 +445,6 @@ a.vitrine-item:hover{transform:translateY(-3px);border-color:var(--corail)}
 .vitrine-item strong{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .vitrine-item small{opacity:.7}
 .pop-soiree strong a{color:inherit}
+.lieu-initiale{width:56px;height:56px;border-radius:50%;flex:none;background:var(--corail);color:var(--nuit);display:flex;align-items:center;justify-content:center;font-family:var(--titre);font-size:26px}
+.carte-texte.tendance{border-color:#ff5a3c66}
+.puce.actif{background:var(--creme);color:var(--nuit)}

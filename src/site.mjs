@@ -15,6 +15,7 @@ import { fileURLToPath } from 'node:url';
 import { genresList, isTechno } from './genres.mjs';
 import { LANGUES, TXT } from './site-langues.mjs';
 import { STYLES as STYLES_MUSIQUE, PAGES_STYLES, FESTIVALS, RENDEZ_VOUS, PARTENAIRE, AMBASSADEUR, BDE, LEGAL, RE_ETUDIANT, RE_FESTIVAL, SORTIES } from './site-contenus.mjs';
+import { VILLES_FRANCE } from './recherche.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SITE = path.join(ROOT, 'site');
@@ -297,6 +298,61 @@ async function identifierPartenaires(log, { ig = null, api = {} } = {}) {
   return [...logos, ...comptes.filter((c) => !c.fusionne)].filter((x) => x.categorie !== 'personne');
 }
 
+// --- Clubs et bars de la Côte d'Azur et du Var : annuaire (recherche web, partenaires, lieux de l'agenda) et tendance
+// du moment (engagement Instagram récent, surtout les commentaires, et nombre de soirées à venir). Cache : contenus/lieux-nuit.json.
+const LIEUX = path.join(ROOT, 'contenus', 'lieux-nuit.json');
+const TYPES_LIEUX = ['club', 'bar', 'rooftop', 'beach-club', 'bar-a-cocktails', 'pub', 'lounge', 'salle'];
+const ZONES_LIEUX = ['Nice, Villefranche-sur-Mer, Saint-Laurent-du-Var, Cagnes-sur-Mer', 'Cannes, Le Cannet, Mandelieu, Antibes, Juan-les-Pins, Golfe-Juan', 'Monaco, Monte-Carlo, Beausoleil, Menton', 'Toulon, La Seyne-sur-Mer, Hyères, Six-Fours, Sanary, Bandol', 'Fréjus, Saint-Raphaël, Sainte-Maxime, Saint-Tropez, Ramatuelle'];
+async function lieuxDeNuit({ soirees, partenaires, ig, api, log, now }) {
+  const cache = lire(LIEUX, { maj: null, lieux: [], insta: {} });
+  const cle = !!(process.env.GEMINI_API_KEY || '').trim();
+  // 1. Liste des lieux (une fois par semaine).
+  if (cle && (!cache.maj || now - Date.parse(cache.maj) > 7 * 864e5)) {
+    const trouves = [];
+    for (const z of ZONES_LIEUX) {
+      const web = await gemini([{ text: `Liste les boîtes de nuit, bars de nuit, bars à cocktails, rooftops, beach clubs et pubs où sortent les 18-30 ans à ${z} (lieux ouverts actuellement). Pour chacun : nom exact, type, ville, adresse, compte Instagram officiel, site, et en une phrase ce qu'on y trouve (ambiance, musique).` }], { recherche: true });
+      if (!web) continue;
+      const r = await gemini([{ text: `Lieux :\n${web}\n\nRéponds en JSON {"lieux":[{"nom":string,"type":"${TYPES_LIEUX.join('|')}","ville":string,"adresse":string,"instagram":string,"site":string,"description":string}]}. N'invente rien : chaîne vide si inconnu. description : une phrase factuelle en français. Exclus les lieux fermés définitivement.` }]);
+      for (const l of r?.lieux || []) if (l.nom && TYPES_LIEUX.includes(l.type)) trouves.push({ ...l, instagram: String(l.instagram || '').replace(/^.*instagram\.com\//, '').replace(/[/@?].*$/, '').replace(/^@/, '').toLowerCase(), site: /^https?:\/\//.test(l.site || '') ? l.site : '' });
+    }
+    if (trouves.length) { cache.lieux = trouves; cache.maj = now.toISOString(); log(`Site : ${trouves.length} clubs et bars recensés`); }
+  }
+  // 2. On complète avec les partenaires (clubs, bars, rooftops, plages) et les lieux qui ont des soirées à venir.
+  const norm = (x) => sansAccent(x).replace(/\b(le|la|les|l|club|bar|nice|cannes|monaco)\b/g, '').replace(/[^a-z0-9]/g, '');
+  const tous = [...cache.lieux];
+  const trouver = (nom, ville) => tous.find((l) => norm(l.nom) && norm(l.nom) === norm(nom) && (!ville || !l.ville || sansAccent(l.ville).slice(0, 4) === sansAccent(ville).slice(0, 4)));
+  for (const p of partenaires || []) {
+    if (!['club', 'bar', 'rooftop', 'beach-club'].includes(p.categorie)) continue;
+    const l = trouver(p.nom, p.ville);
+    if (l) Object.assign(l, { partenaire: true, instagram: l.instagram || p.instagram, photo: p.fichier }); else tous.push({ nom: p.nom, type: p.categorie, ville: p.ville || '', adresse: p.adresse || '', instagram: p.instagram || '', site: p.site || '', description: p.description || '', partenaire: true, photo: p.fichier });
+  }
+  for (const l of tous) { const ls = soirees.filter((s) => norm(s.lieu) && (norm(s.lieu) === norm(l.nom) || norm(s.lieu).startsWith(norm(l.nom)) || norm(l.nom).startsWith(norm(s.lieu))) && norm(l.nom).length >= 3); l.soirees = ls.map((s) => s.id); l.prochaines = ls.slice(0, 3).map((s) => ({ id: s.id, nom: s.nom })); }
+  // 3. Engagement Instagram récent (40 comptes par passage, gardé 3 jours).
+  if (ig && api.businessDiscovery) {
+    const aMesurer = tous.filter((l) => l.instagram && !(cache.insta[l.instagram] && now - Date.parse(cache.insta[l.instagram].le) < 3 * 864e5))
+      .sort((a, b) => (Date.parse(cache.insta[a.instagram]?.le || 0)) - (Date.parse(cache.insta[b.instagram]?.le || 0))).slice(0, 40);
+    for (const l of aMesurer) {
+      try {
+        const bd = await api.businessDiscovery(l.instagram, ig);
+        const recents = (bd?.media?.data || []).filter((m) => now - Date.parse(m.timestamp) < 21 * 864e5);
+        const moy = (k) => (recents.length ? recents.reduce((a, m) => a + (m[k] || 0), 0) / recents.length : 0);
+        cache.insta[l.instagram] = { le: now.toISOString(), abonnes: bd?.followers_count ?? null, posts21: recents.length, likes: Math.round(moy('like_count')), commentaires: Math.round(moy('comments_count') * 10) / 10, photo: bd?.profile_picture_url || '' };
+      } catch (err) { if (/rate|limit|\(#4\)|\(#32\)/i.test(err.message)) break; cache.insta[l.instagram] = { le: now.toISOString(), absent: true }; }
+    }
+  }
+  // 4. Score « tendance » : commentaires et likes récents (pondérés par l'activité), soirées à venir, buzz de ces soirées.
+  for (const l of tous) {
+    const i = cache.insta[l.instagram] || {};
+    const buzz = Math.max(0, ...l.soirees.map((id) => soirees.find((s) => s.id === id)?.buzz || 0));
+    l.insta = i.absent ? null : i.le ? { abonnes: i.abonnes, likes: i.likes, commentaires: i.commentaires, posts21: i.posts21 } : null;
+    l.score = (l.insta ? Math.log1p(l.insta.commentaires * 4 + l.insta.likes) * Math.min(1, (l.insta.posts21 || 0) / 3) : 0) + 0.8 * Math.log1p(l.soirees.length) + buzz;
+    l.slug = slug(`${l.nom}-${l.ville}`);
+  }
+  await writeFile(LIEUX, JSON.stringify({ maj: cache.maj, lieux: cache.lieux, insta: cache.insta }, null, 1) + '\n');
+  const vus = new Set();
+  return tous.filter((l) => (vus.has(l.slug) ? false : vus.add(l.slug))).sort((a, b) => b.score - a.score);
+}
+
 // --- Traductions : tout le texte français (accroches, descriptions, pages éditoriales, actus) est traduit par l'IA
 // une seule fois par texte et par langue (cache contenus/traductions.json). Sans clé : le français reste affiché.
 const NOMS_LANGUE = { en: 'English', it: 'Italian', es: 'Spanish', zh: 'Simplified Chinese', ar: 'Arabic' };
@@ -343,7 +399,7 @@ function tailleJpeg(f) {
 const PLATEFORMES = { 'shotgun.live': 'Shotgun', 'dice.fm': 'DICE', 'link.dice.fm': 'DICE', 'ra.co': 'Resident Advisor', 'residentadvisor.net': 'Resident Advisor', 'weezevent.com': 'Weezevent', 'billetweb.fr': 'Billetweb', 'eventbrite.fr': 'Eventbrite', 'eventbrite.com': 'Eventbrite', 'helloasso.com': 'HelloAsso', 'feverup.com': 'Fever', 'fnacspectacles.com': 'Fnac Spectacles', 'ticketmaster.fr': 'Ticketmaster', 'seetickets.com': 'See Tickets', 'yurplan.com': 'Yurplan', 'xceed.me': 'Xceed' };
 const nomPlateforme = (u) => { try { const d = new URL(u).hostname.replace(/^www\./, ''); return PLATEFORMES[d] || Object.entries(PLATEFORMES).find(([k]) => d.endsWith(k))?.[1] || d; } catch { return ''; } };
 
-export async function construireSite({ events, hist = [], config = {}, now = new Date(), log = console.log, ig = null, api = {} }) {
+export async function construireSite({ events, eventsFrance = [], hist = [], config = {}, now = new Date(), log = console.log, ig = null, api = {} }) {
   await mkdir(path.join(SITE, 'affiches'), { recursive: true });
   const cache = lire(VERIF, {});
   const fin = now.getTime() + 45 * 864e5;
@@ -354,9 +410,8 @@ export async function construireSite({ events, hist = [], config = {}, now = new
     .filter((e) => { const t = Date.parse(e.start); return t >= debut && t <= fin; })
     .sort((a, b) => a.start.localeCompare(b.start));
 
-  const soirees = [];
   const pris = new Set();
-  for (const e of fiables) {
+  const preparer = async (e, zone) => {
     let affiche = '', dims = null;
     if (e.image) {
       const f = path.join(SITE, 'affiches', `${h(e.image)}.jpg`);
@@ -365,24 +420,31 @@ export async function construireSite({ events, hist = [], config = {}, now = new
         else log(`Site : affiche écartée (ne correspond pas) pour « ${e.name} »`);
       }
     }
-    const ville = VILLES.find((v) => new RegExp(v, 'i').test(`${e.city} ${e.venue}`)) || (RE_VAR.test(`${e.city} ${e.venue} ${e.address || ''}`) ? 'var' : 'autres');
+    const ville = zone === 'france' ? slug(VILLES_FRANCE.find((v) => sansAccent(e.city).includes(sansAccent(v).split('-')[0])) || e.city)
+      : (VILLES.find((v) => new RegExp(v, 'i').test(`${e.city} ${e.venue}`)) || (RE_VAR.test(`${e.city} ${e.venue} ${e.address || ''}`) ? 'var' : 'autres')).toLowerCase();
     let id = `${slug(e.name) || 'soiree'}-${cle(e.start)}`;
     for (let k = 2; pris.has(id); k++) id = `${slug(e.name)}-${cle(e.start)}-${k}`;
     pris.add(id);
     const url = /^https?:\/\//.test(e.url || '') && !/^https?:\/\/[^/]+\/?$/.test(e.url) ? e.url : '';
     const offres = (e.offres || []).filter((o) => o.url).sort((a, b) => (a.prix ?? 1e9) - (b.prix ?? 1e9));
-    soirees.push({
-      id, nom: e.name, debut: e.start, jour: cle(e.start), lieu: e.venue || '', ville: e.city || '', adresse: e.address || '', filtreVille: ville.toLowerCase(),
+    return {
+      id, zone, nom: e.name, debut: e.start, jour: cle(e.start), lieu: e.venue || '', ville: e.city || '', adresse: e.address || '', filtreVille: ville,
       prix: e.price == null ? null : e.price, styles: styleDe(e), genres: genresList(e, 3).join(' · '), techno: isTechno(e), tags: e.tags || [],
       url, affiche, dims, accroche: e.accroche || '', description: e.description || '',
       instagram: (e.instagram || [])[0] || '', buzz: e.buzz ?? null, offres: offres.length >= 2 ? offres : [],
       festival: RE_FESTIVAL.test(`${e.name} ${(e.tags || []).join(' ')}`), etudiant: RE_ETUDIANT.test(`${e.name} ${(e.tags || []).join(' ')} ${e.public_cible || ''}`),
-    });
-  }
+    };
+  };
+  const soirees = [];
+  for (const e of fiables) soirees.push(await preparer(e, 'cote'));
+  // Grandes villes de France : rubrique à part (jamais mélangée à l'agenda de la Côte d'Azur et du Var).
+  const soireesFrance = [];
+  for (const e of (eventsFrance || []).filter((x) => !x.douteux && (x.verifie || (x.confiance ?? 0) >= 0.85)).filter((x) => { const t = Date.parse(x.start); return t >= debut && t <= fin; }).sort((x, y) => x.start.localeCompare(y.start))) soireesFrance.push(await preparer(e, 'france'));
   await writeFile(VERIF, JSON.stringify(cache, null, 1) + '\n');
   await geocoder(soirees, log);
   await aProximite(soirees, log);
   const partenaires = await identifierPartenaires(log, { ig, api });
+  const lieux = await lieuxDeNuit({ soirees, partenaires, ig, api, log, now });
   TR.cache = lire(TRAD, {});
 
   // Derniers posts Instagram du compte (couverture gardée dans media/).
@@ -412,7 +474,8 @@ export async function construireSite({ events, hist = [], config = {}, now = new
       const P = pre(lang);
       const tr = (x) => trad(lang, x);
       const sl = soirees.map((s) => ({ ...s, accroche: tr(s.accroche), description: tr(s.description) }));
-      const ctx = (chemin) => ({ lang, t, tr, chemin, base: '../'.repeat((lang === 'fr' ? 0 : 1) + chemin.split('/').filter(Boolean).length), compte, T, maj: majTexte(t), actus, partenaires });
+      const sf = soireesFrance.map((s) => ({ ...s, accroche: tr(s.accroche) }));
+      const ctx = (chemin) => ({ lang, t, tr, chemin, base: '../'.repeat((lang === 'fr' ? 0 : 1) + chemin.split('/').filter(Boolean).length), compte, T, maj: majTexte(t), actus, partenaires, lieux });
       const ajoute = (chemin, f) => pages.push([`${P}${chemin}`, f(ctx(chemin))]);
       ajoute('', (c) => page({ ...c, soirees: sl, posts, now }));
       ajoute('a-propos/', (c) => aPropos({ ...c, nb: sl.length }));
@@ -427,6 +490,10 @@ export async function construireSite({ events, hist = [], config = {}, now = new
       ajoute('mentions-legales/', (c) => pageLegal(c));
       for (const k of Object.keys(SORTIES).filter((x) => SORTIES[x].filtre)) ajoute(`${k}/`, (c) => pageSorties({ ...c, cleS: k }));
       for (const s of sl) ajoute(`soiree/${s.id}/`, (c) => pageSoiree({ ...c, s, soirees: sl }));
+      for (const s of sf) ajoute(`soiree/${s.id}/`, (c) => pageSoiree({ ...c, s, soirees: sf }));
+      ajoute('france/', (c) => pageFrance({ ...c, soirees: sf }));
+      for (const v of [...new Set(sf.map((x) => x.filtreVille))]) ajoute(`france/${v}/`, (c) => pageFrance({ ...c, soirees: sf.filter((x) => x.filtreVille === v), cleVille: v }));
+      ajoute('clubs-bars/', (c) => pageLieux(c));
     }
     return pages;
   };
@@ -590,7 +657,7 @@ function jsonEvent(s, lang) {
     '@context': 'https://schema.org', '@type': 'Event', name: s.nom, startDate: s.debut, eventStatus: 'https://schema.org/EventScheduled',
     eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode', url: `${URL_SITE}${pre(lang)}soiree/${s.id}/`,
     ...(s.accroche ? { description: s.accroche } : {}),
-    location: { '@type': 'Place', name: s.lieu || s.ville, address: { '@type': 'PostalAddress', ...(s.adresse ? { streetAddress: s.adresse } : {}), addressLocality: s.ville, addressRegion: "Provence-Alpes-Côte d'Azur", addressCountry: /monaco|monte/i.test(s.ville) ? 'MC' : 'FR' }, ...(s.approx === false ? { geo: { '@type': 'GeoCoordinates', latitude: s.lat, longitude: s.lng } } : {}) },
+    location: { '@type': 'Place', name: s.lieu || s.ville, address: { '@type': 'PostalAddress', ...(s.adresse ? { streetAddress: s.adresse } : {}), addressLocality: s.ville, ...(s.zone === 'france' ? {} : { addressRegion: "Provence-Alpes-Côte d'Azur" }), addressCountry: /monaco|monte/i.test(s.ville) ? 'MC' : 'FR' }, ...(s.approx === false ? { geo: { '@type': 'GeoCoordinates', latitude: s.lat, longitude: s.lng } } : {}) },
     ...(s.affiche ? { image: [URL_SITE + s.affiche] } : {}),
     ...(offres.length ? { offers: offres.filter((o) => o.prix != null).map((o) => ({ '@type': 'Offer', price: o.prix, priceCurrency: 'EUR', ...(o.url ? { url: o.url } : {}), availability: 'https://schema.org/InStock' })) } : {}),
     ...(s.instagram ? { organizer: { '@type': 'Organization', name: `@${s.instagram}`, url: `https://www.instagram.com/${s.instagram}/` } } : {}),
@@ -623,7 +690,7 @@ function gabarit({ lang, t, titre, description, chemin, base, corps, ld = [], im
   const handle = compte.replace(/^@/, '');
   const P = pre(lang);
   const accueil = `${base}${P}`;
-  const nav = [['', t.agenda], ...VILLES_SEO.map((v) => [`${v.slug}/`, t.villes[v.cle === 'antibes' ? 'antibesCourt' : v.cle]]), ['#carte', t.carte], ['festivals/', t.festivals], ['dates/', t.dates], ['restaurants/', t.restos], ['activites/', t.activites], ['actus/', t.actus], ['partenaires/', t.partenaires], ['a-propos/', t.qui]];
+  const nav = [['', t.agenda], ...VILLES_SEO.map((v) => [`${v.slug}/`, t.villes[v.cle === 'antibes' ? 'antibesCourt' : v.cle]]), ['#carte', t.carte], ['festivals/', t.festivals], ['clubs-bars/', t.lieuxNav], ['dates/', t.dates], ['restaurants/', t.restos], ['activites/', t.activites], ['actus/', t.actus], ['partenaires/', t.partenaires], ['a-propos/', t.qui]];
   const jsT = { ...t.js, base, langue: lang, locale: t.locale, resultats: t.resultats, aucunRes: t.aucunRes, lienCopie: t.lienCopie, ajouterFav: t.ajouterFav };
   return `<!doctype html>
 <html lang="${lang}" dir="${t.dir}">
@@ -669,7 +736,7 @@ ${corps}
 </main>
 <footer>
   <div class="pied-colonnes">
-    <div><p class="pied-titre">${esc(t.villesL)}</p>${VILLES_SEO.map((v) => `<a href="${accueil}${v.slug}/">${esc(t.villes[v.cle])}</a>`).join('')}<a href="${accueil}festivals/">${esc(t.festivals)}</a><a href="${accueil}dates/">${esc(t.dates)}</a><a href="${accueil}restaurants/">${esc(t.restos)}</a><a href="${accueil}activites/">${esc(t.activites)}</a></div>
+    <div><p class="pied-titre">${esc(t.villesL)}</p>${VILLES_SEO.map((v) => `<a href="${accueil}${v.slug}/">${esc(t.villes[v.cle])}</a>`).join('')}<a href="${accueil}festivals/">${esc(t.festivals)}</a><a href="${accueil}dates/">${esc(t.dates)}</a><a href="${accueil}restaurants/">${esc(t.restos)}</a><a href="${accueil}activites/">${esc(t.activites)}</a><a href="${accueil}clubs-bars/">${esc(t.lieuxNav)}</a><a href="${accueil}france/">${esc(t.franceNav)}</a></div>
     <div><p class="pied-titre">${esc(t.stylesL)}</p>${PAGES_STYLES.map((k) => `<a href="${accueil}soirees-${k}/">${esc(nomStyle(k, t, lang))}</a>`).join('')}</div>
     <div><p class="pied-titre">${esc(t.teufyL)}</p><a href="${accueil}a-propos/">${esc(t.qui)}</a><a href="${accueil}actus/">${esc(t.actus)}</a><a href="${accueil}partenaires/">${esc(t.partenaires)}</a><a href="${accueil}ambassadeurs/">${esc(t.ambassadeurs)}</a><a href="${accueil}bde/">${esc(t.bde)}</a><a href="https://www.instagram.com/${esc(handle)}/" target="_blank" rel="noopener">${esc(compte)}</a></div>
     <div><p class="pied-titre">${esc(t.langue)}</p>${LANGUES.map((l) => `<a href="${base}${pre(l)}${chemin}" hreflang="${l}" lang="${l}">${esc(TXT[l].nom)}</a>`).join('')}</div>
@@ -788,7 +855,12 @@ const heroCourt = ({ base, photo, video, alt, etiquette, h1, p, live = false }) 
   </div>
 </section>`;
 
-function page({ lang, t, base, compte, T, soirees, posts, now, maj, partenaires }) {
+const blocTendance = ({ t, tr, base, lang, lieux }) => {
+  const top = (lieux || []).filter((l) => l.score > 0).slice(0, 3);
+  if (!top.length) return '';
+  return `<section class="bloc-large reveal"><h2>${tr('🔥 Les spots du <em>moment</em>')}</h2><div class="cartes-texte">${top.map((l, i) => carteLieu(l, { t, tr, base, lang }, i, true)).join('')}</div><p class="cta"><a class="bouton contour" href="${base}${pre(lang)}clubs-bars/">${esc(t.lieuxNav)}</a><a class="bouton contour" href="${base}${pre(lang)}france/">${esc(t.franceNav)}</a></p></section>`;
+};
+function page({ lang, t, base, compte, T, soirees, posts, now, maj, partenaires, lieux }) {
   const handle = compte.replace(/^@/, '');
   const semaine = soirees.filter((s) => Date.parse(s.debut) < now.getTime() + 8 * 864e5);
   const vedette = [...semaine].filter((s) => s.affiche && (s.buzz ?? 0) >= 0.7).sort((a, b) => b.buzz - a.buzz)[0];
@@ -811,6 +883,7 @@ ${ceSoir(t)}
 ${vedette ? `<section class="la-plus reveal"><h2 class="etiquette">${esc(t.laPlus)}</h2>${carte(vedette, { t, base, lang, vedette: true })}</section>` : ''}
 ${agenda(soirees, { t, base, lang })}
 ${CODES.length ? `<section class="bloc-large reveal"><h2>${t.bonsPlansH2}</h2><div class="cartes-texte">${CODES.map((c) => `<article class="carte-texte">${blocPromo(c, t, (x) => trad(lang, x))}</article>`).join('')}</div></section>` : ''}
+${blocTendance({ t, tr: (x) => trad(lang, x), base, lang, lieux })}
 ${blocPros(ctx)}
 ${blocTeufy(ctx, soirees.length)}
 ${blocPartenaires(ctx)}
@@ -903,7 +976,7 @@ ${mini(style, esc(t.memeStyle))}
 function yAller(s, t, lieu) {
   const p = s.proches;
   const dist = (m) => t.aPied.replace('{m}', m).replace('{min}', Math.max(1, Math.round(m / 80)));
-  const dest = s.approx ? encodeURIComponent(lieu) : `${s.lat},${s.lng}`;
+  const dest = s.approx || !s.lat ? encodeURIComponent(lieu) : `${s.lat},${s.lng}`;
   const li = (a, b) => `<li><span>${a}</span><small>${b}</small></li>`;
   const parkings = (p?.parkings || []).map((x) => li(esc(x.nom || t.parking), esc([x.type === 'underground' ? t.souterrain : '', x.payant === false ? t.gratuitP : x.payant ? t.payantP : '', dist(x.m)].filter(Boolean).join(' · '))));
   const trans = (p?.transports || []).map((x) => li(`<b class="ligne ${x.type}">${esc(t[x.type])}${x.lignes ? ` ${esc(x.lignes.split(';').slice(0, 3).join(' · '))}` : ''}</b> ${esc(x.nom)}`, esc(dist(x.m))));
@@ -921,7 +994,7 @@ function pageSorties({ lang, t, tr, base, compte, T, chemin, maj, partenaires, c
   const C = SORTIES[cleS], handle = compte.replace(/^@/, '');
   const l = (partenaires || []).filter((p) => p.nom && p.categorie && C.filtre(p));
   const carteP = (p, i) => `<article class="carte-texte lieu" style="--i:${i % 8}">
-    <div class="lieu-tete"><img src="${base}${esc(p.fichier)}" alt="" width="56" height="56" loading="lazy"><div><p class="genre">${esc(tr(SORTIES.categories[p.categorie] || ''))}${p.ville ? ` · ${esc(p.ville)}` : ''}${p.prix ? ` · ${esc(p.prix)}` : ''}</p><h3>${esc(p.nom)}</h3></div></div>
+    <div class="lieu-tete">${p.fichier ? `<img src="${base}${esc(p.fichier)}" alt="" width="56" height="56" loading="lazy">` : `<span class="lieu-initiale">${esc((p.nom[0] || '?').toUpperCase())}</span>`}<div><p class="genre">${esc(tr(SORTIES.categories[p.categorie] || ''))}${p.ville ? ` · ${esc(p.ville)}` : ''}${p.prix ? ` · ${esc(p.prix)}` : ''}</p><h3>${esc(p.nom)}</h3></div></div>
     ${p.description ? `<p>${esc(tr(p.description))}</p>` : ''}
     ${cleS === 'dates' && p.date_raison ? `<p class="petit">♥ ${esc(tr(p.date_raison))}</p>` : ''}
     <p class="lieu-liens">${p.instagram ? `<a class="lien" href="https://www.instagram.com/${esc(p.instagram)}/" target="_blank" rel="noopener">@${esc(p.instagram)}</a>` : ''}${p.site ? `<a class="lien" href="${esc(p.site)}" target="_blank" rel="noopener">${esc(t.siteWeb)}</a>` : ''}${p.adresse || p.ville ? `<a class="lien" href="https://www.google.com/maps/search/?api=1&amp;query=${encodeURIComponent([p.nom, p.adresse, p.ville].filter(Boolean).join(', '))}" target="_blank" rel="noopener">${esc(t.itineraire)}</a>` : ''}</p>
@@ -971,6 +1044,45 @@ function vitrine({ t, tr, base, partenaires }) {
   if (!l.length) return '';
   return `<section class="bloc-large vitrine reveal"><h2>${t.vitrineH2}</h2><p class="avert">${esc(t.vitrineN.replace('{n}', Math.max(l.length, +((partenaires || []).length))))}</p>
   <div class="vitrine-grille">${l.map((p, i) => `<${p.instagram ? `a href="https://www.instagram.com/${esc(p.instagram)}/" target="_blank" rel="noopener"` : 'div'} class="vitrine-item" style="--i:${i % 12}"><img src="${base}${esc(p.fichier)}" alt="" width="64" height="64" loading="lazy"><span><strong>${esc(p.nom)}</strong><small>${esc([p.categorie ? tr(SORTIES.categories[p.categorie] || '') : '', p.ville].filter(Boolean).join(' · '))}</small></span></${p.instagram ? 'a' : 'div'}>`).join('')}</div></section>`;
+}
+
+// Clubs & bars : tendance du moment puis annuaire par ville.
+const TYPES_NOMS = { club: 'Club', bar: 'Bar', rooftop: 'Rooftop', 'beach-club': 'Beach club', 'bar-a-cocktails': 'Bar à cocktails', pub: 'Pub', lounge: 'Lounge', salle: 'Salle de concert' };
+function carteLieu(l, { t, tr, base, lang }, i = 0, tendance = false) {
+  const prochaines = l.prochaines || [];
+  const raison = l.insta && l.insta.posts21 ? `${tr('En ce moment sur Instagram')} : ${l.insta.commentaires} ${tr('commentaires')} · ${l.insta.likes} ${tr('likes en moyenne')}` : '';
+  return `<article class="carte-texte lieu${tendance ? ' tendance' : ''}" id="${esc(l.slug)}" style="--i:${i % 8}" data-type="${esc(l.type)}">
+    <div class="lieu-tete">${l.photo ? `<img src="${base}${esc(l.photo)}" alt="" width="56" height="56" loading="lazy">` : `<span class="lieu-initiale">${esc((l.nom[0] || '?').toUpperCase())}</span>`}<div><p class="genre">${tendance ? `🔥 #${i + 1} · ` : ''}${esc(tr(TYPES_NOMS[l.type] || ''))}${l.ville ? ` · ${esc(l.ville)}` : ''}${l.partenaire ? ` · ${esc(t.partenaires)}` : ''}</p><h3>${esc(l.nom)}</h3></div></div>
+    ${l.description ? `<p>${esc(tr(l.description))}</p>` : ''}
+    ${raison && tendance ? `<p class="petit">${esc(raison)}</p>` : ''}
+    ${prochaines.length ? `<p class="petit">${prochaines.map((x) => `<a href="${base}${pre(lang)}soiree/${x.id}/">${esc(x.nom)}</a>`).join(' · ')}</p>` : ''}
+    <p class="lieu-liens">${l.instagram ? `<a class="lien" href="https://www.instagram.com/${esc(l.instagram)}/" target="_blank" rel="noopener">@${esc(l.instagram)}</a>` : ''}${l.site ? `<a class="lien" href="${esc(l.site)}" target="_blank" rel="noopener">${esc(t.siteWeb)}</a>` : ''}<a class="lien" href="https://www.google.com/maps/search/?api=1&amp;query=${encodeURIComponent([l.nom, l.adresse, l.ville].filter(Boolean).join(', '))}" target="_blank" rel="noopener">${esc(t.itineraire)}</a></p>
+  </article>`;
+}
+function pageLieux({ lang, t, tr, base, compte, T, chemin, maj, lieux }) {
+  const ctx = { t, tr, base, lang };
+  const top = (lieux || []).filter((l) => l.score > 0).slice(0, 6);
+  const parVille = {};
+  for (const l of lieux || []) (parVille[l.ville || tr('Autres')] ||= []).push(l);
+  const villes = Object.keys(parVille).sort((a, b) => parVille[b].length - parVille[a].length);
+  const corps = `${heroCourt({ base, photo: 'lasers', alt: t.lieuxNav, etiquette: t.lieuxNav, h1: tr("Les clubs et bars de la <em>Côte d'Azur</em> et du Var"), p: esc(tr("Boîtes de nuit, bars, rooftops et beach clubs de Nice à Toulon, avec ceux qui font le plus parler d'eux en ce moment.")) })}
+${top.length ? `<section class="bloc-large reveal"><h2>${tr('🔥 Tendance du <em>moment</em>')}</h2><p class="avert">${esc(tr("Classement mis à jour chaque jour : commentaires et likes sur leurs dernières publications Instagram, et soirées à venir dans l'agenda."))}</p><div class="cartes-texte">${top.map((l, i) => carteLieu(l, ctx, i, true)).join('')}</div></section>` : ''}
+<section class="bloc-large reveal"><p class="liens-styles">${villes.map((v) => `<a class="puce" href="#v-${slug(v)}">${esc(v)} · ${parVille[v].length}</a>`).join('')}</p></section>
+${villes.map((v) => `<section class="bloc-large reveal" id="v-${slug(v)}"><h2>${esc(v)}</h2><div class="cartes-texte">${parVille[v].map((l, i) => carteLieu(l, ctx, i)).join('')}</div></section>`).join('\n')}
+${(lieux || []).length ? '' : `<section class="bloc-large"><p class="vide">${esc(tr("L'annuaire se remplit : Teufy recense les clubs et bars de la Côte d'Azur et du Var."))}</p></section>`}`;
+  return gabarit({ lang, t, titre: tr("Clubs et bars de la Côte d'Azur et du Var : les plus tendance en ce moment · Teufy"), description: tr("Toutes les boîtes de nuit, bars, rooftops et beach clubs de Nice, Cannes, Antibes, Monaco, Toulon et Saint-Tropez, et le classement des lieux les plus tendance du moment."), chemin, base, corps, compte, maj,
+    ld: [...ldOrganisation(T, compte, t, lang), fil(lang, [['Teufy', ''], [t.lieuxNav, chemin]]), { '@context': 'https://schema.org', '@type': 'ItemList', itemListElement: (lieux || []).slice(0, 100).map((l, i) => ({ '@type': 'ListItem', position: i + 1, item: { '@type': l.type === 'club' ? 'NightClub' : 'BarOrPub', name: l.nom, ...(l.adresse || l.ville ? { address: { '@type': 'PostalAddress', streetAddress: l.adresse || undefined, addressLocality: l.ville || undefined } } : {}) } })) }] });
+}
+
+// Grandes villes de France : rubrique séparée de l'agenda de la Côte d'Azur et du Var.
+function pageFrance({ lang, t, tr, base, compte, T, chemin, maj, soirees, cleVille }) {
+  const nomVille = cleVille ? (VILLES_FRANCE.find((v) => slug(v) === cleVille) || soirees[0]?.ville || cleVille) : '';
+  const villes = [...new Set(soirees.map((s) => s.filtreVille))];
+  const titre = cleVille ? tr(`Soirées à ${nomVille} : les plus attendues`) : tr('Soirées dans les grandes villes de France');
+  const corps = `${heroCourt({ base, photo: 'foule', alt: titre, etiquette: tr('Ailleurs en France'), h1: cleVille ? tr(`Les soirées à <em>${nomVille}</em>`) : tr('Les soirées des <em>grandes villes</em> de France'), p: esc(tr("Teufy, c'est d'abord la Côte d'Azur et le Var. Ici, les soirées les plus attendues des grandes villes étudiantes, pour quand tu bouges.")) })}
+<section class="bloc-large reveal"><p class="liens-styles">${cleVille ? `<a class="puce" href="${base}${pre(lang)}france/">${esc(tr('Toutes les villes'))}</a>` : ''}${VILLES_FRANCE.filter((v) => villes.includes(slug(v))).map((v) => `<a class="puce${slug(v) === cleVille ? ' actif' : ''}" href="${base}${pre(lang)}france/${slug(v)}/">${esc(v)}</a>`).join('')}<a class="puce" href="${base}${pre(lang)}#agenda">${esc(tr("Côte d'Azur et Var"))}</a></p>
+${soirees.length ? `<div class="grille">${soirees.map((s) => carte(s, { t, base, lang })).join('')}</div>` : `<p class="vide">${esc(tr('Les soirées des grandes villes arrivent : la recherche tourne tous les deux jours.'))}</p>`}</section>`;
+  return gabarit({ lang, t, titre: `${titre} · Teufy`, description: tr("Les soirées les plus attendues à Paris, Lyon, Marseille, Toulouse, Bordeaux, Lille, Nantes, Montpellier, Strasbourg, Rennes, Grenoble et Aix-en-Provence."), chemin, base, corps, compte, maj, ld: [...ldOrganisation(T, compte, t, lang), ...jsonld(soirees, lang)] });
 }
 
 // Pages « pros » : partenaires, ambassadeurs, BDE (texte français traduit par l'IA).

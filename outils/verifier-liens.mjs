@@ -12,6 +12,7 @@ const casses = new Map(); let n = 0;
 for (const p of pages) {
   const html = readFileSync(p, 'utf8');
   const refs = [...html.matchAll(/\s(?:href|src|poster)="([^"]+)"/g)].map((m) => m[1]).concat([...html.matchAll(/\ssrcset="([^"]+)"/g)].flatMap((m) => m[1].split(',').map((x) => x.trim().split(/\s+/)[0])));
+  for (const m of html.matchAll(/\s(?:src|poster)="((?:\.\.\/)*)"/g)) casses.set(`(image sans fichier) « ${m[1]} »  ←  ${path.relative(ROOT, p)}`, true);
   for (let r of refs) {
     if (/^(https?:|mailto:|tel:|data:|#|javascript:)/.test(r) || !r) continue;
     r = r.replace(/&amp;/g, '&').split('#')[0].split('?')[0];

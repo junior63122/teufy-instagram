@@ -426,3 +426,5 @@ const PLUS3 = {
     js: { voirN: 'عرض {n} حفلة', ajoute: 'أضيفت إلى المفضلة ♥', geoRefus: 'تم رفض الموقع: فعّله لرؤية الحفلات القريبة منك.', geoImpossible: 'متصفحك لا يشارك موقعك.', codeCopie: 'تم نسخ الرمز!', carteErreur: 'لم يتم تحميل الخريطة، أعد المحاولة بعد قليل.', fermerX: 'إغلاق' } },
 };
 for (const l of LANGUES) { const { js, ...reste } = PLUS3[l]; Object.assign(TXT[l], reste); Object.assign(TXT[l].js, js); }
+const PLUS4 = { fr: { lieuxNav: 'Clubs & bars', franceNav: 'Ailleurs en France' }, en: { lieuxNav: 'Clubs & bars', franceNav: 'Elsewhere in France' }, it: { lieuxNav: 'Club e bar', franceNav: 'Altrove in Francia' }, es: { lieuxNav: 'Clubs y bares', franceNav: 'Otras ciudades de Francia' }, zh: { lieuxNav: '夜店与酒吧', franceNav: '法国其他城市' }, ar: { lieuxNav: 'نوادٍ وبارات', franceNav: 'مدن أخرى في فرنسا' } };
+for (const l of LANGUES) Object.assign(TXT[l], PLUS4[l]);
