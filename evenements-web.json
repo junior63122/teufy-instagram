@@ -1449,7 +1449,8 @@
         "perreo",
         "latino",
         "Shatta",
-        "Latin Urbain"
+        "Latin Urbain",
+        "Latino"
       ],
       "description": "",
       "public_cible": 0.85,
@@ -1463,7 +1464,21 @@
       ],
       "sources_sites": [
         "Shotgun",
-        "Instagram @mamashelternice"
+        "Instagram @mamashelternice",
+        "instagram.com"
+      ],
+      "via_veille": true,
+      "offres": [
+        {
+          "plateforme": "shotgun.live",
+          "url": "https://shotgun.live/events/jeu-19-nov-ponte-loca-mama-shelter-nice",
+          "prix": 0
+        },
+        {
+          "plateforme": "instagram.com",
+          "url": "https://www.instagram.com/reel/Dfh1bhNODh4/",
+          "prix": null
+        }
       ]
     },
     {
@@ -3495,6 +3510,30 @@
       "accroche": "Veille de férié avec happy hour de 20h à 22h dans le Vieux-Nice.",
       "instagram": [
         "trafalbarnice"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "palaisdesfestivals.com",
+      "via_veille": true,
+      "name": "Cinema for Space : Ouverture avec Thomas Pesquet et Mathieu Kassovitz",
+      "start": "2026-11-19T18:30:00.000Z",
+      "venue": "Palais des Festivals et des Congrès",
+      "city": "Cannes",
+      "address": "",
+      "url": "https://www.palaisdesfestivals.com",
+      "image": "",
+      "price": 7,
+      "tags": [
+        "Conférence",
+        "Cinéma"
+      ],
+      "description": "",
+      "public_cible": 0.6,
+      "confiance": 0.9,
+      "accroche": "Dialogue exclusif entre Thomas Pesquet et Mathieu Kassovitz autour de l'espace au cinéma.",
+      "instagram": [
+        "palaisdesfestivals"
       ]
     }
   ]

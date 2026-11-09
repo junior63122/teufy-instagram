@@ -50,5 +50,22 @@
    "La soirée débutera le vendredi 4 décembre 2026. Les informations relatives à l'ouverture de la billetterie et aux horaires précis sont disponibles sur les canaux officiels de l'organisateur."
   ],
   "ville": "Nice"
+ },
+ {
+  "cle": "2026-11|thomas pesquet et mathieu kassovitz réunis à cannes pour cinema for space",
+  "date": "2026-11-08T10:00:00+01:00",
+  "ajout": "2026-11-09T19:11:44.506Z",
+  "type": "annonce",
+  "importance": 62,
+  "source": "https://www.palaisdesfestivals.com",
+  "image": "",
+  "titre": "Cinema for Space à Cannes : Thomas Pesquet et Mathieu Kassovitz en ouverture",
+  "chapo": "Le Palais des Festivals de Cannes accueille le jeudi 19 novembre 2026 une rencontre exceptionnelle entre Thomas Pesquet et Mathieu Kassovitz pour inaugurer le festival Cinema for Space.",
+  "paragraphes": [
+   "Le festival Cinema for Space revient pour une deuxième édition du 19 au 22 novembre 2026 au Palais des Festivals et des Congrès de Cannes. Cet événement met à l'honneur les œuvres cinématographiques et les créations audiovisuelles consacrées à la conquête spatiale et à l'exploration scientifique.",
+   "Pour sa soirée inaugurale le 19 novembre, l'organisation réunit sur scène l'astronaute Thomas Pesquet et le réalisateur et acteur Mathieu Kassovitz. Tous deux dialogueront en direct face au public sur la manière dont le septième art s'empare des missions spatiales, entre rigueur scientifique et imaginaire fictionnel.",
+   "Les places pour assister à cette ouverture sont accessibles à partir de 7 euros via la billetterie du Palais des Festivals. Le reste du festival propose durant quatre jours des projections grand format et des masterclasses ouvertes aux passionnés comme aux curieux."
+  ],
+  "ville": "Cannes"
  }
 ]
