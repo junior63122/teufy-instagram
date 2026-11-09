@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:slalom-xxl-gros-caissons-gros-son-2026-11-27@teufy
+DTSTAMP:20261109T171924Z
+DTSTART:20261127T225900Z
+DTEND:20261128T035900Z
+SUMMARY:Slalom XXL : Gros Caissons\, Gros Son !
+LOCATION:Slalom\, Lille
+DESCRIPTION:Système son poussé au max et programmation rave techno percutante au Slalom.\nBillets : https://shotgun.live/events/slalom-xxl-gros-caissons-gros-son\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/slalom-xxl-gros-caissons-gros-son
+END:VEVENT
+END:VCALENDAR

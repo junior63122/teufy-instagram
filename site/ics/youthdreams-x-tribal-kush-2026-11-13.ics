@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:youthdreams-x-tribal-kush-2026-11-13@teufy
+DTSTAMP:20261109T171924Z
+DTSTART:20261113T225900Z
+DTEND:20261114T035900Z
+SUMMARY:Youthdreams X Tribal Kush
+LOCATION:L'Espace Club\, Rennes
+DESCRIPTION:Grosse nuit shatta et bouyon avec Tribal Kush aux platines à l'Espace Club.\nBillets : https://shotgun.live/fr/organizers/cartel.bzh\nVia Teufy @teufy_official
+URL:https://shotgun.live/fr/organizers/cartel.bzh
+END:VEVENT
+END:VCALENDAR

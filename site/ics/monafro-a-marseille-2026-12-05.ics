@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:monafro-a-marseille-2026-12-05@teufy
+DTSTAMP:20261109T171924Z
+DTSTART:20261205T200000Z
+DTEND:20261206T010000Z
+SUMMARY:Monafro À Marseille
+LOCATION:O'Warm\, Marseille
+DESCRIPTION:Vibrations afrobeats\, amapiano et afro house chez O'Warm jusqu'à 2h.\nBillets : https://shotgun.live/events/monafro-a-marseille\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/monafro-a-marseille
+END:VEVENT
+END:VCALENDAR

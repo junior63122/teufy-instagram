@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:macadam-10-ans-de-carb-ne-ness-jin-synth-live-caubx-2026-11-14@teufy
+DTSTAMP:20261109T171924Z
+DTSTART:20261114T225900Z
+DTEND:20261115T035900Z
+SUMMARY:Macadam • 10 ans de CARBØNE (Ness\, Jin Synth live\, CAUBX...)
+LOCATION:Macadam\, Nantes
+DESCRIPTION:Le collectif CARBØNE fête ses 10 ans avec Ness et Jin Synth en live modulaire.\nBillets : https://fr.ra.co/events/fr/nantes\nVia Teufy @teufy_official
+URL:https://fr.ra.co/events/fr/nantes
+END:VEVENT
+END:VCALENDAR

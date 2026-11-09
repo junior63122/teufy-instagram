@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:radis-boum-athmos-2026-11-12@teufy
+DTSTAMP:20261109T171924Z
+DTSTART:20261112T183000Z
+DTEND:20261112T233000Z
+SUMMARY:Radis Boum - Athmos
+LOCATION:Le Bar Radis\, Grenoble
+DESCRIPTION:Mix melodic house et techno gratuit au Bar Radis à Grenoble.\nBillets : https://shotgun.live/fr/cities/grenoble/techno\nVia Teufy @teufy_official
+URL:https://shotgun.live/fr/cities/grenoble/techno
+END:VEVENT
+END:VCALENDAR

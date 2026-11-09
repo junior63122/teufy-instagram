@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:festival-solidaire-le-pere-noel-est-il-un-rocker-soiree-pern-2026-11-26@teufy
+DTSTAMP:20261109T171924Z
+DTSTART:20261126T203000Z
+DTEND:20261127T013000Z
+SUMMARY:Festival Solidaire Le Père Noël Est-Il Un Rocker ? (Soirée PernoMix)
+LOCATION:Salle Alain Colas\, Lille
+DESCRIPTION:1 place = 1 jouet neuf pour vibrer techno et hard groove à la Salle Alain Colas.\nBillets : https://shotgun.live/events/festival-solidaire-le-pere-noel-est-il-un-rocker\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/festival-solidaire-le-pere-noel-est-il-un-rocker
+END:VEVENT
+END:VCALENDAR

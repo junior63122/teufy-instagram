@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:folle-de-rage-x-marseille-le-legendaire-aftershow-2026-11-14@teufy
+DTSTAMP:20261109T171924Z
+DTSTART:20261114T223000Z
+DTEND:20261115T033000Z
+SUMMARY:Folle De Rage x Marseille — Le Légendaire Aftershow
+LOCATION:Espace Julien\, Marseille
+DESCRIPTION:La légendaire fête pop et queer Folle De Rage investit l'Espace Julien.\nBillets : https://shotgun.live/events/folle-de-rage-x-marseille-le-legendaire-aftershow\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/folle-de-rage-x-marseille-le-legendaire-aftershow
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:reshape-skee-mask-b2b-vlada-all-night-long-2026-11-21@teufy
+DTSTAMP:20261109T171924Z
+DTSTART:20261121T225900Z
+DTEND:20261122T035900Z
+SUMMARY:reshape - Skee Mask b2b Vlada - all night long
+LOCATION:essaim\, Paris
+DESCRIPTION:B2B inédit all night long entre Skee Mask et Vlada chez essaim.\nBillets : https://ra.co/events/fr/paris\nVia Teufy @teufy_official
+URL:https://ra.co/events/fr/paris
+END:VEVENT
+END:VCALENDAR

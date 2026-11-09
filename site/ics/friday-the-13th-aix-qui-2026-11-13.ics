@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:friday-the-13th-aix-qui-2026-11-13@teufy
+DTSTAMP:20261109T171924Z
+DTSTART:20261113T183000Z
+DTEND:20261113T233000Z
+SUMMARY:Friday The 13th (Aix'Qui?)
+LOCATION:Restaurant Les Arcades\, Aix-en-Provence
+DESCRIPTION:Plateau death metal et sludge pour un vendredi 13 bien lourd aux Arcades.\nBillets : https://shotgun.live/events/friday-the-13th-tortured-sacrament-moriibund-mezcal-wizard\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/friday-the-13th-tortured-sacrament-moriibund-mezcal-wizard
+END:VEVENT
+END:VCALENDAR

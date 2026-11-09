@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:encore-x-halfpipe-records-diffrent-riria-saidah-et-more-2026-11-27@teufy
+DTSTAMP:20261109T171924Z
+DTSTART:20261127T223000Z
+DTEND:20261128T033000Z
+SUMMARY:Encore X Halfpipe Records : Diffrent\, Riria\, Saidah & More
+LOCATION:Le Petit Salon\, Lyon
+DESCRIPTION:Encore invite Halfpipe Records pour une session UK garage et breaks.\nBillets : https://www.lpslyon.fr/programmation/\nVia Teufy @teufy_official
+URL:https://www.lpslyon.fr/programmation/
+END:VEVENT
+END:VCALENDAR

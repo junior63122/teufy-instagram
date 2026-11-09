@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:zapravka-a-bordeaux-2026-12-04@teufy
+DTSTAMP:20261109T171924Z
+DTSTART:20261204T223000Z
+DTEND:20261205T033000Z
+SUMMARY:Zapravka à Bordeaux
+LOCATION:Hangar DS\, Bordeaux
+DESCRIPTION:Ambiance rave industrielle sans concession au Hangar DS avec le crew Zapravka.\nBillets : https://shotgun.live/events/zapravka-a-bordeaux\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/zapravka-a-bordeaux
+END:VEVENT
+END:VCALENDAR

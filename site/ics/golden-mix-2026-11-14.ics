@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:golden-mix-2026-11-14@teufy
+DTSTAMP:20261109T171924Z
+DTSTART:20261114T193000Z
+DTEND:20261115T003000Z
+SUMMARY:Golden Mix
+LOCATION:Le Grand Bain\, Rennes
+DESCRIPTION:Entrée gratuite et mix pop house rap shatta au Grand Bain à Rennes.\nBillets : https://shotgun.live/events/golden-mix\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/golden-mix
+END:VEVENT
+END:VCALENDAR

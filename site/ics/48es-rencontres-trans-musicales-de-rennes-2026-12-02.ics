@@ -1,0 +1,14 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:48es-rencontres-trans-musicales-de-rennes-2026-12-02@teufy
+DTSTAMP:20261109T171924Z
+DTSTART:20261202T170000Z
+DTEND:20261202T220000Z
+SUMMARY:48es Rencontres Trans Musicales de Rennes
+LOCATION:Parc des Expositions de Rennes & Salle de la Cité\, Rennes
+DESCRIPTION:Le rendez-vous incontournable des musiques actuelles et découvertes à Rennes.\nVia Teufy @teufy_official
+END:VEVENT
+END:VCALENDAR

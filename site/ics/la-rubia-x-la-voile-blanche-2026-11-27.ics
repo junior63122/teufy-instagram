@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:la-rubia-x-la-voile-blanche-2026-11-27@teufy
+DTSTAMP:20261109T171924Z
+DTSTART:20261127T190000Z
+DTEND:20261128T000000Z
+SUMMARY:La Rubia X La Voile Blanche
+LOCATION:Complexe La Voile Blanche\, Toulouse
+DESCRIPTION:Ambiance 100% perreo et reggaeton old school aux platines de La Voile Blanche.\nBillets : https://shotgun.live/events/la-rubia-x-la-voile-blanche\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/la-rubia-x-la-voile-blanche
+END:VEVENT
+END:VCALENDAR

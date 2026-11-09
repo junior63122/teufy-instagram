@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:1kr-invite-area-ne-2026-12-05@teufy
+DTSTAMP:20261109T171924Z
+DTSTART:20261205T210000Z
+DTEND:20261206T020000Z
+SUMMARY:1KR Invite AREA ØNE
+LOCATION:Studio Saglio\, Strasbourg
+DESCRIPTION:Hard bounce\, acid et psytrance au Studio Saglio avec le crew Area Øne.\nBillets : https://shotgun.live/fr/events/1-kr-invite-area-one\nVia Teufy @teufy_official
+URL:https://shotgun.live/fr/events/1-kr-invite-area-one
+END:VEVENT
+END:VCALENDAR

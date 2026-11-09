@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:sombrelectro-edition-100-live-2026-11-15@teufy
+DTSTAMP:20261109T171924Z
+DTSTART:20261115T180000Z
+DTEND:20261115T230000Z
+SUMMARY:Sombrelectro Édition 100% Live
+LOCATION:Les Sarrazins\, Lille
+DESCRIPTION:Live A/V sombre et synthétique en entrée libre au coeur de Wazemmes.\nBillets : https://shotgun.live/events/sombrelectro-editon-100-live\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/sombrelectro-editon-100-live
+END:VEVENT
+END:VCALENDAR

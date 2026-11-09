@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:mezigue-all-night-long-2026-12-05@teufy
+DTSTAMP:20261109T171924Z
+DTSTART:20261205T225900Z
+DTEND:20261206T035900Z
+SUMMARY:Mézigue All Night Long
+LOCATION:Le Trabendo\, Paris
+DESCRIPTION:Mézigue prend les commandes du Trabendo toute la nuit jusqu'à 6h.\nBillets : https://shotgun.live/events/mezigue-all-night-long\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/mezigue-all-night-long
+END:VEVENT
+END:VCALENDAR

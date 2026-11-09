@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:little-big-european-tour-2026-11-09@teufy
+DTSTAMP:20261109T171924Z
+DTSTART:20261109T180000Z
+DTEND:20261109T230000Z
+SUMMARY:Little Big - European Tour
+LOCATION:La Rayonne\, Lyon
+DESCRIPTION:Le show survolté de Little Big en live à La Rayonne pour leur tournée.\nBillets : https://shotgun.live/fr/events/little-big-lyon-09-11\nVia Teufy @teufy_official
+URL:https://shotgun.live/fr/events/little-big-lyon-09-11
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:jest-6-jamais-d-eux-sans-toi-2026-11-25@teufy
+DTSTAMP:20261109T171924Z
+DTSTART:20261125T170000Z
+DTEND:20261125T220000Z
+SUMMARY:JEST #6 : Jamais d'Eux Sans Toi
+LOCATION:Friche la Belle de Mai\, Marseille
+DESCRIPTION:Performances électro hybride et live expérimental à la Friche la Belle de Mai.\nBillets : https://www.lafriche.org/agenda/\nVia Teufy @teufy_official
+URL:https://www.lafriche.org/agenda/
+END:VEVENT
+END:VCALENDAR

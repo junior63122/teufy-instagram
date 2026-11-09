@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:out-iii-2026-11-10@teufy
+DTSTAMP:20261109T171924Z
+DTSTART:20261110T220000Z
+DTEND:20261111T030000Z
+SUMMARY:Out - III
+LOCATION:Mama Shelter Toulouse\, Toulouse
+DESCRIPTION:Veille de jour férié au Mama Shelter avec Alex Luciano et Alarcor aux platines.\nBillets : https://shotgun.live/events/out-iii\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/out-iii
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:conexao-tropical-aniversario-brunno-2026-11-28@teufy
+DTSTAMP:20261109T171924Z
+DTSTART:20261128T190000Z
+DTEND:20261129T000000Z
+SUMMARY:Conexão Tropical + Aniversario Brunno
+LOCATION:Chiringuito\, Aix-en-Provence
+DESCRIPTION:Fiesta latino avec baile funk et reggaeton gratuit avant 21h au Chiringuito.\nBillets : https://shotgun.live/events/conexao-tropical-aniversario-brunno\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/conexao-tropical-aniversario-brunno
+END:VEVENT
+END:VCALENDAR

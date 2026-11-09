@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:rawww-djiro-x-jok-os-2026-11-09@teufy
+DTSTAMP:20261109T171924Z
+DTSTART:20261109T190000Z
+DTEND:20261110T000000Z
+SUMMARY:Rawww : Djiro X Jok'os
+LOCATION:La Bulle Café\, Lille
+DESCRIPTION:Scène ouverte rap et émergence à La Bulle Café avec Djiro et Jok'os.\nBillets : https://shotgun.live/events/rawww-djiro-x-jok-os-a-la-bulle-cafe\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/rawww-djiro-x-jok-os-a-la-bulle-cafe
+END:VEVENT
+END:VCALENDAR

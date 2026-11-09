@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:la-joya-x-le-grand-bazar-part-3-2026-11-10@teufy
+DTSTAMP:20261109T171924Z
+DTSTART:20261110T225900Z
+DTEND:20261111T035900Z
+SUMMARY:La Joya X Le Grand Bazar Part. 3
+LOCATION:Le Grand Bazar\, Montpellier
+DESCRIPTION:Veille de férié tech house et afro house dans l'intimité du Grand Bazar.\nBillets : https://shotgun.live/fr/events/la-joya-x-le-grand-bazar-part-3\nVia Teufy @teufy_official
+URL:https://shotgun.live/fr/events/la-joya-x-le-grand-bazar-part-3
+END:VEVENT
+END:VCALENDAR

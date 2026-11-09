@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:la-maskarade-invite-giammarco-orsini-2026-11-21@teufy
+DTSTAMP:20261109T171924Z
+DTSTART:20261121T225500Z
+DTEND:20261122T035500Z
+SUMMARY:La Maskarade invite Giammarco Orsini
+LOCATION:Bien Public\, Bordeaux
+DESCRIPTION:Le selector italien Giammarco Orsini prend le contrôle du sound system du Bien Public.\nBillets : https://ra.co/events/fr/bordeaux\nVia Teufy @teufy_official
+URL:https://ra.co/events/fr/bordeaux
+END:VEVENT
+END:VCALENDAR

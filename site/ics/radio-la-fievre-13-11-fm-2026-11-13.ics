@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:radio-la-fievre-13-11-fm-2026-11-13@teufy
+DTSTAMP:20261109T171924Z
+DTSTART:20261113T220000Z
+DTEND:20261114T030000Z
+SUMMARY:Radio La Fièvre 13.11 Fm
+LOCATION:Austra Rocks Grenoble\, Saint-Martin-d'Hères
+DESCRIPTION:Vibrations jersey club\, miami bass et shatta à l'Austra Rocks.\nBillets : https://shotgun.live/events/radio-la-fievre-13-11-fm\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/radio-la-fievre-13-11-fm
+END:VEVENT
+END:VCALENDAR

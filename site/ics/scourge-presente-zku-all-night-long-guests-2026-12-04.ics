@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:scourge-presente-zku-all-night-long-guests-2026-12-04@teufy
+DTSTAMP:20261109T171924Z
+DTSTART:20261204T220000Z
+DTEND:20261205T030000Z
+SUMMARY:Scourge Présente : Zku All Night Long + Guests
+LOCATION:Drak-Art\, Grenoble
+DESCRIPTION:Zku en all night long pour une session hardcore et uptempo au Drak-Art.\nBillets : https://shotgun.live/events/scourge-presente-zku-all-night-long-guests\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/scourge-presente-zku-all-night-long-guests
+END:VEVENT
+END:VCALENDAR

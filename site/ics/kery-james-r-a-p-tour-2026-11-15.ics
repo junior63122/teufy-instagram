@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:kery-james-r-a-p-tour-2026-11-15@teufy
+DTSTAMP:20261109T171924Z
+DTSTART:20261115T193000Z
+DTEND:20261116T003000Z
+SUMMARY:Kery James : R.A.P Tour
+LOCATION:6MIC\, Aix-en-Provence
+DESCRIPTION:Légende du rap français en live au 6MIC pour le R.A.P Tour.\nBillets : https://shotgun.live/events/kery-james\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/kery-james
+END:VEVENT
+END:VCALENDAR

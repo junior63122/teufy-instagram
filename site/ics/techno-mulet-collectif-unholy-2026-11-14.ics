@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:techno-mulet-collectif-unholy-2026-11-14@teufy
+DTSTAMP:20261109T171924Z
+DTSTART:20261114T200000Z
+DTEND:20261115T010000Z
+SUMMARY:Techno Mulet (Collectif Unholy)
+LOCATION:Les Grands Gamins\, Rennes
+DESCRIPTION:Session hard techno et acidcore gratuite avec le collectif Unholy.\nBillets : https://shotgun.live/events/techno-mulet\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/techno-mulet
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:this-is-rave-y2k-edition-jeff-bisous-pix-et-more-2026-11-21@teufy
+DTSTAMP:20261109T171924Z
+DTSTART:20261121T223000Z
+DTEND:20261122T033000Z
+SUMMARY:This Is Rave (Y2K Edition) : Jeff Bisous\, Pix & More
+LOCATION:Le Petit Salon\, Lyon
+DESCRIPTION:Retour aux années 2000 avec Eurodance et trance vintage au Petit Salon.\nBillets : https://www.lpslyon.fr/programmation/\nVia Teufy @teufy_official
+URL:https://www.lpslyon.fr/programmation/
+END:VEVENT
+END:VCALENDAR

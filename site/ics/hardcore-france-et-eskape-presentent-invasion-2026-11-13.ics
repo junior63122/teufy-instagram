@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:hardcore-france-et-eskape-presentent-invasion-2026-11-13@teufy
+DTSTAMP:20261109T171924Z
+DTSTART:20261113T225900Z
+DTEND:20261114T035900Z
+SUMMARY:Hardcore France & Eskape présentent INVASION
+LOCATION:Warehouse\, Nantes
+DESCRIPTION:Grosse nuit hardcore au Warehouse avec Unicorn on Ketamine et Billx aux platines.\nBillets : https://fr.ra.co/events/fr/nantes\nVia Teufy @teufy_official
+URL:https://fr.ra.co/events/fr/nantes
+END:VEVENT
+END:VCALENDAR

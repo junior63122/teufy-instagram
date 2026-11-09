@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:byji-2026-11-28@teufy
+DTSTAMP:20261109T171924Z
+DTSTART:20261128T190000Z
+DTEND:20261129T000000Z
+SUMMARY:Byji
+LOCATION:Le 360 Rennes\, Rennes
+DESCRIPTION:Plateau rap avec Saki225 et Luvlunatik sur scène au 360 Rennes.\nBillets : https://shotgun.live/events/byji\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/byji
+END:VEVENT
+END:VCALENDAR

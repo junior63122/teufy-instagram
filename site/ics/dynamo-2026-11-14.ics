@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:dynamo-2026-11-14@teufy
+DTSTAMP:20261109T171924Z
+DTSTART:20261114T225900Z
+DTEND:20261115T035900Z
+SUMMARY:Dynamo
+LOCATION:Rockstore\, Montpellier
+DESCRIPTION:Le samedi clubbing du Rockstore pour danser sur les classiques house et électro.\nBillets : https://shotgun.live/fr/events/dynamo-3\nVia Teufy @teufy_official
+URL:https://shotgun.live/fr/events/dynamo-3
+END:VEVENT
+END:VCALENDAR

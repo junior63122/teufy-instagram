@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:ra25-paris-joe-claussell-b2b-ron-trent-open-to-close-2026-11-12@teufy
+DTSTAMP:20261109T171924Z
+DTSTART:20261112T220000Z
+DTEND:20261113T030000Z
+SUMMARY:RA25: Paris : Joe Claussell b2b Ron Trent - Open to close
+LOCATION:essaim\, Paris
+DESCRIPTION:Légendes de la deep house réunies pour un marathon open to close.\nBillets : https://ra.co/events/fr/paris\nVia Teufy @teufy_official
+URL:https://ra.co/events/fr/paris
+END:VEVENT
+END:VCALENDAR

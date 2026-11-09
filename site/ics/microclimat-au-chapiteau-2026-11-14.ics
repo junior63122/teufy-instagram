@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:microclimat-au-chapiteau-2026-11-14@teufy
+DTSTAMP:20261109T171924Z
+DTSTART:20261114T210000Z
+DTEND:20261115T020000Z
+SUMMARY:Microclimat Au Chapiteau !
+LOCATION:Le Chapiteau\, Marseille
+DESCRIPTION:Ambiance acid\, house et bass music au Chapiteau pour la soirée Microclimat.\nBillets : https://shotgun.live/events/microclimat-au-chapiteau\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/microclimat-au-chapiteau
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:plavace-5-ans-w-8ruki-zed-et-th-2026-11-10@teufy
+DTSTAMP:20261109T171924Z
+DTSTART:20261110T173000Z
+DTEND:20261110T223000Z
+SUMMARY:Plavace 5 Ans w/ 8ruki\, Zed & TH
+LOCATION:Le Transbordeur\, Lyon
+DESCRIPTION:Les 5 ans de Plavace au Transbordeur avec 8ruki\, Zed et TH sur scène.\nBillets : https://shotgun.live/events/plavace-5-ans-w-8-ruki-zed-th\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/plavace-5-ans-w-8-ruki-zed-th
+END:VEVENT
+END:VCALENDAR

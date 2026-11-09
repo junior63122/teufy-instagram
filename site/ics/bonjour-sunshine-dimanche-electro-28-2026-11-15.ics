@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:bonjour-sunshine-dimanche-electro-28-2026-11-15@teufy
+DTSTAMP:20261109T171924Z
+DTSTART:20261115T140000Z
+DTEND:20261115T190000Z
+SUMMARY:Bonjour Sunshine - Dimanche Électro #28
+LOCATION:Péniche Frankielanuit!\, Toulouse
+DESCRIPTION:Day party house et techno mélodique sur péniche de 15h à 22h le dimanche.\nBillets : https://shotgun.live/events/bonjour-shunshine-de-28\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/bonjour-shunshine-de-28
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:name-festival-local-suicide-apm001-blac-2026-11-13@teufy
+DTSTAMP:20261109T171924Z
+DTSTART:20261113T210000Z
+DTEND:20261114T020000Z
+SUMMARY:NAME Festival : Local Suicide\, APM001\, Blac
+LOCATION:Bazaar St-So\, Lille
+DESCRIPTION:Le NAME Festival investit le Bazaar St-So avec Local Suicide et APM001.\nBillets : https://ra.co/events/fr/lille\nVia Teufy @teufy_official
+URL:https://ra.co/events/fr/lille
+END:VEVENT
+END:VCALENDAR

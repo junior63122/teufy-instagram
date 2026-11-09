@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:super8-cartel-bzh-2026-11-14@teufy
+DTSTAMP:20261109T171924Z
+DTSTART:20261114T190000Z
+DTEND:20261115T000000Z
+SUMMARY:Super8 × Cartel BZH
+LOCATION:L'Étage (Le Liberté)\, Rennes
+DESCRIPTION:Plateau rap et électro à L'Étage avec notinbed\, Surprise et Coeurco.\nBillets : https://shotgun.live/events/super8-rennes\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/super8-rennes
+END:VEVENT
+END:VCALENDAR

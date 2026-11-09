@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:stand-high-patrol-marina-p-et-the-radiators-2026-11-27@teufy
+DTSTAMP:20261109T171924Z
+DTSTART:20261127T190000Z
+DTEND:20261128T000000Z
+SUMMARY:Stand High Patrol + Marina P & The Radiators
+LOCATION:La Laiterie\, Strasbourg
+DESCRIPTION:Stand High Patrol et Marina P débarquent à La Laiterie avec leurs basses dub.\nBillets : https://shotgun.live/fr/events/stand-high-patrol-marina-p-the-radiators-la-laiterie\nVia Teufy @teufy_official
+URL:https://shotgun.live/fr/events/stand-high-patrol-marina-p-the-radiators-la-laiterie
+END:VEVENT
+END:VCALENDAR

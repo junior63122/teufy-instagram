@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:after-mac-3-tezaccore-x-noctalys-2026-11-19@teufy
+DTSTAMP:20261109T171924Z
+DTSTART:20261119T230000Z
+DTEND:20261120T040000Z
+SUMMARY:After MAC 3 : TezaCCore X Noctalys
+LOCATION:L'Entrepôt Bordeaux\, Bordeaux
+DESCRIPTION:Nuit sombre et survitaminée à L'Entrepôt avec Miss Pepper et une équipe hard techno.\nBillets : https://shotgun.live/events/after-mac-3-tezaccore-x-noctalys\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/after-mac-3-tezaccore-x-noctalys
+END:VEVENT
+END:VCALENDAR

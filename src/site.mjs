@@ -560,7 +560,7 @@ export async function construireSite({ events, eventsFrance = [], hist = [], con
     await writeFile(path.join(ROOT, dossier, 'index.html'), html);
   }
   await writeFile(path.join(ROOT, '404.html'), page404(TXT.fr));
-  await ics(soirees, compte);
+  await ics([...soirees, ...soireesFrance.filter((x) => !soirees.some((s) => s.id === x.id))], compte); // pages France aussi (bouton « Ajouter au calendrier »)
 
   const jourIso = new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Paris' }).format(now);
   const chemins = [...new Set(pages.map(([d]) => d.replace(/^(en|it|es|zh|ar)\//, '')))];

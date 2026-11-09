@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:sound-of-karmen-danilo-plessow-mcde-orele-phil-2026-12-04@teufy
+DTSTAMP:20261109T171924Z
+DTSTART:20261204T220000Z
+DTEND:20261205T030000Z
+SUMMARY:Sound Of Karmen [Danilo Plessow (MCDE)\, Orele\, Phil]
+LOCATION:Karmen Camina\, Strasbourg
+DESCRIPTION:Danilo Plessow alias MCDE distille ses sélections deep house et soul au Camina.\nBillets : https://shotgun.live/fr/events/sound-of-karmen-danilo-plessow-mcde-orele-phil\nVia Teufy @teufy_official
+URL:https://shotgun.live/fr/events/sound-of-karmen-danilo-plessow-mcde-orele-phil
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:wild-konnexion-vii-2026-11-21@teufy
+DTSTAMP:20261109T171924Z
+DTSTART:20261121T220000Z
+DTEND:20261122T030000Z
+SUMMARY:Wild:Konnexion VII
+LOCATION:Drak-Art\, Grenoble
+DESCRIPTION:Septième édition Wild Konnexion entre acidcore et psytrance au Drak-Art.\nBillets : https://shotgun.live/venues/drak-art\nVia Teufy @teufy_official
+URL:https://shotgun.live/venues/drak-art
+END:VEVENT
+END:VCALENDAR

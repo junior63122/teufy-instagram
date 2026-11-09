@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:zone6-guerta-et-sheldon-2026-11-12@teufy
+DTSTAMP:20261109T171924Z
+DTSTART:20261112T193000Z
+DTEND:20261113T003000Z
+SUMMARY:Zone6 - Guerta et Sheldon
+LOCATION:6MIC\, Aix-en-Provence
+DESCRIPTION:Sheldon et Guerta réunis sur la scène du 6MIC pour la soirée Zone6.\nBillets : https://shotgun.live/events/zone-6-guerta-et-sheldon\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/zone-6-guerta-et-sheldon
+END:VEVENT
+END:VCALENDAR

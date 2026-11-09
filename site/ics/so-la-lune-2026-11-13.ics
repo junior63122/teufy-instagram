@@ -1,0 +1,14 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:so-la-lune-2026-11-13@teufy
+DTSTAMP:20261109T171924Z
+DTSTART:20261113T190000Z
+DTEND:20261114T000000Z
+SUMMARY:So La Lune
+LOCATION:Espace Julien\, Marseille
+DESCRIPTION:So La Lune en concert live à l'Espace Julien pour un show rap intense.\nVia Teufy @teufy_official
+END:VEVENT
+END:VCALENDAR
