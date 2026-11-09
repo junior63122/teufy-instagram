@@ -397,7 +397,7 @@ html{overflow-x:clip}
 .y-aller li{display:flex;justify-content:space-between;gap:12px;align-items:baseline;border-top:1px solid #ffffff12;padding-top:6px}
 .y-aller small{opacity:.75;white-space:nowrap}
 .ligne{display:inline-block;font-size:12px;font-weight:800;border-radius:6px;padding:2px 7px;margin-inline-end:6px;background:#ffffff1f}
-.ligne.tram{background:#2b6cff;color:#fff}.ligne.train{background:var(--creme);color:var(--nuit)}.ligne.bus{background:#1a9b4f;color:#fff}.ligne.velo{background:#ffc93c;color:var(--nuit)}.ligne.taxi{background:#ffd600;color:var(--nuit)}
+.ligne.tram{background:#1f5be0;color:#fff}.ligne.train{background:var(--creme);color:var(--nuit)}.ligne.bus{background:#127a3c;color:#fff}.ligne.velo{background:#ffc93c;color:var(--nuit)}.ligne.taxi{background:#ffd600;color:var(--nuit)}
 .y-note{font-size:13px;opacity:.75}
 /* Rubriques sorties (partenaires) */
 .lieu-tete{display:flex;gap:14px;align-items:center}
@@ -409,7 +409,7 @@ html{overflow-x:clip}
 .hero-recherche{max-width:min(620px,100%)}
 .hero-recherche .recherche{min-width:0}
 .diaporama{position:absolute;inset:0;z-index:-2}
-.diaporama .hero-photo{opacity:0;animation:diapo 30s infinite,zoom 22s ease-in-out infinite alternate;animation-delay:calc(var(--i) * 6s),0s}
+.diaporama .hero-photo{opacity:0;animation:diapo 30s infinite,zoom 22s ease-in-out infinite alternate;animation-delay:calc(var(--i) * 6s - 1.5s),0s}
 .diaporama .hero-photo:first-child{opacity:1}
 @keyframes diapo{0%{opacity:0}4%{opacity:1}20%{opacity:1}24%{opacity:0}100%{opacity:0}}
 html.bloque,html.bloque body{overflow:hidden}
@@ -448,3 +448,4 @@ a.vitrine-item:hover{transform:translateY(-3px);border-color:var(--corail)}
 .lieu-initiale{width:56px;height:56px;border-radius:50%;flex:none;background:var(--corail);color:var(--nuit);display:flex;align-items:center;justify-content:center;font-family:var(--titre);font-size:26px}
 .carte-texte.tendance{border-color:#ff5a3c66}
 .puce.actif{background:var(--creme);color:var(--nuit)}
+.diaporama img[data-src]:not([src]){visibility:hidden}

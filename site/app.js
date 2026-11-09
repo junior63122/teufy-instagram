@@ -350,6 +350,9 @@
     jouer();
   });
 
+  // Diaporama de l'accueil : les photos suivantes se chargent une fois la page affichée (la première arrive plus vite).
+  addEventListener('load', () => setTimeout(() => document.querySelectorAll('.diaporama img[data-src]').forEach((i) => { if (i.dataset.srcset) i.srcset = i.dataset.srcset; i.src = i.dataset.src; }), 1500));
+
   // --- Démarrage -----------------------------------------------------------------------------------------------
   const q0 = new URLSearchParams(location.search).get('q');
   if (q0 && champs.length) { champs.forEach((c) => { c.value = q0; const x = c.parentElement.querySelector('.effacer'); if (x) x.hidden = false; }); etat.qBrut = q0; etat.q = norm(q0); if (agenda) setTimeout(() => agenda.scrollIntoView(), 60); }

@@ -868,7 +868,7 @@ function page({ lang, t, base, compte, T, soirees, posts, now, maj, partenaires,
   const populaires = PAGES_STYLES.filter((k) => soirees.some((s) => s.styles.includes(k)));
   const faq = t.faqHome;
   const corps = `<section class="hero">
-  <div class="diaporama" aria-hidden="true">${DIAPORAMA.map((f, i) => image(base, `site/img/${f}.jpg`, { attrs: `class="hero-photo" style="--i:${i}"${i ? ' loading="lazy"' : ' fetchpriority="high"'}` })).join('')}</div>
+  <div class="diaporama" aria-hidden="true">${DIAPORAMA.map((f, i) => { const img = image(base, `site/img/${f}.jpg`, { sizes: '100vw', attrs: `class="hero-photo" style="--i:${i}"${i ? '' : ' fetchpriority="high"'}` }); return i ? img.replace(' src="', ' data-src="').replace(' srcset="', ' data-srcset="') : img; }).join('')}</div>
   <div class="hero-texte">
     <p class="etiquette">${esc(t.heroEtiquette)}</p>
     <h1>${t.heroH1}</h1>
