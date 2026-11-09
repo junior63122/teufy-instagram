@@ -42,5 +42,27 @@
   "resume": "Radio Monaco a dévoilé les détails de la formule scénique Vanetty and Friends attendue au Stockfish à Nice. Le concept réunit sur scène le DJ résident Vanetty, des chanteurs en direct et des producteurs azuréens comme Axelino avec un remix inédit Melodic House.",
   "source": "https://radio-monaco.com",
   "importance": 58
+ },
+ {
+  "id": "idee-1xyjkn3",
+  "ajout": "2026-11-09T18:41:43.660Z",
+  "type": "annonce",
+  "format": "post-annonce",
+  "titre": "Acid Pauli programmé au Frigo 16 par REF",
+  "angle": "Une nuit house hypnotique et pointue avec une figure internationale de la musique électronique au 109.",
+  "resume": "Le collectif REF a dévoilé la programmation de sa 18e session prévue le vendredi 4 décembre 2026 au Frigo 16 à Nice. Le producteur allemand Acid Pauli sera la tête d'affiche aux côtés d'Emma Amrane.",
+  "source": "https://www.instagram.com/p/Dfh7SsTDHaB/",
+  "importance": 66
+ },
+ {
+  "id": "idee-1dg9oj8",
+  "ajout": "2026-11-09T18:41:43.660Z",
+  "type": "actu",
+  "format": "carrousel-decryptage",
+  "titre": "Coup de rabot de 20 millions d'euros sur le Pass Culture",
+  "angle": "Moins de budget public pour réserver ses places de concert et festivals via l'application.",
+  "resume": "Les acteurs du spectacle vivant alertent sur une réduction de 20 millions d'euros des crédits alloués au Pass Culture dans le projet de budget. Cette baisse fait craindre un recul de l'accès aux concerts et festivals pour les 17 à 20 ans.",
+  "source": "https://coupsdoeil.fr",
+  "importance": 60
  }
 ]

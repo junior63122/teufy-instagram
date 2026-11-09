@@ -983,7 +983,10 @@
         "minimal",
         "Psychedelic House",
         "Ambient Techno",
-        "Organic"
+        "Organic",
+        "House",
+        "Ambient",
+        "Musique électronique"
       ],
       "description": "",
       "public_cible": 0.9,
@@ -1004,7 +1007,21 @@
         "Shotgun Live / Panda Events",
         "Shotgun.live",
         "Shotgun / Panda Events",
-        "Resident Advisor"
+        "Resident Advisor",
+        "instagram.com"
+      ],
+      "via_veille": true,
+      "offres": [
+        {
+          "plateforme": "shotgun.live",
+          "url": "https://shotgun.live/events/ref-session-18-acid-pauli-frigo-16",
+          "prix": 12.49
+        },
+        {
+          "plateforme": "instagram.com",
+          "url": "https://www.instagram.com/p/Dfh7SsTDHaB/",
+          "prix": null
+        }
       ]
     },
     {
@@ -2543,7 +2560,8 @@
         "hardcore",
         "Hardcore",
         "Hard Bounce",
-        "Hard Techno"
+        "Hard Techno",
+        "Bounce"
       ],
       "description": "",
       "public_cible": 0.9,
@@ -2558,7 +2576,21 @@
       ],
       "sources_sites": [
         "Shotgun.live",
-        "Shotgun"
+        "Shotgun",
+        "instagram.com"
+      ],
+      "via_veille": true,
+      "offres": [
+        {
+          "plateforme": "shotgun.live",
+          "url": "https://shotgun.live/fr/events/la-java-3",
+          "prix": 11.99
+        },
+        {
+          "plateforme": "instagram.com",
+          "url": "https://www.instagram.com/p/DffOJkLjLX7/",
+          "prix": null
+        }
       ]
     },
     {
