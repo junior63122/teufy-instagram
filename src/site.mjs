@@ -160,20 +160,27 @@ async function geocoder(soirees, log) {
 // --- Autour de la soirée : parkings, arrêts de tram, de bus, gares, vélos et taxis (OpenStreetMap / Overpass).
 const PROCHES = path.join(ROOT, 'contenus', 'lieux-proches.json');
 const UA = 'TeufySite/1.0 (+https://junior63122.github.io/teufy-instagram/)';
+const SERVEURS_OVERPASS = ['https://overpass-api.de/api/interpreter', 'https://overpass.kumi.systems/api/interpreter', 'https://overpass.private.coffee/api/interpreter'];
 async function aProximite(soirees, log) {
   const cache = lire(PROCHES, {});
   const lieux = new Map();
   for (const s of soirees) if (!s.approx && s.lat) lieux.set(`${s.lat},${s.lng}`, s);
-  let n = 0, coupe = false;
+  let n = 0, coupe = false, echecs = 0;
   for (const [k, s] of lieux) {
     if (cache[k] && Date.now() - Date.parse(cache[k].le) < 60 * 864e5) continue;
     if (n >= 40 || coupe) break;
     n++;
     const a = (r) => `(around:${r},${s.lat},${s.lng})`;
     const q = `[out:json][timeout:25];(nwr${a(800)}[amenity=parking][access!~"^(private|customers|no)$"];node${a(900)}[railway~"^(tram_stop|station|halt)$"];node${a(500)}[highway=bus_stop];node${a(600)}[amenity~"^(bicycle_rental|taxi)$"];);out center tags 120;`;
-    const r = await fetch('https://overpass-api.de/api/interpreter', { method: 'POST', body: `data=${encodeURIComponent(q)}`, headers: { 'content-type': 'application/x-www-form-urlencoded', 'User-Agent': UA }, signal: AbortSignal.timeout(40000) }).catch(() => null);
-    const d = r?.ok ? await r.json().catch(() => null) : null;
-    if (!d) { coupe = true; break; }
+    // Plusieurs serveurs Overpass (le principal est souvent saturé) ; on n'abandonne qu'après 3 lieux en échec d'affilée.
+    let d = null;
+    for (const serveur of SERVEURS_OVERPASS) {
+      const r = await fetch(serveur, { method: 'POST', body: `data=${encodeURIComponent(q)}`, headers: { 'content-type': 'application/x-www-form-urlencoded', 'User-Agent': UA }, signal: AbortSignal.timeout(60000) }).catch(() => null);
+      d = r?.ok ? await r.json().catch(() => null) : null;
+      if (d) break;
+    }
+    if (!d) { echecs++; if (echecs >= 3) { coupe = true; break; } continue; }
+    echecs = 0;
     const m = (la, lo) => Math.round(Math.hypot((la - s.lat) * 111320, (lo - s.lng) * 111320 * Math.cos(s.lat * Math.PI / 180)));
     const el = (d.elements || []).map((e) => ({ t: e.tags || {}, la: e.lat ?? e.center?.lat, lo: e.lon ?? e.center?.lon })).filter((e) => e.la).map((e) => ({ ...e, m: m(e.la, e.lo) })).sort((x, y) => x.m - y.m);
     const parkings = el.filter((e) => e.t.amenity === 'parking' && (e.t.name || ['underground', 'multi-storey'].includes(e.t.parking))).slice(0, 3)
