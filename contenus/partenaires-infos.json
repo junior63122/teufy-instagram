@@ -2054,6 +2054,16 @@
  "ig:lebeertruckdubarathym": {
   "profil": {
    "absent": true
+  },
+  "fiche": {
+   "categorie": "service",
+   "ville": "Toulon",
+   "adresse": "32 Boulevard Docteur Cuneo, 83000 Toulon",
+   "site": "https://www.instagram.com/lebeertruckdubarathym",
+   "description": "Extension mobile du bar Le Barathym, ce beer truck propose un service de bières pression artisanales pour festivals, guinguettes et événements privés.",
+   "date": false,
+   "date_raison": "",
+   "prix": "€"
   }
  },
  "ig:lebarathymtoulon": {
@@ -2063,6 +2073,16 @@
    "site": "",
    "abonnes": 10925,
    "fichier": "site/partenaires/ig/lebarathymtoulon.jpg"
+  },
+  "fiche": {
+   "categorie": "bar",
+   "ville": "Toulon",
+   "adresse": "32 Boulevard Docteur Cuneo, 83000 Toulon",
+   "site": "https://www.instagram.com/lebarathymtoulon",
+   "description": "Pub et établissement de nuit situé au Mourillon, proposant des concerts live en première partie de soirée puis des DJ sets festifs jusqu'au bout de la nuit.",
+   "date": false,
+   "date_raison": "",
+   "prix": "€€"
   }
  },
  "ig:couleurs.urbaines": {
@@ -2072,6 +2092,16 @@
    "site": "http://linktr.ee/couleursurbaines",
    "abonnes": 8478,
    "fichier": "site/partenaires/ig/couleurs.urbaines.jpg"
+  },
+  "fiche": {
+   "categorie": "festival",
+   "ville": "La Seyne-sur-Mer",
+   "adresse": "Parc de la Navale, Cours Toussaint Merle, 83500 La Seyne-sur-Mer",
+   "site": "https://festival-couleursurbaines.com/",
+   "description": "Festival de musique en plein air mettant à l'honneur le reggae, le dub, le rap et l'électro avec scènes live et food trucks.",
+   "date": false,
+   "date_raison": "",
+   "prix": "€€"
   }
  },
  "ig:mandelieu_tourisme": {
@@ -2081,6 +2111,16 @@
    "site": "http://www.mandelieu-tourisme.com/",
    "abonnes": 22679,
    "fichier": "site/partenaires/ig/mandelieu_tourisme.jpg"
+  },
+  "fiche": {
+   "categorie": "autre",
+   "ville": "Mandelieu-la-Napoule",
+   "adresse": "806 Avenue de Cannes, 06210 Mandelieu-la-Napoule",
+   "site": "https://www.mandelieu-tourisme.com/",
+   "description": "Office de tourisme assurant la promotion du territoire, de ses événements culturels et festifs, ainsi que des activités de loisirs locales.",
+   "date": false,
+   "date_raison": "",
+   "prix": ""
   }
  },
  "ig:balancia.bar": {
@@ -2090,11 +2130,31 @@
    "site": "",
    "abonnes": 555,
    "fichier": "site/partenaires/ig/balancia.bar.jpg"
+  },
+  "fiche": {
+   "categorie": "bar",
+   "ville": "Nice",
+   "adresse": "10 Rue du Commandant Raffalli, 06000 Nice",
+   "site": "https://www.balancia-bar.com/",
+   "description": "Bar festif du Carré d'Or niçois servant cocktails maison et tapas à partager dans une ambiance animée par des soirées à thème et des sets musicaux.",
+   "date": true,
+   "date_raison": "Un cadre convivial idéal pour partager des tapas et un cocktail lors d'un premier verre à deux.",
+   "prix": "€€"
   }
  },
  "ig:amir.bdhiaf": {
   "profil": {
    "absent": true
+  },
+  "fiche": {
+   "categorie": "personne",
+   "ville": "Cannes",
+   "adresse": "",
+   "site": "https://www.instagram.com/amir.bdhiaf",
+   "description": "Compte personnel d'Amir Ben Dhiaf, entrepreneur et commerçant impliqué dans la restauration et le commerce local cannois.",
+   "date": false,
+   "date_raison": "",
+   "prix": ""
   }
  },
  "ig:mysafecup": {
@@ -2104,6 +2164,16 @@
    "site": "https://mysafecup.co/",
    "abonnes": 4230,
    "fichier": "site/partenaires/ig/mysafecup.jpg"
+  },
+  "fiche": {
+   "categorie": "marque",
+   "ville": "",
+   "adresse": "",
+   "site": "https://mysafecup.co/",
+   "description": "Marque d'accessoires de prévention proposant des protections pour verres afin de lutter contre l'introduction de substances illicites en soirée.",
+   "date": false,
+   "date_raison": "",
+   "prix": "€"
   }
  },
  "ig:nai.bevent": {
@@ -2113,6 +2183,16 @@
    "site": "",
    "abonnes": 1526,
    "fichier": "site/partenaires/ig/nai.bevent.jpg"
+  },
+  "fiche": {
+   "categorie": "service",
+   "ville": "",
+   "adresse": "",
+   "site": "https://www.instagram.com/nai.bevent",
+   "description": "Agence événementielle proposant des prestations de booking DJ ainsi que la location de matériel son et lumière pour soirées sur la Côte d'Azur.",
+   "date": false,
+   "date_raison": "",
+   "prix": ""
   }
  },
  "ig:la_techno_toulonnaise": {
@@ -2122,6 +2202,16 @@
    "site": "",
    "abonnes": 936,
    "fichier": "site/partenaires/ig/la_techno_toulonnaise.jpg"
+  },
+  "fiche": {
+   "categorie": "media",
+   "ville": "Toulon",
+   "adresse": "",
+   "site": "",
+   "description": "Média communautaire et relais événementiel dédié à la scène techno et hard music dans le Var. Il diffuse un agenda hebdomadaire des soirées locales.",
+   "date": false,
+   "date_raison": "",
+   "prix": ""
   }
  },
  "ig:lenoutsa": {
@@ -2131,6 +2221,16 @@
    "site": "https://www.cosmetologieclimatique.com/fr/98-c-cosmetique-climatique-produits.html",
    "abonnes": 544344,
    "fichier": "site/partenaires/ig/lenoutsa.jpg"
+  },
+  "fiche": {
+   "categorie": "personne",
+   "ville": "Nice",
+   "adresse": "",
+   "site": "https://www.cosmetologieclimatique.com/fr/98-c-cosmetique-climatique-produits.html",
+   "description": "Créatrice de contenu et influenceuse originaire de Nice, partageant des publications lifestyle, mode et beauté.",
+   "date": false,
+   "date_raison": "",
+   "prix": ""
   }
  },
  "ig:mixpartybusinessclub": {
@@ -2140,6 +2240,16 @@
    "site": "https://linktr.ee/mixparty.businessclub",
    "abonnes": 899,
    "fichier": "site/partenaires/ig/mixpartybusinessclub.jpg"
+  },
+  "fiche": {
+   "categorie": "organisateur",
+   "ville": "Nice",
+   "adresse": "",
+   "site": "https://linktr.ee/mixparty.businessclub",
+   "description": "Club d'affaires organisant des afterworks networking et des sessions de formation sur la Côte d'Azur.",
+   "date": false,
+   "date_raison": "",
+   "prix": ""
   }
  },
  "ig:insolente_music_": {
@@ -2149,6 +2259,16 @@
    "site": "https://shotgun.live/events/format-boiler-360-hangar-and-hard-techno?uhandle=insolente&utm_campaign=share_event&utm_term=insolente",
    "abonnes": 3373,
    "fichier": "site/partenaires/ig/insolente_music_.jpg"
+  },
+  "fiche": {
+   "categorie": "artiste",
+   "ville": "Nice",
+   "adresse": "",
+   "site": "https://shotgun.live/events/format-boiler-360-hangar-and-hard-techno?uhandle=insolente&utm_campaign=share_event&utm_term=insolente",
+   "description": "DJ, productrice et directrice artistique niçoise spécialisée dans la hard techno et les formats rave.",
+   "date": false,
+   "date_raison": "",
+   "prix": ""
   }
  },
  "ig:magnoliacafenice": {
@@ -2158,6 +2278,16 @@
    "site": "https://magnolia-cafe-restaurant-nice.fr/fr/booking",
    "abonnes": 6971,
    "fichier": "site/partenaires/ig/magnoliacafenice.jpg"
+  },
+  "fiche": {
+   "categorie": "restaurant",
+   "ville": "Nice",
+   "adresse": "7 Rue Bonaparte, 06300 Nice",
+   "site": "https://magnolia-cafe-restaurant-nice.fr/fr/booking",
+   "description": "Restaurant d'ambiance et bar à cocktails du quartier Bonaparte proposant des tapas et une cuisine méditerranéenne avec DJ sets le week-end.",
+   "date": true,
+   "date_raison": "Un cadre chaleureux et animé idéal pour partager des cocktails et des tapas lors d'une soirée à deux.",
+   "prix": "€€"
   }
  },
  "ig:la_dinette__": {
@@ -2167,6 +2297,16 @@
    "site": "https://linktr.ee/la_dinette__",
    "abonnes": 5659,
    "fichier": "site/partenaires/ig/la_dinette__.jpg"
+  },
+  "fiche": {
+   "categorie": "organisateur",
+   "ville": "",
+   "adresse": "",
+   "site": "https://linktr.ee/la_dinette__",
+   "description": "Organisateur d'événements festifs nomades proposant des soirées musicales thématiques et des animations dans divers établissements de la région.",
+   "date": false,
+   "date_raison": "",
+   "prix": ""
   }
  },
  "ig:vanina_aronica": {
@@ -2176,6 +2316,16 @@
    "site": "http://www.vanina.com/",
    "abonnes": 14693,
    "fichier": "site/partenaires/ig/vanina_aronica.jpg"
+  },
+  "fiche": {
+   "categorie": "artiste",
+   "ville": "Cannes",
+   "adresse": "",
+   "site": "http://www.vanina.com/",
+   "description": "Chanteuse crossover classique et pop, coach vocal et présidente de concours musicaux basée sur la Côte d'Azur.",
+   "date": false,
+   "date_raison": "",
+   "prix": ""
   }
  },
  "ig:aureliostella.photographe": {
@@ -2185,6 +2335,16 @@
    "site": "",
    "abonnes": 2044,
    "fichier": "site/partenaires/ig/aureliostella.photographe.jpg"
+  },
+  "fiche": {
+   "categorie": "service",
+   "ville": "Nice",
+   "adresse": "",
+   "site": "",
+   "description": "Photographe professionnel indépendant réalisant des reportages événementiels, corporate et touristiques sur la Côte d'Azur.",
+   "date": false,
+   "date_raison": "",
+   "prix": ""
   }
  },
  "ig:lecannet.tourisme": {
@@ -2194,6 +2354,16 @@
    "site": "https://lecannet-tourisme.fr/",
    "abonnes": 2327,
    "fichier": "site/partenaires/ig/lecannet.tourisme.jpg"
+  },
+  "fiche": {
+   "categorie": "autre",
+   "ville": "Le Cannet",
+   "adresse": "73 Avenue du Campon, 06110 Le Cannet",
+   "site": "https://lecannet-tourisme.fr/",
+   "description": "Office de tourisme officiel de la ville du Cannet. Il renseigne les visiteurs sur le patrimoine local, les musées, les balades et la gastronomie.",
+   "date": false,
+   "date_raison": "",
+   "prix": ""
   }
  },
  "ig:safeliimousine": {
@@ -2203,6 +2373,16 @@
    "site": "",
    "abonnes": 572,
    "fichier": "site/partenaires/ig/safeliimousine.jpg"
+  },
+  "fiche": {
+   "categorie": "service",
+   "ville": "Nice",
+   "adresse": "",
+   "site": "https://www.instagram.com/safeliimousine/",
+   "description": "Service de transport avec chauffeur privé et conciergerie haut de gamme opérant sur la Côte d'Azur. Il propose des transferts aéroport et des mises à disposition pour des événements.",
+   "date": false,
+   "date_raison": "",
+   "prix": "€€€€"
   }
  },
  "ig:mandelieu_paradise": {
@@ -2212,6 +2392,16 @@
    "site": "https://www.paradise-water-sports.fr/",
    "abonnes": 860,
    "fichier": "site/partenaires/ig/mandelieu_paradise.jpg"
+  },
+  "fiche": {
+   "categorie": "activite",
+   "ville": "Mandelieu-la-Napoule",
+   "adresse": "295 Avenue du Général de Gaulle, 06210 Mandelieu-la-Napoule",
+   "site": "https://www.paradise-water-sports.fr/",
+   "description": "Base nautique installée sur la plage face à la baie de Cannes. Elle propose des locations de jet ski, du parachute ascensionnel, des bouées tractées et du wakeboard.",
+   "date": true,
+   "date_raison": "Une activité nautique dynamique et panoramique à partager à deux en bord de mer.",
+   "prix": "€€"
   }
  },
  "ig:prostcrastination": {
@@ -2221,6 +2411,16 @@
    "site": "https://linktr.ee/prostcrastination",
    "abonnes": 19170,
    "fichier": "site/partenaires/ig/prostcrastination.jpg"
+  },
+  "fiche": {
+   "categorie": "organisateur",
+   "ville": "Montpellier",
+   "adresse": "188 Avenue du Marché Gare, 34000 Montpellier",
+   "site": "https://linktr.ee/prostcrastination",
+   "description": "Collectif organisateur de soirées techno et d'événements immersifs à thème. Il propose des rendez-vous clubbing axés sur la hard techno et l'acid, notamment au Dieze Warehouse.",
+   "date": false,
+   "date_raison": "",
+   "prix": "€"
   }
  },
  "ig:leptiaperoimprovise": {
@@ -2230,6 +2430,16 @@
    "site": "",
    "abonnes": 36323,
    "fichier": "site/partenaires/ig/leptiaperoimprovise.jpg"
+  },
+  "fiche": {
+   "categorie": "organisateur",
+   "ville": "Toulon",
+   "adresse": "",
+   "site": "https://shotgun.live/fr/events/les-aperos-electroniques-fort-napoleon",
+   "description": "Collectif événementiel varois organisant des apéros électroniques et des formats open-air festifs. Les événements prennent place dans des sites atypiques tels que des forts historiques ou des domaines viticoles.",
+   "date": false,
+   "date_raison": "",
+   "prix": "€"
   }
  },
  "ig:unica_culture": {
@@ -2239,6 +2449,16 @@
    "site": "https://linktr.ee/UCArts",
    "abonnes": 12097,
    "fichier": "site/partenaires/ig/unica_culture.jpg"
+  },
+  "fiche": {
+   "categorie": "autre",
+   "ville": "Nice",
+   "adresse": "28 Avenue Valrose, 06100 Nice",
+   "site": "https://linktr.ee/UCArts",
+   "description": "Direction de la culture de l'Université Côte d'Azur. Elle coordonne la programmation artistique, les spectacles, les expositions et les ateliers ouverts à la communauté étudiante.",
+   "date": false,
+   "date_raison": "",
+   "prix": "€"
   }
  },
  "ig:je_dis_techno_nice": {
@@ -2248,6 +2468,16 @@
    "site": "https://shotgun.live/venues/je-dis-techno",
    "abonnes": 7961,
    "fichier": "site/partenaires/ig/je_dis_techno_nice.jpg"
+  },
+  "fiche": {
+   "categorie": "organisateur",
+   "ville": "Nice",
+   "adresse": "2 Rue Sacha Guitry, 06000 Nice",
+   "site": "https://shotgun.live/venues/je-dis-techno",
+   "description": "Rendez-vous clubbing hebdomadaire niçois organisé tous les jeudis soir. La programmation met à l'honneur des sets hard techno, acid et rave avec before et clubbing.",
+   "date": false,
+   "date_raison": "",
+   "prix": "€"
   }
  },
  "ig:bliss.evenement": {
@@ -2257,6 +2487,16 @@
    "site": "",
    "abonnes": 503,
    "fichier": "site/partenaires/ig/bliss.evenement.jpg"
+  },
+  "fiche": {
+   "categorie": "organisateur",
+   "ville": "Nice",
+   "adresse": "",
+   "site": "https://www.instagram.com/bliss.evenement/",
+   "description": "Collectif musical organisant des soirées dansantes itinérantes sur la Côte d'Azur. Les événements mettent en avant des sonorités disco, funk, house et tech house.",
+   "date": false,
+   "date_raison": "",
+   "prix": "€"
   }
  },
  "ig:frigo.16": {
@@ -2397,6 +2637,65 @@
    "site": "https://hotelcasarose.fr/",
    "abonnes": 19643,
    "fichier": "site/partenaires/ig/hotel.casarose.jpg"
+  }
+ },
+ "ig:sunbarnice": {
+  "profil": {
+   "absent": true
+  }
+ },
+ "ig:gusta.nissa": {
+  "profil": {
+   "nom": "Gusta Nissa · Food & adresses à Nice",
+   "bio": "🍋 Le magazine food de Nice\nLes gens, les adresses & les recettes · par 3 locaux 📍\n👇 Le magazine + Nos dégustations + Nos Évènements",
+   "site": "http://gustanissa.com/blogs/infos",
+   "abonnes": 1027,
+   "fichier": "site/partenaires/ig/gusta.nissa.jpg"
+  }
+ },
+ "ig:deisantidj": {
+  "profil": {
+   "nom": "Dei Santi",
+   "bio": "🎹DJ / MUSIC PRODUCER\n📍PT / FR\n💿Signed Warner Music, Paraiso Records, Soave Records, Loudkult, Actuation\nPerderte N1 dance albums 2025!\nSpotify Link⤵️",
+   "site": "https://biglink.to/deisantidj",
+   "abonnes": 7575,
+   "fichier": "site/partenaires/ig/deisantidj.jpg"
+  }
+ },
+ "ig:k_barre_antibes": {
+  "profil": {
+   "nom": "K-BarRé 🎱🍺",
+   "bio": "Live Music & Events 🎶\nDJ sets • Concerts • Theme nights • Sunday Brunch \n🎱 Free pool • ⚽ Sports on demand\n📍 Antibes |  French Riviera",
+   "site": "https://maps.app.goo.gl/VZ6kVCtkbPJAjbT2A",
+   "abonnes": 1302,
+   "fichier": "site/partenaires/ig/k_barre_antibes.jpg"
+  }
+ },
+ "ig:dj_mygo": {
+  "profil": {
+   "nom": "Miguel Zoldyck 🎧",
+   "bio": "𝑪𝒂𝒓𝒊𝒃𝒃𝒆𝒂𝒏 𝑫𝑱 🇲🇶\nLa culture par la musique ✨️",
+   "site": "",
+   "abonnes": 2062,
+   "fichier": "site/partenaires/ig/dj_mygo.jpg"
+  }
+ },
+ "ig:jobar.event": {
+  "profil": {
+   "nom": "JOBAR 🔊",
+   "bio": "🎧📀🕺\n« Fêtard un jour, Jobar toujours ! »\n🎶 JAVA 3 : 05/12/2026\n✉️ jobar.event@gmail.com",
+   "site": "https://linktr.ee/jobar.event",
+   "abonnes": 499,
+   "fichier": "site/partenaires/ig/jobar.event.jpg"
+  }
+ },
+ "ig:kontakt_6tem": {
+  "profil": {
+   "nom": "Kontakt Sound 6tem",
+   "bio": "▫️Sound System 🔊\n▪️Créateur d’événements 🎉\n▫️Location Sonorisation 🎚️\n⬇️ NOISE PROTOCOL ⬇️",
+   "site": "https://linktr.ee/kontakt6tem",
+   "abonnes": 4006,
+   "fichier": "site/partenaires/ig/kontakt_6tem.jpg"
   }
  }
 }
