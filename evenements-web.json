@@ -3376,6 +3376,56 @@
       "instagram": [
         "downtown.nice"
       ]
+    },
+    {
+      "source": "web",
+      "source_site": "instagram.com",
+      "via_veille": true,
+      "name": "Before Dub & After Tribe",
+      "start": "2026-11-10T20:00:00.000Z",
+      "venue": "L'Antre",
+      "city": "Nice",
+      "address": "",
+      "url": "https://www.instagram.com/lantretechno/",
+      "image": "https://scontent-atl3-1.cdninstagram.com/v/t51.82787-15/892457097_17938085136407529_6322264578688340881_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=107&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=3B2pgm1YnIgQ7kNvwGr1zQ7&_nc_oc=AdqwQeT75rIBqFyDV2caDVRLmUIfM3jWcjOokRQxV62wq2mJPeS2Zl1XhWn_mGidTfg&_nc_zt=23&_nc_ht=scontent-atl3-1.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=xeoaPoadO0zCWn691USomQ&oh=00_AQTUxQiG6ff4S6NQmo0IHqbGmH3I-6H9F8zH9F7Jh9svAg&oe=6AF7B96B",
+      "price": null,
+      "tags": [
+        "Dub",
+        "Techno",
+        "Tribe"
+      ],
+      "description": "",
+      "public_cible": 0.6,
+      "confiance": 0.9,
+      "accroche": "Veille de jour férié entre dub en before et after techno to tribe jusqu'au matin.",
+      "instagram": [
+        "lantretechno"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "instagram.com",
+      "via_veille": true,
+      "name": "Pump Up 2",
+      "start": "2026-11-14T22:00:00.000Z",
+      "venue": "L'Antre",
+      "city": "Nice",
+      "address": "",
+      "url": "https://www.instagram.com/lantretechno/",
+      "image": "https://scontent-atl3-1.cdninstagram.com/v/t51.82787-15/892457097_17938085136407529_6322264578688340881_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=107&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=3B2pgm1YnIgQ7kNvwGr1zQ7&_nc_oc=AdqwQeT75rIBqFyDV2caDVRLmUIfM3jWcjOokRQxV62wq2mJPeS2Zl1XhWn_mGidTfg&_nc_zt=23&_nc_ht=scontent-atl3-1.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=xeoaPoadO0zCWn691USomQ&oh=00_AQTUxQiG6ff4S6NQmo0IHqbGmH3I-6H9F8zH9F7Jh9svAg&oe=6AF7B96B",
+      "price": null,
+      "tags": [
+        "House minimale",
+        "Electro",
+        "Techno"
+      ],
+      "description": "",
+      "public_cible": 0.6,
+      "confiance": 0.9,
+      "accroche": "Laurent N, Elena Electronic DJ et C Tek réunis pour la deuxième édition de Pump Up.",
+      "instagram": [
+        "lantretechno"
+      ]
     }
   ]
 }
