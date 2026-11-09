@@ -93,7 +93,6 @@
     majBoutons();
     trier();
     animerCartes();
-    if (vue === 'carte') dessiner();
   };
   // Tri : par date (groupé par jour, comme la page), ou en une seule liste par prix ou par soirées les plus attendues.
   const places = new Map();
@@ -272,7 +271,7 @@
     document.body.style.top = '';
     scrollTo({ top: scrollAvant, behavior: 'instant' });
     // Filtres changés : on montre le début des résultats ; sinon on reste exactement où on était.
-    const cible = vue === 'carte' ? document.getElementById('carte') : document.querySelector('.liste');
+    const cible = document.querySelector('.liste');
     if (signature() !== etatAvant && cible && cible.getBoundingClientRect().top < 0) cible.scrollIntoView({ behavior: reduit ? 'auto' : 'smooth', block: 'start' });
     majFlottant();
   }
@@ -293,27 +292,11 @@
     requestAnimationFrame(() => { attente = false; majFlottant(); if (haut) haut.hidden = scrollY < 1400; });
   }, { passive: true });
 
-  // --- Vue liste / carte -------------------------------------------------------------------------------------
-  let vue = 'liste';
-  const zoneCarte = document.getElementById('carte'), liste = document.querySelector('.liste');
-  const choisirVue = (v) => {
-    if (!zoneCarte) return;
-    vue = v;
-    document.querySelectorAll('.vues [data-vue]').forEach((b) => { b.classList.toggle('actif', b.dataset.vue === v); b.setAttribute('aria-pressed', b.dataset.vue === v); });
-    zoneCarte.hidden = v !== 'carte'; liste.hidden = v === 'carte';
-    if (v === 'carte') dessiner();
-  };
-  document.addEventListener('click', (ev) => { const b = ev.target.closest('.vues [data-vue]'); if (b) choisirVue(b.dataset.vue); });
-  // Les liens « Carte » (menu, hero) ouvrent la carte au lieu de sauter à une ancre cachée.
-  document.addEventListener('click', (ev) => {
-    const a = ev.target.closest('a[href$="#carte"]'); if (!a || !zoneCarte) return;
-    const u = new URL(a.href, location.href);
-    if (u.pathname !== location.pathname) return;
-    ev.preventDefault(); choisirVue('carte'); history.replaceState(null, '', '#carte');
-    agenda.scrollIntoView({ behavior: reduit ? 'auto' : 'smooth' });
-  });
+  // --- Une seule vue : la liste (la carte générale a été retirée ; chaque soirée a sa mini-carte) ----------------
+  const vue = 'liste';
+  const choisirVue = () => {};
 
-  let promesse = null, carteL = null;
+  let promesse = null;
   // Carte : MapLibre (version compatible CSP, hébergée sur le site) + fonds vectoriels OpenFreeMap (gratuits, sans clé),
   // recolorés aux couleurs de Teufy (site/vendor/maplibre/teufy-style.json). Chargée seulement quand une carte s'affiche.
   const VENDOR = T.base + 'site/vendor/maplibre/';
@@ -338,48 +321,6 @@
   const repere = (html, cls = '') => { const e = document.createElement('div'); e.className = 'repere-ancre'; const r = document.createElement('div'); r.className = `repere ${cls}`.replace(/\s+/g, ' ').trim(); r.innerHTML = html; e.append(r); return e; };
   const nommer = (marqueur, nom) => { const e = marqueur.getElement(); e.setAttribute('aria-label', nom); e.setAttribute('role', 'button'); e.tabIndex = 0; return marqueur; };
   const el = (tag, cls, txt) => { const e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; };
-  const bulle = (l) => {
-    const d = el('div', 'pop');
-    d.append(el('p', 'pop-lieu', l[0].querySelector('.ou')?.textContent || ''));
-    for (const c of l) {
-      const s = el('div', 'pop-soiree');
-      const titre = el('a', 'pop-titre', c.querySelector('h3')?.textContent || ''); titre.href = c.querySelector('h3 a')?.href || '#';
-      s.append(titre, el('p', 'pop-quand', `${enCours(c) ? '● ' + T.live + ' · ' : ''}${c.querySelector('.date')?.textContent || ''} · ${c.dataset.heure}`));
-      const b = c.querySelector('.actions .bouton');
-      const act = el('p', 'pop-actions');
-      if (b) { const a = el('a', 'pop-billets', b.textContent); a.href = b.href; a.target = '_blank'; a.rel = 'noopener'; act.append(a); }
-      const v = el('a', 'pop-voir', T.voir || '→'); v.href = titre.href; act.append(v);
-      s.append(act);
-      d.append(s);
-    }
-    if (l[0].dataset.approx) d.append(el('p', 'pop-approx', T.approx));
-    return d;
-  };
-  let marqueurs = [];
-  async function dessiner() {
-    let ml;
-    try { ml = await chargerCarte(); } catch { toast(T.carteErreur); return; }
-    if (!carteL) {
-      carteL = nouvelleCarte(ml, zoneCarte.querySelector('.leaflet-zone'), { center: [7.15, 43.62], zoom: 9 });
-      await new Promise((r) => carteL.once('load', r).once('error', r));
-    }
-    marqueurs.forEach((m) => m.remove()); marqueurs = [];
-    const lieux = new Map();
-    for (const c of cartes) if (!c.hidden && c.dataset.lat) { const k = c.dataset.lat + ',' + c.dataset.lng; if (!lieux.has(k)) lieux.set(k, []); lieux.get(k).push(c); }
-    const b = new ml.LngLatBounds();
-    lieux.forEach((l, k) => {
-      const [lat, lng] = k.split(',').map(Number); b.extend([lng, lat]);
-      const e = repere(`<b>${l.length}</b>`, `${l.some(enCours) ? 'en-cours' : ''} ${l[0].dataset.approx ? 'approx' : ''}`);
-      const pop = new ml.Popup({ offset: 30, maxWidth: `${Math.min(320, innerWidth - 48)}px`, className: 'teufy-pop', focusAfterOpen: false, anchor: 'bottom' }).setDOMContent(bulle(l));
-      // La bulle s'ouvre au-dessus du repère : la carte se recentre pour qu'elle soit entièrement visible (mobile compris).
-      pop.on('open', () => carteL.easeTo({ center: [lng, lat], offset: [0, Math.min(170, carteL.getContainer().clientHeight * 0.3)], duration: reduit ? 0 : 400 }));
-      marqueurs.push(nommer(new ml.Marker({ element: e, anchor: 'bottom' }).setLngLat([lng, lat]).setPopup(pop).addTo(carteL), `${l[0].querySelector('.ou')?.textContent || ''} : ${l.length}`));
-    });
-    if (position) { b.extend([position.lng, position.lat]); marqueurs.push(new ml.Marker({ element: el('span', 'moi') }).setLngLat([position.lng, position.lat]).addTo(carteL)); }
-    zoneCarte.querySelector('.carte-vide').hidden = lieux.size > 0;
-    carteL.resize();
-    if (!b.isEmpty()) carteL.fitBounds(b, { padding: 50, maxZoom: 14, duration: 0 });
-  }
 
   // --- Animations ---------------------------------------------------------------------------------------------
   const io = 'IntersectionObserver' in window;
@@ -457,11 +398,12 @@
   if (q0 && champs.length) { champs.forEach((c) => { c.value = q0; const x = c.parentElement.querySelector('.effacer'); if (x) x.hidden = false; }); etat.qBrut = q0; etat.q = norm(q0); if (agenda) setTimeout(() => agenda.scrollIntoView(), 60); }
   if (cartes.length || document.querySelector('.filtres')) appliquer(); else animerCartes();
   majFlottant();
-  const allerRecherche = (doux) => { const c = document.getElementById('recherche'); if (!c || !agenda) return false; if (vue !== 'liste') choisirVue('liste'); agenda.scrollIntoView({ behavior: doux && !reduit ? 'smooth' : 'auto' }); setTimeout(() => c.focus({ preventScroll: true }), doux ? 350 : 80); return true; };
+  const allerRecherche = (doux) => { const c = document.getElementById('recherche'); if (!c || !agenda) return false; agenda.scrollIntoView({ behavior: doux && !reduit ? 'smooth' : 'auto' }); setTimeout(() => c.focus({ preventScroll: true }), doux ? 350 : 80); return true; };
   if (location.hash === '#recherche') allerRecherche(false);
   document.querySelector('a.loupe[href="#recherche"]')?.addEventListener('click', (e) => { if (allerRecherche(true)) e.preventDefault(); });
-  addEventListener('hashchange', () => { if (location.hash === '#recherche') allerRecherche(true); else if (location.hash === '#carte' && zoneCarte) { choisirVue('carte'); agenda?.scrollIntoView(); } });
-  if (location.hash === '#carte') { choisirVue('carte'); setTimeout(() => agenda?.scrollIntoView(), 50); }
+  addEventListener('hashchange', () => { if (location.hash === '#recherche') allerRecherche(true); });
+  // Anciens liens « …/#carte » (partagés avant le retrait de la carte générale) : on arrive sur l'agenda.
+  if (location.hash === '#carte') { history.replaceState(null, '', location.pathname + location.search + '#agenda'); setTimeout(() => agenda?.scrollIntoView(), 50); }
 })();
 
 // --- Vitesse : cache du navigateur (sw.js) et préchargement des pages au survol / au toucher d'un lien -----------

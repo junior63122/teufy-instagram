@@ -95,11 +95,13 @@ const visibles = (p) => p.locator('.liste .carte:not([hidden])').count();
     await c.close();
   });
 
-  await etape('carte hors ligne', async () => {
+  await etape('mini-carte hors ligne', async () => {
+    const fs = require('fs'), path = require('path');
+    const S = fs.readdirSync(path.resolve(__dirname, '..', 'soiree')).find((d) => fs.readFileSync(path.resolve(__dirname, '..', 'soiree', d, 'index.html'), 'utf8').includes('class="mini-carte"'));
     const c = await b.newContext({ viewport: { width: 1280, height: 800 } }); const p = await c.newPage(); erreurs(p, 'carte');
     await p.route('**/tiles.openfreemap.org/**', (r) => r.abort());
-    await p.goto(B + '#carte'); await p.waitForTimeout(1500);
-    ok(await p.locator('.repere').count() > 0, 'carte : les repères disparaissent sans fond de carte');
+    await p.goto(B + `soiree/${S}/`); await p.locator('.mini-carte').scrollIntoViewIfNeeded(); await p.waitForTimeout(2000);
+    ok(await p.locator('.mini-carte .repere').count() === 1, 'carte : le repère du lieu disparaît sans fond de carte');
     await c.close();
   });
 
@@ -189,7 +191,7 @@ const visibles = (p) => p.locator('.liste .carte:not([hidden])').count();
       p.on('console', (m) => { if (m.type() === 'error' && !/openfreemap|openstreetmap|net::ERR_(TUNNEL|NAME|CONNECTION)/.test(m.text()) && !(page404 && /status of 404/.test(m.text()))) pb.push(`console : ${m.text().slice(0, 120)}`); });
       p.on('requestfailed', (r) => { const u = r.url(); if (u.startsWith(B) && !/\.mp4/.test(u)) pb.push(`requête échouée : ${u.replace(B, '/')} (${r.failure()?.errorText})`); });
       p.on('response', (r) => { if (r.url().startsWith(B) && r.status() >= 400 && !/page-inexistante/.test(r.url())) pb.push(`HTTP ${r.status()} : ${r.url().replace(B, '/')}`); });
-      for (const u of ['', '#carte', 'a-propos/', 'actus/', ...un('actus'), ...un('soiree'), 'festivals/', 'clubs-bars/', 'partenaires/', 'dates/', 'restaurants/', 'activites/', 'france/', 'cgu/', 'confidentialite/', 'ar/', 'page-inexistante/']) {
+      for (const u of ['', 'a-propos/', 'actus/', ...un('actus'), ...un('soiree'), 'festivals/', 'clubs-bars/', 'partenaires/', 'dates/', 'restaurants/', 'activites/', 'france/', 'cgu/', 'confidentialite/', 'ar/', 'page-inexistante/']) {
         page404 = u === 'page-inexistante/'; // la page d'erreur répond 404 exprès
         await p.goto(B + u).catch(() => {}); await p.evaluate(() => window.scrollTo(0, document.body.scrollHeight)); await p.waitForTimeout(700);
       }

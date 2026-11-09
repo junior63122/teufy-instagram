@@ -824,7 +824,7 @@ function gabarit({ lang, t, titre, description, chemin, base, corps, ld = [], im
   const handle = compte.replace(/^@/, '');
   const P = pre(lang);
   const accueil = `${base}${P}`;
-  const nav = [['', t.agenda], ...VILLES_SEO.map((v) => [`${v.slug}/`, t.villes[v.cle === 'antibes' ? 'antibesCourt' : v.cle]]), ['#carte', t.carte], ['festivals/', t.festivals], ['clubs-bars/', t.lieuxNav], ['dates/', t.dates], ['restaurants/', t.restos], ['activites/', t.activites], ['actus/', t.actus], ['partenaires/', t.partenaires], ['a-propos/', t.qui]];
+  const nav = [['', t.agenda], ...VILLES_SEO.map((v) => [`${v.slug}/`, t.villes[v.cle === 'antibes' ? 'antibesCourt' : v.cle]]), ['festivals/', t.festivals], ['clubs-bars/', t.lieuxNav], ['dates/', t.dates], ['restaurants/', t.restos], ['activites/', t.activites], ['actus/', t.actus], ['partenaires/', t.partenaires], ['a-propos/', t.qui]];
   const jsT = { ...t.js, base, langue: lang, locale: t.locale, resultats: t.resultats, aucunRes: t.aucunRes, lienCopie: t.lienCopie, ajouterFav: t.ajouterFav, voir: t.voir };
   return `<!doctype html>
 <html lang="${lang}" dir="${t.dir}">
@@ -924,7 +924,7 @@ function agenda(soirees, { t, base, lang, filtresVille = true, filtreStyle = tru
   const styles = STYLES_MUSIQUE.map((x) => x.cle).filter((k) => soirees.some((s) => s.styles.includes(k)));
   return `<section id="agenda" class="agenda">
   <div class="filtres-place"><div class="filtres" role="toolbar" aria-label="${esc(t.js.filtres)}">
-    <div class="vues"><button type="button" class="actif" data-vue="liste">${esc(t.agenda)}</button><button type="button" data-vue="carte">${esc(t.carte)}</button><button type="button" class="fermer-filtres">${esc(t.js.fermer)}</button></div>
+    <div class="vues"><button type="button" class="fermer-filtres">${esc(t.js.fermer)}</button></div>
     ${champRecherche(t)}
     <div class="menus">
     ${groupe('quand', ['tout', 'soir', 'weekend', 'semaine', 'favoris'], [...t.quand, t.favoris]).replace('</div></details>', `<label class="choix-date"><span>${esc(t.choisirDate)}</span><input type="date" min="${cle(new Date().toISOString())}"></label></div></details>`)}
@@ -936,7 +936,6 @@ function agenda(soirees, { t, base, lang, filtresVille = true, filtreStyle = tru
     <p class="nb-res" aria-live="polite"></p>
     </div>
   </div></div>
-  <div id="carte" class="carte-soirees" hidden><div class="leaflet-zone"></div><p class="carte-vide" hidden>${esc(t.js.carteVide)}</p></div>
   <div class="liste">
   ${jours || `<p class="vide">${esc(t.vide)}</p>`}
   <p class="vide" id="aucune" hidden>${esc(t.aucune)}</p>
@@ -1030,7 +1029,7 @@ function page({ lang, t, base, compte, T, soirees, posts, now, maj, partenaires,
     <p>${esc(t.heroP(soirees.length))}</p>
     <form class="hero-recherche" action="" method="get" role="search">${champRecherche(t, 'recherche-hero').replace('<div class="recherche" role="search">', '<div class="recherche">')}<button class="bouton" type="submit">${esc(t.rechercher)}</button></form>
     <p class="populaires">${esc(t.populaires)} ${populaires.map((k) => `<a href="${base}${pre(lang)}soirees-${k}/">${esc(nomStyle(k, t, lang))}</a>`).join('')}</p>
-    <div class="hero-actions"><a class="bouton contour" href="#carte">${esc(t.heroCarte)}</a><a class="pastille-live" href="#ce-soir" hidden><i class="point"></i><span></span></a></div>
+    <div class="hero-actions"><a class="bouton contour" href="#agenda">${esc(t.toutes)}</a><a class="pastille-live" href="#ce-soir" hidden><i class="point"></i><span></span></a></div>
   </div>
 </section>
 ${defile(t)}

@@ -151,18 +151,15 @@ async function controlerPage(p, nom, u) {
     }
 
     } catch (e) { echecs.push(`${nom} : étape interrompue (${e.message.split('\n')[0]})`); }
-    // --- Carte ---
+    // --- Mini-carte de la soirée (la carte générale a été retirée) et anciens liens #carte ---
     try {
-    await p.goto(B + 'soirees-nice/', { waitUntil: 'load' }); await p.goto(B + '#carte', { waitUntil: 'load' }); await p.waitForTimeout(1500);
-    ok(await p.locator('#carte:not([hidden]) .maplibregl-map').count() === 1, `${nom} : la carte ne s'affiche pas`);
-    const reperes = await p.locator('.repere').count();
-    ok(reperes > 5, `${nom} : peu de repères sur la carte (${reperes})`);
-    await p.locator('.repere-ancre').first().click({ force: true }); await p.waitForTimeout(500);
-    ok(await p.locator('.maplibregl-popup').count() === 1, `${nom} : la bulle d'un repère ne s'ouvre pas`);
-    await p.locator('.vues [data-vue="liste"]').click(); ok(await p.locator('.liste').isVisible(), `${nom} : retour à la liste impossible`);
-    await p.goto(B + 'soirees-nice/', { waitUntil: 'load' });
-    if (nom === 'ordi') { await p.locator('.nav a[href$="#carte"]').click(); await p.waitForTimeout(1200); ok(/#carte$/.test(p.url()) && await p.locator('#carte:not([hidden])').count() === 1, 'ordi : le lien « Carte » du menu ne mène pas à la carte'); }
-
+    const avecCarte = fs.readdirSync(path.join(ROOT, 'soiree')).find((d) => fs.readFileSync(path.join(ROOT, 'soiree', d, 'index.html'), 'utf8').includes('class="mini-carte"'));
+    await p.goto(B + `soiree/${avecCarte}/`, { waitUntil: 'load' }); await p.locator('.mini-carte').scrollIntoViewIfNeeded(); await p.waitForTimeout(2500);
+    ok(await p.locator('.mini-carte.maplibregl-map .repere').count() === 1, `${nom} : la mini-carte du lieu ne s'affiche pas`);
+    ok(await p.locator('.y-aller a[href*="google.com/maps/dir"]').count() >= 1, `${nom} : pas d'itinéraire sous la mini-carte`);
+    await p.goto(B + '#carte', { waitUntil: 'load' }); await p.waitForTimeout(600);
+    ok(/#agenda$/.test(p.url()) && await p.locator('.liste').isVisible(), `${nom} : un ancien lien #carte ne mène pas à l'agenda`);
+    ok(await p.locator('a[href$="#carte"]').count() === 0, `${nom} : un lien vers la carte générale existe encore`);
     } catch (e) { echecs.push(`${nom} : étape interrompue (${e.message.split('\n')[0]})`); }
     // --- Langues, loupe, retour en haut ---
     try {
