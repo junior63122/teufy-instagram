@@ -3351,6 +3351,31 @@
         "sun7riviera"
       ],
       "billetterie_cherchee": true
+    },
+    {
+      "source": "web",
+      "source_site": "instagram.com",
+      "via_veille": true,
+      "name": "Downtown Veille de Jour Férié : 90s, 00s, 10s",
+      "start": "2026-11-10T22:00:00.000Z",
+      "venue": "Downtown",
+      "city": "Nice",
+      "address": "",
+      "url": "https://www.instagram.com/p/DffbjleEhUS/",
+      "image": "https://scontent-ord5-2.cdninstagram.com/v/t39.30808-6/897087797_122199672038898678_4306792617703179393_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=110&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=TtZKWxP-10sQ7kNvwFgsAMc&_nc_oc=AdqarKSpiESC8Krg46KTzzzkG28--UZccJ07ST9sXvzRConfxovybXmOfAVXdz9oW10&_nc_zt=23&_nc_ht=scontent-ord5-2.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=pj_cfXJnruHGUvP4FXgONw&oh=00_AQRSG7r0J7MhXJZyzL4AyYkCnFL-SSxObWTLdelfrvDMqw&oe=6AF7679C",
+      "price": 0,
+      "tags": [
+        "Retro",
+        "Pop",
+        "Hits"
+      ],
+      "description": "",
+      "public_cible": 0.6,
+      "confiance": 0.9,
+      "accroche": "DJ set rétro de 23h à 4h avec entrée gratuite pour la veille de jour férié.",
+      "instagram": [
+        "downtown.nice"
+      ]
     }
   ]
 }
