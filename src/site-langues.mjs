@@ -11,7 +11,7 @@ const fr = {
   sons: ['Tous les sons', 'Techno', 'House', 'Afro · Latino', 'Rap · RnB', 'Commercial'], prix: ['Tous les prix', 'Gratuit', 'Moins de 10 €'],
   aucune: 'Aucune soirée ne correspond à ces filtres.', vide: 'Pas encore de soirée vérifiée pour les prochains jours : reviens demain.',
   js: { filtres: 'Filtres', fermer: 'Voir les soirées', soirees: '{n} soirées', soiree: '1 soirée', live: 'En ce moment', ceSoir: 'Ce soir', bientot: 'Commence à {h}', carteVide: 'Aucune soirée à placer sur la carte avec ces filtres.', approx: 'emplacement approximatif', billets: 'Billets' },
-  heroEtiquette: "Agenda · Côte d'Azur", heroH1: "Où sortir ce soir sur la <em>Côte d'Azur</em> ?",
+  heroEtiquette: "Agenda · Côte d'Azur", heroH1: "Où sortir ce soir sur la <em>Côte d'Azur</em>&nbsp;?",
   heroP: (n) => `Toutes les soirées de Nice, Cannes, Monaco et Antibes réunies et vérifiées chaque jour par Teufy : ${n} soirées à venir, avec affiches officielles, horaires, prix et billetterie.`,
   heroBouton: "Voir l'agenda", heroCarte: 'Voir la carte',
   defile: ['Nice', 'Cannes', 'Monaco', 'Antibes', 'Juan-les-Pins', 'Techno', 'House', 'Afro', 'Rooftops', 'Beach clubs', 'Soirées étudiantes'],
@@ -173,7 +173,7 @@ const es = {
   sons: ['Toda la música', 'Techno', 'House', 'Afro · Latino', 'Rap · RnB', 'Comercial'], prix: ['Todos los precios', 'Gratis', 'Menos de 10 €'],
   aucune: 'Ninguna fiesta coincide con estos filtros.', vide: 'Aún no hay fiestas verificadas para los próximos días: vuelve mañana.',
   js: { filtres: 'Filtros', fermer: 'Ver las fiestas', soirees: '{n} fiestas', soiree: '1 fiesta', live: 'Ahora mismo', ceSoir: 'Esta noche', bientot: 'Empieza a las {h}', carteVide: 'No hay fiestas que mostrar en el mapa con estos filtros.', approx: 'ubicación aproximada', billets: 'Entradas' },
-  heroEtiquette: 'Eventos · Costa Azul', heroH1: '¿Dónde salir esta noche en la <em>Costa Azul</em>?',
+  heroEtiquette: 'Eventos · Costa Azul', heroH1: '¿Dónde salir esta noche en la <em>Costa&nbsp;Azul</em>?',
   heroP: (n) => `Todas las fiestas de Niza, Cannes, Mónaco y Antibes, reunidas y verificadas cada día por Teufy: ${n} fiestas próximas, con carteles oficiales, horarios, precios y entradas.`,
   heroBouton: 'Ver los eventos', heroCarte: 'Ver el mapa',
   defile: ['Niza', 'Cannes', 'Mónaco', 'Antibes', 'Juan-les-Pins', 'Techno', 'House', 'Afro', 'Terrazas', 'Beach clubs', 'Fiestas universitarias'],
@@ -428,3 +428,5 @@ const PLUS3 = {
 for (const l of LANGUES) { const { js, ...reste } = PLUS3[l]; Object.assign(TXT[l], reste); Object.assign(TXT[l].js, js); }
 const PLUS4 = { fr: { lieuxNav: 'Clubs & bars', franceNav: 'Ailleurs en France' }, en: { lieuxNav: 'Clubs & bars', franceNav: 'Elsewhere in France' }, it: { lieuxNav: 'Club e bar', franceNav: 'Altrove in Francia' }, es: { lieuxNav: 'Clubs y bares', franceNav: 'Otras ciudades de Francia' }, zh: { lieuxNav: '夜店与酒吧', franceNav: '法国其他城市' }, ar: { lieuxNav: 'نوادٍ وبارات', franceNav: 'مدن أخرى في فرنسا' } };
 for (const l of LANGUES) Object.assign(TXT[l], PLUS4[l]);
+const PLUS5 = { fr: { accesL: 'Accès' }, en: { accesL: 'Access' }, it: { accesL: 'Accesso' }, es: { accesL: 'Acceso' }, zh: { accesL: '交通' }, ar: { accesL: 'الوصول' } };
+for (const l of LANGUES) Object.assign(TXT[l], PLUS5[l]);

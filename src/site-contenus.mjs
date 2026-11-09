@@ -157,9 +157,9 @@ export const LEGAL = (T, compte) => ({
 // Rubriques « sorties » : uniquement des partenaires de Teufy (identifiés automatiquement, voir src/site.mjs).
 export const SORTIES = {
   dates: {
-    filtre: (p) => p.date && !['club', 'organisateur', 'festival', 'artiste', 'media', 'marque'].includes(p.categorie),
-    titre: "Les meilleurs endroits pour un date sur la Côte d'Azur · Teufy", desc: "Restaurants, rooftops, bars à cocktails, plages et activités pour un premier date à Nice, Cannes, Antibes ou Monaco : la sélection des partenaires Teufy.",
-    etiquette: 'Pour un date', h1: 'Les meilleurs spots pour un <em>date</em>', p: "Un premier verre, un dîner, une activité pour briser la glace : les adresses des partenaires Teufy qui marchent à tous les coups.", photo: 'rooftop',
+    filtre: (p) => p.date && ['restaurant', 'bar', 'rooftop', 'beach-club', 'activite'].includes(p.categorie) && !/[ée]cole|school|cours|formation|academy|acad[ée]mie|vtc|s[ée]curit/i.test(`${p.nom} ${p.description || ''}`),
+    titre: "Les meilleurs endroits pour un date sur la Côte d'Azur · Teufy", desc: "Mont Boron, colline du Château, Parc Phoenix, musées, îles de Lérins, sentiers du littoral et bonnes adresses : où aller en date à Nice, Cannes, Antibes et Monaco.",
+    etiquette: 'Pour un date', h1: 'Les meilleurs spots pour un <em>date</em>', p: "Couchers de soleil, balades au bord de l'eau, jardins, musées, escapades : les endroits de la Côte d'Azur qui marchent à tous les coups, et les bonnes adresses de nos partenaires.", photo: 'rooftop',
   },
   restaurants: {
     filtre: (p) => p.categorie === 'restaurant' || (p.categorie === 'beach-club' && /restaurant|cuisine|d[îi]ner|d[ée]jeuner/i.test(p.description || '')),
@@ -167,10 +167,43 @@ export const SORTIES = {
     etiquette: 'Restos', h1: 'Où dîner avant de <em>sortir</em>', p: "Les restaurants partenaires de Teufy : pour dîner avant la soirée, entre potes ou en date.", photo: 'terrasse',
   },
   activites: {
-    filtre: (p) => p.categorie === 'activite',
+    filtre: (p) => p.categorie === 'activite' && !/vtc|s[ée]curit|photograph/i.test(`${p.nom} ${p.description || ''}`),
     titre: "Activités sur la Côte d'Azur : idées de sorties avec les partenaires Teufy", desc: "Activités et sorties entre amis ou en date sur la Côte d'Azur, proposées par les partenaires de Teufy.",
     etiquette: 'Activités', h1: 'Des <em>activités</em> pour changer', p: "Quand tu veux faire autre chose que danser : les activités des partenaires Teufy, entre potes ou en date.", photo: 'rire',
   },
   vide: "La sélection arrive : Teufy identifie ses partenaires un par un. Tu es un restaurant, un bar ou une activité de la Côte ? Rejoins les partenaires Teufy.",
   categories: { restaurant: 'Restaurant', bar: 'Bar', rooftop: 'Rooftop', club: 'Club', 'beach-club': 'Plage · Beach club', activite: 'Activité', hotel: 'Hôtel', organisateur: 'Organisateur', festival: 'Festival', artiste: 'Artiste', media: 'Média', marque: 'Marque', autre: 'Partenaire' },
 };
+
+// Spots pour un date : de vrais lieux (pas que des partenaires), choisis à la main. Pas d'horaires ni de prix : ils changent.
+export const SPOTS_DATE = [
+  { titre: 'Couchers de soleil et vues', lieux: [
+    ['Colline du Château', 'Nice', "La vue sur la Baie des Anges, le port et le Vieux-Nice, à quelques minutes à pied de la Promenade. Parfait au coucher du soleil."],
+    ['Mont Boron', 'Nice', "Les sentiers boisés au-dessus du port, les points de vue sur la rade de Villefranche et la mer : calme, vue folle, idéal pour une balade à deux."],
+    ['Le Suquet', 'Cannes', "La vieille ville de Cannes, en haut de ses ruelles : vue sur la baie, le port et les îles de Lérins."],
+    ['Mont Faron', 'Toulon', "On monte en téléphérique au-dessus de la rade de Toulon : panorama sur la mer et la ville."],
+  ] },
+  { titre: 'Balades au bord de la mer', lieux: [
+    ['Sentier du littoral de Saint-Jean-Cap-Ferrat', 'Saint-Jean-Cap-Ferrat', "Une balade entre pins et criques à l'eau turquoise, avec des coins pour se poser et se baigner."],
+    ['Sentier de Tire-Poil, Cap d\'Antibes', 'Antibes', "Le chemin taillé dans la roche face à la mer, au bout du Cap d'Antibes : spectaculaire en fin de journée."],
+    ['Promenade des Anglais', 'Nice', "Le grand classique : la promenade au bord de l'eau, une glace, les chaises bleues et le coucher de soleil."],
+    ['Rade de Villefranche-sur-Mer', 'Villefranche-sur-Mer', "Une des plus belles rades de la Méditerranée, ses maisons colorées et ses petits restaurants sur le port."],
+  ] },
+  { titre: 'Parcs et jardins', lieux: [
+    ['Parc Phoenix', 'Nice', "Le parc floral de Nice, avec sa grande serre tropicale et ses animaux : une sortie originale et posée."],
+    ['Jardin exotique d\'Èze', 'Èze', "Des cactus, la mer à perte de vue et le village perché d'Èze autour : romantique à souhait."],
+    ['Jardins de la Villa Ephrussi de Rothschild', 'Saint-Jean-Cap-Ferrat', "Neuf jardins à thème au-dessus de la mer et une villa Belle Époque."],
+  ] },
+  { titre: 'Musées et culture', lieux: [
+    ['MAMAC', 'Nice', "Le Musée d'Art Moderne et d'Art Contemporain de Nice, et sa terrasse sur le toit avec vue sur la ville."],
+    ['Musée Matisse', 'Nice', "Dans une villa rouge au milieu des oliviers de Cimiez : l'œuvre de Matisse et un parc parfait pour flâner après."],
+    ['Musée Picasso, château Grimaldi', 'Antibes', "Les œuvres de Picasso dans un château au bord de la mer, avec une terrasse sur les remparts."],
+    ['Musée océanographique', 'Monaco', "Le musée sur le Rocher, ses aquariums et sa terrasse avec vue sur la mer."],
+    ['Fondation Maeght', 'Saint-Paul-de-Vence', "Art moderne dans les pins, puis balade dans le village de Saint-Paul-de-Vence."],
+  ] },
+  { titre: 'Escapades', lieux: [
+    ['Île Sainte-Marguerite, îles de Lérins', 'Cannes', "Quinze minutes de bateau depuis Cannes : pinèdes, criques et pique-nique les pieds dans l'eau."],
+    ['Village d\'Èze', 'Èze', "Le village médiéval perché au-dessus de la mer, ses ruelles en pierre et ses terrasses."],
+    ['Saint-Paul-de-Vence', 'Saint-Paul-de-Vence', "Le village fortifié des artistes : galeries, remparts et vue sur les collines jusqu'à la mer."],
+  ] },
+];

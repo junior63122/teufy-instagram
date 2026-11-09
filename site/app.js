@@ -101,6 +101,13 @@
       b.classList.toggle('actif', actif);
       b.setAttribute('aria-pressed', actif);
     });
+    // Résumé du choix dans le titre du menu (« Nice, Cannes », « Techno +2 »…).
+    const choix = g.closest('details')?.querySelector('.choix');
+    if (choix) {
+      const actifs = [...g.querySelectorAll('button.actif')].map((b) => b.textContent.trim());
+      choix.textContent = actifs.length > 2 ? `${actifs[0]} +${actifs.length - 1}` : actifs.join(', ');
+      g.closest('details').classList.toggle('filtre-actif', !g.querySelector('button[data-v="tout"].actif'));
+    }
   });
   const demanderPosition = () => new Promise((ok) => {
     if (!navigator.geolocation) { toast(T.geoImpossible); ok(false); return; }
@@ -116,9 +123,17 @@
         if (v === 'pres' && !position && !(await demanderPosition())) return;
         etat[f].add(v);
       }
-    } else etat[f] = v;
+    } else { etat[f] = v; if (!feuille) b.closest('details')?.removeAttribute('open'); }
     appliquer();
   });
+  // Menus déroulants des filtres : un seul ouvert à la fois, fermés par un clic ailleurs ou Échap.
+  document.addEventListener('toggle', (e) => {
+    const d = e.target;
+    if (!d.matches?.('details.filtre') || !d.open || feuille) return;
+    document.querySelectorAll('details.filtre[open]').forEach((x) => { if (x !== d) x.removeAttribute('open'); });
+  }, true);
+  document.addEventListener('click', (e) => { if (feuille || e.target.closest('details.filtre')) return; document.querySelectorAll('details.filtre[open]').forEach((x) => x.removeAttribute('open')); });
+  addEventListener('keydown', (e) => { if (e.key === 'Escape' && !feuille) document.querySelectorAll('details.filtre[open]').forEach((x) => x.removeAttribute('open')); });
 
   // --- Recherche -------------------------------------------------------------------------------------------
   const champs = [...document.querySelectorAll('.recherche input')];
@@ -198,6 +213,7 @@
     feuille.setAttribute('aria-modal', 'true');
     feuille.innerHTML = `<div class="feuille-fond"></div><div class="feuille-boite"><div class="feuille-poignee"><span></span><button type="button" class="feuille-x" aria-label="${T.fermerX || '×'}">×</button></div><div class="feuille-corps"></div><div class="feuille-pied"><button type="button" class="bouton voir-n"></button></div></div>`;
     feuille.querySelector('.feuille-corps').append(filtres);
+    filtres.querySelectorAll('details.filtre').forEach((d) => { d.open = true; });
     document.body.append(feuille);
     document.documentElement.classList.add('bloque');
     document.body.style.top = `-${scrollAvant}px`;
@@ -217,6 +233,7 @@
   function fermer() {
     if (!feuille) return;
     place.append(filtres);
+    filtres.querySelectorAll('details.filtre').forEach((d) => d.removeAttribute('open'));
     place.style.minHeight = '';
     feuille.remove(); feuille = null;
     document.documentElement.classList.remove('bloque');

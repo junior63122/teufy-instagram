@@ -14,7 +14,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { genresList, isTechno } from './genres.mjs';
 import { LANGUES, TXT } from './site-langues.mjs';
-import { STYLES as STYLES_MUSIQUE, PAGES_STYLES, FESTIVALS, RENDEZ_VOUS, PARTENAIRE, AMBASSADEUR, BDE, LEGAL, RE_ETUDIANT, RE_FESTIVAL, SORTIES } from './site-contenus.mjs';
+import { STYLES as STYLES_MUSIQUE, PAGES_STYLES, FESTIVALS, RENDEZ_VOUS, PARTENAIRE, AMBASSADEUR, BDE, LEGAL, RE_ETUDIANT, RE_FESTIVAL, SORTIES, SPOTS_DATE } from './site-contenus.mjs';
 import { VILLES_FRANCE } from './recherche.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -57,8 +57,8 @@ async function telecharger(url, f) {
   if (!r?.ok) return false;
   const tmp = `${f}.src`;
   await writeFile(tmp, Buffer.from(await r.arrayBuffer()));
-  // 800 px de large max, JPEG léger : le site reste rapide sur mobile.
-  const c = spawnSync('ffmpeg', ['-v', 'error', '-y', '-i', tmp, '-vf', "scale='min(800,iw)':-2", '-q:v', '4', f]);
+  // 1080 px de large max (net sur les écrans haute définition) ; le WebP 480 sert les téléphones.
+  const c = spawnSync('ffmpeg', ['-v', 'error', '-y', '-i', tmp, '-vf', "scale='min(1080,iw)':-2", '-q:v', '3', f]);
   spawnSync('rm', ['-f', tmp]);
   return c.status === 0 && existsSync(f);
 }
@@ -416,7 +416,7 @@ export async function construireSite({ events, eventsFrance = [], hist = [], con
     if (e.image) {
       const f = path.join(SITE, 'affiches', `${h(e.image)}.jpg`);
       if (existsSync(f) || await telecharger(e.image, f)) {
-        if (await verifier(e, f, cache)) { affiche = `site/affiches/${path.basename(f)}`; dims = tailleJpeg(f); webp(f, 480); webp(f, 800); }
+        if (await verifier(e, f, cache)) { affiche = `site/affiches/${path.basename(f)}`; dims = tailleJpeg(f); webp(f, 480); webp(f, 800); webp(f, 1080); }
         else log(`Site : affiche écartée (ne correspond pas) pour « ${e.name} »`);
       }
     }
@@ -566,11 +566,31 @@ function webp(f, l) {
   return c.status === 0 ? out : null;
 }
 // <img> avec srcset WebP (petite et grande largeur) ; retombe sur le JPEG si la conversion a échoué.
+// Largeur réelle d'un fichier WebP (pour déclarer au navigateur la vraie taille de chaque version).
+const LARGEURS = new Map();
+function largeurWebp(f) {
+  if (LARGEURS.has(f)) return LARGEURS.get(f);
+  let l = 0;
+  try {
+    const b = readFileSync(f);
+    const type = b.toString('ascii', 12, 16);
+    if (type === 'VP8 ') l = b.readUInt16LE(26) & 0x3fff;
+    else if (type === 'VP8L') l = 1 + (((b[22] & 0x3f) << 8) | b[21]);
+    else if (type === 'VP8X') l = 1 + (b[24] | (b[25] << 8) | (b[26] << 16));
+  } catch { /* illisible */ }
+  LARGEURS.set(f, l);
+  return l;
+}
 function image(base, rel, { alt = '', sizes = '100vw', attrs = '' } = {}) {
-  const largeurs = /affiches/.test(rel) ? [480, 800] : [400, 600, 800, 1200];
-  const dispo = largeurs.map((l) => [l, rel.replace(/\.jpg$/, `-${l}.webp`)]).filter(([, f]) => existsSync(path.join(ROOT, f)));
+  const largeurs = /affiches/.test(rel) ? [480, 800, 1080] : [400, 600, 800, 1200];
+  const dispo = [];
+  for (const l of largeurs) {
+    const f = rel.replace(/\.jpg$/, `-${l}.webp`);
+    const w = existsSync(path.join(ROOT, f)) ? largeurWebp(path.join(ROOT, f)) : 0;
+    if (w && !dispo.some(([x]) => x === w)) dispo.push([w, f]); // une version plus « grande » que l'original est la même : on ne la déclare pas deux fois
+  }
   if (!dispo.length) return `<img src="${base}${rel}" alt="${esc(alt)}" ${attrs}>`;
-  return `<img src="${base}${dispo.at(-1)[1]}" srcset="${dispo.map(([l, f]) => `${base}${f} ${l}w`).join(', ')}" sizes="${sizes}" alt="${esc(alt)}" ${attrs}>`;
+  return `<img src="${base}${dispo.at(-1)[1]}" srcset="${dispo.map(([w, f]) => `${base}${f} ${w}w`).join(', ')}" sizes="${sizes}" alt="${esc(alt)}" ${attrs}>`;
 }
 const TAILLES = { carte: '(min-width:980px) 360px, (min-width:640px) 46vw, 92vw' };
 
@@ -617,9 +637,11 @@ function carte(s, { t, base, lang, vedette = false }) {
   const prix = prixTexte(s.prix, t);
   const lien = `${base}${pre(lang)}soiree/${s.id}/`;
   const q = sansAccent([s.nom, s.lieu, s.ville, s.genres, s.tags.join(' '), s.styles.map((k) => `${nomStyle(k, t, 'fr')} ${nomStyle(k, t, lang)}`).join(' '), s.accroche].join(' ')).replace(/\s+/g, ' ');
+  // Format unique 4:5 pour des rangées nettes : l'affiche entière (jamais rognée) sur un fond flouté d'elle-même.
+  const petite = s.affiche ? `${base}${s.affiche.replace(/\.jpg$/, '-480.webp')}` : '';
   const img = s.affiche
-    ? image(base, s.affiche, { alt: t.affiche + s.nom, sizes: TAILLES.carte, attrs: `loading="lazy" decoding="async"${s.dims ? ` width="${s.dims[0]}" height="${s.dims[1]}"` : ''}` })
-    : `<img src="${base}site/img/${PHOTOS[parseInt(h(s.nom), 16) % PHOTOS.length]}-169.webp" alt="" loading="lazy" decoding="async" width="640" height="360">`;
+    ? `${existsSync(path.join(ROOT, s.affiche.replace(/\.jpg$/, '-480.webp'))) ? `<img class="fond-flou" src="${petite}" alt="" aria-hidden="true" loading="lazy" decoding="async">` : ''}${image(base, s.affiche, { alt: t.affiche + s.nom, sizes: TAILLES.carte, attrs: `class="principale${s.dims && s.dims[0] < 560 ? ' petite' : ''}" loading="lazy" decoding="async"${s.dims ? ` width="${s.dims[0]}" height="${s.dims[1]}"` : ''}` })}`
+    : image(base, `site/img/${PHOTOS[parseInt(h(s.nom), 16) % PHOTOS.length]}.jpg`, { sizes: TAILLES.carte, attrs: 'class="principale photo" loading="lazy" decoding="async" width="928" height="1152"' });
   const acces = accesDe(s);
   const promo = promoDe(s);
   return `<article class="carte${vedette ? ' vedette' : ''}" data-acces="${acces.join(' ')}" data-id="${s.id}" data-jour="${s.jour}" data-debut="${esc(s.debut)}" data-heure="${esc(heure(s.debut, t))}" data-ville="${s.filtreVille}" data-styles="${s.styles.join(' ')}" data-prix="${s.prix ?? ''}" data-lat="${s.lat ?? ''}" data-lng="${s.lng ?? ''}"${s.approx ? ' data-approx="1"' : ''} data-q="${esc(q)}">
@@ -782,18 +804,22 @@ function agenda(soirees, { t, base, lang, filtresVille = true, filtreStyle = tru
   const parJour = {};
   for (const s of soirees) (parJour[s.jour] ||= []).push(s);
   const jours = Object.entries(parJour).map(([jour, l]) => `<section class="jour" data-jour="${jour}"><h2>${esc(dateLongue(`${jour}T12:00:00Z`, t))}</h2><div class="grille">${l.map((s) => carte(s, { t, base, lang })).join('\n')}</div></section>`).join('\n');
-  const groupe = (f, valeurs, libelles) => `<div class="groupe" data-filtre="${f}">${valeurs.map((v, i) => `<button type="button"${i ? '' : ' class="actif"'} data-v="${v}">${esc(libelles[i])}</button>`).join('')}</div>`;
+  // Chaque filtre est un menu déroulant (une seule barre sur ordinateur) ; dans la feuille mobile, ils sont tous ouverts.
+  const TITRES = { quand: t.quandL, ville: t.ou, style: t.stylesL, prix: t.prixL, acces: t.accesL };
+  const groupe = (f, valeurs, libelles) => `<details class="filtre" data-bloc="${f}"><summary><span>${esc(TITRES[f])}</span><b class="choix">${esc(libelles[0])}</b></summary><div class="groupe" data-filtre="${f}">${valeurs.map((v, i) => `<button type="button"${i ? '' : ' class="actif"'} data-v="${v}">${esc(libelles[i])}</button>`).join('')}</div></details>`;
   const styles = STYLES_MUSIQUE.map((x) => x.cle).filter((k) => soirees.some((s) => s.styles.includes(k)));
   return `<section id="agenda" class="agenda">
   <div class="filtres-place"><div class="filtres" role="toolbar" aria-label="${esc(t.js.filtres)}">
     <div class="vues"><button type="button" class="actif" data-vue="liste">${esc(t.agenda)}</button><button type="button" data-vue="carte">${esc(t.carte)}</button><button type="button" class="fermer-filtres">${esc(t.js.fermer)}</button></div>
     ${champRecherche(t)}
+    <div class="menus">
     ${groupe('quand', ['tout', 'soir', 'weekend', 'semaine', 'favoris'], [...t.quand, t.favoris])}
     ${filtresVille ? groupe('ville', ['tout', ...VILLES.map((v) => v.toLowerCase()), 'var', 'autres'], [t.partout, t.villes.nice, t.villes.cannes, t.villes.monaco, t.villes.antibesCourt, t.var, t.ailleurs]) : ''}
     ${filtreStyle && styles.length > 1 ? groupe('style', ['tout', ...styles], [t.sons[0], ...styles.map((k) => nomStyle(k, t, lang))]) : ''}
     ${groupe('prix', ['tout', 'gratuit', '10'], t.prix)}
     ${groupe('acces', ['tout', 'pres', 'tram', 'train', 'bus', 'parking'], t.acces)}
     <p class="nb-res" aria-live="polite"></p>
+    </div>
   </div></div>
   <div id="carte" class="carte-soirees" hidden><div class="leaflet-zone"></div><p class="carte-vide" hidden>${esc(t.js.carteVide)}</p></div>
   <div class="liste">
@@ -844,10 +870,12 @@ const ldFaq = (faq) => ({ '@context': 'https://schema.org', '@type': 'FAQPage', 
 // Fond du hero : la vidéo du port de Monaco (muette, en boucle) ou une photo.
 const fond = (base, photo, video, alt) => (video
   ? `<video class="hero-photo" autoplay muted loop playsinline preload="none" poster="${base}site/img/equipe/${photo}-600.webp" aria-label="${esc(alt)}"><source src="${base}site/img/equipe/${photo}.mp4" type="video/mp4"></video>`
-  : image(base, `site/img/${PHOTOS.includes(photo) ? '' : 'equipe/'}${photo}.jpg`, { alt, attrs: 'class="hero-photo" fetchpriority="high"' }));
+  : image(base, `site/img/${PHOTOS.includes(photo) ? '' : 'equipe/'}${photo}.jpg`, { alt, sizes: TAILLE_HERO, attrs: 'class="hero-photo" fetchpriority="high"' }));
+// Sur ordinateur, la photo du hero est une carte à droite (jamais étirée, donc jamais floue) ; sur mobile, elle est en fond.
+const TAILLE_HERO = '(min-width:980px) 560px, 100vw';
 
 const heroCourt = ({ base, photo, video, alt, etiquette, h1, p, live = false }) => `<section class="hero court">
-  ${fond(base, photo, video, alt)}
+  <div class="hero-media">${fond(base, photo, video, alt)}</div>
   <div class="hero-texte">
     <p class="etiquette">${esc(etiquette)}</p>
     <h1>${h1}</h1>
@@ -869,7 +897,7 @@ function page({ lang, t, base, compte, T, soirees, posts, now, maj, partenaires,
   const populaires = PAGES_STYLES.filter((k) => soirees.some((s) => s.styles.includes(k)));
   const faq = t.faqHome;
   const corps = `<section class="hero">
-  <div class="diaporama" aria-hidden="true">${DIAPORAMA.map((f, i) => { const img = image(base, `site/img/${f}.jpg`, { sizes: '100vw', attrs: `class="hero-photo" style="--i:${i}"${i ? '' : ' fetchpriority="high"'}` }); return i ? img.replace(' src="', ' data-src="').replace(' srcset="', ' data-srcset="') : img; }).join('')}</div>
+  <div class="hero-media"><div class="diaporama" aria-hidden="true">${DIAPORAMA.map((f, i) => { const img = image(base, `site/img/${f}.jpg`, { sizes: TAILLE_HERO, attrs: `class="hero-photo" style="--i:${i}"${i ? '' : ' fetchpriority="high"'}` }); return i ? img.replace(' src="', ' data-src="').replace(' srcset="', ' data-srcset="') : img; }).join('')}</div></div>
   <div class="hero-texte">
     <p class="etiquette">${esc(t.heroEtiquette)}</p>
     <h1>${t.heroH1}</h1>
@@ -896,7 +924,7 @@ ${blocOrga({ t, base, handle, lang })}`;
 
 function blocOrga({ t, base, handle, lang }) {
   return `<section class="orga reveal">
-  ${image(base, 'site/img/dj.jpg', { attrs: 'class="hero-photo" loading="lazy"' })}
+  <div class="hero-media">${image(base, 'site/img/dj.jpg', { sizes: TAILLE_HERO, attrs: 'class="hero-photo" loading="lazy"' })}</div>
   <div class="hero-texte">
     <p class="etiquette">${esc(t.orgaEtiquette)}</p>
     <h2>${t.orgaH2}</h2>
@@ -1000,8 +1028,11 @@ function pageSorties({ lang, t, tr, base, compte, T, chemin, maj, partenaires, c
     ${cleS === 'dates' && p.date_raison ? `<p class="petit">♥ ${esc(tr(p.date_raison))}</p>` : ''}
     <p class="lieu-liens">${p.instagram ? `<a class="lien" href="https://www.instagram.com/${esc(p.instagram)}/" target="_blank" rel="noopener">@${esc(p.instagram)}</a>` : ''}${p.site ? `<a class="lien" href="${esc(p.site)}" target="_blank" rel="noopener">${esc(t.siteWeb)}</a>` : ''}${p.adresse || p.ville ? `<a class="lien" href="https://www.google.com/maps/search/?api=1&amp;query=${encodeURIComponent([p.nom, p.adresse, p.ville].filter(Boolean).join(', '))}" target="_blank" rel="noopener">${esc(t.itineraire)}</a>` : ''}</p>
   </article>`;
+  const ICONES = ['🌅', '🌊', '🌿', '🎨', '⛵'];
+  const spots = cleS === 'dates' ? SPOTS_DATE.map((g, k) => `<section class="bloc-large reveal"><h2>${ICONES[k] || '✦'} ${esc(tr(g.titre))}</h2><div class="cartes-texte">${g.lieux.map(([nom, ville, texte], i) => `<article class="carte-texte spot" style="--i:${i}"><p class="genre">${esc(ville)}</p><h3>${esc(nom)}</h3><p>${esc(tr(texte))}</p><p class="lieu-liens"><a class="lien" href="https://www.google.com/maps/search/?api=1&amp;query=${encodeURIComponent(`${nom}, ${ville}`)}" target="_blank" rel="noopener">${esc(t.itineraire)}</a></p></article>`).join('')}</div></section>`).join('\n') : '';
   const corps = `${heroCourt({ base, photo: C.photo, alt: tr(C.etiquette), etiquette: tr(C.etiquette), h1: tr(C.h1), p: esc(tr(C.p)) })}
-<section class="bloc-large reveal">${l.length ? `<div class="cartes-texte">${l.map(carteP).join('')}</div>` : `<p class="vide">${esc(tr(SORTIES.vide))}</p>`}${ctaIg(handle, t.orgaBouton, T.email)}</section>
+${spots}
+<section class="bloc-large reveal">${cleS === 'dates' && l.length ? `<h2>${tr('Les bonnes adresses de nos <em>partenaires</em>')}</h2>` : ''}${l.length ? `<div class="cartes-texte">${l.map(carteP).join('')}</div>` : cleS === 'dates' ? '' : `<p class="vide">${esc(tr(SORTIES.vide))}</p>`}${ctaIg(handle, t.orgaBouton, T.email)}</section>
 <section class="bloc-large reveal"><p class="liens-styles">${Object.keys(SORTIES).filter((k) => SORTIES[k].filtre && k !== cleS).map((k) => `<a class="puce" href="${base}${pre(lang)}${k}/">${esc(k === 'dates' ? t.dates : k === 'restaurants' ? t.restos : t.activites)}</a>`).join('')}<a class="puce" href="${base}${pre(lang)}#agenda">${esc(t.agenda)}</a></p></section>`;
   return gabarit({ lang, t, titre: tr(C.titre), description: tr(C.desc), chemin, base, corps, compte, maj, ld: [...ldOrganisation(T, compte, t, lang), fil(lang, [['Teufy', ''], [tr(C.etiquette), chemin]]),
     ...(l.length ? [{ '@context': 'https://schema.org', '@type': 'ItemList', itemListElement: l.map((p, i) => ({ '@type': 'ListItem', position: i + 1, item: { '@type': p.categorie === 'restaurant' ? 'Restaurant' : 'LocalBusiness', name: p.nom, ...(p.adresse || p.ville ? { address: { '@type': 'PostalAddress', streetAddress: p.adresse || undefined, addressLocality: p.ville || undefined } } : {}), ...(p.site ? { url: p.site } : {}) } })) }] : [])] });

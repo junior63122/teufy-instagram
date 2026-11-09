@@ -14,7 +14,7 @@ const premiereSoiree = fs.readdirSync(path.join(ROOT, 'soiree'))[0];
 const soireePromo = fs.readdirSync(path.join(ROOT, 'soiree')).find((d) => /frigo|ref-session/.test(d)) || premiereSoiree;
 const PAGES = ['', 'en/', 'ar/', 'zh/', 'soirees-nice/', 'soirees-cannes/', 'soirees-monaco/', 'soirees-antibes/', 'soirees-shatta/', 'soirees-techno/', `soiree/${premiereSoiree}/`, `ar/soiree/${premiereSoiree}/`,
   'festivals/', 'clubs-bars/', 'france/', 'actus/', 'partenaires/', 'ambassadeurs/', 'bde/', 'dates/', 'restaurants/', 'activites/', 'a-propos/', 'mentions-legales/', 'existe-pas/'];
-const APPAREILS = { mobile: devices['iPhone 13'], tablette: devices['iPad Mini'], ordi: { viewport: { width: 1440, height: 900 } } };
+const APPAREILS = { mobile: devices['iPhone 13'], tablette: devices['iPad Mini'], ordi: { viewport: { width: 1440, height: 900 } }, grand: { viewport: { width: 1920, height: 1080 } } };
 
 async function controlerPage(p, nom, u) {
   const r = await p.goto(B + u, { waitUntil: 'load' });
@@ -31,6 +31,18 @@ async function controlerPage(p, nom, u) {
   // Images cassées (celles qui ont été chargées).
   const cassees = await p.evaluate(() => [...document.images].filter((i) => i.complete && i.currentSrc && i.naturalWidth === 0).map((i) => i.currentSrc));
   ok(!cassees.length, `${nom} ${u} : image cassée ${cassees.slice(0, 2).join(' ')}`);
+  // Images floues : affichées plus grandes que leur vraie taille (écran standard ; on tolère 10 %).
+  const floues = await p.evaluate(async () => {
+    const vues = [...document.images].filter((i) => { const r = i.getBoundingClientRect(); return i.complete && i.currentSrc && r.width >= 120 && !i.classList.contains('fond-flou') && getComputedStyle(i).opacity !== '0' && getComputedStyle(i).visibility !== 'hidden'; });
+    const vraies = await Promise.all(vues.map((i) => new Promise((ok) => { const x = new Image(); x.onload = () => ok([x.naturalWidth, x.naturalHeight]); x.onerror = () => ok([0, 0]); x.src = i.currentSrc; })));
+    return vues.map((i, k) => {
+      const [w, h] = vraies[k]; if (!w) return null;
+      const r = i.getBoundingClientRect(), fit = getComputedStyle(i).objectFit;
+      const e = fit === 'cover' ? Math.max(r.width / w, r.height / h) : fit === 'contain' ? Math.min(r.width / w, r.height / h) : fit === 'scale-down' ? Math.min(1, r.width / w, r.height / h) : r.width / w;
+      return e > 1.1 ? `${i.currentSrc.split('/').slice(-2).join('/')} (${w}px affichée à ${Math.round(e * 100)} %)` : null;
+    }).filter(Boolean);
+  });
+  ok(!floues.length, `${nom} ${u} : image floue ${floues.slice(0, 3).join(' ; ')}`);
   // Chaque bouton visible se clique sans erreur.
   const nb = await p.locator('main button:visible, header button:visible').count();
   for (let i = 0; i < Math.min(nb, 30); i++) {
@@ -72,7 +84,7 @@ async function controlerPage(p, nom, u) {
     await p.locator('.agenda .recherche .effacer').click(); await p.waitForTimeout(300);
     ok(await p.locator('.liste .carte:not([hidden])').count() === total, `${nom} : effacer la recherche ne remet pas tout`);
     // Villes multiples.
-    const clic = async (f, v) => { await p.locator(`.filtres [data-filtre="${f}"] [data-v="${v}"]`).click(); await p.waitForTimeout(150); };
+    const clic = async (f, v) => { const d = p.locator(`.filtres details[data-bloc="${f}"]`); if (await d.count() && !(await d.evaluate((x) => x.open))) { await d.locator('summary').click(); await p.waitForTimeout(120); } await p.locator(`.filtres [data-filtre="${f}"] [data-v="${v}"]`).click(); await p.waitForTimeout(150); };
     await clic('ville', 'nice'); const nNice = await n();
     await clic('ville', 'cannes'); const nNC = await n();
     ok(nNC > nNice, `${nom} : sélection Nice + Cannes impossible (${nNice} → ${nNC})`);
@@ -118,7 +130,7 @@ async function controlerPage(p, nom, u) {
         ok(!(await p.evaluate(() => document.documentElement.classList.contains('bloque'))), `mobile : la page reste bloquée après fermeture (${mode})`);
         ok(await p.locator('.filtres-place .filtres').count() === 1, `mobile : les filtres ne reviennent pas à leur place (${mode})`);
         if (mode !== 'bouton') ok(Math.abs((await p.evaluate(() => scrollY)) - y0) < 5, `mobile : la position de lecture est perdue (${mode})`);
-        if (mode === 'bouton') { ok(await nbVisibles(p) < total, 'mobile : le filtre choisi dans la feuille ne s\'applique pas'); await p.locator('.filtres [data-filtre="ville"] [data-v="tout"]').click(); }
+        if (mode === 'bouton') { ok(await nbVisibles(p) < total, 'mobile : le filtre choisi dans la feuille ne s\'applique pas'); await p.locator('.filtres [data-filtre="ville"] [data-v="tout"]').evaluate((b) => b.click()); }
         await p.locator('.liste .jour:not([hidden])').nth(2).scrollIntoViewIfNeeded(); await p.waitForTimeout(300);
       }
     }

@@ -449,3 +449,76 @@ a.vitrine-item:hover{transform:translateY(-3px);border-color:var(--corail)}
 .carte-texte.tendance{border-color:#ff5a3c66}
 .puce.actif{background:var(--creme);color:var(--nuit)}
 .diaporama img[data-src]:not([src]){visibility:hidden}
+
+/* ===== v5 : rendu premium sur ordinateur ===== */
+/* Hero : photo en fond sur mobile ; sur ordinateur, texte à gauche et photo en carte à droite (jamais étirée, jamais floue). */
+.hero-media{position:absolute;inset:0;z-index:-2;overflow:hidden}
+.hero-media .hero-photo{z-index:auto}
+@media(min-width:980px){
+  .hero,.orga{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);align-items:center;gap:clamp(40px,5vw,80px);min-height:0;padding:72px max(40px,calc((100vw - 1240px) / 2)) 88px;background:radial-gradient(55% 75% at 82% 45%,#ff5a3c26,transparent 70%),radial-gradient(40% 50% at 10% 90%,#3dff8a0d,transparent 70%),var(--nuit)}
+  .hero::after,.orga::after{display:none}
+  .hero-media{position:relative;inset:auto;z-index:1;order:2;width:100%;aspect-ratio:4/5;max-height:min(76vh,700px);justify-self:end;border-radius:30px;box-shadow:0 50px 90px -40px #000,0 0 0 1px #ffffff1a;transform:rotate(1.5deg);transition:transform .6s var(--doux)}
+  .hero-media:hover{transform:rotate(0) scale(1.01)}
+  .hero-media .hero-photo,.hero-media .diaporama{position:absolute;inset:0;width:100%;height:100%}
+  .hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,#0b0b0f66);pointer-events:none}
+  .hero-texte{order:1;padding:0;max-width:none;width:auto}
+  .hero h1{font-size:clamp(64px,6.2vw,112px)}
+  .hero-texte p:not(.etiquette){font-size:20px;max-width:600px}
+  .hero.court{min-height:0;padding-top:56px;padding-bottom:64px}
+  .hero.court .hero-media{max-height:min(58vh,520px);aspect-ratio:4/5;width:auto;height:min(58vh,520px)}
+  .hero.court h1{font-size:clamp(52px,4.8vw,84px)}
+  .orga{margin:110px max(24px,calc((100vw - 1240px) / 2 - 40px)) 0;border-radius:36px;padding:64px}
+  .orga .hero-media{max-height:460px;height:460px;width:auto}
+  .defile{margin-top:0}
+}
+/* Largeur de lecture un peu plus grande sur les grands écrans. */
+.agenda,.la-plus,.ce-soir,.bloc-large,.pros,.similaires,.fiche,.insta{max-width:1240px}
+
+/* Cartes : format unique 4:5, affiche entière sur fond flouté, titres et accroches tenus sur 2 lignes. */
+.grille{align-items:stretch}
+@media(min-width:1180px){.grille{gap:24px}}
+.affiche,.affiche.sans{aspect-ratio:4/5;position:relative;display:block;overflow:hidden;background:#111}
+.affiche img.principale{position:absolute;inset:0;width:100%;height:100%;max-height:none;object-fit:contain;z-index:1}
+.affiche img.principale.photo{object-fit:cover;filter:contrast(1.05) brightness(.85)}
+.affiche .fond-flou{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:blur(24px) saturate(1.4) brightness(.6);transform:scale(1.3)}
+.affiche .date,.affiche .statut{z-index:2}
+.carte .coeur{z-index:3}
+.carte:hover .affiche img.principale{transform:scale(1.04)}
+.carte h3{font-size:clamp(22px,2vw,27px);line-height:1;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.carte .accroche{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.carte .genre{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.carte .infos{gap:8px}
+.vedette .affiche{aspect-ratio:4/5}
+@media(min-width:760px){.vedette{grid-template-columns:minmax(0,400px) 1fr}.vedette h3{-webkit-line-clamp:3}}
+
+/* Filtres : une barre (recherche + menus déroulants + nombre de soirées). */
+.filtres{gap:12px;padding:14px 0}
+.menus{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+details.filtre{position:relative}
+details.filtre>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;background:var(--nuit2);border:1.5px solid #ffffff22;font-weight:700;font-size:14px;white-space:nowrap;transition:background .2s,color .2s,border-color .2s;user-select:none}
+details.filtre>summary::-webkit-details-marker{display:none}
+details.filtre>summary span{opacity:.6;font-weight:600}
+details.filtre>summary .choix{max-width:190px;overflow:hidden;text-overflow:ellipsis}
+details.filtre>summary::after{content:"";width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:translateY(-2px) rotate(45deg);opacity:.7;transition:transform .2s}
+details.filtre[open]>summary::after{transform:translateY(2px) rotate(-135deg)}
+details.filtre>summary:hover{border-color:#ffffff55}
+details.filtre.filtre-actif>summary{background:var(--creme);color:var(--nuit);border-color:var(--creme)}
+details.filtre.filtre-actif>summary span{opacity:.55}
+details.filtre>.groupe{position:absolute;top:calc(100% + 8px);inset-inline-start:0;z-index:40;background:#17171e;border:1px solid #ffffff22;border-radius:18px;padding:12px;flex-wrap:wrap;width:max-content;max-width:min(460px,92vw);box-shadow:0 30px 60px #000d;animation:monte .18s var(--doux);overflow:visible}
+.menus .nb-res{margin-inline-start:auto;font-size:15px;opacity:.85}
+@media(max-width:759px){
+  details.filtre[open]{flex-basis:100%}
+  details.filtre>.groupe{position:static;margin-top:8px;max-width:none;width:auto;box-shadow:none}
+  .menus .nb-res{flex-basis:100%;margin:0}
+}
+/* Dans la feuille mobile : tous les menus ouverts, titres en simple intitulé. */
+.feuille-corps details.filtre{flex-basis:100%}
+.feuille-corps details.filtre>summary{background:none;border:0;padding:6px 0 2px;pointer-events:none;color:var(--creme)}
+.feuille-corps details.filtre>summary::after,.feuille-corps details.filtre>summary .choix{display:none}
+.feuille-corps details.filtre>summary span{opacity:.7;text-transform:uppercase;letter-spacing:.12em;font-size:12px;font-weight:800}
+.feuille-corps details.filtre>.groupe{position:static;background:none;border:0;padding:4px 0 8px;box-shadow:none;width:auto;max-width:none;animation:none}
+.feuille-corps .menus .nb-res{display:none}
+.carte-texte.spot{border-top:3px solid var(--corail)}
+.carte-texte.spot h3{font-size:26px}
+@media(min-width:980px){.vedette .infos{padding:40px 44px}.vedette h3{font-size:56px}}
+.affiche img.principale.petite{object-fit:scale-down}
