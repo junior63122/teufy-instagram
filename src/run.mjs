@@ -19,7 +19,7 @@ import { collectEvents, filterEvents, enrich } from './sources.mjs';
 import { windowFor, rolling, isoLocal, plage, slotOfDay, daysOfMonth } from './dates.mjs';
 import { isTechno } from './genres.mjs';
 import { captionIncontournables, captionBonPlan, captionDebat, captionReel, captionOrgas, captionExplicatif, rng } from './captions.mjs';
-import { nettoyerComptes } from './comptes.mjs';
+import { nettoyerComptes, legendeFinale } from './comptes.mjs';
 import { igConfig, publishCarousel, publishSingle, publishReel, publishStory, permalink, insights, followers, businessDiscovery, compteMedia } from './instagram.mjs';
 import { TENDANCES, analyserComptes } from './tendances.mjs';
 import { buildModel, chooser, selectBest, eventFeatures, collect, hash } from './learn.mjs';
@@ -581,8 +581,8 @@ async function publishPrepared(id) {
     ? await publishReel(url(p.son?.audio_id && p.video_instagram ? p.video_instagram : p.video), url(p.couverture), p.legende, ig,
       { essai: !!TENDANCES.reels_essai?.actif, audio: p.son?.audio_id ? { audio_id: p.son.audio_id } : null, videoSecours: url(p.video) })
     : p.images.length === 1
-      ? await publishSingle(url(p.images[0]), p.legende, ig, { tags: p.tags })
-      : await publishCarousel(p.images.map(url), p.legende, ig, { tags: p.tags, collabs: config.collaborations?.actif ? p.collabs : [] });
+      ? await publishSingle(url(p.images[0]), p.legende, ig, { tags: p.tags, legende: (ok) => legendeFinale(p.legende, p.a_tester, ok) })
+      : await publishCarousel(p.images.map(url), p.legende, ig, { tags: p.tags, collabs: config.collaborations?.actif ? p.collabs : [], legende: (ok) => legendeFinale(p.legende, p.a_tester, ok) });
   const link = await permalink(res.id, ig);
   console.log(`[${id}] ✅ publié : ${link || res.id}`);
   // Relais en story (une erreur ici ne remet pas en cause la publication).

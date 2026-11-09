@@ -4,7 +4,8 @@
 // l'existence est confirmée.
 //   - confirmé : compte suivi par @teufy_official (liste des partenaires, relevée à la main), ou compte
 //     professionnel trouvé par l'API Instagram (Business Discovery) ;
-//   - sinon (introuvable, ou compte personnel que l'API ne peut pas vérifier) : retiré.
+//   - identifiant approximatif : remplacé par le vrai compte (voir resoudre) ;
+//   - sinon : testé par Instagram au moment de publier (refusé = retiré de l'image et de la légende).
 // Résultats gardés dans contenus/comptes-verifies.json (confirmé : revérifié après 30 jours ; introuvable : après 7).
 import { readFileSync, existsSync } from 'node:fs';
 import { writeFile } from 'node:fs/promises';
@@ -52,18 +53,68 @@ export async function verifierComptes(handles, { ig, businessDiscovery, now = Da
   return ok;
 }
 
-/** Retire d'une publication tous les comptes non confirmés (identifications, collaborations, @mentions). */
-export async function nettoyerComptes(p, opts = {}) {
-  const mentions = [...String(p.legende || '').matchAll(RE_MENTION)].map((m) => m[2]);
-  const tous = [...(p.tags || []).flat(), ...(p.collabs || []), ...mentions].map(propre).filter((h) => h && h !== 'teufy_official');
-  const ok = await verifierComptes(tous, opts);
-  const retires = [...new Set(tous.filter((h) => !ok.has(h)))];
-  if (p.tags) p.tags = p.tags.map((l) => [...new Set((l || []).map(propre).filter((h) => ok.has(h)))]);
-  if (p.collabs) p.collabs = [...new Set(p.collabs.map(propre).filter((h) => ok.has(h)))];
-  if (p.legende) {
-    p.legende = p.legende.replace(RE_MENTION, (m, avant, h) => (propre(h) === 'teufy_official' || ok.has(propre(h)) ? m : avant))
-      .replace(/[ \t]+$/gm, '').replace(/(\S) {2,}/g, '$1 ');
+// --- Retrouver le vrai compte derrière un identifiant approximatif ---------------------------------------------
+// Annuaire des comptes sûrs : suivis par @teufy_official, confirmés par l'API (cache), profils de partenaires lus
+// par l'API (contenus/partenaires-infos.json). Les comptes cités dans leurs bios (ex. « Before : @lantretechno »)
+// sont des candidats, vérifiés avant usage.
+const n = (h) => propre(h).replace(/[^a-z0-9]/g, '');
+const SUFFIXES = /(nice|cannes|monaco|antibes|toulon|frejus|cotedazur|official|officiel|events?|club|mc|06|83|fr)$/;
+const coeur = (h) => { let c = n(h); for (let k = 0; k < 3; k++) { const d = c.replace(SUFFIXES, ''); if (d.length >= 5 && d !== c) c = d; else break; } return c; };
+function annuaire() {
+  const surs = new Set(suivis()), candidats = new Set();
+  for (const [h, c] of Object.entries(lire(CACHE, {}))) if (c.ok) surs.add(h);
+  for (const [k, v] of Object.entries(lire(path.join(ROOT, 'contenus', 'partenaires-infos.json'), {}))) {
+    if (!k.startsWith('ig:') || !v.profil) continue;
+    surs.add(propre(k.slice(3)));
+    for (const m of String(v.profil.bio || '').matchAll(/@([A-Za-z0-9._]{2,30})/g)) candidats.add(propre(m[1]));
   }
-  if (retires.length) (opts.log || console.log)(`Comptes non confirmés retirés : ${retires.map((h) => `@${h}`).join(', ')}`);
-  return { retires, gardes: [...ok] };
+  return { surs, candidats };
+}
+export function resoudre(h, { surs, candidats }) {
+  const c = coeur(h);
+  if (c.length < 5) return null;
+  const trouve = (pool) => [...pool].filter((v) => { const nv = n(v), cv = coeur(v); return v !== propre(h) && (nv === n(h) || nv.startsWith(c) || (cv.length >= 5 && c.startsWith(cv))); });
+  const a = trouve(surs);
+  if (a.length === 1) return { compte: a[0], sur: true };
+  if (a.length) return null; // plusieurs possibilités : on ne devine pas
+  const b = trouve(candidats);
+  return b.length === 1 ? { compte: b[0], sur: false } : null;
+}
+
+/**
+ * Corrige les comptes d'une publication (identifications, collaborations, @mentions) :
+ *   confirmé → gardé ; approximatif → remplacé par le vrai compte ; inconnu → « à tester » (p.a_tester) :
+ *   Instagram le teste à la publication (un compte personnel existant est accepté, un compte inexistant refusé),
+ *   et il n'apparaît dans la légende que s'il a été accepté.
+ */
+export async function nettoyerComptes(p, opts = {}) {
+  const log = opts.log || console.log;
+  const mentions = [...String(p.legende || '').matchAll(RE_MENTION)].map((m) => m[2]);
+  const tous = [...new Set([...(p.tags || []).flat(), ...(p.collabs || []), ...mentions].map(propre).filter((h) => h && h !== 'teufy_official'))];
+  const ann = annuaire();
+  for (const h of await verifierComptes(tous, opts)) ann.surs.add(h); // d'abord les comptes confirmés tels quels
+  const remplace = {};
+  for (const h of tous) {
+    if (ann.surs.has(h)) continue;
+    const r = resoudre(h, ann);
+    if (r) remplace[h] = r.compte;
+  }
+  const apres = [...new Set(tous.map((h) => remplace[h] || h))];
+  const ok = await verifierComptes(apres, opts);
+  const aTester = apres.filter((h) => !ok.has(h));
+  const map = (h) => remplace[propre(h)] || propre(h);
+  if (p.tags) p.tags = p.tags.map((l) => [...new Set((l || []).map(map))].slice(0, 5));
+  if (p.collabs) p.collabs = [...new Set(p.collabs.map(map))].filter((h) => ok.has(h)); // invitations : comptes confirmés seulement
+  if (p.legende) p.legende = p.legende.replace(RE_MENTION, (m, avant, h) => (propre(h) === 'teufy_official' ? m : `${avant}@${map(h)}`));
+  p.a_tester = aTester;
+  if (Object.keys(remplace).length) log(`Comptes corrigés : ${Object.entries(remplace).map(([a, b]) => `@${a} → @${b}`).join(', ')}`);
+  if (aTester.length) log(`Comptes à confirmer par Instagram à la publication : ${aTester.map((h) => `@${h}`).join(', ')}`);
+  return { remplace, aTester, confirmes: [...ok] };
+}
+
+/** Légende finale : retire les @mentions des comptes « à tester » qu'Instagram a refusés. */
+export function legendeFinale(legende, aTester = [], acceptes = []) {
+  const refuses = new Set(aTester.map(propre).filter((h) => !acceptes.map(propre).includes(h)));
+  if (!refuses.size) return legende;
+  return legende.replace(RE_MENTION, (m, avant, h) => (refuses.has(propre(h)) ? avant : m)).replace(/[ \t]+$/gm, '').replace(/(\S) {2,}/g, '$1 ');
 }

@@ -65,27 +65,37 @@ async function avecCollabs(params, collabs, ig) {
 // Identifications (organisateurs, lieux) posées sur l'image ; si Instagram refuse un compte, on publie sans.
 // Placées sur l'affiche de la soirée (centre de la diapo, zone de l'affiche), réparties si plusieurs comptes.
 const userTags = (handles = []) => JSON.stringify(handles.slice(0, 5).map((username, i, a) => ({ username, x: +(a.length === 1 ? 0.5 : 0.32 + (0.36 * i) / (a.length - 1)).toFixed(2), y: +(0.4 + (i % 2) * 0.06).toFixed(2) })));
-async function conteneur(params, handles, ig) {
+async function conteneur(params, handles, ig, acceptes = []) {
   if (handles?.length) {
-    try { return await call('POST', `${ig.user}/media`, { ...params, user_tags: userTags(handles) }, ig); } catch (err) { console.log(`Identification refusée (${handles.join(', ')}) : ${err.message}`); }
+    try { const r = await call('POST', `${ig.user}/media`, { ...params, user_tags: userTags(handles) }, ig); acceptes.push(...handles); return r; } catch (err) { console.log(`Identification refusée (${handles.join(', ')}) : ${err.message} — test compte par compte`); }
+    // Un seul compte refusé faisait tomber toutes les identifications de l'image : on les teste une par une.
+    const ok = []; let dernier = null;
+    for (const h of handles) {
+      try { dernier = await call('POST', `${ig.user}/media`, { ...params, user_tags: userTags([...ok, h]) }, ig); ok.push(h); } catch (err) { console.log(`@${h} refusé par Instagram : ${err.message}`); }
+    }
+    if (ok.length && dernier) { acceptes.push(...ok); return dernier; }
   }
   return call('POST', `${ig.user}/media`, params, ig);
 }
 
-export async function publishCarousel(imageUrls, caption, ig, { tags = [], collabs = [] } = {}) {
-  const children = [];
+export async function publishCarousel(imageUrls, caption, ig, { tags = [], collabs = [], legende = null } = {}) {
+  const children = [], acceptes = [];
   for (const [i, image_url] of imageUrls.slice(0, 10).entries()) {
-    const { id } = await conteneur({ image_url, is_carousel_item: 'true' }, tags[i], ig);
+    const { id } = await conteneur({ image_url, is_carousel_item: 'true' }, tags[i], ig, acceptes);
     children.push(id);
   }
   for (const id of children) await waitReady(id, ig, { timeoutMs: 3 * 60e3 });
+  if (legende) caption = legende(acceptes); // @mentions : seulement les comptes qu'Instagram a acceptés
   const { id } = await avecCollabs({ media_type: 'CAROUSEL', children: children.join(','), caption }, collabs, ig);
   await waitReady(id, ig, { timeoutMs: 3 * 60e3 });
   return publish(id, ig);
 }
 
-export async function publishSingle(imageUrl, caption, ig, { tags = [] } = {}) {
-  const { id } = await conteneur({ image_url: imageUrl, caption }, tags[0], ig);
+export async function publishSingle(imageUrl, caption, ig, { tags = [], legende = null } = {}) {
+  // Légende provisoire sans les comptes non confirmés, puis finale une fois les identifications acceptées connues.
+  const acceptes = [];
+  let { id } = await conteneur({ image_url: imageUrl, caption: legende ? legende((tags[0] || []).filter(() => false)) : caption }, tags[0], ig, acceptes);
+  if (legende) { const finale = legende(acceptes); if (finale !== legende([])) ({ id } = await conteneur({ image_url: imageUrl, caption: finale }, acceptes, ig, [])); }
   await waitReady(id, ig, { timeoutMs: 3 * 60e3 });
   return publish(id, ig);
 }
