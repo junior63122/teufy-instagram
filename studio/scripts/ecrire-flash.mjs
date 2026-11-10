@@ -66,11 +66,11 @@ const SCHEMA = {
     source: {type: 'string', description: 'URL de la source officielle si actu, sinon vide.'},
     musique: {type: 'string', enum: ['trap', 'electro', 'festive', 'chill']},
     scenes: {
-      type: 'array', minItems: 5, maxItems: 7,
+      type: 'array', minItems: 7, maxItems: 9,
       items: {
         type: 'object', additionalProperties: false, required: ['texte', 'photo', 'gros', 'objet', 'son', 'mot_son'],
         properties: {
-          texte: {type: 'string', description: 'Réplique voix off (≤ 110 caractères), écrite pour l\'oral, avec 1 balise d\'émotion eleven_v3 au début ([excited] [shocked] [curious] [laughs] [whispers] [sighs] [surprised]) et des MAJUSCULES sur le mot à appuyer.'},
+          texte: {type: 'string', description: 'Réplique voix off COURTE (≤ 12 mots, ≤ 75 caractères ; la 1re ≤ 8 mots), écrite pour l\'oral, sans « … » (pas de pause), avec 1 balise d\'émotion eleven_v3 au début ([excited] [shocked] [curious] [laughs] [whispers] [sighs] [surprised]) et des MAJUSCULES sur le mot à appuyer.'},
           photo: {type: 'string', description: 'Photo de la scène, en ANGLAIS : qui, où, quelle émotion (soirée, rue la nuit, club, plage, téléphone…). Pas de texte lisible, pas de logo.'},
           gros: {type: 'array', maxItems: 2, items: {type: 'object', additionalProperties: false, required: ['mot', 'texte', 'style'], properties: {
             mot: {type: 'string', description: 'mot EXACT de la réplique où le mot géant claque'},
@@ -88,7 +88,14 @@ const SCHEMA = {
 };
 
 const system = `Tu es le scénariste des reels Instagram de Teufy (@teufy_official), le guide des soirées de la Côte d'Azur, public 17-30 ans.
-Format « Flash » (validé par la marque) : 20 à 28 s, 5 à 7 scènes, une photo flash par scène, une voix off française TRÈS expressive (ElevenLabs eleven_v3).
+Format « Flash » (validé par la marque) : 18 à 24 s, 7 à 9 scènes courtes, une photo flash par scène, une voix off française TRÈS expressive et RAPIDE (ElevenLabs eleven_v3).
+Le public décroche en moins d'une seconde : CHAQUE seconde doit relancer l'attention. Règles de rétention (prioritaires) :
+- Scène 1 (≤ 1,5 s, ≤ 8 mots) : le CHOC tout de suite (le chiffre, la contradiction, la situation gênante), pas d'introduction. Le mot géant de la scène 1 apparaît dès la 1re image.
+- Raconte une HISTOIRE avec de l'émotion : un personnage (« toi », ton pote, une fille dans la file), une tension (le problème, la gêne, l'injustice), un retournement, puis la solution. On doit vouloir connaître la suite.
+- Boucle ouverte dans les 3 premières secondes (« et la 3e, personne ne la connaît », « attends la fin ») UNIQUEMENT si la suite la tient vraiment.
+- Une réplique = une idée = 2 s maximum (≤ 12 mots). Jamais de « … », jamais de phrase longue.
+- Varie les émotions d'une scène à l'autre (choc, rire, chuchotement, excitation) et alterne questions et affirmations.
+- La dernière réplique boucle avec la première (on a envie de revoir) puis l'appel à l'action en 5 mots.
 Règles :
 - Le reel doit APPORTER quelque chose : une info utile, une astuce concrète, une actu expliquée, ou une situation drôle très reconnaissable. Jamais de remplissage.
 - Accroche dans la 1re réplique (≤ 2 s) : un chiffre choc, une contradiction, une question qui pique. Jamais « salut » ni « dans cette vidéo ».
@@ -111,13 +118,21 @@ Date : ${new Date().toISOString().slice(0, 10)}. Écris un reel selon le schéma
 const CRITIQUE = {type: 'object', additionalProperties: false, required: ['note', 'problemes'], properties: {
   note: {type: 'number', description: 'note sur 10'}, problemes: {type: 'array', items: {type: 'string'}, description: 'problèmes précis à corriger'}}};
 const relire = (script) => json({config, nom: 'relecture', gratuit: true, schema: CRITIQUE,
-  system: `Tu es rédacteur en chef exigeant des reels de Teufy (soirées Côte d'Azur, 17-30 ans). Note le script sur 10 : accroche (2 premières secondes), valeur apportée (on apprend ou on rit vraiment), rythme (un temps fort toutes les 1-2 s), exactitude (nombre d'éléments annoncé = nombre donné ; TOUTE affirmation chiffrée ou présentée comme un fait — « ×2 », « le double », « 80 % », une règle générale — sans source ni mention d'exemple est une faute grave : note 5 maximum), ton (complice, inclusif, sans stéréotype de genre, d'origine ou d'apparence), cohérence rubrique/contenu, appel à l'action. Sois sévère : 7 = publiable.`,
+  system: `Tu es rédacteur en chef exigeant des reels de Teufy (soirées Côte d'Azur, 17-30 ans). Note le script sur 10 : rétention (le public décroche en 1 s : la scène 1 fait-elle ≤ 8 mots avec un choc immédiat ? chaque réplique ≤ 12 mots ? une histoire avec tension et retournement ? une raison de rester jusqu'à la fin ?), accroche (2 premières secondes), valeur apportée (on apprend ou on rit vraiment), rythme (un temps fort toutes les 1-2 s), exactitude (nombre d'éléments annoncé = nombre donné ; TOUTE affirmation chiffrée ou présentée comme un fait — « ×2 », « le double », « 80 % », une règle générale — sans source ni mention d'exemple est une faute grave : note 5 maximum), ton (complice, inclusif, sans stéréotype de genre, d'origine ou d'apparence), cohérence rubrique/contenu, appel à l'action. Sois sévère : 7 = publiable.`,
   prompt: `Rubrique : ${rubrique}\nScript :\n${JSON.stringify({titre: script.titre, titre_couverture: script.titre_couverture, scenes: script.scenes.map((x) => ({texte: x.texte, gros: x.gros, objet: x.objet?.type})), legende: script.legende})}`});
 let r = process.env.ECRIRE_REPONSE ? lire(process.env.ECRIRE_REPONSE, {}) : await json({config, system, prompt, schema: SCHEMA, nom: 'reel_flash'});
+// Contrôles de rythme mesurables (avant l'avis de l'IA) : accroche courte, répliques courtes, pas de pauses.
+const mots = (x) => String(x || '').replace(/\[[^\]]*\]/g, ' ').trim().split(/\s+/).filter(Boolean).length;
+const rythme = (sc) => [
+  ...(mots(sc.scenes?.[0]?.texte) > 8 ? [`la 1re réplique fait ${mots(sc.scenes[0].texte)} mots (8 maximum, le choc d'abord)`] : []),
+  ...(sc.scenes || []).flatMap((x, i) => (mots(x.texte) > 13 ? [`la réplique ${i + 1} fait ${mots(x.texte)} mots (12 maximum)`] : [])),
+  ...((sc.scenes || []).some((x) => /…|\.\.\./.test(x.texte)) ? ['des « … » ralentissent la voix : les supprimer'] : []),
+];
 if (!process.env.ECRIRE_REPONSE && r?.scenes?.length) {
   for (let essai = 0; essai < 3; essai++) {
     let avis;
-    try { avis = await relire(r); } catch (err) { console.error(`Relecture impossible : ${err.message}`); break; }
+    const lent = rythme(r);
+    try { avis = lent.length ? {note: 5, problemes: lent} : await relire(r); } catch (err) { console.error(`Relecture impossible : ${err.message}`); break; }
     console.error(`Relecture : ${avis.note}/10${avis.problemes?.length ? ` — ${avis.problemes.join(' ; ')}` : ''}`);
     if (avis.note >= 7) break;
     if (essai === 2) { console.error('Script refusé par la relecture : pas de reel.'); process.exit(1); }
@@ -135,7 +150,8 @@ const motDans = (m, texte) => {
 };
 let id = String(r.id || 'reel').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 30) || 'reel';
 while (concepts.some((c) => c.id === id) || existsSync(path.join(DIR_C, `${id}.json`))) id = `${id}-${Math.floor(Math.random() * 90 + 10)}`;
-const scenes = r.scenes.slice(0, 7);
+// Les « … » font marquer une pause à la voix : remplacés par une virgule (rythme continu).
+const scenes = r.scenes.slice(0, 9).map((x) => ({...x, texte: String(x.texte).replace(/\s*(…|\.\.\.)\s*(?=[?!.,]|$)/g, '').replace(/\s*(…|\.\.\.)\s*/g, ', ')}));
 const total = scenes.map((s) => sansTags(s.texte)).join(' ').length;
 
 const MUSIQUES = {trap: 'musique/trap.mp3', electro: 'musique/electro-dreams.mp3', festive: 'musique/odd-beats.mp3', chill: 'musique/hazy-after-hours.mp3'};
@@ -158,7 +174,7 @@ if (vides > 1) console.warn(`Scénariste : ${vides} scène(s) sans temps fort vi
 
 const concept = {
   id, concept: 'reelflash', type: 'explicatif', rubrique, titre: r.titre, titre_couverture: r.titre_couverture, cree: new Date().toISOString(), source: r.source || undefined,
-  voix: config.studio?.voix || {voice_id: '3Tp5mYhT9wrfnry9pzvV', nom: 'Hugo', modele: 'eleven_v3', stabilite: 0.0, style: 0.85, vitesse: 1.1},
+  voix: config.studio?.voix || {voice_id: '3Tp5mYhT9wrfnry9pzvV', nom: 'Hugo', modele: 'eleven_v3', stabilite: 0.0, style: 0.85, vitesse: 1.2},
   musique: {src: MUSIQUES[r.musique] || MUSIQUES.trap, volume: 0.42, ducking: 0.3},
   queue: 1.6, whooshEntreScenes: false,
   scenes: scenes.map((s, i) => {

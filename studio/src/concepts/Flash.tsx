@@ -56,13 +56,18 @@ export const Flash: React.FC<{spec: any}> = ({spec}) => {
   const arrive = k > 0 ? 1 - E.outExpo(clamp((t - debut) / 0.45)) : 0;
   const zoomTr = plonge * 0.55 + arrive * 0.22;
   const flou = plonge * 10 + arrive * 6;
+  // Micro-coupes : toutes les 1,2 s sans nouveau mot clé, la photo change de cadrage d'un coup (gros plan, décalage),
+  // comme un montage multi-caméra : l'œil reçoit une nouvelle image au moins toutes les 1,2 s (rétention).
+  const COUPE = 1.2, n = Math.floor((t - debut) / COUPE);
+  const CADRES = [[0, 0, 0], [-90, -70, 0.32], [80, 40, 0.18], [-40, 90, 0.4], [110, -60, 0.26]];
+  const [cx, cy, cz] = CADRES[(n + k) % CADRES.length].map((v, i) => (n === 0 && i < 2 ? 0 : v));
   // Respiration 3D : la photo glisse doucement en diagonale (sens alterné d'une scène à l'autre).
   const derive = (t - debut) * 14 * (k % 2 ? -1 : 1);
 
   return (
     <AbsoluteFill style={{background: C.nuit, overflow: 'hidden'}}>
       {/* photo de la scène */}
-      <AbsoluteFill style={{transform: `translate(${sx + derive}px, ${sy - derive * 0.4}px) scale(${kb + choc + beat * 0.012 + zoomTr}) rotate(${(k % 2 ? -1 : 1) * 0.6 + coup * 0.8}deg)`, filter: `blur(${flou}px) brightness(${1 + beat * 0.1 + coup * 0.15})`}}>
+      <AbsoluteFill style={{transform: `translate(${sx + derive + cx}px, ${sy - derive * 0.4 + cy}px) scale(${kb + cz + choc + beat * 0.012 + zoomTr}) rotate(${(k % 2 ? -1 : 1) * 0.6 + coup * 0.8}deg)`, filter: `blur(${flou}px) brightness(${1 + beat * 0.1 + coup * 0.15})`}}>
         <Img src={staticFile(plan.photo)} style={{width: '100%', height: '100%', objectFit: 'cover', objectPosition: plan.position || 'center', filter: 'contrast(1.08) saturate(1.08)'}} />
       </AbsoluteFill>
       <Lumieres t={t} k={k} beat={beat} />
@@ -75,7 +80,7 @@ export const Flash: React.FC<{spec: any}> = ({spec}) => {
       {/* objet qui porte l'info */}
       {plan.objet ? <ObjetAnime o={plan.objet} t={t} fps={fps} q={q} /> : null}
 
-      <SousTitres mots={spec.mots} y={1440} taille={58} style="contour" accent={C.corail} cles={[]} />
+      <SousTitres mots={spec.mots} y={1380} taille={76} style="contour" accent={C.corail} cles={[]} />
 
       {/* barre de progression + signature */}
       <div style={{position: 'absolute', left: 0, top: 0, height: 8, width: `${clamp(t / spec.duree) * 100}%`, background: C.corail}} />
