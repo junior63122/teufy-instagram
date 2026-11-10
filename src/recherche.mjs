@@ -107,7 +107,7 @@ export async function rechercherSoirees({ config, now = new Date(), ig = null, a
   const textes = [];
   for (const [i, cible] of PASSES.entries()) {
     const t = await ia.rechercher({
-      config, gratuit: true, // Gemini + Google d'abord (16 passes/jour) : Claude est gardé pour les textes Instagram (budget)
+      config,
       system: `Tu recenses TOUTES les soirées de la Côte d'Azur pour le média Teufy. Tu ne rapportes que des soirées réelles, trouvées sur une page web, jamais inventées.\n${CIBLE}`,
       prompt: `Cherche sur ${cible} toutes les soirées entre le ${jour} et le ${fin}. Vérifie chaque soirée sur sa page officielle ou sa billetterie (date, heure, lieu) : une info non confirmée doit être signalée comme telle. Pour chaque soirée : nom exact, date et heure, lieu, ville, prix minimum, styles musicaux, URL de l'affiche si tu la vois, URL de la page de la soirée, site source, ce qui peut faire le buzz (tête d'affiche, lieu réputé, festival, ouverture/closing, sold out) et les comptes Instagram de l'organisateur et du lieu. Sois exhaustif : liste-les toutes, une par ligne.`,
     }).catch((err) => { log(`  passe ${i + 1} impossible : ${err.message}`); return ''; });
@@ -317,7 +317,7 @@ export async function rechercherOccitanie({ config, now = new Date(), ia = LLM, 
   const cache = lireOccitanie();
   if (R.occitanie === false) return cache;
   const ageJours = cache.maj ? (now - new Date(cache.maj)) / 86400e3 : Infinity;
-  if (!force && ageJours < (R.rafraichir_occitanie_jours ?? 2)) return cache;
+  if (!force && ageJours < (R.rafraichir_occitanie_jours ?? 1)) return cache;
   const jour = now.toISOString().slice(0, 10);
   const fin = new Date(now.getTime() + (R.horizon_jours ?? 45) * 86400e3).toISOString().slice(0, 10);
   const evenements = [];

@@ -15,7 +15,7 @@ const GEMINI = 'https://generativelanguage.googleapis.com/v1beta/models';
 // Compteur d'appels par IA, par jour et par mois, enregistré dans contenus/budget-ia.json (committé par les workflows).
 // Au-delà des plafonds de config.llm (max_appels_<ia>_jour / _mois), l'IA n'est plus appelée jusqu'au lendemain / mois suivant.
 const FICHIER_BUDGET = path.join(path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..'), 'contenus', 'budget-ia.json');
-const PLAFONDS = { gemini: [300, 6000], anthropic: [15, 250] }; // [par jour, par mois] si la config n'en donne pas
+const PLAFONDS = { gemini: [1500, 30000], anthropic: [120, 2500] }; // anti-emballement seulement (boucle, panne) : jamais atteints en usage normal
 function lireBudget() {
   const j = new Date().toISOString().slice(0, 10), m = j.slice(0, 7);
   let b = {}; try { b = existsSync(FICHIER_BUDGET) ? JSON.parse(readFileSync(FICHIER_BUDGET, 'utf8')) : {}; } catch { b = {}; }
@@ -49,9 +49,11 @@ export function fournisseurs(config = {}, { gratuit = false } = {}) {
   if (process.env.GEMINI_API_KEY) out.push('gemini');
   if (process.env.GITHUB_TOKEN && L.github_models !== false) out.push('github');
   // Claude passe en premier quand le payant est autorisé (meilleure qualité), les IA gratuites restent en secours.
-  // Tâches fréquentes (« gratuit ») : jamais de bascule vers Claude, sauf si config.llm.secours_payant = true
-  // (sinon une panne de Gemini fait tout passer sur l'IA payante et vide le budget, ce qui est arrivé le 9/11).
-  if (L.payant_autorise && (process.env.ANTHROPIC_API_KEY || process.env.ANTHROPIC_AUTH_TOKEN) && (!gratuit || L.secours_payant === true)) out[gratuit ? 'push' : 'unshift']('anthropic');
+  // Continuité : si Gemini est à sec, Claude prend le relais des tâches fréquentes (secours_payant, actif par défaut),
+  // dans la limite des plafonds anti-emballement ; et inversement. GitHub Models (gratuit) reste le dernier secours.
+  if (L.payant_autorise && (process.env.ANTHROPIC_API_KEY || process.env.ANTHROPIC_AUTH_TOKEN) && (!gratuit || L.secours_payant !== false)) {
+    if (gratuit) out.splice(out.indexOf('github') === -1 ? out.length : out.indexOf('github'), 0, 'anthropic'); else out.unshift('anthropic');
+  }
   return out;
 }
 export const rechercheWebDisponible = (config) => fournisseurs(config).some((f) => f === 'gemini' || f === 'anthropic');
@@ -135,18 +137,39 @@ export async function json({ config, system, prompt, schema, nom = 'reponse', gr
         compter(f);
         return JSON.parse(texteGemini(j));
       }
-      if (f === 'github') {
-        const j = await post(GH, {
-          model: L.modele_github || 'openai/gpt-4.1-mini',
-          messages: [{ role: 'system', content: system }, { role: 'user', content: prompt.slice(0, 60000) }],
-          response_format: { type: 'json_schema', json_schema: { name: nom, strict: true, schema } },
-        }, { authorization: `Bearer ${process.env.GITHUB_TOKEN.trim()}` });
-        return JSON.parse(j.choices?.[0]?.message?.content || '{}');
-      }
+      if (f === 'github') return await githubModels({ L, system, prompt, schema, nom });
       if (f === 'anthropic') { const r = JSON.parse(await claude({ system, prompt, schema, L })); compter(f); return r; }
     } catch (err) { marquerASec(f, err); console.error(`IA ${f} impossible : ${err.message.slice(0, 160)}`); }
   }
   throw new Error('Aucune IA disponible (ajoute le secret gratuit GEMINI_API_KEY)');
+}
+
+// --- GitHub Models (gratuit, dernier secours quand Gemini et Claude n'ont plus de crédit) ----------------------------
+// Deux points d'accès (le nouveau, puis l'ancien) et une sortie JSON tolérante : le 10/11, une réponse « OK » non JSON
+// faisait échouer ce secours.
+async function githubModels({ L, system, prompt, schema, nom }) {
+  const modele = L.modele_github || 'openai/gpt-4.1-mini';
+  const essais = [
+    [GH, modele, { accept: 'application/vnd.github+json', 'x-github-api-version': '2022-11-28' }],
+    ['https://models.inference.ai.azure.com/chat/completions', modele.replace(/^[^/]+\//, ''), {}],
+  ];
+  let derniere;
+  for (const [url, model, h] of essais) {
+    for (const format of [{ type: 'json_schema', json_schema: { name: nom, strict: true, schema } }, { type: 'json_object' }]) {
+      try {
+        const res = await fetch(url, { method: 'POST', signal: AbortSignal.timeout(180000), headers: { 'content-type': 'application/json', authorization: `Bearer ${process.env.GITHUB_TOKEN.trim()}`, ...h },
+          body: JSON.stringify({ model, messages: [{ role: 'system', content: `${system}\nRéponds uniquement en JSON valide${format.type === 'json_object' ? ` selon ce schéma : ${JSON.stringify(schema)}` : ''}.` }, { role: 'user', content: prompt.slice(0, 60000) }], response_format: format }) });
+        const txt = await res.text();
+        if (!res.ok) { derniere = new Error(`HTTP ${res.status} ${txt.slice(0, 160)}`); if (res.status === 400) continue; break; }
+        let j; try { j = JSON.parse(txt); } catch { derniere = new Error(`réponse non JSON (${txt.slice(0, 40)})`); break; }
+        const c = j.choices?.[0]?.message?.content || '';
+        const m = c.match(/\{[\s\S]*\}/);
+        if (m) return JSON.parse(m[0]);
+        derniere = new Error('réponse vide');
+      } catch (err) { derniere = err; }
+    }
+  }
+  throw derniere || new Error('GitHub Models indisponible');
 }
 
 // --- Claude (optionnel, payant) ---------------------------------------------------
@@ -157,8 +180,8 @@ async function claude({ system, prompt, schema, outils = false, L = {} }) {
   const messages = [{ role: 'user', content: prompt }];
   for (let tour = 0; tour < 6; tour++) {
     const res = await client.beta.messages.stream({
-      model: L.modele_claude || 'claude-sonnet-5-5', max_tokens: 16000, // Sonnet par défaut : bien moins cher qu'Opus betas: ['server-side-fallback-2026-07-01'], fallbacks: 'default', thinking: { type: 'adaptive' }, system, messages,
-      ...(outils ? { tools: [{ type: 'web_search_20260209', name: 'web_search', max_uses: L.max_recherches_claude ?? 6 }, { type: 'web_fetch_20260209', name: 'web_fetch', max_uses: 8 }] } : {}),
+      model: L.modele_claude || 'claude-opus-5-5', max_tokens: 32000, betas: ['server-side-fallback-2026-07-01'], fallbacks: 'default', thinking: { type: 'adaptive' }, system, messages,
+      ...(outils ? { tools: [{ type: 'web_search_20260209', name: 'web_search', max_uses: L.max_recherches_claude ?? 20 }, { type: 'web_fetch_20260209', name: 'web_fetch', max_uses: 25 }] } : {}),
       ...(schema ? { output_config: { effort: 'medium', format: { type: 'json_schema', schema } } } : {}),
     }).finalMessage();
     if (res.stop_reason === 'refusal') throw new Error('refus');

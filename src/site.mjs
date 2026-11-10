@@ -480,7 +480,7 @@ const trad = (lang, x) => {
 };
 async function traduireManquants(log) {
   let n = 0;
-  if (!(process.env.GEMINI_API_KEY || '').trim()) { TR.manque = {}; return 0; }
+  if (!LLM.fournisseurs({ llm: CONFIG_LLM }, { gratuit: true }).length) { TR.manque = {}; return 0; }
   for (const [l, set] of Object.entries(TR.manque)) {
     const liste = [...set];
     for (let i = 0; i < liste.length;) {
@@ -488,8 +488,17 @@ async function traduireManquants(log) {
       if (Date.now() > LIMITE + 10 * 60e3) break; // le reste sera traduit au prochain passage
       while (i < liste.length && lot.length < 40 && taille < 7000) { lot.push(liste[i]); taille += liste[i].length; i++; }
       const r = await gemini([{ text: `Translate these French texts from a nightlife guide website (French Riviera) into ${NOMS_LANGUE[l]}. Keep every HTML tag exactly as it is (<em>, <strong>, <a …>). Keep names of parties, artists, venues, brands and festivals unchanged (Teufy, Shotgun, DICE, Nice Jazz Festival…). Natural, casual tone for 17-30 year olds. Answer with a JSON array of ${lot.length} strings, same order.\n${JSON.stringify(lot)}` }]);
-      if (!Array.isArray(r) || r.length !== lot.length) { log(`Site : traduction ${l} interrompue (réponse invalide)`); break; }
-      lot.forEach((x, j) => { if (typeof r[j] === 'string' && r[j].trim()) { TR.cache[`${l}|${h(x)}`] = r[j].trim(); n++; } });
+      let t = r;
+      // Relais si Gemini est indisponible (crédits, panne) : Claude puis GitHub Models, même consigne.
+      if (!Array.isArray(t) || t.length !== lot.length) {
+        const o = await LLM.json({ config: { llm: CONFIG_LLM }, gratuit: true, nom: 'traductions', schema: { type: 'object', additionalProperties: false, required: ['traductions'], properties: { traductions: { type: 'array', items: { type: 'string' } } } },
+          system: `You translate French texts from a nightlife guide website (French Riviera) into ${NOMS_LANGUE[l]}. Keep every HTML tag exactly. Keep names of parties, venues, artists and cities unchanged. Same order, same count.`,
+          prompt: JSON.stringify(lot) }).catch(() => null);
+        t = o?.traductions;
+      }
+      if (!Array.isArray(t) || t.length !== lot.length) { log(`Site : traduction ${l} interrompue (réponse invalide)`); break; }
+      const r2 = t;
+      lot.forEach((x, j) => { if (typeof r2[j] === 'string' && r2[j].trim()) { TR.cache[`${l}|${h(x)}`] = r2[j].trim(); n++; } });
     }
   }
   TR.manque = {};
