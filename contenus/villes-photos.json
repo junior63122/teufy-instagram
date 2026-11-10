@@ -397,5 +397,75 @@
   "licence": "CC BY-SA 3.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
   "source": "https://commons.wikimedia.org/wiki/File:Fontaine_de_la_Rotonde_-_Aix-en-Provence.JPG"
+ },
+ "Auron": {
+  "fichier": "site/img/villes/auron.jpg",
+  "auteur": "IbLeo",
+  "licence": "CC BY-SA 3.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "source": "https://commons.wikimedia.org/wiki/File:General_view_of_Auron_village.JPG"
+ },
+ "Meylan": {
+  "fichier": "site/img/villes/meylan.jpg",
+  "auteur": "Milky",
+  "licence": "CC BY-SA 3.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Avenue_de_Verdun_-_Meylan.JPG"
+ },
+ "Saint-Martin-d'Hères": {
+  "fichier": "site/img/villes/saint-martin-d-heres.jpg",
+  "auteur": "Villedesmh",
+  "licence": "CC BY-SA 4.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Mairie-ville-de-smh.JPG"
+ },
+ "Coudoux": {
+  "fichier": "site/img/villes/coudoux.jpg",
+  "auteur": "François GOGLINS",
+  "licence": "CC BY-SA 4.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Coudoux-FR-13-mairie-02.jpg"
+ },
+ "Golfe-Juan": {
+  "fichier": "site/img/villes/golfe-juan.jpg",
+  "auteur": "Florian Pépellin (Floflo)",
+  "licence": "Public domain",
+  "licence_url": "",
+  "source": "https://commons.wikimedia.org/wiki/File:Baie_de_Golfe_Juan.JPG"
+ },
+ "Le Cannet": {
+  "fichier": "site/img/villes/le-cannet.jpg",
+  "auteur": "Jpchevreau",
+  "licence": "CC BY-SA 3.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "source": "https://commons.wikimedia.org/wiki/File:La_place_Bellevue_du_Cannet.JPG"
+ },
+ "Beausoleil": {
+  "fichier": "site/img/villes/beausoleil.jpg",
+  "auteur": "Agence Rol. Agence photographique (commanditaire)",
+  "licence": "Public domain",
+  "licence_url": "",
+  "source": "https://commons.wikimedia.org/wiki/File:1912,_La_Turbie-Beausoleil,_Monte_Carlo_(vue_g%C3%A9n%C3%A9rale)_-_btv1b53112863b.jpg"
+ },
+ "Six-Fours-les-Plages": {
+  "fichier": "site/img/villes/six-fours-les-plages.jpg",
+  "auteur": "A.Schneider83",
+  "licence": "CC BY-SA 4.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Panorama_de_Six-Fours-les-Plages.jpg"
+ },
+ "Sanary-sur-Mer": {
+  "fichier": "site/img/villes/sanary-sur-mer.jpg",
+  "auteur": "Tobi 87",
+  "licence": "CC BY-SA 3.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Sanary-sur-Mer.jpg"
+ },
+ "Bandol": {
+  "fichier": "site/img/villes/bandol.jpg",
+  "auteur": "Auteur inconnu",
+  "licence": "CC BY-SA 3.0",
+  "licence_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "source": "https://commons.wikimedia.org/wiki/File:Bandol_vu_des_calanques_le_soir_en_%C3%A9t%C3%A9.jpg"
  }
 }
