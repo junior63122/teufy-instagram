@@ -21,6 +21,8 @@ const PAGES = ['', 'en/', 'ar/', 'zh/', 'soirees-nice/', 'soirees-cannes/', 'soi
 const APPAREILS = { mobile: devices['iPhone 13'], tablette: devices['iPad Mini'], ordi: { viewport: { width: 1440, height: 900 } }, grand: { viewport: { width: 1920, height: 1080 } } };
 
 // Défilement : molette sur ordinateur, défilement de page sur mobile (WebKit mobile n'a pas de molette).
+// Attend qu'un sélecteur compte n éléments (3 s max), sans eval.
+const attendreNb = async (p, sel, n) => { for (let i = 0; i < 15; i++) { if (await p.locator(sel).count() === n) return; await p.waitForTimeout(200); } };
 const defiler = (p, dy) => p.mouse.wheel(0, dy).catch(() => p.evaluate((d) => window.scrollBy(0, d), dy));
 async function controlerPage(p, nom, u) {
   const r = await p.goto(B + u, { waitUntil: 'load' });
@@ -85,9 +87,9 @@ async function controlerPage(p, nom, u) {
     const nShatta = await p.locator('.liste .carte:not([hidden])').count();
     ok(nShatta > 0 && nShatta < total, `${nom} : la recherche « shatta » ne filtre pas (${nShatta}/${total})`);
     ok(new URL(p.url()).searchParams.get('q') === 'shatta', `${nom} : la recherche n'est pas dans l'adresse`);
-    await p.locator('#recherche').fill('zzzzzz'); await p.waitForFunction(() => !document.querySelector('.liste .carte:not([hidden])'), null, { timeout: 3000 }).catch(() => {}); // WebKit en CI : filtrage plus lent
+    await p.locator('#recherche').fill('zzzzzz'); await attendreNb(p, '.liste .carte:not([hidden])', 0); // CI plus lente ; pas de waitForFunction (eval bloqué par la CSP sous Firefox)
     ok(await p.locator('.liste .carte:not([hidden])').count() === 0 && await p.locator('#aucune').isVisible(), `${nom} : pas de message « aucune soirée »`);
-    await p.locator('.agenda .recherche .effacer').click(); await p.waitForFunction((n) => document.querySelectorAll('.liste .carte:not([hidden])').length === n, total, { timeout: 3000 }).catch(() => {});
+    await p.locator('.agenda .recherche .effacer').click(); await attendreNb(p, '.liste .carte:not([hidden])', total);
     ok(await p.locator('.liste .carte:not([hidden])').count() === total, `${nom} : effacer la recherche ne remet pas tout`);
     // Villes multiples.
     const clic = async (f, v) => { const d = p.locator(`.filtres details[data-bloc="${f}"]`); if (await d.count() && !(await d.evaluate((x) => x.open))) { await d.locator('summary').click(); await p.waitForTimeout(120); } await p.locator(`.filtres [data-filtre="${f}"] [data-v="${v}"]`).click(); await p.waitForTimeout(150); };

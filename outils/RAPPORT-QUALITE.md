@@ -1,4 +1,4 @@
-# Rapport qualité du site Teufy — 10 novembre 2026 (nuit)
+# Rapport qualité du site Teufy — 10 novembre 2026 (nuit, 2e boucle)
 
 Protocole : `outils/PROMPT-AUDIT.md` (prompt complet, lancé en écrivant **`audit`**) et sa synthèse
 `outils/PROTOCOLE-QUALITE.md`. Notes honnêtes : une note n'est donnée que pour ce qui a été mesuré ou testé ;
@@ -22,7 +22,7 @@ ce qui n'a pas pu l'être est listé en J. Ce n'est pas une certification indép
 | Performances | 9,5 / 10 | Lighthouse ordinateur 100 / 100 (accueil, FAQ, partenaires, qui sommes-nous ; LCP 0,4–0,6 s). Mobile 96–99 ; LCP 2,0–2,6 s, sauf « Qui sommes-nous » : 2,3 à 2,9 s selon le passage. Pas de données de visiteurs réels. |
 | Animations et interactions | 9 / 10 | Apparitions au défilement, éventail d'affiches au survol, carrousels tactiles, transitions de page (View Transitions), mouvements réduits respectés. |
 | Fonctionnalités et fiabilité | 14 / 15 | Tous les parcours passent en local, y compris les nouveaux tests (FAQ, sources, partage avec repli quand le presse-papiers est refusé). La recherche automatique de l'Occitanie n'a pas encore été observée en vrai (lancée sur GitHub). |
-| Compatibilité | 8,5 / 10 | Chromium : tout passe (iPhone 13, iPad Mini, 1440 et 1920 px). Les séries WebKit et Firefox de GitHub ont été annulées par des envois rapprochés ; série complète relancée (résultat en F dès réception). Aucun appareil physique. |
+| Compatibilité | 8,5 / 10 (série GitHub relancée après corrections, résultat à confirmer) | Chromium : tout passe (iPhone 13, iPad Mini, 1440 et 1920 px). Les séries WebKit et Firefox de GitHub ont été annulées par des envois rapprochés ; série complète relancée (résultat en F dès réception). Aucun appareil physique. |
 | SEO | 9,8 / 10 | 1 603 pages : 0 problème bloquant, **0 avertissement** ; 1 602 URL dans le sitemap ; JSON-LD (FAQPage sur la FAQ, Événements, Fil d'Ariane avec la bonne rubrique). Search Console non connectée. |
 | Contenus | 4,7 / 5 | Contradictions corrigées (commission sur les billets, carte générale supprimée), FAQ uniquement avec des faits établis, CGV alignées sur le modèle économique. Traductions par IA, relues par échantillon seulement. |
 | Images et vidéos | 4,6 / 5 | Mauvaise affiche sur l'actu « Cinema for Space » supprimée (rapprochement trop large), plus aucune photo répétée d'une page à l'autre, affiches nettes dans les actus. 23 soirées sans affiche officielle (vignette Teufy). |
@@ -30,6 +30,23 @@ ce qui n'a pas pu l'être est listé en J. Ce n'est pas une certification indép
 | Accessibilité | 4,7 / 5 | Lighthouse 100 sur les pages mesurées ; boutons icônes (partage, favoris) avec libellé ; navigation clavier testée. Pas de test avec un vrai lecteur d'écran. |
 | Innovation et finitions | 4,8 / 5 | Comparateur de prix, codes promo expliqués, transports, fiches pratiques des lieux, Occitanie, 6 langues, cache hors connexion. |
 | **Total** | **93 / 100** | |
+
+## A bis. Boucle « images partout » et 3 navigateurs (10 novembre, 1 h–2 h)
+
+- **Images** : 19 spots sur 19 avec photo libre créditée ; 67 photos de villes (dernier recours honnête pour une
+  soirée sans affiche ni logo) ; logos des lieux 17 → 33, bannière photo de la ville pour les autres ;
+  image officielle de l'article pour l'actu qui n'en avait pas. Nouveau contrôle `audit-seo` « élément sans image » :
+  **0** sur les 1 603 pages.
+- **Codes promo** : économie en euros affichée (ex. 24,99 € → 19,99 €, 5,00 € économisés) ; commission comprise dans
+  le prix des billets (FAQ, CGV) ; Côte d'Azur remise en zone phare (menu, textes, chiffres).
+- **3 navigateurs (GitHub)** : Chromium OK en robustesse ; échecs trouvés puis corrigés : photos de villes en 480 px
+  floues sur grand écran (→ 800 px), logo du lieu trop agrandi, image d'actu en 800 px (→ 1 200 px), erreur du
+  service worker sous Firefox (→ jamais de rejet), attente du test de recherche bloquée par la CSP sous Firefox
+  (→ attente sans eval), test clavier et hors connexion fiabilisés sous Firefox, vidéo sous WebKit Linux (pas de
+  H.264 : on vérifie qu'elle tourne ; lecture complète exigée sous Chromium et Firefox).
+- **Bloquant hors code** : crédits **Gemini** et **Anthropic** épuisés (journaux GitHub : HTTP 402 / « credit balance
+  too low »). Sans eux : traductions des nouveaux textes, recherche Occitanie, relecture des affiches et fiches
+  pratiques des lieux à l'arrêt. À recharger par le directeur.
 
 ## C. Inventaire des tests
 

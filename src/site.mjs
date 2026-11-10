@@ -850,7 +850,7 @@ function vignette(s, base = '') {
   const [a, b] = [teintes[n % 6], teintes[(Math.floor(n / 7) % 5 + 1 + n % 6) % 6]];
   const ph = photoDuLieu(s) || PHOTOS_COMPTES.get(String(s.instagram || '').toLowerCase()) || '';
   const pv = photoVille(s.ville) || photoVille(s.filtreVille);
-  return `<span class="vignette${ph ? ' avec-lieu' : ''}${pv ? ' avec-ville' : ''}" style="--a:rgb(${a.join(',')});--b:rgb(${b.join(',')})" aria-hidden="true">${pv ? `<img class="vignette-ville" src="${base}${esc(pv.fichier.replace(/\.jpg$/, '-480.webp'))}" alt="" width="480" height="320" loading="lazy" decoding="async">` : ''}${ph ? `<img class="vignette-lieu" src="${base}${esc(ph)}" alt="" width="176" height="176" loading="lazy" decoding="async">` : ''}<small>${esc((s.genres || '').split(' · ')[0] || 'Soirée')}</small><b>${esc(s.lieu || s.ville || s.nom)}</b><i>${esc(s.lieu ? s.ville : '')}</i></span>`;
+  return `<span class="vignette${ph ? ' avec-lieu' : ''}${pv ? ' avec-ville' : ''}" style="--a:rgb(${a.join(',')});--b:rgb(${b.join(',')})" aria-hidden="true">${pv ? `<img class="vignette-ville" src="${base}${esc(pv.fichier.replace(/\.jpg$/, '-800.webp'))}" srcset="${base}${esc(pv.fichier.replace(/\.jpg$/, '-480.webp'))} 480w, ${base}${esc(pv.fichier.replace(/\.jpg$/, '-800.webp'))} 800w" sizes="(min-width:980px) 640px, 150vw" alt="" width="800" height="533" loading="lazy" decoding="async">` : ''}${ph ? `<img class="vignette-lieu" src="${base}${esc(ph)}" alt="" width="176" height="176" loading="lazy" decoding="async">` : ''}<small>${esc((s.genres || '').split(' · ')[0] || 'Soirée')}</small><b>${esc(s.lieu || s.ville || s.nom)}</b><i>${esc(s.lieu ? s.ville : '')}</i></span>`;
 }
 
 const boutonBillets = (s, t) => (s.url
@@ -1375,7 +1375,7 @@ async function imagesActus(actus, { soirees, hist }) {
       const u = existsSync(g) ? '' : await imageDePartage(a.source);
       if (existsSync(g) || (u && await telecharger(u, g))) { a.image_site = path.relative(ROOT, g); a.dims = tailleJpeg(g) || undefined; }
     }
-    if (a.image_site && !/affiches/.test(a.image_site)) for (const l of [400, 800]) webp(path.join(ROOT, a.image_site), l);
+    if (a.image_site && !/affiches/.test(a.image_site)) for (const l of [400, 800, 1200]) webp(path.join(ROOT, a.image_site), l);
     const post = hist.find((x) => x.lien && x.publication?.veille?.source && x.publication.veille.source === a.source);
     if (post) a.insta = post.lien;
   }
