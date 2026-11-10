@@ -514,5 +514,95 @@
    "https://www.therooftopguide.com/rooftop-bars-in-cannes/marea.html",
    "https://www.sortir06.fr"
   ]
+ },
+ "le-village-juan-les-pins": {
+  "le": "2026-11-10T18:44:11.343Z",
+  "styles": "House · Disco · Salsa · Soul",
+  "dress_code": "Tenue correcte exigée",
+  "horaires": "Ven–Sam · 00h–5h · Lun–Dim · 00h–5h (en saison)",
+  "prix_verre": "",
+  "entree": "20 € avec une consommation incluse",
+  "age_min": "18 ans",
+  "sources": [
+   "https://juanbynight.com/Les_Clubs/Pages/Village.html",
+   "https://juanbynight.com",
+   "https://www.petitfute.com/v32777-juan-les-pins-06160/c1171-sports-loisirs/c1200-sorties-soirees/c584-club-discotheque/27236-le-village.html",
+   "https://www.juan-les-pins.com/les-discotheques-de-juan-les-pins/"
+  ]
+ },
+ "honey-club-juan-les-pins": {
+  "le": "2026-11-10T18:44:11.343Z",
+  "styles": "Shatta · Afrobeat · Hip-Hop · Dancehall",
+  "dress_code": "Tenue soignée, chic ou branchée (casquettes et tenues de sport refusées)",
+  "horaires": "Ven–Sam · 0h–5h",
+  "prix_verre": "bière 7–10 € · cocktail 10–15 €",
+  "entree": "10–20 € avec conso (souvent gratuit pour les femmes avant 0h30)",
+  "age_min": "18 ans",
+  "sources": [
+   "https://shotgun.live/fr/venues/honey-club",
+   "https://shotgun.live/fr/events/honey-club-saturday-bee-crazy",
+   "https://shotgun.live/fr/events/rapture-first-edition",
+   "https://shotgun.live/fr/events/all-white-everything"
+  ]
+ },
+ "le-pam-pam-juan-les-pins": {
+  "le": "2026-11-10T18:44:11.343Z",
+  "styles": "Samba · Batucada · Musique brésilienne · Sons tropicaux",
+  "dress_code": "Aucun dress code strict (tenue décontractée estivale acceptée)",
+  "horaires": "Lun–Dim · 15h–3h (en saison)",
+  "prix_verre": "Bière 8–10 € · cocktail 12–16 € · soft 5–8 €",
+  "entree": "Gratuit (consommation obligatoire)",
+  "age_min": "Tout public",
+  "sources": [
+   "https://www.petitfute.com/v31765-juan-les-pins-06160/c1171-sports-loisirs/c595-bars-pubs-et-lieux-festifs/c597-bar-a-cocktail/129759-pam-pam.html",
+   "https://www.pagesjaunes.fr/pros/00157500",
+   "https://www.privateaser.com/lieu/57987-pam-pam",
+   "http://www.pampam.fr"
+  ]
+ },
+ "the-hop-store-antibes": {
+  "le": "2026-11-10T18:44:11.343Z",
+  "styles": "Pop · Rock · DJ sets",
+  "dress_code": "Décontracté / Casual",
+  "horaires": "Lun–Dim · 15h–2h",
+  "prix_verre": "bière 5–8,50 € · cocktail 9–12 €",
+  "entree": "gratuit",
+  "age_min": "",
+  "sources": [
+   "https://www.craicmap.ie/pubs/france/antibes/the-hop-store",
+   "https://www.mistergoodbeer.com/fr/bar/11269-hop-store-antibes",
+   "https://www.privateaser.com/lieu/57133-the-hop-store",
+   "https://www.petitfute.com/v31175-antibes-06160/c1171-visites-points-d-interet/c1212-reception-animation/c1219-bar-a-biere-micro-brasserie/201768-the-hop-store.html"
+  ]
+ },
+ "the-drinkers-club-antibes": {
+  "le": "2026-11-10T18:44:11.343Z",
+  "styles": "Reggae · Rock · Soul · Pop",
+  "dress_code": "Décontracté",
+  "horaires": "Lun–Ven 16h–2h · Sam–Dim 15h–2h",
+  "prix_verre": "bière 4–8 € · cocktail 10–12 €",
+  "entree": "Gratuit",
+  "age_min": "",
+  "sources": [
+   "https://www.privateaser.com/lieu/59138-drinkers-club",
+   "https://www.mistergoodbeer.com/fr/bar/drinkers-club-antibes",
+   "https://wanderlog.com/poi/1330368/drinkers-club",
+   "https://www.pagesjaunes.fr/"
+  ]
+ },
+ "mk-club-monaco-monaco": {
+  "le": "2026-11-10T18:44:11.343Z",
+  "styles": "Généraliste · Hip-Hop · House · Électro",
+  "dress_code": "Chic et élégant (« Dress to impress »).",
+  "horaires": "Ven–Sam · 0h–5h",
+  "prix_verre": "verre 15–20 €",
+  "entree": "Sélection à l'entrée ou réservation de table ; environ 20 € lors de soirées spéciales.",
+  "age_min": "18 ans",
+  "sources": [
+   "https://www.mkmonaco.com/",
+   "https://www.instagram.com/mkclubmonaco/",
+   "https://monacoreview.com/listing/mk-club-monaco/",
+   "https://www.myguide-nice.com/nightlife/mk-club-monaco"
+  ]
  }
 }
