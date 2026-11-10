@@ -112,7 +112,13 @@ export async function veiller({ config, now = new Date(), ig = null, api = {}, i
   // 1. Signaux.
   const posts = ig && api.businessDiscovery ? await postsRecents({ ig, api, now, heures: V.fenetre_heures ?? 36, log }) : [];
   log(`Veille : ${posts.length} post(s) Instagram récents chez les comptes suivis.`);
-  const web = await ia.rechercher({
+  // Budget : la recherche web (payante) au plus toutes les N minutes (config.veille.recherche_minutes, 120 par défaut) ;
+  // entre deux, la veille lit seulement les comptes Instagram suivis (gratuit).
+  const dernier = vus._derniere_recherche ? Date.parse(vus._derniere_recherche) : 0;
+  const attendre = (V.recherche_minutes ?? 120) * 60e3 - (now - dernier);
+  if (attendre > 0 && !posts.length) { log(`Veille : prochaine recherche web dans ${Math.ceil(attendre / 60e3)} min (budget).`); return { sujets: [], apublier: null, idees: [] }; }
+  if (attendre <= 0) vus._derniere_recherche = now.toISOString();
+  const web = attendre > 0 ? '' : await ia.rechercher({
     config, gratuit: true,
     system: `Tu fais la veille d'un média Instagram. ${CIBLE} Tu ne rapportes que des faits publiés, datés et sourcés.`,
     prompt: `Nous sommes le ${now.toISOString()} (heure de Paris : ${heureParis}h). Cherche ce qui a été annoncé ou publié dans les dernières ${V.fenetre_heures ?? 36} heures :
@@ -152,7 +158,8 @@ Pour chaque point : titre, date et heure de publication, URL de la source la plu
     const banque = lire(IDEES, []);
     for (const s of idees) banque.push({ id: `idee-${hash(s.titre)}`, ajout: now.toISOString(), type: s.type, format: s.format, titre: s.titre, angle: s.angle, resume: s.resume, source: s.source_url, importance: s.importance });
     await mkdir(path.dirname(VUS), { recursive: true });
-    await writeFile(VUS, JSON.stringify(Object.fromEntries(Object.entries(vus).slice(-1500)), null, 1) + '\n');
+    const derniere = vus._derniere_recherche; delete vus._derniere_recherche; // gardée à part (sinon élaguée avec les anciens sujets)
+    await writeFile(VUS, JSON.stringify({ ...Object.fromEntries(Object.entries(vus).slice(-1500)), ...(derniere ? { _derniere_recherche: derniere } : {}) }, null, 1) + '\n');
     await writeFile(IDEES, JSON.stringify(banque.slice(-300), null, 1) + '\n');
     // Soirées annoncées (source officielle, date et lieu certains) : ajoutées tout de suite à l'agenda du site.
     try {

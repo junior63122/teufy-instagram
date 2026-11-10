@@ -116,7 +116,7 @@ async function gemini(parts, { recherche = false } = {}) {
         contents: [{ role: 'user', parts }], ...(recherche ? { tools: [{ google_search: {} }] } : { generationConfig: { responseMimeType: 'application/json' } }) }), signal: AbortSignal.timeout(120000) });
       if (r.status === 404) continue;
       if (!r.ok) { const e = new Error(`HTTP ${r.status} ${(await r.text()).slice(0, 200)}`); e.status = r.status; LLM.marquerASec('gemini', e); return null; }
-      LLM.compter('gemini');
+      LLM.compter('gemini', recherche ? 'recherche' : 'appel');
       const t = ((await r.json()).candidates?.[0]?.content?.parts || []).map((x) => x.text || '').join('');
       return recherche ? t : JSON.parse(t || 'null');
     }
@@ -441,7 +441,7 @@ async function lieuxDeNuit({ soirees, partenaires, ig, api, log, now }) {
   const details = lire(DETAILS, {});
   if (cle) {
     const aFicher = tous.filter((l) => { const d = details[slug(`${l.nom}-${l.ville}`)]; return !d || now - Date.parse(d.le) > 30 * 864e5; })
-      .sort((a, b) => (b.insta?.abonnes || 0) - (a.insta?.abonnes || 0)).slice(0, 45); // horaires d'ouverture : page « Ce soir »
+      .sort((a, b) => (b.insta?.abonnes || 0) - (a.insta?.abonnes || 0)).slice(0, CONFIG_LLM.lieux_par_passage ?? 15); // horaires d'ouverture : page « Ce soir » (budget : 15 par passage)
     for (const l of aFicher) {
       if (!tempsOk()) break;
       const k = slug(`${l.nom}-${l.ville}`);
@@ -551,7 +551,7 @@ const PLATEFORMES = { 'shotgun.live': 'Shotgun', 'dice.fm': 'DICE', 'link.dice.f
 const nomPlateforme = (u) => { try { const d = new URL(u).hostname.replace(/^www\./, ''); return PLATEFORMES[d] || Object.entries(PLATEFORMES).find(([k]) => d.endsWith(k))?.[1] || d; } catch { return ''; } };
 
 export async function construireSite({ events, eventsFrance = [], eventsOccitanie = [], hist = [], config = {}, now = new Date(), log = console.log, ig = null, api = {} }) {
-  CONFIG_LLM = config.llm || {};
+  CONFIG_LLM = config.llm || {}; LLM.reglerCouts(CONFIG_LLM);
   const PLAFOND = Date.now() + (Number(process.env.SITE_MINUTES) || config.site?.minutes_enrichissement || 30) * 60e3;
   LIMITE = PLAFOND;
   await mkdir(path.join(SITE, 'affiches'), { recursive: true });

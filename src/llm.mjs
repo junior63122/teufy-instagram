@@ -19,8 +19,8 @@ const PLAFONDS = { gemini: [1500, 30000], anthropic: [120, 2500] }; // anti-emba
 function lireBudget() {
   const j = new Date().toISOString().slice(0, 10), m = j.slice(0, 7);
   let b = {}; try { b = existsSync(FICHIER_BUDGET) ? JSON.parse(readFileSync(FICHIER_BUDGET, 'utf8')) : {}; } catch { b = {}; }
-  if (b.mois !== m) b = { mois: m, jour: j, total: {}, aujourdhui: {} };
-  if (b.jour !== j) { b.jour = j; b.aujourdhui = {}; }
+  if (b.mois !== m) b = { mois: m, jour: j, total: {}, aujourdhui: {}, euros_jour: 0, euros_mois: 0 };
+  if (b.jour !== j) { b.jour = j; b.aujourdhui = {}; b.euros_jour = 0; }
   b.total ||= {}; b.aujourdhui ||= {};
   return b;
 }
@@ -33,11 +33,20 @@ export function budgetOk(f, L = {}) {
   const b = lireBudget(), [dj, dm] = PLAFONDS[f] || [Infinity, Infinity];
   const okJ = (b.aujourdhui[f] || 0) < (L[`max_appels_${f}_jour`] ?? dj), okM = (b.total[f] || 0) < (L[`max_appels_${f}_mois`] ?? dm);
   if (!okJ || !okM) console.error(`Budget IA : plafond ${okM ? 'du jour' : 'du mois'} atteint pour ${f}, appel évité.`);
-  return okJ && okM;
+  // Plafond en euros (estimation, toutes IA confondues) : config.llm.budget_jour_eur / budget_mois_eur.
+  const eJ = b.euros_jour || 0, eM = b.euros_mois || 0;
+  const okEJ = L.budget_jour_eur == null || eJ < L.budget_jour_eur, okEM = L.budget_mois_eur == null || eM < L.budget_mois_eur;
+  if (!okEJ || !okEM) { if (!budgetOk.dit) console.error(`Budget IA : ${okEM ? `budget du jour atteint (≈ ${eJ.toFixed(2)} € / ${L.budget_jour_eur} €)` : `budget du mois atteint (≈ ${eM.toFixed(2)} € / ${L.budget_mois_eur} €)`} : plus d'appel payant avant ${okEM ? 'demain' : 'le mois prochain'}.`); budgetOk.dit = true; }
+  return okJ && okM && okEJ && okEM;
 }
-export function compter(f) {
+// Coût estimé d'un appel (euros), réglable dans config.llm.cout_eur : une recherche web coûte bien plus qu'une rédaction.
+const COUT_DEFAUT = { gemini_recherche: 0.04, gemini_appel: 0.004, anthropic_recherche: 0.6, anthropic_appel: 0.12 };
+let COUTS = COUT_DEFAUT;
+export const reglerCouts = (L = {}) => { COUTS = { ...COUT_DEFAUT, ...(L.cout_eur || {}) }; };
+export function compter(f, type = 'appel') {
   if (f === 'github') return;
-  try { const b = lireBudget(); b.aujourdhui[f] = (b.aujourdhui[f] || 0) + 1; b.total[f] = (b.total[f] || 0) + 1; mkdirSync(path.dirname(FICHIER_BUDGET), { recursive: true }); writeFileSync(FICHIER_BUDGET, JSON.stringify(b, null, 1) + '\n'); } catch { /* compteur indisponible : pas bloquant */ }
+  try { const b = lireBudget(); b.aujourdhui[f] = (b.aujourdhui[f] || 0) + 1; b.total[f] = (b.total[f] || 0) + 1;
+    const c = COUTS[`${f}_${type}`] ?? 0; b.euros_jour = Math.round(((b.euros_jour || 0) + c) * 1000) / 1000; b.euros_mois = Math.round(((b.euros_mois || 0) + c) * 1000) / 1000; mkdirSync(path.dirname(FICHIER_BUDGET), { recursive: true }); writeFileSync(FICHIER_BUDGET, JSON.stringify(b, null, 1) + '\n'); } catch { /* compteur indisponible : pas bloquant */ }
 }
 export function etatBudget() { return lireBudget(); }
 const GH = 'https://models.github.ai/inference/chat/completions';
@@ -102,7 +111,7 @@ const texteGemini = (j) => (j.candidates?.[0]?.content?.parts || []).map((p) => 
 // --- Recherche web (texte libre, sources citées) ----------------------------------
 
 export async function rechercher({ config, system, prompt, gratuit = false }) {
-  const L = config.llm || {};
+  const L = config.llm || {}; reglerCouts(L);
   // Recherche web : Gemini d'abord (recherche Google native, bien moins chère), Claude en relais s'il est indisponible.
   // Claude Opus reste en premier pour la rédaction (json / textes non « gratuits »). Réglable : llm.recherche_claude_en_premier.
   for (const f of fournisseurs(config, { gratuit: gratuit || L.recherche_claude_en_premier !== true })) {
@@ -114,11 +123,11 @@ export async function rechercher({ config, system, prompt, gratuit = false }) {
           contents: [{ role: 'user', parts: [{ text: prompt }] }],
           tools: [{ google_search: {} }],
         });
-        compter(f);
+        compter(f, 'recherche');
         const sources = (j.candidates?.[0]?.groundingMetadata?.groundingChunks || []).map((c) => c.web?.uri).filter(Boolean);
         return `${texteGemini(j)}\n\nSources consultées :\n${sources.slice(0, 40).join('\n')}`;
       }
-      if (f === 'anthropic') { const r = await claude({ system, prompt, outils: true, L }); compter(f); return r; }
+      if (f === 'anthropic') { const r = await claude({ system, prompt, outils: true, L }); compter(f, 'recherche'); return r; }
     } catch (err) { marquerASec(f, err); console.error(`Recherche ${f} impossible : ${err.message.slice(0, 160)}`); }
   }
   return '';
@@ -127,7 +136,7 @@ export async function rechercher({ config, system, prompt, gratuit = false }) {
 // --- Réponse JSON contrôlée par un schéma -----------------------------------------
 
 export async function json({ config, system, prompt, schema, nom = 'reponse', gratuit = false }) {
-  const L = config.llm || {};
+  const L = config.llm || {}; reglerCouts(L);
   for (const f of fournisseurs(config, { gratuit })) {
     if (!budgetOk(f, L)) continue;
     try {
