@@ -59,7 +59,7 @@ export function fournisseurs(config = {}, { gratuit = false } = {}) {
 export const rechercheWebDisponible = (config) => fournisseurs(config).some((f) => f === 'gemini' || f === 'anthropic');
 
 async function post(url, body, headers = {}) {
-  const res = await fetch(url, { method: 'POST', headers: { 'content-type': 'application/json', ...headers }, body: JSON.stringify(body), signal: AbortSignal.timeout(180000) });
+  const res = await fetch(url, { method: 'POST', headers: { 'content-type': 'application/json', ...headers }, body: JSON.stringify(body), signal: AbortSignal.timeout(body?.tools ? 150000 : 180000) });
   const txt = await res.text();
   if (!res.ok) { const e = new Error(`HTTP ${res.status} ${txt.slice(0, 300)}`); e.status = res.status; throw e; }
   return JSON.parse(txt);

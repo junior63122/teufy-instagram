@@ -50,7 +50,7 @@ concurrency:
 jobs:
   publier:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 110 # recherches IA (16 + Occitanie + France) puis site : 60 min ne suffisaient plus
     env:
       # Clés : plusieurs noms de secrets acceptés (ElevenLabs, Gemini, Claude, Instagram…)
       ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY || secrets.ELEVENLABS_KEY || secrets.ELEVENLABS || secrets.ELEVEN_LABS || secrets.ELEVEN_LABS_API_KEY || secrets.ELEVEN_LABS_KEY || secrets.ELEVENLABS_TOKEN || secrets.ELEVEN_API_KEY || secrets.ELEVEN_KEY || secrets.ELEVEN || secrets.XI_API_KEY || secrets.ELEVENLABS_API || secrets.CLE_ELEVENLABS || secrets.ELEVENLABS_SECRET || secrets.ELEVENLABSAPIKEY || secrets.API_ELEVENLABS || vars.ELEVENLABS_API_KEY || vars.ELEVENLABS_KEY || vars.ELEVENLABS || vars.ELEVEN_LABS || vars.ELEVEN_LABS_API_KEY || vars.ELEVEN_LABS_KEY }}
