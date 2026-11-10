@@ -125,7 +125,7 @@ const visibles = (p) => p.locator('.liste .carte:not([hidden])').count();
     ok(await p.evaluate(async () => !!(await navigator.serviceWorker.getRegistration())?.active), 'cache : le service worker ne s\'installe pas');
     await p.goto(B + 'soirees-nice/'); await p.waitForTimeout(600);
     await c.setOffline(true);
-    await p.goto(B).catch(() => {}); await p.waitForLoadState('load').catch(() => {}); await p.waitForTimeout(800); // Firefox peut finir sa navigation après goto
+    await p.goto(B).catch(() => {}); await p.waitForLoadState('load').catch(() => {}); await p.locator('.liste .carte').first().waitFor({ timeout: 9000 }).catch(() => {}); // le service worker sert le cache après son délai réseau (6 s max)
     ok(await p.locator('.liste .carte').count().catch(async () => { await p.waitForTimeout(800); return p.locator('.liste .carte').count(); }) > 10, 'cache : une page déjà vue ne s\'affiche plus sans connexion');
     await c.setOffline(false); await p.reload(); await p.waitForTimeout(400);
     ok(await p.locator('.liste .carte').count() > 10, 'cache : la page ne revient pas après reconnexion');

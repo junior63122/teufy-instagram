@@ -92,7 +92,7 @@ async function controlerPage(p, nom, u) {
     await p.locator('.agenda .recherche .effacer').click(); await attendreNb(p, '.liste .carte:not([hidden])', total);
     ok(await p.locator('.liste .carte:not([hidden])').count() === total, `${nom} : effacer la recherche ne remet pas tout`);
     // Villes multiples.
-    const clic = async (f, v) => { const d = p.locator(`.filtres details[data-bloc="${f}"]`); if (await d.count() && !(await d.evaluate((x) => x.open))) { await d.locator('summary').click(); await p.waitForTimeout(120); } await p.locator(`.filtres [data-filtre="${f}"] [data-v="${v}"]`).click(); await p.waitForTimeout(150); };
+    const clic = async (f, v) => { const d = p.locator(`.filtres details[data-bloc="${f}"]`); if (await d.count() && !(await d.evaluate((x) => x.open))) { await d.locator('summary').click(); await p.waitForTimeout(120); } await p.locator(`.filtres [data-filtre="${f}"] [data-v="${v}"]`).click(); await p.waitForTimeout(150); for (let i = 0, prec = -1; i < 10; i++) { const x = await p.locator('.liste .carte:not([hidden])').count(); if (x === prec) break; prec = x; await p.waitForTimeout(200); } }; // attend un compte stable (WebKit en CI plus lent)
     await clic('ville', 'nice'); const nNice = await n();
     await clic('ville', 'cannes'); const nNC = await n();
     ok(nNC > nNice, `${nom} : sélection Nice + Cannes impossible (${nNice} → ${nNC})`);
