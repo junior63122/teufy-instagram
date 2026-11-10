@@ -4,6 +4,8 @@
 (() => {
   const T = JSON.parse(document.getElementById('teufy-t')?.textContent || '{}');
   const reduit = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Défilement doux seulement pour les liens dans la page : en arrivant sur une ancre (…/#tarifs), on y est tout de suite.
+  if (!reduit) addEventListener('load', () => setTimeout(() => document.documentElement.classList.add('doux'), 50), { once: true });
   const jourParis = (d) => new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Paris' }).format(d);
   const maintenant = Date.now();
   const auj = jourParis(new Date(maintenant - 6 * 3600e3)); // la nuit continue jusqu'à 6h du matin

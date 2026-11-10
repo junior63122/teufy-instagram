@@ -282,7 +282,7 @@ async function controlerPage(p, nom, u) {
     }
     const tt = await p.evaluate(() => document.getElementById('tarifs')?.getBoundingClientRect().top ?? -9999);
     ok(tt > -10 && tt < 300, `${nom} : « Nos tarifs » n'amène pas aux tarifs (${Math.round(tt)}px)`);
-    ok(await p.locator('.tarif').count() >= 3 && /HT/.test(await p.locator('.tarif-prix').nth(1).innerText()) && /TTC/.test(await p.locator('.tarif-prix').nth(1).innerText()), `${nom} : tarifs sans HT / TTC`);
+    ok(await p.locator('.abo').count() >= 2 && /HT/.test(await p.locator('.abo-prix').first().innerText()) && /TTC/.test(await p.locator('.abo-jour').first().innerText()) && await p.locator('.abo.vedette').count() === 1, `${nom} : offres sans HT / TTC ou sans formule recommandée`);
     await p.goto(B, { waitUntil: 'load' }); await p.evaluate(() => scrollTo(0, innerHeight * 3)); await p.waitForTimeout(400);
     await p.evaluate(() => scrollBy(0, -200)); await p.waitForTimeout(400); await p.evaluate(() => scrollBy(0, 400)); await p.waitForTimeout(400);
     ok(await p.locator('.haut').isVisible(), `${nom} : le bouton « retour en haut » n'apparaît pas (ou disparaît selon le sens du défilement)`);

@@ -8,7 +8,7 @@
   --texte:'InterTight','Noto Sans Arabic','Geeza Pro','PingFang SC','Noto Sans SC','Microsoft YaHei',system-ui,sans-serif;
   --barre:57px;--doux:cubic-bezier(.2,.8,.2,1)}
 *{box-sizing:border-box;margin:0}
-html{scroll-behavior:smooth;scroll-padding-top:70px}
+html{scroll-padding-top:70px}html.doux{scroll-behavior:smooth}
 body{background:var(--nuit);color:var(--creme);font-family:var(--texte);font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img,video{display:block;max-width:100%}
 a{color:inherit}
