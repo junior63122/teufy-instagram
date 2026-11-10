@@ -207,5 +207,38 @@
   "resume": "Panda Events a officialisé deux dates clubbing au Frigo 16 à Nice avec JetLag Gang le 13 novembre et Phaphane le 27 novembre 2026. La programmation met en avant le neoperreo, le reggaeton, l'amapiano et les sonorités afrobeats.",
   "source": "https://www.instagram.com/p/DfkEv3gAEo8/",
   "importance": 60
+ },
+ {
+  "id": "idee-j6weea",
+  "ajout": "2026-11-10T16:41:47.748Z",
+  "type": "annonce",
+  "format": "carrousel-decryptage",
+  "titre": "Lancement de la 19e édition de ZEFESTIVAL à Nice",
+  "angle": "Un tour des projections et des soirées d'échanges organisées à Nice pour sortir différemment en novembre.",
+  "resume": "Le festival de cinéma LGBTQIA+ de la Côte d'Azur ouvre sa 19e édition avec un calendrier complet de projections et de soirées débats. Les rendez-vous sont programmés à Nice et dans plusieurs salles partenaires de la région.",
+  "source": "https://riviera-buzz.com",
+  "importance": 55
+ },
+ {
+  "id": "idee-11itxbr",
+  "ajout": "2026-11-10T16:41:47.748Z",
+  "type": "annonce",
+  "format": "post-annonce",
+  "titre": "Ninho, Fontaines D.C. et Slash aux Arènes de Nîmes 2027",
+  "angle": "Les premières têtes d'affiche à bloquer pour organiser ses déplacements en festival l'été prochain.",
+  "resume": "Le Festival de Nîmes a officialisé les premiers noms de son édition d'été 2027 avec Slash, Fontaines D.C. et Ninho. Les dates des concerts s'échelonnent entre la mi-juin et le début du mois de juillet.",
+  "source": "https://www.sortiraparis.com",
+  "importance": 68
+ },
+ {
+  "id": "idee-93q7w9",
+  "ajout": "2026-11-10T16:41:47.748Z",
+  "type": "actu",
+  "format": "carrousel-decryptage",
+  "titre": "Festivals 2027 : durcissement des paliers de prix et de la revente",
+  "angle": "Ce que changent les nouveaux systèmes de billetterie pour choper ses pass au meilleur prix.",
+  "resume": "Une analyse du secteur musical met en garde contre l'évolution tarifaire des festivals pour la saison 2027, marquée par l'explosion des préventes à l'aveugle et des écarts de prix accrus. Les bourses officielles de revente numérique se généralisent pour limiter la spéculation sur les pass.",
+  "source": "https://www.music-styles-list.com",
+  "importance": 52
  }
 ]
