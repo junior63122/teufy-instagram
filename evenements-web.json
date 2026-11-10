@@ -5093,7 +5093,8 @@
       "image": "https://scontent-ord5-2.cdninstagram.com/v/t51.82787-15/860364521_17981760303134913_2348822869195581767_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=110&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=-cR9nGNz8_YQ7kNvwGn2_Hb&_nc_oc=AdpouYEeggoC4VVXVjIQhqTDzfcE6SDogBy19ARJm6iHMTe4KBoxVRK72EibPpB_k3c&_nc_zt=23&_nc_ht=scontent-ord5-2.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=bXx90EVySzI4yMQ-9Xn1AA&oh=00_AQTij7oS2v4GpoYkbu83kmwYBqi1d3hPCyltq2ZYxc7kvw&oe=6AF8C299",
       "price": 10,
       "tags": [
-        "shatta"
+        "shatta",
+        "caribéen"
       ],
       "description": "",
       "public_cible": 0.95,
@@ -5103,6 +5104,12 @@
       "accroche": "Nuit 100% shatta au Boka Club avec DJ Mitch et DJ Y-Wine aux platines.",
       "instagram": [
         "sowetolesprit"
+      ],
+      "via_veille": true,
+      "offres": [],
+      "sources_sites": [
+        "Instagram",
+        "instagram.com"
       ]
     },
     {
