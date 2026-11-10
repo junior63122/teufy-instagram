@@ -5265,7 +5265,10 @@
       "tags": [
         "dancehall",
         "shatta",
-        "caribbean"
+        "caribbean",
+        "Dancehall",
+        "Shatta",
+        "Caribbean"
       ],
       "description": "",
       "public_cible": 0.95,
@@ -5275,6 +5278,12 @@
       "accroche": "Nuit caliente à Cannes avec DJ Mygo et DJ Iron aux platines pour du lourd en dancehall et shatta.",
       "instagram": [
         "skyfallinkingdom"
+      ],
+      "via_veille": true,
+      "offres": [],
+      "sources_sites": [
+        "Instagram @skyfallinkingdom",
+        "instagram.com"
       ]
     },
     {
@@ -5291,7 +5300,10 @@
       "tags": [
         "urban",
         "shatta",
-        "amapiano"
+        "amapiano",
+        "Urban",
+        "Shatta",
+        "Amapiano"
       ],
       "description": "",
       "public_cible": 0.95,
@@ -5301,6 +5313,12 @@
       "accroche": "DJ Enicay retourne le Skyfall avec les meilleurs bangers urban, shatta et amapiano à Cannes.",
       "instagram": [
         "skyfallinkingdom"
+      ],
+      "via_veille": true,
+      "offres": [],
+      "sources_sites": [
+        "Instagram @skyfallinkingdom",
+        "instagram.com"
       ]
     },
     {
@@ -6145,6 +6163,28 @@
       "public_cible": 0.6,
       "confiance": 0.9,
       "accroche": "Concert jazz fusion du quintette Kevin Saura Group au Dix-Huit à Nice.",
+      "instagram": []
+    },
+    {
+      "source": "web",
+      "source_site": "cannes.com",
+      "via_veille": true,
+      "name": "Soirée d'ouverture des 39es RCC",
+      "start": "2026-11-16T18:30:00.000Z",
+      "venue": "Théâtre Croisette",
+      "city": "Cannes",
+      "address": "",
+      "url": "https://www.cannes.com",
+      "image": "",
+      "price": null,
+      "tags": [
+        "Cinéma",
+        "Avant-première"
+      ],
+      "description": "",
+      "public_cible": 0.6,
+      "confiance": 0.9,
+      "accroche": "Projection d'ouverture du film Un bon petit soldat de Stéphane Brizé.",
       "instagram": []
     }
   ]

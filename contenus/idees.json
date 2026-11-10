@@ -163,5 +163,16 @@
   "resume": "Le festival Vars en Scène a dévoilé la programmation de sa 18e édition pour l'ouverture de la saison de ski. Le duo Bon Entendeur montera sur scène le 5 décembre 2026 et Skip The Use le 12 décembre pour deux grands concerts gratuits en plein air.",
   "source": "https://nouvelle-vague.com/live/festival-vars-en-scene-2026/",
   "importance": 62
+ },
+ {
+  "id": "idee-cfztkg",
+  "ajout": "2026-11-10T15:01:34.290Z",
+  "type": "annonce",
+  "format": "post-annonce",
+  "titre": "Programmation des 39es Rencontres Cinématographiques de Cannes",
+  "angle": "Un plan sorties ciné à Cannes avec pass étudiants et avant-premières exclusives.",
+  "resume": "La Ville de Cannes a dévoilé le programme de la 39e édition des Rencontres Cinématographiques de Cannes, prévue du 16 au 22 novembre 2026. L'événement propose 27 avant-premières avec des pass et masterclasses accessibles aux lycéens et étudiants.",
+  "source": "https://www.cannes.com",
+  "importance": 52
  }
 ]
