@@ -1782,20 +1782,37 @@ const blocContact = ({ tr, handle, email, type }) => { const [h, p, ph, objet] =
 </section>`; };
 // Tarifs des formules partenaires (config.site.tarifs) : bouton « Payer » si un lien de paiement est renseigné,
 // sinon « Choisir cette formule » qui pré-remplit le formulaire de contact.
-const blocTarifs = ({ tr, T, base, lang }) => {
+const blocTarifs = ({ tr, T, base, lang, t }) => {
   const C = T.tarifs; if (!C?.formules?.length) return '';
-  const tva = Number(C.tva ?? 20), fmt = (n) => `${String(Math.round(n * 100) / 100).replace('.', ',')} €`;
-  const prix = (f) => (f.prix ? `${fmt(f.prix)} ${tr('HT')}` : '0 €');
-  const ttc = (f) => (f.prix && tva ? `${fmt(f.prix * (1 + tva / 100))} ${tr('TTC')}` : '');
+  const tva = Number(C.tva ?? 20), loc = t?.locale || 'fr-FR';
+  const fmt = (n) => `${new Intl.NumberFormat(loc, { maximumFractionDigits: 2 }).format(Math.round(n * 100) / 100)} €`;
   const per = { mois: tr('/ mois'), post: tr('le post'), story: tr('la story') };
-  return `<section class="bloc-large tarifs" id="tarifs"><h2>${tr('Nos <em>formules</em>')}</h2>
-  <div class="grille-tarifs">${C.formules.map((f) => `<article class="tarif${f.vedette ? ' vedette' : ''}">
-    ${f.vedette ? `<span class="tarif-badge">${esc(tr('La plus complète'))}</span>` : ''}<h3>${esc(tr(f.nom))}</h3>
-    <p class="tarif-prix"><b>${esc(prix(f))}</b>${f.prix && per[f.periode] ? ` <span>${esc(per[f.periode])}</span>` : ''}${ttc(f) ? `<small>${esc(tr('soit'))} ${esc(ttc(f))}${per[f.periode] ? ` ${esc(per[f.periode])}` : ''}</small>` : ''}</p>
+  const F = (k) => C.formules.find((f) => f.cle === k);
+  // Preuves : uniquement des chiffres mesurés (abonnés et portée médiane des derniers posts, relevés par le robot).
+  const A = lire(path.join(ROOT, 'apprentissage.json'), {});
+  const abonnes = A.abonnes?.at(-1)?.n, portees = (A.posts || []).map((x) => x.metrics?.reach).filter(Number.isFinite).sort((a, b) => a - b);
+  const mediane = portees.length >= 10 ? Math.round(portees[Math.floor(portees.length / 2)] / 100) * 100 : null;
+  const nf = (n, o) => new Intl.NumberFormat(loc, o).format(n);
+  const preuves = [abonnes && [nf(abonnes, { notation: 'compact', maximumFractionDigits: 1 }), tr('abonnés sur Instagram')], mediane && [`~${nf(mediane)}`, tr('personnes touchées par post')], ['6', tr('langues sur le site')]].filter(Boolean);
+  const bouton = (f, texte, cls = 'bouton') => (/^https:\/\//.test(f.paiement || '') ? `<a class="${cls}" href="${esc(f.paiement)}" target="_blank" rel="noopener">${esc(tr('Payer en ligne'))} →</a>` : `<a class="${cls}" href="#contact" data-formule="${esc(`${tr(f.nom)} (${fmt(f.prix)} ${tr('HT')}${per[f.periode] ? ` ${per[f.periode]}` : ''})`)}">${esc(texte)} →</a>`);
+  const abo = (f) => f && `<article class="abo${f.vedette ? ' vedette' : ''}">
+    ${f.badge ? `<span class="abo-badge">${esc(tr(f.badge))}</span>` : ''}
+    <h3>${esc(tr(f.nom))}</h3><p class="abo-accroche">${esc(tr(f.accroche || ''))}</p>
+    <p class="abo-prix"><b>${esc(fmt(f.prix))}</b> <span>${esc(tr('HT'))} ${esc(per.mois)}</span></p>
+    <p class="abo-jour">${esc(tr('soit'))} ${esc(fmt(f.prix / 30))} ${esc(tr('HT par jour'))}${tva ? ` · ${esc(fmt(f.prix * (1 + tva / 100)))} ${esc(tr('TTC'))} ${esc(per.mois)}` : ''}</p>
     <ul>${f.points.map((x) => `<li>${esc(tr(x))}</li>`).join('')}</ul>
-    ${/^https:\/\//.test(f.paiement || '') ? `<a class="bouton" href="${esc(f.paiement)}" target="_blank" rel="noopener">${esc(tr('Payer en ligne'))}</a>` : `<a class="bouton${f.prix ? '' : ' contour'}" href="#contact" data-formule="${esc(`${tr(f.nom)} (${prix(f)}${f.prix && per[f.periode] ? ` ${per[f.periode]}` : ''})`)}">${esc(f.prix ? tr('Choisir cette formule') : tr('Envoyer ma soirée'))}</a>`}
-  </article>`).join('')}</div>
-  <p class="tarifs-note">${tva ? `${esc(tr(`Prix hors taxes, TVA de ${tva} % en sus.`))} ` : ''}${esc(tr(C.mention || ''))} ${esc(tr('Les contenus payants sont signalés « partenariat rémunéré ». Aucune formule ne garantit un nombre de vues ou de ventes.'))} <a href="${base}${pre(lang)}cgv/">${esc(tr('Conditions de vente'))}</a></p>
+    ${bouton(f, `${tr('Choisir')} ${tr(f.nom)}`, `bouton${f.vedette ? '' : ' contour'} abo-choisir`)}
+  </article>`;
+  const unite = (f) => f && `<article class="unite"><div><h4>${esc(tr(f.nom))}</h4><p>${esc(tr(f.accroche || ''))}</p></div><p class="unite-prix"><b>${esc(fmt(f.prix))}</b> <span>${esc(tr('HT'))}${tva ? ` · ${esc(fmt(f.prix * (1 + tva / 100)))} ${esc(tr('TTC'))}` : ''}</span></p>${bouton(f, tr('Commander'), 'bouton petit contour')}</article>`;
+  const abos = C.formules.filter((f) => f.periode === 'mois'), unites = C.formules.filter((f) => f.prix && f.periode !== 'mois');
+  return `<section class="bloc-large tarifs" id="tarifs">
+  <h2>${tr('Remplis tes soirées avec <em>Teufy</em>')}</h2>
+  ${preuves.length ? `<ul class="tarifs-preuves">${preuves.map(([n, l]) => `<li><b>${esc(n)}</b><span>${esc(l)}</span></li>`).join('')}</ul>` : ''}
+  <div class="abos">${abos.map(abo).join('')}</div>
+  ${unites.length ? `<h3 class="tarifs-sous">${esc(tr('Sans abonnement'))}</h3><div class="unites">${unites.map(unite).join('')}</div>` : ''}
+  ${F('gratuit') ? `<p class="offre-gratuite">${esc(tr("Pas de budget ? L'ajout de ta soirée dans l'agenda du site reste gratuit."))} <a href="#contact">${esc(tr('Envoyer ma soirée'))} →</a></p>` : ''}
+  ${C.etapes?.length ? `<ol class="tarifs-etapes">${C.etapes.map((e, k) => `<li><b>${k + 1}</b><span>${esc(tr(e))}</span></li>`).join('')}</ol>` : ''}
+  <p class="tarifs-note">${mediane ? `${esc(tr(`Portée : médiane de nos ${portees.length} derniers posts (statistiques Instagram).`))} ` : ''}${tva ? `${esc(tr(`Prix hors taxes, TVA de ${tva} % en sus.`))} ` : ''}${esc(tr(C.mention || ''))} ${esc(tr('Les contenus payants sont signalés « partenariat rémunéré ». Aucune formule ne garantit un nombre de vues ou de ventes.'))} <a href="${base}${pre(lang)}cgv/">${esc(tr('Conditions de vente'))}</a></p>
 </section>`;
 };
 const ctaForm = (tr, handle) => `<p class="cta"><a class="bouton" href="#contact">${esc(tr('Remplir le formulaire'))} ↑</a><a class="bouton contour" href="https://ig.me/m/${esc(handle)}" target="_blank" rel="noopener">${ICO_IG}<span>${esc(tr('Écrire sur Instagram'))}</span></a></p>`;
@@ -1805,7 +1822,7 @@ function pagePartenaire({ lang, t, tr, base, compte, T, chemin, maj, partenaires
   const C = PARTENAIRE, handle = compte.replace(/^@/, '');
   const faq = C.faq.map(([q, r]) => [tr(q), tr(r)]);
   const corps = `${heroCourt({ partage: t.partager, base, photo: null, logos: (partenaires || []).filter((x) => x.fichier).slice(0, 12).map((x) => x.fichier), alt: t.partenaires, etiquette: tr(C.etiquette), h1: tr(C.h1), p: esc(tr(C.chapo)), actions: `<a class="bouton" href="#tarifs">${esc(tr('Voir les tarifs'))}</a><a class="bouton contour" href="#contact">${esc(tr('Envoyer ma soirée (gratuit)'))}</a>` })}
-${blocTarifs({ tr, T, base, lang })}
+${blocTarifs({ tr, T, base, lang, t })}
 ${blocContact({ tr, handle, email: T.email, type: 'partenaire' })}
 ${vitrine({ t, tr, base, partenaires })}
 <section class="bloc-large reveal"><h2>${tr(C.pourquoiH2)}</h2>${cartesTexte(C.pourquoi, tr)}</section>

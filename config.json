@@ -447,9 +447,7 @@
           "prix": 0,
           "periode": "",
           "points": [
-            "Tes soirées sur teufyparty.com, en 6 langues",
-            "Dans la page de ta ville et de ton style",
-            "Sélection possible dans les agendas Instagram (choix éditorial, jamais payant)"
+            "Ta soirée dans l'agenda du site"
           ],
           "paiement": ""
         },
@@ -458,11 +456,12 @@
           "nom": "Visibilité",
           "prix": 20,
           "periode": "mois",
+          "accroche": "Être vu chaque mois par ceux qui sortent sur la Côte.",
           "points": [
-            "Tout le gratuit",
+            "2 stories dédiées par mois, avec le lien de ta billetterie",
             "Badge « Partenaire » sur ta fiche",
-            "Ton logo dans la vitrine des partenaires",
-            "1 story dédiée par mois"
+            "Ton logo dans la vitrine des partenaires du site",
+            "Ton code promo affiché sur tes soirées (si tu en proposes un)"
           ],
           "paiement": ""
         },
@@ -472,40 +471,48 @@
           "prix": 50,
           "periode": "mois",
           "vedette": true,
+          "badge": "Recommandé",
+          "accroche": "Pour remplir ta salle, pas juste être vu.",
           "points": [
-            "Tout Visibilité",
-            "1 post ou reel dédié par mois",
-            "2 stories dédiées par mois",
-            "Ton lien de billetterie dans le post et les stories"
+            "1 post ou reel dédié par mois, publié en collaboration avec ton compte",
+            "4 stories dédiées par mois, avec le lien de ta billetterie",
+            "Tes grosses annonces (line-up, ouverture de billetterie) relayées en priorité",
+            "Un bilan chiffré chaque mois : portée, likes et enregistrements de tes contenus",
+            "Tout ce qu'inclut Visibilité"
           ],
           "paiement": ""
         },
         {
           "cle": "post",
-          "nom": "Post à l'unité",
+          "nom": "Post dédié",
           "prix": 40,
           "periode": "post",
+          "accroche": "Un post pour une soirée.",
           "points": [
-            "1 post dédié à une soirée",
-            "Sans abonnement",
-            "Idéal pour une soirée ponctuelle"
+            "Publié sur @teufy_official",
+            "Ton compte identifié"
           ],
           "paiement": ""
         },
         {
           "cle": "story",
-          "nom": "Story à l'unité",
+          "nom": "Story dédiée",
           "prix": 15,
           "periode": "story",
+          "accroche": "Une story avec ton lien.",
           "points": [
-            "1 story dédiée",
-            "Avec ton lien de billetterie",
-            "Sans abonnement"
+            "Lien vers ta billetterie",
+            "Publiée le jour que tu choisis"
           ],
           "paiement": ""
         }
       ],
-      "tva": 20
+      "tva": 20,
+      "etapes": [
+        "Tu choisis ta formule",
+        "On te répond sous 24 h pour caler les dates",
+        "Tes contenus sont publiés, et tu reçois ton bilan"
+      ]
     }
   },
   "codes_promo": [

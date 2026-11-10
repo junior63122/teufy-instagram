@@ -115,7 +115,7 @@ export async function veiller({ config, now = new Date(), ig = null, api = {}, i
   // Budget : la recherche web (payante) au plus toutes les N minutes (config.veille.recherche_minutes, 120 par défaut) ;
   // entre deux, la veille lit seulement les comptes Instagram suivis (gratuit).
   const dernier = vus._derniere_recherche ? Date.parse(vus._derniere_recherche) : 0;
-  const attendre = (V.recherche_minutes ?? 120) * 60e3 - (now - dernier);
+  const attendre = dernier > now.getTime() ? 0 : (V.recherche_minutes ?? 120) * 60e3 - (now - dernier); // date future (horloge, test) : on ne bloque pas
   if (attendre > 0 && !posts.length) { log(`Veille : prochaine recherche web dans ${Math.ceil(attendre / 60e3)} min (budget).`); return { sujets: [], apublier: null, idees: [] }; }
   if (attendre <= 0) vus._derniere_recherche = now.toISOString();
   const web = attendre > 0 ? '' : await ia.rechercher({

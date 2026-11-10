@@ -39,8 +39,8 @@ const UNE = [
   ...(F.length ? [{cle: 'partenaires', nom: 'PARTENAIRES', stories: [
     {photo: 'dj', titre: 'Mets ta soirée en [avant]', lignes: [
       'Gratuit : ta soirée dans l\'agenda du site',
-      ...(f('visibilite') ? [`Visibilité : ${euros(f('visibilite').prix)} par mois, 1 story dédiée`] : []),
-      ...(f('premium') ? [`Premium : ${euros(f('premium').prix)} par mois, post + 2 stories`] : []),
+      ...(f('visibilite') ? [`Visibilité : ${euros(f('visibilite').prix)}/mois, 2 stories dédiées`] : []),
+      ...(f('premium') ? [`Premium : ${euros(f('premium').prix)}/mois, post + 4 stories + bilan`] : []),
       ...(f('post') && f('story') ? [`À l'unité : post ${euros(f('post').prix)}, story ${euros(f('story').prix)}`] : []),
     ], pied: `${site}/partenaires`},
   ]}] : []),

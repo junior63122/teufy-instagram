@@ -18,7 +18,7 @@ test('veille : seul un sujet exceptionnel, officiel, frais et dans le créneau e
     sujet('Annonce importante mais moins forte', { importance: 82 }),
   ];
   const ia = { rechercher: async () => 'signaux', json: async () => ({ sujets }) };
-  const r = await veiller({ config: { veille: { seuil: 80, recherche_minutes: 0 } }, now, ia, dryRun: true, log: () => {} });
+  const r = await veiller({ config: { veille: { seuil: 80, recherche_minutes: 0, max_par_jour: 99 } }, now, ia, dryRun: true, log: () => {} });
   assert.equal(r.apublier.titre, 'Grande annonce');
   assert.ok(r.idees.some((s) => s.titre === 'Annonce importante mais moins forte'), 'le reste part en idées');
   assert.ok(!r.idees.some((s) => s.titre === 'Soirée banale'));

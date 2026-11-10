@@ -131,7 +131,8 @@ async function controlerPage(p, nom, u) {
     const prixOrdre = await p.$$eval('.grille-triee .carte:not([hidden])', (l) => l.map((c) => (c.dataset.prix === '' ? Infinity : +c.dataset.prix)));
     ok(prixOrdre.length === total && prixOrdre.every((x, i) => !i || x >= prixOrdre[i - 1]), `${nom} : le tri par prix ne trie pas`);
     await clic('tri', 'demande'); ok(await n() === total, `${nom} : le tri « plus attendues » perd des soirées`);
-    await clic('tri', 'date'); ok(await p.locator('.grille-triee').count() === 0 && await n() === total && await p.locator('.liste .jour:not([hidden])').count() > 2, `${nom} : retour au tri par date incorrect`);
+    await clic('tri', 'date'); ok(await p.locator('.grille-triee').count() === 0 && await n() === total && await p.locator('.liste .jour:not([hidden])').count() >= 1 && await p.locator('.liste .carte.plus-loin').count() > 0 === (total > 20), `${nom} : retour au tri par date incorrect`);
+    if (await p.locator('.voir-plus:not([hidden])').count()) { const avant = await p.locator('.liste .carte:not([hidden]):not(.plus-loin)').count(); await p.locator('.voir-plus').click(); await p.waitForTimeout(300); const apres = await p.locator('.liste .carte:not([hidden]):not(.plus-loin)').count(); ok(apres > avant, `${nom} : « Voir plus de soirées » n'affiche pas la suite (${avant} → ${apres})`); }
     const unJour = await p.locator('.liste .carte:not([hidden])').nth(3).getAttribute('data-jour');
     await p.locator('details[data-bloc="quand"] summary').click(); await p.locator('.choix-date input').first().fill(unJour); await p.waitForTimeout(300);
     const jours = await p.$$eval('.liste .carte:not([hidden])', (l) => [...new Set(l.map((c) => c.dataset.jour))]);
@@ -156,8 +157,8 @@ async function controlerPage(p, nom, u) {
     try {
     if (nom === 'mobile') {
       await p.goto(B, { waitUntil: 'load' });
-      await p.locator('.liste .jour:not([hidden])').nth(2).scrollIntoViewIfNeeded(); await p.waitForTimeout(400);
-      ok(await p.locator('.flottant').isVisible(), 'mobile : le bouton « Filtres » flottant n\'apparaît pas');
+      await p.locator('.liste .carte:not([hidden]):not(.plus-loin)').nth(8).scrollIntoViewIfNeeded(); await p.waitForTimeout(400);
+      ok(await p.locator('.onglets [data-chercher]').isVisible(), 'mobile : l\'onglet « Chercher » n\'est pas visible');
       const fermetures = { bouton: async () => p.locator('.feuille-filtres .voir-n').click(), croix: async () => p.locator('.feuille-x').click(), fond: async () => p.mouse.click(195, 30), echap: async () => p.keyboard.press('Escape'),
         // Vrai geste tactile (objets Touch), accepté par tous les moteurs ; repli en événements simples si Touch n'existe pas.
         glisser: async () => { await p.locator('.feuille-poignee').evaluate((el) => {
@@ -165,9 +166,8 @@ async function controlerPage(p, nom, u) {
           ev('touchstart', 300); ev('touchmove', 500); ev('touchend', 500);
         }); } };
       for (const [mode, fermer] of Object.entries(fermetures)) {
-        await p.evaluate(() => window.scrollBy(0, -120)); await p.waitForTimeout(400); // le bouton revient quand on remonte
         const y0 = await p.evaluate(() => scrollY);
-        await p.locator('.ouvrir-filtres').click(); await p.waitForTimeout(400);
+        await p.locator('.onglets [data-chercher]').click(); await p.waitForTimeout(400);
         ok(await p.locator('.feuille-filtres').count() === 1, `mobile : la feuille de filtres ne s'ouvre pas (${mode})`);
         await defiler(p, 600); await p.waitForTimeout(150);
         ok(await p.evaluate(() => document.documentElement.classList.contains('bloque')), `mobile : la page derrière la feuille n'est pas bloquée (${mode})`);
@@ -178,7 +178,7 @@ async function controlerPage(p, nom, u) {
         ok(await p.locator('.filtres-place .filtres').count() === 1, `mobile : les filtres ne reviennent pas à leur place (${mode})`);
         if (mode !== 'bouton') ok(Math.abs((await p.evaluate(() => scrollY)) - y0) < 5, `mobile : la position de lecture est perdue (${mode})`);
         if (mode === 'bouton') { ok(await nbVisibles(p) < total, 'mobile : le filtre choisi dans la feuille ne s\'applique pas'); await p.locator('.filtres [data-filtre="ville"] [data-v="tout"]').evaluate((b) => b.click()); }
-        await p.locator('.liste .jour:not([hidden])').nth(2).scrollIntoViewIfNeeded(); await p.waitForTimeout(300);
+        await p.locator('.liste .carte:not([hidden]):not(.plus-loin)').nth(8).scrollIntoViewIfNeeded(); await p.waitForTimeout(300);
       }
     }
 
@@ -200,6 +200,7 @@ async function controlerPage(p, nom, u) {
     ok(/\/en\/a-propos\/$/.test(p.url()), `${nom} : le changement de langue ne garde pas la page (${p.url()})`);
     await p.locator('a.loupe').click(); await p.waitForLoadState('load'); await p.waitForTimeout(500);
     ok(await p.evaluate(() => document.activeElement?.id === 'recherche'), `${nom} : la loupe ne place pas le curseur dans la recherche`);
+    if (await p.locator('.feuille-filtres').count()) { await p.keyboard.press('Escape'); await p.waitForTimeout(400); } // mobile : la loupe ouvre la feuille de recherche
     await p.evaluate(() => scrollTo(0, 4000)); await p.waitForTimeout(400); await p.evaluate(() => scrollBy(0, -150)); await p.waitForTimeout(500);
     for (let i = 0; i < 6 && !(await p.locator('.haut').isVisible()); i++) { await p.evaluate(() => scrollBy(0, -120)); await p.waitForTimeout(400); } // WebKit mobile en CI : défilement plus lent
     if (await p.locator('.haut').isVisible()) { await p.locator('.haut').click(); await p.waitForTimeout(2500); ok(await p.evaluate(() => scrollY) < 50, `${nom} : « Haut de page » ne remonte pas`); } else echecs.push(`${nom} : bouton « Haut de page » absent`);
