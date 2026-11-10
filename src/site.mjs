@@ -16,6 +16,7 @@ import { genresList, isTechno } from './genres.mjs';
 import { LANGUES, TXT } from './site-langues.mjs';
 import { STYLES as STYLES_MUSIQUE, PAGES_STYLES, FESTIVALS, RENDEZ_VOUS, PARTENAIRE, AMBASSADEUR, BDE, LEGAL, PAGES_LEGALES, RE_ETUDIANT, RE_FESTIVAL, SORTIES, SPOTS_DATE, FAQ } from './site-contenus.mjs';
 import { VILLES_FRANCE, VILLES_OCCITANIE, villeOccitanie, fusionner } from './recherche.mjs';
+import * as LLM from './llm.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SITE = path.join(ROOT, 'site');
@@ -68,12 +69,15 @@ let MODELES = null;
 // Budget de temps : les enrichissements (lieux, partenaires, transports…) s'arrêtent à temps pour que la mise à jour
 // se termine et s'enregistre toujours (GitHub coupe un passage au bout d'une heure). Le reste se fait au passage suivant.
 let LIMITE = Infinity;
+let CONFIG_LLM = {};
 // « Très demandée » : seulement les soirées les plus attendues (environ 1 sur 8, et buzz ≥ 0,85).
 let SEUIL_DEMANDE = 0.85;
 const tempsOk = () => Date.now() < LIMITE;
 async function gemini(parts, { recherche = false } = {}) {
   const CLE = (process.env.GEMINI_API_KEY || '').trim();
   if (!CLE) return null;
+  if (!LLM.budgetOk('gemini', CONFIG_LLM)) return null; // plafonds de dépense (contenus/budget-ia.json)
+  LLM.compter('gemini');
   const API = 'https://generativelanguage.googleapis.com/v1beta/models';
   try {
     if (!MODELES) {
@@ -510,6 +514,7 @@ const PLATEFORMES = { 'shotgun.live': 'Shotgun', 'dice.fm': 'DICE', 'link.dice.f
 const nomPlateforme = (u) => { try { const d = new URL(u).hostname.replace(/^www\./, ''); return PLATEFORMES[d] || Object.entries(PLATEFORMES).find(([k]) => d.endsWith(k))?.[1] || d; } catch { return ''; } };
 
 export async function construireSite({ events, eventsFrance = [], eventsOccitanie = [], hist = [], config = {}, now = new Date(), log = console.log, ig = null, api = {} }) {
+  CONFIG_LLM = config.llm || {};
   const PLAFOND = Date.now() + (Number(process.env.SITE_MINUTES) || config.site?.minutes_enrichissement || 30) * 60e3;
   LIMITE = PLAFOND;
   await mkdir(path.join(SITE, 'affiches'), { recursive: true });

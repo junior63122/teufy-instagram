@@ -5,7 +5,37 @@
 //     texte et JSON, sans recherche web.
 //  3. Claude (API Anthropic, payante) : seulement si config.llm.payant_autorise = true, et alors en premier.
 
+import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
 const GEMINI = 'https://generativelanguage.googleapis.com/v1beta/models';
+
+// --- Garde-fous budget (demande du directeur : budget mensuel limité) ------------------------------------------
+// Compteur d'appels par IA, par jour et par mois, enregistré dans contenus/budget-ia.json (committé par les workflows).
+// Au-delà des plafonds de config.llm (max_appels_<ia>_jour / _mois), l'IA n'est plus appelée jusqu'au lendemain / mois suivant.
+const FICHIER_BUDGET = path.join(path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..'), 'contenus', 'budget-ia.json');
+const PLAFONDS = { gemini: [300, 6000], anthropic: [15, 250] }; // [par jour, par mois] si la config n'en donne pas
+function lireBudget() {
+  const j = new Date().toISOString().slice(0, 10), m = j.slice(0, 7);
+  let b = {}; try { b = existsSync(FICHIER_BUDGET) ? JSON.parse(readFileSync(FICHIER_BUDGET, 'utf8')) : {}; } catch { b = {}; }
+  if (b.mois !== m) b = { mois: m, jour: j, total: {}, aujourdhui: {} };
+  if (b.jour !== j) { b.jour = j; b.aujourdhui = {}; }
+  b.total ||= {}; b.aujourdhui ||= {};
+  return b;
+}
+export function budgetOk(f, L = {}) {
+  if (f === 'github') return true; // gratuit
+  const b = lireBudget(), [dj, dm] = PLAFONDS[f] || [Infinity, Infinity];
+  const okJ = (b.aujourdhui[f] || 0) < (L[`max_appels_${f}_jour`] ?? dj), okM = (b.total[f] || 0) < (L[`max_appels_${f}_mois`] ?? dm);
+  if (!okJ || !okM) console.error(`Budget IA : plafond ${okM ? 'du jour' : 'du mois'} atteint pour ${f}, appel évité.`);
+  return okJ && okM;
+}
+export function compter(f) {
+  if (f === 'github') return;
+  try { const b = lireBudget(); b.aujourdhui[f] = (b.aujourdhui[f] || 0) + 1; b.total[f] = (b.total[f] || 0) + 1; mkdirSync(path.dirname(FICHIER_BUDGET), { recursive: true }); writeFileSync(FICHIER_BUDGET, JSON.stringify(b, null, 1) + '\n'); } catch { /* compteur indisponible : pas bloquant */ }
+}
+export function etatBudget() { return lireBudget(); }
 const GH = 'https://models.github.ai/inference/chat/completions';
 
 // `gratuit: true` : les IA gratuites passent devant Claude (veille horaire, tâches fréquentes et peu coûteuses).
@@ -15,7 +45,9 @@ export function fournisseurs(config = {}, { gratuit = false } = {}) {
   if (process.env.GEMINI_API_KEY) out.push('gemini');
   if (process.env.GITHUB_TOKEN && L.github_models !== false) out.push('github');
   // Claude passe en premier quand le payant est autorisé (meilleure qualité), les IA gratuites restent en secours.
-  if (L.payant_autorise && (process.env.ANTHROPIC_API_KEY || process.env.ANTHROPIC_AUTH_TOKEN)) out[gratuit ? 'push' : 'unshift']('anthropic');
+  // Tâches fréquentes (« gratuit ») : jamais de bascule vers Claude, sauf si config.llm.secours_payant = true
+  // (sinon une panne de Gemini fait tout passer sur l'IA payante et vide le budget, ce qui est arrivé le 9/11).
+  if (L.payant_autorise && (process.env.ANTHROPIC_API_KEY || process.env.ANTHROPIC_AUTH_TOKEN) && (!gratuit || L.secours_payant === true)) out[gratuit ? 'push' : 'unshift']('anthropic');
   return out;
 }
 export const rechercheWebDisponible = (config) => fournisseurs(config).some((f) => f === 'gemini' || f === 'anthropic');
@@ -61,7 +93,9 @@ const texteGemini = (j) => (j.candidates?.[0]?.content?.parts || []).map((p) => 
 export async function rechercher({ config, system, prompt, gratuit = false }) {
   const L = config.llm || {};
   for (const f of fournisseurs(config, { gratuit })) {
+    if (!budgetOk(f, L)) continue;
     try {
+      compter(f);
       if (f === 'gemini') {
         const j = await postGemini(L, {
           systemInstruction: { parts: [{ text: system }] },
@@ -71,7 +105,7 @@ export async function rechercher({ config, system, prompt, gratuit = false }) {
         const sources = (j.candidates?.[0]?.groundingMetadata?.groundingChunks || []).map((c) => c.web?.uri).filter(Boolean);
         return `${texteGemini(j)}\n\nSources consultées :\n${sources.slice(0, 40).join('\n')}`;
       }
-      if (f === 'anthropic') return await claude({ system, prompt, outils: true });
+      if (f === 'anthropic') return await claude({ system, prompt, outils: true, L });
     } catch (err) { console.error(`Recherche ${f} impossible : ${err.message}`); }
   }
   return '';
@@ -82,7 +116,9 @@ export async function rechercher({ config, system, prompt, gratuit = false }) {
 export async function json({ config, system, prompt, schema, nom = 'reponse', gratuit = false }) {
   const L = config.llm || {};
   for (const f of fournisseurs(config, { gratuit })) {
+    if (!budgetOk(f, L)) continue;
     try {
+      compter(f);
       if (f === 'gemini') {
         const base = { systemInstruction: { parts: [{ text: system }] }, contents: [{ role: 'user', parts: [{ text: prompt }] }] };
         let j;
@@ -103,7 +139,7 @@ export async function json({ config, system, prompt, schema, nom = 'reponse', gr
         }, { authorization: `Bearer ${process.env.GITHUB_TOKEN.trim()}` });
         return JSON.parse(j.choices?.[0]?.message?.content || '{}');
       }
-      if (f === 'anthropic') return JSON.parse(await claude({ system, prompt, schema }));
+      if (f === 'anthropic') return JSON.parse(await claude({ system, prompt, schema, L }));
     } catch (err) { console.error(`IA ${f} impossible : ${err.message}`); }
   }
   throw new Error('Aucune IA disponible (ajoute le secret gratuit GEMINI_API_KEY)');
@@ -111,14 +147,14 @@ export async function json({ config, system, prompt, schema, nom = 'reponse', gr
 
 // --- Claude (optionnel, payant) ---------------------------------------------------
 
-async function claude({ system, prompt, schema, outils = false }) {
+async function claude({ system, prompt, schema, outils = false, L = {} }) {
   const { default: Anthropic } = await import('@anthropic-ai/sdk');
   const client = new Anthropic();
   const messages = [{ role: 'user', content: prompt }];
   for (let tour = 0; tour < 6; tour++) {
     const res = await client.beta.messages.stream({
-      model: 'claude-opus-5-5', max_tokens: 32000, betas: ['server-side-fallback-2026-07-01'], fallbacks: 'default', thinking: { type: 'adaptive' }, system, messages,
-      ...(outils ? { tools: [{ type: 'web_search_20260209', name: 'web_search', max_uses: 20 }, { type: 'web_fetch_20260209', name: 'web_fetch', max_uses: 25 }] } : {}),
+      model: L.modele_claude || 'claude-sonnet-5-5', max_tokens: 16000, // Sonnet par défaut : bien moins cher qu'Opus betas: ['server-side-fallback-2026-07-01'], fallbacks: 'default', thinking: { type: 'adaptive' }, system, messages,
+      ...(outils ? { tools: [{ type: 'web_search_20260209', name: 'web_search', max_uses: L.max_recherches_claude ?? 6 }, { type: 'web_fetch_20260209', name: 'web_fetch', max_uses: 8 }] } : {}),
       ...(schema ? { output_config: { effort: 'medium', format: { type: 'json_schema', schema } } } : {}),
     }).finalMessage();
     if (res.stop_reason === 'refusal') throw new Error('refus');

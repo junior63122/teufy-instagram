@@ -258,6 +258,14 @@
   "llm": {
     "explication": "Claude (secret ANTHROPIC_API_KEY, payant) en premier si payant_autorise = true ; sinon et en secours : Gemini (secret GEMINI_API_KEY, gratuit, recherche Google) puis GitHub Models (gratuit dans GitHub Actions). modele_gemini vide = le meilleur modèle Gemini « flash » disponible, choisi automatiquement.",
     "payant_autorise": true,
+    "secours_payant": false,
+    "modele_claude": "claude-sonnet-5-5",
+    "max_appels_anthropic_jour": 15,
+    "max_appels_anthropic_mois": 250,
+    "max_appels_gemini_jour": 300,
+    "max_appels_gemini_mois": 6000,
+    "max_recherches_claude": 6,
+    "budget_note": "Plafonds anti-dérapage (budget mensuel limité) : au-delà, l'IA n'est plus appelée jusqu'au lendemain / mois suivant. Compteur : contenus/budget-ia.json. secours_payant=false : une panne de Gemini ne bascule pas les tâches fréquentes sur Claude.",
     "github_models": true,
     "modele_gemini": "",
     "modele_github": "openai/gpt-4.1-mini"
