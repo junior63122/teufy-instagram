@@ -27,84 +27,48 @@
   "date": "2026-11-09T10:00:44+0000"
  },
  {
-  "id": "18047877002591676",
-  "lien": "https://www.instagram.com/p/Db2zat-gtyp/",
-  "image": "site/img/insta/18047877002591676.jpg",
+  "id": "18051071228338677",
+  "lien": "https://www.instagram.com/p/DQcRvtTgklP/",
+  "image": "site/img/insta/18051071228338677.jpg",
   "reel": false,
   "carrousel": true,
-  "titre": "JEU CONCOURS TEUFY X CROSSOVER THE WORLD 🌴",
-  "date": "2026-08-10T10:30:02+0000"
+  "titre": "Teufy x Panda Events ",
+  "date": "2025-10-30T17:30:00+0000"
  },
  {
-  "id": "18421085335132724",
-  "lien": "https://www.instagram.com/p/DYEwoMCAj6G/",
-  "image": "site/img/insta/18421085335132724.jpg",
-  "reel": false,
-  "carrousel": true,
-  "titre": "Gagne 2 places pour vivre le TRIAL INDOOR INTERNATIONAL au @palaisnikaia à Nice 🏍️🔥",
-  "date": "2026-05-08T10:30:00+0000"
- },
- {
-  "id": "17869877556667737",
-  "lien": "https://www.instagram.com/p/DX31OJoAoqI/",
-  "image": "site/img/insta/17869877556667737.jpg",
-  "reel": false,
-  "carrousel": true,
-  "titre": "Gagne 2 pass 3 jours pour vivre le REF Festival au @frigo.16 à Nice :",
-  "date": "2026-05-03T10:00:00+0000"
- },
- {
-  "id": "18201678022343545",
-  "lien": "https://www.instagram.com/p/DXrAlVRAqFD/",
-  "image": "site/img/insta/18201678022343545.jpg",
-  "reel": false,
-  "carrousel": true,
-  "titre": "Gagne 2 places pour vivre Electro Symphony Vol.2 au @palaisnikaia à Nice :",
-  "date": "2026-04-28T10:29:12+0000"
- },
- {
-  "id": "17912221395349490",
-  "lien": "https://www.instagram.com/p/DWToHq_gBXF/",
-  "image": "site/img/insta/17912221395349490.jpg",
-  "reel": false,
-  "carrousel": true,
-  "titre": "Gagne 2 pass 3 jours pour vivre le LQB Festival au @frigo.16 à Nice :",
-  "date": "2026-03-25T12:01:30+0000"
- },
- {
-  "id": "18128761687507839",
-  "lien": "https://www.instagram.com/p/DTBEjeCAuUU/",
-  "image": "site/img/insta/18128761687507839.jpg",
-  "reel": false,
-  "carrousel": true,
-  "titre": "🔥 Les premières soirées techno de l’année sont là. Janvier démarre très fort sur la Côte d’Azur.",
-  "date": "2026-01-02T17:30:00+0000"
- },
- {
-  "id": "17867887611439786",
-  "lien": "https://www.instagram.com/p/DSrxjW8AjXq/",
-  "image": "site/img/insta/17867887611439786.jpg",
-  "reel": false,
+  "id": "18502210426003592",
+  "lien": "https://www.instagram.com/reel/DICVQJlCy-G/",
+  "image": "site/img/insta/18502210426003592.jpg",
+  "reel": true,
   "carrousel": false,
-  "titre": "✨🎄 Merry Christmas & Happy New Year ✨",
-  "date": "2025-12-25T11:00:00+0000"
+  "titre": "Utiliser Teufy pour…",
+  "date": "2025-04-04T19:30:00+0000"
  },
  {
-  "id": "18167085991390734",
-  "lien": "https://www.instagram.com/p/DSp5_iYgpVG/",
-  "image": "site/img/insta/18167085991390734.jpg",
-  "reel": false,
-  "carrousel": true,
-  "titre": "Les soirées du Nouvel An arrivent.",
-  "date": "2025-12-24T17:35:24+0000"
- },
- {
-  "id": "18075111101201481",
-  "lien": "https://www.instagram.com/p/DSZxsf5AiHl/",
-  "image": "site/img/insta/18075111101201481.jpg",
-  "reel": false,
+  "id": "17961355697853498",
+  "lien": "https://www.instagram.com/reel/DF7psVYo_cL/",
+  "image": "site/img/insta/17961355697853498.jpg",
+  "reel": true,
   "carrousel": false,
-  "titre": "🎆 NOUVEL AN 2025 🎆",
-  "date": "2025-12-18T11:15:03+0000"
+  "titre": "🚀 TEUFY ARRIVE BIENTÔT ! 🎉🔥",
+  "date": "2025-02-11T12:13:06+0000"
+ },
+ {
+  "id": "18160797397335835",
+  "lien": "https://www.instagram.com/reel/DE1cea-okga/",
+  "image": "site/img/insta/18160797397335835.jpg",
+  "reel": true,
+  "carrousel": false,
+  "titre": "Envie de vivre des aventures uniques lors de tes voyages ? Teufy te permet de trouver des soirées et événements excitant",
+  "date": "2025-01-15T05:49:18+0000"
+ },
+ {
+  "id": "18062836039876762",
+  "lien": "https://www.instagram.com/reel/DENF_i6IsMm/",
+  "image": "site/img/insta/18062836039876762.jpg",
+  "reel": true,
+  "carrousel": false,
+  "titre": "DES SOIRÉES DANS TA VILLE AVEC",
+  "date": "2024-12-30T13:44:22+0000"
  }
 ]
