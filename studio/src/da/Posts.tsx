@@ -88,14 +88,19 @@ export const DiapoFin: React.FC<{soirees: Soiree[]; photo: string; question?: st
     <div style={{position: 'absolute', left: 56, right: 56, top: 170}}>
       <Titre taille={130}>{question}</Titre>
     </div>
-    <div style={{position: 'absolute', left: 56, right: 56, bottom: 200}}>
+    <div style={{position: 'absolute', left: 56, right: 56, bottom: 270}}>
       {soirees.map((s, i) => (
-        <div key={i} style={{display: 'flex', alignItems: 'baseline', gap: 26, padding: '18px 0', borderTop: `1.5px solid ${C.creme}55`}}>
-          <span style={{fontFamily: T, fontWeight: 800, fontStretch: '75%', fontSize: 52, color: C.corail, width: 60}}>{i + 1}</span>
+        <div key={i} style={{display: 'flex', alignItems: 'baseline', gap: 26, padding: soirees.length > 6 ? '9px 0' : '18px 0', borderTop: `1.5px solid ${C.creme}55`}}>
+          <span style={{fontFamily: T, fontWeight: 800, fontStretch: '75%', fontSize: soirees.length > 6 ? 44 : 52, color: C.corail, width: 60}}>{i + 1}</span>
           <Ajuste max={38} style={{fontFamily: B, fontWeight: 700, color: C.creme, flex: 1, minWidth: 0, whiteSpace: 'nowrap'}}>{nomCourt(s.nom, s.lieu)}</Ajuste>
           <span style={{fontFamily: B, fontWeight: 500, fontSize: 28, color: C.creme, opacity: 0.75, whiteSpace: 'nowrap'}}>{s.jour.split(' ').slice(0, 2).join(' ').toLowerCase()}</span>
         </div>
       ))}
+    </div>
+    {/* Renvoi vers le site : l'agenda complet (toutes les soirées, filtres par ville, style et prix). */}
+    <div data-verif="bloc" style={{position: 'absolute', left: 56, right: 56, bottom: 150, display: 'flex', alignItems: 'center', gap: 16, padding: '18px 0', borderTop: `1.5px solid ${C.creme}55`, fontFamily: B, color: C.creme, whiteSpace: 'nowrap'}}>
+      <span style={{fontWeight: 500, fontSize: 30, opacity: 0.85}}>Toutes les soirées de la Côte sur</span>
+      <span style={{fontWeight: 800, fontSize: 36, color: C.corail}}>teufyparty.com</span>
     </div>
     <div style={{position: 'absolute', left: 56, right: 56, bottom: 64, display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
       <Etiquette>Commente le numéro</Etiquette>

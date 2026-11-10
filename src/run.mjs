@@ -312,8 +312,8 @@ async function prepare(slot, now, id) {
       th, photos, events: chosen, titre,
       sous: fort ? `En ${MOIS(now)}` : elargi ? 'Ces prochains jours' : 'Cette semaine',
       fin: techno
-        ? { texte: 'On se voit sur le dancefloor.\nTu seras à laquelle ?', pied: `Abonne-toi à ${config.compte} 👇` }
-        : { texte: 'Tu sors où cette semaine ?\nDis-le en commentaire.', pied: `Abonne-toi à ${config.compte} 👇` },
+        ? { texte: 'On se voit sur le dancefloor.\nTu seras à laquelle ?', pied: 'Toutes les soirées sur teufyparty.com' }
+        : { texte: 'Tu sors où cette semaine ?\nDis-le en commentaire.', pied: 'Toutes les soirées sur teufyparty.com' },
     });
     let files = null;
     // Carrousel du studio (affiches officielles, DA éditoriale) ; repli sur l'ancien gabarit si impossible.

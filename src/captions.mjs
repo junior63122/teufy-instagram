@@ -53,6 +53,13 @@ const liste = (events, n = 12) => {
   return events.slice(0, n).map((e) => ligne(e, avecMois)).join('\n');
 };
 
+// Renvoi vers le site (le domaine écrit en clair : les liens ne sont pas cliquables dans une légende Instagram).
+const SITE = [
+  '🔎 Toutes les soirées de la Côte, par ville, style et prix : teufyparty.com',
+  '🔎 L\'agenda complet, jour par jour : teufyparty.com',
+  '🔎 Tu cherches autre chose ? Toutes les soirées sont sur teufyparty.com',
+  '🔎 Ce soir, ce week-end, gratuit ou techno : tout est sur teufyparty.com',
+];
 const SUIVRE = [
   'Abonne-toi pour ne rien rater de ce qui se passe sur la Côte.',
   'Chaque semaine, les meilleures soirées de la Côte sont ici.',
@@ -87,7 +94,7 @@ export function captionIncontournables({ variante, events, from, to, ch, r }) {
   const motsCles = villes.length ? `📍 Soirées ${techno ? 'techno ' : ''}à ${villes.join(', ').replace(/, ([^,]*)$/, ' et $1')} ${techno ? 'ce mois-ci' : 'cette semaine'}` : '';
   const star = [...events].filter((e) => typeof e.buzz === 'number' && e.buzz >= 0.7).sort((a, b) => b.buzz - a.buzz)[0];
   const coeur = star ? `🔥 La plus attendue : ${star.name}${star.buzz_raison ? `, ${star.buzz_raison.replace(/\.$/, '').replace(/^\p{Lu}(?=\p{Ll})/u, (c) => c.toLowerCase())}` : ''}.` : '';
-  return clip(`${intro}\n${motsCles}\n\n${coeur ? `${coeur}\n\n` : ''}${liste(events)}\n\n${question} Enregistre le post pour ne pas oublier. ${suivre}\n\n${hashtags(ch, variante, { events })}`);
+  return clip(`${intro}\n${motsCles}\n\n${coeur ? `${coeur}\n\n` : ''}${liste(events)}\n\n${question} Enregistre le post pour ne pas oublier. ${suivre}\n\n${ch.pick('site', SITE)}\n\n${hashtags(ch, variante, { events })}`);
 }
 
 // --- Appel aux organisateurs (#TeufyParty) -----------------------------------
@@ -98,7 +105,7 @@ export function captionOrgas({ quand, ch, r }) {
     `Organisateurs, DJ, collectifs…\nVotre soirée ${quand}, c'est en commentaire que ça se passe 👇`,
     `Une soirée ${quand} à faire connaître ?\nDéposez-la ici, avec la date et le lieu 👇`,
   ]);
-  return clip(`🪩 ${intro}\n\nEt si tu cherches où sortir, lis les commentaires.\n\n${hashtags(ch)}`);
+  return clip(`🪩 ${intro}\n\nEt si tu cherches où sortir, lis les commentaires… ou va sur teufyparty.com.\n\n${hashtags(ch)}`);
 }
 
 // --- Bons plans -------------------------------------------------------------
@@ -116,7 +123,7 @@ export function captionBonPlan({ variante, events, from, to, ch, r, manuel }) {
       `À réserver maintenant, pas le jour J. Les dates qu'on surveille pour les prochaines semaines.`,
     ]);
     const fin = ch.pick('fin-a-reserver', ['Envoie ça à ton groupe avant d\'oublier.', 'Enregistre le post, ça t\'évitera le « c\'est complet ».', 'Laquelle vous tente le plus ?']);
-    return clip(`${intro}\n\n${liste(events)}\n\n${fin}\n\nBillets sur les pages des soirées (Shotgun, DICE, organisateurs). ${suivre}\n\n${hashtags(ch, "general", { events })}`);
+    return clip(`${intro}\n\n${liste(events)}\n\n${fin}\n\nBillets sur les pages des soirées (Shotgun, DICE, organisateurs). ${suivre}\n\n${ch.pick('site', SITE)}\n\n${hashtags(ch, "general", { events })}`);
   }
   const intro = ch.pick('intro-petits-prix', [
     `Bon plan : sortir sur la Côte sans se ruiner. Gratuit ou petit prix, ${plage(from, to)}.`,
@@ -124,7 +131,7 @@ export function captionBonPlan({ variante, events, from, to, ch, r, manuel }) {
     `Qui a dit que sortir sur la Côte coûtait une fortune ? Petits prix et entrées gratuites 👇`,
   ]);
   const fin = ch.pick('fin-petits-prix', ['Partagez à votre pote toujours fauché.', 'Tag la personne qui dit toujours que c\'est trop cher.', 'Vous connaissez d\'autres bons plans ? Partagez en commentaire.']);
-  return clip(`${intro}\n\n${liste(events)}\n\n${fin}\n\n${suivre}\n\n${hashtags(ch, "general", { events })}`);
+  return clip(`${intro}\n\n${liste(events)}\n\n${fin}\n\n${suivre}\n\n${ch.pick('site', SITE)}\n\n${hashtags(ch, "general", { events })}`);
 }
 
 // --- Débat ------------------------------------------------------------------
@@ -147,7 +154,7 @@ export function captionReel({ variante, events, ch, r, elargi = false }) {
   const hook = ch.pick(`legende-reel-${variante}`, hooks.length ? hooks : ['Laquelle tu choisis ? Ton numéro en commentaire.']);
   const cta = ch.pick('cta-reel', ['Envoie ce reel à ton crew.', 'Tag ceux qui viennent avec toi.', 'Enregistre pour ne pas oublier.']);
   const suivre = ch.pick('suivre', SUIVRE);
-  return clip(`${hook}\n\n${events.map((e, i) => `${i + 1}. ${ligne(e).replace(/^→ /, '')}`).join('\n')}\n\n${cta} ${suivre}\n\n${hashtags(ch, variante === 'techno' ? 'techno' : 'general')}`);
+  return clip(`${hook}\n\n${events.map((e, i) => `${i + 1}. ${ligne(e).replace(/^→ /, '')}`).join('\n')}\n\n${cta} ${suivre}\n\n${ch.pick('site', SITE)}\n\n${hashtags(ch, variante === 'techno' ? 'techno' : 'general')}`);
 }
 
 function clip(s) { return s.length <= 2200 ? s : s.slice(0, 2190) + '…'; }
