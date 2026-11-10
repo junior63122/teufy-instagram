@@ -464,10 +464,12 @@
         "Shotgun",
         "nice.fr / Shotgun",
         "Shotgun.live",
-        "Shotgun / Panda Events"
+        "Shotgun / Panda Events",
+        "instagram.com"
       ],
       "billetterie_cherchee": true,
-      "offres_cherchees": true
+      "offres_cherchees": true,
+      "via_veille": true
     },
     {
       "source": "web",
@@ -1373,10 +1375,12 @@
         "Weezevent",
         "shotgun.live",
         "Shotgun.live",
-        "Shotgun / Twelty Prod / Panda Events"
+        "Shotgun / Twelty Prod / Panda Events",
+        "instagram.com"
       ],
       "billetterie_cherchee": true,
-      "offres_cherchees": true
+      "offres_cherchees": true,
+      "via_veille": true
     },
     {
       "source": "web",
