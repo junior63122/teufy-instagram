@@ -815,7 +815,7 @@ function carte(s, { t, base, lang, vedette = false }) {
   const acces = accesDe(s);
   const promo = promoDe(s);
   return `<article class="carte${vedette ? ' vedette' : ''}" data-acces="${acces.join(' ')}" data-id="${s.id}" data-jour="${s.jour}" data-debut="${esc(s.debut)}" data-heure="${esc(heure(s.debut, t))}" data-ville="${s.filtreVille}" data-styles="${s.styles.join(' ')}" data-prix="${s.prix ?? ''}" data-buzz="${s.buzz ?? ''}" data-lat="${s.lat ?? ''}" data-lng="${s.lng ?? ''}"${s.approx ? ' data-approx="1"' : ''} data-q="${esc(q)}">
-  <a class="affiche${s.affiche ? '' : ' sans'}" href="${lien}" tabindex="-1" aria-hidden="true">${img}<span class="date">${esc(dateCourte(s.debut, t))}</span></a>
+  <a class="affiche${s.affiche ? '' : ' sans'}${s.affiche && s.dims && (s.dims[0] / s.dims[1] > 0.95 || s.dims[0] < 560) ? ' entiere' : ''}" href="${lien}" tabindex="-1" aria-hidden="true">${img}<span class="date">${esc(dateCourte(s.debut, t))}</span></a>
   <button type="button" class="coeur" aria-label="${esc(t.ajouterFav)}" aria-pressed="false"></button>
   <div class="infos">
     ${(s.buzz ?? 0) >= SEUIL_DEMANDE ? `<p class="demande"><b>${esc(t.tresDemandee)}</b><i class="rebours" data-debut="${esc(s.debut)}"></i></p>` : ''}
@@ -1079,7 +1079,7 @@ const PROS = [
 const blocPros = ({ tr, base, lang }) => `<section class="pros reveal">
   <p class="etiquette">${esc(tr('Pros'))}</p>
   <h2>${tr('Travaille avec <em>Teufy</em>')}</h2>
-  <div class="pros-cartes">${PROS.map(([c, k, et, titre, texte, bouton], i) => { const a = AFFICHES_COLLAGE.length >= 6 ? AFFICHES_COLLAGE[k] : ''; return `<a class="pro${a ? '' : ' sans-photo'}" href="${base}${pre(lang)}${c}" style="--i:${i}">${a ? `<img src="${base}${a.replace(/\.jpg$/, '-800.webp')}" alt="" width="800" height="1000" loading="lazy" decoding="async">` : ''}<span><i class="pro-et">${esc(tr(et))}</i><strong>${esc(tr(titre))}</strong><em class="pro-texte">${esc(tr(texte))}</em><b class="pro-bouton">${esc(tr(bouton))} →</b></span></a>`; }).join('')}</div>
+  <div class="pros-cartes">${PROS.map(([c, k, et, titre, texte, bouton], i) => { const a = AFFICHES_COLLAGE.length >= 6 ? AFFICHES_COLLAGE[k] : ''; return `<a class="pro${a ? '' : ' sans-photo'}" href="${base}${pre(lang)}${c}#contact" style="--i:${i}">${a ? `<img src="${base}${a.replace(/\.jpg$/, '-800.webp')}" alt="" width="800" height="1000" loading="lazy" decoding="async">` : ''}<span><i class="pro-et">${esc(tr(et))}</i><strong>${esc(tr(titre))}</strong><em class="pro-texte">${esc(tr(texte))}</em><b class="pro-bouton">${esc(tr(bouton))} →</b></span></a>`; }).join('')}</div>
 </section>`;
 
 const blocFaq = (titre, faq) => `<section class="qui faq reveal"><h2>${titre}</h2>${faq.map(([q, r]) => `<details><summary>${esc(q)}</summary><p>${esc(r)}</p></details>`).join('')}</section>`;
@@ -1172,7 +1172,7 @@ function blocOrga({ t, tr = (x) => x, base, handle, lang }) {
     <p class="etiquette">${esc(t.orgaEtiquette)}</p>
     <h2>${tr('Ta soirée, <em>vue par ceux qui sortent</em>')}</h2>
     <ol class="orga2-etapes">${ETAPES.map(([a, b], i) => `<li style="--i:${i}"><b>${i + 1}</b><span><strong>${esc(tr(a))}</strong>${esc(tr(b))}</span></li>`).join('')}</ol>
-    <p class="orga2-actions"><a class="bouton" href="https://ig.me/m/${esc(handle)}" target="_blank" rel="noopener">${ICO_IG}<span>${esc(tr('Envoyer ma soirée'))}</span></a><a class="bouton contour" href="${base}${pre(lang)}partenaires/">${esc(tr('Devenir partenaire'))}</a></p>
+    <p class="orga2-actions"><a class="bouton" href="https://ig.me/m/${esc(handle)}" target="_blank" rel="noopener">${ICO_IG}<span>${esc(tr('Envoyer ma soirée'))}</span></a><a class="bouton contour" href="${base}${pre(lang)}partenaires/#contact">${esc(tr('Devenir partenaire'))}</a></p>
   </div>
 </section>`;
 }
@@ -1515,12 +1515,31 @@ ${soirees.length ? `<h2>${tr('Les plus <em>attendues</em>')}</h2><div class="gri
 // Pages « pros » : partenaires, ambassadeurs, BDE (texte français traduit par l'IA).
 const cartesTexte = (l, tr) => `<div class="cartes-texte">${l.map(([a, b], i) => `<article class="carte-texte" style="--i:${i}"><h3>${tr(a)}</h3><p>${tr(b)}</p></article>`).join('')}</div>`;
 const etapes = (l, tr) => `<ol class="etapes">${l.map(([a, b], i) => `<li style="--i:${i}"><b>${i + 1}</b><div><h3>${tr(a)}</h3><p>${tr(b)}</p></div></li>`).join('')}</ol>`;
+// Bloc « Passer à l'action » des pages pros : un vrai formulaire qui prépare le message (Instagram ou e-mail).
+// Pas de serveur (GitHub Pages) : le message est copié puis la conversation Instagram s'ouvre, ou l'e-mail est pré-rempli.
+const CONTACTS = {
+  partenaire: ['Envoie ta soirée ou ton lieu', "Remplis ces quelques lignes : on prépare ton message, tu n'as plus qu'à l'envoyer. Réponse en général sous 24 h.", 'Ton lieu ou ta soirée, tes prochaines dates, ton lien de billetterie…', 'Demande de partenariat'],
+  ambassadeur: ['Postule maintenant', "Deux minutes suffisent : on prépare ta candidature, tu n'as plus qu'à l'envoyer.", 'Ton âge, ton école ou ton travail, et en deux phrases pourquoi tu veux représenter Teufy…', 'Candidature ambassadeur'],
+  bde: ['Parlez-nous de votre soirée', "Quelques lignes suffisent : on prépare votre message, vous n'avez plus qu'à l'envoyer.", 'Votre école ou association, la date, le type de soirée, le nombre de participants…', 'Soirée BDE / association'],
+};
+const blocContact = ({ tr, handle, email, type }) => { const [h, p, ph, objet] = CONTACTS[type]; const ig = `https://ig.me/m/${esc(handle)}`; return `<section class="bloc-large contact-pro" id="contact">
+  <h2>${esc(tr(h))}</h2><p class="intro">${esc(tr(p))}</p>
+  <form class="form-contact" data-objet="${esc(tr(objet))}" data-ok-ig="${esc(tr('✓ Message copié. Colle-le dans la conversation Instagram qui vient de s\'ouvrir.'))}" data-ok-mail="${esc(tr('✓ Ton application e-mail s\'ouvre avec le message prêt à envoyer.'))}" data-manque="${esc(tr('Indique au moins ton nom et ton message.'))}" novalidate>
+    <label class="large"><span>${esc(tr('Ton nom ou celui de ton lieu'))}</span><input name="nom" autocomplete="name" required></label>
+    <label><span>${esc(tr('Ton compte Instagram'))}</span><input name="insta" placeholder="@" autocomplete="off" autocapitalize="off"></label>
+    <label><span>${esc(tr('Ville'))}</span><input name="ville" autocomplete="address-level2"></label>
+    <label class="large"><span>${esc(tr('Ton message'))}</span><textarea name="message" rows="4" required placeholder="${esc(tr(ph))}"></textarea></label>
+    <p class="envoyer"><a class="bouton" data-envoi="ig" href="${ig}" target="_blank" rel="noopener">${ICO_IG}<span>${esc(tr('Envoyer sur Instagram'))}</span></a>${email ? `<a class="bouton contour" data-envoi="mail" href="mailto:${esc(email)}">${esc(tr('Envoyer par e-mail'))}</a>` : ''}</p>
+    <p class="retour-form" role="status" aria-live="polite" hidden></p>
+  </form>
+</section>`; };
 const ctaIg = (handle, texte, email) => `<p class="cta"><a class="bouton" href="https://ig.me/m/${esc(handle)}" target="_blank" rel="noopener">${esc(texte)}</a>${email ? `<a class="bouton contour" href="mailto:${esc(email)}">${esc(email)}</a>` : ''}</p>`;
 
 function pagePartenaire({ lang, t, tr, base, compte, T, chemin, maj, partenaires }) {
   const C = PARTENAIRE, handle = compte.replace(/^@/, '');
   const faq = C.faq.map(([q, r]) => [tr(q), tr(r)]);
   const corps = `${heroCourt({ partage: t.partager, base, photo: null, logos: (partenaires || []).filter((x) => x.fichier).slice(0, 12).map((x) => x.fichier), alt: t.partenaires, etiquette: tr(C.etiquette), h1: tr(C.h1), p: esc(tr(C.chapo)) })}
+${blocContact({ tr, handle, email: T.email, type: 'partenaire' })}
 ${vitrine({ t, tr, base, partenaires })}
 <section class="bloc-large reveal"><h2>${tr(C.pourquoiH2)}</h2>${cartesTexte(C.pourquoi, tr)}</section>
 <section class="bloc-large reveal"><h2>${tr(C.offreH2)}</h2>${cartesTexte(C.offre, tr)}</section>
@@ -1532,6 +1551,7 @@ ${blocFaq(t.faqH, faq)}`;
 function pageAmbassadeur({ lang, t, tr, base, compte, T, chemin, maj, posts }) {
   const C = AMBASSADEUR, handle = compte.replace(/^@/, '');
   const corps = `${heroCourt({ partage: t.partager, base, photo: null, images: (posts || []).map((x) => x.image), alt: t.ambassadeurs, k: 5, etiquette: tr(C.etiquette), h1: tr(C.h1), p: esc(tr(C.chapo)) })}
+${blocContact({ tr, handle, email: T.email, type: 'ambassadeur' })}
 <section class="bloc-large reveal"><h2>${tr(C.roleH2)}</h2>${cartesTexte(C.role, tr)}</section>
 <section class="bloc-large reveal"><h2>${tr(C.avantagesH2)}</h2>${cartesTexte(C.avantages, tr)}</section>
 <section class="bloc-large reveal"><h2>${tr(C.profilH2)}</h2><ul class="coches">${C.profil.map((x) => `<li>${esc(tr(x))}</li>`).join('')}</ul></section>
@@ -1542,6 +1562,7 @@ function pageAmbassadeur({ lang, t, tr, base, compte, T, chemin, maj, posts }) {
 function pageBde({ lang, t, tr, base, compte, T, chemin, soirees, maj, partenaires }) {
   const C = BDE, handle = compte.replace(/^@/, '');
   const corps = `${heroCourt({ partage: t.partager, base, photo: null, images: soirees.filter((x) => x.affiche).map((x) => x.affiche), alt: t.bde, k: 6, etiquette: tr(C.etiquette), h1: tr(C.h1), p: esc(tr(C.chapo)) })}
+${blocContact({ tr, handle, email: T.email, type: 'bde' })}
 <section class="bloc-large reveal"><h2>${tr(C.offreH2)}</h2>${cartesTexte(C.offre, tr)}</section>
 <section class="bloc-large reveal"><h2>${tr(C.etapesH2)}</h2>${etapes(C.etapes, tr)}${ctaIg(handle, tr(C.cta), T.email)}</section>
 ${soirees.length ? `<section class="bloc-large reveal"><h2>${tr(C.soireesH2)}</h2><div class="grille">${soirees.map((s) => carte(s, { t, base, lang })).join('')}</div></section>` : ''}`;

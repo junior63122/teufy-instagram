@@ -17,6 +17,29 @@
   const norm = (x) => String(x || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').trim();
   const toast = (m) => { const t = document.querySelector('.toast'); if (!t || !m) return; t.textContent = m; t.hidden = false; clearTimeout(toast.t); toast.t = setTimeout(() => { t.hidden = true; }, 2600); };
 
+  // Menu : la rubrique ouverte est centrée dans la barre (on sait où l'on est, même au fond du menu).
+  { const n = document.querySelector('.nav'), a = n?.querySelector('[aria-current="page"]');
+    if (n && a && n.scrollWidth > n.clientWidth) n.scrollLeft = a.offsetLeft - (n.clientWidth - a.offsetWidth) / 2; }
+
+  // Formulaire des pages pros : prépare le message puis ouvre Instagram (message copié) ou l'e-mail (pré-rempli).
+  document.querySelectorAll('.form-contact').forEach((f) => {
+    const retour = f.querySelector('.retour-form');
+    const dire = (m, ok) => { retour.textContent = m; retour.hidden = false; retour.classList.toggle('ok', ok); };
+    f.addEventListener('submit', (e) => { e.preventDefault(); f.querySelector('[data-envoi]')?.click(); });
+    f.querySelectorAll('[data-envoi]').forEach((b) => b.addEventListener('click', (e) => {
+      const v = (k) => (f.elements[k]?.value || '').trim();
+      if (!v('nom') || !v('message')) { e.preventDefault(); dire(f.dataset.manque, false); (v('nom') ? f.elements.message : f.elements.nom).focus(); return; }
+      const texte = [`Bonjour Teufy ! ${f.dataset.objet}`, `${v('nom')}${v('insta') ? ` (${v('insta')})` : ''}${v('ville') ? ` · ${v('ville')}` : ''}`, '', v('message')].join('\n');
+      if (b.dataset.envoi === 'mail') {
+        b.href = `${b.href.split('?')[0]}?subject=${encodeURIComponent(`Teufy · ${f.dataset.objet}`)}&body=${encodeURIComponent(texte)}`;
+        dire(f.dataset.okMail, true);
+      } else {
+        try { navigator.clipboard?.writeText(texte).catch(() => {}); } catch { /* presse-papiers refusé */ }
+        dire(f.dataset.okIg, true);
+      }
+    }));
+  });
+
   const cartes = [...document.querySelectorAll('.liste .carte')];
   // Soirées terminées : elles disparaissent d'elles-mêmes (la page n'est régénérée qu'une fois par jour).
   const finies = new Set(cartes.filter((c) => c.dataset.jour < auj || maintenant > debut(c) + DUREE));

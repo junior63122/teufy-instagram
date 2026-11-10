@@ -975,9 +975,29 @@ details[data-bloc="tri"]>.groupe{inset-inline-start:auto;inset-inline-end:0}
 .rangee .carte .affiche{aspect-ratio:4/5!important;max-height:none!important;height:auto}
 .rangee .carte .affiche img.principale{position:absolute!important;inset:0!important;width:100%;height:100%!important;max-height:none!important;object-fit:cover!important}
 .rangee .carte .affiche .fond-flou{display:none}
+/* Affiche paysage ou trop petite : montrée en entier sur son fond flouté (jamais agrandie, donc jamais floue). */
+.rangee .carte .affiche.entiere img.principale{object-fit:contain!important}
+.rangee .carte .affiche.entiere .fond-flou{display:block}
 /* Carrousel « Ce soir » : contenu des cartes de hauteur fixe pour éviter les grands vides en bas des cartes courtes. */
 .rangee .carte h3{min-height:2em}
 .rangee .carte .genre{min-height:1.3em}
 .rangee .carte .demande{display:none}
 .rangee .carte .meta{flex-wrap:nowrap;overflow:hidden;mask-image:linear-gradient(90deg,#000 85%,transparent)}
 .rangee .carte .meta>*{flex:none}
+/* Logos de l'en-tête : toujours ronds (la règle des affiches donnait une largeur plus grande au 2e logo → ovale). */
+.hero.sans-photo .logos-collage img,.hero.sans-photo .logos-collage img:nth-child(n){width:52px;height:52px;object-fit:cover;background:#fff;z-index:auto}
+@media(min-width:980px){.logos-collage img,.logos-collage img:nth-child(n){width:100%;height:auto;aspect-ratio:1;object-fit:cover;background:#fff}}
+/* Formulaire « Passer à l'action » des pages pros */
+.contact-pro{scroll-margin-top:130px}
+.contact-pro .intro{color:#cfc8bd;max-width:60ch;margin:6px 0 18px}
+.form-contact{display:grid;grid-template-columns:1fr 1fr;gap:14px;background:#ffffff0d;border:1px solid #ffffff1f;border-radius:24px;padding:22px}
+.form-contact label{display:flex;flex-direction:column;gap:6px;font-weight:700;font-size:14px}
+.form-contact label.large,.form-contact .envoyer,.form-contact .retour-form{grid-column:1/-1}
+.form-contact input,.form-contact textarea{font:inherit;font-size:16px;color:var(--creme);background:#0006;border:1px solid #ffffff33;border-radius:14px;padding:12px 14px;width:100%;box-sizing:border-box}
+.form-contact textarea{resize:vertical;min-height:110px}
+.form-contact input:focus,.form-contact textarea:focus{outline:2px solid var(--corail);outline-offset:1px;border-color:transparent}
+.form-contact .envoyer{display:flex;flex-wrap:wrap;gap:10px;margin:4px 0 0}
+.form-contact .envoyer .bouton{display:inline-flex;align-items:center;gap:8px}
+.form-contact .retour-form{margin:0;padding:12px 14px;border-radius:14px;background:#ff5a3c22;color:#ffb4a6;font-weight:700}
+.form-contact .retour-form.ok{background:#3ce08a22;color:#8ff0bd}
+@media(max-width:640px){.form-contact{padding:16px;gap:12px}}
