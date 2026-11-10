@@ -488,7 +488,22 @@
    "insta": null,
    "slug": "people-by-l-atoll-saint-laurent-du-var",
    "score": 0,
-   "soirs": []
+   "soirs": [],
+   "details": {
+    "le": "2026-11-10T16:43:32.404Z",
+    "styles": "Généraliste · Lounge · Festif",
+    "dress_code": "Chic et décontracté (aucun dress code strict)",
+    "horaires": "Lun 9h–17h · Mar–Sam 9h–0h30 · Dim 11h–16h",
+    "prix_verre": "",
+    "entree": "Gratuite",
+    "age_min": "Tout public",
+    "sources": [
+     "https://www.people.restaurant/",
+     "https://www.people.restaurant/menu.html",
+     "https://www.people.restaurant/contact.html",
+     "https://provence-alpes-cotedazur.com/que-faire/sortir/restaurants/people-by-latoll-saint-laurent-du-var-fr-3947477/"
+    ]
+   }
   },
   {
    "nom": "Au Bureau (Polygone Riviera)",
@@ -503,7 +518,22 @@
    "insta": null,
    "slug": "au-bureau-polygone-riviera-cagnes-sur-mer",
    "score": 0,
-   "soirs": []
+   "soirs": [],
+   "details": {
+    "le": "2026-11-10T16:43:32.404Z",
+    "styles": "Pop · Rock · Hits généralistes",
+    "dress_code": "Tenue décontractée",
+    "horaires": "Dim–Jeu 9h–23h30 · Ven–Sam 9h–0h",
+    "prix_verre": "bière 4–8,50 € · cocktail 8,50–9,50 €",
+    "entree": "gratuit",
+    "age_min": "",
+    "sources": [
+     "https://www.aubureau.fr/restaurant/cagnes-sur-mer/",
+     "https://www.aubureau.fr/la-carte/",
+     "https://www.mistergoodbeer.com/fr/bars/au-bureau-cagnes-sur-mer",
+     "https://restaurantguru.com/Au-Bureau-Cagnes-sur-Mer"
+    ]
+   }
   },
   {
    "nom": "Le Carré Bleu",
@@ -518,7 +548,22 @@
    "insta": null,
    "slug": "le-carre-bleu-cagnes-sur-mer",
    "score": 0,
-   "soirs": []
+   "soirs": [],
+   "details": {
+    "le": "2026-11-10T16:43:32.404Z",
+    "styles": "Lounge · Chill-out · Éclectique",
+    "dress_code": "Décontracté en journée, casual et tenue correcte le soir",
+    "horaires": "Lun–Dim · 10h–23h",
+    "prix_verre": "bière 6–8 € · cocktail 10–14 €",
+    "entree": "Gratuit (transat 20–25 €)",
+    "age_min": "Aucun",
+    "sources": [
+     "https://cagnes-tourisme.com/fr/decouvrir/activites/balneaires/plages-privees/",
+     "https://www.provence-alpes-cotedazur.com",
+     "https://nicepresse.com/cagnes-sur-mer-les-plages-privees-a-tester-cet-ete-poissons-pizzas-a-la-truffe-salades-genereuses-une-adresse-pour-tous/",
+     "https://www.petitfute.com/v31481-cagnes-sur-mer-06800/c1165-restaurants/c1031-cuisines-du-monde/c1044-cuisine-italienne/395663-plage-carre-bleu.html"
+    ]
+   }
   },
   {
    "nom": "Le Cigalon Plage",
@@ -533,7 +578,22 @@
    "insta": null,
    "slug": "le-cigalon-plage-cagnes-sur-mer",
    "score": 0,
-   "soirs": []
+   "soirs": [],
+   "details": {
+    "le": "2026-11-10T16:43:32.404Z",
+    "styles": "Lounge · Chill-out",
+    "dress_code": "Casual chic",
+    "horaires": "Lun–Jeu 9h30–17h · Ven–Sam 9h30–23h · Dim 9h30–18h",
+    "prix_verre": "bière 4–7,50 € · cocktail 11–14 €",
+    "entree": "Gratuit",
+    "age_min": "Aucun",
+    "sources": [
+     "https://lecigalon.com/",
+     "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF48u2Aj3Dpyr-476ZRY8jhU44jqFAcuGhUNuAKcw7h_xBKueW7ELYVVN4fR6_rATDEfZGdrKbRaKdl24O-5sISM-ruTSSfTtR3AOh5C1ixoWoDxDoBx8Mpu6mz4Ef49s1IVC9y8DuRuiqoVvk3cN7H0u5koWQ5Atg=",
+     "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHoog1obGdV0C2aF4PJXeI7Nm7f9kMRCzZuCs0fNHm2iQ6rqFqOX9SndA98O4wQrhIAAqWI8toFZ5VMiWF4-clkmvce8YxPv--gZFlF-8LtRrgVwXprC6OLe1p-TqUspF5Ny2MXdjVyTaR6gCrtmrxHdABDjCDlnkG5u4BBr5mm9A==",
+     "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGwFRFxxO4e5_eXgcU09770AWvS82MTpGfhcw5WERikxr3w9D2AbR3PX7TaEmxMvQNXle7XVpMkO8_yE5aNNSi1FB6G4OxxyDTZkJyNTZxX30Pu-OH5QA6_5wjcVJ2kNRWcjq1F4zcdp3xlpg-evZzgtc2IQ51-kzpQngE="
+    ]
+   }
   },
   {
    "nom": "Bisous Bisous",
