@@ -402,9 +402,18 @@
       "telechargements": "15 000",
       "telechargements_legende": "téléchargements de l'app en 2026",
       "modele": [
-        ["Billetterie", "Une commission sur chaque billet vendu grâce à la plateforme, déjà comprise dans le prix : aucun coût en plus pour toi."],
-        ["Sponsoring", "Des partenariats avec des marques qui veulent toucher les 18-30 ans qui sortent."],
-        ["Événements", "Teufy organise aussi ses propres soirées et événements."]
+        [
+          "Billetterie",
+          "Une commission sur chaque billet vendu grâce à la plateforme, déjà comprise dans le prix : aucun coût en plus pour toi."
+        ],
+        [
+          "Sponsoring",
+          "Des partenariats avec des marques qui veulent toucher les 18-30 ans qui sortent."
+        ],
+        [
+          "Événements",
+          "Teufy organise aussi ses propres soirées et événements."
+        ]
       ]
     },
     "directeur_reseaux": {
@@ -413,7 +422,9 @@
     },
     "raison_sociale": "Teufy",
     "forme": "société de droit monégasque",
-    "maj_legales": "9 novembre 2026"
+    "maj_legales": "9 novembre 2026",
+    "bing_verification": "",
+    "indexnow_cle": "4e86e662d030e19a248eea9f706d3c34"
   },
   "codes_promo": [
     {

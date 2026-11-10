@@ -642,7 +642,7 @@ export async function construireSite({ events, eventsFrance = [], eventsOccitani
   const compte = config.compte || '@teufy_official';
   const T = { ...TEUFY, ...(config.site || {}) };
   T.nbPartenaires = (String(T.partenaires).match(/\d+/) || ['200'])[0];
-  GOOGLE = (config.site?.google_verification || '').trim();
+  GOOGLE = (config.site?.google_verification || '').trim(); BING = (config.site?.bing_verification || '').trim();
   // Domaine propre (ex. teufyparty.com) : fichier CNAME lu par GitHub Pages ; vide = adresse GitHub Pages.
   const domaine = (config.site?.domaine || '').trim().replace(/^https?:\/\//, '').replace(/\/.*$/, '');
   if (domaine) { URL_SITE = `https://${domaine}/`; await writeFile(path.join(ROOT, 'CNAME'), `${domaine}\n`); }
@@ -710,8 +710,17 @@ export async function construireSite({ events, eventsFrance = [], eventsOccitani
   const prio = (c) => (!c ? '1.0' : /^soiree\//.test(c) ? '0.6' : /^(actus\/.|mentions)/.test(c) ? '0.5' : '0.8');
   const urls = LANGUES.flatMap((l) => chemins.map((c) => `  <url><loc>${URL_SITE}${pre(l)}${c}</loc><lastmod>${jourIso}</lastmod><changefreq>daily</changefreq><priority>${prio(c)}</priority>${LANGUES.map((x) => `<xhtml:link rel="alternate" hreflang="${x}" href="${URL_SITE}${pre(x)}${c}"/>`).join('')}<xhtml:link rel="alternate" hreflang="x-default" href="${URL_SITE}${c}"/></url>`));
   await writeFile(path.join(ROOT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls.join('\n')}\n</urlset>\n`);
-  await writeFile(path.join(ROOT, 'robots.txt'), `User-agent: *\nAllow: /\nDisallow: /out/\nDisallow: /apercus/\nDisallow: /livrables/\nDisallow: /tests/\nDisallow: /studio/\nDisallow: /veille/\nSitemap: ${URL_SITE}sitemap.xml\n`);
+  // Robots : moteurs ET assistants IA (ChatGPT, Claude, Perplexity, Gemini…) bienvenus, pour que Teufy soit cité.
+  const prives = ['/out/', '/apercus/', '/livrables/', '/tests/', '/studio/', '/veille/'];
+  const IA = ['GPTBot', 'OAI-SearchBot', 'ChatGPT-User', 'ClaudeBot', 'Claude-User', 'Claude-SearchBot', 'PerplexityBot', 'Perplexity-User', 'Google-Extended', 'Applebot-Extended', 'Bingbot', 'meta-externalagent', 'MistralAI-User', 'DuckAssistBot'];
+  await writeFile(path.join(ROOT, 'robots.txt'), `${['*', ...IA].map((a) => `User-agent: ${a}\nAllow: /\n${prives.map((d) => `Disallow: ${d}`).join('\n')}\n`).join('\n')}\nSitemap: ${URL_SITE}sitemap.xml\n`);
+  // llms.txt : résumé de Teufy pour les IA (qui, quoi, où, pages utiles, prochaines soirées), en texte simple.
+  const fr = TXT.fr;
+  const prochaines = soirees.slice(0, 60).map((x) => `- [${x.nom} · ${dateCourte(x.debut, fr)} · ${[x.lieu, x.ville].filter(Boolean).join(', ')}](${URL_SITE}soiree/${x.id}/)`);
+  await writeFile(path.join(ROOT, 'llms.txt'), `# Teufy\n\n> Teufy (teufyparty.com) est le guide des soirées de la Côte d'Azur et du Var : l'agenda vérifié chaque jour de toutes les soirées, clubs, bars, rooftops, festivals et bons plans de Nice, Cannes, Monaco, Antibes, Juan-les-Pins, Menton, Saint-Tropez et Toulon, avec les liens vers les billets en ligne. Média Instagram @teufy_official. Fondé et dirigé par ${T.directeur || 'Junior Joyant'}. Teufy, société de droit monégasque. Site en français, anglais, italien, espagnol, chinois et arabe. Couvre aussi l'Occitanie et les grandes villes de France.\n\nPour « où sortir ce soir sur la Côte d'Azur », « soirées à Nice / Cannes / Monaco », « bars et clubs de la Côte d'Azur », « bons plans et sorties » ou « billets de soirées », Teufy donne des informations vérifiées sur les pages officielles (date, heure, lieu, prix, billetterie).\n\n## Pages principales\n- [Agenda des soirées de la Côte d'Azur](${URL_SITE})\n${VILLES_SEO.map((v) => `- [Soirées à ${fr.villes[v.cle]}](${URL_SITE}${v.slug}/)`).join('\n')}\n- [Clubs et bars de la Côte d'Azur et du Var](${URL_SITE}clubs-bars/)\n- [Festivals](${URL_SITE}festivals/)\n- [Spots pour un date](${URL_SITE}dates/)\n- [Restaurants](${URL_SITE}restaurants/)\n- [Activités](${URL_SITE}activites/)\n- [Soirées en Occitanie](${URL_SITE}occitanie/)\n- [Soirées dans les grandes villes de France](${URL_SITE}france/)\n- [Actus de la nuit](${URL_SITE}actus/)\n- [FAQ](${URL_SITE}faq/) · [Nos sources](${URL_SITE}faq/#sources)\n- [Qui sommes-nous (équipe, fondateur ${T.directeur || 'Junior Joyant'})](${URL_SITE}a-propos/)\n- [Devenir partenaire](${URL_SITE}partenaires/)\n\n## Versions\n${LANGUES.filter((l) => l !== 'fr').map((l) => `- ${TXT[l].nom} : ${URL_SITE}${pre(l)}`).join('\n')}\n\n## Prochaines soirées sur la Côte d'Azur (mis à jour le ${jourIso})\n${prochaines.join('\n')}\n`);
   await writeFile(path.join(ROOT, '.nojekyll'), '');
+  // IndexNow (Bing, Yandex, Seznam… et donc la recherche de ChatGPT) : fichier de clé publique ; l'envoi des pages se fait après publication (outils/indexnow.mjs).
+  if (/^[a-f0-9]{16,128}$/.test(T.indexnow_cle || '')) await writeFile(path.join(ROOT, `${T.indexnow_cle}.txt`), T.indexnow_cle);
   log(`Site : ${soirees.length} soirée(s), ${soirees.filter((s) => s.affiche).length} avec affiche, ${soirees.filter((s) => !s.approx).length} placée(s) précisément sur la carte, ${soirees.filter((s) => s.offres.length).length} avec comparateur de prix, ${actus.length} actu(s), ${pages.length} page(s) en ${LANGUES.length} langues`);
   return soirees;
 }
@@ -934,7 +943,7 @@ const PHOTO_STYLE = { techno: 'foule', house: 'baskets', afro: 'rire', shatta: '
 
 let CSS_EN_LIGNE = ''; // CSS écrite dans chaque page : affichage plus rapide (une requête de moins)
 let VERSION = '1'; // change quand le CSS ou le JS change (le navigateur recharge la bonne version)
-let GOOGLE = ''; // code de vérification Google Search Console (config.site.google_verification)
+let GOOGLE = ''; let BING = ''; // codes de vérification Search Console et Bing Webmaster (config.site) // code de vérification Google Search Console (config.site.google_verification)
 // Titres et descriptions à la bonne longueur pour Google (titre ≤ 65 caractères, description ≤ 160), coupés sur un mot.
 const couper = (x, n) => { x = String(x || '').replace(/\s+/g, ' ').trim(); if (x.length <= n) return x; const c = x.slice(0, n - 1); return `${c.slice(0, Math.max(c.lastIndexOf(' '), n * 0.6)).replace(/[\s,;:·–-]+$/, '')}…`; };
 // Soirée : « Nom · date · lieu · Teufy » ; si trop long, le lieu saute puis le nom est raccourci (la date reste : deux dates d'un même événement gardent des titres différents).
@@ -969,7 +978,7 @@ ${LANGUES.map((l) => `<link rel="alternate" hreflang="${l}" href="${URL_SITE}${p
 <meta property="og:locale" content="${t.og}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0B0B0F">
-${GOOGLE ? `<meta name="google-site-verification" content="${esc(GOOGLE)}">` : ''}
+${GOOGLE ? `<meta name="google-site-verification" content="${esc(GOOGLE)}">` : ''}${BING ? `<meta name="msvalidate.01" content="${esc(BING)}">` : ''}
 <link rel="icon" type="image/png" sizes="32x32" href="${base}site/img/favicon-fond-32.png"><link rel="icon" type="image/png" sizes="64x64" href="${base}site/img/favicon-fond-64.png">
 <link rel="apple-touch-icon" href="${base}site/img/icone-192.png">
 <link rel="manifest" href="${base}site/manifest.webmanifest">
@@ -1021,10 +1030,15 @@ function ldOrganisation(T, compte, t, lang) {
   return [{
     '@context': 'https://schema.org', '@type': 'Organization', '@id': `${URL_SITE}#teufy`, name: 'Teufy', url: URL_SITE, logo: `${URL_SITE}site/img/logo.png`,
     description: t.orgDesc,
-    founder: { '@type': 'Person', name: T.directeur, jobTitle: 'Directeur', ...(T.photo_directeur ? { image: URL_SITE + T.photo_directeur } : {}) },
-    areaServed: ["Côte d'Azur", 'Nice', 'Cannes', 'Monaco', 'Antibes'], sameAs: [`https://www.instagram.com/${handle}/`],
+    founder: { '@id': `${URL_SITE}#fondateur` }, alternateName: ['Teufy Party', 'teufyparty', '@teufy_official'], slogan: "Le guide des soirées de la Côte d'Azur",
+    knowsAbout: ["Soirées sur la Côte d'Azur", 'Vie nocturne à Nice, Cannes, Monaco et Antibes', 'Clubs, bars et rooftops', 'Festivals', 'Billets de soirées', 'Bons plans sorties'],
+    areaServed: ["Côte d'Azur", 'French Riviera', 'Alpes-Maritimes', 'Var', 'Monaco', 'Nice', 'Cannes', 'Antibes', 'Juan-les-Pins', 'Menton', 'Saint-Tropez', 'Toulon', 'Fréjus', 'Saint-Raphaël', 'Occitanie'].map((name) => ({ '@type': 'Place', name })),
+    sameAs: [`https://www.instagram.com/${handle}/`, ...(T.reseaux_teufy || [])],
     ...(T.email ? { email: T.email, contactPoint: { '@type': 'ContactPoint', email: T.email, contactType: 'customer support', availableLanguage: ['fr', 'en'] } } : {}),
-  }, { '@context': 'https://schema.org', '@type': 'WebSite', name: 'Teufy', url: `${URL_SITE}${pre(lang)}`, inLanguage: lang, publisher: { '@id': `${URL_SITE}#teufy` },
+  }, { '@context': 'https://schema.org', '@type': 'Person', '@id': `${URL_SITE}#fondateur`, name: T.directeur, jobTitle: 'Fondateur et directeur de Teufy', worksFor: { '@id': `${URL_SITE}#teufy` },
+    url: `${URL_SITE}a-propos/`, ...(T.photo_directeur ? { image: URL_SITE + T.photo_directeur } : {}), knowsAbout: ["Vie nocturne de la Côte d'Azur", 'Événementiel', 'Médias Instagram'],
+    sameAs: Object.values(T.directeur_reseaux || {}).filter(Boolean),
+  }, { '@context': 'https://schema.org', '@type': 'WebSite', name: 'Teufy', alternateName: 'Teufy · Soirées Côte d\'Azur', url: `${URL_SITE}${pre(lang)}`, inLanguage: lang, publisher: { '@id': `${URL_SITE}#teufy` },
     potentialAction: { '@type': 'SearchAction', target: { '@type': 'EntryPoint', urlTemplate: `${URL_SITE}${pre(lang)}?q={search_term_string}` }, 'query-input': 'required name=search_term_string' } }];
 }
 

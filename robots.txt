@@ -6,4 +6,131 @@ Disallow: /livrables/
 Disallow: /tests/
 Disallow: /studio/
 Disallow: /veille/
+
+User-agent: GPTBot
+Allow: /
+Disallow: /out/
+Disallow: /apercus/
+Disallow: /livrables/
+Disallow: /tests/
+Disallow: /studio/
+Disallow: /veille/
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /out/
+Disallow: /apercus/
+Disallow: /livrables/
+Disallow: /tests/
+Disallow: /studio/
+Disallow: /veille/
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /out/
+Disallow: /apercus/
+Disallow: /livrables/
+Disallow: /tests/
+Disallow: /studio/
+Disallow: /veille/
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /out/
+Disallow: /apercus/
+Disallow: /livrables/
+Disallow: /tests/
+Disallow: /studio/
+Disallow: /veille/
+
+User-agent: Claude-User
+Allow: /
+Disallow: /out/
+Disallow: /apercus/
+Disallow: /livrables/
+Disallow: /tests/
+Disallow: /studio/
+Disallow: /veille/
+
+User-agent: Claude-SearchBot
+Allow: /
+Disallow: /out/
+Disallow: /apercus/
+Disallow: /livrables/
+Disallow: /tests/
+Disallow: /studio/
+Disallow: /veille/
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /out/
+Disallow: /apercus/
+Disallow: /livrables/
+Disallow: /tests/
+Disallow: /studio/
+Disallow: /veille/
+
+User-agent: Perplexity-User
+Allow: /
+Disallow: /out/
+Disallow: /apercus/
+Disallow: /livrables/
+Disallow: /tests/
+Disallow: /studio/
+Disallow: /veille/
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /out/
+Disallow: /apercus/
+Disallow: /livrables/
+Disallow: /tests/
+Disallow: /studio/
+Disallow: /veille/
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /out/
+Disallow: /apercus/
+Disallow: /livrables/
+Disallow: /tests/
+Disallow: /studio/
+Disallow: /veille/
+
+User-agent: Bingbot
+Allow: /
+Disallow: /out/
+Disallow: /apercus/
+Disallow: /livrables/
+Disallow: /tests/
+Disallow: /studio/
+Disallow: /veille/
+
+User-agent: meta-externalagent
+Allow: /
+Disallow: /out/
+Disallow: /apercus/
+Disallow: /livrables/
+Disallow: /tests/
+Disallow: /studio/
+Disallow: /veille/
+
+User-agent: MistralAI-User
+Allow: /
+Disallow: /out/
+Disallow: /apercus/
+Disallow: /livrables/
+Disallow: /tests/
+Disallow: /studio/
+Disallow: /veille/
+
+User-agent: DuckAssistBot
+Allow: /
+Disallow: /out/
+Disallow: /apercus/
+Disallow: /livrables/
+Disallow: /tests/
+Disallow: /studio/
+Disallow: /veille/
+
 Sitemap: https://teufyparty.com/sitemap.xml
