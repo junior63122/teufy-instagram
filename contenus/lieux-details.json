@@ -112,153 +112,168 @@
   ]
  },
  "blue-gin-monaco": {
-  "le": "2026-11-10T14:53:16.449Z",
-  "styles": "Lounge · Disco-funk · Nu-disco · Deep house",
-  "dress_code": "Élégant (chic décontracté, vêtements de sport et de plage interdits)",
+  "le": "2026-11-10T15:30:56.666Z",
+  "styles": "Lounge · Deep house · Funk · Disco",
+  "dress_code": "Chic décontracté / Élégant (smart casual). Tenues de plage, survêtements et tongs interdits.",
   "horaires": "Lun–Dim · 18h30–1h30",
-  "prix_verre": "bière 10–15 € · cocktail 20–30 €",
-  "entree": "Entrée libre",
-  "age_min": "18 ans",
+  "prix_verre": "soft 8–12 € · bière 12–16 € · cocktail 20–26 €",
+  "entree": "Entrée libre et gratuite (consommation obligatoire)",
+  "age_min": "Tout public (18 ans pour l'alcool)",
   "sources": [
-   "https://www.montecarlosbm.com/fr/bar-monaco/le-blue-gin",
-   "https://monaco-pratique.com/blue-gin/",
-   "https://visitmonaco.com/fr/lieu/bars/188240/le-blue-gin",
-   "https://www.instagram.com/blueginmonaco/"
+   "https://www.montecarlosbm.com/fr/bar-nightclub-monaco/le-blue-gin",
+   "https://www.instagram.com/blueginmonaco/",
+   "https://www.visitmonaco.com/fr/lieu/bars-et-discotheques/188240/le-blue-gin",
+   "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFvSXSQOSmExzUGosru_Y9OE-BBZ16D5oes5JdmUqNOnSQxJ8XoZvWfdOFNt5lSmtEiEdXpLkroM9oPoP42DgsQb66plIsARGsR0ZVr5BS8F5nX4GzhoD6aMC3ZphgEGOV6adQ3GxWeHD8OR9Qh7dE="
   ]
  },
  "jimbaran-plage-golfe-juan": {
-  "le": "2026-11-10T14:53:16.449Z",
-  "styles": "Lounge · Chill-out · House · Disco House",
-  "dress_code": "Beachwear en journée, casual chic en soirée",
+  "le": "2026-11-10T15:30:56.666Z",
+  "styles": "Afro House · Deep House · House · Tech House",
+  "dress_code": "",
   "horaires": "Dim–Jeu 10h–19h · Ven–Sam 10h–0h (en saison)",
   "prix_verre": "",
-  "entree": "Gratuit (15–20 € en soirée spéciale)",
-  "age_min": "18 ans (soirées clubbing)",
+  "entree": "Gratuit (bar/restaurant), soirées spéciales 15 €",
+  "age_min": "",
   "sources": [
-   "https://www.plage-golfe-juan.com",
-   "https://www.instagram.com/jimbaran.plage/",
-   "https://cotedazurfrance.fr",
-   "https://mysunbed.com/fr/beach/jimbaran-plage-vallauris-golfe-juan"
+   "https://www.plage-golfe-juan.com/",
+   "https://shotgun.live/fr/venues/jimbaran-plage",
+   "https://cotedazurfrance.fr/offres/jimbaran-plage-vallauris-golfe-juan-fr-4261439/",
+   "https://mysunbed.com/fr/beach-club/jimbaran-plage-vallauris-golfe-juan/"
   ]
  },
  "o-sullivans-by-the-beach-mandelieu-la-napoule": {
-  "le": "2026-11-10T14:53:16.449Z",
-  "styles": "Pop · Rock · Généraliste · Électro",
-  "dress_code": "Tenue correcte exigée (casual soigné, pas de tenues de plage ni de survêtements).",
+  "le": "2026-11-10T15:30:56.666Z",
+  "styles": "Pop-rock · Pop · Dance · R&B",
+  "dress_code": "Tenue correcte exigée (casual / soigné)",
   "horaires": "Lun–Ven 17h–2h · Sam–Dim 12h–2h",
   "prix_verre": "bière 4,20–9,50 € · cocktail 12–13 €",
-  "entree": "Gratuit (payant lors d'événements spéciaux)",
-  "age_min": "18 ans en soirée (mineurs tolérés en journée accompagnés)",
+  "entree": "Gratuit",
+  "age_min": "18 ans (en soirée)",
   "sources": [
-   "https://www.osullivans-pubs.com/pubs/by-the-beach/",
-   "https://www.osullivans-pubs.com/faq-osullivans/",
-   "https://www.osullivans-pubs.com/wp-content/uploads/2024/04/CARTE-BOISSONS-OSULLIVANS.pdf",
+   "https://www.osullivans-pubs.com/pub/by-the-beach/",
+   "https://www.osullivans-pubs.com/faq/",
+   "https://www.osullivans-pubs.com/wp-content/uploads/2024/04/CARTE-BOISSONS_OSULLIVANS-1.pdf",
    "https://shotgun.live/fr/venues/o-sullivans-mandelieu"
   ]
  },
  "le-petit-bellevue-la-maison-bellevue-le-cannet": {
-  "le": "2026-11-10T14:53:16.449Z",
-  "styles": "Lounge · Méditerranéen",
-  "dress_code": "Tenue soignée / chic décontractée recommandée",
-  "horaires": "Mar–Sam 12h–14h, 19h–23h · Dim 12h–14h · Lun 19h–23h (en saison)",
-  "prix_verre": "cocktail dès 12 € · vin dès 7 €",
+  "le": "2026-11-10T15:30:56.666Z",
+  "styles": "Lounge · Musique méditerranéenne · Musique italienne",
+  "dress_code": "Casual chic recommandé",
+  "horaires": "Mar–Sam 12h–14h · Mar–Sam 19h–22h · Dim 12h–14h",
+  "prix_verre": "cocktail ~12 € · vin dès 7 €",
   "entree": "Gratuit",
   "age_min": "",
   "sources": [
    "https://lamaisonbellevue.com",
-   "https://lecannet-tourisme.fr/restaurant/la-maison-bellevue/",
-   "https://www.privateaser.com/lieu/63237-maison-bellevue",
-   "https://www.petitfute.com/v32532-le-cannet-06110/c1165-restaurants/c1031-cuisines-du-monde/c1038-mediterraneenne/2126297-la-maison-bellevue.html"
+   "https://lecannet-tourisme.fr/fiche/la-maison-bellevue/",
+   "https://www.cotedazurfrance.fr/offres/la-maison-bellevue-le-cannet-fr-4876612/",
+   "https://www.privateaser.com/lieu/63237-maison-bellevue"
   ]
  },
  "slammers-monaco": {
-  "le": "2026-11-10T14:53:16.449Z",
-  "styles": "Piano live · Acoustique · Pop-rock",
+  "le": "2026-11-10T15:30:56.666Z",
+  "styles": "Pop · Rock · Acoustique",
   "dress_code": "Décontracté",
-  "horaires": "Lun–Ven 16h–1h · Sam–Dim 13h–1h",
-  "prix_verre": "bière 6–9 € · cocktail 14–22 €",
+  "horaires": "Lun–Dim · 16h–1h",
+  "prix_verre": "Bière 6–9 € · cocktail 14–16 €",
   "entree": "Gratuit",
-  "age_min": "18 ans",
+  "age_min": "",
   "sources": [
-   "https://www.slammers-bar.com/",
-   "https://www.instagram.com/slammersmc/",
-   "https://monacopratique.com",
-   "https://www.monacoviews.com"
+   "https://www.myguidemonaco.com/nightlife/slammers",
+   "https://www.restaurants-montecarlo.com/place/slammers-restaurant-in-monaco-382",
+   "https://monacoviews.com/directory/slammers/",
+   "https://poivretsel-riviera.com/slammers-bar-a-bieres-et-cocktails-98000-monaco/"
   ]
  },
  "absinthe-bar-antibes": {
-  "le": "2026-11-10T14:53:16.449Z",
-  "styles": "Piano-bar · Jazz · Cabaret · Chansons internationales",
+  "le": "2026-11-10T15:30:56.666Z",
+  "styles": "Piano-bar · Jazz · Variétés",
   "dress_code": "Tenue décontractée",
-  "horaires": "Dim–Jeu 17h–0h30 · Ven–Sam 17h–2h30",
-  "prix_verre": "absinthe 7–12 € · bière 6 € · cocktail 10–14 €",
-  "entree": "Gratuit (consommation obligatoire)",
+  "horaires": "Lun–Dim · 17h–0h30",
+  "prix_verre": "absinthe 7–10 €",
+  "entree": "Gratuit",
   "age_min": "",
   "sources": [
-   "https://www.antibes-juanlespins.com/degustation/l-absinthe-bar-516125",
-   "https://www.petitfute.com/v31343-antibes-06160/c1171-sports-loisirs/c590-animation-nocturne/c592-bar-cafe/355152-absinthe-bar.html",
-   "https://www.privateaser.com/lieu/57701-absinthe-bar",
-   "https://cityxee.com/absinthe-bar-museum-antibes/"
+   "https://www.antibes-juanlespins.com",
+   "https://provence-alpes-cotedazur.com",
+   "https://www.petitfute.com",
+   "https://www.pagesjaunes.fr"
   ]
  },
  "rooftop-basta-pinsa-beausoleil": {
-  "le": "2026-11-10T14:53:16.449Z",
-  "styles": "Lounge · Aperitivo · DJ sets",
-  "dress_code": "Aucun dress code imposé",
-  "horaires": "Mar–Sam 18h–23h30 (en saison)",
-  "prix_verre": "",
-  "entree": "Gratuit",
-  "age_min": "",
-  "sources": [
-   "https://bastapinsa.com/",
-   "https://alfredhotels.com/hotels/monaco/",
-   "https://monacolife.net/the-rooftop-spot-above-monaco-where-the-view-is-the-same-but-the-bill-is-not/",
-   "https://lagazettedemonaco.com/actualites/societe/basta-pinsa-le-nouveau-rooftop-avec-vue-sur-monaco"
-  ]
- },
- "inky-bar-menton": {
-  "le": "2026-11-10T14:53:16.449Z",
-  "styles": "Généraliste · Pop-rock · Électro",
-  "dress_code": "Aucun dress code exigé",
-  "horaires": "Fermé définitivement",
-  "prix_verre": "bière 6–8 € · cocktail 10–13 €",
+  "le": "2026-11-10T15:30:56.666Z",
+  "styles": "Lounge · Chillout",
+  "dress_code": "Casual chic recommandé",
+  "horaires": "Mar–Sam · 18h–23h30 (en saison)",
+  "prix_verre": "cocktail 10–15 €",
   "entree": "Gratuit",
   "age_min": "Aucun",
   "sources": [
+   "https://bastapinsa.com/",
+   "https://alfredhotels.com/fr/basta-pinsa/",
+   "https://www.privateaser.com/lieu/63976-rooftop-basta-pinsa",
+   "https://www.myguidemonaco.com/restaurants/rooftop-basta-pinsa"
+  ]
+ },
+ "inky-bar-menton": {
+  "le": "2026-11-10T15:30:56.666Z",
+  "styles": "Lounge · Électro",
+  "dress_code": "",
+  "horaires": "Lun–Dim 19h–4h (en saison) · Ven–Sam 22h–4h",
+  "prix_verre": "bière 6–9 € · cocktail dès 9 €",
+  "entree": "Gratuit",
+  "age_min": "",
+  "sources": [
    "https://www.ports-menton.fr/activites-commerces/inky-bar/",
-   "https://www.menton-riviera-merveilles.fr/bars-restaurants/bar-a-tapas/",
-   "https://www.instagram.com/inkybarmenton/",
-   "https://nicepresse.com/ce-bar-a-bieres-locales-qui-cartonne-a-menton-demenage-face-a-la-mer-et-etoffe-sa-carte-gourmande-recettes-familiales-petits-artisans/"
+   "https://www.provence-alpes-cotedazur.com",
+   "https://www.menton-riviera-merveilles.fr",
+   "https://www.instagram.com/inkybarmenton/"
   ]
  },
  "les-incompris-menton": {
-  "le": "2026-11-10T14:53:16.449Z",
-  "styles": "",
+  "le": "2026-11-10T15:30:56.666Z",
+  "styles": "Lounge · Électro · House · Latino",
   "dress_code": "Chic et décontracté",
-  "horaires": "Mar–Jeu 9h30–1h · Ven–Sam 9h30–2h · Dim 9h30–16h",
-  "prix_verre": "bière 7–10 € · cocktail 12–16 €",
+  "horaires": "Mar–Sam 9h30–2h30 · Dim 9h30–22h",
+  "prix_verre": "",
   "entree": "Gratuit",
-  "age_min": "Tout public",
+  "age_min": "Aucun",
   "sources": [
-   "https://www.lesincompris.com/",
+   "https://lesincompris.com/",
+   "https://www.instagram.com/lesincompris_menton/",
    "https://www.menton-riviera-merveilles.fr/",
-   "https://www.petitfute.com/",
-   "https://www.thefork.fr/"
+   "https://www.thefork.fr/restaurant/les-incompris-r705649"
   ]
  },
  "kwartz-club-nice": {
-  "le": "2026-11-10T14:53:16.449Z",
-  "styles": "Techno · House",
-  "dress_code": "Décontracté, underground clubwear.",
+  "le": "2026-11-10T15:30:56.666Z",
+  "styles": "Techno · House · Tech-House · Minimal",
+  "dress_code": "Tenue casual et libre, ambiance alternative underground.",
   "horaires": "Ven–Sam · 0h–6h",
   "prix_verre": "",
   "entree": "10–15 €",
   "age_min": "18 ans",
   "sources": [
-   "https://ra.co/clubs/116938",
-   "https://ra.co/events/925345",
-   "https://shotgun.live/fr/organizers/kwartz-events",
-   "https://shotgun.live/fr/venues/boomcoeur-club"
+   "https://ra.co/clubs/124041",
+   "https://ra.co/promoters/66185",
+   "https://shotgun.live/fr/venues/kwartz-club-beach",
+   "https://www.viberate.com/venue/kwartz-club-Gznrr/"
+  ]
+ },
+ "movida-nice": {
+  "le": "2026-11-10T15:30:56.666Z",
+  "styles": "Lounge · Latino · Généraliste · House",
+  "dress_code": "",
+  "horaires": "Lun–Dim · 9h30–2h",
+  "prix_verre": "bière 4,50–9 € · cocktail 12–16 €",
+  "entree": "Gratuite",
+  "age_min": "",
+  "sources": [
+   "https://movida.today",
+   "https://movida.today/menu/",
+   "https://www.instagram.com/movida_nice/",
+   "https://nicepresse.com/a-la-decouverte-des-bars-du-vieux-nice-10-ans-pour-la-movida-et-son-incroyable-balcon-sur-la-mer/"
   ]
  }
 }

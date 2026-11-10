@@ -4,12 +4,12 @@ Mis à jour automatiquement chaque jour. **Note /100** : 50 = performance habitu
 
 **Abonnés** : 14478 (+4 sur 30 jours) · **Posts notés** : 63 · **Moyenne bot** : 47 · **Moyenne posts de l'équipe** : 60
 
-## Objectif du prochain post : 99/100
+## Objectif du prochain post : 100/100
 
 - 2026-11-09 incontournables-techno : 37/100 ❌
 - 2026-11-09 veille : 100/100 ✅
 - 2026-11-08 incontournables-commercial : 5/100 ❌
-- 2026-08-10 post équipe : 94/100 ❌
+- 2026-08-10 post équipe : 95/100 ❌
 - 2026-05-08 post équipe : 51/100 ❌
 - 2026-05-03 post équipe : 65/100 ❌
 - 2026-04-28 post équipe : 100/100 ✅
