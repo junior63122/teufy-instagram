@@ -394,8 +394,10 @@
     "domaine": "teufyparty.com",
     "entreprise": {
       "explication": "Chiffres affichés sur la page « Qui sommes-nous » (fournis par la direction). Laisser vide pour masquer.",
-      "chiffre_affaires": "≈ 200 000 €",
+      "chiffre_affaires": "≈ 350 000 €",
       "chiffre_affaires_legende": "de chiffre d'affaires par an, à Monaco",
+      "benefice": "≈ 100 000 €",
+      "benefice_legende": "de bénéfice par an, après salaires, charges, déplacements, équipement et développement",
       "telechargements": "15 000",
       "telechargements_legende": "téléchargements de l'app en 2026",
       "modele": [

@@ -949,3 +949,7 @@ details[data-bloc="tri"]>.groupe{inset-inline-start:auto;inset-inline-end:0}
 /* Lieu sans logo : vraie photo (libre) de sa ville en bannière, nette et assombrie, avec l'initiale du lieu */
 .fiche-banniere.banniere-ville::before{inset:0;filter:brightness(.62) saturate(1.05);opacity:1}
 .vignette-lieu,.affiche-fiche .vignette-lieu{max-width:110px}
+/* 5 chiffres : 2 colonnes sur mobile (le dernier prend toute la largeur), 5 sur grand écran */
+@media(max-width:759px){.chiffres-teufy li:last-child:nth-child(odd){grid-column:1/-1}}
+.chiffres-teufy strong{white-space:nowrap;overflow-wrap:normal;font-size:clamp(26px,3.6vw,42px)}
+@media(min-width:760px){.chiffres-teufy{grid-template-columns:repeat(6,minmax(0,1fr))}.chiffres-teufy li{grid-column:span 2}.chiffres-teufy li:nth-child(n+4){grid-column:span 3}}

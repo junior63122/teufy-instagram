@@ -1570,7 +1570,7 @@ function pageLegal({ lang, t, tr, base, compte, T, chemin, maj, cle = 'mentions-
 function chiffresTeufy({ tr, T, nb }) {
   const E = T.entreprise || {};
   const l = [[String(nb), tr("soirées à venir sur la Côte d'Azur et le Var")], [`${T.nbPartenaires}+`, tr("partenaires : clubs, bars, organisateurs, artistes")],
-    [E.telechargements, tr(E.telechargements_legende || '')], [E.chiffre_affaires, tr(E.chiffre_affaires_legende || '')]].filter((x) => x[0]);
+    [E.telechargements, tr(E.telechargements_legende || '')], [E.chiffre_affaires, tr(E.chiffre_affaires_legende || '')], [E.benefice, tr(E.benefice_legende || '')]].filter((x) => x[0]);
   return `<ul class="chiffres chiffres-teufy">${l.map(([v, x], i) => `<li style="--i:${i}"><strong>${esc(v)}</strong><span>${esc(x)}</span></li>`).join('')}</ul>`;
 }
 function blocModele({ tr, T }) {
