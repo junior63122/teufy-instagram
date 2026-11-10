@@ -99,7 +99,8 @@ async function controlerPage(p, nom, u) {
       return { liveOk: !live || live.hidden || [...live.querySelectorAll('.carte')].every((c) => c.querySelector('.statut.en-cours')), tardOk: !tard || tard.hidden || [...tard.querySelectorAll('.carte')].every((c) => !c.querySelector('.statut.en-cours')), titres: [...document.querySelectorAll('.groupe-soir:not([hidden]) h3')].map((h) => h.textContent) }; });
     ok(g.liveOk && g.tardOk && g.titres.length >= 1, `${nom} : « En ce moment » et « Plus tard ce soir » mélangés (${g.titres.join(' / ')})`);
     await p.fill('#recherche-hero', 'shatta'); await p.locator('.hero-recherche button[type=submit]').click({ force: true }).catch(() => p.press('#recherche-hero', 'Enter'));
-    await p.waitForTimeout(400);
+    await p.waitForURL(/[?&]q=shatta/, { timeout: 8000 }).catch(() => {});
+    for (let i = 0; i < 20 && (await p.locator('.liste .carte:not([hidden])').count()) >= total; i++) await p.waitForTimeout(200);
     const nShatta = await p.locator('.liste .carte:not([hidden])').count();
     ok(nShatta > 0 && nShatta < total, `${nom} : la recherche « shatta » ne filtre pas (${nShatta}/${total})`);
     ok(new URL(p.url()).searchParams.get('q') === 'shatta', `${nom} : la recherche n'est pas dans l'adresse`);
@@ -138,7 +139,8 @@ async function controlerPage(p, nom, u) {
     await clic('acces', 'tout');
     // Favoris (on repart d'une liste vide : les clics sur tous les boutons ont pu en ajouter).
     await p.evaluate(() => localStorage.removeItem('teufy-favoris')); await p.reload({ waitUntil: 'load' });
-    await p.locator('.liste .carte:not([hidden]) .coeur').first().click(); await p.waitForTimeout(200);
+    await p.locator('.liste .carte:not([hidden]) .coeur').first().click();
+    for (let i = 0; i < 20 && !(await p.evaluate(() => { try { return JSON.parse(localStorage.getItem('teufy-favoris') || '[]').length; } catch { return 0; } })); i++) await p.waitForTimeout(150);
     await clic('quand', 'favoris'); ok(await n() === 1, `${nom} : le favori n'apparaît pas dans « Favoris »`);
     await p.reload({ waitUntil: 'load' }); await clic('quand', 'favoris');
     ok(await n() === 1, `${nom} : les favoris ne sont pas gardés après rechargement`);

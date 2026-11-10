@@ -176,6 +176,7 @@ const visibles = (p) => p.locator('.liste .carte:not([hidden])').count();
           const r = e.getBoundingClientRect(); if (!r.width) return false;
           for (let a = e.parentElement; a && a !== document.body; a = a.parentElement) {
             const st = getComputedStyle(a);
+            if (st.contentVisibility === 'auto') break; // bloc rendu à l'approche (hors écran) : pas encore mis en page
             if (/(hidden|clip)/.test(st.overflowX + st.overflowY)) {
               const q = a.getBoundingClientRect();
               if (r.left < q.left - 1 || r.right > q.right + 1 || r.top < q.top - 1 || r.bottom > q.bottom + 1) return true;
