@@ -2,6 +2,7 @@
  "mois": "2026-11",
  "jour": "2026-11-10",
  "total": {
+<<<<<<< Updated upstream
   "gemini": 118
  },
  "aujourdhui": {
@@ -9,4 +10,13 @@
  },
  "euros_jour": 1.192,
  "euros_mois": 1.192
+=======
+  "gemini": 98
+ },
+ "aujourdhui": {
+  "gemini": 98
+ },
+ "euros_jour": 0.968,
+ "euros_mois": 0.968
+>>>>>>> Stashed changes
 }
