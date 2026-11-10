@@ -119,5 +119,27 @@
   "resume": "La SNCF a lancé les premiers trajets commerciaux réguliers du TGV Nouvelle Génération sur l'axe Sud-Est. Les rames desserviront Marseille puis Nice dès le 23 novembre sans augmentation du prix des billets.",
   "source": "https://www.voyagerentrain.fr",
   "importance": 62
+ },
+ {
+  "id": "idee-la1hqp",
+  "ajout": "2026-11-10T12:23:01.071Z",
+  "type": "annonce",
+  "format": "carrousel-decryptage",
+  "titre": "Line-up dévoilé pour les 20 ans du festival Vitrolles Dub Station",
+  "angle": "Le gros événement sound system de décembre accessible aux passionnés de basses de toute la région Sud.",
+  "resume": "L'association Musical Riot a dévoilé la programmation de la 4e édition du festival Vitrolles Dub Station, organisée le 12 décembre 2026 au Stadium de Vitrolles. L'affiche sound system réunira notamment L'Entourloop Sound System, Sinai Sound System et Mungo's Hi Fi.",
+  "source": "https://nouvelle-vague.com/live/festival-vitrolles-dub-station-2026/",
+  "importance": 55
+ },
+ {
+  "id": "idee-1mde3d6",
+  "ajout": "2026-11-10T12:23:01.071Z",
+  "type": "actu",
+  "format": "carrousel-decryptage",
+  "titre": "Rockstar Games annonce le festival GTA VI avec Justice et Travis Scott",
+  "angle": "Un concert événement réunissant les artistes clés de la bande originale du jeu le plus attendu de la génération.",
+  "resume": "Rockstar Games et PlayStation ont officialisé l'organisation d'un festival musical le 21 novembre 2026 à Miami lié à l'univers de Grand Theft Auto VI. L'événement réunit Travis Scott, Cardi B, Metro Boomin ainsi que le groupe électro français Justice.",
+  "source": "https://rockstaractu.com/actualites/gta-6-concert-des-musiques-du-jeu-a-miami-grand-theft-auto-vi-the-festival-92850.html",
+  "importance": 65
  }
 ]

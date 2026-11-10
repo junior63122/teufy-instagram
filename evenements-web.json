@@ -3002,7 +3002,10 @@
         "rnb",
         "house",
         "shatta",
-        "afro"
+        "afro",
+        "Lounge",
+        "Clubbing",
+        "DJ Set"
       ],
       "description": "",
       "public_cible": 0.8,
@@ -3024,8 +3027,10 @@
       ],
       "sources_sites": [
         "Shotgun",
-        "Shotgun.live"
-      ]
+        "Shotgun.live",
+        "shotgun.live"
+      ],
+      "via_veille": true
     },
     {
       "source": "web",
@@ -3044,7 +3049,10 @@
         "shatta",
         "latino",
         "urban",
-        "baile funk"
+        "baile funk",
+        "Reggaeton",
+        "Latino",
+        "Urbain"
       ],
       "description": "",
       "public_cible": 0.9,
@@ -3065,9 +3073,11 @@
       ],
       "sources_sites": [
         "highclub.fr",
-        "latinaddict"
+        "latinaddict",
+        "instagram.com"
       ],
-      "billetterie_cherchee": true
+      "billetterie_cherchee": true,
+      "via_veille": true
     },
     {
       "source": "web",
@@ -5999,6 +6009,30 @@
       "instagram": [
         "palaisdesfestivals"
       ]
+    },
+    {
+      "source": "web",
+      "source_site": "nouvelle-vague.com",
+      "via_veille": true,
+      "name": "Festival Vitrolles Dub Station 2026",
+      "start": "2026-12-12T20:00:00.000Z",
+      "venue": "Stadium de Vitrolles",
+      "city": "Vitrolles",
+      "address": "",
+      "url": "https://nouvelle-vague.com/live/festival-vitrolles-dub-station-2026/",
+      "image": "",
+      "price": null,
+      "tags": [
+        "Dub",
+        "Sound System",
+        "Reggae",
+        "Bass Music"
+      ],
+      "description": "",
+      "public_cible": 0.6,
+      "confiance": 0.9,
+      "accroche": "Huit heures de session dub non-stop au Stadium avec L'Entourloop et Mungo's Hi Fi.",
+      "instagram": []
     }
   ]
 }
