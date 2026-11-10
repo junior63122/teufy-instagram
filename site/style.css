@@ -1156,3 +1156,11 @@ html[data-saison=nouvel-an] .decor-saison i{color:#f6e27a;text-shadow:0 0 8px #d
 @keyframes tombe{to{transform:translate(30px,calc(100vh + 80px)) rotate(200deg)}}
 @keyframes vole{0%{transform:translate(0,0)}50%{transform:translate(40px,-55vh)}100%{transform:translate(-20px,calc(-100vh - 80px))}}
 @media(prefers-reduced-motion:reduce){html[data-saison] body::after,.decor-saison{display:none}html[data-saison=noel] .barre,html[data-saison=nouvel-an] .hero h1 em{animation:none}}
+/* Fiche soirée : lien vers la page du lieu */
+.fiche-lieu.lieu-mini{display:flex;flex-direction:row;align-items:center;gap:14px;padding:14px 16px;margin:14px 0;border-radius:18px;text-decoration:none;color:var(--creme);background:#ffffff08;border:1px solid #ffffff17;transform:none}
+.lieu-mini img{width:56px;height:56px;border-radius:50%;object-fit:cover;flex:none}
+.lieu-mini>span{display:flex;flex-direction:column;gap:4px;min-width:0}
+.lieu-mini small{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#b8b2a8}
+.lieu-mini b{font-size:18px}
+.lieu-mini em{font-style:normal;font-size:13px;color:var(--corail);font-weight:700}
+.lieu-mini:hover{border-color:var(--corail)}

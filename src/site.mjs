@@ -1278,7 +1278,7 @@ ${blocOrga({ t, tr, base, handle: compte.replace(/^@/, ''), lang })}`;
     ld: [...ldOrganisation(T, compte, t, lang), ...jsonld(soirees, lang), fil(lang, [['Teufy', ''], [nom, chemin]])] });
 }
 
-function pageSoiree({ lang, t, tr, base, compte, T, chemin, s, soirees, maj }) {
+function pageSoiree({ lang, t, tr, base, compte, T, chemin, s, soirees, maj, lieux }) {
   const P = pre(lang);
   const lieu = [s.lieu, s.adresse && s.adresse !== s.lieu ? s.adresse : '', s.ville].filter(Boolean).join(', ');
   // La même ville d'abord (puis le reste de la région), pour que les suggestions soient utiles.
@@ -1313,6 +1313,9 @@ function pageSoiree({ lang, t, tr, base, compte, T, chemin, s, soirees, maj }) {
       ${promoDe(s) ? blocPromo(promoDe(s), t, tr, s) : ''}
       ${offres}
       ${yAller(s, t, lieu)}
+      ${(() => { const L = (lieux || []).find((l) => l.slug && normLieu(l.nom).length >= 3 && (normLieu(s.lieu) === normLieu(l.nom) || normLieu(s.lieu).startsWith(normLieu(l.nom)))); if (!L) return '';
+        const H = lireHoraires(L.details?.horaires);
+        return `<a class="fiche-lieu lieu-mini" href="${base}${pre(lang)}clubs-bars/${esc(L.slug)}/" data-ville="${esc(slug(L.ville || ''))}"${H ? ` data-horaires="${esc(JSON.stringify(H.plages))}"` : ''}${L.soirs?.length ? ` data-soirs="${esc(JSON.stringify(L.soirs))}"` : ''}>${L.photo ? `<img src="${base}${esc(L.photo)}" alt="" width="56" height="56" loading="lazy">` : ''}<span><small>${esc(tr('Le lieu'))}</small><b>${esc(L.nom)}</b><span class="lieu-statut" hidden></span><em>${esc(tr('Horaires, dress code et autres soirées'))} →</em></span></a>`; })()}
       ${s.instagram ? `<p class="orga-ig"><a class="lien" href="https://www.instagram.com/${esc(s.instagram)}/" target="_blank" rel="noopener">@${esc(s.instagram)}</a></p>` : ''}
       <p class="source-fiche">${s.url ? `${esc(tr('Infos vérifiées sur'))} <a href="${esc(s.url)}" target="_blank" rel="noopener nofollow">${esc(nomPlateforme(s.url))}</a> · ` : ''}${esc(tr('Une erreur ?'))} <a href="https://ig.me/m/${esc(compte.replace(/^@/, ''))}" target="_blank" rel="noopener">${esc(tr('Signale-la'))}</a> · <a href="${base}${P}faq/#sources">${esc(tr('Nos sources'))}</a></p>
     </div>
