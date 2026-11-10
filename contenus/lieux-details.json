@@ -694,5 +694,95 @@
    "https://www.privateaser.com/lieu/59343-le-new-pub",
    "https://www.pagesjaunes.fr"
   ]
+ },
+ "rhumerie-ferdinand-menton": {
+  "le": "2026-11-10T19:43:02.314Z",
+  "styles": "Musique antillaise · World music · Rock",
+  "dress_code": "Aucun (tenue décontractée)",
+  "horaires": "Mar–Jeu 18h–0h30 · Ven–Sam 18h–2h",
+  "prix_verre": "bière 5–8 € · cocktail 11–12 €",
+  "entree": "Gratuit",
+  "age_min": "",
+  "sources": [
+   "https://www.rhumerieferdinand.com/",
+   "https://www.rhumerieferdinand.com/la-carte",
+   "https://www.rhumerieferdinand.com/les-soirees",
+   "https://www.menton-riviera-merveilles.fr/bars-restaurants/bar-a-vin-rhumerie-ferdinand-menton-fr-6251812/"
+  ]
+ },
+ "le-rooftop-hotel-mediterranee-menton": {
+  "le": "2026-11-10T19:43:02.314Z",
+  "styles": "Lounge · Chillout · Pop",
+  "dress_code": "Tenue correcte / chic décontractée d'usage",
+  "horaires": "Lun–Dim · 17h–23h",
+  "prix_verre": "bière et cocktail 9–14 €",
+  "entree": "Gratuit",
+  "age_min": "Aucun",
+  "sources": [
+   "https://www.hotel-med-menton.com/fr/bar-rooftop.html",
+   "https://www.hotel-med-menton.com/fr/actualites/soirees-rooftop-musique-live-menton.html",
+   "https://www.hotel-med-menton.com/fr/restaurant-menton.html",
+   "https://www.instagram.com/hotelmediterraneementon"
+  ]
+ },
+ "boka-club-del-magot-toulon": {
+  "le": "2026-11-10T19:43:02.314Z",
+  "styles": "Afrobeat · Zouk · Dancehall · Hip-hop",
+  "dress_code": "Tenue correcte exigée",
+  "horaires": "Jeu–Sam · 00h–5h",
+  "prix_verre": "",
+  "entree": "Gratuit hors événements · Prévente 5–15 € · Sur place 10–20 €",
+  "age_min": "18 ans",
+  "sources": [
+   "https://shotgun.live/venues/boka-club-d-el-magot",
+   "https://www.instagram.com/boka_club_del_magot",
+   "https://www.bizouk.com",
+   "https://www.clublemagot.fr"
+  ]
+ },
+ "le-boy-s-paradise-toulon": {
+  "le": "2026-11-10T19:43:02.314Z",
+  "styles": "Généraliste · Électro · Pop · Hip-Hop",
+  "dress_code": "Aucun dress code strict, tenue décontractée",
+  "horaires": "Mer–Ven 23h–6h · Sam 19h–6h",
+  "prix_verre": "bière 6 € · cocktail 8–10 €",
+  "entree": "Variable selon la programmation (généralement payante avec conso)",
+  "age_min": "18 ans",
+  "sources": [
+   "https://www.instagram.com/boys_paradise_off/",
+   "https://www.privateaser.com/lieu/55954-boys-paradise",
+   "https://www.petitfute.com/v33765-toulon-83000/c1171-sortie-visites/c559-bar-club-boite-de-nuit/c561-boite-de-nuit/330365-boy-s-paradise.html",
+   "https://noxway.fr/club/le-boy-s-paradise-toulon-d83ee6d22"
+  ]
+ },
+ "le-barathym-toulon": {
+  "le": "2026-11-10T19:43:02.314Z",
+  "styles": "Rock · Pop · Électro · Latino",
+  "dress_code": "",
+  "horaires": "Dim–Mer 17h30–2h · Jeu–Sam 17h30–4h",
+  "prix_verre": "bière 4–7,10 €",
+  "entree": "Gratuit",
+  "age_min": "",
+  "sources": [
+   "https://linktr.ee/lebarathym",
+   "https://www.facebook.com/lebarathym.mourillon",
+   "https://provencemed.com/activite/le-barathym",
+   "https://www.petitfute.com/v33722-toulon-83000/c1171-visites-points-d-interet/c946-artisanat-produit-du-terroir-visite-d-entreprise/c949-brasserie-microbrasserie/189709-le-bar-a-thym.html"
+  ]
+ },
+ "le-spot-mourillon-toulon": {
+  "le": "2026-11-10T19:43:02.314Z",
+  "styles": "House · Afro House · Rock · Pop-Rock",
+  "dress_code": "Décontracté (tenue correcte exigée pour certains événements)",
+  "horaires": "Mar–Mer 18h–1h · Jeu–Sam 18h–2h · Dim 18h–1h",
+  "prix_verre": "bière 6–7 € · cocktail 10–11 €",
+  "entree": "Gratuit",
+  "age_min": "",
+  "sources": [
+   "https://shotgun.live/fr/venues/le-spot-mourillon",
+   "https://www.privateaser.com/lieu/43021-le-spot",
+   "https://shotgun.live/fr/events/le-boiler-du-spot",
+   "https://www.billetweb.fr/mistral-comedy-club"
+  ]
  }
 }

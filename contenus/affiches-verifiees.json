@@ -6242,5 +6242,32 @@
    "tournevis",
    "frigo"
   ]
+ },
+ "v2|7494d1310b8d": {
+  "ok": true,
+  "le": "2026-11-10T19:43:17.071Z",
+  "nom": "Alessandro Ristori et Franciskey au Twiga",
+  "lu": {
+   "titre": "TWIGA MONTE CARLO",
+   "dates": [
+    "2026-11-12",
+    "2026-11-13",
+    "2026-11-14",
+    "2026-11-15"
+   ],
+   "artistes": [
+    "ALESSANDRO RISTORI & THE PORTOFINOS",
+    "FRANCIS KEY",
+    "MALIVE",
+    "LANONCHALANCE"
+   ]
+  },
+  "commun": [
+   "twiga",
+   "monte",
+   "carlo",
+   "alessandro",
+   "ristori"
+  ]
  }
 }
