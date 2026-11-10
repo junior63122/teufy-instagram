@@ -151,27 +151,28 @@ export async function json({ config, system, prompt, schema, nom = 'reponse', gr
 // faisait échouer ce secours.
 async function githubModels({ L, system, prompt, schema, nom }) {
   const modele = L.modele_github || 'openai/gpt-4.1-mini';
-  const essais = [
-    [GH, modele, { accept: 'application/vnd.github+json', 'x-github-api-version': '2022-11-28' }],
-    ['https://models.inference.ai.azure.com/chat/completions', modele.replace(/^[^/]+\//, ''), {}],
-  ];
-  let derniere; const journal = [];
-  for (const [url, model, h] of essais) {
-    for (const format of [{ type: 'json_schema', json_schema: { name: nom, strict: true, schema } }, { type: 'json_object' }]) {
-      try {
-        const res = await fetch(url, { method: 'POST', signal: AbortSignal.timeout(180000), headers: { 'content-type': 'application/json', authorization: `Bearer ${process.env.GITHUB_TOKEN.trim()}`, ...h },
-          body: JSON.stringify({ model, messages: [{ role: 'system', content: `${system}\nRéponds uniquement en JSON valide${format.type === 'json_object' ? ` selon ce schéma : ${JSON.stringify(schema)}` : ''}.` }, { role: 'user', content: prompt.slice(0, 60000) }], response_format: format }) });
-        const txt = await res.text();
-        if (!res.ok) { derniere = new Error(`HTTP ${res.status} ${txt.slice(0, 160)}`); journal.push(`${new URL(url).host} : ${derniere.message}`); if (res.status === 400) continue; break; }
-        let j; try { j = JSON.parse(txt); } catch { derniere = new Error(`réponse non JSON (${txt.slice(0, 40)})`); journal.push(`${new URL(url).host} : ${derniere.message}`); break; }
-        const c = j.choices?.[0]?.message?.content || '';
-        const m = c.match(/\{[\s\S]*\}/);
-        if (m) return JSON.parse(m[0]);
-        derniere = new Error('réponse vide');
-      } catch (err) { derniere = err; journal.push(`${new URL(url).host} : ${err.message}${err.cause ? ` (${err.cause.code || err.cause.message})` : ''}`); }
-    }
+  const h = { 'content-type': 'application/json', accept: 'application/json', authorization: `Bearer ${process.env.GITHUB_TOKEN.trim()}`, 'x-github-api-version': '2022-11-28' };
+  const formats = [{ type: 'json_schema', json_schema: { name: nom, strict: true, schema } }, { type: 'json_object' }, null];
+  const journal = [];
+  for (const format of formats) {
+    try {
+      const res = await fetch(GH, { method: 'POST', signal: AbortSignal.timeout(180000), headers: h,
+        body: JSON.stringify({ model: modele, stream: false, messages: [{ role: 'system', content: `${system}\nRéponds uniquement en JSON valide${format?.type === 'json_schema' ? '' : ` selon ce schéma : ${JSON.stringify(schema)}`}.` }, { role: 'user', content: prompt.slice(0, 60000) }], ...(format ? { response_format: format } : {}) }) });
+      const txt = await res.text();
+      if (!res.ok) { journal.push(`${format?.type || 'texte'} : HTTP ${res.status} ${txt.slice(0, 120)}`); continue; }
+      let j; try { j = JSON.parse(txt); } catch { journal.push(`${format?.type || 'texte'} : HTTP ${res.status} ${res.headers.get('content-type')} « ${txt.slice(0, 40).trim()} »`); continue; }
+      const c = j.choices?.[0]?.message?.content || '';
+      const m = c.match(/\{[\s\S]*\}/);
+      if (m) return JSON.parse(m[0]);
+      journal.push(`${format?.type || 'texte'} : réponse vide`);
+    } catch (err) { journal.push(`${format?.type || 'texte'} : ${err.message}${err.cause ? ` (${err.cause.code || err.cause.message})` : ''}`); }
   }
-  throw new Error(`GitHub Models indisponible — ${journal.join(' | ') || derniere?.message}`);
+  // Diagnostic une fois par passage : modèles réellement disponibles pour ce jeton (pour corriger llm.modele_github).
+  if (!githubModels.diag) {
+    githubModels.diag = true;
+    try { const r = await fetch('https://models.github.ai/catalog/models', { headers: h, signal: AbortSignal.timeout(20000) }); const t = await r.text(); console.error(`GitHub Models : catalogue HTTP ${r.status} — ${(() => { try { return JSON.parse(t).map((x) => x.id).slice(0, 12).join(', '); } catch { return t.slice(0, 120); } })()}`); } catch (err) { console.error(`GitHub Models : catalogue illisible (${err.message})`); }
+  }
+  throw new Error(`GitHub Models indisponible — ${journal.join(' | ')}`);
 }
 
 // --- Claude (optionnel, payant) ---------------------------------------------------
