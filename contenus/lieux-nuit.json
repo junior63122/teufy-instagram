@@ -142,7 +142,22 @@
    "insta": null,
    "slug": "kwartz-club-nice",
    "score": 0,
-   "soirs": []
+   "soirs": [],
+   "details": {
+    "le": "2026-11-10T14:53:16.449Z",
+    "styles": "Techno · House",
+    "dress_code": "Décontracté, underground clubwear.",
+    "horaires": "Ven–Sam · 0h–6h",
+    "prix_verre": "",
+    "entree": "10–15 €",
+    "age_min": "18 ans",
+    "sources": [
+     "https://ra.co/clubs/116938",
+     "https://ra.co/events/925345",
+     "https://shotgun.live/fr/organizers/kwartz-events",
+     "https://shotgun.live/fr/venues/boomcoeur-club"
+    ]
+   }
   },
   {
    "nom": "Wayne’s Bar",
@@ -717,7 +732,22 @@
    "slug": "absinthe-bar-antibes",
    "score": 0,
    "photo": "site/lieux/absinthebarantibes-176.webp",
-   "soirs": []
+   "soirs": [],
+   "details": {
+    "le": "2026-11-10T14:53:16.449Z",
+    "styles": "Piano-bar · Jazz · Cabaret · Chansons internationales",
+    "dress_code": "Tenue décontractée",
+    "horaires": "Dim–Jeu 17h–0h30 · Ven–Sam 17h–2h30",
+    "prix_verre": "absinthe 7–12 € · bière 6 € · cocktail 10–14 €",
+    "entree": "Gratuit (consommation obligatoire)",
+    "age_min": "",
+    "sources": [
+     "https://www.antibes-juanlespins.com/degustation/l-absinthe-bar-516125",
+     "https://www.petitfute.com/v31343-antibes-06160/c1171-sports-loisirs/c590-animation-nocturne/c592-bar-cafe/355152-absinthe-bar.html",
+     "https://www.privateaser.com/lieu/57701-absinthe-bar",
+     "https://cityxee.com/absinthe-bar-museum-antibes/"
+    ]
+   }
   },
   {
    "nom": "O'Sullivans By The Beach",
@@ -738,7 +768,22 @@
    "slug": "o-sullivans-by-the-beach-mandelieu-la-napoule",
    "score": 0.8703703703703703,
    "photo": "site/lieux/osullivans_mandelieu-176.webp",
-   "soirs": []
+   "soirs": [],
+   "details": {
+    "le": "2026-11-10T14:53:16.449Z",
+    "styles": "Pop · Rock · Généraliste · Électro",
+    "dress_code": "Tenue correcte exigée (casual soigné, pas de tenues de plage ni de survêtements).",
+    "horaires": "Lun–Ven 17h–2h · Sam–Dim 12h–2h",
+    "prix_verre": "bière 4,20–9,50 € · cocktail 12–13 €",
+    "entree": "Gratuit (payant lors d'événements spéciaux)",
+    "age_min": "18 ans en soirée (mineurs tolérés en journée accompagnés)",
+    "sources": [
+     "https://www.osullivans-pubs.com/pubs/by-the-beach/",
+     "https://www.osullivans-pubs.com/faq-osullivans/",
+     "https://www.osullivans-pubs.com/wp-content/uploads/2024/04/CARTE-BOISSONS-OSULLIVANS.pdf",
+     "https://shotgun.live/fr/venues/o-sullivans-mandelieu"
+    ]
+   }
   },
   {
    "nom": "Jimbaran Plage",
@@ -759,7 +804,22 @@
    "slug": "jimbaran-plage-golfe-juan",
    "score": 0.2962962962962963,
    "photo": "site/lieux/jimbaran.plage-176.webp",
-   "soirs": []
+   "soirs": [],
+   "details": {
+    "le": "2026-11-10T14:53:16.449Z",
+    "styles": "Lounge · Chill-out · House · Disco House",
+    "dress_code": "Beachwear en journée, casual chic en soirée",
+    "horaires": "Dim–Jeu 10h–19h · Ven–Sam 10h–0h (en saison)",
+    "prix_verre": "",
+    "entree": "Gratuit (15–20 € en soirée spéciale)",
+    "age_min": "18 ans (soirées clubbing)",
+    "sources": [
+     "https://www.plage-golfe-juan.com",
+     "https://www.instagram.com/jimbaran.plage/",
+     "https://cotedazurfrance.fr",
+     "https://mysunbed.com/fr/beach/jimbaran-plage-vallauris-golfe-juan"
+    ]
+   }
   },
   {
    "nom": "Le Petit Bellevue (La Maison Bellevue)",
@@ -780,7 +840,22 @@
    "slug": "le-petit-bellevue-la-maison-bellevue-le-cannet",
    "score": 0.7592592592592593,
    "photo": "site/lieux/lamaisonbellevue-176.webp",
-   "soirs": []
+   "soirs": [],
+   "details": {
+    "le": "2026-11-10T14:53:16.449Z",
+    "styles": "Lounge · Méditerranéen",
+    "dress_code": "Tenue soignée / chic décontractée recommandée",
+    "horaires": "Mar–Sam 12h–14h, 19h–23h · Dim 12h–14h · Lun 19h–23h (en saison)",
+    "prix_verre": "cocktail dès 12 € · vin dès 7 €",
+    "entree": "Gratuit",
+    "age_min": "",
+    "sources": [
+     "https://lamaisonbellevue.com",
+     "https://lecannet-tourisme.fr/restaurant/la-maison-bellevue/",
+     "https://www.privateaser.com/lieu/63237-maison-bellevue",
+     "https://www.petitfute.com/v32532-le-cannet-06110/c1165-restaurants/c1031-cuisines-du-monde/c1038-mediterraneenne/2126297-la-maison-bellevue.html"
+    ]
+   }
   },
   {
    "nom": "Jimmy’z Monte-Carlo",
@@ -999,7 +1074,22 @@
    "slug": "slammers-monaco",
    "score": 0,
    "photo": "site/lieux/slammersmc-176.webp",
-   "soirs": []
+   "soirs": [],
+   "details": {
+    "le": "2026-11-10T14:53:16.449Z",
+    "styles": "Piano live · Acoustique · Pop-rock",
+    "dress_code": "Décontracté",
+    "horaires": "Lun–Ven 16h–1h · Sam–Dim 13h–1h",
+    "prix_verre": "bière 6–9 € · cocktail 14–22 €",
+    "entree": "Gratuit",
+    "age_min": "18 ans",
+    "sources": [
+     "https://www.slammers-bar.com/",
+     "https://www.instagram.com/slammersmc/",
+     "https://monacopratique.com",
+     "https://www.monacoviews.com"
+    ]
+   }
   },
   {
    "nom": "Amazónico Monte-Carlo",
@@ -1051,7 +1141,22 @@
    "slug": "blue-gin-monaco",
    "score": 0.4444444444444444,
    "photo": "site/lieux/blueginmonaco-176.webp",
-   "soirs": []
+   "soirs": [],
+   "details": {
+    "le": "2026-11-10T14:53:16.449Z",
+    "styles": "Lounge · Disco-funk · Nu-disco · Deep house",
+    "dress_code": "Élégant (chic décontracté, vêtements de sport et de plage interdits)",
+    "horaires": "Lun–Dim · 18h30–1h30",
+    "prix_verre": "bière 10–15 € · cocktail 20–30 €",
+    "entree": "Entrée libre",
+    "age_min": "18 ans",
+    "sources": [
+     "https://www.montecarlosbm.com/fr/bar-monaco/le-blue-gin",
+     "https://monaco-pratique.com/blue-gin/",
+     "https://visitmonaco.com/fr/lieu/bars/188240/le-blue-gin",
+     "https://www.instagram.com/blueginmonaco/"
+    ]
+   }
   },
   {
    "nom": "Rooftop Basta Pinsa",
@@ -1072,7 +1177,22 @@
    "slug": "rooftop-basta-pinsa-beausoleil",
    "score": 0.48148148148148145,
    "photo": "site/lieux/bastapinsa-176.webp",
-   "soirs": []
+   "soirs": [],
+   "details": {
+    "le": "2026-11-10T14:53:16.449Z",
+    "styles": "Lounge · Aperitivo · DJ sets",
+    "dress_code": "Aucun dress code imposé",
+    "horaires": "Mar–Sam 18h–23h30 (en saison)",
+    "prix_verre": "",
+    "entree": "Gratuit",
+    "age_min": "",
+    "sources": [
+     "https://bastapinsa.com/",
+     "https://alfredhotels.com/hotels/monaco/",
+     "https://monacolife.net/the-rooftop-spot-above-monaco-where-the-view-is-the-same-but-the-bill-is-not/",
+     "https://lagazettedemonaco.com/actualites/societe/basta-pinsa-le-nouveau-rooftop-avec-vue-sur-monaco"
+    ]
+   }
   },
   {
    "nom": "Le Corner by 3 Tapas",
@@ -1124,7 +1244,22 @@
    "slug": "inky-bar-menton",
    "score": 0,
    "photo": "site/lieux/inkybarmenton-176.webp",
-   "soirs": []
+   "soirs": [],
+   "details": {
+    "le": "2026-11-10T14:53:16.449Z",
+    "styles": "Généraliste · Pop-rock · Électro",
+    "dress_code": "Aucun dress code exigé",
+    "horaires": "Fermé définitivement",
+    "prix_verre": "bière 6–8 € · cocktail 10–13 €",
+    "entree": "Gratuit",
+    "age_min": "Aucun",
+    "sources": [
+     "https://www.ports-menton.fr/activites-commerces/inky-bar/",
+     "https://www.menton-riviera-merveilles.fr/bars-restaurants/bar-a-tapas/",
+     "https://www.instagram.com/inkybarmenton/",
+     "https://nicepresse.com/ce-bar-a-bieres-locales-qui-cartonne-a-menton-demenage-face-a-la-mer-et-etoffe-sa-carte-gourmande-recettes-familiales-petits-artisans/"
+    ]
+   }
   },
   {
    "nom": "Le New Pub",
@@ -1161,7 +1296,22 @@
    "slug": "les-incompris-menton",
    "score": 0,
    "photo": "site/lieux/lesincompris_menton-176.webp",
-   "soirs": []
+   "soirs": [],
+   "details": {
+    "le": "2026-11-10T14:53:16.449Z",
+    "styles": "",
+    "dress_code": "Chic et décontracté",
+    "horaires": "Mar–Jeu 9h30–1h · Ven–Sam 9h30–2h · Dim 9h30–16h",
+    "prix_verre": "bière 7–10 € · cocktail 12–16 €",
+    "entree": "Gratuit",
+    "age_min": "Tout public",
+    "sources": [
+     "https://www.lesincompris.com/",
+     "https://www.menton-riviera-merveilles.fr/",
+     "https://www.petitfute.com/",
+     "https://www.thefork.fr/"
+    ]
+   }
   },
   {
    "nom": "Rhumerie Ferdinand",

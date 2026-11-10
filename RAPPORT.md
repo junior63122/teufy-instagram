@@ -2,20 +2,20 @@
 
 Mis à jour automatiquement chaque jour. **Note /100** : 50 = performance habituelle du compte pour ce format, 100 = deux fois mieux. Elle combine likes, commentaires (×2), enregistrements (×3), partages (×4), abonnés gagnés (×10), visites du profil, portée et, pour les reels, la part de la vidéo regardée.
 
-**Abonnés** : 14478 (+4 sur 30 jours) · **Posts notés** : 62 · **Moyenne bot** : 53 · **Moyenne posts de l'équipe** : 58
+**Abonnés** : 14478 (+4 sur 30 jours) · **Posts notés** : 63 · **Moyenne bot** : 47 · **Moyenne posts de l'équipe** : 60
 
-## Objectif du prochain post : 98/100
+## Objectif du prochain post : 99/100
 
+- 2026-11-09 incontournables-techno : 37/100 ❌
 - 2026-11-09 veille : 100/100 ✅
 - 2026-11-08 incontournables-commercial : 5/100 ❌
-- 2026-08-10 post équipe : 90/100 ❌
-- 2026-05-08 post équipe : 48/100 ❌
-- 2026-05-03 post équipe : 62/100 ❌
+- 2026-08-10 post équipe : 94/100 ❌
+- 2026-05-08 post équipe : 51/100 ❌
+- 2026-05-03 post équipe : 65/100 ❌
 - 2026-04-28 post équipe : 100/100 ✅
-- 2026-03-25 post équipe : 93/100 ❌
+- 2026-03-25 post équipe : 97/100 ❌
 - 2026-01-02 post équipe : 100/100 ✅
 - 2025-12-25 post équipe : 57/100 ❌
-- 2025-12-24 post équipe : 97/100 ❌
 
 ## Meilleurs posts
 
@@ -23,32 +23,32 @@ Mis à jour automatiquement chaque jour. **Note /100** : 50 = performance habitu
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 2026-04-28 | équipe | Gagne 2 places pour vivre Electro Sympho | **100** | 966 | 16 | 18 | 3 | 8 | 6 |
 | 2026-01-02 | équipe | 🔥 Les premières soirées techno de l’ann | **100** | 3821 | 123 | 9 | 26 | 80 | 10 |
+| 2025-12-24 | équipe | Les soirées du Nouvel An arrivent. | **100** | 3900 | 81 | 1 | 18 | 58 | 3 |
 | 2025-12-18 | équipe | 🎆 NOUVEL AN 2025 🎆 | **100** | 806 | 9 | 10 | 1 | 1 | 0 |
 | 2025-11-07 | équipe | LES ÉVÉNEMENTS TECHNO DE LA CÔTE D’AZUR  | **100** | 1749 | 43 | 1 | 10 | 33 | 9 |
+| 2025-10-30 | équipe | Teufy x Panda Events  | **100** | 1444 | 30 | 3 | 0 | 35 | 3 |
 | 2025-10-15 | équipe | 👻 Les soirées les plus flippantes arriv | **100** | 5442 | 105 | 13 | 46 | 174 | 11 |
 | 2025-10-01 | équipe | 🚨 TECHNO SUR LA CÔTE D’AZUR – OCTOBRE � | **100** | 1772 | 42 | 1 | 12 | 17 | 13 |
 | 2025-09-15 | équipe | ⚡ Septembre, la Côte d’Azur vibre au ryt | **100** | 2369 | 81 | 7 | 21 | 48 | 4 |
 | 2025-09-15 | équipe | 🌙✨ Nice by night, vibes électro & bonne | **100** | 3618 | 99 | 0 | 6 | 27 | - |
-| 2025-07-21 | équipe | Des plages de Cannes aux scènes de Marse | **100** | 7772 | 372 | 19 | 116 | 24 | 3 |
-| 2025-01-15 | équipe | Envie de vivre des aventures uniques lor | **100** | 2681 | 60 | 3 | 24 | 2 | - |
 
 ## Moins bons
 
 | Date | Par | Post | Note /100 | Portée | Likes | Comm. | Enreg. | Partages | Abonnés gagnés |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 2026-11-08 | bot | incontournables-commercial | **5** | 355 | 1 | 0 | 0 | 0 | 0 |
-| 2025-10-03 | équipe | ⚡️ Les meilleurs plans entre potes, c’es | **14** | 567 | 5 | 0 | 0 | 0 | 0 |
+| 2025-10-03 | équipe | ⚡️ Les meilleurs plans entre potes, c’es | **15** | 567 | 5 | 0 | 0 | 0 | 0 |
 | 2025-10-19 | équipe | 🎃 Halloween, ce n’est pas une fête. | **16** | 525 | 6 | 0 | 1 | 0 | 0 |
-| 2025-10-27 | équipe | Tu n’as toujours pas ton déguisement ? � | **17** | 676 | 4 | 0 | 1 | 1 | 0 |
-| 2025-10-13 | équipe | 💸 Tu veux sortir, kiffer la Côte d’Azur | **26** | 1220 | 13 | 1 | 2 | 1 | 0 |
+| 2025-10-27 | équipe | Tu n’as toujours pas ton déguisement ? � | **18** | 676 | 4 | 0 | 1 | 1 | 0 |
+| 2025-10-13 | équipe | 💸 Tu veux sortir, kiffer la Côte d’Azur | **27** | 1220 | 13 | 1 | 2 | 1 | 0 |
 
 ## Pourquoi : ce qui fait monter ou baisser la note
 
 Écart de note moyen quand le post a ce trait (heure, jour, format, type, style, lieu, ville, source, prix, hashtags, forme de la légende…), sur 2 posts minimum.
 
-**Ce qui fait monter** : hashtag:#hardtechno (+42, 2 posts) · hashtag:#acidtechno (+42, 2 posts) · hashtag:#technocotedazur (+42, 3 posts) · hashtag:#technoparty (+42, 2 posts) · hashtag:#soiréetechno (+42, 2 posts) · heure:22h (+23, 2 posts) · hashtag:#sortiracannes (+20, 3 posts) · hashtag:#techno (+18, 3 posts) · hashtag:#bonplan (+18, 2 posts) · hashtag:#pandaevents (+15, 2 posts) · hashtag:#nightlife (+15, 9 posts) · heure:12h (+14, 7 posts)
+**Ce qui fait monter** : hashtag:#hardtechno (+41, 2 posts) · hashtag:#acidtechno (+41, 2 posts) · hashtag:#technocotedazur (+41, 3 posts) · hashtag:#technoparty (+41, 2 posts) · hashtag:#soiréetechno (+41, 2 posts) · heure:22h (+23, 2 posts) · hashtag:#sortiracannes (+19, 3 posts) · hashtag:#bonplan (+17, 2 posts) · hashtag:#pandaevents (+16, 2 posts) · heure:12h (+15, 7 posts) · hashtag:#housemusic (+15, 4 posts) · hashtag:#nightlife (+15, 9 posts)
 
-**Ce qui fait baisser** : hashtag:#jeunes (-33, 2 posts) · hashtag:#weekendmood (-33, 2 posts) · heure:9h (-31, 2 posts) · hashtag:#soiréehalloween (-31, 2 posts) · hashtag:#teufyhalloween (-31, 2 posts) · hashtag:#deguisementhalloween (-29, 2 posts) · hashtag:#halloweenparty (-28, 4 posts) · hashtag:#partyvibes (-27, 4 posts) · hashtag:#bonplansnice (-27, 2 posts) · hashtag:#sortiessud (-26, 2 posts)
+**Ce qui fait baisser** : prix:petit (-38, 2 posts) · style:techno (-38, 2 posts) · prix:moyen (-38, 2 posts) · horaire:nuit (-38, 2 posts) · ville:nice (-38, 2 posts) · source:web (-38, 2 posts) · hashtag:#jeunes (-33, 2 posts) · hashtag:#weekendmood (-33, 2 posts) · hashtag:#soiréehalloween (-32, 2 posts) · heure:9h (-31, 2 posts)
 
 ## Analyse de la semaine du 2026-11-10
 
