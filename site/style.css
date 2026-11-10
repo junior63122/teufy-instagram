@@ -1082,3 +1082,6 @@ html.en-route::before{content:"";position:fixed;inset:0 auto auto 0;height:3px;w
 /* Un seul alignement pour toutes les sections (même bord gauche que l'en-tête) ; les paragraphes restent à une longueur lisible. */
 .qui{max-width:1240px}
 .qui>p,.qui .grand-texte{max-width:72ch}
+/* En-tête et menu alignés sur la colonne du contenu (même bord gauche et droit que les sections) sur grand écran. */
+@media(min-width:1272px){.barre{padding-inline:max(16px,calc(50% - 604px))}.nav{padding-inline:max(16px,calc(50% - 616px)) 16px}}
+@media(min-width:1272px){.hero{padding-inline:calc(50% - 604px)}}
