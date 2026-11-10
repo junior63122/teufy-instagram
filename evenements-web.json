@@ -909,7 +909,11 @@
         "Dancehall",
         "clubbing",
         "disco",
-        "electro"
+        "electro",
+        "shatta",
+        "rap",
+        "afro",
+        "dancehall"
       ],
       "description": "",
       "public_cible": 0.95,
@@ -918,7 +922,8 @@
       "buzz_raison": "Spot incontournable 18-25 ans à Juan-les-Pins gratuit pour les filles avant 00h30",
       "accroche": "DJ Shaylan, Gianni et MC Mada mettent le feu au Honey Club au son shatta et rap.",
       "instagram": [
-        "lartiste83"
+        "lartiste83",
+        "honeyclub_juan"
       ],
       "offres": [
         {
@@ -929,7 +934,8 @@
       ],
       "sources_sites": [
         "shotgun.live",
-        "L'Artiste 83"
+        "L'Artiste 83",
+        "Shotgun"
       ],
       "billetterie_cherchee": true,
       "offres_cherchees": true
@@ -2329,7 +2335,10 @@
         "R&B",
         "Trapsoul",
         "Hip Hop",
-        "R&B francophone"
+        "R&B francophone",
+        "Dancehall",
+        "Zouk",
+        "Rumba"
       ],
       "description": "",
       "public_cible": 0.8,
@@ -2357,10 +2366,12 @@
       "sources_sites": [
         "provence-alpes-cotedazur.com",
         "Shotgun",
-        "Shotgun.live"
+        "Shotgun.live",
+        "instagram.com"
       ],
       "billetterie_cherchee": true,
-      "offres_cherchees": true
+      "offres_cherchees": true,
+      "via_veille": true
     },
     {
       "source": "web",
@@ -3940,33 +3951,6 @@
           "url": "https://shotgun.live/fr/events/wado-x-l-antre-2",
           "prix": 5
         }
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "Shotgun",
-      "name": "Honey Club - Saturday Bee Crazy",
-      "start": "2026-11-13T23:00:00.000Z",
-      "venue": "Honey Club",
-      "city": "Juan-les-Pins",
-      "address": "",
-      "url": "https://shotgun.live/fr/events/honey-club-saturday-bee-crazy",
-      "image": "https://assets.shotgun.live/image/upload/c_limit,ar_16:9,w_3840,fl_lossy,f_webp,q_auto/production/artworks/3C4FA7FA-FB32-4DB4-8B42-BBCDE0A8E9CF_mxmdwt.png",
-      "price": 10,
-      "tags": [
-        "shatta",
-        "rap",
-        "afro",
-        "dancehall"
-      ],
-      "description": "",
-      "public_cible": 0.95,
-      "confiance": 0.95,
-      "buzz": 0.6,
-      "buzz_raison": "Spot clubbing urbain de référence pour les jeunes à Juan-les-Pins.",
-      "accroche": "Ambiance shatta, rap et dancehall garantie au Honey Club à Juan-les-Pins.",
-      "instagram": [
-        "honeyclub_juan"
       ]
     },
     {
