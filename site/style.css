@@ -1014,8 +1014,6 @@ details[data-bloc="tri"]>.groupe{inset-inline-start:auto;inset-inline-end:0}
 .fleche.prec{inset-inline-start:-14px}.fleche.suiv{inset-inline-end:-14px}
 [dir=rtl] .fleche svg{transform:scaleX(-1)}
 .fleche[hidden]{display:none}
-.rangee.suite{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 70px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 70px),transparent)}
-[dir=rtl] .rangee.suite{-webkit-mask-image:linear-gradient(270deg,#000 calc(100% - 70px),transparent);mask-image:linear-gradient(270deg,#000 calc(100% - 70px),transparent)}
 /* Diaporama de l'accueil : minutage calculé pour le nombre réel de photos (sinon des secondes sans aucune image). */
 @keyframes diapo2{0%{opacity:0}10.0%{opacity:1}50.0%{opacity:1}60.0%{opacity:0}100%{opacity:0}}
 .diaporama.n2 .hero-photo{animation-name:diapo2,zoom;animation-duration:12s,22s}
@@ -1051,8 +1049,6 @@ html.en-route::before{content:"";position:fixed;inset:0 auto auto 0;height:3px;w
 [dir=rtl] html.en-route::before,html[dir=rtl].en-route::before{transform-origin:100% 50%}
 @keyframes en-route{from{transform:scaleX(0)}to{transform:scaleX(.92)}}
 @media(prefers-reduced-motion:reduce){html.en-route::before{animation:none;transform:scaleX(.6)}}
-.rangee.avant{-webkit-mask-image:linear-gradient(90deg,transparent,#000 70px);mask-image:linear-gradient(90deg,transparent,#000 70px)}
-.rangee.avant.suite{-webkit-mask-image:linear-gradient(90deg,transparent,#000 70px,#000 calc(100% - 70px),transparent);mask-image:linear-gradient(90deg,transparent,#000 70px,#000 calc(100% - 70px),transparent)}
 .fiches-tendance .lieu-soirees a:nth-child(n+2){display:none}
 /* Pages légales longues : sommaire cliquable */
 .sommaire-legal{margin:18px 0 26px;padding:16px 20px;border-radius:18px;background:#ffffff08;border:1px solid #ffffff14}
@@ -1065,7 +1061,7 @@ html.en-route::before{content:"";position:fixed;inset:0 auto auto 0;height:3px;w
    le carrousel reste sur mobile et tablette. */
 .voir-tout-soir{display:none}
 @media(min-width:1100px){
-  #ce-soir .rangee{grid-auto-flow:row;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-columns:unset;overflow:visible;scroll-snap-type:none;-webkit-mask-image:none!important;mask-image:none!important;padding-bottom:0}
+  #ce-soir .rangee{grid-auto-flow:row;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-columns:unset;overflow:visible;scroll-snap-type:none;-webkit-mask-image:none!important;mask-image:none!important;padding-bottom:0;padding-inline-end:0}
   #ce-soir .rangee:not(.tout)>.carte:nth-child(n+9){display:none}
   #ce-soir .groupe-soir>.fleche{display:none!important}
   #ce-soir .voir-tout-soir{display:block;margin:22px auto 0;font:inherit;font-weight:800;cursor:pointer;border:0}
@@ -1187,3 +1183,12 @@ html[data-saison=nouvel-an] .decor-saison i{color:#f6e27a;text-shadow:0 0 8px #d
 .tarif .bouton{justify-content:center;text-align:center}
 .tarifs-note{margin-top:16px;font-size:14px;color:#b8b2a8}
 .tarifs-note a{color:var(--creme)}
+/* Logo du lieu dans une vignette sans affiche : toujours un cercle (la règle .affiche.sans img{height:100%} l'étirait
+   en ovale dans le carrousel « Ce soir ») et jamais déplacé par l'effet de survol des affiches (resté actif après
+   un toucher sur téléphone). */
+.affiche .vignette img.vignette-lieu{height:auto;aspect-ratio:1;bottom:auto;right:auto}
+.carte:hover .affiche img.vignette-lieu,.affiche img.vignette-lieu{transform:translate(-50%,-30%)}
+/* Carrousels : fondu fixe à droite (jamais modifié pendant le défilement : sur iPhone, changer le masque d'une zone qui
+   défile interrompait le geste et ramenait à la première carte) + marge de fin pour que la dernière carte reste nette. */
+.a-fleches>.rangee,.a-fleches>.photos{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 48px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 48px),transparent);padding-inline-end:48px}
+[dir=rtl] .a-fleches>.rangee,[dir=rtl] .a-fleches>.photos{-webkit-mask-image:linear-gradient(270deg,#000 calc(100% - 48px),transparent);mask-image:linear-gradient(270deg,#000 calc(100% - 48px),transparent)}

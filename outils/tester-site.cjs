@@ -57,6 +57,11 @@ async function controlerPage(p, nom, u) {
     return i.complete && i.naturalWidth && r.width >= 20 && r.height >= 20 && cs.display !== 'none' && cs.opacity !== '0' && cs.objectFit === 'fill' && !i.classList.contains('fond-flou')
       && Math.abs((r.width / r.height) / (i.naturalWidth / i.naturalHeight) - 1) > 0.06; }).map((i) => `${i.currentSrc.split('/').pop()} (${Math.round(i.getBoundingClientRect().width)}×${Math.round(i.getBoundingClientRect().height)})`));
   ok(!deformees.length, `${nom} ${u} : image déformée ${deformees.slice(0, 3).join(' ; ')}`);
+  // Logos ronds (border-radius 50 %) : toujours un cercle, jamais un ovale (même recadrés par object-fit:cover).
+  const ovales = await p.evaluate(() => [...document.querySelectorAll('img')].filter((i) => { const r = i.getBoundingClientRect(); const cs = getComputedStyle(i);
+    return r.width >= 20 && r.height >= 20 && cs.display !== 'none' && cs.visibility !== 'hidden' && cs.borderTopLeftRadius === '50%' && Math.abs(r.width / r.height - 1) > 0.06; })
+    .map((i) => `${(i.currentSrc || i.src).split('/').pop()} (${Math.round(i.getBoundingClientRect().width)}×${Math.round(i.getBoundingClientRect().height)})`));
+  ok(!ovales.length, `${nom} ${u} : logo rond devenu ovale ${ovales.slice(0, 3).join(' ; ')}`);
   // Menu : la rubrique ouverte est visible dans la barre (pas cachée hors écran).
   const menu = await p.evaluate(() => { const n = document.querySelector('.nav'), a = n?.querySelector('[aria-current]'); if (!n || !a || !n.offsetWidth) return true; const rn = n.getBoundingClientRect(), ra = a.getBoundingClientRect(); return ra.left >= rn.left - 1 && ra.right <= rn.right + 1; });
   ok(menu, `${nom} ${u} : la rubrique ouverte n'est pas visible dans le menu`);
