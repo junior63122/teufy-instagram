@@ -2653,6 +2653,39 @@
         "auteur:bot"
       ],
       "note": null
+    },
+    {
+      "media": "18132087004853350",
+      "id": "reel-flash",
+      "type": "reel",
+      "variante": "flash",
+      "date": "2026-11-10",
+      "choix": {
+        "creneau": "18"
+      },
+      "features": [],
+      "nb_images": 0,
+      "duree": 29.2,
+      "legende": "Ton billet passe de 12 à 25 € en une nuit ? C'est pas une arnaque 👇\n\nLes soirées vendent par paliers : early (le moins cher), regular, last. Dès qu'un palier est sold out, le prix monte.\n\nLe bon réflexe : prendre sa place dès l'annonce et activer les notifs de l'organisateur.\n\n(prix de l'exemple à titre indicatif, chaque soirée fixe les siens)\n\nTu t'es déjà fait avoir ? Dis-le en commentaire.\n\n#TeufyParty #soiree #nice #bonplan #CoteDAzur",
+      "titre": "Pourquoi ton billet passe de 12 à 25 € en une nuit",
+      "publie_le": "2026-11-09T23:52:36.849Z",
+      "source": "bot",
+      "caption": "Ton billet passe de 12 à 25 € en une nuit ? C'est pas une arnaque 👇\n\nLes soirées vendent par paliers : early (le moins cher), regular, last. Dès qu'un palier est sold out, le prix monte.\n\nLe bon réflexe : prendre sa place dès l'annonce et activer les notifs de l'organisateur.\n\n(prix de l'exemple à titre indicatif, chaque soirée fixe les siens)\n\nTu t'es déjà fait avoir ? Dis-le en commentaire.\n\n#TeufyParty #soiree #nice #bonplan #CoteDAzur",
+      "features_generales": [
+        "heure:0h",
+        "jour:mar",
+        "format:reel",
+        "type:reel-flash",
+        "legende:moyenne",
+        "accroche:question",
+        "hashtag:#teufyparty",
+        "hashtag:#soiree",
+        "hashtag:#nice",
+        "hashtag:#bonplan",
+        "hashtag:#cotedazur",
+        "auteur:bot"
+      ],
+      "note": null
     }
   ],
   "abonnes": [
@@ -2663,6 +2696,10 @@
     {
       "date": "2026-11-09",
       "n": 14472
+    },
+    {
+      "date": "2026-11-10",
+      "n": 14478
     }
   ]
 }
