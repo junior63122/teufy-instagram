@@ -98,7 +98,9 @@ const texteGemini = (j) => (j.candidates?.[0]?.content?.parts || []).map((p) => 
 
 export async function rechercher({ config, system, prompt, gratuit = false }) {
   const L = config.llm || {};
-  for (const f of fournisseurs(config, { gratuit })) {
+  // Recherche web : Gemini d'abord (recherche Google native, bien moins chère), Claude en relais s'il est indisponible.
+  // Claude Opus reste en premier pour la rédaction (json / textes non « gratuits »). Réglable : llm.recherche_claude_en_premier.
+  for (const f of fournisseurs(config, { gratuit: gratuit || L.recherche_claude_en_premier !== true })) {
     if (!budgetOk(f, L)) continue;
     try {
       if (f === 'gemini') {
@@ -153,23 +155,23 @@ async function githubModels({ L, system, prompt, schema, nom }) {
     [GH, modele, { accept: 'application/vnd.github+json', 'x-github-api-version': '2022-11-28' }],
     ['https://models.inference.ai.azure.com/chat/completions', modele.replace(/^[^/]+\//, ''), {}],
   ];
-  let derniere;
+  let derniere; const journal = [];
   for (const [url, model, h] of essais) {
     for (const format of [{ type: 'json_schema', json_schema: { name: nom, strict: true, schema } }, { type: 'json_object' }]) {
       try {
         const res = await fetch(url, { method: 'POST', signal: AbortSignal.timeout(180000), headers: { 'content-type': 'application/json', authorization: `Bearer ${process.env.GITHUB_TOKEN.trim()}`, ...h },
           body: JSON.stringify({ model, messages: [{ role: 'system', content: `${system}\nRéponds uniquement en JSON valide${format.type === 'json_object' ? ` selon ce schéma : ${JSON.stringify(schema)}` : ''}.` }, { role: 'user', content: prompt.slice(0, 60000) }], response_format: format }) });
         const txt = await res.text();
-        if (!res.ok) { derniere = new Error(`HTTP ${res.status} ${txt.slice(0, 160)}`); if (res.status === 400) continue; break; }
-        let j; try { j = JSON.parse(txt); } catch { derniere = new Error(`réponse non JSON (${txt.slice(0, 40)})`); break; }
+        if (!res.ok) { derniere = new Error(`HTTP ${res.status} ${txt.slice(0, 160)}`); journal.push(`${new URL(url).host} : ${derniere.message}`); if (res.status === 400) continue; break; }
+        let j; try { j = JSON.parse(txt); } catch { derniere = new Error(`réponse non JSON (${txt.slice(0, 40)})`); journal.push(`${new URL(url).host} : ${derniere.message}`); break; }
         const c = j.choices?.[0]?.message?.content || '';
         const m = c.match(/\{[\s\S]*\}/);
         if (m) return JSON.parse(m[0]);
         derniere = new Error('réponse vide');
-      } catch (err) { derniere = err; }
+      } catch (err) { derniere = err; journal.push(`${new URL(url).host} : ${err.message}${err.cause ? ` (${err.cause.code || err.cause.message})` : ''}`); }
     }
   }
-  throw derniere || new Error('GitHub Models indisponible');
+  throw new Error(`GitHub Models indisponible — ${journal.join(' | ') || derniere?.message}`);
 }
 
 // --- Claude (optionnel, payant) ---------------------------------------------------
