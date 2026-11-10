@@ -72,7 +72,7 @@ dans GitHub Actions), `outils/tester-site.cjs` (contrôles déformation, menu, v
 | Liens + SEO | ✓ 0 cassé, 0 bloquant | ✓ | ✓ |
 | Tests unitaires | ✓ 30 / 30 | ✓ | — |
 | Robustesse | ✓ | ✓ Chromium, Firefox, WebKit (version précédente) | — |
-| Usage (4 écrans) | ✓ (avec les nouveaux contrôles) | Version précédente : Chromium ✓, Firefox ✓, WebKit ✗ (clic FAQ, corrigé) ; dernière version : série en cours | ✓ Lighthouse 10 pages |
+| Usage (4 écrans) | ✓ (avec les nouveaux contrôles) | Série a7f9884f : Chromium ✓ ; WebKit ✗ (recherche « shatta » sur 1920 px, « texte rogné » France = faux positif des blocs rendus à l'approche) ; Firefox ✗ (favori tablette) → attentes des tests rendues conditionnelles, faux positif écarté ; nouvelle série en cours | ✓ Lighthouse 10 pages |
 
 ## G. Performances (Lighthouse, production teufyparty.com)
 
@@ -99,18 +99,18 @@ dans l'environnement local : ses résultats viennent uniquement de la CI.
 
 ## J. Limites
 
-- **Crédits IA** : Gemini et Anthropic toujours à court ; pas de traduction des nouveaux textes.
+- **Crédits IA** : malgré la recharge annoncée par le directeur, test du 10/11 à 08 h 44 UTC (`Teufy - tester les IA`) : Gemini 402 « prepayment credits are depleted », Anthropic « credit balance is too low » → crédit probablement sur un autre projet / une autre organisation que les clés. GitHub Models répond « OK » en texte brut, même pour le catalogue : secours gratuit inutilisable pour l'instant.
+- Instagram : limite de requêtes de l'application atteinte le 10/11 au matin (nombreux passages) ; levée automatique.
 - **Formulaire sans serveur** (GitHub Pages) : l'envoi passe par Instagram (message copié) ou l'e-mail (pré-rempli) ; la
   réception réelle n'a pas été testée (pas d'envoi de vrai message, règle « aucun message sans accord »).
-- Shotgun n'est pas joignable depuis l'environnement local : l'agrandissement des affiches sera vérifié au prochain
-  passage du robot sur GitHub.
+- Affiches : agrandissement vérifié sur GitHub le 10/11 (≈ 55 affiches remplacées par leur grande version).
 - Eventbrite et Ticketmaster bloquent les robots ; pas de contournement.
 - HTTP → HTTPS et Search Console non vérifiables d'ici.
 
 ## K. Améliorations restantes pour viser 99
 
 1. Confirmer la série 3 navigateurs sur la dernière version (WebKit / FAQ).
-2. Vérifier l'agrandissement des 59 petites affiches au prochain passage du robot.
+2. Faire relire les CGV complètes (17 articles) par un juriste.
 3. Accueil mobile : TBT encore 220–250 ms (agenda très long) ; raccourcir l'accueil et « Clubs & bars » sur mobile.
 4. Recharger les IA pour traduire les nouveaux textes ; Search Console + mesure d'audience sans cookie.
 
