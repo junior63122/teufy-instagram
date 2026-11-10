@@ -60,7 +60,8 @@
         "Fast House",
         "Speed Garage",
         "Trance",
-        "techno"
+        "techno",
+        "groove"
       ],
       "description": "",
       "public_cible": 0.95,
@@ -77,8 +78,18 @@
         "shotgun.live",
         "Shotgun",
         "Shotgun / Panda Events",
-        "Shotgun.live"
-      ]
+        "Shotgun.live",
+        "Shotgun Live / Panda Events",
+        "Instagram laplaturne"
+      ],
+      "offres": [
+        {
+          "plateforme": "shotgun.live",
+          "url": "https://shotgun.live/events/la-platurne-invite-fenrick-frigo-16",
+          "prix": 24.99
+        }
+      ],
+      "billetterie_cherchee": true
     },
     {
       "source": "web",
@@ -253,7 +264,8 @@
         "latin house",
         "house",
         "electro",
-        "clubbing"
+        "clubbing",
+        "melodic house"
       ],
       "description": "",
       "public_cible": 0.9,
@@ -271,7 +283,16 @@
         "Shotgun",
         "Shotgun.live",
         "Shotgun Live / VisitMonaco",
-        "Instagram @lanonchalance"
+        "Instagram @lanonchalance",
+        "Instagram lanonchalance"
+      ],
+      "billetterie_cherchee": true,
+      "offres": [
+        {
+          "plateforme": "shotgun.live",
+          "url": "https://shotgun.live/events/lanonchalance-pres-malive",
+          "prix": 12
+        }
       ]
     },
     {
@@ -473,7 +494,16 @@
       "sources_sites": [
         "shotgun.live",
         "Shotgun",
-        "Shotgun Live / Resident Advisor"
+        "Shotgun Live / Resident Advisor",
+        "instagram.com"
+      ],
+      "via_veille": true,
+      "offres": [
+        {
+          "plateforme": "shotgun.live",
+          "url": "https://shotgun.live/fr/events/la-tocardise-14-11-2026",
+          "prix": 10
+        }
       ]
     },
     {
@@ -862,7 +892,8 @@
         "hardtek",
         "tekno",
         "hard techno",
-        "Free Tekno"
+        "Free Tekno",
+        "Hardtechno"
       ],
       "description": "",
       "public_cible": 0.95,
@@ -879,7 +910,15 @@
         "shotgun.live",
         "Shotgun",
         "Shotgun / Le 109 Nice",
-        "Shotgun.live"
+        "Shotgun.live",
+        "Shotgun Live / Prizme Concept"
+      ],
+      "offres": [
+        {
+          "plateforme": "shotgun.live",
+          "url": "https://shotgun.live/events/do-you-like-tekno-frigo-16-le-109-nice",
+          "prix": 10.99
+        }
       ]
     },
     {
@@ -1075,7 +1114,16 @@
         "Shotgun",
         "shotgun.live",
         "Shotgun / Panda Events",
-        "Shotgun.live / Panda Events"
+        "Shotgun.live / Panda Events",
+        "Shotgun.live"
+      ],
+      "via_veille": true,
+      "offres": [
+        {
+          "plateforme": "shotgun.live",
+          "url": "https://shotgun.live/events/mamacita-frigo-16",
+          "prix": 0
+        }
       ]
     },
     {
@@ -1112,7 +1160,8 @@
         "hip-hop",
         "Rap US",
         "Dark Club",
-        "Rap américain"
+        "Rap américain",
+        "Bass"
       ],
       "description": "",
       "public_cible": 0.95,
@@ -1129,7 +1178,16 @@
         "shotgun.live",
         "Shotgun",
         "Le 109 Ville de Nice / Panda Events",
-        "Weezevent / Panda Events"
+        "Weezevent / Panda Events",
+        "panda-events.com"
+      ],
+      "via_veille": true,
+      "offres": [
+        {
+          "plateforme": "shotgun.live",
+          "url": "https://shotgun.live/events/c-etait-prevu-brondinski-frigo-16",
+          "prix": 17.49
+        }
       ]
     },
     {
@@ -1762,7 +1820,9 @@
         "Dub",
         "Soundsystem",
         "Bass Music",
-        "Sound System"
+        "Sound System",
+        "Techno",
+        "Tribe"
       ],
       "description": "",
       "public_cible": 0.8,
@@ -1777,7 +1837,16 @@
       ],
       "sources_sites": [
         "Shotgun",
-        "Shotgun.live"
+        "Shotgun.live",
+        "instagram.com"
+      ],
+      "via_veille": true,
+      "offres": [
+        {
+          "plateforme": "shotgun.live",
+          "url": "https://shotgun.live/fr/events/dub-coast-magam-lyff-dub",
+          "prix": 5.99
+        }
       ]
     },
     {
@@ -1920,35 +1989,6 @@
     },
     {
       "source": "web",
-      "source_site": "Shotgun Live / Panda Events",
-      "name": "La Platurne Invite Fenrick @ Frigo 16",
-      "start": "2026-11-10T19:00:00.000Z",
-      "venue": "Le 109 - Frigo 16",
-      "city": "Nice",
-      "address": "",
-      "url": "https://shotgun.live/fr/venues/frigo16",
-      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto/production/artworks/FRIGO16-SAISON_sept-dec_2026-cover-3000x1000_qi4spw",
-      "price": 24.99,
-      "tags": [
-        "Hard Groove",
-        "UK Garage",
-        "Bounce",
-        "Techno"
-      ],
-      "description": "",
-      "public_cible": 0.95,
-      "confiance": 0.95,
-      "buzz": 0.85,
-      "buzz_raison": "Veille de férié avec Fenrick, figure montante hard groove très prisée des jeunes.",
-      "accroche": "Fenrick débarque au 109 pour une nuit hard groove et UK garage survoltée.",
-      "instagram": [
-        "laplaturne",
-        "panda_events",
-        "frigo16nice"
-      ]
-    },
-    {
-      "source": "web",
       "source_site": "Shotgun Live",
       "name": "The Saturday Society",
       "start": "2026-11-14T22:55:00.000Z",
@@ -2079,35 +2119,6 @@
         "Shotgun Live / Neon Festival",
         "Shotgun / Le Dix-Huit",
         "Shotgun.live"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "Shotgun Live / Prizme Concept",
-      "name": "Do You Like... Tekno ? @ Frigo 16",
-      "start": "2026-11-28T19:00:00.000Z",
-      "venue": "Le 109 - Frigo 16",
-      "city": "Nice",
-      "address": "",
-      "url": "https://shotgun.live/fr/events/do-you-like-tekno-frigo-16-le-109-nice",
-      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto/production/artworks/5_g3lkvf.jpg",
-      "price": 21,
-      "tags": [
-        "Hardtechno",
-        "Acidcore",
-        "Tribe",
-        "Tekno"
-      ],
-      "description": "",
-      "public_cible": 0.9,
-      "confiance": 0.95,
-      "buzz": 0.75,
-      "buzz_raison": "Soirée tekno et rave indoor au Frigo 16 avec Insane Teknology.",
-      "accroche": "Grosse rave tekno et acidcore au 109 avec Insane Teknology aux commandes.",
-      "instagram": [
-        "prizmeconcept",
-        "frigo16nice",
-        "le109nice"
       ]
     },
     {
@@ -2403,47 +2414,6 @@
       "accroche": "After 100% vinyle techno old school et tribe avec DJ K-Net jusqu'à 9h du matin.",
       "instagram": [
         "lantre_nice"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "Shotgun.live",
-      "name": "Mamacita @ Frigo 16",
-      "start": "2026-12-05T22:30:00.000Z",
-      "venue": "Le 109 / Frigo 16",
-      "city": "Nice",
-      "address": "",
-      "url": "https://shotgun.live/events/mamacita-frigo-16",
-      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto/production/artworks/FRIGO16-SAISON_sept-dec_2026-cover-3000x1000_qi4spw",
-      "price": 0,
-      "tags": [
-        "Reggaeton",
-        "Baile Funk",
-        "Shatta",
-        "Dembow"
-      ],
-      "description": "",
-      "public_cible": 0.95,
-      "confiance": 0.95,
-      "buzz": 0.8,
-      "buzz_raison": "Édition warehouse du concept club latino/shatta Mamacita au 109.",
-      "accroche": "Format warehouse géant 100% reggaeton, baile funk et shatta avec Mamacita.",
-      "instagram": [
-        "panda_events",
-        "le109nice",
-        "pandaevents06"
-      ],
-      "via_veille": true,
-      "offres": [
-        {
-          "plateforme": "shotgun.live",
-          "url": "https://shotgun.live/events/mamacita-frigo-16",
-          "prix": 0
-        }
-      ],
-      "sources_sites": [
-        "Shotgun.live",
-        "instagram.com"
       ]
     },
     {
@@ -2766,70 +2736,6 @@
     },
     {
       "source": "web",
-      "source_site": "Instagram laplaturne",
-      "name": "La Platurne x Panda Events : Fenrick, Leanne, Arman Shadow",
-      "start": "2026-11-10T19:00:00.000Z",
-      "venue": "Frigo 16",
-      "city": "Nice",
-      "address": "",
-      "url": "https://www.instagram.com/p/DffPVUsjuV3/",
-      "image": "https://scontent-sjc6-1.cdninstagram.com/v/t51.82787-15/881860727_18129725510312991_660624881723867800_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=jPREx3HCdZ8Q7kNvwEQo1UI&_nc_oc=Adp-b4W4Qn7q1avn5Ok71C5HNyB39jljoBTOTMFpg12lviUkGjlMw3gRje2HicT-F0o&_nc_zt=23&_nc_ht=scontent-sjc6-1.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=6HoOUx0kv1pAgnouInsQRQ&oh=00_AQSm10PI4vsuNBFbSeDdjiKv0G-OsPRQ6NdS0CXd6A6RPw&oe=6AF6BD5B",
-      "price": 10.3,
-      "tags": [
-        "techno",
-        "bounce",
-        "groove"
-      ],
-      "description": "",
-      "public_cible": 0.98,
-      "confiance": 0.95,
-      "buzz": 0.85,
-      "buzz_raison": "Première venue à Nice de Fenrick, veille de jour férié au Frigo 16.",
-      "accroche": "Première venue du DJ belge Fenrick à Nice avec Leanne et Arman Shadow en veille de jour férié.",
-      "instagram": [
-        "laplaturne",
-        "fenrick_",
-        "armanshadow"
-      ],
-      "sources_sites": [
-        "Instagram laplaturne",
-        "Instagram"
-      ],
-      "billetterie_cherchee": true
-    },
-    {
-      "source": "web",
-      "source_site": "Instagram lanonchalance",
-      "name": "La Nonchalance x Twiga Monaco : MALIVE",
-      "start": "2026-11-13T22:59:00.000Z",
-      "venue": "Twiga Monaco",
-      "city": "Monaco",
-      "address": "",
-      "url": "https://www.instagram.com/p/DffISXKKU8E/",
-      "image": "https://scontent-sjc6-1.cdninstagram.com/v/t51.82787-15/890716565_18651922597041727_4845886643609070775_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=102&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=SYspqAFlukcQ7kNvwEAXA-9&_nc_oc=Adp7owxTRJxyA-TcAw0pnyee9tlmdG1V3_8F5x7gLPkqtuIs57vOcSrFHkDB-pIs0dE&_nc_zt=23&_nc_ht=scontent-sjc6-1.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=ZE4f_nj_xgDqYdwUbHk7UA&oh=00_AQTdnkUJ4zE9F-VAriwAhf2R0K_4IcwOaOIXhjA-15mNEA&oe=6AF6CD73",
-      "price": 12,
-      "tags": [
-        "house",
-        "afro house",
-        "melodic house"
-      ],
-      "description": "",
-      "public_cible": 0.85,
-      "confiance": 0.95,
-      "buzz": 0.75,
-      "buzz_raison": "Venue de MALIVE soutenu par Keinemusic au Twiga Monaco un vendredi soir.",
-      "accroche": "Le producteur MALIVE soutenu par Keinemusic prend les commandes du Twiga Monaco.",
-      "instagram": [
-        "lanonchalance"
-      ],
-      "sources_sites": [
-        "Instagram lanonchalance",
-        "Instagram"
-      ],
-      "billetterie_cherchee": true
-    },
-    {
-      "source": "web",
       "source_site": "Instagram sun7riviera",
       "name": "Sun7 Rooftop Le Méridien",
       "start": "2026-11-22T13:00:00.000Z",
@@ -2845,13 +2751,24 @@
       "description": "",
       "public_cible": 0.85,
       "confiance": 0.95,
-      "buzz": 0.6,
+      "buzz": 0.65,
       "buzz_raison": "Day party sur un rooftop réputé de la Promenade des Anglais.",
       "accroche": "Day party house sur le rooftop du Méridien face à la mer avec sunset et dress code bleu et blanc.",
       "instagram": [
         "sun7riviera"
       ],
-      "billetterie_cherchee": true
+      "billetterie_cherchee": true,
+      "offres": [
+        {
+          "plateforme": "shotgun.live",
+          "url": "https://shotgun.live/events/sun-7-rooftop-2",
+          "prix": 11
+        }
+      ],
+      "sources_sites": [
+        "Instagram sun7riviera",
+        "Instagram"
+      ]
     },
     {
       "source": "web",
@@ -3390,31 +3307,6 @@
     },
     {
       "source": "web",
-      "source_site": "Instagram",
-      "name": "Sun7 Rooftop Experience",
-      "start": "2026-11-22T13:00:00.000Z",
-      "venue": "Rooftop Hotel Le Meridien",
-      "city": "Nice",
-      "address": "",
-      "url": "https://shotgun.live/events/sun-7-rooftop-2",
-      "image": "https://scontent-sjc6-1.cdninstagram.com/v/t51.82787-15/888386173_18095445695689296_4243305765591842514_n.webp?stp=dst-jpg_e35_tt6&_nc_cat=111&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=RxEPAjG0LC0Q7kNvwFzo1-u&_nc_oc=AdrElzuLJdr2HySUcap3P0XAXw-bRmNQso4sTOtCXdFKlXCVLMoGmjE3gsLgyhqqowM&_nc_zt=23&_nc_ht=scontent-sjc6-1.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=NudBREMwP_qKSJJSPsyGeQ&oh=00_AQSlxF3dm4tK7tALvRy8kmQlh3iDXiQM3sYIdfcWPBIvnQ&oe=6AF6B610",
-      "price": 11,
-      "tags": [
-        "house"
-      ],
-      "description": "",
-      "public_cible": 0.8,
-      "confiance": 0.95,
-      "buzz": 0.65,
-      "buzz_raison": "Day party sur un rooftop emblematique de Nice avec jauge limitee.",
-      "accroche": "DJ set house face a la mer sur le rooftop du Meridien avec dress code bleu et blanc.",
-      "instagram": [
-        "sun7riviera"
-      ],
-      "billetterie_cherchee": true
-    },
-    {
-      "source": "web",
       "source_site": "instagram.com",
       "via_veille": true,
       "name": "Downtown Veille de Jour Férié : 90s, 00s, 10s",
@@ -3436,31 +3328,6 @@
       "accroche": "DJ set rétro de 23h à 4h avec entrée gratuite pour la veille de jour férié.",
       "instagram": [
         "downtown.nice"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "instagram.com",
-      "via_veille": true,
-      "name": "Before Dub & After Tribe",
-      "start": "2026-11-10T20:00:00.000Z",
-      "venue": "L'Antre",
-      "city": "Nice",
-      "address": "",
-      "url": "https://www.instagram.com/lantretechno/",
-      "image": "https://scontent-atl3-1.cdninstagram.com/v/t51.82787-15/892457097_17938085136407529_6322264578688340881_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=107&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=3B2pgm1YnIgQ7kNvwGr1zQ7&_nc_oc=AdqwQeT75rIBqFyDV2caDVRLmUIfM3jWcjOokRQxV62wq2mJPeS2Zl1XhWn_mGidTfg&_nc_zt=23&_nc_ht=scontent-atl3-1.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=xeoaPoadO0zCWn691USomQ&oh=00_AQTUxQiG6ff4S6NQmo0IHqbGmH3I-6H9F8zH9F7Jh9svAg&oe=6AF7B96B",
-      "price": null,
-      "tags": [
-        "Dub",
-        "Techno",
-        "Tribe"
-      ],
-      "description": "",
-      "public_cible": 0.6,
-      "confiance": 0.9,
-      "accroche": "Veille de jour férié entre dub en before et after techno to tribe jusqu'au matin.",
-      "instagram": [
-        "lantretechno"
       ]
     },
     {
