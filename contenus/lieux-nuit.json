@@ -1397,7 +1397,22 @@
    "insta": null,
    "slug": "brasserie-de-monaco-monaco",
    "score": 0,
-   "soirs": []
+   "soirs": [],
+   "details": {
+    "le": "2026-11-10T19:13:48.783Z",
+    "styles": "Généraliste · Pop · House",
+    "dress_code": "Casual / Smart Casual, tenue correcte exigée",
+    "horaires": "Lun–Dim · 12h–2h",
+    "prix_verre": "bière 5–9 € · cocktail 12–16 €",
+    "entree": "Gratuit",
+    "age_min": "",
+    "sources": [
+     "https://brasseriedemonaco.com/",
+     "https://brasseriedemonaco.com/menu/",
+     "https://www.visitmonaco.com/fr/lieu/bars-et-discotheques/185560/brasserie-de-monaco",
+     "https://www.monaco-tribune.com/"
+    ]
+   }
   },
   {
    "nom": "Slammers",
@@ -1448,7 +1463,22 @@
    "insta": null,
    "slug": "amazonico-monte-carlo-monaco",
    "score": 0,
-   "soirs": []
+   "soirs": [],
+   "details": {
+    "le": "2026-11-10T19:13:48.783Z",
+    "styles": "Jazz latino · Bossa Nova · Elec-tropical · House",
+    "dress_code": "Smart Elegant (sportswear, casquettes, shorts et chaussures ouvertes pour hommes interdits)",
+    "horaires": "Lun, Jeu, Dim 18h–1h · Ven–Sam 18h–2h",
+    "prix_verre": "bière 10–12 € · cocktail 18–29 €",
+    "entree": "Gratuit (consommation obligatoire)",
+    "age_min": "18 ans",
+    "sources": [
+     "https://www.amazonicorestaurant.com/monte-carlo",
+     "https://www.amazonicorestaurant.com/contact/",
+     "https://www.amazonicorestaurant.com/wp-content/uploads/2024/09/Amazonico-Monte-Carlo-Cocktail-Menu.pdf",
+     "https://www.montecarlosbm.com/fr/restaurant-monaco/amazonico-monte-carlo"
+    ]
+   }
   },
   {
    "nom": "Nikki Beach Monte-Carlo",
@@ -1464,7 +1494,22 @@
    "slug": "nikki-beach-monte-carlo-monaco",
    "score": 0,
    "photo": "site/lieux/site-65f904fce2e9-176.webp",
-   "soirs": []
+   "soirs": [],
+   "details": {
+    "le": "2026-11-10T19:13:48.783Z",
+    "styles": "House · Deep House · Tropical House · Lounge",
+    "dress_code": "Beach chic resort wear (vêtements de sport interdits, tenue correcte au restaurant)",
+    "horaires": "Lun–Dim 11h–20h (en saison)",
+    "prix_verre": "bière 12–16 € · cocktail 20–26 €",
+    "entree": "Gratuit (consommation ou réservation obligatoire, minimum spend pour les transats)",
+    "age_min": "18 ans (mineurs accompagnés acceptés au restaurant)",
+    "sources": [
+     "https://monte-carlo.nikkibeach.com/",
+     "https://monte-carlo.nikkibeach.com/reservation-door-policy/",
+     "https://www.fairmont.com/fr/hotels/fairmont-monte-carlo/dining/nikki-beach/",
+     "https://restaurants.accor.com/fr/restaurant-A598_R003-nikki-beach-fairmont-mc-monte-carlo.shtml"
+    ]
+   }
   },
   {
    "nom": "Blue Gin",
@@ -1552,7 +1597,22 @@
    "slug": "le-corner-by-3-tapas-beausoleil",
    "score": 0,
    "photo": "site/lieux/site-3cd653e4b8ea-176.webp",
-   "soirs": []
+   "soirs": [],
+   "details": {
+    "le": "2026-11-10T19:13:48.783Z",
+    "styles": "Musique ibérique · Acoustique · Guitare espagnole",
+    "dress_code": "Décontracté",
+    "horaires": "Mar–Ven 7h–15h · Mar–Ven 17h–21h · Sam–Dim 7h–15h",
+    "prix_verre": "",
+    "entree": "Gratuit",
+    "age_min": "",
+    "sources": [
+     "https://www.bar-tapas-monaco.fr/",
+     "https://www.bar-tapas-monaco.fr/organisation-evenements-beausoleil-monaco/",
+     "https://www.menton-riviera-merveilles.fr/restaurant/le-corner-by-3-tapas-beausoleil-fr-4786358/",
+     "https://www.instagram.com/lecorner.by3tapas/"
+    ]
+   }
   },
   {
    "nom": "Zeits Bar",
@@ -1567,7 +1627,22 @@
    "insta": null,
    "slug": "zeits-bar-beausoleil",
    "score": 0,
-   "soirs": []
+   "soirs": [],
+   "details": {
+    "le": "2026-11-10T19:13:48.783Z",
+    "styles": "",
+    "dress_code": "Tenue décontractée",
+    "horaires": "Lun–Ven 11h–14h, 18h–23h · Sam 18h–23h",
+    "prix_verre": "bière 4–8 € · vin 5–8 € · soft 2,50–4 €",
+    "entree": "Gratuit",
+    "age_min": "",
+    "sources": [
+     "https://zeits-bar.com/",
+     "https://zeits-bar.com/notre-menu/",
+     "https://zeits-bar.com/contact-us/",
+     "https://www.myguidemonaco.com/restaurants/zeits-bar"
+    ]
+   }
   },
   {
    "nom": "Inky Bar",
@@ -1619,7 +1694,22 @@
    "slug": "le-new-pub-menton",
    "score": 0,
    "photo": "site/lieux/site-c8f5f79ed553-176.webp",
-   "soirs": []
+   "soirs": [],
+   "details": {
+    "le": "2026-11-10T19:13:48.783Z",
+    "styles": "Rock · Pop · Variété",
+    "dress_code": "",
+    "horaires": "Mer–Dim · 16h–2h",
+    "prix_verre": "Bière 6 € · Cocktail 8 €",
+    "entree": "Gratuit",
+    "age_min": "",
+    "sources": [
+     "https://www.menton-riviera-merveilles.fr",
+     "https://www.provence-alpes-cotedazur.com",
+     "https://www.privateaser.com/lieu/59343-le-new-pub",
+     "https://www.pagesjaunes.fr"
+    ]
+   }
   },
   {
    "nom": "Les Incompris",

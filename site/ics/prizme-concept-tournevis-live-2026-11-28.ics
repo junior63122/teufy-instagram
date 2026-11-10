@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:prizme-concept-tournevis-live-2026-11-28@teufy
+DTSTAMP:20261110T192249Z
+DTSTART:20261128T210000Z
+DTEND:20261129T020000Z
+SUMMARY:Prizme Concept : TOURNEVIS Live
+LOCATION:Frigo 16 (Le 109)\, Nice
+DESCRIPTION:Session tekno en live set au Frigo 16 avec TOURNEVIS.\nBillets : https://www.instagram.com/reel/DfkZNAZPWT_/\nVia Teufy @teufy_official
+URL:https://www.instagram.com/reel/DfkZNAZPWT_/
+END:VEVENT
+END:VCALENDAR
