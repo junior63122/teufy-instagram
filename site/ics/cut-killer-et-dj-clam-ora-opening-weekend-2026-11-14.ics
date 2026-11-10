@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:cut-killer-et-dj-clam-ora-opening-weekend-2026-11-14@teufy
+DTSTAMP:20261110T103952Z
+DTSTART:20261114T200000Z
+DTEND:20261115T010000Z
+SUMMARY:Cut Killer & DJ Clam — ORA Opening Weekend
+LOCATION:ORA CLUB\, La Valette-du-Var
+DESCRIPTION:La légende du DJing hip-hop Cut Killer enflamme le week-end d'ouverture d'ORA.\nBillets : https://shotgun.live/fr/events/cut-killer-ora\nVia Teufy @teufy_official
+URL:https://shotgun.live/fr/events/cut-killer-ora
+END:VEVENT
+END:VCALENDAR

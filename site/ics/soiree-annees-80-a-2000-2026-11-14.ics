@@ -1,0 +1,14 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:soiree-annees-80-a-2000-2026-11-14@teufy
+DTSTAMP:20261110T103952Z
+DTSTART:20261114T203000Z
+DTEND:20261115T013000Z
+SUMMARY:Soirée Années 80 à 2000
+LOCATION:Chapiteau du Théâtre de la Mer\, Sainte-Maxime
+DESCRIPTION:Fête rétro géante sous chapiteau en bord de mer avec DJ set festif à prix mini.\nVia Teufy @teufy_official
+END:VEVENT
+END:VCALENDAR

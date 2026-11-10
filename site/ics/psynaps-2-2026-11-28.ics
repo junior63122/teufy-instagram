@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:psynaps-2-2026-11-28@teufy
+DTSTAMP:20261110T103952Z
+DTSTART:20261128T180000Z
+DTEND:20261128T230000Z
+SUMMARY:Psynaps-2
+LOCATION:Fort Napoléon\, La Seyne-sur-Mer
+DESCRIPTION:Immersion psychédélique et hypnotic techno au Fort Napoléon à prix tout doux.\nBillets : https://shotgun.live/fr/events/psynaps-2\nVia Teufy @teufy_official
+URL:https://shotgun.live/fr/events/psynaps-2
+END:VEVENT
+END:VCALENDAR

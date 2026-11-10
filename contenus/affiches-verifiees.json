@@ -1409,5 +1409,912 @@
  "og|https://www.bizouk.com/events/details/kokaz-birthay/133526": "https://data-prod.bizouk.com/events/cards/2026/11/133526-174681-1bc39f72-og.jpg",
  "og|https://icisete.fr/evenement/bal-traditionnel-des-balkans-avec-oyna-k-a-sete/": "https://ogstudio.icisete.fr/generated-images/evenement/ici7-social-share-img-110342.jpg",
  "og|https://shotgun.live/en/venues/le-rex-de-toulouse": "",
- "og|https://www.bizouk.com/events/details/kompassion-x-solution-gouyad/133419": "https://thumb.bizouk.com/t/width=1200,height=630,fit=cover/events/images/13/34/19/133419_71248a52618733abd1708f59b0969751.png?v=2"
+ "og|https://www.bizouk.com/events/details/kompassion-x-solution-gouyad/133419": "https://thumb.bizouk.com/t/width=1200,height=630,fit=cover/events/images/13/34/19/133419_71248a52618733abd1708f59b0969751.png?v=2",
+ "v2|fe57be843466": {
+  "ok": true,
+  "le": "2026-11-10T10:23:42.717Z",
+  "nom": "Blue Coast X Club Vivy X La Treille",
+  "lu": {
+   "titre": "IN DOOR CLUB VIVY X La Treille",
+   "dates": [
+    "2026-11-10"
+   ],
+   "artistes": [
+    "Menuu",
+    "Dewi",
+    "Lakozo",
+    "Gianluca"
+   ]
+  },
+  "commun": [
+   "vivy",
+   "treille",
+   "blue",
+   "coast",
+   "brewing"
+  ]
+ },
+ "v2|81e938d64491": {
+  "ok": true,
+  "le": "2026-11-10T10:23:51.155Z",
+  "nom": "Episode 10th X Mamashelter",
+  "lu": {
+   "titre": "EPISODE 10TH",
+   "dates": [
+    "2026-11-10"
+   ],
+   "artistes": []
+  },
+  "commun": [
+   "episode",
+   "10th",
+   "mama",
+   "shelter"
+  ]
+ },
+ "v2|9f9f5d07c4b6": {
+  "ok": false,
+  "le": "2026-11-10T10:24:05.285Z",
+  "nom": "Le Mas d'Hiver : Bringue Anniversaire",
+  "lu": {
+   "titre": "Le Mas d'hiver",
+   "dates": [
+    "2026-11-06",
+    "2026-11-14",
+    "2026-11-27",
+    "2026-11-28",
+    "2026-12-31"
+   ],
+   "artistes": [
+    "YAEL NAIM",
+    "LILLY WOOD AND THE PRICK",
+    "EIFFEL",
+    "CULTURE 80"
+   ]
+  },
+  "commun": [
+   "hiver"
+  ]
+ },
+ "v2|b8b3cd6a533a": {
+  "ok": true,
+  "le": "2026-11-10T10:24:14.063Z",
+  "nom": "La Platurne Invite Fenrick",
+  "lu": {
+   "titre": "FENRICK",
+   "dates": [
+    "2026-11-10"
+   ],
+   "artistes": [
+    "FENRICK",
+    "ARMAN SHADOW",
+    "LEANNE",
+    "LOVI",
+    "LUI"
+   ]
+  },
+  "commun": [
+   "fenrick",
+   "frigo"
+  ]
+ },
+ "v2|dc80a1f19197": {
+  "ok": true,
+  "le": "2026-11-10T10:24:25.545Z",
+  "nom": "Veille de jour férié au Trafalbar",
+  "lu": {
+   "titre": "TRAFALBAR FEVER",
+   "dates": [
+    "2026-11-10",
+    "2026-11-11",
+    "2026-11-12",
+    "2026-11-13",
+    "2026-11-14"
+   ],
+   "artistes": []
+  },
+  "commun": [
+   "trafalbar"
+  ]
+ },
+ "v2|8ed990985abc": {
+  "ok": true,
+  "le": "2026-11-10T10:24:30.139Z",
+  "nom": "Mama x Épisode Culture",
+  "lu": {
+   "titre": "NOVEMBRE",
+   "dates": [],
+   "artistes": []
+  },
+  "commun": []
+ },
+ "v2|2fba329434fa": {
+  "ok": true,
+  "le": "2026-11-10T10:24:40.660Z",
+  "nom": "Dub Coast / Magam & Lyff — Dub",
+  "lu": {
+   "titre": "DUB COAST",
+   "dates": [
+    "2026-11-10"
+   ],
+   "artistes": [
+    "DUB COAST",
+    "MAGAM",
+    "LYFF"
+   ]
+  },
+  "commun": [
+   "coast",
+   "magam",
+   "lyff",
+   "antre"
+  ]
+ },
+ "v2|a4b9c63f0c6e": {
+  "ok": true,
+  "le": "2026-11-10T10:24:46.869Z",
+  "nom": "Inauguration - 21 Lounge",
+  "lu": {
+   "titre": "OPENING Twenty One",
+   "dates": [
+    "2026-11-10"
+   ],
+   "artistes": [
+    "SHAYLAN",
+    "KAZUR",
+    "RISLO",
+    "NABSOUU"
+   ]
+  },
+  "commun": [
+   "suite"
+  ]
+ },
+ "v2|427349180ac4": {
+  "ok": true,
+  "le": "2026-11-10T10:24:52.177Z",
+  "nom": "Ladies Night",
+  "lu": {
+   "titre": "LADIES NIGHT",
+   "dates": [],
+   "artistes": [
+    "DJ KENZO"
+   ]
+  },
+  "commun": [
+   "ladies",
+   "kenzo",
+   "bulldog",
+   "pompei"
+  ]
+ },
+ "v2|ec17bdcf1e7b": {
+  "ok": true,
+  "le": "2026-11-10T10:24:59.594Z",
+  "nom": "Di Liani DJ Set",
+  "lu": {
+   "titre": "Dj Liani dj set",
+   "dates": [
+    "2026-11-10"
+   ],
+   "artistes": [
+    "Dj Liani"
+   ]
+  },
+  "commun": [
+   "liani",
+   "barathym"
+  ]
+ },
+ "og|https://shotgun.live/events/le-classico-with-dj-biberon": "",
+ "v2|2001befa1f0d": {
+  "ok": true,
+  "le": "2026-11-10T10:25:05.567Z",
+  "nom": "Rétro Party",
+  "lu": {
+   "titre": "RETRO PARTY",
+   "dates": [
+    "2026-11-10"
+   ],
+   "artistes": [
+    "NIVAU"
+   ]
+  },
+  "commun": [
+   "retro",
+   "nivau",
+   "down",
+   "town"
+  ]
+ },
+ "v2|187cc0dd84a9": {
+  "ok": false,
+  "le": "2026-11-10T10:25:12.612Z",
+  "nom": "Downtown Veille de Jour Férié : 90s, 00s, 10s",
+  "lu": {
+   "titre": "LA PROGRA",
+   "dates": [
+    "2026-11-10",
+    "2026-11-12",
+    "2026-11-13",
+    "2026-11-14",
+    "2026-11-19",
+    "2026-11-20",
+    "2026-11-21"
+   ],
+   "artistes": []
+  },
+  "commun": []
+ },
+ "og|https://www.instagram.com/p/DffbjleEhUS/": "https://scontent-iad3-2.cdninstagram.com/v/t39.30808-6/897087797_122199672038898678_4306792617703179393_n.jpg?stp=c216.0.648.648a_dst-jpg_e35_s640x640_tt6&_nc_cat=110&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=TtZKWxP-10sQ7kNvwHQoBwL&_nc_oc=AdoHQ5M_6BKb49IkvMgFmsLiHBgQQThSQA1nqRsyCa1i1AU5OSy8Me6odyofuO3Lu1I&_nc_zt=23&_nc_ht=scontent-iad3-2.cdninstagram.com&_nc_gid=7ywpAXgwgF1dynH_qjyOIQ&_nc_ss=7c689&oh=00_AQQckm3NyEIKvV-yo5PlYE2vPGQ8HadQYbmjEhQDnepMdw&oe=6AF8B91C",
+ "v2|4369417f7f0e": {
+  "ok": false,
+  "le": "2026-11-10T10:25:17.546Z",
+  "nom": "Downtown Veille de Jour Férié : 90s, 00s, 10s",
+  "lu": {
+   "titre": "LA PROGRA",
+   "dates": [],
+   "artistes": []
+  },
+  "commun": []
+ },
+ "v2|d7ea18316980": {
+  "ok": true,
+  "le": "2026-11-10T10:25:22.917Z",
+  "nom": "Soirée à L'Opéra — BDE Soins Infirmiers CHU de Nice",
+  "lu": {
+   "titre": "OPERA",
+   "dates": [],
+   "artistes": []
+  },
+  "commun": [
+   "opera"
+  ]
+ },
+ "v2|9d310264ad63": {
+  "ok": true,
+  "le": "2026-11-10T10:25:27.648Z",
+  "nom": "Le High Club invite Le Bal des Licornes (Édition Pink & Strass)",
+  "lu": {
+   "titre": "Le Bal des Licornes",
+   "dates": [],
+   "artistes": []
+  },
+  "commun": [
+   "licornes",
+   "high"
+  ]
+ },
+ "v2|df3b4dd6bb1d": {
+  "ok": true,
+  "le": "2026-11-10T10:25:39.647Z",
+  "nom": "La Jamaïcaine",
+  "lu": {
+   "titre": "LA JAMAÏCAINE",
+   "dates": [
+    "2026-11-10"
+   ],
+   "artistes": [
+    "DJ SEVEN",
+    "DJ BADBERONE"
+   ]
+  },
+  "commun": [
+   "jamaicaine",
+   "seven",
+   "badberone",
+   "boka"
+  ]
+ },
+ "v2|2d587cecb3a7": {
+  "ok": true,
+  "le": "2026-11-10T10:25:49.738Z",
+  "nom": "Crys'Tack — Techno To Tribe",
+  "lu": {
+   "titre": "DJS/ BEFORE & AFTER",
+   "dates": [
+    "2026-11-11"
+   ],
+   "artistes": [
+    "CRYS'TACK"
+   ]
+  },
+  "commun": [
+   "after",
+   "crys",
+   "tack",
+   "antre",
+   "techno"
+  ]
+ },
+ "v2|d7653f92823e": {
+  "ok": true,
+  "le": "2026-11-10T10:25:54.225Z",
+  "nom": "Soweto L'Esprit - 100% Shatta",
+  "lu": {
+   "titre": "100% SHATTA",
+   "dates": [
+    "2026-11-12"
+   ],
+   "artistes": [
+    "DJ MITCH",
+    "DJ Y-WINE"
+   ]
+  },
+  "commun": [
+   "shatta",
+   "mitch",
+   "wine",
+   "boka"
+  ]
+ },
+ "v2|e998f6fc78df": {
+  "ok": true,
+  "le": "2026-11-10T10:26:00.674Z",
+  "nom": "Je Dis Techno (Tous Les Jeudis)",
+  "lu": {
+   "titre": "JE DIS TECHNO",
+   "dates": [],
+   "artistes": []
+  },
+  "commun": [
+   "techno",
+   "antre",
+   "kosma"
+  ]
+ },
+ "v2|981d3848062d": {
+  "ok": true,
+  "le": "2026-11-10T10:26:04.973Z",
+  "nom": "Thursday Session w/ Alex Duff",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": []
+  },
+  "commun": []
+ },
+ "v2|c672d7cc8cc9": {
+  "ok": true,
+  "le": "2026-11-10T10:26:12.248Z",
+  "nom": "The Purge X Naho Club",
+  "lu": {
+   "titre": "THE PURGE",
+   "dates": [
+    "2026-11-12"
+   ],
+   "artistes": [
+    "DJ ØZEN",
+    "DELVIIN LEAK"
+   ]
+  },
+  "commun": [
+   "purge"
+  ]
+ },
+ "v2|4e9ba53662f3": {
+  "ok": true,
+  "le": "2026-11-10T10:26:22.284Z",
+  "nom": "Lost Paradise by Bouillotte Klub",
+  "lu": {
+   "titre": "LOST PARADISE",
+   "dates": [
+    "2026-11-13"
+   ],
+   "artistes": []
+  },
+  "commun": [
+   "lost",
+   "paradise",
+   "fort",
+   "napoleon"
+  ]
+ },
+ "v2|1db152e1b8a2": {
+  "ok": false,
+  "le": "2026-11-10T10:26:29.217Z",
+  "nom": "Nōr — Nights . Oriental . Rhythms",
+  "lu": {
+   "titre": "NŌR",
+   "dates": [],
+   "artistes": [
+    "Maison ALEXIA",
+    "HOBI"
+   ]
+  },
+  "commun": []
+ },
+ "og|https://shotgun.live/fr/events/nor-nights-oriental-rhythms": "",
+ "og|https://www.eventbrite.fr/e/billets-kiss-fly-en-live-pop-fusion-jazz-world-grooves-1196043131": "",
+ "v2|1d387b64fee1": {
+  "ok": true,
+  "le": "2026-11-10T10:26:38.397Z",
+  "nom": "YONA – LQB Session #6",
+  "lu": {
+   "titre": "LQB SESSION #6",
+   "dates": [
+    "2026-11-13"
+   ],
+   "artistes": [
+    "YONA"
+   ]
+  },
+  "commun": [
+   "yona",
+   "frigo"
+  ]
+ },
+ "v2|a27f5b583414": {
+  "ok": true,
+  "le": "2026-11-10T10:26:42.902Z",
+  "nom": "OAI REGGAE PARTY + CRÊTE & MOUSTACHE",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": []
+  },
+  "commun": []
+ },
+ "v2|755ce9799e6e": {
+  "ok": true,
+  "le": "2026-11-10T10:26:56.057Z",
+  "nom": "Søund Køld — Bounce / Hard Groove",
+  "lu": {
+   "titre": "PROG NOVEMBRE - DJS/ BEFORE & AFTER",
+   "dates": [
+    "2026-11-13"
+   ],
+   "artistes": [
+    "SØUND KØLD"
+   ]
+  },
+  "commun": [
+   "before",
+   "antre"
+  ]
+ },
+ "og|https://www.eventbrite.fr/e/billets-riviera-bar-crawl-nice-nightlife-soiree-barathon-a-nicefr-793522169": "",
+ "v2|2ca5cc89702a": {
+  "ok": false,
+  "le": "2026-11-10T10:27:04.135Z",
+  "nom": "Superstition Night",
+  "lu": {
+   "titre": "REVEILLON",
+   "dates": [
+    "2026-12-31"
+   ],
+   "artistes": [
+    "Duo live 2point4",
+    "DJ Jérôme Delplanque"
+   ]
+  },
+  "commun": [
+   "artiste"
+  ]
+ },
+ "og|https://www.lartiste83.com": "",
+ "og|https://www.eventbrite.fr/e/billets-nice-orange-bar-crawl-party-bars-music-nightlife-club-experience-1181883258": "",
+ "v2|391fe59f91e9": {
+  "ok": true,
+  "le": "2026-11-10T10:27:09.930Z",
+  "nom": "Rupture",
+  "lu": {
+   "titre": "RUPTURE",
+   "dates": [
+    "2026-11-13"
+   ],
+   "artistes": [
+    "ENDY",
+    "KSL",
+    "LATE",
+    "MAR1",
+    "MELV1"
+   ]
+  },
+  "commun": [
+   "rupture",
+   "calypso"
+  ]
+ },
+ "v2|41fe496bccea": {
+  "ok": true,
+  "le": "2026-11-10T10:27:14.323Z",
+  "nom": "Jetlag Gang (+ Opening Act)",
+  "lu": {
+   "titre": "JETLAG GANG",
+   "dates": [
+    "2026-11-13"
+   ],
+   "artistes": [
+    "JETLAG GANG"
+   ]
+  },
+  "commun": [
+   "jetlag",
+   "gang",
+   "frigo"
+  ]
+ },
+ "v2|69ad41a68c07": {
+  "ok": true,
+  "le": "2026-11-10T10:27:20.907Z",
+  "nom": "La Wicked – Afroheat Festival",
+  "lu": {
+   "titre": "La Wicked",
+   "dates": [
+    "2026-11-13"
+   ],
+   "artistes": [
+    "DJ MAPOUIA",
+    "DJ BLACK Q",
+    "DJ LIL BIG"
+   ]
+  },
+  "commun": [
+   "wicked",
+   "mapouia",
+   "black",
+   "vice"
+  ]
+ },
+ "v2|46f109720e71": {
+  "ok": false,
+  "le": "2026-11-10T10:27:27.670Z",
+  "nom": "Cicada Rush",
+  "lu": {
+   "titre": "LOST PARADISE",
+   "dates": [
+    "2026-11-13"
+   ],
+   "artistes": []
+  },
+  "commun": []
+ },
+ "og|https://shotgun.live/fr/events/cicada-rush-13-11": "",
+ "og|https://shotgun.live/fr/events/inda-house-13-11-26": "",
+ "v2|dcf98ea1b11b": {
+  "ok": false,
+  "le": "2026-11-10T10:27:30.596Z",
+  "nom": "Maison Rouge - Oma Club",
+  "lu": {
+   "titre": "IN DOOR CLUB VIVY X La Treille",
+   "dates": [
+    "2026-11-10"
+   ],
+   "artistes": [
+    "Menuu",
+    "Dewi",
+    "Lakozo",
+    "Gianluca"
+   ]
+  },
+  "commun": []
+ },
+ "v2|c29d687f1431": {
+  "ok": true,
+  "le": "2026-11-10T10:27:36.384Z",
+  "nom": "Lanonchalance pres. Malive",
+  "lu": {
+   "titre": "MALIVE",
+   "dates": [
+    "2026-11-13"
+   ],
+   "artistes": [
+    "MALIVE",
+    "JORAN"
+   ]
+  },
+  "commun": [
+   "malive",
+   "twiga"
+  ]
+ },
+ "v2|d57fe234d07a": {
+  "ok": true,
+  "le": "2026-11-10T10:27:43.384Z",
+  "nom": "Friday Connection — Chris.A B2b Ugo Puccinelli",
+  "lu": {
+   "titre": "HOUSE MUSIC TEMPLE",
+   "dates": [
+    "2026-11-12"
+   ],
+   "artistes": [
+    "ALEX DUFF"
+   ]
+  },
+  "commun": [
+   "house",
+   "glass"
+  ]
+ },
+ "og|https://www.highclub.fr/event/latin-addict/": "",
+ "v2|9c32b137ea05": {
+  "ok": true,
+  "le": "2026-11-10T10:27:51.518Z",
+  "nom": "Nightly X Dovnrobs (Elva Cannes Takeover)",
+  "lu": {
+   "titre": "Nightly.",
+   "dates": [
+    "2026-11-13"
+   ],
+   "artistes": []
+  },
+  "commun": [
+   "nightly"
+  ]
+ },
+ "v2|b87452c65655": {
+  "ok": true,
+  "le": "2026-11-10T10:28:02.145Z",
+  "nom": "Caribbean Mood",
+  "lu": {
+   "titre": "CARIBBEAN MOOD",
+   "dates": [
+    "2026-11-13"
+   ],
+   "artistes": [
+    "DJ MyGo",
+    "DIRON",
+    "Skyfall"
+   ]
+  },
+  "commun": [
+   "caribbean",
+   "mood",
+   "mygo",
+   "skyfall"
+  ]
+ },
+ "v2|62beb1601dba": {
+  "ok": true,
+  "le": "2026-11-10T10:28:08.720Z",
+  "nom": "Honey Club - Saturday Bee Crazy",
+  "lu": {
+   "titre": "Honey",
+   "dates": [
+    "2026-11-14"
+   ],
+   "artistes": [
+    "SHAYLAN",
+    "GIANNI",
+    "MC MADA"
+   ]
+  },
+  "commun": [
+   "honey"
+  ]
+ },
+ "v2|affed5157898": {
+  "ok": true,
+  "le": "2026-11-10T10:28:22.372Z",
+  "nom": "Pitch One (Trakkass) — Techno To Tribe",
+  "lu": {
+   "titre": "prog / NOVEMBRE DJS/ BEFORE & AFTER",
+   "dates": [
+    "2026-11-14"
+   ],
+   "artistes": [
+    "PITCH ONE TRAKKASS"
+   ]
+  },
+  "commun": [
+   "after",
+   "pitch",
+   "trakkass",
+   "antre",
+   "techno"
+  ]
+ },
+ "v2|4d790bf9f738": {
+  "ok": true,
+  "le": "2026-11-10T10:28:27.921Z",
+  "nom": "Noise Protocol by Kontakt 6Tem",
+  "lu": {
+   "titre": "NOISE PROTOCOL",
+   "dates": [
+    "2026-11-14"
+   ],
+   "artistes": [
+    "ANILOMOGUH",
+    "MENTAL OBSCUR",
+    "COLENO",
+    "LIGHT",
+    "MEADOWWFAIRY",
+    "MELIO"
+   ]
+  },
+  "commun": [
+   "noise",
+   "protocol",
+   "secret"
+  ]
+ },
+ "v2|2de9abdf6e19": {
+  "ok": false,
+  "le": "2026-11-10T10:28:33.385Z",
+  "nom": "Club Bizarre W/ Sensoria @ Blue Coast (November Session)",
+  "lu": {
+   "titre": "IN DOOR",
+   "dates": [
+    "2026-11-10"
+   ],
+   "artistes": [
+    "Menuu",
+    "Dewi",
+    "Lakozo",
+    "Gianluca"
+   ]
+  },
+  "commun": [
+   "blue",
+   "coast",
+   "brewing",
+   "company"
+  ]
+ },
+ "v2|c32fadf27bac": {
+  "ok": true,
+  "le": "2026-11-10T10:28:40.280Z",
+  "nom": "Le Bar Ephémère x Auberge Tao",
+  "lu": {
+   "titre": "NOCHE CALIENTE",
+   "dates": [
+    "2026-11-14"
+   ],
+   "artistes": [
+    "AARON"
+   ]
+  },
+  "commun": [
+   "aaron",
+   "auberge"
+  ]
+ },
+ "v2|8f79353fcf1c": {
+  "ok": true,
+  "le": "2026-11-10T10:28:47.927Z",
+  "nom": "Lilly Wood and The Prick — Festival Mas d'Hiver",
+  "lu": {
+   "titre": "Le Mas d'hiver",
+   "dates": [
+    "2026-11-06",
+    "2026-11-14",
+    "2026-11-27",
+    "2026-11-28",
+    "2026-12-31"
+   ],
+   "artistes": [
+    "YAEL NAIM",
+    "LILLY WOOD AND THE PRICK",
+    "EIFFEL",
+    "CULTURE 80",
+    "NOUVEL AN 27"
+   ]
+  },
+  "commun": [
+   "hiver",
+   "lilly",
+   "wood",
+   "prick"
+  ]
+ },
+ "v2|f477e73d2474": {
+  "ok": true,
+  "le": "2026-11-10T10:28:56.506Z",
+  "nom": "Caravel (+ No2theG, May-Li)",
+  "lu": {
+   "titre": "LQB SESSION #7",
+   "dates": [
+    "2026-11-14"
+   ],
+   "artistes": [
+    "CARAVEL"
+   ]
+  },
+  "commun": [
+   "caravel",
+   "frigo"
+  ]
+ },
+ "og|https://www.cannes.com/fr/agenda/annee-2026/novembre/concert-mjc-picaud.html": "",
+ "og|https://shotgun.live/fr/events/divas-naho-club": "",
+ "v2|2eb7d9158276": {
+  "ok": true,
+  "le": "2026-11-10T10:29:02.016Z",
+  "nom": "Les Bonnes Franquettes Winter Edition",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": []
+  },
+  "commun": []
+ },
+ "og|https://www.eventbrite.fr/e/billets-concert-reggae-percussions-africaines-rasjah-music-1194413450": "",
+ "og|https://shotgun.live/fr/events/cut-killer-ora": "",
+ "v2|9602dee4c28e": {
+  "ok": true,
+  "le": "2026-11-10T10:29:09.555Z",
+  "nom": "Pump Up /02 : Laurent N. / Elena Hunt / C-Tek",
+  "lu": {
+   "titre": "PUMP UP /02",
+   "dates": [
+    "2026-11-14"
+   ],
+   "artistes": [
+    "LAURENT N.",
+    "ELENA HUNT",
+    "C-TEK"
+   ]
+  },
+  "commun": [
+   "pump",
+   "laurent",
+   "elena",
+   "hunt",
+   "antre"
+  ]
+ },
+ "og|https://www.sainte-maxime.com": "https://woody.cloudly.space/app/uploads/saintemaxime/2026/05/thumbs/3788/ratio_2_1/shutterstock-329802389-verdon-x800-web-1920x960.webp",
+ "v2|cd73631a608e": {
+  "ok": true,
+  "le": "2026-11-10T10:29:22.349Z",
+  "nom": "Soirée Années 80 à 2000",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": []
+  },
+  "commun": []
+ },
+ "v2|58ab594da7e0": {
+  "ok": true,
+  "le": "2026-11-10T10:29:29.541Z",
+  "nom": "Yann-S DJ Set",
+  "lu": {
+   "titre": "Dj set",
+   "dates": [
+    "2026-11-14"
+   ],
+   "artistes": [
+    "YANN-S"
+   ]
+  },
+  "commun": [
+   "yann",
+   "barathym"
+  ]
+ },
+ "v2|a8b78213c8b5": {
+  "ok": false,
+  "le": "2026-11-10T10:29:34.280Z",
+  "nom": "La Tocardise 14/11/2026",
+  "lu": {
+   "titre": "1 AN SWITCH",
+   "dates": [],
+   "artistes": [
+    "CRUSHERZ",
+    "DICA",
+    "MANIL",
+    "NØNAME",
+    "PEAKSOU",
+    "ASHLEY"
+   ]
+  },
+  "commun": []
+ },
+ "v2|8b7fb667a5b8": {
+  "ok": true,
+  "le": "2026-11-10T10:29:40.357Z",
+  "nom": "Switch To New Blood",
+  "lu": {
+   "titre": "NEW BLOOD",
+   "dates": [
+    "2026-11-14"
+   ],
+   "artistes": []
+  },
+  "commun": [
+   "blood"
+  ]
+ }
 }

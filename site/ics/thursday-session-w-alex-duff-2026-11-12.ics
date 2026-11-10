@@ -4,12 +4,12 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:thursday-session-w-alex-duff-2026-11-12@teufy
-DTSTAMP:20261110T093004Z
+DTSTAMP:20261110T103952Z
 DTSTART:20261112T225900Z
 DTEND:20261113T035900Z
-SUMMARY:Thursday Session W/ Alex Duff
+SUMMARY:Thursday Session w/ Alex Duff
 LOCATION:Glass Club Cannes\, Cannes
-DESCRIPTION:Session tech house nocturne avec Alex Duff jusqu'à 6h dans le Carré d'Or cannois.\nBillets : https://shotgun.live/events/thursday-session-w-alex-duff\nVia Teufy @teufy_official
-URL:https://shotgun.live/events/thursday-session-w-alex-duff
+DESCRIPTION:Session tech house intimiste avec Alex Duff au Glass Club dans le Carré d'Or.\nBillets : https://shotgun.live/fr/events/thursday-session-w-alex-duff\nVia Teufy @teufy_official
+URL:https://shotgun.live/fr/events/thursday-session-w-alex-duff
 END:VEVENT
 END:VCALENDAR

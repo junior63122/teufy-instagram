@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:pump-up-02-laurent-n-elena-hunt-c-tek-2026-11-14@teufy
+DTSTAMP:20261110T103952Z
+DTSTART:20261114T203000Z
+DTEND:20261115T013000Z
+SUMMARY:Pump Up /02 : Laurent N. / Elena Hunt / C-Tek
+LOCATION:L'Antre Techno\, Nice
+DESCRIPTION:Laurent N. et le crew Technokronic prennent les commandes de L'Antre Techno.\nBillets : https://www.helloasso.com/associations/technokronic/evenements/pump-up-02-laurent-n-elena-hunt-c-tek\nVia Teufy @teufy_official
+URL:https://www.helloasso.com/associations/technokronic/evenements/pump-up-02-laurent-n-elena-hunt-c-tek
+END:VEVENT
+END:VCALENDAR

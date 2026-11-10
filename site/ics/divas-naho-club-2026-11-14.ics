@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:divas-naho-club-2026-11-14@teufy
+DTSTAMP:20261110T103952Z
+DTSTART:20261114T190000Z
+DTEND:20261115T000000Z
+SUMMARY:Divas @ Naho Club
+LOCATION:NAHO Club\, La Garde
+DESCRIPTION:Soirée festive et paillettes avec sushis\, tatouages et stands maquillage.\nBillets : https://shotgun.live/fr/events/divas-naho-club\nVia Teufy @teufy_official
+URL:https://shotgun.live/fr/events/divas-naho-club
+END:VEVENT
+END:VCALENDAR

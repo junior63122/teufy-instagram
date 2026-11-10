@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:what-s-up-nice-2026-12-04@teufy
+DTSTAMP:20261110T103952Z
+DTSTART:20261204T225900Z
+DTEND:20261205T035900Z
+SUMMARY:What's Up Nice
+LOCATION:High Club\, Nice
+DESCRIPTION:Nuit 100% niçoise et tracks house sur le dancefloor principal de la Prom'.\nBillets : https://www.highclub.fr/event/whats-up-nice/\nVia Teufy @teufy_official
+URL:https://www.highclub.fr/event/whats-up-nice/
+END:VEVENT
+END:VCALENDAR

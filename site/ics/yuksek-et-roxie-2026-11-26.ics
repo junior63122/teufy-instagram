@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:yuksek-et-roxie-2026-11-26@teufy
+DTSTAMP:20261110T103952Z
+DTSTART:20261126T193000Z
+DTEND:20261127T003000Z
+SUMMARY:Yuksek & Roxie
+LOCATION:Le Dix-Huit - Adresse d'Expériences\, Nice
+DESCRIPTION:Yuksek et Roxie en DJ set électro et house au Dix-Huit à Nice.\nBillets : https://shotgun.live/events/yuksek-roxie\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/yuksek-roxie
+END:VEVENT
+END:VCALENDAR

@@ -4,12 +4,12 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:lanonchalance-pres-malive-2026-11-13@teufy
-DTSTAMP:20261110T093004Z
+DTSTAMP:20261110T103952Z
 DTSTART:20261113T225900Z
 DTEND:20261114T035900Z
-SUMMARY:Lanonchalance Pres. Malive
+SUMMARY:Lanonchalance pres. Malive
 LOCATION:Twiga Monte Carlo\, Monaco
-DESCRIPTION:Le producteur Malive investit le Twiga pour une nuit afro house et tech house.\nBillets : https://shotgun.live/events/lanonchalance-pres-malive\nVia Teufy @teufy_official
-URL:https://shotgun.live/events/lanonchalance-pres-malive
+DESCRIPTION:Le producteur Malive en DJ set afro house et tech house au Twiga Monte Carlo.\nBillets : https://shotgun.live/fr/events/lanonchalance-pres-malive\nVia Teufy @teufy_official
+URL:https://shotgun.live/fr/events/lanonchalance-pres-malive
 END:VEVENT
 END:VCALENDAR

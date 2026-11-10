@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:durdenhauer-fastlane-1-an-2026-11-21@teufy
+DTSTAMP:20261110T103952Z
+DTSTART:20261121T223000Z
+DTEND:20261122T033000Z
+SUMMARY:Durdenhauer Fastlane 1 An
+LOCATION:Switch Club\, Roquebrune-sur-Argens
+DESCRIPTION:Durdenhauer en fast techno et hard trance pour l'anniversaire du Switch Club.\nBillets : https://shotgun.live/events/durdenhauer-fastlane-1-an-switch-club\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/durdenhauer-fastlane-1-an-switch-club
+END:VEVENT
+END:VCALENDAR

@@ -11,16 +11,29 @@
    "description": "Grand club généraliste de la Promenade des Anglais doté de plusieurs salles avec une programmation EDM, urbaine et des DJ sets internationaux.",
    "soirees": [
     "le-high-club-invite-le-bal-des-licornes-edition-pink-et-stra-2026-11-10",
-    "students-only-chic-2026-11-20"
+    "latin-addict-2026-11-13",
+    "i-m-not-rich-but-i-m-high-2026-11-14",
+    "students-party-high-club-2026-11-20",
+    "good-times-2026-11-21",
+    "coachellito-high-club-friends-et-family-edition-2026-11-27",
+    "to-have-fun-2026-11-28",
+    "what-s-up-nice-2026-12-04",
+    "bad-girls-2026-12-05",
+    "take-control-2026-12-12",
+    "more-than-dream-2026-12-18"
    ],
    "prochaines": [
     {
      "id": "le-high-club-invite-le-bal-des-licornes-edition-pink-et-stra-2026-11-10",
-     "nom": "LE HIGH CLUB INVITE LE BAL DES LICORNES – ÉDITION PINK & STRASS"
+     "nom": "Le High Club invite Le Bal des Licornes (Édition Pink & Strass)"
     },
     {
-     "id": "students-only-chic-2026-11-20",
-     "nom": "Students Only Chic"
+     "id": "latin-addict-2026-11-13",
+     "nom": "Latin Addict"
+    },
+    {
+     "id": "i-m-not-rich-but-i-m-high-2026-11-14",
+     "nom": "I'm Not Rich But I'm High"
     }
    ],
    "insta": {
@@ -30,7 +43,7 @@
     "posts21": 8
    },
    "slug": "high-club-nice",
-   "score": 1.0074074074074075,
+   "score": 1.0574074074074074,
    "photo": "site/lieux/highclubnice-176.webp",
    "details": {
     "le": "2026-11-09T19:59:29.344Z",
@@ -318,16 +331,19 @@
     "alex-duff-into-the-night-2026-11-19",
     "axel-birthday-one-night-only-2026-11-20",
     "sensoria-into-the-frequency-w-nico-v-2026-11-21",
+    "kx-dj-not-so-innocent-2026-11-26",
+    "ugo-puccinelli-pretty-little-sins-2026-11-27",
+    "alex-duff-overdrive-2026-11-28",
     "santa-s-house-party-sud-spicious-x-glass-club-2026-12-21"
    ],
    "prochaines": [
     {
      "id": "thursday-session-w-alex-duff-2026-11-12",
-     "nom": "Thursday Session W/ Alex Duff"
+     "nom": "Thursday Session w/ Alex Duff"
     },
     {
      "id": "friday-connection-chris-a-b2b-ugo-puccinelli-2026-11-13",
-     "nom": "Friday Connection — Chris.A B2B Ugo Puccinelli"
+     "nom": "Friday Connection — Chris.A B2b Ugo Puccinelli"
     },
     {
      "id": "lizzie-et-friends-saturday-house-session-2026-11-14",
@@ -438,8 +454,20 @@
    "instagram": "honeyclub_juan",
    "site": "https://honeyclub.fr",
    "description": "Boîte de nuit axée sur les musiques urbaines avec des sets rap, afrobeat, shatta et électro.",
-   "soirees": [],
-   "prochaines": [],
+   "soirees": [
+    "honey-club-saturday-bee-crazy-2026-11-13",
+    "honey-club-saturday-bee-crazy-2026-11-14"
+   ],
+   "prochaines": [
+    {
+     "id": "honey-club-saturday-bee-crazy-2026-11-13",
+     "nom": "Honey Club - Saturday Bee Crazy"
+    },
+    {
+     "id": "honey-club-saturday-bee-crazy-2026-11-14",
+     "nom": "Honey Club - Saturday Bee Crazy"
+    }
+   ],
    "insta": null,
    "slug": "honey-club-juan-les-pins",
    "score": 0
@@ -634,7 +662,7 @@
     },
     {
      "id": "lanonchalance-pres-malive-2026-11-13",
-     "nom": "Lanonchalance Pres. Malive"
+     "nom": "Lanonchalance pres. Malive"
     }
    ],
    "insta": {
@@ -940,8 +968,27 @@
    "instagram": "",
    "site": "https://www.facebook.com/bokaclubdelmagot",
    "description": "Club historique proposant afterwork, karaoké et soirées clubbing aux rythmes généralistes, urbains et latino.",
-   "soirees": [],
-   "prochaines": [],
+   "soirees": [
+    "la-jamaicaine-2026-11-10",
+    "soweto-l-esprit-100-shatta-2026-11-11",
+    "urban-shatta-2026-11-14",
+    "before-pacific-neon-night-2026-11-21",
+    "zouk-love-toulon-edition-chic-2026-11-28"
+   ],
+   "prochaines": [
+    {
+     "id": "la-jamaicaine-2026-11-10",
+     "nom": "La Jamaïcaine"
+    },
+    {
+     "id": "soweto-l-esprit-100-shatta-2026-11-11",
+     "nom": "Soweto L'Esprit - 100% Shatta"
+    },
+    {
+     "id": "urban-shatta-2026-11-14",
+     "nom": "Urban Shatta"
+    }
+   ],
    "insta": null,
    "slug": "boka-club-del-magot-toulon",
    "score": 0

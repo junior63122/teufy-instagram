@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:noise-protocol-by-kontakt-6tem-2026-11-14@teufy
+DTSTAMP:20261110T103952Z
+DTSTART:20261114T160000Z
+DTEND:20261114T210000Z
+SUMMARY:Noise Protocol by Kontakt 6Tem
+LOCATION:Lieu Secret\, La Valette-du-Var
+DESCRIPTION:Système son 25KW et lives machines pointus en secret location.\nBillets : https://shotgun.live/fr/events/noise-protocol\nVia Teufy @teufy_official
+URL:https://shotgun.live/fr/events/noise-protocol
+END:VEVENT
+END:VCALENDAR

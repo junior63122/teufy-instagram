@@ -1,0 +1,14 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:frankie-and-the-witch-fingers-2026-11-21@teufy
+DTSTAMP:20261110T103952Z
+DTSTART:20261121T193000Z
+DTEND:20261122T003000Z
+SUMMARY:Frankie and the Witch Fingers
+LOCATION:Centre Culturel Tisot\, La Seyne-sur-Mer
+DESCRIPTION:Le rock psychédélique survolté des Californiens de Frankie and the Witch Fingers sur scène.\nVia Teufy @teufy_official
+END:VEVENT
+END:VCALENDAR

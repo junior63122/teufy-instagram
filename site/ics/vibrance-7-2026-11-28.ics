@@ -4,12 +4,12 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:vibrance-7-2026-11-28@teufy
-DTSTAMP:20261110T093005Z
+DTSTAMP:20261110T103952Z
 DTSTART:20261128T200000Z
 DTEND:20261129T010000Z
 SUMMARY:Vibrance #7
 LOCATION:L'Antre Bar Electro\, Nice
-DESCRIPTION:Résidence psychédélique et acid techno avec Alesk\, Trippy Fry et Medhra.\nBillets : https://shotgun.live/events/vibrance-7\nVia Teufy @teufy_official
-URL:https://shotgun.live/events/vibrance-7
+DESCRIPTION:Le collectif Aztera installe sa rave psytrance et acid techno dans le Vieux-Nice.\nBillets : https://shotgun.live/fr/events/vibrance-7\nVia Teufy @teufy_official
+URL:https://shotgun.live/fr/events/vibrance-7
 END:VEVENT
 END:VCALENDAR

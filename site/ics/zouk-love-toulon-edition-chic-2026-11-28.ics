@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:zouk-love-toulon-edition-chic-2026-11-28@teufy
+DTSTAMP:20261110T103952Z
+DTSTART:20261128T224500Z
+DTEND:20261129T034500Z
+SUMMARY:Zouk Love Toulon Edition Chic
+LOCATION:Le Boka Club\, Toulon
+DESCRIPTION:Soirée zouk et kompa animée par DJ Feeling au Boka Club avec invitations gratuites.\nBillets : https://www.bizouk.com/events/details/zouk-love-toulon-edition-chic/132615\nVia Teufy @teufy_official
+URL:https://www.bizouk.com/events/details/zouk-love-toulon-edition-chic/132615
+END:VEVENT
+END:VCALENDAR

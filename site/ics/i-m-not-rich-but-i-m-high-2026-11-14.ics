@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:i-m-not-rich-but-i-m-high-2026-11-14@teufy
+DTSTAMP:20261110T103952Z
+DTSTART:20261114T225900Z
+DTEND:20261115T035900Z
+SUMMARY:I'm Not Rich But I'm High
+LOCATION:High Club\, Nice
+DESCRIPTION:Gros format clubbing du samedi soir face à la mer sur la Prom'.\nBillets : https://www.highclub.fr/event/im-not-rich-but-im-high/\nVia Teufy @teufy_official
+URL:https://www.highclub.fr/event/im-not-rich-but-im-high/
+END:VEVENT
+END:VCALENDAR

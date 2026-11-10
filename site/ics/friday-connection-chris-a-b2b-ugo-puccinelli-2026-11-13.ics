@@ -4,12 +4,12 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:friday-connection-chris-a-b2b-ugo-puccinelli-2026-11-13@teufy
-DTSTAMP:20261110T093004Z
+DTSTAMP:20261110T103952Z
 DTSTART:20261113T225900Z
 DTEND:20261114T035900Z
-SUMMARY:Friday Connection — Chris.A B2B Ugo Puccinelli
+SUMMARY:Friday Connection — Chris.A B2b Ugo Puccinelli
 LOCATION:Glass Club Cannes\, Cannes
-DESCRIPTION:B2B house et indie dance entre Chris.A et Ugo Puccinelli au Glass Club.\nBillets : https://shotgun.live/events/friday-connection-chris-a-b2b-ugo-puccinelli\nVia Teufy @teufy_official
+DESCRIPTION:B2B exclusif entre Chris.A et Ugo Puccinelli au Glass Club Cannes.\nBillets : https://shotgun.live/events/friday-connection-chris-a-b2b-ugo-puccinelli\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/friday-connection-chris-a-b2b-ugo-puccinelli
 END:VEVENT
 END:VCALENDAR

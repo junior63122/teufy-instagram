@@ -4,12 +4,12 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:axel-birthday-one-night-only-2026-11-20@teufy
-DTSTAMP:20261110T093004Z
+DTSTAMP:20261110T103952Z
 DTSTART:20261120T225900Z
 DTEND:20261121T035900Z
 SUMMARY:Axel' Birthday One Night Only
 LOCATION:Glass Club Cannes\, Cannes
-DESCRIPTION:Soirée anniversaire exclusive au Glass Club avec ambiance house et deep house.\nBillets : https://shotgun.live/events/axel-birthday-one-night-only\nVia Teufy @teufy_official
+DESCRIPTION:Nuit exclusive house et afro au Glass Club pour fêter l'anniversaire d'Axel avec conso.\nBillets : https://shotgun.live/events/axel-birthday-one-night-only\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/axel-birthday-one-night-only
 END:VEVENT
 END:VCALENDAR

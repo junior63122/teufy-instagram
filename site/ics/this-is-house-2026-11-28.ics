@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:this-is-house-2026-11-28@teufy
+DTSTAMP:20261110T103952Z
+DTSTART:20261128T190000Z
+DTEND:20261129T000000Z
+SUMMARY:This Is House
+LOCATION:Le Baraza\, Hyères
+DESCRIPTION:Sets vinyles et kicks groovy par Papeguay et Lydia Scarfo au Baraza.\nBillets : https://shotgun.live/fr/events/this-is-house\nVia Teufy @teufy_official
+URL:https://shotgun.live/fr/events/this-is-house
+END:VEVENT
+END:VCALENDAR

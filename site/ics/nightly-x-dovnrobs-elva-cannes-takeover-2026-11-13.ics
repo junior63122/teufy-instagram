@@ -4,12 +4,12 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:nightly-x-dovnrobs-elva-cannes-takeover-2026-11-13@teufy
-DTSTAMP:20261110T093004Z
+DTSTAMP:20261110T103952Z
 DTSTART:20261113T225900Z
 DTEND:20261114T035900Z
 SUMMARY:Nightly X Dovnrobs (Elva Cannes Takeover)
-LOCATION:ELVA Club Cannes\, Cannes
-DESCRIPTION:Takeover du collectif Nightly et de Dovnrobs pour enflammer le club Elva à Cannes.\nBillets : https://shotgun.live/fr/events/nightly-x-dovnrobs-elva-cannes-takover\nVia Teufy @teufy_official
-URL:https://shotgun.live/fr/events/nightly-x-dovnrobs-elva-cannes-takover
+LOCATION:ELVA Club\, Cannes
+DESCRIPTION:Première édition du concept Nightly avec Dovnrobs à l'ELVA Club de Cannes.\nBillets : https://shotgun.live/events/nightly-x-dovnrobs-elva-cannes-takover\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/nightly-x-dovnrobs-elva-cannes-takover
 END:VEVENT
 END:VCALENDAR

@@ -2,11 +2,9 @@
  "mois": "2026-11",
  "jour": "2026-11-10",
  "total": {
-  "gemini": 18,
-  "anthropic": 8
+  "gemini": 72
  },
  "aujourdhui": {
-  "gemini": 18,
-  "anthropic": 8
+  "gemini": 72
  }
 }

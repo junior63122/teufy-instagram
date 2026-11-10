@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:before-pacific-neon-night-2026-11-21@teufy
+DTSTAMP:20261110T103952Z
+DTSTART:20261121T183000Z
+DTEND:20261121T233000Z
+SUMMARY:Before Pacific Neon Night
+LOCATION:Boka Club\, Toulon
+DESCRIPTION:Warm-up officiel Pacific Neon Night avec DJ Man's 987 et le Bringue Tahitian Crew.\nBillets : https://www.bizouk.com/events/details/before-pacific-neon-night/132113\nVia Teufy @teufy_official
+URL:https://www.bizouk.com/events/details/before-pacific-neon-night/132113
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:switch-to-new-blood-2026-11-14@teufy
+DTSTAMP:20261110T103952Z
+DTSTART:20261114T223000Z
+DTEND:20261115T033000Z
+SUMMARY:Switch To New Blood
+LOCATION:Switch Club\, Roquebrune-sur-Argens
+DESCRIPTION:Format warehouse 360° et gros sound-system dédié aux pépites montantes de l'Est-Var.\nBillets : https://shotgun.live/events/switch-to-new-blood\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/switch-to-new-blood
+END:VEVENT
+END:VCALENDAR

@@ -243,5 +243,245 @@
   "lat": 43.55068,
   "lng": 7.01766,
   "le": "2026-11-09T19:15:49.842Z"
+ },
+ "frigo 16 (le 109)|nice": {
+  "lat": 43.7169,
+  "lng": 7.2842,
+  "le": "2026-11-10T10:30:28.474Z",
+  "ia": true
+ },
+ "la suite restaurant festif|cannes": {
+  "lat": 43.5517,
+  "lng": 7.0274,
+  "le": "2026-11-10T10:30:28.474Z",
+  "ia": true
+ },
+ "bulldog pompei|nice": {
+  "lat": 43.6974,
+  "lng": 7.2764,
+  "le": "2026-11-10T10:30:28.474Z",
+  "ia": true
+ },
+ "golf de valgarde|la garde": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-10T10:30:28.474Z",
+  "ia": true
+ },
+ "l'opera club|nice": {
+  "lat": 43.6961,
+  "lng": 7.2725,
+  "le": "2026-11-10T10:30:28.474Z",
+  "ia": true
+ },
+ "boka club|toulon": {
+  "lat": 43.1235,
+  "lng": 5.9332,
+  "le": "2026-11-10T10:30:28.474Z",
+  "ia": true
+ },
+ "l'antre (before 22h) & le kosma (full night 00h)|nice": {
+  "lat": 43.7003,
+  "lng": 7.2721,
+  "le": "2026-11-10T10:30:28.474Z",
+  "ia": true
+ },
+ "naho club|la garde": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-10T10:30:28.474Z",
+  "ia": true
+ },
+ "fort napoleon|la seyne-sur-mer": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-10T10:30:28.474Z",
+  "ia": true
+ },
+ "le quartier du poulpe|nice": {
+  "lat": 43.6989,
+  "lng": 7.2798,
+  "le": "2026-11-10T10:30:28.474Z",
+  "ia": true
+ },
+ "le live - zenith de toulon|toulon": {
+  "lat": 43.1294,
+  "lng": 5.9304,
+  "le": "2026-11-10T10:30:28.474Z",
+  "ia": true
+ },
+ "villa saint-exupery beach|nice": {
+  "lat": 43.6991,
+  "lng": 7.2706,
+  "le": "2026-11-10T10:30:28.474Z",
+  "ia": true
+ },
+ "l'artiste 83|roquebrune-sur-argens": {
+  "lat": 43.4472,
+  "lng": 6.6415,
+  "le": "2026-11-10T10:30:28.474Z",
+  "ia": true
+ },
+ "bar la chapa|nice": {
+  "lat": 43.6985,
+  "lng": 7.2789,
+  "le": "2026-11-10T10:30:28.474Z",
+  "ia": true
+ },
+ "le calypso|frejus": {
+  "lat": 43.4318,
+  "lng": 6.7454,
+  "le": "2026-11-10T10:30:28.474Z",
+  "ia": true
+ },
+ "cicada|la garde": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-10T10:30:28.474Z",
+  "ia": true
+ },
+ "inda house|carqueiranne": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-10T10:30:28.474Z",
+  "ia": true
+ },
+ "elva club|cannes": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-10T10:30:28.474Z",
+  "ia": true
+ },
+ "skyfall|cannes": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-10T10:30:28.474Z",
+  "ia": true
+ },
+ "honey club|juan-les-pins": {
+  "lat": 43.5683,
+  "lng": 7.1163,
+  "le": "2026-11-10T10:30:28.474Z",
+  "ia": true
+ },
+ "lieu secret|la valette-du-var": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-10T10:30:28.474Z",
+  "ia": true
+ },
+ "auberge tao|biot": {
+  "lat": 43.6268,
+  "lng": 7.0987,
+  "le": "2026-11-10T10:30:28.474Z",
+  "ia": true
+ },
+ "ora club|la valette-du-var": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-10T10:30:28.474Z",
+  "ia": true
+ },
+ "l'antre techno|nice": {
+  "lat": 43.7003,
+  "lng": 7.2721,
+  "le": "2026-11-10T10:30:28.474Z",
+  "ia": true
+ },
+ "chapiteau du theatre de la mer|sainte-maxime": {
+  "lat": 43.3056,
+  "lng": 6.6385,
+  "le": "2026-11-10T10:30:28.474Z",
+  "ia": true
+ },
+ "opera garnier monte-carlo|monaco": {
+  "lat": 43.7388,
+  "lng": 7.4282,
+  "le": "2026-11-10T10:30:28.474Z",
+  "ia": true
+ },
+ "zitto speakeasy|nice": {
+  "lat": 43.6983,
+  "lng": 7.2769,
+  "le": "2026-11-10T10:30:28.474Z",
+  "ia": true
+ },
+ "le servan|valbonne": {
+  "lat": 43.6417,
+  "lng": 7.0094,
+  "le": "2026-11-10T10:30:28.474Z",
+  "ia": true
+ },
+ "centre culturel tisot|la seyne-sur-mer": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-10T10:30:28.474Z",
+  "ia": true
+ },
+ "le glam|nice": {
+  "lat": 43.7009,
+  "lng": 7.2747,
+  "le": "2026-11-10T10:30:28.474Z",
+  "ia": true
+ },
+ "frigo 16 / le 109|nice": {
+  "lat": 43.7169,
+  "lng": 7.2842,
+  "le": "2026-11-10T10:30:28.474Z",
+  "ia": true
+ },
+ "le baraza|hyeres": {
+  "lat": 43.0883,
+  "lng": 6.1437,
+  "le": "2026-11-10T10:30:28.474Z",
+  "ia": true
+ },
+ "le live|toulon": {
+  "lat": 43.1294,
+  "lng": 5.9304,
+  "le": "2026-11-10T10:30:28.474Z",
+  "ia": true
+ },
+ "le boka club|toulon": {
+  "lat": 43.1235,
+  "lng": 5.9332,
+  "le": "2026-11-10T10:30:28.474Z",
+  "ia": true
+ },
+ "le factory club|la farlede": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-10T10:30:28.474Z",
+  "ia": true
+ },
+ "mjc picaud / la tangente|cannes": {
+  "lat": 43.5518,
+  "lng": 7.0003,
+  "le": "2026-11-10T10:30:28.474Z",
+  "ia": true
+ },
+ "espaces 245 sophia antipolis|valbonne": {
+  "lat": 43.6225,
+  "lng": 7.0504,
+  "le": "2026-11-10T10:30:28.474Z",
+  "ia": true
+ },
+ "place jean camille formige|frejus": {
+  "lat": 43.4331,
+  "lng": 6.7369,
+  "le": "2026-11-10T10:30:28.474Z",
+  "ia": true
+ },
+ "stockfish|nice": {
+  "lat": 43.7099,
+  "lng": 7.2797,
+  "le": "2026-11-10T10:30:28.474Z",
+  "ia": true
+ },
+ "theatre denis|hyeres": {
+  "lat": 43.1207,
+  "lng": 6.1287,
+  "le": "2026-11-10T10:30:28.474Z",
+  "ia": true
  }
 }

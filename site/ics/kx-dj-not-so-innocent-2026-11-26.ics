@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:kx-dj-not-so-innocent-2026-11-26@teufy
+DTSTAMP:20261110T103952Z
+DTSTART:20261126T225900Z
+DTEND:20261127T035900Z
+SUMMARY:Kx Dj / Not So Innocent
+LOCATION:Glass Club Cannes\, Cannes
+DESCRIPTION:Set afro house et deep house rythmé par KX DJ au Glass Club Cannes.\nBillets : https://shotgun.live/fr/venues/glass-club-cannes\nVia Teufy @teufy_official
+URL:https://shotgun.live/fr/venues/glass-club-cannes
+END:VEVENT
+END:VCALENDAR

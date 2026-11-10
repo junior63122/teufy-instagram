@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:the-spitters-the-supreme-night-club-grenade-second-major-2026-11-14@teufy
+DTSTAMP:20261110T103952Z
+DTSTART:20261114T190000Z
+DTEND:20261115T000000Z
+SUMMARY:The Spitters + The Supreme Night Club + Grenade + Second Major
+LOCATION:MJC Picaud / Studio 13\, Cannes
+DESCRIPTION:Quatre groupes punk rock et garage réunis sur la scène de la MJC Picaud pour 10 euros.\nBillets : https://www.cannes.com/fr/agenda/annee-2026/novembre/concert-mjc-picaud.html\nVia Teufy @teufy_official
+URL:https://www.cannes.com/fr/agenda/annee-2026/novembre/concert-mjc-picaud.html
+END:VEVENT
+END:VCALENDAR

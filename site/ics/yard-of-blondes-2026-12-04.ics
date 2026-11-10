@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:yard-of-blondes-2026-12-04@teufy
+DTSTAMP:20261110T103952Z
+DTSTART:20261204T200000Z
+DTEND:20261205T010000Z
+SUMMARY:Yard of Blondes
+LOCATION:MJC Picaud / La Tangente\, Cannes
+DESCRIPTION:Concert grunge et post-rock énergique en entrée libre à La Tangente.\nBillets : https://www.cannes.com/fr/agenda/annee-2026/decembre/yard-of-blondes.html\nVia Teufy @teufy_official
+URL:https://www.cannes.com/fr/agenda/annee-2026/decembre/yard-of-blondes.html
+END:VEVENT
+END:VCALENDAR

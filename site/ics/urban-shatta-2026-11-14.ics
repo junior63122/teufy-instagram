@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:urban-shatta-2026-11-14@teufy
+DTSTAMP:20261110T103952Z
+DTSTART:20261114T223000Z
+DTEND:20261115T033000Z
+SUMMARY:Urban Shatta
+LOCATION:Boka Club\, Toulon
+DESCRIPTION:DJ Badberone et guest DJ Flextouch pour une nuit Urban Shatta au Boka Club.\nBillets : https://www.instagram.com/p/DfQMxUHuLMu/\nVia Teufy @teufy_official
+URL:https://www.instagram.com/p/DfQMxUHuLMu/
+END:VEVENT
+END:VCALENDAR

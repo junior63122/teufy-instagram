@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:fusion-at-inda-house-by-alban-dwz-et-matteis-2026-11-14@teufy
+DTSTAMP:20261110T103952Z
+DTSTART:20261114T223000Z
+DTEND:20261115T033000Z
+SUMMARY:Fusion at Inda House by Alban Dwz & Matteis
+LOCATION:INDA House\, Carqueiranne
+DESCRIPTION:Le duo Alban Dwz & Matteis prend le contrôle du nouveau repaire house varois.\nBillets : https://shotgun.live/fr/events/fusion-at-inda-house-by-alban-dwz-matteis\nVia Teufy @teufy_official
+URL:https://shotgun.live/fr/events/fusion-at-inda-house-by-alban-dwz-matteis
+END:VEVENT
+END:VCALENDAR
