@@ -174,5 +174,16 @@
   "resume": "La Ville de Cannes a dévoilé le programme de la 39e édition des Rencontres Cinématographiques de Cannes, prévue du 16 au 22 novembre 2026. L'événement propose 27 avant-premières avec des pass et masterclasses accessibles aux lycéens et étudiants.",
   "source": "https://www.cannes.com",
   "importance": 52
+ },
+ {
+  "id": "idee-14bmn80",
+  "ajout": "2026-11-10T15:19:39.524Z",
+  "type": "annonce",
+  "format": "post-annonce",
+  "titre": "Mungo’s Hi Fi et Red Echoes annoncés au Frigo 16 à Nice",
+  "angle": "Une session dub sound system grand format à Nice avec un dispositif de navettes gratuites pour rentrer facilement.",
+  "resume": "Panda Events et Le 109 ouvrent la billetterie pour la venue de la référence britannique Mungo’s Hi Fi le samedi 12 décembre 2026 au Frigo 16. La soirée sound system s'accompagnera de Red Echoes Sound System et de navettes gratuites vers le centre-ville.",
+  "source": "https://www.panda-events.com",
+  "importance": 68
  }
 ]

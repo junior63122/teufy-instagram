@@ -3723,7 +3723,8 @@
         "Fnac Spectacles / Le 109",
         "InfoConcert / Panda Events",
         "Weezevent / Shotgun / Panda Events",
-        "Le 109 / Ville de Nice"
+        "Le 109 / Ville de Nice",
+        "panda-events.com"
       ],
       "offres": [
         {
@@ -3736,7 +3737,8 @@
           "url": "https://le109.nice.fr/agenda",
           "prix": 18.5
         }
-      ]
+      ],
+      "via_veille": true
     },
     {
       "source": "web",
