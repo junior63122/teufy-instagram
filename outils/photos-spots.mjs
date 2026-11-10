@@ -54,7 +54,7 @@ async function enregistrer(info, f) {
   spawnSync('ffmpeg', ['-v', 'error', '-y', '-i', `${f}.src`, '-vf', "scale='min(1200,iw)':-2", '-q:v', '3', f]);
   spawnSync('rm', ['-f', `${f}.src`]);
   if (!existsSync(f)) return null;
-  for (const l of [480, 800]) spawnSync('ffmpeg', ['-v', 'error', '-y', '-i', f, '-vf', `scale='min(${l},iw)':-2`, '-c:v', 'libwebp', '-quality', '78', f.replace(/\.jpg$/, `-${l}.webp`)]);
+  for (const l of [480, 800, 1200]) spawnSync('ffmpeg', ['-v', 'error', '-y', '-i', f, '-vf', `scale='min(${l},iw)':-2`, '-c:v', 'libwebp', '-quality', '78', f.replace(/\.jpg$/, `-${l}.webp`)]);
   return { fichier: path.relative(ROOT, f), auteur: texte(m.Artist?.value).slice(0, 80) || 'Auteur inconnu', licence: texte(m.LicenseShortName?.value), licence_url: texte(m.LicenseUrl?.value), source: info.descriptionurl };
 }
 const VILLES_PHOTOS = ['Nice', 'Cannes', 'Monaco', 'Antibes', 'Juan-les-Pins', 'Menton', 'Cagnes-sur-Mer', 'Saint-Laurent-du-Var', 'Villefranche-sur-Mer', 'Grasse', 'Vallauris',

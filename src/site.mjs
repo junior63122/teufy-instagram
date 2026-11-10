@@ -846,7 +846,7 @@ function carte(s, { t, base, lang, vedette = false }) {
   // Format unique 4:5 pour des rangées nettes : l'affiche entière (jamais rognée) sur un fond flouté d'elle-même.
   const petite = s.affiche ? `${base}${s.affiche.replace(/\.jpg$/, '-480.webp')}` : '';
   const img = s.affiche
-    ? `${existsSync(path.join(ROOT, s.affiche.replace(/\.jpg$/, '-480.webp'))) ? `<img class="fond-flou" src="${petite}" alt="" aria-hidden="true" loading="lazy" decoding="async">` : ''}${image(base, s.affiche, { alt: t.affiche + s.nom, sizes: TAILLES.carte, attrs: `class="principale${s.dims && s.dims[0] < 560 ? ' petite' : ''}" loading="lazy" decoding="async"${s.dims ? ` width="${s.dims[0]}" height="${s.dims[1]}"` : ''}` })}`
+    ? `${existsSync(path.join(ROOT, s.affiche.replace(/\.jpg$/, '-480.webp'))) ? `<img class="fond-flou" src="${petite}" alt="" aria-hidden="true" loading="lazy" decoding="async">` : ''}${image(base, s.affiche, { alt: t.affiche + s.nom, sizes: TAILLES.carte, attrs: `class="principale${s.dims && s.dims[0] < 560 ? ' petite' : ''}"${s.dims && s.dims[0] < 560 ? ` style="max-width:${s.dims[0]}px"` : ''} loading="lazy" decoding="async"${s.dims ? ` width="${s.dims[0]}" height="${s.dims[1]}"` : ''}` })}`
     : vignette(s, base);
   const acces = accesDe(s);
   const promo = promoDe(s);
@@ -902,7 +902,7 @@ function vignette(s, base = '') {
   const [a, b] = [teintes[n % 6], teintes[(Math.floor(n / 7) % 5 + 1 + n % 6) % 6]];
   const ph = photoDuLieu(s) || PHOTOS_COMPTES.get(String(s.instagram || '').toLowerCase()) || '';
   const pv = photoVille(s.ville) || photoVille(s.filtreVille);
-  return `<span class="vignette${ph ? ' avec-lieu' : ''}${pv ? ' avec-ville' : ''}" style="--a:rgb(${a.join(',')});--b:rgb(${b.join(',')})" aria-hidden="true">${pv ? `<img class="vignette-ville" src="${base}${esc(pv.fichier.replace(/\.jpg$/, '-800.webp'))}" srcset="${base}${esc(pv.fichier.replace(/\.jpg$/, '-480.webp'))} 480w, ${base}${esc(pv.fichier.replace(/\.jpg$/, '-800.webp'))} 800w" sizes="(min-width:980px) 640px, 150vw" alt="" width="800" height="533" loading="lazy" decoding="async">` : ''}${ph ? `<img class="vignette-lieu" src="${base}${esc(ph)}" alt="" width="176" height="176" loading="lazy" decoding="async">` : ''}<small>${esc((s.genres || '').split(' · ')[0] || 'Soirée')}</small><b>${esc(s.lieu || s.ville || s.nom)}</b><i>${esc(s.lieu ? s.ville : '')}</i></span>`;
+  return `<span class="vignette${ph ? ' avec-lieu' : ''}${pv ? ' avec-ville' : ''}" style="--a:rgb(${a.join(',')});--b:rgb(${b.join(',')})" aria-hidden="true">${pv ? `<img class="vignette-ville" src="${base}${esc(pv.fichier.replace(/\.jpg$/, '-800.webp'))}" srcset="${base}${esc(pv.fichier.replace(/\.jpg$/, '-480.webp'))} 480w, ${base}${esc(pv.fichier.replace(/\.jpg$/, '-800.webp'))} 800w${grandeVille(pv.fichier) ? `, ${base}${esc(grandeVille(pv.fichier))} 1200w` : ''}" sizes="(min-width:980px) 1000px, 150vw" alt="" width="800" height="533" loading="lazy" decoding="async">` : ''}${ph ? `<img class="vignette-lieu" src="${base}${esc(ph)}" alt="" width="176" height="176" loading="lazy" decoding="async">` : ''}<small>${esc((s.genres || '').split(' · ')[0] || 'Soirée')}</small><b>${esc(s.lieu || s.ville || s.nom)}</b><i>${esc(s.lieu ? s.ville : '')}</i></span>`;
 }
 
 const boutonBillets = (s, t) => (s.url
@@ -1149,9 +1149,11 @@ let DETAILS_LIEUX = new Map();
 const normLieu = (x) => sansAccent(String(x || '')).replace(/\b(le|la|les|l|club|bar|the)\b/g, '').replace(/[^a-z0-9]/g, '');
 const detailsDuLieu = (s) => DETAILS_LIEUX.get(normLieu(s.lieu)) || null;
 // Version affichable d'une image (affiche, actu, post, photo) : la WebP la plus adaptée qui existe.
+// Photo de ville en 1200 px (grands écrans) quand l'original est assez grand : sinon floue sur ordinateur.
+const grandeVille = (rel) => { const f = path.join(ROOT, rel); if (!existsSync(f) || (tailleJpeg(f)?.[0] || 0) < 1100) return null; const w = webp(f, 1200); return w ? path.relative(ROOT, w) : null; };
 const visuelHero = (rel) => [800, 480, 400, 600].map((l) => rel.replace(/\.(jpe?g|png)$/i, `-${l}.webp`)).find((f) => f !== rel && existsSync(path.join(ROOT, f))) || rel;
 const collage = (base, k, logos = null, images = null) => {
-  const imgs = (images || []).filter(Boolean).filter((a) => { const f = visuelHero(a); return !/\.webp$/.test(f) || largeurWebp(path.join(ROOT, f)) >= 480; }).slice(0, 3); // jamais d'image trop petite (floue)
+  const imgs = (images || []).filter(Boolean).filter((a) => { const f = visuelHero(a); const d = /\.jpe?g$/i.test(a) ? tailleJpeg(path.join(ROOT, a)) : null; return (!d || d[1] / d[0] >= 0.7) && (!/\.webp$/.test(f) || largeurWebp(path.join(ROOT, f)) >= 480); }).slice(0, 3); // jamais d'image trop petite (floue)
   if (imgs.length === 3) return `<div class="collage" aria-hidden="true">${imgs.map((a, i) => `<img src="${base}${esc(visuelHero(a))}" alt="" width="400" height="500" loading="lazy" style="--i:${i}">`).join('')}</div>`;
   if (logos) return `<div class="collage logos-collage" aria-hidden="true">${logos.slice(0, 12).map((f, i) => `<img src="${base}${esc(f)}" alt="" width="160" height="160" loading="lazy" style="--i:${i}">`).join('')}</div>`;
   const l = AFFICHES_COLLAGE.length ? [0, 1, 2].map((i) => AFFICHES_COLLAGE[(k * 3 + i) % AFFICHES_COLLAGE.length]) : [];

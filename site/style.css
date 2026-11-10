@@ -1061,3 +1061,16 @@ html.en-route::before{content:"";position:fixed;inset:0 auto auto 0;height:3px;w
 .sommaire-legal li{margin:4px 0;break-inside:avoid}
 .sommaire-legal a{color:var(--creme)}
 .article h2[id]{scroll-margin-top:110px}
+/* « Ce soir » sur ordinateur : grille lisible d'un coup d'œil (4 colonnes, 8 cartes puis « Voir les autres »),
+   le carrousel reste sur mobile et tablette. */
+.voir-tout-soir{display:none}
+@media(min-width:1100px){
+  #ce-soir .rangee{grid-auto-flow:row;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-columns:unset;overflow:visible;scroll-snap-type:none;-webkit-mask-image:none!important;mask-image:none!important;padding-bottom:0}
+  #ce-soir .rangee:not(.tout)>.carte:nth-child(n+9){display:none}
+  #ce-soir .groupe-soir>.fleche{display:none!important}
+  #ce-soir .voir-tout-soir{display:block;margin:22px auto 0;font:inherit;font-weight:800;cursor:pointer;border:0}
+  #ce-soir .rangee .carte .accroche{-webkit-line-clamp:2}
+}
+.rangee .carte .affiche.entiere img.principale.petite{object-fit:scale-down!important} /* petite affiche : jamais agrandie */
+@media(max-width:979px){.liste .affiche img.principale.petite,.grille .affiche img.principale.petite{margin:0 auto;display:block}} /* petite affiche source : à sa vraie taille sur son fond flouté, jamais agrandie */
+.affiche img.principale.petite{margin:auto!important;max-height:100%}

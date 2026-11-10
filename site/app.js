@@ -69,6 +69,14 @@
         rangee.append(k);
       }
       g.hidden = false;
+      // Ordinateur : grille de 8 cartes (2 rangées) puis « Voir les N autres » (style.css) ; mobile : carrousel.
+      if (liste.length > 8) {
+        const b = document.createElement('button'); b.type = 'button'; b.className = 'bouton contour voir-tout-soir';
+        const fr = document.documentElement.lang === 'fr';
+        b.textContent = fr ? `Voir les ${liste.length - 8} autres soirées` : `+ ${liste.length - 8}`;
+        b.addEventListener('click', () => { rangee.classList.add('tout'); b.remove(); });
+        g.append(b);
+      }
     }
     // Étiquette du bloc : « En direct » seulement s'il y a vraiment des soirées en cours.
     const et = ceSoir.querySelector('.tete .etiquette');
