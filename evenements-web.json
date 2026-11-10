@@ -2286,10 +2286,12 @@
         "Shotgun",
         "Shotgun.live",
         "Shotgun / Panda Events",
-        "shotgun.live"
+        "shotgun.live",
+        "webtimemedias.com"
       ],
       "billetterie_cherchee": true,
-      "offres_cherchees": true
+      "offres_cherchees": true,
+      "via_veille": true
     },
     {
       "source": "web",
@@ -6194,6 +6196,31 @@
       "confiance": 0.9,
       "accroche": "Projection d'ouverture du film Un bon petit soldat de Stéphane Brizé.",
       "instagram": []
+    },
+    {
+      "source": "web",
+      "source_site": "webtimemedias.com",
+      "via_veille": true,
+      "name": "LQB Session #7 : Caravel",
+      "start": "2026-11-14T22:00:00.000Z",
+      "venue": "Frigo 16",
+      "city": "Nice",
+      "address": "",
+      "url": "https://panda-events.com",
+      "image": "",
+      "price": null,
+      "tags": [
+        "Hard Techno",
+        "Techno"
+      ],
+      "description": "",
+      "public_cible": 0.6,
+      "confiance": 0.9,
+      "accroche": "La tornade hard techno Caravel débarque au Frigo 16 pour une session survoltée.",
+      "instagram": [
+        "pandaevents06",
+        "frigo.16"
+      ]
     }
   ]
 }

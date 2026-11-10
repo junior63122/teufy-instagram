@@ -222,5 +222,22 @@
    "D'autres annonces majeures complèteront la grille complète des soirées dans les semaines à venir."
   ],
   "ville": "France"
+ },
+ {
+  "cle": "2026-11|caravel et paul seul annoncés au frigo 16 à nice",
+  "date": "2026-11-10T10:00:00+01:00",
+  "ajout": "2026-11-10T18:41:44.253Z",
+  "type": "annonce",
+  "importance": 68,
+  "source": "https://www.webtimemedias.com/article/panda-events-fait-vibrer-le-frigo-16-avec-ses-rendez-vous-electroniques-de-fin-dannee",
+  "image": "",
+  "titre": "Caravel et Paul Seul programmés au Frigo 16 à Nice en novembre",
+  "chapo": "Panda Events renforce sa programmation électronique de fin d'année au tiers-lieu Le 109 avec l'accueil successif de Caravel et de Paul Seul.",
+  "paragraphes": [
+   "Le Frigo 16, salle de musiques actuelles installée au sein du 109 à Nice, confirme son rôle central dans la nuit azuréenne. L'organisateur Panda Events vient d'annoncer les détails de ses prochaines dates phares du mois de novembre.",
+   "Dès le samedi 14 novembre, le public pourra retrouver la DJ et productrice Caravel pour la soirée LQB Session #7, encadrée par No2theg et May-li. Passée par Boiler Room et les plus grands festivals internationaux, elle fait figure de référence de la hard techno actuelle. Ce même week-end, les 13 et 14 novembre, le collectif Sororo-Club proposera des ateliers de mix et de production musicale dédiés aux personnes FLINTA.",
+   "La dynamique se poursuivra le vendredi 20 novembre avec un format Crossover Club invitant Paul Seul. Le cofondateur du collectif Casual Gabberz et membre du duo Ascendant Vierge apportera son univers hybride mêlant gabber, rave et eurodance, complétant un agenda automnal dense pour les fêtards de la Côte d'Azur."
+  ],
+  "ville": "Nice"
  }
 ]
