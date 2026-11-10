@@ -1,0 +1,401 @@
+{
+ "Nice": {
+  "fichier": "site/img/villes/nice.jpg",
+  "auteur": "piet theisohn from Leverkusen, Germany",
+  "licence": "CC BY 2.0",
+  "licence_url": "https://creativecommons.org/licenses/by/2.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Promenade_des_Anglais_(22261311858).jpg"
+ },
+ "Cannes": {
+  "fichier": "site/img/villes/cannes.jpg",
+  "auteur": "Christophe.Finot",
+  "licence": "CC BY-SA 2.5",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/2.5",
+  "source": "https://commons.wikimedia.org/wiki/File:Cannes_-_port_et_croisette.jpg"
+ },
+ "Monaco": {
+  "fichier": "site/img/villes/monaco.jpg",
+  "auteur": "Tobi 87",
+  "licence": "CC BY-SA 3.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Panorama_von_Monaco-La_Turbie.jpg"
+ },
+ "Antibes": {
+  "fichier": "site/img/villes/antibes.jpg",
+  "auteur": "Franck Michel from Antibes, France",
+  "licence": "CC BY 2.0",
+  "licence_url": "https://creativecommons.org/licenses/by/2.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Antibes_in_winter_(16352944512).jpg"
+ },
+ "Juan-les-Pins": {
+  "fichier": "site/img/villes/juan-les-pins.jpg",
+  "auteur": "Ameilland",
+  "licence": "CC BY-SA 3.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "source": "https://commons.wikimedia.org/wiki/File:JuanLesPinsDepuisLeCap.jpg"
+ },
+ "Menton": {
+  "fichier": "site/img/villes/menton.jpg",
+  "auteur": "Tobi 87",
+  "licence": "CC BY-SA 3.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Menton-C%C3%B4te_d%27Azur.jpg"
+ },
+ "Cagnes-sur-Mer": {
+  "fichier": "site/img/villes/cagnes-sur-mer.jpg",
+  "auteur": "Olivier Cleynen",
+  "licence": "CC BY 4.0",
+  "licence_url": "https://creativecommons.org/licenses/by/4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Le_Haut-de-Cagnes_01.jpg"
+ },
+ "Saint-Laurent-du-Var": {
+  "fichier": "site/img/villes/saint-laurent-du-var.jpg",
+  "auteur": "HenrikKbh",
+  "licence": "CC BY-SA 3.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Saint_Laurent_du_Var_Hotel_de_Ville.JPG"
+ },
+ "Villefranche-sur-Mer": {
+  "fichier": "site/img/villes/villefranche-sur-mer.jpg",
+  "auteur": "Tom Corser",
+  "licence": "CC BY-SA 2.0 uk",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/2.0/uk/deed.en",
+  "source": "https://commons.wikimedia.org/wiki/File:Villefranche-sur-Mer.jpg"
+ },
+ "Grasse": {
+  "fichier": "site/img/villes/grasse.jpg",
+  "auteur": "Lylambda",
+  "licence": "CC BY-SA 4.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Vue_de_Grasse.jpg"
+ },
+ "Vallauris": {
+  "fichier": "site/img/villes/vallauris.jpg",
+  "auteur": "Dacoucou",
+  "licence": "CC BY-SA 3.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Picasso_Vallauris.JPG"
+ },
+ "Mandelieu-la-Napoule": {
+  "fichier": "site/img/villes/mandelieu-la-napoule.jpg",
+  "auteur": "Drov06210",
+  "licence": "CC BY-SA 4.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Mandelieu-La_Napoule_vue_a%C3%A9rienne.jpg"
+ },
+ "Saint-Tropez": {
+  "fichier": "site/img/villes/saint-tropez.jpg",
+  "auteur": "dronepicr",
+  "licence": "CC BY 2.0",
+  "licence_url": "https://creativecommons.org/licenses/by/2.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Bell_tower_of_the_church_Our_Lady_of_the_Assumption_in_Saint-Tropez,_France_(52723273607).jpg"
+ },
+ "Fréjus": {
+  "fichier": "site/img/villes/frejus.jpg",
+  "auteur": "nirvana2013",
+  "licence": "CC BY-SA 3.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Fr%C3%A9jus-Plage_-_panoramio.jpg"
+ },
+ "Saint-Raphaël (Var)": {
+  "fichier": "site/img/villes/saint-raphael-var.jpg",
+  "auteur": "Ylann M.",
+  "licence": "CC BY-SA 4.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Vue_du_vieux_port_de_Saint-Rapha%C3%ABl_depuis_la_grande_roue.jpg"
+ },
+ "Sainte-Maxime": {
+  "fichier": "site/img/villes/sainte-maxime.jpg",
+  "auteur": "Jibi44",
+  "licence": "CC BY-SA 4.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Sainte-Maxime_port_tour_carr%C3%A9_%C3%A9glise.jpg"
+ },
+ "Toulon": {
+  "fichier": "site/img/villes/toulon.jpg",
+  "auteur": "Pierre Sénard",
+  "licence": "CC BY-SA 3.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Petite_rade_de_Toulon_(vue_du_Mont_Faron).jpg"
+ },
+ "Hyères": {
+  "fichier": "site/img/villes/hyeres.jpg",
+  "auteur": "Denis Biette",
+  "licence": "CC BY-SA 2.5",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/2.5",
+  "source": "https://commons.wikimedia.org/wiki/File:Hyeres_aeroport_porquerolles.JPG"
+ },
+ "La Seyne-sur-Mer": {
+  "fichier": "site/img/villes/la-seyne-sur-mer.jpg",
+  "auteur": "Cyril-83",
+  "licence": "CC BY-SA 4.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Port_de_La_Seyne-sur-Mer.JPG"
+ },
+ "Puget-sur-Argens": {
+  "fichier": "site/img/villes/puget-sur-argens.jpg",
+  "auteur": "Oeuvre orpheline",
+  "licence": "CC BY-SA 4.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Gare_de_Puget-sur-Argens_3.jpg"
+ },
+ "Roquebrune-sur-Argens": {
+  "fichier": "site/img/villes/roquebrune-sur-argens.jpg",
+  "auteur": "Dave.Dunford",
+  "licence": "Public domain",
+  "licence_url": "",
+  "source": "https://commons.wikimedia.org/wiki/File:Roquebrune-sur-Argens.jpg"
+ },
+ "Draguignan": {
+  "fichier": "site/img/villes/draguignan.jpg",
+  "auteur": "Edouard-rainaut",
+  "licence": "CC BY-SA 3.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Couvent_et_Chapelle_des_Minimes_-_Draguignan_(2).jpg"
+ },
+ "Montpellier": {
+  "fichier": "site/img/villes/montpellier.jpg",
+  "auteur": "Wolfgang Staudt from Saarbruecken, Germany",
+  "licence": "CC BY 2.0",
+  "licence_url": "https://creativecommons.org/licenses/by/2.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Place_de_la_Com%C3%A9die_(2377437375).jpg"
+ },
+ "Toulouse": {
+  "fichier": "site/img/villes/toulouse.jpg",
+  "auteur": "See above. Compilation by Milou34",
+  "licence": "CC BY-SA 3.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Montage_Toulouse_3.jpg"
+ },
+ "Nîmes": {
+  "fichier": "site/img/villes/nimes.jpg",
+  "auteur": "Krzysztof Golik",
+  "licence": "CC BY-SA 4.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Maison_Carree_in_Nimes_(12).jpg"
+ },
+ "Perpignan": {
+  "fichier": "site/img/villes/perpignan.jpg",
+  "auteur": "©service Photo – Ville de Perpignan",
+  "licence": "CC BY-SA 4.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Cour_du_Campo_Santo.jpg"
+ },
+ "Béziers": {
+  "fichier": "site/img/villes/beziers.jpg",
+  "auteur": "Jorge Franganillo",
+  "licence": "CC BY 4.0",
+  "licence_url": "https://creativecommons.org/licenses/by/4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:B%C3%A9ziers_-_54704365001.jpg"
+ },
+ "Sète": {
+  "fichier": "site/img/villes/sete.jpg",
+  "auteur": "Christian Ferrer",
+  "licence": "CC BY-SA 3.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "source": "https://commons.wikimedia.org/wiki/File:La_Grace_(ship,_2010),_S%C3%A8te,_H%C3%A9rault_01.jpg"
+ },
+ "Narbonne": {
+  "fichier": "site/img/villes/narbonne.jpg",
+  "auteur": "Benh LIEU SONG",
+  "licence": "CC BY-SA 3.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Narbonne_Cathedrale_Saint_Just_et_Saint_Pasteur.jpg"
+ },
+ "Carcassonne": {
+  "fichier": "site/img/villes/carcassonne.jpg",
+  "auteur": "Chensiyuan",
+  "licence": "CC BY-SA 4.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:1_carcassonne_aerial_2016.jpg"
+ },
+ "Agde": {
+  "fichier": "site/img/villes/agde.jpg",
+  "auteur": "Alex699",
+  "licence": "CC BY-SA 3.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Agde_joutes_%C3%A9t%C3%A9_2007_434.jpg"
+ },
+ "La Grande-Motte": {
+  "fichier": "site/img/villes/la-grande-motte.jpg",
+  "auteur": "Jjoulie",
+  "licence": "CC BY-SA 3.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Ville-architecturale-de-la-Grande-Motte.JPG"
+ },
+ "Palavas-les-Flots": {
+  "fichier": "site/img/villes/palavas-les-flots.jpg",
+  "auteur": "Jean-Paul Corlin",
+  "licence": "CC BY-SA 4.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:L%27%C3%A9glise_de_Palavas_et_le_phare_de_la_M%C3%A9diterran%C3%A9e.JPG"
+ },
+ "Albi": {
+  "fichier": "site/img/villes/albi.jpg",
+  "auteur": "PierreSelim",
+  "licence": "CC BY 4.0",
+  "licence_url": "https://creativecommons.org/licenses/by/4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Albi_2014-02-22_19-52-00_-_Tarn_river_at_dusk_-_7236.jpg"
+ },
+ "Montauban": {
+  "fichier": "site/img/villes/montauban.jpg",
+  "auteur": "FL2014",
+  "licence": "CC BY-SA 4.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Montage_Montauban_ville.png"
+ },
+ "Tarbes": {
+  "fichier": "site/img/villes/tarbes.jpg",
+  "auteur": "Florent Pécassou",
+  "licence": "CC BY-SA 4.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Place_de_Verdun,_Tarbes,_Hautes-Pyr%C3%A9n%C3%A9es,_France.jpg"
+ },
+ "Rodez": {
+  "fichier": "site/img/villes/rodez.jpg",
+  "auteur": "kallerna",
+  "licence": "CC BY-SA 4.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Rodez_view.jpg"
+ },
+ "Alès": {
+  "fichier": "site/img/villes/ales.jpg",
+  "auteur": "Vpe",
+  "licence": "Public domain",
+  "licence_url": "",
+  "source": "https://commons.wikimedia.org/wiki/File:Centre_al%C3%A8s.JPG"
+ },
+ "Castres": {
+  "fichier": "site/img/villes/castres.jpg",
+  "auteur": "Didier Descouens",
+  "licence": "CC BY-SA 4.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:(Castres)_Maisons_sur_l%27Ago%C3%BBt_vues_du_pont_Neuf_vers_le_pont_Henri_Sizaire.jpg"
+ },
+ "Cahors": {
+  "fichier": "site/img/villes/cahors.jpg",
+  "auteur": "Krzysztof Golik",
+  "licence": "CC BY-SA 4.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Pont_Valentre_20.jpg"
+ },
+ "Auch": {
+  "fichier": "site/img/villes/auch.jpg",
+  "auteur": "Didier Descouens",
+  "licence": "CC BY-SA 4.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:(Auch)_L%27int%C3%A9rieur_de_la_cath%C3%A9drale_vue_du_porche.jpg"
+ },
+ "Foix": {
+  "fichier": "site/img/villes/foix.jpg",
+  "auteur": "Jcb-caz-11",
+  "licence": "CC BY-SA 4.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Foix_4_jcb.jpg"
+ },
+ "Mende": {
+  "fichier": "site/img/villes/mende.jpg",
+  "auteur": "User:civodule",
+  "licence": "CC BY-SA 3.0",
+  "licence_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "source": "https://commons.wikimedia.org/wiki/File:Mende-cathedrale-1.JPG"
+ },
+ "Lourdes": {
+  "fichier": "site/img/villes/lourdes.jpg",
+  "auteur": "Père Igor",
+  "licence": "CC BY-SA 3.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Lourdes_basilique_vue_depuis_ch%C3%A2teau_(3).JPG"
+ },
+ "Canet-en-Roussillon": {
+  "fichier": "site/img/villes/canet-en-roussillon.jpg",
+  "auteur": "Photographe anonyme pour Ville de Canet-en-Roussillon",
+  "licence": "CC BY-SA 4.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Canet-Plage_-_Vue_a%C3%A9rienne_1.jpg"
+ },
+ "Argelès-sur-Mer": {
+  "fichier": "site/img/villes/argeles-sur-mer.jpg",
+  "auteur": "Jcb-caz-11",
+  "licence": "CC BY-SA 4.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Argel%C3%A8s_09-2015.jpg"
+ },
+ "Collioure": {
+  "fichier": "site/img/villes/collioure.jpg",
+  "auteur": "Jcb-caz-11",
+  "licence": "CC BY-SA 4.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Collioure_03-08_11.jpg"
+ },
+ "Paris": {
+  "fichier": "site/img/villes/paris.jpg",
+  "auteur": "Yann Caradec from Paris, France",
+  "licence": "CC BY-SA 2.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/2.0",
+  "source": "https://commons.wikimedia.org/wiki/File:La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques,_Paris_ao%C3%BBt_2014_(2).jpg"
+ },
+ "Lyon": {
+  "fichier": "site/img/villes/lyon.jpg",
+  "auteur": "Jacques Raymond Brascassat",
+  "licence": "Public domain",
+  "licence_url": "",
+  "source": "https://commons.wikimedia.org/wiki/File:Vue_des_quais_et_portion_de_remparts_%C3%A0_Lyon_-_Jacques_Raymond_Brascassat_(1824).jpg"
+ },
+ "Marseille": {
+  "fichier": "site/img/villes/marseille.jpg",
+  "auteur": "Benh LIEU SONG",
+  "licence": "CC BY-SA 3.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Notre_Dame_de_la_Garde.jpg"
+ },
+ "Bordeaux": {
+  "fichier": "site/img/villes/bordeaux.jpg",
+  "auteur": "Mariette",
+  "licence": "Public domain",
+  "licence_url": "",
+  "source": "https://commons.wikimedia.org/wiki/File:Bordeaux_Place_de_la_Bourse_de_nuit.jpg"
+ },
+ "Lille": {
+  "fichier": "site/img/villes/lille.jpg",
+  "auteur": "Cereol89, Velvet",
+  "licence": "CC BY-SA 4.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Lille_Collage.jpg"
+ },
+ "Nantes": {
+  "fichier": "site/img/villes/nantes.jpg",
+  "auteur": "Olga.Mach",
+  "licence": "CC BY-SA 4.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Ch%C3%A2teau_des_Ducs_de_Bretagne_%C3%A0_Nantes_-_Anne.jpg"
+ },
+ "Strasbourg": {
+  "fichier": "site/img/villes/strasbourg.jpg",
+  "auteur": "Photo Claude TRUONG-NGOC",
+  "licence": "CC BY-SA 4.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Strasbourg_vue_a%C3%A9rienne_vers_la_cath%C3%A9drale_septembre_2015.jpg"
+ },
+ "Rennes": {
+  "fichier": "site/img/villes/rennes.jpg",
+  "auteur": "Erwan Corre",
+  "licence": "CC BY-SA 4.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Rennes-Place-du-Champ-Jacquet-Statue-Leperdit-Mars-2020.jpg"
+ },
+ "Grenoble": {
+  "fichier": "site/img/villes/grenoble.jpg",
+  "auteur": "Jean-Paul Corlin",
+  "licence": "CC BY-SA 4.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Grenoble_et_les_tours_de_l%27%C3%8Ele_Verte_depuis_le_mus%C3%A9e_dauphinois.jpg"
+ },
+ "Aix-en-Provence": {
+  "fichier": "site/img/villes/aix-en-provence.jpg",
+  "auteur": "Rainbow0413",
+  "licence": "CC BY-SA 3.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Fontaine_de_la_Rotonde_-_Aix-en-Provence.JPG"
+ }
+}
