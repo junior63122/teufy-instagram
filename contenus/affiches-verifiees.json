@@ -3936,5 +3936,840 @@
    ]
   },
   "commun": []
+ },
+ "og|https://www.cannes.com": "",
+ "v2|1ec34a40475c": {
+  "ok": true,
+  "le": "2026-11-10T15:03:40.890Z",
+  "nom": "Paon X La Bastide De Paula",
+  "lu": {
+   "titre": "PAON",
+   "dates": [
+    "2026-11-13"
+   ],
+   "artistes": []
+  },
+  "commun": [
+   "paon",
+   "bastide",
+   "paula"
+  ]
+ },
+ "v2|16689aa0fa4e": {
+  "ok": true,
+  "le": "2026-11-10T15:03:47.113Z",
+  "nom": "Radio La Fièvre 13.11 Fm",
+  "lu": {
+   "titre": "RADIO LAFIEVRE",
+   "dates": [
+    "2026-11-13"
+   ],
+   "artistes": [
+    "TSUNAMY",
+    "EMJEE",
+    "KEMJANI",
+    "GUIGZ"
+   ]
+  },
+  "commun": [
+   "radio",
+   "austra",
+   "rocks"
+  ]
+ },
+ "v2|602383eeda77": {
+  "ok": true,
+  "le": "2026-11-10T15:04:23.227Z",
+  "nom": "Rslce : Caravel, Junkie Kid, Uphoria & More",
+  "lu": {
+   "titre": "RSICE II",
+   "dates": [
+    "2026-11-13"
+   ],
+   "artistes": [
+    "CARAVEL",
+    "JUNKIE KID",
+    "UPHORIA",
+    "LOLYTHA HERMOS",
+    "MAY-LI"
+   ]
+  },
+  "commun": [
+   "caravel",
+   "junkie",
+   "uphoria",
+   "petit",
+   "salon"
+  ]
+ },
+ "v2|88db5ece986a": {
+  "ok": true,
+  "le": "2026-11-10T15:04:29.955Z",
+  "nom": "La Polynesian Night 2026",
+  "lu": {
+   "titre": "POLYNESIAN NIGHT",
+   "dates": [
+    "2026-11-13"
+   ],
+   "artistes": [
+    "JMT MUSIC",
+    "HITSS"
+   ]
+  },
+  "commun": [
+   "polynesian",
+   "seven"
+  ]
+ },
+ "v2|776008b248bb": {
+  "ok": true,
+  "le": "2026-11-10T15:04:32.353Z",
+  "nom": "tribalism - Quelza - all night long",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": []
+  },
+  "commun": []
+ },
+ "v2|c9c216e1e12f": {
+  "ok": false,
+  "le": "2026-11-10T15:04:56.778Z",
+  "nom": "HORS-SOL (Domi, Mel, Unai Trotti)",
+  "lu": {
+   "titre": "horssol",
+   "dates": [
+    "2024-11-14"
+   ],
+   "artistes": [
+    "Domi",
+    "Mel",
+    "Unai Trotti"
+   ]
+  },
+  "commun": [
+   "domi",
+   "unai",
+   "trotti",
+   "trabendo"
+  ]
+ },
+ "v2|b954a7b7af63": {
+  "ok": true,
+  "le": "2026-11-10T15:05:00.620Z",
+  "nom": "Pleine Nuit 001 : Jen Cardini + Pablo Bozzi",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": []
+  },
+  "commun": []
+ },
+ "v2|040bf75cf113": {
+  "ok": true,
+  "le": "2026-11-10T15:05:03.792Z",
+  "nom": "Hardcore France & Eskape présentent INVASION",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": []
+  },
+  "commun": []
+ },
+ "v2|6205f0d0cf50": {
+  "ok": true,
+  "le": "2026-11-10T15:05:12.691Z",
+  "nom": "Macadam • Prosumer ~ Sianza B2B L'Étalon Disco",
+  "lu": {
+   "titre": "",
+   "dates": [
+    "2026-11-13"
+   ],
+   "artistes": [
+    "PROSUMER",
+    "SIANZA",
+    "L'ÉTALON DISCO"
+   ]
+  },
+  "commun": [
+   "prosumer",
+   "sianza",
+   "etalon",
+   "disco",
+   "macadam"
+  ]
+ },
+ "v2|1c431f307001": {
+  "ok": false,
+  "le": "2026-11-10T15:05:18.019Z",
+  "nom": "Youthdreams X Tribal Kush",
+  "lu": {
+   "titre": "SUBLIME TOUR",
+   "dates": [
+    "2026-11-05"
+   ],
+   "artistes": [
+    "LUTHER"
+   ]
+  },
+  "commun": []
+ },
+ "v2|bb45625dfa9e": {
+  "ok": true,
+  "le": "2026-11-10T15:05:22.423Z",
+  "nom": "Super8 × Cartel BZH",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": []
+  },
+  "commun": []
+ },
+ "v2|0ba847cc48ab": {
+  "ok": true,
+  "le": "2026-11-10T15:05:25.899Z",
+  "nom": "Dakeez Tour",
+  "lu": {
+   "titre": "DAKEEZ",
+   "dates": [
+    "2026-11-14"
+   ],
+   "artistes": [
+    "DAKEEZ"
+   ]
+  },
+  "commun": [
+   "dakeez"
+  ]
+ },
+ "v2|ca2b32046871": {
+  "ok": true,
+  "le": "2026-11-10T15:05:40.571Z",
+  "nom": "Maman Sort Ce Soir - Cowgirl Party",
+  "lu": {
+   "titre": "Maman sort ce soir - Soirée 100% girls",
+   "dates": [
+    "2026-11-14"
+   ],
+   "artistes": []
+  },
+  "commun": [
+   "maman",
+   "sort",
+   "soir",
+   "terrasses",
+   "festives"
+  ]
+ },
+ "v2|a70717f22fc2": {
+  "ok": true,
+  "le": "2026-11-10T15:05:47.803Z",
+  "nom": "Golden Mix",
+  "lu": {
+   "titre": "JEUNESSE DORÉE GOLDEN MIX",
+   "dates": [
+    "2026-11-14"
+   ],
+   "artistes": [
+    "MALOSHOW",
+    "MAEN",
+    "DJ CMT",
+    "DJ NOVOA"
+   ]
+  },
+  "commun": [
+   "golden",
+   "grand",
+   "bain"
+  ]
+ },
+ "v2|355cbb10d50f": {
+  "ok": true,
+  "le": "2026-11-10T15:05:53.041Z",
+  "nom": "Techno Mulet (Collectif Unholy)",
+  "lu": {
+   "titre": "TECHNO MULET",
+   "dates": [
+    "2026-11-14"
+   ],
+   "artistes": [
+    "DJ IAMBOT",
+    "COLLECTIF UNHOLY"
+   ]
+  },
+  "commun": [
+   "techno",
+   "mulet",
+   "collectif",
+   "unholy"
+  ]
+ },
+ "v2|beeaa7208895": {
+  "ok": false,
+  "le": "2026-11-10T15:06:06.804Z",
+  "nom": "Microclimat Au Chapiteau !",
+  "lu": {
+   "titre": "MICROCLIMAT",
+   "dates": [
+    "2026-11-21"
+   ],
+   "artistes": [
+    "MATILDOUTZ",
+    "GRIDOU",
+    "DUB4",
+    "RADAR",
+    "ANTOINE CALVINO"
+   ]
+  },
+  "commun": [
+   "microclimat",
+   "chapiteau"
+  ]
+ },
+ "v2|4d93b5d567b0": {
+  "ok": true,
+  "le": "2026-11-10T15:06:15.633Z",
+  "nom": "Wake Up X We Are Rave (Krowdexx, El Desperados, N-XD)",
+  "lu": {
+   "titre": "WAKE UP X WE ARE RAVE",
+   "dates": [
+    "2026-11-14"
+   ],
+   "artistes": [
+    "KROWDEXX",
+    "EL DESPERADO",
+    "N-XD",
+    "SAKYRA",
+    "ØNERA",
+    "POUPINELA"
+   ]
+  },
+  "commun": [
+   "wake",
+   "rave",
+   "krowdexx",
+   "studio",
+   "saglio"
+  ]
+ },
+ "v2|c828e238930e": {
+  "ok": true,
+  "le": "2026-11-10T15:06:22.823Z",
+  "nom": "Klub Camina X Flashball (Nicolas Lutz, Sedef Adasï, Mel...)",
+  "lu": {
+   "titre": "KLUB CAMINA",
+   "dates": [
+    "2026-11-14"
+   ],
+   "artistes": [
+    "Mel",
+    "Nicolas Lutz",
+    "Sanon",
+    "Sedef Adasï"
+   ]
+  },
+  "commun": [
+   "klub",
+   "camina",
+   "nicolas",
+   "lutz",
+   "sedef"
+  ]
+ },
+ "v2|c28476a69a0b": {
+  "ok": true,
+  "le": "2026-11-10T15:06:28.683Z",
+  "nom": "This Is Disco : Vyktor Nova & Terror Mike",
+  "lu": {
+   "titre": "THIS IS DISCO",
+   "dates": [
+    "2026-11-14"
+   ],
+   "artistes": [
+    "VYKTOR NOVA",
+    "TERROR MIKE"
+   ]
+  },
+  "commun": [
+   "this",
+   "disco",
+   "vyktor",
+   "nova",
+   "terror"
+  ]
+ },
+ "v2|41a077af345b": {
+  "ok": true,
+  "le": "2026-11-10T15:06:32.589Z",
+  "nom": "Club Punk & Boîte À Rythmes : Zaatar, Leroy Se Meurt",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": []
+  },
+  "commun": []
+ },
+ "v2|7a7c22089e66": {
+  "ok": true,
+  "le": "2026-11-10T15:06:38.582Z",
+  "nom": "Folle De Rage x Marseille — Le Légendaire Aftershow",
+  "lu": {
+   "titre": "FOLLE DE RAGE",
+   "dates": [
+    "2026-11-14"
+   ],
+   "artistes": [
+    "NICKY DOLL",
+    "LANA COTTA",
+    "LA HARPIE",
+    "FLUFFY BIDULE",
+    "DIVINA DIVINE",
+    "JULIEN DE BOMERANI"
+   ]
+  },
+  "commun": [
+   "folle",
+   "rage",
+   "julien",
+   "espace"
+  ]
+ },
+ "v2|ee60c0093114": {
+  "ok": true,
+  "le": "2026-11-10T15:06:43.573Z",
+  "nom": "Transgenik : Danilo Filipe, Gi.o, Lilith & Peter Blue",
+  "lu": {
+   "titre": "TRANSGENIK",
+   "dates": [
+    "2026-11-14"
+   ],
+   "artistes": [
+    "DANILO FILIPE",
+    "PETERBLUE",
+    "GLO",
+    "LILITH"
+   ]
+  },
+  "commun": [
+   "transgenik",
+   "danilo",
+   "filipe",
+   "lilith",
+   "fvtvr"
+  ]
+ },
+ "v2|610c68a79800": {
+  "ok": false,
+  "le": "2026-11-10T15:06:52.405Z",
+  "nom": "Ben UFO, Jane Dark",
+  "lu": {
+   "titre": "",
+   "dates": [
+    "2026-11-14"
+   ],
+   "artistes": [
+    "ALARICO",
+    "IMAN JANES",
+    "KALTBLUME"
+   ]
+  },
+  "commun": []
+ },
+ "v2|98772fa3f526": {
+  "ok": true,
+  "le": "2026-11-10T15:06:55.867Z",
+  "nom": "Macadam • 10 ans de CARBØNE (Ness, Jin Synth live, CAUBX...)",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": []
+  },
+  "commun": []
+ },
+ "v2|4e64b9bc3f18": {
+  "ok": true,
+  "le": "2026-11-10T15:06:59.230Z",
+  "nom": "extended - Rhadoo - open to close",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": []
+  },
+  "commun": []
+ },
+ "v2|94bce069262d": {
+  "ok": true,
+  "le": "2026-11-10T15:07:04.533Z",
+  "nom": "Sombrelectro Édition 100% Live",
+  "lu": {
+   "titre": "",
+   "dates": [
+    "2026-11-15"
+   ],
+   "artistes": [
+    "BATHLOST",
+    "BRHUME"
+   ]
+  },
+  "commun": [
+   "sarrazins"
+  ]
+ },
+ "v2|540fe587ec77": {
+  "ok": true,
+  "le": "2026-11-10T15:07:11.559Z",
+  "nom": "Kery James : R.A.P Tour",
+  "lu": {
+   "titre": "R.A.P RÉSISTANCE AMOUR POÉSIE",
+   "dates": [],
+   "artistes": [
+    "KERY JAMES"
+   ]
+  },
+  "commun": [
+   "kery",
+   "james"
+  ]
+ },
+ "v2|8195299ba641": {
+  "ok": true,
+  "le": "2026-11-10T15:07:16.756Z",
+  "nom": "Basement X Henny Tour : 63og",
+  "lu": {
+   "titre": "HENNY BASEMENT CULTURE TOUR",
+   "dates": [
+    "2026-11-18"
+   ],
+   "artistes": [
+    "63OG",
+    "IRA VEN",
+    "FMR237"
+   ]
+  },
+  "commun": [
+   "henny",
+   "basement",
+   "tour",
+   "63og"
+  ]
+ },
+ "v2|8b8ca2e4f984": {
+  "ok": true,
+  "le": "2026-11-10T15:07:23.903Z",
+  "nom": "Saint Amour Bordeaux | Last Of The Year",
+  "lu": {
+   "titre": "SAINT AMOUR",
+   "dates": [
+    "2026-11-19"
+   ],
+   "artistes": [
+    "OSKAR",
+    "PI-R",
+    "PA"
+   ]
+  },
+  "commun": [
+   "saint",
+   "amour",
+   "belle",
+   "folie"
+  ]
+ },
+ "v2|915c8c7bfb9f": {
+  "ok": false,
+  "le": "2026-11-10T15:07:30.627Z",
+  "nom": "Luiza",
+  "lu": {
+   "titre": "SUBLIME TOUR",
+   "dates": [
+    "2026-11-05"
+   ],
+   "artistes": [
+    "LUTHER"
+   ]
+  },
+  "commun": []
+ },
+ "v2|c5bba2b1d859": {
+  "ok": false,
+  "le": "2026-11-10T15:07:36.239Z",
+  "nom": "Kid Francescoli",
+  "lu": {
+   "titre": "SUBLIME TOUR",
+   "dates": [
+    "2026-11-05"
+   ],
+   "artistes": [
+    "LUTHER"
+   ]
+  },
+  "commun": []
+ },
+ "v2|106151c165af": {
+  "ok": true,
+  "le": "2026-11-10T15:07:41.437Z",
+  "nom": "Nono La Grinta",
+  "lu": {
+   "titre": "NONO LA GRINTA",
+   "dates": [
+    "2026-11-19"
+   ],
+   "artistes": [
+    "NONO LA GRINTA"
+   ]
+  },
+  "commun": [
+   "nono",
+   "grinta",
+   "6mic"
+  ]
+ },
+ "v2|38858788f1d6": {
+  "ok": true,
+  "le": "2026-11-10T15:07:48.518Z",
+  "nom": "After MAC 3 : TezaCCore X Noctalys",
+  "lu": {
+   "titre": "AFTER MAC 3 - TEZACCORE",
+   "dates": [
+    "2026-11-20"
+   ],
+   "artistes": [
+    "DJ PURPLEROSE",
+    "GZK",
+    "ELRON B2B SUETONE",
+    "INIMA",
+    "MISS PEPPER",
+    "FIXION B2B LOGAN"
+   ]
+  },
+  "commun": [
+   "after",
+   "tezaccore",
+   "miss",
+   "pepper",
+   "entrepot"
+  ]
+ },
+ "v2|37443840dcc9": {
+  "ok": true,
+  "le": "2026-11-10T15:07:52.866Z",
+  "nom": "Sweat Club w/ Carlala, Scorpio Qveen, Wandawitt, Tys",
+  "lu": {
+   "titre": "SWEAT CLUB",
+   "dates": [
+    "2026-11-20"
+   ],
+   "artistes": [
+    "WANDAWITT",
+    "CARLALA",
+    "SCORPIO QVEEN",
+    "TYS"
+   ]
+  },
+  "commun": [
+   "sweat",
+   "wandawitt",
+   "carlala",
+   "scorpio",
+   "qveen"
+  ]
+ },
+ "v2|c8d5cb5cb7c1": {
+  "ok": true,
+  "le": "2026-11-10T15:08:09.762Z",
+  "nom": "Wake Up W: Schlass +++ (La Cage)",
+  "lu": {
+   "titre": "WAKE UP",
+   "dates": [
+    "2026-11-20"
+   ],
+   "artistes": [
+    "SCHLASS",
+    "REDENH",
+    "MRT",
+    "PARANOÏDE",
+    "PIG",
+    "PURIFICATOR"
+   ]
+  },
+  "commun": [
+   "wake",
+   "schlass",
+   "studio",
+   "saglio"
+  ]
+ },
+ "v2|d1954015767e": {
+  "ok": false,
+  "le": "2026-11-10T15:08:21.041Z",
+  "nom": "23:59 : TNT, RDØ, Istigkeit, Glaskeen",
+  "lu": {
+   "titre": "RSICE",
+   "dates": [
+    "2026-11-13"
+   ],
+   "artistes": [
+    "CARAVEL",
+    "JUNKIE KID",
+    "UPHORIA",
+    "LOLYTHA HERMOS",
+    "MAY-LI"
+   ]
+  },
+  "commun": [
+   "petit",
+   "salon"
+  ]
+ },
+ "v2|47522c9b0a38": {
+  "ok": true,
+  "le": "2026-11-10T15:08:37.715Z",
+  "nom": "2026 Vs 2016",
+  "lu": {
+   "titre": "2026 VS 2016",
+   "dates": [
+    "2026-11-20"
+   ],
+   "artistes": []
+  },
+  "commun": [
+   "2016"
+  ]
+ },
+ "v2|c5bf4db6dffc": {
+  "ok": true,
+  "le": "2026-11-10T15:08:47.379Z",
+  "nom": "ORGANÏK × WAREHOUSE w/ Jazzy, Yoshiko, Todiefor & More",
+  "lu": {
+   "titre": "ORGANIK",
+   "dates": [
+    "2026-11-20"
+   ],
+   "artistes": [
+    "JAZZY",
+    "KYZWALL",
+    "NØNAME",
+    "TODIEFOR",
+    "YOSHIKO",
+    "EZZA"
+   ]
+  },
+  "commun": [
+   "organik",
+   "jazzy",
+   "todiefor",
+   "yoshiko",
+   "warehouse"
+  ]
+ },
+ "v2|2fad0cd6de0f": {
+  "ok": true,
+  "le": "2026-11-10T15:08:52.677Z",
+  "nom": "Doomsday",
+  "lu": {
+   "titre": "DOOMSDAY",
+   "dates": [
+    "2026-11-20"
+   ],
+   "artistes": []
+  },
+  "commun": [
+   "doomsday",
+   "amperage"
+  ]
+ },
+ "v2|3cc7968a8384": {
+  "ok": true,
+  "le": "2026-11-10T15:09:05.467Z",
+  "nom": "R3trix All Night Long Boiler + T-Rex Friends",
+  "lu": {
+   "titre": "BOILER ROOM ALL NIGHT LONG",
+   "dates": [
+    "2026-11-21"
+   ],
+   "artistes": [
+    "R3TRIX"
+   ]
+  },
+  "commun": [
+   "boiler",
+   "room",
+   "long",
+   "r3trix",
+   "studio"
+  ]
+ },
+ "v2|2389b3f86ec0": {
+  "ok": true,
+  "le": "2026-11-10T15:09:09.933Z",
+  "nom": "Klub Camina [Cryptofauna, Die Klar, Randomer &+]",
+  "lu": {
+   "titre": "Karmen Camina",
+   "dates": [],
+   "artistes": [
+    "Karmen Camina"
+   ]
+  },
+  "commun": [
+   "karmen",
+   "camina"
+  ]
+ },
+ "v2|eb8ad5cfd4a5": {
+  "ok": false,
+  "le": "2026-11-10T15:09:16.302Z",
+  "nom": "Wild:Konnexion VII",
+  "lu": {
+   "titre": "RADIO LA FIEVRE",
+   "dates": [
+    "2026-11-13"
+   ],
+   "artistes": [
+    "TSUNAMY",
+    "EMJEE",
+    "KEMJANI",
+    "GUIGZ"
+   ]
+  },
+  "commun": []
+ },
+ "v2|e6c74f041794": {
+  "ok": false,
+  "le": "2026-11-10T15:09:27.354Z",
+  "nom": "This Is Rave (Y2K Edition) : Jeff Bisous, Pix & More",
+  "lu": {
+   "titre": "RSICE",
+   "dates": [
+    "2026-11-13"
+   ],
+   "artistes": [
+    "CARAVEL",
+    "JUNKIE KID",
+    "UPHORIA",
+    "LOLYTHA HERMOS",
+    "MAY-LI"
+   ]
+  },
+  "commun": [
+   "petit",
+   "salon"
+  ]
+ },
+ "v2|f3624a98ca6e": {
+  "ok": false,
+  "le": "2026-11-10T15:09:32.768Z",
+  "nom": "reshape - Skee Mask b2b Vlada - all night long",
+  "lu": {
+   "titre": "SENTAKU",
+   "dates": [
+    "2026-11-13"
+   ],
+   "artistes": [
+    "DJ Fart In The Club",
+    "Nathan Melja",
+    "Thrillmatic (Ill Spleen & Mouloud)"
+   ]
+  },
+  "commun": []
  }
 }
