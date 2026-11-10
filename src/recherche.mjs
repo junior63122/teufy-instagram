@@ -189,11 +189,14 @@ export function memeSoiree(a, b) {
 }
 // Offres de billetterie (une par plateforme, prix le plus bas) : sert à comparer les prix sur le site.
 const plateforme = (u) => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch { return ''; } };
+// Réseaux sociaux et agrégateurs de liens : pas des billetteries (on n'y achète pas de place, un prix lu dans un post
+// n'est pas un prix de billet). Exclus du comparateur.
+export const PAS_BILLETTERIE = /(^|\.)(instagram|facebook|fb|tiktok|x|twitter|threads|youtube|linktr|linktree|beacons|lnk|snapchat|whatsapp|t)\.(com|me|ee|bio|net|co|ai|to)$/i;
 export function offresDe(l) {
   const m = new Map();
   for (const o of l) {
     const url = o.url || '', p = plateforme(url);
-    if (!lienPrecis(url) || !p) continue;
+    if (!lienPrecis(url) || !p || PAS_BILLETTERIE.test(p)) continue;
     const prix = typeof (o.prix ?? o.price) === 'number' ? (o.prix ?? o.price) : null;
     const prev = m.get(p);
     if (!prev || (prix != null && (prev.prix == null || prix < prev.prix))) m.set(p, { plateforme: p, url, prix });

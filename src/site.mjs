@@ -15,7 +15,8 @@ import { fileURLToPath } from 'node:url';
 import { genresList, isTechno } from './genres.mjs';
 import { LANGUES, TXT } from './site-langues.mjs';
 import { STYLES as STYLES_MUSIQUE, PAGES_STYLES, FESTIVALS, RENDEZ_VOUS, PARTENAIRE, AMBASSADEUR, BDE, LEGAL, PAGES_LEGALES, RE_ETUDIANT, RE_FESTIVAL, SORTIES, SPOTS_DATE, FAQ } from './site-contenus.mjs';
-import { VILLES_FRANCE, VILLES_OCCITANIE, villeOccitanie, fusionner } from './recherche.mjs';
+import { VILLES_FRANCE, VILLES_OCCITANIE, villeOccitanie, fusionner, PAS_BILLETTERIE } from './recherche.mjs';
+const nomDomaine = (u) => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch { return ''; } };
 import * as LLM from './llm.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -561,7 +562,7 @@ export async function construireSite({ events, eventsFrance = [], eventsOccitani
     for (let k = 2; pris.has(id); k++) id = `${slug(e.name)}-${cle(e.start)}-${k}`;
     pris.add(id);
     const url = /^https?:\/\//.test(e.url || '') && !/^https?:\/\/[^/]+\/?$/.test(e.url) ? e.url : '';
-    const offres = (e.offres || []).filter((o) => o.url).sort((a, b) => (a.prix ?? 1e9) - (b.prix ?? 1e9));
+    const offres = (e.offres || []).filter((o) => o.url && !PAS_BILLETTERIE.test(nomDomaine(o.url))).sort((a, b) => (a.prix ?? 1e9) - (b.prix ?? 1e9)); // jamais un réseau social
     return {
       id, zone, nom: e.name, debut: e.start, jour: cle(e.start), lieu: e.venue || '', ville: e.city || '', adresse: e.address || '', filtreVille: ville,
       prix: e.price == null ? null : e.price, styles: styleDe(e), genres: genresList(e, 3).join(' · '), techno: isTechno(e), tags: e.tags || [],
