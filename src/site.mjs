@@ -6,7 +6,7 @@
 //   (une affiche d'une autre soirée n'est pas montrée). Résultats gardés dans contenus/affiches-verifiees.json.
 // - Les lieux sont placés sur la carte grâce à OpenStreetMap (cache contenus/lieux-geo.json).
 // - Le JavaScript (site/app.js) gère les filtres, « Ce soir / En ce moment », la carte et les animations.
-import { readFileSync, existsSync, readdirSync, rmSync } from 'node:fs';
+import { readFileSync, existsSync, readdirSync, rmSync, renameSync } from 'node:fs';
 import { writeFile, mkdir, copyFile } from 'node:fs/promises';
 import { spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
@@ -65,6 +65,30 @@ async function telecharger(url, f) {
   return c.status === 0 && existsSync(f);
 }
 
+// Version grand format d'une image de billetterie : certaines plateformes servent par défaut une miniature
+// (Shotgun : 384 px en qualité 5 % ; Bizouk : 500 px ; Resident Advisor : proxy réduit). Même image, plus grande.
+export function versionGrande(url) {
+  const u = String(url || '');
+  if (/assets\.shotgun\.live\/image\/upload\//.test(u)) return u.replace(/\/image\/upload\/[^/]*\bw_\d+[^/]*\//, '/image/upload/c_limit,w_1080,f_jpg,q_85/');
+  if (/thumb\.bizouk\.com\/t\/width=\d+,height=\d+/.test(u)) return u.replace(/width=\d+,height=\d+/, 'width=1080,height=1350');
+  const ra = u.match(/^https:\/\/imgproxy\.ra\.co\/_\/[^/]*\/([A-Za-z0-9_=-]+)$/);
+  if (ra) { try { const o = Buffer.from(ra[1].replace(/-/g, '+').replace(/_/g, '/'), 'base64').toString('utf8'); if (/^https:\/\/static\.ra\.co\//.test(o)) return o; } catch { /* illisible */ } }
+  return u;
+}
+// Une affiche déjà enregistrée trop petite (< 560 px) est remplacée par la grande version de la même image, si elle existe.
+async function agrandirAffiche(url, f) {
+  const grand = versionGrande(url);
+  if (grand === url || !existsSync(f) || (tailleJpeg(f)?.[0] || 0) >= 560) return false;
+  const tmp = f.replace(/\.jpg$/, '.grand.jpg');
+  if (!(await telecharger(grand, tmp))) return false;
+  const [a, b] = [tailleJpeg(f) || [0, 0], tailleJpeg(tmp) || [0, 0]];
+  // Même image (même proportion à 3 % près) et vraiment plus grande ; sinon on garde l'ancienne.
+  if (b[0] > a[0] * 1.2 && Math.abs(b[0] / b[1] - a[0] / a[1]) < 0.03 * (a[0] / a[1])) {
+    renameSync(tmp, f); for (const l of [480, 800, 1080]) rmSync(f.replace(/\.jpg$/, `-${l}.webp`), { force: true });
+    return true;
+  }
+  rmSync(tmp, { force: true }); return false;
+}
 // Appel Gemini (modèle flash le plus récent disponible), réponse JSON. null si pas de clé ou échec.
 let MODELES = null;
 // Budget de temps : les enrichissements (lieux, partenaires, transports…) s'arrêtent à temps pour que la mise à jour
@@ -543,6 +567,8 @@ export async function construireSite({ events, eventsFrance = [], eventsOccitani
     let affiche = '', dims = null;
     if (e.image) {
       const f = path.join(SITE, 'affiches', `${h(e.image)}.jpg`);
+      if (!existsSync(f) && versionGrande(e.image) !== e.image) await telecharger(versionGrande(e.image), f);
+      else if (tempsOk() && await agrandirAffiche(e.image, f)) log(`Site : affiche agrandie pour « ${e.name} »`);
       if (existsSync(f) || await telecharger(e.image, f)) {
         if (await verifier(e, f, cache)) { affiche = `site/affiches/${path.basename(f)}`; dims = tailleJpeg(f); webp(f, 480); webp(f, 800); webp(f, 1080); }
         else log(`Site : affiche écartée (ne correspond pas) pour « ${e.name} »`);
