@@ -70,7 +70,7 @@ async function controlerPage(p, nom, u) {
     let total = 0;
     const n = () => nbVisibles(p);
     p.on('pageerror', (e) => echecs.push(`${nom} : erreur JavaScript ${e.message} (${p.url()})`));
-    p.on('console', (m) => { if (m.type() === 'error' && !/Failed to load resource|ERR_|net::|basemaps|tile/.test(m.text())) echecs.push(`${nom} console : ${m.text()} (${p.url()})`); });
+    p.on('console', (m) => { if (m.type() === 'error' && !/Failed to load resource|ERR_|net::|basemaps|tile/.test(m.text()) && !(NAV === 'firefox' && /ServiceWorker intercepted the request and encountered an unexpected error/.test(m.text())) /* Firefox : image abandonnée quand la page change, pas un défaut du site */) echecs.push(`${nom} console : ${m.text()} (${p.url()})`); });
 
     for (const u of PAGES) await controlerPage(p, nom, u);
 
@@ -178,6 +178,7 @@ async function controlerPage(p, nom, u) {
     await p.locator('a.loupe').click(); await p.waitForLoadState('load'); await p.waitForTimeout(500);
     ok(await p.evaluate(() => document.activeElement?.id === 'recherche'), `${nom} : la loupe ne place pas le curseur dans la recherche`);
     await p.evaluate(() => scrollTo(0, 4000)); await p.waitForTimeout(400); await p.evaluate(() => scrollBy(0, -150)); await p.waitForTimeout(500);
+    for (let i = 0; i < 6 && !(await p.locator('.haut').isVisible()); i++) { await p.evaluate(() => scrollBy(0, -120)); await p.waitForTimeout(400); } // WebKit mobile en CI : défilement plus lent
     if (await p.locator('.haut').isVisible()) { await p.locator('.haut').click(); await p.waitForTimeout(2500); ok(await p.evaluate(() => scrollY) < 50, `${nom} : « Haut de page » ne remonte pas`); } else echecs.push(`${nom} : bouton « Haut de page » absent`);
 
     } catch (e) { echecs.push(`${nom} : étape interrompue (${e.message.split('\n')[0]} @l.${(String(e.stack).match(/tester-site\.cjs:(\d+)/) || [])[1] || '?'})`); }

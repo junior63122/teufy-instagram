@@ -113,6 +113,9 @@ sur les serveurs GitHub (série en cours). **Aucun appareil physique.**
 
 ## J. Limites
 
+- Hors connexion sous **Firefox** : non vérifiable avec Playwright (sa coupure réseau ne passe pas par le service worker) ; vérifié sous Chromium et WebKit.
+- Sous Firefox, le message « ServiceWorker … unexpected error » pour une image abandonnée pendant un changement de page est ignoré par les tests (pas un défaut visible).
+
 - Pas d'appareil physique, pas de données de visiteurs, pas de Search Console.
 - Occitanie : la recherche par IA ne tourne que sur GitHub ; 20 soirées (Toulouse, Montpellier) en attendant.
 - HTTPS de teufyparty.com : à activer dans GitHub → Settings → Pages → Enforce HTTPS.
