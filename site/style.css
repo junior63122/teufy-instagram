@@ -1044,7 +1044,7 @@ details[data-bloc="tri"]>.groupe{inset-inline-start:auto;inset-inline-end:0}
 .lieu-soirees a{overflow:hidden;text-overflow:ellipsis}
 /* Changements de page : en-tête fixe pendant la transition, affiche qui glisse de la carte à la fiche, barre de chargement. */
 .barre{view-transition-name:barre}
-.fiche-affiche>img{view-transition-name:affiche-soiree}
+.fiche-affiche>img:not(.fond-flou){view-transition-name:affiche-soiree}
 ::view-transition-group(affiche-soiree){animation-duration:.38s;animation-timing-function:cubic-bezier(.2,.8,.2,1)}
 ::view-transition-old(barre),::view-transition-new(barre){animation:none}
 html.en-route::before{content:"";position:fixed;inset:0 auto auto 0;height:3px;width:100%;z-index:9999;background:linear-gradient(90deg,var(--corail),#ff9a5c);transform-origin:0 50%;animation:en-route 8s cubic-bezier(.1,.7,.2,1) .15s both;pointer-events:none}
@@ -1074,3 +1074,11 @@ html.en-route::before{content:"";position:fixed;inset:0 auto auto 0;height:3px;w
 .rangee .carte .affiche.entiere img.principale.petite{object-fit:scale-down!important} /* petite affiche : jamais agrandie */
 @media(max-width:979px){.liste .affiche img.principale.petite,.grille .affiche img.principale.petite{margin:0 auto;display:block}} /* petite affiche source : à sa vraie taille sur son fond flouté, jamais agrandie */
 .affiche img.principale.petite{margin:auto!important;max-height:100%}
+/* Fiche soirée : une affiche petite ou en largeur garde un vrai cadre (4/5, fond flouté), au lieu d'une vignette perdue dans le vide. */
+.fiche-affiche.cadre{position:relative;display:grid;place-items:center;aspect-ratio:4/5;padding:18px;isolation:isolate}
+.fiche-affiche.cadre .fond-flou{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:blur(28px) saturate(1.3) brightness(.7);transform:scale(1.15);z-index:-1}
+.fiche-affiche.cadre>img:not(.fond-flou){width:100%;height:auto;max-height:100%;object-fit:contain;border-radius:12px;box-shadow:0 20px 50px -18px #000}
+.fiche-affiche.cadre>img.petite{width:auto}
+/* Un seul alignement pour toutes les sections (même bord gauche que l'en-tête) ; les paragraphes restent à une longueur lisible. */
+.qui{max-width:1240px}
+.qui>p,.qui .grand-texte{max-width:72ch}

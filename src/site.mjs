@@ -1262,7 +1262,7 @@ function pageSoiree({ lang, t, tr, base, compte, T, chemin, s, soirees, maj }) {
   const corps = `<article class="fiche carte-donnees" data-id="${s.id}" data-debut="${esc(s.debut)}">
   <nav class="ariane"><a href="${base}${P}">Teufy</a> › ${s.zone === 'occitanie' ? `<a href="${base}${P}occitanie/">Occitanie</a>` : s.zone === 'france' ? `<a href="${base}${P}france/">${esc(t.franceNav)}</a>` : `<a href="${base}${P}#agenda">${esc(t.agenda)}</a>`} › <span>${esc(s.nom)}</span></nav>
   <div class="fiche-grille">
-    <div class="fiche-affiche">${img}</div>
+    <div class="fiche-affiche${s.affiche && s.dims && (s.dims[0] / s.dims[1] > 0.95 || s.dims[0] < 560) ? ' cadre' : ''}">${s.affiche && s.dims && (s.dims[0] / s.dims[1] > 0.95 || s.dims[0] < 560) ? `<img class="fond-flou" src="${base}${s.affiche.replace(/\.jpg$/, '-480.webp')}" alt="" aria-hidden="true">` : ''}${img}</div>
     <div class="fiche-infos">
       ${s.genres ? `<p class="genre">${esc(s.genres)}</p>` : ''}
       <h1>${esc(s.nom)}</h1>

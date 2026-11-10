@@ -450,12 +450,12 @@ const PLUS5 = { fr: { accesL: 'Accès' }, en: { accesL: 'Access' }, it: { accesL
 for (const l of LANGUES) Object.assign(TXT[l], PLUS5[l]);
 // Compte à rebours et « très demandée ».
 const PLUS6 = {
-  fr: { tresDemandee: '🔥 Très demandée', commenceDans: 'La soirée commence dans', reserveTot: 'Soirée très attendue : réserve tôt, ce genre de date part souvent vite.', js: { dans: 'Dans', u: ['j', 'h', 'min', 's'], cestParti: "C'est parti !" } },
-  en: { tresDemandee: '🔥 In high demand', commenceDans: 'The party starts in', reserveTot: 'Highly anticipated: book early, dates like this often sell out fast.', js: { dans: 'In', u: ['d', 'h', 'm', 's'], cestParti: "It's on!" } },
-  it: { tresDemandee: '🔥 Molto richiesta', commenceDans: 'La serata inizia tra', reserveTot: 'Serata molto attesa: prenota presto, date così vanno via in fretta.', js: { dans: 'Tra', u: ['g', 'h', 'min', 's'], cestParti: 'Si parte!' } },
-  es: { tresDemandee: '🔥 Muy solicitada', commenceDans: 'La fiesta empieza en', reserveTot: 'Fiesta muy esperada: reserva pronto, estas fechas suelen agotarse rápido.', js: { dans: 'En', u: ['d', 'h', 'min', 's'], cestParti: '¡Empieza!' } },
-  zh: { tresDemandee: '🔥 热门', commenceDans: '距离派对开始', reserveTot: '备受期待：请尽早购票，这类活动常常很快售罄。', js: { dans: '还有', u: ['天', '时', '分', '秒'], cestParti: '开始啦！' } },
-  ar: { tresDemandee: '🔥 مطلوبة جدًا', commenceDans: 'تبدأ الحفلة بعد', reserveTot: 'حفلة منتظرة جدًا: احجز مبكرًا، فمثل هذه المواعيد تنفد سريعًا.', js: { dans: 'بعد', u: ['ي', 'س', 'د', 'ث'], cestParti: 'بدأت!' } },
+  fr: { tresDemandee: '🔥 Très demandée', commenceDans: 'La soirée commence dans', reserveTot: 'Soirée très attendue (mesuré sur l\'intérêt du public) : vérifie les places sur la billetterie.', js: { dans: 'Dans', u: ['j', 'h', 'min', 's'], cestParti: "C'est parti !" } },
+  en: { tresDemandee: '🔥 In high demand', commenceDans: 'The party starts in', reserveTot: 'Highly anticipated (based on measured public interest): check availability on the ticket site.', js: { dans: 'In', u: ['d', 'h', 'm', 's'], cestParti: "It's on!" } },
+  it: { tresDemandee: '🔥 Molto richiesta', commenceDans: 'La serata inizia tra', reserveTot: 'Serata molto attesa (in base all\'interesse misurato del pubblico): verifica i posti sulla biglietteria.', js: { dans: 'Tra', u: ['g', 'h', 'min', 's'], cestParti: 'Si parte!' } },
+  es: { tresDemandee: '🔥 Muy solicitada', commenceDans: 'La fiesta empieza en', reserveTot: 'Fiesta muy esperada (según el interés medido del público): consulta las plazas en la ticketera.', js: { dans: 'En', u: ['d', 'h', 'min', 's'], cestParti: '¡Empieza!' } },
+  zh: { tresDemandee: '🔥 热门', commenceDans: '距离派对开始', reserveTot: '备受期待（根据实测的公众关注度）：请在售票网站查看余票。', js: { dans: '还有', u: ['天', '时', '分', '秒'], cestParti: '开始啦！' } },
+  ar: { tresDemandee: '🔥 مطلوبة جدًا', commenceDans: 'تبدأ الحفلة بعد', reserveTot: 'حفلة منتظرة جدًا (حسب الاهتمام المقاس للجمهور): تحقق من الأماكن على موقع التذاكر.', js: { dans: 'بعد', u: ['ي', 'س', 'د', 'ث'], cestParti: 'بدأت!' } },
 };
 for (const l of LANGUES) { const { js, ...reste } = PLUS6[l]; Object.assign(TXT[l], reste); Object.assign(TXT[l].js, js); }
 const PLUS7 = {
