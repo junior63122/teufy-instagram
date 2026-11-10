@@ -68,7 +68,9 @@ if (cible === 'collecter') {
   console.log(`Statistiques mises à jour pour ${n} publication(s). Voir RAPPORT.md`);
   // Analyse hebdomadaire par IA gratuite (veille Meta, pourquoi, nouveaux tests), une fois par semaine.
   const derniere = TENDANCES.derniere_analyse ? new Date(TENDANCES.derniere_analyse) : null;
-  if (flag('cerveau') || !derniere || (NOW - derniere) / 86400e3 >= 6.5) {
+  // Rythme du « cerveau » (veille Instagram + analyse + nouveaux tests) : chaque jour par défaut (config.llm.cerveau_jours).
+  const rythme = Number(config.llm?.cerveau_jours ?? 1);
+  if (flag('cerveau') || !derniere || (NOW - derniere) / 86400e3 >= Math.max(0.9, rythme - 0.1)) {
     const { analyserSemaine } = await import('./cerveau.mjs');
     try {
       const res = await analyserSemaine({ now: NOW });

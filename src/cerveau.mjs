@@ -69,7 +69,7 @@ export async function analyserSemaine({ now = new Date(), dryRun = false, log = 
   let veille = await ia.rechercher({
     config,
     system: 'Tu fais la veille Instagram d\'un compte de soirées (Côte d\'Azur, France). Tu ne rapportes que des faits vérifiables, avec source et date.',
-    prompt: `Nous sommes le ${today}. Cherche les nouveautés Instagram et Meta des 14 derniers jours qui peuvent changer ce qu'un compte de soirées doit publier : algorithme, règles (hashtags, formats, durée des reels, originalité), nouvelles fonctions (carrousels, reels, trial reels, musique), API de publication (Graph API, changelog développeurs), tendances de formats et de sons. Priorité aux sources officielles (about.instagram.com, creators.instagram.com, about.fb.com, developers.facebook.com, déclarations d'Adam Mosseri), puis médias spécialisés. Pour chaque point : date, source (URL), si c'est officiel ou non, et l'impact concret pour nous. Dis clairement s'il n'y a rien de nouveau.`,
+    prompt: `Nous sommes le ${today}. Cherche les nouveautés Instagram et Meta des 14 derniers jours qui peuvent changer ce qu'un compte de soirées doit publier : algorithme, règles (hashtags, formats, durée des reels, originalité), nouvelles fonctions (carrousels, reels, trial reels, musique), API de publication (Graph API, changelog développeurs), tendances de formats et de sons. Priorité aux sources officielles (about.instagram.com, creators.instagram.com, about.fb.com, developers.facebook.com, déclarations d'Adam Mosseri), puis médias spécialisés. Pour chaque point : date, source (URL), si c'est officiel ou non, et l'impact concret pour nous. Ajoute aussi ce qui fonctionne le mieux EN CE MOMENT (sur les 30 derniers jours) pour les comptes de sorties, nightlife et événementiel 17-30 ans : formats les plus viraux (types de reels, carrousels, photo dumps, posts collab, trial reels, stories, canaux), signaux que l'algorithme récompense (partages en message privé, temps de visionnage, enregistrements, originalité), sons et tendances d'écriture qui montent, sujets qui font réagir, et meilleures heures de publication pour un public français (jours et heures, heure de Paris). Cite tes sources. Dis clairement s'il n'y a rien de nouveau.`,
   });
   if (!veille) veille = await veilleRss(now);
   log('Veille faite.');
@@ -96,7 +96,7 @@ export async function analyserSemaine({ now = new Date(), dryRun = false, log = 
   };
   const schema = {
     type: 'object', additionalProperties: false,
-    required: ['resume', 'nouveautes', 'analyse', 'regles', 'nouvelles_accroches', 'nouvelles_intros', 'nouveaux_debats', 'nouveaux_sujets_reels', 'hashtags_a_tester', 'objectif_prochaine_semaine'],
+    required: ['resume', 'nouveautes', 'analyse', 'regles', 'nouvelles_accroches', 'nouvelles_intros', 'nouveaux_debats', 'nouveaux_sujets_reels', 'hashtags_a_tester', 'objectif_prochaine_semaine', 'formats_a_tester', 'creneaux_utc'],
     properties: {
       resume: { type: 'string', description: 'Résumé de la semaine en 3 à 6 phrases, en français, pour le fondateur.' },
       nouveautes: { type: 'array', items: { type: 'object', additionalProperties: false, required: ['titre', 'date', 'source', 'officiel', 'impact'], properties: { titre: { type: 'string' }, date: { type: 'string' }, source: { type: 'string' }, officiel: { type: 'boolean' }, impact: { type: 'string' } } } },
@@ -108,6 +108,8 @@ export async function analyserSemaine({ now = new Date(), dryRun = false, log = 
       nouveaux_sujets_reels: { type: 'array', description: 'Au plus 2 sujets de reels explicatifs utiles ou drôles pour les 17-30 ans qui sortent (astuces, sujets du moment dans l\'événementiel ou la nuit, nouveautés locales), uniquement à partir de faits vérifiés dans la veille.', items: { type: 'object', additionalProperties: false, required: ['titre', 'sous', 'points', 'legende'], properties: { titre: { type: 'string' }, sous: { type: 'string' }, points: { type: 'array', items: { type: 'string' } }, legende: { type: 'string' } } } },
       hashtags_a_tester: { type: 'array', description: 'Au plus 5 hashtags pertinents (Côte d\'Azur, nightlife, styles) à tester.', items: { type: 'string' } },
       objectif_prochaine_semaine: { type: 'integer', description: 'Note /100 visée pour les posts de la semaine prochaine.' },
+      formats_a_tester: { type: 'array', description: 'Au plus 3 formats ou manières de poster qui marchent en ce moment (veille + chiffres du compte), avec la source.', items: { type: 'object', additionalProperties: false, required: ['format', 'pourquoi', 'source'], properties: { format: { type: 'string' }, pourquoi: { type: 'string' }, source: { type: 'string' } } } },
+      creneaux_utc: { type: 'array', description: 'De 3 à 5 heures UTC (entiers de 15 à 21) où publier, d\'après les chiffres du compte (heures des meilleurs posts), les autres comptes et la veille. Rends la liste actuelle si rien ne justifie un changement.', items: { type: 'integer' } },
     },
   };
   let d;
@@ -167,6 +169,10 @@ export async function analyserSemaine({ now = new Date(), dryRun = false, log = 
       appliques.push(`sujet de reel « ${sj.titre} »`);
     }
   }
+  // Heures de publication : seulement dans la fenêtre des passages du bot (15h-21h UTC), 3 à 5 créneaux, sans doublon.
+  const cr = [...new Set((d.creneaux_utc || []).map(Number))].filter((h) => Number.isInteger(h) && h >= 15 && h <= 21).sort((a, b) => a - b);
+  if (cr.length >= 3 && cr.length <= 5 && config.reglages?.creneaux_utc && cr.join() !== config.reglages.creneaux_utc.join()) { appliques.push(`heures de publication (UTC) ${config.reglages.creneaux_utc.join(', ')} → ${cr.join(', ')}`); config.reglages.creneaux_utc = cr; if (!dryRun) await writeFile(CONFIG_FILE, JSON.stringify(config, null, 2) + '\n'); }
+  tendances.formats_a_tester = (d.formats_a_tester || []).slice(0, 3).filter((f) => texteOk(f.format, 120) && texteOk(f.pourquoi, 300)).map((f) => ({ ...f, ajout: today }));
   tendances.objectif_semaine = Math.max(objectif(data), Math.min(100, Number(d.objectif_prochaine_semaine) || 0));
 
   const md = `## Analyse de la semaine du ${today}
@@ -180,6 +186,9 @@ ${(d.nouveautes || []).map((n) => `- ${n.officiel ? '🟢 officiel' : '🟡 non 
 
 ### Pourquoi certains posts marchent mieux
 ${(d.analyse || []).map((a) => `- **${a.constat}** (${a.preuve}) → ${a.action}`).join('\n') || '-'}
+
+### Formats et manières de poster à tester
+${(tendances.formats_a_tester || []).map((f) => `- **${f.format}** : ${f.pourquoi} ([source](${f.source}))`).join('\n') || '-'}
 
 ### Ce que le bot a changé
 ${appliques.map((x) => `- ${x}`).join('\n') || '- Rien.'}

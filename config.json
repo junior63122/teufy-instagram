@@ -269,6 +269,7 @@
     "budget_note": "Qualité inchangée (Claude Opus en premier, recherches complètes). Plafonds = garde-fou anti-emballement (boucle, panne), pas une limite de qualité. Continuité : une IA sans crédit est sautée pendant le passage et l'autre prend le relais ; GitHub Models gratuit en dernier recours ; sinon le site garde les dernières données valides. Seuls les appels réussis sont comptés (contenus/budget-ia.json).",
     "github_models": true,
     "modele_gemini": "gemini-3.8-flash",
+    "cerveau_jours": 1,
     "modele_github": "openai/gpt-4.1-mini"
   },
   "studio": {
