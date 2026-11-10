@@ -2019,18 +2019,18 @@
    "score": 0,
    "soirs": [],
    "details": {
-    "le": "2026-11-10T21:13:06.641Z",
-    "styles": "Lounge · Chill",
+    "le": "2026-11-10T21:15:53.769Z",
+    "styles": "Lounge · Acoustique",
     "dress_code": "",
     "horaires": "Mar–Mer 18h–23h · Jeu–Sam 18h–0h",
-    "prix_verre": "cocktail 10–15 €",
-    "entree": "gratuit",
+    "prix_verre": "10–20 €",
+    "entree": "Gratuit",
     "age_min": "",
     "sources": [
-     "https://www.jeannecocktailclub.com/",
-     "https://www.distilleriejeanne.com/",
-     "https://www.provencemed.com/",
-     "https://www.provence-alpes-cotedazur.com/"
+     "https://www.distilleriejeanne.com/bar-a-cocktail/",
+     "https://toudulon.fr/distillerie-jeanne-a-toulon/",
+     "https://www.provence-med.com/",
+     "https://theglobaldrinker.com/bars/france/toulon/jeanne-cocktail-club/"
     ]
    }
   },
@@ -2050,17 +2050,17 @@
    "photo": "site/lieux/site-d9be271c83b0-176.webp",
    "soirs": [],
    "details": {
-    "le": "2026-11-10T21:13:06.641Z",
+    "le": "2026-11-10T21:15:53.769Z",
     "styles": "Lounge · House Lounge · Afro House",
-    "dress_code": "Chic et décontracté (barefoot chic).",
+    "dress_code": "Chic et décontracté",
     "horaires": "Mar–Sam · 19h30–0h (en saison)",
-    "prix_verre": "bière 7 € · cocktail 14 € · soft 4,50–6 €",
-    "entree": "Gratuit pour les résidents · réservation avec crédit conso de 30 € pour les extérieurs",
+    "prix_verre": "bière 7 € · cocktail 14 €",
+    "entree": "Gratuit pour les clients de l'hôtel, réservation avec crédit conso de 30 € pour les extérieurs",
     "age_min": "",
     "sources": [
-     "https://www.grandhoteldauphine.com/rooftop-piscine-bar-toulon/",
-     "https://sunset-rooftop-experience.weezevent.com/",
-     "https://www.provence-alpes-cotedazur.com/activites/le-rooftop-du-grand-hotel-dauphine-toulon-fr-4084534/"
+     "https://www.grandhoteldauphine.com/rooftop-piscine-bar/",
+     "https://www.grandhoteldauphine.com/",
+     "https://www.provence-mediterranee-tourisme.com"
     ]
    }
   },
@@ -2080,15 +2080,16 @@
    "photo": "site/lieux/site-cbc0bedf1201-176.webp",
    "soirs": [],
    "details": {
-    "le": "2026-11-10T21:13:06.641Z",
-    "styles": "Musique électronique · Hip-hop · Afro · R&B",
-    "dress_code": "Tenue correcte exigée, casquette, jogging et tenues de plage interdits",
+    "le": "2026-11-10T21:15:53.769Z",
+    "styles": "Électro · Hip-hop · Afrobeat · R&B",
+    "dress_code": "Tenue correcte exigée (chic et soignée). Casquette, jogging et tenues de plage interdits.",
     "horaires": "Jeu 23h–4h · Ven–Sam 23h50–5h · Dim 23h–4h · Mer–Dim 0h–5h (en saison)",
     "prix_verre": "",
-    "entree": "10 € avec une consommation",
+    "entree": "10 € avec une consommation incluse",
     "age_min": "18 ans",
     "sources": [
      "https://www.no-stresss-discotheque.fr/",
+     "https://www.provencemed.com/organisez-votre-sejour/fetes-et-manifestations/toutes-les-manifestations/no-stresss-la-seyne-sur-mer-fr-5381830/",
      "https://www.provence-alpes-cotedazur.com/"
     ]
    }
@@ -2108,18 +2109,18 @@
    "score": 0,
    "soirs": [],
    "details": {
-    "le": "2026-11-10T21:13:06.641Z",
-    "styles": "Electro House · Deep House · Afro House · Tech House",
-    "dress_code": "Beach chic",
-    "horaires": "Lun–Dim · 10h–0h30 (en saison)",
-    "prix_verre": "cocktail 16–18 €",
-    "entree": "Gratuit",
+    "le": "2026-11-10T21:15:53.769Z",
+    "styles": "",
+    "dress_code": "",
+    "horaires": "",
+    "prix_verre": "",
+    "entree": "",
     "age_min": "",
     "sources": [
-     "https://www.lajavanaise.com/",
-     "https://www.lajavanaise.com/notre-carte-boissons-cocktails-la-javanaise",
-     "https://shotgun.live/organizers/la-javanaise",
-     "https://www.cotedazurfrance.fr/"
+     "https://www.la-seyne.fr/",
+     "https://provence-alpes-cotedazur.com/fiche/plage-des-sablettes-la-seyne-sur-mer-fr-4261765/",
+     "https://www.plageprivee.com/plages-privees/la-seyne-sur-mer",
+     "https://www.epaillote.com/plages-privees/france/83-var/la-seyne-sur-mer"
     ]
    }
   },
@@ -2139,18 +2140,18 @@
    "photo": "site/lieux/site-9050ee7893a3-176.webp",
    "soirs": [],
    "details": {
-    "le": "2026-11-10T21:13:06.641Z",
+    "le": "2026-11-10T21:15:53.769Z",
     "styles": "House · Techno · Funk · Années 80",
-    "dress_code": "",
+    "dress_code": "Tenue correcte et soignée recommandée",
     "horaires": "Dim–Jeu 9h–1h · Ven–Sam 9h–3h",
     "prix_verre": "bière 4–8 € · cocktail 8–10 €",
-    "entree": "Entrée libre",
+    "entree": "Gratuit (payant lors de certains événements)",
     "age_min": "",
     "sources": [
      "https://www.restaurantmadamem.fr/",
-     "https://www.restaurantmadamem.fr/soirees.html",
-     "https://www.restaurantmadamem.fr/bar-a-cocktails.html",
-     "https://www.provence-mediterranee-tourisme.com"
+     "https://www.restaurantmadamem.fr/bar-a-cocktail/",
+     "https://www.restaurantmadamem.fr/soirees-port-de-hyeres/",
+     "https://www.instagram.com/madameamorehyeres"
     ]
    }
   },
@@ -2168,7 +2169,22 @@
    "slug": "le-petit-bain-hyeres",
    "score": 0,
    "photo": "site/lieux/site-931d00696249-176.webp",
-   "soirs": []
+   "soirs": [],
+   "details": {
+    "le": "2026-11-10T21:15:53.769Z",
+    "styles": "Open Format · House · Hip-Hop · French Touch",
+    "dress_code": "Tenue correcte exigée en soirée, décontractée en journée",
+    "horaires": "Jeu 19h30–1h · Ven–Sam 12h–1h · Dim 12h–21h30",
+    "prix_verre": "mocktail 8 € · cocktail 10 €",
+    "entree": "Gratuit (10 € lors de certains événements)",
+    "age_min": "",
+    "sources": [
+     "https://lepetitbainhyeres.fr/",
+     "https://lepetitbainhyeres.fr/bar-a-cocktail/",
+     "https://lepetitbainhyeres.fr/soirees-a-theme-beach-party-hyeres/",
+     "https://shotgun.live/fr/venues/le-petit-bain-hyeres"
+    ]
+   }
   },
   {
    "nom": "Le Sax",
@@ -2184,7 +2200,22 @@
    "slug": "le-sax-hyeres",
    "score": 0,
    "photo": "site/lieux/site-a85f0832334c-176.webp",
-   "soirs": []
+   "soirs": [],
+   "details": {
+    "le": "2026-11-10T21:15:53.769Z",
+    "styles": "Généraliste · Pop-rock · Latino",
+    "dress_code": "Tenue décontractée (aucun dress code officiel)",
+    "horaires": "Lun–Dim · 7h30–1h (jusqu'à 2h en saison)",
+    "prix_verre": "bière 6–9 € · cocktail 10–13 €",
+    "entree": "Gratuit",
+    "age_min": "",
+    "sources": [
+     "https://www.petitfute.com/v33433-hyeres-83400/c1171-visites-points-d-interet/c958-bar-et-cafe/c959-bar-a-cocktail/391035-le-sax.html",
+     "https://www.provence-alpes-cotedazur.com/offre/le-sax-hyeres-fr-4718636/",
+     "https://check.fr/bars/le-sax/",
+     "https://www.pagesjaunes.fr/pros/52781446"
+    ]
+   }
   },
   {
    "nom": "K27",
@@ -2200,7 +2231,22 @@
    "slug": "k27-six-fours-les-plages",
    "score": 0,
    "photo": "site/lieux/site-c21eac0441ed-176.webp",
-   "soirs": []
+   "soirs": [],
+   "details": {
+    "le": "2026-11-10T21:15:53.769Z",
+    "styles": "House · Electro · Hip-Hop · Reggaeton",
+    "dress_code": "Tenue correcte et décontractée",
+    "horaires": "Mar–Jeu 17h–1h · Ven 17h–1h (jusqu'à 3h selon soirées) · Sam 20h–3h · Dim 17h–1h",
+    "prix_verre": "",
+    "entree": "Gratuit",
+    "age_min": "",
+    "sources": [
+     "https://k27.fr/",
+     "https://shotgun.live/organizers/k27-sixfours",
+     "https://dance-events.fr/",
+     "https://airdancia.com/"
+    ]
+   }
   },
   {
    "nom": "L'Eden Bar",
@@ -2215,7 +2261,22 @@
    "insta": null,
    "slug": "l-eden-bar-six-fours-les-plages",
    "score": 0,
-   "soirs": []
+   "soirs": [],
+   "details": {
+    "le": "2026-11-10T21:15:53.769Z",
+    "styles": "Généraliste · Électro / House · Pop · Latino",
+    "dress_code": "Tenue soignée exigée (tenues de plage et survêtements refusés).",
+    "horaires": "Mar, Dim 10h–18h · Mer–Jeu 10h–1h · Ven–Sam 10h–3h · Lun–Dim 10h–3h (en saison)",
+    "prix_verre": "cocktail 10–15 €",
+    "entree": "Gratuite (consommation obligatoire)",
+    "age_min": "18 ans (en soirée)",
+    "sources": [
+     "https://eden-fregate.com/",
+     "https://www.instagram.com/eden_six_fours_officiel/",
+     "https://www.facebook.com/ledenbar.sixfours",
+     "https://provence-alpes-cotedazur.com"
+    ]
+   }
   },
   {
    "nom": "Le Bard'Ô",
@@ -2231,7 +2292,22 @@
    "slug": "le-bard-o-sanary-sur-mer",
    "score": 0,
    "photo": "site/lieux/site-d8ff44097013-176.webp",
-   "soirs": []
+   "soirs": [],
+   "details": {
+    "le": "2026-11-10T21:15:53.769Z",
+    "styles": "Électro · House · Disco · Hip-Hop",
+    "dress_code": "Casual chic, tenue soignée appréciée",
+    "horaires": "Lun–Jeu 9h–1h · Ven–Sam 9h–2h30 · Dim 9h–23h · Lun–Dim 9h–3h (en saison)",
+    "prix_verre": "",
+    "entree": "Gratuit",
+    "age_min": "Tout public",
+    "sources": [
+     "https://www.le-bardo.com/",
+     "https://www.provencesudsaintebaume.com/commerce-et-service/le-bardo-sanary-sur-mer/",
+     "https://www.sanary-tourisme.com/",
+     "https://shotgun.live/fr/events/obsessi-on-by-inda-lebard-o"
+    ]
+   }
   },
   {
    "nom": "Ô Petit Monde",
@@ -2246,7 +2322,22 @@
    "insta": null,
    "slug": "o-petit-monde-sanary-sur-mer",
    "score": 0,
-   "soirs": []
+   "soirs": [],
+   "details": {
+    "le": "2026-11-10T21:15:53.769Z",
+    "styles": "Lounge · House · Reggae",
+    "dress_code": "",
+    "horaires": "Lun–Dim · 8h30–1h (en saison) · Lun, Jeu–Dim · 9h–15h · 18h–0h",
+    "prix_verre": "mocktail 10 € · cocktail 12–14 €",
+    "entree": "Gratuit",
+    "age_min": "Aucun",
+    "sources": [
+     "https://opetitmonde.com/",
+     "https://www.provencesudsaintebaume.com/",
+     "https://mysunbed.com/",
+     "https://mapstr.com/"
+    ]
+   }
   },
   {
    "nom": "Sam's Klub",
@@ -2262,7 +2353,22 @@
    "slug": "sam-s-klub-bandol",
    "score": 0,
    "photo": "site/lieux/site-a130f46f373c-176.webp",
-   "soirs": []
+   "soirs": [],
+   "details": {
+    "le": "2026-11-10T21:15:53.769Z",
+    "styles": "Généraliste · Années 80 · Latino · Disco",
+    "dress_code": "Tenue correcte",
+    "horaires": "Lun, Jeu, Dim 19h30–1h · Ven–Sam 19h30–3h",
+    "prix_verre": "",
+    "entree": "Entrée gratuite",
+    "age_min": "",
+    "sources": [
+     "https://sams-klub.com/",
+     "https://sams-klub.com/boite-de-nuit-bandol/",
+     "https://sams-klub.com/soirees-bandol/",
+     "https://www.bandoltourisme.fr/commerce-et-service/sams-klub/"
+    ]
+   }
   },
   {
    "nom": "Le Spot (Hôtel Plein Large)",
