@@ -271,7 +271,8 @@
         "hard bounce",
         "acid techno",
         "Neorave",
-        "neorave"
+        "neorave",
+        "Industrial Techno"
       ],
       "description": "",
       "public_cible": 0.95,
@@ -294,10 +295,12 @@
       "sources_sites": [
         "shotgun.live",
         "Shotgun",
-        "Shotgun.live"
+        "Shotgun.live",
+        "instagram.com"
       ],
       "billetterie_cherchee": true,
-      "offres_cherchees": true
+      "offres_cherchees": true,
+      "via_veille": true
     },
     {
       "source": "web",
@@ -6039,6 +6042,33 @@
       "confiance": 0.9,
       "accroche": "Huit heures de session dub non-stop au Stadium avec L'Entourloop et Mungo's Hi Fi.",
       "instagram": []
+    },
+    {
+      "source": "web",
+      "source_site": "instagram.com",
+      "via_veille": true,
+      "name": "Martine Patine Roller Clubbing",
+      "start": "2026-12-18T19:00:00.000Z",
+      "venue": "Frigo 16",
+      "city": "Nice",
+      "address": "",
+      "url": "https://www.instagram.com/p/DfjyUZpDYLN/",
+      "image": "https://scontent-ord5-2.cdninstagram.com/v/t51.82787-15/899610093_18100051070673284_3152989694763129256_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=Nt-7NYW9wwcQ7kNvwFz8R7c&_nc_oc=AdrmMpWtKvh9VNdNZQKmat8Fl3FGNBynvr1Gs39F-GKLi3UQV-TOHJhqvUZUbhmWxVQ&_nc_zt=23&_nc_ht=scontent-ord5-2.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=zqxnfrlPq_CINycbUyCBdA&oh=00_AQTP47Rr7a48tS9Aql7OgDtPndxeoS1wbToDGWcPVCAuyg&oe=6AF8D852",
+      "price": null,
+      "tags": [
+        "Groove",
+        "Funk",
+        "House",
+        "Disco"
+      ],
+      "description": "",
+      "public_cible": 0.6,
+      "confiance": 0.9,
+      "accroche": "Session roller clubbing rétro avec Prosper, B.I.M et shows freestyle.",
+      "instagram": [
+        "frigo.16",
+        "martinepatine_official_"
+      ]
     }
   ]
 }
