@@ -59,7 +59,11 @@ async function enregistrer(info, f) {
 }
 const VILLES_PHOTOS = ['Nice', 'Cannes', 'Monaco', 'Antibes', 'Juan-les-Pins', 'Menton', 'Cagnes-sur-Mer', 'Saint-Laurent-du-Var', 'Villefranche-sur-Mer', 'Grasse', 'Vallauris',
   'Mandelieu-la-Napoule', 'Saint-Tropez', 'Fréjus', 'Saint-Raphaël (Var)', 'Sainte-Maxime', 'Toulon', 'Hyères', 'La Seyne-sur-Mer', 'Puget-sur-Argens', 'Roquebrune-sur-Argens', 'Draguignan',
-  ...VILLES_OCCITANIE, ...VILLES_FRANCE];
+  ...VILLES_OCCITANIE, ...VILLES_FRANCE,
+  // + toutes les villes des soirées à venir (petites communes comprises), pour qu'aucune soirée ne reste sans image.
+  ...['evenements-web.json', 'evenements-france.json', 'evenements-occitanie.json'].flatMap((f) => { try { return (JSON.parse(readFileSync(path.join(ROOT, f), 'utf8')).evenements || []).map((e) => String(e.city || '').trim()); } catch { return []; } }),
+  ...(() => { try { const d = JSON.parse(readFileSync(path.join(ROOT, 'contenus', 'lieux-nuit.json'), 'utf8')); return (d.lieux || []).map((l) => String(l.ville || '').trim()); } catch { return []; } })()]
+  .filter((v, i, l) => v && v.length > 1 && l.findIndex((x) => slug(x) === slug(v)) === i);
 const cache = existsSync(CACHE) ? JSON.parse(readFileSync(CACHE, 'utf8')) : {};
 await mkdir(DOSSIER, { recursive: true });
 for (const g of SPOTS_DATE) for (const [nom, ville] of g.lieux) {

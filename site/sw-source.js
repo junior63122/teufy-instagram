@@ -34,7 +34,7 @@ self.addEventListener('fetch', (e) => {
         const rep = await fetch(r);
         if (rep.ok && rep.type === 'basic') { c.put(r, rep.clone()).then(() => limiter(c)).catch(() => {}); }
         return rep;
-      } catch { return fetch(r); }
+      } catch { return fetch(r).catch(() => new Response('', { status: 504, statusText: 'Hors connexion' })); } // jamais de rejet (Firefox le signale en erreur)
     })());
     return;
   }

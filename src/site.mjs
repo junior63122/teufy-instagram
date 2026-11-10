@@ -1373,7 +1373,7 @@ async function imagesActus(actus, { soirees, hist }) {
     if (!a.image_site && /^https?:/.test(a.source || '')) {
       const g = path.join(dossier, `${h(a.source)}-og.jpg`);
       const u = existsSync(g) ? '' : await imageDePartage(a.source);
-      if (existsSync(g) || (u && await telecharger(u, g))) a.image_site = path.relative(ROOT, g);
+      if (existsSync(g) || (u && await telecharger(u, g))) { a.image_site = path.relative(ROOT, g); a.dims = tailleJpeg(g) || undefined; }
     }
     if (a.image_site && !/affiches/.test(a.image_site)) for (const l of [400, 800]) webp(path.join(ROOT, a.image_site), l);
     const post = hist.find((x) => x.lien && x.publication?.veille?.source && x.publication.veille.source === a.source);
@@ -1435,7 +1435,7 @@ function carteLieu(l, { t, tr, base, lang }, i = 0, tendance = false) {
   const prochaines = l.prochaines || [];
   const raison = l.insta && l.insta.posts21 ? `${tr('Sur ses publications des 3 dernières semaines')} : ${l.insta.likes} ${tr('likes')} · ${l.insta.commentaires} ${tr('commentaires en moyenne')} · ${l.insta.posts21} ${tr('posts')}` : '';
   return `<article class="fiche-lieu${tendance ? ' tendance' : ''}" id="${esc(l.slug)}" style="--i:${i % 8}" data-type="${esc(l.type)}">
-    <div class="fiche-banniere"${l.photo ? ` style="--fond:url('${base}${esc(l.photo)}')"` : ''}>${tendance ? `<span class="rang">🔥 #${i + 1}</span>` : ''}${l.photo ? `<img src="${base}${esc(l.photo)}" alt="" width="88" height="88" loading="lazy">` : `<span class="lieu-initiale">${esc((l.nom[0] || '?').toUpperCase())}</span>`}</div>
+    <div class="fiche-banniere${l.photo ? '' : ' banniere-ville'}"${l.photo ? ` style="--fond:url('${base}${esc(l.photo)}')"` : photoVille(l.ville) ? ` style="--fond:url('${base}${esc(photoVille(l.ville).fichier.replace(/\.jpg$/, '-480.webp'))}')"` : ''}>${tendance ? `<span class="rang">🔥 #${i + 1}</span>` : ''}${l.photo ? `<img src="${base}${esc(l.photo)}" alt="" width="88" height="88" loading="lazy">` : `<span class="lieu-initiale">${esc((l.nom[0] || '?').toUpperCase())}</span>`}</div>
     <div class="fiche-corps">
     <p class="genre">${esc(tr(TYPES_NOMS[l.type] || ''))}${l.ville ? ` · ${esc(l.ville)}` : ''}${l.partenaire ? ` <span class="fiche-prix">${esc(t.partenaires)}</span>` : ''}</p>
     <h3>${esc(l.nom)}</h3>

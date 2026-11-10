@@ -2,7 +2,7 @@
 // - images, polices, scripts versionnés : servis depuis le cache (instantané), mis en cache au premier passage ;
 // - pages : toujours le réseau d'abord (agenda à jour), le cache seulement hors connexion ou réseau très lent ;
 // - vidéos et autres sites : jamais interceptés.
-const V = '9ff8edb9';
+const V = 'db6e8c69';
 const PAGES = `teufy-pages-${V}`, FICHIERS = 'teufy-fichiers-v1';
 const MAX_FICHIERS = 400;
 
@@ -34,7 +34,7 @@ self.addEventListener('fetch', (e) => {
         const rep = await fetch(r);
         if (rep.ok && rep.type === 'basic') { c.put(r, rep.clone()).then(() => limiter(c)).catch(() => {}); }
         return rep;
-      } catch { return fetch(r); }
+      } catch { return fetch(r).catch(() => new Response('', { status: 504, statusText: 'Hors connexion' })); } // jamais de rejet (Firefox le signale en erreur)
     })());
     return;
   }

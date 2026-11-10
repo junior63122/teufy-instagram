@@ -36,6 +36,8 @@ for (const f of pages) {
     else if (!canon.startsWith(domaine)) bloquants.push(`${rel} : canonical hors domaine (${canon})`);
     else { const attendu = rel.replace(/index\.html$/, ''); if (canon !== domaine + attendu) bloquants.push(`${rel} : canonical ${canon} ≠ ${domaine + attendu}`); }
     const hl = (h.match(/<link rel="alternate" hreflang="[^"]+"/g) || []).length;
+    // Aucun endroit sans image (demande du directeur) : vignette sans photo, spot sans photo, lieu sans logo ni photo de ville.
+    { const sans = (h.match(/class="vignette"|class="spot-carte sans-photo|class="fiche-banniere banniere-ville">|class="actu-flash"/g) || []).length; if (sans) avertissements.push(`${rel} : ${sans} élément(s) sans image`); }
     if (hl < 7) avertissements.push(`${rel} : ${hl} hreflang (6 langues + x-default attendus)`);
     for (const og of ['og:title', 'og:description', 'og:image', 'og:url']) if (!h.includes(`property="${og}"`)) bloquants.push(`${rel} : ${og} absent`);
     if (!h.includes('name="twitter:card"')) avertissements.push(`${rel} : twitter:card absent`);

@@ -109,7 +109,8 @@ const visibles = (p) => p.locator('.liste .carte:not([hidden])').count();
 
   await etape('clavier seul', async () => {
     const c = await b.newContext({ viewport: { width: 1280, height: 800 } }); const p = await c.newPage(); erreurs(p, 'clavier');
-    await p.goto(B); await p.evaluate(() => document.activeElement?.blur()); await p.keyboard.press('Tab');
+    // Point de départ du Tab fixé au début de la page (Firefox garde sinon la position du dernier focus).
+    await p.goto(B, { waitUntil: 'load' }); await p.evaluate(() => { document.activeElement?.blur(); document.body.setAttribute('tabindex', '-1'); document.body.focus(); document.body.removeAttribute('tabindex'); }); await p.keyboard.press('Tab');
     ok(await p.evaluate(() => document.activeElement?.classList.contains('saut')), 'clavier : le lien « Aller au contenu » n\'est pas le premier élément');
     await p.locator('details[data-bloc="ville"] summary').focus(); await p.keyboard.press('Enter'); await p.waitForTimeout(200);
     ok(await p.locator('details[data-bloc="ville"]').evaluate((d) => d.open), 'clavier : un menu de filtre ne s\'ouvre pas avec Entrée');
@@ -124,8 +125,8 @@ const visibles = (p) => p.locator('.liste .carte:not([hidden])').count();
     ok(await p.evaluate(async () => !!(await navigator.serviceWorker.getRegistration())?.active), 'cache : le service worker ne s\'installe pas');
     await p.goto(B + 'soirees-nice/'); await p.waitForTimeout(600);
     await c.setOffline(true);
-    await p.goto(B).catch(() => {});
-    ok(await p.locator('.liste .carte').count() > 10, 'cache : une page déjà vue ne s\'affiche plus sans connexion');
+    await p.goto(B).catch(() => {}); await p.waitForLoadState('load').catch(() => {}); await p.waitForTimeout(800); // Firefox peut finir sa navigation après goto
+    ok(await p.locator('.liste .carte').count().catch(async () => { await p.waitForTimeout(800); return p.locator('.liste .carte').count(); }) > 10, 'cache : une page déjà vue ne s\'affiche plus sans connexion');
     await c.setOffline(false); await p.reload(); await p.waitForTimeout(400);
     ok(await p.locator('.liste .carte').count() > 10, 'cache : la page ne revient pas après reconnexion');
     await c.close();

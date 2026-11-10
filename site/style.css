@@ -946,3 +946,5 @@ details[data-bloc="tri"]>.groupe{inset-inline-start:auto;inset-inline-end:0}
 .vignette.avec-ville .vignette-lieu{z-index:1}
 .credit-photo{font-size:12px;color:#bdb6aa;margin:6px 0 0}
 .credit-photo a{color:inherit}
+/* Lieu sans logo : vraie photo (libre) de sa ville en bannière, nette et assombrie, avec l'initiale du lieu */
+.fiche-banniere.banniere-ville::before{inset:0;filter:brightness(.62) saturate(1.05);opacity:1}
