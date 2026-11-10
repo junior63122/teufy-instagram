@@ -136,5 +136,23 @@
   "importance": 42,
   "source": "https://www.concertclassic.com/article/festival-de-danse-de-cannes-2026-21nov-6-dec-pour-toutes-les-danses",
   "publie": false
+ },
+ "2026-11|coupure ferroviaire totale entre nice monaco et vintimille les 10 et 11 novembre": {
+  "le": "2026-11-10T11:11:50.613Z",
+  "importance": 78,
+  "source": "https://www.monacoinfo.com",
+  "publie": false
+ },
+ "2026-11|monaco officialise la création du festival resonance": {
+  "le": "2026-11-10T11:11:50.613Z",
+  "importance": 65,
+  "source": "https://www.monacoinfo.com",
+  "publie": false
+ },
+ "2026-11|arrivée du tgv m vers marseille et nice à partir du 23 novembre": {
+  "le": "2026-11-10T11:11:50.613Z",
+  "importance": 62,
+  "source": "https://www.voyagerentrain.fr",
+  "publie": false
  }
 }

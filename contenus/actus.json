@@ -84,5 +84,57 @@
    "La billetterie officielle a été ouverte avec des tarifs de prévente démarrant à 23,50 euros. Les informations détaillées concernant les horaires de passage et les artistes locaux qui complèteront le plateau doivent être communiquées prochainement par le lieu."
   ],
   "ville": "Nice"
+ },
+ {
+  "cle": "2026-11|coupure ferroviaire totale entre nice monaco et vintimille les 10 et 11 novembre",
+  "date": "2026-11-09T19:00:00+01:00",
+  "ajout": "2026-11-10T11:11:50.613Z",
+  "type": "actu",
+  "importance": 78,
+  "source": "https://www.monacoinfo.com",
+  "image": "",
+  "titre": "Aucun train entre Nice, Monaco et l'Italie pendant 48 heures : les infos",
+  "chapo": "La circulation ferroviaire est totalement stoppée entre Nice et Vintimille les 10 et 11 novembre 2026, compliquant sérieusement les déplacements nocturnes de veille de jour férié.",
+  "paragraphes": [
+   "Les fêtards et habitués de la ligne côtière devront revoir leurs plans pour sortir ce mardi soir. SNCF Réseau interrompt l'intégralité du trafic ferroviaire entre les gares de Nice-Ville et Vintimille durant deux jours pleins, du mardi 10 au mercredi 11 novembre inclus.",
+   "Cette interruption complète s'explique par la réalisation d'importants chantiers de modernisation et de maintenance sur les voies de cet axe très encaissé, nécessitant une fermeture continue pour des raisons de sécurité. Aucun TER, TGV ni train de nuit ne pourra traverser la Principauté de Monaco durant cette période.",
+   "Pour ceux qui prévoient de rejoindre les clubs monégasques ou de rentrer sur Nice tard dans la nuit, l'impact est direct. Les lignes de bus du réseau Zou assurent une desserte diurne renforcée mais ne compensent pas les débits nocturnes habituels du rail. Il est recommandé de s'organiser via du covoiturage ou des réservations anticipées de VTC et taxis.",
+   "La reprise normale du trafic est annoncée pour le jeudi 12 novembre dès les premières rotations du matin."
+  ],
+  "ville": "Côte d'Azur"
+ },
+ {
+  "cle": "2026-11|monaco officialise la création du festival resonance",
+  "date": "2026-11-09T19:00:00+01:00",
+  "ajout": "2026-11-10T11:11:50.613Z",
+  "type": "annonce",
+  "importance": 65,
+  "source": "https://www.monacoinfo.com",
+  "image": "",
+  "titre": "Monaco annonce la création du Festival RESONANCE : ce que l'on sait",
+  "chapo": "La Principauté de Monaco lance un nouveau format d'événement musical baptisé Festival RESONANCE, officialisé lors du journal télévisé de Monaco Info.",
+  "paragraphes": [
+   "La Principauté enrichit son calendrier culturel et festif avec l'annonce d'une toute nouvelle manifestation musicale d'envergure. Dans son édition d'information du 9 novembre 2026, la chaîne Monaco Info a révélé le lancement officiel du Festival RESONANCE.",
+   "L'objectif affiché par ce nouvel arrivant est de diversifier l'offre sonore locale et d'attirer un public féru de musiques actuelles au coeur de Monaco, venant compléter les propositions événementielles traditionnelles de la Principauté.",
+   "Pour l'instant, les dates précises, la configuration des scènes et les premiers artistes programmés n'ont pas encore été divulgués par les organisateurs. Les modalités de billetterie et la tenue exacte de cette première édition seront communiquées dans les prochaines semaines."
+  ],
+  "ville": "Monaco"
+ },
+ {
+  "cle": "2026-11|arrivée du tgv m vers marseille et nice à partir du 23 novembre",
+  "date": "2026-11-09T08:00:00+01:00",
+  "ajout": "2026-11-10T11:11:50.613Z",
+  "type": "actu",
+  "importance": 62,
+  "source": "https://www.voyagerentrain.fr",
+  "image": "",
+  "titre": "Le nouveau TGV M arrive sur la Côte d'Azur : ce que cela change",
+  "chapo": "La SNCF a démarré l'exploitation commerciale du TGV M, avec des premières dessertes directes programmées vers Nice à compter du 23 novembre.",
+  "paragraphes": [
+   "Le renouveau de la grande vitesse ferroviaire arrive sur la Riviera. Après plusieurs mois d'essais techniques, SNCF Voyageurs a lancé officiellement le 9 novembre les trajets commerciaux réguliers du TGV Nouvelle Génération, également appelé TGV M. Les premières rames rejoindront la ligne Paris-Marseille-Nice dès le 23 novembre.",
+   "Ce nouveau matériel roulant propose une capacité accrue de 20 %, permettant d'accueillir jusqu'à 740 voyageurs par train. L'aménagement intérieur comprend de plus grands espaces pour les bagages volumineux, un espace vélo modernisé et une voiture-bar repensée sur deux niveaux.",
+   "Pour les 17-30 ans qui effectuent régulièrement la navette vers Paris pour des concerts, des festivals ou des week-ends, la bonne nouvelle concerne le budget : la SNCF a confirmé que ces trains intègrent la grille tarifaire classique de TGV INOUI, sans tarification spéciale ni supplément."
+  ],
+  "ville": "Côte d'Azur"
  }
 ]

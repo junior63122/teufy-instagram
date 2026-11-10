@@ -86,5 +86,38 @@
   "resume": "Le DJ et producteur Brodinski se produira au club Frigo 16 le vendredi 11 décembre 2026 dans le cadre de la saison Panda Events. Les préventes sont ouvertes à partir de 23,50 euros.",
   "source": "https://www.panda-events.com",
   "importance": 74
+ },
+ {
+  "id": "idee-14qgpy9",
+  "ajout": "2026-11-10T11:11:50.613Z",
+  "type": "actu",
+  "format": "carrousel-decryptage",
+  "titre": "Coupure ferroviaire totale entre Nice, Monaco et Vintimille les 10 et 11 novembre",
+  "angle": "Comment bouger et rentrer de soirée sans aucun train entre Nice, Monaco et Vintimille pendant deux jours.",
+  "resume": "Le trafic ferroviaire des TER et grandes lignes est entièrement interrompu entre Nice et Vintimille les 10 et 11 novembre 2026. Cette interruption liée à des travaux SNCF Réseau bloque l'axe majeur de déplacement nocturne pour la veille de jour férié.",
+  "source": "https://www.monacoinfo.com",
+  "importance": 78
+ },
+ {
+  "id": "idee-vx6ybr",
+  "ajout": "2026-11-10T11:11:50.613Z",
+  "type": "annonce",
+  "format": "post-annonce",
+  "titre": "Monaco officialise la création du Festival RESONANCE",
+  "angle": "Un nouveau festival musical s'installe sur la Côte d'Azur pour enrichir le calendrier des sorties.",
+  "resume": "La Principauté a annoncé officiellement le lancement d'un nouveau rendez-vous musical intitulé Festival RESONANCE. L'événement vient étoffer la scène musicale et l'offre événementielle monégasque avec une première édition à venir.",
+  "source": "https://www.monacoinfo.com",
+  "importance": 65
+ },
+ {
+  "id": "idee-1daot44",
+  "ajout": "2026-11-10T11:11:50.613Z",
+  "type": "actu",
+  "format": "carrousel-decryptage",
+  "titre": "Arrivée du TGV M vers Marseille et Nice à partir du 23 novembre",
+  "angle": "Plus de places disponibles et des prix inchangés pour bouger en week-end ou en festival entre Nice et la capitale.",
+  "resume": "La SNCF a lancé les premiers trajets commerciaux réguliers du TGV Nouvelle Génération sur l'axe Sud-Est. Les rames desserviront Marseille puis Nice dès le 23 novembre sans augmentation du prix des billets.",
+  "source": "https://www.voyagerentrain.fr",
+  "importance": 62
  }
 ]
