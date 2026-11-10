@@ -273,7 +273,12 @@
     "budget_jour_eur": 2.5,
     "budget_mois_eur": 75,
     "_budget": "Plafond de dépense IA (estimation) : au-delà, plus aucun appel payant jusqu'au lendemain (ou au mois suivant) ; le site garde ses dernières données. Coûts estimés par appel dans cout_eur.",
-    "cout_eur": { "gemini_recherche": 0.04, "gemini_appel": 0.004, "anthropic_recherche": 0.6, "anthropic_appel": 0.12 },
+    "cout_eur": {
+      "gemini_recherche": 0.04,
+      "gemini_appel": 0.004,
+      "anthropic_recherche": 0.6,
+      "anthropic_appel": 0.12
+    },
     "lieux_par_passage": 15,
     "modele_github": "openai/gpt-4.1-mini"
   },
@@ -431,7 +436,76 @@
     "forme": "société de droit monégasque",
     "maj_legales": "9 novembre 2026",
     "bing_verification": "",
-    "indexnow_cle": "4e86e662d030e19a248eea9f706d3c34"
+    "indexnow_cle": "4e86e662d030e19a248eea9f706d3c34",
+    "tarifs": {
+      "explication": "Formules partenaires affichées sur la page Partenaires (prix en euros, 0 = gratuit). Pour activer le paiement en ligne, colle dans « paiement » le lien de paiement créé chez ton prestataire (ex. Stripe Payment Links) : le bouton « Payer » apparaît automatiquement. Lien vide = bouton « Choisir cette formule » qui prépare le message.",
+      "mention": "Sans engagement : chaque formule mensuelle s'arrête quand tu veux, à la fin du mois en cours.",
+      "formules": [
+        {
+          "cle": "gratuit",
+          "nom": "Gratuit",
+          "prix": 0,
+          "periode": "",
+          "points": [
+            "Tes soirées sur teufyparty.com, en 6 langues",
+            "Dans la page de ta ville et de ton style",
+            "Sélection possible dans les agendas Instagram (choix éditorial, jamais payant)"
+          ],
+          "paiement": ""
+        },
+        {
+          "cle": "visibilite",
+          "nom": "Visibilité",
+          "prix": 20,
+          "periode": "mois",
+          "points": [
+            "Tout le gratuit",
+            "Badge « Partenaire » sur ta fiche",
+            "Ton logo dans la vitrine des partenaires",
+            "1 story dédiée par mois"
+          ],
+          "paiement": ""
+        },
+        {
+          "cle": "premium",
+          "nom": "Premium",
+          "prix": 50,
+          "periode": "mois",
+          "vedette": true,
+          "points": [
+            "Tout Visibilité",
+            "1 post ou reel dédié par mois",
+            "2 stories dédiées par mois",
+            "Ton lien de billetterie dans le post et les stories"
+          ],
+          "paiement": ""
+        },
+        {
+          "cle": "post",
+          "nom": "Post à l'unité",
+          "prix": 40,
+          "periode": "post",
+          "points": [
+            "1 post dédié à une soirée",
+            "Sans abonnement",
+            "Idéal pour une soirée ponctuelle"
+          ],
+          "paiement": ""
+        },
+        {
+          "cle": "story",
+          "nom": "Story à l'unité",
+          "prix": 15,
+          "periode": "story",
+          "points": [
+            "1 story dédiée",
+            "Avec ton lien de billetterie",
+            "Sans abonnement"
+          ],
+          "paiement": ""
+        }
+      ]
+    }
   },
   "codes_promo": [
     {

@@ -10,7 +10,8 @@
   "scripts": {
     "auto": "node src/run.mjs auto",
     "mois": "node src/run.mjs mois",
-    "test": "node --test --test-concurrency=1 tests/*.test.mjs"
+    "test": "node --test --test-concurrency=1 tests/*.test.mjs",
+    "a-la-une": "node studio/scripts/une.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^1.6.0",

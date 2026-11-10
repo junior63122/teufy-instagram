@@ -1173,3 +1173,17 @@ html[data-saison=nouvel-an] .decor-saison i{color:#f6e27a;text-shadow:0 0 8px #d
 .fiches>.fiche-lieu:nth-child(n+7){content-visibility:auto;contain-intrinsic-size:auto 520px}
 /* Statistiques Instagram d'un lieu : libellé visible (le survol n'existe pas sur téléphone). */
 .lieu-stats .lieu-stats-titre{flex-basis:100%;padding:0;background:none;border:0;font-size:12px;font-weight:700;letter-spacing:.04em;color:#b8b2a8}
+/* Tarifs partenaires */
+.grille-tarifs{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));align-items:stretch;margin-top:18px}
+.tarif{position:relative;display:flex;flex-direction:column;gap:12px;padding:24px 20px;border-radius:22px;background:var(--nuit2);border:1px solid #ffffff1a}
+.tarif.vedette{border:2px solid var(--corail);background:linear-gradient(180deg,#ff5a3c1a,var(--nuit2) 60%)}
+.tarif-badge{position:absolute;top:-13px;left:20px;background:var(--corail);color:var(--nuit);font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:5px 10px;border-radius:999px}
+.tarif h3{font-size:26px}
+.tarif-prix b{font-family:var(--titre);font-size:44px;line-height:1}
+.tarif-prix span{color:#b8b2a8;font-weight:700}
+.tarif ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px;flex:1}
+.tarif li{padding-left:24px;position:relative;line-height:1.35}
+.tarif li::before{content:"✓";position:absolute;left:0;color:var(--corail);font-weight:900}
+.tarif .bouton{justify-content:center;text-align:center}
+.tarifs-note{margin-top:16px;font-size:14px;color:#b8b2a8}
+.tarifs-note a{color:var(--creme)}

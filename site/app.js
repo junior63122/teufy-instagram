@@ -81,6 +81,11 @@
     document.querySelectorAll('#lieux-ce-soir .fiche-lieu').forEach((l) => { l.classList.toggle('hors-ville', !!b.dataset.ville && l.dataset.ville !== b.dataset.ville); });
   }));
 
+  // Tarifs : « Choisir cette formule » pré-remplit le message du formulaire de contact.
+  document.querySelectorAll('[data-formule]').forEach((b) => b.addEventListener('click', () => {
+    const m = document.querySelector('.form-contact textarea[name="message"]');
+    if (m && !m.value.includes(b.dataset.formule)) m.value = `Formule choisie : ${b.dataset.formule}\n${m.value}`.trim() + '\n';
+  }));
   // Formulaire des pages pros : prépare le message puis ouvre Instagram (message copié) ou l'e-mail (pré-rempli).
   document.querySelectorAll('.form-contact').forEach((f) => {
     const retour = f.querySelector('.retour-form');

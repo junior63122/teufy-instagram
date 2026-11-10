@@ -1739,6 +1739,22 @@ const blocContact = ({ tr, handle, email, type }) => { const [h, p, ph, objet] =
     <p class="retour-form" role="status" aria-live="polite" hidden></p>
   </form>
 </section>`; };
+// Tarifs des formules partenaires (config.site.tarifs) : bouton « Payer » si un lien de paiement est renseigné,
+// sinon « Choisir cette formule » qui pré-remplit le formulaire de contact.
+const blocTarifs = ({ tr, T, base, lang }) => {
+  const C = T.tarifs; if (!C?.formules?.length) return '';
+  const prix = (f) => `${String(f.prix || 0).replace('.', ',')} €`;
+  const per = { mois: tr('/ mois'), post: tr('le post'), story: tr('la story') };
+  return `<section class="bloc-large tarifs" id="tarifs"><h2>${tr('Nos <em>formules</em>')}</h2>
+  <div class="grille-tarifs">${C.formules.map((f) => `<article class="tarif${f.vedette ? ' vedette' : ''}">
+    ${f.vedette ? `<span class="tarif-badge">${esc(tr('La plus complète'))}</span>` : ''}<h3>${esc(tr(f.nom))}</h3>
+    <p class="tarif-prix"><b>${esc(prix(f))}</b>${f.prix && per[f.periode] ? ` <span>${esc(per[f.periode])}</span>` : ''}</p>
+    <ul>${f.points.map((x) => `<li>${esc(tr(x))}</li>`).join('')}</ul>
+    ${/^https:\/\//.test(f.paiement || '') ? `<a class="bouton" href="${esc(f.paiement)}" target="_blank" rel="noopener">${esc(tr('Payer en ligne'))}</a>` : `<a class="bouton${f.prix ? '' : ' contour'}" href="#contact" data-formule="${esc(`${tr(f.nom)} (${prix(f)}${f.prix && per[f.periode] ? ` ${per[f.periode]}` : ''})`)}">${esc(f.prix ? tr('Choisir cette formule') : tr('Envoyer ma soirée'))}</a>`}
+  </article>`).join('')}</div>
+  <p class="tarifs-note">${esc(tr(C.mention || ''))} ${esc(tr('Les contenus payants sont signalés « partenariat rémunéré ». Aucune formule ne garantit un nombre de vues ou de ventes.'))} <a href="${base}${pre(lang)}cgv/">${esc(tr('Conditions de vente'))}</a></p>
+</section>`;
+};
 const ctaForm = (tr, handle) => `<p class="cta"><a class="bouton" href="#contact">${esc(tr('Remplir le formulaire'))} ↑</a><a class="bouton contour" href="https://ig.me/m/${esc(handle)}" target="_blank" rel="noopener">${ICO_IG}<span>${esc(tr('Écrire sur Instagram'))}</span></a></p>`;
 const ctaIg = (handle, texte, email) => `<p class="cta"><a class="bouton" href="https://ig.me/m/${esc(handle)}" target="_blank" rel="noopener">${esc(texte)}</a>${email ? `<a class="bouton contour" href="mailto:${esc(email)}">${esc(email)}</a>` : ''}</p>`;
 
@@ -1746,6 +1762,7 @@ function pagePartenaire({ lang, t, tr, base, compte, T, chemin, maj, partenaires
   const C = PARTENAIRE, handle = compte.replace(/^@/, '');
   const faq = C.faq.map(([q, r]) => [tr(q), tr(r)]);
   const corps = `${heroCourt({ partage: t.partager, base, photo: null, logos: (partenaires || []).filter((x) => x.fichier).slice(0, 12).map((x) => x.fichier), alt: t.partenaires, etiquette: tr(C.etiquette), h1: tr(C.h1), p: esc(tr(C.chapo)) })}
+${blocTarifs({ tr, T, base, lang })}
 ${blocContact({ tr, handle, email: T.email, type: 'partenaire' })}
 ${vitrine({ t, tr, base, partenaires })}
 <section class="bloc-large reveal"><h2>${tr(C.pourquoiH2)}</h2>${cartesTexte(C.pourquoi, tr)}</section>

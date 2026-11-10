@@ -13,6 +13,7 @@ import {PotesFluide} from './concepts/PotesFluide';
 import {Histoire} from './concepts/Histoire';
 import {Flash} from './concepts/Flash';
 import {CarrouselFlash, Couverture, CouvertureReel, PostFlashDA, StoryRelais} from './da/Posts';
+import {CouvertureUne, StoryUne} from './da/Une';
 import {Planche, Storyboard} from './da/Storyboard';
 import {PostSpecial} from './da/Special';
 
@@ -46,6 +47,8 @@ export const Root: React.FC = () => (
     <Still id="flash" component={((p: any) => <Polices><PostFlashDA f={p.f} photo={p.photo} /></Polices>) as React.FC<any>} width={1080} height={1350} defaultProps={{f: {type: 'annonce', surtitre: "C'EST OFFICIEL", titre: 'Titre', sous_titre: '', faits: [], source: '', date: ''}}} />
     <Still id="carrousel-flash" component={((p: any) => <Polices><CarrouselFlash soirees={p.soirees ?? donnees.soirees} slide={p.slide} titre={p.titre ?? "5 soirées à ne pas [rater]"} sous={p.sous} photo={p.photo} photoFin={p.photoFin} rubrique={p.rubrique} question={p.question} /></Polices>) as React.FC<any>} width={1080} height={1350} defaultProps={{slide: 0}} />
     <Still id="couverture" component={((p: any) => <Polices><Couverture {...p} /></Polices>) as React.FC<any>} width={1080} height={1350} defaultProps={{rubrique: 'Débat', titre: 'Titre', photo: 'decors/da/danse.jpg'}} />
+    <Still id="une-couverture" component={((p: any) => <Polices><CouvertureUne {...p} /></Polices>) as React.FC<any>} width={1080} height={1920} defaultProps={{icone: 'agenda'}} />
+    <Still id="une-story" component={((p: any) => <Polices><StoryUne {...p} /></Polices>) as React.FC<any>} width={1080} height={1920} defaultProps={{photo: 'decors/da/foule.jpg', rubrique: 'Infos', titre: 'Teufy, c\'est [quoi] ?'}} />
     <Still id="story" component={((p: any) => <Polices><StoryRelais {...p} /></Polices>) as React.FC<any>} width={1080} height={1920} defaultProps={{image: 'decors/da/danse.jpg'}} />
     <Still id="couverture-reel" component={((p: any) => <Polices><CouvertureReel {...p} /></Polices>) as React.FC<any>} width={1080} height={1920} defaultProps={{photo: 'decors/da/danse.jpg', rubrique: 'Explicatif', titre: 'Titre'}} />
     <Still id="special" component={((p: any) => <Polices><PostSpecial {...p} /></Polices>) as React.FC<any>} width={1080} height={1350} defaultProps={{theme: 'noel', photo: 'decors/fetes/noel.jpg', titre: 'Joyeux [Noël]', rubrique: 'Joyeux Noël'}} />
