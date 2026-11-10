@@ -914,7 +914,7 @@ const couper = (x, n) => { x = String(x || '').replace(/\s+/g, ' ').trim(); if (
 const titreCourt = ([nom, date, lieu]) => { const fin = ` · ${date} · Teufy`; if (`${nom} · ${date} · ${lieu} · Teufy`.length <= 66 && lieu) return `${nom} · ${date} · ${lieu} · Teufy`; return `${couper(nom, Math.max(20, 66 - fin.length))}${fin}`; };
 // Autres pages : titre raccourci en gardant la marque à la fin.
 const titrePage = (x) => { x = String(x || ''); if (x.length <= 70) return x; const m = x.match(/^(.*?)( · Teufy)$/); return m ? `${couper(m[1], 62)}${m[2]}` : couper(x, 70); };
-function gabarit({ lang, t, titre, description, chemin, base, corps, ld = [], image: imageDemandee, image = imageDemandee || 'site/img/equipe/monaco.jpg', compte, maj = '', agendaIci = false }) {
+function gabarit({ lang, t, titre, description, chemin, base, corps, ld = [], image: imageDemandee, image = imageDemandee || 'site/img/equipe/monaco.jpg', compte, maj = '', agendaIci = false, rubriqueNav = null }) {
   const handle = compte.replace(/^@/, '');
   const P = pre(lang);
   const accueil = `${base}${P}`;
@@ -960,7 +960,7 @@ ${ld.length ? `<script type="application/ld+json">${JSON.stringify(ld).replace(/
     <a class="ig" href="https://www.instagram.com/${esc(handle)}/" target="_blank" rel="noopener" aria-label="Instagram ${esc(compte)}"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="17.4" cy="6.6" r="1.3" fill="currentColor"/></svg></a>
   </div>
 </header>
-<nav class="nav" aria-label="Menu">${nav.map(([d, n]) => `<a href="${accueil}${d}"${d === chemin ? ' aria-current="page"' : ''}>${esc(n)}</a>`).join('')}</nav>
+<nav class="nav" aria-label="Menu">${(() => { const actif = nav.some(([d]) => d === chemin) ? chemin : rubriqueNav ?? nav.map(([d]) => d).filter((d) => d && chemin.startsWith(d)).sort((a, b) => b.length - a.length)[0]; return nav.map(([d, n]) => `<a href="${accueil}${d}"${d === chemin ? ' aria-current="page"' : d === actif ? ' aria-current="true"' : ''}>${esc(n)}</a>`).join(''); })()}</nav>
 <main id="contenu">
 ${corps}
 </main>
@@ -1246,7 +1246,8 @@ function pageSoiree({ lang, t, tr, base, compte, T, chemin, s, soirees, maj }) {
 ${mini(meme, esc(t.memeSoir))}
 ${mini(style, esc(t.memeStyle))}
 <p class="retour"><a class="bouton" href="${base}${P}${s.zone === 'occitanie' ? 'occitanie/' : s.zone === 'france' ? 'france/' : '#agenda'}">${esc(s.zone === 'occitanie' ? tr("Toutes les soirées d'Occitanie") : t.toutes)}</a></p>`;
-  return gabarit({ lang, t, titre: titreCourt([s.nom, dateCourte(s.debut, t), s.lieu || s.ville]), description: `${s.nom}, ${dateLongue(s.debut, t)} ${heure(s.debut, t)}, ${lieu}. ${s.accroche || ''} ${prixTexte(s.prix, t)}`.trim().slice(0, 300), chemin, base, corps, compte, maj,
+  const rubriqueNav = s.zone === 'occitanie' ? 'occitanie/' : s.zone === 'france' ? null : `${(VILLES_SEO.find((v) => v.cle === s.filtreVille || v.re.test(s.ville || '')) || { slug: '' }).slug}${VILLES_SEO.some((v) => v.cle === s.filtreVille || v.re.test(s.ville || '')) ? '/' : ''}`;
+  return gabarit({ rubriqueNav, lang, t, titre: titreCourt([s.nom, dateCourte(s.debut, t), s.lieu || s.ville]), description: `${s.nom}, ${dateLongue(s.debut, t)} ${heure(s.debut, t)}, ${lieu}. ${s.accroche || ''} ${prixTexte(s.prix, t)}`.trim().slice(0, 300), chemin, base, corps, compte, maj,
     image: s.affiche || 'site/img/equipe/monaco.jpg', ld: [jsonEvent(s, lang), fil(lang, [['Teufy', ''], s.zone === 'occitanie' ? ['Occitanie', 'occitanie/'] : s.zone === 'france' ? [t.franceNav, 'france/'] : [t.agenda, ''], [s.nom, chemin]])] });
 }
 
@@ -1533,6 +1534,7 @@ const blocContact = ({ tr, handle, email, type }) => { const [h, p, ph, objet] =
     <p class="retour-form" role="status" aria-live="polite" hidden></p>
   </form>
 </section>`; };
+const ctaForm = (tr, handle) => `<p class="cta"><a class="bouton" href="#contact">${esc(tr('Remplir le formulaire'))} ↑</a><a class="bouton contour" href="https://ig.me/m/${esc(handle)}" target="_blank" rel="noopener">${ICO_IG}<span>${esc(tr('Écrire sur Instagram'))}</span></a></p>`;
 const ctaIg = (handle, texte, email) => `<p class="cta"><a class="bouton" href="https://ig.me/m/${esc(handle)}" target="_blank" rel="noopener">${esc(texte)}</a>${email ? `<a class="bouton contour" href="mailto:${esc(email)}">${esc(email)}</a>` : ''}</p>`;
 
 function pagePartenaire({ lang, t, tr, base, compte, T, chemin, maj, partenaires }) {
@@ -1544,7 +1546,7 @@ ${vitrine({ t, tr, base, partenaires })}
 <section class="bloc-large reveal"><h2>${tr(C.pourquoiH2)}</h2>${cartesTexte(C.pourquoi, tr)}</section>
 <section class="bloc-large reveal"><h2>${tr(C.offreH2)}</h2>${cartesTexte(C.offre, tr)}</section>
 <section class="bloc-large reveal"><h2>${tr(C.pourQuiH2)}</h2><p class="liens-styles">${C.pourQui.map((x) => `<span class="puce">${esc(tr(x))}</span>`).join('')}</p></section>
-<section class="bloc-large reveal"><h2>${tr(C.etapesH2)}</h2>${etapes(C.etapes, tr)}${ctaIg(handle, tr(C.cta), T.email)}</section>
+<section class="bloc-large reveal"><h2>${tr(C.etapesH2)}</h2>${etapes(C.etapes, tr)}${ctaForm(tr, handle)}</section>
 ${blocFaq(t.faqH, faq)}`;
   return gabarit({ lang, t, titre: tr(C.titre), description: tr(C.desc), chemin, base, corps, compte, maj, image: 'site/img/lasers.jpg', ld: [...ldOrganisation(T, compte, t, lang), ldFaq(faq), fil(lang, [['Teufy', ''], [t.partenaires, chemin]])] });
 }
@@ -1555,7 +1557,7 @@ ${blocContact({ tr, handle, email: T.email, type: 'ambassadeur' })}
 <section class="bloc-large reveal"><h2>${tr(C.roleH2)}</h2>${cartesTexte(C.role, tr)}</section>
 <section class="bloc-large reveal"><h2>${tr(C.avantagesH2)}</h2>${cartesTexte(C.avantages, tr)}</section>
 <section class="bloc-large reveal"><h2>${tr(C.profilH2)}</h2><ul class="coches">${C.profil.map((x) => `<li>${esc(tr(x))}</li>`).join('')}</ul></section>
-<section class="bloc-large reveal"><h2>${tr(C.candidatureH2)}</h2><p class="grand-texte">${esc(tr(C.candidature))}</p>${ctaIg(handle, tr(C.cta), T.email)}</section>
+<section class="bloc-large reveal"><h2>${tr(C.candidatureH2)}</h2><p class="grand-texte">${esc(tr(C.candidature))}</p>${ctaForm(tr, handle)}</section>
 `;
   return gabarit({ lang, t, titre: tr(C.titre), description: tr(C.desc), chemin, base, corps, compte, maj, image: 'site/img/danse.jpg', ld: [...ldOrganisation(T, compte, t, lang), fil(lang, [['Teufy', ''], [t.ambassadeurs, chemin]])] });
 }
@@ -1564,7 +1566,7 @@ function pageBde({ lang, t, tr, base, compte, T, chemin, soirees, maj, partenair
   const corps = `${heroCourt({ partage: t.partager, base, photo: null, images: soirees.filter((x) => x.affiche).map((x) => x.affiche), alt: t.bde, k: 6, etiquette: tr(C.etiquette), h1: tr(C.h1), p: esc(tr(C.chapo)) })}
 ${blocContact({ tr, handle, email: T.email, type: 'bde' })}
 <section class="bloc-large reveal"><h2>${tr(C.offreH2)}</h2>${cartesTexte(C.offre, tr)}</section>
-<section class="bloc-large reveal"><h2>${tr(C.etapesH2)}</h2>${etapes(C.etapes, tr)}${ctaIg(handle, tr(C.cta), T.email)}</section>
+<section class="bloc-large reveal"><h2>${tr(C.etapesH2)}</h2>${etapes(C.etapes, tr)}${ctaForm(tr, handle)}</section>
 ${soirees.length ? `<section class="bloc-large reveal"><h2>${tr(C.soireesH2)}</h2><div class="grille">${soirees.map((s) => carte(s, { t, base, lang })).join('')}</div></section>` : ''}`;
   return gabarit({ lang, t, titre: tr(C.titre), description: tr(C.desc), chemin, base, corps, compte, maj, image: soirees.find((x) => x.affiche)?.affiche || 'site/img/selfie.jpg', ld: [...ldOrganisation(T, compte, t, lang), ...jsonld(soirees, lang), fil(lang, [['Teufy', ''], [t.bde, chemin]])] });
 }

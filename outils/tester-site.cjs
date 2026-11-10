@@ -51,6 +51,18 @@ async function controlerPage(p, nom, u) {
     }).filter(Boolean);
   });
   ok(!floues.length, `${nom} ${u} : image floue ${floues.slice(0, 3).join(' ; ')}`);
+  // Images déformées (étirées) : affichées sans object-fit avec un autre rapport largeur/hauteur que l'original
+  // (ex. logo rond devenu ovale dans un en-tête).
+  const deformees = await p.evaluate(() => [...document.images].filter((i) => { const r = i.getBoundingClientRect(); const cs = getComputedStyle(i);
+    return i.complete && i.naturalWidth && r.width >= 20 && r.height >= 20 && cs.display !== 'none' && cs.opacity !== '0' && cs.objectFit === 'fill' && !i.classList.contains('fond-flou')
+      && Math.abs((r.width / r.height) / (i.naturalWidth / i.naturalHeight) - 1) > 0.06; }).map((i) => `${i.currentSrc.split('/').pop()} (${Math.round(i.getBoundingClientRect().width)}×${Math.round(i.getBoundingClientRect().height)})`));
+  ok(!deformees.length, `${nom} ${u} : image déformée ${deformees.slice(0, 3).join(' ; ')}`);
+  // Menu : la rubrique ouverte est visible dans la barre (pas cachée hors écran).
+  const menu = await p.evaluate(() => { const n = document.querySelector('.nav'), a = n?.querySelector('[aria-current]'); if (!n || !a || !n.offsetWidth) return true; const rn = n.getBoundingClientRect(), ra = a.getBoundingClientRect(); return ra.left >= rn.left - 1 && ra.right <= rn.right + 1; });
+  ok(menu, `${nom} ${u} : la rubrique ouverte n'est pas visible dans le menu`);
+  // Cartes des carrousels : pas de grand vide au-dessus des boutons.
+  const vides = await p.evaluate(() => [...document.querySelectorAll('.rangee .carte')].filter((c) => c.offsetWidth).map((c) => { const a = c.querySelector('.actions'); const q = a?.previousElementSibling; return a && q ? a.getBoundingClientRect().top - q.getBoundingClientRect().bottom : 0; }).filter((v) => v > 60));
+  ok(!vides.length, `${nom} ${u} : vide de ${Math.round(Math.max(0, ...vides))}px dans une carte du carrousel`);
   // Chaque bouton visible se clique sans erreur.
   const nb = await p.locator('main button:visible, header button:visible').count();
   for (let i = 0; i < Math.min(nb, 30); i++) {
@@ -210,6 +222,27 @@ async function controlerPage(p, nom, u) {
     ok(await p.locator('.toast:not([hidden])').count() === 1, `${nom} : le bouton Partager de l'en-tête ne fait rien`);
     await p.goto(B + `soiree/${premiereSoiree}/`, { waitUntil: 'load' });
     ok(await p.locator('.source-fiche a[href*="faq/#sources"]').count() === 1, `${nom} : la fiche soirée n'indique pas ses sources`);
+    } catch (e) { echecs.push(`${nom} : étape interrompue (${e.message.split('\n')[0]} @l.${(String(e.stack).match(/tester-site\.cjs:(\d+)/) || [])[1] || '?'})`); }
+    // --- Pages pros : les boutons mènent au formulaire, qui refuse le vide et prépare le message ---
+    try {
+    await p.goto(B + 'a-propos/', { waitUntil: 'load' });
+    const lien = await p.locator('a.pro').first().getAttribute('href');
+    ok(/#contact$/.test(lien || ''), `${nom} : « Devenir partenaire » ne mène pas au formulaire (${lien})`);
+    for (const pg of ['partenaires/', 'ambassadeurs/', 'bde/']) {
+      await p.goto(B + pg + '#contact', { waitUntil: 'load' }); await p.waitForTimeout(300);
+      const f = p.locator('.form-contact');
+      ok(await f.count() === 1, `${nom} ${pg} : pas de formulaire de contact`);
+      const top = await p.evaluate(() => document.getElementById('contact').getBoundingClientRect().top);
+      ok(top >= -5 && top < 400, `${nom} ${pg} : le lien #contact n'amène pas au formulaire (${Math.round(top)}px)`);
+      await p.evaluate(() => document.querySelectorAll('[data-envoi]').forEach((a) => a.addEventListener('click', (e) => e.preventDefault())));
+      await f.locator('[data-envoi="mail"]').click();
+      ok(!(await f.locator('.retour-form').isHidden()) && !(await f.locator('.retour-form').evaluate((x) => x.classList.contains('ok'))), `${nom} ${pg} : le formulaire vide n'affiche pas d'avertissement`);
+      await f.locator('[name=nom]').fill('Test <b>&</b> « é »'); await f.locator('[name=message]').fill('x'.repeat(3000));
+      await f.locator('[data-envoi="mail"]').click();
+      const href = await f.locator('[data-envoi="mail"]').getAttribute('href');
+      ok(/^mailto:[^?]+\?subject=.+&body=Bonjour/.test(href) && decodeURIComponent(href).includes('Test <b>&</b> « é »'), `${nom} ${pg} : l'e-mail n'est pas pré-rempli correctement`);
+      ok(await p.locator('.form-contact b').count() === 0, `${nom} ${pg} : du HTML saisi a été interprété`);
+    }
     } catch (e) { echecs.push(`${nom} : étape interrompue (${e.message.split('\n')[0]} @l.${(String(e.stack).match(/tester-site\.cjs:(\d+)/) || [])[1] || '?'})`); }
     // --- Vidéo de Monaco : elle tourne en boucle, pas seulement 2 secondes ---
     try {

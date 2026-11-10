@@ -1001,3 +1001,6 @@ details[data-bloc="tri"]>.groupe{inset-inline-start:auto;inset-inline-end:0}
 .form-contact .retour-form{margin:0;padding:12px 14px;border-radius:14px;background:#ff5a3c22;color:#ffb4a6;font-weight:700}
 .form-contact .retour-form.ok{background:#3ce08a22;color:#8ff0bd}
 @media(max-width:640px){.form-contact{padding:16px;gap:12px}}
+.cta .bouton svg{vertical-align:-3px;margin-inline-end:8px}
+.bloc-large>.grille{content-visibility:auto;contain-intrinsic-size:auto 1200px}
+.faq,.faq-groupe,#sources,.contact-pro{content-visibility:visible}

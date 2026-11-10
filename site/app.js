@@ -18,7 +18,7 @@
   const toast = (m) => { const t = document.querySelector('.toast'); if (!t || !m) return; t.textContent = m; t.hidden = false; clearTimeout(toast.t); toast.t = setTimeout(() => { t.hidden = true; }, 2600); };
 
   // Menu : la rubrique ouverte est centrée dans la barre (on sait où l'on est, même au fond du menu).
-  { const n = document.querySelector('.nav'), a = n?.querySelector('[aria-current="page"]');
+  { const n = document.querySelector('.nav'), a = n?.querySelector('[aria-current]');
     if (n && a && n.scrollWidth > n.clientWidth) n.scrollLeft = a.offsetLeft - (n.clientWidth - a.offsetWidth) / 2; }
 
   // Formulaire des pages pros : prépare le message puis ouvre Instagram (message copié) ou l'e-mail (pré-rempli).

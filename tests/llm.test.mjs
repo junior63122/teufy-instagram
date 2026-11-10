@@ -4,18 +4,18 @@ import { fournisseurs, json, rechercher } from '../src/llm.mjs';
 
 const env = (vars, fn) => async () => {
   const avant = { ...process.env };
-  for (const k of ['GEMINI_API_KEY', 'GITHUB_TOKEN', 'ANTHROPIC_API_KEY', 'ANTHROPIC_AUTH_TOKEN']) delete process.env[k];
+  for (const k of ['GEMINI_API_KEY', 'GITHUB_TOKEN', 'GITHUB_ACTIONS', 'ANTHROPIC_API_KEY', 'ANTHROPIC_AUTH_TOKEN']) delete process.env[k];
   Object.assign(process.env, vars);
   const f = globalThis.fetch;
   try { await fn(); } finally { process.env = avant; globalThis.fetch = f; }
 };
 
-test('gratuit par défaut : Claude seulement si payant autorisé', env({ GEMINI_API_KEY: 'g', GITHUB_TOKEN: 't', ANTHROPIC_API_KEY: 'a' }, async () => {
+test('gratuit par défaut : Claude seulement si payant autorisé', env({ GEMINI_API_KEY: 'g', GITHUB_TOKEN: 't', GITHUB_ACTIONS: 'true', ANTHROPIC_API_KEY: 'a' }, async () => {
   assert.deepEqual(fournisseurs({}), ['gemini', 'github']);
   assert.deepEqual(fournisseurs({ llm: { payant_autorise: true } }), ['anthropic', 'gemini', 'github']);
 }));
 
-test('JSON : Gemini en panne → GitHub Models prend le relais', env({ GEMINI_API_KEY: 'g', GITHUB_TOKEN: 't' }, async () => {
+test('JSON : Gemini en panne → GitHub Models prend le relais', env({ GEMINI_API_KEY: 'g', GITHUB_TOKEN: 't', GITHUB_ACTIONS: 'true' }, async () => {
   const appels = [];
   globalThis.fetch = async (url, o) => {
     appels.push(String(url));
@@ -36,4 +36,8 @@ test('recherche Gemini : texte et sources citées', env({ GEMINI_API_KEY: 'g' },
   const t = await rechercher({ config: {}, system: 's', prompt: 'p' });
   assert.match(t, /Soirée X/);
   assert.match(t, /https:\/\/a/);
+}));
+
+test('GitHub Models jamais hors de GitHub Actions (le jeton d\'une session locale n\'est pas une clé Teufy)', env({ GEMINI_API_KEY: 'g', GITHUB_TOKEN: 't' }, async () => {
+  assert.deepEqual(fournisseurs({}), ['gemini']);
 }));

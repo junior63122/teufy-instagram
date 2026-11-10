@@ -1,7 +1,7 @@
 // Accès aux modèles d'IA, en gratuit par défaut :
 //  1. Gemini (Google AI Studio, offre gratuite, clé GEMINI_API_KEY) : texte, JSON, et recherche
 //     Google intégrée (« grounding ») pour trouver les soirées et faire la veille.
-//  2. GitHub Models (gratuit dans GitHub Actions avec le GITHUB_TOKEN, permission models: read) :
+//  2. GitHub Models (gratuit dans GitHub Actions avec le GITHUB_TOKEN, permission models: read) : Jamais en local (le jeton de la session n'est pas une clé Teufy).
 //     texte et JSON, sans recherche web.
 //  3. Claude (API Anthropic, payante) : seulement si config.llm.payant_autorise = true, et alors en premier.
 
@@ -47,7 +47,7 @@ export function fournisseurs(config = {}, { gratuit = false } = {}) {
   const L = config.llm || {};
   const out = [];
   if (process.env.GEMINI_API_KEY) out.push('gemini');
-  if (process.env.GITHUB_TOKEN && L.github_models !== false) out.push('github');
+  if (process.env.GITHUB_ACTIONS === 'true' && process.env.GITHUB_TOKEN && L.github_models !== false) out.push('github');
   // Claude passe en premier quand le payant est autorisé (meilleure qualité), les IA gratuites restent en secours.
   // Continuité : si Gemini est à sec, Claude prend le relais des tâches fréquentes (secours_payant, actif par défaut),
   // dans la limite des plafonds anti-emballement ; et inversement. GitHub Models (gratuit) reste le dernier secours.
