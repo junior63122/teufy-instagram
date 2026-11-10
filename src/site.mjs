@@ -559,7 +559,7 @@ export async function construireSite({ events, eventsFrance = [], eventsOccitani
   const fin = now.getTime() + 45 * 864e5;
   const debut = now.getTime() - 4 * 3600e3;
   // Mêmes règles de fiabilité que les posts : pas de soirée douteuse, web vérifié ou très fiable.
-  const fiables = events
+  const fiables = fusionner(events)
     .filter((e) => e.source !== 'web' || (!e.douteux && (e.verifie || (e.confiance ?? 0) >= 0.85)))
     .filter((e) => { const t = Date.parse(e.start); return t >= debut && t <= fin; })
     .sort((a, b) => a.start.localeCompare(b.start));
@@ -1074,12 +1074,21 @@ function ldOrganisation(T, compte, t, lang) {
 // Bandeau qui défile sous le hero.
 const defile = (t) => `<div class="defile" aria-hidden="true" dir="ltr"><div class="piste">${[0, 1].map(() => `<span>${t.defile.map((x) => `${esc(x)}<i>✦</i>`).join('')}</span>`).join('')}</div></div>`;
 
-// « Ce soir / En ce moment » : rempli par app.js avec les cartes de l'agenda (l'heure du visiteur fait foi).
-const ceSoir = (t) => `<section id="ce-soir" class="ce-soir" hidden>
-  <div class="tete"><p class="etiquette"><i class="point"></i>${esc(t.ceSoirEtiquette)}</p><h2>${t.ceSoirH2}</h2><p>${esc(t.ceSoirP)}</p></div>
-  <div class="groupe-soir" data-groupe="live" hidden><h3><i class="point"></i><span></span></h3><div class="rangee"></div></div>
-  <div class="groupe-soir" data-groupe="tard" hidden><h3><span></span></h3><div class="rangee"></div></div>
+// « Ce soir / En ce moment » : pré-rempli à la génération (le robot régénère le site plusieurs fois par jour) pour que
+// rien ne bouge à l'affichage ; app.js le recalcule ensuite à l'heure du visiteur (cartes finies retirées, statuts).
+const GENERE = Date.now();
+const ceSoir = (t, soirees = [], base = '', lang = 'fr') => {
+  const auj = cle(new Date(GENERE).toISOString()), DUREE = 6 * 3600e3, d = (s) => Date.parse(s.debut);
+  const soir = soirees.filter((s) => s.jour === auj && d(s) + DUREE > GENERE).sort((a, b) => (d(b) <= GENERE) - (d(a) <= GENERE) || d(a) - d(b)); // en cours d'abord, puis par heure
+  const live = soir.filter((s) => d(s) <= GENERE), tard = soir.filter((s) => d(s) > GENERE);
+  const nb = (n) => (n === 1 ? t.js.soiree : t.js.soirees.replace('{n}', n));
+  const groupe = (nom, l) => `<div class="groupe-soir" data-groupe="${nom}"${l.length ? '' : ' hidden'}><h3>${nom === 'live' ? '<i class="point"></i>' : ''}<span>${l.length ? esc(`${nom === 'live' ? t.js.live : t.js.plusTard} · ${nb(l.length)}`) : ''}</span></h3><div class="rangee">${l.map((s) => carte(s, { t, base, lang })).join('')}</div>${l.length > 8 ? `<button type="button" class="bouton contour voir-tout-soir">${lang === 'fr' ? `Voir les ${l.length - 8} autres soirées` : `+ ${l.length - 8}`}</button>` : ''}</div>`;
+  return `<section id="ce-soir" class="ce-soir"${soir.length ? '' : ' hidden'}>
+  <div class="tete"><p class="etiquette${live.length || !soir.length ? '' : ' sans-direct'}" data-direct="${esc(t.ceSoirEtiquette)}"><i class="point"></i>${esc(live.length || !soir.length ? t.ceSoirEtiquette : t.js.ceSoir)}</p><h2>${t.ceSoirH2}</h2><p>${esc(t.ceSoirP)}</p></div>
+  ${groupe('live', live)}
+  ${groupe('tard', tard)}
 </section>`;
+};
 
 const champRecherche = (t, id = 'recherche') => `<div class="recherche" role="search"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M15.5 15.5 21 21" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg><input id="${id}" type="search" name="q" placeholder="${esc(t.placeholder)}" aria-label="${esc(t.rechercher)}" autocomplete="off" enterkeyhint="search"><button type="button" class="effacer" aria-label="${esc(t.effacer)}" hidden>×</button></div>`;
 
@@ -1224,7 +1233,7 @@ function page({ lang, t, tr, base, compte, T, soirees, posts, now, maj, partenai
   </div>
 </section>
 ${defile(t)}
-${ceSoir(t)}
+${ceSoir(t, soirees, base, lang)}
 ${vedette ? `<section class="la-plus reveal"><h2 class="etiquette">${esc(t.laPlus)}</h2>${carte(vedette, { t, base, lang, vedette: true })}</section>` : ''}
 ${agenda(soirees, { t, base, lang })}
 ${CODES.length ? `<section class="bloc-large reveal"><h2>${t.bonsPlansH2}</h2><div class="cartes-texte">${CODES.map((c) => `<article class="carte-texte">${blocPromo(c, t, (x) => trad(lang, x))}</article>`).join('')}</div></section>` : ''}
@@ -1258,7 +1267,7 @@ function pageVille({ lang, t, tr, base, compte, T, chemin, v, soirees, now, maj 
   const n = soirees.filter((s) => s.jour === cle(now.toISOString())).length;
   const faq = t.faq(ville, n);
   const corps = `${heroCourt({ partage: t.partager, base, photo: v.photo, video: v.video, images: v.photo ? null : soirees.filter((x) => x.affiche).map((x) => x.affiche), k: 8, alt: ville, etiquette: t.villeEtiquette(ville), h1: t.villeH1(esc(ville)), p: `${esc(t.intro[v.cle])} ${esc(t.villeN(soirees.length))}`, live: true })}
-${ceSoir(t)}
+${ceSoir(t, soirees, base, lang)}
 ${agenda(soirees, { t, base, lang, filtresVille: false })}
 ${blocFaq(esc(t.faqH2(ville)), faq)}
 ${blocOrga({ t, tr, base, handle: compte.replace(/^@/, ''), lang })}`;
@@ -1270,7 +1279,7 @@ function pageStyle({ lang, t, tr, base, compte, T, chemin, cleStyle, soirees, ma
   const st = STYLES_MUSIQUE.find((x) => x.cle === cleStyle);
   const nom = nomStyle(cleStyle, t, lang);
   const corps = `${heroCourt({ partage: t.partager, base, photo: PHOTO_STYLE[cleStyle], alt: nom, etiquette: `${t.styleEtiquette} · ${nom}`, h1: t.styleH1(esc(nom)), p: `${esc(tr(st.intro))} ${esc(t.villeN(soirees.length))}`, live: true })}
-${ceSoir(t)}
+${ceSoir(t, soirees, base, lang)}
 ${agenda(soirees, { t, base, lang, filtreStyle: false })}
 <section class="qui reveal"><p class="liens-styles">${PAGES_STYLES.filter((k) => k !== cleStyle).map((k) => `<a class="puce" href="${base}${pre(lang)}soirees-${k}/">${esc(nomStyle(k, t, lang))}</a>`).join('')}</p></section>
 ${blocOrga({ t, tr, base, handle: compte.replace(/^@/, ''), lang })}`;

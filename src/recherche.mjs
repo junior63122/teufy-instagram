@@ -183,8 +183,18 @@ const mots = (x) => new Set(sansAccents(x).replace(/\b(w|x|feat|presents?|pres|a
 const jaccard = (a, b) => { const A = mots(a), B = mots(b); if (!A.size || !B.size) return 0; let n = 0; for (const w of A) if (B.has(w)) n++; return n / Math.min(A.size, B.size); };
 const nuitDe = (d) => new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Paris' }).format(new Date(Date.parse(d) - 6 * 3600e3));
 const lieuCle = (x) => sansAccents(x).replace(/[^a-z0-9]+/g, ' ').replace(/\b(le|la|les|club|nice|cannes|monaco|by|beach)\b/g, ' ').trim().split(/\s+/).filter((w) => w.length >= 3).slice(0, 2).join(' ');
+// Page de billetterie normalisée : même page = même soirée (« shotgun.live/fr/events/x » = « shotgun.live/events/x »).
+const pageBillet = (u) => { try { const x = new URL(u); const ch = x.pathname.replace(/^\/(fr|en|es|it|de)(?=\/)/i, '').replace(/\/+$/, ''); return ch.split('/').length > 2 ? `${x.hostname.replace(/^www\./, '')}${ch}`.toLowerCase() : ''; } catch { return ''; } };
+// Heure « bouche-trou » d'une source qui ne connaît que la date (00:00 ou 23:59, heure de Paris).
+const heureFloue = (d) => /^(00:00|23:59)$/.test(new Intl.DateTimeFormat('fr-FR', { timeZone: 'Europe/Paris', hour: '2-digit', minute: '2-digit' }).format(new Date(d)));
+const jourDe = (d) => new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Paris' }).format(new Date(d));
 export function memeSoiree(a, b) {
-  if (nuitDe(a.start) !== nuitDe(b.start)) return false;
+  const pa = pageBillet(a.url), pb = pageBillet(b.url);
+  if (pa && pa === pb && jaccard(a.name, b.name) >= 0.8 && Math.abs(Date.parse(a.start) - Date.parse(b.start)) < 36 * 3600e3) return true; // une page peut couvrir plusieurs nuits (festival) : le nom doit aussi correspondre
+  if (nuitDe(a.start) !== nuitDe(b.start)) {
+    // Même date, même nom, l'une des deux heures est un bouche-trou : c'est la même soirée lue par deux sources.
+    return jourDe(a.start) === jourDe(b.start) && (heureFloue(a.start) || heureFloue(b.start)) && jaccard(a.name, b.name) >= 0.8 && lieuCle(a.venue) === lieuCle(b.venue);
+  }
   // Même lieu, quel que soit l'ordre des mots (« Frigo 16 - Le 109 » = « Le 109 - Frigo 16 » = « Frigo 16 »).
   const mots = (x) => new Set(sansAccents(x).replace(/[^a-z0-9]+/g, ' ').replace(/\b(le|la|les|club|nice|cannes|monaco|by|beach|bar|the)\b/g, ' ').trim().split(/\s+/).filter((w) => w.length >= 2));
   const [ma, mb] = [mots(a.venue), mots(b.venue)];

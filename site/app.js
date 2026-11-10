@@ -127,13 +127,17 @@
   // --- Ce soir / En ce moment -------------------------------------------------------------------------------
   const ceSoir = document.getElementById('ce-soir');
   const soir = cartes.filter((c) => !finies.has(c) && c.dataset.jour === auj).sort((a, b) => enCours(b) - enCours(a) || debut(a) - debut(b));
+  if (ceSoir && !soir.length) ceSoir.hidden = true; // plus aucune soirée ce soir à l'heure du visiteur
   if (ceSoir && soir.length) {
     // Deux groupes distincts : « En ce moment » (déjà commencées) et « Plus tard ce soir » (pas encore commencées).
     const live = soir.filter(enCours), tard = soir.filter((c) => !enCours(c));
     const duree = (ms) => { const m = Math.max(1, Math.round(ms / 60000)); return m < 60 ? `${m} min` : `${Math.floor(m / 60)} h${m % 60 ? ` ${String(m % 60).padStart(2, '0')}` : ''}`; };
     for (const [nom, liste] of [['live', live], ['tard', tard]]) {
       const g = ceSoir.querySelector(`.groupe-soir[data-groupe="${nom}"]`);
-      if (!g || !liste.length) continue;
+      if (!g) continue;
+      // Version pré-remplie à la génération : remplacée par le calcul à l'heure du visiteur.
+      g.querySelector('.rangee').replaceChildren(); g.querySelector('.voir-tout-soir')?.remove();
+      if (!liste.length) { g.hidden = true; continue; }
       g.querySelector('h3 span').textContent = `${nom === 'live' ? T.live : (T.plusTard || T.ceSoir)} · ${nb(liste.length)}`;
       const rangee = g.querySelector('.rangee');
       for (const c of liste) {
@@ -160,6 +164,7 @@
     // Étiquette du bloc : « En direct » seulement s'il y a vraiment des soirées en cours.
     const et = ceSoir.querySelector('.tete .etiquette');
     if (et && !live.length) { et.textContent = T.ceSoir; et.classList.add('sans-direct'); }
+    else if (et && live.length && et.classList.contains('sans-direct')) { const i = document.createElement('i'); i.className = 'point'; et.replaceChildren(i, et.dataset.direct || T.live); et.classList.remove('sans-direct'); }
     ceSoir.hidden = false;
     document.querySelectorAll('.pastille-live').forEach((p) => {
       p.querySelector('span').textContent = live.length ? `${T.live} · ${nb(live.length)}` : `${T.ceSoir} · ${nb(soir.length)}`;

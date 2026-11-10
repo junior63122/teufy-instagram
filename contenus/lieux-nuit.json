@@ -906,14 +906,9 @@
    "site": "https://honeyclub.fr",
    "description": "Boîte de nuit axée sur les musiques urbaines avec des sets rap, afrobeat, shatta et électro.",
    "soirees": [
-    "honey-club-saturday-bee-crazy-2026-11-13",
     "honey-club-saturday-bee-crazy-2026-11-14"
    ],
    "prochaines": [
-    {
-     "id": "honey-club-saturday-bee-crazy-2026-11-13",
-     "nom": "Honey Club - Saturday Bee Crazy"
-    },
     {
      "id": "honey-club-saturday-bee-crazy-2026-11-14",
      "nom": "Honey Club - Saturday Bee Crazy"
@@ -923,12 +918,6 @@
    "slug": "honey-club-juan-les-pins",
    "score": 0,
    "soirs": [
-    [
-     "2026-11-13",
-     "00:00",
-     "honey-club-saturday-bee-crazy-2026-11-13",
-     "Honey Club - Saturday Bee Crazy"
-    ],
     [
      "2026-11-14",
      "23:59",

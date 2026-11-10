@@ -169,14 +169,17 @@ const visibles = (p) => p.locator('.liste .carte:not([hidden])').count();
       const c = await b.newContext(o); const p = await c.newPage(); erreurs(p, 'coupé');
       for (const u of pages) {
         await p.goto(B + u); await p.waitForTimeout(150);
-        await p.evaluate(() => document.querySelectorAll('.reveal').forEach((e) => e.classList.add('vu')));
+        await p.evaluate(() => {
+          document.querySelectorAll('.reveal').forEach((e) => e.classList.add('vu'));
+          // blocs rendus à l'approche : on force leur mise en page pour mesurer vraiment (WebKit les laisse vides sinon)
+          document.querySelectorAll('*').forEach((e) => { if (getComputedStyle(e).contentVisibility === 'auto') e.style.contentVisibility = 'visible'; });
+        });
         await p.waitForTimeout(700);
         const coupes = await p.evaluate(() => [...document.querySelectorAll('main h1, main h2, main h3, .ariane, .ariane a, main .bouton, main .etiquette, main .genre, main .lien')].filter((e) => {
           if (!e.offsetParent || e.closest('[hidden], .vh, .liste-defile, .collage, .marquee, .bandeau, .posts')) return false;
           const r = e.getBoundingClientRect(); if (!r.width) return false;
           for (let a = e.parentElement; a && a !== document.body; a = a.parentElement) {
             const st = getComputedStyle(a);
-            if (st.contentVisibility === 'auto') break; // bloc rendu à l'approche (hors écran) : pas encore mis en page
             if (/(hidden|clip)/.test(st.overflowX + st.overflowY)) {
               const q = a.getBoundingClientRect();
               if (r.left < q.left - 1 || r.right > q.right + 1 || r.top < q.top - 1 || r.bottom > q.bottom + 1) return true;
