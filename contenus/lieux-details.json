@@ -81,5 +81,34 @@
  "les-bains-deli-bo-villefranche-sur-mer": {
   "le": "2026-11-09T19:59:29.344Z",
   "vide": true
+ },
+ "la-rascasse-monaco": {
+  "le": "2026-11-10T10:45:32.154Z",
+  "styles": "Live music · House · EDM · Généraliste",
+  "dress_code": "Décontracté chic, tenue correcte exigée",
+  "horaires": "Mar–Jeu 17h30–03h · Ven 17h30–04h · Sam 19h–04h",
+  "prix_verre": "bière 5–12 € · cocktail 8–15 €",
+  "entree": "Gratuit (payant pour événements spéciaux et Grand Prix)",
+  "age_min": "18 ans",
+  "sources": [
+   "https://www.montecarlosbm.com/fr/bar-monaco/la-rascasse",
+   "https://asset.montecarlosbm.com/s3fs-public/media/import/documents/la_rascasse_cocktails_fr-en.pdf",
+   "https://www.instagram.com/larascassemc/"
+  ]
+ },
+ "wayne-s-bar-nice": {
+  "le": "2026-11-10T10:45:32.154Z",
+  "styles": "Rock · Pop-rock · Dance",
+  "dress_code": "Décontracté",
+  "horaires": "Lun–Dim · 10h/12h–2h",
+  "prix_verre": "bière 4–8,50 € · cocktail 8–11 €",
+  "entree": "Gratuit",
+  "age_min": "18 ans",
+  "sources": [
+   "https://www.waynesbar-restaurant.com/",
+   "https://www.waynesbar-restaurant.com/carte-de-notre-pub",
+   "https://www.instagram.com/waynes_bar/",
+   "https://mistergoodbeer.com/"
+  ]
  }
 }

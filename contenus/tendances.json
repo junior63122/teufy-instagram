@@ -97,6 +97,11 @@
         "titre": "Nice, Cannes ou Monaco ce soir ?",
         "sous": "Fais ton choix",
         "ajout": "2026-11-08"
+      },
+      {
+        "titre": "Le groupe à 18h un vendredi : « bon on fait quoi ? »",
+        "sous": "Envoie-leur ça",
+        "ajout": "2026-11-10"
       }
     ],
     "techno": [
@@ -120,6 +125,16 @@
         "titre": "Basses lourdes. Lumières sombres.",
         "sous": "Techno · Côte d'Azur",
         "ajout": "2026-11-08"
+      },
+      {
+        "titre": "Le drop tombe à 4h. Tu seras où ?",
+        "sous": "Techno · Côte d'Azur",
+        "ajout": "2026-11-10"
+      },
+      {
+        "titre": "Afro house ou techno qui tape ?",
+        "sous": "Choisis ton camp",
+        "ajout": "2026-11-10"
       }
     ],
     "petits-prix": [
@@ -139,6 +154,11 @@
         "titre": "Verre en main, entrée libre",
         "sous": "Bons plans du week-end",
         "ajout": "2026-11-08"
+      },
+      {
+        "titre": "Sortir ce week-end sans vider ton compte",
+        "sous": "Petits prix · Côte d'Azur",
+        "ajout": "2026-11-10"
       }
     ]
   },
@@ -157,14 +177,18 @@
   },
   "intros_ajoutees": {
     "commercial": [
-      "La nuit azuréenne s'allume. Cocktails, dancefloors bondés et sons du moment : voici le menu du week-end."
+      "La nuit azuréenne s'allume. Cocktails, dancefloors bondés et sons du moment : voici le menu du week-end.",
+      "Vendredi approche. Le groupe hésite encore. Voilà de quoi trancher, de Nice à Monaco.",
+      "Tu connais forcément quelqu'un qui dit toujours « on verra ». Cette semaine, il n'a plus d'excuse."
     ],
     "techno": [
-      "Les caissons tremblent déjà. Ce week-end, la scène underground du 06 ne fait aucun compromis sur les BPM."
+      "Les caissons tremblent déjà. Ce week-end, la scène underground du 06 ne fait aucun compromis sur les BPM.",
+      "Novembre sombre, basses lourdes. Les soirées techno de la Côte d'Azur cette semaine, sans détour.",
+      "Warehouse, club, rooftop. Cette semaine, le 06 vibre en 4/4. Voici où aller."
     ]
   },
-  "objectif_semaine": 100,
-  "derniere_analyse": "2026-11-08T11:26:31.413Z",
+  "objectif_semaine": 98,
+  "derniere_analyse": "2026-11-10T10:42:34.420Z",
   "concurrents": {
     "_note": "Comptes concurrents ou similaires (guides de sorties, médias nightlife). Le bot regarde chaque jour ce qui marche chez eux (formats, accroches, hashtags, heures). Un nom inexistant est simplement ignoré.",
     "liste": [
@@ -181,5 +205,25 @@
       "tsugi_mag",
       "boilerroomtv"
     ]
-  }
+  },
+  "formats_a_tester": [
+    {
+      "format": "Trial Reels : 2 à 3 accroches différentes du même teaser publiées le même jour, puis on garde la gagnante sur la grille",
+      "pourquoi": "Permet de tester les accroches auprès des non-abonnés sans pénalité, et nos reels plafonnent aujourd'hui entre 34 et 41/100.",
+      "source": "Q&A Adam Mosseri du 30/10/2026 + historique du compte (reels 2025)",
+      "ajout": "2026-11-10"
+    },
+    {
+      "format": "Post en collab avec l'organisateur ou le lieu pour chaque actu et chaque concours",
+      "pourquoi": "Le post s'affiche sur les deux grilles. Teufy x Panda Events a fait 99/100 avec 35 partages, les concours en partenariat ramènent jusqu'à 13 abonnés.",
+      "source": "Veille nightlife novembre 2026 + chiffres du compte (30/10/2025, 20/10/2025, 25/03/2026)",
+      "ajout": "2026-11-10"
+    },
+    {
+      "format": "Carrousel agenda techno de la semaine publié le jeudi en fin d'après-midi",
+      "pourquoi": "Format utilitaire qui déclenche enregistrements et partages au moment où les groupes valident le week-end.",
+      "source": "Chiffres du compte (07/11/2025 : 100/100, 02/01/2026 : 80 partages) + veille horaires jeudi 17h30-19h45",
+      "ajout": "2026-11-10"
+    }
+  ]
 }

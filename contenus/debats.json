@@ -266,5 +266,21 @@
     "b": "Session intimiste à Nice",
     "legende": "Chaque ville a son tempo. Dis-nous où ton équipe atterrit samedi soir 👇",
     "ajout": "2026-11-08"
+  },
+  {
+    "id": "ia-2026-11-10-zphnc1",
+    "q": "Ce week-end, t'es plutôt :",
+    "a": "Afro house au coucher du soleil",
+    "b": "Techno jusqu'au lever du jour",
+    "legende": "Deux écoles. Une seule nuit. La Côte d'Azur a les deux, mais toi, tu choisis quoi ? A ou B, on veut savoir.",
+    "ajout": "2026-11-10"
+  },
+  {
+    "id": "ia-2026-11-10-94ciku",
+    "q": "En soirée, t'arrives :",
+    "a": "Dès l'ouverture, pour être devant",
+    "b": "Vers 2h, quand ça tape vraiment",
+    "legende": "Il y a ceux qui ouvrent le dancefloor et ceux qui arrivent pour le drop. Dis-nous ton camp, et envoie ça à ton opposé.",
+    "ajout": "2026-11-10"
   }
 ]

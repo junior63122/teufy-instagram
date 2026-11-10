@@ -467,5 +467,47 @@
   "licence": "CC BY-SA 3.0",
   "licence_url": "http://creativecommons.org/licenses/by-sa/3.0/",
   "source": "https://commons.wikimedia.org/wiki/File:Bandol_vu_des_calanques_le_soir_en_%C3%A9t%C3%A9.jpg"
+ },
+ "Valbonne": {
+  "fichier": "site/img/villes/valbonne.jpg",
+  "auteur": "Ville valbonne sophia",
+  "licence": "CC BY-SA 3.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "source": "https://commons.wikimedia.org/wiki/File:PAL61872-pano.jpg"
+ },
+ "La Garde": {
+  "fichier": "site/img/villes/la-garde.jpg",
+  "auteur": "Marianne Casamance",
+  "licence": "CC BY-SA 3.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Clansayes_-_vue_sur_La_Garde_Adh%C3%A9mar.JPG"
+ },
+ "La Valette-du-Var": {
+  "fichier": "site/img/villes/la-valette-du-var.jpg",
+  "auteur": "trolvag",
+  "licence": "CC BY-SA 3.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "source": "https://commons.wikimedia.org/wiki/File:La_Valette-du-Var,_France_-_panoramio.jpg"
+ },
+ "Carqueiranne": {
+  "fichier": "site/img/villes/carqueiranne.jpg",
+  "auteur": "Remi Jouan",
+  "licence": "CC BY-SA 3.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Carqueiranne_(1).JPG"
+ },
+ "La Farlède": {
+  "fichier": "site/img/villes/la-farlede.jpg",
+  "auteur": "Gnrc",
+  "licence": "CC0",
+  "licence_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "source": "https://commons.wikimedia.org/wiki/File:Place_de_la_Libert%C3%A9_-_La_Farl%C3%A8de,_Var,_France.jpg"
+ },
+ "Biot": {
+  "fichier": "site/img/villes/biot.jpg",
+  "auteur": "Abxbay",
+  "licence": "CC BY-SA 4.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Biot_vue.JPG"
  }
 }

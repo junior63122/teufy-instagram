@@ -223,10 +223,10 @@
     "secondes_par_soiree_reel": 1.8,
     "petit_prix_max": 10,
     "creneaux_utc": [
-      15,
       16,
       17,
-      18
+      18,
+      19
     ],
     "_creneaux": "Heures (UTC) parmi lesquelles le bot choisit l'heure de publication selon ce qui marche (16h-19h l'hiver, 17h-20h l'été à Paris). Le passage de 19h UTC sert de rattrapage.",
     "delai_min_heures": 24,
