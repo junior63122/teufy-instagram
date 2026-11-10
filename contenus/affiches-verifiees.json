@@ -4768,7 +4768,7 @@
  },
  "v2|39250ce58b97": {
   "ok": true,
-  "le": "2026-11-10T15:04:00.901Z",
+  "le": "2026-11-10T15:22:44.684Z",
   "nom": "YOTTO RECORDS - SHOWCASE",
   "lu": {
    "titre": "BABY CLUB",
@@ -4781,7 +4781,7 @@
  },
  "v2|7a896bdbdb10": {
   "ok": true,
-  "le": "2026-11-10T15:04:04.938Z",
+  "le": "2026-11-10T15:22:48.883Z",
   "nom": "BEWARE #2 - La nouvelle soirée du Warehouse Nantes",
   "lu": {
    "titre": "",
@@ -4792,7 +4792,7 @@
  },
  "v2|7d75c0087e5a": {
   "ok": true,
-  "le": "2026-11-10T15:04:08.954Z",
+  "le": "2026-11-10T15:22:57.928Z",
   "nom": "Macadam Expansion • Elli Acula ~ Nene H ~ Kamen",
   "lu": {
    "titre": "MACADAM EXPANSION",
@@ -4815,10 +4815,10 @@
  },
  "v2|1e51f7e28730": {
   "ok": false,
-  "le": "2026-11-10T15:04:14.451Z",
+  "le": "2026-11-10T15:23:02.540Z",
   "nom": "Collectif Symbiose - 4th Anniversary - GiGi FM",
   "lu": {
-   "titre": "CONCERTS UBU & HORS LES MURS",
+   "titre": "Concerts UBU & Hors les murs",
    "dates": [],
    "artistes": []
   },
@@ -4827,7 +4827,7 @@
  "og|https://ra.co/events/rennes": "",
  "v2|74d00a53864c": {
   "ok": true,
-  "le": "2026-11-10T15:04:20.586Z",
+  "le": "2026-11-10T15:23:06.873Z",
   "nom": "Sunday Camina X Blinkd [Matatabi, Mija, Turbomat &+]",
   "lu": {
    "titre": "",
@@ -4838,10 +4838,10 @@
  },
  "v2|865de058d7f5": {
   "ok": true,
-  "le": "2026-11-10T15:04:50.537Z",
+  "le": "2026-11-10T15:23:12.760Z",
   "nom": "Lagui - Espace Julien",
   "lu": {
-   "titre": "",
+   "titre": "LAGUI",
    "dates": [
     "2026-11-24"
    ],
@@ -4857,7 +4857,7 @@
  },
  "v2|f52817c44991": {
   "ok": true,
-  "le": "2026-11-10T15:04:57.938Z",
+  "le": "2026-11-10T15:23:18.471Z",
   "nom": "Rawww : Yanamko",
   "lu": {
    "titre": "RAWW",
@@ -4876,7 +4876,7 @@
  },
  "v2|e9842ec85e7f": {
   "ok": true,
-  "le": "2026-11-10T15:05:05.538Z",
+  "le": "2026-11-10T15:23:25.488Z",
   "nom": "IPN X WHYNOT? : TECHNO III",
   "lu": {
    "titre": "WHYNOT?",
@@ -4896,7 +4896,7 @@
  },
  "v2|414e27e1b2ee": {
   "ok": true,
-  "le": "2026-11-10T15:05:08.876Z",
+  "le": "2026-11-10T15:23:29.940Z",
   "nom": "JEST #6 : Jamais d'Eux Sans Toi",
   "lu": {
    "titre": "",
@@ -4907,7 +4907,7 @@
  },
  "v2|9cb91ba9f330": {
   "ok": true,
-  "le": "2026-11-10T15:05:16.652Z",
+  "le": "2026-11-10T15:23:37.658Z",
   "nom": "Festival Solidaire Le Père Noël Est-Il Un Rocker ? (Soirée PernoRock)",
   "lu": {
    "titre": "Le Père Noël est-il un rocker ?",
@@ -4927,7 +4927,7 @@
  },
  "v2|360c53e865c0": {
   "ok": true,
-  "le": "2026-11-10T15:05:25.751Z",
+  "le": "2026-11-10T15:23:44.684Z",
   "nom": "Warm Up Party #2",
   "lu": {
    "titre": "WARM UP PARTY",
@@ -4937,7 +4937,8 @@
    "artistes": [
     "DJ PAPI CHULO",
     "GORILLE",
-    "SLEEN-HACHE",
+    "SLEEN",
+    "HACHE",
     "DANCEHALLINRENNES",
     "BARBIE JOY"
    ]
@@ -4948,7 +4949,7 @@
  },
  "v2|5c35a472f2e4": {
   "ok": true,
-  "le": "2026-11-10T15:05:32.715Z",
+  "le": "2026-11-10T15:23:48.440Z",
   "nom": "Geordie Greep",
   "lu": {
    "titre": "",
@@ -4959,7 +4960,7 @@
  },
  "v2|5621c8207bff": {
   "ok": true,
-  "le": "2026-11-10T15:05:41.364Z",
+  "le": "2026-11-10T15:23:53.632Z",
   "nom": "Festival Solidaire Le Père Noël Est-Il Un Rocker ? (Soirée PernoMix)",
   "lu": {
    "titre": "Le Père Noël est-il un rocker ?",
@@ -4979,7 +4980,7 @@
  },
  "v2|1053bedf80bf": {
   "ok": true,
-  "le": "2026-11-10T15:05:46.682Z",
+  "le": "2026-11-10T15:24:00.972Z",
   "nom": "Stand High Patrol + Marina P & The Radiators",
   "lu": {
    "titre": "STAND HIGH PATROL",
@@ -5005,7 +5006,7 @@
  },
  "v2|ff823bb5c61f": {
   "ok": true,
-  "le": "2026-11-10T15:06:28.052Z",
+  "le": "2026-11-10T15:24:56.861Z",
   "nom": "Ublo — Courant Local",
   "lu": {
    "titre": "Courant Local",
@@ -5022,7 +5023,7 @@
  },
  "v2|3f10886f8531": {
   "ok": false,
-  "le": "2026-11-10T15:06:41.597Z",
+  "le": "2026-11-10T15:25:03.621Z",
   "nom": "Encore X Halfpipe Records : Diffrent, Riria, Saidah & More",
   "lu": {
    "titre": "RSICE",
@@ -5044,7 +5045,7 @@
  },
  "v2|76be8a20802a": {
   "ok": true,
-  "le": "2026-11-10T15:06:47.187Z",
+  "le": "2026-11-10T15:25:07.691Z",
   "nom": "Slalom XXL : Gros Caissons, Gros Son !",
   "lu": {
    "titre": "Slalom XXL",
@@ -5063,7 +5064,7 @@
  },
  "v2|30aec4e69b5a": {
   "ok": true,
-  "le": "2026-11-10T15:06:55.697Z",
+  "le": "2026-11-10T15:25:12.739Z",
   "nom": "Macadam • Kyle Starkey ~ Dj Physical ~ Britney Speed",
   "lu": {
    "titre": "",
@@ -5086,7 +5087,7 @@
  },
  "v2|c51887aa988a": {
   "ok": true,
-  "le": "2026-11-10T15:06:59.764Z",
+  "le": "2026-11-10T15:25:16.373Z",
   "nom": "Byji",
   "lu": {
    "titre": "Byji",
@@ -5099,7 +5100,7 @@
  },
  "v2|1d1bf1d81d77": {
   "ok": true,
-  "le": "2026-11-10T15:07:09.027Z",
+  "le": "2026-11-10T15:25:22.944Z",
   "nom": "Conexão Tropical + Aniversario Brunno",
   "lu": {
    "titre": "CONEXÃO TROPICAL",
@@ -5119,7 +5120,7 @@
  },
  "v2|f6053b788239": {
   "ok": true,
-  "le": "2026-11-10T15:07:12.722Z",
+  "le": "2026-11-10T15:25:26.639Z",
   "nom": "23:59 - The Blind Date",
   "lu": {
    "titre": "",
@@ -5130,7 +5131,7 @@
  },
  "v2|e5678a570c2f": {
   "ok": true,
-  "le": "2026-11-10T15:07:16.168Z",
+  "le": "2026-11-10T15:25:30.549Z",
   "nom": "cocoon - Jus-Ed b2b Move D - all night long",
   "lu": {
    "titre": "",
@@ -5141,7 +5142,7 @@
  },
  "v2|f9f1cc397a3f": {
   "ok": true,
-  "le": "2026-11-10T15:07:25.138Z",
+  "le": "2026-11-10T15:25:35.666Z",
   "nom": "Macadam • Darwin ~ Christian Coiffure (live) ~ Slodki",
   "lu": {
    "titre": "",
@@ -5150,7 +5151,7 @@
    ],
    "artistes": [
     "DARWIN",
-    "CHRISTIAN COIFFURE live",
+    "CHRISTIAN COIFFURE",
     "SLODKI"
    ]
   },
@@ -5164,13 +5165,13 @@
  },
  "v2|b33e02294ae2": {
   "ok": false,
-  "le": "2026-11-10T15:07:30.612Z",
+  "le": "2026-11-10T15:25:40.907Z",
   "nom": "48es Rencontres Trans Musicales de Rennes",
   "lu": {
-   "titre": "Tankus the Henge",
+   "titre": "TANKUS THE HENGE",
    "dates": [],
    "artistes": [
-    "Tankus the Henge"
+    "TANKUS THE HENGE"
    ]
   },
   "commun": []
@@ -5178,7 +5179,7 @@
  "og|https://lestrans.com": "https://cdn.lestrans.com/wp-content/uploads/2021/07/ambiance-ko-ko-mo-220721-trans-aux-parcs-le-gall-elodie-8061.jpg",
  "v2|474cb80d735e": {
   "ok": true,
-  "le": "2026-11-10T15:07:36.971Z",
+  "le": "2026-11-10T15:25:47.565Z",
   "nom": "48es Rencontres Trans Musicales de Rennes",
   "lu": {
    "titre": "",
@@ -5189,7 +5190,7 @@
  },
  "v2|eefeec7cadf4": {
   "ok": false,
-  "le": "2026-11-10T15:07:55.319Z",
+  "le": "2026-11-10T15:25:57.556Z",
   "nom": "Encore x Winson [All Night Long]",
   "lu": {
    "titre": "RSICE",
@@ -5211,7 +5212,7 @@
  },
  "v2|df7e41788f18": {
   "ok": true,
-  "le": "2026-11-10T15:07:59.184Z",
+  "le": "2026-11-10T15:26:00.261Z",
   "nom": "Sound Of Karmen [Danilo Plessow (MCDE), Orele, Phil]",
   "lu": {
    "titre": "",
@@ -5222,10 +5223,10 @@
  },
  "v2|dafd2ff7e06b": {
   "ok": true,
-  "le": "2026-11-10T15:08:07.521Z",
+  "le": "2026-11-10T15:26:07.529Z",
   "nom": "Scourge Présente : Zku All Night Long + Guests",
   "lu": {
-   "titre": "ZKU ALL NIGHT LONG",
+   "titre": "SCURGE ZKU ALL NIGHT LONG",
    "dates": [
     "2026-12-04"
    ],
@@ -5244,7 +5245,7 @@
  },
  "v2|f02ad778cd78": {
   "ok": true,
-  "le": "2026-11-10T15:08:11.905Z",
+  "le": "2026-11-10T15:26:10.641Z",
   "nom": "2Much Nantes : Panteros666, Dj Schnake, Kichta",
   "lu": {
    "titre": "",
@@ -5255,7 +5256,7 @@
  },
  "v2|680b26f7b66c": {
   "ok": true,
-  "le": "2026-11-10T15:08:20.232Z",
+  "le": "2026-11-10T15:26:20.549Z",
   "nom": "Macadam • Binary Digit (live) ~ Multifun ~ Somoine B2B Choreophila",
   "lu": {
    "titre": "",
@@ -5279,10 +5280,10 @@
  },
  "v2|093a217780d3": {
   "ok": true,
-  "le": "2026-11-10T15:08:28.911Z",
+  "le": "2026-11-10T15:26:29.597Z",
   "nom": "Monafro À Marseille",
   "lu": {
-   "titre": "MONAFRO MARSEILLE O WARM",
+   "titre": "MONAFRO - MARSEILLE O WARM",
    "dates": [
     "2026-12-05"
    ],
@@ -5300,7 +5301,7 @@
  },
  "v2|5f37433364c2": {
   "ok": true,
-  "le": "2026-11-10T15:08:37.475Z",
+  "le": "2026-11-10T15:26:37.214Z",
   "nom": "1KR Invite AREA ØNE",
   "lu": {
    "titre": "AREA ØNE",
@@ -5323,10 +5324,10 @@
  },
  "v2|249e1cdf0b11": {
   "ok": true,
-  "le": "2026-11-10T15:08:45.577Z",
+  "le": "2026-11-10T15:26:40.771Z",
   "nom": "Mézigue All Night Long",
   "lu": {
-   "titre": "MÉZIGUE ALL NIGHT LONG RELEASE PARTY D.KO42 MÉZIGUE “EAU DE SHIT”",
+   "titre": "MÉZIGUE ALL NIGHT LONG",
    "dates": [
     "2026-12-05"
    ],
@@ -5342,7 +5343,7 @@
  },
  "v2|f41ac5540c72": {
   "ok": false,
-  "le": "2026-11-10T15:08:51.765Z",
+  "le": "2026-11-10T15:26:46.616Z",
   "nom": "Gloria • Bambi B2B Akira ~ Youl B2B Mimuza ~ CaubX B2B Diafan",
   "lu": {
    "titre": "GLORIA",
@@ -5364,7 +5365,7 @@
  },
  "v2|59d4b9306aca": {
   "ok": true,
-  "le": "2026-11-10T15:08:54.718Z",
+  "le": "2026-11-10T15:26:52.429Z",
   "nom": "Disiz - Tournée des Zéniths",
   "lu": {
    "titre": "disiz zénith",
@@ -5382,7 +5383,7 @@
  },
  "v2|eaba85459aaf": {
   "ok": false,
-  "le": "2026-11-10T15:09:02.342Z",
+  "le": "2026-11-10T15:26:58.406Z",
   "nom": "1HEURE42 au Barri",
   "lu": {
    "titre": "",
@@ -5394,7 +5395,7 @@
  "og|https://shotgun.live/fr/events/1heure42": "",
  "v2|25fb2bb87d7a": {
   "ok": true,
-  "le": "2026-11-10T15:09:08.230Z",
+  "le": "2026-11-10T15:27:04.826Z",
   "nom": "No Work Tomorrow - Demain Je Bosses Pas Je Sors !",
   "lu": {
    "titre": "NO WORK TOMORROW",
@@ -5413,7 +5414,7 @@
  },
  "v2|224fe6e7f29c": {
   "ok": true,
-  "le": "2026-11-10T15:09:12.889Z",
+  "le": "2026-11-10T15:27:08.744Z",
   "nom": "Out - III",
   "lu": {
    "titre": "OUT",
@@ -5424,7 +5425,7 @@
  },
  "v2|262d3c336ab0": {
   "ok": true,
-  "le": "2026-11-10T15:09:25.180Z",
+  "le": "2026-11-10T15:27:17.282Z",
   "nom": "Hypnotic Session",
   "lu": {
    "titre": "HYPNOTIC SESSION",
@@ -5447,7 +5448,7 @@
  },
  "v2|4375fb315f40": {
   "ok": true,
-  "le": "2026-11-10T15:09:31.570Z",
+  "le": "2026-11-10T15:27:21.695Z",
   "nom": "La Nuit De L'Afro",
   "lu": {
    "titre": "La Nuit de l'AFRO",
@@ -5466,7 +5467,7 @@
  },
  "v2|de6c8f6bc610": {
   "ok": true,
-  "le": "2026-11-10T15:09:40.332Z",
+  "le": "2026-11-10T15:27:29.173Z",
   "nom": "La Joya X Le Grand Bazar Part. 3",
   "lu": {
    "titre": "La JOYA",
@@ -5489,10 +5490,10 @@
  },
  "v2|40e9e41b4574": {
   "ok": true,
-  "le": "2026-11-10T15:09:47.272Z",
+  "le": "2026-11-10T15:27:36.224Z",
   "nom": "Boum Boum : On Week!",
   "lu": {
-   "titre": "2 SALLES, 2 AMBIANCES",
+   "titre": "",
    "dates": [
     "2026-11-11"
    ],
@@ -5507,10 +5508,10 @@
  },
  "v2|4a0d8852a90d": {
   "ok": true,
-  "le": "2026-11-10T15:09:50.396Z",
+  "le": "2026-11-10T15:27:42.115Z",
   "nom": "Le Grand Barathon - Ski 2026 (10 ans)",
   "lu": {
-   "titre": "Le Grand Barathon",
+   "titre": "LE GRAND BARATHON",
    "dates": [],
    "artistes": []
   },
@@ -5521,7 +5522,7 @@
  },
  "v2|87763f019912": {
   "ok": true,
-  "le": "2026-11-10T15:09:54.159Z",
+  "le": "2026-11-10T15:27:47.202Z",
   "nom": "ALELA DIANE + THE HACKLES",
   "lu": {
    "titre": "",
@@ -5532,7 +5533,7 @@
  },
  "v2|0a7f4a72a9f5": {
   "ok": true,
-  "le": "2026-11-10T15:09:58.213Z",
+  "le": "2026-11-10T15:27:52.115Z",
   "nom": "Tribe Infection",
   "lu": {
    "titre": "TRIBE INFECTION",
@@ -5545,8 +5546,8 @@
   ]
  },
  "v2|9a426950c0cb": {
-  "ok": true,
-  "le": "2026-11-10T15:10:06.482Z",
+  "ok": false,
+  "le": "2026-11-10T15:28:00.181Z",
   "nom": "Boum Boum : Basement",
   "lu": {
    "titre": "2 SALLES, 2 AMBIANCES",
@@ -5559,16 +5560,15 @@
     "FRANCESCO LEE"
    ]
   },
-  "commun": [
-   "boum"
-  ]
+  "commun": []
  },
+ "og|https://shotgun.live/fr/events/boum-boum-basement": "",
  "v2|b5fd9cfe586b": {
   "ok": true,
-  "le": "2026-11-10T15:10:11.709Z",
+  "le": "2026-11-10T15:28:07.711Z",
   "nom": "Lucky Party By Met'Stissés",
   "lu": {
-   "titre": "Lucky PARTY",
+   "titre": "Lucky Party",
    "dates": [
     "2026-11-13"
    ],
@@ -5586,10 +5586,10 @@
  },
  "v2|bb3ae7291381": {
   "ok": true,
-  "le": "2026-11-10T15:10:15.886Z",
+  "le": "2026-11-10T15:28:15.300Z",
   "nom": "The Rebellious Open Mic",
   "lu": {
-   "titre": "REBELLIOUS - OPEN MIC: FREESTYLE & SCÈNE OUVERTE",
+   "titre": "REBELLIOUS",
    "dates": [
     "2026-11-13"
    ],
@@ -5597,15 +5597,13 @@
   },
   "commun": [
    "rebellious",
-   "open",
-   "scene",
-   "ouverte",
-   "restaurant"
+   "restaurant",
+   "continent"
   ]
  },
  "v2|9c321b2e235d": {
   "ok": true,
-  "le": "2026-11-10T15:10:22.175Z",
+  "le": "2026-11-10T15:28:21.834Z",
   "nom": "Eden",
   "lu": {
    "titre": "EDEN Urban Paradise",
@@ -5623,7 +5621,7 @@
  },
  "v2|d2793ccff960": {
   "ok": true,
-  "le": "2026-11-10T15:10:27.128Z",
+  "le": "2026-11-10T15:28:25.786Z",
   "nom": "SNIPER + Kahra",
   "lu": {
    "titre": "",
@@ -5634,7 +5632,7 @@
  },
  "v2|0ba0037a719a": {
   "ok": true,
-  "le": "2026-11-10T15:10:32.803Z",
+  "le": "2026-11-10T15:28:32.430Z",
   "nom": "DEATH VALLEY GIRLS + BELLA AND THE BIZARRE (This Is Not A Love Night)",
   "lu": {
    "titre": "",
@@ -5645,10 +5643,10 @@
  },
  "v2|28c777c48901": {
   "ok": true,
-  "le": "2026-11-10T15:10:42.471Z",
+  "le": "2026-11-10T15:28:40.129Z",
   "nom": "Soirée Mauricienne \"De Mon Île À La Ville\"",
   "lu": {
-   "titre": "De mon île à la ville",
+   "titre": "De mon ile à la ville",
    "dates": [
     "2026-11-13"
    ],
@@ -5660,563 +5658,6 @@
   "commun": [
    "ville",
    "urban"
-  ]
- },
- "v2|579bdd256430": {
-  "ok": true,
-  "le": "2026-11-10T15:10:47.163Z",
-  "nom": "Hardtechno2uptempo",
-  "lu": {
-   "titre": "HARDTECHNO2UPTEMPO",
-   "dates": [],
-   "artistes": []
-  },
-  "commun": [
-   "hardtechno2uptempo"
-  ]
- },
- "v2|c1d4e5fbbdba": {
-  "ok": true,
-  "le": "2026-11-10T15:10:54.584Z",
-  "nom": "Hit Me Baby #6 : 2000s & 2010s Party",
-  "lu": {
-   "titre": "TRIO TOUR 2026",
-   "dates": [
-    "2026-11-12"
-   ],
-   "artistes": [
-    "LA JUNGLE"
-   ]
-  },
-  "commun": [
-   "interference"
-  ]
- },
- "v2|ffedc961fa72": {
-  "ok": true,
-  "le": "2026-11-10T15:10:59.131Z",
-  "nom": "Nuit Brune - Riot Edition",
-  "lu": {
-   "titre": "Nuit Brune RIOT EDITION",
-   "dates": [
-    "2026-11-13"
-   ],
-   "artistes": [
-    "RROXYMORE",
-    "DJ LINA",
-    "MIMI CARTER",
-    "KEZIA",
-    "LA CRYPTE",
-    "MISTIKI"
-   ]
-  },
-  "commun": [
-   "nuit",
-   "brune",
-   "riot",
-   "rockstore"
-  ]
- },
- "v2|c8cb2e19aa0f": {
-  "ok": true,
-  "le": "2026-11-10T15:11:05.399Z",
-  "nom": "Magie Noire X Faune #1",
-  "lu": {
-   "titre": "MAGIE NOIRE RESIDENCY",
-   "dates": [
-    "2026-11-14"
-   ],
-   "artistes": [
-    "¡MA:R",
-    "ANDRÉ BOEUFGRAS"
-   ]
-  },
-  "commun": [
-   "magie",
-   "noire",
-   "faune"
-  ]
- },
- "v2|ec4b9b77a2e9": {
-  "ok": true,
-  "le": "2026-11-10T15:11:11.106Z",
-  "nom": "Soirée Swing et Rock au café le Saint-Clair",
-  "lu": {
-   "titre": "SOIRÉES SWING & ROCK",
-   "dates": [],
-   "artistes": []
-  },
-  "commun": [
-   "swing",
-   "rock",
-   "cafe",
-   "saint",
-   "clair"
-  ]
- },
- "v2|59dfc9186346": {
-  "ok": true,
-  "le": "2026-11-10T15:11:15.012Z",
-  "nom": "PACT + DELON",
-  "lu": {
-   "titre": "",
-   "dates": [],
-   "artistes": []
-  },
-  "commun": []
- },
- "v2|4195026c1f7b": {
-  "ok": true,
-  "le": "2026-11-10T15:11:21.477Z",
-  "nom": "Décennie",
-  "lu": {
-   "titre": "DÉCENNIE",
-   "dates": [
-    "2026-11-14"
-   ],
-   "artistes": []
-  },
-  "commun": [
-   "decennie"
-  ]
- },
- "v2|f9567d4d98ad": {
-  "ok": true,
-  "le": "2026-11-10T15:11:28.999Z",
-  "nom": "Filho Do Zua En Show Case Á Toulouse",
-  "lu": {
-   "titre": "Filho Do Zua EN SHOW-CASE",
-   "dates": [
-    "2026-11-14"
-   ],
-   "artistes": [
-    "Filho Do Zua",
-    "RUFANIIA",
-    "MAKUNTIMA AMÉRICANO"
-   ]
-  },
-  "commun": [
-   "filho",
-   "show",
-   "case"
-  ]
- },
- "v2|efa6d8c999c4": {
-  "ok": true,
-  "le": "2026-11-10T15:11:34.816Z",
-  "nom": "Kokaz Birthay",
-  "lu": {
-   "titre": "KOKAZ BIRTHDAY",
-   "dates": [
-    "2026-11-14"
-   ],
-   "artistes": [
-    "KOKAZ",
-    "KUSHY",
-    "T-WILL",
-    "ERIIS",
-    "SHENDA"
-   ]
-  },
-  "commun": [
-   "kokaz",
-   "antirouille"
-  ]
- },
- "v2|d38913d4bdc5": {
-  "ok": true,
-  "le": "2026-11-10T15:11:40.963Z",
-  "nom": "Kalipsxau À Toulouse - Showcase Exclusif Au Nine",
-  "lu": {
-   "titre": "KALIPSXAU À TOULOUSE",
-   "dates": [
-    "2026-11-14"
-   ],
-   "artistes": [
-    "KALIPSXAU",
-    "DJ CHALO",
-    "DJ MADI",
-    "DJ MIKE",
-    "DJ TITI",
-    "MC BEEX"
-   ]
-  },
-  "commun": [
-   "kalipsxau",
-   "toulouse",
-   "nine"
-  ]
- },
- "v2|55fc3a71c882": {
-  "ok": true,
-  "le": "2026-11-10T15:11:47.973Z",
-  "nom": "Favela Frequency",
-  "lu": {
-   "titre": "FAVELA FREQUENCY",
-   "dates": [
-    "2026-11-14"
-   ],
-   "artistes": [
-    "MARAH",
-    "BRUNO -VIDAL-"
-   ]
-  },
-  "commun": [
-   "favela",
-   "frequency",
-   "baia"
-  ]
- },
- "v2|e0af2740e10c": {
-  "ok": true,
-  "le": "2026-11-10T15:11:52.910Z",
-  "nom": "Byamson & Gagala A Toulouse",
-  "lu": {
-   "titre": "MOOD TOULOUSE",
-   "dates": [
-    "2026-11-14"
-   ],
-   "artistes": [
-    "BYAMSON",
-    "GAGALA",
-    "DJ MB6",
-    "DJ FRANKLINE",
-    "DJ NOURKI"
-   ]
-  },
-  "commun": [
-   "toulouse",
-   "byamson",
-   "gagala",
-   "bentleys"
-  ]
- },
- "v2|d1b11af6ff96": {
-  "ok": true,
-  "le": "2026-11-10T15:11:58.545Z",
-  "nom": "Dynamo",
-  "lu": {
-   "titre": "DYNAMO",
-   "dates": [
-    "2026-11-14"
-   ],
-   "artistes": []
-  },
-  "commun": [
-   "dynamo",
-   "rockstore"
-  ]
- },
- "v2|dc0cf4329d9c": {
-  "ok": true,
-  "le": "2026-11-10T15:12:05.951Z",
-  "nom": "Bonjour Sunshine - Dimanche Électro #28",
-  "lu": {
-   "titre": "DIMANCHE ELECTRO",
-   "dates": [
-    "2026-11-15"
-   ],
-   "artistes": [
-    "BONJOUR SUNSHINE",
-    "DIRTY B",
-    "PASTOR",
-    "DIMITRY",
-    "MARIE BERSON"
-   ]
-  },
-  "commun": [
-   "dimanche",
-   "electro",
-   "bonjour",
-   "sunshine",
-   "peniche"
-  ]
- },
- "v2|9cb10ffd84f9": {
-  "ok": true,
-  "le": "2026-11-10T15:12:12.691Z",
-  "nom": "Bal traditionnel des Balkans avec Oyna K à Sète",
-  "lu": {
-   "titre": "Bal traditionnel des Balkans avec Oyna K à Sète",
-   "dates": [
-    "2026-11-17"
-   ],
-   "artistes": [
-    "Oyna K"
-   ]
-  },
-  "commun": [
-   "traditionnel",
-   "balkans",
-   "oyna",
-   "sete",
-   "theatre"
-  ]
- },
- "v2|412e329f21fc": {
-  "ok": true,
-  "le": "2026-11-10T15:12:19.015Z",
-  "nom": "FFF + BLEU SATELLITE (concert chansigné)",
-  "lu": {
-   "titre": "",
-   "dates": [],
-   "artistes": []
-  },
-  "commun": []
- },
- "v2|674cdbdc07fc": {
-  "ok": true,
-  "le": "2026-11-10T15:12:22.883Z",
-  "nom": "MERYL + LAWSKIE",
-  "lu": {
-   "titre": "",
-   "dates": [],
-   "artistes": []
-  },
-  "commun": []
- },
- "v2|fab4b1e9ad43": {
-  "ok": true,
-  "le": "2026-11-10T15:12:26.971Z",
-  "nom": "CAMILLE",
-  "lu": {
-   "titre": "",
-   "dates": [],
-   "artistes": []
-  },
-  "commun": []
- },
- "v2|4f8f9b99426b": {
-  "ok": true,
-  "le": "2026-11-10T15:12:32.831Z",
-  "nom": "Kompa And Gouyad Édition : Noel",
-  "lu": {
-   "titre": "KG KOMPA GOUYAD",
-   "dates": [
-    "2026-11-20"
-   ],
-   "artistes": [
-    "NISSA",
-    "TITI",
-    "DOX"
-   ]
-  },
-  "commun": [
-   "kompa",
-   "gouyad",
-   "baia"
-  ]
- },
- "v2|999e3d650db0": {
-  "ok": true,
-  "le": "2026-11-10T15:12:39.292Z",
-  "nom": "Bethere Birthday - Meryl Showcase",
-  "lu": {
-   "titre": "BETHERE Birthday",
-   "dates": [
-    "2026-11-20"
-   ],
-   "artistes": [
-    "MERYL",
-    "HNDRX",
-    "DJ T'FIISH",
-    "DJ M'JIE",
-    "DJ SKELPY",
-    "DJ CHALO"
-   ]
-  },
-  "commun": [
-   "bethere",
-   "birthday",
-   "meryl",
-   "nine"
-  ]
- },
- "v2|545e6a6bedd9": {
-  "ok": true,
-  "le": "2026-11-10T15:12:46.291Z",
-  "nom": "Dieze System : Hannibass And More",
-  "lu": {
-   "titre": "DIEZE SYSTEM",
-   "dates": [
-    "2026-11-21"
-   ],
-   "artistes": [
-    "HANNIBASS",
-    "FIIKRA",
-    "SAIMON LIVE",
-    "404 CTRL"
-   ]
-  },
-  "commun": [
-   "dieze",
-   "system",
-   "hannibass",
-   "warehouse"
-  ]
- },
- "v2|1e8ee631dad5": {
-  "ok": true,
-  "le": "2026-11-10T15:12:50.899Z",
-  "nom": "Hard Arena XXL : L'Avènement du Chaos",
-  "lu": {
-   "titre": "",
-   "dates": [],
-   "artistes": []
-  },
-  "commun": []
- },
- "v2|d6f95d9212c7": {
-  "ok": true,
-  "le": "2026-11-10T15:12:57.978Z",
-  "nom": "Neotekk X Mélomane Club",
-  "lu": {
-   "titre": "CATHARSIS",
-   "dates": [
-    "2026-11-21"
-   ],
-   "artistes": [
-    "URVA ESTREVA",
-    "AEZR",
-    "ISALINE",
-    "DEL RAYO",
-    "MEYA"
-   ]
-  },
-  "commun": [
-   "melomane"
-  ]
- },
- "v2|dbf573c0f02e": {
-  "ok": true,
-  "le": "2026-11-10T15:13:01.654Z",
-  "nom": "PIERRE DE MAERE",
-  "lu": {
-   "titre": "",
-   "dates": [],
-   "artistes": []
-  },
-  "commun": []
- },
- "v2|a771d747d99e": {
-  "ok": true,
-  "le": "2026-11-10T15:13:06.888Z",
-  "nom": "Blankka Club* 021 : Matalhani, Nizart, Bigkid",
-  "lu": {
-   "titre": "AZÙL",
-   "dates": [
-    "2026-11-26"
-   ],
-   "artistes": [
-    "MATALHANI",
-    "NIZART",
-    "BIGKID*"
-   ]
-  },
-  "commun": [
-   "matalhani",
-   "nizart",
-   "bigkid",
-   "industrie"
-  ]
- },
- "v2|e6594a5c84f1": {
-  "ok": true,
-  "le": "2026-11-10T15:13:13.171Z",
-  "nom": "APÉRO TECHNO (Back to Paloma)",
-  "lu": {
-   "titre": "apero techno",
-   "dates": [
-    "2026-11-27"
-   ],
-   "artistes": []
-  },
-  "commun": [
-   "apero",
-   "techno",
-   "paloma"
-  ]
- },
- "v2|8aa866322602": {
-  "ok": true,
-  "le": "2026-11-10T15:13:20.250Z",
-  "nom": "La Rubia X La Voile Blanche",
-  "lu": {
-   "titre": "RUBIA OLD SCHOOL REGGAETON",
-   "dates": [
-    "2026-11-27"
-   ],
-   "artistes": [
-    "MIKE NASS",
-    "NIAMOR"
-   ]
-  },
-  "commun": [
-   "rubia",
-   "school",
-   "reggaeton",
-   "voile",
-   "blanche"
-  ]
- },
- "v2|c7bf77db25aa": {
-  "ok": true,
-  "le": "2026-11-10T15:13:27.388Z",
-  "nom": "Showcase Kalash",
-  "lu": {
-   "titre": "Kalash",
-   "dates": [
-    "2026-11-27"
-   ],
-   "artistes": [
-    "Kalash",
-    "SYLAAR",
-    "MTO",
-    "MC KONELIA"
-   ]
-  },
-  "commun": [
-   "kalash",
-   "etoile"
-  ]
- },
- "v2|af60eb2eedd6": {
-  "ok": true,
-  "le": "2026-11-10T15:13:33.441Z",
-  "nom": "Kompassion X Solution Gouyad",
-  "lu": {
-   "titre": "KOMPASSION x SOLUTION Christmas Edition",
-   "dates": [],
-   "artistes": [
-    "KOMPASSION",
-    "SOLUTION"
-   ]
-  },
-  "commun": [
-   "kompassion",
-   "solution"
-  ]
- },
- "v2|fbdb8a0f09ba": {
-  "ok": true,
-  "le": "2026-11-10T15:13:38.319Z",
-  "nom": "Konpa Nwèl Toulouse - Stage Konpa-Gouyad",
-  "lu": {
-   "titre": "KONPA NWEL",
-   "dates": [
-    "2026-12-18"
-   ],
-   "artistes": [
-    "CHALO",
-    "NISSA",
-    "DOX",
-    "S RIDE"
-   ]
-  },
-  "commun": [
-   "konpa",
-   "nwel",
-   "baia"
   ]
  }
 }
