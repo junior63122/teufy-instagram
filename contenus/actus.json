@@ -136,5 +136,22 @@
    "Pour les 17-30 ans qui effectuent régulièrement la navette vers Paris pour des concerts, des festivals ou des week-ends, la bonne nouvelle concerne le budget : la SNCF a confirmé que ces trains intègrent la grille tarifaire classique de TGV INOUI, sans tarification spéciale ni supplément."
   ],
   "ville": "Côte d'Azur"
+ },
+ {
+  "cle": "2026-11|bon entendeur et skip the use au festival vars en scène",
+  "date": "2026-11-09T09:00:00+01:00",
+  "ajout": "2026-11-10T13:48:01.456Z",
+  "type": "annonce",
+  "importance": 62,
+  "source": "https://nouvelle-vague.com/live/festival-vars-en-scene-2026/",
+  "image": "",
+  "titre": "Bon Entendeur et Skip The Use en concert gratuit à Vars en Scène",
+  "chapo": "La station de ski de Vars a officialisé la programmation de sa 18e édition du festival Vars en Scène avec Bon Entendeur et Skip The Use en têtes d'affiche.",
+  "paragraphes": [
+   "Chaque début d'hiver, la station des Hautes-Alpes marque le lancement de sa saison de sports d'hiver avec Vars en Scène, un événement musical gratuit organisé sur son front de neige.",
+   "Pour cette édition 2026, le coup d'envoi sera donné le samedi 5 décembre avec le duo électro Bon Entendeur en tête d'affiche. Le week-end suivant, le samedi 12 décembre, le groupe d'électro-rock Skip The Use investira à son tour la scène en plein air de Chabrières.",
+   "Pour les jeunes et étudiants de la Côte d'Azur et de Provence, ces rendez-vous constituent traditionnellement un point de ralliement pour combiner premières descentes à ski et soirée festive sans coût d'entrée pour les concerts."
+  ],
+  "ville": "Vars"
  }
 ]

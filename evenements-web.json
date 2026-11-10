@@ -6069,6 +6069,76 @@
         "frigo.16",
         "martinepatine_official_"
       ]
+    },
+    {
+      "source": "web",
+      "source_site": "nouvelle-vague.com",
+      "via_veille": true,
+      "name": "Vars en Scène : Bon Entendeur",
+      "start": "2026-12-05T17:30:00.000Z",
+      "venue": "Front de neige de Chabrières",
+      "city": "Vars",
+      "address": "",
+      "url": "https://nouvelle-vague.com/live/festival-vars-en-scene-2026/",
+      "image": "",
+      "price": 0,
+      "tags": [
+        "Electro",
+        "Nu-Disco"
+      ],
+      "description": "",
+      "public_cible": 0.6,
+      "confiance": 0.9,
+      "accroche": "Concert gratuit de Bon Entendeur en plein air pour l'ouverture de la station de ski.",
+      "instagram": [
+        "vars_reserve_naturelle"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "nouvelle-vague.com",
+      "via_veille": true,
+      "name": "Vars en Scène : Skip The Use",
+      "start": "2026-12-12T17:30:00.000Z",
+      "venue": "Front de neige de Chabrières",
+      "city": "Vars",
+      "address": "",
+      "url": "https://nouvelle-vague.com/live/festival-vars-en-scene-2026/",
+      "image": "",
+      "price": 0,
+      "tags": [
+        "Rock",
+        "Electro-Rock"
+      ],
+      "description": "",
+      "public_cible": 0.6,
+      "confiance": 0.9,
+      "accroche": "Concert rock gratuit de Skip The Use sur le front de neige.",
+      "instagram": [
+        "vars_reserve_naturelle"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "nouvelle-vague.com",
+      "via_veille": true,
+      "name": "Kevin Saura Group en concert",
+      "start": "2026-12-11T19:30:00.000Z",
+      "venue": "Le Dix-Huit",
+      "city": "Nice",
+      "address": "",
+      "url": "https://nouvelle-vague.com/live/kevin-saura-group-en-concert-a-nice/",
+      "image": "",
+      "price": null,
+      "tags": [
+        "Jazz",
+        "Groove"
+      ],
+      "description": "",
+      "public_cible": 0.6,
+      "confiance": 0.9,
+      "accroche": "Concert jazz fusion du quintette Kevin Saura Group au Dix-Huit à Nice.",
+      "instagram": []
     }
   ]
 }
