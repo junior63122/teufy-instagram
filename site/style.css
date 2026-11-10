@@ -975,3 +975,9 @@ details[data-bloc="tri"]>.groupe{inset-inline-start:auto;inset-inline-end:0}
 .rangee .carte .affiche{aspect-ratio:4/5!important;max-height:none!important;height:auto}
 .rangee .carte .affiche img.principale{position:absolute!important;inset:0!important;width:100%;height:100%!important;max-height:none!important;object-fit:cover!important}
 .rangee .carte .affiche .fond-flou{display:none}
+/* Carrousel « Ce soir » : contenu des cartes de hauteur fixe pour éviter les grands vides en bas des cartes courtes. */
+.rangee .carte h3{min-height:2em}
+.rangee .carte .genre{min-height:1.3em}
+.rangee .carte .demande{display:none}
+.rangee .carte .meta{flex-wrap:nowrap;overflow:hidden;mask-image:linear-gradient(90deg,#000 85%,transparent)}
+.rangee .carte .meta>*{flex:none}
