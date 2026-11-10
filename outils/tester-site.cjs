@@ -251,6 +251,43 @@ async function controlerPage(p, nom, u) {
       ok(await p.locator('.form-contact b').count() === 0, `${nom} ${pg} : du HTML saisi a été interprété`);
     }
     } catch (e) { echecs.push(`${nom} : étape interrompue (${e.message.split('\n')[0]} @l.${(String(e.stack).match(/tester-site\.cjs:(\d+)/) || [])[1] || '?'})`); }
+    // --- Navigation : barre d'onglets + menu plein écran (mobile), listes déroulantes (ordinateur), tarifs, retour en haut ---
+    try {
+    await p.goto(B + 'soirees-nice/', { waitUntil: 'load' }); await p.waitForTimeout(300);
+    const larg = await p.evaluate(() => innerWidth);
+    if (larg < 760) {
+      ok(await p.locator('.onglets a').count() === 5 && await p.locator('.onglets').isVisible(), `${nom} : barre d'onglets absente`);
+      ok(!(await p.locator('.nav').isVisible()), `${nom} : l'ancien menu défilant est encore affiché sur mobile`);
+      await p.locator('.onglets [data-menu]').click(); await p.waitForTimeout(250);
+      ok(await p.locator('#menu').isVisible(), `${nom} : le bouton Menu n'ouvre pas le menu`);
+      ok(await p.locator('#menu a[href$="partenaires/"]').count() >= 1 && await p.locator('#menu a[href$="partenaires/#tarifs"]').count() >= 1, `${nom} : « Devenir partenaire » / « Nos tarifs » absents du menu`);
+      await p.keyboard.press('Escape'); await p.waitForTimeout(200);
+      ok(!(await p.locator('#menu').isVisible()), `${nom} : Échap ne ferme pas le menu`);
+      await p.locator('.onglets [data-menu]').click(); await p.waitForTimeout(200); await p.locator('#menu .menu-x').click(); await p.waitForTimeout(200);
+      ok(!(await p.locator('#menu').isVisible()), `${nom} : la croix ne ferme pas le menu`);
+      await p.locator('.onglets [data-chercher]').click(); await p.waitForTimeout(400);
+      ok(await p.locator('.feuille-filtres').isVisible() && await p.evaluate(() => document.activeElement?.type === 'search'), `${nom} : « Chercher » n'ouvre pas la recherche et les filtres`);
+      await p.keyboard.press('Escape'); await p.waitForTimeout(300);
+      await p.locator('.onglets [data-menu]').click(); await p.waitForTimeout(200); await p.locator('#menu a[href$="partenaires/#tarifs"]').first().click(); await p.waitForURL(/partenaires\/#tarifs/); await p.waitForTimeout(500);
+    } else {
+      ok(await p.locator('.nav').isVisible() && await p.locator('.nav-groupe').count() >= 5, `${nom} : menu ordinateur incomplet`);
+      for (const g of ['villes', 'sortir', 'lieux', 'pros', 'teufy']) {
+        await p.locator(`.g-${g} summary`).click(); await p.waitForTimeout(150);
+        ok(await p.locator(`.g-${g} > div`).isVisible() && await p.locator(`.nav-groupe[open]`).count() === 1, `${nom} : la liste « ${g} » ne s'ouvre pas (ou plusieurs restent ouvertes)`);
+      }
+      await p.keyboard.press('Escape'); await p.waitForTimeout(150);
+      ok(await p.locator('.nav-groupe[open]').count() === 0, `${nom} : Échap ne ferme pas la liste du menu`);
+      await p.locator('.g-pros summary').click(); await p.locator('.g-pros a[href$="partenaires/#tarifs"]').click(); await p.waitForURL(/partenaires\/#tarifs/); await p.waitForTimeout(500);
+    }
+    const tt = await p.evaluate(() => document.getElementById('tarifs')?.getBoundingClientRect().top ?? -9999);
+    ok(tt > -10 && tt < 300, `${nom} : « Nos tarifs » n'amène pas aux tarifs (${Math.round(tt)}px)`);
+    ok(await p.locator('.tarif').count() >= 3 && /HT/.test(await p.locator('.tarif-prix').nth(1).innerText()) && /TTC/.test(await p.locator('.tarif-prix').nth(1).innerText()), `${nom} : tarifs sans HT / TTC`);
+    await p.goto(B, { waitUntil: 'load' }); await p.evaluate(() => scrollTo(0, innerHeight * 3)); await p.waitForTimeout(400);
+    await p.evaluate(() => scrollBy(0, -200)); await p.waitForTimeout(400); await p.evaluate(() => scrollBy(0, 400)); await p.waitForTimeout(400);
+    ok(await p.locator('.haut').isVisible(), `${nom} : le bouton « retour en haut » n'apparaît pas (ou disparaît selon le sens du défilement)`);
+    await p.locator('.haut').click(); await p.waitForTimeout(1200);
+    ok(await p.evaluate(() => scrollY) < 50, `${nom} : « retour en haut » ne remonte pas`);
+    } catch (e) { echecs.push(`${nom} : étape interrompue (${e.message.split('\n')[0]} @l.${(String(e.stack).match(/tester-site\.cjs:(\d+)/) || [])[1] || '?'})`); }
     // --- Vidéo de Monaco : elle tourne en boucle, pas seulement 2 secondes ---
     try {
     await p.goto(B + 'soirees-monaco/', { waitUntil: 'load' }); await c.clock.runFor(0).catch(() => {});

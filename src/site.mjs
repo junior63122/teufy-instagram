@@ -971,6 +971,32 @@ const titrePage = (x) => { x = String(x || ''); if (x.length <= 70) return x; co
 // Navigation instantanée (Chrome, Edge) : la page visée est préparée dès qu'on survole ou touche un lien interne.
 const SPECULATION = JSON.stringify({ prerender: [{ where: { and: [{ href_matches: '/*' }, { not: { href_matches: '/*.(ics|mp4|jpg|png|webp|xml|json)' } }, { not: { selector_matches: '[target=_blank], [download]' } }] }, eagerness: 'moderate' }] });
 const HASH_SPECULATION = createHash('sha256').update(SPECULATION).digest('base64');
+// Navigation : une seule source pour le menu ordinateur (listes déroulantes), le menu plein écran du mobile et le pied
+// de page. Rubriques groupées par intention (Sortir, Villes, Lieux, Styles, Pros, Teufy) : on trouve en un geste.
+// Typographie : espace insécable avant ? ! et dans les guillemets « » (jamais un « ? » seul en début de ligne).
+// Seulement dans le texte entre les balises (jamais dans les attributs, scripts ou styles).
+const typo = (html, lang) => (lang === 'fr' ? html.replace(/(<(script|style)[\s\S]*?<\/\2>)|>([^<]+)</g, (m, bloc, _b, txt) => (bloc ? bloc : `>${txt.replace(/ ([?!»:])(?=\s|$|<|&)/g, '\u00a0$1').replace(/« /g, '«\u00a0')}<`)) : html);
+const LIB_NAV = {
+  fr: { sortir: 'Sortir', villes: 'Villes', lieux: 'Lieux', styles: 'Styles', pros: 'Pros', teufy: 'Teufy', devenir: 'Devenir partenaire', tarifs: 'Nos tarifs', menu: 'Menu', chercher: 'Chercher', favoris: 'Favoris', fermer: 'Fermer le menu', ceWe: 'Ce week-end', gratuit: 'Gratuit et bons plans', etud: 'Soirées étudiantes', agenda: 'Agenda', raccourcis: 'Raccourcis' },
+  en: { sortir: 'Going out', villes: 'Cities', lieux: 'Places', styles: 'Styles', pros: 'Pros', teufy: 'Teufy', devenir: 'Become a partner', tarifs: 'Pricing', menu: 'Menu', chercher: 'Search', favoris: 'Saved', fermer: 'Close menu', ceWe: 'This weekend', gratuit: 'Free and cheap', etud: 'Student nights', agenda: 'Events', raccourcis: 'Shortcuts' },
+  it: { sortir: 'Uscire', villes: 'Città', lieux: 'Locali', styles: 'Stili', pros: 'Pro', teufy: 'Teufy', devenir: 'Diventa partner', tarifs: 'Prezzi', menu: 'Menu', chercher: 'Cerca', favoris: 'Preferiti', fermer: 'Chiudi il menu', ceWe: 'Questo weekend', gratuit: 'Gratis e low cost', etud: 'Serate universitarie', agenda: 'Agenda', raccourcis: 'Scorciatoie' },
+  es: { sortir: 'Salir', villes: 'Ciudades', lieux: 'Locales', styles: 'Estilos', pros: 'Pros', teufy: 'Teufy', devenir: 'Hazte socio', tarifs: 'Tarifas', menu: 'Menú', chercher: 'Buscar', favoris: 'Favoritos', fermer: 'Cerrar el menú', ceWe: 'Este fin de semana', gratuit: 'Gratis y barato', etud: 'Fiestas universitarias', agenda: 'Agenda', raccourcis: 'Accesos directos' },
+  zh: { sortir: '出门玩', villes: '城市', lieux: '场所', styles: '风格', pros: '商家', teufy: 'Teufy', devenir: '成为合作伙伴', tarifs: '价格', menu: '菜单', chercher: '搜索', favoris: '收藏', fermer: '关闭菜单', ceWe: '本周末', gratuit: '免费与优惠', etud: '学生派对', agenda: '活动', raccourcis: '快捷方式' },
+  ar: { sortir: 'الخروج', villes: 'المدن', lieux: 'الأماكن', styles: 'الأنماط', pros: 'للمحترفين', teufy: 'Teufy', devenir: 'كن شريكًا', tarifs: 'الأسعار', menu: 'القائمة', chercher: 'بحث', favoris: 'المفضلة', fermer: 'إغلاق القائمة', ceWe: 'نهاية هذا الأسبوع', gratuit: 'مجاني وبأسعار رخيصة', etud: 'حفلات الطلاب', agenda: 'الحفلات', raccourcis: 'اختصارات' },
+};
+const groupesNav = ({ t, lang, SA }) => { const L = LIB_NAV[lang] || LIB_NAV.fr; return [
+  ['sortir', L.sortir, [['ce-soir/', t.js.ceSoir], ['ce-week-end/', L.ceWe], ...(SA ? [[`${SA.slug}/`, `${SA.emoji} ${SA.nom[lang] || SA.nom.fr}`]] : []), ['soirees-gratuites/', L.gratuit], ['soirees-etudiantes/', L.etud], ['festivals/', t.festivals]]],
+  ['villes', L.villes, [...VILLES_SEO.map((v) => [`${v.slug}/`, t.villes[v.cle]]), ['occitanie/', 'Occitanie'], ['france/', t.franceNav]]],
+  ['lieux', L.lieux, [['clubs-bars/', t.lieuxNav], ['restaurants/', t.restos], ['activites/', t.activites], ['dates/', t.dates]]],
+  ['styles', L.styles, PAGES_STYLES.map((k) => [`soirees-${k}/`, nomStyle(k, t, lang)])],
+  ['pros', L.pros, [['partenaires/', L.devenir], ['partenaires/#tarifs', L.tarifs], ['ambassadeurs/', t.ambassadeurs], ['bde/', t.bde]]],
+  ['teufy', L.teufy, [['a-propos/', t.qui], ['actus/', t.actus], ['faq/', 'FAQ']]],
+]; };
+const ICO_ONGLET = {
+  agenda: '<path d="M4 6h16v14H4zM4 10h16M8 3v5M16 3v5"/>', soir: '<path d="M15 3a8 8 0 1 0 6 13A7 7 0 0 1 15 3z"/>',
+  chercher: '<circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/>', favoris: '<path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/>',
+  menu: '<path d="M4 7h16M4 12h16M4 17h16"/>',
+};
 function gabarit({ lang, t, titre, description, chemin, base, corps, ld = [], image: imageDemandee, image = imageDemandee || 'site/img/equipe/monaco.jpg', compte, maj = '', agendaIci = false, rubriqueNav = null }) {
   const handle = compte.replace(/^@/, '');
   const P = pre(lang);
@@ -1020,29 +1046,44 @@ ${ld.length ? `<script type="application/ld+json">${JSON.stringify(ld).replace(/
     <a class="ig" href="https://www.instagram.com/${esc(handle)}/" target="_blank" rel="noopener" aria-label="Instagram ${esc(compte)}"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="17.4" cy="6.6" r="1.3" fill="currentColor"/></svg></a>
   </div>
 </header>
-<nav class="nav" aria-label="Menu">${(() => { const actif = nav.some(([d]) => d === chemin) ? chemin : rubriqueNav ?? nav.map(([d]) => d).filter((d) => d && chemin.startsWith(d)).sort((a, b) => b.length - a.length)[0]; const ville = (d) => /^(soirees-|occitanie\/)/.test(d);
-      const lien = ([d, n], cls = '') => `<a href="${accueil}${d}"${cls ? ` class="${cls}"` : ''}${d === chemin ? ' aria-current="page"' : d === actif ? ' aria-current="true"' : ''}>${esc(n)}</a>`;
-      // Ordinateur : les villes regroupées sous « Villes ▾ » (menu plus court, tout visible) ; mobile : liste qui défile.
-      const VILLES_NOM = { fr: 'Villes', en: 'Cities', it: 'Città', es: 'Ciudades', zh: '城市', ar: 'المدن' };
-      const villes = nav.filter(([d]) => ville(d));
-      const ouverte = villes.some(([d]) => d === actif) || /^france\//.test(chemin);
-      const menu = `<details class="nav-villes${ouverte ? ' actif' : ''}"><summary>${esc(VILLES_NOM[lang] || 'Villes')}</summary><div>${villes.map((x) => lien(x)).join('')}${lien(['france/', t.franceNav])}</div></details>`;
-      return nav.map((x, i) => lien(x, ville(x[0]) ? 'nav-ville' : '') + (i === 0 ? menu : '')).join(''); })()}</nav>
+<nav class="nav" aria-label="Menu">${(() => {
+      const G = groupesNav({ t, lang, SA }), tous = G.flatMap((g) => g[2]).map(([d]) => d.split('#')[0]);
+      const actif = rubriqueNav ?? ([...tous, 'ce-soir/'].includes(chemin) ? chemin : tous.filter((d) => d && chemin.startsWith(d)).sort((a, b) => b.length - a.length)[0]);
+      const lien = ([d, n]) => `<a href="${accueil}${d}"${d === chemin ? ' aria-current="page"' : d === actif ? ' aria-current="true"' : ''}>${esc(n)}</a>`;
+      const groupe = ([cle, titreG, liens]) => `<details class="nav-groupe g-${cle}${liens.some(([d]) => d.split('#')[0] === actif || (cle === 'villes' && /^france\//.test(chemin))) ? ' actif' : ''}"><summary>${esc(titreG)}</summary><div>${liens.map(lien).join('')}</div></details>`;
+      const L = LIB_NAV[lang] || LIB_NAV.fr, par = Object.fromEntries(G.map((g) => [g[0], g]));
+      // Styles rangés dans « Sortir » (menu plus court) ; Ce soir à part (le plus demandé).
+      const sortir = ['sortir', L.sortir, [...par.sortir[2].filter(([d]) => d !== 'ce-soir/'), ...par.styles[2]]];
+      return `${lien(['', L.agenda])}${lien(['ce-soir/', t.js.ceSoir])}${groupe(par.villes)}${groupe(sortir)}${groupe(par.lieux)}${groupe(par.pros)}${groupe(par.teufy)}`; })()}</nav>
 ${SA ? `<a class="bandeau-saison" href="${accueil}${SA.slug}/"><span aria-hidden="true">${SA.emoji}</span> <b>${esc(SA.nom[lang] || SA.nom.fr)}</b> · ${esc(t.toutes)} <span aria-hidden="true">→</span></a>` : ''}
 <main id="contenu">
-${corps}
+${typo(corps, lang)}
 </main>
 <footer>
   <div class="pied-colonnes">
-    ${(() => { const S = { fr: ['Sortir', 'Ce soir', 'Ce week-end', 'Gratuit et bons plans', 'Soirées étudiantes', 'Nouvel an'], en: ['Going out', 'Tonight', 'This weekend', 'Free and cheap', 'Student nights', "New Year's Eve"], it: ['Uscire', 'Stasera', 'Questo weekend', 'Gratis e low cost', 'Serate universitarie', 'Capodanno'], es: ['Salir', 'Esta noche', 'Este fin de semana', 'Gratis y barato', 'Fiestas universitarias', 'Nochevieja'], zh: ['出门玩', '今晚', '本周末', '免费与优惠', '学生派对', '跨年'], ar: ['الخروج', 'الليلة', 'نهاية هذا الأسبوع', 'مجاني وبأسعار رخيصة', 'حفلات الطلاب', 'رأس السنة'] }[lang] || []; return `<div><p class="pied-titre">${esc(S[0])}</p>${[['ce-soir/', S[1]], ['ce-week-end/', S[2]], ['soirees-gratuites/', S[3]], ['soirees-etudiantes/', S[4]], ['nouvel-an/', S[5]]].map(([c, n]) => `<a href="${accueil}${c}">${esc(n)}</a>`).join('')}</div>`; })()}
-    <div><p class="pied-titre">${esc(t.villesL)}</p>${VILLES_SEO.map((v) => `<a href="${accueil}${v.slug}/">${esc(t.villes[v.cle])}</a>`).join('')}<a href="${accueil}festivals/">${esc(t.festivals)}</a><a href="${accueil}dates/">${esc(t.dates)}</a><a href="${accueil}restaurants/">${esc(t.restos)}</a><a href="${accueil}activites/">${esc(t.activites)}</a><a href="${accueil}clubs-bars/">${esc(t.lieuxNav)}</a><a href="${accueil}occitanie/">Occitanie</a><a href="${accueil}france/">${esc(t.franceNav)}</a></div>
-    <div><p class="pied-titre">${esc(t.stylesL)}</p>${PAGES_STYLES.map((k) => `<a href="${accueil}soirees-${k}/">${esc(nomStyle(k, t, lang))}</a>`).join('')}</div>
-    <div><p class="pied-titre">${esc(t.teufyL)}</p><a href="${accueil}a-propos/">${esc(t.qui)}</a><a href="${accueil}faq/">FAQ</a><a href="${accueil}faq/#sources">${esc(TR_SOURCES[lang] || TR_SOURCES.fr)}</a><a href="${accueil}actus/">${esc(t.actus)}</a><a href="${accueil}partenaires/">${esc(t.partenaires)}</a><a href="${accueil}ambassadeurs/">${esc(t.ambassadeurs)}</a><a href="${accueil}bde/">${esc(t.bde)}</a><a href="https://www.instagram.com/${esc(handle)}/" target="_blank" rel="noopener">${esc(compte)}</a></div>
+    ${groupesNav({ t, lang, SA }).map(([cle, titreG, liens]) => `<div><p class="pied-titre">${esc(titreG)}</p>${liens.map(([d, n]) => `<a href="${accueil}${d}">${esc(n)}</a>`).join('')}${cle === 'teufy' ? `<a href="https://www.instagram.com/${esc(handle)}/" target="_blank" rel="noopener">${esc(compte)}</a>` : ''}</div>`).join('')}
     <div><p class="pied-titre">${esc(t.langue)}</p>${LANGUES.map((l) => `<a href="${base}${pre(l)}${chemin}" hreflang="${l}" lang="${l}">${esc(TXT[l].nom)}</a>`).join('')}</div>
   </div>
   <p><strong>Teufy</strong> · ${esc(t.pied1)}${maj ? ` · ${esc(maj)}` : ''}</p>
   <p>${esc(t.pied3)} · <a href="${accueil}mentions-legales/">${esc(t.legal)}</a> · <a href="${accueil}cgu/">CGU</a> · <a href="${accueil}cgv/">CGV</a> · <a href="${accueil}confidentialite/">${esc(TR_LEG[lang] || 'Confidentialité et cookies')}</a></p>
 </footer>
+${(() => { const L = LIB_NAV[lang] || LIB_NAV.fr; const ico = (k) => `<svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${ICO_ONGLET[k]}</svg>`;
+  const ici = agendaIci ? '' : accueil;
+  return `<div class="menu-complet" id="menu" role="dialog" aria-modal="true" aria-label="${esc(L.menu)}" hidden>
+  <div class="menu-tete"><a class="marque" href="${accueil || './'}"><img src="${base}site/img/logo-96.webp" alt="Teufy" width="39" height="32"></a><a href="#" class="menu-x" role="button" aria-label="${esc(L.fermer)}">×</a></div>
+  <div class="menu-corps">
+    <a class="menu-cherche" href="${ici}#recherche" data-chercher>${ico('chercher')}<span>${esc(t.placeholder)}</span></a>
+    ${groupesNav({ t, lang, SA }).map(([cle, titreG, liens]) => `<section class="menu-groupe menu-${cle}"><h2>${esc(titreG)}</h2><div>${liens.map(([d, n]) => `<a href="${accueil}${d}"${d === chemin ? ' aria-current="page"' : ''}>${esc(n)}</a>`).join('')}</div></section>`).join('')}
+    <section class="menu-groupe menu-langue"><h2>${esc(t.langue)}</h2><div>${LANGUES.map((l) => `<a href="${base}${pre(l)}${chemin}" hreflang="${l}" lang="${l}"${l === lang ? ' aria-current="true"' : ''}>${esc(TXT[l].nom)}</a>`).join('')}</div></section>
+  </div>
+</div>
+<nav class="onglets" aria-label="${esc(L.raccourcis)}">
+  <a href="${ici}#agenda"${chemin === '' ? ' aria-current="page"' : ''}>${ico('agenda')}<span>${esc(L.agenda)}</span></a>
+  <a href="${accueil}ce-soir/"${chemin === 'ce-soir/' ? ' aria-current="page"' : ''}>${ico('soir')}<span>${esc(t.js.ceSoir)}</span></a>
+  <a href="${ici}#recherche" data-chercher>${ico('chercher')}<span>${esc(L.chercher)}</span></a>
+  <a href="${ici}#favoris" data-favoris>${ico('favoris')}<span>${esc(L.favoris)}</span><b class="nb-fav" hidden></b></a>
+  <a href="#menu" data-menu aria-haspopup="dialog" aria-controls="menu">${ico('menu')}<span>${esc(L.menu)}</span></a>
+</nav>`; })()}
 <div class="flottant" hidden><button type="button" class="ouvrir-filtres"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M3 5h18M6 12h12M10 19h4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg><span>${esc(t.js.filtres)}</span><b class="compte"></b></button></div>
 <button type="button" class="haut" aria-label="${esc(t.haut)}" hidden><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M6 14l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
 <p class="toast" role="status" hidden></p>
@@ -1199,13 +1240,13 @@ const collage = (base, k, logos = null, images = null) => {
 };
 const ICO_PARTAGE = '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 3v12M7.5 7.5 12 3l4.5 4.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 11H6.5A1.5 1.5 0 0 0 5 12.5v7A1.5 1.5 0 0 0 6.5 21h11a1.5 1.5 0 0 0 1.5-1.5v-7a1.5 1.5 0 0 0-1.5-1.5H16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 const boutonPartage = (label, cls = '') => `<button type="button" class="partager icone-rond${cls ? ` ${cls}` : ''}" aria-label="${esc(label)}" title="${esc(label)}">${ICO_PARTAGE}</button>`;
-const heroCourt = ({ base, photo, video, alt, etiquette, h1, p, live = false, k = 0, logos = null, images = null, partage = '' }) => `<section class="hero court${photo ? '' : ' sans-photo'}">
+const heroCourt = ({ base, photo, video, alt, etiquette, h1, p, live = false, k = 0, logos = null, images = null, partage = '', actions = '' }) => `<section class="hero court${photo ? '' : ' sans-photo'}">
   ${photo ? `<div class="hero-media">${fond(base, photo, video, alt)}</div>` : `<div class="hero-deco" aria-hidden="true"><span></span><span></span><span></span></div>${collage(base, k, logos, images)}`}
   <div class="hero-texte">
     <p class="etiquette">${esc(etiquette)}</p>${partage ? boutonPartage(partage, 'hero-partage') : ''}
     <h1>${h1}</h1>
     ${p ? `<p>${p}</p>` : ''}
-    ${live ? '<div class="hero-actions"><a class="pastille-live" href="#ce-soir" hidden><i class="point"></i><span></span></a></div>' : ''}
+    ${live ? '<div class="hero-actions"><a class="pastille-live" href="#ce-soir" hidden><i class="point"></i><span></span></a></div>' : ''}${actions ? `<div class="hero-actions">${actions}</div>` : ''}
   </div>
 </section>`;
 
@@ -1670,7 +1711,7 @@ function pageCeSoir({ lang, t, tr, base, compte, T, chemin, maj, soirees, lieux,
 <section class="bloc-large" id="lieux-ouverts"><h2>${tr('Boîtes et bars <em>ouverts ce soir</em>')} <span class="compte-ce-soir"><b data-compte-ouverts="lieux-ce-soir">·</b> / ${L.length}</span></h2>
 <p class="avert">${esc(tr("Horaires relevés sur les sources officielles des lieux (site, Instagram, fiche Google). Ils peuvent changer, surtout les jours fériés : en cas de doute, vérifie sur leur Instagram avant d'y aller."))}</p>
 <p class="liens-styles filtre-villes"><button type="button" class="puce actif" data-ville="">${esc(tr('Partout'))}</button>${villes.map((v) => `<button type="button" class="puce" data-ville="${esc(slug(v))}">${esc(v)}</button>`).join('')}</p>
-<div class="fiches lieux-ce-soir" id="lieux-ce-soir" data-replier="1">${L.map((l, i) => carteLieu(l, ctx, i)).join('')}</div>
+<div class="fiches lieux-ce-soir" id="lieux-ce-soir" data-replier="1" data-max="9">${L.map((l, i) => carteLieu(l, ctx, i)).join('')}</div>
 <p class="cta"><button type="button" class="bouton contour voir-fermes" hidden>${esc(tr('Voir les lieux fermés ce soir'))} (<span></span>)</button></p></section>`;
   return gabarit({ lang, t, titre: tr("Où sortir ce soir sur la Côte d'Azur : soirées et boîtes ouvertes · Teufy"), description: tr("Ce soir à Nice, Cannes, Monaco, Antibes et dans le Var : toutes les soirées et les boîtes de nuit et bars ouverts maintenant, avec horaires, prix et billets."), chemin, base, corps, compte, maj,
     ld: [...ldOrganisation(T, compte, t, lang), fil(lang, [['Teufy', ''], [tr('Ce soir'), chemin]]), ...jsonld(soir, lang)] });
@@ -1685,7 +1726,7 @@ function pageLieux({ lang, t, tr, base, compte, T, chemin, maj, lieux }) {
   const corps = `${heroCourt({ partage: t.partager, base, photo: null, logos: (lieux || []).filter((l) => l.photo).sort((a, b) => (b.score || 0) - (a.score || 0)).map((l) => l.photo), alt: t.lieuxNav, k: 3, etiquette: t.lieuxNav, h1: tr("Les clubs et bars de la <em>Côte d'Azur</em> et du Var"), p: esc(tr("Boîtes de nuit, bars, rooftops et beach clubs de Nice à Toulon, avec ceux qui font le plus parler d'eux en ce moment.")) })}
 ${top.length ? `<section class="bloc-large reveal"><h2>${tr('🔥 Tendance du <em>moment</em>')}</h2><p class="avert">${esc(tr("Classement calculé chaque jour à partir de données réelles : likes et commentaires sur les publications Instagram des 3 dernières semaines, rapportés au nombre d'abonnés. Être partenaire de Teufy ne donne aucun bonus."))}</p><div class="fiches fiches-tendance">${top.map((l, i) => carteLieu(l, ctx, i, true)).join('')}</div></section>` : ''}
 <section class="bloc-large reveal"><p class="liens-styles">${villes.map((v) => `<a class="puce" href="#v-${slug(v)}">${esc(v)} · ${parVille[v].length}</a>`).join('')}</p></section>
-${villes.map((v) => `<section class="bloc-large reveal" id="v-${slug(v)}"><h2>${esc(v)}</h2><div class="fiches">${parVille[v].map((l, i) => carteLieu(l, ctx, i)).join('')}</div></section>`).join('\n')}
+${villes.map((v) => `<section class="bloc-large reveal" id="v-${slug(v)}"><h2>${esc(v)}</h2><div class="fiches" data-max="6">${parVille[v].map((l, i) => carteLieu(l, ctx, i)).join('')}</div></section>`).join('\n')}
 ${(lieux || []).length ? '' : `<section class="bloc-large"><p class="vide">${esc(tr("L'annuaire se remplit : Teufy recense les clubs et bars de la Côte d'Azur et du Var."))}</p></section>`}`;
   return gabarit({ lang, t, titre: tr("Clubs et bars de la Côte d'Azur et du Var : les plus tendance en ce moment · Teufy"), description: tr("Toutes les boîtes de nuit, bars, rooftops et beach clubs de Nice, Cannes, Antibes, Monaco, Toulon et Saint-Tropez, et le classement des lieux les plus tendance du moment."), chemin, base, corps, compte, maj,
     ld: [...ldOrganisation(T, compte, t, lang), fil(lang, [['Teufy', ''], [t.lieuxNav, chemin]]), { '@context': 'https://schema.org', '@type': 'ItemList', itemListElement: (lieux || []).slice(0, 100).map((l, i) => ({ '@type': 'ListItem', position: i + 1, item: { '@type': l.type === 'club' ? 'NightClub' : 'BarOrPub', name: l.nom, ...(l.adresse || l.ville ? { address: { '@type': 'PostalAddress', streetAddress: l.adresse || undefined, addressLocality: l.ville || undefined } } : {}) } })) }] });
@@ -1743,16 +1784,18 @@ const blocContact = ({ tr, handle, email, type }) => { const [h, p, ph, objet] =
 // sinon « Choisir cette formule » qui pré-remplit le formulaire de contact.
 const blocTarifs = ({ tr, T, base, lang }) => {
   const C = T.tarifs; if (!C?.formules?.length) return '';
-  const prix = (f) => `${String(f.prix || 0).replace('.', ',')} €`;
+  const tva = Number(C.tva ?? 20), fmt = (n) => `${String(Math.round(n * 100) / 100).replace('.', ',')} €`;
+  const prix = (f) => (f.prix ? `${fmt(f.prix)} ${tr('HT')}` : '0 €');
+  const ttc = (f) => (f.prix && tva ? `${fmt(f.prix * (1 + tva / 100))} ${tr('TTC')}` : '');
   const per = { mois: tr('/ mois'), post: tr('le post'), story: tr('la story') };
   return `<section class="bloc-large tarifs" id="tarifs"><h2>${tr('Nos <em>formules</em>')}</h2>
   <div class="grille-tarifs">${C.formules.map((f) => `<article class="tarif${f.vedette ? ' vedette' : ''}">
     ${f.vedette ? `<span class="tarif-badge">${esc(tr('La plus complète'))}</span>` : ''}<h3>${esc(tr(f.nom))}</h3>
-    <p class="tarif-prix"><b>${esc(prix(f))}</b>${f.prix && per[f.periode] ? ` <span>${esc(per[f.periode])}</span>` : ''}</p>
+    <p class="tarif-prix"><b>${esc(prix(f))}</b>${f.prix && per[f.periode] ? ` <span>${esc(per[f.periode])}</span>` : ''}${ttc(f) ? `<small>${esc(tr('soit'))} ${esc(ttc(f))}${per[f.periode] ? ` ${esc(per[f.periode])}` : ''}</small>` : ''}</p>
     <ul>${f.points.map((x) => `<li>${esc(tr(x))}</li>`).join('')}</ul>
     ${/^https:\/\//.test(f.paiement || '') ? `<a class="bouton" href="${esc(f.paiement)}" target="_blank" rel="noopener">${esc(tr('Payer en ligne'))}</a>` : `<a class="bouton${f.prix ? '' : ' contour'}" href="#contact" data-formule="${esc(`${tr(f.nom)} (${prix(f)}${f.prix && per[f.periode] ? ` ${per[f.periode]}` : ''})`)}">${esc(f.prix ? tr('Choisir cette formule') : tr('Envoyer ma soirée'))}</a>`}
   </article>`).join('')}</div>
-  <p class="tarifs-note">${esc(tr(C.mention || ''))} ${esc(tr('Les contenus payants sont signalés « partenariat rémunéré ». Aucune formule ne garantit un nombre de vues ou de ventes.'))} <a href="${base}${pre(lang)}cgv/">${esc(tr('Conditions de vente'))}</a></p>
+  <p class="tarifs-note">${tva ? `${esc(tr(`Prix hors taxes, TVA de ${tva} % en sus.`))} ` : ''}${esc(tr(C.mention || ''))} ${esc(tr('Les contenus payants sont signalés « partenariat rémunéré ». Aucune formule ne garantit un nombre de vues ou de ventes.'))} <a href="${base}${pre(lang)}cgv/">${esc(tr('Conditions de vente'))}</a></p>
 </section>`;
 };
 const ctaForm = (tr, handle) => `<p class="cta"><a class="bouton" href="#contact">${esc(tr('Remplir le formulaire'))} ↑</a><a class="bouton contour" href="https://ig.me/m/${esc(handle)}" target="_blank" rel="noopener">${ICO_IG}<span>${esc(tr('Écrire sur Instagram'))}</span></a></p>`;
@@ -1761,7 +1804,7 @@ const ctaIg = (handle, texte, email) => `<p class="cta"><a class="bouton" href="
 function pagePartenaire({ lang, t, tr, base, compte, T, chemin, maj, partenaires }) {
   const C = PARTENAIRE, handle = compte.replace(/^@/, '');
   const faq = C.faq.map(([q, r]) => [tr(q), tr(r)]);
-  const corps = `${heroCourt({ partage: t.partager, base, photo: null, logos: (partenaires || []).filter((x) => x.fichier).slice(0, 12).map((x) => x.fichier), alt: t.partenaires, etiquette: tr(C.etiquette), h1: tr(C.h1), p: esc(tr(C.chapo)) })}
+  const corps = `${heroCourt({ partage: t.partager, base, photo: null, logos: (partenaires || []).filter((x) => x.fichier).slice(0, 12).map((x) => x.fichier), alt: t.partenaires, etiquette: tr(C.etiquette), h1: tr(C.h1), p: esc(tr(C.chapo)), actions: `<a class="bouton" href="#tarifs">${esc(tr('Voir les tarifs'))}</a><a class="bouton contour" href="#contact">${esc(tr('Envoyer ma soirée (gratuit)'))}</a>` })}
 ${blocTarifs({ tr, T, base, lang })}
 ${blocContact({ tr, handle, email: T.email, type: 'partenaire' })}
 ${vitrine({ t, tr, base, partenaires })}

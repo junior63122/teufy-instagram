@@ -28,6 +28,8 @@ for (const f of pages) {
   const noindex = /<meta name="robots" content="[^"]*noindex/.test(h);
   const titre = (h.match(/<title>([^<]*)<\/title>/) || [])[1];
   const desc = attr(h.match(/<meta name="description"[^>]*>/)?.[0] || '', 'content');
+  // Balises équilibrées (une balise oubliée casse la mise en page, ex. pied de page) : div, section, nav, main, footer, details.
+  { const corps = h.replace(/<(script|style)[\s\S]*?<\/\1>/g, ''); for (const b of ['div', 'section', 'nav', 'main', 'footer', 'details', 'article']) { const o = (corps.match(new RegExp(`<${b}[\\s>]`, 'g')) || []).length, f = (corps.match(new RegExp(`</${b}>`, 'g')) || []).length; if (o !== f) bloquants.push(`${rel} : balises <${b}> déséquilibrées (${o} ouvertes, ${f} fermées)`); } }
   if (!titre) bloquants.push(`${rel} : pas de <title>`); else { if (titre.length > 75 && !noindex) avertissements.push(`${rel} : titre long (${titre.length} car.)`); const k = `${rel.split('/')[0].length === 2 ? rel.split('/')[0] : 'fr'}|${titre}`; (titres.get(k) || titres.set(k, []).get(k)).push(rel); }
   if (!noindex) {
     if (!desc) bloquants.push(`${rel} : pas de meta description`); else { if (desc.length < (rel.startsWith('zh/') ? 25 : 50) || desc.length > 180) /* chinois : un caractère ≈ un mot */ avertissements.push(`${rel} : description de ${desc.length} car.`); const kd = `${rel.split('/')[0].length === 2 ? rel.split('/')[0] : 'fr'}|${desc}`; (descriptions.get(kd) || descriptions.set(kd, []).get(kd)).push(rel); }

@@ -438,7 +438,7 @@
     "bing_verification": "",
     "indexnow_cle": "4e86e662d030e19a248eea9f706d3c34",
     "tarifs": {
-      "explication": "Formules partenaires affichées sur la page Partenaires (prix en euros, 0 = gratuit). Pour activer le paiement en ligne, colle dans « paiement » le lien de paiement créé chez ton prestataire (ex. Stripe Payment Links) : le bouton « Payer » apparaît automatiquement. Lien vide = bouton « Choisir cette formule » qui prépare le message.",
+      "explication": "Formules partenaires affichées sur la page Partenaires (prix en euros HORS TAXES, 0 = gratuit ; « tva » = taux en %, le prix TTC est calculé et affiché à côté). Pour activer le paiement en ligne, colle dans « paiement » le lien de paiement créé chez ton prestataire (ex. Stripe Payment Links) : le bouton « Payer » apparaît automatiquement. Lien vide = bouton « Choisir cette formule » qui prépare le message.",
       "mention": "Sans engagement : chaque formule mensuelle s'arrête quand tu veux, à la fin du mois en cours.",
       "formules": [
         {
@@ -504,7 +504,8 @@
           ],
           "paiement": ""
         }
-      ]
+      ],
+      "tva": 20
     }
   },
   "codes_promo": [

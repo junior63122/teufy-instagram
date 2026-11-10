@@ -22,7 +22,8 @@
     if (n && a && n.scrollWidth > n.clientWidth) n.scrollLeft = a.offsetLeft - (n.clientWidth - a.offsetWidth) / 2; }
 
   // Menu « Villes ▾ » : se ferme en cliquant ailleurs ou avec Échap.
-  document.querySelectorAll('.nav-villes').forEach((d) => {
+  document.querySelectorAll('.nav-groupe').forEach((d) => {
+    d.addEventListener('toggle', () => { if (d.open) document.querySelectorAll('.nav-groupe[open]').forEach((x) => { if (x !== d) x.open = false; }); });
     document.addEventListener('click', (e) => { if (d.open && !d.contains(e.target)) d.open = false; });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && d.open) { d.open = false; d.querySelector('summary').focus(); } });
   });
@@ -62,9 +63,24 @@
       const fermes = l.filter((x) => x.dataset.statut === 'ferme');
       const compteur = document.querySelector(`[data-compte-ouverts="${g.id}"]`);
       if (compteur) compteur.textContent = String(l.filter((x) => ['ouvert', 'soiree', 'bientot'].includes(x.dataset.statut)).length);
-      if (fermes.length && g.dataset.replier) { fermes.forEach((x) => { x.hidden = true; }); const b = g.parentElement.querySelector('.voir-fermes'); if (b) { b.hidden = false; b.querySelector('span').textContent = fermes.length; b.addEventListener('click', () => { fermes.forEach((x) => { x.hidden = false; }); b.remove(); }); } }
+      if (fermes.length && g.dataset.replier) { fermes.forEach((x) => { x.hidden = true; }); const b = g.parentElement.querySelector('.voir-fermes'); if (b) { b.hidden = false; b.querySelector('span').textContent = fermes.length; b.addEventListener('click', () => { fermes.forEach((x) => { x.hidden = false; }); b.remove(); if (g.dataset.max) { g.dataset.deplie = '1'; replier(g); } }); } }
     });
   }
+
+  // Annuaires de lieux : les N premiers lieux visibles, puis « Voir les N autres » (recalculé quand on change de ville).
+  const replier = (g) => {
+    const max = +g.dataset.max; if (!max) return;
+    const vis = [...g.children].filter((x) => !x.hidden && !x.classList.contains('hors-ville'));
+    [...g.children].forEach((x) => x.classList.remove('en-trop'));
+    vis.slice(max).forEach((x) => x.classList.add('en-trop'));
+    let b = g.nextElementSibling?.classList.contains('voir-autres') ? g.nextElementSibling : null;
+    const reste = vis.length - max;
+    if (reste > 0 && !g.dataset.deplie) {
+      if (!b) { b = document.createElement('button'); b.type = 'button'; b.className = 'bouton contour voir-autres'; b.addEventListener('click', () => { g.dataset.deplie = '1'; g.querySelectorAll('.en-trop').forEach((x) => x.classList.remove('en-trop')); b.hidden = true; }); g.after(b); }
+      b.textContent = (T.voirAutresLieux || 'Voir les {n} autres lieux').replace('{n}', reste); b.hidden = false;
+    } else { if (b) b.hidden = true; if (g.dataset.deplie) g.querySelectorAll('.en-trop').forEach((x) => x.classList.remove('en-trop')); }
+  };
+  document.querySelectorAll('.fiches[data-max]').forEach(replier);
 
   // Pages des lieux et suggestions : une soirée déjà passée disparaît (la page n'est régénérée qu'une fois par jour).
   document.querySelectorAll('.lieu-bloc .carte, .similaires .carte').forEach((c) => { if (c.dataset.jour && (c.dataset.jour < auj || maintenant > debut(c) + DUREE)) c.hidden = true; });
@@ -79,6 +95,7 @@
     const b = e.target.closest('[data-ville]'); if (!b) return;
     f.querySelectorAll('.puce').forEach((x) => x.classList.toggle('actif', x === b));
     document.querySelectorAll('#lieux-ce-soir .fiche-lieu').forEach((l) => { l.classList.toggle('hors-ville', !!b.dataset.ville && l.dataset.ville !== b.dataset.ville); });
+    document.querySelectorAll('#lieux-ce-soir[data-max]').forEach(replier);
   }));
 
   // Tarifs : « Choisir cette formule » pré-remplit le message du formulaire de contact.
@@ -216,7 +233,25 @@
     return true;
   };
   let visibles = 0;
+  // Affichage progressif : les premières soirées, puis « Voir plus » (pages courtes sur mobile, chargement léger).
+  // Les filtres et la recherche portent toujours sur TOUTES les soirées ; seul l'affichage est étalé.
+  const PAS = matchMedia('(min-width: 980px)').matches ? 36 : 20;
+  let limite = PAS;
+  const paginer = () => {
+    const liste = document.querySelector('.liste'); if (!liste) return;
+    const vis = [...liste.querySelectorAll('.carte')].filter((c) => !c.hidden);
+    vis.forEach((c, i) => c.classList.toggle('plus-loin', i >= limite));
+    cartes.filter((c) => c.hidden).forEach((c) => c.classList.remove('plus-loin'));
+    liste.querySelectorAll('.jour').forEach((j) => { j.hidden = !j.querySelector('.carte:not([hidden]):not(.plus-loin)'); });
+    let b = document.querySelector('.voir-plus');
+    const reste = vis.length - limite;
+    if (reste > 0) {
+      if (!b) { b = document.createElement('button'); b.type = 'button'; b.className = 'bouton contour voir-plus'; b.addEventListener('click', () => { limite += PAS; paginer(); animerCartes(); }); liste.after(b); }
+      b.textContent = (T.voirPlus || 'Voir plus de soirées ({n})').replace('{n}', reste); b.hidden = false;
+    } else if (b) b.hidden = true;
+  };
   const appliquer = () => {
+    limite = PAS;
     visibles = 0;
     for (const c of cartes) {
       const p = c.dataset.prix === '' ? null : +c.dataset.prix;
@@ -248,6 +283,7 @@
     document.querySelectorAll('.ouvrir-filtres .compte, .voir-n').forEach((b) => { b.textContent = cartes.length ? (b.classList.contains('voir-n') ? (T.voirN || '{n}').replace('{n}', visibles) : visibles) : ''; });
     majBoutons();
     trier();
+    paginer();
     animerCartes();
   };
   // Tri : par date (groupé par jour, comme la page), ou en une seule liste par prix ou par soirées les plus attendues.
@@ -454,7 +490,7 @@
       attente = false;
       const y = scrollY, d = y - dernierY;
       if (Math.abs(d) > 6) { versLeBas = d > 0; dernierY = y; }
-      majFlottant(); if (haut) haut.hidden = y < 1400;
+      majFlottant(); if (haut) haut.hidden = y < Math.max(900, innerHeight * 1.5);
       document.documentElement.classList.toggle('defile-bas', versLeBas && y > 300);
     });
   }, { passive: true });
@@ -584,6 +620,38 @@
   if (location.hash === '#recherche') allerRecherche(false);
   document.querySelector('a.loupe[href="#recherche"]')?.addEventListener('click', (e) => { if (allerRecherche(true)) e.preventDefault(); });
   addEventListener('hashchange', () => { if (location.hash === '#recherche') allerRecherche(true); });
+  // --- Navigation mobile : menu plein écran + barre d'onglets (Agenda, Ce soir, Chercher, Favoris, Menu) ---------
+  const menu = document.getElementById('menu');
+  let avantMenu = null;
+  const fermerMenu = () => { if (!menu || menu.hidden) return; menu.hidden = true; document.documentElement.classList.remove('menu-ouvert'); if (location.hash === '#menu') history.replaceState(null, '', location.pathname + location.search); avantMenu?.focus({ preventScroll: true }); };
+  const ouvrirMenu = () => { if (!menu) return; avantMenu = document.activeElement; menu.hidden = false; document.documentElement.classList.add('menu-ouvert'); menu.querySelector('.menu-corps').scrollTop = 0; menu.querySelector('.menu-x').focus({ preventScroll: true }); };
+  document.querySelectorAll('[data-menu]').forEach((a) => a.addEventListener('click', (e) => { e.preventDefault(); if (menu.hidden) ouvrirMenu(); else fermerMenu(); }));
+  menu?.querySelector('.menu-x').addEventListener('click', (e) => { e.preventDefault(); fermerMenu(); });
+  menu?.addEventListener('click', (e) => { const a = e.target.closest('a'); if (a && a.hash && a.pathname === location.pathname && !a.hasAttribute('data-chercher')) fermerMenu(); });
+  addEventListener('keydown', (e) => { if (e.key === 'Escape') fermerMenu(); });
+  if (location.hash === '#menu') ouvrirMenu();
+  // « Chercher » : sur une page d'agenda, ouvre directement la recherche et les filtres (feuille sur mobile).
+  const ouvrirRecherche = (doux) => {
+    if (!filtres) return false;
+    fermerMenu();
+    if (mobile.matches) { ouvrir(); setTimeout(() => feuille?.querySelector('input[type="search"]')?.focus({ preventScroll: true }), 80); return true; }
+    return allerRecherche(doux);
+  };
+  document.querySelectorAll('[data-chercher]').forEach((a) => a.addEventListener('click', (e) => { if (ouvrirRecherche(true)) e.preventDefault(); }));
+  if (location.hash === '#recherche' && mobile.matches) ouvrirRecherche(false);
+  // « Favoris » : affiche les soirées enregistrées (filtre « ♥ Favoris » de l'agenda), avec leur nombre sur l'onglet.
+  const montrerFavoris = () => {
+    const b = document.querySelector('.filtres .groupe[data-filtre="quand"] button[data-v="favoris"]');
+    if (!b || !agenda) return false;
+    fermerMenu(); b.click(); agenda.scrollIntoView({ behavior: reduit ? 'auto' : 'smooth' });
+    if (!favoris.size && T.aucunFav) toast(T.aucunFav);
+    return true;
+  };
+  document.querySelectorAll('[data-favoris]').forEach((a) => a.addEventListener('click', (e) => { if (montrerFavoris()) e.preventDefault(); }));
+  if (location.hash === '#favoris') setTimeout(montrerFavoris, 120);
+  const majNbFav = () => document.querySelectorAll('.nb-fav').forEach((b) => { b.textContent = favoris.size; b.hidden = !favoris.size; });
+  majNbFav(); document.addEventListener('click', (e) => { if (e.target.closest('.coeur')) setTimeout(majNbFav, 0); });
+
   // Carrousels (Ce soir, photos) : flèches sur ordinateur à la place de la barre de défilement du navigateur ;
   // elles disparaissent au début et à la fin ; un fondu signale qu'il reste des cartes à droite.
   if (matchMedia('(hover: hover) and (pointer: fine)').matches) {

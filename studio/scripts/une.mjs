@@ -15,7 +15,7 @@ const ROOT = path.resolve(STUDIO, '..');
 const OUT = path.resolve(process.argv[2] || path.join(ROOT, 'media', 'a-la-une'));
 const config = JSON.parse(readFileSync(path.join(ROOT, 'config.json'), 'utf8'));
 const site = config.site?.domaine || 'teufyparty.com';
-const euros = (n) => `${String(n).replace('.', ',')} €`;
+const euros = (n) => `${String(n).replace('.', ',')} € HT`;
 const F = config.site?.tarifs?.formules || [];
 const f = (cle) => F.find((x) => x.cle === cle);
 const jour = new Date().toISOString().slice(0, 10);
