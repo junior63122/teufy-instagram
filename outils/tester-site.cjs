@@ -82,6 +82,10 @@ async function controlerPage(p, nom, u) {
     ok(/\d/.test(await p.locator('.nb-res').first().textContent()), `${nom} : le nombre de soirées n'est pas affiché`);
     ok(await p.locator('#ce-soir:not([hidden]) .carte').count() > 0, `${nom} : « Ce soir » vide un samedi soir`);
     ok(!(await p.locator('.pastille-live').first().isHidden()), `${nom} : pastille « En ce moment » absente`);
+    // « En ce moment » ne contient que des soirées commencées, « Plus tard ce soir » que des soirées à venir.
+    const g = await p.evaluate(() => { const live = document.querySelector('.groupe-soir[data-groupe="live"]'), tard = document.querySelector('.groupe-soir[data-groupe="tard"]');
+      return { liveOk: !live || live.hidden || [...live.querySelectorAll('.carte')].every((c) => c.querySelector('.statut.en-cours')), tardOk: !tard || tard.hidden || [...tard.querySelectorAll('.carte')].every((c) => !c.querySelector('.statut.en-cours')), titres: [...document.querySelectorAll('.groupe-soir:not([hidden]) h3')].map((h) => h.textContent) }; });
+    ok(g.liveOk && g.tardOk && g.titres.length >= 1, `${nom} : « En ce moment » et « Plus tard ce soir » mélangés (${g.titres.join(' / ')})`);
     await p.fill('#recherche-hero', 'shatta'); await p.locator('.hero-recherche button[type=submit]').click({ force: true }).catch(() => p.press('#recherche-hero', 'Enter'));
     await p.waitForTimeout(400);
     const nShatta = await p.locator('.liste .carte:not([hidden])').count();

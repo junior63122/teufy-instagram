@@ -1003,7 +1003,8 @@ const defile = (t) => `<div class="defile" aria-hidden="true" dir="ltr"><div cla
 // « Ce soir / En ce moment » : rempli par app.js avec les cartes de l'agenda (l'heure du visiteur fait foi).
 const ceSoir = (t) => `<section id="ce-soir" class="ce-soir" hidden>
   <div class="tete"><p class="etiquette"><i class="point"></i>${esc(t.ceSoirEtiquette)}</p><h2>${t.ceSoirH2}</h2><p>${esc(t.ceSoirP)}</p></div>
-  <div class="rangee"></div>
+  <div class="groupe-soir" data-groupe="live" hidden><h3><i class="point"></i><span></span></h3><div class="rangee"></div></div>
+  <div class="groupe-soir" data-groupe="tard" hidden><h3><span></span></h3><div class="rangee"></div></div>
 </section>`;
 
 const champRecherche = (t, id = 'recherche') => `<div class="recherche" role="search"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M15.5 15.5 21 21" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg><input id="${id}" type="search" name="q" placeholder="${esc(t.placeholder)}" aria-label="${esc(t.rechercher)}" autocomplete="off" enterkeyhint="search"><button type="button" class="effacer" aria-label="${esc(t.effacer)}" hidden>×</button></div>`;

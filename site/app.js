@@ -26,20 +26,33 @@
   const ceSoir = document.getElementById('ce-soir');
   const soir = cartes.filter((c) => !finies.has(c) && c.dataset.jour === auj).sort((a, b) => enCours(b) - enCours(a) || debut(a) - debut(b));
   if (ceSoir && soir.length) {
-    const rangee = ceSoir.querySelector('.rangee');
-    for (const c of soir) {
-      const k = c.cloneNode(true);
-      k.hidden = false;
-      const s = document.createElement('span');
-      s.className = 'statut' + (enCours(c) ? ' en-cours' : '');
-      if (enCours(c)) { const p = document.createElement('i'); p.className = 'point'; s.append(p, T.live); } else s.textContent = (T.bientot || '{h}').replace('{h}', c.dataset.heure);
-      k.querySelector('.affiche')?.append(s);
-      rangee.append(k);
+    // Deux groupes distincts : « En ce moment » (déjà commencées) et « Plus tard ce soir » (pas encore commencées).
+    const live = soir.filter(enCours), tard = soir.filter((c) => !enCours(c));
+    const duree = (ms) => { const m = Math.max(1, Math.round(ms / 60000)); return m < 60 ? `${m} min` : `${Math.floor(m / 60)} h${m % 60 ? ` ${String(m % 60).padStart(2, '0')}` : ''}`; };
+    for (const [nom, liste] of [['live', live], ['tard', tard]]) {
+      const g = ceSoir.querySelector(`.groupe-soir[data-groupe="${nom}"]`);
+      if (!g || !liste.length) continue;
+      g.querySelector('h3 span').textContent = `${nom === 'live' ? T.live : (T.plusTard || T.ceSoir)} · ${nb(liste.length)}`;
+      const rangee = g.querySelector('.rangee');
+      for (const c of liste) {
+        const k = c.cloneNode(true);
+        k.hidden = false;
+        const s = document.createElement('span');
+        s.className = 'statut' + (nom === 'live' ? ' en-cours' : '');
+        const avant = debut(c) - maintenant;
+        if (nom === 'live') { const p = document.createElement('i'); p.className = 'point'; s.append(p, T.live); }
+        else s.textContent = avant < 3 * 3600e3 && T.dansH ? T.dansH.replace('{d}', duree(avant)) : (T.bientot || '{h}').replace('{h}', c.dataset.heure);
+        k.querySelector('.affiche')?.append(s);
+        rangee.append(k);
+      }
+      g.hidden = false;
     }
+    // Étiquette du bloc : « En direct » seulement s'il y a vraiment des soirées en cours.
+    const et = ceSoir.querySelector('.tete .etiquette');
+    if (et && !live.length) { et.textContent = T.ceSoir; et.classList.add('sans-direct'); }
     ceSoir.hidden = false;
-    const live = soir.filter(enCours).length;
     document.querySelectorAll('.pastille-live').forEach((p) => {
-      p.querySelector('span').textContent = live ? `${T.live} · ${nb(live)}` : `${T.ceSoir} · ${nb(soir.length)}`;
+      p.querySelector('span').textContent = live.length ? `${T.live} · ${nb(live.length)}` : `${T.ceSoir} · ${nb(soir.length)}`;
       p.hidden = false;
     });
   }
