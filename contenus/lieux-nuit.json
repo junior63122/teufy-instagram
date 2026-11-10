@@ -210,18 +210,18 @@
    "score": 0,
    "soirs": [],
    "details": {
-    "le": "2026-11-10T15:30:56.666Z",
-    "styles": "Lounge · Latino · Généraliste · House",
-    "dress_code": "",
+    "le": "2026-11-10T16:09:19.132Z",
+    "styles": "House · Tech House · Deep House · Nu-Disco",
+    "dress_code": "Décontracté chic",
     "horaires": "Lun–Dim · 9h30–2h",
-    "prix_verre": "bière 4,50–9 € · cocktail 12–16 €",
-    "entree": "Gratuite",
-    "age_min": "",
+    "prix_verre": "bière 5–9 € · cocktail 12–16 €",
+    "entree": "Gratuit",
+    "age_min": "18 ans",
     "sources": [
-     "https://movida.today",
-     "https://movida.today/menu/",
-     "https://www.instagram.com/movida_nice/",
-     "https://nicepresse.com/a-la-decouverte-des-bars-du-vieux-nice-10-ans-pour-la-movida-et-son-incroyable-balcon-sur-la-mer/"
+     "https://movida.today/",
+     "https://movida-nice.com/",
+     "https://www.instagram.com/movidanice/",
+     "https://movida.today/playlist/"
     ]
    }
   },
@@ -261,18 +261,18 @@
    "score": 0,
    "soirs": [],
    "details": {
-    "le": "2026-11-10T16:14:30.724Z",
-    "styles": "Jazz · Lounge · Pop · Généraliste",
-    "dress_code": "Casual chic / tenue soignée",
+    "le": "2026-11-10T16:09:19.132Z",
+    "styles": "Soul · Funk · House · Pop-Rock",
+    "dress_code": "Smart casual, chic et décontracté",
     "horaires": "Mar–Sam · 20h–2h30",
-    "prix_verre": "bière 6–8 € · cocktail 10–15 €",
+    "prix_verre": "bière 6–8 € · cocktail 11–14 €",
     "entree": "Gratuit",
     "age_min": "18 ans",
     "sources": [
-     "https://boston-bar.fr/",
-     "https://restaurantguru.com/Boston-Bar-Nice",
      "https://www.privateaser.com/lieu/39831-boston-bar",
-     "https://www.pagesjaunes.fr/pros/55694770"
+     "https://sandbeds.com/fr/niza/nightclubs/le-boston-bar/",
+     "https://www.cotemagazine.com/",
+     "https://www.pagesjaunes.fr/"
     ]
    }
   },
@@ -293,18 +293,18 @@
    "score": 0,
    "soirs": [],
    "details": {
-    "le": "2026-11-10T16:14:30.724Z",
-    "styles": "Lounge · House · Deep House · Généraliste",
-    "dress_code": "Casual chic en soirée (tenues de bain interdites au restaurant)",
-    "horaires": "Jeu–Lun 10h–17h30 · Lun–Dim 10h–00h (en saison)",
+    "le": "2026-11-10T16:09:19.132Z",
+    "styles": "Lounge · Deep House · House",
+    "dress_code": "Chic et décontracté. Tenue correcte exigée, maillots de bain interdits au restaurant et en soirée.",
+    "horaires": "Jeu–Lun · 10h–17h30 · Lun–Dim · 10h–0h (en saison)",
     "prix_verre": "bière 8,50 € · cocktail 12,50–15,50 €",
-    "entree": "Gratuit (consommation obligatoire) · matelas 24–35 €",
-    "age_min": "",
+    "entree": "Gratuit (restaurant et lounge) · transat 30–35 €",
+    "age_min": "Aucun",
     "sources": [
      "https://plagenicebeaurivage.com/",
-     "https://plagenicebeaurivage.com/wp-content/uploads/2024/05/CARTE-BOISSONS-PLAGE-BEAU-RIVAGE-2024.pdf",
-     "https://www.instagram.com/plagebeaurivage/",
-     "https://www.provence-alpes-cotedazur.com/"
+     "https://plagenicebeaurivage.com/wp-content/uploads/2024/05/CARTE-BOISSONS.pdf",
+     "https://www.hotelnicebeaurivage.com/",
+     "https://www.provence-alpes-cotedazur.com"
     ]
    }
   },
@@ -324,18 +324,18 @@
    "photo": "site/lieux/site-0c046bf06fa0-176.webp",
    "soirs": [],
    "details": {
-    "le": "2026-11-10T16:14:30.724Z",
-    "styles": "Lounge · House · Pop · Généraliste",
-    "dress_code": "Décontracté chic conseillé",
-    "horaires": "Lun–Dim 18h–1h30 (en saison)",
-    "prix_verre": "bière 6–9 € · cocktail 12–16 €",
+    "le": "2026-11-10T16:09:19.132Z",
+    "styles": "Lounge · House · Électro · Pop",
+    "dress_code": "Casual chic recommandé",
+    "horaires": "Mar–Dim 9h–0h30 · Lun–Dim 9h–1h30 (en saison)",
+    "prix_verre": "bière 8–13 € · cocktail 12–16 €",
     "entree": "Gratuit",
-    "age_min": "",
+    "age_min": "Aucun",
     "sources": [
-     "https://www.achills.com/",
-     "https://www.achills.com/un-lieu-ideal-pour-organiser-vos-evenements-a-villefranche-sur-mer-sur-la-cote-dazur/",
-     "https://wiicmenu-qrcode.com/app/ac/ac_achill%E2%80%99s",
-     "https://www.cotemagazine.com/le-top-des-rooftops/"
+     "https://achills.com/",
+     "https://wiicmenu-qrcode.com/app/ac/ac_achill’s/",
+     "https://provence-alpes-cotedazur.com/",
+     "https://www.petitfute.com/"
     ]
    }
   },
@@ -354,16 +354,18 @@
    "score": 0,
    "soirs": [],
    "details": {
-    "le": "2026-11-10T16:14:30.724Z",
-    "styles": "",
-    "dress_code": "Aucun dress code strict",
+    "le": "2026-11-10T16:09:19.132Z",
+    "styles": "Lounge · Électro-chill",
+    "dress_code": "",
     "horaires": "Mar–Jeu 10h–17h · Ven–Sam 10h–18h · Dim 10h–17h",
-    "prix_verre": "bière 9–11 € · cocktail 15–21 €",
+    "prix_verre": "bière 9–13 € · cocktail 16–20 €",
     "entree": "Gratuit",
-    "age_min": "Aucun",
+    "age_min": "",
     "sources": [
      "https://dryrestaurant.com/",
-     "https://www.cotedazurfrance.fr/offres/dry-restaurant-cocktail-bar-villefranche-sur-mer-fr-3949706/"
+     "https://www.cotedazurfrance.fr/",
+     "https://www.provence-alpes-cotedazur.com/",
+     "https://www.instagram.com/dryrestaurant/"
     ]
    }
   },
@@ -398,17 +400,17 @@
    "photo": "site/lieux/site-20fc6e1d71ad-176.webp",
    "soirs": [],
    "details": {
-    "le": "2026-11-10T16:14:30.724Z",
-    "styles": "Généraliste · Festive · Clubbing",
-    "dress_code": "Tenue correcte et décontractée",
+    "le": "2026-11-10T16:09:19.132Z",
+    "styles": "Généraliste · Clubbing",
+    "dress_code": "Tenue soignée exigée",
     "horaires": "Lun–Dim · 18h–2h30",
-    "prix_verre": "bière 6 € · cocktail 8 € · vin 5 €",
-    "entree": "Gratuit",
+    "prix_verre": "bière ~6 € · cocktail dès 8 €",
+    "entree": "Entrée libre",
     "age_min": "",
     "sources": [
      "https://www.privateaser.com/lieu/59345-le-qg",
-     "https://provence-alpes-cotedazur.com/offre/le-qg-saint-laurent-du-var-fr-6090872/",
-     "https://check.fr/bars/saint-laurent-du-var/le-qg/"
+     "https://cotedazurfrance.fr/offres/le-qg-saint-laurent-du-var-fr-3837424/",
+     "https://restaurantguru.com/Le-QG-Bar-Club-Saint-Laurent-du-Var"
     ]
    }
   },
@@ -425,7 +427,22 @@
    "insta": null,
    "slug": "tree-bo-saint-laurent-du-var",
    "score": 0,
-   "soirs": []
+   "soirs": [],
+   "details": {
+    "le": "2026-11-10T16:09:19.132Z",
+    "styles": "Généraliste · Festive",
+    "dress_code": "",
+    "horaires": "Lun–Dim · 8h–2h30",
+    "prix_verre": "bière 5 € · cocktail dès 8 €",
+    "entree": "gratuit",
+    "age_min": "",
+    "sources": [
+     "https://www.cotedazurfrance.fr",
+     "https://www.privateaser.com/lieu/57137-tree-bo",
+     "https://wiicmenu-qrcode.com/app/restaurantWebSite.php?resto=2431",
+     "https://www.pagesjaunes.fr"
+    ]
+   }
   },
   {
    "nom": "Quai Ouest Pub",
@@ -441,7 +458,22 @@
    "slug": "quai-ouest-pub-saint-laurent-du-var",
    "score": 0,
    "photo": "site/lieux/site-2a95cd0f0c37-176.webp",
-   "soirs": []
+   "soirs": [],
+   "details": {
+    "le": "2026-11-10T16:09:19.132Z",
+    "styles": "Pop · Rock · Folk · Généraliste",
+    "dress_code": "Décontracté",
+    "horaires": "Lun–Dim · 18h–2h",
+    "prix_verre": "bière 4–9 € · cocktail 9–12 €",
+    "entree": "Gratuit",
+    "age_min": "",
+    "sources": [
+     "https://quai-ouest-pub.fr/",
+     "https://www.instagram.com/quai_ouest_pub/",
+     "https://www.petitfute.com/v33215-saint-laurent-du-var-06700/c1165-restaurants/c1031-specialites/c1170-restaurant-de-burger/1688647-quai-ouest.html",
+     "https://cotedazurfrance.fr/"
+    ]
+   }
   },
   {
    "nom": "People by L'Atoll",
