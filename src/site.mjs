@@ -359,8 +359,10 @@ async function lieuxDeNuit({ soirees, partenaires, ig, api, log, now }) {
   for (const l of tous) { const ls = soirees.filter((s) => norm(s.lieu) && (norm(s.lieu) === norm(l.nom) || norm(s.lieu).startsWith(norm(l.nom)) || norm(l.nom).startsWith(norm(s.lieu))) && norm(l.nom).length >= 3); l.soirees = ls.map((s) => s.id); l.prochaines = ls.slice(0, 3).map((s) => ({ id: s.id, nom: s.nom })); }
   // 3. Engagement Instagram récent (40 comptes par passage, gardé 3 jours).
   if (ig && api.businessDiscovery) {
-    const aMesurer = tous.filter((l) => l.instagram && !(cache.insta[l.instagram] && now - Date.parse(cache.insta[l.instagram].le) < 3 * 864e5))
-      .sort((a, b) => (Date.parse(cache.insta[a.instagram]?.le || 0)) - (Date.parse(cache.insta[b.instagram]?.le || 0))).slice(0, 40);
+    // D'abord les lieux encore sans logo (jamais mesurés depuis l'ajout des logos), puis les mesures les plus anciennes.
+    const sansLogo = (l) => !l.photo && !existsSync(path.join(SITE, 'lieux', `${l.instagram.replace(/[^a-z0-9._-]/g, '')}-176.webp`)) && !cache.insta[l.instagram]?.absent && !cache.insta[l.instagram]?.photo;
+    const aMesurer = tous.filter((l) => l.instagram && (sansLogo(l) || !(cache.insta[l.instagram] && now - Date.parse(cache.insta[l.instagram].le) < 3 * 864e5)))
+      .sort((a, b) => (sansLogo(b) - sansLogo(a)) || (Date.parse(cache.insta[a.instagram]?.le || 0)) - (Date.parse(cache.insta[b.instagram]?.le || 0))).slice(0, 60);
     for (const l of aMesurer) {
       if (!tempsOk()) break;
       try {
@@ -383,6 +385,20 @@ async function lieuxDeNuit({ soirees, partenaires, ig, api, log, now }) {
       if (!u || !tempsOk()) continue;
       if (!existsSync(f) && !(await telecharger(u, f))) { cache.insta[l.instagram].photo = ''; continue; } // lien expiré : reprise à la prochaine mesure
       spawnSync('ffmpeg', ['-v', 'error', '-y', '-i', f, '-vf', "scale='min(176,iw)':-2", '-c:v', 'libwebp', '-quality', '82', w]);
+    }
+    if (existsSync(w)) l.photo = path.relative(ROOT, w);
+  }
+  // 3 bis b. Pas de logo Instagram : l'image de partage officielle du site du lieu (og:image), recadrée en carré.
+  for (const l of tous) {
+    if (l.photo || !/^https?:\/\//.test(l.site || '')) continue;
+    const w = path.join(dossierLogos, `site-${h(l.site)}-176.webp`);
+    if (!existsSync(w)) {
+      if (!tempsOk()) continue;
+      cache.og = cache.og || {};
+      const u = cache.og[l.site] ?? (cache.og[l.site] = await imageDePartage(l.site));
+      const f = w.replace(/-176\.webp$/, '.jpg');
+      if (!u || (!existsSync(f) && !(await telecharger(u, f)))) continue;
+      spawnSync('ffmpeg', ['-v', 'error', '-y', '-i', f, '-vf', "crop='min(iw,ih)':'min(iw,ih)',scale=176:176", '-c:v', 'libwebp', '-quality', '82', w]);
     }
     if (existsSync(w)) l.photo = path.relative(ROOT, w);
   }
@@ -561,6 +577,8 @@ export async function construireSite({ events, eventsFrance = [], eventsOccitani
   }
   etape(9); const lieux = await lieuxDeNuit({ soirees, partenaires, ig, api, log, now });
   DETAILS_LIEUX = new Map(lieux.filter((l) => l.details).map((l) => [normLieu(l.nom), l.details]));
+  PHOTOS_COMPTES = new Map([...(partenaires || []).filter((p) => p.fichier && p.instagram).map((p) => [p.instagram.toLowerCase(), p.fichier]), ...lieux.filter((l) => l.photo && l.instagram).map((l) => [l.instagram.toLowerCase(), l.photo])]);
+  PHOTOS_LIEUX = new Map([...(partenaires || []).filter((p) => p.fichier && p.nom).map((p) => [normLieu(p.nom), p.fichier]), ...lieux.filter((l) => l.photo).map((l) => [normLieu(l.nom), l.photo])].filter(([k]) => k.length >= 3));
   etape(3); const festivalsGuide = await festivalsDuWeb({ partenaires, now, log });
   etape(4); await geocoder(soirees, log);
   etape(4); await aProximite(soirees, log);
@@ -777,7 +795,7 @@ function carte(s, { t, base, lang, vedette = false }) {
   const petite = s.affiche ? `${base}${s.affiche.replace(/\.jpg$/, '-480.webp')}` : '';
   const img = s.affiche
     ? `${existsSync(path.join(ROOT, s.affiche.replace(/\.jpg$/, '-480.webp'))) ? `<img class="fond-flou" src="${petite}" alt="" aria-hidden="true" loading="lazy" decoding="async">` : ''}${image(base, s.affiche, { alt: t.affiche + s.nom, sizes: TAILLES.carte, attrs: `class="principale${s.dims && s.dims[0] < 560 ? ' petite' : ''}" loading="lazy" decoding="async"${s.dims ? ` width="${s.dims[0]}" height="${s.dims[1]}"` : ''}` })}`
-    : vignette(s);
+    : vignette(s, base);
   const acces = accesDe(s);
   const promo = promoDe(s);
   return `<article class="carte${vedette ? ' vedette' : ''}" data-acces="${acces.join(' ')}" data-id="${s.id}" data-jour="${s.jour}" data-debut="${esc(s.debut)}" data-heure="${esc(heure(s.debut, t))}" data-ville="${s.filtreVille}" data-styles="${s.styles.join(' ')}" data-prix="${s.prix ?? ''}" data-buzz="${s.buzz ?? ''}" data-lat="${s.lat ?? ''}" data-lng="${s.lng ?? ''}"${s.approx ? ' data-approx="1"' : ''} data-q="${esc(q)}">
@@ -824,10 +842,15 @@ const blocPromo = (c, t, tr, s) => `<div class="code-promo">
 </div>`;
 
 // Soirée sans affiche : vignette typographique aux couleurs de la DA (dégradé propre à chaque soirée), jamais une photo répétée.
-function vignette(s) {
+// Soirée sans affiche : on montre au moins la vraie image du lieu (logo ou photo Instagram / site officiel) quand on l'a.
+let PHOTOS_LIEUX = new Map(), PHOTOS_COMPTES = new Map();
+const photoDuLieu = (s) => { const k = normLieu(s.lieu); if (!k) return ''; if (PHOTOS_LIEUX.has(k)) return PHOTOS_LIEUX.get(k); for (const [n, f] of PHOTOS_LIEUX) if (n.length >= 4 && (k.startsWith(n) || n.startsWith(k))) return f; return ''; };
+function vignette(s, base = '') {
   const n = parseInt(h(s.nom), 16), teintes = [[255, 90, 60], [255, 46, 110], [130, 80, 255], [40, 170, 255], [61, 255, 138], [255, 200, 60]];
   const [a, b] = [teintes[n % 6], teintes[(Math.floor(n / 7) % 5 + 1 + n % 6) % 6]];
-  return `<span class="vignette" style="--a:rgb(${a.join(',')});--b:rgb(${b.join(',')})" aria-hidden="true"><small>${esc((s.genres || '').split(' · ')[0] || 'Soirée')}</small><b>${esc(s.lieu || s.ville || s.nom)}</b><i>${esc(s.lieu ? s.ville : '')}</i></span>`;
+  const ph = photoDuLieu(s) || PHOTOS_COMPTES.get(String(s.instagram || '').toLowerCase()) || '';
+  const pv = photoVille(s.ville) || photoVille(s.filtreVille);
+  return `<span class="vignette${ph ? ' avec-lieu' : ''}${pv ? ' avec-ville' : ''}" style="--a:rgb(${a.join(',')});--b:rgb(${b.join(',')})" aria-hidden="true">${pv ? `<img class="vignette-ville" src="${base}${esc(pv.fichier.replace(/\.jpg$/, '-480.webp'))}" alt="" width="480" height="320" loading="lazy" decoding="async">` : ''}${ph ? `<img class="vignette-lieu" src="${base}${esc(ph)}" alt="" width="176" height="176" loading="lazy" decoding="async">` : ''}<small>${esc((s.genres || '').split(' · ')[0] || 'Soirée')}</small><b>${esc(s.lieu || s.ville || s.nom)}</b><i>${esc(s.lieu ? s.ville : '')}</i></span>`;
 }
 
 const boutonBillets = (s, t) => (s.url
@@ -1055,6 +1078,9 @@ const TAILLE_HERO = '(min-width:980px) 560px, 100vw';
 // Collage d'affiches (soirées à venir, un lot différent par page) ou de logos partenaires, à droite des en-têtes sans photo.
 let AFFICHES_COLLAGE = [];
 // Photos libres des spots pour un date (outils/photos-spots.mjs) : fichier, auteur, licence, source.
+// Photos libres des villes (outils/photos-spots.mjs) : dernier recours pour une soirée sans aucune image.
+const PHOTOS_VILLES = new Map(Object.entries(lire(path.join(ROOT, 'contenus', 'villes-photos.json'), {})).filter(([, p]) => p.fichier && existsSync(path.join(ROOT, p.fichier.replace(/\.jpg$/, '-480.webp')))).map(([v, p]) => [sansAccent(v.replace(/\s*\(.*\)/, '')).replace(/[^a-z]/g, ''), p]));
+const photoVille = (ville) => { const k = sansAccent(String(ville || '')).replace(/[^a-z]/g, ''); if (!k) return null; if (PHOTOS_VILLES.has(k)) return PHOTOS_VILLES.get(k); for (const [n, p] of PHOTOS_VILLES) if (n.length >= 4 && k.startsWith(n)) return p; return null; };
 const PHOTOS_SPOTS = Object.fromEntries(Object.entries(lire(path.join(ROOT, 'contenus', 'spots-photos.json'), {})).filter(([, p]) => p.fichier && existsSync(path.join(ROOT, p.fichier))));
 // Fiche pratique du lieu d'une soirée (dress code, âge, prix des verres), si le lieu est dans l'annuaire des clubs et bars.
 let DETAILS_LIEUX = new Map();
@@ -1162,7 +1188,7 @@ function pageSoiree({ lang, t, tr, base, compte, T, chemin, s, soirees, maj }) {
   const style = soirees.filter((x) => x.id !== s.id && x.jour !== s.jour && x.styles.some((k) => s.styles.includes(k))).slice(0, 6);
   const mini = (l, titre) => (l.length ? `<section class="similaires reveal"><h2>${titre}</h2><div class="grille">${l.map((x) => carte(x, { t, base, lang })).join('')}</div></section>` : '');
   const offres = s.offres.length ? `<div class="offres"><p class="pied-titre">${esc(t.comparer)}</p>${s.offres.map((o, i) => `<a href="${esc(o.url)}" target="_blank" rel="noopener"><span>${esc(nomPlateforme(o.url))}</span><b>${esc(o.prix == null ? t.prixBillet : prixTexte(o.prix, t))}</b>${i === 0 && o.prix != null ? `<i>${esc(t.meilleurPrix)}</i>` : ''}</a>`).join('')}</div>` : '';
-  const img = s.affiche ? image(base, s.affiche, { alt: t.affiche + s.nom, sizes: '(min-width:860px) 460px, 92vw', attrs: `fetchpriority="high"${s.dims ? ` width="${s.dims[0]}" height="${s.dims[1]}"` : ''}${s.dims && s.dims[0] < 560 ? ` class="petite" style="max-width:${s.dims[0]}px"` : ''}` }) : `<div class="affiche-fiche">${vignette(s)}</div>`;
+  const img = s.affiche ? image(base, s.affiche, { alt: t.affiche + s.nom, sizes: '(min-width:860px) 460px, 92vw', attrs: `fetchpriority="high"${s.dims ? ` width="${s.dims[0]}" height="${s.dims[1]}"` : ''}${s.dims && s.dims[0] < 560 ? ` class="petite" style="max-width:${s.dims[0]}px"` : ''}` }) : `<div class="affiche-fiche">${vignette(s, base)}</div>${(() => { const pv = photoVille(s.ville) || photoVille(s.filtreVille); return pv ? `<p class="credit-photo">${esc(tr('Photo de la ville'))} : ${esc(pv.auteur)} · <a href="${esc(pv.source)}" target="_blank" rel="noopener nofollow">${esc(pv.licence)}</a></p>` : ''; })()}`;
   const corps = `<article class="fiche carte-donnees" data-id="${s.id}" data-debut="${esc(s.debut)}">
   <nav class="ariane"><a href="${base}${P}">Teufy</a> › ${s.zone === 'occitanie' ? `<a href="${base}${P}occitanie/">Occitanie</a>` : s.zone === 'france' ? `<a href="${base}${P}france/">${esc(t.franceNav)}</a>` : `<a href="${base}${P}#agenda">${esc(t.agenda)}</a>`} › <span>${esc(s.nom)}</span></nav>
   <div class="fiche-grille">
@@ -1247,7 +1273,7 @@ function pageSorties({ lang, t, tr, base, compte, T, chemin, maj, partenaires, c
     </div>
   </article>`;
   const ICONES = ['🌅', '🌊', '🌿', '🎨', '⛵'];
-  const spots = cleS === 'dates' ? SPOTS_DATE.map((g, k) => `<section class="bloc-large reveal"><h2>${ICONES[k] || '✦'} ${esc(tr(g.titre))}</h2><div class="spots">${g.lieux.map(([nom, ville, texte], i) => { const ph = PHOTOS_SPOTS[nom]; return `<article class="spot-carte${ph ? '' : ' sans-photo'}" style="--i:${i}">${ph ? `<figure class="spot-photo">${image(base, ph.fichier, { alt: `${nom}, ${ville}`, sizes: '(min-width:980px) 380px, 92vw', attrs: 'loading="lazy" decoding="async" width="800" height="533"' })}<figcaption>${esc(tr('Photo'))} : ${esc(ph.auteur)} · <a href="${esc(ph.source)}" target="_blank" rel="noopener nofollow">${esc(ph.licence)}</a></figcaption></figure>` : `<span class="spot-vignette" aria-hidden="true">${ICONES[k] || '✦'}</span>`}<div class="spot-corps"><p class="genre">${esc(ville)}</p><h3>${esc(nom)}</h3><p>${esc(tr(texte))}</p><p class="lieu-actions"><a href="https://www.google.com/maps/search/?api=1&amp;query=${encodeURIComponent(`${nom}, ${ville}`)}" target="_blank" rel="noopener">${ICO.map}<span>${esc(t.itineraire)}</span></a></p></div></article>`; }).join('')}</div></section>`).join('\n') : '';
+  const spots = cleS === 'dates' ? SPOTS_DATE.map((g, k) => `<section class="bloc-large reveal"><h2>${ICONES[k] || '✦'} ${esc(tr(g.titre))}</h2><div class="spots">${g.lieux.map(([nom, ville, texte], i) => { const ph = PHOTOS_SPOTS[nom] || photoVille(ville); return `<article class="spot-carte${ph ? '' : ' sans-photo'}" style="--i:${i}">${ph ? `<figure class="spot-photo">${image(base, ph.fichier, { alt: `${nom}, ${ville}`, sizes: '(min-width:980px) 380px, 92vw', attrs: 'loading="lazy" decoding="async" width="800" height="533"' })}<figcaption>${esc(tr(PHOTOS_SPOTS[nom] ? 'Photo' : 'Photo de la ville'))} : ${esc(ph.auteur)} · <a href="${esc(ph.source)}" target="_blank" rel="noopener nofollow">${esc(ph.licence)}</a></figcaption></figure>` : `<span class="spot-vignette" aria-hidden="true">${ICONES[k] || '✦'}</span>`}<div class="spot-corps"><p class="genre">${esc(ville)}</p><h3>${esc(nom)}</h3><p>${esc(tr(texte))}</p><p class="lieu-actions"><a href="https://www.google.com/maps/search/?api=1&amp;query=${encodeURIComponent(`${nom}, ${ville}`)}" target="_blank" rel="noopener">${ICO.map}<span>${esc(t.itineraire)}</span></a></p></div></article>`; }).join('')}</div></section>`).join('\n') : '';
   const corps = `${heroCourt({ partage: t.partager, base, photo: null, alt: tr(C.etiquette), etiquette: tr(C.etiquette), h1: tr(C.h1), p: esc(tr(C.p)), k: 8 + Object.keys(SORTIES).indexOf(cleS) })}
 ${spots}
 <section class="bloc-large reveal">${l.length ? `<h2>${tr('Les bonnes adresses de nos <em>partenaires</em>')}</h2>` : ''}${l.length ? `<div class="fiches">${l.map(carteP).join('')}</div>` : cleS === 'dates' ? '' : `<p class="vide">${esc(tr(SORTIES.vide))}</p>`}${ctaIg(handle, t.orgaBouton, T.email)}</section>`;
@@ -1342,6 +1368,12 @@ async function imagesActus(actus, { soirees, hist }) {
     if (!a.image_site && /^https?:/.test(a.image || '')) {
       const g = path.join(dossier, `${h(a.image)}-src.jpg`);
       if (existsSync(g) || await telecharger(a.image, g)) a.image_site = path.relative(ROOT, g);
+    }
+    // 4. L'image de partage officielle (og:image) de l'article source.
+    if (!a.image_site && /^https?:/.test(a.source || '')) {
+      const g = path.join(dossier, `${h(a.source)}-og.jpg`);
+      const u = existsSync(g) ? '' : await imageDePartage(a.source);
+      if (existsSync(g) || (u && await telecharger(u, g))) a.image_site = path.relative(ROOT, g);
     }
     if (a.image_site && !/affiches/.test(a.image_site)) for (const l of [400, 800]) webp(path.join(ROOT, a.image_site), l);
     const post = hist.find((x) => x.lien && x.publication?.veille?.source && x.publication.veille.source === a.source);
