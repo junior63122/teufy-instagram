@@ -608,7 +608,22 @@
    "insta": null,
    "slug": "bisous-bisous-cannes",
    "score": 0,
-   "soirs": []
+   "soirs": [],
+   "details": {
+    "le": "2026-11-10T17:13:19.609Z",
+    "styles": "House · Deep house · Tech house · Disco",
+    "dress_code": "Tenue chic et soignée exigée, sportswear et streetwear refusés.",
+    "horaires": "Ven–Sam · 0h–5h",
+    "prix_verre": "",
+    "entree": "Généralement gratuite (sur sélection ou réservation de table)",
+    "age_min": "18 ans",
+    "sources": [
+     "https://www.hotelsbarriere.com/fr/cannes/le-majestic/activites/bisous-bisous.html",
+     "https://www.cannes-france.com/offres/bisous-bisous-cannes-fr-3897934/",
+     "https://cannesconventionbureau.semec.com/bisous-bisous",
+     "https://www.instagram.com/bisousbisousclub/"
+    ]
+   }
   },
   {
    "nom": "Glass Club Cannes",
@@ -709,7 +724,22 @@
      "santa-s-house-party-sud-spicious-x-glass-club-2026-12-21",
      "Santa's House Party — Sud'Spicious X Glass Club"
     ]
-   ]
+   ],
+   "details": {
+    "le": "2026-11-10T17:13:19.609Z",
+    "styles": "House · Deep House · Tech House · Afro House",
+    "dress_code": "Décontractée mais soignée (baskets et bermudas autorisés)",
+    "horaires": "Jeu–Sam · 0h–6h",
+    "prix_verre": "bière 8 € · cocktail 12–13 €",
+    "entree": "15 € avec 1 consommation (préventes dès 9,99 €)",
+    "age_min": "",
+    "sources": [
+     "https://glasscannes.com/",
+     "https://shotgun.live/venues/glass-club-cannes",
+     "https://www.cannes-france.com/offres/glass-club-cannes-fr-5224320/",
+     "https://www.instagram.com/glassclubcannes/"
+    ]
+   }
   },
   {
    "nom": "Morrison's Irish Pub & Morrison's Lounge",
@@ -724,7 +754,22 @@
    "insta": null,
    "slug": "morrison-s-irish-pub-et-morrison-s-lounge-cannes",
    "score": 0,
-   "soirs": []
+   "soirs": [],
+   "details": {
+    "le": "2026-11-10T17:13:19.609Z",
+    "styles": "Rock · Pop-Rock · House · Électro",
+    "dress_code": "Tenue décontractée, correcte en soirée",
+    "horaires": "Lun–Ven 17h–2h · Sam–Dim 13h–2h",
+    "prix_verre": "bière 4,50–9 € · cocktail 8–14 €",
+    "entree": "Gratuit",
+    "age_min": "",
+    "sources": [
+     "https://www.cannes-nightlife.com/morrisons",
+     "https://www.cannes-nightlife.com/drinks-menu",
+     "https://www.cannes-france.com",
+     "https://www.petitfute.com"
+    ]
+   }
   },
   {
    "nom": "Charly’s Bar",
@@ -739,7 +784,22 @@
    "insta": null,
    "slug": "charly-s-bar-cannes",
    "score": 0,
-   "soirs": []
+   "soirs": [],
+   "details": {
+    "le": "2026-11-10T17:13:19.609Z",
+    "styles": "Généraliste · Pop/Rock · Rétro",
+    "dress_code": "Décontracté / casual chic",
+    "horaires": "Lun–Dim · 17h–2h30",
+    "prix_verre": "Cocktail 10–14 €",
+    "entree": "Gratuit (consommation obligatoire)",
+    "age_min": "18 ans",
+    "sources": [
+     "https://www.cannes-france.com/",
+     "https://www.jet2holidays.com/",
+     "https://www.sortir06.fr/",
+     "https://cannes.city-life.fr/"
+    ]
+   }
   },
   {
    "nom": "Marea Cannes (Canopy by Hilton)",
@@ -754,7 +814,22 @@
    "insta": null,
    "slug": "marea-cannes-canopy-by-hilton-cannes",
    "score": 0,
-   "soirs": []
+   "soirs": [],
+   "details": {
+    "le": "2026-11-10T17:13:19.609Z",
+    "styles": "Deep house · Lounge · Jazzy house · Électro-chill",
+    "dress_code": "Smart Casual (chic et décontracté)",
+    "horaires": "Lun–Dim · 17h–23h",
+    "prix_verre": "bière 7–10 € · cocktail 18–22 €",
+    "entree": "Gratuit",
+    "age_min": "Aucun",
+    "sources": [
+     "https://www.marea-restaurant.com",
+     "https://www.hilton.com/en/hotels/ceqcfpy-canopy-cannes/dining/",
+     "https://www.therooftopguide.com/rooftop-bars-in-cannes/marea.html",
+     "https://www.sortir06.fr"
+    ]
+   }
   },
   {
    "nom": "La Môme Plage",
