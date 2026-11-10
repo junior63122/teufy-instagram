@@ -940,6 +940,9 @@ const couper = (x, n) => { x = String(x || '').replace(/\s+/g, ' ').trim(); if (
 const titreCourt = ([nom, date, lieu]) => { const fin = ` · ${date} · Teufy`; if (`${nom} · ${date} · ${lieu} · Teufy`.length <= 66 && lieu) return `${nom} · ${date} · ${lieu} · Teufy`; return `${couper(nom, Math.max(20, 66 - fin.length))}${fin}`; };
 // Autres pages : titre raccourci en gardant la marque à la fin.
 const titrePage = (x) => { x = String(x || ''); if (x.length <= 70) return x; const m = x.match(/^(.*?)( · Teufy)$/); return m ? `${couper(m[1], 62)}${m[2]}` : couper(x, 70); };
+// Navigation instantanée (Chrome, Edge) : la page visée est préparée dès qu'on survole ou touche un lien interne.
+const SPECULATION = JSON.stringify({ prerender: [{ where: { and: [{ href_matches: '/*' }, { not: { href_matches: '/*.(ics|mp4|jpg|png|webp|xml|json)' } }, { not: { selector_matches: '[target=_blank], [download]' } }] }, eagerness: 'moderate' }] });
+const HASH_SPECULATION = createHash('sha256').update(SPECULATION).digest('base64');
 function gabarit({ lang, t, titre, description, chemin, base, corps, ld = [], image: imageDemandee, image = imageDemandee || 'site/img/equipe/monaco.jpg', compte, maj = '', agendaIci = false, rubriqueNav = null }) {
   const handle = compte.replace(/^@/, '');
   const P = pre(lang);
@@ -966,14 +969,15 @@ ${LANGUES.map((l) => `<link rel="alternate" hreflang="${l}" href="${URL_SITE}${p
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0B0B0F">
 ${GOOGLE ? `<meta name="google-site-verification" content="${esc(GOOGLE)}">` : ''}
-<link rel="icon" href="${base}site/img/favicon-64.png">
+<link rel="icon" type="image/png" sizes="32x32" href="${base}site/img/favicon-fond-32.png"><link rel="icon" type="image/png" sizes="64x64" href="${base}site/img/favicon-fond-64.png">
 <link rel="apple-touch-icon" href="${base}site/img/icone-192.png">
 <link rel="manifest" href="${base}site/manifest.webmanifest">
 <link rel="preload" href="${base}site/fonts/bricolage-titre.woff2" as="font" type="font/woff2" crossorigin>
 <style>${CSS_EN_LIGNE.replace(/__BASE__/g, base)}</style>
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-Du+OJKJSbdUgz5nrHeWWINvez6XKDDU/tyj/5c2uvwo='; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://tiles.openfreemap.org; font-src 'self'; media-src 'self'; connect-src 'self' https://tiles.openfreemap.org; worker-src 'self' blob:; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-Du+OJKJSbdUgz5nrHeWWINvez6XKDDU/tyj/5c2uvwo=' 'sha256-${HASH_SPECULATION}'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://tiles.openfreemap.org; font-src 'self'; media-src 'self'; connect-src 'self' https://tiles.openfreemap.org; worker-src 'self' blob:; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <script>document.documentElement.classList.add('js')</script>
+<script type="speculationrules">${SPECULATION}</script>
 ${ld.length ? `<script type="application/ld+json">${JSON.stringify(ld).replace(/</g, '\\u003c')}</script>` : ''}
 </head>
 <body>
@@ -1153,7 +1157,7 @@ const heroCourt = ({ base, photo, video, alt, etiquette, h1, p, live = false, k 
 const blocTendance = ({ t, tr, base, lang, lieux }) => {
   const top = (lieux || []).filter((l) => l.score > 0).sort((a, b) => b.score - a.score).slice(0, 3);
   if (!top.length) return '';
-  return `<section class="bloc-large reveal"><h2>${tr('🔥 Les spots du <em>moment</em>')}</h2><div class="fiches">${top.map((l, i) => carteLieu(l, { t, tr, base, lang }, i, true)).join('')}</div><p class="cta"><a class="bouton contour" href="${base}${pre(lang)}clubs-bars/">${esc(t.lieuxNav)}</a><a class="bouton contour" href="${base}${pre(lang)}france/">${esc(t.franceNav)}</a></p></section>`;
+  return `<section class="bloc-large reveal"><h2>${tr('🔥 Les spots du <em>moment</em>')}</h2><div class="fiches fiches-tendance">${top.map((l, i) => carteLieu(l, { t, tr, base, lang }, i, true)).join('')}</div><p class="cta"><a class="bouton contour" href="${base}${pre(lang)}clubs-bars/">${esc(t.lieuxNav)}</a><a class="bouton contour" href="${base}${pre(lang)}france/">${esc(t.franceNav)}</a></p></section>`;
 };
 function page({ lang, t, tr, base, compte, T, soirees, posts, now, maj, partenaires, lieux }) {
   const handle = compte.replace(/^@/, '');
@@ -1163,7 +1167,7 @@ function page({ lang, t, tr, base, compte, T, soirees, posts, now, maj, partenai
   const populaires = PAGES_STYLES.filter((k) => soirees.some((s) => s.styles.includes(k)));
   const faq = t.faqHome;
   const corps = `<section class="hero">
-  <div class="hero-media"><div class="diaporama" aria-hidden="true">${DIAPORAMA.map((f, i) => { const img = image(base, `site/img/${f}.jpg`, { sizes: TAILLE_HERO, attrs: `class="hero-photo" style="--i:${i}"${i ? '' : ' fetchpriority="high"'}` }); return i ? img.replace(' src="', ' data-src="').replace(' srcset="', ' data-srcset="') : img; }).join('')}</div></div>
+  <div class="hero-media"><div class="diaporama n${DIAPORAMA.length}" aria-hidden="true">${DIAPORAMA.map((f, i) => { const img = image(base, `site/img/${f}.jpg`, { sizes: TAILLE_HERO, attrs: `class="hero-photo" style="--i:${i}"${i ? '' : ' fetchpriority="high"'}` }); return i ? img.replace(' src="', ' data-src="').replace(' srcset="', ' data-srcset="') : img; }).join('')}</div></div>
   <div class="hero-texte">
     <p class="etiquette">${esc(t.heroEtiquette)}</p>
     <h1>${t.heroH1}</h1>
@@ -1490,8 +1494,8 @@ function carteLieu(l, { t, tr, base, lang }, i = 0, tendance = false) {
     <p class="genre">${esc(tr(TYPES_NOMS[l.type] || ''))}${l.ville ? ` · ${esc(l.ville)}` : ''}${l.partenaire ? ` <span class="fiche-prix">${esc(t.partenaires)}</span>` : ''}</p>
     <h3>${esc(l.nom)}</h3>
     ${l.description ? `<p class="fiche-desc">${esc(tr(l.description))}</p>` : ''}
-    ${l.details ? (() => { const d = l.details; const lignes = [['🎵', tr('Musique'), d.styles], ['👔', tr('Dress code'), d.dress_code], ['🕒', tr('Horaires'), d.horaires], ['🍸', tr('Verres'), d.prix_verre], ['🎟️', tr('Entrée'), d.entree], ['🔞', tr('Âge'), d.age_min]].filter((x) => x[2]); return lignes.length ? `<dl class="lieu-infos">${lignes.map(([i, k, v]) => `<div><dt><span aria-hidden="true">${i}</span> ${esc(k)}</dt><dd>${esc(tr(v))}</dd></div>`).join('')}</dl><p class="lieu-maj">${esc(tr('Infos relevées le'))} ${esc(paris(d.le, { day: 'numeric', month: 'long' }, t.locale))}${d.sources?.[0] ? ` · <a href="${esc(d.sources[0])}" target="_blank" rel="noopener nofollow">${esc(tr('source'))}</a>` : ''}</p>` : ''; })() : ''}
-    ${raison && tendance ? `<p class="petit">${esc(raison)}</p>` : ''}
+    ${l.details ? (() => { const d = l.details; const lignes = [['🎵', tr('Musique'), d.styles], ['👔', tr('Dress code'), d.dress_code], ['🕒', tr('Horaires'), d.horaires], ['🍸', tr('Verres'), d.prix_verre], ['🎟️', tr('Entrée'), d.entree], ['🔞', tr('Âge'), d.age_min]].filter((x) => x[2]); return lignes.length ? `<details class="lieu-pratique"><summary>${esc(tr('Infos pratiques'))} <span aria-hidden="true">${lignes.map((x) => x[0]).join(' ')}</span></summary><dl class="lieu-infos">${lignes.map(([i, k, v]) => `<div><dt><span aria-hidden="true">${i}</span> ${esc(k)}</dt><dd>${esc(tr(v))}</dd></div>`).join('')}</dl><p class="lieu-maj">${esc(tr('Infos relevées le'))} ${esc(paris(d.le, { day: 'numeric', month: 'long' }, t.locale))}${d.sources?.[0] ? ` · <a href="${esc(d.sources[0])}" target="_blank" rel="noopener nofollow">${esc(tr('source'))}</a>` : ''}</p></details>` : ''; })() : ''}
+    ${raison && tendance ? `<p class="lieu-stats" title="${esc(raison)}"><span>❤️ ${esc(Number(l.insta.likes).toLocaleString(t.locale || 'fr-FR', { maximumFractionDigits: 1 }))}</span><span>💬 ${esc(Number(l.insta.commentaires).toLocaleString(t.locale || 'fr-FR', { maximumFractionDigits: 1 }))}</span><span>${esc(Number(l.insta.posts21).toLocaleString(t.locale || 'fr-FR', { maximumFractionDigits: 1 }))} ${esc(tr('posts en 3 semaines'))}</span></p>` : ''}
     ${prochaines.length ? `<p class="lieu-soirees">${prochaines.slice(0, 3).map((x) => `<a href="${base}${pre(lang)}soiree/${x.id}/">${esc(x.nom)}</a>`).join('')}</p>` : ''}
     <p class="lieu-actions">${l.instagram ? `<a href="https://www.instagram.com/${esc(l.instagram)}/" target="_blank" rel="noopener" aria-label="Instagram @${esc(l.instagram)}">${ICO_LIEU.ig}<span>Instagram</span></a>` : ''}${l.site ? `<a href="${esc(l.site)}" target="_blank" rel="noopener">${ICO_LIEU.site}<span>${esc(t.siteWeb)}</span></a>` : ''}<a href="https://www.google.com/maps/search/?api=1&amp;query=${encodeURIComponent([l.nom, l.adresse, l.ville].filter(Boolean).join(', '))}" target="_blank" rel="noopener">${ICO_LIEU.map}<span>${esc(t.itineraire)}</span></a></p>
     </div>
@@ -1504,7 +1508,7 @@ function pageLieux({ lang, t, tr, base, compte, T, chemin, maj, lieux }) {
   for (const l of lieux || []) (parVille[l.ville || tr('Autres')] ||= []).push(l);
   const villes = Object.keys(parVille).sort((a, b) => parVille[b].length - parVille[a].length);
   const corps = `${heroCourt({ partage: t.partager, base, photo: null, logos: (lieux || []).filter((l) => l.photo).sort((a, b) => (b.score || 0) - (a.score || 0)).map((l) => l.photo), alt: t.lieuxNav, k: 3, etiquette: t.lieuxNav, h1: tr("Les clubs et bars de la <em>Côte d'Azur</em> et du Var"), p: esc(tr("Boîtes de nuit, bars, rooftops et beach clubs de Nice à Toulon, avec ceux qui font le plus parler d'eux en ce moment.")) })}
-${top.length ? `<section class="bloc-large reveal"><h2>${tr('🔥 Tendance du <em>moment</em>')}</h2><p class="avert">${esc(tr("Classement calculé chaque jour à partir de données réelles : likes et commentaires sur les publications Instagram des 3 dernières semaines, rapportés au nombre d'abonnés. Être partenaire de Teufy ne donne aucun bonus."))}</p><div class="fiches">${top.map((l, i) => carteLieu(l, ctx, i, true)).join('')}</div></section>` : ''}
+${top.length ? `<section class="bloc-large reveal"><h2>${tr('🔥 Tendance du <em>moment</em>')}</h2><p class="avert">${esc(tr("Classement calculé chaque jour à partir de données réelles : likes et commentaires sur les publications Instagram des 3 dernières semaines, rapportés au nombre d'abonnés. Être partenaire de Teufy ne donne aucun bonus."))}</p><div class="fiches fiches-tendance">${top.map((l, i) => carteLieu(l, ctx, i, true)).join('')}</div></section>` : ''}
 <section class="bloc-large reveal"><p class="liens-styles">${villes.map((v) => `<a class="puce" href="#v-${slug(v)}">${esc(v)} · ${parVille[v].length}</a>`).join('')}</p></section>
 ${villes.map((v) => `<section class="bloc-large reveal" id="v-${slug(v)}"><h2>${esc(v)}</h2><div class="fiches">${parVille[v].map((l, i) => carteLieu(l, ctx, i)).join('')}</div></section>`).join('\n')}
 ${(lieux || []).length ? '' : `<section class="bloc-large"><p class="vide">${esc(tr("L'annuaire se remplit : Teufy recense les clubs et bars de la Côte d'Azur et du Var."))}</p></section>`}`;
@@ -1617,7 +1621,8 @@ function pageLegal({ lang, t, tr, base, compte, T, chemin, maj, cle = 'mentions-
   const C = (PAGES_LEGALES[cle] || LEGAL)(T, compte);
   const corps = `<article class="article">
   <h1>${tr(C.h1)}</h1>
-  ${C.blocs.map(([titre, ps]) => `<h2>${esc(tr(titre))}</h2>${ps.map((p) => `<p>${esc(tr(p))}</p>`).join('')}`).join('\n  ')}
+  ${C.blocs.length > 6 ? `<nav class="sommaire-legal" aria-label="${esc(tr('Sommaire'))}"><p>${esc(tr('Sommaire'))}</p><ol>${C.blocs.map(([titre], i) => `<li><a href="#art-${i + 1}">${esc(tr(titre).replace(/^\d+\.\s*/, ''))}</a></li>`).join('')}</ol></nav>` : ''}
+  ${C.blocs.map(([titre, ps], i) => `<h2 id="art-${i + 1}">${esc(tr(titre))}</h2>${ps.map((p) => `<p>${esc(tr(p))}</p>`).join('')}`).join('\n  ')}
   <nav class="liens-legaux" aria-label="${esc(tr('Informations légales'))}">${Object.keys(PAGES_LEGALES).filter((k) => k !== cle).map((k) => `<a class="puce" href="${base}${pre(lang)}${k}/">${esc(tr(NOMS_LEGAUX[k]))}</a>`).join('')}</nav>
 </article>`;
   return gabarit({ lang, t, titre: tr(C.titre), description: tr(C.desc || C.blocs[0][1][0]), chemin, base, corps, compte, maj });
@@ -1681,7 +1686,7 @@ ${blocPros(ctx)}`;
 // Page 404 (GitHub Pages la sert pour toute adresse inconnue : chemins absolus).
 function page404(t) {
   const B = new URL(URL_SITE).pathname; // « / » sur le domaine propre, « /teufy-instagram/ » sur GitHub Pages
-  return `<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${esc(t.e404)} · Teufy</title><meta name="robots" content="noindex"><link rel="icon" href="${B}site/img/favicon-64.png"><link rel="stylesheet" href="${B}site/style.min.css"></head>
+  return `<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${esc(t.e404)} · Teufy</title><meta name="robots" content="noindex"><link rel="icon" type="image/png" sizes="64x64" href="${B}site/img/favicon-fond-64.png"><link rel="stylesheet" href="${B}site/style.min.css"></head>
 <body><main class="page-404"><a href="${B}"><img src="${B}site/img/logo-200.webp" alt="Teufy" width="96" height="79"></a><h1>4<em>0</em>4</h1><p>${esc(t.e404p)}</p><p><a class="bouton" href="${B}#agenda">${esc(t.e404b)}</a></p>
 <p class="langues-pied">${LANGUES.map((l) => `<a href="${B}${pre(l)}" hreflang="${l}" lang="${l}">${esc(TXT[l].nom)}</a>`).join(' · ')}</p></main></body></html>
 `;

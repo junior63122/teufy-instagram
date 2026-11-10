@@ -464,6 +464,23 @@
   if (location.hash === '#recherche') allerRecherche(false);
   document.querySelector('a.loupe[href="#recherche"]')?.addEventListener('click', (e) => { if (allerRecherche(true)) e.preventDefault(); });
   addEventListener('hashchange', () => { if (location.hash === '#recherche') allerRecherche(true); });
+  // Carrousels (Ce soir, photos) : flèches sur ordinateur à la place de la barre de défilement du navigateur ;
+  // elles disparaissent au début et à la fin ; un fondu signale qu'il reste des cartes à droite.
+  if (matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    const en = document.documentElement.lang !== 'fr';
+    document.querySelectorAll('.rangee, .photos').forEach((r) => {
+      if (r.parentElement.querySelector(':scope > .fleche')) return;
+      r.parentElement.classList.add('a-fleches');
+      const f = (sens) => { const b = document.createElement('button'); b.type = 'button'; b.className = `fleche ${sens < 0 ? 'prec' : 'suiv'}`;
+        b.setAttribute('aria-label', sens < 0 ? (en ? 'Previous' : 'Précédent') : (en ? 'Next' : 'Suivant'));
+        b.innerHTML = `<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="${sens < 0 ? 'M15 5l-7 7 7 7' : 'M9 5l7 7-7 7'}" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+        b.addEventListener('click', () => r.scrollBy({ left: sens * Math.max(240, r.clientWidth * 0.85) * (document.dir === 'rtl' ? -1 : 1), behavior: reduit ? 'auto' : 'smooth' }));
+        r.after(b); return b; };
+      const p = f(-1), n = f(1);
+      const maj = () => { const x = Math.abs(r.scrollLeft), max = r.scrollWidth - r.clientWidth - 2; p.hidden = x <= 2; n.hidden = x >= max; r.classList.toggle('suite', x < max); r.classList.toggle('avant', x > 2); };
+      r.addEventListener('scroll', maj, { passive: true }); addEventListener('resize', maj); new ResizeObserver(maj).observe(r); maj();
+    });
+  }
   // Anciens liens « …/#carte » (partagés avant le retrait de la carte générale) : on arrive sur l'agenda.
   if (location.hash === '#carte') { history.replaceState(null, '', location.pathname + location.search + '#agenda'); setTimeout(() => agenda?.scrollIntoView(), 50); }
 })();
@@ -493,5 +510,21 @@
     addEventListener('scroll', (e) => { if (e.target instanceof Element && e.target.matches(DEFILANTS)) bouge = true; }, { passive: true, capture: true });
     addEventListener('click', (e) => { const glisse = bouge; bouge = false; if (glisse && e.target.closest(DEFILANTS)) { e.preventDefault(); e.stopPropagation(); } }, { capture: true });
   }
+  // Changement de page fluide : l'affiche d'une soirée « glisse » de la carte vers sa fiche (et retour),
+  // une fine barre indique le chargement si la page met du temps ; l'en-tête reste en place (style.css).
+  const lienInterne = (e, a) => a && !e.defaultPrevented && e.button === 0 && !e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && a.target !== '_blank' && !a.hasAttribute('download') && a.origin === location.origin && !(a.hash && a.pathname === location.pathname) && !/\.(ics|mp4|jpg|png|webp)$/.test(a.pathname);
+  addEventListener('click', (e) => {
+    const a = e.target.closest?.('a[href]'); if (!lienInterne(e, a)) return;
+    document.documentElement.classList.add('en-route'); clearTimeout(lienInterne.t); lienInterne.t = setTimeout(() => document.documentElement.classList.remove('en-route'), 10000);
+    const img = /\/soiree\/[^/]+\/$/.test(a.pathname) && a.closest('.carte')?.querySelector('.affiche img.principale');
+    if (img) { document.querySelectorAll('.fiche-affiche > img').forEach((x) => { x.style.viewTransitionName = 'none'; }); img.style.viewTransitionName = 'affiche-soiree'; }
+  });
+  addEventListener('pageshow', () => document.documentElement.classList.remove('en-route'));
+  addEventListener('pagereveal', (e) => {
+    const de = window.navigation?.activation?.from?.url || ''; const id = (de.match(/\/soiree\/([^/]+)\/$/) || [])[1];
+    if (!e.viewTransition || !id || document.querySelector('.fiche-affiche')) return;
+    const img = [...document.querySelectorAll(`.carte[data-id="${CSS.escape(id)}"] .affiche img.principale`)].find((x) => x.getBoundingClientRect().height);
+    if (img) { img.style.viewTransitionName = 'affiche-soiree'; e.viewTransition.finished.finally(() => { img.style.viewTransitionName = ''; }); }
+  });
   addEventListener('focusin', precharger);
 })();
