@@ -21,6 +21,12 @@
   { const n = document.querySelector('.nav'), a = n?.querySelector('[aria-current]');
     if (n && a && n.scrollWidth > n.clientWidth) n.scrollLeft = a.offsetLeft - (n.clientWidth - a.offsetWidth) / 2; }
 
+  // Menu « Villes ▾ » : se ferme en cliquant ailleurs ou avec Échap.
+  document.querySelectorAll('.nav-villes').forEach((d) => {
+    document.addEventListener('click', (e) => { if (d.open && !d.contains(e.target)) d.open = false; });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && d.open) { d.open = false; d.querySelector('summary').focus(); } });
+  });
+
   // Formulaire des pages pros : prépare le message puis ouvre Instagram (message copié) ou l'e-mail (pré-rempli).
   document.querySelectorAll('.form-contact').forEach((f) => {
     const retour = f.querySelector('.retour-form');

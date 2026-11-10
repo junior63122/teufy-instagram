@@ -1085,3 +1085,18 @@ html.en-route::before{content:"";position:fixed;inset:0 auto auto 0;height:3px;w
 /* En-tête et menu alignés sur la colonne du contenu (même bord gauche et droit que les sections) sur grand écran. */
 @media(min-width:1272px){.barre{padding-inline:max(16px,calc(50% - 604px))}.nav{padding-inline:max(16px,calc(50% - 616px)) 16px}}
 @media(min-width:1272px){.hero{padding-inline:calc(50% - 604px)}}
+/* Menu : « Villes ▾ » sur ordinateur (Nice, Cannes, Monaco, Antibes, Occitanie, ailleurs en France) ; liste défilante sur mobile. */
+.nav-villes{display:none}
+@media(min-width:1100px){
+  .nav{overflow:visible}
+  .nav .nav-ville{display:none}
+  .nav-villes{display:block;position:relative;flex:none}
+  .nav-villes summary{list-style:none;cursor:pointer;font-weight:700;font-size:14px;padding:6px 12px;border-radius:999px;opacity:.85;display:flex;align-items:center;gap:6px;transition:background .2s,opacity .2s}
+  .nav-villes summary::-webkit-details-marker{display:none}
+  .nav-villes summary::after{content:"";width:7px;height:7px;border:solid currentColor;border-width:0 2px 2px 0;transform:translateY(-2px) rotate(45deg);transition:transform .2s}
+  .nav-villes[open] summary::after{transform:translateY(1px) rotate(-135deg)}
+  .nav-villes summary:hover,.nav-villes[open] summary{background:#ffffff14;opacity:1}
+  .nav-villes.actif summary{background:var(--creme);color:var(--nuit);opacity:1}
+  .nav-villes>div{position:absolute;top:calc(100% + 8px);inset-inline-start:0;z-index:30;min-width:230px;display:flex;flex-direction:column;gap:2px;padding:8px;border-radius:18px;background:#14141a;border:1px solid #ffffff1f;box-shadow:0 24px 60px -20px #000;animation:apparait .18s var(--doux) both}
+  .nav-villes>div a{border-radius:12px;padding:10px 12px}
+}

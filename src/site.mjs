@@ -1000,7 +1000,14 @@ ${ld.length ? `<script type="application/ld+json">${JSON.stringify(ld).replace(/
     <a class="ig" href="https://www.instagram.com/${esc(handle)}/" target="_blank" rel="noopener" aria-label="Instagram ${esc(compte)}"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="17.4" cy="6.6" r="1.3" fill="currentColor"/></svg></a>
   </div>
 </header>
-<nav class="nav" aria-label="Menu">${(() => { const actif = nav.some(([d]) => d === chemin) ? chemin : rubriqueNav ?? nav.map(([d]) => d).filter((d) => d && chemin.startsWith(d)).sort((a, b) => b.length - a.length)[0]; return nav.map(([d, n]) => `<a href="${accueil}${d}"${d === chemin ? ' aria-current="page"' : d === actif ? ' aria-current="true"' : ''}>${esc(n)}</a>`).join(''); })()}</nav>
+<nav class="nav" aria-label="Menu">${(() => { const actif = nav.some(([d]) => d === chemin) ? chemin : rubriqueNav ?? nav.map(([d]) => d).filter((d) => d && chemin.startsWith(d)).sort((a, b) => b.length - a.length)[0]; const ville = (d) => /^(soirees-|occitanie\/)/.test(d);
+      const lien = ([d, n], cls = '') => `<a href="${accueil}${d}"${cls ? ` class="${cls}"` : ''}${d === chemin ? ' aria-current="page"' : d === actif ? ' aria-current="true"' : ''}>${esc(n)}</a>`;
+      // Ordinateur : les villes regroupées sous « Villes ▾ » (menu plus court, tout visible) ; mobile : liste qui défile.
+      const VILLES_NOM = { fr: 'Villes', en: 'Cities', it: 'Città', es: 'Ciudades', zh: '城市', ar: 'المدن' };
+      const villes = nav.filter(([d]) => ville(d));
+      const ouverte = villes.some(([d]) => d === actif) || /^france\//.test(chemin);
+      const menu = `<details class="nav-villes${ouverte ? ' actif' : ''}"><summary>${esc(VILLES_NOM[lang] || 'Villes')}</summary><div>${villes.map((x) => lien(x)).join('')}${lien(['france/', t.franceNav])}</div></details>`;
+      return nav.map((x, i) => lien(x, ville(x[0]) ? 'nav-ville' : '') + (i === 0 ? menu : '')).join(''); })()}</nav>
 <main id="contenu">
 ${corps}
 </main>
