@@ -684,6 +684,7 @@ export async function construireSite({ events, eventsFrance = [], eventsOccitani
       for (const v of [...new Set(sf.map((x) => x.filtreVille))]) ajoute(`france/${v}/`, (c) => pageFrance({ ...c, soirees: sf.filter((x) => x.filtreVille === v), cleVille: v }));
       ajoute('clubs-bars/', (c) => pageLieux(c));
       ajoute('ce-soir/', (c) => pageCeSoir({ ...c, soirees: sl, now }));
+      for (const sel of SELECTIONS) ajoute(`${sel.slug}/`, (c) => pageSelection({ ...c, sel, soirees: sl.filter((x) => sel.garde(x, now)), now }));
       for (const l of lieux || []) if (l.slug) ajoute(`clubs-bars/${l.slug}/`, (c) => pageLieu({ ...c, l, soirees: [...sl, ...so].filter((x) => (l.soirees || []).includes(x.id)) }));
     }
     return pages;
@@ -974,7 +975,8 @@ function gabarit({ lang, t, titre, description, chemin, base, corps, ld = [], im
   const handle = compte.replace(/^@/, '');
   const P = pre(lang);
   const accueil = `${base}${P}`;
-  const nav = [['', t.agenda], ['ce-soir/', t.js.ceSoir], ...VILLES_SEO.map((v) => [`${v.slug}/`, t.villes[v.cle === 'antibes' ? 'antibesCourt' : v.cle]]), ['festivals/', t.festivals], ['clubs-bars/', t.lieuxNav], ['dates/', t.dates], ['restaurants/', t.restos], ['activites/', t.activites], ['occitanie/', 'Occitanie'], ['actus/', t.actus], ['partenaires/', t.partenaires], ['a-propos/', t.qui]];
+  const SA = saisonActive();
+  const nav = [['', t.agenda], ['ce-soir/', t.js.ceSoir], ...(SA ? [[`${SA.slug}/`, `${SA.emoji} ${SA.nom[lang] || SA.nom.fr}`]] : []), ...VILLES_SEO.map((v) => [`${v.slug}/`, t.villes[v.cle === 'antibes' ? 'antibesCourt' : v.cle]]), ['festivals/', t.festivals], ['clubs-bars/', t.lieuxNav], ['dates/', t.dates], ['restaurants/', t.restos], ['activites/', t.activites], ['occitanie/', 'Occitanie'], ['actus/', t.actus], ['partenaires/', t.partenaires], ['a-propos/', t.qui]];
   const jsT = { ...t.js, base, langue: lang, locale: t.locale, resultats: t.resultats, aucunRes: t.aucunRes, lienCopie: t.lienCopie, ajouterFav: t.ajouterFav, voir: t.voir };
   return `<!doctype html>
 <html lang="${lang}" dir="${t.dir}">
@@ -1026,11 +1028,13 @@ ${ld.length ? `<script type="application/ld+json">${JSON.stringify(ld).replace(/
       const ouverte = villes.some(([d]) => d === actif) || /^france\//.test(chemin);
       const menu = `<details class="nav-villes${ouverte ? ' actif' : ''}"><summary>${esc(VILLES_NOM[lang] || 'Villes')}</summary><div>${villes.map((x) => lien(x)).join('')}${lien(['france/', t.franceNav])}</div></details>`;
       return nav.map((x, i) => lien(x, ville(x[0]) ? 'nav-ville' : '') + (i === 0 ? menu : '')).join(''); })()}</nav>
+${SA ? `<a class="bandeau-saison" href="${accueil}${SA.slug}/"><span aria-hidden="true">${SA.emoji}</span> <b>${esc(SA.nom[lang] || SA.nom.fr)}</b> · ${esc(t.toutes)} <span aria-hidden="true">→</span></a>` : ''}
 <main id="contenu">
 ${corps}
 </main>
 <footer>
   <div class="pied-colonnes">
+    ${(() => { const S = { fr: ['Sortir', 'Ce soir', 'Ce week-end', 'Gratuit et bons plans', 'Soirées étudiantes', 'Nouvel an'], en: ['Going out', 'Tonight', 'This weekend', 'Free and cheap', 'Student nights', "New Year's Eve"], it: ['Uscire', 'Stasera', 'Questo weekend', 'Gratis e low cost', 'Serate universitarie', 'Capodanno'], es: ['Salir', 'Esta noche', 'Este fin de semana', 'Gratis y barato', 'Fiestas universitarias', 'Nochevieja'], zh: ['出门玩', '今晚', '本周末', '免费与优惠', '学生派对', '跨年'], ar: ['الخروج', 'الليلة', 'نهاية هذا الأسبوع', 'مجاني وبأسعار رخيصة', 'حفلات الطلاب', 'رأس السنة'] }[lang] || []; return `<div><p class="pied-titre">${esc(S[0])}</p>${[['ce-soir/', S[1]], ['ce-week-end/', S[2]], ['soirees-gratuites/', S[3]], ['soirees-etudiantes/', S[4]], ['nouvel-an/', S[5]]].map(([c, n]) => `<a href="${accueil}${c}">${esc(n)}</a>`).join('')}</div>`; })()}
     <div><p class="pied-titre">${esc(t.villesL)}</p>${VILLES_SEO.map((v) => `<a href="${accueil}${v.slug}/">${esc(t.villes[v.cle])}</a>`).join('')}<a href="${accueil}festivals/">${esc(t.festivals)}</a><a href="${accueil}dates/">${esc(t.dates)}</a><a href="${accueil}restaurants/">${esc(t.restos)}</a><a href="${accueil}activites/">${esc(t.activites)}</a><a href="${accueil}clubs-bars/">${esc(t.lieuxNav)}</a><a href="${accueil}occitanie/">Occitanie</a><a href="${accueil}france/">${esc(t.franceNav)}</a></div>
     <div><p class="pied-titre">${esc(t.stylesL)}</p>${PAGES_STYLES.map((k) => `<a href="${accueil}soirees-${k}/">${esc(nomStyle(k, t, lang))}</a>`).join('')}</div>
     <div><p class="pied-titre">${esc(t.teufyL)}</p><a href="${accueil}a-propos/">${esc(t.qui)}</a><a href="${accueil}faq/">FAQ</a><a href="${accueil}faq/#sources">${esc(TR_SOURCES[lang] || TR_SOURCES.fr)}</a><a href="${accueil}actus/">${esc(t.actus)}</a><a href="${accueil}partenaires/">${esc(t.partenaires)}</a><a href="${accueil}ambassadeurs/">${esc(t.ambassadeurs)}</a><a href="${accueil}bde/">${esc(t.bde)}</a><a href="https://www.instagram.com/${esc(handle)}/" target="_blank" rel="noopener">${esc(compte)}</a></div>
@@ -1583,6 +1587,58 @@ function pageLieu({ lang, t, tr, base, compte, T, chemin, maj, l, soirees, lieux
     ...(soirees.length ? { event: soirees.slice(0, 10).map((x) => ({ '@type': 'Event', name: x.nom, startDate: x.debut, url: `${URL_SITE}${pre(lang)}soiree/${x.id}/` })) } : {}) };
   return gabarit({ lang, t, titre: titreCourt([l.nom, `${tr(type)} à ${l.ville}`, tr('horaires et soirées')]), description: `${l.nom}${l.ville ? `, ${tr(type).toLowerCase()} à ${l.ville}` : ''} : ${tr('ouvert ce soir ?')} ${[d.horaires, d.dress_code, d.entree].filter(Boolean).join(' · ') || tr('horaires, prochaines soirées et accès')}. ${soirees.length ? `${soirees.length} ${tr('soirée(s) à venir')}.` : ''}`.slice(0, 300), chemin, base, corps, compte, maj, rubriqueNav: 'clubs-bars/',
     ld: [...ldOrganisation(T, compte, t, lang), ld, fil(lang, [['Teufy', ''], [t.lieuxNav, 'clubs-bars/'], [l.nom, chemin]])] });
+}
+
+// Pages des recherches les plus fréquentes (« soirée ce week-end Nice », « soirée gratuite », « soirée étudiante »,
+// « nouvel an Côte d'Azur ») : même agenda, filtré, avec un titre et un texte qui répondent à la question.
+const jourParis = (d) => new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Paris' }).format(d);
+// Temps forts de l'année : la page existe toute l'année (Google a le temps de la classer), mais elle n'est mise en
+// avant (menu, bandeau en haut du site) que pendant sa période. Dates au format MM-JJ, à cheval sur l'année possible.
+const SAISONS = [
+  { cle: 'halloween', debut: '10-01', fin: '11-01', emoji: '🎃', slug: 'halloween', nom: { fr: 'Halloween', en: 'Halloween', it: 'Halloween', es: 'Halloween', zh: '万圣节', ar: 'الهالوين' } },
+  { cle: 'noel', debut: '12-01', fin: '12-26', emoji: '🎄', slug: 'noel', nom: { fr: 'Noël', en: 'Christmas', it: 'Natale', es: 'Navidad', zh: '圣诞节', ar: 'عيد الميلاد' } },
+  { cle: 'nouvel-an', debut: '12-15', fin: '01-02', emoji: '🥂', slug: 'nouvel-an', nom: { fr: 'Nouvel an', en: "New Year's Eve", it: 'Capodanno', es: 'Nochevieja', zh: '跨年', ar: 'رأس السنة' } },
+  { cle: 'saint-valentin', debut: '02-01', fin: '02-15', emoji: '❤️', slug: 'saint-valentin', nom: { fr: 'Saint-Valentin', en: "Valentine's Day", it: 'San Valentino', es: 'San Valentín', zh: '情人节', ar: 'عيد الحب' } },
+  { cle: 'fete-musique', debut: '06-01', fin: '06-22', emoji: '🎶', slug: 'fete-de-la-musique', nom: { fr: 'Fête de la musique', en: 'Fête de la Musique', it: 'Festa della musica', es: 'Fiesta de la música', zh: '音乐节', ar: 'عيد الموسيقى' } },
+];
+const dansPeriode = (mmjj, debut, fin) => (debut <= fin ? mmjj >= debut && mmjj <= fin : mmjj >= debut || mmjj <= fin);
+// Temps fort en cours (le plus précis d'abord : Nouvel an prime sur Noël après le 26).
+const saisonActive = (now = Date.now()) => { const mmjj = new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Paris', month: '2-digit', day: '2-digit' }).format(now).replace('/', '-'); return [...SAISONS].reverse().find((x) => dansPeriode(mmjj, x.debut, x.fin)) || null; };
+const SELECTIONS = [
+  { slug: 'ce-week-end', etiquette: 'Ce week-end', h1: 'Que faire <em>ce week-end</em> sur la Côte d\'Azur ?', titre: 'Soirées ce week-end sur la Côte d\'Azur et dans le Var · Teufy',
+    intro: "Vendredi, samedi et dimanche : toutes les soirées du week-end à Nice, Cannes, Monaco, Antibes et dans le Var, avec les prix et les billets.",
+    garde: (x, now) => {
+      const a = jourParis(new Date(now - 6 * 3600e3)), d = Date.parse(`${a}T12:00:00Z`), dow = new Date(d).getUTCDay(); // 0 = dimanche
+      const deb = [5, 6, 0].includes(dow) ? a : jourParis(new Date(d + (5 - dow) * 864e5));
+      const fin = jourParis(new Date(Date.parse(`${deb}T12:00:00Z`) + ((7 - new Date(`${deb}T12:00:00Z`).getUTCDay()) % 7) * 864e5));
+      return x.jour >= deb && x.jour <= fin; } },
+  { slug: 'soirees-gratuites', etiquette: 'Gratuit', h1: 'Soirées <em>gratuites</em> et bons plans', titre: 'Soirées gratuites et bons plans sur la Côte d\'Azur · Teufy',
+    intro: "Entrée libre, soirées gratuites et petits prix (10 € ou moins) à Nice, Cannes, Monaco, Antibes et dans le Var : sortir sans vider son compte.",
+    garde: (x) => x.prix != null && x.prix <= 10 },
+  { slug: 'soirees-etudiantes', etiquette: 'Étudiants', h1: 'Soirées <em>étudiantes</em> sur la Côte d\'Azur', titre: 'Soirées étudiantes à Nice, Sophia, Cannes et Monaco · Teufy',
+    intro: "Soirées d'intégration, BDE, afterworks et soirées à petit prix pour les étudiants de Nice, Sophia Antipolis, Cannes, Monaco et Toulon.",
+    garde: (x) => !!x.etudiant || RE_ETUDIANT.test(`${x.nom} ${x.accroche || ''}`) },
+  { slug: 'halloween', etiquette: 'Halloween', h1: 'Soirées d\'<em>Halloween</em> sur la Côte d\'Azur', titre: 'Soirées Halloween à Nice, Cannes, Monaco et Toulon · Teufy',
+    intro: "Déguisements, soirées d'horreur et clubs costumés : toutes les soirées d'Halloween de la Côte d'Azur et du Var, ajoutées dès leur annonce.",
+    garde: (x) => /halloween|horreur|horror|zombie|monstre/i.test(x.nom) || /-10-3[01]$|-11-01$/.test(x.jour) && /costum|déguis|deguis/i.test(`${x.nom} ${x.accroche || ''}`) },
+  { slug: 'noel', etiquette: 'Noël', h1: 'Soirées de <em>Noël</em> sur la Côte d\'Azur', titre: 'Soirées de Noël et des fêtes à Nice, Cannes et Monaco · Teufy',
+    intro: "Soirées de Noël, ugly sweater parties et nuits des fêtes : où sortir en décembre sur la Côte d'Azur et dans le Var.",
+    garde: (x) => /no[eë]l|christmas|xmas|pull moche|ugly sweater/i.test(x.nom) || /-12-2[45]$/.test(x.jour) },
+  { slug: 'saint-valentin', etiquette: 'Saint-Valentin', h1: 'Où sortir pour la <em>Saint-Valentin</em> ?', titre: 'Soirées de la Saint-Valentin sur la Côte d\'Azur · Teufy',
+    intro: "Soirées en duo, soirées célibataires et sorties romantiques autour du 14 février à Nice, Cannes, Monaco et dans le Var.",
+    garde: (x) => /valentin|valentine|c[ée]libataires?\b/i.test(x.nom) || /-02-14$/.test(x.jour) },
+  { slug: 'fete-de-la-musique', etiquette: 'Fête de la musique', h1: '<em>Fête de la musique</em> sur la Côte d\'Azur', titre: 'Fête de la musique à Nice, Cannes, Monaco et Toulon · Teufy',
+    intro: "Scènes en plein air, DJ sets et soirées du 21 juin : le programme de la Fête de la musique sur la Côte d'Azur et dans le Var.",
+    garde: (x) => /f[eê]te de la musique|fete de la musique/i.test(x.nom) || /-06-21$/.test(x.jour) },
+  { slug: 'nouvel-an', etiquette: 'Nouvel an', h1: 'Réveillon du <em>Nouvel an</em> sur la Côte d\'Azur', titre: 'Soirées du Nouvel an à Nice, Cannes, Monaco et Saint-Tropez · Teufy',
+    intro: "Où fêter le 31 décembre : soirées du réveillon dans les clubs, rooftops et beach clubs de la Côte d'Azur et du Var, ajoutées dès leur annonce.",
+    garde: (x) => /-12-31$|-01-01$/.test(x.jour) || /nouvel an|new year|réveillon|reveillon|nye\b/i.test(x.nom) },
+];
+function pageSelection({ lang, t, tr, base, compte, T, chemin, maj, sel, soirees }) {
+  const corps = `${heroCourt({ partage: t.partager, base, photo: null, images: soirees.filter((x) => x.affiche).map((x) => x.affiche), k: 9, alt: tr(sel.etiquette), etiquette: tr(sel.etiquette), h1: tr(sel.h1), p: `${esc(tr(sel.intro))} ${esc(t.villeN(soirees.length))}` })}
+${soirees.length ? agenda(soirees, { t, base, lang }) : `<section class="bloc-large"><p class="vide">${esc(tr("Aucune soirée annoncée pour l'instant : cette page se remplit automatiquement dès qu'une soirée est publiée."))} <a href="${base}${pre(lang)}">${esc(t.toutes)}</a></p></section>`}`;
+  return gabarit({ lang, t, titre: tr(sel.titre), description: `${tr(sel.intro)} ${t.villeN(soirees.length)}`.slice(0, 300), chemin, base, corps, compte, maj, rubriqueNav: '', agendaIci: soirees.length > 0,
+    ld: [...ldOrganisation(T, compte, t, lang), ...jsonld(soirees, lang), fil(lang, [['Teufy', ''], [tr(sel.etiquette), chemin]])] });
 }
 
 // « Où sortir ce soir ? » : les soirées de ce soir et les boîtes / bars ouverts ce soir, statut calculé à l'heure de Paris.

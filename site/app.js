@@ -100,6 +100,25 @@
     }));
   });
 
+  // Ambiance de saison (heure de Paris) : neige à Noël et en hiver, chauves-souris à Halloween, paillettes au Nouvel an,
+  // cœurs à la Saint-Valentin, lumière chaude l'été. Décor seulement : jamais cliquable, coupé si mouvements réduits.
+  // Aperçu possible avec ?saison=noel (halloween, nouvel-an, saint-valentin, fete-musique, hiver, ete).
+  {
+    const mmjj = new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Paris', month: '2-digit', day: '2-digit' }).format(maintenant).replace('/', '-');
+    const dans = (a, b) => (a <= b ? mmjj >= a && mmjj <= b : mmjj >= a || mmjj <= b);
+    const PERIODES = [['nouvel-an', '12-27', '01-02'], ['noel', '12-01', '12-26'], ['halloween', '10-20', '11-01'], ['saint-valentin', '02-07', '02-15'], ['fete-musique', '06-14', '06-22'], ['hiver', '12-21', '03-10'], ['ete', '06-15', '08-31']];
+    const voulu = new URLSearchParams(location.search).get('saison');
+    const saison = PERIODES.some(([k]) => k === voulu) ? voulu : (PERIODES.find(([, a, b]) => dans(a, b)) || [])[0];
+    if (saison) {
+      document.documentElement.dataset.saison = saison;
+      const MOTIFS = { halloween: '🦇', 'saint-valentin': '❤', 'nouvel-an': '✦', 'fete-musique': '♪' };
+      if (MOTIFS[saison] && !reduit) {
+        const d = document.createElement('div'); d.className = 'decor-saison'; d.setAttribute('aria-hidden', 'true');
+        for (let i = 0; i < 9; i++) { const e = document.createElement('i'); e.textContent = MOTIFS[saison]; e.style.cssText = `--x:${(i * 37 + 7) % 100}vw;--d:${9 + (i * 5) % 9}s;--r:${(i * 3) % 8}s;--t:${0.7 + (i % 4) * 0.25}`; d.append(e); }
+        document.body.append(d);
+      }
+    }
+  }
   const cartes = [...document.querySelectorAll('.liste .carte')];
   // Soirées terminées : elles disparaissent d'elles-mêmes (la page n'est régénérée qu'une fois par jour).
   const finies = new Set(cartes.filter((c) => c.dataset.jour < auj || maintenant > debut(c) + DUREE));

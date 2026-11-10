@@ -1129,3 +1129,30 @@ html.en-route::before{content:"";position:fixed;inset:0 auto auto 0;height:3px;w
 .lieu-bloc .grille{grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
 .lieu-adresse{opacity:.85;margin-top:10px}
 @media(max-width:600px){.lieu-tete{flex-direction:column;align-items:flex-start}.lieu-logo{width:92px;height:92px}}
+/* Temps forts : bandeau sous le menu */
+.bandeau-saison{display:flex;justify-content:center;align-items:center;gap:8px;padding:9px 16px;background:linear-gradient(90deg,#ff5a3c,#ff8a3c);color:var(--nuit);font-weight:700;font-size:14px;text-decoration:none;text-align:center}
+.bandeau-saison:hover{filter:brightness(1.08)}
+html[data-saison=noel] .bandeau-saison{background:linear-gradient(90deg,#c8102e,#1f7a3a);color:#fff}
+html[data-saison=halloween] .bandeau-saison{background:linear-gradient(90deg,#ff7a00,#6b2fb3);color:#fff}
+html[data-saison=nouvel-an] .bandeau-saison{background:linear-gradient(90deg,#d4af37,#f6e27a);color:var(--nuit)}
+html[data-saison=saint-valentin] .bandeau-saison{background:linear-gradient(90deg,#ff3c6e,#ff8fab);color:#fff}
+/* Ambiance de saison : un calque fixe, transparent aux clics, très léger (dégradés animés par transform). */
+html[data-saison=noel] body::after,html[data-saison=hiver] body::after{content:"";position:fixed;inset:-100vh 0 0;height:200vh;pointer-events:none;z-index:15;opacity:.55;
+  background-image:radial-gradient(2px 2px at 20px 30px,#fff,transparent),radial-gradient(1.5px 1.5px at 120px 80px,#fff,transparent),radial-gradient(2.5px 2.5px at 200px 160px,#ffffffcc,transparent),radial-gradient(1.5px 1.5px at 60px 220px,#fff,transparent),radial-gradient(2px 2px at 260px 40px,#ffffffaa,transparent);
+  background-size:300px 260px;animation:neige 22s linear infinite}
+html[data-saison=hiver] body::after{opacity:.3}
+@keyframes neige{to{transform:translateY(100vh)}}
+html[data-saison=noel] .barre{box-shadow:inset 0 -3px 0 transparent;background-image:radial-gradient(circle at 10px 100%,#ff3b3b 2.5px,transparent 3.5px),radial-gradient(circle at 30px 100%,#ffd34d 2.5px,transparent 3.5px),radial-gradient(circle at 50px 100%,#3bd16f 2.5px,transparent 3.5px),radial-gradient(circle at 70px 100%,#4db8ff 2.5px,transparent 3.5px);background-size:80px 6px;background-repeat:repeat-x;background-position:bottom;animation:guirlande 2.4s steps(2) infinite}
+@keyframes guirlande{50%{filter:brightness(1.6)}}
+html[data-saison=halloween] .hero{box-shadow:inset 0 -120px 160px -80px #ff7a0040,inset 0 120px 160px -100px #6b2fb340}
+html[data-saison=ete] .hero{box-shadow:inset 0 160px 200px -120px #ffb34730}
+html[data-saison=nouvel-an] .hero h1 em{background:linear-gradient(90deg,#d4af37,#fff3b0,#d4af37);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:or 4s linear infinite}
+@keyframes or{to{background-position:200% 0}}
+.decor-saison{position:fixed;inset:0;pointer-events:none;z-index:15;overflow:hidden}
+.decor-saison i{position:absolute;top:-40px;left:var(--x);font-style:normal;font-size:calc(18px * var(--t));opacity:.55;animation:tombe var(--d) linear var(--r) infinite}
+html[data-saison=halloween] .decor-saison i{animation-name:vole;top:auto;bottom:-40px;filter:drop-shadow(0 0 6px #ff7a00)}
+html[data-saison=saint-valentin] .decor-saison i{color:#ff5c8a;animation-name:vole;top:auto;bottom:-40px}
+html[data-saison=nouvel-an] .decor-saison i{color:#f6e27a;text-shadow:0 0 8px #d4af37}
+@keyframes tombe{to{transform:translate(30px,calc(100vh + 80px)) rotate(200deg)}}
+@keyframes vole{0%{transform:translate(0,0)}50%{transform:translate(40px,-55vh)}100%{transform:translate(-20px,calc(-100vh - 80px))}}
+@media(prefers-reduced-motion:reduce){html[data-saison] body::after,.decor-saison{display:none}html[data-saison=noel] .barre,html[data-saison=nouvel-an] .hero h1 em{animation:none}}
