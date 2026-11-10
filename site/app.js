@@ -460,5 +460,15 @@
   };
   addEventListener('pointerover', precharger, { passive: true });
   addEventListener('touchstart', precharger, { passive: true });
+  // Glisser n'est pas cliquer : dans les rangées qui défilent sur le côté, un clic qui suit un déplacement du doigt
+  // (ou de la souris) de plus de 10 px est ignoré (sinon un simple glissement ouvrait une soirée sur iPhone).
+  { let x0 = 0, y0 = 0, bouge = false;
+    const DEFILANTS = '.rangee, .cartes-texte, .nav, .liens-styles, .posts, .vitrine-grille';
+    addEventListener('pointerdown', (e) => { if (!e.target.closest(DEFILANTS)) return; x0 = e.clientX; y0 = e.clientY; bouge = false; }, { passive: true, capture: true });
+    addEventListener('pointermove', (e) => { if (!bouge && e.target.closest(DEFILANTS) && (Math.abs(e.clientX - x0) > 10 || Math.abs(e.clientY - y0) > 10)) bouge = true; }, { passive: true, capture: true });
+    addEventListener('pointercancel', (e) => { if (e.target.closest?.(DEFILANTS)) bouge = true; }, { passive: true, capture: true }); // le navigateur a pris le défilement
+    addEventListener('scroll', (e) => { if (e.target instanceof Element && e.target.matches(DEFILANTS)) bouge = true; }, { passive: true, capture: true });
+    addEventListener('click', (e) => { const glisse = bouge; bouge = false; if (glisse && e.target.closest(DEFILANTS)) { e.preventDefault(); e.stopPropagation(); } }, { capture: true });
+  }
   addEventListener('focusin', precharger);
 })();

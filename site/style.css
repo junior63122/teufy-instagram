@@ -967,3 +967,11 @@ details[data-bloc="tri"]>.groupe{inset-inline-start:auto;inset-inline-end:0}
 .groupe-soir[data-groupe="live"] h3{color:var(--live)}
 .groupe-soir + .groupe-soir{margin-top:26px}
 .ce-soir .etiquette.sans-direct{color:var(--creme);box-shadow:inset 0 0 0 1.5px #ffffff55}
+/* « Ce soir » : visuels uniformes (même cadre 4/5, image qui remplit) et cartes de même hauteur */
+.rangee{align-items:stretch}
+.rangee .carte{display:flex;flex-direction:column;height:100%}
+.rangee .carte .infos{flex:1;display:flex;flex-direction:column}
+.rangee .carte .actions{margin-top:auto}
+.rangee .carte .affiche{aspect-ratio:4/5!important;max-height:none!important;height:auto}
+.rangee .carte .affiche img.principale{position:absolute!important;inset:0!important;width:100%;height:100%!important;max-height:none!important;object-fit:cover!important}
+.rangee .carte .affiche .fond-flou{display:none}
