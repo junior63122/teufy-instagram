@@ -782,7 +782,7 @@ details[data-bloc="tri"]>.groupe{inset-inline-start:auto;inset-inline-end:0}
   .similaires .carte .infos{min-width:0}
   .similaires .carte .affiche{aspect-ratio:auto!important;width:92px;max-height:none;height:100%;min-height:118px}
   .similaires .carte .affiche img.principale{position:absolute;inset:0;height:100%;object-fit:cover}
-  .similaires .carte .affiche .fond-flou,.similaires .carte .coeur,.similaires .carte .accroche,.similaires .carte .demande,.similaires .carte .meta .ou,.similaires .carte .meta .promo,.similaires .carte .actions .bouton{display:none}
+  .similaires .carte .affiche .fond-flou,.similaires .carte .coeur,.similaires .carte .accroche,.similaires .carte .demande,.similaires .carte .meta .promo,.similaires .carte .actions .bouton{display:none}
   .similaires .carte .affiche .date{font-size:11px;padding:3px 7px;top:6px;left:6px}
   .similaires .carte .infos{padding:10px 12px;gap:4px}
   .similaires .carte h3{font-size:18px}
@@ -957,3 +957,7 @@ details[data-bloc="tri"]>.groupe{inset-inline-start:auto;inset-inline-end:0}
 .collage img{height:auto}
 /* Performance : les sections sous l'écran ne sont mises en page qu'à l'approche (comme les jours de l'agenda) */
 .bloc-large,.qui,.insta,.orga2,.pros,.pied{content-visibility:auto;contain-intrinsic-size:auto 900px}
+
+/* « Le même soir » / « Dans le même style » : le lieu et la ville restent visibles (on sait où c'est) */
+.similaires .carte .meta .ou{display:inline-flex;flex-basis:100%;width:fit-content;max-width:100%;white-space:normal;line-height:1.3}
+.similaires .carte .meta .ou::before{content:"📍";margin-inline-end:4px}

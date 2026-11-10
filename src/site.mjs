@@ -1204,8 +1204,10 @@ ${blocOrga({ t, tr, base, handle: compte.replace(/^@/, ''), lang })}`;
 function pageSoiree({ lang, t, tr, base, compte, T, chemin, s, soirees, maj }) {
   const P = pre(lang);
   const lieu = [s.lieu, s.adresse && s.adresse !== s.lieu ? s.adresse : '', s.ville].filter(Boolean).join(', ');
-  const meme = soirees.filter((x) => x.jour === s.jour && x.id !== s.id).slice(0, 6);
-  const style = soirees.filter((x) => x.id !== s.id && x.jour !== s.jour && x.styles.some((k) => s.styles.includes(k))).slice(0, 6);
+  // La même ville d'abord (puis le reste de la région), pour que les suggestions soient utiles.
+  const villeDabord = (l) => [...l.filter((x) => x.filtreVille === s.filtreVille), ...l.filter((x) => x.filtreVille !== s.filtreVille)];
+  const meme = villeDabord(soirees.filter((x) => x.jour === s.jour && x.id !== s.id)).slice(0, 6);
+  const style = villeDabord(soirees.filter((x) => x.id !== s.id && x.jour !== s.jour && x.styles.some((k) => s.styles.includes(k)))).slice(0, 6);
   const mini = (l, titre) => (l.length ? `<section class="similaires reveal"><h2>${titre}</h2><div class="grille">${l.map((x) => carte(x, { t, base, lang })).join('')}</div></section>` : '');
   const offres = s.offres.length ? `<div class="offres"><p class="pied-titre">${esc(t.comparer)}</p>${s.offres.map((o, i) => `<a href="${esc(o.url)}" target="_blank" rel="noopener"><span>${esc(nomPlateforme(o.url))}</span><b>${esc(o.prix == null ? t.prixBillet : prixTexte(o.prix, t))}</b>${i === 0 && o.prix != null ? `<i>${esc(t.meilleurPrix)}</i>` : ''}</a>`).join('')}</div>` : '';
   const img = s.affiche ? image(base, s.affiche, { alt: t.affiche + s.nom, sizes: '(min-width:860px) 460px, 92vw', attrs: `fetchpriority="high"${s.dims ? ` width="${s.dims[0]}" height="${s.dims[1]}"` : ''}${s.dims && s.dims[0] < 560 ? ` class="petite" style="max-width:${s.dims[0]}px"` : ''}` }) : `<div class="affiche-fiche">${vignette(s, base)}</div>${(() => { const pv = photoVille(s.ville) || photoVille(s.filtreVille); return pv ? `<p class="credit-photo">${esc(tr('Photo de la ville'))} : ${esc(pv.auteur)} · <a href="${esc(pv.source)}" target="_blank" rel="noopener nofollow">${esc(pv.licence)}</a></p>` : ''; })()}`;
