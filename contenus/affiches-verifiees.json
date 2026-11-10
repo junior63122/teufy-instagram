@@ -3268,5 +3268,883 @@
   },
   "commun": []
  },
- "og|https://nouvelle-vague.com/live/kevin-saura-group-en-concert-a-nice/": ""
+ "og|https://nouvelle-vague.com/live/kevin-saura-group-en-concert-a-nice/": "",
+ "og|https://www.cannes.com": "",
+ "v2|daac93fa407e": {
+  "ok": false,
+  "le": "2026-11-10T15:44:30.346Z",
+  "nom": "La Dinette - Santa à la Playa",
+  "lu": {
+   "titre": "FENRICK",
+   "dates": [
+    "2023-11-10"
+   ],
+   "artistes": [
+    "FENRICK",
+    "ARMAN SHADOW",
+    "LEANNE",
+    "LOVI",
+    "LUI"
+   ]
+  },
+  "commun": []
+ },
+ "og|https://shotgun.live/events/la-dinette-santa-a-la-playa": "",
+ "v2|5db77f3d3ec9": {
+  "ok": true,
+  "le": "2026-11-10T15:44:38.981Z",
+  "nom": "Dakeez",
+  "lu": {
+   "titre": "CROSSOVER CLUB",
+   "dates": [
+    "2026-12-05"
+   ],
+   "artistes": [
+    "DAKEEZ"
+   ]
+  },
+  "commun": [
+   "dakeez",
+   "frigo"
+  ]
+ },
+ "v2|e111868df750": {
+  "ok": true,
+  "le": "2026-11-10T15:44:42.240Z",
+  "nom": "La Java 3",
+  "lu": {
+   "titre": "LA JAVA 3",
+   "dates": [
+    "2026-12-05"
+   ],
+   "artistes": [
+    "BØDRU",
+    "FURIOUS REAPERZ",
+    "GUNDY",
+    "K!KØ",
+    "NEMESYK"
+   ]
+  },
+  "commun": [
+   "java",
+   "green",
+   "musik"
+  ]
+ },
+ "v2|85eb99ccfa45": {
+  "ok": true,
+  "le": "2026-11-10T15:44:50.241Z",
+  "nom": "Mamacita",
+  "lu": {
+   "titre": "Mamacita à... NICE",
+   "dates": [
+    "2026-12-05"
+   ],
+   "artistes": [
+    "DRIVER MC",
+    "KANA DJ",
+    "ATN DJ"
+   ]
+  },
+  "commun": [
+   "mamacita",
+   "frigo"
+  ]
+ },
+ "v2|9a48cd2747c7": {
+  "ok": true,
+  "le": "2026-11-10T15:44:56.067Z",
+  "nom": "PLK — Tournée des Zéniths 2026",
+  "lu": {
+   "titre": "TOUR 2026",
+   "dates": [
+    "2026-12-06"
+   ],
+   "artistes": [
+    "PLK"
+   ]
+  },
+  "commun": [
+   "palais",
+   "nikaia"
+  ]
+ },
+ "v2|9b6fcc142b2f": {
+  "ok": true,
+  "le": "2026-11-10T15:44:59.957Z",
+  "nom": "Mala Jaw - Oriental House",
+  "lu": {
+   "titre": "Mala Jaw - Oriental House",
+   "dates": [],
+   "artistes": []
+  },
+  "commun": [
+   "mala",
+   "oriental",
+   "house"
+  ]
+ },
+ "v2|626ec38907b5": {
+  "ok": true,
+  "le": "2026-11-10T15:45:04.598Z",
+  "nom": "Pony Pony Run Run",
+  "lu": {
+   "titre": "STOCKFISH",
+   "dates": [],
+   "artistes": []
+  },
+  "commun": [
+   "stockfish"
+  ]
+ },
+ "v2|5bbb6279ad22": {
+  "ok": true,
+  "le": "2026-11-10T15:45:14.174Z",
+  "nom": "Brodinski en concert à Nice (+ TOBHI TM & Friends)",
+  "lu": {
+   "titre": "C'ETAIT PREVU",
+   "dates": [
+    "2026-12-11"
+   ],
+   "artistes": [
+    "BRODINSKI",
+    "LARIATE CLUB ALL STAR DJS"
+   ]
+  },
+  "commun": [
+   "brodinski",
+   "frigo"
+  ]
+ },
+ "v2|2a5b31a3bcd6": {
+  "ok": true,
+  "le": "2026-11-10T15:45:17.743Z",
+  "nom": "Vars en Scène : Skip The Use",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": []
+  },
+  "commun": []
+ },
+ "v2|0afd74938389": {
+  "ok": true,
+  "le": "2026-11-10T15:45:24.267Z",
+  "nom": "The First Talk Show — Cabaret Icônes 3",
+  "lu": {
+   "titre": "ICÔNES 3",
+   "dates": [
+    "2026-12-12"
+   ],
+   "artistes": [
+    "TATI GALAXY",
+    "NIKAÏA",
+    "AVILA",
+    "PRINCESSE SAPHYRE",
+    "CÉDRIC LORENZI",
+    "SHALIMAR"
+   ]
+  },
+  "commun": [
+   "icones",
+   "tati",
+   "galaxy"
+  ]
+ },
+ "v2|c61f9a66dd3b": {
+  "ok": true,
+  "le": "2026-11-10T15:45:31.030Z",
+  "nom": "Mungo's Hi Fi @ Frigo 16",
+  "lu": {
+   "titre": "MUNGO'S HI FI",
+   "dates": [
+    "2026-12-12"
+   ],
+   "artistes": [
+    "MUNGO'S HI FI"
+   ]
+  },
+  "commun": [
+   "mungo",
+   "frigo"
+  ]
+ },
+ "v2|0787047ac55c": {
+  "ok": true,
+  "le": "2026-11-10T15:45:34.433Z",
+  "nom": "Showcase #5 : Luzula / Venin Carmin / Code 150 / Harfaang",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": []
+  },
+  "commun": []
+ },
+ "v2|314a13b59619": {
+  "ok": true,
+  "le": "2026-11-10T15:45:41.146Z",
+  "nom": "Ben Carter (NEON XP)",
+  "lu": {
+   "titre": "Le DIX·HUIT",
+   "dates": [],
+   "artistes": []
+  },
+  "commun": [
+   "huit"
+  ]
+ },
+ "v2|93f80a8aacab": {
+  "ok": true,
+  "le": "2026-11-10T15:45:53.638Z",
+  "nom": "Roller Disco - Gratuit",
+  "lu": {
+   "titre": "Panda Events",
+   "dates": [],
+   "artistes": [
+    "630G",
+    "AAWADH",
+    "ACID PAULI",
+    "ALTERNATIV3",
+    "AREZKI",
+    "BATTLE DE DANSE 2V2"
+   ]
+  },
+  "commun": [
+   "roller",
+   "disco",
+   "frigo"
+  ]
+ },
+ "v2|22c6e67dd01e": {
+  "ok": true,
+  "le": "2026-11-10T15:46:01.464Z",
+  "nom": "Martine Patine Roller Clubbing",
+  "lu": {
+   "titre": "ROLLER DISCO",
+   "dates": [
+    "2026-12-18"
+   ],
+   "artistes": [
+    "MARTINE PATINE SOUND SYSTEM"
+   ]
+  },
+  "commun": [
+   "roller",
+   "disco",
+   "martine",
+   "patine"
+  ]
+ },
+ "v2|f458a531afdc": {
+  "ok": true,
+  "le": "2026-11-10T15:46:11.500Z",
+  "nom": "Le Mome & Adamé",
+  "lu": {
+   "titre": "Le DIX·HUIT",
+   "dates": [],
+   "artistes": []
+  },
+  "commun": [
+   "huit"
+  ]
+ },
+ "v2|15a2668e1102": {
+  "ok": true,
+  "le": "2026-11-10T15:46:16.332Z",
+  "nom": "Coachellito & Le Blanchon Auron 1600 - Opening Edition",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": []
+  },
+  "commun": []
+ },
+ "v2|6069bafc9560": {
+  "ok": false,
+  "le": "2026-11-10T15:46:22.769Z",
+  "nom": "Zona De Perreo • Frigo 16 Nice",
+  "lu": {
+   "titre": "ZONA DE PERREO",
+   "dates": [
+    "2026-10-17"
+   ],
+   "artistes": []
+  },
+  "commun": [
+   "zona",
+   "perreo"
+  ]
+ },
+ "og|https://shotgun.live/fr/venues/frigo16": "",
+ "v2|9fab8ccc01ee": {
+  "ok": true,
+  "le": "2026-11-10T15:46:38.964Z",
+  "nom": "Wado X L'Antre 2",
+  "lu": {
+   "titre": "ACID TEK",
+   "dates": [
+    "2026-12-19"
+   ],
+   "artistes": [
+    "WADO"
+   ]
+  },
+  "commun": [
+   "acid",
+   "wado"
+  ]
+ },
+ "v2|b1dba56f2750": {
+  "ok": true,
+  "le": "2026-11-10T15:46:42.886Z",
+  "nom": "Plavace 5 Ans w/ 8ruki, Zed & TH",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": []
+  },
+  "commun": []
+ },
+ "v2|8225436814d2": {
+  "ok": true,
+  "le": "2026-11-10T15:46:52.552Z",
+  "nom": "Special Event - Veille De Jour Férié (Coconut Groove)",
+  "lu": {
+   "titre": "COCONUT GROOVE",
+   "dates": [
+    "2026-11-10"
+   ],
+   "artistes": [
+    "TOMË",
+    "MARSEY"
+   ]
+  },
+  "commun": [
+   "coconut",
+   "groove"
+  ]
+ },
+ "v2|0ddbebcd802e": {
+  "ok": true,
+  "le": "2026-11-10T15:46:57.106Z",
+  "nom": "No Limit Party - Dj Faf X Dj Slh - Rn'B X Urban",
+  "lu": {
+   "titre": "NO LIMIT Party",
+   "dates": [
+    "2026-11-10"
+   ],
+   "artistes": [
+    "DJ FAF",
+    "DJ SLH"
+   ]
+  },
+  "commun": [
+   "limit",
+   "voutes",
+   "virgo",
+   "major"
+  ]
+ },
+ "v2|a31d4c8bce33": {
+  "ok": true,
+  "le": "2026-11-10T15:47:00.869Z",
+  "nom": "Bonnard Club Club",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": []
+  },
+  "commun": []
+ },
+ "v2|2f2e043d684d": {
+  "ok": false,
+  "le": "2026-11-10T15:47:06.952Z",
+  "nom": "Vacarme W/ Popof !",
+  "lu": {
+   "titre": "COMBO CLUB",
+   "dates": [
+    "2026-11-05"
+   ],
+   "artistes": [
+    "HiLo",
+    "Ødass"
+   ]
+  },
+  "commun": []
+ },
+ "v2|4325abc5401f": {
+  "ok": false,
+  "le": "2026-11-10T15:47:13.365Z",
+  "nom": "Pisica : Noise Mafia, DJ GUESTLIST, two girls one mom & More",
+  "lu": {
+   "titre": "",
+   "dates": [
+    "2026-11-14"
+   ],
+   "artistes": [
+    "ALARICO",
+    "IMAN JANES",
+    "KALTBLUME"
+   ]
+  },
+  "commun": []
+ },
+ "v2|55dc28e3197e": {
+  "ok": true,
+  "le": "2026-11-10T15:47:20.242Z",
+  "nom": "Succession Invite Grant Dell @ Petit Cab",
+  "lu": {
+   "titre": "SAISON 2026.2027",
+   "dates": [],
+   "artistes": []
+  },
+  "commun": [
+   "cabaret",
+   "aleatoire"
+  ]
+ },
+ "v2|47214a840339": {
+  "ok": false,
+  "le": "2026-11-10T15:47:33.025Z",
+  "nom": "Johannes Schuster, Hanaa b2b Krl MX & More",
+  "lu": {
+   "titre": "RSICE",
+   "dates": [
+    "2026-11-13"
+   ],
+   "artistes": [
+    "CARAVEL",
+    "JUNKIE KID",
+    "UPHORIA",
+    "LOLYTHA HERMOS",
+    "MAY-LI"
+   ]
+  },
+  "commun": [
+   "petit",
+   "salon"
+  ]
+ },
+ "v2|feb1d0ce19f4": {
+  "ok": true,
+  "le": "2026-11-10T15:47:36.676Z",
+  "nom": "After Plavace 5 Ans w/ Al-Walid",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": []
+  },
+  "commun": []
+ },
+ "v2|cf1eb6fb42c8": {
+  "ok": true,
+  "le": "2026-11-10T15:47:39.629Z",
+  "nom": "KUSS & Sicion - all night long",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": []
+  },
+  "commun": []
+ },
+ "v2|7abf7b8c7ac3": {
+  "ok": true,
+  "le": "2026-11-10T15:47:44.603Z",
+  "nom": "DIVA • Night Session • DART ~ HEDDA ~ Maï-Linh ~ Matilda ~ mita (live)",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": []
+  },
+  "commun": []
+ },
+ "v2|8e68b14d0183": {
+  "ok": false,
+  "le": "2026-11-10T15:47:51.250Z",
+  "nom": "Urban Nation By IPN : Hip Hop Music",
+  "lu": {
+   "titre": "URBAN NATION",
+   "dates": [
+    "2026-11-04"
+   ],
+   "artistes": [
+    "DJ SLO",
+    "ARTHUR THE DJ",
+    "DJ MARGOZ"
+   ]
+  },
+  "commun": [
+   "urban",
+   "nation"
+  ]
+ },
+ "v2|2ccf495595f3": {
+  "ok": true,
+  "le": "2026-11-10T15:47:56.696Z",
+  "nom": "Radis Boum - Athmos",
+  "lu": {
+   "titre": "RADIS BOUM ATHMOS",
+   "dates": [
+    "2026-11-12"
+   ],
+   "artistes": [
+    "CARLI B2B PAULISAAK",
+    "M3GALONYX"
+   ]
+  },
+  "commun": [
+   "radis",
+   "boum",
+   "athmos"
+  ]
+ },
+ "v2|a186b866150a": {
+  "ok": true,
+  "le": "2026-11-10T15:48:01.828Z",
+  "nom": "Zone6 - Guerta et Sheldon",
+  "lu": {
+   "titre": "ZONE6",
+   "dates": [
+    "2026-11-12"
+   ],
+   "artistes": [
+    "GUERTA",
+    "SHELDON"
+   ]
+  },
+  "commun": [
+   "zone6",
+   "guerta",
+   "sheldon",
+   "6mic"
+  ]
+ },
+ "v2|b386b1cae65e": {
+  "ok": true,
+  "le": "2026-11-10T15:48:05.910Z",
+  "nom": "Projet X - Very Bad Night",
+  "lu": {
+   "titre": "PROJET X VERY BAD NIGHT",
+   "dates": [
+    "2026-11-12"
+   ],
+   "artistes": []
+  },
+  "commun": [
+   "projet",
+   "very",
+   "levrette",
+   "cafe"
+  ]
+ },
+ "v2|df5e4540b90b": {
+  "ok": false,
+  "le": "2026-11-10T15:48:11.095Z",
+  "nom": "RA25: Paris : Joe Claussell b2b Ron Trent - Open to close",
+  "lu": {
+   "titre": "MOTUS",
+   "dates": [
+    "2026-11-06"
+   ],
+   "artistes": [
+    "ADB",
+    "ANDREATY",
+    "COV'",
+    "E.T",
+    "HIBI",
+    "INS"
+   ]
+  },
+  "commun": []
+ },
+ "v2|8029ba3ae7d1": {
+  "ok": true,
+  "le": "2026-11-10T15:48:17.675Z",
+  "nom": "Friday The 13th (Aix'Qui?)",
+  "lu": {
+   "titre": "",
+   "dates": [
+    "2026-11-13"
+   ],
+   "artistes": [
+    "Tortured Sacrement",
+    "Mezcal Wizard",
+    "Moriibund"
+   ]
+  },
+  "commun": [
+   "arcades"
+  ]
+ },
+ "v2|57afd591c9ea": {
+  "ok": true,
+  "le": "2026-11-10T15:48:23.013Z",
+  "nom": "So La Lune",
+  "lu": {
+   "titre": "OFFSHORE TOUR",
+   "dates": [],
+   "artistes": [
+    "SO LA LUNE"
+   ]
+  },
+  "commun": [
+   "lune"
+  ]
+ },
+ "v2|88d1efebce55": {
+  "ok": true,
+  "le": "2026-11-10T15:48:30.032Z",
+  "nom": "Fox In Dub Au Barex'",
+  "lu": {
+   "titre": "FOX IN DUB",
+   "dates": [
+    "2026-11-13"
+   ],
+   "artistes": [
+    "FOX IN DUB"
+   ]
+  },
+  "commun": [
+   "barex"
+  ]
+ },
+ "v2|4558d009aceb": {
+  "ok": false,
+  "le": "2026-11-10T15:48:35.215Z",
+  "nom": "NAME Festival : Local Suicide, APM001, Blac",
+  "lu": {
+   "titre": "FEEL SO GOOD AROUND U",
+   "dates": [
+    "2026-02-12"
+   ],
+   "artistes": [
+    "LB AKA LABAT",
+    "LAZE"
+   ]
+  },
+  "commun": []
+ },
+ "v2|1ec34a40475c": {
+  "ok": true,
+  "le": "2026-11-10T15:48:42.309Z",
+  "nom": "Paon X La Bastide De Paula",
+  "lu": {
+   "titre": "PAON",
+   "dates": [
+    "2026-11-13"
+   ],
+   "artistes": []
+  },
+  "commun": [
+   "paon",
+   "bastide",
+   "paula"
+  ]
+ },
+ "v2|16689aa0fa4e": {
+  "ok": true,
+  "le": "2026-11-10T15:48:48.675Z",
+  "nom": "Radio La Fièvre 13.11 Fm",
+  "lu": {
+   "titre": "RADIO LAFIEVRE",
+   "dates": [
+    "2026-11-13"
+   ],
+   "artistes": [
+    "TSUNAMY",
+    "EMJEE",
+    "KEMJANI",
+    "GUIGZ"
+   ]
+  },
+  "commun": [
+   "radio",
+   "austra",
+   "rocks"
+  ]
+ },
+ "v2|602383eeda77": {
+  "ok": true,
+  "le": "2026-11-10T15:49:05.812Z",
+  "nom": "Rslce : Caravel, Junkie Kid, Uphoria & More",
+  "lu": {
+   "titre": "RSCE",
+   "dates": [
+    "2026-11-13"
+   ],
+   "artistes": [
+    "CARAVEL",
+    "JUNKIE KID",
+    "UPHORIA",
+    "LOLYTHA HERMOS",
+    "MAY-LI"
+   ]
+  },
+  "commun": [
+   "caravel",
+   "junkie",
+   "uphoria",
+   "petit",
+   "salon"
+  ]
+ },
+ "v2|88db5ece986a": {
+  "ok": true,
+  "le": "2026-11-10T15:49:12.875Z",
+  "nom": "La Polynesian Night 2026",
+  "lu": {
+   "titre": "POLYNESIAN NIGHT",
+   "dates": [
+    "2026-11-13"
+   ],
+   "artistes": [
+    "JMT MUSIC",
+    "HITSS"
+   ]
+  },
+  "commun": [
+   "polynesian",
+   "seven"
+  ]
+ },
+ "v2|776008b248bb": {
+  "ok": true,
+  "le": "2026-11-10T15:49:17.211Z",
+  "nom": "tribalism - Quelza - all night long",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": []
+  },
+  "commun": []
+ },
+ "v2|c9c216e1e12f": {
+  "ok": false,
+  "le": "2026-11-10T15:49:28.434Z",
+  "nom": "HORS-SOL (Domi, Mel, Unai Trotti)",
+  "lu": {
+   "titre": "horssol.",
+   "dates": [
+    "2023-11-24"
+   ],
+   "artistes": [
+    "Domi",
+    "Mel",
+    "Unai Trotti"
+   ]
+  },
+  "commun": [
+   "domi",
+   "unai",
+   "trotti",
+   "trabendo"
+  ]
+ },
+ "v2|b954a7b7af63": {
+  "ok": true,
+  "le": "2026-11-10T15:49:31.480Z",
+  "nom": "Pleine Nuit 001 : Jen Cardini + Pablo Bozzi",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": []
+  },
+  "commun": []
+ },
+ "v2|040bf75cf113": {
+  "ok": true,
+  "le": "2026-11-10T15:49:35.516Z",
+  "nom": "Hardcore France & Eskape présentent INVASION",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": []
+  },
+  "commun": []
+ },
+ "v2|6205f0d0cf50": {
+  "ok": true,
+  "le": "2026-11-10T15:49:42.321Z",
+  "nom": "Macadam • Prosumer ~ Sianza B2B L'Étalon Disco",
+  "lu": {
+   "titre": "",
+   "dates": [
+    "2026-11-13"
+   ],
+   "artistes": [
+    "PROSUMER",
+    "SIANZA",
+    "L'ÉTALON DISCO"
+   ]
+  },
+  "commun": [
+   "prosumer",
+   "sianza",
+   "etalon",
+   "disco",
+   "macadam"
+  ]
+ },
+ "v2|1c431f307001": {
+  "ok": false,
+  "le": "2026-11-10T15:49:51.726Z",
+  "nom": "Youthdreams X Tribal Kush",
+  "lu": {
+   "titre": "SUBLIME TOUR",
+   "dates": [
+    "2026-11-05"
+   ],
+   "artistes": [
+    "LUTHER"
+   ]
+  },
+  "commun": []
+ },
+ "v2|bb45625dfa9e": {
+  "ok": true,
+  "le": "2026-11-10T15:49:56.054Z",
+  "nom": "Super8 × Cartel BZH",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": []
+  },
+  "commun": []
+ },
+ "v2|0ba847cc48ab": {
+  "ok": true,
+  "le": "2026-11-10T15:50:01.094Z",
+  "nom": "Dakeez Tour",
+  "lu": {
+   "titre": "DAKEEZ",
+   "dates": [
+    "2026-11-14"
+   ],
+   "artistes": [
+    "DAKEEZ"
+   ]
+  },
+  "commun": [
+   "dakeez"
+  ]
+ },
+ "v2|ca2b32046871": {
+  "ok": true,
+  "le": "2026-11-10T15:50:06.971Z",
+  "nom": "Maman Sort Ce Soir - Cowgirl Party",
+  "lu": {
+   "titre": "Maman sort ce soir - Soirée 100% girls",
+   "dates": [
+    "2026-11-14"
+   ],
+   "artistes": []
+  },
+  "commun": [
+   "maman",
+   "sort",
+   "soir",
+   "terrasses",
+   "festives"
+  ]
+ }
 }
