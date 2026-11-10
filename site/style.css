@@ -1100,3 +1100,32 @@ html.en-route::before{content:"";position:fixed;inset:0 auto auto 0;height:3px;w
   .nav-villes>div{position:absolute;top:calc(100% + 8px);inset-inline-start:0;z-index:30;min-width:230px;display:flex;flex-direction:column;gap:2px;padding:8px;border-radius:18px;background:#14141a;border:1px solid #ffffff1f;box-shadow:0 24px 60px -20px #000;animation:apparait .18s var(--doux) both}
   .nav-villes>div a{border-radius:12px;padding:10px 12px}
 }
+/* Statut d'ouverture des lieux (page Ce soir, Clubs & bars) */
+.lieu-statut{display:inline-flex;align-items:center;gap:8px;margin:0;padding:6px 12px;border-radius:999px;font-size:13px;font-weight:800;width:fit-content}
+.lieu-statut::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor}
+.lieu-statut.ouvert{background:#3ce08a22;color:#8ff0bd}
+.lieu-statut.ouvert::before{box-shadow:0 0 0 0 #3ce08a;animation:pulse-ouvert 2s infinite}
+.lieu-statut.soiree{background:#ff5a3c26;color:#ffb4a6}
+.lieu-statut.bientot{background:#ffc94d22;color:#ffd98a}
+.lieu-statut.ferme{background:#ffffff0d;color:#a39e95}
+.lieu-statut.inconnu{background:#ffffff0d;color:#b8b2a8}
+.lieu-statut.inconnu::before{background:transparent;border:1.5px solid currentColor;width:6px;height:6px}
+@keyframes pulse-ouvert{0%{box-shadow:0 0 0 0 #3ce08a99}70%{box-shadow:0 0 0 7px #3ce08a00}100%{box-shadow:0 0 0 0 #3ce08a00}}
+@media(prefers-reduced-motion:reduce){.lieu-statut.ouvert::before{animation:none}}
+.compte-ce-soir{font-size:.45em;opacity:.7;font-family:inherit;letter-spacing:0;vertical-align:middle}
+.filtre-villes .puce{font:inherit;font-weight:700;cursor:pointer;border:0}
+.filtre-villes .puce.actif{background:var(--creme);color:var(--nuit)}
+.fiche-lieu.hors-ville{display:none}
+@media(min-width:1100px) and (max-width:1279px){.nav{gap:2px}.nav a,.nav-villes summary{padding:6px 9px}}
+/* Page d'un lieu */
+.fiche-lieu.lieu-entete{background:none;border:0;overflow:visible;transform:none!important;padding:8px 0 0}
+.lieu-tete{display:flex;gap:22px;align-items:center}
+.lieu-logo{width:120px;height:120px;border-radius:50%;object-fit:cover;flex:none;box-shadow:0 0 0 3px #ffffff1a,0 20px 40px -18px #000}
+.lieu-tete h1{font-size:clamp(40px,7vw,76px);line-height:.95;margin:6px 0 10px}
+.lieu-tete .chapo{max-width:62ch;font-size:18px;opacity:.9;margin:12px 0 0}
+.lieu-grille{max-width:1240px;margin:36px auto 0;padding:0 16px;display:grid;gap:28px}
+@media(min-width:980px){.lieu-grille{grid-template-columns:minmax(0,380px) 1fr;align-items:start}.lieu-grille>.lieu-bloc:first-child{position:sticky;top:120px}}
+.lieu-bloc h2{font-size:clamp(28px,4vw,40px);margin-bottom:14px}
+.lieu-bloc .grille{grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
+.lieu-adresse{opacity:.85;margin-top:10px}
+@media(max-width:600px){.lieu-tete{flex-direction:column;align-items:flex-start}.lieu-logo{width:92px;height:92px}}

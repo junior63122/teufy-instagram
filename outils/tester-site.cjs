@@ -17,7 +17,7 @@ const ok = (cond, msg) => { if (!cond) echecs.push(msg); return !!cond; };
 const premiereSoiree = fs.readdirSync(path.join(ROOT, 'soiree'))[0];
 const soireePromo = fs.readdirSync(path.join(ROOT, 'soiree')).find((d) => /frigo|ref-session/.test(d)) || premiereSoiree;
 const PAGES = ['', 'en/', 'ar/', 'zh/', 'soirees-nice/', 'soirees-cannes/', 'soirees-monaco/', 'soirees-antibes/', 'soirees-shatta/', 'soirees-techno/', `soiree/${premiereSoiree}/`, `ar/soiree/${premiereSoiree}/`,
-  'festivals/', 'clubs-bars/', 'france/', 'actus/', 'partenaires/', 'ambassadeurs/', 'bde/', 'dates/', 'restaurants/', 'activites/', 'a-propos/', 'faq/', 'occitanie/', 'mentions-legales/', 'cgu/', 'cgv/', 'confidentialite/', 'existe-pas/'];
+  'festivals/', 'clubs-bars/', 'france/', 'actus/', 'partenaires/', 'ambassadeurs/', 'bde/', 'dates/', 'restaurants/', 'activites/', 'a-propos/', 'faq/', 'occitanie/', 'ce-soir/', 'clubs-bars/high-club-nice/', 'soirees-toulon/', 'mentions-legales/', 'cgu/', 'cgv/', 'confidentialite/', 'existe-pas/'];
 const APPAREILS = { mobile: devices['iPhone 13'], tablette: devices['iPad Mini'], ordi: { viewport: { width: 1440, height: 900 } }, grand: { viewport: { width: 1920, height: 1080 } } };
 
 // Défilement : molette sur ordinateur, défilement de page sur mobile (WebKit mobile n'a pas de molette).

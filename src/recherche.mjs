@@ -103,6 +103,12 @@ export async function rechercherSoirees({ config, now = new Date(), ig = null, a
     'la presse et les médias locaux (Nice-Matin, Monaco-Matin, Nice Premium, Côte d\'Azur Dream, sortir à Nice) : agenda des soirées et nouveautés',
     'les soirées, clubs, bars et concerts du Var ouest : Toulon, La Seyne-sur-Mer, Hyères, Six-Fours, Sanary, Bandol, La Ciotat (clubs, bars de nuit, soirées étudiantes, Var Matin, billetteries)',
     'les soirées, clubs, beach clubs et festivals du Var est : Fréjus, Saint-Raphaël, Sainte-Maxime, Saint-Tropez, Ramatuelle, Draguignan, Puget et Roquebrune-sur-Argens',
+    // Sources ajoutées le 10/11 : agendas ouverts, concerts, Monaco, billetteries secondaires, organisateurs.
+    'OpenAgenda (openagenda.com) et les agendas municipaux qui l\'utilisent (Nice, Antibes, Cannes, Fréjus, Toulon, Hyères) : soirées, concerts, DJ sets, fêtes',
+    'les agendas de concerts et de DJ : Allevents (allevents.in), Songkick, Bandsintown et Infoconcert, pour Nice, Cannes, Monaco, Antibes, Fréjus et Toulon',
+    'Monaco : Monte-Carlo Société des Bains de Mer (montecarlosbm.com : Jimmy\'z, Sporting, Twiga, Buddha-Bar, Moods), Grimaldi Forum, Monaco Live Productions, Chapiteau de Fontvieille et visitmonaco.com',
+    'les billetteries Billetréduc, Digitick, Fnac Spectacles, Tickeasy, TicketSwap (soirées en revente) et les liens de billetterie (Linktree, sites) des organisateurs de la Côte d\'Azur et du Var',
+    'les collectifs, associations et organisateurs de soirées électro, techno, house, afro, latino et rap de la Côte d\'Azur et du Var, leurs pages événements et leurs billetteries',
   ];
   const textes = [];
   for (const [i, cible] of PASSES.entries()) {

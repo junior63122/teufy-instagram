@@ -59,7 +59,75 @@
      "https://www.instagram.com/highclubnice/",
      "https://shotgun.live/fr/venues/high-club"
     ]
-   }
+   },
+   "soirs": [
+    [
+     "2026-11-10",
+     "23:50",
+     "le-high-club-invite-le-bal-des-licornes-edition-pink-et-stra-2026-11-10",
+     "Le High Club invite Le Bal des Licornes (Édition Pink & Strass)"
+    ],
+    [
+     "2026-11-13",
+     "23:59",
+     "latin-addict-2026-11-13",
+     "Latin Addict"
+    ],
+    [
+     "2026-11-14",
+     "23:59",
+     "i-m-not-rich-but-i-m-high-2026-11-14",
+     "I'm Not Rich But I'm High"
+    ],
+    [
+     "2026-11-20",
+     "23:59",
+     "students-party-high-club-2026-11-20",
+     "Students Party @ High Club"
+    ],
+    [
+     "2026-11-21",
+     "23:59",
+     "good-times-2026-11-21",
+     "Good Times"
+    ],
+    [
+     "2026-11-27",
+     "23:59",
+     "coachellito-high-club-friends-et-family-edition-2026-11-27",
+     "Coachellito — High Club (Friends & Family Edition)"
+    ],
+    [
+     "2026-11-28",
+     "23:59",
+     "to-have-fun-2026-11-28",
+     "To Have Fun"
+    ],
+    [
+     "2026-12-04",
+     "23:59",
+     "what-s-up-nice-2026-12-04",
+     "What's Up Nice"
+    ],
+    [
+     "2026-12-05",
+     "23:59",
+     "bad-girls-2026-12-05",
+     "Bad Girls"
+    ],
+    [
+     "2026-12-12",
+     "23:59",
+     "take-control-2026-12-12",
+     "Take Control"
+    ],
+    [
+     "2026-12-18",
+     "23:59",
+     "more-than-dream-2026-12-18",
+     "More Than Dream"
+    ]
+   ]
   },
   {
    "nom": "Kwartz Club",
@@ -73,7 +141,8 @@
    "prochaines": [],
    "insta": null,
    "slug": "kwartz-club-nice",
-   "score": 0
+   "score": 0,
+   "soirs": []
   },
   {
    "nom": "Wayne’s Bar",
@@ -108,7 +177,8 @@
      "https://www.instagram.com/waynes_bar/",
      "https://mistergoodbeer.com/"
     ]
-   }
+   },
+   "soirs": []
   },
   {
    "nom": "Movida",
@@ -122,7 +192,8 @@
    "prochaines": [],
    "insta": null,
    "slug": "movida-nice",
-   "score": 0
+   "score": 0,
+   "soirs": []
   },
   {
    "nom": "Bocca Nissa",
@@ -142,7 +213,8 @@
    },
    "slug": "bocca-nissa-nice",
    "score": 0.1111111111111111,
-   "photo": "site/lieux/boccanissa-176.webp"
+   "photo": "site/lieux/boccanissa-176.webp",
+   "soirs": []
   },
   {
    "nom": "Le Boston Cocktail Bar",
@@ -156,7 +228,8 @@
    "prochaines": [],
    "insta": null,
    "slug": "le-boston-cocktail-bar-nice",
-   "score": 0
+   "score": 0,
+   "soirs": []
   },
   {
    "nom": "Plage Beau Rivage",
@@ -172,7 +245,8 @@
    "prochaines": [],
    "insta": null,
    "slug": "plage-beau-rivage-nice",
-   "score": 0
+   "score": 0,
+   "soirs": []
   },
   {
    "nom": "Achill’s",
@@ -187,7 +261,8 @@
    "insta": null,
    "slug": "achill-s-villefranche-sur-mer",
    "score": 0,
-   "photo": "site/lieux/site-0c046bf06fa0-176.webp"
+   "photo": "site/lieux/site-0c046bf06fa0-176.webp",
+   "soirs": []
   },
   {
    "nom": "DRY Restaurant & Cocktail Bar",
@@ -201,7 +276,8 @@
    "prochaines": [],
    "insta": null,
    "slug": "dry-restaurant-et-cocktail-bar-villefranche-sur-mer",
-   "score": 0
+   "score": 0,
+   "soirs": []
   },
   {
    "nom": "Les Bains Déli Bo",
@@ -215,7 +291,8 @@
    "prochaines": [],
    "insta": null,
    "slug": "les-bains-deli-bo-villefranche-sur-mer",
-   "score": 0
+   "score": 0,
+   "soirs": []
   },
   {
    "nom": "Le QG Port Saint-Laurent",
@@ -230,7 +307,8 @@
    "insta": null,
    "slug": "le-qg-port-saint-laurent-saint-laurent-du-var",
    "score": 0,
-   "photo": "site/lieux/site-20fc6e1d71ad-176.webp"
+   "photo": "site/lieux/site-20fc6e1d71ad-176.webp",
+   "soirs": []
   },
   {
    "nom": "Tree Bô",
@@ -244,7 +322,8 @@
    "prochaines": [],
    "insta": null,
    "slug": "tree-bo-saint-laurent-du-var",
-   "score": 0
+   "score": 0,
+   "soirs": []
   },
   {
    "nom": "Quai Ouest Pub",
@@ -259,7 +338,8 @@
    "insta": null,
    "slug": "quai-ouest-pub-saint-laurent-du-var",
    "score": 0,
-   "photo": "site/lieux/site-2a95cd0f0c37-176.webp"
+   "photo": "site/lieux/site-2a95cd0f0c37-176.webp",
+   "soirs": []
   },
   {
    "nom": "People by L'Atoll",
@@ -273,7 +353,8 @@
    "prochaines": [],
    "insta": null,
    "slug": "people-by-l-atoll-saint-laurent-du-var",
-   "score": 0
+   "score": 0,
+   "soirs": []
   },
   {
    "nom": "Au Bureau (Polygone Riviera)",
@@ -287,7 +368,8 @@
    "prochaines": [],
    "insta": null,
    "slug": "au-bureau-polygone-riviera-cagnes-sur-mer",
-   "score": 0
+   "score": 0,
+   "soirs": []
   },
   {
    "nom": "Le Carré Bleu",
@@ -301,7 +383,8 @@
    "prochaines": [],
    "insta": null,
    "slug": "le-carre-bleu-cagnes-sur-mer",
-   "score": 0
+   "score": 0,
+   "soirs": []
   },
   {
    "nom": "Le Cigalon Plage",
@@ -315,7 +398,8 @@
    "prochaines": [],
    "insta": null,
    "slug": "le-cigalon-plage-cagnes-sur-mer",
-   "score": 0
+   "score": 0,
+   "soirs": []
   },
   {
    "nom": "Bisous Bisous",
@@ -329,7 +413,8 @@
    "prochaines": [],
    "insta": null,
    "slug": "bisous-bisous-cannes",
-   "score": 0
+   "score": 0,
+   "soirs": []
   },
   {
    "nom": "Glass Club Cannes",
@@ -368,7 +453,69 @@
    "insta": null,
    "slug": "glass-club-cannes-cannes",
    "score": 0,
-   "photo": "site/lieux/site-ac23a09caae7-176.webp"
+   "photo": "site/lieux/site-ac23a09caae7-176.webp",
+   "soirs": [
+    [
+     "2026-11-12",
+     "23:59",
+     "thursday-session-w-alex-duff-2026-11-12",
+     "Thursday Session w/ Alex Duff"
+    ],
+    [
+     "2026-11-13",
+     "23:59",
+     "friday-connection-chris-a-b2b-ugo-puccinelli-2026-11-13",
+     "Friday Connection — Chris.A B2b Ugo Puccinelli"
+    ],
+    [
+     "2026-11-14",
+     "23:59",
+     "lizzie-et-friends-saturday-house-session-2026-11-14",
+     "Lizzie & Friends — Saturday House Session"
+    ],
+    [
+     "2026-11-19",
+     "23:59",
+     "alex-duff-into-the-night-2026-11-19",
+     "Alex Duff Into The Night"
+    ],
+    [
+     "2026-11-20",
+     "23:59",
+     "axel-birthday-one-night-only-2026-11-20",
+     "Axel' Birthday One Night Only"
+    ],
+    [
+     "2026-11-21",
+     "23:59",
+     "sensoria-into-the-frequency-w-nico-v-2026-11-21",
+     "Sensoria — Into The Frequency w/ Nico.V"
+    ],
+    [
+     "2026-11-26",
+     "23:59",
+     "kx-dj-not-so-innocent-2026-11-26",
+     "Kx Dj / Not So Innocent"
+    ],
+    [
+     "2026-11-27",
+     "23:59",
+     "ugo-puccinelli-pretty-little-sins-2026-11-27",
+     "Ugo Puccinelli / Pretty Little Sins"
+    ],
+    [
+     "2026-11-28",
+     "23:59",
+     "alex-duff-overdrive-2026-11-28",
+     "Alex Duff / Overdrive"
+    ],
+    [
+     "2026-12-21",
+     "23:00",
+     "santa-s-house-party-sud-spicious-x-glass-club-2026-12-21",
+     "Santa's House Party — Sud'Spicious X Glass Club"
+    ]
+   ]
   },
   {
    "nom": "Morrison's Irish Pub & Morrison's Lounge",
@@ -382,7 +529,8 @@
    "prochaines": [],
    "insta": null,
    "slug": "morrison-s-irish-pub-et-morrison-s-lounge-cannes",
-   "score": 0
+   "score": 0,
+   "soirs": []
   },
   {
    "nom": "Charly’s Bar",
@@ -396,7 +544,8 @@
    "prochaines": [],
    "insta": null,
    "slug": "charly-s-bar-cannes",
-   "score": 0
+   "score": 0,
+   "soirs": []
   },
   {
    "nom": "Marea Cannes (Canopy by Hilton)",
@@ -410,7 +559,8 @@
    "prochaines": [],
    "insta": null,
    "slug": "marea-cannes-canopy-by-hilton-cannes",
-   "score": 0
+   "score": 0,
+   "soirs": []
   },
   {
    "nom": "La Môme Plage",
@@ -445,7 +595,8 @@
      "https://www.cannes-france.com",
      "https://www.alotea.com"
     ]
-   }
+   },
+   "soirs": []
   },
   {
    "nom": "Le Village",
@@ -459,7 +610,8 @@
    "prochaines": [],
    "insta": null,
    "slug": "le-village-juan-les-pins",
-   "score": 0
+   "score": 0,
+   "soirs": []
   },
   {
    "nom": "Honey Club",
@@ -485,7 +637,21 @@
    ],
    "insta": null,
    "slug": "honey-club-juan-les-pins",
-   "score": 0
+   "score": 0,
+   "soirs": [
+    [
+     "2026-11-13",
+     "00:00",
+     "honey-club-saturday-bee-crazy-2026-11-13",
+     "Honey Club - Saturday Bee Crazy"
+    ],
+    [
+     "2026-11-14",
+     "23:59",
+     "honey-club-saturday-bee-crazy-2026-11-14",
+     "Honey Club - Saturday Bee Crazy"
+    ]
+   ]
   },
   {
    "nom": "Le Pam Pam",
@@ -499,7 +665,8 @@
    "prochaines": [],
    "insta": null,
    "slug": "le-pam-pam-juan-les-pins",
-   "score": 0
+   "score": 0,
+   "soirs": []
   },
   {
    "nom": "The Hop Store",
@@ -513,7 +680,8 @@
    "prochaines": [],
    "insta": null,
    "slug": "the-hop-store-antibes",
-   "score": 0
+   "score": 0,
+   "soirs": []
   },
   {
    "nom": "The Drinkers Club",
@@ -527,7 +695,8 @@
    "prochaines": [],
    "insta": null,
    "slug": "the-drinkers-club-antibes",
-   "score": 0
+   "score": 0,
+   "soirs": []
   },
   {
    "nom": "Absinthe Bar",
@@ -547,7 +716,8 @@
    },
    "slug": "absinthe-bar-antibes",
    "score": 0,
-   "photo": "site/lieux/absinthebarantibes-176.webp"
+   "photo": "site/lieux/absinthebarantibes-176.webp",
+   "soirs": []
   },
   {
    "nom": "O'Sullivans By The Beach",
@@ -567,7 +737,8 @@
    },
    "slug": "o-sullivans-by-the-beach-mandelieu-la-napoule",
    "score": 0.8703703703703703,
-   "photo": "site/lieux/osullivans_mandelieu-176.webp"
+   "photo": "site/lieux/osullivans_mandelieu-176.webp",
+   "soirs": []
   },
   {
    "nom": "Jimbaran Plage",
@@ -587,7 +758,8 @@
    },
    "slug": "jimbaran-plage-golfe-juan",
    "score": 0.2962962962962963,
-   "photo": "site/lieux/jimbaran.plage-176.webp"
+   "photo": "site/lieux/jimbaran.plage-176.webp",
+   "soirs": []
   },
   {
    "nom": "Le Petit Bellevue (La Maison Bellevue)",
@@ -607,7 +779,8 @@
    },
    "slug": "le-petit-bellevue-la-maison-bellevue-le-cannet",
    "score": 0.7592592592592593,
-   "photo": "site/lieux/lamaisonbellevue-176.webp"
+   "photo": "site/lieux/lamaisonbellevue-176.webp",
+   "soirs": []
   },
   {
    "nom": "Jimmy’z Monte-Carlo",
@@ -642,7 +815,8 @@
      "https://www.visitmonaco.com/fr/lieu/bars-boites/188165/jimmy-z-monte-carlo",
      "https://monacopratique.com"
     ]
-   }
+   },
+   "soirs": []
   },
   {
    "nom": "MK Club Monaco",
@@ -656,7 +830,8 @@
    "prochaines": [],
    "insta": null,
    "slug": "mk-club-monaco-monaco",
-   "score": 0
+   "score": 0,
+   "soirs": []
   },
   {
    "nom": "Twiga Monte-Carlo",
@@ -703,7 +878,21 @@
      "https://www.myguidenice.com/nightlife/twiga-monte-carlo",
      "https://www.portpalace.com/"
     ]
-   }
+   },
+   "soirs": [
+    [
+     "2026-11-12",
+     "23:30",
+     "ium-francis-key-2026-11-12",
+     "IUM – Francis Key"
+    ],
+    [
+     "2026-11-13",
+     "23:59",
+     "lanonchalance-pres-malive-2026-11-13",
+     "Lanonchalance pres. Malive"
+    ]
+   ]
   },
   {
    "nom": "Sass Café",
@@ -738,7 +927,8 @@
      "https://monacopratique.com",
      "https://avoroyale.com"
     ]
-   }
+   },
+   "soirs": []
   },
   {
    "nom": "La Rascasse",
@@ -772,7 +962,8 @@
      "https://asset.montecarlosbm.com/s3fs-public/media/import/documents/la_rascasse_cocktails_fr-en.pdf",
      "https://www.instagram.com/larascassemc/"
     ]
-   }
+   },
+   "soirs": []
   },
   {
    "nom": "Brasserie de Monaco",
@@ -786,7 +977,8 @@
    "prochaines": [],
    "insta": null,
    "slug": "brasserie-de-monaco-monaco",
-   "score": 0
+   "score": 0,
+   "soirs": []
   },
   {
    "nom": "Slammers",
@@ -806,7 +998,8 @@
    },
    "slug": "slammers-monaco",
    "score": 0,
-   "photo": "site/lieux/slammersmc-176.webp"
+   "photo": "site/lieux/slammersmc-176.webp",
+   "soirs": []
   },
   {
    "nom": "Amazónico Monte-Carlo",
@@ -820,7 +1013,8 @@
    "prochaines": [],
    "insta": null,
    "slug": "amazonico-monte-carlo-monaco",
-   "score": 0
+   "score": 0,
+   "soirs": []
   },
   {
    "nom": "Nikki Beach Monte-Carlo",
@@ -835,7 +1029,8 @@
    "insta": null,
    "slug": "nikki-beach-monte-carlo-monaco",
    "score": 0,
-   "photo": "site/lieux/site-65f904fce2e9-176.webp"
+   "photo": "site/lieux/site-65f904fce2e9-176.webp",
+   "soirs": []
   },
   {
    "nom": "Blue Gin",
@@ -855,7 +1050,8 @@
    },
    "slug": "blue-gin-monaco",
    "score": 0.4444444444444444,
-   "photo": "site/lieux/blueginmonaco-176.webp"
+   "photo": "site/lieux/blueginmonaco-176.webp",
+   "soirs": []
   },
   {
    "nom": "Rooftop Basta Pinsa",
@@ -875,7 +1071,8 @@
    },
    "slug": "rooftop-basta-pinsa-beausoleil",
    "score": 0.48148148148148145,
-   "photo": "site/lieux/bastapinsa-176.webp"
+   "photo": "site/lieux/bastapinsa-176.webp",
+   "soirs": []
   },
   {
    "nom": "Le Corner by 3 Tapas",
@@ -890,7 +1087,8 @@
    "insta": null,
    "slug": "le-corner-by-3-tapas-beausoleil",
    "score": 0,
-   "photo": "site/lieux/site-3cd653e4b8ea-176.webp"
+   "photo": "site/lieux/site-3cd653e4b8ea-176.webp",
+   "soirs": []
   },
   {
    "nom": "Zeits Bar",
@@ -904,7 +1102,8 @@
    "prochaines": [],
    "insta": null,
    "slug": "zeits-bar-beausoleil",
-   "score": 0
+   "score": 0,
+   "soirs": []
   },
   {
    "nom": "Inky Bar",
@@ -924,7 +1123,8 @@
    },
    "slug": "inky-bar-menton",
    "score": 0,
-   "photo": "site/lieux/inkybarmenton-176.webp"
+   "photo": "site/lieux/inkybarmenton-176.webp",
+   "soirs": []
   },
   {
    "nom": "Le New Pub",
@@ -939,7 +1139,8 @@
    "insta": null,
    "slug": "le-new-pub-menton",
    "score": 0,
-   "photo": "site/lieux/site-c8f5f79ed553-176.webp"
+   "photo": "site/lieux/site-c8f5f79ed553-176.webp",
+   "soirs": []
   },
   {
    "nom": "Les Incompris",
@@ -959,7 +1160,8 @@
    },
    "slug": "les-incompris-menton",
    "score": 0,
-   "photo": "site/lieux/lesincompris_menton-176.webp"
+   "photo": "site/lieux/lesincompris_menton-176.webp",
+   "soirs": []
   },
   {
    "nom": "Rhumerie Ferdinand",
@@ -973,7 +1175,8 @@
    "prochaines": [],
    "insta": null,
    "slug": "rhumerie-ferdinand-menton",
-   "score": 0
+   "score": 0,
+   "soirs": []
   },
   {
    "nom": "Le Rooftop (Hôtel Méditerranée)",
@@ -987,7 +1190,8 @@
    "prochaines": [],
    "insta": null,
    "slug": "le-rooftop-hotel-mediterranee-menton",
-   "score": 0
+   "score": 0,
+   "soirs": []
   },
   {
    "nom": "Boka Club del Magot",
@@ -1020,7 +1224,39 @@
    ],
    "insta": null,
    "slug": "boka-club-del-magot-toulon",
-   "score": 0
+   "score": 0,
+   "soirs": [
+    [
+     "2026-11-10",
+     "23:59",
+     "la-jamaicaine-2026-11-10",
+     "La Jamaïcaine"
+    ],
+    [
+     "2026-11-11",
+     "00:00",
+     "soweto-l-esprit-100-shatta-2026-11-11",
+     "Soweto L'Esprit - 100% Shatta"
+    ],
+    [
+     "2026-11-14",
+     "23:30",
+     "urban-shatta-2026-11-14",
+     "Urban Shatta"
+    ],
+    [
+     "2026-11-21",
+     "19:30",
+     "before-pacific-neon-night-2026-11-21",
+     "Before Pacific Neon Night"
+    ],
+    [
+     "2026-11-28",
+     "23:45",
+     "zouk-love-toulon-edition-chic-2026-11-28",
+     "Zouk Love Toulon Edition Chic"
+    ]
+   ]
   },
   {
    "nom": "Le Boy's Paradise",
@@ -1034,7 +1270,8 @@
    "prochaines": [],
    "insta": null,
    "slug": "le-boy-s-paradise-toulon",
-   "score": 0
+   "score": 0,
+   "soirs": []
   },
   {
    "nom": "Le Barathym",
@@ -1062,7 +1299,21 @@
    ],
    "insta": null,
    "slug": "le-barathym-toulon",
-   "score": 0
+   "score": 0,
+   "soirs": [
+    [
+     "2026-11-10",
+     "22:00",
+     "di-liani-dj-set-2026-11-10",
+     "Di Liani DJ Set"
+    ],
+    [
+     "2026-11-14",
+     "22:00",
+     "yann-s-dj-set-2026-11-14",
+     "Yann-S DJ Set"
+    ]
+   ]
   },
   {
    "nom": "Le Spot Mourillon",
@@ -1076,7 +1327,8 @@
    "prochaines": [],
    "insta": null,
    "slug": "le-spot-mourillon-toulon",
-   "score": 0
+   "score": 0,
+   "soirs": []
   },
   {
    "nom": "Jeanne Cocktail Club",
@@ -1090,7 +1342,8 @@
    "prochaines": [],
    "insta": null,
    "slug": "jeanne-cocktail-club-toulon",
-   "score": 0
+   "score": 0,
+   "soirs": []
   },
   {
    "nom": "Le Rooftop du Grand Hôtel Dauphiné",
@@ -1105,7 +1358,8 @@
    "insta": null,
    "slug": "le-rooftop-du-grand-hotel-dauphine-toulon",
    "score": 0,
-   "photo": "site/lieux/site-d9be271c83b0-176.webp"
+   "photo": "site/lieux/site-d9be271c83b0-176.webp",
+   "soirs": []
   },
   {
    "nom": "No Stresss Discothèque",
@@ -1120,7 +1374,8 @@
    "insta": null,
    "slug": "no-stresss-discotheque-la-seyne-sur-mer",
    "score": 0,
-   "photo": "site/lieux/site-cbc0bedf1201-176.webp"
+   "photo": "site/lieux/site-cbc0bedf1201-176.webp",
+   "soirs": []
   },
   {
    "nom": "La Javanaise",
@@ -1134,7 +1389,8 @@
    "prochaines": [],
    "insta": null,
    "slug": "la-javanaise-la-seyne-sur-mer",
-   "score": 0
+   "score": 0,
+   "soirs": []
   },
   {
    "nom": "Madame aMore",
@@ -1149,7 +1405,8 @@
    "insta": null,
    "slug": "madame-amore-hyeres",
    "score": 0,
-   "photo": "site/lieux/site-9050ee7893a3-176.webp"
+   "photo": "site/lieux/site-9050ee7893a3-176.webp",
+   "soirs": []
   },
   {
    "nom": "Le Petit Bain",
@@ -1164,7 +1421,8 @@
    "insta": null,
    "slug": "le-petit-bain-hyeres",
    "score": 0,
-   "photo": "site/lieux/site-931d00696249-176.webp"
+   "photo": "site/lieux/site-931d00696249-176.webp",
+   "soirs": []
   },
   {
    "nom": "Le Sax",
@@ -1179,7 +1437,8 @@
    "insta": null,
    "slug": "le-sax-hyeres",
    "score": 0,
-   "photo": "site/lieux/site-a85f0832334c-176.webp"
+   "photo": "site/lieux/site-a85f0832334c-176.webp",
+   "soirs": []
   },
   {
    "nom": "K27",
@@ -1194,7 +1453,8 @@
    "insta": null,
    "slug": "k27-six-fours-les-plages",
    "score": 0,
-   "photo": "site/lieux/site-c21eac0441ed-176.webp"
+   "photo": "site/lieux/site-c21eac0441ed-176.webp",
+   "soirs": []
   },
   {
    "nom": "L'Eden Bar",
@@ -1208,7 +1468,8 @@
    "prochaines": [],
    "insta": null,
    "slug": "l-eden-bar-six-fours-les-plages",
-   "score": 0
+   "score": 0,
+   "soirs": []
   },
   {
    "nom": "Le Bard'Ô",
@@ -1223,7 +1484,8 @@
    "insta": null,
    "slug": "le-bard-o-sanary-sur-mer",
    "score": 0,
-   "photo": "site/lieux/site-d8ff44097013-176.webp"
+   "photo": "site/lieux/site-d8ff44097013-176.webp",
+   "soirs": []
   },
   {
    "nom": "Ô Petit Monde",
@@ -1237,7 +1499,8 @@
    "prochaines": [],
    "insta": null,
    "slug": "o-petit-monde-sanary-sur-mer",
-   "score": 0
+   "score": 0,
+   "soirs": []
   },
   {
    "nom": "Sam's Klub",
@@ -1252,7 +1515,8 @@
    "insta": null,
    "slug": "sam-s-klub-bandol",
    "score": 0,
-   "photo": "site/lieux/site-a130f46f373c-176.webp"
+   "photo": "site/lieux/site-a130f46f373c-176.webp",
+   "soirs": []
   },
   {
    "nom": "Le Spot (Hôtel Plein Large)",
@@ -1266,7 +1530,8 @@
    "prochaines": [],
    "insta": null,
    "slug": "le-spot-hotel-plein-large-bandol",
-   "score": 0
+   "score": 0,
+   "soirs": []
   },
   {
    "nom": "Poupoune Bandol",
@@ -1280,7 +1545,8 @@
    "prochaines": [],
    "insta": null,
    "slug": "poupoune-bandol-bandol",
-   "score": 0
+   "score": 0,
+   "soirs": []
   }
  ],
  "insta": {
