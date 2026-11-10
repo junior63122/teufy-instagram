@@ -240,5 +240,16 @@
   "resume": "Une analyse du secteur musical met en garde contre l'évolution tarifaire des festivals pour la saison 2027, marquée par l'explosion des préventes à l'aveugle et des écarts de prix accrus. Les bourses officielles de revente numérique se généralisent pour limiter la spéculation sur les pass.",
   "source": "https://www.music-styles-list.com",
   "importance": 52
+ },
+ {
+  "id": "idee-e3u642",
+  "ajout": "2026-11-10T18:11:55.950Z",
+  "type": "actu",
+  "format": "carrousel-decryptage",
+  "titre": "Prise en charge des abonnements de transport portée jusqu'à 75 %",
+  "angle": "Moins d'argent dépensé dans les trajets en train ou en bus du quotidien, c'est plus de budget préservé pour les sorties.",
+  "resume": "Dans les arbitrages budgétaires, la mesure permettant aux employeurs de prendre en charge jusqu'à 75 % des abonnements de transports en commun a été confirmée. Ce dispositif allège directement les dépenses mensuelles de mobilité des jeunes salariés, alternants et stagiaires.",
+  "source": "https://www.sortiraparis.com",
+  "importance": 58
  }
 ]
