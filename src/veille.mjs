@@ -119,7 +119,7 @@ export async function veiller({ config, now = new Date(), ig = null, api = {}, i
   if (attendre > 0 && !posts.length) { log(`Veille : prochaine recherche web dans ${Math.ceil(attendre / 60e3)} min (budget).`); return { sujets: [], apublier: null, idees: [] }; }
   if (attendre <= 0) vus._derniere_recherche = now.toISOString();
   const web = attendre > 0 ? '' : await ia.rechercher({
-    config, gratuit: true,
+    config, gratuit: true, secondaire: true,
     system: `Tu fais la veille d'un média Instagram. ${CIBLE} Tu ne rapportes que des faits publiés, datés et sourcés.`,
     prompt: `Nous sommes le ${now.toISOString()} (heure de Paris : ${heureParis}h). Cherche ce qui a été annoncé ou publié dans les dernières ${V.fenetre_heures ?? 36} heures :
 1. Annonces de la Côte d'Azur et alentours : nouvelle édition ou date d'un festival, line-up, tête d'affiche, ouverture, réouverture ou fermeture d'un club ou d'un lieu, soirée inédite, billetterie qui ouvre, événement annulé.
@@ -131,7 +131,7 @@ Pour chaque point : titre, date et heure de publication, URL de la source la plu
   let d;
   try {
     d = await ia.json({
-      config, gratuit: true, nom: 'veille', schema: SCHEMA,
+      config, gratuit: true, secondaire: true, nom: 'veille', schema: SCHEMA,
       system: `Tu es rédacteur en chef d'un média Instagram. ${CIBLE} Tu notes l'importance avec exigence : une soirée ordinaire parmi des centaines ne dépasse pas 40. N'invente rien ; sans source officielle datée, source_officielle = false.`,
       prompt: `Signaux de la veille (web) :\n${web || '(aucun)'}\n\nPosts Instagram récents des organisateurs et lieux suivis (sources officielles) :\n${JSON.stringify(posts).slice(0, 40000)}\n\nDéjà traités (ne les reprends pas) :\n${Object.keys(vus).slice(-200).join('\n')}\n\nListe les sujets nouveaux selon le schéma.`,
     });

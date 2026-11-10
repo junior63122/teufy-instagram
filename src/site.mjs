@@ -99,10 +99,10 @@ let CONFIG_LLM = {};
 // « Très demandée » : seulement les soirées les plus attendues (environ 1 sur 8, et buzz ≥ 0,85).
 let SEUIL_DEMANDE = 0.85;
 const tempsOk = () => Date.now() < LIMITE;
-async function gemini(parts, { recherche = false } = {}) {
+async function gemini(parts, { recherche = false, secondaire = false } = {}) {
   const CLE = (process.env.GEMINI_API_KEY || '').trim();
   if (!CLE) return null;
-  if (!LLM.budgetOk('gemini', CONFIG_LLM)) return null; // plafonds de dépense (contenus/budget-ia.json) ou compte à sec
+  if (!LLM.budgetOk('gemini', CONFIG_LLM, secondaire)) return null; // plafonds de dépense (contenus/budget-ia.json) ou compte à sec
   const API = 'https://generativelanguage.googleapis.com/v1beta/models';
   try {
     if (!MODELES) {
@@ -445,9 +445,9 @@ async function lieuxDeNuit({ soirees, partenaires, ig, api, log, now }) {
     for (const l of aFicher) {
       if (!tempsOk()) break;
       const k = slug(`${l.nom}-${l.ville}`);
-      const web = await gemini([{ text: `Recherche les informations pratiques à jour du lieu de sortie « ${l.nom} » (${TYPES_NOMS[l.type] || l.type}) à ${l.ville}${l.adresse ? `, ${l.adresse}` : ''}${l.instagram ? `, Instagram @${l.instagram}` : ''}${l.site ? `, site ${l.site}` : ''}. Utilise uniquement des sources fiables et récentes (site officiel, Instagram officiel, fiche Google, billetterie, presse locale). Donne : les styles de musique joués, le dress code ou la tenue exigée, les jours et heures d'ouverture et de fermeture, le prix moyen d'un verre (bière, cocktail, soft), le prix d'entrée habituel, l'âge minimum, et les URL des sources. Si une information n'est pas trouvée, dis-le.` }], { recherche: true });
+      const web = await gemini([{ text: `Recherche les informations pratiques à jour du lieu de sortie « ${l.nom} » (${TYPES_NOMS[l.type] || l.type}) à ${l.ville}${l.adresse ? `, ${l.adresse}` : ''}${l.instagram ? `, Instagram @${l.instagram}` : ''}${l.site ? `, site ${l.site}` : ''}. Utilise uniquement des sources fiables et récentes (site officiel, Instagram officiel, fiche Google, billetterie, presse locale). Donne : les styles de musique joués, le dress code ou la tenue exigée, les jours et heures d'ouverture et de fermeture, le prix moyen d'un verre (bière, cocktail, soft), le prix d'entrée habituel, l'âge minimum, et les URL des sources. Si une information n'est pas trouvée, dis-le.` }], { recherche: true, secondaire: true });
       if (!web) continue;
-      const r = await gemini([{ text: `Informations :\n${web}\n\nRéponds en JSON {"styles":string,"dress_code":string,"horaires":string,"prix_verre":string,"entree":string,"age_min":string,"sources":[string]}. Règles : N'INVENTE RIEN, chaîne vide si l'information n'est pas clairement donnée par une source. Phrases courtes en français. styles : 2 à 4 genres séparés par « · ». horaires : jours et heures d'ouverture actuels, au format « Jeu–Sam · 23h–5h » (plusieurs plages séparées par « · », ex. « Mar–Jeu 18h–2h · Ven–Sam 18h–4h » ; « Lun–Dim » si ouvert tous les jours ; ajoute « (en saison) » si c'est seulement l'été). prix_verre : fourchette, ex. « bière 7 € · cocktail 13–16 € ». entree : ex. « gratuit avant 1h, 15 € ensuite ». age_min : ex. « 18 ans ». sources : URL réellement utilisées.` }]);
+      const r = await gemini([{ text: `Informations :\n${web}\n\nRéponds en JSON {"styles":string,"dress_code":string,"horaires":string,"prix_verre":string,"entree":string,"age_min":string,"sources":[string]}. Règles : N'INVENTE RIEN, chaîne vide si l'information n'est pas clairement donnée par une source. Phrases courtes en français. styles : 2 à 4 genres séparés par « · ». horaires : jours et heures d'ouverture actuels, au format « Jeu–Sam · 23h–5h » (plusieurs plages séparées par « · », ex. « Mar–Jeu 18h–2h · Ven–Sam 18h–4h » ; « Lun–Dim » si ouvert tous les jours ; ajoute « (en saison) » si c'est seulement l'été). prix_verre : fourchette, ex. « bière 7 € · cocktail 13–16 € ». entree : ex. « gratuit avant 1h, 15 € ensuite ». age_min : ex. « 18 ans ». sources : URL réellement utilisées.` }], { secondaire: true });
       const ok = r && typeof r === 'object' && Array.isArray(r.sources) && r.sources.some((u) => /^https?:\/\//.test(u));
       details[k] = ok ? { le: now.toISOString(), styles: r.styles || '', dress_code: r.dress_code || '', horaires: r.horaires || '', prix_verre: r.prix_verre || '', entree: r.entree || '', age_min: r.age_min || '', sources: r.sources.filter((u) => /^https?:\/\//.test(u)).slice(0, 4) } : { le: now.toISOString(), vide: true };
     }

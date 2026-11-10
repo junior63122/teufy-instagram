@@ -27,7 +27,9 @@ function lireBudget() {
 // IA dont le compte est à sec (HTTP 402 / crédits épuisés) : plus appelée pendant ce passage (évite des centaines d'échecs).
 const aSec = new Set();
 export const marquerASec = (f, err) => { if (err?.status === 402 || /prepayment credits|credit balance is too low|RESOURCE_EXHAUSTED/i.test(String(err?.message || ''))) { if (!aSec.has(f)) console.error(`Budget IA : ${f} sans crédit, plus appelé pendant ce passage.`); aSec.add(f); } };
-export function budgetOk(f, L = {}) {
+// secondaire = tâche qui peut attendre (veille, horaires des lieux) : elle s'arrête à 75 % du budget du jour, pour que
+// les tâches essentielles (soirées du site, publications) gardent toujours de quoi tourner.
+export function budgetOk(f, L = {}, secondaire = false) {
   if (aSec.has(f)) return false;
   if (f === 'github') return true; // gratuit
   const b = lireBudget(), [dj, dm] = PLAFONDS[f] || [Infinity, Infinity];
@@ -35,6 +37,7 @@ export function budgetOk(f, L = {}) {
   if (!okJ || !okM) console.error(`Budget IA : plafond ${okM ? 'du jour' : 'du mois'} atteint pour ${f}, appel évité.`);
   // Plafond en euros (estimation, toutes IA confondues) : config.llm.budget_jour_eur / budget_mois_eur.
   const eJ = b.euros_jour || 0, eM = b.euros_mois || 0;
+  if (secondaire && L.budget_jour_eur != null && eJ >= 0.75 * L.budget_jour_eur) { console.error(`Budget IA : tâche secondaire reportée (≈ ${eJ.toFixed(2)} € dépensés, réserve gardée pour les soirées et les publications).`); return false; }
   const okEJ = L.budget_jour_eur == null || eJ < L.budget_jour_eur, okEM = L.budget_mois_eur == null || eM < L.budget_mois_eur;
   if (!okEJ || !okEM) { if (!budgetOk.dit) console.error(`Budget IA : ${okEM ? `budget du jour atteint (≈ ${eJ.toFixed(2)} € / ${L.budget_jour_eur} €)` : `budget du mois atteint (≈ ${eM.toFixed(2)} € / ${L.budget_mois_eur} €)`} : plus d'appel payant avant ${okEM ? 'demain' : 'le mois prochain'}.`); budgetOk.dit = true; }
   return okJ && okM && okEJ && okEM;
@@ -110,12 +113,12 @@ const texteGemini = (j) => (j.candidates?.[0]?.content?.parts || []).map((p) => 
 
 // --- Recherche web (texte libre, sources citées) ----------------------------------
 
-export async function rechercher({ config, system, prompt, gratuit = false }) {
+export async function rechercher({ config, system, prompt, gratuit = false, secondaire = false }) {
   const L = config.llm || {}; reglerCouts(L);
   // Recherche web : Gemini d'abord (recherche Google native, bien moins chère), Claude en relais s'il est indisponible.
   // Claude Opus reste en premier pour la rédaction (json / textes non « gratuits »). Réglable : llm.recherche_claude_en_premier.
   for (const f of fournisseurs(config, { gratuit: gratuit || L.recherche_claude_en_premier !== true })) {
-    if (!budgetOk(f, L)) continue;
+    if (!budgetOk(f, L, secondaire)) continue;
     try {
       if (f === 'gemini') {
         const j = await postGemini(L, {
@@ -135,10 +138,10 @@ export async function rechercher({ config, system, prompt, gratuit = false }) {
 
 // --- Réponse JSON contrôlée par un schéma -----------------------------------------
 
-export async function json({ config, system, prompt, schema, nom = 'reponse', gratuit = false }) {
+export async function json({ config, system, prompt, schema, nom = 'reponse', gratuit = false, secondaire = false }) {
   const L = config.llm || {}; reglerCouts(L);
   for (const f of fournisseurs(config, { gratuit })) {
-    if (!budgetOk(f, L)) continue;
+    if (!budgetOk(f, L, secondaire)) continue;
     try {
       if (f === 'gemini') {
         const base = { systemInstruction: { parts: [{ text: system }] }, contents: [{ role: 'user', parts: [{ text: prompt }] }] };
