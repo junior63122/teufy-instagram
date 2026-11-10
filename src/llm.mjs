@@ -87,7 +87,12 @@ async function postGemini(L, body) {
   let derniere;
   for (const m of await modelesGemini(L)) {
     try { return await post(`${GEMINI}/${m}:generateContent?key=${process.env.GEMINI_API_KEY.trim()}`, body); }
-    catch (err) { derniere = err; if (err.status !== 404) throw err; geminiRetires.add(m); console.error(`Gemini : ${m} indisponible, modèle suivant.`); }
+    catch (err) {
+      derniere = err; if (err.status !== 404) throw err; geminiRetires.add(m); console.error(`Gemini : ${m} indisponible, modèle suivant.`);
+      // Google indique souvent le remplaçant (« use models/gemini-x-flash ») : on l'essaie aussitôt.
+      const conseil = String(err.message).match(/use models\/([\w.-]+)/)?.[1];
+      if (conseil && !geminiRetires.has(conseil) && !geminiListe.includes(conseil)) { geminiListe.unshift(conseil); return postGemini(L, body); }
+    }
   }
   throw derniere || new Error('aucun modèle Gemini');
 }

@@ -108,6 +108,7 @@ async function gemini(parts, { recherche = false } = {}) {
       const liste = await (await fetch(`${API}?pageSize=200&key=${CLE}`, { signal: AbortSignal.timeout(30000) })).json();
       MODELES = (liste.models || []).map((m) => m.name.replace('models/', '')).filter((n) => /^gemini-[\d.]+-flash/.test(n) && !/image|tts|audio|live|lite/.test(n))
         .sort((a, b) => parseFloat(b.slice(7)) - parseFloat(a.slice(7)));
+      if (CONFIG_LLM.modele_gemini) MODELES = [...new Set([CONFIG_LLM.modele_gemini, ...MODELES])];
     }
     for (const m of MODELES.slice(0, 3)) {
       const r = await fetch(`${API}/${m}:generateContent?key=${CLE}`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({

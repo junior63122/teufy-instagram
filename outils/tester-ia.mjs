@@ -6,9 +6,12 @@ async function gemini() {
   const cle = (process.env.GEMINI_API_KEY || '').trim(); if (!cle) return 'clé absente';
   const API = 'https://generativelanguage.googleapis.com/v1beta/models';
   const l = await (await fetch(`${API}?pageSize=200&key=${cle}`)).json().catch(() => ({}));
-  const m = (l.models || []).map((x) => x.name.replace('models/', '')).find((n) => /^gemini-[\d.]+-flash$/.test(n)) || 'gemini-2.5-flash';
-  const r = await fetch(`${API}/${m}:generateContent?key=${cle}`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ contents: [{ role: 'user', parts: [{ text: 'Réponds juste OK.' }] }], generationConfig: { maxOutputTokens: 5 } }) });
-  const t = await r.text();
+  const conf = JSON.parse(await import('node:fs').then((fs) => fs.readFileSync(new URL('../config.json', import.meta.url), 'utf8'))).llm?.modele_gemini;
+  let m = conf || (l.models || []).map((x) => x.name.replace('models/', '')).filter((n) => /^gemini-[\d.]+-flash$/.test(n)).sort((a, b) => parseFloat(b.slice(7)) - parseFloat(a.slice(7)))[0] || 'gemini-3.8-flash';
+  const essai = (mod) => fetch(`${API}/${mod}:generateContent?key=${cle}`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ contents: [{ role: 'user', parts: [{ text: 'Réponds juste OK.' }] }], generationConfig: { maxOutputTokens: 5 } }) });
+  let r = await essai(m); let t = await r.text();
+  const conseil = r.status === 404 && t.match(/use models\/([\w.-]+)/)?.[1];
+  if (conseil) { m = conseil; r = await essai(m); t = await r.text(); }
   return r.ok ? `✓ répond (${m})` : `✗ HTTP ${r.status} : ${(() => { try { return JSON.parse(t).error.message; } catch { return t.slice(0, 200); } })()}`;
 }
 async function anthropic() {
