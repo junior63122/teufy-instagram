@@ -601,7 +601,7 @@ export async function construireSite({ events, eventsFrance = [], eventsOccitani
       const ctx = (chemin) => ({ lang, t, tr, chemin, base: '../'.repeat((lang === 'fr' ? 0 : 1) + chemin.split('/').filter(Boolean).length), compte, T, maj: majTexte(t), actus, partenaires, lieux, festivalsGuide });
       const ajoute = (chemin, f) => pages.push([`${P}${chemin}`, f(ctx(chemin))]);
       ajoute('', (c) => page({ ...c, soirees: sl, posts, now }));
-      ajoute('a-propos/', (c) => aPropos({ ...c, nb: sl.length + so.length, posts }));
+      ajoute('a-propos/', (c) => aPropos({ ...c, nb: sl.length, posts }));
       for (const v of VILLES_SEO) ajoute(`${v.slug}/`, (c) => pageVille({ ...c, v, soirees: sl.filter((x) => v.re.test(`${x.ville} ${x.lieu}`)), now }));
       for (const k of PAGES_STYLES) ajoute(`soirees-${k}/`, (c) => pageStyle({ ...c, cleStyle: k, soirees: sl.filter((x) => x.styles.includes(k)) }));
       ajoute('festivals/', (c) => pageFestivals({ ...c, soirees: sl.filter((x) => x.festival) }));
@@ -788,7 +788,7 @@ function carte(s, { t, base, lang, vedette = false }) {
     ${s.genres ? `<p class="genre">${esc(s.genres)}</p>` : ''}
     <h3><a href="${lien}">${esc(s.nom)}</a></h3>
     ${s.accroche ? `<p class="accroche">${esc(s.accroche)}</p>` : ''}
-    <p class="meta"><span>${esc(heure(s.debut, t))}</span><span>${esc(prix || t.prixBillet)}</span>${s.offres.length ? `<span class="comparer">${esc(t.comparer)} · ${s.offres.length}</span>` : ''}${promo ? `<span class="promo">${esc(promo.remise)} · ${esc(promo.code)}</span>` : ''}<span class="distance"></span><span class="ou">${esc([s.lieu, s.ville].filter(Boolean).join(', '))}</span></p>
+    <p class="meta"><span>${esc(heure(s.debut, t))}</span><span>${esc(prix || t.prixBillet)}</span>${s.offres.length ? `<span class="comparer">${esc(t.comparer)} · ${s.offres.length}</span>` : ''}${promo ? `<span class="promo">${(() => { const e = economie(promo, s.prix); return e ? `${esc(t.locale.startsWith('fr') ? 'Économise' : '−')} ${esc(euros(e.eco, t))}` : esc(promo.remise); })()} · ${esc(promo.code)}</span>` : ''}<span class="distance"></span><span class="ou">${esc([s.lieu, s.ville].filter(Boolean).join(', '))}</span></p>
     <p class="actions">${boutonBillets(s, t)}<a class="lien" href="${lien}">${esc(t.voir)}</a></p>
   </div>
 </article>`;
@@ -804,11 +804,20 @@ function accesDe(s) {
 // Codes promo négociés avec les partenaires (config.json, rubrique « codes_promo ») : affichés sur les soirées concernées.
 let CODES = [];
 const promoDe = (s) => CODES.find((c) => (!c.jusqu_au || Date.parse(c.jusqu_au) >= Date.parse(s.debut)) && new RegExp(c.s_applique.replace(/^\(\?i\)/, ''), 'i').test(`${s.nom} ${s.lieu} ${s.url}`));
+// Économie concrète d'un code : « -20 % » ou « -5 € » appliqué au prix affiché de la soirée (place la moins chère).
+const euros = (x, t) => new Intl.NumberFormat(t.locale, { style: 'currency', currency: 'EUR' }).format(Math.round(x * 100) / 100);
+function economie(c, prix) {
+  if (!(prix > 0)) return null;
+  const pct = String(c.remise || '').match(/(\d+(?:[.,]\d+)?)\s*%/), fixe = String(c.remise || '').match(/(\d+(?:[.,]\d+)?)\s*€/);
+  const eco = pct ? prix * parseFloat(pct[1].replace(',', '.')) / 100 : fixe ? Math.min(prix, parseFloat(fixe[1].replace(',', '.'))) : 0;
+  return eco > 0 ? { eco: Math.round(eco * 100) / 100, apres: Math.round((prix - eco) * 100) / 100 } : null;
+}
 // Code promo d'un partenaire, expliqué : qui l'offre, qu'il marche pour CETTE soirée, comment s'en servir, jusqu'à quand, conditions.
 const blocPromo = (c, t, tr, s) => `<div class="code-promo">
   <p class="pied-titre">${esc(t.codePromo)}${c.partenaire ? ` · ${esc(tr('offert par'))} <a href="https://www.instagram.com/${esc(c.partenaire)}/" target="_blank" rel="noopener">${esc(c.partenaire_nom || `@${c.partenaire}`)}</a>` : ''}</p>
   <p class="code-ligne"><b>${esc(c.remise)}</b><button type="button" class="code" data-copier="${esc(c.code)}">${esc(c.code)} <span>${esc(t.copier)}</span></button></p>
-  <p class="code-valable">✓ ${esc(tr('Valable pour cette soirée'))}${c.jusqu_au ? ` · ${esc(tr("jusqu'au"))} ${esc(paris(`${c.jusqu_au}T12:00:00Z`, { day: 'numeric', month: 'long', year: 'numeric' }, t.locale))}` : ''}</p>
+  ${(() => { const e = s && economie(c, s.prix); return e ? `<p class="code-economie"><span>💸 ${esc(tr('Tu économises'))} <b>${esc(euros(e.eco, t))}</b> ${esc(tr('par place'))}</span><small>${esc(tr('Exemple : place à'))} ${esc(euros(s.prix, t))} → <b>${esc(euros(e.apres, t))}</b> ${esc(tr('avec le code'))}</small></p>` : ''; })()}
+  <p class="code-valable">✓ ${esc(tr(s ? 'Valable pour cette soirée' : 'Valable sur les soirées éligibles'))}${c.jusqu_au ? ` · ${esc(tr("jusqu'au"))} ${esc(paris(`${c.jusqu_au}T12:00:00Z`, { day: 'numeric', month: 'long', year: 'numeric' }, t.locale))}` : ''}</p>
   <p>${esc(tr(c.description))}</p>
   <ol class="code-etapes"><li>${esc(tr('Copie le code'))}</li><li>${esc(tr('Clique sur « Billets »'))}</li><li>${esc(tr('Colle-le au moment du paiement : la réduction s\'applique'))}</li></ol>
   <p class="petit"><b>${esc(t.conditions)} :</b> ${esc(tr(c.conditions))}</p>
@@ -870,7 +879,7 @@ function gabarit({ lang, t, titre, description, chemin, base, corps, ld = [], im
   const handle = compte.replace(/^@/, '');
   const P = pre(lang);
   const accueil = `${base}${P}`;
-  const nav = [['', t.agenda], ...VILLES_SEO.map((v) => [`${v.slug}/`, t.villes[v.cle === 'antibes' ? 'antibesCourt' : v.cle]]), ['occitanie/', 'Occitanie'], ['festivals/', t.festivals], ['clubs-bars/', t.lieuxNav], ['dates/', t.dates], ['restaurants/', t.restos], ['activites/', t.activites], ['actus/', t.actus], ['partenaires/', t.partenaires], ['a-propos/', t.qui]];
+  const nav = [['', t.agenda], ...VILLES_SEO.map((v) => [`${v.slug}/`, t.villes[v.cle === 'antibes' ? 'antibesCourt' : v.cle]]), ['festivals/', t.festivals], ['clubs-bars/', t.lieuxNav], ['dates/', t.dates], ['restaurants/', t.restos], ['activites/', t.activites], ['occitanie/', 'Occitanie'], ['actus/', t.actus], ['partenaires/', t.partenaires], ['a-propos/', t.qui]];
   const jsT = { ...t.js, base, langue: lang, locale: t.locale, resultats: t.resultats, aucunRes: t.aucunRes, lienCopie: t.lienCopie, ajouterFav: t.ajouterFav, voir: t.voir };
   return `<!doctype html>
 <html lang="${lang}" dir="${t.dir}">
@@ -1431,7 +1440,7 @@ function pageOccitanie({ lang, t, tr, base, compte, T, chemin, maj, soirees, cle
   for (const s of soirees) { if (!parJour.has(s.jour)) parJour.set(s.jour, []); parJour.get(s.jour).push(s); }
   const jourTitre = (iso) => { const x = paris(Date.parse(`${iso}T12:00:00Z`), { weekday: 'long', day: 'numeric', month: 'long' }, t.locale); return x.charAt(0).toUpperCase() + x.slice(1); };
   const puces = VILLES_OCCITANIE.filter((v) => (tous || villes).includes(slug(v))).map((v) => `<a class="puce${slug(v) === cleVille ? ' actif' : ''}" href="${base}${pre(lang)}occitanie/${slug(v)}/">${esc(v)}</a>`).join('');
-  const corps = `${heroCourt({ partage: t.partager, base, photo: null, alt: titre, k: 5, etiquette: 'Occitanie', h1: cleVille ? tr(`Les soirées à <em>${nomVille}</em>`) : tr('Toutes les soirées d\'<em>Occitanie</em>'), p: esc(cleVille ? tr(`Toutes les soirées à venir à ${nomVille}, vérifiées sur leur billetterie.`) : tr('Montpellier, Toulouse, Nîmes, Perpignan, Sète, Béziers… Toutes les soirées de la région au même endroit, vérifiées sur leur billetterie.')) })}
+  const corps = `${heroCourt({ partage: t.partager, base, photo: null, alt: titre, k: 5, etiquette: 'Occitanie', h1: cleVille ? tr(`Les soirées à <em>${nomVille}</em>`) : tr('Toutes les soirées d\'<em>Occitanie</em>'), p: esc(cleVille ? tr(`Toutes les soirées à venir à ${nomVille}, vérifiées sur leur billetterie.`) : tr("Teufy, c'est d'abord la Côte d'Azur. Pour quand tu bouges : Montpellier, Toulouse, Nîmes, Perpignan, Sète, Béziers… toutes les soirées d'Occitanie au même endroit, vérifiées sur leur billetterie.")) })}
 <section class="bloc-large reveal"><p class="liens-styles">${cleVille ? `<a class="puce" href="${base}${pre(lang)}occitanie/">${esc(tr('Toute l\'Occitanie'))}</a>` : ''}${puces}<a class="puce" href="${base}${pre(lang)}#agenda">${esc(tr("Côte d'Azur et Var"))}</a></p>
 ${soirees.length ? [...parJour].map(([j, l]) => `<h2 class="jour-titre">${esc(jourTitre(j))} <small>${l.length}</small></h2><div class="grille">${l.map((s) => carte(s, { t, base, lang })).join('')}</div>`).join('\n') : `<p class="vide">${esc(tr('Les soirées d\'Occitanie arrivent : la recherche tourne chaque jour.'))}</p>`}</section>`;
   return gabarit({ lang, t, titre: `${titre} · Teufy`, description: couper(cleVille ? tr(`Toutes les soirées à ${nomVille} : ${soirees.length} soirée(s) à venir avec date, lieu, prix et billetterie, vérifiées par Teufy.`) : tr(`Toutes les soirées d'Occitanie : ${soirees.length} soirée(s) à venir à Montpellier, Toulouse, Nîmes, Perpignan, Sète, Béziers et dans toute la région.`), 160), chemin, base, corps, compte, maj, ld: [...ldOrganisation(T, compte, t, lang), ...jsonld(soirees, lang)] });
@@ -1513,7 +1522,7 @@ function pageLegal({ lang, t, tr, base, compte, T, chemin, maj, cle = 'mentions-
 // Teufy en chiffres (un seul bloc) + modèle économique : données fournies par la direction (config.json → site.entreprise).
 function chiffresTeufy({ tr, T, nb }) {
   const E = T.entreprise || {};
-  const l = [[String(nb), tr('soirées à venir sur le site')], [`${T.nbPartenaires}+`, tr("partenaires : clubs, bars, organisateurs, artistes")],
+  const l = [[String(nb), tr("soirées à venir sur la Côte d'Azur et le Var")], [`${T.nbPartenaires}+`, tr("partenaires : clubs, bars, organisateurs, artistes")],
     [E.telechargements, tr(E.telechargements_legende || '')], [E.chiffre_affaires, tr(E.chiffre_affaires_legende || '')]].filter((x) => x[0]);
   return `<ul class="chiffres chiffres-teufy">${l.map(([v, x], i) => `<li style="--i:${i}"><strong>${esc(v)}</strong><span>${esc(x)}</span></li>`).join('')}</ul>`;
 }
@@ -1537,7 +1546,7 @@ function aPropos({ lang, t, tr, base, compte, T, chemin, nb, maj, partenaires, p
     ['On vérifie', "Date, heure, lieu, prix : chaque soirée est contrôlée sur sa page officielle avant d'apparaître sur Teufy."],
     ['On y va', "Notre équipe se déplace aux événements et dans les spots qu'on te conseille. C'est sur le terrain qu'on fait les meilleures sélections."],
   ];
-  const h1 = tr('On sort. On trie. <em>Tu profites.</em>'), chapo = esc(tr("Teufy, c'est une équipe qui écume les soirées de la Côte d'Azur et d'Occitanie pour ne te garder que les meilleures."));
+  const h1 = tr('On sort. On trie. <em>Tu profites.</em>'), chapo = esc(tr("Teufy, c'est une équipe qui écume chaque semaine les soirées de la Côte d'Azur, notre terrain de jeu, pour ne te garder que les meilleures. Et sur le site, l'Occitanie aussi."));
   const mosaique = (posts || []).filter((p) => p.image && existsSync(path.join(ROOT, p.image.replace(/\.jpg$/, '-480.webp')))).slice(0, 6);
   const hero = mosaique.length >= 6 ? `<section class="hero court ap-hero">
   <div class="ap-mosaique" aria-hidden="true">${mosaique.map((p, i) => `<img src="${base}${p.image.replace(/\.jpg$/, '-480.webp')}" alt="" width="480" height="600" ${i < 3 ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async" style="--i:${i}">`).join('')}</div>

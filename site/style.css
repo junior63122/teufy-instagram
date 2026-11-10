@@ -930,3 +930,9 @@ details[data-bloc="tri"]>.groupe{inset-inline-start:auto;inset-inline-end:0}
 @media(max-width:759px){.carte-texte h3::before{content:none}.carte-texte>h3:first-child::before{content:counter(ct,decimal-leading-zero)}}
 .orga2{margin-bottom:56px}
 @media(max-width:979px){.hero.sans-photo .logos-collage{padding-inline-start:12px}}
+/* Code promo : économie concrète */
+.code-economie{display:flex;flex-direction:column;gap:4px;background:#3dff8a14;border:1px solid #3dff8a55;border-radius:14px;padding:12px 14px;margin:10px 0}
+.code-economie span{font-size:17px;color:var(--creme)}
+.code-economie span b{color:var(--live);font-size:22px;font-family:var(--titre)}
+.code-economie small{color:#d8d2c8;font-size:14px}
+.code-economie small b{color:var(--creme)}

@@ -144,7 +144,7 @@ export const LEGAL = (T, compte) => ({
     ['Hébergement', ['Le site est hébergé par GitHub Pages, service de GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis.']],
     ['Informations sur les soirées', [
       "Les informations (dates, horaires, lieux, prix, liens de billetterie) proviennent des pages officielles des soirées et sont vérifiées chaque jour, mais elles peuvent changer à tout moment. Vérifie toujours sur la billetterie de l'organisateur avant de sortir.",
-      "Les billets sont vendus par les organisateurs et leurs billetteries, pas par Teufy, et leur prix est fixé par l'organisateur. Teufy peut être rémunéré par une commission sur les billets vendus grâce à la plateforme.",
+      "Les billets sont vendus par les organisateurs et leurs billetteries, pas par Teufy, et leur prix est fixé par l'organisateur. La commission de Teufy sur les billets vendus grâce à la plateforme est déjà comprise dans ce prix : l'acheteur ne paie aucun coût supplémentaire en passant par Teufy.",
     ]],
     ['Affiches et marques', [
       "Les affiches, logos et noms des soirées appartiennent à leurs organisateurs et sont montrés uniquement pour présenter leurs événements. Pour faire retirer ou modifier un contenu, écris-nous : on le fait rapidement.",
@@ -261,11 +261,12 @@ export const FAQ = {
   chapo: "Comment on choisit les soirées, où acheter tes billets, à quoi servent les codes promo, d'où viennent nos infos : tout est ici.",
   groupes: [
     ['Teufy', [
-      ["C'est quoi Teufy ?", "Le guide des soirées de la Côte d'Azur, du Var et d'Occitanie : un agenda vérifié chaque jour sur ce site, un média Instagram (@teufy_official) et une app. Teufy est une société de droit monégasque."],
-      ['Quelles villes sont couvertes ?', "Toute la Côte d'Azur (Nice, Cannes, Monaco, Antibes, Menton…), le Var (Toulon, Fréjus, Saint-Tropez…) et toute l'Occitanie (Montpellier, Toulouse, Nîmes, Perpignan, Sète, Béziers…). Une rubrique à part présente aussi les grandes villes de France."],
+      ["C'est quoi Teufy ?", "Le guide des soirées de la Côte d'Azur, notre zone phare, de Monaco à Saint-Tropez : un agenda vérifié chaque jour sur ce site, un média Instagram (@teufy_official) et une app. Le site couvre aussi le Var et l'Occitanie. Teufy est une société de droit monégasque."],
+      ['Quelles villes sont couvertes ?', "D'abord toute la Côte d'Azur (Nice, Cannes, Monaco, Antibes, Menton…), le cœur de Teufy, et le Var (Toulon, Fréjus, Saint-Tropez…). Le site présente aussi toute l'Occitanie (Montpellier, Toulouse, Nîmes, Perpignan, Sète, Béziers…) et les grandes villes de France, dans des rubriques à part."],
       ["Le compte Instagram parle aussi de l'Occitanie ?", "Non : le compte Instagram reste 100 % Côte d'Azur. Les soirées d'Occitanie sont sur le site, dans la rubrique Occitanie."],
-      ['Le site est-il gratuit ?', "Oui : le site est gratuit, sans inscription et sans compte. Tu ne paies que ton billet, sur la billetterie de la soirée."],
-      ['Comment Teufy gagne de l’argent ?', "Grâce à une commission sur les billets vendus via la plateforme, au sponsoring de marques et à l'organisation de ses propres événements."],
+      ['Le site est-il gratuit ?', "Oui : le site est gratuit, sans inscription et sans compte. Tu ne paies que ton billet, sur la billetterie de la soirée, et passer par Teufy ne coûte rien de plus."],
+      ['Passer par Teufy coûte plus cher ?', "Non. La commission de Teufy est déjà comprise dans le prix des billets : tu paies exactement le prix affiché par la billetterie, sans aucun coût supplémentaire."],
+      ['Comment Teufy gagne de l’argent ?', "Grâce à une commission sur les billets vendus via la plateforme (déjà comprise dans le prix du billet, donc aucun coût en plus pour toi), au sponsoring de marques et à l'organisation de ses propres événements."],
     ]],
     ['Les soirées', [
       ['Comment vous choisissez les soirées ?', "On repère tout (billetteries, clubs, organisateurs, agendas des villes, Instagram), on vérifie chaque soirée sur sa page officielle, et notre équipe se déplace aux événements et dans les spots qu'on conseille pour faire les meilleures sélections."],
