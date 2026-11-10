@@ -76,8 +76,7 @@ const tempsOk = () => Date.now() < LIMITE;
 async function gemini(parts, { recherche = false } = {}) {
   const CLE = (process.env.GEMINI_API_KEY || '').trim();
   if (!CLE) return null;
-  if (!LLM.budgetOk('gemini', CONFIG_LLM)) return null; // plafonds de dépense (contenus/budget-ia.json)
-  LLM.compter('gemini');
+  if (!LLM.budgetOk('gemini', CONFIG_LLM)) return null; // plafonds de dépense (contenus/budget-ia.json) ou compte à sec
   const API = 'https://generativelanguage.googleapis.com/v1beta/models';
   try {
     if (!MODELES) {
@@ -89,6 +88,8 @@ async function gemini(parts, { recherche = false } = {}) {
       const r = await fetch(`${API}/${m}:generateContent?key=${CLE}`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({
         contents: [{ role: 'user', parts }], ...(recherche ? { tools: [{ google_search: {} }] } : { generationConfig: { responseMimeType: 'application/json' } }) }), signal: AbortSignal.timeout(120000) });
       if (r.status === 404) continue;
+      if (!r.ok) { const e = new Error(`HTTP ${r.status} ${(await r.text()).slice(0, 200)}`); e.status = r.status; LLM.marquerASec('gemini', e); return null; }
+      LLM.compter('gemini');
       const t = ((await r.json()).candidates?.[0]?.content?.parts || []).map((x) => x.text || '').join('');
       return recherche ? t : JSON.parse(t || 'null');
     }

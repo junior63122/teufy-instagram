@@ -24,7 +24,11 @@ function lireBudget() {
   b.total ||= {}; b.aujourdhui ||= {};
   return b;
 }
+// IA dont le compte est à sec (HTTP 402 / crédits épuisés) : plus appelée pendant ce passage (évite des centaines d'échecs).
+const aSec = new Set();
+export const marquerASec = (f, err) => { if (err?.status === 402 || /prepayment credits|credit balance is too low|RESOURCE_EXHAUSTED/i.test(String(err?.message || ''))) { if (!aSec.has(f)) console.error(`Budget IA : ${f} sans crédit, plus appelé pendant ce passage.`); aSec.add(f); } };
 export function budgetOk(f, L = {}) {
+  if (aSec.has(f)) return false;
   if (f === 'github') return true; // gratuit
   const b = lireBudget(), [dj, dm] = PLAFONDS[f] || [Infinity, Infinity];
   const okJ = (b.aujourdhui[f] || 0) < (L[`max_appels_${f}_jour`] ?? dj), okM = (b.total[f] || 0) < (L[`max_appels_${f}_mois`] ?? dm);
@@ -95,18 +99,18 @@ export async function rechercher({ config, system, prompt, gratuit = false }) {
   for (const f of fournisseurs(config, { gratuit })) {
     if (!budgetOk(f, L)) continue;
     try {
-      compter(f);
       if (f === 'gemini') {
         const j = await postGemini(L, {
           systemInstruction: { parts: [{ text: system }] },
           contents: [{ role: 'user', parts: [{ text: prompt }] }],
           tools: [{ google_search: {} }],
         });
+        compter(f);
         const sources = (j.candidates?.[0]?.groundingMetadata?.groundingChunks || []).map((c) => c.web?.uri).filter(Boolean);
         return `${texteGemini(j)}\n\nSources consultées :\n${sources.slice(0, 40).join('\n')}`;
       }
-      if (f === 'anthropic') return await claude({ system, prompt, outils: true, L });
-    } catch (err) { console.error(`Recherche ${f} impossible : ${err.message}`); }
+      if (f === 'anthropic') { const r = await claude({ system, prompt, outils: true, L }); compter(f); return r; }
+    } catch (err) { marquerASec(f, err); console.error(`Recherche ${f} impossible : ${err.message.slice(0, 160)}`); }
   }
   return '';
 }
@@ -118,7 +122,6 @@ export async function json({ config, system, prompt, schema, nom = 'reponse', gr
   for (const f of fournisseurs(config, { gratuit })) {
     if (!budgetOk(f, L)) continue;
     try {
-      compter(f);
       if (f === 'gemini') {
         const base = { systemInstruction: { parts: [{ text: system }] }, contents: [{ role: 'user', parts: [{ text: prompt }] }] };
         let j;
@@ -129,6 +132,7 @@ export async function json({ config, system, prompt, schema, nom = 'reponse', gr
           // Ancien format : schéma dans la consigne, sortie JSON simple.
           j = await postGemini(L, { ...base, contents: [{ role: 'user', parts: [{ text: `${prompt}\n\nRéponds uniquement en JSON valide selon ce schéma :\n${JSON.stringify(schema)}` }] }], generationConfig: { responseMimeType: 'application/json' } });
         }
+        compter(f);
         return JSON.parse(texteGemini(j));
       }
       if (f === 'github') {
@@ -139,8 +143,8 @@ export async function json({ config, system, prompt, schema, nom = 'reponse', gr
         }, { authorization: `Bearer ${process.env.GITHUB_TOKEN.trim()}` });
         return JSON.parse(j.choices?.[0]?.message?.content || '{}');
       }
-      if (f === 'anthropic') return JSON.parse(await claude({ system, prompt, schema, L }));
-    } catch (err) { console.error(`IA ${f} impossible : ${err.message}`); }
+      if (f === 'anthropic') { const r = JSON.parse(await claude({ system, prompt, schema, L })); compter(f); return r; }
+    } catch (err) { marquerASec(f, err); console.error(`IA ${f} impossible : ${err.message.slice(0, 160)}`); }
   }
   throw new Error('Aucune IA disponible (ajoute le secret gratuit GEMINI_API_KEY)');
 }
