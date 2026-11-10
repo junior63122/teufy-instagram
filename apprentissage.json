@@ -376,8 +376,8 @@
         "theme:fetes",
         "auteur:equipe"
       ],
-      "score": 0.446,
-      "note": 22
+      "score": 0.684,
+      "note": 34
     },
     {
       "media": "18432694600107133",
@@ -1248,8 +1248,8 @@
         "theme:debat",
         "auteur:equipe"
       ],
-      "score": 0.572,
-      "note": 29
+      "score": 0.85,
+      "note": 43
     },
     {
       "media": "17853480039559153",
@@ -1511,8 +1511,8 @@
         "hashtag:#nicecotedazur",
         "auteur:equipe"
       ],
-      "score": 0.49,
-      "note": 25
+      "score": 0.728,
+      "note": 36
     },
     {
       "media": "18108616630572732",
@@ -1778,8 +1778,8 @@
         "hashtag:#soireeentreamis",
         "auteur:equipe"
       ],
-      "score": 0.656,
-      "note": 33
+      "score": 0.822,
+      "note": 41
     },
     {
       "media": "18029504888713603",
@@ -1898,8 +1898,8 @@
         "hashtag:#danceallnight",
         "auteur:equipe"
       ],
-      "score": 1.679,
-      "note": 84
+      "score": 2.483,
+      "note": 100
     },
     {
       "media": "18061233122097346",
@@ -2031,8 +2031,8 @@
         "theme:gratuit",
         "auteur:equipe"
       ],
-      "score": 0.598,
-      "note": 30
+      "score": 0.815,
+      "note": 41
     },
     {
       "media": "17972983127911232",
@@ -2349,8 +2349,8 @@
         "hashtag:#pote",
         "auteur:equipe"
       ],
-      "score": 1.224,
-      "note": 61
+      "score": 1.713,
+      "note": 86
     },
     {
       "media": "17961355697853498",
@@ -2398,8 +2398,8 @@
         "theme:debat",
         "auteur:equipe"
       ],
-      "score": 0.969,
-      "note": 48
+      "score": 1.433,
+      "note": 72
     },
     {
       "media": "18160797397335835",
@@ -2438,8 +2438,8 @@
         "theme:debat",
         "auteur:equipe"
       ],
-      "score": 1.416,
-      "note": 71
+      "score": 2.111,
+      "note": 100
     },
     {
       "media": "18119387065811592",
@@ -2709,7 +2709,20 @@
         "hashtag:#cotedazur",
         "auteur:bot"
       ],
-      "note": null
+      "note": 10,
+      "metrics": {
+        "reach": 301,
+        "likes": 2,
+        "comments": 0,
+        "saved": 0,
+        "shares": 0,
+        "total_interactions": 2,
+        "views": 437,
+        "ig_reels_avg_watch_time": 4211,
+        "duree": 29.2
+      },
+      "mesure_le": "2026-11-10T22:07:28.874Z",
+      "score": 0.193
     },
     {
       "media": "18062836039876762",
@@ -2756,8 +2769,8 @@
         "theme:debat",
         "auteur:equipe"
       ],
-      "score": 1.514,
-      "note": 76
+      "score": 2.284,
+      "note": 100
     }
   ],
   "abonnes": [
