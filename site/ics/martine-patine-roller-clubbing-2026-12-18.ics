@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:martine-patine-roller-clubbing-2026-12-18@teufy
+DTSTAMP:20261110T132055Z
+DTSTART:20261218T190000Z
+DTEND:20261219T000000Z
+SUMMARY:Martine Patine Roller Clubbing
+LOCATION:Frigo 16\, Nice
+DESCRIPTION:Session roller clubbing rétro avec Prosper\, B.I.M et shows freestyle.\nBillets : https://www.instagram.com/p/DfjyUZpDYLN/\nVia Teufy @teufy_official
+URL:https://www.instagram.com/p/DfjyUZpDYLN/
+END:VEVENT
+END:VCALENDAR
