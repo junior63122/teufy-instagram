@@ -88,7 +88,7 @@ jobs:
           node src/run.mjs site $([ "${{ startsWith(inputs.quoi, 'site') }}" = "true" ] && echo --force) || echo "::warning::Site non régénéré"
           git config user.name "teufy-bot"
           git config user.email "teufy-bot@users.noreply.github.com"
-          git add -A -- $(ls -d apprentissage.json config.json RAPPORT.md ANALYSE.md tendances-auto.json contenus veille index.html .nojekyll site a-propos soirees-* soiree festivals actus partenaires ambassadeurs bde mentions-legales cgu cgv confidentialite dates restaurants activites france occitanie clubs-bars evenements-france.json evenements-occitanie.json 404.html en it es zh ar sitemap.xml robots.txt llms.txt *.txt CNAME sw.js evenements-web.json 2>/dev/null) || true # seulement les chemins existants (un seul absent bloquait tout)
+          git add -A -- $(ls -d apprentissage.json config.json RAPPORT.md ANALYSE.md tendances-auto.json contenus veille index.html .nojekyll site a-propos soirees-* soiree festivals actus partenaires ambassadeurs bde mentions-legales cgu cgv confidentialite dates restaurants activites france occitanie clubs-bars evenements-france.json evenements-occitanie.json 404.html en it es zh ar sitemap.xml robots.txt llms.txt .well-known *.txt CNAME sw.js evenements-web.json 2>/dev/null) || true # seulement les chemins existants (un seul absent bloquait tout)
           git diff --cached --quiet && exit 0
           git commit -m "Teufy Instagram : statistiques du $(date -u +%F)"
           for i in 1 2 3; do git pull --rebase -X theirs --autostash && git push && break; git rebase --abort 2>/dev/null; sleep 5; done

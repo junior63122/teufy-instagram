@@ -710,10 +710,20 @@ export async function construireSite({ events, eventsFrance = [], eventsOccitani
   const prio = (c) => (!c ? '1.0' : /^soiree\//.test(c) ? '0.6' : /^(actus\/.|mentions)/.test(c) ? '0.5' : '0.8');
   const urls = LANGUES.flatMap((l) => chemins.map((c) => `  <url><loc>${URL_SITE}${pre(l)}${c}</loc><lastmod>${jourIso}</lastmod><changefreq>daily</changefreq><priority>${prio(c)}</priority>${LANGUES.map((x) => `<xhtml:link rel="alternate" hreflang="${x}" href="${URL_SITE}${pre(x)}${c}"/>`).join('')}<xhtml:link rel="alternate" hreflang="x-default" href="${URL_SITE}${c}"/></url>`));
   await writeFile(path.join(ROOT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls.join('\n')}\n</urlset>\n`);
-  // Robots : moteurs ET assistants IA (ChatGPT, Claude, Perplexity, Gemini…) bienvenus, pour que Teufy soit cité.
+  // Robots : moteurs de recherche et assistants qui CITENT Teufy (avec lien) autorisés ; robots qui aspirent le site pour
+  // ENTRAÎNER des IA refusés (choix du directeur). robots.txt est respecté par les robots sérieux ; les aspirateurs qui
+  // l'ignorent ne peuvent être bloqués qu'en amont (pare-feu type Cloudflare), pas par GitHub Pages.
   const prives = ['/out/', '/apercus/', '/livrables/', '/tests/', '/studio/', '/veille/'];
-  const IA = ['GPTBot', 'OAI-SearchBot', 'ChatGPT-User', 'ClaudeBot', 'Claude-User', 'Claude-SearchBot', 'PerplexityBot', 'Perplexity-User', 'Google-Extended', 'Applebot-Extended', 'Bingbot', 'meta-externalagent', 'MistralAI-User', 'DuckAssistBot'];
-  await writeFile(path.join(ROOT, 'robots.txt'), `${['*', ...IA].map((a) => `User-agent: ${a}\nAllow: /\n${prives.map((d) => `Disallow: ${d}`).join('\n')}\n`).join('\n')}\nSitemap: ${URL_SITE}sitemap.xml\n`);
+  const CITENT = ['Googlebot', 'Bingbot', 'DuckDuckBot', 'Applebot', 'YandexBot', 'OAI-SearchBot', 'ChatGPT-User', 'Claude-SearchBot', 'Claude-User', 'PerplexityBot', 'Perplexity-User', 'MistralAI-User', 'DuckAssistBot'];
+  const ENTRAINENT = ['GPTBot', 'ClaudeBot', 'anthropic-ai', 'Google-Extended', 'Applebot-Extended', 'CCBot', 'Bytespider', 'meta-externalagent', 'Meta-ExternalAgent', 'FacebookBot', 'cohere-ai', 'cohere-training-data-crawler', 'Diffbot', 'Omgilibot', 'Timpibot', 'ImagesiftBot', 'PetalBot', 'Amazonbot', 'AI2Bot', 'Ai2Bot-Dolma', 'img2dataset', 'Scrapy', 'DataForSeoBot', 'magpie-crawler', 'webzio-extended', 'PanguBot', 'Kangaroo Bot', 'Sidetrade indexer bot', 'SemrushBot-OCOB', 'iaskspider/2.0', 'VelenPublicWebCrawler', 'QualifiedBot', 'TurnitinBot', 'Brightbot 1.0'];
+  await writeFile(path.join(ROOT, 'robots.txt'), [
+    '# Teufy : moteurs de recherche et assistants qui citent leurs sources bienvenus ; entraînement d\'IA refusé.',
+    ...['*', ...CITENT].map((a) => `User-agent: ${a}\nAllow: /\n${prives.map((d) => `Disallow: ${d}`).join('\n')}\n`),
+    ...ENTRAINENT.map((a) => `User-agent: ${a}\nDisallow: /\n`),
+    `Sitemap: ${URL_SITE}sitemap.xml`, ''].join('\n'));
+  // Réserve européenne de fouille de textes et de données (directive 2019/790, art. 4 ; protocole TDMRep du W3C).
+  await mkdir(path.join(ROOT, '.well-known'), { recursive: true });
+  await writeFile(path.join(ROOT, '.well-known', 'tdmrep.json'), JSON.stringify([{ location: '/*', 'tdm-reservation': 1, 'tdm-policy': `${URL_SITE}cgu/` }], null, 1) + '\n');
   // llms.txt : résumé de Teufy pour les IA (qui, quoi, où, pages utiles, prochaines soirées), en texte simple.
   const fr = TXT.fr;
   const prochaines = soirees.slice(0, 60).map((x) => `- [${x.nom} · ${dateCourte(x.debut, fr)} · ${[x.lieu, x.ville].filter(Boolean).join(', ')}](${URL_SITE}soiree/${x.id}/)`);
@@ -986,6 +996,7 @@ ${GOOGLE ? `<meta name="google-site-verification" content="${esc(GOOGLE)}">` : '
 <style>${CSS_EN_LIGNE.replace(/__BASE__/g, base)}</style>
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-Du+OJKJSbdUgz5nrHeWWINvez6XKDDU/tyj/5c2uvwo=' 'sha256-${HASH_SPECULATION}'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://tiles.openfreemap.org; font-src 'self'; media-src 'self'; connect-src 'self' https://tiles.openfreemap.org; worker-src 'self' blob:; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="tdm-reservation" content="1"><meta name="tdm-policy" content="${URL_SITE}cgu/"><meta name="robots" content="max-image-preview:large, noai, noimageai">
 <script>document.documentElement.classList.add('js')</script>
 <script type="speculationrules">${SPECULATION}</script>
 ${ld.length ? `<script type="application/ld+json">${JSON.stringify(ld).replace(/</g, '\\u003c')}</script>` : ''}

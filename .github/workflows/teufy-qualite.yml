@@ -61,6 +61,9 @@ jobs:
           sleep 2
       - name: Scénarios « casser le site »
         run: node outils/tester-robustesse.cjs
+      - name: Sécurité (clés, injections, CSP, liens, robots)
+        if: matrix.navigateur == 'chromium'
+        run: node outils/tester-securite.cjs
       - name: Scénarios d'usage (mobile, tablette, ordinateur)
         if: always()
         run: node outils/tester-site.cjs
