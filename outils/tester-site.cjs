@@ -17,7 +17,7 @@ const ok = (cond, msg) => { if (!cond) echecs.push(msg); return !!cond; };
 const premiereSoiree = fs.readdirSync(path.join(ROOT, 'soiree'))[0];
 const soireePromo = fs.readdirSync(path.join(ROOT, 'soiree')).find((d) => /frigo|ref-session/.test(d)) || premiereSoiree;
 const PAGES = ['', 'en/', 'ar/', 'zh/', 'soirees-nice/', 'soirees-cannes/', 'soirees-monaco/', 'soirees-antibes/', 'soirees-shatta/', 'soirees-techno/', `soiree/${premiereSoiree}/`, `ar/soiree/${premiereSoiree}/`,
-  'festivals/', 'clubs-bars/', 'france/', 'actus/', 'partenaires/', 'ambassadeurs/', 'bde/', 'dates/', 'restaurants/', 'activites/', 'a-propos/', 'mentions-legales/', 'cgu/', 'cgv/', 'confidentialite/', 'existe-pas/'];
+  'festivals/', 'clubs-bars/', 'france/', 'actus/', 'partenaires/', 'ambassadeurs/', 'bde/', 'dates/', 'restaurants/', 'activites/', 'a-propos/', 'faq/', 'occitanie/', 'mentions-legales/', 'cgu/', 'cgv/', 'confidentialite/', 'existe-pas/'];
 const APPAREILS = { mobile: devices['iPhone 13'], tablette: devices['iPad Mini'], ordi: { viewport: { width: 1440, height: 900 } }, grand: { viewport: { width: 1920, height: 1080 } } };
 
 // Défilement : molette sur ordinateur, défilement de page sur mobile (WebKit mobile n'a pas de molette).
@@ -189,6 +189,20 @@ async function controlerPage(p, nom, u) {
     ok(await p.locator('.toast:not([hidden])').count() === 1 || nom === 'mobile', `${nom} : le partage ne fait rien`);
     if (await p.locator('[data-copier]').count()) { await p.locator('[data-copier]').first().click(); await p.waitForTimeout(300); ok(await p.locator('.toast:not([hidden])').count() === 1, `${nom} : copier le code promo ne fait rien`); }
 
+    } catch (e) { echecs.push(`${nom} : étape interrompue (${e.message.split('\n')[0]} @l.${(String(e.stack).match(/tester-site\.cjs:(\d+)/) || [])[1] || '?'})`); }
+    // --- FAQ : sommaire, questions dépliables, sources ; partage depuis un en-tête ; source sur la fiche soirée ---
+    try {
+    await p.goto(B + 'faq/', { waitUntil: 'load' });
+    const d = p.locator('.faq details').first(); await d.locator('summary').click(); await p.waitForTimeout(150);
+    ok(await d.evaluate((x) => x.open), `${nom} : une question de la FAQ ne s'ouvre pas`);
+    await p.locator('.faq-sommaire a[href="#sources"]').click(); await p.waitForTimeout(600);
+    ok(/#sources$/.test(p.url()) && (await p.locator('#sources .sources-liste div').count()) >= 5, `${nom} : le lien « Nos sources » de la FAQ ne mène pas aux sources`);
+    await p.goto(B + 'festivals/', { waitUntil: 'load' });
+    await p.evaluate(() => { try { Object.defineProperty(navigator, 'share', { value: undefined, configurable: true }); } catch {} });
+    await p.locator('.hero-partage').click(); await p.waitForTimeout(400);
+    ok(await p.locator('.toast:not([hidden])').count() === 1, `${nom} : le bouton Partager de l'en-tête ne fait rien`);
+    await p.goto(B + `soiree/${premiereSoiree}/`, { waitUntil: 'load' });
+    ok(await p.locator('.source-fiche a[href*="faq/#sources"]').count() === 1, `${nom} : la fiche soirée n'indique pas ses sources`);
     } catch (e) { echecs.push(`${nom} : étape interrompue (${e.message.split('\n')[0]} @l.${(String(e.stack).match(/tester-site\.cjs:(\d+)/) || [])[1] || '?'})`); }
     // --- Vidéo de Monaco : elle tourne en boucle, pas seulement 2 secondes ---
     try {

@@ -216,7 +216,9 @@
     const p = ev.target.closest('.partager');
     if (p) {
       const d = { title: document.title, url: location.href.split('#')[0] };
-      try { if (navigator.share) await navigator.share(d); else { await navigator.clipboard.writeText(d.url); toast(T.lienCopie); } } catch { /* partage annulé */ }
+      if (navigator.share) { try { await navigator.share(d); } catch { /* partage annulé */ } return; }
+      // Sans partage natif : copie du lien, et si le presse-papiers est refusé, le lien s'affiche pour être copié à la main.
+      try { await navigator.clipboard.writeText(d.url); toast(T.lienCopie); } catch { toast(d.url); }
       return;
     }
     const code = ev.target.closest('[data-copier]');

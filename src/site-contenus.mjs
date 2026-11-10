@@ -52,11 +52,11 @@ export const PARTENAIRE = {
     ["Un public qui sort vraiment", "Les 17-30 ans de Nice, Cannes, Antibes et Monaco qui cherchent leur prochaine soirée, au moment où ils la cherchent."],
     ['Un agenda vérifié chaque jour', "Chaque soirée est vérifiée sur sa page officielle : date, heure, lieu, prix et lien de billetterie. Ce sérieux fait revenir les gens."],
     ['Six langues, Google compris', "Le site est traduit en anglais, italien, espagnol, chinois et arabe, et chaque soirée a sa page optimisée pour Google : les touristes et les étudiants étrangers te trouvent aussi."],
-    ['Le lien direct vers ta billetterie', "Pas d'intermédiaire, pas de commission : le bouton « Billets » envoie directement sur ta page Shotgun, DICE, Weezevent ou ton site."],
+    ['Le lien direct vers ta billetterie', "Le bouton « Billets » envoie directement sur ta page Shotgun, DICE, Weezevent ou ton site."],
   ],
   offreH2: 'Ce que Teufy fait pour <em>toi</em>',
   offre: [
-    ["Ta soirée dans l'agenda", "Gratuit. Elle apparaît sur le site (dans 6 langues), sur la carte, dans la page de ta ville et de ton style, avec ton affiche officielle."],
+    ["Ta soirée dans l'agenda", "Elle apparaît sur le site (dans 6 langues), dans la page de ta ville et de ton style, avec ton affiche officielle et le plan d'accès au lieu."],
     ['Le carrousel du lundi', "Chaque lundi, Teufy publie la sélection des meilleures soirées de la semaine. Les plus attendues sont publiées en collaboration avec l'organisateur."],
     ['Posts en collaboration et stories', "Ta soirée relayée sur le compte Teufy, ton compte identifié sur ton affiche pour que l'audience arrive chez toi."],
     ['Reels et contenus sur mesure', "Annonce de line-up, ouverture de billetterie, aftermovie, présentation de ton lieu : on en parle ensemble."],
@@ -112,7 +112,7 @@ export const BDE = {
   chapo: "BDE, BDS, BDA, associations d'Université Côte d'Azur, de Sophia Antipolis, des écoles de Nice, Cannes et Monaco : Teufy vous aide à remplir vos soirées et à les organiser.",
   offreH2: 'Ce que Teufy vous <em>propose</em>',
   offre: [
-    ['Vos soirées dans l\'agenda, gratuitement', "Votre soirée apparaît sur le site, sur la carte, dans la page de votre ville et sur Google, avec le lien vers votre billetterie (HelloAsso, Shotgun, Weezevent…)."],
+    ['Vos soirées dans l\'agenda, gratuitement', "Votre soirée apparaît sur le site, dans la page de votre ville et sur Google, avec le lien vers votre billetterie (HelloAsso, Shotgun, Weezevent…)."],
     ['Une mise en avant sur Instagram', "Les soirées étudiantes qui se démarquent entrent dans les sélections Teufy, en collaboration avec votre compte."],
     ['Le bon lieu pour votre soirée', "Teufy travaille avec plus de 200 clubs, bars, beach clubs et salles de la Côte : on vous met en relation avec ceux qui accueillent des soirées étudiantes."],
     ["Des conditions négociées", "Quand c'est possible, on vous aide à obtenir de meilleures conditions auprès de nos partenaires pour vos événements (privatisation, tarifs de groupe)."],
@@ -144,7 +144,7 @@ export const LEGAL = (T, compte) => ({
     ['Hébergement', ['Le site est hébergé par GitHub Pages, service de GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis.']],
     ['Informations sur les soirées', [
       "Les informations (dates, horaires, lieux, prix, liens de billetterie) proviennent des pages officielles des soirées et sont vérifiées chaque jour, mais elles peuvent changer à tout moment. Vérifie toujours sur la billetterie de l'organisateur avant de sortir.",
-      "Les billets sont vendus par les organisateurs et leurs billetteries, pas par Teufy. Teufy ne perçoit pas de commission sur les billets.",
+      "Les billets sont vendus par les organisateurs et leurs billetteries, pas par Teufy, et leur prix est fixé par l'organisateur. Teufy peut être rémunéré par une commission sur les billets vendus grâce à la plateforme.",
     ]],
     ['Affiches et marques', [
       "Les affiches, logos et noms des soirées appartiennent à leurs organisateurs et sont montrés uniquement pour présenter leurs événements. Pour faire retirer ou modifier un contenu, écris-nous : on le fait rapidement.",
@@ -252,3 +252,56 @@ export const SPOTS_DATE = [
     ['Saint-Paul-de-Vence', 'Saint-Paul-de-Vence', "Le village fortifié des artistes : galeries, remparts et vue sur les collines jusqu'à la mer."],
   ] },
 ];
+
+// --- FAQ générale (page /faq/) : uniquement des faits établis sur le site ou fournis par la direction ------------------
+export const FAQ = {
+  titre: 'FAQ Teufy : soirées, billets, codes promo, sources · Teufy',
+  desc: "Toutes les réponses sur Teufy : comment on choisit les soirées, où acheter ses billets, les codes promo, nos sources, les favoris, l'Occitanie et comment ajouter ta soirée.",
+  etiquette: 'FAQ', h1: 'Toutes tes <em>questions</em>',
+  chapo: "Comment on choisit les soirées, où acheter tes billets, à quoi servent les codes promo, d'où viennent nos infos : tout est ici.",
+  groupes: [
+    ['Teufy', [
+      ["C'est quoi Teufy ?", "Le guide des soirées de la Côte d'Azur, du Var et d'Occitanie : un agenda vérifié chaque jour sur ce site, un média Instagram (@teufy_official) et une app. Teufy est une société de droit monégasque."],
+      ['Quelles villes sont couvertes ?', "Toute la Côte d'Azur (Nice, Cannes, Monaco, Antibes, Menton…), le Var (Toulon, Fréjus, Saint-Tropez…) et toute l'Occitanie (Montpellier, Toulouse, Nîmes, Perpignan, Sète, Béziers…). Une rubrique à part présente aussi les grandes villes de France."],
+      ["Le compte Instagram parle aussi de l'Occitanie ?", "Non : le compte Instagram reste 100 % Côte d'Azur. Les soirées d'Occitanie sont sur le site, dans la rubrique Occitanie."],
+      ['Le site est-il gratuit ?', "Oui : le site est gratuit, sans inscription et sans compte. Tu ne paies que ton billet, sur la billetterie de la soirée."],
+      ['Comment Teufy gagne de l’argent ?', "Grâce à une commission sur les billets vendus via la plateforme, au sponsoring de marques et à l'organisation de ses propres événements."],
+    ]],
+    ['Les soirées', [
+      ['Comment vous choisissez les soirées ?', "On repère tout (billetteries, clubs, organisateurs, agendas des villes, Instagram), on vérifie chaque soirée sur sa page officielle, et notre équipe se déplace aux événements et dans les spots qu'on conseille pour faire les meilleures sélections."],
+      ["L'agenda est mis à jour quand ?", 'Chaque jour. Les soirées passées disparaissent, les nouvelles arrivent dès qu’elles sont confirmées.'],
+      ['Que veut dire « Très demandée » ?', "C'est un repère pour les soirées qui font le plus parler : têtes d'affiche, lieu réputé, ouverture ou closing, festival. Ce n'est jamais une alerte de places restantes."],
+      ["Comment trouver une soirée près de moi ?", "Dans l'agenda, ouvre les filtres et choisis « Près de moi » : ta position sert seulement à trier les soirées sur ton téléphone, elle n'est jamais envoyée à Teufy."],
+      ["Pourquoi certaines soirées n'ont pas d'affiche ?", "On n'affiche que l'affiche officielle de la soirée, vérifiée. Quand on ne la trouve pas, on préfère une vignette Teufy plutôt qu'une image qui ne correspond pas."],
+      ["Une info est fausse ou a changé, je fais comment ?", "Écris-nous sur Instagram (@teufy_official) : on corrige au plus vite. Vérifie toujours la billetterie officielle avant de sortir."],
+    ]],
+    ['Billets, prix et codes promo', [
+      ['Où j’achète mes billets ?', "Sur la billetterie officielle de la soirée (Shotgun, DICE, Weezevent, Eventbrite…) : le bouton « Billets » y mène directement. Teufy ne vend pas de billets lui-même."],
+      ['Le prix affiché est-il le bon ?', "C'est le prix minimum constaté sur la billetterie officielle (« dès … »). Les prix peuvent évoluer : le prix final est toujours celui de la billetterie."],
+      ['C’est quoi « Comparer les prix » ?', "Quand une soirée est vendue sur plusieurs billetteries, on affiche chacune avec son prix pour que tu choisisses la moins chère."],
+      ['Comment marche un code promo ?', "Sur la page de la soirée : copie le code, clique sur « Billets », puis colle-le au moment du paiement. Le bloc indique qui offre le code, sa remise, jusqu'à quand il est valable et ses conditions."],
+    ]],
+    ['Pratique', [
+      ['Comment garder une soirée en favori ?', "Touche le cœur sur la soirée. Tes favoris restent sur ton appareil (pas de compte, rien n'est envoyé à Teufy)."],
+      ['Comment ajouter une soirée à mon agenda ?', "Sur la page de la soirée, « Ajouter au calendrier » télécharge un fichier compatible avec iPhone, Android, Google Agenda et Outlook."],
+      ['Comment venir à la soirée ?', "La page de chaque soirée montre le plan du lieu, l'itinéraire, et les arrêts de transports, parkings et stations de taxi les plus proches quand on les connaît."],
+      ['Le site existe dans d’autres langues ?', 'Oui : français, anglais, italien, espagnol, chinois et arabe (bouton FR en haut de page).'],
+      ['Teufy utilise des cookies ?', "Non : Teufy ne dépose aucun cookie et ne mesure pas ton audience. Les détails sont dans la page Confidentialité et cookies."],
+    ]],
+    ['Organisateurs et pros', [
+      ['Comment ajouter ma soirée ?', "Envoie-nous l'affiche, la date et le lien de billetterie en message sur Instagram (@teufy_official). On vérifie et on l'ajoute à l'agenda."],
+      ['Comment devenir partenaire, ambassadeur ou BDE partenaire ?', 'Tout est expliqué dans les pages Partenaires, Ambassadeurs et BDE · Associations.'],
+      ['Comment vous contacter ?', 'Par message Instagram (@teufy_official) ou par e-mail à teufy.app@gmail.com.'],
+    ]],
+  ],
+  sourcesH2: 'Nos <em>sources</em>',
+  sourcesP: "Chaque soirée vient d'une source publique, et la page de chaque soirée indique où ses infos ont été vérifiées. Les dates, horaires et prix font toujours foi sur la billetterie officielle.",
+  sources: [
+    ['Billetteries', 'Shotgun, DICE, Resident Advisor, Eventbrite, Ticketmaster, Weezevent, Bizouk, See Tickets, HelloAsso, Billetweb, Fever, Xceed, Festik, Yurplan.'],
+    ['Lieux et organisateurs', "Les sites et comptes Instagram officiels des clubs, bars, beach clubs, collectifs et festivals (comptes vérifiés par Teufy)."],
+    ['Agendas officiels', "Offices de tourisme et villes (Nice, Cannes, Monaco, Antibes…), agenda de la région Provence-Alpes-Côte d'Azur."],
+    ['Presse locale', 'Nice-Matin, Monaco-Matin, Var-Matin, Midi Libre, La Dépêche et les médias locaux de la nuit.'],
+    ['Lieux et transports', 'OpenStreetMap (plans, arrêts, parkings), OpenFreeMap pour les cartes.'],
+    ['Photos', "Affiches officielles des soirées, photos de l'équipe Teufy et, pour les spots, photos libres de Wikimedia Commons créditées à leur auteur."],
+  ],
+};

@@ -30,7 +30,7 @@ for (const f of pages) {
   const desc = attr(h.match(/<meta name="description"[^>]*>/)?.[0] || '', 'content');
   if (!titre) bloquants.push(`${rel} : pas de <title>`); else { if (titre.length > 75 && !noindex) avertissements.push(`${rel} : titre long (${titre.length} car.)`); const k = `${rel.split('/')[0].length === 2 ? rel.split('/')[0] : 'fr'}|${titre}`; (titres.get(k) || titres.set(k, []).get(k)).push(rel); }
   if (!noindex) {
-    if (!desc) bloquants.push(`${rel} : pas de meta description`); else { if (desc.length < 50 || desc.length > 180) avertissements.push(`${rel} : description de ${desc.length} car.`); const kd = `${rel.split('/')[0].length === 2 ? rel.split('/')[0] : 'fr'}|${desc}`; (descriptions.get(kd) || descriptions.set(kd, []).get(kd)).push(rel); }
+    if (!desc) bloquants.push(`${rel} : pas de meta description`); else { if (desc.length < (rel.startsWith('zh/') ? 25 : 50) || desc.length > 180) /* chinois : un caractère ≈ un mot */ avertissements.push(`${rel} : description de ${desc.length} car.`); const kd = `${rel.split('/')[0].length === 2 ? rel.split('/')[0] : 'fr'}|${desc}`; (descriptions.get(kd) || descriptions.set(kd, []).get(kd)).push(rel); }
     const canon = attr(h.match(/<link rel="canonical"[^>]*>/)?.[0] || '', 'href');
     if (!canon) bloquants.push(`${rel} : pas de canonical`);
     else if (!canon.startsWith(domaine)) bloquants.push(`${rel} : canonical hors domaine (${canon})`);
