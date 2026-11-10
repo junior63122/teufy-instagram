@@ -1296,3 +1296,12 @@ footer{max-width:1240px}
 .tarifs-etapes b{flex:none;display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--creme);color:var(--nuit);font-weight:900}
 .tarifs-etapes span{font-weight:600;font-size:15px}
 .tarifs{content-visibility:visible}
+/* Premier écran mobile : l'essentiel sans défiler (recherche et « Ce soir » sur l'accueil ; affiche limitée sur une soirée). */
+@media(max-width:759px){
+  .hero:not(.court):has(.hero-media) .hero-media{height:min(30vh,250px)}
+  .hero:not(.court):has(.hero-media) .hero-texte{margin-top:-56px}
+  .hero:not(.court):has(.hero-media) h1{font-size:clamp(36px,10vw,56px);margin-bottom:10px}
+  .hero:not(.court) .hero-texte>p:not(.etiquette):not(.populaires){font-size:15px;line-height:1.45;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+  .fiche-affiche>img{display:block;max-height:52vh;width:auto;max-width:100%;margin-inline:auto;object-fit:contain}
+  .fiche-affiche:has(>.affiche-fiche){max-height:none}
+}

@@ -610,7 +610,7 @@
   // --- Page d'une soirée sur téléphone : barre « Billets » en bas dès que les boutons principaux sont hors écran ---
   const barre = document.querySelector('.barre-billets'), actions = document.querySelector('.fiche-actions');
   if (barre && actions && 'IntersectionObserver' in window) {
-    new IntersectionObserver(([e]) => { barre.hidden = e.isIntersecting || e.boundingClientRect.top > innerHeight; }).observe(actions);
+    new IntersectionObserver(([e]) => { barre.hidden = e.isIntersecting; }).observe(actions); // visible dès l'arrivée tant que les boutons ne sont pas à l'écran
   }
 
   // --- Démarrage -----------------------------------------------------------------------------------------------
