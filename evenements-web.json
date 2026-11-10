@@ -6221,6 +6221,31 @@
         "pandaevents06",
         "frigo.16"
       ]
+    },
+    {
+      "source": "web",
+      "source_site": "instagram.com",
+      "via_veille": true,
+      "name": "Prizme Concept : TOURNEVIS Live",
+      "start": "2026-11-28T21:00:00.000Z",
+      "venue": "Frigo 16 (Le 109)",
+      "city": "Nice",
+      "address": "",
+      "url": "https://www.instagram.com/reel/DfkZNAZPWT_/",
+      "image": "",
+      "price": null,
+      "tags": [
+        "Tekno",
+        "Tribe",
+        "Acid"
+      ],
+      "description": "",
+      "public_cible": 0.6,
+      "confiance": 0.9,
+      "accroche": "Session tekno en live set au Frigo 16 avec TOURNEVIS.",
+      "instagram": [
+        "prizmeconcept"
+      ]
     }
   ]
 }
