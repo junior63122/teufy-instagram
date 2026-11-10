@@ -259,7 +259,22 @@
    "insta": null,
    "slug": "le-boston-cocktail-bar-nice",
    "score": 0,
-   "soirs": []
+   "soirs": [],
+   "details": {
+    "le": "2026-11-10T16:14:30.724Z",
+    "styles": "Jazz · Lounge · Pop · Généraliste",
+    "dress_code": "Casual chic / tenue soignée",
+    "horaires": "Mar–Sam · 20h–2h30",
+    "prix_verre": "bière 6–8 € · cocktail 10–15 €",
+    "entree": "Gratuit",
+    "age_min": "18 ans",
+    "sources": [
+     "https://boston-bar.fr/",
+     "https://restaurantguru.com/Boston-Bar-Nice",
+     "https://www.privateaser.com/lieu/39831-boston-bar",
+     "https://www.pagesjaunes.fr/pros/55694770"
+    ]
+   }
   },
   {
    "nom": "Plage Beau Rivage",
@@ -276,7 +291,22 @@
    "insta": null,
    "slug": "plage-beau-rivage-nice",
    "score": 0,
-   "soirs": []
+   "soirs": [],
+   "details": {
+    "le": "2026-11-10T16:14:30.724Z",
+    "styles": "Lounge · House · Deep House · Généraliste",
+    "dress_code": "Casual chic en soirée (tenues de bain interdites au restaurant)",
+    "horaires": "Jeu–Lun 10h–17h30 · Lun–Dim 10h–00h (en saison)",
+    "prix_verre": "bière 8,50 € · cocktail 12,50–15,50 €",
+    "entree": "Gratuit (consommation obligatoire) · matelas 24–35 €",
+    "age_min": "",
+    "sources": [
+     "https://plagenicebeaurivage.com/",
+     "https://plagenicebeaurivage.com/wp-content/uploads/2024/05/CARTE-BOISSONS-PLAGE-BEAU-RIVAGE-2024.pdf",
+     "https://www.instagram.com/plagebeaurivage/",
+     "https://www.provence-alpes-cotedazur.com/"
+    ]
+   }
   },
   {
    "nom": "Achill’s",
@@ -292,7 +322,22 @@
    "slug": "achill-s-villefranche-sur-mer",
    "score": 0,
    "photo": "site/lieux/site-0c046bf06fa0-176.webp",
-   "soirs": []
+   "soirs": [],
+   "details": {
+    "le": "2026-11-10T16:14:30.724Z",
+    "styles": "Lounge · House · Pop · Généraliste",
+    "dress_code": "Décontracté chic conseillé",
+    "horaires": "Lun–Dim 18h–1h30 (en saison)",
+    "prix_verre": "bière 6–9 € · cocktail 12–16 €",
+    "entree": "Gratuit",
+    "age_min": "",
+    "sources": [
+     "https://www.achills.com/",
+     "https://www.achills.com/un-lieu-ideal-pour-organiser-vos-evenements-a-villefranche-sur-mer-sur-la-cote-dazur/",
+     "https://wiicmenu-qrcode.com/app/ac/ac_achill%E2%80%99s",
+     "https://www.cotemagazine.com/le-top-des-rooftops/"
+    ]
+   }
   },
   {
    "nom": "DRY Restaurant & Cocktail Bar",
@@ -307,7 +352,20 @@
    "insta": null,
    "slug": "dry-restaurant-et-cocktail-bar-villefranche-sur-mer",
    "score": 0,
-   "soirs": []
+   "soirs": [],
+   "details": {
+    "le": "2026-11-10T16:14:30.724Z",
+    "styles": "",
+    "dress_code": "Aucun dress code strict",
+    "horaires": "Mar–Jeu 10h–17h · Ven–Sam 10h–18h · Dim 10h–17h",
+    "prix_verre": "bière 9–11 € · cocktail 15–21 €",
+    "entree": "Gratuit",
+    "age_min": "Aucun",
+    "sources": [
+     "https://dryrestaurant.com/",
+     "https://www.cotedazurfrance.fr/offres/dry-restaurant-cocktail-bar-villefranche-sur-mer-fr-3949706/"
+    ]
+   }
   },
   {
    "nom": "Les Bains Déli Bo",
@@ -338,7 +396,21 @@
    "slug": "le-qg-port-saint-laurent-saint-laurent-du-var",
    "score": 0,
    "photo": "site/lieux/site-20fc6e1d71ad-176.webp",
-   "soirs": []
+   "soirs": [],
+   "details": {
+    "le": "2026-11-10T16:14:30.724Z",
+    "styles": "Généraliste · Festive · Clubbing",
+    "dress_code": "Tenue correcte et décontractée",
+    "horaires": "Lun–Dim · 18h–2h30",
+    "prix_verre": "bière 6 € · cocktail 8 € · vin 5 €",
+    "entree": "Gratuit",
+    "age_min": "",
+    "sources": [
+     "https://www.privateaser.com/lieu/59345-le-qg",
+     "https://provence-alpes-cotedazur.com/offre/le-qg-saint-laurent-du-var-fr-6090872/",
+     "https://check.fr/bars/saint-laurent-du-var/le-qg/"
+    ]
+   }
   },
   {
    "nom": "Tree Bô",
