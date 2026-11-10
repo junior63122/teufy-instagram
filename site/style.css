@@ -1171,3 +1171,5 @@ html[data-saison=nouvel-an] .decor-saison i{color:#f6e27a;text-shadow:0 0 8px #d
 .pied-colonnes a{padding-block:2px;min-height:24px}
 /* Annuaires de lieux (jusqu'à 100 fiches) : chaque fiche n'est mise en page qu'à l'approche de l'écran. */
 .fiches>.fiche-lieu:nth-child(n+7){content-visibility:auto;contain-intrinsic-size:auto 520px}
+/* Statistiques Instagram d'un lieu : libellé visible (le survol n'existe pas sur téléphone). */
+.lieu-stats .lieu-stats-titre{flex-basis:100%;padding:0;background:none;border:0;font-size:12px;font-weight:700;letter-spacing:.04em;color:#b8b2a8}
