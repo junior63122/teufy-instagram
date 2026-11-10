@@ -634,7 +634,7 @@ export async function construireSite({ events, eventsFrance = [], eventsOccitani
       const ctx = (chemin) => ({ lang, t, tr, chemin, base: '../'.repeat((lang === 'fr' ? 0 : 1) + chemin.split('/').filter(Boolean).length), compte, T, maj: majTexte(t), actus, partenaires, lieux, festivalsGuide });
       const ajoute = (chemin, f) => pages.push([`${P}${chemin}`, f(ctx(chemin))]);
       ajoute('', (c) => page({ ...c, soirees: sl, posts, now }));
-      ajoute('a-propos/', (c) => aPropos({ ...c, nb: sl.length, posts }));
+      ajoute('a-propos/', (c) => aPropos({ ...c, nb: new Set([...sl, ...so, ...sf].map((x) => x.id)).size, posts }));
       for (const v of VILLES_SEO) ajoute(`${v.slug}/`, (c) => pageVille({ ...c, v, soirees: sl.filter((x) => v.re.test(`${x.ville} ${x.lieu}`)), now }));
       for (const k of PAGES_STYLES) ajoute(`soirees-${k}/`, (c) => pageStyle({ ...c, cleStyle: k, soirees: sl.filter((x) => x.styles.includes(k)) }));
       ajoute('festivals/', (c) => pageFestivals({ ...c, soirees: sl.filter((x) => x.festival) }));
@@ -1569,7 +1569,7 @@ function pageLegal({ lang, t, tr, base, compte, T, chemin, maj, cle = 'mentions-
 // Teufy en chiffres (un seul bloc) + modèle économique : données fournies par la direction (config.json → site.entreprise).
 function chiffresTeufy({ tr, T, nb }) {
   const E = T.entreprise || {};
-  const l = [[String(nb), tr("soirées à venir sur la Côte d'Azur et le Var")], [`${T.nbPartenaires}+`, tr("partenaires : clubs, bars, organisateurs, artistes")],
+  const l = [[String(nb), tr("soirées à venir sur le site : Côte d'Azur, Var, Occitanie et grandes villes de France")], [`${T.nbPartenaires}+`, tr("partenaires : clubs, bars, organisateurs, artistes")],
     [E.telechargements, tr(E.telechargements_legende || '')], [E.chiffre_affaires, tr(E.chiffre_affaires_legende || '')], [E.benefice, tr(E.benefice_legende || '')]].filter((x) => x[0]);
   return `<ul class="chiffres chiffres-teufy">${l.map(([v, x], i) => `<li style="--i:${i}"><strong>${esc(v)}</strong><span>${esc(x)}</span></li>`).join('')}</ul>`;
 }
