@@ -72,7 +72,10 @@ const absents = indexables.filter((u) => !dansSm.has(u));
 if (absents.length) avertissements.push(`${absents.length} page(s) indexable(s) absentes du sitemap (ex. ${absents.slice(0, 3).join(', ')})`);
 const robots = readFileSync(path.join(ROOT, 'robots.txt'), 'utf8');
 if (!robots.includes(`Sitemap: ${domaine}sitemap.xml`)) bloquants.push('robots.txt : lien vers le sitemap absent ou mauvais domaine');
-if (/Disallow:\s*\/\s*$/m.test(robots)) bloquants.push('robots.txt bloque tout le site');
+// Seuls les groupes « * », Googlebot et Bingbot comptent pour Google/Bing (les robots d'entraînement d'IA sont bloqués exprès).
+const groupes = robots.split(/\n\s*\n/).filter((g) => /User-agent:\s*(\*|Googlebot|Bingbot)\s*$/mi.test(g));
+if (groupes.some((g) => /^Disallow:\s*\/\s*$/m.test(g))) bloquants.push('robots.txt bloque tout le site pour Google ou Bing');
+if (!/User-agent:\s*GPTBot\nDisallow:\s*\/\s*$/m.test(robots)) avertissements.push('robots.txt : les robots d\'entraînement d\'IA ne sont plus bloqués');
 
 console.log(`${pages.length} pages, ${locs.length} URL dans le sitemap, ${nbImg} images, ${nbLiensExt} liens externes, ${nbLd} blocs JSON-LD`);
 const resume = (l) => { const c = new Map(); for (const x of l) { const k = x.replace(/^[^:]+ : /, '').replace(/\(.*\)/, '').replace(/\d+/g, 'N'); c.set(k, [...(c.get(k) || []), x]); } return [...c.values()].map((v) => `${v[0]}${v.length > 1 ? `  (+${v.length - 1} autres)` : ''}`); };
