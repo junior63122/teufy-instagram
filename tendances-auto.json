@@ -1,12 +1,12 @@
 {
-  "maj": "2026-11-09T10:03:57.892Z",
+  "maj": "2026-11-10T08:11:19.059Z",
   "comptes": {
     "downtown.nice": {
       "abonnes": 2392,
       "posts": 25
     },
     "uptown.nice": {
-      "abonnes": 1866,
+      "abonnes": 1865,
       "posts": 25
     },
     "la_dinette__": {
@@ -14,7 +14,7 @@
       "posts": 25
     },
     "lebarathymtoulon": {
-      "abonnes": 10921,
+      "abonnes": 10925,
       "posts": 25
     },
     "nightlyfr": {
@@ -43,7 +43,7 @@
       "erreur": "Instagram 17841451355992040 : Invalid user id (code 110, sous-code 2207013)"
     },
     "dicefm": {
-      "abonnes": 91187,
+      "abonnes": 91948,
       "posts": 25
     },
     "trax_magazine": {
@@ -53,84 +53,79 @@
       "erreur": "Instagram 17841451355992040 : Invalid user id (code 110, sous-code 2207013)"
     },
     "boilerroomtv": {
-      "abonnes": 2888375,
+      "abonnes": 2888342,
       "posts": 25
     },
     "les.bonnesfranquettes": {
-      "abonnes": 5054,
+      "abonnes": 5067,
       "posts": 25
     },
     "sun7riviera": {
-      "abonnes": 1264,
+      "abonnes": 1269,
       "posts": 25
     },
     "neonfestival_": {
-      "abonnes": 4102,
+      "abonnes": 4103,
       "posts": 25
     },
     "clubsonore_frenchriviera": {
-      "abonnes": 13115,
+      "abonnes": 13114,
       "posts": 25
     },
     "agencetwelty": {
-      "abonnes": 1088,
+      "abonnes": 1087,
       "posts": 8
     },
     "laplaturne": {
-      "abonnes": 8323,
+      "abonnes": 8331,
       "posts": 25
     },
     "lanonchalance": {
-      "abonnes": 73026,
+      "abonnes": 73012,
       "posts": 25
     },
     "afroheatfestival": {
-      "abonnes": 4074,
+      "abonnes": 4077,
       "posts": 25
     },
     "bluecoastbrewing": {
-      "abonnes": 12239,
+      "abonnes": 12234,
       "posts": 25
     },
     "mamashelternice": {
-      "abonnes": 26384,
+      "abonnes": 26411,
       "posts": 25
     },
     "lemeridiennice": {
-      "abonnes": 14198,
+      "abonnes": 14200,
       "posts": 25
     },
     "palaisnikaia": {
-      "abonnes": 13693,
+      "abonnes": 13717,
       "posts": 25
     },
     "frigo.16": {
-      "abonnes": 11637,
+      "abonnes": 11658,
       "posts": 25
     },
     "pandaevents06": {
-      "abonnes": 15189,
+      "abonnes": 15195,
       "posts": 25
     },
     "highclubnice": {
-      "abonnes": 26920,
-      "posts": 25
+      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
     },
     "clubvivy": {
-      "abonnes": 2416,
-      "posts": 25
+      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
     },
     "dovnrobs": {
-      "abonnes": 10170,
-      "posts": 25
+      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
     },
     "twigamontecarlo": {
-      "abonnes": 86829,
-      "posts": 25
+      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
     },
     "jetlagang": {
-      "abonnes": 111617,
-      "posts": 25
+      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
     },
     "pandaevents": {
       "erreur": "Instagram 17841451355992040 : Invalid user id (code 110, sous-code 2207013)"
@@ -152,46 +147,44 @@
     "#antibes": 1,
     "#monaco": 0.166,
     "#nice": 0.08,
-    "#housemusic": 0.003,
     "#riviera": 0.003,
     "#vieuxnice": 0.003,
+    "#savethedate": 0.003,
+    "#nicecotedazur": 0.003,
     "#halloween": 0.003,
-    "#djset": 0.003,
-    "#party": 0.003,
-    "#nicecotedazur": 0.002,
-    "#cotedazurfrance": 0.002,
-    "#savethedate": 0.002,
-    "#oldtownnice": 0.002,
+    "#cotedazurfrance": 0.003,
     "#ilovenice": 0.002,
-    "#soireenice": 0.002,
+    "#oldtownnice": 0.002,
     "#nice06": 0.002,
+    "#soireenice": 0.002,
     "#spring": 0.002,
     "#nostalgie": 0.002,
-    "#cotedazur": 0.002,
+    "#party": 0.002,
     "#nightlife": 0.002,
+    "#djset": 0.002,
     "#frenchriviera": 0.002,
     "#bar": 0.002,
-    "#techno": 0.001,
+    "#cotedazur": 0.002,
     "#nicefrance": 0.001
   },
   "formats": {
     "carrousel": {
-      "score": 53.52,
-      "posts": 205
+      "score": 66.16,
+      "posts": 164
     },
     "image": {
-      "score": 239.35,
-      "posts": 186
+      "score": 83.43,
+      "posts": 160
     },
     "reel": {
-      "score": 61.97,
-      "posts": 242
+      "score": 80.84,
+      "posts": 184
     }
   },
   "heures": {
     "0": {
-      "score": 1.11,
-      "posts": 4
+      "score": 2.02,
+      "posts": 2
     },
     "1": {
       "score": 0.96,
@@ -202,150 +195,143 @@
       "posts": 1
     },
     "5": {
-      "score": 1.15,
+      "score": 1.13,
       "posts": 2
     },
     "6": {
-      "score": 0.53,
-      "posts": 2
+      "score": 1.06,
+      "posts": 1
     },
     "7": {
       "score": 1.41,
       "posts": 1
     },
     "8": {
-      "score": 0.82,
-      "posts": 9
+      "score": 0.6,
+      "posts": 8
     },
     "9": {
-      "score": 0.86,
-      "posts": 11
+      "score": 0.74,
+      "posts": 9
     },
     "10": {
-      "score": 1.29,
-      "posts": 30
+      "score": 1.04,
+      "posts": 21
     },
     "11": {
-      "score": 108.76,
-      "posts": 22
+      "score": 140.1,
+      "posts": 17
     },
     "12": {
-      "score": 59.48,
-      "posts": 41
-    },
-    "13": {
-      "score": 7.92,
-      "posts": 28
-    },
-    "14": {
-      "score": 0.97,
-      "posts": 20
-    },
-    "15": {
-      "score": 26.69,
+      "score": 69.2,
       "posts": 35
     },
+    "13": {
+      "score": 9.7,
+      "posts": 22
+    },
+    "14": {
+      "score": 1.17,
+      "posts": 15
+    },
+    "15": {
+      "score": 44.52,
+      "posts": 28
+    },
     "16": {
-      "score": 21.53,
-      "posts": 54
+      "score": 26.74,
+      "posts": 43
     },
     "17": {
-      "score": 431.66,
-      "posts": 83
+      "score": 72.12,
+      "posts": 60
     },
     "18": {
-      "score": 166.21,
-      "posts": 146
+      "score": 206.5,
+      "posts": 117
     },
     "19": {
-      "score": 28.08,
-      "posts": 84
+      "score": 34.26,
+      "posts": 68
     },
     "20": {
-      "score": 23.26,
-      "posts": 32
+      "score": 23.97,
+      "posts": 31
     },
     "21": {
-      "score": 2.71,
-      "posts": 16
+      "score": 1.77,
+      "posts": 15
     },
     "22": {
-      "score": 0.7,
+      "score": 0.69,
       "posts": 8
     },
     "23": {
-      "score": 1.91,
+      "score": 1.88,
       "posts": 3
     }
   },
   "accroches": [
     {
-      "compte": "bluecoastbrewing",
-      "format": "image",
-      "score": 31456.82,
-      "accroche": "🇫🇷 Jeu Concours Gekko x Blue Coast",
-      "lien": "https://www.instagram.com/p/DcREKUwCQs0/"
-    },
-    {
       "compte": "sun7riviera",
       "format": "reel",
-      "score": 9493.67,
+      "score": 9456.26,
       "accroche": "iameliott_ ⚓ sun7riviera  tentation_azur",
       "lien": "https://www.instagram.com/reel/DcOlrR_MGOp/"
     },
     {
       "compte": "sun7riviera",
       "format": "carrousel",
-      "score": 4746.84,
+      "score": 4728.13,
       "accroche": "",
       "lien": "https://www.instagram.com/p/DcMAgQVDIVQ/"
     },
     {
       "compte": "sun7riviera",
       "format": "carrousel",
-      "score": 4746.84,
+      "score": 4728.13,
       "accroche": "",
       "lien": "https://www.instagram.com/p/Daic08PjEMw/"
     },
     {
       "compte": "sun7riviera",
       "format": "image",
-      "score": 2373.42,
+      "score": 2364.07,
       "accroche": "",
       "lien": "https://www.instagram.com/p/DbDMLA1sybZ/"
     },
     {
       "compte": "sun7riviera",
       "format": "image",
-      "score": 2373.42,
+      "score": 2364.07,
       "accroche": "#Cannes#Antibes#Nice#monaco",
       "lien": "https://www.instagram.com/p/DQ88i1djKz7/"
     },
     {
       "compte": "bluecoastbrewing",
       "format": "reel",
-      "score": 2042.65,
+      "score": 2043.49,
       "accroche": "Les sapeurs-pompiers d’Hancy préparent L’APÉRO GÉANT ! 🚒🎉",
       "lien": "https://www.instagram.com/reel/DdZSyXzBQl3/"
     },
     {
       "compte": "bluecoastbrewing",
       "format": "image",
-      "score": 1470.71,
+      "score": 1471.31,
       "accroche": "🇫🇷 Verre entre collègues ce soir ? Quelle est votre bière Blue Coast de choix ? Nous, c’est la Blonde : un classique indémodable, parfait ",
       "lien": "https://www.instagram.com/p/DdCIWjNDkWI/"
     },
     {
       "compte": "bluecoastbrewing",
       "format": "image",
-      "score": 1225.59,
+      "score": 1226.09,
       "accroche": "🇫🇷 Quand nous avons créé notre charte graphique, nous voulions une identité profondément ancrée à Nice, d’où nous venons. Quoi de plus emb",
       "lien": "https://www.instagram.com/p/DdomWIOIcfO/"
     },
     {
       "compte": "bluecoastbrewing",
       "format": "image",
-      "score": 1143.88,
+      "score": 1144.35,
       "accroche": "🇫🇷 On ne sait pas vous, mais nous, on est en déni complet de l’arrivée de l’automne. ",
       "lien": "https://www.instagram.com/p/DecT0T9ovpq/"
     },
@@ -359,9 +345,16 @@
     {
       "compte": "lanonchalance",
       "format": "reel",
-      "score": 1108.67,
+      "score": 1109.33,
       "accroche": "A beautiful night in Monaco alongside AMOR, where music and unforgettable moments came together. ",
       "lien": "https://www.instagram.com/reel/DehZ_NpK2op/"
+    },
+    {
+      "compte": "bluecoastbrewing",
+      "format": "image",
+      "score": 1062.61,
+      "accroche": "🇫🇷 Au programme aujourd’hui : piscine, deux Blondes Azur et beaucoup de papotages.",
+      "lien": "https://www.instagram.com/p/Ddy8r5gIaD_/"
     }
   ]
 }

@@ -233,8 +233,8 @@
         "theme:fetes",
         "auteur:equipe"
       ],
-      "score": 1.081,
-      "note": 54
+      "score": 1.147,
+      "note": 57
     },
     {
       "media": "18167085991390734",
@@ -304,7 +304,7 @@
         "theme:orgas",
         "auteur:equipe"
       ],
-      "score": 2.922,
+      "score": 2.971,
       "note": 100
     },
     {
@@ -515,8 +515,8 @@
         "hashtag:#sortiesnice",
         "auteur:equipe"
       ],
-      "score": 0.88,
-      "note": 44
+      "score": 0.909,
+      "note": 45
     },
     {
       "media": "18058994246284934",
@@ -1066,8 +1066,8 @@
         "hashtag:#nightlifefrance",
         "auteur:equipe"
       ],
-      "score": 0.721,
-      "note": 36
+      "score": 0.754,
+      "note": 38
     },
     {
       "media": "18051071228338677",
@@ -2518,7 +2518,7 @@
       ],
       "note": 5,
       "metrics": {
-        "reach": 336,
+        "reach": 355,
         "likes": 1,
         "comments": 0,
         "saved": 0,
@@ -2527,8 +2527,8 @@
         "follows": 0,
         "profile_visits": 0
       },
-      "mesure_le": "2026-11-09T10:04:29.269Z",
-      "score": 0.094
+      "mesure_le": "2026-11-10T08:12:22.902Z",
+      "score": 0.096
     },
     {
       "media": "17886115122523411",
@@ -2558,7 +2558,19 @@
         "hashtag:#sortiracannes",
         "auteur:bot"
       ],
-      "note": null
+      "note": 100,
+      "metrics": {
+        "reach": 692,
+        "likes": 7,
+        "comments": 0,
+        "saved": 0,
+        "shares": 8,
+        "total_interactions": 15,
+        "follows": 0,
+        "profile_visits": 0
+      },
+      "mesure_le": "2026-11-10T08:12:22.902Z",
+      "score": 3.476
     },
     {
       "media": "18100117979106694",
