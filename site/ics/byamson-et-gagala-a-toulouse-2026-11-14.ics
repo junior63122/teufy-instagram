@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:byamson-et-gagala-a-toulouse-2026-11-14@teufy
+DTSTAMP:20261110T040223Z
+DTSTART:20261114T224500Z
+DTEND:20261115T034500Z
+SUMMARY:Byamson & Gagala A Toulouse
+LOCATION:Au Bentleys\, Toulouse
+DESCRIPTION:Byamson et Gagala en live au Bentleys\nBillets : https://www.bizouk.com/events/details/byamson-gagala-a-toulouse/133192\nVia Teufy @teufy_official
+URL:https://www.bizouk.com/events/details/byamson-gagala-a-toulouse/133192
+END:VEVENT
+END:VCALENDAR

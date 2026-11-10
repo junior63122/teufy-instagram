@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:decennie-2026-11-14@teufy
+DTSTAMP:20261110T040223Z
+DTSTART:20261114T220000Z
+DTEND:20261115T030000Z
+SUMMARY:Décennie
+LOCATION:Urban Lab\, Toulouse
+DESCRIPTION:Soirée Décennie à l'Urban Lab un samedi soir\nBillets : https://www.bizouk.com/events/details/decennie/133535\nVia Teufy @teufy_official
+URL:https://www.bizouk.com/events/details/decennie/133535
+END:VEVENT
+END:VCALENDAR

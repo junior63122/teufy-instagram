@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:meryl-lawskie-2026-11-19@teufy
+DTSTAMP:20261110T040223Z
+DTSTART:20261119T193000Z
+DTEND:20261120T003000Z
+SUMMARY:MERYL + LAWSKIE
+LOCATION:Paloma\, Grande Salle\, Nîmes
+DESCRIPTION:Meryl et son shatta à Paloma avec Lawskie : complet\, surveille la revente.\nBillets : https://paloma-nimes.fr/agenda/2026-11/meryl-event-36428/\nVia Teufy @teufy_official
+URL:https://paloma-nimes.fr/agenda/2026-11/meryl-event-36428/
+END:VEVENT
+END:VCALENDAR

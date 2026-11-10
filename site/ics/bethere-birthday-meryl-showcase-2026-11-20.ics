@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:bethere-birthday-meryl-showcase-2026-11-20@teufy
+DTSTAMP:20261110T040223Z
+DTSTART:20261120T220000Z
+DTEND:20261121T030000Z
+SUMMARY:Bethere Birthday - Meryl Showcase
+LOCATION:NINE\, Toulouse
+DESCRIPTION:Bethere fête son anniversaire au Nine avec Meryl en showcase\nBillets : https://www.bizouk.com/events/details/bethere-birthday-meryl-showcase/132694\nVia Teufy @teufy_official
+URL:https://www.bizouk.com/events/details/bethere-birthday-meryl-showcase/132694
+END:VEVENT
+END:VCALENDAR

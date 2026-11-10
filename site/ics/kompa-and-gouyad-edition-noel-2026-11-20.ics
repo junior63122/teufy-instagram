@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:kompa-and-gouyad-edition-noel-2026-11-20@teufy
+DTSTAMP:20261110T040223Z
+DTSTART:20261120T220000Z
+DTEND:20261121T030000Z
+SUMMARY:Kompa And Gouyad Édition : Noel
+LOCATION:Le Baia Club\, Toulouse
+DESCRIPTION:Kompa et gouyad en édition Noël au Baia Club\nBillets : https://www.bizouk.com/events/details/kompa-and-gouyad-edition-noel/133244\nVia Teufy @teufy_official
+URL:https://www.bizouk.com/events/details/kompa-and-gouyad-edition-noel/133244
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:kalipsxau-a-toulouse-showcase-exclusif-au-nine-2026-11-14@teufy
+DTSTAMP:20261110T040223Z
+DTSTART:20261114T224500Z
+DTEND:20261115T034500Z
+SUMMARY:Kalipsxau À Toulouse - Showcase Exclusif Au Nine
+LOCATION:NINE\, Toulouse
+DESCRIPTION:Kalipsxau en showcase exclusif au Nine un samedi soir\nBillets : https://www.bizouk.com/events/details/kalipsxau-a-toulouse-showcase-exclusif-a/131582\nVia Teufy @teufy_official
+URL:https://www.bizouk.com/events/details/kalipsxau-a-toulouse-showcase-exclusif-a/131582
+END:VEVENT
+END:VCALENDAR

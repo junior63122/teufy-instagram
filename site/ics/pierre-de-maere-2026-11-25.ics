@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:pierre-de-maere-2026-11-25@teufy
+DTSTAMP:20261110T040223Z
+DTSTART:20261125T193000Z
+DTEND:20261126T003000Z
+SUMMARY:PIERRE DE MAERE
+LOCATION:Paloma\, Grande Salle\, Nîmes
+DESCRIPTION:La pop de Pierre de Maere en live dans la Grande Salle de Paloma.\nBillets : https://paloma-nimes.fr/agenda/2026-11/pierre-de-maere-2-event-37094/\nVia Teufy @teufy_official
+URL:https://paloma-nimes.fr/agenda/2026-11/pierre-de-maere-2-event-37094/
+END:VEVENT
+END:VCALENDAR

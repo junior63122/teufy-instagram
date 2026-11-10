@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:kompassion-x-solution-gouyad-2026-12-18@teufy
+DTSTAMP:20261110T040223Z
+DTSTART:20261218T220000Z
+DTEND:20261219T030000Z
+SUMMARY:Kompassion X Solution Gouyad
+LOCATION:Urban Lab\, Toulouse
+DESCRIPTION:Kompassion et Solution Gouyad réunis à l'Urban Lab\nBillets : https://www.bizouk.com/events/details/kompassion-x-solution-gouyad/133419\nVia Teufy @teufy_official
+URL:https://www.bizouk.com/events/details/kompassion-x-solution-gouyad/133419
+END:VEVENT
+END:VCALENDAR

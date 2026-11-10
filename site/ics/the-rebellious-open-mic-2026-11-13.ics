@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:the-rebellious-open-mic-2026-11-13@teufy
+DTSTAMP:20261110T040223Z
+DTSTART:20261113T183000Z
+DTEND:20261113T233000Z
+SUMMARY:The Rebellious Open Mic
+LOCATION:Restaurant le Continent\, Toulouse
+DESCRIPTION:Open mic au Continent pour 4\,50 €\, scène ouverte en début de soirée\nBillets : https://www.bizouk.com/events/details/the-rebellious-open-mic/133118\nVia Teufy @teufy_official
+URL:https://www.bizouk.com/events/details/the-rebellious-open-mic/133118
+END:VEVENT
+END:VCALENDAR

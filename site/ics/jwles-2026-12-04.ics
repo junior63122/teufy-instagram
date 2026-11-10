@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:jwles-2026-12-04@teufy
+DTSTAMP:20261110T040223Z
+DTSTART:20261204T183000Z
+DTEND:20261204T233000Z
+SUMMARY:Jwles
+LOCATION:Le Rex de Toulouse\, Toulouse
+DESCRIPTION:Jwles en concert au Rex de Toulouse\nBillets : https://shotgun.live/en/venues/le-rex-de-toulouse\nVia Teufy @teufy_official
+URL:https://shotgun.live/en/venues/le-rex-de-toulouse
+END:VEVENT
+END:VCALENDAR

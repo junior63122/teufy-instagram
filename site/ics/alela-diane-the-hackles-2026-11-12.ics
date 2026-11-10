@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:alela-diane-the-hackles-2026-11-12@teufy
+DTSTAMP:20261110T040223Z
+DTSTART:20261112T193000Z
+DTEND:20261113T003000Z
+SUMMARY:ALELA DIANE + THE HACKLES
+LOCATION:Paloma\, Grande Salle\, Nîmes
+DESCRIPTION:La voix folk d'Alela Diane en Grande Salle de Paloma\, The Hackles en ouverture.\nBillets : https://paloma-nimes.fr/agenda/2026-11/alela-diane-event-36980/\nVia Teufy @teufy_official
+URL:https://paloma-nimes.fr/agenda/2026-11/alela-diane-event-36980/
+END:VEVENT
+END:VCALENDAR

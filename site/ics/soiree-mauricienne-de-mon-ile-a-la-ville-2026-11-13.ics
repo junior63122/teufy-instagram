@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:soiree-mauricienne-de-mon-ile-a-la-ville-2026-11-13@teufy
+DTSTAMP:20261110T040223Z
+DTSTART:20261113T210000Z
+DTEND:20261114T020000Z
+SUMMARY:Soirée Mauricienne "De Mon Île À La Ville"
+LOCATION:Urban Lab\, Toulouse
+DESCRIPTION:Soirée mauricienne De Mon Île À La Ville à l'Urban Lab\nBillets : https://www.bizouk.com/events/details/soiree-mauricienne-de-mon-ile-a-la-ville/132329\nVia Teufy @teufy_official
+URL:https://www.bizouk.com/events/details/soiree-mauricienne-de-mon-ile-a-la-ville/132329
+END:VEVENT
+END:VCALENDAR

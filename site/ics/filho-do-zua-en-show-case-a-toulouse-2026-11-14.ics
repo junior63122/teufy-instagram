@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:filho-do-zua-en-show-case-a-toulouse-2026-11-14@teufy
+DTSTAMP:20261110T040223Z
+DTSTART:20261114T220000Z
+DTEND:20261115T030000Z
+SUMMARY:Filho Do Zua En Show Case Á Toulouse
+LOCATION:Zone Thibault\, Toulouse
+DESCRIPTION:Filho Do Zua en showcase à Toulouse\, samedi à la Zone Thibault\nBillets : https://www.bizouk.com/events/details/filho-do-zua-en-show-case-a-toulouse/130409\nVia Teufy @teufy_official
+URL:https://www.bizouk.com/events/details/filho-do-zua-en-show-case-a-toulouse/130409
+END:VEVENT
+END:VCALENDAR

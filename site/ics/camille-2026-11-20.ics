@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:camille-2026-11-20@teufy
+DTSTAMP:20261110T040223Z
+DTSTART:20261120T193000Z
+DTEND:20261121T003000Z
+SUMMARY:CAMILLE
+LOCATION:Paloma\, Grande Salle\, Nîmes
+DESCRIPTION:Camille en Grande Salle de Paloma un vendredi : complet\, tente la revente.\nBillets : https://paloma-nimes.fr/agenda/2026-11/camille-7-event-36832/\nVia Teufy @teufy_official
+URL:https://paloma-nimes.fr/agenda/2026-11/camille-7-event-36832/
+END:VEVENT
+END:VCALENDAR

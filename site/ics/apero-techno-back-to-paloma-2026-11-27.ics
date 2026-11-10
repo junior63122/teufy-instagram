@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:apero-techno-back-to-paloma-2026-11-27@teufy
+DTSTAMP:20261110T040223Z
+DTSTART:20261127T180000Z
+DTEND:20261127T230000Z
+SUMMARY:APÉRO TECHNO (Back to Paloma)
+LOCATION:Paloma\, Patio\, Nîmes
+DESCRIPTION:Apéro techno au Patio de Paloma dès 6 €\, parfait pour lancer le week-end.\nBillets : https://paloma-nimes.fr/agenda/2026-11/apero-techno-9-event-37799/\nVia Teufy @teufy_official
+URL:https://paloma-nimes.fr/agenda/2026-11/apero-techno-9-event-37799/
+END:VEVENT
+END:VCALENDAR
