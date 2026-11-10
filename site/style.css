@@ -953,3 +953,7 @@ details[data-bloc="tri"]>.groupe{inset-inline-start:auto;inset-inline-end:0}
 @media(max-width:759px){.chiffres-teufy li:last-child:nth-child(odd){grid-column:1/-1}}
 .chiffres-teufy strong{white-space:nowrap;overflow-wrap:normal;font-size:clamp(26px,3.6vw,42px)}
 @media(min-width:760px){.chiffres-teufy{grid-template-columns:repeat(6,minmax(0,1fr))}.chiffres-teufy li{grid-column:span 2}.chiffres-teufy li:nth-child(n+4){grid-column:span 3}}
+/* En-têtes : la hauteur HTML ne doit pas étirer les visuels (aspect-ratio 4/5 respecté) */
+.collage img{height:auto}
+/* Performance : les sections sous l'écran ne sont mises en page qu'à l'approche (comme les jours de l'agenda) */
+.bloc-large,.qui,.insta,.orga2,.pros,.pied{content-visibility:auto;contain-intrinsic-size:auto 900px}

@@ -914,7 +914,7 @@ const couper = (x, n) => { x = String(x || '').replace(/\s+/g, ' ').trim(); if (
 const titreCourt = ([nom, date, lieu]) => { const fin = ` · ${date} · Teufy`; if (`${nom} · ${date} · ${lieu} · Teufy`.length <= 66 && lieu) return `${nom} · ${date} · ${lieu} · Teufy`; return `${couper(nom, Math.max(20, 66 - fin.length))}${fin}`; };
 // Autres pages : titre raccourci en gardant la marque à la fin.
 const titrePage = (x) => { x = String(x || ''); if (x.length <= 70) return x; const m = x.match(/^(.*?)( · Teufy)$/); return m ? `${couper(m[1], 62)}${m[2]}` : couper(x, 70); };
-function gabarit({ lang, t, titre, description, chemin, base, corps, ld = [], image = 'site/img/equipe/monaco.jpg', compte, maj = '', agendaIci = false }) {
+function gabarit({ lang, t, titre, description, chemin, base, corps, ld = [], image: imageDemandee, image = imageDemandee || 'site/img/equipe/monaco.jpg', compte, maj = '', agendaIci = false }) {
   const handle = compte.replace(/^@/, '');
   const P = pre(lang);
   const accueil = `${base}${P}`;
@@ -1105,7 +1105,7 @@ const detailsDuLieu = (s) => DETAILS_LIEUX.get(normLieu(s.lieu)) || null;
 // Version affichable d'une image (affiche, actu, post, photo) : la WebP la plus adaptée qui existe.
 const visuelHero = (rel) => [800, 480, 400, 600].map((l) => rel.replace(/\.(jpe?g|png)$/i, `-${l}.webp`)).find((f) => f !== rel && existsSync(path.join(ROOT, f))) || rel;
 const collage = (base, k, logos = null, images = null) => {
-  const imgs = (images || []).filter(Boolean).slice(0, 3);
+  const imgs = (images || []).filter(Boolean).filter((a) => { const f = visuelHero(a); return !/\.webp$/.test(f) || largeurWebp(path.join(ROOT, f)) >= 480; }).slice(0, 3); // jamais d'image trop petite (floue)
   if (imgs.length === 3) return `<div class="collage" aria-hidden="true">${imgs.map((a, i) => `<img src="${base}${esc(visuelHero(a))}" alt="" width="400" height="500" loading="lazy" style="--i:${i}">`).join('')}</div>`;
   if (logos) return `<div class="collage logos-collage" aria-hidden="true">${logos.slice(0, 12).map((f, i) => `<img src="${base}${esc(f)}" alt="" width="160" height="160" loading="lazy" style="--i:${i}">`).join('')}</div>`;
   const l = AFFICHES_COLLAGE.length ? [0, 1, 2].map((i) => AFFICHES_COLLAGE[(k * 3 + i) % AFFICHES_COLLAGE.length]) : [];
@@ -1297,7 +1297,7 @@ function pageSorties({ lang, t, tr, base, compte, T, chemin, maj, partenaires, c
   const corps = `${heroCourt({ partage: t.partager, base, photo: null, images: cleS === 'dates' ? Object.values(PHOTOS_SPOTS).map((x) => x.fichier) : null, logos: cleS === 'dates' ? null : (() => { const lg = l.filter((x) => x.fichier).map((x) => x.fichier); return lg.length >= 4 ? lg : null; })(), alt: tr(C.etiquette), etiquette: tr(C.etiquette), h1: tr(C.h1), p: esc(tr(C.p)), k: 8 + Object.keys(SORTIES).indexOf(cleS) })}
 ${spots}
 <section class="bloc-large reveal">${l.length ? `<h2>${tr('Les bonnes adresses de nos <em>partenaires</em>')}</h2>` : ''}${l.length ? `<div class="fiches">${l.map(carteP).join('')}</div>` : cleS === 'dates' ? '' : `<p class="vide">${esc(tr(SORTIES.vide))}</p>`}${ctaIg(handle, t.orgaBouton, T.email)}</section>`;
-  return gabarit({ lang, t, titre: tr(C.titre), description: tr(C.desc), chemin, base, corps, compte, maj, ld: [...ldOrganisation(T, compte, t, lang), fil(lang, [['Teufy', ''], [tr(C.etiquette), chemin]]),
+  return gabarit({ lang, t, titre: tr(C.titre), description: tr(C.desc), chemin, base, corps, compte, maj, image: cleS === 'dates' ? Object.values(PHOTOS_SPOTS)[0]?.fichier : undefined, ld: [...ldOrganisation(T, compte, t, lang), fil(lang, [['Teufy', ''], [tr(C.etiquette), chemin]]),
     ...(l.length ? [{ '@context': 'https://schema.org', '@type': 'ItemList', itemListElement: l.map((p, i) => ({ '@type': 'ListItem', position: i + 1, item: { '@type': p.categorie === 'restaurant' ? 'Restaurant' : 'LocalBusiness', name: p.nom, ...(p.adresse || p.ville ? { address: { '@type': 'PostalAddress', streetAddress: p.adresse || undefined, addressLocality: p.ville || undefined } } : {}), ...(p.site ? { url: p.site } : {}) } })) }] : [])] });
 }
 
@@ -1315,7 +1315,7 @@ ${(festivalsGuide || []).length ? (() => {
 })() : `<section class="bloc-large reveal"><h2>${t.festGuideH2}</h2><div class="cartes-texte">${FESTIVALS.map((f, i) => `<article class="carte-texte" style="--i:${i}"><p class="genre">${esc(tr(f.quand))} · ${esc(f.ville === 'Partout' ? tr(f.ville) : f.ville)}</p><h3>${esc(f.nom)}</h3><p class="petit">${esc(tr(f.style))}</p><p>${esc(tr(f.texte))}</p><a class="lien" href="${recherche(f.nom)}" target="_blank" rel="noopener">${esc(t.siteOfficiel)}</a></article>`).join('')}</div></section>`}
 <section class="bloc-large reveal"><h2>${t.festRdvH2}</h2><div class="cartes-texte">${RENDEZ_VOUS.map((f, i) => `<article class="carte-texte" style="--i:${i}"><p class="genre">${esc(tr(f.quand))}${f.ville ? ` · ${esc(f.ville)}` : ''}</p><h3>${esc(f.nom)}</h3><p>${esc(tr(f.texte))}</p></article>`).join('')}</div><p class="avert">${esc(t.festAvert)}</p></section>
 ${blocOrga({ t, tr, base, handle: compte.replace(/^@/, ''), lang })}`;
-  return gabarit({ lang, t, titre: t.festTitre, description: t.festDesc, chemin, base, corps, compte, maj, ld: [...ldOrganisation(T, compte, t, lang), ...jsonld(soirees, lang), fil(lang, [['Teufy', ''], [t.festivals, chemin]])] });
+  return gabarit({ lang, t, titre: t.festTitre, description: t.festDesc, chemin, base, corps, compte, maj, image: soirees.find((x) => x.affiche)?.affiche, ld: [...ldOrganisation(T, compte, t, lang), ...jsonld(soirees, lang), fil(lang, [['Teufy', ''], [t.festivals, chemin]])] });
 }
 
 // --- Flux Instagram du compte ----------------------------------------------------------------------------------
@@ -1412,7 +1412,7 @@ const dateActu = (a, t) => { const d = Date.parse(a.date); return isNaN(d) ? '' 
 function pageActus({ lang, t, tr, base, compte, T, chemin, actus, maj }) {
   const corps = `${heroCourt({ partage: t.partager, base, photo: null, images: actus.filter((a) => a.image_site).map((a) => a.image_site), alt: t.actus, k: 2, etiquette: t.actus, h1: t.actusH1, p: esc(t.actusP) })}
 <section class="bloc-large reveal"><h2 class="vh">${esc(t.actus)}</h2>${actus.length ? `<div class="actus">${actus.map((a, i) => `<a class="actu${i === 0 ? ' une' : ''}" href="${base}${pre(lang)}actus/${a.id}/" style="--i:${i % 6}"><span class="actu-img${a.visuel ? ' visuel' : ''}">${imageActu(a, { base, sizes: i === 0 ? '(min-width:980px) 560px, 92vw' : undefined })}</span><p class="genre">${esc(dateActu(a, t))}${a.ville ? ` · ${esc(tr(a.ville))}` : ''}</p><h3>${esc(tr(a.titre))}</h3><p>${esc(tr(a.chapo))}</p><b>${esc(t.lire)} →</b></a>`).join('')}</div>` : `<p class="vide">${esc(t.actusVide)}</p>`}</section>`;
-  return gabarit({ lang, t, titre: t.actusTitre, description: t.actusDesc, chemin, base, corps, compte, maj, ld: [...ldOrganisation(T, compte, t, lang), fil(lang, [['Teufy', ''], [t.actus, chemin]])] });
+  return gabarit({ lang, t, titre: t.actusTitre, description: t.actusDesc, chemin, base, corps, compte, maj, image: actus.find((a) => a.image_site)?.image_site, ld: [...ldOrganisation(T, compte, t, lang), fil(lang, [['Teufy', ''], [t.actus, chemin]])] });
 }
 function pageActu({ lang, t, tr, base, compte, chemin, a, actus, maj }) {
   const autres = actus.filter((x) => x.id !== a.id).slice(0, 3);
@@ -1495,7 +1495,7 @@ function pageOccitanie({ lang, t, tr, base, compte, T, chemin, maj, soirees, cle
   const corps = `${heroCourt({ partage: t.partager, base, photo: null, images: soirees.filter((x) => x.affiche).map((x) => x.affiche), alt: titre, k: 5, etiquette: 'Occitanie', h1: cleVille ? tr(`Les soirées à <em>${nomVille}</em>`) : tr('Toutes les soirées d\'<em>Occitanie</em>'), p: esc(cleVille ? tr(`Toutes les soirées à venir à ${nomVille}, vérifiées sur leur billetterie.`) : tr("Teufy, c'est d'abord la Côte d'Azur. Pour quand tu bouges : Montpellier, Toulouse, Nîmes, Perpignan, Sète, Béziers… toutes les soirées d'Occitanie au même endroit, vérifiées sur leur billetterie.")) })}
 <section class="bloc-large reveal"><p class="liens-styles">${cleVille ? `<a class="puce" href="${base}${pre(lang)}occitanie/">${esc(tr('Toute l\'Occitanie'))}</a>` : ''}${puces}<a class="puce" href="${base}${pre(lang)}#agenda">${esc(tr("Côte d'Azur et Var"))}</a></p>
 ${soirees.length ? [...parJour].map(([j, l]) => `<h2 class="jour-titre">${esc(jourTitre(j))} <small>${l.length}</small></h2><div class="grille">${l.map((s) => carte(s, { t, base, lang })).join('')}</div>`).join('\n') : `<p class="vide">${esc(tr('Les soirées d\'Occitanie arrivent : la recherche tourne chaque jour.'))}</p>`}</section>`;
-  return gabarit({ lang, t, titre: `${titre} · Teufy`, description: couper(cleVille ? tr(`Toutes les soirées à ${nomVille} : ${soirees.length} soirée(s) à venir avec date, lieu, prix et billetterie, vérifiées par Teufy.`) : tr(`Toutes les soirées d'Occitanie : ${soirees.length} soirée(s) à venir à Montpellier, Toulouse, Nîmes, Perpignan, Sète, Béziers et dans toute la région.`), 160), chemin, base, corps, compte, maj, ld: [...ldOrganisation(T, compte, t, lang), ...jsonld(soirees, lang)] });
+  return gabarit({ lang, t, titre: `${titre} · Teufy`, description: couper(cleVille ? tr(`Toutes les soirées à ${nomVille} : ${soirees.length} soirée(s) à venir avec date, lieu, prix et billetterie, vérifiées par Teufy.`) : tr(`Toutes les soirées d'Occitanie : ${soirees.length} soirée(s) à venir à Montpellier, Toulouse, Nîmes, Perpignan, Sète, Béziers et dans toute la région.`), 160), chemin, base, corps, compte, maj, image: soirees.find((x) => x.affiche)?.affiche, ld: [...ldOrganisation(T, compte, t, lang), ...jsonld(soirees, lang)] });
 }
 
 // Grandes villes de France : rubrique séparée de l'agenda de la Côte d'Azur et du Var.
@@ -1506,7 +1506,7 @@ function pageFrance({ lang, t, tr, base, compte, T, chemin, maj, soirees, cleVil
   const corps = `${heroCourt({ partage: t.partager, base, photo: null, images: soirees.filter((x) => x.affiche).map((x) => x.affiche), alt: titre, k: 4, etiquette: tr('Ailleurs en France'), h1: cleVille ? tr(`Les soirées à <em>${nomVille}</em>`) : tr('Les soirées des <em>grandes villes</em> de France'), p: esc(tr("Teufy, c'est d'abord la Côte d'Azur et le Var. Ici, les soirées les plus attendues des grandes villes étudiantes, pour quand tu bouges.")) })}
 <section class="bloc-large reveal"><p class="liens-styles">${cleVille ? `<a class="puce" href="${base}${pre(lang)}france/">${esc(tr('Toutes les villes'))}</a>` : ''}${VILLES_FRANCE.filter((v) => villes.includes(slug(v))).map((v) => `<a class="puce${slug(v) === cleVille ? ' actif' : ''}" href="${base}${pre(lang)}france/${slug(v)}/">${esc(v)}</a>`).join('')}<a class="puce" href="${base}${pre(lang)}#agenda">${esc(tr("Côte d'Azur et Var"))}</a></p>
 ${soirees.length ? `<h2>${tr('Les plus <em>attendues</em>')}</h2><div class="grille">${soirees.map((s) => carte(s, { t, base, lang })).join('')}</div>` : `<p class="vide">${esc(tr('Les soirées des grandes villes arrivent : la recherche tourne tous les deux jours.'))}</p>`}</section>`;
-  return gabarit({ lang, t, titre: `${titre} · Teufy`, description: cleVille ? tr(`Les soirées les plus attendues à ${nomVille} : ${soirees.length} soirée(s) à venir, avec date, lieu, prix et lien de billetterie, choisies par Teufy.`) : tr("Les soirées les plus attendues à Paris, Lyon, Marseille, Toulouse, Bordeaux, Lille, Nantes, Montpellier, Strasbourg, Rennes, Grenoble et Aix-en-Provence."), chemin, base, corps, compte, maj, ld: [...ldOrganisation(T, compte, t, lang), ...jsonld(soirees, lang)] });
+  return gabarit({ lang, t, titre: `${titre} · Teufy`, description: cleVille ? tr(`Les soirées les plus attendues à ${nomVille} : ${soirees.length} soirée(s) à venir, avec date, lieu, prix et lien de billetterie, choisies par Teufy.`) : tr("Les soirées les plus attendues à Paris, Lyon, Marseille, Toulouse, Bordeaux, Lille, Nantes, Montpellier, Strasbourg, Rennes, Grenoble et Aix-en-Provence."), chemin, base, corps, compte, maj, image: soirees.find((x) => x.affiche)?.affiche, ld: [...ldOrganisation(T, compte, t, lang), ...jsonld(soirees, lang)] });
 }
 
 // Pages « pros » : partenaires, ambassadeurs, BDE (texte français traduit par l'IA).
@@ -1542,7 +1542,7 @@ function pageBde({ lang, t, tr, base, compte, T, chemin, soirees, maj, partenair
 <section class="bloc-large reveal"><h2>${tr(C.offreH2)}</h2>${cartesTexte(C.offre, tr)}</section>
 <section class="bloc-large reveal"><h2>${tr(C.etapesH2)}</h2>${etapes(C.etapes, tr)}${ctaIg(handle, tr(C.cta), T.email)}</section>
 ${soirees.length ? `<section class="bloc-large reveal"><h2>${tr(C.soireesH2)}</h2><div class="grille">${soirees.map((s) => carte(s, { t, base, lang })).join('')}</div></section>` : ''}`;
-  return gabarit({ lang, t, titre: tr(C.titre), description: tr(C.desc), chemin, base, corps, compte, maj, image: 'site/img/selfie.jpg', ld: [...ldOrganisation(T, compte, t, lang), ...jsonld(soirees, lang), fil(lang, [['Teufy', ''], [t.bde, chemin]])] });
+  return gabarit({ lang, t, titre: tr(C.titre), description: tr(C.desc), chemin, base, corps, compte, maj, image: soirees.find((x) => x.affiche)?.affiche || 'site/img/selfie.jpg', ld: [...ldOrganisation(T, compte, t, lang), ...jsonld(soirees, lang), fil(lang, [['Teufy', ''], [t.bde, chemin]])] });
 }
 // FAQ générale + sources (FAQPage pour Google), avec un sommaire cliquable.
 function pageFaq({ lang, t, tr, base, compte, T, chemin, maj, posts }) {
