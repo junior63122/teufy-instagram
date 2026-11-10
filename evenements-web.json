@@ -5295,28 +5295,34 @@
     },
     {
       "source": "web",
-      "source_site": "instagram",
-      "name": "Ladies Night",
+      "source_site": "instagram.com",
+      "via_veille": true,
+      "name": "Ladies Night avec DJ Kenzo",
       "start": "2026-11-10T21:00:00.000Z",
-      "venue": "Bulldog Pompeï",
+      "venue": "Bulldog Pub Pompeï",
       "city": "Nice",
       "address": "",
       "url": "https://www.instagram.com/p/DfjfHHcIwTS/",
-      "image": "https://scontent-ord5-1.cdninstagram.com/v/t51.82787-15/890616625_18216495322369532_243735280649733786_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=106&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=Fb1YtrLH4YAQ7kNvwHkGEvW&_nc_oc=AdqqqdizrtJsHFx5OEapdfb_I6-I-aBEPJq4i0yIpEjPN5NzF6RWXxvZkPuBsRYYNJw&_nc_zt=23&_nc_ht=scontent-ord5-1.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=QnXEeegeSLRgrwYEvynQuA&oh=00_AQQpBj7_RFRBXv4Rmv6n8t5gs-bEsw7uQ7AF79AzKCcjPA&oe=6AF8A583",
+      "image": "https://scontent-ord5-1.cdninstagram.com/v/t51.82787-15/890616625_18216495322369532_243735280649733786_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=106&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=Fb1YtrLH4YAQ7kNvwEcYyEy&_nc_oc=AdqOJhYhlBUIpANogw9wnzhD7gdUgzakAgDbkGKgSQRYjmLqCjvJ6x3oOi3PeVmPZPY&_nc_zt=23&_nc_ht=scontent-ord5-2.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=gDgIxDhb3QhVu1yL1wAsew&oh=00_AQSTe8zD9fCPWON9_DRdHGpXGRTvp-8V-udyJ12VOhTrvw&oe=6AF8DDC3",
       "price": null,
       "tags": [
         "clubbing",
         "généraliste"
       ],
       "description": "",
-      "public_cible": 0.85,
-      "confiance": 0.85,
-      "buzz": 0.5,
-      "buzz_raison": "Soirée clubbing du mardi soir avec DJ Kenzo.",
-      "accroche": "Ladies Night au Bulldog Pompeï avec DJ Kenzo aux platines et happy hour sur les cocktails.",
+      "public_cible": 0.6,
+      "confiance": 0.9,
+      "accroche": "Rendez-vous hebdomadaire avec DJ Kenzo et offre happy hour dans le Vieux-Nice.",
       "instagram": [
         "bulldogpompeipub",
         "dj_kenzo_officiel"
+      ],
+      "buzz": 0.5,
+      "buzz_raison": "Soirée clubbing du mardi soir avec DJ Kenzo.",
+      "offres": [],
+      "sources_sites": [
+        "instagram.com",
+        "instagram"
       ]
     },
     {
