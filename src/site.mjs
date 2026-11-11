@@ -1007,7 +1007,8 @@ async function imagesManquantes({ soirees, lieux, log, now }) {
     const deja = AI[`${normLieu(s.lieu)}|${s.jour}`];
     if (deja && existsSync(path.join(ROOT, deja.fichier))) { const f = path.join(ROOT, deja.fichier); s.affiche = deja.fichier; s.dims = tailleJpeg(f); webp(f, 480); webp(f, 800); webp(f, 1080); s.afficheSource = deja.source; affiches++; continue; }
     const L = (lieux || []).find((l) => l.instagram && normLieu(l.nom).length >= 3 && (normLieu(s.lieu) === normLieu(l.nom) || normLieu(s.lieu).startsWith(normLieu(l.nom))));
-    const I = L && cacheL[L.instagram]; if (!I) continue;
+    // Le compte du lieu, sinon celui lié à la soirée (organisateur / lieu relevé par la recherche).
+    const compte = L?.instagram || s.instagram, I = compte && cacheL[compte]; if (!I) continue;
     const lendemain = cle(new Date(Date.parse(`${s.jour}T12:00:00Z`) + 864e5).toISOString());
     const mots = [...motsAffiche(s.nom)];
     // 1. L'affiche : une publication des 45 jours avant la soirée qui annonce sa date (et, si possible, son nom).
@@ -1017,14 +1018,14 @@ async function imagesManquantes({ soirees, lieux, log, now }) {
       if (!tempsOk()) break;
       const f = path.join(SITE, 'affiches', `${h(p.u.split('?')[0])}.jpg`);
       if (!existsSync(f) && !(await telecharger(p.u, f))) continue;
-      s.affiche = `site/affiches/${path.basename(f)}`; s.dims = tailleJpeg(f); webp(f, 480); webp(f, 800); webp(f, 1080); s.afficheSource = `@${L.instagram}`; affiches++; break;
+      s.affiche = `site/affiches/${path.basename(f)}`; s.dims = tailleJpeg(f); webp(f, 480); webp(f, 800); webp(f, 1080); s.afficheSource = `@${compte}`; affiches++; break;
     }
     if (s.affiche) continue;
     // 2. Sinon : la plus belle photo du lieu (sa publication la plus aimée), présentée comme photo du lieu.
     if (I.couv?.u) {
-      const f = path.join(dossier, `${L.instagram.replace(/[^a-z0-9._-]/g, '')}-couv.jpg`);
+      const f = path.join(dossier, `${compte.replace(/[^a-z0-9._-]/g, '')}-couv.jpg`);
       if (!existsSync(f) && tempsOk()) await telecharger(I.couv.u, f);
-      if (existsSync(f)) { webp(f, 480); webp(f, 800); s.photoLieu = path.relative(ROOT, f); s.photoLieuDe = `@${L.instagram}`; photos++; }
+      if (existsSync(f)) { webp(f, 480); webp(f, 800); s.photoLieu = path.relative(ROOT, f); s.photoLieuDe = `@${compte}`; photos++; }
     }
   }
   if (affiches || photos) log(`Site : ${affiches} affiche(s) retrouvée(s) sur l'Instagram des lieux, ${photos} soirée(s) illustrée(s) par une photo de leur lieu`);

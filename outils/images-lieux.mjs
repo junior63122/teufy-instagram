@@ -32,9 +32,17 @@ const lieux = [...(LN.lieux || []), ...(lire('contenus/lieux-manuels.json', { li
 const soirees = [...(lire('evenements-web.json', {}).evenements || []), ...lire('evenements-manuels.json', [])].filter((e) => e.start && Date.parse(e.start) > now - 6 * 3600e3 && Date.parse(e.start) < now + 45 * 864e5);
 const AI = lire('contenus/affiches-instagram.json', {});
 const aVenir = (l) => soirees.filter((e) => normLieu(l.nom).length >= 3 && (normLieu(e.venue) === normLieu(l.nom) || normLieu(e.venue).startsWith(normLieu(l.nom))));
-// D'abord les lieux qui ont des soirées à venir, puis ceux dont les données sont les plus anciennes.
-const ordre = [...new Map(lieux.map((l) => [l.instagram.toLowerCase(), l])).values()]
-  .sort((a, b) => (aVenir(b).length > 0) - (aVenir(a).length > 0) || Date.parse(LN.insta[a.instagram]?.le || 0) - Date.parse(LN.insta[b.instagram]?.le || 0)).slice(0, 60);
+// 1. Les comptes Instagram liés aux soirées SANS image (organisateur, lieu) : leur publication qui annonce la date est
+//    presque toujours l'affiche. 2. Les lieux qui ont des soirées à venir. 3. Les données les plus anciennes.
+const sansImage = soirees.filter((e) => !e.image);
+const comptesSoirees = new Map();
+for (const e of sansImage) for (const c of (e.instagram || [])) { const k = String(c).replace(/^@/, '').toLowerCase(); if (/^[a-z0-9._]{2,30}$/.test(k) && !comptesSoirees.has(k)) comptesSoirees.set(k, { nom: e.venue || e.name, instagram: k, soirees: [] }); comptesSoirees.get(k)?.soirees.push(e); }
+const deja = (c) => LN.insta[c] && now - Date.parse(LN.insta[c].le || 0) < 20 * 3600e3; // lu il y a moins de 20 h
+const ordre = [
+  ...[...comptesSoirees.values()].filter((c) => !deja(c.instagram)),
+  ...[...new Map(lieux.map((l) => [l.instagram.toLowerCase(), l])).values()].filter((l) => !comptesSoirees.has(l.instagram.toLowerCase()))
+    .sort((a, b) => (aVenir(b).length > 0) - (aVenir(a).length > 0) || Date.parse(LN.insta[a.instagram]?.le || 0) - Date.parse(LN.insta[b.instagram]?.le || 0)),
+].slice(0, 80);
 mkdirSync(path.join(ROOT, 'site', 'lieux'), { recursive: true }); mkdirSync(path.join(ROOT, 'site', 'affiches'), { recursive: true });
 let nPhotos = 0, nAffiches = 0, nLus = 0;
 for (const l of ordre) {
@@ -49,7 +57,7 @@ for (const l of ordre) {
     const f = path.join(ROOT, 'site', 'lieux', `${l.instagram.replace(/[^a-z0-9._-]/g, '')}-couv.jpg`);
     if (await telecharger(couv.media_url, f)) { webp(f, 480); webp(f, 800); nPhotos++; }
   }
-  for (const e of aVenir(l)) {
+  for (const e of [...new Set([...aVenir(l), ...(l.soirees || [])])]) {
     if (e.image) continue; // la soirée a déjà son affiche officielle
     const cle = `${normLieu(e.venue)}|${jourParis(e.start)}`;
     if (AI[cle] && existsSync(path.join(ROOT, AI[cle].fichier))) continue;
