@@ -6255,6 +6255,79 @@
       "instagram": [
         "twigamontecarlo"
       ]
+    },
+    {
+      "source": "web",
+      "source_site": "instagram.com",
+      "via_veille": true,
+      "name": "Soirée Italie / France",
+      "start": "2026-11-12T19:45:00.000Z",
+      "venue": "La Cale Sèche",
+      "city": "Toulon",
+      "address": "",
+      "url": "https://www.instagram.com/p/DfiTUI4oNVy/",
+      "image": "https://scontent-iad6-1.cdninstagram.com/v/t51.82787-15/889696933_18470080366186229_4023224147153734173_n.webp?stp=dst-jpg_e35_tt6&_nc_cat=103&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=QQoQihyMEXYQ7kNvwGk0p0V&_nc_oc=AdrKVFmDuPioGlmfGfi5vFf-Oi29LiftsiPm85majDF6avvvYK_0zLbDIIzYp9a86l0&_nc_zt=23&_nc_ht=scontent-iad6-1.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=8QgXcLqHSjQN2RRiOXJ_PA&oh=00_AQRz61bKOuJSkUjXRrMiRjiSVtVP_WxPNNwvePRNXOiReQ&oe=6AF9FDE3",
+      "price": null,
+      "tags": [
+        "Bar",
+        "Sport"
+      ],
+      "description": "",
+      "public_cible": 0.6,
+      "confiance": 0.9,
+      "accroche": "Diffusion du match de football Italie contre France sur grand écran.",
+      "instagram": [
+        "lacalesechetoulon"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "instagram.com",
+      "via_veille": true,
+      "name": "Soirée France / Afrique du Sud",
+      "start": "2026-11-13T20:10:00.000Z",
+      "venue": "La Cale Sèche",
+      "city": "Toulon",
+      "address": "",
+      "url": "https://www.instagram.com/p/DfiTUI4oNVy/",
+      "image": "https://scontent-iad6-1.cdninstagram.com/v/t51.82787-15/889696933_18470080366186229_4023224147153734173_n.webp?stp=dst-jpg_e35_tt6&_nc_cat=103&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=QQoQihyMEXYQ7kNvwGk0p0V&_nc_oc=AdrKVFmDuPioGlmfGfi5vFf-Oi29LiftsiPm85majDF6avvvYK_0zLbDIIzYp9a86l0&_nc_zt=23&_nc_ht=scontent-iad6-1.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=8QgXcLqHSjQN2RRiOXJ_PA&oh=00_AQRz61bKOuJSkUjXRrMiRjiSVtVP_WxPNNwvePRNXOiReQ&oe=6AF9FDE3",
+      "price": null,
+      "tags": [
+        "Bar",
+        "Sport"
+      ],
+      "description": "",
+      "public_cible": 0.6,
+      "confiance": 0.9,
+      "accroche": "Retransmission du choc de rugby France contre Afrique du Sud.",
+      "instagram": [
+        "lacalesechetoulon"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "instagram.com",
+      "via_veille": true,
+      "name": "Karaoké et match France / Turquie",
+      "start": "2026-11-15T19:45:00.000Z",
+      "venue": "La Cale Sèche",
+      "city": "Toulon",
+      "address": "",
+      "url": "https://www.instagram.com/p/DfiTUI4oNVy/",
+      "image": "https://scontent-iad6-1.cdninstagram.com/v/t51.82787-15/889696933_18470080366186229_4023224147153734173_n.webp?stp=dst-jpg_e35_tt6&_nc_cat=103&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=QQoQihyMEXYQ7kNvwGk0p0V&_nc_oc=AdrKVFmDuPioGlmfGfi5vFf-Oi29LiftsiPm85majDF6avvvYK_0zLbDIIzYp9a86l0&_nc_zt=23&_nc_ht=scontent-iad6-1.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=8QgXcLqHSjQN2RRiOXJ_PA&oh=00_AQRz61bKOuJSkUjXRrMiRjiSVtVP_WxPNNwvePRNXOiReQ&oe=6AF9FDE3",
+      "price": null,
+      "tags": [
+        "Bar",
+        "Karaoké",
+        "Sport"
+      ],
+      "description": "",
+      "public_cible": 0.6,
+      "confiance": 0.9,
+      "accroche": "Soirée combinant diffusion du match de foot et session karaoké.",
+      "instagram": [
+        "lacalesechetoulon"
+      ]
     }
   ]
 }
