@@ -386,6 +386,8 @@ const NUIT_TARDIVE = path.join(ROOT, 'contenus', 'nuit-tardive.json');
 let TARDIFS = [];
 // Pastilles du menu : nombre de soirées par soir (3 prochains jours) et dates des dernières actus (lues par app.js).
 let NOTIF = { soirs: {}, actus: [] };
+// Nombre de soirées à venir par rubrique du menu (petits chiffres gris à côté des villes, styles, week-end…).
+let COMPTES_NAV = {};
 async function nuitTardive({ now, log }) {
   const cache = lire(NUIT_TARDIVE, { maj: null, lieux: [] });
   if ((process.env.GEMINI_API_KEY || '').trim() && (!cache.maj || now - Date.parse(cache.maj) > 7 * 864e5)) {
@@ -702,6 +704,12 @@ export async function construireSite({ events, eventsFrance = [], eventsOccitani
   CODES = (config.codes_promo || []).filter((c) => c.code && c.s_applique && (!c.jusqu_au || Date.parse(c.jusqu_au) >= now.getTime()));
   const majTexte = (t) => t.majLe.replace('{d}', paris(now, { day: 'numeric', month: 'long' }, t.locale));
 
+  COMPTES_NAV = Object.fromEntries([
+    ...VILLES_SEO.map((v) => [`${v.slug}/`, soirees.filter((x) => v.re.test(`${x.ville} ${x.lieu}`)).length]),
+    ...PAGES_STYLES.map((k) => [`soirees-${k}/`, soirees.filter((x) => x.styles.includes(k)).length]),
+    ...SELECTIONS.map((sel) => [`${sel.slug}/`, soirees.filter((x) => sel.garde(x, now)).length]),
+    ['festivals/', soirees.filter((x) => x.festival).length], ['occitanie/', soireesOccitanie.length], ['france/', soireesFrance.length],
+  ].filter(([, n]) => n > 0));
   const rendre = () => {
     const pages = [];
     for (const lang of LANGUES) {
@@ -1103,7 +1111,7 @@ ${ld.length ? `<script type="application/ld+json">${JSON.stringify(ld).replace(/
 <nav class="nav" aria-label="Menu">${(() => {
       const G = groupesNav({ t, lang, SA }), tous = G.flatMap((g) => g[2]).map(([d]) => d.split('#')[0]);
       const actif = rubriqueNav ?? ([...tous, 'ce-soir/'].includes(chemin) ? chemin : tous.filter((d) => d && chemin.startsWith(d)).sort((a, b) => b.length - a.length)[0]);
-      const lien = ([d, n]) => `<a href="${accueil}${d}"${d === chemin ? ' aria-current="page"' : d === actif ? ' aria-current="true"' : ''}>${esc(n)}</a>`;
+      const lien = ([d, n]) => `<a href="${accueil}${d}"${d === chemin ? ' aria-current="page"' : d === actif ? ' aria-current="true"' : ''}>${esc(n)}${COMPTES_NAV[d] ? ` <small class="nb-nav" aria-label="${COMPTES_NAV[d]} ${esc(t.js.soirees?.replace('{n}', '').trim() || 'soirées')}">${COMPTES_NAV[d]}</small>` : ''}</a>`;
       const groupe = ([cle, titreG, liens]) => `<details class="nav-groupe g-${cle}${liens.some(([d]) => d.split('#')[0] === actif || (cle === 'villes' && /^france\//.test(chemin))) ? ' actif' : ''}"><summary>${esc(titreG)}</summary><div>${liens.map(lien).join('')}</div></details>`;
       const L = LIB_NAV[lang] || LIB_NAV.fr, par = Object.fromEntries(G.map((g) => [g[0], g]));
       // Styles rangés dans « Sortir » (menu plus court) ; Ce soir à part (le plus demandé).
@@ -1127,7 +1135,7 @@ ${(() => { const L = LIB_NAV[lang] || LIB_NAV.fr; const ico = (k) => `<svg viewB
   <div class="menu-tete"><a class="marque" href="${accueil || './'}"><img src="${base}site/img/logo-96.webp" alt="Teufy" width="39" height="32"></a><a href="#" class="menu-x" role="button" aria-label="${esc(L.fermer)}">×</a></div>
   <div class="menu-corps">
     <a class="menu-cherche" href="${ici}#recherche" data-chercher>${ico('chercher')}<span>${esc(t.placeholder)}</span></a>
-    ${groupesNav({ t, lang, SA }).map(([cle, titreG, liens]) => `<section class="menu-groupe menu-${cle}"><h2>${esc(titreG)}</h2><div>${liens.map(([d, n]) => `<a href="${accueil}${d}"${d === chemin ? ' aria-current="page"' : ''}>${esc(n)}</a>`).join('')}</div></section>`).join('')}
+    ${groupesNav({ t, lang, SA }).map(([cle, titreG, liens]) => `<section class="menu-groupe menu-${cle}"><h2>${esc(titreG)}</h2><div>${liens.map(([d, n]) => `<a href="${accueil}${d}"${d === chemin ? ' aria-current="page"' : ''}>${esc(n)}${COMPTES_NAV[d] ? ` <small class="nb-nav">${COMPTES_NAV[d]}</small>` : ''}</a>`).join('')}</div></section>`).join('')}
     <section class="menu-groupe menu-langue"><h2>${esc(t.langue)}</h2><div>${LANGUES.map((l) => `<a href="${base}${pre(l)}${chemin}" hreflang="${l}" lang="${l}"${l === lang ? ' aria-current="true"' : ''}>${esc(TXT[l].nom)}</a>`).join('')}</div></section>
   </div>
 </div>

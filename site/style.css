@@ -1373,3 +1373,7 @@ html.onglets-caches .onglets{transform:translateY(105%)}
 /* Pastilles de nombre (Ce soir, Actus) dans le menu ordinateur et le menu plein écran. */
 .nb-notif{display:inline-block;min-width:18px;height:18px;margin-inline-start:6px;padding:0 5px;border-radius:9px;background:var(--corail);color:var(--nuit);font-size:11px;font-weight:800;line-height:18px;text-align:center;vertical-align:2px}
 .nb-soir,.nb-actus{font-weight:800}
+/* Nombre de soirées à venir dans les menus : discret (le rouge reste réservé à « ce soir » et « nouveau »). */
+.nb-nav{display:inline-block;margin-inline-start:8px;padding:1px 7px;border-radius:9px;background:#ffffff14;color:#c8c8d0;font-size:12px;font-weight:700;line-height:18px;vertical-align:1px;font-variant-numeric:tabular-nums}
+.nav-groupe>div a{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.nav-groupe>div a{white-space:nowrap}

@@ -319,6 +319,7 @@ async function controlerPage(p, nom, u) {
     ok(await p.locator('.compris:not([hidden])').count() === 0, `${nom} : un nom de soirée est pris pour des filtres`);
     const N = await p.evaluate(() => JSON.parse(document.querySelector('.onglets')?.dataset.notif || '{}'));
     ok(N.soirs && Array.isArray(N.actus), `${nom} : données des pastilles absentes`);
+    ok(await p.locator('.menu-complet .menu-villes .nb-nav').count() > 0 && await p.locator('.nav .g-villes .nb-nav').count() > 0, `${nom} : nombre de soirées absent à côté des villes dans les menus`);
     const orga = await p.evaluate(async () => { const a = document.querySelector('.liste .carte h3 a'); return a ? a.href : ''; });
     if (orga) { await p.goto(B + 'soiree/la-tocardise-2026-11-14/', { waitUntil: 'load' }).catch(() => {}); if (await p.locator('h1').count()) ok(await p.locator('.orga-carte[href*="instagram.com/_lestocards_"]').isVisible().catch(() => false) || !/Tocardise/.test(await p.locator('h1').innerText()), `${nom} : le compte Instagram de l'organisateur n'est pas mis en avant`); }
     } catch (e) { echecs.push(`${nom} : étape interrompue (${e.message.split('\n')[0]} @l.${(String(e.stack).match(/tester-site\.cjs:(\d+)/) || [])[1] || '?'})`); }
