@@ -42,7 +42,9 @@ const visibles = (p) => p.locator('.liste .carte:not([hidden])').count();
       const btn = d.locator('.groupe button').nth(i % 3);
       if (await btn.isVisible().catch(() => false)) await btn.click({ force: true }).catch(() => {});
     }
-    const coeur = p.locator('.liste .carte:not([hidden]) .coeur').first(); await coeur.scrollIntoViewIfNeeded(); await p.waitForTimeout(900);
+    // Selon l'heure, les clics au hasard peuvent laisser une combinaison de filtres sans aucune soirée : on remet tout.
+    if (!(await p.locator('.liste .carte:not([hidden]):not(.plus-loin)').count())) await p.evaluate(() => document.querySelectorAll('.filtres .groupe [data-v="tout"], .filtres .groupe [data-v="date"]').forEach((b) => b.click()));
+    const coeur = p.locator('.liste .carte:not([hidden]):not(.plus-loin) .coeur').first(); await coeur.scrollIntoViewIfNeeded(); await p.waitForTimeout(900);
     const avant = p.url(); await coeur.dblclick().catch(() => {}); await p.waitForTimeout(300);
     ok(p.url() === avant, 'clics : un double tap sur le cœur ouvre la soirée');
     ok(await p.evaluate(() => document.querySelectorAll('.carte').length) > 10, 'clics : des cartes ont disparu du DOM');
