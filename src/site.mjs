@@ -439,7 +439,7 @@ async function lieuxDeNuit({ soirees, partenaires, ig, api, log, now }) {
   if (ig && api.businessDiscovery) {
     // D'abord les lieux encore sans logo (jamais mesurés depuis l'ajout des logos), puis les mesures les plus anciennes.
     const sansLogo = (l) => !l.photo && !existsSync(path.join(SITE, 'lieux', `${l.instagram.replace(/[^a-z0-9._-]/g, '')}-176.webp`)) && !cache.insta[l.instagram]?.absent && !cache.insta[l.instagram]?.photo;
-    const aMesurer = tous.filter((l) => l.instagram && (sansLogo(l) || !(cache.insta[l.instagram] && now - Date.parse(cache.insta[l.instagram].le) < 3 * 864e5)))
+    const aMesurer = tous.filter((l) => l.instagram && (sansLogo(l) || !cache.insta[l.instagram]?.posts && !cache.insta[l.instagram]?.absent || !(cache.insta[l.instagram] && now - Date.parse(cache.insta[l.instagram].le) < 3 * 864e5)))
       .sort((a, b) => (sansLogo(b) - sansLogo(a)) || (Date.parse(cache.insta[a.instagram]?.le || 0)) - (Date.parse(cache.insta[b.instagram]?.le || 0))).slice(0, 60);
     for (const l of aMesurer) {
       if (!tempsOk()) break;
@@ -447,7 +447,12 @@ async function lieuxDeNuit({ soirees, partenaires, ig, api, log, now }) {
         const bd = await api.businessDiscovery(l.instagram, ig);
         const recents = (bd?.media?.data || []).filter((m) => now - Date.parse(m.timestamp) < 21 * 864e5);
         const moy = (k) => (recents.length ? recents.reduce((a, m) => a + (m[k] || 0), 0) / recents.length : 0);
-        cache.insta[l.instagram] = { le: now.toISOString(), abonnes: bd?.followers_count ?? null, posts21: recents.length, likes: Math.round(moy('like_count')), commentaires: Math.round(moy('comments_count') * 10) / 10, photo: bd?.profile_picture_url || '' };
+        // Publications du lieu gardées pour les images : affiches des soirées annoncées (60 derniers jours) et la photo la
+        // plus aimée du lieu (belle image de secours quand une soirée n'a aucune affiche). Jamais de vidéo en photo de lieu.
+        const medias = (bd?.media?.data || []).filter((m) => m.media_url && m.media_type !== 'VIDEO');
+        const posts = medias.filter((m) => now - Date.parse(m.timestamp) < 60 * 864e5).map((m) => ({ u: m.media_url, c: String(m.caption || '').slice(0, 400), t: m.timestamp }));
+        const couv = [...medias].sort((a, b) => (b.like_count || 0) - (a.like_count || 0))[0];
+        cache.insta[l.instagram] = { le: now.toISOString(), abonnes: bd?.followers_count ?? null, posts21: recents.length, likes: Math.round(moy('like_count')), commentaires: Math.round(moy('comments_count') * 10) / 10, photo: bd?.profile_picture_url || '', posts, couv: couv ? { u: couv.media_url, lien: couv.permalink || '' } : null };
       } catch (err) { if (/rate|limit|\(#4\)|\(#32\)/i.test(err.message)) break; cache.insta[l.instagram] = { le: now.toISOString(), absent: true }; }
     }
   }
@@ -633,6 +638,14 @@ export async function construireSite({ events, eventsFrance = [], eventsOccitani
         if ((existsSync(f) || await telecharger(og, f)) && await verifier({ ...e, image: og }, f, cache)) { affiche = `site/affiches/${path.basename(f)}`; dims = tailleJpeg(f); webp(f, 480); webp(f, 800); webp(f, 1080); }
       }
     }
+    // Toujours rien : l'image de partage des autres billetteries qui vendent la même soirée (Shotgun, DICE, RA…).
+    for (const o of (e.offres || []).filter((x) => /^https?:\/\//.test(x.url || '') && x.url !== e.url).slice(0, 3)) {
+      if (affiche || !tempsOk()) break;
+      const og = cache[`og|${o.url}`] ?? (cache[`og|${o.url}`] = await imageDePartage(o.url));
+      if (!og) continue;
+      const f = path.join(SITE, 'affiches', `${h(og)}.jpg`);
+      if ((existsSync(f) || await telecharger(og, f)) && await verifier({ ...e, image: og }, f, cache)) { affiche = `site/affiches/${path.basename(f)}`; dims = tailleJpeg(f); webp(f, 480); webp(f, 800); webp(f, 1080); }
+    }
     const ville = zone === 'occitanie' ? slug(villeOccitanie(e) || e.city) : zone === 'france' ? slug(VILLES_FRANCE.find((v) => sansAccent(e.city).includes(sansAccent(v).split('-')[0])) || e.city)
       : (VILLES.find((v) => new RegExp(v, 'i').test(`${e.city} ${e.venue}`)) || (RE_VAR.test(`${e.city} ${e.venue} ${e.address || ''}`) ? 'var' : 'autres')).toLowerCase();
     let id = `${slug(e.name) || 'soiree'}-${cle(e.start)}`;
@@ -644,7 +657,7 @@ export async function construireSite({ events, eventsFrance = [], eventsOccitani
       id, zone, nom: e.name, debut: e.start, jour: cle(e.start), lieu: e.venue || '', ville: e.city || '', adresse: e.address || '', filtreVille: ville,
       prix: e.price == null ? null : e.price, styles: styleDe(e), genres: genresList(e, 3).join(' · '), techno: isTechno(e), tags: e.tags || [],
       url, affiche, dims, accroche: e.accroche || '', description: e.description || '',
-      instagram: (e.instagram || [])[0] || '', organisateur: e.organisateur || '', buzz: e.buzz ?? null, offres: offres.length >= 2 ? offres : [],
+      instagram: (e.instagram || [])[0] || '', organisateur: e.organisateur || '', artistes: Array.isArray(e.artistes) ? e.artistes.filter((x) => typeof x === 'string' && x.trim()).map((x) => x.trim()) : [], buzz: e.buzz ?? null, offres: offres.length >= 2 ? offres : [],
       festival: RE_FESTIVAL.test(`${e.name} ${(e.tags || []).join(' ')}`), etudiant: RE_ETUDIANT.test(`${e.name} ${(e.tags || []).join(' ')} ${e.public_cible || ''}`),
     };
   };
@@ -672,6 +685,8 @@ export async function construireSite({ events, eventsFrance = [], eventsOccitani
   TARDIFS = await nuitTardive({ now, log });
   DETAILS_LIEUX = new Map(lieux.filter((l) => l.details).map((l) => [normLieu(l.nom), l.details]));
   PHOTOS_COMPTES = new Map([...(partenaires || []).filter((p) => p.fichier && p.instagram).map((p) => [p.instagram.toLowerCase(), p.fichier]), ...lieux.filter((l) => l.photo && l.instagram).map((l) => [l.instagram.toLowerCase(), l.photo])]);
+  etape(9); await imagesManquantes({ soirees, lieux, log, now });
+  ARTISTES = await artistesDesSoirees({ soirees, log });
   PHOTOS_LIEUX = new Map([...(partenaires || []).filter((p) => p.fichier && p.nom).map((p) => [normLieu(p.nom), p.fichier]), ...lieux.filter((l) => l.photo).map((l) => [normLieu(l.nom), l.photo])].filter(([k]) => k.length >= 3));
   etape(3); const festivalsGuide = await festivalsDuWeb({ partenaires, now, log });
   etape(4); await geocoder(soirees, log);
@@ -742,6 +757,7 @@ export async function construireSite({ events, eventsFrance = [], eventsOccitani
       ajoute('france/', (c) => pageFrance({ ...c, soirees: sf }));
       for (const v of [...new Set(sf.map((x) => x.filtreVille))]) ajoute(`france/${v}/`, (c) => pageFrance({ ...c, soirees: sf.filter((x) => x.filtreVille === v), cleVille: v }));
       ajoute('clubs-bars/', (c) => pageLieux(c));
+      if (ARTISTES.length) { ajoute('artistes/', (c) => pageArtistes(c)); for (const a of ARTISTES) ajoute(`artistes/${a.slug}/`, (c) => pageArtiste({ ...c, a, soirees: sl })); }
       ajoute('ce-soir/', (c) => pageCeSoir({ ...c, soirees: sl, now }));
       ajoute('avantages/', (c) => pageAvantages({ ...c, now }));
       for (const sel of SELECTIONS) ajoute(`${sel.slug}/`, (c) => pageSelection({ ...c, sel, soirees: sl.filter((x) => sel.garde(x, now)), now }));
@@ -971,6 +987,95 @@ const blocPromo = (c, t, tr, s) => `<div class="code-promo">
 
 // Soirée sans affiche : vignette typographique aux couleurs de la DA (dégradé propre à chaque soirée), jamais une photo répétée.
 // Soirée sans affiche : on montre au moins la vraie image du lieu (logo ou photo Instagram / site officiel) quand on l'a.
+// Soirées sans affiche : on cherche l'affiche dans les publications Instagram du lieu (celle qui annonce la date), puis,
+// s'il n'y en a vraiment pas, une belle photo du lieu (sa publication la plus aimée) — jamais un paysage de la ville.
+const MOIS_FR = ['janvier', 'fevrier', 'mars', 'avril', 'mai', 'juin', 'juillet', 'aout', 'septembre', 'octobre', 'novembre', 'decembre'];
+const MOIS_EN = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
+const JOURS_FR = ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'];
+export function annonceLaDate(texte, jour) { // jour = AAAA-MM-JJ (date de la soirée, ou du lendemain pour une soirée après minuit)
+  const t = ` ${sansAccent(texte).replace(/\s+/g, ' ')} `, [, mm, jj] = jour.split('-').map(Number), d = new Date(`${jour}T12:00:00Z`);
+  const j2 = String(jj).padStart(2, '0'), m2 = String(mm).padStart(2, '0');
+  const motifs = [`${jj}/${mm}`, `${j2}/${m2}`, `${jj}.${mm}`, `${j2}.${m2}`, `${j2}-${m2}`, `${jj} ${MOIS_FR[mm - 1]}`, `${jj} ${MOIS_FR[mm - 1].slice(0, 3)}`, `${jj}${MOIS_FR[mm - 1].slice(0, 3)}`, `${MOIS_EN[mm - 1]} ${jj}`, `${MOIS_EN[mm - 1].slice(0, 3)} ${jj}`, `${jj} ${MOIS_EN[mm - 1]}`, `${JOURS_FR[d.getUTCDay()]} ${jj}`];
+  return motifs.some((m) => new RegExp(`(^|[^0-9])${m.replace(/[.\/]/g, '\\$&')}([^0-9]|$)`).test(t));
+}
+async function imagesManquantes({ soirees, lieux, log, now }) {
+  const cacheL = lire(LIEUX, {}).insta || {}, dossier = path.join(SITE, 'lieux'), AI = lire(path.join(ROOT, 'contenus', 'affiches-instagram.json'), {});
+  let affiches = 0, photos = 0;
+  for (const s of soirees) {
+    if (s.affiche) continue;
+    // Affiche déjà retrouvée et copiée par outils/images-lieux.mjs (publication du lieu qui annonce la date).
+    const deja = AI[`${normLieu(s.lieu)}|${s.jour}`];
+    if (deja && existsSync(path.join(ROOT, deja.fichier))) { const f = path.join(ROOT, deja.fichier); s.affiche = deja.fichier; s.dims = tailleJpeg(f); webp(f, 480); webp(f, 800); webp(f, 1080); s.afficheSource = deja.source; affiches++; continue; }
+    const L = (lieux || []).find((l) => l.instagram && normLieu(l.nom).length >= 3 && (normLieu(s.lieu) === normLieu(l.nom) || normLieu(s.lieu).startsWith(normLieu(l.nom))));
+    const I = L && cacheL[L.instagram]; if (!I) continue;
+    const lendemain = cle(new Date(Date.parse(`${s.jour}T12:00:00Z`) + 864e5).toISOString());
+    const mots = [...motsAffiche(s.nom)];
+    // 1. L'affiche : une publication des 45 jours avant la soirée qui annonce sa date (et, si possible, son nom).
+    const cand = (I.posts || []).filter((p) => Date.parse(p.t) <= Date.parse(s.debut) && Date.parse(s.debut) - Date.parse(p.t) < 45 * 864e5 && (annonceLaDate(p.c, s.jour) || annonceLaDate(p.c, lendemain)))
+      .sort((a, b) => (mots.filter((m) => sansAccent(b.c).includes(m)).length - mots.filter((m) => sansAccent(a.c).includes(m)).length) || Date.parse(b.t) - Date.parse(a.t));
+    for (const p of cand.slice(0, 2)) {
+      if (!tempsOk()) break;
+      const f = path.join(SITE, 'affiches', `${h(p.u.split('?')[0])}.jpg`);
+      if (!existsSync(f) && !(await telecharger(p.u, f))) continue;
+      s.affiche = `site/affiches/${path.basename(f)}`; s.dims = tailleJpeg(f); webp(f, 480); webp(f, 800); webp(f, 1080); s.afficheSource = `@${L.instagram}`; affiches++; break;
+    }
+    if (s.affiche) continue;
+    // 2. Sinon : la plus belle photo du lieu (sa publication la plus aimée), présentée comme photo du lieu.
+    if (I.couv?.u) {
+      const f = path.join(dossier, `${L.instagram.replace(/[^a-z0-9._-]/g, '')}-couv.jpg`);
+      if (!existsSync(f) && tempsOk()) await telecharger(I.couv.u, f);
+      if (existsSync(f)) { webp(f, 480); webp(f, 800); s.photoLieu = path.relative(ROOT, f); s.photoLieuDe = `@${L.instagram}`; photos++; }
+    }
+  }
+  if (affiches || photos) log(`Site : ${affiches} affiche(s) retrouvée(s) sur l'Instagram des lieux, ${photos} soirée(s) illustrée(s) par une photo de leur lieu`);
+}
+// Fiches artistes (DJ, chanteurs, groupes, humoristes) : uniquement des noms écrits dans la soirée (saisis par l'équipe,
+// ou relevés par l'IA dans le titre et la description, sans rien deviner). Cache : contenus/artistes.json.
+let ARTISTES = [];
+const slugArtiste = (n) => slug(n).replace(/^dj-/, 'dj-');
+async function artistesDesSoirees({ soirees, log }) {
+  const F = path.join(ROOT, 'contenus', 'artistes.json'), cache = lire(F, {});
+  const cleS = (s) => h(`${s.nom}|${s.description}|${s.accroche}`);
+  const aLire = soirees.filter((s) => !s.artistes.length && cache[cleS(s)] === undefined);
+  for (let i = 0; i < aLire.length && i < 120 && tempsOk(); i += 20) {
+    const lot = aLire.slice(i, i + 20);
+    const r = await gemini([{ text: `Pour chaque soirée, liste les artistes qui s'y produisent (DJ, chanteurs, rappeurs, groupes, humoristes) UNIQUEMENT s'ils sont nommés dans le texte. N'invente rien : pas de lieu, pas d'organisateur, pas de collectif, pas de nom de soirée. Réponds en JSON {"soirees":[{"n":numéro,"artistes":[{"nom":string,"type":"dj|chanteur|rappeur|groupe|humoriste|artiste"}]}]}.\n${lot.map((s, k) => `${k + 1}. ${s.nom} — ${s.accroche} ${s.description}`.slice(0, 600)).join('\n')}` }], { secondaire: true });
+    if (!r?.soirees) break;
+    for (const x of r.soirees) { const s = lot[x.n - 1]; if (!s) continue; const texte = sansAccent(`${s.nom} ${s.accroche} ${s.description}`);
+      cache[cleS(s)] = (x.artistes || []).filter((a) => a?.nom && a.nom.length >= 2 && a.nom.length <= 40 && texte.includes(sansAccent(a.nom))).slice(0, 8); }
+    for (const s of lot) cache[cleS(s)] ??= [];
+  }
+  await writeFile(F, JSON.stringify(cache, null, 1) + '\n');
+  const parNom = new Map();
+  for (const s of soirees) {
+    const liste = s.artistes.length ? s.artistes.map((nom) => ({ nom, type: 'artiste' })) : (cache[cleS(s)] || []);
+    s.artistes = [];
+    for (const a of liste) {
+      const k = slugArtiste(a.nom); if (!k || k.length < 2) continue;
+      const A = parNom.get(k) || { slug: k, nom: a.nom, type: a.type || 'artiste', soirees: [] };
+      if (!A.soirees.includes(s.id)) A.soirees.push(s.id);
+      parNom.set(k, A); s.artistes.push({ nom: A.nom, slug: k });
+    }
+  }
+  const tous = [...parNom.values()].sort((a, b) => b.soirees.length - a.soirees.length || a.nom.localeCompare(b.nom));
+  if (tous.length) log(`Site : ${tous.length} fiche(s) artiste`);
+  return tous;
+}
+const TYPES_ARTISTE = { dj: 'DJ', chanteur: 'Chanteur', rappeur: 'Rappeur', groupe: 'Groupe', humoriste: 'Humoriste', artiste: 'Artiste' };
+function pageArtiste({ lang, t, tr, base, compte, T, chemin, maj, a, soirees }) {
+  const liste = soirees.filter((s) => a.soirees.includes(s.id)).sort((x, y) => x.debut.localeCompare(y.debut));
+  const affiches = liste.filter((s) => s.affiche).map((s) => s.affiche);
+  const corps = `${heroCourt({ partage: t.partager, base, photo: null, images: affiches, seules: true, alt: a.nom, k: 5, etiquette: tr(TYPES_ARTISTE[a.type] || 'Artiste'), h1: esc(a.nom), p: esc(tr(liste.length > 1 ? `${liste.length} dates à venir sur la Côte d'Azur et dans le Var, avec les billets.` : 'Sa prochaine date sur la Côte d\'Azur et dans le Var, avec les billets.')) })}
+<section class="bloc-large reveal"><h2>${tr('Prochaines <em>dates</em>')}</h2>${liste.length ? `<div class="grille">${liste.map((s) => carte(s, { t, base, lang })).join('')}</div>` : `<p class="vide">${esc(tr('Pas de date annoncée pour le moment.'))}</p>`}
+<p class="petit">${esc(tr('Line-up relevé sur les pages officielles des soirées. Une erreur ? Écris-nous sur Instagram.'))}</p></section>`;
+  return gabarit({ lang, t, titre: `${a.nom} : prochaines dates et soirées sur la Côte d'Azur · Teufy`, description: `${a.nom} en soirée sur la Côte d'Azur et dans le Var : ${liste.length} date(s) à venir, lieux, horaires et billets.`, chemin, base, corps, compte, maj,
+    ld: [{ '@context': 'https://schema.org', '@type': a.type === 'groupe' ? 'MusicGroup' : 'Person', name: a.nom, url: `${URL_SITE}${pre(lang)}${chemin}` }, fil(lang, [['Teufy', ''], [tr('Artistes'), 'artistes/'], [a.nom, chemin]])] });
+}
+function pageArtistes({ lang, t, tr, base, compte, T, chemin, maj }) {
+  const corps = `${heroCourt({ partage: t.partager, base, photo: null, alt: 'Artistes', k: 6, etiquette: tr('Artistes'), h1: tr('Les <em>artistes</em> qui jouent bientôt'), p: esc(tr('DJ, chanteurs et groupes programmés sur la Côte d\'Azur et dans le Var : leurs prochaines dates, avec les billets.')) })}
+<section class="bloc-large reveal"><div class="artistes-liste">${ARTISTES.map((a) => `<a class="puce" href="${base}${pre(lang)}artistes/${a.slug}/">${esc(a.nom)}<small>${a.soirees.length}</small></a>`).join('')}</div></section>`;
+  return gabarit({ lang, t, titre: tr('Artistes et DJ en soirée sur la Côte d\'Azur · Teufy'), description: tr('Les DJ, chanteurs et groupes programmés sur la Côte d\'Azur et dans le Var, avec leurs prochaines dates.'), chemin, base, corps, compte, maj });
+}
 let PHOTOS_LIEUX = new Map(), PHOTOS_COMPTES = new Map();
 const photoDuLieu = (s) => { const k = normLieu(s.lieu); if (!k) return ''; if (PHOTOS_LIEUX.has(k)) return PHOTOS_LIEUX.get(k); for (const [n, f] of PHOTOS_LIEUX) if (n.length >= 4 && (k.startsWith(n) || n.startsWith(k))) return f; return ''; };
 function vignette(s, base = '') {
@@ -979,8 +1084,9 @@ function vignette(s, base = '') {
   const ph = photoDuLieu(s) || PHOTOS_COMPTES.get(String(s.instagram || '').toLowerCase()) || '';
   // Jamais de paysage de ville à la place d'une soirée (retour du directeur, 11/11/2026) : vignette Teufy aux couleurs
   // de la soirée, avec le logo du lieu quand on le connaît.
-  const pv = null;
-  return `<span class="vignette${ph ? ' avec-lieu' : ''}${pv ? ' avec-ville' : ''}" style="--a:rgb(${a.join(',')});--b:rgb(${b.join(',')})" aria-hidden="true">${pv ? `<img class="vignette-ville" src="${base}${esc(pv.fichier.replace(/\.jpg$/, '-800.webp'))}" srcset="${base}${esc(pv.fichier.replace(/\.jpg$/, '-480.webp'))} 480w, ${base}${esc(pv.fichier.replace(/\.jpg$/, '-800.webp'))} 800w${grandeVille(pv.fichier) ? `, ${base}${esc(grandeVille(pv.fichier))} 1200w` : ''}" sizes="(min-width:980px) 1000px, 150vw" alt="" width="800" height="533" loading="lazy" decoding="async">` : ''}${ph ? `<img class="vignette-lieu" src="${base}${esc(ph)}" alt="" width="176" height="176" loading="lazy" decoding="async">` : ''}<small>${esc((s.genres || '').split(' · ')[0] || 'Soirée')}</small><b>${esc(s.lieu || s.ville || s.nom)}</b><i>${esc(s.lieu ? s.ville : '')}</i></span>`;
+  // Belle photo du lieu (sa publication Instagram la plus aimée) quand la soirée n'a aucune affiche.
+  const pv = s.photoLieu && existsSync(path.join(ROOT, s.photoLieu.replace(/\.jpg$/, '-800.webp'))) ? { fichier: s.photoLieu } : null;
+  return `<span class="vignette${ph && !pv ? ' avec-lieu' : ''}${pv ? ' avec-ville avec-photo-lieu' : ''}" style="--a:rgb(${a.join(',')});--b:rgb(${b.join(',')})" aria-hidden="true">${pv ? `<img class="vignette-ville" src="${base}${esc(pv.fichier.replace(/\.jpg$/, '-800.webp'))}" srcset="${base}${esc(pv.fichier.replace(/\.jpg$/, '-480.webp'))} 480w, ${base}${esc(pv.fichier.replace(/\.jpg$/, '-800.webp'))} 800w${grandeVille(pv.fichier) ? `, ${base}${esc(grandeVille(pv.fichier))} 1200w` : ''}" sizes="(min-width:980px) 400px, 92vw" alt="" width="800" height="533" loading="lazy" decoding="async">` : ''}${ph && !pv ? `<img class="vignette-lieu" src="${base}${esc(ph)}" alt="" width="176" height="176" loading="lazy" decoding="async">` : ''}<small>${esc((s.genres || '').split(' · ')[0] || 'Soirée')}</small><b>${esc(s.lieu || s.ville || s.nom)}</b><i>${esc(s.lieu ? s.ville : '')}</i></span>`;
 }
 
 const boutonBillets = (s, t) => (s.url
@@ -1049,7 +1155,7 @@ const LIB_NAV = {
   ar: { avantages: 'مزايا', sortir: 'الخروج', villes: 'المدن', lieux: 'الأماكن', styles: 'الأنماط', pros: 'للمحترفين', teufy: 'Teufy', devenir: 'كن شريكًا', tarifs: 'الأسعار', menu: 'القائمة', chercher: 'بحث', favoris: 'المفضلة', fermer: 'إغلاق القائمة', ceWe: 'نهاية هذا الأسبوع', gratuit: 'مجاني وبأسعار رخيصة', etud: 'حفلات الطلاب', agenda: 'الحفلات', raccourcis: 'اختصارات' },
 };
 const groupesNav = ({ t, lang, SA }) => { const L = LIB_NAV[lang] || LIB_NAV.fr; return [
-  ['sortir', L.sortir, [['ce-soir/', t.js.ceSoir], ['ce-week-end/', L.ceWe], ...(SA ? [[`${SA.slug}/`, `${SA.emoji} ${SA.nom[lang] || SA.nom.fr}`]] : []), ['soirees-gratuites/', L.gratuit], ['soirees-etudiantes/', L.etud], ['festivals/', t.festivals], ['avantages/', L.avantages]]],
+  ['sortir', L.sortir, [['ce-soir/', t.js.ceSoir], ['ce-week-end/', L.ceWe], ...(SA ? [[`${SA.slug}/`, `${SA.emoji} ${SA.nom[lang] || SA.nom.fr}`]] : []), ['soirees-gratuites/', L.gratuit], ['soirees-etudiantes/', L.etud], ['festivals/', t.festivals], ...(ARTISTES.length ? [['artistes/', { fr: 'Artistes & DJ', en: 'Artists & DJs', it: 'Artisti e DJ', es: 'Artistas y DJ', zh: '艺人与 DJ', ar: 'الفنانون والدي جي' }[lang] || 'Artistes & DJ']] : []), ['avantages/', L.avantages]]],
   ['villes', L.villes, [...VILLES_SEO.map((v) => [`${v.slug}/`, t.villes[v.cle]]), ['occitanie/', 'Occitanie'], ['france/', t.franceNav]]],
   ['lieux', L.lieux, [['clubs-bars/', t.lieuxNav], ['restaurants/', t.restos], ['activites/', t.activites], ['dates/', t.dates]]],
   ['styles', L.styles, PAGES_STYLES.map((k) => [`soirees-${k}/`, nomStyle(k, t, lang)])],
@@ -1304,8 +1410,10 @@ const detailsDuLieu = (s) => DETAILS_LIEUX.get(normLieu(s.lieu)) || null;
 // Photo de ville en 1200 px (grands écrans) quand l'original est assez grand : sinon floue sur ordinateur.
 const grandeVille = (rel) => { const f = path.join(ROOT, rel); if (!existsSync(f) || (tailleJpeg(f)?.[0] || 0) < 1100) return null; const w = webp(f, 1200); return w ? path.relative(ROOT, w) : null; };
 const visuelHero = (rel) => [800, 480, 400, 600].map((l) => rel.replace(/\.(jpe?g|png)$/i, `-${l}.webp`)).find((f) => f !== rel && existsSync(path.join(ROOT, f))) || rel;
-const collage = (base, k, logos = null, images = null) => {
+const collage = (base, k, logos = null, images = null, seules = false) => {
   const imgs = (images || []).filter(Boolean).filter((a) => { const f = visuelHero(a); const d = /\.jpe?g$/i.test(a) ? tailleJpeg(path.join(ROOT, a)) : null; return (!d || d[1] / d[0] >= 0.7) && (!/\.webp$/.test(f) || largeurWebp(path.join(ROOT, f)) >= 480); }).slice(0, 3); // jamais d'image trop petite (floue)
+  // Fiches (artistes…) : seulement leurs propres affiches, jamais celles d'autres soirées pour remplir.
+  if (seules) return imgs.length ? `<div class="collage collage-${Math.min(3, imgs.length)}" aria-hidden="true">${imgs.slice(0, 3).map((a, i) => `<img src="${base}${esc(visuelHero(a))}" alt="" width="400" height="500" loading="lazy" style="--i:${i}">`).join('')}</div>` : '';
   if (imgs.length === 3) return `<div class="collage" aria-hidden="true">${imgs.map((a, i) => `<img src="${base}${esc(visuelHero(a))}" alt="" width="400" height="500" loading="lazy" style="--i:${i}">`).join('')}</div>`;
   if (logos) return `<div class="collage logos-collage" aria-hidden="true">${logos.slice(0, 12).map((f, i) => `<img src="${base}${esc(f)}" alt="" width="160" height="160" loading="lazy" style="--i:${i}">`).join('')}</div>`;
   const l = AFFICHES_COLLAGE.length ? [0, 1, 2].map((i) => AFFICHES_COLLAGE[(k * 3 + i) % AFFICHES_COLLAGE.length]) : [];
@@ -1313,8 +1421,8 @@ const collage = (base, k, logos = null, images = null) => {
 };
 const ICO_PARTAGE = '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 3v12M7.5 7.5 12 3l4.5 4.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 11H6.5A1.5 1.5 0 0 0 5 12.5v7A1.5 1.5 0 0 0 6.5 21h11a1.5 1.5 0 0 0 1.5-1.5v-7a1.5 1.5 0 0 0-1.5-1.5H16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 const boutonPartage = (label, cls = '') => `<button type="button" class="partager icone-rond${cls ? ` ${cls}` : ''}" aria-label="${esc(label)}" title="${esc(label)}">${ICO_PARTAGE}</button>`;
-const heroCourt = ({ base, photo, video, alt, etiquette, h1, p, live = false, k = 0, logos = null, images = null, partage = '', actions = '' }) => `<section class="hero court${photo ? '' : ' sans-photo'}">
-  ${photo ? `<div class="hero-media">${fond(base, photo, video, alt)}</div>` : `<div class="hero-deco" aria-hidden="true"><span></span><span></span><span></span></div>${collage(base, k, logos, images)}`}
+const heroCourt = ({ base, photo, video, alt, etiquette, h1, p, live = false, k = 0, logos = null, images = null, seules = false, partage = '', actions = '' }) => `<section class="hero court${photo ? '' : ' sans-photo'}">
+  ${photo ? `<div class="hero-media">${fond(base, photo, video, alt)}</div>` : `<div class="hero-deco" aria-hidden="true"><span></span><span></span><span></span></div>${collage(base, k, logos, images, seules)}`}
   <div class="hero-texte">
     <p class="etiquette">${esc(etiquette)}</p>${partage ? boutonPartage(partage, 'hero-partage') : ''}
     <h1>${h1}</h1>
@@ -1443,6 +1551,7 @@ function pageSoiree({ lang, t, tr, base, compte, T, chemin, s, soirees, maj, lie
       ${s.accroche ? `<p class="fiche-accroche">${esc(s.accroche)}</p>` : ''}
       ${s.instagram ? `<a class="orga-carte" href="https://www.instagram.com/${esc(s.instagram)}/" target="_blank" rel="noopener"><span class="orga-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.3" fill="currentColor"/></svg></span><span class="orga-txt"><small>${esc(tr('Organisé par'))}</small><b>${esc(s.organisateur || `@${s.instagram}`)}</b>${s.organisateur ? `<em>@${esc(s.instagram)}</em>` : ''}</span><span class="orga-cta">${esc(tr('Voir sur Instagram'))} →</span></a>` : ''}
       ${s.description && s.description !== s.accroche ? `<p>${esc(s.description)}</p>` : ''}
+      ${s.artistes?.length ? `<p class="line-up"><span class="pied-titre">${esc(tr('Line-up'))}</span>${s.artistes.map((a) => `<a class="puce" href="${base}${pre(lang)}artistes/${a.slug}/">${esc(a.nom)}</a>`).join('')}</p>` : ''}
       <div class="rebours-bloc" data-debut="${esc(s.debut)}"><p class="pied-titre">${esc(t.commenceDans)}</p><p class="rebours-grand rebours" data-debut="${esc(s.debut)}" data-long="1"></p>${(s.buzz ?? 0) >= SEUIL_DEMANDE ? `<p class="petit">${esc(t.tresDemandee)} · ${esc(t.reserveTot)}</p>` : ''}</div>
       <dl>
         <div><dt>${esc(t.quandL)}</dt><dd>${esc(dateLongue(s.debut, t))} · ${esc(heure(s.debut, t))}</dd></div>

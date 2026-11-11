@@ -21,6 +21,13 @@
   "accroche": "Les Tocards reviennent au Green Musik pour une nuit techno, psytrance et hard trance.",
   "description": "Aux platines : Hug'ette, Krad, Néodyme, Minimel et Art Winder, de 23h à 5h du matin. Billets sur Shotgun à 12 € (le tarif early à 9 € est déjà parti).",
   "confiance": 1,
-  "_note": "Corrigée le 11/11/2026 d'après la page Shotgun et l'affiche officielle envoyées par le directeur (la recherche web avait associé l'affiche d'une autre soirée)."
+  "_note": "Corrigée le 11/11/2026 d'après la page Shotgun et l'affiche officielle envoyées par le directeur (la recherche web avait associé l'affiche d'une autre soirée).",
+  "artistes": [
+   "Hug'ette",
+   "Krad",
+   "Néodyme",
+   "Minimel",
+   "Art Winder"
+  ]
  }
 ]

@@ -1,0 +1,65 @@
+#!/usr/bin/env node
+// Images des lieux et affiches retrouvées sur Instagram (API officielle, comptes publics des lieux).
+// Pour chaque lieu suivi : ses publications des 60 derniers jours et sa photo la plus aimée sont gardées
+// (contenus/lieux-nuit.json → insta) ; la photo est copiée sur le site (les liens Instagram expirent) ; pour chaque soirée
+// à venir chez ce lieu sans affiche, la publication qui annonce sa date est copiée comme affiche
+// (contenus/affiches-instagram.json). La construction du site s'en sert ensuite (src/site.mjs → imagesManquantes).
+import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
+import { spawnSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { igConfig, businessDiscovery } from '../src/instagram.mjs';
+import { annonceLaDate } from '../src/site.mjs';
+
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const lire = (f, d) => { try { return JSON.parse(readFileSync(path.join(ROOT, f), 'utf8')); } catch { return d; } };
+const h = (s) => createHash('sha1').update(String(s)).digest('hex').slice(0, 12);
+const sansAccent = (x) => String(x || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+const normLieu = (x) => sansAccent(x).replace(/\b(le|la|les|l|club|bar|the)\b/g, '').replace(/[^a-z0-9]/g, '');
+const jourParis = (d) => new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Paris' }).format(new Date(Date.parse(d) - 6 * 3600e3));
+const ig = igConfig();
+if (!ig) { console.log('Pas de secrets Instagram : rien à faire.'); process.exit(0); }
+const now = Date.now();
+async function telecharger(url, f) {
+  try { const r = await fetch(url, { signal: AbortSignal.timeout(20000) }); if (!r.ok) return false; const tmp = `${f}.src`; writeFileSync(tmp, Buffer.from(await r.arrayBuffer()));
+    const c = spawnSync('ffmpeg', ['-v', 'error', '-y', '-i', tmp, '-vf', "scale='min(1080,iw)':-2", '-q:v', '3', f]); spawnSync('rm', ['-f', tmp]); return c.status === 0 && existsSync(f); } catch { return false; }
+}
+const webp = (f, l) => spawnSync('ffmpeg', ['-v', 'error', '-y', '-i', f, '-vf', `scale='min(${l},iw)':-2`, '-c:v', 'libwebp', '-quality', '80', f.replace(/\.jpg$/, `-${l}.webp`)]);
+
+const LN = lire('contenus/lieux-nuit.json', { lieux: [], insta: {} }); LN.insta ||= {};
+const lieux = [...(LN.lieux || []), ...(lire('contenus/lieux-manuels.json', { lieux: [] }).lieux || [])].filter((l) => l.instagram);
+const soirees = [...(lire('evenements-web.json', {}).evenements || []), ...lire('evenements-manuels.json', [])].filter((e) => e.start && Date.parse(e.start) > now - 6 * 3600e3 && Date.parse(e.start) < now + 45 * 864e5);
+const AI = lire('contenus/affiches-instagram.json', {});
+const aVenir = (l) => soirees.filter((e) => normLieu(l.nom).length >= 3 && (normLieu(e.venue) === normLieu(l.nom) || normLieu(e.venue).startsWith(normLieu(l.nom))));
+// D'abord les lieux qui ont des soirées à venir, puis ceux dont les données sont les plus anciennes.
+const ordre = [...new Map(lieux.map((l) => [l.instagram.toLowerCase(), l])).values()]
+  .sort((a, b) => (aVenir(b).length > 0) - (aVenir(a).length > 0) || Date.parse(LN.insta[a.instagram]?.le || 0) - Date.parse(LN.insta[b.instagram]?.le || 0)).slice(0, 60);
+mkdirSync(path.join(ROOT, 'site', 'lieux'), { recursive: true }); mkdirSync(path.join(ROOT, 'site', 'affiches'), { recursive: true });
+let nPhotos = 0, nAffiches = 0, nLus = 0;
+for (const l of ordre) {
+  let bd;
+  try { bd = await businessDiscovery(l.instagram, ig); nLus++; }
+  catch (err) { if (/rate|limit|\(#4\)|\(#32\)|\(#17\)/i.test(err.message)) { console.log(`Limite Instagram atteinte après ${nLus} lieu(x).`); break; } LN.insta[l.instagram] = { ...(LN.insta[l.instagram] || {}), le: new Date().toISOString(), absent: true }; continue; }
+  const medias = (bd?.media?.data || []).filter((m) => m.media_url && m.media_type !== 'VIDEO');
+  const posts = medias.filter((m) => now - Date.parse(m.timestamp) < 60 * 864e5).map((m) => ({ u: m.media_url, c: String(m.caption || '').slice(0, 400), t: m.timestamp }));
+  const couv = [...medias].sort((a, b) => (b.like_count || 0) - (a.like_count || 0))[0];
+  LN.insta[l.instagram] = { ...(LN.insta[l.instagram] || {}), le: new Date().toISOString(), absent: false, abonnes: bd?.followers_count ?? null, photo: bd?.profile_picture_url || LN.insta[l.instagram]?.photo || '', posts, couv: couv ? { u: couv.media_url, lien: couv.permalink || '' } : null };
+  if (couv) {
+    const f = path.join(ROOT, 'site', 'lieux', `${l.instagram.replace(/[^a-z0-9._-]/g, '')}-couv.jpg`);
+    if (await telecharger(couv.media_url, f)) { webp(f, 480); webp(f, 800); nPhotos++; }
+  }
+  for (const e of aVenir(l)) {
+    if (e.image) continue; // la soirée a déjà son affiche officielle
+    const cle = `${normLieu(e.venue)}|${jourParis(e.start)}`;
+    if (AI[cle] && existsSync(path.join(ROOT, AI[cle].fichier))) continue;
+    const jour = jourParis(e.start), lendemain = new Intl.DateTimeFormat('en-CA', { timeZone: 'UTC' }).format(new Date(Date.parse(`${jour}T12:00:00Z`) + 864e5));
+    const p = posts.filter((x) => Date.parse(x.t) <= Date.parse(e.start) && (annonceLaDate(x.c, jour) || annonceLaDate(x.c, lendemain))).sort((a, b) => Date.parse(b.t) - Date.parse(a.t))[0];
+    if (!p) continue;
+    const f = path.join(ROOT, 'site', 'affiches', `${h(p.u.split('?')[0])}.jpg`);
+    if (existsSync(f) || await telecharger(p.u, f)) { for (const w of [480, 800, 1080]) webp(f, w); AI[cle] = { fichier: path.relative(ROOT, f), source: `@${l.instagram}`, soiree: e.name, le: new Date().toISOString() }; nAffiches++; }
+  }
+}
+writeFileSync(path.join(ROOT, 'contenus', 'lieux-nuit.json'), JSON.stringify(LN, null, 1) + '\n');
+writeFileSync(path.join(ROOT, 'contenus', 'affiches-instagram.json'), JSON.stringify(AI, null, 1) + '\n');
+console.log(`Images des lieux : ${nLus} compte(s) lu(s), ${nPhotos} photo(s) de lieu, ${nAffiches} affiche(s) retrouvée(s).`);

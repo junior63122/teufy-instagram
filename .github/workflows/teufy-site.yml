@@ -1,9 +1,11 @@
-name: Teufy - Carte et transports
+name: Teufy - Lieux (images, carte, transports)
 
 # Place les lieux des soirées sur la carte (Base Adresse Nationale, OpenStreetMap) et cherche transports et parkings
 # autour, sans construire tout le site (rapide, gratuit, sans IA). Le site les reprend à sa prochaine construction.
 on:
   workflow_dispatch: {}
+  schedule:
+    - cron: "37 4 * * *" # chaque nuit, avant les passages du site
 
 permissions:
   contents: write
@@ -27,6 +29,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: Images des lieux et affiches retrouvées sur Instagram
+        timeout-minutes: 15
+        run: |
+          sudo apt-get install -y --no-install-recommends ffmpeg >/dev/null 2>&1 || true
+          node outils/images-lieux.mjs
       - name: Placer les lieux sur la carte + transports et parkings autour
         timeout-minutes: 15
         run: node outils/geo-proches.mjs
@@ -34,7 +41,7 @@ jobs:
         run: |
           git config user.name "teufy-bot"
           git config user.email "teufy-bot@users.noreply.github.com"
-          git add contenus/lieux-geo.json contenus/lieux-proches.json
+          git add contenus/lieux-geo.json contenus/lieux-proches.json contenus/lieux-nuit.json contenus/affiches-instagram.json site/lieux site/affiches
           git diff --cached --quiet && exit 0
-          git commit -m "Teufy : lieux placés sur la carte, transports et parkings [skip ci]"
+          git commit -m "Teufy : images des lieux, affiches Instagram, carte et transports [skip ci]"
           for i in 1 2 3; do git pull --rebase -X theirs --autostash && git push && break; git rebase --abort 2>/dev/null; sleep 5; done
