@@ -159,7 +159,16 @@ const echecs = [];
 for (const j of jobs) {
   const id = cible === 'mois' ? `${isoLocal(j.now)}-${slotId(j.slot)}` : slotId(j.slot);
   try {
-    if (etape === 'preparer' || etape === 'tout') await prepare(j.slot, j.now, id);
+    if (etape === 'preparer' || etape === 'tout') {
+      try { await prepare(j.slot, j.now, id); }
+      catch (err) {
+        // Jour sans IA disponible (crédit épuisé, panne) : plutôt que de ne rien publier, le carrousel des soirées
+        // à venir, construit sans IA, part à la place du reel (même créneau, même identifiant pour l'historique).
+        if (cible !== 'auto' || j.slot.type !== 'reel' || !/IA|Scénariste|reel écrit/i.test(err.message)) throw err;
+        console.error(`[${id}] ✗ ${err.message} → carrousel des soirées à la place (sans IA).`);
+        await prepare({ type: 'incontournables', variante: 'commercial' }, j.now, id);
+      }
+    }
     if (etape === 'publier' || etape === 'tout') await publishPrepared(id);
   } catch (err) {
     console.error(`[${id}] ✗ ${err.message}`);
