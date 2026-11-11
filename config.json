@@ -66,7 +66,7 @@
       "https://www.bizouk.com/"
     ]
   },
-  "calendrier_explication": "Chaque ligne = une publication. jour : 1 = lundi … 7 = dimanche. rang : 1 = premier de ce jour dans le mois… (1 à 5). Depuis le 11 novembre 2026 (relance du compte après un an d'inactivité) : 1 publication par jour, 7 par semaine. Lundi : carrousel des sorties de la semaine (le 2e lundi : incontournables techno du mois) ; mardi, jeudi, samedi, dimanche : reel « Flash » (astuce, explicatif, humour, actu) ; mercredi : reel des soirées du week-end (affiches et lieux réels) ; vendredi : bon plan ou débat en alternance. Les annonces exceptionnelles passent en plus par la veille (2 par jour au maximum). Heure : apprise par le cerveau (créneaux_utc).",
+  "calendrier_explication": "Chaque ligne = une publication. jour : 1 = lundi … 7 = dimanche. rang : 1 = premier de ce jour dans le mois… (1 à 5). Depuis le 11 novembre 2026 (relance du compte après un an d'inactivité) : 1 publication par jour, 7 par semaine. Lundi : carrousel des sorties de la semaine (le 2e lundi : incontournables techno du mois) ; mardi, jeudi, samedi, dimanche : reel « Flash » (astuce, explicatif, humour, actu) ; mercredi : reel « Tendance » (format viral repéré par la veille : POV, types de personnes, devinette… fait pour être partagé et toucher les non-abonnés) ; vendredi : bon plan ou débat en alternance. Les annonces exceptionnelles passent en plus par la veille (2 par jour au maximum). Heure : apprise par le cerveau (créneaux_utc).",
   "calendrier": [
     {
       "jour": 1,
@@ -84,7 +84,7 @@
       "jour": 3,
       "rang": 1,
       "type": "reel",
-      "variante": "weekend"
+      "variante": "tendance"
     },
     {
       "jour": 4,
@@ -126,7 +126,7 @@
       "jour": 3,
       "rang": 2,
       "type": "reel",
-      "variante": "weekend"
+      "variante": "tendance"
     },
     {
       "jour": 4,
@@ -167,7 +167,7 @@
       "jour": 3,
       "rang": 3,
       "type": "reel",
-      "variante": "weekend"
+      "variante": "tendance"
     },
     {
       "jour": 4,
@@ -209,7 +209,7 @@
       "jour": 3,
       "rang": 4,
       "type": "reel",
-      "variante": "weekend"
+      "variante": "tendance"
     },
     {
       "jour": 4,
@@ -250,7 +250,7 @@
       "jour": 3,
       "rang": 5,
       "type": "reel",
-      "variante": "weekend"
+      "variante": "tendance"
     },
     {
       "jour": 4,

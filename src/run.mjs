@@ -322,7 +322,7 @@ async function prepare(slot, now, id) {
     if (!files) throw new Error('Carrousel de la DA impossible (studio absent ou moins de 2 affiches) : rien n\'est publié.');
     files ||= await renderPages(programme(pages, chosen, { th, photos, titre, sous: fort ? `En ${MOIS(now)}` : elargi ? 'Ces prochains jours' : 'Cette semaine' }), dir, `incontournables-${stamp}`, { width: 1080, height: 1350 });
     pub = { images: files, legende: captionIncontournables({ variante: enTechno || !techno ? slot.variante : 'commercial', events: chosen, ...win, ch, r }), soirees: chosen, titre };
-  } else if (slot.type === 'reel' && config.studio?.actif && ['flash', 'histoire', 'nouveau', 'explicatif', 'humour', 'immersif'].includes(slot.variante)) {
+  } else if (slot.type === 'reel' && config.studio?.actif && ['flash', 'histoire', 'nouveau', 'tendance', 'explicatif', 'humour', 'immersif'].includes(slot.variante)) {
     // Reels = créations du studio (Remotion) : explicatif, humour ou immersif, jamais un catalogue de soirées.
     const STUDIO = path.join(ROOT, 'studio');
     const dirC = path.join(STUDIO, 'scripts', 'concepts');
@@ -332,7 +332,8 @@ async function prepare(slot, now, id) {
     // reel:nouveau = forcer un reel inédit écrit par l'IA (sans passer par la banque).
     // Format validé : « Flash ». La rubrique est choisie par l'apprentissage (celle qui marche le mieux revient plus souvent).
     const rubriqueFlash = () => ch.pick('rubrique-reel', ['Explicatif', 'Astuce', 'Humour', 'Actu nuit'], (x) => x);
-    let c = slot.variante === 'nouveau' ? await nouveauFlash(STUDIO, id, rubriqueFlash())
+    let c = slot.variante === 'tendance' ? await nouveauFlash(STUDIO, id, 'Tendance') // format viral repéré par la veille, toujours écrit à neuf
+      : slot.variante === 'nouveau' ? await nouveauFlash(STUDIO, id, rubriqueFlash())
       : val('concept') ? tous.find((x) => x.id === val('concept'))
       : slot.variante === 'flash' ? dispo.find((x) => x.concept === 'reelflash')
       : slot.variante === 'histoire' ? dispo.find((x) => ['histoire', 'potesfluide'].includes(x.concept))

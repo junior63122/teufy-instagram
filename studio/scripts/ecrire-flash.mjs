@@ -21,8 +21,10 @@ const STYLE_PHOTO = lire(path.join(STUDIO, 'scripts', 'decors', 'reel-paliers.js
 
 // Rubrique : la moins utilisée récemment (l'apprentissage peut la forcer en argument).
 const RUBRIQUES = ['Explicatif', 'Astuce', 'Humour', 'Actu nuit'];
+// « Tendance » : seulement sur demande (le mercredi) — un format viral repéré par la veille, pensé pour les non-abonnés.
+const TOUTES = [...RUBRIQUES, 'Tendance'];
 const recents = concepts.filter((c) => c.concept === 'reelflash').sort((a, b) => String(b.cree || '').localeCompare(String(a.cree || ''))).slice(0, 8).map((c) => c.rubrique);
-let rubrique = RUBRIQUES.includes(process.argv[2]) ? process.argv[2] : [...RUBRIQUES].sort((a, b) => recents.filter((x) => x === a).length - recents.filter((x) => x === b).length)[0];
+let rubrique = TOUTES.includes(process.argv[2]) ? process.argv[2] : [...RUBRIQUES].sort((a, b) => recents.filter((x) => x === a).length - recents.filter((x) => x === b).length)[0];
 
 const idees = lire(path.join(ROOT, 'contenus', 'idees.json'), []).filter((i) => new Date(i.ajout) > new Date(Date.now() - 10 * 864e5)).sort((a, b) => (b.importance || 0) - (a.importance || 0)).slice(0, 15);
 if (rubrique === 'Actu nuit' && !idees.length) rubrique = 'Explicatif'; // pas d'actu vérifiée sous la main
@@ -107,9 +109,22 @@ Règles :
 - Tous les « mot », « mot_apres », « mots », « mot_son » sont des mots EXACTS de la réplique de leur scène.
 - Si le titre ou l'accroche annonce un nombre d'éléments (« 3 erreurs »), le reel en donne exactement ce nombre, numérotés.
 - Jamais de conseil ni de blague fondés sur le genre, l'origine, l'apparence physique ou le poids ; pas de stéréotypes ; pas de « règle » de videur présentée comme une vérité générale.
-- La rubrique doit correspondre au contenu (Astuce = conseils concrets ; Explicatif = un mécanisme expliqué ; Humour = situations ; Actu nuit = une actu sourcée).`;
+- La rubrique doit correspondre au contenu (Astuce = conseils concrets ; Explicatif = un mécanisme expliqué ; Humour = situations ; Actu nuit = une actu sourcée ; Tendance = un format viral reconnaissable, fait pour être partagé).`;
 
-const prompt = `Rubrique demandée : ${rubrique}.
+// Formats viraux : ceux que la veille hebdomadaire a repérés (cerveau), plus des structures qui se partagent en DM.
+const FORMATS_VIRAUX = [
+  ...(tendances.formats_a_tester || []).map((f) => `${f.format} (${f.pourquoi})`),
+  'POV ultra reconnaissable (« POV : t\'es le pote qui dit « on rentre tôt » à 23h ») : on tague son pote',
+  '« Les X types de personnes » dans une soirée / une file d\'attente / un groupe WhatsApp du vendredi : chacun s\'y reconnaît',
+  '« Tu sais que t\'es de la Côte d\'Azur quand… » : fierté locale, partage entre gens du coin',
+  'Avant / après (ce que tu prévois vs comment finit la soirée) avec un retournement drôle',
+  'Défi ou devinette (« devine le prix d\'un verre à Monaco », réponse à la fin) : on regarde jusqu\'au bout',
+];
+const blocTendance = rubrique === 'Tendance' ? `\nRUBRIQUE TENDANCE : objectif = être partagé en message privé et vu par des gens qui ne suivent pas Teufy.
+Choisis UN de ces formats et applique-le à la nuit de la Côte d'Azur (situations vraies, pas de fausse info) :
+${FORMATS_VIRAUX.map((f) => `- ${f}`).join('\n')}
+La dernière scène pousse à envoyer le reel à quelqu'un (« envoie ça à ton pote qui… ») plutôt qu'à s'abonner.\n` : '';
+const prompt = `Rubrique demandée : ${rubrique}.${blocTendance}
 ${idees.length ? `Actualité vérifiée de la veille (prioritaire pour « Actu nuit » et « Explicatif ») :\n${idees.map((i) => `- ${i.titre} — ${i.angle || i.resume || ''} (${i.source || 'sans source'})`).join('\n')}\n` : ''}Sujets possibles : ${SUJETS.join(' ; ')}.
 ${meilleurs.length ? `Nos reels les mieux notés (inspire-toi de ce qui marche) : ${meilleurs.join(' ; ')}.\n` : ''}${accroches.length ? `Accroches qui marchent chez les comptes suivis : ${accroches.join(' | ')}.\n` : ''}Déjà publiés ou en banque (ne refais pas le même sujet) :\n${dejaFaits.map((t) => `- ${t}`).join('\n') || '- aucun'}
 Date : ${new Date().toISOString().slice(0, 10)}. Écris un reel selon le schéma.`;
