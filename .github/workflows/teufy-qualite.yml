@@ -60,8 +60,16 @@ jobs:
         timeout-minutes: 25
         run: |
           npm install --no-audit --no-fund
-          # Les serveurs de paquets bloquent parfois : 3 essais de 7 minutes au plus, plutôt qu'une attente sans fin.
-          for i in 1 2 3; do timeout 420 npx playwright install --with-deps ${{ matrix.navigateur }} && exit 0; echo "Essai $i échoué, nouvel essai…"; sleep 15; done
+          # Le navigateur lui-même (CDN Playwright), indépendant des serveurs Ubuntu.
+          for i in 1 2 3; do timeout 300 npx playwright install ${{ matrix.navigateur }} && break; sleep 10; done
+          # Bibliothèques système : le miroir Ubuntu d'Azure tombe parfois (« Temporary failure resolving
+          # azure.archive.ubuntu.com ») : on passe sur le serveur Ubuntu principal, et on libère apt entre deux essais.
+          echo "http://archive.ubuntu.com/ubuntu" | sudo tee /etc/apt/apt-mirrors.txt >/dev/null || true
+          sudo sed -i 's#http://azure.archive.ubuntu.com/ubuntu#http://archive.ubuntu.com/ubuntu#g' /etc/apt/sources.list 2>/dev/null || true
+          for i in 1 2 3; do
+            timeout 420 sudo -E env "PATH=$PATH" npx playwright install-deps ${{ matrix.navigateur }} && exit 0
+            echo "Essai $i échoué, nouvel essai…"; sudo pkill -9 -f apt-get || true; sudo rm -f /var/lib/dpkg/lock-frontend /var/lib/dpkg/lock /var/cache/apt/archives/lock; sudo dpkg --configure -a || true; sleep 15
+          done
           exit 1
       - name: Servir le site comme GitHub Pages
         run: |
