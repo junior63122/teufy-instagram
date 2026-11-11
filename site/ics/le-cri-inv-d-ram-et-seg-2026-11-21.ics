@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:le-cri-inv-d-ram-et-seg-2026-11-21@teufy
+DTSTAMP:20261111T081419Z
+DTSTART:20261121T225500Z
+DTEND:20261122T035500Z
+SUMMARY:Le Cri Inv. D'ram & Seg
+LOCATION:Le Cri de la Mouette\, Toulouse
+DESCRIPTION:Hard bounce et hard techno a bord de la peniche du Cri de la Mouette.\nBillets : https://shotgun.live/events/le-cri-inv-d-ram-seg-hard-bounce-to-hard-techno\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/le-cri-inv-d-ram-seg-hard-bounce-to-hard-techno
+END:VEVENT
+END:VCALENDAR

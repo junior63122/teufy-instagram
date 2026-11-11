@@ -10,7 +10,6 @@
    "site": "https://highclub.com/",
    "description": "Grand club généraliste de la Promenade des Anglais doté de plusieurs salles avec une programmation EDM, urbaine et des DJ sets internationaux.",
    "soirees": [
-    "le-high-club-invite-le-bal-des-licornes-edition-pink-et-stra-2026-11-10",
     "latin-addict-2026-11-13",
     "i-m-not-rich-but-i-m-high-2026-11-14",
     "students-party-high-club-2026-11-20",
@@ -24,16 +23,16 @@
    ],
    "prochaines": [
     {
-     "id": "le-high-club-invite-le-bal-des-licornes-edition-pink-et-stra-2026-11-10",
-     "nom": "Le High Club invite Le Bal des Licornes (Édition Pink & Strass)"
-    },
-    {
      "id": "latin-addict-2026-11-13",
      "nom": "Latin Addict"
     },
     {
      "id": "i-m-not-rich-but-i-m-high-2026-11-14",
      "nom": "I'm Not Rich But I'm High"
+    },
+    {
+     "id": "students-party-high-club-2026-11-20",
+     "nom": "Students Party @ High Club"
     }
    ],
    "insta": {
@@ -61,12 +60,6 @@
     ]
    },
    "soirs": [
-    [
-     "2026-11-10",
-     "23:50",
-     "le-high-club-invite-le-bal-des-licornes-edition-pink-et-stra-2026-11-10",
-     "Le High Club invite Le Bal des Licornes (Édition Pink & Strass)"
-    ],
     [
      "2026-11-13",
      "23:59",
@@ -1816,7 +1809,6 @@
    "site": "https://www.facebook.com/bokaclubdelmagot",
    "description": "Club historique proposant afterwork, karaoké et soirées clubbing aux rythmes généralistes, urbains et latino.",
    "soirees": [
-    "la-jamaicaine-2026-11-10",
     "soweto-l-esprit-100-shatta-2026-11-11",
     "urban-shatta-2026-11-14",
     "before-pacific-neon-night-2026-11-21",
@@ -1824,28 +1816,22 @@
    ],
    "prochaines": [
     {
-     "id": "la-jamaicaine-2026-11-10",
-     "nom": "La Jamaïcaine"
-    },
-    {
      "id": "soweto-l-esprit-100-shatta-2026-11-11",
      "nom": "Soweto L'Esprit - 100% Shatta"
     },
     {
      "id": "urban-shatta-2026-11-14",
      "nom": "Urban Shatta"
+    },
+    {
+     "id": "before-pacific-neon-night-2026-11-21",
+     "nom": "Before Pacific Neon Night"
     }
    ],
    "insta": null,
    "slug": "boka-club-del-magot-toulon",
    "score": 0,
    "soirs": [
-    [
-     "2026-11-10",
-     "23:59",
-     "la-jamaicaine-2026-11-10",
-     "La Jamaïcaine"
-    ],
     [
      "2026-11-11",
      "00:00",

@@ -4,12 +4,12 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:boum-boum-basement-2026-11-12@teufy
-DTSTAMP:20261111T013923Z
+DTSTAMP:20261111T081419Z
 DTSTART:20261112T223000Z
 DTEND:20261113T033000Z
 SUMMARY:Boum Boum : Basement
 LOCATION:Boum Boum Club\, Montpellier
-DESCRIPTION:Soirée Basement hard techno au Boum Boum Club avec entrée libre avant 1h.\nBillets : https://shotgun.live/fr/events/boum-boum-basement\nVia Teufy @teufy_official
-URL:https://shotgun.live/fr/events/boum-boum-basement
+DESCRIPTION:Ambiance sous-sol intimiste au son de la house et de la tech house au Boum Boum Club.\nBillets : https://shotgun.live/events/boum-boum-basement\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/boum-boum-basement
 END:VEVENT
 END:VCALENDAR

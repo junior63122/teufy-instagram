@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:krucial-5-tekno-acidcore-et-more-2026-11-13@teufy
+DTSTAMP:20261111T081419Z
+DTSTART:20261113T225900Z
+DTEND:20261114T035900Z
+SUMMARY:Krucial 5 - Tekno\, Acidcore & More
+LOCATION:Mélomane Club\, Montpellier
+DESCRIPTION:Cinquième volet de Krucial : tekno\, gabber et acidcore non-stop au Mélomane Club.\nBillets : https://shotgun.live/events/krucial-5-tekno-acidcore-more\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/krucial-5-tekno-acidcore-more
+END:VEVENT
+END:VCALENDAR

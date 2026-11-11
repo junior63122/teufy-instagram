@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:rim-k-2026-12-18@teufy
+DTSTAMP:20261111T081419Z
+DTSTART:20261218T193000Z
+DTEND:20261219T003000Z
+SUMMARY:Rim'K
+LOCATION:El Mediator\, Perpignan
+DESCRIPTION:Rim'K en concert au Mediator\, un vendredi rap avant les fêtes\nBillets : https://www.seetickets.com/fr/d/event/rim-k/el-mediator/10848201\nVia Teufy @teufy_official
+URL:https://www.seetickets.com/fr/d/event/rim-k/el-mediator/10848201
+END:VEVENT
+END:VCALENDAR

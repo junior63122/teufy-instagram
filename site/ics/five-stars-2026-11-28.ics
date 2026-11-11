@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:five-stars-2026-11-28@teufy
+DTSTAMP:20261111T081419Z
+DTSTART:20261128T225900Z
+DTEND:20261129T035900Z
+SUMMARY:Five Stars
+LOCATION:L'Étoile Club\, Toulouse
+DESCRIPTION:Mix urbain\, afro et shatta jusqu'a 6h a L'Etoile Club pour petits budgets.\nBillets : https://shotgun.live/events/five-stars\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/five-stars
+END:VEVENT
+END:VCALENDAR

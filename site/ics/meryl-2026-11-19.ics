@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:meryl-2026-11-19@teufy
+DTSTAMP:20261111T081419Z
+DTSTART:20261119T193000Z
+DTEND:20261120T003000Z
+SUMMARY:Meryl
+LOCATION:Paloma (Grande Salle)\, Nîmes
+DESCRIPTION:Le flow percutant de Meryl entre rap et dancehall en live à la Grande Salle de Paloma.\nBillets : https://paloma-nimes.fr/agenda/meryl/\nVia Teufy @teufy_official
+URL:https://paloma-nimes.fr/agenda/meryl/
+END:VEVENT
+END:VCALENDAR
