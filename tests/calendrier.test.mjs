@@ -10,16 +10,16 @@ const outils = (s) => { const r = rng(s); return { r, ch: chooser({ arms: {}, fe
 const config = JSON.parse(readFileSync(new URL('../config.json', import.meta.url)));
 const debats = JSON.parse(readFileSync(new URL('../contenus/debats.json', import.meta.url)));
 
-test('chaque semaine : 2 posts photo (lundi sorties, vendredi bon plan ou débat) + 3 reels illustrés', () => {
+test('chaque semaine : 7 publications (lundi sorties, vendredi bon plan ou débat, mercredi reel des soirées du week-end, 4 reels Flash)', () => {
   for (let m = 0; m < 12; m++) {
     const jours = daysOfMonth(new Date(Date.UTC(2027, m, 15, 12)));
     for (const d of jours) {
       const s = slotOfDay(d);
       const c = config.calendrier.find((x) => x.jour === s.jour && x.rang === s.rang);
-      if ([2, 4, 6].includes(s.jour)) assert.deepEqual([c?.type, c?.variante], ['reel', 'flash'], s.date);
+      if ([2, 4, 6, 7].includes(s.jour)) assert.deepEqual([c?.type, c?.variante], ['reel', 'flash'], s.date);
+      else if (s.jour === 3) assert.deepEqual([c?.type, c?.variante], ['reel', 'weekend'], s.date);
       else if (s.jour === 1) assert.equal(c?.type, 'incontournables', s.date);
-      else if (s.jour === 5) assert.ok(['bonplan', 'debat'].includes(c?.type), s.date);
-      else assert.equal(c, undefined, s.date);
+      else assert.ok(['bonplan', 'debat'].includes(c?.type), s.date);
     }
   }
 });

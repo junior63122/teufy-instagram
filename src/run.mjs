@@ -153,7 +153,8 @@ if (cible === 'site') {
   process.exit(0);
 }
 
-if (cible === 'mois') await rm(MEDIA_DIR, { recursive: true, force: true });
+// Aperçu du mois : on efface seulement les aperçus (dossiers datés), jamais les médias à garder (stories « à la une »…).
+if (cible === 'mois') for (const d of await readdir(MEDIA_DIR).catch(() => [])) if (/^\d{4}-\d{2}-\d{2}-/.test(d)) await rm(path.join(MEDIA_DIR, d), { recursive: true, force: true });
 const echecs = [];
 for (const j of jobs) {
   const id = cible === 'mois' ? `${isoLocal(j.now)}-${slotId(j.slot)}` : slotId(j.slot);

@@ -66,7 +66,7 @@
       "https://www.bizouk.com/"
     ]
   },
-  "calendrier_explication": "Chaque ligne = une publication. jour : 1 = lundi … 7 = dimanche. rang : 1 = premier de ce jour dans le mois… (1 à 5). Chaque semaine : 2 posts photo (lundi : carrousel des sorties de la semaine ; le 2e lundi du mois : les incontournables techno du mois ; vendredi : bon plan ou débat en alternance) + 3 reels « histoire » (mardi, jeudi, samedi). Les annonces exceptionnelles passent en plus par la veille (toutes les 30 min). Heure : voir le workflow.",
+  "calendrier_explication": "Chaque ligne = une publication. jour : 1 = lundi … 7 = dimanche. rang : 1 = premier de ce jour dans le mois… (1 à 5). Depuis le 11 novembre 2026 (relance du compte après un an d'inactivité) : 1 publication par jour, 7 par semaine. Lundi : carrousel des sorties de la semaine (le 2e lundi : incontournables techno du mois) ; mardi, jeudi, samedi, dimanche : reel « Flash » (astuce, explicatif, humour, actu) ; mercredi : reel des soirées du week-end (affiches et lieux réels) ; vendredi : bon plan ou débat en alternance. Les annonces exceptionnelles passent en plus par la veille (2 par jour au maximum). Heure : apprise par le cerveau (créneaux_utc).",
   "calendrier": [
     {
       "jour": 1,
@@ -79,6 +79,12 @@
       "rang": 1,
       "type": "reel",
       "variante": "flash"
+    },
+    {
+      "jour": 3,
+      "rang": 1,
+      "type": "reel",
+      "variante": "weekend"
     },
     {
       "jour": 4,
@@ -99,6 +105,12 @@
       "variante": "flash"
     },
     {
+      "jour": 7,
+      "rang": 1,
+      "type": "reel",
+      "variante": "flash"
+    },
+    {
       "jour": 1,
       "rang": 2,
       "type": "incontournables",
@@ -109,6 +121,12 @@
       "rang": 2,
       "type": "reel",
       "variante": "flash"
+    },
+    {
+      "jour": 3,
+      "rang": 2,
+      "type": "reel",
+      "variante": "weekend"
     },
     {
       "jour": 4,
@@ -128,6 +146,12 @@
       "variante": "flash"
     },
     {
+      "jour": 7,
+      "rang": 2,
+      "type": "reel",
+      "variante": "flash"
+    },
+    {
       "jour": 1,
       "rang": 3,
       "type": "incontournables",
@@ -138,6 +162,12 @@
       "rang": 3,
       "type": "reel",
       "variante": "flash"
+    },
+    {
+      "jour": 3,
+      "rang": 3,
+      "type": "reel",
+      "variante": "weekend"
     },
     {
       "jour": 4,
@@ -158,6 +188,12 @@
       "variante": "flash"
     },
     {
+      "jour": 7,
+      "rang": 3,
+      "type": "reel",
+      "variante": "flash"
+    },
+    {
       "jour": 1,
       "rang": 4,
       "type": "incontournables",
@@ -168,6 +204,12 @@
       "rang": 4,
       "type": "reel",
       "variante": "flash"
+    },
+    {
+      "jour": 3,
+      "rang": 4,
+      "type": "reel",
+      "variante": "weekend"
     },
     {
       "jour": 4,
@@ -187,6 +229,12 @@
       "variante": "flash"
     },
     {
+      "jour": 7,
+      "rang": 4,
+      "type": "reel",
+      "variante": "flash"
+    },
+    {
       "jour": 1,
       "rang": 5,
       "type": "incontournables",
@@ -197,6 +245,12 @@
       "rang": 5,
       "type": "reel",
       "variante": "flash"
+    },
+    {
+      "jour": 3,
+      "rang": 5,
+      "type": "reel",
+      "variante": "weekend"
     },
     {
       "jour": 4,
@@ -212,6 +266,12 @@
     },
     {
       "jour": 6,
+      "rang": 5,
+      "type": "reel",
+      "variante": "flash"
+    },
+    {
+      "jour": 7,
       "rang": 5,
       "type": "reel",
       "variante": "flash"
