@@ -1,7 +1,7 @@
 name: Teufy - Site seulement
 
 # Régénère le site internet seul (carte, transports, parkings, affiches, traductions), sans relever les statistiques
-# Instagram ni publier : utile après une correction, quand le passage complet est trop long.
+# Instagram ni publier, et sans relancer la recherche web des soirées (déjà faite) : utile après une correction.
 on:
   workflow_dispatch: {}
 
@@ -31,7 +31,7 @@ jobs:
         run: |
           npm install --no-audit --no-fund >/dev/null 2>&1 || true
           sudo apt-get install -y --no-install-recommends ffmpeg >/dev/null 2>&1 || true
-          SITE_MINUTES=12 node src/run.mjs site --force
+          SANS_RECHERCHE=1 SITE_MINUTES=12 node src/run.mjs site --force # sans relancer la recherche des soirées (faite par le passage Instagram)
       - name: Enregistrer
         run: |
           git config user.name "teufy-bot"

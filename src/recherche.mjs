@@ -77,7 +77,7 @@ async function postsOrganisateurs({ ig, api, comptes, now, log }) {
 export async function rechercherSoirees({ config, now = new Date(), ig = null, api = {}, ia = LLM, log = console.log, force = false } = {}) {
   const R = config.recherche_web || {};
   const cache = lireCache();
-  if (R.actif === false) return cache;
+  if (R.actif === false) return cache if (process.env.SANS_RECHERCHE === '1') return cache; // passe « site seulement » : données déjà trouvées
   const ageJours = cache.maj ? (now - new Date(cache.maj)) / 86400e3 : Infinity;
   if (!force && ageJours < (R.rafraichir_jours ?? 3)) return cache;
   if (ia === LLM && !LLM.fournisseurs(config).length) { log('Aucune IA configurée (secret gratuit GEMINI_API_KEY) : pas de recherche web.'); return cache; }
@@ -283,7 +283,7 @@ export function lireFrance() { return existsSync(CACHE_FRANCE) ? JSON.parse(read
 export async function rechercherFrance({ config, now = new Date(), ia = LLM, log = console.log, force = false } = {}) {
   const R = config.recherche_web || {};
   const cache = lireFrance();
-  if (R.france === false) return cache;
+  if (R.france === false) return cache if (process.env.SANS_RECHERCHE === '1') return cache; // passe « site seulement » : données déjà trouvées
   const ageJours = cache.maj ? (now - new Date(cache.maj)) / 86400e3 : Infinity;
   if (!force && ageJours < (R.rafraichir_france_jours ?? 2)) return cache;
   if (ia === LLM && !LLM.fournisseurs(config).length) return cache;
@@ -336,7 +336,7 @@ export function lireOccitanie() { return existsSync(CACHE_OCCITANIE) ? JSON.pars
 export async function rechercherOccitanie({ config, now = new Date(), ia = LLM, log = console.log, force = false } = {}) {
   const R = config.recherche_web || {};
   const cache = lireOccitanie();
-  if (R.occitanie === false) return cache;
+  if (R.occitanie === false) return cache if (process.env.SANS_RECHERCHE === '1') return cache; // passe « site seulement » : données déjà trouvées
   const ageJours = cache.maj ? (now - new Date(cache.maj)) / 86400e3 : Infinity;
   if (!force && ageJours < (R.rafraichir_occitanie_jours ?? 1)) return cache;
   const jour = now.toISOString().slice(0, 10);
