@@ -1,21 +1,17 @@
 {
-  "maj": "2026-11-10T08:11:19.059Z",
+  "maj": "2026-11-11T15:07:29.541Z",
   "comptes": {
     "downtown.nice": {
-      "abonnes": 2392,
-      "posts": 25
+      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
     },
     "uptown.nice": {
-      "abonnes": 1865,
-      "posts": 25
+      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
     },
     "la_dinette__": {
-      "abonnes": 5657,
-      "posts": 25
+      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
     },
     "lebarathymtoulon": {
-      "abonnes": 10925,
-      "posts": 25
+      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
     },
     "nightlyfr": {
       "erreur": "Instagram 17841451355992040 : Invalid user id (code 110, sous-code 2207013)"
@@ -33,8 +29,7 @@
       "erreur": "Instagram 17841451355992040 : Invalid user id (code 110, sous-code 2207013)"
     },
     "monaco.nightlife": {
-      "abonnes": 5413,
-      "posts": 25
+      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
     },
     "cannes.nightlife": {
       "erreur": "Instagram 17841451355992040 : Invalid user id (code 110, sous-code 2207013)"
@@ -43,8 +38,7 @@
       "erreur": "Instagram 17841451355992040 : Invalid user id (code 110, sous-code 2207013)"
     },
     "dicefm": {
-      "abonnes": 91948,
-      "posts": 25
+      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
     },
     "trax_magazine": {
       "erreur": "Instagram 17841451355992040 : Invalid user id (code 110, sous-code 2207013)"
@@ -53,94 +47,79 @@
       "erreur": "Instagram 17841451355992040 : Invalid user id (code 110, sous-code 2207013)"
     },
     "boilerroomtv": {
-      "abonnes": 2888342,
-      "posts": 25
-    },
-    "les.bonnesfranquettes": {
-      "abonnes": 5067,
-      "posts": 25
-    },
-    "sun7riviera": {
-      "abonnes": 1269,
-      "posts": 25
-    },
-    "neonfestival_": {
-      "abonnes": 4103,
-      "posts": 25
-    },
-    "clubsonore_frenchriviera": {
-      "abonnes": 13114,
-      "posts": 25
-    },
-    "agencetwelty": {
-      "abonnes": 1087,
-      "posts": 8
-    },
-    "laplaturne": {
-      "abonnes": 8331,
-      "posts": 25
-    },
-    "lanonchalance": {
-      "abonnes": 73012,
-      "posts": 25
-    },
-    "afroheatfestival": {
-      "abonnes": 4077,
-      "posts": 25
-    },
-    "bluecoastbrewing": {
-      "abonnes": 12234,
-      "posts": 25
-    },
-    "mamashelternice": {
-      "abonnes": 26411,
-      "posts": 25
-    },
-    "lemeridiennice": {
-      "abonnes": 14200,
-      "posts": 25
-    },
-    "palaisnikaia": {
-      "abonnes": 13717,
-      "posts": 25
-    },
-    "frigo.16": {
-      "abonnes": 11658,
-      "posts": 25
-    },
-    "pandaevents06": {
-      "abonnes": 15195,
-      "posts": 25
-    },
-    "highclubnice": {
       "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
     },
-    "clubvivy": {
+    "bringue_party": {
       "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
     },
-    "dovnrobs": {
+    "bazaarcannes": {
       "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
     },
-    "twigamontecarlo": {
+    "mixparty_cannes": {
       "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
     },
-    "jetlagang": {
+    "lelixirclub": {
       "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
     },
-    "pandaevents": {
-      "erreur": "Instagram 17841451355992040 : Invalid user id (code 110, sous-code 2207013)"
+    "jokerplay17": {
+      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
     },
-    "clubbizarre_music": {
-      "erreur": "Instagram 17841451355992040 : Invalid user id (code 110, sous-code 2207013)"
+    "sowetolesprit": {
+      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
     },
-    "bolon_events": {
-      "erreur": "Instagram 17841451355992040 : Invalid user id (code 110, sous-code 2207013)"
+    "tetris.owl": {
+      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
     },
-    "aztera_crew": {
-      "erreur": "Instagram 17841451355992040 : Invalid user id (code 110, sous-code 2207013)"
+    "xka_music": {
+      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
     },
-    "frigo16nice": {
-      "erreur": "Instagram 17841451355992040 : Invalid user id (code 110, sous-code 2207013)"
+    "djmvlarosa_officiel": {
+      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
+    },
+    "lesfrench_nghts": {
+      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
+    },
+    "djtrulli_": {
+      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
+    },
+    "pedro_martinez_musicoff": {
+      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
+    },
+    "120bpm.event": {
+      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
+    },
+    "groovzcannes": {
+      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
+    },
+    "barrelcannespub": {
+      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
+    },
+    "latinaddict": {
+      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
+    },
+    "nayaclubcannes": {
+      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
+    },
+    "junga_club": {
+      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
+    },
+    "cdr_cannes": {
+      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
+    },
+    "lebayou2.0": {
+      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
+    },
+    "greatgame_partyroom": {
+      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
+    },
+    "charlotte_vtc_toulon": {
+      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
+    },
+    "espritfestival": {
+      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
+    },
+    "le.bar.ephemere": {
+      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
     }
   },
   "hashtags": {
