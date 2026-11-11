@@ -30,7 +30,9 @@ jobs:
         with:
           node-version: 22
       - name: Prospection du jour
-        run: node src/prospection.mjs
+        run: |
+          npm install --no-audit --no-fund >/dev/null 2>&1 || true # module Claude (secours de la recherche web)
+          node src/prospection.mjs
       - name: Enregistrer le suivi (chiffré)
         if: always()
         run: |

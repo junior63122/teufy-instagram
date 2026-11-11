@@ -606,6 +606,7 @@
       7,
       14
     ],
-    "recherches_par_jour": 8
+    "recherches_par_jour": 4,
+    "_recherches": "Recherches web de nouveaux lieux par jour (Gemini ≈ 0,04 € l'une ; Claude en secours ≈ 0,60 €). Le plafond IA du jour (llm.budget_jour_eur) s'applique toujours."
   }
 }
