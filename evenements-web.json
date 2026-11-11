@@ -6328,6 +6328,29 @@
       "instagram": [
         "lacalesechetoulon"
       ]
+    },
+    {
+      "source": "web",
+      "source_site": "instagram.com",
+      "via_veille": true,
+      "name": "Legendary Rock Voices",
+      "start": "2026-11-18T00:00:00.000Z",
+      "venue": "Palais Nikaïa",
+      "city": "Nice",
+      "address": "",
+      "url": "https://www.nikaia.fr",
+      "image": "",
+      "price": null,
+      "tags": [
+        "rock"
+      ],
+      "description": "",
+      "public_cible": 0.6,
+      "confiance": 0.9,
+      "accroche": "Un spectacle consacré aux grandes voix du rock au Palais Nikaïa.",
+      "instagram": [
+        "palaisnikaia"
+      ]
     }
   ]
 }
