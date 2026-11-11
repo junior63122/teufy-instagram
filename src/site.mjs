@@ -640,7 +640,7 @@ export async function construireSite({ events, eventsFrance = [], eventsOccitani
       id, zone, nom: e.name, debut: e.start, jour: cle(e.start), lieu: e.venue || '', ville: e.city || '', adresse: e.address || '', filtreVille: ville,
       prix: e.price == null ? null : e.price, styles: styleDe(e), genres: genresList(e, 3).join(' · '), techno: isTechno(e), tags: e.tags || [],
       url, affiche, dims, accroche: e.accroche || '', description: e.description || '',
-      instagram: (e.instagram || [])[0] || '', buzz: e.buzz ?? null, offres: offres.length >= 2 ? offres : [],
+      instagram: (e.instagram || [])[0] || '', organisateur: e.organisateur || '', buzz: e.buzz ?? null, offres: offres.length >= 2 ? offres : [],
       festival: RE_FESTIVAL.test(`${e.name} ${(e.tags || []).join(' ')}`), etudiant: RE_ETUDIANT.test(`${e.name} ${(e.tags || []).join(' ')} ${e.public_cible || ''}`),
     };
   };
@@ -1389,11 +1389,12 @@ function pageSoiree({ lang, t, tr, base, compte, T, chemin, s, soirees, maj, lie
   const corps = `<article class="fiche carte-donnees" data-id="${s.id}" data-debut="${esc(s.debut)}">
   <nav class="ariane"><a href="${base}${P}">Teufy</a> › ${s.zone === 'occitanie' ? `<a href="${base}${P}occitanie/">Occitanie</a>` : s.zone === 'france' ? `<a href="${base}${P}france/">${esc(t.franceNav)}</a>` : `<a href="${base}${P}#agenda">${esc(t.agenda)}</a>`} › <span>${esc(s.nom)}</span></nav>
   <div class="fiche-grille">
-    <div class="fiche-affiche${s.affiche && s.dims && (s.dims[0] / s.dims[1] > 0.95 || s.dims[0] < 560) ? ' cadre' : ''}">${s.affiche && s.dims && (s.dims[0] / s.dims[1] > 0.95 || s.dims[0] < 560) ? `<img class="fond-flou" src="${base}${s.affiche.replace(/\.jpg$/, '-480.webp')}" alt="" aria-hidden="true">` : ''}${img}</div>
+    <div class="fiche-affiche${s.affiche && s.dims && (s.dims[0] / s.dims[1] > 0.95 || s.dims[0] < 560) ? ' cadre' : ''}${s.affiche && s.dims && s.dims[0] / s.dims[1] > 1.2 ? ' large' : ''}">${s.affiche && s.dims && (s.dims[0] / s.dims[1] > 0.95 || s.dims[0] < 560) ? `<img class="fond-flou" src="${base}${s.affiche.replace(/\.jpg$/, '-480.webp')}" alt="" aria-hidden="true">` : ''}${img}</div>
     <div class="fiche-infos">
       ${s.genres ? `<p class="genre">${esc(s.genres)}</p>` : ''}
       <h1>${esc(s.nom)}</h1>
       ${s.accroche ? `<p class="fiche-accroche">${esc(s.accroche)}</p>` : ''}
+      ${s.instagram ? `<a class="orga-carte" href="https://www.instagram.com/${esc(s.instagram)}/" target="_blank" rel="noopener"><span class="orga-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.3" fill="currentColor"/></svg></span><span class="orga-txt"><small>${esc(tr('Organisé par'))}</small><b>${esc(s.organisateur || `@${s.instagram}`)}</b>${s.organisateur ? `<em>@${esc(s.instagram)}</em>` : ''}</span><span class="orga-cta">${esc(tr('Voir sur Instagram'))} →</span></a>` : ''}
       ${s.description && s.description !== s.accroche ? `<p>${esc(s.description)}</p>` : ''}
       <div class="rebours-bloc" data-debut="${esc(s.debut)}"><p class="pied-titre">${esc(t.commenceDans)}</p><p class="rebours-grand rebours" data-debut="${esc(s.debut)}" data-long="1"></p>${(s.buzz ?? 0) >= SEUIL_DEMANDE ? `<p class="petit">${esc(t.tresDemandee)} · ${esc(t.reserveTot)}</p>` : ''}</div>
       <dl>
@@ -1414,7 +1415,6 @@ function pageSoiree({ lang, t, tr, base, compte, T, chemin, s, soirees, maj, lie
       ${(() => { const L = (lieux || []).find((l) => l.slug && normLieu(l.nom).length >= 3 && (normLieu(s.lieu) === normLieu(l.nom) || normLieu(s.lieu).startsWith(normLieu(l.nom)))); if (!L) return '';
         const H = lireHoraires(L.details?.horaires);
         return `<a class="fiche-lieu lieu-mini" href="${base}${pre(lang)}clubs-bars/${esc(L.slug)}/" data-ville="${esc(slug(L.ville || ''))}"${H ? ` data-horaires="${esc(JSON.stringify(H.plages))}"` : ''}${L.soirs?.length ? ` data-soirs="${esc(JSON.stringify(L.soirs))}"` : ''}>${L.photo ? `<img src="${base}${esc(L.photo)}" alt="" width="56" height="56" loading="lazy">` : ''}<span><small>${esc(tr('Le lieu'))}</small><b>${esc(L.nom)}</b><span class="lieu-statut" hidden></span><em>${esc(tr('Horaires, dress code et autres soirées'))} →</em></span></a>`; })()}
-      ${s.instagram ? `<p class="orga-ig"><a class="lien" href="https://www.instagram.com/${esc(s.instagram)}/" target="_blank" rel="noopener">@${esc(s.instagram)}</a></p>` : ''}
       <p class="source-fiche">${s.url ? `${esc(tr('Infos vérifiées sur'))} <a href="${esc(s.url)}" target="_blank" rel="noopener nofollow">${esc(nomPlateforme(s.url))}</a> · ` : ''}${esc(tr('Une erreur ?'))} <a href="https://ig.me/m/${esc(compte.replace(/^@/, ''))}" target="_blank" rel="noopener">${esc(tr('Signale-la'))}</a> · <a href="${base}${P}faq/#sources">${esc(tr('Nos sources'))}</a></p>
     </div>
   </div>
