@@ -71,6 +71,15 @@
   });
   // Dernière rangée incomplète d'une grille de soirées (ordinateur) : la ou les dernières cartes s'élargissent en format
   // horizontal pour remplir la rangée (1 restante → toute la largeur ; 2 restantes → la dernière sur 2 colonnes).
+  // Lieux et blocs de texte : la dernière carte seule sur sa rangée s'étire en format horizontal (ordinateur).
+  const completerAutres = () => document.querySelectorAll('main .fiches, main .cartes-texte').forEach((g) => {
+    g.querySelectorAll(':scope > .rangee-fin').forEach((c) => { c.classList.remove('rangee-fin'); c.style.gridColumn = ''; });
+    if (!matchMedia('(min-width: 980px)').matches || getComputedStyle(g).display !== 'grid') return;
+    const vis = [...g.children].filter((c) => !c.hidden && getComputedStyle(c).display !== 'none');
+    const cols = getComputedStyle(g).gridTemplateColumns.split(' ').length; if (cols < 3 || vis.length <= cols) return;
+    const reste = vis.length % cols; if (!reste) return;
+    const der = vis[vis.length - 1]; der.classList.add('rangee-fin'); der.style.gridColumn = `span ${cols - reste + 1}`;
+  });
   const completerRangees = () => document.querySelectorAll('main .grille').forEach((g) => {
     g.querySelectorAll('.carte.rangee-fin').forEach((c) => { c.classList.remove('rangee-fin', 'solo-large', 'solo-3'); c.style.gridColumn = ''; });
     if (g.closest('.jour-court') || g.querySelector('.carte-suggestion') || !matchMedia('(min-width: 980px)').matches) return;
@@ -81,7 +90,7 @@
     const reste = vis.length % cols; if (!reste) return;
     const der = vis[vis.length - 1]; der.classList.add('rangee-fin', 'solo-large'); der.classList.toggle('solo-3', cols - reste + 1 >= 3); der.style.gridColumn = `span ${cols - reste + 1}`;
   });
-  addEventListener('resize', () => { clearTimeout(jourCourts.t); jourCourts.t = setTimeout(() => { jourCourts(); completerRangees(); }, 150); }, { passive: true });
+  addEventListener('resize', () => { clearTimeout(jourCourts.t); jourCourts.t = setTimeout(() => { jourCourts(); completerRangees(); completerAutres(); }, 150); }, { passive: true });
   const toast = (m) => { const t = document.querySelector('.toast'); if (!t || !m) return; t.textContent = m; t.hidden = false; clearTimeout(toast.t); toast.t = setTimeout(() => { t.hidden = true; }, 2600); };
 
   // Menu : la rubrique ouverte est centrée dans la barre (on sait où l'on est, même au fond du menu).
@@ -840,7 +849,8 @@
     for (const b of blocs) { const avant = Math.abs(infos.offsetHeight - gauche()); aside.append(b); if (Math.abs(infos.offsetHeight - gauche()) >= avant) { (source ? source.before(b) : infos.append(b)); } }
   };
   equilibrerFiche(); addEventListener('resize', () => { clearTimeout(equilibrerFiche.t); equilibrerFiche.t = setTimeout(equilibrerFiche, 200); }, { passive: true });
-  completerRangees(); // pages sans filtres (festivals, fiche soirée, lieux…)
+  completerRangees(); completerAutres(); new MutationObserver(() => { clearTimeout(completerAutres.t); completerAutres.t = setTimeout(completerAutres, 60); }).observe(document.querySelector('main') || document.body, { subtree: true, attributes: true, attributeFilter: ['hidden', 'class'], childList: true });
+  // pages sans filtres (festivals, fiche soirée, lieux…)
   majFlottant();
   const allerRecherche = (doux) => { const c = document.getElementById('recherche'); if (!c || !agenda) return false; agenda.scrollIntoView({ behavior: doux && !reduit ? 'smooth' : 'auto' }); setTimeout(() => c.focus({ preventScroll: true }), doux ? 350 : 80); return true; };
   if (location.hash === '#recherche') allerRecherche(false);

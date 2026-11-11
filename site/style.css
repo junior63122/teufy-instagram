@@ -1498,3 +1498,13 @@ html.onglets-caches .onglets{transform:translateY(105%)}
 }
 .lieux-fermes{margin-top:28px}
 .lieux-fermes h3{font-size:clamp(22px,2.2vw,28px);margin:0 0 14px;color:#c8c8d0}
+/* Dernière carte de lieu ou de texte seule sur sa rangée : format horizontal sur toute la place restante. */
+@media(min-width:980px){
+  .fiches>.fiche-lieu.rangee-fin{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);align-items:stretch}
+  .fiches>.fiche-lieu.rangee-fin>.fiche-banniere{grid-column:1;grid-row:1;height:100%;min-height:100%}
+  .fiches>.fiche-lieu.rangee-fin>.fiche-corps{grid-column:2;grid-row:1}
+}
+/* Bandeau de lieu avec la vraie photo du lieu (nette, assombrie pour garder le logo lisible). */
+.fiche-banniere.banniere-photo{height:170px}
+.fiche-banniere.banniere-photo::before{inset:0;filter:brightness(.7) saturate(1.1);opacity:1}
+.fiche-banniere.banniere-photo img{width:64px;height:64px;align-self:flex-end;justify-self:flex-start;margin:0 auto 12px 14px}

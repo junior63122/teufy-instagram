@@ -1808,7 +1808,10 @@ function carteLieu(l, { t, tr, base, lang }, i = 0, tendance = false) {
   const raison = l.insta && l.insta.posts21 ? `${tr('Sur ses publications des 3 dernières semaines')} : ${l.insta.likes} ${tr('likes')} · ${l.insta.commentaires} ${tr('commentaires en moyenne')} · ${l.insta.posts21} ${tr('posts')}` : '';
   const H = lireHoraires(l.details?.horaires);
   return `<article class="fiche-lieu${tendance ? ' tendance' : ''}" id="${esc(l.slug)}" style="--i:${i % 8}" data-type="${esc(l.type)}" data-ville="${esc(slug(l.ville || ''))}"${H ? ` data-horaires="${esc(JSON.stringify(H.plages))}"${H.saison ? ' data-saison="1"' : ''}` : ''}${l.soirs?.length ? ` data-soirs="${esc(JSON.stringify(l.soirs))}"` : ''}>
-    <div class="fiche-banniere${l.photo ? '' : ' banniere-ville'}"${l.photo ? ` style="--fond:url('${base}${esc(l.photo)}')"` : photoVille(l.ville) ? ` style="--fond:url('${base}${esc(photoVille(l.ville).fichier.replace(/\.jpg$/, '-480.webp'))}')"` : ''}>${tendance ? `<span class="rang">🔥 #${i + 1}</span>` : ''}${l.photo ? `<img src="${base}${esc(l.photo)}" alt="" width="88" height="88" loading="lazy">` : `<span class="lieu-initiale">${esc((l.nom[0] || '?').toUpperCase())}</span>`}</div>
+    ${(() => { /* Bandeau : la vraie photo du lieu (sa publication Instagram la plus aimée) ; sinon son logo flouté ;
+      jamais un paysage de la ville. */ const couv = l.instagram ? `site/lieux/${l.instagram.replace(/[^a-z0-9._-]/g, '')}-couv-800.webp` : '';
+      const aCouv = couv && existsSync(path.join(ROOT, couv));
+      return `<div class="fiche-banniere${aCouv ? ' banniere-photo' : l.photo ? '' : ' banniere-neutre'}"${aCouv ? ` style="--fond:url('${base}${esc(couv)}')"` : l.photo ? ` style="--fond:url('${base}${esc(l.photo)}')"` : ''}>`; })()}${tendance ? `<span class="rang">🔥 #${i + 1}</span>` : ''}${l.photo ? `<img src="${base}${esc(l.photo)}" alt="" width="88" height="88" loading="lazy">` : `<span class="lieu-initiale">${esc((l.nom[0] || '?').toUpperCase())}</span>`}</div>
     <div class="fiche-corps">
     <p class="genre">${esc(tr(TYPES_NOMS[l.type] || ''))}${l.ville ? ` · ${esc(l.ville)}` : ''}${l.partenaire ? ` <span class="fiche-prix">${esc(t.partenaires)}</span>` : ''}</p>
     <h3><a href="${base}${pre(lang)}clubs-bars/${esc(l.slug)}/">${esc(l.nom)}</a></h3>
