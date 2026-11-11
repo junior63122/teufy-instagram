@@ -239,7 +239,7 @@ async function controlerPage(p, nom, u) {
     ok(/#contact$/.test(lien || ''), `${nom} : « Devenir partenaire » ne mène pas au formulaire (${lien})`);
     for (const pg of ['partenaires/', 'ambassadeurs/', 'bde/']) {
       await p.goto(B + pg + '#contact', { waitUntil: 'load' }); await p.waitForTimeout(300);
-      const f = p.locator('.form-contact');
+      const f = p.locator('.form-contact:not(.form-avantage)');
       ok(await f.count() === 1, `${nom} ${pg} : pas de formulaire de contact`);
       const top = await p.evaluate(() => document.getElementById('contact').getBoundingClientRect().top);
       ok(top >= -5 && top < 400, `${nom} ${pg} : le lien #contact n'amène pas au formulaire (${Math.round(top)}px)`);
@@ -252,6 +252,14 @@ async function controlerPage(p, nom, u) {
       ok(/^mailto:[^?]+\?subject=.+&body=Bonjour/.test(href) && decodeURIComponent(href).includes('Test <b>&</b> « é »'), `${nom} ${pg} : l'e-mail n'est pas pré-rempli correctement`);
       ok(await p.locator('.form-contact b').count() === 0, `${nom} ${pg} : du HTML saisi a été interprété`);
     }
+    // Formulaire « Propose ton avantage » : champs obligatoires, message structuré prêt à envoyer.
+    await p.goto(B + 'partenaires/#avantage', { waitUntil: 'load' }); await p.waitForTimeout(300);
+    { const f = p.locator('.form-avantage'); ok(await f.count() === 1, `${nom} : formulaire « avantage » absent`);
+      await p.evaluate(() => document.querySelectorAll('[data-envoi]').forEach((a) => a.addEventListener('click', (e) => e.preventDefault())));
+      await f.locator('[data-envoi="mail"]').click(); ok(!(await f.locator('.retour-form').evaluate((x) => x.classList.contains('ok'))), `${nom} : formulaire « avantage » vide accepté`);
+      await f.locator('[name=etab]').fill('Bar Test'); await f.locator('[name=detail]').fill('1 verre acheté = 1 offert'); await f.locator('[data-envoi="mail"]').click();
+      const h = decodeURIComponent(await f.locator('[data-envoi="mail"]').getAttribute('href'));
+      ok(/Bar Test/.test(h) && /1 verre acheté = 1 offert/.test(h) && /Type d'avantage/.test(h), `${nom} : message « avantage » incomplet`); }
     } catch (e) { echecs.push(`${nom} : étape interrompue (${e.message.split('\n')[0]} @l.${(String(e.stack).match(/tester-site\.cjs:(\d+)/) || [])[1] || '?'})`); }
     // --- Favoris : une soirée passée ne compte plus (pas de « 1 » fantôme), un favori d'une autre page reste accessible ---
     try {
