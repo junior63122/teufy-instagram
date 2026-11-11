@@ -24,7 +24,7 @@ compte Instagram de l'organisateur peu visible, actus sans image, FAQ trop court
 | Performances | 9,6 / 10 | Production : ordinateur 97–100 sur 6 pages ; mobile 92 (accueil 93, Ce soir 92), 95–100 ailleurs. Image principale de Ce soir / Actus chargée en priorité (délai 1,9 s → 1,1 s). LCP mobile de Ce soir encore à 3,2 s. |
 | Animations | 9 / 10 | Inchangées ; la barre Billets glisse avec les onglets ; mouvements réduits respectés. |
 | Fonctionnalités | 14,6 / 15 | Tous les parcours passent sur 4 écrans + nouveaux tests (phrase, pastilles, organisateur). Paiement Stripe relié et lu par le robot (aucun paiement réel testé). |
-| Compatibilité | 9,3 / 10 | Chromium local (4 écrans) ✓ ; série CI WebKit / Firefox relancée sur cette version (l'installation des navigateurs bloquait : cache + 3 essais ajoutés). Aucun appareil physique. |
+| Compatibilité | 9,4 / 10 | CI réparée (miroir Ubuntu d'Azure injoignable : serveur principal + navigateur téléchargé à part). Chromium CI : robustesse, sécurité, usage ✓. Firefox CI : usage ✓ ; robustesse : chargements d'images interrompus signalés par le service worker, désormais revérifiés (HTTP 200). WebKit CI : robustesse ✓ ; usage : « Voir plus » vérifié trop tôt sur une machine lente et refus d'accès aux fonds de carte externes, tests ajustés et relancés. Aucun appareil physique. |
 | SEO | 9,9 / 10 | 3 139 pages, 667 104 liens internes, 0 cassé, 0 problème bloquant ; SEO Lighthouse 100 sur 12 mesures. |
 | Contenus | 4,9 / 5 | FAQ 33 questions détaillées, sans promesse non tenue ; fiche Tocardise exacte (affiche officielle, 23h–5h, adresse, 12 €, line-up) ; une soirée saisie par l'équipe l'emporte sur le web. |
 | Images et vidéos | 4,9 / 5 | Toutes les actus illustrées (photo de ville signalée « Photo d'illustration ») ; une affiche trouvée par le web n'est plus montrée sans vérification ; aucune photo répétée. |
@@ -76,8 +76,8 @@ image prioritaire), `src/recherche.mjs` (soirée d'équipe prioritaire, styles n
 | Liens + SEO + balises | ✓ 0 cassé | statique ✓ | ✓ |
 | Tests unitaires | ✓ 37 / 37 | — | — |
 | Sécurité | ✓ 0 faille | relancé | — |
-| Robustesse | ✓ | relancé (3 navigateurs) | — |
-| Usage (4 écrans) | ✓ tous les scénarios | relancé (Chromium, WebKit, Firefox) | Lighthouse 12 mesures ✓ |
+| Robustesse | ✓ | Chromium ✓, WebKit ✓, Firefox (voir B) | — |
+| Usage (4 écrans) | ✓ tous les scénarios | Chromium ✓, Firefox ✓, WebKit : 2 points de test ajustés, relancé | Lighthouse 12 mesures ✓ |
 
 ## G. Performances (Lighthouse, production teufyparty.com, après correction)
 
@@ -117,7 +117,7 @@ Firefox via la CI. **Aucun appareil physique.**
 ## K. Améliorations restantes pour viser 99
 
 1. LCP mobile de « Ce soir » (3,2 s) et TBT de l'accueil (253 ms) : alléger le premier écran.
-2. Confirmer la série CI WebKit / Firefox sur cette version ; test sur un vrai iPhone.
+2. Confirmer la série CI complète WebKit / Firefox après ajustement des tests ; test sur un vrai iPhone.
 3. Débloquer le passage complet du robot « site » en CI (journal par étape).
 4. Paiement réel de bout en bout ; traductions des nouveaux textes.
 

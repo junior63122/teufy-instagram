@@ -201,13 +201,19 @@ const visibles = (p) => p.locator('.liste .carte:not([hidden])').count();
     for (const o of [{ viewport: { width: 1440, height: 900 } }, { ...devices['iPhone 13'] }]) {
       const c = await b.newContext(o); const p = await c.newPage(); erreurs(p, 'console');
       const pb = []; let page404 = false;
-      p.on('console', (m) => { if (m.type() === 'error' && !/openfreemap|openstreetmap|net::ERR_(TUNNEL|NAME|CONNECTION)/.test(m.text()) && !(page404 && /status of 404/.test(m.text()))) pb.push(`console : ${m.text().slice(0, 120)}`); });
+      // Firefox signale aussi par le service worker les images dont le chargement est interrompu par le changement de
+      // page (même cas que NS_BINDING_ABORTED plus bas) : chaque image citée est revérifiée à la fin (doit répondre 200).
+      const aVerifier = new Set();
+      p.on('console', (m) => { if (m.type() !== 'error' || /openfreemap|openstreetmap|net::ERR_(TUNNEL|NAME|CONNECTION)/.test(m.text()) || (page404 && /status of 404/.test(m.text()))) return;
+        const sw = m.text().match(/Failed to load ‘([^’]+)’\. A ServiceWorker intercepted/); if (sw) { aVerifier.add(sw[1]); return; }
+        pb.push(`console : ${m.text().slice(0, 120)}`); });
       p.on('requestfailed', (r) => { const u = r.url(); if (u.startsWith(B) && !/\.(mp4|webm)/.test(u) && !/ERR_ABORTED|NS_BINDING_ABORTED|cancelled/i.test(r.failure()?.errorText || '')) pb.push(`requête échouée : ${u.replace(B, '/')} (${r.failure()?.errorText})`); });
       p.on('response', (r) => { if (r.url().startsWith(B) && r.status() >= 400 && !/page-inexistante/.test(r.url())) pb.push(`HTTP ${r.status()} : ${r.url().replace(B, '/')}`); });
       for (const u of ['', 'a-propos/', 'actus/', ...un('actus'), ...un('soiree'), 'festivals/', 'clubs-bars/', 'partenaires/', 'dates/', 'restaurants/', 'activites/', 'france/', 'cgu/', 'confidentialite/', 'ar/', 'page-inexistante/']) {
         page404 = u === 'page-inexistante/'; // la page d'erreur répond 404 exprès
         await p.goto(B + u).catch(() => {}); await p.evaluate(() => window.scrollTo(0, document.body.scrollHeight)); await p.waitForLoadState('networkidle').catch(() => {}); await p.waitForTimeout(300);
       }
+      for (const u of aVerifier) { const r = await c.request.get(u).catch(() => null); if (!r || r.status() !== 200) pb.push(`image cassée (service worker) : ${u.replace(B, '/')} (${r ? r.status() : 'injoignable'})`); }
       ok(!pb.length, `console ${o.viewport?.width || 'mobile'} : ${[...new Set(pb)].slice(0, 6).join(' | ')}`);
       await c.close();
     }

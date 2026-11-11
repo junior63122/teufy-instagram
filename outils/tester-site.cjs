@@ -86,7 +86,8 @@ async function controlerPage(p, nom, u) {
     const p = await c.newPage();
     let total = 0;
     const n = () => nbVisibles(p);
-    p.on('pageerror', (e) => echecs.push(`${nom} : erreur JavaScript ${e.message} (${p.url()})`));
+    // Fonds de carte OpenFreeMap (service externe) : refus d'accès possibles sous WebKit en CI, comme dans tester-robustesse.
+    p.on('pageerror', (e) => { if (!/openfreemap|openstreetmap/i.test(e.message)) echecs.push(`${nom} : erreur JavaScript ${e.message} (${p.url()})`); });
     p.on('console', (m) => { if (m.type() === 'error' && !/Failed to load resource|ERR_|net::|basemaps|tile/.test(m.text()) && !(NAV === 'firefox' && /ServiceWorker intercepted the request and encountered an unexpected error/.test(m.text())) /* Firefox : image abandonnée quand la page change, pas un défaut du site */) echecs.push(`${nom} console : ${m.text()} (${p.url()})`); });
 
     for (const u of PAGES) await controlerPage(p, nom, u);
@@ -132,7 +133,7 @@ async function controlerPage(p, nom, u) {
     ok(prixOrdre.length === total && prixOrdre.every((x, i) => !i || x >= prixOrdre[i - 1]), `${nom} : le tri par prix ne trie pas`);
     await clic('tri', 'demande'); ok(await n() === total, `${nom} : le tri « plus attendues » perd des soirées`);
     await clic('tri', 'date'); ok(await p.locator('.grille-triee').count() === 0 && await n() === total && await p.locator('.liste .jour:not([hidden])').count() >= 1 && await p.locator('.liste .carte.plus-loin').count() > 0 === (total > 20), `${nom} : retour au tri par date incorrect`);
-    if (await p.locator('.voir-plus:not([hidden])').count()) { const avant = await p.locator('.liste .carte:not([hidden]):not(.plus-loin)').count(); await p.locator('.voir-plus').click(); await p.waitForTimeout(300); const apres = await p.locator('.liste .carte:not([hidden]):not(.plus-loin)').count(); ok(apres > avant, `${nom} : « Voir plus de soirées » n'affiche pas la suite (${avant} → ${apres})`); }
+    if (await p.locator('.voir-plus:not([hidden])').count()) { const avant = await p.locator('.liste .carte:not([hidden]):not(.plus-loin)').count(); await p.locator('.voir-plus').click(); await p.waitForFunction((a) => document.querySelectorAll('.liste .carte:not([hidden]):not(.plus-loin)').length > a, avant, { timeout: 4000 }).catch(() => {}); const apres = await p.locator('.liste .carte:not([hidden]):not(.plus-loin)').count(); ok(apres > avant, `${nom} : « Voir plus de soirées » n'affiche pas la suite (${avant} → ${apres})`); }
     const unJour = await p.locator('.liste .carte:not([hidden])').nth(3).getAttribute('data-jour');
     await p.locator('details[data-bloc="quand"] summary').click(); await p.locator('.choix-date input').first().fill(unJour); await p.waitForTimeout(300);
     const jours = await p.$$eval('.liste .carte:not([hidden])', (l) => [...new Set(l.map((c) => c.dataset.jour))]);
