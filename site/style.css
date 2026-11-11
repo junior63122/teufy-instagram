@@ -1401,22 +1401,22 @@ html.onglets-caches .onglets{transform:translateY(105%)}
 .nav-groupe>div a:hover .nb-nav{background:#ffffff26;color:#fff}
 /* Cartes de lieux plus larges (texte et « Infos pratiques » moins tassés) : 3 par rangée sur ordinateur. */
 .fiches{grid-template-columns:repeat(auto-fill,minmax(min(100%,330px),1fr))}
-/* Peu de soirées ce soir : tuiles de suggestion à côté de la carte, plutôt qu'un grand vide. */
-.carte-suggestion{display:flex;flex-direction:column;justify-content:flex-end;gap:10px;min-height:260px;padding:26px;border-radius:22px;text-decoration:none;color:var(--creme);background:radial-gradient(120% 90% at 100% 0%,#ff5a3c55,transparent 60%),radial-gradient(110% 90% at 0% 100%,#8250ff44,transparent 65%),var(--nuit2);border:1px solid #ffffff1f;transition:transform .35s var(--doux),border-color .3s}
-.carte-suggestion:hover{transform:translateY(-4px);border-color:var(--corail)}
-.carte-suggestion small{font-weight:800;font-size:12px;letter-spacing:.16em;text-transform:uppercase;opacity:.75}
-.carte-suggestion b{font-family:var(--titre);font-weight:800;font-stretch:80%;font-size:clamp(26px,2.4vw,34px);line-height:1}
-.carte-suggestion em{font-style:normal;font-weight:800;color:var(--corail)}
-.rangee .carte-suggestion{flex:0 0 min(320px,80vw)}
+/* Peu de soirées ce soir : un panneau compact « le week-end arrive » (vraies soirées) à côté des cartes. */
+.carte-suggestion{display:flex;flex-direction:column;gap:14px;padding:24px;border-radius:18px;background:var(--nuit2);border:1px solid #ffffff1a;align-self:stretch;min-width:0}
+.sugg-tete{margin:0;display:flex;flex-direction:column;gap:4px}
+.sugg-tete small{font-weight:800;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--corail)}
+.sugg-tete b{font-family:var(--titre);font-weight:800;font-stretch:80%;font-size:clamp(24px,2vw,30px);line-height:1}
+.sugg-liste{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.sugg-liste a{display:flex;align-items:center;gap:14px;padding:8px;border-radius:14px;text-decoration:none;color:inherit;background:#ffffff08;transition:background .2s}
+.sugg-liste a:hover{background:#ffffff14}
+.sugg-vig{flex:none;width:56px;height:70px;border-radius:10px;overflow:hidden;background:#ffffff10}
+.sugg-vig img{width:100%;height:100%;object-fit:cover}
+.sugg-txt{display:flex;flex-direction:column;gap:3px;min-width:0}
+.sugg-txt b{font-size:15px;line-height:1.2;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.sugg-txt small{font-size:13px;color:#c8c8d0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-transform:capitalize}
+.sugg-pied{margin:auto 0 0;display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px}
+.rangee .carte-suggestion{flex:0 0 min(640px,70vw)}
 @media(max-width:759px){.carte-suggestion{display:none}}
-.carte-suggestion{position:relative;overflow:hidden}
-.sugg-deco{position:absolute;inset:22px 22px auto;display:flex;justify-content:center;align-items:flex-start;gap:0;color:var(--corail);opacity:.95}
-.sugg-deco svg{margin-top:30px}
-.sugg-deco img{width:42%;aspect-ratio:4/5;object-fit:cover;border-radius:12px;box-shadow:0 18px 36px -12px #000;border:2px solid #ffffff22}
-.sugg-deco img:nth-child(1){transform:rotate(-8deg) translateX(18%)}
-.sugg-deco img:nth-child(2){transform:translateY(-6px);z-index:1}
-.sugg-deco img:nth-child(3){transform:rotate(8deg) translateX(-18%)}
-.carte-suggestion small,.carte-suggestion b,.carte-suggestion em{position:relative;z-index:2}
 /* Journée courte (moins de soirées que de colonnes) : tuile de date à gauche qui complète la rangée. */
 @media(min-width:640px){
   .jour.jour-court{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:stretch}
@@ -1454,4 +1454,11 @@ html.onglets-caches .onglets{transform:translateY(105%)}
   .barre-droite .nav-haut summary{font-size:14px;padding:8px 14px}
   .barre-droite .nav-haut.g-pros{margin-inline-end:2px}
   .barre-droite .nav-haut>div{inset-inline-start:auto;inset-inline-end:0;text-align:start}
+}
+.sugg-liste li,.sugg-liste a{min-width:0}
+.sugg-liste a{overflow:hidden}
+.sugg-txt{flex:1 1 auto;overflow:hidden}
+@media(min-width:980px){
+  .carte.solo-large.solo-3{grid-template-columns:minmax(0,1fr) minmax(0,2fr)}
+  .carte.solo-large .affiche{max-height:420px}
 }

@@ -322,8 +322,8 @@ async function controlerPage(p, nom, u) {
     ok(N.soirs && Array.isArray(N.actus), `${nom} : données des pastilles absentes`);
     // Agenda : aucune rangée trouée (journée courte = tuile de date) ; fiche : bouton WhatsApp avec lien de la soirée.
     if ((p.viewportSize()?.width || 0) >= 980) { await p.goto(B + 'soirees-nice/', { waitUntil: 'load' }); await p.waitForTimeout(400);
-      const trous = await p.evaluate(() => [...document.querySelectorAll('.liste .jour:not([hidden])')].filter((j) => { const g = j.querySelector('.grille'); const n = [...g.children].filter((c) => !c.hidden && getComputedStyle(c).display !== 'none').length; return n && n < 3 && !j.classList.contains('jour-court'); }).length);
-      ok(trous === 0, `${nom} : ${trous} journée(s) de l'agenda avec un trou dans la rangée`);
+      const trous = await p.evaluate(() => [...document.querySelectorAll('main .grille')].filter((g) => { if (!g.offsetParent) return false; const cs = getComputedStyle(g); if (cs.display === 'contents') return false; const cols = cs.gridTemplateColumns.split(' ').length; let cells = 0; [...g.children].forEach((c) => { if (c.hidden || getComputedStyle(c).display === 'none') return; const m = (c.style.gridColumn || '').match(/span (\d+)/); cells += m ? +m[1] : 1; }); return cols >= 3 && cells % cols; }).length);
+      ok(trous === 0, `${nom} : ${trous} grille(s) de soirées avec une rangée trouée`);
       await p.goto(B, { waitUntil: 'load' }); }
     const wa = await p.evaluate(async (B) => { const r = await fetch(B + 'soiree/la-tocardise-2026-11-14/'); if (!r.ok) return 'absente'; const t = await r.text(); return /wa\.me\/\?text=[^"]*soiree%2Fla-tocardise/.test(t) ? 'ok' : 'manquant'; }, B);
     ok(wa !== 'manquant', `${nom} : bouton « Proposer à mes potes » (WhatsApp) absent ou sans lien de la soirée`);

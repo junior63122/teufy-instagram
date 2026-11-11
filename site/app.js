@@ -23,19 +23,29 @@
     if (!conteneur) return;
     conteneur.querySelectorAll('.carte-suggestion').forEach((x) => x.remove());
     if (!nbCartes || nbCartes >= 3 || !matchMedia('(min-width: 760px)').matches) return;
-    const tuiles = [[T.suggOuvertsP, T.suggOuverts, 'ce-soir/#lieux-ouverts'], [T.suggWeP, T.suggWe, 'ce-week-end/']].slice(0, 3 - nbCartes);
-    for (const [petit, titre, chemin] of tuiles) {
-      if (!titre) continue;
-      const a = document.createElement('a'); a.className = 'carte-suggestion'; a.href = lienLang(chemin);
-      const deco = document.createElement('span'); deco.className = 'sugg-deco'; deco.setAttribute('aria-hidden', 'true');
-      if (chemin.startsWith('ce-week-end')) {
-        // Vraies affiches de soirées du week-end (jamais d'image inventée).
-        const imgs = [...document.querySelectorAll('.liste .carte')].filter((c) => c.dataset.jour >= vendredi && c.dataset.jour <= dimanche).map((c) => c.querySelector('img.principale')).filter(Boolean).slice(0, 3);
-        for (const im of imgs) { const i = document.createElement('img'); i.src = im.currentSrc || im.src; i.alt = ''; i.loading = 'lazy'; deco.append(i); }
-      } else deco.innerHTML = '<svg viewBox="0 0 24 24" width="64" height="64" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h8l-4 7z"/><path d="M12 10v8M8 21h8"/><path d="M19 5a6 6 0 1 1-4 9" opacity=".6"/></svg>';
-      a.append(deco, Object.assign(document.createElement('small'), { textContent: petit || '' }), Object.assign(document.createElement('b'), { textContent: titre }), Object.assign(document.createElement('em'), { textContent: '→' }));
-      conteneur.append(a);
+    // Un seul panneau compact, rempli d'infos réelles : les prochaines soirées du week-end (affiche, nom, jour, lieu)
+    // et deux accès (lieux ouverts ce soir, tout le week-end). Il occupe la place restante de la rangée.
+    const vues = new Set(), prochaines = [...document.querySelectorAll('.liste .carte')]
+      .filter((c) => c.dataset.jour > auj && c.dataset.jour <= dimanche && c.dataset.jour >= vendredi && !vues.has(c.dataset.id) && vues.add(c.dataset.id)).slice(0, 4);
+    const p = document.createElement('aside'); p.className = 'carte-suggestion';
+    p.style.gridColumn = `span ${Math.max(1, (getComputedStyle(conteneur).gridTemplateColumns.split(' ').length || 3) - nbCartes)}`;
+    const tete = document.createElement('p'); tete.className = 'sugg-tete';
+    tete.append(Object.assign(document.createElement('small'), { textContent: T.suggWeP || '' }), Object.assign(document.createElement('b'), { textContent: T.suggWe || '' }));
+    const ul = document.createElement('ul'); ul.className = 'sugg-liste';
+    for (const c of prochaines) {
+      const lien = c.querySelector('h3 a'); if (!lien) continue;
+      const li = document.createElement('li'), a = document.createElement('a'); a.href = lien.href;
+      const im = c.querySelector('img.principale');
+      const vig = document.createElement('span'); vig.className = 'sugg-vig';
+      if (im) { const i = document.createElement('img'); i.src = im.currentSrc || im.src; i.alt = ''; i.loading = 'lazy'; vig.append(i); } else vig.style.background = `linear-gradient(135deg, var(--corail), #8250ff)`;
+      const txt = document.createElement('span'); txt.className = 'sugg-txt';
+      txt.append(Object.assign(document.createElement('b'), { textContent: lien.textContent.trim() }), Object.assign(document.createElement('small'), { textContent: [c.querySelector('.affiche .date')?.textContent.trim(), c.dataset.heure, c.querySelector('.meta .ou')?.textContent.trim()].filter(Boolean).join(' · ') }));
+      a.append(vig, txt); li.append(a); ul.append(li);
     }
+    const pied = document.createElement('p'); pied.className = 'sugg-pied';
+    pied.append(Object.assign(document.createElement('a'), { className: 'bouton petit', href: lienLang('ce-week-end/'), textContent: `${T.suggWe || ''} →` }), Object.assign(document.createElement('a'), { className: 'lien', href: lienLang('ce-soir/#lieux-ouverts'), textContent: T.suggOuverts || '' }));
+    p.append(tete, ...(ul.children.length ? [ul] : []), pied);
+    conteneur.append(p);
   };
   // Journées avec moins de soirées que de colonnes (ordinateur, tablette) : le titre devient une tuile de date qui
   // complète la rangée (plus de trou à droite).
@@ -43,7 +53,7 @@
     const g = j.querySelector('.grille'), h = j.querySelector('h2'); if (!g || !h) return;
     j.classList.remove('jour-court'); h.style.gridColumn = ''; j.querySelectorAll('.solo-large').forEach((c) => { c.classList.remove('solo-large'); c.style.gridColumn = ''; });
     if (h.dataset.titre && h.querySelector('.jc-num')) { h.textContent = h.dataset.titre; h.removeAttribute('aria-label'); } // titre d'origine si la journée redevient pleine
-    if (j.hidden) return;
+    if (j.hidden || g.querySelector('.carte-suggestion')) return; // la rangée est déjà complétée par le panneau « week-end »
     const cols = getComputedStyle(g).gridTemplateColumns.split(' ').length;
     const n = [...g.children].filter((c) => !c.hidden && !c.classList.contains('plus-loin') && getComputedStyle(c).display !== 'none').length;
     if (cols < 2 || !n || n >= cols) return;
@@ -59,7 +69,19 @@
     }
     h.dataset.n = nCartes === 1 ? (T.soiree || '1') : (T.soirees || '{n}').replace('{n}', nCartes);
   });
-  addEventListener('resize', () => { clearTimeout(jourCourts.t); jourCourts.t = setTimeout(jourCourts, 150); }, { passive: true });
+  // Dernière rangée incomplète d'une grille de soirées (ordinateur) : la ou les dernières cartes s'élargissent en format
+  // horizontal pour remplir la rangée (1 restante → toute la largeur ; 2 restantes → la dernière sur 2 colonnes).
+  const completerRangees = () => document.querySelectorAll('main .grille').forEach((g) => {
+    g.querySelectorAll('.carte.rangee-fin').forEach((c) => { c.classList.remove('rangee-fin', 'solo-large', 'solo-3'); c.style.gridColumn = ''; });
+    if (g.closest('.jour-court') || g.querySelector('.carte-suggestion') || !matchMedia('(min-width: 980px)').matches) return;
+    const vis = [...g.children].filter((c) => c.classList.contains('carte') && !c.hidden && !c.classList.contains('plus-loin') && getComputedStyle(c).display !== 'none');
+    const cols = getComputedStyle(g).gridTemplateColumns.split(' ').length;
+    const autres = [...g.children].filter((c) => !c.classList.contains('carte') && !c.hidden && getComputedStyle(c).display !== 'none').length;
+    if (cols < 3 || !vis.length || autres) return;
+    const reste = vis.length % cols; if (!reste) return;
+    const der = vis[vis.length - 1]; der.classList.add('rangee-fin', 'solo-large'); der.classList.toggle('solo-3', cols - reste + 1 >= 3); der.style.gridColumn = `span ${cols - reste + 1}`;
+  });
+  addEventListener('resize', () => { clearTimeout(jourCourts.t); jourCourts.t = setTimeout(() => { jourCourts(); completerRangees(); }, 150); }, { passive: true });
   const toast = (m) => { const t = document.querySelector('.toast'); if (!t || !m) return; t.textContent = m; t.hidden = false; clearTimeout(toast.t); toast.t = setTimeout(() => { t.hidden = true; }, 2600); };
 
   // Menu : la rubrique ouverte est centrée dans la barre (on sait où l'on est, même au fond du menu).
@@ -375,6 +397,7 @@
     paginer();
     document.querySelectorAll('.liste .jour').forEach((j) => suggerer(j.querySelector('.grille'), j.dataset.jour === auj && !j.hidden && etat.tri === 'date' ? j.querySelectorAll('.carte:not([hidden]):not(.plus-loin)').length : 0));
     jourCourts();
+    completerRangees();
     majCompris();
     animerCartes();
   };
@@ -792,6 +815,7 @@
   if (q0 && champs.length) { champs.forEach((c) => { c.value = q0; const x = c.parentElement.querySelector('.effacer'); if (x) x.hidden = false; }); etat.qBrut = q0; etat.q = norm(q0); if (agenda) setTimeout(() => agenda.scrollIntoView(), 60); }
   if (q0 && cartes.length) interpreter();
   if (cartes.length || document.querySelector('.filtres')) appliquer(); else animerCartes();
+  completerRangees(); // pages sans filtres (festivals, fiche soirée, lieux…)
   majFlottant();
   const allerRecherche = (doux) => { const c = document.getElementById('recherche'); if (!c || !agenda) return false; agenda.scrollIntoView({ behavior: doux && !reduit ? 'smooth' : 'auto' }); setTimeout(() => c.focus({ preventScroll: true }), doux ? 350 : 80); return true; };
   if (location.hash === '#recherche') allerRecherche(false);
