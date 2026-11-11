@@ -1377,3 +1377,15 @@ html.onglets-caches .onglets{transform:translateY(105%)}
 .nb-nav{display:inline-block;margin-inline-start:8px;padding:1px 7px;border-radius:9px;background:#ffffff14;color:#c8c8d0;font-size:12px;font-weight:700;line-height:18px;vertical-align:1px;font-variant-numeric:tabular-nums}
 .nav-groupe>div a{display:flex;align-items:center;justify-content:space-between;gap:10px}
 .nav-groupe>div a{white-space:nowrap}
+/* Actus (ordinateur/tablette) : la une sur toute la largeur, image à gauche, texte centré à droite (plus de grand
+   vide sous le texte) ; les autres cartes ont toutes la même hauteur, rangée par rangée. */
+@media(min-width:760px){
+  .actus{align-items:stretch}
+  .actu.une{grid-column:1/-1;align-self:stretch;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);grid-template-rows:1fr auto auto auto auto 1fr;column-gap:34px}
+  .actu.une .actu-img{grid-column:1;grid-row:1/-1;aspect-ratio:3/2;max-height:480px}
+  .actu.une>:not(.actu-img){grid-column:2;margin:0 34px 0 0}
+  .actu.une .genre{grid-row:2;margin-top:0}.actu.une h3{grid-row:3}.actu.une p:not(.genre){grid-row:4}
+  .actu.une b{grid-row:5;align-self:start;margin:6px 34px 0 0}
+  .actu:not(.une) .actu-img{aspect-ratio:4/3}
+}
+@media(min-width:760px) and (max-width:1099px){.actus{grid-template-columns:repeat(2,1fr)}}

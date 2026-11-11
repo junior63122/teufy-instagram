@@ -1564,6 +1564,7 @@ async function imagesActus(actus, { soirees, hist }) {
   const pub = lire(path.join(ROOT, 'media', 'veille', 'publication.json'), null);
   const GENERIQUES = /^(\d+|palais|festival|festivals|salle|club|soiree|soirees|nuit|plage|plages|theatre|arena|centre|scene|live|tour|edition|concert|novembre|decembre|janvier|fevrier)$/;
   const mots = (x) => new Set(sansAccent(String(x || '')).toLowerCase().split(/[^a-z0-9]+/).filter((m) => m.length > 3 && !MOTS_VIDES.has(m) && !GENERIQUES.test(m)));
+  const illustrees = new Set();
   for (const a of actus) {
     const f = path.join(dossier, `${h(a.source || a.cle)}.jpg`);
     a.visuel = false;
@@ -1594,8 +1595,11 @@ async function imagesActus(actus, { soirees, hist }) {
     // 5. Toujours une image : photo d'illustration de la ville de l'actu (Nice pour la Côte d'Azur ou la France),
     //    signalée « Photo d'illustration » sur la page de l'actu.
     if (!a.image_site) {
-      const vil = path.join(SITE, 'img', 'villes', `${slug(a.ville || '')}.jpg`), f = existsSync(vil) ? vil : path.join(SITE, 'img', 'villes', 'nice.jpg');
-      if (existsSync(f)) { a.image_site = path.relative(ROOT, f); a.dims = tailleJpeg(f) || undefined; a.illustration = true; }
+      // Jamais deux fois la même photo d'illustration : la ville de l'actu si elle est libre, sinon une autre ville de la Côte.
+      const P = (v) => path.join(SITE, 'img', 'villes', `${v}.jpg`);
+      const choix = [slug(a.ville || ''), 'nice', 'cannes', 'monaco', 'antibes', 'menton', 'villefranche-sur-mer', 'saint-tropez', 'toulon', 'frejus', 'hyeres', 'cagnes-sur-mer'].filter((v) => v && existsSync(P(v)));
+      const f = P(choix.find((v) => !illustrees.has(v)) || choix[0] || 'nice');
+      if (existsSync(f)) { illustrees.add(path.basename(f, '.jpg')); a.image_site = path.relative(ROOT, f); a.dims = tailleJpeg(f) || undefined; a.illustration = true; }
     }
     if (a.image_site && !/affiches/.test(a.image_site)) for (const l of [400, 800, 1200]) webp(path.join(ROOT, a.image_site), l);
     const post = hist.find((x) => x.lien && x.publication?.veille?.source && x.publication.veille.source === a.source);
