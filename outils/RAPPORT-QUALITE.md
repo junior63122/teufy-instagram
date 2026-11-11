@@ -1,3 +1,19 @@
+# Rapport qualité du site Teufy — audit du 11 novembre 2026 (7ᵉ passage, audit intégral du soir)
+
+Résumé de ce passage (détail des passages précédents de la journée plus bas, toujours valable).
+
+| | |
+|---|---|
+| Note | **97 / 100** (objectif 99 non atteint) |
+| Corrigé | « Voir les lieux fermés » affichait des lieux ouverts ; vide sous la photo des fiches soirée ; panneau « week-end » absent de la page Ce soir ; bandeaux de lieux en paysage de ville → vraie photo du lieu ; cartes seules sur leur rangée (lieux, festivals, partenaires, BDE, activités) ; robot de publication sans IA → carrousel des soirées au lieu de rien |
+| Ajouté | Fiches artistes + line-up cliquable ; affiches retrouvées sur l'Instagram des lieux et organisateurs ; « Ta nuit complète » ; « Proposer à mes potes » ; recherche en phrase |
+| Tests | Batterie complète (4 écrans) ✓ ; 0 lien cassé (3 175 pages) ; 38 tests unitaires ✓ ; sécurité 0 faille ; robustesse ✓ ; tous les boutons « voir… » vérifiés sur leur contenu réel |
+| Production (Lighthouse) | Mobile : accueil 95, Ce soir 93, fiche 99, Nice 98, Clubs & bars 93, Partenaires 100. Ordinateur : 97–100. Accessibilité, bonnes pratiques, SEO : 100 sur 12 mesures |
+| Images | Accueil : 83 affiches officielles, 8 photos du lieu, 12 logos du lieu, 50 sans image (31 sur Shotgun/Eventbrite, qui bloquent les robots) |
+| Limites | CI WebKit / Firefox non confirmée (runs annulés par les mises à jour successives) ; GitHub Models (secours IA gratuit) répond « OK » sans contenu ; aucun appareil physique |
+
+---
+
 # Rapport qualité du site Teufy — audit du 11 novembre 2026 (6ᵉ passage : vides, ajouts, navigation)
 
 Protocole : `outils/PROMPT-AUDIT.md`. Notes honnêtes : une note n'est donnée que pour ce qui a été mesuré ou testé ;
