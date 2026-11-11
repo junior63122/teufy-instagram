@@ -1377,7 +1377,8 @@ ${blocOrga({ t, tr, base, handle: compte.replace(/^@/, ''), lang })}`;
 
 function pageSoiree({ lang, t, tr, base, compte, T, chemin, s, soirees, maj, lieux }) {
   const P = pre(lang);
-  const lieu = [s.lieu, s.adresse && s.adresse !== s.lieu ? s.adresse : '', s.ville].filter(Boolean).join(', ');
+  const sa = (x) => sansAccent(String(x || '')).toLowerCase(); // pas de « Antibes, Antibes » quand l'adresse contient déjà la ville
+  const lieu = [s.lieu, s.adresse && s.adresse !== s.lieu ? s.adresse : '', s.adresse && sa(s.adresse).includes(sa(s.ville)) ? '' : s.ville].filter(Boolean).join(', ');
   // La même ville d'abord (puis le reste de la région), pour que les suggestions soient utiles.
   const villeDabord = (l) => [...l.filter((x) => x.filtreVille === s.filtreVille), ...l.filter((x) => x.filtreVille !== s.filtreVille)];
   const meme = villeDabord(soirees.filter((x) => x.jour === s.jour && x.id !== s.id)).slice(0, 6);

@@ -230,7 +230,7 @@ export function fusionner(liste) {
     const [garde, autre] = rang(e) > rang(prev) ? [{ ...e }, prev] : [prev, e];
     for (const k of Object.keys(autre)) if ((garde[k] == null || garde[k] === '' || (Array.isArray(garde[k]) && !garde[k].length)) && autre[k] != null) garde[k] = autre[k];
     garde.instagram = [...new Set([...(garde.instagram || []), ...(autre.instagram || [])])].slice(0, 3);
-    garde.tags = [...new Set([...(garde.tags || []), ...(autre.tags || [])])];
+    garde.tags = garde.manuel && garde.tags?.length ? garde.tags : [...new Set([...(garde.tags || []), ...(autre.tags || [])])]; // styles saisis par l'équipe : pas de mélange
     garde.buzz = Math.max(garde.buzz ?? 0, autre.buzz ?? 0) || garde.buzz;
     garde.offres = offresDe([...(garde.offres || []), ...offresDe([garde]), ...(autre.offres || []), ...offresDe([autre])]);
     if (garde.source_site !== autre.source_site) garde.sources_sites = [...new Set([...(garde.sources_sites || [garde.source_site]), autre.source_site])];
