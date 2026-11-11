@@ -1339,3 +1339,4 @@ html.onglets-caches .onglets{transform:translateY(105%)}
 .form-avantage select{font:inherit;width:100%;min-height:48px;padding:10px 14px;border-radius:14px;background:var(--nuit2);color:var(--creme);border:1px solid #ffffff2a}
 .tarifs-portail{margin:18px 0 0;font-weight:700}.tarifs-portail a{color:var(--corail)}
 .merci-paiement{margin:16px 0 0;padding:14px 18px;border-radius:16px;background:#3ce08a1f;border:1px solid #3ce08a66;color:#c9f7dc;font-weight:700}
+.vitrine-item.payant{border-color:var(--corail);box-shadow:0 0 0 1px var(--corail) inset}

@@ -301,7 +301,9 @@ async function identifierPartenaires(log, { ig = null, api = {} } = {}) {
   }
   // Comptes Instagram suivis par Teufy (contenus/partenaires-comptes.json) : profil via l'API (nom, bio, site, photo),
   // puis fiche (type, ville, adresse, description) trouvée sur le web. Quelques dizaines par passage, gardés en cache.
-  const C = lire(path.join(ROOT, 'contenus', 'partenaires-comptes.json'), { comptes: [] }).comptes || [];
+  // Partenaires payants (Stripe, src/paiements.mjs) : ajoutés aux comptes suivis → profil et logo récupérés automatiquement.
+  const C0 = lire(path.join(ROOT, 'contenus', 'partenaires-comptes.json'), { comptes: [] }).comptes || [];
+  const C = [...C0, ...PAYANTS().filter((p) => p.instagram && !C0.some((c) => c.instagram === p.instagram)).map((p) => ({ instagram: p.instagram, nom: p.etablissement }))];
   let profils = 0, fichesIg = 0;
   if (ig && api.businessDiscovery) {
     await mkdir(path.join(SITE, 'partenaires', 'ig'), { recursive: true });
@@ -356,7 +358,9 @@ async function identifierPartenaires(log, { ig = null, api = {} } = {}) {
     const l = logos.find((x) => (x.instagram && x.instagram === c.instagram) || (x.nom && norm(x.nom) === norm(c.nom)));
     if (l) { for (const [a, b] of Object.entries(c)) if (!l[a] && b) l[a] = b; c.fusionne = true; }
   }
-  return [...logos, ...comptes.filter((c) => !c.fusionne)].filter((x) => x.categorie !== 'personne');
+  // Partenaires payants en tête de la vitrine (mise en avant achetée), marqués comme tels.
+  const payant = (x) => PAYANTS().find((p) => (p.instagram && p.instagram === x.instagram) || norm(p.etablissement) === norm(x.nom || ''));
+  return [...logos, ...comptes.filter((c) => !c.fusionne)].filter((x) => x.categorie !== 'personne').map((x) => (payant(x) ? { ...x, payant: payant(x).formule } : x)).sort((a, b) => !!b.payant - !!a.payant);
 }
 
 // --- Clubs et bars de la Côte d'Azur et du Var : annuaire (recherche web, partenaires, lieux de l'agenda) et tendance
@@ -366,6 +370,8 @@ const TYPES_LIEUX = ['club', 'bar', 'rooftop', 'beach-club', 'bar-a-cocktails', 
 const ZONES_LIEUX = ['Nice, Villefranche-sur-Mer, Saint-Laurent-du-Var, Cagnes-sur-Mer', 'Cannes, Le Cannet, Mandelieu, Antibes, Juan-les-Pins, Golfe-Juan', 'Monaco, Monte-Carlo, Beausoleil, Menton', 'Toulon, La Seyne-sur-Mer, Hyères, Six-Fours, Sanary, Bandol', 'Fréjus, Saint-Raphaël, Sainte-Maxime, Saint-Tropez, Ramatuelle'];
 // Après la soirée : où manger tard (ouvert après 2 h) et les afters (ouverts à partir de 5 h ou soirées after).
 // Recherche web une fois par semaine ; on ne garde QUE les lieux avec des horaires publiés et une source vérifiable.
+// Partenaires payants actifs (contenus/partenaires-payants.json, tenu à jour depuis Stripe par src/paiements.mjs).
+const PAYANTS = () => (lire(path.join(ROOT, 'contenus', 'partenaires-payants.json'), { partenaires: [] }).partenaires || []).filter((p) => p.actif);
 const NUIT_TARDIVE = path.join(ROOT, 'contenus', 'nuit-tardive.json');
 let TARDIFS = [];
 async function nuitTardive({ now, log }) {
@@ -407,6 +413,8 @@ async function lieuxDeNuit({ soirees, partenaires, ig, api, log, now }) {
     const l = trouver(p.nom, p.ville);
     if (l) Object.assign(l, { partenaire: true, instagram: l.instagram || p.instagram, photo: p.fichier }); else tous.push({ nom: p.nom, type: p.categorie, ville: p.ville || '', adresse: p.adresse || '', instagram: p.instagram || '', site: p.site || '', description: p.description || '', partenaire: true, photo: p.fichier });
   }
+  for (const l of tous) { const p = PAYANTS().find((x) => (x.instagram && x.instagram === l.instagram) || (norm(x.etablissement) && norm(x.etablissement) === norm(l.nom))); if (p) Object.assign(l, { partenaire: true, formule: p.formule }); }
+  for (const p of PAYANTS().filter((x) => x.ville && !tous.some((l) => (x.instagram && x.instagram === l.instagram) || norm(x.etablissement) === norm(l.nom)))) tous.push({ nom: p.etablissement, type: 'bar', ville: p.ville, adresse: '', instagram: p.instagram, site: '', description: '', partenaire: true, formule: p.formule });
   for (const l of tous) { const ls = soirees.filter((s) => norm(s.lieu) && (norm(s.lieu) === norm(l.nom) || norm(s.lieu).startsWith(norm(l.nom)) || norm(l.nom).startsWith(norm(s.lieu))) && norm(l.nom).length >= 3); l.soirees = ls.map((s) => s.id); l.prochaines = ls.slice(0, 3).map((s) => ({ id: s.id, nom: s.nom })); l.soirs = ls.slice(0, 12).map((s) => [s.jour, heure(s.debut, TXT.fr).replace(/^(\d+)h(\d*)$/, (m, a, b) => `${a.padStart(2, '0')}:${b || '00'}`), s.id, s.nom]); }
   // 3. Engagement Instagram récent (40 comptes par passage, gardé 3 jours).
   if (ig && api.businessDiscovery) {
@@ -1590,11 +1598,11 @@ ${autres.length ? `<section class="bloc-large reveal"><h2>${esc(t.autresActus)}<
 // Vitrine : les partenaires déjà identifiés (photo, nom, type, ville), triés pour montrer d'abord les lieux.
 function vitrine({ t, tr, base, partenaires }) {
   const ordre = ['club', 'bar', 'rooftop', 'beach-club', 'restaurant', 'activite', 'festival', 'organisateur', 'artiste', 'hotel', 'media', 'marque', 'service', 'autre', undefined];
-  const l = (partenaires || []).filter((p) => p.nom && p.fichier).sort((a, b) => ordre.indexOf(a.categorie) - ordre.indexOf(b.categorie));
+  const l = (partenaires || []).filter((p) => p.nom && p.fichier).sort((a, b) => (!!b.payant - !!a.payant) || (ordre.indexOf(a.categorie) - ordre.indexOf(b.categorie))); // partenaires payants en tête
   if (!l.length) return '';
   return `<section class="bloc-large vitrine reveal"><h2>${t.vitrineH2}</h2><p class="avert">${esc(t.vitrineN.replace('{n}', Math.max(l.length, +((partenaires || []).length))))}</p>
   ${(() => { // 20 visibles (rangées pleines en 2, 4 ou 5 colonnes), le reste dans un dépliant : 167 lignes faisaient une page interminable sur mobile
-    const item = (p, i) => `<${p.instagram ? `a href="https://www.instagram.com/${esc(p.instagram)}/" target="_blank" rel="noopener"` : 'div'} class="vitrine-item" style="--i:${i % 12}"><img src="${base}${esc(p.fichier)}" alt="" width="64" height="64" loading="lazy"><span><strong>${esc(p.nom)}</strong><small>${esc([p.categorie ? tr(SORTIES.categories[p.categorie] || '') : '', p.ville].filter(Boolean).join(' · '))}</small></span></${p.instagram ? 'a' : 'div'}>`;
+    const item = (p, i) => `<${p.instagram ? `a href="https://www.instagram.com/${esc(p.instagram)}/" target="_blank" rel="noopener"` : 'div'} class="vitrine-item${p.payant ? ' payant' : ''}" style="--i:${i % 12}"><img src="${base}${esc(p.fichier)}" alt="" width="64" height="64" loading="lazy"><span><strong>${esc(p.nom)}</strong><small>${esc([p.categorie ? tr(SORTIES.categories[p.categorie] || '') : '', p.ville].filter(Boolean).join(' · '))}</small></span></${p.instagram ? 'a' : 'div'}>`;
     const N = 20;
     return `<div class="vitrine-grille">${l.slice(0, N).map(item).join('')}</div>${l.length > N ? `<details class="logos-plus"><summary>${esc(tr('Voir tous les partenaires'))} <span>+${l.length - N}</span></summary><div class="vitrine-grille">${l.slice(N).map(item).join('')}</div></details>` : ''}`; })()}</section>`;
 }
