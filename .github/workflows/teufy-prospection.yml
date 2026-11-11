@@ -18,12 +18,15 @@ concurrency:
 jobs:
   prospection:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 60
     env:
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY || secrets.GEMINI_KEY || secrets.GOOGLE_API_KEY }}
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY || secrets.CLAUDE_API_KEY }}
       BREVO_API_KEY: ${{ secrets.BREVO_API_KEY || secrets.BREVO_KEY || secrets.SENDINBLUE_API_KEY }}
       PROSPECTION_CLE: ${{ secrets.PROSPECTION_CLE }}
+      IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN || secrets.INSTAGRAM_ACCESS_TOKEN }}
+      IG_USER_ID: ${{ secrets.IG_USER_ID || secrets.INSTAGRAM_USER_ID }}
+      IG_API_HOST: ${{ vars.IG_API_HOST || 'graph.facebook.com' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

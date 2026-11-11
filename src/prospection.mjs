@@ -85,13 +85,41 @@ export function emailsDe(html, site) {
   return l.sort((a, b) => (b.endsWith(dom) - a.endsWith(dom)) || (/^(contact|info|hello|bonjour|booking|reservation|events?)@/.test(b) - /^(contact|info|hello|bonjour|booking|reservation|events?)@/.test(a)));
 }
 async function contactSite(p) {
-  if (!p.site) return null;
+  if (!p.site || /facebook\.com|instagram\.com|linktr\.ee/.test(p.site)) return null;
   const base = p.site.replace(/\/$/, '');
-  for (const u of [base, `${base}/contact`, `${base}/contact/`, `${base}/mentions-legales`, `${base}/nous-contacter`]) {
-    const e = emailsDe(await page(u), base)[0];
+  const accueil = await page(base);
+  let e = emailsDe(accueil, base)[0];
+  if (e) return { email: e, source: base };
+  // Pages où l'adresse du gérant figure presque toujours : contact, mentions légales (obligatoires), CGV, CGU.
+  const liens = [...new Set([...accueil.matchAll(/href="([^"#]+)"/gi)].map((m) => { try { return new URL(m[1], base + '/').href; } catch { return ''; } })
+    .filter((u) => u.startsWith(new URL(base).origin) && /contact|mention|legal|cgv|cgu|condition|impressum|a-propos|about/i.test(u)))].slice(0, 8);
+  for (const u of [...liens, `${base}/contact`, `${base}/mentions-legales`, `${base}/cgv`, `${base}/cgu`, `${base}/conditions-generales-de-vente`, `${base}/nous-contacter`]) {
+    e = emailsDe(await page(u), base)[0];
     if (e) return { email: e, source: u };
   }
   return null;
+}
+// Instagram : e-mail publié dans la bio et lien du site (API officielle « business discovery », comptes pros).
+async function contactInstagram(p) {
+  const T = process.env.IG_ACCESS_TOKEN, U = process.env.IG_USER_ID, H = process.env.IG_API_HOST || 'graph.facebook.com';
+  if (!T || !U || !p.instagram) return null;
+  try {
+    const r = await fetch(`https://${H}/v21.0/${U}?fields=business_discovery.username(${encodeURIComponent(p.instagram)}){biography,website,name}&access_token=${T}`, { signal: AbortSignal.timeout(15000) });
+    const b = (await r.json()).business_discovery; if (!b) return null;
+    if (b.website && !p.site) p.site = b.website;
+    const e = emailsDe(b.biography || '', b.website || '')[0];
+    return e ? { email: e, source: `https://www.instagram.com/${p.instagram}/` } : null;
+  } catch { return null; }
+}
+// Recherche web ciblée (adresse pro publiée), vérifiée en relisant la page source.
+async function contactWeb(p) {
+  const S = { type: 'object', additionalProperties: false, required: ['email', 'source'], properties: { email: { type: 'string' }, source: { type: 'string' } } };
+  const web = await LLM.rechercher({ config, gratuit: true, system: 'Tu cherches une adresse e-mail PROFESSIONNELLE publiée (contact, réservation, gérant), avec la page où elle est écrite. Jamais d\'adresse inventée ou devinée.', prompt: `Adresse e-mail de contact professionnelle de « ${p.nom} »${p.ville ? ` à ${p.ville}` : ''}${p.instagram ? ` (Instagram @${p.instagram})` : ''} : sur son site, sa page Facebook, ses mentions légales ou un annuaire professionnel. Donne l'adresse et l'URL exacte de la page où elle figure.` }).catch(() => null);
+  if (!web) return null;
+  const j = await LLM.json({ config, gratuit: true, nom: 'contact', schema: S, system: 'Tu extrais sans rien inventer.', prompt: `${web}\n\nDonne l'adresse e-mail trouvée et l'URL de la page source (chaînes vides si rien de sûr).` }).catch(() => null);
+  if (!j?.email || !/^https?:\/\//.test(j.source || '')) return null;
+  const html = await page(j.source); // la page doit vraiment contenir l'adresse (Facebook bloque souvent les robots : alors on ne garde pas)
+  return html.toLowerCase().includes(j.email.toLowerCase()) ? { email: j.email.toLowerCase(), source: j.source } : null;
 }
 // Nouveaux lieux par recherche web (catégorie × zone), contacts vérifiés sur la page source.
 async function decouvrir(etat, max) {
@@ -156,6 +184,8 @@ Pour répondre, deux options :
 
 Les formules et les prix : https://teufyparty.com/partenaires/#tarifs
 
+Vous connaissez d'autres établissements ou organisateurs qui pourraient être intéressés (un ami gérant, un collectif, une activité du coin) ? Transférez-leur ce mail ou donnez-nous leur contact en réponse : on leur réserve le même accueil.
+
 ${SIGNATURE}`;
   return { sujet: p.ancien ? `${p.nom} : Teufy revient, on vous garde une place ?` : `${p.nom} x Teufy : un avantage pour nos lecteurs${ou} ?`, texte };
 }
@@ -183,11 +213,15 @@ export async function passer() {
   for (const p of prospectsConnus()) if (!etat.prospects[p.id]) etat.prospects[p.id] = { ...p, famille: FAMILLE(p.categorie), statut: 'a_contacter', ajout: jour };
   const nouveaux = DRY ? 0 : await decouvrir(etat, P.recherches_par_jour);
   // 2. Contacts publiés (site officiel), 30 lieux par passage.
-  let trouves = 0;
-  for (const p of Object.values(etat.prospects).filter((x) => x.site && !x.email && !x.email_cherche).slice(0, DRY ? 5 : 30)) {
-    const c = await contactSite(p); p.email_cherche = jour;
+  let trouves = 0, web = 0;
+  const aChercher = Object.values(etat.prospects).filter((x) => !x.email && x.statut === 'a_contacter' && (!x.email_cherche || (now - Date.parse(x.email_cherche)) > 14 * 864e5)).slice(0, DRY ? 5 : P.contacts_par_jour ?? 200);
+  for (let i = 0; i < aChercher.length; i += 8) await Promise.all(aChercher.slice(i, i + 8).map(async (p) => {
+    let c = await contactInstagram(p);
+    if (!c) c = await contactSite(p);
+    if (!c && web < (P.recherches_contact_par_jour ?? 25) && !DRY) { web++; c = await contactWeb(p); }
+    p.email_cherche = jour;
     if (c) { p.email = c.email; p.email_source = c.source; trouves++; }
-  }
+  }));
   // 3. Adresses bloquées (désinscriptions, rebonds) : jamais recontactées.
   const bloques = new Set();
   if (BREVO && !DRY) { try { const b = await brevo('smtp/blockedContacts?limit=100', null, 'GET'); for (const c of b.contacts || []) bloques.add(String(c.email).toLowerCase()); } catch (e) { log(`Prospection : liste de blocage illisible (${e.message.slice(0, 80)})`); } }
@@ -196,7 +230,11 @@ export async function passer() {
   const jours = (d) => (now - Date.parse(d)) / 864e5;
   const dues = Object.values(etat.prospects).filter((p) => p.email && ['contacte', 'relance1'].includes(p.statut) && jours(p.dernier) >= (p.statut === 'contacte' ? P.relances_jours[0] : P.relances_jours[1] - P.relances_jours[0]));
   const neufs = Object.values(etat.prospects).filter((p) => p.email && p.statut === 'a_contacter').sort((a, b) => (b.ancien - a.ancien) || ((b.soirees || 0) - (a.soirees || 0)));
-  const lot = [...dues, ...neufs].slice(0, P.nouveaux_par_jour);
+  // Volume : montée en charge sur quelques jours (un domaine neuf qui envoie 250 e-mails d'un coup finit en spam), puis plafond.
+  const premier = (etat.journal || []).find((j) => /e-mails envoyés/.test(j.resume) && !/ 0 e-mails envoyés/.test(j.resume))?.jour || jour;
+  const jourN = Math.floor((now - Date.parse(premier)) / 864e5);
+  const quota = Math.min(P.nouveaux_par_jour, [60, 100, 150, 200][jourN] ?? P.nouveaux_par_jour);
+  const lot = [...dues, ...neufs].slice(0, quota);
   let envoyes = 0;
   const peutEnvoyer = P.actif && BREVO && !DRY && ouvre();
   for (const p of lot) {

@@ -601,12 +601,15 @@
     "actif": true,
     "expediteur": "contact@teufyparty.com",
     "_expediteur": "Adresse d'envoi validée dans Brevo (idéalement sur le domaine teufyparty.com, ex. contact@teufyparty.com). Vide = config.site.email. Les réponses arrivent toujours sur config.site.email.",
-    "nouveaux_par_jour": 40,
+    "nouveaux_par_jour": 250,
     "relances_jours": [
       7,
       14
     ],
     "recherches_par_jour": 4,
-    "_recherches": "Recherches web de nouveaux lieux par jour (Gemini ≈ 0,04 € l'une ; Claude en secours ≈ 0,60 €). Le plafond IA du jour (llm.budget_jour_eur) s'applique toujours."
+    "_recherches": "Recherches web de nouveaux lieux par jour (Gemini ≈ 0,04 € l'une ; Claude en secours ≈ 0,60 €). Le plafond IA du jour (llm.budget_jour_eur) s'applique toujours.",
+    "contacts_par_jour": 200,
+    "recherches_contact_par_jour": 25,
+    "_volume": "Montée en charge automatique : 60, 100, 150, 200 e-mails les 4 premiers jours d'envoi, puis nouveaux_par_jour (250 ; Brevo gratuit = 300/jour, le reste sert aux relances, rapports et paiements)."
   }
 }
