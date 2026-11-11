@@ -1,0 +1,14 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:legendary-rock-voices-2026-11-17@teufy
+DTSTAMP:20261111T085236Z
+DTSTART:20261118T000000Z
+DTEND:20261118T050000Z
+SUMMARY:Legendary Rock Voices
+LOCATION:Palais Nikaïa\, Nice
+DESCRIPTION:Un spectacle consacré aux grandes voix du rock au Palais Nikaïa.\nVia Teufy @teufy_official
+END:VEVENT
+END:VCALENDAR
