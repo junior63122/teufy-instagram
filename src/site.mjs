@@ -161,7 +161,7 @@ async function verifier(e, fichier, cache) {
 
 // Position des lieux (OpenStreetMap / Nominatim, 1 requête par seconde, résultats gardés).
 const cleLieu = (s) => `${s.lieu}|${s.ville}`.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, ' ').trim();
-async function geocoder(soirees, log) {
+export async function geocoder(soirees, log) {
   const cache = lire(GEO, {});
   let requetes = 0, trouves = 0, coupe = false;
   for (const s of soirees) {
@@ -232,7 +232,7 @@ async function geocoder(soirees, log) {
 const PROCHES = path.join(ROOT, 'contenus', 'lieux-proches.json');
 const UA = 'TeufySite/1.0 (+https://junior63122.github.io/teufy-instagram/)';
 const SERVEURS_OVERPASS = ['https://overpass-api.de/api/interpreter', 'https://overpass.kumi.systems/api/interpreter', 'https://overpass.private.coffee/api/interpreter'];
-async function aProximite(soirees, log) {
+export async function aProximite(soirees, log) {
   const cache = lire(PROCHES, {});
   const lieux = new Map();
   for (const s of soirees) if (!s.approx && s.lat) lieux.set(`${s.lat},${s.lng}`, s);

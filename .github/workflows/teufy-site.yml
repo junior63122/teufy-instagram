@@ -1,7 +1,7 @@
-name: Teufy - Site seulement
+name: Teufy - Carte et transports
 
-# Régénère le site internet seul (carte, transports, parkings, affiches, traductions), sans relever les statistiques
-# Instagram ni publier, et sans relancer la recherche web des soirées (déjà faite) : utile après une correction.
+# Place les lieux des soirées sur la carte (Base Adresse Nationale, OpenStreetMap) et cherche transports et parkings
+# autour, sans construire tout le site (rapide, gratuit, sans IA). Le site les reprend à sa prochaine construction.
 on:
   workflow_dispatch: {}
 
@@ -15,7 +15,7 @@ concurrency:
 jobs:
   site:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 20
     env:
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY || secrets.GEMINI_KEY || secrets.GOOGLE_API_KEY }}
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY || secrets.CLAUDE_API_KEY }}
@@ -27,17 +27,14 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Régénérer le site
-        run: |
-          npm install --no-audit --no-fund >/dev/null 2>&1 || true
-          sudo apt-get install -y --no-install-recommends ffmpeg >/dev/null 2>&1 || true
-          SANS_RECHERCHE=1 SITE_MINUTES=12 node src/run.mjs site --force # sans relancer la recherche des soirées (faite par le passage Instagram)
+      - name: Placer les lieux sur la carte + transports et parkings autour
+        timeout-minutes: 15
+        run: node outils/geo-proches.mjs
       - name: Enregistrer
         run: |
           git config user.name "teufy-bot"
           git config user.email "teufy-bot@users.noreply.github.com"
-          git checkout -- contenus/budget-ia.json 2>/dev/null || true
-          git add -A -- $(ls -d contenus index.html 404.html site a-propos soirees-* soiree festivals actus partenaires avantages ambassadeurs bde clubs-bars ce-soir mentions-legales cgu cgv confidentialite dates restaurants activites france occitanie en it es zh ar sitemap.xml robots.txt llms.txt sw.js 2>/dev/null) || true
+          git add contenus/lieux-geo.json contenus/lieux-proches.json
           git diff --cached --quiet && exit 0
-          git commit -m "Teufy : site régénéré (passage site seulement)"
+          git commit -m "Teufy : lieux placés sur la carte, transports et parkings [skip ci]"
           for i in 1 2 3; do git pull --rebase -X theirs --autostash && git push && break; git rebase --abort 2>/dev/null; sleep 5; done
