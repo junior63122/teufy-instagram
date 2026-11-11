@@ -1358,7 +1358,7 @@ html.onglets-caches .onglets{transform:translateY(105%)}
 .orga-txt{display:flex;flex-direction:column;min-width:0;line-height:1.2}
 .orga-txt small{font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;opacity:.65;font-weight:700}
 .orga-txt b{font-size:16.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.orga-txt em{font-style:normal;font-size:13px;opacity:.7;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.orga-txt em{font-style:normal;font-size:13px;color:#c8c8d0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .orga-cta{margin-inline-start:auto;flex:none;font-weight:800;font-size:13.5px;padding:8px 12px;border-radius:999px;background:var(--creme);color:var(--nuit)}
 @media(max-width:380px){.orga-cta{font-size:0;padding:8px 10px}.orga-cta::after{content:"→";font-size:15px}}
 /* Affiche horizontale (paysage) : cadre à sa taille, pas un carré flou qui repousse le titre hors de l'écran. */

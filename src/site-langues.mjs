@@ -367,7 +367,7 @@ export const TXT = { fr, en, it, es, zh, ar };
 // Textes ajoutés avec la recherche, les pages soirée et les nouvelles rubriques.
 const PLUS = {
   fr: {
-    rechercher: 'Rechercher', placeholder: 'Soirée, artiste, lieu, style (shatta, techno…)', resultats: '{n} résultat(s) pour « {q} »', aucunRes: 'Aucune soirée pour « {q} » pour l\'instant.', effacer: 'Effacer', populaires: 'Populaire :',
+    rechercher: 'Rechercher', placeholder: 'Ex. : techno ce soir à Cannes, artiste, lieu…', resultats: '{n} résultat(s) pour « {q} »', aucunRes: 'Aucune soirée pour « {q} » pour l\'instant.', effacer: 'Effacer', populaires: 'Populaire :',
     favoris: '♥ Favoris', ajouterFav: 'Ajouter aux favoris', partager: 'Partager', lienCopie: 'Lien copié !', calendrier: 'Ajouter au calendrier', itineraire: 'Itinéraire', comparer: 'Comparer les prix', voir: 'Voir la soirée', memeSoir: 'Le même soir', memeStyle: 'Dans le même style', toutes: "Toutes les soirées", ou: 'Où', quandL: 'Quand', prixL: 'Prix', meilleurPrix: 'le moins cher',
     festivals: 'Festivals', actus: 'Actus', partenaires: 'Partenaires', ambassadeurs: 'Ambassadeurs', bde: 'BDE · Assos', legal: 'Mentions légales', stylesL: 'Styles', villesL: 'Villes', teufyL: 'Teufy', haut: 'Haut de page', contenu: 'Aller au contenu', majLe: 'Agenda mis à jour le {d}',
     styleTitre: (s) => `Soirées ${s} sur la Côte d'Azur : Nice, Cannes, Monaco · Teufy`, styleH1: (s) => `Soirées <em>${s}</em> sur la Côte d'Azur`, styleDesc: (s, n) => `Toutes les soirées ${s} de Nice, Cannes, Monaco et Antibes : ${n} soirées à venir, avec horaires, prix et billetterie. Mis à jour chaque jour.`, styleEtiquette: 'Style',
@@ -378,7 +378,7 @@ const PLUS = {
     e404: 'Page introuvable', e404p: "Cette page n'existe pas ou la soirée est passée. Toutes les soirées à venir sont dans l'agenda.", e404b: "Voir l'agenda",
   },
   en: {
-    rechercher: 'Search', placeholder: 'Party, artist, venue, style (shatta, techno…)', resultats: '{n} result(s) for “{q}”', aucunRes: 'No party for “{q}” yet.', effacer: 'Clear', populaires: 'Popular:',
+    rechercher: 'Search', placeholder: 'e.g. techno tonight Cannes, artist, venue…', resultats: '{n} result(s) for “{q}”', aucunRes: 'No party for “{q}” yet.', effacer: 'Clear', populaires: 'Popular:',
     favoris: '♥ Saved', ajouterFav: 'Save', partager: 'Share', lienCopie: 'Link copied!', calendrier: 'Add to calendar', itineraire: 'Directions', comparer: 'Compare prices', voir: 'See the party', memeSoir: 'Same night', memeStyle: 'Same style', toutes: 'All parties', ou: 'Where', quandL: 'When', prixL: 'Price', meilleurPrix: 'cheapest',
     festivals: 'Festivals', actus: 'News', partenaires: 'Partners', ambassadeurs: 'Ambassadors', bde: 'Student unions', legal: 'Legal notice', stylesL: 'Styles', villesL: 'Cities', teufyL: 'Teufy', haut: 'Back to top', contenu: 'Skip to content', majLe: 'Updated on {d}',
     styleTitre: (s) => `${s} parties on the French Riviera: Nice, Cannes, Monaco · Teufy`, styleH1: (s) => `<em>${s}</em> parties on the French Riviera`, styleDesc: (s, n) => `Every ${s} party in Nice, Cannes, Monaco and Antibes: ${n} upcoming parties with times, prices and tickets. Updated daily.`, styleEtiquette: 'Style',

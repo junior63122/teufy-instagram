@@ -39,7 +39,7 @@ jobs:
 
   navigateurs:
     runs-on: ubuntu-22.04 # dépendances de WebKit (Safari) prises en charge par Playwright
-    timeout-minutes: 50
+    timeout-minutes: 75
     strategy:
       fail-fast: false
       matrix:
@@ -51,10 +51,18 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+      - name: Garder les navigateurs de test en cache (installation plus rapide et plus fiable)
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ matrix.navigateur }}-${{ hashFiles('package-lock.json') }}
       - name: Installer Playwright et le navigateur
+        timeout-minutes: 25
         run: |
           npm install --no-audit --no-fund
-          npx playwright install --with-deps ${{ matrix.navigateur }}
+          # Les serveurs de paquets bloquent parfois : 3 essais de 7 minutes au plus, plutôt qu'une attente sans fin.
+          for i in 1 2 3; do timeout 420 npx playwright install --with-deps ${{ matrix.navigateur }} && exit 0; echo "Essai $i échoué, nouvel essai…"; sleep 15; done
+          exit 1
       - name: Servir le site comme GitHub Pages
         run: |
           node outils/serveur-local.cjs &

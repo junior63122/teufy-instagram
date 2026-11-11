@@ -309,6 +309,19 @@ async function controlerPage(p, nom, u) {
     await p.locator('.haut').click(); await p.waitForTimeout(1200);
     ok(await p.evaluate(() => scrollY) < 50, `${nom} : « retour en haut » ne remonte pas`);
     } catch (e) { echecs.push(`${nom} : étape interrompue (${e.message.split('\n')[0]} @l.${(String(e.stack).match(/tester-site\.cjs:(\d+)/) || [])[1] || '?'})`); }
+    // --- Recherche en phrase, pastilles du menu, organisateur mis en avant (11/11/2026) ---
+    try {
+    await p.goto(B + '?q=' + encodeURIComponent('soirée techno ce week-end à Nice'), { waitUntil: 'load' }); await p.waitForTimeout(600);
+    const cp = await p.evaluate(() => ({ txt: document.querySelector('.compris:not([hidden])')?.innerText || '', n: document.querySelectorAll('.liste .carte:not([hidden])').length, mauvais: [...document.querySelectorAll('.liste .carte:not([hidden])')].filter((c) => c.dataset.ville !== 'nice' || !c.dataset.styles.split(' ').includes('techno')).length }));
+    ok(/Nice/.test(cp.txt) && /Techno/i.test(cp.txt), `${nom} : la phrase « soirée techno ce week-end à Nice » n'est pas comprise (${cp.txt.slice(0, 80)})`);
+    ok(cp.n > 0 && (cp.mauvais === 0 || /proches|closest/i.test(cp.txt)), `${nom} : recherche en phrase : ${cp.mauvais} soirée(s) hors critères sur ${cp.n}`);
+    await p.goto(B + '?q=Honey', { waitUntil: 'load' }); await p.waitForTimeout(500);
+    ok(await p.locator('.compris:not([hidden])').count() === 0, `${nom} : un nom de soirée est pris pour des filtres`);
+    const N = await p.evaluate(() => JSON.parse(document.querySelector('.onglets')?.dataset.notif || '{}'));
+    ok(N.soirs && Array.isArray(N.actus), `${nom} : données des pastilles absentes`);
+    const orga = await p.evaluate(async () => { const a = document.querySelector('.liste .carte h3 a'); return a ? a.href : ''; });
+    if (orga) { await p.goto(B + 'soiree/la-tocardise-2026-11-14/', { waitUntil: 'load' }).catch(() => {}); if (await p.locator('h1').count()) ok(await p.locator('.orga-carte[href*="instagram.com/_lestocards_"]').isVisible().catch(() => false) || !/Tocardise/.test(await p.locator('h1').innerText()), `${nom} : le compte Instagram de l'organisateur n'est pas mis en avant`); }
+    } catch (e) { echecs.push(`${nom} : étape interrompue (${e.message.split('\n')[0]} @l.${(String(e.stack).match(/tester-site\.cjs:(\d+)/) || [])[1] || '?'})`); }
     // --- Vidéo de Monaco : elle tourne en boucle, pas seulement 2 secondes ---
     try {
     await p.goto(B + 'soirees-monaco/', { waitUntil: 'load' }); await c.clock.runFor(0).catch(() => {});
