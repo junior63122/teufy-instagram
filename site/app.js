@@ -113,6 +113,8 @@
     const m = document.querySelector('.form-contact textarea[name="message"]');
     if (m && !m.value.includes(b.dataset.formule)) m.value = `Formule choisie : ${b.dataset.formule}\n${m.value}`.trim() + '\n';
   }));
+  // Retour de Stripe après un paiement réussi : message de remerciement visible.
+  if (new URLSearchParams(location.search).get('paiement') === 'merci') document.querySelectorAll('.merci-paiement').forEach((m) => { m.hidden = false; });
   // Formulaire des pages pros : prépare le message puis ouvre Instagram (message copié) ou l'e-mail (pré-rempli).
   document.querySelectorAll('.form-contact').forEach((f) => {
     const retour = f.querySelector('.retour-form');

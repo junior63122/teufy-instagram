@@ -1850,14 +1850,14 @@ const blocTarifs = ({ tr, T, base, lang, t }) => {
   const mediane = portees.length >= 10 ? Math.round(portees[Math.floor(portees.length / 2)] / 100) * 100 : null;
   const nf = (n, o) => new Intl.NumberFormat(loc, o).format(n);
   const preuves = [abonnes && [nf(abonnes, { notation: 'compact', maximumFractionDigits: 1 }), tr('abonnés sur Instagram')], mediane && [`~${nf(mediane)}`, tr('personnes touchées par post')], ['6', tr('langues sur le site')]].filter(Boolean);
-  const bouton = (f, texte, cls = 'bouton') => (/^https:\/\//.test(f.paiement || '') ? `<a class="${cls}" href="${esc(f.paiement)}" target="_blank" rel="noopener">${esc(tr('Payer en ligne'))} →</a>` : `<a class="${cls}" href="#contact" data-formule="${esc(`${tr(f.nom)} (${fmt(f.prix)} ${tr('HT')}${per[f.periode] ? ` ${per[f.periode]}` : ''})`)}">${esc(texte)} →</a>`);
+  const bouton = (f, texte, cls = 'bouton') => (/^https:\/\//.test(f.paiement || '') ? `<a class="${cls}" href="${esc(f.paiement)}" target="_blank" rel="noopener">${esc(texte)} →</a>` : `<a class="${cls}" href="#contact" data-formule="${esc(`${tr(f.nom)} (${fmt(f.prix)} ${tr('HT')}${per[f.periode] ? ` ${per[f.periode]}` : ''})`)}">${esc(texte)} →</a>`);
   const abo = (f) => f && `<article class="abo${f.vedette ? ' vedette' : ''}">
     ${f.badge ? `<span class="abo-badge">${esc(tr(f.badge))}</span>` : ''}
     <h3>${esc(tr(f.nom))}</h3><p class="abo-accroche">${esc(tr(f.accroche || ''))}</p>
     <p class="abo-prix"><b>${esc(fmt(f.prix))}</b> <span>${esc(tr('HT'))} ${esc(per.mois)}</span></p>
     <p class="abo-jour">${esc(tr('soit'))} ${esc(fmt(f.prix / 30))} ${esc(tr('HT par jour'))}${tva ? ` · ${esc(fmt(f.prix * (1 + tva / 100)))} ${esc(tr('TTC'))} ${esc(per.mois)}` : ''}</p>
     <ul>${f.points.map((x) => `<li>${esc(tr(x))}</li>`).join('')}</ul>
-    ${bouton(f, `${tr('Choisir')} ${tr(f.nom)}`, `bouton${f.vedette ? '' : ' contour'} abo-choisir`)}
+    ${bouton(f, `${tr(/^https:/.test(f.paiement || '') ? "S'abonner :" : 'Choisir')} ${tr(f.nom)}`, `bouton${f.vedette ? '' : ' contour'} abo-choisir`)}
   </article>`;
   const unite = (f) => f && `<article class="unite"><div><h4>${esc(tr(f.nom))}</h4><p>${esc(tr(f.accroche || ''))}</p></div><p class="unite-prix"><b>${esc(fmt(f.prix))}</b> <span>${esc(tr('HT'))}${tva ? ` · ${esc(fmt(f.prix * (1 + tva / 100)))} ${esc(tr('TTC'))}` : ''}</span></p>${bouton(f, tr('Commander'), 'bouton petit contour')}</article>`;
   const abos = C.formules.filter((f) => f.periode === 'mois'), unites = C.formules.filter((f) => f.prix && f.periode !== 'mois');
@@ -1868,6 +1868,8 @@ const blocTarifs = ({ tr, T, base, lang, t }) => {
   ${unites.length ? `<h3 class="tarifs-sous">${esc(tr('Sans abonnement'))}</h3><div class="unites">${unites.map(unite).join('')}</div>` : ''}
   ${F('gratuit') ? `<p class="offre-gratuite">${esc(tr("Pas de budget ? L'ajout de ta soirée dans l'agenda du site reste gratuit."))} <a href="#contact">${esc(tr('Envoyer ma soirée'))} →</a></p>` : ''}
   ${C.etapes?.length ? `<ol class="tarifs-etapes">${C.etapes.map((e, k) => `<li><b>${k + 1}</b><span>${esc(tr(e))}</span></li>`).join('')}</ol>` : ''}
+  ${C.portail ? `<p class="tarifs-portail">${esc(tr('Déjà partenaire ?'))} <a href="${esc(C.portail)}" target="_blank" rel="noopener">${esc(tr('Gérer mon abonnement (résiliation, factures)'))} →</a></p>` : ''}
+  <p class="merci-paiement" hidden role="status">✓ ${esc(tr("Paiement reçu, merci ! Écris-nous ton nom d'établissement et tes dates juste en dessous : on te répond sous 24 h pour caler tes contenus."))}</p>
   <p class="tarifs-note">${mediane ? `${esc(tr(`Portée : médiane de nos ${portees.length} derniers posts (statistiques Instagram).`))} ` : ''}${tva ? `${esc(tr(`Prix hors taxes, TVA de ${tva} % en sus.`))} ` : ''}${esc(tr(C.mention || ''))} ${esc(tr('Les contenus payants sont signalés « partenariat rémunéré ». Aucune formule ne garantit un nombre de vues ou de ventes.'))} <a href="${base}${pre(lang)}cgv/">${esc(tr('Conditions de vente'))}</a></p>
 </section>`;
 };

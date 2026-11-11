@@ -523,7 +523,7 @@
             "Badge « Partenaire » sur ta fiche",
             "Ton logo dans la vitrine des partenaires du site"
           ],
-          "paiement": ""
+          "paiement": "https://buy.stripe.com/fZuaEXcuG42TfeZb9b4c801"
         },
         {
           "cle": "premium",
@@ -540,7 +540,7 @@
             "Un bilan chiffré chaque mois : portée, likes et enregistrements de tes contenus",
             "Tout ce qu'inclut Visibilité"
           ],
-          "paiement": ""
+          "paiement": "https://buy.stripe.com/5kQeVd66i8j9aYJ7WZ4c802"
         },
         {
           "cle": "post",
@@ -552,7 +552,7 @@
             "Publié sur @teufy_official",
             "Ton compte identifié"
           ],
-          "paiement": ""
+          "paiement": "https://buy.stripe.com/4gM14nbqCgPFaYJ7WZ4c803"
         },
         {
           "cle": "story",
@@ -564,7 +564,7 @@
             "Lien vers ta billetterie",
             "Publiée le jour que tu choisis"
           ],
-          "paiement": ""
+          "paiement": "https://buy.stripe.com/8x200j3YadDtc2Ngtv4c804"
         }
       ],
       "tva": 20,
@@ -572,7 +572,9 @@
         "Tu choisis ta formule",
         "On te répond sous 24 h pour caler les dates",
         "Tes contenus sont publiés, et tu reçois ton bilan"
-      ]
+      ],
+      "portail": "https://billing.stripe.com/p/login/aFa3cvdyKdDt1o93GJ4c800",
+      "_stripe": "Produits Stripe créés le 11/11/2026 (metadata teufy_formule) : prix HT, TVA calculée par Stripe Tax (ajoutée automatiquement dès qu'une immatriculation TVA est enregistrée dans Stripe). portail = page où le partenaire gère son abonnement (résiliation en fin de mois, factures)."
     },
     "avantages": [],
     "_avantages": "Avantages des partenaires affichés sur la page Avantages (en plus des codes_promo) : {partenaire_nom, instagram, ville, type, titre, description, conditions, jusqu_au (AAAA-MM-JJ)}. Une offre expirée disparaît seule."
