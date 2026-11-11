@@ -24,6 +24,10 @@
     if (n && a && n.scrollWidth > n.clientWidth) n.scrollLeft = a.offsetLeft - (n.clientWidth - a.offsetWidth) / 2; }
 
   // Menu « Villes ▾ » : se ferme en cliquant ailleurs ou avec Échap.
+  // Hauteur réelle de la barre d'onglets (zone de sécurité de l'iPhone comprise) : la barre « Billets » s'y colle.
+  const ong = document.querySelector('.onglets');
+  const hOng = () => { if (ong && ong.offsetHeight) document.documentElement.style.setProperty('--h-onglets', `${ong.offsetHeight}px`); };
+  hOng(); addEventListener('resize', hOng, { passive: true });
   document.querySelectorAll('.nav-groupe').forEach((d) => {
     d.addEventListener('toggle', () => {
       if (!d.open) return;

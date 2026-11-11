@@ -1345,3 +1345,9 @@ html.onglets-caches .onglets{transform:translateY(105%)}
   .nav-groupe.g-pros>div,.nav-groupe.g-teufy>div{inset-inline-start:auto;inset-inline-end:0}
   .nav-groupe>div{max-width:calc(100vw - 24px)}
 }
+/* Mobile : la barre « Billets » est collée à la barre d'onglets (pleine largeur, opaque) : plus de texte qui
+   apparaît coupé entre deux barres. Hauteur réelle des onglets mesurée par app.js (--h-onglets). */
+@media(max-width:759px){
+  .barre-billets{left:0;right:0;bottom:var(--h-onglets,calc(57px + env(safe-area-inset-bottom)));border-radius:0;border:0;border-top:1px solid #ffffff1a;background:#0b0b0f;-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:0 -12px 24px -6px #000c;padding:9px 12px 9px 16px}
+  html.onglets-caches .barre-billets{bottom:0;padding-bottom:calc(9px + env(safe-area-inset-bottom))}
+}
