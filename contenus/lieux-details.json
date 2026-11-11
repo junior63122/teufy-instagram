@@ -962,5 +962,77 @@
    "https://sams-klub.com/soirees-bandol/",
    "https://www.bandoltourisme.fr/commerce-et-service/sams-klub/"
   ]
+ },
+ "le-spot-hotel-plein-large-bandol": {
+  "le": "2026-11-11T01:29:06.149Z",
+  "styles": "Lounge · Chillout",
+  "dress_code": "Casual chic (tenue de plage seule interdite)",
+  "horaires": "Lun–Dim · 11h–coucher du soleil",
+  "prix_verre": "cocktail 13–16 €",
+  "entree": "gratuit (consommation obligatoire)",
+  "age_min": "aucun",
+  "sources": [
+   "https://hotel-pleinlarge.com/",
+   "https://www.bandoltourisme.fr/commerce-et-service/le-spot/",
+   "https://www.provencesudsaintebaume.com/commerce-et-service/le-spot/"
+  ]
+ },
+ "poupoune-bandol-bandol": {
+  "le": "2026-11-11T01:29:06.149Z",
+  "styles": "Variété · Lounge",
+  "dress_code": "Tenue décontractée",
+  "horaires": "Lun–Dim 7h–3h (en saison) · Lun–Ven 8h–21h · Sam–Dim 7h–1h",
+  "prix_verre": "bière 4–7 € · cocktail 10–14 €",
+  "entree": "Gratuit",
+  "age_min": "Aucun",
+  "sources": [
+   "https://www.bandoltourisme.fr/commerce-et-service/poupoune/",
+   "https://www.privateaser.com/lieu/57066-bar-poupoune",
+   "https://www.petitfute.com/v33722-bandol-83150/c1171-sports-loisirs/c580-sortir-boire-un-verre/c584-bar-a-cocktail/244301-poupoune.html",
+   "https://www.instagram.com/poupoune_bandol/"
+  ]
+ },
+ "barrel-pub-cannes": {
+  "le": "2026-11-11T01:29:06.149Z",
+  "styles": "Généraliste · Clubbing · Électro",
+  "dress_code": "Décontracté",
+  "horaires": "Lun–Dim · 18h–5h",
+  "prix_verre": "bière 7–8 € · cocktail 11–14 € · soft 5–7 €",
+  "entree": "Gratuit",
+  "age_min": "",
+  "sources": [
+   "https://lebarrelpubcannes.com",
+   "https://www.instagram.com/barrelpubcannes",
+   "https://www.privateaser.com/lieu/40065-barrel-pub",
+   "https://maps.google.com/?cid=12140409477045155663"
+  ]
+ },
+ "bb-cannes-cannes": {
+  "le": "2026-11-11T01:29:06.149Z",
+  "styles": "Généraliste · Latino · Clubbing",
+  "dress_code": "Chic et décontracté",
+  "horaires": "Mar–Sam · 18h–2h30",
+  "prix_verre": "",
+  "entree": "Gratuit (consommation obligatoire)",
+  "age_min": "",
+  "sources": [
+   "https://www.bbcannes.fr",
+   "https://cotedazurfrance.fr",
+   "https://www.pagesjaunes.fr",
+   "https://www.instagram.com/bbcannes_"
+  ]
+ },
+ "groovz-cannes": {
+  "le": "2026-11-11T01:29:06.149Z",
+  "styles": "Généraliste · Club",
+  "dress_code": "",
+  "horaires": "Mar–Sam · 17h–2h30",
+  "prix_verre": "bière 8 € · cocktail 11 €",
+  "entree": "Gratuit",
+  "age_min": "",
+  "sources": [
+   "https://www.privateaser.com/lieu/41950-groovz",
+   "https://www.instagram.com/groovzcannes"
+  ]
  }
 }

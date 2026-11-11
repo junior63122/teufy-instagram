@@ -1928,14 +1928,9 @@
    "partenaire": true,
    "photo": "site/partenaires/023-176.webp",
    "soirees": [
-    "di-liani-dj-set-2026-11-10",
     "yann-s-dj-set-2026-11-14"
    ],
    "prochaines": [
-    {
-     "id": "di-liani-dj-set-2026-11-10",
-     "nom": "Di Liani DJ Set"
-    },
     {
      "id": "yann-s-dj-set-2026-11-14",
      "nom": "Yann-S DJ Set"
@@ -1945,12 +1940,6 @@
    "slug": "le-barathym-toulon",
    "score": 0,
    "soirs": [
-    [
-     "2026-11-10",
-     "22:00",
-     "di-liani-dj-set-2026-11-10",
-     "Di Liani DJ Set"
-    ],
     [
      "2026-11-14",
      "22:00",
@@ -2383,7 +2372,21 @@
    "insta": null,
    "slug": "le-spot-hotel-plein-large-bandol",
    "score": 0,
-   "soirs": []
+   "soirs": [],
+   "details": {
+    "le": "2026-11-11T01:29:06.149Z",
+    "styles": "Lounge · Chillout",
+    "dress_code": "Casual chic (tenue de plage seule interdite)",
+    "horaires": "Lun–Dim · 11h–coucher du soleil",
+    "prix_verre": "cocktail 13–16 €",
+    "entree": "gratuit (consommation obligatoire)",
+    "age_min": "aucun",
+    "sources": [
+     "https://hotel-pleinlarge.com/",
+     "https://www.bandoltourisme.fr/commerce-et-service/le-spot/",
+     "https://www.provencesudsaintebaume.com/commerce-et-service/le-spot/"
+    ]
+   }
   },
   {
    "nom": "Poupoune Bandol",
@@ -2398,7 +2401,22 @@
    "insta": null,
    "slug": "poupoune-bandol-bandol",
    "score": 0,
-   "soirs": []
+   "soirs": [],
+   "details": {
+    "le": "2026-11-11T01:29:06.149Z",
+    "styles": "Variété · Lounge",
+    "dress_code": "Tenue décontractée",
+    "horaires": "Lun–Dim 7h–3h (en saison) · Lun–Ven 8h–21h · Sam–Dim 7h–1h",
+    "prix_verre": "bière 4–7 € · cocktail 10–14 €",
+    "entree": "Gratuit",
+    "age_min": "Aucun",
+    "sources": [
+     "https://www.bandoltourisme.fr/commerce-et-service/poupoune/",
+     "https://www.privateaser.com/lieu/57066-bar-poupoune",
+     "https://www.petitfute.com/v33722-bandol-83150/c1171-sports-loisirs/c580-sortir-boire-un-verre/c584-bar-a-cocktail/244301-poupoune.html",
+     "https://www.instagram.com/poupoune_bandol/"
+    ]
+   }
   }
  ],
  "insta": {
