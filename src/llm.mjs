@@ -20,8 +20,10 @@ function lireBudget() {
   const j = new Date().toISOString().slice(0, 10), m = j.slice(0, 7);
   let b = {}; try { b = existsSync(FICHIER_BUDGET) ? JSON.parse(readFileSync(FICHIER_BUDGET, 'utf8')) : {}; } catch { b = {}; }
   if (b.mois !== m) b = { mois: m, jour: j, total: {}, aujourdhui: {}, euros_jour: 0, euros_mois: 0 };
-  if (b.jour !== j) { b.jour = j; b.aujourdhui = {}; b.euros_jour = 0; }
+  if (b.jour !== j) { b.jour = j; b.aujourdhui = {}; b.euros_jour = 0; for (const x of Object.values(b.euros_ia || {})) x.jour = 0; }
   b.total ||= {}; b.aujourdhui ||= {};
+  // Ancien compteur commun : ce qui a déjà été dépensé est attribué à Claude (seule IA payante utilisée jusqu'ici).
+  b.euros_ia ||= { anthropic: { jour: b.euros_jour || 0, mois: b.euros_mois || 0 } };
   return b;
 }
 // IA dont le compte est à sec (HTTP 402 / crédits épuisés) : plus appelée pendant ce passage (évite des centaines d'échecs).
@@ -29,17 +31,20 @@ const aSec = new Set();
 export const marquerASec = (f, err) => { if (err?.status === 402 || /prepayment credits|credit balance is too low|RESOURCE_EXHAUSTED/i.test(String(err?.message || ''))) { if (!aSec.has(f)) console.error(`Budget IA : ${f} sans crédit, plus appelé pendant ce passage.`); aSec.add(f); } };
 // secondaire = tâche qui peut attendre (veille, horaires des lieux) : elle s'arrête à 75 % du budget du jour, pour que
 // les tâches essentielles (soirées du site, publications) gardent toujours de quoi tourner.
-export function budgetOk(f, L = {}, secondaire = false) {
+export function budgetOk(f, L = {}, secondaire = false) { // L est réaffecté pour Gemini (budget propre)
   if (aSec.has(f)) return false;
   if (f === 'github') return true; // gratuit
   const b = lireBudget(), [dj, dm] = PLAFONDS[f] || [Infinity, Infinity];
   const okJ = (b.aujourdhui[f] || 0) < (L[`max_appels_${f}_jour`] ?? dj), okM = (b.total[f] || 0) < (L[`max_appels_${f}_mois`] ?? dm);
   if (!okJ || !okM) console.error(`Budget IA : plafond ${okM ? 'du jour' : 'du mois'} atteint pour ${f}, appel évité.`);
   // Plafond en euros (estimation, toutes IA confondues) : config.llm.budget_jour_eur / budget_mois_eur.
-  const eJ = b.euros_jour || 0, eM = b.euros_mois || 0;
+  // Budgets séparés par IA (11/11/2026) : Claude ne peut plus consommer la part de Gemini (et inversement).
+  // Gemini : config.llm.budget_gemini_jour_eur (par défaut 2 €) ; Claude : budget_jour_eur / budget_mois_eur.
+  const eJ = (b.euros_ia?.[f]?.jour) || 0, eM = (b.euros_ia?.[f]?.mois) || 0;
+  if (f === 'gemini') L = { ...L, budget_jour_eur: L.budget_gemini_jour_eur ?? 2, budget_mois_eur: L.budget_gemini_mois_eur ?? 40 };
   if (secondaire && L.budget_jour_eur != null && eJ >= 0.75 * L.budget_jour_eur) { console.error(`Budget IA : tâche secondaire reportée (≈ ${eJ.toFixed(2)} € dépensés, réserve gardée pour les soirées et les publications).`); return false; }
   const okEJ = L.budget_jour_eur == null || eJ < L.budget_jour_eur, okEM = L.budget_mois_eur == null || eM < L.budget_mois_eur;
-  if (!okEJ || !okEM) { if (!budgetOk.dit) console.error(`Budget IA : ${okEM ? `budget du jour atteint (≈ ${eJ.toFixed(2)} € / ${L.budget_jour_eur} €)` : `budget du mois atteint (≈ ${eM.toFixed(2)} € / ${L.budget_mois_eur} €)`} : plus d'appel payant avant ${okEM ? 'demain' : 'le mois prochain'}.`); budgetOk.dit = true; }
+  if (!okEJ || !okEM) { if (!(budgetOk.dit ||= new Set()).has(f)) console.error(`Budget IA (${f}) : ${okEM ? `budget du jour atteint (≈ ${eJ.toFixed(2)} € / ${L.budget_jour_eur} €)` : `budget du mois atteint (≈ ${eM.toFixed(2)} € / ${L.budget_mois_eur} €)`} : plus d'appel payant avant ${okEM ? 'demain' : 'le mois prochain'}.`); budgetOk.dit.add(f); }
   return okJ && okM && okEJ && okEM;
 }
 // Coût estimé d'un appel (euros), réglable dans config.llm.cout_eur : une recherche web coûte bien plus qu'une rédaction.
@@ -49,7 +54,7 @@ export const reglerCouts = (L = {}) => { COUTS = { ...COUT_DEFAUT, ...(L.cout_eu
 export function compter(f, type = 'appel') {
   if (f === 'github') return;
   try { const b = lireBudget(); b.aujourdhui[f] = (b.aujourdhui[f] || 0) + 1; b.total[f] = (b.total[f] || 0) + 1;
-    const c = COUTS[`${f}_${type}`] ?? 0; b.euros_jour = Math.round(((b.euros_jour || 0) + c) * 1000) / 1000; b.euros_mois = Math.round(((b.euros_mois || 0) + c) * 1000) / 1000; mkdirSync(path.dirname(FICHIER_BUDGET), { recursive: true }); writeFileSync(FICHIER_BUDGET, JSON.stringify(b, null, 1) + '\n'); } catch { /* compteur indisponible : pas bloquant */ }
+    const c = COUTS[`${f}_${type}`] ?? 0; b.euros_jour = Math.round(((b.euros_jour || 0) + c) * 1000) / 1000; b.euros_mois = Math.round(((b.euros_mois || 0) + c) * 1000) / 1000; b.euros_ia ||= {}; const e = (b.euros_ia[f] ||= { jour: 0, mois: 0 }); e.jour = Math.round((e.jour + c) * 1000) / 1000; e.mois = Math.round((e.mois + c) * 1000) / 1000; mkdirSync(path.dirname(FICHIER_BUDGET), { recursive: true }); writeFileSync(FICHIER_BUDGET, JSON.stringify(b, null, 1) + '\n'); } catch { /* compteur indisponible : pas bloquant */ }
 }
 export function etatBudget() { return lireBudget(); }
 const GH = 'https://models.github.ai/inference/chat/completions';

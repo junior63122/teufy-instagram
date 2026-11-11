@@ -332,6 +332,9 @@
     "modele_gemini": "gemini-3.8-flash",
     "cerveau_jours": 1,
     "budget_jour_eur": 2.5,
+  "budget_gemini_jour_eur": 2,
+  "budget_gemini_mois_eur": 40,
+  "_budget_par_ia": "Budgets séparés : budget_jour_eur / budget_mois_eur = Claude ; budget_gemini_* = Gemini. Une IA ne peut plus bloquer l'autre.",
     "budget_mois_eur": 75,
     "_budget": "Plafond de dépense IA (estimation) : au-delà, plus aucun appel payant jusqu'au lendemain (ou au mois suivant) ; le site garde ses dernières données. Coûts estimés par appel dans cout_eur.",
     "cout_eur": {
