@@ -320,6 +320,18 @@ async function controlerPage(p, nom, u) {
     ok(await p.locator('.compris:not([hidden])').count() === 0, `${nom} : un nom de soirée est pris pour des filtres`);
     const N = await p.evaluate(() => JSON.parse(document.querySelector('.onglets')?.dataset.notif || '{}'));
     ok(N.soirs && Array.isArray(N.actus), `${nom} : données des pastilles absentes`);
+    // « Voir les lieux fermés ce soir » : n'affiche QUE des lieux fermés, à l'écran (bug signalé par le directeur le 11/11).
+    await p.goto(B + 'ce-soir/', { waitUntil: 'load' }); await p.waitForTimeout(600);
+    if (await p.locator('.voir-fermes').isVisible().catch(() => false)) {
+      await p.locator('.voir-fermes').scrollIntoViewIfNeeded(); await p.locator('.voir-fermes').click(); await p.waitForTimeout(900);
+      const f = await p.evaluate(() => { const sec = document.querySelector('.lieux-fermes'); if (!sec) return null; const v = [...sec.querySelectorAll('.fiche-lieu')].filter((x) => x.offsetParent); const r = sec.getBoundingClientRect(); return { n: v.length, autres: v.filter((x) => x.dataset.statut !== 'ferme').length, enVue: r.top < innerHeight && r.bottom > 0 }; });
+      ok(f && f.n > 0 && f.autres === 0 && f.enVue, `${nom} : « Voir les lieux fermés » n'affiche pas les lieux fermés à l'écran (${JSON.stringify(f)})`);
+    }
+    // « Voir les N autres lieux » : affiche exactement N lieux de plus.
+    await p.goto(B + 'ce-soir/', { waitUntil: 'load' }); await p.waitForTimeout(600);
+    const va = p.locator('.voir-autres:visible').first();
+    if (await va.count()) { const n = +(await va.innerText()).match(/\d+/)[0]; const g = await va.evaluate((b) => b.previousElementSibling.id); const avant = await p.evaluate((id) => [...document.getElementById(id).children].filter((x) => x.offsetParent).length, g); await va.click(); await p.waitForTimeout(400); const apres = await p.evaluate((id) => [...document.getElementById(id).children].filter((x) => x.offsetParent).length, g); ok(apres - avant === n, `${nom} : « Voir les ${n} autres lieux » en affiche ${apres - avant}`); }
+    await p.goto(B, { waitUntil: 'load' });
     // Agenda : aucune rangée trouée (journée courte = tuile de date) ; fiche : bouton WhatsApp avec lien de la soirée.
     if ((p.viewportSize()?.width || 0) >= 980) { await p.goto(B + 'soirees-nice/', { waitUntil: 'load' }); await p.waitForTimeout(400);
       const trous = await p.evaluate(() => [...document.querySelectorAll('main .grille')].filter((g) => { if (!g.offsetParent) return false; const cs = getComputedStyle(g); if (cs.display === 'contents') return false; const cols = cs.gridTemplateColumns.split(' ').length; let cells = 0; [...g.children].forEach((c) => { if (c.hidden || getComputedStyle(c).display === 'none') return; const m = (c.style.gridColumn || '').match(/span (\d+)/); cells += m ? +m[1] : 1; }); return cols >= 3 && cells % cols; }).length);

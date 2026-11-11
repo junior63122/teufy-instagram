@@ -137,7 +137,7 @@
     }
     // Compteur « ouverts / total » de la ville choisie (ou de partout).
     function majCompte(g) {
-      const l = [...g.querySelectorAll('.fiche-lieu')].filter((x) => !x.classList.contains('hors-ville'));
+      const l = [...g.querySelectorAll('.fiche-lieu'), ...(g.__fermes || [])].filter((x) => !x.classList.contains('hors-ville'));
       const o = document.querySelector(`[data-compte-ouverts="${g.id}"]`), tt = document.querySelector(`[data-compte-total="${g.id}"]`);
       if (o) o.textContent = String(l.filter((x) => ['ouvert', 'soiree', 'bientot'].includes(x.dataset.statut)).length);
       if (tt) tt.textContent = String(l.length);
@@ -150,7 +150,19 @@
       l.forEach((x) => g.append(x));
       const fermes = l.filter((x) => x.dataset.statut === 'ferme');
       majCompte(g);
-      if (fermes.length && g.dataset.replier) { fermes.forEach((x) => { x.hidden = true; }); const b = g.parentElement.querySelector('.voir-fermes'); if (b) { b.hidden = false; b.querySelector('span').textContent = fermes.length; b.addEventListener('click', () => { fermes.forEach((x) => { x.hidden = false; }); b.remove(); if (g.dataset.max) { g.dataset.deplie = '1'; replier(g); } }); } }
+      if (fermes.length && g.dataset.replier) { fermes.forEach((x) => { x.hidden = true; }); const b = g.parentElement.querySelector('.voir-fermes'); if (b) { b.hidden = false; b.querySelector('span').textContent = fermes.length; b.addEventListener('click', () => {
+        // Les lieux fermés dans une section à part, juste ici (pas noyés à la fin de la liste des ouverts).
+        const ville = document.querySelector('.filtre-villes [aria-pressed="true"]')?.dataset.ville;
+        const sec = document.createElement('div'); sec.className = 'lieux-fermes';
+        const h = document.createElement('h3'); h.textContent = `${T.fermesCeSoir || 'Fermés ce soir'} · ${fermes.length}`;
+        const grille = document.createElement('div'); grille.className = 'fiches';
+        fermes.forEach((x) => { x.hidden = false; x.classList.remove('en-trop'); grille.append(x); });
+        sec.append(h, grille); b.replaceWith(sec); g.__fermes = fermes;
+        const majH = () => { const n = fermes.filter((x) => !x.classList.contains('hors-ville')).length; h.textContent = `${T.fermesCeSoir || 'Fermés ce soir'} · ${n}`; sec.hidden = !n; };
+        majH(); document.querySelectorAll('.filtre-villes').forEach((f) => f.addEventListener('click', () => setTimeout(majH, 0)));
+        majCompte(g); replier(g);
+        sec.scrollIntoView({ behavior: reduit ? 'auto' : 'smooth', block: 'start' });
+      }); } }
     });
   }
 
@@ -181,7 +193,7 @@
   document.querySelectorAll('.filtre-villes').forEach((f) => f.addEventListener('click', (e) => {
     const b = e.target.closest('[data-ville]'); if (!b) return;
     f.querySelectorAll('.puce').forEach((x) => x.classList.toggle('actif', x === b));
-    document.querySelectorAll('#lieux-ce-soir .fiche-lieu, .lieux-tard .fiche-lieu').forEach((l) => { l.classList.toggle('hors-ville', !!b.dataset.ville && l.dataset.ville !== b.dataset.ville); });
+    document.querySelectorAll('#lieux-ce-soir .fiche-lieu, .lieux-fermes .fiche-lieu, .lieux-tard .fiche-lieu').forEach((l) => { l.classList.toggle('hors-ville', !!b.dataset.ville && l.dataset.ville !== b.dataset.ville); });
     document.querySelectorAll('#lieux-ce-soir[data-max], .lieux-tard[data-max]').forEach(replier);
     const g = document.getElementById('lieux-ce-soir'); if (g && window.__majCompte) window.__majCompte(g);
   }));

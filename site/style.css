@@ -1496,3 +1496,5 @@ html.onglets-caches .onglets{transform:translateY(105%)}
   .fiche-grille>.fiche-infos{grid-area:infos}
   .fiche-grille>.fiche-aside{grid-area:aside}
 }
+.lieux-fermes{margin-top:28px}
+.lieux-fermes h3{font-size:clamp(22px,2.2vw,28px);margin:0 0 14px;color:#c8c8d0}
