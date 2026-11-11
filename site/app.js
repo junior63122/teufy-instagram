@@ -17,6 +17,26 @@
   const enCours = (c) => debut(c) <= maintenant && maintenant < debut(c) + DUREE;
   const nb = (n) => (n === 1 ? T.soiree : (T.soirees || '{n}').replace('{n}', n));
   const norm = (x) => String(x || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').trim();
+  // Peu de soirées ce soir (ordinateur) : tuiles de suggestion à côté des cartes au lieu d'un grand vide.
+  const lienLang = (chemin) => `${T.base || '/'}${T.langue && T.langue !== 'fr' ? T.langue + '/' : ''}${chemin}`;
+  const suggerer = (conteneur, nbCartes) => {
+    if (!conteneur) return;
+    conteneur.querySelectorAll('.carte-suggestion').forEach((x) => x.remove());
+    if (!nbCartes || nbCartes >= 3 || !matchMedia('(min-width: 760px)').matches) return;
+    const tuiles = [[T.suggOuvertsP, T.suggOuverts, 'ce-soir/#lieux-ouverts'], [T.suggWeP, T.suggWe, 'ce-week-end/']].slice(0, 3 - nbCartes);
+    for (const [petit, titre, chemin] of tuiles) {
+      if (!titre) continue;
+      const a = document.createElement('a'); a.className = 'carte-suggestion'; a.href = lienLang(chemin);
+      const deco = document.createElement('span'); deco.className = 'sugg-deco'; deco.setAttribute('aria-hidden', 'true');
+      if (chemin.startsWith('ce-week-end')) {
+        // Vraies affiches de soirées du week-end (jamais d'image inventée).
+        const imgs = [...document.querySelectorAll('.liste .carte')].filter((c) => c.dataset.jour >= vendredi && c.dataset.jour <= dimanche).map((c) => c.querySelector('img.principale')).filter(Boolean).slice(0, 3);
+        for (const im of imgs) { const i = document.createElement('img'); i.src = im.currentSrc || im.src; i.alt = ''; i.loading = 'lazy'; deco.append(i); }
+      } else deco.innerHTML = '<svg viewBox="0 0 24 24" width="64" height="64" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h8l-4 7z"/><path d="M12 10v8M8 21h8"/><path d="M19 5a6 6 0 1 1-4 9" opacity=".6"/></svg>';
+      a.append(deco, Object.assign(document.createElement('small'), { textContent: petit || '' }), Object.assign(document.createElement('b'), { textContent: titre }), Object.assign(document.createElement('em'), { textContent: '→' }));
+      conteneur.append(a);
+    }
+  };
   const toast = (m) => { const t = document.querySelector('.toast'); if (!t || !m) return; t.textContent = m; t.hidden = false; clearTimeout(toast.t); toast.t = setTimeout(() => { t.hidden = true; }, 2600); };
 
   // Menu : la rubrique ouverte est centrée dans la barre (on sait où l'on est, même au fond du menu).
@@ -213,6 +233,7 @@
         g.append(b);
       }
     }
+    { const g = [...ceSoir.querySelectorAll('.groupe-soir:not([hidden])')].pop(); suggerer(g?.querySelector('.rangee'), soir.length); }
     // Étiquette du bloc : « En direct » seulement s'il y a vraiment des soirées en cours.
     const et = ceSoir.querySelector('.tete .etiquette');
     if (et && !live.length) { et.textContent = T.ceSoir; et.classList.add('sans-direct'); }
@@ -329,6 +350,7 @@
     majBoutons();
     trier();
     paginer();
+    document.querySelectorAll('.liste .jour').forEach((j) => suggerer(j.querySelector('.grille'), j.dataset.jour === auj && !j.hidden && etat.tri === 'date' ? j.querySelectorAll('.carte:not([hidden]):not(.plus-loin)').length : 0));
     majCompris();
     animerCartes();
   };

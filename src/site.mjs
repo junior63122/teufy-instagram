@@ -977,7 +977,9 @@ function vignette(s, base = '') {
   const n = parseInt(h(s.nom), 16), teintes = [[255, 90, 60], [255, 46, 110], [130, 80, 255], [40, 170, 255], [61, 255, 138], [255, 200, 60]];
   const [a, b] = [teintes[n % 6], teintes[(Math.floor(n / 7) % 5 + 1 + n % 6) % 6]];
   const ph = photoDuLieu(s) || PHOTOS_COMPTES.get(String(s.instagram || '').toLowerCase()) || '';
-  const pv = photoVille(s.ville) || photoVille(s.filtreVille);
+  // Jamais de paysage de ville à la place d'une soirée (retour du directeur, 11/11/2026) : vignette Teufy aux couleurs
+  // de la soirée, avec le logo du lieu quand on le connaît.
+  const pv = null;
   return `<span class="vignette${ph ? ' avec-lieu' : ''}${pv ? ' avec-ville' : ''}" style="--a:rgb(${a.join(',')});--b:rgb(${b.join(',')})" aria-hidden="true">${pv ? `<img class="vignette-ville" src="${base}${esc(pv.fichier.replace(/\.jpg$/, '-800.webp'))}" srcset="${base}${esc(pv.fichier.replace(/\.jpg$/, '-480.webp'))} 480w, ${base}${esc(pv.fichier.replace(/\.jpg$/, '-800.webp'))} 800w${grandeVille(pv.fichier) ? `, ${base}${esc(grandeVille(pv.fichier))} 1200w` : ''}" sizes="(min-width:980px) 1000px, 150vw" alt="" width="800" height="533" loading="lazy" decoding="async">` : ''}${ph ? `<img class="vignette-lieu" src="${base}${esc(ph)}" alt="" width="176" height="176" loading="lazy" decoding="async">` : ''}<small>${esc((s.genres || '').split(' · ')[0] || 'Soirée')}</small><b>${esc(s.lieu || s.ville || s.nom)}</b><i>${esc(s.lieu ? s.ville : '')}</i></span>`;
 }
 

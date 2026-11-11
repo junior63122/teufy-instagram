@@ -1389,3 +1389,31 @@ html.onglets-caches .onglets{transform:translateY(105%)}
   .actu:not(.une) .actu-img{aspect-ratio:4/3}
 }
 @media(min-width:760px) and (max-width:1099px){.actus{grid-template-columns:repeat(2,1fr)}}
+/* Ordinateur : « Pros » et « Teufy » à la suite des autres rubriques (plus rejetés seuls au bout de la ligne),
+   séparés par un trait discret ; leurs listes s'ouvrent normalement (recalées par app.js si besoin). */
+@media(min-width:760px){
+  .nav .g-pros{margin-inline-start:14px;position:relative}
+  .nav .g-pros::before{content:"";position:absolute;inset-inline-start:-9px;top:20%;bottom:20%;width:1px;background:#ffffff26}
+  .nav .nav-groupe.g-pros>div,.nav .nav-groupe.g-teufy>div{inset-inline-start:0;inset-inline-end:auto}
+}
+/* Nombre de soirées lisible aussi sur l'élément sélectionné ou survolé du menu. */
+.nav-groupe>div a[aria-current] .nb-nav,.menu-complet a[aria-current] .nb-nav{background:#0b0b0f1f;color:var(--nuit)}
+.nav-groupe>div a:hover .nb-nav{background:#ffffff26;color:#fff}
+/* Cartes de lieux plus larges (texte et « Infos pratiques » moins tassés) : 3 par rangée sur ordinateur. */
+.fiches{grid-template-columns:repeat(auto-fill,minmax(min(100%,330px),1fr))}
+/* Peu de soirées ce soir : tuiles de suggestion à côté de la carte, plutôt qu'un grand vide. */
+.carte-suggestion{display:flex;flex-direction:column;justify-content:flex-end;gap:10px;min-height:260px;padding:26px;border-radius:22px;text-decoration:none;color:var(--creme);background:radial-gradient(120% 90% at 100% 0%,#ff5a3c55,transparent 60%),radial-gradient(110% 90% at 0% 100%,#8250ff44,transparent 65%),var(--nuit2);border:1px solid #ffffff1f;transition:transform .35s var(--doux),border-color .3s}
+.carte-suggestion:hover{transform:translateY(-4px);border-color:var(--corail)}
+.carte-suggestion small{font-weight:800;font-size:12px;letter-spacing:.16em;text-transform:uppercase;opacity:.75}
+.carte-suggestion b{font-family:var(--titre);font-weight:800;font-stretch:80%;font-size:clamp(26px,2.4vw,34px);line-height:1}
+.carte-suggestion em{font-style:normal;font-weight:800;color:var(--corail)}
+.rangee .carte-suggestion{flex:0 0 min(320px,80vw)}
+@media(max-width:759px){.carte-suggestion{display:none}}
+.carte-suggestion{position:relative;overflow:hidden}
+.sugg-deco{position:absolute;inset:22px 22px auto;display:flex;justify-content:center;align-items:flex-start;gap:0;color:var(--corail);opacity:.95}
+.sugg-deco svg{margin-top:30px}
+.sugg-deco img{width:42%;aspect-ratio:4/5;object-fit:cover;border-radius:12px;box-shadow:0 18px 36px -12px #000;border:2px solid #ffffff22}
+.sugg-deco img:nth-child(1){transform:rotate(-8deg) translateX(18%)}
+.sugg-deco img:nth-child(2){transform:translateY(-6px);z-index:1}
+.sugg-deco img:nth-child(3){transform:rotate(8deg) translateX(-18%)}
+.carte-suggestion small,.carte-suggestion b,.carte-suggestion em{position:relative;z-index:2}
