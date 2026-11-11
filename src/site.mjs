@@ -704,6 +704,7 @@ export async function construireSite({ events, eventsFrance = [], eventsOccitani
       for (const v of [...new Set(sf.map((x) => x.filtreVille))]) ajoute(`france/${v}/`, (c) => pageFrance({ ...c, soirees: sf.filter((x) => x.filtreVille === v), cleVille: v }));
       ajoute('clubs-bars/', (c) => pageLieux(c));
       ajoute('ce-soir/', (c) => pageCeSoir({ ...c, soirees: sl, now }));
+      ajoute('avantages/', (c) => pageAvantages({ ...c, now }));
       for (const sel of SELECTIONS) ajoute(`${sel.slug}/`, (c) => pageSelection({ ...c, sel, soirees: sl.filter((x) => sel.garde(x, now)), now }));
       for (const l of lieux || []) if (l.slug) ajoute(`clubs-bars/${l.slug}/`, (c) => pageLieu({ ...c, l, soirees: [...sl, ...so].filter((x) => (l.soirees || []).includes(x.id)) }));
     }
@@ -997,15 +998,15 @@ const HASH_SPECULATION = createHash('sha256').update(SPECULATION).digest('base64
 // Seulement dans le texte entre les balises (jamais dans les attributs, scripts ou styles).
 const typo = (html, lang) => (lang === 'fr' ? html.replace(/(<(script|style)[\s\S]*?<\/\2>)|>([^<]+)</g, (m, bloc, _b, txt) => (bloc ? bloc : `>${txt.replace(/ ([?!»:])(?=\s|$|<|&)/g, '\u00a0$1').replace(/« /g, '«\u00a0')}<`)) : html);
 const LIB_NAV = {
-  fr: { sortir: 'Sortir', villes: 'Villes', lieux: 'Lieux', styles: 'Styles', pros: 'Pros', teufy: 'Teufy', devenir: 'Devenir partenaire', tarifs: 'Nos tarifs', menu: 'Menu', chercher: 'Chercher', favoris: 'Favoris', fermer: 'Fermer le menu', ceWe: 'Ce week-end', gratuit: 'Gratuit et bons plans', etud: 'Soirées étudiantes', agenda: 'Agenda', raccourcis: 'Raccourcis' },
-  en: { sortir: 'Going out', villes: 'Cities', lieux: 'Places', styles: 'Styles', pros: 'Pros', teufy: 'Teufy', devenir: 'Become a partner', tarifs: 'Pricing', menu: 'Menu', chercher: 'Search', favoris: 'Saved', fermer: 'Close menu', ceWe: 'This weekend', gratuit: 'Free and cheap', etud: 'Student nights', agenda: 'Events', raccourcis: 'Shortcuts' },
-  it: { sortir: 'Uscire', villes: 'Città', lieux: 'Locali', styles: 'Stili', pros: 'Pro', teufy: 'Teufy', devenir: 'Diventa partner', tarifs: 'Prezzi', menu: 'Menu', chercher: 'Cerca', favoris: 'Preferiti', fermer: 'Chiudi il menu', ceWe: 'Questo weekend', gratuit: 'Gratis e low cost', etud: 'Serate universitarie', agenda: 'Agenda', raccourcis: 'Scorciatoie' },
-  es: { sortir: 'Salir', villes: 'Ciudades', lieux: 'Locales', styles: 'Estilos', pros: 'Pros', teufy: 'Teufy', devenir: 'Hazte socio', tarifs: 'Tarifas', menu: 'Menú', chercher: 'Buscar', favoris: 'Favoritos', fermer: 'Cerrar el menú', ceWe: 'Este fin de semana', gratuit: 'Gratis y barato', etud: 'Fiestas universitarias', agenda: 'Agenda', raccourcis: 'Accesos directos' },
-  zh: { sortir: '出门玩', villes: '城市', lieux: '场所', styles: '风格', pros: '商家', teufy: 'Teufy', devenir: '成为合作伙伴', tarifs: '价格', menu: '菜单', chercher: '搜索', favoris: '收藏', fermer: '关闭菜单', ceWe: '本周末', gratuit: '免费与优惠', etud: '学生派对', agenda: '活动', raccourcis: '快捷方式' },
-  ar: { sortir: 'الخروج', villes: 'المدن', lieux: 'الأماكن', styles: 'الأنماط', pros: 'للمحترفين', teufy: 'Teufy', devenir: 'كن شريكًا', tarifs: 'الأسعار', menu: 'القائمة', chercher: 'بحث', favoris: 'المفضلة', fermer: 'إغلاق القائمة', ceWe: 'نهاية هذا الأسبوع', gratuit: 'مجاني وبأسعار رخيصة', etud: 'حفلات الطلاب', agenda: 'الحفلات', raccourcis: 'اختصارات' },
+  fr: { avantages: 'Avantages', sortir: 'Sortir', villes: 'Villes', lieux: 'Lieux', styles: 'Styles', pros: 'Pros', teufy: 'Teufy', devenir: 'Devenir partenaire', tarifs: 'Nos tarifs', menu: 'Menu', chercher: 'Chercher', favoris: 'Favoris', fermer: 'Fermer le menu', ceWe: 'Ce week-end', gratuit: 'Gratuit et bons plans', etud: 'Soirées étudiantes', agenda: 'Agenda', raccourcis: 'Raccourcis' },
+  en: { avantages: 'Perks', sortir: 'Going out', villes: 'Cities', lieux: 'Places', styles: 'Styles', pros: 'Pros', teufy: 'Teufy', devenir: 'Become a partner', tarifs: 'Pricing', menu: 'Menu', chercher: 'Search', favoris: 'Saved', fermer: 'Close menu', ceWe: 'This weekend', gratuit: 'Free and cheap', etud: 'Student nights', agenda: 'Events', raccourcis: 'Shortcuts' },
+  it: { avantages: 'Vantaggi', sortir: 'Uscire', villes: 'Città', lieux: 'Locali', styles: 'Stili', pros: 'Pro', teufy: 'Teufy', devenir: 'Diventa partner', tarifs: 'Prezzi', menu: 'Menu', chercher: 'Cerca', favoris: 'Preferiti', fermer: 'Chiudi il menu', ceWe: 'Questo weekend', gratuit: 'Gratis e low cost', etud: 'Serate universitarie', agenda: 'Agenda', raccourcis: 'Scorciatoie' },
+  es: { avantages: 'Ventajas', sortir: 'Salir', villes: 'Ciudades', lieux: 'Locales', styles: 'Estilos', pros: 'Pros', teufy: 'Teufy', devenir: 'Hazte socio', tarifs: 'Tarifas', menu: 'Menú', chercher: 'Buscar', favoris: 'Favoritos', fermer: 'Cerrar el menú', ceWe: 'Este fin de semana', gratuit: 'Gratis y barato', etud: 'Fiestas universitarias', agenda: 'Agenda', raccourcis: 'Accesos directos' },
+  zh: { avantages: '优惠', sortir: '出门玩', villes: '城市', lieux: '场所', styles: '风格', pros: '商家', teufy: 'Teufy', devenir: '成为合作伙伴', tarifs: '价格', menu: '菜单', chercher: '搜索', favoris: '收藏', fermer: '关闭菜单', ceWe: '本周末', gratuit: '免费与优惠', etud: '学生派对', agenda: '活动', raccourcis: '快捷方式' },
+  ar: { avantages: 'مزايا', sortir: 'الخروج', villes: 'المدن', lieux: 'الأماكن', styles: 'الأنماط', pros: 'للمحترفين', teufy: 'Teufy', devenir: 'كن شريكًا', tarifs: 'الأسعار', menu: 'القائمة', chercher: 'بحث', favoris: 'المفضلة', fermer: 'إغلاق القائمة', ceWe: 'نهاية هذا الأسبوع', gratuit: 'مجاني وبأسعار رخيصة', etud: 'حفلات الطلاب', agenda: 'الحفلات', raccourcis: 'اختصارات' },
 };
 const groupesNav = ({ t, lang, SA }) => { const L = LIB_NAV[lang] || LIB_NAV.fr; return [
-  ['sortir', L.sortir, [['ce-soir/', t.js.ceSoir], ['ce-week-end/', L.ceWe], ...(SA ? [[`${SA.slug}/`, `${SA.emoji} ${SA.nom[lang] || SA.nom.fr}`]] : []), ['soirees-gratuites/', L.gratuit], ['soirees-etudiantes/', L.etud], ['festivals/', t.festivals]]],
+  ['sortir', L.sortir, [['ce-soir/', t.js.ceSoir], ['ce-week-end/', L.ceWe], ...(SA ? [[`${SA.slug}/`, `${SA.emoji} ${SA.nom[lang] || SA.nom.fr}`]] : []), ['soirees-gratuites/', L.gratuit], ['soirees-etudiantes/', L.etud], ['festivals/', t.festivals], ['avantages/', L.avantages]]],
   ['villes', L.villes, [...VILLES_SEO.map((v) => [`${v.slug}/`, t.villes[v.cle]]), ['occitanie/', 'Occitanie'], ['france/', t.franceNav]]],
   ['lieux', L.lieux, [['clubs-bars/', t.lieuxNav], ['restaurants/', t.restos], ['activites/', t.activites], ['dates/', t.dates]]],
   ['styles', L.styles, PAGES_STYLES.map((k) => [`soirees-${k}/`, nomStyle(k, t, lang)])],
@@ -1726,6 +1727,31 @@ const carteTardive = (l, tr, i) => { const H = lireHoraires(l.horaires); const c
   ${l.description ? `<p class="fiche-desc">${esc(tr(l.description))}</p>` : ''}
   <p class="fiche-liens">${l.instagram ? `<a class="bouton petit contour" href="https://www.instagram.com/${esc(l.instagram)}/" target="_blank" rel="noopener">Instagram</a>` : ''}<a class="bouton petit contour" href="${esc(carte)}" target="_blank" rel="noopener">${esc(tr('Itinéraire'))}</a></p>
 </div></article>`; };
+// Avantages Teufy : codes promo et offres des partenaires (verre offert, entrée offerte…), réservés aux lecteurs.
+// Source : config.json (codes_promo, avantages) ; une offre expirée disparaît d'elle-même.
+function pageAvantages({ lang, t, tr, base, compte, T, chemin, maj, now }) {
+  const actifs = (config) => (config || []).filter((a) => !a.jusqu_au || Date.parse(a.jusqu_au) >= now.getTime());
+  const offres = actifs(T.avantages);
+  const carteAvantage = (a) => `<article class="carte-texte avantage"><p class="pied-titre">${esc(tr(a.type || 'Avantage'))}${a.ville ? ` · ${esc(a.ville)}` : ''}</p><h3>${esc(a.partenaire_nom)}</h3><p class="avantage-titre">${esc(tr(a.titre))}</p>${a.description ? `<p>${esc(tr(a.description))}</p>` : ''}<p class="petit">${a.conditions ? `<b>${esc(t.conditions)} :</b> ${esc(tr(a.conditions))}` : ''}${a.jusqu_au ? ` · ${esc(tr("jusqu'au"))} ${esc(paris(`${a.jusqu_au}T12:00:00Z`, { day: 'numeric', month: 'long', year: 'numeric' }, t.locale))}` : ''}</p>${a.instagram ? `<p><a class="bouton petit contour" href="https://www.instagram.com/${esc(a.instagram)}/" target="_blank" rel="noopener">Instagram</a></p>` : ''}</article>`;
+  const vide = !CODES.length && !offres.length;
+  const corps = `${heroCourt({ partage: t.partager, base, photo: null, alt: tr('Avantages'), etiquette: tr('Avantages Teufy'), h1: tr('Les <em>avantages</em> Teufy'), p: esc(tr("Codes promo, verres offerts, entrées gratuites : les avantages que nos partenaires réservent aux lecteurs de Teufy, sur la Côte d'Azur et dans le Var.")) })}
+<section class="bloc-large" id="liste-avantages">${vide ? `<p class="vide">${esc(tr('Les premiers avantages arrivent : les établissements partenaires sont en train de créer leurs offres. Reviens vite, ou suis @teufy_official pour être prévenu.'))}</p>` : `<div class="cartes-texte avantages">${CODES.map((c) => `<article class="carte-texte">${blocPromo(c, t, tr)}</article>`).join('')}${offres.map(carteAvantage).join('')}</div>`}</section>
+<section class="bloc-large"><h2>${tr('Tu as un bar, un club, une <em>activité</em> ?')}</h2><p class="grand-texte">${esc(tr("Propose un avantage aux lecteurs de Teufy : c'est gratuit, on le met en avant ici et dans nos stories."))}</p><p class="cta"><a class="bouton" href="${base}${pre(lang)}partenaires/#avantage">${esc(tr('Proposer un avantage'))}</a><a class="bouton contour" href="${base}${pre(lang)}partenaires/#tarifs">${esc(tr('Voir les formules'))}</a></p></section>`;
+  return gabarit({ lang, t, titre: tr('Avantages Teufy : codes promo et offres des bars et clubs de la Côte d\'Azur'), description: tr("Codes promo, verres offerts et entrées gratuites réservés aux lecteurs de Teufy dans les bars, clubs et activités de la Côte d'Azur et du Var."), chemin, base, corps, compte, maj, ld: [...ldOrganisation(T, compte, t, lang), fil(lang, [['Teufy', ''], [tr('Avantages'), chemin]])] });
+}
+// Formulaire « Propose ton avantage » (page Partenaires) : prépare un message structuré (Instagram ou e-mail).
+const blocAvantage = ({ tr, handle, email }) => { const ig = `https://ig.me/m/${esc(handle)}`; const champ = (n, l, extra = '') => `<label${/detail|conditions/.test(n) ? ' class="large"' : ''}><span>${esc(tr(l))}</span>${extra || `<input name="${n}"${n === 'etab' ? ' required' : ''}>`}</label>`;
+  return `<section class="bloc-large contact-pro" id="avantage"><h2>${tr('Propose ton <em>avantage</em>')}</h2><p class="intro">${esc(tr("Un verre offert, l'entrée gratuite avant minuit, un code promo, une partie offerte… C'est gratuit : on le met en avant sur la page Avantages et dans nos stories. 1 minute, promis."))}</p>
+  <form class="form-contact form-avantage" data-objet="${esc(tr('Avantage Teufy'))}" data-ok-ig="${esc(tr('✓ Message copié. Colle-le dans la conversation Instagram qui vient de s\'ouvrir.'))}" data-ok-mail="${esc(tr('✓ Ton application e-mail s\'ouvre avec le message prêt à envoyer.'))}" data-manque="${esc(tr("Indique au moins le nom de l'établissement et l'avantage."))}" novalidate>
+    ${champ('etab', "Nom de l'établissement")}${champ('insta', 'Compte Instagram', '<input name="insta" placeholder="@" autocomplete="off" autocapitalize="off">')}${champ('ville', 'Ville')}
+    ${champ('type', "Type d'avantage", `<select name="type">${['Verre offert', 'Entrée offerte', 'Code promo', 'Réduction', 'Partie / activité offerte', 'Autre'].map((x) => `<option>${esc(tr(x))}</option>`).join('')}</select>`)}
+    ${champ('detail', "L'avantage en une phrase", `<textarea name="detail" rows="2" required placeholder="${esc(tr('Ex. : 1 verre acheté = 1 verre offert sur présentation de Teufy'))}"></textarea>`)}
+    ${champ('conditions', 'Conditions (jours, horaires, limites)', '<input name="conditions">')}${champ('fin', "Valable jusqu'au", '<input name="fin" type="date">')}
+    ${champ('contact', 'Ton e-mail ou téléphone pro', '<input name="contact" autocomplete="email">')}
+    ${champ('formule', 'Formule souhaitée', `<select name="formule">${['Gratuit (juste l\'avantage)', 'Visibilité', 'Premium', 'Je veux en parler'].map((x) => `<option>${esc(tr(x))}</option>`).join('')}</select>`)}
+    <p class="envoyer"><a class="bouton" data-envoi="ig" href="${ig}" target="_blank" rel="noopener">${ICO_IG}<span>${esc(tr('Envoyer sur Instagram'))}</span></a>${email ? `<a class="bouton contour" data-envoi="mail" href="mailto:${esc(email)}">${esc(tr('Envoyer par e-mail'))}</a>` : ''}</p>
+    <p class="retour-form" role="status" aria-live="polite" hidden></p>
+  </form></section>`; };
 function pageCeSoir({ lang, t, tr, base, compte, T, chemin, maj, soirees, lieux, now }) {
   const jour = (d) => new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Paris' }).format(d);
   const auj = jour(new Date(now - 6 * 3600e3)), demain = jour(new Date(now + 18 * 3600e3));
@@ -1853,6 +1879,7 @@ function pagePartenaire({ lang, t, tr, base, compte, T, chemin, maj, partenaires
   const faq = C.faq.map(([q, r]) => [tr(q), tr(r)]);
   const corps = `${heroCourt({ partage: t.partager, base, photo: null, logos: (partenaires || []).filter((x) => x.fichier).slice(0, 12).map((x) => x.fichier), alt: t.partenaires, etiquette: tr(C.etiquette), h1: tr(C.h1), p: esc(tr(C.chapo)), actions: `<a class="bouton" href="#tarifs">${esc(tr('Voir les tarifs'))}</a><a class="bouton contour" href="#contact">${esc(tr('Envoyer ma soirée (gratuit)'))}</a>` })}
 ${blocTarifs({ tr, T, base, lang, t })}
+${blocAvantage({ tr, handle, email: T.email })}
 ${blocContact({ tr, handle, email: T.email, type: 'partenaire' })}
 ${vitrine({ t, tr, base, partenaires })}
 <section class="bloc-large reveal"><h2>${tr(C.pourquoiH2)}</h2>${cartesTexte(C.pourquoi, tr)}</section>

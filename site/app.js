@@ -120,10 +120,15 @@
     f.addEventListener('submit', (e) => { e.preventDefault(); f.querySelector('[data-envoi]')?.click(); });
     f.querySelectorAll('[data-envoi]').forEach((b) => b.addEventListener('click', (e) => {
       const v = (k) => (f.elements[k]?.value || '').trim();
-      if (!v('nom') || !v('message')) { e.preventDefault(); dire(f.dataset.manque, false); (v('nom') ? f.elements.message : f.elements.nom).focus(); return; }
-      const texte = [`Bonjour Teufy ! ${f.dataset.objet}`, `${v('nom')}${v('insta') ? ` (${v('insta')})` : ''}${v('ville') ? ` · ${v('ville')}` : ''}`, '', v('message')].join('\n');
+      // Formulaire « avantage » : toutes les réponses, avec leur libellé (un tableau prêt à recopier).
+      const avantage = f.classList.contains('form-avantage');
+      const [c1, c2] = avantage ? ['etab', 'detail'] : ['nom', 'message'];
+      if (!v(c1) || !v(c2)) { e.preventDefault(); dire(f.dataset.manque, false); (v(c1) ? f.elements[c2] : f.elements[c1]).focus(); return; }
+      const texte = avantage
+        ? [`Bonjour Teufy ! ${f.dataset.objet}`, '', ...[...f.querySelectorAll('label')].map((l) => { const c = l.querySelector('input, select, textarea'); return c?.value.trim() ? `${l.querySelector('span').textContent} : ${c.value.trim()}` : ''; }).filter(Boolean)].join('\n')
+        : [`Bonjour Teufy ! ${f.dataset.objet}`, `${v('nom')}${v('insta') ? ` (${v('insta')})` : ''}${v('ville') ? ` · ${v('ville')}` : ''}`, '', v('message')].join('\n');
       if (b.dataset.envoi === 'mail') {
-        b.href = `${b.href.split('?')[0]}?subject=${encodeURIComponent(`Teufy · ${f.dataset.objet}`)}&body=${encodeURIComponent(texte)}`;
+        b.href = `${b.href.split('?')[0]}?subject=${encodeURIComponent(`Teufy · ${f.dataset.objet}${avantage ? ` · ${v('etab')}` : ''}`)}&body=${encodeURIComponent(texte)}`;
         dire(f.dataset.okMail, true);
       } else {
         try { navigator.clipboard?.writeText(texte).catch(() => {}); } catch { /* presse-papiers refusé */ }

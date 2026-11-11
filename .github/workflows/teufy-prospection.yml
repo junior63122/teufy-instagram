@@ -1,0 +1,42 @@
+name: Teufy - Prospection
+
+# Chaque jour ouvré à 9h20 (Paris, heure d'hiver) : nouveaux lieux à démarcher, contacts publiés, envois du jour,
+# relances J+7 / J+14, rapport par e-mail au directeur. Aucune adresse n'apparaît dans les journaux (dépôt public) ;
+# le suivi est chiffré (contenus/prospection.enc).
+on:
+  schedule:
+    - cron: "20 8 * * 1-5"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: teufy-prospection
+  cancel-in-progress: false
+
+jobs:
+  prospection:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY || secrets.GEMINI_KEY || secrets.GOOGLE_API_KEY }}
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY || secrets.CLAUDE_API_KEY }}
+      BREVO_API_KEY: ${{ secrets.BREVO_API_KEY || secrets.BREVO_KEY || secrets.SENDINBLUE_API_KEY }}
+      PROSPECTION_CLE: ${{ secrets.PROSPECTION_CLE }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Prospection du jour
+        run: node src/prospection.mjs
+      - name: Enregistrer le suivi (chiffré)
+        if: always()
+        run: |
+          git config user.name "teufy-bot"
+          git config user.email "teufy-bot@users.noreply.github.com"
+          git add -A -- $(ls -d contenus/prospection.enc contenus/budget-ia.json 2>/dev/null) || true
+          git diff --cached --quiet && exit 0
+          git commit -m "Teufy : prospection du $(date -u +'%F') [skip ci]"
+          for i in 1 2 3; do git pull --rebase -X theirs --autostash && git push && break; git rebase --abort 2>/dev/null; sleep 5; done
