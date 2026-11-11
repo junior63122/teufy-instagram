@@ -598,8 +598,8 @@
   ],
   "prospection": {
     "explication": "Prospection des partenaires (src/prospection.mjs, workflow « Teufy - Prospection », chaque jour ouvré à 9h20). Cible : bars, clubs, organisateurs, anciens partenaires, activités (laser game, bowling, karting…), boutiques de soirée, beauté, restauration. Seulement des contacts professionnels publiés sur le site officiel, vérifiés sur la page. 1er message puis 2 relances (J+7, J+14), jamais le week-end. Suivi chiffré : contenus/prospection.enc. Secrets GitHub requis : BREVO_API_KEY (envoi des e-mails) et PROSPECTION_CLE (une phrase secrète au choix, pour le chiffrement). actif = true pour envoyer vraiment.",
-    "actif": false,
-    "expediteur": "",
+    "actif": true,
+    "expediteur": "contact@teufyparty.com",
     "_expediteur": "Adresse d'envoi validée dans Brevo (idéalement sur le domaine teufyparty.com, ex. contact@teufyparty.com). Vide = config.site.email. Les réponses arrivent toujours sur config.site.email.",
     "nouveaux_par_jour": 40,
     "relances_jours": [
