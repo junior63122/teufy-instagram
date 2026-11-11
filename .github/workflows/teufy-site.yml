@@ -1,0 +1,43 @@
+name: Teufy - Site seulement
+
+# Régénère le site internet seul (carte, transports, parkings, affiches, traductions), sans relever les statistiques
+# Instagram ni publier : utile après une correction, quand le passage complet est trop long.
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: teufy-site
+  cancel-in-progress: false
+
+jobs:
+  site:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY || secrets.GEMINI_KEY || secrets.GOOGLE_API_KEY }}
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY || secrets.CLAUDE_API_KEY }}
+      IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN || secrets.INSTAGRAM_ACCESS_TOKEN }}
+      IG_USER_ID: ${{ secrets.IG_USER_ID || secrets.INSTAGRAM_USER_ID }}
+      IG_API_HOST: ${{ vars.IG_API_HOST || 'graph.facebook.com' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Régénérer le site
+        run: |
+          npm install --no-audit --no-fund >/dev/null 2>&1 || true
+          sudo apt-get install -y --no-install-recommends ffmpeg >/dev/null 2>&1 || true
+          SITE_MINUTES=12 node src/run.mjs site --force
+      - name: Enregistrer
+        run: |
+          git config user.name "teufy-bot"
+          git config user.email "teufy-bot@users.noreply.github.com"
+          git checkout -- contenus/budget-ia.json 2>/dev/null || true
+          git add -A -- $(ls -d contenus index.html 404.html site a-propos soirees-* soiree festivals actus partenaires avantages ambassadeurs bde clubs-bars ce-soir mentions-legales cgu cgv confidentialite dates restaurants activites france occitanie en it es zh ar sitemap.xml robots.txt llms.txt sw.js 2>/dev/null) || true
+          git diff --cached --quiet && exit 0
+          git commit -m "Teufy : site régénéré (passage site seulement)"
+          for i in 1 2 3; do git pull --rebase -X theirs --autostash && git push && break; git rebase --abort 2>/dev/null; sleep 5; done
