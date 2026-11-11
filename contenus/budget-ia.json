@@ -2,6 +2,7 @@
  "mois": "2026-11",
  "jour": "2026-11-11",
  "total": {
+<<<<<<< Updated upstream
   "gemini": 168,
   "anthropic": 6
  },
@@ -11,4 +12,15 @@
  },
  "euros_jour": 2.728,
  "euros_mois": 4.236
+=======
+  "gemini": 158,
+  "anthropic": 1
+ },
+ "aujourdhui": {
+  "gemini": 24,
+  "anthropic": 1
+ },
+ "euros_jour": 0.468,
+ "euros_mois": 1.976
+>>>>>>> Stashed changes
 }
