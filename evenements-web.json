@@ -2733,7 +2733,8 @@
       "buzz_raison": "Sound system 25KW en lieu secret pour les amateurs de tekno.",
       "accroche": "Système son 25KW et lives machines pointus en secret location.",
       "instagram": [
-        "kontakt6tem"
+        "kontakt6tem",
+        "kontakt_6tem"
       ],
       "offres": [
         {
@@ -2741,6 +2742,11 @@
           "url": "https://shotgun.live/fr/events/noise-protocol",
           "prix": 11
         }
+      ],
+      "via_veille": true,
+      "sources_sites": [
+        "Shotgun",
+        "instagram.com"
       ]
     },
     {
@@ -3237,7 +3243,8 @@
         "Roots Reggae",
         "Stepper",
         "Roots",
-        "World Music"
+        "World Music",
+        "Hip-Hop"
       ],
       "description": "",
       "public_cible": 0.8,
@@ -3260,8 +3267,10 @@
       "sources_sites": [
         "Shotgun",
         "nice.fr / Shotgun",
-        "shotgun.live"
-      ]
+        "shotgun.live",
+        "instagram.com"
+      ],
+      "via_veille": true
     },
     {
       "source": "web",
