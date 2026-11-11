@@ -318,7 +318,8 @@
   "llm": {
     "explication": "Claude (secret ANTHROPIC_API_KEY, payant) en premier si payant_autorise = true ; sinon et en secours : Gemini (secret GEMINI_API_KEY, gratuit, recherche Google) puis GitHub Models (gratuit dans GitHub Actions). modele_gemini vide = le meilleur modèle Gemini « flash » disponible, choisi automatiquement.",
     "payant_autorise": true,
-    "secours_payant": true,
+    "secours_payant": false,
+  "_secours_payant": "false (11/11/2026, demande du directeur : limiter les coûts) : les tâches fréquentes (prospection, veille, horaires, billetteries) n'utilisent jamais Claude ; si Gemini est indisponible elles passent par GitHub Models (gratuit) ou attendent le passage suivant",
     "recherche_claude_en_premier": false,
     "modele_claude": "claude-opus-5-5",
     "max_appels_anthropic_jour": 30,

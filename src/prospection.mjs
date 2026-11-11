@@ -113,13 +113,18 @@ async function contactInstagram(p) {
 }
 // Recherche web ciblée (adresse pro publiée), vérifiée en relisant la page source.
 async function contactWeb(p) {
-  const S = { type: 'object', additionalProperties: false, required: ['email', 'source'], properties: { email: { type: 'string' }, source: { type: 'string' } } };
-  const web = await LLM.rechercher({ config, gratuit: true, system: 'Tu cherches une adresse e-mail PROFESSIONNELLE publiée (contact, réservation, gérant), avec la page où elle est écrite. Jamais d\'adresse inventée ou devinée.', prompt: `Adresse e-mail de contact professionnelle de « ${p.nom} »${p.ville ? ` à ${p.ville}` : ''}${p.instagram ? ` (Instagram @${p.instagram})` : ''} : sur son site, sa page Facebook, ses mentions légales ou un annuaire professionnel. Donne l'adresse et l'URL exacte de la page où elle figure.` }).catch(() => null);
+  // Une seule recherche Gemini (pas d'appel d'extraction : les adresses sont lues dans le texte), jamais Claude (coût).
+  const web = await LLM.rechercher({ config, gratuit: true, secondaire: true, system: 'Tu cherches une adresse e-mail PROFESSIONNELLE publiée (contact, réservation, gérant), avec la page où elle est écrite. Jamais d\'adresse inventée ou devinée.', prompt: `Adresse e-mail de contact professionnelle de « ${p.nom} »${p.ville ? ` à ${p.ville}` : ''}${p.instagram ? ` (Instagram @${p.instagram})` : ''} : sur son site, sa page Facebook, ses mentions légales ou un annuaire professionnel. Donne l'adresse et l'URL exacte de la page où elle figure.` }).catch(() => null);
   if (!web) return null;
-  const j = await LLM.json({ config, gratuit: true, nom: 'contact', schema: S, system: 'Tu extrais sans rien inventer.', prompt: `${web}\n\nDonne l'adresse e-mail trouvée et l'URL de la page source (chaînes vides si rien de sûr).` }).catch(() => null);
-  if (!j?.email || !/^https?:\/\//.test(j.source || '')) return null;
-  const html = await page(j.source); // la page doit vraiment contenir l'adresse (Facebook bloque souvent les robots : alors on ne garde pas)
-  return html.toLowerCase().includes(j.email.toLowerCase()) ? { email: j.email.toLowerCase(), source: j.source } : null;
+  const emails = emailsDe(web, p.site || '').slice(0, 3);
+  if (!emails.length) return null;
+  const urls = [...new Set(web.match(/https?:\/\/[^\s)\]"'<>]+/g) || [])].slice(0, 6);
+  for (const u of urls) { // la page doit vraiment contenir l'adresse (Facebook bloque souvent les robots : alors on ne garde pas)
+    const html = (await page(u)).toLowerCase();
+    const e = emails.find((x) => html.includes(x.toLowerCase()));
+    if (e) return { email: e.toLowerCase(), source: u };
+  }
+  return null;
 }
 // Nouveaux lieux par recherche web (catégorie × zone), contacts vérifiés sur la page source.
 async function decouvrir(etat, max) {

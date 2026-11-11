@@ -81,7 +81,7 @@ async function readManual(root) {
   const list = JSON.parse(await readFile(f, 'utf8'));
   return list.filter((e) => e.name && e.start).map((e) => ({
     source: 'teufy', venue: '', city: '', address: '', url: '', image: '', price: null, end: null, ...e,
-    start: new Date(e.start).toISOString(), manuel: true,
+    start: new Date(e.start).toISOString(), ...(e.end ? { end: new Date(e.end).toISOString() } : {}), manuel: true,
   }));
 }
 

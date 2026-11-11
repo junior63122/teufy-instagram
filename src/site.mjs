@@ -140,11 +140,14 @@ async function imageDePartage(url) {
 }
 async function verifier(e, fichier, cache) {
   const k = `v2|${h(`${e.image}|${e.name}`)}`, ancien = cache[h(`${e.image}|${e.name}`)];
+  if (e.manuel) return true; // affiche fournie et vérifiée par l'équipe
   if (cache[k]) return cache[k].ok;
-  // Sans IA disponible (ou plus de temps) : on garde l'ancien verdict s'il existe, sinon on montre l'affiche.
-  if (!tempsOk() || !(process.env.GEMINI_API_KEY || '').trim()) return ancien ? ancien.ok : true;
+  // Sans IA disponible (ou plus de temps) : ancien verdict s'il existe ; sinon on ne montre une affiche non vérifiée que
+  // si elle vient de la billetterie ou de l'organisateur, jamais si c'est la recherche web qui l'a associée (risque
+  // d'affiche d'une autre soirée, cas « La Tocardise » / « Noise Protocol » du 11/11/2026).
+  if (!tempsOk() || !(process.env.GEMINI_API_KEY || '').trim()) return ancien ? ancien.ok : e.source !== 'web';
   const r = await gemini([{ inline_data: { mime_type: 'image/jpeg', data: readFileSync(fichier).toString('base64') } }, { text: 'Lis cette affiche de soirée. Réponds en JSON {"titre":string,"artistes":[string],"lieu":string,"ville":string,"dates":["AAAA-MM-JJ"]}. Recopie seulement ce qui est écrit sur l\'affiche (dates au format AAAA-MM-JJ, année 2026 ou 2027 si elle n\'est pas écrite ; tableau vide si aucune date). Chaîne vide si absent.' }]);
-  if (!r || typeof r !== 'object') return ancien ? ancien.ok : true; // lecture impossible : ancien verdict, sinon on montre l'affiche
+  if (!r || typeof r !== 'object') return ancien ? ancien.ok : e.source !== 'web'; // lecture impossible : même règle
   const jour = cle(e.start), j = Date.parse(`${jour}T12:00:00Z`);
   const dates = (r.dates || []).filter((d) => /^\d{4}-\d{2}-\d{2}$/.test(d));
   const dateOk = !dates.length || dates.some((d) => Math.abs(Date.parse(`${d}T12:00:00Z`) - j) <= 864e5);
@@ -596,9 +599,12 @@ export async function construireSite({ events, eventsFrance = [], eventsOccitani
     let affiche = '', dims = null;
     if (e.image) {
       const f = path.join(SITE, 'affiches', `${h(e.image)}.jpg`);
-      if (!existsSync(f) && versionGrande(e.image) !== e.image) await telecharger(versionGrande(e.image), f);
+      // Affiche officielle fournie par l'équipe (fichier du dépôt, publié sur teufyparty.com) : lue directement.
+      const rel = e.image.replace(/^https:\/\/teufyparty\.com\//, ''), locale = !/^https?:\/\//.test(rel) && existsSync(path.join(ROOT, rel)) ? path.join(ROOT, rel) : '';
+      if (locale && !existsSync(f)) spawnSync('ffmpeg', ['-v', 'error', '-y', '-i', locale, '-vf', "scale='min(1080,iw)':-2", '-q:v', '3', f]);
+      else if (!existsSync(f) && versionGrande(e.image) !== e.image) await telecharger(versionGrande(e.image), f);
       else if (tempsOk() && await agrandirAffiche(e.image, f)) log(`Site : affiche agrandie pour « ${e.name} »`);
-      if (existsSync(f) || await telecharger(e.image, f)) {
+      if (existsSync(f) || (!locale && /^https?:\/\//.test(e.image) && await telecharger(e.image, f))) {
         if (await verifier(e, f, cache)) { affiche = `site/affiches/${path.basename(f)}`; dims = tailleJpeg(f); webp(f, 480); webp(f, 800); webp(f, 1080); }
         else log(`Site : affiche écartée (ne correspond pas) pour « ${e.name} »`);
       }

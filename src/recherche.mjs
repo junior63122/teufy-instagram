@@ -225,7 +225,9 @@ export function fusionner(liste) {
     const prev = out.find((x) => memeSoiree(x, e));
     if (!prev) { out.push({ ...e }); continue; }
     // On garde la version la plus fiable et on complète les champs vides.
-    const [garde, autre] = (e.confiance ?? 0) > (prev.confiance ?? 0) ? [{ ...e }, prev] : [prev, e];
+    // Une soirée saisie à la main par l'équipe (vérifiée) l'emporte toujours sur ce que la recherche web a trouvé.
+    const rang = (x) => (x.manuel ? 2 : 0) + (x.confiance ?? 0);
+    const [garde, autre] = rang(e) > rang(prev) ? [{ ...e }, prev] : [prev, e];
     for (const k of Object.keys(autre)) if ((garde[k] == null || garde[k] === '' || (Array.isArray(garde[k]) && !garde[k].length)) && autre[k] != null) garde[k] = autre[k];
     garde.instagram = [...new Set([...(garde.instagram || []), ...(autre.instagram || [])])].slice(0, 3);
     garde.tags = [...new Set([...(garde.tags || []), ...(autre.tags || [])])];

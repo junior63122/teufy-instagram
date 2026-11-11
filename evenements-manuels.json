@@ -1,15 +1,27 @@
 [
  {
   "name": "La Tocardise",
-  "start": "2026-11-14T23:59:00+01:00",
+  "start": "2026-11-14T23:00:00+01:00",
+  "end": "2026-11-15T05:00:00+01:00",
+  "venue": "Green Musik",
+  "city": "Antibes",
+  "address": "11 bis avenue du 11 Novembre, 06600 Antibes",
   "url": "https://shotgun.live/events/la-tocardise-14-11-2026",
+  "image": "https://teufyparty.com/contenus/affiches-manuelles/la-tocardise-14-11-2026.jpg",
+  "price": 12,
   "instagram": [
    "_lestocards_"
   ],
   "organisateur": "Les Tocards",
   "tags": [
+   "techno",
+   "psytrance",
+   "hard trance",
    "collectif"
   ],
-  "_note": "Ajoutée à la demande du directeur le 11/11/2026. Lieu, heure et prix à compléter (page Shotgun protégée contre les robots) : le robot les lit sur l'Instagram de l'organisateur."
+  "accroche": "Les Tocards au Green Musik : techno, psytrance et hard trance de 23h à 5h avec Hug'ette, Krad, Néodyme, Minimel et Art Winder.",
+  "description": "La Tocardise par Les Tocards. Line-up : Hug'ette, Krad, Néodyme, Minimel, Art Winder. Techno, psytrance, hard trance. Samedi 14/11, 23h - 5h, Green Musik, 11 bis avenue du 11 Novembre, Antibes. Billets sur Shotgun : 12 € (tarif early à 9 € épuisé).",
+  "confiance": 1,
+  "_note": "Corrigée le 11/11/2026 d'après la page Shotgun et l'affiche officielle envoyées par le directeur (la recherche web avait associé l'affiche d'une autre soirée)."
  }
 ]
