@@ -118,10 +118,9 @@
   "ia": true
  },
  "green musik|antibes": {
-  "introuvable": true,
-  "v": 2,
-  "le": "2026-11-08T22:08:31.284Z",
-  "ia": true
+  "lat": 43.58755,
+  "lng": 7.12239,
+  "le": "2026-11-11T15:02:38.888Z"
  },
  "bocca mar|nice": {
   "lat": 43.6945,
