@@ -167,7 +167,7 @@ async function controlerPage(p, nom, u) {
         }); } };
       for (const [mode, fermer] of Object.entries(fermetures)) {
         const y0 = await p.evaluate(() => scrollY);
-        await p.locator('.onglets [data-chercher]').click(); await p.waitForTimeout(400);
+        await p.evaluate(() => scrollBy(0, -80)); await p.waitForTimeout(350); await p.locator('.onglets [data-chercher]').click(); await p.waitForTimeout(400);
         ok(await p.locator('.feuille-filtres').count() === 1, `mobile : la feuille de filtres ne s'ouvre pas (${mode})`);
         await defiler(p, 600); await p.waitForTimeout(150);
         ok(await p.evaluate(() => document.documentElement.classList.contains('bloque')), `mobile : la page derrière la feuille n'est pas bloquée (${mode})`);
@@ -252,6 +252,17 @@ async function controlerPage(p, nom, u) {
       ok(await p.locator('.form-contact b').count() === 0, `${nom} ${pg} : du HTML saisi a été interprété`);
     }
     } catch (e) { echecs.push(`${nom} : étape interrompue (${e.message.split('\n')[0]} @l.${(String(e.stack).match(/tester-site\.cjs:(\d+)/) || [])[1] || '?'})`); }
+    // --- Favoris : une soirée passée ne compte plus (pas de « 1 » fantôme), un favori d'une autre page reste accessible ---
+    try {
+    await p.goto(B, { waitUntil: 'load' });
+    const occ = await p.evaluate(async () => ((await (await fetch('occitanie/')).text()).match(/data-id="([^"]+)"/) || [])[1]);
+    await p.evaluate((o) => localStorage.setItem('teufy-favoris', JSON.stringify(['vieille-soiree-2020-01-01', ...(o ? [o] : [])])), occ);
+    await p.reload({ waitUntil: 'load' }); await p.waitForTimeout(300);
+    ok(!(await p.evaluate(() => localStorage.getItem('teufy-favoris'))).includes('2020-01-01'), `${nom} : une soirée passée reste dans les favoris`);
+    const choisir = async (f, v) => { const d = p.locator(`.filtres details[data-bloc="${f}"]`); if (await d.count() && !(await d.evaluate((x) => x.open))) { await d.locator('summary').click(); await p.waitForTimeout(120); } await p.locator(`.filtres [data-filtre="${f}"] [data-v="${v}"]`).click(); await p.waitForTimeout(300); };
+    if (occ) { await choisir('quand', 'favoris'); ok(await p.locator('.fav-ailleurs a').count() === 1, `${nom} : un favori d'une autre page n'est pas proposé`); await choisir('quand', 'tout'); }
+    await p.evaluate(() => localStorage.removeItem('teufy-favoris'));
+    } catch (e) { echecs.push(`${nom} : étape interrompue (${e.message.split('\n')[0]} @l.${(String(e.stack).match(/tester-site\.cjs:(\d+)/) || [])[1] || '?'})`); }
     // --- Navigation : barre d'onglets + menu plein écran (mobile), listes déroulantes (ordinateur), tarifs, retour en haut ---
     try {
     await p.goto(B + 'soirees-nice/', { waitUntil: 'load' }); await p.waitForTimeout(300);
@@ -266,7 +277,7 @@ async function controlerPage(p, nom, u) {
       ok(!(await p.locator('#menu').isVisible()), `${nom} : Échap ne ferme pas le menu`);
       await p.locator('.onglets [data-menu]').click(); await p.waitForTimeout(200); await p.locator('#menu .menu-x').click(); await p.waitForTimeout(200);
       ok(!(await p.locator('#menu').isVisible()), `${nom} : la croix ne ferme pas le menu`);
-      await p.locator('.onglets [data-chercher]').click(); await p.waitForTimeout(400);
+      await p.evaluate(() => scrollBy(0, -80)); await p.waitForTimeout(350); await p.locator('.onglets [data-chercher]').click(); await p.waitForTimeout(400);
       ok(await p.locator('.feuille-filtres').isVisible() && await p.evaluate(() => document.activeElement?.type === 'search'), `${nom} : « Chercher » n'ouvre pas la recherche et les filtres`);
       await p.keyboard.press('Escape'); await p.waitForTimeout(300);
       await p.locator('.onglets [data-menu]').click(); await p.waitForTimeout(200); await p.locator('#menu a[href$="partenaires/#tarifs"]').first().click(); await p.waitForURL(/partenaires\/#tarifs/); await p.waitForTimeout(500);

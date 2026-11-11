@@ -53,7 +53,7 @@ const visibles = (p) => p.locator('.liste .carte:not([hidden])').count();
     const c = await b.newContext({ ...devices['iPhone 13'] }); const p = await c.newPage(); erreurs(p, 'rotation');
     await p.goto(B); await p.locator('.liste .jour:not([hidden])').nth(2).scrollIntoViewIfNeeded(); await p.waitForTimeout(300);
     // Mobile : la recherche et les filtres s'ouvrent depuis l'onglet « Chercher » de la barre du bas, où qu'on soit.
-    await p.locator('.onglets [data-chercher]').click(); await p.waitForTimeout(300);
+    await p.evaluate(() => scrollBy(0, -80)); await p.waitForTimeout(350); await p.locator('.onglets [data-chercher]').click(); await p.waitForTimeout(300);
     ok(await p.locator('.feuille-filtres').count() === 1, 'rotation : l\'onglet « Chercher » n\'ouvre pas la feuille de filtres');
     await p.setViewportSize({ width: 1024, height: 700 }); await p.waitForTimeout(400);
     ok(await p.locator('.feuille-filtres').count() === 0 && await p.locator('.filtres-place .filtres').count() === 1, 'rotation : la feuille reste ouverte ou les filtres sont perdus en passant en grand écran');

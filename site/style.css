@@ -715,9 +715,9 @@ details[data-bloc="tri"]>.groupe{inset-inline-start:auto;inset-inline-end:0}
 /* Transitions entre les pages (navigateurs récents) : fondu court ; rien si l'utilisateur réduit les mouvements */
 @view-transition{navigation:auto}
 ::view-transition-old(root){animation:vt-sortie .18s ease both}
-::view-transition-new(root){animation:vt-entree .28s cubic-bezier(.2,.8,.2,1) both}
+::view-transition-new(root){animation:vt-entree .22s ease both}
 @keyframes vt-sortie{to{opacity:0}}
-@keyframes vt-entree{from{opacity:0;transform:translateY(8px)}}
+@keyframes vt-entree{from{opacity:0}}
 @media(prefers-reduced-motion:reduce){@view-transition{navigation:none}}
 /* Accueil : les jours de l'agenda hors écran ne sont pas dessinés (moins de travail pour le téléphone) */
 .liste .jour{content-visibility:auto;contain-intrinsic-size:auto 1200px}
@@ -1305,3 +1305,23 @@ footer{max-width:1240px}
   .fiche-affiche>img{display:block;max-height:52vh;width:auto;max-width:100%;margin-inline:auto;object-fit:contain}
   .fiche-affiche:has(>.affiche-fiche){max-height:none}
 }
+/* Changement de page : en-tête, menu et barre d'onglets ne bougent pas (seul le contenu change, fondu court). */
+.nav{view-transition-name:nav}.onglets{view-transition-name:onglets}
+::view-transition-old(nav),::view-transition-new(nav),::view-transition-old(onglets),::view-transition-new(onglets){animation:none}
+/* Barre d'onglets plus légère : plus fine, et elle s'efface quand on descend pour lire, revient dès qu'on remonte. */
+.onglets{padding:4px 6px calc(4px + env(safe-area-inset-bottom));transition:transform .28s cubic-bezier(.2,.8,.2,1)}
+.onglets a{min-height:48px;gap:2px;font-size:11px}
+.onglets svg{width:22px;height:22px}
+html.onglets-caches .onglets{transform:translateY(105%)}
+@media(max-width:759px){
+  body{padding-bottom:calc(64px + env(safe-area-inset-bottom))}
+  .haut,.barre-billets{transition:bottom .28s cubic-bezier(.2,.8,.2,1),transform .3s,opacity .3s}
+  html.onglets-caches .haut{bottom:calc(18px + env(safe-area-inset-bottom))}
+  html.onglets-caches .barre-billets{bottom:calc(12px + env(safe-area-inset-bottom))}
+  .barre-billets{bottom:calc(70px + env(safe-area-inset-bottom))}
+  .haut{bottom:calc(76px + env(safe-area-inset-bottom))}
+}
+/* Favoris enregistrés sur d'autres pages */
+.fav-ailleurs{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:4px 0 16px}
+.fav-ailleurs p{flex-basis:100%;margin:0 0 4px;font-weight:700;color:#cfc9bf}
+.fav-ailleurs a{display:inline-flex;align-items:center;min-height:44px;padding:10px 16px;border-radius:999px;background:var(--nuit2);border:1px solid #ffffff22;text-decoration:none;font-weight:700}

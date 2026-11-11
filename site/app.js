@@ -201,6 +201,12 @@
   const etat = { quand: 'tout', prix: 'tout', tri: 'date', date: '', ville: new Set(), style: new Set(), acces: new Set(), q: '', qBrut: '' };
   let favoris = new Set();
   try { favoris = new Set(JSON.parse(localStorage.getItem('teufy-favoris') || '[]')); } catch { /* stockage indisponible */ }
+  // Favoris : nom et lien gardés à l'enregistrement (pour les montrer depuis n'importe quelle page) ; les soirées
+  // passées (date à la fin de l'identifiant, ou carte terminée sur cette page) sont retirées automatiquement.
+  let favInfo = {};
+  try { favInfo = JSON.parse(localStorage.getItem('teufy-favoris-info') || '{}') || {}; } catch { /* privé */ }
+  const sauverFav = () => { try { localStorage.setItem('teufy-favoris', JSON.stringify([...favoris])); localStorage.setItem('teufy-favoris-info', JSON.stringify(Object.fromEntries([...favoris].filter((id) => favInfo[id]).map((id) => [id, favInfo[id]])))); } catch { /* privé */ } };
+  { const avant = favoris.size; for (const id of [...favoris]) { const j = (id.match(/(\d{4}-\d{2}-\d{2})(?:-\d+)?$/) || [])[1]; if (j && j < auj) favoris.delete(id); } finies.forEach((c) => favoris.delete(c.dataset.id)); if (favoris.size !== avant) sauverFav(); }
   let position = null; // position du visiteur (« Près de moi »), jamais envoyée nulle part
   const RAYON = 10; // km
   const distanceKm = (c) => {
@@ -271,7 +277,16 @@
     document.querySelectorAll('.liste .jour').forEach((j) => { j.hidden = !j.querySelector('.carte:not([hidden])'); });
     // Vue « Favoris » : un bouton pour envoyer sa liste à ses potes (un simple lien).
     let pl = document.querySelector('.partager-liste');
-    if (etat.quand === 'favoris' && favoris.size && document.querySelector('.liste')) {
+    let ailleurs = document.querySelector('.fav-ailleurs');
+    const horsPage = etat.quand === 'favoris' ? [...favoris].filter((id) => !cartes.some((c) => c.dataset.id === id)) : [];
+    if (horsPage.length && document.querySelector('.liste')) {
+      if (!ailleurs) { ailleurs = document.createElement('div'); ailleurs.className = 'fav-ailleurs'; document.querySelector('.liste').before(ailleurs); }
+      const nomDe = (id) => favInfo[id]?.nom || id.replace(/-\d{4}-\d{2}-\d{2}(-\d+)?$/, '').replace(/-/g, ' ').replace(/^./, (c) => c.toUpperCase());
+      const lienDe = (id) => favInfo[id]?.url || `${T.base}${T.langue && T.langue !== 'fr' ? T.langue + '/' : ''}soiree/${id}/`;
+      ailleurs.replaceChildren(Object.assign(document.createElement('p'), { textContent: T.favAilleurs || 'Tes autres favoris :' }), ...horsPage.map((id) => { const a = document.createElement('a'); a.href = lienDe(id); a.textContent = `♥ ${nomDe(id)}`; return a; }));
+      ailleurs.hidden = false;
+    } else if (ailleurs) ailleurs.hidden = true;
+    if (etat.quand === 'favoris' && (visibles || horsPage.length) && document.querySelector('.liste')) {
       if (!pl) { pl = document.createElement('button'); pl.type = 'button'; pl.className = 'bouton petit partager-liste'; pl.textContent = `↗ ${T.partagerListe}`;
         pl.addEventListener('click', async () => { const url = `${location.origin}${location.pathname}?liste=${[...favoris].slice(0, 60).join(',')}`;
           if (navigator.share) { try { await navigator.share({ title: 'Teufy', url }); return; } catch { return; } }
@@ -396,8 +411,12 @@
     const b = ev.target.closest('.coeur'); if (!b) return;
     ev.preventDefault();
     const id = b.closest('[data-id]')?.dataset.id; if (!id) return;
-    if (favoris.has(id)) favoris.delete(id); else { favoris.add(id); toast(T.ajoute); }
-    try { localStorage.setItem('teufy-favoris', JSON.stringify([...favoris])); } catch { /* navigation privée */ }
+    if (favoris.has(id)) favoris.delete(id); else {
+      favoris.add(id); toast(T.ajoute);
+      const k = b.closest('[data-id]'), a = k.querySelector('h3 a, h1');
+      favInfo[id] = { nom: (k.querySelector('h3, h1')?.textContent || '').trim().slice(0, 90), url: a?.href || location.href, jour: k.dataset.jour || '' };
+    }
+    sauverFav();
     majCoeurs(); b.classList.remove('pop'); void b.offsetWidth; b.classList.add('pop');
     // Dans la vue « Favoris », une soirée retirée reste visible (estompée) jusqu'au prochain changement de filtre :
     // pas de saut de mise en page sous le doigt, et on peut la remettre d'un tap.
@@ -494,6 +513,9 @@
       if (Math.abs(d) > 6) { versLeBas = d > 0; dernierY = y; }
       majFlottant(); if (haut) haut.hidden = y < Math.max(900, innerHeight * 1.5);
       document.documentElement.classList.toggle('defile-bas', versLeBas && y > 300);
+      // Barre d'onglets : cachée en descendant (lecture), revient en remontant ou en bas de page.
+      const enBas = innerHeight + y >= document.documentElement.scrollHeight - 40;
+      document.documentElement.classList.toggle('onglets-caches', versLeBas && y > 300 && !enBas && !document.documentElement.classList.contains('menu-ouvert'));
     });
   }, { passive: true });
 
