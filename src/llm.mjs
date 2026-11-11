@@ -28,7 +28,16 @@ function lireBudget() {
 }
 // IA dont le compte est à sec (HTTP 402 / crédits épuisés) : plus appelée pendant ce passage (évite des centaines d'échecs).
 const aSec = new Set();
-export const marquerASec = (f, err) => { if (err?.status === 402 || /prepayment credits|credit balance is too low|RESOURCE_EXHAUSTED/i.test(String(err?.message || ''))) { if (!aSec.has(f)) console.error(`Budget IA : ${f} sans crédit, plus appelé pendant ce passage.`); aSec.add(f); } };
+export const marquerASec = (f, err) => {
+  const m = String(err?.message || '');
+  const credit = err?.status === 402 || /prepayment credits|credit balance is too low/i.test(m);
+  const quota = !credit && (err?.status === 429 || /RESOURCE_EXHAUSTED/i.test(m)); // limite d'appels par minute ou par jour, PAS un manque de crédit
+  if (quota) { if (!aQuota.has(f)) console.error(`IA ${f} : limite d'appels atteinte (HTTP ${err?.status || 429}, quota, pas un manque de crédit) : on continue, l'appel suivant passera.`); aQuota.add(f); return; }
+  if (!credit) return;
+  if (!aSec.has(f)) console.error(`Budget IA : ${f} sans crédit (HTTP 402), plus appelé pendant ce passage.`);
+  aSec.add(f);
+};
+const aQuota = new Set();
 // secondaire = tâche qui peut attendre (veille, horaires des lieux) : elle s'arrête à 75 % du budget du jour, pour que
 // les tâches essentielles (soirées du site, publications) gardent toujours de quoi tourner.
 export function budgetOk(f, L = {}, secondaire = false) { // L est réaffecté pour Gemini (budget propre)
