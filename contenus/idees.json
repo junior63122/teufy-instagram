@@ -306,5 +306,16 @@
   "resume": "Le festival This Is Not A Love Song a ouvert sa billetterie anticipée avec des Blind Pass à tarif gelé. Le pass week-end est fixé à 70 euros avant la hausse de prix prévue lors de l'annonce des premiers artistes début 2027.",
   "source": "https://paloma-nimes.fr/",
   "importance": 52
+ },
+ {
+  "id": "idee-1kirw34",
+  "ajout": "2026-11-11T13:11:52.341Z",
+  "type": "actu",
+  "format": "carrousel-decryptage",
+  "titre": "Alcoolémie au volant : rappel des règles pour les jeunes permis",
+  "angle": "Ce que risquent concrètement les jeunes conducteurs en rentrant de soirée en cas de contrôle ou de refus de souffler.",
+  "resume": "À l'occasion des sorties nocturnes, un rappel juridique a été publié concernant les contrôles d'alcoolémie sur les routes. Le seuil légal demeure fixé à 0,20 g/l pour les permis probatoires, et refuser un contrôle expose immédiatement aux peines maximales prévues par la loi.",
+  "source": "https://www.legifrance.gouv.fr/",
+  "importance": 65
  }
 ]
