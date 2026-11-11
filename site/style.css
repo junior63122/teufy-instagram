@@ -1447,3 +1447,11 @@ html.onglets-caches .onglets{transform:translateY(105%)}
   .carte.solo-large .infos{justify-content:center;padding:32px 34px}
   .carte.solo-large h3{font-size:clamp(30px,2.6vw,42px)}
 }
+/* « Pros » et « Teufy » dans la barre du haut (ordinateur) ; sur mobile ils restent dans le menu plein écran. */
+.barre-droite .nav-haut{display:none}
+@media(min-width:760px){
+  .barre-droite .nav-haut{display:block;margin:0}
+  .barre-droite .nav-haut summary{font-size:14px;padding:8px 14px}
+  .barre-droite .nav-haut.g-pros{margin-inline-end:2px}
+  .barre-droite .nav-haut>div{inset-inline-start:auto;inset-inline-end:0;text-align:start}
+}

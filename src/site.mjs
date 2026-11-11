@@ -1105,6 +1105,11 @@ ${ld.length ? `<script type="application/ld+json">${JSON.stringify(ld).replace(/
 <header class="barre">
   <a class="marque" href="${accueil || './'}" aria-label="Teufy"><img src="${base}site/img/logo-96.webp" alt="Teufy" width="39" height="32"></a>
   <div class="barre-droite">
+    ${(() => { // Ordinateur : « Pros » et « Teufy » dans la barre du haut, à part des rubriques pour sortir.
+      const G = Object.fromEntries(groupesNav({ t, lang, SA }).map((g) => [g[0], g]));
+      return ['pros', 'teufy'].map((cle) => { const [, titreG, liens] = G[cle]; const actif = liens.some(([d]) => d && chemin.startsWith(d.split('#')[0]));
+        return `<details class="nav-groupe nav-haut g-${cle}${actif ? ' actif' : ''}"><summary>${esc(titreG)}</summary><div>${liens.map(([d, n]) => `<a href="${accueil}${d}"${d === chemin ? ' aria-current="page"' : ''}>${esc(n)}</a>`).join('')}</div></details>`; }).join('');
+    })()}
     <a class="loupe" href="${agendaIci ? '' : accueil}#recherche" aria-label="${esc(t.rechercher)}"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M15.5 15.5 21 21" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></a>
     <details class="langues"><summary><span class="vh">${esc(t.langue)} : </span>${lang.toUpperCase()}</summary><div>${LANGUES.map((l) => `<a href="${base}${pre(l)}${chemin}" hreflang="${l}" lang="${l}"${l === lang ? ' aria-current="true"' : ''}>${esc(TXT[l].nom)}</a>`).join('')}</div></details>
     <a class="ig" href="https://www.instagram.com/${esc(handle)}/" target="_blank" rel="noopener" aria-label="Instagram ${esc(compte)}"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="17.4" cy="6.6" r="1.3" fill="currentColor"/></svg></a>
@@ -1118,7 +1123,7 @@ ${ld.length ? `<script type="application/ld+json">${JSON.stringify(ld).replace(/
       const L = LIB_NAV[lang] || LIB_NAV.fr, par = Object.fromEntries(G.map((g) => [g[0], g]));
       // Styles rangés dans « Sortir » (menu plus court) ; Ce soir à part (le plus demandé).
       const sortir = ['sortir', L.sortir, [...par.sortir[2].filter(([d]) => d !== 'ce-soir/'), ...par.styles[2]]];
-      return `${lien(['', L.agenda])}${lien(['ce-soir/', t.js.ceSoir])}${groupe(par.villes)}${groupe(sortir)}${groupe(par.lieux)}${groupe(par.pros)}${groupe(par.teufy)}`; })()}</nav>
+      return `${lien(['', L.agenda])}${lien(['ce-soir/', t.js.ceSoir])}${groupe(par.villes)}${groupe(sortir)}${groupe(par.lieux)}`; })()}</nav>
 ${SA ? `<a class="bandeau-saison" href="${accueil}${SA.slug}/"><span aria-hidden="true">${SA.emoji}</span> <b>${esc(SA.nom[lang] || SA.nom.fr)}</b> · ${esc(t.toutes)} <span aria-hidden="true">→</span></a>` : ''}
 <main id="contenu">
 ${typo(corps, lang)}

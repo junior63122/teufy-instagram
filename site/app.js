@@ -842,7 +842,7 @@
     const nActus = surActus ? 0 : (N.actus || []).filter((d) => d > depuis).length;
     if (nActus) {
       document.querySelectorAll('.nb-actus').forEach((b) => { b.textContent = nActus > 9 ? '9+' : nActus; b.hidden = false; });
-      document.querySelectorAll('.nav a[href$="actus/"], .menu-complet a[href$="actus/"], .nav .g-teufy>summary').forEach((a) => pastille(a, nActus, 'n-actus'));
+      document.querySelectorAll('.nav-haut a[href$="actus/"], .menu-complet a[href$="actus/"], .g-teufy>summary').forEach((a) => pastille(a, nActus, 'n-actus'));
     }
   } catch { /* données absentes : pas de pastille */ }
   const majNbFav = () => document.querySelectorAll('.nb-fav:not(.nb-soir):not(.nb-actus)').forEach((b) => { b.textContent = favoris.size; b.hidden = !favoris.size; });
