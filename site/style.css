@@ -1417,3 +1417,33 @@ html.onglets-caches .onglets{transform:translateY(105%)}
 .sugg-deco img:nth-child(2){transform:translateY(-6px);z-index:1}
 .sugg-deco img:nth-child(3){transform:rotate(8deg) translateX(-18%)}
 .carte-suggestion small,.carte-suggestion b,.carte-suggestion em{position:relative;z-index:2}
+/* Journée courte (moins de soirées que de colonnes) : tuile de date à gauche qui complète la rangée. */
+@media(min-width:640px){
+  .jour.jour-court{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:stretch}
+  .jour.jour-court>.grille{display:contents}
+  .jour.jour-court>h2{margin:0;display:flex;flex-direction:column;justify-content:flex-end;gap:10px;min-height:260px;padding:28px;border-radius:22px;background:radial-gradient(120% 90% at 100% 0%,#ff5a3c40,transparent 60%),var(--nuit2);border:1px solid #ffffff1a;font-size:clamp(34px,3.4vw,52px);line-height:.95}
+  .jour.jour-court>h2::after{content:attr(data-n);font-family:var(--texte,inherit);font-size:15px;font-weight:800;letter-spacing:.02em;color:var(--corail)}
+}
+@media(min-width:980px){.jour.jour-court{grid-template-columns:1fr 1fr 1fr}}
+/* « Ta nuit complète » (fiche soirée) */
+.nuit-complete{margin:22px 0;padding:22px;border-radius:20px;background:#ffffff0a;border:1px solid #ffffff1a;display:grid;gap:16px}
+.nuit-complete h2{font-size:clamp(24px,2.6vw,32px);margin:0}
+.nuit-complete ul{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:8px}
+.nuit-complete li a{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 14px;border-radius:14px;background:#ffffff0d;text-decoration:none;color:inherit;min-height:44px;transition:background .2s}
+.nuit-complete li a:hover{background:#ffffff1a}
+.nuit-complete li small{color:#c8c8d0;font-size:13px;white-space:nowrap}
+.nuit-complete .petit{margin:0;color:#b8b2a8;font-size:12.5px}
+.fiche-actions .whatsapp::before{content:"";display:inline-block;width:18px;height:18px;margin-inline-end:8px;vertical-align:-3px;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.6 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1a17 17 0 0 1-1.7-.6 13.5 13.5 0 0 1-5.2-4.6c-.4-.5-1.2-1.7-1.2-3.2s.8-2.3 1.1-2.6c.3-.3.6-.4.8-.4h.6c.2 0 .5 0 .7.5l1 2.4c.1.2.1.4 0 .6l-.4.6-.5.5c-.2.2-.3.4-.1.7.2.3.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.9 1.7.3.2.5.1.7-.1l.9-1.1c.2-.3.5-.3.8-.2l2.3 1.1c.3.2.5.2.6.4.1.1.1.8-.2 1.6z'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.6 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1a17 17 0 0 1-1.7-.6 13.5 13.5 0 0 1-5.2-4.6c-.4-.5-1.2-1.7-1.2-3.2s.8-2.3 1.1-2.6c.3-.3.6-.4.8-.4h.6c.2 0 .5 0 .7.5l1 2.4c.1.2.1.4 0 .6l-.4.6-.5.5c-.2.2-.3.4-.1.7.2.3.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.9 1.7.3.2.5.1.7-.1l.9-1.1c.2-.3.5-.3.8-.2l2.3 1.1c.3.2.5.2.6.4.1.1.1.8-.2 1.6z'/%3E%3C/svg%3E") center/contain no-repeat}
+@media(min-width:640px){
+  .jour.jour-court>h2{justify-content:center;align-items:flex-start;gap:4px;overflow:hidden;position:relative}
+  .jc-jour{font-size:clamp(22px,2.2vw,30px);text-transform:capitalize;color:var(--corail)}
+  .jc-num{font-size:clamp(140px,16vw,260px);line-height:.8;letter-spacing:-.03em}
+  .jc-mois{font-size:clamp(26px,2.6vw,38px);text-transform:capitalize;opacity:.9}
+  .jour.jour-court>h2::after{margin-top:10px}
+}
+@media(min-width:980px){
+  .carte.solo-large{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr)}
+  .carte.solo-large .affiche{aspect-ratio:auto;height:100%;min-height:100%}
+  .carte.solo-large .infos{justify-content:center;padding:32px 34px}
+  .carte.solo-large h3{font-size:clamp(30px,2.6vw,42px)}
+}

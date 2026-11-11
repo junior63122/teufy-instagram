@@ -37,6 +37,29 @@
       conteneur.append(a);
     }
   };
+  // Journées avec moins de soirées que de colonnes (ordinateur, tablette) : le titre devient une tuile de date qui
+  // complète la rangée (plus de trou à droite).
+  const jourCourts = () => document.querySelectorAll('.jour').forEach((j) => {
+    const g = j.querySelector('.grille'), h = j.querySelector('h2'); if (!g || !h) return;
+    j.classList.remove('jour-court'); h.style.gridColumn = ''; j.querySelectorAll('.solo-large').forEach((c) => { c.classList.remove('solo-large'); c.style.gridColumn = ''; });
+    if (h.dataset.titre && h.querySelector('.jc-num')) { h.textContent = h.dataset.titre; h.removeAttribute('aria-label'); } // titre d'origine si la journée redevient pleine
+    if (j.hidden) return;
+    const cols = getComputedStyle(g).gridTemplateColumns.split(' ').length;
+    const n = [...g.children].filter((c) => !c.hidden && !c.classList.contains('plus-loin') && getComputedStyle(c).display !== 'none').length;
+    if (cols < 2 || !n || n >= cols) return;
+    const nCartes = g.querySelectorAll('.carte:not([hidden]):not(.plus-loin)').length;
+    j.classList.add('jour-court');
+    // Une seule soirée sur 3 colonnes : tuile de date (1 colonne) + la soirée en grand format horizontal (2 colonnes).
+    const seule = n === 1 && cols >= 3 && g.querySelector('.carte:not([hidden]):not(.plus-loin)');
+    if (seule) { seule.classList.add('solo-large'); seule.style.gridColumn = `span ${cols - 1}`; } else h.style.gridColumn = `span ${cols - n}`;
+    if (!h.querySelector('.jc-num') && j.dataset.jour) { // tuile façon calendrier : jour, grand chiffre, mois
+      const d = new Date(`${j.dataset.jour}T12:00:00Z`), f = (o) => new Intl.DateTimeFormat(T.locale || 'fr-FR', { timeZone: 'UTC', ...o }).format(d);
+      h.dataset.titre = h.textContent.trim(); h.setAttribute('aria-label', h.dataset.titre);
+      h.replaceChildren(...[['jc-jour', f({ weekday: 'long' })], ['jc-num', f({ day: 'numeric' })], ['jc-mois', f({ month: 'long' })]].map(([c, x]) => Object.assign(document.createElement('span'), { className: c, textContent: x })));
+    }
+    h.dataset.n = nCartes === 1 ? (T.soiree || '1') : (T.soirees || '{n}').replace('{n}', nCartes);
+  });
+  addEventListener('resize', () => { clearTimeout(jourCourts.t); jourCourts.t = setTimeout(jourCourts, 150); }, { passive: true });
   const toast = (m) => { const t = document.querySelector('.toast'); if (!t || !m) return; t.textContent = m; t.hidden = false; clearTimeout(toast.t); toast.t = setTimeout(() => { t.hidden = true; }, 2600); };
 
   // Menu : la rubrique ouverte est centrée dans la barre (on sait où l'on est, même au fond du menu).
@@ -351,6 +374,7 @@
     trier();
     paginer();
     document.querySelectorAll('.liste .jour').forEach((j) => suggerer(j.querySelector('.grille'), j.dataset.jour === auj && !j.hidden && etat.tri === 'date' ? j.querySelectorAll('.carte:not([hidden]):not(.plus-loin)').length : 0));
+    jourCourts();
     majCompris();
     animerCartes();
   };

@@ -320,6 +320,13 @@ async function controlerPage(p, nom, u) {
     ok(await p.locator('.compris:not([hidden])').count() === 0, `${nom} : un nom de soirée est pris pour des filtres`);
     const N = await p.evaluate(() => JSON.parse(document.querySelector('.onglets')?.dataset.notif || '{}'));
     ok(N.soirs && Array.isArray(N.actus), `${nom} : données des pastilles absentes`);
+    // Agenda : aucune rangée trouée (journée courte = tuile de date) ; fiche : bouton WhatsApp avec lien de la soirée.
+    if ((p.viewportSize()?.width || 0) >= 980) { await p.goto(B + 'soirees-nice/', { waitUntil: 'load' }); await p.waitForTimeout(400);
+      const trous = await p.evaluate(() => [...document.querySelectorAll('.liste .jour:not([hidden])')].filter((j) => { const g = j.querySelector('.grille'); const n = [...g.children].filter((c) => !c.hidden && getComputedStyle(c).display !== 'none').length; return n && n < 3 && !j.classList.contains('jour-court'); }).length);
+      ok(trous === 0, `${nom} : ${trous} journée(s) de l'agenda avec un trou dans la rangée`);
+      await p.goto(B, { waitUntil: 'load' }); }
+    const wa = await p.evaluate(async (B) => { const r = await fetch(B + 'soiree/la-tocardise-2026-11-14/'); if (!r.ok) return 'absente'; const t = await r.text(); return /wa\.me\/\?text=[^"]*soiree%2Fla-tocardise/.test(t) ? 'ok' : 'manquant'; }, B);
+    ok(wa !== 'manquant', `${nom} : bouton « Proposer à mes potes » (WhatsApp) absent ou sans lien de la soirée`);
     ok(await p.locator('.menu-complet .menu-villes .nb-nav').count() > 0 && await p.locator('.nav .g-villes .nb-nav').count() > 0, `${nom} : nombre de soirées absent à côté des villes dans les menus`);
     const orga = await p.evaluate(async () => { const a = document.querySelector('.liste .carte h3 a'); return a ? a.href : ''; });
     if (orga) { await p.goto(B + 'soiree/la-tocardise-2026-11-14/', { waitUntil: 'load' }).catch(() => {}); if (await p.locator('h1').count()) ok(await p.locator('.orga-carte[href*="instagram.com/_lestocards_"]').isVisible().catch(() => false) || !/Tocardise/.test(await p.locator('h1').innerText()), `${nom} : le compte Instagram de l'organisateur n'est pas mis en avant`); }

@@ -1392,6 +1392,27 @@ ${blocOrga({ t, tr, base, handle: compte.replace(/^@/, ''), lang })}`;
     ld: [...ldOrganisation(T, compte, t, lang), ...jsonld(soirees, lang), fil(lang, [['Teufy', ''], [nom, chemin]])] });
 }
 
+// « Ta nuit complète » : où boire un verre avant (bars de la même ville ouverts ce jour-là, horaires publiés) et où
+// manger tard / finir en after (lieux vérifiés de contenus/nuit-tardive.json). Rien n'est affiché sans horaires sourcés.
+const heure24 = (d) => new Intl.DateTimeFormat('fr-FR', { timeZone: 'Europe/Paris', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).format(new Date(d));
+function nuitComplete(s, { lieux, tr, base, lang }) {
+  const ville = sansAccent(s.ville || ''), jourSemaine = ((new Date(Date.parse(s.debut) - 6 * 3600e3).getUTCDay() + 6) % 7) + 1;
+  const ouvertCeJour = (H) => (H?.plages || []).find((p) => p.j.includes(jourSemaine));
+  const memeLieu = (l) => normLieu(l.nom) && (normLieu(s.lieu || '') === normLieu(l.nom) || normLieu(s.lieu || '').startsWith(normLieu(l.nom)));
+  const avant = (lieux || []).filter((l) => l.slug && sansAccent(l.ville || '') === ville && ['bar', 'pub', 'rooftop', 'bar-a-cocktails', 'lounge', 'beach-club'].includes(l.type) && !memeLieu(l))
+    .map((l) => ({ l, p: ouvertCeJour(lireHoraires(l.details?.horaires)) }))
+    // Encore ouvert une heure avant le début de la soirée (fermeture après minuit comprise).
+    .filter((x) => { if (!x.p) return false; const deb = heure24(s.debut), avantDeb = deb >= '01:00' ? `${String(+deb.slice(0, 2) - 1).padStart(2, '0')}${deb.slice(2)}` : deb; const nuit = x.p.a <= x.p.de; return x.p.de <= avantDeb && (nuit || x.p.a >= deb); })
+    .sort((a, b) => (b.l.partenaire ? 1 : 0) - (a.l.partenaire ? 1 : 0) || (b.l.score || 0) - (a.l.score || 0)).slice(0, 3);
+  const apres = (TARDIFS || []).filter((l) => sansAccent(l.ville || '') === ville).map((l) => ({ l, p: ouvertCeJour(lireHoraires(l.horaires)) })).filter((x) => x.p).slice(0, 3);
+  if (!avant.length && !apres.length) return '';
+  const h = (x) => x.replace(':00', 'h').replace(':', 'h');
+  const ligne = (href, nom, type, p, ext) => `<li><a href="${esc(href)}"${ext ? ' target="_blank" rel="noopener"' : ''}><b>${esc(nom)}</b><small>${esc(tr(type))} · ${esc(h(p.de))}–${esc(h(p.a))}</small></a></li>`;
+  return `<section class="nuit-complete" aria-labelledby="nuit-${s.id}"><h2 id="nuit-${s.id}">${tr('Ta nuit <em>complète</em>')}</h2>
+    ${avant.length ? `<div><p class="pied-titre">${esc(tr('Avant : un verre à côté'))}</p><ul>${avant.map(({ l, p }) => ligne(`${base}${pre(lang)}clubs-bars/${l.slug}/`, l.nom, l.type === 'bar-a-cocktails' ? 'Bar à cocktails' : l.type === 'rooftop' ? 'Rooftop' : l.type === 'pub' ? 'Pub' : l.type === 'lounge' ? 'Lounge' : l.type === 'beach-club' ? 'Beach club' : 'Bar', p, false)).join('')}</ul></div>` : ''}
+    ${apres.length ? `<div><p class="pied-titre">${esc(tr('Après : manger tard ou finir en after'))}</p><ul>${apres.map(({ l, p }) => ligne(l.site || l.source || (l.instagram ? `https://www.instagram.com/${l.instagram}/` : '#'), l.nom, l.type === 'after' ? 'After' : 'Manger tard', p, true)).join('')}</ul></div>` : ''}
+    <p class="petit">${esc(tr('Horaires relevés sur les sources officielles des lieux : vérifie avant d\'y aller.'))}</p></section>`;
+}
 function pageSoiree({ lang, t, tr, base, compte, T, chemin, s, soirees, maj, lieux }) {
   const P = pre(lang);
   const sa = (x) => sansAccent(String(x || '')).toLowerCase(); // pas de « Antibes, Antibes » quand l'adresse contient déjà la ville
@@ -1424,6 +1445,7 @@ function pageSoiree({ lang, t, tr, base, compte, T, chemin, s, soirees, maj, lie
         <a class="bouton contour sombre" href="${base}site/ics/${s.id}.ics" download>${esc(t.calendrier)}</a>
         <a class="bouton contour sombre" href="https://www.google.com/maps/search/?api=1&amp;query=${encodeURIComponent(lieu)}" target="_blank" rel="noopener">${esc(t.itineraire)}</a>
         ${boutonPartage(t.partager)}
+        <a class="bouton contour sombre whatsapp" href="https://wa.me/?text=${encodeURIComponent(`${tr('On y va ?')} ${s.nom} · ${dateLongue(s.debut, t)} · ${heure(s.debut, t)} · ${lieu}\n${URL_SITE}${pre(lang)}soiree/${s.id}/`)}" target="_blank" rel="noopener">${esc(tr('Proposer à mes potes'))}</a>
         <button type="button" class="coeur grand" aria-label="${esc(t.ajouterFav)}" aria-pressed="false"></button>
       </p>
       ${promoDe(s) ? blocPromo(promoDe(s), t, tr, s) : ''}
@@ -1432,6 +1454,7 @@ function pageSoiree({ lang, t, tr, base, compte, T, chemin, s, soirees, maj, lie
       ${(() => { const L = (lieux || []).find((l) => l.slug && normLieu(l.nom).length >= 3 && (normLieu(s.lieu) === normLieu(l.nom) || normLieu(s.lieu).startsWith(normLieu(l.nom)))); if (!L) return '';
         const H = lireHoraires(L.details?.horaires);
         return `<a class="fiche-lieu lieu-mini" href="${base}${pre(lang)}clubs-bars/${esc(L.slug)}/" data-ville="${esc(slug(L.ville || ''))}"${H ? ` data-horaires="${esc(JSON.stringify(H.plages))}"` : ''}${L.soirs?.length ? ` data-soirs="${esc(JSON.stringify(L.soirs))}"` : ''}>${L.photo ? `<img src="${base}${esc(L.photo)}" alt="" width="56" height="56" loading="lazy">` : ''}<span><small>${esc(tr('Le lieu'))}</small><b>${esc(L.nom)}</b><span class="lieu-statut" hidden></span><em>${esc(tr('Horaires, dress code et autres soirées'))} →</em></span></a>`; })()}
+      ${nuitComplete(s, { lieux, tr, base, lang })}
       <p class="source-fiche">${s.url ? `${esc(tr('Infos vérifiées sur'))} <a href="${esc(s.url)}" target="_blank" rel="noopener nofollow">${esc(nomPlateforme(s.url))}</a> · ` : ''}${esc(tr('Une erreur ?'))} <a href="https://ig.me/m/${esc(compte.replace(/^@/, ''))}" target="_blank" rel="noopener">${esc(tr('Signale-la'))}</a> · <a href="${base}${P}faq/#sources">${esc(tr('Nos sources'))}</a></p>
     </div>
   </div>
