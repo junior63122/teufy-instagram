@@ -1306,7 +1306,7 @@ footer{max-width:1240px}
   .fiche-affiche:has(>.affiche-fiche){max-height:none}
 }
 /* Changement de page : en-tête, menu et barre d'onglets ne bougent pas (seul le contenu change, fondu court). */
-.nav{view-transition-name:nav}.onglets{view-transition-name:onglets}
+.nav{view-transition-name:nav;position:relative;z-index:19}.onglets{view-transition-name:onglets}
 ::view-transition-old(nav),::view-transition-new(nav),::view-transition-old(onglets),::view-transition-new(onglets){animation:none}
 /* Barre d'onglets plus légère : plus fine, et elle s'efface quand on descend pour lire, revient dès qu'on remonte. */
 .onglets{padding:4px 6px calc(4px + env(safe-area-inset-bottom));transition:transform .28s cubic-bezier(.2,.8,.2,1)}

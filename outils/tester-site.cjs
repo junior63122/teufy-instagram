@@ -166,8 +166,9 @@ async function controlerPage(p, nom, u) {
           ev('touchstart', 300); ev('touchmove', 500); ev('touchend', 500);
         }); } };
       for (const [mode, fermer] of Object.entries(fermetures)) {
+        await p.evaluate(() => scrollBy(0, -80)); await p.waitForTimeout(350);
         const y0 = await p.evaluate(() => scrollY);
-        await p.evaluate(() => scrollBy(0, -80)); await p.waitForTimeout(350); await p.locator('.onglets [data-chercher]').click(); await p.waitForTimeout(400);
+        await p.locator('.onglets [data-chercher]').click(); await p.waitForTimeout(400);
         ok(await p.locator('.feuille-filtres').count() === 1, `mobile : la feuille de filtres ne s'ouvre pas (${mode})`);
         await defiler(p, 600); await p.waitForTimeout(150);
         ok(await p.evaluate(() => document.documentElement.classList.contains('bloque')), `mobile : la page derrière la feuille n'est pas bloquée (${mode})`);
@@ -255,7 +256,7 @@ async function controlerPage(p, nom, u) {
     // --- Favoris : une soirée passée ne compte plus (pas de « 1 » fantôme), un favori d'une autre page reste accessible ---
     try {
     await p.goto(B, { waitUntil: 'load' });
-    const occ = await p.evaluate(async () => ((await (await fetch('occitanie/')).text()).match(/data-id="([^"]+)"/) || [])[1]);
+    const occ = await p.evaluate(async () => { const auj = new Date(Date.now() + 864e5).toISOString().slice(0, 10); return [...(await (await fetch('occitanie/')).text()).matchAll(/data-id="([^"]+-(\d{4}-\d{2}-\d{2}))"/g)].find((m) => m[2] >= auj)?.[1]; });
     await p.evaluate((o) => localStorage.setItem('teufy-favoris', JSON.stringify(['vieille-soiree-2020-01-01', ...(o ? [o] : [])])), occ);
     await p.reload({ waitUntil: 'load' }); await p.waitForTimeout(300);
     ok(!(await p.evaluate(() => localStorage.getItem('teufy-favoris'))).includes('2020-01-01'), `${nom} : une soirée passée reste dans les favoris`);
