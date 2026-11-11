@@ -364,6 +364,25 @@ async function identifierPartenaires(log, { ig = null, api = {} } = {}) {
 const LIEUX = path.join(ROOT, 'contenus', 'lieux-nuit.json');
 const TYPES_LIEUX = ['club', 'bar', 'rooftop', 'beach-club', 'bar-a-cocktails', 'pub', 'lounge', 'salle'];
 const ZONES_LIEUX = ['Nice, Villefranche-sur-Mer, Saint-Laurent-du-Var, Cagnes-sur-Mer', 'Cannes, Le Cannet, Mandelieu, Antibes, Juan-les-Pins, Golfe-Juan', 'Monaco, Monte-Carlo, Beausoleil, Menton', 'Toulon, La Seyne-sur-Mer, Hyères, Six-Fours, Sanary, Bandol', 'Fréjus, Saint-Raphaël, Sainte-Maxime, Saint-Tropez, Ramatuelle'];
+// Après la soirée : où manger tard (ouvert après 2 h) et les afters (ouverts à partir de 5 h ou soirées after).
+// Recherche web une fois par semaine ; on ne garde QUE les lieux avec des horaires publiés et une source vérifiable.
+const NUIT_TARDIVE = path.join(ROOT, 'contenus', 'nuit-tardive.json');
+let TARDIFS = [];
+async function nuitTardive({ now, log }) {
+  const cache = lire(NUIT_TARDIVE, { maj: null, lieux: [] });
+  if ((process.env.GEMINI_API_KEY || '').trim() && (!cache.maj || now - Date.parse(cache.maj) > 7 * 864e5)) {
+    const trouves = [];
+    for (const z of ZONES_LIEUX) {
+      if (!tempsOk()) break;
+      const web = await gemini([{ text: `À ${z} : 1) les endroits où manger tard la nuit (snacks, kebabs, pizzerias, boulangeries de nuit, restaurants) ouverts APRÈS 2 h du matin ; 2) les afters (lieux ou soirées qui ouvrent à partir de 5 h du matin, après la fermeture des boîtes). Pour chacun : nom exact, type (manger ou after), ville, adresse, horaires d'ouverture tels qu'ils sont publiés (jours et heures), compte Instagram, site, et l'URL de la page où ces horaires sont publiés. Ne cite que des lieux dont les horaires de nuit sont publiés quelque part.` }], { recherche: true, secondaire: true });
+      if (!web) continue;
+      const r = await gemini([{ text: `Lieux :\n${web}\n\nRéponds en JSON {"lieux":[{"nom":string,"type":"manger-tard|after","ville":string,"adresse":string,"horaires":string,"instagram":string,"site":string,"source":string,"description":string}]}. horaires au format « Lun–Dim · 18h–4h » ou « Ven, Sam · 5h–11h » (jours puis heures, recopiés des horaires publiés). source = URL de la page qui publie ces horaires. N'invente rien : si les horaires ou la source manquent, ne mets pas le lieu.` }], { secondaire: true });
+      for (const l of r?.lieux || []) if (l.nom && ['manger-tard', 'after'].includes(l.type) && /^https?:\/\//.test(l.source || '') && lireHoraires(l.horaires)) trouves.push({ ...l, instagram: String(l.instagram || '').replace(/^.*instagram\.com\//, '').replace(/[/@?].*$/, '').replace(/^@/, '').toLowerCase(), site: /^https?:\/\//.test(l.site || '') ? l.site : '', slug: slug(`${l.nom}-${l.ville}`) });
+    }
+    if (trouves.length) { const vus = new Set(); cache.lieux = trouves.filter((l) => !vus.has(l.slug) && vus.add(l.slug)); cache.maj = now.toISOString(); await writeFile(NUIT_TARDIVE, JSON.stringify(cache, null, 1) + '\n'); log(`Site : ${cache.lieux.length} adresses de fin de nuit (manger tard, afters)`); }
+  }
+  return cache.lieux || [];
+}
 async function lieuxDeNuit({ soirees, partenaires, ig, api, log, now }) {
   const cache = lire(LIEUX, { maj: null, lieux: [], insta: {} });
   const cle = !!(process.env.GEMINI_API_KEY || '').trim();
@@ -620,6 +639,7 @@ export async function construireSite({ events, eventsFrance = [], eventsOccitani
     if (existsSync(path.join(ROOT, w))) x.fichier = w;
   }
   etape(9); const lieux = await lieuxDeNuit({ soirees, partenaires, ig, api, log, now });
+  TARDIFS = await nuitTardive({ now, log });
   DETAILS_LIEUX = new Map(lieux.filter((l) => l.details).map((l) => [normLieu(l.nom), l.details]));
   PHOTOS_COMPTES = new Map([...(partenaires || []).filter((p) => p.fichier && p.instagram).map((p) => [p.instagram.toLowerCase(), p.fichier]), ...lieux.filter((l) => l.photo && l.instagram).map((l) => [l.instagram.toLowerCase(), l.photo])]);
   PHOTOS_LIEUX = new Map([...(partenaires || []).filter((p) => p.fichier && p.nom).map((p) => [normLieu(p.nom), p.fichier]), ...lieux.filter((l) => l.photo).map((l) => [normLieu(l.nom), l.photo])].filter(([k]) => k.length >= 3));
@@ -1697,6 +1717,15 @@ ${soirees.length ? agenda(soirees, { t, base, lang }) : `<section class="bloc-la
 // « Où sortir ce soir ? » : les soirées de ce soir et les boîtes / bars ouverts ce soir, statut calculé à l'heure de Paris.
 // Répond à « tu sais où je peux sortir ce soir ? » et « telle boîte est ouverte ? ». La page est régénérée chaque jour
 // (et à chaque veille) ; le tri des soirées et des lieux ouverts se fait dans le navigateur, à l'heure réelle.
+// Fiche d'une adresse de fin de nuit : statut calculé à l'heure du visiteur (mêmes règles que les clubs), horaires et source.
+const carteTardive = (l, tr, i) => { const H = lireHoraires(l.horaires); const carte = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent([l.nom, l.adresse, l.ville].filter(Boolean).join(', '))}`;
+  return `<article class="fiche-lieu fiche-tard" style="--i:${i % 8}" data-type="${esc(l.type)}" data-ville="${esc(slug(l.ville || ''))}"${H ? ` data-horaires="${esc(JSON.stringify(H.plages))}"` : ''}><div class="fiche-corps">
+  <p class="genre">${esc(tr(l.type === 'after' ? 'After' : 'Manger tard'))}${l.ville ? ` · ${esc(l.ville)}` : ''}</p><h3>${esc(l.nom)}</h3>
+  <p class="lieu-statut" hidden></p>
+  <p class="tard-horaires">🕒 ${esc(l.horaires)} · <a href="${esc(l.source)}" target="_blank" rel="noopener">${esc(tr('source'))}</a></p>
+  ${l.description ? `<p class="fiche-desc">${esc(tr(l.description))}</p>` : ''}
+  <p class="fiche-liens">${l.instagram ? `<a class="bouton petit contour" href="https://www.instagram.com/${esc(l.instagram)}/" target="_blank" rel="noopener">Instagram</a>` : ''}<a class="bouton petit contour" href="${esc(carte)}" target="_blank" rel="noopener">${esc(tr('Itinéraire'))}</a></p>
+</div></article>`; };
 function pageCeSoir({ lang, t, tr, base, compte, T, chemin, maj, soirees, lieux, now }) {
   const jour = (d) => new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Paris' }).format(d);
   const auj = jour(new Date(now - 6 * 3600e3)), demain = jour(new Date(now + 18 * 3600e3));
@@ -1708,11 +1737,12 @@ function pageCeSoir({ lang, t, tr, base, compte, T, chemin, maj, soirees, lieux,
 <section class="bloc-large ce-soir-page" id="soirees-ce-soir"><h2>${tr('Les soirées de <em>ce soir</em>')} <span class="compte-ce-soir" data-compte-soir></span></h2>
 <div class="grille ce-soir-liste">${soir.map((s) => carte(s, { t, base, lang })).join('')}</div>
 <p class="vide" data-aucune-soiree hidden>${esc(tr("Pas de soirée annoncée ce soir pour l'instant : regarde les lieux ouverts juste en dessous, ou l'agenda des prochains jours."))} <a href="${base}${pre(lang)}#agenda">${esc(t.toutes)}</a></p></section>
-<section class="bloc-large" id="lieux-ouverts"><h2>${tr('Boîtes et bars <em>ouverts ce soir</em>')} <span class="compte-ce-soir"><b data-compte-ouverts="lieux-ce-soir">·</b> / ${L.length}</span></h2>
+<section class="bloc-large" id="lieux-ouverts"><h2>${tr('Boîtes et bars <em>ouverts ce soir</em>')} <span class="compte-ce-soir"><b data-compte-ouverts="lieux-ce-soir">·</b> / <span data-compte-total="lieux-ce-soir">${L.length}</span></span></h2>
 <p class="avert">${esc(tr("Horaires relevés sur les sources officielles des lieux (site, Instagram, fiche Google). Ils peuvent changer, surtout les jours fériés : en cas de doute, vérifie sur leur Instagram avant d'y aller."))}</p>
 <p class="liens-styles filtre-villes"><button type="button" class="puce actif" data-ville="">${esc(tr('Partout'))}</button>${villes.map((v) => `<button type="button" class="puce" data-ville="${esc(slug(v))}">${esc(v)}</button>`).join('')}</p>
 <div class="fiches lieux-ce-soir" id="lieux-ce-soir" data-replier="1" data-max="9">${L.map((l, i) => carteLieu(l, ctx, i)).join('')}</div>
-<p class="cta"><button type="button" class="bouton contour voir-fermes" hidden>${esc(tr('Voir les lieux fermés ce soir'))} (<span></span>)</button></p></section>`;
+<p class="cta"><button type="button" class="bouton contour voir-fermes" hidden>${esc(tr('Voir les lieux fermés ce soir'))} (<span></span>)</button></p></section>
+${[['manger-tard', tr('Manger <em>après la soirée</em>'), tr("Snacks, kebabs, pizzerias et boulangeries ouverts après 2 h du matin, avec leurs horaires publiés.")], ['after', tr('Les <em>afters</em>'), tr("Les lieux et soirées qui ouvrent quand les boîtes ferment, à partir de 5 h du matin.")]].map(([type, h, p]) => { const l = TARDIFS.filter((x) => x.type === type); return l.length ? `<section class="bloc-large" id="${type}"><h2>${h}</h2><p class="avert">${esc(p)} ${esc(tr("Vérifie toujours avant d'y aller : les horaires de nuit changent souvent."))}</p><div class="fiches lieux-tard" data-max="6">${l.map((x, i) => carteTardive(x, tr, i)).join('')}</div></section>` : ''; }).join('\n')}`;
   return gabarit({ lang, t, titre: tr("Où sortir ce soir sur la Côte d'Azur : soirées et boîtes ouvertes · Teufy"), description: tr("Ce soir à Nice, Cannes, Monaco, Antibes et dans le Var : toutes les soirées et les boîtes de nuit et bars ouverts maintenant, avec horaires, prix et billets."), chemin, base, corps, compte, maj,
     ld: [...ldOrganisation(T, compte, t, lang), fil(lang, [['Teufy', ''], [tr('Ce soir'), chemin]]), ...jsonld(soir, lang)] });
 }

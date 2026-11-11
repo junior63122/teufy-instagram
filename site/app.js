@@ -57,14 +57,21 @@
       if (el.dataset.saison && plages) txt += ` · ${T.saison}`;
       st.textContent = txt; st.className = `lieu-statut ${cls}`; st.hidden = false; el.dataset.statut = cls;
     }
+    // Compteur « ouverts / total » de la ville choisie (ou de partout).
+    function majCompte(g) {
+      const l = [...g.querySelectorAll('.fiche-lieu')].filter((x) => !x.classList.contains('hors-ville'));
+      const o = document.querySelector(`[data-compte-ouverts="${g.id}"]`), tt = document.querySelector(`[data-compte-total="${g.id}"]`);
+      if (o) o.textContent = String(l.filter((x) => ['ouvert', 'soiree', 'bientot'].includes(x.dataset.statut)).length);
+      if (tt) tt.textContent = String(l.length);
+    }
+    window.__majCompte = majCompte;
     // Page « Ce soir » : les lieux ouverts d'abord, puis ceux qui ouvrent, puis les inconnus ; les fermés repliés.
     const rang = { ouvert: 0, soiree: 1, bientot: 2, inconnu: 3, ferme: 4 };
     document.querySelectorAll('.lieux-ce-soir').forEach((g) => {
       const l = [...g.querySelectorAll('.fiche-lieu')].sort((a, b) => rang[a.dataset.statut] - rang[b.dataset.statut]);
       l.forEach((x) => g.append(x));
       const fermes = l.filter((x) => x.dataset.statut === 'ferme');
-      const compteur = document.querySelector(`[data-compte-ouverts="${g.id}"]`);
-      if (compteur) compteur.textContent = String(l.filter((x) => ['ouvert', 'soiree', 'bientot'].includes(x.dataset.statut)).length);
+      majCompte(g);
       if (fermes.length && g.dataset.replier) { fermes.forEach((x) => { x.hidden = true; }); const b = g.parentElement.querySelector('.voir-fermes'); if (b) { b.hidden = false; b.querySelector('span').textContent = fermes.length; b.addEventListener('click', () => { fermes.forEach((x) => { x.hidden = false; }); b.remove(); if (g.dataset.max) { g.dataset.deplie = '1'; replier(g); } }); } }
     });
   }
@@ -96,8 +103,9 @@
   document.querySelectorAll('.filtre-villes').forEach((f) => f.addEventListener('click', (e) => {
     const b = e.target.closest('[data-ville]'); if (!b) return;
     f.querySelectorAll('.puce').forEach((x) => x.classList.toggle('actif', x === b));
-    document.querySelectorAll('#lieux-ce-soir .fiche-lieu').forEach((l) => { l.classList.toggle('hors-ville', !!b.dataset.ville && l.dataset.ville !== b.dataset.ville); });
-    document.querySelectorAll('#lieux-ce-soir[data-max]').forEach(replier);
+    document.querySelectorAll('#lieux-ce-soir .fiche-lieu, .lieux-tard .fiche-lieu').forEach((l) => { l.classList.toggle('hors-ville', !!b.dataset.ville && l.dataset.ville !== b.dataset.ville); });
+    document.querySelectorAll('#lieux-ce-soir[data-max], .lieux-tard[data-max]').forEach(replier);
+    const g = document.getElementById('lieux-ce-soir'); if (g && window.__majCompte) window.__majCompte(g);
   }));
 
   // Tarifs : « Choisir cette formule » pré-remplit le message du formulaire de contact.
