@@ -578,7 +578,7 @@ details.filtre>.groupe{position:absolute;top:calc(100% + 8px);inset-inline-start
   .bloc-large>h2{font-size:clamp(34px,4vw,56px)}
 }
 /* Peu de soirées dans une rubrique : les cartes restent à taille normale, centrées, sans grand vide à droite. */
-.bloc-large .grille:has(> :nth-child(2):last-child),.bloc-large .grille:has(> :only-child){grid-template-columns:repeat(auto-fit,minmax(280px,360px));justify-content:start}
+.bloc-large .grille:not(:has(> .carte-suggestion)):has(> :nth-child(2):last-child),.bloc-large .grille:has(> :only-child){grid-template-columns:repeat(auto-fit,minmax(280px,360px));justify-content:start}
 /* Mobile : les menus de filtres s'ouvrent par-dessus la page (rien ne bouge quand ils se ferment). */
 @media(max-width:759px){
   .menus{position:relative}

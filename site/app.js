@@ -25,7 +25,7 @@
     if (!nbCartes || nbCartes >= 3 || !matchMedia('(min-width: 760px)').matches) return;
     // Un seul panneau compact, rempli d'infos réelles : les prochaines soirées du week-end (affiche, nom, jour, lieu)
     // et deux accès (lieux ouverts ce soir, tout le week-end). Il occupe la place restante de la rangée.
-    const vues = new Set(), prochaines = [...document.querySelectorAll('.liste .carte')]
+    const vues = new Set(), prochaines = [...document.querySelectorAll('.liste .carte, #sugg-source .carte')]
       .filter((c) => c.dataset.jour > auj && c.dataset.jour <= dimanche && c.dataset.jour >= vendredi && !vues.has(c.dataset.id) && vues.add(c.dataset.id)).slice(0, 4);
     const p = document.createElement('aside'); p.className = 'carte-suggestion';
     p.style.gridColumn = `span ${Math.max(1, (getComputedStyle(conteneur).gridTemplateColumns.split(' ').length || 3) - nbCartes)}`;
@@ -189,6 +189,7 @@
     const restantes = [...listeSoir.querySelectorAll('.carte')].filter((c) => { const ok = c.dataset.jour === auj && maintenant < debut(c) + DUREE; c.hidden = !ok; return ok; });
     const n = document.querySelector('[data-compte-soir]'); if (n) n.textContent = `· ${nb(restantes.length)}`;
     if (!restantes.length) document.querySelector('[data-aucune-soiree]')?.removeAttribute('hidden');
+    else suggerer(listeSoir, restantes.length); // peu de soirées ce soir : panneau « week-end » à côté
   }
   document.querySelectorAll('.filtre-villes').forEach((f) => f.addEventListener('click', (e) => {
     const b = e.target.closest('[data-ville]'); if (!b) return;
