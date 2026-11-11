@@ -25,7 +25,16 @@
 
   // Menu « Villes ▾ » : se ferme en cliquant ailleurs ou avec Échap.
   document.querySelectorAll('.nav-groupe').forEach((d) => {
-    d.addEventListener('toggle', () => { if (d.open) document.querySelectorAll('.nav-groupe[open]').forEach((x) => { if (x !== d) x.open = false; }); });
+    d.addEventListener('toggle', () => {
+      if (!d.open) return;
+      document.querySelectorAll('.nav-groupe[open]').forEach((x) => { if (x !== d) x.open = false; });
+      // Filet de sécurité : si la liste dépasse de l'écran (fenêtre étroite, langue aux mots longs), on la recale.
+      const p = d.querySelector(':scope>div'); if (!p) return;
+      p.style.translate = '';
+      const r = p.getBoundingClientRect(), W = document.documentElement.clientWidth;
+      const dx = r.right > W - 12 ? W - 12 - r.right : r.left < 12 ? 12 - r.left : 0;
+      if (dx) p.style.translate = `${Math.round(dx)}px 0`;
+    });
     document.addEventListener('click', (e) => { if (d.open && !d.contains(e.target)) d.open = false; });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && d.open) { d.open = false; d.querySelector('summary').focus(); } });
   });

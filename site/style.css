@@ -1340,3 +1340,8 @@ html.onglets-caches .onglets{transform:translateY(105%)}
 .tarifs-portail{margin:18px 0 0;font-weight:700}.tarifs-portail a{color:var(--corail)}
 .merci-paiement{margin:16px 0 0;padding:14px 18px;border-radius:16px;background:#3ce08a1f;border:1px solid #3ce08a66;color:#c9f7dc;font-weight:700}
 .vitrine-item.payant{border-color:var(--corail);box-shadow:0 0 0 1px var(--corail) inset}
+/* Listes déroulantes de droite (Pros, Teufy) : alignées sur leur bord droit, jamais hors de l'écran. */
+@media(min-width:760px){
+  .nav-groupe.g-pros>div,.nav-groupe.g-teufy>div{inset-inline-start:auto;inset-inline-end:0}
+  .nav-groupe>div{max-width:calc(100vw - 24px)}
+}

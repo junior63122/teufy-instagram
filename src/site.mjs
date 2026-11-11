@@ -167,13 +167,20 @@ async function geocoder(soirees, log) {
   for (const s of soirees) {
     const k = cleLieu(s);
     const c = cache[k];
-    const aRetenter = c && c.introuvable && (c.v !== 2 || Date.now() - Date.parse(c.le) > 14 * 864e5);
+    const aRetenter = c && c.introuvable && (c.v !== 2 || Date.now() - Date.parse(c.le) > 14 * 864e5 || (s.adresse && !c.adr)); // adresse connue depuis : on réessaie
     if (s.lieu && (!c || aRetenter) && requetes < 60 && !coupe && tempsOk()) {
       // Plusieurs formulations : adresse, « lieu, ville », lieu seul (dans la zone Côte d'Azur), lieu sans mots génériques.
       const court = s.lieu.replace(/\b(club|bar|restaurant|plage|beach|rooftop|le|la|les)\b/gi, ' ').replace(/[-–—@|].*$/, '').replace(/\s+/g, ' ').trim();
       const essais = [...new Set([s.adresse, `${s.lieu}, ${s.ville}`, s.lieu, court && `${court}, ${s.ville}`].filter((x) => x && x.length > 2))];
       let p = null;
-      for (const q of essais) {
+      // Adresse française complète (code postal) : Base Adresse Nationale (gratuite, officielle), la plus précise.
+      if (/\b\d{5}\b/.test(s.adresse || '')) {
+        requetes++;
+        const r = await fetch(`https://api-adresse.data.gouv.fr/search/?limit=1&q=${encodeURIComponent(s.adresse)}`, { signal: AbortSignal.timeout(12000) }).catch(() => null);
+        const f = r?.ok ? (await r.json().catch(() => ({}))).features?.[0] : null;
+        if (f && f.properties?.score >= 0.6 && ['housenumber', 'street'].includes(f.properties.type)) p = { lat: f.geometry.coordinates[1], lon: f.geometry.coordinates[0] };
+      }
+      for (const q of p ? [] : essais) {
         if (requetes >= 60 || coupe) break;
         requetes++;
         const u = new URL('https://nominatim.openstreetmap.org/search');
@@ -185,7 +192,7 @@ async function geocoder(soirees, log) {
         if (p) break;
       }
       if (!coupe) {
-        cache[k] = p ? { lat: +(+p.lat).toFixed(5), lng: +(+p.lon).toFixed(5), le: new Date().toISOString() } : { introuvable: true, v: 2, le: new Date().toISOString() };
+        cache[k] = p ? { lat: +(+p.lat).toFixed(5), lng: +(+p.lon).toFixed(5), le: new Date().toISOString() } : { introuvable: true, v: 2, le: new Date().toISOString(), ...(s.adresse ? { adr: true } : {}) };
         if (p) trouves++;
       }
     }
@@ -415,6 +422,11 @@ async function lieuxDeNuit({ soirees, partenaires, ig, api, log, now }) {
     if (!['club', 'bar', 'rooftop', 'beach-club'].includes(p.categorie)) continue;
     const l = trouver(p.nom, p.ville);
     if (l) Object.assign(l, { partenaire: true, instagram: l.instagram || p.instagram, photo: p.fichier }); else tous.push({ nom: p.nom, type: p.categorie, ville: p.ville || '', adresse: p.adresse || '', instagram: p.instagram || '', site: p.site || '', description: p.description || '', partenaire: true, photo: p.fichier });
+  }
+  // Lieux ajoutés par l'équipe (contenus/lieux-manuels.json) : jamais effacés par la mise à jour hebdomadaire.
+  for (const m of lire(path.join(ROOT, 'contenus', 'lieux-manuels.json'), { lieux: [] }).lieux || []) {
+    const l = trouver(m.nom, m.ville), propre = Object.fromEntries(Object.entries(m).filter(([k, v]) => !k.startsWith('_') && v !== ''));
+    if (l) Object.assign(l, propre); else tous.push({ instagram: '', site: '', description: '', ...propre });
   }
   for (const l of tous) { const p = PAYANTS().find((x) => (x.instagram && x.instagram === l.instagram) || (norm(x.etablissement) && norm(x.etablissement) === norm(l.nom))); if (p) Object.assign(l, { partenaire: true, formule: p.formule }); }
   for (const p of PAYANTS().filter((x) => x.ville && !tous.some((l) => (x.instagram && x.instagram === l.instagram) || norm(x.etablissement) === norm(l.nom)))) tous.push({ nom: p.etablissement, type: 'bar', ville: p.ville, adresse: '', instagram: p.instagram, site: '', description: '', partenaire: true, formule: p.formule });
@@ -1419,7 +1431,7 @@ ${mini(style, esc(t.memeStyle))}
 function yAller(s, t, lieu) {
   const p = s.proches;
   const dist = (m) => t.aPied.replace('{m}', m).replace('{min}', Math.max(1, Math.round(m / 80)));
-  const dest = s.approx || !s.lat ? encodeURIComponent(lieu) : `${s.lat},${s.lng}`;
+  const dest = s.approx || !s.lat ? encodeURIComponent(s.adresse || lieu) : `${s.lat},${s.lng}`; // adresse exacte si le point n'est pas encore connu
   const li = (a, b) => `<li><span>${a}</span><small>${b}</small></li>`;
   const parkings = (p?.parkings || []).map((x) => li(esc(x.nom || t.parking), esc([x.type === 'underground' ? t.souterrain : '', x.payant === false ? t.gratuitP : x.payant ? t.payantP : '', dist(x.m)].filter(Boolean).join(' · '))));
   const trans = (p?.transports || []).map((x) => li(`<b class="ligne ${x.type}">${esc(t[x.type])}${x.lignes ? ` ${esc(x.lignes.split(';').slice(0, 3).join(' · '))}` : ''}</b> ${esc(x.nom)}`, esc(dist(x.m))));

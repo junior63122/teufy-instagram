@@ -1,0 +1,15 @@
+{
+ "_explication": "Lieux ajoutés à la main par l'équipe (vérifiés) : toujours présents dans l'annuaire Clubs & bars, même après la mise à jour hebdomadaire par recherche web. Ne mettre que des informations publiées par le lieu ou l'organisateur.",
+ "lieux": [
+  {
+   "nom": "Green Musik",
+   "type": "club",
+   "ville": "Antibes",
+   "adresse": "11 bis avenue du 11 Novembre, 06600 Antibes",
+   "instagram": "",
+   "site": "",
+   "description": "Lieu de l'association culturelle Green Musik à Antibes : soirées techno, psytrance et hard trance organisées par des collectifs comme Les Tocards.",
+   "_source": "Affiche officielle et page Shotgun de « La Tocardise » (14/11/2026)"
+  }
+ ]
+}
