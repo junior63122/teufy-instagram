@@ -1486,3 +1486,13 @@ html.onglets-caches .onglets{transform:translateY(105%)}
 /* Montage d'une seule ou deux affiches (fiche artiste) : centré, sans rotation forcée. */
 .collage.collage-1 img,.collage.collage-1:hover img{transform:translate(-50%,-50%)!important;width:min(340px,90%)!important;aspect-ratio:auto!important;object-fit:contain}
 .bloc-large>.petit{margin-top:14px;color:#b8b2a8;font-size:13px}
+/* Fiche soirée : la colonne de l'affiche accueille « Y aller », « Le lieu » et « Ta nuit complète » (plus de vide sous
+   l'affiche sur ordinateur) ; sur mobile, ces blocs viennent après les infos principales. */
+.fiche-aside{display:grid;gap:18px;align-content:start;min-width:0}
+.fiche-aside>*{margin:0}
+@media(min-width:860px){
+  .fiche-grille{grid-template-areas:"affiche infos" "aside infos";grid-template-rows:auto 1fr}
+  .fiche-grille>.fiche-affiche{grid-area:affiche;position:static}
+  .fiche-grille>.fiche-infos{grid-area:infos}
+  .fiche-grille>.fiche-aside{grid-area:aside}
+}
