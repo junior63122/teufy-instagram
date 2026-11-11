@@ -1369,3 +1369,7 @@ html.onglets-caches .onglets{transform:translateY(105%)}
 .compris .puce{display:inline-flex;align-items:center;padding:6px 12px;border-radius:999px;background:var(--creme);color:var(--nuit);font-weight:800;font-size:13.5px}
 .compris-x{margin-inline-start:auto;background:none;border:1px solid #ffffff33;color:inherit;border-radius:999px;padding:6px 12px;font:inherit;font-size:13px;cursor:pointer;min-height:36px}
 .compris .lien{width:100%;font-weight:700}
+.actu-figure figcaption{font-size:12px;opacity:.6;margin-top:6px;text-align:end}
+/* Pastilles de nombre (Ce soir, Actus) dans le menu ordinateur et le menu plein écran. */
+.nb-notif{display:inline-block;min-width:18px;height:18px;margin-inline-start:6px;padding:0 5px;border-radius:9px;background:var(--corail);color:var(--nuit);font-size:11px;font-weight:800;line-height:18px;text-align:center;vertical-align:2px}
+.nb-soir,.nb-actus{font-weight:800}

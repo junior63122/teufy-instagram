@@ -384,6 +384,8 @@ const ZONES_LIEUX = ['Nice, Villefranche-sur-Mer, Saint-Laurent-du-Var, Cagnes-s
 const PAYANTS = () => (lire(path.join(ROOT, 'contenus', 'partenaires-payants.json'), { partenaires: [] }).partenaires || []).filter((p) => p.actif);
 const NUIT_TARDIVE = path.join(ROOT, 'contenus', 'nuit-tardive.json');
 let TARDIFS = [];
+// Pastilles du menu : nombre de soirées par soir (3 prochains jours) et dates des dernières actus (lues par app.js).
+let NOTIF = { soirs: {}, actus: [] };
 async function nuitTardive({ now, log }) {
   const cache = lire(NUIT_TARDIVE, { maj: null, lieux: [] });
   if ((process.env.GEMINI_API_KEY || '').trim() && (!cache.maj || now - Date.parse(cache.maj) > 7 * 864e5)) {
@@ -686,6 +688,9 @@ export async function construireSite({ events, eventsFrance = [], eventsOccitani
     .map((a) => ({ ...a, id: `${slug(a.titre)}-${String(a.date).slice(0, 10)}` })), { soirees, hist });
 
   await assets(soirees);
+  NOTIF = { soirs: {}, actus: actus.slice(0, 15).map((a) => Date.parse(a.date)).filter((x) => !isNaN(x)) };
+  for (const x of soirees) if (x.zone !== 'occitanie' && x.zone !== 'france') NOTIF.soirs[x.jour] = (NOTIF.soirs[x.jour] || 0) + 1;
+  NOTIF.soirs = Object.fromEntries(Object.entries(NOTIF.soirs).sort().filter(([j]) => j >= cle(new Date(now.getTime() - 864e5).toISOString())).slice(0, 4));
   const compte = config.compte || '@teufy_official';
   const T = { ...TEUFY, ...(config.site || {}) };
   T.nbPartenaires = (String(T.partenaires).match(/\d+/) || ['200'])[0];
@@ -1124,12 +1129,12 @@ ${(() => { const L = LIB_NAV[lang] || LIB_NAV.fr; const ico = (k) => `<svg viewB
     <section class="menu-groupe menu-langue"><h2>${esc(t.langue)}</h2><div>${LANGUES.map((l) => `<a href="${base}${pre(l)}${chemin}" hreflang="${l}" lang="${l}"${l === lang ? ' aria-current="true"' : ''}>${esc(TXT[l].nom)}</a>`).join('')}</div></section>
   </div>
 </div>
-<nav class="onglets" aria-label="${esc(L.raccourcis)}">
+<nav class="onglets" aria-label="${esc(L.raccourcis)}" data-notif="${esc(JSON.stringify(NOTIF))}">
   <a href="${ici}#agenda"${chemin === '' ? ' aria-current="page"' : ''}>${ico('agenda')}<span>${esc(L.agenda)}</span></a>
-  <a href="${accueil}ce-soir/"${chemin === 'ce-soir/' ? ' aria-current="page"' : ''}>${ico('soir')}<span>${esc(t.js.ceSoir)}</span></a>
+  <a href="${accueil}ce-soir/"${chemin === 'ce-soir/' ? ' aria-current="page"' : ''}>${ico('soir')}<span>${esc(t.js.ceSoir)}</span><b class="nb-fav nb-soir" hidden></b></a>
   <a href="${ici}#recherche" data-chercher>${ico('chercher')}<span>${esc(L.chercher)}</span></a>
   <a href="${ici}#favoris" data-favoris>${ico('favoris')}<span>${esc(L.favoris)}</span><b class="nb-fav" hidden></b></a>
-  <a href="#menu" data-menu aria-haspopup="dialog" aria-controls="menu">${ico('menu')}<span>${esc(L.menu)}</span></a>
+  <a href="#menu" data-menu aria-haspopup="dialog" aria-controls="menu">${ico('menu')}<span>${esc(L.menu)}</span><b class="nb-fav nb-actus" hidden></b></a>
 </nav>`; })()}
 <div class="flottant" hidden><button type="button" class="ouvrir-filtres"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M3 5h18M6 12h12M10 19h4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg><span>${esc(t.js.filtres)}</span><b class="compte"></b></button></div>
 <button type="button" class="haut" aria-label="${esc(t.haut)}" hidden><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M6 14l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
@@ -1576,6 +1581,12 @@ async function imagesActus(actus, { soirees, hist }) {
       const u = existsSync(g) ? '' : await imageDePartage(a.source);
       if (existsSync(g) || (u && await telecharger(u, g))) { a.image_site = path.relative(ROOT, g); a.dims = tailleJpeg(g) || undefined; }
     }
+    // 5. Toujours une image : photo d'illustration de la ville de l'actu (Nice pour la Côte d'Azur ou la France),
+    //    signalée « Photo d'illustration » sur la page de l'actu.
+    if (!a.image_site) {
+      const vil = path.join(SITE, 'img', 'villes', `${slug(a.ville || '')}.jpg`), f = existsSync(vil) ? vil : path.join(SITE, 'img', 'villes', 'nice.jpg');
+      if (existsSync(f)) { a.image_site = path.relative(ROOT, f); a.dims = tailleJpeg(f) || undefined; a.illustration = true; }
+    }
     if (a.image_site && !/affiches/.test(a.image_site)) for (const l of [400, 800, 1200]) webp(path.join(ROOT, a.image_site), l);
     const post = hist.find((x) => x.lien && x.publication?.veille?.source && x.publication.veille.source === a.source);
     if (post) a.insta = post.lien;
@@ -1603,7 +1614,7 @@ function pageActu({ lang, t, tr, base, compte, chemin, a, actus, maj }) {
   <h1>${esc(tr(a.titre))}</h1>
   <p class="chapo">${esc(tr(a.chapo))}</p>
   <p class="actu-partage">${boutonPartage(t.partager)}<span>${esc(t.partager)}</span></p>
-  ${a.image_site ? `<figure class="actu-figure${a.visuel ? ' visuel' : ''}">${imageActu(a, { base, cadre: false, sizes: '(min-width:760px) 680px, 92vw', attrs: 'decoding="async"' })}</figure>` : ''}
+  ${a.image_site ? `<figure class="actu-figure${a.visuel ? ' visuel' : ''}">${imageActu(a, { base, cadre: false, sizes: '(min-width:760px) 680px, 92vw', attrs: 'decoding="async"' })}${a.illustration ? `<figcaption>${esc(tr("Photo d'illustration"))}</figcaption>` : ''}</figure>` : ''}
   ${a.paragraphes.map((p) => `<p>${esc(tr(p))}</p>`).join('\n  ')}
   ${a.soiree ? `<p><a class="bouton" href="${base}${pre(lang)}soiree/${a.soiree}/">${esc(t.voir)}</a></p>` : ''}
   ${a.insta ? `<p><a class="bouton" href="${esc(a.insta)}" target="_blank" rel="noopener">${esc(t.voirInsta)}</a></p>` : ''}
