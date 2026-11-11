@@ -1462,3 +1462,18 @@ html.onglets-caches .onglets{transform:translateY(105%)}
   .carte.solo-large.solo-3{grid-template-columns:minmax(0,1fr) minmax(0,2fr)}
   .carte.solo-large .affiche{max-height:420px}
 }
+/* Partenaires sur mobile : grille compacte de 2 colonnes au lieu d'une longue liste. */
+@media(max-width:639px){
+  .vitrine-grille{grid-template-columns:1fr 1fr;gap:8px}
+  .vitrine-item{flex-direction:column;align-items:flex-start;gap:6px;padding:10px}
+  .vitrine-item img{width:40px;height:40px}
+  .vitrine-item b,.vitrine-item strong{font-size:14px;line-height:1.2}
+  .vitrine-item small,.vitrine-item span{font-size:12px}
+}
+@media(max-width:639px){.vitrine-item span{width:100%}}
+@media(max-width:639px){
+  .vitrine-item{flex-direction:row;align-items:center;gap:8px;padding:8px}
+  .vitrine-item img{width:32px;height:32px}
+  .vitrine-item strong{font-size:13.5px}
+  .vitrine-item small{font-size:11.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+}
