@@ -317,5 +317,16 @@
   "resume": "À l'occasion des sorties nocturnes, un rappel juridique a été publié concernant les contrôles d'alcoolémie sur les routes. Le seuil légal demeure fixé à 0,20 g/l pour les permis probatoires, et refuser un contrôle expose immédiatement aux peines maximales prévues par la loi.",
   "source": "https://www.legifrance.gouv.fr/",
   "importance": 65
+ },
+ {
+  "id": "idee-1mbag4x",
+  "ajout": "2026-11-12T02:30:11.594Z",
+  "type": "actu",
+  "format": "post-annonce",
+  "titre": "SNCF : ouverture des ventes de billets de train jusqu'à l'été 2027",
+  "angle": "Ce que ça change : les tarifs prem's et les avantages jeune au départ de Nice et Cannes partent rapidement dès l'ouverture.",
+  "resume": "La SNCF ouvre ce 12 novembre 2026 les réservations pour ses trajets en TGV INOUI et Intercités prévus entre le 7 janvier et le 2 juillet 2027. Cette mise en vente permet de bloquer des billets aux tarifs de lancement sur les lignes nationales.",
+  "source": "https://www.sncf-connect.com",
+  "importance": 60
  }
 ]

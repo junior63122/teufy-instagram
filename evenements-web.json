@@ -6360,6 +6360,31 @@
       "instagram": [
         "palaisnikaia"
       ]
+    },
+    {
+      "source": "web",
+      "source_site": "instagram.com",
+      "via_veille": true,
+      "name": "Drag's Legacy Saison 5 : Castings Maison Cabaret",
+      "start": "2026-11-13T17:00:00.000Z",
+      "venue": "Le Swing",
+      "city": "Nice",
+      "address": "",
+      "url": "https://www.instagram.com/p/Dfnemt-IIiy/",
+      "image": "https://scontent-sjc6-1.cdninstagram.com/v/t51.82787-15/896630694_18119022221321373_7088698497079287721_n.webp?stp=dst-jpg_e35_tt6&_nc_cat=103&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=UtK8yPzxuTUQ7kNvwE5ca88&_nc_oc=Adpe_y4YpccZWyd573PIok39ImZtF45H_GnXxxy11Ylixa3jNdH5N8KZTcecIEueJbQ&_nc_zt=23&_nc_ht=scontent-sjc6-1.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=ANGDxjvuiqzancucd6KFSQ&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQQkm3sRuu3L3QjvNoiu54n8El9uLEH_l-twzQXyG1e09Q&oe=6AFAE383",
+      "price": 0,
+      "tags": [
+        "Drag show",
+        "DJ set",
+        "Karaoké"
+      ],
+      "description": "",
+      "public_cible": 0.6,
+      "confiance": 0.9,
+      "accroche": "Sélections de la saison 5 du concours drag au Swing avec show et DJ set.",
+      "instagram": [
+        "le.swingnice"
+      ]
     }
   ]
 }

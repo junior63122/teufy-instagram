@@ -274,5 +274,23 @@
    "Pour ceux qui profitent de la vie nocturne sur la Côte d'Azur, la désignation d'un capitaine de soirée sobre ou le recours aux transports en commun et aux VTC demeurent la seule solution pour rentrer en toute sécurité sans mettre son permis en danger."
   ],
   "ville": "France"
+ },
+ {
+  "cle": "2026-11|sncf ouverture des ventes de billets de train jusqu à l été 2027",
+  "date": "2026-11-11T08:00:00+01:00",
+  "ajout": "2026-11-12T02:30:11.594Z",
+  "type": "actu",
+  "importance": 60,
+  "source": "https://www.sncf-connect.com",
+  "image": "",
+  "titre": "SNCF : les billets de train pour l'hiver et le printemps 2027 sont en vente",
+  "chapo": "La SNCF ouvre ses réservations ce 12 novembre 2026 pour les voyages en TGV INOUI et Intercités prévus entre janvier et début juillet 2027.",
+  "paragraphes": [
+   "Comme chaque année à cette période, la compagnie ferroviaire lance sa grande mise en vente pour permettre aux usagers de planifier leurs déplacements des mois à venir sur l'ensemble du réseau national.",
+   "Dès ce 12 novembre 2026, les billets TGV INOUI deviennent réservables pour tous les trajets compris entre le 7 janvier et le 2 juillet 2027, tandis que les trains Intercités sont ouverts à la vente jusqu'au 31 mars 2027.",
+   "Pour les 17-30 ans de la Côte d'Azur, ce calendrier permet d'accéder aux tarifs Prem's et de faire jouer les réductions de la Carte Avantage Jeune sur les liaisons au départ de Nice, Antibes ou Cannes vers Paris et les autres régions.",
+   "Les places au tarif le plus bas étant contingentées, les réservations se réalisent directement sur les plateformes officielles de distribution de la SNCF."
+  ],
+  "ville": "Côte d'Azur"
  }
 ]
