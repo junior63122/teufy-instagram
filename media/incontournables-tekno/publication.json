@@ -1,0 +1,309 @@
+{
+  "id": "incontournables-tekno",
+  "type": "incontournables",
+  "variante": "tekno",
+  "date": "2026-11-12",
+  "images": [
+    "carrousel-00.jpg",
+    "carrousel-01.jpg",
+    "carrousel-02.jpg",
+    "carrousel-03.jpg",
+    "carrousel-04.jpg",
+    "carrousel-05.jpg"
+  ],
+  "legende": "Kicks lourds, lumières basses, jusqu'au lever du jour.\nL'underground de Nice et de la Côte ce week-end.\n📍 Soirées techno underground à Fréjus, Nice et Antibes ce week-end\n\n🔥 La plus attendue : Caravel (+ No2theG, May-Li), artiste majeure de la vague hard techno européenne, closing 4h.\n\n→ Ven 13 · Rupture (Techno · Trance) · Le Calypso, Fréjus · 23h00 · 14 €\n   Grosse rave techno et kicks rapides en front de mer à Fréjus Plage. @le_calypso_frejus\n→ Sam 14 · Pitch One (Trakkass) — Techno To Tribe (Hard techno · Acid) · L'Antre Bar Electro, Nice · 05h00 · 11 €\n   After dès 5h du matin avec Pitch One, figure vinyle et pionnier de Trakkass. @lantretechno\n→ Sam 14 · Caravel (+ No2theG, May-Li) (Hard techno · Acid) · Frigo 16 (Le 109), Nice · 20h00 · 7,49 €\n   Caravel balance sa hard techno et trance jusqu'à 4h du mat au Frigo 16. @pandaevents06 @le109_officiel\n→ Sam 14 · La Tocardise (Techno · Trance) · Green Musik, Antibes · 23h00 · 12 €\n   Les Tocards reviennent au Green Musik pour une nuit techno, psytrance et hard trance. @_lestocards_ @green_musikclub\n\nOn se retrouve où ? Enregistre le post pour ne pas oublier. Suis le compte : chaque semaine, les soirées à ne pas rater.\n\n🔎 Tu cherches autre chose ? Toutes les soirées sont sur teufyparty.com\n\n#TeufyParty #riviera #cotedazur #nightlife #hardtechno",
+  "soirees": [
+    {
+      "source": "web",
+      "source_site": "Shotgun",
+      "name": "Rupture",
+      "start": "2026-11-13T22:00:00.000Z",
+      "venue": "Le Calypso",
+      "city": "Fréjus",
+      "address": "",
+      "url": "https://shotgun.live/events/rupture-calypso-frejus",
+      "image": "evenements/auto/635fa857bdab.jpg",
+      "price": 14,
+      "tags": [
+        "Techno",
+        "Trance",
+        "Hardtek",
+        "techno",
+        "trance",
+        "hardtek",
+        "hard bounce",
+        "bounce",
+        "Hard Bounce",
+        "Hardcore"
+      ],
+      "description": "",
+      "public_cible": 0.9,
+      "confiance": 0.95,
+      "buzz": 0.75,
+      "buzz_raison": "Grosse soirée rave et kicks rapides en front de mer.",
+      "accroche": "Grosse rave techno et kicks rapides en front de mer à Fréjus Plage.",
+      "instagram": [
+        "rupture.events",
+        "lecalypsofrejus",
+        "par4tek_events"
+      ],
+      "offres": [
+        {
+          "plateforme": "shotgun.live",
+          "url": "https://shotgun.live/fr/events/rupture-frejus",
+          "prix": 9
+        },
+        {
+          "plateforme": "vertexaisearch.cloud.google.com",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHOWo9xG_aJD5_4YirizNfzqgSwGhLgPyVmDVrrl7v-__kJB2GQHMny-DnSQYoVaSfbdP33tZnK8tWTI3An4oQGl2pYsJ99YYRxrCdVBqprn4ln8Binue6sOpNE6DYk",
+          "prix": 9
+        }
+      ],
+      "sources_sites": [
+        "Shotgun",
+        "shotgun.live"
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true,
+      "enrichi": true
+    },
+    {
+      "source": "web",
+      "source_site": "shotgun.live",
+      "name": "Pitch One (Trakkass) — Techno To Tribe",
+      "start": "2026-11-14T04:00:00.000Z",
+      "venue": "L'Antre Bar Electro",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/events/pitch-one-trakkass-techno-to-tribe",
+      "image": "evenements/auto/c5ed9447c1f2.jpg",
+      "price": 11,
+      "tags": [
+        "Tribe",
+        "Techno",
+        "tribe",
+        "hardtek",
+        "mental techno",
+        "techno",
+        "acidcore",
+        "Hardtek",
+        "Mental Techno",
+        "Hard Techno"
+      ],
+      "description": "",
+      "public_cible": 0.8,
+      "confiance": 0.95,
+      "buzz": 0.65,
+      "buzz_raison": "Set vinyle de Pitch One du collectif free party Trakkass",
+      "accroche": "After dès 5h du matin avec Pitch One, figure vinyle et pionnier de Trakkass.",
+      "instagram": [
+        "lantretechno",
+        "lantre_nice",
+        "lantrebarnice"
+      ],
+      "offres": [
+        {
+          "plateforme": "shotgun.live",
+          "url": "https://shotgun.live/events/pitch-one-trakkass-techno-to-tribe",
+          "prix": 11
+        }
+      ],
+      "sources_sites": [
+        "shotgun.live",
+        "Shotgun"
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true,
+      "enrichi": true
+    },
+    {
+      "source": "web",
+      "source_site": "provence-alpes-cotedazur.com",
+      "name": "Caravel (+ No2theG, May-Li)",
+      "start": "2026-11-14T19:00:00.000Z",
+      "venue": "Frigo 16 (Le 109)",
+      "city": "Nice",
+      "address": "",
+      "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEHqEB7NVKRQRDzKGGHKGNXL0ZcZ5QBL7qDACGTJFfe0Jd09JwaQmUA1Z8MtzwmMzB5WGvlDkMUBULa8PzMhTMarzbkr6D-J4KDi6Zu6qcOK-jhyA==",
+      "image": "evenements/auto/da3dd6821bcb.jpg",
+      "price": 7.49,
+      "tags": [
+        "hard techno",
+        "industrial techno",
+        "trance",
+        "Techno",
+        "Hard Bounce",
+        "Trance",
+        "bounce",
+        "techno",
+        "hard bounce",
+        "Hard Techno",
+        "Schranz",
+        "Acid",
+        "Psytrance"
+      ],
+      "description": "",
+      "public_cible": 0.95,
+      "confiance": 0.95,
+      "buzz": 0.85,
+      "buzz_raison": "Artiste majeure de la vague hard techno européenne, closing 4h",
+      "accroche": "Caravel balance sa hard techno et trance jusqu'à 4h du mat au Frigo 16.",
+      "instagram": [
+        "pandaevents06",
+        "caravel.music",
+        "le109nice"
+      ],
+      "offres": [
+        {
+          "plateforme": "shotgun.live",
+          "url": "https://shotgun.live/events/lqb-session-6-caravel-frigo-16",
+          "prix": 7.49
+        }
+      ],
+      "sources_sites": [
+        "provence-alpes-cotedazur.com",
+        "shotgun.live",
+        "Shotgun",
+        "Shotgun.live",
+        "Shotgun / Les Copains d'Abord / Panda Events",
+        "webtimemedias.com"
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true,
+      "via_veille": true,
+      "enrichi": true,
+      "verifie": false
+    },
+    {
+      "source": "teufy",
+      "venue": "Green Musik",
+      "city": "Antibes",
+      "address": "11 bis avenue du 11 Novembre, 06600 Antibes",
+      "url": "https://shotgun.live/events/la-tocardise-14-11-2026",
+      "image": "evenements/auto/aebc94d7bf4c.jpg",
+      "price": 12,
+      "end": "2026-11-15T04:00:00.000Z",
+      "name": "La Tocardise",
+      "start": "2026-11-14T22:00:00.000Z",
+      "instagram": [
+        "_lestocards_",
+        "lestocards_",
+        "green_musikclub"
+      ],
+      "organisateur": "Les Tocards",
+      "tags": [
+        "techno",
+        "psytrance",
+        "hard trance"
+      ],
+      "accroche": "Les Tocards reviennent au Green Musik pour une nuit techno, psytrance et hard trance.",
+      "description": "Aux platines : Hug'ette, Krad, Néodyme, Minimel et Art Winder, de 23h à 5h du matin. Billets sur Shotgun à 12 € (le tarif early à 9 € est déjà parti).",
+      "confiance": 1,
+      "_note": "Corrigée le 11/11/2026 d'après la page Shotgun et l'affiche officielle envoyées par le directeur (la recherche web avait associé l'affiche d'une autre soirée).",
+      "artistes": [
+        "Hug'ette",
+        "Krad",
+        "Néodyme",
+        "Minimel",
+        "Art Winder"
+      ],
+      "manuel": true,
+      "source_site": "Shotgun",
+      "public_cible": 0.9,
+      "buzz": 0.7,
+      "buzz_raison": "Collectif rave Les Tocards dans l'unique club techno d'Antibes.",
+      "offres": [
+        {
+          "plateforme": "shotgun.live",
+          "url": "https://shotgun.live/events/la-tocardise-14-11-2026",
+          "prix": 9
+        }
+      ],
+      "sources_sites": [
+        "Shotgun",
+        "shotgun.live",
+        "Shotgun.live"
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
+    }
+  ],
+  "titre": "Édition Tekno",
+  "tags": [
+    [],
+    [
+      "le_calypso_frejus"
+    ],
+    [
+      "lantretechno"
+    ],
+    [
+      "pandaevents06",
+      "le109_officiel"
+    ],
+    [
+      "_lestocards_",
+      "green_musikclub"
+    ]
+  ],
+  "collabs": [
+    "le109_officiel",
+    "pandaevents06",
+    "le_calypso_frejus"
+  ],
+  "choix": {
+    "creneau": "17",
+    "seuil-qualite": 0.65,
+    "titre-techno": "1r3r9v3",
+    "mise-couverture": "bas",
+    "intro-tekno": "1hiu2f6",
+    "question-tekno": "aftz2b",
+    "suivre": "h7y61e",
+    "site": "1p8scyo",
+    "hashtags-local": [
+      "#riviera",
+      "#cotedazur"
+    ],
+    "hashtags-techno": [
+      "#nightlife",
+      "#hardtechno"
+    ]
+  },
+  "features": [
+    "genre:techno",
+    "source:web",
+    "style:techno",
+    "style:trance",
+    "lieu:le-calypso",
+    "ville:frejus",
+    "prix:moyen",
+    "horaire:nuit",
+    "genre:techno",
+    "source:web",
+    "style:hard-techno",
+    "style:acid",
+    "lieu:l-antre-bar-electro",
+    "ville:nice",
+    "prix:moyen",
+    "horaire:nuit",
+    "genre:techno",
+    "source:web",
+    "style:hard-techno",
+    "style:acid",
+    "lieu:frigo-16-le-109",
+    "ville:nice",
+    "prix:petit",
+    "horaire:nuit",
+    "genre:techno",
+    "source:teufy",
+    "style:techno",
+    "style:trance",
+    "lieu:green-musik",
+    "ville:antibes",
+    "prix:moyen",
+    "horaire:nuit"
+  ],
+  "nb_images": 6,
+  "story": "story.jpg",
+  "a_tester": []
+}
