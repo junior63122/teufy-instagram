@@ -3,7 +3,7 @@ name: Teufy - Lieux (images, carte, transports)
 # Place les lieux des soirées sur la carte (Base Adresse Nationale, OpenStreetMap) et cherche transports et parkings
 # autour, sans construire tout le site (rapide, gratuit, sans IA). Le site les reprend à sa prochaine construction.
 on:
-  workflow_dispatch: {}
+  workflow_dispatch: {} # aussi lancé par le robot Instagram (déclenché chaque heure de l'extérieur) si GitHub a sauté un horaire
   schedule:
     - cron: "37 4,12,16 * * *" # nuit + midi + fin d'après-midi (sans IA) : vérification des comptes et images des soirées, limite Instagram 200 lectures par heure
 
@@ -48,6 +48,9 @@ jobs:
       - name: Placer les lieux sur la carte + transports et parkings autour
         timeout-minutes: 15
         run: node outils/geo-proches.mjs
+      - name: Où manger tard et afters (horaires OpenStreetMap, sans IA)
+        timeout-minutes: 6
+        run: node outils/nuit-tardive.mjs || echo "::warning::OpenStreetMap indisponible, liste inchangée"
       - name: Reconstruire le site avec les nouvelles images (sans IA, sans recherche web)
         timeout-minutes: 25
         env:
@@ -59,12 +62,14 @@ jobs:
           sudo apt-get install -y --no-install-recommends tesseract-ocr tesseract-ocr-fra >/dev/null 2>&1 || true # repère les « photos de lieu » qui sont des affiches
           node src/run.mjs site --force || echo "::warning::Site non reconstruit"
           node outils/controle-donnees.mjs || echo "::warning::Contrôle des données du site : erreurs à corriger"
-          git add -A -- $(ls -d index.html 404.html .nojekyll site a-propos soirees-* soiree festivals actus partenaires ambassadeurs bde mentions-legales cgu cgv confidentialite dates restaurants activites france occitanie clubs-bars evenements-france.json evenements-occitanie.json en it es zh ar sitemap.xml robots.txt llms.txt *.txt .well-known CNAME sw.js contenus evenements-web.json 2>/dev/null) || true # seulement les chemins existants (un seul absent bloquait tout)
+          # Toutes les pages reconstruites (avant : liste figée, il manquait artistes, ce-soir, avantages… : les photos des
+          # artistes n'apparaissaient qu'au passage suivant de la veille). Le compteur de dépenses IA n'est jamais touché ici.
+          git add -A . ':!contenus/budget-ia.json' || true
       - name: Enregistrer
         run: |
           git config user.name "teufy-bot"
           git config user.email "teufy-bot@users.noreply.github.com"
-          git add contenus/lieux-geo.json contenus/lieux-proches.json contenus/lieux-nuit.json contenus/affiches-instagram.json contenus/comptes-verifies.json contenus/comptes-lieux.json contenus/comptes-corrections.json contenus/artistes-insta.json site/lieux site/affiches site/artistes
+          git add contenus/nuit-tardive.json contenus/lieux-geo.json contenus/lieux-proches.json contenus/lieux-nuit.json contenus/affiches-instagram.json contenus/comptes-verifies.json contenus/comptes-lieux.json contenus/comptes-corrections.json contenus/artistes-insta.json site/lieux site/affiches site/artistes
           git diff --cached --quiet && exit 0
           git commit -m "Teufy : images des lieux, affiches Instagram, carte et transports [skip ci]"
           for i in 1 2 3; do git pull --rebase -X theirs --autostash && git push && break; git rebase --abort 2>/dev/null; sleep 5; done

@@ -46,6 +46,7 @@ on:
 
 permissions:
   contents: write
+  actions: write # relancer le robot « Lieux » (sans IA) quand GitHub a sauté son horaire
   models: read # GitHub Models : IA gratuite incluse dans GitHub Actions
 
 concurrency:
@@ -82,6 +83,16 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+
+      - name: Robot « Lieux » en retard ? (GitHub saute parfois ses horaires) — le relancer, il n'utilise pas d'IA
+        if: github.event_name == 'schedule' || startsWith(inputs.quoi, 'horaire')
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          DERNIER=$(gh run list -R "$GITHUB_REPOSITORY" --workflow teufy-site.yml --limit 1 --json createdAt -q '.[0].createdAt' 2>/dev/null || echo "")
+          AGE=$(( $(date +%s) - $(date -d "${DERNIER:-1970-01-01}" +%s) ))
+          if [ "$AGE" -gt 21600 ]; then gh workflow run teufy-site.yml -R "$GITHUB_REPOSITORY" --ref main && echo "Robot Lieux relancé (dernier passage il y a $((AGE/3600)) h)."; else echo "Robot Lieux à jour (dernier passage il y a $((AGE/60)) min)."; fi
 
       - name: Relever les statistiques (apprentissage)
         # Chaque post est mesuré au plus une fois par jour (de J+1 à J+21) : les passages suivants ne font presque rien.
