@@ -6435,6 +6435,31 @@
       "instagram": [
         "departement06"
       ]
+    },
+    {
+      "source": "web",
+      "source_site": "instagram.com",
+      "via_veille": true,
+      "name": "Damn Peach x Café Toulonnais",
+      "start": "2026-11-21T18:00:00.000Z",
+      "venue": "Café Toulonnais (Les Halles de Toulon)",
+      "city": "Toulon",
+      "address": "",
+      "url": "https://www.instagram.com/p/DfnG6VXCPUr/",
+      "image": "https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/899029118_18008581988990129_6865004572818388069_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=108&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=6TH3bCjFC-4Q7kNvwFl4alO&_nc_oc=Adrir6wnua9zyxTs2ZZn7yAWz2a1DROlQI7KNOwVFAkyUX6RACKkVHKxguAP1fzSGGI&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=WgczZiRVRB9zTRNVd80A-A&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQTks4CyRL5fXlA9PEcMDQk-ABZ62D5g519SSJN4hX74Gg&oe=6AFB58C0",
+      "price": null,
+      "tags": [
+        "Urbain",
+        "Hip-Hop",
+        "Classiques"
+      ],
+      "description": "",
+      "public_cible": 0.6,
+      "confiance": 0.9,
+      "accroche": "Session urbaine et restauration aux Halles de Toulon de 19h à minuit.",
+      "instagram": [
+        "damnpeach__"
+      ]
     }
   ]
 }
