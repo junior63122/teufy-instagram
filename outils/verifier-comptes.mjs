@@ -55,6 +55,11 @@ async function lireCompte(h) {
   return cache[h];
 }
 const confirme = async (h, textes) => { const c = await lireCompte(h); return !!(c?.ok && correspond(h, c, textes)); };
+// Un LIEU doit en plus être localisé : sa ville, la Côte d'Azur ou le Var dans son pseudo, son nom, sa bio ou son site
+// (sinon « Honey Club » → @honey, une marque mondiale).
+const LOCAL = /(nice|cannes|antibes|juan|monaco|monte.?carlo|menton|cagnes|grasse|frejus|saint.?raphael|st.?raphael|toulon|hyeres|bandol|sanary|mandelieu|villefranche|beaulieu|vence|sophia|valbonne|cote.?d.?azur|riviera|french.?riviera|alpes.?maritimes|var\b|provence|06\d{3}|83\d{3}|\b06\b|\b83\b|98000|\.fr\b|\.mc\b)/;
+const local = (h, c, ville) => { const t = sansAccent(`${h} ${c?.nom} ${c?.bio} ${c?.site}`); const v = sansAccent(ville || '').replace(/[^a-z]/g, ''); return LOCAL.test(t) || (v.length >= 4 && t.replace(/[^a-z]/g, '').includes(v)); };
+const confirmeLieu = async (h, l) => { const c = await lireCompte(h); return !!(c?.ok && correspond(h, c, [l.nom]) && local(h, c, l.ville)); };
 
 // --- Candidats pour un lieu sans compte confirmé (gratuit, sans IA) -----------------------------------------------
 async function page(url) {
@@ -79,6 +84,21 @@ async function candidats(nom, ville, site) {
   return [...new Set(out.map(propre))].filter((h) => /^[a-z0-9._]{3,30}$/.test(h));
 }
 
+// --- 0. D'abord les comptes des soirées des 10 prochains jours (ce qui sera publié en premier) -----------------------
+let ok = 0, ko = 0;
+async function comptesSoirees(liste) {
+  for (const e of liste) {
+    const textes = [e.venue, e.name, e.organisateur, ...(e.artistes || [])].filter(Boolean);
+    for (const brut of e.instagram || []) {
+      if (limite || appels >= MAX) return;
+      const h = propre(corr.comptes[propre(brut)] || brut);
+      if (await confirme(h, textes)) ok++; else ko++;
+    }
+  }
+}
+const proches = soirees.filter((e) => Date.parse(e.start) < now + 10 * 864e5).sort((a, b) => Date.parse(a.start) - Date.parse(b.start));
+await comptesSoirees(proches);
+
 // --- 1. Lieux : compte confirmé, sinon recherche du vrai compte ---------------------------------------------------
 const lieux = new Map();
 for (const l of LN.lieux || []) lieux.set(cleLieu(l.nom), { nom: l.nom, ville: l.ville, site: l.site, propose: [l.instagram, l.instagram_non_verifie].filter(Boolean), ref: l });
@@ -89,10 +109,11 @@ for (const [k, l] of ordre) {
   if (limite || appels >= MAX) break;
   const textes = [l.nom];
   const deja = lieuxComptes[k];
-  if (deja && await confirme(deja, textes)) { if (l.ref) l.ref.instagram = deja; continue; }
+  if (deja && await confirmeLieu(deja, l)) { if (l.ref) l.ref.instagram = deja; continue; }
+  if (deja) delete lieuxComptes[k]; // compte qui ne passe plus le contrôle (ex. @honey) : retiré
   let vrai = null;
-  for (const h of [...new Set(l.propose.map((x) => propre(corr.comptes[propre(x)] || x)))]) if (await confirme(h, textes)) { vrai = h; break; }
-  if (!vrai && l.aVenir) for (const h of await candidats(l.nom, l.ville, l.site)) { if (limite || appels >= MAX) break; if (await confirme(h, textes)) { vrai = h; break; } }
+  for (const h of [...new Set(l.propose.map((x) => propre(corr.comptes[propre(x)] || x)))]) if (await confirmeLieu(h, l)) { vrai = h; break; }
+  if (!vrai && l.aVenir) for (const h of await candidats(l.nom, l.ville, l.site)) { if (limite || appels >= MAX) break; if (await confirmeLieu(h, l)) { vrai = h; break; } }
   if (!vrai) continue;
   lieuxComptes[k] = vrai; trouves++;
   // Seuls les pseudos qui désignaient CE lieu (ex. @le109nice pour « Le 109 ») sont corrigés, jamais ceux d'un organisateur.
@@ -100,18 +121,10 @@ for (const [k, l] of ordre) {
   if (l.ref && l.ref.instagram !== vrai) { console.log(`Lieu « ${l.nom} » : @${l.ref.instagram || '—'} → @${vrai}`); l.ref.instagram = vrai; }
 }
 // Lieux dont aucun compte n'a pu être confirmé : plus de pseudo deviné sur le site.
-for (const l of LN.lieux || []) if (l.instagram && cache[propre(l.instagram)] && !(cache[propre(l.instagram)]?.ok && correspond(l.instagram, cache[propre(l.instagram)], [l.nom]))) { l.instagram_non_verifie = l.instagram; delete l.instagram; }
+for (const l of LN.lieux || []) if (l.instagram && cache[propre(l.instagram)] && !(cache[propre(l.instagram)]?.ok && correspond(l.instagram, cache[propre(l.instagram)], [l.nom]) && local(l.instagram, cache[propre(l.instagram)], l.ville))) { l.instagram_non_verifie = l.instagram; delete l.instagram; }
 
-// --- 2. Comptes des soirées (organisateurs, artistes) ----------------------------------------------------------
-let ok = 0, ko = 0;
-for (const e of soirees) {
-  const textes = [e.venue, e.name, e.organisateur, ...(e.artistes || [])].filter(Boolean);
-  for (const brut of e.instagram || []) {
-    if (limite || appels >= MAX) break;
-    const h = propre(corr.comptes[propre(brut)] || brut);
-    if (await confirme(h, textes)) ok++; else ko++;
-  }
-}
+// --- 2. Comptes des autres soirées (organisateurs, artistes) --------------------------------------------------
+await comptesSoirees(soirees.filter((e) => !proches.includes(e)));
 
 ecrire('contenus/comptes-verifies.json', cache);
 ecrire('contenus/comptes-lieux.json', lieuxComptes);

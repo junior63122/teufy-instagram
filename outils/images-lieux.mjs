@@ -59,7 +59,7 @@ for (const l of ordre) {
     const f = path.join(ROOT, 'site', 'lieux', `${l.instagram.replace(/[^a-z0-9._-]/g, '')}-couv.jpg`);
     if (await telecharger(couv.media_url, f)) { webp(f, 480); webp(f, 800); nPhotos++; }
   }
-  for (const e of [...new Set([...aVenir(l), ...(l.soirees || [])])]) {
+  for (const e of [...new Set([...aVenir(l), ...(l.soirees || [])])].filter((x) => x && typeof x === 'object' && x.start && !isNaN(Date.parse(x.start)))) {
     if (e.image) continue; // la soirée a déjà son affiche officielle
     const cle = `${normLieu(e.venue)}|${jourParis(e.start)}`;
     if (AI[cle] && existsSync(path.join(ROOT, AI[cle].fichier))) continue;
