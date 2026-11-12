@@ -1524,3 +1524,47 @@ html.onglets-caches .onglets{transform:translateY(105%)}
 /* 12/11/2026 : plus de copie floutée derrière les affiches (perçue comme « images floues ») : fond sombre net à la place. */
 .fond-flou{display:none!important}
 .affiche:has(>.fond-flou),.fiche-affiche.cadre{background:radial-gradient(120% 90% at 50% 40%,#23232c 0%,#111116 70%)}
+/* Recherche : lieux, artistes et villes qui correspondent (12/11/2026) */
+.autres-res{margin:8px 0 22px}
+.autres-liste{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;margin-top:8px}
+.autres-res .autre{display:grid;grid-template-columns:1fr auto;align-items:center;gap:2px 10px;padding:14px 16px;border-radius:14px;background:var(--nuit2);border:1px solid #ffffff1a;color:inherit;text-decoration:none;min-height:44px}
+.autres-res .autre b{font-size:16px}
+.autres-res .autre small{grid-column:1;opacity:.75}
+.autres-res .autre span{grid-row:1/3;grid-column:2;color:var(--corail);font-weight:700}
+.autres-res .autre:hover{border-color:var(--corail)}
+/* 12/11/2026 : plus de bandes grises autour des affiches carrées / horizontales : fond dans la teinte de l'affiche. */
+.affiche[style*="--teinte"]{background:radial-gradient(120% 80% at 50% 50%,var(--teinte) 0%,color-mix(in srgb,var(--teinte) 45%,#0b0b0f) 70%,#0b0b0f 100%)}
+.carte .quand-long{display:none}
+@media(min-width:980px){
+  .carte.solo-large .quand-long{display:block;margin:6px 0 2px;font-weight:800;font-size:17px;color:#b8321b}
+  .carte.solo-large .affiche{max-height:none}
+}
+.nb-puce{display:inline-block;margin-inline-start:6px;padding:1px 7px;border-radius:999px;background:#ffffff1f;font-size:.8em;font-weight:700;opacity:.9}
+.puce.actif .nb-puce{background:#0b0b0f22}
+/* Menu « Villes » : la Côte d'Azur d'abord (avec son total), puis « Ailleurs » (Occitanie, France) séparé. */
+.g-villes>div>a[href$="#agenda"]{font-weight:800}
+.g-villes>div>a[href$="occitanie/"]{position:relative;margin-top:14px}
+.g-villes>div>a[href$="occitanie/"]::before{content:"";position:absolute;inset-inline:10px;top:-8px;border-top:1px solid #ffffff22}
+.menu-villes>div>a[href$="occitanie/"]{margin-top:12px}
+@media(min-width:980px){
+  /* Grande carte : hauteur = celle de l'affiche (plus de bandes vides au-dessus et en dessous), texte centré. */
+  .carte.solo-large{align-items:center;background:var(--papier,#EDE6DA)}
+  .carte.solo-large .affiche{height:auto;min-height:0;aspect-ratio:auto;display:block;align-self:stretch}
+  .carte.solo-large .affiche .principale{position:static;width:100%;height:100%;max-height:520px;object-fit:cover;display:block}
+  .carte.solo-large .affiche.entiere .principale{object-fit:contain;height:auto;max-height:none}
+  .carte.solo-large .infos{align-self:center;padding:28px 34px}
+  .carte.solo-large .infos .actions,.carte.solo-large .infos .boutons{margin-top:18px}
+}
+/* Fond des affiches carrées / horizontales : la couleur de l'affiche, vive au centre, qui se fond vers le bord. */
+.affiche[style*="--teinte"]{background:radial-gradient(90% 70% at 50% 50%,color-mix(in srgb,var(--teinte) 85%,#fff 15%) 0%,var(--teinte) 45%,color-mix(in srgb,var(--teinte) 55%,#0b0b0f) 100%)}
+@media(min-width:980px){
+  .carte.solo-large .affiche{display:flex;align-items:center;justify-content:center;padding:28px}
+  .carte.solo-large .affiche .principale{width:100%;height:auto;max-height:100%;object-fit:contain;border-radius:10px;box-shadow:0 24px 60px -20px #000c}
+}
+/* Barre du haut (12/11/2026) : « Pros » en contour (l'orange plein volait la vedette au contenu), et sur « Teufy » un
+   simple point de nouveauté au lieu d'un « 9+ » sans explication (le nombre reste sur « Actus » dans la liste). */
+@media(min-width:760px){
+  .barre-droite .nav-haut.g-pros summary{background:transparent;color:var(--creme);border:1.5px solid var(--corail);opacity:1}
+  .barre-droite .nav-haut.g-pros summary:hover,.barre-droite .nav-haut.g-pros[open] summary{background:#ff5a3c22}
+  .barre-droite .g-teufy>summary .nb-notif{font-size:0;min-width:8px;width:8px;height:8px;padding:0;border-radius:50%;vertical-align:super;margin-inline-start:3px}
+}

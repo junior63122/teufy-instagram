@@ -367,6 +367,8 @@ export const TXT = { fr, en, it, es, zh, ar };
 // Textes ajoutés avec la recherche, les pages soirée et les nouvelles rubriques.
 const PLUS = {
   fr: {
+    toutCote: 'Toute la Côte d\'Azur et le Var',
+    aussi: 'Aussi sur Teufy', pasDeSoireeMais: 'Pas de soirée à venir, mais sur Teufy',
     rechercher: 'Rechercher', placeholder: 'Ex. : techno ce soir à Cannes, artiste, lieu…', resultats: '{n} résultat(s) pour « {q} »', aucunRes: 'Aucune soirée pour « {q} » pour l\'instant.', effacer: 'Effacer', populaires: 'Populaire :',
     favoris: '♥ Favoris', ajouterFav: 'Ajouter aux favoris', partager: 'Partager', lienCopie: 'Lien copié !', calendrier: 'Ajouter au calendrier', itineraire: 'Itinéraire', comparer: 'Comparer les prix', voir: 'Voir la soirée', memeSoir: 'Le même soir', memeStyle: 'Dans le même style', toutes: "Toutes les soirées", ou: 'Où', quandL: 'Quand', prixL: 'Prix', meilleurPrix: 'le moins cher',
     festivals: 'Festivals', actus: 'Actus', partenaires: 'Partenaires', ambassadeurs: 'Ambassadeurs', bde: 'BDE · Assos', legal: 'Mentions légales', stylesL: 'Styles', villesL: 'Villes', teufyL: 'Teufy', haut: 'Haut de page', contenu: 'Aller au contenu', majLe: 'Agenda mis à jour le {d}',
@@ -378,6 +380,8 @@ const PLUS = {
     e404: 'Page introuvable', e404p: "Cette page n'existe pas ou la soirée est passée. Toutes les soirées à venir sont dans l'agenda.", e404b: "Voir l'agenda",
   },
   en: {
+    toutCote: 'All of the Riviera and the Var',
+    aussi: 'Also on Teufy', pasDeSoireeMais: 'No upcoming party, but on Teufy',
     rechercher: 'Search', placeholder: 'e.g. techno tonight Cannes, artist, venue…', resultats: '{n} result(s) for “{q}”', aucunRes: 'No party for “{q}” yet.', effacer: 'Clear', populaires: 'Popular:',
     favoris: '♥ Saved', ajouterFav: 'Save', partager: 'Share', lienCopie: 'Link copied!', calendrier: 'Add to calendar', itineraire: 'Directions', comparer: 'Compare prices', voir: 'See the party', memeSoir: 'Same night', memeStyle: 'Same style', toutes: 'All parties', ou: 'Where', quandL: 'When', prixL: 'Price', meilleurPrix: 'cheapest',
     festivals: 'Festivals', actus: 'News', partenaires: 'Partners', ambassadeurs: 'Ambassadors', bde: 'Student unions', legal: 'Legal notice', stylesL: 'Styles', villesL: 'Cities', teufyL: 'Teufy', haut: 'Back to top', contenu: 'Skip to content', majLe: 'Updated on {d}',
@@ -389,6 +393,8 @@ const PLUS = {
     e404: 'Page not found', e404p: 'This page does not exist or the party is over. All upcoming parties are in the guide.', e404b: 'See the events',
   },
   it: {
+    toutCote: 'Tutta la Costa Azzurra e il Var',
+    aussi: 'Anche su Teufy', pasDeSoireeMais: 'Nessuna serata in programma, ma su Teufy',
     rechercher: 'Cerca', placeholder: 'Serata, artista, locale, stile (shatta, techno…)', resultats: '{n} risultato/i per «{q}»', aucunRes: 'Ancora nessuna serata per «{q}».', effacer: 'Cancella', populaires: 'Popolari:',
     favoris: '♥ Preferiti', ajouterFav: 'Aggiungi ai preferiti', partager: 'Condividi', lienCopie: 'Link copiato!', calendrier: 'Aggiungi al calendario', itineraire: 'Indicazioni', comparer: 'Confronta i prezzi', voir: 'Vedi la serata', memeSoir: 'La stessa sera', memeStyle: 'Stesso stile', toutes: 'Tutte le serate', ou: 'Dove', quandL: 'Quando', prixL: 'Prezzo', meilleurPrix: 'il più economico',
     festivals: 'Festival', actus: 'Notizie', partenaires: 'Partner', ambassadeurs: 'Ambasciatori', bde: 'Associazioni studentesche', legal: 'Note legali', stylesL: 'Stili', villesL: 'Città', teufyL: 'Teufy', haut: 'Torna su', contenu: 'Vai al contenuto', majLe: 'Aggiornato il {d}',
@@ -400,6 +406,8 @@ const PLUS = {
     e404: 'Pagina non trovata', e404p: 'Questa pagina non esiste o la serata è finita. Tutte le serate in arrivo sono nella guida.', e404b: 'Vedi gli eventi',
   },
   es: {
+    toutCote: 'Toda la Costa Azul y el Var',
+    aussi: 'También en Teufy', pasDeSoireeMais: 'Ninguna fiesta próxima, pero en Teufy',
     rechercher: 'Buscar', placeholder: 'Fiesta, artista, lugar, estilo (shatta, techno…)', resultats: '{n} resultado(s) para «{q}»', aucunRes: 'Aún no hay fiestas para «{q}».', effacer: 'Borrar', populaires: 'Populares:',
     favoris: '♥ Favoritos', ajouterFav: 'Añadir a favoritos', partager: 'Compartir', lienCopie: '¡Enlace copiado!', calendrier: 'Añadir al calendario', itineraire: 'Cómo llegar', comparer: 'Comparar precios', voir: 'Ver la fiesta', memeSoir: 'La misma noche', memeStyle: 'Mismo estilo', toutes: 'Todas las fiestas', ou: 'Dónde', quandL: 'Cuándo', prixL: 'Precio', meilleurPrix: 'el más barato',
     festivals: 'Festivales', actus: 'Noticias', partenaires: 'Socios', ambassadeurs: 'Embajadores', bde: 'Asociaciones de estudiantes', legal: 'Aviso legal', stylesL: 'Estilos', villesL: 'Ciudades', teufyL: 'Teufy', haut: 'Volver arriba', contenu: 'Ir al contenido', majLe: 'Actualizado el {d}',
@@ -411,6 +419,8 @@ const PLUS = {
     e404: 'Página no encontrada', e404p: 'Esta página no existe o la fiesta ya pasó. Todas las fiestas próximas están en la guía.', e404b: 'Ver los eventos',
   },
   zh: {
+    toutCote: '蔚蓝海岸和瓦尔省全部',
+    aussi: 'Teufy 上还有', pasDeSoireeMais: '暂无即将举行的派对，但 Teufy 上有',
     rechercher: '搜索', placeholder: '派对、艺人、场地、风格（shatta、techno……）', resultats: '“{q}”的结果：{n} 个', aucunRes: '暂时没有“{q}”相关的派对。', effacer: '清除', populaires: '热门：',
     favoris: '♥ 收藏', ajouterFav: '收藏', partager: '分享', lienCopie: '链接已复制！', calendrier: '添加到日历', itineraire: '路线', comparer: '比较价格', voir: '查看派对', memeSoir: '同一晚', memeStyle: '同类风格', toutes: '全部派对', ou: '地点', quandL: '时间', prixL: '价格', meilleurPrix: '最便宜',
     festivals: '音乐节', actus: '资讯', partenaires: '合作伙伴', ambassadeurs: '大使', bde: '学生会', legal: '法律声明', stylesL: '风格', villesL: '城市', teufyL: 'Teufy', haut: '返回顶部', contenu: '跳到内容', majLe: '更新于 {d}',
@@ -422,6 +432,8 @@ const PLUS = {
     e404: '页面不存在', e404p: '此页面不存在，或派对已经结束。所有即将举行的派对都在指南中。', e404b: '查看活动',
   },
   ar: {
+    toutCote: 'كل الكوت دازور والفار',
+    aussi: 'أيضًا على Teufy', pasDeSoireeMais: 'لا توجد سهرة قادمة، لكن على Teufy',
     rechercher: 'بحث', placeholder: 'حفلة، فنان، مكان، نوع (شاتا، تكنو…)', resultats: '{n} نتيجة لـ «{q}»', aucunRes: 'لا توجد حفلة لـ «{q}» حاليًا.', effacer: 'مسح', populaires: 'الأكثر بحثًا:',
     favoris: '♥ المفضلة', ajouterFav: 'أضف إلى المفضلة', partager: 'مشاركة', lienCopie: 'تم نسخ الرابط!', calendrier: 'أضف إلى التقويم', itineraire: 'الاتجاهات', comparer: 'قارن الأسعار', voir: 'عرض الحفلة', memeSoir: 'في الليلة نفسها', memeStyle: 'من النوع نفسه', toutes: 'كل الحفلات', ou: 'أين', quandL: 'متى', prixL: 'السعر', meilleurPrix: 'الأرخص',
     festivals: 'المهرجانات', actus: 'الأخبار', partenaires: 'الشركاء', ambassadeurs: 'السفراء', bde: 'الجمعيات الطلابية', legal: 'إشعار قانوني', stylesL: 'الأنواع', villesL: 'المدن', teufyL: 'Teufy', haut: 'إلى الأعلى', contenu: 'انتقل إلى المحتوى', majLe: 'آخر تحديث {d}',

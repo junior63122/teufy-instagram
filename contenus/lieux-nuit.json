@@ -42,7 +42,7 @@
     "posts21": 8
    },
    "slug": "high-club-nice",
-   "score": 1.025,
+   "score": 1.0323529411764705,
    "photo": "site/lieux/highclubnice-176.webp",
    "details": {
     "le": "2026-11-09T19:59:29.344Z",
@@ -660,7 +660,9 @@
      "nom": "Lizzie & Friends — Saturday House Session"
     }
    ],
-   "insta": null,
+   "insta": {
+    "abonnes": 5879
+   },
    "slug": "glass-club-cannes-cannes",
    "score": 0,
    "photo": "site/lieux/site-ac23a09caae7-176.webp",
@@ -916,7 +918,9 @@
      "nom": "Honey Club - Saturday Bee Crazy"
     }
    ],
-   "insta": null,
+   "insta": {
+    "abonnes": 8638
+   },
    "slug": "honey-club-juan-les-pins",
    "score": 0,
    "soirs": [
@@ -1086,7 +1090,7 @@
     "posts21": 4
    },
    "slug": "o-sullivans-by-the-beach-mandelieu-la-napoule",
-   "score": 0.875,
+   "score": 0.8823529411764706,
    "photo": "site/lieux/osullivans_mandelieu-176.webp",
    "soirs": [],
    "details": {
@@ -1259,9 +1263,14 @@
      "nom": "Lanonchalance pres. Malive"
     }
    ],
-   "insta": null,
+   "insta": {
+    "abonnes": 86830,
+    "likes": 20,
+    "commentaires": 2.5,
+    "posts21": 8
+   },
    "slug": "twiga-monte-carlo-monaco",
-   "score": 0,
+   "score": 0.3852941176470588,
    "photo": "site/lieux/twigamontecarlo-176.webp",
    "details": {
     "le": "2026-11-09T19:59:29.344Z",
@@ -1889,7 +1898,9 @@
      "nom": "Yann-S DJ Set"
     }
    ],
-   "insta": null,
+   "insta": {
+    "abonnes": 10925
+   },
    "slug": "le-barathym-toulon",
    "score": 0,
    "soirs": [
@@ -4413,7 +4424,7 @@
    "le": "2026-11-12T10:46:46.939Z",
    "absent": false,
    "abonnes": 8638,
-   "photo": "https://scontent-iad6-1.xx.fbcdn.net/v/t51.82787-15/892190835_18110902418255127_694614850219951572_n.jpg?_nc_cat=108&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=7d201b&_nc_ohc=36tRizX5e-cQ7kNvwEwYJvf&_nc_oc=AdpHQ84whOtr6f8YO5VMuB5BncnXnESEN96L_oBI0pDkpDU62lSaJAjJA4qD9xk_lZo&_nc_zt=23&_nc_ht=scontent-iad6-1.xx&edm=AL-3X8kEAAAA&_nc_gid=Zta0xI7NcTczvNs8GyVGZw&oh=00_AQS-wXRlqGa-IYMHiMWiN9_7YX6J3wddcPf1NjJ9OsZ4RQ&oe=6AFB6CB0",
+   "photo": "",
    "posts": [
     {
      "u": "https://scontent-iad6-1.cdninstagram.com/v/t51.82787-15/893822542_18111382712255127_7852761079502543769_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=sUmx7F5mUYYQ7kNvwE9pHy4&_nc_oc=Adp1D8zgAzBcp2PGoIKBHefFFr-oeb9OVpEmAa2NKCv8nBaQXIa4oomheBGDpBF4Ybg&_nc_zt=23&_nc_ht=scontent-iad6-1.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=Zta0xI7NcTczvNs8GyVGZw&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQQ5CZuGNPvMyKxPgXt-JQzzuMKqq-TQbP_qGWRuA3SYEQ&oe=6AFB6699",

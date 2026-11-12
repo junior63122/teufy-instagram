@@ -5,7 +5,7 @@ name: Teufy - Lieux (images, carte, transports)
 on:
   workflow_dispatch: {}
   schedule:
-    - cron: "37 4 * * *" # chaque nuit, avant les passages du site
+    - cron: "37 4,12,16 * * *" # nuit + midi + fin d'après-midi (sans IA) : vérification des comptes et images des soirées, limite Instagram 200 lectures par heure
 
 permissions:
   contents: write

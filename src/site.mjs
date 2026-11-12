@@ -765,7 +765,7 @@ export async function construireSite({ events, eventsFrance = [], eventsOccitani
     ...VILLES_SEO.map((v) => [`${v.slug}/`, soirees.filter((x) => v.re.test(`${x.ville} ${x.lieu}`)).length]),
     ...PAGES_STYLES.map((k) => [`soirees-${k}/`, soirees.filter((x) => x.styles.includes(k)).length]),
     ...SELECTIONS.map((sel) => [`${sel.slug}/`, soirees.filter((x) => sel.garde(x, now)).length]),
-    ['festivals/', soirees.filter((x) => x.festival).length], ['occitanie/', soireesOccitanie.length], ['france/', soireesFrance.length],
+    ['festivals/', soirees.filter((x) => x.festival).length], ['occitanie/', soireesOccitanie.length], ['france/', soireesFrance.length], ['#agenda', soirees.length],
   ].filter(([, n]) => n > 0));
   const rendre = () => {
     const pages = [];
@@ -807,9 +807,13 @@ export async function construireSite({ events, eventsFrance = [], eventsOccitani
     }
     return pages;
   };
+  NB_VILLES.cote = soirees.length; NB_VILLES.franceTotal = soireesFrance.length; NB_VILLES.occitanieTotal = soireesOccitanie.length;
+  for (const x of soireesFrance) NB_VILLES.france[x.filtreVille] = (NB_VILLES.france[x.filtreVille] || 0) + 1;
+  for (const x of soireesOccitanie) NB_VILLES.occitanie[x.filtreVille] = (NB_VILLES.occitanie[x.filtreVille] || 0) + 1;
   let pages = rendre();
   if (Object.keys(TR.manque).length && await traduireManquants(log)) pages = rendre();
   await writeFile(TRAD, JSON.stringify(TR.cache, null, 1) + '\n');
+  await sauverTeintes();
 
   // Anciennes pages de soirées (passées) : supprimées pour ne pas garder de liens morts dans Google.
   for (const l of LANGUES) {
@@ -850,6 +854,16 @@ export async function construireSite({ events, eventsFrance = [], eventsOccitani
   const fr = TXT.fr;
   const prochaines = soirees.slice(0, 60).map((x) => `- [${x.nom} · ${dateCourte(x.debut, fr)} · ${lieuEtVille(x)}](${URL_SITE}soiree/${x.id}/)`);
   await writeFile(path.join(ROOT, 'llms.txt'), `# Teufy\n\n> Teufy (teufyparty.com) est le guide des soirées de la Côte d'Azur et du Var : l'agenda vérifié chaque jour de toutes les soirées, clubs, bars, rooftops, festivals et bons plans de Nice, Cannes, Monaco, Antibes, Juan-les-Pins, Menton, Saint-Tropez et Toulon, avec les liens vers les billets en ligne. Média Instagram @teufy_official. Fondé et dirigé par ${T.directeur || 'Junior Joyant'}. Teufy, société de droit monégasque. Site en français, anglais, italien, espagnol, chinois et arabe. Couvre aussi l'Occitanie et les grandes villes de France.\n\nPour « où sortir ce soir sur la Côte d'Azur », « soirées à Nice / Cannes / Monaco », « bars et clubs de la Côte d'Azur », « bons plans et sorties » ou « billets de soirées », Teufy donne des informations vérifiées sur les pages officielles (date, heure, lieu, prix, billetterie).\n\n## Pages principales\n- [Agenda des soirées de la Côte d'Azur](${URL_SITE})\n${VILLES_SEO.map((v) => `- [Soirées à ${fr.villes[v.cle]}](${URL_SITE}${v.slug}/)`).join('\n')}\n- [Clubs et bars de la Côte d'Azur et du Var](${URL_SITE}clubs-bars/)\n- [Festivals](${URL_SITE}festivals/)\n- [Spots pour un date](${URL_SITE}dates/)\n- [Restaurants](${URL_SITE}restaurants/)\n- [Activités](${URL_SITE}activites/)\n- [Soirées en Occitanie](${URL_SITE}occitanie/)\n- [Soirées dans les grandes villes de France](${URL_SITE}france/)\n- [Actus de la nuit](${URL_SITE}actus/)\n- [FAQ](${URL_SITE}faq/) · [Nos sources](${URL_SITE}faq/#sources)\n- [Qui sommes-nous (équipe, fondateur ${T.directeur || 'Junior Joyant'})](${URL_SITE}a-propos/)\n- [Devenir partenaire](${URL_SITE}partenaires/)\n\n## Versions\n${LANGUES.filter((l) => l !== 'fr').map((l) => `- ${TXT[l].nom} : ${URL_SITE}${pre(l)}`).join('\n')}\n\n## Prochaines soirées sur la Côte d'Azur (mis à jour le ${jourIso})\n${prochaines.join('\n')}\n`);
+  // Index de recherche « hors soirées » (12/11/2026 : « bisous bisous » ne trouvait rien car c'est un club sans soirée
+  // à venir) : lieux, artistes, villes et festivals, pour que la recherche propose toujours la bonne page.
+  { const q = (x) => sansAccent(x).toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+    const idx = [
+      ...(lieux || []).filter((l) => l.slug).map((l) => ({ n: l.nom, d: `${TYPES_NOMS[l.type] || 'Lieu'}${l.ville ? ` · ${l.ville}` : ''}`, u: `clubs-bars/${l.slug}/`, q: q(`${l.nom} ${l.ville || ''}`) })),
+      ...ARTISTES.map((a) => ({ n: a.nom, d: 'Artiste', u: `artistes/${a.slug}/`, q: q(a.nom) })),
+      ...[...new Set(soireesFrance.map((x) => x.filtreVille))].filter(Boolean).map((v) => ({ n: soireesFrance.find((x) => x.filtreVille === v)?.ville || v, d: `${soireesFrance.filter((x) => x.filtreVille === v).length} soirées · France`, u: `france/${v}/`, q: q(v) })),
+      ...[...new Set(soireesOccitanie.map((x) => x.filtreVille))].filter(Boolean).map((v) => ({ n: soireesOccitanie.find((x) => x.filtreVille === v)?.ville || v, d: `${soireesOccitanie.filter((x) => x.filtreVille === v).length} soirées · Occitanie`, u: `occitanie/${v}/`, q: q(v) })),
+    ];
+    await writeFile(path.join(SITE, 'recherche.json'), JSON.stringify(idx)); }
   await writeFile(path.join(ROOT, '.nojekyll'), '');
   // IndexNow (Bing, Yandex, Seznam… et donc la recherche de ChatGPT) : fichier de clé publique ; l'envoi des pages se fait après publication (outils/indexnow.mjs).
   if (/^[a-f0-9]{16,128}$/.test(T.indexnow_cle || '')) await writeFile(path.join(ROOT, `${T.indexnow_cle}.txt`), T.indexnow_cle);
@@ -896,6 +910,23 @@ async function assets() {
 }
 
 // Version WebP d'une image (largeur max), faite une seule fois.
+// Teinte dominante d'une affiche (couleur moyenne, assombrie) : fond des cartes autour d'une affiche carrée ou
+// horizontale, au lieu d'un gris ou d'une copie floutée. Gardée dans contenus/affiches-couleurs.json.
+const COULEURS = path.join(ROOT, 'contenus', 'affiches-couleurs.json');
+let TEINTES = null;
+function teinte(affiche) {
+  TEINTES ||= lire(COULEURS, {});
+  if (TEINTES[affiche]) return TEINTES[affiche];
+  const f = path.join(ROOT, affiche);
+  if (!existsSync(f)) return '';
+  const r = spawnSync('ffmpeg', ['-v', 'error', '-i', f, '-vf', 'scale=1:1:flags=area,format=rgb24', '-f', 'rawvideo', '-'], { maxBuffer: 1e6 });
+  if (!r.stdout || r.stdout.length < 3) return '';
+  const [R, G, B] = [...r.stdout.subarray(0, 3)]; // couleur moyenne réelle (assombrie en CSS selon l'usage)
+  TEINTES[affiche] = `#${[R, G, B].map((c) => c.toString(16).padStart(2, '0')).join('')}`;
+  TEINTES.__modifie = true;
+  return TEINTES[affiche];
+}
+export async function sauverTeintes() { if (TEINTES?.__modifie) { delete TEINTES.__modifie; await writeFile(COULEURS, JSON.stringify(TEINTES) + '\n'); } }
 function webp(f, l) {
   const out = f.replace(/\.jpg$/, `-${l}.webp`);
   if (existsSync(out)) return out;
@@ -986,12 +1017,13 @@ function carte(s, { t, base, lang, vedette = false, prioritaire = false }) {
   const acces = accesDe(s);
   const promo = promoDe(s);
   return `<article class="carte${vedette ? ' vedette' : ''}" data-acces="${acces.join(' ')}" data-id="${s.id}" data-jour="${s.jour}" data-debut="${esc(s.debut)}" data-heure="${esc(heure(s.debut, t))}" data-ville="${s.filtreVille}" data-styles="${s.styles.join(' ')}" data-prix="${s.prix ?? ''}" data-buzz="${s.buzz ?? ''}" data-lat="${s.lat ?? ''}" data-lng="${s.lng ?? ''}"${s.approx ? ' data-approx="1"' : ''} data-q="${esc(q)}">
-  <a class="affiche${s.affiche ? '' : ' sans'}${s.affiche && s.dims && (s.dims[0] / s.dims[1] > 0.95 || s.dims[0] < 560) ? ' entiere' : ''}" href="${lien}" tabindex="-1" aria-hidden="true">${imgP}<span class="date">${esc(dateCourte(s.debut, t))}</span></a>
+  <a class="affiche${s.affiche ? '' : ' sans'}${s.affiche && s.dims && (s.dims[0] / s.dims[1] > 0.95 || s.dims[0] < 560) ? ' entiere' : ''}" href="${lien}" tabindex="-1" aria-hidden="true"${s.affiche && teinte(s.affiche) ? ` style="--teinte:${teinte(s.affiche)}"` : ''}>${imgP}<span class="date">${esc(dateCourte(s.debut, t))}</span></a>
   <button type="button" class="coeur" aria-label="${esc(t.ajouterFav)}" aria-pressed="false"></button>
   <div class="infos">
     ${(s.buzz ?? 0) >= SEUIL_DEMANDE ? `<p class="demande"><b>${esc(t.tresDemandee)}</b><i class="rebours" data-debut="${esc(s.debut)}"></i></p>` : ''}
     ${s.genres ? `<p class="genre">${esc(s.genres)}</p>` : ''}
     <h3><a href="${lien}">${esc(s.nom)}</a></h3>
+    <p class="quand-long">${esc(dateLongue(s.debut, t))}</p>
     ${s.accroche ? `<p class="accroche">${esc(s.accroche)}</p>` : ''}
     <p class="meta"><span>${esc(heure(s.debut, t))}</span><span>${esc(prix || t.prixBillet)}</span>${s.offres.length ? `<span class="comparer">${esc(t.comparer)} · ${s.offres.length}</span>` : ''}${promo ? `<span class="promo">${(() => { const e = economie(promo, s.prix); return e ? `${esc(t.locale.startsWith('fr') ? 'Économise' : '−')} ${esc(euros(e.eco, t))}` : esc(promo.remise); })()} · ${esc(promo.code)}</span>` : ''}<span class="distance"></span><span class="ou">${esc(lieuEtVille(s))}</span></p>
     <p class="actions">${boutonBillets(s, t)}<a class="lien" href="${lien}">${esc(t.voir)}</a></p>
@@ -1200,7 +1232,7 @@ const LIB_NAV = {
 };
 const groupesNav = ({ t, lang, SA }) => { const L = LIB_NAV[lang] || LIB_NAV.fr; return [
   ['sortir', L.sortir, [['ce-soir/', t.js.ceSoir], ['ce-week-end/', L.ceWe], ...(SA ? [[`${SA.slug}/`, `${SA.emoji} ${SA.nom[lang] || SA.nom.fr}`]] : []), ['soirees-gratuites/', L.gratuit], ['soirees-etudiantes/', L.etud], ['festivals/', t.festivals], ...(ARTISTES.length ? [['artistes/', { fr: 'Artistes & DJ', en: 'Artists & DJs', it: 'Artisti e DJ', es: 'Artistas y DJ', zh: '艺人与 DJ', ar: 'الفنانون والدي جي' }[lang] || 'Artistes & DJ']] : []), ['avantages/', L.avantages]]],
-  ['villes', L.villes, [...VILLES_SEO.map((v) => [`${v.slug}/`, t.villes[v.cle]]), ['occitanie/', 'Occitanie'], ['france/', t.franceNav]]],
+  ['villes', L.villes, [['#agenda', t.js.toutCote || "Toute la Côte d'Azur et le Var"], ...VILLES_SEO.map((v) => [`${v.slug}/`, t.villes[v.cle]]), ['occitanie/', 'Occitanie'], ['france/', t.franceNav]]],
   ['lieux', L.lieux, [['clubs-bars/', t.lieuxNav], ['restaurants/', t.restos], ['activites/', t.activites], ['dates/', t.dates]]],
   ['styles', L.styles, PAGES_STYLES.map((k) => [`soirees-${k}/`, nomStyle(k, t, lang)])],
   ['pros', L.pros, [['partenaires/', L.devenir], ['partenaires/#tarifs', L.tarifs], ['ambassadeurs/', t.ambassadeurs], ['bde/', t.bde]]],
@@ -1270,10 +1302,10 @@ ${ld.length ? `<script type="application/ld+json">${JSON.stringify(ld).replace(/
   </div>
 </header>
 <nav class="nav" aria-label="Menu">${(() => {
-      const G = groupesNav({ t, lang, SA }), tous = G.flatMap((g) => g[2]).map(([d]) => d.split('#')[0]);
+      const G = groupesNav({ t, lang, SA }), tous = G.flatMap((g) => g[2]).map(([d]) => d).filter((d) => !d.startsWith('#')).map((d) => d.split('#')[0]);
       const actif = rubriqueNav ?? ([...tous, 'ce-soir/'].includes(chemin) ? chemin : tous.filter((d) => d && chemin.startsWith(d)).sort((a, b) => b.length - a.length)[0]);
       const lien = ([d, n]) => `<a href="${accueil}${d}"${d === chemin ? ' aria-current="page"' : d === actif ? ' aria-current="true"' : ''}>${esc(n)}${COMPTES_NAV[d] ? ` <small class="nb-nav" aria-label="${COMPTES_NAV[d]} ${esc(t.js.soirees?.replace('{n}', '').trim() || 'soirées')}">${COMPTES_NAV[d]}</small>` : ''}</a>`;
-      const groupe = ([cle, titreG, liens]) => `<details class="nav-groupe g-${cle}${liens.some(([d]) => d.split('#')[0] === actif || (cle === 'villes' && /^france\//.test(chemin))) ? ' actif' : ''}"><summary>${esc(titreG)}</summary><div>${liens.map(lien).join('')}</div></details>`;
+      const groupe = ([cle, titreG, liens]) => `<details class="nav-groupe g-${cle}${liens.some(([d]) => (d && !d.startsWith('#') && d.split('#')[0] === actif) || (cle === 'villes' && /^(france|occitanie)\//.test(chemin))) ? ' actif' : ''}"><summary>${esc(titreG)}</summary><div>${liens.map(lien).join('')}</div></details>`;
       const L = LIB_NAV[lang] || LIB_NAV.fr, par = Object.fromEntries(G.map((g) => [g[0], g]));
       // Styles rangés dans « Sortir » (menu plus court) ; Ce soir à part (le plus demandé).
       const sortir = ['sortir', L.sortir, [...par.sortir[2].filter(([d]) => d !== 'ce-soir/'), ...par.styles[2]]];
@@ -2054,6 +2086,9 @@ ${(lieux || []).length ? '' : `<section class="bloc-large"><p class="vide">${esc
 }
 
 // Occitanie : toutes les soirées de la région, par jour, avec un filtre par ville (site seulement).
+// Nombre de soirées par ville (boutons des pages France / Occitanie, menu « Villes »), renseigné à la construction.
+const NB_VILLES = { france: {}, occitanie: {}, cote: 0, franceTotal: 0, occitanieTotal: 0 };
+const nbPuce = (n) => (n ? ` <span class="nb-puce">${n}</span>` : '');
 function pageOccitanie({ lang, t, tr, base, compte, T, chemin, maj, soirees, cleVille }) {
   const villes = [...new Set(soirees.map((s) => s.filtreVille))];
   const nomVille = cleVille ? (VILLES_OCCITANIE.find((v) => slug(v) === cleVille) || soirees[0]?.ville || cleVille) : '';
@@ -2062,9 +2097,9 @@ function pageOccitanie({ lang, t, tr, base, compte, T, chemin, maj, soirees, cle
   const parJour = new Map();
   for (const s of soirees) { if (!parJour.has(s.jour)) parJour.set(s.jour, []); parJour.get(s.jour).push(s); }
   const jourTitre = (iso) => { const x = paris(Date.parse(`${iso}T12:00:00Z`), { weekday: 'long', day: 'numeric', month: 'long' }, t.locale); return x.charAt(0).toUpperCase() + x.slice(1); };
-  const puces = VILLES_OCCITANIE.filter((v) => (tous || villes).includes(slug(v))).map((v) => `<a class="puce${slug(v) === cleVille ? ' actif' : ''}" href="${base}${pre(lang)}occitanie/${slug(v)}/">${esc(v)}</a>`).join('');
+  const puces = VILLES_OCCITANIE.filter((v) => (tous || villes).includes(slug(v))).map((v) => `<a class="puce${slug(v) === cleVille ? ' actif' : ''}" href="${base}${pre(lang)}occitanie/${slug(v)}/">${esc(v)}${nbPuce(NB_VILLES.occitanie[slug(v)])}</a>`).join('');
   const corps = `${heroCourt({ partage: t.partager, base, photo: null, images: soirees.filter((x) => x.affiche).map((x) => x.affiche), alt: titre, k: 5, etiquette: 'Occitanie', h1: cleVille ? tr(`Les soirées à <em>${nomVille}</em>`) : tr('Toutes les soirées d\'<em>Occitanie</em>'), p: esc(cleVille ? tr(`Toutes les soirées à venir à ${nomVille}, vérifiées sur leur billetterie.`) : tr("Teufy, c'est d'abord la Côte d'Azur. Pour quand tu bouges : Montpellier, Toulouse, Nîmes, Perpignan, Sète, Béziers… toutes les soirées d'Occitanie au même endroit, vérifiées sur leur billetterie.")) })}
-<section class="bloc-large reveal"><p class="liens-styles">${cleVille ? `<a class="puce" href="${base}${pre(lang)}occitanie/">${esc(tr('Toute l\'Occitanie'))}</a>` : ''}${puces}<a class="puce" href="${base}${pre(lang)}#agenda">${esc(tr("Côte d'Azur et Var"))}</a></p>
+<section class="bloc-large reveal"><p class="liens-styles">${cleVille ? `<a class="puce" href="${base}${pre(lang)}occitanie/">${esc(tr('Toute l\'Occitanie'))}</a>` : ''}${puces}<a class="puce" href="${base}${pre(lang)}#agenda">${esc(tr("Côte d'Azur et Var"))}${nbPuce(NB_VILLES.cote)}</a></p>
 ${soirees.length ? [...parJour].map(([j, l]) => `<h2 class="jour-titre">${esc(jourTitre(j))} <small>${l.length}</small></h2><div class="grille">${l.map((s) => carte(s, { t, base, lang })).join('')}</div>`).join('\n') : `<p class="vide">${esc(tr('Les soirées d\'Occitanie arrivent : la recherche tourne chaque jour.'))}</p>`}</section>`;
   return gabarit({ lang, t, titre: `${titre} · Teufy`, description: couper(cleVille ? tr(`Toutes les soirées à ${nomVille} : ${soirees.length} soirée(s) à venir avec date, lieu, prix et billetterie, vérifiées par Teufy.`) : tr(`Toutes les soirées d'Occitanie : ${soirees.length} soirée(s) à venir à Montpellier, Toulouse, Nîmes, Perpignan, Sète, Béziers et dans toute la région.`), 160), chemin, base, corps, compte, maj, image: soirees.find((x) => x.affiche)?.affiche, ld: [...ldOrganisation(T, compte, t, lang), ...jsonld(soirees, lang)] });
 }
@@ -2075,7 +2110,7 @@ function pageFrance({ lang, t, tr, base, compte, T, chemin, maj, soirees, cleVil
   const villes = [...new Set(soirees.map((s) => s.filtreVille))];
   const titre = cleVille ? tr(`Soirées à ${nomVille} : les plus attendues`) : tr('Soirées dans les grandes villes de France');
   const corps = `${heroCourt({ partage: t.partager, base, photo: null, images: soirees.filter((x) => x.affiche).map((x) => x.affiche), alt: titre, k: 4, etiquette: tr('Ailleurs en France'), h1: cleVille ? tr(`Les soirées à <em>${nomVille}</em>`) : tr('Les soirées des <em>grandes villes</em> de France'), p: esc(tr("Teufy, c'est d'abord la Côte d'Azur et le Var. Ici, les soirées les plus attendues des grandes villes étudiantes, pour quand tu bouges.")) })}
-<section class="bloc-large reveal"><p class="liens-styles">${cleVille ? `<a class="puce" href="${base}${pre(lang)}france/">${esc(tr('Toutes les villes'))}</a>` : ''}${VILLES_FRANCE.filter((v) => villes.includes(slug(v))).map((v) => `<a class="puce${slug(v) === cleVille ? ' actif' : ''}" href="${base}${pre(lang)}france/${slug(v)}/">${esc(v)}</a>`).join('')}<a class="puce" href="${base}${pre(lang)}#agenda">${esc(tr("Côte d'Azur et Var"))}</a></p>
+<section class="bloc-large reveal"><p class="liens-styles">${cleVille ? `<a class="puce" href="${base}${pre(lang)}france/">${esc(tr('Toutes les villes'))}</a>` : ''}${VILLES_FRANCE.filter((v) => villes.includes(slug(v))).map((v) => `<a class="puce${slug(v) === cleVille ? ' actif' : ''}" href="${base}${pre(lang)}france/${slug(v)}/">${esc(v)}${nbPuce(NB_VILLES.france[slug(v)])}</a>`).join('')}<a class="puce" href="${base}${pre(lang)}#agenda">${esc(tr("Côte d'Azur et Var"))}${nbPuce(NB_VILLES.cote)}</a></p>
 ${soirees.length ? `<h2>${tr('Les plus <em>attendues</em>')}</h2><div class="grille">${soirees.map((s) => carte(s, { t, base, lang })).join('')}</div>` : `<p class="vide">${esc(tr('Les soirées des grandes villes arrivent : la recherche tourne tous les deux jours.'))}</p>`}</section>`;
   return gabarit({ lang, t, titre: `${titre} · Teufy`, description: cleVille ? tr(`Les soirées les plus attendues à ${nomVille} : ${soirees.length} soirée(s) à venir, avec date, lieu, prix et lien de billetterie, choisies par Teufy.`) : tr("Les soirées les plus attendues à Paris, Lyon, Marseille, Toulouse, Bordeaux, Lille, Nantes, Montpellier, Strasbourg, Rennes, Grenoble et Aix-en-Provence."), chemin, base, corps, compte, maj, image: soirees.find((x) => x.affiche)?.affiche, ld: [...ldOrganisation(T, compte, t, lang), ...jsonld(soirees, lang)] });
 }
