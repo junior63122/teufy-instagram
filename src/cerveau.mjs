@@ -109,7 +109,7 @@ export async function analyserSemaine({ now = new Date(), dryRun = false, log = 
       hashtags_a_tester: { type: 'array', description: 'Au plus 5 hashtags pertinents (Côte d\'Azur, nightlife, styles) à tester.', items: { type: 'string' } },
       objectif_prochaine_semaine: { type: 'integer', description: 'Note /100 visée pour les posts de la semaine prochaine.' },
       formats_a_tester: { type: 'array', description: 'Au plus 3 formats ou manières de poster qui marchent en ce moment (veille + chiffres du compte), avec la source.', items: { type: 'object', additionalProperties: false, required: ['format', 'pourquoi', 'source'], properties: { format: { type: 'string' }, pourquoi: { type: 'string' }, source: { type: 'string' } } } },
-      creneaux_utc: { type: 'array', description: 'De 3 à 5 heures UTC (entiers de 15 à 21) où publier, d\'après les chiffres du compte (heures des meilleurs posts), les autres comptes et la veille. Rends la liste actuelle si rien ne justifie un changement.', items: { type: 'integer' } },
+      creneaux_utc: { type: 'array', description: 'De 3 à 5 heures UTC (entiers de 15 à 19) où publier, d\'après les chiffres du compte (heures des meilleurs posts), les autres comptes et la veille. Rends la liste actuelle si rien ne justifie un changement.', items: { type: 'integer' } },
     },
   };
   let d;
@@ -169,8 +169,8 @@ export async function analyserSemaine({ now = new Date(), dryRun = false, log = 
       appliques.push(`sujet de reel « ${sj.titre} »`);
     }
   }
-  // Heures de publication : seulement dans la fenêtre des passages du bot (15h-21h UTC), 3 à 5 créneaux, sans doublon.
-  const cr = [...new Set((d.creneaux_utc || []).map(Number))].filter((h) => Number.isInteger(h) && h >= 15 && h <= 21).sort((a, b) => a - b);
+  // Heures de publication : seulement dans la fenêtre des passages du bot (15h-19h UTC, pour garder du rattrapage avant 21h30 à Paris), 3 à 5 créneaux, sans doublon.
+  const cr = [...new Set((d.creneaux_utc || []).map(Number))].filter((h) => Number.isInteger(h) && h >= 15 && h <= 19).sort((a, b) => a - b);
   if (cr.length >= 3 && cr.length <= 5 && config.reglages?.creneaux_utc && cr.join() !== config.reglages.creneaux_utc.join()) { appliques.push(`heures de publication (UTC) ${config.reglages.creneaux_utc.join(', ')} → ${cr.join(', ')}`); config.reglages.creneaux_utc = cr; if (!dryRun) await writeFile(CONFIG_FILE, JSON.stringify(config, null, 2) + '\n'); }
   tendances.formats_a_tester = (d.formats_a_tester || []).slice(0, 3).filter((f) => texteOk(f.format, 120) && texteOk(f.pourquoi, 300)).map((f) => ({ ...f, ajout: today }));
   tendances.objectif_semaine = Math.max(objectif(data), Math.min(100, Number(d.objectif_prochaine_semaine) || 0));

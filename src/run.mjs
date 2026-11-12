@@ -42,7 +42,14 @@ const R = config.reglages;
 const hist = existsSync(HIST_FILE) ? JSON.parse(await readFile(HIST_FILE, 'utf8')) : [];
 const usedHere = new Set(); // débats / bons plans déjà pris dans ce lancement (aperçu du mois)
 const MODEL = buildModel();
-const CRENEAUX = (R.creneaux_utc || [15, 16, 17, 18, 19]).map(String);
+// Heures de publication (UTC) : seulement celles qui laissent au moins une heure de rattrapage avant l'heure limite à Paris
+// (12/11/2026 : le créneau 20h UTC = 21h à Paris ne laissait qu'un seul passage, et 21h UTC = 22h ne publiait jamais).
+const CRENEAUX = (() => {
+  const [mh, mm] = String(config.instagram?.heure_max_paris || '21:30').split(':').map(Number);
+  const paris = (h) => { const d = new Date(NOW); d.setUTCHours(h, 7, 0, 0); return Number(new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Paris', hour: '2-digit', hourCycle: 'h23' }).format(d)); };
+  const ok = (R.creneaux_utc || []).map(Number).filter((h) => paris(h) * 60 + 7 <= mh * 60 + (mm || 0) - 60);
+  return (ok.length >= 2 ? ok : [15, 16, 17, 18, 19]).map(String);
+})();
 // Heure de publication du jour (UTC), choisie selon ce qui a le mieux marché.
 const creneauDuJour = (d) => chooser(MODEL, rng(`${slotOfDay(d).date}-creneau`)).pick('creneau', CRENEAUX, (x) => x);
 
