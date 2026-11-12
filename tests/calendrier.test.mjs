@@ -10,13 +10,14 @@ const outils = (s) => { const r = rng(s); return { r, ch: chooser({ arms: {}, fe
 const config = JSON.parse(readFileSync(new URL('../config.json', import.meta.url)));
 const debats = JSON.parse(readFileSync(new URL('../contenus/debats.json', import.meta.url)));
 
-test('chaque semaine : 7 publications (lundi sorties, jeudi Édition Tekno, vendredi bon plan ou reel Tendance + débat en story, mercredi reel Tendance, 3 reels Flash)', () => {
+test('chaque semaine : 7 publications (lundi sorties, jeudi Édition Tekno, vendredi bon plan ou reel Tendance + débat en story, mercredi reel Tendance, 2 reels Flash, samedi reel Guide)', () => {
   for (let m = 0; m < 12; m++) {
     const jours = daysOfMonth(new Date(Date.UTC(2027, m, 15, 12)));
     for (const d of jours) {
       const s = slotOfDay(d);
       const c = config.calendrier.find((x) => x.jour === s.jour && x.rang === s.rang);
-      if ([2, 6, 7].includes(s.jour)) assert.deepEqual([c?.type, c?.variante], ['reel', 'flash'], s.date);
+      if ([2, 7].includes(s.jour)) assert.deepEqual([c?.type, c?.variante], ['reel', 'flash'], s.date);
+      else if (s.jour === 6) assert.deepEqual([c?.type, c?.variante], ['reel', 'guide'], s.date); // « où manger après la boîte », « les afters de… » (idée du directeur)
       else if (s.jour === 4) assert.deepEqual([c?.type, c?.variante], ['incontournables', 'tekno'], s.date);
       else if (s.jour === 3) assert.deepEqual([c?.type, c?.variante], ['reel', 'tendance'], s.date);
       else if (s.jour === 1) assert.equal(c?.type, 'incontournables', s.date);

@@ -358,7 +358,8 @@ async function prepare(slot, now, id) {
     // Format validé : « Flash ». La rubrique est choisie par l'apprentissage (celle qui marche le mieux revient plus souvent).
     const rubriqueFlash = () => ch.pick('rubrique-reel', ['Explicatif', 'Astuce', 'Humour', 'Actu nuit'], (x) => x);
     // Tendance : format viral repéré par la veille, écrit à neuf ; si l'écriture échoue, reel Flash de la banque (le post sort toujours).
-    let c = slot.variante === 'tendance' ? await nouveauFlash(STUDIO, id, 'Tendance').catch((err) => { console.error(`[${id}] reel Tendance impossible (${err.message}) : reel Flash de la banque.`); return dispo.find((x) => x.concept === 'reelflash') || null; })
+    let c = slot.variante === 'guide' ? await nouveauFlash(STUDIO, id, 'Guide').catch((err) => { console.error(`[${id}] reel Guide impossible (${err.message}) : reel Flash à la place.`); return DRY ? dispo.find((x) => x.concept === 'reelflash') : nouveauFlash(STUDIO, id, rubriqueFlash()).catch(() => dispo.find((x) => x.concept === 'reelflash') || null); })
+      : slot.variante === 'tendance' ? await nouveauFlash(STUDIO, id, 'Tendance').catch((err) => { console.error(`[${id}] reel Tendance impossible (${err.message}) : reel Flash de la banque.`); return dispo.find((x) => x.concept === 'reelflash') || null; })
       : slot.variante === 'nouveau' ? await nouveauFlash(STUDIO, id, rubriqueFlash())
       : val('concept') ? tous.find((x) => x.id === val('concept'))
       // Flash (12/11/2026) : écrit à neuf avec la fiche cible (contenus/cible.json) ; la réserve ne sert qu'en secours.

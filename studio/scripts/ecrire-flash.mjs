@@ -10,6 +10,7 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {json} from '../../src/llm.mjs';
 import {texteCible, lireCible} from '../../src/cible.mjs';
+import {choisirGuide} from '../../src/guide.mjs';
 
 const STUDIO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const ROOT = path.resolve(STUDIO, '..');
@@ -23,7 +24,7 @@ const STYLE_PHOTO = lire(path.join(STUDIO, 'scripts', 'decors', 'reel-paliers.js
 // Rubrique : la moins utilisée récemment (l'apprentissage peut la forcer en argument).
 const RUBRIQUES = ['Explicatif', 'Astuce', 'Humour', 'Actu nuit'];
 // « Tendance » : seulement sur demande (le mercredi) — un format viral repéré par la veille, pensé pour les non-abonnés.
-const TOUTES = [...RUBRIQUES, 'Tendance'];
+const TOUTES = [...RUBRIQUES, 'Tendance', 'Guide'];
 const recents = concepts.filter((c) => c.concept === 'reelflash').sort((a, b) => String(b.cree || '').localeCompare(String(a.cree || ''))).slice(0, 8).map((c) => c.rubrique);
 let rubrique = TOUTES.includes(process.argv[2]) ? process.argv[2] : [...RUBRIQUES].sort((a, b) => recents.filter((x) => x === a).length - recents.filter((x) => x === b).length)[0];
 
@@ -124,11 +125,18 @@ const FORMATS_VIRAUX = [
   'Avant / après (ce que tu prévois vs comment finit la soirée) avec un retournement drôle',
   'Défi ou devinette (« devine le prix d\'un verre à Monaco », réponse à la fin) : on regarde jusqu\'au bout',
 ];
+// Guide (idée du directeur) : « Où manger à Cannes après la boîte », « Les afters de Nice »… avec de VRAIES adresses.
+const GUIDE = rubrique === 'Guide' ? choisirGuide({deja: concepts.filter((c) => c.guide).map((c) => `${c.guide.theme}|${c.guide.ville}`)}) : null;
+if (rubrique === 'Guide' && !GUIDE) { console.error('Guide : pas encore 3 adresses vérifiées pour une ville (OpenStreetMap, fiches des clubs).'); process.exit(1); }
+const blocGuide = GUIDE ? `\nRUBRIQUE GUIDE : « ${GUIDE.theme === 'manger' ? `Où manger à ${GUIDE.ville} après la boîte` : `Les afters à ${GUIDE.ville}`} ». Le reel qu'on enregistre et qu'on envoie au groupe à 4 h du matin.
+Utilise UNIQUEMENT ces adresses, avec leur nom EXACT et leurs horaires tels qu'écrits (n'invente ni adresse, ni horaire, ni prix, ni avis) :
+${GUIDE.lieux.map((l, i) => `${i + 1}. ${l.nom} — ${l.quoi} — ${l.horaires}`).join('\n')}
+Présente 3 à 5 adresses numérotées (une par scène, le nom en mot géant), la scène 1 part d'une situation vécue (la faim de 4 h, la boîte qui ferme et personne ne veut rentrer). Dernière scène : « la liste complète est sur teufyparty.com » et « envoie ça à ton pote qui… ». Légende : les adresses avec leurs horaires, puis « Horaires publiés : vérifie avant d'y aller ». Photos des scènes : des ambiances génériques (rue la nuit, néons, groupe de potes, assiette à emporter), JAMAIS la devanture ou l'intérieur d'une adresse citée (on ne montre pas un faux lieu).\n` : '';
 const blocTendance = rubrique === 'Tendance' ? `\nRUBRIQUE TENDANCE : objectif = être partagé en message privé et vu par des gens qui ne suivent pas Teufy.
 Choisis UN de ces formats et applique-le à la nuit de la Côte d'Azur (situations vraies, pas de fausse info) :
 ${FORMATS_VIRAUX.map((f) => `- ${f}`).join('\n')}
 La dernière scène pousse à envoyer le reel à quelqu'un (« envoie ça à ton pote qui… ») plutôt qu'à s'abonner.\n` : '';
-const prompt = `Rubrique demandée : ${rubrique}.${blocTendance}
+const prompt = `Rubrique demandée : ${rubrique}.${blocTendance}${blocGuide}
 ${idees.length ? `Actualité vérifiée de la veille (prioritaire pour « Actu nuit » et « Explicatif ») :\n${idees.map((i) => `- ${i.titre} — ${i.angle || i.resume || ''} (${i.source || 'sans source'})`).join('\n')}\n` : ''}Sujets possibles : ${SUJETS.join(' ; ')}.
 ${meilleurs.length ? `Nos reels les mieux notés (inspire-toi de ce qui marche) : ${meilleurs.join(' ; ')}.\n` : ''}${accroches.length ? `Accroches qui marchent chez les comptes suivis : ${accroches.join(' | ')}.\n` : ''}Déjà publiés ou en banque (ne refais pas le même sujet) :\n${dejaFaits.map((t) => `- ${t}`).join('\n') || '- aucun'}
 Date : ${new Date().toISOString().slice(0, 10)}. Écris un reel selon le schéma.`;
@@ -159,6 +167,12 @@ if (!process.env.ECRIRE_REPONSE && r?.scenes?.length) {
   }
 }
 if (!r?.scenes?.length) { console.error('Scénariste : aucune réponse exploitable.'); process.exit(1); }
+if (GUIDE) {
+  const tout = (r.scenes || []).map((x) => x.texte).join(' ') + ' ' + (r.legende || '');
+  const simple = (x) => String(x).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]/g, '');
+  const cites = GUIDE.lieux.filter((l) => simple(tout).includes(simple(l.nom.replace(/\s*\(.*\)$/, ''))));
+  if (cites.length < 3) { console.error(`Guide : seulement ${cites.length} adresse(s) vérifiée(s) citée(s), il en faut 3 : refusé.`); process.exit(1); }
+}
 
 // --- vérifications ---------------------------------------------------------------------
 const sansTags = (s) => String(s || '').replace(/\[[^\]]*\]/g, ' ');
@@ -192,7 +206,7 @@ const vides = plans.filter((p) => !p.gros.length && !p.objet).length;
 if (vides > 1) console.warn(`Scénariste : ${vides} scène(s) sans temps fort visuel.`);
 
 const concept = {
-  id, concept: 'reelflash', type: 'explicatif', rubrique, titre: r.titre, titre_couverture: r.titre_couverture, cree: new Date().toISOString(), source: r.source || undefined,
+  id, concept: 'reelflash', type: 'explicatif', rubrique, ...(GUIDE ? {guide: {theme: GUIDE.theme, ville: GUIDE.ville}} : {}), titre: r.titre, titre_couverture: r.titre_couverture, cree: new Date().toISOString(), source: r.source || undefined,
   voix: config.studio?.voix || {voice_id: '3Tp5mYhT9wrfnry9pzvV', nom: 'Hugo', modele: 'eleven_v3', stabilite: 0.0, style: 0.85, vitesse: 1.2},
   musique: {src: MUSIQUES[r.musique] || MUSIQUES.trap, volume: 0.42, ducking: 0.3},
   queue: 1.6, whooshEntreScenes: false,
