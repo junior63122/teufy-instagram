@@ -1,0 +1,392 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Teufy · Shatta · Dancehall
+X-WR-TIMEZONE:Europe/Paris
+REFRESH-INTERVAL;VALUE=DURATION:PT6H
+X-PUBLISHED-TTL:PT6H
+BEGIN:VEVENT
+UID:jetlag-gang-opening-act-2026-11-13@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261113T223000Z
+DTEND:20261114T033000Z
+SUMMARY:Jetlag Gang (+ Opening Act)
+LOCATION:Frigo 16 (Le 109)\, Nice
+DESCRIPTION:Grosse nuit latino clubbing\, reggaeton et perreo jusqu'à 
+ 4h au Frigo 16.\nFiche et billets : https://teufyparty.com/soiree/jetl
+ ag-gang-opening-act-2026-11-13/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/jetlag-gang-opening-act-2026-11-13/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Jetlag Gang (+ Opening Act)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:la-wicked-afroheat-festival-2026-11-13@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261113T223000Z
+DTEND:20261114T033000Z
+SUMMARY:La Wicked – Afroheat Festival
+LOCATION:305 Vice Club Nice\, Nice
+DESCRIPTION:Soirée officielle Afroheat Festival avec DJ Mapouia\, Blac
+ k Q et Lil Big au 305 Vice.\nFiche et billets : https://teufyparty.com
+ /soiree/la-wicked-afroheat-festival-2026-11-13/\nVia Teufy @teufy_offi
+ cial
+URL:https://teufyparty.com/soiree/la-wicked-afroheat-festival-2026-11-
+ 13/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : La Wicked – Afroheat Festival
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:latin-addict-2026-11-13@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261113T225900Z
+DTEND:20261114T035900Z
+SUMMARY:Latin Addict
+LOCATION:High Club\, Nice
+DESCRIPTION:Ambiance caliente sur la Promenade avec la résidence référ
+ ence reggaeton et shatta.\nFiche et billets : https://teufyparty.com/s
+ oiree/latin-addict-2026-11-13/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/latin-addict-2026-11-13/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Latin Addict
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:caribbean-mood-2026-11-13@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261113T225900Z
+DTEND:20261114T035900Z
+SUMMARY:Caribbean Mood
+LOCATION:Skyfall\, Cannes
+DESCRIPTION:Nuit caliente à Cannes avec DJ Mygo et DJ Iron aux platine
+ s pour du lourd en dancehall et shatta.\nFiche et billets : https://te
+ ufyparty.com/soiree/caribbean-mood-2026-11-13/\nVia Teufy @teufy_offic
+ ial
+URL:https://teufyparty.com/soiree/caribbean-mood-2026-11-13/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Caribbean Mood
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:divas-naho-club-2026-11-14@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261114T190000Z
+DTEND:20261115T000000Z
+SUMMARY:Divas @ Naho Club
+LOCATION:NAHO Club\, La Garde
+DESCRIPTION:Soirée festive et paillettes avec sushis\, tatouages et st
+ ands maquillage.\nFiche et billets : https://teufyparty.com/soiree/div
+ as-naho-club-2026-11-14/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/divas-naho-club-2026-11-14/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Divas @ Naho Club
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:urban-shatta-2026-11-14@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261114T223000Z
+DTEND:20261115T033000Z
+SUMMARY:Urban Shatta
+LOCATION:Boka Club\, Toulon
+DESCRIPTION:DJ Badberone et guest DJ Flextouch pour une nuit Urban Sha
+ tta au Boka Club.\nFiche et billets : https://teufyparty.com/soiree/ur
+ ban-shatta-2026-11-14/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/urban-shatta-2026-11-14/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Urban Shatta
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:honey-club-saturday-bee-crazy-2026-11-14@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261114T225900Z
+DTEND:20261115T035900Z
+SUMMARY:Honey Club - Saturday Bee Crazy
+LOCATION:Honey Club\, Juan-les-Pins
+DESCRIPTION:DJ Shaylan\, Gianni et MC Mada mettent le feu au Honey Clu
+ b au son shatta et rap.\nFiche et billets : https://teufyparty.com/soi
+ ree/honey-club-saturday-bee-crazy-2026-11-14/\nVia Teufy @teufy_offici
+ al
+URL:https://teufyparty.com/soiree/honey-club-saturday-bee-crazy-2026-1
+ 1-14/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Honey Club - Saturday Bee Crazy
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:the-best-or-nothing-2026-11-14@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261114T225900Z
+DTEND:20261115T035900Z
+SUMMARY:The Best or Nothing
+LOCATION:Skyfall\, Cannes
+DESCRIPTION:DJ Enicay retourne le Skyfall avec les meilleurs bangers u
+ rban\, shatta et amapiano à Cannes.\nFiche et billets : https://teufyp
+ arty.com/soiree/the-best-or-nothing-2026-11-14/\nVia Teufy @teufy_offi
+ cial
+URL:https://teufyparty.com/soiree/the-best-or-nothing-2026-11-14/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : The Best or Nothing
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ponte-loca-mama-shelter-nice-2026-11-19@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261119T190000Z
+DTEND:20261120T000000Z
+SUMMARY:Ponte Loca • Mama Shelter Nice
+LOCATION:Mama Shelter Nice\, Nice
+DESCRIPTION:Soirée reggaeton et latino en entrée libre au Mama Shelter
+  Nice.\nFiche et billets : https://teufyparty.com/soiree/ponte-loca-ma
+ ma-shelter-nice-2026-11-19/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/ponte-loca-mama-shelter-nice-2026-11
+ -19/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Ponte Loca • Mama Shelter Nice
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:la-wave-shatta-seduction-cannes-2026-11-21@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261121T220000Z
+DTEND:20261122T030000Z
+SUMMARY:La Wave - "Shatta Séduction" - Cannes
+LOCATION:Skyfall Cannes x Kingdom\, Cannes
+DESCRIPTION:Concept célibataires shatta et bouyon avec DJs Sonny & Tic
+ oq au Skyfall Cannes.\nFiche et billets : https://teufyparty.com/soire
+ e/la-wave-shatta-seduction-cannes-2026-11-21/\nVia Teufy @teufy_offici
+ al
+URL:https://teufyparty.com/soiree/la-wave-shatta-seduction-cannes-2026
+ -11-21/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : La Wave - "Shatta Séduction" - Cannes
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:skarra-mucci-et-manudigital-ragga-blasta-tour-2026-11-27@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261127T193000Z
+DTEND:20261128T003000Z
+SUMMARY:Skarra Mucci & Manudigital — Ragga Blasta Tour
+LOCATION:Centre Culturel Tisot\, La Seyne-sur-Mer
+DESCRIPTION:Session explosive entre basses numériques et toasting ragg
+ a par deux références du genre.\nFiche et billets : https://teufyparty
+ .com/soiree/skarra-mucci-et-manudigital-ragga-blasta-tour-2026-11-27/\
+ nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/skarra-mucci-et-manudigital-ragga-bl
+ asta-tour-2026-11-27/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Skarra Mucci & Manudigital — Ragga Blasta Tour
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:soiree-zouk-et-caribbean-vibes-2026-11-28@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261128T200000Z
+DTEND:20261129T010000Z
+SUMMARY:Soirée Zouk & Caribbean Vibes
+LOCATION:L'Artiste 83\, Roquebrune-sur-Argens
+DESCRIPTION:Showcase live de Layanah et DJ Vanpiro pour une grosse nui
+ t shatta et caribéenne.\nFiche et billets : https://teufyparty.com/soi
+ ree/soiree-zouk-et-caribbean-vibes-2026-11-28/\nVia Teufy @teufy_offic
+ ial
+URL:https://teufyparty.com/soiree/soiree-zouk-et-caribbean-vibes-2026-
+ 11-28/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Soirée Zouk & Caribbean Vibes
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zouk-love-toulon-edition-chic-2026-11-28@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261128T224500Z
+DTEND:20261129T034500Z
+SUMMARY:Zouk Love Toulon Edition Chic
+LOCATION:Le Boka Club\, Toulon
+DESCRIPTION:Soirée zouk et kompa animée par DJ Feeling au Boka Club av
+ ec invitations gratuites.\nFiche et billets : https://teufyparty.com/s
+ oiree/zouk-love-toulon-edition-chic-2026-11-28/\nVia Teufy @teufy_offi
+ cial
+URL:https://teufyparty.com/soiree/zouk-love-toulon-edition-chic-2026-1
+ 1-28/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Zouk Love Toulon Edition Chic
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:shafro-toulon-2-afro-shatta-dancehall-2026-11-29@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261129T190000Z
+DTEND:20261130T000000Z
+SUMMARY:Shafro @ Toulon #2 : Afro\, Shatta\, Dancehall
+LOCATION:Le Factory Club\, La Farlède
+DESCRIPTION:Retour de la soirée Shafro avec kicks shatta et rythmes af
+ robeats au Factory.\nFiche et billets : https://teufyparty.com/soiree/
+ shafro-toulon-2-afro-shatta-dancehall-2026-11-29/\nVia Teufy @teufy_of
+ ficial
+URL:https://teufyparty.com/soiree/shafro-toulon-2-afro-shatta-dancehal
+ l-2026-11-29/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Shafro @ Toulon #2 : Afro\, Shatta\, Dancehall
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:aura-night-fornap-edition-imperiale-2026-12-04@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261204T193000Z
+DTEND:20261205T003000Z
+SUMMARY:Aura Night — Fornap (Édition Impériale)
+LOCATION:Fort Napoléon\, La Seyne-sur-Mer
+DESCRIPTION:Ambiance safe place shatta et amapiano avec DJ Jess et DJ 
+ Aafroo au Fort Napoléon.\nFiche et billets : https://teufyparty.com/so
+ iree/aura-night-fornap-edition-imperiale-2026-12-04/\nVia Teufy @teufy
+ _official
+URL:https://teufyparty.com/soiree/aura-night-fornap-edition-imperiale-
+ 2026-12-04/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Aura Night — Fornap (Édition Impériale)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:dakeez-2026-12-05@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261205T190000Z
+DTEND:20261206T000000Z
+SUMMARY:Dakeez
+LOCATION:Frigo 16 (Le 109)\, Nice
+DESCRIPTION:Show R&B et trapsoul avec le chanteur et danseur Dakeez au
+  Frigo 16.\nFiche et billets : https://teufyparty.com/soiree/dakeez-20
+ 26-12-05/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/dakeez-2026-12-05/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Dakeez
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mamacita-2026-12-05@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261205T223000Z
+DTEND:20261206T033000Z
+SUMMARY:Mamacita
+LOCATION:Frigo 16 (Le 109)\, Nice
+DESCRIPTION:Ambiance perreo et baile funk ultra chaude signée Mamacita
+  au Frigo 16.\nFiche et billets : https://teufyparty.com/soiree/mamaci
+ ta-2026-12-05/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/mamacita-2026-12-05/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Mamacita
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:brodinski-en-concert-a-nice-tobhi-tm-et-friends-2026-12-11@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261211T190000Z
+DTEND:20261212T000000Z
+SUMMARY:Brodinski en concert à Nice (+ TOBHI TM & Friends)
+LOCATION:Frigo 16 (Le 109)\, Nice
+DESCRIPTION:Brodinski enflamme le Frigo 16 entre trap wave\, électro e
+ t gros son club.\nFiche et billets : https://teufyparty.com/soiree/bro
+ dinski-en-concert-a-nice-tobhi-tm-et-friends-2026-12-11/\nVia Teufy @t
+ eufy_official
+URL:https://teufyparty.com/soiree/brodinski-en-concert-a-nice-tobhi-tm
+ -et-friends-2026-12-11/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Brodinski en concert à Nice (+ TOBHI TM & Friend
+ s)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mungo-s-hi-fi-frigo-16-2026-12-12@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261212T190000Z
+DTEND:20261213T000000Z
+SUMMARY:Mungo's Hi Fi @ Frigo 16
+LOCATION:Frigo 16 - Le 109\, Nice
+DESCRIPTION:Les pionniers écossais du sound system dub Mungo's Hi Fi e
+ n live au Frigo 16.\nFiche et billets : https://teufyparty.com/soiree/
+ mungo-s-hi-fi-frigo-16-2026-12-12/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/mungo-s-hi-fi-frigo-16-2026-12-12/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Mungo's Hi Fi @ Frigo 16
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zona-de-perreo-frigo-16-nice-2026-12-19@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261219T190000Z
+DTEND:20261220T000000Z
+SUMMARY:Zona De Perreo • Frigo 16 Nice
+LOCATION:Frigo 16 (Le 109)\, Nice
+DESCRIPTION:Le crew Latin Addict débarque au 109 pour une nuit 100% pe
+ rreo\, dembow et shatta.\nFiche et billets : https://teufyparty.com/so
+ iree/zona-de-perreo-frigo-16-nice-2026-12-19/\nVia Teufy @teufy_offici
+ al
+URL:https://teufyparty.com/soiree/zona-de-perreo-frigo-16-nice-2026-12
+ -19/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Zona De Perreo • Frigo 16 Nice
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:shafro-toulon-3-afro-shatta-bouyon-2026-12-20@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261220T190000Z
+DTEND:20261221T000000Z
+SUMMARY:Shafro @ Toulon #3 — Afro\, Shatta\, Bouyon
+LOCATION:Le Factory Club\, La Farlède
+DESCRIPTION:Session bouyon et afrobeats avec DJ Abi pour fêter le débu
+ t des vacances.\nFiche et billets : https://teufyparty.com/soiree/shaf
+ ro-toulon-3-afro-shatta-bouyon-2026-12-20/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/shafro-toulon-3-afro-shatta-bouyon-2
+ 026-12-20/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Shafro @ Toulon #3 — Afro\, Shatta\, Bouyon
+END:VALARM
+END:VEVENT
+END:VCALENDAR

@@ -657,6 +657,8 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
       try { await navigator.clipboard.writeText(d.url); toast(T.lienCopie); } catch { toast(d.url); }
       return;
     }
+    const lien = ev.target.closest('[data-lien]');
+    if (lien) { ev.preventDefault(); try { await navigator.clipboard.writeText(lien.dataset.lien); toast(T.lienCopie); } catch { toast(lien.dataset.lien); } return; }
     const code = ev.target.closest('[data-copier]');
     if (code) { try { await navigator.clipboard.writeText(code.dataset.copier); toast(T.codeCopie); } catch { toast(code.dataset.copier); } }
   });

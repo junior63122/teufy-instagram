@@ -1,0 +1,2783 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Teufy · Soirées Côte d'Azur
+X-WR-TIMEZONE:Europe/Paris
+REFRESH-INTERVAL;VALUE=DURATION:PT6H
+X-PUBLISHED-TTL:PT6H
+BEGIN:VEVENT
+UID:alessandro-ristori-et-franciskey-au-twiga-2026-11-12@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261112T193000Z
+DTEND:20261113T003000Z
+SUMMARY:Alessandro Ristori et Franciskey au Twiga
+LOCATION:Twiga Monte-Carlo\, Monaco
+DESCRIPTION:Dîner live d'Alessandro Ristori suivi d'une nuit clubbing 
+ avec Franciskey.\nFiche et billets : https://teufyparty.com/soiree/ale
+ ssandro-ristori-et-franciskey-au-twiga-2026-11-12/\nVia Teufy @teufy_o
+ fficial
+URL:https://teufyparty.com/soiree/alessandro-ristori-et-franciskey-au-
+ twiga-2026-11-12/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Alessandro Ristori et Franciskey au Twiga
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:soiree-italie-france-2026-11-12@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261112T194500Z
+DTEND:20261113T004500Z
+SUMMARY:Soirée Italie / France
+LOCATION:La Cale Sèche\, Toulon
+DESCRIPTION:Diffusion du match de football Italie contre France sur gr
+ and écran.\nFiche et billets : https://teufyparty.com/soiree/soiree-it
+ alie-france-2026-11-12/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/soiree-italie-france-2026-11-12/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Soirée Italie / France
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:je-dis-techno-tous-les-jeudis-2026-11-12@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261112T210000Z
+DTEND:20261113T020000Z
+SUMMARY:Je Dis Techno (Tous Les Jeudis)
+LOCATION:L'Antre (Before 22h) & Le Kosma (Full Night 00h)\, Nice
+DESCRIPTION:Before à L'Antre puis full night au Kosma pour le rendez-v
+ ous techno du jeudi.\nFiche et billets : https://teufyparty.com/soiree
+ /je-dis-techno-tous-les-jeudis-2026-11-12/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/je-dis-techno-tous-les-jeudis-2026-1
+ 1-12/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Je Dis Techno (Tous Les Jeudis)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ium-francis-key-2026-11-12@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261112T223000Z
+DTEND:20261113T033000Z
+SUMMARY:IUM – Francis Key
+LOCATION:Twiga Monte Carlo\, Monaco
+DESCRIPTION:Soirée étudiante de l'IUM avec Francis Key aux platines du
+  Twiga Monte Carlo.\nFiche et billets : https://teufyparty.com/soiree/
+ ium-francis-key-2026-11-12/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/ium-francis-key-2026-11-12/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : IUM – Francis Key
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:thursday-session-w-alex-duff-2026-11-12@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261112T225900Z
+DTEND:20261113T035900Z
+SUMMARY:Thursday Session w/ Alex Duff
+LOCATION:Glass Club Cannes\, Cannes
+DESCRIPTION:Session tech house intimiste avec Alex Duff au Glass Club 
+ dans le Carré d'Or.\nFiche et billets : https://teufyparty.com/soiree/
+ thursday-session-w-alex-duff-2026-11-12/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/thursday-session-w-alex-duff-2026-11
+ -12/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Thursday Session w/ Alex Duff
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:the-purge-x-naho-club-2026-11-12@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261112T225900Z
+DTEND:20261113T035900Z
+SUMMARY:The Purge X Naho Club
+LOCATION:NAHO Club\, La Garde
+DESCRIPTION:Soirée étudiante et clubbing à thème horreur Purge au NAHO
+  Club.\nFiche et billets : https://teufyparty.com/soiree/the-purge-x-n
+ aho-club-2026-11-12/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/the-purge-x-naho-club-2026-11-12/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : The Purge X Naho Club
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:lost-paradise-by-bouillotte-klub-2026-11-13@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261113T170000Z
+DTEND:20261113T220000Z
+SUMMARY:Lost Paradise by Bouillotte Klub
+LOCATION:Fort Napoléon\, La Seyne-sur-Mer
+DESCRIPTION:Électro immersive et coucher de soleil dans le cadre histo
+ rique du Fort Napoléon.\nFiche et billets : https://teufyparty.com/soi
+ ree/lost-paradise-by-bouillotte-klub-2026-11-13/\nVia Teufy @teufy_off
+ icial
+URL:https://teufyparty.com/soiree/lost-paradise-by-bouillotte-klub-202
+ 6-11-13/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Lost Paradise by Bouillotte Klub
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:drag-s-legacy-saison-5-castings-maison-cabaret-2026-11-13@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261113T170000Z
+DTEND:20261113T220000Z
+SUMMARY:Drag's Legacy Saison 5 : Castings Maison Cabaret
+LOCATION:Le Swing\, Nice
+DESCRIPTION:Sélections de la saison 5 du concours drag au Swing avec s
+ how et DJ set.\nFiche et billets : https://teufyparty.com/soiree/drag-
+ s-legacy-saison-5-castings-maison-cabaret-2026-11-13/\nVia Teufy @teuf
+ y_official
+URL:https://teufyparty.com/soiree/drag-s-legacy-saison-5-castings-mais
+ on-cabaret-2026-11-13/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Drag's Legacy Saison 5 : Castings Maison Cabaret
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:nor-nights-oriental-rhythms-2026-11-13@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261113T183000Z
+DTEND:20261113T233000Z
+SUMMARY:Nōr — Nights . Oriental . Rhythms
+LOCATION:So Blue Hôtel Restaurant\, Antibes
+DESCRIPTION:Fusion percussions live et clubbing chic oriental et afro 
+ house face à la mer à Antibes.\nFiche et billets : https://teufyparty.
+ com/soiree/nor-nights-oriental-rhythms-2026-11-13/\nVia Teufy @teufy_o
+ fficial
+URL:https://teufyparty.com/soiree/nor-nights-oriental-rhythms-2026-11-
+ 13/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Nōr — Nights . Oriental . Rhythms
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:kiss-et-fly-en-live-pop-fusion-jazz-et-world-grooves-2026-11-13@te
+ ufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261113T190000Z
+DTEND:20261114T000000Z
+SUMMARY:KISS & FLY EN LIVE ! ✨ POP FUSION / JAZZ & WORLD GROOVES ✨
+LOCATION:Le Quartier du Poulpe\, Nice
+DESCRIPTION:Live énergique pop fusion et world grooves au Quartier du 
+ Poulpe pour lancer le weekend.\nFiche et billets : https://teufyparty.
+ com/soiree/kiss-et-fly-en-live-pop-fusion-jazz-et-world-grooves-2026-1
+ 1-13/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/kiss-et-fly-en-live-pop-fusion-jazz-
+ et-world-grooves-2026-11-13/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : KISS & FLY EN LIVE ! ✨ POP FUSION / JAZZ & WORLD
+  GROOVES ✨
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:yona-lqb-session-6-2026-11-13@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261113T190000Z
+DTEND:20261114T000000Z
+SUMMARY:YONA – LQB Session #6
+LOCATION:Frigo 16 (Le 109)\, Nice
+DESCRIPTION:Release party de l'EP HEAL de Yona en showcase intimiste g
+ ratuit au Frigo 16.\nFiche et billets : https://teufyparty.com/soiree/
+ yona-lqb-session-6-2026-11-13/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/yona-lqb-session-6-2026-11-13/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : YONA – LQB Session #6
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:arthur-h-et-vanessa-wagner-c-est-pas-classique-2026-11-13@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261113T190000Z
+DTEND:20261114T000000Z
+SUMMARY:Arthur H & Vanessa Wagner - C'est pas Classique
+LOCATION:Théâtre de Grasse\, Grasse
+DESCRIPTION:Rencontre pop et classique entre Arthur H et Vanessa Wagne
+ r en entrée libre.\nFiche et billets : https://teufyparty.com/soiree/a
+ rthur-h-et-vanessa-wagner-c-est-pas-classique-2026-11-13/\nVia Teufy @
+ teufy_official
+URL:https://teufyparty.com/soiree/arthur-h-et-vanessa-wagner-c-est-pas
+ -classique-2026-11-13/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Arthur H & Vanessa Wagner - C'est pas Classique
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:oai-reggae-party-crete-et-moustache-2026-11-13@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261113T193000Z
+DTEND:20261114T003000Z
+SUMMARY:OAI REGGAE PARTY + CRÊTE & MOUSTACHE
+LOCATION:Le Live - Zénith de Toulon\, Toulon
+DESCRIPTION:Crête & Moustache et session sound system dub festive en f
+ ormat club au Live.\nFiche et billets : https://teufyparty.com/soiree/
+ oai-reggae-party-crete-et-moustache-2026-11-13/\nVia Teufy @teufy_offi
+ cial
+URL:https://teufyparty.com/soiree/oai-reggae-party-crete-et-moustache-
+ 2026-11-13/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : OAI REGGAE PARTY + CRÊTE & MOUSTACHE
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:s-und-k-ld-bounce-hard-groove-2026-11-13@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261113T200000Z
+DTEND:20261114T010000Z
+SUMMARY:Søund Køld — Bounce / Hard Groove
+LOCATION:L'Antre Bar Electro\, Nice
+DESCRIPTION:Before underground axé sonorités berlinoises et UK bounce 
+ dans le Vieux-Nice.\nFiche et billets : https://teufyparty.com/soiree/
+ s-und-k-ld-bounce-hard-groove-2026-11-13/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/s-und-k-ld-bounce-hard-groove-2026-1
+ 1-13/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Søund Køld — Bounce / Hard Groove
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:riviera-bar-crawl-nice-nightlife-soiree-barathon-a-nice-fr-2026-11
+ -13@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261113T200000Z
+DTEND:20261114T010000Z
+SUMMARY:Riviera Bar Crawl Nice Nightlife / Soirée Barathon à Nice.FR
+LOCATION:Villa Saint-Exupéry Beach\, Nice
+DESCRIPTION:Le barathon incontournable de Nice avec 4 bars\, shots inc
+ lus et entrée VIP en club.\nFiche et billets : https://teufyparty.com/
+ soiree/riviera-bar-crawl-nice-nightlife-soiree-barathon-a-nice-fr-2026
+ -11-13/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/riviera-bar-crawl-nice-nightlife-soi
+ ree-barathon-a-nice-fr-2026-11-13/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Riviera Bar Crawl Nice Nightlife / Soirée Barath
+ on à Nice.FR
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:superstition-night-2026-11-13@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261113T200000Z
+DTEND:20261114T010000Z
+SUMMARY:Superstition Night
+LOCATION:L'Artiste 83\, Roquebrune-sur-Argens
+DESCRIPTION:Soirée Vendredi 13 avec dress code vert et set festif de D
+ J Sylvain P sur 600 m².\nFiche et billets : https://teufyparty.com/soi
+ ree/superstition-night-2026-11-13/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/superstition-night-2026-11-13/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Superstition Night
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:soiree-france-afrique-du-sud-2026-11-13@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261113T201000Z
+DTEND:20261114T011000Z
+SUMMARY:Soirée France / Afrique du Sud
+LOCATION:La Cale Sèche\, Toulon
+DESCRIPTION:Retransmission du choc de rugby France contre Afrique du S
+ ud.\nFiche et billets : https://teufyparty.com/soiree/soiree-france-af
+ rique-du-sud-2026-11-13/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/soiree-france-afrique-du-sud-2026-11
+ -13/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Soirée France / Afrique du Sud
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:nice-orange-bar-crawl-party-bars-music-nightlife-et-club-exp-2026-
+ 11-13@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261113T203000Z
+DTEND:20261114T013000Z
+SUMMARY:Nice Orange Bar Crawl – Party Bars\, Music\, Nightlife & Club 
+ Experience
+LOCATION:Bar La Chapa\, Nice
+DESCRIPTION:Tournée des bars festifs du Vieux-Nice avec shots offerts 
+ et finish en boîte de nuit.\nFiche et billets : https://teufyparty.com
+ /soiree/nice-orange-bar-crawl-party-bars-music-nightlife-et-club-exp-2
+ 026-11-13/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/nice-orange-bar-crawl-party-bars-mus
+ ic-nightlife-et-club-exp-2026-11-13/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Nice Orange Bar Crawl – Party Bars\, Music\, Nig
+ htlife & Club Experience
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:rupture-2026-11-13@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261113T220000Z
+DTEND:20261114T030000Z
+SUMMARY:Rupture
+LOCATION:Le Calypso\, Fréjus
+DESCRIPTION:Grosse rave techno et kicks rapides en front de mer à Fréj
+ us Plage.\nFiche et billets : https://teufyparty.com/soiree/rupture-20
+ 26-11-13/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/rupture-2026-11-13/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Rupture
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:jetlag-gang-opening-act-2026-11-13@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261113T223000Z
+DTEND:20261114T033000Z
+SUMMARY:Jetlag Gang (+ Opening Act)
+LOCATION:Frigo 16 (Le 109)\, Nice
+DESCRIPTION:Grosse nuit latino clubbing\, reggaeton et perreo jusqu'à 
+ 4h au Frigo 16.\nFiche et billets : https://teufyparty.com/soiree/jetl
+ ag-gang-opening-act-2026-11-13/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/jetlag-gang-opening-act-2026-11-13/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Jetlag Gang (+ Opening Act)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:la-wicked-afroheat-festival-2026-11-13@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261113T223000Z
+DTEND:20261114T033000Z
+SUMMARY:La Wicked – Afroheat Festival
+LOCATION:305 Vice Club Nice\, Nice
+DESCRIPTION:Soirée officielle Afroheat Festival avec DJ Mapouia\, Blac
+ k Q et Lil Big au 305 Vice.\nFiche et billets : https://teufyparty.com
+ /soiree/la-wicked-afroheat-festival-2026-11-13/\nVia Teufy @teufy_offi
+ cial
+URL:https://teufyparty.com/soiree/la-wicked-afroheat-festival-2026-11-
+ 13/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : La Wicked – Afroheat Festival
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cicada-rush-2026-11-13@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261113T223000Z
+DTEND:20261114T033000Z
+SUMMARY:Cicada Rush
+LOCATION:CICADA\, La Garde
+DESCRIPTION:Rave intense jusqu'à l'aube au temple varois de la hard te
+ chno.\nFiche et billets : https://teufyparty.com/soiree/cicada-rush-20
+ 26-11-13/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/cicada-rush-2026-11-13/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Cicada Rush
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:inda-house-session-13-11-2026-11-13@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261113T223000Z
+DTEND:20261114T033000Z
+SUMMARY:Inda House (Session 13.11)
+LOCATION:INDA House\, Carqueiranne
+DESCRIPTION:Session 100% house music en mode boiler room à petit prix.
+ \nFiche et billets : https://teufyparty.com/soiree/inda-house-session-
+ 13-11-2026-11-13/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/inda-house-session-13-11-2026-11-13/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Inda House (Session 13.11)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:maison-rouge-oma-club-2026-11-13@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261113T225500Z
+DTEND:20261114T035500Z
+SUMMARY:Maison Rouge - Oma Club
+LOCATION:OMA CLUB\, Nice
+DESCRIPTION:Ambiance clubbing feutrée et sons house au cœur de la zone
+  piétonne niçoise.\nFiche et billets : https://teufyparty.com/soiree/m
+ aison-rouge-oma-club-2026-11-13/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/maison-rouge-oma-club-2026-11-13/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Maison Rouge - Oma Club
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:lanonchalance-pres-malive-2026-11-13@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261113T225900Z
+DTEND:20261114T035900Z
+SUMMARY:Lanonchalance pres. Malive
+LOCATION:Twiga Monte Carlo\, Monaco
+DESCRIPTION:Le producteur Malive en DJ set afro house et tech house au
+  Twiga Monte Carlo.\nFiche et billets : https://teufyparty.com/soiree/
+ lanonchalance-pres-malive-2026-11-13/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/lanonchalance-pres-malive-2026-11-13
+ /
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Lanonchalance pres. Malive
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:friday-connection-chris-a-b2b-ugo-puccinelli-2026-11-13@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261113T225900Z
+DTEND:20261114T035900Z
+SUMMARY:Friday Connection — Chris.A B2b Ugo Puccinelli
+LOCATION:Glass Club Cannes\, Cannes
+DESCRIPTION:B2B exclusif entre Chris.A et Ugo Puccinelli au Glass Club
+  Cannes.\nFiche et billets : https://teufyparty.com/soiree/friday-conn
+ ection-chris-a-b2b-ugo-puccinelli-2026-11-13/\nVia Teufy @teufy_offici
+ al
+URL:https://teufyparty.com/soiree/friday-connection-chris-a-b2b-ugo-pu
+ ccinelli-2026-11-13/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Friday Connection — Chris.A B2b Ugo Puccinelli
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:latin-addict-2026-11-13@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261113T225900Z
+DTEND:20261114T035900Z
+SUMMARY:Latin Addict
+LOCATION:High Club\, Nice
+DESCRIPTION:Ambiance caliente sur la Promenade avec la résidence référ
+ ence reggaeton et shatta.\nFiche et billets : https://teufyparty.com/s
+ oiree/latin-addict-2026-11-13/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/latin-addict-2026-11-13/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Latin Addict
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:nightly-x-dovnrobs-elva-cannes-takeover-2026-11-13@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261113T225900Z
+DTEND:20261114T035900Z
+SUMMARY:Nightly X Dovnrobs (Elva Cannes Takeover)
+LOCATION:ELVA Club\, Cannes
+DESCRIPTION:Première édition du concept Nightly avec Dovnrobs à l'ELVA
+  Club de Cannes.\nFiche et billets : https://teufyparty.com/soiree/nig
+ htly-x-dovnrobs-elva-cannes-takeover-2026-11-13/\nVia Teufy @teufy_off
+ icial
+URL:https://teufyparty.com/soiree/nightly-x-dovnrobs-elva-cannes-takeo
+ ver-2026-11-13/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Nightly X Dovnrobs (Elva Cannes Takeover)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:caribbean-mood-2026-11-13@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261113T225900Z
+DTEND:20261114T035900Z
+SUMMARY:Caribbean Mood
+LOCATION:Skyfall\, Cannes
+DESCRIPTION:Nuit caliente à Cannes avec DJ Mygo et DJ Iron aux platine
+ s pour du lourd en dancehall et shatta.\nFiche et billets : https://te
+ ufyparty.com/soiree/caribbean-mood-2026-11-13/\nVia Teufy @teufy_offic
+ ial
+URL:https://teufyparty.com/soiree/caribbean-mood-2026-11-13/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Caribbean Mood
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:pitch-one-trakkass-techno-to-tribe-2026-11-14@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261114T040000Z
+DTEND:20261114T090000Z
+SUMMARY:Pitch One (Trakkass) — Techno To Tribe
+LOCATION:L'Antre Bar Electro\, Nice
+DESCRIPTION:After dès 5h du matin avec Pitch One\, figure vinyle et pi
+ onnier de Trakkass.\nFiche et billets : https://teufyparty.com/soiree/
+ pitch-one-trakkass-techno-to-tribe-2026-11-14/\nVia Teufy @teufy_offic
+ ial
+URL:https://teufyparty.com/soiree/pitch-one-trakkass-techno-to-tribe-2
+ 026-11-14/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Pitch One (Trakkass) — Techno To Tribe
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:noise-protocol-by-kontakt-6tem-2026-11-14@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261114T160000Z
+DTEND:20261114T210000Z
+SUMMARY:Noise Protocol by Kontakt 6Tem
+LOCATION:Lieu Secret\, La Valette-du-Var
+DESCRIPTION:Système son 25KW et lives machines pointus en secret locat
+ ion.\nFiche et billets : https://teufyparty.com/soiree/noise-protocol-
+ by-kontakt-6tem-2026-11-14/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/noise-protocol-by-kontakt-6tem-2026-
+ 11-14/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Noise Protocol by Kontakt 6Tem
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:club-bizarre-w-sensoria-blue-coast-november-session-2026-11-14@teu
+ fy
+DTSTAMP:20261112T155315Z
+DTSTART:20261114T180000Z
+DTEND:20261114T230000Z
+SUMMARY:Club Bizarre W/ Sensoria @ Blue Coast (November Session)
+LOCATION:Blue Coast Brewing Company\, Nice
+DESCRIPTION:Soirée deep techno et tech signée Club Bizarre et Sensoria
+  à la brasserie niçoise.\nFiche et billets : https://teufyparty.com/so
+ iree/club-bizarre-w-sensoria-blue-coast-november-session-2026-11-14/\n
+ Via Teufy @teufy_official
+URL:https://teufyparty.com/soiree/club-bizarre-w-sensoria-blue-coast-n
+ ovember-session-2026-11-14/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Club Bizarre W/ Sensoria @ Blue Coast (November 
+ Session)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:le-bar-ephemere-x-auberge-tao-2026-11-14@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261114T180000Z
+DTEND:20261114T230000Z
+SUMMARY:Le Bar Ephémère x Auberge Tao
+LOCATION:Auberge Tao\, Biot
+DESCRIPTION:Réouverture de l'Auberge Tao en mode cocooning avec set af
+ ro et latino house par Aaron.\nFiche et billets : https://teufyparty.c
+ om/soiree/le-bar-ephemere-x-auberge-tao-2026-11-14/\nVia Teufy @teufy_
+ official
+URL:https://teufyparty.com/soiree/le-bar-ephemere-x-auberge-tao-2026-1
+ 1-14/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Le Bar Ephémère x Auberge Tao
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:special-tartiflette-au-barrio-chicago-2026-11-14@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261114T180000Z
+DTEND:20261114T230000Z
+SUMMARY:Spécial Tartiflette au Barrio Chicago
+LOCATION:Barrio Chicago\, Toulon
+DESCRIPTION:Tartiflette maison et sélection musicale par DJ Stiff plac
+ e de l'Équerre.\nFiche et billets : https://teufyparty.com/soiree/spec
+ ial-tartiflette-au-barrio-chicago-2026-11-14/\nVia Teufy @teufy_offici
+ al
+URL:https://teufyparty.com/soiree/special-tartiflette-au-barrio-chicag
+ o-2026-11-14/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Spécial Tartiflette au Barrio Chicago
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:lilly-wood-and-the-prick-festival-mas-d-hiver-2026-11-14@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261114T183000Z
+DTEND:20261114T233000Z
+SUMMARY:Lilly Wood and The Prick — Festival Mas d'Hiver
+LOCATION:Le Mas d'Hiver\, Puget-sur-Argens
+DESCRIPTION:Le duo culte de Prayer in C en live intime au Mas d'Hiver.
+ \nFiche et billets : https://teufyparty.com/soiree/lilly-wood-and-the-
+ prick-festival-mas-d-hiver-2026-11-14/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/lilly-wood-and-the-prick-festival-ma
+ s-d-hiver-2026-11-14/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Lilly Wood and The Prick — Festival Mas d'Hiver
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:caravel-no2theg-may-li-2026-11-14@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261114T190000Z
+DTEND:20261115T000000Z
+SUMMARY:Caravel (+ No2theG\, May-Li)
+LOCATION:Frigo 16 (Le 109)\, Nice
+DESCRIPTION:Caravel balance sa hard techno et trance jusqu'à 4h du mat
+  au Frigo 16.\nFiche et billets : https://teufyparty.com/soiree/carave
+ l-no2theg-may-li-2026-11-14/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/caravel-no2theg-may-li-2026-11-14/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Caravel (+ No2theG\, May-Li)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:the-spitters-the-supreme-night-club-grenade-second-major-2026-11-1
+ 4@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261114T190000Z
+DTEND:20261115T000000Z
+SUMMARY:The Spitters + The Supreme Night Club + Grenade + Second Major
+LOCATION:MJC Picaud / Studio 13\, Cannes
+DESCRIPTION:Quatre groupes punk rock et garage réunis sur la scène de 
+ la MJC Picaud pour 10 euros.\nFiche et billets : https://teufyparty.co
+ m/soiree/the-spitters-the-supreme-night-club-grenade-second-major-2026
+ -11-14/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/the-spitters-the-supreme-night-club-
+ grenade-second-major-2026-11-14/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : The Spitters + The Supreme Night Club + Grenade 
+ + Second Major
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:divas-naho-club-2026-11-14@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261114T190000Z
+DTEND:20261115T000000Z
+SUMMARY:Divas @ Naho Club
+LOCATION:NAHO Club\, La Garde
+DESCRIPTION:Soirée festive et paillettes avec sushis\, tatouages et st
+ ands maquillage.\nFiche et billets : https://teufyparty.com/soiree/div
+ as-naho-club-2026-11-14/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/divas-naho-club-2026-11-14/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Divas @ Naho Club
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:les-bonnes-franquettes-winter-edition-2026-11-14@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261114T193000Z
+DTEND:20261115T003000Z
+SUMMARY:Les Bonnes Franquettes Winter Edition
+LOCATION:Ancien jazz club\, Nice
+DESCRIPTION:Mini boiler room avec le DJ au centre du club et sets hous
+ e\, disco et pop.\nFiche et billets : https://teufyparty.com/soiree/le
+ s-bonnes-franquettes-winter-edition-2026-11-14/\nVia Teufy @teufy_offi
+ cial
+URL:https://teufyparty.com/soiree/les-bonnes-franquettes-winter-editio
+ n-2026-11-14/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Les Bonnes Franquettes Winter Edition
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:concert-reggae-et-percussions-africaines-rasjah-music-2026-11-14@t
+ eufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261114T200000Z
+DTEND:20261115T010000Z
+SUMMARY:Concert Reggae & Percussions Africaines — Rasjah Music
+LOCATION:Le Quartier du Poulpe\, Nice
+DESCRIPTION:Live reggae et percussions africaines avec Rasjah Music po
+ ur faire monter l ambiance à Nice.\nFiche et billets : https://teufypa
+ rty.com/soiree/concert-reggae-et-percussions-africaines-rasjah-music-2
+ 026-11-14/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/concert-reggae-et-percussions-africa
+ ines-rasjah-music-2026-11-14/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Concert Reggae & Percussions Africaines — Rasjah
+  Music
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cut-killer-et-dj-clam-ora-opening-weekend-2026-11-14@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261114T200000Z
+DTEND:20261115T010000Z
+SUMMARY:Cut Killer & DJ Clam — ORA Opening Weekend
+LOCATION:ORA CLUB\, La Valette-du-Var
+DESCRIPTION:La légende du DJing hip-hop Cut Killer enflamme le week-en
+ d d'ouverture d'ORA.\nFiche et billets : https://teufyparty.com/soiree
+ /cut-killer-et-dj-clam-ora-opening-weekend-2026-11-14/\nVia Teufy @teu
+ fy_official
+URL:https://teufyparty.com/soiree/cut-killer-et-dj-clam-ora-opening-we
+ ekend-2026-11-14/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Cut Killer & DJ Clam — ORA Opening Weekend
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:pump-up-02-laurent-n-elena-hunt-c-tek-2026-11-14@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261114T203000Z
+DTEND:20261115T013000Z
+SUMMARY:Pump Up /02 : Laurent N. / Elena Hunt / C-Tek
+LOCATION:L'Antre Techno\, Nice
+DESCRIPTION:Laurent N. et le crew Technokronic prennent les commandes 
+ de L'Antre Techno.\nFiche et billets : https://teufyparty.com/soiree/p
+ ump-up-02-laurent-n-elena-hunt-c-tek-2026-11-14/\nVia Teufy @teufy_off
+ icial
+URL:https://teufyparty.com/soiree/pump-up-02-laurent-n-elena-hunt-c-te
+ k-2026-11-14/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Pump Up /02 : Laurent N. / Elena Hunt / C-Tek
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:soiree-annees-80-a-2000-2026-11-14@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261114T203000Z
+DTEND:20261115T013000Z
+SUMMARY:Soirée Années 80 à 2000
+LOCATION:Chapiteau du Théâtre de la Mer\, Sainte-Maxime
+DESCRIPTION:Fête rétro géante sous chapiteau en bord de mer avec DJ se
+ t festif à prix mini.\nFiche et billets : https://teufyparty.com/soire
+ e/soiree-annees-80-a-2000-2026-11-14/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/soiree-annees-80-a-2000-2026-11-14/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Soirée Années 80 à 2000
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:yann-s-dj-set-2026-11-14@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261114T210000Z
+DTEND:20261115T020000Z
+SUMMARY:Yann-S DJ Set
+LOCATION:Le Barathym\, Toulon
+DESCRIPTION:Yann-S du Barrio Chicago prend le contrôle des platines po
+ ur faire danser le Mourillon.\nFiche et billets : https://teufyparty.c
+ om/soiree/yann-s-dj-set-2026-11-14/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/yann-s-dj-set-2026-11-14/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Yann-S DJ Set
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:la-tocardise-2026-11-14@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261114T220000Z
+DTEND:20261115T030000Z
+SUMMARY:La Tocardise
+LOCATION:Green Musik\, Antibes
+DESCRIPTION:Les Tocards reviennent au Green Musik pour une nuit techno
+ \, psytrance et hard trance.\nFiche et billets : https://teufyparty.co
+ m/soiree/la-tocardise-2026-11-14/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/la-tocardise-2026-11-14/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : La Tocardise
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:switch-to-new-blood-2026-11-14@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261114T223000Z
+DTEND:20261115T033000Z
+SUMMARY:Switch To New Blood
+LOCATION:Switch Club\, Roquebrune-sur-Argens
+DESCRIPTION:Format warehouse 360° et gros sound-system dédié aux pépit
+ es montantes de l'Est-Var.\nFiche et billets : https://teufyparty.com/
+ soiree/switch-to-new-blood-2026-11-14/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/switch-to-new-blood-2026-11-14/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Switch To New Blood
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:fusion-at-inda-house-by-alban-dwz-et-matteis-2026-11-14@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261114T223000Z
+DTEND:20261115T033000Z
+SUMMARY:Fusion at Inda House by Alban Dwz & Matteis
+LOCATION:INDA House\, Carqueiranne
+DESCRIPTION:Le duo Alban Dwz & Matteis prend le contrôle du nouveau re
+ paire house varois.\nFiche et billets : https://teufyparty.com/soiree/
+ fusion-at-inda-house-by-alban-dwz-et-matteis-2026-11-14/\nVia Teufy @t
+ eufy_official
+URL:https://teufyparty.com/soiree/fusion-at-inda-house-by-alban-dwz-et
+ -matteis-2026-11-14/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Fusion at Inda House by Alban Dwz & Matteis
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:urban-shatta-2026-11-14@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261114T223000Z
+DTEND:20261115T033000Z
+SUMMARY:Urban Shatta
+LOCATION:Boka Club\, Toulon
+DESCRIPTION:DJ Badberone et guest DJ Flextouch pour une nuit Urban Sha
+ tta au Boka Club.\nFiche et billets : https://teufyparty.com/soiree/ur
+ ban-shatta-2026-11-14/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/urban-shatta-2026-11-14/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Urban Shatta
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:the-saturday-society-oma-club-2026-11-14@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261114T225500Z
+DTEND:20261115T035500Z
+SUMMARY:The Saturday Society - Oma Club
+LOCATION:OMA CLUB\, Nice
+DESCRIPTION:Clubbing électro et house au cœur de la nuit niçoise à l'O
+ MA Club.\nFiche et billets : https://teufyparty.com/soiree/the-saturda
+ y-society-oma-club-2026-11-14/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/the-saturday-society-oma-club-2026-1
+ 1-14/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : The Saturday Society - Oma Club
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:honey-club-saturday-bee-crazy-2026-11-14@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261114T225900Z
+DTEND:20261115T035900Z
+SUMMARY:Honey Club - Saturday Bee Crazy
+LOCATION:Honey Club\, Juan-les-Pins
+DESCRIPTION:DJ Shaylan\, Gianni et MC Mada mettent le feu au Honey Clu
+ b au son shatta et rap.\nFiche et billets : https://teufyparty.com/soi
+ ree/honey-club-saturday-bee-crazy-2026-11-14/\nVia Teufy @teufy_offici
+ al
+URL:https://teufyparty.com/soiree/honey-club-saturday-bee-crazy-2026-1
+ 1-14/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Honey Club - Saturday Bee Crazy
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:lizzie-et-friends-saturday-house-session-2026-11-14@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261114T225900Z
+DTEND:20261115T035900Z
+SUMMARY:Lizzie & Friends — Saturday House Session
+LOCATION:Glass Club Cannes\, Cannes
+DESCRIPTION:Nuit du samedi house\, afro house et tech house avec Lizzi
+ e au Glass Club.\nFiche et billets : https://teufyparty.com/soiree/liz
+ zie-et-friends-saturday-house-session-2026-11-14/\nVia Teufy @teufy_of
+ ficial
+URL:https://teufyparty.com/soiree/lizzie-et-friends-saturday-house-ses
+ sion-2026-11-14/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Lizzie & Friends — Saturday House Session
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:i-m-not-rich-but-i-m-high-2026-11-14@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261114T225900Z
+DTEND:20261115T035900Z
+SUMMARY:I'm Not Rich But I'm High
+LOCATION:High Club\, Nice
+DESCRIPTION:Gros format clubbing du samedi soir face à la mer sur la P
+ rom'.\nFiche et billets : https://teufyparty.com/soiree/i-m-not-rich-b
+ ut-i-m-high-2026-11-14/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/i-m-not-rich-but-i-m-high-2026-11-14
+ /
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : I'm Not Rich But I'm High
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:the-best-or-nothing-2026-11-14@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261114T225900Z
+DTEND:20261115T035900Z
+SUMMARY:The Best or Nothing
+LOCATION:Skyfall\, Cannes
+DESCRIPTION:DJ Enicay retourne le Skyfall avec les meilleurs bangers u
+ rban\, shatta et amapiano à Cannes.\nFiche et billets : https://teufyp
+ arty.com/soiree/the-best-or-nothing-2026-11-14/\nVia Teufy @teufy_offi
+ cial
+URL:https://teufyparty.com/soiree/the-best-or-nothing-2026-11-14/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : The Best or Nothing
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:dj-k-net-resident-2026-11-15@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261115T040000Z
+DTEND:20261115T090000Z
+SUMMARY:Dj K-Net (Resident)
+LOCATION:L'Antre Bar Electro\, Nice
+DESCRIPTION:After du dimanche 100% vinyle techno et tribe avec le cofo
+ ndateur de Trakkass.\nFiche et billets : https://teufyparty.com/soiree
+ /dj-k-net-resident-2026-11-15/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/dj-k-net-resident-2026-11-15/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Dj K-Net (Resident)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:l-app-prom-en-rose-bocca-mar-2026-11-15@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261115T083000Z
+DTEND:20261115T133000Z
+SUMMARY:L'app'prom En Rose - Bocca Mar
+LOCATION:Bocca Mar\, Nice
+DESCRIPTION:Day party festive les pieds dans l'eau avec DJs house et a
+ fro house au Bocca Mar.\nFiche et billets : https://teufyparty.com/soi
+ ree/l-app-prom-en-rose-bocca-mar-2026-11-15/\nVia Teufy @teufy_officia
+ l
+URL:https://teufyparty.com/soiree/l-app-prom-en-rose-bocca-mar-2026-11
+ -15/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : L'app'prom En Rose - Bocca Mar
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:karaoke-et-match-france-turquie-2026-11-15@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261115T194500Z
+DTEND:20261116T004500Z
+SUMMARY:Karaoké et match France / Turquie
+LOCATION:La Cale Sèche\, Toulon
+DESCRIPTION:Soirée combinant diffusion du match de foot et session kar
+ aoké.\nFiche et billets : https://teufyparty.com/soiree/karaoke-et-mat
+ ch-france-turquie-2026-11-15/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/karaoke-et-match-france-turquie-2026
+ -11-15/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Karaoké et match France / Turquie
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:soiree-d-ouverture-des-39es-rcc-2026-11-16@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261116T183000Z
+DTEND:20261116T233000Z
+SUMMARY:Soirée d'ouverture des 39es RCC
+LOCATION:Théâtre Croisette\, Cannes
+DESCRIPTION:Projection d'ouverture du film Un bon petit soldat de Stép
+ hane Brizé.\nFiche et billets : https://teufyparty.com/soiree/soiree-d
+ -ouverture-des-39es-rcc-2026-11-16/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/soiree-d-ouverture-des-39es-rcc-2026
+ -11-16/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Soirée d'ouverture des 39es RCC
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:legendary-rock-voices-2026-11-17@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261118T000000Z
+DTEND:20261118T050000Z
+SUMMARY:Legendary Rock Voices
+LOCATION:Palais Nikaïa\, Nice
+DESCRIPTION:Un spectacle consacré aux grandes voix du rock au Palais N
+ ikaïa.\nFiche et billets : https://teufyparty.com/soiree/legendary-roc
+ k-voices-2026-11-17/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/legendary-rock-voices-2026-11-17/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Legendary Rock Voices
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:compagnie-kafig-et-concert-de-l-hostel-dieu-2026-11-18@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261118T190000Z
+DTEND:20261119T000000Z
+SUMMARY:Compagnie Käfig & Concert de l'Hostel Dieu
+LOCATION:Opéra de Nice\, Nice
+DESCRIPTION:Création croisant danse hip-hop et musique baroque à l'Opé
+ ra de Nice gratuitement.\nFiche et billets : https://teufyparty.com/so
+ iree/compagnie-kafig-et-concert-de-l-hostel-dieu-2026-11-18/\nVia Teuf
+ y @teufy_official
+URL:https://teufyparty.com/soiree/compagnie-kafig-et-concert-de-l-host
+ el-dieu-2026-11-18/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Compagnie Käfig & Concert de l'Hostel Dieu
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:monte-carlo-jazz-festival-focus-selah-sue-et-guests-2026-11-18@teu
+ fy
+DTSTAMP:20261112T155315Z
+DTSTART:20261118T193000Z
+DTEND:20261119T003000Z
+SUMMARY:Monte-Carlo Jazz Festival — Focus Selah Sue & Guests
+LOCATION:Opéra Garnier Monte-Carlo\, Monaco
+DESCRIPTION:Selah Sue en live électro-soul dans le cadre somptueux de 
+ l'Opéra Garnier.\nFiche et billets : https://teufyparty.com/soiree/mon
+ te-carlo-jazz-festival-focus-selah-sue-et-guests-2026-11-18/\nVia Teuf
+ y @teufy_official
+URL:https://teufyparty.com/soiree/monte-carlo-jazz-festival-focus-sela
+ h-sue-et-guests-2026-11-18/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Monte-Carlo Jazz Festival — Focus Selah Sue & Gu
+ ests
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cinema-for-space-ouverture-avec-thomas-pesquet-et-mathieu-ka-2026-
+ 11-19@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261119T183000Z
+DTEND:20261119T233000Z
+SUMMARY:Cinema for Space : Ouverture avec Thomas Pesquet et Mathieu Ka
+ ssovitz
+LOCATION:Palais des Festivals et des Congrès\, Cannes
+DESCRIPTION:Dialogue exclusif entre Thomas Pesquet et Mathieu Kassovit
+ z autour de l'espace au cinéma.\nFiche et billets : https://teufyparty
+ .com/soiree/cinema-for-space-ouverture-avec-thomas-pesquet-et-mathieu-
+ ka-2026-11-19/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/cinema-for-space-ouverture-avec-thom
+ as-pesquet-et-mathieu-ka-2026-11-19/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Cinema for Space : Ouverture avec Thomas Pesquet
+  et Mathieu Kassovitz
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:jam-session-et-concert-de-jazz-2026-11-19@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261119T190000Z
+DTEND:20261120T000000Z
+SUMMARY:JAM SESSION & CONCERT DE JAZZ
+LOCATION:ZITTO Speakeasy\, Nice
+DESCRIPTION:Jam session et concert jazz funk en entrée libre dans un b
+ ar caché réputé du Port de Nice.\nFiche et billets : https://teufypart
+ y.com/soiree/jam-session-et-concert-de-jazz-2026-11-19/\nVia Teufy @te
+ ufy_official
+URL:https://teufyparty.com/soiree/jam-session-et-concert-de-jazz-2026-
+ 11-19/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : JAM SESSION & CONCERT DE JAZZ
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ponte-loca-mama-shelter-nice-2026-11-19@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261119T190000Z
+DTEND:20261120T000000Z
+SUMMARY:Ponte Loca • Mama Shelter Nice
+LOCATION:Mama Shelter Nice\, Nice
+DESCRIPTION:Soirée reggaeton et latino en entrée libre au Mama Shelter
+  Nice.\nFiche et billets : https://teufyparty.com/soiree/ponte-loca-ma
+ ma-shelter-nice-2026-11-19/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/ponte-loca-mama-shelter-nice-2026-11
+ -19/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Ponte Loca • Mama Shelter Nice
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:alex-duff-into-the-night-2026-11-19@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261119T225900Z
+DTEND:20261120T035900Z
+SUMMARY:Alex Duff Into The Night
+LOCATION:Glass Club Cannes\, Cannes
+DESCRIPTION:All-night set tech house et deep house d'Alex Duff au coeu
+ r de Cannes.\nFiche et billets : https://teufyparty.com/soiree/alex-du
+ ff-into-the-night-2026-11-19/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/alex-duff-into-the-night-2026-11-19/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Alex Duff Into The Night
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mass-hysteria-sans-detour-2026-11-20@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261120T180000Z
+DTEND:20261120T230000Z
+SUMMARY:MASS HYSTERIA - SANS DÉTOUR
+LOCATION:Le Live - Zénith de Toulon\, Toulon
+DESCRIPTION:Mass Hysteria en concert intimiste et fosse bouillante au 
+ Live de Toulon.\nFiche et billets : https://teufyparty.com/soiree/mass
+ -hysteria-sans-detour-2026-11-20/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/mass-hysteria-sans-detour-2026-11-20
+ /
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : MASS HYSTERIA - SANS DÉTOUR
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:soiree-inside-binome-2026-11-20@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261120T180000Z
+DTEND:20261120T230000Z
+SUMMARY:Soirée Inside - Binôme
+LOCATION:Le Servan\, Valbonne
+DESCRIPTION:Première soirée inside au Servan avec DJ set by Aaron et P
+ aul Palmera aux percussions.\nFiche et billets : https://teufyparty.co
+ m/soiree/soiree-inside-binome-2026-11-20/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/soiree-inside-binome-2026-11-20/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Soirée Inside - Binôme
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:paul-seul-warm-up-closing-2026-11-20@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261120T190000Z
+DTEND:20261121T000000Z
+SUMMARY:Paul Seul (+ Warm up + Closing)
+LOCATION:Frigo 16 (Le 109)\, Nice
+DESCRIPTION:Paul Seul de Casual Gabberz et Ascendant Vierge débarque a
+ u Frigo 16.\nFiche et billets : https://teufyparty.com/soiree/paul-seu
+ l-warm-up-closing-2026-11-20/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/paul-seul-warm-up-closing-2026-11-20
+ /
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Paul Seul (+ Warm up + Closing)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:invictus-winter-session-act-ii-laurent-n-liza-dj-safire-2026-11-20
+ @teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261120T193000Z
+DTEND:20261121T003000Z
+SUMMARY:Invictus Winter Session Act II (Laurent N. - Liza - Dj Safire)
+LOCATION:So Blue Hôtel Restaurant\, Antibes
+DESCRIPTION:Rendez-vous house avec Laurent N\, Liza et DJ Safire au So
+  Blue Antibes.\nFiche et billets : https://teufyparty.com/soiree/invic
+ tus-winter-session-act-ii-laurent-n-liza-dj-safire-2026-11-20/\nVia Te
+ ufy @teufy_official
+URL:https://teufyparty.com/soiree/invictus-winter-session-act-ii-laure
+ nt-n-liza-dj-safire-2026-11-20/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Invictus Winter Session Act II (Laurent N. - Liz
+ a - Dj Safire)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mouchki-dhermo-forest-psytrance-2026-11-20@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261120T200000Z
+DTEND:20261121T010000Z
+SUMMARY:Mouchki / Dhermo — Forest / Psytrance
+LOCATION:L'Antre Bar Electro\, Nice
+DESCRIPTION:Ambiance psychédélique et sonorités forest dans la cave de
+  L'Antre avec Mouchki et Dhermo.\nFiche et billets : https://teufypart
+ y.com/soiree/mouchki-dhermo-forest-psytrance-2026-11-20/\nVia Teufy @t
+ eufy_official
+URL:https://teufyparty.com/soiree/mouchki-dhermo-forest-psytrance-2026
+ -11-20/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Mouchki / Dhermo — Forest / Psytrance
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:le-niz-sadras-alpha-2026-11-20@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261120T200000Z
+DTEND:20261121T010000Z
+SUMMARY:Le Niz / Sadras Alpha
+LOCATION:MJC Picaud / Studio 13\, Cannes
+DESCRIPTION:La jeune scène rap et trap azuréenne en live percutant à p
+ etit tarif.\nFiche et billets : https://teufyparty.com/soiree/le-niz-s
+ adras-alpha-2026-11-20/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/le-niz-sadras-alpha-2026-11-20/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Le Niz / Sadras Alpha
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:black-and-white-party-2026-11-20@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261120T200000Z
+DTEND:20261121T010000Z
+SUMMARY:Black and White Party
+LOCATION:L'Artiste 83\, Roquebrune-sur-Argens
+DESCRIPTION:Dress code Noir et Blanc et b2b de DJ Pascal et DJ Jérôme 
+ Delplanque.\nFiche et billets : https://teufyparty.com/soiree/black-an
+ d-white-party-2026-11-20/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/black-and-white-party-2026-11-20/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Black and White Party
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:axel-birthday-one-night-only-2026-11-20@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261120T225900Z
+DTEND:20261121T035900Z
+SUMMARY:Axel' Birthday One Night Only
+LOCATION:Glass Club Cannes\, Cannes
+DESCRIPTION:Nuit exclusive house et afro au Glass Club pour fêter l'an
+ niversaire d'Axel avec conso.\nFiche et billets : https://teufyparty.c
+ om/soiree/axel-birthday-one-night-only-2026-11-20/\nVia Teufy @teufy_o
+ fficial
+URL:https://teufyparty.com/soiree/axel-birthday-one-night-only-2026-11
+ -20/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Axel' Birthday One Night Only
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:students-party-high-club-2026-11-20@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261120T225900Z
+DTEND:20261121T035900Z
+SUMMARY:Students Party @ High Club
+LOCATION:High Club\, Nice
+DESCRIPTION:Le grand rendez-vous étudiant du vendredi soir sur la Prom
+ enade des Anglais.\nFiche et billets : https://teufyparty.com/soiree/s
+ tudents-party-high-club-2026-11-20/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/students-party-high-club-2026-11-20/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Students Party @ High Club
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wado-x-l-antre-2026-11-21@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261121T040000Z
+DTEND:20261121T090000Z
+SUMMARY:Wado X L'Antre
+LOCATION:L'Antre Bar Electro\, Nice
+DESCRIPTION:Live machine hybride tekno et acidcore par Wado du Mojo Cr
+ ew pour un after bouillant.\nFiche et billets : https://teufyparty.com
+ /soiree/wado-x-l-antre-2026-11-21/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/wado-x-l-antre-2026-11-21/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Wado X L'Antre
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:de-rio-a-mexico-la-esquina-tropical-x-fort-napoleon-2026-11-21@teu
+ fy
+DTSTAMP:20261112T155315Z
+DTSTART:20261121T180000Z
+DTEND:20261121T230000Z
+SUMMARY:De Rio A Mexico | La Esquina Tropical X Fort Napoleon
+LOCATION:Fort Napoléon\, La Seyne-sur-Mer
+DESCRIPTION:Fiesta latino géante avec le collectif La Esquina Tropical
+  et DJ Frankz au fort.\nFiche et billets : https://teufyparty.com/soir
+ ee/de-rio-a-mexico-la-esquina-tropical-x-fort-napoleon-2026-11-21/\nVi
+ a Teufy @teufy_official
+URL:https://teufyparty.com/soiree/de-rio-a-mexico-la-esquina-tropical-
+ x-fort-napoleon-2026-11-21/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : De Rio A Mexico | La Esquina Tropical X Fort Nap
+ oleon
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:damn-peach-x-cafe-toulonnais-2026-11-21@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261121T180000Z
+DTEND:20261121T230000Z
+SUMMARY:Damn Peach x Café Toulonnais
+LOCATION:Café Toulonnais (Les Halles de Toulon)\, Toulon
+DESCRIPTION:Session urbaine et restauration aux Halles de Toulon de 19
+ h à minuit.\nFiche et billets : https://teufyparty.com/soiree/damn-pea
+ ch-x-cafe-toulonnais-2026-11-21/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/damn-peach-x-cafe-toulonnais-2026-11
+ -21/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Damn Peach x Café Toulonnais
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:before-pacific-neon-night-2026-11-21@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261121T183000Z
+DTEND:20261121T233000Z
+SUMMARY:Before Pacific Neon Night
+LOCATION:Boka Club\, Toulon
+DESCRIPTION:Warm-up officiel Pacific Neon Night avec DJ Man's 987 et l
+ e Bringue Tahitian Crew.\nFiche et billets : https://teufyparty.com/so
+ iree/before-pacific-neon-night-2026-11-21/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/before-pacific-neon-night-2026-11-21
+ /
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Before Pacific Neon Night
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:marcus-gad-premiere-partie-2026-11-21@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261121T190000Z
+DTEND:20261122T000000Z
+SUMMARY:Marcus Gad + Première Partie
+LOCATION:Frigo 16 (Le 109)\, Nice
+DESCRIPTION:Vibrations reggae roots et dub envoûtantes en live avec Ma
+ rcus Gad au 109.\nFiche et billets : https://teufyparty.com/soiree/mar
+ cus-gad-premiere-partie-2026-11-21/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/marcus-gad-premiere-partie-2026-11-2
+ 1/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Marcus Gad + Première Partie
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:frankie-and-the-witch-fingers-2026-11-21@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261121T193000Z
+DTEND:20261122T003000Z
+SUMMARY:Frankie and the Witch Fingers
+LOCATION:Centre Culturel Tisot\, La Seyne-sur-Mer
+DESCRIPTION:Le rock psychédélique survolté des Californiens de Frankie
+  and the Witch Fingers sur scène.\nFiche et billets : https://teufypar
+ ty.com/soiree/frankie-and-the-witch-fingers-2026-11-21/\nVia Teufy @te
+ ufy_official
+URL:https://teufyparty.com/soiree/frankie-and-the-witch-fingers-2026-1
+ 1-21/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Frankie and the Witch Fingers
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:dj-set-jordan-kowen-2026-11-21@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261121T193000Z
+DTEND:20261122T003000Z
+SUMMARY:DJ Set - Jordan Kowen
+LOCATION:Mama Shelter Nice\, Nice
+DESCRIPTION:DJ set house et disco par Jordan Kowen au Mama Shelter\, e
+ ntrée gratuite.\nFiche et billets : https://teufyparty.com/soiree/dj-s
+ et-jordan-kowen-2026-11-21/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/dj-set-jordan-kowen-2026-11-21/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : DJ Set - Jordan Kowen
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:alienduch-house-techno-acid-rave-2026-11-21@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261121T200000Z
+DTEND:20261122T010000Z
+SUMMARY:Alienduch — House / Techno / Acid / Rave
+LOCATION:L'Antre Bar Electro\, Nice
+DESCRIPTION:Alienduch aux platines pour un set énergique entre house\,
+  rave et acid techno.\nFiche et billets : https://teufyparty.com/soire
+ e/alienduch-house-techno-acid-rave-2026-11-21/\nVia Teufy @teufy_offic
+ ial
+URL:https://teufyparty.com/soiree/alienduch-house-techno-acid-rave-202
+ 6-11-21/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Alienduch — House / Techno / Acid / Rave
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:redline-frejus-bienvenue-en-enfer-2026-11-21@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261121T210000Z
+DTEND:20261122T020000Z
+SUMMARY:Redline Frejus - Bienvenue En Enfer
+LOCATION:Switch Club\, Roquebrune-sur-Argens
+DESCRIPTION:Nuit acid et hard techno immersive au Switch Club pour les
+  adeptes de kicks industriels.\nFiche et billets : https://teufyparty.
+ com/soiree/redline-frejus-bienvenue-en-enfer-2026-11-21/\nVia Teufy @t
+ eufy_official
+URL:https://teufyparty.com/soiree/redline-frejus-bienvenue-en-enfer-20
+ 26-11-21/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Redline Frejus - Bienvenue En Enfer
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:la-wave-shatta-seduction-cannes-2026-11-21@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261121T220000Z
+DTEND:20261122T030000Z
+SUMMARY:La Wave - "Shatta Séduction" - Cannes
+LOCATION:Skyfall Cannes x Kingdom\, Cannes
+DESCRIPTION:Concept célibataires shatta et bouyon avec DJs Sonny & Tic
+ oq au Skyfall Cannes.\nFiche et billets : https://teufyparty.com/soire
+ e/la-wave-shatta-seduction-cannes-2026-11-21/\nVia Teufy @teufy_offici
+ al
+URL:https://teufyparty.com/soiree/la-wave-shatta-seduction-cannes-2026
+ -11-21/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : La Wave - "Shatta Séduction" - Cannes
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:fetish-main-party-mister-fetish-france-2027-2026-11-21@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261121T223000Z
+DTEND:20261122T033000Z
+SUMMARY:Fetish Main Party / Mister Fetish France 2027
+LOCATION:Le Glam\, Nice
+DESCRIPTION:Soirée officielle Mister Fetish France au Glam avec sets h
+ ouse et tech house jusqu'à l'aube.\nFiche et billets : https://teufypa
+ rty.com/soiree/fetish-main-party-mister-fetish-france-2027-2026-11-21/
+ \nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/fetish-main-party-mister-fetish-fran
+ ce-2027-2026-11-21/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Fetish Main Party / Mister Fetish France 2027
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:durdenhauer-fastlane-1-an-2026-11-21@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261121T223000Z
+DTEND:20261122T033000Z
+SUMMARY:Durdenhauer Fastlane 1 An
+LOCATION:Switch Club\, Roquebrune-sur-Argens
+DESCRIPTION:Durdenhauer en fast techno et hard trance pour l'anniversa
+ ire du Switch Club.\nFiche et billets : https://teufyparty.com/soiree/
+ durdenhauer-fastlane-1-an-2026-11-21/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/durdenhauer-fastlane-1-an-2026-11-21
+ /
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Durdenhauer Fastlane 1 An
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:the-saturday-society-2026-11-21@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261121T225500Z
+DTEND:20261122T035500Z
+SUMMARY:The Saturday Society
+LOCATION:OMA CLUB\, Nice
+DESCRIPTION:Soirée clubbing hip-hop et house incontournable du samedi 
+ soir à l'OMA Club.\nFiche et billets : https://teufyparty.com/soiree/t
+ he-saturday-society-2026-11-21/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/the-saturday-society-2026-11-21/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : The Saturday Society
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:good-times-2026-11-21@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261121T225900Z
+DTEND:20261122T035900Z
+SUMMARY:Good Times
+LOCATION:High Club\, Nice
+DESCRIPTION:Gros son hip-hop et électro pour le grand rendez-vous fest
+ if du samedi sur la Prom'.\nFiche et billets : https://teufyparty.com/
+ soiree/good-times-2026-11-21/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/good-times-2026-11-21/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Good Times
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:sensoria-into-the-frequency-w-nico-v-2026-11-21@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261121T225900Z
+DTEND:20261122T035900Z
+SUMMARY:Sensoria — Into The Frequency w/ Nico.V
+LOCATION:Glass Club Cannes\, Cannes
+DESCRIPTION:Immersion melodic techno et tech house emmenée par Nico.V 
+ au Glass Club.\nFiche et billets : https://teufyparty.com/soiree/senso
+ ria-into-the-frequency-w-nico-v-2026-11-21/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/sensoria-into-the-frequency-w-nico-v
+ -2026-11-21/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Sensoria — Into The Frequency w/ Nico.V
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:bruja-carbur-psytrance-hardtrance-2026-11-22@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261122T040000Z
+DTEND:20261122T090000Z
+SUMMARY:Bruja / Carbur — Psytrance / Hardtrance
+LOCATION:L'Antre Bar Electro\, Nice
+DESCRIPTION:After dominical sous haute tension avec Bruja et Carbur en
+ tre hard trance et psytrance.\nFiche et billets : https://teufyparty.c
+ om/soiree/bruja-carbur-psytrance-hardtrance-2026-11-22/\nVia Teufy @te
+ ufy_official
+URL:https://teufyparty.com/soiree/bruja-carbur-psytrance-hardtrance-20
+ 26-11-22/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Bruja / Carbur — Psytrance / Hardtrance
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:sun7-rooftop-le-meridien-2026-11-22@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261122T130000Z
+DTEND:20261122T180000Z
+SUMMARY:Sun7 Rooftop Le Méridien
+LOCATION:Rooftop Le Méridien\, Nice
+DESCRIPTION:Day party house sur le rooftop du Méridien face à la mer a
+ vec sunset et dress code bleu et blanc.\nFiche et billets : https://te
+ ufyparty.com/soiree/sun7-rooftop-le-meridien-2026-11-22/\nVia Teufy @t
+ eufy_official
+URL:https://teufyparty.com/soiree/sun7-rooftop-le-meridien-2026-11-22/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Sun7 Rooftop Le Méridien
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:dragolote-avec-lady-miss-tik-2026-11-22@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261122T180000Z
+DTEND:20261122T230000Z
+SUMMARY:Dragolote avec Lady Miss Tik
+LOCATION:Mama Shelter Nice\, Nice
+DESCRIPTION:Loto décalé et performances drag animés par Lady Miss Tik 
+ au Mama Shelter Nice.\nFiche et billets : https://teufyparty.com/soire
+ e/dragolote-avec-lady-miss-tik-2026-11-22/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/dragolote-avec-lady-miss-tik-2026-11
+ -22/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Dragolote avec Lady Miss Tik
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:the-show-club-sonore-nice-2026-11-26@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261126T180000Z
+DTEND:20261126T230000Z
+SUMMARY:The Show Club Sonore - Nice
+LOCATION:Mama Shelter Nice\, Nice
+DESCRIPTION:Le collectif Club Sonore réunit les jeunes créatifs au Mam
+ a Shelter.\nFiche et billets : https://teufyparty.com/soiree/the-show-
+ club-sonore-nice-2026-11-26/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/the-show-club-sonore-nice-2026-11-26
+ /
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : The Show Club Sonore - Nice
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:jerrycans-release-party-frigo-16-2026-11-26@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261126T190000Z
+DTEND:20261127T000000Z
+SUMMARY:Jerrycans Release Party @ Frigo 16
+LOCATION:Frigo 16 / Le 109\, Nice
+DESCRIPTION:Release party funk et italo disco en entrée gratuite au Fr
+ igo 16 avec Les Jerrycans.\nFiche et billets : https://teufyparty.com/
+ soiree/jerrycans-release-party-frigo-16-2026-11-26/\nVia Teufy @teufy_
+ official
+URL:https://teufyparty.com/soiree/jerrycans-release-party-frigo-16-202
+ 6-11-26/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Jerrycans Release Party @ Frigo 16
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:yuksek-et-roxie-2026-11-26@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261126T193000Z
+DTEND:20261127T003000Z
+SUMMARY:Yuksek & Roxie
+LOCATION:Le Dix-Huit - Adresse d'Expériences\, Nice
+DESCRIPTION:Yuksek et Roxie en DJ set électro et house au Dix-Huit à N
+ ice.\nFiche et billets : https://teufyparty.com/soiree/yuksek-et-roxie
+ -2026-11-26/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/yuksek-et-roxie-2026-11-26/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Yuksek & Roxie
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:kx-dj-not-so-innocent-2026-11-26@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261126T225900Z
+DTEND:20261127T035900Z
+SUMMARY:Kx Dj / Not So Innocent
+LOCATION:Glass Club Cannes\, Cannes
+DESCRIPTION:Set afro house et deep house rythmé par KX DJ au Glass Clu
+ b Cannes.\nFiche et billets : https://teufyparty.com/soiree/kx-dj-not-
+ so-innocent-2026-11-26/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/kx-dj-not-so-innocent-2026-11-26/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Kx Dj / Not So Innocent
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:phaphane-a-nice-amapiano-et-afrobeats-lovers-2026-11-27@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261127T190000Z
+DTEND:20261128T000000Z
+SUMMARY:Phaphane à Nice - Amapiano & Afrobeats Lovers
+LOCATION:Frigo 16 (Le 109)\, Nice
+DESCRIPTION:Basses amapiano et rythmiques afrobeats ensoleillées pour 
+ une nuit chaleureuse au 109.\nFiche et billets : https://teufyparty.co
+ m/soiree/phaphane-a-nice-amapiano-et-afrobeats-lovers-2026-11-27/\nVia
+  Teufy @teufy_official
+URL:https://teufyparty.com/soiree/phaphane-a-nice-amapiano-et-afrobeat
+ s-lovers-2026-11-27/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Phaphane à Nice - Amapiano & Afrobeats Lovers
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:dj-trvchi-2026-11-27@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261127T193000Z
+DTEND:20261128T003000Z
+SUMMARY:Dj - Trvchi
+LOCATION:Mama Shelter Nice\, Nice
+DESCRIPTION:Set électro-pop et house festif en entrée libre au Mama Sh
+ elter avec Trvchi.\nFiche et billets : https://teufyparty.com/soiree/d
+ j-trvchi-2026-11-27/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/dj-trvchi-2026-11-27/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Dj - Trvchi
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:skarra-mucci-et-manudigital-ragga-blasta-tour-2026-11-27@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261127T193000Z
+DTEND:20261128T003000Z
+SUMMARY:Skarra Mucci & Manudigital — Ragga Blasta Tour
+LOCATION:Centre Culturel Tisot\, La Seyne-sur-Mer
+DESCRIPTION:Session explosive entre basses numériques et toasting ragg
+ a par deux références du genre.\nFiche et billets : https://teufyparty
+ .com/soiree/skarra-mucci-et-manudigital-ragga-blasta-tour-2026-11-27/\
+ nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/skarra-mucci-et-manudigital-ragga-bl
+ asta-tour-2026-11-27/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Skarra Mucci & Manudigital — Ragga Blasta Tour
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mr-hat-vs-verome-bass-vs-hard-music-2026-11-27@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261127T200000Z
+DTEND:20261128T010000Z
+SUMMARY:Mr Hat vs Verome — Bass vs Hard Music
+LOCATION:L'Antre Bar Electro\, Nice
+DESCRIPTION:Clash Basstek entre Mr Hat et Verome mêlant basses lourdes
+  et rythmes hard music.\nFiche et billets : https://teufyparty.com/soi
+ ree/mr-hat-vs-verome-bass-vs-hard-music-2026-11-27/\nVia Teufy @teufy_
+ official
+URL:https://teufyparty.com/soiree/mr-hat-vs-verome-bass-vs-hard-music-
+ 2026-11-27/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Mr Hat vs Verome — Bass vs Hard Music
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:coachellito-high-club-friends-et-family-edition-2026-11-27@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261127T225900Z
+DTEND:20261128T035900Z
+SUMMARY:Coachellito — High Club (Friends & Family Edition)
+LOCATION:High Club\, Nice
+DESCRIPTION:Takeover total du High Club par Coachellito avec B4B exclu
+ sif et nouvelle scénographie.\nFiche et billets : https://teufyparty.c
+ om/soiree/coachellito-high-club-friends-et-family-edition-2026-11-27/\
+ nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/coachellito-high-club-friends-et-fam
+ ily-edition-2026-11-27/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Coachellito — High Club (Friends & Family Editio
+ n)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ugo-puccinelli-pretty-little-sins-2026-11-27@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261127T225900Z
+DTEND:20261128T035900Z
+SUMMARY:Ugo Puccinelli / Pretty Little Sins
+LOCATION:Glass Club Cannes\, Cannes
+DESCRIPTION:Pépites tech house et deep house mixées par Ugo Puccinelli
+  au Glass Club.\nFiche et billets : https://teufyparty.com/soiree/ugo-
+ puccinelli-pretty-little-sins-2026-11-27/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/ugo-puccinelli-pretty-little-sins-20
+ 26-11-27/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Ugo Puccinelli / Pretty Little Sins
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:da-grow-uk-bass-gangsta-house-2026-11-28@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261128T040000Z
+DTEND:20261128T090000Z
+SUMMARY:Da Grow — UK Bass / Gangsta House
+LOCATION:L'Antre Bar Electro\, Nice
+DESCRIPTION:After dès 5h du matin avec Da Grow aux commandes de sonori
+ tés UK bass et gangsta house.\nFiche et billets : https://teufyparty.c
+ om/soiree/da-grow-uk-bass-gangsta-house-2026-11-28/\nVia Teufy @teufy_
+ official
+URL:https://teufyparty.com/soiree/da-grow-uk-bass-gangsta-house-2026-1
+ 1-28/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Da Grow — UK Bass / Gangsta House
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:psynaps-2-2026-11-28@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261128T180000Z
+DTEND:20261128T230000Z
+SUMMARY:Psynaps-2
+LOCATION:Fort Napoléon\, La Seyne-sur-Mer
+DESCRIPTION:Immersion psychédélique et hypnotic techno au Fort Napoléo
+ n à prix tout doux.\nFiche et billets : https://teufyparty.com/soiree/
+ psynaps-2-2026-11-28/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/psynaps-2-2026-11-28/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Psynaps-2
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:le-mas-d-hiver-soiree-culture-80-2026-11-28@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261128T183000Z
+DTEND:20261128T233000Z
+SUMMARY:Le Mas d'Hiver : Soirée Culture 80
+LOCATION:Le Mas des Escaravatiers\, Puget-sur-Argens
+DESCRIPTION:Soirée festive vintage aux rythmes des tubes cultes des an
+ nées 80 au Mas d'Hiver.\nFiche et billets : https://teufyparty.com/soi
+ ree/le-mas-d-hiver-soiree-culture-80-2026-11-28/\nVia Teufy @teufy_off
+ icial
+URL:https://teufyparty.com/soiree/le-mas-d-hiver-soiree-culture-80-202
+ 6-11-28/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Le Mas d'Hiver : Soirée Culture 80
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:this-is-house-2026-11-28@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261128T190000Z
+DTEND:20261129T000000Z
+SUMMARY:This Is House
+LOCATION:Le Baraza\, Hyères
+DESCRIPTION:Sets vinyles et kicks groovy par Papeguay et Lydia Scarfo 
+ au Baraza.\nFiche et billets : https://teufyparty.com/soiree/this-is-h
+ ouse-2026-11-28/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/this-is-house-2026-11-28/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : This Is House
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:do-you-like-tekno-2026-11-28@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261128T190000Z
+DTEND:20261129T000000Z
+SUMMARY:DO YOU LIKE… TEKNO ?
+LOCATION:Frigo 16 (Le 109)\, Nice
+DESCRIPTION:Live de 2h du duo 23HZ (Insane Teknology & Nesh Mayday) pl
+ us Banditik au 109.\nFiche et billets : https://teufyparty.com/soiree/
+ do-you-like-tekno-2026-11-28/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/do-you-like-tekno-2026-11-28/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : DO YOU LIKE… TEKNO ?
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:slip-panther-glam-rock-revival-show-2026-11-28@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261128T193000Z
+DTEND:20261129T003000Z
+SUMMARY:Slip Panther — Glam Rock Revival Show
+LOCATION:Le Live\, Toulon
+DESCRIPTION:Show déjanté et paillettes rendant hommage aux grandes heu
+ res du rock US.\nFiche et billets : https://teufyparty.com/soiree/slip
+ -panther-glam-rock-revival-show-2026-11-28/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/slip-panther-glam-rock-revival-show-
+ 2026-11-28/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Slip Panther — Glam Rock Revival Show
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:vibrance-7-2026-11-28@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261128T200000Z
+DTEND:20261129T010000Z
+SUMMARY:Vibrance #7
+LOCATION:L'Antre Bar Electro\, Nice
+DESCRIPTION:Le collectif Aztera installe sa rave psytrance et acid tec
+ hno dans le Vieux-Nice.\nFiche et billets : https://teufyparty.com/soi
+ ree/vibrance-7-2026-11-28/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/vibrance-7-2026-11-28/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Vibrance #7
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:soiree-zouk-et-caribbean-vibes-2026-11-28@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261128T200000Z
+DTEND:20261129T010000Z
+SUMMARY:Soirée Zouk & Caribbean Vibes
+LOCATION:L'Artiste 83\, Roquebrune-sur-Argens
+DESCRIPTION:Showcase live de Layanah et DJ Vanpiro pour une grosse nui
+ t shatta et caribéenne.\nFiche et billets : https://teufyparty.com/soi
+ ree/soiree-zouk-et-caribbean-vibes-2026-11-28/\nVia Teufy @teufy_offic
+ ial
+URL:https://teufyparty.com/soiree/soiree-zouk-et-caribbean-vibes-2026-
+ 11-28/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Soirée Zouk & Caribbean Vibes
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:prizme-concept-tournevis-live-2026-11-28@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261128T210000Z
+DTEND:20261129T020000Z
+SUMMARY:Prizme Concept : TOURNEVIS Live
+LOCATION:Frigo 16 (Le 109)\, Nice
+DESCRIPTION:Session tekno en live set au Frigo 16 avec TOURNEVIS.\nFic
+ he et billets : https://teufyparty.com/soiree/prizme-concept-tournevis
+ -live-2026-11-28/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/prizme-concept-tournevis-live-2026-1
+ 1-28/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Prizme Concept : TOURNEVIS Live
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:origins-invite-boticka-all-night-long-2026-11-28@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261128T223000Z
+DTEND:20261129T033000Z
+SUMMARY:Origins Invite Boticka All Night Long
+LOCATION:Switch Club\, Roquebrune-sur-Argens
+DESCRIPTION:6 heures de set non-stop de Boticka pour une nuit techno i
+ ndustrielle intense.\nFiche et billets : https://teufyparty.com/soiree
+ /origins-invite-boticka-all-night-long-2026-11-28/\nVia Teufy @teufy_o
+ fficial
+URL:https://teufyparty.com/soiree/origins-invite-boticka-all-night-lon
+ g-2026-11-28/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Origins Invite Boticka All Night Long
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zouk-love-toulon-edition-chic-2026-11-28@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261128T224500Z
+DTEND:20261129T034500Z
+SUMMARY:Zouk Love Toulon Edition Chic
+LOCATION:Le Boka Club\, Toulon
+DESCRIPTION:Soirée zouk et kompa animée par DJ Feeling au Boka Club av
+ ec invitations gratuites.\nFiche et billets : https://teufyparty.com/s
+ oiree/zouk-love-toulon-edition-chic-2026-11-28/\nVia Teufy @teufy_offi
+ cial
+URL:https://teufyparty.com/soiree/zouk-love-toulon-edition-chic-2026-1
+ 1-28/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Zouk Love Toulon Edition Chic
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:to-have-fun-2026-11-28@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261128T225900Z
+DTEND:20261129T035900Z
+SUMMARY:To Have Fun
+LOCATION:High Club\, Nice
+DESCRIPTION:Format festif généraliste et hip-hop pour lâcher prise un 
+ samedi soir face à la mer.\nFiche et billets : https://teufyparty.com/
+ soiree/to-have-fun-2026-11-28/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/to-have-fun-2026-11-28/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : To Have Fun
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:alex-duff-overdrive-2026-11-28@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261128T225900Z
+DTEND:20261129T035900Z
+SUMMARY:Alex Duff / Overdrive
+LOCATION:Glass Club Cannes\, Cannes
+DESCRIPTION:Alex Duff aux platines pour une nuit house et tech house s
+ urvitaminée.\nFiche et billets : https://teufyparty.com/soiree/alex-du
+ ff-overdrive-2026-11-28/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/alex-duff-overdrive-2026-11-28/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Alex Duff / Overdrive
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:dj-k-net-resident-techno-tribe-2026-11-29@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261129T040000Z
+DTEND:20261129T090000Z
+SUMMARY:DJ K-Net (Resident) — Techno / Tribe
+LOCATION:L'Antre Bar Electro\, Nice
+DESCRIPTION:Clôture du mois en set vinyle techno et tribe par le résid
+ ent historique DJ K-Net dès 5h.\nFiche et billets : https://teufyparty
+ .com/soiree/dj-k-net-resident-techno-tribe-2026-11-29/\nVia Teufy @teu
+ fy_official
+URL:https://teufyparty.com/soiree/dj-k-net-resident-techno-tribe-2026-
+ 11-29/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : DJ K-Net (Resident) — Techno / Tribe
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:shafro-toulon-2-afro-shatta-dancehall-2026-11-29@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261129T190000Z
+DTEND:20261130T000000Z
+SUMMARY:Shafro @ Toulon #2 : Afro\, Shatta\, Dancehall
+LOCATION:Le Factory Club\, La Farlède
+DESCRIPTION:Retour de la soirée Shafro avec kicks shatta et rythmes af
+ robeats au Factory.\nFiche et billets : https://teufyparty.com/soiree/
+ shafro-toulon-2-afro-shatta-dancehall-2026-11-29/\nVia Teufy @teufy_of
+ ficial
+URL:https://teufyparty.com/soiree/shafro-toulon-2-afro-shatta-dancehal
+ l-2026-11-29/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Shafro @ Toulon #2 : Afro\, Shatta\, Dancehall
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:le-mas-d-hiver-bringue-pull-moche-de-noel-2026-12-04@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261204T183000Z
+DTEND:20261204T233000Z
+SUMMARY:Le Mas d'Hiver : Bringue Pull Moche de Noël
+LOCATION:Le Mas des Escaravatiers\, Puget-sur-Argens
+DESCRIPTION:Bringue festive décalée en pull moche de Noël avec DJ set 
+ et entrée libre au Mas.\nFiche et billets : https://teufyparty.com/soi
+ ree/le-mas-d-hiver-bringue-pull-moche-de-noel-2026-12-04/\nVia Teufy @
+ teufy_official
+URL:https://teufyparty.com/soiree/le-mas-d-hiver-bringue-pull-moche-de
+ -noel-2026-12-04/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Le Mas d'Hiver : Bringue Pull Moche de Noël
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ref-session-18-acid-pauli-frigo-16-nice-2026-12-04@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261204T190000Z
+DTEND:20261205T000000Z
+SUMMARY:REF Session #18 Acid Pauli - Frigo 16 - NICE
+LOCATION:Frigo 16 (Le 109)\, Nice
+DESCRIPTION:Acid Pauli débarque au Frigo 16 pour une session électro p
+ sychédélique immanquable.\nFiche et billets : https://teufyparty.com/s
+ oiree/ref-session-18-acid-pauli-frigo-16-nice-2026-12-04/\nVia Teufy @
+ teufy_official
+URL:https://teufyparty.com/soiree/ref-session-18-acid-pauli-frigo-16-n
+ ice-2026-12-04/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : REF Session #18 Acid Pauli - Frigo 16 - NICE
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:aura-night-fornap-edition-imperiale-2026-12-04@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261204T193000Z
+DTEND:20261205T003000Z
+SUMMARY:Aura Night — Fornap (Édition Impériale)
+LOCATION:Fort Napoléon\, La Seyne-sur-Mer
+DESCRIPTION:Ambiance safe place shatta et amapiano avec DJ Jess et DJ 
+ Aafroo au Fort Napoléon.\nFiche et billets : https://teufyparty.com/so
+ iree/aura-night-fornap-edition-imperiale-2026-12-04/\nVia Teufy @teufy
+ _official
+URL:https://teufyparty.com/soiree/aura-night-fornap-edition-imperiale-
+ 2026-12-04/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Aura Night — Fornap (Édition Impériale)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:yard-of-blondes-2026-12-04@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261204T200000Z
+DTEND:20261205T010000Z
+SUMMARY:Yard of Blondes
+LOCATION:MJC Picaud / La Tangente\, Cannes
+DESCRIPTION:Concert grunge et post-rock énergique en entrée libre à La
+  Tangente.\nFiche et billets : https://teufyparty.com/soiree/yard-of-b
+ londes-2026-12-04/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/yard-of-blondes-2026-12-04/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Yard of Blondes
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:what-s-up-nice-2026-12-04@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261204T225900Z
+DTEND:20261205T035900Z
+SUMMARY:What's Up Nice
+LOCATION:High Club\, Nice
+DESCRIPTION:Nuit 100% niçoise et tracks house sur le dancefloor princi
+ pal de la Prom'.\nFiche et billets : https://teufyparty.com/soiree/wha
+ t-s-up-nice-2026-12-04/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/what-s-up-nice-2026-12-04/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : What's Up Nice
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:vars-en-scene-bon-entendeur-2026-12-05@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261205T173000Z
+DTEND:20261205T223000Z
+SUMMARY:Vars en Scène : Bon Entendeur
+LOCATION:Front de neige de Chabrières\, Vars
+DESCRIPTION:Concert gratuit de Bon Entendeur en plein air pour l'ouver
+ ture de la station de ski.\nFiche et billets : https://teufyparty.com/
+ soiree/vars-en-scene-bon-entendeur-2026-12-05/\nVia Teufy @teufy_offic
+ ial
+URL:https://teufyparty.com/soiree/vars-en-scene-bon-entendeur-2026-12-
+ 05/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Vars en Scène : Bon Entendeur
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:la-dinette-santa-a-la-playa-2026-12-05@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261205T180000Z
+DTEND:20261205T230000Z
+SUMMARY:La Dinette - Santa à la Playa
+LOCATION:Playa Chica\, Mandelieu-la-Napoule
+DESCRIPTION:Édition de Noël décalée les pieds dans l'eau à Playa Chica
+  dans la baie de Cannes.\nFiche et billets : https://teufyparty.com/so
+ iree/la-dinette-santa-a-la-playa-2026-12-05/\nVia Teufy @teufy_officia
+ l
+URL:https://teufyparty.com/soiree/la-dinette-santa-a-la-playa-2026-12-
+ 05/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : La Dinette - Santa à la Playa
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:dakeez-2026-12-05@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261205T190000Z
+DTEND:20261206T000000Z
+SUMMARY:Dakeez
+LOCATION:Frigo 16 (Le 109)\, Nice
+DESCRIPTION:Show R&B et trapsoul avec le chanteur et danseur Dakeez au
+  Frigo 16.\nFiche et billets : https://teufyparty.com/soiree/dakeez-20
+ 26-12-05/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/dakeez-2026-12-05/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Dakeez
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:la-java-3-2026-12-05@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261205T220000Z
+DTEND:20261206T030000Z
+SUMMARY:La Java 3
+LOCATION:Le Green Musik\, Antibes
+DESCRIPTION:6h de rave non-stop hard techno et psytrance sur sound sys
+ tem Martin Audio.\nFiche et billets : https://teufyparty.com/soiree/la
+ -java-3-2026-12-05/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/la-java-3-2026-12-05/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : La Java 3
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mamacita-2026-12-05@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261205T223000Z
+DTEND:20261206T033000Z
+SUMMARY:Mamacita
+LOCATION:Frigo 16 (Le 109)\, Nice
+DESCRIPTION:Ambiance perreo et baile funk ultra chaude signée Mamacita
+  au Frigo 16.\nFiche et billets : https://teufyparty.com/soiree/mamaci
+ ta-2026-12-05/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/mamacita-2026-12-05/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Mamacita
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:bad-girls-2026-12-05@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261205T225900Z
+DTEND:20261206T035900Z
+SUMMARY:Bad Girls
+LOCATION:High Club\, Nice
+DESCRIPTION:Ambiance baddie\, bangers hip-hop US et RnB pour mettre le
+  feu au High Club.\nFiche et billets : https://teufyparty.com/soiree/b
+ ad-girls-2026-12-05/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/bad-girls-2026-12-05/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Bad Girls
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:plk-tournee-des-zeniths-2026-2026-12-06@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261206T180000Z
+DTEND:20261206T230000Z
+SUMMARY:PLK — Tournée des Zéniths 2026
+LOCATION:Palais Nikaïa\, Nice
+DESCRIPTION:PLK investit la scène du Palais Nikaïa pour une grosse dat
+ e de rap français à Nice.\nFiche et billets : https://teufyparty.com/s
+ oiree/plk-tournee-des-zeniths-2026-2026-12-06/\nVia Teufy @teufy_offic
+ ial
+URL:https://teufyparty.com/soiree/plk-tournee-des-zeniths-2026-2026-12
+ -06/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : PLK — Tournée des Zéniths 2026
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mala-jaw-oriental-house-2026-12-06@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261206T180000Z
+DTEND:20261206T230000Z
+SUMMARY:Mala Jaw - Oriental House
+LOCATION:La Suite Restaurant Festif\, Vallauris
+DESCRIPTION:Beats électroniques et mélodies orientales le dimanche soi
+ r à La Suite.\nFiche et billets : https://teufyparty.com/soiree/mala-j
+ aw-oriental-house-2026-12-06/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/mala-jaw-oriental-house-2026-12-06/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Mala Jaw - Oriental House
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:pony-pony-run-run-2026-12-10@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261210T180000Z
+DTEND:20261210T230000Z
+SUMMARY:Pony Pony Run Run
+LOCATION:Le Stockfish\, Nice
+DESCRIPTION:Les auteurs du tube Hey You en live au Stockfish à tarif é
+ tudiant.\nFiche et billets : https://teufyparty.com/soiree/pony-pony-r
+ un-run-2026-12-10/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/pony-pony-run-run-2026-12-10/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Pony Pony Run Run
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:chilli-no-5-80s-apres-ski-christmas-party-2026-12-11@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261211T180000Z
+DTEND:20261211T230000Z
+SUMMARY:Chilli No. 5 - 80s Après-Ski Christmas Party
+LOCATION:Espaces 245 Sophia Antipolis\, Valbonne
+DESCRIPTION:Thème festif 80s Après-Ski avec DJ set et cocktails pour f
+ êter Noël en avance.\nFiche et billets : https://teufyparty.com/soiree
+ /chilli-no-5-80s-apres-ski-christmas-party-2026-12-11/\nVia Teufy @teu
+ fy_official
+URL:https://teufyparty.com/soiree/chilli-no-5-80s-apres-ski-christmas-
+ party-2026-12-11/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Chilli No. 5 - 80s Après-Ski Christmas Party
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:brodinski-en-concert-a-nice-tobhi-tm-et-friends-2026-12-11@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261211T190000Z
+DTEND:20261212T000000Z
+SUMMARY:Brodinski en concert à Nice (+ TOBHI TM & Friends)
+LOCATION:Frigo 16 (Le 109)\, Nice
+DESCRIPTION:Brodinski enflamme le Frigo 16 entre trap wave\, électro e
+ t gros son club.\nFiche et billets : https://teufyparty.com/soiree/bro
+ dinski-en-concert-a-nice-tobhi-tm-et-friends-2026-12-11/\nVia Teufy @t
+ eufy_official
+URL:https://teufyparty.com/soiree/brodinski-en-concert-a-nice-tobhi-tm
+ -et-friends-2026-12-11/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Brodinski en concert à Nice (+ TOBHI TM & Friend
+ s)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:kevin-saura-group-en-concert-2026-12-11@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261211T193000Z
+DTEND:20261212T003000Z
+SUMMARY:Kevin Saura Group en concert
+LOCATION:Le Dix-Huit\, Nice
+DESCRIPTION:Concert jazz fusion du quintette Kevin Saura Group au Dix-
+ Huit à Nice.\nFiche et billets : https://teufyparty.com/soiree/kevin-s
+ aura-group-en-concert-2026-12-11/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/kevin-saura-group-en-concert-2026-12
+ -11/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Kevin Saura Group en concert
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:soiree-annees-80-dj-set-2026-12-12@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261212T170000Z
+DTEND:20261212T220000Z
+SUMMARY:Soirée années 80 (DJ Set)
+LOCATION:Place Jean Camille Formigé\, Fréjus
+DESCRIPTION:DJ set rétro et ambiance festive gratuite sur la place For
+ migé à Fréjus.\nFiche et billets : https://teufyparty.com/soiree/soire
+ e-annees-80-dj-set-2026-12-12/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/soiree-annees-80-dj-set-2026-12-12/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Soirée années 80 (DJ Set)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:vars-en-scene-skip-the-use-2026-12-12@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261212T173000Z
+DTEND:20261212T223000Z
+SUMMARY:Vars en Scène : Skip The Use
+LOCATION:Front de neige de Chabrières\, Vars
+DESCRIPTION:Concert rock gratuit de Skip The Use sur le front de neige
+ .\nFiche et billets : https://teufyparty.com/soiree/vars-en-scene-skip
+ -the-use-2026-12-12/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/vars-en-scene-skip-the-use-2026-12-1
+ 2/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Vars en Scène : Skip The Use
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:the-first-talk-show-cabaret-icones-3-2026-12-12@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261212T183000Z
+DTEND:20261212T233000Z
+SUMMARY:The First Talk Show — Cabaret Icônes 3
+LOCATION:Stockfish\, Nice
+DESCRIPTION:Show drag et talk-show hybride avec Tati Galaxy et la scèn
+ e niçoise au Stockfish.\nFiche et billets : https://teufyparty.com/soi
+ ree/the-first-talk-show-cabaret-icones-3-2026-12-12/\nVia Teufy @teufy
+ _official
+URL:https://teufyparty.com/soiree/the-first-talk-show-cabaret-icones-3
+ -2026-12-12/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : The First Talk Show — Cabaret Icônes 3
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mungo-s-hi-fi-frigo-16-2026-12-12@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261212T190000Z
+DTEND:20261213T000000Z
+SUMMARY:Mungo's Hi Fi @ Frigo 16
+LOCATION:Frigo 16 - Le 109\, Nice
+DESCRIPTION:Les pionniers écossais du sound system dub Mungo's Hi Fi e
+ n live au Frigo 16.\nFiche et billets : https://teufyparty.com/soiree/
+ mungo-s-hi-fi-frigo-16-2026-12-12/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/mungo-s-hi-fi-frigo-16-2026-12-12/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Mungo's Hi Fi @ Frigo 16
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:tiwayo-et-betsy-rose-2026-12-12@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261212T193000Z
+DTEND:20261213T003000Z
+SUMMARY:Tiwayo et Betsy Rose
+LOCATION:Théâtre Denis\, Hyères
+DESCRIPTION:Concert soul et R&B moderne signé Tiwayo et Betsy Rose au 
+ Théâtre Denis.\nFiche et billets : https://teufyparty.com/soiree/tiway
+ o-et-betsy-rose-2026-12-12/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/tiwayo-et-betsy-rose-2026-12-12/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Tiwayo et Betsy Rose
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ben-carter-2026-12-12@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261212T193000Z
+DTEND:20261213T003000Z
+SUMMARY:Ben Carter
+LOCATION:Le Dix-Huit\, Nice
+DESCRIPTION:Set indie dance et house soigné par Ben Carter au Dix-Huit
+ .\nFiche et billets : https://teufyparty.com/soiree/ben-carter-2026-12
+ -12/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/ben-carter-2026-12-12/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Ben Carter
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:festival-vitrolles-dub-station-2026-2026-12-12@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261212T200000Z
+DTEND:20261213T010000Z
+SUMMARY:Festival Vitrolles Dub Station 2026
+LOCATION:Stadium de Vitrolles\, Vitrolles
+DESCRIPTION:Huit heures de session dub non-stop au Stadium avec L'Ento
+ urloop et Mungo's Hi Fi.\nFiche et billets : https://teufyparty.com/so
+ iree/festival-vitrolles-dub-station-2026-2026-12-12/\nVia Teufy @teufy
+ _official
+URL:https://teufyparty.com/soiree/festival-vitrolles-dub-station-2026-
+ 2026-12-12/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Festival Vitrolles Dub Station 2026
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:showcase-5-luzula-venin-carmin-code-150-harfaang-2026-12-12@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261212T220000Z
+DTEND:20261213T030000Z
+SUMMARY:Showcase #5 : Luzula / Venin Carmin / Code 150 / Harfaang
+LOCATION:MJC Picaud / Studio 13\, Cannes
+DESCRIPTION:Nuit alternative darkwave et post-punk jusqu'à 3h du matin
+  au Studio 13 à Cannes !\nFiche et billets : https://teufyparty.com/so
+ iree/showcase-5-luzula-venin-carmin-code-150-harfaang-2026-12-12/\nVia
+  Teufy @teufy_official
+URL:https://teufyparty.com/soiree/showcase-5-luzula-venin-carmin-code-
+ 150-harfaang-2026-12-12/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Showcase #5 : Luzula / Venin Carmin / Code 150 /
+  Harfaang
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:take-control-2026-12-12@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261212T225900Z
+DTEND:20261213T035900Z
+SUMMARY:Take Control
+LOCATION:High Club\, Nice
+DESCRIPTION:Show lasers\, performers et kicks tech house percutants po
+ ur votre samedi soir.\nFiche et billets : https://teufyparty.com/soire
+ e/take-control-2026-12-12/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/take-control-2026-12-12/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Take Control
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:rakugo-up-date-cyril-coppini-x-dj-click-2026-12-16@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261216T180000Z
+DTEND:20261216T230000Z
+SUMMARY:Rakugo Up Date (Cyril Coppini x DJ Click)
+LOCATION:Salle Le Stockfish - Maison de l'Étudiant\, Nice
+DESCRIPTION:DJ Click pose ses basses électro au Stockfish pour une soi
+ rée étudiante originale !\nFiche et billets : https://teufyparty.com/s
+ oiree/rakugo-up-date-cyril-coppini-x-dj-click-2026-12-16/\nVia Teufy @
+ teufy_official
+URL:https://teufyparty.com/soiree/rakugo-up-date-cyril-coppini-x-dj-cl
+ ick-2026-12-16/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Rakugo Up Date (Cyril Coppini x DJ Click)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ben-carter-neon-xp-2026-12-17@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261217T193000Z
+DTEND:20261218T003000Z
+SUMMARY:Ben Carter (NEON XP)
+LOCATION:Le Dix-Huit - Adresse d'Expériences\, Nice
+DESCRIPTION:Le DJ résident d'Ibiza Ben Carter enflamme Le Dix-Huit en 
+ session NEON XP.\nFiche et billets : https://teufyparty.com/soiree/ben
+ -carter-neon-xp-2026-12-17/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/ben-carter-neon-xp-2026-12-17/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Ben Carter (NEON XP)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:roller-disco-gratuit-2026-12-18@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261218T170000Z
+DTEND:20261218T220000Z
+SUMMARY:Roller Disco - Gratuit
+LOCATION:Frigo 16 (Le 109)\, Nice
+DESCRIPTION:Piste roller indoor et DJ sets disco funk en accès libre a
+ u Frigo 16.\nFiche et billets : https://teufyparty.com/soiree/roller-d
+ isco-gratuit-2026-12-18/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/roller-disco-gratuit-2026-12-18/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Roller Disco - Gratuit
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:le-mome-et-adame-2026-12-18@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261218T193000Z
+DTEND:20261219T003000Z
+SUMMARY:Le Mome & Adamé
+LOCATION:Le Dix-Huit - Adresse d'Expériences\, Nice
+DESCRIPTION:Soirée veille de vacances avec la scène urbaine montante d
+ e Le Mome et Adamé.\nFiche et billets : https://teufyparty.com/soiree/
+ le-mome-et-adame-2026-12-18/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/le-mome-et-adame-2026-12-18/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Le Mome & Adamé
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:more-than-dream-2026-12-18@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261218T225900Z
+DTEND:20261219T035900Z
+SUMMARY:More Than Dream
+LOCATION:High Club\, Nice
+DESCRIPTION:Célèbre le lancement des vacances de fin d'année sur le gr
+ and dancefloor du front de mer.\nFiche et billets : https://teufyparty
+ .com/soiree/more-than-dream-2026-12-18/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/more-than-dream-2026-12-18/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : More Than Dream
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:coachellito-et-le-blanchon-auron-1600-opening-edition-2026-12-19@t
+ eufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261219T133000Z
+DTEND:20261219T183000Z
+SUMMARY:Coachellito & Le Blanchon Auron 1600 - Opening Edition
+LOCATION:Le Blanchon - Auron 1600\, Auron
+DESCRIPTION:Day party d'opening sur les pistes à Auron avec le crew Co
+ achellito.\nFiche et billets : https://teufyparty.com/soiree/coachelli
+ to-et-le-blanchon-auron-1600-opening-edition-2026-12-19/\nVia Teufy @t
+ eufy_official
+URL:https://teufyparty.com/soiree/coachellito-et-le-blanchon-auron-160
+ 0-opening-edition-2026-12-19/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Coachellito & Le Blanchon Auron 1600 - Opening E
+ dition
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zona-de-perreo-frigo-16-nice-2026-12-19@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261219T190000Z
+DTEND:20261220T000000Z
+SUMMARY:Zona De Perreo • Frigo 16 Nice
+LOCATION:Frigo 16 (Le 109)\, Nice
+DESCRIPTION:Le crew Latin Addict débarque au 109 pour une nuit 100% pe
+ rreo\, dembow et shatta.\nFiche et billets : https://teufyparty.com/so
+ iree/zona-de-perreo-frigo-16-nice-2026-12-19/\nVia Teufy @teufy_offici
+ al
+URL:https://teufyparty.com/soiree/zona-de-perreo-frigo-16-nice-2026-12
+ -19/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Zona De Perreo • Frigo 16 Nice
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wado-x-l-antre-2-2026-12-19@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261219T210000Z
+DTEND:20261220T020000Z
+SUMMARY:Wado X L'Antre 2
+LOCATION:L'Antre Bar Electro\, Nice
+DESCRIPTION:Deuxième round tekno sans répit avec le Mojo Crew sous les
+  voûtes de Nice.\nFiche et billets : https://teufyparty.com/soiree/wad
+ o-x-l-antre-2-2026-12-19/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/wado-x-l-antre-2-2026-12-19/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Wado X L'Antre 2
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:shafro-toulon-3-afro-shatta-bouyon-2026-12-20@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261220T190000Z
+DTEND:20261221T000000Z
+SUMMARY:Shafro @ Toulon #3 — Afro\, Shatta\, Bouyon
+LOCATION:Le Factory Club\, La Farlède
+DESCRIPTION:Session bouyon et afrobeats avec DJ Abi pour fêter le débu
+ t des vacances.\nFiche et billets : https://teufyparty.com/soiree/shaf
+ ro-toulon-3-afro-shatta-bouyon-2026-12-20/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/shafro-toulon-3-afro-shatta-bouyon-2
+ 026-12-20/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Shafro @ Toulon #3 — Afro\, Shatta\, Bouyon
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:santa-s-house-party-sud-spicious-x-glass-club-2026-12-21@teufy
+DTSTAMP:20261112T155315Z
+DTSTART:20261221T220000Z
+DTEND:20261222T030000Z
+SUMMARY:Santa's House Party — Sud'Spicious X Glass Club
+LOCATION:Glass Club Cannes\, Cannes
+DESCRIPTION:Soirée de Noël du crew Sud'Spicious sur le sound system VO
+ ID du Glass Club.\nFiche et billets : https://teufyparty.com/soiree/sa
+ nta-s-house-party-sud-spicious-x-glass-club-2026-12-21/\nVia Teufy @te
+ ufy_official
+URL:https://teufyparty.com/soiree/santa-s-house-party-sud-spicious-x-g
+ lass-club-2026-12-21/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Santa's House Party — Sud'Spicious X Glass Club
+END:VALARM
+END:VEVENT
+END:VCALENDAR

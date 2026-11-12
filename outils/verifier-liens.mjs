@@ -14,6 +14,8 @@ for (const p of pages) {
   const refs = [...html.matchAll(/\s(?:href|src|poster)="([^"]+)"/g)].map((m) => m[1]).concat([...html.matchAll(/\ssrcset="([^"]+)"/g)].flatMap((m) => m[1].split(',').map((x) => x.trim().split(/\s+/)[0])));
   for (const m of html.matchAll(/\s(?:src|poster)="((?:\.\.\/)*)"/g)) casses.set(`(image sans fichier) « ${m[1]} »  ←  ${path.relative(ROOT, p)}`, true);
   for (let r of refs) {
+    // Abonnement calendrier (webcal://<domaine>/site/ics/…) : le fichier doit exister dans le dépôt.
+    const wc = r.match(/^webcal:\/\/[^/]+\/(.+)$/); if (wc) { n++; if (!existsSync(path.join(ROOT, wc[1]))) casses.set(r + '  ←  ' + path.relative(ROOT, p), true); continue; }
     if (/^(https?:|mailto:|tel:|data:|#|javascript:)/.test(r) || !r) continue;
     r = r.replace(/&amp;/g, '&').split('#')[0].split('?')[0];
     if (!r) continue;

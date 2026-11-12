@@ -41,7 +41,7 @@ async function controlerPage(p, nom, u) {
       const b = el.getBoundingClientRect(); if (!b.width || !b.height || (b.right <= W + 1 && b.left >= -1)) continue;
       let a = el.parentElement, cache = false;
       while (a && a !== document.body) { const o = getComputedStyle(a), r = a.getBoundingClientRect();
-        if (/(auto|scroll)/.test(o.overflowX) || (/(hidden|clip)/.test(o.overflowX) && r.width < W * 0.95 && r.right <= W + 1) || o.opacity === '0' || a.getAttribute('aria-hidden') === 'true' || (a.tagName === 'DETAILS' && !a.open)) { cache = true; break; }
+        if (/(auto|scroll)/.test(o.overflowX) || (/(hidden|clip)/.test(o.overflowX) && r.right <= W + 1 && r.left >= -1 && (r.width < W * 0.95 || (/^(IMG|VIDEO|PICTURE)$/.test(el.tagName) && !/^(MAIN|HTML)$/.test(a.tagName)))) || o.opacity === '0' || a.getAttribute('aria-hidden') === 'true' || (a.tagName === 'DETAILS' && !a.open)) { cache = true; break; }
         a = a.parentElement; }
       if (!cache) out.push(`${el.tagName.toLowerCase()}.${String(el.className).split(' ')[0]} ${Math.round(b.right)}/${W}`); }
     return out.slice(0, 3); });

@@ -62,11 +62,11 @@ for (const e of evts) {
 // Artistes du line-up saisis par l'équipe : compte au nom exact, confirmé par l'API, bio musicale.
 const variantes = (nom) => { const b = sa(nom).replace(/[^a-z0-9 ]/g, '').trim(); const j = b.replace(/\s+/g, ''), s = b.replace(/\s+/g, '_');
   return [...new Set([j, s, `${j}_music`, `${j}music`, `${j}_dj`, `${j}dj`, `dj${j}`, `dj_${j}`, `${j}.music`, `${j}_off`, `${j}officiel`, `${j}_officiel`])].filter((x) => x.length >= 3); };
-let appels = 0, limite = false;
+let appels = 0, limite = false, erreurs = 0;
 async function lireCompte(h) {
   if (limite || appels >= MAX || !ig) return null;
   appels++;
-  try { return await businessDiscovery(h, ig); } catch (err) { if (/rate|limit|\(#4\)|\(#32\)|\(#17\)/i.test(err.message)) limite = true; return null; }
+  try { return await businessDiscovery(h, ig); } catch (err) { if (erreurs++ < 3) console.log(`Instagram @${h} : ${String(err.message).slice(0, 160)}`); if (/rate|limit|\(#4\)|\(#32\)|\(#17\)/i.test(err.message)) limite = true; return null; }
 }
 for (const e of evts) for (const nom of e.artistes || []) {
   if (typeof nom !== 'string' || [...candidats.values()].some((c) => c.nomManuel === nom)) continue;
@@ -89,7 +89,7 @@ mkdirSync(path.join(ROOT, 'site', 'artistes'), { recursive: true });
 async function telecharger(url, f, largeur) {
   try { const r = await fetch(url, { signal: AbortSignal.timeout(20000) }); if (!r.ok) return false; const tmp = `${f}.src`; writeFileSync(tmp, Buffer.from(await r.arrayBuffer()));
     const c = spawnSync('ffmpeg', ['-v', 'error', '-y', '-i', tmp, '-vf', `scale='min(${largeur},iw)':-2`, '-q:v', '3', f]); spawnSync('rm', ['-f', tmp]);
-    if (c.status !== 0) return false;
+    if (c.status !== 0) { console.log(`ffmpeg indisponible ou image illisible pour ${path.basename(f)}`); return false; }
     for (const l of [320, 800]) spawnSync('ffmpeg', ['-v', 'error', '-y', '-i', f, '-vf', `scale='min(${l},iw)':-2`, '-c:v', 'libwebp', '-quality', '80', f.replace(/\.jpg$/, `-${l}.webp`)]);
     return true; } catch { return false; }
 }
@@ -103,6 +103,7 @@ for (const [h, c] of candidats) {
   const A = { ...(ancien || {}), nom, compte: h, bio: fiche?.bio || '', abonnes: fiche?.abonnes ?? null, soirees: [...new Set(c.soirees)] };
   if (!frais) {
     const bd = await lireCompte(h);
+    if (!bd?.username) console.log(`Artiste ${nom} (@${h}) : compte non lu${limite ? ' (limite Instagram atteinte)' : ''}.`);
     if (bd?.username) {
       A.bio = String(bd.biography || A.bio).slice(0, 400); A.abonnes = bd.followers_count ?? A.abonnes; A.site = bd.website || '';
       const fa = path.join(ROOT, 'site', 'artistes', `${s}-avatar.jpg`);

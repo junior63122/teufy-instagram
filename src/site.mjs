@@ -846,6 +846,7 @@ export async function construireSite({ events, eventsFrance = [], eventsOccitani
   }
   await writeFile(path.join(ROOT, '404.html'), page404(TXT.fr));
   await ics([...soirees, ...soireesOccitanie, ...soireesFrance.filter((x) => !soirees.some((s) => s.id === x.id))], compte); // pages France aussi (bouton « Ajouter au calendrier »)
+  await fluxIcs(soirees, compte); // après le nettoyage des .ics des soirées passées
 
   const jourIso = new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Paris' }).format(now);
   const chemins = [...new Set(pages.map(([d]) => d.replace(/^(en|it|es|zh|ar)\//, '')))];
@@ -982,7 +983,7 @@ const TAILLES = { carte: '(min-width:980px) 360px, (min-width:640px) 46vw, 92vw'
 async function ics(soirees, compte) {
   const d = path.join(SITE, 'ics');
   await mkdir(d, { recursive: true });
-  for (const x of readdirSync(d)) if (!soirees.some((s) => `${s.id}.ics` === x)) rmSync(path.join(d, x), { force: true });
+  for (const x of readdirSync(d)) if (!x.startsWith('agenda') && !soirees.some((s) => `${s.id}.ics` === x)) rmSync(path.join(d, x), { force: true });
   const f = (t) => new Date(t).toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
   const e = (x) => String(x || '').replace(/[\\,;]/g, (c) => `\\${c}`).replace(/\n/g, '\\n');
   for (const s of soirees) {
@@ -996,6 +997,30 @@ async function ics(soirees, compte) {
       'BEGIN:VALARM', 'ACTION:DISPLAY', 'TRIGGER:-PT2H', `DESCRIPTION:${e(`Dans 2 h : ${s.nom}`)}`, 'END:VALARM',
       'END:VEVENT', 'END:VCALENDAR', ''].join('\r\n'));
   }
+}
+
+// Agendas à suivre (12/11/2026) : un calendrier « abonnement » (Côte d'Azur, et un par style) que le téléphone met à
+// jour tout seul : les nouvelles soirées apparaissent dans l'agenda du visiteur, avec rappels. Gratuit, sans compte.
+async function fluxIcs(soirees, compte) {
+  const d = path.join(SITE, 'ics');
+  await mkdir(d, { recursive: true });
+  const f = (t) => new Date(t).toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
+  const e = (x) => String(x || '').replace(/[\\,;]/g, (c) => `\\${c}`).replace(/\n/g, '\\n');
+  const plie = (l) => { const c = Array.from(l), o = []; for (let i = 0; i < c.length; i += 70) o.push((i ? " " : "") + c.slice(i, i + 70).join("")); return o.join("\r\n"); };
+  const ecrire = (nom, titre, liste) => writeFile(path.join(d, `${nom}.ics`), ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Teufy//Agenda//FR', 'CALSCALE:GREGORIAN', 'METHOD:PUBLISH',
+    `X-WR-CALNAME:${e(titre)}`, 'X-WR-TIMEZONE:Europe/Paris', 'REFRESH-INTERVAL;VALUE=DURATION:PT6H', 'X-PUBLISHED-TTL:PT6H',
+    ...liste.flatMap((s) => { const t = Date.parse(s.debut); return ['BEGIN:VEVENT', `UID:${s.id}@teufy`, `DTSTAMP:${f(Date.now())}`, `DTSTART:${f(t)}`, `DTEND:${f(t + 5 * 3600e3)}`, `SUMMARY:${e(s.nom)}`,
+      `LOCATION:${e([s.lieu, s.ville].filter(Boolean).join(', '))}`, `DESCRIPTION:${e(`${s.accroche ? `${s.accroche}\n` : ''}Fiche et billets : ${URL_SITE}soiree/${s.id}/\nVia Teufy ${compte}`)}`, `URL:${URL_SITE}soiree/${s.id}/`,
+      'BEGIN:VALARM', 'ACTION:DISPLAY', 'TRIGGER:-PT3H', `DESCRIPTION:${e(`Ce soir : ${s.nom}`)}`, 'END:VALARM', 'END:VEVENT']; }),
+    'END:VCALENDAR', ''].map(plie).join('\r\n'));
+  await ecrire('agenda', "Teufy · Soirées Côte d'Azur", soirees);
+  for (const k of PAGES_STYLES) await ecrire(`agenda-${k}`, `Teufy · ${STYLES_MUSIQUE.find((x) => x.cle === k)?.nom || k}`, soirees.filter((x) => x.styles.includes(k)));
+}
+const ICO_CAL = '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 10h18M8 3v4M16 3v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+function blocAbonnement({ tr, base, nom = 'agenda', libelle = '' }) {
+  const https = `${URL_SITE}site/ics/${nom}.ics`, webcal = https.replace(/^https?:/, 'webcal:');
+  return `<section class="abonnement reveal"><div class="abo-texte"><p class="etiquette">${esc(tr('Nouveau'))}</p><h2>${tr('Les soirées <em>dans ton agenda</em>')}</h2><p>${esc(tr(`Abonne-toi une fois à l'agenda Teufy${libelle ? ` ${libelle}` : ''} : chaque nouvelle soirée apparaît toute seule dans le calendrier de ton téléphone, avec un rappel 3 h avant. Gratuit, sans compte, tu te désabonnes quand tu veux.`))}</p></div>
+<p class="abo-actions"><a class="bouton" href="${esc(webcal)}">${ICO_CAL}<span>${esc(tr('iPhone, Mac, Outlook'))}</span></a><a class="bouton contour" href="https://calendar.google.com/calendar/render?cid=${encodeURIComponent(webcal)}" target="_blank" rel="noopener">${ICO_CAL}<span>${esc(tr('Google Agenda'))}</span></a><a class="bouton contour copier-lien" href="${esc(https)}" data-lien="${esc(https)}">${esc(tr('Copier le lien'))}</a></p></section>`;
 }
 
 // Les 12 photos d'ambiance : chacune n'est utilisée qu'à UN seul endroit du site (pas de répétition).
@@ -1273,7 +1298,7 @@ function vignette(s, base = '') {
   // de la soirée, avec le logo du lieu quand on le connaît.
   // Belle photo du lieu (sa publication Instagram la plus aimée) quand la soirée n'a aucune affiche.
   const pv = s.photoLieu && existsSync(path.join(ROOT, s.photoLieu.replace(/\.jpg$/, '-800.webp'))) ? { fichier: s.photoLieu } : null;
-  return `<span class="vignette${ph && !pv ? ' avec-lieu' : ''}${pv ? ' avec-ville avec-photo-lieu' : ''}" style="--a:rgb(${a.join(',')});--b:rgb(${b.join(',')})" aria-hidden="true">${pv ? `<img class="vignette-ville" src="${base}${esc(pv.fichier.replace(/\.jpg$/, '-800.webp'))}" srcset="${base}${esc(pv.fichier.replace(/\.jpg$/, '-480.webp'))} 480w, ${base}${esc(pv.fichier.replace(/\.jpg$/, '-800.webp'))} 800w${grandeVille(pv.fichier) ? `, ${base}${esc(grandeVille(pv.fichier))} 1200w` : ''}" sizes="(min-width:980px) 400px, 92vw" alt="" width="800" height="533" loading="lazy" decoding="async">` : ''}<small>${esc((s.genres || '').split(' · ').slice(0, 2).join(' · ') || 'Soirée')}</small><b${nomCourtCarte(s).length > 38 ? ' class="long"' : ''}>${esc(nomCourtCarte(s))}</b><i class="v-lieu">${ph ? `<img src="${base}${esc(ph)}" alt="" width="34" height="34" loading="lazy" decoding="async">` : ''}<span>${esc([s.lieu, s.lieu && sansAccent(s.lieu).toLowerCase().includes(sansAccent(s.ville || '').toLowerCase()) ? '' : s.ville].filter(Boolean).join(' · '))}</span></i></span>`;
+  return `<span class="vignette${ph && !pv ? ' avec-lieu' : ''}${pv ? ' avec-ville avec-photo-lieu' : ''}" style="--a:rgb(${a.join(',')});--b:rgb(${b.join(',')})" aria-hidden="true">${pv ? `<img class="vignette-ville" src="${base}${esc(pv.fichier.replace(/\.jpg$/, '-800.webp'))}" srcset="${base}${esc(pv.fichier.replace(/\.jpg$/, '-480.webp'))} 480w, ${base}${esc(pv.fichier.replace(/\.jpg$/, '-800.webp'))} 800w${grandeVille(pv.fichier) ? `, ${base}${esc(grandeVille(pv.fichier))} 1200w` : ''}" sizes="(min-width:980px) 50vw, 92vw" alt="" width="800" height="533" loading="lazy" decoding="async">` : ''}<small>${esc((s.genres || '').split(' · ').slice(0, 2).join(' · ') || 'Soirée')}</small><b${nomCourtCarte(s).length > 38 ? ' class="long"' : ''}>${esc(nomCourtCarte(s))}</b><i class="v-lieu">${ph ? `<img src="${base}${esc(ph)}" alt="" width="34" height="34" loading="lazy" decoding="async">` : ''}<span>${esc([s.lieu, s.lieu && sansAccent(s.lieu).toLowerCase().includes(sansAccent(s.ville || '').toLowerCase()) ? '' : s.ville].filter(Boolean).join(' · '))}</span></i></span>`;
 }
 
 const boutonBillets = (s, t) => (s.url
@@ -1645,6 +1670,7 @@ ${defile(t)}
 ${ceSoir(t, soirees, base, lang)}
 ${vedette ? `<section class="la-plus reveal"><h2 class="etiquette">${esc(t.laPlus)}</h2>${carte(vedette, { t, base, lang, vedette: true })}</section>` : ''}
 ${agenda(soirees, { t, base, lang })}
+${blocAbonnement({ tr: (x) => trad(lang, x), base })}
 ${CODES.length ? `<section class="bloc-large reveal"><h2>${t.bonsPlansH2}</h2><div class="cartes-texte">${CODES.map((c) => `<article class="carte-texte">${blocPromo(c, t, (x) => trad(lang, x))}</article>`).join('')}</div></section>` : ''}
 ${blocTendance({ t, tr: (x) => trad(lang, x), base, lang, lieux })}
 ${blocTeufy(ctx, soirees.length)}
@@ -1690,6 +1716,7 @@ function pageStyle({ lang, t, tr, base, compte, T, chemin, cleStyle, soirees, ma
   const corps = `${heroCourt({ partage: t.partager, base, photo: PHOTO_STYLE[cleStyle], alt: nom, etiquette: `${t.styleEtiquette} · ${nom}`, h1: t.styleH1(esc(nom)), p: `${esc(tr(st.intro))} ${esc(t.villeN(soirees.length))}`, live: true })}
 ${ceSoir(t, soirees, base, lang)}
 ${agenda(soirees, { t, base, lang, filtreStyle: false })}
+${blocAbonnement({ tr, base, nom: `agenda-${cleStyle}`, libelle: nom })}
 <section class="qui reveal"><p class="liens-styles">${PAGES_STYLES.filter((k) => k !== cleStyle).map((k) => `<a class="puce" href="${base}${pre(lang)}soirees-${k}/">${esc(nomStyle(k, t, lang))}</a>`).join('')}</p></section>
 ${blocOrga({ t, tr, base, handle: compte.replace(/^@/, ''), lang })}`;
   return gabarit({ lang, t, titre: t.styleTitre(nom), description: t.styleDesc(nom, soirees.length), chemin, base, corps, compte, maj, agendaIci: true,
@@ -1746,7 +1773,7 @@ function pageSoiree({ lang, t, tr, base, compte, T, chemin, s, soirees, maj, lie
   const style = villeDabord(soirees.filter((x) => x.id !== s.id && x.jour !== s.jour && x.styles.some((k) => s.styles.includes(k)))).slice(0, 6);
   const mini = (l, titre) => (l.length ? `<section class="similaires reveal"><h2>${titre}</h2><div class="grille">${l.map((x) => carte(x, { t, base, lang })).join('')}</div></section>` : '');
   const offres = s.offres.length ? `<div class="offres"><p class="pied-titre">${esc(t.comparer)}</p>${s.offres.map((o, i) => `<a href="${esc(o.url)}" target="_blank" rel="noopener"><span>${esc(nomPlateforme(o.url))}</span><b>${esc(o.prix == null ? t.prixBillet : prixTexte(o.prix, t))}</b>${i === 0 && o.prix != null ? `<i>${esc(t.meilleurPrix)}</i>` : ''}</a>`).join('')}</div>` : '';
-  const img = s.affiche ? image(base, s.affiche, { alt: t.affiche + s.nom, sizes: '(min-width:860px) 460px, 92vw', attrs: `fetchpriority="high"${s.dims ? ` width="${s.dims[0]}" height="${s.dims[1]}"` : ''}${s.dims && s.dims[0] < 560 ? ` class="petite" style="max-width:${s.dims[0]}px"` : ''}` }) : `<div class="affiche-fiche">${vignette(s, base)}</div>${(() => { const pv = photoVille(s.ville) || photoVille(s.filtreVille); return pv ? `<p class="credit-photo">${esc(tr('Photo de la ville'))} : ${esc(pv.auteur)} · <a href="${esc(pv.source)}" target="_blank" rel="noopener nofollow">${esc(pv.licence)}</a></p>` : ''; })()}`;
+  const img = s.affiche ? image(base, s.affiche, { alt: t.affiche + s.nom, sizes: '(min-width:860px) 460px, 92vw', attrs: `fetchpriority="high"${s.dims ? ` width="${s.dims[0]}" height="${s.dims[1]}"` : ''}${s.dims && s.dims[0] < 560 ? ` class="petite" style="max-width:${s.dims[0]}px"` : ''}` }) : `<div class="affiche-fiche">${vignette(s, base)}</div>`;
   const corps = `<article class="fiche carte-donnees" data-id="${s.id}" data-debut="${esc(s.debut)}">
   <nav class="ariane"><a href="${base}${P}">Teufy</a> › ${s.zone === 'occitanie' ? `<a href="${base}${P}occitanie/">Occitanie</a>` : s.zone === 'france' ? `<a href="${base}${P}france/">${esc(t.franceNav)}</a>` : `<a href="${base}${P}#agenda">${esc(t.agenda)}</a>`} › <span>${esc(s.nom)}</span></nav>
   <div class="fiche-grille">
@@ -1959,7 +1986,7 @@ async function imagesActus(actus, { soirees, hist }) {
   }
   return actus;
 }
-function imageActu(a, { base, cadre = true, sizes = '(min-width:980px) 380px, 92vw', attrs = 'loading="lazy" decoding="async"' } = {}) {
+function imageActu(a, { base, cadre = true, sizes = '(min-width:980px) 560px, 92vw', attrs = 'loading="lazy" decoding="async"' } = {}) {
   if (!a.image_site) return `<span class="actu-flash" aria-hidden="true"><b>${esc(a.ville || 'Teufy')}</b></span>`;
   // Dans les cartes, le cadre est en 4/5 : une image en paysage y est recadrée donc agrandie ; on demande la taille réelle affichée.
   const f = cadre && a.dims ? Math.max(1, 1.25 * a.dims[0] / a.dims[1]) : 1;

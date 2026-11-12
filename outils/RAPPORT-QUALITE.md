@@ -1,3 +1,21 @@
+# Rapport qualité du site Teufy — audit du 12 novembre 2026 (revue complète du design, page par page)
+
+Demande du directeur (captures à l'appui) : textes qui se superposent, cœur mal placé, emojis « qui font IA », soirées
+sans image impossibles à distinguer, grand espace blanc à côté de The Purge, fiche « More Than Dream » cassée ; vérifier
+chaque page, chaque clic, chaque menu, chaque lien, ajouter ce qui manque, soigner le référencement.
+
+| | |
+|---|---|
+| Note | **97 / 100** (objectif 99 non atteint, voir limites) |
+| Corrigé (passage 1, déjà en ligne) | Cœur des favoris remis dans son coin ; soirée sans visuel = vraie affiche typographique (nom en grand, lieu et logo en petit, couleurs propres à la soirée) au lieu du même logo partout ; plus d'emojis (icônes dessinées) ; noms longs qui ne passent plus sous l'étiquette de date ; lieu très long qui revient à la ligne ; The Purge et More Than Dream réparées ; photos de lieu qui étaient en fait des affiches d'autres soirées écartées (lecture du texte de l'image) |
+| Corrigé (ce passage) | Crédit « Photo de la ville » affiché sous une fiche sans photo de ville ; vitrine des partenaires qui dépassait de l'écran sur iPhone (2ᵉ colonne coupée) ; vignettes minuscules de « Dans le même style » (nom coupé en plein mot, déjà écrit à côté) → couleur + logo du lieu ; 2 images servies trop petites sur grand écran (photo de lieu dans les grandes cartes, image d'actu à la une) ; bouton « Voir les lieux fermés » mal aligné ; photos des artistes jamais récupérées (la vérification des comptes épuisait la limite Instagram avant leur tour : ordre inversé, erreurs désormais écrites dans le journal) |
+| Ajouté | **Agendas à suivre** : « Les soirées dans ton agenda » (accueil + chaque page de style) — un abonnement calendrier (iPhone/Mac/Outlook, Google Agenda, lien à copier) qui ajoute tout seul chaque nouvelle soirée dans le téléphone avec un rappel 3 h avant ; un agenda Côte d'Azur + un par style (techno, house, afro, shatta, latino, rap). Gratuit, sans compte, sans IA. Rappels la veille et 2 h avant dans « Ajouter au calendrier » |
+| Tests | `tester-site` 4 écrans ✓ (tous les scénarios) ; 52 tests unitaires ✓ ; 0 lien cassé (3 559 pages, 687 875 liens, liens d'abonnement compris) ; contrôle des données 0 erreur (400 fiches) ; sécurité 0 faille (5 injections) ; données piégées 0 faille (48 pages) ; SEO 0 problème bloquant |
+| Lighthouse (local, mobile simulé, sans compression) | Accueil 92, fiche soirée 99, Ce soir 96, Nice 87–92, Artistes 91 ; accessibilité, bonnes pratiques et SEO : 100 sur les 5 pages ; CLS ≤ 0,015 |
+| Limites | Mesures Lighthouse faites en local (la production compresse : notes habituellement plus hautes) ; photos des artistes : arrivent au prochain passage du robot « Lieux » ; aucun appareil physique ; titres un peu longs sur quelques pages en arabe (non bloquant) |
+
+---
+
 # Rapport qualité du site Teufy — audit du 11 novembre 2026 (7ᵉ passage, audit intégral du soir)
 
 Résumé de ce passage (détail des passages précédents de la journée plus bas, toujours valable).

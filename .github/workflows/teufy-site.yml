@@ -27,18 +27,19 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Vérifier les comptes Instagram (existence + correspondance) et retrouver les vrais comptes
-        timeout-minutes: 15
-        env:
-          MAX_COMPTES: '90' # + 40 artistes + 60 images : sous la limite Instagram de 200 lectures par heure
-        run: node outils/verifier-comptes.mjs
+      # En premier (≈ 15 lectures) : avant, la vérification des comptes épuisait la limite Instagram et aucune photo n'arrivait.
       - name: Fiches artistes (photo, bio, abonnés depuis leur compte Instagram vérifié)
         timeout-minutes: 10
         env:
           MAX_ARTISTES: '40'
         run: |
-          sudo apt-get install -y --no-install-recommends ffmpeg >/dev/null 2>&1 || true
+          (sudo apt-get update -qq && sudo apt-get install -y --no-install-recommends ffmpeg) >/dev/null 2>&1 || true
           node outils/artistes-insta.mjs
+      - name: Vérifier les comptes Instagram (existence + correspondance) et retrouver les vrais comptes
+        timeout-minutes: 15
+        env:
+          MAX_COMPTES: '90' # + 40 artistes + 60 images : sous la limite Instagram de 200 lectures par heure
+        run: node outils/verifier-comptes.mjs
       - name: Images des lieux et affiches retrouvées sur Instagram
         timeout-minutes: 15
         run: |

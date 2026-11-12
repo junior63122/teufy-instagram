@@ -1633,3 +1633,26 @@ html.onglets-caches .onglets{transform:translateY(105%)}
 .vignette{padding-top:74px}
 .vignette b{overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;max-height:2.9em}
 .vignette b.long{font-size:clamp(22px,2.4vw,30px);-webkit-line-clamp:4;max-height:3.9em}
+/* Vignette minuscule (liste « Dans le même style » sur mobile) : le nom est déjà écrit à côté, on garde la couleur et le logo du lieu. */
+@container (max-width:140px){
+  .vignette{padding:40px 8px 10px;justify-content:center;align-items:center}
+  .vignette b,.vignette small{display:none}
+  .vignette .v-lieu{display:flex}
+  .vignette .v-lieu img{width:40px;height:40px}
+}
+.cta:has(.voir-fermes){justify-content:center}
+/* Agenda à suivre dans son calendrier (12/11/2026) */
+.abonnement{max-width:1240px;margin:56px auto 0;padding:26px 22px;border-radius:24px;background:linear-gradient(135deg,#ff5a3c22,#8250ff22);border:1px solid #ffffff1f;display:grid;gap:18px;align-items:center}
+@media (min-width:900px){.abonnement{grid-template-columns:minmax(0,1.3fr) auto;padding:32px 36px}}
+.abonnement h2{font-size:clamp(28px,4.4vw,42px);margin:6px 0 10px}
+.abonnement p{margin:0;max-width:62ch}
+.abo-actions{display:flex;flex-wrap:wrap;gap:10px}
+.abo-actions .bouton svg{vertical-align:-3px;margin-inline-end:8px}
+@media (max-width:899px){.abonnement{margin-inline:16px}}
+/* Correctif 12/11/2026 : sur iPhone, la 2ᵉ colonne de la vitrine des partenaires dépassait de l'écran (noms longs). */
+@media(max-width:639px){
+  main .vitrine-grille{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .vitrine-item{min-width:0}
+  .vitrine-item span{min-width:0}
+  .vitrine-item strong{display:block;max-width:100%}
+}
