@@ -20,10 +20,12 @@ import { TENDANCES, tendancesAuto, scoreHashtag } from './tendances.mjs';
 // 5 hashtags maximum (règle Instagram depuis décembre 2025) : #TeufyParty + 2 locaux + 2 du style.
 // Le choix suit ce qui a marché sur le compte (apprentissage) et les tendances des autres comptes.
 const PERTINENT = /nice|cannes|monaco|antibes|azur|riviera|techno|house|club|night|soir|teuf|rave|party|afro|shatta|amapiano/i;
-export function hashtags(ch, genre = 'general', { events = [] } = {}) {
+export function hashtags(ch, genre = 'general', { events = [], sansLieux = false } = {}) {
   const H = TENDANCES.hashtags_candidats;
   const max = TENDANCES.regles_instagram.hashtags_max;
-  const tendance = Object.keys(tendancesAuto().hashtags || {}).filter((t) => PERTINENT.test(t) && t !== H.marque.toLowerCase());
+  // Hashtag d'un établissement précis (#nayaclub…) : seulement quand ses soirées sont montrées, jamais sur un débat.
+  const deLieu = (t) => /club|bar|beach|plage/.test(t.replace(/nightclub|clubbing|clubnight|nightlife/g, ''));
+  const tendance = Object.keys(tendancesAuto().hashtags || {}).filter((t) => PERTINENT.test(t) && t !== H.marque.toLowerCase() && !(sansLieux && deLieu(t)));
   const local = [...new Set([...H.local, ...tendance.filter((t) => /nice|cannes|monaco|antibes|azur|riviera/.test(t))])];
   const style = [...new Set([...(H[genre] || H.general), ...tendance.filter((t) => !local.includes(t))])];
   // Pertinence avant tout : hashtags locaux des villes des soirées montrées, et styles réellement à l'affiche.
@@ -150,10 +152,12 @@ export function captionBonPlan({ variante, events, from, to, ch, r, manuel }) {
 // --- Débat ------------------------------------------------------------------
 
 export function captionDebat({ debat, ch, r }) {
+  // Une seule consigne claire (A ou B en commentaire) + identification d'un pote : c'est ce qui fait tourner un débat
+  // (commentaires et identifications = portée). 12/11/2026 : avant, deux questions différentes se contredisaient.
   const vote = debat.a && debat.b
-    ? `\n\n${ch.pick('vote', ['Votez en commentaire', 'Répondez en commentaire', 'Votre camp en commentaire'])} : 🅰️ ${debat.a} ou 🅱️ ${debat.b}`
+    ? `\n\n${ch.pick('vote', ['Écris A ou B en commentaire 👇', 'A ou B ? Ton camp en commentaire 👇', 'Vote en commentaire : A ou B 👇'])}\n🅰️ ${debat.a}\n🅱️ ${debat.b}\n\n${ch.pick('tag-debat', [`Tague le pote qui va répondre « ${debat.a} » sans hésiter.`, 'Tague le pote avec qui tu vas te disputer là-dessus.', 'Envoie ça à ton groupe et regarde qui répond quoi.'])}`
     : '';
-  return clip(`${debat.legende}${vote}\n\n${hashtags(ch)}`);
+  return clip(`${debat.legende}${vote}\n\n${hashtags(ch, 'general', { sansLieux: true })}`);
 }
 
 // --- Reels ------------------------------------------------------------------
