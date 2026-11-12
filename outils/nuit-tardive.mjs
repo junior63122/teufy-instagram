@@ -21,7 +21,8 @@ export const VILLES = { Nice: [43.7031, 7.2661], Cannes: [43.5513, 7.0128], Anti
   'Hyères': [43.1204, 6.1286], 'Six-Fours-les-Plages': [43.0940, 5.8390], 'Sanary-sur-Mer': [43.1190, 5.8010], Bandol: [43.1360, 5.7530], Draguignan: [43.5366, 6.4646] };
 // Une petite requête par ville (rayon de quelques km) : les grosses requêtes sont refusées par les serveurs (502, délai).
 const RAYON = { Nice: 6000, Toulon: 5000, Cannes: 4000, Antibes: 3500, Monaco: 2500 };
-const requete = (v, [la, lo]) => { const a = `(around:${RAYON[v] || 3000},${la},${lo})`; return `[out:json][timeout:50];(nwr${a}["amenity"~"^(fast_food|restaurant|cafe|nightclub|bar|pub)$"]["opening_hours"]["name"];nwr${a}["shop"="bakery"]["opening_hours"]["name"];);out tags center;`; };
+const HORAIRE_TARD = '"opening_hours"~"-0[2-9]:|-1[01]:|24/7|-24:00"'; // filtré par le serveur : seuls les lieux ouverts après 2 h reviennent
+const requete = (v, [la, lo]) => { const a = `(around:${RAYON[v] || 3000},${la},${lo})`; return `[out:json][timeout:30];(nwr${a}["amenity"~"^(fast_food|restaurant|cafe|nightclub|bar|pub)$"][${HORAIRE_TARD}]["name"];nwr${a}["shop"="bakery"][${HORAIRE_TARD}]["name"];);out tags center 200;`; };
 const dist = (a, b, c, d) => Math.hypot((a - c) * 111, (b - d) * 111 * Math.cos(a * Math.PI / 180));
 const villeDe = (t, lat, lng) => {
   const c = String(t['addr:city'] || '').trim();
@@ -86,7 +87,7 @@ async function main() {
     let d = null;
     for (const url of SERVEURS) {
       if (Date.now() > fin) break;
-      const r = await fetch(url, { method: 'POST', headers: { 'content-type': 'application/x-www-form-urlencoded', 'user-agent': 'TeufyBot/1.0 (+https://teufyparty.com)' }, body: `data=${encodeURIComponent(requete(v, c))}`, signal: AbortSignal.timeout(55000) }).catch(() => null);
+      const r = await fetch(url, { method: 'POST', headers: { 'content-type': 'application/x-www-form-urlencoded', 'user-agent': 'TeufyBot/1.0 (+https://teufyparty.com)' }, body: `data=${encodeURIComponent(requete(v, c))}`, signal: AbortSignal.timeout(40000) }).catch(() => null);
       d = r?.ok ? await r.json().catch(() => null) : null;
       if (d) break;
     }
