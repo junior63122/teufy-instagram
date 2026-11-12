@@ -723,7 +723,7 @@ async function carrouselDA({ chosen, id, dir, now, titre = [], titreFlash, rubri
         : `du ${fmt(dts[0], { day: 'numeric', ...(fmt(dts[0], { month: 'long' }) === fmt(dts.at(-1), { month: 'long' }) ? {} : { month: 'long' }) })} au ${fmt(dts.at(-1), { day: 'numeric', month: 'long' })}`) : '';
       const entree = { sous, titre, titreFlash, rubrique, question, lieu: (villes.length === 1 ? villes[0] : "CÔTE D'AZUR").toUpperCase(), pied: villes.slice(0, 3).map((v) => v.replace(/-du-.*$/i, '')).join(' · ').toUpperCase(),
         soirees: avecImage.map((e, i) => ({ id: `${i}-${hash(e.name)}`, vedette: vedettes(avecImage).includes(e), nom: e.name, genre: (genresList(e).slice(0, 2).join(' & ') || 'soirée').toLowerCase(), jour: jourC(e.start), debut: e.start, heures: `dès ${heure(e.start)}`, // « dès minuit » pour 23h59 (voir dates.mjs)
-          prix: e.price == null ? 'prix sur la billetterie' : e.price === 0 ? 'gratuit' : `dès ${String(Math.round(e.price * 100) / 100).replace('.', ',')} €`, lieu: [e.venue, e.city].filter(Boolean).join(' · '), image: e.image })) };
+          prix: e.price == null ? 'prix sur la billetterie' : e.price === 0 ? 'gratuit' : `dès ${String(Math.round(e.price * 100) / 100).replace('.', ',')} €`, lieu: [e.venue, e.city && !String(e.venue || '').toLowerCase().includes(String(e.city).toLowerCase().split(/[\s-]/)[0]) ? e.city : ''].filter(Boolean).join(' · '), image: e.image })) };
       const fe = path.join(ROOT, 'out', `carrousel-${id}.json`);
       await mkdir(path.dirname(fe), { recursive: true });
       await writeFile(fe, JSON.stringify(entree));

@@ -39,12 +39,13 @@ export function hashtags(ch, genre = 'general', { events = [] } = {}) {
 
 // Une ligne d'info par soirée : date, nom, styles, lieu, prix.
 const ligne = (e, avecMois = false) => {
-  const lieu = [e.venue, e.city].filter(Boolean).join(', ');
+  const sa = (x) => String(x || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  const lieu = [e.venue, e.city && !sa(e.venue).includes(sa(e.city).split(/[\s-]/)[0]) ? e.city : ''].filter(Boolean).join(', '); // jamais « Glass Club Cannes, Cannes »
   const style = styleLabel(e);
   const p = e.price === 0 ? ' · gratuit' : e.price != null ? ` · ${String(e.price).replace('.', ',')} €` : '';
   // Accroche qui donne envie + comptes de l'organisateur et du lieu (tagués, ils sont prévenus).
   const tags = comptesConfirmes(e).slice(0, 2).map((h) => `@${h}`).join(' '); // comptes vérifiés seulement, jamais deux fois le même
-  const plus = [e.accroche, tags].filter(Boolean).join(' ');
+  const plus = [String(e.accroche || '').replace(/\b23[h:]59\b/g, 'minuit'), tags].filter(Boolean).join(' ');
   return `→ ${jourCourt(e.start)} ${jourNum(e.start)}${avecMois ? ` ${moisCourt(e.start)}` : ''} · ${e.name}${style ? ` (${style})` : ''}${lieu ? ` · ${lieu}` : ''} · ${heure(e.start)}${p}${plus ? `\n   ${plus}` : ''}`;
 };
 // Le mois n'est ajouté que si les dates s'étalent sur plus de 9 jours.

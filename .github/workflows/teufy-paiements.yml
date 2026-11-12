@@ -47,6 +47,7 @@ jobs:
           npm install --no-audit --no-fund >/dev/null 2>&1 || true
           sudo apt-get install -y --no-install-recommends ffmpeg >/dev/null 2>&1 || true
           SITE_MINUTES=6 node src/run.mjs site --force || true
+          node outils/controle-donnees.mjs || echo "::warning::Contrôle des données du site : erreurs à corriger (voir ci-dessus)"
       - name: Enregistrer
         if: steps.paiements.outputs.change == 'true'
         run: |

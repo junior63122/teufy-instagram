@@ -62,6 +62,12 @@ export function datesLues(texte) {
   for (const m of t.matchAll(/\b([0-3]?\d)[./]([01]?\d)(?:[./](?:20)?2\d)?\b/g)) { const j = +m[1], k = +m[2]; if (j >= 1 && j <= 31 && k >= 1 && k <= 12) out.push([j, k]); }
   return out;
 }
+// L'OCR perd souvent un chiffre sur les polices de soirée (« 11 décembre » → « 1/12 », « 13 » → « 3 », « 28/11 » → « 28/1 ») :
+// une date lue est compatible si chaque nombre est égal (±1 jour) ou est une partie du vrai nombre.
+export function dateCompatible([j, m], [J, M]) {
+  const partie = (a, b) => a === b || String(b).includes(String(a));
+  return (m === M || partie(m, M)) && (Math.abs(j - J) <= 1 || partie(j, J));
+}
 function ocrAffiche(s) {
   if (!s.debut) return {ok: true, raison: 'date inconnue, non vérifié'};
   const r = spawnSync('tesseract', [path.join(STUDIO, 'public', s.image), '-', '-l', 'fra+eng', '--psm', '11'], {encoding: 'utf8', timeout: 60000});
@@ -70,7 +76,7 @@ function ocrAffiche(s) {
   const [J, M] = new Intl.DateTimeFormat('fr-FR', {timeZone: 'Europe/Paris', day: 'numeric', month: 'numeric'}).format(d).split('/').map(Number);
   const lues = datesLues(r.stdout);
   if (!lues.length) return {ok: true, raison: 'aucune date lisible sur l\'affiche'};
-  const ok = lues.some(([j, m]) => m === M && Math.abs(j - J) <= 1);
+  const ok = lues.some((d) => dateCompatible(d, [J, M]));
   return {ok, raison: ok ? 'date de l\'affiche conforme (OCR)' : `date lue ${lues.map(([j, m]) => `${j}/${m}`).join(', ')} ≠ ${J}/${M} (OCR)`};
 }
 async function verifierAffiche(s) {

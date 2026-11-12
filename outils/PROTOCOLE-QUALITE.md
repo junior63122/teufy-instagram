@@ -28,6 +28,7 @@ node outils/serveur-local.cjs &        # imite GitHub Pages (gzip, 404, redirect
 node outils/verifier-liens.mjs         # tous les liens internes, images, photos non répétées
 node outils/audit-seo.mjs              # title, description, H1, hiérarchie, canonical, hreflang, OG, JSON-LD,
                                        # sitemap/robots, alt et dimensions des images, noopener, secrets exposés
+node outils/controle-donnees.mjs --ocr  # données affichées : texte cassé (undefined, 23h59…), dates du titre et de l'affiche (OCR), doublons, billetterie, comptes Instagram non vérifiés
 node outils/tester-robustesse.cjs      # « casser le site » : saisies piégées, clics frénétiques, rotation, retour,
                                        # stockage bloqué, sans JS, géoloc refusée, hors ligne, clavier, écrans 320–2560,
                                        # boutons recouverts / illisibles / vides, textes coupés, console et requêtes,

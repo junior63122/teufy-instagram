@@ -36,6 +36,8 @@ jobs:
         run: node outils/verifier-liens.mjs
       - name: SEO, partage, images, sécurité
         run: node outils/audit-seo.mjs
+      - name: Données affichées (texte cassé, dates, doublons, liens de billetterie, comptes Instagram non vérifiés)
+        run: node outils/controle-donnees.mjs
 
   navigateurs:
     runs-on: ubuntu-22.04 # dépendances de WebKit (Safari) prises en charge par Playwright

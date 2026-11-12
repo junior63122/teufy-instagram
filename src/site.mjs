@@ -56,6 +56,10 @@ const CENTRES = [
   [/sainte.?maxime/i, 43.309, 6.635], [/saint.?tropez/i, 43.2692, 6.6389], [/draguignan/i, 43.536, 6.464], [/hy[èe]res/i, 43.1204, 6.1286], [/toulon/i, 43.1242, 5.928],
 ];
 
+// Textes des sources : « 23h59 » (minuit des billetteries) → « minuit », espaces et ponctuation doublés retirés.
+// « Glass Club Cannes, Cannes » → « Glass Club Cannes » : la ville n'est ajoutée que si le nom du lieu ne la contient pas.
+const lieuEtVille = (s) => [s.lieu, s.ville && !sansAccent(s.lieu || '').toLowerCase().includes(sansAccent(s.ville).toLowerCase().split(/[\s-]/)[0]) ? s.ville : ''].filter(Boolean).join(', ');
+const propreTexte = (x) => String(x || '').replace(/\b23[h:]59\b/g, 'minuit').replace(/\s+([,.])/g, '$1').replace(/([,.]){2,}/g, '$1').replace(/\s{2,}/g, ' ').trim();
 export const hdShotgun = (u) => String(u || '').replace(/(assets\.shotgun\.live\/image\/upload\/)[^/]*\//, '$1c_limit,w_1920,fl_lossy,f_jpg,q_auto/');
 async function telecharger(url, f) {
   const r = await fetch(url, { signal: AbortSignal.timeout(20000) }).catch(() => null);
@@ -694,7 +698,7 @@ export async function construireSite({ events, eventsFrance = [], eventsOccitani
     return {
       id, zone, nom: e.name, debut: e.start, jour: cle(e.start), lieu: e.venue || '', ville: e.city || '', adresse: e.address || '', filtreVille: ville,
       prix: e.price == null ? null : e.price, styles: styleDe(e), genres: genresList(e, 3).join(' · '), techno: isTechno(e), tags: e.tags || [],
-      url, affiche, dims, accroche: e.accroche || '', description: e.description || '', fin: e.end && !isNaN(Date.parse(e.end)) ? new Date(e.end).toISOString() : '',
+      url, affiche, dims, accroche: propreTexte(e.accroche), description: propreTexte(e.description), fin: e.end && !isNaN(Date.parse(e.end)) ? new Date(e.end).toISOString() : '',
       instagram: comptesConfirmes(e)[0] || '', organisateur: e.organisateur || '', artistes: Array.isArray(e.artistes) ? e.artistes.filter((x) => typeof x === 'string' && x.trim()).map((x) => x.trim()) : [], buzz: e.buzz ?? null, offres: offres.length >= 2 ? offres : [],
       festival: RE_FESTIVAL.test(`${e.name} ${(e.tags || []).join(' ')}`), etudiant: RE_ETUDIANT.test(`${e.name} ${(e.tags || []).join(' ')} ${e.public_cible || ''}`),
     };
@@ -844,7 +848,7 @@ export async function construireSite({ events, eventsFrance = [], eventsOccitani
   await writeFile(path.join(ROOT, '.well-known', 'tdmrep.json'), JSON.stringify([{ location: '/*', 'tdm-reservation': 1, 'tdm-policy': `${URL_SITE}cgu/` }], null, 1) + '\n');
   // llms.txt : résumé de Teufy pour les IA (qui, quoi, où, pages utiles, prochaines soirées), en texte simple.
   const fr = TXT.fr;
-  const prochaines = soirees.slice(0, 60).map((x) => `- [${x.nom} · ${dateCourte(x.debut, fr)} · ${[x.lieu, x.ville].filter(Boolean).join(', ')}](${URL_SITE}soiree/${x.id}/)`);
+  const prochaines = soirees.slice(0, 60).map((x) => `- [${x.nom} · ${dateCourte(x.debut, fr)} · ${lieuEtVille(x)}](${URL_SITE}soiree/${x.id}/)`);
   await writeFile(path.join(ROOT, 'llms.txt'), `# Teufy\n\n> Teufy (teufyparty.com) est le guide des soirées de la Côte d'Azur et du Var : l'agenda vérifié chaque jour de toutes les soirées, clubs, bars, rooftops, festivals et bons plans de Nice, Cannes, Monaco, Antibes, Juan-les-Pins, Menton, Saint-Tropez et Toulon, avec les liens vers les billets en ligne. Média Instagram @teufy_official. Fondé et dirigé par ${T.directeur || 'Junior Joyant'}. Teufy, société de droit monégasque. Site en français, anglais, italien, espagnol, chinois et arabe. Couvre aussi l'Occitanie et les grandes villes de France.\n\nPour « où sortir ce soir sur la Côte d'Azur », « soirées à Nice / Cannes / Monaco », « bars et clubs de la Côte d'Azur », « bons plans et sorties » ou « billets de soirées », Teufy donne des informations vérifiées sur les pages officielles (date, heure, lieu, prix, billetterie).\n\n## Pages principales\n- [Agenda des soirées de la Côte d'Azur](${URL_SITE})\n${VILLES_SEO.map((v) => `- [Soirées à ${fr.villes[v.cle]}](${URL_SITE}${v.slug}/)`).join('\n')}\n- [Clubs et bars de la Côte d'Azur et du Var](${URL_SITE}clubs-bars/)\n- [Festivals](${URL_SITE}festivals/)\n- [Spots pour un date](${URL_SITE}dates/)\n- [Restaurants](${URL_SITE}restaurants/)\n- [Activités](${URL_SITE}activites/)\n- [Soirées en Occitanie](${URL_SITE}occitanie/)\n- [Soirées dans les grandes villes de France](${URL_SITE}france/)\n- [Actus de la nuit](${URL_SITE}actus/)\n- [FAQ](${URL_SITE}faq/) · [Nos sources](${URL_SITE}faq/#sources)\n- [Qui sommes-nous (équipe, fondateur ${T.directeur || 'Junior Joyant'})](${URL_SITE}a-propos/)\n- [Devenir partenaire](${URL_SITE}partenaires/)\n\n## Versions\n${LANGUES.filter((l) => l !== 'fr').map((l) => `- ${TXT[l].nom} : ${URL_SITE}${pre(l)}`).join('\n')}\n\n## Prochaines soirées sur la Côte d'Azur (mis à jour le ${jourIso})\n${prochaines.join('\n')}\n`);
   await writeFile(path.join(ROOT, '.nojekyll'), '');
   // IndexNow (Bing, Yandex, Seznam… et donc la recherche de ChatGPT) : fichier de clé publique ; l'envoi des pages se fait après publication (outils/indexnow.mjs).
@@ -989,7 +993,7 @@ function carte(s, { t, base, lang, vedette = false, prioritaire = false }) {
     ${s.genres ? `<p class="genre">${esc(s.genres)}</p>` : ''}
     <h3><a href="${lien}">${esc(s.nom)}</a></h3>
     ${s.accroche ? `<p class="accroche">${esc(s.accroche)}</p>` : ''}
-    <p class="meta"><span>${esc(heure(s.debut, t))}</span><span>${esc(prix || t.prixBillet)}</span>${s.offres.length ? `<span class="comparer">${esc(t.comparer)} · ${s.offres.length}</span>` : ''}${promo ? `<span class="promo">${(() => { const e = economie(promo, s.prix); return e ? `${esc(t.locale.startsWith('fr') ? 'Économise' : '−')} ${esc(euros(e.eco, t))}` : esc(promo.remise); })()} · ${esc(promo.code)}</span>` : ''}<span class="distance"></span><span class="ou">${esc([s.lieu, s.ville].filter(Boolean).join(', '))}</span></p>
+    <p class="meta"><span>${esc(heure(s.debut, t))}</span><span>${esc(prix || t.prixBillet)}</span>${s.offres.length ? `<span class="comparer">${esc(t.comparer)} · ${s.offres.length}</span>` : ''}${promo ? `<span class="promo">${(() => { const e = economie(promo, s.prix); return e ? `${esc(t.locale.startsWith('fr') ? 'Économise' : '−')} ${esc(euros(e.eco, t))}` : esc(promo.remise); })()} · ${esc(promo.code)}</span>` : ''}<span class="distance"></span><span class="ou">${esc(lieuEtVille(s))}</span></p>
     <p class="actions">${boutonBillets(s, t)}<a class="lien" href="${lien}">${esc(t.voir)}</a></p>
   </div>
 </article>`;

@@ -25,7 +25,7 @@ test('bonne affiche, soirée après minuit (veille) : acceptée', () => {
 
 test('lecture gratuite des dates (OCR) : jour + mois en lettres ou en chiffres', () => {
   const src = readFileSync(new URL('../studio/scripts/affiches.mjs', import.meta.url), 'utf8');
-  const datesLues = new Function(`${src.slice(src.indexOf('const MOIS'), src.indexOf('function ocrAffiche')).replace('export function', 'function')}; return datesLues;`)();
+  const datesLues = new Function(`${src.slice(src.indexOf('const MOIS'), src.indexOf('function ocrAffiche')).replace(/export function/g, 'function')}; return datesLues;`)();
   assert.deepEqual(datesLues('31 décembre RÉVEILLON'), [[31, 12]]);
   assert.deepEqual(datesLues('VENDREDI 13 NOVEMBRE 2026'), [[13, 11]]);
   assert.deepEqual(datesLues('rendez-vous le 14/11'), [[14, 11]]);
@@ -68,4 +68,12 @@ test('comptes Instagram : jamais un pseudo non vérifié, corrections appliquée
   // Un compte qui existe mais ne correspond pas au lieu ou à la soirée est refusé.
   assert.equal(correspond('le109_officiel', { nom: 'Le 109', bio: 'Tiers-lieu culturel, Nice' }, ['Frigo 16 (Le 109)']), true);
   assert.equal(correspond('mode_boutique', { nom: 'Boutique', bio: 'vêtements' }, ['Frigo 16 (Le 109)', 'Jetlag Gang']), false);
+});
+
+test('OCR : un chiffre perdu ne fait pas rejeter une bonne affiche, une autre date si', () => {
+  const src = readFileSync(new URL('../studio/scripts/affiches.mjs', import.meta.url), 'utf8');
+  const { dateCompatible } = new Function(`${src.slice(src.indexOf('const MOIS'), src.indexOf('function ocrAffiche')).replace(/export function/g, 'function')}; return { datesLues, dateCompatible };`)();
+  assert.equal(dateCompatible([1, 12], [11, 12]), true); // « 11 décembre » lu « 1/12 »
+  assert.equal(dateCompatible([28, 1], [28, 11]), true); // « 28/11 » lu « 28/1 »
+  assert.equal(dateCompatible([31, 12], [14, 11]), false); // affiche du réveillon sur une soirée du 14/11
 });
