@@ -1508,3 +1508,16 @@ html.onglets-caches .onglets{transform:translateY(105%)}
 .fiche-banniere.banniere-photo{height:170px}
 .fiche-banniere.banniere-photo::before{inset:0;filter:brightness(.7) saturate(1.1);opacity:1}
 .fiche-banniere.banniere-photo img{width:64px;height:64px;align-self:flex-end;justify-self:flex-start;margin:0 auto 12px 14px}
+/* Fiche soirée : aucune colonne ne peut dépasser l'écran (un texte long sans espace élargissait tout sur mobile). */
+.fiche-grille{grid-template-columns:minmax(0,1fr)}
+@media(min-width:860px){.fiche-grille{grid-template-columns:minmax(0,460px) minmax(0,1fr)}}
+.fiche-infos,.fiche-aside,.fiche-affiche{min-width:0}
+.offres a span{min-width:0;overflow-wrap:anywhere}
+.presentation{margin:.4rem 0 1rem;display:grid;gap:.6rem}
+.presentation p{margin:0;line-height:1.6}
+.presentation p:first-child::first-line{font-weight:600}
+.fiche-desc{line-height:1.6}
+.y-aller{min-width:0;max-width:100%}
+.y-aller li{flex-wrap:wrap;row-gap:2px}
+.y-aller li>span{min-width:0;overflow-wrap:anywhere}
+@media(max-width:420px){.y-aller small{white-space:normal;margin-left:auto;text-align:right}}

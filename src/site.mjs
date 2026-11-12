@@ -651,12 +651,13 @@ export async function construireSite({ events, eventsFrance = [], eventsOccitani
     let id = `${slug(e.name) || 'soiree'}-${cle(e.start)}`;
     for (let k = 2; pris.has(id); k++) id = `${slug(e.name)}-${cle(e.start)}-${k}`;
     pris.add(id);
-    const url = /^https?:\/\//.test(e.url || '') && !/^https?:\/\/[^/]+\/?$/.test(e.url) ? e.url : '';
+    // Jamais un lien interne de recherche (redirection Google « vertexaisearch ») à la place de la vraie billetterie.
+    const url = /^https?:\/\//.test(e.url || '') && !/^https?:\/\/[^/]+\/?$/.test(e.url) && !/vertexaisearch|googleusercontent|google\.[a-z.]+\/(url|search)/i.test(e.url) ? e.url : '';
     const offres = (e.offres || []).filter((o) => o.url && !PAS_BILLETTERIE.test(nomDomaine(o.url))).sort((a, b) => (a.prix ?? 1e9) - (b.prix ?? 1e9)); // jamais un réseau social
     return {
       id, zone, nom: e.name, debut: e.start, jour: cle(e.start), lieu: e.venue || '', ville: e.city || '', adresse: e.address || '', filtreVille: ville,
       prix: e.price == null ? null : e.price, styles: styleDe(e), genres: genresList(e, 3).join(' · '), techno: isTechno(e), tags: e.tags || [],
-      url, affiche, dims, accroche: e.accroche || '', description: e.description || '',
+      url, affiche, dims, accroche: e.accroche || '', description: e.description || '', fin: e.end && !isNaN(Date.parse(e.end)) ? new Date(e.end).toISOString() : '',
       instagram: (e.instagram || [])[0] || '', organisateur: e.organisateur || '', artistes: Array.isArray(e.artistes) ? e.artistes.filter((x) => typeof x === 'string' && x.trim()).map((x) => x.trim()) : [], buzz: e.buzz ?? null, offres: offres.length >= 2 ? offres : [],
       festival: RE_FESTIVAL.test(`${e.name} ${(e.tags || []).join(' ')}`), etudiant: RE_ETUDIANT.test(`${e.name} ${(e.tags || []).join(' ')} ${e.public_cible || ''}`),
     };
@@ -1531,6 +1532,25 @@ function nuitComplete(s, { lieux, tr, base, lang }) {
     ${apres.length ? `<div><p class="pied-titre">${esc(tr('Après : manger tard ou finir en after'))}</p><ul>${apres.map(({ l, p }) => ligne(l.site || l.source || (l.instagram ? `https://www.instagram.com/${l.instagram}/` : '#'), l.nom, l.type === 'after' ? 'After' : 'Manger tard', p, true)).join('')}</ul></div>` : ''}
     <p class="petit">${esc(tr('Horaires relevés sur les sources officielles des lieux : vérifie avant d\'y aller.'))}</p></section>`;
 }
+// Présentation de la soirée quand la source n'en dit presque rien : un texte vivant construit UNIQUEMENT à partir des
+// données vérifiées (date, lieu, sons, line-up, organisateur, prix, infos du lieu). Aucune IA, rien d'inventé.
+function presentation(s, { t, L, lieu }) {
+  const liste = (a) => (a.length > 1 ? `${a.slice(0, -1).join(', ')} et ${a[a.length - 1]}` : a[0] || '');
+  const p = [];
+  const quand = `${dateLongue(s.debut, t).toLowerCase()} à partir de ${heure(s.debut, t)}${s.fin ? ` et jusqu'à ${heure(s.fin, t)}` : ''}`;
+  p.push(`${s.nom}, c'est ${quand}${s.lieu ? `, ${/^les\s/i.test(s.lieu) ? `aux ${s.lieu.slice(4)}` : /^le\s/i.test(s.lieu) ? `au ${s.lieu.slice(3)}` : /^(la\s|l')/i.test(s.lieu) ? `à ${s.lieu}` : `au ${s.lieu}`}` : ''}${s.ville && !sansAccent(s.lieu).toLowerCase().includes(sansAccent(s.ville).toLowerCase()) ? ` à ${s.ville}` : ''}.`
+    + (s.genres ? ` Côté son : ${liste(s.genres.split(' · ').map((g) => g.toLowerCase()))}.` : ''));
+  if (s.artistes?.length) p.push(`${s.artistes.length > 1 ? 'Aux platines et sur scène' : 'Sur scène'} : ${liste(s.artistes.map((a) => a.nom || a))}.`);
+  if (s.instagram) p.push(`La soirée est portée par ${s.organisateur || `@${s.instagram}`}${s.organisateur ? ` (@${s.instagram})` : ''} : c'est sur leur Instagram que tombent les dernières annonces (line-up, horaires, préventes).`);
+  if (L?.description) p.push(`Le lieu : ${String(L.description).replace(/\s+/g, ' ').trim().replace(/([^.!?])$/, '$1.')}`);
+  const d = detailsDuLieu(s);
+  const pratique = [d?.dress_code && `dress code ${String(d.dress_code).toLowerCase()}`, d?.age_min && `âge minimum ${String(d.age_min).toLowerCase()}`].filter(Boolean);
+  const prix = s.prix === 0 ? 'L\'entrée est gratuite' : s.prix != null ? `Côté billets, ça part ${prixTexte(s.prix, t)}` : 'Le prix n\'est pas encore affiché : la billetterie te dira tout';
+  p.push(`${prix}${s.offres?.length >= 2 ? `, et la soirée est en vente sur ${s.offres.length} billetteries : compare les prix juste en dessous` : ''}.${pratique.length ? ` À savoir : ${liste(pratique)}.` : ''} Ajoute-la à ton agenda, envoie-la à tes potes, et rendez-vous ${lieu ? 'sur place' : 'là-bas'}.`);
+  return `<div class="presentation">${p.map((x) => `<p>${esc(x)}</p>`).join('')}</div>`;
+}
+
+const lieuDe = (s, lieux) => (lieux || []).find((l) => l.slug && normLieu(l.nom).length >= 3 && (normLieu(s.lieu) === normLieu(l.nom) || normLieu(s.lieu).startsWith(normLieu(l.nom))));
 function pageSoiree({ lang, t, tr, base, compte, T, chemin, s, soirees, maj, lieux }) {
   const P = pre(lang);
   const sa = (x) => sansAccent(String(x || '')).toLowerCase(); // pas de « Antibes, Antibes » quand l'adresse contient déjà la ville
@@ -1551,7 +1571,8 @@ function pageSoiree({ lang, t, tr, base, compte, T, chemin, s, soirees, maj, lie
       <h1>${esc(s.nom)}</h1>
       ${s.accroche ? `<p class="fiche-accroche">${esc(s.accroche)}</p>` : ''}
       ${s.instagram ? `<a class="orga-carte" href="https://www.instagram.com/${esc(s.instagram)}/" target="_blank" rel="noopener"><span class="orga-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.3" fill="currentColor"/></svg></span><span class="orga-txt"><small>${esc(tr('Organisé par'))}</small><b>${esc(s.organisateur || `@${s.instagram}`)}</b>${s.organisateur ? `<em>@${esc(s.instagram)}</em>` : ''}</span><span class="orga-cta">${esc(tr('Voir sur Instagram'))} →</span></a>` : ''}
-      ${s.description && s.description !== s.accroche ? `<p>${esc(s.description)}</p>` : ''}
+      ${s.description && s.description !== s.accroche ? `<p class="fiche-desc">${esc(s.description)}</p>` : ''}
+      ${lang === 'fr' && (s.description || '').length < 260 ? presentation(s, { t, L: lieuDe(s, lieux), lieu }) : ''}
       ${s.artistes?.length ? `<p class="line-up"><span class="pied-titre">${esc(tr('Line-up'))}</span>${s.artistes.map((a) => `<a class="puce" href="${base}${pre(lang)}artistes/${a.slug}/">${esc(a.nom)}</a>`).join('')}</p>` : ''}
       <div class="rebours-bloc" data-debut="${esc(s.debut)}"><p class="pied-titre">${esc(t.commenceDans)}</p><p class="rebours-grand rebours" data-debut="${esc(s.debut)}" data-long="1"></p>${(s.buzz ?? 0) >= SEUIL_DEMANDE ? `<p class="petit">${esc(t.tresDemandee)} · ${esc(t.reserveTot)}</p>` : ''}</div>
       <dl>
@@ -1569,7 +1590,7 @@ function pageSoiree({ lang, t, tr, base, compte, T, chemin, s, soirees, maj, lie
       </p>
       ${promoDe(s) ? blocPromo(promoDe(s), t, tr, s) : ''}
       ${offres}
-      ${(() => { const L = (lieux || []).find((l) => l.slug && normLieu(l.nom).length >= 3 && (normLieu(s.lieu) === normLieu(l.nom) || normLieu(s.lieu).startsWith(normLieu(l.nom)))); if (!L) return '';
+      ${(() => { const L = lieuDe(s, lieux); if (!L) return '';
         const H = lireHoraires(L.details?.horaires);
         return `<a class="fiche-lieu lieu-mini" href="${base}${pre(lang)}clubs-bars/${esc(L.slug)}/" data-ville="${esc(slug(L.ville || ''))}"${H ? ` data-horaires="${esc(JSON.stringify(H.plages))}"` : ''}${L.soirs?.length ? ` data-soirs="${esc(JSON.stringify(L.soirs))}"` : ''}>${L.photo ? `<img src="${base}${esc(L.photo)}" alt="" width="56" height="56" loading="lazy">` : ''}<span><small>${esc(tr('Le lieu'))}</small><b>${esc(L.nom)}</b><span class="lieu-statut" hidden></span><em>${esc(tr('Horaires, dress code et autres soirées'))} →</em></span></a>`; })()}
       ${nuitComplete(s, { lieux, tr, base, lang })}

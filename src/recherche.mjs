@@ -29,7 +29,7 @@ const SCHEMA = {
       type: 'array',
       items: {
         type: 'object', additionalProperties: false,
-        required: ['name', 'start', 'venue', 'city', 'price', 'styles', 'image', 'url', 'source_site', 'public_17_30', 'confiance', 'accroche', 'instagram', 'buzz', 'buzz_raison'],
+        required: ['name', 'start', 'venue', 'city', 'price', 'styles', 'image', 'url', 'source_site', 'public_17_30', 'confiance', 'accroche', 'description', 'instagram', 'buzz', 'buzz_raison'],
         properties: {
           name: { type: 'string', description: 'Nom exact de la soirée.' },
           start: { type: 'string', description: 'Date et heure de début, ISO 8601 avec fuseau (ex. 2026-11-14T23:00:00+01:00).' },
@@ -43,6 +43,7 @@ const SCHEMA = {
           public_17_30: { type: 'number', description: 'Pertinence pour les 17-30 ans, de 0 à 1.' },
           confiance: { type: 'number', description: 'Fiabilité de l\'info (date, lieu), de 0 à 1. 0.9 et plus seulement si confirmé sur la page officielle ou la billetterie.' },
           accroche: { type: 'string', description: 'Une phrase courte (max 100 caractères) qui donne envie d\'y aller, uniquement à partir de faits vérifiés (line-up, lieu, concept, ambiance annoncée). Ton Teufy, sans tiret cadratin, sans exagération inventée.' },
+          description: { type: 'string', description: 'Présentation de 3 à 5 phrases (300 à 600 caractères) qui donne vraiment envie d\'y aller, écrite pour les 18-30 ans : le concept ou le thème de la soirée, qui joue (line-up, têtes d\'affiche et ce qui les rend connus), l\'ambiance et le son annoncés, le lieu, les horaires, le prix et ce qu\'il faut savoir (prévente, dress code, âge). UNIQUEMENT des faits présents dans les sources, sans rien inventer ; chaîne vide si les sources ne disent presque rien. Ton Teufy vivant, tutoiement, sans tiret cadratin, sans fausse rareté.' },
           instagram: { type: 'array', items: { type: 'string' }, description: 'Comptes Instagram de l\'organisateur, du lieu ou des artistes de cette soirée, seulement s\'ils sont certains (sans @).' },
           buzz: { type: 'number', description: 'Potentiel de buzz auprès des 17-30 ans, de 0 à 1 : notoriété de la tête d\'affiche ou du collectif, réputation du lieu, événement unique (festival, ouverture, closing, anniversaire, édition spéciale, première venue), risque de sold out, soir de week-end ou veille de férié, engagement du post de l\'organisateur (likes, commentaires rapportés aux abonnés). 0,5 = soirée ordinaire.' },
           buzz_raison: { type: 'string', description: 'En quelques mots, pourquoi (faits vérifiés seulement).' },
@@ -116,7 +117,7 @@ export async function rechercherSoirees({ config, now = new Date(), ig = null, a
     const t = await ia.rechercher({
       config,
       system: `Tu recenses TOUTES les soirées de la Côte d'Azur pour le média Teufy. Tu ne rapportes que des soirées réelles, trouvées sur une page web, jamais inventées.\n${CIBLE}`,
-      prompt: `Cherche sur ${cible} toutes les soirées entre le ${jour} et le ${fin}. Vérifie chaque soirée sur sa page officielle ou sa billetterie (date, heure, lieu) : une info non confirmée doit être signalée comme telle. Pour chaque soirée : nom exact, date et heure, lieu, ville, prix minimum, styles musicaux, URL de l'affiche si tu la vois, URL de la page de la soirée, site source, ce qui peut faire le buzz (tête d'affiche, lieu réputé, festival, ouverture/closing, sold out) et les comptes Instagram de l'organisateur et du lieu. Sois exhaustif : liste-les toutes, une par ligne.`,
+      prompt: `Cherche sur ${cible} toutes les soirées entre le ${jour} et le ${fin}. Vérifie chaque soirée sur sa page officielle ou sa billetterie (date, heure, lieu) : une info non confirmée doit être signalée comme telle. Pour chaque soirée : nom exact, ce que la page dit du concept, du line-up (et de qui sont les artistes), de l'ambiance et des infos pratiques, date et heure, lieu, ville, prix minimum, styles musicaux, URL de l'affiche si tu la vois, URL de la page de la soirée, site source, ce qui peut faire le buzz (tête d'affiche, lieu réputé, festival, ouverture/closing, sold out) et les comptes Instagram de l'organisateur et du lieu. Sois exhaustif : liste-les toutes, une par ligne.`,
     }).catch((err) => { log(`  passe ${i + 1} impossible : ${err.message}`); return ''; });
     if (t) textes.push(`### Source : ${cible}\n${t}`);
   }
@@ -159,7 +160,7 @@ export async function rechercherSoirees({ config, now = new Date(), ig = null, a
     .map((e) => ({
       source: 'web', source_site: e.source_site, name: e.name.trim(), start: new Date(e.start).toISOString(), venue: e.venue, city: e.city,
       address: '', url: /^https?:\/\//.test(e.url) ? e.url : '', image: /^https?:\/\//.test(e.image) ? e.image : '',
-      price: typeof e.price === 'number' ? e.price : null, tags: e.styles || [], description: '', public_cible: e.public_17_30, confiance: e.confiance,
+      price: typeof e.price === 'number' ? e.price : null, tags: e.styles || [], description: typeof e.description === 'string' && e.description.length <= 900 ? e.description.replace(/\s*—\s*/g, ', ').trim() : '', public_cible: e.public_17_30, confiance: e.confiance,
       buzz: typeof e.buzz === 'number' ? Math.max(0, Math.min(1, e.buzz)) : undefined, buzz_raison: e.buzz_raison || undefined,
       accroche: typeof e.accroche === 'string' && e.accroche.length <= 120 && !/—/.test(e.accroche) ? e.accroche.trim() : '',
       instagram: [...new Set((e.instagram || []).map((h) => String(h).replace(/^@/, '').trim().toLowerCase()).filter((h) => /^[a-z0-9._]{2,30}$/.test(h)))].slice(0, 3),
@@ -208,7 +209,7 @@ export function memeSoiree(a, b) {
 const plateforme = (u) => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch { return ''; } };
 // Réseaux sociaux et agrégateurs de liens : pas des billetteries (on n'y achète pas de place, un prix lu dans un post
 // n'est pas un prix de billet). Exclus du comparateur.
-export const PAS_BILLETTERIE = /(^|\.)(instagram|facebook|fb|tiktok|x|twitter|threads|youtube|linktr|linktree|beacons|lnk|snapchat|whatsapp|t)\.(com|me|ee|bio|net|co|ai|to)$/i;
+export const PAS_BILLETTERIE = /(^|\.)(vertexaisearch\.cloud\.google|google|googleusercontent|instagram|facebook|fb|tiktok|x|twitter|threads|youtube|linktr|linktree|beacons|lnk|snapchat|whatsapp|t)\.(com|me|ee|bio|net|co|ai|to)$/i;
 export function offresDe(l) {
   const m = new Map();
   for (const o of l) {
@@ -232,6 +233,7 @@ export function fusionner(liste) {
     for (const k of Object.keys(autre)) if ((garde[k] == null || garde[k] === '' || (Array.isArray(garde[k]) && !garde[k].length)) && autre[k] != null) garde[k] = autre[k];
     garde.instagram = [...new Set([...(garde.instagram || []), ...(autre.instagram || [])])].slice(0, 3);
     garde.tags = garde.manuel && garde.tags?.length ? garde.tags : [...new Set([...(garde.tags || []), ...(autre.tags || [])])]; // styles saisis par l'équipe : pas de mélange
+    if (!garde.manuel && (autre.description || '').length > (garde.description || '').length) garde.description = autre.description; // la présentation la plus complète
     garde.buzz = Math.max(garde.buzz ?? 0, autre.buzz ?? 0) || garde.buzz;
     garde.offres = offresDe([...(garde.offres || []), ...offresDe([garde]), ...(autre.offres || []), ...offresDe([autre])]);
     if (garde.source_site !== autre.source_site) garde.sources_sites = [...new Set([...(garde.sources_sites || [garde.source_site]), autre.source_site])];
@@ -296,7 +298,7 @@ export async function rechercherFrance({ config, now = new Date(), ia = LLM, log
     const villes = VILLES_FRANCE.slice(i, i + 3).join(', ');
     const web = await ia.rechercher({ config, gratuit: true,
       system: 'Tu recenses les soirées les plus attendues des grandes villes étudiantes de France. Tu ne rapportes que des soirées réelles trouvées sur une page web (billetterie, club, média).',
-      prompt: `Pour chacune de ces villes : ${villes}, cherche sur Shotgun, DICE, Resident Advisor, les clubs et les médias locaux les 12 soirées les plus attendues par les 18-30 ans entre le ${jour} et le ${fin} (clubs, soirées étudiantes, techno, rap, afro, open airs, festivals). Pour chaque soirée : nom exact, date et heure, lieu, ville, prix minimum, styles, URL de la page de la soirée, URL de l'affiche si tu la vois.` }).catch(() => '');
+      prompt: `Pour chacune de ces villes : ${villes}, cherche sur Shotgun, DICE, Resident Advisor, les clubs et les médias locaux les 12 soirées les plus attendues par les 18-30 ans entre le ${jour} et le ${fin} (clubs, soirées étudiantes, techno, rap, afro, open airs, festivals). Pour chaque soirée : nom exact, ce que la page dit du concept, du line-up (et de qui sont les artistes), de l'ambiance et des infos pratiques, date et heure, lieu, ville, prix minimum, styles, URL de la page de la soirée, URL de l'affiche si tu la vois.` }).catch(() => '');
     if (!web) continue;
     try {
       const r = await ia.json({ config, nom: 'soirees', schema: SCHEMA, gratuit: true,
@@ -306,7 +308,7 @@ export async function rechercherFrance({ config, now = new Date(), ia = LLM, log
         if (!e.name || isNaN(Date.parse(e.start)) || !e.venue || !e.city || e.confiance < 0.75) continue;
         evenements.push({ source: 'web', source_site: e.source_site, name: e.name.trim(), start: new Date(e.start).toISOString(), venue: e.venue, city: e.city, address: '',
           url: /^https?:\/\//.test(e.url) ? e.url : '', image: /^https?:\/\//.test(e.image) ? e.image : '', price: typeof e.price === 'number' ? e.price : null, tags: e.styles || [],
-          description: '', public_cible: e.public_17_30, confiance: e.confiance, verifie: e.confiance >= 0.85, buzz: e.buzz,
+          description: typeof e.description === 'string' && e.description.length <= 900 ? e.description.replace(/\s*—\s*/g, ', ').trim() : '', public_cible: e.public_17_30, confiance: e.confiance, verifie: e.confiance >= 0.85, buzz: e.buzz,
           accroche: typeof e.accroche === 'string' && e.accroche.length <= 120 && !/—/.test(e.accroche) ? e.accroche.trim() : '', instagram: [] });
       }
     } catch (err) { log(`  France (${villes}) : mise en forme impossible (${err.message})`); }
@@ -372,7 +374,7 @@ export async function rechercherOccitanie({ config, now = new Date(), ia = LLM, 
     for (const [i, zone] of ZONES.entries()) {
       const web = await ia.rechercher({ config, gratuit: true,
         system: "Tu recenses TOUTES les soirées d'Occitanie pour le site Teufy. Tu ne rapportes que des soirées réelles trouvées sur une page web (billetterie, club, média), jamais inventées.",
-        prompt: `Cherche les soirées à ${zone} entre le ${jour} et le ${fin}. Vérifie chaque soirée sur sa page officielle ou sa billetterie. Pour chaque soirée : nom exact, date et heure, lieu, ville, prix minimum, styles musicaux, URL de la page de la soirée, URL de l'affiche si tu la vois, site source. Sois exhaustif : une par ligne.` }).catch((err) => { log(`  Occitanie passe ${i + 1} impossible : ${err.message}`); return ''; });
+        prompt: `Cherche les soirées à ${zone} entre le ${jour} et le ${fin}. Vérifie chaque soirée sur sa page officielle ou sa billetterie. Pour chaque soirée : nom exact, ce que la page dit du concept, du line-up (et de qui sont les artistes), de l'ambiance et des infos pratiques, date et heure, lieu, ville, prix minimum, styles musicaux, URL de la page de la soirée, URL de l'affiche si tu la vois, site source. Sois exhaustif : une par ligne.` }).catch((err) => { log(`  Occitanie passe ${i + 1} impossible : ${err.message}`); return ''; });
       if (!web) continue;
       try {
         const r = await ia.json({ config, nom: 'soirees', schema: SCHEMA, gratuit: true,
@@ -382,7 +384,7 @@ export async function rechercherOccitanie({ config, now = new Date(), ia = LLM, 
           if (!e.name || isNaN(Date.parse(e.start)) || !e.venue || !e.city || e.confiance < 0.75 || !villeOccitanie(e) || PAS_SOIREE.test(e.name)) continue;
           evenements.push({ source: 'web', source_site: e.source_site, name: e.name.trim(), start: new Date(e.start).toISOString(), venue: e.venue, city: e.city, address: '',
             url: /^https?:\/\//.test(e.url) ? e.url : '', image: /^https?:\/\//.test(e.image) ? e.image : '', price: typeof e.price === 'number' ? e.price : null, tags: e.styles || [],
-            description: '', public_cible: e.public_17_30, confiance: e.confiance, verifie: e.confiance >= 0.85, buzz: e.buzz,
+            description: typeof e.description === 'string' && e.description.length <= 900 ? e.description.replace(/\s*—\s*/g, ', ').trim() : '', public_cible: e.public_17_30, confiance: e.confiance, verifie: e.confiance >= 0.85, buzz: e.buzz,
             accroche: typeof e.accroche === 'string' && e.accroche.length <= 120 && !/—/.test(e.accroche) ? e.accroche.trim() : '', instagram: [] });
         }
       } catch (err) { log(`  Occitanie (${zone.slice(0, 30)}…) : mise en forme impossible (${err.message})`); }

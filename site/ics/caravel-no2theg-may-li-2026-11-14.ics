@@ -4,12 +4,11 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:caravel-no2theg-may-li-2026-11-14@teufy
-DTSTAMP:20261111T204439Z
+DTSTAMP:20261112T000424Z
 DTSTART:20261114T190000Z
 DTEND:20261115T000000Z
 SUMMARY:Caravel (+ No2theG\, May-Li)
 LOCATION:Frigo 16 (Le 109)\, Nice
-DESCRIPTION:Caravel balance sa hard techno et trance jusqu'à 4h du mat au Frigo 16.\nBillets : https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEHqEB7NVKRQRDzKGGHKGNXL0ZcZ5QBL7qDACGTJFfe0Jd09JwaQmUA1Z8MtzwmMzB5WGvlDkMUBULa8PzMhTMarzbkr6D-J4KDi6Zu6qcOK-jhyA==\nVia Teufy @teufy_official
-URL:https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEHqEB7NVKRQRDzKGGHKGNXL0ZcZ5QBL7qDACGTJFfe0Jd09JwaQmUA1Z8MtzwmMzB5WGvlDkMUBULa8PzMhTMarzbkr6D-J4KDi6Zu6qcOK-jhyA==
+DESCRIPTION:Caravel balance sa hard techno et trance jusqu'à 4h du mat au Frigo 16.\nVia Teufy @teufy_official
 END:VEVENT
 END:VCALENDAR

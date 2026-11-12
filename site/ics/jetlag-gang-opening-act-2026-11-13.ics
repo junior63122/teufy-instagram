@@ -4,12 +4,11 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:jetlag-gang-opening-act-2026-11-13@teufy
-DTSTAMP:20261111T204439Z
+DTSTAMP:20261112T000424Z
 DTSTART:20261113T223000Z
 DTEND:20261114T033000Z
 SUMMARY:Jetlag Gang (+ Opening Act)
 LOCATION:Frigo 16 (Le 109)\, Nice
-DESCRIPTION:Grosse nuit latino clubbing\, reggaeton et perreo jusqu'à 4h au Frigo 16.\nBillets : https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH7dRxPK4B92YAHlE4f7w7mzZlJ3bwSP-lT1ViRv3zyD2soMjoj5_qbeHP3LUFppD-R7N3RHOWaRYvCW-RkdWKuh7y8C3ddwchkDCK4pPKtT_3o8P_4am7CO-pkjw==\nVia Teufy @teufy_official
-URL:https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH7dRxPK4B92YAHlE4f7w7mzZlJ3bwSP-lT1ViRv3zyD2soMjoj5_qbeHP3LUFppD-R7N3RHOWaRYvCW-RkdWKuh7y8C3ddwchkDCK4pPKtT_3o8P_4am7CO-pkjw==
+DESCRIPTION:Grosse nuit latino clubbing\, reggaeton et perreo jusqu'à 4h au Frigo 16.\nVia Teufy @teufy_official
 END:VEVENT
 END:VCALENDAR

@@ -33,6 +33,19 @@ async function controlerPage(p, nom, u) {
   await p.evaluate(() => scrollTo(0, 0));
   const debord = await p.evaluate(() => document.documentElement.scrollWidth - innerWidth);
   ok(debord <= 1, `${nom} ${u} : la page déborde à droite de ${debord}px`);
+  // Débordement réel : un bloc visible dont le bord dépasse l'écran (le simple scrollWidth ne le voit pas quand la page
+  // masque le débordement horizontal ; c'est ce qui avait laissé passer la fiche soirée coupée à droite sur iPhone).
+  const horsEcran = await p.evaluate(() => { const W = document.documentElement.clientWidth; const out = [];
+    for (const el of document.querySelectorAll('main *, header *')) { const s = getComputedStyle(el);
+      if (s.display === 'none' || s.visibility === 'hidden' || s.position === 'fixed' || s.opacity === '0' || el.getAttribute('aria-hidden') === 'true') continue;
+      const b = el.getBoundingClientRect(); if (!b.width || !b.height || (b.right <= W + 1 && b.left >= -1)) continue;
+      let a = el.parentElement, cache = false;
+      while (a && a !== document.body) { const o = getComputedStyle(a), r = a.getBoundingClientRect();
+        if (/(auto|scroll)/.test(o.overflowX) || (/(hidden|clip)/.test(o.overflowX) && r.width < W * 0.95 && r.right <= W + 1) || o.opacity === '0' || a.getAttribute('aria-hidden') === 'true' || (a.tagName === 'DETAILS' && !a.open)) { cache = true; break; }
+        a = a.parentElement; }
+      if (!cache) out.push(`${el.tagName.toLowerCase()}.${String(el.className).split(' ')[0]} ${Math.round(b.right)}/${W}`); }
+    return out.slice(0, 3); });
+  ok(!horsEcran.length, `${nom} ${u} : contenu hors de l'écran (${horsEcran.join(', ')})`);
   // Texte du hero entièrement visible.
   const coupe = await p.evaluate(() => [...document.querySelectorAll('.hero-texte > *, .fiche-infos h1, .article h1')].filter((e) => { const r = e.getBoundingClientRect(); return r.width && (r.right > innerWidth + 1 || r.left < -1); }).map((e) => e.tagName + '.' + e.className));
   ok(!coupe.length, `${nom} ${u} : texte coupé (${coupe.join(', ')})`);
