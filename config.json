@@ -580,7 +580,19 @@
       "portail": "https://billing.stripe.com/p/login/aFa3cvdyKdDt1o93GJ4c800",
       "_stripe": "Produits Stripe créés le 11/11/2026 (metadata teufy_formule) : prix HT, TVA calculée par Stripe Tax (ajoutée automatiquement dès qu'une immatriculation TVA est enregistrée dans Stripe). portail = page où le partenaire gère son abonnement (résiliation en fin de mois, factures)."
     },
-    "avantages": [],
+    "avantages": [
+      {
+        "partenaire_nom": "Le Barathym",
+        "instagram": "lebarathymtoulon",
+        "ville": "Toulon",
+        "type": "Verre offert",
+        "titre": "1 shooter offert sur présentation de Teufy",
+        "description": "Montre Teufy au bar (cette page ou notre Instagram) et ton shooter est offert.",
+        "conditions": "7 jours sur 7",
+        "jusqu_au": "2027-11-11",
+        "_source": "Formulaire « Propose ton avantage » reçu le 11/11/2026 (formule gratuite)"
+      }
+    ],
     "_avantages": "Avantages des partenaires affichés sur la page Avantages (en plus des codes_promo) : {partenaire_nom, instagram, ville, type, titre, description, conditions, jusqu_au (AAAA-MM-JJ)}. Une offre expirée disparaît seule."
   },
   "codes_promo": [

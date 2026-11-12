@@ -1159,24 +1159,37 @@ function pageArtiste({ lang, t, tr, base, compte, T, chemin, maj, a, soirees }) 
   const affiches = liste.filter((s) => s.affiche).map((s) => s.affiche);
   const type = tr(TYPES_ARTISTE[a.type] || 'Artiste');
   const prochaine = liste[0];
+  // Accroche qui donne envie (12/11/2026, « il faut un teasing ») : ton enthousiaste, mais uniquement des faits vrais
+  // (lieu, date, styles, audience Instagram) — jamais de fausse rareté.
+  const estDJ = a.type === 'dj' || /\b(dj|house|techno|trance|afro|amapiano|electro|électro)\b/i.test((a.styles || []).join(' '));
+  const lieuP = (s) => (s.lieu ? (/^les\s/i.test(s.lieu) ? `aux ${s.lieu.slice(4)}` : /^le\s/i.test(s.lieu) ? `au ${s.lieu.slice(3)}` : /^(la\s|l')/i.test(s.lieu) ? `à ${s.lieu}` : `au ${s.lieu}`) : `à ${s.ville}`);
+  const teasing = prochaine ? [
+    `${a.nom} ${estDJ ? 'prend les platines' : 'monte sur scène'} ${lieuP(prochaine)} ${prochaine.ville && !sansAccent(prochaine.lieu || '').toLowerCase().includes(sansAccent(prochaine.ville).toLowerCase()) ? `(${prochaine.ville}) ` : ''}le ${dateLongue(prochaine.debut, t).toLowerCase()} !`,
+    a.styles?.length ? `Au programme : ${a.styles.slice(0, 3).join(', ').toLowerCase()}, ${estDJ ? 'et un set pensé pour que la piste ne désemplisse pas' : 'et un live à vivre en vrai, pas en story'}.` : '',
+    a.abonnes >= 1000 ? `${new Intl.NumberFormat('fr-FR').format(Math.round(a.abonnes / 100) * 100)} personnes suivent déjà ${a.nom} sur Instagram : c'est le moment de découvrir pourquoi, en vrai.` : '',
+    liste.length > 1 ? `${liste.length} dates sur la Côte : choisis la tienne et ramène ta bande.` : 'Billets, horaires et accès juste en dessous : ramène ta bande.',
+  ].filter(Boolean).join(' ') : '';
   const intro = prochaine ? `${a.nom}${a.styles?.length ? ` (${a.styles.slice(0, 3).join(', ').toLowerCase()})` : ''} ${liste.length > 1 ? `joue ${liste.length} fois` : 'joue'} bientôt sur la Côte : ${dateLongue(prochaine.debut, t).toLowerCase()}${prochaine.lieu ? ` au ${prochaine.lieu}` : ''}${prochaine.ville && !sansAccent(prochaine.lieu || '').toLowerCase().includes(sansAccent(prochaine.ville).toLowerCase()) ? ` à ${prochaine.ville}` : ''}.` : '';
   const img = a.photo || affiches[0] || '';
   // Bio Instagram utile seulement : sans liens, e-mails, « booking », flèches « lien ici » ; trop courte → présentation.
-  const bio = String(a.bio || '').split(/\n+/).map((l) => l.trim()).filter((l) => l && !/(https?:|www\.|@\S+\.\w|link|lien|👇|⬇|booking|contact|mgmt|management|📩|✉|📧)/i.test(l)).join('\n').replace(/\s{2,}/g, ' ').trim();
-  a = { ...a, bio: bio.replace(/[\p{Extended_Pictographic}\uFE0F]/gu, '').trim().length >= 25 ? bio : '' };
+  const bio = String(a.bio || '').split(/\n+/).map((l) => l.trim()).filter((l) => l && !/(https?:|www\.|@\S+\.\w|link|lien|👇|⬇|booking|contact|mgmt|management|📩|✉|📧)/i.test(l))
+    .map((l) => l.replace(/[@#][\p{L}\p{N}._]+/gu, '').replace(/[\p{Extended_Pictographic}\uFE0F\u200d]/gu, '').replace(/\s{2,}/g, ' ').replace(/^[\s|·•,;:-]+|[\s|·•,;:-]+$/g, '').trim()).filter((l) => l.length > 2).join(' · ');
+  // Une bio n'est montrée que si c'est une vraie phrase (pas une liste de comptes « Boss @… @… »).
+  a = { ...a, bio: bio.length >= 40 && bio.split(' ').length >= 7 ? bio : '' };
   const hero = `<section class="artiste-hero${img ? '' : ' sans-photo'}">
   ${img ? `<div class="artiste-fond">${image(base, img, { alt: a.nom, sizes: '100vw', attrs: 'fetchpriority="high"' })}</div>` : '<div class="hero-deco" aria-hidden="true"><span></span><span></span><span></span></div>'}
   <div class="artiste-texte">
+    <a class="retour" href="${base}${pre(lang)}artistes/">← ${esc(tr('Tous les artistes'))}</a>
     ${a.avatar ? `<img class="artiste-avatar" src="${base}${a.avatar}" alt="${esc(a.nom)}" width="120" height="120">` : ''}
     <p class="etiquette">${esc(type)}</p>${boutonPartage(t.partager, 'hero-partage')}
     <h1>${esc(a.nom)}</h1>
     ${a.styles?.length ? `<p class="artiste-styles">${a.styles.map((x) => `<span class="puce">${esc(x)}</span>`).join('')}</p>` : ''}
-    ${a.bio ? `<blockquote class="artiste-bio">« ${esc(a.bio.replace(/\s+/g, ' ').trim())} »<cite>${esc(tr('Sur son Instagram'))}</cite></blockquote>` : intro ? `<p class="artiste-intro">${esc(intro)}</p>` : ''}
+    ${teasing ? `<p class="artiste-intro">${esc(teasing)}</p>` : intro ? `<p class="artiste-intro">${esc(intro)}</p>` : ''}
+    ${a.bio ? `<blockquote class="artiste-bio">« ${esc(a.bio)} »<cite>${esc(tr('Sur son Instagram'))}</cite></blockquote>` : ''}
     <p class="artiste-actions">${a.insta ? `<a class="bouton" href="https://www.instagram.com/${esc(a.insta)}/" target="_blank" rel="noopener">@${esc(a.insta)}${a.abonnes ? ` · ${esc(abonnesTexte(a.abonnes))} ${esc(tr('abonnés'))}` : ''}</a>` : ''}${prochaine ? `<a class="bouton contour" href="#dates">${esc(liste.length > 1 ? `${liste.length} ${tr('dates à venir')}` : tr('Sa prochaine date'))}</a>` : ''}</p>
   </div>
 </section>`;
   const corps = `${hero}
-${a.bio && intro ? `<section class="bloc-large reveal"><p class="chapo">${esc(intro)}</p></section>` : ''}
 <section class="bloc-large reveal" id="dates"><h2>${tr('Prochaines <em>dates</em>')}</h2>${liste.length ? `<div class="grille">${liste.map((s) => carte(s, { t, base, lang })).join('')}</div>` : `<p class="vide">${esc(tr('Pas de date annoncée pour le moment.'))}</p>`}
 <p class="petit">${esc(tr(a.insta ? 'Photo, bio et abonnés : compte Instagram officiel de l\'artiste. Line-up relevé sur les pages officielles des soirées.' : 'Line-up relevé sur les pages officielles des soirées. Une erreur ? Écris-nous sur Instagram.'))}</p></section>`;
   return gabarit({ lang, t, titre: `${a.nom} : prochaines dates et soirées sur la Côte d'Azur · Teufy`, description: `${a.nom}${a.styles?.length ? ` (${a.styles.slice(0, 3).join(', ')})` : ''} en soirée sur la Côte d'Azur et dans le Var : ${liste.length} date(s) à venir, lieux, horaires et billets.`, chemin, base, corps, compte, maj,

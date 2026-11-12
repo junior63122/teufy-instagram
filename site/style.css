@@ -1590,3 +1590,8 @@ html.onglets-caches .onglets{transform:translateY(105%)}
 .artiste-carte>span{display:flex;flex-direction:column;gap:3px;min-width:0}
 .artiste-carte b{font-size:18px;overflow-wrap:anywhere}
 .artiste-carte small{opacity:.75;font-size:13px}
+/* Bouton retour bien visible (12/11/2026 : « pas de flèche pour revenir à la liste des DJ ») */
+.retour{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 16px;margin-bottom:14px;border-radius:999px;background:#0b0b0fb3;border:1px solid #ffffff2e;color:var(--creme);font-weight:700;font-size:14px;text-decoration:none;backdrop-filter:blur(6px)}
+.retour:hover{border-color:var(--corail)}
+.artiste-intro{font-weight:600}
+.artiste-bio{font-size:15px;opacity:.85}
