@@ -37,7 +37,7 @@ Mis à jour automatiquement chaque jour. **Note /100** : 50 = performance habitu
 | Date | Par | Post | Note /100 | Portée | Likes | Comm. | Enreg. | Partages | Abonnés gagnés |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 2026-11-08 | bot | incontournables-commercial | **5** | 355 | 1 | 0 | 0 | 0 | 0 |
-| 2026-11-10 | bot | reel-flash | **9** | 342 | 2 | 0 | 0 | 0 | - |
+| 2026-11-10 | bot | reel-flash | **9** | 365 | 2 | 0 | 0 | 0 | - |
 | 2025-10-03 | équipe | ⚡️ Les meilleurs plans entre potes, c’es | **14** | 567 | 5 | 0 | 0 | 0 | 0 |
 | 2025-10-19 | équipe | 🎃 Halloween, ce n’est pas une fête. | **16** | 525 | 6 | 0 | 1 | 0 | 0 |
 | 2025-10-27 | équipe | Tu n’as toujours pas ton déguisement ? � | **18** | 676 | 4 | 0 | 1 | 1 | 0 |
