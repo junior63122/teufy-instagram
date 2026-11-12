@@ -72,3 +72,17 @@ export function genresList(e, max = 6) {
   }
   return out;
 }
+
+// Techno UNDERGROUND (« Édition Tekno », demande du directeur 12/11/2026) : tekno, hard techno, hardtek, tribe, acid,
+// industrial, bounce, rave, gabber, psytrance… jamais la house (melodic, organic, deep, tech house) ni le commercial.
+const UNDERGROUND = ['tekno', 'hard techno', 'hardtechno', 'hardtek', 'tribe', 'acid', 'acidcore', 'industrial', 'schranz', 'hardgroove',
+  'hard groove', 'bounce', 'rave', 'neorave', 'gabber', 'hardcore', 'free party', 'free-party', 'mental', 'psytrance', 'hard trance',
+  'hardtrance', 'forest', 'fast techno', 'dark psy', 'techno'];
+const HOUSE = ['house', 'melodic', 'organic', 'deep', 'downtempo', 'dark disco', 'indie dance', 'ambient', 'afro', 'disco', 'funk', 'pop', 'eurodance'];
+export function isUnderground(e) {
+  if (!isTechno(e)) return false;
+  const tags = norm((e.tags || []).join(' | ') || [e.name, e.description].join(' '));
+  const u = UNDERGROUND.filter((w) => tags.includes(w)).length;
+  const h = HOUSE.filter((w) => tags.includes(w)).length;
+  return u > 0 && u > h;
+}

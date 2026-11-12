@@ -38,8 +38,8 @@ for (const [i, s] of E.soirees.entries()) {
   // format d'origine de l'affiche (pour l'afficher en grand même si l'image source est petite)
   const dims = spawnSync('ffprobe', ['-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=width,height', '-of', 'csv=p=0', path.join(STUDIO, 'public', image)]).stdout?.toString().trim().split(',').map(Number);
   const ratio = dims?.length === 2 && dims[1] ? dims[0] / dims[1] : undefined;
-  // Netteté : une affiche de moins de 900 px de côté est floue une fois affichée en grand (1080 px) → soirée retirée.
-  if (dims?.length === 2 && Math.max(dims[0], dims[1]) < 900) { console.log(`Affiche « ${s.nom} » trop petite (${dims[0]}×${dims[1]} px), floue en grand : soirée retirée.`); continue; }
+  // Netteté : une affiche de moins de 780 px de côté est floue une fois affichée en grand (1080 px) → soirée retirée.
+  if (dims?.length === 2 && Math.max(dims[0], dims[1]) < 780) { console.log(`Affiche « ${s.nom} » trop petite (${dims[0]}×${dims[1]} px), floue en grand : soirée retirée.`); continue; }
   soirees.push({...s, image, ratio, couleur: s.couleur || accent(path.join(STUDIO, 'public', image))});
 }
 // Vérification par Gemini (vision) : l'affiche correspond-elle bien à CETTE soirée (nom, artiste, date, lieu) ?
@@ -53,6 +53,11 @@ export function datesLues(texte) {
   for (const m of t.matchAll(/\b([0-3]?\d)(?:er)?\s+(janv|fevr|fev|mars|avr|mai|juin|juil|aout|sept|oct|nov|dec)[a-z]*/g)) {
     const k = MOIS.findIndex((x) => x.startsWith(m[2].slice(0, 3)) || m[2].startsWith(x.slice(0, 3)));
     const j = +m[1]; if (k >= 0 && j >= 1 && j <= 31) out.push([j, k + 1]);
+  }
+  // « NOV 13 », « nov. 13 » (mois puis jour)
+  for (const m of t.matchAll(/\b(janv|fevr|fev|mars|avr|mai|juin|juil|aout|sept|oct|nov|dec)[a-z]*\.?\s+([0-3]?\d)\b/g)) {
+    const k = MOIS.findIndex((x) => x.startsWith(m[1].slice(0, 3)) || m[1].startsWith(x.slice(0, 3)));
+    const j = +m[2]; if (k >= 0 && j >= 1 && j <= 31) out.push([j, k + 1]);
   }
   for (const m of t.matchAll(/\b([0-3]?\d)[./]([01]?\d)(?:[./](?:20)?2\d)?\b/g)) { const j = +m[1], k = +m[2]; if (j >= 1 && j <= 31 && k >= 1 && k <= 12) out.push([j, k]); }
   return out;
@@ -109,7 +114,7 @@ const pick = (l, k) => (l.length ? `decors/da/${l[k % l.length]}.jpg` : undefine
 const photo = E.photo || pick(dispo(COUV), semaine);
 const photoFin = E.photoFin || pick(dispo(FIN), semaine);
 const n = soirees.length;
-const TITRES = [`${n} soirées à ne pas [rater]`, 'Ta semaine est [réglée]', 'Où sortir [cette semaine]', `${n} sorties qu'on [valide]`];
+const TITRES = [`${n} soirées à ne pas [rater]`, `${n} sorties qu'on [valide]`]; // neutres : la période est donnée par run.mjs (titreFlash)
 const titre = E.titreFlash || TITRES[semaine % TITRES.length];
 const sous = E.sous || (Array.isArray(E.titre) ? E.titre[1] : '') || '';
 const B = process.env.CHROME_HEADLESS_SHELL || '/opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell';

@@ -11,13 +11,13 @@ import { createHash } from 'node:crypto';
 // Options : --dry-run  --now=2026-11-09T12:00:00Z  --fixtures=tests/fixtures
 //           --quoi (affiche seulement la publication du jour)  --horaire (avec --quoi : attend l'heure apprise)
 import { readFile, writeFile, rm, mkdir, appendFile, readdir, copyFile } from 'node:fs/promises';
-import { existsSync } from 'node:fs';
+import { existsSync, copyFileSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { collectEvents, filterEvents, enrich } from './sources.mjs';
 import { windowFor, rolling, isoLocal, plage, slotOfDay, daysOfMonth } from './dates.mjs';
-import { isTechno } from './genres.mjs';
+import { isTechno, isUnderground } from './genres.mjs';
 import { captionIncontournables, captionBonPlan, captionDebat, captionReel, captionOrgas, captionExplicatif, rng } from './captions.mjs';
 import { nettoyerComptes, legendeFinale } from './comptes.mjs';
 import { igConfig, publishCarousel, publishSingle, publishReel, publishStory, permalink, insights, followers, businessDiscovery, compteMedia } from './instagram.mjs';
@@ -303,18 +303,20 @@ async function prepare(slot, now, id) {
       pub = { images: files, legende: captionBonPlan({ variante, events: chosen, ...win, ch, r }), soirees: chosen };
     }
   } else if (slot.type === 'incontournables') {
-    const techno = slot.variante === 'techno';
-    const pred = techno ? isTechno : (e) => !isTechno(e);
+    // « Édition Tekno » (chaque jeudi) : soirées techno UNDERGROUND des 7 prochains jours, jamais de house.
+    const tekno = slot.variante === 'tekno';
+    const techno = slot.variante === 'techno' || tekno;
+    const pred = tekno ? isUnderground : techno ? isTechno : (e) => !isTechno(e);
     // Techno : un carrousel des incontournables techno DU MOIS (30 jours), pour avoir de vraies grosses dates.
-    let win = techno ? rolling(now, 0, 30) : windowFor([1, 2, 3, 4, 5, 6, 7], now);
+    let win = tekno ? rolling(now, 0, 7) : techno ? rolling(now, 0, 30) : windowFor([1, 2, 3, 4, 5, 6, 7], now);
     win.from = new Date(Math.max(win.from.getTime(), now.getTime() - 6 * 3600e3));
     let list = await pickEv(win, pred);
     let elargi = false;
     const avecAffiche = (l) => l.filter((e) => e.image).length;
-    if (avecAffiche(list) < 4) { win = rolling(now, 0, techno ? 45 : 14); list = await pickEv(win, pred); elargi = true; }
+    if (avecAffiche(list) < 4) { win = rolling(now, 0, tekno ? 14 : techno ? 45 : 14); list = await pickEv(win, pred); elargi = true; }
     // Trop peu de dates de ce genre : on prend toutes les soirées plutôt qu'un carrousel maigre.
     let melange = false;
-    if (avecAffiche(list) < 4) { const tout = await pickEv(win); if (avecAffiche(tout) > avecAffiche(list)) { list = tout; melange = true; } }
+    if (!tekno && avecAffiche(list) < 4) { const tout = await pickEv(win); if (avecAffiche(tout) > avecAffiche(list)) { list = tout; melange = true; } } // l'édition Tekno ne se mélange jamais
     need(list, 3);
     const chosen = chrono(lesBonnes(list));
     const { th, photos } = await visuel(techno ? 'techno' : 'club');
@@ -332,10 +334,10 @@ async function prepare(slot, now, id) {
     });
     let files = null;
     // Carrousel du studio (affiches officielles, DA éditoriale) ; repli sur l'ancien gabarit si impossible.
-    files = await carrouselDA({ chosen, id, dir, now, titre: [titre, fort ? `en ${MOIS(now)}` : elargi ? 'ces prochains jours' : 'cette semaine'] });
+    files = await carrouselDA({ chosen, id, dir, now, edition: tekno ? 'tekno' : enTechno ? 'techno' : 'commercial', titre: [titre, ''] });
     if (!files) throw new Error('Carrousel de la DA impossible (studio absent ou moins de 2 affiches) : rien n\'est publié.');
     files ||= await renderPages(programme(pages, chosen, { th, photos, titre, sous: fort ? `En ${MOIS(now)}` : elargi ? 'Ces prochains jours' : 'Cette semaine' }), dir, `incontournables-${stamp}`, { width: 1080, height: 1350 });
-    pub = { images: files, legende: captionIncontournables({ variante: enTechno || !techno ? slot.variante : 'commercial', events: chosen, ...win, ch, r }), soirees: chosen, titre };
+    pub = { images: files, legende: captionIncontournables({ variante: enTechno || !techno ? slot.variante : 'commercial', events: chosen, ...win, ch, r, periode: chosen.periode }), soirees: chosen, titre: chosen.titrePost || titre };
   } else if (slot.type === 'reel' && config.studio?.actif && ['flash', 'histoire', 'nouveau', 'tendance', 'explicatif', 'humour', 'immersif'].includes(slot.variante)) {
     // Reels = créations du studio (Remotion) : explicatif, humour ou immersif, jamais un catalogue de soirées.
     const STUDIO = path.join(ROOT, 'studio');
@@ -670,7 +672,7 @@ async function couvertureDA(props, fichier, composition = 'couverture') {
   return fichier;
 }
 
-async function carrouselDA({ chosen, id, dir, now, titre = [], titreFlash, rubrique, question }) {
+async function carrouselDA({ chosen, id, dir, now, titre = [], titreFlash, rubrique, question, edition }) {
   const STUDIO = path.join(ROOT, 'studio');
   if (!existsSync(path.join(STUDIO, 'node_modules'))) spawnSync('npm', ['ci', '--no-audit', '--no-fund'], { cwd: STUDIO, stdio: 'inherit' });
   if (chosen.filter((e) => e.image).length < 2) throw new Error('Moins de 2 soirées avec affiche officielle : pas de carrousel.');
@@ -685,14 +687,37 @@ async function carrouselDA({ chosen, id, dir, now, titre = [], titreFlash, rubri
       const parImage = {}; for (const e of chosen) if (e.image) parImage[e.image] = (parImage[e.image] || 0) + 1;
       const refus = chosen.filter((e) => e.image && (!afficheFiable(e) || parImage[e.image] > 1));
       for (const e of refus) console.error(`Affiche écartée (non vérifiée ou partagée par plusieurs soirées) : ${e.name}`);
-      const avecImage = chosen.filter((e) => e.image && !refus.includes(e)).map((e) => ({ ...e, image: hd(e.image) })).slice(0, 8);
+      // Affiche déjà vérifiée et téléchargée par le site (même fichier net que sur teufyparty.com) : réutilisée telle quelle.
+      const { createHash } = await import('node:crypto');
+      const autoDir = path.join(ROOT, 'studio', 'public', 'evenements', 'auto');
+      await mkdir(autoDir, { recursive: true });
+      const locale = (e) => { const f = path.join(ROOT, 'site', 'affiches', `${createHash('sha1').update(String(e.image)).digest('hex').slice(0, 12)}.jpg`);
+        if (!existsSync(f)) return ''; const dst = path.join(autoDir, path.basename(f)); copyFileSync(f, dst); return `evenements/auto/${path.basename(f)}`; };
+      const avecImage = chosen.filter((e) => e.image && !refus.includes(e)).map((e) => ({ ...e, image: locale(e) || hd(e.image) })).slice(0, 8);
       const villes = [...new Set(avecImage.map((e) => e.city).filter(Boolean))];
+      // Titres calculés sur les dates RÉELLES des soirées gardées (jamais « cette semaine » pour des dates du mois).
+      const { periodeDe } = await import('./periode.mjs');
+      const P = periodeDe(avecImage.map((e) => e.start), now); chosen.periode = P;
+      if (edition) {
+        const nb = avecImage.length, sem = Math.floor(now / (7 * 864e5));
+        const T = edition === 'tekno' ? ['Édition [Tekno]', 'Spécial [underground]', 'Ça tape [fort]']
+          : P.cle === 'semaine' ? ['Où sortir [cette semaine]', 'Ta semaine est [réglée]', `${nb} soirées à ne pas [rater]`]
+          : P.cle === 'weekend' ? ['Ton week-end est [réglé]', 'Où sortir [ce week-end]', `${nb} soirées à ne pas [rater]`]
+          : P.cle === 'mois' ? [`Où sortir en [${P.mois}]`, `${nb} dates à ne pas rater en [${P.mois}]`]
+          : [`${nb} soirées à ne pas [rater]`, `${nb} sorties qu'on [valide]`];
+        if (edition === 'techno') T.splice(0, T.length, P.cle === 'mois' ? `La techno en [${P.mois}]` : `${nb} dates techno à ne pas [rater]`);
+        titreFlash ||= T[sem % T.length];
+        question ||= edition === 'tekno' ? `Tu vas raver [où] ${P.label} ?` : `Tu vas [où] ${P.label} ?`;
+        rubrique ||= edition === 'tekno' ? "Édition Tekno · Côte d'Azur" : undefined;
+        chosen.titrePost = titreFlash.replace(/[[\]]/g, '');
+        console.log(`Carrousel : période « ${P.label} », titre « ${chosen.titrePost} »`);
+      }
       const dts = avecImage.map((e) => new Date(Date.parse(e.start) - 6 * 3600e3)).sort((a, b) => a - b);
       const fmt = (d, o) => new Intl.DateTimeFormat('fr-FR', { timeZone: 'Europe/Paris', ...o }).format(d);
       const sous = dts.length ? (fmt(dts[0], { day: 'numeric', month: 'long' }) === fmt(dts.at(-1), { day: 'numeric', month: 'long' }) ? `le ${fmt(dts[0], { weekday: 'long', day: 'numeric', month: 'long' })}`
         : `du ${fmt(dts[0], { day: 'numeric', ...(fmt(dts[0], { month: 'long' }) === fmt(dts.at(-1), { month: 'long' }) ? {} : { month: 'long' }) })} au ${fmt(dts.at(-1), { day: 'numeric', month: 'long' })}`) : '';
       const entree = { sous, titre, titreFlash, rubrique, question, lieu: (villes.length === 1 ? villes[0] : "CÔTE D'AZUR").toUpperCase(), pied: villes.slice(0, 3).map((v) => v.replace(/-du-.*$/i, '')).join(' · ').toUpperCase(),
-        soirees: avecImage.map((e, i) => ({ id: `${i}-${hash(e.name)}`, vedette: vedettes(avecImage).includes(e), nom: e.name, genre: (genresList(e).slice(0, 2).join(' & ') || 'soirée').toLowerCase(), jour: jourC(e.start), debut: e.start, heures: /23h59|00h00/.test(heure(e.start)) ? '' : `dès ${heure(e.start)}`, // 23h59 = heure inconnue, jamais affichée
+        soirees: avecImage.map((e, i) => ({ id: `${i}-${hash(e.name)}`, vedette: vedettes(avecImage).includes(e), nom: e.name, genre: (genresList(e).slice(0, 2).join(' & ') || 'soirée').toLowerCase(), jour: jourC(e.start), debut: e.start, heures: `dès ${heure(e.start)}`, // « dès minuit » pour 23h59 (voir dates.mjs)
           prix: e.price == null ? 'prix sur la billetterie' : e.price === 0 ? 'gratuit' : `dès ${String(Math.round(e.price * 100) / 100).replace('.', ',')} €`, lieu: [e.venue, e.city].filter(Boolean).join(' · '), image: e.image })) };
       const fe = path.join(ROOT, 'out', `carrousel-${id}.json`);
       await mkdir(path.dirname(fe), { recursive: true });

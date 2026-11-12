@@ -6,7 +6,7 @@
 //   (une affiche d'une autre soirée n'est pas montrée). Résultats gardés dans contenus/affiches-verifiees.json.
 // - Les lieux sont placés sur la carte grâce à OpenStreetMap (cache contenus/lieux-geo.json).
 // - Le JavaScript (site/app.js) gère les filtres, « Ce soir / En ce moment », la carte et les animations.
-import { readFileSync, existsSync, readdirSync, rmSync, renameSync } from 'node:fs';
+import { readFileSync, existsSync, readdirSync, rmSync, renameSync, statSync, writeFileSync } from 'node:fs';
 import { writeFile, mkdir, copyFile } from 'node:fs/promises';
 import { spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
@@ -650,7 +650,7 @@ export async function construireSite({ events, eventsFrance = [], eventsOccitani
       else if (!existsSync(f) && versionGrande(e.image) !== e.image) await telecharger(versionGrande(e.image), f);
       else if (tempsOk() && await agrandirAffiche(e.image, f)) log(`Site : affiche agrandie pour « ${e.name} »`);
       // Affiches Shotgun : version haute définition (l'adresse trouvée pointe souvent sur une vignette 384 px floue).
-      const flou = existsSync(f) && /assets\.shotgun\.live/.test(e.image) && Math.max(...(tailleJpeg(f) || [0])) < 900;
+      const flou = existsSync(f) && /assets\.shotgun\.live/.test(e.image) && (Math.max(...(tailleJpeg(f) || [0])) < 900 || /q_[1-4]?\d[,/]/.test(e.image));
       if ((existsSync(f) && !flou) || (!locale && /^https?:\/\//.test(e.image) && await telecharger(hdShotgun(e.image), f)) || existsSync(f)) {
         if (await verifier(e, f, cache)) { affiche = `site/affiches/${path.basename(f)}`; dims = tailleJpeg(f); webp(f, 480); webp(f, 800); webp(f, 1080); }
         else log(`Site : affiche écartée (ne correspond pas) pour « ${e.name} »`);
@@ -671,6 +671,12 @@ export async function construireSite({ events, eventsFrance = [], eventsOccitani
       if (!og) continue;
       const f = path.join(SITE, 'affiches', `${h(og)}.jpg`);
       if ((existsSync(f) || await telecharger(og, f)) && await verifier({ ...e, image: og }, f, cache)) { affiche = `site/affiches/${path.basename(f)}`; dims = tailleJpeg(f); webp(f, 480); webp(f, 800); webp(f, 1080); }
+    }
+    // Netteté (12/11/2026, « des images floues sur le site, c'est pas bon ») : une affiche trop petite (< 700 px de
+    // côté) ou trop compressée (vignette de billetterie) n'est pas montrée ; vignette Teufy à la place, jamais du flou.
+    if (affiche && !e.manuel) {
+      const fa = path.join(ROOT, affiche), [lw, lh] = dims || tailleJpeg(fa) || [0, 0];
+      if (Math.max(lw, lh) < 700) { log(`Site : affiche floue écartée pour « ${e.name} » (${lw}×${lh} px)`); affiche = ''; dims = null; }
     }
     const ville = zone === 'occitanie' ? slug(villeOccitanie(e) || e.city) : zone === 'france' ? slug(VILLES_FRANCE.find((v) => sansAccent(e.city).includes(sansAccent(v).split('-')[0])) || e.city)
       : (VILLES.find((v) => new RegExp(v, 'i').test(`${e.city} ${e.venue}`)) || (RE_VAR.test(`${e.city} ${e.venue} ${e.address || ''}`) ? 'var' : 'autres')).toLowerCase();
@@ -940,7 +946,8 @@ const GALERIE = [];
 const DIAPORAMA = ['danse', 'rooftop', 'selfie'];
 const nombre = (p, t) => new Intl.NumberFormat(t.locale, { maximumFractionDigits: 2 }).format(p);
 const prixTexte = (p, t) => (p == null ? '' : p === 0 ? t.gratuit : t.des(nombre(Math.round(p * 100) / 100, t)));
-const heure = (d, t) => (t.locale === 'fr-FR' ? paris(d, { hour: '2-digit', minute: '2-digit' }).replace(':', 'h') : paris(d, { hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }, t.locale));
+// 23h59 = « minuit » saisi par les billetteries pour rester sur la bonne date : affiché « minuit », jamais 23h59.
+const heure = (d, t) => { const x = t.locale === 'fr-FR' ? paris(d, { hour: '2-digit', minute: '2-digit' }).replace(':', 'h') : paris(d, { hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }, t.locale); return /^23[h:]59$/.test(x) ? (t.minuit || (t.locale === 'fr-FR' ? 'minuit' : '00:00')) : x; };
 const dateCourte = (d, t) => paris(d, { weekday: 'short', day: 'numeric', month: 'short' }, t.locale).replace(/\.(?=\s|$)/g, '');
 const dateLongue = (d, t) => { const x = paris(d, { weekday: 'long', day: 'numeric', month: 'long' }, t.locale); return x.charAt(0).toUpperCase() + x.slice(1); };
 

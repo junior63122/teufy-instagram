@@ -24,6 +24,7 @@ on:
           - site (régénérer le site internet maintenant)
           - incontournables:commercial
           - incontournables:techno
+          - incontournables:tekno
           - bonplan:petits-prix
           - bonplan:a-reserver
           - debat

@@ -66,7 +66,7 @@
       "https://www.bizouk.com/"
     ]
   },
-  "calendrier_explication": "Chaque ligne = une publication. jour : 1 = lundi … 7 = dimanche. rang : 1 = premier de ce jour dans le mois… (1 à 5). Depuis le 11 novembre 2026 (relance du compte après un an d'inactivité) : 1 publication par jour, 7 par semaine. Lundi : carrousel des sorties de la semaine (le 2e lundi : incontournables techno du mois) ; mardi, jeudi, samedi, dimanche : reel « Flash » (astuce, explicatif, humour, actu) ; mercredi : reel « Tendance » (format viral repéré par la veille : POV, types de personnes, devinette… fait pour être partagé et toucher les non-abonnés) ; vendredi : bon plan ou débat en alternance. Les annonces exceptionnelles passent en plus par la veille (2 par jour au maximum). Heure : apprise par le cerveau (créneaux_utc).",
+  "calendrier_explication": "Chaque ligne = une publication. jour : 1 = lundi … 7 = dimanche. rang : 1 = premier de ce jour dans le mois… (1 à 5). Depuis le 11 novembre 2026 (relance du compte après un an d'inactivité) : 1 publication par jour, 7 par semaine. Lundi : carrousel des sorties de la semaine ; jeudi : « Édition Tekno » (soirées techno underground des 7 prochains jours : hard techno, tekno, acid, tribe, psytrance, jamais de house) ; mardi, samedi, dimanche : reel « Flash » (astuce, explicatif, humour, actu) ; mercredi : reel « Tendance » (format viral repéré par la veille : POV, types de personnes, devinette… fait pour être partagé et toucher les non-abonnés) ; vendredi : bon plan ou débat en alternance. Les annonces exceptionnelles passent en plus par la veille (2 par jour au maximum). Heure : apprise par le cerveau (créneaux_utc). Titres calculés sur les dates réelles des soirées (cette semaine, ce week-end, en novembre, du 13 au 18 novembre).",
   "calendrier": [
     {
       "jour": 1,
@@ -89,8 +89,8 @@
     {
       "jour": 4,
       "rang": 1,
-      "type": "reel",
-      "variante": "flash"
+      "type": "incontournables",
+      "variante": "tekno"
     },
     {
       "jour": 5,
@@ -114,7 +114,7 @@
       "jour": 1,
       "rang": 2,
       "type": "incontournables",
-      "variante": "techno"
+      "variante": "commercial"
     },
     {
       "jour": 2,
@@ -131,8 +131,8 @@
     {
       "jour": 4,
       "rang": 2,
-      "type": "reel",
-      "variante": "flash"
+      "type": "incontournables",
+      "variante": "tekno"
     },
     {
       "jour": 5,
@@ -172,8 +172,8 @@
     {
       "jour": 4,
       "rang": 3,
-      "type": "reel",
-      "variante": "flash"
+      "type": "incontournables",
+      "variante": "tekno"
     },
     {
       "jour": 5,
@@ -214,8 +214,8 @@
     {
       "jour": 4,
       "rang": 4,
-      "type": "reel",
-      "variante": "flash"
+      "type": "incontournables",
+      "variante": "tekno"
     },
     {
       "jour": 5,
@@ -255,8 +255,8 @@
     {
       "jour": 4,
       "rang": 5,
-      "type": "reel",
-      "variante": "flash"
+      "type": "incontournables",
+      "variante": "tekno"
     },
     {
       "jour": 5,
@@ -319,7 +319,7 @@
     "explication": "Claude (secret ANTHROPIC_API_KEY, payant) en premier si payant_autorise = true ; sinon et en secours : Gemini (secret GEMINI_API_KEY, gratuit, recherche Google) puis GitHub Models (gratuit dans GitHub Actions). modele_gemini vide = le meilleur modèle Gemini « flash » disponible, choisi automatiquement.",
     "payant_autorise": true,
     "secours_payant": false,
-  "_secours_payant": "false (11/11/2026, demande du directeur : limiter les coûts) : les tâches fréquentes (prospection, veille, horaires, billetteries) n'utilisent jamais Claude ; si Gemini est indisponible elles passent par GitHub Models (gratuit) ou attendent le passage suivant",
+    "_secours_payant": "false (11/11/2026, demande du directeur : limiter les coûts) : les tâches fréquentes (prospection, veille, horaires, billetteries) n'utilisent jamais Claude ; si Gemini est indisponible elles passent par GitHub Models (gratuit) ou attendent le passage suivant",
     "recherche_claude_en_premier": false,
     "modele_claude": "claude-opus-5-5",
     "max_appels_anthropic_jour": 30,
@@ -332,9 +332,9 @@
     "modele_gemini": "gemini-3.8-flash",
     "cerveau_jours": 1,
     "budget_jour_eur": 2.5,
-  "budget_gemini_jour_eur": 2,
-  "budget_gemini_mois_eur": 40,
-  "_budget_par_ia": "Budgets séparés : budget_jour_eur / budget_mois_eur = Claude ; budget_gemini_* = Gemini. Une IA ne peut plus bloquer l'autre.",
+    "budget_gemini_jour_eur": 2,
+    "budget_gemini_mois_eur": 40,
+    "_budget_par_ia": "Budgets séparés : budget_jour_eur / budget_mois_eur = Claude ; budget_gemini_* = Gemini. Une IA ne peut plus bloquer l'autre.",
     "budget_mois_eur": 75,
     "_budget": "Plafond de dépense IA (estimation) : au-delà, plus aucun appel payant jusqu'au lendemain (ou au mois suivant) ; le site garde ses dernières données. Coûts estimés par appel dans cout_eur.",
     "cout_eur": {

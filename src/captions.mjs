@@ -42,7 +42,7 @@ const ligne = (e, avecMois = false) => {
   const style = styleLabel(e);
   const p = e.price === 0 ? ' · gratuit' : e.price != null ? ` · ${String(e.price).replace('.', ',')} €` : '';
   // Accroche qui donne envie + comptes de l'organisateur et du lieu (tagués, ils sont prévenus).
-  const tags = (e.instagram || []).slice(0, 2).map((h) => `@${h}`).join(' ');
+  const tags = [...new Set((e.instagram || []).map((h) => String(h).replace(/^@/, '').toLowerCase()))].slice(0, 2).map((h) => `@${h}`).join(' '); // jamais deux fois le même compte
   const plus = [e.accroche, tags].filter(Boolean).join(' ');
   return `→ ${jourCourt(e.start)} ${jourNum(e.start)}${avecMois ? ` ${moisCourt(e.start)}` : ''} · ${e.name}${style ? ` (${style})` : ''}${lieu ? ` · ${lieu}` : ''} · ${heure(e.start)}${p}${plus ? `\n   ${plus}` : ''}`;
 };
@@ -69,32 +69,43 @@ const SUIVRE = [
 
 // --- Les incontournables de la semaine ------------------------------------
 
-export function captionIncontournables({ variante, events, from, to, ch, r }) {
-  const techno = variante === 'techno';
-  const ajoutees = TENDANCES.intros_ajoutees?.[variante] || []; // proposées par l'analyse hebdomadaire
-  const intro = ch.pick(`intro-${variante}`, [...ajoutees, ...(techno
+export function captionIncontournables({ variante, events, from, to, ch, r, periode }) {
+  const tekno = variante === 'tekno';
+  const techno = variante === 'techno' || tekno;
+  // Période réelle des soirées (« cette semaine », « ce week-end », « en novembre », « du 13 au 18 novembre ») :
+  // jamais « cette semaine » sur des dates du mois (12/11/2026).
+  const P = periode || { cle: techno ? 'mois' : 'semaine', label: techno ? 'ce mois-ci' : 'cette semaine' };
+  const Lc = P.label, Lmaj = Lc.charAt(0).toUpperCase() + Lc.slice(1);
+  const coherente = (t) => (P.cle === 'semaine' || !/semaine/i.test(t)) && (P.cle === 'mois' || !/\bmois\b/i.test(t));
+  const ajoutees = (TENDANCES.intros_ajoutees?.[variante] || []).filter(coherente); // proposées par l'analyse hebdomadaire
+  const intro = ch.pick(`intro-${variante}`, [...ajoutees, ...(tekno
     ? [
-      `Les incontournables techno du mois.\nDes line-up solides, des lieux qui comptent, une communauté qui répond toujours présent.`,
-      `Pas juste des soirées. Des nuits entières.\nLa sélection techno du mois sur la Côte.`,
-      `Pour ceux qui viennent pour la musique, et rien d'autre.\nVoilà où ça se passe ce mois-ci.`,
-      `Kicks lourds, lumières basses, jusqu'au lever du jour.\nLes dates techno à ne pas manquer ce mois-ci.`,
+      `Édition Tekno 🔊 Hard techno, tekno, acid, tribe, psytrance : l'underground de la Côte ${Lc}.\nPas de house, pas de commercial. Que du son qui tape.`,
+      `Pour ceux qui viennent pour le son, et rien d'autre.\nLa sélection underground ${Lc} : hard techno, tekno, acid, bounce.`,
+      `Kicks lourds, lumières basses, jusqu'au lever du jour.\nL'underground de Nice et de la Côte ${Lc}.`,
+    ]
+    : techno
+    ? [
+      `Les incontournables techno ${Lc}.\nDes line-up solides, des lieux qui comptent, une communauté qui répond toujours présent.`,
+      `Pas juste des soirées. Des nuits entières.\nLa sélection techno ${Lc} sur la Côte.`,
+      `Pour ceux qui viennent pour la musique, et rien d'autre.\nVoilà où ça se passe ${Lc}.`,
     ]
     : [
-      `Cette semaine, la Côte d'Azur ne dort pas.\nNice, Cannes, Monaco… des ambiances, des styles, des vibes pour tous.`,
-      `Une semaine, plusieurs ambiances.\nDu rooftop au club, voilà nos coups de cœur.`,
+      `${Lmaj}, la Côte d'Azur ne dort pas.\nNice, Cannes, Monaco… des ambiances, des styles, des vibes pour tous.`,
+      `Plusieurs dates, plusieurs ambiances.\nDu rooftop au club, voilà nos coups de cœur ${Lc}.`,
       `Certaines soirées se racontent pendant des semaines.\nCelles-là en font partie.`,
-      `Afro, house, shatta, électro…\nCette semaine, il y en a pour toutes les envies.`,
+      `Afro, house, shatta, électro…\n${Lmaj}, il y en a pour toutes les envies.`,
     ])]);
   const question = ch.pick(`question-${variante}`, techno
     ? ['Tu seras à laquelle ?', 'On se retrouve où ?', 'Laquelle t\'attire le plus ?']
-    : ['Tu sors où cette semaine ?', 'Laquelle on fait ensemble ?', 'Ta préférée, c\'est laquelle ?']);
+    : [`Tu sors où ${Lc} ?`, 'Laquelle on fait ensemble ?', 'Ta préférée, c\'est laquelle ?']);
   const suivre = ch.pick('suivre', SUIVRE);
   // Mots-clés lisibles par la recherche Instagram (villes + période) et la soirée la plus attendue en premier.
   const villes = [...new Set(events.map((e) => e.city).filter(Boolean))].slice(0, 4);
-  const motsCles = villes.length ? `📍 Soirées ${techno ? 'techno ' : ''}à ${villes.join(', ').replace(/, ([^,]*)$/, ' et $1')} ${techno ? 'ce mois-ci' : 'cette semaine'}` : '';
+  const motsCles = villes.length ? `📍 Soirées ${tekno ? 'techno underground ' : techno ? 'techno ' : ''}à ${villes.join(', ').replace(/, ([^,]*)$/, ' et $1')} ${Lc}` : '';
   const star = [...events].filter((e) => typeof e.buzz === 'number' && e.buzz >= 0.7).sort((a, b) => b.buzz - a.buzz)[0];
   const coeur = star ? `🔥 La plus attendue : ${star.name}${star.buzz_raison ? `, ${star.buzz_raison.replace(/\.$/, '').replace(/^\p{Lu}(?=\p{Ll})/u, (c) => c.toLowerCase())}` : ''}.` : '';
-  return clip(`${intro}\n${motsCles}\n\n${coeur ? `${coeur}\n\n` : ''}${liste(events)}\n\n${question} Enregistre le post pour ne pas oublier. ${suivre}\n\n${ch.pick('site', SITE)}\n\n${hashtags(ch, variante, { events })}`);
+  return clip(`${intro}\n${motsCles}\n\n${coeur ? `${coeur}\n\n` : ''}${liste(events)}\n\n${question} Enregistre le post pour ne pas oublier. ${suivre}\n\n${ch.pick('site', SITE)}\n\n${hashtags(ch, tekno ? 'techno' : variante, { events })}`);
 }
 
 // --- Appel aux organisateurs (#TeufyParty) -----------------------------------

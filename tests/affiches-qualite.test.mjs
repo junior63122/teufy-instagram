@@ -30,3 +30,20 @@ test('lecture gratuite des dates (OCR) : jour + mois en lettres ou en chiffres',
   assert.deepEqual(datesLues('VENDREDI 13 NOVEMBRE 2026'), [[13, 11]]);
   assert.deepEqual(datesLues('rendez-vous le 14/11'), [[14, 11]]);
 });
+
+test('titres de carrousel fidèles aux dates (jamais « cette semaine » pour des dates du mois)', async () => {
+  const { periodeDe } = await import('../src/periode.mjs');
+  const jeudi = new Date('2026-11-12T10:00:00Z');
+  assert.equal(periodeDe(['2026-11-13T22:00:00Z', '2026-11-14T22:00:00Z'], jeudi).label, 'ce week-end');
+  assert.equal(periodeDe(['2026-11-12T22:00:00Z', '2026-11-15T22:00:00Z'], jeudi).label, 'cette semaine');
+  assert.equal(periodeDe(['2026-11-13T22:00:00Z', '2026-11-28T22:00:00Z'], jeudi).label, 'en novembre');
+  assert.equal(periodeDe(['2026-11-28T22:00:00Z', '2026-12-05T22:00:00Z'], jeudi).label, 'du 28 novembre au 5 décembre');
+});
+
+test('Édition Tekno : underground seulement, jamais la house', async () => {
+  const { isUnderground } = await import('../src/genres.mjs');
+  assert.equal(isUnderground({ name: 'Caravel', tags: ['hard techno', 'industrial techno', 'schranz'] }), true);
+  assert.equal(isUnderground({ name: 'Noise Protocol', tags: ['Hardtek', 'Tribe', 'Acidcore', 'Tekno'] }), true);
+  assert.equal(isUnderground({ name: 'REF Session', tags: ['acid house', 'melodic techno', 'organic house', 'house', 'techno'] }), false);
+  assert.equal(isUnderground({ name: 'Friday', tags: ['tech house', 'house'] }), false);
+});

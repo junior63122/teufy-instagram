@@ -105,7 +105,8 @@ export async function nettoyerComptes(p, opts = {}) {
   const map = (h) => remplace[propre(h)] || propre(h);
   if (p.tags) p.tags = p.tags.map((l) => [...new Set((l || []).map(map))].slice(0, 5));
   if (p.collabs) p.collabs = [...new Set(p.collabs.map(map))].filter((h) => ok.has(h)); // invitations : comptes confirmés seulement
-  if (p.legende) p.legende = p.legende.replace(RE_MENTION, (m, avant, h) => (propre(h) === 'teufy_official' ? m : `${avant}@${map(h)}`));
+  if (p.legende) p.legende = p.legende.replace(RE_MENTION, (m, avant, h) => (propre(h) === 'teufy_official' ? m : `${avant}@${map(h)}`))
+    .replace(/(@[\w.]+)(\s+\1)+(?!\w|\.\w)/g, '$1'); // deux comptes corrigés vers le même : une seule mention
   p.a_tester = aTester;
   if (Object.keys(remplace).length) log(`Comptes corrigés : ${Object.entries(remplace).map(([a, b]) => `@${a} → @${b}`).join(', ')}`);
   if (aTester.length) log(`Comptes à confirmer par Instagram à la publication : ${aTester.map((h) => `@${h}`).join(', ')}`);

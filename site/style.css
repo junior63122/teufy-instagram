@@ -1521,3 +1521,6 @@ html.onglets-caches .onglets{transform:translateY(105%)}
 .y-aller li{flex-wrap:wrap;row-gap:2px}
 .y-aller li>span{min-width:0;overflow-wrap:anywhere}
 @media(max-width:420px){.y-aller small{white-space:normal;margin-left:auto;text-align:right}}
+/* 12/11/2026 : plus de copie floutée derrière les affiches (perçue comme « images floues ») : fond sombre net à la place. */
+.fond-flou{display:none!important}
+.affiche:has(>.fond-flou),.fiche-affiche.cadre{background:radial-gradient(120% 90% at 50% 40%,#23232c 0%,#111116 70%)}

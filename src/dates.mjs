@@ -45,7 +45,7 @@ export const jourCourt = (d) => cap(fmt({ weekday: 'short' }).format(nuit(d)).re
 export const jourLong = (d) => cap(fmt({ weekday: 'long' }).format(nuit(d)));
 export const jourNum = (d) => fmt({ day: 'numeric' }).format(nuit(d));
 export const moisCourt = (d) => fmt({ month: 'short' }).format(nuit(d)).replace('.', '');
-export const heure = (d) => fmt({ hour: '2-digit', minute: '2-digit' }).format(new Date(d)).replace(':', 'h');
+export const heure = (d) => { const x = fmt({ hour: '2-digit', minute: '2-digit' }).format(new Date(d)).replace(':', 'h'); return x === '23h59' ? 'minuit' : x; }; // 23h59 = minuit (convention des billetteries)
 export const dateLongue = (d) => fmt({ weekday: 'long', day: 'numeric', month: 'long' }).format(new Date(d));
 export const isoLocal = (d) => { const p = parts(new Date(d)); return `${p.year}-${p.month}-${p.day}`; };
 
