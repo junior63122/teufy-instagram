@@ -1,0 +1,47 @@
+{
+ "explication": "Qui sont les fêtards de la Côte d'Azur, ce qu'ils vivent et ce qu'ils s'envoient entre potes. Lu par tous les robots qui écrivent du contenu (reels, débats, idées de la veille). Modifiable par la direction : ajouter des situations vécues rend le contenu plus juste. Ce sont des situations et des codes, jamais des chiffres : rien ici ne doit être présenté comme une statistique.",
+ "test_du_partage": "Avant tout contenu : un fêtard de 22 ans de Nice l'enverrait-il dans le groupe WhatsApp « sorties du week-end » ou à son pote en message privé, en écrivant « c'est trop toi » ou « on y va ? » ? Si la réponse est non, le contenu ne sort pas. Les envois en message privé sont le premier signal d'Instagram pour toucher des gens qui ne suivent pas encore Teufy.",
+ "profils": [
+  {"nom": "Les étudiants", "qui": "Fac de Nice (Valrose, Carlone, Saint-Jean-d'Angély), Sophia Antipolis, écoles de commerce, Erasmus", "vit": "petit budget, soirées BDE, prévente la moins chère, before chez quelqu'un, dernier tram ou bus de nuit, retour à Sophia compliqué sans voiture"},
+  {"nom": "Les jeunes actifs du coin", "qui": "25-30 ans de Nice, Antibes, Cannes, Toulon", "vit": "afterwork, rooftop, sortir le jeudi, table entre potes, veut une bonne soirée sans se faire refouler, compare les prix"},
+  {"nom": "La famille techno", "qui": "fans de techno, hard techno, trance, tekno", "vit": "suit les collectifs et les line-ups, warehouse et open air, after jusqu'au matin, déteste le commercial et les soirées « m'as-tu-vu »"},
+  {"nom": "Le commercial et le VIP", "qui": "clubs de Cannes, Monaco, Saint-Tropez, Juan-les-Pins", "vit": "dress code, physio à l'entrée, table et bouteilles, se faire belle ou beau, photos, prix qui piquent à Monaco"},
+  {"nom": "Afro, shatta, latino", "qui": "soirées afro, amapiano, shatta, dancehall, reggaeton", "vit": "danser toute la nuit, ambiance plus que décor, DJ et MC qui chauffent, soirées en communauté"},
+  {"nom": "Les saisonniers et l'été", "qui": "travailleurs saisonniers, touristes, gens de passage l'été", "vit": "beach clubs, plages privées, festivals d'été, Cannes et Saint-Tropez en juillet-août, sortir après le service"}
+ ],
+ "situations": [
+  "le groupe WhatsApp du vendredi : 47 messages, personne ne décide où on sort",
+  "le pote qui dit « je viens, mais je rentre tôt » et qui ferme la boîte",
+  "la file d'attente sous la pluie ou au vent, en tenue légère, à 1 h du matin",
+  "se faire refouler à l'entrée sans comprendre pourquoi",
+  "le before qui dure tellement qu'on arrive après la fermeture des préventes",
+  "le prix du verre qui fait mal (surtout à Monaco et à Cannes)",
+  "rentrer à 5 h : plus de tram, le VTC qui coûte une fortune, le pote qui a promis de conduire",
+  "la faim de 4 h du matin : chercher ce qui est encore ouvert",
+  "Nice contre Cannes contre Monaco : chacun défend sa ville",
+  "les touristes l'été contre les locaux l'hiver",
+  "la descente de Sophia à Nice sans voiture",
+  "le lendemain : la photo floue, les stories qu'on regrette, le vocal de 3 min à 4 h du matin",
+  "le DJ qui ne passe pas LA chanson que tout le monde attend",
+  "la plage le matin après la soirée, sur la Prom' ou à la Réserve",
+  "le dress code « tenue correcte exigée » que personne ne comprend",
+  "trouver une soirée gratuite ou pas chère en fin de mois"
+ ],
+ "langage": "tutoiement, phrases courtes, humour complice, jamais moralisateur, jamais « boomer ». Mots du coin bienvenus avec naturel (la Prom', le Vieux-Nice, la Croisette, Monaco, Juan). Pas d'anglicismes forcés, pas de vocabulaire marketing.",
+ "ce_qui_se_partage": [
+  "une situation tellement vraie qu'on tague le pote concerné",
+  "un plan concret pour ce soir ou ce week-end (où, combien, comment rentrer)",
+  "un classement ou un match qui fait débattre (Nice contre Cannes, techno contre commercial)",
+  "une astuce qui fait économiser ou éviter de se faire refouler",
+  "la fierté locale : « tu sais que t'es de la Côte quand… »",
+  "un défi ou une devinette avec la réponse à la fin"
+ ],
+ "a_eviter": [
+  "les sujets « scolaires » (le vestiaire, les objets perdus, les paliers de prix expliqués comme un cours)",
+  "le contenu générique qui pourrait venir de n'importe quelle ville",
+  "glorifier l'alcool ou parler de drogue",
+  "se moquer d'un physique, d'un genre, d'une origine",
+  "critiquer un établissement réel ou un organisateur nommé",
+  "inventer des chiffres, des prix ou des faits sur des lieux réels"
+ ]
+}

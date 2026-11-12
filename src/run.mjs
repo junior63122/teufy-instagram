@@ -361,6 +361,8 @@ async function prepare(slot, now, id) {
     let c = slot.variante === 'tendance' ? await nouveauFlash(STUDIO, id, 'Tendance').catch((err) => { console.error(`[${id}] reel Tendance impossible (${err.message}) : reel Flash de la banque.`); return dispo.find((x) => x.concept === 'reelflash') || null; })
       : slot.variante === 'nouveau' ? await nouveauFlash(STUDIO, id, rubriqueFlash())
       : val('concept') ? tous.find((x) => x.id === val('concept'))
+      // Flash (12/11/2026) : écrit à neuf avec la fiche cible (contenus/cible.json) ; la réserve ne sert qu'en secours.
+      : slot.variante === 'flash' && !DRY ? await nouveauFlash(STUDIO, id, rubriqueFlash()).catch((err) => { console.error(`[${id}] reel Flash inédit impossible (${err.message}) : réserve.`); return dispo.find((x) => x.concept === 'reelflash') || null; })
       : slot.variante === 'flash' ? dispo.find((x) => x.concept === 'reelflash')
       : slot.variante === 'histoire' ? dispo.find((x) => ['histoire', 'potesfluide'].includes(x.concept))
       : dispo.find((x) => x.type === slot.variante) || dispo[0];

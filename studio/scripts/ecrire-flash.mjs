@@ -9,6 +9,7 @@ import {writeFile} from 'node:fs/promises';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {json} from '../../src/llm.mjs';
+import {texteCible, lireCible} from '../../src/cible.mjs';
 
 const STUDIO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const ROOT = path.resolve(STUDIO, '..');
@@ -33,13 +34,15 @@ const tendances = lire(path.join(ROOT, 'tendances-auto.json'), {});
 const accroches = (tendances.accroches || []).slice(0, 8).map((a) => (typeof a === 'string' ? a : a.texte || a.accroche || '')).filter(Boolean);
 const meilleurs = hist.filter((h) => h.publication?.type === 'reel' && h.note != null).sort((a, b) => b.note - a.note).slice(0, 3).map((h) => `${h.titre} (note ${h.note}/100)`);
 
+// Sujets (12/11/2026, directeur : « mets-toi à la place des fêtards de la Côte ») : des situations VÉCUES par la cible,
+// locales et qu'on envoie à son pote, plutôt que des cours (vestiaire, paliers de prix…). Complétés par contenus/cible.json.
 const SUJETS = [
-  'les paliers de prix des billets (early, regular, last) et comment payer moins', 'comment passer le videur (dress code, attitude, groupe, liste)',
-  'le vestiaire, les consignes, les objets perdus : les erreurs à éviter', 'rentrer en sécurité (dernier train, VTC, rester groupés, eau gratuite au bar)',
-  'les types de soirées sur la Côte (club, rooftop, beach club, warehouse, open air) et à qui elles plaisent', 'pourquoi les soirées commencent si tard',
-  'les codes d\'une soirée techno vs une soirée commerciale', 'organiser une sortie à plusieurs sans galère (budget, horaires, transport)',
-  'les festivals de la région et quand prendre sa place', 'les phrases qu\'on dit tous en soirée vs ce qui se passe', 'le groupe de potes en soirée : les profils',
-  'ce que le DJ pense de tes demandes', 'les erreurs qui coûtent cher en soirée', 'comment trouver les soirées gratuites ou pas chères',
+  ...(lireCible()?.situations || []),
+  'Nice contre Cannes contre Monaco : où on sort le mieux (chacun défend sa ville)',
+  'les types de fêtards de la Côte d\'Azur (on tague son pote)', 'tu sais que t\'es de la Côte d\'Azur quand…',
+  'ce que tu prévois vs comment finit vraiment ta soirée', 'devine le prix d\'une soirée complète à Monaco vs à Nice (exemple réaliste, réponse à la fin)',
+  'les phrases qu\'on entend dans toutes les files d\'attente', 'comment éviter de se faire refouler (les vrais conseils)',
+  'les soirées techno vs commerciales : les codes de chaque camp', 'trouver une soirée gratuite ou pas chère en fin de mois',
 ];
 
 const OBJET = {
@@ -90,6 +93,7 @@ const SCHEMA = {
 };
 
 const system = `Tu es le scénariste des reels Instagram de Teufy (@teufy_official), le guide des soirées de la Côte d'Azur, public 17-30 ans.
+${texteCible()}
 Format « Flash » (validé par la marque) : 18 à 24 s, 7 à 9 scènes courtes, une photo flash par scène, une voix off française TRÈS expressive et RAPIDE (ElevenLabs eleven_v3).
 Le public décroche en moins d'une seconde : CHAQUE seconde doit relancer l'attention. Règles de rétention (prioritaires) :
 - Scène 1 (≤ 1,5 s, ≤ 8 mots) : le CHOC tout de suite (le chiffre, la contradiction, la situation gênante), pas d'introduction. Le mot géant de la scène 1 apparaît dès la 1re image.
@@ -133,7 +137,7 @@ Date : ${new Date().toISOString().slice(0, 10)}. Écris un reel selon le schéma
 const CRITIQUE = {type: 'object', additionalProperties: false, required: ['note', 'problemes'], properties: {
   note: {type: 'number', description: 'note sur 10'}, problemes: {type: 'array', items: {type: 'string'}, description: 'problèmes précis à corriger'}}};
 const relire = (script) => json({config, nom: 'relecture', gratuit: true, schema: CRITIQUE,
-  system: `Tu es rédacteur en chef exigeant des reels de Teufy (soirées Côte d'Azur, 17-30 ans). Note le script sur 10 : rétention (le public décroche en 1 s : la scène 1 fait-elle ≤ 8 mots avec un choc immédiat ? chaque réplique ≤ 12 mots ? une histoire avec tension et retournement ? une raison de rester jusqu'à la fin ?), accroche (2 premières secondes), valeur apportée (on apprend ou on rit vraiment), rythme (un temps fort toutes les 1-2 s), exactitude (nombre d'éléments annoncé = nombre donné ; TOUTE affirmation chiffrée ou présentée comme un fait — « ×2 », « le double », « 80 % », une règle générale — sans source ni mention d'exemple est une faute grave : note 5 maximum), ton (complice, inclusif, sans stéréotype de genre, d'origine ou d'apparence), cohérence rubrique/contenu, appel à l'action. Sois sévère : 7 = publiable.`,
+  system: `Tu es rédacteur en chef exigeant des reels de Teufy (soirées Côte d'Azur, 17-30 ans). TEST DU PARTAGE (éliminatoire) : un fêtard de 22 ans de Nice l'enverrait-il à son pote ou dans son groupe WhatsApp ? Sujet scolaire, générique (valable pour n'importe quelle ville) ou sans situation vécue = note maximum 6. Note le script sur 10 : rétention (le public décroche en 1 s : la scène 1 fait-elle ≤ 8 mots avec un choc immédiat ? chaque réplique ≤ 12 mots ? une histoire avec tension et retournement ? une raison de rester jusqu'à la fin ?), accroche (2 premières secondes), valeur apportée (on apprend ou on rit vraiment), rythme (un temps fort toutes les 1-2 s), exactitude (nombre d'éléments annoncé = nombre donné ; TOUTE affirmation chiffrée ou présentée comme un fait — « ×2 », « le double », « 80 % », une règle générale — sans source ni mention d'exemple est une faute grave : note 5 maximum), ton (complice, inclusif, sans stéréotype de genre, d'origine ou d'apparence), cohérence rubrique/contenu, appel à l'action. Sois sévère : 7 = publiable.`,
   prompt: `Rubrique : ${rubrique}\nScript :\n${JSON.stringify({titre: script.titre, titre_couverture: script.titre_couverture, scenes: script.scenes.map((x) => ({texte: x.texte, gros: x.gros, objet: x.objet?.type})), legende: script.legende})}`});
 let r = process.env.ECRIRE_REPONSE ? lire(process.env.ECRIRE_REPONSE, {}) : await json({config, system, prompt, schema: SCHEMA, nom: 'reel_flash'});
 // Contrôles de rythme mesurables (avant l'avis de l'IA) : accroche courte, répliques courtes, pas de pauses.
