@@ -77,3 +77,12 @@ test('OCR : un chiffre perdu ne fait pas rejeter une bonne affiche, une autre da
   assert.equal(dateCompatible([28, 1], [28, 11]), true); // « 28/11 » lu « 28/1 »
   assert.equal(dateCompatible([31, 12], [14, 11]), false); // affiche du réveillon sur une soirée du 14/11
 });
+
+test('doublons : même lieu, même nuit, même artiste sous deux noms = une seule soirée', async () => {
+  const { memeSoiree } = await import('../src/recherche.mjs');
+  const a = { name: 'Caravel (+ No2theG, May-Li)', venue: 'Frigo 16 (Le 109)', start: '2026-11-14T19:00:00Z' };
+  const b = { name: 'LQB Session #7 : Caravel', venue: 'Frigo 16', start: '2026-11-14T22:00:00Z' };
+  const c = { name: 'Jerrycans Release Party', venue: 'Frigo 16', start: '2026-11-14T19:00:00Z' };
+  assert.equal(memeSoiree(a, b), true);
+  assert.equal(memeSoiree(b, c), false); // autre soirée, même lieu : jamais fusionnée sur un mot générique (« release », « session »)
+});

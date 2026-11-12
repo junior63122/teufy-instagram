@@ -53,7 +53,10 @@ for (const l of ordre) {
   catch (err) { if (/rate|limit|\(#4\)|\(#32\)|\(#17\)/i.test(err.message)) { console.log(`Limite Instagram atteinte après ${nLus} lieu(x).`); break; } LN.insta[l.instagram] = { ...(LN.insta[l.instagram] || {}), le: new Date().toISOString(), absent: true }; continue; }
   const medias = (bd?.media?.data || []).filter((m) => m.media_url && m.media_type !== 'VIDEO');
   const posts = medias.filter((m) => now - Date.parse(m.timestamp) < 60 * 864e5).map((m) => ({ u: m.media_url, c: String(m.caption || '').slice(0, 400), t: m.timestamp }));
-  const couv = [...medias].sort((a, b) => (b.like_count || 0) - (a.like_count || 0))[0];
+  // Photo du lieu : jamais une affiche de soirée (12/11/2026 : l'affiche « Stanislas, 22 mai 2027 » servait de photo du
+  // Frigo 16 sur d'autres soirées). Les publications qui annoncent une date ou des billets sont écartées.
+  const ANNONCE = /(\b\d{1,2}\s*[./]\s*\d{1,2}\b|\b\d{1,2}(er)?\s+(janv|f[eé]v|mars|avr|mai|juin|juil|ao[uû]t|sept|oct|nov|d[eé]c)|billet|ticket|pr[eé]vente|line.?up|shotgun|r[eé]serv|guest|lundi|mardi|mercredi|jeudi|vendredi|samedi|dimanche|ce soir|tonight|this (friday|saturday)|save the date|€)/i;
+  const couv = [...medias].filter((m) => !ANNONCE.test(m.caption || '')).sort((a, b) => (b.like_count || 0) - (a.like_count || 0))[0];
   LN.insta[l.instagram] = { ...(LN.insta[l.instagram] || {}), le: new Date().toISOString(), absent: false, abonnes: bd?.followers_count ?? null, photo: bd?.profile_picture_url || LN.insta[l.instagram]?.photo || '', posts, couv: couv ? { u: couv.media_url, lien: couv.permalink || '' } : null };
   if (couv) {
     const f = path.join(ROOT, 'site', 'lieux', `${l.instagram.replace(/[^a-z0-9._-]/g, '')}-couv.jpg`);

@@ -203,7 +203,13 @@ export function memeSoiree(a, b) {
   const [petit, grand] = ma.size <= mb.size ? [ma, mb] : [mb, ma];
   const lieu = (lieuCle(a.venue) && lieuCle(a.venue) === lieuCle(b.venue)) || (petit.size > 0 && [...petit].every((w) => grand.has(w)));
   const nom = jaccard(a.name, b.name);
-  return nom >= 0.8 || (lieu && nom >= 0.34) || (lieu && Math.abs(Date.parse(a.start) - Date.parse(b.start)) < 3600e3);
+  // Même lieu, même nuit et un mot distinctif commun (nom d'artiste, de concept) : la même soirée annoncée sous deux
+  // noms par deux sources (« Caravel (+ No2theG, May-Li) » = « LQB Session #7 : Caravel », 12/11/2026).
+  const GENERIQUES = /^(session|sessions|soiree|soirees|party|night|nuit|edition|release|club|live|presente|presents|opening|closing|special|guest|guests|warm|before|after|techno|house|afro|shatta|latino|rap|music|musique|festival|frigo|concert|show|tour|tournee|avec|with|nice|cannes|monaco|antibes|toulon)$/;
+  const distinctifs = (x) => new Set(sansAccents(x).replace(/[^a-z0-9]+/g, ' ').split(/\s+/).filter((w) => w.length >= 5 && !GENERIQUES.test(w)));
+  const da = distinctifs(a.name), db = distinctifs(b.name);
+  const motCommun = [...da].some((w) => db.has(w));
+  return nom >= 0.8 || (lieu && nom >= 0.34) || (lieu && Math.abs(Date.parse(a.start) - Date.parse(b.start)) < 3600e3) || (lieu && motCommun);
 }
 // Offres de billetterie (une par plateforme, prix le plus bas) : sert à comparer les prix sur le site.
 const plateforme = (u) => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch { return ''; } };

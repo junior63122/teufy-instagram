@@ -708,7 +708,7 @@ export async function construireSite({ events, eventsFrance = [], eventsOccitani
   { const b = soirees.map((x) => x.buzz || 0).sort((x, y) => y - x); SEUIL_DEMANDE = Math.max(0.85, b[Math.floor(b.length / 8)] ?? 1); }
   // Grandes villes de France : rubrique à part (jamais mélangée à l'agenda de la Côte d'Azur et du Var).
   const soireesFrance = [];
-  for (const e of (eventsFrance || []).filter((x) => !x.douteux && !villeOccitanie(x) && (x.verifie || (x.confiance ?? 0) >= 0.85)).filter((x) => { const t = Date.parse(x.start); return t >= debut && t <= fin; }).sort((x, y) => x.start.localeCompare(y.start))) soireesFrance.push(await preparer(e, 'france'));
+  for (const e of fusionner(eventsFrance || []).filter((x) => !x.douteux && !villeOccitanie(x) && (x.verifie || (x.confiance ?? 0) >= 0.85)).filter((x) => { const t = Date.parse(x.start); return t >= debut && t <= fin; }).sort((x, y) => x.start.localeCompare(y.start))) soireesFrance.push(await preparer(e, 'france'));
   // Occitanie : toute la région, rubrique du site (jamais sur Instagram).
   const soireesOccitanie = [];
   for (const e of fusionner([...(eventsOccitanie || []), ...(eventsFrance || []).filter((x) => villeOccitanie(x))]).filter((x) => !x.douteux && (x.confiance ?? 0) >= 0.75).filter((x) => { const t = Date.parse(x.start); return t >= debut && t <= fin; }).sort((x, y) => x.start.localeCompare(y.start))) soireesOccitanie.push(await preparer(e, 'occitanie'));
@@ -1100,10 +1100,28 @@ async function imagesManquantes({ soirees, lieux, log, now }) {
     if (I.couv?.u) {
       const f = path.join(dossier, `${compte.replace(/[^a-z0-9._-]/g, '')}-couv.jpg`);
       if (!existsSync(f) && tempsOk()) await telecharger(I.couv.u, f);
+      if (existsSync(f) && ressembleAffiche(f)) continue; // une affiche (texte, date) n'est jamais une « photo du lieu »
       if (existsSync(f)) { webp(f, 480); webp(f, 800); s.photoLieu = path.relative(ROOT, f); s.photoLieuDe = `@${compte}`; photos++; }
     }
   }
   if (affiches || photos) log(`Site : ${affiches} affiche(s) retrouvée(s) sur l'Instagram des lieux, ${photos} soirée(s) illustrée(s) par une photo de leur lieu`);
+}
+// Une « photo du lieu » qui est en fait une affiche (beaucoup de texte, une date) : lecture gratuite (Tesseract), gardée
+// en cache dans contenus/photos-texte.json. Sans Tesseract : on se fie au filtre des légendes (outils/images-lieux.mjs).
+const PHOTOS_TEXTE = path.join(ROOT, 'contenus', 'photos-texte.json');
+let TEXTE_PHOTOS = null;
+function ressembleAffiche(f) {
+  if (!existsSync(f)) return false;
+  TEXTE_PHOTOS ||= lire(PHOTOS_TEXTE, {});
+  const k = `${path.relative(ROOT, f)}|${statSync(f).size}`;
+  if (k in TEXTE_PHOTOS) return TEXTE_PHOTOS[k];
+  const r = spawnSync('tesseract', [f, '-', '-l', 'fra+eng', '--psm', '11'], { encoding: 'utf8', timeout: 60000 });
+  if (r.status !== 0 || r.error) return false;
+  const mots = (r.stdout.match(/[A-Za-zÀ-ÿ]{3,}/g) || []).length;
+  const date = /\b\d{1,2}\s*[./]\s*\d{1,2}\b|\b\d{1,2}\s+(janv|f[eé]v|mars|avr|mai|juin|juil|ao[uû]t|sept|oct|nov|d[eé]c)|\b(lundi|mardi|mercredi|jeudi|vendredi|samedi|dimanche)\b|\b20[23]\d\b|\d{1,2}\s*h\s*\d{0,2}/i.test(r.stdout);
+  TEXTE_PHOTOS[k] = date || mots >= 10;
+  writeFileSync(PHOTOS_TEXTE, JSON.stringify(TEXTE_PHOTOS));
+  return TEXTE_PHOTOS[k];
 }
 // Fiches artistes (DJ, chanteurs, groupes, humoristes) : uniquement des noms écrits dans la soirée (saisis par l'équipe,
 // ou relevés par l'IA dans le titre et la description, sans rien deviner). Cache : contenus/artistes.json.
@@ -1954,7 +1972,7 @@ function carteLieu(l, { t, tr, base, lang }, i = 0, tendance = false) {
   return `<article class="fiche-lieu${tendance ? ' tendance' : ''}" id="${esc(l.slug)}" style="--i:${i % 8}" data-type="${esc(l.type)}" data-ville="${esc(slug(l.ville || ''))}"${H ? ` data-horaires="${esc(JSON.stringify(H.plages))}"${H.saison ? ' data-saison="1"' : ''}` : ''}${l.soirs?.length ? ` data-soirs="${esc(JSON.stringify(l.soirs))}"` : ''}>
     ${(() => { /* Bandeau : la vraie photo du lieu (sa publication Instagram la plus aimée) ; sinon son logo flouté ;
       jamais un paysage de la ville. */ const couv = l.instagram ? `site/lieux/${l.instagram.replace(/[^a-z0-9._-]/g, '')}-couv-800.webp` : '';
-      const aCouv = couv && existsSync(path.join(ROOT, couv));
+      const aCouv = couv && existsSync(path.join(ROOT, couv)) && !ressembleAffiche(path.join(ROOT, couv.replace(/-800\.webp$/, '.jpg'))); // jamais une affiche en bandeau de lieu
       return `<div class="fiche-banniere${aCouv ? ' banniere-photo' : l.photo ? '' : ' banniere-neutre'}"${aCouv ? ` style="--fond:url('${base}${esc(couv)}')"` : l.photo ? ` style="--fond:url('${base}${esc(l.photo)}')"` : ''}>`; })()}${tendance ? `<span class="rang">🔥 #${i + 1}</span>` : ''}${l.photo ? `<img src="${base}${esc(l.photo)}" alt="" width="88" height="88" loading="lazy">` : `<span class="lieu-initiale">${esc((l.nom[0] || '?').toUpperCase())}</span>`}</div>
     <div class="fiche-corps">
     <p class="genre">${esc(tr(TYPES_NOMS[l.type] || ''))}${l.ville ? ` · ${esc(l.ville)}` : ''}${l.partenaire ? ` <span class="fiche-prix">${esc(t.partenaires)}</span>` : ''}</p>
