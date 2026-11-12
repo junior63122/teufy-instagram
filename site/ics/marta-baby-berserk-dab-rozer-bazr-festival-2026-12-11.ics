@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:marta-baby-berserk-dab-rozer-bazr-festival-2026-12-11@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261211T180000Z
 DTEND:20261211T230000Z
 SUMMARY:Marta + Baby Berserk + Dab Rozer ... Bazr Festival
 LOCATION:Le Dancing (Chai des Moulins)\, Sète
 DESCRIPTION:Le festival BAZR s'installe au Dancing avec un line-up hybride rock et techno.\nBillets : https://shotgun.live/fr/events/marta-baby-berserk-dab-rozer-bazr-festival\nVia Teufy @teufy_official
 URL:https://shotgun.live/fr/events/marta-baby-berserk-dab-rozer-bazr-festival
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Marta + Baby Berserk + Dab Rozer ... Bazr Festival
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Marta + Baby Berserk + Dab Rozer ... Bazr Festival
+END:VALARM
 END:VEVENT
 END:VCALENDAR

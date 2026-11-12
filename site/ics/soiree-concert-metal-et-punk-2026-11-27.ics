@@ -4,11 +4,21 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:soiree-concert-metal-et-punk-2026-11-27@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261127T190000Z
 DTEND:20261128T000000Z
 SUMMARY:Soirée Concert Metal & Punk
 LOCATION:Urban Parc\, Alès
 DESCRIPTION:Gros riffs punk et metal en live à l'Urban Parc d'Alès pour une soirée 100% énergie.\nVia Teufy @teufy_official
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Soirée Concert Metal & Punk
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Soirée Concert Metal & Punk
+END:VALARM
 END:VEVENT
 END:VCALENDAR

@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:dj-k-net-resident-2026-11-15@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150657Z
 DTSTART:20261115T040000Z
 DTEND:20261115T090000Z
 SUMMARY:Dj K-Net (Resident)
 LOCATION:L'Antre Bar Electro\, Nice
 DESCRIPTION:After du dimanche 100% vinyle techno et tribe avec le cofondateur de Trakkass.\nBillets : https://shotgun.live/events/dj-k-net-resident\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/dj-k-net-resident
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Dj K-Net (Resident)
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Dj K-Net (Resident)
+END:VALARM
 END:VEVENT
 END:VCALENDAR

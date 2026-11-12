@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:rakugo-up-date-cyril-coppini-x-dj-click-2026-12-16@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261216T180000Z
 DTEND:20261216T230000Z
 SUMMARY:Rakugo Up Date (Cyril Coppini x DJ Click)
 LOCATION:Salle Le Stockfish - Maison de l'Étudiant\, Nice
 DESCRIPTION:DJ Click pose ses basses électro au Stockfish pour une soirée étudiante originale !\nBillets : https://yp.events/55f849b7-1e45-4e2f-9c50-6ad0ac754817/RAKUGO-UP-DATE-Cyril-Coppini-Dj-Click\nVia Teufy @teufy_official
 URL:https://yp.events/55f849b7-1e45-4e2f-9c50-6ad0ac754817/RAKUGO-UP-DATE-Cyril-Coppini-Dj-Click
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Rakugo Up Date (Cyril Coppini x DJ Click)
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Rakugo Up Date (Cyril Coppini x DJ Click)
+END:VALARM
 END:VEVENT
 END:VCALENDAR

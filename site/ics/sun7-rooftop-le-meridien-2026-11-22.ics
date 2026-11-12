@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:sun7-rooftop-le-meridien-2026-11-22@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150657Z
 DTSTART:20261122T130000Z
 DTEND:20261122T180000Z
 SUMMARY:Sun7 Rooftop Le Méridien
 LOCATION:Rooftop Le Méridien\, Nice
 DESCRIPTION:Day party house sur le rooftop du Méridien face à la mer avec sunset et dress code bleu et blanc.\nBillets : https://shotgun.live/events/sun-7-rooftop-2\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/sun-7-rooftop-2
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Sun7 Rooftop Le Méridien
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Sun7 Rooftop Le Méridien
+END:VALARM
 END:VEVENT
 END:VCALENDAR

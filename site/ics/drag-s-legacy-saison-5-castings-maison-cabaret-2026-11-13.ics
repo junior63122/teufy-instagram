@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:drag-s-legacy-saison-5-castings-maison-cabaret-2026-11-13@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150657Z
 DTSTART:20261113T170000Z
 DTEND:20261113T220000Z
 SUMMARY:Drag's Legacy Saison 5 : Castings Maison Cabaret
 LOCATION:Le Swing\, Nice
 DESCRIPTION:Sélections de la saison 5 du concours drag au Swing avec show et DJ set.\nBillets : https://www.instagram.com/p/Dfnemt-IIiy/\nVia Teufy @teufy_official
 URL:https://www.instagram.com/p/Dfnemt-IIiy/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Drag's Legacy Saison 5 : Castings Maison Cabaret
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Drag's Legacy Saison 5 : Castings Maison Cabaret
+END:VALARM
 END:VEVENT
 END:VCALENDAR

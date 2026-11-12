@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:maman-sort-ce-soir-cowgirl-party-2026-11-14@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261114T190000Z
 DTEND:20261115T000000Z
 SUMMARY:Maman Sort Ce Soir - Cowgirl Party
 LOCATION:Les Terrasses Festives\, Aix-en-Provence
 DESCRIPTION:Ambiance cowgirl et classiques rétro aux Terrasses Festives.\nBillets : https://shotgun.live/events/maman-sort-ce-soir-aix-en-provence\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/maman-sort-ce-soir-aix-en-provence
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Maman Sort Ce Soir - Cowgirl Party
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Maman Sort Ce Soir - Cowgirl Party
+END:VALARM
 END:VEVENT
 END:VCALENDAR

@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:osiris-at-la-notte-germain-rojo-jeanba-nostra-2026-11-18@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261118T180000Z
 DTEND:20261118T230000Z
 SUMMARY:Osiris At La Notte : Germain Rojo - Jeanba - Nostra
 LOCATION:La Notte - Marché du Lez\, Montpellier
 DESCRIPTION:House et afro house avec Germain Rojo\, Jeanba et Nostra en entrée libre à La Notte.\nBillets : https://shotgun.live/events/osiris-at-la-notte-germain-rojo-jeanba-nostra\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/osiris-at-la-notte-germain-rojo-jeanba-nostra
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Osiris At La Notte : Germain Rojo - Jeanba - Nostra
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Osiris At La Notte : Germain Rojo - Jeanba - Nostra
+END:VALARM
 END:VEVENT
 END:VCALENDAR

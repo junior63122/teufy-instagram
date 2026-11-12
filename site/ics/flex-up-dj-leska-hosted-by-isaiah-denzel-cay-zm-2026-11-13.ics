@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:flex-up-dj-leska-hosted-by-isaiah-denzel-cay-zm-2026-11-13@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261113T225500Z
 DTEND:20261114T035500Z
 SUMMARY:Flex Up - Dj Leska Hosted By Isaïah Denzel - Cay'zm
 LOCATION:Live Club\, Rennes
 DESCRIPTION:Le hitmaker DJ Leska et Isaiah Denzel s'emparent de la soiree Flex Up a Rennes.\nBillets : https://shotgun.live/events/flex-up-dj-leska-hosted-by-isaiah-denzel-cay-zm\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/flex-up-dj-leska-hosted-by-isaiah-denzel-cay-zm
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Flex Up - Dj Leska Hosted By Isaïah Denzel - Cay'zm
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Flex Up - Dj Leska Hosted By Isaïah Denzel - Cay'zm
+END:VALARM
 END:VEVENT
 END:VCALENDAR

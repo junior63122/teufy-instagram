@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:the-inspector-cluzo-7-weeks-less-is-more-worldwide-tour-2026-11-26@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261126T193000Z
 DTEND:20261127T003000Z
 SUMMARY:The Inspector Cluzo + 7 Weeks (Less Is More Worldwide Tour)
 LOCATION:El Mediator\, Perpignan
 DESCRIPTION:Double affiche rock au Mediator avec The Inspector Cluzo et 7 Weeks\nBillets : https://www.ticketmaster.fr/fr/manifestation/the-inspector-cluzo-billet/idmanif/603120\nVia Teufy @teufy_official
 URL:https://www.ticketmaster.fr/fr/manifestation/the-inspector-cluzo-billet/idmanif/603120
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : The Inspector Cluzo + 7 Weeks (Less Is More Worldwide Tour)
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : The Inspector Cluzo + 7 Weeks (Less Is More Worldwide Tour)
+END:VALARM
 END:VEVENT
 END:VCALENDAR

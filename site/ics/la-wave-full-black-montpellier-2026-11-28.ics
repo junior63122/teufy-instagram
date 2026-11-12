@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:la-wave-full-black-montpellier-2026-11-28@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261128T190000Z
 DTEND:20261129T000000Z
 SUMMARY:La Wave "Full Black" - Montpellier
 LOCATION:O'Sullivans Pub Montpellier\, Montpellier
 DESCRIPTION:Dress code full black pour une soirée explosive afro\, trap et dancehall au O'Sullivans.\nBillets : https://shotgun.live/events/la-wave-full-black-montpellier\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/la-wave-full-black-montpellier
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : La Wave "Full Black" - Montpellier
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : La Wave "Full Black" - Montpellier
+END:VALARM
 END:VEVENT
 END:VCALENDAR

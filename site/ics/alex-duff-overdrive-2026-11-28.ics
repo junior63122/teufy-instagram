@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:alex-duff-overdrive-2026-11-28@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150657Z
 DTSTART:20261128T225900Z
 DTEND:20261129T035900Z
 SUMMARY:Alex Duff / Overdrive
 LOCATION:Glass Club Cannes\, Cannes
 DESCRIPTION:Alex Duff aux platines pour une nuit house et tech house survitaminée.\nBillets : https://shotgun.live/fr/venues/glass-club-cannes\nVia Teufy @teufy_official
 URL:https://shotgun.live/fr/venues/glass-club-cannes
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Alex Duff / Overdrive
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Alex Duff / Overdrive
+END:VALARM
 END:VEVENT
 END:VCALENDAR

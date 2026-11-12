@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:slip-panther-glam-rock-revival-show-2026-11-28@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150657Z
 DTSTART:20261128T193000Z
 DTEND:20261129T003000Z
 SUMMARY:Slip Panther — Glam Rock Revival Show
 LOCATION:Le Live\, Toulon
 DESCRIPTION:Show déjanté et paillettes rendant hommage aux grandes heures du rock US.\nBillets : https://zenith-toulon.com/evenement/slip-panther/\nVia Teufy @teufy_official
 URL:https://zenith-toulon.com/evenement/slip-panther/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Slip Panther — Glam Rock Revival Show
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Slip Panther — Glam Rock Revival Show
+END:VALARM
 END:VEVENT
 END:VCALENDAR

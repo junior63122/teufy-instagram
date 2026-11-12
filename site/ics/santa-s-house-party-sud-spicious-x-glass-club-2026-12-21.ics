@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:santa-s-house-party-sud-spicious-x-glass-club-2026-12-21@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261221T220000Z
 DTEND:20261222T030000Z
 SUMMARY:Santa's House Party — Sud'Spicious X Glass Club
 LOCATION:Glass Club Cannes\, Cannes
 DESCRIPTION:Soirée de Noël du crew Sud'Spicious sur le sound system VOID du Glass Club.\nBillets : https://shotgun.live/fr/events/santa-s-house-party\nVia Teufy @teufy_official
 URL:https://shotgun.live/fr/events/santa-s-house-party
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Santa's House Party — Sud'Spicious X Glass Club
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Santa's House Party — Sud'Spicious X Glass Club
+END:VALARM
 END:VEVENT
 END:VCALENDAR

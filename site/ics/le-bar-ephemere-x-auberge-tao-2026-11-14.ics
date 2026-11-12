@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:le-bar-ephemere-x-auberge-tao-2026-11-14@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150657Z
 DTSTART:20261114T180000Z
 DTEND:20261114T230000Z
 SUMMARY:Le Bar Ephémère x Auberge Tao
 LOCATION:Auberge Tao\, Biot
 DESCRIPTION:Réouverture de l'Auberge Tao en mode cocooning avec set afro et latino house par Aaron.\nBillets : https://www.instagram.com/p/DfHd9twOCx9/\nVia Teufy @teufy_official
 URL:https://www.instagram.com/p/DfHd9twOCx9/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Le Bar Ephémère x Auberge Tao
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Le Bar Ephémère x Auberge Tao
+END:VALARM
 END:VEVENT
 END:VCALENDAR

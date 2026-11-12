@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:la-tocardise-2026-11-14@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150657Z
 DTSTART:20261114T220000Z
 DTEND:20261115T030000Z
 SUMMARY:La Tocardise
 LOCATION:Green Musik\, 11 bis avenue du 11 Novembre\, 06600 Antibes\, Antibes
 DESCRIPTION:Les Tocards reviennent au Green Musik pour une nuit techno\, psytrance et hard trance.\nBillets : https://shotgun.live/events/la-tocardise-14-11-2026\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/la-tocardise-14-11-2026
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : La Tocardise
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : La Tocardise
+END:VALARM
 END:VEVENT
 END:VCALENDAR

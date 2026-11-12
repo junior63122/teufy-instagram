@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:soiree-italie-france-2026-11-12@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150657Z
 DTSTART:20261112T194500Z
 DTEND:20261113T004500Z
 SUMMARY:Soirée Italie / France
 LOCATION:La Cale Sèche\, Toulon
 DESCRIPTION:Diffusion du match de football Italie contre France sur grand écran.\nBillets : https://www.instagram.com/p/DfiTUI4oNVy/\nVia Teufy @teufy_official
 URL:https://www.instagram.com/p/DfiTUI4oNVy/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Soirée Italie / France
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Soirée Italie / France
+END:VALARM
 END:VEVENT
 END:VCALENDAR

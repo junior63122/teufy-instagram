@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:monte-carlo-jazz-festival-focus-selah-sue-et-guests-2026-11-18@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150657Z
 DTSTART:20261118T193000Z
 DTEND:20261119T003000Z
 SUMMARY:Monte-Carlo Jazz Festival — Focus Selah Sue & Guests
 LOCATION:Opéra Garnier Monte-Carlo\, Monaco
 DESCRIPTION:Selah Sue en live électro-soul dans le cadre somptueux de l'Opéra Garnier.\nBillets : https://www.visitmonaco.com/fr/evenement/festival/monte-carlo-jazz-festival-2026\nVia Teufy @teufy_official
 URL:https://www.visitmonaco.com/fr/evenement/festival/monte-carlo-jazz-festival-2026
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Monte-Carlo Jazz Festival — Focus Selah Sue & Guests
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Monte-Carlo Jazz Festival — Focus Selah Sue & Guests
+END:VALARM
 END:VEVENT
 END:VCALENDAR

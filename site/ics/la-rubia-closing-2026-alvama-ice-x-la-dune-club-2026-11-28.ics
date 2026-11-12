@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:la-rubia-closing-2026-alvama-ice-x-la-dune-club-2026-11-28@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261128T220000Z
 DTEND:20261129T030000Z
 SUMMARY:La Rubia\, Closing 2026 : Alvama Ice X La Dune Club
 LOCATION:La Dune Club\, La Grande-Motte
 DESCRIPTION:Closing officiel 2026 à La Dune avec Alvama Ice aux platines.\nBillets : https://shotgun.live/fr/events/la-rubia-closing-2026-alvama-ice-x-la-dune-club-vrai\nVia Teufy @teufy_official
 URL:https://shotgun.live/fr/events/la-rubia-closing-2026-alvama-ice-x-la-dune-club-vrai
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : La Rubia\, Closing 2026 : Alvama Ice X La Dune Club
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : La Rubia\, Closing 2026 : Alvama Ice X La Dune Club
+END:VALARM
 END:VEVENT
 END:VCALENDAR

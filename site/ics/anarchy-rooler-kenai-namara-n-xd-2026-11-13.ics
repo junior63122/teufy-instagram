@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:anarchy-rooler-kenai-namara-n-xd-2026-11-13@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261113T225900Z
 DTEND:20261114T035900Z
 SUMMARY:Anarchy : Rooler\, Kenai\, Namara\, N-Xd
 LOCATION:DIEZE WAREHOUSE\, Montpellier
 DESCRIPTION:Le ponte du raw Rooler débarque avec Kenai et Namara au Dieze Warehouse.\nBillets : https://shotgun.live/events/anarchy-rooler-kenai-namara-n-xd\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/anarchy-rooler-kenai-namara-n-xd
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Anarchy : Rooler\, Kenai\, Namara\, N-Xd
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Anarchy : Rooler\, Kenai\, Namara\, N-Xd
+END:VALARM
 END:VEVENT
 END:VCALENDAR

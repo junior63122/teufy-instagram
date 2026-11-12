@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:jean-terechkova-i-origine-release-party-i-ubu-2026-11-13@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261113T225900Z
 DTEND:20261114T035900Z
 SUMMARY:Jean Terechkova I Origine Release Party I Ubu
 LOCATION:L'Ubu\, Rennes
 DESCRIPTION:Release party officielle de Jean Terechkova pour son projet Origine a l'Ubu.\nBillets : https://shotgun.live/events/jean-terechkova-origine-release-party-ubu\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/jean-terechkova-origine-release-party-ubu
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Jean Terechkova I Origine Release Party I Ubu
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Jean Terechkova I Origine Release Party I Ubu
+END:VALARM
 END:VEVENT
 END:VCALENDAR

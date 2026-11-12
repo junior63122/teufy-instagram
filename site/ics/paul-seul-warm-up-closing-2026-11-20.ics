@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:paul-seul-warm-up-closing-2026-11-20@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150657Z
 DTSTART:20261120T190000Z
 DTEND:20261121T000000Z
 SUMMARY:Paul Seul (+ Warm up + Closing)
 LOCATION:Frigo 16 (Le 109)\, Nice
 DESCRIPTION:Paul Seul de Casual Gabberz et Ascendant Vierge débarque au Frigo 16.\nBillets : https://my.weezevent.com/paul-seul-premiere-partie-frigo-16\nVia Teufy @teufy_official
 URL:https://my.weezevent.com/paul-seul-premiere-partie-frigo-16
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Paul Seul (+ Warm up + Closing)
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Paul Seul (+ Warm up + Closing)
+END:VALARM
 END:VEVENT
 END:VCALENDAR

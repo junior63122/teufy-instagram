@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:fox-in-dub-au-barex-2026-11-13@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261113T190000Z
 DTEND:20261114T000000Z
 SUMMARY:Fox In Dub Au Barex'
 LOCATION:SBX Club / Barex'po\, Rennes
 DESCRIPTION:Session sound system dub et reggae gratuite au Barex'po un vendredi soir.\nBillets : https://shotgun.live/events/fox-in-dub-au-barex\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/fox-in-dub-au-barex
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Fox In Dub Au Barex'
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Fox In Dub Au Barex'
+END:VALARM
 END:VEVENT
 END:VCALENDAR

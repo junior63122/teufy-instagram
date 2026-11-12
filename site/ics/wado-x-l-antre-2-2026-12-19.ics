@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:wado-x-l-antre-2-2026-12-19@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261219T210000Z
 DTEND:20261220T020000Z
 SUMMARY:Wado X L'Antre 2
 LOCATION:L'Antre Bar Electro\, Nice
 DESCRIPTION:Deuxième round tekno sans répit avec le Mojo Crew sous les voûtes de Nice.\nBillets : https://shotgun.live/fr/events/wado-x-l-antre-2\nVia Teufy @teufy_official
 URL:https://shotgun.live/fr/events/wado-x-l-antre-2
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Wado X L'Antre 2
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Wado X L'Antre 2
+END:VALARM
 END:VEVENT
 END:VCALENDAR

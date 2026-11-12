@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:the-purge-x-naho-club-2026-11-12@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150657Z
 DTSTART:20261112T225900Z
 DTEND:20261113T035900Z
 SUMMARY:The Purge X Naho Club
 LOCATION:NAHO Club\, La Garde
 DESCRIPTION:Soirée étudiante et clubbing à thème horreur Purge au NAHO Club.\nBillets : https://shotgun.live/fr/events/the-purge-x-naho-club\nVia Teufy @teufy_official
 URL:https://shotgun.live/fr/events/the-purge-x-naho-club
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : The Purge X Naho Club
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : The Purge X Naho Club
+END:VALARM
 END:VEVENT
 END:VCALENDAR

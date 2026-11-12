@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:nassim-x-antirouille-2026-11-27@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261127T190000Z
 DTEND:20261128T000000Z
 SUMMARY:Nassim X Antirouille
 LOCATION:L'Antirouille\, Montpellier
 DESCRIPTION:Vibes soul\, funk et R&B entraînantes avec Nassim sur la scène de L'Antirouille.\nBillets : https://shotgun.live/events/nassim-x-antirouille\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/nassim-x-antirouille
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Nassim X Antirouille
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Nassim X Antirouille
+END:VALARM
 END:VEVENT
 END:VCALENDAR

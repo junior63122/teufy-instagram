@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:transgenik-danilo-filipe-gi-o-lilith-et-peter-blue-2026-11-14@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261114T225900Z
 DTEND:20261115T035900Z
 SUMMARY:Transgenik : Danilo Filipe\, Gi.o\, Lilith & Peter Blue
 LOCATION:FVTVR\, Paris
 DESCRIPTION:Fast techno\, acid et trance au club FVTVR avec la team Transgenik.\nBillets : https://shotgun.live/events/paris\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/paris
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Transgenik : Danilo Filipe\, Gi.o\, Lilith & Peter Blue
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Transgenik : Danilo Filipe\, Gi.o\, Lilith & Peter Blue
+END:VALARM
 END:VEVENT
 END:VCALENDAR

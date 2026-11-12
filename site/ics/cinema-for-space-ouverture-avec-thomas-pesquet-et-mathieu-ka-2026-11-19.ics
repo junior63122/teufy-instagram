@@ -4,11 +4,21 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:cinema-for-space-ouverture-avec-thomas-pesquet-et-mathieu-ka-2026-11-19@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150657Z
 DTSTART:20261119T183000Z
 DTEND:20261119T233000Z
 SUMMARY:Cinema for Space : Ouverture avec Thomas Pesquet et Mathieu Kassovitz
 LOCATION:Palais des Festivals et des Congrès\, Cannes
 DESCRIPTION:Dialogue exclusif entre Thomas Pesquet et Mathieu Kassovitz autour de l'espace au cinéma.\nVia Teufy @teufy_official
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Cinema for Space : Ouverture avec Thomas Pesquet et Mathieu Kassovitz
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Cinema for Space : Ouverture avec Thomas Pesquet et Mathieu Kassovitz
+END:VALARM
 END:VEVENT
 END:VCALENDAR

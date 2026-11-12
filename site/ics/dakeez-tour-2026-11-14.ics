@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:dakeez-tour-2026-11-14@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261114T190000Z
 DTEND:20261115T000000Z
 SUMMARY:Dakeez Tour
 LOCATION:Salle de spectacle Grenoble\, Grenoble
 DESCRIPTION:Dakeez en tournée avec son univers trapsoul et R&B à Grenoble.\nBillets : https://shotgun.live/events/dakeez-grenoble\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/dakeez-grenoble
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Dakeez Tour
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Dakeez Tour
+END:VALARM
 END:VEVENT
 END:VCALENDAR

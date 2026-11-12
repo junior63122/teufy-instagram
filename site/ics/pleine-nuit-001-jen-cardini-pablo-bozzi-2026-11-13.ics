@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:pleine-nuit-001-jen-cardini-pablo-bozzi-2026-11-13@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261113T225900Z
 DTEND:20261114T035900Z
 SUMMARY:Pleine Nuit 001 : Jen Cardini + Pablo Bozzi
 LOCATION:Bien Public\, Bordeaux
 DESCRIPTION:Lancement de Pleine Nuit au Bien Public avec Jen Cardini et Pablo Bozzi en tête d'affiche.\nBillets : https://ra.co/events/fr/bordeaux\nVia Teufy @teufy_official
 URL:https://ra.co/events/fr/bordeaux
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Pleine Nuit 001 : Jen Cardini + Pablo Bozzi
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Pleine Nuit 001 : Jen Cardini + Pablo Bozzi
+END:VALARM
 END:VEVENT
 END:VCALENDAR

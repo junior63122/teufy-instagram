@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:le-mas-d-hiver-soiree-culture-80-2026-11-28@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150657Z
 DTSTART:20261128T183000Z
 DTEND:20261128T233000Z
 SUMMARY:Le Mas d'Hiver : Soirée Culture 80
 LOCATION:Le Mas des Escaravatiers\, Puget-sur-Argens
 DESCRIPTION:Soirée festive vintage aux rythmes des tubes cultes des années 80 au Mas d'Hiver.\nBillets : https://lemas-concert.com/line-up-hiver-2026/\nVia Teufy @teufy_official
 URL:https://lemas-concert.com/line-up-hiver-2026/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Le Mas d'Hiver : Soirée Culture 80
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Le Mas d'Hiver : Soirée Culture 80
+END:VALARM
 END:VEVENT
 END:VCALENDAR

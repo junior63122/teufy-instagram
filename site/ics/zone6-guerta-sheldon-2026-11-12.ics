@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:zone6-guerta-sheldon-2026-11-12@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261112T173000Z
 DTEND:20261112T223000Z
 SUMMARY:ZONE6 : Guerta + Sheldon
 LOCATION:6MIC\, Aix-en-Provence
 DESCRIPTION:Double plateau rap au 6MIC avec Sheldon de la 75e Session et Guerta.\nBillets : https://billetterie.6mic-aix.fr/evenement/12-11-2026-20-30-zone6-guerta-et-sheldon\nVia Teufy @teufy_official
 URL:https://billetterie.6mic-aix.fr/evenement/12-11-2026-20-30-zone6-guerta-et-sheldon
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : ZONE6 : Guerta + Sheldon
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : ZONE6 : Guerta + Sheldon
+END:VALARM
 END:VEVENT
 END:VCALENDAR

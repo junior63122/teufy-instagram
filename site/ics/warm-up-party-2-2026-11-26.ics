@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:warm-up-party-2-2026-11-26@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261126T170000Z
 DTEND:20261126T220000Z
 SUMMARY:Warm Up Party #2
 LOCATION:1 Rue du Breil\, Rennes
 DESCRIPTION:Format warm up étudiant dès 18h avec billetterie gratuite.\nBillets : https://shotgun.live/events/warm-up-party-2\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/warm-up-party-2
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Warm Up Party #2
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Warm Up Party #2
+END:VALARM
 END:VEVENT
 END:VCALENDAR

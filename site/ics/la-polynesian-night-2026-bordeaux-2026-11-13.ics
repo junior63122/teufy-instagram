@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:la-polynesian-night-2026-bordeaux-2026-11-13@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261113T224500Z
 DTEND:20261114T034500Z
 SUMMARY:La Polynesian Night 2026 Bordeaux
 LOCATION:Seven Club\, Bordeaux
 DESCRIPTION:Rythmes du Pacifique\, shatta et dancehall au Seven Club jusqu'à l'aube.\nBillets : https://shotgun.live/fr/events/la-polynesian-night-2026-bordeaux\nVia Teufy @teufy_official
 URL:https://shotgun.live/fr/events/la-polynesian-night-2026-bordeaux
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : La Polynesian Night 2026 Bordeaux
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : La Polynesian Night 2026 Bordeaux
+END:VALARM
 END:VEVENT
 END:VCALENDAR

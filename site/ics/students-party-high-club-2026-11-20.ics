@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:students-party-high-club-2026-11-20@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150657Z
 DTSTART:20261120T225900Z
 DTEND:20261121T035900Z
 SUMMARY:Students Party @ High Club
 LOCATION:High Club\, Nice
 DESCRIPTION:Le grand rendez-vous étudiant du vendredi soir sur la Promenade des Anglais.\nBillets : https://xceed.me/fr/nice/event/students-party-nice\nVia Teufy @teufy_official
 URL:https://xceed.me/fr/nice/event/students-party-nice
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Students Party @ High Club
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Students Party @ High Club
+END:VALARM
 END:VEVENT
 END:VCALENDAR

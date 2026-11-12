@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:do-you-like-tekno-2026-11-28@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150657Z
 DTSTART:20261128T190000Z
 DTEND:20261129T000000Z
 SUMMARY:DO YOU LIKE… TEKNO ?
 LOCATION:Frigo 16 (Le 109)\, Nice
 DESCRIPTION:Live de 2h du duo 23HZ (Insane Teknology & Nesh Mayday) plus Banditik au 109.\nBillets : https://shotgun.live/fr/events/do-you-like-tekno-frigo-16-le-109-nice\nVia Teufy @teufy_official
 URL:https://shotgun.live/fr/events/do-you-like-tekno-frigo-16-le-109-nice
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : DO YOU LIKE… TEKNO ?
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : DO YOU LIKE… TEKNO ?
+END:VALARM
 END:VEVENT
 END:VCALENDAR

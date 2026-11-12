@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:boiler-cheri-3-dj-teoma-2026-11-20@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261120T210000Z
 DTEND:20261121T020000Z
 SUMMARY:Boiler Chéri #3 – DJ TEOMA
 LOCATION:Lieu Chéri – JOST Bordeaux\, Bordeaux
 DESCRIPTION:Configuration Boiler Room avec DJ TEOMA au centre du dancefloor.\nBillets : https://shotgun.live/events/boiler-cheri-3\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/boiler-cheri-3
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Boiler Chéri #3 – DJ TEOMA
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Boiler Chéri #3 – DJ TEOMA
+END:VALARM
 END:VEVENT
 END:VCALENDAR

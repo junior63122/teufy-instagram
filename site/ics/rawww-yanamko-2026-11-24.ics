@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:rawww-yanamko-2026-11-24@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261124T190000Z
 DTEND:20261125T000000Z
 SUMMARY:Rawww : Yanamko
 LOCATION:La Bulle Café\, Lille
 DESCRIPTION:Soirée rap émergent avec Yanamko sur la scène intimiste de La Bulle Café.\nBillets : https://shotgun.live/events/rawww-yanamko-a-la-bulle-cafe\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/rawww-yanamko-a-la-bulle-cafe
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Rawww : Yanamko
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Rawww : Yanamko
+END:VALARM
 END:VEVENT
 END:VCALENDAR

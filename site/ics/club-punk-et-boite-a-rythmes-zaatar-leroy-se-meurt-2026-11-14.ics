@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:club-punk-et-boite-a-rythmes-zaatar-leroy-se-meurt-2026-11-14@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261114T223000Z
 DTEND:20261115T033000Z
 SUMMARY:Club Punk & Boîte À Rythmes : Zaatar\, Leroy Se Meurt
 LOCATION:Club Transbo\, Lyon
 DESCRIPTION:Dark wave\, EBM et techno industrielle au Club Transbo.\nBillets : https://shotgun.live/events/club-punk-boite-a-rythmes\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/club-punk-boite-a-rythmes
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Club Punk & Boîte À Rythmes : Zaatar\, Leroy Se Meurt
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Club Punk & Boîte À Rythmes : Zaatar\, Leroy Se Meurt
+END:VALARM
 END:VEVENT
 END:VCALENDAR

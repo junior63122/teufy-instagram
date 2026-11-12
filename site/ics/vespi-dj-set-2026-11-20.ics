@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:vespi-dj-set-2026-11-20@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261120T225900Z
 DTEND:20261121T035900Z
 SUMMARY:Vespi Dj Set
 LOCATION:TS Bar / Clubbing\, Montpellier
 DESCRIPTION:DJ set festif electro pop signé Vespi pour enflammer le dancefloor du TS Bar.\nBillets : https://shotgun.live/events/vespi-dj-set\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/vespi-dj-set
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Vespi Dj Set
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Vespi Dj Set
+END:VALARM
 END:VEVENT
 END:VCALENDAR

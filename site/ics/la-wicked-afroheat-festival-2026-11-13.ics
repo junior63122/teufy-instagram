@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:la-wicked-afroheat-festival-2026-11-13@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150657Z
 DTSTART:20261113T223000Z
 DTEND:20261114T033000Z
 SUMMARY:La Wicked – Afroheat Festival
 LOCATION:305 Vice Club Nice\, Nice
 DESCRIPTION:Soirée officielle Afroheat Festival avec DJ Mapouia\, Black Q et Lil Big au 305 Vice.\nBillets : https://shotgun.live/events/la-wicked-305-vice-club-nice-afroheat-festival\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/la-wicked-305-vice-club-nice-afroheat-festival
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : La Wicked – Afroheat Festival
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : La Wicked – Afroheat Festival
+END:VALARM
 END:VEVENT
 END:VCALENDAR

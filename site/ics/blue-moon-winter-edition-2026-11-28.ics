@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:blue-moon-winter-edition-2026-11-28@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261128T190000Z
 DTEND:20261129T000000Z
 SUMMARY:Blue Moon Winter Edition
 LOCATION:Mélomane Club\, Montpellier
 DESCRIPTION:Édition hivernale de Blue Moon : 9 heures d'acid techno et psytrance au Mélomane.\nBillets : https://shotgun.live/events/blue-moon-winter-edition\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/blue-moon-winter-edition
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Blue Moon Winter Edition
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Blue Moon Winter Edition
+END:VALARM
 END:VEVENT
 END:VCALENDAR

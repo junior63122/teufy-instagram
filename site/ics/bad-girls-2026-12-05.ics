@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:bad-girls-2026-12-05@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150657Z
 DTSTART:20261205T225900Z
 DTEND:20261206T035900Z
 SUMMARY:Bad Girls
 LOCATION:High Club\, Nice
 DESCRIPTION:Ambiance baddie\, bangers hip-hop US et RnB pour mettre le feu au High Club.\nBillets : https://www.highclub.fr/event/bad-girls/\nVia Teufy @teufy_official
 URL:https://www.highclub.fr/event/bad-girls/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Bad Girls
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Bad Girls
+END:VALARM
 END:VEVENT
 END:VCALENDAR

@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:bashment-invite-gold-up-2026-11-21@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261121T210000Z
 DTEND:20261122T020000Z
 SUMMARY:Bashment Invite Gold Up
 LOCATION:L'Ampérage\, Grenoble
 DESCRIPTION:Les producteurs dancehall internationaux Gold Up invites par Bashment.\nBillets : https://shotgun.live/events/bashment-invite-gold-up-dancehall-shatta-hip-hop\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/bashment-invite-gold-up-dancehall-shatta-hip-hop
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Bashment Invite Gold Up
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Bashment Invite Gold Up
+END:VALARM
 END:VEVENT
 END:VCALENDAR

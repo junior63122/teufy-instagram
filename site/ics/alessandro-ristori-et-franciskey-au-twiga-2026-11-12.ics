@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:alessandro-ristori-et-franciskey-au-twiga-2026-11-12@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150657Z
 DTSTART:20261112T193000Z
 DTEND:20261113T003000Z
 SUMMARY:Alessandro Ristori et Franciskey au Twiga
 LOCATION:Twiga Monte-Carlo\, Monaco
 DESCRIPTION:Dîner live d'Alessandro Ristori suivi d'une nuit clubbing avec Franciskey.\nBillets : https://www.instagram.com/p/DfhEca1IMNm/\nVia Teufy @teufy_official
 URL:https://www.instagram.com/p/DfhEca1IMNm/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Alessandro Ristori et Franciskey au Twiga
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Alessandro Ristori et Franciskey au Twiga
+END:VALARM
 END:VEVENT
 END:VCALENDAR

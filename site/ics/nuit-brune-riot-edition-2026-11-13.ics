@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:nuit-brune-riot-edition-2026-11-13@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261113T225900Z
 DTEND:20261114T035900Z
 SUMMARY:Nuit Brune - Riot Edition
 LOCATION:Rockstore\, Montpellier
 DESCRIPTION:Riot Edition au Rockstore : le rendez-vous explosif shatta\, baile funk et bass music.\nBillets : https://shotgun.live/events/nuit-brune-riot-edition\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/nuit-brune-riot-edition
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Nuit Brune - Riot Edition
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Nuit Brune - Riot Edition
+END:VALARM
 END:VEVENT
 END:VCALENDAR

@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:macadam-binary-digit-live-multifun-somoine-b2b-choreophila-2026-12-04@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261204T225900Z
 DTEND:20261205T035900Z
 SUMMARY:Macadam • Binary Digit (live) ~ Multifun ~ Somoine B2B Choreophila
 LOCATION:Macadam\, Nantes
 DESCRIPTION:Live acid et braindance avec Binary Digit dans le clubbing sombre du Macadam.\nBillets : https://shotgun.live/fr/events/macadam-binary-digit-live-multifun-somoine-b-2-b\nVia Teufy @teufy_official
 URL:https://shotgun.live/fr/events/macadam-binary-digit-live-multifun-somoine-b-2-b
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Macadam • Binary Digit (live) ~ Multifun ~ Somoine B2B Choreophila
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Macadam • Binary Digit (live) ~ Multifun ~ Somoine B2B Choreophila
+END:VALARM
 END:VEVENT
 END:VCALENDAR

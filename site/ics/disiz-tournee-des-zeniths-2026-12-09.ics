@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:disiz-tournee-des-zeniths-2026-12-09@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261209T190000Z
 DTEND:20261210T000000Z
 SUMMARY:Disiz - Tournée des Zéniths
 LOCATION:Zénith de Lille\, Lille
 DESCRIPTION:Disiz en grand format au Zénith de Lille pour clore sa tournée des Zéniths.\nBillets : https://shotgun.live/events/disiz-lille\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/disiz-lille
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Disiz - Tournée des Zéniths
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Disiz - Tournée des Zéniths
+END:VALARM
 END:VEVENT
 END:VCALENDAR

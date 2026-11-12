@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:lost-paradise-by-bouillotte-klub-2026-11-13@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150657Z
 DTSTART:20261113T170000Z
 DTEND:20261113T220000Z
 SUMMARY:Lost Paradise by Bouillotte Klub
 LOCATION:Fort Napoléon\, La Seyne-sur-Mer
 DESCRIPTION:Électro immersive et coucher de soleil dans le cadre historique du Fort Napoléon.\nBillets : https://shotgun.live/fr/events/lost-paradise-by-bouillotte-klub-fornap\nVia Teufy @teufy_official
 URL:https://shotgun.live/fr/events/lost-paradise-by-bouillotte-klub-fornap
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Lost Paradise by Bouillotte Klub
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Lost Paradise by Bouillotte Klub
+END:VALARM
 END:VEVENT
 END:VCALENDAR

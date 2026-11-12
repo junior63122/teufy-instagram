@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:festival-solidaire-le-pere-noel-est-il-un-rocker-soiree-pern-2026-11-25@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261125T193000Z
 DTEND:20261126T003000Z
 SUMMARY:Festival Solidaire Le Père Noël Est-Il Un Rocker ? (Soirée PernoRock)
 LOCATION:La Brat Cave\, Lille
 DESCRIPTION:Un jouet neuf déposé à l'entrée contre une soirée rock solidaire à La Brat Cave.\nBillets : https://shotgun.live/events/festival-solidaire-le-pere-noel-est-il-un-rocker\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/festival-solidaire-le-pere-noel-est-il-un-rocker
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Festival Solidaire Le Père Noël Est-Il Un Rocker ? (Soirée PernoRock)
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Festival Solidaire Le Père Noël Est-Il Un Rocker ? (Soirée PernoRock)
+END:VALARM
 END:VEVENT
 END:VCALENDAR

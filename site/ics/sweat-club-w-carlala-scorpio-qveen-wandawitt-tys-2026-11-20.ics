@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:sweat-club-w-carlala-scorpio-qveen-wandawitt-tys-2026-11-20@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261120T210000Z
 DTEND:20261121T020000Z
 SUMMARY:Sweat Club w/ Carlala\, Scorpio Qveen\, Wandawitt\, Tys
 LOCATION:Le Chapiteau\, Marseille
 DESCRIPTION:Baile funk\, neo perreo et dancehall surchauffent Le Chapiteau.\nBillets : https://shotgun.live/events/sweat-club-w-carlala-scorpio-qveen-wandawitt-tys\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/sweat-club-w-carlala-scorpio-qveen-wandawitt-tys
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Sweat Club w/ Carlala\, Scorpio Qveen\, Wandawitt\, Tys
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Sweat Club w/ Carlala\, Scorpio Qveen\, Wandawitt\, Tys
+END:VALARM
 END:VEVENT
 END:VCALENDAR

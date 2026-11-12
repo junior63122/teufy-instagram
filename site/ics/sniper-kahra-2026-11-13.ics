@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:sniper-kahra-2026-11-13@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261113T193000Z
 DTEND:20261114T003000Z
 SUMMARY:Sniper + Kahra
 LOCATION:Paloma (Grande Salle)\, Nîmes
 DESCRIPTION:Le groupe culte du rap français débarque sur la grande scène de Paloma avec Kahra en première partie.\nBillets : https://paloma-nimes.fr/agenda/sniper/\nVia Teufy @teufy_official
 URL:https://paloma-nimes.fr/agenda/sniper/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Sniper + Kahra
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Sniper + Kahra
+END:VALARM
 END:VEVENT
 END:VCALENDAR

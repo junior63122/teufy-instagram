@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:damn-peach-x-cafe-toulonnais-2026-11-21@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150657Z
 DTSTART:20261121T180000Z
 DTEND:20261121T230000Z
 SUMMARY:Damn Peach x Café Toulonnais
 LOCATION:Café Toulonnais (Les Halles de Toulon)\, Toulon
 DESCRIPTION:Session urbaine et restauration aux Halles de Toulon de 19h à minuit.\nBillets : https://www.instagram.com/p/DfnG6VXCPUr/\nVia Teufy @teufy_official
 URL:https://www.instagram.com/p/DfnG6VXCPUr/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Damn Peach x Café Toulonnais
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Damn Peach x Café Toulonnais
+END:VALARM
 END:VEVENT
 END:VCALENDAR

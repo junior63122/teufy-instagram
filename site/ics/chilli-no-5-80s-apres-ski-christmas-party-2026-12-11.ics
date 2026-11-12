@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:chilli-no-5-80s-apres-ski-christmas-party-2026-12-11@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261211T180000Z
 DTEND:20261211T230000Z
 SUMMARY:Chilli No. 5 - 80s Après-Ski Christmas Party
 LOCATION:Espaces 245 Sophia Antipolis\, Valbonne
 DESCRIPTION:Thème festif 80s Après-Ski avec DJ set et cocktails pour fêter Noël en avance.\nBillets : https://www.eventbrite.fr/e/billets-chilli-no-5-80s-apres-ski-christmas-party-1196754467\nVia Teufy @teufy_official
 URL:https://www.eventbrite.fr/e/billets-chilli-no-5-80s-apres-ski-christmas-party-1196754467
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Chilli No. 5 - 80s Après-Ski Christmas Party
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Chilli No. 5 - 80s Après-Ski Christmas Party
+END:VALARM
 END:VEVENT
 END:VCALENDAR

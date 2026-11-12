@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:kiss-et-fly-en-live-pop-fusion-jazz-et-world-grooves-2026-11-13@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150657Z
 DTSTART:20261113T190000Z
 DTEND:20261114T000000Z
 SUMMARY:KISS & FLY EN LIVE ! ✨ POP FUSION / JAZZ & WORLD GROOVES ✨
 LOCATION:Le Quartier du Poulpe\, Nice
 DESCRIPTION:Live énergique pop fusion et world grooves au Quartier du Poulpe pour lancer le weekend.\nBillets : https://www.eventbrite.fr/e/billets-kiss-fly-en-live-pop-fusion-jazz-world-grooves-1196043131\nVia Teufy @teufy_official
 URL:https://www.eventbrite.fr/e/billets-kiss-fly-en-live-pop-fusion-jazz-world-grooves-1196043131
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : KISS & FLY EN LIVE ! ✨ POP FUSION / JAZZ & WORLD GROOVES ✨
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : KISS & FLY EN LIVE ! ✨ POP FUSION / JAZZ & WORLD GROOVES ✨
+END:VALARM
 END:VEVENT
 END:VCALENDAR

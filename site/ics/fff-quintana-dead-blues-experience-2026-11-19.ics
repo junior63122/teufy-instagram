@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:fff-quintana-dead-blues-experience-2026-11-19@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261119T173000Z
 DTEND:20261119T223000Z
 SUMMARY:FFF (+ Quintana Dead Blues Experience)
 LOCATION:6MIC\, Aix-en-Provence
 DESCRIPTION:Le retour explosif de FFF sur scène pour une dose pure de funk rock.\nBillets : https://billetterie.6mic-aix.fr/evenement/19-11-2026-20-30-fff\nVia Teufy @teufy_official
 URL:https://billetterie.6mic-aix.fr/evenement/19-11-2026-20-30-fff
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : FFF (+ Quintana Dead Blues Experience)
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : FFF (+ Quintana Dead Blues Experience)
+END:VALARM
 END:VEVENT
 END:VCALENDAR

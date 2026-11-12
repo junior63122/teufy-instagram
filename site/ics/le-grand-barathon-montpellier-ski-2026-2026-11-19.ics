@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:le-grand-barathon-montpellier-ski-2026-2026-11-19@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261119T170000Z
 DTEND:20261119T220000Z
 SUMMARY:Le Grand Barathon - Montpellier - Ski 2026
 LOCATION:Milk\, Austra Rocks\, Le Club\, Panama\, Le Fizz\, Montpellier
 DESCRIPTION:Tournée géante sur 3 jours dans 25 bars et 5 clubs montpelliérains sur le thème ski.\nBillets : https://shotgun.live/events/le-grand-barathon-ski-2026\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/le-grand-barathon-ski-2026
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Le Grand Barathon - Montpellier - Ski 2026
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Le Grand Barathon - Montpellier - Ski 2026
+END:VALARM
 END:VEVENT
 END:VCALENDAR

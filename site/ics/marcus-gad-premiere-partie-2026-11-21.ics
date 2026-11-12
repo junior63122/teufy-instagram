@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:marcus-gad-premiere-partie-2026-11-21@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150657Z
 DTSTART:20261121T190000Z
 DTEND:20261122T000000Z
 SUMMARY:Marcus Gad + Première Partie
 LOCATION:Frigo 16 (Le 109)\, Nice
 DESCRIPTION:Vibrations reggae roots et dub envoûtantes en live avec Marcus Gad au 109.\nBillets : https://shotgun.live/fr/events/marcus-gad-premiere-partie-frigo-16\nVia Teufy @teufy_official
 URL:https://shotgun.live/fr/events/marcus-gad-premiere-partie-frigo-16
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Marcus Gad + Première Partie
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Marcus Gad + Première Partie
+END:VALARM
 END:VEVENT
 END:VCALENDAR

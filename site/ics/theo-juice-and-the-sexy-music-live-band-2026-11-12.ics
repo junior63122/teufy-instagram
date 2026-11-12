@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:theo-juice-and-the-sexy-music-live-band-2026-11-12@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261112T190000Z
 DTEND:20261113T000000Z
 SUMMARY:Théo Juice And The Sexy Music Live Band
 LOCATION:Trempo\, Nantes
 DESCRIPTION:Live band explosif groove\, funk et R&B contemporain sur l'île de Nantes.\nBillets : https://shotgun.live/events/theo-juice-and-the-sexy-music-live-band-nantes\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/theo-juice-and-the-sexy-music-live-band-nantes
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Théo Juice And The Sexy Music Live Band
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Théo Juice And The Sexy Music Live Band
+END:VALARM
 END:VEVENT
 END:VCALENDAR

@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:ium-francis-key-2026-11-12@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150657Z
 DTSTART:20261112T223000Z
 DTEND:20261113T033000Z
 SUMMARY:IUM – Francis Key
 LOCATION:Twiga Monte Carlo\, Monaco
 DESCRIPTION:Soirée étudiante de l'IUM avec Francis Key aux platines du Twiga Monte Carlo.\nBillets : https://twigaworld.com/montecarlo/\nVia Teufy @teufy_official
 URL:https://twigaworld.com/montecarlo/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : IUM – Francis Key
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : IUM – Francis Key
+END:VALARM
 END:VEVENT
 END:VCALENDAR

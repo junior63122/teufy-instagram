@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:mizmo-et-the-culture-dj-mann-et-cayz-m-2026-11-14@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261114T225500Z
 DTEND:20261115T035500Z
 SUMMARY:Mizmo & The Culture @ Dj Mann & Cayz'm
 LOCATION:Live Club\, Rennes
 DESCRIPTION:Clubbing grand format sur les tubes du moment avec DJ Mann et Cayz'm.\nBillets : https://shotgun.live/events/mizmo-the-culture-dj-mann-cayz-m\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/mizmo-the-culture-dj-mann-cayz-m
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Mizmo & The Culture @ Dj Mann & Cayz'm
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Mizmo & The Culture @ Dj Mann & Cayz'm
+END:VALARM
 END:VEVENT
 END:VCALENDAR

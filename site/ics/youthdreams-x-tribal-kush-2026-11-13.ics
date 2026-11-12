@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:youthdreams-x-tribal-kush-2026-11-13@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261113T225900Z
 DTEND:20261114T035900Z
 SUMMARY:Youthdreams X Tribal Kush
 LOCATION:L'Espace Club\, Rennes
 DESCRIPTION:Le duo hollandais Tribal Kush debarque a l'Espace Club avec Youthdreams.\nBillets : https://shotgun.live/events/youthdreams-x-tribal-kush\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/youthdreams-x-tribal-kush
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Youthdreams X Tribal Kush
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Youthdreams X Tribal Kush
+END:VALARM
 END:VEVENT
 END:VCALENDAR

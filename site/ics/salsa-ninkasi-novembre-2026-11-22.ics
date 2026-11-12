@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:salsa-ninkasi-novembre-2026-11-22@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261122T183000Z
 DTEND:20261122T233000Z
 SUMMARY:Salsa Ninkasi Novembre
 LOCATION:Ninkasi Montpellier\, Montpellier
 DESCRIPTION:Soirée salsa cubaine gratuite le dimanche soir pour clore le week-end au Ninkasi.\nBillets : https://shotgun.live/events/salsa-ninkasi-novembre\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/salsa-ninkasi-novembre
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Salsa Ninkasi Novembre
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Salsa Ninkasi Novembre
+END:VALARM
 END:VEVENT
 END:VCALENDAR

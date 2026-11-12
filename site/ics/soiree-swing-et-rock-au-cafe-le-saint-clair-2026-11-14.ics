@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:soiree-swing-et-rock-au-cafe-le-saint-clair-2026-11-14@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261114T183000Z
 DTEND:20261114T233000Z
 SUMMARY:Soirée Swing et Rock au café le Saint-Clair
 LOCATION:Le Saint Clair\, 1 quai Maximin Licciardi\, Sète
 DESCRIPTION:Swing et rock gratuits un samedi soir sur les quais de Sète\, viens danser !\nBillets : https://icisete.fr/evenement/soiree-swing-et-rock-au-cafe-le-saint-clair/\nVia Teufy @teufy_official
 URL:https://icisete.fr/evenement/soiree-swing-et-rock-au-cafe-le-saint-clair/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Soirée Swing et Rock au café le Saint-Clair
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Soirée Swing et Rock au café le Saint-Clair
+END:VALARM
 END:VEVENT
 END:VCALENDAR

@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:clubism-popof-et-oxia-2026-11-14@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261114T170000Z
 DTEND:20261114T220000Z
 SUMMARY:Clubism - Popof & Oxia
 LOCATION:Halle Tropisme\, Montpellier
 DESCRIPTION:Les géants de la techno française Popof et Oxia réunis sur scène à Tropisme.\nBillets : https://ra.co/events/1990499\nVia Teufy @teufy_official
 URL:https://ra.co/events/1990499
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Clubism - Popof & Oxia
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Clubism - Popof & Oxia
+END:VALARM
 END:VEVENT
 END:VCALENDAR

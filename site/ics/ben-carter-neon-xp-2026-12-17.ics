@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:ben-carter-neon-xp-2026-12-17@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261217T193000Z
 DTEND:20261218T003000Z
 SUMMARY:Ben Carter (NEON XP)
 LOCATION:Le Dix-Huit - Adresse d'Expériences\, Nice
 DESCRIPTION:Le DJ résident d'Ibiza Ben Carter enflamme Le Dix-Huit en session NEON XP.\nBillets : https://shotgun.live/fr/events/ben-carter\nVia Teufy @teufy_official
 URL:https://shotgun.live/fr/events/ben-carter
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Ben Carter (NEON XP)
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Ben Carter (NEON XP)
+END:VALARM
 END:VEVENT
 END:VCALENDAR

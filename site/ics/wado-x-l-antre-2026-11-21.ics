@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:wado-x-l-antre-2026-11-21@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150657Z
 DTSTART:20261121T040000Z
 DTEND:20261121T090000Z
 SUMMARY:Wado X L'Antre
 LOCATION:L'Antre Bar Electro\, Nice
 DESCRIPTION:Live machine hybride tekno et acidcore par Wado du Mojo Crew pour un after bouillant.\nBillets : https://shotgun.live/fr/events/wado-x-l-antre\nVia Teufy @teufy_official
 URL:https://shotgun.live/fr/events/wado-x-l-antre
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Wado X L'Antre
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Wado X L'Antre
+END:VALARM
 END:VEVENT
 END:VCALENDAR

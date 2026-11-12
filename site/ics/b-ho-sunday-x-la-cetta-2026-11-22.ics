@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:b-ho-sunday-x-la-cetta-2026-11-22@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261122T160000Z
 DTEND:20261122T210000Z
 SUMMARY:Bøho Sunday X La Cetta
 LOCATION:La Cetta\, Sète
 DESCRIPTION:Rendez-vous dominical à Sète avec tech house et afro house jusqu'à minuit.\nBillets : https://shotgun.live/fr/events/boho-sunday-x-la-cetta\nVia Teufy @teufy_official
 URL:https://shotgun.live/fr/events/boho-sunday-x-la-cetta
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Bøho Sunday X La Cetta
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Bøho Sunday X La Cetta
+END:VALARM
 END:VEVENT
 END:VCALENDAR

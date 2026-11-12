@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:latin-addict-2026-11-13@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150657Z
 DTSTART:20261113T225900Z
 DTEND:20261114T035900Z
 SUMMARY:Latin Addict
 LOCATION:High Club\, Nice
 DESCRIPTION:Ambiance caliente sur la Promenade avec la résidence référence reggaeton et shatta.\nBillets : https://www.highclub.fr/event/latin-addict/\nVia Teufy @teufy_official
 URL:https://www.highclub.fr/event/latin-addict/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Latin Addict
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Latin Addict
+END:VALARM
 END:VEVENT
 END:VCALENDAR

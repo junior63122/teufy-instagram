@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:vibrance-7-2026-11-28@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150657Z
 DTSTART:20261128T200000Z
 DTEND:20261129T010000Z
 SUMMARY:Vibrance #7
 LOCATION:L'Antre Bar Electro\, Nice
 DESCRIPTION:Le collectif Aztera installe sa rave psytrance et acid techno dans le Vieux-Nice.\nBillets : https://shotgun.live/fr/events/vibrance-7\nVia Teufy @teufy_official
 URL:https://shotgun.live/fr/events/vibrance-7
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Vibrance #7
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Vibrance #7
+END:VALARM
 END:VEVENT
 END:VCALENDAR

@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:concert-reggae-et-percussions-africaines-rasjah-music-2026-11-14@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150657Z
 DTSTART:20261114T200000Z
 DTEND:20261115T010000Z
 SUMMARY:Concert Reggae & Percussions Africaines — Rasjah Music
 LOCATION:Le Quartier du Poulpe\, Nice
 DESCRIPTION:Live reggae et percussions africaines avec Rasjah Music pour faire monter l ambiance à Nice.\nBillets : https://www.eventbrite.fr/e/billets-concert-reggae-percussions-africaines-rasjah-music-1194413450\nVia Teufy @teufy_official
 URL:https://www.eventbrite.fr/e/billets-concert-reggae-percussions-africaines-rasjah-music-1194413450
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Concert Reggae & Percussions Africaines — Rasjah Music
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Concert Reggae & Percussions Africaines — Rasjah Music
+END:VALARM
 END:VEVENT
 END:VCALENDAR

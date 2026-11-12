@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:23-59-the-blind-date-2026-11-28@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261128T223000Z
 DTEND:20261129T033000Z
 SUMMARY:23:59 - The Blind Date
 LOCATION:Le Transbordeur\, Lyon
 DESCRIPTION:Concept mystère minuit au Transbordeur avec line-up secret jusqu'au bout.\nBillets : https://shotgun.live/events/23-59-the-blind-date\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/23-59-the-blind-date
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : 23:59 - The Blind Date
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : 23:59 - The Blind Date
+END:VALARM
 END:VEVENT
 END:VCALENDAR

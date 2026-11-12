@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:slalom-jeudi-free-la-casita-2026-11-12@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261112T225900Z
 DTEND:20261113T035900Z
 SUMMARY:Slalom : Jeudi Free — La Casita
 LOCATION:Slalom\, Lille
 DESCRIPTION:Reggaeton et perreo gratuit avant 01h pour lancer le week-end au Slalom.\nBillets : https://shotgun.live/events/slalom-jeudi-free-la-casita-gratuit-av-01-h\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/slalom-jeudi-free-la-casita-gratuit-av-01-h
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Slalom : Jeudi Free — La Casita
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Slalom : Jeudi Free — La Casita
+END:VALARM
 END:VEVENT
 END:VCALENDAR

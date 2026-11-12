@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:whynot-praska-kromoo-mae-2026-11-12@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261112T200000Z
 DTEND:20261113T010000Z
 SUMMARY:Whynot : Praska – Kromoo – Mae
 LOCATION:Dîna\, Aix-en-Provence
 DESCRIPTION:Grosse session hard techno au centre d'Aix avec le crew WHYNOT.\nBillets : https://shotgun.live/events/whynot-praska-kromoo-mae\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/whynot-praska-kromoo-mae
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Whynot : Praska – Kromoo – Mae
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Whynot : Praska – Kromoo – Mae
+END:VALARM
 END:VEVENT
 END:VCALENDAR

@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:zona-de-perreo-frigo-16-nice-2026-12-19@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261219T190000Z
 DTEND:20261220T000000Z
 SUMMARY:Zona De Perreo • Frigo 16 Nice
 LOCATION:Frigo 16 (Le 109)\, Nice
 DESCRIPTION:Le crew Latin Addict débarque au 109 pour une nuit 100% perreo\, dembow et shatta.\nBillets : https://shotgun.live/fr/venues/frigo16\nVia Teufy @teufy_official
 URL:https://shotgun.live/fr/venues/frigo16
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Zona De Perreo • Frigo 16 Nice
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Zona De Perreo • Frigo 16 Nice
+END:VALARM
 END:VEVENT
 END:VCALENDAR

@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:special-tartiflette-au-barrio-chicago-2026-11-14@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150657Z
 DTSTART:20261114T180000Z
 DTEND:20261114T230000Z
 SUMMARY:Spécial Tartiflette au Barrio Chicago
 LOCATION:Barrio Chicago\, Toulon
 DESCRIPTION:Tartiflette maison et sélection musicale par DJ Stiff place de l'Équerre.\nBillets : https://www.instagram.com/p/DfnIZNKIUw7/\nVia Teufy @teufy_official
 URL:https://www.instagram.com/p/DfnIZNKIUw7/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Spécial Tartiflette au Barrio Chicago
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Spécial Tartiflette au Barrio Chicago
+END:VALARM
 END:VEVENT
 END:VCALENDAR

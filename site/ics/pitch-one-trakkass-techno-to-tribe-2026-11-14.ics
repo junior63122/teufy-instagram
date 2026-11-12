@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:pitch-one-trakkass-techno-to-tribe-2026-11-14@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150657Z
 DTSTART:20261114T040000Z
 DTEND:20261114T090000Z
 SUMMARY:Pitch One (Trakkass) — Techno To Tribe
 LOCATION:L'Antre Bar Electro\, Nice
 DESCRIPTION:After dès 5h du matin avec Pitch One\, figure vinyle et pionnier de Trakkass.\nBillets : https://shotgun.live/events/pitch-one-trakkass-techno-to-tribe\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/pitch-one-trakkass-techno-to-tribe
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Pitch One (Trakkass) — Techno To Tribe
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Pitch One (Trakkass) — Techno To Tribe
+END:VALARM
 END:VEVENT
 END:VCALENDAR

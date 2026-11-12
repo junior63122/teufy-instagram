@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:hardcore-france-et-eskape-presentent-invasion-2026-11-13@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261113T225900Z
 DTEND:20261114T035900Z
 SUMMARY:Hardcore France & Eskape présentent Invasion
 LOCATION:Warehouse Nantes\, Nantes
 DESCRIPTION:Scénographie XXL et tornade hardstyle avec Hardcore France au Warehouse.\nBillets : https://shotgun.live/events/hardcore-france-eskape-pres-invasion\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/hardcore-france-eskape-pres-invasion
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Hardcore France & Eskape présentent Invasion
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Hardcore France & Eskape présentent Invasion
+END:VALARM
 END:VEVENT
 END:VCALENDAR

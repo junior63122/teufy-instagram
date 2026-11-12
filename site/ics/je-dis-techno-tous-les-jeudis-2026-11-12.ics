@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:je-dis-techno-tous-les-jeudis-2026-11-12@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150657Z
 DTSTART:20261112T210000Z
 DTEND:20261113T020000Z
 SUMMARY:Je Dis Techno (Tous Les Jeudis)
 LOCATION:L'Antre (Before 22h) & Le Kosma (Full Night 00h)\, Nice
 DESCRIPTION:Before à L'Antre puis full night au Kosma pour le rendez-vous techno du jeudi.\nBillets : https://shotgun.live/events/je-dis-techno-tous-les-jeudis\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/je-dis-techno-tous-les-jeudis
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Je Dis Techno (Tous Les Jeudis)
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Je Dis Techno (Tous Les Jeudis)
+END:VALARM
 END:VEVENT
 END:VCALENDAR

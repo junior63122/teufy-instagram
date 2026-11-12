@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:les-jeudis-du-cri-inv-hamslow-2026-11-26@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261126T225500Z
 DTEND:20261127T035500Z
 SUMMARY:Les Jeudis Du Cri Inv. Hamslow
 LOCATION:Le Cri de la Mouette\, Toulouse
 DESCRIPTION:Hamslow apporte sa dark techno et peak time sur la peniche toulousaine.\nBillets : https://shotgun.live/events/les-jeudis-du-cri-inv-hamslow-dark-techno-peaktime\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/les-jeudis-du-cri-inv-hamslow-dark-techno-peaktime
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Les Jeudis Du Cri Inv. Hamslow
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Les Jeudis Du Cri Inv. Hamslow
+END:VALARM
 END:VEVENT
 END:VCALENDAR

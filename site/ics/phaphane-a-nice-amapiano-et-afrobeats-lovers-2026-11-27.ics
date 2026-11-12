@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:phaphane-a-nice-amapiano-et-afrobeats-lovers-2026-11-27@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150657Z
 DTSTART:20261127T190000Z
 DTEND:20261128T000000Z
 SUMMARY:Phaphane à Nice - Amapiano & Afrobeats Lovers
 LOCATION:Frigo 16 (Le 109)\, Nice
 DESCRIPTION:Basses amapiano et rythmiques afrobeats ensoleillées pour une nuit chaleureuse au 109.\nBillets : https://shotgun.live/fr/venues/frigo16\nVia Teufy @teufy_official
 URL:https://shotgun.live/fr/venues/frigo16
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Phaphane à Nice - Amapiano & Afrobeats Lovers
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Phaphane à Nice - Amapiano & Afrobeats Lovers
+END:VALARM
 END:VEVENT
 END:VCALENDAR

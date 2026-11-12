@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:la-bringue-pyjama-party-rennes-2026-11-27@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261127T180000Z
 DTEND:20261127T230000Z
 SUMMARY:La Bringue - Pyjama Party - Rennes
 LOCATION:Station 35\, Rennes
 DESCRIPTION:Edition Pyjama Party a la Station 35 pour la soiree 100% femmes La Bringue.\nBillets : https://shotgun.live/events/la-bringue-pyjama-party-rennes\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/la-bringue-pyjama-party-rennes
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : La Bringue - Pyjama Party - Rennes
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : La Bringue - Pyjama Party - Rennes
+END:VALARM
 END:VEVENT
 END:VCALENDAR

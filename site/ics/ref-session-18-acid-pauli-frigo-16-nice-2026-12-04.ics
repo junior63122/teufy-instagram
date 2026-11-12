@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:ref-session-18-acid-pauli-frigo-16-nice-2026-12-04@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150657Z
 DTSTART:20261204T190000Z
 DTEND:20261205T000000Z
 SUMMARY:REF Session #18 Acid Pauli - Frigo 16 - NICE
 LOCATION:Frigo 16 (Le 109)\, Nice
 DESCRIPTION:Acid Pauli débarque au Frigo 16 pour une session électro psychédélique immanquable.\nBillets : https://shotgun.live/fr/events/ref-session-18-acid-pauli-frigo-16\nVia Teufy @teufy_official
 URL:https://shotgun.live/fr/events/ref-session-18-acid-pauli-frigo-16
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : REF Session #18 Acid Pauli - Frigo 16 - NICE
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : REF Session #18 Acid Pauli - Frigo 16 - NICE
+END:VALARM
 END:VEVENT
 END:VCALENDAR

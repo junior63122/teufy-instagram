@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:pony-pony-run-run-2026-12-10@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261210T180000Z
 DTEND:20261210T230000Z
 SUMMARY:Pony Pony Run Run
 LOCATION:Le Stockfish\, Nice
 DESCRIPTION:Les auteurs du tube Hey You en live au Stockfish à tarif étudiant.\nBillets : https://etudiants.nice.fr/evenement/pony-pony-run-run\nVia Teufy @teufy_official
 URL:https://etudiants.nice.fr/evenement/pony-pony-run-run
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Pony Pony Run Run
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Pony Pony Run Run
+END:VALARM
 END:VEVENT
 END:VCALENDAR

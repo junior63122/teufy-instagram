@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:kodz-x-skip-the-beat-samuel-moriero-flymeon-et-more-2026-11-20@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261120T220000Z
 DTEND:20261121T030000Z
 SUMMARY:Kodz X Skip The Beat : Samuel Moriero\, Flymeon & More
 LOCATION:KODZ Club\, Lille
 DESCRIPTION:Samuel Moriero et Flymeon en live guitare-techno au KODZ Club.\nBillets : https://shotgun.live/events/kodz-x-skip-the-beat-presents-samuel-moriero-flymeon\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/kodz-x-skip-the-beat-presents-samuel-moriero-flymeon
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Kodz X Skip The Beat : Samuel Moriero\, Flymeon & More
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Kodz X Skip The Beat : Samuel Moriero\, Flymeon & More
+END:VALARM
 END:VEVENT
 END:VCALENDAR

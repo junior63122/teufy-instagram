@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:club-bizarre-w-sensoria-blue-coast-november-session-2026-11-14@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150657Z
 DTSTART:20261114T180000Z
 DTEND:20261114T230000Z
 SUMMARY:Club Bizarre W/ Sensoria @ Blue Coast (November Session)
 LOCATION:Blue Coast Brewing Company\, Nice
 DESCRIPTION:Soirée deep techno et tech signée Club Bizarre et Sensoria à la brasserie niçoise.\nBillets : https://shotgun.live/events/club-bizarre-w-sensoria-at-blue-coast-november-session\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/club-bizarre-w-sensoria-at-blue-coast-november-session
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Club Bizarre W/ Sensoria @ Blue Coast (November Session)
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Club Bizarre W/ Sensoria @ Blue Coast (November Session)
+END:VALARM
 END:VEVENT
 END:VCALENDAR

@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:rslce-caravel-junkie-kid-uphoria-et-more-2026-11-13@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261113T223000Z
 DTEND:20261114T033000Z
 SUMMARY:Rslce : Caravel\, Junkie Kid\, Uphoria & More
 LOCATION:Le Petit Salon\, Lyon
 DESCRIPTION:Grosse dose de schranz et hard techno avec Caravel et Junkie Kid au Petit Salon.\nBillets : https://www.lpslyon.fr/programmation/\nVia Teufy @teufy_official
 URL:https://www.lpslyon.fr/programmation/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Rslce : Caravel\, Junkie Kid\, Uphoria & More
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Rslce : Caravel\, Junkie Kid\, Uphoria & More
+END:VALARM
 END:VEVENT
 END:VCALENDAR

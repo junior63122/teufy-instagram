@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:cicada-rush-2026-11-13@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150657Z
 DTSTART:20261113T223000Z
 DTEND:20261114T033000Z
 SUMMARY:Cicada Rush
 LOCATION:CICADA\, La Garde
 DESCRIPTION:Rave intense jusqu'à l'aube au temple varois de la hard techno.\nBillets : https://shotgun.live/fr/events/cicada-rush-13-11\nVia Teufy @teufy_official
 URL:https://shotgun.live/fr/events/cicada-rush-13-11
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Cicada Rush
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Cicada Rush
+END:VALARM
 END:VEVENT
 END:VCALENDAR

@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:paon-x-la-bastide-de-paula-2026-11-13@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261113T210000Z
 DTEND:20261114T020000Z
 SUMMARY:Paon X La Bastide de Paula
 LOCATION:La Bastide de Paula\, Aix-en-Provence
 DESCRIPTION:Ambiance chic et kicks afro house sur le Cours Mirabeau avec HOMË.\nBillets : https://shotgun.live/events/paon-x-la-bastide-de-paula\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/paon-x-la-bastide-de-paula
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Paon X La Bastide de Paula
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Paon X La Bastide de Paula
+END:VALARM
 END:VEVENT
 END:VCALENDAR

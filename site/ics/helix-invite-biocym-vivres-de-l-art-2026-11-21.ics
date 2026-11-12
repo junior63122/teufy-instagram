@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:helix-invite-biocym-vivres-de-l-art-2026-11-21@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261121T170000Z
 DTEND:20261121T220000Z
 SUMMARY:Helix Invite Biocym - Vivres De L'art
 LOCATION:Les Vivres de l'Art\, Bordeaux
 DESCRIPTION:Techno et scénographie artistique aux Vivres de l'Art avec Biocym.\nBillets : https://shotgun.live/events/helix-invite-biocym-vivres-de-l-art\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/helix-invite-biocym-vivres-de-l-art
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Helix Invite Biocym - Vivres De L'art
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Helix Invite Biocym - Vivres De L'art
+END:VALARM
 END:VEVENT
 END:VCALENDAR

@@ -6,7 +6,7 @@
 //   (une affiche d'une autre soirée n'est pas montrée). Résultats gardés dans contenus/affiches-verifiees.json.
 // - Les lieux sont placés sur la carte grâce à OpenStreetMap (cache contenus/lieux-geo.json).
 // - Le JavaScript (site/app.js) gère les filtres, « Ce soir / En ce moment », la carte et les animations.
-import { readFileSync, existsSync, readdirSync, rmSync, renameSync, statSync, writeFileSync } from 'node:fs';
+import { readFileSync, existsSync, readdirSync, rmSync, renameSync, statSync, writeFileSync, mkdirSync } from 'node:fs';
 import { writeFile, mkdir, copyFile } from 'node:fs/promises';
 import { spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
@@ -990,7 +990,11 @@ async function ics(soirees, compte) {
     await writeFile(path.join(d, `${s.id}.ics`), ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Teufy//Agenda//FR', 'CALSCALE:GREGORIAN', 'BEGIN:VEVENT',
       `UID:${s.id}@teufy`, `DTSTAMP:${f(Date.now())}`, `DTSTART:${f(t)}`, `DTEND:${f(t + 5 * 3600e3)}`, `SUMMARY:${e(s.nom)}`,
       `LOCATION:${e([s.lieu, s.adresse, s.ville].filter(Boolean).join(', '))}`, `DESCRIPTION:${e(`${s.accroche ? `${s.accroche}\n` : ''}${s.url ? `Billets : ${s.url}\n` : ''}Via Teufy ${compte}`)}`,
-      ...(s.url ? [`URL:${s.url}`] : []), 'END:VEVENT', 'END:VCALENDAR', ''].join('\r\n'));
+      ...(s.url ? [`URL:${s.url}`] : []),
+      // Rappels (12/11/2026) : la veille au soir (pense à prendre ta place) et 2 h avant (on y va).
+      'BEGIN:VALARM', 'ACTION:DISPLAY', 'TRIGGER:-P1D', `DESCRIPTION:${e(`Demain : ${s.nom}`)}`, 'END:VALARM',
+      'BEGIN:VALARM', 'ACTION:DISPLAY', 'TRIGGER:-PT2H', `DESCRIPTION:${e(`Dans 2 h : ${s.nom}`)}`, 'END:VALARM',
+      'END:VEVENT', 'END:VCALENDAR', ''].join('\r\n'));
   }
 }
 
@@ -1069,7 +1073,7 @@ function economie(c, prix) {
 const blocPromo = (c, t, tr, s) => `<div class="code-promo">
   <p class="pied-titre">${esc(t.codePromo)}${c.partenaire ? ` · ${esc(tr('offert par'))} <a href="https://www.instagram.com/${esc(c.partenaire)}/" target="_blank" rel="noopener">${esc(c.partenaire_nom || `@${c.partenaire}`)}</a>` : ''}</p>
   <p class="code-ligne"><b>${esc(c.remise)}</b><button type="button" class="code" data-copier="${esc(c.code)}">${esc(c.code)} <span>${esc(t.copier)}</span></button></p>
-  ${(() => { const e = s && economie(c, s.prix); return e ? `<p class="code-economie"><span>💸 ${esc(tr('Tu économises'))} <b>${esc(euros(e.eco, t))}</b> ${esc(tr('par place'))}</span><small>${esc(tr('Exemple : place à'))} ${esc(euros(s.prix, t))} → <b>${esc(euros(e.apres, t))}</b> ${esc(tr('avec le code'))}</small></p>` : ''; })()}
+  ${(() => { const e = s && economie(c, s.prix); return e ? `<p class="code-economie"><span>${esc(tr('Tu économises'))} <b>${esc(euros(e.eco, t))}</b> ${esc(tr('par place'))}</span><small>${esc(tr('Exemple : place à'))} ${esc(euros(s.prix, t))} → <b>${esc(euros(e.apres, t))}</b> ${esc(tr('avec le code'))}</small></p>` : ''; })()}
   <p class="code-valable">✓ ${esc(tr(s ? 'Valable pour cette soirée' : 'Valable sur les soirées éligibles'))}${c.jusqu_au ? ` · ${esc(tr("jusqu'au"))} ${esc(paris(`${c.jusqu_au}T12:00:00Z`, { day: 'numeric', month: 'long', year: 'numeric' }, t.locale))}` : ''}</p>
   <p>${esc(tr(c.description))}</p>
   <ol class="code-etapes"><li>${esc(tr('Copie le code'))}</li><li>${esc(tr('Clique sur « Billets »'))}</li><li>${esc(tr('Colle-le au moment du paiement : la réduction s\'applique'))}</li></ol>
@@ -1132,13 +1136,20 @@ let TEXTE_PHOTOS = null;
 function ressembleAffiche(f) {
   if (!existsSync(f)) return false;
   TEXTE_PHOTOS ||= lire(PHOTOS_TEXTE, {});
-  const k = `${path.relative(ROOT, f)}|${statSync(f).size}`;
+  const k = `v2|${path.relative(ROOT, f)}|${statSync(f).size}`;
   if (k in TEXTE_PHOTOS) return TEXTE_PHOTOS[k];
-  const r = spawnSync('tesseract', [f, '-', '-l', 'fra+eng', '--psm', '11'], { encoding: 'utf8', timeout: 60000 });
-  if (r.status !== 0 || r.error) return true; // lecture impossible : dans le doute, pas de « photo du lieu » (jamais une affiche d'une autre soirée)
-  const mots = (r.stdout.match(/[A-Za-zÀ-ÿ]{3,}/g) || []).length;
-  const date = /\b\d{1,2}\s*[./]\s*\d{1,2}\b|\b\d{1,2}\s+(janv|f[eé]v|mars|avr|mai|juin|juil|ao[uû]t|sept|oct|nov|d[eé]c)|\b(lundi|mardi|mercredi|jeudi|vendredi|samedi|dimanche)\b|\b20[23]\d\b|\d{1,2}\s*h\s*\d{0,2}/i.test(r.stdout);
-  TEXTE_PHOTOS[k] = date || mots >= 10;
+  // Image agrandie en niveaux de gris : Tesseract lit bien mieux les titres stylisés (« AMBRE BALLESTER »).
+  const tmp = path.join(ROOT, 'out', `ocr-${h(f)}.png`);
+  mkdirSync(path.dirname(tmp), { recursive: true });
+  spawnSync('ffmpeg', ['-v', 'error', '-y', '-i', f, '-vf', 'scale=iw*2:-1,format=gray', tmp]);
+  const r = spawnSync('tesseract', [existsSync(tmp) ? tmp : f, '-', '-l', 'fra+eng', '--psm', '11'], { encoding: 'utf8', timeout: 60000 });
+  rmSync(tmp, { force: true });
+  if (r.status !== 0 || r.error) return true; // lecture impossible : dans le doute, pas de « photo du lieu »
+  const t = r.stdout;
+  const mots = (t.match(/[A-Za-zÀ-ÿ]{3,}/g) || []).length;
+  const capitales = (t.match(/\b[A-ZÀ-Ý]{4,}\b/g) || []).length; // titres et noms d'artistes en capitales
+  const date = /\b\d{1,2}\s*[./]\s*\d{1,2}\b|\b\d{1,2}\s+(janv|f[eé]v|mars|avr|mai|juin|juil|ao[uû]t|sept|oct|nov|d[eé]c)|\b(lundi|mardi|mercredi|jeudi|vendredi|samedi|dimanche|mon|tue|wed|thu|fri|sat|sun)\b|\b20[23]\d\b|\d{1,2}\s*h\s*\d{0,2}/i.test(t);
+  TEXTE_PHOTOS[k] = date || mots >= 8 || capitales >= 2;
   writeFileSync(PHOTOS_TEXTE, JSON.stringify(TEXTE_PHOTOS));
   return TEXTE_PHOTOS[k];
 }
@@ -1240,6 +1251,20 @@ function pageArtistes({ lang, t, tr, base, compte, T, chemin, maj }) {
 }
 let PHOTOS_LIEUX = new Map(), PHOTOS_COMPTES = new Map();
 const photoDuLieu = (s) => { const k = normLieu(s.lieu); if (!k) return ''; if (PHOTOS_LIEUX.has(k)) return PHOTOS_LIEUX.get(k); for (const [n, f] of PHOTOS_LIEUX) if (n.length >= 4 && (k.startsWith(n) || n.startsWith(k))) return f; return ''; };
+// Affiche typographique d'une soirée sans visuel (12/11/2026 : « sans image on n'arrive pas à différencier les soirées ») :
+// le NOM de la soirée en grand (unique), ses styles, et le lieu en petit avec son logo — jamais le nom du lieu en vedette.
+// Pictogrammes sobres (traits) des infos pratiques : plus d'emojis (« ça fait trop IA », 12/11/2026).
+const ICO_INFO = {
+  musique: '<svg class="ico-info" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg>',
+  tenue: '<svg class="ico-info" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3l4 3 4-3 4 4-3 3v11H7V10L4 7z"/></svg>',
+  lieu: '<svg class="ico-info" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>',
+  horaires: '<svg class="ico-info" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',
+  verre: '<svg class="ico-info" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h14l-7 8z"/><path d="M12 12v8M8 20h8"/></svg>',
+  entree: '<svg class="ico-info" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8a2 2 0 0 0 0 4v4h18v-4a2 2 0 0 1 0-4V4H3z" transform="translate(0 2)"/><path d="M14 6v12" stroke-dasharray="2 2"/></svg>',
+  age: '<svg class="ico-info" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 15v-6l-1 1M12 11a2 2 0 1 1 0 4a2 2 0 1 1 0-4zM12 11a1.5 1.5 0 1 0 0-3a1.5 1.5 0 1 0 0 3"/></svg>',
+};
+const nomCourtCarte = (s) => { const n = String(s.nom || '').replace(/\s*[@|–—-]\s*(?=[^@|–—-]*$)/, ' · ').trim(); const l = String(s.lieu || '');
+  const sansLieu = l && n.toLowerCase().endsWith(l.toLowerCase()) && n.length > l.length + 3 ? n.slice(0, -l.length).replace(/[\s@·|–—-]+$/, '') : n; return sansLieu || n; };
 function vignette(s, base = '') {
   const n = parseInt(h(s.nom), 16), teintes = [[255, 90, 60], [255, 46, 110], [130, 80, 255], [40, 170, 255], [61, 255, 138], [255, 200, 60]];
   const [a, b] = [teintes[n % 6], teintes[(Math.floor(n / 7) % 5 + 1 + n % 6) % 6]];
@@ -1248,7 +1273,7 @@ function vignette(s, base = '') {
   // de la soirée, avec le logo du lieu quand on le connaît.
   // Belle photo du lieu (sa publication Instagram la plus aimée) quand la soirée n'a aucune affiche.
   const pv = s.photoLieu && existsSync(path.join(ROOT, s.photoLieu.replace(/\.jpg$/, '-800.webp'))) ? { fichier: s.photoLieu } : null;
-  return `<span class="vignette${ph && !pv ? ' avec-lieu' : ''}${pv ? ' avec-ville avec-photo-lieu' : ''}" style="--a:rgb(${a.join(',')});--b:rgb(${b.join(',')})" aria-hidden="true">${pv ? `<img class="vignette-ville" src="${base}${esc(pv.fichier.replace(/\.jpg$/, '-800.webp'))}" srcset="${base}${esc(pv.fichier.replace(/\.jpg$/, '-480.webp'))} 480w, ${base}${esc(pv.fichier.replace(/\.jpg$/, '-800.webp'))} 800w${grandeVille(pv.fichier) ? `, ${base}${esc(grandeVille(pv.fichier))} 1200w` : ''}" sizes="(min-width:980px) 400px, 92vw" alt="" width="800" height="533" loading="lazy" decoding="async">` : ''}${ph && !pv ? `<img class="vignette-lieu" src="${base}${esc(ph)}" alt="" width="176" height="176" loading="lazy" decoding="async">` : ''}<small>${esc((s.genres || '').split(' · ')[0] || 'Soirée')}</small><b>${esc(s.lieu || s.ville || s.nom)}</b><i>${esc(s.lieu ? s.ville : '')}</i></span>`;
+  return `<span class="vignette${ph && !pv ? ' avec-lieu' : ''}${pv ? ' avec-ville avec-photo-lieu' : ''}" style="--a:rgb(${a.join(',')});--b:rgb(${b.join(',')})" aria-hidden="true">${pv ? `<img class="vignette-ville" src="${base}${esc(pv.fichier.replace(/\.jpg$/, '-800.webp'))}" srcset="${base}${esc(pv.fichier.replace(/\.jpg$/, '-480.webp'))} 480w, ${base}${esc(pv.fichier.replace(/\.jpg$/, '-800.webp'))} 800w${grandeVille(pv.fichier) ? `, ${base}${esc(grandeVille(pv.fichier))} 1200w` : ''}" sizes="(min-width:980px) 400px, 92vw" alt="" width="800" height="533" loading="lazy" decoding="async">` : ''}<small>${esc((s.genres || '').split(' · ').slice(0, 2).join(' · ') || 'Soirée')}</small><b${nomCourtCarte(s).length > 38 ? ' class="long"' : ''}>${esc(nomCourtCarte(s))}</b><i class="v-lieu">${ph ? `<img src="${base}${esc(ph)}" alt="" width="34" height="34" loading="lazy" decoding="async">` : ''}<span>${esc([s.lieu, s.lieu && sansAccent(s.lieu).toLowerCase().includes(sansAccent(s.ville || '').toLowerCase()) ? '' : s.ville].filter(Boolean).join(' · '))}</span></i></span>`;
 }
 
 const boutonBillets = (s, t) => (s.url
@@ -1596,7 +1621,7 @@ const heroCourt = ({ base, photo, video, alt, etiquette, h1, p, live = false, k 
 const blocTendance = ({ t, tr, base, lang, lieux }) => {
   const top = (lieux || []).filter((l) => l.score > 0).sort((a, b) => b.score - a.score).slice(0, 3);
   if (!top.length) return '';
-  return `<section class="bloc-large reveal"><h2>${tr('🔥 Les spots du <em>moment</em>')}</h2><div class="fiches fiches-tendance">${top.map((l, i) => carteLieu(l, { t, tr, base, lang }, i, true)).join('')}</div><p class="cta"><a class="bouton contour" href="${base}${pre(lang)}clubs-bars/">${esc(t.lieuxNav)}</a><a class="bouton contour" href="${base}${pre(lang)}france/">${esc(t.franceNav)}</a></p></section>`;
+  return `<section class="bloc-large reveal"><h2>${tr('Les spots du <em>moment</em>')}</h2><div class="fiches fiches-tendance">${top.map((l, i) => carteLieu(l, { t, tr, base, lang }, i, true)).join('')}</div><p class="cta"><a class="bouton contour" href="${base}${pre(lang)}clubs-bars/">${esc(t.lieuxNav)}</a><a class="bouton contour" href="${base}${pre(lang)}france/">${esc(t.franceNav)}</a></p></section>`;
 };
 function page({ lang, t, tr, base, compte, T, soirees, posts, now, maj, partenaires, lieux }) {
   const handle = compte.replace(/^@/, '');
@@ -1992,14 +2017,14 @@ function carteLieu(l, { t, tr, base, lang }, i = 0, tendance = false) {
     ${(() => { /* Bandeau : la vraie photo du lieu (sa publication Instagram la plus aimée) ; sinon son logo flouté ;
       jamais un paysage de la ville. */ const couv = l.instagram ? `site/lieux/${l.instagram.replace(/[^a-z0-9._-]/g, '')}-couv-800.webp` : '';
       const aCouv = couv && existsSync(path.join(ROOT, couv)) && !ressembleAffiche(path.join(ROOT, couv.replace(/-800\.webp$/, '.jpg'))); // jamais une affiche en bandeau de lieu
-      return `<div class="fiche-banniere${aCouv ? ' banniere-photo' : l.photo ? '' : ' banniere-neutre'}"${aCouv ? ` style="--fond:url('${base}${esc(couv)}')"` : l.photo ? ` style="--fond:url('${base}${esc(l.photo)}')"` : ''}>`; })()}${tendance ? `<span class="rang">🔥 #${i + 1}</span>` : ''}${l.photo ? `<img src="${base}${esc(l.photo)}" alt="" width="88" height="88" loading="lazy">` : `<span class="lieu-initiale">${esc((l.nom[0] || '?').toUpperCase())}</span>`}</div>
+      return `<div class="fiche-banniere${aCouv ? ' banniere-photo' : l.photo ? '' : ' banniere-neutre'}"${aCouv ? ` style="--fond:url('${base}${esc(couv)}')"` : l.photo ? ` style="--fond:url('${base}${esc(l.photo)}')"` : ''}>`; })()}${tendance ? `<span class="rang">#${i + 1}</span>` : ''}${l.photo ? `<img src="${base}${esc(l.photo)}" alt="" width="88" height="88" loading="lazy">` : `<span class="lieu-initiale">${esc((l.nom[0] || '?').toUpperCase())}</span>`}</div>
     <div class="fiche-corps">
     <p class="genre">${esc(tr(TYPES_NOMS[l.type] || ''))}${l.ville ? ` · ${esc(l.ville)}` : ''}${l.partenaire ? ` <span class="fiche-prix">${esc(t.partenaires)}</span>` : ''}</p>
     <h3><a href="${base}${pre(lang)}clubs-bars/${esc(l.slug)}/">${esc(l.nom)}</a></h3>
     <p class="lieu-statut" hidden></p>
     ${l.description ? `<p class="fiche-desc">${esc(tr(l.description))}</p>` : ''}
-    ${l.details ? (() => { const d = l.details; const lignes = [['🎵', tr('Musique'), d.styles], ['👔', tr('Dress code'), d.dress_code], ['🕒', tr('Horaires'), d.horaires], ['🍸', tr('Verres'), d.prix_verre], ['🎟️', tr('Entrée'), d.entree], ['🔞', tr('Âge'), d.age_min]].filter((x) => x[2]); return lignes.length ? `<details class="lieu-pratique"><summary>${esc(tr('Infos pratiques'))} <span aria-hidden="true">${lignes.map((x) => x[0]).join(' ')}</span></summary><dl class="lieu-infos">${lignes.map(([i, k, v]) => `<div><dt><span aria-hidden="true">${i}</span> ${esc(k)}</dt><dd>${esc(tr(v))}</dd></div>`).join('')}</dl><p class="lieu-maj">${esc(tr('Infos relevées le'))} ${esc(paris(d.le, { day: 'numeric', month: 'long' }, t.locale))}${d.sources?.[0] ? ` · <a href="${esc(d.sources[0])}" target="_blank" rel="noopener nofollow">${esc(tr('source'))}</a>` : ''}</p></details>` : ''; })() : ''}
-    ${raison && tendance ? `<p class="lieu-stats" title="${esc(raison)}"><span class="lieu-stats-titre">${esc(tr('Sur Instagram, en moyenne par post'))}</span><span>❤️ ${esc(Number(l.insta.likes).toLocaleString(t.locale || 'fr-FR', { maximumFractionDigits: 1 }))}</span><span>💬 ${esc(Number(l.insta.commentaires).toLocaleString(t.locale || 'fr-FR', { maximumFractionDigits: 1 }))}</span><span>${esc(Number(l.insta.posts21).toLocaleString(t.locale || 'fr-FR', { maximumFractionDigits: 1 }))} ${esc(tr('posts en 3 semaines'))}</span></p>` : ''}
+    ${l.details ? (() => { const d = l.details; const lignes = [[ICO_INFO.musique, tr('Musique'), d.styles], [ICO_INFO.tenue, tr('Dress code'), d.dress_code], [ICO_INFO.horaires, tr('Horaires'), d.horaires], [ICO_INFO.verre, tr('Verres'), d.prix_verre], [ICO_INFO.entree, tr('Entrée'), d.entree], [ICO_INFO.age, tr('Âge'), d.age_min]].filter((x) => x[2]); return lignes.length ? `<details class="lieu-pratique"><summary>${esc(tr('Infos pratiques'))}</summary><dl class="lieu-infos">${lignes.map(([i, k, v]) => `<div><dt><span aria-hidden="true">${i}</span> ${esc(k)}</dt><dd>${esc(tr(v))}</dd></div>`).join('')}</dl><p class="lieu-maj">${esc(tr('Infos relevées le'))} ${esc(paris(d.le, { day: 'numeric', month: 'long' }, t.locale))}${d.sources?.[0] ? ` · <a href="${esc(d.sources[0])}" target="_blank" rel="noopener nofollow">${esc(tr('source'))}</a>` : ''}</p></details>` : ''; })() : ''}
+    ${raison && tendance ? `<p class="lieu-stats" title="${esc(raison)}"><span class="lieu-stats-titre">${esc(tr('Sur Instagram, en moyenne par post'))}</span><span>${esc(Number(l.insta.likes).toLocaleString(t.locale || 'fr-FR', { maximumFractionDigits: 1 }))} ${esc(tr('likes'))}</span><span>${esc(Number(l.insta.commentaires).toLocaleString(t.locale || 'fr-FR', { maximumFractionDigits: 1 }))} ${esc(tr('commentaires'))}</span><span>${esc(Number(l.insta.posts21).toLocaleString(t.locale || 'fr-FR', { maximumFractionDigits: 1 }))} ${esc(tr('posts en 3 semaines'))}</span></p>` : ''}
     ${prochaines.length ? `<p class="lieu-soirees">${prochaines.slice(0, 3).map((x) => `<a href="${base}${pre(lang)}soiree/${x.id}/">${esc(x.nom)}</a>`).join('')}</p>` : ''}
     <p class="lieu-actions">${l.instagram ? `<a href="https://www.instagram.com/${esc(l.instagram)}/" target="_blank" rel="noopener" aria-label="Instagram @${esc(l.instagram)}">${ICO_LIEU.ig}<span>Instagram</span></a>` : ''}${l.site ? `<a href="${esc(l.site)}" target="_blank" rel="noopener">${ICO_LIEU.site}<span>${esc(t.siteWeb)}</span></a>` : ''}<a href="https://www.google.com/maps/search/?api=1&amp;query=${encodeURIComponent([l.nom, l.adresse, l.ville].filter(Boolean).join(', '))}" target="_blank" rel="noopener">${ICO_LIEU.map}<span>${esc(t.itineraire)}</span></a></p>
     </div>
@@ -2014,7 +2039,7 @@ function pageLieu({ lang, t, tr, base, compte, T, chemin, maj, l, soirees, lieux
   const H = lireHoraires(d.horaires);
   const type = TYPES_NOMS[l.type] || '';
   const voisins = (lieux || []).filter((x) => x !== l && x.ville === l.ville && x.slug).slice(0, 6);
-  const infos = [['🎵', tr('Musique'), d.styles], ['👔', tr('Dress code'), d.dress_code], ['🕒', tr('Horaires'), d.horaires], ['🍸', tr('Verres'), d.prix_verre], ['🎟️', tr('Entrée'), d.entree], ['🔞', tr('Âge'), d.age_min]].filter((x) => x[2]);
+  const infos = [[ICO_INFO.musique, tr('Musique'), d.styles], [ICO_INFO.tenue, tr('Dress code'), d.dress_code], [ICO_INFO.horaires, tr('Horaires'), d.horaires], [ICO_INFO.verre, tr('Verres'), d.prix_verre], [ICO_INFO.entree, tr('Entrée'), d.entree], [ICO_INFO.age, tr('Âge'), d.age_min]].filter((x) => x[2]);
   const carteL = carteLieu(l, { t, tr, base, lang }, 0);
   const statut = carteL.match(/^\s*<article [^>]*>/)[0].replace('class="fiche-lieu', 'class="fiche-lieu lieu-entete');
   const corps = `<div class="fiche lieu-page">
@@ -2030,7 +2055,7 @@ function pageLieu({ lang, t, tr, base, compte, T, chemin, maj, l, soirees, lieux
   <div class="lieu-grille">
     <section class="lieu-bloc"><h2>${tr('Infos <em>pratiques</em>')}</h2>${infos.length ? `<dl class="lieu-infos">${infos.map(([i, k, v]) => `<div><dt><span aria-hidden="true">${i}</span> ${esc(k)}</dt><dd>${esc(tr(v))}</dd></div>`).join('')}</dl>${d.sources?.[0] ? `<p class="lieu-maj">${esc(tr('Infos relevées le'))} ${esc(paris(d.le, { day: 'numeric', month: 'long' }, t.locale))} · <a href="${esc(d.sources[0])}" target="_blank" rel="noopener nofollow">${esc(tr('source'))}</a></p>` : ''}` : `<p class="vide">${esc(tr(l.instagram ? "Horaires, dress code et prix pas encore vérifiés : Teufy les recherche sur les sources officielles du lieu. En attendant, vérifie sur son Instagram." : "Horaires, dress code et prix pas encore vérifiés : Teufy les recherche sur les sources officielles du lieu. En attendant, vérifie sur la billetterie de ses soirées."))}</p>`}
       <p class="lieu-actions">${l.instagram ? `<a href="https://www.instagram.com/${esc(l.instagram)}/" target="_blank" rel="noopener">${ICO_LIEU.ig}<span>Instagram</span></a>` : ''}${l.site ? `<a href="${esc(l.site)}" target="_blank" rel="noopener">${ICO_LIEU.site}<span>${esc(t.siteWeb)}</span></a>` : ''}<a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent([l.nom, l.adresse || l.ville].filter(Boolean).join(' '))}" target="_blank" rel="noopener">${ICO_LIEU.map}<span>${esc(tr('Itinéraire'))}</span></a></p>
-      ${l.adresse ? `<p class="lieu-adresse">📍 ${esc(l.adresse)}</p>` : ''}
+      ${l.adresse ? `<p class="lieu-adresse">${ICO_INFO.lieu}${esc(l.adresse)}</p>` : ''}
     </section>
     <section class="lieu-bloc"><h2>${tr('Prochaines <em>soirées</em>')}</h2>${soirees.length ? `<div class="grille">${soirees.slice(0, 12).map((x) => carte(x, { t, base, lang })).join('')}</div>` : `<p class="vide">${esc(tr("Pas de soirée annoncée ici pour l'instant. Les soirées sont ajoutées dès qu'elles sont publiées par le lieu ou sa billetterie."))}</p>`}</section>
   </div>
@@ -2105,7 +2130,7 @@ const carteTardive = (l, tr, i) => { const H = lireHoraires(l.horaires); const c
   return `<article class="fiche-lieu fiche-tard" style="--i:${i % 8}" data-type="${esc(l.type)}" data-ville="${esc(slug(l.ville || ''))}"${H ? ` data-horaires="${esc(JSON.stringify(H.plages))}"` : ''}><div class="fiche-corps">
   <p class="genre">${esc(tr(l.type === 'after' ? 'After' : 'Manger tard'))}${l.ville ? ` · ${esc(l.ville)}` : ''}</p><h3>${esc(l.nom)}</h3>
   <p class="lieu-statut" hidden></p>
-  <p class="tard-horaires">🕒 ${esc(l.horaires)} · <a href="${esc(l.source)}" target="_blank" rel="noopener">${esc(tr('source'))}</a></p>
+  <p class="tard-horaires">${ICO_INFO.horaires}${esc(l.horaires)} · <a href="${esc(l.source)}" target="_blank" rel="noopener">${esc(tr('source'))}</a></p>
   ${l.description ? `<p class="fiche-desc">${esc(tr(l.description))}</p>` : ''}
   <p class="fiche-liens">${l.instagram ? `<a class="bouton petit contour" href="https://www.instagram.com/${esc(l.instagram)}/" target="_blank" rel="noopener">Instagram</a>` : ''}<a class="bouton petit contour" href="${esc(carte)}" target="_blank" rel="noopener">${esc(tr('Itinéraire'))}</a></p>
 </div></article>`; };
@@ -2163,7 +2188,7 @@ function pageLieux({ lang, t, tr, base, compte, T, chemin, maj, lieux }) {
   for (const l of lieux || []) (parVille[l.ville || tr('Autres')] ||= []).push(l);
   const villes = Object.keys(parVille).sort((a, b) => parVille[b].length - parVille[a].length);
   const corps = `${heroCourt({ partage: t.partager, base, photo: null, logos: (lieux || []).filter((l) => l.photo).sort((a, b) => (b.score || 0) - (a.score || 0)).map((l) => l.photo), alt: t.lieuxNav, k: 3, etiquette: t.lieuxNav, h1: tr("Les clubs et bars de la <em>Côte d'Azur</em> et du Var"), p: esc(tr("Boîtes de nuit, bars, rooftops et beach clubs de Nice à Toulon, avec ceux qui font le plus parler d'eux en ce moment.")) })}
-${top.length ? `<section class="bloc-large reveal"><h2>${tr('🔥 Tendance du <em>moment</em>')}</h2><p class="avert">${esc(tr("Classement calculé chaque jour à partir de données réelles : likes et commentaires sur les publications Instagram des 3 dernières semaines, rapportés au nombre d'abonnés. Être partenaire de Teufy ne donne aucun bonus."))}</p><div class="fiches fiches-tendance">${top.map((l, i) => carteLieu(l, ctx, i, true)).join('')}</div></section>` : ''}
+${top.length ? `<section class="bloc-large reveal"><h2>${tr('Tendance du <em>moment</em>')}</h2><p class="avert">${esc(tr("Classement calculé chaque jour à partir de données réelles : likes et commentaires sur les publications Instagram des 3 dernières semaines, rapportés au nombre d'abonnés. Être partenaire de Teufy ne donne aucun bonus."))}</p><div class="fiches fiches-tendance">${top.map((l, i) => carteLieu(l, ctx, i, true)).join('')}</div></section>` : ''}
 <section class="bloc-large reveal"><p class="liens-styles">${villes.map((v) => `<a class="puce" href="#v-${slug(v)}">${esc(v)} · ${parVille[v].length}</a>`).join('')}</p></section>
 ${villes.map((v) => `<section class="bloc-large reveal" id="v-${slug(v)}"><h2>${esc(v)}</h2><div class="fiches" data-max="6">${parVille[v].map((l, i) => carteLieu(l, ctx, i)).join('')}</div></section>`).join('\n')}
 ${(lieux || []).length ? '' : `<section class="bloc-large"><p class="vide">${esc(tr("L'annuaire se remplit : Teufy recense les clubs et bars de la Côte d'Azur et du Var."))}</p></section>`}`;

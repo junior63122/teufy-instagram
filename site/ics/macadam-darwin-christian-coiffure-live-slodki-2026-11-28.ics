@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:macadam-darwin-christian-coiffure-live-slodki-2026-11-28@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261128T225900Z
 DTEND:20261129T035900Z
 SUMMARY:Macadam • Darwin ~ Christian Coiffure (live) ~ Slodki
 LOCATION:Macadam\, Nantes
 DESCRIPTION:Darwin invite à un voyage UK bass et breakbeat au Macadam avec live modulaire.\nBillets : https://shotgun.live/fr/events/macadam-darwin-christian-coiffure-live-slodki\nVia Teufy @teufy_official
 URL:https://shotgun.live/fr/events/macadam-darwin-christian-coiffure-live-slodki
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Macadam • Darwin ~ Christian Coiffure (live) ~ Slodki
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Macadam • Darwin ~ Christian Coiffure (live) ~ Slodki
+END:VALARM
 END:VEVENT
 END:VCALENDAR

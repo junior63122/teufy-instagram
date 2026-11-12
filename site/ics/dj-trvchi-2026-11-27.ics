@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:dj-trvchi-2026-11-27@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150657Z
 DTSTART:20261127T193000Z
 DTEND:20261128T003000Z
 SUMMARY:Dj - Trvchi
 LOCATION:Mama Shelter Nice\, Nice
 DESCRIPTION:Set électro-pop et house festif en entrée libre au Mama Shelter avec Trvchi.\nBillets : https://shotgun.live/events/dj-trvchi\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/dj-trvchi
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Dj - Trvchi
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Dj - Trvchi
+END:VALARM
 END:VEVENT
 END:VCALENDAR

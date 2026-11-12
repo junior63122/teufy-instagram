@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:pulse-2-live-electro-et-arts-numeriques-tadej-droljc-annabel-2026-11-20@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261120T193000Z
 DTEND:20261121T003000Z
 SUMMARY:Pulse 2# - Live Electro & Arts Numériques (Tadej Droljc\, Annabelle Playe\, Takkak Takkak\, Brodinski)
 LOCATION:El Mediator\, Perpignan
 DESCRIPTION:Brodinski et des lives A/V au Mediator : une nuit électro et arts numériques à 15 €\nBillets : https://www.seetickets.com/fr/d/event/pulse-2-/el-mediator/10839074\nVia Teufy @teufy_official
 URL:https://www.seetickets.com/fr/d/event/pulse-2-/el-mediator/10839074
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Pulse 2# - Live Electro & Arts Numériques (Tadej Droljc\, Annabelle Playe\, Takkak Takkak\, Brodinski)
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Pulse 2# - Live Electro & Arts Numériques (Tadej Droljc\, Annabelle Playe\, Takkak Takkak\, Brodinski)
+END:VALARM
 END:VEVENT
 END:VCALENDAR

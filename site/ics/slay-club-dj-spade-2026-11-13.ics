@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:slay-club-dj-spade-2026-11-13@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261113T223000Z
 DTEND:20261114T033000Z
 SUMMARY:Slay Club – DJ Spade
 LOCATION:Slay Club\, Lille
 DESCRIPTION:Paillettes\, hyperpop et gros tubes R&B au Slay Club avec DJ Spade.\nBillets : https://shotgun.live/events/slay-club-dj-spade-13-11\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/slay-club-dj-spade-13-11
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Slay Club – DJ Spade
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Slay Club – DJ Spade
+END:VALARM
 END:VEVENT
 END:VCALENDAR

@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:fff-bleu-satellite-concert-chansigne-2026-11-18@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261118T193000Z
 DTEND:20261119T003000Z
 SUMMARY:FFF + BLEU SATELLITE (concert chansigné)
 LOCATION:Paloma\, Grande Salle\, Nîmes
 DESCRIPTION:Le funk rock de FFF en concert chansigné à Paloma\, Bleu Satellite en ouverture.\nBillets : https://paloma-nimes.fr/agenda/2026-11/fff-2-event-36412/\nVia Teufy @teufy_official
 URL:https://paloma-nimes.fr/agenda/2026-11/fff-2-event-36412/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : FFF + BLEU SATELLITE (concert chansigné)
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : FFF + BLEU SATELLITE (concert chansigné)
+END:VALARM
 END:VEVENT
 END:VCALENDAR

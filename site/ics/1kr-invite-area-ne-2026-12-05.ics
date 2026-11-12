@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:1kr-invite-area-ne-2026-12-05@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261205T210000Z
 DTEND:20261206T020000Z
 SUMMARY:1KR Invite Area Øne
 LOCATION:Studio Saglio\, Strasbourg
 DESCRIPTION:Le producteur neerlandais Area One invite a Strasbourg par le crew 1KR.\nBillets : https://shotgun.live/events/1-kr-invite-area-one\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/1-kr-invite-area-one
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : 1KR Invite Area Øne
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : 1KR Invite Area Øne
+END:VALARM
 END:VEVENT
 END:VCALENDAR

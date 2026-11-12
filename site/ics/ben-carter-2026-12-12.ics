@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:ben-carter-2026-12-12@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261212T193000Z
 DTEND:20261213T003000Z
 SUMMARY:Ben Carter
 LOCATION:Le Dix-Huit\, Nice
 DESCRIPTION:Set indie dance et house soigné par Ben Carter au Dix-Huit.\nBillets : https://shotgun.live/fr/events/ben-carter\nVia Teufy @teufy_official
 URL:https://shotgun.live/fr/events/ben-carter
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Ben Carter
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Ben Carter
+END:VALARM
 END:VEVENT
 END:VCALENDAR

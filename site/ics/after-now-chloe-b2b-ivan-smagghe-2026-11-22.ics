@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:after-now-chloe-b2b-ivan-smagghe-2026-11-22@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261122T170000Z
 DTEND:20261122T220000Z
 SUMMARY:After Now : Chloé B2B Ivan Smagghe
 LOCATION:La Cabane - Les Halles de la Cartoucherie\, Toulouse
 DESCRIPTION:B2B rare entre Chloe et Ivan Smagghe pour un dimanche electro a la Cartoucherie.\nBillets : https://shotgun.live/events/after-now-chloe-b2b-ivan-smagghe\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/after-now-chloe-b2b-ivan-smagghe
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : After Now : Chloé B2B Ivan Smagghe
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : After Now : Chloé B2B Ivan Smagghe
+END:VALARM
 END:VEVENT
 END:VCALENDAR

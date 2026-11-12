@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:maison-rouge-oma-club-2026-11-13@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150657Z
 DTSTART:20261113T225500Z
 DTEND:20261114T035500Z
 SUMMARY:Maison Rouge - Oma Club
 LOCATION:OMA CLUB\, Nice
 DESCRIPTION:Ambiance clubbing feutrée et sons house au cœur de la zone piétonne niçoise.\nBillets : https://shotgun.live/events/maison-rouge-oma-club\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/maison-rouge-oma-club
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Maison Rouge - Oma Club
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Maison Rouge - Oma Club
+END:VALARM
 END:VEVENT
 END:VCALENDAR

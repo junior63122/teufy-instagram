@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:airelle-besson-et-lionel-suarez-2026-11-13@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261113T190000Z
 DTEND:20261114T000000Z
 SUMMARY:Airelle Besson & Lionel Suarez
 LOCATION:Scène de Bayssan\, Béziers
 DESCRIPTION:Trompette et accordéon en duo jazz à la Scène de Bayssan.\nBillets : https://www.infoconcert.com/concerts/concert-airelle-besson-lionel-suarez-beziers-1963005\nVia Teufy @teufy_official
 URL:https://www.infoconcert.com/concerts/concert-airelle-besson-lionel-suarez-beziers-1963005
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Airelle Besson & Lionel Suarez
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Airelle Besson & Lionel Suarez
+END:VALARM
 END:VEVENT
 END:VCALENDAR

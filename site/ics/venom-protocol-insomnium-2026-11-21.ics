@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:venom-protocol-insomnium-2026-11-21@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261121T190000Z
 DTEND:20261122T000000Z
 SUMMARY:Venom Protocol (Insomnium)
 LOCATION:Bar 404\, Grenoble
 DESCRIPTION:Insomnium invite aux rythmes bouncy et indus en accès libre au Bar 404.\nBillets : https://shotgun.live/events/venom-protocol-techno-gratuit\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/venom-protocol-techno-gratuit
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Venom Protocol (Insomnium)
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Venom Protocol (Insomnium)
+END:VALARM
 END:VEVENT
 END:VCALENDAR

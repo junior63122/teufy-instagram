@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:la-dame-bangin-002-w-hsbo-2026-11-18@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261118T225900Z
 DTEND:20261119T035900Z
 SUMMARY:La Dame // Bangin' #002 W/ HSBO
 LOCATION:La Dame\, Bordeaux
 DESCRIPTION:Coupe ta semaine avec la soirée étudiante Bangin' et HSBO à La Dame.\nBillets : https://shotgun.live/fr/events/la-dame-mer-18-nov-bangin-002-w-hsbo\nVia Teufy @teufy_official
 URL:https://shotgun.live/fr/events/la-dame-mer-18-nov-bangin-002-w-hsbo
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : La Dame // Bangin' #002 W/ HSBO
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : La Dame // Bangin' #002 W/ HSBO
+END:VALARM
 END:VEVENT
 END:VCALENDAR

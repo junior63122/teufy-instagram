@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:red-flag-soiree-celibataire-new-gen-2026-11-14@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261114T225900Z
 DTEND:20261115T035900Z
 SUMMARY:Red Flag (Soirée Célibataire New Gen)
 LOCATION:O Club By Charleston\, Toulouse
 DESCRIPTION:Shatta\, afrobeats et reggaeton a l'O Club avec entree gratuite sur liste.\nBillets : https://shotgun.live/events/red-flag\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/red-flag
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Red Flag (Soirée Célibataire New Gen)
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Red Flag (Soirée Célibataire New Gen)
+END:VALARM
 END:VEVENT
 END:VCALENDAR

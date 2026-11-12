@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:wild-konnexion-vii-2026-11-21@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261121T220000Z
 DTEND:20261122T030000Z
 SUMMARY:Wild:Konnexion VII
 LOCATION:Le Drak-Art\, Grenoble
 DESCRIPTION:Les legendes Suburbass et Pneumatix reunies pour Wild:Konnexion au Drak-Art.\nBillets : https://shotgun.live/events/wild-konnexion-vii\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/wild-konnexion-vii
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Wild:Konnexion VII
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Wild:Konnexion VII
+END:VALARM
 END:VEVENT
 END:VCALENDAR

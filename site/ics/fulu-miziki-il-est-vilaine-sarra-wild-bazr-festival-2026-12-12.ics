@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:fulu-miziki-il-est-vilaine-sarra-wild-bazr-festival-2026-12-12@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261212T180000Z
 DTEND:20261212T230000Z
 SUMMARY:Fulu Miziki + Il Est Vilaine + Sarra Wild... Bazr Festival
 LOCATION:Le Dancing (Chai des Moulins)\, Sète
 DESCRIPTION:Deuxième soirée du BAZR avec Fulu Miziki\, Il Est Vilaine et Sarra Wild.\nBillets : https://shotgun.live/fr/events/fulu-miziki-il-est-vilaine-sarra-wild-bazr-festival\nVia Teufy @teufy_official
 URL:https://shotgun.live/fr/events/fulu-miziki-il-est-vilaine-sarra-wild-bazr-festival
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Fulu Miziki + Il Est Vilaine + Sarra Wild... Bazr Festival
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Fulu Miziki + Il Est Vilaine + Sarra Wild... Bazr Festival
+END:VALARM
 END:VEVENT
 END:VCALENDAR

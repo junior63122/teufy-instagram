@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:konpa-nwel-toulouse-stage-konpa-gouyad-2026-12-18@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261218T223000Z
 DTEND:20261219T033000Z
 SUMMARY:Konpa Nwèl Toulouse - Stage Konpa-Gouyad
 LOCATION:Le Baia Club\, Toulouse
 DESCRIPTION:Konpa Nwèl au Baia Club\, stage konpa-gouyad avant Noël\nBillets : https://www.bizouk.com/events/details/konpa-nwel-toulouse-stage-konpa-gouyad/133612\nVia Teufy @teufy_official
 URL:https://www.bizouk.com/events/details/konpa-nwel-toulouse-stage-konpa-gouyad/133612
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Konpa Nwèl Toulouse - Stage Konpa-Gouyad
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Konpa Nwèl Toulouse - Stage Konpa-Gouyad
+END:VALARM
 END:VEVENT
 END:VCALENDAR

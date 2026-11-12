@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:campus-sextius-student-party-2026-11-12@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261112T225000Z
 DTEND:20261113T035000Z
 SUMMARY:Campus Sextius : Student Party
 LOCATION:IPN Club\, Aix-en-Provence
 DESCRIPTION:Le rendez-vous étudiant du jeudi sur le Cours Sextius\, gratuit avant 1h.\nBillets : https://shotgun.live/events/campus-sextius-by-ipn-student-party-12-11\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/campus-sextius-by-ipn-student-party-12-11
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Campus Sextius : Student Party
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Campus Sextius : Student Party
+END:VALARM
 END:VEVENT
 END:VCALENDAR

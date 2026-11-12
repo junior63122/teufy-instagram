@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:ben-ufo-jane-dark-2026-11-14@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261114T225900Z
 DTEND:20261115T035900Z
 SUMMARY:Ben UFO\, Jane Dark
 LOCATION:essaim\, Paris
 DESCRIPTION:Ben UFO et Jane Dark aux platines d'essaim pour une nuit bass et breaks.\nBillets : https://ra.co/events/fr/paris\nVia Teufy @teufy_official
 URL:https://ra.co/events/fr/paris
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Ben UFO\, Jane Dark
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Ben UFO\, Jane Dark
+END:VALARM
 END:VEVENT
 END:VCALENDAR

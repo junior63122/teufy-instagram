@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:la-bringue-girls-only-party-grenoble-2026-11-14@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261114T180000Z
 DTEND:20261114T230000Z
 SUMMARY:La Bringue - Girls Only Party - Grenoble
 LOCATION:Austra Rocks Grenoble\, Grenoble
 DESCRIPTION:Soiree festive reservee aux femmes a l'Austra Rocks avec le crew La Bringue.\nBillets : https://shotgun.live/events/la-bringue-girls-only-party-grenoble\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/la-bringue-girls-only-party-grenoble
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : La Bringue - Girls Only Party - Grenoble
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : La Bringue - Girls Only Party - Grenoble
+END:VALARM
 END:VEVENT
 END:VCALENDAR

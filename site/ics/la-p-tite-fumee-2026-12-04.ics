@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:la-p-tite-fumee-2026-12-04@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261204T173000Z
 DTEND:20261204T223000Z
 SUMMARY:La P'tite Fumée
 LOCATION:6MIC\, Aix-en-Provence
 DESCRIPTION:Trance tribale survoltée et didgeridoo au 6MIC avec La P'tite Fumée.\nBillets : https://billetterie.6mic-aix.fr/evenement/04-12-2026-20-30-la-ptite-fumee\nVia Teufy @teufy_official
 URL:https://billetterie.6mic-aix.fr/evenement/04-12-2026-20-30-la-ptite-fumee
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : La P'tite Fumée
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : La P'tite Fumée
+END:VALARM
 END:VEVENT
 END:VCALENDAR

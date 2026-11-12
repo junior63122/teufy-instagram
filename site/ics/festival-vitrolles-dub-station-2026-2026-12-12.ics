@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:festival-vitrolles-dub-station-2026-2026-12-12@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261212T200000Z
 DTEND:20261213T010000Z
 SUMMARY:Festival Vitrolles Dub Station 2026
 LOCATION:Stadium de Vitrolles\, Vitrolles
 DESCRIPTION:Huit heures de session dub non-stop au Stadium avec L'Entourloop et Mungo's Hi Fi.\nBillets : https://nouvelle-vague.com/live/festival-vitrolles-dub-station-2026/\nVia Teufy @teufy_official
 URL:https://nouvelle-vague.com/live/festival-vitrolles-dub-station-2026/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Festival Vitrolles Dub Station 2026
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Festival Vitrolles Dub Station 2026
+END:VALARM
 END:VEVENT
 END:VCALENDAR

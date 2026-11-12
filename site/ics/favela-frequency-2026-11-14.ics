@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:favela-frequency-2026-11-14@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261114T224500Z
 DTEND:20261115T034500Z
 SUMMARY:Favela Frequency
 LOCATION:Baia Club\, Toulouse
 DESCRIPTION:Favela Frequency au Baia Club\, ambiance brésilienne pour 7\,50 €\nBillets : https://www.bizouk.com/events/details/favela-frequency/133581\nVia Teufy @teufy_official
 URL:https://www.bizouk.com/events/details/favela-frequency/133581
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Favela Frequency
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Favela Frequency
+END:VALARM
 END:VEVENT
 END:VCALENDAR

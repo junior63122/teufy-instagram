@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:sunday-camina-x-blinkd-matatabi-mija-turbomat-et-2026-11-22@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261122T150000Z
 DTEND:20261122T200000Z
 SUMMARY:Sunday Camina X Blinkd [Matatabi\, Mija\, Turbomat &+]
 LOCATION:Karmen Camina\, Strasbourg
 DESCRIPTION:Après-midi dominical hardgroove et disco-rave de 16h à minuit au Camina.\nBillets : https://shotgun.live/fr/events/sunday-camina-x-blinkd-matatabi-mija-turbomat\nVia Teufy @teufy_official
 URL:https://shotgun.live/fr/events/sunday-camina-x-blinkd-matatabi-mija-turbomat
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Sunday Camina X Blinkd [Matatabi\, Mija\, Turbomat &+]
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Sunday Camina X Blinkd [Matatabi\, Mija\, Turbomat &+]
+END:VALARM
 END:VEVENT
 END:VCALENDAR

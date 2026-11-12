@@ -4,12 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:hit-me-baby-6-2000s-et-2010s-party-2026-11-13@teufy
-DTSTAMP:20261112T133810Z
+DTSTAMP:20261112T150658Z
 DTSTART:20261113T225500Z
 DTEND:20261114T035500Z
 SUMMARY:Hit Me Baby #6 : 2000s & 2010s Party
 LOCATION:Interference\, Toulouse
 DESCRIPTION:Retour dans les années 2000 et 2010 avec tous les hymnes pop et R&B à Interference.\nBillets : https://shotgun.live/events/hit-me-baby-6-2000-s-2010-s-party\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/hit-me-baby-6-2000-s-2010-s-party
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Hit Me Baby #6 : 2000s & 2010s Party
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Hit Me Baby #6 : 2000s & 2010s Party
+END:VALARM
 END:VEVENT
 END:VCALENDAR
