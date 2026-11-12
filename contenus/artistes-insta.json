@@ -3,7 +3,7 @@
   "nom": "Ugo Puccinelli",
   "compte": "ugo_puccinelli",
   "bio": "🎧\n—•\n“Music, soul & house”🎶",
-  "abonnes": 1017,
+  "abonnes": 1018,
   "soirees": [
    "Friday Connection — Chris.A B2b Ugo Puccinelli|2026-11-13T22:59:00.000Z"
   ],
@@ -16,7 +16,7 @@
   "nom": "Laurent N.",
   "compte": "laurentn_music",
   "bio": "🧑‍🎨 Boss @clair_de_lune_party @solaar_party_06 @studio_circus_ofc \n🎧 Dj\n📍 French Riviera\n#musicismylife",
-  "abonnes": 3125,
+  "abonnes": 3124,
   "soirees": [
    "Invictus Winter Session Act II (Laurent N. - Liza - Dj Safire)|2026-11-20T19:30:00.000Z"
   ],
@@ -29,7 +29,7 @@
   "nom": "Mass Hysteria",
   "compte": "masshysteria_official",
   "bio": "Furious since 1993 !\nMass Hysteria « SANS DÉTOUR »",
-  "abonnes": 32202,
+  "abonnes": 32192,
   "soirees": [
    "MASS HYSTERIA - SANS DÉTOUR|2026-11-20T18:00:00.000Z"
   ],
@@ -42,7 +42,7 @@
   "nom": "Selah Sue",
   "compte": "selahsue",
   "bio": "Upcoming shows and album link here👇🏽",
-  "abonnes": 151280,
+  "abonnes": 151270,
   "soirees": [
    "Monte-Carlo Jazz Festival — Focus Selah Sue & Guests|2026-11-18T19:30:00.000Z"
   ],
@@ -55,7 +55,7 @@
   "nom": "Dovnrobs",
   "compte": "dovnrobs",
   "bio": "DJ/Producer ✌️\n🌍: rayya@getoutagency.com\nMusic, dates & more 👇",
-  "abonnes": 10768,
+  "abonnes": 10075,
   "soirees": [
    "Nightly X Dovnrobs (Elva Cannes Takeover)|2026-11-13T22:59:00.000Z"
   ],
@@ -68,7 +68,7 @@
   "nom": "Durdenhauer",
   "compte": "durdenhauer",
   "bio": "French producer/DJ from Montpellier living in Paris \n🌐BOOKING : hicham@ember-artists.com🌐\n🎯MGMT : durdenhauer@pamplemousseagency.com 🎯",
-  "abonnes": 18892,
+  "abonnes": 18883,
   "soirees": [
    "Durdenhauer Fastlane 1 An|2026-11-21T22:30:00.000Z"
   ],
@@ -81,19 +81,27 @@
   "nom": "Cut Killer",
   "compte": "djcutkiller",
   "bio": "Plateformes Musicales / Mon livre \nMes Prochaines Dates 🎟️ K7 , CD & Vinyles ⬇️",
-  "abonnes": 141990,
+  "abonnes": 142016,
   "soirees": [
    "Cut Killer & DJ Clam — ORA Opening Weekend|2026-11-14T20:00:00.000Z"
-  ]
+  ],
+  "site": "https://linktr.ee/Cutkiller",
+  "avatar": "site/artistes/cut-killer-avatar.jpg",
+  "photo": "site/artistes/cut-killer.jpg",
+  "le": "2026-11-12T17:07:37.264Z"
  },
  "alban-dwz": {
   "nom": "Alban Dwz",
   "compte": "alban_dwz",
   "bio": "| 𝕯𝖂𝖅 |\nArtistic director @la_voile_cavaliere ❤️‍🔥          @fusionn_ofc",
-  "abonnes": 2604,
+  "abonnes": 2603,
   "soirees": [
    "Fusion at Inda House by Alban Dwz & Matteis|2026-11-14T22:30:00.000Z"
-  ]
+  ],
+  "site": "",
+  "avatar": "site/artistes/alban-dwz-avatar.jpg",
+  "photo": "site/artistes/alban-dwz.jpg",
+  "le": "2026-11-12T17:07:39.371Z"
  },
  "krad": {
   "nom": "Krad",
@@ -102,7 +110,11 @@
   "abonnes": 383,
   "soirees": [
    "La Tocardise|2026-11-14T22:00:00.000Z"
-  ]
+  ],
+  "site": "http://sptfy.in/ewrh",
+  "avatar": "site/artistes/krad-avatar.jpg",
+  "photo": "site/artistes/krad.jpg",
+  "le": "2026-11-12T17:07:41.624Z"
  },
  "neodyme": {
   "nom": "Néodyme",
@@ -111,6 +123,21 @@
   "abonnes": 8,
   "soirees": [
    "La Tocardise|2026-11-14T22:00:00.000Z"
-  ]
+  ],
+  "site": "",
+  "le": "2026-11-12T17:07:42.150Z"
+ },
+ "plk": {
+  "nom": "PLK",
+  "compte": "plkpb",
+  "bio": "« Grand Garçon » nouvel album disponible\n👇👇👇",
+  "abonnes": 1614706,
+  "soirees": [
+   "PLK — Tournée des Zéniths 2026|2026-12-06T18:00:00.000Z"
+  ],
+  "site": "https://panenkamusic.lnk.to/Grandgarcon",
+  "avatar": "site/artistes/plk-avatar.jpg",
+  "photo": "site/artistes/plk.jpg",
+  "le": "2026-11-12T17:07:30.186Z"
  }
 }
