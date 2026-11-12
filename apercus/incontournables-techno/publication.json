@@ -1,0 +1,362 @@
+{
+  "id": "incontournables-techno",
+  "type": "incontournables",
+  "variante": "techno",
+  "date": "2026-11-09",
+  "images": [
+    "carrousel-00.jpg",
+    "carrousel-01.jpg",
+    "carrousel-02.jpg",
+    "carrousel-03.jpg",
+    "carrousel-04.jpg",
+    "carrousel-05.jpg",
+    "carrousel-06.jpg",
+    "carrousel-07.jpg"
+  ],
+  "legende": "Pour ceux qui viennent pour la musique, et rien d'autre.\nVoilà où ça se passe ce mois-ci.\n📍 Soirées techno à Nice et Fréjus ce mois-ci\n\n🔥 La plus attendue : Paul Seul + Première Partie @ Frigo 16, cofondateur de Casual Gabberz et membre d'Ascendant Vierge en date unique à Nice.\n\n→ Mar 10 nov · La Platurne x Panda Events : Fenrick, Leanne, Arman Shadow (Techno) · Frigo 16, Nice · 20h00 · 10,3 €\n   Première venue du DJ belge Fenrick à Nice avec Leanne et Arman Shadow en veille de jour férié. @laplaturne @fenrick_\n→ Jeu 12 nov · Je Dis Techno (Tous Les Jeudis) (Hard techno · Acid) · L'Antre & Kosma Club, Nice · 22h00 · 5 €\n   Rendez-vous techno du jeudi à 5 euros entre L'Antre et le Kosma Club. @jedistechno @lantre_nice\n→ Ven 13 nov · Rupture (Techno · Trance) · Le Calypso - Fréjus Plage, Fréjus · 23h00 · 9 €\n   6h de rave clubbing non-stop avec 5 DJs trance et hardtek en bord de mer. @par4tek_events @lecalypsofrejus\n→ Ven 20 nov · Paul Seul + Première Partie @ Frigo 16 (Hard techno · Rap) · Frigo 16 - Le 109, Nice · 20h00 · 12,49 €\n   Paul Seul de Casual Gabberz et Ascendant Vierge en set explosif au 109. @pandaevents06 @frigo.16\n→ Sam 28 nov · Do You Like... Tekno ? @ Frigo16 - Le 109 [Nice] (Hard techno · Acid) · Frigo 16 - Le 109, Nice · 20h00 · 10,99 €\n   Live 2h du duo 23HZ avec Banditik sur le système Meyer Sound du Frigo 16. @prizmeconcept @pandaevents06\n→ Sam 28 nov · Do You Like... Tekno ? @ Frigo 16 (Acid · Techno) · Le 109 - Frigo 16, Nice · 20h00 · 21 €\n   Grosse rave tekno et acidcore au 109 avec Insane Teknology aux commandes. @prizmeconcept @frigo16nice\n\nTu seras à laquelle ? Enregistre le post pour ne pas oublier. Suis le compte : chaque semaine, les soirées à ne pas rater.\n\n#TeufyParty #nightlifecotedazur #nicefrance #underground #techno",
+  "soirees": [
+    {
+      "source": "web",
+      "source_site": "Instagram laplaturne",
+      "name": "La Platurne x Panda Events : Fenrick, Leanne, Arman Shadow",
+      "start": "2026-11-10T19:00:00.000Z",
+      "venue": "Frigo 16",
+      "city": "Nice",
+      "address": "",
+      "url": "https://www.instagram.com/p/DffPVUsjuV3/",
+      "image": "https://scontent-sjc6-1.cdninstagram.com/v/t51.82787-15/881860727_18129725510312991_660624881723867800_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=jPREx3HCdZ8Q7kNvwEQo1UI&_nc_oc=Adp-b4W4Qn7q1avn5Ok71C5HNyB39jljoBTOTMFpg12lviUkGjlMw3gRje2HicT-F0o&_nc_zt=23&_nc_ht=scontent-sjc6-1.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=6HoOUx0kv1pAgnouInsQRQ&oh=00_AQSm10PI4vsuNBFbSeDdjiKv0G-OsPRQ6NdS0CXd6A6RPw&oe=6AF6BD5B",
+      "price": 10.3,
+      "tags": [
+        "techno",
+        "bounce",
+        "groove"
+      ],
+      "description": "",
+      "public_cible": 0.98,
+      "confiance": 0.95,
+      "buzz": 0.85,
+      "buzz_raison": "Première venue à Nice de Fenrick, veille de jour férié au Frigo 16.",
+      "accroche": "Première venue du DJ belge Fenrick à Nice avec Leanne et Arman Shadow en veille de jour férié.",
+      "instagram": [
+        "laplaturne",
+        "fenrick_",
+        "armanshadow"
+      ],
+      "sources_sites": [
+        "Instagram laplaturne",
+        "Instagram"
+      ],
+      "billetterie_cherchee": true,
+      "enrichi": true,
+      "verifie": false
+    },
+    {
+      "source": "web",
+      "source_site": "shotgun.live",
+      "name": "Je Dis Techno (Tous Les Jeudis)",
+      "start": "2026-11-12T21:00:00.000Z",
+      "venue": "L'Antre & Kosma Club",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/events/je-dis-techno-tous-les-jeudis",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,ar_16:9,w_3840,fl_lossy,f_webp,q_auto/production/artworks/C1528EF5-CC23-4298-B444-580FB91EE84D_sqrlrc.png",
+      "price": 5,
+      "tags": [
+        "Hard Techno",
+        "Hard Bounce",
+        "Acid Techno",
+        "hard techno",
+        "hard bounce",
+        "acid techno",
+        "Neorave",
+        "neorave"
+      ],
+      "description": "",
+      "public_cible": 0.95,
+      "confiance": 0.95,
+      "buzz": 0.7,
+      "buzz_raison": "Soirée étudiante hebdomadaire réputée avec tarif d'entrée très accessible.",
+      "accroche": "Rendez-vous techno du jeudi à 5 euros entre L'Antre et le Kosma Club.",
+      "instagram": [
+        "jedistechno",
+        "lantre_nice",
+        "kosma_nice"
+      ],
+      "sources_sites": [
+        "shotgun.live",
+        "Shotgun",
+        "Shotgun.live"
+      ],
+      "enrichi": true
+    },
+    {
+      "source": "web",
+      "source_site": "shotgun.live",
+      "name": "Rupture",
+      "start": "2026-11-13T22:00:00.000Z",
+      "venue": "Le Calypso - Fréjus Plage",
+      "city": "Fréjus",
+      "address": "",
+      "url": "https://shotgun.live/events/rupture",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto/production/artworks/Rupture_1920_x_1080_px_vvs35o.png",
+      "price": 9,
+      "tags": [
+        "Trance",
+        "Techno",
+        "Hardtek",
+        "Hard Bounce",
+        "trance",
+        "techno",
+        "hardtek",
+        "Hardcore"
+      ],
+      "description": "",
+      "public_cible": 0.9,
+      "confiance": 0.95,
+      "buzz": 0.7,
+      "buzz_raison": "Plateau de 5 DJs trance/hardtek et format rave clubbing à Fréjus Plage.",
+      "accroche": "6h de rave clubbing non-stop avec 5 DJs trance et hardtek en bord de mer.",
+      "instagram": [
+        "par4tek_events",
+        "lecalypsofrejus",
+        "par4tek.events"
+      ],
+      "sources_sites": [
+        "shotgun.live",
+        "Shotgun",
+        "Shotgun.live"
+      ],
+      "enrichi": true
+    },
+    {
+      "source": "web",
+      "source_site": "shotgun.live",
+      "name": "Paul Seul + Première Partie @ Frigo 16",
+      "start": "2026-11-20T19:00:00.000Z",
+      "venue": "Frigo 16 - Le 109",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/events/paul-seul-premiere-partie-frigo-16",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto/production/artworks/COCLUB26_Mockup_Paul-Seul_1920x1005_yg9coc.jpg",
+      "price": 12.49,
+      "tags": [
+        "Techno",
+        "Hard Techno",
+        "Gabber",
+        "Néo-Pop",
+        "techno",
+        "hard techno",
+        "rave",
+        "gabber",
+        "frapcore",
+        "electro",
+        "Rave",
+        "Pop/Electro",
+        "Hardcore",
+        "Fast Pop",
+        "eurodance",
+        "hard dance"
+      ],
+      "description": "",
+      "public_cible": 0.95,
+      "confiance": 0.95,
+      "buzz": 0.9,
+      "buzz_raison": "Cofondateur de Casual Gabberz et membre d'Ascendant Vierge en date unique à Nice.",
+      "accroche": "Paul Seul de Casual Gabberz et Ascendant Vierge en set explosif au 109.",
+      "instagram": [
+        "pandaevents06",
+        "frigo.16",
+        "le109_nice"
+      ],
+      "sources_sites": [
+        "shotgun.live",
+        "Shotgun",
+        "Agenda officiel Le 109 / Panda Events",
+        "Shotgun / Panda Events",
+        "Shotgun.live"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "shotgun.live",
+      "name": "Do You Like... Tekno ? @ Frigo16 - Le 109 [Nice]",
+      "start": "2026-11-28T19:00:00.000Z",
+      "venue": "Frigo 16 - Le 109",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/events/do-you-like-tekno-frigo-16-le-109-nice",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,w_1200,h_630,f_jpg,q_auto/dev/artworks/Banni%C3%A8re_Shotgun_t785wx",
+      "price": 10.99,
+      "tags": [
+        "Tekno",
+        "Tribe",
+        "Acidcore",
+        "Hard Techno",
+        "techno",
+        "acidcore",
+        "tribe",
+        "Techno",
+        "Mental Tekno",
+        "Hardtek",
+        "Mental",
+        "hardtek",
+        "tekno",
+        "hard techno",
+        "Free Tekno"
+      ],
+      "description": "",
+      "public_cible": 0.95,
+      "confiance": 0.95,
+      "buzz": 0.85,
+      "buzz_raison": "Duo culte tekno 23HZ en live 2h et système Meyer Sound au Frigo 16.",
+      "accroche": "Live 2h du duo 23HZ avec Banditik sur le système Meyer Sound du Frigo 16.",
+      "instagram": [
+        "prizmeconcept",
+        "pandaevents06",
+        "frigo.16"
+      ],
+      "sources_sites": [
+        "shotgun.live",
+        "Shotgun",
+        "Shotgun / Le 109 Nice",
+        "Shotgun.live"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Shotgun Live / Prizme Concept",
+      "name": "Do You Like... Tekno ? @ Frigo 16",
+      "start": "2026-11-28T19:00:00.000Z",
+      "venue": "Le 109 - Frigo 16",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/fr/events/do-you-like-tekno-frigo-16-le-109-nice",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto/production/artworks/5_g3lkvf.jpg",
+      "price": 21,
+      "tags": [
+        "Hardtechno",
+        "Acidcore",
+        "Tribe",
+        "Tekno"
+      ],
+      "description": "",
+      "public_cible": 0.9,
+      "confiance": 0.95,
+      "buzz": 0.75,
+      "buzz_raison": "Soirée tekno et rave indoor au Frigo 16 avec Insane Teknology.",
+      "accroche": "Grosse rave tekno et acidcore au 109 avec Insane Teknology aux commandes.",
+      "instagram": [
+        "prizmeconcept",
+        "frigo16nice",
+        "le109nice"
+      ]
+    }
+  ],
+  "titre": "Les dates techno à ne pas manquer ce mois-ci",
+  "tags": [
+    [],
+    [
+      "laplaturne",
+      "fenrick_",
+      "armanshadow"
+    ],
+    [
+      "jedistechno",
+      "lantre_nice",
+      "kosma_nice"
+    ],
+    [
+      "par4tek_events",
+      "lecalypsofrejus",
+      "par4tek.events"
+    ],
+    [
+      "pandaevents06",
+      "frigo.16",
+      "le109_nice"
+    ],
+    [
+      "prizmeconcept",
+      "pandaevents06",
+      "frigo.16"
+    ],
+    [
+      "prizmeconcept",
+      "frigo16nice",
+      "le109nice"
+    ]
+  ],
+  "collabs": [
+    "pandaevents06",
+    "laplaturne",
+    "prizmeconcept"
+  ],
+  "choix": {
+    "creneau": "15",
+    "seuil-qualite": 0.7,
+    "titre-techno": "1f59em",
+    "mise-couverture": "bas",
+    "intro-techno": "9v2qh8",
+    "question-techno": "1ey3mre",
+    "suivre": "h7y61e",
+    "hashtags-local": [
+      "#nightlifecotedazur",
+      "#nicefrance"
+    ],
+    "hashtags-techno": [
+      "#underground",
+      "#techno"
+    ]
+  },
+  "features": [
+    "genre:techno",
+    "source:web",
+    "style:techno",
+    "lieu:frigo-16",
+    "ville:nice",
+    "prix:moyen",
+    "horaire:nuit",
+    "genre:techno",
+    "source:web",
+    "style:hard-techno",
+    "style:acid",
+    "lieu:l-antre-kosma-club",
+    "ville:nice",
+    "prix:petit",
+    "horaire:nuit",
+    "genre:techno",
+    "source:web",
+    "style:techno",
+    "style:trance",
+    "lieu:le-calypso-frejus-plage",
+    "ville:frejus",
+    "prix:petit",
+    "horaire:nuit",
+    "genre:techno",
+    "source:web",
+    "style:hard-techno",
+    "style:rap",
+    "lieu:frigo-16-le-109",
+    "ville:nice",
+    "prix:moyen",
+    "horaire:nuit",
+    "genre:techno",
+    "source:web",
+    "style:hard-techno",
+    "style:acid",
+    "lieu:frigo-16-le-109",
+    "ville:nice",
+    "prix:moyen",
+    "horaire:nuit",
+    "genre:techno",
+    "source:web",
+    "style:acid",
+    "style:techno",
+    "lieu:le-109-frigo-16",
+    "ville:nice",
+    "prix:moyen",
+    "horaire:nuit"
+  ],
+  "nb_images": 8,
+  "story": "story.jpg"
+}
