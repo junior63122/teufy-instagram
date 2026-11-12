@@ -2,6 +2,11 @@ name: Teufy - tester les IA
 # Une toute petite requête à chaque IA pour vérifier les crédits (après une recharge). Coût négligeable.
 on:
   workflow_dispatch:
+    inputs:
+      exception_ia:
+        description: "Exception du directeur : autoriser Gemini/Claude pour ce lancement manuel (sinon aucune IA payante)"
+        type: boolean
+        default: false
 permissions:
   contents: read
 jobs:
@@ -14,6 +19,6 @@ jobs:
           node-version: 20
       - name: Tester Gemini et Claude
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GEMINI_API_KEY: ${{ (inputs.exception_ia) && (secrets.GEMINI_API_KEY) || '' }}
+          ANTHROPIC_API_KEY: ${{ (inputs.exception_ia) && (secrets.ANTHROPIC_API_KEY) || '' }}
         run: node outils/tester-ia.mjs

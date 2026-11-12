@@ -6,7 +6,12 @@ name: Teufy - Paiements
 on:
   schedule:
     - cron: "17 * * * *"
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      exception_ia:
+        description: "Exception du directeur : autoriser Gemini/Claude pour ce lancement manuel (sinon aucune IA payante)"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -22,8 +27,9 @@ jobs:
     env:
       STRIPE_API_KEY: ${{ secrets.STRIPE_API_KEY || secrets.STRIPE_KEY || secrets.STRIPE_SECRET_KEY }}
       BREVO_API_KEY: ${{ secrets.BREVO_API_KEY || secrets.BREVO_KEY }}
-      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY || secrets.GEMINI_KEY || secrets.GOOGLE_API_KEY }}
-      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY || secrets.CLAUDE_API_KEY }}
+      TEUFY_IA_MANUEL: ${{ (github.event_name == 'schedule' || inputs.exception_ia) && '0' || '1' }}
+      GEMINI_API_KEY: ${{ (github.event_name == 'schedule' || inputs.exception_ia) && (secrets.GEMINI_API_KEY || secrets.GEMINI_KEY || secrets.GOOGLE_API_KEY) || '' }}
+      ANTHROPIC_API_KEY: ${{ (github.event_name == 'schedule' || inputs.exception_ia) && (secrets.ANTHROPIC_API_KEY || secrets.CLAUDE_API_KEY) || '' }}
       IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN || secrets.INSTAGRAM_ACCESS_TOKEN }}
       IG_USER_ID: ${{ secrets.IG_USER_ID || secrets.INSTAGRAM_USER_ID }}
       IG_API_HOST: ${{ vars.IG_API_HOST || 'graph.facebook.com' }}

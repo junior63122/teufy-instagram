@@ -44,7 +44,7 @@ for (const [i, s] of E.soirees.entries()) {
 // Une affiche d'une autre soirée = soirée retirée du carrousel (jamais de visuel trompeur).
 async function verifierAffiche(s) {
   const CLE = (process.env.GEMINI_API_KEY || '').trim();
-  if (!CLE) return {ok: true, raison: 'pas de clé Gemini, non vérifié'};
+  if (!CLE || process.env.TEUFY_IA_MANUEL === '1') return {ok: true, raison: 'pas de clé Gemini, non vérifié'};
   const API = 'https://generativelanguage.googleapis.com/v1beta/models';
   try {
     const liste = await (await fetch(`${API}?pageSize=200&key=${CLE}`)).json();

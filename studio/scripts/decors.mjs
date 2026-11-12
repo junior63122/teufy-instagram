@@ -12,6 +12,11 @@ const STUDIO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const API = 'https://generativelanguage.googleapis.com/v1beta';
 const CLE = (process.env.GEMINI_API_KEY || '').trim();
 if (!CLE) { console.error('GEMINI_API_KEY absent.'); process.exit(1); }
+// Budget commun (contenus/budget-ia.json) : chaque image est comptée ; lancement manuel = aucune image payante.
+const LLM = await import('../../src/llm.mjs');
+const CONFIG_L = (() => { try { return JSON.parse(readFileSync(path.join(path.dirname(fileURLToPath(import.meta.url)), '..', '..', 'config.json'), 'utf8')).llm || {}; } catch { return {}; } })();
+LLM.reglerCouts(CONFIG_L);
+if (!LLM.budgetOk('gemini', CONFIG_L)) { console.error('Images Gemini non générées (lancement manuel ou budget atteint) : décors de secours.'); process.exit(1); }
 const def = JSON.parse(readFileSync(process.argv[2], 'utf8'));
 const dir = path.join(STUDIO, 'public', 'decors', def.concept);
 await mkdir(dir, {recursive: true});
@@ -22,7 +27,9 @@ const liste = await (await fetch(`${API}/models?pageSize=200`, {headers: h})).js
 const noms = (liste.models || []).map((m) => ({nom: m.name.replace('models/', ''), methodes: m.supportedGenerationMethods || []}));
 // Qualité « eco » (photos des reels, renouvelées 3 fois par semaine) : modèle flash, environ 3 fois moins cher.
 // Qualité « premium » (DA, fêtes, couvertures) : modèle pro.
-const ECO = def.qualite === 'eco' || process.env.IMAGES_ECO === '1';
+// Économie (12/11/2026) : modèle « flash » par défaut, environ 3 fois moins cher ; le modèle pro seulement si le concept
+// le demande explicitement (qualite: 'premium').
+const ECO = def.qualite !== 'premium' || process.env.IMAGES_ECO === '1';
 const PREF = ECO
   ? [/gemini-3.*flash.*image(?!.*lite)/, /gemini-2\.5-flash-image(?!.*preview)/, /gemini-2\.5-flash-image/, /gemini-3.*pro.*image/, /imagen-4/]
   : [/gemini-3.*pro.*image/, /gemini-3.*image/, /gemini-2\.5-flash-image(?!.*preview)/, /gemini-2\.5-flash-image/, /imagen-4\.0-ultra/, /imagen-4/, /imagen-3/];
@@ -56,8 +63,10 @@ const credits = {};
 for (const d of def.decors) {
   const f = path.join(dir, `${d.id}.jpg`);
   if (existsSync(f) && !process.env.REFAIRE) { console.log(`${d.id} : déjà là`); continue; }
+  if (!LLM.budgetOk('gemini', CONFIG_L)) { console.error(`${d.id} : budget atteint, décor de secours.`); break; }
   const r = await generer(`${def.style}\n\n${d.prompt}`, d.format || '16:9');
   if (!r) { console.error(`${d.id} : échec`); continue; }
+  LLM.compter('gemini', /pro|ultra/.test(r.modele) ? 'image_pro' : 'image');
   const png = f.replace(/\.jpg$/, '.png');
   await writeFile(png, Buffer.from(r.b64, 'base64'));
   spawnSync('ffmpeg', ['-y', '-loglevel', 'error', '-i', png, '-q:v', '3', f]);

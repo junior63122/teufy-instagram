@@ -38,6 +38,10 @@ on:
         description: "Publier vraiment sur Instagram (sinon : aperçu téléchargeable seulement)"
         type: boolean
         default: false
+      exception_ia:
+        description: "Exception du directeur : autoriser Gemini/Claude pour ce lancement manuel (sinon aucune IA payante)"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -54,12 +58,14 @@ jobs:
     env:
       # Clés : plusieurs noms de secrets acceptés (ElevenLabs, Gemini, Claude, Instagram…)
       ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY || secrets.ELEVENLABS_KEY || secrets.ELEVENLABS || secrets.ELEVEN_LABS || secrets.ELEVEN_LABS_API_KEY || secrets.ELEVEN_LABS_KEY || secrets.ELEVENLABS_TOKEN || secrets.ELEVEN_API_KEY || secrets.ELEVEN_KEY || secrets.ELEVEN || secrets.XI_API_KEY || secrets.ELEVENLABS_API || secrets.CLE_ELEVENLABS || secrets.ELEVENLABS_SECRET || secrets.ELEVENLABSAPIKEY || secrets.API_ELEVENLABS || vars.ELEVENLABS_API_KEY || vars.ELEVENLABS_KEY || vars.ELEVENLABS || vars.ELEVEN_LABS || vars.ELEVEN_LABS_API_KEY || vars.ELEVEN_LABS_KEY }}
-      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY || secrets.GEMINI_KEY || secrets.GEMINI || secrets.GOOGLE_API_KEY || secrets.GOOGLE_AI_KEY || secrets.GOOGLE_AI_API_KEY || secrets.GEMINI_TOKEN || secrets.AI_STUDIO_KEY || secrets.CLE_GEMINI || secrets.API_GEMINI }}
-      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY || secrets.ANTHROPIC_KEY || secrets.ANTHROPIC || secrets.CLAUDE_API_KEY || secrets.CLAUDE_KEY || secrets.CLAUDE }}
+      GEMINI_API_KEY: ${{ (github.event_name == 'schedule' || startsWith(inputs.quoi, 'horaire') || inputs.exception_ia) && (secrets.GEMINI_API_KEY || secrets.GEMINI_KEY || secrets.GEMINI || secrets.GOOGLE_API_KEY || secrets.GOOGLE_AI_KEY || secrets.GOOGLE_AI_API_KEY || secrets.GEMINI_TOKEN || secrets.AI_STUDIO_KEY || secrets.CLE_GEMINI || secrets.API_GEMINI) || '' }}
+      ANTHROPIC_API_KEY: ${{ (github.event_name == 'schedule' || startsWith(inputs.quoi, 'horaire') || inputs.exception_ia) && (secrets.ANTHROPIC_API_KEY || secrets.ANTHROPIC_KEY || secrets.ANTHROPIC || secrets.CLAUDE_API_KEY || secrets.CLAUDE_KEY || secrets.CLAUDE) || '' }}
       IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN || secrets.INSTAGRAM_ACCESS_TOKEN || secrets.INSTAGRAM_TOKEN || secrets.IG_TOKEN || secrets.META_ACCESS_TOKEN || secrets.FB_ACCESS_TOKEN }}
       IG_USER_ID: ${{ secrets.IG_USER_ID || secrets.INSTAGRAM_USER_ID || secrets.INSTAGRAM_ID || secrets.IG_ID || secrets.IG_ACCOUNT_ID || secrets.INSTAGRAM_ACCOUNT_ID }}
       PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY || secrets.PEXELS_KEY || secrets.PEXELS }}
       PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY || secrets.PIXABAY_KEY || secrets.PIXABAY }}
+      # Règle du directeur : IA payante seulement pour les passages automatiques (horaire GitHub ou déclencheur externe).
+      TEUFY_IA_MANUEL: ${{ (github.event_name == 'schedule' || startsWith(inputs.quoi, 'horaire') || inputs.exception_ia) && '0' || '1' }}
       IG_API_HOST: ${{ vars.IG_API_HOST || 'graph.facebook.com' }}
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub Models, gratuit
       MEDIA_BASE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/media
@@ -131,6 +137,8 @@ jobs:
 
       - name: Récupérer les soirées et générer les visuels
         if: steps.choix.outputs.rien != 'true'
+        env:
+          TEUFY_PUBLICATION: '1' # le plafond IA du jour ne bloque jamais la création du post (exception)
         run: node src/run.mjs ${{ steps.choix.outputs.quoi }} preparer
 
       - name: Sauvegarder la recherche de soirées (réutilisée 3 jours, évite de payer deux fois)
@@ -138,7 +146,7 @@ jobs:
         run: |
           git config user.name "teufy-bot"
           git config user.email "teufy-bot@users.noreply.github.com"
-          git add -A -- $(ls -d evenements-web.json contenus/organisateurs.json 2>/dev/null) || true # seulement les chemins existants (un seul absent bloquait tout)
+          git add -A -- $(ls -d evenements-web.json contenus/organisateurs.json contenus/budget-ia.json 2>/dev/null) || true # seulement les chemins existants (un seul absent bloquait tout)
           git add -A -- $(ls -d studio/scripts/concepts studio/scripts/decors studio/public 2>/dev/null) || true # seulement les chemins existants (un seul absent bloquait tout)
           git diff --cached --quiet && exit 0
           git commit -m "Teufy : soirées et reels préparés le $(date -u +%F)"
@@ -184,7 +192,7 @@ jobs:
         run: |
           git config user.name "teufy-bot"
           git config user.email "teufy-bot@users.noreply.github.com"
-          git add -A -- $(ls -d historique.json contenus/comptes-verifies.json 2>/dev/null) || true # seulement les chemins existants (un seul absent bloquait tout)
+          git add -A -- $(ls -d historique.json contenus/comptes-verifies.json contenus/budget-ia.json 2>/dev/null) || true # seulement les chemins existants (un seul absent bloquait tout)
           git diff --cached --quiet && exit 0
           git commit -m "Teufy Instagram : publié (${{ steps.choix.outputs.quoi }})"
           for i in 1 2 3; do git pull --rebase -X theirs --autostash && git push && break; git rebase --abort 2>/dev/null; sleep 5; done

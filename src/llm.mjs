@@ -40,9 +40,17 @@ export const marquerASec = (f, err) => {
 const aQuota = new Set();
 // secondaire = tâche qui peut attendre (veille, horaires des lieux) : elle s'arrête à 75 % du budget du jour, pour que
 // les tâches essentielles (soirées du site, publications) gardent toujours de quoi tourner.
+// Règle du directeur (12/11/2026) : Gemini et Claude sont réservés aux robots automatiques. Un lancement manuel
+// (TEUFY_IA_MANUEL=1, posé par les workflows lancés à la main sans « exception ») n'appelle jamais une IA payante.
+export const iaPayanteInterdite = () => process.env.TEUFY_IA_MANUEL === '1';
+// Publication (TEUFY_PUBLICATION=1) : le plafond DU JOUR ne doit jamais empêcher de poster ni de créer le post ;
+// il est alors dépassé en exception (le plafond du mois et les garde-fous anti-emballement restent actifs).
+const publication = () => process.env.TEUFY_PUBLICATION === '1';
 export function budgetOk(f, L = {}, secondaire = false) { // L est réaffecté pour Gemini (budget propre)
   if (aSec.has(f)) return false;
   if (f === 'github') return true; // gratuit
+  if (iaPayanteInterdite()) { if (!(budgetOk.manuel ||= new Set()).has(f)) console.error(`IA ${f} non utilisée : lancement manuel (réservée aux robots automatiques, sauf exception).`); budgetOk.manuel.add(f); return false; }
+  const exception = publication() && !secondaire;
   const b = lireBudget(), [dj, dm] = PLAFONDS[f] || [Infinity, Infinity];
   const okJ = (b.aujourdhui[f] || 0) < (L[`max_appels_${f}_jour`] ?? dj), okM = (b.total[f] || 0) < (L[`max_appels_${f}_mois`] ?? dm);
   if (!okJ || !okM) console.error(`Budget IA : plafond ${okM ? 'du jour' : 'du mois'} atteint pour ${f}, appel évité.`);
@@ -54,10 +62,11 @@ export function budgetOk(f, L = {}, secondaire = false) { // L est réaffecté p
   if (secondaire && L.budget_jour_eur != null && eJ >= 0.75 * L.budget_jour_eur) { console.error(`Budget IA : tâche secondaire reportée (≈ ${eJ.toFixed(2)} € dépensés, réserve gardée pour les soirées et les publications).`); return false; }
   const okEJ = L.budget_jour_eur == null || eJ < L.budget_jour_eur, okEM = L.budget_mois_eur == null || eM < L.budget_mois_eur;
   if (!okEJ || !okEM) { if (!(budgetOk.dit ||= new Set()).has(f)) console.error(`Budget IA (${f}) : ${okEM ? `budget du jour atteint (≈ ${eJ.toFixed(2)} € / ${L.budget_jour_eur} €)` : `budget du mois atteint (≈ ${eM.toFixed(2)} € / ${L.budget_mois_eur} €)`} : plus d'appel payant avant ${okEM ? 'demain' : 'le mois prochain'}.`); budgetOk.dit.add(f); }
+  if (exception && okM && okEM && (!okJ || !okEJ)) { if (!budgetOk.exc) console.error(`Budget IA (${f}) : plafond du jour dépassé en exception pour publier.`); budgetOk.exc = true; return true; }
   return okJ && okM && okEJ && okEM;
 }
 // Coût estimé d'un appel (euros), réglable dans config.llm.cout_eur : une recherche web coûte bien plus qu'une rédaction.
-const COUT_DEFAUT = { gemini_recherche: 0.04, gemini_appel: 0.004, anthropic_recherche: 0.6, anthropic_appel: 0.12 };
+const COUT_DEFAUT = { gemini_recherche: 0.04, gemini_appel: 0.004, gemini_image: 0.04, gemini_image_pro: 0.13, anthropic_recherche: 0.6, anthropic_appel: 0.12 };
 let COUTS = COUT_DEFAUT;
 export const reglerCouts = (L = {}) => { COUTS = { ...COUT_DEFAUT, ...(L.cout_eur || {}) }; };
 export function compter(f, type = 'appel') {

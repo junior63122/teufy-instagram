@@ -5,6 +5,10 @@ name: Teufy - Studio (décors illustrés)
 on:
   workflow_dispatch:
     inputs:
+      exception_ia:
+        description: "Exception du directeur : autoriser Gemini/Claude pour ce lancement manuel (sinon aucune IA payante)"
+        type: boolean
+        default: false
       concept:
         description: "Concept (fichier studio/scripts/decors/<concept>.json)"
         default: "potes"
@@ -27,7 +31,7 @@ jobs:
           node-version: 22
       - name: Générer les décors
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY || secrets.GEMINI_KEY || secrets.GEMINI || secrets.GOOGLE_API_KEY || secrets.GOOGLE_AI_KEY || secrets.GOOGLE_AI_API_KEY || secrets.GEMINI_TOKEN || secrets.AI_STUDIO_KEY || secrets.CLE_GEMINI || secrets.API_GEMINI }}
+          GEMINI_API_KEY: ${{ (inputs.exception_ia) && (secrets.GEMINI_API_KEY || secrets.GEMINI_KEY || secrets.GEMINI || secrets.GOOGLE_API_KEY || secrets.GOOGLE_AI_KEY || secrets.GOOGLE_AI_API_KEY || secrets.GEMINI_TOKEN || secrets.AI_STUDIO_KEY || secrets.CLE_GEMINI || secrets.API_GEMINI) || '' }}
           REFAIRE: ${{ inputs.refaire && '1' || '' }}
         run: |
           sudo apt-get install -y --no-install-recommends ffmpeg >/dev/null 2>&1 || true
