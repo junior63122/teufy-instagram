@@ -35,9 +35,14 @@
      "nom": "Students Party @ High Club"
     }
    ],
-   "insta": null,
+   "insta": {
+    "abonnes": 26934,
+    "likes": 906,
+    "commentaires": 1.3,
+    "posts21": 8
+   },
    "slug": "high-club-nice",
-   "score": 0,
+   "score": 1.025,
    "photo": "site/lieux/highclubnice-176.webp",
    "details": {
     "le": "2026-11-09T19:59:29.344Z",
@@ -1080,7 +1085,7 @@
     "posts21": 4
    },
    "slug": "o-sullivans-by-the-beach-mandelieu-la-napoule",
-   "score": 0.9,
+   "score": 0.875,
    "photo": "site/lieux/osullivans_mandelieu-176.webp",
    "soirs": [],
    "details": {
