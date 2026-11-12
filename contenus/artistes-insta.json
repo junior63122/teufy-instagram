@@ -125,7 +125,7 @@
    "La Tocardise|2026-11-14T22:00:00.000Z"
   ],
   "site": "",
-  "le": "2026-11-12T17:16:51.626Z"
+  "le": "2026-11-12T20:25:41.877Z"
  },
  "plk": {
   "nom": "PLK",
@@ -139,5 +139,45 @@
   "avatar": "site/artistes/plk-avatar.jpg",
   "photo": "site/artistes/plk.jpg",
   "le": "2026-11-12T17:07:30.186Z"
+ },
+ "manudigital": {
+  "nom": "Manudigital",
+  "compte": "manudigital",
+  "bio": "BRAND NEW EP 🤝 RAGGA BLASTA w/ @skarramucci ⚡️\nBeatmaker/Producer & musician\n📨: booking@xrayproduction.com",
+  "abonnes": 204367,
+  "soirees": [
+   "Skarra Mucci & Manudigital — Ragga Blasta Tour|2026-11-27T19:30:00.000Z"
+  ],
+  "site": "https://linktr.ee/manudigital",
+  "avatar": "site/artistes/manudigital-avatar.jpg",
+  "photo": "site/artistes/manudigital.jpg",
+  "le": "2026-11-12T20:25:37.119Z"
+ },
+ "shafro": {
+  "nom": "Shafro",
+  "compte": "shafroevents",
+  "bio": "FRANCE TOUR 🇫🇷\n💕12/11 : 📍STRASBOURG\n💕14/11 : 📍BORDEAUX\n💕20/11 : 📍NANTES\n💕27/11 : 📍LYON",
+  "abonnes": 12149,
+  "soirees": [
+   "Shafro @ Toulon #2 : Afro, Shatta, Dancehall|2026-11-29T19:00:00.000Z",
+   "Shafro @ Toulon #3 — Afro, Shatta, Bouyon|2026-12-20T19:00:00.000Z"
+  ],
+  "site": "https://shotgun.live/events/shafrostrasbourg80",
+  "avatar": "site/artistes/shafro-avatar.jpg",
+  "photo": "site/artistes/shafro.jpg",
+  "le": "2026-11-12T20:25:39.016Z"
+ },
+ "origins-techno": {
+  "nom": "[origins techno]",
+  "compte": "originstechno",
+  "bio": "Promotora de música electronica",
+  "abonnes": 159,
+  "soirees": [
+   "Origins Invite Boticka All Night Long|2026-11-28T22:30:00.000Z"
+  ],
+  "site": "",
+  "avatar": "site/artistes/origins-techno-avatar.jpg",
+  "photo": "site/artistes/origins-techno.jpg",
+  "le": "2026-11-12T20:25:41.380Z"
  }
 }
