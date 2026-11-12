@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:noctem-x-satori-avec-belaria-dj-flaya-et-resident-e-s-2026-11-13@teufy
+DTSTAMP:20261112T084450Z
+DTSTART:20261113T225900Z
+DTEND:20261114T035900Z
+SUMMARY:Noctem X Satori Avec Belaria • Dj Flaya & Resident.e.s
+LOCATION:Satori Club\, Rennes
+DESCRIPTION:Belaria amene ses sonorites dark disco et EBM au sous-sol du Satori Club.\nBillets : https://shotgun.live/events/noctem-x-satori-avec-belaria-dj-flaya-resident-e-s\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/noctem-x-satori-avec-belaria-dj-flaya-resident-e-s
+END:VEVENT
+END:VCALENDAR

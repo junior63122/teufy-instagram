@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:backroom-atmosphere-x-uzine-bar-2026-11-12@teufy
+DTSTAMP:20261112T084450Z
+DTSTART:20261112T200000Z
+DTEND:20261113T010000Z
+SUMMARY:Backroom - Atmosphère X Uzine Bar
+LOCATION:Uzine Bar\, Rennes
+DESCRIPTION:Nuit sombre et kicks aceres a l'Uzine Bar avec le collectif Atmosphere.\nBillets : https://shotgun.live/events/backroom-atmoshpere-x-uzine-bar\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/backroom-atmoshpere-x-uzine-bar
+END:VEVENT
+END:VCALENDAR

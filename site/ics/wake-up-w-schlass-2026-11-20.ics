@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:wake-up-w-schlass-2026-11-20@teufy
+DTSTAMP:20261112T084450Z
+DTSTART:20261120T210000Z
+DTEND:20261121T020000Z
+SUMMARY:Wake Up W: Schlass +++
+LOCATION:Studio Saglio\, Strasbourg
+DESCRIPTION:Le concept La Cage revient au Studio Saglio avec Schlass et du son hardtek.\nBillets : https://shotgun.live/events/wake-up-w-schlass\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/wake-up-w-schlass
+END:VEVENT
+END:VCALENDAR

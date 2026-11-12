@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:basement-x-henny-tour-63og-grenoble-2026-11-18@teufy
+DTSTAMP:20261112T084450Z
+DTSTART:20261118T220000Z
+DTEND:20261119T030000Z
+SUMMARY:Basement X Henny Tour : 63og @ Grenoble
+LOCATION:Austra Rocks Grenoble\, Grenoble
+DESCRIPTION:Le collectif trap 63og debarque a Grenoble pour l'etape du Henny Tour.\nBillets : https://shotgun.live/events/basement-x-henny-tour-63-og-grenoble\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/basement-x-henny-tour-63-og-grenoble
+END:VEVENT
+END:VCALENDAR

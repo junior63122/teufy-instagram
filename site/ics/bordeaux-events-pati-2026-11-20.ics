@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:bordeaux-events-pati-2026-11-20@teufy
+DTSTAMP:20261112T084450Z
+DTSTART:20261120T225900Z
+DTEND:20261121T035900Z
+SUMMARY:Bordeaux / Events Pati
+LOCATION:Le Théâtro\, Bordeaux
+DESCRIPTION:La tournée clubbing Events Pati débarque pour la première fois à Bordeaux.\nBillets : https://shotgun.live/events/bordeaux-events-pati\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/bordeaux-events-pati
+END:VEVENT
+END:VCALENDAR

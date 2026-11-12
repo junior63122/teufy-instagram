@@ -2730,5 +2730,53 @@
    "m": 184
   },
   "taxi": null
+ },
+ "43.66058,6.92304": {
+  "le": "2026-11-12T08:42:15.032Z",
+  "parkings": [
+   {
+    "nom": "Parking Notre-Dame des Fleurs",
+    "type": "multi-storey",
+    "payant": true,
+    "m": 57
+   },
+   {
+    "nom": "Parking la Foux",
+    "type": "multi-storey",
+    "payant": true,
+    "m": 98
+   },
+   {
+    "nom": "Martelly",
+    "type": "multi-storey",
+    "payant": true,
+    "m": 112
+   }
+  ],
+  "transports": [
+   {
+    "nom": "Place de la Buanderie",
+    "type": "bus",
+    "m": 47,
+    "lignes": ""
+   },
+   {
+    "nom": "Grasse - Gare Routière",
+    "type": "bus",
+    "m": 67,
+    "lignes": ""
+   },
+   {
+    "nom": "Grasse",
+    "type": "train",
+    "m": 796,
+    "lignes": ""
+   }
+  ],
+  "velo": null,
+  "taxi": {
+   "nom": "",
+   "m": 483
+  }
  }
 }

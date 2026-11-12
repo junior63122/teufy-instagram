@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:impact-nantes-2026-12-11@teufy
+DTSTAMP:20261112T084451Z
+DTSTART:20261211T225900Z
+DTEND:20261212T035900Z
+SUMMARY:Impact Nantes
+LOCATION:Warehouse Nantes\, Nantes
+DESCRIPTION:Deux salles\, show visuel signature et kicks dévastateurs pour Impact Nantes.\nBillets : https://shotgun.live/events/impact-nantes\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/impact-nantes
+END:VEVENT
+END:VCALENDAR

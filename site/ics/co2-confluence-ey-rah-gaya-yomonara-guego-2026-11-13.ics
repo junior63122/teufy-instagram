@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:co2-confluence-ey-rah-gaya-yomonara-guego-2026-11-13@teufy
+DTSTAMP:20261112T084450Z
+DTSTART:20261113T225900Z
+DTEND:20261114T035900Z
+SUMMARY:CO2 Confluence : Ey.Rah\, Gaya\, Yomonara\, Guego
+LOCATION:CO2 Club Origin\, Nantes
+DESCRIPTION:Techno hypnotique et voyage immersif au CO2 avec le crew Confluence.\nBillets : https://shotgun.live/events/co-2-confluence-ey-rah-gaya-yomonara-guego\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/co-2-confluence-ey-rah-gaya-yomonara-guego
+END:VEVENT
+END:VCALENDAR

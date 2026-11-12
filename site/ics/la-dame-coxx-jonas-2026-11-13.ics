@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:la-dame-coxx-jonas-2026-11-13@teufy
+DTSTAMP:20261112T084450Z
+DTSTART:20261113T225900Z
+DTEND:20261114T035900Z
+SUMMARY:La Dame // Coxx - Jonas
+LOCATION:La Dame\, Bordeaux
+DESCRIPTION:Clubbing house les pieds sur l'eau aux Bassins à flot avec Coxx et Jonas.\nBillets : https://shotgun.live/events/la-dame-ven-13-nov-coxx-jonas\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/la-dame-ven-13-nov-coxx-jonas
+END:VEVENT
+END:VCALENDAR

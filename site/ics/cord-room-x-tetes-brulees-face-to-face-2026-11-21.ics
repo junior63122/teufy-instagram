@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:cord-room-x-tetes-brulees-face-to-face-2026-11-21@teufy
+DTSTAMP:20261112T084450Z
+DTSTART:20261121T230000Z
+DTEND:20261122T040000Z
+SUMMARY:Cord Room X Têtes Brûlées : Face To Face
+LOCATION:L'Antipode\, Rennes
+DESCRIPTION:Affrontement a 360 degres entre les collectifs Cord Room et Tetes Brulees.\nBillets : https://shotgun.live/events/cord-room-x-tetes-brulees\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/cord-room-x-tetes-brulees
+END:VEVENT
+END:VCALENDAR

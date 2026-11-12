@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:confess-le-troisieme-joy-club-2026-11-14@teufy
+DTSTAMP:20261112T084450Z
+DTSTART:20261114T223000Z
+DTEND:20261115T033000Z
+SUMMARY:Confess ♱ // Le Troisième (JOY Club)
+LOCATION:Le Troisième - JOY Club\, Lille
+DESCRIPTION:Messe techno industrielle et stroboscopes sombres au sous-sol du JOY.\nBillets : https://shotgun.live/events/confess-le-troisieme-lille\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/confess-le-troisieme-lille
+END:VEVENT
+END:VCALENDAR

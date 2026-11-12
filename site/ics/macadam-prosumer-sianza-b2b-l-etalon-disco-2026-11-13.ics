@@ -4,12 +4,12 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:macadam-prosumer-sianza-b2b-l-etalon-disco-2026-11-13@teufy
-DTSTAMP:20261112T035720Z
-DTSTART:20261113T225900Z
-DTEND:20261114T035900Z
+DTSTAMP:20261112T084450Z
+DTSTART:20261113T220000Z
+DTEND:20261114T030000Z
 SUMMARY:Macadam • Prosumer ~ Sianza B2B L'Étalon Disco
 LOCATION:Macadam\, Nantes
-DESCRIPTION:Session house et classic disco au Macadam avec le maître Prosumer.\nBillets : https://shotgun.live/fr/events/macadam-prosumer-sianza-b2b-l-etalon-disco\nVia Teufy @teufy_official
-URL:https://shotgun.live/fr/events/macadam-prosumer-sianza-b2b-l-etalon-disco
+DESCRIPTION:Le légendaire résident du Panorama Bar Prosumer s'empare de Macadam.\nBillets : https://shotgun.live/events/macadam-prosumer-sianza-b-2-b-l-etalon-disco\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/macadam-prosumer-sianza-b-2-b-l-etalon-disco
 END:VEVENT
 END:VCALENDAR

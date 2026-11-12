@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:black-room-birthday-edition-2026-11-14@teufy
+DTSTAMP:20261112T084450Z
+DTSTART:20261114T170000Z
+DTEND:20261114T220000Z
+SUMMARY:Black Room – Birthday Edition
+LOCATION:Jost Hôtel Lille\, Lille
+DESCRIPTION:Marché créateurs puis clubbing house survolté au Jost Hôtel Lille.\nBillets : https://shotgun.live/events/black-room-birthday-edition\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/black-room-birthday-edition
+END:VEVENT
+END:VCALENDAR

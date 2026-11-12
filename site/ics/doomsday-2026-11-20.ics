@@ -4,12 +4,12 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:doomsday-2026-11-20@teufy
-DTSTAMP:20261112T035720Z
+DTSTAMP:20261112T084450Z
 DTSTART:20261120T225900Z
 DTEND:20261121T035900Z
 SUMMARY:Doomsday
 LOCATION:L'Ampérage\, Grenoble
-DESCRIPTION:Nuit rave et techno à l'Ampérage jusqu'à 6h du matin.\nBillets : https://shotgun.live/events/doomsday\nVia Teufy @teufy_official
+DESCRIPTION:Nuit immersive dark rave et electro industrielle jusqu'a 6h a l'Amperage.\nBillets : https://shotgun.live/events/doomsday\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/doomsday
 END:VEVENT
 END:VCALENDAR

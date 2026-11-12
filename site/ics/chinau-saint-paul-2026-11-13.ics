@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:chinau-saint-paul-2026-11-13@teufy
+DTSTAMP:20261112T084450Z
+DTSTART:20261113T220000Z
+DTEND:20261114T030000Z
+SUMMARY:Chinau + Saint Paul
+LOCATION:Le Rafiot Club\, Strasbourg
+DESCRIPTION:House groovy et entree gratuite a bord du Rafiot avec Saint Paul et Chinau.\nBillets : https://shotgun.live/events/chinau-saint-paul\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/chinau-saint-paul
+END:VEVENT
+END:VCALENDAR

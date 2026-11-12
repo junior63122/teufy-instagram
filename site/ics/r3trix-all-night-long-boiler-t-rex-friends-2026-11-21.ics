@@ -4,12 +4,12 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:r3trix-all-night-long-boiler-t-rex-friends-2026-11-21@teufy
-DTSTAMP:20261112T035720Z
+DTSTAMP:20261112T084450Z
 DTSTART:20261121T210000Z
 DTEND:20261122T020000Z
 SUMMARY:R3trix All Night Long Boiler + T-Rex Friends
 LOCATION:Studio Saglio\, Strasbourg
-DESCRIPTION:Session boiler room à 360 degrés dédiée au hardcore et à la hard dance.\nBillets : https://shotgun.live/fr/events/r-3-trix-all-night-long-boiler-t-rex-friends\nVia Teufy @teufy_official
-URL:https://shotgun.live/fr/events/r-3-trix-all-night-long-boiler-t-rex-friends
+DESCRIPTION:R3trix en All Night Long en configuration boiler au milieu du public au Saglio.\nBillets : https://shotgun.live/events/r-3-trix-all-night-long-boiler-t-rex-friends\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/r-3-trix-all-night-long-boiler-t-rex-friends
 END:VEVENT
 END:VCALENDAR

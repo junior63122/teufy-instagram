@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:the-people-showcase-dopelym-2026-11-13@teufy
+DTSTAMP:20261112T084450Z
+DTSTART:20261113T225900Z
+DTEND:20261114T035900Z
+SUMMARY:The People Showcase Dopelym
+LOCATION:New Factory\, Nantes
+DESCRIPTION:Showcase live de DØPELYM et clubbing afro-rap chic au New Factory.\nBillets : https://shotgun.live/events/the-people-showcase-dopelym\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/the-people-showcase-dopelym
+END:VEVENT
+END:VCALENDAR

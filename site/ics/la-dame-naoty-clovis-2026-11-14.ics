@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:la-dame-naoty-clovis-2026-11-14@teufy
+DTSTAMP:20261112T084450Z
+DTSTART:20261114T225900Z
+DTEND:20261115T035900Z
+SUMMARY:La Dame // Naoty - Clovis
+LOCATION:La Dame\, Bordeaux
+DESCRIPTION:Grosse nuit clubbing samedi soir sur l'eau avec Naoty et Clovis.\nBillets : https://shotgun.live/events/la-dame-sam-14-nov-naoty-clovis\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/la-dame-sam-14-nov-naoty-clovis
+END:VEVENT
+END:VCALENDAR

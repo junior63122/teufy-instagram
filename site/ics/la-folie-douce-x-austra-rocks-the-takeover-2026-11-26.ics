@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:la-folie-douce-x-austra-rocks-the-takeover-2026-11-26@teufy
+DTSTAMP:20261112T084451Z
+DTSTART:20261126T210000Z
+DTEND:20261127T020000Z
+SUMMARY:La Folie Douce X Austra Rocks - The Takeover
+LOCATION:Austra Rocks Grenoble\, Grenoble
+DESCRIPTION:L'ambiance apres-ski de La Folie Douce descend pour la premiere fois a Grenoble.\nBillets : https://shotgun.live/events/la-folie-douce-x-austra-rocks-the-takeover\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/la-folie-douce-x-austra-rocks-the-takeover
+END:VEVENT
+END:VCALENDAR

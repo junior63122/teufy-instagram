@@ -4,12 +4,12 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:klub-camina-cryptofauna-die-klar-randomer-et-2026-11-21@teufy
-DTSTAMP:20261112T035720Z
+DTSTAMP:20261112T084450Z
 DTSTART:20261121T220000Z
 DTEND:20261122T030000Z
 SUMMARY:Klub Camina [Cryptofauna\, Die Klar\, Randomer &+]
 LOCATION:Karmen Camina\, Strasbourg
-DESCRIPTION:Die Klar et Randomer aux platines pour une nuit mêlant breakbeat\, bounce et bass.\nBillets : https://shotgun.live/fr/events/klub-camina-cryptofauna-die-klar-randomer\nVia Teufy @teufy_official
-URL:https://shotgun.live/fr/events/klub-camina-cryptofauna-die-klar-randomer
+DESCRIPTION:Randomer et Die Klar reunis pour une nuit entre trance rapide et techno UK.\nBillets : https://shotgun.live/events/klub-camina-cryptofauna-die-klar-randomer\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/klub-camina-cryptofauna-die-klar-randomer
 END:VEVENT
 END:VCALENDAR

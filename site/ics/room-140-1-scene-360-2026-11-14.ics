@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:room-140-1-scene-360-2026-11-14@teufy
+DTSTAMP:20261112T084450Z
+DTSTART:20261114T223000Z
+DTEND:20261115T033000Z
+SUMMARY:Room 140 #1 – Scène 360
+LOCATION:Le Ferrailleur\, Nantes
+DESCRIPTION:Scène 360 et bass music solidaire au Ferrailleur pour moins de 4 euros.\nBillets : https://shotgun.live/events/room-140-1\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/room-140-1
+END:VEVENT
+END:VCALENDAR

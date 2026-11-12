@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:compagnie-kafig-et-concert-de-l-hostel-dieu-2026-11-18@teufy
+DTSTAMP:20261112T084450Z
+DTSTART:20261118T190000Z
+DTEND:20261119T000000Z
+SUMMARY:Compagnie Käfig & Concert de l'Hostel Dieu
+LOCATION:Opéra de Nice\, Nice
+DESCRIPTION:Création croisant danse hip-hop et musique baroque à l'Opéra de Nice gratuitement.\nBillets : https://radio-monaco.com/le-morning/la-21e-edition-de-cest-pas-classique-investit-les-alpes-maritimes-avec-des-concerts-gratuits/\nVia Teufy @teufy_official
+URL:https://radio-monaco.com/le-morning/la-21e-edition-de-cest-pas-classique-investit-les-alpes-maritimes-avec-des-concerts-gratuits/
+END:VEVENT
+END:VCALENDAR

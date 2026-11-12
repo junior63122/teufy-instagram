@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:back-to-basic-hip-hop-r-et-b-classics-2026-11-14@teufy
+DTSTAMP:20261112T084450Z
+DTSTART:20261114T190000Z
+DTEND:20261115T000000Z
+SUMMARY:Back To Basic : Hip-Hop • R&B • Classics
+LOCATION:Le Brewklyn\, Rennes
+DESCRIPTION:Classiques hip-hop et R&B des annees 90 et 2000 avec Kymra au Brewklyn.\nBillets : https://shotgun.live/events/back-to-basic\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/back-to-basic
+END:VEVENT
+END:VCALENDAR

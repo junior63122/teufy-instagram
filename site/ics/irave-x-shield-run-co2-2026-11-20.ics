@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:irave-x-shield-run-co2-2026-11-20@teufy
+DTSTAMP:20261112T084450Z
+DTSTART:20261120T225900Z
+DTEND:20261121T035900Z
+SUMMARY:IRave X Shield Run @ CO2
+LOCATION:CO2 Club Origin\, Nantes
+DESCRIPTION:Kicks industriels et early hard au CO2 avec IRave et Shield Run.\nBillets : https://shotgun.live/events/irave-x-shield-run\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/irave-x-shield-run
+END:VEVENT
+END:VCALENDAR

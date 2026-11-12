@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:martine-au-bruit-invite-red-greg-et-gate-9-2026-11-21@teufy
+DTSTAMP:20261112T084450Z
+DTSTART:20261121T190000Z
+DTEND:20261122T000000Z
+SUMMARY:Martine Au Bruit Invite Red Greg & Gate 9
+LOCATION:Bazaar St So\, Lille
+DESCRIPTION:Hommage disco vintage au Bazaar St So avec la légende anglaise Red Greg.\nBillets : https://shotgun.live/events/martine-au-bruit-invite-red-greg-gate-9\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/martine-au-bruit-invite-red-greg-gate-9
+END:VEVENT
+END:VCALENDAR

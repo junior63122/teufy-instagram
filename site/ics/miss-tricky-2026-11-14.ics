@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:miss-tricky-2026-11-14@teufy
+DTSTAMP:20261112T084450Z
+DTSTART:20261114T220000Z
+DTEND:20261115T030000Z
+SUMMARY:Miss Tricky
+LOCATION:Le Rafiot Club\, Strasbourg
+DESCRIPTION:Session clubbing tech house dans la cale du Rafiot avec la DJ Miss Tricky.\nBillets : https://shotgun.live/events/miss-tricky\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/miss-tricky
+END:VEVENT
+END:VCALENDAR

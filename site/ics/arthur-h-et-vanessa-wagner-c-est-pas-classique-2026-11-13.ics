@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:arthur-h-et-vanessa-wagner-c-est-pas-classique-2026-11-13@teufy
+DTSTAMP:20261112T084450Z
+DTSTART:20261113T190000Z
+DTEND:20261114T000000Z
+SUMMARY:Arthur H & Vanessa Wagner - C'est pas Classique
+LOCATION:Théâtre de Grasse\, Grasse
+DESCRIPTION:Rencontre pop et classique entre Arthur H et Vanessa Wagner en entrée libre.\nBillets : https://radio-monaco.com/le-morning/la-21e-edition-de-cest-pas-classique-investit-les-alpes-maritimes-avec-des-concerts-gratuits/\nVia Teufy @teufy_official
+URL:https://radio-monaco.com/le-morning/la-21e-edition-de-cest-pas-classique-investit-les-alpes-maritimes-avec-des-concerts-gratuits/
+END:VEVENT
+END:VCALENDAR

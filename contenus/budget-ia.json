@@ -3,21 +3,21 @@
  "jour": "2026-11-12",
  "total": {
   "anthropic": 17,
-  "gemini": 35
+  "gemini": 41
  },
  "aujourdhui": {
-  "gemini": 7
+  "gemini": 13
  },
- "euros_jour": 0.136,
- "euros_mois": 3.632,
+ "euros_jour": 0.268,
+ "euros_mois": 3.764,
  "euros_ia": {
   "anthropic": {
    "jour": 0,
    "mois": 2.52
   },
   "gemini": {
-   "jour": 0.136,
-   "mois": 1.112
+   "jour": 0.268,
+   "mois": 1.244
   }
  }
 }

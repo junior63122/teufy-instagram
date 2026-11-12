@@ -4,12 +4,12 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:macadam-expansion-elli-acula-nene-h-kamen-2026-11-21@teufy
-DTSTAMP:20261112T035720Z
-DTSTART:20261121T225900Z
-DTEND:20261122T035900Z
+DTSTAMP:20261112T084450Z
+DTSTART:20261121T220000Z
+DTEND:20261122T030000Z
 SUMMARY:Macadam Expansion • Elli Acula ~ Nene H ~ Kamen
 LOCATION:Macadam\, Nantes
-DESCRIPTION:Elli Acula et Nene H réunies pour une nuit rave intense au Macadam.\nBillets : https://shotgun.live/fr/events/macadam-expansion-elli-acula-nene-h-kamen\nVia Teufy @teufy_official
-URL:https://shotgun.live/fr/events/macadam-expansion-elli-acula-nene-h-kamen
+DESCRIPTION:Elli Acula et Nene H réunies pour une nuit techno frénétique à Macadam.\nBillets : https://shotgun.live/events/macadam-expansion-elli-acula-nene-h-kamen\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/macadam-expansion-elli-acula-nene-h-kamen
 END:VEVENT
 END:VCALENDAR

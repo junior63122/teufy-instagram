@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:gilly-club-yora-by-guappa-2026-11-12@teufy
+DTSTAMP:20261112T084450Z
+DTSTART:20261112T220000Z
+DTEND:20261113T030000Z
+SUMMARY:Gilly Club - Yöra By Guappa
+LOCATION:Gilly Club\, Bordeaux
+DESCRIPTION:Lancement de la résidence YÖRA au Gilly Club avec le crew Guappa.\nBillets : https://shotgun.live/fr/events/gilly-club-yora-by-guappa-jeudi-12-novembre\nVia Teufy @teufy_official
+URL:https://shotgun.live/fr/events/gilly-club-yora-by-guappa-jeudi-12-novembre
+END:VEVENT
+END:VCALENDAR

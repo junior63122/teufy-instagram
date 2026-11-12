@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:40moins-2-le-phoenix-2026-11-13@teufy
+DTSTAMP:20261112T084450Z
+DTSTART:20261113T210000Z
+DTEND:20261114T020000Z
+SUMMARY:40moins'2 @ Le Phoenix
+LOCATION:Le Phoenix\, Meylan
+DESCRIPTION:Rendez-vous bimensuel urbain au club Le Phoenix entre rap\, shatta et R&B.\nBillets : https://shotgun.live/events/40-moins-2\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/40-moins-2
+END:VEVENT
+END:VCALENDAR

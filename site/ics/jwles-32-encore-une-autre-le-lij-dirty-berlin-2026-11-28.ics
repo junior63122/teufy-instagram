@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:jwles-32-encore-une-autre-le-lij-dirty-berlin-2026-11-28@teufy
+DTSTAMP:20261112T084451Z
+DTSTART:20261128T190000Z
+DTEND:20261129T000000Z
+SUMMARY:Jwles + 32 + Encore Une Autre + Le Lij + Dirty Berlin
+LOCATION:Le Flow\, Lille
+DESCRIPTION:Jwles et sa rap-house singulière en concert et DJ set au Flow.\nBillets : https://shotgun.live/events/jwles-32-encore-une-autre-le-lij-dirty-berlin-lille\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/jwles-32-encore-une-autre-le-lij-dirty-berlin-lille
+END:VEVENT
+END:VCALENDAR

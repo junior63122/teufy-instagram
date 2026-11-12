@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:vinyl-dj-set-w-dj-pass-motion-2026-11-13@teufy
+DTSTAMP:20261112T084450Z
+DTSTART:20261113T200000Z
+DTEND:20261114T010000Z
+SUMMARY:Vinyl DJ Set W/ DJ Pass @ Motion
+LOCATION:Motion\, Lille
+DESCRIPTION:Warm-up 100% vinyle funk\, groove et house au bar audiophile Motion.\nBillets : https://shotgun.live/events/vinyl-dj-set-w-dj-pass\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/vinyl-dj-set-w-dj-pass
+END:VEVENT
+END:VCALENDAR

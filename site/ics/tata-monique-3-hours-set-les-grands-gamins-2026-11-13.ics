@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:tata-monique-3-hours-set-les-grands-gamins-2026-11-13@teufy
+DTSTAMP:20261112T084450Z
+DTSTART:20261113T203000Z
+DTEND:20261114T013000Z
+SUMMARY:Tata Monique 3 Hours Set @ Les Grands Gamins
+LOCATION:Les Grands Gamins\, Rennes
+DESCRIPTION:Set prolonge de 3 heures de progressive trance gratuit aux Grands Gamins.\nBillets : https://shotgun.live/events/tata-monique-3-hours-set-les-grands-gamins\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/tata-monique-3-hours-set-les-grands-gamins
+END:VEVENT
+END:VCALENDAR

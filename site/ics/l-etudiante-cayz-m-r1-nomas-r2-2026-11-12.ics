@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:l-etudiante-cayz-m-r1-nomas-r2-2026-11-12@teufy
+DTSTAMP:20261112T084450Z
+DTSTART:20261112T225500Z
+DTEND:20261113T035500Z
+SUMMARY:L'Étudiante : Cayz'm (R1) - Nomas (R2)
+LOCATION:Live Club\, Rennes
+DESCRIPTION:Le rendez-vous etudiant du jeudi soir a Rennes sur deux salles au Live Club.\nBillets : https://shotgun.live/events/l-etudiante-cayz-m-r-1-generaliste-nomas-r-2-shatta-rap\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/l-etudiante-cayz-m-r-1-generaliste-nomas-r-2-shatta-rap
+END:VEVENT
+END:VCALENDAR

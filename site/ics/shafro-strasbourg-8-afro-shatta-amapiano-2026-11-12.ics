@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:shafro-strasbourg-8-afro-shatta-amapiano-2026-11-12@teufy
+DTSTAMP:20261112T084450Z
+DTSTART:20261112T220000Z
+DTEND:20261113T030000Z
+SUMMARY:Shafro @Strasbourg #8 : Afro\, Shatta\, Amapiano
+LOCATION:Le Barco Latino\, Strasbourg
+DESCRIPTION:Grosse nuit afro et shatta sur l'eau pour la 8e edition du rendez-vous strasbourgeois.\nBillets : https://shotgun.live/events/shafro-strasbourg-8-afro-shatta-amapiano\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/shafro-strasbourg-8-afro-shatta-amapiano
+END:VEVENT
+END:VCALENDAR

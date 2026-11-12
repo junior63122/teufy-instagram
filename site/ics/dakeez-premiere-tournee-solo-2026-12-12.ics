@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:dakeez-premiere-tournee-solo-2026-12-12@teufy
+DTSTAMP:20261112T084451Z
+DTSTART:20261212T190000Z
+DTEND:20261213T000000Z
+SUMMARY:Dakeez - Première Tournée Solo
+LOCATION:L'Étage\, Rennes
+DESCRIPTION:Le phenomene R&B et quadruple champion de hip-hop Dakeez en concert a Rennes.\nBillets : https://shotgun.live/events/dakeez-rennes\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/dakeez-rennes
+END:VEVENT
+END:VCALENDAR

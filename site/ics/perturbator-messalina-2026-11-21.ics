@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:perturbator-messalina-2026-11-21@teufy
+DTSTAMP:20261112T084450Z
+DTSTART:20261121T193000Z
+DTEND:20261122T003000Z
+SUMMARY:Perturbator (+ Messalina)
+LOCATION:6MIC\, Aix-en-Provence
+DESCRIPTION:La star mondiale du darksynth Perturbator enflamme la grande salle du 6MIC.\nBillets : https://shotgun.live/events/perturbator-6-mic\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/perturbator-6-mic
+END:VEVENT
+END:VCALENDAR

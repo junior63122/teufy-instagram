@@ -521,5 +521,25 @@
   "lat": 43.70209,
   "lng": 7.277,
   "le": "2026-11-12T03:46:36.128Z"
+ },
+ "theatre de grasse|grasse": {
+  "lat": 43.66058,
+  "lng": 6.92304,
+  "le": "2026-11-12T08:41:26.676Z"
+ },
+ "barrio chicago|toulon": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-12T08:41:29.842Z"
+ },
+ "opera de nice|nice": {
+  "lat": 43.69542,
+  "lng": 7.2725,
+  "le": "2026-11-12T08:41:31.119Z"
+ },
+ "cafe toulonnais (les halles de toulon)|toulon": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-12T08:41:36.518Z"
  }
 }

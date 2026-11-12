@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:raqsa-rave-en-room-2-du-warehouse-2026-11-14@teufy
+DTSTAMP:20261112T084450Z
+DTSTART:20261114T225900Z
+DTEND:20261115T035900Z
+SUMMARY:Raqsa Rave en Room 2 du Warehouse
+LOCATION:Warehouse Nantes\, Nantes
+DESCRIPTION:Fusion entre danse orientale et kicks hard techno en Room 2 du Warehouse.\nBillets : https://shotgun.live/events/raqsa-rave-en-room-2-du-warehouse\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/raqsa-rave-en-room-2-du-warehouse
+END:VEVENT
+END:VCALENDAR

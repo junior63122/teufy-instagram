@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:soul-legends-tribute-live-show-2026-11-13@teufy
+DTSTAMP:20261112T084450Z
+DTSTART:20261113T180000Z
+DTEND:20261113T230000Z
+SUMMARY:Soul Legends Tribute Live Show
+LOCATION:L'Alcazar\, Bordeaux
+DESCRIPTION:Hommage live aux légendes de la soul dans le décor feutré de l'Alcazar.\nBillets : https://shotgun.live/events/soul-legends-nina-simone-aretha-franklin-janis-joplin-co-2\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/soul-legends-nina-simone-aretha-franklin-janis-joplin-co-2
+END:VEVENT
+END:VCALENDAR
