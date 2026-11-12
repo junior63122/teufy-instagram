@@ -12,7 +12,7 @@ import { lireOSM, fermeturesDeNuit, texteHorairesSoir } from '../src/horaires-os
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const F = path.join(ROOT, 'contenus', 'nuit-tardive.json');
-const SERVEURS = ['https://overpass-api.de/api/interpreter', 'https://overpass.private.coffee/api/interpreter', 'https://overpass.kumi.systems/api/interpreter'];
+const SERVEURS = ['https://overpass-api.de/api/interpreter', 'https://maps.mail.ru/osm/tools/overpass/api/interpreter', 'https://overpass.private.coffee/api/interpreter', 'https://overpass.kumi.systems/api/interpreter'];
 // Centres des villes (la ville d'un lieu = adresse publiée, sinon la ville la plus proche à moins de 7 km).
 export const VILLES = { Nice: [43.7031, 7.2661], Cannes: [43.5513, 7.0128], Antibes: [43.5808, 7.1239], 'Juan-les-Pins': [43.5682, 7.1094], Monaco: [43.7384, 7.4246],
   Menton: [43.7764, 7.5048], 'Cagnes-sur-Mer': [43.6644, 7.1489], 'Saint-Laurent-du-Var': [43.6730, 7.1900], 'Villefranche-sur-Mer': [43.7040, 7.3110], 'Le Cannet': [43.5769, 7.0194],
@@ -87,7 +87,7 @@ async function main() {
     let d = null;
     for (const url of SERVEURS) {
       if (Date.now() > fin) break;
-      const r = await fetch(url, { method: 'POST', headers: { 'content-type': 'application/x-www-form-urlencoded', 'user-agent': 'TeufyBot/1.0 (+https://teufyparty.com)' }, body: `data=${encodeURIComponent(requete(v, c))}`, signal: AbortSignal.timeout(40000) }).catch(() => null);
+      const r = await fetch(url, { method: 'POST', headers: { 'content-type': 'application/x-www-form-urlencoded', 'user-agent': 'TeufyBot/1.0 (+https://teufyparty.com)' }, body: `data=${encodeURIComponent(requete(v, c))}`, signal: AbortSignal.timeout(25000) }).catch(() => null);
       d = r?.ok ? await r.json().catch(() => null) : null;
       if (d) break;
     }
