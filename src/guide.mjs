@@ -25,11 +25,12 @@ export function adressesGuide({ now = new Date(), tard = lire('contenus/nuit-tar
     const d = Date.parse(e.start);
     if (!(d > t && d < t + 10 * 864e5)) continue;
     const h = +new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Paris', hour: '2-digit', hourCycle: 'h23' }).format(new Date(d));
-    if ((h >= 4 && h < 11) || /\bafter\b|afterparty/i.test(e.name || '')) {
+    if ((h >= 4 && h < 8) || /\bafter\b|afterparty/i.test(e.name || '')) { // 9 h = brunch, pas un after
       const jour = new Intl.DateTimeFormat('fr-FR', { timeZone: 'Europe/Paris', weekday: 'long', day: 'numeric', month: 'long' }).format(new Date(d));
-      ajoute('after', e.city, { nom: `${e.name}${e.venue ? ` (${e.venue})` : ''}`, quoi: 'Soirée after', horaires: `${jour}, dès ${h} h`, source: e.url || '' });
+      ajoute('after', e.city, { nom: e.name, lieu: e.venue || '', quoi: 'Soirée after', horaires: `${jour}, dès ${h} h`, source: e.url || '', quand: d });
     }
   }
+  for (const v of Object.values(out.after)) v.sort((a, b) => (a.quand || Infinity) - (b.quand || Infinity));
   return out;
 }
 

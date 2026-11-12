@@ -144,8 +144,7 @@
     {
       "jour": 6,
       "rang": 2,
-      "type": "reel",
-      "variante": "guide"
+      "type": "guide"
     },
     {
       "jour": 7,
@@ -229,8 +228,7 @@
     {
       "jour": 6,
       "rang": 4,
-      "type": "reel",
-      "variante": "guide"
+      "type": "guide"
     },
     {
       "jour": 7,

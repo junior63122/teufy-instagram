@@ -17,7 +17,7 @@ test('chaque semaine : 7 publications (lundi sorties, jeudi Édition Tekno, vend
       const s = slotOfDay(d);
       const c = config.calendrier.find((x) => x.jour === s.jour && x.rang === s.rang);
       if ([2, 7].includes(s.jour)) assert.deepEqual([c?.type, c?.variante], ['reel', 'flash'], s.date);
-      else if (s.jour === 6) assert.deepEqual([c?.type, c?.variante], ['reel', 'guide'], s.date); // « où manger après la boîte », « les afters de… » (idée du directeur)
+      else if (s.jour === 6) assert.ok(c?.type === 'guide' || (c?.type === 'reel' && c?.variante === 'guide'), s.date); // Guide en carrousel ou en reel, en alternance (idée du directeur)
       else if (s.jour === 4) assert.deepEqual([c?.type, c?.variante], ['incontournables', 'tekno'], s.date);
       else if (s.jour === 3) assert.deepEqual([c?.type, c?.variante], ['reel', 'tendance'], s.date);
       else if (s.jour === 1) assert.equal(c?.type, 'incontournables', s.date);

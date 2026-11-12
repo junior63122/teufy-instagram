@@ -176,6 +176,8 @@ for (const j of jobs) {
       catch (err) {
         // Jour sans IA disponible (crédit épuisé, panne) : plutôt que de ne rien publier, le carrousel des soirées
         // à venir, construit sans IA, part à la place du reel (même créneau, même identifiant pour l'historique).
+        // Carrousel Guide sans 3 adresses vérifiées : reel Flash à la place (le post sort toujours).
+        if (cible === 'auto' && j.slot.type === 'guide' && /Guide/.test(err.message)) { console.error(`[${id}] ✗ ${err.message} → reel Flash à la place.`); await prepare({ type: 'reel', variante: 'flash' }, j.now, id); continue; }
         if (cible !== 'auto' || j.slot.type !== 'reel' || !/IA|Scénariste|reel écrit/i.test(err.message)) throw err;
         console.error(`[${id}] ✗ ${err.message} → carrousel des soirées à la place (sans IA).`);
         await prepare({ type: 'incontournables', variante: 'commercial' }, j.now, id);
@@ -283,6 +285,21 @@ async function prepare(slot, now, id) {
     const photos = await photoSource({ univers: 'club', saison: th.saison, fetes: !!th.tempsFort?.fetes, ch, r });
     const files = [await couvertureDA({ photo: photoDA(['dj', 'foule', 'danse'], now), rubrique: 'Organisateurs', titre: `Tu organises une soirée ${quand} ? [Poste-la ici]`, sous: `Mets le lien en commentaire avec ${th.hashtag}` }, path.join(dir, `orgas-${stamp}.jpg`))];
     pub = { images: files, legende: captionOrgas({ quand, ch, r }), format: 'orgas' };
+  } else if (slot.type === 'guide') {
+    // Carrousel « Guide » (idée du directeur) : « Où manger à Cannes après la boîte », « Les afters à Nice »… Le format
+    // qu'on enregistre. Construit SANS IA à partir des vraies adresses et de leurs horaires publiés.
+    const { choisirGuide } = await import('./guide.mjs');
+    const G = choisirGuide({ now, deja: hist.map((h) => h.guide).filter(Boolean) });
+    if (!G) throw new Error('Guide : pas encore 3 adresses vérifiées pour une ville');
+    const L = G.lieux.slice(0, 5);
+    const titre = G.theme === 'manger' ? `Où manger à [${G.ville}] après la boîte ?` : `Les [afters] à ${G.ville}`;
+    const photos = G.theme === 'manger' ? ['taxi', 'rire', 'file', 'baskets', 'selfie', 'terrasse', 'plage'] : ['dj', 'lasers', 'danse', 'rooftop', 'selfie', 'rire', 'terrasse']; // une photo différente par slide
+    const files = [await couvertureDA({ photo: `decors/da/${photos[0]}.jpg`, rubrique: 'Guide', titre, sous: G.theme === 'manger' ? 'Ouvert quand tout le reste est fermé. Enregistre-le.' : 'Pour ceux qui ne veulent pas rentrer. Enregistre-le.' }, path.join(dir, `guide-${stamp}-0.jpg`))];
+    for (const [i, l] of L.entries()) files.push(await couvertureDA({ photo: `decors/da/${photos[(i + 1) % photos.length]}.jpg`, rubrique: `${i + 1}/${L.length} · ${l.quoi || (G.theme === 'manger' ? 'Manger tard' : 'After')}`, titre: l.nom.replace(/[[\]]/g, ''), sous: [l.lieu, l.horaires].filter(Boolean).join(' · ') }, path.join(dir, `guide-${stamp}-${i + 1}.jpg`)));
+    files.push(await couvertureDA({ photo: `decors/da/${photos[L.length + 1] || photos.at(-1)}.jpg`, rubrique: 'La liste complète', titre: `Toutes les adresses sur [teufyparty.com]`, sous: 'Horaires publiés, mis à jour chaque jour. Vérifie avant d\'y aller.' }, path.join(dir, `guide-${stamp}-fin.jpg`)));
+    const accroche = G.theme === 'manger' ? `4 h du matin à ${G.ville}, la boîte ferme et t'as faim. On a la liste 👇` : `La boîte ferme, mais toi tu ne rentres pas. Les afters à ${G.ville} 👇`;
+    const legende = `${accroche}\n\n${L.map((l, i) => `${i + 1}. ${l.nom}${l.lieu ? ` @ ${l.lieu}` : l.quoi ? ` (${l.quoi})` : ''} · ${l.horaires}`).join('\n')}\n\nHoraires publiés : vérifie avant d'y aller. Toutes les adresses sur teufyparty.com (${G.theme === 'manger' ? 'Manger tard' : 'After'}).\n\n${ch.pick('cta-guide', ['Enregistre ce post pour ta prochaine sortie.', 'Envoie ça à ton pote qui a toujours faim à 4 h.', 'Envoie ça au groupe avant samedi.'])}\n\n#TeufyParty #${sansAccentTag(G.ville)} #cotedazur #nightlife #${G.theme === 'manger' ? 'streetfood' : 'afterparty'}`;
+    pub = { images: files, legende, titre: titre.replace(/[[\]]/g, ''), guide: `${G.theme}|${G.ville}` };
   } else if (slot.type === 'debat') {
     const used = new Set([...hist.map((h) => h.debat).filter(Boolean), ...usedHere]);
     const all = JSON.parse(await readFile(path.join(ROOT, 'contenus', 'debats.json'), 'utf8'));
@@ -663,7 +680,7 @@ async function publishPrepared(id) {
     try { const st = await publishStory(url(p.story_debat), ig); console.log(`[${id}] ✅ débat publié en story (${st.id})`); }
     catch (err) { console.error(`[${id}] débat en story impossible : ${err.message}`); }
   }
-  hist.push({ id, date: p.date, media: res.id, lien: link, fete: p.fete, titre: p.titre, debat: p.debat, bonplan: p.bonplan, sujet: p.sujet, son: p.son, concept: p.concept, le: new Date().toISOString(),
+  hist.push({ id, date: p.date, media: res.id, lien: link, fete: p.fete, titre: p.titre, guide: p.guide, debat: p.debat, bonplan: p.bonplan, sujet: p.sujet, son: p.son, concept: p.concept, le: new Date().toISOString(),
     publication: { id: p.id, type: p.type, variante: p.variante, date: p.date, choix: p.choix, features: p.features, nb_images: p.nb_images, duree: p.duree, legende: p.legende, titre: p.titre } });
   await writeFile(HIST_FILE, JSON.stringify(hist.slice(-300), null, 2));
 }
@@ -710,6 +727,7 @@ async function nouvelleHistoire(STUDIO, id) {
 }
 
 // --- DA « Flash nuit » : carrousels et couvertures rendus par le studio, avec contrôle visuel ----------------------
+function sansAccentTag(x) { return String(x).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]/g, ''); }
 function photoDA(noms, now) { return `decors/da/${noms[Math.floor(now / (7 * 864e5)) % noms.length]}.jpg`; }
 
 async function couvertureDA(props, fichier, composition = 'couverture') {

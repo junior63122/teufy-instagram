@@ -126,7 +126,7 @@ const FORMATS_VIRAUX = [
   'Défi ou devinette (« devine le prix d\'un verre à Monaco », réponse à la fin) : on regarde jusqu\'au bout',
 ];
 // Guide (idée du directeur) : « Où manger à Cannes après la boîte », « Les afters de Nice »… avec de VRAIES adresses.
-const GUIDE = rubrique === 'Guide' ? choisirGuide({deja: concepts.filter((c) => c.guide).map((c) => `${c.guide.theme}|${c.guide.ville}`)}) : null;
+const GUIDE = rubrique === 'Guide' ? choisirGuide({deja: [...concepts.filter((c) => c.guide).map((c) => `${c.guide.theme}|${c.guide.ville}`), ...hist.map((h) => h.guide).filter(Boolean)]}) : null;
 if (rubrique === 'Guide' && !GUIDE) { console.error('Guide : pas encore 3 adresses vérifiées pour une ville (OpenStreetMap, fiches des clubs).'); process.exit(1); }
 const blocGuide = GUIDE ? `\nRUBRIQUE GUIDE : « ${GUIDE.theme === 'manger' ? `Où manger à ${GUIDE.ville} après la boîte` : `Les afters à ${GUIDE.ville}`} ». Le reel qu'on enregistre et qu'on envoie au groupe à 4 h du matin.
 Utilise UNIQUEMENT ces adresses, avec leur nom EXACT et leurs horaires tels qu'écrits (n'invente ni adresse, ni horaire, ni prix, ni avis) :
