@@ -36,7 +36,9 @@ const aVenir = (l) => soirees.filter((e) => normLieu(l.nom).length >= 3 && (norm
 //    presque toujours l'affiche. 2. Les lieux qui ont des soirées à venir. 3. Les données les plus anciennes.
 const sansImage = soirees.filter((e) => !e.image);
 const comptesSoirees = new Map();
-for (const e of sansImage) for (const c of (e.instagram || [])) { const k = String(c).replace(/^@/, '').toLowerCase(); if (/^[a-z0-9._]{2,30}$/.test(k) && !comptesSoirees.has(k)) comptesSoirees.set(k, { nom: e.venue || e.name, instagram: k, soirees: [] }); comptesSoirees.get(k)?.soirees.push(e); }
+// Seulement des comptes vérifiés qui correspondent à la soirée (jamais l'affiche d'un compte deviné, 12/11/2026).
+const { comptesConfirmes } = await import('../src/comptes.mjs');
+for (const e of sansImage) for (const c of comptesConfirmes(e)) { const k = String(c).replace(/^@/, '').toLowerCase(); if (/^[a-z0-9._]{2,30}$/.test(k) && !comptesSoirees.has(k)) comptesSoirees.set(k, { nom: e.venue || e.name, instagram: k, soirees: [] }); comptesSoirees.get(k)?.soirees.push(e); }
 const deja = (c) => LN.insta[c] && now - Date.parse(LN.insta[c].le || 0) < 20 * 3600e3; // lu il y a moins de 20 h
 const ordre = [
   ...[...comptesSoirees.values()].filter((c) => !deja(c.instagram)),

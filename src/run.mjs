@@ -19,7 +19,7 @@ import { collectEvents, filterEvents, enrich } from './sources.mjs';
 import { windowFor, rolling, isoLocal, plage, slotOfDay, daysOfMonth } from './dates.mjs';
 import { isTechno, isUnderground } from './genres.mjs';
 import { captionIncontournables, captionBonPlan, captionDebat, captionReel, captionOrgas, captionExplicatif, rng } from './captions.mjs';
-import { nettoyerComptes, legendeFinale, abonnesDe } from './comptes.mjs';
+import { nettoyerComptes, legendeFinale, abonnesDe, comptesConfirmes } from './comptes.mjs';
 import { igConfig, publishCarousel, publishSingle, publishReel, publishStory, permalink, insights, followers, businessDiscovery, compteMedia } from './instagram.mjs';
 import { TENDANCES, analyserComptes } from './tendances.mjs';
 import { buildModel, chooser, selectBest, eventFeatures, collect, hash } from './learn.mjs';
@@ -512,8 +512,8 @@ async function prepare(slot, now, id) {
   // Identifications par image : diapo 1 = couverture, puis une diapo par soirée (même ordre que `soirees`).
   if (pub.images && pub.soirees) {
     pub.tags = pub.images.length === 1
-      ? [[...new Set(pub.soirees.flatMap((e) => e.instagram || []))].slice(0, 5)] // post unique : tous les comptes sur l'image
-      : [[], ...pub.soirees.slice(0, 8).map((e) => e.instagram || [])];
+      ? [[...new Set(pub.soirees.flatMap((e) => comptesConfirmes(e)))].slice(0, 5)] // post unique : tous les comptes sur l'image
+      : [[], ...pub.soirees.slice(0, 8).map((e) => comptesConfirmes(e))];
   }
   // Collaboration : les organisateurs des 3 soirées vedettes (celles affichées sur la couverture).
   if (pub.soirees?.length && pub.images?.length > 1) { pub.collabs = comptesCollab(pub.soirees); console.error(`Collaborations proposées (du plus suivi au moins suivi) : ${pub.collabs.map((h) => `@${h} (${abonnesDe(h) || '?'})`).join(', ')}`); }
@@ -762,19 +762,19 @@ async function nouveauFlash(STUDIO, id, rubrique) {
 // Les 3 soirées vedettes d'un carrousel : meilleur potentiel de buzz parmi celles dont l'organisateur a un compte
 // Instagram certain. Elles sont en couverture ET leurs organisateurs sont invités en collaboration.
 function vedettes(soirees) {
-  return [...soirees].filter((e) => e.instagram?.length).sort((a, b) => potentiel(b) - potentiel(a)).slice(0, 3);
+  return [...soirees].filter((e) => comptesConfirmes(e).length).sort((a, b) => potentiel(b) - potentiel(a)).slice(0, 3);
 }
 // Potentiel de clics d'une soirée : buzz estimé (tête d'affiche, lieu, événement unique…) et audience des comptes
 // Instagram liés (organisateur, lieu, artistes) — un compte suivi par 30 000 personnes qui partage le post en
 // collaboration, c'est autant de vues en plus.
 function potentiel(e) {
-  const aud = Math.max(0, ...(e.instagram || []).map(abonnesDe));
+  const aud = Math.max(0, ...comptesConfirmes(e).map(abonnesDe)); // comptes vérifiés seulement
   return 0.6 * (e.buzz ?? 0.5) + 0.4 * Math.min(1, Math.log10(1 + aud) / 5); // 100 000 abonnés = audience maximale
 }
 // Comptes à inviter en collaboration : tous les comptes liés aux soirées du carrousel, du plus suivi au moins suivi
 // (la vérification garde ensuite les 3 premiers comptes confirmés).
 function comptesCollab(soirees) {
-  const tous = [...new Set(soirees.flatMap((e) => (e.instagram || []).map((h) => String(h).replace(/^@/, '').toLowerCase())))];
+  const tous = [...new Set(soirees.flatMap((e) => comptesConfirmes(e)))]; // jamais un pseudo deviné
   return tous.sort((a, b) => abonnesDe(b) - abonnesDe(a)).slice(0, 8);
 }
 

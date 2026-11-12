@@ -6,7 +6,7 @@
    "type": "club",
    "ville": "Nice",
    "adresse": "45 Promenade des Anglais, 06000 Nice",
-   "instagram": "highclubnice",
+   "instagram": "",
    "site": "https://highclub.com/",
    "description": "Grand club généraliste de la Promenade des Anglais doté de plusieurs salles avec une programmation EDM, urbaine et des DJ sets internationaux.",
    "soirees": [
@@ -35,14 +35,9 @@
      "nom": "Students Party @ High Club"
     }
    ],
-   "insta": {
-    "abonnes": 26934,
-    "likes": 906,
-    "commentaires": 1.3,
-    "posts21": 8
-   },
+   "insta": null,
    "slug": "high-club-nice",
-   "score": 1.0574074074074074,
+   "score": 0,
    "photo": "site/lieux/highclubnice-176.webp",
    "details": {
     "le": "2026-11-09T19:59:29.344Z",
@@ -120,14 +115,15 @@
      "more-than-dream-2026-12-18",
      "More Than Dream"
     ]
-   ]
+   ],
+   "instagram_non_verifie": "highclubnice"
   },
   {
    "nom": "Kwartz Club",
    "type": "club",
    "ville": "Nice",
    "adresse": "2 Rue Bréa, 06300 Nice",
-   "instagram": "kwartzclub",
+   "instagram": "",
    "site": "https://kwartzclub.com/",
    "description": "Club underground et intimiste dédié aux musiques électroniques pointues, techno minimale et dark-techno.",
    "soirees": [],
@@ -150,26 +146,22 @@
      "https://shotgun.live/fr/venues/kwartz-club-beach",
      "https://www.viberate.com/venue/kwartz-club-Gznrr/"
     ]
-   }
+   },
+   "instagram_non_verifie": "kwartzclub"
   },
   {
    "nom": "Wayne’s Bar",
    "type": "pub",
    "ville": "Nice",
    "adresse": "15 Rue de la Préfecture, 06300 Nice",
-   "instagram": "waynes_bar",
+   "instagram": "",
    "site": "https://waynespub.com/",
    "description": "Pub festif anglophone réputé pour ses concerts pop-rock live et son ambiance dansante sur les tables.",
    "soirees": [],
    "prochaines": [],
-   "insta": {
-    "abonnes": 9275,
-    "likes": 407,
-    "commentaires": 38.3,
-    "posts21": 4
-   },
+   "insta": null,
    "slug": "wayne-s-bar-nice",
-   "score": 0.9814814814814814,
+   "score": 0,
    "photo": "site/lieux/waynes_bar-176.webp",
    "details": {
     "le": "2026-11-10T10:45:32.154Z",
@@ -186,14 +178,15 @@
      "https://mistergoodbeer.com/"
     ]
    },
-   "soirs": []
+   "soirs": [],
+   "instagram_non_verifie": "waynes_bar"
   },
   {
    "nom": "Movida",
    "type": "bar-a-cocktails",
    "ville": "Nice",
    "adresse": "41 Quai des États-Unis, 06300 Nice",
-   "instagram": "movidanice",
+   "instagram": "",
    "site": "https://movida-nice.com/",
    "description": "Bar à cocktails sur deux étages face à la mer proposant une ambiance rythmée par des sonorités house et funk.",
    "soirees": [],
@@ -216,35 +209,32 @@
      "https://www.instagram.com/movidanice/",
      "https://movida.today/playlist/"
     ]
-   }
+   },
+   "instagram_non_verifie": "movidanice"
   },
   {
    "nom": "Bocca Nissa",
    "type": "rooftop",
    "ville": "Nice",
    "adresse": "3 Rue Saint-François de Paule, 06300 Nice",
-   "instagram": "boccanissa",
+   "instagram": "",
    "site": "https://boccanissa.com/",
    "description": "Rooftop végétalisé proposant des tapas méditerranéennes et des cocktails créations dans une atmosphère lounge et festive.",
    "soirees": [],
    "prochaines": [],
-   "insta": {
-    "abonnes": 21827,
-    "likes": 10,
-    "commentaires": 0,
-    "posts21": 4
-   },
+   "insta": null,
    "slug": "bocca-nissa-nice",
-   "score": 0.1111111111111111,
+   "score": 0,
    "photo": "site/lieux/boccanissa-176.webp",
-   "soirs": []
+   "soirs": [],
+   "instagram_non_verifie": "boccanissa"
   },
   {
    "nom": "Le Boston Cocktail Bar",
    "type": "bar-a-cocktails",
    "ville": "Nice",
    "adresse": "11 Place de l'Île de Beauté, 06300 Nice",
-   "instagram": "bostoncocktailbar_nice",
+   "instagram": "",
    "site": "https://bostoncocktailbar.com/",
    "description": "Bar à cocktails sur le port inspiré des speakeasies avec des sélections musicales hip-hop, R&B et généralistes.",
    "soirees": [],
@@ -267,7 +257,8 @@
      "https://www.cotemagazine.com/",
      "https://www.pagesjaunes.fr/"
     ]
-   }
+   },
+   "instagram_non_verifie": "bostoncocktailbar_nice"
   },
   {
    "nom": "Plage Beau Rivage",
@@ -306,7 +297,7 @@
    "type": "rooftop",
    "ville": "Villefranche-sur-Mer",
    "adresse": "2 Quai de l'Amiral Courbet, 06230 Villefranche-sur-Mer",
-   "instagram": "achills_restaurant",
+   "instagram": "",
    "site": "https://achills.com/",
    "description": "Rooftop offrant une vue panoramique sur la rade avec service de cocktails créatifs et ambiance musicale.",
    "soirees": [],
@@ -330,14 +321,15 @@
      "https://provence-alpes-cotedazur.com/",
      "https://www.petitfute.com/"
     ]
-   }
+   },
+   "instagram_non_verifie": "achills_restaurant"
   },
   {
    "nom": "DRY Restaurant & Cocktail Bar",
    "type": "bar-a-cocktails",
    "ville": "Villefranche-sur-Mer",
    "adresse": "17 Quai de l'Amiral Courbet, 06230 Villefranche-sur-Mer",
-   "instagram": "dry.restaurant",
+   "instagram": "",
    "site": "https://dryrestaurant.com/",
    "description": "Établissement branché en front de mer combinant mixologie pointue, street food du monde et ambiance musicale rythmée.",
    "soirees": [],
@@ -360,14 +352,15 @@
      "https://www.provence-alpes-cotedazur.com/",
      "https://www.instagram.com/dryrestaurant/"
     ]
-   }
+   },
+   "instagram_non_verifie": "dry.restaurant"
   },
   {
    "nom": "Les Bains Déli Bo",
    "type": "beach-club",
    "ville": "Villefranche-sur-Mer",
    "adresse": "Promenade des Marinières, 06230 Villefranche-sur-Mer",
-   "instagram": "delibo_lesbains",
+   "instagram": "",
    "site": "https://delibo.fr/",
    "description": "Plage privée saisonnière prisée pour se détendre au bord de l'eau au son de musiques électro-lounge.",
    "soirees": [],
@@ -375,14 +368,15 @@
    "insta": null,
    "slug": "les-bains-deli-bo-villefranche-sur-mer",
    "score": 0,
-   "soirs": []
+   "soirs": [],
+   "instagram_non_verifie": "delibo_lesbains"
   },
   {
    "nom": "Le QG Port Saint-Laurent",
    "type": "bar",
    "ville": "Saint-Laurent-du-Var",
    "adresse": "Quai la Pérouse, Port de Plaisance, 06700 Saint-Laurent-du-Var",
-   "instagram": "leqg_portsaintlaurent",
+   "instagram": "",
    "site": "https://www.privateaser.com/lieu/59345-le-qg",
    "description": "Bar de nuit du port de plaisance avec dancefloor et DJ sets aux programmations commerciales, urbaines et reggaeton.",
    "soirees": [],
@@ -405,14 +399,15 @@
      "https://cotedazurfrance.fr/offres/le-qg-saint-laurent-du-var-fr-3837424/",
      "https://restaurantguru.com/Le-QG-Bar-Club-Saint-Laurent-du-Var"
     ]
-   }
+   },
+   "instagram_non_verifie": "leqg_portsaintlaurent"
   },
   {
    "nom": "Tree Bô",
    "type": "bar-a-cocktails",
    "ville": "Saint-Laurent-du-Var",
    "adresse": "Quai la Pérouse, Port de Saint-Laurent-du-Var, 06700 Saint-Laurent-du-Var",
-   "instagram": "tree_bo_port_st_laurent",
+   "instagram": "",
    "site": "https://treeborestaurant.fr/",
    "description": "Bar festif avec terrasse portuaire servant planches et cocktails maison accompagnés de DJ sets.",
    "soirees": [],
@@ -435,14 +430,15 @@
      "https://wiicmenu-qrcode.com/app/restaurantWebSite.php?resto=2431",
      "https://www.pagesjaunes.fr"
     ]
-   }
+   },
+   "instagram_non_verifie": "tree_bo_port_st_laurent"
   },
   {
    "nom": "Quai Ouest Pub",
    "type": "pub",
    "ville": "Saint-Laurent-du-Var",
    "adresse": "Quai la Pérouse, Port de Plaisance, 06700 Saint-Laurent-du-Var",
-   "instagram": "quaiouestpub",
+   "instagram": "",
    "site": "https://quai-ouest-pub.fr/",
    "description": "Pub maritime décontracté proposant des bières pression, des retransmissions sportives et une fin de soirée festive.",
    "soirees": [],
@@ -466,14 +462,15 @@
      "https://www.petitfute.com/v33215-saint-laurent-du-var-06700/c1165-restaurants/c1031-specialites/c1170-restaurant-de-burger/1688647-quai-ouest.html",
      "https://cotedazurfrance.fr/"
     ]
-   }
+   },
+   "instagram_non_verifie": "quaiouestpub"
   },
   {
    "nom": "People by L'Atoll",
    "type": "bar",
    "ville": "Saint-Laurent-du-Var",
    "adresse": "167 Promenade des Flots Bleus, 06700 Saint-Laurent-du-Var",
-   "instagram": "people_saintlaurent",
+   "instagram": "",
    "site": "https://www.people.restaurant/",
    "description": "Établissement festif en bord de mer accueillant des soirées animées par des DJ sets house, latino et généralistes.",
    "soirees": [],
@@ -496,14 +493,15 @@
      "https://www.people.restaurant/contact.html",
      "https://provence-alpes-cotedazur.com/que-faire/sortir/restaurants/people-by-latoll-saint-laurent-du-var-fr-3947477/"
     ]
-   }
+   },
+   "instagram_non_verifie": "people_saintlaurent"
   },
   {
    "nom": "Au Bureau (Polygone Riviera)",
    "type": "pub",
    "ville": "Cagnes-sur-Mer",
    "adresse": "Centre Commercial Polygone Riviera, 119 Av. des Alpes, 06800 Cagnes-sur-Mer",
-   "instagram": "aubureau_cagnes",
+   "instagram": "",
    "site": "https://www.aubureau.fr/restaurant/cagnes-sur-mer/",
    "description": "Grand pub moderne proposant bières, retransmissions sportives et DJ sets à thème durant le week-end.",
    "soirees": [],
@@ -526,14 +524,15 @@
      "https://www.mistergoodbeer.com/fr/bars/au-bureau-cagnes-sur-mer",
      "https://restaurantguru.com/Au-Bureau-Cagnes-sur-Mer"
     ]
-   }
+   },
+   "instagram_non_verifie": "aubureau_cagnes"
   },
   {
    "nom": "Le Carré Bleu",
    "type": "beach-club",
    "ville": "Cagnes-sur-Mer",
    "adresse": "39 Promenade de la Plage, 06800 Cagnes-sur-Mer",
-   "instagram": "carre_bleu_plage",
+   "instagram": "",
    "site": "https://carrebleuplage.com/",
    "description": "Beach club et bar lounge du bord de mer servant tapas et cocktails sur fond de deep-house au coucher du soleil.",
    "soirees": [],
@@ -556,14 +555,15 @@
      "https://nicepresse.com/cagnes-sur-mer-les-plages-privees-a-tester-cet-ete-poissons-pizzas-a-la-truffe-salades-genereuses-une-adresse-pour-tous/",
      "https://www.petitfute.com/v31481-cagnes-sur-mer-06800/c1165-restaurants/c1031-cuisines-du-monde/c1044-cuisine-italienne/395663-plage-carre-bleu.html"
     ]
-   }
+   },
+   "instagram_non_verifie": "carre_bleu_plage"
   },
   {
    "nom": "Le Cigalon Plage",
    "type": "beach-club",
    "ville": "Cagnes-sur-Mer",
    "adresse": "24 Promenade de la Plage, 06800 Cagnes-sur-Mer",
-   "instagram": "le_cigalon_plage",
+   "instagram": "",
    "site": "https://lecigalon-plage.com/",
    "description": "Plage privée décontractée située au Cros-de-Cagnes pour boire un verre en plein air avec une ambiance lounge.",
    "soirees": [],
@@ -586,14 +586,15 @@
      "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHoog1obGdV0C2aF4PJXeI7Nm7f9kMRCzZuCs0fNHm2iQ6rqFqOX9SndA98O4wQrhIAAqWI8toFZ5VMiWF4-clkmvce8YxPv--gZFlF-8LtRrgVwXprC6OLe1p-TqUspF5Ny2MXdjVyTaR6gCrtmrxHdABDjCDlnkG5u4BBr5mm9A==",
      "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGwFRFxxO4e5_eXgcU09770AWvS82MTpGfhcw5WERikxr3w9D2AbR3PX7TaEmxMvQNXle7XVpMkO8_yE5aNNSi1FB6G4OxxyDTZkJyNTZxX30Pu-OH5QA6_5wjcVJ2kNRWcjq1F4zcdp3xlpg-evZzgtc2IQ51-kzpQngE="
     ]
-   }
+   },
+   "instagram_non_verifie": "le_cigalon_plage"
   },
   {
    "nom": "Bisous Bisous",
    "type": "club",
    "ville": "Cannes",
    "adresse": "Palm Beach Cannes, Place Franklin Roosevelt, 06400 Cannes",
-   "instagram": "bisousbisouscannes",
+   "instagram": "",
    "site": "https://www.palmbeach-cannes.com",
    "description": "Club rétro et glamour situé au Palm Beach, animé par de la musique disco revisitée, de la house et des remixes pop.",
    "soirees": [],
@@ -616,14 +617,15 @@
      "https://cannesconventionbureau.semec.com/bisous-bisous",
      "https://www.instagram.com/bisousbisousclub/"
     ]
-   }
+   },
+   "instagram_non_verifie": "bisousbisouscannes"
   },
   {
    "nom": "Glass Club Cannes",
    "type": "bar-a-cocktails",
    "ville": "Cannes",
    "adresse": "6 Rue des Frères Pradignac, 06400 Cannes",
-   "instagram": "glassclubcannes",
+   "instagram": "",
    "site": "https://glasscannes.com",
    "description": "Bar à cocktails et club intimiste du Carré d'Or proposant des créations signature et des DJ sets électro et tech-house.",
    "soirees": [
@@ -732,14 +734,15 @@
      "https://www.cannes-france.com/offres/glass-club-cannes-fr-5224320/",
      "https://www.instagram.com/glassclubcannes/"
     ]
-   }
+   },
+   "instagram_non_verifie": "glassclubcannes"
   },
   {
    "nom": "Morrison's Irish Pub & Morrison's Lounge",
    "type": "pub",
    "ville": "Cannes",
    "adresse": "8-10 Rue Teisseire, 06400 Cannes",
-   "instagram": "morrisonspubcannes",
+   "instagram": "",
    "site": "https://www.cannes-nightlife.com",
    "description": "Pub irlandais et lounge très fréquenté par les étudiants, combinant concerts de rock live et soirées dansantes avec DJ.",
    "soirees": [],
@@ -762,14 +765,15 @@
      "https://www.cannes-france.com",
      "https://www.petitfute.com"
     ]
-   }
+   },
+   "instagram_non_verifie": "morrisonspubcannes"
   },
   {
    "nom": "Charly’s Bar",
    "type": "bar",
    "ville": "Cannes",
    "adresse": "5 Rue du Suquet, 06400 Cannes",
-   "instagram": "charlys_bar_cannes",
+   "instagram": "",
    "site": "https://charlysbarclub.com/",
    "description": "Bar festif aménagé dans une cave voûtée du Suquet où l'on danse sur des hits commerciaux et du reggaeton.",
    "soirees": [],
@@ -792,14 +796,15 @@
      "https://www.sortir06.fr/",
      "https://cannes.city-life.fr/"
     ]
-   }
+   },
+   "instagram_non_verifie": "charlys_bar_cannes"
   },
   {
    "nom": "Marea Cannes (Canopy by Hilton)",
    "type": "rooftop",
    "ville": "Cannes",
    "adresse": "2 Boulevard Jean Hibert, 06400 Cannes",
-   "instagram": "marea_cannes",
+   "instagram": "",
    "site": "https://www.marea-restaurant.com",
    "description": "Rooftop avec vue panoramique sur le Vieux-Port proposant des cocktails créatifs dans une ambiance musicale deep house.",
    "soirees": [],
@@ -822,24 +827,20 @@
      "https://www.therooftopguide.com/rooftop-bars-in-cannes/marea.html",
      "https://www.sortir06.fr"
     ]
-   }
+   },
+   "instagram_non_verifie": "marea_cannes"
   },
   {
    "nom": "La Môme Plage",
    "type": "beach-club",
    "ville": "Cannes",
    "adresse": "Boulevard de la Croisette, 06400 Cannes",
-   "instagram": "lamomeplage",
+   "instagram": "",
    "site": "https://lamomecannes.com",
    "description": "Plage privée festive de la Croisette rythmée par des DJ sets solaires, de la disco-house et des chants de variété.",
    "soirees": [],
    "prochaines": [],
-   "insta": {
-    "abonnes": 44406,
-    "likes": 0,
-    "commentaires": 0.4,
-    "posts21": 5
-   },
+   "insta": null,
    "slug": "la-mome-plage-cannes",
    "score": 0,
    "photo": "site/lieux/lamomeplage-176.webp",
@@ -858,14 +859,15 @@
      "https://www.alotea.com"
     ]
    },
-   "soirs": []
+   "soirs": [],
+   "instagram_non_verifie": "lamomeplage"
   },
   {
    "nom": "Le Village",
    "type": "club",
    "ville": "Juan-les-Pins",
    "adresse": "1 Boulevard de la Pinède, 06160 Antibes Juan-les-Pins",
-   "instagram": "club_levillage",
+   "instagram": "",
    "site": "http://www.juanbynight.com",
    "description": "Complexe nocturne au décor tropical très populaire auprès des 18–25 ans pour ses soirées aux musiques commerciales et urbaines.",
    "soirees": [],
@@ -888,14 +890,15 @@
      "https://www.petitfute.com/v32777-juan-les-pins-06160/c1171-sports-loisirs/c1200-sorties-soirees/c584-club-discotheque/27236-le-village.html",
      "https://www.juan-les-pins.com/les-discotheques-de-juan-les-pins/"
     ]
-   }
+   },
+   "instagram_non_verifie": "club_levillage"
   },
   {
    "nom": "Honey Club",
    "type": "club",
    "ville": "Juan-les-Pins",
    "adresse": "5 Avenue Georges Gallice, 06160 Juan-les-Pins",
-   "instagram": "honeyclub_juan",
+   "instagram": "",
    "site": "https://honeyclub.fr",
    "description": "Boîte de nuit axée sur les musiques urbaines avec des sets rap, afrobeat, shatta et électro.",
    "soirees": [
@@ -932,14 +935,15 @@
      "https://shotgun.live/fr/events/rapture-first-edition",
      "https://shotgun.live/fr/events/all-white-everything"
     ]
-   }
+   },
+   "instagram_non_verifie": "honeyclub_juan"
   },
   {
    "nom": "Le Pam Pam",
    "type": "bar-a-cocktails",
    "ville": "Juan-les-Pins",
    "adresse": "137 Boulevard du Président Wilson, 06160 Juan-les-Pins",
-   "instagram": "lepampam_juanlespins",
+   "instagram": "",
    "site": "http://www.pampam.fr",
    "description": "Bar à cocktails exotique emblématique réputé pour ses spectacles de danse brésilienne et son ambiance carnavalesque.",
    "soirees": [],
@@ -962,14 +966,15 @@
      "https://www.privateaser.com/lieu/57987-pam-pam",
      "http://www.pampam.fr"
     ]
-   }
+   },
+   "instagram_non_verifie": "lepampam_juanlespins"
   },
   {
    "nom": "The Hop Store",
    "type": "pub",
    "ville": "Antibes",
    "adresse": "38 Boulevard d'Aguillon, 06600 Antibes",
-   "instagram": "thehopstore_antibes",
+   "instagram": "",
    "site": "https://www.thehopstore.fr",
    "description": "Pub animé situé le long des remparts, servant des bières variées au rythme de concerts et de sets pop-rock.",
    "soirees": [],
@@ -992,14 +997,15 @@
      "https://www.privateaser.com/lieu/57133-the-hop-store",
      "https://www.petitfute.com/v31175-antibes-06160/c1171-visites-points-d-interet/c1212-reception-animation/c1219-bar-a-biere-micro-brasserie/201768-the-hop-store.html"
     ]
-   }
+   },
+   "instagram_non_verifie": "thehopstore_antibes"
   },
   {
    "nom": "The Drinkers Club",
    "type": "bar",
    "ville": "Antibes",
    "adresse": "12 Rue Aubernon, 06600 Antibes",
-   "instagram": "drinkersclub",
+   "instagram": "",
    "site": "https://www.facebook.com/thedrinkersclubantibes",
    "description": "Bar festif du vieil Antibes prisé en fin de soirée pour ses bières pression, ses shots et ses playlists rock et généralistes.",
    "soirees": [],
@@ -1022,24 +1028,20 @@
      "https://wanderlog.com/poi/1330368/drinkers-club",
      "https://www.pagesjaunes.fr/"
     ]
-   }
+   },
+   "instagram_non_verifie": "drinkersclub"
   },
   {
    "nom": "Absinthe Bar",
    "type": "bar",
    "ville": "Antibes",
    "adresse": "25 Cours Masséna, 06600 Antibes",
-   "instagram": "absinthebarantibes",
+   "instagram": "",
    "site": "http://www.absinthebar.com",
    "description": "Cave voûtée insolite où l'on déguste de l'absinthe traditionnelle dans une atmosphère de piano-bar d'époque.",
    "soirees": [],
    "prochaines": [],
-   "insta": {
-    "abonnes": 1633,
-    "likes": 0,
-    "commentaires": 0,
-    "posts21": 0
-   },
+   "insta": null,
    "slug": "absinthe-bar-antibes",
    "score": 0,
    "photo": "site/lieux/absinthebarantibes-176.webp",
@@ -1058,7 +1060,8 @@
      "https://www.petitfute.com",
      "https://www.pagesjaunes.fr"
     ]
-   }
+   },
+   "instagram_non_verifie": "absinthebarantibes"
   },
   {
    "nom": "O'Sullivans By The Beach",
@@ -1077,7 +1080,7 @@
     "posts21": 4
    },
    "slug": "o-sullivans-by-the-beach-mandelieu-la-napoule",
-   "score": 0.8703703703703703,
+   "score": 0.9,
    "photo": "site/lieux/osullivans_mandelieu-176.webp",
    "soirs": [],
    "details": {
@@ -1101,19 +1104,14 @@
    "type": "beach-club",
    "ville": "Golfe-Juan",
    "adresse": "104 Avenue des Frères Roustan, 06220 Vallauris Golfe-Juan",
-   "instagram": "jimbaran.plage",
+   "instagram": "",
    "site": "https://www.jimbaran-plage.com",
    "description": "Établissement de bord de mer au décor balinais proposant cocktails, beach parties et DJ sets afro house et disco house.",
    "soirees": [],
    "prochaines": [],
-   "insta": {
-    "abonnes": 5073,
-    "likes": 13,
-    "commentaires": 0.4,
-    "posts21": 5
-   },
+   "insta": null,
    "slug": "jimbaran-plage-golfe-juan",
-   "score": 0.2962962962962963,
+   "score": 0,
    "photo": "site/lieux/jimbaran.plage-176.webp",
    "soirs": [],
    "details": {
@@ -1130,26 +1128,22 @@
      "https://cotedazurfrance.fr/offres/jimbaran-plage-vallauris-golfe-juan-fr-4261439/",
      "https://mysunbed.com/fr/beach-club/jimbaran-plage-vallauris-golfe-juan/"
     ]
-   }
+   },
+   "instagram_non_verifie": "jimbaran.plage"
   },
   {
    "nom": "Le Petit Bellevue (La Maison Bellevue)",
    "type": "bar-a-cocktails",
    "ville": "Le Cannet",
    "adresse": "314 Rue Saint-Sauveur, Place Bellevue, 06110 Le Cannet",
-   "instagram": "lamaisonbellevue",
+   "instagram": "",
    "site": "https://lamaisonbellevue.com",
    "description": "Bar lounge avec terrasse panoramique sur les hauteurs du vieux Cannet offrant des cocktails au coucher du soleil.",
    "soirees": [],
    "prochaines": [],
-   "insta": {
-    "abonnes": 2539,
-    "likes": 69,
-    "commentaires": 3.5,
-    "posts21": 11
-   },
+   "insta": null,
    "slug": "le-petit-bellevue-la-maison-bellevue-le-cannet",
-   "score": 0.7592592592592593,
+   "score": 0,
    "photo": "site/lieux/lamaisonbellevue-176.webp",
    "soirs": [],
    "details": {
@@ -1166,26 +1160,22 @@
      "https://www.cotedazurfrance.fr/offres/la-maison-bellevue-le-cannet-fr-4876612/",
      "https://www.privateaser.com/lieu/63237-maison-bellevue"
     ]
-   }
+   },
+   "instagram_non_verifie": "lamaisonbellevue"
   },
   {
    "nom": "Jimmy’z Monte-Carlo",
    "type": "club",
    "ville": "Monaco",
    "adresse": "26 Avenue Princesse Grace, 98000 Monaco",
-   "instagram": "jimmyzmc",
+   "instagram": "",
    "site": "https://www.montecarlosbm.com/fr/bar-monaco/jimmy-z-monte-carlo",
    "description": "Boîte de nuit emblématique en plein air autour d'un lagon avec DJ sets internationaux EDM, House et Hip-Hop.",
    "soirees": [],
    "prochaines": [],
-   "insta": {
-    "abonnes": 61555,
-    "likes": 275,
-    "commentaires": 16.5,
-    "posts21": 2
-   },
+   "insta": null,
    "slug": "jimmy-z-monte-carlo-monaco",
-   "score": 0.7222222222222222,
+   "score": 0,
    "photo": "site/lieux/jimmyzmc-176.webp",
    "details": {
     "le": "2026-11-09T19:59:29.344Z",
@@ -1202,14 +1192,15 @@
      "https://monacopratique.com"
     ]
    },
-   "soirs": []
+   "soirs": [],
+   "instagram_non_verifie": "jimmyzmc"
   },
   {
    "nom": "MK Club Monaco",
    "type": "club",
    "ville": "Monaco",
    "adresse": "18 Route de la Piscine, 98000 Monaco",
-   "instagram": "mkclubmonaco",
+   "instagram": "",
    "site": "https://www.mkmonaco.com/",
    "description": "Club situé sur le port Hercule prisé des jeunes pour son ambiance animée au rythme de mix électro, commercial, reggaeton et hip-hop.",
    "soirees": [],
@@ -1232,14 +1223,15 @@
      "https://monacoreview.com/listing/mk-club-monaco/",
      "https://www.myguide-nice.com/nightlife/mk-club-monaco"
     ]
-   }
+   },
+   "instagram_non_verifie": "mkclubmonaco"
   },
   {
    "nom": "Twiga Monte-Carlo",
    "type": "club",
    "ville": "Monaco",
    "adresse": "Grimaldi Forum (2e étage), 10 Avenue Princesse Grace, 98000 Monaco",
-   "instagram": "twigamontecarlo",
+   "instagram": "",
    "site": "https://twigamontecarlo.com/",
    "description": "Établissement festif en bord de mer combinant restaurant, bar lounge et boîte de nuit sur des rythmes Afro-house et House.",
    "soirees": [
@@ -1261,14 +1253,9 @@
      "nom": "Lanonchalance pres. Malive"
     }
    ],
-   "insta": {
-    "abonnes": 86830,
-    "likes": 20,
-    "commentaires": 2.5,
-    "posts21": 8
-   },
+   "insta": null,
    "slug": "twiga-monte-carlo-monaco",
-   "score": 0.4277777777777778,
+   "score": 0,
    "photo": "site/lieux/twigamontecarlo-176.webp",
    "details": {
     "le": "2026-11-09T19:59:29.344Z",
@@ -1304,26 +1291,22 @@
      "lanonchalance-pres-malive-2026-11-13",
      "Lanonchalance pres. Malive"
     ]
-   ]
+   ],
+   "instagram_non_verifie": "twigamontecarlo"
   },
   {
    "nom": "Sass Café",
    "type": "bar",
    "ville": "Monaco",
    "adresse": "11 Avenue Princesse Grace, 98000 Monaco",
-   "instagram": "sasscafe",
+   "instagram": "",
    "site": "https://www.sasscafe.com/",
    "description": "Restaurant festif et bar de nuit proposant des concerts live suivis de DJ sets jusqu'au petit matin.",
    "soirees": [],
    "prochaines": [],
-   "insta": {
-    "abonnes": 40313,
-    "likes": 82,
-    "commentaires": 0,
-    "posts21": 2
-   },
+   "insta": null,
    "slug": "sass-cafe-monaco",
-   "score": 0.5,
+   "score": 0,
    "photo": "site/lieux/sasscafe-176.webp",
    "details": {
     "le": "2026-11-09T19:59:29.344Z",
@@ -1340,26 +1323,22 @@
      "https://avoroyale.com"
     ]
    },
-   "soirs": []
+   "soirs": [],
+   "instagram_non_verifie": "sasscafe"
   },
   {
    "nom": "La Rascasse",
    "type": "bar",
    "ville": "Monaco",
    "adresse": "1 Quai Antoine 1er, 98000 Monaco",
-   "instagram": "larascassemc",
+   "instagram": "",
    "site": "https://www.montecarlosbm.com/fr/bar-monaco/la-rascasse",
    "description": "Bar musical situé sur le port Hercule accueillant des concerts live puis des DJ sets jusqu'à 4 heures.",
    "soirees": [],
    "prochaines": [],
-   "insta": {
-    "abonnes": 12300,
-    "likes": 20,
-    "commentaires": 1.4,
-    "posts21": 9
-   },
+   "insta": null,
    "slug": "la-rascasse-monaco",
-   "score": 0.37037037037037035,
+   "score": 0,
    "photo": "site/lieux/larascassemc-176.webp",
    "details": {
     "le": "2026-11-10T10:45:32.154Z",
@@ -1375,14 +1354,15 @@
      "https://www.instagram.com/larascassemc/"
     ]
    },
-   "soirs": []
+   "soirs": [],
+   "instagram_non_verifie": "larascassemc"
   },
   {
    "nom": "Brasserie de Monaco",
    "type": "pub",
    "ville": "Monaco",
    "adresse": "36 Route de la Piscine, 98000 Monaco",
-   "instagram": "brasseriedemonaco",
+   "instagram": "",
    "site": "https://brasseriedemonaco.com/",
    "description": "Microbrasserie artisanale sur le port avec retransmissions sportives et DJ sets commerciaux en soirée.",
    "soirees": [],
@@ -1405,24 +1385,20 @@
      "https://www.visitmonaco.com/fr/lieu/bars-et-discotheques/185560/brasserie-de-monaco",
      "https://www.monaco-tribune.com/"
     ]
-   }
+   },
+   "instagram_non_verifie": "brasseriedemonaco"
   },
   {
    "nom": "Slammers",
    "type": "pub",
    "ville": "Monaco",
    "adresse": "6 Rue Suffren Reymond, 98000 Monaco",
-   "instagram": "slammersmc",
+   "instagram": "",
    "site": "https://www.slammers-bar.com/",
    "description": "Pub cosmopolite et décontracté à La Condamine servant bières et shooters sur fond de musique pop et rock.",
    "soirees": [],
    "prochaines": [],
-   "insta": {
-    "abonnes": 1740,
-    "likes": 19,
-    "commentaires": 0,
-    "posts21": 1
-   },
+   "insta": null,
    "slug": "slammers-monaco",
    "score": 0,
    "photo": "site/lieux/slammersmc-176.webp",
@@ -1441,14 +1417,15 @@
      "https://monacoviews.com/directory/slammers/",
      "https://poivretsel-riviera.com/slammers-bar-a-bieres-et-cocktails-98000-monaco/"
     ]
-   }
+   },
+   "instagram_non_verifie": "slammersmc"
   },
   {
    "nom": "Amazónico Monte-Carlo",
    "type": "rooftop",
    "ville": "Monaco",
    "adresse": "Place du Casino, 98000 Monaco",
-   "instagram": "amazonicomontecarlo",
+   "instagram": "",
    "site": "https://www.amazonico.com/monte-carlo",
    "description": "Rooftop sur le Café de Paris au décor de jungle proposant cocktails créatifs et musique deep house aux sonorités tropicales.",
    "soirees": [],
@@ -1471,14 +1448,15 @@
      "https://www.amazonicorestaurant.com/wp-content/uploads/2024/09/Amazonico-Monte-Carlo-Cocktail-Menu.pdf",
      "https://www.montecarlosbm.com/fr/restaurant-monaco/amazonico-monte-carlo"
     ]
-   }
+   },
+   "instagram_non_verifie": "amazonicomontecarlo"
   },
   {
    "nom": "Nikki Beach Monte-Carlo",
    "type": "beach-club",
    "ville": "Monaco",
    "adresse": "Fairmont Monte Carlo (7e étage), 12 Avenue des Spélugues, 98000 Monaco",
-   "instagram": "nikkibeachmonaco",
+   "instagram": "",
    "site": "https://monte-carlo.nikkibeach.com/",
    "description": "Beach club perché au 7e étage autour de la piscine avec sets house assurés par des DJ résidents.",
    "soirees": [],
@@ -1502,26 +1480,22 @@
      "https://www.fairmont.com/fr/hotels/fairmont-monte-carlo/dining/nikki-beach/",
      "https://restaurants.accor.com/fr/restaurant-A598_R003-nikki-beach-fairmont-mc-monte-carlo.shtml"
     ]
-   }
+   },
+   "instagram_non_verifie": "nikkibeachmonaco"
   },
   {
    "nom": "Blue Gin",
    "type": "bar-a-cocktails",
    "ville": "Monaco",
    "adresse": "Monte-Carlo Bay Hotel & Resort, 40 Avenue Princesse Grace, 98000 Monaco",
-   "instagram": "blueginmonaco",
+   "instagram": "",
    "site": "https://www.montecarlosbm.com/fr/bar-monaco/le-blue-gin",
    "description": "Bar lounge avec terrasse sur la mer proposant des cocktails et une ambiance musicale nu-disco et chill-house.",
    "soirees": [],
    "prochaines": [],
-   "insta": {
-    "abonnes": 8649,
-    "likes": 20,
-    "commentaires": 2.3,
-    "posts21": 10
-   },
+   "insta": null,
    "slug": "blue-gin-monaco",
-   "score": 0.4444444444444444,
+   "score": 0,
    "photo": "site/lieux/blueginmonaco-176.webp",
    "soirs": [],
    "details": {
@@ -1538,26 +1512,22 @@
      "https://www.visitmonaco.com/fr/lieu/bars-et-discotheques/188240/le-blue-gin",
      "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFvSXSQOSmExzUGosru_Y9OE-BBZ16D5oes5JdmUqNOnSQxJ8XoZvWfdOFNt5lSmtEiEdXpLkroM9oPoP42DgsQb66plIsARGsR0ZVr5BS8F5nX4GzhoD6aMC3ZphgEGOV6adQ3GxWeHD8OR9Qh7dE="
     ]
-   }
+   },
+   "instagram_non_verifie": "blueginmonaco"
   },
   {
    "nom": "Rooftop Basta Pinsa",
    "type": "rooftop",
    "ville": "Beausoleil",
    "adresse": "12 Avenue d'Alsace, 06240 Beausoleil",
-   "instagram": "bastapinsa",
+   "instagram": "",
    "site": "https://bastapinsa.com/",
    "description": "Rooftop surplombant la principauté idéal pour partager des pinsas et écouter des DJ sets lounge et pop.",
    "soirees": [],
    "prochaines": [],
-   "insta": {
-    "abonnes": 1525,
-    "likes": 19,
-    "commentaires": 0.3,
-    "posts21": 4
-   },
+   "insta": null,
    "slug": "rooftop-basta-pinsa-beausoleil",
-   "score": 0.48148148148148145,
+   "score": 0,
    "photo": "site/lieux/bastapinsa-176.webp",
    "soirs": [],
    "details": {
@@ -1574,14 +1544,15 @@
      "https://www.privateaser.com/lieu/63976-rooftop-basta-pinsa",
      "https://www.myguidemonaco.com/restaurants/rooftop-basta-pinsa"
     ]
-   }
+   },
+   "instagram_non_verifie": "bastapinsa"
   },
   {
    "nom": "Le Corner by 3 Tapas",
    "type": "bar-a-cocktails",
    "ville": "Beausoleil",
    "adresse": "20 Boulevard de la République, 06240 Beausoleil",
-   "instagram": "lecornerby3tapas",
+   "instagram": "",
    "site": "https://www.bar-tapas-monaco.fr/",
    "description": "Bar à tapas et cocktails convivial proposant des soirées à thème, concerts acoustiques et musique latino.",
    "soirees": [],
@@ -1605,14 +1576,15 @@
      "https://www.menton-riviera-merveilles.fr/restaurant/le-corner-by-3-tapas-beausoleil-fr-4786358/",
      "https://www.instagram.com/lecorner.by3tapas/"
     ]
-   }
+   },
+   "instagram_non_verifie": "lecornerby3tapas"
   },
   {
    "nom": "Zeits Bar",
    "type": "pub",
    "ville": "Beausoleil",
    "adresse": "37 Boulevard du Général Leclerc, 06240 Beausoleil",
-   "instagram": "zeits_bar",
+   "instagram": "",
    "site": "https://zeits-bar.com/",
    "description": "Pub de quartier décontracté servant des bières artisanales devant des retransmissions sportives sur fond de musique rock.",
    "soirees": [],
@@ -1635,24 +1607,20 @@
      "https://zeits-bar.com/contact-us/",
      "https://www.myguidemonaco.com/restaurants/zeits-bar"
     ]
-   }
+   },
+   "instagram_non_verifie": "zeits_bar"
   },
   {
    "nom": "Inky Bar",
    "type": "bar",
    "ville": "Menton",
    "adresse": "Esplanade des Sablettes (Voûte 4), 06500 Menton",
-   "instagram": "inkybarmenton",
+   "instagram": "",
    "site": "https://www.ports-menton.fr/activites-commerces/inky-bar/",
    "description": "Bar festif en front de mer accueillant la jeunesse locale sur des sets DJ reggaeton, commercial et électro.",
    "soirees": [],
    "prochaines": [],
-   "insta": {
-    "abonnes": 1477,
-    "likes": 0,
-    "commentaires": 0,
-    "posts21": 0
-   },
+   "insta": null,
    "slug": "inky-bar-menton",
    "score": 0,
    "photo": "site/lieux/inkybarmenton-176.webp",
@@ -1671,14 +1639,15 @@
      "https://www.menton-riviera-merveilles.fr",
      "https://www.instagram.com/inkybarmenton/"
     ]
-   }
+   },
+   "instagram_non_verifie": "inkybarmenton"
   },
   {
    "nom": "Le New Pub",
    "type": "pub",
    "ville": "Menton",
    "adresse": "28 Quai Bonaparte, 06500 Menton",
-   "instagram": "lenewpubmenton",
+   "instagram": "",
    "site": "https://www.facebook.com/lenewpubmenton/",
    "description": "Pub sous les arcades face à la mer proposant bières pression, retransmissions sportives, concerts live et sets pop-rock.",
    "soirees": [],
@@ -1702,24 +1671,20 @@
      "https://www.privateaser.com/lieu/59343-le-new-pub",
      "https://www.pagesjaunes.fr"
     ]
-   }
+   },
+   "instagram_non_verifie": "lenewpubmenton"
   },
   {
    "nom": "Les Incompris",
    "type": "lounge",
    "ville": "Menton",
    "adresse": "Promenade de la Mer (Esplanade des Sablettes), 06500 Menton",
-   "instagram": "lesincompris_menton",
+   "instagram": "",
    "site": "https://lesincompris.fr/",
    "description": "Restaurant et bar lounge en bord de mer offrant tapas, cocktails signature et soirées animées par des DJ sets house.",
    "soirees": [],
    "prochaines": [],
-   "insta": {
-    "abonnes": 1296,
-    "likes": 0,
-    "commentaires": 0,
-    "posts21": 0
-   },
+   "insta": null,
    "slug": "les-incompris-menton",
    "score": 0,
    "photo": "site/lieux/lesincompris_menton-176.webp",
@@ -1738,14 +1703,15 @@
      "https://www.menton-riviera-merveilles.fr/",
      "https://www.thefork.fr/restaurant/les-incompris-r705649"
     ]
-   }
+   },
+   "instagram_non_verifie": "lesincompris_menton"
   },
   {
    "nom": "Rhumerie Ferdinand",
    "type": "bar-a-cocktails",
    "ville": "Menton",
    "adresse": "17 Place Fontana, 06500 Menton",
-   "instagram": "rhumerie_ferdinand",
+   "instagram": "",
    "site": "https://www.rhumerieferdinand.com/",
    "description": "Bar chaleureux du Vieux-Port spécialisé dans les rhums arrangés sur des rythmes tropicaux, funk et latino.",
    "soirees": [],
@@ -1768,14 +1734,15 @@
      "https://www.rhumerieferdinand.com/les-soirees",
      "https://www.menton-riviera-merveilles.fr/bars-restaurants/bar-a-vin-rhumerie-ferdinand-menton-fr-6251812/"
     ]
-   }
+   },
+   "instagram_non_verifie": "rhumerie_ferdinand"
   },
   {
    "nom": "Le Rooftop (Hôtel Méditerranée)",
    "type": "rooftop",
    "ville": "Menton",
    "adresse": "5 Rue de la République (7e étage), 06500 Menton",
-   "instagram": "hotelmediterraneementon",
+   "instagram": "",
    "site": "https://www.hotel-med-menton.com/fr/bar-rooftop.html",
    "description": "Bar perché au septième étage avec vue panoramique servant cocktails et tapas dans une ambiance chill-out.",
    "soirees": [],
@@ -1798,7 +1765,8 @@
      "https://www.hotel-med-menton.com/fr/restaurant-menton.html",
      "https://www.instagram.com/hotelmediterraneementon"
     ]
-   }
+   },
+   "instagram_non_verifie": "hotelmediterraneementon"
   },
   {
    "nom": "Boka Club del Magot",
@@ -1809,16 +1777,11 @@
    "site": "https://www.facebook.com/bokaclubdelmagot",
    "description": "Club historique proposant afterwork, karaoké et soirées clubbing aux rythmes généralistes, urbains et latino.",
    "soirees": [
-    "soweto-l-esprit-100-shatta-2026-11-11",
     "urban-shatta-2026-11-14",
     "before-pacific-neon-night-2026-11-21",
     "zouk-love-toulon-edition-chic-2026-11-28"
    ],
    "prochaines": [
-    {
-     "id": "soweto-l-esprit-100-shatta-2026-11-11",
-     "nom": "Soweto L'Esprit - 100% Shatta"
-    },
     {
      "id": "urban-shatta-2026-11-14",
      "nom": "Urban Shatta"
@@ -1826,18 +1789,16 @@
     {
      "id": "before-pacific-neon-night-2026-11-21",
      "nom": "Before Pacific Neon Night"
+    },
+    {
+     "id": "zouk-love-toulon-edition-chic-2026-11-28",
+     "nom": "Zouk Love Toulon Edition Chic"
     }
    ],
    "insta": null,
    "slug": "boka-club-del-magot-toulon",
    "score": 0,
    "soirs": [
-    [
-     "2026-11-11",
-     "00:00",
-     "soweto-l-esprit-100-shatta-2026-11-11",
-     "Soweto L'Esprit - 100% Shatta"
-    ],
     [
      "2026-11-14",
      "23:30",

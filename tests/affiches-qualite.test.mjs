@@ -55,3 +55,16 @@ test('collaborations : les comptes les plus suivis d\'abord', async () => {
   if (a && b) assert.ok(a > b);
   assert.equal(abonnesDe('compte-inconnu-xyz'), 0);
 });
+
+test('comptes Instagram : jamais un pseudo non vérifié, corrections appliquées', async () => {
+  const { nettoyerComptes, correspond } = await import('../src/comptes.mjs');
+  const p = { legende: 'Jetlag Gang au 109 @le109nice @compte_invente_xyz', tags: [[], ['le109nice', 'compte_invente_xyz']], collabs: ['compte_invente_xyz'],
+    soirees: [{ name: 'Jetlag Gang', venue: 'Frigo 16 (Le 109)', instagram: ['le109nice', 'compte_invente_xyz'] }] };
+  await nettoyerComptes(p, { log: () => {} }); // sans accès Instagram : rien n'est confirmé, donc rien n'est tagué
+  assert.ok(!/@le109nice|@compte_invente_xyz/.test(p.legende));
+  assert.deepEqual(p.tags[1], []);
+  assert.deepEqual(p.collabs, []);
+  // Un compte qui existe mais ne correspond pas au lieu ou à la soirée est refusé.
+  assert.equal(correspond('le109_officiel', { nom: 'Le 109', bio: 'Tiers-lieu culturel, Nice' }, ['Frigo 16 (Le 109)']), true);
+  assert.equal(correspond('mode_boutique', { nom: 'Boutique', bio: 'vêtements' }, ['Frigo 16 (Le 109)', 'Jetlag Gang']), false);
+});

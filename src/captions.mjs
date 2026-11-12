@@ -3,6 +3,7 @@
 // Chaque formulation est choisie par le sélecteur d'apprentissage (`ch.pick`) :
 // les versions qui font le plus réagir reviennent plus souvent.
 // L'app Teufy n'est pas encore sortie : on pousse à s'abonner au compte, pas à télécharger.
+import { comptesConfirmes } from './comptes.mjs';
 import { jourCourt, jourNum, moisCourt, heure, plage } from './dates.mjs';
 import { styleLabel } from './genres.mjs';
 
@@ -42,7 +43,7 @@ const ligne = (e, avecMois = false) => {
   const style = styleLabel(e);
   const p = e.price === 0 ? ' · gratuit' : e.price != null ? ` · ${String(e.price).replace('.', ',')} €` : '';
   // Accroche qui donne envie + comptes de l'organisateur et du lieu (tagués, ils sont prévenus).
-  const tags = [...new Set((e.instagram || []).map((h) => String(h).replace(/^@/, '').toLowerCase()))].slice(0, 2).map((h) => `@${h}`).join(' '); // jamais deux fois le même compte
+  const tags = comptesConfirmes(e).slice(0, 2).map((h) => `@${h}`).join(' '); // comptes vérifiés seulement, jamais deux fois le même
   const plus = [e.accroche, tags].filter(Boolean).join(' ');
   return `→ ${jourCourt(e.start)} ${jourNum(e.start)}${avecMois ? ` ${moisCourt(e.start)}` : ''} · ${e.name}${style ? ` (${style})` : ''}${lieu ? ` · ${lieu}` : ''} · ${heure(e.start)}${p}${plus ? `\n   ${plus}` : ''}`;
 };

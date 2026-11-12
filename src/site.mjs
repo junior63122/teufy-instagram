@@ -19,6 +19,7 @@ import { STYLES as STYLES_MUSIQUE, PAGES_STYLES, FESTIVALS, RENDEZ_VOUS, PARTENA
 import { VILLES_FRANCE, VILLES_OCCITANIE, villeOccitanie, fusionner, PAS_BILLETTERIE } from './recherche.mjs';
 const nomDomaine = (u) => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch { return ''; } };
 import * as LLM from './llm.mjs';
+import { comptesConfirmes } from './comptes.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SITE = path.join(ROOT, 'site');
@@ -459,6 +460,10 @@ async function lieuxDeNuit({ soirees, partenaires, ig, api, log, now }) {
   for (const l of tous) { const p = PAYANTS().find((x) => (x.instagram && x.instagram === l.instagram) || (norm(x.etablissement) && norm(x.etablissement) === norm(l.nom))); if (p) Object.assign(l, { partenaire: true, formule: p.formule }); }
   for (const p of PAYANTS().filter((x) => x.ville && !tous.some((l) => (x.instagram && x.instagram === l.instagram) || norm(x.etablissement) === norm(l.nom)))) tous.push({ nom: p.etablissement, type: 'bar', ville: p.ville, adresse: '', instagram: p.instagram, site: '', description: '', partenaire: true, formule: p.formule });
   for (const l of tous) { const ls = soirees.filter((s) => norm(s.lieu) && (norm(s.lieu) === norm(l.nom) || norm(s.lieu).startsWith(norm(l.nom)) || norm(l.nom).startsWith(norm(s.lieu))) && norm(l.nom).length >= 3); l.soirees = ls.map((s) => s.id); l.prochaines = ls.slice(0, 3).map((s) => ({ id: s.id, nom: s.nom })); l.soirs = ls.slice(0, 12).map((s) => [s.jour, heure(s.debut, TXT.fr).replace(/^(\d+)h(\d*)$/, (m, a, b) => `${a.padStart(2, '0')}:${b || '00'}`), s.id, s.nom]); }
+  // Comptes des lieux : seulement des comptes confirmés (12/11/2026, « @le109nice » n'existait pas). Le pseudo proposé
+  // non confirmé est gardé à part (instagram_non_verifie) pour la vérification de nuit (outils/verifier-comptes.mjs).
+  { const { compteLieuConfirme } = await import('./comptes.mjs');
+    for (const l of tous) { const h = compteLieuConfirme(l); if (h !== (l.instagram || '')) { if (l.instagram && !h) l.instagram_non_verifie = l.instagram; l.instagram = h; } } }
   // 3. Engagement Instagram récent (40 comptes par passage, gardé 3 jours).
   if (ig && api.businessDiscovery) {
     // D'abord les lieux encore sans logo (jamais mesurés depuis l'ajout des logos), puis les mesures les plus anciennes.
@@ -690,7 +695,7 @@ export async function construireSite({ events, eventsFrance = [], eventsOccitani
       id, zone, nom: e.name, debut: e.start, jour: cle(e.start), lieu: e.venue || '', ville: e.city || '', adresse: e.address || '', filtreVille: ville,
       prix: e.price == null ? null : e.price, styles: styleDe(e), genres: genresList(e, 3).join(' · '), techno: isTechno(e), tags: e.tags || [],
       url, affiche, dims, accroche: e.accroche || '', description: e.description || '', fin: e.end && !isNaN(Date.parse(e.end)) ? new Date(e.end).toISOString() : '',
-      instagram: (e.instagram || [])[0] || '', organisateur: e.organisateur || '', artistes: Array.isArray(e.artistes) ? e.artistes.filter((x) => typeof x === 'string' && x.trim()).map((x) => x.trim()) : [], buzz: e.buzz ?? null, offres: offres.length >= 2 ? offres : [],
+      instagram: comptesConfirmes(e)[0] || '', organisateur: e.organisateur || '', artistes: Array.isArray(e.artistes) ? e.artistes.filter((x) => typeof x === 'string' && x.trim()).map((x) => x.trim()) : [], buzz: e.buzz ?? null, offres: offres.length >= 2 ? offres : [],
       festival: RE_FESTIVAL.test(`${e.name} ${(e.tags || []).join(' ')}`), etudiant: RE_ETUDIANT.test(`${e.name} ${(e.tags || []).join(' ')} ${e.public_cible || ''}`),
     };
   };
