@@ -2778,5 +2778,62 @@
    "nom": "",
    "m": 483
   }
+ },
+ "43.69542,7.2725": {
+  "le": "2026-11-12T10:47:29.529Z",
+  "parkings": [
+   {
+    "nom": "Parking Sulzer",
+    "type": "underground",
+    "payant": true,
+    "m": 134
+   },
+   {
+    "nom": "Parking Corvésy",
+    "type": "multi-storey",
+    "payant": true,
+    "m": 150
+   },
+   {
+    "nom": "Palais de Justice",
+    "type": "underground",
+    "payant": true,
+    "m": 175
+   }
+  ],
+  "transports": [
+   {
+    "nom": "Quai des États-Unis",
+    "type": "bus",
+    "m": 120,
+    "lignes": "98"
+   },
+   {
+    "nom": "Opéra - Vieille Ville",
+    "type": "tram",
+    "m": 209,
+    "lignes": ""
+   },
+   {
+    "nom": "Opéra - Vieille Ville",
+    "type": "bus",
+    "m": 241,
+    "lignes": "8+;12+;98"
+   },
+   {
+    "nom": "Masséna",
+    "type": "tram",
+    "m": 411,
+    "lignes": ""
+   }
+  ],
+  "velo": {
+   "nom": "",
+   "m": 148
+  },
+  "taxi": {
+   "nom": "",
+   "m": 486
+  }
  }
 }
