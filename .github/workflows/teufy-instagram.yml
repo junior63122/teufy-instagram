@@ -210,3 +210,36 @@ jobs:
           git diff --cached --quiet && exit 0
           git commit -m "Teufy Instagram : publié (${{ steps.choix.outputs.quoi }})"
           for i in 1 2 3; do git pull --rebase -X theirs --autostash && git push && break; git rebase --abort 2>/dev/null; sleep 5; done
+
+      # Stories du jour (12/11/2026, directeur : « montrer une vraie présence, inciter la communauté à nous parler ») :
+      # soirées de ce soir, offres des partenaires, questions et débats, repost de reels encore utiles, coup de cœur.
+      # Sans IA. Indépendantes du post du jour : chaque passage horaire publie celles qui sont dues.
+      - name: Stories du jour (préparer)
+        id: stories
+        if: always() && (github.event_name == 'schedule' || startsWith(inputs.quoi, 'horaire'))
+        continue-on-error: true
+        run: |
+          N=$(node src/run.mjs stories --quoi 2>/dev/null | tail -1 || echo 1)
+          if [ "$N" = "0" ]; then echo "Aucune story due."; echo "aucune=true" >> "$GITHUB_OUTPUT"; exit 0; fi
+          [ -d node_modules ] || npm install --no-audit --no-fund
+          [ -d studio/node_modules ] || npm ci --prefix studio --no-audit --no-fund
+          npx playwright install-deps chromium >/dev/null 2>&1 || true
+          node src/run.mjs stories preparer
+          git config user.name "teufy-bot"
+          git config user.email "teufy-bot@users.noreply.github.com"
+          git add -A -- media/stories
+          git diff --cached --quiet && exit 0
+          git commit -m "Teufy : stories du $(date -u +%F)" # pas de [skip ci] : GitHub Pages doit mettre les images en ligne
+          for i in 1 2 3; do git pull --rebase -X theirs --autostash && git push && break; git rebase --abort 2>/dev/null; sleep 5; done
+
+      - name: Stories du jour (publier)
+        if: always() && steps.stories.outcome == 'success' && steps.stories.outputs.aucune != 'true' && (github.event_name == 'schedule' || startsWith(inputs.quoi, 'horaire'))
+        continue-on-error: true
+        run: |
+          node src/run.mjs stories publier
+          git config user.name "teufy-bot"
+          git config user.email "teufy-bot@users.noreply.github.com"
+          git add -A -- contenus/stories.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Teufy : stories publiées [skip ci]"
+          for i in 1 2 3; do git pull --rebase -X theirs --autostash && git push && break; git rebase --abort 2>/dev/null; sleep 5; done

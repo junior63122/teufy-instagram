@@ -173,11 +173,12 @@ export const PostFlashDA: React.FC<{f: FlashDA; photo?: string}> = ({f, photo}) 
 };
 
 /** Story qui relaie un nouveau post (1080×1920) : la couverture du post en grand, « Nouveau post », renvoi vers le profil. */
-export const StoryRelais: React.FC<{image: string; rubrique?: string; texte?: string}> = ({image, rubrique = 'Nouveau post', texte = 'Le post complet est sur le profil'}) => (
+export const StoryRelais: React.FC<{image: string; rubrique?: string; texte?: string; entier?: boolean}> = ({image, rubrique = 'Nouveau post', texte = 'Le post complet est sur le profil', entier = false}) => (
   <AbsoluteFill style={{background: C.nuit, overflow: 'hidden'}}>
     <Img src={staticFile(image)} style={{position: 'absolute', inset: -120, width: 1320, height: 2160, objectFit: 'cover', filter: 'blur(60px) saturate(1.3) brightness(0.45)'}} />
-    <div style={{position: 'absolute', left: 0, right: 0, top: 200, display: 'flex', justifyContent: 'center'}}>
-      <Img data-verif="image" src={staticFile(image)} style={{width: 860, height: 1075, objectFit: 'cover', borderRadius: 22, boxShadow: '0 40px 100px rgba(0,0,0,.6)', transform: 'rotate(-2deg)'}} />
+    <div style={entier ? {position: 'absolute', left: 0, right: 0, top: 150, bottom: 470, display: 'flex', alignItems: 'center', justifyContent: 'center'} : {position: 'absolute', left: 0, right: 0, top: 200, display: 'flex', justifyContent: 'center'}}>
+      {/* entier : affiche de soirée montrée en entier (jamais recadrée), quelle que soit sa forme. */}
+      <Img data-verif="image" src={staticFile(image)} style={entier ? {maxWidth: 980, maxHeight: 1300, width: 'auto', height: 'auto', borderRadius: 22, boxShadow: '0 40px 100px rgba(0,0,0,.6)', transform: 'rotate(-1.5deg)'} : {width: 860, height: 1075, objectFit: 'cover', borderRadius: 22, boxShadow: '0 40px 100px rgba(0,0,0,.6)', transform: 'rotate(-2deg)'}} />
     </div>
     <div style={{position: 'absolute', left: 70, right: 70, bottom: 230, display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 22}}>
       <Etiquette>{rubrique}</Etiquette>

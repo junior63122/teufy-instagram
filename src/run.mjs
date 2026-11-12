@@ -11,7 +11,7 @@ import { createHash } from 'node:crypto';
 // Options : --dry-run  --now=2026-11-09T12:00:00Z  --fixtures=tests/fixtures
 //           --quoi (affiche seulement la publication du jour)  --horaire (avec --quoi : attend l'heure apprise)
 import { readFile, writeFile, rm, mkdir, appendFile, readdir, copyFile } from 'node:fs/promises';
-import { existsSync, copyFileSync } from 'node:fs';
+import { existsSync, copyFileSync, readFileSync, readdirSync, rmSync, mkdirSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -115,6 +115,9 @@ if (cible === 'auto') {
   }
   if (!s) { console.log(`Rien de prévu le ${slotOfDay(NOW).date} dans le calendrier.`); process.exit(0); }
   jobs = [{ slot: s, now: NOW }];
+} else if (cible === 'stories') {
+  // Stories du jour (src/stories.mjs) : « stories --quoi » = nombre dues, « stories preparer », « stories publier ».
+  jobs = [];
 } else if (cible === 'mois') {
   jobs = daysOfMonth(NOW).map((d) => ({ slot: slotFor(d), now: d })).filter((j) => j.slot);
   console.log(`Aperçu du mois : ${jobs.length} publications`);
@@ -168,6 +171,13 @@ if (cible === 'site') {
 // Aperçu du mois : on efface seulement les aperçus (dossiers datés), jamais les médias à garder (stories « à la une »…).
 if (cible === 'mois') for (const d of await readdir(MEDIA_DIR).catch(() => [])) if (/^\d{4}-\d{2}-\d{2}-/.test(d)) await rm(path.join(MEDIA_DIR, d), { recursive: true, force: true });
 const echecs = [];
+if (cible === 'stories') {
+  const S = await import('./stories.mjs');
+  if (flag('quoi')) { console.log(S.storiesDues(NOW).length); process.exit(0); }
+  if (etape === 'preparer' || etape === 'tout') await storiesPreparer(S);
+  if (etape === 'publier' || etape === 'tout') await storiesPublier(S);
+  process.exit(0);
+}
 for (const j of jobs) {
   const id = cible === 'mois' ? `${isoLocal(j.now)}-${slotId(j.slot)}` : slotId(j.slot);
   try {
@@ -870,4 +880,98 @@ async function photoFete(f) {
     spawnSync('node', [path.join(STUDIO, 'scripts', 'decors.mjs'), def], { cwd: STUDIO, stdio: 'inherit', env: { ...process.env, NODE_USE_ENV_PROXY: '1' } });
   }
   return existsSync(path.join(STUDIO, 'public', rel)) ? rel : 'decors/da/danse.jpg';
+}
+
+// --- Stories du jour (sans IA) ------------------------------------------------------------------------------
+async function storyStill(props, fichier) {
+  const STUDIO = path.join(ROOT, 'studio');
+  if (!existsSync(path.join(STUDIO, 'node_modules'))) spawnSync('npm', ['ci', '--no-audit', '--no-fund'], { cwd: STUDIO, stdio: 'inherit' });
+  const B = '/opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell';
+  const r = spawnSync(path.join(STUDIO, 'node_modules', '.bin', 'remotion'), ['still', 'src/index.ts', 'story', fichier, `--props=${JSON.stringify(props)}`, '--image-format=jpeg', '--jpeg-quality=92', '--log=error', ...(existsSync(B) ? [`--browser-executable=${B}`] : [])], { cwd: STUDIO, stdio: 'inherit' });
+  if (r.status !== 0) throw new Error('story non conforme au contrôle visuel');
+  return fichier;
+}
+function versStudio(fichier) { const rel = path.join('evenements', 'auto', path.basename(fichier)); mkdirSync(path.join(ROOT, 'studio', 'public', 'evenements', 'auto'), { recursive: true }); copyFileSync(fichier, path.join(ROOT, 'studio', 'public', rel)); return rel; }
+
+async function storiesPreparer(S) {
+  const histo = existsSync(path.join(ROOT, S.FICHIER_HISTO)) ? JSON.parse(readFileSync(path.join(ROOT, S.FICHIER_HISTO), 'utf8')) : [];
+  const dues = S.storiesDues(NOW, histo);
+  const dir = path.join(MEDIA_DIR, 'stories');
+  await mkdir(dir, { recursive: true });
+  for (const f of readdirSync(dir)) if (/^\d{4}-\d{2}-\d{2}/.test(f) && f.slice(0, 10) < S.jourParis(new Date(NOW - 3 * 864e5))) rmSync(path.join(dir, f), { force: true });
+  const { fautesTexte } = await import('./controle-texte.mjs');
+  const { afficheFiable } = await import('./site.mjs');
+  const { createHash } = await import('node:crypto');
+  const { heure } = await import('./dates.mjs');
+  const evts = (await import('./recherche.mjs')).lireCache().evenements || [];
+  // Affiche vérifiée, déjà téléchargée nette par le site (même règle que les carrousels).
+  const affiche = (e) => { if (!e.image || !afficheFiable(e)) return ''; const f = path.join(ROOT, 'site', 'affiches', `${createHash('sha1').update(String(e.image)).digest('hex').slice(0, 12)}.jpg`); return existsSync(f) ? f : ''; };
+  const jour = S.jourParis(NOW), plan = [];
+  const lieuDe = (e) => [e.venue, e.city && !String(e.venue || '').toLowerCase().includes(String(e.city).toLowerCase()) ? e.city : ''].filter(Boolean).join(', ');
+  const cadre = async (props, nom) => { for (const t of [props.rubrique, props.texte]) { const f = fautesTexte(t); if (f.length) throw new Error(`texte refusé (${f.join(', ')}) : « ${t} »`); } return path.basename(await storyStill(props, path.join(dir, `${jour}-${nom}.jpg`))); };
+  const question = async (cle) => {
+    const q = S.questionDuJour(NOW.getTime(), histo, { postes: hist.map((h) => h.debat).filter(Boolean) });
+    if (!q) return null;
+    const carte = await couvertureDA(q.debat ? { photo: photoDA(['rire', 'selfie', 'danse', 'terrasse'], NOW), fond: 'nuit', rubrique: 'Débat', titre: q.q, options: [q.a, q.b] } : { photo: photoDA(['rire', 'selfie', 'danse', 'terrasse'], NOW), rubrique: 'Question', titre: q.q }, path.join(dir, `${jour}-${cle}-carte.jpg`));
+    return { cles: [q.cle], frames: [{ image: await cadre({ image: versStudio(carte), rubrique: 'Ton avis', texte: q.debat ? 'A ou B ? Réponds en message 👀' : 'Réponds en message 👀' }, cle) }] };
+  };
+  for (const s of dues) {
+    let r = null;
+    try {
+      if (s.type === 'soirees') {
+        const x = S.soireesDuSoir(evts, NOW.getTime(), { potentiel, afficheOk: (e) => !!affiche(e) });
+        if (x) r = { cles: x.soirees.map((e) => e.name), frames: [] };
+        for (const [i, e] of (x?.soirees || []).entries()) r.frames.push({ image: await cadre({ image: versStudio(affiche(e)), entier: true, rubrique: `${x.quand} · ${heure(e.start)}`, texte: `${e.name} · ${lieuDe(e)}` }, `soirees-${i}`) });
+      } else if (s.type === 'offre') {
+        const o = S.offreDuJour(config, NOW.getTime(), histo);
+        if (o) {
+          const carte = await couvertureDA({ photo: photoDA(['terrasse', 'rooftop', 'rire'], NOW), rubrique: 'Avantage Teufy', titre: o.titre, sous: [o.partenaire, o.ville, o.conditions].filter(Boolean).join(' · ') }, path.join(dir, `${jour}-offre-carte.jpg`));
+          r = { cles: [o.cle], frames: [{ image: await cadre({ image: versStudio(carte), rubrique: 'Bon plan', texte: o.code ? `Code ${o.code} sur la billetterie` : 'Montre cette story sur place 😉' }, 'offre') }] };
+        }
+      } else if (s.type === 'repost') {
+        const ig = igConfig();
+        const medias = ig ? await compteMedia(ig, 50, 'media_url,like_count,comments_count') : [];
+        const x = S.repostDuJour(hist, medias, NOW.getTime(), histo);
+        r = x ? { cles: [x.cle], frames: [{ video: x.url }] } : await question('repost'); // rien à reposter : une question
+      } else if (s.type === 'question') {
+        r = await question('question');
+      } else if (s.type === 'coeur') {
+        const montrees = new Set([...histo.filter((h) => h.type === 'soirees' && Date.parse(h.le) > NOW - 3 * 864e5).flatMap((h) => h.cles || []), ...plan.filter((p) => p.type === 'soirees').flatMap((p) => p.cles)]);
+        const x = S.coupDeCoeur(evts.filter((e) => !montrees.has(e.name)), NOW.getTime(), histo, { potentiel, afficheOk: (e) => !!affiche(e), comptes: comptesConfirmes });
+        if (x) r = { cles: [x.cle], frames: [{ image: await cadre({ image: versStudio(affiche(x.soiree)), entier: true, rubrique: `Coup de cœur · ${S.quandTexte(x.soiree.start)}`, texte: `${x.soiree.name} · @${x.compte}` }, 'coeur') }] };
+      }
+    } catch (err) { console.error(`Story ${s.type} : ${err.message}`); r = null; }
+    plan.push({ type: s.type, cles: r?.cles || [], frames: r?.frames || [] });
+    console.log(`Story ${s.type} : ${r?.frames?.length || 0} image(s)${r?.cles?.length ? ` (${r.cles.join(', ')})` : ''}`);
+  }
+  await writeFile(path.join(dir, 'plan.json'), JSON.stringify({ jour, plan }, null, 2));
+}
+
+async function storiesPublier(S) {
+  const f = path.join(MEDIA_DIR, 'stories', 'plan.json');
+  if (!existsSync(f)) return console.log('Stories : rien de préparé.');
+  const { jour, plan } = JSON.parse(await readFile(f, 'utf8'));
+  const ig = igConfig();
+  const fh = path.join(ROOT, S.FICHIER_HISTO);
+  const histo = existsSync(fh) ? JSON.parse(readFileSync(fh, 'utf8')) : [];
+  let base = MEDIA_BASE;
+  const url = (n) => `${base}/stories/${n}`;
+  const images = plan.flatMap((p) => p.frames.filter((x) => x.image).map((x) => url(x.image)));
+  if (images.length && !DRY && ig && !(await waitOnline(images, 4 * 60e3))) { // sinon l'adresse de secours GitHub, en ligne dès l'envoi
+    const fb = process.env.MEDIA_FALLBACK_URL;
+    if (!fb) throw new Error('Stories : fichiers pas en ligne.');
+    base = fb.replace(/\/$/, '');
+    if (!(await waitOnline(plan.flatMap((p) => p.frames.filter((x) => x.image).map((x) => url(x.image))), 3 * 60e3))) throw new Error('Stories : fichiers introuvables.');
+  }
+  for (const p of plan) {
+    if (histo.some((x) => x.jour === jour && x.type === p.type)) continue;
+    const ids = [];
+    for (const fr of p.frames) {
+      if (DRY || !ig) { console.log(`Story ${p.type} (aperçu) : ${fr.image || fr.video}`); continue; }
+      try { const st = await publishStory(fr.image ? url(fr.image) : fr.video, ig, { video: !!fr.video }); ids.push(st.id); console.log(`✅ story ${p.type} publiée (${st.id})`); }
+      catch (err) { console.error(`Story ${p.type} impossible : ${err.message}`); }
+    }
+    if (!DRY && ig) histo.push({ jour, type: p.type, cles: p.cles, ids, le: new Date().toISOString() });
+  }
+  await writeFile(fh, JSON.stringify(histo.slice(-400), null, 1) + '\n');
 }
