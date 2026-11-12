@@ -6460,6 +6460,31 @@
       "instagram": [
         "damnpeach__"
       ]
+    },
+    {
+      "source": "web",
+      "source_site": "instagram.com",
+      "via_veille": true,
+      "name": "Spécial Tartiflette au Barrio Chicago",
+      "start": "2026-11-14T18:00:00.000Z",
+      "venue": "Barrio Chicago",
+      "city": "Toulon",
+      "address": "",
+      "url": "https://www.instagram.com/p/DfnIZNKIUw7/",
+      "image": "https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/893715338_18181782682444237_3187741124820757646_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=104&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=uKnMwdhKsMkQ7kNvwGm2Y-R&_nc_oc=AdqNj962DvGVDNL-EoBLOLHZqFKk9oYmirtOrJrT9KxkagrcPyjGH7mpvebrzdfIFzg&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=-fr6atMvyu67yVImvjodVg&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQTy0JZooAsYTm1xvNUd8GeVr85U89-X7qmSIScpHdECwQ&oe=6AFB4C33",
+      "price": 18,
+      "tags": [
+        "Electro-swing",
+        "Guinguette",
+        "Variété"
+      ],
+      "description": "",
+      "public_cible": 0.6,
+      "confiance": 0.9,
+      "accroche": "Tartiflette maison et sélection musicale par DJ Stiff place de l'Équerre.",
+      "instagram": [
+        "barriochicagotoulon"
+      ]
     }
   ]
 }
