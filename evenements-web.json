@@ -6385,6 +6385,56 @@
       "instagram": [
         "le.swingnice"
       ]
+    },
+    {
+      "source": "web",
+      "source_site": "radio-monaco.com",
+      "via_veille": true,
+      "name": "Arthur H & Vanessa Wagner - C'est pas Classique",
+      "start": "2026-11-13T19:00:00.000Z",
+      "venue": "Théâtre de Grasse",
+      "city": "Grasse",
+      "address": "",
+      "url": "https://radio-monaco.com/le-morning/la-21e-edition-de-cest-pas-classique-investit-les-alpes-maritimes-avec-des-concerts-gratuits/",
+      "image": "",
+      "price": 0,
+      "tags": [
+        "Pop",
+        "Poésie",
+        "Classique"
+      ],
+      "description": "",
+      "public_cible": 0.6,
+      "confiance": 0.9,
+      "accroche": "Rencontre pop et classique entre Arthur H et Vanessa Wagner en entrée libre.",
+      "instagram": [
+        "departement06"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "radio-monaco.com",
+      "via_veille": true,
+      "name": "Compagnie Käfig & Concert de l'Hostel Dieu",
+      "start": "2026-11-18T19:00:00.000Z",
+      "venue": "Opéra de Nice",
+      "city": "Nice",
+      "address": "",
+      "url": "https://radio-monaco.com/le-morning/la-21e-edition-de-cest-pas-classique-investit-les-alpes-maritimes-avec-des-concerts-gratuits/",
+      "image": "",
+      "price": 0,
+      "tags": [
+        "Hip-Hop",
+        "Danse",
+        "Baroque"
+      ],
+      "description": "",
+      "public_cible": 0.6,
+      "confiance": 0.9,
+      "accroche": "Création croisant danse hip-hop et musique baroque à l'Opéra de Nice gratuitement.",
+      "instagram": [
+        "departement06"
+      ]
     }
   ]
 }

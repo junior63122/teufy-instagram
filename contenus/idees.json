@@ -328,5 +328,16 @@
   "resume": "La SNCF ouvre ce 12 novembre 2026 les réservations pour ses trajets en TGV INOUI et Intercités prévus entre le 7 janvier et le 2 juillet 2027. Cette mise en vente permet de bloquer des billets aux tarifs de lancement sur les lignes nationales.",
   "source": "https://www.sncf-connect.com",
   "importance": 60
+ },
+ {
+  "id": "idee-9465ph",
+  "ajout": "2026-11-12T07:11:52.505Z",
+  "type": "annonce",
+  "format": "carrousel-decryptage",
+  "titre": "Le festival C'est pas Classique dévoile sa programmation gratuite",
+  "angle": "Des soirées culturelles et des concerts gratuits pour sortir sur la Côte d'Azur sans dépenser un euro.",
+  "resume": "La 21e édition du festival départemental gratuit C'est pas Classique programme plusieurs rendez-vous mêlant musiques actuelles et classique dans les Alpes-Maritimes. L'affiche réunit notamment la compagnie hip-hop Käfig à l'Opéra de Nice, Arthur H à Grasse et Élodie Frégé sur la Promenade des Anglais.",
+  "source": "https://radio-monaco.com/le-morning/la-21e-edition-de-cest-pas-classique-investit-les-alpes-maritimes-avec-des-concerts-gratuits/",
+  "importance": 58
  }
 ]
