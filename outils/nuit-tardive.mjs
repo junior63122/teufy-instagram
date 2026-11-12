@@ -19,13 +19,9 @@ export const VILLES = { Nice: [43.7031, 7.2661], Cannes: [43.5513, 7.0128], Anti
   'Mandelieu-la-Napoule': [43.5466, 6.9380], Vallauris: [43.5780, 7.0540], Grasse: [43.6589, 6.9224], Beausoleil: [43.7430, 7.4230], 'Fréjus': [43.4330, 6.7370],
   'Saint-Raphaël': [43.4250, 6.7680], 'Saint-Tropez': [43.2727, 6.6406], 'Sainte-Maxime': [43.3090, 6.6350], Toulon: [43.1242, 5.9280], 'La Seyne-sur-Mer': [43.1007, 5.8788],
   'Hyères': [43.1204, 6.1286], 'Six-Fours-les-Plages': [43.0940, 5.8390], 'Sanary-sur-Mer': [43.1190, 5.8010], Bandol: [43.1360, 5.7530], Draguignan: [43.5366, 6.4646] };
-// Zone rectangulaire Var + Alpes-Maritimes + Monaco (une requête légère : les découpages par commune faisaient tomber les serveurs).
-const REQUETE = `[out:json][timeout:170][bbox:42.98,5.70,43.95,7.55];
-(
-  nwr["amenity"~"^(fast_food|restaurant|cafe|nightclub|bar|pub)$"]["opening_hours"]["name"];
-  nwr["shop"="bakery"]["opening_hours"]["name"];
-);
-out tags center;`;
+// Une petite requête par ville (rayon de quelques km) : les grosses requêtes sont refusées par les serveurs (502, délai).
+const RAYON = { Nice: 6000, Toulon: 5000, Cannes: 4000, Antibes: 3500, Monaco: 2500 };
+const requete = (v, [la, lo]) => { const a = `(around:${RAYON[v] || 3000},${la},${lo})`; return `[out:json][timeout:50];(nwr${a}["amenity"~"^(fast_food|restaurant|cafe|nightclub|bar|pub)$"]["opening_hours"]["name"];nwr${a}["shop"="bakery"]["opening_hours"]["name"];);out tags center;`; };
 const dist = (a, b, c, d) => Math.hypot((a - c) * 111, (b - d) * 111 * Math.cos(a * Math.PI / 180));
 const villeDe = (t, lat, lng) => {
   const c = String(t['addr:city'] || '').trim();
@@ -82,16 +78,30 @@ export function lieuxTardifs(json) {
 }
 
 async function main() {
-  for (const url of SERVEURS) {
-    try {
-      const r = await fetch(url, { method: 'POST', headers: { 'content-type': 'application/x-www-form-urlencoded', 'user-agent': 'TeufyBot/1.0 (+https://teufyparty.com)' }, body: `data=${encodeURIComponent(REQUETE)}`, signal: AbortSignal.timeout(200000) });
-      if (!r.ok) { console.log(`OpenStreetMap : ${url} a répondu ${r.status}`); continue; }
-      const lieux = lieuxTardifs(await r.json());
-      if (!lieux.length) { console.log('OpenStreetMap : aucun lieu ouvert tard trouvé, fichier inchangé.'); return; }
-      writeFileSync(F, `${JSON.stringify({ maj: new Date().toISOString(), source: 'OpenStreetMap (ODbL)', lieux }, null, 1)}\n`);
-      console.log(`Nuit tardive : ${lieux.filter((l) => l.type === 'manger-tard').length} endroit(s) où manger après 2 h, ${lieux.filter((l) => l.type === 'after').length} after(s), horaires OpenStreetMap.`);
-      return;
-    } catch (err) { console.log(`OpenStreetMap : ${url} indisponible (${String(err.message).slice(0, 80)})`); }
+  const fin = Date.now() + 4.5 * 60e3; // l'étape du robot dure 6 min au plus
+  const elements = new Map();
+  let ok = 0, echecs = 0;
+  for (const [v, c] of Object.entries(VILLES)) {
+    if (Date.now() > fin || echecs >= 4) break;
+    let d = null;
+    for (const url of SERVEURS) {
+      if (Date.now() > fin) break;
+      const r = await fetch(url, { method: 'POST', headers: { 'content-type': 'application/x-www-form-urlencoded', 'user-agent': 'TeufyBot/1.0 (+https://teufyparty.com)' }, body: `data=${encodeURIComponent(requete(v, c))}`, signal: AbortSignal.timeout(55000) }).catch(() => null);
+      d = r?.ok ? await r.json().catch(() => null) : null;
+      if (d) break;
+    }
+    if (!d) { echecs++; console.log(`OpenStreetMap : ${v} indisponible`); continue; }
+    echecs = 0; ok++;
+    for (const e of d.elements || []) elements.set(`${e.type}/${e.id}`, e);
   }
+  const ancien = (() => { try { return JSON.parse(readFileSync(F, 'utf8')); } catch { return { lieux: [] }; } })();
+  const lieux = lieuxTardifs({ elements: [...elements.values()] });
+  // Villes non relues cette fois : on garde leurs adresses précédentes.
+  const relues = new Set(lieux.map((l) => l.ville));
+  const garde = (ancien.lieux || []).filter((l) => !relues.has(l.ville) && !lieux.some((x) => x.slug === l.slug));
+  const tout = [...lieux, ...garde];
+  if (!tout.length) { console.log(`OpenStreetMap : rien de lu (${ok} ville(s) répondue(s)), fichier inchangé.`); return; }
+  writeFileSync(F, `${JSON.stringify({ maj: new Date().toISOString(), source: 'OpenStreetMap (ODbL)', lieux: tout }, null, 1)}\n`);
+  console.log(`Nuit tardive : ${ok} ville(s) lue(s) ; ${tout.filter((l) => l.type === 'manger-tard').length} endroit(s) où manger après 2 h, ${tout.filter((l) => l.type === 'after').length} after(s).`);
 }
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) await main();

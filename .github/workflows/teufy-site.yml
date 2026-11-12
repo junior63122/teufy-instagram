@@ -50,6 +50,7 @@ jobs:
         run: node outils/geo-proches.mjs
       - name: Où manger tard et afters (horaires OpenStreetMap, sans IA)
         timeout-minutes: 6
+        continue-on-error: true # OpenStreetMap saturé : le reste du robot continue
         run: node outils/nuit-tardive.mjs || echo "::warning::OpenStreetMap indisponible, liste inchangée"
       - name: Reconstruire le site avec les nouvelles images (sans IA, sans recherche web)
         timeout-minutes: 25
