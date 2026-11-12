@@ -128,7 +128,7 @@ jobs:
         run: |
           npm install --no-audit --no-fund
           npx playwright install --with-deps chromium
-          sudo apt-get install -y --no-install-recommends ffmpeg fonts-noto-color-emoji
+          sudo apt-get install -y --no-install-recommends ffmpeg fonts-noto-color-emoji tesseract-ocr tesseract-ocr-fra # tesseract : contrôle gratuit des affiches (dates lues)
           npm ci --prefix studio --no-audit --no-fund # studio Remotion (reels créatifs)
 
       - name: Tests

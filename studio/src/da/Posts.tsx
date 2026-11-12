@@ -55,7 +55,7 @@ export const DiapoSoiree: React.FC<{s: Soiree; i: number; n: number}> = ({s, i, 
   const w = s.ratio ? Math.min(960, 860 * s.ratio) : undefined;
   return (
     <AbsoluteFill style={{background: C.papier, overflow: 'hidden'}}>
-      <Signature sombre droite={<span style={{fontFamily: B, fontWeight: 700, fontSize: 24, color: C.nuit}}>{String(i).padStart(2, '0')} / {String(n).padStart(2, '0')}</span>} />
+      <Signature sombre />{/* pas de compteur maison : Instagram affiche déjà le sien, au même endroit (chevauchement, nombres différents) */}
       <div style={{position: 'absolute', left: 0, right: 0, top: 112, height: 880, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
         <Img data-verif="image" src={staticFile(s.image)} style={w ? {width: w, height: w / s.ratio!, borderRadius: 14, boxShadow: '0 30px 70px rgba(11,11,15,.35)'} : {maxWidth: 960, maxHeight: 860, borderRadius: 14, boxShadow: '0 30px 70px rgba(11,11,15,.35)'}} />
       </div>

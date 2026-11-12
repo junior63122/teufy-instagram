@@ -38,13 +38,39 @@ for (const [i, s] of E.soirees.entries()) {
   // format d'origine de l'affiche (pour l'afficher en grand même si l'image source est petite)
   const dims = spawnSync('ffprobe', ['-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=width,height', '-of', 'csv=p=0', path.join(STUDIO, 'public', image)]).stdout?.toString().trim().split(',').map(Number);
   const ratio = dims?.length === 2 && dims[1] ? dims[0] / dims[1] : undefined;
+  // Netteté : une affiche de moins de 900 px de côté est floue une fois affichée en grand (1080 px) → soirée retirée.
+  if (dims?.length === 2 && Math.max(dims[0], dims[1]) < 900) { console.log(`Affiche « ${s.nom} » trop petite (${dims[0]}×${dims[1]} px), floue en grand : soirée retirée.`); continue; }
   soirees.push({...s, image, ratio, couleur: s.couleur || accent(path.join(STUDIO, 'public', image))});
 }
 // Vérification par Gemini (vision) : l'affiche correspond-elle bien à CETTE soirée (nom, artiste, date, lieu) ?
 // Une affiche d'une autre soirée = soirée retirée du carrousel (jamais de visuel trompeur).
+// Contrôle gratuit, sans IA (12/11/2026) : Tesseract lit le texte de l'affiche ; une date lisible qui n'est pas celle de
+// la soirée (ex. « 31 décembre » pour une soirée du 14 novembre) = affiche d'une autre soirée → retirée.
+const MOIS = ['janv', 'fevr', 'mars', 'avri', 'mai', 'juin', 'juil', 'aout', 'sept', 'octo', 'nove', 'dece'];
+export function datesLues(texte) {
+  const t = String(texte).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  const out = [];
+  for (const m of t.matchAll(/\b([0-3]?\d)(?:er)?\s+(janv|fevr|fev|mars|avr|mai|juin|juil|aout|sept|oct|nov|dec)[a-z]*/g)) {
+    const k = MOIS.findIndex((x) => x.startsWith(m[2].slice(0, 3)) || m[2].startsWith(x.slice(0, 3)));
+    const j = +m[1]; if (k >= 0 && j >= 1 && j <= 31) out.push([j, k + 1]);
+  }
+  for (const m of t.matchAll(/\b([0-3]?\d)[./]([01]?\d)(?:[./](?:20)?2\d)?\b/g)) { const j = +m[1], k = +m[2]; if (j >= 1 && j <= 31 && k >= 1 && k <= 12) out.push([j, k]); }
+  return out;
+}
+function ocrAffiche(s) {
+  if (!s.debut) return {ok: true, raison: 'date inconnue, non vérifié'};
+  const r = spawnSync('tesseract', [path.join(STUDIO, 'public', s.image), '-', '-l', 'fra+eng', '--psm', '11'], {encoding: 'utf8', timeout: 60000});
+  if (r.status !== 0 || !r.stdout) return {ok: true, raison: 'lecture OCR indisponible'};
+  const d = new Date(Date.parse(s.debut) - 6 * 3600e3); // soirée après minuit = jour de la veille
+  const [J, M] = new Intl.DateTimeFormat('fr-FR', {timeZone: 'Europe/Paris', day: 'numeric', month: 'numeric'}).format(d).split('/').map(Number);
+  const lues = datesLues(r.stdout);
+  if (!lues.length) return {ok: true, raison: 'aucune date lisible sur l\'affiche'};
+  const ok = lues.some(([j, m]) => m === M && Math.abs(j - J) <= 1);
+  return {ok, raison: ok ? 'date de l\'affiche conforme (OCR)' : `date lue ${lues.map(([j, m]) => `${j}/${m}`).join(', ')} ≠ ${J}/${M} (OCR)`};
+}
 async function verifierAffiche(s) {
   const CLE = (process.env.GEMINI_API_KEY || '').trim();
-  if (!CLE || process.env.TEUFY_IA_MANUEL === '1') return {ok: true, raison: 'pas de clé Gemini, non vérifié'};
+  if (!CLE || process.env.TEUFY_IA_MANUEL === '1') return ocrAffiche(s); // contrôle gratuit (lecture du texte de l'affiche)
   const API = 'https://generativelanguage.googleapis.com/v1beta/models';
   try {
     const liste = await (await fetch(`${API}?pageSize=200&key=${CLE}`)).json();

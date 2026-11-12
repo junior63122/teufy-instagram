@@ -96,6 +96,11 @@ if (cible === 'auto') {
     else if (s && flag('horaire')) {
       const choisi = +creneauDuJour(NOW);
       if (NOW.getUTCHours() < choisi) { console.error(`Publication prévue vers ${choisi}h UTC.`); rep = 'rien'; }
+      // Jamais de post tard le soir (le 11/11, un rattrapage est parti à 22h58) : au-delà de 21h30 à Paris, le post du
+      // jour n'est plus publié par les passages de rattrapage (config.instagram.heure_max_paris pour changer).
+      const hp = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Paris', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).format(NOW).split(':').map(Number);
+      const [mh, mm] = String(config.instagram?.heure_max_paris || '21:30').split(':').map(Number);
+      if (rep !== 'rien' && hp[0] * 60 + hp[1] > mh * 60 + (mm || 0)) { console.error(`Trop tard pour publier (${hp[0]}h${String(hp[1]).padStart(2, '0')} à Paris, limite ${mh}h${String(mm || 0).padStart(2, '0')}).`); rep = 'rien'; }
     }
     await output('slot', rep === 'rien' ? '' : rep);
     console.log(rep);
@@ -672,14 +677,22 @@ async function carrouselDA({ chosen, id, dir, now, titre = [], titreFlash, rubri
       const { heure } = await import('./dates.mjs');
       const { genresList } = await import('./genres.mjs');
       const jourC = (d) => new Intl.DateTimeFormat('fr-FR', { timeZone: 'Europe/Paris', weekday: 'short', day: 'numeric', month: 'short' }).format(new Date(Date.parse(d) - 6 * 3600e3)).replace(/^./, (c) => c.toUpperCase());
-      const avecImage = chosen.filter((e) => e.image).slice(0, 8);
+      // Contrôle qualité des affiches (12/11/2026, sans IA) : seulement des affiches dont on est sûr qu'elles annoncent
+      // CETTE soirée (mêmes règles que le site : saisie de l'équipe, affiche lue et conforme, ou billetterie/organisateur),
+      // jamais la même image pour deux soirées, et en haute définition (vignettes Shotgun 384 px floues remplacées).
+      const { afficheFiable } = await import('./site.mjs');
+      const hd = (u) => String(u || '').replace(/(assets\.shotgun\.live\/image\/upload\/)[^/]*\//, '$1c_limit,w_1920,fl_lossy,f_jpg,q_auto/');
+      const parImage = {}; for (const e of chosen) if (e.image) parImage[e.image] = (parImage[e.image] || 0) + 1;
+      const refus = chosen.filter((e) => e.image && (!afficheFiable(e) || parImage[e.image] > 1));
+      for (const e of refus) console.error(`Affiche écartée (non vérifiée ou partagée par plusieurs soirées) : ${e.name}`);
+      const avecImage = chosen.filter((e) => e.image && !refus.includes(e)).map((e) => ({ ...e, image: hd(e.image) })).slice(0, 8);
       const villes = [...new Set(avecImage.map((e) => e.city).filter(Boolean))];
       const dts = avecImage.map((e) => new Date(Date.parse(e.start) - 6 * 3600e3)).sort((a, b) => a - b);
       const fmt = (d, o) => new Intl.DateTimeFormat('fr-FR', { timeZone: 'Europe/Paris', ...o }).format(d);
       const sous = dts.length ? (fmt(dts[0], { day: 'numeric', month: 'long' }) === fmt(dts.at(-1), { day: 'numeric', month: 'long' }) ? `le ${fmt(dts[0], { weekday: 'long', day: 'numeric', month: 'long' })}`
         : `du ${fmt(dts[0], { day: 'numeric', ...(fmt(dts[0], { month: 'long' }) === fmt(dts.at(-1), { month: 'long' }) ? {} : { month: 'long' }) })} au ${fmt(dts.at(-1), { day: 'numeric', month: 'long' })}`) : '';
       const entree = { sous, titre, titreFlash, rubrique, question, lieu: (villes.length === 1 ? villes[0] : "CÔTE D'AZUR").toUpperCase(), pied: villes.slice(0, 3).map((v) => v.replace(/-du-.*$/i, '')).join(' · ').toUpperCase(),
-        soirees: avecImage.map((e, i) => ({ id: `${i}-${hash(e.name)}`, vedette: vedettes(avecImage).includes(e), nom: e.name, genre: (genresList(e).slice(0, 2).join(' & ') || 'soirée').toLowerCase(), jour: jourC(e.start), heures: `dès ${heure(e.start)}`,
+        soirees: avecImage.map((e, i) => ({ id: `${i}-${hash(e.name)}`, vedette: vedettes(avecImage).includes(e), nom: e.name, genre: (genresList(e).slice(0, 2).join(' & ') || 'soirée').toLowerCase(), jour: jourC(e.start), debut: e.start, heures: /23h59|00h00/.test(heure(e.start)) ? '' : `dès ${heure(e.start)}`, // 23h59 = heure inconnue, jamais affichée
           prix: e.price == null ? 'prix sur la billetterie' : e.price === 0 ? 'gratuit' : `dès ${String(Math.round(e.price * 100) / 100).replace('.', ',')} €`, lieu: [e.venue, e.city].filter(Boolean).join(' · '), image: e.image })) };
       const fe = path.join(ROOT, 'out', `carrousel-${id}.json`);
       await mkdir(path.dirname(fe), { recursive: true });

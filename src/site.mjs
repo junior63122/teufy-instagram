@@ -55,6 +55,7 @@ const CENTRES = [
   [/sainte.?maxime/i, 43.309, 6.635], [/saint.?tropez/i, 43.2692, 6.6389], [/draguignan/i, 43.536, 6.464], [/hy[èe]res/i, 43.1204, 6.1286], [/toulon/i, 43.1242, 5.928],
 ];
 
+export const hdShotgun = (u) => String(u || '').replace(/(assets\.shotgun\.live\/image\/upload\/)[^/]*\//, '$1c_limit,w_1920,fl_lossy,f_jpg,q_auto/');
 async function telecharger(url, f) {
   const r = await fetch(url, { signal: AbortSignal.timeout(20000) }).catch(() => null);
   if (!r?.ok) return false;
@@ -141,22 +142,45 @@ async function imageDePartage(url) {
 async function verifier(e, fichier, cache) {
   const k = `v2|${h(`${e.image}|${e.name}`)}`, ancien = cache[h(`${e.image}|${e.name}`)];
   if (e.manuel) return true; // affiche fournie et vérifiée par l'équipe
-  if (cache[k]) return cache[k].ok;
+  if (cache[k]) return cache[k].lu ? jugerAffiche(e, cache[k].lu) : cache[k].ok;
   // Sans IA disponible (ou plus de temps) : ancien verdict s'il existe ; sinon on ne montre une affiche non vérifiée que
   // si elle vient de la billetterie ou de l'organisateur, jamais si c'est la recherche web qui l'a associée (risque
   // d'affiche d'une autre soirée, cas « La Tocardise » / « Noise Protocol » du 11/11/2026).
   if (!tempsOk() || !(process.env.GEMINI_API_KEY || '').trim()) return ancien ? ancien.ok : e.source !== 'web';
   const r = await gemini([{ inline_data: { mime_type: 'image/jpeg', data: readFileSync(fichier).toString('base64') } }, { text: 'Lis cette affiche de soirée. Réponds en JSON {"titre":string,"artistes":[string],"lieu":string,"ville":string,"dates":["AAAA-MM-JJ"]}. Recopie seulement ce qui est écrit sur l\'affiche (dates au format AAAA-MM-JJ, année 2026 ou 2027 si elle n\'est pas écrite ; tableau vide si aucune date). Chaîne vide si absent.' }]);
   if (!r || typeof r !== 'object') return ancien ? ancien.ok : e.source !== 'web'; // lecture impossible : même règle
-  const jour = cle(e.start), j = Date.parse(`${jour}T12:00:00Z`);
-  const dates = (r.dates || []).filter((d) => /^\d{4}-\d{2}-\d{2}$/.test(d));
-  const dateOk = !dates.length || dates.some((d) => Math.abs(Date.parse(`${d}T12:00:00Z`) - j) <= 864e5);
-  const surAffiche = motsAffiche([r.titre, ...(r.artistes || []), r.lieu].join(' '));
-  const soiree = motsAffiche([e.name, e.venue, e.accroche, e.description, ...(e.tags || [])].join(' '));
-  const commun = [...surAffiche].filter((m) => soiree.has(m));
-  const ok = dateOk && (commun.length > 0 || !surAffiche.size);
-  cache[k] = { ok, le: new Date().toISOString(), nom: e.name, lu: { titre: r.titre, dates, artistes: (r.artistes || []).slice(0, 6) }, commun: commun.slice(0, 5) };
+  const lu = { titre: r.titre, dates: (r.dates || []).filter((d) => /^\d{4}-\d{2}-\d{2}$/.test(d)), artistes: (r.artistes || []).slice(0, 6), lieu: r.lieu || '' };
+  const ok = jugerAffiche(e, lu);
+  cache[k] = { ok, le: new Date().toISOString(), nom: e.name, lu, commun: [...motsAffiche([lu.titre, ...lu.artistes].join(' '))].filter((m) => motsAffiche(`${e.name} ${(e.artistes || []).join(' ')}`).has(m)).slice(0, 5) };
   return ok;
+}
+// Jugement d'une affiche lue (titre, artistes, dates) — règle durcie le 12/11/2026 après le carrousel où l'affiche de
+// « Caribbean Mood » (13/11, même club) illustrait « The Best or Nothing » (14/11) : le lieu seul ne suffit plus.
+//  - le TITRE ou un ARTISTE de l'affiche doit se retrouver dans le nom de la soirée (ou ses artistes) ;
+//  - la date lue doit être celle de la soirée (veille ou lendemain toléré seulement si le titre correspond, soirée
+//    après minuit) ; une affiche sans date lisible passe si le titre correspond.
+export function jugerAffiche(e, lu = {}) {
+  const jour = cle(e.start), j = Date.parse(`${jour}T12:00:00Z`);
+  const dates = (lu.dates || []).filter((d) => /^\d{4}-\d{2}-\d{2}$/.test(d));
+  const nom = motsAffiche(`${e.name} ${(e.artistes || []).join(' ')} ${e.accroche || ''} ${e.description || ''}`);
+  const titre = motsAffiche([lu.titre, ...(lu.artistes || [])].join(' '));
+  for (const m of motsAffiche(`${e.venue || ''} ${e.city || ''}`)) { nom.delete(m); titre.delete(m); } // le nom du lieu ne prouve rien (autre soirée, même club)
+  const titreOk = !titre.size ? null : [...titre].some((m) => nom.has(m));
+  const exacte = dates.some((d) => d === jour), proche = dates.some((d) => Math.abs(Date.parse(`${d}T12:00:00Z`) - j) <= 864e5);
+  if (titreOk === false) return false; // affiche d'une autre soirée (autre titre, autres artistes)
+  if (!dates.length) return titreOk === true;
+  return exacte || (titreOk === true && proche);
+}
+
+// Verdict d'une affiche pour les publications Instagram, sans aucun appel d'IA : affiche saisie par l'équipe, ou lue et
+// jugée conforme (cache du site), ou fournie par la billetterie / l'organisateur (jamais associée par la recherche web).
+export function afficheFiable(e) {
+  if (e.manuel) return true;
+  const cache = lire(VERIF, {});
+  const c = cache[`v2|${h(`${e.image}|${e.name}`)}`];
+  if (c) return c.lu ? jugerAffiche(e, c.lu) : !!c.ok;
+  const ancien = cache[h(`${e.image}|${e.name}`)];
+  return ancien ? !!ancien.ok && e.source !== 'web' : e.source !== 'web';
 }
 
 // Position des lieux (OpenStreetMap / Nominatim, 1 requête par seconde, résultats gardés).
@@ -625,7 +649,9 @@ export async function construireSite({ events, eventsFrance = [], eventsOccitani
       if (locale && !existsSync(f)) spawnSync('ffmpeg', ['-v', 'error', '-y', '-i', locale, '-vf', "scale='min(1080,iw)':-2", '-q:v', '3', f]);
       else if (!existsSync(f) && versionGrande(e.image) !== e.image) await telecharger(versionGrande(e.image), f);
       else if (tempsOk() && await agrandirAffiche(e.image, f)) log(`Site : affiche agrandie pour « ${e.name} »`);
-      if (existsSync(f) || (!locale && /^https?:\/\//.test(e.image) && await telecharger(e.image, f))) {
+      // Affiches Shotgun : version haute définition (l'adresse trouvée pointe souvent sur une vignette 384 px floue).
+      const flou = existsSync(f) && /assets\.shotgun\.live/.test(e.image) && Math.max(...(tailleJpeg(f) || [0])) < 900;
+      if ((existsSync(f) && !flou) || (!locale && /^https?:\/\//.test(e.image) && await telecharger(hdShotgun(e.image), f)) || existsSync(f)) {
         if (await verifier(e, f, cache)) { affiche = `site/affiches/${path.basename(f)}`; dims = tailleJpeg(f); webp(f, 480); webp(f, 800); webp(f, 1080); }
         else log(`Site : affiche écartée (ne correspond pas) pour « ${e.name} »`);
       }
