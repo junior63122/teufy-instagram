@@ -282,5 +282,21 @@
     "b": "Vers 2h, quand ça tape vraiment",
     "legende": "Il y a ceux qui ouvrent le dancefloor et ceux qui arrivent pour le drop. Dis-nous ton camp, et envoie ça à ton opposé.",
     "ajout": "2026-11-10"
+  },
+  {
+    "id": "ia-2026-11-12-1r8kzig",
+    "q": "En soirée, tu arrives quand ?",
+    "a": "Dès l'ouverture",
+    "b": "Après 1h, quand ça tape",
+    "legende": "Deux écoles. Ceux qui ouvrent le dancefloor, ceux qui débarquent au bon moment. Tu es team A ou team B ? 👇",
+    "ajout": "2026-11-12"
+  },
+  {
+    "id": "ia-2026-11-12-gi0mii",
+    "q": "Ce week-end, tu sors où ?",
+    "a": "Nice",
+    "b": "Cannes",
+    "legende": "Nice ou Cannes. Une seule réponse. Dis-nous en commentaire et tag ton binôme de sortie 👇",
+    "ajout": "2026-11-12"
   }
 ]

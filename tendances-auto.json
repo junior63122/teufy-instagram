@@ -1,17 +1,21 @@
 {
-  "maj": "2026-11-11T15:07:29.541Z",
+  "maj": "2026-11-12T15:07:44.038Z",
   "comptes": {
     "downtown.nice": {
-      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
+      "abonnes": 2392,
+      "posts": 25
     },
     "uptown.nice": {
-      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
+      "abonnes": 1867,
+      "posts": 25
     },
     "la_dinette__": {
-      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
+      "abonnes": 5656,
+      "posts": 25
     },
     "lebarathymtoulon": {
-      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
+      "abonnes": 10926,
+      "posts": 25
     },
     "nightlyfr": {
       "erreur": "Instagram 17841451355992040 : Invalid user id (code 110, sous-code 2207013)"
@@ -29,7 +33,8 @@
       "erreur": "Instagram 17841451355992040 : Invalid user id (code 110, sous-code 2207013)"
     },
     "monaco.nightlife": {
-      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
+      "abonnes": 5412,
+      "posts": 25
     },
     "cannes.nightlife": {
       "erreur": "Instagram 17841451355992040 : Invalid user id (code 110, sous-code 2207013)"
@@ -38,7 +43,8 @@
       "erreur": "Instagram 17841451355992040 : Invalid user id (code 110, sous-code 2207013)"
     },
     "dicefm": {
-      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
+      "abonnes": 92938,
+      "posts": 25
     },
     "trax_magazine": {
       "erreur": "Instagram 17841451355992040 : Invalid user id (code 110, sous-code 2207013)"
@@ -47,293 +53,340 @@
       "erreur": "Instagram 17841451355992040 : Invalid user id (code 110, sous-code 2207013)"
     },
     "boilerroomtv": {
-      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
+      "abonnes": 2888010,
+      "posts": 25
     },
     "bringue_party": {
-      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
+      "abonnes": 91048,
+      "posts": 25
     },
     "bazaarcannes": {
-      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
+      "abonnes": 3740,
+      "posts": 25
     },
     "mixparty_cannes": {
-      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
+      "abonnes": 6988,
+      "posts": 25
     },
     "lelixirclub": {
-      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
+      "abonnes": 1441,
+      "posts": 25
     },
     "jokerplay17": {
-      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
+      "abonnes": 39821,
+      "posts": 25
     },
     "sowetolesprit": {
-      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
+      "abonnes": 2687,
+      "posts": 25
     },
     "tetris.owl": {
-      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
+      "abonnes": 10716,
+      "posts": 25
     },
     "xka_music": {
-      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
+      "abonnes": 32111,
+      "posts": 25
     },
     "djmvlarosa_officiel": {
-      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
+      "abonnes": 3196,
+      "posts": 25
     },
     "lesfrench_nghts": {
-      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
+      "abonnes": 431,
+      "posts": 25
     },
     "djtrulli_": {
-      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
+      "abonnes": 2426,
+      "posts": 25
     },
     "pedro_martinez_musicoff": {
-      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
+      "abonnes": 1561,
+      "posts": 16
     },
     "120bpm.event": {
-      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
+      "abonnes": 323,
+      "posts": 19
     },
     "groovzcannes": {
-      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
+      "abonnes": 2226,
+      "posts": 25
     },
     "barrelcannespub": {
-      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
+      "abonnes": 2275,
+      "posts": 25
     },
     "latinaddict": {
-      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
+      "abonnes": 87843,
+      "posts": 25
     },
     "nayaclubcannes": {
-      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
+      "abonnes": 19177,
+      "posts": 25
     },
     "junga_club": {
-      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
+      "abonnes": 3949,
+      "posts": 1
     },
     "cdr_cannes": {
-      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
+      "abonnes": 2265,
+      "posts": 25
     },
     "lebayou2.0": {
-      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
+      "abonnes": 2666,
+      "posts": 21
     },
     "greatgame_partyroom": {
-      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
+      "abonnes": 10886,
+      "posts": 25
     },
     "charlotte_vtc_toulon": {
-      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
+      "abonnes": 195,
+      "posts": 17
     },
     "espritfestival": {
-      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
+      "abonnes": 7842,
+      "posts": 25
     },
     "le.bar.ephemere": {
-      "erreur": "Instagram 17841451355992040 : (#4) Application request limit reached (code 4, sous-code -)"
+      "abonnes": 6484,
+      "posts": 25
     }
   },
   "hashtags": {
-    "#antibes": 1,
-    "#monaco": 0.166,
-    "#nice": 0.08,
-    "#riviera": 0.003,
-    "#vieuxnice": 0.003,
-    "#savethedate": 0.003,
-    "#nicecotedazur": 0.003,
-    "#halloween": 0.003,
-    "#cotedazurfrance": 0.003,
-    "#ilovenice": 0.002,
-    "#oldtownnice": 0.002,
-    "#nice06": 0.002,
-    "#soireenice": 0.002,
-    "#spring": 0.002,
-    "#nostalgie": 0.002,
-    "#party": 0.002,
-    "#nightlife": 0.002,
-    "#djset": 0.002,
-    "#frenchriviera": 0.002,
-    "#bar": 0.002,
-    "#cotedazur": 0.002,
-    "#nicefrance": 0.001
+    "#halloween2026": 1,
+    "#cannesbynight": 0.568,
+    "#nayaclub": 0.414,
+    "#nightlife": 0.382,
+    "#cannes": 0.351,
+    "#nayaclubcannes": 0.298,
+    "#partytime": 0.256,
+    "#cannesnightlife": 0.205,
+    "#côtedazur": 0.182,
+    "#halloween": 0.136,
+    "#nayacannes": 0.096,
+    "#showcase": 0.06,
+    "#soirée": 0.006,
+    "#event": 0.004,
+    "#pourtoi": 0.003,
+    "#fyp": 0.003,
+    "#dj": 0.002,
+    "#antibes": 0.001,
+    "#cotedazurfrance": 0.001,
+    "#shatta": 0.001,
+    "#club": 0.001,
+    "#paca": 0.001,
+    "#party": 0.001,
+    "#discotheque": 0.001,
+    "#vtc": 0.001,
+    "#trend": 0.001,
+    "#vieuxnice": 0.001,
+    "#technomusic": 0.001,
+    "#bar": 0.001,
+    "#dancehall": 0.001,
+    "#toulon": 0.001,
+    "#dance": 0.001,
+    "#night": 0.001,
+    "#love": 0,
+    "#oldtownnice": 0,
+    "#cocktails": 0,
+    "#cotedazur": 0,
+    "#viral": 0,
+    "#girls": 0,
+    "#friends": 0
   },
   "formats": {
     "carrousel": {
-      "score": 66.16,
-      "posts": 164
+      "score": 224.98,
+      "posts": 180
     },
     "image": {
-      "score": 83.43,
-      "posts": 160
+      "score": 16.99,
+      "posts": 170
     },
     "reel": {
-      "score": 80.84,
-      "posts": 184
+      "score": 150.48,
+      "posts": 374
     }
   },
   "heures": {
     "0": {
-      "score": 2.02,
-      "posts": 2
+      "score": 2.26,
+      "posts": 7
     },
     "1": {
-      "score": 0.96,
-      "posts": 1
+      "score": 0.7,
+      "posts": 3
     },
     "2": {
-      "score": 0.95,
+      "score": 0.47,
+      "posts": 2
+    },
+    "3": {
+      "score": 1.33,
       "posts": 1
     },
     "5": {
-      "score": 1.13,
+      "score": 0.45,
       "posts": 2
     },
     "6": {
-      "score": 1.06,
-      "posts": 1
+      "score": 2.02,
+      "posts": 3
     },
     "7": {
-      "score": 1.41,
-      "posts": 1
+      "score": 0.7,
+      "posts": 2
     },
     "8": {
-      "score": 0.6,
-      "posts": 8
+      "score": 1.46,
+      "posts": 4
     },
     "9": {
-      "score": 0.74,
-      "posts": 9
+      "score": 0.77,
+      "posts": 5
     },
     "10": {
-      "score": 1.04,
-      "posts": 21
-    },
-    "11": {
-      "score": 140.1,
+      "score": 1.23,
       "posts": 17
     },
+    "11": {
+      "score": 42.82,
+      "posts": 32
+    },
     "12": {
-      "score": 69.2,
-      "posts": 35
+      "score": 41.57,
+      "posts": 36
     },
     "13": {
-      "score": 9.7,
-      "posts": 22
+      "score": 4.52,
+      "posts": 38
     },
     "14": {
-      "score": 1.17,
-      "posts": 15
+      "score": 356.33,
+      "posts": 37
     },
     "15": {
-      "score": 44.52,
-      "posts": 28
+      "score": 308.8,
+      "posts": 35
     },
     "16": {
-      "score": 26.74,
-      "posts": 43
+      "score": 645.55,
+      "posts": 44
     },
     "17": {
-      "score": 72.12,
-      "posts": 60
+      "score": 265.81,
+      "posts": 82
     },
     "18": {
-      "score": 206.5,
-      "posts": 117
+      "score": 11.64,
+      "posts": 147
     },
     "19": {
-      "score": 34.26,
-      "posts": 68
+      "score": 47.32,
+      "posts": 118
     },
     "20": {
-      "score": 23.97,
-      "posts": 31
+      "score": 205.16,
+      "posts": 54
     },
     "21": {
-      "score": 1.77,
-      "posts": 15
+      "score": 3.61,
+      "posts": 33
     },
     "22": {
-      "score": 0.69,
-      "posts": 8
+      "score": 276.47,
+      "posts": 14
     },
     "23": {
-      "score": 1.88,
-      "posts": 3
+      "score": 1.3,
+      "posts": 8
     }
   },
   "accroches": [
     {
-      "compte": "sun7riviera",
-      "format": "reel",
-      "score": 9456.26,
-      "accroche": "iameliott_ ⚓ sun7riviera  tentation_azur",
-      "lien": "https://www.instagram.com/reel/DcOlrR_MGOp/"
-    },
-    {
-      "compte": "sun7riviera",
+      "compte": "groovzcannes",
       "format": "carrousel",
-      "score": 4728.13,
-      "accroche": "",
-      "lien": "https://www.instagram.com/p/DcMAgQVDIVQ/"
+      "score": 21563.34,
+      "accroche": "Good people. Good vibes. One place. 🔥🌙",
+      "lien": "https://www.instagram.com/p/DclnBCuALRo/"
     },
     {
-      "compte": "sun7riviera",
+      "compte": "groovzcannes",
       "format": "carrousel",
-      "score": 4728.13,
-      "accroche": "",
-      "lien": "https://www.instagram.com/p/Daic08PjEMw/"
+      "score": 13027.85,
+      "accroche": "🌅 L’été touche doucement à sa fin… mais pas les belles soirées au Groovz ! 🔥",
+      "lien": "https://www.instagram.com/p/DcTXU09gJJw/"
     },
     {
-      "compte": "sun7riviera",
-      "format": "image",
-      "score": 2364.07,
-      "accroche": "",
-      "lien": "https://www.instagram.com/p/DbDMLA1sybZ/"
-    },
-    {
-      "compte": "sun7riviera",
-      "format": "image",
-      "score": 2364.07,
-      "accroche": "#Cannes#Antibes#Nice#monaco",
-      "lien": "https://www.instagram.com/p/DQ88i1djKz7/"
-    },
-    {
-      "compte": "bluecoastbrewing",
+      "compte": "cdr_cannes",
       "format": "reel",
-      "score": 2043.49,
-      "accroche": "Les sapeurs-pompiers d’Hancy préparent L’APÉRO GÉANT ! 🚒🎉",
-      "lien": "https://www.instagram.com/reel/DdZSyXzBQl3/"
+      "score": 11037.53,
+      "accroche": "⚠️ TRIANGLE DES BERMUDES est de retour le mercredi 08 juillet 2026 ! 🌊🔥",
+      "lien": "https://www.instagram.com/reel/DaanjIpKxOr/"
     },
     {
-      "compte": "bluecoastbrewing",
-      "format": "image",
-      "score": 1471.31,
-      "accroche": "🇫🇷 Verre entre collègues ce soir ? Quelle est votre bière Blue Coast de choix ? Nous, c’est la Blonde : un classique indémodable, parfait ",
-      "lien": "https://www.instagram.com/p/DdCIWjNDkWI/"
+      "compte": "groovzcannes",
+      "format": "reel",
+      "score": 10781.67,
+      "accroche": "📼 On a retrouvé une cassette derrière le comptoir.",
+      "lien": "https://www.instagram.com/reel/DemvXlagFbd/"
     },
     {
-      "compte": "bluecoastbrewing",
-      "format": "image",
-      "score": 1226.09,
-      "accroche": "🇫🇷 Quand nous avons créé notre charte graphique, nous voulions une identité profondément ancrée à Nice, d’où nous venons. Quoi de plus emb",
-      "lien": "https://www.instagram.com/p/DdomWIOIcfO/"
+      "compte": "groovzcannes",
+      "format": "reel",
+      "score": 9433.96,
+      "accroche": "Vous rayonnez tellement ✨✨",
+      "lien": "https://www.instagram.com/reel/DeEtHE1yaZk/"
     },
     {
-      "compte": "bluecoastbrewing",
-      "format": "image",
-      "score": 1144.35,
-      "accroche": "🇫🇷 On ne sait pas vous, mais nous, on est en déni complet de l’arrivée de l’automne. ",
-      "lien": "https://www.instagram.com/p/DecT0T9ovpq/"
+      "compte": "cdr_cannes",
+      "format": "reel",
+      "score": 5298.01,
+      "accroche": "Naya Night Show 🥂🥳",
+      "lien": "https://www.instagram.com/reel/DdooxHxK5BE/"
     },
     {
-      "compte": "lanonchalance",
+      "compte": "cdr_cannes",
+      "format": "reel",
+      "score": 3973.51,
+      "accroche": "NAYA CLUB CANNES 🥂",
+      "lien": "https://www.instagram.com/reel/DdWoos9KPSX/"
+    },
+    {
+      "compte": "latinaddict",
+      "format": "reel",
+      "score": 3859.16,
+      "accroche": "latinaddict is magic 😈",
+      "lien": "https://www.instagram.com/reel/DDkrxm1uLDM/"
+    },
+    {
+      "compte": "groovzcannes",
       "format": "carrousel",
-      "score": 1112.67,
-      "accroche": "WHAT A NIGHT WiTH this_is_amor ❤️‍🔥🫂.",
-      "lien": "https://www.instagram.com/p/Dee4GYaCkYx/"
+      "score": 2695.42,
+      "accroche": "📼 ARCHIVE 31/10/2025 · DOSSIERS CLASSÉS",
+      "lien": "https://www.instagram.com/p/DeuaCvdjGQd/"
     },
     {
-      "compte": "lanonchalance",
+      "compte": "groovzcannes",
+      "format": "carrousel",
+      "score": 2695.42,
+      "accroche": "Girls just wanna have fun 💃✨",
+      "lien": "https://www.instagram.com/p/Ddyz0oOAFU2/"
+    },
+    {
+      "compte": "groovzcannes",
       "format": "reel",
-      "score": 1109.33,
-      "accroche": "A beautiful night in Monaco alongside AMOR, where music and unforgettable moments came together. ",
-      "lien": "https://www.instagram.com/reel/DehZ_NpK2op/"
+      "score": 2695.42,
+      "accroche": "Some nights hit different in slow motion 🌚",
+      "lien": "https://www.instagram.com/reel/Dc3odd2AuLo/"
     },
     {
-      "compte": "bluecoastbrewing",
-      "format": "image",
-      "score": 1062.61,
-      "accroche": "🇫🇷 Au programme aujourd’hui : piscine, deux Blondes Azur et beaucoup de papotages.",
-      "lien": "https://www.instagram.com/p/Ddy8r5gIaD_/"
+      "compte": "groovzcannes",
+      "format": "reel",
+      "score": 1347.71,
+      "accroche": "La cassette maudite a tout filmé 📼🎃",
+      "lien": "https://www.instagram.com/reel/DfXhdTFgXP9/"
     }
   ]
 }

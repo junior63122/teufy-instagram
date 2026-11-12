@@ -2560,17 +2560,17 @@
       ],
       "note": 100,
       "metrics": {
-        "reach": 806,
+        "reach": 847,
         "likes": 7,
         "comments": 0,
         "saved": 0,
         "shares": 8,
         "total_interactions": 15,
         "follows": 0,
-        "profile_visits": 0
+        "profile_visits": 1
       },
-      "mesure_le": "2026-11-11T15:08:34.825Z",
-      "score": 3.027
+      "mesure_le": "2026-11-12T15:08:53.416Z",
+      "score": 2.943
     },
     {
       "media": "18100117979106694",
@@ -2664,9 +2664,9 @@
         "theme:techno",
         "auteur:bot"
       ],
-      "note": 41,
+      "note": 38,
       "metrics": {
-        "reach": 275,
+        "reach": 298,
         "likes": 7,
         "comments": 1,
         "saved": 0,
@@ -2675,8 +2675,8 @@
         "follows": 0,
         "profile_visits": 3
       },
-      "mesure_le": "2026-11-11T15:08:34.825Z",
-      "score": 0.816
+      "mesure_le": "2026-11-12T15:08:53.416Z",
+      "score": 0.761
     },
     {
       "media": "18132087004853350",
@@ -2894,6 +2894,10 @@
     {
       "date": "2026-11-11",
       "n": 14472
+    },
+    {
+      "date": "2026-11-12",
+      "n": 14467
     }
   ]
 }
