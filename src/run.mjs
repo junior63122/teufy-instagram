@@ -601,12 +601,23 @@ async function publishPrepared(id) {
     if (!(await waitOnline(urls(), 3 * 60e3))) throw new Error(`Fichiers introuvables aussi sur ${fb}.`);
   }
 
-  const res = p.video
+  const publier = async () => (p.video
     ? await publishReel(url(p.son?.audio_id && p.video_instagram ? p.video_instagram : p.video), url(p.couverture), p.legende, ig,
       { essai: !!TENDANCES.reels_essai?.actif, audio: p.son?.audio_id ? { audio_id: p.son.audio_id } : null, videoSecours: url(p.video) })
     : p.images.length === 1
       ? await publishSingle(url(p.images[0]), p.legende, ig, { tags: p.tags, legende: (ok) => legendeFinale(p.legende, p.a_tester, ok) })
-      : await publishCarousel(p.images.map(url), p.legende, ig, { tags: p.tags, collabs: config.collaborations?.actif ? p.collabs : [], legende: (ok) => legendeFinale(p.legende, p.a_tester, ok) });
+      : await publishCarousel(p.images.map(url), p.legende, ig, { tags: p.tags, collabs: config.collaborations?.actif ? p.collabs : [], legende: (ok) => legendeFinale(p.legende, p.a_tester, ok) }));
+  let res;
+  try { res = await publier(); } catch (err) {
+    // Instagram n'arrive pas à télécharger les médias depuis teufyparty.com (pare-feu Cloudflare, panne du domaine…) :
+    // une seconde tentative depuis l'adresse de secours GitHub, qui ne passe pas par le domaine.
+    const fb = process.env.MEDIA_FALLBACK_URL;
+    if (!fb || base === fb.replace(/\/$/, '') || !/(media|image|video|download|fetch|url|2207|9004|36000|36001|36003)/i.test(err.message)) throw err;
+    console.log(`[${id}] Instagram n'a pas pu lire les médias sur ${base} (${err.message.slice(0, 120)}) : nouvel essai depuis ${fb}`);
+    base = fb.replace(/\/$/, '');
+    if (!(await waitOnline(urls(), 3 * 60e3))) throw err;
+    res = await publier();
+  }
   const link = await permalink(res.id, ig);
   console.log(`[${id}] ✅ publié : ${link || res.id}`);
   // Relais en story (une erreur ici ne remet pas en cause la publication).
