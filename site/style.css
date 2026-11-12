@@ -1661,3 +1661,5 @@ html.onglets-caches .onglets{transform:translateY(105%)}
 .filtre-tard .filtre-titre{font-weight:700;opacity:.8;margin-inline-end:6px;align-self:center}
 .tard-ce-soir{display:inline-block;margin:2px 0 6px;padding:4px 10px;border-radius:999px;background:#3dff8a22;color:#7dffb0;font-weight:700;font-size:13px}
 .tard-ce-soir.ferme{background:#ffffff12;color:var(--creme);opacity:.7}
+/* Modèle économique : la dernière carte prend la place restante (pas de trou sur la dernière rangée). */
+@media(min-width:760px){.modele li:last-child:nth-child(3n+2){grid-column:span 2}.modele li:last-child:nth-child(3n+1){grid-column:span 3}}

@@ -1361,7 +1361,7 @@ const groupesNav = ({ t, lang, SA }) => { const L = LIB_NAV[lang] || LIB_NAV.fr;
   ['lieux', L.lieux, [['clubs-bars/', t.lieuxNav], ['restaurants/', t.restos], ['manger-tard/', { fr: 'Manger tard (2 h–5 h)', en: 'Late-night food', it: 'Mangiare di notte', es: 'Comer de madrugada', zh: '深夜美食', ar: 'أكل في آخر الليل' }[lang] || 'Manger tard'], ['after/', 'After'], ['activites/', t.activites], ['dates/', t.dates]]],
   ['styles', L.styles, PAGES_STYLES.map((k) => [`soirees-${k}/`, nomStyle(k, t, lang)])],
   ['pros', L.pros, [['partenaires/', L.devenir], ['partenaires/#tarifs', L.tarifs], ['ambassadeurs/', t.ambassadeurs], ['bde/', t.bde]]],
-  ['teufy', L.teufy, [['a-propos/', t.qui], ['actus/', t.actus], ['faq/', 'FAQ']]],
+  ['teufy', L.teufy, [['a-propos/', t.qui], ['a-propos/#modele', { fr: 'Comment Teufy se finance', en: 'How Teufy makes money', it: 'Come si finanzia Teufy', es: 'Cómo se financia Teufy', zh: 'Teufy 如何盈利', ar: 'كيف تموّل Teufy نفسها' }[lang] || 'Comment Teufy se finance'], ['actus/', t.actus], ['faq/', 'FAQ']]],
 ]; };
 const ICO_ONGLET = {
   agenda: '<path d="M4 6h16v14H4zM4 10h16M8 3v5M16 3v5"/>', soir: '<path d="M15 3a8 8 0 1 0 6 13A7 7 0 0 1 15 3z"/>',
@@ -2417,10 +2417,10 @@ function chiffresTeufy({ tr, T, nb }) {
 function blocModele({ tr, T }) {
   const m = (T.entreprise?.modele || []).filter((x) => x?.[0]);
   if (!m.length) return '';
-  return `<section class="qui entreprise reveal">
+  return `<section class="qui entreprise reveal" id="modele">
   <p class="etiquette">${esc(tr('Le modèle'))}</p>
   <h2>${tr('Comment Teufy <em>se finance</em>')}</h2>
-  <p>${esc(tr('Teufy vit de trois activités :'))}</p>
+  <p>${esc(tr(`Le site est gratuit pour toi. Teufy vit de ${['', 'une activité', 'deux activités', 'trois activités', 'quatre activités', 'cinq activités', 'six activités'][m.length] || `${m.length} activités`}, de la plus importante à la plus petite :`))}</p>
   <ul class="modele">${m.map(([titre, texte], i) => `<li style="--i:${i}"><b>${esc(tr(titre))}</b><span>${esc(tr(texte))}</span></li>`).join('')}</ul>
   ${T.raison_sociale ? `<p class="petit">${esc(T.raison_sociale)}, ${esc(tr(T.forme || ''))}.</p>` : ''}
 </section>`;
@@ -2447,6 +2447,7 @@ function aPropos({ lang, t, tr, base, compte, T, chemin, nb, maj, partenaires, p
   ${etapes(METHODE, tr)}
   ${chiffresTeufy({ tr, T, nb })}
 </section>
+${blocModele({ tr, T })}
 <section class="qui directeur reveal">
   <div class="portrait">${T.photo_directeur ? `${image(base, T.photo_directeur, { alt: T.directeur, sizes: '(min-width:700px) 380px, 340px', attrs: 'loading="lazy" width="900" height="1125"' })}` : `<span>${esc(initiales)}</span>`}</div>
   <div>
@@ -2457,7 +2458,6 @@ ${T.directeur_reseaux ? `<p class="reseaux">${T.directeur_reseaux.instagram ? `<
   </div>
 </section>
 ${blocPartenaires(ctx)}
-${blocModele({ tr, T })}
 ${blocPros(ctx)}`;
   return gabarit({ lang, t, titre: t.apTitre, description: t.apDesc(T.directeur, T.nbPartenaires), chemin, base, corps, compte, maj, ld: [...ldOrganisation(T, compte, t, lang), fil(lang, [['Teufy', ''], [t.qui, chemin]])], image: 'site/img/logo.png' });
 }
