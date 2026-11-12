@@ -227,9 +227,23 @@ export function offresDe(l) {
   }
   return [...m.values()];
 }
+// Données venues de l'extérieur (billetteries, web, Instagram) : jamais de balise HTML ni de prix aberrant, quel que soit
+// l'endroit où elles finissent (site, légendes Instagram, e-mails). Défense en profondeur : le site échappe déjà tout.
+const sansBalises = (x) => (typeof x === 'string' ? x.replace(/<[^>]*>?/g, ' ').replace(/javascript:/gi, '').replace(/\s{2,}/g, ' ').trim() : x);
+export function assainir(e) {
+  const o = { ...e };
+  for (const k of ['name', 'venue', 'city', 'address', 'accroche', 'description', 'organisateur']) if (typeof o[k] === 'string') o[k] = sansBalises(o[k]);
+  if (Array.isArray(o.tags)) o.tags = o.tags.map(sansBalises).filter(Boolean);
+  if (Array.isArray(o.artistes)) o.artistes = o.artistes.map((a) => (typeof a === 'string' ? sansBalises(a) : a)).filter(Boolean);
+  if (Array.isArray(o.instagram)) o.instagram = o.instagram.map((h) => String(h).replace(/^@/, '').toLowerCase()).filter((h) => /^[a-z0-9._]{2,30}$/.test(h) && !h.includes('..'));
+  for (const k of ['url', 'image']) if (o[k] && !/^https?:\/\//i.test(o[k]) && !(k === 'image' && /^(site|contenus)\//.test(o[k]))) o[k] = '';
+  if (o.price != null && (typeof o.price !== 'number' || !isFinite(o.price) || o.price < 0 || o.price > 2000)) o.price = null;
+  return o;
+}
 export function fusionner(liste) {
   const out = [];
-  for (const e of liste) {
+  for (const e0 of liste) {
+    const e = assainir(e0);
     const prev = out.find((x) => memeSoiree(x, e));
     if (!prev) { out.push({ ...e }); continue; }
     // On garde la version la plus fiable et on complète les champs vides.

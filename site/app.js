@@ -1,4 +1,10 @@
 // Site Teufy : agenda (filtres multiples, recherche, près de moi, transports), « Ce soir / En ce moment », carte, favoris,
+// Sécurité (12/11/2026) : le site ne s'affiche jamais à l'intérieur d'une autre page (anti-« clickjacking » : un faux
+// site qui cacherait Teufy sous de faux boutons). GitHub Pages ne permet pas l'en-tête frame-ancestors, d'où ce garde-fou.
+try { if (window.top !== window.self) window.top.location.replace(window.location.href); } catch { document.documentElement.innerHTML = ''; }
+// Avertissement dans la console (escroquerie « colle ce code ici ») : la console ne modifie que l'écran de celui qui
+// l'ouvre, jamais le site ; on prévient quand même.
+try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); console.log('%cCette console est réservée aux développeurs. Si quelqu\'un t\'a demandé d\'y coller du code, c\'est une arnaque. Rien de ce qui est fait ici ne modifie teufyparty.com.', 'font-size:15px'); } catch { /* console indisponible */ }
 // filtres en feuille sur mobile, partage et animations. Les soirées sont déjà dans la page (bon pour Google) :
 // le script ne fait que trier, masquer et animer.
 (() => {

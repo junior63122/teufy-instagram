@@ -1595,3 +1595,10 @@ html.onglets-caches .onglets{transform:translateY(105%)}
 .retour:hover{border-color:var(--corail)}
 .artiste-intro{font-weight:600}
 .artiste-bio{font-size:15px;opacity:.85}
+/* 12/11/2026 : toute la carte (soirée, lieu) ouvre sa page, pas seulement le titre. Les boutons internes restent au-dessus. */
+.carte,.fiche-lieu{position:relative}
+.carte h3 a::after,.fiche-lieu h3 a::after{content:"";position:absolute;inset:0;z-index:3;border-radius:inherit}
+.carte .infos,.fiche-lieu .fiche-corps{position:static}
+.carte .coeur,.carte .infos a:not(h3 a),.carte .infos button,.carte .infos summary,.fiche-lieu .fiche-corps a:not(h3 a),.fiche-lieu button,.fiche-lieu summary{position:relative;z-index:4}
+.carte:hover h3 a,.fiche-lieu:hover h3 a{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
+.carte,.fiche-lieu{cursor:pointer}

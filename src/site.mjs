@@ -697,7 +697,7 @@ export async function construireSite({ events, eventsFrance = [], eventsOccitani
     const offres = (e.offres || []).filter((o) => o.url && !PAS_BILLETTERIE.test(nomDomaine(o.url))).sort((a, b) => (a.prix ?? 1e9) - (b.prix ?? 1e9)); // jamais un réseau social
     return {
       id, zone, nom: e.name, debut: e.start, jour: cle(e.start), lieu: e.venue || '', ville: e.city || '', adresse: e.address || '', filtreVille: ville,
-      prix: e.price == null ? null : e.price, styles: styleDe(e), genres: genresList(e, 3).join(' · '), techno: isTechno(e), tags: e.tags || [],
+      prix: typeof e.price !== 'number' || !isFinite(e.price) || e.price < 0 || e.price > 2000 ? null : e.price, /* prix aberrant = inconnu */ styles: styleDe(e), genres: genresList(e, 3).join(' · '), techno: isTechno(e), tags: e.tags || [],
       url, affiche, dims, accroche: propreTexte(e.accroche), description: propreTexte(e.description), fin: e.end && !isNaN(Date.parse(e.end)) ? new Date(e.end).toISOString() : '',
       instagram: comptesConfirmes(e)[0] || '', organisateur: e.organisateur || '', artistes: Array.isArray(e.artistes) ? e.artistes.filter((x) => typeof x === 'string' && x.trim()).map((x) => x.trim()) : [], buzz: e.buzz ?? null, offres: offres.length >= 2 ? offres : [],
       festival: RE_FESTIVAL.test(`${e.name} ${(e.tags || []).join(' ')}`), etudiant: RE_ETUDIANT.test(`${e.name} ${(e.tags || []).join(' ')} ${e.public_cible || ''}`),
@@ -821,6 +821,9 @@ export async function construireSite({ events, eventsFrance = [], eventsOccitani
     if (existsSync(d)) for (const x of readdirSync(d)) if (!pris.has(x)) rmSync(path.join(d, x), { recursive: true, force: true });
     // Pages de villes (France, Occitanie) sans soirée à venir : supprimées elles aussi.
     for (const r of ['france', 'occitanie']) { const dr = path.join(ROOT, pre(l), r); if (existsSync(dr)) for (const x of readdirSync(dr, { withFileTypes: true })) if (x.isDirectory() && !pages.some(([c]) => c === `${pre(l)}${r}/${x.name}/`)) rmSync(path.join(dr, x.name), { recursive: true, force: true }); }
+    // Fiches artistes qui n'ont plus de date (ou retirées) : supprimées, comme les soirées passées.
+    const dart = path.join(ROOT, pre(l), 'artistes');
+    if (existsSync(dart)) for (const x of readdirSync(dart, { withFileTypes: true })) if (x.isDirectory() && !ARTISTES.some((a) => a.slug === x.name)) rmSync(path.join(dart, x.name), { recursive: true, force: true });
     const da = path.join(ROOT, pre(l), 'actus');
     if (existsSync(da)) for (const x of readdirSync(da, { withFileTypes: true })) if (x.isDirectory() && !actus.some((a) => a.id === x.name)) rmSync(path.join(da, x.name), { recursive: true, force: true });
   }
