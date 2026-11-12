@@ -472,24 +472,32 @@
     "domaine": "teufyparty.com",
     "entreprise": {
       "explication": "Chiffres affichés sur la page « Qui sommes-nous » (fournis par la direction). Laisser vide pour masquer.",
-      "chiffre_affaires": "≈ 350 000 €",
+      "chiffre_affaires": "≈ 400 000 €",
       "chiffre_affaires_legende": "de chiffre d'affaires par an, à Monaco",
-      "benefice": "≈ 100 000 €",
+      "benefice": "≈ 160 000 €",
       "benefice_legende": "de bénéfice par an, après salaires, charges, déplacements, équipement et développement",
       "telechargements": "15 000",
       "telechargements_legende": "téléchargements de l'app en 2026",
       "modele": [
         [
+          "Soirées Teufy",
+          "La plus grosse part : les soirées organisées par Teufy."
+        ],
+        [
+          "Afters en coproduction",
+          "Des afters coproduits avec d'autres organisateurs de la Côte d'Azur."
+        ],
+        [
+          "Investissement dans des événements",
+          "Teufy sponsorise et investit dans des événements et des festivals."
+        ],
+        [
+          "Partenariats",
+          "Des partenariats avec des lieux, des organisateurs et des marques qui veulent toucher les 18-30 ans qui sortent."
+        ],
+        [
           "Billetterie",
           "Une commission sur chaque billet vendu grâce à la plateforme, déjà comprise dans le prix : aucun coût en plus pour toi."
-        ],
-        [
-          "Sponsoring",
-          "Des partenariats avec des marques qui veulent toucher les 18-30 ans qui sortent."
-        ],
-        [
-          "Événements",
-          "Teufy organise aussi ses propres soirées et événements."
         ]
       ]
     },

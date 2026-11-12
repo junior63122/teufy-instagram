@@ -23,14 +23,13 @@ test('Horaires OSM : rien de deviné (jours fériés, mois, texte libre → reje
   assert.equal(lireOSM(''), null);
   assert.ok(lireOSM('Mo-Su 18:00-03:00; PH off'));
 });
-test('Nuit tardive (OpenStreetMap) : manger après 2 h, afters après 5 h, ville du découpage', async () => {
+test('Nuit tardive (OpenStreetMap) : manger après 2 h, afters après 5 h, ville la plus proche ou adresse', async () => {
   const { lieuxTardifs } = await import('../outils/nuit-tardive.mjs');
   const l = lieuxTardifs({ elements: [
-    { type: 'area', tags: { name: 'Nice' } },
     { type: 'node', id: 1, lat: 43.7, lon: 7.26, tags: { name: 'Kebab de nuit', amenity: 'fast_food', cuisine: 'kebab', opening_hours: 'Mo-Su 18:00-05:00' } },
-    { type: 'node', id: 2, tags: { name: 'Resto sage', amenity: 'restaurant', opening_hours: 'Mo-Su 12:00-14:00,19:00-23:00' } },
-    { type: 'node', id: 3, tags: { name: 'Club tôt', amenity: 'nightclub', opening_hours: 'Fr,Sa 23:00-07:00' } },
-    { type: 'node', id: 4, tags: { name: 'Bar 2h', amenity: 'bar', opening_hours: 'Mo-Su 18:00-02:00' } },
+    { type: 'node', id: 2, lat: 43.7, lon: 7.26, tags: { name: 'Resto sage', amenity: 'restaurant', opening_hours: 'Mo-Su 12:00-14:00,19:00-23:00' } },
+    { type: 'node', id: 3, lat: 43.70, lon: 7.27, tags: { name: 'Club tôt', amenity: 'nightclub', opening_hours: 'Fr,Sa 23:00-07:00' } },
+    { type: 'node', id: 4, lat: 43.7, lon: 7.26, tags: { name: 'Bar 2h', amenity: 'bar', opening_hours: 'Mo-Su 18:00-02:00' } },
     { type: 'node', id: 5, tags: { name: 'Pizza été', amenity: 'fast_food', opening_hours: 'Jun-Aug Mo-Su 18:00-04:00' } },
   ] });
   assert.deepEqual(l.map((x) => [x.nom, x.type, x.ville, x.categorie]), [['Kebab de nuit', 'manger-tard', 'Nice', 'Kebab'], ['Club tôt', 'after', 'Nice', 'Club']]);
