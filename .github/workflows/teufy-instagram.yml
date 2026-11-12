@@ -92,6 +92,7 @@ jobs:
           # Site internet (agenda des soirées) : régénéré une fois par jour.
           sudo apt-get install -y --no-install-recommends ffmpeg >/dev/null 2>&1 || true
           node outils/photos-spots.mjs || echo "::warning::Photos des spots non récupérées" # photos libres (Wikimedia), seulement les manquantes
+          sudo apt-get install -y --no-install-recommends tesseract-ocr tesseract-ocr-fra >/dev/null 2>&1 || true # repère les « photos de lieu » qui sont des affiches
           node src/run.mjs site $([ "${{ startsWith(inputs.quoi, 'site') }}" = "true" ] && echo --force) || echo "::warning::Site non régénéré"
           node outils/controle-donnees.mjs || echo "::warning::Contrôle des données du site : erreurs à corriger"
           git config user.name "teufy-bot"

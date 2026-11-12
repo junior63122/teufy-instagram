@@ -56,11 +56,17 @@ for (const l of ordre) {
   // Photo du lieu : jamais une affiche de soirée (12/11/2026 : l'affiche « Stanislas, 22 mai 2027 » servait de photo du
   // Frigo 16 sur d'autres soirées). Les publications qui annoncent une date ou des billets sont écartées.
   const ANNONCE = /(\b\d{1,2}\s*[./]\s*\d{1,2}\b|\b\d{1,2}(er)?\s+(janv|f[eé]v|mars|avr|mai|juin|juil|ao[uû]t|sept|oct|nov|d[eé]c)|billet|ticket|pr[eé]vente|line.?up|shotgun|r[eé]serv|guest|lundi|mardi|mercredi|jeudi|vendredi|samedi|dimanche|ce soir|tonight|this (friday|saturday)|save the date|€)/i;
-  const couv = [...medias].filter((m) => !ANNONCE.test(m.caption || '')).sort((a, b) => (b.like_count || 0) - (a.like_count || 0))[0];
+  const photosLieu = [...medias].filter((m) => !ANNONCE.test(m.caption || '')).sort((a, b) => (b.like_count || 0) - (a.like_count || 0));
+  const couv = photosLieu[0];
   LN.insta[l.instagram] = { ...(LN.insta[l.instagram] || {}), le: new Date().toISOString(), absent: false, abonnes: bd?.followers_count ?? null, photo: bd?.profile_picture_url || LN.insta[l.instagram]?.photo || '', posts, couv: couv ? { u: couv.media_url, lien: couv.permalink || '' } : null };
   if (couv) {
     const f = path.join(ROOT, 'site', 'lieux', `${l.instagram.replace(/[^a-z0-9._-]/g, '')}-couv.jpg`);
     if (await telecharger(couv.media_url, f)) { webp(f, 480); webp(f, 800); nPhotos++; }
+    // Jusqu'à 2 autres vraies photos du lieu, pour ne pas montrer la même image sur toutes ses soirées.
+    for (const [k, m] of photosLieu.slice(1, 3).entries()) {
+      const g = f.replace(/-couv\.jpg$/, `-couv${k + 2}.jpg`);
+      if (await telecharger(m.media_url, g)) { webp(g, 480); webp(g, 800); }
+    }
   }
   for (const e of [...new Set([...aVenir(l), ...(l.soirees || [])])].filter((x) => x && typeof x === 'object' && x.start && !isNaN(Date.parse(x.start)))) {
     if (e.image) continue; // la soirée a déjà son affiche officielle

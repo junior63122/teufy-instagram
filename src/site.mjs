@@ -705,6 +705,19 @@ export async function construireSite({ events, eventsFrance = [], eventsOccitani
   };
   const soirees = [];
   for (const e of fiables) soirees.push(await preparer(e, 'cote'));
+  // Une affiche ne sert qu'à UNE soirée (12/11/2026) : si plusieurs soirées ont reçu la même image (affiche générale d'un
+  // festival, erreur de source), on la garde pour celle dont le nom figure dans le nom de fichier lu (titre de l'affiche)
+  // ou, à défaut, la première ; les autres passent à la photo de leur lieu.
+  { const groupes = new Map(); for (const x of soirees) if (x.affiche) groupes.set(x.affiche, [...(groupes.get(x.affiche) || []), x]);
+    const verifs = lire(VERIF, {});
+    for (const [, l] of groupes) {
+      if (l.length < 2) continue;
+      const lu = (x) => Object.values(verifs).find((v) => v?.lu && v.nom === x.nom)?.lu;
+      const titreCorrespond = (x) => { const t = lu(x)?.titre; return t && [...motsAffiche(t)].some((m) => motsAffiche(x.nom).has(m)); };
+      const garde = l.find(titreCorrespond) || [...l].sort((a, b) => a.debut.localeCompare(b.debut))[0];
+      for (const x of l) if (x !== garde) { x.affiche = ''; x.dims = null; }
+    }
+  }
   { const b = soirees.map((x) => x.buzz || 0).sort((x, y) => y - x); SEUIL_DEMANDE = Math.max(0.85, b[Math.floor(b.length / 8)] ?? 1); }
   // Grandes villes de France : rubrique à part (jamais mélangée à l'agenda de la Côte d'Azur et du Var).
   const soireesFrance = [];
@@ -1101,9 +1114,12 @@ async function imagesManquantes({ soirees, lieux, log, now }) {
     if (s.affiche) continue;
     // 2. Sinon : la plus belle photo du lieu (sa publication la plus aimée), présentée comme photo du lieu.
     if (I.couv?.u) {
-      const f = path.join(dossier, `${compte.replace(/[^a-z0-9._-]/g, '')}-couv.jpg`);
-      if (!existsSync(f) && tempsOk()) await telecharger(I.couv.u, f);
-      if (existsSync(f) && ressembleAffiche(f)) continue; // une affiche (texte, date) n'est jamais une « photo du lieu »
+      const f0 = path.join(dossier, `${compte.replace(/[^a-z0-9._-]/g, '')}-couv.jpg`);
+      if (!existsSync(f0) && tempsOk()) await telecharger(I.couv.u, f0);
+      // Jusqu'à 3 vraies photos du lieu (jamais une affiche : texte, date), réparties entre ses soirées.
+      const choix = ['', '2', '3'].map((n) => f0.replace(/-couv\.jpg$/, `-couv${n}.jpg`)).filter((x) => existsSync(x) && !ressembleAffiche(x));
+      if (!choix.length) continue;
+      const f = choix[parseInt(h(s.id), 16) % choix.length];
       if (existsSync(f)) { webp(f, 480); webp(f, 800); s.photoLieu = path.relative(ROOT, f); s.photoLieuDe = `@${compte}`; photos++; }
     }
   }
@@ -1119,7 +1135,7 @@ function ressembleAffiche(f) {
   const k = `${path.relative(ROOT, f)}|${statSync(f).size}`;
   if (k in TEXTE_PHOTOS) return TEXTE_PHOTOS[k];
   const r = spawnSync('tesseract', [f, '-', '-l', 'fra+eng', '--psm', '11'], { encoding: 'utf8', timeout: 60000 });
-  if (r.status !== 0 || r.error) return false;
+  if (r.status !== 0 || r.error) return true; // lecture impossible : dans le doute, pas de « photo du lieu » (jamais une affiche d'une autre soirée)
   const mots = (r.stdout.match(/[A-Za-zÀ-ÿ]{3,}/g) || []).length;
   const date = /\b\d{1,2}\s*[./]\s*\d{1,2}\b|\b\d{1,2}\s+(janv|f[eé]v|mars|avr|mai|juin|juil|ao[uû]t|sept|oct|nov|d[eé]c)|\b(lundi|mardi|mercredi|jeudi|vendredi|samedi|dimanche)\b|\b20[23]\d\b|\d{1,2}\s*h\s*\d{0,2}/i.test(r.stdout);
   TEXTE_PHOTOS[k] = date || mots >= 10;

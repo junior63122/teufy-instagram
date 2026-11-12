@@ -104,6 +104,14 @@ for (const [id, html] of parId) {
   }
   void ld;
 }
+// Même affiche sur deux soirées différentes (12/11/2026 : l'affiche d'Halloween du High Club sur 5 soirées) : erreur.
+{ const parAffiche = new Map();
+  for (const [id, html] of parId) { const a = (html.match(/class="fiche-affiche[^"]*"[^>]*>(?:<img class="fond-flou"[^>]*>)?<img[^>]*src="[^"]*?(site\/affiches\/[0-9a-f]{12})/) || [])[1]; if (a) parAffiche.set(a, [...(parAffiche.get(a) || []), id]); }
+  for (const [a, ids] of parAffiche) if (ids.length > 1) err(`soiree/${ids[0]}/`, `même affiche (${a}.jpg) que ${ids.slice(1).map((x) => `soiree/${x}/`).join(', ')}`); }
+// Photo d'un lieu sur une carte : jamais une affiche (texte, date) — lue par Tesseract si disponible.
+{ const t = lire('contenus/photos-texte.json', {});
+  const vues = new Set(); for (const [, html] of parId) for (const m of html.matchAll(/site\/lieux\/([a-z0-9._-]+-couv\d?)-(?:480|800)\.webp/g)) vues.add(m[1]);
+  for (const v of vues) { const k = Object.keys(t).find((x) => x.startsWith(`site/lieux/${v}.jpg|`)); if (k && t[k]) err('photos de lieu', `${v}.jpg est une affiche et sert de photo de lieu`); } }
 const verif = lire('contenus/comptes-verifies.json', {});
 const suivis = new Set([...(lire('contenus/partenaires-comptes.json', []).comptes || lire('contenus/partenaires-comptes.json', [])).map?.((x) => String(x.instagram || '').toLowerCase()) || []]);
 for (const [id, html] of parId) for (const m of html.matchAll(/class="orga-carte" href="https:\/\/www\.instagram\.com\/([a-z0-9._]+)\//g)) if (!verif[m[1]]?.ok && !suivis.has(m[1])) err(`soiree/${id}/`, `compte Instagram non vérifié affiché : @${m[1]}`);
