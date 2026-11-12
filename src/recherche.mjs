@@ -183,7 +183,7 @@ export async function rechercherSoirees({ config, now = new Date(), ig = null, a
 const sansAccents = (x) => String(x || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 const mots = (x) => new Set(sansAccents(x).replace(/\b(w|x|feat|presents?|pres|avec|invite|le|la|les|de|du|des|at|the|soiree|party|night|nice|cannes|monaco|club)\b/g, ' ').split(/[^a-z0-9]+/).filter((w) => w.length >= 3));
 const jaccard = (a, b) => { const A = mots(a), B = mots(b); if (!A.size || !B.size) return 0; let n = 0; for (const w of A) if (B.has(w)) n++; return n / Math.min(A.size, B.size); };
-const nuitDe = (d) => new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Paris' }).format(new Date(Date.parse(d) - 6 * 3600e3));
+const nuitDe = (d) => new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Paris' }).format(new Date(Date.parse(d) - 5 * 3600e3));
 const lieuCle = (x) => sansAccents(x).replace(/[^a-z0-9]+/g, ' ').replace(/\b(le|la|les|club|nice|cannes|monaco|by|beach)\b/g, ' ').trim().split(/\s+/).filter((w) => w.length >= 3).slice(0, 2).join(' ');
 // Page de billetterie normalisée : même page = même soirée (« shotgun.live/fr/events/x » = « shotgun.live/events/x »).
 const pageBillet = (u) => { try { const x = new URL(u); const ch = x.pathname.replace(/^\/(fr|en|es|it|de)(?=\/)/i, '').replace(/\/+$/, ''); return ch.split('/').length > 2 ? `${x.hostname.replace(/^www\./, '')}${ch}`.toLowerCase() : ''; } catch { return ''; } };

@@ -31,7 +31,7 @@ const h = (s) => createHash('sha1').update(String(s)).digest('hex').slice(0, 12)
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const lire = (f, d) => { try { return JSON.parse(readFileSync(f, 'utf8')); } catch { return d; } };
 const paris = (d, o, locale = 'fr-FR') => new Intl.DateTimeFormat(locale, { timeZone: 'Europe/Paris', ...o }).format(new Date(d));
-const nuit = (d) => new Date(Date.parse(d) - 6 * 3600e3); // une soirée qui commence à 1h appartient à la veille
+const nuit = (d) => new Date(Date.parse(d) - 5 * 3600e3); // une soirée qui commence à 1h appartient à la veille
 const cle = (d) => new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Paris' }).format(nuit(d)); // AAAA-MM-JJ
 const pre = (l) => (l === 'fr' ? '' : `${l}/`);
 const dort = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -1553,7 +1553,7 @@ ${blocOrga({ t, tr, base, handle: compte.replace(/^@/, ''), lang })}`;
 // manger tard / finir en after (lieux vérifiés de contenus/nuit-tardive.json). Rien n'est affiché sans horaires sourcés.
 const heure24 = (d) => new Intl.DateTimeFormat('fr-FR', { timeZone: 'Europe/Paris', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).format(new Date(d));
 function nuitComplete(s, { lieux, tr, base, lang }) {
-  const ville = sansAccent(s.ville || ''), jourSemaine = ((new Date(Date.parse(s.debut) - 6 * 3600e3).getUTCDay() + 6) % 7) + 1;
+  const ville = sansAccent(s.ville || ''), jourSemaine = ((new Date(Date.parse(s.debut) - 5 * 3600e3).getUTCDay() + 6) % 7) + 1;
   const ouvertCeJour = (H) => (H?.plages || []).find((p) => p.j.includes(jourSemaine));
   const memeLieu = (l) => normLieu(l.nom) && (normLieu(s.lieu || '') === normLieu(l.nom) || normLieu(s.lieu || '').startsWith(normLieu(l.nom)));
   const avant = (lieux || []).filter((l) => l.slug && sansAccent(l.ville || '') === ville && ['bar', 'pub', 'rooftop', 'bar-a-cocktails', 'lounge', 'beach-club'].includes(l.type) && !memeLieu(l))

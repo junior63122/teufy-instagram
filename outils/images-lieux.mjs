@@ -17,7 +17,7 @@ const lire = (f, d) => { try { return JSON.parse(readFileSync(path.join(ROOT, f)
 const h = (s) => createHash('sha1').update(String(s)).digest('hex').slice(0, 12);
 const sansAccent = (x) => String(x || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
 const normLieu = (x) => sansAccent(x).replace(/\b(le|la|les|l|club|bar|the)\b/g, '').replace(/[^a-z0-9]/g, '');
-const jourParis = (d) => new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Paris' }).format(new Date(Date.parse(d) - 6 * 3600e3));
+const jourParis = (d) => new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Paris' }).format(new Date(Date.parse(d) - 5 * 3600e3));
 const ig = igConfig();
 if (!ig) { console.log('Pas de secrets Instagram : rien à faire.'); process.exit(0); }
 const now = Date.now();

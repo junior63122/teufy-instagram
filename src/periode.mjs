@@ -4,7 +4,7 @@ const MOIS = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 
 const paris = (d) => { const p = new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Paris', year: 'numeric', month: '2-digit', day: '2-digit', weekday: 'short' }).formatToParts(d); const g = (t) => p.find((x) => x.type === t).value; return { y: +g('year'), m: +g('month'), d: +g('day'), wd: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].indexOf(g('weekday')) }; };
 export function periodeDe(dates, now = new Date()) {
   // Soirée après minuit = nuit de la veille.
-  const js = dates.map((x) => new Date(Date.parse(x) - 6 * 3600e3)).sort((a, b) => a - b);
+  const js = dates.map((x) => new Date(Date.parse(x) - 5 * 3600e3)).sort((a, b) => a - b);
   if (!js.length) return { cle: 'jours', label: 'ces prochains jours', mois: MOIS[paris(now).m - 1] };
   const n = paris(now);
   const finSemaine = Date.UTC(n.y, n.m - 1, n.d + (6 - n.wd), 23, 59);

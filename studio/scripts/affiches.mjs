@@ -66,7 +66,7 @@ function ocrAffiche(s) {
   if (!s.debut) return {ok: true, raison: 'date inconnue, non vérifié'};
   const r = spawnSync('tesseract', [path.join(STUDIO, 'public', s.image), '-', '-l', 'fra+eng', '--psm', '11'], {encoding: 'utf8', timeout: 60000});
   if (r.status !== 0 || !r.stdout) return {ok: true, raison: 'lecture OCR indisponible'};
-  const d = new Date(Date.parse(s.debut) - 6 * 3600e3); // soirée après minuit = jour de la veille
+  const d = new Date(Date.parse(s.debut) - 5 * 3600e3); // soirée après minuit = jour de la veille
   const [J, M] = new Intl.DateTimeFormat('fr-FR', {timeZone: 'Europe/Paris', day: 'numeric', month: 'numeric'}).format(d).split('/').map(Number);
   const lues = datesLues(r.stdout);
   if (!lues.length) return {ok: true, raison: 'aucune date lisible sur l\'affiche'};

@@ -127,7 +127,7 @@ export function scoreEvent(e, model, r) {
   if (e.popularite) s += Math.log10(1 + e.popularite) * 1.5;
   if (typeof e.public_cible === 'number') s += 4 * (e.public_cible - 0.5); // pertinence 17-30 ans (recherche web)
   if (typeof e.buzz === 'number') s += 6 * (e.buzz - 0.5); // potentiel de buzz : tête d'affiche, lieu, événement unique, sold out en vue
-  const jourSem = new Date(Date.parse(e.start) - 6 * 3600e3).getUTCDay(); // la nuit de vendredi et samedi
+  const jourSem = new Date(Date.parse(e.start) - 5 * 3600e3).getUTCDay(); // la nuit de vendredi et samedi
   if (jourSem === 5 || jourSem === 6) s += 0.8;
   for (const f of eventFeatures(e)) {
     const st = model.feats[f];

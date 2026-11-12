@@ -39,8 +39,8 @@ export function windowFor(jours, now = new Date()) {
 }
 
 const fmt = (opts) => new Intl.DateTimeFormat('fr-FR', { timeZone: TZ, ...opts });
-// Une soirée qui commence avant 6 h appartient à la nuit de la veille (00h30 dim. → « Sam »).
-const nuit = (d) => new Date(new Date(d).getTime() - 6 * 3600e3);
+// Une soirée qui commence avant 5 h appartient à la nuit de la veille (00h30 dim. → « Sam ») ; un after à 5 h est du jour même.
+const nuit = (d) => new Date(new Date(d).getTime() - 5 * 3600e3);
 export const jourCourt = (d) => cap(fmt({ weekday: 'short' }).format(nuit(d)).replace('.', ''));
 export const jourLong = (d) => cap(fmt({ weekday: 'long' }).format(nuit(d)));
 export const jourNum = (d) => fmt({ day: 'numeric' }).format(nuit(d));

@@ -394,7 +394,7 @@ async function prepare(slot, now, id) {
     // ElevenLabs : voix off sur tous les reels (avec ou sans, le bot peut le tester via voix_off.tester_sans_voix).
     const choixVoix = val('voix') || (dispo.length ? (config.voix_off?.tester_sans_voix ? ch.pick('voix-off', [...dispo, 'aucune'], (x) => x) : dispo[0]) : 'aucune');
     const voix = choixVoix === 'aucune' ? null : choixVoix;
-    const jourDit = (d) => new Intl.DateTimeFormat('fr-FR', { timeZone: 'Europe/Paris', weekday: 'long' }).format(new Date(Date.parse(d) - 6 * 3600e3));
+    const jourDit = (d) => new Intl.DateTimeFormat('fr-FR', { timeZone: 'Europe/Paris', weekday: 'long' }).format(new Date(Date.parse(d) - 5 * 3600e3));
     const tmp = path.join(ROOT, 'out', `reel-${id}`);
     const video = path.join(dir, `reel-${stamp}.mp4`);
     let res;
@@ -562,7 +562,7 @@ function pickReel(list, max) {
   const pool = withImg.length >= 3 ? withImg : list;
   const out = [];
   const days = new Set();
-  for (const e of pool) { const d = isoLocal(new Date(Date.parse(e.start) - 6 * 3600e3)); if (!days.has(d)) { out.push(e); days.add(d); } if (out.length >= max) break; }
+  for (const e of pool) { const d = isoLocal(new Date(Date.parse(e.start) - 5 * 3600e3)); if (!days.has(d)) { out.push(e); days.add(d); } if (out.length >= max) break; }
   for (const e of pool) { if (out.length >= max) break; if (!out.includes(e)) out.push(e); }
   return chrono(out);
 }
@@ -680,7 +680,7 @@ async function carrouselDA({ chosen, id, dir, now, titre = [], titreFlash, rubri
   if (chosen.filter((e) => e.image).length < 2) throw new Error('Moins de 2 soirées avec affiche officielle : pas de carrousel.');
       const { heure } = await import('./dates.mjs');
       const { genresList } = await import('./genres.mjs');
-      const jourC = (d) => new Intl.DateTimeFormat('fr-FR', { timeZone: 'Europe/Paris', weekday: 'short', day: 'numeric', month: 'short' }).format(new Date(Date.parse(d) - 6 * 3600e3)).replace(/^./, (c) => c.toUpperCase());
+      const jourC = (d) => new Intl.DateTimeFormat('fr-FR', { timeZone: 'Europe/Paris', weekday: 'short', day: 'numeric', month: 'short' }).format(new Date(Date.parse(d) - 5 * 3600e3)).replace(/^./, (c) => c.toUpperCase());
       // Contrôle qualité des affiches (12/11/2026, sans IA) : seulement des affiches dont on est sûr qu'elles annoncent
       // CETTE soirée (mêmes règles que le site : saisie de l'équipe, affiche lue et conforme, ou billetterie/organisateur),
       // jamais la même image pour deux soirées, et en haute définition (vignettes Shotgun 384 px floues remplacées).
@@ -717,7 +717,7 @@ async function carrouselDA({ chosen, id, dir, now, titre = [], titreFlash, rubri
         chosen.titrePost = titreFlash.replace(/[[\]]/g, '');
         console.log(`Carrousel : période « ${P.label} », titre « ${chosen.titrePost} »`);
       }
-      const dts = avecImage.map((e) => new Date(Date.parse(e.start) - 6 * 3600e3)).sort((a, b) => a - b);
+      const dts = avecImage.map((e) => new Date(Date.parse(e.start) - 5 * 3600e3)).sort((a, b) => a - b);
       const fmt = (d, o) => new Intl.DateTimeFormat('fr-FR', { timeZone: 'Europe/Paris', ...o }).format(d);
       const sous = dts.length ? (fmt(dts[0], { day: 'numeric', month: 'long' }) === fmt(dts.at(-1), { day: 'numeric', month: 'long' }) ? `le ${fmt(dts[0], { weekday: 'long', day: 'numeric', month: 'long' })}`
         : `du ${fmt(dts[0], { day: 'numeric', ...(fmt(dts[0], { month: 'long' }) === fmt(dts.at(-1), { month: 'long' }) ? {} : { month: 'long' }) })} au ${fmt(dts.at(-1), { day: 'numeric', month: 'long' })}`) : '';
