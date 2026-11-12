@@ -12,6 +12,7 @@
 //  - Au plus 2 relances (J+7, J+14), jamais le week-end, et un nombre limité d'envois par jour.
 //  - Le fichier de suivi est CHIFFRÉ (le dépôt est public) : contenus/prospection.enc, clé = secret PROSPECTION_CLE.
 //    Sans clé, rien n'est écrit en clair.
+// Sources : lieux connus de Teufy, OpenStreetMap (src/osm.mjs, gratuit, chaque semaine), recherche web (robot automatique).
 // Secrets : BREVO_API_KEY (envoi), PROSPECTION_CLE (chiffrement), GEMINI_API_KEY (recherche des nouveaux lieux).
 import { readFileSync, existsSync } from 'node:fs';
 import { writeFile } from 'node:fs/promises';
@@ -19,6 +20,8 @@ import { createCipheriv, createDecipheriv, createHash, randomBytes } from 'node:
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import * as LLM from './llm.mjs';
+import { resolveMx, resolve4 } from 'node:dns/promises';
+import { prospectsOSM } from './osm.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DRY = process.argv.includes('--dry-run');
@@ -42,7 +45,7 @@ const sauver = async (etat) => { if (!CLE) throw new Error('PROSPECTION_CLE abse
 // --- Catégories et pitch ---------------------------------------------------------------------------------------
 const slug = (s) => String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 export const FAMILLE = (cat) => (/club|bar|rooftop|beach|lounge|pub|salle|organisateur|festival|artiste|collectif/.test(cat || '') ? 'nuit'
-  : /activite|laser|bowling|karting|escape|karaok|jeux|billard/.test(cat || '') ? 'activite'
+  : /activite|laser|bowling|karting|escape|karaok|jeux|billard|trampoline/.test(cat || '') ? 'activite'
     : /boutique|deguis|deco|beaute|maquillage|parfum/.test(cat || '') ? 'boutique'
       : /restaurant|fast|snack|pizza|burger|kebab|manger/.test(cat || '') ? 'manger' : 'nuit');
 const IDEES = {
@@ -216,7 +219,20 @@ export async function passer() {
   const etat = CLE && existsSync(FICHIER) ? charger() : { prospects: {}, journal: [] };
   // 1. Base : lieux connus + recherche de nouveaux lieux (catégories × zones).
   for (const p of prospectsConnus()) if (!etat.prospects[p.id]) etat.prospects[p.id] = { ...p, famille: FAMILLE(p.categorie), statut: 'a_contacter', ajout: jour };
-  const nouveaux = DRY ? 0 : await decouvrir(etat, P.recherches_par_jour);
+  // 1 bis. OpenStreetMap (gratuit, sans IA), une fois par semaine : nouveaux établissements et contacts publiés.
+  let osm = 0;
+  if (!DRY && (!etat.osm_maj || now - Date.parse(etat.osm_maj) > 7 * 864e5)) {
+    const liste = await prospectsOSM({ log });
+    if (liste.length) etat.osm_maj = now.toISOString();
+    for (const o of liste) {
+      const id = slug(`${o.nom}-${o.ville || ''}`); if (!id) continue;
+      const p = etat.prospects[id];
+      if (p) { for (const k of ['site', 'instagram', 'ville']) if (!p[k] && o[k]) p[k] = o[k]; if (!p.email && o.email && p.statut === 'a_contacter') { p.email = o.email; p.email_source = o.email_source; } continue; }
+      etat.prospects[id] = { id, ...o, famille: FAMILLE(o.categorie), statut: 'a_contacter', ajout: jour };
+      osm++;
+    }
+  }
+  const nouveaux = (DRY ? 0 : await decouvrir(etat, P.recherches_par_jour)) + osm;
   // 2. Contacts publiés (site officiel), 30 lieux par passage.
   let trouves = 0, web = 0;
   const aChercher = Object.values(etat.prospects).filter((x) => !x.email && x.statut === 'a_contacter' && (!x.email_cherche || (now - Date.parse(x.email_cherche)) > 14 * 864e5)).slice(0, DRY ? 5 : P.contacts_par_jour ?? 200);
@@ -234,7 +250,12 @@ export async function passer() {
   // 4. Envois : relances dues d'abord, puis nouveaux contacts (anciens partenaires en premier).
   const jours = (d) => (now - Date.parse(d)) / 864e5;
   const dues = Object.values(etat.prospects).filter((p) => p.email && ['contacte', 'relance1'].includes(p.statut) && jours(p.dernier) >= (p.statut === 'contacte' ? P.relances_jours[0] : P.relances_jours[1] - P.relances_jours[0]));
-  const neufs = Object.values(etat.prospects).filter((p) => p.email && p.statut === 'a_contacter').sort((a, b) => (b.ancien - a.ancien) || ((b.soirees || 0) - (a.soirees || 0)));
+  // Priorité : anciens partenaires, lieux qui ont des soirées, la nuit (cœur de Teufy), puis activités / restauration /
+  // boutiques ; à égalité, une adresse au nom de domaine de l'établissement (plus fiable qu'une messagerie gratuite).
+  const RANG = { nuit: 3, activite: 2, manger: 1, boutique: 1 };
+  const domaine = (p) => { try { return p.site && p.email.endsWith(new URL(p.site).hostname.replace(/^www\./, '')) ? 1 : 0; } catch { return 0; } };
+  const neufs = Object.values(etat.prospects).filter((p) => p.email && p.statut === 'a_contacter' && !p.email_invalide)
+    .sort((a, b) => (b.ancien - a.ancien) || ((b.soirees || 0) - (a.soirees || 0)) || ((RANG[b.famille] || 0) - (RANG[a.famille] || 0)) || (domaine(b) - domaine(a)));
   // Volume : montée en charge sur quelques jours (un domaine neuf qui envoie 250 e-mails d'un coup finit en spam), puis plafond.
   const premier = (etat.journal || []).find((j) => /e-mails envoyés/.test(j.resume) && !/ 0 e-mails envoyés/.test(j.resume))?.jour || jour;
   const jourN = Math.floor((now - Date.parse(premier)) / 864e5);
@@ -242,7 +263,12 @@ export async function passer() {
   const lot = [...dues, ...neufs].slice(0, quota);
   let envoyes = 0;
   const peutEnvoyer = P.actif && BREVO && !DRY && ouvre();
+  // Adresse vérifiée avant l'envoi : le domaine doit pouvoir recevoir du courrier (MX). Les rebonds abîment la
+  // réputation de l'expéditeur et envoient tout en spam.
+  const domaines = new Map();
+  const recoit = async (email) => { const d = email.split('@')[1]; if (!domaines.has(d)) domaines.set(d, await resolveMx(d).then((m) => m.length > 0).catch(() => resolve4(d).then((a) => a.length > 0).catch(() => false))); return domaines.get(d); };
   for (const p of lot) {
+    if (!(await recoit(p.email))) { p.email_invalide = jour; log('Prospection : une adresse ne peut pas recevoir de courrier (domaine sans serveur mail), écartée.'); continue; }
     const etape = p.statut === 'contacte' ? 1 : p.statut === 'relance1' ? 2 : 0;
     const m = message(p, etape);
     if (!peutEnvoyer) { if (DRY && envoyes < 2) log(`\n--- ${m.sujet}\n${m.texte}\n`); envoyes++; continue; }
