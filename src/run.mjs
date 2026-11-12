@@ -19,7 +19,7 @@ import { collectEvents, filterEvents, enrich } from './sources.mjs';
 import { windowFor, rolling, isoLocal, plage, slotOfDay, daysOfMonth } from './dates.mjs';
 import { isTechno, isUnderground } from './genres.mjs';
 import { captionIncontournables, captionBonPlan, captionDebat, captionReel, captionOrgas, captionExplicatif, rng } from './captions.mjs';
-import { nettoyerComptes, legendeFinale } from './comptes.mjs';
+import { nettoyerComptes, legendeFinale, abonnesDe } from './comptes.mjs';
 import { igConfig, publishCarousel, publishSingle, publishReel, publishStory, permalink, insights, followers, businessDiscovery, compteMedia } from './instagram.mjs';
 import { TENDANCES, analyserComptes } from './tendances.mjs';
 import { buildModel, chooser, selectBest, eventFeatures, collect, hash } from './learn.mjs';
@@ -212,7 +212,9 @@ async function prepare(slot, now, id) {
   // (potentiel de buzz minimum) est lui-même appris : le bot garde celui qui donne les meilleures notes.
   const lesBonnes = (list) => {
     const max = Math.min(8, R.soirees_par_carrousel ?? 8);
-    const classees = best(list, Math.max(max * 2, 12)).filter((e) => e.image);
+    // Rappel du directeur (12/11/2026) : toujours les soirées au plus fort potentiel de clics (buzz + audience des
+    // comptes de l'organisateur et du lieu), pas les premières venues.
+    const classees = best(list, Math.max(max * 3, 18)).filter((e) => e.image).sort((a, b) => potentiel(b) - potentiel(a));
     const seuil = ch.pick('seuil-qualite', [0.55, 0.6, 0.65, 0.7], (x) => x);
     const bonnes = classees.filter((e) => (e.buzz ?? 0.6) >= seuil);
     return (bonnes.length >= 3 ? bonnes : classees.slice(0, 3)).slice(0, max);
@@ -514,7 +516,7 @@ async function prepare(slot, now, id) {
       : [[], ...pub.soirees.slice(0, 8).map((e) => e.instagram || [])];
   }
   // Collaboration : les organisateurs des 3 soirées vedettes (celles affichées sur la couverture).
-  if (pub.soirees?.length && pub.images?.length > 1) pub.collabs = [...new Set(vedettes(pub.soirees).map((e) => e.instagram[0]))].slice(0, 3);
+  if (pub.soirees?.length && pub.images?.length > 1) { pub.collabs = comptesCollab(pub.soirees); console.error(`Collaborations proposées (du plus suivi au moins suivi) : ${pub.collabs.map((h) => `@${h} (${abonnesDe(h) || '?'})`).join(', ')}`); }
   const out = { id, type: slot.type, variante: slot.variante || null, date: stamp, ...pub, choix: ch.choix,
     features: (pub.soirees || []).flatMap(eventFeatures), nb_images: pub.images?.length || 0 };
   if (out.images) out.images = out.images.map(rel);
@@ -684,8 +686,11 @@ async function carrouselDA({ chosen, id, dir, now, titre = [], titreFlash, rubri
       // jamais la même image pour deux soirées, et en haute définition (vignettes Shotgun 384 px floues remplacées).
       const { afficheFiable } = await import('./site.mjs');
       const hd = (u) => String(u || '').replace(/(assets\.shotgun\.live\/image\/upload\/)[^/]*\//, '$1c_limit,w_1920,fl_lossy,f_jpg,q_auto/');
-      const parImage = {}; for (const e of chosen) if (e.image) parImage[e.image] = (parImage[e.image] || 0) + 1;
-      const refus = chosen.filter((e) => e.image && (!afficheFiable(e) || parImage[e.image] > 1));
+      // Image partagée par plusieurs soirées : gardée seulement pour celle dont elle est vraiment l'affiche (vérifiée),
+      // et pour aucune si plusieurs passent (ambigu).
+      const fiable = new Map(chosen.filter((e) => e.image).map((e) => [e, afficheFiable(e)]));
+      const okParImage = {}; for (const [e, ok] of fiable) if (ok) okParImage[e.image] = (okParImage[e.image] || 0) + 1;
+      const refus = chosen.filter((e) => e.image && (!fiable.get(e) || okParImage[e.image] > 1));
       for (const e of refus) console.error(`Affiche écartée (non vérifiée ou partagée par plusieurs soirées) : ${e.name}`);
       // Affiche déjà vérifiée et téléchargée par le site (même fichier net que sur teufyparty.com) : réutilisée telle quelle.
       const { createHash } = await import('node:crypto');
@@ -757,7 +762,20 @@ async function nouveauFlash(STUDIO, id, rubrique) {
 // Les 3 soirées vedettes d'un carrousel : meilleur potentiel de buzz parmi celles dont l'organisateur a un compte
 // Instagram certain. Elles sont en couverture ET leurs organisateurs sont invités en collaboration.
 function vedettes(soirees) {
-  return [...soirees].filter((e) => e.instagram?.length).sort((a, b) => (b.buzz ?? 0.5) - (a.buzz ?? 0.5)).slice(0, 3);
+  return [...soirees].filter((e) => e.instagram?.length).sort((a, b) => potentiel(b) - potentiel(a)).slice(0, 3);
+}
+// Potentiel de clics d'une soirée : buzz estimé (tête d'affiche, lieu, événement unique…) et audience des comptes
+// Instagram liés (organisateur, lieu, artistes) — un compte suivi par 30 000 personnes qui partage le post en
+// collaboration, c'est autant de vues en plus.
+function potentiel(e) {
+  const aud = Math.max(0, ...(e.instagram || []).map(abonnesDe));
+  return 0.6 * (e.buzz ?? 0.5) + 0.4 * Math.min(1, Math.log10(1 + aud) / 5); // 100 000 abonnés = audience maximale
+}
+// Comptes à inviter en collaboration : tous les comptes liés aux soirées du carrousel, du plus suivi au moins suivi
+// (la vérification garde ensuite les 3 premiers comptes confirmés).
+function comptesCollab(soirees) {
+  const tous = [...new Set(soirees.flatMap((e) => (e.instagram || []).map((h) => String(h).replace(/^@/, '').toLowerCase())))];
+  return tous.sort((a, b) => abonnesDe(b) - abonnesDe(a)).slice(0, 8);
 }
 
 // --- Jours de fête : posts spéciaux bonus (hors calendrier) ------------------------------------

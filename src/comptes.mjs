@@ -38,11 +38,12 @@ export async function verifierComptes(handles, { ig, businessDiscovery, now = Da
     if (confiance.has(h)) { ok.add(h); continue; }
     const c = cache[h];
     const age = c ? now - Date.parse(c.le) : Infinity;
-    if (c && ((c.ok && age < 30 * 864e5) || (!c.ok && age < 7 * 864e5))) { if (c.ok) ok.add(h); continue; }
+    if (c && ((c.ok && age < 30 * 864e5 && c.abonnes != null) || (!c.ok && age < 7 * 864e5))) { if (c.ok) ok.add(h); continue; }
+    if (c?.ok && (!ig || !businessDiscovery)) { ok.add(h); continue; } // nombre d'abonnés à relever plus tard, compte déjà confirmé
     if (!ig || !businessDiscovery) continue; // impossible de vérifier : on ne prend pas le risque
     try {
       const bd = await businessDiscovery(h, ig);
-      if (bd?.username && propre(bd.username) === h) { ok.add(h); cache[h] = { ok: true, nom: bd.name || '', le: new Date(now).toISOString() }; modifie = true; }
+      if (bd?.username && propre(bd.username) === h) { ok.add(h); cache[h] = { ok: true, nom: bd.name || '', abonnes: bd.followers_count ?? null, le: new Date(now).toISOString() }; modifie = true; }
     } catch (err) {
       // Compte inexistant ou personnel : l'API répond « utilisateur invalide ». Autre erreur (réseau, quota) : pas mis en cache.
       if (/invalid user|cannot be found|does not exist|110|2207013/i.test(err.message)) { cache[h] = { ok: false, le: new Date(now).toISOString() }; modifie = true; }
@@ -104,7 +105,7 @@ export async function nettoyerComptes(p, opts = {}) {
   const aTester = apres.filter((h) => !ok.has(h));
   const map = (h) => remplace[propre(h)] || propre(h);
   if (p.tags) p.tags = p.tags.map((l) => [...new Set((l || []).map(map))].slice(0, 5));
-  if (p.collabs) p.collabs = [...new Set(p.collabs.map(map))].filter((h) => ok.has(h)); // invitations : comptes confirmés seulement
+  if (p.collabs) p.collabs = [...new Set(p.collabs.map(map))].filter((h) => ok.has(h)).slice(0, 3); // invitations : comptes confirmés seulement, les 3 plus suivis (liste déjà triée)
   if (p.legende) p.legende = p.legende.replace(RE_MENTION, (m, avant, h) => (propre(h) === 'teufy_official' ? m : `${avant}@${map(h)}`))
     .replace(/(@[\w.]+)(\s+\1)+(?!\w|\.\w)/g, '$1'); // deux comptes corrigés vers le même : une seule mention
   p.a_tester = aTester;
@@ -118,4 +119,18 @@ export function legendeFinale(legende, aTester = [], acceptes = []) {
   const refuses = new Set(aTester.map(propre).filter((h) => !acceptes.map(propre).includes(h)));
   if (!refuses.size) return legende;
   return legende.replace(RE_MENTION, (m, avant, h) => (refuses.has(propre(h)) ? avant : m)).replace(/[ \t]+$/gm, '').replace(/(\S) {2,}/g, '$1 ');
+}
+
+// Audience connue d'un compte Instagram (abonnés), toutes sources gratuites confondues : vérification des comptes,
+// fiches des lieux, infos des partenaires. Sert à choisir les soirées et les collaborations au plus fort potentiel.
+let AUDIENCE;
+export function abonnesDe(handle) {
+  if (!AUDIENCE) {
+    AUDIENCE = {};
+    const lire = (f) => { try { return JSON.parse(readFileSync(path.join(ROOT, 'contenus', f), 'utf8')); } catch { return {}; } };
+    for (const [h, x] of Object.entries(lire('lieux-nuit.json').insta || {})) if (x?.abonnes) AUDIENCE[propre(h)] = x.abonnes;
+    for (const [k, x] of Object.entries(lire('partenaires-infos.json'))) { const h = propre(k.startsWith('ig:') ? k.slice(3) : x?.fiche?.instagram || ''); if (h && x?.profil?.abonnes) AUDIENCE[h] = Math.max(AUDIENCE[h] || 0, x.profil.abonnes); }
+    for (const [h, x] of Object.entries(lire('comptes-verifies.json'))) if (x?.abonnes) AUDIENCE[propre(h)] = Math.max(AUDIENCE[propre(h)] || 0, x.abonnes);
+  }
+  return AUDIENCE[propre(handle)] || 0;
 }

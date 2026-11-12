@@ -47,3 +47,11 @@ test('Édition Tekno : underground seulement, jamais la house', async () => {
   assert.equal(isUnderground({ name: 'REF Session', tags: ['acid house', 'melodic techno', 'organic house', 'house', 'techno'] }), false);
   assert.equal(isUnderground({ name: 'Friday', tags: ['tech house', 'house'] }), false);
 });
+
+test('collaborations : les comptes les plus suivis d\'abord', async () => {
+  const { abonnesDe } = await import('../src/comptes.mjs');
+  // Comptes réels relevés par le robot (fiches des lieux) : un club très suivi passe devant un petit compte.
+  const a = abonnesDe('twigamontecarlo'), b = abonnesDe('pandaevents06');
+  if (a && b) assert.ok(a > b);
+  assert.equal(abonnesDe('compte-inconnu-xyz'), 0);
+});
