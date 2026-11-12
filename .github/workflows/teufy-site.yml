@@ -30,8 +30,15 @@ jobs:
       - name: Vérifier les comptes Instagram (existence + correspondance) et retrouver les vrais comptes
         timeout-minutes: 15
         env:
-          MAX_COMPTES: '110' # + 80 lectures pour les images : sous la limite Instagram de 200 par heure
+          MAX_COMPTES: '90' # + 40 artistes + 60 images : sous la limite Instagram de 200 lectures par heure
         run: node outils/verifier-comptes.mjs
+      - name: Fiches artistes (photo, bio, abonnés depuis leur compte Instagram vérifié)
+        timeout-minutes: 10
+        env:
+          MAX_ARTISTES: '40'
+        run: |
+          sudo apt-get install -y --no-install-recommends ffmpeg >/dev/null 2>&1 || true
+          node outils/artistes-insta.mjs
       - name: Images des lieux et affiches retrouvées sur Instagram
         timeout-minutes: 15
         run: |
@@ -40,11 +47,22 @@ jobs:
       - name: Placer les lieux sur la carte + transports et parkings autour
         timeout-minutes: 15
         run: node outils/geo-proches.mjs
+      - name: Reconstruire le site avec les nouvelles images (sans IA, sans recherche web)
+        timeout-minutes: 25
+        env:
+          SANS_RECHERCHE: '1'
+          SITE_MINUTES: '8'
+          IG_ACCESS_TOKEN: '' # lectures Instagram déjà utilisées par les étapes précédentes (limite 200 / heure)
+        run: |
+          npm install --no-audit --no-fund >/dev/null 2>&1 || true
+          node src/run.mjs site --force || echo "::warning::Site non reconstruit"
+          node outils/controle-donnees.mjs || echo "::warning::Contrôle des données du site : erreurs à corriger"
+          git add -A -- $(ls -d index.html 404.html .nojekyll site a-propos soirees-* soiree festivals actus partenaires ambassadeurs bde mentions-legales cgu cgv confidentialite dates restaurants activites france occitanie clubs-bars evenements-france.json evenements-occitanie.json en it es zh ar sitemap.xml robots.txt llms.txt *.txt .well-known CNAME sw.js contenus evenements-web.json 2>/dev/null) || true # seulement les chemins existants (un seul absent bloquait tout)
       - name: Enregistrer
         run: |
           git config user.name "teufy-bot"
           git config user.email "teufy-bot@users.noreply.github.com"
-          git add contenus/lieux-geo.json contenus/lieux-proches.json contenus/lieux-nuit.json contenus/affiches-instagram.json contenus/comptes-verifies.json contenus/comptes-lieux.json contenus/comptes-corrections.json site/lieux site/affiches
+          git add contenus/lieux-geo.json contenus/lieux-proches.json contenus/lieux-nuit.json contenus/affiches-instagram.json contenus/comptes-verifies.json contenus/comptes-lieux.json contenus/comptes-corrections.json contenus/artistes-insta.json site/lieux site/affiches site/artistes
           git diff --cached --quiet && exit 0
           git commit -m "Teufy : images des lieux, affiches Instagram, carte et transports [skip ci]"
           for i in 1 2 3; do git pull --rebase -X theirs --autostash && git push && break; git rebase --abort 2>/dev/null; sleep 5; done

@@ -44,7 +44,7 @@ const ordre = [
   ...[...comptesSoirees.values()].filter((c) => !deja(c.instagram)),
   ...[...new Map(lieux.map((l) => [l.instagram.toLowerCase(), l])).values()].filter((l) => !comptesSoirees.has(l.instagram.toLowerCase()))
     .sort((a, b) => (aVenir(b).length > 0) - (aVenir(a).length > 0) || Date.parse(LN.insta[a.instagram]?.le || 0) - Date.parse(LN.insta[b.instagram]?.le || 0)),
-].slice(0, 80);
+].slice(0, Number(process.env.MAX_IMAGES || 60));
 mkdirSync(path.join(ROOT, 'site', 'lieux'), { recursive: true }); mkdirSync(path.join(ROOT, 'site', 'affiches'), { recursive: true });
 let nPhotos = 0, nAffiches = 0, nLus = 0;
 for (const l of ordre) {
