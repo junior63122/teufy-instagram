@@ -357,7 +357,8 @@ async function prepare(slot, now, id) {
     // reel:nouveau = forcer un reel inédit écrit par l'IA (sans passer par la banque).
     // Format validé : « Flash ». La rubrique est choisie par l'apprentissage (celle qui marche le mieux revient plus souvent).
     const rubriqueFlash = () => ch.pick('rubrique-reel', ['Explicatif', 'Astuce', 'Humour', 'Actu nuit'], (x) => x);
-    let c = slot.variante === 'tendance' ? await nouveauFlash(STUDIO, id, 'Tendance') // format viral repéré par la veille, toujours écrit à neuf
+    // Tendance : format viral repéré par la veille, écrit à neuf ; si l'écriture échoue, reel Flash de la banque (le post sort toujours).
+    let c = slot.variante === 'tendance' ? await nouveauFlash(STUDIO, id, 'Tendance').catch((err) => { console.error(`[${id}] reel Tendance impossible (${err.message}) : reel Flash de la banque.`); return dispo.find((x) => x.concept === 'reelflash') || null; })
       : slot.variante === 'nouveau' ? await nouveauFlash(STUDIO, id, rubriqueFlash())
       : val('concept') ? tous.find((x) => x.id === val('concept'))
       : slot.variante === 'flash' ? dispo.find((x) => x.concept === 'reelflash')
@@ -547,6 +548,27 @@ async function prepare(slot, now, id) {
       if (rs.status === 0) out.story = 'story.jpg'; else console.error(`[${id}] story non conforme : pas de story pour ce post.`);
     } catch (err) { console.error(`[${id}] story impossible : ${err.message}`); }
   } else if (out.video) out.story_video = out.video;
+  // Débat en STORY (12/11/2026, directeur : « ça c'est une story à la rigueur, c'est nul pour un post ») : le jour
+  // prévu (calendrier « story: debat »), le fil reçoit un vrai post et le débat part en story à côté.
+  if (slot.story === 'debat') {
+    try {
+      const used = new Set([...hist.map((h) => h.debat).filter(Boolean), ...usedHere]);
+      const all = JSON.parse(await readFile(path.join(ROOT, 'contenus', 'debats.json'), 'utf8'));
+      let pool = all.filter((d) => !used.has(d.id));
+      if (!pool.length) pool = all;
+      const debat = ch.pick('debat', pool, (d) => d.id);
+      usedHere.add(debat.id);
+      const img = await couvertureDA({ photo: photoDA(['lasers', 'rooftop', 'foule', 'terrasse', 'rire'], now), fond: 'nuit', rubrique: 'Débat', titre: debat.q, options: [debat.a, debat.b] }, path.join(dir, `debat-${stamp}.jpg`));
+      const STUDIO = path.join(ROOT, 'studio');
+      const src = path.join('evenements', 'auto', `debat-${id}.jpg`);
+      await mkdir(path.join(STUDIO, 'public', 'evenements', 'auto'), { recursive: true });
+      await copyFile(img, path.join(STUDIO, 'public', src));
+      const props = { image: src, rubrique: 'Débat', texte: 'A ou B ? Réponds en message 👀' };
+      const B = '/opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell';
+      const rs = spawnSync(path.join(STUDIO, 'node_modules', '.bin', 'remotion'), ['still', 'src/index.ts', 'story', path.join(dir, 'story-debat.jpg'), `--props=${JSON.stringify(props)}`, '--image-format=jpeg', '--jpeg-quality=92', '--log=error', ...(existsSync(B) ? [`--browser-executable=${B}`] : [])], { cwd: STUDIO, stdio: 'inherit' });
+      if (rs.status === 0) { out.story_debat = 'story-debat.jpg'; out.debat = debat.id; console.log(`[${id}] débat en story : « ${debat.q} »`); }
+    } catch (err) { console.error(`[${id}] débat en story impossible : ${err.message}`); }
+  }
   // Dès la préparation (l'aperçu montre la vraie légende) ; refait juste avant de publier.
   { const igv = igConfig(); await nettoyerComptes(out, { ig: igv, businessDiscovery }); }
   await writeFile(path.join(dir, 'publication.json'), JSON.stringify(out, null, 2));
@@ -599,7 +621,7 @@ async function publishPrepared(id) {
 
   let base = MEDIA_BASE;
   const url = (name) => `${base}/${id}/${name}`;
-  const urls = () => (p.video ? [url(p.video), url(p.couverture), ...(p.video_instagram ? [url(p.video_instagram)] : [])] : [...p.images.map(url), ...(p.story ? [url(p.story)] : [])]);
+  const urls = () => (p.video ? [url(p.video), url(p.couverture), ...(p.video_instagram ? [url(p.video_instagram)] : [])] : [...p.images.map(url), ...(p.story ? [url(p.story)] : []), ...(p.story_debat ? [url(p.story_debat)] : [])]);
   if (!(await waitOnline(urls(), 12 * 60e3))) {
     const fb = process.env.MEDIA_FALLBACK_URL;
     if (!fb) throw new Error(`Les fichiers ne sont pas en ligne sur ${MEDIA_BASE} après 12 min.`);
@@ -633,6 +655,10 @@ async function publishPrepared(id) {
       const st = await publishStory(url(p.story || p.story_video), ig, { video: !p.story });
       console.log(`[${id}] ✅ story publiée (${st.id})`);
     } catch (err) { console.error(`[${id}] story impossible : ${err.message}`); }
+  }
+  if (p.story_debat) {
+    try { const st = await publishStory(url(p.story_debat), ig); console.log(`[${id}] ✅ débat publié en story (${st.id})`); }
+    catch (err) { console.error(`[${id}] débat en story impossible : ${err.message}`); }
   }
   hist.push({ id, date: p.date, media: res.id, lien: link, fete: p.fete, titre: p.titre, debat: p.debat, bonplan: p.bonplan, sujet: p.sujet, son: p.son, concept: p.concept, le: new Date().toISOString(),
     publication: { id: p.id, type: p.type, variante: p.variante, date: p.date, choix: p.choix, features: p.features, nb_images: p.nb_images, duree: p.duree, legende: p.legende, titre: p.titre } });

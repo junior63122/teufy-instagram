@@ -10,7 +10,7 @@ const outils = (s) => { const r = rng(s); return { r, ch: chooser({ arms: {}, fe
 const config = JSON.parse(readFileSync(new URL('../config.json', import.meta.url)));
 const debats = JSON.parse(readFileSync(new URL('../contenus/debats.json', import.meta.url)));
 
-test('chaque semaine : 7 publications (lundi sorties, jeudi Édition Tekno, vendredi bon plan ou débat, mercredi reel Tendance, 3 reels Flash)', () => {
+test('chaque semaine : 7 publications (lundi sorties, jeudi Édition Tekno, vendredi bon plan ou reel Tendance + débat en story, mercredi reel Tendance, 3 reels Flash)', () => {
   for (let m = 0; m < 12; m++) {
     const jours = daysOfMonth(new Date(Date.UTC(2027, m, 15, 12)));
     for (const d of jours) {
@@ -20,7 +20,8 @@ test('chaque semaine : 7 publications (lundi sorties, jeudi Édition Tekno, vend
       else if (s.jour === 4) assert.deepEqual([c?.type, c?.variante], ['incontournables', 'tekno'], s.date);
       else if (s.jour === 3) assert.deepEqual([c?.type, c?.variante], ['reel', 'tendance'], s.date);
       else if (s.jour === 1) assert.equal(c?.type, 'incontournables', s.date);
-      else assert.ok(['bonplan', 'debat'].includes(c?.type), s.date);
+      else assert.ok(c?.type === 'bonplan' || (c?.type === 'reel' && c?.variante === 'tendance' && c?.story === 'debat'), s.date); // débat : en story seulement (directeur, 12/11/2026)
+      assert.notEqual(c?.type, 'debat', `${s.date} : plus de débat en post`);
     }
   }
 });
