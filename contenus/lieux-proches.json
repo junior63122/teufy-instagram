@@ -2589,5 +2589,146 @@
    "m": 68
   },
   "taxi": null
+ },
+ "43.58755,7.12239": {
+  "le": "2026-11-12T03:47:08.020Z",
+  "parkings": [
+   {
+    "nom": "Gare SNCF",
+    "type": "surface",
+    "payant": true,
+    "m": 176
+   },
+   {
+    "nom": "Port Vauban",
+    "type": "surface",
+    "payant": true,
+    "m": 211
+   },
+   {
+    "nom": "Fort Carré 1",
+    "type": "surface",
+    "payant": false,
+    "m": 224
+   }
+  ],
+  "transports": [
+   {
+    "nom": "Chapelle St Roch",
+    "type": "bus",
+    "m": 167,
+    "lignes": ""
+   },
+   {
+    "nom": "Fort Carré",
+    "type": "bus",
+    "m": 181,
+    "lignes": ""
+   },
+   {
+    "nom": "Antibes",
+    "type": "train",
+    "m": 320,
+    "lignes": ""
+   }
+  ],
+  "velo": null,
+  "taxi": {
+   "nom": "",
+   "m": 281
+  }
+ },
+ "43.5518,7.0003": {
+  "le": "2026-11-12T03:47:51.738Z",
+  "parkings": [
+   {
+    "nom": "Picaud",
+    "type": "surface",
+    "payant": true,
+    "m": 242
+   },
+   {
+    "nom": "Grand Parking de la Plage",
+    "type": "surface",
+    "payant": false,
+    "m": 270
+   },
+   {
+    "nom": "Parking Vallombrosa",
+    "type": "surface",
+    "payant": true,
+    "m": 533
+   }
+  ],
+  "transports": [
+   {
+    "nom": "Beausite",
+    "type": "bus",
+    "m": 122,
+    "lignes": ""
+   },
+   {
+    "nom": "Médiathèque",
+    "type": "bus",
+    "m": 209,
+    "lignes": ""
+   }
+  ],
+  "velo": null,
+  "taxi": null
+ },
+ "43.70209,7.277": {
+  "le": "2026-11-12T03:48:18.942Z",
+  "parkings": [
+   {
+    "nom": "Parking Marshall",
+    "type": "underground",
+    "payant": true,
+    "m": 118
+   },
+   {
+    "nom": "Marshall",
+    "type": "underground",
+    "payant": true,
+    "m": 135
+   },
+   {
+    "nom": "Promenade des Arts",
+    "type": "underground",
+    "payant": true,
+    "m": 156
+   }
+  ],
+  "transports": [
+   {
+    "nom": "Defly / Klein",
+    "type": "bus",
+    "m": 15,
+    "lignes": "19"
+   },
+   {
+    "nom": "Hôpital Saint-Roch",
+    "type": "bus",
+    "m": 147,
+    "lignes": ""
+   },
+   {
+    "nom": "Garibaldi",
+    "type": "tram",
+    "m": 288,
+    "lignes": ""
+   },
+   {
+    "nom": "Garibaldi - Le Château",
+    "type": "tram",
+    "m": 358,
+    "lignes": ""
+   }
+  ],
+  "velo": {
+   "nom": "",
+   "m": 184
+  },
+  "taxi": null
  }
 }
