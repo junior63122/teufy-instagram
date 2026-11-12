@@ -176,6 +176,8 @@ for (const j of jobs) {
       catch (err) {
         // Jour sans IA disponible (crédit épuisé, panne) : plutôt que de ne rien publier, le carrousel des soirées
         // à venir, construit sans IA, part à la place du reel (même créneau, même identifiant pour l'historique).
+        // Texte refusé par le contrôle : le carrousel des soirées (déjà contrôlé) part à la place.
+        if (cible === 'auto' && /Texte refusé/.test(err.message) && j.slot.type !== 'incontournables') { console.error(`[${id}] ✗ ${err.message} → carrousel des soirées à la place.`); await prepare({ type: 'incontournables', variante: 'commercial' }, j.now, id); continue; }
         // Carrousel Guide sans 3 adresses vérifiées : reel Flash à la place (le post sort toujours).
         if (cible === 'auto' && j.slot.type === 'guide' && /Guide/.test(err.message)) { console.error(`[${id}] ✗ ${err.message} → reel Flash à la place.`); await prepare({ type: 'reel', variante: 'flash' }, j.now, id); continue; }
         if (cible !== 'auto' || j.slot.type !== 'reel' || !/IA|Scénariste|reel écrit/i.test(err.message)) throw err;
@@ -299,7 +301,7 @@ async function prepare(slot, now, id) {
     files.push(await couvertureDA({ photo: `decors/da/${photos[L.length + 1] || photos.at(-1)}.jpg`, rubrique: 'La liste complète', titre: `Toutes les adresses sur [teufyparty.com]`, sous: 'Horaires publiés, mis à jour chaque jour. Vérifie avant d\'y aller.' }, path.join(dir, `guide-${stamp}-fin.jpg`)));
     const accroche = G.theme === 'manger' ? `4 h du matin à ${G.ville}, la boîte ferme et t'as faim. On a la liste 👇` : `La boîte ferme, mais toi tu ne rentres pas. Les afters à ${G.ville} 👇`;
     const legende = `${accroche}\n\n${L.map((l, i) => `${i + 1}. ${l.nom}${l.lieu ? ` @ ${l.lieu}` : l.quoi ? ` (${l.quoi})` : ''} · ${l.horaires}`).join('\n')}\n\nHoraires publiés : vérifie avant d'y aller. Toutes les adresses sur teufyparty.com (${G.theme === 'manger' ? 'Manger tard' : 'After'}).\n\n${ch.pick('cta-guide', ['Enregistre ce post pour ta prochaine sortie.', 'Envoie ça à ton pote qui a toujours faim à 4 h.', 'Envoie ça au groupe avant samedi.'])}\n\n#TeufyParty #${sansAccentTag(G.ville)} #cotedazur #nightlife #${G.theme === 'manger' ? 'streetfood' : 'afterparty'}`;
-    pub = { images: files, legende, titre: titre.replace(/[[\]]/g, ''), guide: `${G.theme}|${G.ville}` };
+    pub = { images: files, legende, titre: titre.replace(/[[\]]/g, ''), guide: `${G.theme}|${G.ville}`, textes_visuels: [titre, ...L.flatMap((l) => [l.nom, [l.lieu, l.horaires].filter(Boolean).join(' · ')])] };
   } else if (slot.type === 'debat') {
     const used = new Set([...hist.map((h) => h.debat).filter(Boolean), ...usedHere]);
     const all = JSON.parse(await readFile(path.join(ROOT, 'contenus', 'debats.json'), 'utf8'));
@@ -589,6 +591,8 @@ async function prepare(slot, now, id) {
       if (rs.status === 0) { out.story_debat = 'story-debat.jpg'; out.debat = debat.id; console.log(`[${id}] débat en story : « ${debat.q} »`); }
     } catch (err) { console.error(`[${id}] débat en story impossible : ${err.message}`); }
   }
+  // Contrôle des textes (légende, titre, textes des visuels) : un texte cassé ne part jamais (directeur, 12/11/2026).
+  { const { controlerPublication } = await import('./controle-texte.mjs'); controlerPublication(out, pub.textes_visuels || []); }
   // Dès la préparation (l'aperçu montre la vraie légende) ; refait juste avant de publier.
   { const igv = igConfig(); await nettoyerComptes(out, { ig: igv, businessDiscovery }); }
   await writeFile(path.join(dir, 'publication.json'), JSON.stringify(out, null, 2));

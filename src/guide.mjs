@@ -15,15 +15,16 @@ const VILLES = ['Nice', 'Cannes', 'Monaco', 'Antibes', 'Toulon', 'Juan-les-Pins'
 export function adressesGuide({ now = new Date(), tard = lire('contenus/nuit-tardive.json', { lieux: [] }).lieux || [], lieux = lire('contenus/lieux-nuit.json', { lieux: [] }).lieux || [], soirees = lire('evenements-web.json', {}).evenements || [] } = {}) {
   const out = { manger: {}, after: {} };
   const ajoute = (theme, ville, x) => { if (!ville) return; const v = VILLES.find((n) => sa(n) === sa(ville)) || ville; const l = (out[theme][v] ||= []); if (!l.some((y) => sa(y.nom) === sa(x.nom))) l.push(x); };
-  for (const l of tard) ajoute(l.type === 'after' ? 'after' : 'manger', l.ville, { nom: l.nom, quoi: l.categorie || '', horaires: l.horaires, source: l.source });
+  for (const l of tard.filter((x) => /^https?:\/\//.test(x.source || '') && x.horaires)) ajoute(l.type === 'after' ? 'after' : 'manger', l.ville, { nom: l.nom, quoi: l.categorie || '', horaires: l.horaires, source: l.source });
   for (const l of lieux) {
     const H = lireHoraires(l.details?.horaires);
-    if ((H?.plages || []).some((p) => p.a >= '06:00' && p.a < '12:00')) ajoute('after', l.ville, { nom: l.nom, quoi: l.type === 'club' ? 'Club' : 'Bar', horaires: l.details.horaires, source: l.site || '' });
+    const src = (l.details?.sources || [])[0] || l.details?.source || l.site || '';
+    if (/^https?:\/\//.test(src) && (H?.plages || []).some((p) => p.a >= '06:00' && p.a < '12:00')) ajoute('after', l.ville, { nom: l.nom, quoi: l.type === 'club' ? 'Club' : 'Bar', horaires: l.details.horaires, source: src });
   }
   const t = now.getTime();
   for (const e of soirees) {
     const d = Date.parse(e.start);
-    if (!(d > t && d < t + 10 * 864e5)) continue;
+    if (!(d > t && d < t + 10 * 864e5) || !/^https?:\/\//.test(e.url || '') || /annul|report|cancel/i.test(`${e.name} ${e.status || ''}`)) continue; // soirée sourcée, ni annulée ni reportée
     const h = +new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Paris', hour: '2-digit', hourCycle: 'h23' }).format(new Date(d));
     if ((h >= 4 && h < 8) || /\bafter\b|afterparty/i.test(e.name || '')) { // 9 h = brunch, pas un after
       const jour = new Intl.DateTimeFormat('fr-FR', { timeZone: 'Europe/Paris', weekday: 'long', day: 'numeric', month: 'long' }).format(new Date(d));
