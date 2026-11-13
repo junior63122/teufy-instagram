@@ -1219,6 +1219,13 @@
    "_source": "https://www.access.sb/en/monaco/bars-clubs/clubs/twiga/ https://www.clubbable.com/fr-FR/Monaco/Twiga-Monte-Carlo https://www.monaco-tribune.com/en/listing/twiga-monte-carlo/",
    "type": "club",
    "description": "Restaurant puis club au 2e étage du Grimaldi Forum, avec dîner en soirée et club jusqu'à 4-5 h selon les soirs."
+  },
+  {
+   "nom": "Kosma Piano Bar",
+   "ville": "Nice",
+   "retirer": true,
+   "_raison": "doublon de Le Kosma (8 rue Sacha Guitry)",
+   "_verifie": "2026-11-13"
   }
  ]
 }

@@ -484,7 +484,7 @@ async function lieuxDeNuit({ soirees, partenaires, ig, api, log, now }) {
   }
   for (const l of tous) { const p = PAYANTS().find((x) => (x.instagram && x.instagram === l.instagram) || (norm(x.etablissement) && norm(x.etablissement) === norm(l.nom))); if (p) Object.assign(l, { partenaire: true, formule: p.formule }); }
   for (const p of PAYANTS().filter((x) => x.ville && !tous.some((l) => (x.instagram && x.instagram === l.instagram) || norm(x.etablissement) === norm(l.nom)))) tous.push({ nom: p.etablissement, type: 'bar', ville: p.ville, adresse: '', instagram: p.instagram, site: '', description: '', partenaire: true, formule: p.formule });
-  for (const l of tous) { const ls = soirees.filter((s) => norm(s.lieu) && (norm(s.lieu) === norm(l.nom) || norm(s.lieu).startsWith(norm(l.nom)) || norm(l.nom).startsWith(norm(s.lieu))) && norm(l.nom).length >= 3); l.soirees = ls.map((s) => s.id); l.prochaines = ls.slice(0, 3).map((s) => ({ id: s.id, nom: s.nom })); l.soirs = ls.slice(0, 12).map((s) => [s.jour, heure(s.debut, TXT.fr).replace(/^(\d+)h(\d*)$/, (m, a, b) => `${a.padStart(2, '0')}:${b || '00'}`), s.id, s.nom]); }
+  for (const l of tous) { const ls = soirees.filter((s) => norm(s.lieu) && (norm(s.lieu) === norm(l.nom) || norm(s.lieu).startsWith(norm(l.nom)) || norm(l.nom).startsWith(norm(s.lieu))) && norm(l.nom).length >= 3); l.soirees = ls.map((s) => s.id); { const c = {}; for (const x of ls) for (const st of x.styles || []) c[st] = (c[st] || 0) + 1; l.stylesSoirees = Object.entries(c).sort((a, b) => b[1] - a[1]).slice(0, 4).map(([k]) => k); } l.prochaines = ls.slice(0, 3).map((s) => ({ id: s.id, nom: s.nom })); l.soirs = ls.slice(0, 12).map((s) => [s.jour, heure(s.debut, TXT.fr).replace(/^(\d+)h(\d*)$/, (m, a, b) => `${a.padStart(2, '0')}:${b || '00'}`), s.id, s.nom]); }
   // Comptes des lieux : seulement des comptes confirmés (12/11/2026, « @le109nice » n'existait pas). Le pseudo proposé
   // non confirmé est gardé à part (instagram_non_verifie) pour la vérification de nuit (outils/verifier-comptes.mjs).
   { const { compteLieuConfirme } = await import('./comptes.mjs');
@@ -2153,7 +2153,7 @@ function pageLieu({ lang, t, tr, base, compte, T, chemin, maj, l, soirees, lieux
   const H = horairesSoir(l);
   const type = TYPES_NOMS[l.type] || '';
   const voisins = (lieux || []).filter((x) => x !== l && x.ville === l.ville && x.slug).slice(0, 6);
-  const infos = [[ICO_INFO.musique, tr('Musique'), d.styles], [ICO_INFO.tenue, tr('Dress code'), d.dress_code], [ICO_INFO.horaires, tr('Horaires'), d.horaires && d.horaires.replace(/\b23h5[5-9]\b/g, 'minuit')], [ICO_INFO.verre, tr('Verres'), d.prix_verre], [ICO_INFO.entree, tr('Entrée'), d.entree], [ICO_INFO.age, tr('Âge'), d.age_min]].filter((x) => x[2]);
+  const infos = [[ICO_INFO.musique, tr('Musique'), d.styles || (l.stylesSoirees?.length ? `${l.stylesSoirees.map((k) => nomStyle(k, t, lang)).join(' · ')} (${tr('d\'après ses soirées')})` : '')], [ICO_INFO.tenue, tr('Dress code'), d.dress_code], [ICO_INFO.horaires, tr('Horaires'), d.horaires && d.horaires.replace(/\b23h5[5-9]\b/g, 'minuit')], [ICO_INFO.verre, tr('Verres'), d.prix_verre], [ICO_INFO.entree, tr('Entrée'), d.entree], [ICO_INFO.age, tr('Âge'), d.age_min]].filter((x) => x[2]);
   const carteL = carteLieu(l, { t, tr, base, lang }, 0);
   const statut = carteL.match(/^\s*<article [^>]*>/)[0].replace('class="fiche-lieu', 'class="fiche-lieu lieu-entete');
   const corps = `<div class="fiche lieu-page">
