@@ -1707,3 +1707,39 @@ html.onglets-caches .onglets{transform:translateY(105%)}
 .avantage-carte .av-bandeau>img:first-child{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:inherit}
 .avantage-carte .av-logo{z-index:2}
 .av-bandeau-lieu.av-grand{font-size:17px;padding:12px 16px;margin:10px 0 14px}
+/* 13/11/2026 : listes regroupées par ville, fermés grisés, ville visible partout, cartes « manger / after » illustrées */
+.groupe-ville{grid-column:1/-1;display:flex;align-items:baseline;gap:12px;margin:18px 0 2px;padding-bottom:6px;border-bottom:1px solid #ffffff1f;font-family:var(--titre);font-size:clamp(22px,3vw,30px)}
+.groupe-ville:first-child{margin-top:0}
+.groupe-ville small{font-family:var(--texte);font-size:14px;font-weight:700;color:#7dffb0}
+.fiche-lieu[data-statut="ferme"]{opacity:.5;filter:grayscale(.7)}
+.fiche-lieu[data-statut="ferme"]:hover{opacity:.85;filter:none}
+.lieux-fermes h3{opacity:.8}
+.affiche .ville-tag{position:absolute;left:12px;bottom:12px;z-index:2;display:inline-flex;align-items:center;gap:6px;padding:5px 11px 5px 9px;border-radius:999px;background:#0b0b0fd9;color:var(--creme);font-weight:800;font-size:13px;letter-spacing:.02em;backdrop-filter:blur(6px)}
+.affiche .ville-tag::before{content:"";width:12px;height:12px;background:var(--corail);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z'/%3E%3C/svg%3E") center/contain no-repeat}
+.similaires .affiche .ville-tag{display:none}
+.fiche-tard{overflow:hidden;padding:0}
+.fiche-tard .fiche-corps{padding:16px 18px 18px}
+.tard-bandeau{position:relative;height:96px;display:flex;align-items:center;justify-content:center;color:#fff;background:linear-gradient(135deg,#ff5a3c,#ff2e6e)}
+.fiche-tard.cat-pizza .tard-bandeau{background:linear-gradient(135deg,#ff9a3c,#ff3c3c)}
+.fiche-tard.cat-croissant .tard-bandeau{background:linear-gradient(135deg,#ffc83c,#ff8a3c)}
+.fiche-tard.cat-tasse .tard-bandeau{background:linear-gradient(135deg,#a0643c,#3c2814)}
+.fiche-tard.cat-verre .tard-bandeau{background:linear-gradient(135deg,#8250ff,#28aaff)}
+.fiche-tard.cat-couverts .tard-bandeau{background:linear-gradient(135deg,#3dff8a,#14966e)}
+.tard-bandeau svg{opacity:.95;filter:drop-shadow(0 6px 14px #0006)}
+.tard-ville{position:absolute;left:12px;bottom:10px;display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:999px;background:#0b0b0fcc;font-weight:800;font-size:13px}
+.tard-ville svg{width:13px;height:13px}
+.tard-adresse{opacity:.8;font-size:14px;margin:0 0 4px}
+.fiche-tard .lieu-statut{font-size:15px}
+.je-cherche .jc-villes{margin:0;width:100%;align-items:center}
+.je-cherche .jc-ou{font-weight:800;margin-inline-end:4px}
+.je-cherche .jc-villes .puce small{opacity:.7;font-weight:700;margin-inline-start:2px}
+.je-cherche .jc-villes .puce.actif{background:var(--creme);color:var(--nuit)}
+@media(max-width:759px){.je-cherche .jc-villes{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-inline:-16px;padding:2px 16px 4px}.je-cherche .jc-villes .puce,.je-cherche .jc-ou{flex:none}}
+.je-cherche:not(.jc-tout) .jc-plus{display:none}
+@media(max-width:759px){.je-cherche .jc-plus{display:inline-flex!important}.je-cherche .jc-voir-plus{display:none}}
+.groupe-ville small.gris{color:#ffffff80}
+.banniere-neutre .lieu-icone{display:grid;place-items:center;width:88px;height:88px;border-radius:50%;background:#0b0b0f99;color:#fff;position:relative;z-index:1}
+.banniere-neutre.type-club{background:linear-gradient(135deg,#8250ff,#ff2e6e)}
+.banniere-neutre.type-bar,.banniere-neutre.type-pub,.banniere-neutre.type-bar-a-cocktails{background:linear-gradient(135deg,#ff5a3c,#ffb43c)}
+.banniere-neutre.type-rooftop,.banniere-neutre.type-beach-club,.banniere-neutre.type-lounge{background:linear-gradient(135deg,#28aaff,#3dff8a)}
+.je-cherche ~ section h2 + .avert{margin-bottom:14px}
