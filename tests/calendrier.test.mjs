@@ -11,7 +11,7 @@ const config = JSON.parse(readFileSync(new URL('../config.json', import.meta.url
 const debats = JSON.parse(readFileSync(new URL('../contenus/debats.json', import.meta.url)));
 
 test('chaque semaine : au moins 4 posts et 3 reels, jamais de reel de soirées ni d\'explicatif (directeur 13/11/2026)', () => {
-  const FORMATS_REELS = ['viral', 'guide', 'humour', 'histoire'];
+  const FORMATS_REELS = ['viral', 'guide', 'humour', 'histoire', 'teufy'];
   for (let m = 0; m < 12; m++) {
     const jours = daysOfMonth(new Date(Date.UTC(2027, m, 15, 12)));
     for (let i = 0; i + 7 <= jours.length; i += 7) {

@@ -11,7 +11,7 @@ import { createHash } from 'node:crypto';
 // Options : --dry-run  --now=2026-11-09T12:00:00Z  --fixtures=tests/fixtures
 //           --quoi (affiche seulement la publication du jour)  --horaire (avec --quoi : attend l'heure apprise)
 import { readFile, writeFile, rm, mkdir, appendFile, readdir, copyFile } from 'node:fs/promises';
-import { existsSync, copyFileSync, readFileSync, readdirSync, rmSync, mkdirSync } from 'node:fs';
+import { existsSync, copyFileSync, readFileSync, readdirSync, rmSync, mkdirSync, writeFileSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -228,7 +228,7 @@ async function prepare(slot, now, id) {
   // Reel « viral » (13/11/2026, directeur : « je cherche la viralité, garde tout et améliore avec ce qui marche ») :
   // guide (vraies adresses), humour / POV vécus, histoire illustrée ; l'apprentissage ramène plus souvent le format qui
   // marche le mieux chez nous, et la veille des concurrents (Le Bonbon…) nourrit les scénarios. Jamais de reel de soirées.
-  if (slot.type === 'reel' && slot.variante === 'viral') slot = { ...slot, variante: val('format') || ch.pick('format-reel-viral', ['guide', 'humour', 'histoire'], (x) => x) };
+  if (slot.type === 'reel' && slot.variante === 'viral') slot = { ...slot, variante: val('format') || ch.pick('format-reel-viral', ['guide', 'humour', 'histoire', 'teufy'], (x) => x) };
   if (cible === 'auto') ch.choix.creneau = String(Math.min(Math.max(NOW.getUTCHours(), +CRENEAUX[0]), +CRENEAUX.at(-1)));
   const villes = config.villes;
   const debugDir = path.join(ROOT, 'out', 'debug');
@@ -390,7 +390,7 @@ async function prepare(slot, now, id) {
     if (!files) throw new Error('Carrousel de la DA impossible (studio absent ou moins de 2 affiches) : rien n\'est publié.');
     files ||= await renderPages(programme(pages, chosen, { th, photos, titre, sous: fort ? `En ${MOIS(now)}` : elargi ? 'Ces prochains jours' : 'Cette semaine' }), dir, `incontournables-${stamp}`, { width: 1080, height: 1350 });
     pub = { images: files, legende: captionIncontournables({ variante: enTechno || !techno ? slot.variante : 'commercial', events: chosen, ...win, ch, r, periode: chosen.periode }), soirees: chosen, titre: chosen.titrePost || titre };
-  } else if (slot.type === 'reel' && config.studio?.actif && ['flash', 'histoire', 'nouveau', 'tendance', 'explicatif', 'humour', 'immersif', 'guide'].includes(slot.variante)) { // « guide » manquait : le reel Guide retombait sur un reel de soirées
+  } else if (slot.type === 'reel' && config.studio?.actif && ['flash', 'histoire', 'nouveau', 'tendance', 'explicatif', 'humour', 'immersif', 'guide', 'teufy'].includes(slot.variante)) { // « guide » manquait : le reel Guide retombait sur un reel de soirées
     // Reels = créations du studio (Remotion) : explicatif, humour ou immersif, jamais un catalogue de soirées.
     const STUDIO = path.join(ROOT, 'studio');
     const dirC = path.join(STUDIO, 'scripts', 'concepts');
@@ -404,6 +404,7 @@ async function prepare(slot, now, id) {
     let c = slot.variante === 'guide' ? await nouveauFlash(STUDIO, id, 'Guide').catch((err) => { console.error(`[${id}] reel Guide impossible (${err.message}) : reel Humour à la place.`); return DRY ? dispo.find((x) => x.concept === 'reelflash') : nouveauFlash(STUDIO, id, 'Humour').catch(() => dispo.find((x) => x.concept === 'reelflash') || null); })
       : slot.variante === 'tendance' ? await nouveauFlash(STUDIO, id, 'Tendance').catch((err) => { console.error(`[${id}] reel Tendance impossible (${err.message}) : reel Flash de la banque.`); return dispo.find((x) => x.concept === 'reelflash') || null; })
       : slot.variante === 'nouveau' ? await nouveauFlash(STUDIO, id, rubriqueFlash())
+      : slot.variante === 'teufy' && !DRY ? await nouveauFlash(STUDIO, id, 'Teufy').catch((err) => { console.error(`[${id}] reel Teufy impossible (${err.message}) : reel Humour.`); return nouveauFlash(STUDIO, id, 'Humour').catch(() => null); })
       : slot.variante === 'humour' && !DRY ? await nouveauFlash(STUDIO, id, 'Humour').catch((err) => { console.error(`[${id}] reel Humour impossible (${err.message}) : histoire illustrée.`); return dispo.find((x) => ['histoire', 'potesfluide'].includes(x.concept)) || null; })
       : val('concept') ? tous.find((x) => x.id === val('concept'))
       // Flash (12/11/2026) : écrit à neuf avec la fiche cible (contenus/cible.json) ; la réserve ne sert qu'en secours.
@@ -837,6 +838,23 @@ async function carrouselDA({ chosen, id, dir, now, titre = [], titreFlash, rubri
 
 // Reel « Flash » inédit : le scénariste IA écrit (sujet utile, script, plans), Gemini fait les photos verticales.
 // Une photo manquante est remplacée par une photo de la banque de la DA (même style).
+// Capture d'une page du site, comme sur un téléphone, au format du reel (1080×1920).
+async function captureSite(page, f) {
+  const { chromium } = await import('playwright');
+  const PAGES = { accueil: '', 'ce-soir': 'ce-soir/', 'pres-de-moi': 'ce-soir/', 'manger-tard': 'manger-tard/', avantages: 'avantages/', 'clubs-bars': 'clubs-bars/' };
+  const b = await chromium.launch();
+  try {
+    const ctx = await b.newContext({ viewport: { width: 390, height: 693 }, deviceScaleFactor: 1080 / 390, isMobile: true, hasTouch: true, geolocation: { latitude: 43.6961, longitude: 7.2718 }, permissions: ['geolocation'], locale: 'fr-FR' });
+    const p = await ctx.newPage();
+    await p.goto(`https://teufyparty.com/${PAGES[page] ?? ''}`, { waitUntil: 'networkidle', timeout: 60000 });
+    await p.waitForTimeout(1200);
+    if (page === 'pres-de-moi') { await p.click('[data-pres]').catch(() => {}); await p.waitForTimeout(1500); await p.evaluate(() => document.querySelector('.dist-moi')?.closest('section')?.scrollIntoView()); await p.waitForTimeout(800); }
+    else if (page !== 'accueil') { await p.evaluate(() => scrollBy(0, innerHeight * 0.9)); await p.waitForTimeout(900); }
+    mkdirSync(path.dirname(f), { recursive: true });
+    await p.screenshot({ path: f, type: 'jpeg', quality: 92 });
+  } finally { await b.close(); }
+}
+
 async function nouveauFlash(STUDIO, id, rubrique) {
   const env = { ...process.env, NODE_USE_ENV_PROXY: '1' };
   if (!existsSync(path.join(STUDIO, 'node_modules'))) spawnSync('npm', ['ci', '--no-audit', '--no-fund'], { cwd: STUDIO, stdio: 'inherit' });
@@ -846,13 +864,29 @@ async function nouveauFlash(STUDIO, id, rubrique) {
   const fichier = sortie.at(-1);
   if (e.status !== 0 || !fichier || !existsSync(fichier)) throw new Error('Scénariste : aucun reel écrit.');
   const c = JSON.parse(await readFile(fichier, 'utf8'));
-  if (process.env.GEMINI_API_KEY) spawnSync('node', [path.join(STUDIO, 'scripts', 'decors.mjs'), path.join(STUDIO, 'scripts', 'decors', `reel-${c.id}.json`)], { cwd: STUDIO, env, stdio: 'inherit' });
-  const BANQUE = ['decors/reel-paliers/foule.jpg', 'decors/reel-paliers/potes.jpg', 'decors/reel-paliers/file.jpg', 'decors/reel-paliers/dj.jpg', 'decors/da/danse.jpg', 'decors/da/rire.jpg'];
+  // Captures du vrai site (rubrique « Teufy ») : nettes, 1080×1920, prises avant les décors générés.
+  const fd = path.join(STUDIO, 'scripts', 'decors', `reel-${c.id}.json`);
+  const decorsC = existsSync(fd) ? JSON.parse(await readFile(fd, 'utf8')) : { decors: [] };
+  for (const d of decorsC.decors || []) {
+    const m = String(d.prompt || '').match(/^capture:([a-z-]+)/); if (!m) continue;
+    const f = path.join(STUDIO, 'public', 'decors', `reel-${c.id}`, `${d.id}.jpg`);
+    try { await captureSite(m[1], f); console.log(`[${id}] capture du site « ${m[1]} »`); } catch (err) { console.error(`[${id}] capture ${m[1]} impossible : ${err.message}`); }
+  }
+  if (process.env.GEMINI_API_KEY) spawnSync('node', [path.join(STUDIO, 'scripts', 'decors.mjs'), fd], { cwd: STUDIO, env, stdio: 'inherit' });
+  // Sans Gemini (crédit épuisé) : tout le stock d'images déjà générées, jamais une image prise dans les 40 derniers plans
+  // (avant : toujours les 6 mêmes photos, d'un reel à l'autre — remarque du directeur 13/11/2026).
+  const fu = path.join(ROOT, 'contenus', 'decors-utilises.json');
+  const utilises = existsSync(fu) ? JSON.parse(readFileSync(fu, 'utf8')) : [];
+  const stock = [];
+  const fouille = (dir) => { for (const e of readdirSync(dir, { withFileTypes: true })) { const p = path.join(dir, e.name); if (e.isDirectory()) fouille(p); else if (/\.jpg$/.test(e.name) && !/couv|carrousel|logo/.test(p)) stock.push(path.relative(path.join(STUDIO, 'public'), p)); } };
+  fouille(path.join(STUDIO, 'public', 'decors'));
+  const libres = stock.filter((x) => !utilises.slice(-40).includes(x) && !x.includes(`reel-${c.id}/`)).sort(() => Math.random() - 0.5);
   c.extra.plans.forEach((pl, i) => {
     if (existsSync(path.join(STUDIO, 'public', pl.photo))) return;
-    pl.photo = BANQUE[i % BANQUE.length];
-    console.error(`[${id}] photo ${i + 1} manquante, photo de la banque à la place.`);
+    pl.photo = libres[i % Math.max(1, libres.length)] || 'decors/da/danse.jpg';
+    console.error(`[${id}] photo ${i + 1} manquante : ${pl.photo} (stock, pas encore utilisée récemment).`);
   });
+  writeFileSync(fu, JSON.stringify([...utilises, ...c.extra.plans.map((pl) => pl.photo)].slice(-200)) + '\n');
   await writeFile(fichier, JSON.stringify(c, null, 2) + '\n');
   return { fichier, ...c };
 }

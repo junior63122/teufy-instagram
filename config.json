@@ -334,8 +334,7 @@
     "animation_ia": {
       "actif": false,
       "explication": "Décidé le 8 novembre 2026 : photos animées en code (gratuit). Animation par IA vidéo (Veo, payant, ~10-35 €/mois) à proposer seulement si les notes des reels montrent que la rétention plafonne ; jamais sans accord explicite."
-    },
-    "reels_en_pause": "Directeur 13/11/2026 : reel du 13/11 jugé nul (voix sans énergie, pas d accroche, effets pauvres, images floues ou pas plein écran). Plus aucun reel publié tant qu un nouveau format n a pas été validé par le directeur sur des exemples."
+    }
   },
   "veille": {
     "recherche_minutes": 120,
@@ -635,7 +634,7 @@
     {
       "jour": 7,
       "type": "reel",
-      "variante": "viral"
+      "variante": "teufy"
     }
   ]
 }

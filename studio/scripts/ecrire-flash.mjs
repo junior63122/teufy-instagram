@@ -24,7 +24,7 @@ const STYLE_PHOTO = lire(path.join(STUDIO, 'scripts', 'decors', 'reel-paliers.js
 // Rubrique : la moins utilisée récemment (l'apprentissage peut la forcer en argument).
 const RUBRIQUES = ['Explicatif', 'Astuce', 'Humour', 'Actu nuit'];
 // « Tendance » : seulement sur demande (le mercredi) — un format viral repéré par la veille, pensé pour les non-abonnés.
-const TOUTES = [...RUBRIQUES, 'Tendance', 'Guide'];
+const TOUTES = [...RUBRIQUES, 'Tendance', 'Guide', 'Teufy'];
 const recents = concepts.filter((c) => c.concept === 'reelflash').sort((a, b) => String(b.cree || '').localeCompare(String(a.cree || ''))).slice(0, 8).map((c) => c.rubrique);
 let rubrique = TOUTES.includes(process.argv[2]) ? process.argv[2] : [...RUBRIQUES].sort((a, b) => recents.filter((x) => x === a).length - recents.filter((x) => x === b).length)[0];
 
@@ -136,7 +136,13 @@ const blocTendance = rubrique === 'Tendance' ? `\nRUBRIQUE TENDANCE : objectif =
 Choisis UN de ces formats et applique-le à la nuit de la Côte d'Azur (situations vraies, pas de fausse info) :
 ${FORMATS_VIRAUX.map((f) => `- ${f}`).join('\n')}
 La dernière scène pousse à envoyer le reel à quelqu'un (« envoie ça à ton pote qui… ») plutôt qu'à s'abonner.\n` : '';
-const prompt = `Rubrique demandée : ${rubrique}.${blocTendance}${blocGuide}
+// « Teufy » (13/11/2026, directeur : « donner envie d'aller sur Teufy : tu cherches des soirées ? Y'a Teufy ») : à la
+// manière des pubs d'applis américaines, un problème vécu puis le site qui le règle, montré en VRAIES captures du site.
+const blocTeufy = rubrique === 'Teufy' ? `\nRUBRIQUE TEUFY : donner envie d'ouvrir teufyparty.com, comme les pubs d'applis américaines (Duolingo, Hinge, Partiful) : drôle, rapide, jamais publicitaire.
+Structure : 1) un problème que TOUT fêtard de la Côte a vécu (« samedi 23 h, personne ne sait où sortir », « la boîte ferme, t'as faim, tout est fermé », « t'arrives devant le club : complet ») ; 2) « Y'a Teufy. » ; 3) 2 à 4 scènes qui MONTRENT le site ; 4) dernière scène : « teufyparty.com » + « envoie ça à ton pote qui demande toujours "on fait quoi ce soir ?" ».
+Pour les scènes qui montrent le site, le champ photo doit être EXACTEMENT une de ces captures (rien d'autre) : capture:accueil (toutes les soirées), capture:ce-soir (ce soir, boîtes ouvertes), capture:pres-de-moi (tout trié par distance), capture:manger-tard (où manger à 4 h), capture:avantages (codes promo, verres offerts). Les autres scènes ont une photo normale (en anglais).
+N'invente aucune fonction : le site a l'agenda des soirées, « Ce soir », « Près de moi », « Manger tard », les afters, les clubs et bars avec horaires, les avantages et codes promo, l'abonnement à l'agenda.\n` : '';
+const prompt = `Rubrique demandée : ${rubrique}.${blocTendance}${blocGuide}${blocTeufy}
 ${idees.length ? `Actualité vérifiée de la veille (prioritaire pour « Actu nuit » et « Explicatif ») :\n${idees.map((i) => `- ${i.titre} — ${i.angle || i.resume || ''} (${i.source || 'sans source'})`).join('\n')}\n` : ''}Sujets possibles : ${SUJETS.join(' ; ')}.
 ${meilleurs.length ? `Nos reels les mieux notés (inspire-toi de ce qui marche) : ${meilleurs.join(' ; ')}.\n` : ''}${accroches.length ? `Accroches qui marchent chez les comptes suivis : ${accroches.join(' | ')}.\n` : ''}Déjà publiés ou en banque (ne refais pas le même sujet) :\n${dejaFaits.map((t) => `- ${t}`).join('\n') || '- aucun'}
 Date : ${new Date().toISOString().slice(0, 10)}. Écris un reel selon le schéma.`;
