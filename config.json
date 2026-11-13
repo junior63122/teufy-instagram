@@ -69,22 +69,34 @@
   "calendrier_explication": "Chaque ligne = une publication. jour : 1 = lundi … 7 = dimanche. rang : 1 = premier de ce jour dans le mois… (1 à 5). Depuis le 11 novembre 2026 (relance du compte après un an d'inactivité) : 1 publication par jour, 7 par semaine. Lundi : carrousel des sorties de la semaine ; jeudi : « Édition Tekno » (soirées techno underground des 7 prochains jours : hard techno, tekno, acid, tribe, psytrance, jamais de house) ; mardi, samedi, dimanche : reel « Flash » (astuce, explicatif, humour, actu) ; mercredi : reel « Tendance » (format viral repéré par la veille : POV, types de personnes, devinette… fait pour être partagé et toucher les non-abonnés) ; vendredi : bon plan ou débat en alternance. Les annonces exceptionnelles passent en plus par la veille (2 par jour au maximum). Heure : apprise par le cerveau (créneaux_utc). Titres calculés sur les dates réelles des soirées (cette semaine, ce week-end, en novembre, du 13 au 18 novembre).",
   "calendrier": [
     {
-      "jour": 1,
-      "rang": 1,
-      "type": "incontournables",
-      "variante": "commercial"
-    },
-    {
-      "jour": 2,
+      "jour": 3,
       "rang": 1,
       "type": "bonplan",
       "variante": "petits-prix"
     },
     {
       "jour": 3,
-      "rang": 1,
+      "rang": 2,
       "type": "bonplan",
       "variante": "a-reserver"
+    },
+    {
+      "jour": 3,
+      "rang": 3,
+      "type": "bonplan",
+      "variante": "petits-prix"
+    },
+    {
+      "jour": 3,
+      "rang": 4,
+      "type": "bonplan",
+      "variante": "a-reserver"
+    },
+    {
+      "jour": 3,
+      "rang": 5,
+      "type": "bonplan",
+      "variante": "petits-prix"
     },
     {
       "jour": 4,
@@ -93,8 +105,60 @@
       "variante": "tekno"
     },
     {
+      "jour": 4,
+      "rang": 2,
+      "type": "incontournables",
+      "variante": "tekno"
+    },
+    {
+      "jour": 4,
+      "rang": 3,
+      "type": "incontournables",
+      "variante": "tekno"
+    },
+    {
+      "jour": 4,
+      "rang": 4,
+      "type": "incontournables",
+      "variante": "tekno"
+    },
+    {
+      "jour": 4,
+      "rang": 5,
+      "type": "incontournables",
+      "variante": "tekno"
+    },
+    {
       "jour": 5,
       "rang": 1,
+      "type": "incontournables",
+      "variante": "commercial",
+      "story": "debat"
+    },
+    {
+      "jour": 5,
+      "rang": 2,
+      "type": "incontournables",
+      "variante": "commercial",
+      "story": "debat"
+    },
+    {
+      "jour": 5,
+      "rang": 3,
+      "type": "incontournables",
+      "variante": "commercial",
+      "story": "debat"
+    },
+    {
+      "jour": 5,
+      "rang": 4,
+      "type": "incontournables",
+      "variante": "commercial",
+      "story": "debat"
+    },
+    {
+      "jour": 5,
+      "rang": 5,
       "type": "incontournables",
       "variante": "commercial",
       "story": "debat"
@@ -105,71 +169,9 @@
       "type": "guide"
     },
     {
-      "jour": 1,
-      "rang": 2,
-      "type": "incontournables",
-      "variante": "commercial"
-    },
-    {
-      "jour": 2,
-      "rang": 2,
-      "type": "bonplan",
-      "variante": "petits-prix"
-    },
-    {
-      "jour": 3,
-      "rang": 2,
-      "type": "bonplan",
-      "variante": "a-reserver"
-    },
-    {
-      "jour": 4,
-      "rang": 2,
-      "type": "incontournables",
-      "variante": "tekno"
-    },
-    {
-      "jour": 5,
-      "rang": 2,
-      "type": "incontournables",
-      "variante": "commercial",
-      "story": "debat"
-    },
-    {
       "jour": 6,
       "rang": 2,
       "type": "guide"
-    },
-    {
-      "jour": 1,
-      "rang": 3,
-      "type": "incontournables",
-      "variante": "commercial"
-    },
-    {
-      "jour": 2,
-      "rang": 3,
-      "type": "bonplan",
-      "variante": "petits-prix"
-    },
-    {
-      "jour": 3,
-      "rang": 3,
-      "type": "bonplan",
-      "variante": "a-reserver"
-    },
-    {
-      "jour": 4,
-      "rang": 3,
-      "type": "incontournables",
-      "variante": "tekno"
-    },
-    {
-      "jour": 5,
-      "rang": 3,
-      "type": "incontournables",
-      "variante": "commercial",
-      "story": "debat"
     },
     {
       "jour": 6,
@@ -177,71 +179,9 @@
       "type": "guide"
     },
     {
-      "jour": 1,
-      "rang": 4,
-      "type": "incontournables",
-      "variante": "commercial"
-    },
-    {
-      "jour": 2,
-      "rang": 4,
-      "type": "bonplan",
-      "variante": "petits-prix"
-    },
-    {
-      "jour": 3,
-      "rang": 4,
-      "type": "bonplan",
-      "variante": "a-reserver"
-    },
-    {
-      "jour": 4,
-      "rang": 4,
-      "type": "incontournables",
-      "variante": "tekno"
-    },
-    {
-      "jour": 5,
-      "rang": 4,
-      "type": "incontournables",
-      "variante": "commercial",
-      "story": "debat"
-    },
-    {
       "jour": 6,
       "rang": 4,
       "type": "guide"
-    },
-    {
-      "jour": 1,
-      "rang": 5,
-      "type": "incontournables",
-      "variante": "commercial"
-    },
-    {
-      "jour": 2,
-      "rang": 5,
-      "type": "bonplan",
-      "variante": "petits-prix"
-    },
-    {
-      "jour": 3,
-      "rang": 5,
-      "type": "bonplan",
-      "variante": "a-reserver"
-    },
-    {
-      "jour": 4,
-      "rang": 5,
-      "type": "incontournables",
-      "variante": "tekno"
-    },
-    {
-      "jour": 5,
-      "rang": 5,
-      "type": "incontournables",
-      "variante": "commercial",
-      "story": "debat"
     },
     {
       "jour": 6,
@@ -614,7 +554,7 @@
     "recherches_contact_par_jour": 25,
     "_volume": "Montée en charge automatique : 60, 100, 150, 200 e-mails les 4 premiers jours d'envoi, puis nouveaux_par_jour (250 ; Brevo gratuit = 300/jour, le reste sert aux relances, rapports et paiements)."
   },
-  "_calendrier_note": "13/11/2026 (directeur) : au minimum 3 reels et 4 posts par semaine. Posts : soirées en carrousels et guide (lun→sam). Reels (calendrier_reels, 2 h après le post) : formats viraux uniquement (guide, humour / POV vécus, histoire illustrée), choisis par l'apprentissage ; jamais de reel de soirées ni d'explicatif. Astuces en story.",
+  "_calendrier_note": "13/11/2026 (directeur) : relance du compte = qualité plutôt que volume. 4 posts (mer bons plans, jeu Édition Tekno, ven soirées du week-end + débat en story, sam guide) et 3 reels (mar et jeu viral, dim « Teufy »), stories chaque jour. Jamais de reel de soirées ni d'explicatif.",
   "calendrier_reels": [
     {
       "jour": 2,
@@ -623,11 +563,6 @@
     },
     {
       "jour": 4,
-      "type": "reel",
-      "variante": "viral"
-    },
-    {
-      "jour": 6,
       "type": "reel",
       "variante": "viral"
     },
