@@ -160,6 +160,8 @@ const SOIREES = (() => { const e = lire('evenements-web.json', []); const l = Ar
 const T = config.site?.tarifs?.formules || [];
 const prix = (k) => T.find((f) => f.cle === k)?.prix;
 const SIGNATURE = `Junior Joyant\nDirecteur de Teufy · teufyparty.com · Instagram @teufy_official\nTeufy, société de droit monégasque.\n\nVous ne souhaitez plus recevoir de message de Teufy ? Répondez simplement « STOP ».`;
+// Vidéos de soirée des partenaires (13/11/2026, directeur : « en WeTransfer pour la qualité ») : adresse de réception.
+const MAIL_VIDEOS = (() => { try { return JSON.parse(readFileSync(path.join(ROOT, 'config.json'), 'utf8')).site?.email || 'teufy.app@gmail.com'; } catch { return 'teufy.app@gmail.com'; } })();
 export function message(p, etape = 0) {
   const fam = p.famille || FAMILLE(p.categorie);
   const chiffres = [ABONNES && `${nf(Math.round(ABONNES / 100) * 100)} abonnés sur Instagram`, MEDIANE && `environ ${nf(MEDIANE)} personnes touchées par post`].filter(Boolean).join(', ');
@@ -184,7 +186,7 @@ ${pourquoi}
 Ce que je vous propose :
 • Gratuit : ${fam === 'nuit' ? 'vos soirées dans notre agenda (site en 6 langues, page de votre ville et de votre style)' : 'votre établissement dans la rubrique adaptée du site'}.
 • Un avantage Teufy, gratuit lui aussi : par exemple ${IDEES[fam]}. On le met en avant sur notre page Avantages et dans nos stories : c'est ce qui donne envie de venir chez vous plutôt qu'ailleurs.
-• Pour aller plus loin, nos formules : Visibilité à ${prix('visibilite') ?? 20} € HT/mois (stories dédiées avec votre lien, badge Partenaire, votre logo sur le site, votre avantage mis en avant) ou Premium à ${prix('premium') ?? 50} € HT/mois (un post ou reel en collaboration avec votre compte, 4 stories, un bilan chiffré chaque mois). Sans engagement.${chiffres ? `\n\nAujourd'hui : ${chiffres}. Plus Teufy grandit, plus il peut vous amener de clients : nous réinvestissons les abonnements en publicité pour faire connaître Teufy, et vos offres, dans toute la région.` : ''}
+${fam === 'nuit' ? `• Vos vidéos de soirée : envoyez-nous 2 ou 3 vidéos par mois en qualité originale, par WeTransfer à ${MAIL_VIDEOS}. On en fait des reels Teufy en vous créditant et en taguant votre compte : de la visibilité gratuite pour vos prochaines soirées. Uniquement avec votre accord, et vous pouvez demander le retrait d'une vidéo à tout moment.\n` : ''}• Pour aller plus loin, nos formules : Visibilité à ${prix('visibilite') ?? 20} € HT/mois (stories dédiées avec votre lien, badge Partenaire, votre logo sur le site, votre avantage mis en avant) ou Premium à ${prix('premium') ?? 50} € HT/mois (un post ou reel en collaboration avec votre compte, 4 stories, un bilan chiffré chaque mois). Sans engagement.${chiffres ? `\n\nAujourd'hui : ${chiffres}. Plus Teufy grandit, plus il peut vous amener de clients : nous réinvestissons les abonnements en publicité pour faire connaître Teufy, et vos offres, dans toute la région.` : ''}
 
 Pour répondre, deux options :
 → répondez simplement à ce mail avec votre avantage ;
@@ -197,7 +199,7 @@ Vous connaissez d'autres établissements ou organisateurs qui pourraient être i
 ${SIGNATURE}`;
   return { sujet: p.ancien ? `${p.nom} : Teufy revient, on vous garde une place ?` : `${p.nom} x Teufy : un avantage pour nos lecteurs${ou} ?`, texte };
 }
-export const messageInstagram = (p) => `Hello ${p.nom} ! Ici Teufy (@teufy_official), le guide des soirées de la Côte d'Azur. ${p.ancien ? 'Teufy revient plus fort que jamais et on aimerait vous garder parmi nos partenaires.' : 'On aimerait vous mettre en avant.'} Ça vous dirait de proposer un avantage à nos lecteurs (ex. ${IDEES[p.famille || FAMILLE(p.categorie)]}) ? C'est gratuit, on le met en avant sur le site et en story. Le formulaire prend 1 minute : teufyparty.com/partenaires/#avantage 🙌`;
+export const messageInstagram = (p) => `Hello ${p.nom} ! Ici Teufy (@teufy_official), le guide des soirées de la Côte d'Azur. ${p.ancien ? 'Teufy revient plus fort que jamais et on aimerait vous garder parmi nos partenaires.' : 'On aimerait vous mettre en avant.'}${(p.famille || FAMILLE(p.categorie)) === 'nuit' ? ` Et si vous avez des vidéos de vos soirées, envoyez-les en WeTransfer à ${MAIL_VIDEOS} : on en fait des reels en vous créditant.` : ''} Ça vous dirait de proposer un avantage à nos lecteurs (ex. ${IDEES[p.famille || FAMILLE(p.categorie)]}) ? C'est gratuit, on le met en avant sur le site et en story. Le formulaire prend 1 minute : teufyparty.com/partenaires/#avantage 🙌`;
 
 // --- Envoi (Brevo) -------------------------------------------------------------------------------------------
 async function brevo(chemin, corps, methode = 'POST') {

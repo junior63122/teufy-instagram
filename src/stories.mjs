@@ -25,6 +25,8 @@ export function planDuJour(now) {
     ...([4, 5, 6].includes(j) ? [{ h: 22, type: 'coeur' }] : []),
     // Astuces en story (directeur 13/11/2026 : « les reels explicatifs ne donnent pas envie, mieux en story »).
     ...([2, 3, 7].includes(j) ? [{ h: 17, type: 'astuce' }] : []),
+    // Appel aux vidéos de soirée (13/11/2026) : le lundi, « envoie ta meilleure vidéo en WeTransfer, on la reposte ».
+    ...(j === 1 ? [{ h: 19, type: 'videos' }] : []),
   ];
 }
 

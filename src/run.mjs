@@ -988,6 +988,10 @@ async function storiesPreparer(S) {
         r = x ? { cles: [x.cle], frames: [{ video: x.url }] } : await question('repost'); // rien à reposter : une question
       } else if (s.type === 'question') {
         r = await question('question');
+      } else if (s.type === 'videos') {
+        const mail = config.site?.email || 'teufy.app@gmail.com';
+        const carte = await couvertureDA({ photo: photoDA(['foule', 'danse', 'lasers', 'selfie'], NOW), rubrique: 'Ta vidéo', titre: 'Ta meilleure vidéo de soirée ?', sous: `Envoie-la en WeTransfer à ${mail} : on la reposte en te créditant` }, path.join(dir, `${jour}-videos-carte.jpg`));
+        r = { cles: [`v-${jour}`], frames: [{ image: await cadre({ image: versStudio(carte), rubrique: 'Qualité originale', texte: 'WeTransfer, en HD : ta soirée sur Teufy 🎥' }, 'videos') }] };
       } else if (s.type === 'astuce') {
         const a = S.astuceDuJour(NOW.getTime(), histo);
         if (a) {
