@@ -7,3 +7,4 @@ studio/public/rushes/
 studio/public/*/bande.wav
 studio/public/evenements/auto/
 livrables/
+.cache/
