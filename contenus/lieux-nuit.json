@@ -8,7 +8,7 @@
    "adresse": "45 Promenade des Anglais, 06000 Nice",
    "instagram": "highclubnice",
    "site": "https://highclub.com/",
-   "description": "Grand club généraliste de la Promenade des Anglais doté de plusieurs salles avec une programmation EDM, urbaine et des DJ sets internationaux.",
+   "description": "Grand club de la Promenade des Anglais réunissant plusieurs salles, dont le Studio 47 (années 80 et disco).",
    "soirees": [
     "latin-addict-2026-11-13",
     "i-m-not-rich-but-i-m-high-2026-11-14",
@@ -45,19 +45,20 @@
    "score": 1.0699999999999998,
    "photo": "site/lieux/highclubnice-176.webp",
    "details": {
-    "le": "2026-11-09T19:59:29.344Z",
-    "styles": "Généraliste · Électro · Hip-Hop · Latino",
-    "dress_code": "Tenue soignée et branchée exigée, tenues de sport et casquettes interdites.",
-    "horaires": "Ven–Sam · 23h45–5h30",
-    "prix_verre": "soft 5–8 € · bière 7–10 € · cocktail 10–15 €",
-    "entree": "10–20 € avec conso",
-    "age_min": "18 ans",
+    "le": "2026-11-13T16:53:19.635Z",
+    "styles": "",
+    "dress_code": "",
+    "horaires": "ven–sam 23h45–5h30",
+    "prix_verre": "",
+    "entree": "",
+    "age_min": "",
     "sources": [
-     "https://www.highclub.fr/",
-     "https://www.highclub.fr/wp-content/uploads/2022/08/map.png",
-     "https://www.instagram.com/highclubnice/",
-     "https://shotgun.live/fr/venues/high-club"
-    ]
+     "https://www.privateaser.com/lieu/46520-high-club",
+     "https://www.technoairlines.com/club/high-club-nice",
+     "https://www.rexby.com/TheTravelBunny/ttd/large-nightclub-with-multiple-rooms-on-the-seafront",
+     "https://www.pagesjaunes.fr/pros/07987572"
+    ],
+    "relu": "verification 2026-11-13"
    },
    "soirs": [
     [
@@ -163,7 +164,7 @@
    "adresse": "15 Rue de la Préfecture, 06300 Nice",
    "instagram": "waynes_bar",
    "site": "https://waynespub.com/",
-   "description": "Pub festif anglophone réputé pour ses concerts pop-rock live et son ambiance dansante sur les tables.",
+   "description": "Pub du Vieux-Nice réputé pour ses concerts live de groupes rock et pop.",
    "soirees": [],
    "prochaines": [],
    "insta": {
@@ -176,19 +177,20 @@
    "score": 0.98,
    "photo": "site/lieux/waynes_bar-176.webp",
    "details": {
-    "le": "2026-11-10T10:45:32.154Z",
-    "styles": "Rock · Pop-rock · Dance",
-    "dress_code": "Décontracté",
-    "horaires": "Lun–Dim · 10h/12h–2h",
-    "prix_verre": "bière 4–8,50 € · cocktail 8–11 €",
-    "entree": "Gratuit",
-    "age_min": "18 ans",
+    "le": "2026-11-13T16:53:19.635Z",
+    "styles": "",
+    "dress_code": "",
+    "horaires": "lun–dim 11h–2h",
+    "prix_verre": "",
+    "entree": "",
+    "age_min": "",
     "sources": [
-     "https://www.waynesbar-restaurant.com/",
-     "https://www.waynesbar-restaurant.com/carte-de-notre-pub",
-     "https://www.instagram.com/waynes_bar/",
-     "https://mistergoodbeer.com/"
-    ]
+     "https://www.privateaser.com/lieu/46438-wayne-s-bar",
+     "https://www.schlouk-map.com/fr/places/waynes-bar",
+     "https://touchscreentravels.com/apps/nices-best/22073/waynes",
+     "https://www.pagesjaunes.fr/pros/07663308"
+    ],
+    "relu": "verification 2026-11-13"
    },
    "soirs": [],
    "instagram_non_verifie": "waynes_bar",
@@ -197,12 +199,12 @@
   },
   {
    "nom": "Movida",
-   "type": "bar-a-cocktails",
+   "type": "bar",
    "ville": "Nice",
    "adresse": "41 Quai des États-Unis, 06300 Nice",
    "instagram": "",
    "site": "https://movida-nice.com/",
-   "description": "Bar à cocktails sur deux étages face à la mer proposant une ambiance rythmée par des sonorités house et funk.",
+   "description": "Bar à tapas installé dans les bâtiments des Ponchettes, quai des États-Unis, avec balcon très prisé au coucher du soleil.",
    "soirees": [],
    "prochaines": [],
    "insta": null,
@@ -210,19 +212,18 @@
    "score": 0,
    "soirs": [],
    "details": {
-    "le": "2026-11-10T16:09:19.132Z",
-    "styles": "House · Tech House · Deep House · Nu-Disco",
-    "dress_code": "Décontracté chic",
-    "horaires": "Lun–Dim · 9h30–2h",
-    "prix_verre": "bière 5–9 € · cocktail 12–16 €",
-    "entree": "Gratuit",
-    "age_min": "18 ans",
+    "le": "2026-11-13T16:53:19.635Z",
+    "styles": "",
+    "dress_code": "",
+    "horaires": "",
+    "prix_verre": "",
+    "entree": "",
+    "age_min": "",
     "sources": [
-     "https://movida.today/",
-     "https://movida-nice.com/",
-     "https://www.instagram.com/movidanice/",
-     "https://movida.today/playlist/"
-    ]
+     "https://www.smart-travelling.net/en/locations/movida-bar",
+     "https://www.schlouk-map.com/fr/places/movida"
+    ],
+    "relu": "verification 2026-11-13"
    },
    "instagram_non_verifie": "movidanice",
    "lat": 43.6950164,
@@ -250,20 +251,20 @@
    "soirs": [],
    "instagram_non_verifie": "boccanissa",
    "details": {
-    "le": "2026-11-13T12:27:41.311Z",
+    "le": "2026-11-13T16:53:19.635Z",
     "styles": "",
     "dress_code": "",
-    "horaires": "lun–dim 12h–15h · lun–dim 19h–1h",
-    "prix_verre": "cocktail ~13 €",
+    "horaires": "",
+    "prix_verre": "",
     "entree": "",
     "age_min": "",
     "sources": [
-     "https://www.gillespudlowski.com/265637/restaurants/nice-cap-sur-bocca-nissa",
-     "https://mapstr.com/place/L7tgt4uE5T",
-     "https://www.privateaser.com/lieu/43407-bocca-nissa",
-     "https://cotedazurfrance.fr/offres/restaurant-bocca-nissa-nice-fr-3014514/"
+     "https://cotedazurfrance.fr/offres/restaurant-bocca-nissa-nice-fr-3014514/",
+     "https://www.explorenicecotedazur.com/en/restaurant/restaurant-bocca-nissa/",
+     "https://en.lebonbon.fr/nice/gems/div-mouth-nice-rooftop-vegetable-court",
+     "https://www.gillespudlowski.com/?p=265637"
     ],
-    "relu": "manuel"
+    "relu": "verification 2026-11-13"
    }
   },
   {
@@ -273,7 +274,7 @@
    "adresse": "11 Place de l'Île de Beauté, 06300 Nice",
    "instagram": "",
    "site": "https://bostoncocktailbar.com/",
-   "description": "Bar à cocktails sur le port inspiré des speakeasies avec des sélections musicales hip-hop, R&B et généralistes.",
+   "description": "Bar à cocktails au décor vintage-industriel sur le port de Nice, avec terrasse sous les arcades, tapas et DJ sets.",
    "soirees": [],
    "prochaines": [],
    "insta": null,
@@ -281,19 +282,20 @@
    "score": 0,
    "soirs": [],
    "details": {
-    "le": "2026-11-10T16:09:19.132Z",
-    "styles": "Soul · Funk · House · Pop-Rock",
-    "dress_code": "Smart casual, chic et décontracté",
-    "horaires": "Mar–Sam · 20h–2h30",
-    "prix_verre": "bière 6–8 € · cocktail 11–14 €",
-    "entree": "Gratuit",
-    "age_min": "18 ans",
+    "le": "2026-11-13T16:53:19.635Z",
+    "styles": "",
+    "dress_code": "",
+    "horaires": "",
+    "prix_verre": "",
+    "entree": "",
+    "age_min": "",
     "sources": [
      "https://www.privateaser.com/lieu/39831-boston-bar",
-     "https://sandbeds.com/fr/niza/nightclubs/le-boston-bar/",
-     "https://www.cotemagazine.com/",
-     "https://www.pagesjaunes.fr/"
-    ]
+     "https://www.schlouk-map.com/fr/places/boston-bar",
+     "https://sandbeds.com/clubs/le-boston-bar-nice/",
+     "https://mapstr.com/place/6jYyPFmrD9g/boston-bar-nice-bar-tapas-night-soiree-boite"
+    ],
+    "relu": "verification 2026-11-13"
    },
    "instagram_non_verifie": "bostoncocktailbar_nice"
   },
@@ -303,7 +305,7 @@
    "ville": "Nice",
    "adresse": "107 Quai des États-Unis, 06300 Nice",
    "site": "https://plagenicebeaurivage.com/",
-   "description": "Beach club organisant des afterworks festifs sur les galets avec DJ sets deep-house en saison estivale.",
+   "description": "Plage privée et restaurant face à l'hôtel Beau Rivage, ouverts en journée en saison, avec quelques soirées d'été.",
    "partenaire": true,
    "photo": "site/partenaires/ig/plagebeaurivagenice-176.webp",
    "soirees": [],
@@ -315,19 +317,20 @@
    "score": 0,
    "soirs": [],
    "details": {
-    "le": "2026-11-10T16:09:19.132Z",
-    "styles": "Lounge · Deep House · House",
-    "dress_code": "Chic et décontracté. Tenue correcte exigée, maillots de bain interdits au restaurant et en soirée.",
-    "horaires": "Jeu–Lun · 10h–17h30 · Lun–Dim · 10h–0h (en saison)",
-    "prix_verre": "bière 8,50 € · cocktail 12,50–15,50 €",
-    "entree": "Gratuit (restaurant et lounge) · transat 30–35 €",
-    "age_min": "Aucun",
+    "le": "2026-11-13T16:53:19.635Z",
+    "styles": "",
+    "dress_code": "",
+    "horaires": "lun–dim 10h–18h (saison, jusqu'à début octobre)",
+    "prix_verre": "",
+    "entree": "",
+    "age_min": "",
     "sources": [
-     "https://plagenicebeaurivage.com/",
-     "https://plagenicebeaurivage.com/wp-content/uploads/2024/05/CARTE-BOISSONS.pdf",
-     "https://www.hotelnicebeaurivage.com/",
-     "https://www.provence-alpes-cotedazur.com"
-    ]
+     "https://cotedazurfrance.fr/offres/plage-beau-rivage-nice-fr-3654478/",
+     "https://cotedazurfrance.fr/offres/soirees-de-lete-plage-beau-rivage-nice-fr-6715339/",
+     "https://www.privateaser.com/lieu/48721-plage-beau-rivage",
+     "https://www.petitfute.com/v33027-nice-06000/c1165-restaurants/c4-cuisine-francaise/277517-plage-beau-rivage.html"
+    ],
+    "relu": "verification 2026-11-13"
    },
    "instagram_non_verifie": "plagebeaurivage",
    "instagram": "plagebeaurivagenice"
@@ -336,10 +339,10 @@
    "nom": "Achill’s",
    "type": "rooftop",
    "ville": "Villefranche-sur-Mer",
-   "adresse": "2 Quai de l'Amiral Courbet, 06230 Villefranche-sur-Mer",
+   "adresse": "1 Quai de l'Amiral Courbet, 06230 Villefranche-sur-Mer",
    "instagram": "",
    "site": "https://achills.com/",
-   "description": "Rooftop offrant une vue panoramique sur la rade avec service de cocktails créatifs et ambiance musicale.",
+   "description": "Restaurant-bar du quai Courbet, ouvert en 2020, avec un rooftop pour boire un verre face au port de Villefranche.",
    "soirees": [],
    "prochaines": [],
    "insta": null,
@@ -348,19 +351,20 @@
    "photo": "site/lieux/site-0c046bf06fa0-176.webp",
    "soirs": [],
    "details": {
-    "le": "2026-11-10T16:09:19.132Z",
-    "styles": "Lounge · House · Électro · Pop",
-    "dress_code": "Casual chic recommandé",
-    "horaires": "Mar–Dim 9h–0h30 · Lun–Dim 9h–1h30 (en saison)",
-    "prix_verre": "bière 8–13 € · cocktail 12–16 €",
-    "entree": "Gratuit",
-    "age_min": "Aucun",
+    "le": "2026-11-13T16:53:19.635Z",
+    "styles": "",
+    "dress_code": "",
+    "horaires": "",
+    "prix_verre": "",
+    "entree": "",
+    "age_min": "",
     "sources": [
-     "https://achills.com/",
-     "https://wiicmenu-qrcode.com/app/ac/ac_achill’s/",
-     "https://provence-alpes-cotedazur.com/",
-     "https://www.petitfute.com/"
-    ]
+     "https://provence-alpes-cotedazur.com/sejourner/restaurants/tous-les-restaurants/achills-villefranche-sur-mer-fr-2886627/",
+     "https://explorenicecotedazur.com/en/fiche/achill-s-en",
+     "https://www.mapstr.com/place/Eu2GNNFA70g",
+     "https://www.tripadvisor.com/--d3483977.html"
+    ],
+    "relu": "verification 2026-11-13"
    },
    "instagram_non_verifie": "achills_restaurant"
   },
@@ -371,7 +375,7 @@
    "adresse": "17 Quai de l'Amiral Courbet, 06230 Villefranche-sur-Mer",
    "instagram": "",
    "site": "https://dryrestaurant.com/",
-   "description": "Établissement branché en front de mer combinant mixologie pointue, street food du monde et ambiance musicale rythmée.",
+   "description": "Restaurant-bar à cocktails sur le front de mer de Villefranche, mêlant cuisine méditerranéenne, street food internationale et cocktails de fruits pressés.",
    "soirees": [],
    "prochaines": [],
    "insta": null,
@@ -402,7 +406,7 @@
    "adresse": "Promenade des Marinières, 06230 Villefranche-sur-Mer",
    "instagram": "",
    "site": "https://delibo.fr/",
-   "description": "Plage privée saisonnière prisée pour se détendre au bord de l'eau au son de musiques électro-lounge.",
+   "description": "Plage privée et restaurant de la promenade des Marinières.",
    "soirees": [],
    "prochaines": [],
    "insta": null,
@@ -411,29 +415,29 @@
    "soirs": [],
    "instagram_non_verifie": "delibo_lesbains",
    "details": {
-    "le": "2026-11-13T12:27:41.311Z",
+    "le": "2026-11-13T16:53:19.635Z",
     "styles": "",
     "dress_code": "",
-    "horaires": "lun–dim 8h–20h",
+    "horaires": "",
     "prix_verre": "",
-    "entree": "Transat environ 30 €",
+    "entree": "",
     "age_min": "",
     "sources": [
      "https://www.gillespudlowski.com/174847/restaurants/villefranche-sur-mer-deli-bo-dans-le-bain",
      "https://mapstr.com/place/ErRGNoLjVWg",
-     "https://www.euansguide.com/venues/delibo-les-bains-plage-restaurant-villefranche-sur-mer-7623/information"
+     "https://www.euansguide.com/venues/delibo-les-bains-plage-restaurant-villefranche-sur-mer-7623"
     ],
-    "relu": "manuel"
+    "relu": "verification 2026-11-13"
    }
   },
   {
    "nom": "Le QG Port Saint-Laurent",
    "type": "bar",
    "ville": "Saint-Laurent-du-Var",
-   "adresse": "Quai la Pérouse, Port de Plaisance, 06700 Saint-Laurent-du-Var",
+   "adresse": "310 Quai la Pérouse, 06700 Saint-Laurent-du-Var",
    "instagram": "",
    "site": "https://www.privateaser.com/lieu/59345-le-qg",
-   "description": "Bar de nuit du port de plaisance avec dancefloor et DJ sets aux programmations commerciales, urbaines et reggaeton.",
+   "description": "Bar du port de Saint-Laurent-du-Var ouvert toute l'année, avec DJ tous les soirs, tapas, burgers et cocktails en terrasse face aux bateaux.",
    "soirees": [],
    "prochaines": [],
    "insta": null,
@@ -442,18 +446,19 @@
    "photo": "site/lieux/site-20fc6e1d71ad-176.webp",
    "soirs": [],
    "details": {
-    "le": "2026-11-10T16:09:19.132Z",
-    "styles": "Généraliste · Clubbing",
-    "dress_code": "Tenue soignée exigée",
-    "horaires": "Lun–Dim · 18h–2h30",
-    "prix_verre": "bière ~6 € · cocktail dès 8 €",
-    "entree": "Entrée libre",
+    "le": "2026-11-13T16:53:19.635Z",
+    "styles": "",
+    "dress_code": "",
+    "horaires": "lun–dim 18h–2h30",
+    "prix_verre": "",
+    "entree": "",
     "age_min": "",
     "sources": [
+     "https://provence-alpes-cotedazur.com/en/things-to-do/leisure-relaxation/all-relaxation-and-leisure-activities/le-qg-saint-laurent-du-var-en-4733412",
      "https://www.privateaser.com/lieu/59345-le-qg",
-     "https://cotedazurfrance.fr/offres/le-qg-saint-laurent-du-var-fr-3837424/",
-     "https://restaurantguru.com/Le-QG-Bar-Club-Saint-Laurent-du-Var"
-    ]
+     "https://www.sluurpy.fr/saint-laurent-du-var/restaurant/2038714/le-qg"
+    ],
+    "relu": "verification 2026-11-13"
    },
    "instagram_non_verifie": "leqg_portsaintlaurent"
   },
@@ -461,10 +466,10 @@
    "nom": "Tree Bô",
    "type": "bar-a-cocktails",
    "ville": "Saint-Laurent-du-Var",
-   "adresse": "Quai la Pérouse, Port de Saint-Laurent-du-Var, 06700 Saint-Laurent-du-Var",
+   "adresse": "Port Saint-Laurent, quai la Pérouse, 06700 Saint-Laurent-du-Var",
    "instagram": "",
    "site": "https://treeborestaurant.fr/",
-   "description": "Bar festif avec terrasse portuaire servant planches et cocktails maison accompagnés de DJ sets.",
+   "description": "Bar à tapas et cocktails du port de Saint-Laurent-du-Var, avec terrasse sur la marina et brunch le dimanche.",
    "soirees": [],
    "prochaines": [],
    "insta": null,
@@ -472,27 +477,28 @@
    "score": 0,
    "soirs": [],
    "details": {
-    "le": "2026-11-10T16:09:19.132Z",
-    "styles": "Généraliste · Festive",
+    "le": "2026-11-13T16:53:19.635Z",
+    "styles": "",
     "dress_code": "",
-    "horaires": "Lun–Dim · 8h–2h30",
-    "prix_verre": "bière 5 € · cocktail dès 8 €",
-    "entree": "gratuit",
+    "horaires": "lun–dim 8h–2h30",
+    "prix_verre": "",
+    "entree": "",
     "age_min": "",
     "sources": [
-     "https://www.cotedazurfrance.fr",
+     "https://cotedazurfrance.fr/offres/tree-bo-saint-laurent-du-var-fr-3614245/",
+     "https://www.explorenicecotedazur.com/it/ristorante/tree-bo/",
      "https://www.privateaser.com/lieu/57137-tree-bo",
-     "https://wiicmenu-qrcode.com/app/restaurantWebSite.php?resto=2431",
-     "https://www.pagesjaunes.fr"
-    ]
+     "https://www.sluurpy.fr/saint-laurent-du-var/restaurant/2034930/tree-bô"
+    ],
+    "relu": "verification 2026-11-13"
    },
    "instagram_non_verifie": "tree_bo_port_st_laurent"
   },
   {
    "nom": "Quai Ouest Pub",
-   "type": "pub",
+   "type": "rooftop",
    "ville": "Saint-Laurent-du-Var",
-   "adresse": "Quai la Pérouse, Port de Plaisance, 06700 Saint-Laurent-du-Var",
+   "adresse": "Port Saint-Laurent (port de plaisance), 06700 Saint-Laurent-du-Var",
    "instagram": "",
    "site": "https://quai-ouest-pub.fr/",
    "description": "Pub maritime décontracté proposant des bières pression, des retransmissions sportives et une fin de soirée festive.",
@@ -504,19 +510,19 @@
    "photo": "site/lieux/site-2a95cd0f0c37-176.webp",
    "soirs": [],
    "details": {
-    "le": "2026-11-10T16:09:19.132Z",
-    "styles": "Pop · Rock · Folk · Généraliste",
-    "dress_code": "Décontracté",
-    "horaires": "Lun–Dim · 18h–2h",
-    "prix_verre": "bière 4–9 € · cocktail 9–12 €",
-    "entree": "Gratuit",
+    "le": "2026-11-13T16:53:19.635Z",
+    "styles": "",
+    "dress_code": "",
+    "horaires": "lun–dim 18h–2h",
+    "prix_verre": "",
+    "entree": "",
     "age_min": "",
     "sources": [
-     "https://quai-ouest-pub.fr/",
-     "https://www.instagram.com/quai_ouest_pub/",
-     "https://www.petitfute.com/v33215-saint-laurent-du-var-06700/c1165-restaurants/c1031-specialites/c1170-restaurant-de-burger/1688647-quai-ouest.html",
-     "https://cotedazurfrance.fr/"
-    ]
+     "https://www.explorenicecotedazur.com/structure/quai-ouest/",
+     "https://cotedazurfrance.fr/offres/quai-ouest-saint-laurent-du-var-fr-4108025/",
+     "https://www.privateaser.com/lieu/58023-quai-ouest-pub"
+    ],
+    "relu": "verification 2026-11-13"
    },
    "instagram_non_verifie": "quaiouestpub"
   },
@@ -527,7 +533,7 @@
    "adresse": "167 Promenade des Flots Bleus, 06700 Saint-Laurent-du-Var",
    "instagram": "",
    "site": "https://www.people.restaurant/",
-   "description": "Établissement festif en bord de mer accueillant des soirées animées par des DJ sets house, latino et généralistes.",
+   "description": "Restaurant en bord de mer sur la promenade des Flots Bleus, avec DJ les vendredis et samedis soir jusqu'à 0h30.",
    "soirees": [],
    "prochaines": [],
    "insta": null,
@@ -555,10 +561,10 @@
    "nom": "Au Bureau (Polygone Riviera)",
    "type": "pub",
    "ville": "Cagnes-sur-Mer",
-   "adresse": "Centre Commercial Polygone Riviera, 119 Av. des Alpes, 06800 Cagnes-sur-Mer",
+   "adresse": "Polygone Riviera, 421 Av. de la Santoline, 06800 Cagnes-sur-Mer (à confirmer)",
    "instagram": "",
    "site": "https://www.aubureau.fr/restaurant/cagnes-sur-mer/",
-   "description": "Grand pub moderne proposant bières, retransmissions sportives et DJ sets à thème durant le week-end.",
+   "description": "Pub-brasserie de la chaîne Au Bureau situé dans le centre commercial Polygone Riviera.",
    "soirees": [],
    "prochaines": [],
    "insta": null,
@@ -566,19 +572,17 @@
    "score": 0,
    "soirs": [],
    "details": {
-    "le": "2026-11-10T16:43:32.404Z",
-    "styles": "Pop · Rock · Hits généralistes",
-    "dress_code": "Tenue décontractée",
-    "horaires": "Dim–Jeu 9h–23h30 · Ven–Sam 9h–0h",
-    "prix_verre": "bière 4–8,50 € · cocktail 8,50–9,50 €",
-    "entree": "gratuit",
+    "le": "2026-11-13T16:53:19.635Z",
+    "styles": "",
+    "dress_code": "",
+    "horaires": "",
+    "prix_verre": "",
+    "entree": "",
     "age_min": "",
     "sources": [
-     "https://www.aubureau.fr/restaurant/cagnes-sur-mer/",
-     "https://www.aubureau.fr/la-carte/",
-     "https://www.mistergoodbeer.com/fr/bars/au-bureau-cagnes-sur-mer",
-     "https://restaurantguru.com/Au-Bureau-Cagnes-sur-Mer"
-    ]
+     "https://d1z37b4k98tlsh.cloudfront.net/destinations/Saint-Paul-de-Vence/restaurants/Au-Bureau~1831"
+    ],
+    "relu": "verification 2026-11-13"
    },
    "instagram_non_verifie": "aubureau_cagnes"
   },
@@ -586,10 +590,10 @@
    "nom": "Le Carré Bleu",
    "type": "beach-club",
    "ville": "Cagnes-sur-Mer",
-   "adresse": "39 Promenade de la Plage, 06800 Cagnes-sur-Mer",
+   "adresse": "61 ter Promenade de la Plage, 06800 Cagnes-sur-Mer",
    "instagram": "",
    "site": "https://carrebleuplage.com/",
-   "description": "Beach club et bar lounge du bord de mer servant tapas et cocktails sur fond de deep-house au coucher du soleil.",
+   "description": "Plage privée avec restaurant méditerranéen et bar lounge à cocktails face à la Baie des Anges.",
    "soirees": [],
    "prochaines": [],
    "insta": null,
@@ -597,19 +601,19 @@
    "score": 0,
    "soirs": [],
    "details": {
-    "le": "2026-11-10T16:43:32.404Z",
-    "styles": "Lounge · Chill-out · Éclectique",
-    "dress_code": "Décontracté en journée, casual et tenue correcte le soir",
-    "horaires": "Lun–Dim · 10h–23h",
-    "prix_verre": "bière 6–8 € · cocktail 10–14 €",
-    "entree": "Gratuit (transat 20–25 €)",
-    "age_min": "Aucun",
+    "le": "2026-11-13T16:53:19.635Z",
+    "styles": "",
+    "dress_code": "",
+    "horaires": "lun–dim 10h–23h",
+    "prix_verre": "",
+    "entree": "",
+    "age_min": "",
     "sources": [
-     "https://cagnes-tourisme.com/fr/decouvrir/activites/balneaires/plages-privees/",
-     "https://www.provence-alpes-cotedazur.com",
-     "https://nicepresse.com/cagnes-sur-mer-les-plages-privees-a-tester-cet-ete-poissons-pizzas-a-la-truffe-salades-genereuses-une-adresse-pour-tous/",
-     "https://www.petitfute.com/v31481-cagnes-sur-mer-06800/c1165-restaurants/c1031-cuisines-du-monde/c1044-cuisine-italienne/395663-plage-carre-bleu.html"
-    ]
+     "https://www.explorenicecotedazur.com/en/structure/carre-bleu-beach/",
+     "https://cotedazurfrance.fr/offres/plage-carre-bleu-cagnes-sur-mer-fr-4093360/",
+     "https://www.plageprivee.com/france/06-alpes-maritimes/cagnes-sur-mer/le-carre-bleu"
+    ],
+    "relu": "verification 2026-11-13"
    },
    "instagram_non_verifie": "carre_bleu_plage",
    "photo": "site/lieux/site-961304409c7a-176.webp"
@@ -618,10 +622,10 @@
    "nom": "Le Cigalon Plage",
    "type": "beach-club",
    "ville": "Cagnes-sur-Mer",
-   "adresse": "24 Promenade de la Plage, 06800 Cagnes-sur-Mer",
+   "adresse": "59 ter promenade de la Plage, 06800 Cagnes-sur-Mer",
    "instagram": "",
    "site": "https://lecigalon-plage.com/",
-   "description": "Plage privée décontractée située au Cros-de-Cagnes pour boire un verre en plein air avec une ambiance lounge.",
+   "description": "Une des plus anciennes plages privées de Cagnes-sur-Mer, près du port du Cros-de-Cagnes, avec restaurant (salades, poissons, pizzas, grillades).",
    "soirees": [],
    "prochaines": [],
    "insta": null,
@@ -629,19 +633,20 @@
    "score": 0,
    "soirs": [],
    "details": {
-    "le": "2026-11-10T16:43:32.404Z",
-    "styles": "Lounge · Chill-out",
-    "dress_code": "Casual chic",
-    "horaires": "Lun–Jeu 9h30–17h · Ven–Sam 9h30–23h · Dim 9h30–18h",
-    "prix_verre": "bière 4–7,50 € · cocktail 11–14 €",
-    "entree": "Gratuit",
-    "age_min": "Aucun",
+    "le": "2026-11-13T16:53:19.635Z",
+    "styles": "",
+    "dress_code": "",
+    "horaires": "lun–dim 12h–15h · lun–dim 19h–23h (juin–sept ; midi seulement d'octobre à mai)",
+    "prix_verre": "",
+    "entree": "",
+    "age_min": "",
     "sources": [
-     "https://lecigalon.com/",
-     "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF48u2Aj3Dpyr-476ZRY8jhU44jqFAcuGhUNuAKcw7h_xBKueW7ELYVVN4fR6_rATDEfZGdrKbRaKdl24O-5sISM-ruTSSfTtR3AOh5C1ixoWoDxDoBx8Mpu6mz4Ef49s1IVC9y8DuRuiqoVvk3cN7H0u5koWQ5Atg=",
-     "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHoog1obGdV0C2aF4PJXeI7Nm7f9kMRCzZuCs0fNHm2iQ6rqFqOX9SndA98O4wQrhIAAqWI8toFZ5VMiWF4-clkmvce8YxPv--gZFlF-8LtRrgVwXprC6OLe1p-TqUspF5Ny2MXdjVyTaR6gCrtmrxHdABDjCDlnkG5u4BBr5mm9A==",
-     "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGwFRFxxO4e5_eXgcU09770AWvS82MTpGfhcw5WERikxr3w9D2AbR3PX7TaEmxMvQNXle7XVpMkO8_yE5aNNSi1FB6G4OxxyDTZkJyNTZxX30Pu-OH5QA6_5wjcVJ2kNRWcjq1F4zcdp3xlpg-evZzgtc2IQ51-kzpQngE="
-    ]
+     "https://cotedazurfrance.fr/offres/cigalon-plage-cagnes-sur-mer-fr-3760608/",
+     "https://www.explorenicecotedazur.com/restaurant/cigalon-plage/",
+     "https://www.plages.tv/privee/le-cigalon-plage-privee-cagnes-sur-mer-06800",
+     "https://www.plageprivee.com/france/06-alpes-maritimes/cagnes-sur-mer/le-cigalon-plage"
+    ],
+    "relu": "verification 2026-11-13"
    },
    "instagram_non_verifie": "le_cigalon_plage"
   },
@@ -649,10 +654,10 @@
    "nom": "Bisous Bisous",
    "type": "club",
    "ville": "Cannes",
-   "adresse": "Casino Barrière Le Croisette, Palais des Festivals, 1 jetée Albert Édouard, 06400 Cannes",
+   "adresse": "Casino Barrière Le Croisette (Palais des Festivals), 1 Espace Lucien Barrière, 06400 Cannes",
    "instagram": "",
    "site": "https://www.hotelsbarriere.com/en/cannes/le-majestic/restaurants-and-bars/bisous-bisous.html",
-   "description": "Club du groupe Barrière perché au-dessus du Casino Barrière Le Croisette, au Palais des Festivals : déco seventies, house et disco, terrasse avec vue sur le port.",
+   "description": "Club du groupe Barrière installé au-dessus du Casino Barrière Le Croisette, au Palais des Festivals, avec une grande terrasse sur le port.",
    "soirees": [],
    "prochaines": [],
    "insta": null,
@@ -660,13 +665,13 @@
    "score": 0,
    "soirs": [],
    "details": {
-    "le": "2026-11-13T16:46:51.471Z",
+    "le": "2026-11-13T16:53:19.635Z",
     "styles": "House · Disco · New wave",
-    "dress_code": "Tenue chic et soignée exigée, sportswear et streetwear refusés.",
+    "dress_code": "",
     "horaires": "jeu–sam 0h–5h",
     "prix_verre": "",
-    "entree": "Généralement gratuite (sur sélection ou réservation de table)",
-    "age_min": "18 ans",
+    "entree": "",
+    "age_min": "",
     "sources": [
      "https://cotedazurfrance.fr/offres/bisous-bisous-cannes-fr-3650956/",
      "https://www.hotelsbarriere.com/en/cannes/le-majestic/restaurants-and-bars/bisous-bisous.html"
@@ -682,7 +687,7 @@
    "adresse": "6 Rue des Frères Pradignac, 06400 Cannes",
    "instagram": "glass_club_cannes",
    "site": "https://glasscannes.com",
-   "description": "Bar à cocktails et club intimiste du Carré d'Or proposant des créations signature et des DJ sets électro et tech-house.",
+   "description": "Bar à cocktails haut de gamme doublé d'un petit club (80 à 90 personnes) à une minute de la Croisette et du Palais des Festivals, tourné vers la house et la deep house.",
    "soirees": [
     "friday-connection-chris-a-b2b-ugo-puccinelli-2026-11-13",
     "lizzie-et-friends-saturday-house-session-2026-11-14",
@@ -771,19 +776,20 @@
     ]
    ],
    "details": {
-    "le": "2026-11-10T17:13:19.609Z",
-    "styles": "House · Deep House · Tech House · Afro House",
-    "dress_code": "Décontractée mais soignée (baskets et bermudas autorisés)",
-    "horaires": "Jeu–Sam · 0h–6h",
-    "prix_verre": "bière 8 € · cocktail 12–13 €",
-    "entree": "15 € avec 1 consommation (préventes dès 9,99 €)",
+    "le": "2026-11-13T16:53:19.635Z",
+    "styles": "",
+    "dress_code": "",
+    "horaires": "mer–jeu 23h–3h · ven–sam 23h–5h",
+    "prix_verre": "",
+    "entree": "",
     "age_min": "",
     "sources": [
-     "https://glasscannes.com/",
-     "https://shotgun.live/venues/glass-club-cannes",
-     "https://www.cannes-france.com/offres/glass-club-cannes-fr-5224320/",
-     "https://www.instagram.com/glassclubcannes/"
-    ]
+     "https://en.cannes-france.com/offers/glass-club-cannes-en-5708342/",
+     "https://cotedazurfrance.fr/offres/glass-club-cannes-fr-5700468/",
+     "https://www.privateaser.com/lieu/51120-glass",
+     "https://shotgun.live/en/events/glass-club-reccoit-axel-bampton"
+    ],
+    "relu": "verification 2026-11-13"
    },
    "instagram_non_verifie": "glassclubcannes"
   },
@@ -791,10 +797,10 @@
    "nom": "Morrison's Irish Pub & Morrison's Lounge",
    "type": "pub",
    "ville": "Cannes",
-   "adresse": "8-10 Rue Teisseire, 06400 Cannes",
+   "adresse": "Pub : 10 rue Teisseire ; Lounge : 8 rue Teisseire, 06400 Cannes",
    "instagram": "",
    "site": "https://www.cannes-nightlife.com",
-   "description": "Pub irlandais et lounge très fréquenté par les étudiants, combinant concerts de rock live et soirées dansantes avec DJ.",
+   "description": "Pub irlandais (10 rue Teisseire) avec concerts live le mardi, mercredi, jeudi et dimanche, et lounge voisin (8 rue Teisseire) avec DJ le vendredi et le samedi, quiz le lundi et karaoké le mercredi.",
    "soirees": [],
    "prochaines": [],
    "insta": null,
@@ -822,10 +828,10 @@
    "nom": "Charly’s Bar",
    "type": "bar",
    "ville": "Cannes",
-   "adresse": "5 Rue du Suquet, 06400 Cannes",
+   "adresse": "3 et 10 rue du Suquet, 06400 Cannes",
    "instagram": "",
    "site": "https://charlysbarclub.com/",
-   "description": "Bar festif aménagé dans une cave voûtée du Suquet où l'on danse sur des hits commerciaux et du reggaeton.",
+   "description": "Bar de nuit du Suquet, en sous-sol aux murs de briques apparentes, ouvert tous les soirs.",
    "soirees": [],
    "prochaines": [],
    "insta": null,
@@ -833,19 +839,18 @@
    "score": 0,
    "soirs": [],
    "details": {
-    "le": "2026-11-10T17:13:19.609Z",
-    "styles": "Généraliste · Pop/Rock · Rétro",
-    "dress_code": "Décontracté / casual chic",
-    "horaires": "Lun–Dim · 17h–2h30",
-    "prix_verre": "Cocktail 10–14 €",
-    "entree": "Gratuit (consommation obligatoire)",
-    "age_min": "18 ans",
+    "le": "2026-11-13T16:53:19.635Z",
+    "styles": "",
+    "dress_code": "",
+    "horaires": "lun–dim 17h–2h30",
+    "prix_verre": "",
+    "entree": "",
+    "age_min": "",
     "sources": [
-     "https://www.cannes-france.com/",
-     "https://www.jet2holidays.com/",
-     "https://www.sortir06.fr/",
-     "https://cannes.city-life.fr/"
-    ]
+     "https://cotedazurfrance.com/offers/charlys-bar-cannes-en-3602940",
+     "https://worldtravelguide.net/guides/europe/france/cannes/nightlife"
+    ],
+    "relu": "verification 2026-11-13"
    },
    "instagram_non_verifie": "charlys_bar_cannes"
   },
@@ -856,7 +861,7 @@
    "adresse": "2 Boulevard Jean Hibert, 06400 Cannes",
    "instagram": "",
    "site": "https://www.marea-restaurant.com",
-   "description": "Rooftop avec vue panoramique sur le Vieux-Port proposant des cocktails créatifs dans une ambiance musicale deep house.",
+   "description": "Rooftop bar-restaurant au 7e étage du Canopy by Hilton, face à la baie et au Vieux-Port de Cannes.",
    "soirees": [],
    "prochaines": [],
    "insta": null,
@@ -864,19 +869,19 @@
    "score": 0,
    "soirs": [],
    "details": {
-    "le": "2026-11-10T17:13:19.609Z",
-    "styles": "Deep house · Lounge · Jazzy house · Électro-chill",
-    "dress_code": "Smart Casual (chic et décontracté)",
-    "horaires": "Lun–Dim · 17h–23h",
-    "prix_verre": "bière 7–10 € · cocktail 18–22 €",
-    "entree": "Gratuit",
-    "age_min": "Aucun",
+    "le": "2026-11-13T16:53:19.635Z",
+    "styles": "",
+    "dress_code": "",
+    "horaires": "lun–dim 17h–23h",
+    "prix_verre": "",
+    "entree": "",
+    "age_min": "",
     "sources": [
-     "https://www.marea-restaurant.com",
-     "https://www.hilton.com/en/hotels/ceqcfpy-canopy-cannes/dining/",
-     "https://www.therooftopguide.com/rooftop-bars-in-cannes/marea.html",
-     "https://www.sortir06.fr"
-    ]
+     "https://therooftopguide.com/rooftop-bars-in-cannes/marea.html",
+     "https://provence-alpes-cotedazur.com/en/plan-your-stay/restaurants/all-restaurants/marea-cannes-en-4351021",
+     "https://www.monaco-tribune.com/en/2025/08/marea-extends-summer-evenings-on-rooftop-overlooking-bay-of-cannes/"
+    ],
+    "relu": "verification 2026-11-13"
    },
    "instagram_non_verifie": "marea_cannes"
   },
@@ -884,10 +889,10 @@
    "nom": "La Môme Plage",
    "type": "beach-club",
    "ville": "Cannes",
-   "adresse": "Boulevard de la Croisette, 06400 Cannes",
+   "adresse": "44 boulevard de la Croisette, 06400 Cannes",
    "instagram": "",
    "site": "https://lamomecannes.com",
-   "description": "Plage privée festive de la Croisette rythmée par des DJ sets solaires, de la disco-house et des chants de variété.",
+   "description": "Plage privée et restaurant du 44 boulevard de la Croisette, ouvert tous les jours le midi et aussi le soir en saison estivale.",
    "soirees": [],
    "prochaines": [],
    "insta": null,
@@ -895,19 +900,19 @@
    "score": 0,
    "photo": "site/lieux/lamomeplage-176.webp",
    "details": {
-    "le": "2026-11-09T19:59:29.344Z",
-    "styles": "Lounge · Deep House · House · Nu-disco",
-    "dress_code": "Smart Riviera, chic et élégant",
-    "horaires": "Lun–Dim · 11h–23h30 (en saison)",
-    "prix_verre": "bière 10–14 € · cocktail 20–26 €",
-    "entree": "Gratuit (transats à partir de 70–90 €)",
-    "age_min": "Aucun (18 ans recommandé en soirée)",
+    "le": "2026-11-13T16:53:19.635Z",
+    "styles": "",
+    "dress_code": "",
+    "horaires": "lun–dim midi (toute l'année) · dîner en saison estivale (heures non publiées)",
+    "prix_verre": "",
+    "entree": "",
+    "age_min": "",
     "sources": [
-     "https://www.lamomeplage.com",
-     "https://lamomecannes.com",
-     "https://www.cannes-france.com",
-     "https://www.alotea.com"
-    ]
+     "https://provence-alpes-cotedazur.com/sejourner/restaurants/tous-les-restaurants/la-mome-plage-cannes-fr-3623420/",
+     "https://en.cannes-france.com/offers/la-mome-plage-cannes-en-3605347/",
+     "https://www.gillespudlowski.com/?p=325646"
+    ],
+    "relu": "verification 2026-11-13"
    },
    "soirs": [],
    "instagram_non_verifie": "lamomeplage"
@@ -916,10 +921,10 @@
    "nom": "Le Village",
    "type": "club",
    "ville": "Juan-les-Pins",
-   "adresse": "1 Boulevard de la Pinède, 06160 Antibes Juan-les-Pins",
+   "adresse": "1 boulevard de la Pinède (carrefour de la Nouvelle-Orléans), 06160 Juan-les-Pins",
    "instagram": "",
    "site": "http://www.juanbynight.com",
-   "description": "Complexe nocturne au décor tropical très populaire auprès des 18–25 ans pour ses soirées aux musiques commerciales et urbaines.",
+   "description": "Discothèque historique de Juan-les-Pins, près de la pinède, proposant house, dance, soul et musiques latines avec DJ et soirées à thème.",
    "soirees": [],
    "prochaines": [],
    "insta": null,
@@ -927,19 +932,20 @@
    "score": 0,
    "soirs": [],
    "details": {
-    "le": "2026-11-10T18:44:11.343Z",
-    "styles": "House · Disco · Salsa · Soul",
-    "dress_code": "Tenue correcte exigée",
-    "horaires": "Ven–Sam · 00h–5h · Lun–Dim · 00h–5h (en saison)",
+    "le": "2026-11-13T16:53:19.635Z",
+    "styles": "",
+    "dress_code": "",
+    "horaires": "",
     "prix_verre": "",
-    "entree": "20 € avec une consommation incluse",
-    "age_min": "18 ans",
+    "entree": "",
+    "age_min": "",
     "sources": [
-     "https://juanbynight.com/Les_Clubs/Pages/Village.html",
-     "https://juanbynight.com",
-     "https://www.petitfute.com/v32777-juan-les-pins-06160/c1171-sports-loisirs/c1200-sorties-soirees/c584-club-discotheque/27236-le-village.html",
-     "https://www.juan-les-pins.com/les-discotheques-de-juan-les-pins/"
-    ]
+     "https://www.frommers.com/destinations/juan-les-pins/nightlife/",
+     "https://cotedazurfrance.fr/a-faire/ou-sortir/clubs/",
+     "https://seeantibes.com/bars/le-village-bar-juan-les-pins-657372",
+     "https://www.voloscontato.it/guide-per-viaggiatori/juan-les-pins-discoteche-e-locali-notturni.php"
+    ],
+    "relu": "verification 2026-11-13"
    },
    "instagram_non_verifie": "club_levillage",
    "lat": 43.5680412,
@@ -947,12 +953,12 @@
   },
   {
    "nom": "Honey Club",
-   "type": "club",
+   "type": "salle",
    "ville": "Juan-les-Pins",
-   "adresse": "5 Avenue Georges Gallice, 06160 Juan-les-Pins",
+   "adresse": "5 avenue Georges Gallice, 06160 Antibes (Juan-les-Pins)",
    "instagram": "honeyclubjuanlespins",
    "site": "https://honeyclub.fr",
-   "description": "Boîte de nuit axée sur les musiques urbaines avec des sets rap, afrobeat, shatta et électro.",
+   "description": "Lieu de soirées et de concerts de l'avenue Georges Gallice à Juan-les-Pins.",
    "soirees": [
     "honey-club-saturday-bee-crazy-2026-11-14"
    ],
@@ -976,19 +982,17 @@
     ]
    ],
    "details": {
-    "le": "2026-11-10T18:44:11.343Z",
-    "styles": "Shatta · Afrobeat · Hip-Hop · Dancehall",
-    "dress_code": "Tenue soignée, chic ou branchée (casquettes et tenues de sport refusées)",
-    "horaires": "Ven–Sam · 0h–5h",
-    "prix_verre": "bière 7–10 € · cocktail 10–15 €",
-    "entree": "10–20 € avec conso (souvent gratuit pour les femmes avant 0h30)",
-    "age_min": "18 ans",
+    "le": "2026-11-13T16:53:19.635Z",
+    "styles": "",
+    "dress_code": "",
+    "horaires": "",
+    "prix_verre": "",
+    "entree": "",
+    "age_min": "",
     "sources": [
-     "https://shotgun.live/fr/venues/honey-club",
-     "https://shotgun.live/fr/events/honey-club-saturday-bee-crazy",
-     "https://shotgun.live/fr/events/rapture-first-edition",
-     "https://shotgun.live/fr/events/all-white-everything"
-    ]
+     "https://www.songkick.com/venues/4645584-honey-club"
+    ],
+    "relu": "verification 2026-11-13"
    },
    "instagram_non_verifie": "honeyclub_juan",
    "photo": "site/lieux/honeyclubjuanlespins-176.webp",
@@ -1010,19 +1014,19 @@
    "score": 0,
    "soirs": [],
    "details": {
-    "le": "2026-11-10T18:44:11.343Z",
-    "styles": "Samba · Batucada · Musique brésilienne · Sons tropicaux",
-    "dress_code": "Aucun dress code strict (tenue décontractée estivale acceptée)",
-    "horaires": "Lun–Dim · 15h–3h (en saison)",
-    "prix_verre": "Bière 8–10 € · cocktail 12–16 € · soft 5–8 €",
-    "entree": "Gratuit (consommation obligatoire)",
-    "age_min": "Tout public",
+    "le": "2026-11-13T16:53:19.635Z",
+    "styles": "",
+    "dress_code": "",
+    "horaires": "",
+    "prix_verre": "",
+    "entree": "",
+    "age_min": "",
     "sources": [
-     "https://www.petitfute.com/v31765-juan-les-pins-06160/c1171-sports-loisirs/c595-bars-pubs-et-lieux-festifs/c597-bar-a-cocktail/129759-pam-pam.html",
-     "https://www.pagesjaunes.fr/pros/00157500",
      "https://www.privateaser.com/lieu/57987-pam-pam",
-     "http://www.pampam.fr"
-    ]
+     "https://www.seeantibes.com/bars/pam-pam-juan-les-pins-681497",
+     "https://mapstr.com/place/gE2Ji8R2f3g"
+    ],
+    "relu": "verification 2026-11-13"
    },
    "instagram_non_verifie": "lepampam_juanlespins"
   },
@@ -1033,7 +1037,7 @@
    "adresse": "38 Boulevard d'Aguillon, 06600 Antibes",
    "instagram": "",
    "site": "https://www.thehopstore.fr",
-   "description": "Pub animé situé le long des remparts, servant des bières variées au rythme de concerts et de sets pop-rock.",
+   "description": "Pub irlandais du Vieil Antibes, près du port, avec musique live et DJ du mercredi au samedi en été.",
    "soirees": [],
    "prochaines": [],
    "insta": null,
@@ -1041,19 +1045,19 @@
    "score": 0,
    "soirs": [],
    "details": {
-    "le": "2026-11-10T18:44:11.343Z",
-    "styles": "Pop · Rock · DJ sets",
-    "dress_code": "Décontracté / Casual",
-    "horaires": "Lun–Dim · 15h–2h",
-    "prix_verre": "bière 5–8,50 € · cocktail 9–12 €",
-    "entree": "gratuit",
+    "le": "2026-11-13T16:53:19.635Z",
+    "styles": "",
+    "dress_code": "",
+    "horaires": "lun–dim 15h–2h",
+    "prix_verre": "",
+    "entree": "",
     "age_min": "",
     "sources": [
-     "https://www.craicmap.ie/pubs/france/antibes/the-hop-store",
-     "https://www.mistergoodbeer.com/fr/bar/11269-hop-store-antibes",
      "https://www.privateaser.com/lieu/57133-the-hop-store",
-     "https://www.petitfute.com/v31175-antibes-06160/c1171-visites-points-d-interet/c1212-reception-animation/c1219-bar-a-biere-micro-brasserie/201768-the-hop-store.html"
-    ]
+     "https://tripaligner.com/countries/france-18/destinations/nice-5098/places/the-hop-store-3336614",
+     "https://seeantibes.com/bars/the-hop-store-antibes-680098"
+    ],
+    "relu": "verification 2026-11-13"
    },
    "instagram_non_verifie": "thehopstore_antibes",
    "lat": 43.5829242,
@@ -1061,12 +1065,12 @@
   },
   {
    "nom": "The Drinkers Club",
-   "type": "bar",
+   "type": "bar-a-cocktails",
    "ville": "Antibes",
    "adresse": "12 Rue Aubernon, 06600 Antibes",
    "instagram": "",
    "site": "https://www.facebook.com/thedrinkersclubantibes",
-   "description": "Bar festif du vieil Antibes prisé en fin de soirée pour ses bières pression, ses shots et ses playlists rock et généralistes.",
+   "description": "Bar à cocktails et à vins du vieil Antibes, avec terrasse, tapas et musique live (guitare-voix) le vendredi.",
    "soirees": [],
    "prochaines": [],
    "insta": null,
@@ -1074,19 +1078,20 @@
    "score": 0,
    "soirs": [],
    "details": {
-    "le": "2026-11-10T18:44:11.343Z",
-    "styles": "Reggae · Rock · Soul · Pop",
-    "dress_code": "Décontracté",
-    "horaires": "Lun–Ven 16h–2h · Sam–Dim 15h–2h",
-    "prix_verre": "bière 4–8 € · cocktail 10–12 €",
-    "entree": "Gratuit",
+    "le": "2026-11-13T16:53:19.635Z",
+    "styles": "",
+    "dress_code": "",
+    "horaires": "",
+    "prix_verre": "",
+    "entree": "",
     "age_min": "",
     "sources": [
-     "https://www.privateaser.com/lieu/59138-drinkers-club",
-     "https://www.mistergoodbeer.com/fr/bar/drinkers-club-antibes",
-     "https://wanderlog.com/poi/1330368/drinkers-club",
-     "https://www.pagesjaunes.fr/"
-    ]
+     "https://el.hotels.com/see/go/france/best-nightlife-antibes",
+     "https://www.schlouk-map.com/en/places/drinkers-club",
+     "https://theculturetrip.com/europe/france/articles/the-10-best-bars-in-antibes",
+     "https://www.privateaser.com/lieu/59138-drinkers-club"
+    ],
+    "relu": "verification 2026-11-13"
    },
    "instagram_non_verifie": "drinkersclub",
    "lat": 43.58209,
@@ -1099,7 +1104,7 @@
    "adresse": "25 Cours Masséna, 06600 Antibes",
    "instagram": "absinthebarantibes",
    "site": "http://www.absinthebar.com",
-   "description": "Cave voûtée insolite où l'on déguste de l'absinthe traditionnelle dans une atmosphère de piano-bar d'époque.",
+   "description": "Petit bar en cave voûtée du Vieil Antibes consacré à l'absinthe, avec fontaines anciennes et soirée piano les vendredis et samedis.",
    "soirees": [],
    "prochaines": [],
    "insta": {
@@ -1113,19 +1118,20 @@
    "photo": "site/lieux/absinthebarantibes-176.webp",
    "soirs": [],
    "details": {
-    "le": "2026-11-10T15:30:56.666Z",
-    "styles": "Piano-bar · Jazz · Variétés",
-    "dress_code": "Tenue décontractée",
-    "horaires": "Lun–Dim · 17h–0h30",
-    "prix_verre": "absinthe 7–10 €",
-    "entree": "Gratuit",
+    "le": "2026-11-13T16:53:19.635Z",
+    "styles": "",
+    "dress_code": "",
+    "horaires": "lun–dim 17h–0h30",
+    "prix_verre": "",
+    "entree": "",
     "age_min": "",
     "sources": [
-     "https://www.antibes-juanlespins.com",
-     "https://provence-alpes-cotedazur.com",
-     "https://www.petitfute.com",
-     "https://www.pagesjaunes.fr"
-    ]
+     "https://cotedazurfrance.fr/offres/absinthe-bar-antibes-fr-5411579",
+     "https://www.antibesjuanlespins.com/en/must-see-must-do/sport-leisures-well-being-savouring/savouring/l-absinthe-bar-2218245",
+     "https://lacompagnie.com/en/plan/places/french-riviera/the-absinth-museum",
+     "https://www.privateaser.com/lieu/57701-absinthe-bar"
+    ],
+    "relu": "verification 2026-11-13"
    },
    "instagram_non_verifie": "absinthebarantibes",
    "lat": 43.5808449,
@@ -1138,7 +1144,7 @@
    "adresse": "Port de La Napoule, 336 Avenue Henry Clews, 06210 Mandelieu-la-Napoule",
    "instagram": "osullivans_mandelieu",
    "site": "https://www.osullivans-pubs.com",
-   "description": "Grand pub irlandais situé sur le port qui se transforme le soir en boîte de nuit avec DJ sets et soirées à thème.",
+   "description": "Pub irlandais et bar à cocktails face à la plage du château de La Napoule, avec concert le jeudi et DJ sets le week-end.",
    "soirees": [],
    "prochaines": [],
    "insta": {
@@ -1174,7 +1180,7 @@
    "adresse": "104 Avenue des Frères Roustan, 06220 Vallauris Golfe-Juan",
    "instagram": "jimbaran.plage",
    "site": "https://www.jimbaran-plage.com",
-   "description": "Établissement de bord de mer au décor balinais proposant cocktails, beach parties et DJ sets afro house et disco house.",
+   "description": "Plage privée et restaurant au décor balinais à Golfe-Juan, ouverts midi et soir en saison avec animations en soirée.",
    "soirees": [],
    "prochaines": [],
    "insta": {
@@ -1188,19 +1194,20 @@
    "photo": "site/lieux/jimbaran.plage-176.webp",
    "soirs": [],
    "details": {
-    "le": "2026-11-10T15:30:56.666Z",
-    "styles": "Afro House · Deep House · House · Tech House",
+    "le": "2026-11-13T16:53:19.635Z",
+    "styles": "",
     "dress_code": "",
-    "horaires": "Dim–Jeu 10h–19h · Ven–Sam 10h–0h (en saison)",
+    "horaires": "dim–mer 10h–20h · jeu–sam 10h–0h (saison, d'avril à mi-octobre)",
     "prix_verre": "",
-    "entree": "Gratuit (bar/restaurant), soirées spéciales 15 €",
+    "entree": "",
     "age_min": "",
     "sources": [
-     "https://www.plage-golfe-juan.com/",
-     "https://shotgun.live/fr/venues/jimbaran-plage",
-     "https://cotedazurfrance.fr/offres/jimbaran-plage-vallauris-golfe-juan-fr-4261439/",
-     "https://mysunbed.com/fr/beach-club/jimbaran-plage-vallauris-golfe-juan/"
-    ]
+     "https://www.plageprivee.com/france/06-alpes-maritimes/golfe-juan/jimbaran-beach",
+     "https://cotedazurfrance.com/offers/jimbaran-plage-vallauris-golfe-juan-en-2828573/",
+     "https://www.tendancehotellerie.fr/articles-breves/communique-de-presse/20015-article/jimbaran-beach-evadez-vous-a-bali-a-10-minutes-de-cannes",
+     "https://www.vallaurisgolfejuan-tourisme.fr/restaurant/jimbaran-beach-opening-date-on-opening-date-on-july-2019"
+    ],
+    "relu": "verification 2026-11-13"
    },
    "instagram_non_verifie": "jimbaran.plage"
   },
@@ -1243,7 +1250,7 @@
    "adresse": "26 Avenue Princesse Grace, 98000 Monaco",
    "instagram": "jimmyzmc",
    "site": "https://www.montecarlosbm.com/fr/bar-monaco/jimmy-z-monte-carlo",
-   "description": "Boîte de nuit emblématique en plein air autour d'un lagon avec DJ sets internationaux EDM, House et Hip-Hop.",
+   "description": "Boîte de nuit de la SBM au Sporting Monte-Carlo, avec lagon, jardin japonais et Summer Bar flottant ; saison 2026 mêlant électro, rap et disco.",
    "soirees": [],
    "prochaines": [],
    "insta": {
@@ -1256,19 +1263,20 @@
    "score": 0.72,
    "photo": "site/lieux/jimmyzmc-176.webp",
    "details": {
-    "le": "2026-11-09T19:59:29.344Z",
-    "styles": "House · Tech House · Electro · Hip-hop",
-    "dress_code": "Smart chic / tenue très élégante exigée, baskets et tenues de sport interdites",
-    "horaires": "Jeu–Sam · 23h30–5h/6h",
-    "prix_verre": "Bière 15–25 € · cocktail 25–35 € · soft 10–15 €",
-    "entree": "20–65 € selon programmation",
-    "age_min": "18 ans",
+    "le": "2026-11-13T16:53:19.635Z",
+    "styles": "",
+    "dress_code": "",
+    "horaires": "ven–sam 23h30–5h (mars–juin et sept.) · mer–sam dès 23h30 (juil.–août) · fermé oct.–fév. (sauf événements, ex. Nouvel An)",
+    "prix_verre": "",
+    "entree": "",
+    "age_min": "",
     "sources": [
-     "https://www.montecarlosbm.com/fr/bar-monaco/jimmy-z-monte-carlo",
-     "https://www.instagram.com/jimmyzmc/",
-     "https://www.visitmonaco.com/fr/lieu/bars-boites/188165/jimmy-z-monte-carlo",
-     "https://monacopratique.com"
-    ]
+     "https://www.montecarlosbm.com/fr/nightlife/jimmyz-monte-carlo",
+     "https://www.montecarlosbm-corporate.com/wp-content/uploads/2026/04/mcsbm-press-release-jimmyz-monte-carlo-2026-season.pdf",
+     "https://media-trade.visitmonaco.com/en/editorial-resources/press-releases/with-a-mix-of-electronic-music-rap-and-disco-nights-jimmy-z-monte-carlo-promises-an-even-more-festive-season-in-2026",
+     "https://www.montecarlosbm.com/fr/inspiration/lhistoire-du-jimmyz-monte-carlo"
+    ],
+    "relu": "verification 2026-11-13"
    },
    "soirs": [],
    "instagram_non_verifie": "jimmyzmc",
@@ -1282,7 +1290,7 @@
    "adresse": "18 Route de la Piscine, 98000 Monaco",
    "instagram": "",
    "site": "https://www.mkmonaco.com/",
-   "description": "Club situé sur le port Hercule prisé des jeunes pour son ambiance animée au rythme de mix électro, commercial, reggaeton et hip-hop.",
+   "description": "Boîte de nuit de la route de la Piscine, sur le port Hercule, ouverte le vendredi et le samedi soir avec un mélange musical varié.",
    "soirees": [],
    "prochaines": [],
    "insta": null,
@@ -1290,19 +1298,19 @@
    "score": 0,
    "soirs": [],
    "details": {
-    "le": "2026-11-10T18:44:11.343Z",
-    "styles": "Généraliste · Hip-Hop · House · Électro",
-    "dress_code": "Chic et élégant (« Dress to impress »).",
-    "horaires": "Ven–Sam · 0h–5h",
-    "prix_verre": "verre 15–20 €",
-    "entree": "Sélection à l'entrée ou réservation de table ; environ 20 € lors de soirées spéciales.",
-    "age_min": "18 ans",
+    "le": "2026-11-13T16:53:19.635Z",
+    "styles": "",
+    "dress_code": "",
+    "horaires": "ven–sam 0h–5h",
+    "prix_verre": "",
+    "entree": "",
+    "age_min": "",
     "sources": [
-     "https://www.mkmonaco.com/",
-     "https://www.instagram.com/mkclubmonaco/",
-     "https://monacoreview.com/listing/mk-club-monaco/",
-     "https://www.myguide-nice.com/nightlife/mk-club-monaco"
-    ]
+     "https://www.visitmonaco.com/en/地方/397/night-club",
+     "https://monaco-tribune.com/en/2021/10/where-to-dance-and-listen-to-music-in-monaco",
+     "https://www.nightflow.com/?p=13235"
+    ],
+    "relu": "verification 2026-11-13"
    },
    "instagram_non_verifie": "mkclubmonaco"
   },
@@ -1313,7 +1321,7 @@
    "adresse": "Grimaldi Forum (2e étage), 10 Avenue Princesse Grace, 98000 Monaco",
    "instagram": "twigamontecarlo",
    "site": "https://twigamontecarlo.com/",
-   "description": "Établissement festif en bord de mer combinant restaurant, bar lounge et boîte de nuit sur des rythmes Afro-house et House.",
+   "description": "Restaurant puis club au 2e étage du Grimaldi Forum, avec dîner en soirée et club jusqu'à 4-5 h selon les soirs.",
    "soirees": [
     "lanonchalance-pres-malive-2026-11-13"
    ],
@@ -1333,19 +1341,20 @@
    "score": 0.29,
    "photo": "site/lieux/twigamontecarlo-176.webp",
    "details": {
-    "le": "2026-11-09T19:59:29.344Z",
-    "styles": "Deep House · Afro House · Tech-House · Hip-Hop",
-    "dress_code": "Chic et élégant. Tenues de sport et tongs interdites.",
-    "horaires": "Mer–Dim · 23h30–5h",
-    "prix_verre": "cocktail 20–25 €",
-    "entree": "Sur réservation (table/dîner) ou 20–40 € avec consommation sur place",
-    "age_min": "18 ans",
+    "le": "2026-11-13T16:53:19.635Z",
+    "styles": "",
+    "dress_code": "",
+    "horaires": "",
+    "prix_verre": "",
+    "entree": "",
+    "age_min": "",
     "sources": [
-     "https://twigaworld.com/montecarlo/",
-     "https://www.instagram.com/twigamontecarlo/",
-     "https://www.myguidenice.com/nightlife/twiga-monte-carlo",
-     "https://www.portpalace.com/"
-    ]
+     "https://www.access.sb/en/monaco/bars-clubs/clubs/twiga/",
+     "https://www.clubbable.com/fr-FR/Monaco/Twiga-Monte-Carlo",
+     "https://www.monaco-tribune.com/en/listing/twiga-monte-carlo/",
+     "https://seemonaco.com/restaurants/twiga-restaurant-shisha-bar-and-nightclub-monte-carlo-698505"
+    ],
+    "relu": "verification 2026-11-13"
    },
    "soirs": [
     [
@@ -1359,7 +1368,7 @@
   },
   {
    "nom": "Sass Café",
-   "type": "bar",
+   "type": "club",
    "ville": "Monaco",
    "adresse": "11 Avenue Princesse Grace, 98000 Monaco",
    "instagram": "sasscafe",
@@ -1377,19 +1386,20 @@
    "score": 0.45999999999999996,
    "photo": "site/lieux/sasscafe-176.webp",
    "details": {
-    "le": "2026-11-09T19:59:29.344Z",
-    "styles": "Musique live · Hip-hop · Commercial",
-    "dress_code": "Chic Casual / Smart Elegant (shorts et chaussures ouvertes interdits pour les hommes)",
-    "horaires": "Lun–Dim · 20h30–3h/4h",
-    "prix_verre": "cocktail 30–35 €",
-    "entree": "Sans droit d'entrée fixe, sur réservation ou consommation au bar",
-    "age_min": "18 ans (dès 23h45)",
+    "le": "2026-11-13T16:53:19.635Z",
+    "styles": "",
+    "dress_code": "",
+    "horaires": "mar–dim 20h30–3h (club jusqu'à 4h selon les soirs)",
+    "prix_verre": "",
+    "entree": "",
+    "age_min": "",
     "sources": [
-     "https://www.sasscafe.com/monaco/",
-     "https://www.sasscafe.com/contact/",
-     "https://monacopratique.com",
-     "https://avoroyale.com"
-    ]
+     "https://www.access.sb/fr/monaco/restaurants/diner/sass-cafe",
+     "https://www.access.sb/fr/monaco/bars-clubs/clubs/sass-cafe/",
+     "https://www.yachtcharterfleet.com/monaco/eat-and-drink/restaurants/sass-cafe.htm",
+     "https://www.monaco-tribune.com/en/listing/sass-cafe-club/"
+    ],
+    "relu": "verification 2026-11-13"
    },
    "soirs": [],
    "instagram_non_verifie": "sasscafe"
@@ -1414,18 +1424,19 @@
    "score": 0.30000000000000004,
    "photo": "site/lieux/larascassemc-176.webp",
    "details": {
-    "le": "2026-11-10T10:45:32.154Z",
-    "styles": "Live music · House · EDM · Généraliste",
-    "dress_code": "Décontracté chic, tenue correcte exigée",
-    "horaires": "Mar–Jeu 17h30–03h · Ven 17h30–04h · Sam 19h–04h",
-    "prix_verre": "bière 5–12 € · cocktail 8–15 €",
-    "entree": "Gratuit (payant pour événements spéciaux et Grand Prix)",
-    "age_min": "18 ans",
+    "le": "2026-11-13T16:53:19.635Z",
+    "styles": "",
+    "dress_code": "",
+    "horaires": "mar–jeu 17h30–3h · ven 17h30–4h · sam 19h–4h",
+    "prix_verre": "",
+    "entree": "",
+    "age_min": "",
     "sources": [
-     "https://www.montecarlosbm.com/fr/bar-monaco/la-rascasse",
-     "https://asset.montecarlosbm.com/s3fs-public/media/import/documents/la_rascasse_cocktails_fr-en.pdf",
-     "https://www.instagram.com/larascassemc/"
-    ]
+     "https://www.montecarlosbm-corporate.com/wp-content/uploads/2026/04/mcsbm-pr-la-rascasse.pdf",
+     "https://media-trade.visitmonaco.com/en/editorial-resources/press-releases/after-four-months-of-renovations-la-rascasse-takes-a-new-direction",
+     "https://www.visitmonaco.com/en/enjoy/monaco-by-night/nightlife-and-parties/la-rascasse"
+    ],
+    "relu": "verification 2026-11-13"
    },
    "soirs": [],
    "instagram_non_verifie": "larascassemc",
@@ -1436,10 +1447,10 @@
    "nom": "Brasserie de Monaco",
    "type": "pub",
    "ville": "Monaco",
-   "adresse": "36 Route de la Piscine, 98000 Monaco",
+   "adresse": "36 route de la Piscine, Port Hercule (La Condamine), 98000 Monaco",
    "instagram": "",
    "site": "https://brasseriedemonaco.com/",
-   "description": "Microbrasserie artisanale sur le port avec retransmissions sportives et DJ sets commerciaux en soirée.",
+   "description": "Microbrasserie du port de Monaco brassant ses bières sur place, qui retransmet les grands événements sportifs sur grand écran et s'anime en soirée avec un DJ résident.",
    "soirees": [],
    "prochaines": [],
    "insta": null,
@@ -1447,19 +1458,20 @@
    "score": 0,
    "soirs": [],
    "details": {
-    "le": "2026-11-10T19:13:48.783Z",
-    "styles": "Généraliste · Pop · House",
-    "dress_code": "Casual / Smart Casual, tenue correcte exigée",
-    "horaires": "Lun–Dim · 12h–2h",
-    "prix_verre": "bière 5–9 € · cocktail 12–16 €",
-    "entree": "Gratuit",
+    "le": "2026-11-13T16:53:19.635Z",
+    "styles": "",
+    "dress_code": "",
+    "horaires": "",
+    "prix_verre": "",
+    "entree": "",
     "age_min": "",
     "sources": [
-     "https://brasseriedemonaco.com/",
-     "https://brasseriedemonaco.com/menu/",
-     "https://www.visitmonaco.com/fr/lieu/bars-et-discotheques/185560/brasserie-de-monaco",
-     "https://www.monaco-tribune.com/"
-    ]
+     "https://mapstr.com/place/Lufx3kWHxag",
+     "https://www.monaco-tribune.com/en/listing/brasserie-de-monaco/",
+     "https://worldtravelguide.net/guides/europe/monaco/monte-carlo/nightlife",
+     "https://news.mc/?p=32096"
+    ],
+    "relu": "verification 2026-11-13"
    },
    "instagram_non_verifie": "brasseriedemonaco"
   },
@@ -1470,7 +1482,7 @@
    "adresse": "6 Rue Suffren Reymond, 98000 Monaco",
    "instagram": "slammersmc",
    "site": "https://www.slammers-bar.com/",
-   "description": "Pub cosmopolite et décontracté à La Condamine servant bières et shooters sur fond de musique pop et rock.",
+   "description": "Pub de La Condamine, rue Suffren Reymond, avec happy hour en semaine.",
    "soirees": [],
    "prochaines": [],
    "insta": {
@@ -1484,19 +1496,19 @@
    "photo": "site/lieux/slammersmc-176.webp",
    "soirs": [],
    "details": {
-    "le": "2026-11-10T15:30:56.666Z",
-    "styles": "Pop · Rock · Acoustique",
-    "dress_code": "Décontracté",
-    "horaires": "Lun–Dim · 16h–1h",
-    "prix_verre": "Bière 6–9 € · cocktail 14–16 €",
-    "entree": "Gratuit",
+    "le": "2026-11-13T16:53:19.635Z",
+    "styles": "",
+    "dress_code": "",
+    "horaires": "lun–dim 16h–1h",
+    "prix_verre": "",
+    "entree": "",
     "age_min": "",
     "sources": [
-     "https://www.myguidemonaco.com/nightlife/slammers",
-     "https://www.restaurants-montecarlo.com/place/slammers-restaurant-in-monaco-382",
-     "https://monacoviews.com/directory/slammers/",
-     "https://poivretsel-riviera.com/slammers-bar-a-bieres-et-cocktails-98000-monaco/"
-    ]
+     "https://www.monacobusinessdirectory.com/en/directory/leisure-outings/bar/slammers.html",
+     "https://vymaps.com/MC/Slammers-1121379/",
+     "https://www.monaco-tribune.com/en/discover-monaco/going-out/bars-pubs/"
+    ],
+    "relu": "verification 2026-11-13"
    },
    "instagram_non_verifie": "slammersmc",
    "lat": 43.7341336,
@@ -1504,12 +1516,12 @@
   },
   {
    "nom": "Amazónico Monte-Carlo",
-   "type": "rooftop",
+   "type": "club",
    "ville": "Monaco",
    "adresse": "Place du Casino, 98000 Monaco",
    "instagram": "",
    "site": "https://www.amazonico.com/monte-carlo",
-   "description": "Rooftop sur le Café de Paris au décor de jungle proposant cocktails créatifs et musique deep house aux sonorités tropicales.",
+   "description": "Restaurant-bar festif au thème amazonien installé sur le toit du Café de Paris, place du Casino, avec DJ résident ou invité aux sonorités électro-tropicales (électro et rythmes latino-américains).",
    "soirees": [],
    "prochaines": [],
    "insta": null,
@@ -1517,19 +1529,20 @@
    "score": 0,
    "soirs": [],
    "details": {
-    "le": "2026-11-10T19:13:48.783Z",
-    "styles": "Jazz latino · Bossa Nova · Elec-tropical · House",
-    "dress_code": "Smart Elegant (sportswear, casquettes, shorts et chaussures ouvertes pour hommes interdits)",
-    "horaires": "Lun, Jeu, Dim 18h–1h · Ven–Sam 18h–2h",
-    "prix_verre": "bière 10–12 € · cocktail 18–29 €",
-    "entree": "Gratuit (consommation obligatoire)",
-    "age_min": "18 ans",
+    "le": "2026-11-13T16:53:19.635Z",
+    "styles": "",
+    "dress_code": "",
+    "horaires": "jeu 18h–2h · ven–sam 18h–3h · dim–mar 18h–2h",
+    "prix_verre": "",
+    "entree": "",
+    "age_min": "",
     "sources": [
-     "https://www.amazonicorestaurant.com/monte-carlo",
-     "https://www.amazonicorestaurant.com/contact/",
-     "https://www.amazonicorestaurant.com/wp-content/uploads/2024/09/Amazonico-Monte-Carlo-Cocktail-Menu.pdf",
-     "https://www.montecarlosbm.com/fr/restaurant-monaco/amazonico-monte-carlo"
-    ]
+     "https://meetings.montecarlosbm.com/en/restaurants/amazonico-monte-carlo",
+     "https://www.montecarlosbm.com/fr/restaurant-monaco/amazonico-monte-carlo",
+     "https://www.monaco-tribune.com/2025/07/notre-selection-des-meilleurs-rooftops-de-monaco/",
+     "https://monacolife.net/welcome-to-the-jungle-first-look-at-the-cafe-de-paris-new-rooftop-restaurant-the-amazonico"
+    ],
+    "relu": "verification 2026-11-13"
    },
    "instagram_non_verifie": "amazonicomontecarlo"
   },
@@ -1540,7 +1553,7 @@
    "adresse": "Fairmont Monte Carlo (7e étage), 12 Avenue des Spélugues, 98000 Monaco",
    "instagram": "",
    "site": "https://monte-carlo.nikkibeach.com/",
-   "description": "Beach club perché au 7e étage autour de la piscine avec sets house assurés par des DJ résidents.",
+   "description": "Beach club saisonnier autour de la piscine sur le toit du Fairmont Monte-Carlo, ouvert tous les jours de 8h à 20h en saison.",
    "soirees": [],
    "prochaines": [],
    "insta": null,
@@ -1549,19 +1562,20 @@
    "photo": "site/lieux/site-65f904fce2e9-176.webp",
    "soirs": [],
    "details": {
-    "le": "2026-11-10T19:13:48.783Z",
-    "styles": "House · Deep House · Tropical House · Lounge",
-    "dress_code": "Beach chic resort wear (vêtements de sport interdits, tenue correcte au restaurant)",
-    "horaires": "Lun–Dim 11h–20h (en saison)",
-    "prix_verre": "bière 12–16 € · cocktail 20–26 €",
-    "entree": "Gratuit (consommation ou réservation obligatoire, minimum spend pour les transats)",
-    "age_min": "18 ans (mineurs accompagnés acceptés au restaurant)",
+    "le": "2026-11-13T16:53:19.635Z",
+    "styles": "",
+    "dress_code": "",
+    "horaires": "lun–dim 8h–20h (en saison, d'avril à septembre)",
+    "prix_verre": "",
+    "entree": "",
+    "age_min": "",
     "sources": [
-     "https://monte-carlo.nikkibeach.com/",
-     "https://monte-carlo.nikkibeach.com/reservation-door-policy/",
-     "https://www.fairmont.com/fr/hotels/fairmont-monte-carlo/dining/nikki-beach/",
-     "https://restaurants.accor.com/fr/restaurant-A598_R003-nikki-beach-fairmont-mc-monte-carlo.shtml"
-    ]
+     "https://www.fairmont.com/monte-carlo/dining/nikki-beach-at-fairmont-monte-carlo",
+     "https://nikkibeach.com/monte-carlo",
+     "https://www.visitmonaco.com/en/enjoy/beaches-and-swimming-pools/hotel-swimming-pools-in-monaco",
+     "https://monacolife.net/fairmont-monte-carlo-reopens-rooftop-venues-for-summer-spotlighting-amu-restaurant-and-nikki-beach"
+    ],
+    "relu": "verification 2026-11-13"
    },
    "instagram_non_verifie": "nikkibeachmonaco"
   },
@@ -1572,7 +1586,7 @@
    "adresse": "Monte-Carlo Bay Hotel & Resort, 40 Avenue Princesse Grace, 98000 Monaco",
    "instagram": "blueginmonaco",
    "site": "https://www.montecarlosbm.com/fr/bar-monaco/le-blue-gin",
-   "description": "Bar lounge avec terrasse sur la mer proposant des cocktails et une ambiance musicale nu-disco et chill-house.",
+   "description": "Bar lounge du Monte-Carlo Bay Hotel & Resort avec terrasse face à la mer, ouvert tous les soirs.",
    "soirees": [],
    "prochaines": [],
    "insta": {
@@ -1586,19 +1600,19 @@
    "photo": "site/lieux/blueginmonaco-176.webp",
    "soirs": [],
    "details": {
-    "le": "2026-11-10T15:30:56.666Z",
-    "styles": "Lounge · Deep house · Funk · Disco",
-    "dress_code": "Chic décontracté / Élégant (smart casual). Tenues de plage, survêtements et tongs interdits.",
-    "horaires": "Lun–Dim · 18h30–1h30",
-    "prix_verre": "soft 8–12 € · bière 12–16 € · cocktail 20–26 €",
-    "entree": "Entrée libre et gratuite (consommation obligatoire)",
-    "age_min": "Tout public (18 ans pour l'alcool)",
+    "le": "2026-11-13T16:53:19.635Z",
+    "styles": "",
+    "dress_code": "",
+    "horaires": "lun–dim 18h30–1h30",
+    "prix_verre": "",
+    "entree": "",
+    "age_min": "",
     "sources": [
      "https://www.montecarlosbm.com/fr/bar-nightclub-monaco/le-blue-gin",
-     "https://www.instagram.com/blueginmonaco/",
-     "https://www.visitmonaco.com/fr/lieu/bars-et-discotheques/188240/le-blue-gin",
-     "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFvSXSQOSmExzUGosru_Y9OE-BBZ16D5oes5JdmUqNOnSQxJ8XoZvWfdOFNt5lSmtEiEdXpLkroM9oPoP42DgsQb66plIsARGsR0ZVr5BS8F5nX4GzhoD6aMC3ZphgEGOV6adQ3GxWeHD8OR9Qh7dE="
-    ]
+     "https://www.montecarlosbm.com/en/bar-nightclub-monaco/the-blue-gin",
+     "https://www.montecarlosbm.com/fr/agenda/pop-up-hivernal-au-blue-gin"
+    ],
+    "relu": "verification 2026-11-13"
    },
    "instagram_non_verifie": "blueginmonaco"
   },
@@ -1606,10 +1620,10 @@
    "nom": "Rooftop Basta Pinsa",
    "type": "rooftop",
    "ville": "Beausoleil",
-   "adresse": "12 Avenue d'Alsace, 06240 Beausoleil",
+   "adresse": "16 avenue d'Alsace, 06240 Beausoleil",
    "instagram": "bastapinsa",
    "site": "https://bastapinsa.com/",
-   "description": "Rooftop surplombant la principauté idéal pour partager des pinsas et écouter des DJ sets lounge et pop.",
+   "description": "Rooftop de Beausoleil avec vue sur Monaco et le port Hercule, spécialisé en pinsa romaine, avec DJ le samedi soir.",
    "soirees": [],
    "prochaines": [],
    "insta": {
@@ -1623,19 +1637,18 @@
    "photo": "site/lieux/bastapinsa-176.webp",
    "soirs": [],
    "details": {
-    "le": "2026-11-10T15:30:56.666Z",
-    "styles": "Lounge · Chillout",
-    "dress_code": "Casual chic recommandé",
-    "horaires": "Mar–Sam · 18h–23h30 (en saison)",
-    "prix_verre": "cocktail 10–15 €",
-    "entree": "Gratuit",
-    "age_min": "Aucun",
+    "le": "2026-11-13T16:53:19.635Z",
+    "styles": "",
+    "dress_code": "",
+    "horaires": "lun–sam 17h–22h30",
+    "prix_verre": "",
+    "entree": "",
+    "age_min": "",
     "sources": [
-     "https://bastapinsa.com/",
-     "https://alfredhotels.com/fr/basta-pinsa/",
-     "https://www.privateaser.com/lieu/63976-rooftop-basta-pinsa",
-     "https://www.myguidemonaco.com/restaurants/rooftop-basta-pinsa"
-    ]
+     "https://monacolife.net/the-rooftop-spot-above-monaco-where-the-view-is-the-same-but-the-bill-is-not/",
+     "https://www.privateaser.com/lieu/63976-rooftop-basta-pinsa"
+    ],
+    "relu": "verification 2026-11-13"
    },
    "instagram_non_verifie": "bastapinsa"
   },
@@ -1704,12 +1717,12 @@
   },
   {
    "nom": "Inky Bar",
-   "type": "bar",
+   "type": "beach-club",
    "ville": "Menton",
-   "adresse": "Esplanade des Sablettes (Voûte 4), 06500 Menton",
+   "adresse": "Quai Gordon Bennett, Esplanade des Sablettes, 06500 Menton",
    "instagram": "inkybarmenton",
    "site": "https://www.ports-menton.fr/activites-commerces/inky-bar/",
-   "description": "Bar festif en front de mer accueillant la jeunesse locale sur des sets DJ reggaeton, commercial et électro.",
+   "description": "Bar à cocktails et tapas face à la mer aux Sablettes, lounge en journée et plus festif le soir avec des DJ sets électro.",
    "soirees": [],
    "prochaines": [],
    "insta": {
@@ -1723,19 +1736,19 @@
    "photo": "site/lieux/inkybarmenton-176.webp",
    "soirs": [],
    "details": {
-    "le": "2026-11-10T15:30:56.666Z",
-    "styles": "Lounge · Électro",
+    "le": "2026-11-13T16:53:19.635Z",
+    "styles": "",
     "dress_code": "",
-    "horaires": "Lun–Dim 19h–4h (en saison) · Ven–Sam 22h–4h",
-    "prix_verre": "bière 6–9 € · cocktail dès 9 €",
-    "entree": "Gratuit",
+    "horaires": "18h–2h (jours non précisés) · été (1er juil.–15 sept.) 11h–3h30",
+    "prix_verre": "",
+    "entree": "",
     "age_min": "",
     "sources": [
-     "https://www.ports-menton.fr/activites-commerces/inky-bar/",
-     "https://www.provence-alpes-cotedazur.com",
-     "https://www.menton-riviera-merveilles.fr",
-     "https://www.instagram.com/inkybarmenton/"
-    ]
+     "https://cotedazurfrance.com/offers/inky-bar-tapas-bar-menton-en-3792024",
+     "https://www.privateaser.com/lieu/57539-inky-bar",
+     "https://www.sluurpy.fr/menton/restaurant/7973210/inky-bar"
+    ],
+    "relu": "verification 2026-11-13"
    },
    "instagram_non_verifie": "inkybarmenton"
   },
@@ -1743,10 +1756,10 @@
    "nom": "Le New Pub",
    "type": "pub",
    "ville": "Menton",
-   "adresse": "28 Quai Bonaparte, 06500 Menton",
+   "adresse": "51 quai Bonaparte, 06500 Menton",
    "instagram": "",
    "site": "https://www.facebook.com/lenewpubmenton/",
-   "description": "Pub sous les arcades face à la mer proposant bières pression, retransmissions sportives, concerts live et sets pop-rock.",
+   "description": "Bar à bières d'inspiration irlandaise sous les arcades du quai Bonaparte, avec concerts gratuits le week-end, DJ sets et matchs retransmis.",
    "soirees": [],
    "prochaines": [],
    "insta": null,
@@ -1755,19 +1768,18 @@
    "photo": "site/lieux/site-c8f5f79ed553-176.webp",
    "soirs": [],
    "details": {
-    "le": "2026-11-10T19:13:48.783Z",
-    "styles": "Rock · Pop · Variété",
+    "le": "2026-11-13T16:53:19.635Z",
+    "styles": "",
     "dress_code": "",
-    "horaires": "Mer–Dim · 16h–2h",
-    "prix_verre": "Bière 6 € · Cocktail 8 €",
-    "entree": "Gratuit",
+    "horaires": "mer–dim 16h–2h",
+    "prix_verre": "",
+    "entree": "",
     "age_min": "",
     "sources": [
-     "https://www.menton-riviera-merveilles.fr",
-     "https://www.provence-alpes-cotedazur.com",
-     "https://www.privateaser.com/lieu/59343-le-new-pub",
-     "https://www.pagesjaunes.fr"
-    ]
+     "https://cotedazurfrance.fr/offres/le-new-pub-menton-fr-3791214",
+     "https://provence-alpes-cotedazur.com/en/plan-your-stay/useful-information/all-practical-services/le-new-pub-menton-en-3791177"
+    ],
+    "relu": "verification 2026-11-13"
    },
    "instagram_non_verifie": "lenewpubmenton"
   },
@@ -1775,10 +1787,10 @@
    "nom": "Les Incompris",
    "type": "lounge",
    "ville": "Menton",
-   "adresse": "Promenade de la Mer (Esplanade des Sablettes), 06500 Menton",
+   "adresse": "8 quai Gordon Bennett (esplanade des Sablettes), 06500 Menton",
    "instagram": "lesincompris_menton",
    "site": "https://lesincompris.fr/",
-   "description": "Restaurant et bar lounge en bord de mer offrant tapas, cocktails signature et soirées animées par des DJ sets house.",
+   "description": "Restaurant et bar lounge de l'esplanade des Sablettes, musique lounge en journée puis DJ sets et soirées à thème le soir.",
    "soirees": [],
    "prochaines": [],
    "insta": {
@@ -1792,30 +1804,30 @@
    "photo": "site/lieux/lesincompris_menton-176.webp",
    "soirs": [],
    "details": {
-    "le": "2026-11-10T15:30:56.666Z",
-    "styles": "Lounge · Électro · House · Latino",
-    "dress_code": "Chic et décontracté",
-    "horaires": "Mar–Sam 9h30–2h30 · Dim 9h30–22h",
+    "le": "2026-11-13T16:53:19.635Z",
+    "styles": "",
+    "dress_code": "",
+    "horaires": "mar–sam 9h30–2h · dim 9h30–22h",
     "prix_verre": "",
-    "entree": "Gratuit",
-    "age_min": "Aucun",
+    "entree": "",
+    "age_min": "",
     "sources": [
-     "https://lesincompris.com/",
-     "https://www.instagram.com/lesincompris_menton/",
-     "https://www.menton-riviera-merveilles.fr/",
-     "https://www.thefork.fr/restaurant/les-incompris-r705649"
-    ]
+     "https://provence-alpes-cotedazur.com/en/plan-your-stay/restaurants/all-restaurants/restaurant-les-incompris-maison-martin-menton-en-2902571",
+     "https://rankeat.fr/restaurants/les-incompris-menton",
+     "https://www.privateaser.com/lieu/57104-les-incompris"
+    ],
+    "relu": "verification 2026-11-13"
    },
    "instagram_non_verifie": "lesincompris_menton"
   },
   {
    "nom": "Rhumerie Ferdinand",
-   "type": "bar-a-cocktails",
+   "type": "bar",
    "ville": "Menton",
    "adresse": "17 Place Fontana, 06500 Menton",
    "instagram": "",
    "site": "https://www.rhumerieferdinand.com/",
-   "description": "Bar chaleureux du Vieux-Port spécialisé dans les rhums arrangés sur des rythmes tropicaux, funk et latino.",
+   "description": "Rhumerie de la place Fontana à Menton, ouverte en soirée du mardi au samedi.",
    "soirees": [],
    "prochaines": [],
    "insta": null,
@@ -1823,19 +1835,18 @@
    "score": 0,
    "soirs": [],
    "details": {
-    "le": "2026-11-10T19:43:02.314Z",
-    "styles": "Musique antillaise · World music · Rock",
-    "dress_code": "Aucun (tenue décontractée)",
-    "horaires": "Mar–Jeu 18h–0h30 · Ven–Sam 18h–2h",
-    "prix_verre": "bière 5–8 € · cocktail 11–12 €",
-    "entree": "Gratuit",
+    "le": "2026-11-13T16:53:19.635Z",
+    "styles": "",
+    "dress_code": "",
+    "horaires": "mar–jeu 18h–0h30 · ven–sam 18h–2h",
+    "prix_verre": "",
+    "entree": "",
     "age_min": "",
     "sources": [
-     "https://www.rhumerieferdinand.com/",
-     "https://www.rhumerieferdinand.com/la-carte",
-     "https://www.rhumerieferdinand.com/les-soirees",
-     "https://www.menton-riviera-merveilles.fr/bars-restaurants/bar-a-vin-rhumerie-ferdinand-menton-fr-6251812/"
-    ]
+     "https://cotedazurfrance.fr/offres/bar-a-vin-rhumerie-ferdinand-menton-fr-3823446",
+     "https://cotedazurfrance.com/offers/wine-bar-rhumerie-ferdinand-menton-en-3823446/"
+    ],
+    "relu": "verification 2026-11-13"
    },
    "instagram_non_verifie": "rhumerie_ferdinand"
   },
@@ -1846,7 +1857,7 @@
    "adresse": "5 Rue de la République (7e étage), 06500 Menton",
    "instagram": "",
    "site": "https://www.hotel-med-menton.com/fr/bar-rooftop.html",
-   "description": "Bar perché au septième étage avec vue panoramique servant cocktails et tapas dans une ambiance chill-out.",
+   "description": "Bar au 7e étage du Best Western Hôtel Méditerranée, avec vue panoramique sur la ville, la montagne et la mer ; restaurant sur le toit en été.",
    "soirees": [],
    "prochaines": [],
    "insta": null,
@@ -1854,19 +1865,19 @@
    "score": 0,
    "soirs": [],
    "details": {
-    "le": "2026-11-10T19:43:02.314Z",
-    "styles": "Lounge · Chillout · Pop",
-    "dress_code": "Tenue correcte / chic décontractée d'usage",
-    "horaires": "Lun–Dim · 17h–23h",
-    "prix_verre": "bière et cocktail 9–14 €",
-    "entree": "Gratuit",
-    "age_min": "Aucun",
+    "le": "2026-11-13T16:53:19.635Z",
+    "styles": "",
+    "dress_code": "",
+    "horaires": "lun–dim 17h–23h",
+    "prix_verre": "",
+    "entree": "",
+    "age_min": "",
     "sources": [
-     "https://www.hotel-med-menton.com/fr/bar-rooftop.html",
-     "https://www.hotel-med-menton.com/fr/actualites/soirees-rooftop-musique-live-menton.html",
-     "https://www.hotel-med-menton.com/fr/restaurant-menton.html",
-     "https://www.instagram.com/hotelmediterraneementon"
-    ]
+     "https://med-menton.agencewebcom.com/en/rooftop-bar",
+     "https://cotedazurfrance.com/offers/afterwork-afterbeach-at-the-rooftop-of-the-mediterranean-menton-en-3784732",
+     "https://www.france.fr/fr/article/rooftops-cote-azur/"
+    ],
+    "relu": "verification 2026-11-13"
    },
    "instagram_non_verifie": "hotelmediterraneementon"
   },
@@ -1874,10 +1885,10 @@
    "nom": "Boka Club del Magot",
    "type": "club",
    "ville": "Toulon",
-   "adresse": "3261 Avenue de la Résistance, 83000 Toulon",
+   "adresse": "3261 avenue de la Résistance, 83100 Toulon",
    "instagram": "",
    "site": "https://www.facebook.com/bokaclubdelmagot",
-   "description": "Club historique proposant afterwork, karaoké et soirées clubbing aux rythmes généralistes, urbains et latino.",
+   "description": "Discothèque et club karaoké en haut de la corniche du Mourillon, avec soirées DJ et terrasse.",
    "soirees": [
     "urban-shatta-2026-11-14",
     "before-pacific-neon-night-2026-11-21",
@@ -1921,19 +1932,20 @@
     ]
    ],
    "details": {
-    "le": "2026-11-10T19:43:02.314Z",
-    "styles": "Afrobeat · Zouk · Dancehall · Hip-hop",
-    "dress_code": "Tenue correcte exigée",
-    "horaires": "Jeu–Sam · 00h–5h",
+    "le": "2026-11-13T16:53:19.635Z",
+    "styles": "",
+    "dress_code": "",
+    "horaires": "",
     "prix_verre": "",
-    "entree": "Gratuit hors événements · Prévente 5–15 € · Sur place 10–20 €",
-    "age_min": "18 ans",
+    "entree": "",
+    "age_min": "",
     "sources": [
-     "https://shotgun.live/venues/boka-club-d-el-magot",
-     "https://www.instagram.com/boka_club_del_magot",
-     "https://www.bizouk.com",
-     "https://www.clublemagot.fr"
-    ]
+     "https://www.arrivalguides.com/fr/Travelguide/TOULON/barsandnightlife/boka-club-del-magot-le-magot-88710",
+     "https://www.fodors.com/world/europe/france/provence/places/aix-marseille-and-the-central-coast/toulon/things-to-do/nightlife",
+     "https://www.schlouk-map.com/fr/places/club-le-magot",
+     "https://wanderlog.com/list/geoCategory/1842613"
+    ],
+    "relu": "verification 2026-11-13"
    }
   },
   {
@@ -1943,7 +1955,7 @@
    "adresse": "1 Boulevard Pierre Toesca, 83000 Toulon",
    "instagram": "",
    "site": "https://boysparadise.fr/",
-   "description": "Discothèque festive en centre-ville animée par des drag shows et des sets house, électro et pop.",
+   "description": "Club gay historique du centre de Toulon, qui accueille aussi des soirées queer (ex. Dérapage).",
    "soirees": [],
    "prochaines": [],
    "insta": null,
@@ -1970,12 +1982,12 @@
   },
   {
    "nom": "Le Barathym",
-   "type": "bar",
+   "type": "pub",
    "ville": "Toulon",
    "adresse": "32 Boulevard Docteur Cuneo, 83000 Toulon",
    "instagram": "lebarathymtoulon",
    "site": "https://www.facebook.com/lebarathym.mourillon",
-   "description": "Bar festif du Mourillon servant bières et cocktails avec DJ sets et musique live.",
+   "description": "Bar musical du Mourillon (ancien Bar à Thym) avec terrasse, concerts et DJ sets, servant bières, rhums, whiskies et tapas.",
    "partenaire": true,
    "photo": "site/partenaires/023-176.webp",
    "soirees": [
@@ -2001,19 +2013,20 @@
     ]
    ],
    "details": {
-    "le": "2026-11-10T19:43:02.314Z",
-    "styles": "Rock · Pop · Électro · Latino",
+    "le": "2026-11-13T16:53:19.635Z",
+    "styles": "",
     "dress_code": "",
-    "horaires": "Dim–Mer 17h30–2h · Jeu–Sam 17h30–4h",
-    "prix_verre": "bière 4–7,10 €",
-    "entree": "Gratuit",
+    "horaires": "",
+    "prix_verre": "",
+    "entree": "",
     "age_min": "",
     "sources": [
-     "https://linktr.ee/lebarathym",
-     "https://www.facebook.com/lebarathym.mourillon",
-     "https://provencemed.com/activite/le-barathym",
-     "https://www.petitfute.com/v33722-toulon-83000/c1171-visites-points-d-interet/c946-artisanat-produit-du-terroir-visite-d-entreprise/c949-brasserie-microbrasserie/189709-le-bar-a-thym.html"
-    ]
+     "https://provence-alpes-cotedazur.com/en/things-to-do/leisure-relaxation/all-relaxation-and-leisure-activities/le-barathym-toulon-en-4722898/",
+     "https://www.schlouk-map.com/fr/places/le-barathym",
+     "https://www.privateaser.com/lieu/42109-le-barathym",
+     "https://www.arrivalguides.com/fr/Travelguide/TOULON/barsandnightlife/le-barathym-84591"
+    ],
+    "relu": "verification 2026-11-13"
    }
   },
   {
@@ -2023,7 +2036,7 @@
    "adresse": "57 Rue Lamalgue, 83000 Toulon",
    "instagram": "",
    "site": "https://www.lespotmourillon.fr/",
-   "description": "Pub convivial proposant bières artisanales, tournois de fléchettes, pizzas et DJ sets le week-end.",
+   "description": "Bar festif du Mourillon avec fléchettes, retransmissions sportives et pizzas (carte A Tavola).",
    "soirees": [],
    "prochaines": [],
    "insta": null,
@@ -2031,29 +2044,29 @@
    "score": 0,
    "soirs": [],
    "details": {
-    "le": "2026-11-10T19:43:02.314Z",
-    "styles": "House · Afro House · Rock · Pop-Rock",
-    "dress_code": "Décontracté (tenue correcte exigée pour certains événements)",
-    "horaires": "Mar–Mer 18h–1h · Jeu–Sam 18h–2h · Dim 18h–1h",
-    "prix_verre": "bière 6–7 € · cocktail 10–11 €",
-    "entree": "Gratuit",
+    "le": "2026-11-13T16:53:19.635Z",
+    "styles": "",
+    "dress_code": "",
+    "horaires": "",
+    "prix_verre": "",
+    "entree": "",
     "age_min": "",
     "sources": [
-     "https://shotgun.live/fr/venues/le-spot-mourillon",
      "https://www.privateaser.com/lieu/43021-le-spot",
-     "https://shotgun.live/fr/events/le-boiler-du-spot",
-     "https://www.billetweb.fr/mistral-comedy-club"
-    ]
+     "https://provence-alpes-cotedazur.com/en/things-to-do/leisure-relaxation/all-relaxation-and-leisure-activities/casa-papa-toulon-en-4730056",
+     "https://www.eat-list.fr/toulon-83000/tapas-35/casa-papa-144212?menu=1"
+    ],
+    "relu": "verification 2026-11-13"
    }
   },
   {
    "nom": "Jeanne Cocktail Club",
    "type": "bar-a-cocktails",
    "ville": "Toulon",
-   "adresse": "36 Rue Victor Micholet, 83000 Toulon",
+   "adresse": "82 rue Alézard, place Saint-Vincent, 83000 Toulon",
    "instagram": "",
    "site": "https://www.jeannecocktailclub.com/",
-   "description": "Bar à cocktails de style speakeasy réputé pour ses créations mixologiques et son ambiance intimiste.",
+   "description": "Bar à cocktails de la place Saint-Vincent, lié à la distillerie toulonnaise Jeanne, classé 72e du Top 100 des French Bar Awards 2026.",
    "soirees": [],
    "prochaines": [],
    "insta": null,
@@ -2061,26 +2074,25 @@
    "score": 0,
    "soirs": [],
    "details": {
-    "le": "2026-11-10T21:15:53.769Z",
-    "styles": "Lounge · Acoustique",
+    "le": "2026-11-13T16:53:19.635Z",
+    "styles": "",
     "dress_code": "",
-    "horaires": "Mar–Mer 18h–23h · Jeu–Sam 18h–0h",
-    "prix_verre": "10–20 €",
-    "entree": "Gratuit",
+    "horaires": "",
+    "prix_verre": "",
+    "entree": "",
     "age_min": "",
     "sources": [
-     "https://www.distilleriejeanne.com/bar-a-cocktail/",
-     "https://toudulon.fr/distillerie-jeanne-a-toulon/",
-     "https://www.provence-med.com/",
-     "https://theglobaldrinker.com/bars/france/toulon/jeanne-cocktail-club/"
-    ]
+     "https://provence-alpes-cotedazur.com/en/things-to-do/leisure-relaxation/all-relaxation-and-leisure-activities/jeanne-cocktail-club-toulon-en-6434950/",
+     "https://provence-alpes-cotedazur.com/en/things-to-do/wine-and-gastronomy/all-wine-and-gastronomy-activities/jeanne-distillery-toulon-en-6498051/"
+    ],
+    "relu": "verification 2026-11-13"
    }
   },
   {
    "nom": "Le Rooftop du Grand Hôtel Dauphiné",
    "type": "rooftop",
    "ville": "Toulon",
-   "adresse": "10 bis Rue Berthelot, 83000 Toulon",
+   "adresse": "10 rue Berthelot, 83000 Toulon",
    "instagram": "",
    "site": "https://www.grandhoteldauphine.com/",
    "description": "Toit-terrasse avec mini-piscine offrant une vue sur les toits pour des apéros au coucher du soleil.",
@@ -2092,18 +2104,19 @@
    "photo": "site/lieux/site-d9be271c83b0-176.webp",
    "soirs": [],
    "details": {
-    "le": "2026-11-10T21:15:53.769Z",
-    "styles": "Lounge · House Lounge · Afro House",
-    "dress_code": "Chic et décontracté",
-    "horaires": "Mar–Sam · 19h30–0h (en saison)",
-    "prix_verre": "bière 7 € · cocktail 14 €",
-    "entree": "Gratuit pour les clients de l'hôtel, réservation avec crédit conso de 30 € pour les extérieurs",
+    "le": "2026-11-13T16:53:19.635Z",
+    "styles": "",
+    "dress_code": "",
+    "horaires": "",
+    "prix_verre": "",
+    "entree": "",
     "age_min": "",
     "sources": [
-     "https://www.grandhoteldauphine.com/rooftop-piscine-bar/",
-     "https://www.grandhoteldauphine.com/",
-     "https://www.provence-mediterranee-tourisme.com"
-    ]
+     "https://provence-alpes-cotedazur.com/en/things-to-do/leisure-relaxation/all-relaxation-and-leisure-activities/le-rooftop-du-grand-hotel-dauphine-toulon-en-4333960/",
+     "https://provence-alpes-cotedazur.com/sejourner/hebergements/tous-les-hebergements/hotels/grand-hotel-dauphine-boutique-hotel-suite-toulon-fr-2868303/",
+     "https://www.staycation.co/fr/hotels/grand-hotel-dauphine-boutique-hotel-suites-3090"
+    ],
+    "relu": "verification 2026-11-13"
    }
   },
   {
@@ -2113,7 +2126,7 @@
    "adresse": "715 Avenue Charles de Gaulle, 83500 La Seyne-sur-Mer",
    "instagram": "",
    "site": "https://www.no-stresss-discotheque.fr/",
-   "description": "Club nocturne organisant des soirées à thème au son de musiques urbaines, afro, amapiano et électro.",
+   "description": "Discothèque du quartier des Sablettes, avenue Charles-de-Gaulle.",
    "soirees": [],
    "prochaines": [],
    "insta": null,
@@ -2122,18 +2135,18 @@
    "photo": "site/lieux/site-cbc0bedf1201-176.webp",
    "soirs": [],
    "details": {
-    "le": "2026-11-10T21:15:53.769Z",
-    "styles": "Électro · Hip-hop · Afrobeat · R&B",
-    "dress_code": "Tenue correcte exigée (chic et soignée). Casquette, jogging et tenues de plage interdits.",
-    "horaires": "Jeu 23h–4h · Ven–Sam 23h50–5h · Dim 23h–4h · Mer–Dim 0h–5h (en saison)",
+    "le": "2026-11-13T16:53:19.635Z",
+    "styles": "",
+    "dress_code": "",
+    "horaires": "mer–dim 0h–5h (juil.–août) · ven–dim (hors saison, heures non publiées)",
     "prix_verre": "",
-    "entree": "10 € avec une consommation incluse",
-    "age_min": "18 ans",
+    "entree": "",
+    "age_min": "",
     "sources": [
-     "https://www.no-stresss-discotheque.fr/",
-     "https://www.provencemed.com/organisez-votre-sejour/fetes-et-manifestations/toutes-les-manifestations/no-stresss-la-seyne-sur-mer-fr-5381830/",
-     "https://www.provence-alpes-cotedazur.com/"
-    ]
+     "https://provence-alpes-cotedazur.com/que-faire/detente-et-loisirs/toutes-les-activites-detente-et-loisirs/no-stresss-la-seyne-sur-mer-fr-4728556/",
+     "https://provence-alpes-cotedazur.com/en/things-to-do/leisure-relaxation/all-relaxation-and-leisure-activities/no-stresss-la-seyne-sur-mer-en-4728556"
+    ],
+    "relu": "verification 2026-11-13"
    }
   },
   {
@@ -2168,12 +2181,12 @@
   },
   {
    "nom": "Madame aMore",
-   "type": "bar",
+   "type": "lounge",
    "ville": "Hyères",
-   "adresse": "15 Avenue du Docteur Robin (Port Saint-Pierre), 83400 Hyères",
+   "adresse": "15 avenue du Docteur Robin, Le Port, 83400 Hyères",
    "instagram": "",
    "site": "https://www.restaurantmadamem.fr/",
-   "description": "Bar festif et restaurant d'ambiance sur le port proposant cocktails et programmation musicale pop, funk et house.",
+   "description": "Restaurant du port d'Hyères (nommé « Madame M » dans les fiches officielles) proposant des spectacles de cabaret en live et des soirées dansantes.",
    "soirees": [],
    "prochaines": [],
    "insta": null,
@@ -2182,19 +2195,18 @@
    "photo": "site/lieux/site-9050ee7893a3-176.webp",
    "soirs": [],
    "details": {
-    "le": "2026-11-10T21:15:53.769Z",
-    "styles": "House · Techno · Funk · Années 80",
-    "dress_code": "Tenue correcte et soignée recommandée",
-    "horaires": "Dim–Jeu 9h–1h · Ven–Sam 9h–3h",
-    "prix_verre": "bière 4–8 € · cocktail 8–10 €",
-    "entree": "Gratuit (payant lors de certains événements)",
+    "le": "2026-11-13T16:53:19.635Z",
+    "styles": "",
+    "dress_code": "",
+    "horaires": "",
+    "prix_verre": "",
+    "entree": "",
     "age_min": "",
     "sources": [
-     "https://www.restaurantmadamem.fr/",
-     "https://www.restaurantmadamem.fr/bar-a-cocktail/",
-     "https://www.restaurantmadamem.fr/soirees-port-de-hyeres/",
-     "https://www.instagram.com/madameamorehyeres"
-    ]
+     "https://cotedazurfrance.fr/offres/madame-m-hyeres-fr-3813334/",
+     "https://provence-alpes-cotedazur.com/en/plan-your-stay/restaurants/all-restaurants/mrs-m-hyeres-en-3813194/"
+    ],
+    "relu": "verification 2026-11-13"
    }
   },
   {
@@ -2204,7 +2216,7 @@
    "adresse": "1550 Boulevard de la Marine (Plage de l'Ayguade), 83400 Hyères",
    "instagram": "",
    "site": "https://lepetitbainhyeres.fr/",
-   "description": "Lieu festif en bord de mer connu pour ses beach parties et ses soirées animées par des DJ sets électro.",
+   "description": "Restaurant et bar de plage sur l'Ayguade, ouvert toute l'année, avec DJ sets et soirées en saison.",
    "soirees": [],
    "prochaines": [],
    "insta": null,
@@ -2213,29 +2225,30 @@
    "photo": "site/lieux/site-931d00696249-176.webp",
    "soirs": [],
    "details": {
-    "le": "2026-11-10T21:15:53.769Z",
-    "styles": "Open Format · House · Hip-Hop · French Touch",
-    "dress_code": "Tenue correcte exigée en soirée, décontractée en journée",
-    "horaires": "Jeu 19h30–1h · Ven–Sam 12h–1h · Dim 12h–21h30",
-    "prix_verre": "mocktail 8 € · cocktail 10 €",
-    "entree": "Gratuit (10 € lors de certains événements)",
+    "le": "2026-11-13T16:53:19.635Z",
+    "styles": "",
+    "dress_code": "",
+    "horaires": "",
+    "prix_verre": "",
+    "entree": "",
     "age_min": "",
     "sources": [
-     "https://lepetitbainhyeres.fr/",
-     "https://lepetitbainhyeres.fr/bar-a-cocktail/",
-     "https://lepetitbainhyeres.fr/soirees-a-theme-beach-party-hyeres/",
-     "https://shotgun.live/fr/venues/le-petit-bain-hyeres"
-    ]
+     "https://cotedazurfrance.fr/offres/le-petit-bain-hyeres-fr-3572561/",
+     "https://mysunbed.com/fr/plage-privee/hyeres/le-petit-bain/",
+     "https://www.provenceholidays.com/en/beach-club/hyeres-le-petit-bain",
+     "https://provence-alpes-cotedazur.com/en/plan-your-stay/restaurants/all-restaurants/le-petit-bain-restaurant-hyeres-en-2889715"
+    ],
+    "relu": "verification 2026-11-13"
    }
   },
   {
    "nom": "Le Sax",
-   "type": "bar-a-cocktails",
+   "type": "bar",
    "ville": "Hyères",
-   "adresse": "Résidence Les Alizées, Port Saint-Pierre, 83400 Hyères",
+   "adresse": "Avenue du Docteur Robin, Résidence Les Alizées, Port Saint-Pierre, 83400 Hyères",
    "instagram": "",
    "site": "https://www.facebook.com/lesaxhyeres/",
-   "description": "Bar afterwork du port disposant d'une terrasse pour déguster bières locales, sushis et assister à des DJ sets.",
+   "description": "Bar du port Saint-Pierre avec terrasse face au port, proposant afterworks, soirées à thème, concerts et DJ sets.",
    "soirees": [],
    "prochaines": [],
    "insta": null,
@@ -2244,29 +2257,30 @@
    "photo": "site/lieux/site-a85f0832334c-176.webp",
    "soirs": [],
    "details": {
-    "le": "2026-11-10T21:15:53.769Z",
-    "styles": "Généraliste · Pop-rock · Latino",
-    "dress_code": "Tenue décontractée (aucun dress code officiel)",
-    "horaires": "Lun–Dim · 7h30–1h (jusqu'à 2h en saison)",
-    "prix_verre": "bière 6–9 € · cocktail 10–13 €",
-    "entree": "Gratuit",
+    "le": "2026-11-13T16:53:19.635Z",
+    "styles": "",
+    "dress_code": "",
+    "horaires": "",
+    "prix_verre": "",
+    "entree": "",
     "age_min": "",
     "sources": [
-     "https://www.petitfute.com/v33433-hyeres-83400/c1171-visites-points-d-interet/c958-bar-et-cafe/c959-bar-a-cocktail/391035-le-sax.html",
-     "https://www.provence-alpes-cotedazur.com/offre/le-sax-hyeres-fr-4718636/",
-     "https://check.fr/bars/le-sax/",
-     "https://www.pagesjaunes.fr/pros/52781446"
-    ]
+     "https://cotedazurfrance.fr/offres/le-sax-hyeres-fr-3010129/",
+     "https://cotedazurfrance.com/offers/sax-bar-hyeres-en-3010129",
+     "https://www.koifaire.com/paca/sax-92966.html",
+     "https://wanderlog.com/place/details/10695287/tap-room"
+    ],
+    "relu": "verification 2026-11-13"
    }
   },
   {
    "nom": "K27",
-   "type": "pub",
+   "type": "bar",
    "ville": "Six-Fours-les-Plages",
    "adresse": "2742 Avenue Président John Kennedy, 83140 Six-Fours-les-Plages",
    "instagram": "",
    "site": "https://k27.fr/",
-   "description": "Pub festif avec bières, burgers, retransmissions sportives et piste de danse animée par des soirées DJ ou SBK.",
+   "description": "Bar de Six-Fours proposant des soirées à thème (années 80-90 notamment).",
    "soirees": [],
    "prochaines": [],
    "insta": null,
@@ -2275,29 +2289,27 @@
    "photo": "site/lieux/site-c21eac0441ed-176.webp",
    "soirs": [],
    "details": {
-    "le": "2026-11-10T21:15:53.769Z",
-    "styles": "House · Electro · Hip-Hop · Reggaeton",
-    "dress_code": "Tenue correcte et décontractée",
-    "horaires": "Mar–Jeu 17h–1h · Ven 17h–1h (jusqu'à 3h selon soirées) · Sam 20h–3h · Dim 17h–1h",
+    "le": "2026-11-13T16:53:19.635Z",
+    "styles": "",
+    "dress_code": "",
+    "horaires": "",
     "prix_verre": "",
-    "entree": "Gratuit",
+    "entree": "",
     "age_min": "",
     "sources": [
-     "https://k27.fr/",
-     "https://shotgun.live/organizers/k27-sixfours",
-     "https://dance-events.fr/",
-     "https://airdancia.com/"
-    ]
+     "https://www.bottin.fr/annuaire/bar-a-six-fours-les-plages-83129.htm"
+    ],
+    "relu": "verification 2026-11-13"
    }
   },
   {
    "nom": "L'Eden Bar",
-   "type": "bar",
+   "type": "beach-club",
    "ville": "Six-Fours-les-Plages",
    "adresse": "933 Promenade Charles de Gaulle (Bonnegrâce), 83140 Six-Fours-les-Plages",
    "instagram": "",
    "site": "https://www.facebook.com/ledenbar.sixfours",
-   "description": "Bar en front de mer accueillant des concerts en direct, des soirées à thèmes et des ambiances dansantes.",
+   "description": "Bar festif de bord de mer sur la promenade Charles-de-Gaulle, reconnu depuis plus de 20 ans, dans le même ensemble que le Bistro Frégate et le MXO Rooftop.",
    "soirees": [],
    "prochaines": [],
    "insta": null,
@@ -2327,7 +2339,7 @@
    "adresse": "Plage de Portissol, Esplanade Frédéric Dumas, 83110 Sanary-sur-Mer",
    "instagram": "",
    "site": "https://www.le-bardo.com/",
-   "description": "Établissement surplombant la plage de Portissol proposant cocktails signatures et DJ sets électro et deep house.",
+   "description": "Restaurant-bar sur la plage de Portissol, avec DJ sets et concerts les vendredis et samedis soir à partir de 21 h 30.",
    "soirees": [],
    "prochaines": [],
    "insta": null,
@@ -2358,7 +2370,7 @@
    "adresse": "Plage de Portissol, 83110 Sanary-sur-Mer",
    "instagram": "",
    "site": "https://www.opetitmonde.fr/",
-   "description": "Terrasse aménagée sur les rochers offrant planches à partager, musique ensoleillée et apéros face à la mer.",
+   "description": "Restaurant de plage et petit hôtel sur la plage de Portissol, cuisine méditerranéenne et poisson, transats à réserver.",
    "soirees": [],
    "prochaines": [],
    "insta": null,
@@ -2366,19 +2378,19 @@
    "score": 0,
    "soirs": [],
    "details": {
-    "le": "2026-11-10T21:15:53.769Z",
-    "styles": "Lounge · House · Reggae",
+    "le": "2026-11-13T16:53:19.635Z",
+    "styles": "",
     "dress_code": "",
-    "horaires": "Lun–Dim · 8h30–1h (en saison) · Lun, Jeu–Dim · 9h–15h · 18h–0h",
-    "prix_verre": "mocktail 10 € · cocktail 12–14 €",
-    "entree": "Gratuit",
-    "age_min": "Aucun",
+    "horaires": "",
+    "prix_verre": "",
+    "entree": "",
+    "age_min": "",
     "sources": [
-     "https://opetitmonde.com/",
-     "https://www.provencesudsaintebaume.com/",
-     "https://mysunbed.com/",
-     "https://mapstr.com/"
-    ]
+     "https://provence-alpes-cotedazur.com/en/plan-your-stay/restaurants/all-restaurants/o-petit-monde-sanary-sur-mer-en-2891808",
+     "https://provence-alpes-cotedazur.com/sejourner/hebergements/tous-les-hebergements/hotels/o-petit-monde-sanary-sur-mer-fr-3272932/",
+     "https://mysunbed.com/en/france/sanary-sur-mer/ô-petit-monde/"
+    ],
+    "relu": "verification 2026-11-13"
    }
   },
   {
@@ -2388,7 +2400,7 @@
    "adresse": "898 Route du Beausset, 83150 Bandol",
    "instagram": "",
    "site": "https://sams-klub.com/",
-   "description": "Resto-club proposant des formules repas, des blind-tests et une piste de danse animée par des classiques pop et hits actuels.",
+   "description": "Restaurant de viandes en début de soirée qui devient bar et club plus tard, face au bowling de Bandol.",
    "soirees": [],
    "prochaines": [],
    "insta": null,
@@ -2414,12 +2426,12 @@
   },
   {
    "nom": "Le Spot (Hôtel Plein Large)",
-   "type": "lounge",
+   "type": "beach-club",
    "ville": "Bandol",
    "adresse": "12 Corniche Bonaparte, 83150 Bandol",
    "instagram": "",
    "site": "https://hotel-pleinlarge.com/",
-   "description": "Bar intimiste avec terrasse panoramique sur l'anse de Renécros, idéal pour boire un verre au son d'une musique lounge.",
+   "description": "Bar avec terrasse en bois face à la mer dans l'anse de Renécros, ouvert de 11 h au coucher du soleil selon la météo.",
    "soirees": [],
    "prochaines": [],
    "insta": null,
@@ -2427,28 +2439,29 @@
    "score": 0,
    "soirs": [],
    "details": {
-    "le": "2026-11-11T01:29:06.149Z",
-    "styles": "Lounge · Chillout",
-    "dress_code": "Casual chic (tenue de plage seule interdite)",
-    "horaires": "Lun–Dim · 11h–coucher du soleil",
-    "prix_verre": "cocktail 13–16 €",
-    "entree": "gratuit (consommation obligatoire)",
-    "age_min": "aucun",
+    "le": "2026-11-13T16:53:19.635Z",
+    "styles": "",
+    "dress_code": "",
+    "horaires": "lun–dim 11h–coucher du soleil (selon météo)",
+    "prix_verre": "",
+    "entree": "",
+    "age_min": "",
     "sources": [
-     "https://hotel-pleinlarge.com/",
-     "https://www.bandoltourisme.fr/commerce-et-service/le-spot/",
-     "https://www.provencesudsaintebaume.com/commerce-et-service/le-spot/"
-    ]
+     "https://www.bandoltourisme.fr/en/a-restaurant/the-spot/",
+     "https://provence-alpes-cotedazur.com/sejourner/restaurants/tous-les-restaurants/le-spot-bandol-fr-6239120/",
+     "https://www.fr.lastminute.com/hotel/france/bandol/hotel-plein-large_hid-893294"
+    ],
+    "relu": "verification 2026-11-13"
    }
   },
   {
    "nom": "Poupoune Bandol",
-   "type": "bar-a-cocktails",
+   "type": "bar",
    "ville": "Bandol",
    "adresse": "1 Quai Charles de Gaulle, 83150 Bandol",
    "instagram": "",
    "site": "https://www.facebook.com/poupounebandol",
-   "description": "Bar situé sur le port servant des cocktails créatifs et des tapas dans une ambiance musicale festive.",
+   "description": "Bar du port de Bandol, quai Charles-de-Gaulle, ouvert du matin jusque tard dans la nuit en haute saison.",
    "soirees": [],
    "prochaines": [],
    "insta": null,
@@ -2456,19 +2469,19 @@
    "score": 0,
    "soirs": [],
    "details": {
-    "le": "2026-11-11T01:29:06.149Z",
-    "styles": "Variété · Lounge",
-    "dress_code": "Tenue décontractée",
-    "horaires": "Lun–Dim 7h–3h (en saison) · Lun–Ven 8h–21h · Sam–Dim 7h–1h",
-    "prix_verre": "bière 4–7 € · cocktail 10–14 €",
-    "entree": "Gratuit",
-    "age_min": "Aucun",
+    "le": "2026-11-13T16:53:19.635Z",
+    "styles": "",
+    "dress_code": "",
+    "horaires": "lun–dim 7h–3h (haute saison) · lun–ven 8h–21h · sam–dim 7h–1h (basse saison)",
+    "prix_verre": "",
+    "entree": "",
+    "age_min": "",
     "sources": [
-     "https://www.bandoltourisme.fr/commerce-et-service/poupoune/",
+     "https://provence-alpes-cotedazur.com/en/offers/poupoune-bar-bandol-en-2882592/",
      "https://www.privateaser.com/lieu/57066-bar-poupoune",
-     "https://www.petitfute.com/v33722-bandol-83150/c1171-sports-loisirs/c580-sortir-boire-un-verre/c584-bar-a-cocktail/244301-poupoune.html",
-     "https://www.instagram.com/poupoune_bandol/"
-    ]
+     "https://www.bottin.fr/fiche-locale/dihdjeadhcdjjiahgfb--bar-poupoune--bandol.htm"
+    ],
+    "relu": "verification 2026-11-13"
    }
   }
  ],

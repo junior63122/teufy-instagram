@@ -1,183 +1,175 @@
 {
  "twiga-monte-carlo-monaco": {
-  "le": "2026-11-09T19:59:29.344Z",
-  "styles": "Deep House · Afro House · Tech-House · Hip-Hop",
-  "dress_code": "Chic et élégant. Tenues de sport et tongs interdites.",
-  "horaires": "Mer–Dim · 23h30–5h",
-  "prix_verre": "cocktail 20–25 €",
-  "entree": "Sur réservation (table/dîner) ou 20–40 € avec consommation sur place",
-  "age_min": "18 ans",
-  "sources": [
-   "https://twigaworld.com/montecarlo/",
-   "https://www.instagram.com/twigamontecarlo/",
-   "https://www.myguidenice.com/nightlife/twiga-monte-carlo",
-   "https://www.portpalace.com/"
-  ]
- },
- "jimmy-z-monte-carlo-monaco": {
-  "le": "2026-11-09T19:59:29.344Z",
-  "styles": "House · Tech House · Electro · Hip-hop",
-  "dress_code": "Smart chic / tenue très élégante exigée, baskets et tenues de sport interdites",
-  "horaires": "Jeu–Sam · 23h30–5h/6h",
-  "prix_verre": "Bière 15–25 € · cocktail 25–35 € · soft 10–15 €",
-  "entree": "20–65 € selon programmation",
-  "age_min": "18 ans",
-  "sources": [
-   "https://www.montecarlosbm.com/fr/bar-monaco/jimmy-z-monte-carlo",
-   "https://www.instagram.com/jimmyzmc/",
-   "https://www.visitmonaco.com/fr/lieu/bars-boites/188165/jimmy-z-monte-carlo",
-   "https://monacopratique.com"
-  ]
- },
- "la-mome-plage-cannes": {
-  "le": "2026-11-09T19:59:29.344Z",
-  "styles": "Lounge · Deep House · House · Nu-disco",
-  "dress_code": "Smart Riviera, chic et élégant",
-  "horaires": "Lun–Dim · 11h–23h30 (en saison)",
-  "prix_verre": "bière 10–14 € · cocktail 20–26 €",
-  "entree": "Gratuit (transats à partir de 70–90 €)",
-  "age_min": "Aucun (18 ans recommandé en soirée)",
-  "sources": [
-   "https://www.lamomeplage.com",
-   "https://lamomecannes.com",
-   "https://www.cannes-france.com",
-   "https://www.alotea.com"
-  ]
- },
- "sass-cafe-monaco": {
-  "le": "2026-11-09T19:59:29.344Z",
-  "styles": "Musique live · Hip-hop · Commercial",
-  "dress_code": "Chic Casual / Smart Elegant (shorts et chaussures ouvertes interdits pour les hommes)",
-  "horaires": "Lun–Dim · 20h30–3h/4h",
-  "prix_verre": "cocktail 30–35 €",
-  "entree": "Sans droit d'entrée fixe, sur réservation ou consommation au bar",
-  "age_min": "18 ans (dès 23h45)",
-  "sources": [
-   "https://www.sasscafe.com/monaco/",
-   "https://www.sasscafe.com/contact/",
-   "https://monacopratique.com",
-   "https://avoroyale.com"
-  ]
- },
- "high-club-nice": {
-  "le": "2026-11-09T19:59:29.344Z",
-  "styles": "Généraliste · Électro · Hip-Hop · Latino",
-  "dress_code": "Tenue soignée et branchée exigée, tenues de sport et casquettes interdites.",
-  "horaires": "Ven–Sam · 23h45–5h30",
-  "prix_verre": "soft 5–8 € · bière 7–10 € · cocktail 10–15 €",
-  "entree": "10–20 € avec conso",
-  "age_min": "18 ans",
-  "sources": [
-   "https://www.highclub.fr/",
-   "https://www.highclub.fr/wp-content/uploads/2022/08/map.png",
-   "https://www.instagram.com/highclubnice/",
-   "https://shotgun.live/fr/venues/high-club"
-  ]
- },
- "bocca-nissa-nice": {
-  "le": "2026-11-13T12:27:41.311Z",
+  "le": "2026-11-13T16:53:19.635Z",
   "styles": "",
   "dress_code": "",
-  "horaires": "lun–dim 12h–15h · lun–dim 19h–1h",
-  "prix_verre": "cocktail ~13 €",
+  "horaires": "",
+  "prix_verre": "",
   "entree": "",
   "age_min": "",
   "sources": [
-   "https://www.gillespudlowski.com/265637/restaurants/nice-cap-sur-bocca-nissa",
-   "https://mapstr.com/place/L7tgt4uE5T",
-   "https://www.privateaser.com/lieu/43407-bocca-nissa",
-   "https://cotedazurfrance.fr/offres/restaurant-bocca-nissa-nice-fr-3014514/"
+   "https://www.access.sb/en/monaco/bars-clubs/clubs/twiga/",
+   "https://www.clubbable.com/fr-FR/Monaco/Twiga-Monte-Carlo",
+   "https://www.monaco-tribune.com/en/listing/twiga-monte-carlo/",
+   "https://seemonaco.com/restaurants/twiga-restaurant-shisha-bar-and-nightclub-monte-carlo-698505"
   ],
-  "relu": "manuel"
+  "relu": "verification 2026-11-13"
  },
- "les-bains-deli-bo-villefranche-sur-mer": {
-  "le": "2026-11-13T12:27:41.311Z",
+ "jimmy-z-monte-carlo-monaco": {
+  "le": "2026-11-13T16:53:19.635Z",
   "styles": "",
   "dress_code": "",
-  "horaires": "lun–dim 8h–20h",
+  "horaires": "ven–sam 23h30–5h (mars–juin et sept.) · mer–sam dès 23h30 (juil.–août) · fermé oct.–fév. (sauf événements, ex. Nouvel An)",
   "prix_verre": "",
-  "entree": "Transat environ 30 €",
+  "entree": "",
+  "age_min": "",
+  "sources": [
+   "https://www.montecarlosbm.com/fr/nightlife/jimmyz-monte-carlo",
+   "https://www.montecarlosbm-corporate.com/wp-content/uploads/2026/04/mcsbm-press-release-jimmyz-monte-carlo-2026-season.pdf",
+   "https://media-trade.visitmonaco.com/en/editorial-resources/press-releases/with-a-mix-of-electronic-music-rap-and-disco-nights-jimmy-z-monte-carlo-promises-an-even-more-festive-season-in-2026",
+   "https://www.montecarlosbm.com/fr/inspiration/lhistoire-du-jimmyz-monte-carlo"
+  ],
+  "relu": "verification 2026-11-13"
+ },
+ "la-mome-plage-cannes": {
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "lun–dim midi (toute l'année) · dîner en saison estivale (heures non publiées)",
+  "prix_verre": "",
+  "entree": "",
+  "age_min": "",
+  "sources": [
+   "https://provence-alpes-cotedazur.com/sejourner/restaurants/tous-les-restaurants/la-mome-plage-cannes-fr-3623420/",
+   "https://en.cannes-france.com/offers/la-mome-plage-cannes-en-3605347/",
+   "https://www.gillespudlowski.com/?p=325646"
+  ],
+  "relu": "verification 2026-11-13"
+ },
+ "sass-cafe-monaco": {
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "mar–dim 20h30–3h (club jusqu'à 4h selon les soirs)",
+  "prix_verre": "",
+  "entree": "",
+  "age_min": "",
+  "sources": [
+   "https://www.access.sb/fr/monaco/restaurants/diner/sass-cafe",
+   "https://www.access.sb/fr/monaco/bars-clubs/clubs/sass-cafe/",
+   "https://www.yachtcharterfleet.com/monaco/eat-and-drink/restaurants/sass-cafe.htm",
+   "https://www.monaco-tribune.com/en/listing/sass-cafe-club/"
+  ],
+  "relu": "verification 2026-11-13"
+ },
+ "high-club-nice": {
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "ven–sam 23h45–5h30",
+  "prix_verre": "",
+  "entree": "",
+  "age_min": "",
+  "sources": [
+   "https://www.privateaser.com/lieu/46520-high-club",
+   "https://www.technoairlines.com/club/high-club-nice",
+   "https://www.rexby.com/TheTravelBunny/ttd/large-nightclub-with-multiple-rooms-on-the-seafront",
+   "https://www.pagesjaunes.fr/pros/07987572"
+  ],
+  "relu": "verification 2026-11-13"
+ },
+ "bocca-nissa-nice": {
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "",
+  "prix_verre": "",
+  "entree": "",
+  "age_min": "",
+  "sources": [
+   "https://cotedazurfrance.fr/offres/restaurant-bocca-nissa-nice-fr-3014514/",
+   "https://www.explorenicecotedazur.com/en/restaurant/restaurant-bocca-nissa/",
+   "https://en.lebonbon.fr/nice/gems/div-mouth-nice-rooftop-vegetable-court",
+   "https://www.gillespudlowski.com/?p=265637"
+  ],
+  "relu": "verification 2026-11-13"
+ },
+ "les-bains-deli-bo-villefranche-sur-mer": {
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "",
+  "prix_verre": "",
+  "entree": "",
   "age_min": "",
   "sources": [
    "https://www.gillespudlowski.com/174847/restaurants/villefranche-sur-mer-deli-bo-dans-le-bain",
    "https://mapstr.com/place/ErRGNoLjVWg",
-   "https://www.euansguide.com/venues/delibo-les-bains-plage-restaurant-villefranche-sur-mer-7623/information"
+   "https://www.euansguide.com/venues/delibo-les-bains-plage-restaurant-villefranche-sur-mer-7623"
   ],
-  "relu": "manuel"
+  "relu": "verification 2026-11-13"
  },
  "la-rascasse-monaco": {
-  "le": "2026-11-10T10:45:32.154Z",
-  "styles": "Live music · House · EDM · Généraliste",
-  "dress_code": "Décontracté chic, tenue correcte exigée",
-  "horaires": "Mar–Jeu 17h30–03h · Ven 17h30–04h · Sam 19h–04h",
-  "prix_verre": "bière 5–12 € · cocktail 8–15 €",
-  "entree": "Gratuit (payant pour événements spéciaux et Grand Prix)",
-  "age_min": "18 ans",
-  "sources": [
-   "https://www.montecarlosbm.com/fr/bar-monaco/la-rascasse",
-   "https://asset.montecarlosbm.com/s3fs-public/media/import/documents/la_rascasse_cocktails_fr-en.pdf",
-   "https://www.instagram.com/larascassemc/"
-  ]
- },
- "wayne-s-bar-nice": {
-  "le": "2026-11-10T10:45:32.154Z",
-  "styles": "Rock · Pop-rock · Dance",
-  "dress_code": "Décontracté",
-  "horaires": "Lun–Dim · 10h/12h–2h",
-  "prix_verre": "bière 4–8,50 € · cocktail 8–11 €",
-  "entree": "Gratuit",
-  "age_min": "18 ans",
-  "sources": [
-   "https://www.waynesbar-restaurant.com/",
-   "https://www.waynesbar-restaurant.com/carte-de-notre-pub",
-   "https://www.instagram.com/waynes_bar/",
-   "https://mistergoodbeer.com/"
-  ]
- },
- "blue-gin-monaco": {
-  "le": "2026-11-10T15:30:56.666Z",
-  "styles": "Lounge · Deep house · Funk · Disco",
-  "dress_code": "Chic décontracté / Élégant (smart casual). Tenues de plage, survêtements et tongs interdits.",
-  "horaires": "Lun–Dim · 18h30–1h30",
-  "prix_verre": "soft 8–12 € · bière 12–16 € · cocktail 20–26 €",
-  "entree": "Entrée libre et gratuite (consommation obligatoire)",
-  "age_min": "Tout public (18 ans pour l'alcool)",
-  "sources": [
-   "https://www.montecarlosbm.com/fr/bar-nightclub-monaco/le-blue-gin",
-   "https://www.instagram.com/blueginmonaco/",
-   "https://www.visitmonaco.com/fr/lieu/bars-et-discotheques/188240/le-blue-gin",
-   "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFvSXSQOSmExzUGosru_Y9OE-BBZ16D5oes5JdmUqNOnSQxJ8XoZvWfdOFNt5lSmtEiEdXpLkroM9oPoP42DgsQb66plIsARGsR0ZVr5BS8F5nX4GzhoD6aMC3ZphgEGOV6adQ3GxWeHD8OR9Qh7dE="
-  ]
- },
- "jimbaran-plage-golfe-juan": {
-  "le": "2026-11-10T15:30:56.666Z",
-  "styles": "Afro House · Deep House · House · Tech House",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
   "dress_code": "",
-  "horaires": "Dim–Jeu 10h–19h · Ven–Sam 10h–0h (en saison)",
+  "horaires": "mar–jeu 17h30–3h · ven 17h30–4h · sam 19h–4h",
   "prix_verre": "",
-  "entree": "Gratuit (bar/restaurant), soirées spéciales 15 €",
+  "entree": "",
   "age_min": "",
   "sources": [
-   "https://www.plage-golfe-juan.com/",
-   "https://shotgun.live/fr/venues/jimbaran-plage",
-   "https://cotedazurfrance.fr/offres/jimbaran-plage-vallauris-golfe-juan-fr-4261439/",
-   "https://mysunbed.com/fr/beach-club/jimbaran-plage-vallauris-golfe-juan/"
-  ]
+   "https://www.montecarlosbm-corporate.com/wp-content/uploads/2026/04/mcsbm-pr-la-rascasse.pdf",
+   "https://media-trade.visitmonaco.com/en/editorial-resources/press-releases/after-four-months-of-renovations-la-rascasse-takes-a-new-direction",
+   "https://www.visitmonaco.com/en/enjoy/monaco-by-night/nightlife-and-parties/la-rascasse"
+  ],
+  "relu": "verification 2026-11-13"
  },
- "o-sullivans-by-the-beach-mandelieu-la-napoule": {
-  "le": "2026-11-10T15:30:56.666Z",
-  "styles": "Pop-rock · Pop · Dance · R&B",
-  "dress_code": "Tenue correcte exigée (casual / soigné)",
-  "horaires": "Lun–Ven 17h–2h · Sam–Dim 12h–2h",
-  "prix_verre": "bière 4,20–9,50 € · cocktail 12–13 €",
-  "entree": "Gratuit",
-  "age_min": "18 ans (en soirée)",
+ "wayne-s-bar-nice": {
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "lun–dim 11h–2h",
+  "prix_verre": "",
+  "entree": "",
+  "age_min": "",
   "sources": [
-   "https://www.osullivans-pubs.com/pub/by-the-beach/",
-   "https://www.osullivans-pubs.com/faq/",
-   "https://www.osullivans-pubs.com/wp-content/uploads/2024/04/CARTE-BOISSONS_OSULLIVANS-1.pdf",
-   "https://shotgun.live/fr/venues/o-sullivans-mandelieu"
-  ]
+   "https://www.privateaser.com/lieu/46438-wayne-s-bar",
+   "https://www.schlouk-map.com/fr/places/waynes-bar",
+   "https://touchscreentravels.com/apps/nices-best/22073/waynes",
+   "https://www.pagesjaunes.fr/pros/07663308"
+  ],
+  "relu": "verification 2026-11-13"
+ },
+ "blue-gin-monaco": {
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "lun–dim 18h30–1h30",
+  "prix_verre": "",
+  "entree": "",
+  "age_min": "",
+  "sources": [
+   "https://www.montecarlosbm.com/fr/bar-nightclub-monaco/le-blue-gin",
+   "https://www.montecarlosbm.com/en/bar-nightclub-monaco/the-blue-gin",
+   "https://www.montecarlosbm.com/fr/agenda/pop-up-hivernal-au-blue-gin"
+  ],
+  "relu": "verification 2026-11-13"
+ },
+ "jimbaran-plage-golfe-juan": {
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "dim–mer 10h–20h · jeu–sam 10h–0h (saison, d'avril à mi-octobre)",
+  "prix_verre": "",
+  "entree": "",
+  "age_min": "",
+  "sources": [
+   "https://www.plageprivee.com/france/06-alpes-maritimes/golfe-juan/jimbaran-beach",
+   "https://cotedazurfrance.com/offers/jimbaran-plage-vallauris-golfe-juan-en-2828573/",
+   "https://www.tendancehotellerie.fr/articles-breves/communique-de-presse/20015-article/jimbaran-beach-evadez-vous-a-bali-a-10-minutes-de-cannes",
+   "https://www.vallaurisgolfejuan-tourisme.fr/restaurant/jimbaran-beach-opening-date-on-opening-date-on-july-2019"
+  ],
+  "relu": "verification 2026-11-13"
  },
  "le-petit-bellevue-la-maison-bellevue-le-cannet": {
   "le": "2026-11-10T15:30:56.666Z",
@@ -195,79 +187,79 @@
   ]
  },
  "slammers-monaco": {
-  "le": "2026-11-10T15:30:56.666Z",
-  "styles": "Pop · Rock · Acoustique",
-  "dress_code": "Décontracté",
-  "horaires": "Lun–Dim · 16h–1h",
-  "prix_verre": "Bière 6–9 € · cocktail 14–16 €",
-  "entree": "Gratuit",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "lun–dim 16h–1h",
+  "prix_verre": "",
+  "entree": "",
   "age_min": "",
   "sources": [
-   "https://www.myguidemonaco.com/nightlife/slammers",
-   "https://www.restaurants-montecarlo.com/place/slammers-restaurant-in-monaco-382",
-   "https://monacoviews.com/directory/slammers/",
-   "https://poivretsel-riviera.com/slammers-bar-a-bieres-et-cocktails-98000-monaco/"
-  ]
+   "https://www.monacobusinessdirectory.com/en/directory/leisure-outings/bar/slammers.html",
+   "https://vymaps.com/MC/Slammers-1121379/",
+   "https://www.monaco-tribune.com/en/discover-monaco/going-out/bars-pubs/"
+  ],
+  "relu": "verification 2026-11-13"
  },
  "absinthe-bar-antibes": {
-  "le": "2026-11-10T15:30:56.666Z",
-  "styles": "Piano-bar · Jazz · Variétés",
-  "dress_code": "Tenue décontractée",
-  "horaires": "Lun–Dim · 17h–0h30",
-  "prix_verre": "absinthe 7–10 €",
-  "entree": "Gratuit",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "lun–dim 17h–0h30",
+  "prix_verre": "",
+  "entree": "",
   "age_min": "",
   "sources": [
-   "https://www.antibes-juanlespins.com",
-   "https://provence-alpes-cotedazur.com",
-   "https://www.petitfute.com",
-   "https://www.pagesjaunes.fr"
-  ]
+   "https://cotedazurfrance.fr/offres/absinthe-bar-antibes-fr-5411579",
+   "https://www.antibesjuanlespins.com/en/must-see-must-do/sport-leisures-well-being-savouring/savouring/l-absinthe-bar-2218245",
+   "https://lacompagnie.com/en/plan/places/french-riviera/the-absinth-museum",
+   "https://www.privateaser.com/lieu/57701-absinthe-bar"
+  ],
+  "relu": "verification 2026-11-13"
  },
  "rooftop-basta-pinsa-beausoleil": {
-  "le": "2026-11-10T15:30:56.666Z",
-  "styles": "Lounge · Chillout",
-  "dress_code": "Casual chic recommandé",
-  "horaires": "Mar–Sam · 18h–23h30 (en saison)",
-  "prix_verre": "cocktail 10–15 €",
-  "entree": "Gratuit",
-  "age_min": "Aucun",
-  "sources": [
-   "https://bastapinsa.com/",
-   "https://alfredhotels.com/fr/basta-pinsa/",
-   "https://www.privateaser.com/lieu/63976-rooftop-basta-pinsa",
-   "https://www.myguidemonaco.com/restaurants/rooftop-basta-pinsa"
-  ]
- },
- "inky-bar-menton": {
-  "le": "2026-11-10T15:30:56.666Z",
-  "styles": "Lounge · Électro",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
   "dress_code": "",
-  "horaires": "Lun–Dim 19h–4h (en saison) · Ven–Sam 22h–4h",
-  "prix_verre": "bière 6–9 € · cocktail dès 9 €",
-  "entree": "Gratuit",
+  "horaires": "lun–sam 17h–22h30",
+  "prix_verre": "",
+  "entree": "",
   "age_min": "",
   "sources": [
-   "https://www.ports-menton.fr/activites-commerces/inky-bar/",
-   "https://www.provence-alpes-cotedazur.com",
-   "https://www.menton-riviera-merveilles.fr",
-   "https://www.instagram.com/inkybarmenton/"
-  ]
+   "https://monacolife.net/the-rooftop-spot-above-monaco-where-the-view-is-the-same-but-the-bill-is-not/",
+   "https://www.privateaser.com/lieu/63976-rooftop-basta-pinsa"
+  ],
+  "relu": "verification 2026-11-13"
+ },
+ "inky-bar-menton": {
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "18h–2h (jours non précisés) · été (1er juil.–15 sept.) 11h–3h30",
+  "prix_verre": "",
+  "entree": "",
+  "age_min": "",
+  "sources": [
+   "https://cotedazurfrance.com/offers/inky-bar-tapas-bar-menton-en-3792024",
+   "https://www.privateaser.com/lieu/57539-inky-bar",
+   "https://www.sluurpy.fr/menton/restaurant/7973210/inky-bar"
+  ],
+  "relu": "verification 2026-11-13"
  },
  "les-incompris-menton": {
-  "le": "2026-11-10T15:30:56.666Z",
-  "styles": "Lounge · Électro · House · Latino",
-  "dress_code": "Chic et décontracté",
-  "horaires": "Mar–Sam 9h30–2h30 · Dim 9h30–22h",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "mar–sam 9h30–2h · dim 9h30–22h",
   "prix_verre": "",
-  "entree": "Gratuit",
-  "age_min": "Aucun",
+  "entree": "",
+  "age_min": "",
   "sources": [
-   "https://lesincompris.com/",
-   "https://www.instagram.com/lesincompris_menton/",
-   "https://www.menton-riviera-merveilles.fr/",
-   "https://www.thefork.fr/restaurant/les-incompris-r705649"
-  ]
+   "https://provence-alpes-cotedazur.com/en/plan-your-stay/restaurants/all-restaurants/restaurant-les-incompris-maison-martin-menton-en-2902571",
+   "https://rankeat.fr/restaurants/les-incompris-menton",
+   "https://www.privateaser.com/lieu/57104-les-incompris"
+  ],
+  "relu": "verification 2026-11-13"
  },
  "kwartz-club-nice": {
   "le": "2026-11-10T15:30:56.666Z",
@@ -285,192 +277,165 @@
   ]
  },
  "movida-nice": {
-  "le": "2026-11-10T16:09:19.132Z",
-  "styles": "House · Tech House · Deep House · Nu-Disco",
-  "dress_code": "Décontracté chic",
-  "horaires": "Lun–Dim · 9h30–2h",
-  "prix_verre": "bière 5–9 € · cocktail 12–16 €",
-  "entree": "Gratuit",
-  "age_min": "18 ans",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "",
+  "prix_verre": "",
+  "entree": "",
+  "age_min": "",
   "sources": [
-   "https://movida.today/",
-   "https://movida-nice.com/",
-   "https://www.instagram.com/movidanice/",
-   "https://movida.today/playlist/"
-  ]
+   "https://www.smart-travelling.net/en/locations/movida-bar",
+   "https://www.schlouk-map.com/fr/places/movida"
+  ],
+  "relu": "verification 2026-11-13"
  },
  "le-boston-cocktail-bar-nice": {
-  "le": "2026-11-10T16:09:19.132Z",
-  "styles": "Soul · Funk · House · Pop-Rock",
-  "dress_code": "Smart casual, chic et décontracté",
-  "horaires": "Mar–Sam · 20h–2h30",
-  "prix_verre": "bière 6–8 € · cocktail 11–14 €",
-  "entree": "Gratuit",
-  "age_min": "18 ans",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "",
+  "prix_verre": "",
+  "entree": "",
+  "age_min": "",
   "sources": [
    "https://www.privateaser.com/lieu/39831-boston-bar",
-   "https://sandbeds.com/fr/niza/nightclubs/le-boston-bar/",
-   "https://www.cotemagazine.com/",
-   "https://www.pagesjaunes.fr/"
-  ]
+   "https://www.schlouk-map.com/fr/places/boston-bar",
+   "https://sandbeds.com/clubs/le-boston-bar-nice/",
+   "https://mapstr.com/place/6jYyPFmrD9g/boston-bar-nice-bar-tapas-night-soiree-boite"
+  ],
+  "relu": "verification 2026-11-13"
  },
  "plage-beau-rivage-nice": {
-  "le": "2026-11-10T16:09:19.132Z",
-  "styles": "Lounge · Deep House · House",
-  "dress_code": "Chic et décontracté. Tenue correcte exigée, maillots de bain interdits au restaurant et en soirée.",
-  "horaires": "Jeu–Lun · 10h–17h30 · Lun–Dim · 10h–0h (en saison)",
-  "prix_verre": "bière 8,50 € · cocktail 12,50–15,50 €",
-  "entree": "Gratuit (restaurant et lounge) · transat 30–35 €",
-  "age_min": "Aucun",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "lun–dim 10h–18h (saison, jusqu'à début octobre)",
+  "prix_verre": "",
+  "entree": "",
+  "age_min": "",
   "sources": [
-   "https://plagenicebeaurivage.com/",
-   "https://plagenicebeaurivage.com/wp-content/uploads/2024/05/CARTE-BOISSONS.pdf",
-   "https://www.hotelnicebeaurivage.com/",
-   "https://www.provence-alpes-cotedazur.com"
-  ]
+   "https://cotedazurfrance.fr/offres/plage-beau-rivage-nice-fr-3654478/",
+   "https://cotedazurfrance.fr/offres/soirees-de-lete-plage-beau-rivage-nice-fr-6715339/",
+   "https://www.privateaser.com/lieu/48721-plage-beau-rivage",
+   "https://www.petitfute.com/v33027-nice-06000/c1165-restaurants/c4-cuisine-francaise/277517-plage-beau-rivage.html"
+  ],
+  "relu": "verification 2026-11-13"
  },
  "achill-s-villefranche-sur-mer": {
-  "le": "2026-11-10T16:09:19.132Z",
-  "styles": "Lounge · House · Électro · Pop",
-  "dress_code": "Casual chic recommandé",
-  "horaires": "Mar–Dim 9h–0h30 · Lun–Dim 9h–1h30 (en saison)",
-  "prix_verre": "bière 8–13 € · cocktail 12–16 €",
-  "entree": "Gratuit",
-  "age_min": "Aucun",
-  "sources": [
-   "https://achills.com/",
-   "https://wiicmenu-qrcode.com/app/ac/ac_achill’s/",
-   "https://provence-alpes-cotedazur.com/",
-   "https://www.petitfute.com/"
-  ]
- },
- "dry-restaurant-et-cocktail-bar-villefranche-sur-mer": {
-  "le": "2026-11-10T16:09:19.132Z",
-  "styles": "Lounge · Électro-chill",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
   "dress_code": "",
-  "horaires": "Mar–Jeu 10h–17h · Ven–Sam 10h–18h · Dim 10h–17h",
-  "prix_verre": "bière 9–13 € · cocktail 16–20 €",
-  "entree": "Gratuit",
+  "horaires": "",
+  "prix_verre": "",
+  "entree": "",
   "age_min": "",
   "sources": [
-   "https://dryrestaurant.com/",
-   "https://www.cotedazurfrance.fr/",
-   "https://www.provence-alpes-cotedazur.com/",
-   "https://www.instagram.com/dryrestaurant/"
-  ]
+   "https://provence-alpes-cotedazur.com/sejourner/restaurants/tous-les-restaurants/achills-villefranche-sur-mer-fr-2886627/",
+   "https://explorenicecotedazur.com/en/fiche/achill-s-en",
+   "https://www.mapstr.com/place/Eu2GNNFA70g",
+   "https://www.tripadvisor.com/--d3483977.html"
+  ],
+  "relu": "verification 2026-11-13"
  },
  "le-qg-port-saint-laurent-saint-laurent-du-var": {
-  "le": "2026-11-10T16:09:19.132Z",
-  "styles": "Généraliste · Clubbing",
-  "dress_code": "Tenue soignée exigée",
-  "horaires": "Lun–Dim · 18h–2h30",
-  "prix_verre": "bière ~6 € · cocktail dès 8 €",
-  "entree": "Entrée libre",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "lun–dim 18h–2h30",
+  "prix_verre": "",
+  "entree": "",
   "age_min": "",
   "sources": [
+   "https://provence-alpes-cotedazur.com/en/things-to-do/leisure-relaxation/all-relaxation-and-leisure-activities/le-qg-saint-laurent-du-var-en-4733412",
    "https://www.privateaser.com/lieu/59345-le-qg",
-   "https://cotedazurfrance.fr/offres/le-qg-saint-laurent-du-var-fr-3837424/",
-   "https://restaurantguru.com/Le-QG-Bar-Club-Saint-Laurent-du-Var"
-  ]
+   "https://www.sluurpy.fr/saint-laurent-du-var/restaurant/2038714/le-qg"
+  ],
+  "relu": "verification 2026-11-13"
  },
  "tree-bo-saint-laurent-du-var": {
-  "le": "2026-11-10T16:09:19.132Z",
-  "styles": "Généraliste · Festive",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
   "dress_code": "",
-  "horaires": "Lun–Dim · 8h–2h30",
-  "prix_verre": "bière 5 € · cocktail dès 8 €",
-  "entree": "gratuit",
+  "horaires": "lun–dim 8h–2h30",
+  "prix_verre": "",
+  "entree": "",
   "age_min": "",
   "sources": [
-   "https://www.cotedazurfrance.fr",
+   "https://cotedazurfrance.fr/offres/tree-bo-saint-laurent-du-var-fr-3614245/",
+   "https://www.explorenicecotedazur.com/it/ristorante/tree-bo/",
    "https://www.privateaser.com/lieu/57137-tree-bo",
-   "https://wiicmenu-qrcode.com/app/restaurantWebSite.php?resto=2431",
-   "https://www.pagesjaunes.fr"
-  ]
+   "https://www.sluurpy.fr/saint-laurent-du-var/restaurant/2034930/tree-bô"
+  ],
+  "relu": "verification 2026-11-13"
  },
  "quai-ouest-pub-saint-laurent-du-var": {
-  "le": "2026-11-10T16:09:19.132Z",
-  "styles": "Pop · Rock · Folk · Généraliste",
-  "dress_code": "Décontracté",
-  "horaires": "Lun–Dim · 18h–2h",
-  "prix_verre": "bière 4–9 € · cocktail 9–12 €",
-  "entree": "Gratuit",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "lun–dim 18h–2h",
+  "prix_verre": "",
+  "entree": "",
   "age_min": "",
   "sources": [
-   "https://quai-ouest-pub.fr/",
-   "https://www.instagram.com/quai_ouest_pub/",
-   "https://www.petitfute.com/v33215-saint-laurent-du-var-06700/c1165-restaurants/c1031-specialites/c1170-restaurant-de-burger/1688647-quai-ouest.html",
-   "https://cotedazurfrance.fr/"
-  ]
- },
- "people-by-l-atoll-saint-laurent-du-var": {
-  "le": "2026-11-10T16:43:32.404Z",
-  "styles": "Généraliste · Lounge · Festif",
-  "dress_code": "Chic et décontracté (aucun dress code strict)",
-  "horaires": "Lun 9h–17h · Mar–Sam 9h–0h30 · Dim 11h–16h",
-  "prix_verre": "",
-  "entree": "Gratuite",
-  "age_min": "Tout public",
-  "sources": [
-   "https://www.people.restaurant/",
-   "https://www.people.restaurant/menu.html",
-   "https://www.people.restaurant/contact.html",
-   "https://provence-alpes-cotedazur.com/que-faire/sortir/restaurants/people-by-latoll-saint-laurent-du-var-fr-3947477/"
-  ]
+   "https://www.explorenicecotedazur.com/structure/quai-ouest/",
+   "https://cotedazurfrance.fr/offres/quai-ouest-saint-laurent-du-var-fr-4108025/",
+   "https://www.privateaser.com/lieu/58023-quai-ouest-pub"
+  ],
+  "relu": "verification 2026-11-13"
  },
  "au-bureau-polygone-riviera-cagnes-sur-mer": {
-  "le": "2026-11-10T16:43:32.404Z",
-  "styles": "Pop · Rock · Hits généralistes",
-  "dress_code": "Tenue décontractée",
-  "horaires": "Dim–Jeu 9h–23h30 · Ven–Sam 9h–0h",
-  "prix_verre": "bière 4–8,50 € · cocktail 8,50–9,50 €",
-  "entree": "gratuit",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "",
+  "prix_verre": "",
+  "entree": "",
   "age_min": "",
   "sources": [
-   "https://www.aubureau.fr/restaurant/cagnes-sur-mer/",
-   "https://www.aubureau.fr/la-carte/",
-   "https://www.mistergoodbeer.com/fr/bars/au-bureau-cagnes-sur-mer",
-   "https://restaurantguru.com/Au-Bureau-Cagnes-sur-Mer"
-  ]
+   "https://d1z37b4k98tlsh.cloudfront.net/destinations/Saint-Paul-de-Vence/restaurants/Au-Bureau~1831"
+  ],
+  "relu": "verification 2026-11-13"
  },
  "le-carre-bleu-cagnes-sur-mer": {
-  "le": "2026-11-10T16:43:32.404Z",
-  "styles": "Lounge · Chill-out · Éclectique",
-  "dress_code": "Décontracté en journée, casual et tenue correcte le soir",
-  "horaires": "Lun–Dim · 10h–23h",
-  "prix_verre": "bière 6–8 € · cocktail 10–14 €",
-  "entree": "Gratuit (transat 20–25 €)",
-  "age_min": "Aucun",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "lun–dim 10h–23h",
+  "prix_verre": "",
+  "entree": "",
+  "age_min": "",
   "sources": [
-   "https://cagnes-tourisme.com/fr/decouvrir/activites/balneaires/plages-privees/",
-   "https://www.provence-alpes-cotedazur.com",
-   "https://nicepresse.com/cagnes-sur-mer-les-plages-privees-a-tester-cet-ete-poissons-pizzas-a-la-truffe-salades-genereuses-une-adresse-pour-tous/",
-   "https://www.petitfute.com/v31481-cagnes-sur-mer-06800/c1165-restaurants/c1031-cuisines-du-monde/c1044-cuisine-italienne/395663-plage-carre-bleu.html"
-  ]
+   "https://www.explorenicecotedazur.com/en/structure/carre-bleu-beach/",
+   "https://cotedazurfrance.fr/offres/plage-carre-bleu-cagnes-sur-mer-fr-4093360/",
+   "https://www.plageprivee.com/france/06-alpes-maritimes/cagnes-sur-mer/le-carre-bleu"
+  ],
+  "relu": "verification 2026-11-13"
  },
  "le-cigalon-plage-cagnes-sur-mer": {
-  "le": "2026-11-10T16:43:32.404Z",
-  "styles": "Lounge · Chill-out",
-  "dress_code": "Casual chic",
-  "horaires": "Lun–Jeu 9h30–17h · Ven–Sam 9h30–23h · Dim 9h30–18h",
-  "prix_verre": "bière 4–7,50 € · cocktail 11–14 €",
-  "entree": "Gratuit",
-  "age_min": "Aucun",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "lun–dim 12h–15h · lun–dim 19h–23h (juin–sept ; midi seulement d'octobre à mai)",
+  "prix_verre": "",
+  "entree": "",
+  "age_min": "",
   "sources": [
-   "https://lecigalon.com/",
-   "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF48u2Aj3Dpyr-476ZRY8jhU44jqFAcuGhUNuAKcw7h_xBKueW7ELYVVN4fR6_rATDEfZGdrKbRaKdl24O-5sISM-ruTSSfTtR3AOh5C1ixoWoDxDoBx8Mpu6mz4Ef49s1IVC9y8DuRuiqoVvk3cN7H0u5koWQ5Atg=",
-   "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHoog1obGdV0C2aF4PJXeI7Nm7f9kMRCzZuCs0fNHm2iQ6rqFqOX9SndA98O4wQrhIAAqWI8toFZ5VMiWF4-clkmvce8YxPv--gZFlF-8LtRrgVwXprC6OLe1p-TqUspF5Ny2MXdjVyTaR6gCrtmrxHdABDjCDlnkG5u4BBr5mm9A==",
-   "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGwFRFxxO4e5_eXgcU09770AWvS82MTpGfhcw5WERikxr3w9D2AbR3PX7TaEmxMvQNXle7XVpMkO8_yE5aNNSi1FB6G4OxxyDTZkJyNTZxX30Pu-OH5QA6_5wjcVJ2kNRWcjq1F4zcdp3xlpg-evZzgtc2IQ51-kzpQngE="
-  ]
+   "https://cotedazurfrance.fr/offres/cigalon-plage-cagnes-sur-mer-fr-3760608/",
+   "https://www.explorenicecotedazur.com/restaurant/cigalon-plage/",
+   "https://www.plages.tv/privee/le-cigalon-plage-privee-cagnes-sur-mer-06800",
+   "https://www.plageprivee.com/france/06-alpes-maritimes/cagnes-sur-mer/le-cigalon-plage"
+  ],
+  "relu": "verification 2026-11-13"
  },
  "bisous-bisous-cannes": {
-  "le": "2026-11-13T16:46:51.471Z",
+  "le": "2026-11-13T16:53:19.635Z",
   "styles": "House · Disco · New wave",
-  "dress_code": "Tenue chic et soignée exigée, sportswear et streetwear refusés.",
+  "dress_code": "",
   "horaires": "jeu–sam 0h–5h",
   "prix_verre": "",
-  "entree": "Généralement gratuite (sur sélection ou réservation de table)",
-  "age_min": "18 ans",
+  "entree": "",
+  "age_min": "",
   "sources": [
    "https://cotedazurfrance.fr/offres/bisous-bisous-cannes-fr-3650956/",
    "https://www.hotelsbarriere.com/en/cannes/le-majestic/restaurants-and-bars/bisous-bisous.html"
@@ -478,199 +443,187 @@
   "relu": "manuel"
  },
  "glass-club-cannes-cannes": {
-  "le": "2026-11-10T17:13:19.609Z",
-  "styles": "House · Deep House · Tech House · Afro House",
-  "dress_code": "Décontractée mais soignée (baskets et bermudas autorisés)",
-  "horaires": "Jeu–Sam · 0h–6h",
-  "prix_verre": "bière 8 € · cocktail 12–13 €",
-  "entree": "15 € avec 1 consommation (préventes dès 9,99 €)",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "mer–jeu 23h–3h · ven–sam 23h–5h",
+  "prix_verre": "",
+  "entree": "",
   "age_min": "",
   "sources": [
-   "https://glasscannes.com/",
-   "https://shotgun.live/venues/glass-club-cannes",
-   "https://www.cannes-france.com/offres/glass-club-cannes-fr-5224320/",
-   "https://www.instagram.com/glassclubcannes/"
-  ]
- },
- "morrison-s-irish-pub-et-morrison-s-lounge-cannes": {
-  "le": "2026-11-10T17:13:19.609Z",
-  "styles": "Rock · Pop-Rock · House · Électro",
-  "dress_code": "Tenue décontractée, correcte en soirée",
-  "horaires": "Lun–Ven 17h–2h · Sam–Dim 13h–2h",
-  "prix_verre": "bière 4,50–9 € · cocktail 8–14 €",
-  "entree": "Gratuit",
-  "age_min": "",
-  "sources": [
-   "https://www.cannes-nightlife.com/morrisons",
-   "https://www.cannes-nightlife.com/drinks-menu",
-   "https://www.cannes-france.com",
-   "https://www.petitfute.com"
-  ]
+   "https://en.cannes-france.com/offers/glass-club-cannes-en-5708342/",
+   "https://cotedazurfrance.fr/offres/glass-club-cannes-fr-5700468/",
+   "https://www.privateaser.com/lieu/51120-glass",
+   "https://shotgun.live/en/events/glass-club-reccoit-axel-bampton"
+  ],
+  "relu": "verification 2026-11-13"
  },
  "charly-s-bar-cannes": {
-  "le": "2026-11-10T17:13:19.609Z",
-  "styles": "Généraliste · Pop/Rock · Rétro",
-  "dress_code": "Décontracté / casual chic",
-  "horaires": "Lun–Dim · 17h–2h30",
-  "prix_verre": "Cocktail 10–14 €",
-  "entree": "Gratuit (consommation obligatoire)",
-  "age_min": "18 ans",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "lun–dim 17h–2h30",
+  "prix_verre": "",
+  "entree": "",
+  "age_min": "",
   "sources": [
-   "https://www.cannes-france.com/",
-   "https://www.jet2holidays.com/",
-   "https://www.sortir06.fr/",
-   "https://cannes.city-life.fr/"
-  ]
+   "https://cotedazurfrance.com/offers/charlys-bar-cannes-en-3602940",
+   "https://worldtravelguide.net/guides/europe/france/cannes/nightlife"
+  ],
+  "relu": "verification 2026-11-13"
  },
  "marea-cannes-canopy-by-hilton-cannes": {
-  "le": "2026-11-10T17:13:19.609Z",
-  "styles": "Deep house · Lounge · Jazzy house · Électro-chill",
-  "dress_code": "Smart Casual (chic et décontracté)",
-  "horaires": "Lun–Dim · 17h–23h",
-  "prix_verre": "bière 7–10 € · cocktail 18–22 €",
-  "entree": "Gratuit",
-  "age_min": "Aucun",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "lun–dim 17h–23h",
+  "prix_verre": "",
+  "entree": "",
+  "age_min": "",
   "sources": [
-   "https://www.marea-restaurant.com",
-   "https://www.hilton.com/en/hotels/ceqcfpy-canopy-cannes/dining/",
-   "https://www.therooftopguide.com/rooftop-bars-in-cannes/marea.html",
-   "https://www.sortir06.fr"
-  ]
+   "https://therooftopguide.com/rooftop-bars-in-cannes/marea.html",
+   "https://provence-alpes-cotedazur.com/en/plan-your-stay/restaurants/all-restaurants/marea-cannes-en-4351021",
+   "https://www.monaco-tribune.com/en/2025/08/marea-extends-summer-evenings-on-rooftop-overlooking-bay-of-cannes/"
+  ],
+  "relu": "verification 2026-11-13"
  },
  "le-village-juan-les-pins": {
-  "le": "2026-11-10T18:44:11.343Z",
-  "styles": "House · Disco · Salsa · Soul",
-  "dress_code": "Tenue correcte exigée",
-  "horaires": "Ven–Sam · 00h–5h · Lun–Dim · 00h–5h (en saison)",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "",
   "prix_verre": "",
-  "entree": "20 € avec une consommation incluse",
-  "age_min": "18 ans",
+  "entree": "",
+  "age_min": "",
   "sources": [
-   "https://juanbynight.com/Les_Clubs/Pages/Village.html",
-   "https://juanbynight.com",
-   "https://www.petitfute.com/v32777-juan-les-pins-06160/c1171-sports-loisirs/c1200-sorties-soirees/c584-club-discotheque/27236-le-village.html",
-   "https://www.juan-les-pins.com/les-discotheques-de-juan-les-pins/"
-  ]
+   "https://www.frommers.com/destinations/juan-les-pins/nightlife/",
+   "https://cotedazurfrance.fr/a-faire/ou-sortir/clubs/",
+   "https://seeantibes.com/bars/le-village-bar-juan-les-pins-657372",
+   "https://www.voloscontato.it/guide-per-viaggiatori/juan-les-pins-discoteche-e-locali-notturni.php"
+  ],
+  "relu": "verification 2026-11-13"
  },
  "honey-club-juan-les-pins": {
-  "le": "2026-11-10T18:44:11.343Z",
-  "styles": "Shatta · Afrobeat · Hip-Hop · Dancehall",
-  "dress_code": "Tenue soignée, chic ou branchée (casquettes et tenues de sport refusées)",
-  "horaires": "Ven–Sam · 0h–5h",
-  "prix_verre": "bière 7–10 € · cocktail 10–15 €",
-  "entree": "10–20 € avec conso (souvent gratuit pour les femmes avant 0h30)",
-  "age_min": "18 ans",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "",
+  "prix_verre": "",
+  "entree": "",
+  "age_min": "",
   "sources": [
-   "https://shotgun.live/fr/venues/honey-club",
-   "https://shotgun.live/fr/events/honey-club-saturday-bee-crazy",
-   "https://shotgun.live/fr/events/rapture-first-edition",
-   "https://shotgun.live/fr/events/all-white-everything"
-  ]
+   "https://www.songkick.com/venues/4645584-honey-club"
+  ],
+  "relu": "verification 2026-11-13"
  },
  "le-pam-pam-juan-les-pins": {
-  "le": "2026-11-10T18:44:11.343Z",
-  "styles": "Samba · Batucada · Musique brésilienne · Sons tropicaux",
-  "dress_code": "Aucun dress code strict (tenue décontractée estivale acceptée)",
-  "horaires": "Lun–Dim · 15h–3h (en saison)",
-  "prix_verre": "Bière 8–10 € · cocktail 12–16 € · soft 5–8 €",
-  "entree": "Gratuit (consommation obligatoire)",
-  "age_min": "Tout public",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "",
+  "prix_verre": "",
+  "entree": "",
+  "age_min": "",
   "sources": [
-   "https://www.petitfute.com/v31765-juan-les-pins-06160/c1171-sports-loisirs/c595-bars-pubs-et-lieux-festifs/c597-bar-a-cocktail/129759-pam-pam.html",
-   "https://www.pagesjaunes.fr/pros/00157500",
    "https://www.privateaser.com/lieu/57987-pam-pam",
-   "http://www.pampam.fr"
-  ]
+   "https://www.seeantibes.com/bars/pam-pam-juan-les-pins-681497",
+   "https://mapstr.com/place/gE2Ji8R2f3g"
+  ],
+  "relu": "verification 2026-11-13"
  },
  "the-hop-store-antibes": {
-  "le": "2026-11-10T18:44:11.343Z",
-  "styles": "Pop · Rock · DJ sets",
-  "dress_code": "Décontracté / Casual",
-  "horaires": "Lun–Dim · 15h–2h",
-  "prix_verre": "bière 5–8,50 € · cocktail 9–12 €",
-  "entree": "gratuit",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "lun–dim 15h–2h",
+  "prix_verre": "",
+  "entree": "",
   "age_min": "",
   "sources": [
-   "https://www.craicmap.ie/pubs/france/antibes/the-hop-store",
-   "https://www.mistergoodbeer.com/fr/bar/11269-hop-store-antibes",
    "https://www.privateaser.com/lieu/57133-the-hop-store",
-   "https://www.petitfute.com/v31175-antibes-06160/c1171-visites-points-d-interet/c1212-reception-animation/c1219-bar-a-biere-micro-brasserie/201768-the-hop-store.html"
-  ]
+   "https://tripaligner.com/countries/france-18/destinations/nice-5098/places/the-hop-store-3336614",
+   "https://seeantibes.com/bars/the-hop-store-antibes-680098"
+  ],
+  "relu": "verification 2026-11-13"
  },
  "the-drinkers-club-antibes": {
-  "le": "2026-11-10T18:44:11.343Z",
-  "styles": "Reggae · Rock · Soul · Pop",
-  "dress_code": "Décontracté",
-  "horaires": "Lun–Ven 16h–2h · Sam–Dim 15h–2h",
-  "prix_verre": "bière 4–8 € · cocktail 10–12 €",
-  "entree": "Gratuit",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "",
+  "prix_verre": "",
+  "entree": "",
   "age_min": "",
   "sources": [
-   "https://www.privateaser.com/lieu/59138-drinkers-club",
-   "https://www.mistergoodbeer.com/fr/bar/drinkers-club-antibes",
-   "https://wanderlog.com/poi/1330368/drinkers-club",
-   "https://www.pagesjaunes.fr/"
-  ]
+   "https://el.hotels.com/see/go/france/best-nightlife-antibes",
+   "https://www.schlouk-map.com/en/places/drinkers-club",
+   "https://theculturetrip.com/europe/france/articles/the-10-best-bars-in-antibes",
+   "https://www.privateaser.com/lieu/59138-drinkers-club"
+  ],
+  "relu": "verification 2026-11-13"
  },
  "mk-club-monaco-monaco": {
-  "le": "2026-11-10T18:44:11.343Z",
-  "styles": "Généraliste · Hip-Hop · House · Électro",
-  "dress_code": "Chic et élégant (« Dress to impress »).",
-  "horaires": "Ven–Sam · 0h–5h",
-  "prix_verre": "verre 15–20 €",
-  "entree": "Sélection à l'entrée ou réservation de table ; environ 20 € lors de soirées spéciales.",
-  "age_min": "18 ans",
-  "sources": [
-   "https://www.mkmonaco.com/",
-   "https://www.instagram.com/mkclubmonaco/",
-   "https://monacoreview.com/listing/mk-club-monaco/",
-   "https://www.myguide-nice.com/nightlife/mk-club-monaco"
-  ]
- },
- "brasserie-de-monaco-monaco": {
-  "le": "2026-11-10T19:13:48.783Z",
-  "styles": "Généraliste · Pop · House",
-  "dress_code": "Casual / Smart Casual, tenue correcte exigée",
-  "horaires": "Lun–Dim · 12h–2h",
-  "prix_verre": "bière 5–9 € · cocktail 12–16 €",
-  "entree": "Gratuit",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "ven–sam 0h–5h",
+  "prix_verre": "",
+  "entree": "",
   "age_min": "",
   "sources": [
-   "https://brasseriedemonaco.com/",
-   "https://brasseriedemonaco.com/menu/",
-   "https://www.visitmonaco.com/fr/lieu/bars-et-discotheques/185560/brasserie-de-monaco",
-   "https://www.monaco-tribune.com/"
-  ]
+   "https://www.visitmonaco.com/en/地方/397/night-club",
+   "https://monaco-tribune.com/en/2021/10/where-to-dance-and-listen-to-music-in-monaco",
+   "https://www.nightflow.com/?p=13235"
+  ],
+  "relu": "verification 2026-11-13"
+ },
+ "brasserie-de-monaco-monaco": {
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "",
+  "prix_verre": "",
+  "entree": "",
+  "age_min": "",
+  "sources": [
+   "https://mapstr.com/place/Lufx3kWHxag",
+   "https://www.monaco-tribune.com/en/listing/brasserie-de-monaco/",
+   "https://worldtravelguide.net/guides/europe/monaco/monte-carlo/nightlife",
+   "https://news.mc/?p=32096"
+  ],
+  "relu": "verification 2026-11-13"
  },
  "amazonico-monte-carlo-monaco": {
-  "le": "2026-11-10T19:13:48.783Z",
-  "styles": "Jazz latino · Bossa Nova · Elec-tropical · House",
-  "dress_code": "Smart Elegant (sportswear, casquettes, shorts et chaussures ouvertes pour hommes interdits)",
-  "horaires": "Lun, Jeu, Dim 18h–1h · Ven–Sam 18h–2h",
-  "prix_verre": "bière 10–12 € · cocktail 18–29 €",
-  "entree": "Gratuit (consommation obligatoire)",
-  "age_min": "18 ans",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "jeu 18h–2h · ven–sam 18h–3h · dim–mar 18h–2h",
+  "prix_verre": "",
+  "entree": "",
+  "age_min": "",
   "sources": [
-   "https://www.amazonicorestaurant.com/monte-carlo",
-   "https://www.amazonicorestaurant.com/contact/",
-   "https://www.amazonicorestaurant.com/wp-content/uploads/2024/09/Amazonico-Monte-Carlo-Cocktail-Menu.pdf",
-   "https://www.montecarlosbm.com/fr/restaurant-monaco/amazonico-monte-carlo"
-  ]
+   "https://meetings.montecarlosbm.com/en/restaurants/amazonico-monte-carlo",
+   "https://www.montecarlosbm.com/fr/restaurant-monaco/amazonico-monte-carlo",
+   "https://www.monaco-tribune.com/2025/07/notre-selection-des-meilleurs-rooftops-de-monaco/",
+   "https://monacolife.net/welcome-to-the-jungle-first-look-at-the-cafe-de-paris-new-rooftop-restaurant-the-amazonico"
+  ],
+  "relu": "verification 2026-11-13"
  },
  "nikki-beach-monte-carlo-monaco": {
-  "le": "2026-11-10T19:13:48.783Z",
-  "styles": "House · Deep House · Tropical House · Lounge",
-  "dress_code": "Beach chic resort wear (vêtements de sport interdits, tenue correcte au restaurant)",
-  "horaires": "Lun–Dim 11h–20h (en saison)",
-  "prix_verre": "bière 12–16 € · cocktail 20–26 €",
-  "entree": "Gratuit (consommation ou réservation obligatoire, minimum spend pour les transats)",
-  "age_min": "18 ans (mineurs accompagnés acceptés au restaurant)",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "lun–dim 8h–20h (en saison, d'avril à septembre)",
+  "prix_verre": "",
+  "entree": "",
+  "age_min": "",
   "sources": [
-   "https://monte-carlo.nikkibeach.com/",
-   "https://monte-carlo.nikkibeach.com/reservation-door-policy/",
-   "https://www.fairmont.com/fr/hotels/fairmont-monte-carlo/dining/nikki-beach/",
-   "https://restaurants.accor.com/fr/restaurant-A598_R003-nikki-beach-fairmont-mc-monte-carlo.shtml"
-  ]
+   "https://www.fairmont.com/monte-carlo/dining/nikki-beach-at-fairmont-monte-carlo",
+   "https://nikkibeach.com/monte-carlo",
+   "https://www.visitmonaco.com/en/enjoy/beaches-and-swimming-pools/hotel-swimming-pools-in-monaco",
+   "https://monacolife.net/fairmont-monte-carlo-reopens-rooftop-venues-for-summer-spotlighting-amu-restaurant-and-nikki-beach"
+  ],
+  "relu": "verification 2026-11-13"
  },
  "le-corner-by-3-tapas-beausoleil": {
   "le": "2026-11-10T19:13:48.783Z",
@@ -703,152 +656,137 @@
   ]
  },
  "le-new-pub-menton": {
-  "le": "2026-11-10T19:13:48.783Z",
-  "styles": "Rock · Pop · Variété",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
   "dress_code": "",
-  "horaires": "Mer–Dim · 16h–2h",
-  "prix_verre": "Bière 6 € · Cocktail 8 €",
-  "entree": "Gratuit",
+  "horaires": "mer–dim 16h–2h",
+  "prix_verre": "",
+  "entree": "",
   "age_min": "",
   "sources": [
-   "https://www.menton-riviera-merveilles.fr",
-   "https://www.provence-alpes-cotedazur.com",
-   "https://www.privateaser.com/lieu/59343-le-new-pub",
-   "https://www.pagesjaunes.fr"
-  ]
+   "https://cotedazurfrance.fr/offres/le-new-pub-menton-fr-3791214",
+   "https://provence-alpes-cotedazur.com/en/plan-your-stay/useful-information/all-practical-services/le-new-pub-menton-en-3791177"
+  ],
+  "relu": "verification 2026-11-13"
  },
  "rhumerie-ferdinand-menton": {
-  "le": "2026-11-10T19:43:02.314Z",
-  "styles": "Musique antillaise · World music · Rock",
-  "dress_code": "Aucun (tenue décontractée)",
-  "horaires": "Mar–Jeu 18h–0h30 · Ven–Sam 18h–2h",
-  "prix_verre": "bière 5–8 € · cocktail 11–12 €",
-  "entree": "Gratuit",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "mar–jeu 18h–0h30 · ven–sam 18h–2h",
+  "prix_verre": "",
+  "entree": "",
   "age_min": "",
   "sources": [
-   "https://www.rhumerieferdinand.com/",
-   "https://www.rhumerieferdinand.com/la-carte",
-   "https://www.rhumerieferdinand.com/les-soirees",
-   "https://www.menton-riviera-merveilles.fr/bars-restaurants/bar-a-vin-rhumerie-ferdinand-menton-fr-6251812/"
-  ]
+   "https://cotedazurfrance.fr/offres/bar-a-vin-rhumerie-ferdinand-menton-fr-3823446",
+   "https://cotedazurfrance.com/offers/wine-bar-rhumerie-ferdinand-menton-en-3823446/"
+  ],
+  "relu": "verification 2026-11-13"
  },
  "le-rooftop-hotel-mediterranee-menton": {
-  "le": "2026-11-10T19:43:02.314Z",
-  "styles": "Lounge · Chillout · Pop",
-  "dress_code": "Tenue correcte / chic décontractée d'usage",
-  "horaires": "Lun–Dim · 17h–23h",
-  "prix_verre": "bière et cocktail 9–14 €",
-  "entree": "Gratuit",
-  "age_min": "Aucun",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "lun–dim 17h–23h",
+  "prix_verre": "",
+  "entree": "",
+  "age_min": "",
   "sources": [
-   "https://www.hotel-med-menton.com/fr/bar-rooftop.html",
-   "https://www.hotel-med-menton.com/fr/actualites/soirees-rooftop-musique-live-menton.html",
-   "https://www.hotel-med-menton.com/fr/restaurant-menton.html",
-   "https://www.instagram.com/hotelmediterraneementon"
-  ]
+   "https://med-menton.agencewebcom.com/en/rooftop-bar",
+   "https://cotedazurfrance.com/offers/afterwork-afterbeach-at-the-rooftop-of-the-mediterranean-menton-en-3784732",
+   "https://www.france.fr/fr/article/rooftops-cote-azur/"
+  ],
+  "relu": "verification 2026-11-13"
  },
  "boka-club-del-magot-toulon": {
-  "le": "2026-11-10T19:43:02.314Z",
-  "styles": "Afrobeat · Zouk · Dancehall · Hip-hop",
-  "dress_code": "Tenue correcte exigée",
-  "horaires": "Jeu–Sam · 00h–5h",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "",
   "prix_verre": "",
-  "entree": "Gratuit hors événements · Prévente 5–15 € · Sur place 10–20 €",
-  "age_min": "18 ans",
+  "entree": "",
+  "age_min": "",
   "sources": [
-   "https://shotgun.live/venues/boka-club-d-el-magot",
-   "https://www.instagram.com/boka_club_del_magot",
-   "https://www.bizouk.com",
-   "https://www.clublemagot.fr"
-  ]
- },
- "le-boy-s-paradise-toulon": {
-  "le": "2026-11-10T19:43:02.314Z",
-  "styles": "Généraliste · Électro · Pop · Hip-Hop",
-  "dress_code": "Aucun dress code strict, tenue décontractée",
-  "horaires": "Mer–Ven 23h–6h · Sam 19h–6h",
-  "prix_verre": "bière 6 € · cocktail 8–10 €",
-  "entree": "Variable selon la programmation (généralement payante avec conso)",
-  "age_min": "18 ans",
-  "sources": [
-   "https://www.instagram.com/boys_paradise_off/",
-   "https://www.privateaser.com/lieu/55954-boys-paradise",
-   "https://www.petitfute.com/v33765-toulon-83000/c1171-sortie-visites/c559-bar-club-boite-de-nuit/c561-boite-de-nuit/330365-boy-s-paradise.html",
-   "https://noxway.fr/club/le-boy-s-paradise-toulon-d83ee6d22"
-  ]
+   "https://www.arrivalguides.com/fr/Travelguide/TOULON/barsandnightlife/boka-club-del-magot-le-magot-88710",
+   "https://www.fodors.com/world/europe/france/provence/places/aix-marseille-and-the-central-coast/toulon/things-to-do/nightlife",
+   "https://www.schlouk-map.com/fr/places/club-le-magot",
+   "https://wanderlog.com/list/geoCategory/1842613"
+  ],
+  "relu": "verification 2026-11-13"
  },
  "le-barathym-toulon": {
-  "le": "2026-11-10T19:43:02.314Z",
-  "styles": "Rock · Pop · Électro · Latino",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
   "dress_code": "",
-  "horaires": "Dim–Mer 17h30–2h · Jeu–Sam 17h30–4h",
-  "prix_verre": "bière 4–7,10 €",
-  "entree": "Gratuit",
+  "horaires": "",
+  "prix_verre": "",
+  "entree": "",
   "age_min": "",
   "sources": [
-   "https://linktr.ee/lebarathym",
-   "https://www.facebook.com/lebarathym.mourillon",
-   "https://provencemed.com/activite/le-barathym",
-   "https://www.petitfute.com/v33722-toulon-83000/c1171-visites-points-d-interet/c946-artisanat-produit-du-terroir-visite-d-entreprise/c949-brasserie-microbrasserie/189709-le-bar-a-thym.html"
-  ]
+   "https://provence-alpes-cotedazur.com/en/things-to-do/leisure-relaxation/all-relaxation-and-leisure-activities/le-barathym-toulon-en-4722898/",
+   "https://www.schlouk-map.com/fr/places/le-barathym",
+   "https://www.privateaser.com/lieu/42109-le-barathym",
+   "https://www.arrivalguides.com/fr/Travelguide/TOULON/barsandnightlife/le-barathym-84591"
+  ],
+  "relu": "verification 2026-11-13"
  },
  "le-spot-mourillon-toulon": {
-  "le": "2026-11-10T19:43:02.314Z",
-  "styles": "House · Afro House · Rock · Pop-Rock",
-  "dress_code": "Décontracté (tenue correcte exigée pour certains événements)",
-  "horaires": "Mar–Mer 18h–1h · Jeu–Sam 18h–2h · Dim 18h–1h",
-  "prix_verre": "bière 6–7 € · cocktail 10–11 €",
-  "entree": "Gratuit",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "",
+  "prix_verre": "",
+  "entree": "",
   "age_min": "",
   "sources": [
-   "https://shotgun.live/fr/venues/le-spot-mourillon",
    "https://www.privateaser.com/lieu/43021-le-spot",
-   "https://shotgun.live/fr/events/le-boiler-du-spot",
-   "https://www.billetweb.fr/mistral-comedy-club"
-  ]
+   "https://provence-alpes-cotedazur.com/en/things-to-do/leisure-relaxation/all-relaxation-and-leisure-activities/casa-papa-toulon-en-4730056",
+   "https://www.eat-list.fr/toulon-83000/tapas-35/casa-papa-144212?menu=1"
+  ],
+  "relu": "verification 2026-11-13"
  },
  "jeanne-cocktail-club-toulon": {
-  "le": "2026-11-10T21:15:53.769Z",
-  "styles": "Lounge · Acoustique",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
   "dress_code": "",
-  "horaires": "Mar–Mer 18h–23h · Jeu–Sam 18h–0h",
-  "prix_verre": "10–20 €",
-  "entree": "Gratuit",
+  "horaires": "",
+  "prix_verre": "",
+  "entree": "",
   "age_min": "",
   "sources": [
-   "https://www.distilleriejeanne.com/bar-a-cocktail/",
-   "https://toudulon.fr/distillerie-jeanne-a-toulon/",
-   "https://www.provence-med.com/",
-   "https://theglobaldrinker.com/bars/france/toulon/jeanne-cocktail-club/"
-  ]
+   "https://provence-alpes-cotedazur.com/en/things-to-do/leisure-relaxation/all-relaxation-and-leisure-activities/jeanne-cocktail-club-toulon-en-6434950/",
+   "https://provence-alpes-cotedazur.com/en/things-to-do/wine-and-gastronomy/all-wine-and-gastronomy-activities/jeanne-distillery-toulon-en-6498051/"
+  ],
+  "relu": "verification 2026-11-13"
  },
  "le-rooftop-du-grand-hotel-dauphine-toulon": {
-  "le": "2026-11-10T21:15:53.769Z",
-  "styles": "Lounge · House Lounge · Afro House",
-  "dress_code": "Chic et décontracté",
-  "horaires": "Mar–Sam · 19h30–0h (en saison)",
-  "prix_verre": "bière 7 € · cocktail 14 €",
-  "entree": "Gratuit pour les clients de l'hôtel, réservation avec crédit conso de 30 € pour les extérieurs",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "",
+  "prix_verre": "",
+  "entree": "",
   "age_min": "",
   "sources": [
-   "https://www.grandhoteldauphine.com/rooftop-piscine-bar/",
-   "https://www.grandhoteldauphine.com/",
-   "https://www.provence-mediterranee-tourisme.com"
-  ]
+   "https://provence-alpes-cotedazur.com/en/things-to-do/leisure-relaxation/all-relaxation-and-leisure-activities/le-rooftop-du-grand-hotel-dauphine-toulon-en-4333960/",
+   "https://provence-alpes-cotedazur.com/sejourner/hebergements/tous-les-hebergements/hotels/grand-hotel-dauphine-boutique-hotel-suite-toulon-fr-2868303/",
+   "https://www.staycation.co/fr/hotels/grand-hotel-dauphine-boutique-hotel-suites-3090"
+  ],
+  "relu": "verification 2026-11-13"
  },
  "no-stresss-discotheque-la-seyne-sur-mer": {
-  "le": "2026-11-10T21:15:53.769Z",
-  "styles": "Électro · Hip-hop · Afrobeat · R&B",
-  "dress_code": "Tenue correcte exigée (chic et soignée). Casquette, jogging et tenues de plage interdits.",
-  "horaires": "Jeu 23h–4h · Ven–Sam 23h50–5h · Dim 23h–4h · Mer–Dim 0h–5h (en saison)",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "mer–dim 0h–5h (juil.–août) · ven–dim (hors saison, heures non publiées)",
   "prix_verre": "",
-  "entree": "10 € avec une consommation incluse",
-  "age_min": "18 ans",
+  "entree": "",
+  "age_min": "",
   "sources": [
-   "https://www.no-stresss-discotheque.fr/",
-   "https://www.provencemed.com/organisez-votre-sejour/fetes-et-manifestations/toutes-les-manifestations/no-stresss-la-seyne-sur-mer-fr-5381830/",
-   "https://www.provence-alpes-cotedazur.com/"
-  ]
+   "https://provence-alpes-cotedazur.com/que-faire/detente-et-loisirs/toutes-les-activites-detente-et-loisirs/no-stresss-la-seyne-sur-mer-fr-4728556/",
+   "https://provence-alpes-cotedazur.com/en/things-to-do/leisure-relaxation/all-relaxation-and-leisure-activities/no-stresss-la-seyne-sur-mer-en-4728556"
+  ],
+  "relu": "verification 2026-11-13"
  },
  "la-javanaise-la-seyne-sur-mer": {
   "le": "2026-11-10T21:15:53.769Z",
@@ -866,199 +804,155 @@
   ]
  },
  "madame-amore-hyeres": {
-  "le": "2026-11-10T21:15:53.769Z",
-  "styles": "House · Techno · Funk · Années 80",
-  "dress_code": "Tenue correcte et soignée recommandée",
-  "horaires": "Dim–Jeu 9h–1h · Ven–Sam 9h–3h",
-  "prix_verre": "bière 4–8 € · cocktail 8–10 €",
-  "entree": "Gratuit (payant lors de certains événements)",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "",
+  "prix_verre": "",
+  "entree": "",
   "age_min": "",
   "sources": [
-   "https://www.restaurantmadamem.fr/",
-   "https://www.restaurantmadamem.fr/bar-a-cocktail/",
-   "https://www.restaurantmadamem.fr/soirees-port-de-hyeres/",
-   "https://www.instagram.com/madameamorehyeres"
-  ]
+   "https://cotedazurfrance.fr/offres/madame-m-hyeres-fr-3813334/",
+   "https://provence-alpes-cotedazur.com/en/plan-your-stay/restaurants/all-restaurants/mrs-m-hyeres-en-3813194/"
+  ],
+  "relu": "verification 2026-11-13"
  },
  "le-petit-bain-hyeres": {
-  "le": "2026-11-10T21:15:53.769Z",
-  "styles": "Open Format · House · Hip-Hop · French Touch",
-  "dress_code": "Tenue correcte exigée en soirée, décontractée en journée",
-  "horaires": "Jeu 19h30–1h · Ven–Sam 12h–1h · Dim 12h–21h30",
-  "prix_verre": "mocktail 8 € · cocktail 10 €",
-  "entree": "Gratuit (10 € lors de certains événements)",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "",
+  "prix_verre": "",
+  "entree": "",
   "age_min": "",
   "sources": [
-   "https://lepetitbainhyeres.fr/",
-   "https://lepetitbainhyeres.fr/bar-a-cocktail/",
-   "https://lepetitbainhyeres.fr/soirees-a-theme-beach-party-hyeres/",
-   "https://shotgun.live/fr/venues/le-petit-bain-hyeres"
-  ]
+   "https://cotedazurfrance.fr/offres/le-petit-bain-hyeres-fr-3572561/",
+   "https://mysunbed.com/fr/plage-privee/hyeres/le-petit-bain/",
+   "https://www.provenceholidays.com/en/beach-club/hyeres-le-petit-bain",
+   "https://provence-alpes-cotedazur.com/en/plan-your-stay/restaurants/all-restaurants/le-petit-bain-restaurant-hyeres-en-2889715"
+  ],
+  "relu": "verification 2026-11-13"
  },
  "le-sax-hyeres": {
-  "le": "2026-11-10T21:15:53.769Z",
-  "styles": "Généraliste · Pop-rock · Latino",
-  "dress_code": "Tenue décontractée (aucun dress code officiel)",
-  "horaires": "Lun–Dim · 7h30–1h (jusqu'à 2h en saison)",
-  "prix_verre": "bière 6–9 € · cocktail 10–13 €",
-  "entree": "Gratuit",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "",
+  "prix_verre": "",
+  "entree": "",
   "age_min": "",
   "sources": [
-   "https://www.petitfute.com/v33433-hyeres-83400/c1171-visites-points-d-interet/c958-bar-et-cafe/c959-bar-a-cocktail/391035-le-sax.html",
-   "https://www.provence-alpes-cotedazur.com/offre/le-sax-hyeres-fr-4718636/",
-   "https://check.fr/bars/le-sax/",
-   "https://www.pagesjaunes.fr/pros/52781446"
-  ]
+   "https://cotedazurfrance.fr/offres/le-sax-hyeres-fr-3010129/",
+   "https://cotedazurfrance.com/offers/sax-bar-hyeres-en-3010129",
+   "https://www.koifaire.com/paca/sax-92966.html",
+   "https://wanderlog.com/place/details/10695287/tap-room"
+  ],
+  "relu": "verification 2026-11-13"
  },
  "k27-six-fours-les-plages": {
-  "le": "2026-11-10T21:15:53.769Z",
-  "styles": "House · Electro · Hip-Hop · Reggaeton",
-  "dress_code": "Tenue correcte et décontractée",
-  "horaires": "Mar–Jeu 17h–1h · Ven 17h–1h (jusqu'à 3h selon soirées) · Sam 20h–3h · Dim 17h–1h",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "",
   "prix_verre": "",
-  "entree": "Gratuit",
+  "entree": "",
   "age_min": "",
   "sources": [
-   "https://k27.fr/",
-   "https://shotgun.live/organizers/k27-sixfours",
-   "https://dance-events.fr/",
-   "https://airdancia.com/"
-  ]
- },
- "l-eden-bar-six-fours-les-plages": {
-  "le": "2026-11-10T21:15:53.769Z",
-  "styles": "Généraliste · Électro / House · Pop · Latino",
-  "dress_code": "Tenue soignée exigée (tenues de plage et survêtements refusés).",
-  "horaires": "Mar, Dim 10h–18h · Mer–Jeu 10h–1h · Ven–Sam 10h–3h · Lun–Dim 10h–3h (en saison)",
-  "prix_verre": "cocktail 10–15 €",
-  "entree": "Gratuite (consommation obligatoire)",
-  "age_min": "18 ans (en soirée)",
-  "sources": [
-   "https://eden-fregate.com/",
-   "https://www.instagram.com/eden_six_fours_officiel/",
-   "https://www.facebook.com/ledenbar.sixfours",
-   "https://provence-alpes-cotedazur.com"
-  ]
- },
- "le-bard-o-sanary-sur-mer": {
-  "le": "2026-11-10T21:15:53.769Z",
-  "styles": "Électro · House · Disco · Hip-Hop",
-  "dress_code": "Casual chic, tenue soignée appréciée",
-  "horaires": "Lun–Jeu 9h–1h · Ven–Sam 9h–2h30 · Dim 9h–23h · Lun–Dim 9h–3h (en saison)",
-  "prix_verre": "",
-  "entree": "Gratuit",
-  "age_min": "Tout public",
-  "sources": [
-   "https://www.le-bardo.com/",
-   "https://www.provencesudsaintebaume.com/commerce-et-service/le-bardo-sanary-sur-mer/",
-   "https://www.sanary-tourisme.com/",
-   "https://shotgun.live/fr/events/obsessi-on-by-inda-lebard-o"
-  ]
+   "https://www.bottin.fr/annuaire/bar-a-six-fours-les-plages-83129.htm"
+  ],
+  "relu": "verification 2026-11-13"
  },
  "o-petit-monde-sanary-sur-mer": {
-  "le": "2026-11-10T21:15:53.769Z",
-  "styles": "Lounge · House · Reggae",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
   "dress_code": "",
-  "horaires": "Lun–Dim · 8h30–1h (en saison) · Lun, Jeu–Dim · 9h–15h · 18h–0h",
-  "prix_verre": "mocktail 10 € · cocktail 12–14 €",
-  "entree": "Gratuit",
-  "age_min": "Aucun",
-  "sources": [
-   "https://opetitmonde.com/",
-   "https://www.provencesudsaintebaume.com/",
-   "https://mysunbed.com/",
-   "https://mapstr.com/"
-  ]
- },
- "sam-s-klub-bandol": {
-  "le": "2026-11-10T21:15:53.769Z",
-  "styles": "Généraliste · Années 80 · Latino · Disco",
-  "dress_code": "Tenue correcte",
-  "horaires": "Lun, Jeu, Dim 19h30–1h · Ven–Sam 19h30–3h",
+  "horaires": "",
   "prix_verre": "",
-  "entree": "Entrée gratuite",
+  "entree": "",
   "age_min": "",
   "sources": [
-   "https://sams-klub.com/",
-   "https://sams-klub.com/boite-de-nuit-bandol/",
-   "https://sams-klub.com/soirees-bandol/",
-   "https://www.bandoltourisme.fr/commerce-et-service/sams-klub/"
-  ]
+   "https://provence-alpes-cotedazur.com/en/plan-your-stay/restaurants/all-restaurants/o-petit-monde-sanary-sur-mer-en-2891808",
+   "https://provence-alpes-cotedazur.com/sejourner/hebergements/tous-les-hebergements/hotels/o-petit-monde-sanary-sur-mer-fr-3272932/",
+   "https://mysunbed.com/en/france/sanary-sur-mer/ô-petit-monde/"
+  ],
+  "relu": "verification 2026-11-13"
  },
  "le-spot-hotel-plein-large-bandol": {
-  "le": "2026-11-11T01:29:06.149Z",
-  "styles": "Lounge · Chillout",
-  "dress_code": "Casual chic (tenue de plage seule interdite)",
-  "horaires": "Lun–Dim · 11h–coucher du soleil",
-  "prix_verre": "cocktail 13–16 €",
-  "entree": "gratuit (consommation obligatoire)",
-  "age_min": "aucun",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "lun–dim 11h–coucher du soleil (selon météo)",
+  "prix_verre": "",
+  "entree": "",
+  "age_min": "",
   "sources": [
-   "https://hotel-pleinlarge.com/",
-   "https://www.bandoltourisme.fr/commerce-et-service/le-spot/",
-   "https://www.provencesudsaintebaume.com/commerce-et-service/le-spot/"
-  ]
+   "https://www.bandoltourisme.fr/en/a-restaurant/the-spot/",
+   "https://provence-alpes-cotedazur.com/sejourner/restaurants/tous-les-restaurants/le-spot-bandol-fr-6239120/",
+   "https://www.fr.lastminute.com/hotel/france/bandol/hotel-plein-large_hid-893294"
+  ],
+  "relu": "verification 2026-11-13"
  },
  "poupoune-bandol-bandol": {
-  "le": "2026-11-11T01:29:06.149Z",
-  "styles": "Variété · Lounge",
-  "dress_code": "Tenue décontractée",
-  "horaires": "Lun–Dim 7h–3h (en saison) · Lun–Ven 8h–21h · Sam–Dim 7h–1h",
-  "prix_verre": "bière 4–7 € · cocktail 10–14 €",
-  "entree": "Gratuit",
-  "age_min": "Aucun",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "lun–dim 7h–3h (haute saison) · lun–ven 8h–21h · sam–dim 7h–1h (basse saison)",
+  "prix_verre": "",
+  "entree": "",
+  "age_min": "",
   "sources": [
-   "https://www.bandoltourisme.fr/commerce-et-service/poupoune/",
+   "https://provence-alpes-cotedazur.com/en/offers/poupoune-bar-bandol-en-2882592/",
    "https://www.privateaser.com/lieu/57066-bar-poupoune",
-   "https://www.petitfute.com/v33722-bandol-83150/c1171-sports-loisirs/c580-sortir-boire-un-verre/c584-bar-a-cocktail/244301-poupoune.html",
-   "https://www.instagram.com/poupoune_bandol/"
-  ]
+   "https://www.bottin.fr/fiche-locale/dihdjeadhcdjjiahgfb--bar-poupoune--bandol.htm"
+  ],
+  "relu": "verification 2026-11-13"
  },
  "barrel-pub-cannes": {
-  "le": "2026-11-11T01:29:06.149Z",
-  "styles": "Généraliste · Clubbing · Électro",
-  "dress_code": "Décontracté",
-  "horaires": "Lun–Dim · 18h–5h",
-  "prix_verre": "bière 7–8 € · cocktail 11–14 € · soft 5–7 €",
-  "entree": "Gratuit",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "",
+  "prix_verre": "",
+  "entree": "",
   "age_min": "",
   "sources": [
-   "https://lebarrelpubcannes.com",
-   "https://www.instagram.com/barrelpubcannes",
    "https://www.privateaser.com/lieu/40065-barrel-pub",
-   "https://maps.google.com/?cid=12140409477045155663"
-  ]
+   "https://www.privateaser.com/lieu/66403-barrel-pub-privatisation",
+   "https://www.sluurpy.fr/cannes/restaurant/2031903/barrel-pub"
+  ],
+  "relu": "verification 2026-11-13"
  },
  "bb-cannes-cannes": {
-  "le": "2026-11-11T01:29:06.149Z",
-  "styles": "Généraliste · Latino · Clubbing",
-  "dress_code": "Chic et décontracté",
-  "horaires": "Mar–Sam · 18h–2h30",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "",
   "prix_verre": "",
-  "entree": "Gratuit (consommation obligatoire)",
+  "entree": "",
   "age_min": "",
   "sources": [
-   "https://www.bbcannes.fr",
-   "https://cotedazurfrance.fr",
-   "https://www.pagesjaunes.fr",
-   "https://www.instagram.com/bbcannes_"
-  ]
+   "https://cotedazurfrance.fr/offres/le-bb-cannes-cannes-fr-5712913/",
+   "https://cotedazurfrance.com/offers/le-bb-cannes-cannes-en-3466961",
+   "https://cotedazurfrance.com/offers/le-befirst-cannes-en-3518142"
+  ],
+  "relu": "verification 2026-11-13"
  },
  "groovz-cannes": {
-  "le": "2026-11-11T01:29:06.149Z",
-  "styles": "Généraliste · Club",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
   "dress_code": "",
-  "horaires": "Mar–Sam · 17h–2h30",
-  "prix_verre": "bière 8 € · cocktail 11 €",
-  "entree": "Gratuit",
+  "horaires": "",
+  "prix_verre": "",
+  "entree": "",
   "age_min": "",
   "sources": [
    "https://www.privateaser.com/lieu/41950-groovz",
-   "https://www.instagram.com/groovzcannes"
-  ]
+   "https://www.privateaser.com/reservation-bar/top-bars-beer-pong-cannes"
+  ],
+  "relu": "verification 2026-11-13"
  },
  "let-it-be-mougins": {
-  "le": "2026-11-13T12:27:41.311Z",
+  "le": "2026-11-13T16:53:19.635Z",
   "styles": "",
   "dress_code": "",
   "horaires": "jeu–sam 20h–5h",
@@ -1070,7 +964,7 @@
    "https://cotedazurfrance.fr/offres/let-it-be-mougins-fr-3036054/",
    "https://www.sluurpy.fr/mougins/restaurant/2044083/let-it-be"
   ],
-  "relu": "manuel"
+  "relu": "verification 2026-11-13"
  },
  "le-7-cannes": {
   "le": "2026-11-13T12:27:41.311Z",
@@ -1089,8 +983,8 @@
   "relu": "manuel"
  },
  "down-town-club-nice": {
-  "le": "2026-11-13T12:27:41.311Z",
-  "styles": "DJ sets",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
   "dress_code": "",
   "horaires": "",
   "prix_verre": "",
@@ -1099,7 +993,7 @@
   "sources": [
    "https://www.privateaser.com/lieu/46794-town"
   ],
-  "relu": "manuel"
+  "relu": "verification 2026-11-13"
  },
  "baby-nice": {
   "le": "2026-11-13T12:27:41.311Z",
@@ -1118,36 +1012,34 @@
   "relu": "manuel"
  },
  "bazaar-cannes-cannes": {
-  "le": "2026-11-13T12:27:41.311Z",
-  "styles": "Électro · Tubes populaires (DJ sets)",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
   "dress_code": "",
   "horaires": "mar–sam 18h–2h30",
   "prix_verre": "",
   "entree": "",
   "age_min": "",
   "sources": [
-   "https://cotedazurfrance.com/offers/bazaar-cannes-en-6363563/",
    "https://cotedazurfrance.fr/offres/bazaar-cannes-fr-6363563/",
    "https://en.cannes-france.com/offers/bazaar-cannes-en-6372517/",
    "https://www.privateaser.com/lieu/59356-bazaar-bar-cannes"
   ],
-  "relu": "manuel"
+  "relu": "verification 2026-11-13"
  },
  "bull-dog-pub-pompei-nice": {
-  "le": "2026-11-13T12:27:41.311Z",
-  "styles": "Pop-rock · Rock live",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
   "dress_code": "",
-  "horaires": "lun–dim 23h–6h",
+  "horaires": "",
   "prix_verre": "",
-  "entree": "Gratuite",
+  "entree": "",
   "age_min": "",
   "sources": [
    "https://cotedazurfrance.com/offers/bulldog-pub-pompei-nice-en-3040832",
-   "https://www.pagesjaunes.fr/pros/01939689",
    "https://www.schlouk-map.com/fr/places/bulldog-pub-pompei",
-   "https://www.explorenicecotedazur.com/en/structure/bulldog-pub-pompei/"
+   "https://www.pagesjaunes.fr/pros/01939689"
   ],
-  "relu": "manuel"
+  "relu": "verification 2026-11-13"
  },
  "black-jack-bandol": {
   "le": "2026-11-13T12:27:41.311Z",
@@ -1164,55 +1056,23 @@
   ],
   "relu": "manuel"
  },
- "o-sullivans-mandelieu-mandelieu-la-napoule": {
-  "le": "2026-11-13T12:27:41.311Z",
-  "styles": "Concerts live (jeudi) · DJ sets (week-end)",
-  "dress_code": "",
-  "horaires": "lun–ven 17h–2h · sam–dim 15h–2h",
-  "prix_verre": "",
-  "entree": "",
-  "age_min": "",
-  "sources": [
-   "https://www.privateaser.com/lieu/5424-o-sullivans-by-the-beach",
-   "https://www.justacote.com/mandelieu-la-napoule-06210/hotel-et-autre-hebergement/osullivans-mandelieu-3065827.htm",
-   "https://www.osullivans-pubs.com/en"
-  ],
-  "relu": "manuel"
- },
  "naya-club-cannes-cannes": {
-  "le": "2026-11-13T12:27:41.311Z",
-  "styles": "House · EDM · Dance",
-  "dress_code": "Chic décontracté, pas de tenue de plage ni de sport (porte sélective)",
-  "horaires": "ven–sam 23h55–5h",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "ven–sam 0h–5h",
   "prix_verre": "",
   "entree": "",
   "age_min": "",
   "sources": [
    "https://cotedazurfrance.com/offers/naya-club-cannes-cannes-en-4499551/",
    "https://provence-alpes-cotedazur.com/en/things-to-do/leisure-relaxation/all-relaxation-and-leisure-activities/naya-club-cannes-cannes-en-4562604/",
-   "https://www.clubbable.com/Cannes/Naya-Club",
-   "https://sandbeds.com/clubs/naya-club-cannes/"
+   "https://alotea.com/cannes/nightclubs/naya-club"
   ],
-  "relu": "manuel"
- },
- "l-omega-nice": {
-  "le": "2026-11-13T12:27:41.311Z",
-  "styles": "Électro · Électro house",
-  "dress_code": "",
-  "horaires": "",
-  "prix_verre": "",
-  "entree": "",
-  "age_min": "",
-  "sources": [
-   "https://provence-alpes-cotedazur.com/en/things-to-do/leisure-relaxation/all-relaxation-and-leisure-activities/lomega-club-nice-en-3489998",
-   "https://cotedazurfrance.fr/offres/halloween-the-party-nice-fr-6847370/",
-   "https://riviera-buzz.com/lifestyle/lgbt/omega-club-first-anniversary.html",
-   "https://jamesonfarn.substack.com/p/lomega-nightclub-in-nice"
-  ],
-  "relu": "manuel"
+  "relu": "verification 2026-11-13"
  },
  "up-town-bar-nice": {
-  "le": "2026-11-13T12:27:41.311Z",
+  "le": "2026-11-13T16:53:19.635Z",
   "styles": "",
   "dress_code": "",
   "horaires": "jeu–sam 20h–4h30 · dim 18h–20h",
@@ -1220,13 +1080,14 @@
   "entree": "",
   "age_min": "",
   "sources": [
-   "https://www.privateaser.com/lieu/46794-town"
+   "https://www.privateaser.com/lieu/46794-town",
+   "https://promenadestravel.com/nice-cocktail-workshop-in-a-stylish-bar-lounge-in-old-town/"
   ],
-  "relu": "manuel"
+  "relu": "verification 2026-11-13"
  },
  "trafalbar-nice": {
-  "le": "2026-11-13T12:27:41.311Z",
-  "styles": "Ambiance festive, soirées dansantes",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
   "dress_code": "",
   "horaires": "mar–sam 20h–2h30",
   "prix_verre": "",
@@ -1236,44 +1097,42 @@
    "https://www.privateaser.com/lieu/41359-trafalbar",
    "https://www.schlouk-map.com/fr/places/trafalbar",
    "https://joinpearl.co/restaurants/nice/trafalbar-nice",
-   "https://intravel.net/nice/nightlife/trafalbar-nice",
    "https://www.enprimeurclub.com/restaurants/trafalbar-nice-nice-restaurant"
   ],
-  "relu": "manuel"
+  "relu": "verification 2026-11-13"
  },
  "la-cale-seche-toulon": {
-  "le": "2026-11-13T12:27:41.311Z",
-  "styles": "Bar musical festif",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
   "dress_code": "",
-  "horaires": "lun–sam 17h30–1h",
-  "prix_verre": "bière dès 7,30 €",
+  "horaires": "",
+  "prix_verre": "",
   "entree": "",
   "age_min": "",
   "sources": [
-   "https://provence-alpes-cotedazur.com/en/things-to-do/leisure-relaxation/all-relaxation-and-leisure-activities/la-cale-seche-toulon-en-4001690",
-   "https://www.schlouk-map.com/fr/places/la-cale-seche-1"
+   "https://provence-alpes-cotedazur.com/en/things-to-do/leisure-relaxation/all-relaxation-and-leisure-activities/la-cale-seche-toulon-en-4001690"
   ],
-  "relu": "manuel"
+  "relu": "verification 2026-11-13"
  },
  "le-petit-chicago-toulon": {
-  "le": "2026-11-13T12:27:41.311Z",
-  "styles": "Concerts live · DJ sets · Stand-up · Blind tests",
-  "dress_code": "",
-  "horaires": "mar–mer 16h30–1h · jeu–sam 16h30–2h",
-  "prix_verre": "",
-  "entree": "Gratuite (chapeau pour les artistes)",
-  "age_min": "",
-  "sources": [
-   "https://www.pagesjaunes.fr/pros/64961039",
-   "https://www.privateaser.com/lieu/57598-little-chicago-place-de-l-equerre"
-  ],
-  "relu": "manuel"
- },
- "le-bayou-cannes": {
-  "le": "2026-11-13T12:27:41.311Z",
+  "le": "2026-11-13T16:53:19.635Z",
   "styles": "",
   "dress_code": "",
-  "horaires": "jeu–lun 18h30–2h30",
+  "horaires": "",
+  "prix_verre": "",
+  "entree": "",
+  "age_min": "",
+  "sources": [
+   "https://www.privateaser.com/lieu/57598-little-chicago-place-de-l-equerre",
+   "https://www.pagesjaunes.fr/pros/64961039"
+  ],
+  "relu": "verification 2026-11-13"
+ },
+ "le-bayou-cannes": {
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "",
   "prix_verre": "",
   "entree": "",
   "age_min": "",
@@ -1282,58 +1141,58 @@
    "https://www.sluurpy.fr/cannes/restaurant/7967165/bayou-bar",
    "https://restoranking.fr/r/bayou-bar_284948"
   ],
-  "relu": "manuel"
+  "relu": "verification 2026-11-13"
  },
  "frigo-16-nice": {
-  "le": "2026-11-13T12:27:41.311Z",
-  "styles": "Techno · House · Drum'n'bass · Électro",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
   "dress_code": "",
   "horaires": "",
   "prix_verre": "",
-  "entree": "Billetterie par soirée, environ 7,50 € à 24 €",
+  "entree": "",
   "age_min": "",
   "sources": [
-   "https://www.nice.fr/?p=22306",
-   "https://shotgun.live/fr/events/do-you-like-techno-frigo-16-le-109-nice",
+   "https://www.nice.fr/lieux/le-109/",
+   "https://theculturetrip.com/articles/welcome-to-le-109-nices-former-abattoir-is-now-a-cutting-edge-cultural-hub",
    "https://cotedazurfrance.fr/offres/caravel-nice-fr-6825141/",
-   "https://cotedazurfrance.fr/offres/paul-seul-nice-fr-6824997/",
-   "https://cotedazurfrance.fr/offres/brodinski-en-concert-a-nice-nice-fr-6824995/"
+   "https://shotgun.live/en/events/do-you-like-techno-frigo-16-le-109-nice"
   ],
-  "relu": "manuel"
+  "relu": "verification 2026-11-13"
  },
  "la-siesta-antibes": {
-  "le": "2026-11-13T12:27:41.311Z",
-  "styles": "House · Latino · Électro",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "mer 20h–3h · ven 20h–2h30 (été 2026 : soirées Latin Addict et Aura)",
+  "prix_verre": "",
+  "entree": "",
+  "age_min": "",
+  "sources": [
+   "https://cotedazurfrance.com/offers/casino-joa-dantibes-la-siesta-antibes-en-4891386",
+   "https://shotgun.live/en/events/aura-siesta",
+   "https://shotgun.live/en/events/lesmercredis-latinaddict-by-lasiesta",
+   "https://shotgun.live/fr/events/ref-festival-silvie-loto"
+  ],
+  "relu": "verification 2026-11-13"
+ },
+ "oma-nice": {
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
   "dress_code": "",
   "horaires": "",
   "prix_verre": "",
   "entree": "",
   "age_min": "",
   "sources": [
-   "https://shotgun.live/en/events/aura-siesta",
-   "https://shotgun.live/es/events/lesmercredis-latinaddict-by-lasiesta",
-   "https://shotgun.live/events/ref-festival-silvie-loto",
-   "https://cotedazurfrance.com/offers/casino-joa-dantibes-la-siesta-antibes-en-4891386"
+   "https://www.songkick.com/venues/4600104-oma-club",
+   "https://www.outgoing.world/activity/bc6ed9e4-b734-4f05-92cf-65915f5110c8",
+   "https://www.pagesjaunes.fr/pros/65070831"
   ],
-  "relu": "manuel"
- },
- "oma-nice": {
-  "le": "2026-11-13T12:27:41.311Z",
-  "styles": "Rap US années 90 · Hip-Hop",
-  "dress_code": "Sélection à l'entrée",
-  "horaires": "jeu–sam 23h–4h",
-  "prix_verre": "",
-  "entree": "",
-  "age_min": "",
-  "sources": [
-   "https://www.pagesjaunes.fr/pros/65070831",
-   "https://www.songkick.com/venues/4600104-oma-club"
-  ],
-  "relu": "manuel"
+  "relu": "verification 2026-11-13"
  },
  "le-glam-nice": {
-  "le": "2026-11-13T12:27:41.311Z",
-  "styles": "House · Techno · Dance · Shows drag",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
   "dress_code": "",
   "horaires": "ven–sam 0h–5h",
   "prix_verre": "",
@@ -1342,45 +1201,46 @@
   "sources": [
    "https://www.explorenicecotedazur.com/fiche/le-glam/",
    "https://cotedazurfrance.fr/offres/le-glam-nice-fr-3041095/",
-   "https://tablejourney.com/france/nice/nightlife/le-glam-lgbtq/",
-   "https://www.privateaser.com/lieu/46476-le-glam"
+   "https://www.privateaser.com/lieu/46476-le-glam",
+   "https://www.travelgayasia.com/venue/le-glam"
   ],
-  "relu": "manuel"
+  "relu": "verification 2026-11-13"
  },
  "club-vertigo-la-londe-les-maures": {
-  "le": "2026-11-13T12:27:41.311Z",
-  "styles": "Années 80 à aujourd'hui · Généraliste",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
   "dress_code": "",
   "horaires": "",
   "prix_verre": "",
-  "entree": "Formule restaurant 35 € avec entrée au club incluse",
+  "entree": "",
   "age_min": "",
   "sources": [
    "https://cotedazurfrance.fr/offres/club-vertigo-la-londe-les-maures-fr-3008491/",
    "https://provence-alpes-cotedazur.com/en/things-to-do/leisure-relaxation/all-relaxation-and-leisure-activities/club-vertigo-la-londe-les-maures-en-3981098",
-   "https://cotedazurfrance.com/offers/le-vertigo-club-restaurant-la-londe-les-maures-en-2910375/"
+   "https://cotedazurfrance.fr/offres/le-vertigo-restaurant-club-la-londe-les-maures-fr-2910375/",
+   "https://tripaligner.com/countries/france-18/destinations/toulon-13167/places/le-vertigo-5263876"
   ],
-  "relu": "manuel"
+  "relu": "verification 2026-11-13"
  },
  "le-swing-nice": {
-  "le": "2026-11-13T12:27:41.311Z",
-  "styles": "Soirées à thème : karaoké · salsa · électro · cabaret · DJ",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
   "dress_code": "",
   "horaires": "mar–dim 18h–2h30",
-  "prix_verre": "bière 50 cl 4 € en happy hour, 8 € sinon",
+  "prix_verre": "",
   "entree": "",
   "age_min": "",
   "sources": [
-   "https://www.schlouk-map.com/fr/places/le-swing",
    "https://www.misterbandb.com/fr/guide-gay/france/nice/50-bars-et-clubs/24176-le-swing",
-   "https://www.gayout.com/fr/europe/france/nice/bars/le-swing",
+   "https://gayfrenchriviera.substack.com/p/le-swing-in-nice",
+   "https://www.schlouk-map.com/fr/places/le-swing",
    "https://www.privateaser.com/lieu/46563-le-swing"
   ],
-  "relu": "manuel"
+  "relu": "verification 2026-11-13"
  },
  "le-kosma-nice": {
-  "le": "2026-11-13T12:27:41.311Z",
-  "styles": "Live (groupes) · Karaoké · Disco · Cabaret",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
   "dress_code": "",
   "horaires": "mer–dim 23h–5h",
   "prix_verre": "",
@@ -1388,106 +1248,94 @@
   "age_min": "",
   "sources": [
    "https://cotedazurfrance.fr/offres/kosma-nice-fr-3040721/",
+   "https://cotedazurfrance.com/offers/kosma-nice-en-3040721",
    "https://www.privateaser.com/lieu/46561-kosma-live-club",
-   "https://www.schlouk-map.com/en/places/kosma",
-   "https://cotedazurfrance.com/offers/full-girlz-snow-party-nice-en-6166482"
+   "https://www.groupon.fr/biz/nice/le-kosma"
   ],
-  "relu": "manuel"
- },
- "fiesta-beach-saint-aygulf": {
-  "le": "2026-11-13T12:27:41.311Z",
-  "styles": "Soirées à thème différentes chaque soir",
-  "dress_code": "",
-  "horaires": "mer–sam 18h–3h",
-  "prix_verre": "",
-  "entree": "",
-  "age_min": "",
-  "sources": [
-   "https://cotedazurfrance.fr/offres/fiesta-beach-club-frejus-fr-5814027/",
-   "https://www.esterel-cotedazur.com/?p=82206"
-  ],
-  "relu": "manuel"
+  "relu": "verification 2026-11-13"
  },
  "balancia-bar-nice": {
-  "le": "2026-11-13T12:27:41.311Z",
-  "styles": "Live · Latino · Reggaeton · Karaoké",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
   "dress_code": "",
-  "horaires": "lun–dim 17h–0h30",
+  "horaires": "",
   "prix_verre": "",
   "entree": "",
   "age_min": "",
   "sources": [
-   "https://www.privateaser.com/lieu/58054-le-balancia-bar"
+   "https://www.privateaser.com/lieu/58054-le-balancia-bar",
+   "https://www.airbnb.gy/things-to-do/places/464843"
   ],
-  "relu": "manuel"
+  "relu": "verification 2026-11-13"
  },
  "baoli-cannes": {
-  "le": "2026-11-13T12:27:41.311Z",
+  "le": "2026-11-13T16:53:19.635Z",
   "styles": "",
-  "dress_code": "Chic exigé : pas de shorts, sandales, casquettes ni tenues de sport",
-  "horaires": "lun–dim 20h–5h",
+  "dress_code": "",
+  "horaires": "lun–dim 20h–5h (1er mai–31 oct. 2026 ; hors saison selon l'affluence)",
   "prix_verre": "",
-  "entree": "Gratuite (sélection à l'entrée)",
-  "age_min": "18 ans",
+  "entree": "",
+  "age_min": "",
   "sources": [
    "https://cotedazurfrance.fr/offres/baoli-cannes-cannes-fr-3466869/",
    "https://cotedazurfrance.fr/offres/le-club-baoli-cannes-fr-3602769/",
-   "https://www.technoairlines.com/club/baoli-cannes",
+   "https://provence-alpes-cotedazur.com/en/offers/le-baoli-cannes-cannes-en-3466519",
    "https://www.clubbable.com/fr-FR/Cannes/Baoli"
   ],
-  "relu": "manuel"
+  "relu": "verification 2026-11-13"
  },
  "barrio-chicago-toulon": {
-  "le": "2026-11-13T12:27:41.311Z",
-  "styles": "Concerts",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
   "dress_code": "",
-  "horaires": "lun–dim 17h–2h",
-  "prix_verre": "bière 5,50 €",
+  "horaires": "",
+  "prix_verre": "",
   "entree": "",
   "age_min": "",
   "sources": [
    "https://www.schlouk-map.com/fr/places/barrio-chicago",
-   "https://www.schlouk-map.com/en/places/barrio-chicago",
-   "https://wanderlog.com/place/details/11999855/barrio-chicago"
+   "https://wanderlog.com/place/details/11999855/barrio-chicago",
+   "https://www.capitainestudy.fr/articles/10-meilleurs-bars-etudiants-de-toulon/"
   ],
-  "relu": "manuel"
+  "relu": "verification 2026-11-13"
  },
  "boka-club-toulon": {
-  "le": "2026-11-13T12:27:41.311Z",
-  "styles": "Karaoké · DJ · Live",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
   "dress_code": "",
-  "horaires": "lun–jeu 20h–4h · ven 20h–5h",
+  "horaires": "",
   "prix_verre": "",
   "entree": "",
   "age_min": "",
   "sources": [
-   "https://www.arrivalguides.com/fr/Travelguide/TOULON/barsandnightlife/boka-club-del-magot-le-magot-88710",
+   "https://www.schlouk-map.com/en/places/club-le-magot",
    "https://www.schlouk-map.com/fr/places/club-le-magot",
-   "https://www.koifaire.com/paca/le,magot-62980.html"
+   "https://www.arrivalguides.com/fr/Travelguide/TOULON/barsandnightlife/boka-club-del-magot-le-magot-88710",
+   "https://www.fodors.com/world/europe/france/provence/places/aix-marseille-and-the-central-coast/toulon/things-to-do/nightlife"
   ],
-  "relu": "manuel"
+  "relu": "verification 2026-11-13"
  },
  "skyfall-cannes": {
-  "le": "2026-11-13T12:27:41.311Z",
-  "styles": "Musiques urbaines · DJ",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
   "dress_code": "",
   "horaires": "jeu–lun 23h–5h",
   "prix_verre": "",
   "entree": "",
-  "age_min": "18 ans",
+  "age_min": "",
   "sources": [
-   "https://en.cannes-france.com/offers/skyfall-cannes-en-4154066/",
    "https://cotedazurfrance.fr/offres/skyfall-cannes-fr-4153995/",
-   "https://www.songkick.com/venues/4624691-skyfall-cannes-x-kingdom",
-   "https://www.clubbable.com/Cannes/Skyfall"
+   "https://en.cannes-france.com/offers/skyfall-cannes-en-4154066/",
+   "https://provence-alpes-cotedazur.com/en/things-to-do/leisure-relaxation/all-relaxation-and-leisure-activities/skyfall-cannes-en-4730858",
+   "https://www.clubbable.com/fr-FR/Cannes/Skyfall"
   ],
-  "relu": "manuel"
+  "relu": "verification 2026-11-13"
  },
  "no-stresss-la-seyne-sur-mer": {
-  "le": "2026-11-13T12:27:41.311Z",
-  "styles": "Généraliste",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
   "dress_code": "",
-  "horaires": "",
+  "horaires": "mer–dim 0h–5h (juillet–août) · ven–dim hors saison (heures non précisées)",
   "prix_verre": "",
   "entree": "",
   "age_min": "",
@@ -1495,54 +1343,355 @@
    "https://provence-alpes-cotedazur.com/que-faire/detente-et-loisirs/toutes-les-activites-detente-et-loisirs/no-stresss-la-seyne-sur-mer-fr-4728556/",
    "https://provence-alpes-cotedazur.com/en/things-to-do/leisure-relaxation/all-relaxation-and-leisure-activities/no-stresss-la-seyne-sur-mer-en-4728556"
   ],
-  "relu": "manuel"
+  "relu": "verification 2026-11-13"
  },
  "green-musik-antibes": {
-  "le": "2026-11-13T12:27:41.311Z",
-  "styles": "Techno · Concerts variés",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
   "dress_code": "",
   "horaires": "",
   "prix_verre": "",
   "entree": "",
   "age_min": "",
   "sources": [
-   "https://www.songkick.com/venues/4605023-le-green-musik",
-   "https://shotgun.live/fr/events/transmission-03-signal-found-at-the-green-musik"
+   "https://shotgun.live/fr/events/transmission-03-signal-found-at-the-green-musik",
+   "https://www.bandsintown.com/e/1036336677",
+   "https://tickets.songkick.com/venues/4605023-le-green-musik"
   ],
-  "relu": "manuel"
+  "relu": "verification 2026-11-13"
  },
  "monsieur-pablo-plage-vallauris": {
-  "le": "2026-11-13T12:27:41.311Z",
-  "styles": "DJ live",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
   "dress_code": "",
   "horaires": "",
   "prix_verre": "",
   "entree": "",
   "age_min": "",
   "sources": [
-   "https://mysunbed.com/fr/plage-privee/vallauris-golfe-juan/monsieur-pablo/",
    "https://cotedazurfrance.fr/offres/monsieur-pablo-plage-vallauris-golfe-juan-fr-2828746/",
-   "https://www.vallaurisgolfejuan-tourisme.fr/wp-content/uploads/2019/11/plages-privees2023.pdf"
+   "https://provence-alpes-cotedazur.com/sejourner/restaurants/tous-les-restaurants/monsieur-pablo-plage-vallauris-fr-2863930/",
+   "https://mysunbed.com/fr/plage-privee/vallauris-golfe-juan/monsieur-pablo/"
   ],
-  "relu": "manuel"
+  "relu": "verification 2026-11-13"
  },
  "chrystie-cannes": {
-  "le": "2026-11-13T12:27:41.311Z",
-  "styles": "Hits · House · Dance",
-  "dress_code": "Tenue chic et élégante exigée, pas de tenue de plage ni de sport",
-  "horaires": "jeu–sam 23h59–5h",
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "jeu–sam 23h–5h",
   "prix_verre": "",
-  "entree": "Environ 20 € ; liste d'invités ou réservation de table conseillée",
-  "age_min": "18 ans",
+  "entree": "",
+  "age_min": "",
   "sources": [
-   "https://cotedazurfrance.com/offers/chrystie-cannes-en-4761601/",
-   "https://provence-alpes-cotedazur.com/en/things-to-do/leisure-relaxation/all-relaxation-and-leisure-activities/chrystie-cannes-en-4761412/",
+   "https://provence-alpes-cotedazur.com/en/things-to-do/leisure-relaxation/all-relaxation-and-leisure-activities/chrystie-cannes-en-4761412",
+   "https://cotedazurfrance.com/offers/chrystie-cannes-en-4761601",
    "https://www.inyourpocket.com/cannes/chrystie-bar_160143v",
-   "https://alotea.com/cannes/nightclubs/chrystie",
-   "https://sandbeds.com/clubs/chrystie-cannes/",
-   "https://www.clubbable.com/fr-FR/Cannes/Chrystie",
-   "https://www.nightflow.com/?p=13271"
+   "https://www.gillespudlowski.com/?p=143591"
   ],
-  "relu": "manuel"
+  "relu": "verification 2026-11-13"
+ },
+ "escobar-club-saint-laurent-du-var": {
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "",
+  "prix_verre": "",
+  "entree": "",
+  "age_min": "",
+  "sources": [
+   "https://cotedazurfrance.fr/offres/escobar-saint-laurent-du-var-fr-3737390/",
+   "https://www.explorenicecotedazur.com/en/restaurant/escobar/",
+   "https://provence-alpes-cotedazur.com/en/plan-your-stay/restaurants/all-restaurants/escobar-saint-laurent-du-var-en-3879888"
+  ],
+  "relu": "verification 2026-11-13"
+ },
+ "kosma-piano-bar-nice": {
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "mer–dim 23h–5h",
+  "prix_verre": "",
+  "entree": "",
+  "age_min": "",
+  "sources": [
+   "https://cotedazurfrance.fr/offres/kosma-nice-fr-3040721/",
+   "https://www.explorenicecotedazur.com/?p=9230",
+   "https://www.privateaser.com/lieu/46561-kosma-live-club",
+   "https://www.inyourpocket.com/nice/kosma-live-club_162502v"
+  ],
+  "relu": "verification 2026-11-13"
+ },
+ "people-by-l-39-atoll-saint-laurent-du-var": {
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "lun–sam 9h–0h30",
+  "prix_verre": "",
+  "entree": "",
+  "age_min": "",
+  "sources": [
+   "https://cotedazurfrance.fr/offres/people-by-latoll-restaurant-saint-laurent-du-var-fr-3014323/",
+   "https://www.explorenicecotedazur.com/en/restaurant/people-by-latoll-restaurant/",
+   "https://aroundus.com/p/171829965-l-atoll"
+  ],
+  "relu": "verification 2026-11-13"
+ },
+ "fiesta-beach-frejus-saint-aygulf": {
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "mer–sam 18h–3h (saison du 2 juin au 31 octobre 2026)",
+  "prix_verre": "",
+  "entree": "",
+  "age_min": "",
+  "sources": [
+   "https://cotedazurfrance.fr/offres/fiesta-beach-club-frejus-fr-5814027/",
+   "https://provence-alpes-cotedazur.com/en/things-to-do/leisure-relaxation/all-relaxation-and-leisure-activities/fiesta-beach-club-frejus-en-5813498",
+   "https://www.esterel-cotedazur.com/?p=82206"
+  ],
+  "relu": "verification 2026-11-13"
+ },
+ "o-39-sullivans-by-the-beach-mandelieu-la-napoule": {
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "",
+  "prix_verre": "",
+  "entree": "",
+  "age_min": "",
+  "sources": [
+   "https://www.privateaser.com/lieu/5424-o-sullivans-by-the-beach",
+   "https://provence-alpes-cotedazur.com/en/plan-your-stay/useful-information/all-practical-services/osullivans-bar-and-tapas-mandelieu-la-napoule-en-2860926/",
+   "https://www.osullivans-pubs.com/en",
+   "https://ca.hotels.com/ho755039040/o-sullivans-by-the-beach-mandelieu-la-napoule-france"
+  ],
+  "relu": "verification 2026-11-13"
+ },
+ "sam-39-s-klub-bandol": {
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "lun 19h30–1h · jeu 19h30–1h · ven–sam 19h30–3h · dim 19h30–1h",
+  "prix_verre": "",
+  "entree": "",
+  "age_min": "",
+  "sources": [
+   "https://provence-alpes-cotedazur.com/sejourner/restaurants/tous-les-restaurants/sams-klub-bandol-fr-2867862/",
+   "https://rankeat.fr/restaurants/sams-klub-restaurant-bandol-before-service-tardif-bandol",
+   "https://www.sluurpy.fr/bandol/restaurant/2046661/le-sam-s-klub"
+  ],
+  "relu": "verification 2026-11-13"
+ },
+ "l-39-eden-bar-six-fours-les-plages": {
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "",
+  "prix_verre": "",
+  "entree": "",
+  "age_min": "",
+  "sources": [
+   "https://provence-alpes-cotedazur.com/que-faire/detente-et-loisirs/toutes-les-activites-detente-et-loisirs/leden-bar-six-fours-les-plages-fr-3243232/",
+   "https://www.privateaser.com/lieu/43271-l-eden",
+   "https://www.pagesjaunes.fr/pros/05323557"
+  ],
+  "relu": "verification 2026-11-13"
+ },
+ "l-39-omega-nice": {
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "",
+  "prix_verre": "",
+  "entree": "",
+  "age_min": "",
+  "sources": [
+   "https://provence-alpes-cotedazur.com/en/things-to-do/leisure-relaxation/all-relaxation-and-leisure-activities/lomega-club-nice-en-3489998",
+   "https://jamesonfarn.substack.com/p/lomega-nightclub-in-nice",
+   "https://riviera-buzz.com/lifestyle/lgbt/omega-club-first-anniversary.html"
+  ],
+  "relu": "verification 2026-11-13"
+ },
+ "le-boy-39-s-paradise-toulon": {
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "",
+  "prix_verre": "",
+  "entree": "",
+  "age_min": "",
+  "sources": [
+   "https://www.schlouk-map.com/fr/places/boys-paradise",
+   "https://www.privateaser.com/lieu/55954-boy-s-paradise",
+   "https://shotgun.live/fr/events/derapage-au-boy-s-paradise",
+   "https://wanderlog.com/place/details/10401460"
+  ],
+  "relu": "verification 2026-11-13"
+ },
+ "le-trendy-saint-laurent-du-var": {
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "",
+  "prix_verre": "",
+  "entree": "",
+  "age_min": "",
+  "sources": [
+   "https://cotedazurfrance.fr/offres/le-carre-le-trendy-saint-laurent-du-var-fr-4092728/",
+   "https://www.explorenicecotedazur.com/?p=63761",
+   "https://www.pagesjaunes.fr/pros/00638155"
+  ],
+  "relu": "verification 2026-11-13"
+ },
+ "o-39-sullivans-mandelieu-mandelieu-la-napoule": {
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "",
+  "prix_verre": "",
+  "entree": "",
+  "age_min": "",
+  "sources": [
+   "https://www.privateaser.com/lieu/5424-o-sullivans-by-the-beach",
+   "https://provence-alpes-cotedazur.com/en/plan-your-stay/useful-information/all-practical-services/osullivans-bar-and-tapas-mandelieu-la-napoule-en-2860926/",
+   "https://momondo.com/hotels/mandelieu-la-napoule/O-Sullivans-By-the-Beach.mhd4077815.ksp"
+  ],
+  "relu": "verification 2026-11-13"
+ },
+ "l-39-elixir-club-saint-mandrier-sur-mer": {
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "mer–dim (heure d'ouverture non trouvée)–7h",
+  "prix_verre": "",
+  "entree": "",
+  "age_min": "",
+  "sources": [
+   "https://provence-alpes-cotedazur.com/que-faire/detente-et-loisirs/toutes-les-activites-detente-et-loisirs/lelixir-lounge-club-saint-mandrier-sur-mer-fr-3243294/",
+   "https://provence-alpes-cotedazur.com/en/things-to-do/leisure-relaxation/all-relaxation-and-leisure-activities/lelixir-lounge-club-saint-mandrier-sur-mer-en-3243294"
+  ],
+  "relu": "verification 2026-11-13"
+ },
+ "le-six-nice": {
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "mar–sam 22h–5h",
+  "prix_verre": "",
+  "entree": "",
+  "age_min": "",
+  "sources": [
+   "https://cotedazurfrance.fr/offres/club-le-6-nice-fr-3041473/",
+   "https://www.schlouk-map.com/fr/places/le-six",
+   "https://www.privateaser.com/lieu/41369-le-six"
+  ],
+  "relu": "verification 2026-11-13"
+ },
+ "morrison-39-s-irish-pub-amp-morrison-39-s-lounge-cannes": {
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "lun–dim 17h–2h",
+  "prix_verre": "",
+  "entree": "",
+  "age_min": "",
+  "sources": [
+   "https://en.cannes-france.com/offers/morrisons-pub-cannes-en-3605724/",
+   "https://cotedazurfrance.fr/offres/morrisons-pub-cannes-fr-3602782/",
+   "https://cotedazurfrance.fr/offres/morrisons-lounge-cannes-fr-4528249/",
+   "https://www.privateaser.com/lieu/57641-morrison-s-lounge"
+  ],
+  "relu": "verification 2026-11-13"
+ },
+ "dry-restaurant-amp-cocktail-bar-villefranche-sur-mer": {
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "",
+  "prix_verre": "",
+  "entree": "",
+  "age_min": "",
+  "sources": [
+   "https://provence-alpes-cotedazur.com/en/plan-your-stay/restaurants/all-restaurants/dry-restaurant-cocktail-bar-villefranche-sur-mer-en-2883782",
+   "https://cotedazurfrance.fr/offres/dry-restaurant-cocktail-bar-villefranche-sur-mer-fr-2830308/",
+   "https://www.pariseater.com/france-travel-guides/our-favourite-restaurants-in-villefranche-sur-mer/"
+  ],
+  "relu": "verification 2026-11-13"
+ },
+ "gotha-cannes": {
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "",
+  "prix_verre": "",
+  "entree": "",
+  "age_min": "",
+  "sources": [
+   "https://pullman.accor.com/gb/destinations/poi/gotha-club-cannes.shtml",
+   "https://www.yelp.com/biz/gotha-club-cannes",
+   "https://www.clubbable.com/Cannes/Gotha",
+   "https://www.clubbable.com/Cannes/Palm-Club"
+  ],
+  "relu": "verification 2026-11-13"
+ },
+ "l-39-elixir-lounge-club-saint-mandrier-sur-mer": {
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "mer–dim (soir) jusqu'à 7h — heure d'ouverture non trouvée",
+  "prix_verre": "",
+  "entree": "",
+  "age_min": "",
+  "sources": [
+   "https://provence-alpes-cotedazur.com/que-faire/detente-et-loisirs/toutes-les-activites-detente-et-loisirs/lelixir-lounge-club-saint-mandrier-sur-mer-fr-3243294/",
+   "https://provence-alpes-cotedazur.com/en/things-to-do/leisure-relaxation/all-relaxation-and-leisure-activities/lelixir-lounge-club-saint-mandrier-sur-mer-en-3243294"
+  ],
+  "relu": "verification 2026-11-13"
+ },
+ "le-bard-39-o-sanary-sur-mer": {
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "dim–jeu 9h–1h · ven–sam 9h–2h30 · été lun–dim 9h–3h",
+  "prix_verre": "",
+  "entree": "",
+  "age_min": "",
+  "sources": [
+   "https://www.sanary-tourisme.com/en/im-here/restaurants/4666716_le-bardo/",
+   "https://provence-alpes-cotedazur.com/en/plan-your-stay/restaurants/all-restaurants/le-bardo-sanary-sur-mer-en-2877651/",
+   "https://www.privateaser.com/lieu/58043-le-bard-o"
+  ],
+  "relu": "verification 2026-11-13"
+ },
+ "nuits-blanches-nice": {
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "jeu–sam 23h30–5h",
+  "prix_verre": "",
+  "entree": "",
+  "age_min": "",
+  "sources": [
+   "https://www.explorenicecotedazur.com/en/structure/nuits-blanches-club/",
+   "https://cotedazurfrance.com/offers/nuits-blanches-club-nice-en-3041066/"
+  ],
+  "relu": "verification 2026-11-13"
+ },
+ "opera-nice": {
+  "le": "2026-11-13T16:53:19.635Z",
+  "styles": "",
+  "dress_code": "",
+  "horaires": "",
+  "prix_verre": "",
+  "entree": "",
+  "age_min": "",
+  "sources": [
+   "https://shotgun.live/en/events/soiree-opera-club",
+   "https://www.youtube.com/channel/UC2br4xIbKUxfj0PWpKzKWzA",
+   "https://www.noxway.fr/nightclub/ChIJgd35vzTbzRIRf_DL678U2w4",
+   "https://europenightlife.com/france/nice/best-clubs-in-nice"
+  ],
+  "relu": "verification 2026-11-13"
  }
 }

@@ -2,37 +2,10 @@
  "_explication": "Lieux ajoutés à la main par l'équipe (vérifiés) : toujours présents dans l'annuaire Clubs & bars, même après la mise à jour hebdomadaire par recherche web. Ne mettre que des informations publiées par le lieu ou l'organisateur.",
  "lieux": [
   {
-   "nom": "Green Musik",
-   "type": "club",
-   "ville": "Antibes",
-   "adresse": "11 bis avenue du 11 Novembre, 06600 Antibes",
-   "instagram": "",
-   "site": "",
-   "description": "Lieu de l'association culturelle Green Musik à Antibes : soirées techno, psytrance et hard trance organisées par des collectifs comme Les Tocards.",
-   "_source": "Affiche officielle et page Shotgun de « La Tocardise » (14/11/2026)"
-  },
-  {
-   "nom": "Bâoli",
-   "type": "club",
-   "ville": "Cannes",
-   "adresse": "",
-   "instagram": "",
-   "site": "",
-   "description": "",
-   "_source": "Demandé par le directeur le 13/11/2026 (boîte de nuit de Cannes) ; compte Instagram et horaires à confirmer par le robot de vérification."
-  },
-  {
    "nom": "Gwladys Dance Studio",
    "ville": "Le Cannet",
    "retirer": true,
    "_raison": "école de danse, pas un lieu de nuit",
-   "_verifie": "2026-11-13"
-  },
-  {
-   "nom": "L&#39;étoile",
-   "ville": "Nice",
-   "retirer": true,
-   "_raison": "devenu L'Omega Club en 2018 (déjà dans l'annuaire)",
    "_verifie": "2026-11-13"
   },
   {
@@ -127,20 +100,6 @@
    "_verifie": "2026-11-13"
   },
   {
-   "nom": "L&#39;Octopus",
-   "ville": "La Seyne-sur-Mer",
-   "retirer": true,
-   "_raison": "restaurant à Ollioules, pas un club",
-   "_verifie": "2026-11-13"
-  },
-  {
-   "nom": "L&#39;élixir lounge club",
-   "ville": "La Seyne-sur-Mer",
-   "retirer": true,
-   "_raison": "doublon de L'Élixir Lounge Club (Saint-Mandrier)",
-   "_verifie": "2026-11-13"
-  },
-  {
    "nom": "Le Carré",
    "ville": "Saint-Laurent-du-Var",
    "retirer": true,
@@ -192,25 +151,1074 @@
    "_verifie": "2026-11-13"
   },
   {
-   "nom": "Chrystie",
-   "type": "club",
-   "ville": "Cannes",
-   "adresse": "22 Rue Macé, 06400 Cannes",
-   "instagram": "",
-   "site": "",
-   "description": "Club-restaurant de Cannes au décor Art déco des années 1920, à deux pas de la Croisette : dîner puis piste de danse, hits, house et dance.",
-   "_source": "https://cotedazurfrance.com/offers/chrystie-cannes-en-4761601/ https://provence-alpes-cotedazur.com/en/things-to-do/leisure-relaxation/all-relaxation-and-leisure-activities/chrystie-cannes-en-4761412/ https://www.inyourpocket.com/cannes/chrystie-bar_160143v https://alotea.com/cannes/nightclubs/chrystie https://sandbeds.com/clubs/chrystie-cannes/ https://www.clubbable.com/fr-FR/Cannes/Chrystie https://www.nightflow.com/?p=13271",
+   "nom": "305 Vice Club",
+   "ville": "Nice",
+   "retirer": true,
+   "_raison": "Aucune source (office de tourisme, guides, annuaires) ne mentionne un club « 305 Vice » à Nice : existence non confirmée ; Horaires « lun 0h–7h · mer–dim 0h–7h » sans aucune source",
    "_verifie": "2026-11-13"
   },
   {
-   "nom": "Bisous Bisous",
-   "type": "club",
-   "ville": "Cannes",
-   "adresse": "Casino Barrière Le Croisette, Palais des Festivals, 1 jetée Albert Édouard, 06400 Cannes",
-   "site": "https://www.hotelsbarriere.com/en/cannes/le-majestic/restaurants-and-bars/bisous-bisous.html",
-   "description": "Club du groupe Barrière perché au-dessus du Casino Barrière Le Croisette, au Palais des Festivals : déco seventies, house et disco, terrasse avec vue sur le port.",
-   "_source": "https://cotedazurfrance.fr/offres/bisous-bisous-cannes-fr-3650956/ (office de tourisme, mis à jour le 10/06/2026) + https://www.hotelsbarriere.com/en/cannes/le-majestic/restaurants-and-bars/bisous-bisous.html",
+   "nom": "Baby",
+   "ville": "Nice",
+   "retirer": true,
+   "_raison": "Un seul guide (Chalair) cite un « Baby Club » au cœur du Vieux-Nice, sans adresse vérifiable ; la plupart des résultats concernent le Baby Club de Marseille (2 rue André Poggioli) — risque de confusion ; Horaires « mar–sam 23h–5h » sans source",
    "_verifie": "2026-11-13"
+  },
+  {
+   "nom": "Bäzäär Cannes",
+   "ville": "Cannes",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://cotedazurfrance.fr/offres/bazaar-cannes-fr-6363563/ https://en.cannes-france.com/offers/bazaar-cannes-en-6372517/ https://www.privateaser.com/lieu/59356-bazaar-bar-cannes",
+   "adresse": "5 rue Victor Cousin, 06400 Cannes",
+   "type": "bar",
+   "description": "Bar festif du Carré d'Or de Cannes associant cuisine méditerranéenne et soirées DJ (électro, hits)."
+  },
+  {
+   "nom": "Bocca Nissa",
+   "ville": "Nice",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://cotedazurfrance.fr/offres/restaurant-bocca-nissa-nice-fr-3014514/ https://www.explorenicecotedazur.com/en/restaurant/restaurant-bocca-nissa/ https://en.lebonbon.fr/nice/gems/div-mouth-nice-rooftop-vegetable-court",
+   "type": "rooftop"
+  },
+  {
+   "nom": "Charly’s Bar",
+   "ville": "Cannes",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://cotedazurfrance.com/offers/charlys-bar-cannes-en-3602940 https://worldtravelguide.net/guides/europe/france/cannes/nightlife",
+   "adresse": "3 et 10 rue du Suquet, 06400 Cannes",
+   "type": "bar",
+   "description": "Bar de nuit du Suquet, en sous-sol aux murs de briques apparentes, ouvert tous les soirs."
+  },
+  {
+   "nom": "Escobar Club",
+   "ville": "Saint-Laurent-du-Var",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://cotedazurfrance.fr/offres/escobar-saint-laurent-du-var-fr-3737390/ https://www.explorenicecotedazur.com/en/restaurant/escobar/ https://provence-alpes-cotedazur.com/en/plan-your-stay/restaurants/all-restaurants/escobar-saint-laurent-du-var-en-3879888",
+   "adresse": "Port de plaisance, 06700 Saint-Laurent-du-Var",
+   "type": "bar",
+   "description": "Restaurant-bar du port de plaisance de Saint-Laurent-du-Var, au décor bohème chic, avec DJ (deep house, électro, funk) certains soirs."
+  },
+  {
+   "nom": "Green Musik",
+   "ville": "Antibes",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "faible",
+   "_source": "https://shotgun.live/fr/events/transmission-03-signal-found-at-the-green-musik https://www.bandsintown.com/e/1036336677 https://tickets.songkick.com/venues/4605023-le-green-musik",
+   "type": "salle",
+   "description": "Salle de concerts et de soirées d'Antibes accueillant des nuits techno (soirées Maetta, Transmission avec Sound of Sophia) et des concerts."
+  },
+  {
+   "nom": "Jeanne Cocktail Club",
+   "ville": "Toulon",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://provence-alpes-cotedazur.com/en/things-to-do/leisure-relaxation/all-relaxation-and-leisure-activities/jeanne-cocktail-club-toulon-en-6434950/ https://provence-alpes-cotedazur.com/en/things-to-do/wine-and-gastronomy/all-wine-and-gastronomy-activities/jeanne-distillery-toulon-en-6498051/",
+   "adresse": "82 rue Alézard, place Saint-Vincent, 83000 Toulon",
+   "type": "bar-a-cocktails",
+   "description": "Bar à cocktails de la place Saint-Vincent, lié à la distillerie toulonnaise Jeanne, classé 72e du Top 100 des French Bar Awards 2026."
+  },
+  {
+   "nom": "Kosma Piano Bar",
+   "ville": "Nice",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://cotedazurfrance.fr/offres/kosma-nice-fr-3040721/ https://www.explorenicecotedazur.com/?p=9230 https://www.privateaser.com/lieu/46561-kosma-live-club",
+   "adresse": "8 rue Sacha Guitry, 06000 Nice",
+   "type": "club",
+   "description": "Piano-bar et club live près de la place Masséna, avec groupes en live, karaoké et soirées disco."
+  },
+  {
+   "nom": "L'étoile",
+   "ville": "Nice",
+   "retirer": true,
+   "_raison": "Nom obsolète : l'établissement est devenu L'Omega Club (reprise annoncée pour février 2018 selon un blog ; l'office de tourisme liste L'Omega Club à cette adresse) ; Description (généraliste, pop, hip-hop) ne correspond pas au club actuel (électro-house, gay & friendly) ; Horaires « lun–dim 23h–6h »",
+   "_verifie": "2026-11-13"
+  },
+  {
+   "nom": "La Rascasse",
+   "ville": "Monaco",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "haute",
+   "_source": "https://www.montecarlosbm-corporate.com/wp-content/uploads/2026/04/mcsbm-pr-la-rascasse.pdf https://media-trade.visitmonaco.com/en/editorial-resources/press-releases/after-four-months-of-renovations-la-rascasse-takes-a-new-direction https://www.visitmonaco.com/en/enjoy/monaco-by-night/nightlife-and-parties/la-rascasse",
+   "type": "bar"
+  },
+  {
+   "nom": "Le Bayou",
+   "ville": "Cannes",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "faible",
+   "_source": "https://www.privateaser.com/lieu/41937-le-bayou-bar https://www.sluurpy.fr/cannes/restaurant/7967165/bayou-bar https://restoranking.fr/r/bayou-bar_284948",
+   "adresse": "11 rue Victor Cousin, 06400 Cannes",
+   "type": "bar-a-cocktails"
+  },
+  {
+   "nom": "Le Cigalon Plage",
+   "ville": "Cagnes-sur-Mer",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://cotedazurfrance.fr/offres/cigalon-plage-cagnes-sur-mer-fr-3760608/ https://www.explorenicecotedazur.com/restaurant/cigalon-plage/ https://www.plages.tv/privee/le-cigalon-plage-privee-cagnes-sur-mer-06800",
+   "adresse": "59 ter promenade de la Plage, 06800 Cagnes-sur-Mer",
+   "type": "beach-club",
+   "description": "Une des plus anciennes plages privées de Cagnes-sur-Mer, près du port du Cros-de-Cagnes, avec restaurant (salades, poissons, pizzas, grillades)."
+  },
+  {
+   "nom": "Le Pam Pam",
+   "ville": "Juan-les-Pins",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "faible",
+   "_source": "https://www.privateaser.com/lieu/57987-pam-pam https://www.seeantibes.com/bars/pam-pam-juan-les-pins-681497 https://mapstr.com/place/gE2Ji8R2f3g",
+   "type": "bar-a-cocktails"
+  },
+  {
+   "nom": "Le Rooftop du Grand Hôtel Dauphiné",
+   "ville": "Toulon",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://provence-alpes-cotedazur.com/en/things-to-do/leisure-relaxation/all-relaxation-and-leisure-activities/le-rooftop-du-grand-hotel-dauphine-toulon-en-4333960/ https://provence-alpes-cotedazur.com/sejourner/hebergements/tous-les-hebergements/hotels/grand-hotel-dauphine-boutique-hotel-suite-toulon-fr-2868303/ https://www.staycation.co/fr/hotels/grand-hotel-dauphine-boutique-hotel-suites-3090",
+   "adresse": "10 rue Berthelot, 83000 Toulon",
+   "type": "rooftop"
+  },
+  {
+   "nom": "Le Spot Mourillon",
+   "ville": "Toulon",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "faible",
+   "_source": "https://www.privateaser.com/lieu/43021-le-spot https://provence-alpes-cotedazur.com/en/things-to-do/leisure-relaxation/all-relaxation-and-leisure-activities/casa-papa-toulon-en-4730056 https://www.eat-list.fr/toulon-83000/tapas-35/casa-papa-144212?menu=1",
+   "type": "pub",
+   "description": "Bar festif du Mourillon avec fléchettes, retransmissions sportives et pizzas (carte A Tavola)."
+  },
+  {
+   "nom": "Les Incompris",
+   "ville": "Menton",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://provence-alpes-cotedazur.com/en/plan-your-stay/restaurants/all-restaurants/restaurant-les-incompris-maison-martin-menton-en-2902571 https://rankeat.fr/restaurants/les-incompris-menton https://www.privateaser.com/lieu/57104-les-incompris",
+   "adresse": "8 quai Gordon Bennett (esplanade des Sablettes), 06500 Menton",
+   "type": "lounge",
+   "description": "Restaurant et bar lounge de l'esplanade des Sablettes, musique lounge en journée puis DJ sets et soirées à thème le soir."
+  },
+  {
+   "nom": "Marea Cannes (Canopy by Hilton)",
+   "ville": "Cannes",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://therooftopguide.com/rooftop-bars-in-cannes/marea.html https://provence-alpes-cotedazur.com/en/plan-your-stay/restaurants/all-restaurants/marea-cannes-en-4351021 https://www.monaco-tribune.com/en/2025/08/marea-extends-summer-evenings-on-rooftop-overlooking-bay-of-cannes/",
+   "type": "rooftop",
+   "description": "Rooftop bar-restaurant au 7e étage du Canopy by Hilton, face à la baie et au Vieux-Port de Cannes."
+  },
+  {
+   "nom": "Naya Club Cannes",
+   "ville": "Cannes",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://cotedazurfrance.com/offers/naya-club-cannes-cannes-en-4499551/ https://provence-alpes-cotedazur.com/en/things-to-do/leisure-relaxation/all-relaxation-and-leisure-activities/naya-club-cannes-cannes-en-4562604/ https://alotea.com/cannes/nightclubs/naya-club",
+   "type": "club"
+  },
+  {
+   "nom": "Ô Petit Monde",
+   "ville": "Sanary-sur-Mer",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://provence-alpes-cotedazur.com/en/plan-your-stay/restaurants/all-restaurants/o-petit-monde-sanary-sur-mer-en-2891808 https://provence-alpes-cotedazur.com/sejourner/hebergements/tous-les-hebergements/hotels/o-petit-monde-sanary-sur-mer-fr-3272932/ https://mysunbed.com/en/france/sanary-sur-mer/ô-petit-monde/",
+   "type": "beach-club",
+   "description": "Restaurant de plage et petit hôtel sur la plage de Portissol, cuisine méditerranéenne et poisson, transats à réserver."
+  },
+  {
+   "nom": "People by L'Atoll",
+   "ville": "Saint-Laurent-du-Var",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://cotedazurfrance.fr/offres/people-by-latoll-restaurant-saint-laurent-du-var-fr-3014323/ https://www.explorenicecotedazur.com/en/restaurant/people-by-latoll-restaurant/ https://aroundus.com/p/171829965-l-atoll",
+   "type": "bar",
+   "description": "Restaurant en bord de mer sur la promenade des Flots Bleus, avec DJ les vendredis et samedis soir jusqu'à 0h30."
+  },
+  {
+   "nom": "Rooftop Basta Pinsa",
+   "ville": "Beausoleil",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://monacolife.net/the-rooftop-spot-above-monaco-where-the-view-is-the-same-but-the-bill-is-not/ https://www.privateaser.com/lieu/63976-rooftop-basta-pinsa",
+   "adresse": "16 avenue d'Alsace, 06240 Beausoleil",
+   "type": "rooftop",
+   "description": "Rooftop de Beausoleil avec vue sur Monaco et le port Hercule, spécialisé en pinsa romaine, avec DJ le samedi soir."
+  },
+  {
+   "nom": "The Drinkers Club",
+   "ville": "Antibes",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "faible",
+   "_source": "https://el.hotels.com/see/go/france/best-nightlife-antibes https://www.schlouk-map.com/en/places/drinkers-club https://theculturetrip.com/europe/france/articles/the-10-best-bars-in-antibes",
+   "type": "bar-a-cocktails",
+   "description": "Bar à cocktails et à vins du vieil Antibes, avec terrasse, tapas et musique live (guitare-voix) le vendredi."
+  },
+  {
+   "nom": "Up Town Bar",
+   "ville": "Nice",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://www.privateaser.com/lieu/46794-town https://promenadestravel.com/nice-cocktail-workshop-in-a-stylish-bar-lounge-in-old-town/",
+   "type": "club"
+  },
+  {
+   "nom": "Absinthe Bar",
+   "ville": "Antibes",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://cotedazurfrance.fr/offres/absinthe-bar-antibes-fr-5411579 https://www.antibesjuanlespins.com/en/must-see-must-do/sport-leisures-well-being-savouring/savouring/l-absinthe-bar-2218245 https://lacompagnie.com/en/plan/places/french-riviera/the-absinth-museum",
+   "type": "bar",
+   "description": "Petit bar en cave voûtée du Vieil Antibes consacré à l'absinthe, avec fontaines anciennes et soirée piano les vendredis et samedis."
+  },
+  {
+   "nom": "Balancia Bar",
+   "ville": "Nice",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "faible",
+   "_source": "https://www.privateaser.com/lieu/58054-le-balancia-bar https://www.airbnb.gy/things-to-do/places/464843",
+   "type": "bar-a-cocktails",
+   "description": "Bar à cocktails près de la place Masséna, avec terrasse, musique live, karaoké et soirées reggaeton (selon Privateaser ; ouverture actuelle à confirmer)."
+  },
+  {
+   "nom": "BB Cannes",
+   "ville": "Cannes",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://cotedazurfrance.fr/offres/le-bb-cannes-cannes-fr-5712913/ https://cotedazurfrance.com/offers/le-bb-cannes-cannes-en-3466961 https://cotedazurfrance.com/offers/le-befirst-cannes-en-3518142",
+   "type": "bar-a-cocktails",
+   "description": "Bar de nuit et bar à cocktails de la rue Victor Cousin, fermé le dimanche et le lundi selon l'office de tourisme de Cannes."
+  },
+  {
+   "nom": "Boka Club del Magot",
+   "ville": "Toulon",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://www.arrivalguides.com/fr/Travelguide/TOULON/barsandnightlife/boka-club-del-magot-le-magot-88710 https://www.fodors.com/world/europe/france/provence/places/aix-marseille-and-the-central-coast/toulon/things-to-do/nightlife https://www.schlouk-map.com/fr/places/club-le-magot",
+   "adresse": "3261 avenue de la Résistance, 83100 Toulon",
+   "type": "club",
+   "description": "Discothèque et club karaoké en haut de la corniche du Mourillon, avec soirées DJ et terrasse."
+  },
+  {
+   "nom": "Chrystie",
+   "ville": "Cannes",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://provence-alpes-cotedazur.com/en/things-to-do/leisure-relaxation/all-relaxation-and-leisure-activities/chrystie-cannes-en-4761412 https://cotedazurfrance.com/offers/chrystie-cannes-en-4761601 https://www.inyourpocket.com/cannes/chrystie-bar_160143v",
+   "type": "club",
+   "description": "Restaurant et bar au décor Art déco de la rue Macé, qui se transforme en club en fin de soirée (hip-hop, deep house, animations)."
+  },
+  {
+   "nom": "Fiesta Beach",
+   "ville": "Saint-Aygulf",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "haute",
+   "_source": "https://cotedazurfrance.fr/offres/fiesta-beach-club-frejus-fr-5814027/ https://provence-alpes-cotedazur.com/en/things-to-do/leisure-relaxation/all-relaxation-and-leisure-activities/fiesta-beach-club-frejus-en-5813498 https://www.esterel-cotedazur.com/?p=82206",
+   "adresse": "Plage des Esclamandes, Saint-Aygulf, 83370 Fréjus",
+   "nouvelle_ville": "Fréjus (Saint-Aygulf)",
+   "type": "beach-club",
+   "description": "Beach club saisonnier de la plage des Esclamandes (jusqu'à 1 000 personnes), deux espaces, soirées à thème puis club en plein air, restauration sur place."
+  },
+  {
+   "nom": "GROOVZ",
+   "ville": "Cannes",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "faible",
+   "_source": "https://www.privateaser.com/lieu/41950-groovz https://www.privateaser.com/reservation-bar/top-bars-beer-pong-cannes",
+   "type": "bar",
+   "description": "Bar festif et spacieux de la rue Victor Cousin : cocktails, beer-pong, karaoké, blind-tests et matchs sur écran géant, avec terrasse."
+  },
+  {
+   "nom": "Jimbaran Plage",
+   "ville": "Golfe-Juan",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://www.plageprivee.com/france/06-alpes-maritimes/golfe-juan/jimbaran-beach https://cotedazurfrance.com/offers/jimbaran-plage-vallauris-golfe-juan-en-2828573/ https://www.tendancehotellerie.fr/articles-breves/communique-de-presse/20015-article/jimbaran-beach-evadez-vous-a-bali-a-10-minutes-de-cannes",
+   "type": "beach-club",
+   "description": "Plage privée et restaurant au décor balinais à Golfe-Juan, ouverts midi et soir en saison avec animations en soirée."
+  },
+  {
+   "nom": "Kwartz Club",
+   "ville": "Nice",
+   "retirer": true,
+   "_raison": "Kwartz Club n'apparaît plus que dans des annonces anciennes (Resident Advisor 2016) ; au 2 rue Bréa, les soirées 2023-2024 et l'office de tourisme de Nice listent « Boomcoeur Club » : changement de nom très probable (non confirmé explicitement). ; Code postal : 06000 (pas 06300). ; Si la fiche est c",
+   "_verifie": "2026-11-13"
+  },
+  {
+   "nom": "L'Octopus",
+   "ville": "La Seyne-sur-Mer",
+   "retirer": true,
+   "_raison": "ERREUR GRAVE : aucune boîte de nuit « L'Octopus » trouvée à La Seyne ou Ollioules. ; Ville fausse : Ollioules (pas La Seyne-sur-Mer). ; Adresse « 998 avenue Jean Monnet » non confirmée : les annuaires indiquent chemin Antoine Hermitte, 83190 Ollioules. ; Horaires « mer–ven 23h–6h · sam 19h–6h » inve",
+   "_verifie": "2026-11-13"
+  },
+  {
+   "nom": "La Siesta",
+   "ville": "Antibes",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://cotedazurfrance.com/offers/casino-joa-dantibes-la-siesta-antibes-en-4891386 https://shotgun.live/en/events/aura-siesta https://shotgun.live/en/events/lesmercredis-latinaddict-by-lasiesta",
+   "adresse": "2000 route du Bord de Mer, 06600 Antibes",
+   "type": "beach-club",
+   "description": "Casino JOA et beach club en bord de mer entre Antibes et Villeneuve-Loubet, avec en été des soirées house « Aura » le vendredi et « Latin Addict » le mercredi."
+  },
+  {
+   "nom": "Le Boston Cocktail Bar",
+   "ville": "Nice",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "faible",
+   "_source": "https://www.privateaser.com/lieu/39831-boston-bar https://www.schlouk-map.com/fr/places/boston-bar https://sandbeds.com/clubs/le-boston-bar-nice/",
+   "type": "bar-a-cocktails",
+   "description": "Bar à cocktails au décor vintage-industriel sur le port de Nice, avec terrasse sous les arcades, tapas et DJ sets."
+  },
+  {
+   "nom": "Le Corner by 3 Tapas",
+   "ville": "Beausoleil",
+   "retirer": true,
+   "_raison": "ERREUR GRAVE : adresse fausse — 2 rue du Marché, 06240 Beausoleil (pas 20 boulevard de la République). ; Type faux : restaurant de tapas (cuisine espagnole, plats du jour), pas un bar à cocktails de soirée. ; « Soirées à thème, concerts acoustiques, musique latino » non confirmés. ; Horaires non con",
+   "_verifie": "2026-11-13"
+  },
+  {
+   "nom": "Le Petit Bain",
+   "ville": "Hyères",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://cotedazurfrance.fr/offres/le-petit-bain-hyeres-fr-3572561/ https://mysunbed.com/fr/plage-privee/hyeres/le-petit-bain/ https://www.provenceholidays.com/en/beach-club/hyeres-le-petit-bain",
+   "type": "beach-club",
+   "description": "Restaurant et bar de plage sur l'Ayguade, ouvert toute l'année, avec DJ sets et soirées en saison."
+  },
+  {
+   "nom": "Le Rooftop (Hôtel Méditerranée)",
+   "ville": "Menton",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "haute",
+   "_source": "https://med-menton.agencewebcom.com/en/rooftop-bar https://cotedazurfrance.com/offers/afterwork-afterbeach-at-the-rooftop-of-the-mediterranean-menton-en-3784732 https://www.france.fr/fr/article/rooftops-cote-azur/",
+   "type": "rooftop",
+   "description": "Bar au 7e étage du Best Western Hôtel Méditerranée, avec vue panoramique sur la ville, la montagne et la mer ; restaurant sur le toit en été."
+  },
+  {
+   "nom": "Le Swing",
+   "ville": "Nice",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://www.misterbandb.com/fr/guide-gay/france/nice/50-bars-et-clubs/24176-le-swing https://gayfrenchriviera.substack.com/p/le-swing-in-nice https://www.schlouk-map.com/fr/places/le-swing",
+   "type": "bar",
+   "description": "Bar gay-friendly du quartier Carabacel avec karaoké, soirées à thème et cabaret de drag-queens."
+  },
+  {
+   "nom": "Les Voûtes",
+   "ville": "Nice",
+   "retirer": true,
+   "_raison": "Aucun club « Les Voûtes » trouvé à Nice (deux recherches) ; fiche sans adresse ni description. ; Horaires « sam–dim 0h–5h » sans source (et contraires à la convention : ce serait « ven–sam »).",
+   "_verifie": "2026-11-13"
+  },
+  {
+   "nom": "MK Club Monaco",
+   "ville": "Monaco",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "haute",
+   "_source": "https://www.visitmonaco.com/en/地方/397/night-club https://monaco-tribune.com/en/2021/10/where-to-dance-and-listen-to-music-in-monaco https://www.nightflow.com/?p=13235",
+   "type": "club",
+   "description": "Boîte de nuit de la route de la Piscine, sur le port Hercule, ouverte le vendredi et le samedi soir avec un mélange musical varié."
+  },
+  {
+   "nom": "Nikki Beach Monte-Carlo",
+   "ville": "Monaco",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "haute",
+   "_source": "https://www.fairmont.com/monte-carlo/dining/nikki-beach-at-fairmont-monte-carlo https://nikkibeach.com/monte-carlo https://www.visitmonaco.com/en/enjoy/beaches-and-swimming-pools/hotel-swimming-pools-in-monaco",
+   "type": "beach-club",
+   "description": "Beach club saisonnier autour de la piscine sur le toit du Fairmont Monte-Carlo, ouvert tous les jours de 8h à 20h en saison."
+  },
+  {
+   "nom": "O'Sullivans By The Beach",
+   "ville": "Mandelieu-la-Napoule",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "faible",
+   "_source": "https://www.privateaser.com/lieu/5424-o-sullivans-by-the-beach https://provence-alpes-cotedazur.com/en/plan-your-stay/useful-information/all-practical-services/osullivans-bar-and-tapas-mandelieu-la-napoule-en-2860926/ https://www.osullivans-pubs.com/en",
+   "type": "pub",
+   "description": "Pub irlandais et bar à cocktails face à la plage du château de La Napoule, avec concert le jeudi et DJ sets le week-end."
+  },
+  {
+   "nom": "Plage Beau Rivage",
+   "ville": "Nice",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://cotedazurfrance.fr/offres/plage-beau-rivage-nice-fr-3654478/ https://cotedazurfrance.fr/offres/soirees-de-lete-plage-beau-rivage-nice-fr-6715339/ https://www.privateaser.com/lieu/48721-plage-beau-rivage",
+   "type": "beach-club",
+   "description": "Plage privée et restaurant face à l'hôtel Beau Rivage, ouverts en journée en saison, avec quelques soirées d'été."
+  },
+  {
+   "nom": "Sam's Klub",
+   "ville": "Bandol",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://provence-alpes-cotedazur.com/sejourner/restaurants/tous-les-restaurants/sams-klub-bandol-fr-2867862/ https://rankeat.fr/restaurants/sams-klub-restaurant-bandol-before-service-tardif-bandol https://www.sluurpy.fr/bandol/restaurant/2046661/le-sam-s-klub",
+   "type": "club",
+   "description": "Restaurant de viandes en début de soirée qui devient bar et club plus tard, face au bowling de Bandol."
+  },
+  {
+   "nom": "The Hop Store",
+   "ville": "Antibes",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://www.privateaser.com/lieu/57133-the-hop-store https://tripaligner.com/countries/france-18/destinations/nice-5098/places/the-hop-store-3336614 https://seeantibes.com/bars/the-hop-store-antibes-680098",
+   "type": "pub",
+   "description": "Pub irlandais du Vieil Antibes, près du port, avec musique live et DJ du mercredi au samedi en été."
+  },
+  {
+   "nom": "Wayne’s Bar",
+   "ville": "Nice",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://www.privateaser.com/lieu/46438-wayne-s-bar https://www.schlouk-map.com/fr/places/waynes-bar https://touchscreentravels.com/apps/nices-best/22073/waynes",
+   "type": "pub",
+   "description": "Pub du Vieux-Nice réputé pour ses concerts live de groupes rock et pop."
+  },
+  {
+   "nom": "Achill’s",
+   "ville": "Villefranche-sur-Mer",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://provence-alpes-cotedazur.com/sejourner/restaurants/tous-les-restaurants/achills-villefranche-sur-mer-fr-2886627/ https://explorenicecotedazur.com/en/fiche/achill-s-en https://www.mapstr.com/place/Eu2GNNFA70g",
+   "adresse": "1 Quai de l'Amiral Courbet, 06230 Villefranche-sur-Mer",
+   "type": "rooftop",
+   "description": "Restaurant-bar du quai Courbet, ouvert en 2020, avec un rooftop pour boire un verre face au port de Villefranche."
+  },
+  {
+   "nom": "Bâoli",
+   "ville": "Cannes",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://cotedazurfrance.fr/offres/baoli-cannes-cannes-fr-3466869/ https://cotedazurfrance.fr/offres/le-club-baoli-cannes-fr-3602769/ https://provence-alpes-cotedazur.com/en/offers/le-baoli-cannes-cannes-en-3466519",
+   "adresse": "Port Pierre Canto, Boulevard de la Croisette, 06400 Cannes",
+   "type": "club",
+   "description": "Restaurant (cuisine méditerranéenne et asiatique) et club au Port Pierre Canto, sur la Croisette ; le club démarre vers minuit."
+  },
+  {
+   "nom": "Bisous Bisous",
+   "ville": "Cannes",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://cotedazurfrance.fr/offres/bisous-bisous-cannes-fr-3650956/ https://provence-alpes-cotedazur.com/en/things-to-do/leisure-relaxation/all-relaxation-and-leisure-activities/bisous-bisous-cannes-en-3653705/ https://www.hotelsbarriere.com/en/cannes/le-majestic/restaurants-and-bars/bisous-bisous.html",
+   "adresse": "Casino Barrière Le Croisette (Palais des Festivals), 1 Espace Lucien Barrière, 06400 Cannes",
+   "type": "club",
+   "description": "Club du groupe Barrière installé au-dessus du Casino Barrière Le Croisette, au Palais des Festivals, avec une grande terrasse sur le port."
+  },
+  {
+   "nom": "Boka Club",
+   "ville": "Toulon",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "faible",
+   "_source": "https://www.schlouk-map.com/en/places/club-le-magot https://www.schlouk-map.com/fr/places/club-le-magot https://www.arrivalguides.com/fr/Travelguide/TOULON/barsandnightlife/boka-club-del-magot-le-magot-88710",
+   "type": "club",
+   "description": "Le Boka Club del Magot (ex-Le Magot), sur la corniche du Mourillon, réunit restaurant, bar, karaoké et piste de danse tous les soirs."
+  },
+  {
+   "nom": "Club Vertigo",
+   "ville": "La Londe-les-Maures",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://cotedazurfrance.fr/offres/club-vertigo-la-londe-les-maures-fr-3008491/ https://provence-alpes-cotedazur.com/en/things-to-do/leisure-relaxation/all-relaxation-and-leisure-activities/club-vertigo-la-londe-les-maures-en-3981098 https://cotedazurfrance.fr/offres/le-vertigo-restaurant-club-la-londe-les-maures-fr-2910375/",
+   "type": "club",
+   "description": "Discothèque avec restaurant au quartier Saint-Nicolas (RD 559), ambiance des années 80 à aujourd'hui."
+  },
+  {
+   "nom": "FRIGO 16",
+   "ville": "Nice",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "haute",
+   "_source": "https://www.nice.fr/lieux/le-109/ https://theculturetrip.com/articles/welcome-to-le-109-nices-former-abattoir-is-now-a-cutting-edge-cultural-hub https://cotedazurfrance.fr/offres/caravel-nice-fr-6825141/",
+   "type": "club",
+   "description": "Ancien espace frigorifique des abattoirs reconverti par la Ville de Nice en salle de musiques actuelles de 500 places debout, au sein du 109 ; concerts et soirées électro ponctuels."
+  },
+  {
+   "nom": "High Club",
+   "ville": "Nice",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://www.privateaser.com/lieu/46520-high-club https://www.technoairlines.com/club/high-club-nice https://www.rexby.com/TheTravelBunny/ttd/large-nightclub-with-multiple-rooms-on-the-seafront",
+   "type": "club",
+   "description": "Grand club de la Promenade des Anglais réunissant plusieurs salles, dont le Studio 47 (années 80 et disco)."
+  },
+  {
+   "nom": "Jimmy’z Monte-Carlo",
+   "ville": "Monaco",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "haute",
+   "_source": "https://www.montecarlosbm.com/fr/nightlife/jimmyz-monte-carlo https://www.montecarlosbm-corporate.com/wp-content/uploads/2026/04/mcsbm-press-release-jimmyz-monte-carlo-2026-season.pdf https://media-trade.visitmonaco.com/en/editorial-resources/press-releases/with-a-mix-of-electronic-music-rap-and-disco-nights-jimmy-z-monte-carlo-promises-an-even-more-festive-season-in-2026",
+   "type": "club",
+   "description": "Boîte de nuit de la SBM au Sporting Monte-Carlo, avec lagon, jardin japonais et Summer Bar flottant ; saison 2026 mêlant électro, rap et disco."
+  },
+  {
+   "nom": "L'Eden Bar",
+   "ville": "Six-Fours-les-Plages",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "faible",
+   "_source": "https://provence-alpes-cotedazur.com/que-faire/detente-et-loisirs/toutes-les-activites-detente-et-loisirs/leden-bar-six-fours-les-plages-fr-3243232/ https://www.privateaser.com/lieu/43271-l-eden https://www.pagesjaunes.fr/pros/05323557",
+   "type": "beach-club",
+   "description": "Bar festif de bord de mer sur la promenade Charles-de-Gaulle, reconnu depuis plus de 20 ans, dans le même ensemble que le Bistro Frégate et le MXO Rooftop."
+  },
+  {
+   "nom": "L'Omega",
+   "ville": "Nice",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://provence-alpes-cotedazur.com/en/things-to-do/leisure-relaxation/all-relaxation-and-leisure-activities/lomega-club-nice-en-3489998 https://jamesonfarn.substack.com/p/lomega-nightclub-in-nice https://riviera-buzz.com/lifestyle/lgbt/omega-club-first-anniversary.html",
+   "adresse": "8 passage Émile Négrin, Nice (code postal à confirmer)",
+   "type": "club",
+   "description": "Club gay & friendly du centre de Nice, passage Émile-Négrin (entre rue de la Liberté et rue Masséna), ouvert en 2018 à la place de L'Étoile Club, orienté électro-house."
+  },
+  {
+   "nom": "Le 7",
+   "ville": "Cannes",
+   "retirer": true,
+   "_raison": "Statut d'ouverture non confirmé : une fiche Airbnb le dit fermé définitivement, aucune source récente ne confirme l'activité ; Horaires « lun–dim 0h–7h » non sourcés ; Adresse et description absentes",
+   "_verifie": "2026-11-13"
+  },
+  {
+   "nom": "Le Boy's Paradise",
+   "ville": "Toulon",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "faible",
+   "_source": "https://www.schlouk-map.com/fr/places/boys-paradise https://www.privateaser.com/lieu/55954-boy-s-paradise https://shotgun.live/fr/events/derapage-au-boy-s-paradise",
+   "type": "club",
+   "description": "Club gay historique du centre de Toulon, qui accueille aussi des soirées queer (ex. Dérapage)."
+  },
+  {
+   "nom": "Le Glam",
+   "ville": "Nice",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://www.explorenicecotedazur.com/fiche/le-glam/ https://cotedazurfrance.fr/offres/le-glam-nice-fr-3041095/ https://www.privateaser.com/lieu/46476-le-glam",
+   "adresse": "6 rue Eugène Emmanuel, 06000 Nice",
+   "type": "club",
+   "description": "Club gay & friendly du centre de Nice, rue Eugène-Emmanuel."
+  },
+  {
+   "nom": "Le Petit Bellevue (La Maison Bellevue)",
+   "ville": "Le Cannet",
+   "retirer": true,
+   "_raison": "Aucun établissement « Le Petit Bellevue » trouvé ; à l'adresse : La Maison Bellevue, restaurant (et Le Coin Gourmet) ; Type « bar à cocktails », « terrasse panoramique », « cocktails au coucher du soleil » non vérifiés ; Horaires : seul « dim 12h–14h » est confirmé par l'office de tourisme",
+   "_verifie": "2026-11-13"
+  },
+  {
+   "nom": "Le Sax",
+   "ville": "Hyères",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://cotedazurfrance.fr/offres/le-sax-hyeres-fr-3010129/ https://cotedazurfrance.com/offers/sax-bar-hyeres-en-3010129 https://www.koifaire.com/paca/sax-92966.html",
+   "adresse": "Avenue du Docteur Robin, Résidence Les Alizées, Port Saint-Pierre, 83400 Hyères",
+   "type": "bar",
+   "description": "Bar du port Saint-Pierre avec terrasse face au port, proposant afterworks, soirées à thème, concerts et DJ sets."
+  },
+  {
+   "nom": "Le Trendy",
+   "ville": "Saint-Laurent-du-Var",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://cotedazurfrance.fr/offres/le-carre-le-trendy-saint-laurent-du-var-fr-4092728/ https://www.explorenicecotedazur.com/?p=63761 https://www.pagesjaunes.fr/pros/00638155",
+   "adresse": "Port de Saint-Laurent-du-Var, 06700 Saint-Laurent-du-Var",
+   "type": "club",
+   "description": "Le Carré – Le Trendy réunit deux clubs aux ambiances différentes sur le port de Saint-Laurent-du-Var, avec soirées à thème."
+  },
+  {
+   "nom": "Let It Be",
+   "ville": "Mougins",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://provence-alpes-cotedazur.com/en/plan-your-stay/restaurants/all-restaurants/let-it-be-mougins-en-3035958/ https://cotedazurfrance.fr/offres/let-it-be-mougins-fr-3036054/ https://www.sluurpy.fr/mougins/restaurant/2044083/let-it-be",
+   "type": "lounge",
+   "description": "Restaurant dansant et restaurant-spectacle où le dîner est accompagné de chanteurs, avec soirées jusqu'à 5 h."
+  },
+  {
+   "nom": "Monsieur Pablo Plage",
+   "ville": "Vallauris",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://cotedazurfrance.fr/offres/monsieur-pablo-plage-vallauris-golfe-juan-fr-2828746/ https://provence-alpes-cotedazur.com/sejourner/restaurants/tous-les-restaurants/monsieur-pablo-plage-vallauris-fr-2863930/ https://mysunbed.com/fr/plage-privee/vallauris-golfe-juan/monsieur-pablo/",
+   "adresse": "Plage du Midi, 104 Avenue des Frères Roustan (Port Camille Rayon), 06220 Vallauris-Golfe-Juan",
+   "type": "beach-club"
+  },
+  {
+   "nom": "No Stresss Discothèque",
+   "ville": "La Seyne-sur-Mer",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://provence-alpes-cotedazur.com/que-faire/detente-et-loisirs/toutes-les-activites-detente-et-loisirs/no-stresss-la-seyne-sur-mer-fr-4728556/ https://provence-alpes-cotedazur.com/en/things-to-do/leisure-relaxation/all-relaxation-and-leisure-activities/no-stresss-la-seyne-sur-mer-en-4728556",
+   "type": "club",
+   "description": "Discothèque du quartier des Sablettes, avenue Charles-de-Gaulle."
+  },
+  {
+   "nom": "O'Sullivans Mandelieu",
+   "ville": "Mandelieu-la-Napoule",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "faible",
+   "_source": "https://www.privateaser.com/lieu/5424-o-sullivans-by-the-beach https://provence-alpes-cotedazur.com/en/plan-your-stay/useful-information/all-practical-services/osullivans-bar-and-tapas-mandelieu-la-napoule-en-2860926/ https://momondo.com/hotels/mandelieu-la-napoule/O-Sullivans-By-the-Beach.mhd4077815.ksp",
+   "adresse": "Boulevard Henri Clews (n° 336 selon annuaires), 06210 Mandelieu-la-Napoule",
+   "type": "pub",
+   "description": "Pub irlandais en bord de plage sur le boulevard Henri-Clews, près de la plage du Château."
+  },
+  {
+   "nom": "Poupoune Bandol",
+   "ville": "Bandol",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://provence-alpes-cotedazur.com/en/offers/poupoune-bar-bandol-en-2882592/ https://www.privateaser.com/lieu/57066-bar-poupoune https://www.bottin.fr/fiche-locale/dihdjeadhcdjjiahgfb--bar-poupoune--bandol.htm",
+   "type": "bar",
+   "description": "Bar du port de Bandol, quai Charles-de-Gaulle, ouvert du matin jusque tard dans la nuit en haute saison."
+  },
+  {
+   "nom": "Sass Café",
+   "ville": "Monaco",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://www.access.sb/fr/monaco/restaurants/diner/sass-cafe https://www.access.sb/fr/monaco/bars-clubs/clubs/sass-cafe/ https://www.yachtcharterfleet.com/monaco/eat-and-drink/restaurants/sass-cafe.htm",
+   "type": "club"
+  },
+  {
+   "nom": "Trafalbar",
+   "ville": "Nice",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://www.privateaser.com/lieu/41359-trafalbar https://www.schlouk-map.com/fr/places/trafalbar https://joinpearl.co/restaurants/nice/trafalbar-nice",
+   "type": "bar-a-cocktails",
+   "description": "Rhumerie à l'ambiance festive au décor de bateau en bois, proposant rhums arrangés, planteurs et cocktails maison."
+  },
+  {
+   "nom": "Zeits Bar",
+   "ville": "Beausoleil",
+   "retirer": true,
+   "_raison": "Aucune source ne mentionne un « Zeits Bar » à Beausoleil : établissement probablement inventé ou mal nommé — à retirer",
+   "_verifie": "2026-11-13"
+  },
+  {
+   "nom": "Amazónico Monte-Carlo",
+   "ville": "Monaco",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://meetings.montecarlosbm.com/en/restaurants/amazonico-monte-carlo https://www.montecarlosbm.com/fr/restaurant-monaco/amazonico-monte-carlo https://www.monaco-tribune.com/2025/07/notre-selection-des-meilleurs-rooftops-de-monaco/",
+   "type": "club",
+   "description": "Restaurant-bar festif au thème amazonien installé sur le toit du Café de Paris, place du Casino, avec DJ résident ou invité aux sonorités électro-tropicales (électro et rythmes latino-américains)."
+  },
+  {
+   "nom": "Barrel Pub",
+   "ville": "Cannes",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "faible",
+   "_source": "https://www.privateaser.com/lieu/40065-barrel-pub https://www.privateaser.com/lieu/66403-barrel-pub-privatisation https://www.sluurpy.fr/cannes/restaurant/2031903/barrel-pub",
+   "adresse": "17 rue du Docteur Gérard Monod, 06400 Cannes",
+   "type": "pub",
+   "description": "Pub du centre de Cannes proche de la Croisette avec billard, fléchettes, baby-foot, arcade et une dizaine d'écrans géants, servant bières internationales et cocktails."
+  },
+  {
+   "nom": "Black jack",
+   "ville": "Bandol",
+   "retirer": true,
+   "_raison": "Aucune discothèque « Black Jack » en activité trouvée à Bandol ; Le « Black Jack » de Bandol est référencé comme plage privée / beach club (place Lucien Artaud, près du casino), et plageprivee.com l'indique « définitivement fermé » ; Horaires « jeu–sam 23h–5h » sans aucune source ; À retirer du site",
+   "_verifie": "2026-11-13"
+  },
+  {
+   "nom": "Brasserie de Monaco",
+   "ville": "Monaco",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://mapstr.com/place/Lufx3kWHxag https://www.monaco-tribune.com/en/listing/brasserie-de-monaco/ https://worldtravelguide.net/guides/europe/monaco/monte-carlo/nightlife",
+   "adresse": "36 route de la Piscine, Port Hercule (La Condamine), 98000 Monaco",
+   "type": "pub",
+   "description": "Microbrasserie du port de Monaco brassant ses bières sur place, qui retransmet les grands événements sportifs sur grand écran et s'anime en soirée avec un DJ résident."
+  },
+  {
+   "nom": "Down Town Club",
+   "ville": "Nice",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "faible",
+   "_source": "https://www.privateaser.com/lieu/46794-town",
+   "type": "club",
+   "description": "Établissement « Town » du Vieux-Nice sur deux niveaux : bar à cocktails au rez-de-chaussée (Up Town) et dancefloor au sous-sol (Down Town) ouvert jusqu'à 4h30."
+  },
+  {
+   "nom": "Glass Club Cannes",
+   "ville": "Cannes",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://en.cannes-france.com/offers/glass-club-cannes-en-5708342/ https://cotedazurfrance.fr/offres/glass-club-cannes-fr-5700468/ https://www.privateaser.com/lieu/51120-glass",
+   "type": "bar-a-cocktails",
+   "description": "Bar à cocktails haut de gamme doublé d'un petit club (80 à 90 personnes) à une minute de la Croisette et du Palais des Festivals, tourné vers la house et la deep house."
+  },
+  {
+   "nom": "Honey Club",
+   "ville": "Juan-les-Pins",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "faible",
+   "_source": "https://www.songkick.com/venues/4645584-honey-club",
+   "adresse": "5 avenue Georges Gallice, 06160 Antibes (Juan-les-Pins)",
+   "type": "salle",
+   "description": "Lieu de soirées et de concerts de l'avenue Georges Gallice à Juan-les-Pins."
+  },
+  {
+   "nom": "K-BarRé",
+   "ville": "Antibes",
+   "retirer": true,
+   "_raison": "Aucune trace d'un établissement « K-BarRé » à Antibes ; L'adresse 3 avenue Niquet et la description (pub, billard, concerts) correspondent au pub « The Duke » (3 avenue Niquet, Antibes) selon Sluurpy : probable confusion de nom par l'IA ; Horaires « mar–dim 17h–2h » sans source (Sluurpy indique pour",
+   "_verifie": "2026-11-13"
+  },
+  {
+   "nom": "L'Élixir Club",
+   "ville": "Saint-Mandrier-sur-Mer",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://provence-alpes-cotedazur.com/que-faire/detente-et-loisirs/toutes-les-activites-detente-et-loisirs/lelixir-lounge-club-saint-mandrier-sur-mer-fr-3243294/ https://provence-alpes-cotedazur.com/en/things-to-do/leisure-relaxation/all-relaxation-and-leisure-activities/lelixir-lounge-club-saint-mandrier-sur-mer-en-3243294",
+   "type": "club",
+   "description": "Lounge club du port de Saint-Mandrier : bar à cocktails et tapas en début de soirée, puis discothèque jusqu'à 7h."
+  },
+  {
+   "nom": "La Cale Sèche",
+   "ville": "Toulon",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://provence-alpes-cotedazur.com/en/things-to-do/leisure-relaxation/all-relaxation-and-leisure-activities/la-cale-seche-toulon-en-4001690",
+   "type": "bar",
+   "description": "Bar musical et festif de la place Monsenergue, près du musée national de la Marine, dont le concept tourne autour du rhum et de la bière, avec terrasse."
+  },
+  {
+   "nom": "Le Barathym",
+   "ville": "Toulon",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "faible",
+   "_source": "https://provence-alpes-cotedazur.com/en/things-to-do/leisure-relaxation/all-relaxation-and-leisure-activities/le-barathym-toulon-en-4722898/ https://www.schlouk-map.com/fr/places/le-barathym https://www.privateaser.com/lieu/42109-le-barathym",
+   "type": "pub",
+   "description": "Bar musical du Mourillon (ancien Bar à Thym) avec terrasse, concerts et DJ sets, servant bières, rhums, whiskies et tapas."
+  },
+  {
+   "nom": "Le Brummell",
+   "ville": "Menton",
+   "retirer": true,
+   "_raison": "La discothèque Le Brummell n'existe plus : l'espace est devenu le Café des Sports (« Casino Sports Café ») du Casino Barrière, ouvert de 11h à la fermeture du casino ; Horaires affichés sans source ; Date exacte de la fermeture non trouvée ; À retirer du site",
+   "_verifie": "2026-11-13"
+  },
+  {
+   "nom": "Le Kosma",
+   "ville": "Nice",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "haute",
+   "_source": "https://cotedazurfrance.fr/offres/kosma-nice-fr-3040721/ https://cotedazurfrance.com/offers/kosma-nice-en-3040721 https://www.privateaser.com/lieu/46561-kosma-live-club",
+   "type": "bar"
+  },
+  {
+   "nom": "Le Petit Chicago",
+   "ville": "Toulon",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "faible",
+   "_source": "https://www.privateaser.com/lieu/57598-little-chicago-place-de-l-equerre https://www.pagesjaunes.fr/pros/64961039",
+   "adresse": "6-8 rue Camille Auban (place de l'Équerre), 83000 Toulon",
+   "type": "bar",
+   "description": "Bar-restaurant du quartier des Arts, place de l'Équerre, programmant concerts, DJ sets, blind tests, quiz et stand-up, avec bières artisanales, cocktails et planches à partager."
+  },
+  {
+   "nom": "Le Six",
+   "ville": "Nice",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://cotedazurfrance.fr/offres/club-le-6-nice-fr-3041473/ https://www.schlouk-map.com/fr/places/le-six https://www.privateaser.com/lieu/41369-le-six",
+   "adresse": "6 rue Raoul Bosio, 06300 Nice",
+   "type": "club",
+   "description": "Bar-club gay du Vieux-Nice (Club Le 6), rue Raoul Bosio, ouvert en soirée jusqu'à 5h."
+  },
+  {
+   "nom": "Le Village",
+   "ville": "Juan-les-Pins",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "faible",
+   "_source": "https://www.frommers.com/destinations/juan-les-pins/nightlife/ https://cotedazurfrance.fr/a-faire/ou-sortir/clubs/ https://seeantibes.com/bars/le-village-bar-juan-les-pins-657372",
+   "adresse": "1 boulevard de la Pinède (carrefour de la Nouvelle-Orléans), 06160 Juan-les-Pins",
+   "type": "club",
+   "description": "Discothèque historique de Juan-les-Pins, près de la pinède, proposant house, dance, soul et musiques latines avec DJ et soirées à thème."
+  },
+  {
+   "nom": "Lilly's Club Monte Carlo",
+   "ville": "Monaco",
+   "retirer": true,
+   "_raison": "Ce n'est pas un club permanent : pop-up de quelques nuits pendant le Grand Prix (ex. 22–25 mai 2025) ; Horaires « jeu–dim 22h–5h » trompeurs (aucune ouverture régulière) ; Adresse et description manquantes ; À retirer de la liste des clubs ou à présenter comme événement ponctuel",
+   "_verifie": "2026-11-13"
+  },
+  {
+   "nom": "Morrison's Irish Pub & Morrison's Lounge",
+   "ville": "Cannes",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://en.cannes-france.com/offers/morrisons-pub-cannes-en-3605724/ https://cotedazurfrance.fr/offres/morrisons-pub-cannes-fr-3602782/ https://cotedazurfrance.fr/offres/morrisons-lounge-cannes-fr-4528249/",
+   "adresse": "Pub : 10 rue Teisseire ; Lounge : 8 rue Teisseire, 06400 Cannes",
+   "type": "pub",
+   "description": "Pub irlandais (10 rue Teisseire) avec concerts live le mardi, mercredi, jeudi et dimanche, et lounge voisin (8 rue Teisseire) avec DJ le vendredi et le samedi, quiz le lundi et karaoké le mercredi."
+  },
+  {
+   "nom": "No Stresss",
+   "ville": "La Seyne-sur-Mer",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://provence-alpes-cotedazur.com/que-faire/detente-et-loisirs/toutes-les-activites-detente-et-loisirs/no-stresss-la-seyne-sur-mer-fr-4728556/ https://provence-alpes-cotedazur.com/en/things-to-do/leisure-relaxation/all-relaxation-and-leisure-activities/no-stresss-la-seyne-sur-mer-en-4728556",
+   "adresse": "715 avenue Charles de Gaulle (Les Sablettes), 83500 La Seyne-sur-Mer",
+   "type": "club",
+   "description": "Discothèque du quartier des Sablettes à La Seyne-sur-Mer, aux styles musicaux variés."
+  },
+  {
+   "nom": "OMA",
+   "ville": "Nice",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "faible",
+   "_source": "https://www.songkick.com/venues/4600104-oma-club https://www.outgoing.world/activity/bc6ed9e4-b734-4f05-92cf-65915f5110c8 https://www.pagesjaunes.fr/pros/65070831",
+   "adresse": "6 rue Halévy, 06000 Nice",
+   "type": "club",
+   "description": "Club du centre de Nice consacré au rap américain des années 90, avec une sélection à l'entrée."
+  },
+  {
+   "nom": "Quai Ouest Pub",
+   "ville": "Saint-Laurent-du-Var",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://www.explorenicecotedazur.com/structure/quai-ouest/ https://cotedazurfrance.fr/offres/quai-ouest-saint-laurent-du-var-fr-4108025/ https://www.privateaser.com/lieu/58023-quai-ouest-pub",
+   "adresse": "Port Saint-Laurent (port de plaisance), 06700 Saint-Laurent-du-Var",
+   "type": "rooftop"
+  },
+  {
+   "nom": "Skyfall",
+   "ville": "Cannes",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "haute",
+   "_source": "https://cotedazurfrance.fr/offres/skyfall-cannes-fr-4153995/ https://en.cannes-france.com/offers/skyfall-cannes-en-4154066/ https://provence-alpes-cotedazur.com/en/things-to-do/leisure-relaxation/all-relaxation-and-leisure-activities/skyfall-cannes-en-4730858",
+   "type": "club",
+   "description": "Bar festif et club du centre de Cannes, à cinq minutes de la Croisette, avec DJ et une programmation tournée vers les musiques urbaines."
+  },
+  {
+   "nom": "Tree Bô",
+   "ville": "Saint-Laurent-du-Var",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://cotedazurfrance.fr/offres/tree-bo-saint-laurent-du-var-fr-3614245/ https://www.explorenicecotedazur.com/it/ristorante/tree-bo/ https://www.privateaser.com/lieu/57137-tree-bo",
+   "adresse": "Port Saint-Laurent, quai la Pérouse, 06700 Saint-Laurent-du-Var",
+   "type": "bar-a-cocktails",
+   "description": "Bar à tapas et cocktails du port de Saint-Laurent-du-Var, avec terrasse sur la marina et brunch le dimanche."
+  },
+  {
+   "nom": "Au Bureau (Polygone Riviera)",
+   "ville": "Cagnes-sur-Mer",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "faible",
+   "_source": "https://d1z37b4k98tlsh.cloudfront.net/destinations/Saint-Paul-de-Vence/restaurants/Au-Bureau~1831",
+   "adresse": "Polygone Riviera, 421 Av. de la Santoline, 06800 Cagnes-sur-Mer (à confirmer)",
+   "type": "pub",
+   "description": "Pub-brasserie de la chaîne Au Bureau situé dans le centre commercial Polygone Riviera."
+  },
+  {
+   "nom": "Barrio Chicago",
+   "ville": "Toulon",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "faible",
+   "_source": "https://www.schlouk-map.com/fr/places/barrio-chicago https://wanderlog.com/place/details/11999855/barrio-chicago https://www.capitainestudy.fr/articles/10-meilleurs-bars-etudiants-de-toulon/",
+   "type": "bar",
+   "description": "Bar-restaurant avec terrasse place de l'Équerre, inspiré des « années folles » de Chicago, servant bières belges et tapas façon brasserie."
+  },
+  {
+   "nom": "Blue Gin",
+   "ville": "Monaco",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "haute",
+   "_source": "https://www.montecarlosbm.com/fr/bar-nightclub-monaco/le-blue-gin https://www.montecarlosbm.com/en/bar-nightclub-monaco/the-blue-gin https://www.montecarlosbm.com/fr/agenda/pop-up-hivernal-au-blue-gin",
+   "type": "bar-a-cocktails",
+   "description": "Bar lounge du Monte-Carlo Bay Hotel & Resort avec terrasse face à la mer, ouvert tous les soirs."
+  },
+  {
+   "nom": "Bull-Dog Pub Pompei",
+   "ville": "Nice",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://cotedazurfrance.com/offers/bulldog-pub-pompei-nice-en-3040832 https://www.schlouk-map.com/fr/places/bulldog-pub-pompei https://www.pagesjaunes.fr/pros/01939689",
+   "adresse": "16 rue de l'Abbaye, 06300 Nice",
+   "type": "club",
+   "description": "Bar de nuit et discothèque du Vieux-Nice à l'ambiance pop-rock, entrée gratuite."
+  },
+  {
+   "nom": "DRY Restaurant & Cocktail Bar",
+   "ville": "Villefranche-sur-Mer",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://provence-alpes-cotedazur.com/en/plan-your-stay/restaurants/all-restaurants/dry-restaurant-cocktail-bar-villefranche-sur-mer-en-2883782 https://cotedazurfrance.fr/offres/dry-restaurant-cocktail-bar-villefranche-sur-mer-fr-2830308/ https://www.pariseater.com/france-travel-guides/our-favourite-restaurants-in-villefranche-sur-mer/",
+   "type": "bar-a-cocktails",
+   "description": "Restaurant-bar à cocktails sur le front de mer de Villefranche, mêlant cuisine méditerranéenne, street food internationale et cocktails de fruits pressés."
+  },
+  {
+   "nom": "Gotha",
+   "ville": "Cannes",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "faible",
+   "_source": "https://pullman.accor.com/gb/destinations/poi/gotha-club-cannes.shtml https://www.yelp.com/biz/gotha-club-cannes https://www.clubbable.com/Cannes/Gotha",
+   "adresse": "Place Franklin Roosevelt (Palm Beach), 06400 Cannes",
+   "type": "club",
+   "description": "Boîte de nuit saisonnière située place Franklin Roosevelt, à côté de l'ancien casino Palm Beach, ouverte principalement du Festival de Cannes à la fin de l'été."
+  },
+  {
+   "nom": "Inky Bar",
+   "ville": "Menton",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://cotedazurfrance.com/offers/inky-bar-tapas-bar-menton-en-3792024 https://www.privateaser.com/lieu/57539-inky-bar https://www.sluurpy.fr/menton/restaurant/7973210/inky-bar",
+   "adresse": "Quai Gordon Bennett, Esplanade des Sablettes, 06500 Menton",
+   "type": "beach-club",
+   "description": "Bar à cocktails et tapas face à la mer aux Sablettes, lounge en journée et plus festif le soir avec des DJ sets électro."
+  },
+  {
+   "nom": "K27",
+   "ville": "Six-Fours-les-Plages",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "faible",
+   "_source": "https://www.bottin.fr/annuaire/bar-a-six-fours-les-plages-83129.htm",
+   "type": "bar",
+   "description": "Bar de Six-Fours proposant des soirées à thème (années 80-90 notamment)."
+  },
+  {
+   "nom": "L'élixir lounge club",
+   "ville": "La Seyne-sur-Mer",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://provence-alpes-cotedazur.com/que-faire/detente-et-loisirs/toutes-les-activites-detente-et-loisirs/lelixir-lounge-club-saint-mandrier-sur-mer-fr-3243294/ https://provence-alpes-cotedazur.com/en/things-to-do/leisure-relaxation/all-relaxation-and-leisure-activities/lelixir-lounge-club-saint-mandrier-sur-mer-en-3243294",
+   "adresse": "36 quai Séverine, 83430 Saint-Mandrier-sur-Mer",
+   "nouvelle_ville": "Saint-Mandrier-sur-Mer",
+   "type": "club",
+   "description": "Bar à cocktails et tapas du port de Saint-Mandrier qui se transforme en discothèque jusqu'à 7 h."
+  },
+  {
+   "nom": "La Môme Plage",
+   "ville": "Cannes",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://provence-alpes-cotedazur.com/sejourner/restaurants/tous-les-restaurants/la-mome-plage-cannes-fr-3623420/ https://en.cannes-france.com/offers/la-mome-plage-cannes-en-3605347/ https://www.gillespudlowski.com/?p=325646",
+   "adresse": "44 boulevard de la Croisette, 06400 Cannes",
+   "type": "beach-club",
+   "description": "Plage privée et restaurant du 44 boulevard de la Croisette, ouvert tous les jours le midi et aussi le soir en saison estivale."
+  },
+  {
+   "nom": "Le Bard'Ô",
+   "ville": "Sanary-sur-Mer",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://www.sanary-tourisme.com/en/im-here/restaurants/4666716_le-bardo/ https://provence-alpes-cotedazur.com/en/plan-your-stay/restaurants/all-restaurants/le-bardo-sanary-sur-mer-en-2877651/ https://www.privateaser.com/lieu/58043-le-bard-o",
+   "type": "beach-club",
+   "description": "Restaurant-bar sur la plage de Portissol, avec DJ sets et concerts les vendredis et samedis soir à partir de 21 h 30."
+  },
+  {
+   "nom": "Le Carré Bleu",
+   "ville": "Cagnes-sur-Mer",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://www.explorenicecotedazur.com/en/structure/carre-bleu-beach/ https://cotedazurfrance.fr/offres/plage-carre-bleu-cagnes-sur-mer-fr-4093360/ https://www.plageprivee.com/france/06-alpes-maritimes/cagnes-sur-mer/le-carre-bleu",
+   "adresse": "61 ter Promenade de la Plage, 06800 Cagnes-sur-Mer",
+   "type": "beach-club",
+   "description": "Plage privée avec restaurant méditerranéen et bar lounge à cocktails face à la Baie des Anges."
+  },
+  {
+   "nom": "Le New Pub",
+   "ville": "Menton",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "haute",
+   "_source": "https://cotedazurfrance.fr/offres/le-new-pub-menton-fr-3791214 https://provence-alpes-cotedazur.com/en/plan-your-stay/useful-information/all-practical-services/le-new-pub-menton-en-3791177",
+   "adresse": "51 quai Bonaparte, 06500 Menton",
+   "type": "pub",
+   "description": "Bar à bières d'inspiration irlandaise sous les arcades du quai Bonaparte, avec concerts gratuits le week-end, DJ sets et matchs retransmis."
+  },
+  {
+   "nom": "Le QG Port Saint-Laurent",
+   "ville": "Saint-Laurent-du-Var",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://provence-alpes-cotedazur.com/en/things-to-do/leisure-relaxation/all-relaxation-and-leisure-activities/le-qg-saint-laurent-du-var-en-4733412 https://www.privateaser.com/lieu/59345-le-qg https://www.sluurpy.fr/saint-laurent-du-var/restaurant/2038714/le-qg",
+   "adresse": "310 Quai la Pérouse, 06700 Saint-Laurent-du-Var",
+   "type": "bar",
+   "description": "Bar du port de Saint-Laurent-du-Var ouvert toute l'année, avec DJ tous les soirs, tapas, burgers et cocktails en terrasse face aux bateaux."
+  },
+  {
+   "nom": "Le Spot (Hôtel Plein Large)",
+   "ville": "Bandol",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://www.bandoltourisme.fr/en/a-restaurant/the-spot/ https://provence-alpes-cotedazur.com/sejourner/restaurants/tous-les-restaurants/le-spot-bandol-fr-6239120/ https://www.fr.lastminute.com/hotel/france/bandol/hotel-plein-large_hid-893294",
+   "type": "beach-club",
+   "description": "Bar avec terrasse en bois face à la mer dans l'anse de Renécros, ouvert de 11 h au coucher du soleil selon la météo."
+  },
+  {
+   "nom": "Les Bains Déli Bo",
+   "ville": "Villefranche-sur-Mer",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "faible",
+   "_source": "https://www.gillespudlowski.com/174847/restaurants/villefranche-sur-mer-deli-bo-dans-le-bain https://mapstr.com/place/ErRGNoLjVWg https://www.euansguide.com/venues/delibo-les-bains-plage-restaurant-villefranche-sur-mer-7623",
+   "type": "beach-club",
+   "description": "Plage privée et restaurant de la promenade des Marinières."
+  },
+  {
+   "nom": "Madame aMore",
+   "ville": "Hyères",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://cotedazurfrance.fr/offres/madame-m-hyeres-fr-3813334/ https://provence-alpes-cotedazur.com/en/plan-your-stay/restaurants/all-restaurants/mrs-m-hyeres-en-3813194/",
+   "adresse": "15 avenue du Docteur Robin, Le Port, 83400 Hyères",
+   "type": "lounge",
+   "description": "Restaurant du port d'Hyères (nommé « Madame M » dans les fiches officielles) proposant des spectacles de cabaret en live et des soirées dansantes."
+  },
+  {
+   "nom": "Movida",
+   "ville": "Nice",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "faible",
+   "_source": "https://www.smart-travelling.net/en/locations/movida-bar https://www.schlouk-map.com/fr/places/movida",
+   "type": "bar",
+   "description": "Bar à tapas installé dans les bâtiments des Ponchettes, quai des États-Unis, avec balcon très prisé au coucher du soleil."
+  },
+  {
+   "nom": "Nuits Blanches",
+   "ville": "Nice",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "haute",
+   "_source": "https://www.explorenicecotedazur.com/en/structure/nuits-blanches-club/ https://cotedazurfrance.com/offers/nuits-blanches-club-nice-en-3041066/",
+   "adresse": "20 quai Lunel, 06300 Nice",
+   "type": "club",
+   "description": "Club chic sur le port de Nice pour une clientèle de 25 ans et plus."
+  },
+  {
+   "nom": "Opera",
+   "ville": "Nice",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "faible",
+   "_source": "https://shotgun.live/en/events/soiree-opera-club https://www.youtube.com/channel/UC2br4xIbKUxfj0PWpKzKWzA https://www.noxway.fr/nightclub/ChIJgd35vzTbzRIRf_DL678U2w4",
+   "adresse": "Rue de la Préfecture (Vieux-Nice), 06300 Nice — numéro à confirmer (2 ou 7)",
+   "type": "club",
+   "description": "Boîte de nuit du Vieux-Nice (Opera Club) avec DJ et soirées à thème."
+  },
+  {
+   "nom": "Rhumerie Ferdinand",
+   "ville": "Menton",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://cotedazurfrance.fr/offres/bar-a-vin-rhumerie-ferdinand-menton-fr-3823446 https://cotedazurfrance.com/offers/wine-bar-rhumerie-ferdinand-menton-en-3823446/",
+   "type": "bar",
+   "description": "Rhumerie de la place Fontana à Menton, ouverte en soirée du mardi au samedi."
+  },
+  {
+   "nom": "Slammers",
+   "ville": "Monaco",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "moyenne",
+   "_source": "https://www.monacobusinessdirectory.com/en/directory/leisure-outings/bar/slammers.html https://vymaps.com/MC/Slammers-1121379/ https://www.monaco-tribune.com/en/discover-monaco/going-out/bars-pubs/",
+   "type": "pub",
+   "description": "Pub de La Condamine, rue Suffren Reymond, avec happy hour en semaine."
+  },
+  {
+   "nom": "Twiga Monte-Carlo",
+   "ville": "Monaco",
+   "_verifie": "2026-11-13",
+   "_fiabilite": "faible",
+   "_source": "https://www.access.sb/en/monaco/bars-clubs/clubs/twiga/ https://www.clubbable.com/fr-FR/Monaco/Twiga-Monte-Carlo https://www.monaco-tribune.com/en/listing/twiga-monte-carlo/",
+   "type": "club",
+   "description": "Restaurant puis club au 2e étage du Grimaldi Forum, avec dîner en soirée et club jusqu'à 4-5 h selon les soirs."
   }
  ]
 }
