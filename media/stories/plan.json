@@ -2,21 +2,13 @@
   "jour": "2026-11-13",
   "plan": [
     {
-      "type": "soirees",
+      "type": "offre",
       "cles": [
-        "Lanonchalance pres. Malive",
-        "Jetlag Gang (+ Opening Act)",
-        "Nightly X Dovnrobs (Elva Cannes Takeover)"
+        "av-Le Barathym-1 shooter offert sur présentation de Teufy"
       ],
       "frames": [
         {
-          "image": "2026-11-13-soirees-0.jpg"
-        },
-        {
-          "image": "2026-11-13-soirees-1.jpg"
-        },
-        {
-          "image": "2026-11-13-soirees-2.jpg"
+          "image": "2026-11-13-offre.jpg"
         }
       ]
     }
