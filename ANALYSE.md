@@ -1,33 +1,36 @@
-## Analyse de la semaine du 2026-11-12
+## Analyse de la semaine du 2026-11-13
 
-Peu de données cette semaine : seulement 4 posts du bot notés, donc toutes les conclusions restent fragiles et on privilégie des tests variés. Le post de veille sur HUGEL en clôture des Plages Électroniques 2027 a eu 100/100 (847 de portée, 8 partages) : une vraie info, un nom connu, une exclu qui se partage. À l'inverse, le reel explicatif sur le prix des billets (9/100) et le carrousel commercial « coups de cœur » (5/100) n'ont généré quasiment aucune interaction. L'historique de l'équipe confirme le schéma : les concours et les listes techno du mois font les meilleures notes, les posts génériques ou de marque font les pires. L'objectif est ramené à 60 pour la semaine prochaine, plus réaliste que 95 vu la moyenne actuelle (38), avec l'idée de le remonter dès que la tendance se confirme.
+Semaine contrastée avec seulement 5 posts du bot notés : trop peu pour conclure, donc on garde des tests variés. Ce qui marche : la techno pointue (Édition Tekno 100/100, 8 partages pour 360 de portée) et l'info exclusive (HUGEL aux Plages Électroniques, 100/100, 898 de portée). Ce qui ne marche pas : le reel « pédagogique » sur le prix des billets (9/100, 0 partage) et le carrousel commercial générique « coups de cœur » (5/100). Le signal est clair : les gens partagent une info qu'ils n'ont pas encore ou une scène qui leur ressemble, pas une explication ni un titre passe-partout. Meta étend ses comptes ado au monde entier : on vise d'abord les 18-30 ans et on reste très loin de l'alcool.
 
 **Objectif des prochains posts : 95/100**
 
 ### Nouveautés Instagram / Meta
-- 🟢 officiel · 2026-11-09 · **Expanding Teen Account Protections to Teens Around the World** : Les protections des comptes ado sont étendues partout dans le monde. Une partie de notre public de 17 ans peut voir moins nos contenus nightlife, surtout ceux qui montrent de l'alcool. On cible les 18-30 dans les visuels et les légendes, et on évite de mettre les verres au premier plan. ([source](https://about.fb.com/news/2026/11/expanding-teen-account-protections-to-teens-around-the-world/))
+- 🟢 officiel · 2026-11-09 · **Expanding Teen Account Protections to Teens Around the World** : Les 17 ans de notre cible sont concernés par les protections des comptes ado. Notre contenu nuit risque donc d'être moins montré aux mineurs. On ne change pas les règles chiffrées, mais on évite toute mise en avant de l'alcool (bouteilles, verres au premier plan) et on écrit pour les 18-30 ans. Le détail exact des restrictions reste à lire dans l'annonce avant d'aller plus loin. ([source](https://about.fb.com/news/2026/11/expanding-teen-account-protections-to-teens-around-the-world/))
 
 ### Pourquoi certains posts marchent mieux
-- **Les vraies infos exclusives (annonce d'artiste, line-up) battent largement les posts génériques.** (Veille HUGEL : 100/100, 847 de portée, 8 partages. Coups de cœur commercial : 5/100, 355 de portée, 0 partage.) → Publier au moins 2 posts de veille par semaine sur des annonces officielles d'organisateurs (noms d'artistes, dates confirmées), avec le nom de l'événement dans le titre.
-- **Le contenu techno ciblé et daté marche mieux que le contenu commercial vague.** (Incontournables techno 38/100 contre 5/100 en commercial. Côté équipe, les listes techno du mois ont fait 100/100 (nov. 2025 : 33 partages, 9 abonnés ; janv. 2026 : 80 partages).) → Titrer les incontournables avec le mois et la ville (« Techno · Côte d'Azur · novembre ») et utiliser #technocotedazur (+42 d'effet sur 3 posts).
-- **Les reels explicatifs sur un sujet abstrait ne retiennent pas.** (Reel billet 12 à 25 € : 9/100, 2 likes, 0 partage, publié à 18h UTC, le créneau le plus faible chez les autres comptes (11,6).) → Tester un reel accroché sur un nom ou un lieu connu (HUGEL, Plages Électroniques) à 16h UTC au lieu de 18h.
-- **Les concours restent le meilleur levier pour gagner des abonnés.** (LQB Festival : 93/100, 8 abonnés. Electro Symphony : 100/100, 6 abonnés. Halloween : 90/100, 13 abonnés. Les posts du bot ont gagné 0 abonné.) → Relancer un concours avec un partenaire (club ou festival) dès que possible, porté par l'équipe.
+- **La techno de niche (tekno, hard techno) fait partager, la techno « généraliste » beaucoup moins.** (Édition Tekno : 8 partages, 3 commentaires, 2 abonnés pour 360 de portée (100/100). Dates techno du mois : 2 partages pour 315 de portée (38/100). Les hashtags #hardtechno et #technocotedazur ont un effet de +41.) → Garder un post par style précis (tekno, hard techno, acid) avec une accroche sensorielle courte, et tester #technocotedazur avec #hardtechno.
+- **L'annonce exclusive (premier nom d'un festival) donne la plus grosse portée de la semaine.** (Post veille HUGEL / Plages Électroniques : 898 de portée et 8 partages, soit presque 2,5 fois la portée des autres posts du bot.) → Publier une annonce de veille dès qu'un line-up ou une date officielle tombe, en titre « nom de l'artiste + lieu », avec une invitation à taguer la personne avec qui on y va.
+- **Le contenu « explicatif » et le commercial générique ne déclenchent aucun partage.** (Reel prix du billet : 0 partage, 2 likes (9/100). Coups de cœur commercial : 0 partage, 1 like (5/100). Ce sont des sujets scolaires ou sans lieu ni nom précis.) → Arrêter les reels qui expliquent des prix. Pour le commercial, partir d'une situation vécue (groupe WhatsApp, file d'attente, dress code) et nommer les villes.
+- **Les meilleurs posts historiques sont des listes datées et saisonnières (Halloween, Nouvel An, techno du mois).** (Soirées flippantes d'Halloween : 174 partages, 46 enregistrements. Techno de janvier : 80 partages. Nouvel An : 58 partages.) → Préparer dès maintenant un carrousel « Nouvel An sur la Côte » et un carrousel « techno de décembre », à publier tôt dans le mois.
+- **Le créneau 17 h UTC a porté le meilleur post bot de la semaine et colle aux autres comptes.** (Tekno publié à 17 h UTC : 100/100. Chez les autres comptes, 16 h (631), 15 h (300) et 17 h (259) dominent ; 18 h est faible (12).) → Concentrer les publications entre 15 h et 17 h UTC et tester 16 h.
 
 ### Formats et manières de poster à tester
-- **Carrousel de veille sur une annonce officielle d'organisateur (nom d'artiste en couverture)** : Seul post du bot à 100/100 cette semaine (8 partages) ; le carrousel est aussi le format le mieux noté chez les autres comptes (score 225 contre 150 pour le reel). ([source](Chiffres du compte (veille HUGEL du 09/11) et tendances_autres_comptes.formats))
-- **Carrousel « dates techno du mois » avec ville et mois dans le titre** : Trois posts de ce type à 100/100 dans l'historique de l'équipe, avec beaucoup de partages et d'enregistrements. ([source](Posts équipe du 07/11/2025 et du 02/01/2026))
-- **Concours en partenariat avec un club ou festival local** : Meilleur levier d'abonnés du compte (6 à 13 par concours) et de commentaires. ([source](Posts équipe LQB Festival, Electro Symphony, Halloween 2025))
+- **Annonce exclusive : nom de l'artiste + lieu en gros, une phrase, appel à taguer** : Info qu'on n'a pas encore = envoi en message privé. Meilleure portée de la semaine. ([source](Post veille HUGEL du 2026-11-09 : 898 de portée, 8 partages))
+- **Carrousel par style pointu (tekno, hard techno, acid) avec dates de la semaine** : La famille techno partage ce qui lui ressemble, pas le généraliste. ([source](Édition Tekno du 2026-11-12 : 100/100, 8 partages pour 360 de portée))
+- **Reel « archive » façon souvenir de soirée (cassette, dossier classé) avec une narration courte** : Raconte la soirée comme une histoire, donne envie d'y être, original. ([source](groovzcannes, reel « On a retrouvé une cassette derrière le comptoir » (score 10781)))
+- **Carrousel saisonnier « Nouvel An sur la Côte d'Azur » publié tôt** : Le groupe s'organise des semaines à l'avance : on enregistre et on partage pour décider. ([source](Post Nouvel An du 2025-12-24 : 58 partages, 18 enregistrements))
+- **Situation vécue « tague le pote » (le pote qui rentre tôt, le dernier tram raté)** : Passe le test du « c'est trop toi », premier signal pour toucher des non-abonnés. ([source](Post du 2025-11-17 « La vérité, c'est qu'on a tous déjà eu cette impression » : 67 likes, 14 partages))
 
 ### Ce que le bot a changé
-- accroche weekend : « Ton groupe dit « on verra ». Pas cette fois. »
-- accroche techno : « Premier nom tombé. Tu y seras ? »
-- accroche techno : « Ton BPM idéal ce samedi ? »
-- accroche petits-prix : « Sortir à deux avec 20 € ? »
-- intro commercial : « Pas encore de plan pour samedi ? Enregistre ce post. Ton groupe te dira merci. »
-- intro techno : « Les dates techno du mois sur la Côte d'Azur. Enregistre avant d'oublier, partage à ceux qui viennent avec toi. »
-- hashtag #cotedazurfrance
-- hashtag #plageselectroniques
-- débat « En soirée, tu arrives quand ? »
-- débat « Ce week-end, tu sors où ? »
-- sujet de reel « Le premier nom des Plages Électroniques 2027 est tombé »
-- heures de publication (UTC) 16, 17, 18, 19 → 15, 16, 17, 20, 21
+- accroche weekend : « Le pote qui « rentre tôt » et ferme la boîte »
+- accroche weekend : « 5 h du mat'. Plus de tram. Plan B ? »
+- accroche techno : « Line-up tombé. Tu l'envoies à qui en premier ? »
+- accroche petits-prix : « Fin de mois, mais samedi arrive quand même »
+- intro commercial : « 47 messages dans le groupe, toujours aucun plan. On a fait le tri pour toi, de Nice à Monaco. »
+- intro techno : « Kicks lourds, after jusqu'au matin. Les dates qui tapent ce week-end sur la Côte, à envoyer à ton binôme de dancefloor. »
+- hashtag #soiréetechno
+- hashtag #cannesbynight
+- débat « Samedi soir, tu sors où ? »
+- débat « Pour finir la nuit, t'es plutôt : »
+- sujet de reel « HUGEL clôture Les Plages Électroniques 2027 »
+- heures de publication (UTC) 15, 16, 17, 18, 19 → 15, 16, 17

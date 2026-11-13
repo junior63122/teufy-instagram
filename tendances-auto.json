@@ -1,20 +1,20 @@
 {
-  "maj": "2026-11-12T15:07:44.038Z",
+  "maj": "2026-11-13T15:07:33.205Z",
   "comptes": {
     "downtown.nice": {
-      "abonnes": 2392,
+      "abonnes": 2393,
       "posts": 25
     },
     "uptown.nice": {
-      "abonnes": 1867,
+      "abonnes": 1868,
       "posts": 25
     },
     "la_dinette__": {
-      "abonnes": 5656,
+      "abonnes": 5655,
       "posts": 25
     },
     "lebarathymtoulon": {
-      "abonnes": 10926,
+      "abonnes": 10927,
       "posts": 25
     },
     "nightlyfr": {
@@ -43,7 +43,7 @@
       "erreur": "Instagram 17841451355992040 : Invalid user id (code 110, sous-code 2207013)"
     },
     "dicefm": {
-      "abonnes": 92938,
+      "abonnes": 93046,
       "posts": 25
     },
     "trax_magazine": {
@@ -53,59 +53,59 @@
       "erreur": "Instagram 17841451355992040 : Invalid user id (code 110, sous-code 2207013)"
     },
     "boilerroomtv": {
-      "abonnes": 2888010,
+      "abonnes": 2888011,
       "posts": 25
     },
     "bringue_party": {
-      "abonnes": 91048,
+      "abonnes": 91152,
       "posts": 25
     },
     "bazaarcannes": {
-      "abonnes": 3740,
+      "abonnes": 3742,
       "posts": 25
     },
     "mixparty_cannes": {
-      "abonnes": 6988,
+      "abonnes": 6989,
       "posts": 25
     },
     "lelixirclub": {
-      "abonnes": 1441,
+      "abonnes": 1443,
       "posts": 25
     },
     "jokerplay17": {
-      "abonnes": 39821,
+      "abonnes": 39816,
       "posts": 25
     },
     "sowetolesprit": {
-      "abonnes": 2687,
+      "abonnes": 2735,
       "posts": 25
     },
     "tetris.owl": {
-      "abonnes": 10716,
+      "abonnes": 10724,
       "posts": 25
     },
     "xka_music": {
-      "abonnes": 32111,
+      "abonnes": 32112,
       "posts": 25
     },
     "djmvlarosa_officiel": {
-      "abonnes": 3196,
+      "abonnes": 3197,
       "posts": 25
     },
     "lesfrench_nghts": {
-      "abonnes": 431,
+      "abonnes": 432,
       "posts": 25
     },
     "djtrulli_": {
-      "abonnes": 2426,
+      "abonnes": 2428,
       "posts": 25
     },
     "pedro_martinez_musicoff": {
-      "abonnes": 1561,
+      "abonnes": 1562,
       "posts": 16
     },
     "120bpm.event": {
-      "abonnes": 323,
+      "abonnes": 324,
       "posts": 19
     },
     "groovzcannes": {
@@ -113,11 +113,11 @@
       "posts": 25
     },
     "barrelcannespub": {
-      "abonnes": 2275,
+      "abonnes": 2277,
       "posts": 25
     },
     "latinaddict": {
-      "abonnes": 87843,
+      "abonnes": 87839,
       "posts": 25
     },
     "nayaclubcannes": {
@@ -125,11 +125,11 @@
       "posts": 25
     },
     "junga_club": {
-      "abonnes": 3949,
+      "abonnes": 3945,
       "posts": 1
     },
     "cdr_cannes": {
-      "abonnes": 2265,
+      "abonnes": 2269,
       "posts": 25
     },
     "lebayou2.0": {
@@ -137,34 +137,33 @@
       "posts": 21
     },
     "greatgame_partyroom": {
-      "abonnes": 10886,
+      "abonnes": 10880,
       "posts": 25
     },
     "charlotte_vtc_toulon": {
-      "abonnes": 195,
+      "abonnes": 196,
       "posts": 17
     },
     "espritfestival": {
-      "abonnes": 7842,
+      "abonnes": 7838,
       "posts": 25
     },
     "le.bar.ephemere": {
-      "abonnes": 6484,
+      "abonnes": 6509,
       "posts": 25
     }
   },
   "hashtags": {
     "#halloween2026": 1,
-    "#cannesbynight": 0.568,
-    "#nayaclub": 0.414,
-    "#nightlife": 0.382,
-    "#cannes": 0.351,
-    "#nayaclubcannes": 0.298,
-    "#partytime": 0.256,
-    "#cannesnightlife": 0.205,
+    "#cannesbynight": 0.507,
+    "#nayaclub": 0.465,
+    "#nightlife": 0.394,
+    "#cannes": 0.273,
+    "#partytime": 0.255,
+    "#cannesnightlife": 0.182,
     "#côtedazur": 0.182,
     "#halloween": 0.136,
-    "#nayacannes": 0.096,
+    "#nayacannes": 0.089,
     "#showcase": 0.06,
     "#soirée": 0.006,
     "#event": 0.004,
@@ -184,6 +183,7 @@
     "#technomusic": 0.001,
     "#bar": 0.001,
     "#dancehall": 0.001,
+    "#nightclub": 0.001,
     "#toulon": 0.001,
     "#dance": 0.001,
     "#night": 0.001,
@@ -197,16 +197,16 @@
   },
   "formats": {
     "carrousel": {
-      "score": 224.98,
-      "posts": 180
+      "score": 152.05,
+      "posts": 181
     },
     "image": {
-      "score": 16.99,
-      "posts": 170
+      "score": 16.87,
+      "posts": 171
     },
     "reel": {
-      "score": 150.48,
-      "posts": 374
+      "score": 151.24,
+      "posts": 372
     }
   },
   "heures": {
@@ -243,7 +243,7 @@
       "posts": 4
     },
     "9": {
-      "score": 0.77,
+      "score": 0.75,
       "posts": 5
     },
     "10": {
@@ -251,56 +251,56 @@
       "posts": 17
     },
     "11": {
-      "score": 42.82,
+      "score": 42.74,
       "posts": 32
     },
     "12": {
-      "score": 41.57,
-      "posts": 36
-    },
-    "13": {
-      "score": 4.52,
-      "posts": 38
-    },
-    "14": {
-      "score": 356.33,
+      "score": 40.4,
       "posts": 37
     },
-    "15": {
-      "score": 308.8,
+    "13": {
+      "score": 4.82,
+      "posts": 36
+    },
+    "14": {
+      "score": 4.47,
       "posts": 35
     },
+    "15": {
+      "score": 300.28,
+      "posts": 36
+    },
     "16": {
-      "score": 645.55,
-      "posts": 44
+      "score": 631.29,
+      "posts": 45
     },
     "17": {
-      "score": 265.81,
-      "posts": 82
+      "score": 259.06,
+      "posts": 84
     },
     "18": {
-      "score": 11.64,
-      "posts": 147
+      "score": 12.04,
+      "posts": 143
     },
     "19": {
-      "score": 47.32,
-      "posts": 118
+      "score": 46.58,
+      "posts": 120
     },
     "20": {
-      "score": 205.16,
-      "posts": 54
+      "score": 202.16,
+      "posts": 55
     },
     "21": {
-      "score": 3.61,
-      "posts": 33
+      "score": 3.71,
+      "posts": 32
     },
     "22": {
-      "score": 276.47,
+      "score": 276.57,
       "posts": 14
     },
     "23": {
-      "score": 1.3,
-      "posts": 8
+      "score": 1.72,
+      "posts": 9
     }
   },
   "accroches": [
@@ -312,16 +312,9 @@
       "lien": "https://www.instagram.com/p/DclnBCuALRo/"
     },
     {
-      "compte": "groovzcannes",
-      "format": "carrousel",
-      "score": 13027.85,
-      "accroche": "🌅 L’été touche doucement à sa fin… mais pas les belles soirées au Groovz ! 🔥",
-      "lien": "https://www.instagram.com/p/DcTXU09gJJw/"
-    },
-    {
       "compte": "cdr_cannes",
       "format": "reel",
-      "score": 11037.53,
+      "score": 11018.07,
       "accroche": "⚠️ TRIANGLE DES BERMUDES est de retour le mercredi 08 juillet 2026 ! 🌊🔥",
       "lien": "https://www.instagram.com/reel/DaanjIpKxOr/"
     },
@@ -342,21 +335,21 @@
     {
       "compte": "cdr_cannes",
       "format": "reel",
-      "score": 5298.01,
+      "score": 5288.67,
       "accroche": "Naya Night Show 🥂🥳",
       "lien": "https://www.instagram.com/reel/DdooxHxK5BE/"
     },
     {
       "compte": "cdr_cannes",
       "format": "reel",
-      "score": 3973.51,
+      "score": 3966.51,
       "accroche": "NAYA CLUB CANNES 🥂",
       "lien": "https://www.instagram.com/reel/DdWoos9KPSX/"
     },
     {
       "compte": "latinaddict",
       "format": "reel",
-      "score": 3859.16,
+      "score": 3859.33,
       "accroche": "latinaddict is magic 😈",
       "lien": "https://www.instagram.com/reel/DDkrxm1uLDM/"
     },
@@ -387,6 +380,13 @@
       "score": 1347.71,
       "accroche": "La cassette maudite a tout filmé 📼🎃",
       "lien": "https://www.instagram.com/reel/DfXhdTFgXP9/"
+    },
+    {
+      "compte": "groovzcannes",
+      "format": "reel",
+      "score": 1347.71,
+      "accroche": "📼 ARCHIVE 31/10 — Ce message n’aurait jamais dû être diffusé.",
+      "lien": "https://www.instagram.com/reel/DfDDVPkgA3R/"
     }
   ]
 }

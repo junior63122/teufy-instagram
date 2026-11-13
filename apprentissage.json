@@ -29,7 +29,7 @@
         "legende:moyenne",
         "auteur:equipe"
       ],
-      "score": 1.808,
+      "score": 1.807,
       "note": 90
     },
     {
@@ -61,7 +61,7 @@
         "legende:longue",
         "auteur:equipe"
       ],
-      "score": 0.969,
+      "score": 0.968,
       "note": 48
     },
     {
@@ -93,7 +93,7 @@
         "legende:moyenne",
         "auteur:equipe"
       ],
-      "score": 1.253,
+      "score": 1.252,
       "note": 63
     },
     {
@@ -125,7 +125,7 @@
         "legende:longue",
         "auteur:equipe"
       ],
-      "score": 2.01,
+      "score": 2.009,
       "note": 100
     },
     {
@@ -157,7 +157,7 @@
         "legende:longue",
         "auteur:equipe"
       ],
-      "score": 1.86,
+      "score": 1.859,
       "note": 93
     },
     {
@@ -195,7 +195,7 @@
         "theme:techno",
         "auteur:equipe"
       ],
-      "score": 2.704,
+      "score": 2.702,
       "note": 100
     },
     {
@@ -270,7 +270,7 @@
         "theme:fetes",
         "auteur:equipe"
       ],
-      "score": 1.961,
+      "score": 1.96,
       "note": 98
     },
     {
@@ -340,7 +340,7 @@
         "theme:techno",
         "auteur:equipe"
       ],
-      "score": 0.74,
+      "score": 0.739,
       "note": 37
     },
     {
@@ -412,7 +412,7 @@
         "theme:techno",
         "auteur:equipe"
       ],
-      "score": 1.242,
+      "score": 1.241,
       "note": 62
     },
     {
@@ -444,7 +444,7 @@
         "legende:longue",
         "auteur:equipe"
       ],
-      "score": 1.246,
+      "score": 1.245,
       "note": 62
     },
     {
@@ -551,7 +551,7 @@
         "theme:fetes",
         "auteur:equipe"
       ],
-      "score": 0.538,
+      "score": 0.537,
       "note": 27
     },
     {
@@ -629,7 +629,7 @@
         "hashtag:#onmeritemieux",
         "auteur:equipe"
       ],
-      "score": 1.135,
+      "score": 1.134,
       "note": 57
     },
     {
@@ -732,7 +732,7 @@
         "hashtag:#bonsplansnice",
         "auteur:equipe"
       ],
-      "score": 1.571,
+      "score": 1.57,
       "note": 79
     },
     {
@@ -780,7 +780,7 @@
         "hashtag:#appfrance",
         "auteur:equipe"
       ],
-      "score": 0.615,
+      "score": 0.614,
       "note": 31
     },
     {
@@ -827,7 +827,7 @@
         "theme:techno",
         "auteur:equipe"
       ],
-      "score": 1.307,
+      "score": 1.306,
       "note": 65
     },
     {
@@ -928,7 +928,7 @@
         "theme:techno",
         "auteur:equipe"
       ],
-      "score": 2.402,
+      "score": 2.401,
       "note": 100
     },
     {
@@ -1114,7 +1114,7 @@
         "theme:techno",
         "auteur:equipe"
       ],
-      "score": 1.981,
+      "score": 1.98,
       "note": 99
     },
     {
@@ -1204,7 +1204,7 @@
         "hashtag:#halloween",
         "auteur:equipe"
       ],
-      "score": 1.193,
+      "score": 1.192,
       "note": 60
     },
     {
@@ -1292,7 +1292,7 @@
         "hashtag:#teufyapp",
         "auteur:equipe"
       ],
-      "score": 1.791,
+      "score": 1.79,
       "note": 90
     },
     {
@@ -1378,7 +1378,7 @@
         "theme:gratuit",
         "auteur:equipe"
       ],
-      "score": 3.344,
+      "score": 3.342,
       "note": 100
     },
     {
@@ -1427,8 +1427,8 @@
         "theme:gratuit",
         "auteur:equipe"
       ],
-      "score": 0.53,
-      "note": 27
+      "score": 0.529,
+      "note": 26
     },
     {
       "media": "17976751364922792",
@@ -1637,7 +1637,7 @@
         "theme:techno",
         "auteur:equipe"
       ],
-      "score": 2.521,
+      "score": 2.519,
       "note": 100
     },
     {
@@ -1682,7 +1682,7 @@
         "theme:debat",
         "auteur:equipe"
       ],
-      "score": 0.597,
+      "score": 0.596,
       "note": 30
     },
     {
@@ -1819,7 +1819,7 @@
         "hashtag:#coteazur",
         "auteur:equipe"
       ],
-      "score": 1.271,
+      "score": 1.27,
       "note": 64
     },
     {
@@ -1859,7 +1859,7 @@
         "theme:techno",
         "auteur:equipe"
       ],
-      "score": 2.435,
+      "score": 2.433,
       "note": 100
     },
     {
@@ -2095,7 +2095,7 @@
         "legende:moyenne",
         "auteur:equipe"
       ],
-      "score": 2.794,
+      "score": 2.793,
       "note": 100
     },
     {
@@ -2272,7 +2272,7 @@
         "hashtag:#soireedefolie",
         "auteur:equipe"
       ],
-      "score": 0.768,
+      "score": 0.767,
       "note": 38
     },
     {
@@ -2560,7 +2560,7 @@
       ],
       "note": 100,
       "metrics": {
-        "reach": 847,
+        "reach": 898,
         "likes": 7,
         "comments": 0,
         "saved": 0,
@@ -2569,8 +2569,8 @@
         "follows": 0,
         "profile_visits": 1
       },
-      "mesure_le": "2026-11-12T15:08:53.416Z",
-      "score": 2.943
+      "mesure_le": "2026-11-13T15:08:03.850Z",
+      "score": 2.813
     },
     {
       "media": "18100117979106694",
@@ -2666,17 +2666,17 @@
       ],
       "note": 38,
       "metrics": {
-        "reach": 298,
-        "likes": 7,
+        "reach": 315,
+        "likes": 8,
         "comments": 1,
         "saved": 0,
         "shares": 2,
-        "total_interactions": 10,
+        "total_interactions": 11,
         "follows": 0,
         "profile_visits": 3
       },
-      "mesure_le": "2026-11-12T15:08:53.416Z",
-      "score": 0.761
+      "mesure_le": "2026-11-13T15:08:03.850Z",
+      "score": 0.762
     },
     {
       "media": "18132087004853350",
@@ -2955,7 +2955,19 @@
         "theme:techno",
         "auteur:bot"
       ],
-      "note": null
+      "note": 100,
+      "metrics": {
+        "reach": 360,
+        "likes": 8,
+        "comments": 3,
+        "saved": 0,
+        "shares": 8,
+        "total_interactions": 19,
+        "follows": 2,
+        "profile_visits": 6
+      },
+      "mesure_le": "2026-11-13T15:08:03.850Z",
+      "score": 2.245
     }
   ],
   "abonnes": [

@@ -298,5 +298,21 @@
     "b": "Cannes",
     "legende": "Nice ou Cannes. Une seule réponse. Dis-nous en commentaire et tag ton binôme de sortie 👇",
     "ajout": "2026-11-12"
+  },
+  {
+    "id": "ia-2026-11-13-dkbq58",
+    "q": "Samedi soir, tu sors où ?",
+    "a": "Nice",
+    "b": "Cannes",
+    "legende": "Chacun défend sa ville. Dis A ou B en com et tague le pote qui dit l'inverse.",
+    "ajout": "2026-11-13"
+  },
+  {
+    "id": "ia-2026-11-13-3s6fmk",
+    "q": "Pour finir la nuit, t'es plutôt :",
+    "a": "Techno jusqu'au lever du jour",
+    "b": "Afro et shatta jusqu'à la fermeture",
+    "legende": "Deux camps, une seule nuit. A ou B ? Envoie ça à celui qui ne choisit jamais.",
+    "ajout": "2026-11-13"
   }
 ]

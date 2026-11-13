@@ -32,7 +32,8 @@
       "#technocotedazur",
       "#nightlifecotedazur",
       "#sortiracannes",
-      "#cotedazurfrance"
+      "#cotedazurfrance",
+      "#cannesbynight"
     ],
     "commercial": [
       "#clubbing",
@@ -56,7 +57,8 @@
       "#rave",
       "#technofamily",
       "#underground",
-      "#technolovers"
+      "#technolovers",
+      "#soiréetechno"
     ],
     "general": [
       "#soiree",
@@ -109,6 +111,16 @@
         "titre": "Ton groupe dit « on verra ». Pas cette fois.",
         "sous": "Ce week-end · Côte d'Azur",
         "ajout": "2026-11-12"
+      },
+      {
+        "titre": "Le pote qui « rentre tôt » et ferme la boîte",
+        "sous": "Tague-le",
+        "ajout": "2026-11-13"
+      },
+      {
+        "titre": "5 h du mat'. Plus de tram. Plan B ?",
+        "sous": "Envoie-le à ton groupe",
+        "ajout": "2026-11-13"
       }
     ],
     "techno": [
@@ -152,6 +164,11 @@
         "titre": "Ton BPM idéal ce samedi ?",
         "sous": "Réponds en com",
         "ajout": "2026-11-12"
+      },
+      {
+        "titre": "Line-up tombé. Tu l'envoies à qui en premier ?",
+        "sous": "Techno · Côte d'Azur",
+        "ajout": "2026-11-13"
       }
     ],
     "petits-prix": [
@@ -181,6 +198,11 @@
         "titre": "Sortir à deux avec 20 € ?",
         "sous": "Petits prix · Côte d'Azur",
         "ajout": "2026-11-12"
+      },
+      {
+        "titre": "Fin de mois, mais samedi arrive quand même",
+        "sous": "Petits prix · Côte d'Azur",
+        "ajout": "2026-11-13"
       }
     ]
   },
@@ -202,17 +224,19 @@
       "La nuit azuréenne s'allume. Cocktails, dancefloors bondés et sons du moment : voici le menu du week-end.",
       "Vendredi approche. Le groupe hésite encore. Voilà de quoi trancher, de Nice à Monaco.",
       "Tu connais forcément quelqu'un qui dit toujours « on verra ». Cette semaine, il n'a plus d'excuse.",
-      "Pas encore de plan pour samedi ? Enregistre ce post. Ton groupe te dira merci."
+      "Pas encore de plan pour samedi ? Enregistre ce post. Ton groupe te dira merci.",
+      "47 messages dans le groupe, toujours aucun plan. On a fait le tri pour toi, de Nice à Monaco."
     ],
     "techno": [
       "Les caissons tremblent déjà. Ce week-end, la scène underground du 06 ne fait aucun compromis sur les BPM.",
       "Novembre sombre, basses lourdes. Les soirées techno de la Côte d'Azur cette semaine, sans détour.",
       "Warehouse, club, rooftop. Cette semaine, le 06 vibre en 4/4. Voici où aller.",
-      "Les dates techno du mois sur la Côte d'Azur. Enregistre avant d'oublier, partage à ceux qui viennent avec toi."
+      "Les dates techno du mois sur la Côte d'Azur. Enregistre avant d'oublier, partage à ceux qui viennent avec toi.",
+      "Kicks lourds, after jusqu'au matin. Les dates qui tapent ce week-end sur la Côte, à envoyer à ton binôme de dancefloor."
     ]
   },
   "objectif_semaine": 95,
-  "derniere_analyse": "2026-11-12T15:07:44.035Z",
+  "derniere_analyse": "2026-11-13T15:07:33.188Z",
   "concurrents": {
     "_note": "Comptes concurrents ou similaires (guides de sorties, médias nightlife). Le bot regarde chaque jour ce qui marche chez eux (formats, accroches, hashtags, heures). Un nom inexistant est simplement ignoré.",
     "liste": [
@@ -232,22 +256,34 @@
   },
   "formats_a_tester": [
     {
-      "format": "Carrousel de veille sur une annonce officielle d'organisateur (nom d'artiste en couverture)",
-      "pourquoi": "Seul post du bot à 100/100 cette semaine (8 partages) ; le carrousel est aussi le format le mieux noté chez les autres comptes (score 225 contre 150 pour le reel).",
-      "source": "Chiffres du compte (veille HUGEL du 09/11) et tendances_autres_comptes.formats",
-      "ajout": "2026-11-12"
+      "format": "Annonce exclusive : nom de l'artiste + lieu en gros, une phrase, appel à taguer",
+      "pourquoi": "Info qu'on n'a pas encore = envoi en message privé. Meilleure portée de la semaine.",
+      "source": "Post veille HUGEL du 2026-11-09 : 898 de portée, 8 partages",
+      "ajout": "2026-11-13"
     },
     {
-      "format": "Carrousel « dates techno du mois » avec ville et mois dans le titre",
-      "pourquoi": "Trois posts de ce type à 100/100 dans l'historique de l'équipe, avec beaucoup de partages et d'enregistrements.",
-      "source": "Posts équipe du 07/11/2025 et du 02/01/2026",
-      "ajout": "2026-11-12"
+      "format": "Carrousel par style pointu (tekno, hard techno, acid) avec dates de la semaine",
+      "pourquoi": "La famille techno partage ce qui lui ressemble, pas le généraliste.",
+      "source": "Édition Tekno du 2026-11-12 : 100/100, 8 partages pour 360 de portée",
+      "ajout": "2026-11-13"
     },
     {
-      "format": "Concours en partenariat avec un club ou festival local",
-      "pourquoi": "Meilleur levier d'abonnés du compte (6 à 13 par concours) et de commentaires.",
-      "source": "Posts équipe LQB Festival, Electro Symphony, Halloween 2025",
-      "ajout": "2026-11-12"
+      "format": "Reel « archive » façon souvenir de soirée (cassette, dossier classé) avec une narration courte",
+      "pourquoi": "Raconte la soirée comme une histoire, donne envie d'y être, original.",
+      "source": "groovzcannes, reel « On a retrouvé une cassette derrière le comptoir » (score 10781)",
+      "ajout": "2026-11-13"
+    },
+    {
+      "format": "Carrousel saisonnier « Nouvel An sur la Côte d'Azur » publié tôt",
+      "pourquoi": "Le groupe s'organise des semaines à l'avance : on enregistre et on partage pour décider.",
+      "source": "Post Nouvel An du 2025-12-24 : 58 partages, 18 enregistrements",
+      "ajout": "2026-11-13"
+    },
+    {
+      "format": "Situation vécue « tague le pote » (le pote qui rentre tôt, le dernier tram raté)",
+      "pourquoi": "Passe le test du « c'est trop toi », premier signal pour toucher des non-abonnés.",
+      "source": "Post du 2025-11-17 « La vérité, c'est qu'on a tous déjà eu cette impression » : 67 likes, 14 partages",
+      "ajout": "2026-11-13"
     }
   ]
 }
