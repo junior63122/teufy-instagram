@@ -53,7 +53,7 @@ const visibles = (p) => p.locator('.liste .carte:not([hidden])').count();
 
   await etape('feuille + rotation', async () => {
     const c = await b.newContext({ ...devices['iPhone 13'] }); const p = await c.newPage(); erreurs(p, 'rotation');
-    await p.goto(B); await p.locator('.liste .jour:not([hidden])').nth(2).scrollIntoViewIfNeeded(); await p.waitForTimeout(300);
+    await p.goto(B); await p.locator('.liste .jour:not([hidden]) .carte:not([hidden])').nth(5).scrollIntoViewIfNeeded(); // 6e soirée visible (un vendredi chargé n'affiche qu'un jour avant « Voir plus ») await p.waitForTimeout(300);
     // Mobile : la recherche et les filtres s'ouvrent depuis l'onglet « Chercher » de la barre du bas, où qu'on soit.
     await p.evaluate(() => scrollBy(0, -80)); await p.waitForTimeout(350); await p.locator('.onglets [data-chercher]').click(); await p.waitForTimeout(300);
     ok(await p.locator('.feuille-filtres').count() === 1, 'rotation : l\'onglet « Chercher » n\'ouvre pas la feuille de filtres');
