@@ -1,0 +1,128 @@
+{
+ "_explication": "Adresses où manger tard ajoutées par l'équipe (recherche web, 13/11/2026), en plus d'OpenStreetMap. Seulement des horaires publiés par une source (lien obligatoire), sans contradiction connue. Format des horaires : « lun–dim 18h–4h ».",
+ "lieux": [
+  {
+   "nom": "Bosphore Kebab",
+   "categorie": "Kebab",
+   "ville": "Cannes",
+   "adresse": "5 rue du Docteur Gérard Monod, 06400 Cannes",
+   "horaires": "lun–dim 12h–2h30",
+   "sources": [
+    "https://www.sluurpy.fr/cannes/restaurant/2029490/bosphore-kebab"
+   ]
+  },
+  {
+   "nom": "Brown Sugar",
+   "categorie": "Restaurant",
+   "ville": "Cannes",
+   "adresse": "17 rue des Frères Pradignac, 06400 Cannes",
+   "horaires": "lun–dim 18h–2h30",
+   "sources": [
+    "https://provence-alpes-cotedazur.com/sejourner/restaurants/tous-les-restaurants/brown-sugar-cannes-fr-3466605/",
+    "https://www.sluurpy.fr/cannes/restaurant/2019738/brown-sugar-gastro-pub"
+   ]
+  },
+  {
+   "nom": "72 Croisette",
+   "categorie": "Brasserie",
+   "ville": "Cannes",
+   "adresse": "71 boulevard de la Croisette, 06400 Cannes",
+   "horaires": "lun–sam 6h30–2h30 · dim 7h–0h",
+   "sources": [
+    "https://cotedazurfrance.fr/offres/72-croisette-cannes-fr-3466890",
+    "https://provence-alpes-cotedazur.com/de/aufenthalt/restaurants/alle-restaurants/72-croisette-cannes-de-6318761/"
+   ]
+  },
+  {
+   "nom": "L'Abri Côtier",
+   "categorie": "Restaurant",
+   "ville": "Golfe-Juan",
+   "adresse": "Port Camille Rayon, 06220 Vallauris Golfe-Juan",
+   "horaires": "lun–dim 9h–2h30",
+   "sources": [
+    "https://cotedazurfrance.fr/offres/labri-cotier-vallauris-golfe-juan-fr-5836946/",
+    "https://www.koifaire.com/paca/l,abri,ca,tier,l,offshore-38542.html"
+   ]
+  },
+  {
+   "nom": "Univers Pizza (distributeur 24 h/24)",
+   "categorie": "Pizzeria",
+   "ville": "La Seyne-sur-Mer",
+   "adresse": "2459 avenue Pierre Auguste Renoir, 83500 La Seyne-sur-Mer",
+   "horaires": "lun–dim 0h–24h",
+   "sources": [
+    "https://www.univers-pizza.net/fr/distributeurs-pizzas-la-seyne-le-beausset-rocbaron.htm",
+    "https://www.ubereats.com/fr/store/distributeur-univers-pizza-24h-la-seyne-sur-mer/uxb_w8sQWLaRHkrYNeFW-Q"
+   ]
+  },
+  {
+   "nom": "Pizz'otomat (distributeur 24 h/24)",
+   "categorie": "Pizzeria",
+   "ville": "Draguignan",
+   "adresse": "233 avenue Maréchal Juin, 83300 Draguignan",
+   "horaires": "lun–dim 0h–24h",
+   "sources": [
+    "https://www.eat-list.fr/draguignan-83300/pizza-pizzeria-5/pizz-otomat-169623",
+    "https://www.sluurpy.fr/draguignan/restaurant/7982150/pizzotomat",
+    "https://annuaire.ville-draguignan.fr/annuaire/ville/draguignan-83/pizza",
+    "https://restoranking.fr/r/pizzotomat_286475"
+   ]
+  },
+  {
+   "nom": "Sam's Klub",
+   "categorie": "Restaurant",
+   "ville": "Bandol",
+   "adresse": "898 route du Beausset, 83150 Bandol",
+   "horaires": "jeu 19h30–1h · ven–sam 19h30–3h · dim–lun 19h30–1h",
+   "sources": [
+    "https://provence-alpes-cotedazur.com/sejourner/restaurants/tous-les-restaurants/sams-klub-bandol-fr-2867862/",
+    "https://rankeat.fr/restaurants/sams-klub-restaurant-bandol-before-service-tardif-bandol",
+    "https://www.sams-klub.com/restaurant-sanary-before-club/"
+   ]
+  },
+  {
+   "nom": "Royal Food by Night",
+   "categorie": "Snack",
+   "ville": "Nice",
+   "adresse": "6 route de Turin, 06300 Nice",
+   "horaires": "lun–dim 18h–5h",
+   "sources": [
+    "https://www.au-magasin.fr/06000-nice/royal-food-by-night-276832.html",
+    "https://www.sluurpy.fr/nice/restaurant/1999761/royal-food",
+    "https://intravel.net/nice/restaurants-cafes/royal-food-by-night"
+   ]
+  },
+  {
+   "nom": "Epicerie by Night",
+   "categorie": "Épicerie de nuit",
+   "ville": "Nice",
+   "adresse": "20 avenue de la Lanterne, 06200 Nice",
+   "horaires": "lun–dim 20h30–5h",
+   "sources": [
+    "https://delicity.com/epicerie-by-night-nice"
+   ]
+  },
+  {
+   "nom": "Tip Top",
+   "categorie": "Restaurant",
+   "ville": "Monaco",
+   "adresse": "11 avenue des Spélugues, 98000 Monaco",
+   "horaires": "lun–sam 12h–6h · dim 12h–0h",
+   "sources": [
+    "https://www.gillespudlowski.com/?p=408129",
+    "https://www.eat-list.fr/monaco-98000/brasserie-6/tip-top-36128"
+   ]
+  },
+  {
+   "nom": "La Rascasse",
+   "categorie": "Bar-restaurant",
+   "ville": "Monaco",
+   "adresse": "1 quai Antoine 1er, 98000 Monaco",
+   "horaires": "mar–jeu 17h30–3h · ven 17h30–4h · sam 19h–4h",
+   "sources": [
+    "https://www.montecarlosbm.com/fr/bar-nightclub-monaco/la-rascasse",
+    "https://www.monaco-tribune.com/2025/01/ou-profiter-dun-bon-afterwork-a-monaco/"
+   ]
+  }
+ ]
+}

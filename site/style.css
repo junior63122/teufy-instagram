@@ -1797,3 +1797,12 @@ html.onglets-caches .onglets{transform:translateY(105%)}
 .affiche.sans .vignette{padding-bottom:56px}
 .je-cherche .puce.zero{opacity:.38}
 .je-cherche .puce.zero.actif{opacity:1}
+/* Boutons-filtres lisibles partout (les heures de « Manger tard » étaient noir sur noir) */
+button.puce{color:var(--creme);background:var(--nuit2);border-color:#ffffff2a}
+button.puce.actif{background:var(--creme);color:var(--nuit)}
+.je-cherche .jc-rubriques button.puce.actif{background:var(--corail);color:var(--nuit)}
+/* Près de moi */
+.puce.pres-moi{display:inline-flex;align-items:center;gap:6px;border-color:var(--corail)}
+.puce.pres-moi svg{width:14px;height:14px}
+.puce.pres-moi.actif{background:var(--corail);color:var(--nuit)}
+.dist-moi{display:inline-block;align-self:flex-start;background:var(--corail);color:var(--nuit);font-weight:800;font-size:13px;border-radius:999px;padding:3px 10px;margin:0 0 6px;border:0}

@@ -215,6 +215,7 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
   const visible = (x) => !x.hidden && !['hors-ville', 'hors-type', 'hors-heure', 'en-trop'].some((c) => x.classList.contains(c));
   function regrouper(g) {
     g.querySelectorAll(':scope > .groupe-ville').forEach((h) => h.remove());
+    if (g.dataset.pres) return; // « Près de moi » : liste triée par distance, sans titres de ville
     const items = [...g.querySelectorAll(':scope > .fiche-lieu')];
     const nb = {}; items.filter(visible).forEach((x) => { const v = x.dataset.villeNom || ''; nb[v] = (nb[v] || 0) + 1; });
     const PRIO = ['Nice', 'Cannes', 'Monaco', 'Antibes', 'Juan-les-Pins', 'Toulon', 'Saint-Tropez', 'Menton'];
@@ -237,6 +238,51 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
     }
   }
   window.__regrouper = regrouper;
+  // « Près de moi » (13/11, directeur : « des gens ne veulent que ce qui est autour d'eux ») : sur Ce soir, Manger tard
+  // et After, un tap trie TOUT par distance (soirées, boîtes, bars, restos, snacks) et affiche « à 350 m ».
+  {
+    let moi = null;
+    const posMoi = () => new Promise((ok) => {
+      if (moi) { ok(true); return; }
+      if (!navigator.geolocation) { toast(T.geoImpossible || 'Localisation impossible'); ok(false); return; }
+      if (T.geoAttente) toast(T.geoAttente);
+      navigator.geolocation.getCurrentPosition((p) => { moi = [p.coords.latitude, p.coords.longitude]; ok(true); }, () => { toast(T.geoRefus || 'Localisation refusée'); ok(false); }, { enableHighAccuracy: false, timeout: 10000, maximumAge: 300000 });
+    });
+    const metres = (a, b) => Math.round(Math.hypot((a[0] - b[0]) * 111320, (a[1] - b[1]) * 111320 * Math.cos(a[0] * Math.PI / 180)));
+    const txt = (m) => (m < 1000 ? `${Math.max(50, Math.round(m / 50) * 50)} m` : `${(m / 1000).toFixed(1).replace('.', ',')} km`);
+    const quitter = () => {
+      if (!document.querySelector('[data-pres].actif') && !document.querySelector('[data-pres-liste]')) return;
+      document.querySelectorAll('[data-pres].actif').forEach((b) => b.classList.remove('actif'));
+      document.querySelectorAll('.dist-moi').forEach((x) => x.remove());
+      document.querySelectorAll('[data-pres-liste]').forEach((g) => { delete g.dataset.pres; delete g.dataset.presListe; });
+      document.querySelectorAll('[data-grouper]').forEach((g) => window.__regrouper?.(g));
+    };
+    document.addEventListener('click', async (e) => {
+      if (e.target.closest('[data-jc-ville], .filtre-villes [data-ville]')) { setTimeout(quitter, 0); return; }
+      const b = e.target.closest('[data-pres]'); if (!b) return;
+      if (b.classList.contains('actif')) return;
+      if (!(await posMoi())) return;
+      b.parentElement.querySelectorAll('.puce').forEach((x) => x.classList.toggle('actif', x === b));
+      document.querySelectorAll('.hors-ville').forEach((x) => x.classList.remove('hors-ville'));
+      document.querySelectorAll('.vide-ville').forEach((x) => x.classList.remove('vide-ville'));
+      const listes = new Set();
+      document.querySelectorAll('[data-lat][data-lng]').forEach((el) => {
+        const d = metres(moi, [+el.dataset.lat, +el.dataset.lng]); el.dataset.dist = d;
+        el.querySelector('.dist-moi')?.remove();
+        const s = document.createElement('span'); s.className = 'dist-moi'; s.textContent = `à ${txt(d)}`;
+        (el.querySelector('.fiche-corps, .corps, .meta') || el).prepend(s);
+        if (el.parentElement) listes.add(el.parentElement);
+      });
+      listes.forEach((g) => {
+        g.dataset.pres = '1'; g.dataset.presListe = '1';
+        g.querySelectorAll(':scope > .groupe-ville').forEach((h) => h.remove());
+        [...g.children].filter((x) => x.dataset).sort((a, c) => (+(a.dataset.dist ?? 1e9)) - (+(c.dataset.dist ?? 1e9))).forEach((x) => g.append(x));
+      });
+      const n = document.querySelector('[data-compte-soir]'); if (n) n.textContent = '';
+      toast(document.documentElement.lang === 'fr' ? 'Trié du plus proche au plus loin' : 'Sorted by distance');
+    });
+  }
+
   setTimeout(() => document.querySelectorAll('[data-grouper]').forEach(regrouper), 0);
 
   // « Je cherche » (page Ce soir) : une rubrique (soirées, boîtes, bars, restos, manger après, afters) et une ville,
