@@ -125,7 +125,7 @@
    "La Tocardise|2026-11-14T22:00:00.000Z"
   ],
   "site": "",
-  "le": "2026-11-13T05:34:01.596Z"
+  "le": "2026-11-13T08:19:16.098Z"
  },
  "plk": {
   "nom": "PLK",
@@ -192,5 +192,70 @@
   "avatar": "site/artistes/lady-miss-tik-avatar.jpg",
   "photo": "site/artistes/lady-miss-tik.jpg",
   "le": "2026-11-13T05:21:52.779Z"
+ },
+ "the-show-club-sonore": {
+  "nom": "The Show Club Sonore",
+  "compte": "theshow_clubsonore",
+  "bio": "🪭 AN INTIMATE FESTIVE DINNER \n📆 NOVEMBER \n🕴️ ARTIST FROM ALL THE WORLD \n🍽️ DÎNER & FREE ENTRY \n📍 SOON",
+  "abonnes": 6636,
+  "soirees": [
+   "The Show Club Sonore - Nice|2026-11-26T18:00:00.000Z"
+  ],
+  "site": "https://shotgun.live/venues/club-sonore",
+  "avatar": "site/artistes/the-show-club-sonore-avatar.jpg",
+  "photo": "site/artistes/the-show-club-sonore.jpg",
+  "le": "2026-11-13T08:19:09.585Z"
+ },
+ "trvchi": {
+  "nom": "- Trvchi",
+  "compte": "trvchi.music",
+  "bio": "✝️In Hoc Signo Vinces⚜️ Marc 9:23\nNice, South Of France. 🦅 🇫🇷\nDJ - Art Director\nOfficial Dj @ogcnice \n📩 Bookingtrvchi@gmail.com",
+  "abonnes": 2022,
+  "soirees": [
+   "Dj - Trvchi|2026-11-27T19:30:00.000Z"
+  ],
+  "site": "",
+  "avatar": "site/artistes/trvchi-avatar.jpg",
+  "photo": "site/artistes/trvchi.jpg",
+  "le": "2026-11-13T08:19:11.094Z"
+ },
+ "mungo-s-hi-fi": {
+  "nom": "Mungo's Hi Fi",
+  "compte": "mungoshifi",
+  "bio": "🔉🔉🔉🔉 \nBookings: Lauren@earth-agency.com",
+  "abonnes": 53767,
+  "soirees": [
+   "Mungo's Hi Fi @ Frigo 16|2026-12-12T19:00:00.000Z"
+  ],
+  "site": "https://ra.co/events/2573421",
+  "avatar": "site/artistes/mungo-s-hi-fi-avatar.jpg",
+  "photo": "site/artistes/mungo-s-hi-fi.jpg",
+  "le": "2026-11-13T08:19:13.671Z"
+ },
+ "le-live-toulon": {
+  "nom": "Le Live Toulon",
+  "compte": "lelivetoulon",
+  "bio": "Concert, Live, Spectacle, Cabaret, After show, Cocktail, Dance floor  🎶🎷\n👥 Salle de 800 places\n📍 #Toulon\n🎤 #concert #lelivetoulon #spectacle",
+  "abonnes": 1222,
+  "soirees": [
+   "Slip Panther — Glam Rock Revival Show|2026-11-28T19:30:00.000Z"
+  ],
+  "site": "https://zenith-toulon.com/le-live/",
+  "avatar": "site/artistes/le-live-toulon-avatar.jpg",
+  "photo": "site/artistes/le-live-toulon.jpg",
+  "le": "2026-11-13T08:19:14.556Z"
+ },
+ "martine-patine": {
+  "nom": "Martine Patine",
+  "compte": "martinepatine_official_",
+  "bio": "BAMBOCHE 100 % 𝗥𝗢𝗟𝗟𝗘𝗥 𝗖𝗟𝗨𝗕𝗕𝗜𝗡𝗚 🕺🏾\n🔸Organisateur de Rollers Party partout en France ✨\n🔸Compagnie Chorégraphique & Artistique🌈",
+  "abonnes": 5211,
+  "soirees": [
+   "Martine Patine Roller Clubbing|2026-12-18T19:00:00.000Z"
+  ],
+  "site": "https://shotgun.live/fr/festivals/martine-patine-a-la-cite-fertile",
+  "avatar": "site/artistes/martine-patine-avatar.jpg",
+  "photo": "site/artistes/martine-patine.jpg",
+  "le": "2026-11-13T08:19:15.888Z"
  }
 }
