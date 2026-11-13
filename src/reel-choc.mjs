@@ -53,6 +53,24 @@ export function choisirClip(banque, motsCles, pris, aleas = Math.random) {
   return notes[0]?.v || null;
 }
 
+/**
+ * Pexels (si la clé gratuite PEXELS_API_KEY est fournie) : vidéos VERTICALES en Full HD ou 4K qui collent aux mots-clés
+ * du plan (« pyjama », « kebab », « videur »…). Sans clé : la banque Mixkit.
+ */
+export function clipPexels(motsCles, pris, aleas = Math.random) {
+  const cle = (process.env.PEXELS_API_KEY || '').trim(); if (!cle) return null;
+  try {
+    const q = encodeURIComponent(String(motsCles).slice(0, 80));
+    const r = JSON.parse(execFileSync('curl', ['-s', '--max-time', '20', '-H', `Authorization: ${cle}`, `https://api.pexels.com/videos/search?query=${q}&orientation=portrait&size=large&per_page=15`]).toString());
+    const l = (r.videos || []).filter((v) => !pris.has(`pexels-${v.id}`) && v.duration >= 3).sort(() => aleas() - 0.5);
+    for (const v of l) {
+      const f = (v.video_files || []).filter((x) => x.file_type === 'video/mp4' && x.height >= 1920 && x.width < x.height).sort((a, b) => a.height - b.height)[0];
+      if (f) return { id: `pexels-${v.id}`, source: 'pexels', titre: String(motsCles), mp4: f.link, vertical: true };
+    }
+  } catch { /* Pexels indisponible : banque Mixkit */ }
+  return null;
+}
+
 /** Découpe une phrase en lignes courtes (≤ 13 caractères à cette taille), sans couper un mot. */
 export function lignes(texte, max = 13) {
   const out = []; let l = '';
@@ -120,7 +138,7 @@ export async function reelChoc(concept, { sortie, tmp, banque = lire(path.join(R
   for (const p of sequence) {
     let ok = false;
     for (let essai = 0; essai < 10 && !ok; essai++) {
-      const v = choisirClip(banque, p.video, pris, aleas); if (!v) break;
+      const v = (essai < 2 && clipPexels(p.video, pris, aleas)) || choisirClip(banque, p.video, pris, aleas); if (!v) break;
       pris.add(v.id);
       const f = fichierVideo(v); if (!f) { if (process.env.DEBUG) console.error('téléchargement raté', v.id); continue; }
       const D = duree(f); if (D < p.d + 0.3) { if (process.env.DEBUG) console.error('trop court', v.id, D); continue; }
