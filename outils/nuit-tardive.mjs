@@ -130,6 +130,8 @@ async function main() {
     echecs = 0; ok++;
     for (const e of d.elements || []) elements.set(`${e.type}/${e.id}`, e);
   }
+  // Lecture partielle (des villes sans réponse) : rien n'est écrit, le robot passe par la carte téléchargée (complète).
+  if (ok < Object.keys(VILLES).length) { console.log(`OpenStreetMap : ${ok}/${Object.keys(VILLES).length} villes lues, lecture incomplète : passage par la carte téléchargée.`); return; }
   const ancien = (() => { try { return JSON.parse(readFileSync(F, 'utf8')); } catch { return { lieux: [] }; } })();
   const lieux = lieuxTardifs({ elements: [...elements.values()] });
   // Villes non relues cette fois : on garde leurs adresses précédentes.
