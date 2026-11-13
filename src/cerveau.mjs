@@ -21,6 +21,7 @@ const TENDANCES_FILE = path.join(ROOT, 'contenus', 'tendances.json');
 const DEBATS_FILE = path.join(ROOT, 'contenus', 'debats.json');
 const ANALYSE_FILE = path.join(ROOT, 'ANALYSE.md');
 const CONFIG_FILE = path.join(ROOT, 'config.json');
+const CONCEPTS_FILE = path.join(ROOT, 'contenus', 'concepts-reels.json');
 
 // Sans recherche web (pas de clé Gemini) : veille par les flux RSS officiels de Meta.
 const FLUX = ['https://about.fb.com/news/feed/', 'https://about.instagram.com/blog/rss'];
@@ -94,10 +95,13 @@ export async function analyserSemaine({ now = new Date(), dryRun = false, log = 
     intros_ajoutees: tendances.intros_ajoutees || {},
     regles_actuelles: tendances.regles_instagram,
     tendances_autres_comptes: { formats: t.formats, heures: t.heures, hashtags: Object.keys(t.hashtags || {}).slice(0, 20), accroches: (t.accroches || []).slice(0, 10) },
+    // Ce qui marche chez les concurrents (Le Bonbon…) et aux États-Unis (applis de sortie, marques au marketing viral).
+    inspirations: (() => { const us = new Set(tendances.inspirations_internationales?.liste || []), fr = new Set(tendances.concurrents?.liste || []); return { etats_unis: (t.accroches || []).filter((a) => us.has(a.compte)).slice(0, 12), concurrents: (t.accroches || []).filter((a) => fr.has(a.compte)).slice(0, 12) }; })(),
+    concepts_deja_proposes: (existsSync(CONCEPTS_FILE) ? JSON.parse(readFileSync(CONCEPTS_FILE, 'utf8')) : []).slice(-30).map((c) => ({ titre: c.titre, format: c.format, statut: c.statut, note: c.note ?? null })),
   };
   const schema = {
     type: 'object', additionalProperties: false,
-    required: ['resume', 'nouveautes', 'analyse', 'regles', 'nouvelles_accroches', 'nouvelles_intros', 'nouveaux_debats', 'nouveaux_sujets_reels', 'hashtags_a_tester', 'objectif_prochaine_semaine', 'formats_a_tester', 'creneaux_utc'],
+    required: ['concepts_reels', 'resume', 'nouveautes', 'analyse', 'regles', 'nouvelles_accroches', 'nouvelles_intros', 'nouveaux_debats', 'nouveaux_sujets_reels', 'hashtags_a_tester', 'objectif_prochaine_semaine', 'formats_a_tester', 'creneaux_utc'],
     properties: {
       resume: { type: 'string', description: 'Résumé de la semaine en 3 à 6 phrases, en français, pour le fondateur.' },
       nouveautes: { type: 'array', items: { type: 'object', additionalProperties: false, required: ['titre', 'date', 'source', 'officiel', 'impact'], properties: { titre: { type: 'string' }, date: { type: 'string' }, source: { type: 'string' }, officiel: { type: 'boolean' }, impact: { type: 'string' } } } },
@@ -110,6 +114,18 @@ export async function analyserSemaine({ now = new Date(), dryRun = false, log = 
       hashtags_a_tester: { type: 'array', description: 'Au plus 5 hashtags pertinents (Côte d\'Azur, nightlife, styles) à tester.', items: { type: 'string' } },
       objectif_prochaine_semaine: { type: 'integer', description: 'Note /100 visée pour les posts de la semaine prochaine.' },
       formats_a_tester: { type: 'array', description: 'Au plus 5 formats viraux (en priorité ceux vus chez les fêtards cette semaine) adaptés à la Côte d\'Azur, qui passent le test du partage en message privé, ou manières de poster qui marchent en ce moment (veille + chiffres du compte), avec la source.', items: { type: 'object', additionalProperties: false, required: ['format', 'pourquoi', 'source'], properties: { format: { type: 'string' }, pourquoi: { type: 'string' }, source: { type: 'string' } } } },
+      concepts_reels: { type: 'array', description: "2 ou 3 concepts de reels VIRAUX inventés à partir des inspirations (concurrents, comptes américains : applis de sortie, marques au marketing viral comme Duolingo ou Ryanair) et du vécu des fêtards de la Côte. Jamais un catalogue de soirées, jamais un explicatif. On doit vouloir l'envoyer à un pote en 1 seconde.", items: { type: 'object', additionalProperties: false, required: ['titre', 'format', 'accroche', 'plans', 'musique', 'legende', 'cta', 'inspire_de', 'pourquoi_viral', 'test_du_partage'], properties: {
+        titre: { type: 'string', description: 'Nom interne du concept (≤ 60 caractères).' },
+        format: { type: 'string', enum: ['POV', 'classement', 'guide', 'avant-apres', 'reaction', 'challenge', 'personnage', 'autre'] },
+        accroche: { type: 'string', description: "Texte affiché dès la 1re seconde, ≤ 60 caractères, qui donne envie de rester (ex. « POV : ton pote dit \"on rentre à 2 h\" »)." },
+        plans: { type: 'array', description: '4 à 8 plans de 0,5 à 1,5 s.', items: { type: 'object', additionalProperties: false, required: ['texte', 'video'], properties: { texte: { type: 'string', description: 'Phrase entière affichée (≤ 60 caractères), jamais un mot isolé.' }, video: { type: 'string', description: 'Mots-clés en anglais pour trouver une vraie vidéo de soirée (ex. « crowd dancing club lights »).' } } } },
+        musique: { type: 'string', description: 'Ambiance musicale (ex. « afro house énergique 122 bpm »).' },
+        legende: { type: 'string', description: 'Légende Instagram ≤ 400 caractères, ton Teufy.' },
+        cta: { type: 'string', description: 'Dernier plan : appel à taguer ou partager (≤ 80 caractères).' },
+        inspire_de: { type: 'string', description: 'Compte ou lien qui a inspiré le concept (parmi les inspirations fournies).' },
+        pourquoi_viral: { type: 'string', description: '≤ 200 caractères.' },
+        test_du_partage: { type: 'string', description: 'À qui on l\'envoie et pourquoi (≤ 120 caractères).' },
+      } } },
       creneaux_utc: { type: 'array', description: 'De 3 à 5 heures UTC (entiers de 15 à 19) où publier, d\'après les chiffres du compte (heures des meilleurs posts), les autres comptes et la veille. Rends la liste actuelle si rien ne justifie un changement.', items: { type: 'integer' } },
     },
   };
@@ -173,6 +189,15 @@ export async function analyserSemaine({ now = new Date(), dryRun = false, log = 
   // Heures de publication : seulement dans la fenêtre des passages du bot (15h-19h UTC, pour garder du rattrapage avant 21h30 à Paris), 3 à 5 créneaux, sans doublon.
   const cr = [...new Set((d.creneaux_utc || []).map(Number))].filter((h) => Number.isInteger(h) && h >= 15 && h <= 19).sort((a, b) => a - b);
   if (cr.length >= 3 && cr.length <= 5 && config.reglages?.creneaux_utc && cr.join() !== config.reglages.creneaux_utc.join()) { appliques.push(`heures de publication (UTC) ${config.reglages.creneaux_utc.join(', ')} → ${cr.join(', ')}`); config.reglages.creneaux_utc = cr; if (!dryRun) await writeFile(CONFIG_FILE, JSON.stringify(config, null, 2) + '\n'); }
+  // Concepts de reels inventés par le bot (13/11/2026) : en attente de validation du directeur tant que les reels sont en pause.
+  const concepts = existsSync(CONCEPTS_FILE) ? JSON.parse(readFileSync(CONCEPTS_FILE, 'utf8')) : [];
+  for (const c of (d.concepts_reels || []).slice(0, 3)) {
+    const plans = (c.plans || []).slice(0, 8).filter((p) => texteOk(p.texte, 70) && p.texte.trim().split(/\s+/).length >= 2 && texteOk(p.video, 80));
+    if (texteOk(c.titre, 60) && texteOk(c.accroche, 70) && plans.length >= 4 && texteOk(c.legende, 450) && texteOk(c.cta, 90) && !concepts.some((x) => x.titre === c.titre)) {
+      concepts.push({ id: `c-${today}-${hash(c.titre)}`, ...c, plans, statut: 'propose', ajout: today });
+      appliques.push(`concept de reel « ${c.titre} » (${c.format}, inspiré de ${c.inspire_de})`);
+    }
+  }
   tendances.formats_a_tester = (d.formats_a_tester || []).slice(0, 5).filter((f) => texteOk(f.format, 120) && texteOk(f.pourquoi, 300)).map((f) => ({ ...f, ajout: today }));
   tendances.objectif_semaine = Math.max(objectif(data), Math.min(100, Number(d.objectif_prochaine_semaine) || 0));
 
@@ -191,6 +216,9 @@ ${(d.analyse || []).map((a) => `- **${a.constat}** (${a.preuve}) → ${a.action}
 ### Formats et manières de poster à tester
 ${(tendances.formats_a_tester || []).map((f) => `- **${f.format}** : ${f.pourquoi} ([source](${f.source}))`).join('\n') || '-'}
 
+### Concepts de reels inventés cette semaine (à valider)
+${(d.concepts_reels || []).map((c) => `- **${c.titre}** (${c.format}, inspiré de ${c.inspire_de}) : « ${c.accroche} » → ${c.pourquoi_viral}`).join('\n') || '-'}
+
 ### Ce que le bot a changé
 ${appliques.map((x) => `- ${x}`).join('\n') || '- Rien.'}
 `;
@@ -198,6 +226,7 @@ ${appliques.map((x) => `- ${x}`).join('\n') || '- Rien.'}
   await writeFile(TENDANCES_FILE, JSON.stringify(tendances, null, 2) + '\n');
   await writeFile(DEBATS_FILE, JSON.stringify(debats, null, 2) + '\n');
   await writeFile(SUJETS_FILE, JSON.stringify(sujets, null, 2) + '\n');
+  await writeFile(CONCEPTS_FILE, JSON.stringify(concepts.slice(-80), null, 2) + '\n');
   await writeFile(ANALYSE_FILE, md);
   await mkdir(path.join(ROOT, 'veille'), { recursive: true });
   await writeFile(path.join(ROOT, 'veille', `${today}.md`), `${md}\n### Veille brute\n\n${veille}\n`);

@@ -19,7 +19,7 @@ const AUTO = path.join(ROOT, 'tendances-auto.json');
 export function comptesSuivis() {
   let orgas = {};
   try { orgas = JSON.parse(readFileSync(path.join(ROOT, 'contenus', 'organisateurs.json'), 'utf8')); } catch { /* rien */ }
-  const tous = [...TENDANCES.comptes_a_suivre.liste, ...(TENDANCES.concurrents?.liste || []), ...(orgas.valides || []), ...(orgas.comptes || []).map((c) => c.handle || c), ...(orgas.suggeres || [])];
+  const tous = [...TENDANCES.comptes_a_suivre.liste, ...(TENDANCES.concurrents?.liste || []), ...(TENDANCES.inspirations_internationales?.liste || []), ...(orgas.valides || []), ...(orgas.comptes || []).map((c) => c.handle || c), ...(orgas.suggeres || [])];
   return [...new Set(tous.filter((h) => typeof h === 'string' && /^[a-z0-9._]{2,30}$/i.test(h)).map((h) => h.toLowerCase()))].slice(0, 40);
 }
 

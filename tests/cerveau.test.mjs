@@ -46,6 +46,10 @@ test('analyse hebdomadaire : garde-fous sur ce que propose l’IA', async () => 
       nouveaux_sujets_reels: [{ titre: 'Le Carnaval de Nice côté soirées', sous: 'À savoir', points: ['Point un vérifié.', 'Point deux vérifié.'], legende: 'Enregistre-le.' }],
       hashtags_a_tester: ['#nicebynight', 'pas un hashtag', '#teufyparty'],
       objectif_prochaine_semaine: 62,
+      concepts_reels: [
+        { titre: 'POV le pote qui dit on rentre à 2h', format: 'POV', accroche: 'POV : ton pote dit « on rentre à 2 h »', plans: [{ texte: 'Minuit : « juste un verre »', video: 'friends bar cheers night' }, { texte: '2 h : « bon, la dernière »', video: 'crowd dancing club lights' }, { texte: '4 h : il est sur le podium', video: 'man dancing stage club' }, { texte: '6 h : il cherche un kebab', video: 'street food night city' }], musique: 'afro house énergique', legende: 'On a tous ce pote. Tague-le.', cta: 'Tague le pote qui fait toujours ça 👇', inspire_de: 'duolingo', pourquoi_viral: 'Situation vécue, on tague le pote.', test_du_partage: 'Au pote qui ne rentre jamais à l\'heure.' },
+        { titre: 'Concept trop court', format: 'autre', accroche: 'Ok', plans: [{ texte: 'mot', video: 'x' }], musique: 'x', legende: 'x', cta: 'x', inspire_de: 'x', pourquoi_viral: 'x', test_du_partage: 'x' },
+      ],
     }),
   ];
   let i = 0;
@@ -60,5 +64,8 @@ test('analyse hebdomadaire : garde-fous sur ce que propose l’IA', async () => 
   assert.doesNotMatch(a, /pas un hashtag|#teufyparty/);
   assert.doesNotMatch(a, /hashtags max/, 'pas de changement de règle sans source officielle');
   assert.match(a, /sujet de reel/);
+  assert.match(a, /concept de reel « POV le pote qui dit on rentre à 2h »/, 'concept viral complet gardé');
+  assert.doesNotMatch(a, /Concept trop court/, 'concept incomplet (mots isolés, < 4 plans) refusé');
+  assert.match(res.md, /Concepts de reels inventés/);
   assert.match(res.md, /Objectif des prochains posts/);
 });
