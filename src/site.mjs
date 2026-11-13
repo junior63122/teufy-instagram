@@ -1110,11 +1110,14 @@ export function annonceLaDate(texte, jour) { // jour = AAAA-MM-JJ (date de la so
 async function imagesManquantes({ soirees, lieux, log, now }) {
   const cacheL = lire(LIEUX, {}).insta || {}, dossier = path.join(SITE, 'lieux'), AI = lire(path.join(ROOT, 'contenus', 'affiches-instagram.json'), {});
   let affiches = 0, photos = 0;
+  // Une affiche = une soirée, ici aussi (13/11/2026 : le programme de la semaine d'un bar, qui annonce deux matchs,
+  // était donné aux deux soirées).
+  const prises = new Set(soirees.map((x) => x.affiche).filter(Boolean));
   for (const s of soirees) {
     if (s.affiche) continue;
     // Affiche déjà retrouvée et copiée par outils/images-lieux.mjs (publication du lieu qui annonce la date).
     const deja = AI[`${normLieu(s.lieu)}|${s.jour}`];
-    if (deja && existsSync(path.join(ROOT, deja.fichier))) { const f = path.join(ROOT, deja.fichier); s.affiche = deja.fichier; s.dims = tailleJpeg(f); webp(f, 480); webp(f, 800); webp(f, 1080); s.afficheSource = deja.source; affiches++; continue; }
+    if (deja && existsSync(path.join(ROOT, deja.fichier)) && !prises.has(deja.fichier)) { prises.add(deja.fichier); const f = path.join(ROOT, deja.fichier); s.affiche = deja.fichier; s.dims = tailleJpeg(f); webp(f, 480); webp(f, 800); webp(f, 1080); s.afficheSource = deja.source; affiches++; continue; }
     const L = (lieux || []).find((l) => l.instagram && normLieu(l.nom).length >= 3 && (normLieu(s.lieu) === normLieu(l.nom) || normLieu(s.lieu).startsWith(normLieu(l.nom))));
     // Le compte du lieu, sinon celui lié à la soirée (organisateur / lieu relevé par la recherche).
     const compte = L?.instagram || s.instagram, I = compte && cacheL[compte]; if (!I) continue;
@@ -1126,7 +1129,9 @@ async function imagesManquantes({ soirees, lieux, log, now }) {
     for (const p of cand.slice(0, 2)) {
       if (!tempsOk()) break;
       const f = path.join(SITE, 'affiches', `${h(p.u.split('?')[0])}.jpg`);
+      if (prises.has(`site/affiches/${path.basename(f)}`)) continue;
       if (!existsSync(f) && !(await telecharger(p.u, f))) continue;
+      prises.add(`site/affiches/${path.basename(f)}`);
       s.affiche = `site/affiches/${path.basename(f)}`; s.dims = tailleJpeg(f); webp(f, 480); webp(f, 800); webp(f, 1080); s.afficheSource = `@${compte}`; affiches++; break;
     }
     if (s.affiche) continue;
