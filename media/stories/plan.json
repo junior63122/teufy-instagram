@@ -1,14 +1,22 @@
 {
-  "jour": "2026-11-12",
+  "jour": "2026-11-13",
   "plan": [
     {
-      "type": "coeur",
+      "type": "soirees",
       "cles": [
-        "c-Lanonchalance pres. Malive"
+        "Lanonchalance pres. Malive",
+        "Jetlag Gang (+ Opening Act)",
+        "Nightly X Dovnrobs (Elva Cannes Takeover)"
       ],
       "frames": [
         {
-          "image": "2026-11-12-coeur.jpg"
+          "image": "2026-11-13-soirees-0.jpg"
+        },
+        {
+          "image": "2026-11-13-soirees-1.jpg"
+        },
+        {
+          "image": "2026-11-13-soirees-2.jpg"
         }
       ]
     }
