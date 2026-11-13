@@ -59,3 +59,11 @@ test('Nuit tardive : jamais de gare, station-service, pharmacie, parking ni hôt
   const m = lieuxTardifs({ elements: [el(7, { name: 'Resto nuit', amenity: 'restaurant', opening_hours: 'Mo-Su 19:00-12:00' }), el(8, { name: 'Boulangerie', shop: 'bakery', opening_hours: 'Mo-Sa 04:30-13:00' }), el(9, { name: 'Ferme à 1 h', amenity: 'fast_food', opening_hours: 'Mo-Su 18:00-01:00' })] });
   assert.deepEqual(m.map((x) => x.nom), ['Resto nuit', 'Boulangerie']);
 });
+test('Carte : toutes les boîtes de nuit de nos villes, bars et pubs reconnus (boîte de nuit ≠ bar dansant)', async () => {
+  const { lieuxOsm } = await import('../outils/nuit-tardive.mjs');
+  const el = (id, lat, lon, tags) => ({ type: 'node', id, lat, lon, tags });
+  const l = lieuxOsm([el(1, 43.551, 7.017, { name: 'Bâoli', amenity: 'nightclub' }), el(2, 43.70, 7.27, { name: 'Bar dansant', amenity: 'bar', opening_hours: 'Fr,Sa 22:00-04:00' }),
+    el(3, 43.2965, 5.3698, { name: 'Club Marseille', amenity: 'nightclub' }), el(4, 43.70, 7.27, { name: 'Resto', amenity: 'restaurant' })]);
+  assert.deepEqual(l.map((x) => [x.nom, x.osm, x.ville]), [['Bâoli', 'nightclub', 'Cannes'], ['Bar dansant', 'bar', 'Nice']]);
+  assert.equal(l[1].horaires, 'ven–sam 22h–4h');
+});

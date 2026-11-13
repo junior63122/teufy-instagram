@@ -21,7 +21,7 @@ export const VILLES = { Nice: [43.7031, 7.2661], Cannes: [43.5513, 7.0128], Anti
   'Hyères': [43.1204, 6.1286], 'Six-Fours-les-Plages': [43.0940, 5.8390], 'Sanary-sur-Mer': [43.1190, 5.8010], Bandol: [43.1360, 5.7530], Draguignan: [43.5366, 6.4646] };
 // Une petite requête par ville (rayon de quelques km) : les grosses requêtes sont refusées par les serveurs (502, délai).
 const RAYON = { Nice: 6000, Toulon: 5000, Cannes: 4000, Antibes: 3500, Monaco: 2500 };
-const HORAIRE_TARD = '"opening_hours"~"-0[2-9]:|-1[0-9]:|24/7|-24:00|(^|[ ,;])0[0-5]:"'; // filtré par le serveur : lieux ouverts entre 2 h et 6 h
+const HORAIRE_TARD = '"opening_hours"~"-0[2-9]:|-1[0-9]:|-2[2-4]:|24/7|(^|[ ,;])0[0-5]:"'; // filtré par le serveur : lieux ouverts entre 2 h et 6 h
 const requete = (v, [la, lo]) => { const a = `(around:${RAYON[v] || 3000},${la},${lo})`; return `[out:json][timeout:30];(nwr${a}["amenity"~"^(fast_food|restaurant|cafe|nightclub|bar|pub)$"][${HORAIRE_TARD}]["name"];nwr${a}["shop"="bakery"][${HORAIRE_TARD}]["name"];);out tags center 200;`; };
 const dist = (a, b, c, d) => Math.hypot((a - c) * 111, (b - d) * 111 * Math.cos(a * Math.PI / 180));
 const sansAcc = (x) => String(x || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z]/g, '');
@@ -52,6 +52,16 @@ const slug = (x) => String(x).normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCa
 const insta = (t) => { const v = String(t['contact:instagram'] || t.instagram || '').split(';')[0].trim(); const m = v.match(/instagram\.com\/([A-Za-z0-9._]{2,30})/) || v.match(/^@?([A-Za-z0-9._]{2,30})$/); return m ? m[1].toLowerCase() : ''; };
 const site = (t) => { const s = String(t.website || t['contact:website'] || '').split(';')[0].trim(); return /^https?:\/\//.test(s) ? s : ''; };
 
+const hTexte = (m) => { m %= 1440; const h = Math.floor(m / 60), mm = m % 60; return `${h}h${mm ? String(mm).padStart(2, '0') : ''}`; };
+const NOMS_J = ['', 'lun', 'mar', 'mer', 'jeu', 'ven', 'sam', 'dim'];
+/** Horaires du soir d'un restaurant (plage ouverte à 21 h et jusqu'à 23 h au moins), « mar–sam 19h–23h30 ». */
+export function texteSoir(plages) {
+  const parJour = {};
+  for (let d = 1; d <= 7; d++) { const p = (plages?.[d] || []).find((x) => x.continu || (x.de <= 1260 && x.a >= 1380)); if (p && !p.continu) parJour[d] = `${hTexte(p.de)}–${hTexte(p.a)}`; }
+  const g = [];
+  for (let d = 1; d <= 7; d++) { if (!parJour[d]) continue; const x = g.at(-1); if (x && x.h === parJour[d] && x.b === d - 1) x.b = d; else g.push({ a: d, b: d, h: parJour[d] }); }
+  return g.map((x) => `${NOMS_J[x.a]}${x.b !== x.a ? `–${NOMS_J[x.b]}` : ''} ${x.h}`).join(' · ');
+}
 /** Réponse Overpass → lieux ouverts tard (manger après 2 h, afters après 5 h). */
 export function lieuxTardifs(json) {
   const out = [], vus = new Set();
@@ -72,16 +82,19 @@ export function lieuxTardifs(json) {
     const categorie = TYPE(t);
     const nuit = ['Club', 'Bar'].includes(categorie);
     // Manger : ouvert après 2 h (et pas une simple fermeture à 2 h pile d'un restaurant) ; after : après 5 h.
-    if (!texteHorairesSoir(plages)) continue;
     // Règle du directeur (13/11/2026) : MANGER = ouvert à un moment entre 2 h et 6 h du matin, quelle que soit l'heure
     // d'ouverture ou de fermeture (ouvert à 19 h et fermé à midi, 24 h/24 : ça compte). AFTER = bar ou club ouvert après 6 h.
     const ouv = ouverturesMatinales(plages), tot = Object.keys(ouv).length > 0; // ouvre avant 6 h (boulangerie)
-    const type = nuit ? (max >= 360 ? 'after' : null) : (max > 120 || tot ? 'manger-tard' : null);
-    if (!type) continue;
+    let type = nuit ? (max >= 360 ? 'after' : null) : (max > 120 || tot ? 'manger-tard' : null);
+    // Resto du soir (avant la boîte, un date) : restaurant ouvert à 21 h et jusqu'à 23 h au moins, avec un site ou un
+    // Instagram (établissement actif).
+    let soirTxt = '';
+    if (!type && t.amenity === 'restaurant' && (t.website || t['contact:website'] || insta(t))) { soirTxt = texteSoir(plages); if (soirTxt) type = 'resto-soir'; }
+    if (!type || !(soirTxt || texteHorairesSoir(plages))) continue;
     const cle = `${slug(t.name)}|${slug(ville)}`;
     if (vus.has(cle)) continue;
     vus.add(cle);
-    out.push({ nom: t.name, type, categorie, ville, adresse: adresse(t), horaires: texteHorairesSoir(plages), fermetures: f, ...(tot ? { ouvertures: ouv } : {}),
+    out.push({ nom: t.name, type, categorie, ville, adresse: adresse(t), horaires: soirTxt || texteHorairesSoir(plages), fermetures: f, ...(tot ? { ouvertures: ouv } : {}),
       lat, lng, instagram: insta(t), site: site(t),
       source: `https://www.openstreetmap.org/${el.type}/${el.id}`, slug: slug(`${t.name}-${ville}`) });
   }
@@ -105,6 +118,26 @@ export function elementsDepuisGeojson(texte) {
   }
   return out;
 }
+// Toutes les boîtes de nuit, bars et pubs de nos villes déclarés sur la carte, avec ou sans horaires (13/11/2026 :
+// l'annuaire n'avait que 12 boîtes ; Bâoli, Gotha… manquaient). Sert aussi à distinguer une boîte de nuit d'un bar
+// dansant : seule la carte « nightclub » fait une boîte de nuit.
+export function lieuxOsm(elements) {
+  const out = [], vus = new Set();
+  for (const el of elements || []) {
+    const t = el.tags || {};
+    if (!t.name || t.disused || !/^(nightclub|bar|pub)$/.test(t.amenity || '')) continue;
+    const lat = el.lat ?? el.center?.lat, lng = el.lon ?? el.center?.lon;
+    const ville = villeDe(t, lat, lng);
+    if (!ville) continue;
+    const cle = `${slug(t.name)}|${slug(ville)}`;
+    if (vus.has(cle)) continue;
+    vus.add(cle);
+    const plages = t.opening_hours ? lireOSM(t.opening_hours) : null;
+    out.push({ nom: t.name, osm: t.amenity, ville, adresse: adresse(t), site: site(t), instagram: insta(t), horaires: plages ? texteHorairesSoir(plages) : '',
+      lat, lng, source: `https://www.openstreetmap.org/${el.type}/${el.id}` });
+  }
+  return out;
+}
 async function depuisFichier(fichier) {
   const lieux = lieuxTardifs({ elements: elementsDepuisGeojson(readFileSync(fichier, 'utf8')) });
   if (!lieux.length) { console.log('Carte OpenStreetMap : aucun lieu ouvert tard trouvé, fichier inchangé.'); return; }
@@ -112,6 +145,13 @@ async function depuisFichier(fichier) {
   console.log(`Nuit tardive (carte téléchargée) : ${lieux.filter((l) => l.type === 'manger-tard').length} endroit(s) où manger après 2 h, ${lieux.filter((l) => l.type === 'after').length} after(s), ${new Set(lieux.map((l) => l.ville)).size} ville(s).`);
 }
 async function main() {
+  const gl = process.argv.indexOf('--lieux');
+  if (gl > 0) {
+    const l = lieuxOsm(elementsDepuisGeojson(readFileSync(process.argv[gl + 1], 'utf8')));
+    if (l.length) writeFileSync(path.join(ROOT, 'contenus', 'lieux-osm.json'), `${JSON.stringify({ maj: new Date().toISOString(), source: 'OpenStreetMap (ODbL), extrait Geofabrik', lieux: l }, null, 1)}\n`);
+    console.log(`Carte : ${l.filter((x) => x.osm === 'nightclub').length} boîte(s) de nuit, ${l.filter((x) => x.osm !== 'nightclub').length} bar(s) et pub(s) dans nos villes.`);
+    return;
+  }
   const g = process.argv.indexOf('--geojson');
   if (g > 0) return depuisFichier(process.argv[g + 1]);
   const fin = Date.now() + 4.5 * 60e3; // l'étape du robot dure 6 min au plus

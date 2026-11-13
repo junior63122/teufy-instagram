@@ -206,6 +206,29 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
     if (!restantes.length) document.querySelector('[data-aucune-soiree]')?.removeAttribute('hidden');
     else suggerer(listeSoir, restantes.length); // peu de soirées ce soir : panneau « week-end » à côté
   }
+  // « Je cherche » (page Ce soir) : une rubrique (soirées, boîtes, bars, restos, manger après, afters) et une ville,
+  // appliquées à toute la page. Le choix est retenu pour la prochaine visite.
+  const jc = document.querySelector('.je-cherche');
+  if (jc) {
+    const sel = jc.querySelector('[data-jc-ville]');
+    const appliquer = () => {
+      const r = jc.querySelector('.jc-rubriques .actif')?.dataset.rubrique || '';
+      document.querySelectorAll('[data-rubrique]').forEach((sec) => { if (sec.tagName === 'SECTION') sec.hidden = !!r && !sec.dataset.rubrique.split(' ').includes(r); });
+      // Boîtes / bars : le filtre de type de la section des lieux.
+      const ft = document.querySelector(`.filtre-types [data-type-lieu="${r === 'clubs' ? 'club' : r === 'bars' ? 'bar' : ''}"]`); ft?.click();
+      // Ville : lieux (boutons de ville existants) et soirées (zone de l'agenda).
+      const v = sel.value, z = sel.selectedOptions[0]?.dataset.soirees || '';
+      const bv = document.querySelector(`.filtre-villes [data-ville="${v}"]`);
+      if (bv) bv.click(); else document.querySelectorAll('#lieux-ce-soir .fiche-lieu, .lieux-fermes .fiche-lieu, .lieux-tard .fiche-lieu').forEach((l) => l.classList.toggle('hors-ville', !!v && l.dataset.ville !== v));
+      document.querySelectorAll('.ce-soir-liste .carte').forEach((c) => c.classList.toggle('hors-ville', !!v && c.dataset.ville !== z));
+      document.querySelectorAll('.lieux-tard').forEach((g) => { const sec = g.closest('section'); if (sec && !sec.hidden && v) sec.classList.toggle('vide-ville', ![...g.children].some((x) => !x.classList.contains('hors-ville'))); });
+      try { localStorage.setItem('teufy-jc', JSON.stringify({ r, v })); } catch { /* stockage refusé */ }
+    };
+    jc.querySelector('.jc-rubriques').addEventListener('click', (e) => { const b = e.target.closest('[data-rubrique]'); if (!b) return; jc.querySelectorAll('.jc-rubriques .puce').forEach((x) => x.classList.toggle('actif', x === b)); appliquer(); });
+    sel.addEventListener('change', appliquer);
+    try { const m = JSON.parse(localStorage.getItem('teufy-jc') || 'null'); if (m) { if (m.v && [...sel.options].some((o) => o.value === m.v)) sel.value = m.v; const b = jc.querySelector(`.jc-rubriques [data-rubrique="${m.r || ''}"]`); if (b) { jc.querySelectorAll('.jc-rubriques .puce').forEach((x) => x.classList.toggle('actif', x === b)); } setTimeout(appliquer, 0); } } catch { /* rien */ }
+  }
+
   // Filtre Boîtes de nuit / Bars (page Ce soir et annuaire des lieux).
   document.querySelectorAll('.filtre-types').forEach((f) => f.addEventListener('click', (e) => {
     const b = e.target.closest('[data-type-lieu]'); if (!b) return;
@@ -238,7 +261,7 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
       const fr = document.documentElement.lang === 'fr';
       const b = document.createElement('p'); b.className = `tard-ce-soir${f || o ? '' : ' ferme'}`;
       b.textContent = f ? (fr ? `Ce soir jusqu'à ${fmt(f)}` : `Tonight until ${fmt(f)}`) : o ? (fr ? `Ouvre dès ${fmt(o)}` : `Opens at ${fmt(o)}`) : (fr ? 'Fermé tard ce soir' : 'Not open late tonight');
-      el.querySelector('h3')?.after(b);
+      if (!f && o) el.querySelector('h3')?.after(b); // l'état « ouvert / fermé » est déjà affiché : badge seulement pour « Ouvre dès 5h »
     });
     document.querySelectorAll('.filtre-tard').forEach((g) => g.addEventListener('click', (e) => {
       const b = e.target.closest('[data-jusqua]'); if (!b) return;

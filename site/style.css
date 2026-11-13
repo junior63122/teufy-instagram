@@ -1669,3 +1669,18 @@ html.onglets-caches .onglets{transform:translateY(105%)}
 .filtre-types .puce{font-weight:700}
 .filtre-types .puce{font:inherit;font-weight:700;cursor:pointer;border:0;color:var(--creme)}
 .filtre-types .puce.actif{background:var(--creme);color:var(--nuit)}
+/* « Je cherche » (page Ce soir, 13/11/2026) */
+.je-cherche{position:sticky;top:var(--haut-barre,56px);z-index:20;max-width:1240px;margin:18px auto 0;padding:12px 16px;background:#0b0b0fe6;backdrop-filter:blur(10px);border-bottom:1px solid #ffffff14;display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px}
+.je-cherche .jc-titre{margin:0;font-weight:800;font-family:var(--titre);font-size:20px}
+.je-cherche .jc-rubriques{margin:0;flex:1 1 auto}
+.je-cherche .puce{font:inherit;font-weight:700;cursor:pointer;border:0;color:var(--creme)}
+.je-cherche .puce.actif{background:var(--corail);color:var(--nuit)}
+.je-cherche .jc-ville{display:flex;align-items:center;gap:8px;font-weight:700}
+.je-cherche select{font:inherit;background:var(--nuit2);color:var(--creme);border:1px solid #ffffff2e;border-radius:999px;padding:8px 14px;min-height:40px}
+.ce-soir-liste .carte.hors-ville{display:none}
+/* Sur la page Ce soir, les anciens filtres de section sont pilotés par « Je cherche » */
+.je-cherche ~ section .filtre-villes,.je-cherche ~ section .filtre-types{display:none}
+@media(max-width:759px){.je-cherche .jc-rubriques{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-inline:-16px;padding:2px 16px 4px}.je-cherche .jc-rubriques .puce{flex:none}}
+/* « Après ce lieu » : distance */
+.apres-lieu .sous-titre{margin:18px 0 10px;font-size:20px}
+.fiche-lieu .distance{display:inline-block;margin:0 0 4px;padding:3px 10px;border-radius:999px;background:#ffffff14;font-weight:700;font-size:13px}
