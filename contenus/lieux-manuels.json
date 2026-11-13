@@ -20,6 +20,187 @@
    "site": "",
    "description": "",
    "_source": "Demandé par le directeur le 13/11/2026 (boîte de nuit de Cannes) ; compte Instagram et horaires à confirmer par le robot de vérification."
+  },
+  {
+   "nom": "Gwladys Dance Studio",
+   "ville": "Le Cannet",
+   "retirer": true,
+   "_raison": "école de danse, pas un lieu de nuit",
+   "_verifie": "2026-11-13"
+  },
+  {
+   "nom": "L&#39;étoile",
+   "ville": "Nice",
+   "retirer": true,
+   "_raison": "devenu L'Omega Club en 2018 (déjà dans l'annuaire)",
+   "_verifie": "2026-11-13"
+  },
+  {
+   "nom": "Le Joke Club",
+   "ville": "Sainte-Maxime",
+   "retirer": true,
+   "_raison": "salle de spectacle du casino, pas une boîte de nuit",
+   "_verifie": "2026-11-13"
+  },
+  {
+   "nom": "CR Lounge",
+   "ville": "Vallauris",
+   "retirer": true,
+   "_raison": "aucune source publique",
+   "_verifie": "2026-11-13"
+  },
+  {
+   "nom": "Le Beer Boat",
+   "ville": "Toulon",
+   "retirer": true,
+   "_raison": "aucune source publique",
+   "_verifie": "2026-11-13"
+  },
+  {
+   "nom": "Légend Prosper Club",
+   "ville": "Hyères",
+   "retirer": true,
+   "_raison": "introuvable à Hyères",
+   "_verifie": "2026-11-13"
+  },
+  {
+   "nom": "Barracuda Cannes",
+   "ville": "Cannes",
+   "retirer": true,
+   "_raison": "un autre bar (Balrog) occupe l'adresse selon l'office de tourisme 2026",
+   "_verifie": "2026-11-13"
+  },
+  {
+   "nom": "Au Son des Guitares",
+   "ville": "Nice",
+   "retirer": true,
+   "_raison": "le club de ce nom est à Marseille",
+   "_verifie": "2026-11-13"
+  },
+  {
+   "nom": "Le Blue",
+   "ville": "Nice",
+   "retirer": true,
+   "_raison": "introuvable ; Blue Boy dit fermé",
+   "_verifie": "2026-11-13"
+  },
+  {
+   "nom": "Le Diapason",
+   "ville": "Villefranche-sur-Mer",
+   "retirer": true,
+   "_raison": "introuvable à Villefranche",
+   "_verifie": "2026-11-13"
+  },
+  {
+   "nom": "Monte Cristo",
+   "ville": "Nice",
+   "retirer": true,
+   "_raison": "introuvable à Nice (homonyme à Genève)",
+   "_verifie": "2026-11-13"
+  },
+  {
+   "nom": "Le Soft",
+   "ville": "Grasse",
+   "retirer": true,
+   "_raison": "aucune source",
+   "_verifie": "2026-11-13"
+  },
+  {
+   "nom": "Makao Klub",
+   "ville": "Antibes",
+   "retirer": true,
+   "_raison": "aucune source",
+   "_verifie": "2026-11-13"
+  },
+  {
+   "nom": "Chrysalide",
+   "ville": "La Seyne-sur-Mer",
+   "retirer": true,
+   "_raison": "seule une société au registre, aucun club",
+   "_verifie": "2026-11-13"
+  },
+  {
+   "nom": "Sunbar",
+   "ville": "Nice",
+   "retirer": true,
+   "_raison": "introuvable ; un autre bar à l'adresse",
+   "_verifie": "2026-11-13"
+  },
+  {
+   "nom": "L&#39;Octopus",
+   "ville": "La Seyne-sur-Mer",
+   "retirer": true,
+   "_raison": "restaurant à Ollioules, pas un club",
+   "_verifie": "2026-11-13"
+  },
+  {
+   "nom": "L&#39;élixir lounge club",
+   "ville": "La Seyne-sur-Mer",
+   "retirer": true,
+   "_raison": "doublon de L'Élixir Lounge Club (Saint-Mandrier)",
+   "_verifie": "2026-11-13"
+  },
+  {
+   "nom": "Le Carré",
+   "ville": "Saint-Laurent-du-Var",
+   "retirer": true,
+   "_raison": "doublon du Carré – Le Trendy",
+   "_verifie": "2026-11-13"
+  },
+  {
+   "nom": "Le Bar Éphémère",
+   "ville": "Antibes",
+   "retirer": true,
+   "_raison": "aucune source",
+   "_verifie": "2026-11-13"
+  },
+  {
+   "nom": "Junga Nice",
+   "ville": "Nice",
+   "retirer": true,
+   "_raison": "un seul annuaire, adresse partagée avec un autre club",
+   "_verifie": "2026-11-13"
+  },
+  {
+   "nom": "Les Marches",
+   "ville": "Cannes",
+   "retirer": true,
+   "_raison": "sources de 2009-2012 ; Bisous Bisous occupe désormais le lieu",
+   "_verifie": "2026-11-13"
+  },
+  {
+   "nom": "La Javanaise",
+   "ville": "La Seyne-sur-Mer",
+   "retirer": true,
+   "_raison": "aucune source",
+   "_verifie": "2026-11-13"
+  },
+  {
+   "nom": "Let It Be",
+   "ville": "Le Cannet",
+   "nouvelle_ville": "Mougins",
+   "adresse": "120 avenue de Font Roubert, 06250 Mougins",
+   "_source": "https://provence-alpes-cotedazur.com/en/plan-your-stay/restaurants/all-restaurants/let-it-be-mougins-en-3035958/",
+   "_verifie": "2026-11-13"
+  },
+  {
+   "nom": "Club Vertigo",
+   "ville": "Hyères",
+   "nouvelle_ville": "La Londe-les-Maures",
+   "adresse": "Quartier Saint-Nicolas, RD 559, 83250 La Londe-les-Maures",
+   "_source": "https://cotedazurfrance.fr/offres/club-vertigo-la-londe-les-maures-fr-3008491/",
+   "_verifie": "2026-11-13"
+  },
+  {
+   "nom": "Chrystie",
+   "type": "club",
+   "ville": "Cannes",
+   "adresse": "22 Rue Macé, 06400 Cannes",
+   "instagram": "",
+   "site": "",
+   "description": "Club-restaurant de Cannes au décor Art déco des années 1920, à deux pas de la Croisette : dîner puis piste de danse, hits, house et dance.",
+   "_source": "https://cotedazurfrance.com/offers/chrystie-cannes-en-4761601/ https://provence-alpes-cotedazur.com/en/things-to-do/leisure-relaxation/all-relaxation-and-leisure-activities/chrystie-cannes-en-4761412/ https://www.inyourpocket.com/cannes/chrystie-bar_160143v https://alotea.com/cannes/nightclubs/chrystie https://sandbeds.com/clubs/chrystie-cannes/ https://www.clubbable.com/fr-FR/Cannes/Chrystie https://www.nightflow.com/?p=13271",
+   "_verifie": "2026-11-13"
   }
  ]
 }

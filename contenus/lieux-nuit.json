@@ -248,7 +248,23 @@
    "score": 0.1,
    "photo": "site/lieux/boccanissa-176.webp",
    "soirs": [],
-   "instagram_non_verifie": "boccanissa"
+   "instagram_non_verifie": "boccanissa",
+   "details": {
+    "le": "2026-11-13T12:27:41.311Z",
+    "styles": "",
+    "dress_code": "",
+    "horaires": "lun–dim 12h–15h · lun–dim 19h–1h",
+    "prix_verre": "cocktail ~13 €",
+    "entree": "",
+    "age_min": "",
+    "sources": [
+     "https://www.gillespudlowski.com/265637/restaurants/nice-cap-sur-bocca-nissa",
+     "https://mapstr.com/place/L7tgt4uE5T",
+     "https://www.privateaser.com/lieu/43407-bocca-nissa",
+     "https://cotedazurfrance.fr/offres/restaurant-bocca-nissa-nice-fr-3014514/"
+    ],
+    "relu": "manuel"
+   }
   },
   {
    "nom": "Le Boston Cocktail Bar",
@@ -393,7 +409,22 @@
    "slug": "les-bains-deli-bo-villefranche-sur-mer",
    "score": 0,
    "soirs": [],
-   "instagram_non_verifie": "delibo_lesbains"
+   "instagram_non_verifie": "delibo_lesbains",
+   "details": {
+    "le": "2026-11-13T12:27:41.311Z",
+    "styles": "",
+    "dress_code": "",
+    "horaires": "lun–dim 8h–20h",
+    "prix_verre": "",
+    "entree": "Transat environ 30 €",
+    "age_min": "",
+    "sources": [
+     "https://www.gillespudlowski.com/174847/restaurants/villefranche-sur-mer-deli-bo-dans-le-bain",
+     "https://mapstr.com/place/ErRGNoLjVWg",
+     "https://www.euansguide.com/venues/delibo-les-bains-plage-restaurant-villefranche-sur-mer-7623/information"
+    ],
+    "relu": "manuel"
+   }
   },
   {
    "nom": "Le QG Port Saint-Laurent",

@@ -40,7 +40,7 @@ const fr = {
   villeTitre: (v) => `Soirées à ${v} ce soir et ce week-end · Teufy`, villeDesc: (v, n) => `Toutes les soirées à ${v} : ${n} soirées vérifiées, clubs, DJ, techno, afro, rooftops, prix et billetterie. Agenda mis à jour chaque jour par Teufy.`,
   faqH2: (v) => `Sortir à ${v} : questions fréquentes`,
   faq: (v, n) => [
-    [`Où sortir ce soir à ${v} ?`, `Teufy recense chaque jour toutes les soirées de ${v} : ${n ? `${n} soirée(s) ce soir` : "consulte l'agenda ci-dessus"}, avec l'heure, le prix et le lien de billetterie. Utilise le filtre « Ce soir ».`],
+    [`Où sortir ce soir à ${v} ?`, `Teufy recense chaque jour toutes les soirées de ${v} : ${n ? `${n} soirée${n > 1 ? "s" : ""} ce soir` : "consulte l'agenda ci-dessus"}, avec l'heure, le prix et le lien de billetterie. Utilise le filtre « Ce soir ».`],
     [`Quelles soirées ce week-end à ${v} ?`, `Le filtre « Ce week-end » de l'agenda affiche toutes les soirées de vendredi à dimanche à ${v}, mises à jour chaque jour.`],
     [`Y a-t-il des soirées gratuites à ${v} ?`, 'Oui : le filtre « Gratuit » affiche les soirées sans entrée payante, et « Moins de 10 € » les bons plans.'],
   ],

@@ -132,7 +132,7 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
     let jour = JOUR[p.weekday], min = +p.hour * 60 + +p.minute;
     if (min < 360) { jour = jour === 1 ? 7 : jour - 1; min += 1440; } // entre minuit et 6 h : c'est encore « ce soir »
     const enMin = (h) => { const [a, b] = h.split(':').map(Number); return a * 60 + b; };
-    const fmt = (h) => h.replace(/^0/, '').replace(':00', 'h').replace(':', 'h');
+    const fmt = (h) => (/^23:5[5-9]$/.test(h) ? (document.documentElement.lang === 'fr' ? 'minuit' : '12 am') : h.replace(/^0/, '').replace(':00', 'h').replace(':', 'h'));
     for (const el of lieux) {
       const st = el.querySelector('.lieu-statut'); if (!st) continue;
       let txt = '', cls = '';
@@ -146,9 +146,12 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
         else { txt = T.fermeMaint; cls = 'ferme'; }
       } else if (plages) { txt = T.fermeCeSoir; cls = 'ferme'; }
       if (soir && cls !== 'ouvert') { txt = (T.soireeA || '{h}').replace('{h}', fmt(soir[1])); cls = 'soiree'; }
-      if (!txt) { txt = T.horairesInconnus; cls = 'inconnu'; }
-      if (el.dataset.saison && plages) txt += ` · ${T.saison}`;
-      st.textContent = txt; st.className = `lieu-statut ${cls}`; st.hidden = false; el.dataset.statut = cls;
+      // Sans horaires vérifiés : aucune étiquette (jamais « horaires non confirmés », jamais deviné).
+      if (!txt) { st.hidden = true; el.dataset.statut = 'inconnu'; }
+      else {
+        if (el.dataset.saison && plages) txt += ` · ${T.saison}`;
+        st.textContent = txt; st.className = `lieu-statut ${cls}`; st.hidden = false; el.dataset.statut = cls;
+      }
     }
     // Compteur « ouverts / total » de la ville choisie (ou de partout).
     function majCompte(g) {
@@ -227,7 +230,7 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
         const h = document.createElement('h3'); h.className = 'groupe-ville';
         const tous = items.filter((y) => visible(y) && (y.dataset.villeNom || '') === v), fermes = tous.filter((y) => y.dataset.statut === 'ferme').length;
         const sansStatut = !items.some((y) => y.dataset.statut), fr = (document.documentElement.lang || 'fr').startsWith('fr');
-        h.innerHTML = `<span>${v || '—'}</span><small${ouverts || sansStatut ? '' : ' class="gris"'}>${sansStatut ? `${tous.length} ${fr ? (tous.length > 1 ? 'adresses' : 'adresse') : (tous.length > 1 ? 'places' : 'place')}` : ouverts ? `${ouverts} ${fr ? (ouverts > 1 ? 'ouverts' : 'ouvert') : 'open'}` : fermes === tous.length ? (fr ? 'fermés ce soir' : 'closed tonight') : (fr ? 'horaires à confirmer' : 'hours to confirm')}</small>`;
+        h.innerHTML = `<span>${v || '—'}</span><small${ouverts || sansStatut || fermes < tous.length ? '' : ' class="gris"'}>${sansStatut ? `${tous.length} ${fr ? (tous.length > 1 ? 'adresses' : 'adresse') : (tous.length > 1 ? 'places' : 'place')}` : ouverts ? `${ouverts} ${fr ? (ouverts > 1 ? 'ouverts' : 'ouvert') : 'open'}` : fermes === tous.length ? (fr ? 'fermés ce soir' : 'closed tonight') : `${tous.length} ${fr ? (tous.length > 1 ? 'adresses' : 'adresse') : (tous.length > 1 ? 'places' : 'place')}`}</small>`;
         g.append(h); cur = v;
       }
       g.append(x);
