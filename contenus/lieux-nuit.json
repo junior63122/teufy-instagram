@@ -212,22 +212,26 @@
    "score": 0,
    "soirs": [],
    "details": {
-    "le": "2026-11-13T16:53:19.635Z",
+    "le": "2026-11-13T17:27:54.624Z",
     "styles": "",
     "dress_code": "",
-    "horaires": "",
+    "horaires": "lun–dim 10h–2h",
     "prix_verre": "",
     "entree": "",
     "age_min": "",
     "sources": [
-     "https://www.smart-travelling.net/en/locations/movida-bar",
-     "https://www.schlouk-map.com/fr/places/movida"
+     "https://www.openstreetmap.org/node/4764020634"
     ],
-    "relu": "verification 2026-11-13"
+    "relu": "verification 2026-11-13",
+    "osm": true
    },
    "instagram_non_verifie": "movidanice",
    "lat": 43.6950164,
-   "lng": 7.2770766
+   "lng": 7.2770766,
+   "horairesOsm": {
+    "horaires": "lun–dim 10h–2h",
+    "source": "https://www.openstreetmap.org/node/4764020634"
+   }
   },
   {
    "nom": "Bocca Nissa",

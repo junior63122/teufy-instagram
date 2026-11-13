@@ -1812,3 +1812,4 @@ button.puce.actif{background:var(--creme);color:var(--nuit)}
 .signaler-adresse h3{margin:0 0 6px;font-size:24px}
 .signaler-adresse .form-contact{margin:0}
 @media (max-width:760px){.signaler-adresse{grid-template-columns:1fr}}
+.abo-aide{flex-basis:100%;font-size:14px;opacity:.85;margin:6px 0 0;max-width:680px}

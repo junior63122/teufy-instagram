@@ -63,6 +63,26 @@ const visibles = (p) => p.locator('.liste .carte:not([hidden])').count();
     await c.close();
   });
 
+  // 13/11/2026 (directeur : « voir les lieux fermés ne fait rien », « les alertes ne marchent pas »).
+  await etape('lieux fermés + agenda', async () => {
+    const c = await b.newContext({ viewport: { width: 1280, height: 900 } }); const p = await c.newPage(); erreurs(p, 'fermés');
+    await p.goto(B.replace(/\/?$/, '/') + 'ce-soir/'); await p.waitForTimeout(600);
+    for (const v of await p.$$eval('.jc-villes [data-jc-ville]', (l) => l.map((x) => x.dataset.jcVille).filter(Boolean).slice(0, 4))) {
+      await p.click(`.jc-villes [data-jc-ville="${v}"]`); await p.waitForTimeout(250);
+      const btn = p.locator('.voir-fermes');
+      if (await btn.isVisible()) {
+        const n = +(await btn.textContent()).replace(/\D+/g, '');
+        ok(n > 0, `fermés : bouton visible avec 0 lieu (${v})`);
+      }
+    }
+    await c.close();
+    const m = await b.newContext({ viewport: { width: 412, height: 900 }, userAgent: 'Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 Chrome/124 Mobile Safari/537.36' }); const q = await m.newPage();
+    await q.goto(B);
+    const g = await q.getAttribute('.abonnement .abo-google', 'href').catch(() => null);
+    if (g) ok(/calendar\.google\.com\/calendar\/r\?cid=https/.test(g) && await q.isVisible('.abo-aide-android'), 'agenda : lien Google ou aide Android absents');
+    await m.close();
+  });
+
   await etape('navigation arrière', async () => {
     const c = await b.newContext({ viewport: { width: 1280, height: 800 } }); const p = await c.newPage(); erreurs(p, 'arrière');
     await p.goto(B); await p.locator('#recherche').fill('techno'); await p.waitForTimeout(400);

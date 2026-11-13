@@ -159,6 +159,9 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
       const o = document.querySelector(`[data-compte-ouverts="${g.id}"]`), tt = document.querySelector(`[data-compte-total="${g.id}"]`);
       if (o) o.textContent = String(l.filter((x) => ['ouvert', 'soiree', 'bientot'].includes(x.dataset.statut)).length);
       if (tt) tt.textContent = String(l.length);
+      // Bouton « Voir les lieux fermés » : le nombre suit la ville et le type choisis ; caché s'il n'y en a aucun.
+      const bt = g.parentElement?.querySelector('.voir-fermes');
+      if (bt && g.__fermesTous && !g.__fermes) { const n = g.__fermesTous.filter((x) => !x.classList.contains('hors-ville') && !x.classList.contains('hors-type')).length; const sp = bt.querySelector('span'); if (sp) sp.textContent = n; bt.hidden = !n; }
     }
     window.__majCompte = majCompte;
     // Page « Ce soir » : les lieux ouverts d'abord, puis ceux qui ouvrent, puis les inconnus ; les fermés repliés.
@@ -167,6 +170,7 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
       const l = [...g.querySelectorAll('.fiche-lieu')].sort((a, b) => rang[a.dataset.statut] - rang[b.dataset.statut]);
       l.forEach((x) => g.append(x));
       const fermes = l.filter((x) => x.dataset.statut === 'ferme');
+      g.__fermesTous = fermes;
       majCompte(g);
       if (fermes.length && g.dataset.replier) { fermes.forEach((x) => { x.hidden = true; }); const b = g.parentElement.querySelector('.voir-fermes'); if (b) { b.hidden = false; b.querySelector('span').textContent = fermes.length; b.addEventListener('click', () => {
         // Les lieux fermés dans une section à part, juste ici (pas noyés à la fin de la liste des ouverts).
@@ -303,6 +307,7 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
     const RUBS = [...jc.querySelectorAll('.jc-rubriques [data-rubrique]')].map((b) => b.dataset.rubrique).filter(Boolean);
     const compte = (r, v) => (r ? elementsDe(r) : RUBS.flatMap(elementsDe)).filter((x) => !v || x === v).length;
     function majComptesJc(r, v) {
+      const gl = document.getElementById('lieux-ce-soir'); if (gl && window.__majCompte) window.__majCompte(gl);
       jc.querySelectorAll('.jc-rubriques [data-rubrique]').forEach((b) => { const k = b.dataset.rubrique; if (!k) return; const n = compte(k, v); const e = b.querySelector('.jc-n'); if (e) e.textContent = n; b.classList.toggle('zero', !n); });
       jc.querySelectorAll('.jc-villes [data-jc-ville]').forEach((b) => { const k = b.dataset.jcVille; if (!k) return; const n = compte(r, k); const e = b.querySelector('small'); if (e) e.textContent = n; b.classList.toggle('zero', !n); });
       const vis = [...document.querySelectorAll('.ce-soir-liste .carte')].filter((c) => !c.hidden && !c.classList.contains('hors-ville')).length;
@@ -1212,3 +1217,12 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
   });
   addEventListener('focusin', precharger);
 })();
+
+// Abonnement à l'agenda (13/11/2026, « j'ai choisi Google et rien ne se passe ») : le bon bouton en premier selon le
+// téléphone, et la marche à suivre affichée (l'appli Google Agenda ne sait pas ouvrir un lien d'abonnement).
+document.querySelectorAll('.abonnement').forEach((a) => {
+  const ua = navigator.userAgent, android = /android/i.test(ua), apple = /iphone|ipad|macintosh/i.test(ua) && !android;
+  const g = a.querySelector('.abo-google'), ap = a.querySelector('.abo-apple');
+  if (android && g && ap) { g.classList.remove('contour'); ap.classList.add('contour'); g.parentElement.prepend(g); a.querySelector('.abo-aide-android')?.removeAttribute('hidden'); }
+  if (apple) a.querySelector('.abo-aide-apple')?.removeAttribute('hidden');
+});
