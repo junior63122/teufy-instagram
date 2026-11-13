@@ -8,7 +8,9 @@ test('programme : 3 à 4 stories par jour, chacune une seule fois, jamais 3 h ap
   assert.deepEqual(planDuJour(ven20h).map((s) => s.type), ['soirees', 'offre', 'question', 'coeur']);
   assert.deepEqual(storiesDues(ven20h, []).map((s) => s.type), ['offre', 'question']);
   assert.deepEqual(storiesDues(ven20h, [{ jour: '2026-11-13', type: 'question' }]).map((s) => s.type), ['offre']);
-  assert.equal(planDuJour(new Date('2026-11-16T12:00:00Z')).length, 3, 'lundi : pas de coup de cœur');
+  const lundi = planDuJour(new Date('2026-11-16T12:00:00Z')).map((s) => s.type);
+  assert.ok(!lundi.includes('coeur'), 'lundi : pas de coup de cœur');
+  assert.ok(lundi.includes('videos'), 'lundi : appel aux vidéos de soirée (WeTransfer)');
 });
 test('soirées de ce soir avec affiche vérifiée, sinon demain', () => {
   const evts = [{ name: 'A', start: '2026-11-13T22:00:00Z', image: 'x' }, { name: 'B', start: '2026-11-14T22:00:00Z', image: 'y' }, { name: 'C', start: '2026-11-13T23:00:00Z' }];
