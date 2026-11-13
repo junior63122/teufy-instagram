@@ -2835,5 +2835,44 @@
    "nom": "",
    "m": 486
   }
+ },
+ "43.5405,7.03411": {
+  "le": "2026-11-13T12:36:49.720Z",
+  "parkings": [
+   {
+    "nom": "Square Verdun",
+    "type": "surface",
+    "payant": true,
+    "m": 186
+   },
+   {
+    "nom": "Port Pierre Canto",
+    "type": "surface",
+    "payant": true,
+    "m": 426
+   },
+   {
+    "nom": "Parking Roseraie",
+    "type": "underground",
+    "payant": true,
+    "m": 477
+   }
+  ],
+  "transports": [
+   {
+    "nom": "Le Marly",
+    "type": "bus",
+    "m": 70,
+    "lignes": ""
+   },
+   {
+    "nom": "Reine Astrid",
+    "type": "bus",
+    "m": 179,
+    "lignes": ""
+   }
+  ],
+  "velo": null,
+  "taxi": null
  }
 }
