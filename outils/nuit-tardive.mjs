@@ -12,7 +12,7 @@ import { lireOSM, fermeturesDeNuit, texteHorairesSoir } from '../src/horaires-os
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const F = path.join(ROOT, 'contenus', 'nuit-tardive.json');
-const SERVEURS = ['https://overpass-api.de/api/interpreter', 'https://maps.mail.ru/osm/tools/overpass/api/interpreter', 'https://overpass.private.coffee/api/interpreter', 'https://overpass.kumi.systems/api/interpreter'];
+const SERVEURS = ['https://overpass.openstreetmap.fr/api/interpreter', 'https://overpass-api.de/api/interpreter', 'https://maps.mail.ru/osm/tools/overpass/api/interpreter', 'https://overpass.private.coffee/api/interpreter', 'https://overpass.kumi.systems/api/interpreter'];
 // Centres des villes (la ville d'un lieu = adresse publiée, sinon la ville la plus proche à moins de 7 km).
 export const VILLES = { Nice: [43.7031, 7.2661], Cannes: [43.5513, 7.0128], Antibes: [43.5808, 7.1239], 'Juan-les-Pins': [43.5682, 7.1094], Monaco: [43.7384, 7.4246],
   Menton: [43.7764, 7.5048], 'Cagnes-sur-Mer': [43.6644, 7.1489], 'Saint-Laurent-du-Var': [43.6730, 7.1900], 'Villefranche-sur-Mer': [43.7040, 7.3110], 'Le Cannet': [43.5769, 7.0194],
@@ -24,8 +24,10 @@ const RAYON = { Nice: 6000, Toulon: 5000, Cannes: 4000, Antibes: 3500, Monaco: 2
 const HORAIRE_TARD = '"opening_hours"~"-0[2-9]:|-1[01]:|24/7|-24:00"'; // filtré par le serveur : seuls les lieux ouverts après 2 h reviennent
 const requete = (v, [la, lo]) => { const a = `(around:${RAYON[v] || 3000},${la},${lo})`; return `[out:json][timeout:30];(nwr${a}["amenity"~"^(fast_food|restaurant|cafe|nightclub|bar|pub)$"][${HORAIRE_TARD}]["name"];nwr${a}["shop"="bakery"][${HORAIRE_TARD}]["name"];);out tags center 200;`; };
 const dist = (a, b, c, d) => Math.hypot((a - c) * 111, (b - d) * 111 * Math.cos(a * Math.PI / 180));
+const sansAcc = (x) => String(x || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z]/g, '');
+// Ville couverte par Teufy : l'adresse publiée si c'est l'une de nos villes, sinon la plus proche à moins de 7 km.
 const villeDe = (t, lat, lng) => {
-  const c = String(t['addr:city'] || '').trim();
+  const c = Object.keys(VILLES).find((v) => sansAcc(v) === sansAcc(t['addr:city']));
   if (c) return c;
   if (lat == null) return '';
   let best = '', d0 = 7;
@@ -78,7 +80,32 @@ export function lieuxTardifs(json) {
   return out;
 }
 
+// Secours sans serveur Overpass : la carte OpenStreetMap de la région (fichier Geofabrik filtré par osmium, en GeoJSON
+// séquentiel). Les serveurs Overpass publics refusent souvent les machines de GitHub.
+export function elementsDepuisGeojson(texte) {
+  const out = [];
+  for (const ligne of String(texte).split(/\n/)) {
+    const l = ligne.replace(/^\x1e/, '').trim();
+    if (!l) continue;
+    let f; try { f = JSON.parse(l); } catch { continue; }
+    const p = f.properties || {}, g = f.geometry || {};
+    let c = g.coordinates;
+    while (Array.isArray(c?.[0])) c = c[0]; // polygone : premier point
+    if (!Array.isArray(c)) continue;
+    const { '@type': type = 'node', '@id': id = 0, ...tags } = p;
+    out.push({ type, id, lon: c[0], lat: c[1], tags });
+  }
+  return out;
+}
+async function depuisFichier(fichier) {
+  const lieux = lieuxTardifs({ elements: elementsDepuisGeojson(readFileSync(fichier, 'utf8')) });
+  if (!lieux.length) { console.log('Carte OpenStreetMap : aucun lieu ouvert tard trouvé, fichier inchangé.'); return; }
+  writeFileSync(F, `${JSON.stringify({ maj: new Date().toISOString(), source: 'OpenStreetMap (ODbL), extrait Geofabrik', lieux }, null, 1)}\n`);
+  console.log(`Nuit tardive (carte téléchargée) : ${lieux.filter((l) => l.type === 'manger-tard').length} endroit(s) où manger après 2 h, ${lieux.filter((l) => l.type === 'after').length} after(s), ${new Set(lieux.map((l) => l.ville)).size} ville(s).`);
+}
 async function main() {
+  const g = process.argv.indexOf('--geojson');
+  if (g > 0) return depuisFichier(process.argv[g + 1]);
   const fin = Date.now() + 4.5 * 60e3; // l'étape du robot dure 6 min au plus
   const elements = new Map();
   let ok = 0, echecs = 0;

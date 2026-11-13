@@ -49,9 +49,20 @@ jobs:
         timeout-minutes: 15
         run: node outils/geo-proches.mjs
       - name: Où manger tard et afters (horaires OpenStreetMap, sans IA)
-        timeout-minutes: 6
-        continue-on-error: true # OpenStreetMap saturé : le reste du robot continue
-        run: node outils/nuit-tardive.mjs || echo "::warning::OpenStreetMap indisponible, liste inchangée"
+        timeout-minutes: 14
+        continue-on-error: true # OpenStreetMap indisponible : le reste du robot continue
+        run: |
+          frais() { node -e "const j=require('./contenus/nuit-tardive.json');process.exit(Date.now()-Date.parse(j.maj)<6*864e5?0:1)" 2>/dev/null; }
+          frais && { echo "Liste de nuit à jour (moins de 6 jours)."; exit 0; }
+          timeout 300 node outils/nuit-tardive.mjs || true
+          frais && exit 0
+          # Secours : carte OpenStreetMap de la région (Geofabrik, gratuit) lue sur place, sans serveur Overpass.
+          sudo apt-get install -y --no-install-recommends osmium-tool >/dev/null 2>&1
+          curl -sSfL -o /tmp/paca.pbf https://download.geofabrik.de/europe/france/provence-alpes-cote-d-azur-latest.osm.pbf
+          curl -sSfL -o /tmp/monaco.pbf https://download.geofabrik.de/europe/monaco-latest.osm.pbf
+          for z in paca monaco; do osmium tags-filter /tmp/$z.pbf nwr/opening_hours -o /tmp/$z-oh.pbf --overwrite; osmium export /tmp/$z-oh.pbf -f geojsonseq -a type,id --geometry-types=point,polygon -o /tmp/$z.geojsonseq --overwrite; done
+          cat /tmp/paca.geojsonseq /tmp/monaco.geojsonseq > /tmp/nuit.geojsonseq
+          node outils/nuit-tardive.mjs --geojson /tmp/nuit.geojsonseq
       - name: Reconstruire le site avec les nouvelles images (sans IA, sans recherche web)
         timeout-minutes: 25
         env:

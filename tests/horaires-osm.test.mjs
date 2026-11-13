@@ -36,3 +36,11 @@ test('Nuit tardive (OpenStreetMap) : manger après 2 h, afters après 5 h, ville
   assert.equal(l[0].horaires, 'lun–dim 18h–5h');
   assert.match(l[0].source, /^https:\/\/www\.openstreetmap\.org\/node\/1$/);
 });
+test('Nuit tardive : secours par la carte OpenStreetMap téléchargée (GeoJSON osmium), hors zone écarté', async () => {
+  const { elementsDepuisGeojson, lieuxTardifs } = await import('../outils/nuit-tardive.mjs');
+  const f = (id, lon, lat, tags) => `\x1e${JSON.stringify({ type: 'Feature', geometry: { type: 'Point', coordinates: [lon, lat] }, properties: { '@type': 'node', '@id': id, ...tags } })}`;
+  const txt = [f(1, 7.27, 43.6975, { amenity: 'fast_food', name: 'Kebab', cuisine: 'kebab', opening_hours: 'Mo-Su 18:00-05:00' }),
+    f(3, 5.37, 43.2965, { amenity: 'fast_food', name: 'Snack Marseille', 'addr:city': 'Marseille', opening_hours: 'Mo-Su 18:00-05:00' })].join('\n');
+  const l = lieuxTardifs({ elements: elementsDepuisGeojson(txt) });
+  assert.deepEqual(l.map((x) => [x.nom, x.ville]), [['Kebab', 'Nice']]);
+});
