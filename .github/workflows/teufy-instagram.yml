@@ -98,6 +98,9 @@ jobs:
         # Chaque post est mesuré au plus une fois par jour (de J+1 à J+21) : les passages suivants ne font presque rien.
         if: github.event_name == 'schedule' || startsWith(inputs.quoi, 'collecter') || startsWith(inputs.quoi, 'horaire') || startsWith(inputs.quoi, 'site')
         run: |
+          # Une seule fois par jour (13/11/2026 : 4 min à chaque passage horaire, la plus grosse dépense de minutes GitHub).
+          if [ "$(cat contenus/derniere-collecte.txt 2>/dev/null)" = "$(date -u +%F)" ] && ! ${{ startsWith(inputs.quoi, 'collecter') || startsWith(inputs.quoi, 'site') }}; then echo "Statistiques et site déjà faits aujourd'hui."; exit 0; fi
+          date -u +%F > contenus/derniere-collecte.txt
           npm install --no-audit --no-fund
           node src/run.mjs collecter
           # Site internet (agenda des soirées) : régénéré une fois par jour.

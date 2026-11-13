@@ -12,7 +12,10 @@ on:
       - 'site/app.js'
       - 'site/style.css'
       - 'site/sw-source.js'
-      - 'outils/**'
+      - 'outils/tester-*'
+      - 'outils/controle-donnees.mjs'
+      - 'outils/verifier-liens.mjs'
+      - 'outils/audit-seo.mjs'
       - '.github/workflows/teufy-qualite.yml'
   workflow_dispatch:
 
@@ -47,7 +50,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        navigateur: [chromium, webkit, firefox]
+        # Chromium à chaque modification ; Safari (WebKit) et Firefox en plus seulement quand on le lance à la main
+        # (13/11/2026 : les 3 navigateurs à chaque envoi coûtaient ~28 min de robot à chaque fois).
+        navigateur: ${{ fromJSON(github.event_name == 'workflow_dispatch' && '["chromium","webkit","firefox"]' || '["chromium"]') }}
     env:
       NAVIGATEUR: ${{ matrix.navigateur }}
     steps:
