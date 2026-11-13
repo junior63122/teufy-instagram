@@ -1,0 +1,55 @@
+name: Teufy - Mise en ligne du site (GitHub Pages)
+
+# 13/11/2026 (directeur : « je ne veux pas que les gens volent mon code ») : avant, GitHub Pages publiait TOUT le dépôt
+# (teufyparty.com/src/site.mjs, /config.json, /CLAUDE.md… étaient téléchargeables). Désormais seul le site est mis en
+# ligne : pages HTML, styles, scripts du navigateur, images et médias Instagram. Le code des robots, la configuration,
+# les données de travail et les consignes restent dans le dépôt.
+# Réglage à faire une fois : Settings → Pages → Build and deployment → Source : « GitHub Actions ».
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+  # Les robots poussent avec le jeton GitHub, ce qui ne relance pas les workflows « push » : on publie à la fin de leur passage.
+  workflow_run:
+    workflows: ["Teufy - Instagram automatique", "Teufy - Lieux (images, carte, transports)", "Teufy - Veille et publication réactive", "Teufy - Paiements", "Teufy - Prospection", "Teufy - Studio (décors illustrés)"]
+    types: [completed]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  publier:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment:
+      name: github-pages
+      url: ${{ steps.deploiement.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+      - name: Ne garder que le site public
+        run: |
+          mkdir -p ../_site
+          rsync -a --delete \
+            --exclude='.git*' --exclude='.github' --exclude='.claude' \
+            --exclude='src/' --exclude='outils/' --exclude='tests/' --exclude='studio/' --exclude='contenus/' \
+            --exclude='node_modules/' --exclude='out/' --exclude='livrables/' --exclude='veille/' --exclude='apercus/' \
+            --exclude='/*.json' --exclude='/*.md' --exclude='*.mjs' --exclude='*.cjs' \
+            --exclude='site/sw-source.js' --exclude='site/app.js' --exclude='site/style.css' \
+            ./ ../_site/
+          mv ../_site ./_site
+          touch _site/.nojekyll
+          du -sh _site; test -f _site/index.html && test -f _site/CNAME
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deploiement
+        uses: actions/deploy-pages@v4

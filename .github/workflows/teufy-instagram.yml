@@ -199,6 +199,7 @@ jobs:
           git diff --cached --quiet && exit 0
           git commit -m "Teufy Instagram : médias ${{ steps.choix.outputs.quoi }} du $(date -u +%F)"
           for i in 1 2 3; do git pull --rebase -X theirs --autostash && git push && break; git rebase --abort 2>/dev/null; sleep 5; done
+          gh workflow run teufy-pages.yml --ref main || true # le push du robot ne relance pas la mise en ligne : on la demande
 
       - name: Publier sur Instagram
         if: steps.choix.outputs.publier == 'true' && steps.choix.outputs.rien != 'true'
@@ -232,8 +233,9 @@ jobs:
           git config user.email "teufy-bot@users.noreply.github.com"
           git add -A -- media/stories
           git diff --cached --quiet && exit 0
-          git commit -m "Teufy : stories du $(date -u +%F)" # pas de [skip ci] : GitHub Pages doit mettre les images en ligne
+          git commit -m "Teufy : stories du $(date -u +%F)"
           for i in 1 2 3; do git pull --rebase -X theirs --autostash && git push && break; git rebase --abort 2>/dev/null; sleep 5; done
+          gh workflow run teufy-pages.yml --ref main || true # mise en ligne des images avant la publication
 
       - name: Stories du jour (publier)
         if: always() && steps.stories.outcome == 'success' && steps.stories.outputs.aucune != 'true' && (github.event_name == 'schedule' || startsWith(inputs.quoi, 'horaire'))

@@ -1,5 +1,7 @@
 # Teufy · Instagram automatique (Shotgun + DICE)
 
+> **© Teufy, tous droits réservés.** Dépôt visible publiquement mais **pas open source** : copie, réutilisation et entraînement d'IA interdits sans autorisation écrite (voir `LICENSE`).
+
 L'automate publie 9 contenus par mois sur Instagram. Il mesure les résultats de chaque post et ajuste la suite pour gagner en engagement et en abonnés.
 
 | Quand (vers 17h-20h, heure apprise) | Publication |
