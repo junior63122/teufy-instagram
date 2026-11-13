@@ -418,6 +418,7 @@ let LIEUX_TOUS = []; // tous les lieux (pour « Après ce lieu »)
 let NOTIF = { soirs: {}, actus: [] };
 // Nombre de soirées à venir par rubrique du menu (petits chiffres gris à côté des villes, styles, week-end…).
 let COMPTES_NAV = {};
+let AVANTAGES = []; // offres partenaires en cours (page Avantages, menu, fiches des lieux)
 // Données d'OpenStreetMap relevées sans IA par outils/nuit-tardive.mjs (robot « Lieux ») : plus de recherche Gemini.
 async function nuitTardive() { return lire(NUIT_TARDIVE, { lieux: [] }).lieux || []; }
 async function lieuxDeNuit({ soirees, partenaires, ig, api, log, now }) {
@@ -778,6 +779,7 @@ export async function construireSite({ events, eventsFrance = [], eventsOccitani
   if (domaine) { URL_SITE = `https://${domaine}/`; await writeFile(path.join(ROOT, 'CNAME'), `${domaine}\n`); }
   else if (existsSync(path.join(ROOT, 'CNAME'))) spawnSync('rm', ['-f', path.join(ROOT, 'CNAME')]);
   CODES = (config.codes_promo || []).filter((c) => c.code && c.s_applique && (!c.jusqu_au || Date.parse(c.jusqu_au) >= now.getTime()));
+  AVANTAGES = (config.site?.avantages || []).filter((a) => !a.jusqu_au || Date.parse(a.jusqu_au) >= now.getTime());
   const majTexte = (t) => t.majLe.replace('{d}', paris(now, { day: 'numeric', month: 'long' }, t.locale));
 
   COMPTES_NAV = Object.fromEntries([
@@ -822,7 +824,7 @@ export async function construireSite({ events, eventsFrance = [], eventsOccitani
       ajoute('ce-soir/', (c) => pageCeSoir({ ...c, soirees: sl, now }));
       ajoute('manger-tard/', (c) => pageMangerTard(c));
       ajoute('after/', (c) => pageAfter({ ...c, soirees: sl }));
-      ajoute('avantages/', (c) => pageAvantages({ ...c, now }));
+      ajoute('avantages/', (c) => pageAvantages({ ...c, now, soirees: sl }));
       for (const sel of SELECTIONS) ajoute(`${sel.slug}/`, (c) => pageSelection({ ...c, sel, soirees: sl.filter((x) => sel.garde(x, now)), now }));
       for (const l of lieux || []) if (l.slug) ajoute(`clubs-bars/${l.slug}/`, (c) => pageLieu({ ...c, l, soirees: [...sl, ...so].filter((x) => (l.soirees || []).includes(x.id)) }));
     }
@@ -1453,7 +1455,7 @@ ${ld.length ? `<script type="application/ld+json">${JSON.stringify(ld).replace(/
 <nav class="nav" aria-label="Menu">${(() => {
       const G = groupesNav({ t, lang, SA }), tous = G.flatMap((g) => g[2]).map(([d]) => d).filter((d) => !d.startsWith('#')).map((d) => d.split('#')[0]);
       const actif = rubriqueNav ?? ([...tous, 'ce-soir/'].includes(chemin) ? chemin : tous.filter((d) => d && chemin.startsWith(d)).sort((a, b) => b.length - a.length)[0]);
-      const lien = ([d, n]) => `<a href="${accueil}${d}"${d === chemin ? ' aria-current="page"' : d === actif ? ' aria-current="true"' : ''}>${esc(n)}${COMPTES_NAV[d] ? ` <small class="nb-nav" aria-label="${COMPTES_NAV[d]} ${esc(t.js.soirees?.replace('{n}', '').trim() || 'soirées')}">${COMPTES_NAV[d]}</small>` : ''}</a>`;
+      const lien = ([d, n]) => `<a href="${accueil}${d}"${d === chemin ? ' aria-current="page"' : d === actif ? ' aria-current="true"' : ''}>${esc(n)}${d === 'avantages/' && AVANTAGES.length + CODES.length ? ` <small class="nb-nav nb-offre">${AVANTAGES.length + CODES.length} ${AVANTAGES.length + CODES.length > 1 ? 'offres' : 'offre'}</small>` : ''}${COMPTES_NAV[d] ? ` <small class="nb-nav" aria-label="${COMPTES_NAV[d]} ${esc(t.js.soirees?.replace('{n}', '').trim() || 'soirées')}">${COMPTES_NAV[d]}</small>` : ''}</a>`;
       const groupe = ([cle, titreG, liens]) => `<details class="nav-groupe g-${cle}${liens.some(([d]) => (d && !d.startsWith('#') && d.split('#')[0] === actif) || (cle === 'villes' && /^(france|occitanie)\//.test(chemin))) ? ' actif' : ''}"><summary>${esc(titreG)}</summary><div>${liens.map(lien).join('')}</div></details>`;
       const L = LIB_NAV[lang] || LIB_NAV.fr, par = Object.fromEntries(G.map((g) => [g[0], g]));
       // Styles rangés dans « Sortir » (menu plus court) ; Ce soir à part (le plus demandé).
@@ -1477,7 +1479,7 @@ ${(() => { const L = LIB_NAV[lang] || LIB_NAV.fr; const ico = (k) => `<svg viewB
   <div class="menu-tete"><a class="marque" href="${accueil || './'}"><img src="${base}site/img/logo-96.webp" alt="Teufy" width="39" height="32"></a><a href="#" class="menu-x" role="button" aria-label="${esc(L.fermer)}">×</a></div>
   <div class="menu-corps">
     <a class="menu-cherche" href="${ici}#recherche" data-chercher>${ico('chercher')}<span>${esc(t.placeholder)}</span></a>
-    ${groupesNav({ t, lang, SA }).map(([cle, titreG, liens]) => `<section class="menu-groupe menu-${cle}"><h2>${esc(titreG)}</h2><div>${liens.map(([d, n]) => `<a href="${accueil}${d}"${d === chemin ? ' aria-current="page"' : ''}>${esc(n)}${COMPTES_NAV[d] ? ` <small class="nb-nav">${COMPTES_NAV[d]}</small>` : ''}</a>`).join('')}</div></section>`).join('')}
+    ${groupesNav({ t, lang, SA }).map(([cle, titreG, liens]) => `<section class="menu-groupe menu-${cle}"><h2>${esc(titreG)}</h2><div>${liens.map(([d, n]) => `<a href="${accueil}${d}"${d === chemin ? ' aria-current="page"' : ''}>${esc(n)}${d === 'avantages/' && AVANTAGES.length + CODES.length ? ` <small class="nb-nav nb-offre">${AVANTAGES.length + CODES.length}</small>` : ''}${COMPTES_NAV[d] ? ` <small class="nb-nav">${COMPTES_NAV[d]}</small>` : ''}</a>`).join('')}</div></section>`).join('')}
     <section class="menu-groupe menu-langue"><h2>${esc(t.langue)}</h2><div>${LANGUES.map((l) => `<a href="${base}${pre(l)}${chemin}" hreflang="${l}" lang="${l}"${l === lang ? ' aria-current="true"' : ''}>${esc(TXT[l].nom)}</a>`).join('')}</div></section>
   </div>
 </div>
@@ -2061,6 +2063,7 @@ function filtreTypes(L, tr) {
   if (!n || n === L.length) return '';
   return `<p class="liens-styles filtre-types" role="group" aria-label="${esc(tr('Type de lieu'))}"><button type="button" class="puce actif" data-type-lieu="">${esc(tr('Tout'))} · ${L.length}</button><button type="button" class="puce" data-type-lieu="club">${esc(tr('Boîtes de nuit'))} · ${n}</button><button type="button" class="puce" data-type-lieu="bar">${esc(tr('Bars'))} · ${L.length - n}</button></p>`;
 }
+const avantageDe = (l) => AVANTAGES.find((a) => (a.instagram && a.instagram === l.instagram) || normLieu(a.partenaire_nom) === normLieu(l.nom));
 function carteLieu(l, { t, tr, base, lang }, i = 0, tendance = false) {
   const prochaines = l.prochaines || [];
   const raison = l.insta && l.insta.posts21 ? `${tr('Sur ses publications des 3 dernières semaines')} : ${l.insta.likes} ${tr('likes')} · ${l.insta.commentaires} ${tr('commentaires en moyenne')} · ${l.insta.posts21} ${tr('posts')}` : '';
@@ -2074,6 +2077,7 @@ function carteLieu(l, { t, tr, base, lang }, i = 0, tendance = false) {
     <p class="genre">${esc(tr(TYPES_NOMS[l.type] || ''))}${l.ville ? ` · ${esc(l.ville)}` : ''}${l.partenaire ? ` <span class="fiche-prix">${esc(t.partenaires)}</span>` : ''}</p>
     <h3><a href="${base}${pre(lang)}clubs-bars/${esc(l.slug)}/">${esc(l.nom)}</a></h3>
     <p class="lieu-statut" hidden></p>
+    ${(() => { const a = avantageDe(l); return a ? `<a class="av-bandeau-lieu" href="${base}${pre(lang)}avantages/#${esc(slug(`av-${a.partenaire_nom}`))}"><b>${esc(tr('Avantage Teufy'))}</b> ${esc(tr(a.titre))}</a>` : ''; })()}
     ${l.description ? `<p class="fiche-desc">${esc(tr(l.description))}</p>` : ''}
     ${l.details ? (() => { const d = l.details; const lignes = [[ICO_INFO.musique, tr('Musique'), d.styles], [ICO_INFO.tenue, tr('Dress code'), d.dress_code], [ICO_INFO.horaires, tr('Horaires'), d.horaires], [ICO_INFO.verre, tr('Verres'), d.prix_verre], [ICO_INFO.entree, tr('Entrée'), d.entree], [ICO_INFO.age, tr('Âge'), d.age_min]].filter((x) => x[2]); return lignes.length ? `<details class="lieu-pratique"><summary>${esc(tr('Infos pratiques'))}</summary><dl class="lieu-infos">${lignes.map(([i, k, v]) => `<div><dt><span aria-hidden="true">${i}</span> ${esc(k)}</dt><dd>${esc(tr(v))}</dd></div>`).join('')}</dl><p class="lieu-maj">${esc(tr('Infos relevées le'))} ${esc(paris(d.le, { day: 'numeric', month: 'long' }, t.locale))}${d.sources?.[0] ? ` · <a href="${esc(d.sources[0])}" target="_blank" rel="noopener nofollow">${esc(tr('source'))}</a>` : ''}</p></details>` : ''; })() : ''}
     ${raison && tendance ? `<p class="lieu-stats" title="${esc(raison)}"><span class="lieu-stats-titre">${esc(tr('Sur Instagram, en moyenne par post'))}</span><span>${esc(Number(l.insta.likes).toLocaleString(t.locale || 'fr-FR', { maximumFractionDigits: 1 }))} ${esc(tr('likes'))}</span><span>${esc(Number(l.insta.commentaires).toLocaleString(t.locale || 'fr-FR', { maximumFractionDigits: 1 }))} ${esc(tr('commentaires'))}</span><span>${esc(Number(l.insta.posts21).toLocaleString(t.locale || 'fr-FR', { maximumFractionDigits: 1 }))} ${esc(tr('posts en 3 semaines'))}</span></p>` : ''}
@@ -2124,6 +2128,7 @@ function pageLieu({ lang, t, tr, base, compte, T, chemin, maj, l, soirees, lieux
       <p class="genre">${esc(tr(type))}${l.ville ? ` · ${esc(l.ville)}` : ''}${l.partenaire ? ` <span class="fiche-prix">${esc(t.partenaires)}</span>` : ''}</p>
       <h1>${esc(l.nom)}</h1>
       <p class="lieu-statut" hidden></p>
+      ${(() => { const a = avantageDe(l); return a ? `<a class="av-bandeau-lieu av-grand" href="${base}${pre(lang)}avantages/#${esc(slug(`av-${a.partenaire_nom}`))}"><b>${esc(tr('Avantage Teufy'))}</b> ${esc(tr(a.titre))}${a.conditions ? ` <small>· ${esc(tr(a.conditions))}</small>` : ''}</a>` : ''; })()}
       ${l.description ? `<p class="chapo">${esc(tr(l.description))}</p>` : ''}</div></div>
   </article>
   </div>
@@ -2252,13 +2257,46 @@ ${osm.length ? `<section class="bloc-large"><h2>${tr('Autres adresses <em>jusqu\
 }
 // Avantages Teufy : codes promo et offres des partenaires (verre offert, entrée offerte…), réservés aux lecteurs.
 // Source : config.json (codes_promo, avantages) ; une offre expirée disparaît d'elle-même.
-function pageAvantages({ lang, t, tr, base, compte, T, chemin, maj, now }) {
+function pageAvantages({ lang, t, tr, base, compte, T, chemin, maj, now, lieux, soirees }) {
+  // Refonte 13/11/2026 (directeur : « la page ne donne pas envie, mets les logos, l'adresse, mets en avant les partenaires
+  // et leurs soirées ») : une carte par partenaire, photo et logo, adresse, ouvert ce soir, prochaines soirées.
   const actifs = (config) => (config || []).filter((a) => !a.jusqu_au || Date.parse(a.jusqu_au) >= now.getTime());
   const offres = actifs(T.avantages);
-  const carteAvantage = (a) => `<article class="carte-texte avantage"><p class="pied-titre">${esc(tr(a.type || 'Avantage'))}${a.ville ? ` · ${esc(a.ville)}` : ''}</p><h3>${esc(a.partenaire_nom)}</h3><p class="avantage-titre">${esc(tr(a.titre))}</p>${a.description ? `<p>${esc(tr(a.description))}</p>` : ''}<p class="petit">${a.conditions ? `<b>${esc(t.conditions)} :</b> ${esc(tr(a.conditions))}` : ''}${a.jusqu_au ? ` · ${esc(tr("jusqu'au"))} ${esc(paris(`${a.jusqu_au}T12:00:00Z`, { day: 'numeric', month: 'long', year: 'numeric' }, t.locale))}` : ''}</p>${a.instagram ? `<p><a class="bouton petit contour" href="https://www.instagram.com/${esc(a.instagram)}/" target="_blank" rel="noopener">Instagram</a></p>` : ''}</article>`;
-  const vide = !CODES.length && !offres.length;
-  const corps = `${heroCourt({ partage: t.partager, base, photo: null, alt: tr('Avantages'), etiquette: tr('Avantages Teufy'), h1: tr('Les <em>avantages</em> Teufy'), p: esc(tr("Codes promo, verres offerts, entrées gratuites : les avantages que nos partenaires réservent aux lecteurs de Teufy, sur la Côte d'Azur et dans le Var.")) })}
-<section class="bloc-large" id="liste-avantages">${vide ? `<p class="vide">${esc(tr('Les premiers avantages arrivent : les établissements partenaires sont en train de créer leurs offres. Reviens vite, ou suis @teufy_official pour être prévenu.'))}</p>` : `<div class="cartes-texte avantages">${CODES.map((c) => `<article class="carte-texte">${blocPromo(c, t, tr)}</article>`).join('')}${offres.map(carteAvantage).join('')}</div>`}</section>
+  const lieuDe = (insta, nom) => (lieux || []).find((l) => (insta && l.instagram === insta) || (normLieu(nom || '') && normLieu(l.nom) === normLieu(nom || '')));
+  const img = (f) => (existsSync(path.join(ROOT, f)) ? f : '');
+  const couvDe = (insta) => insta ? img(`site/lieux/${insta}-couv-800.webp`) : '';
+  const quand = (x) => `${paris(x.debut, { weekday: 'short', day: 'numeric', month: 'short' }, t.locale)} · ${heure(x.debut, t)}`;
+  const carteOffre = ({ cle, type, titre, description, conditions, jusqu, partenaire, insta, ville, code, remise, liste }) => {
+    const L = lieuDe(insta, partenaire);
+    const sxAff = (liste || []).find((x) => x.affiche);
+    // Organisateur (code promo) : l'affiche d'une soirée où le code marche, plus parlante que sa dernière publication.
+    const couv = code && sxAff ? sxAff.affiche.replace(/\.jpg$/, '-800.webp') : couvDe(insta || L?.instagram), logo = L?.photo || img(`site/lieux/${insta}-176.webp`);
+    const H = lireHoraires(L?.details?.horaires);
+    const adresse = L?.adresse || '';
+    const sx = (liste || (L ? (soirees || []).filter((x) => (L.soirees || []).includes(x.id)) : [])).slice(0, 3);
+    return `<article class="fiche-lieu avantage-carte" id="${esc(slug(cle))}"${H ? ` data-horaires="${esc(JSON.stringify(H.plages))}"` : ''}>
+  <div class="av-bandeau">${couv && existsSync(path.join(ROOT, couv)) ? `<img src="${base}${esc(couv)}" alt="" width="800" height="533" loading="lazy" decoding="async">` : ''}${logo ? `<img class="av-logo" src="${base}${esc(logo)}" alt="${esc(partenaire)}" width="88" height="88" loading="lazy">` : ''}<span class="av-type">${esc(tr(type))}</span></div>
+  <div class="fiche-corps">
+    <p class="genre">${esc(tr(L ? ({ club: 'Boîte de nuit', bar: 'Bar', pub: 'Pub', rooftop: 'Rooftop', 'bar-a-cocktails': 'Bar à cocktails', 'beach-club': 'Beach club' }[L.type] || 'Lieu') : 'Organisateur'))}${ville || L?.ville ? ` · ${esc(ville || L.ville)}` : ''}</p>
+    <h3>${L?.slug ? `<a href="${base}${pre(lang)}clubs-bars/${esc(L.slug)}/">${esc(partenaire)}</a>` : esc(partenaire)}</h3>
+    ${H ? '<p class="lieu-statut" hidden></p>' : ''}
+    <p class="av-offre">${esc(tr(titre))}</p>
+    ${code ? `<p class="code-ligne"><b>${esc(remise)}</b><button type="button" class="code" data-copier="${esc(code)}">${esc(code)} <span>${esc(t.copier)}</span></button></p>` : ''}
+    ${description ? `<p>${esc(tr(description))}</p>` : ''}
+    <p class="petit av-conditions">${conditions ? `${esc(tr('Conditions'))} : ${esc(tr(conditions))}` : ''}${jusqu ? `${conditions ? ' · ' : ''}${esc(tr("jusqu'au"))} ${esc(paris(`${jusqu}T12:00:00Z`, { day: 'numeric', month: 'long', year: 'numeric' }, t.locale))}` : ''}</p>
+    ${adresse ? `<p class="av-adresse">${ICO_INFO.lieu}${esc(adresse)}</p>` : ''}
+    ${sx.length ? `<div class="av-soirees"><p class="pied-titre">${esc(tr(code ? 'Soirées où le code marche' : 'Ses prochaines soirées'))}</p><ul>${sx.map((x) => `<li><a href="${base}${pre(lang)}soiree/${esc(x.id)}/"><b>${esc(x.nom)}</b><small>${esc(quand(x))}</small></a></li>`).join('')}</ul></div>` : ''}
+    <p class="fiche-liens">${adresse ? `<a class="bouton petit" href="https://www.google.com/maps/dir/?api=1&amp;destination=${encodeURIComponent([partenaire, adresse].join(', '))}" target="_blank" rel="noopener">${esc(tr('Itinéraire'))}</a>` : ''}${L?.slug ? `<a class="bouton petit contour" href="${base}${pre(lang)}clubs-bars/${esc(L.slug)}/">${esc(tr('Voir le lieu'))}</a>` : ''}${insta ? `<a class="bouton petit contour" href="https://www.instagram.com/${esc(insta)}/" target="_blank" rel="noopener">Instagram</a>` : ''}</p>
+  </div></article>`;
+  };
+  const cartes = [
+    ...offres.map((a) => carteOffre({ cle: `av-${a.partenaire_nom}`, type: a.type || 'Avantage', titre: a.titre, description: a.description, conditions: a.conditions, jusqu: a.jusqu_au, partenaire: a.partenaire_nom, insta: a.instagram, ville: a.ville })),
+    ...CODES.map((c) => carteOffre({ cle: `code-${c.code}`, type: 'Code promo', titre: c.description, description: '', conditions: c.conditions, jusqu: c.jusqu_au, partenaire: c.partenaire_nom || `@${c.partenaire}`, insta: c.partenaire, code: c.code, remise: c.remise,
+      liste: (soirees || []).filter((x) => promoDe(x) === c) })),
+  ];
+  const n = cartes.length;
+  const corps = `${heroCourt({ partage: t.partager, base, photo: null, alt: tr('Avantages'), etiquette: tr('Avantages Teufy'), h1: tr('Les <em>avantages</em> Teufy'), p: esc(tr(`${n ? `${n} offre${n > 1 ? 's' : ''} en ce moment : ` : ''}verres offerts, codes promo, entrées gratuites… Réservés aux lecteurs de Teufy chez nos partenaires de la Côte d'Azur et du Var. Montre Teufy, c'est tout.`)) })}
+<section class="bloc-large" id="liste-avantages">${n ? `<ol class="av-mode"><li><b>1</b>${esc(tr('Choisis ton avantage'))}</li><li><b>2</b>${esc(tr('Montre cette page ou notre Instagram sur place (ou colle le code)'))}</li><li><b>3</b>${esc(tr('Profite, c\'est offert par le partenaire'))}</li></ol><div class="fiches avantages-grille">${cartes.join('')}</div>` : `<p class="vide">${esc(tr('Les premiers avantages arrivent : les établissements partenaires sont en train de créer leurs offres. Reviens vite, ou suis @teufy_official pour être prévenu.'))}</p>`}</section>
 <section class="bloc-large"><h2>${tr('Tu as un bar, un club, une <em>activité</em> ?')}</h2><p class="grand-texte">${esc(tr("Propose un avantage aux lecteurs de Teufy : c'est gratuit, on le met en avant ici et dans nos stories."))}</p><p class="cta"><a class="bouton" href="${base}${pre(lang)}partenaires/#avantage">${esc(tr('Proposer un avantage'))}</a><a class="bouton contour" href="${base}${pre(lang)}partenaires/#tarifs">${esc(tr('Voir les formules'))}</a></p></section>`;
   return gabarit({ lang, t, titre: tr('Avantages Teufy : codes promo et offres des bars et clubs de la Côte d\'Azur'), description: tr("Codes promo, verres offerts et entrées gratuites réservés aux lecteurs de Teufy dans les bars, clubs et activités de la Côte d'Azur et du Var."), chemin, base, corps, compte, maj, ld: [...ldOrganisation(T, compte, t, lang), fil(lang, [['Teufy', ''], [tr('Avantages'), chemin]])] });
 }

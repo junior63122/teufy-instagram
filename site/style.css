@@ -1684,3 +1684,26 @@ html.onglets-caches .onglets{transform:translateY(105%)}
 /* « Après ce lieu » : distance */
 .apres-lieu .sous-titre{margin:18px 0 10px;font-size:20px}
 .fiche-lieu .distance{display:inline-block;margin:0 0 4px;padding:3px 10px;border-radius:999px;background:#ffffff14;font-weight:700;font-size:13px}
+/* Page Avantages (refonte 13/11/2026) */
+.av-mode{list-style:none;padding:0;margin:0 0 22px;display:flex;flex-wrap:wrap;gap:10px}
+.av-mode li{display:flex;align-items:center;gap:10px;background:var(--nuit2);border:1px solid #ffffff1a;border-radius:999px;padding:8px 16px 8px 8px;font-weight:700}
+.av-mode b{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--corail);color:var(--nuit)}
+.avantages-grille{display:grid;gap:18px;grid-template-columns:repeat(auto-fill,minmax(min(100%,360px),1fr))}
+.avantage-carte{border:1px solid var(--corail);box-shadow:0 0 0 1px #ff5a3c33 inset;overflow:hidden}
+.avantage-carte .av-bandeau{position:relative;aspect-ratio:16/9;background:linear-gradient(135deg,#ff5a3c55,#8250ff55)}
+.avantage-carte .av-bandeau>img:first-child{width:100%;height:100%;object-fit:cover;display:block}
+.avantage-carte .av-logo{position:absolute;left:16px;bottom:-30px;width:76px;height:76px;border-radius:50%;object-fit:cover;border:3px solid var(--nuit);background:var(--nuit2)}
+.avantage-carte .av-type{position:absolute;right:12px;top:12px;background:var(--corail);color:var(--nuit);font-weight:800;font-size:13px;padding:6px 12px;border-radius:999px;text-transform:uppercase;letter-spacing:.04em}
+.avantage-carte .fiche-corps{padding-top:38px}
+.avantage-carte .av-offre{font-family:var(--titre);font-weight:800;font-size:clamp(24px,3vw,30px);line-height:1.05;color:var(--corail);margin:6px 0 10px}
+.avantage-carte .av-adresse{display:flex;gap:8px;align-items:flex-start;opacity:.9}
+.avantage-carte .av-soirees ul{list-style:none;padding:0;margin:6px 0 12px;display:grid;gap:6px}
+.avantage-carte .av-soirees a{display:flex;flex-direction:column;padding:8px 12px;border-radius:12px;background:#ffffff0d;text-decoration:none;color:inherit}
+.avantage-carte .av-soirees small{opacity:.75}
+.av-bandeau-lieu{display:block;margin:4px 0 10px;padding:8px 12px;border-radius:12px;background:#ff5a3c22;border:1px solid #ff5a3c66;color:var(--creme);text-decoration:none;font-size:14px;position:relative;z-index:4}
+.av-bandeau-lieu b{color:var(--corail);margin-inline-end:6px}
+.nb-nav.nb-offre{background:var(--corail);color:var(--nuit);font-weight:800}
+.avantage-carte .av-bandeau{overflow:visible}
+.avantage-carte .av-bandeau>img:first-child{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:inherit}
+.avantage-carte .av-logo{z-index:2}
+.av-bandeau-lieu.av-grand{font-size:17px;padding:12px 16px;margin:10px 0 14px}
