@@ -1808,3 +1808,7 @@ button.puce.actif{background:var(--creme);color:var(--nuit)}
 .dist-moi{display:inline-block;align-self:flex-start;background:var(--corail);color:var(--nuit);font-weight:800;font-size:13px;border-radius:999px;padding:3px 10px;margin:0 0 6px;border:0}
 .signaler-adresse{display:flex;flex-wrap:wrap;align-items:center;gap:14px 20px;justify-content:space-between;margin:26px 0 8px;padding:18px 22px;border-radius:18px;background:#ff5a3c18;border:1px solid #ff5a3c55}
 .signaler-adresse p{margin:0;flex:1 1 320px}
+.signaler-adresse{display:grid;grid-template-columns:minmax(220px,1fr) 2fr;align-items:start}
+.signaler-adresse h3{margin:0 0 6px;font-size:24px}
+.signaler-adresse .form-contact{margin:0}
+@media (max-width:760px){.signaler-adresse{grid-template-columns:1fr}}

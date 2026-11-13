@@ -53,6 +53,9 @@ const SCHEMA = {
   properties: { reponses: { type: 'array', items: { type: 'object', additionalProperties: false, required: ['id', 'repondre', 'reponse'], properties: {
     id: { type: 'string' }, repondre: { type: 'boolean', description: 'false pour spam, insulte, pub, bot, ou commentaire qui ne demande rien et où une réponse serait forcée.' },
     reponse: { type: 'string', description: 'Réponse (≤ 160 caractères), vide si repondre = false.' },
+    adresse_nuit: { type: 'object', additionalProperties: false, required: ['nom', 'ville', 'horaires'], description: "Seulement si le commentaire CITE un endroit précis où manger tard la nuit (kebab, snack, pizzeria, boulangerie de nuit…). Sinon nom vide.", properties: {
+      nom: { type: 'string', description: "Nom exact du lieu tel qu'écrit, vide sinon." }, ville: { type: 'string', description: 'Ville si elle est dite ou évidente, vide sinon.' }, horaires: { type: 'string', description: "Horaires ou heure de fermeture SI le commentaire les donne, vide sinon. N'invente rien." },
+    } },
   } } } },
 };
 const system = `Tu gères les commentaires Instagram de Teufy (@teufy_official), le guide des soirées de la Côte d'Azur, public 17-30 ans.
@@ -65,12 +68,23 @@ Règles strictes :
 - Compliment : remercie simplement.
 - Critique polie : remercie, prends en compte, sans te justifier longuement.
 - Spam, pub, insulte, propos haineux ou sexuels, demande de drogue : repondre = false.
-- Ne mentionne jamais que tu es une IA ou un bot, ne promets rien au nom des organisateurs.`;
+- Ne mentionne jamais que tu es une IA ou un bot, ne promets rien au nom des organisateurs.
+- Quelqu'un cite un endroit où manger tard (« le kebab de la rue X à Cannes ferme à 5h ») : remplis adresse_nuit avec ce qu'il a ÉCRIT (rien d'inventé), et réponds en le remerciant, par exemple « Merci pour le spot ! On vérifie et on l'ajoute sur teufyparty.com 🙌 ».`;
 const prompt = `Posts concernés :\n${JSON.stringify(posts)}\n\nCommentaires à traiter :\n${JSON.stringify(aTraiter.slice(0, 40).map(({ id, auteur, texte, post }) => ({ id, auteur, texte, post })))}\n\nRéponds selon le schéma, un élément par commentaire.`;
 
 let res;
 try { res = await json({ config, system, prompt, schema: SCHEMA, nom: 'reponses_commentaires', gratuit: true }); } catch (err) { console.error(`Commentaires : IA indisponible (${err.message})`); process.exit(0); }
 
+// Adresses de nuit proposées par la communauté (directeur 13/11/2026 : « utiliser les réponses pour alimenter la base,
+// mais vérifier, pas un Wikipédia ») : mises en attente dans contenus/suggestions-nuit.json, JAMAIS publiées sans
+// validation (outils/suggestions-nuit.mjs).
+{
+  const { ajouterSuggestion } = await import('./suggestions-nuit.mjs');
+  for (const r of res.reponses || []) {
+    const c = aTraiter.find((x) => x.id === r.id), a = r.adresse_nuit;
+    if (c && a?.nom?.trim()) ajouterSuggestion({ nom: a.nom, ville: a.ville, horaires: a.horaires, origine: 'commentaire', auteur: c.auteur, texte: c.texte, ref: c.id, post: c.post });
+  }
+}
 let n = 0;
 for (const r of res.reponses || []) {
   const c = aTraiter.find((x) => x.id === r.id);

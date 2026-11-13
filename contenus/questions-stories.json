@@ -1,20 +1,104 @@
 [
-  {"id": "pire-excuse", "q": "Ta pire excuse pour ne pas rentrer à la fin de la soirée ?"},
-  {"id": "son-fermeture", "q": "Le son qui doit passer à la fermeture, c'est quoi ?"},
-  {"id": "refoule", "q": "Déjà refoulé à l'entrée d'une boîte ? Raconte, on veut savoir pourquoi."},
-  {"id": "faim-4h", "q": "4 h du matin, t'as faim. Ton spot préféré pour manger ?"},
-  {"id": "meilleure-soiree-2026", "q": "Ta meilleure soirée de l'année sur la Côte, c'était où ?"},
-  {"id": "before-ideal", "q": "Le before parfait, c'est chez qui et avec quoi ?"},
-  {"id": "pote-rentre-tot", "q": "Il y a toujours un pote qui « rentre tôt ». C'est qui dans ton groupe ?"},
-  {"id": "ville-sortie", "q": "Pour sortir ce week-end : Nice, Cannes, Monaco ou Toulon ?"},
-  {"id": "dj-reve", "q": "Le DJ que tu rêves de voir sur la Côte cette saison ?"},
-  {"id": "tenue", "q": "Ta tenue de soirée qui marche à tous les coups ?"},
-  {"id": "retour", "q": "Comment tu rentres à 5 h du matin : VTC, taxi, à pied ou ton pote qui conduit ?"},
-  {"id": "prix-max", "q": "Ton prix max pour une entrée en boîte, c'est combien ?"},
-  {"id": "soiree-manque", "q": "Il manque quoi comme soirée sur la Côte d'Azur ? Dis-nous tout."},
-  {"id": "lendemain", "q": "Le lendemain de soirée idéal : plage, brunch ou lit jusqu'à 16 h ?"},
-  {"id": "style-musique", "q": "Ce week-end tu pars sur quoi : techno, house, afro, shatta ou commercial ?"},
-  {"id": "pire-file", "q": "Ton record de temps dans une file d'attente ?"},
-  {"id": "spot-secret", "q": "Ton bar ou ton spot secret sur la Côte ? (promis on garde ça entre nous… ou pas)"},
-  {"id": "soiree-etudiante", "q": "Étudiants de Nice et Sophia : c'est quoi la meilleure soirée BDE de l'année ?"}
+ {
+  "id": "pire-excuse",
+  "q": "Ta pire excuse pour ne pas rentrer à la fin de la soirée ?"
+ },
+ {
+  "id": "son-fermeture",
+  "q": "Le son qui doit passer à la fermeture, c'est quoi ?"
+ },
+ {
+  "id": "refoule",
+  "q": "Déjà refoulé à l'entrée d'une boîte ? Raconte, on veut savoir pourquoi."
+ },
+ {
+  "id": "faim-4h",
+  "q": "4 h du matin, t'as faim. Ton spot préféré pour manger ?"
+ },
+ {
+  "id": "meilleure-soiree-2026",
+  "q": "Ta meilleure soirée de l'année sur la Côte, c'était où ?"
+ },
+ {
+  "id": "before-ideal",
+  "q": "Le before parfait, c'est chez qui et avec quoi ?"
+ },
+ {
+  "id": "pote-rentre-tot",
+  "q": "Il y a toujours un pote qui « rentre tôt ». C'est qui dans ton groupe ?"
+ },
+ {
+  "id": "ville-sortie",
+  "q": "Pour sortir ce week-end : Nice, Cannes, Monaco ou Toulon ?"
+ },
+ {
+  "id": "dj-reve",
+  "q": "Le DJ que tu rêves de voir sur la Côte cette saison ?"
+ },
+ {
+  "id": "tenue",
+  "q": "Ta tenue de soirée qui marche à tous les coups ?"
+ },
+ {
+  "id": "retour",
+  "q": "Comment tu rentres à 5 h du matin : VTC, taxi, à pied ou ton pote qui conduit ?"
+ },
+ {
+  "id": "prix-max",
+  "q": "Ton prix max pour une entrée en boîte, c'est combien ?"
+ },
+ {
+  "id": "soiree-manque",
+  "q": "Il manque quoi comme soirée sur la Côte d'Azur ? Dis-nous tout."
+ },
+ {
+  "id": "lendemain",
+  "q": "Le lendemain de soirée idéal : plage, brunch ou lit jusqu'à 16 h ?"
+ },
+ {
+  "id": "style-musique",
+  "q": "Ce week-end tu pars sur quoi : techno, house, afro, shatta ou commercial ?"
+ },
+ {
+  "id": "pire-file",
+  "q": "Ton record de temps dans une file d'attente ?"
+ },
+ {
+  "id": "spot-secret",
+  "q": "Ton bar ou ton spot secret sur la Côte ? (promis on garde ça entre nous… ou pas)"
+ },
+ {
+  "id": "soiree-etudiante",
+  "q": "Étudiants de Nice et Sophia : c'est quoi la meilleure soirée BDE de l'année ?"
+ },
+ {
+  "id": "faim-cannes",
+  "q": "4 h du mat à Cannes, la boîte ferme. Tu manges où ? Envoie-nous le nom et l'heure de fermeture en message 👇",
+  "theme": "faim"
+ },
+ {
+  "id": "faim-nice",
+  "q": "Nice, 4 h du matin : ton kebab ou ta boulangerie de nuit ? Le nom + l'heure en message, on l'ajoute sur le site 👇",
+  "theme": "faim"
+ },
+ {
+  "id": "faim-toulon",
+  "q": "Toulon et le Var : où tu manges après la boîte ? Balance ton spot en message 👇",
+  "theme": "faim"
+ },
+ {
+  "id": "faim-monaco",
+  "q": "Monaco, fin de soirée : il reste quoi d'ouvert pour manger ? Dis-nous en message 👇",
+  "theme": "faim"
+ },
+ {
+  "id": "faim-antibes",
+  "q": "Antibes, Juan-les-Pins : ton snack de 3 h du mat ? Le nom + l'heure de fermeture en message 👇",
+  "theme": "faim"
+ },
+ {
+  "id": "faim-secret",
+  "q": "Le snack de nuit que personne ne connaît mais qui sauve tes fins de soirée, c'est lequel ? 👇",
+  "theme": "faim"
+ }
 ]

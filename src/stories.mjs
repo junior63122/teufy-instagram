@@ -62,8 +62,15 @@ export function offreDuJour(config, now, histo = []) {
 /** Question ou débat pas posé depuis 30 jours (story et posts confondus). */
 export function questionDuJour(now, histo = [], { questions = lire('contenus/questions-stories.json', []), debats = lire('contenus/debats.json', []), postes = [] } = {}) {
   const deja = new Set([...recentes(histo, 'question', 30, now), ...postes]);
+  // Vendredi et samedi : « tu manges où à 4 h ? » (les réponses alimentent la page Manger tard, après vérification).
+  const j = jourSemaine(new Date(now));
+  if ([5, 6].includes(j)) {
+    const recFaim = new Set(recentes(histo, 'question', 12, now));
+    const f = questions.filter((x) => x.theme === 'faim' && !recFaim.has(`q-${x.id}`));
+    if (f.length) { const x = f[Math.floor(now / 864e5) % f.length]; return { cle: `q-${x.id}`, q: x.q, debat: false, faim: true }; }
+  }
   const debat = Math.floor(now / 864e5) % 2 === 0;
-  const q = questions.filter((x) => !deja.has(`q-${x.id}`)), d = debats.filter((x) => !deja.has(`d-${x.id}`) && !deja.has(x.id));
+  const q = questions.filter((x) => x.theme !== 'faim' && !deja.has(`q-${x.id}`)), d = debats.filter((x) => !deja.has(`d-${x.id}`) && !deja.has(x.id));
   const pick = (l) => l[Math.floor(now / 864e5) % l.length];
   if ((debat && d.length) || !q.length) { if (!d.length) return null; const x = pick(d); return { cle: `d-${x.id}`, q: x.q, a: x.a, b: x.b, debat: true }; }
   const x = pick(q);
