@@ -589,8 +589,12 @@ async function prepare(slot, now, id) {
     try {
       const used = new Set([...hist.map((h) => h.debat).filter(Boolean), ...usedHere]);
       const all = JSON.parse(await readFile(path.join(ROOT, 'contenus', 'debats.json'), 'utf8'));
-      let pool = all.filter((d) => !used.has(d.id));
-      if (!pool.length) pool = all;
+      // Test du partage (contenus/cible.json) : en story, seulement des situations VÉCUES par les fêtards de la Côte
+      // (file d'attente, entrée à 20 €, retour en taxi…), pas des concepts imaginaires (« laser game dans un hangar »,
+      // relu le 13/11/2026 : personne ne l'envoie à un pote). Les concepts restent pour les sondages de formats.
+      const vecus = all.filter((d) => d.vecu !== false);
+      let pool = vecus.filter((d) => !used.has(d.id));
+      if (!pool.length) pool = vecus.length ? vecus : all;
       const debat = ch.pick('debat', pool, (d) => d.id);
       usedHere.add(debat.id);
       const img = await couvertureDA({ photo: photoDA(['lasers', 'rooftop', 'foule', 'terrasse', 'rire'], now), fond: 'nuit', rubrique: 'Débat', titre: debat.q, options: [debat.a, debat.b] }, path.join(dir, `debat-${stamp}.jpg`));
@@ -598,7 +602,7 @@ async function prepare(slot, now, id) {
       const src = path.join('evenements', 'auto', `debat-${id}.jpg`);
       await mkdir(path.join(STUDIO, 'public', 'evenements', 'auto'), { recursive: true });
       await copyFile(img, path.join(STUDIO, 'public', src));
-      const props = { image: src, rubrique: 'Débat', texte: 'A ou B ? Réponds en message 👀' };
+      const props = { image: src, rubrique: 'Ton avis', texte: 'A ou B ? Réponds en message 👀' }; // « Débat » est déjà écrit sur la carte
       const B = '/opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell';
       const rs = spawnSync(path.join(STUDIO, 'node_modules', '.bin', 'remotion'), ['still', 'src/index.ts', 'story', path.join(dir, 'story-debat.jpg'), `--props=${JSON.stringify(props)}`, '--image-format=jpeg', '--jpeg-quality=92', '--log=error', ...(existsSync(B) ? [`--browser-executable=${B}`] : [])], { cwd: STUDIO, stdio: 'inherit' });
       if (rs.status === 0) { out.story_debat = 'story-debat.jpg'; out.debat = debat.id; console.log(`[${id}] débat en story : « ${debat.q} »`); }

@@ -70,7 +70,7 @@ export function questionDuJour(now, histo = [], { questions = lire('contenus/que
     if (f.length) { const x = f[Math.floor(now / 864e5) % f.length]; return { cle: `q-${x.id}`, q: x.q, debat: false, faim: true }; }
   }
   const debat = Math.floor(now / 864e5) % 2 === 0;
-  const q = questions.filter((x) => x.theme !== 'faim' && !deja.has(`q-${x.id}`)), d = debats.filter((x) => !deja.has(`d-${x.id}`) && !deja.has(x.id));
+  const q = questions.filter((x) => x.theme !== 'faim' && !deja.has(`q-${x.id}`)), d = debats.filter((x) => x.vecu !== false && !deja.has(`d-${x.id}`) && !deja.has(x.id)); // situations vécues seulement (test du partage)
   const pick = (l) => l[Math.floor(now / 864e5) % l.length];
   if ((debat && d.length) || !q.length) { if (!d.length) return null; const x = pick(d); return { cle: `d-${x.id}`, q: x.q, a: x.a, b: x.b, debat: true }; }
   const x = pick(q);
