@@ -2,13 +2,13 @@
   "jour": "2026-11-13",
   "plan": [
     {
-      "type": "question",
+      "type": "coeur",
       "cles": [
-        "q-faim-antibes"
+        "c-Paul Seul (+ Warm up + Closing)"
       ],
       "frames": [
         {
-          "image": "2026-11-13-question.jpg"
+          "image": "2026-11-13-coeur.jpg"
         }
       ]
     }
