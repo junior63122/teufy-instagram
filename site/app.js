@@ -244,6 +244,27 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
   const jc = document.querySelector('.je-cherche');
   if (jc) {
     const choixVille = () => jc.querySelector('.jc-villes .actif') || jc.querySelector('.jc-villes [data-jc-ville]');
+    // Compteurs justes (13/11, directeur : « Cannes 26 et Soirées 23 alors qu'il n'y en a que 3, c'est trompeur ») :
+    // chaque rubrique compte ce qu'il y a dans la ville choisie, chaque ville ce qu'il y a dans la rubrique choisie,
+    // et le titre des soirées donne le nombre réellement affiché.
+    const elementsDe = (r) => {
+      const gl = document.getElementById('lieux-ce-soir'), lieux = gl ? [...gl.querySelectorAll('.fiche-lieu'), ...(gl.__fermes || [])] : [];
+      if (r === 'soirees') return [...document.querySelectorAll('.ce-soir-liste .carte')].filter((c) => !c.hidden).map((c) => c.dataset.commune || '');
+      if (r === 'clubs') return lieux.filter((l) => l.dataset.type === 'club').map((l) => l.dataset.ville || '');
+      if (r === 'bars') return lieux.filter((l) => l.dataset.type !== 'club').map((l) => l.dataset.ville || '');
+      return [...document.querySelectorAll(`section#${r} .fiche-lieu`)].map((l) => l.dataset.ville || '');
+    };
+    const RUBS = [...jc.querySelectorAll('.jc-rubriques [data-rubrique]')].map((b) => b.dataset.rubrique).filter(Boolean);
+    const compte = (r, v) => (r ? elementsDe(r) : RUBS.flatMap(elementsDe)).filter((x) => !v || x === v).length;
+    function majComptesJc(r, v) {
+      jc.querySelectorAll('.jc-rubriques [data-rubrique]').forEach((b) => { const k = b.dataset.rubrique; if (!k) return; const n = compte(k, v); const e = b.querySelector('.jc-n'); if (e) e.textContent = n; b.classList.toggle('zero', !n); });
+      jc.querySelectorAll('.jc-villes [data-jc-ville]').forEach((b) => { const k = b.dataset.jcVille; if (!k) return; const n = compte(r, k); const e = b.querySelector('small'); if (e) e.textContent = n; b.classList.toggle('zero', !n); });
+      const vis = [...document.querySelectorAll('.ce-soir-liste .carte')].filter((c) => !c.hidden && !c.classList.contains('hors-ville')).length;
+      const ns = document.querySelector('[data-compte-soir]'); if (ns) ns.textContent = `· ${nb(vis)}`;
+      const nomV = v && jc.querySelector(`.jc-villes [data-jc-ville="${v}"]`)?.firstChild?.textContent.trim();
+      const vide = document.querySelector('[data-soir-ville-vide]');
+      if (vide) { vide.hidden = !(v && !vis && document.querySelector('.ce-soir-liste .carte:not([hidden])')); vide.querySelector('b').textContent = nomV || ''; }
+    }
     const appliquer = () => {
       const r = jc.querySelector('.jc-rubriques .actif')?.dataset.rubrique || '';
       document.querySelectorAll('[data-rubrique]').forEach((sec) => { if (sec.tagName === 'SECTION') sec.hidden = !!r && !sec.dataset.rubrique.split(' ').includes(r); });
@@ -253,13 +274,16 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
       const cv = choixVille(), v = cv?.dataset.jcVille || '', z = cv?.dataset.soirees || '';
       const bv = document.querySelector(`.filtre-villes [data-ville="${v}"]`);
       if (bv) bv.click(); else document.querySelectorAll('#lieux-ce-soir .fiche-lieu, .lieux-fermes .fiche-lieu, .lieux-tard .fiche-lieu').forEach((l) => l.classList.toggle('hors-ville', !!v && l.dataset.ville !== v));
-      document.querySelectorAll('.ce-soir-liste .carte').forEach((c) => c.classList.toggle('hors-ville', !!v && c.dataset.ville !== z));
+      // Soirées : la commune exacte (avant : la zone, Toulon montrait tout le Var).
+      document.querySelectorAll('.ce-soir-liste .carte').forEach((c) => c.classList.toggle('hors-ville', !!v && (c.dataset.commune || '') !== v));
+      majComptesJc(r, v);
       document.querySelectorAll('.lieux-tard').forEach((g) => { const sec = g.closest('section'); if (sec && !sec.hidden && v) sec.classList.toggle('vide-ville', ![...g.children].some((x) => !x.classList.contains('hors-ville'))); });
       document.querySelectorAll('[data-grouper]').forEach(regrouper);
       try { localStorage.setItem('teufy-jc', JSON.stringify({ r, v })); } catch { /* stockage refusé */ }
     };
     jc.querySelector('.jc-rubriques').addEventListener('click', (e) => { const b = e.target.closest('[data-rubrique]'); if (!b) return; jc.querySelectorAll('.jc-rubriques .puce').forEach((x) => x.classList.toggle('actif', x === b)); appliquer(); });
     jc.querySelector('.jc-voir-plus')?.addEventListener('click', (e) => { jc.classList.add('jc-tout'); e.currentTarget.remove(); });
+    setTimeout(() => majComptesJc(jc.querySelector('.jc-rubriques .actif')?.dataset.rubrique || '', choixVille()?.dataset.jcVille || ''), 0);
     jc.querySelector('.jc-villes')?.addEventListener('click', (e) => { const b = e.target.closest('[data-jc-ville]'); if (!b) return; jc.querySelectorAll('.jc-villes .puce').forEach((x) => x.classList.toggle('actif', x === b)); appliquer(); });
     try { const m = JSON.parse(localStorage.getItem('teufy-jc') || 'null'); if (m) { const bv2 = m.v && jc.querySelector(`.jc-villes [data-jc-ville="${m.v}"]`); if (bv2) jc.querySelectorAll('.jc-villes .puce').forEach((x) => x.classList.toggle('actif', x === bv2)); const b = jc.querySelector(`.jc-rubriques [data-rubrique="${m.r || ''}"]`); if (b) { jc.querySelectorAll('.jc-rubriques .puce').forEach((x) => x.classList.toggle('actif', x === b)); } setTimeout(appliquer, 0); } } catch { /* rien */ }
   }

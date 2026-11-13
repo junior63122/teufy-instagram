@@ -1795,3 +1795,5 @@ html.onglets-caches .onglets{transform:translateY(105%)}
 @media (max-width:760px){.avantage-carte .av-bandeau{max-height:none}}
 /* Affiche de remplacement : place réservée en bas pour la pastille ville (ne cache plus le titre) */
 .affiche.sans .vignette{padding-bottom:56px}
+.je-cherche .puce.zero{opacity:.38}
+.je-cherche .puce.zero.actif{opacity:1}
