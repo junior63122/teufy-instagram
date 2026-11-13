@@ -2031,6 +2031,13 @@ const ICO_LIEU = { ig: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" 
   site: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18" fill="none" stroke="currentColor" stroke-width="2"/></svg>',
   map: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="10" r="2.5" fill="currentColor"/></svg>' };
 // Fiche d'un club ou d'un bar : même style que les fiches Restos / Activités (bannière, logo, boutons).
+// Filtre « Boîtes de nuit / Bars » (13/11/2026, directeur : « voir rapidement quels clubs sont ouverts ce soir »).
+const EST_CLUB = (l) => l.type === 'club';
+function filtreTypes(L, tr) {
+  const n = L.filter(EST_CLUB).length;
+  if (!n || n === L.length) return '';
+  return `<p class="liens-styles filtre-types" role="group" aria-label="${esc(tr('Type de lieu'))}"><button type="button" class="puce actif" data-type-lieu="">${esc(tr('Tout'))} · ${L.length}</button><button type="button" class="puce" data-type-lieu="club">${esc(tr('Boîtes de nuit'))} · ${n}</button><button type="button" class="puce" data-type-lieu="bar">${esc(tr('Bars'))} · ${L.length - n}</button></p>`;
+}
 function carteLieu(l, { t, tr, base, lang }, i = 0, tendance = false) {
   const prochaines = l.prochaines || [];
   const raison = l.insta && l.insta.posts21 ? `${tr('Sur ses publications des 3 dernières semaines')} : ${l.insta.likes} ${tr('likes')} · ${l.insta.commentaires} ${tr('commentaires en moyenne')} · ${l.insta.posts21} ${tr('posts')}` : '';
@@ -2233,8 +2240,9 @@ function pageCeSoir({ lang, t, tr, base, compte, T, chemin, maj, soirees, lieux,
 <div class="grille ce-soir-liste">${soir.map((s, i) => carte(s, { t, base, lang, prioritaire: i === 0 })).join('')}</div>
 <div id="sugg-source" hidden>${soirees.filter((s) => s.jour > auj && Date.parse(`${s.jour}T12:00:00Z`) - now < 8 * 864e5).slice(0, 12).map((s) => carte(s, { t, base, lang })).join('')}</div>
 <p class="vide" data-aucune-soiree hidden>${esc(tr("Pas de soirée annoncée ce soir pour l'instant : regarde les lieux ouverts juste en dessous, ou l'agenda des prochains jours."))} <a href="${base}${pre(lang)}#agenda">${esc(t.toutes)}</a></p></section>
-<section class="bloc-large" id="lieux-ouverts"><h2>${tr('Boîtes et bars <em>ouverts ce soir</em>')} <span class="compte-ce-soir"><b data-compte-ouverts="lieux-ce-soir">·</b> / <span data-compte-total="lieux-ce-soir">${L.length}</span></span></h2>
+<section class="bloc-large" id="lieux-ouverts"><h2>${tr('Boîtes de nuit et bars <em>ouverts ce soir</em>')} <span class="compte-ce-soir"><b data-compte-ouverts="lieux-ce-soir">·</b> / <span data-compte-total="lieux-ce-soir">${L.length}</span></span></h2>
 <p class="avert">${esc(tr("Horaires relevés sur les sources officielles des lieux (site, Instagram, fiche Google). Ils peuvent changer, surtout les jours fériés : en cas de doute, vérifie sur leur Instagram avant d'y aller."))}</p>
+${filtreTypes(L, tr)}
 <p class="liens-styles filtre-villes"><button type="button" class="puce actif" data-ville="">${esc(tr('Partout'))}</button>${villes.map((v) => `<button type="button" class="puce" data-ville="${esc(slug(v))}">${esc(v)}</button>`).join('')}</p>
 <div class="fiches lieux-ce-soir" id="lieux-ce-soir" data-replier="1" data-max="9">${L.map((l, i) => carteLieu(l, ctx, i)).join('')}</div>
 <p class="cta"><button type="button" class="bouton contour voir-fermes" hidden>${esc(tr('Voir les lieux fermés ce soir'))} (<span></span>)</button></p></section>
@@ -2251,7 +2259,7 @@ function pageLieux({ lang, t, tr, base, compte, T, chemin, maj, lieux }) {
   const villes = Object.keys(parVille).sort((a, b) => parVille[b].length - parVille[a].length);
   const corps = `${heroCourt({ partage: t.partager, base, photo: null, logos: (lieux || []).filter((l) => l.photo).sort((a, b) => (b.score || 0) - (a.score || 0)).map((l) => l.photo), alt: t.lieuxNav, k: 3, etiquette: t.lieuxNav, h1: tr("Les clubs et bars de la <em>Côte d'Azur</em> et du Var"), p: esc(tr("Boîtes de nuit, bars, rooftops et beach clubs de Nice à Toulon, avec ceux qui font le plus parler d'eux en ce moment.")) })}
 ${top.length ? `<section class="bloc-large reveal"><h2>${tr('Tendance du <em>moment</em>')}</h2><p class="avert">${esc(tr("Classement calculé chaque jour à partir de données réelles : likes et commentaires sur les publications Instagram des 3 dernières semaines, rapportés au nombre d'abonnés. Être partenaire de Teufy ne donne aucun bonus."))}</p><div class="fiches fiches-tendance">${top.map((l, i) => carteLieu(l, ctx, i, true)).join('')}</div></section>` : ''}
-<section class="bloc-large reveal"><p class="liens-styles">${villes.map((v) => `<a class="puce" href="#v-${slug(v)}">${esc(v)} · ${parVille[v].length}</a>`).join('')}</p></section>
+<section class="bloc-large reveal">${filtreTypes(lieux || [], tr)}<p class="liens-styles">${villes.map((v) => `<a class="puce" href="#v-${slug(v)}">${esc(v)} · ${parVille[v].length}</a>`).join('')}</p></section>
 ${villes.map((v) => `<section class="bloc-large reveal" id="v-${slug(v)}"><h2>${esc(v)}</h2><div class="fiches" data-max="6">${parVille[v].map((l, i) => carteLieu(l, ctx, i)).join('')}</div></section>`).join('\n')}
 ${(lieux || []).length ? '' : `<section class="bloc-large"><p class="vide">${esc(tr("L'annuaire se remplit : Teufy recense les clubs et bars de la Côte d'Azur et du Var."))}</p></section>`}`;
   return gabarit({ lang, t, titre: tr("Clubs et bars de la Côte d'Azur et du Var : les plus tendance en ce moment · Teufy"), description: tr("Toutes les boîtes de nuit, bars, rooftops et beach clubs de Nice, Cannes, Antibes, Monaco, Toulon et Saint-Tropez, et le classement des lieux les plus tendance du moment."), chemin, base, corps, compte, maj,

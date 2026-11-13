@@ -152,7 +152,7 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
     }
     // Compteur « ouverts / total » de la ville choisie (ou de partout).
     function majCompte(g) {
-      const l = [...g.querySelectorAll('.fiche-lieu'), ...(g.__fermes || [])].filter((x) => !x.classList.contains('hors-ville'));
+      const l = [...g.querySelectorAll('.fiche-lieu'), ...(g.__fermes || [])].filter((x) => !x.classList.contains('hors-ville') && !x.classList.contains('hors-type'));
       const o = document.querySelector(`[data-compte-ouverts="${g.id}"]`), tt = document.querySelector(`[data-compte-total="${g.id}"]`);
       if (o) o.textContent = String(l.filter((x) => ['ouvert', 'soiree', 'bientot'].includes(x.dataset.statut)).length);
       if (tt) tt.textContent = String(l.length);
@@ -173,8 +173,8 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
         const grille = document.createElement('div'); grille.className = 'fiches';
         fermes.forEach((x) => { x.hidden = false; x.classList.remove('en-trop'); grille.append(x); });
         sec.append(h, grille); b.replaceWith(sec); g.__fermes = fermes;
-        const majH = () => { const n = fermes.filter((x) => !x.classList.contains('hors-ville')).length; h.textContent = `${T.fermesCeSoir || 'Fermés ce soir'} · ${n}`; sec.hidden = !n; };
-        majH(); document.querySelectorAll('.filtre-villes').forEach((f) => f.addEventListener('click', () => setTimeout(majH, 0)));
+        const majH = () => { const n = fermes.filter((x) => !x.classList.contains('hors-ville') && !x.classList.contains('hors-type')).length; h.textContent = `${T.fermesCeSoir || 'Fermés ce soir'} · ${n}`; sec.hidden = !n; };
+        majH(); document.querySelectorAll('.filtre-villes, .filtre-types').forEach((f) => f.addEventListener('click', () => setTimeout(majH, 0)));
         majCompte(g); replier(g);
         sec.scrollIntoView({ behavior: reduit ? 'auto' : 'smooth', block: 'start' });
       }); } }
@@ -184,7 +184,7 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
   // Annuaires de lieux : les N premiers lieux visibles, puis « Voir les N autres » (recalculé quand on change de ville).
   const replier = (g) => {
     const max = +g.dataset.max; if (!max) return;
-    const vis = [...g.children].filter((x) => !x.hidden && !x.classList.contains('hors-ville'));
+    const vis = [...g.children].filter((x) => !x.hidden && !x.classList.contains('hors-ville') && !x.classList.contains('hors-type'));
     [...g.children].forEach((x) => x.classList.remove('en-trop'));
     vis.slice(max).forEach((x) => x.classList.add('en-trop'));
     let b = g.nextElementSibling?.classList.contains('voir-autres') ? g.nextElementSibling : null;
@@ -206,6 +206,16 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
     if (!restantes.length) document.querySelector('[data-aucune-soiree]')?.removeAttribute('hidden');
     else suggerer(listeSoir, restantes.length); // peu de soirées ce soir : panneau « week-end » à côté
   }
+  // Filtre Boîtes de nuit / Bars (page Ce soir et annuaire des lieux).
+  document.querySelectorAll('.filtre-types').forEach((f) => f.addEventListener('click', (e) => {
+    const b = e.target.closest('[data-type-lieu]'); if (!b) return;
+    f.querySelectorAll('.puce').forEach((x) => x.classList.toggle('actif', x === b));
+    const v = b.dataset.typeLieu;
+    document.querySelectorAll('.fiche-lieu:not(.fiche-tard)').forEach((l) => { l.classList.toggle('hors-type', !!v && (v === 'club') !== (l.dataset.type === 'club')); });
+    document.querySelectorAll('.fiches[data-max]').forEach(replier);
+    const g = document.getElementById('lieux-ce-soir'); if (g && window.__majCompte) window.__majCompte(g);
+    document.querySelectorAll('.bloc-large[id^="v-"]').forEach((sec) => { sec.hidden = ![...sec.querySelectorAll('.fiche-lieu')].some((x) => !x.classList.contains('hors-type')); });
+  }));
   document.querySelectorAll('.filtre-villes').forEach((f) => f.addEventListener('click', (e) => {
     const b = e.target.closest('[data-ville]'); if (!b) return;
     f.querySelectorAll('.puce').forEach((x) => x.classList.toggle('actif', x === b));

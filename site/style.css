@@ -1663,3 +1663,9 @@ html.onglets-caches .onglets{transform:translateY(105%)}
 .tard-ce-soir.ferme{background:#ffffff12;color:var(--creme);opacity:.7}
 /* Modèle économique : la dernière carte prend la place restante (pas de trou sur la dernière rangée). */
 @media(min-width:760px){.modele li:last-child:nth-child(3n+2){grid-column:span 2}.modele li:last-child:nth-child(3n+1){grid-column:span 3}}
+/* Filtre Boîtes de nuit / Bars (13/11/2026) */
+.fiche-lieu.hors-type{display:none}
+.filtre-types{margin-bottom:6px}
+.filtre-types .puce{font-weight:700}
+.filtre-types .puce{font:inherit;font-weight:700;cursor:pointer;border:0;color:var(--creme)}
+.filtre-types .puce.actif{background:var(--creme);color:var(--nuit)}
