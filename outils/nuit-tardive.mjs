@@ -74,7 +74,9 @@ export function lieuxTardifs(json) {
     const nuit = ['Club', 'Bar'].includes(categorie);
     // Manger : ouvert après 2 h (et pas une simple fermeture à 2 h pile d'un restaurant) ; after : après 5 h.
     if (!texteHorairesSoir(plages)) continue;
-    const type = nuit ? (max >= 300 && max < 1440 ? 'after' : null) : (max > 120 ? 'manger-tard' : null);
+    // After : ouvert au moins jusqu'à 6 h (un club qui ferme à 5 h n'en est pas un). Manger : après 2 h et avant 8 h
+    // (une fermeture en fin de matinée est presque toujours une erreur de la carte).
+    const type = nuit ? (max >= 360 && max <= 720 ? 'after' : null) : (max > 120 && max <= 480 ? 'manger-tard' : null);
     if (!type) continue;
     const cle = `${slug(t.name)}|${slug(ville)}`;
     if (vus.has(cle)) continue;

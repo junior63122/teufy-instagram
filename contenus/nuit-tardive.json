@@ -26,52 +26,6 @@
    "slug": "le-duplex-la-seyne-sur-mer"
   },
   {
-   "nom": "Jimmy’z Monte-Carlo",
-   "type": "after",
-   "categorie": "Club",
-   "ville": "Monaco",
-   "adresse": "26 Avenue Princesse Grace, 98000 Monaco",
-   "horaires": "mer–dim 23h30–5h30",
-   "fermetures": {
-    "1": 0,
-    "2": 0,
-    "3": 330,
-    "4": 330,
-    "5": 330,
-    "6": 330,
-    "7": 330
-   },
-   "lat": 43.747042,
-   "lng": 7.4385701,
-   "instagram": "",
-   "site": "https://www.montecarlosbm.com/it/nightlife/jimmyz-monte-carlo",
-   "source": "https://www.openstreetmap.org/node/2391676637",
-   "slug": "jimmy-z-monte-carlo-monaco"
-  },
-  {
-   "nom": "Bulldog Pompéi",
-   "type": "after",
-   "categorie": "Bar",
-   "ville": "Nice",
-   "adresse": "",
-   "horaires": "mar–sam 23h–5h",
-   "fermetures": {
-    "1": 0,
-    "2": 300,
-    "3": 300,
-    "4": 300,
-    "5": 300,
-    "6": 300,
-    "7": 0
-   },
-   "lat": 43.6967717,
-   "lng": 7.2756066,
-   "instagram": "",
-   "site": "https://www.bulldogpompei.com/",
-   "source": "https://www.openstreetmap.org/node/2613808611",
-   "slug": "bulldog-pompei-nice"
-  },
-  {
    "nom": "Castel",
    "type": "manger-tard",
    "categorie": "Restaurant",
@@ -93,29 +47,6 @@
    "site": "https://www.castelplage.com",
    "source": "https://www.openstreetmap.org/node/3039344236",
    "slug": "castel-nice"
-  },
-  {
-   "nom": "Shapko",
-   "type": "after",
-   "categorie": "Bar",
-   "ville": "Nice",
-   "adresse": "",
-   "horaires": "lun–dim 21h–5h",
-   "fermetures": {
-    "1": 300,
-    "2": 300,
-    "3": 300,
-    "4": 300,
-    "5": 300,
-    "6": 300,
-    "7": 300
-   },
-   "lat": 43.6971728,
-   "lng": 7.2769079,
-   "instagram": "",
-   "site": "https://shapkobar.fr/",
-   "source": "https://www.openstreetmap.org/node/3039344567",
-   "slug": "shapko-nice"
   },
   {
    "nom": "L’Opéra",
@@ -141,29 +72,6 @@
    "slug": "l-opera-saint-tropez"
   },
   {
-   "nom": "Kosma Piano Bar",
-   "type": "after",
-   "categorie": "Club",
-   "ville": "Nice",
-   "adresse": "",
-   "horaires": "mer–dim 23h–5h",
-   "fermetures": {
-    "1": 0,
-    "2": 0,
-    "3": 300,
-    "4": 300,
-    "5": 300,
-    "6": 300,
-    "7": 300
-   },
-   "lat": 43.6988217,
-   "lng": 7.270197,
-   "instagram": "",
-   "site": "https://www.kosmaclub.com/",
-   "source": "https://www.openstreetmap.org/node/3884789120",
-   "slug": "kosma-piano-bar-nice"
-  },
-  {
    "nom": "Café de Paris",
    "type": "manger-tard",
    "categorie": "Café",
@@ -185,29 +93,6 @@
    "site": "https://www.montecarlosbm.com/fr/restaurant-monaco/le-cafe-de-paris",
    "source": "https://www.openstreetmap.org/node/4316767531",
    "slug": "cafe-de-paris-monaco"
-  },
-  {
-   "nom": "Le Six",
-   "type": "after",
-   "categorie": "Club",
-   "ville": "Nice",
-   "adresse": "",
-   "horaires": "mar–sam 22h–5h",
-   "fermetures": {
-    "1": 0,
-    "2": 300,
-    "3": 300,
-    "4": 300,
-    "5": 300,
-    "6": 300,
-    "7": 0
-   },
-   "lat": 43.6960738,
-   "lng": 7.273006,
-   "instagram": "",
-   "site": "",
-   "source": "https://www.openstreetmap.org/node/4717194063",
-   "slug": "le-six-nice"
   },
   {
    "nom": "Le Quai",
@@ -279,29 +164,6 @@
    "slug": "gaio-saint-tropez"
   },
   {
-   "nom": "My Sweet Alep",
-   "type": "manger-tard",
-   "categorie": "Snack",
-   "ville": "Hyères",
-   "adresse": "",
-   "horaires": "lun–sam 21h–18h30",
-   "fermetures": {
-    "1": 1110,
-    "2": 1110,
-    "3": 1110,
-    "4": 1110,
-    "5": 1110,
-    "6": 1110,
-    "7": 0
-   },
-   "lat": 43.1211265,
-   "lng": 6.1313378,
-   "instagram": "",
-   "site": "",
-   "source": "https://www.openstreetmap.org/node/7086571440",
-   "slug": "my-sweet-alep-hyeres"
-  },
-  {
    "nom": "Beach Paradise",
    "type": "manger-tard",
    "categorie": "Restaurant",
@@ -323,52 +185,6 @@
    "site": "http://www.beachparadise.fr/",
    "source": "https://www.openstreetmap.org/node/7958944544",
    "slug": "beach-paradise-cagnes-sur-mer"
-  },
-  {
-   "nom": "Sixsa",
-   "type": "manger-tard",
-   "categorie": "Restaurant",
-   "ville": "Nice",
-   "adresse": "",
-   "horaires": "ven–sam 19h30–11h30",
-   "fermetures": {
-    "1": 0,
-    "2": 0,
-    "3": 0,
-    "4": 0,
-    "5": 690,
-    "6": 690,
-    "7": 0
-   },
-   "lat": 43.6990572,
-   "lng": 7.2709265,
-   "instagram": "",
-   "site": "https://restaurantsixsa.com/",
-   "source": "https://www.openstreetmap.org/node/10571502709",
-   "slug": "sixsa-nice"
-  },
-  {
-   "nom": "Tipsy",
-   "type": "after",
-   "categorie": "Bar",
-   "ville": "Nice",
-   "adresse": "",
-   "horaires": "lun–dim 22h–5h",
-   "fermetures": {
-    "1": 300,
-    "2": 300,
-    "3": 300,
-    "4": 300,
-    "5": 300,
-    "6": 300,
-    "7": 300
-   },
-   "lat": 43.6977295,
-   "lng": 7.2767251,
-   "instagram": "",
-   "site": "https://tipsynicebar.com/",
-   "source": "https://www.openstreetmap.org/node/10959575283",
-   "slug": "tipsy-nice"
   },
   {
    "nom": "Dii",
@@ -394,29 +210,6 @@
    "slug": "dii-nice"
   },
   {
-   "nom": "Opera",
-   "type": "after",
-   "categorie": "Club",
-   "ville": "Nice",
-   "adresse": "",
-   "horaires": "lun–dim 23h30–5h",
-   "fermetures": {
-    "1": 300,
-    "2": 300,
-    "3": 300,
-    "4": 300,
-    "5": 300,
-    "6": 300,
-    "7": 300
-   },
-   "lat": 43.6969528,
-   "lng": 7.2729935,
-   "instagram": "",
-   "site": "",
-   "source": "https://www.openstreetmap.org/node/11245149713",
-   "slug": "opera-nice"
-  },
-  {
    "nom": "Riviera Street Food",
    "type": "manger-tard",
    "categorie": "Snack",
@@ -438,29 +231,6 @@
    "site": "",
    "source": "https://www.openstreetmap.org/node/12959904493",
    "slug": "riviera-street-food-cannes"
-  },
-  {
-   "nom": "Lilly's Club Monte Carlo",
-   "type": "after",
-   "categorie": "Club",
-   "ville": "Monaco",
-   "adresse": "",
-   "horaires": "jeu–dim 22h–5h",
-   "fermetures": {
-    "1": 0,
-    "2": 0,
-    "3": 0,
-    "4": 300,
-    "5": 300,
-    "6": 300,
-    "7": 300
-   },
-   "lat": 43.7399243,
-   "lng": 7.4296775,
-   "instagram": "lillysclub",
-   "site": "https://lillysclub.com/",
-   "source": "https://www.openstreetmap.org/node/13003603423",
-   "slug": "lilly-s-club-monte-carlo-monaco"
   }
  ]
 }
