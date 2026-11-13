@@ -39,11 +39,13 @@ function fichierVideo(v) {
   return telecharger(v.mp4, path.join(CACHE, `${v.source}-${v.id}.mp4`));
 }
 
+// La police n'a pas d'émojis : ils s'afficheraient en carrés.
+const sansEmoji = (t) => String(t).replace(/[\p{Extended_Pictographic}\u{FE0F}\u{200D}]/gu, '').replace(/\s{2,}/g, ' ').trim();
 const mots = (s) => String(s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').split(/[^a-z0-9]+/).filter((x) => x.length > 2);
 /** Choisit la vidéo la plus proche des mots-clés du plan, verticale de préférence, jamais déjà prise. */
 export function choisirClip(banque, motsCles, pris, aleas = Math.random) {
   const cles = new Set(mots(motsCles));
-  const notes = banque.videos.filter((v) => !pris.has(v.id) && !/screen|app |interface|social media|tiktok|smartphone screen|green screen|chroma/i.test(v.titre)).map((v) => {
+  const notes = banque.videos.filter((v) => !pris.has(v.id) && !/screen|app |interface|social media|tiktok|smartphone|being recorded|recording|green screen|chroma|phone/i.test(v.titre)).map((v) => {
     const t = new Set([...mots(v.titre), ...(v.themes || []).flatMap(mots)]);
     let n = 0; for (const c of cles) if (t.has(c) || [...t].some((x) => x.startsWith(c) || c.startsWith(x))) n += 2;
     if (/club|party|danc|dj|crowd|laser|neon|concert|festival|night/.test(v.titre)) n += 1;
@@ -82,9 +84,29 @@ export function lignes(texte, max = 13) {
 }
 
 const EFFETS = ['zoom', 'glitch', 'secousse', 'zoom', 'flash'];
+/** Plan « noir » (texte choc sur fond noir qui tremble) ou « SMS » (bulle de message sur le club flouté). */
+function rendrePlanSpecial({ style, clip, debut, d, texte, sortie, tmp, i, groupe }) {
+  const tf = path.join(tmp, `t${i}.txt`); writeFileSync(tf, lignes(sansEmoji(texte), style === 'sms' ? 18 : 11));
+  if (style === 'noir') {
+    const v = [`drawtext=fontfile=${POLICE}:textfile=${tf}:fontcolor=white:fontsize='if(lt(t,0.1),150*(1.4-4*t),150)':line_spacing=6:text_align=C:x=(w-text_w)/2+6*sin(t*70):y=(h-text_h)/2+5*cos(t*61)`, 'noise=alls=18:allf=t', `fps=${FPS}`, 'format=yuv420p'].join(',');
+    ff(['-f', 'lavfi', '-i', `color=c=0x08080b:s=${W}x${H}:d=${d}:r=${FPS}`, '-vf', v, '-t', String(d), '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '17', sortie]);
+    return;
+  }
+  // SMS : fond club flouté + en-tête de groupe + grosse bulle blanche qui « arrive ».
+  const gf = path.join(tmp, `g${i}.txt`); writeFileSync(gf, sansEmoji(groupe || 'Les fêtards · maintenant'));
+  const v = [
+    `scale=w=${W}:h=${H}:force_original_aspect_ratio=increase`, `crop=${W}:${H}`, 'boxblur=22:2', 'eq=brightness=-0.18:saturation=1.4',
+    `drawbox=x=70:y='ih*0.30-80':w=iw-140:h=470:color=white@0.97:t=fill:enable='gte(t,0.12)'`,
+    `drawtext=fontfile=${POLICE}:textfile=${gf}:fontcolor=0x8a8a8f:fontsize=40:x=110:y='h*0.30-50':enable='gte(t,0.12)'`,
+    `drawtext=fontfile=${POLICE}:textfile=${tf}:fontcolor=0x111114:fontsize=88:line_spacing=10:x=110:y='h*0.30+20':enable='gte(t,0.12)'`,
+    `fps=${FPS}`, 'format=yuv420p', 'setsar=1',
+  ].join(',');
+  ff(['-ss', String(debut), '-t', String(d), '-i', clip, '-vf', v, '-an', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '17', sortie]);
+}
+
 /** Un plan : vidéo plein écran + effet de coupe + texte qui « tombe » (pop d'échelle). */
 function rendrePlan({ clip, debut, d, texte, couleur, effet, sortie, taillePolice = 118, tmp, i }) {
-  const tf = path.join(tmp, `t${i}.txt`); writeFileSync(tf, lignes(texte, taillePolice > 120 ? 10 : 12));
+  const tf = path.join(tmp, `t${i}.txt`); writeFileSync(tf, lignes(sansEmoji(texte), taillePolice > 120 ? 10 : 12));
   const [w0, h0] = taille(clip);
   const marge = effet === 'secousse' ? 1.08 : 1.02;
   const z = effet === 'zoom' ? `scale=w='trunc(${W * marge}*(1+0.10*t/${d})/2)*2':h=-2:eval=frame` : `scale=${Math.round(W * marge / 2) * 2}:-2`;
@@ -130,13 +152,14 @@ export async function reelChoc(concept, { sortie, tmp, banque = lire(path.join(R
   // Plans : accroche (image 0 = couverture), plans du concept, appel final.
   const sequence = [
     { texte: concept.accroche, video: concept.plans?.[0]?.video || 'crowd party club lights', d: 1.6, taille: 128, couleur: 'white' },
-    ...(concept.plans || []).slice(0, 8).map((p, k) => ({ texte: p.texte, video: p.video, d: Math.min(1.6, Math.max(0.85, 0.55 + 0.03 * String(p.texte).length)), taille: 104, couleur: k % 2 ? 'white' : '#ffd23f' })),
+    ...(concept.plans || []).slice(0, 8).map((p, k) => ({ texte: p.texte, video: p.video, style: p.style, groupe: p.groupe, d: Math.min(1.6, Math.max(0.85, 0.55 + 0.03 * String(p.texte).length)), taille: 104, couleur: k % 2 ? 'white' : '#ffd23f' })),
     { texte: concept.cta || 'Tague ton pote 👇', video: 'crowd cheering confetti party', d: 1.9, taille: 100, couleur: '#ffd23f' },
   ];
   const fichiers = [], clips = [];
   let i = 0;
   for (const p of sequence) {
     let ok = false;
+    if (p.style === 'noir') { const out = path.join(tmp, `p${i}.mp4`); rendrePlanSpecial({ style: 'noir', d: p.d, texte: p.texte, sortie: out, tmp, i }); fichiers.push({ f: out, d: p.d }); i++; continue; }
     for (let essai = 0; essai < 10 && !ok; essai++) {
       const v = (essai < 2 && clipPexels(p.video, pris, aleas)) || choisirClip(banque, p.video, pris, aleas); if (!v) break;
       pris.add(v.id);
@@ -145,7 +168,7 @@ export async function reelChoc(concept, { sortie, tmp, banque = lire(path.join(R
       const debut = Math.max(0, Math.min(D - p.d - 0.2, 0.5 + aleas() * Math.max(0, D - p.d - 1)));
       { const L = luminosite(f, debut, p.d); if (process.env.DEBUG) console.error('lum', v.id, v.titre, L.toFixed(0)); if (L < (essai < 6 ? 42 : 28)) continue; } // plan trop sombre : on n'y voit rien sur un téléphone
       const out = path.join(tmp, `p${i}.mp4`);
-      try { rendrePlan({ clip: f, debut, d: p.d, texte: p.texte.replace(/[👇👀🔥🙌]/gu, '').trim(), couleur: p.couleur, effet: i === 0 ? 'zoom' : EFFETS[i % EFFETS.length], sortie: out, taillePolice: p.taille, tmp, i }); }
+      try { if (p.style === 'sms') rendrePlanSpecial({ style: 'sms', clip: f, debut, d: p.d, texte: p.texte, sortie: out, tmp, i, groupe: p.groupe }); else rendrePlan({ clip: f, debut, d: p.d, texte: p.texte.replace(/[👇👀🔥🙌]/gu, '').trim(), couleur: p.couleur, effet: i === 0 ? 'zoom' : EFFETS[i % EFFETS.length], sortie: out, taillePolice: p.taille, tmp, i }); }
       catch (e) { if (process.env.DEBUG) console.error('plan raté', v.id, e.message.slice(-300)); continue; }
       fichiers.push({ f: out, d: p.d }); clips.push(v.id); ok = true;
     }
