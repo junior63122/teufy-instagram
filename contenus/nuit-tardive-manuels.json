@@ -9,7 +9,10 @@
    "horaires": "lun–dim 12h–2h30",
    "sources": [
     "https://www.sluurpy.fr/cannes/restaurant/2029490/bosphore-kebab"
-   ]
+   ],
+   "lat": 43.551034,
+   "lng": 7.022476,
+   "_geo": "Nominatim : adresse"
   },
   {
    "nom": "Brown Sugar",
@@ -20,7 +23,10 @@
    "sources": [
     "https://provence-alpes-cotedazur.com/sejourner/restaurants/tous-les-restaurants/brown-sugar-cannes-fr-3466605/",
     "https://www.sluurpy.fr/cannes/restaurant/2019738/brown-sugar-gastro-pub"
-   ]
+   ],
+   "lat": 43.551448,
+   "lng": 7.023586,
+   "_geo": "Nominatim : adresse"
   },
   {
    "nom": "72 Croisette",
@@ -31,7 +37,10 @@
    "sources": [
     "https://cotedazurfrance.fr/offres/72-croisette-cannes-fr-3466890",
     "https://provence-alpes-cotedazur.com/de/aufenthalt/restaurants/alle-restaurants/72-croisette-cannes-de-6318761/"
-   ]
+   ],
+   "lat": 43.548041,
+   "lng": 7.030085,
+   "_geo": "Nominatim : adresse"
   },
   {
    "nom": "L'Abri Côtier",
@@ -42,7 +51,10 @@
    "sources": [
     "https://cotedazurfrance.fr/offres/labri-cotier-vallauris-golfe-juan-fr-5836946/",
     "https://www.koifaire.com/paca/l,abri,ca,tier,l,offshore-38542.html"
-   ]
+   ],
+   "lat": 43.565585,
+   "lng": 7.080359,
+   "_geo": "Nominatim : adresse"
   },
   {
    "nom": "Univers Pizza (distributeur 24 h/24)",
@@ -53,7 +65,10 @@
    "sources": [
     "https://www.univers-pizza.net/fr/distributeurs-pizzas-la-seyne-le-beausset-rocbaron.htm",
     "https://www.ubereats.com/fr/store/distributeur-univers-pizza-24h-la-seyne-sur-mer/uxb_w8sQWLaRHkrYNeFW-Q"
-   ]
+   ],
+   "lat": 43.083551,
+   "lng": 5.874058,
+   "_geo": "Nominatim : position de la rue"
   },
   {
    "nom": "Pizz'otomat (distributeur 24 h/24)",
@@ -66,7 +81,10 @@
     "https://www.sluurpy.fr/draguignan/restaurant/7982150/pizzotomat",
     "https://annuaire.ville-draguignan.fr/annuaire/ville/draguignan-83/pizza",
     "https://restoranking.fr/r/pizzotomat_286475"
-   ]
+   ],
+   "lat": 43.530375,
+   "lng": 6.470581,
+   "_geo": "Nominatim : adresse"
   },
   {
    "nom": "Sam's Klub",
@@ -78,7 +96,10 @@
     "https://provence-alpes-cotedazur.com/sejourner/restaurants/tous-les-restaurants/sams-klub-bandol-fr-2867862/",
     "https://rankeat.fr/restaurants/sams-klub-restaurant-bandol-before-service-tardif-bandol",
     "https://www.sams-klub.com/restaurant-sanary-before-club/"
-   ]
+   ],
+   "lat": 43.146136,
+   "lng": 5.766388,
+   "_geo": "Nominatim : adresse"
   },
   {
    "nom": "Royal Food by Night",
@@ -90,7 +111,10 @@
     "https://www.au-magasin.fr/06000-nice/royal-food-by-night-276832.html",
     "https://www.sluurpy.fr/nice/restaurant/1999761/royal-food",
     "https://intravel.net/nice/restaurants-cafes/royal-food-by-night"
-   ]
+   ],
+   "lat": 43.709944,
+   "lng": 7.284815,
+   "_geo": "Nominatim : adresse"
   },
   {
    "nom": "Epicerie by Night",
@@ -100,7 +124,10 @@
    "horaires": "lun–dim 20h30–5h",
    "sources": [
     "https://delicity.com/epicerie-by-night-nice"
-   ]
+   ],
+   "lat": 43.678574,
+   "lng": 7.22704,
+   "_geo": "Nominatim : adresse"
   },
   {
    "nom": "Tip Top",
@@ -111,7 +138,10 @@
    "sources": [
     "https://www.gillespudlowski.com/?p=408129",
     "https://www.eat-list.fr/monaco-98000/brasserie-6/tip-top-36128"
-   ]
+   ],
+   "lat": 43.74057,
+   "lng": 7.429242,
+   "_geo": "Nominatim : position de la rue"
   },
   {
    "nom": "La Rascasse",
@@ -122,7 +152,10 @@
    "sources": [
     "https://www.montecarlosbm.com/fr/bar-nightclub-monaco/la-rascasse",
     "https://www.monaco-tribune.com/2025/01/ou-profiter-dun-bon-afterwork-a-monaco/"
-   ]
+   ],
+   "lat": 43.732558,
+   "lng": 7.423186,
+   "_geo": "Nominatim : adresse"
   }
  ]
 }
