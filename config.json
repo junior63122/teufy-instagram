@@ -77,14 +77,14 @@
     {
       "jour": 2,
       "rang": 1,
-      "type": "reel",
-      "variante": "flash"
+      "type": "bonplan",
+      "variante": "petits-prix"
     },
     {
       "jour": 3,
       "rang": 1,
-      "type": "reel",
-      "variante": "tendance"
+      "type": "bonplan",
+      "variante": "a-reserver"
     },
     {
       "jour": 4,
@@ -95,8 +95,9 @@
     {
       "jour": 5,
       "rang": 1,
-      "type": "bonplan",
-      "variante": "petits-prix"
+      "type": "reel",
+      "variante": "weekend",
+      "story": "debat"
     },
     {
       "jour": 6,
@@ -108,7 +109,7 @@
       "jour": 7,
       "rang": 1,
       "type": "reel",
-      "variante": "flash"
+      "variante": "techno"
     },
     {
       "jour": 1,
@@ -119,14 +120,14 @@
     {
       "jour": 2,
       "rang": 2,
-      "type": "reel",
-      "variante": "flash"
+      "type": "bonplan",
+      "variante": "petits-prix"
     },
     {
       "jour": 3,
       "rang": 2,
-      "type": "reel",
-      "variante": "tendance"
+      "type": "bonplan",
+      "variante": "a-reserver"
     },
     {
       "jour": 4,
@@ -138,7 +139,7 @@
       "jour": 5,
       "rang": 2,
       "type": "reel",
-      "variante": "tendance",
+      "variante": "weekend",
       "story": "debat"
     },
     {
@@ -150,7 +151,7 @@
       "jour": 7,
       "rang": 2,
       "type": "reel",
-      "variante": "flash"
+      "variante": "techno"
     },
     {
       "jour": 1,
@@ -161,28 +162,29 @@
     {
       "jour": 2,
       "rang": 3,
-      "type": "reel",
-      "variante": "flash"
+      "type": "bonplan",
+      "variante": "petits-prix"
     },
     {
       "jour": 3,
-      "rang": 3,
-      "type": "reel",
-      "variante": "tendance"
-    },
-    {
-      "jour": 4,
-      "rang": 3,
-      "type": "incontournables",
-      "variante": "tekno"
-    },
-    {
-      "jour": 5,
       "rang": 3,
       "type": "bonplan",
       "variante": "a-reserver"
     },
     {
+      "jour": 4,
+      "rang": 3,
+      "type": "incontournables",
+      "variante": "tekno"
+    },
+    {
+      "jour": 5,
+      "rang": 3,
+      "type": "reel",
+      "variante": "weekend",
+      "story": "debat"
+    },
+    {
       "jour": 6,
       "rang": 3,
       "type": "reel",
@@ -192,7 +194,7 @@
       "jour": 7,
       "rang": 3,
       "type": "reel",
-      "variante": "flash"
+      "variante": "techno"
     },
     {
       "jour": 1,
@@ -203,14 +205,14 @@
     {
       "jour": 2,
       "rang": 4,
-      "type": "reel",
-      "variante": "flash"
+      "type": "bonplan",
+      "variante": "petits-prix"
     },
     {
       "jour": 3,
       "rang": 4,
-      "type": "reel",
-      "variante": "tendance"
+      "type": "bonplan",
+      "variante": "a-reserver"
     },
     {
       "jour": 4,
@@ -222,7 +224,7 @@
       "jour": 5,
       "rang": 4,
       "type": "reel",
-      "variante": "tendance",
+      "variante": "weekend",
       "story": "debat"
     },
     {
@@ -234,7 +236,7 @@
       "jour": 7,
       "rang": 4,
       "type": "reel",
-      "variante": "flash"
+      "variante": "techno"
     },
     {
       "jour": 1,
@@ -245,14 +247,14 @@
     {
       "jour": 2,
       "rang": 5,
-      "type": "reel",
-      "variante": "flash"
+      "type": "bonplan",
+      "variante": "petits-prix"
     },
     {
       "jour": 3,
       "rang": 5,
-      "type": "reel",
-      "variante": "tendance"
+      "type": "bonplan",
+      "variante": "a-reserver"
     },
     {
       "jour": 4,
@@ -263,8 +265,9 @@
     {
       "jour": 5,
       "rang": 5,
-      "type": "bonplan",
-      "variante": "petits-prix"
+      "type": "reel",
+      "variante": "weekend",
+      "story": "debat"
     },
     {
       "jour": 6,
@@ -276,7 +279,7 @@
       "jour": 7,
       "rang": 5,
       "type": "reel",
-      "variante": "flash"
+      "variante": "techno"
     }
   ],
   "reglages": {
@@ -642,5 +645,6 @@
     "contacts_par_jour": 200,
     "recherches_contact_par_jour": 25,
     "_volume": "Montée en charge automatique : 60, 100, 150, 200 e-mails les 4 premiers jours d'envoi, puis nouveaux_par_jour (250 ; Brevo gratuit = 300/jour, le reste sert aux relances, rapports et paiements)."
-  }
+  },
+  "_calendrier_note": "13/11/2026 (directeur : « les reels explicatifs ne donnent pas envie, c'est mieux en story ») : le fil ne montre que des soirées (carrousels et reels d'affiches) et les guides ; les astuces passent en story (contenus/astuces-stories.json)."
 }

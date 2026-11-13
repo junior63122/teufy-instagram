@@ -23,6 +23,8 @@ export function planDuJour(now) {
     { h: 18, type: [1, 3, 5, 7].includes(j) ? 'offre' : 'repost' },
     { h: 20, type: 'question' },
     ...([4, 5, 6].includes(j) ? [{ h: 22, type: 'coeur' }] : []),
+    // Astuces en story (directeur 13/11/2026 : « les reels explicatifs ne donnent pas envie, mieux en story »).
+    ...([2, 3, 7].includes(j) ? [{ h: 17, type: 'astuce' }] : []),
   ];
 }
 
@@ -98,3 +100,11 @@ export function coupDeCoeur(evts, now, histo = [], { potentiel = () => 0.5, affi
 }
 
 export const quandTexte = (d) => paris(new Date(d), { weekday: 'long', day: 'numeric', month: 'long' });
+
+/** Astuce du jour (contenus/astuces-stories.json), pas répétée avant 30 jours. */
+export function astuceDuJour(now, histo = [], { astuces = lire('contenus/astuces-stories.json', []) } = {}) {
+  const deja = new Set(recentes(histo, 'astuce', 30, now));
+  const l = astuces.filter((x) => !deja.has(`a-${x.id}`));
+  const x = (l.length ? l : astuces)[Math.floor(now / 864e5) % (l.length || astuces.length || 1)];
+  return x ? { cle: `a-${x.id}`, titre: x.titre, sous: x.sous } : null;
+}

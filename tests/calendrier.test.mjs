@@ -10,19 +10,20 @@ const outils = (s) => { const r = rng(s); return { r, ch: chooser({ arms: {}, fe
 const config = JSON.parse(readFileSync(new URL('../config.json', import.meta.url)));
 const debats = JSON.parse(readFileSync(new URL('../contenus/debats.json', import.meta.url)));
 
-test('chaque semaine : 7 publications (lundi sorties, jeudi Édition Tekno, vendredi bon plan ou reel Tendance + débat en story, mercredi reel Tendance, 2 reels Flash, samedi reel Guide)', () => {
+test('chaque semaine : seulement des soirées et des guides dans le fil (directeur 13/11/2026 : les reels explicatifs passent en story)', () => {
   for (let m = 0; m < 12; m++) {
     const jours = daysOfMonth(new Date(Date.UTC(2027, m, 15, 12)));
     for (const d of jours) {
       const s = slotOfDay(d);
       const c = config.calendrier.find((x) => x.jour === s.jour && x.rang === s.rang);
-      if ([2, 7].includes(s.jour)) assert.deepEqual([c?.type, c?.variante], ['reel', 'flash'], s.date);
-      else if (s.jour === 6) assert.ok(c?.type === 'guide' || (c?.type === 'reel' && c?.variante === 'guide'), s.date); // Guide en carrousel ou en reel, en alternance (idée du directeur)
-      else if (s.jour === 4) assert.deepEqual([c?.type, c?.variante], ['incontournables', 'tekno'], s.date);
-      else if (s.jour === 3) assert.deepEqual([c?.type, c?.variante], ['reel', 'tendance'], s.date);
-      else if (s.jour === 1) assert.equal(c?.type, 'incontournables', s.date);
-      else assert.ok(c?.type === 'bonplan' || (c?.type === 'reel' && c?.variante === 'tendance' && c?.story === 'debat'), s.date); // débat : en story seulement (directeur, 12/11/2026)
-      assert.notEqual(c?.type, 'debat', `${s.date} : plus de débat en post`);
+      assert.ok(c, s.date);
+      assert.ok(!['flash', 'tendance', 'explicatif'].includes(c.variante), `${s.date} : pas de reel explicatif dans le fil`);
+      assert.notEqual(c.type, 'debat', `${s.date} : plus de débat en post`);
+      if (s.jour === 6) assert.ok(c.type === 'guide' || (c.type === 'reel' && c.variante === 'guide'), s.date);
+      else if (s.jour === 4) assert.deepEqual([c.type, c.variante], ['incontournables', 'tekno'], s.date);
+      else if (s.jour === 5) assert.deepEqual([c.type, c.variante, c.story], ['reel', 'weekend', 'debat'], s.date);
+      else if (s.jour === 1) assert.equal(c.type, 'incontournables', s.date);
+      else assert.ok(c.type === 'bonplan' || (c.type === 'reel' && ['weekend', 'techno'].includes(c.variante)), s.date);
     }
   }
 });

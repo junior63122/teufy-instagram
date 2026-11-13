@@ -1,0 +1,14 @@
+[
+ {"id": "prevente", "titre": "Prends ta place dès l'annonce", "sous": "Les préventes partent par paliers : plus tu attends, plus c'est cher."},
+ {"id": "gratuit-avant", "titre": "« Gratuit avant 1 h », ça veut dire 0h59", "sous": "Arrive en avance : à 1 h pile, la file a déjà le prix plein."},
+ {"id": "retour", "titre": "Ton retour, prévois-le avant de partir", "sous": "Navette, VTC, appli de taxi : à 5 h du mat, tout le monde cherche en même temps."},
+ {"id": "vestiaire", "titre": "Vestiaire : garde le ticket en photo", "sous": "Tu le perds à 4 h, tu remercieras ta galerie."},
+ {"id": "eau", "titre": "Un verre d'eau entre deux verres", "sous": "Ton lendemain te dit merci."},
+ {"id": "piece-identite", "titre": "Pas de pièce d'identité, pas d'entrée", "sous": "Même si tu as 25 ans et ton billet : prends-la."},
+ {"id": "dress-code", "titre": "Dress code : regarde l'Instagram du lieu", "sous": "Baskets ou pas, la réponse est souvent dans leurs stories."},
+ {"id": "manger-tard", "titre": "La boîte ferme, t'as faim ?", "sous": "Tous les spots ouverts après 2 h sont sur teufyparty.com, page « Manger tard »."},
+ {"id": "pres-de-moi", "titre": "Pas d'idée pour ce soir ?", "sous": "« Près de moi » sur teufyparty.com : tout ce qui est ouvert autour de toi."},
+ {"id": "favoris", "titre": "Tes soirées en favoris", "sous": "Le cœur sur teufyparty.com, et tu les retrouves sur ton téléphone."},
+ {"id": "codes", "titre": "Des codes promo sur tes billets", "sous": "Page « Avantages » sur teufyparty.com, ça change chaque semaine."},
+ {"id": "potes", "titre": "Partage la soirée au groupe", "sous": "Le bouton « Partager » sur chaque soirée Teufy : plus d'excuse."}
+]

@@ -942,6 +942,12 @@ async function storiesPreparer(S) {
         r = x ? { cles: [x.cle], frames: [{ video: x.url }] } : await question('repost'); // rien à reposter : une question
       } else if (s.type === 'question') {
         r = await question('question');
+      } else if (s.type === 'astuce') {
+        const a = S.astuceDuJour(NOW.getTime(), histo);
+        if (a) {
+          const carte = await couvertureDA({ photo: photoDA(['rire', 'terrasse', 'foule', 'rooftop'], NOW), rubrique: 'Astuce', titre: a.titre, sous: a.sous }, path.join(dir, `${jour}-astuce-carte.jpg`));
+          r = { cles: [a.cle], frames: [{ image: await cadre({ image: versStudio(carte), rubrique: 'Le bon réflexe', texte: 'Envoie-la à ton pote qui en a besoin 👀' }, 'astuce') }] };
+        }
       } else if (s.type === 'coeur') {
         const montrees = new Set([...histo.filter((h) => h.type === 'soirees' && Date.parse(h.le) > NOW - 3 * 864e5).flatMap((h) => h.cles || []), ...plan.filter((p) => p.type === 'soirees').flatMap((p) => p.cles)]);
         const x = S.coupDeCoeur(evts.filter((e) => !montrees.has(e.name)), NOW.getTime(), histo, { potentiel, afficheOk: (e) => !!affiche(e), comptes: comptesConfirmes });
