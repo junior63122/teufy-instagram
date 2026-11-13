@@ -44,3 +44,16 @@ test('Nuit tardive : secours par la carte OpenStreetMap téléchargée (GeoJSON 
   const l = lieuxTardifs({ elements: elementsDepuisGeojson(txt) });
   assert.deepEqual(l.map((x) => [x.nom, x.ville]), [['Kebab', 'Nice']]);
 });
+test('Nuit tardive : jamais de gare, station-service, pharmacie, parking, hôtel ni « 24/7 »', async () => {
+  const { lieuxTardifs } = await import('../outils/nuit-tardive.mjs');
+  const el = (id, tags) => ({ type: 'node', id, lat: 43.7, lon: 7.26, tags });
+  const l = lieuxTardifs({ elements: [
+    el(1, { name: 'Nice-Ville', railway: 'station', opening_hours: 'Mo-Su 05:00-00:30' }),
+    el(2, { name: 'Esso', amenity: 'fuel', opening_hours: '24/7' }),
+    el(3, { name: 'Pharmacie Riviera', amenity: 'pharmacy', opening_hours: '24/7' }),
+    el(4, { name: 'Le Méridien Nice', amenity: 'restaurant', tourism: 'hotel', opening_hours: '24/7' }),
+    el(5, { name: 'Snack 24', amenity: 'fast_food', opening_hours: '24/7' }),
+    el(6, { name: 'Kebab Masséna', amenity: 'fast_food', cuisine: 'kebab', opening_hours: 'Fr,Sa 18:00-05:00' }),
+  ] });
+  assert.deepEqual(l.map((x) => x.nom), ['Kebab Masséna']);
+});

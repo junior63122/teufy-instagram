@@ -61,6 +61,11 @@ export function lieuxTardifs(json) {
     const ville = villeDe(t, lat, lng);
     if (!ville) continue;
     if (!t.name || t.disused || /^(no|closed|off)$/i.test(t.opening_hours)) continue;
+    // Seulement des endroits où manger ou faire la fête (13/11/2026 : la carte complète faisait entrer gares, stations-
+    // service, pharmacies, parkings, vélos en libre-service et hôtels).
+    if (!(/^(fast_food|restaurant|cafe|nightclub|bar|pub)$/.test(t.amenity || '') || t.shop === 'bakery')) continue;
+    if (t.tourism || /\b(h[oô]tel|hostel|campanile|ibis|novotel|mercure|b&b|station|gare|a[ée]roport|parking|pharmacie|esso|total|avia|shell)\b/i.test(t.name)) continue;
+    if (/24\/7/.test(t.opening_hours)) continue; // « 24/7 » sur la carte = souvent un service d'hôtel ou une erreur : jamais affiché
     const plages = lireOSM(t.opening_hours);
     if (!plages) continue;
     const f = fermeturesDeNuit(plages);
@@ -68,6 +73,7 @@ export function lieuxTardifs(json) {
     const categorie = TYPE(t);
     const nuit = ['Club', 'Bar'].includes(categorie);
     // Manger : ouvert après 2 h (et pas une simple fermeture à 2 h pile d'un restaurant) ; after : après 5 h.
+    if (!texteHorairesSoir(plages)) continue;
     const type = nuit ? (max >= 300 && max < 1440 ? 'after' : null) : (max > 120 ? 'manger-tard' : null);
     if (!type) continue;
     const cle = `${slug(t.name)}|${slug(ville)}`;
