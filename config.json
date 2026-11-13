@@ -95,21 +95,14 @@
     {
       "jour": 5,
       "rang": 1,
-      "type": "reel",
-      "variante": "weekend",
+      "type": "incontournables",
+      "variante": "commercial",
       "story": "debat"
     },
     {
       "jour": 6,
       "rang": 1,
-      "type": "reel",
-      "variante": "guide"
-    },
-    {
-      "jour": 7,
-      "rang": 1,
-      "type": "reel",
-      "variante": "techno"
+      "type": "guide"
     },
     {
       "jour": 1,
@@ -138,8 +131,8 @@
     {
       "jour": 5,
       "rang": 2,
-      "type": "reel",
-      "variante": "weekend",
+      "type": "incontournables",
+      "variante": "commercial",
       "story": "debat"
     },
     {
@@ -148,12 +141,6 @@
       "type": "guide"
     },
     {
-      "jour": 7,
-      "rang": 2,
-      "type": "reel",
-      "variante": "techno"
-    },
-    {
       "jour": 1,
       "rang": 3,
       "type": "incontournables",
@@ -180,21 +167,14 @@
     {
       "jour": 5,
       "rang": 3,
-      "type": "reel",
-      "variante": "weekend",
+      "type": "incontournables",
+      "variante": "commercial",
       "story": "debat"
     },
     {
       "jour": 6,
       "rang": 3,
-      "type": "reel",
-      "variante": "guide"
-    },
-    {
-      "jour": 7,
-      "rang": 3,
-      "type": "reel",
-      "variante": "techno"
+      "type": "guide"
     },
     {
       "jour": 1,
@@ -223,8 +203,8 @@
     {
       "jour": 5,
       "rang": 4,
-      "type": "reel",
-      "variante": "weekend",
+      "type": "incontournables",
+      "variante": "commercial",
       "story": "debat"
     },
     {
@@ -233,12 +213,6 @@
       "type": "guide"
     },
     {
-      "jour": 7,
-      "rang": 4,
-      "type": "reel",
-      "variante": "techno"
-    },
-    {
       "jour": 1,
       "rang": 5,
       "type": "incontournables",
@@ -265,21 +239,14 @@
     {
       "jour": 5,
       "rang": 5,
-      "type": "reel",
-      "variante": "weekend",
+      "type": "incontournables",
+      "variante": "commercial",
       "story": "debat"
     },
     {
       "jour": 6,
       "rang": 5,
-      "type": "reel",
-      "variante": "guide"
-    },
-    {
-      "jour": 7,
-      "rang": 5,
-      "type": "reel",
-      "variante": "techno"
+      "type": "guide"
     }
   ],
   "reglages": {
@@ -294,7 +261,8 @@
     ],
     "_creneaux": "Heures (UTC) parmi lesquelles le bot choisit l'heure de publication selon ce qui marche (16h-19h l'hiver, 17h-20h l'été à Paris). Le passage de 19h UTC sert de rattrapage.",
     "delai_min_heures": 24,
-    "_delai": "Une soirée n'est montrée que si elle commence au moins 24 h après la publication (le temps que les gens voient le post)."
+    "_delai": "Une soirée n'est montrée que si elle commence au moins 24 h après la publication (le temps que les gens voient le post).",
+    "ecart_reel_h": 2
   },
   "sources_note": "Shotgun protège ses pages par une vérification anti-robot (Vercel) : le bot ne la contourne pas. Ses soirées arrivent par la recherche web (moteurs de recherche) et les posts Instagram des organisateurs. DICE : dice.fm/browse/nice-<id>. Eventbrite : pages « nightlife » et « parties » des villes de la Côte (heure exacte lue sur la page de chaque soirée). Bizouk : page d'accueil filtrée sur les villes de la Côte et du Var. Ticketmaster bloque les robots (403) : ses soirées arrivent par la recherche web. Agenda PACA : chargé en JavaScript, couvert par la recherche web.",
   "recherche_web": {
@@ -646,5 +614,27 @@
     "recherches_contact_par_jour": 25,
     "_volume": "Montée en charge automatique : 60, 100, 150, 200 e-mails les 4 premiers jours d'envoi, puis nouveaux_par_jour (250 ; Brevo gratuit = 300/jour, le reste sert aux relances, rapports et paiements)."
   },
-  "_calendrier_note": "13/11/2026 (directeur : « les reels explicatifs ne donnent pas envie, c'est mieux en story ») : le fil ne montre que des soirées (carrousels et reels d'affiches) et les guides ; les astuces passent en story (contenus/astuces-stories.json)."
+  "_calendrier_note": "13/11/2026 (directeur) : au minimum 3 reels et 4 posts par semaine. Posts : soirées en carrousels et guide (lun→sam). Reels (calendrier_reels, 2 h après le post) : formats viraux uniquement (guide, humour / POV vécus, histoire illustrée), choisis par l'apprentissage ; jamais de reel de soirées ni d'explicatif. Astuces en story.",
+  "calendrier_reels": [
+    {
+      "jour": 2,
+      "type": "reel",
+      "variante": "viral"
+    },
+    {
+      "jour": 4,
+      "type": "reel",
+      "variante": "viral"
+    },
+    {
+      "jour": 6,
+      "type": "reel",
+      "variante": "viral"
+    },
+    {
+      "jour": 7,
+      "type": "reel",
+      "variante": "viral"
+    }
+  ]
 }

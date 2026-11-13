@@ -10,20 +10,24 @@ const outils = (s) => { const r = rng(s); return { r, ch: chooser({ arms: {}, fe
 const config = JSON.parse(readFileSync(new URL('../config.json', import.meta.url)));
 const debats = JSON.parse(readFileSync(new URL('../contenus/debats.json', import.meta.url)));
 
-test('chaque semaine : seulement des soirées et des guides dans le fil (directeur 13/11/2026 : les reels explicatifs passent en story)', () => {
+test('chaque semaine : au moins 4 posts et 3 reels, jamais de reel de soirées ni d\'explicatif (directeur 13/11/2026)', () => {
+  const FORMATS_REELS = ['viral', 'guide', 'humour', 'histoire'];
   for (let m = 0; m < 12; m++) {
     const jours = daysOfMonth(new Date(Date.UTC(2027, m, 15, 12)));
-    for (const d of jours) {
-      const s = slotOfDay(d);
-      const c = config.calendrier.find((x) => x.jour === s.jour && x.rang === s.rang);
-      assert.ok(c, s.date);
-      assert.ok(!['flash', 'tendance', 'explicatif'].includes(c.variante), `${s.date} : pas de reel explicatif dans le fil`);
-      assert.notEqual(c.type, 'debat', `${s.date} : plus de débat en post`);
-      if (s.jour === 6) assert.ok(c.type === 'guide' || (c.type === 'reel' && c.variante === 'guide'), s.date);
-      else if (s.jour === 4) assert.deepEqual([c.type, c.variante], ['incontournables', 'tekno'], s.date);
-      else if (s.jour === 5) assert.deepEqual([c.type, c.variante, c.story], ['reel', 'weekend', 'debat'], s.date);
-      else if (s.jour === 1) assert.equal(c.type, 'incontournables', s.date);
-      else assert.ok(c.type === 'bonplan' || (c.type === 'reel' && ['weekend', 'techno'].includes(c.variante)), s.date);
+    for (let i = 0; i + 7 <= jours.length; i += 7) {
+      let posts = 0, reels = 0;
+      for (const d of jours.slice(i, i + 7)) {
+        const s = slotOfDay(d);
+        const c = config.calendrier.find((x) => x.jour === s.jour && x.rang === s.rang);
+        if (c) {
+          posts++;
+          assert.notEqual(c.type, 'reel', `${s.date} : le calendrier des posts ne contient plus de reels`);
+          assert.notEqual(c.type, 'debat', `${s.date} : plus de débat en post`);
+        }
+        for (const r of config.calendrier_reels.filter((x) => x.jour === s.jour)) { reels++; assert.ok(FORMATS_REELS.includes(r.variante), `${s.date} : reel ${r.variante} interdit`); }
+      }
+      assert.ok(posts >= 4, `semaine du ${jours[i]} : ${posts} posts`);
+      assert.ok(reels >= 3, `semaine du ${jours[i]} : ${reels} reels`);
     }
   }
 });

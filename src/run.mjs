@@ -60,6 +60,12 @@ const creneauDuJour = (d) => chooser(MODEL, rng(`${slotOfDay(d).date}-creneau`))
 
 const slotFor = (d) => { const s = slotOfDay(d); return config.calendrier.find((c) => c.jour === s.jour && c.rang === s.rang); };
 const slotId = (s) => [s.type, s.variante].filter(Boolean).join('-');
+// Deux publications le même jour possibles (13/11/2026, directeur : « au minimum 3 reels et 4 posts par semaine, même
+// s'il faut une vidéo et un post le même jour ») : le post du calendrier, puis le reel de config.calendrier_reels, au
+// moins config.reglages.ecart_reel_h heures plus tard (sans dépasser le dernier créneau).
+const slotsFor = (d) => { const s = slotOfDay(d); return [slotFor(d), ...(config.calendrier_reels || []).filter((c) => c.jour === s.jour).map((c) => ({ ...c, second: true }))].filter(Boolean); };
+const dejaPublie = (s) => hist.some((h) => h.id === slotId(s) && h.date === slotOfDay(NOW).date);
+const slotDuMoment = () => slotsFor(NOW).find((s) => !dejaPublie(s));
 
 let jobs;
 if (cible === 'collecter') {
@@ -96,7 +102,7 @@ if (cible === 'collecter') {
   process.exit(0);
 }
 if (cible === 'auto') {
-  const s = slotFor(NOW);
+  const s = slotDuMoment();
   if (flag('quoi')) {
     let rep = s ? slotId(s) : 'rien';
     // Pause : la nouvelle direction artistique doit être validée avant toute publication automatique.
@@ -104,7 +110,8 @@ if (cible === 'auto') {
     if (s?.type === 'reel' && config.studio?.reels_en_pause) { console.error(`Reels en pause : ${config.studio.reels_en_pause}`); rep = 'rien'; }
     if (s && hist.some((h) => h.id === slotId(s) && h.date === slotOfDay(NOW).date)) rep = 'rien'; // déjà publié aujourd'hui
     else if (s && flag('horaire')) {
-      const choisi = +creneauDuJour(NOW);
+      const premier = +creneauDuJour(NOW), dernier = Math.max(...CRENEAUX.map(Number));
+      const choisi = s?.second ? Math.min(premier + Number(R.ecart_reel_h ?? 2), dernier) : premier;
       if (NOW.getUTCHours() < choisi) { console.error(`Publication prévue vers ${choisi}h UTC.`); rep = 'rien'; }
       // Jamais de post tard le soir (le 11/11, un rattrapage est parti à 22h58) : au-delà de 21h30 à Paris, le post du
       // jour n'est plus publié par les passages de rattrapage (config.instagram.heure_max_paris pour changer).
@@ -122,7 +129,7 @@ if (cible === 'auto') {
   // Stories du jour (src/stories.mjs) : « stories --quoi » = nombre dues, « stories preparer », « stories publier ».
   jobs = [];
 } else if (cible === 'mois') {
-  jobs = daysOfMonth(NOW).map((d) => ({ slot: slotFor(d), now: d })).filter((j) => j.slot);
+  jobs = daysOfMonth(NOW).flatMap((d) => slotsFor(d).map((slot) => ({ slot, now: d })));
   console.log(`Aperçu du mois : ${jobs.length} publications`);
 } else {
   const [type, variante] = cible.split(':');
@@ -218,6 +225,10 @@ async function prepare(slot, now, id) {
   const seed = `${stamp}-${id}`;
   const r = rng(seed);
   const ch = chooser(MODEL, r);
+  // Reel « viral » (13/11/2026, directeur : « je cherche la viralité, garde tout et améliore avec ce qui marche ») :
+  // guide (vraies adresses), humour / POV vécus, histoire illustrée ; l'apprentissage ramène plus souvent le format qui
+  // marche le mieux chez nous, et la veille des concurrents (Le Bonbon…) nourrit les scénarios. Jamais de reel de soirées.
+  if (slot.type === 'reel' && slot.variante === 'viral') slot = { ...slot, variante: val('format') || ch.pick('format-reel-viral', ['guide', 'humour', 'histoire'], (x) => x) };
   if (cible === 'auto') ch.choix.creneau = String(Math.min(Math.max(NOW.getUTCHours(), +CRENEAUX[0]), +CRENEAUX.at(-1)));
   const villes = config.villes;
   const debugDir = path.join(ROOT, 'out', 'debug');
@@ -379,7 +390,7 @@ async function prepare(slot, now, id) {
     if (!files) throw new Error('Carrousel de la DA impossible (studio absent ou moins de 2 affiches) : rien n\'est publié.');
     files ||= await renderPages(programme(pages, chosen, { th, photos, titre, sous: fort ? `En ${MOIS(now)}` : elargi ? 'Ces prochains jours' : 'Cette semaine' }), dir, `incontournables-${stamp}`, { width: 1080, height: 1350 });
     pub = { images: files, legende: captionIncontournables({ variante: enTechno || !techno ? slot.variante : 'commercial', events: chosen, ...win, ch, r, periode: chosen.periode }), soirees: chosen, titre: chosen.titrePost || titre };
-  } else if (slot.type === 'reel' && config.studio?.actif && ['flash', 'histoire', 'nouveau', 'tendance', 'explicatif', 'humour', 'immersif'].includes(slot.variante)) {
+  } else if (slot.type === 'reel' && config.studio?.actif && ['flash', 'histoire', 'nouveau', 'tendance', 'explicatif', 'humour', 'immersif', 'guide'].includes(slot.variante)) { // « guide » manquait : le reel Guide retombait sur un reel de soirées
     // Reels = créations du studio (Remotion) : explicatif, humour ou immersif, jamais un catalogue de soirées.
     const STUDIO = path.join(ROOT, 'studio');
     const dirC = path.join(STUDIO, 'scripts', 'concepts');
@@ -390,9 +401,10 @@ async function prepare(slot, now, id) {
     // Format validé : « Flash ». La rubrique est choisie par l'apprentissage (celle qui marche le mieux revient plus souvent).
     const rubriqueFlash = () => ch.pick('rubrique-reel', ['Explicatif', 'Astuce', 'Humour', 'Actu nuit'], (x) => x);
     // Tendance : format viral repéré par la veille, écrit à neuf ; si l'écriture échoue, reel Flash de la banque (le post sort toujours).
-    let c = slot.variante === 'guide' ? await nouveauFlash(STUDIO, id, 'Guide').catch((err) => { console.error(`[${id}] reel Guide impossible (${err.message}) : reel Flash à la place.`); return DRY ? dispo.find((x) => x.concept === 'reelflash') : nouveauFlash(STUDIO, id, rubriqueFlash()).catch(() => dispo.find((x) => x.concept === 'reelflash') || null); })
+    let c = slot.variante === 'guide' ? await nouveauFlash(STUDIO, id, 'Guide').catch((err) => { console.error(`[${id}] reel Guide impossible (${err.message}) : reel Humour à la place.`); return DRY ? dispo.find((x) => x.concept === 'reelflash') : nouveauFlash(STUDIO, id, 'Humour').catch(() => dispo.find((x) => x.concept === 'reelflash') || null); })
       : slot.variante === 'tendance' ? await nouveauFlash(STUDIO, id, 'Tendance').catch((err) => { console.error(`[${id}] reel Tendance impossible (${err.message}) : reel Flash de la banque.`); return dispo.find((x) => x.concept === 'reelflash') || null; })
       : slot.variante === 'nouveau' ? await nouveauFlash(STUDIO, id, rubriqueFlash())
+      : slot.variante === 'humour' && !DRY ? await nouveauFlash(STUDIO, id, 'Humour').catch((err) => { console.error(`[${id}] reel Humour impossible (${err.message}) : histoire illustrée.`); return dispo.find((x) => ['histoire', 'potesfluide'].includes(x.concept)) || null; })
       : val('concept') ? tous.find((x) => x.id === val('concept'))
       // Flash (12/11/2026) : écrit à neuf avec la fiche cible (contenus/cible.json) ; la réserve ne sert qu'en secours.
       : slot.variante === 'flash' && !DRY ? await nouveauFlash(STUDIO, id, rubriqueFlash()).catch((err) => { console.error(`[${id}] reel Flash inédit impossible (${err.message}) : réserve.`); return dispo.find((x) => x.concept === 'reelflash') || null; })

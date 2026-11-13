@@ -240,6 +240,10 @@
   "concurrents": {
     "_note": "Comptes concurrents ou similaires (guides de sorties, médias nightlife). Le bot regarde chaque jour ce qui marche chez eux (formats, accroches, hashtags, heures). Un nom inexistant est simplement ignoré.",
     "liste": [
+      "lebonbonmarseille",
+      "lebonbon",
+      "lebonbon_nice",
+      "lebonbonnice",
       "nightlyfr",
       "sortiranice",
       "nice.nightlife",
