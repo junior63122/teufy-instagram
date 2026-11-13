@@ -1327,7 +1327,8 @@ function vignette(s, base = '') {
 
 const boutonBillets = (s, t) => (s.url
   ? `<a class="bouton" href="${esc(s.url)}" target="_blank" rel="noopener">${esc(t.billets)}</a>`
-  : `<a class="bouton secondaire" href="https://www.google.com/search?q=${encodeURIComponent(`${s.nom} ${s.lieu} billetterie`)}" target="_blank" rel="noopener">${esc(t.trouverBillets)}</a>`);
+  // Pas de lien de billetterie connu : même bouton (un seul style sur tout le site, directeur 13/11), « Infos » si l'entrée est gratuite.
+  : `<a class="bouton" href="https://www.google.com/search?q=${encodeURIComponent(`${s.nom} ${s.lieu} ${s.prix === 0 ? '' : 'billetterie'}`.trim())}" target="_blank" rel="noopener">${esc(s.prix === 0 ? (t.infos || 'Infos') : t.billets)}</a>`);
 
 function jsonEvent(s, lang) {
   const offres = s.offres.length ? s.offres : s.prix != null ? [{ url: s.url, prix: s.prix }] : [];
@@ -2318,7 +2319,7 @@ function pageAvantages({ lang, t, tr, base, compte, T, chemin, maj, now, lieux, 
     ${adresse ? `<p class="av-adresse">${ICO_INFO.lieu}${esc(adresse)}</p>` : ''}
     ${sx.length ? `<div class="av-soirees"><p class="pied-titre">${esc(tr(code ? 'Soirées où le code marche' : 'Ses prochaines soirées'))}</p><ul>${sx.map((x) => `<li><a href="${base}${pre(lang)}soiree/${esc(x.id)}/"><b>${esc(x.nom)}</b><small>${esc(quand(x))}</small></a></li>`).join('')}</ul></div>` : ''}
     <p class="petit av-conditions">${conditions ? `${esc(tr('Conditions'))} : ${esc(tr(conditions))}` : ''}${jusqu ? `${conditions ? ' · ' : ''}${esc(tr("jusqu'au"))} ${esc(paris(`${jusqu}T12:00:00Z`, { day: 'numeric', month: 'long', year: 'numeric' }, t.locale))}` : ''}</p>
-    <p class="fiche-liens">${adresse ? `<a class="bouton petit" href="https://www.google.com/maps/dir/?api=1&amp;destination=${encodeURIComponent([partenaire, adresse].join(', '))}" target="_blank" rel="noopener">${esc(tr('Itinéraire'))}</a>` : ''}${L?.slug ? `<a class="bouton petit contour" href="${base}${pre(lang)}clubs-bars/${esc(L.slug)}/">${esc(tr('Voir le lieu'))}</a>` : ''}${code && liste?.length ? `<a class="bouton petit" href="${base}${pre(lang)}avantages/${esc(slug(code))}/">${esc(tr(`Voir les ${liste.length} soirées`))}</a>` : ''}${insta ? `<a class="bouton petit contour" href="https://www.instagram.com/${esc(insta)}/" target="_blank" rel="noopener">Instagram</a>` : ''}</p>
+    <p class="fiche-liens">${adresse ? `<a class="bouton petit" href="https://www.google.com/maps/dir/?api=1&amp;destination=${encodeURIComponent([partenaire, adresse].join(', '))}" target="_blank" rel="noopener">${esc(tr('Itinéraire'))}</a>` : ''}${L?.slug ? `<a class="bouton petit contour" href="${base}${pre(lang)}clubs-bars/${esc(L.slug)}/">${esc(tr('Voir le lieu'))}</a>` : ''}${code && liste?.length ? `<a class="bouton petit" href="${base}${pre(lang)}avantages/${esc(slug(code))}/">${esc(tr(`Voir les ${liste.length} soirées`))}</a>` : ''}${insta ? `<a class="bouton petit contour" href="https://www.instagram.com/${esc(insta)}/" target="_blank" rel="noopener">Instagram</a>` : ''}<button type="button" class="bouton petit contour partager" data-url="${URL_SITE}${pre(lang)}${code && liste?.length ? `avantages/${esc(slug(code))}/` : `avantages/#${esc(slug(cle))}`}" data-titre="${esc(`${tr(titre)} · ${partenaire}`)}">${esc(t.partager || 'Partager')}</button></p>
   </div></article>`;
   };
   const cartes = [

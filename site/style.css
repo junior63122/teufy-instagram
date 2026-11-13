@@ -1750,7 +1750,6 @@ html.onglets-caches .onglets{transform:translateY(105%)}
 /* Boutons de carte sur une seule ligne ; affiche sans image : la ville en haut pour ne pas cacher le lieu */
 .carte .actions{flex-wrap:wrap}
 .carte .actions .bouton,.carte .actions .lien{white-space:nowrap}
-.affiche.sans .ville-tag{display:none} /* l affiche de remplacement écrit déjà le lieu et la ville */
 /* Avantages (13/11, directeur : « trop long, ne prend pas la largeur ») : une offre = un billet horizontal pleine largeur,
    l'offre en gros d'abord, puis le partenaire, le code, l'adresse et les soirées en puces. */
 .avantages-grille{display:grid;grid-template-columns:1fr;gap:22px}
@@ -1776,3 +1775,23 @@ html.onglets-caches .onglets{transform:translateY(105%)}
 }
 .code-grand{font-size:22px}
 .code-grand b{font-size:clamp(34px,5vw,56px);font-family:var(--titre);color:var(--corail)}
+.meta .ou::before{content:"";display:inline-block;width:13px;height:13px;margin-inline-end:5px;vertical-align:-2px;background:currentColor;opacity:.75;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27%3E%3Cpath d=%27M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z%27/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27%3E%3Cpath d=%27M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z%27/%3E%3C/svg%3E") center/contain no-repeat}
+/* 13/11 (directeur : « le design n'est pas cohérent, des textes ne sont pas lisibles ») :
+   la ville est TOUJOURS une pastille avec épingle (aussi sur les affiches de remplacement), le lieu porte aussi l'épingle,
+   et les pastilles passent à la ligne au lieu d'être coupées en fondu. */
+.affiche.sans .ville-tag{display:inline-flex}
+.affiche.sans .v-lieu{display:none}
+.meta .ou{display:inline-flex;align-items:center}
+.rangee .carte .meta{flex-wrap:wrap;overflow:visible;-webkit-mask-image:none;mask-image:none}
+.rangee .carte .meta>*{flex:0 1 auto;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.fiche-liens{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+/* Avantages plus compacts */
+.avantage-carte{grid-template-columns:minmax(220px,30%) 1fr}
+.avantage-carte .av-bandeau{min-height:220px;max-height:330px}
+.avantage-carte .fiche-corps{padding:20px 24px;gap:6px}
+.avantage-carte .av-offre{font-size:clamp(22px,2.3vw,30px)}
+.avantage-carte h3{font-size:19px}
+.avantage-carte .av-logo{width:60px;height:60px}
+@media (max-width:760px){.avantage-carte .av-bandeau{max-height:none}}
+/* Affiche de remplacement : place réservée en bas pour la pastille ville (ne cache plus le titre) */
+.affiche.sans .vignette{padding-bottom:56px}

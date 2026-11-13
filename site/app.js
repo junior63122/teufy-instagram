@@ -794,7 +794,7 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
   document.addEventListener('click', async (ev) => {
     const p = ev.target.closest('.partager');
     if (p) {
-      const d = { title: document.title, url: location.href.split('#')[0] };
+      const d = { title: p.dataset.titre || document.title, url: p.dataset.url || location.href.split('#')[0] };
       if (navigator.share) { try { await navigator.share(d); } catch { /* partage annulé */ } return; }
       // Sans partage natif : copie du lien, et si le presse-papiers est refusé, le lien s'affiche pour être copié à la main.
       try { await navigator.clipboard.writeText(d.url); toast(T.lienCopie); } catch { toast(d.url); }
