@@ -2,13 +2,13 @@
   "jour": "2026-11-13",
   "plan": [
     {
-      "type": "offre",
+      "type": "question",
       "cles": [
-        "av-Le Barathym-1 shooter offert sur présentation de Teufy"
+        "q-faim-antibes"
       ],
       "frames": [
         {
-          "image": "2026-11-13-offre.jpg"
+          "image": "2026-11-13-question.jpg"
         }
       ]
     }
