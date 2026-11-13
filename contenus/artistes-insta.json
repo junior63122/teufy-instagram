@@ -125,7 +125,7 @@
    "La Tocardise|2026-11-14T22:00:00.000Z"
   ],
   "site": "",
-  "le": "2026-11-12T20:25:41.877Z"
+  "le": "2026-11-13T05:21:52.969Z"
  },
  "plk": {
   "nom": "PLK",
@@ -144,7 +144,7 @@
   "nom": "Manudigital",
   "compte": "manudigital",
   "bio": "BRAND NEW EP 🤝 RAGGA BLASTA w/ @skarramucci ⚡️\nBeatmaker/Producer & musician\n📨: booking@xrayproduction.com",
-  "abonnes": 204367,
+  "abonnes": 204369,
   "soirees": [
    "Skarra Mucci & Manudigital — Ragga Blasta Tour|2026-11-27T19:30:00.000Z"
   ],
@@ -157,7 +157,7 @@
   "nom": "Shafro",
   "compte": "shafroevents",
   "bio": "FRANCE TOUR 🇫🇷\n💕12/11 : 📍STRASBOURG\n💕14/11 : 📍BORDEAUX\n💕20/11 : 📍NANTES\n💕27/11 : 📍LYON",
-  "abonnes": 12149,
+  "abonnes": 12146,
   "soirees": [
    "Shafro @ Toulon #2 : Afro, Shatta, Dancehall|2026-11-29T19:00:00.000Z",
    "Shafro @ Toulon #3 — Afro, Shatta, Bouyon|2026-12-20T19:00:00.000Z"
@@ -179,5 +179,18 @@
   "avatar": "site/artistes/origins-techno-avatar.jpg",
   "photo": "site/artistes/origins-techno.jpg",
   "le": "2026-11-12T20:25:41.380Z"
+ },
+ "lady-miss-tik": {
+  "nom": "Lady Miss Tik",
+  "compte": "lady_miss_tik",
+  "bio": "Lady Miss Tik 🇨🇵 Dragqueen, chanteuse, animatrice jeux et soirées \n@gingermisstik_ent \nBooking: cedric.greg@icloud.com",
+  "abonnes": 3101,
+  "soirees": [
+   "Dragolote avec Lady Miss Tik|2026-11-22T18:00:00.000Z"
+  ],
+  "site": "https://www.instagram.com/channel/kiOcnIwITBg1ljC0/",
+  "avatar": "site/artistes/lady-miss-tik-avatar.jpg",
+  "photo": "site/artistes/lady-miss-tik.jpg",
+  "le": "2026-11-13T05:21:52.779Z"
  }
 }
