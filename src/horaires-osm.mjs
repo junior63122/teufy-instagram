@@ -38,6 +38,7 @@ export function lireOSM(oh) {
       const t = p.match(/^(\d{1,2}):(\d{2})-(\d{1,2}):(\d{2})\+?$/);
       if (!t) return null; // jours fériés, mois, semaines, textes libres : on ne devine pas
       let de = min(t[1], t[2]), a = min(t[3], t[4]);
+      if (a === 1439) a = 1440; // « 23:59 » = minuit (jamais affiché 23h59)
       if (a <= de) a += 1440;
       plages.push({ de, a });
     }
@@ -46,6 +47,12 @@ export function lireOSM(oh) {
   return Object.keys(res).length ? res : null;
 }
 
+/** Ouverture au petit matin après la nuit de chaque jour (boulangerie qui ouvre à 4 h 30), en minutes ; absente sinon. */
+export function ouverturesMatinales(plagesParJour) {
+  const out = {};
+  for (let d = 1; d <= 7; d++) for (const p of plagesParJour?.[d % 7 + 1] || []) if (p.de > 0 && p.de < 360) out[d] = Math.min(out[d] ?? 1440, p.de);
+  return out;
+}
 /** Heure de fermeture de la nuit qui suit chaque jour (minutes après minuit, 0 si fermé avant minuit). */
 export function fermeturesDeNuit(plagesParJour) {
   const out = {};
@@ -53,7 +60,7 @@ export function fermeturesDeNuit(plagesParJour) {
     let f = 0;
     for (const p of plagesParJour?.[d] || []) if (p.a > 1440) f = Math.max(f, p.a - 1440); else if (p.continu) f = Math.max(f, 1440);
     // Plage qui commence en pleine nuit le lendemain (« Sa 00:00-05:00 ») : elle appartient à la nuit de ce jour-ci.
-    for (const p of plagesParJour?.[d % 7 + 1] || []) if (p.de < 360 && p.a > p.de) f = Math.max(f, Math.min(p.a, 1440));
+    for (const p of plagesParJour?.[d % 7 + 1] || []) if (p.de === 0 && p.a > 0) f = Math.max(f, Math.min(p.a, 1440)); // suite de la nuit (« 00:00-05:00 »)
     if ((plagesParJour?.[d] || []).some((p) => p.continu) && (plagesParJour?.[d % 7 + 1] || []).some((p) => p.continu)) f = 1440;
     out[d] = f;
   }

@@ -2156,7 +2156,7 @@ ${soirees.length ? agenda(soirees, { t, base, lang }) : `<section class="bloc-la
 // (et à chaque veille) ; le tri des soirées et des lieux ouverts se fait dans le navigateur, à l'heure réelle.
 // Fiche d'une adresse de fin de nuit : statut calculé à l'heure du visiteur (mêmes règles que les clubs), horaires et source.
 const carteTardive = (l, tr, i) => { const H = lireHoraires(l.horaires); const carte = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent([l.nom, l.adresse, l.ville].filter(Boolean).join(', '))}`;
-  return `<article class="fiche-lieu fiche-tard" style="--i:${i % 8}" data-type="${esc(l.type)}" data-ville="${esc(slug(l.ville || ''))}"${H ? ` data-horaires="${esc(JSON.stringify(H.plages))}"` : ''}${l.fermetures ? ` data-ferme="${esc(JSON.stringify(l.fermetures))}"` : ''}><div class="fiche-corps">
+  return `<article class="fiche-lieu fiche-tard" style="--i:${i % 8}" data-type="${esc(l.type)}" data-ville="${esc(slug(l.ville || ''))}"${H ? ` data-horaires="${esc(JSON.stringify(H.plages))}"` : ''}${l.fermetures ? ` data-ferme="${esc(JSON.stringify(l.fermetures))}"` : ''}${l.ouvertures ? ` data-ouvre="${esc(JSON.stringify(l.ouvertures))}"` : ''}><div class="fiche-corps">
   <p class="genre">${esc(tr(l.categorie || (l.type === 'after' ? 'After' : 'Manger tard')))}${l.ville ? ` · ${esc(l.ville)}` : ''}</p><h3>${esc(l.nom)}</h3>
   <p class="lieu-statut" hidden></p>
   <p class="tard-horaires">${ICO_INFO.horaires}${esc(l.horaires)} · <a href="${esc(l.source)}" target="_blank" rel="noopener">${esc(tr('source'))}</a></p>

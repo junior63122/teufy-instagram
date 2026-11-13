@@ -233,10 +233,11 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
     if (h < 6) jour = jour === 1 ? 7 : jour - 1; // à 3 h du matin, c'est encore la nuit d'hier
     const fmt = (m) => (m >= 1440 ? (document.documentElement.lang === 'fr' ? 'toute la nuit' : '24/7') : `${Math.floor(m / 60)} h${m % 60 ? String(m % 60).padStart(2, '0') : ''}`);
     tard.forEach((el) => {
-      let f = 0; try { f = JSON.parse(el.dataset.ferme)[jour] || 0; } catch { /* données illisibles */ }
-      el.dataset.ceSoir = f;
-      const b = document.createElement('p'); b.className = `tard-ce-soir${f ? '' : ' ferme'}`;
-      b.textContent = f ? (document.documentElement.lang === 'fr' ? `Ce soir jusqu'à ${fmt(f)}` : `Tonight until ${fmt(f)}`) : (document.documentElement.lang === 'fr' ? 'Fermé tard ce soir' : 'Not open late tonight');
+      let f = 0, o = 0; try { f = JSON.parse(el.dataset.ferme)[jour] || 0; o = JSON.parse(el.dataset.ouvre || '{}')[jour] || 0; } catch { /* données illisibles */ }
+      el.dataset.ceSoir = f || (o ? 300 : 0); // ouvre au petit matin : compté dans « 5 h et + »
+      const fr = document.documentElement.lang === 'fr';
+      const b = document.createElement('p'); b.className = `tard-ce-soir${f || o ? '' : ' ferme'}`;
+      b.textContent = f ? (fr ? `Ce soir jusqu'à ${fmt(f)}` : `Tonight until ${fmt(f)}`) : o ? (fr ? `Ouvre dès ${fmt(o)}` : `Opens at ${fmt(o)}`) : (fr ? 'Fermé tard ce soir' : 'Not open late tonight');
       el.querySelector('h3')?.after(b);
     });
     document.querySelectorAll('.filtre-tard').forEach((g) => g.addEventListener('click', (e) => {

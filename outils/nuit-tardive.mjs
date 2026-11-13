@@ -8,7 +8,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { lireOSM, fermeturesDeNuit, texteHorairesSoir } from '../src/horaires-osm.mjs';
+import { lireOSM, fermeturesDeNuit, texteHorairesSoir, ouverturesMatinales } from '../src/horaires-osm.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const F = path.join(ROOT, 'contenus', 'nuit-tardive.json');
@@ -75,12 +75,13 @@ export function lieuxTardifs(json) {
     if (!texteHorairesSoir(plages)) continue;
     // Règle du directeur (13/11/2026) : MANGER = ouvert à un moment entre 2 h et 6 h du matin, quelle que soit l'heure
     // d'ouverture ou de fermeture (ouvert à 19 h et fermé à midi, 24 h/24 : ça compte). AFTER = bar ou club ouvert après 6 h.
-    const type = nuit ? (max >= 360 ? 'after' : null) : (max > 120 ? 'manger-tard' : null);
+    const ouv = ouverturesMatinales(plages), tot = Object.keys(ouv).length > 0; // ouvre avant 6 h (boulangerie)
+    const type = nuit ? (max >= 360 ? 'after' : null) : (max > 120 || tot ? 'manger-tard' : null);
     if (!type) continue;
     const cle = `${slug(t.name)}|${slug(ville)}`;
     if (vus.has(cle)) continue;
     vus.add(cle);
-    out.push({ nom: t.name, type, categorie, ville, adresse: adresse(t), horaires: texteHorairesSoir(plages), fermetures: f,
+    out.push({ nom: t.name, type, categorie, ville, adresse: adresse(t), horaires: texteHorairesSoir(plages), fermetures: f, ...(tot ? { ouvertures: ouv } : {}),
       lat, lng, instagram: insta(t), site: site(t),
       source: `https://www.openstreetmap.org/${el.type}/${el.id}`, slug: slug(`${t.name}-${ville}`) });
   }
