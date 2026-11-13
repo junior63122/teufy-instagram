@@ -558,7 +558,9 @@
   "src": "musique/electro-dreams.mp3",
   "volume": 0.42,
   "debut": 0,
-  "ducking": 0.3
+  "ducking": 0.3,
+  "bpm": 123.8,
+  "phase": 0.01200000000000001
  },
  "plans": [
   {
