@@ -65,7 +65,7 @@ const hTxt = (m) => { m %= 1440; const h = Math.floor(m / 60), mm = m % 60; retu
 export function texteHorairesSoir(plagesParJour) {
   const parJour = {};
   for (let d = 1; d <= 7; d++) {
-    const ps = (plagesParJour?.[d] || []).filter((p) => p.a > 1440 || p.continu);
+    const ps = (plagesParJour?.[d] || []).filter((p) => p.a > 1440 || p.continu || p.de < 360); // ouvert la nuit, ou dès le petit matin (boulangerie de 4 h 30)
     if (!ps.length) continue;
     const p = ps.at(-1);
     parJour[d] = p.continu ? '0h–24h' : `${hTxt(p.de)}–${hTxt(p.a)}`;

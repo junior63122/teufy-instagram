@@ -44,7 +44,7 @@ test('Nuit tardive : secours par la carte OpenStreetMap téléchargée (GeoJSON 
   const l = lieuxTardifs({ elements: elementsDepuisGeojson(txt) });
   assert.deepEqual(l.map((x) => [x.nom, x.ville]), [['Kebab', 'Nice']]);
 });
-test('Nuit tardive : jamais de gare, station-service, pharmacie, parking, hôtel ni « 24/7 »', async () => {
+test('Nuit tardive : jamais de gare, station-service, pharmacie, parking ni hôtel ; 24 h/24 et ouvert 19 h-midi comptent', async () => {
   const { lieuxTardifs } = await import('../outils/nuit-tardive.mjs');
   const el = (id, tags) => ({ type: 'node', id, lat: 43.7, lon: 7.26, tags });
   const l = lieuxTardifs({ elements: [
@@ -55,5 +55,7 @@ test('Nuit tardive : jamais de gare, station-service, pharmacie, parking, hôtel
     el(5, { name: 'Snack 24', amenity: 'fast_food', opening_hours: '24/7' }),
     el(6, { name: 'Kebab Masséna', amenity: 'fast_food', cuisine: 'kebab', opening_hours: 'Fr,Sa 18:00-05:00' }),
   ] });
-  assert.deepEqual(l.map((x) => x.nom), ['Kebab Masséna']);
+  assert.deepEqual(l.map((x) => x.nom), ['Snack 24', 'Kebab Masséna']);
+  const m = lieuxTardifs({ elements: [el(7, { name: 'Resto nuit', amenity: 'restaurant', opening_hours: 'Mo-Su 19:00-12:00' }), el(8, { name: 'Boulangerie', shop: 'bakery', opening_hours: 'Mo-Sa 04:30-13:00' }), el(9, { name: 'Ferme à 1 h', amenity: 'fast_food', opening_hours: 'Mo-Su 18:00-01:00' })] });
+  assert.deepEqual(m.map((x) => x.nom), ['Resto nuit', 'Boulangerie']);
 });

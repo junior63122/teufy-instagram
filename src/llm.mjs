@@ -78,10 +78,14 @@ export function etatBudget() { return lireBudget(); }
 const GH = 'https://models.github.ai/inference/chat/completions';
 
 // `gratuit: true` : les IA gratuites passent devant Claude (veille horaire, tâches fréquentes et peu coûteuses).
+// Crédit Gemini épuisé jusqu'à une date (config.llm.gemini_pause_jusqu_au, « AAAA-MM-JJ ») : Gemini n'est plus appelé
+// (pas d'appels en échec ni d'attente inutile) ; les secours prennent le relais. (13/11/2026, directeur : plus de crédit
+// Gemini avant le mois prochain.)
+export const geminiEnPause = (config = {}, now = Date.now()) => { const d = config.llm?.gemini_pause_jusqu_au; return !!d && now < Date.parse(`${d}T00:00:00+01:00`); };
 export function fournisseurs(config = {}, { gratuit = false } = {}) {
   const L = config.llm || {};
   const out = [];
-  if (process.env.GEMINI_API_KEY) out.push('gemini');
+  if (process.env.GEMINI_API_KEY && !geminiEnPause(config)) out.push('gemini');
   if (process.env.GITHUB_ACTIONS === 'true' && process.env.GITHUB_TOKEN && L.github_models !== false) out.push('github');
   // Claude passe en premier quand le payant est autorisé (meilleure qualité), les IA gratuites restent en secours.
   // Continuité : si Gemini est à sec, Claude prend le relais des tâches fréquentes (secours_payant, actif par défaut),

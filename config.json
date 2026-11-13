@@ -321,6 +321,8 @@
   "llm": {
     "explication": "Claude (secret ANTHROPIC_API_KEY, payant) en premier si payant_autorise = true ; sinon et en secours : Gemini (secret GEMINI_API_KEY, gratuit, recherche Google) puis GitHub Models (gratuit dans GitHub Actions). modele_gemini vide = le meilleur modèle Gemini « flash » disponible, choisi automatiquement.",
     "payant_autorise": true,
+    "gemini_pause_jusqu_au": "2026-12-01",
+    "_gemini_pause_jusqu_au": "13/11/2026, directeur : plus de crédit Gemini jusqu'au mois prochain. Avant cette date, Gemini n'est plus appelé (ni texte, ni images, ni recherche web) : les posts sans IA, les stories et les secours prennent le relais. Vider ce champ quand le crédit est rechargé.",
     "secours_payant": false,
     "_secours_payant": "false (11/11/2026, demande du directeur : limiter les coûts) : les tâches fréquentes (prospection, veille, horaires, billetteries) n'utilisent jamais Claude ; si Gemini est indisponible elles passent par GitHub Models (gratuit) ou attendent le passage suivant",
     "recherche_claude_en_premier": false,

@@ -21,7 +21,7 @@ export const VILLES = { Nice: [43.7031, 7.2661], Cannes: [43.5513, 7.0128], Anti
   'Hyères': [43.1204, 6.1286], 'Six-Fours-les-Plages': [43.0940, 5.8390], 'Sanary-sur-Mer': [43.1190, 5.8010], Bandol: [43.1360, 5.7530], Draguignan: [43.5366, 6.4646] };
 // Une petite requête par ville (rayon de quelques km) : les grosses requêtes sont refusées par les serveurs (502, délai).
 const RAYON = { Nice: 6000, Toulon: 5000, Cannes: 4000, Antibes: 3500, Monaco: 2500 };
-const HORAIRE_TARD = '"opening_hours"~"-0[2-9]:|-1[01]:|24/7|-24:00"'; // filtré par le serveur : seuls les lieux ouverts après 2 h reviennent
+const HORAIRE_TARD = '"opening_hours"~"-0[2-9]:|-1[0-9]:|24/7|-24:00|(^|[ ,;])0[0-5]:"'; // filtré par le serveur : lieux ouverts entre 2 h et 6 h
 const requete = (v, [la, lo]) => { const a = `(around:${RAYON[v] || 3000},${la},${lo})`; return `[out:json][timeout:30];(nwr${a}["amenity"~"^(fast_food|restaurant|cafe|nightclub|bar|pub)$"][${HORAIRE_TARD}]["name"];nwr${a}["shop"="bakery"][${HORAIRE_TARD}]["name"];);out tags center 200;`; };
 const dist = (a, b, c, d) => Math.hypot((a - c) * 111, (b - d) * 111 * Math.cos(a * Math.PI / 180));
 const sansAcc = (x) => String(x || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z]/g, '');
@@ -65,7 +65,6 @@ export function lieuxTardifs(json) {
     // service, pharmacies, parkings, vélos en libre-service et hôtels).
     if (!(/^(fast_food|restaurant|cafe|nightclub|bar|pub)$/.test(t.amenity || '') || t.shop === 'bakery')) continue;
     if (t.tourism || /\b(h[oô]tel|hostel|campanile|ibis|novotel|mercure|b&b|station|gare|a[ée]roport|parking|pharmacie|esso|total|avia|shell)\b/i.test(t.name)) continue;
-    if (/24\/7/.test(t.opening_hours)) continue; // « 24/7 » sur la carte = souvent un service d'hôtel ou une erreur : jamais affiché
     const plages = lireOSM(t.opening_hours);
     if (!plages) continue;
     const f = fermeturesDeNuit(plages);
@@ -74,9 +73,9 @@ export function lieuxTardifs(json) {
     const nuit = ['Club', 'Bar'].includes(categorie);
     // Manger : ouvert après 2 h (et pas une simple fermeture à 2 h pile d'un restaurant) ; after : après 5 h.
     if (!texteHorairesSoir(plages)) continue;
-    // After : ouvert au moins jusqu'à 6 h (un club qui ferme à 5 h n'en est pas un). Manger : après 2 h et avant 8 h
-    // (une fermeture en fin de matinée est presque toujours une erreur de la carte).
-    const type = nuit ? (max >= 360 && max <= 720 ? 'after' : null) : (max > 120 && max <= 480 ? 'manger-tard' : null);
+    // Règle du directeur (13/11/2026) : MANGER = ouvert à un moment entre 2 h et 6 h du matin, quelle que soit l'heure
+    // d'ouverture ou de fermeture (ouvert à 19 h et fermé à midi, 24 h/24 : ça compte). AFTER = bar ou club ouvert après 6 h.
+    const type = nuit ? (max >= 360 ? 'after' : null) : (max > 120 ? 'manger-tard' : null);
     if (!type) continue;
     const cle = `${slug(t.name)}|${slug(ville)}`;
     if (vus.has(cle)) continue;

@@ -38,6 +38,9 @@ const HIST_FILE = path.join(ROOT, 'historique.json');
 const config = JSON.parse(await readFile(path.join(ROOT, 'config.json'), 'utf8'));
 // Médias publiés sur Instagram : servis par le site (domaine propre s'il est branché, sinon l'adresse GitHub Pages).
 const MEDIA_BASE = (config.site?.domaine ? `https://${config.site.domaine}/media` : process.env.MEDIA_BASE_URL || 'https://junior63122.github.io/teufy-instagram/media').replace(/\/$/, '');
+// Crédit Gemini épuisé (config.llm.gemini_pause_jusqu_au) : la clé est retirée pour ce passage et tous les scripts lancés
+// d'ici (décors, affiches, scénariste) ; les secours sans Gemini prennent le relais, les publications passent toujours.
+{ const d = config.llm?.gemini_pause_jusqu_au; if (d && Date.now() < Date.parse(`${d}T00:00:00+01:00`) && process.env.GEMINI_API_KEY) { delete process.env.GEMINI_API_KEY; console.error(`Gemini en pause jusqu'au ${d} (crédit épuisé) : secours sans Gemini.`); } }
 const R = config.reglages;
 const hist = existsSync(HIST_FILE) ? JSON.parse(await readFile(HIST_FILE, 'utf8')) : [];
 const usedHere = new Set(); // débats / bons plans déjà pris dans ce lancement (aperçu du mois)
