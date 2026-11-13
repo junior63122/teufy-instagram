@@ -132,7 +132,7 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
     let jour = JOUR[p.weekday], min = +p.hour * 60 + +p.minute;
     if (min < 360) { jour = jour === 1 ? 7 : jour - 1; min += 1440; } // entre minuit et 6 h : c'est encore « ce soir »
     const enMin = (h) => { const [a, b] = h.split(':').map(Number); return a * 60 + b; };
-    const fmt = (h) => (/^23:5[5-9]$/.test(h) ? (document.documentElement.lang === 'fr' ? 'minuit' : '12 am') : h.replace(/^0/, '').replace(':00', 'h').replace(':', 'h'));
+    const fmt = (h) => (/^(23:5[5-9]|24:00)$/.test(h) ? (document.documentElement.lang === 'fr' ? 'minuit' : '12 am') : h.replace(/^0/, '').replace(':00', 'h').replace(':', 'h'));
     for (const el of lieux) {
       const st = el.querySelector('.lieu-statut'); if (!st) continue;
       let txt = '', cls = '';

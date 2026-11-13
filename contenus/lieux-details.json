@@ -464,19 +464,18 @@
   ]
  },
  "bisous-bisous-cannes": {
-  "le": "2026-11-10T17:13:19.609Z",
-  "styles": "House · Deep house · Tech house · Disco",
+  "le": "2026-11-13T16:46:51.471Z",
+  "styles": "House · Disco · New wave",
   "dress_code": "Tenue chic et soignée exigée, sportswear et streetwear refusés.",
-  "horaires": "Ven–Sam · 0h–5h",
+  "horaires": "jeu–sam 0h–5h",
   "prix_verre": "",
   "entree": "Généralement gratuite (sur sélection ou réservation de table)",
   "age_min": "18 ans",
   "sources": [
-   "https://www.hotelsbarriere.com/fr/cannes/le-majestic/activites/bisous-bisous.html",
-   "https://www.cannes-france.com/offres/bisous-bisous-cannes-fr-3897934/",
-   "https://cannesconventionbureau.semec.com/bisous-bisous",
-   "https://www.instagram.com/bisousbisousclub/"
-  ]
+   "https://cotedazurfrance.fr/offres/bisous-bisous-cannes-fr-3650956/",
+   "https://www.hotelsbarriere.com/en/cannes/le-majestic/restaurants-and-bars/bisous-bisous.html"
+  ],
+  "relu": "manuel"
  },
  "glass-club-cannes-cannes": {
   "le": "2026-11-10T17:13:19.609Z",
