@@ -2709,20 +2709,20 @@
         "hashtag:#cotedazur",
         "auteur:bot"
       ],
-      "note": 9,
+      "note": 14,
       "metrics": {
-        "reach": 365,
-        "likes": 2,
+        "reach": 398,
+        "likes": 4,
         "comments": 0,
         "saved": 0,
         "shares": 0,
-        "total_interactions": 2,
-        "views": 522,
-        "ig_reels_avg_watch_time": 4558,
+        "total_interactions": 4,
+        "views": 571,
+        "ig_reels_avg_watch_time": 4854,
         "duree": 29.2
       },
-      "mesure_le": "2026-11-12T18:07:43.073Z",
-      "score": 0.176
+      "mesure_le": "2026-11-14T02:15:15.068Z",
+      "score": 0.29
     },
     {
       "media": "18062836039876762",
@@ -2968,6 +2968,41 @@
       },
       "mesure_le": "2026-11-13T15:08:03.850Z",
       "score": 2.245
+    },
+    {
+      "media": "18170367442470235",
+      "id": "reel-tendance",
+      "type": "reel",
+      "variante": "tendance",
+      "date": "2026-11-13",
+      "choix": {
+        "creneau": "15",
+        "debat": "laser-game"
+      },
+      "features": [],
+      "nb_images": 0,
+      "duree": 28.4,
+      "legende": "Tu t'es déjà demandé pourquoi l'entrée est offerte avant 1h ? 🎟️\n\nCe n'est pas un geste d'amitié, c'est une stratégie rodée :\n1. Amorcer l'ambiance pour les arrivants de 2h qui payent plein tarif.\n2. T'inciter à commander au bar pendant le warm-up.\n3. Rentabiliser la soirée sur les consos plutôt que sur l'entrée.\n\nTu préfères payer 0 € et arriver tôt ou payer 20 € et arriver quand c'est blindé ? Dis-le en com !\n\n#TeufyParty #SortirSurLaCote #NiceNightlife #CannesParty #AstuceSoiree",
+      "titre": "Pourquoi l'entrée est gratuite avant 1h dans les clubs ?",
+      "publie_le": "2026-11-13T15:20:01.399Z",
+      "source": "bot",
+      "caption": "Tu t'es déjà demandé pourquoi l'entrée est offerte avant 1h ? 🎟️\n\nCe n'est pas un geste d'amitié, c'est une stratégie rodée :\n1. Amorcer l'ambiance pour les arrivants de 2h qui payent plein tarif.\n2. T'inciter à commander au bar pendant le warm-up.\n3. Rentabiliser la soirée sur les consos plutôt que sur l'entrée.\n\nTu préfères payer 0 € et arriver tôt ou payer 20 € et arriver quand c'est blindé ? Dis-le en com !\n\n#TeufyParty #SortirSurLaCote #NiceNightlife #CannesParty #AstuceSoiree",
+      "features_generales": [
+        "heure:16h",
+        "jour:ven",
+        "format:reel",
+        "type:reel-tendance",
+        "legende:moyenne",
+        "accroche:question",
+        "hashtag:#teufyparty",
+        "hashtag:#sortirsurlacote",
+        "hashtag:#nicenightlife",
+        "hashtag:#cannesparty",
+        "hashtag:#astucesoiree",
+        "theme:debat",
+        "auteur:bot"
+      ],
+      "note": null
     }
   ],
   "abonnes": [
@@ -2994,6 +3029,10 @@
     {
       "date": "2026-11-13",
       "n": 14465
+    },
+    {
+      "date": "2026-11-14",
+      "n": 14461
     }
   ]
 }

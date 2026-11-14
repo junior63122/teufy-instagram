@@ -2,12 +2,12 @@
 
 Mis à jour automatiquement chaque jour. **Note /100** : 50 = performance habituelle du compte pour ce format, 100 = deux fois mieux. Elle combine likes, commentaires (×2), enregistrements (×3), partages (×4), abonnés gagnés (×10), visites du profil, portée et, pour les reels, la part de la vidéo regardée.
 
-**Abonnés** : 14465 (-9 sur 30 jours) · **Posts notés** : 66 · **Moyenne bot** : 50 · **Moyenne posts de l'équipe** : 59
+**Abonnés** : 14461 (-13 sur 30 jours) · **Posts notés** : 66 · **Moyenne bot** : 51 · **Moyenne posts de l'équipe** : 59
 
 ## Objectif du prochain post : 95/100
 
 - 2026-11-12 incontournables-tekno : 100/100 ✅
-- 2026-11-10 reel-flash : 9/100 ❌
+- 2026-11-10 reel-flash : 14/100 ❌
 - 2026-11-09 incontournables-techno : 38/100 ❌
 - 2026-11-09 veille : 100/100 ✅
 - 2026-11-08 incontournables-commercial : 5/100 ❌
@@ -37,7 +37,7 @@ Mis à jour automatiquement chaque jour. **Note /100** : 50 = performance habitu
 | Date | Par | Post | Note /100 | Portée | Likes | Comm. | Enreg. | Partages | Abonnés gagnés |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 2026-11-08 | bot | incontournables-commercial | **5** | 355 | 1 | 0 | 0 | 0 | 0 |
-| 2026-11-10 | bot | reel-flash | **9** | 365 | 2 | 0 | 0 | 0 | - |
+| 2026-11-10 | bot | reel-flash | **14** | 398 | 4 | 0 | 0 | 0 | - |
 | 2025-10-03 | équipe | ⚡️ Les meilleurs plans entre potes, c’es | **14** | 567 | 5 | 0 | 0 | 0 | 0 |
 | 2025-10-19 | équipe | 🎃 Halloween, ce n’est pas une fête. | **16** | 525 | 6 | 0 | 1 | 0 | 0 |
 | 2025-10-27 | équipe | Tu n’as toujours pas ton déguisement ? � | **18** | 676 | 4 | 0 | 1 | 1 | 0 |
@@ -48,7 +48,7 @@ Mis à jour automatiquement chaque jour. **Note /100** : 50 = performance habitu
 
 **Ce qui fait monter** : hashtag:#hardtechno (+41, 3 posts) · hashtag:#acidtechno (+41, 2 posts) · hashtag:#technocotedazur (+41, 3 posts) · hashtag:#technoparty (+41, 2 posts) · hashtag:#soiréetechno (+41, 2 posts) · heure:22h (+23, 2 posts) · hashtag:#sortiracannes (+19, 3 posts) · hashtag:#nightlife (+18, 10 posts) · hashtag:#danse (+17, 3 posts) · hashtag:#soirée (+17, 3 posts) · hashtag:#pandaevents (+15, 2 posts) · hashtag:#housemusic (+14, 4 posts)
 
-**Ce qui fait baisser** : hashtag:#nice (-38, 2 posts) · hashtag:#soiréehalloween (-33, 2 posts) · heure:9h (-32, 2 posts) · hashtag:#teufyhalloween (-32, 2 posts) · hashtag:#jeunes (-31, 2 posts) · hashtag:#weekendmood (-31, 2 posts) · hashtag:#halloweenparty (-29, 4 posts) · hashtag:#deguisementhalloween (-28, 2 posts) · hashtag:#bonplansnice (-27, 2 posts) · hashtag:#partyvibes (-26, 4 posts)
+**Ce qui fait baisser** : hashtag:#nice (-35, 2 posts) · hashtag:#soiréehalloween (-33, 2 posts) · heure:9h (-32, 2 posts) · hashtag:#teufyhalloween (-32, 2 posts) · hashtag:#jeunes (-31, 2 posts) · hashtag:#weekendmood (-31, 2 posts) · hashtag:#halloweenparty (-29, 4 posts) · hashtag:#deguisementhalloween (-28, 2 posts) · hashtag:#bonplansnice (-27, 2 posts) · hashtag:#partyvibes (-26, 4 posts)
 
 ## Analyse de la semaine du 2026-11-13
 
