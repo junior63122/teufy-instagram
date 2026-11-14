@@ -109,7 +109,8 @@ export async function chercherSons(ig, { type = 'music', requete = '' } = {}) {
 
 // audio = { audio_id, audio_volume, video_volume } : son Instagram attaché au reel. videoSecours = la même
 // vidéo avec la musique incluse, publiée si Instagram refuse le son.
-export async function publishReel(videoUrl, coverUrl, caption, ig, { essai = false, audio = null, videoSecours = null } = {}) {
+export async function publishReel(videoUrl, coverUrl, caption, ig, { essai = false, audio = null, videoSecours = null, collabs = [] } = {}) {
+  if (collabs?.length) essai = false; // un reel en collaboration est publié normalement (pas en essai)
   const params = { media_type: 'REELS', video_url: videoUrl, caption, share_to_feed: 'true' };
   if (coverUrl) params.cover_url = coverUrl;
   if (audio?.audio_id) {
@@ -128,7 +129,7 @@ export async function publishReel(videoUrl, coverUrl, caption, ig, { essai = fal
   if (essai) params.trial_params = JSON.stringify({ graduation_strategy: 'SS_PERFORMANCE' });
   let id;
   try {
-    ({ id } = await call('POST', `${ig.user}/media`, params, ig));
+    ({ id } = await (collabs?.length ? avecCollabs(params, collabs, ig) : call('POST', `${ig.user}/media`, params, ig)));
   } catch (err) {
     if (!essai) throw err;
     console.log(`Reel d'essai refusé (${err.message}) : publication normale.`);

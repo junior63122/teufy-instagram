@@ -578,5 +578,9 @@
       "variante": "teufy"
     }
   ],
-  "_grand_debat": "14/11/2026 (directeur) : « Le Grand Débat », série animée (Kévin / Léo), 2 épisodes par semaine (mardi et samedi). Épisodes déposés dans media/grand-debat/ (NN-sujet.mp4 + NN-sujet.txt pour la légende) ; le plus ancien non publié part ; sans épisode en attente, le créneau reste libre."
+  "_grand_debat": "14/11/2026 (directeur) : « Le Grand Débat », série animée (Kévin / Léo), 2 épisodes par semaine (mardi et samedi). Épisodes déposés dans media/grand-debat/ (NN-sujet.mp4 + NN-sujet.txt pour la légende) ; le plus ancien non publié part ; sans épisode en attente, le créneau reste libre.",
+  "grand_debat": {
+    "explication": "14/11/2026 (directeur, option 1) : Le Grand Débat (série de Riviera Studio) est publié par le robot Teufy EN COLLABORATION Instagram avec le compte de Riviera Studio : une seule publication, visible chez les abonnés des deux comptes. Le compte collaborateur reçoit une invitation à accepter dans l'app Instagram. Mettre ici le nom du compte Riviera (sans @).",
+    "collaborateurs": []
+  }
 }
