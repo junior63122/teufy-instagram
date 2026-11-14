@@ -1,6 +1,10 @@
 {
-  "_note": "Écrit par le robot (src/reactif.mjs) : suites programmées après un engouement, jours déplacés selon les résultats, journal des changements.",
   "extras": [],
-  "jours": { "post": {}, "reel": {} },
-  "journal": []
+  "jours": {
+    "post": {},
+    "reel": {}
+  },
+  "journal": [],
+  "_note": "Écrit par le robot (src/reactif.mjs) : suites programmées après un engouement, jours déplacés selon les résultats, journal des changements.",
+  "dernier_controle": "2026-11-14T23:50:34.489Z"
 }
