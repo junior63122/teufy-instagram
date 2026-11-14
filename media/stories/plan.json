@@ -2,21 +2,13 @@
   "jour": "2026-11-14",
   "plan": [
     {
-      "type": "soirees",
+      "type": "repost",
       "cles": [
-        "Caravel (+ No2theG, May-Li)",
-        "Lilly Wood and The Prick — Festival Mas d'Hiver",
-        "Noise Protocol by Kontakt 6Tem"
+        "q-faim-nice"
       ],
       "frames": [
         {
-          "image": "2026-11-14-soirees-0.jpg"
-        },
-        {
-          "image": "2026-11-14-soirees-1.jpg"
-        },
-        {
-          "image": "2026-11-14-soirees-2.jpg"
+          "image": "2026-11-14-repost.jpg"
         }
       ]
     }
