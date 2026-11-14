@@ -69,6 +69,31 @@
   "calendrier_explication": "Chaque ligne = une publication. jour : 1 = lundi … 7 = dimanche. rang : 1 = premier de ce jour dans le mois… (1 à 5). Depuis le 11 novembre 2026 (relance du compte après un an d'inactivité) : 1 publication par jour, 7 par semaine. Lundi : carrousel des sorties de la semaine ; jeudi : « Édition Tekno » (soirées techno underground des 7 prochains jours : hard techno, tekno, acid, tribe, psytrance, jamais de house) ; mardi, samedi, dimanche : reel « Flash » (astuce, explicatif, humour, actu) ; mercredi : reel « Tendance » (format viral repéré par la veille : POV, types de personnes, devinette… fait pour être partagé et toucher les non-abonnés) ; vendredi : bon plan ou débat en alternance. Les annonces exceptionnelles passent en plus par la veille (2 par jour au maximum). Heure : apprise par le cerveau (créneaux_utc). Titres calculés sur les dates réelles des soirées (cette semaine, ce week-end, en novembre, du 13 au 18 novembre).",
   "calendrier": [
     {
+      "jour": 1,
+      "rang": 1,
+      "type": "libre"
+    },
+    {
+      "jour": 1,
+      "rang": 2,
+      "type": "libre"
+    },
+    {
+      "jour": 1,
+      "rang": 3,
+      "type": "libre"
+    },
+    {
+      "jour": 1,
+      "rang": 4,
+      "type": "libre"
+    },
+    {
+      "jour": 1,
+      "rang": 5,
+      "type": "libre"
+    },
+    {
       "jour": 3,
       "rang": 1,
       "type": "bonplan",
@@ -551,7 +576,7 @@
     "_volume": "Montée en charge automatique : 60, 100, 150, 200 e-mails les 4 premiers jours d'envoi, puis nouveaux_par_jour (250 ; Brevo gratuit = 300/jour, le reste sert aux relances, rapports et paiements).",
     "_pause": "14/11/2026 : Brevo a suspendu l'envoi (examen du compte, politique anti-spam) après des envois de prospection à froid (jusqu'à 250 nouveaux contacts par jour). Envoi automatique coupé. À ne remettre en route qu'après accord de Brevo, et jamais plus de 20 nouveaux contacts par jour."
   },
-  "_calendrier_note": "14/11/2026 (directeur : « refais le planning », Édition Tekno 1 fois par mois comme demandé le 8/11, pas chaque semaine). Posts : mer bons plans, jeu Édition Tekno la 1re semaine du mois et un post « libre » les autres jeudis (guide ou bon plan, choisi par l'apprentissage selon ce qui marche ; jamais de débat en post, débats en story), ven soirées du week-end + débat en story, sam guide. Reels de base : jeu viral, dim « Teufy », mar et sam Le Grand Débat. En plus : 3 épisodes « Et toi, t'aurais fait quoi ? » (lun, mer, ven) dans l'onglet Reels seulement. Stories chaque jour. Le planning n'est pas figé : le robot fait varier les formats selon les résultats. Aucune collaboration.",
+  "_calendrier_note": "14/11/2026 (directeur). Posts : lun post « libre », mer bons plans, jeu Édition Tekno la 1re semaine du mois et post « libre » les autres jeudis, ven soirées du week-end (+ débat en story), sam guide. Post « libre » = guide ou bon plan, choisi par l'apprentissage selon ce qui marche (jamais de débat en post). Reels de base : jeu viral, dim « Teufy », mar et sam Le Grand Débat. En plus : 3 épisodes « Et toi, t'aurais fait quoi ? » (lun, mer, ven) dans l'onglet Reels seulement. Stories chaque jour. Le planning n'est PAS figé (directeur : « tu peux changer les jours sans moi, sois réactif ») : src/reactif.mjs déplace les jours selon les résultats et programme une suite dès le lendemain quand une publication décolle ; tout est noté dans contenus/planning-auto.json et RAPPORT.md. Aucune collaboration.",
   "calendrier_reels": [
     {
       "jour": 1,

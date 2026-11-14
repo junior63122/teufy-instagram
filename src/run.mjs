@@ -22,7 +22,8 @@ import { captionIncontournables, captionBonPlan, captionDebat, captionReel, capt
 import { nettoyerComptes, legendeFinale, abonnesDe, comptesConfirmes } from './comptes.mjs';
 import { igConfig, publishCarousel, publishSingle, publishReel, publishStory, permalink, insights, followers, businessDiscovery, compteMedia } from './instagram.mjs';
 import { TENDANCES, analyserComptes } from './tendances.mjs';
-import { buildModel, chooser, selectBest, eventFeatures, collect, hash } from './learn.mjs';
+import { buildModel, chooser, selectBest, eventFeatures, collect, hash, loadData } from './learn.mjs';
+import { lirePlan, ecrirePlan, engouements, planifierSuite, extrasDu, nettoyer, jourSource, replanifier, sectionRapport, SERIES } from './reactif.mjs';
 import { theme } from './theme.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -58,8 +59,10 @@ const creneauDuJour = (d) => chooser(MODEL, rng(`${slotOfDay(d).date}-creneau`))
 
 // --- Quelle(s) publication(s) ? --------------------------------------------
 
-const slotFor = (d) => { const s = slotOfDay(d); return config.calendrier.find((c) => c.jour === s.jour && c.rang === s.rang); };
-const slotId = (s) => [s.type, s.variante].filter(Boolean).join('-');
+// Planning réactif (src/reactif.mjs) : jours déplacés par le robot selon les résultats, suites des publications qui décollent.
+const PLAN = lirePlan();
+const slotFor = (d) => { const s = slotOfDay(d); const src = jourSource(PLAN, 'post', s.jour); return src == null ? undefined : config.calendrier.find((c) => c.jour === src && c.rang === s.rang); };
+const slotId = (s) => [s.type, s.variante, s.suite && 'suite'].filter(Boolean).join('-');
 // Deux publications le même jour possibles (13/11/2026, directeur : « au minimum 3 reels et 4 posts par semaine, même
 // s'il faut une vidéo et un post le même jour ») : le post du calendrier, puis le reel de config.calendrier_reels, au
 // moins config.reglages.ecart_reel_h heures plus tard (sans dépasser le dernier créneau).
@@ -75,7 +78,16 @@ function episodeGrandDebat(serie = 'grand-debat') {
   return { id: `${serie}-${base}`, video: path.join(dir, f), legende, titre: `${nom} · ${base.replace(/[-_]/g, ' ')}` };
 }
 // Un épisode du Grand Débat n'est prévu que s'il y en a un en attente (sinon le créneau reste libre).
-const slotsFor = (d) => { const s = slotOfDay(d); return [slotFor(d), ...(config.calendrier_reels || []).filter((c) => c.jour === s.jour && (!['grand-debat', 'serie-nuit'].includes(c.variante) || episodeGrandDebat(c.variante))).map((c) => ({ ...c, second: true }))].filter(Boolean); };
+// Clé d'une soirée (pour ne pas remontrer les mêmes soirées dans deux posts rapprochés).
+const cleSoiree = (e) => e.url || `${e.name || e.nom}|${String(e.start || e.debut || '').slice(0, 10)}`;
+const slotsFor = (d) => {
+  const s = slotOfDay(d), srcReel = jourSource(PLAN, 'reel', s.jour);
+  const base = [slotFor(d), ...(config.calendrier_reels || []).filter((c) => c.jour === srcReel && (!SERIES.includes(c.variante) || episodeGrandDebat(c.variante))).map((c) => ({ ...c, second: true }))].filter(Boolean);
+  // Suites programmées après un engouement : en plus du reste, après les publications prévues (même écart).
+  const extras = extrasDu(PLAN, s.date).map((x) => ({ type: x.type, variante: x.variante || undefined, suite: true, second: true, troisieme: base.length > 1 }))
+    .filter((x) => !SERIES.includes(x.variante) || episodeGrandDebat(x.variante));
+  return [...base, ...extras];
+};
 const dejaPublie = (s) => hist.some((h) => h.id === slotId(s) && h.date === slotOfDay(NOW).date);
 const slotDuMoment = () => slotsFor(NOW).find((s) => !dejaPublie(s));
 
@@ -94,6 +106,8 @@ if (cible === 'collecter') {
   else console.log(`Jeton Instagram valide${jeton.jours != null ? `, expire dans ${jeton.jours} jours` : ''}.`);
   const n = await collect({ hist, ig, api: { insights, followers, compteMedia } });
   console.log(`Statistiques mises à jour pour ${n} publication(s). Voir RAPPORT.md`);
+  for (const c of replanifier(PLAN, loadData(), config, NOW)) console.log(`Planning réactif : ${c.texte}`);
+  await ecrirePlan(PLAN);
   // Analyse hebdomadaire par IA gratuite (veille Meta, pourquoi, nouveaux tests), une fois par semaine.
   const derniere = TENDANCES.derniere_analyse ? new Date(TENDANCES.derniere_analyse) : null;
   // Rythme du « cerveau » (veille Instagram + analyse + nouveaux tests) : chaque jour par défaut (config.llm.cerveau_jours).
@@ -111,6 +125,25 @@ if (cible === 'collecter') {
       }
     } catch (err) { console.error(`Analyse hebdomadaire impossible : ${err.message}`); }
   }
+  await appendFile(path.join(ROOT, 'RAPPORT.md'), sectionRapport(PLAN)); // ce que le robot a changé tout seul
+  process.exit(0);
+}
+if (cible === 'reactif') {
+  // Toutes les 2 h au plus (passages horaires) : chiffres frais des publications du robot de moins de 48 h.
+  const ig = igConfig();
+  if (!ig) { console.log('IG_ACCESS_TOKEN / IG_USER_ID absents : pas de contrôle réactif.'); process.exit(0); }
+  if (PLAN.dernier_controle && (NOW - new Date(PLAN.dernier_controle)) / 3600e3 < 1.9 && !flag('force')) { console.log('Contrôle réactif déjà fait il y a moins de 2 h.'); process.exit(0); }
+  PLAN.dernier_controle = NOW.toISOString();
+  nettoyer(PLAN, NOW);
+  const recents = [];
+  for (const h of hist.filter((x) => x.media && x.publication && (NOW - new Date(x.le)) / 3600e3 >= 2 && (NOW - new Date(x.le)) / 3600e3 <= 48)) {
+    const metrics = await insights(h.media, h.publication.type === 'reel', ig).catch(() => null);
+    if (metrics) recents.push({ media: h.media, id: h.id, type: h.publication.type, variante: h.publication.variante, titre: h.titre || h.publication.titre, metrics });
+  }
+  const top = engouements(recents, loadData().posts);
+  for (const e of top) { const r = planifierSuite(PLAN, e, NOW, { episodeDispo: (sr) => !!episodeGrandDebat(sr) }); if (r) console.log(r.texte || `Suite programmée le ${r.date} : ${slotId(r)} (${e.raison})`); if (r?.urgent) console.error(`::warning::${r.texte}`); }
+  console.log(`Contrôle réactif : ${recents.length} publication(s) récente(s), ${top.length} engouement(s).`);
+  await ecrirePlan(PLAN);
   process.exit(0);
 }
 if (cible === 'auto') {
@@ -123,7 +156,7 @@ if (cible === 'auto') {
     if (s && hist.some((h) => h.id === slotId(s) && h.date === slotOfDay(NOW).date)) rep = 'rien'; // déjà publié aujourd'hui
     else if (s && flag('horaire')) {
       const premier = +creneauDuJour(NOW), dernier = Math.max(...CRENEAUX.map(Number));
-      const choisi = s?.second ? Math.min(premier + Number(R.ecart_reel_h ?? 2), dernier) : premier;
+      const choisi = s?.second ? Math.min(premier + Number(R.ecart_reel_h ?? 2) * (s.troisieme ? 2 : 1), dernier) : premier;
       if (NOW.getUTCHours() < choisi) { console.error(`Publication prévue vers ${choisi}h UTC.`); rep = 'rien'; }
       // Jamais de post tard le soir (le 11/11, un rattrapage est parti à 22h58) : au-delà de 21h30 à Paris, le post du
       // jour n'est plus publié par les passages de rattrapage (config.instagram.heure_max_paris pour changer).
@@ -358,10 +391,13 @@ async function prepare(slot, now, id) {
       pub = { images: files, legende: captionBonPlan({ manuel, ch, r }), bonplan: manuel.titre };
     } else {
       let variante = slot.variante;
+      // Deux bons plans par semaine possibles (mercredi + post libre) : pas les soirées déjà montrées ces 6 derniers jours.
+      const vues = new Set(hist.filter((h) => (now - new Date(h.le)) / 86400e3 < 6).flatMap((h) => h.soirees || []));
+      const pickEv0 = pickEv; const pickEvN = async (w, pr) => { const l = await pickEv0(w, pr); const f = l.filter((e) => !vues.has(cleSoiree(e))); return f.length >= 3 ? f : l; };
       let win = rolling(now, 0, 10);
-      let list = variante === 'petits-prix' ? await pickEv(win, cheap) : [];
-      if (list.length < 3) { variante = 'a-reserver'; win = rolling(now, 7, 45); list = await pickEv(win); }
-      if (list.length < 3) { win = rolling(now, 2, 45); list = await pickEv(win); }
+      let list = variante === 'petits-prix' ? await pickEvN(win, cheap) : [];
+      if (list.length < 3) { variante = 'a-reserver'; win = rolling(now, 7, 45); list = await pickEvN(win); }
+      if (list.length < 3) { win = rolling(now, 2, 45); list = await pickEvN(win); }
       need(list, 2);
       const chosen = chrono(lesBonnes(list));
       const reserve = variante === 'a-reserver';
@@ -740,7 +776,7 @@ async function publishPrepared(id) {
     try { const st = await publishStory(url(p.story_debat), ig); console.log(`[${id}] ✅ débat publié en story (${st.id})`); }
     catch (err) { console.error(`[${id}] débat en story impossible : ${err.message}`); }
   }
-  hist.push({ id, date: p.date, media: res.id, lien: link, fete: p.fete, titre: p.titre, guide: p.guide, debat: p.debat, bonplan: p.bonplan, sujet: p.sujet, son: p.son, concept: p.concept, le: new Date().toISOString(),
+  hist.push({ id, date: p.date, media: res.id, lien: link, fete: p.fete, titre: p.titre, guide: p.guide, debat: p.debat, bonplan: p.bonplan, sujet: p.sujet, son: p.son, concept: p.concept, soirees: (p.soirees || []).map(cleSoiree), le: new Date().toISOString(),
     publication: { id: p.id, type: p.type, variante: p.variante, date: p.date, choix: p.choix, features: p.features, nb_images: p.nb_images, duree: p.duree, legende: p.legende, titre: p.titre } });
   await writeFile(HIST_FILE, JSON.stringify(hist.slice(-300), null, 2));
 }
