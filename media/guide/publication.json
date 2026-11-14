@@ -1,0 +1,39 @@
+{
+  "id": "guide",
+  "type": "guide",
+  "variante": null,
+  "date": "2026-11-14",
+  "images": [
+    "guide-2026-11-14-0.jpg",
+    "guide-2026-11-14-1.jpg",
+    "guide-2026-11-14-2.jpg",
+    "guide-2026-11-14-3.jpg",
+    "guide-2026-11-14-4.jpg",
+    "guide-2026-11-14-5.jpg",
+    "guide-2026-11-14-fin.jpg"
+  ],
+  "legende": "4 h du matin à Monaco, la boîte ferme et t'as faim. On a la liste 👇\n\n1. Stars ’n’ Bars (Restaurant) · lun–dim 11h–0h\n2. Quai des Artistes (Restaurant) · lun–dim 19h30–23h\n3. Beefbar (Restaurant) · lun–dim 14h30–0h\n4. Buddha-Bar (Restaurant) · mar–sam 18h–2h\n5. Le Cabanon (Restaurant) · lun–dim 9h–23h\n\nHoraires publiés : vérifie avant d'y aller. Toutes les adresses sur teufyparty.com (Manger tard).\n\nEnregistre ce post pour ta prochaine sortie.\n\n#TeufyParty #monaco #cotedazur #nightlife #streetfood",
+  "titre": "Où manger à Monaco après la boîte ?",
+  "guide": "manger|Monaco",
+  "textes_visuels": [
+    "Où manger à [Monaco] après la boîte ?",
+    "Stars ’n’ Bars",
+    "lun–dim 11h–0h",
+    "Quai des Artistes",
+    "lun–dim 19h30–23h",
+    "Beefbar",
+    "lun–dim 14h30–0h",
+    "Buddha-Bar",
+    "mar–sam 18h–2h",
+    "Le Cabanon",
+    "lun–dim 9h–23h"
+  ],
+  "choix": {
+    "creneau": "17",
+    "cta-guide": "126asol"
+  },
+  "features": [],
+  "nb_images": 7,
+  "story": "story.jpg",
+  "a_tester": []
+}
