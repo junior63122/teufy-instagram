@@ -211,7 +211,7 @@ for (const j of jobs) {
         // Texte refusé par le contrôle : le carrousel des soirées (déjà contrôlé) part à la place.
         if (cible === 'auto' && /Texte refusé/.test(err.message) && j.slot.type !== 'incontournables') { console.error(`[${id}] ✗ ${err.message} → carrousel des soirées à la place.`); await prepare({ type: 'incontournables', variante: 'commercial' }, j.now, id); continue; }
         // Carrousel Guide sans 3 adresses vérifiées : reel Flash à la place (le post sort toujours).
-        if (cible === 'auto' && j.slot.type === 'guide' && /Guide/.test(err.message)) { console.error(`[${id}] ✗ ${err.message} → reel Flash à la place.`); await prepare({ type: 'reel', variante: 'flash' }, j.now, id); continue; }
+        if (cible === 'auto' && ['guide', 'libre'].includes(j.slot.type) && /Guide/.test(err.message)) { console.error(`[${id}] ✗ ${err.message} → reel Flash à la place.`); await prepare({ type: 'reel', variante: 'flash' }, j.now, id); continue; }
         if (cible !== 'auto' || j.slot.type !== 'reel' || !/IA|Scénariste|reel écrit/i.test(err.message)) throw err;
         console.error(`[${id}] ✗ ${err.message} → carrousel des soirées à la place (sans IA).`);
         await prepare({ type: 'incontournables', variante: 'commercial' }, j.now, id);
@@ -241,6 +241,9 @@ async function prepare(slot, now, id) {
   // guide (vraies adresses), humour / POV vécus, histoire illustrée ; l'apprentissage ramène plus souvent le format qui
   // marche le mieux chez nous, et la veille des concurrents (Le Bonbon…) nourrit les scénarios. Jamais de reel de soirées.
   if (slot.type === 'reel' && slot.variante === 'viral') slot = { ...slot, variante: val('format') || ch.pick('format-reel-viral', ['guide', 'humour', 'histoire', 'teufy'], (x) => x) };
+  // Post « libre » (14/11/2026, directeur : « le planning n'est pas fixe, tu es censé évoluer ») : les jeudis sans Édition
+  // Tekno, l'apprentissage choisit entre un guide (manger tard / afters) et un bon plan, et ramène plus souvent ce qui marche.
+  if (slot.type === 'libre') { const o = ch.pick('post-libre', ['guide', 'a-reserver', 'petits-prix'], (x) => x); slot = o === 'guide' ? { ...slot, type: 'guide' } : { ...slot, type: 'bonplan', variante: o }; }
   if (cible === 'auto') ch.choix.creneau = String(Math.min(Math.max(NOW.getUTCHours(), +CRENEAUX[0]), +CRENEAUX.at(-1)));
   const villes = config.villes;
   const debugDir = path.join(ROOT, 'out', 'debug');

@@ -63,3 +63,12 @@ test('légendes « humaines » : pas de tiret cadratin, ≤ 2200 caractères, pe
     assert.ok(!/télécharg|lien en bio|sur l'app/i.test(c), 'pas d\'invitation à télécharger l\'app : ' + c);
   }
 });
+
+test('Édition Tekno : une seule fois par mois, le 1er jeudi (directeur 8/11 et 14/11/2026)', () => {
+  for (let m = 0; m < 12; m++) {
+    const jours = daysOfMonth(new Date(Date.UTC(2027, m, 15, 12)));
+    const tekno = jours.map((d) => slotOfDay(d)).filter((s) => config.calendrier.some((x) => x.jour === s.jour && x.rang === s.rang && x.variante === 'tekno'));
+    assert.equal(tekno.length, 1, `mois ${m + 1} : ${tekno.length} Édition(s) Tekno`);
+    assert.ok(+tekno[0].date.slice(8, 10) <= 7, `mois ${m + 1} : Tekno le ${tekno[0].date}, pas le 1er jeudi`);
+  }
+});

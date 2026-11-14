@@ -107,26 +107,22 @@
     {
       "jour": 4,
       "rang": 2,
-      "type": "incontournables",
-      "variante": "tekno"
+      "type": "libre"
     },
     {
       "jour": 4,
       "rang": 3,
-      "type": "incontournables",
-      "variante": "tekno"
+      "type": "libre"
     },
     {
       "jour": 4,
       "rang": 4,
-      "type": "incontournables",
-      "variante": "tekno"
+      "type": "libre"
     },
     {
       "jour": 4,
       "rang": 5,
-      "type": "incontournables",
-      "variante": "tekno"
+      "type": "libre"
     },
     {
       "jour": 5,
@@ -555,7 +551,7 @@
     "_volume": "Montée en charge automatique : 60, 100, 150, 200 e-mails les 4 premiers jours d'envoi, puis nouveaux_par_jour (250 ; Brevo gratuit = 300/jour, le reste sert aux relances, rapports et paiements).",
     "_pause": "14/11/2026 : Brevo a suspendu l'envoi (examen du compte, politique anti-spam) après des envois de prospection à froid (jusqu'à 250 nouveaux contacts par jour). Envoi automatique coupé. À ne remettre en route qu'après accord de Brevo, et jamais plus de 20 nouveaux contacts par jour."
   },
-  "_calendrier_note": "14/11/2026 (directeur) : 4 posts (mer bons plans, jeu Édition Tekno, ven soirées du week-end + débat en story, sam guide) ; reels de base : jeu viral, dim « Teufy », mar et sam Le Grand Débat ; en plus, 3 épisodes « Et toi, t'aurais fait quoi ? » (lun, mer, ven) dans l'onglet Reels seulement, hors grille. Stories chaque jour. Jamais de reel de soirées ni d'explicatif. Aucune collaboration : tout est publié uniquement sur Teufy.",
+  "_calendrier_note": "14/11/2026 (directeur : « refais le planning », Édition Tekno 1 fois par mois comme demandé le 8/11, pas chaque semaine). Posts : mer bons plans, jeu Édition Tekno la 1re semaine du mois et un post « libre » les autres jeudis (guide ou bon plan, choisi par l'apprentissage selon ce qui marche ; jamais de débat en post, débats en story), ven soirées du week-end + débat en story, sam guide. Reels de base : jeu viral, dim « Teufy », mar et sam Le Grand Débat. En plus : 3 épisodes « Et toi, t'aurais fait quoi ? » (lun, mer, ven) dans l'onglet Reels seulement. Stories chaque jour. Le planning n'est pas figé : le robot fait varier les formats selon les résultats. Aucune collaboration.",
   "calendrier_reels": [
     {
       "jour": 1,
