@@ -2,15 +2,9 @@
   "jour": "2026-11-14",
   "plan": [
     {
-      "type": "question",
-      "cles": [
-        "q-faim-nice"
-      ],
-      "frames": [
-        {
-          "image": "2026-11-14-question.jpg"
-        }
-      ]
+      "type": "coeur",
+      "cles": [],
+      "frames": []
     }
   ]
 }
