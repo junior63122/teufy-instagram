@@ -63,7 +63,18 @@ const slotId = (s) => [s.type, s.variante].filter(Boolean).join('-');
 // Deux publications le même jour possibles (13/11/2026, directeur : « au minimum 3 reels et 4 posts par semaine, même
 // s'il faut une vidéo et un post le même jour ») : le post du calendrier, puis le reel de config.calendrier_reels, au
 // moins config.reglages.ecart_reel_h heures plus tard (sans dépasser le dernier créneau).
-const slotsFor = (d) => { const s = slotOfDay(d); return [slotFor(d), ...(config.calendrier_reels || []).filter((c) => c.jour === s.jour).map((c) => ({ ...c, second: true }))].filter(Boolean); };
+// Épisodes du Grand Débat déposés à la main (media/grand-debat/*.mp4 + .txt), le plus ancien non publié d'abord.
+function episodeGrandDebat() {
+  const dir = path.join(ROOT, 'media', 'grand-debat'); if (!existsSync(dir)) return null;
+  const faits = new Set(hist.map((h) => h.concept).filter(Boolean));
+  const f = readdirSync(dir).filter((x) => x.endsWith('.mp4')).sort().find((x) => !faits.has(`grand-debat-${x.replace(/\.mp4$/, '')}`));
+  if (!f) return null;
+  const base = f.replace(/\.mp4$/, ''), txt = path.join(dir, `${base}.txt`);
+  const legende = existsSync(txt) ? readFileSync(txt, 'utf8').trim() : 'Le Grand Débat 🥊 Tu votes quoi ? Un mot en commentaire 👇';
+  return { id: `grand-debat-${base}`, video: path.join(dir, f), legende, titre: `Le Grand Débat · ${base.replace(/[-_]/g, ' ')}` };
+}
+// Un épisode du Grand Débat n'est prévu que s'il y en a un en attente (sinon le créneau reste libre).
+const slotsFor = (d) => { const s = slotOfDay(d); return [slotFor(d), ...(config.calendrier_reels || []).filter((c) => c.jour === s.jour && (c.variante !== 'grand-debat' || episodeGrandDebat())).map((c) => ({ ...c, second: true }))].filter(Boolean); };
 const dejaPublie = (s) => hist.some((h) => h.id === slotId(s) && h.date === slotOfDay(NOW).date);
 const slotDuMoment = () => slotsFor(NOW).find((s) => !dejaPublie(s));
 
@@ -390,6 +401,17 @@ async function prepare(slot, now, id) {
     if (!files) throw new Error('Carrousel de la DA impossible (studio absent ou moins de 2 affiches) : rien n\'est publié.');
     files ||= await renderPages(programme(pages, chosen, { th, photos, titre, sous: fort ? `En ${MOIS(now)}` : elargi ? 'Ces prochains jours' : 'Cette semaine' }), dir, `incontournables-${stamp}`, { width: 1080, height: 1350 });
     pub = { images: files, legende: captionIncontournables({ variante: enTechno || !techno ? slot.variante : 'commercial', events: chosen, ...win, ch, r, periode: chosen.periode }), soirees: chosen, titre: chosen.titrePost || titre };
+  } else if (slot.type === 'reel' && slot.variante === 'grand-debat') {
+    // « Le Grand Débat » (14/11/2026, directeur : 2 épisodes par semaine) : épisodes fabriqués à part (série animée
+    // Kévin / Léo) et déposés dans media/grand-debat/ : episode.mp4 + episode.txt (légende). Le plus ancien non publié part.
+    const ep = episodeGrandDebat();
+    if (!ep) throw new Error('Grand Débat : aucun épisode en attente dans media/grand-debat/');
+    const video = path.join(dir, `reel-${stamp}.mp4`), cover = path.join(dir, `reel-${stamp}-couverture.jpg`);
+    await copyFile(ep.video, video);
+    spawnSync('ffmpeg', ['-y', '-loglevel', 'error', '-ss', '0.4', '-i', video, '-frames:v', '1', '-q:v', '2', cover]);
+    const d = parseFloat(spawnSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', video]).stdout?.toString()) || 0;
+    pub = { video, couverture: cover, legende: ep.legende, titre: ep.titre, concept: ep.id, duree: +d.toFixed(1), rubrique: 'Le Grand Débat' };
+    console.log(`[${id}] Grand Débat : épisode « ${ep.titre} » (${d.toFixed(1)} s)`);
   } else if (slot.type === 'reel' && config.studio?.actif && ['flash', 'histoire', 'nouveau', 'tendance', 'explicatif', 'humour', 'immersif', 'guide', 'teufy'].includes(slot.variante)) { // « guide » manquait : le reel Guide retombait sur un reel de soirées
     // Reels = créations du studio (Remotion) : explicatif, humour ou immersif, jamais un catalogue de soirées.
     const STUDIO = path.join(ROOT, 'studio');

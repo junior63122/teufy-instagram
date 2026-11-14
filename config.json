@@ -560,7 +560,7 @@
     {
       "jour": 2,
       "type": "reel",
-      "variante": "viral"
+      "variante": "grand-debat"
     },
     {
       "jour": 4,
@@ -568,9 +568,15 @@
       "variante": "viral"
     },
     {
+      "jour": 6,
+      "type": "reel",
+      "variante": "grand-debat"
+    },
+    {
       "jour": 7,
       "type": "reel",
       "variante": "teufy"
     }
-  ]
+  ],
+  "_grand_debat": "14/11/2026 (directeur) : « Le Grand Débat », série animée (Kévin / Léo), 2 épisodes par semaine (mardi et samedi). Épisodes déposés dans media/grand-debat/ (NN-sujet.mp4 + NN-sujet.txt pour la légende) ; le plus ancien non publié part ; sans épisode en attente, le créneau reste libre."
 }
