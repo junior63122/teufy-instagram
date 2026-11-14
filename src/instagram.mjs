@@ -109,9 +109,10 @@ export async function chercherSons(ig, { type = 'music', requete = '' } = {}) {
 
 // audio = { audio_id, audio_volume, video_volume } : son Instagram attaché au reel. videoSecours = la même
 // vidéo avec la musique incluse, publiée si Instagram refuse le son.
-export async function publishReel(videoUrl, coverUrl, caption, ig, { essai = false, audio = null, videoSecours = null, collabs = [] } = {}) {
-  if (collabs?.length) essai = false; // un reel en collaboration est publié normalement (pas en essai)
-  const params = { media_type: 'REELS', video_url: videoUrl, caption, share_to_feed: 'true' };
+export async function publishReel(videoUrl, coverUrl, caption, ig, { essai = false, audio = null, videoSecours = null, collabs = [], grille = true } = {}) {
+  if (collabs?.length || !grille) essai = false; // collaboration ou reel hors grille : publication normale (pas en essai)
+  // grille = false : le reel n'apparaît que dans l'onglet Reels du profil, pas sur la grille (série « Et toi, t'aurais fait quoi ? »).
+  const params = { media_type: 'REELS', video_url: videoUrl, caption, share_to_feed: grille ? 'true' : 'false' };
   if (coverUrl) params.cover_url = coverUrl;
   if (audio?.audio_id) {
     params.audio_configuration = JSON.stringify({ audio_id: audio.audio_id, audio_volume: audio.audio_volume ?? 100, video_volume: audio.video_volume ?? 35 });

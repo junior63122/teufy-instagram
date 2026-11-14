@@ -555,17 +555,32 @@
     "_volume": "Montée en charge automatique : 60, 100, 150, 200 e-mails les 4 premiers jours d'envoi, puis nouveaux_par_jour (250 ; Brevo gratuit = 300/jour, le reste sert aux relances, rapports et paiements).",
     "_pause": "14/11/2026 : Brevo a suspendu l'envoi (examen du compte, politique anti-spam) après des envois de prospection à froid (jusqu'à 250 nouveaux contacts par jour). Envoi automatique coupé. À ne remettre en route qu'après accord de Brevo, et jamais plus de 20 nouveaux contacts par jour."
   },
-  "_calendrier_note": "13/11/2026 (directeur) : relance du compte = qualité plutôt que volume. 4 posts (mer bons plans, jeu Édition Tekno, ven soirées du week-end + débat en story, sam guide) et 3 reels (mar et jeu viral, dim « Teufy »), stories chaque jour. Jamais de reel de soirées ni d'explicatif.",
+  "_calendrier_note": "14/11/2026 (directeur) : 4 posts (mer bons plans, jeu Édition Tekno, ven soirées du week-end + débat en story, sam guide) ; reels de base : jeu viral, dim « Teufy », mar et sam Le Grand Débat ; en plus, 3 épisodes « Et toi, t'aurais fait quoi ? » (lun, mer, ven) dans l'onglet Reels seulement, hors grille. Stories chaque jour. Jamais de reel de soirées ni d'explicatif. Aucune collaboration : tout est publié uniquement sur Teufy.",
   "calendrier_reels": [
+    {
+      "jour": 1,
+      "type": "reel",
+      "variante": "serie-nuit"
+    },
     {
       "jour": 2,
       "type": "reel",
       "variante": "grand-debat"
     },
     {
+      "jour": 3,
+      "type": "reel",
+      "variante": "serie-nuit"
+    },
+    {
       "jour": 4,
       "type": "reel",
       "variante": "viral"
+    },
+    {
+      "jour": 5,
+      "type": "reel",
+      "variante": "serie-nuit"
     },
     {
       "jour": 6,
@@ -580,7 +595,6 @@
   ],
   "_grand_debat": "14/11/2026 (directeur) : « Le Grand Débat », série animée (Kévin / Léo), 2 épisodes par semaine (mardi et samedi). Épisodes déposés dans media/grand-debat/ (NN-sujet.mp4 + NN-sujet.txt pour la légende) ; le plus ancien non publié part ; sans épisode en attente, le créneau reste libre.",
   "grand_debat": {
-    "explication": "14/11/2026 (directeur, option 1) : Le Grand Débat (série de Riviera Studio) est publié par le robot Teufy EN COLLABORATION Instagram avec le compte de Riviera Studio : une seule publication, visible chez les abonnés des deux comptes. Le compte collaborateur reçoit une invitation à accepter dans l'app Instagram. Mettre ici le nom du compte Riviera (sans @).",
-    "collaborateurs": []
+    "explication": "14/11/2026 (directeur) : AUCUNE collaboration avec Riviera Studio. Le Grand Débat et la série « Et toi, t'aurais fait quoi ? » sont publiés uniquement sur le compte Teufy. Épisodes prêts à déposer dans media/grand-debat/ (mar. et sam., sur la grille) et media/serie-nuit/ (lun., mer., ven., onglet Reels seulement, hors grille), au format NN-sujet.mp4 + NN-sujet.txt (légende). Sans épisode en attente, le créneau est simplement sauté."
   }
 }
