@@ -222,7 +222,7 @@
    "score": 0,
    "soirs": [],
    "details": {
-    "le": "2026-11-13T17:41:06.988Z",
+    "le": "2026-11-14T00:55:11.200Z",
     "styles": "DJ résidents (ven–sam après 22h)",
     "dress_code": "",
     "horaires": "lun–dim 10h–2h",
@@ -6162,6 +6162,19 @@
     }
    ],
    "couv": null
+  },
+  "glam.nice": {
+   "le": "2026-11-14T00:52:22.403Z",
+   "abonnes": 467,
+   "posts21": 0,
+   "likes": 0,
+   "commentaires": 0,
+   "photo": "https://scontent-lga3-2.xx.fbcdn.net/v/t51.2885-15/145489802_111836054218332_2158457073491034327_n.jpg?_nc_cat=106&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=7d201b&_nc_ohc=Pd3OpE3M_FUQ7kNvwFbNH7G&_nc_oc=AdoHG3HWC53S0muUtFFVISndxmLZoa3LxjS4JizD-0tz_4Gvk4oINRmP_bh9h9Jxhsc&_nc_zt=23&_nc_ht=scontent-lga3-2.xx&edm=AL-3X8kEAAAA&oh=00_AQTnJJ_pRxkKD3sktfhNS0YUFZLyW3FrXx24bGOy2fTpzQ&oe=6AFD7A89",
+   "posts": [],
+   "couv": {
+    "u": "https://scontent-lga3-2.cdninstagram.com/v/t51.82787-15/626694983_18129342652467338_8680134217849544298_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=106&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=Jm_FpKhdH8gQ7kNvwFS965o&_nc_oc=AdovW6ACXRmdXl8ZX5OM8V90L4Kp6DOZGZcQzY0wkAekSaQLxTXupn0KCfaRn7b_hS4&_nc_zt=23&_nc_ht=scontent-lga3-2.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=Wla3jacmFrw4ZEQSSo0L1Q&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQStd7mv3-oVyY4BoxEEZT3tZZpMmLDR4gwOxN9gnuJpNQ&oe=6AFD8748",
+    "lien": "https://www.instagram.com/p/DAzCDHgyUXj/"
+   }
   }
  }
 }
