@@ -540,10 +540,10 @@
   ],
   "prospection": {
     "explication": "Prospection des partenaires (src/prospection.mjs, workflow « Teufy - Prospection », chaque jour ouvré à 9h20). Cible : bars, clubs, organisateurs, anciens partenaires, activités (laser game, bowling, karting…), boutiques de soirée, beauté, restauration. Seulement des contacts professionnels publiés (site officiel, bio Instagram, ou OpenStreetMap — base ouverte et gratuite, interrogée chaque semaine sans IA pour tous les bars, clubs, restaurants, fast-foods, activités et boutiques de fête des Alpes-Maritimes, du Var et de Monaco). Chaque adresse est vérifiée avant l'envoi (le domaine doit recevoir du courrier) ; priorité aux anciens partenaires, aux lieux qui ont des soirées, puis à la nuit. 1er message puis 2 relances (J+7, J+14), jamais le week-end. Suivi chiffré : contenus/prospection.enc. Secrets GitHub requis : BREVO_API_KEY (envoi des e-mails) et PROSPECTION_CLE (une phrase secrète au choix, pour le chiffrement). actif = true pour envoyer vraiment.",
-    "actif": true,
+    "actif": false,
     "expediteur": "contact@teufyparty.com",
     "_expediteur": "Adresse d'envoi validée dans Brevo (idéalement sur le domaine teufyparty.com, ex. contact@teufyparty.com). Vide = config.site.email. Les réponses arrivent toujours sur config.site.email.",
-    "nouveaux_par_jour": 250,
+    "nouveaux_par_jour": 20,
     "relances_jours": [
       7,
       14
@@ -552,7 +552,8 @@
     "_recherches": "Recherches web de nouveaux lieux par jour (Gemini ≈ 0,04 € l'une ; Claude en secours ≈ 0,60 €). Le plafond IA du jour (llm.budget_jour_eur) s'applique toujours.",
     "contacts_par_jour": 200,
     "recherches_contact_par_jour": 25,
-    "_volume": "Montée en charge automatique : 60, 100, 150, 200 e-mails les 4 premiers jours d'envoi, puis nouveaux_par_jour (250 ; Brevo gratuit = 300/jour, le reste sert aux relances, rapports et paiements)."
+    "_volume": "Montée en charge automatique : 60, 100, 150, 200 e-mails les 4 premiers jours d'envoi, puis nouveaux_par_jour (250 ; Brevo gratuit = 300/jour, le reste sert aux relances, rapports et paiements).",
+    "_pause": "14/11/2026 : Brevo a suspendu l'envoi (examen du compte, politique anti-spam) après des envois de prospection à froid (jusqu'à 250 nouveaux contacts par jour). Envoi automatique coupé. À ne remettre en route qu'après accord de Brevo, et jamais plus de 20 nouveaux contacts par jour."
   },
   "_calendrier_note": "13/11/2026 (directeur) : relance du compte = qualité plutôt que volume. 4 posts (mer bons plans, jeu Édition Tekno, ven soirées du week-end + débat en story, sam guide) et 3 reels (mar et jeu viral, dim « Teufy »), stories chaque jour. Jamais de reel de soirées ni d'explicatif.",
   "calendrier_reels": [
