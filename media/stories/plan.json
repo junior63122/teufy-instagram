@@ -1,14 +1,22 @@
 {
-  "jour": "2026-11-13",
+  "jour": "2026-11-14",
   "plan": [
     {
-      "type": "coeur",
+      "type": "soirees",
       "cles": [
-        "c-Paul Seul (+ Warm up + Closing)"
+        "Caravel (+ No2theG, May-Li)",
+        "Lilly Wood and The Prick — Festival Mas d'Hiver",
+        "Noise Protocol by Kontakt 6Tem"
       ],
       "frames": [
         {
-          "image": "2026-11-13-coeur.jpg"
+          "image": "2026-11-14-soirees-0.jpg"
+        },
+        {
+          "image": "2026-11-14-soirees-1.jpg"
+        },
+        {
+          "image": "2026-11-14-soirees-2.jpg"
         }
       ]
     }
