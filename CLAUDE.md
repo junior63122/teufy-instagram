@@ -17,3 +17,6 @@
   être lancé, il n'a pas de clé IA.
 - **Les publications passent toujours** : le plafond IA du jour ne doit jamais empêcher de créer ou de poster
   (TEUFY_PUBLICATION=1 : dépassement du plafond du jour en exception ; sans IA du tout, carrousel des soirées de secours).
+- **Séries animées (Grand Débat, « Et toi, t'aurais fait quoi ? »)** : produire les épisodes avec le moteur de `riviera-studio` et
+  les voix ElevenLabs (crédits de l'abonnement Riviera) est autorisé **sans redemander** (directeur, 14/11/2026). Livrer dans
+  `media/grand-debat/` ou `media/serie-nuit/` (`NN-sujet.mp4` + `.txt`), après vérification à l'œil et contrôle qualité.
