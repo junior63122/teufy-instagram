@@ -75,7 +75,11 @@ function episodeGrandDebat(serie = 'grand-debat') {
   const base = f.replace(/\.mp4$/, ''), txt = path.join(dir, `${base}.txt`);
   const nom = serie === 'serie-nuit' ? 'Et toi, t\'aurais fait quoi ?' : 'Le Grand Débat';
   const legende = existsSync(txt) ? readFileSync(txt, 'utf8').trim() : `${nom} Tu votes quoi ? Un mot en commentaire 👇`;
-  return { id: `${serie}-${base}`, video: path.join(dir, f), legende, titre: `${nom} · ${base.replace(/[-_]/g, ' ')}` };
+  // Couverture aux couleurs de la DA (15/11/2026, directeur : « ne ruine pas la DA de la grille ») : NN-sujet.couverture.txt
+  // = 1re ligne le titre de la couverture, 2e ligne (facultative) la photo de decors/da/ (sans .jpg).
+  const cf = path.join(dir, `${base}.couverture.txt`);
+  const [couvTitre, couvPhoto] = existsSync(cf) ? readFileSync(cf, 'utf8').split('\n').map((x) => x.trim()) : [];
+  return { id: `${serie}-${base}`, video: path.join(dir, f), legende, titre: `${nom} · ${base.replace(/[-_]/g, ' ')}`, nom, couvTitre: couvTitre || legende.split('\n')[0].replace(/^Le Grand Débat #\d+\s*🥊?\s*/, '').slice(0, 60), couvPhoto: couvPhoto || null };
 }
 // Un épisode du Grand Débat n'est prévu que s'il y en a un en attente (sinon le créneau reste libre).
 // Clé d'une soirée (pour ne pas remontrer les mêmes soirées dans deux posts rapprochés).
@@ -448,7 +452,10 @@ async function prepare(slot, now, id) {
     if (!ep) throw new Error(`${slot.variante} : aucun épisode en attente dans media/${slot.variante}/`);
     const video = path.join(dir, `reel-${stamp}.mp4`), cover = path.join(dir, `reel-${stamp}-couverture.jpg`);
     await copyFile(ep.video, video);
-    spawnSync('ffmpeg', ['-y', '-loglevel', 'error', '-ss', '0.4', '-i', video, '-frames:v', '1', '-q:v', '2', cover]);
+    // Couverture : jamais une image du dessin animé (elle casse la DA de la grille et de l'onglet Reels) ; gabarit de la DA
+    // (photo de nuit sombre + titre), comme les autres reels. Image de l'épisode seulement si le gabarit échoue.
+    try { await couvertureDA({ photo: `decors/da/${ep.couvPhoto || (slot.variante === 'serie-nuit' ? 'lasers' : 'rire')}.jpg`, rubrique: ep.nom, titre: ep.couvTitre }, cover, 'couverture-reel'); }
+    catch (err) { console.error(`[${id}] couverture DA impossible (${err.message}) : image de l'épisode à la place.`); spawnSync('ffmpeg', ['-y', '-loglevel', 'error', '-ss', '0.4', '-i', video, '-frames:v', '1', '-q:v', '2', cover]); }
     const d = parseFloat(spawnSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', video]).stdout?.toString()) || 0;
     pub = { video, couverture: cover, legende: ep.legende, titre: ep.titre, concept: ep.id, duree: +d.toFixed(1), rubrique: slot.variante === 'serie-nuit' ? 'Et toi, t\'aurais fait quoi ?' : 'Le Grand Débat', hors_grille: slot.variante === 'serie-nuit' }; // la série n'apparaît que dans l'onglet Reels
     console.log(`[${id}] Grand Débat : épisode « ${ep.titre} » (${d.toFixed(1)} s)`);
