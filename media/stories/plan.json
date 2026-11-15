@@ -1,10 +1,16 @@
 {
-  "jour": "2026-11-14",
+  "jour": "2026-11-15",
   "plan": [
     {
-      "type": "coeur",
-      "cles": [],
-      "frames": []
+      "type": "soirees",
+      "cles": [
+        "Dj K-Net (Resident)"
+      ],
+      "frames": [
+        {
+          "image": "2026-11-15-soirees-0.jpg"
+        }
+      ]
     }
   ]
 }
