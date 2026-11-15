@@ -2,13 +2,13 @@
   "jour": "2026-11-15",
   "plan": [
     {
-      "type": "soirees",
+      "type": "astuce",
       "cles": [
-        "Dj K-Net (Resident)"
+        "a-prevente"
       ],
       "frames": [
         {
-          "image": "2026-11-15-soirees-0.jpg"
+          "image": "2026-11-15-astuce.jpg"
         }
       ]
     }
