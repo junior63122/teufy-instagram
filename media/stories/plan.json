@@ -2,13 +2,13 @@
   "jour": "2026-11-15",
   "plan": [
     {
-      "type": "offre",
+      "type": "question",
       "cles": [
-        "code-TEUFYxPANDA20"
+        "d-danser-premier"
       ],
       "frames": [
         {
-          "image": "2026-11-15-offre.jpg"
+          "image": "2026-11-15-question.jpg"
         }
       ]
     }
