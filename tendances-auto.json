@@ -1,21 +1,33 @@
 {
-  "maj": "2026-11-13T15:07:33.205Z",
+  "maj": "2026-11-15T15:07:44.740Z",
   "comptes": {
     "downtown.nice": {
-      "abonnes": 2393,
+      "abonnes": 2399,
       "posts": 25
     },
     "uptown.nice": {
-      "abonnes": 1868,
+      "abonnes": 1867,
       "posts": 25
     },
     "la_dinette__": {
-      "abonnes": 5655,
+      "abonnes": 5654,
       "posts": 25
     },
     "lebarathymtoulon": {
-      "abonnes": 10927,
+      "abonnes": 10937,
       "posts": 25
+    },
+    "lebonbonmarseille": {
+      "erreur": "Instagram 17841451355992040 : Invalid user id (code 110, sous-code 2207013)"
+    },
+    "lebonbon": {
+      "erreur": "Instagram 17841451355992040 : Invalid user id (code 110, sous-code 2207013)"
+    },
+    "lebonbon_nice": {
+      "erreur": "Instagram 17841451355992040 : Invalid user id (code 110, sous-code 2207013)"
+    },
+    "lebonbonnice": {
+      "erreur": "Instagram 17841451355992040 : Invalid user id (code 110, sous-code 2207013)"
     },
     "nightlyfr": {
       "erreur": "Instagram 17841451355992040 : Invalid user id (code 110, sous-code 2207013)"
@@ -33,7 +45,7 @@
       "erreur": "Instagram 17841451355992040 : Invalid user id (code 110, sous-code 2207013)"
     },
     "monaco.nightlife": {
-      "abonnes": 5412,
+      "abonnes": 5410,
       "posts": 25
     },
     "cannes.nightlife": {
@@ -43,7 +55,7 @@
       "erreur": "Instagram 17841451355992040 : Invalid user id (code 110, sous-code 2207013)"
     },
     "dicefm": {
-      "abonnes": 93046,
+      "abonnes": 93160,
       "posts": 25
     },
     "trax_magazine": {
@@ -53,19 +65,56 @@
       "erreur": "Instagram 17841451355992040 : Invalid user id (code 110, sous-code 2207013)"
     },
     "boilerroomtv": {
-      "abonnes": 2888011,
+      "abonnes": 2888276,
+      "posts": 25
+    },
+    "partiful": {
+      "abonnes": 51767,
+      "posts": 25
+    },
+    "posh.vip": {
+      "abonnes": 102886,
+      "posts": 25
+    },
+    "residentadvisor": {
+      "erreur": "Instagram 17841451355992040 : Invalid user id (code 110, sous-code 2207013)"
+    },
+    "feverup": {
+      "erreur": "Instagram 17841451355992040 : Invalid user id (code 110, sous-code 2207013)"
+    },
+    "timeoutnewyork": {
+      "abonnes": 778272,
+      "posts": 25
+    },
+    "theinfatuation": {
+      "erreur": "Instagram 17841451355992040 : Invalid user id (code 110, sous-code 2207013)"
+    },
+    "duolingo": {
+      "abonnes": 5423599,
+      "posts": 25
+    },
+    "hinge": {
+      "abonnes": 318579,
+      "posts": 9
+    },
+    "ryanair": {
+      "abonnes": 1908228,
+      "posts": 25
+    },
+    "eater": {
+      "abonnes": 1600857,
       "posts": 25
     },
     "bringue_party": {
-      "abonnes": 91152,
+      "abonnes": 91359,
       "posts": 25
     },
     "bazaarcannes": {
-      "abonnes": 3742,
+      "abonnes": 3744,
       "posts": 25
     },
     "mixparty_cannes": {
-      "abonnes": 6989,
+      "abonnes": 6986,
       "posts": 25
     },
     "lelixirclub": {
@@ -73,320 +122,249 @@
       "posts": 25
     },
     "jokerplay17": {
-      "abonnes": 39816,
+      "abonnes": 39779,
       "posts": 25
     },
     "sowetolesprit": {
-      "abonnes": 2735,
+      "abonnes": 3278,
       "posts": 25
     },
     "tetris.owl": {
-      "abonnes": 10724,
+      "abonnes": 10729,
       "posts": 25
     },
     "xka_music": {
-      "abonnes": 32112,
+      "abonnes": 32109,
       "posts": 25
     },
     "djmvlarosa_officiel": {
-      "abonnes": 3197,
+      "abonnes": 3195,
       "posts": 25
     },
     "lesfrench_nghts": {
       "abonnes": 432,
       "posts": 25
-    },
-    "djtrulli_": {
-      "abonnes": 2428,
-      "posts": 25
-    },
-    "pedro_martinez_musicoff": {
-      "abonnes": 1562,
-      "posts": 16
-    },
-    "120bpm.event": {
-      "abonnes": 324,
-      "posts": 19
-    },
-    "groovzcannes": {
-      "abonnes": 2226,
-      "posts": 25
-    },
-    "barrelcannespub": {
-      "abonnes": 2277,
-      "posts": 25
-    },
-    "latinaddict": {
-      "abonnes": 87839,
-      "posts": 25
-    },
-    "nayaclubcannes": {
-      "abonnes": 19177,
-      "posts": 25
-    },
-    "junga_club": {
-      "abonnes": 3945,
-      "posts": 1
-    },
-    "cdr_cannes": {
-      "abonnes": 2269,
-      "posts": 25
-    },
-    "lebayou2.0": {
-      "abonnes": 2666,
-      "posts": 21
-    },
-    "greatgame_partyroom": {
-      "abonnes": 10880,
-      "posts": 25
-    },
-    "charlotte_vtc_toulon": {
-      "abonnes": 196,
-      "posts": 17
-    },
-    "espritfestival": {
-      "abonnes": 7838,
-      "posts": 25
-    },
-    "le.bar.ephemere": {
-      "abonnes": 6509,
-      "posts": 25
     }
   },
   "hashtags": {
-    "#halloween2026": 1,
-    "#cannesbynight": 0.507,
-    "#nayaclub": 0.465,
-    "#nightlife": 0.394,
-    "#cannes": 0.273,
-    "#partytime": 0.255,
-    "#cannesnightlife": 0.182,
-    "#côtedazur": 0.182,
-    "#halloween": 0.136,
-    "#nayacannes": 0.089,
-    "#showcase": 0.06,
-    "#soirée": 0.006,
-    "#event": 0.004,
-    "#pourtoi": 0.003,
-    "#fyp": 0.003,
-    "#dj": 0.002,
-    "#antibes": 0.001,
-    "#cotedazurfrance": 0.001,
-    "#shatta": 0.001,
-    "#club": 0.001,
-    "#paca": 0.001,
-    "#party": 0.001,
-    "#discotheque": 0.001,
-    "#vtc": 0.001,
-    "#trend": 0.001,
-    "#vieuxnice": 0.001,
-    "#technomusic": 0.001,
-    "#bar": 0.001,
-    "#dancehall": 0.001,
-    "#nightclub": 0.001,
-    "#toulon": 0.001,
-    "#dance": 0.001,
-    "#night": 0.001,
-    "#love": 0,
-    "#oldtownnice": 0,
-    "#cocktails": 0,
-    "#cotedazur": 0,
-    "#viral": 0,
-    "#girls": 0,
-    "#friends": 0
+    "#soirée": 1,
+    "#fyp": 0.664,
+    "#pourtoi": 0.642,
+    "#dj": 0.582,
+    "#antibes": 0.431,
+    "#club": 0.288,
+    "#party": 0.18,
+    "#shatta": 0.164,
+    "#halloween": 0.121,
+    "#discotheque": 0.111,
+    "#vieuxnice": 0.102,
+    "#toulon": 0.095,
+    "#dancehall": 0.093,
+    "#oldtownnice": 0.092,
+    "#clubs": 0.076,
+    "#3": 0.075,
+    "#bar": 0.075,
+    "#nightlife": 0.074,
+    "#nice": 0.072,
+    "#music": 0.065,
+    "#festival": 0.06,
+    "#toulonbynight": 0.057,
+    "#nice06": 0.056,
+    "#techno": 0.056,
+    "#ad": 0.016
   },
   "formats": {
     "carrousel": {
-      "score": 152.05,
-      "posts": 181
+      "score": 6.61,
+      "posts": 191
     },
     "image": {
-      "score": 16.87,
-      "posts": 171
+      "score": 1.89,
+      "posts": 117
     },
     "reel": {
-      "score": 151.24,
-      "posts": 372
+      "score": 2.41,
+      "posts": 276
     }
   },
   "heures": {
     "0": {
-      "score": 2.26,
-      "posts": 7
+      "score": 1.46,
+      "posts": 10
     },
     "1": {
-      "score": 0.7,
-      "posts": 3
+      "score": 0.96,
+      "posts": 1
     },
     "2": {
-      "score": 0.47,
-      "posts": 2
+      "score": 2.01,
+      "posts": 10
     },
     "3": {
       "score": 1.33,
       "posts": 1
     },
     "5": {
-      "score": 0.45,
-      "posts": 2
+      "score": 0.91,
+      "posts": 1
     },
     "6": {
-      "score": 2.02,
-      "posts": 3
-    },
-    "7": {
-      "score": 0.7,
+      "score": 2.66,
       "posts": 2
     },
+    "7": {
+      "score": 1.41,
+      "posts": 1
+    },
     "8": {
-      "score": 1.46,
-      "posts": 4
+      "score": 1.33,
+      "posts": 3
     },
     "9": {
-      "score": 0.75,
-      "posts": 5
+      "score": 1.5,
+      "posts": 1
     },
     "10": {
-      "score": 1.23,
-      "posts": 17
+      "score": 1.63,
+      "posts": 7
     },
     "11": {
-      "score": 42.74,
-      "posts": 32
+      "score": 1.57,
+      "posts": 19
     },
     "12": {
-      "score": 40.4,
-      "posts": 37
+      "score": 1.26,
+      "posts": 23
     },
     "13": {
-      "score": 4.82,
-      "posts": 36
+      "score": 2.8,
+      "posts": 27
     },
     "14": {
-      "score": 4.47,
-      "posts": 35
+      "score": 2.07,
+      "posts": 24
     },
     "15": {
-      "score": 300.28,
-      "posts": 36
+      "score": 1.53,
+      "posts": 30
     },
     "16": {
-      "score": 631.29,
-      "posts": 45
+      "score": 5.16,
+      "posts": 40
     },
     "17": {
-      "score": 259.06,
-      "posts": 84
+      "score": 11.53,
+      "posts": 68
     },
     "18": {
-      "score": 12.04,
-      "posts": 143
+      "score": 2.2,
+      "posts": 95
     },
     "19": {
-      "score": 46.58,
-      "posts": 120
+      "score": 1.38,
+      "posts": 92
     },
     "20": {
-      "score": 202.16,
-      "posts": 55
+      "score": 1.77,
+      "posts": 54
     },
     "21": {
-      "score": 3.71,
-      "posts": 32
+      "score": 3.98,
+      "posts": 27
     },
     "22": {
-      "score": 276.57,
-      "posts": 14
+      "score": 3.04,
+      "posts": 26
     },
     "23": {
-      "score": 1.72,
-      "posts": 9
+      "score": 11.37,
+      "posts": 22
     }
   },
   "accroches": [
     {
-      "compte": "groovzcannes",
+      "compte": "partiful",
       "format": "carrousel",
-      "score": 21563.34,
-      "accroche": "Good people. Good vibes. One place. 🔥🌙",
-      "lien": "https://www.instagram.com/p/DclnBCuALRo/"
+      "score": 635.6,
+      "accroche": "Golden hour at 4:30?? Perfect excuse to host 🕯️ Swipe for your dark-by-5 party lineup",
+      "lien": "https://www.instagram.com/p/DfkSWKFnIux/"
     },
     {
-      "compte": "cdr_cannes",
-      "format": "reel",
-      "score": 11018.07,
-      "accroche": "⚠️ TRIANGLE DES BERMUDES est de retour le mercredi 08 juillet 2026 ! 🌊🔥",
-      "lien": "https://www.instagram.com/reel/DaanjIpKxOr/"
-    },
-    {
-      "compte": "groovzcannes",
-      "format": "reel",
-      "score": 10781.67,
-      "accroche": "📼 On a retrouvé une cassette derrière le comptoir.",
-      "lien": "https://www.instagram.com/reel/DemvXlagFbd/"
-    },
-    {
-      "compte": "groovzcannes",
-      "format": "reel",
-      "score": 9433.96,
-      "accroche": "Vous rayonnez tellement ✨✨",
-      "lien": "https://www.instagram.com/reel/DeEtHE1yaZk/"
-    },
-    {
-      "compte": "cdr_cannes",
-      "format": "reel",
-      "score": 5288.67,
-      "accroche": "Naya Night Show 🥂🥳",
-      "lien": "https://www.instagram.com/reel/DdooxHxK5BE/"
-    },
-    {
-      "compte": "cdr_cannes",
-      "format": "reel",
-      "score": 3966.51,
-      "accroche": "NAYA CLUB CANNES 🥂",
-      "lien": "https://www.instagram.com/reel/DdWoos9KPSX/"
-    },
-    {
-      "compte": "latinaddict",
-      "format": "reel",
-      "score": 3859.33,
-      "accroche": "latinaddict is magic 😈",
-      "lien": "https://www.instagram.com/reel/DDkrxm1uLDM/"
-    },
-    {
-      "compte": "groovzcannes",
+      "compte": "posh.vip",
       "format": "carrousel",
-      "score": 2695.42,
-      "accroche": "📼 ARCHIVE 31/10/2025 · DOSSIERS CLASSÉS",
-      "lien": "https://www.instagram.com/p/DeuaCvdjGQd/"
+      "score": 176.05,
+      "accroche": "Wikipedia is built to be neutral and factual, a free encyclopedia written by volunteers since 2001. Every so often, that plain language land",
+      "lien": "https://www.instagram.com/p/DfIf30EEeV7/"
     },
     {
-      "compte": "groovzcannes",
+      "compte": "djmvlarosa_officiel",
+      "format": "reel",
+      "score": 52.33,
+      "accroche": "Closing adixia + Le Roi de Lloret de Mar à la fin de la vidéo… ⭐️⭐️🌶️ ",
+      "lien": "https://www.instagram.com/reel/Dbqki0vti6Y/"
+    },
+    {
+      "compte": "partiful",
       "format": "carrousel",
-      "score": 2695.42,
-      "accroche": "Girls just wanna have fun 💃✨",
-      "lien": "https://www.instagram.com/p/Ddyz0oOAFU2/"
+      "score": 48.4,
+      "accroche": "Friendsgiving 101 🥧 Swipe for everything you need to know 🍂 Send this to your group chat <3",
+      "lien": "https://www.instagram.com/p/DfZ4QmknMPs/"
     },
     {
-      "compte": "groovzcannes",
+      "compte": "djmvlarosa_officiel",
       "format": "reel",
-      "score": 2695.42,
-      "accroche": "Some nights hit different in slow motion 🌚",
-      "lien": "https://www.instagram.com/reel/Dc3odd2AuLo/"
+      "score": 33.22,
+      "accroche": "Intro MV LA ROSA à la Feria de Nîmes 2026 ! ❤️🤍",
+      "lien": "https://www.instagram.com/reel/DdgdiI7AqzN/"
     },
     {
-      "compte": "groovzcannes",
-      "format": "reel",
-      "score": 1347.71,
-      "accroche": "La cassette maudite a tout filmé 📼🎃",
-      "lien": "https://www.instagram.com/reel/DfXhdTFgXP9/"
+      "compte": "partiful",
+      "format": "carrousel",
+      "score": 32.2,
+      "accroche": "Need an excuse to leave the couch? Here are 6 events to get you out of the house this weekend in NYC 🍂 Send this to the friend you’re dragg",
+      "lien": "https://www.instagram.com/p/DfpVkKuHMHS/"
     },
     {
-      "compte": "groovzcannes",
+      "compte": "dicefm",
+      "format": "carrousel",
+      "score": 31.9,
+      "accroche": "Last week BICEP released new tracks Air, Lemonder and Viper. Next month they’re bringing back their LIVE show for the first time in 3 years.",
+      "lien": "https://www.instagram.com/p/Dd_qG-Iio-L/"
+    },
+    {
+      "compte": "la_dinette__",
+      "format": "image",
+      "score": 29.27,
+      "accroche": "🚨 ATTENTION : ÉVÉNEMENT REPORTÉ ! 🎃",
+      "lien": "https://www.instagram.com/p/DeCb24BKjE-/"
+    },
+    {
+      "compte": "djmvlarosa_officiel",
       "format": "reel",
-      "score": 1347.71,
-      "accroche": "📼 ARCHIVE 31/10 — Ce message n’aurait jamais dû être diffusé.",
-      "lien": "https://www.instagram.com/reel/DfDDVPkgA3R/"
+      "score": 25.89,
+      "accroche": "VESQUIT LE GOUMIN en Feria de Nîmes ❤️🤍 ",
+      "lien": "https://www.instagram.com/reel/Ddl-2vvhxbY/"
+    },
+    {
+      "compte": "djmvlarosa_officiel",
+      "format": "reel",
+      "score": 25.78,
+      "accroche": "1 an sépare ses deux vidéos - MV LA ROSA 🥵🫢 ",
+      "lien": "https://www.instagram.com/reel/DcJW7DqtbUs/"
+    },
+    {
+      "compte": "djmvlarosa_officiel",
+      "format": "reel",
+      "score": 22.44,
+      "accroche": "Partie 1 : TOP 5 - Meilleurs Musiques Club Feria de Nîmes ❤️🤍 ",
+      "lien": "https://www.instagram.com/reel/DdoUSn6hhwS/"
+    },
+    {
+      "compte": "posh.vip",
+      "format": "carrousel",
+      "score": 21.4,
+      "accroche": "Before downtown New York became a collection of luxury boutiques, curated coffee shops and Instagram backdrops, there was a generation of ar",
+      "lien": "https://www.instagram.com/p/Dffx3UUgao5/"
     }
   ]
 }

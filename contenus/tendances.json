@@ -33,7 +33,8 @@
       "#nightlifecotedazur",
       "#sortiracannes",
       "#cotedazurfrance",
-      "#cannesbynight"
+      "#cannesbynight",
+      "#vieuxnice"
     ],
     "commercial": [
       "#clubbing",
@@ -58,7 +59,8 @@
       "#technofamily",
       "#underground",
       "#technolovers",
-      "#soiréetechno"
+      "#soiréetechno",
+      "#acidtechno"
     ],
     "general": [
       "#soiree",
@@ -121,6 +123,16 @@
         "titre": "5 h du mat'. Plus de tram. Plan B ?",
         "sous": "Envoie-le à ton groupe",
         "ajout": "2026-11-13"
+      },
+      {
+        "titre": "« Tenue correcte exigée » : ça veut dire quoi ?",
+        "sous": "Envoie-le à ton groupe",
+        "ajout": "2026-11-15"
+      },
+      {
+        "titre": "Nice ou Cannes : qui sort le mieux le jeudi ?",
+        "sous": "Défends ta ville en com",
+        "ajout": "2026-11-15"
       }
     ],
     "techno": [
@@ -169,6 +181,11 @@
         "titre": "Line-up tombé. Tu l'envoies à qui en premier ?",
         "sous": "Techno · Côte d'Azur",
         "ajout": "2026-11-13"
+      },
+      {
+        "titre": "Ton pote dit « c'est que du boum boum »",
+        "sous": "Montre-lui ça",
+        "ajout": "2026-11-15"
       }
     ],
     "petits-prix": [
@@ -203,6 +220,11 @@
         "titre": "Fin de mois, mais samedi arrive quand même",
         "sous": "Petits prix · Côte d'Azur",
         "ajout": "2026-11-13"
+      },
+      {
+        "titre": "Fin de mois, mais le before est gratuit",
+        "sous": "Petits prix · Côte d'Azur",
+        "ajout": "2026-11-15"
       }
     ]
   },
@@ -225,18 +247,22 @@
       "Vendredi approche. Le groupe hésite encore. Voilà de quoi trancher, de Nice à Monaco.",
       "Tu connais forcément quelqu'un qui dit toujours « on verra ». Cette semaine, il n'a plus d'excuse.",
       "Pas encore de plan pour samedi ? Enregistre ce post. Ton groupe te dira merci.",
-      "47 messages dans le groupe, toujours aucun plan. On a fait le tri pour toi, de Nice à Monaco."
+      "47 messages dans le groupe, toujours aucun plan. On a fait le tri pour toi, de Nice à Monaco.",
+      "Ton groupe hésite encore entre trois endroits. On a fait le tri, de Nice à Monaco. Envoie-leur avant qu'ils proposent de rester au canap'.",
+      "Tenue correcte exigée, réservation conseillée, et toi t'as juste envie de danser. Voilà les soirées du week-end sur la Côte."
     ],
     "techno": [
       "Les caissons tremblent déjà. Ce week-end, la scène underground du 06 ne fait aucun compromis sur les BPM.",
       "Novembre sombre, basses lourdes. Les soirées techno de la Côte d'Azur cette semaine, sans détour.",
       "Warehouse, club, rooftop. Cette semaine, le 06 vibre en 4/4. Voici où aller.",
       "Les dates techno du mois sur la Côte d'Azur. Enregistre avant d'oublier, partage à ceux qui viennent avec toi.",
-      "Kicks lourds, after jusqu'au matin. Les dates qui tapent ce week-end sur la Côte, à envoyer à ton binôme de dancefloor."
+      "Kicks lourds, after jusqu'au matin. Les dates qui tapent ce week-end sur la Côte, à envoyer à ton binôme de dancefloor.",
+      "Si tu lis ça, t'es déjà de la famille. Les dates qui tapent ce mois-ci sur la Côte, sans détour.",
+      "Pas de carré VIP, pas de dress code. Juste des kicks et un lever de soleil. Les soirées techno du week-end sur la Côte."
     ]
   },
-  "objectif_semaine": 95,
-  "derniere_analyse": "2026-11-13T15:07:33.188Z",
+  "objectif_semaine": 60,
+  "derniere_analyse": "2026-11-15T15:07:44.719Z",
   "concurrents": {
     "_note": "Comptes concurrents ou similaires (guides de sorties, médias nightlife). Le bot regarde chaque jour ce qui marche chez eux (formats, accroches, hashtags, heures). Un nom inexistant est simplement ignoré.",
     "liste": [
@@ -260,34 +286,28 @@
   },
   "formats_a_tester": [
     {
-      "format": "Annonce exclusive : nom de l'artiste + lieu en gros, une phrase, appel à taguer",
-      "pourquoi": "Info qu'on n'a pas encore = envoi en message privé. Meilleure portée de la semaine.",
-      "source": "Post veille HUGEL du 2026-11-09 : 898 de portée, 8 partages",
-      "ajout": "2026-11-13"
+      "format": "Reel POV d'une situation vraie de soirée (groupe WhatsApp, pote qui rentre tôt), texte lisible sans le son",
+      "pourquoi": "Le seul explicatif partagé (gratuit avant 1 h, 4 partages) touchait un vécu ; les situations se taguent.",
+      "source": "Chiffres du compte, post du 2026-11-13",
+      "ajout": "2026-11-15"
     },
     {
-      "format": "Carrousel par style pointu (tekno, hard techno, acid) avec dates de la semaine",
-      "pourquoi": "La famille techno partage ce qui lui ressemble, pas le généraliste.",
-      "source": "Édition Tekno du 2026-11-12 : 100/100, 8 partages pour 360 de portée",
-      "ajout": "2026-11-13"
+      "format": "Annonce flash d'un line-up ou premier nom dans les 24 h",
+      "pourquoi": "Le post HUGEL a eu la meilleure portée de la semaine (925) et 8 partages.",
+      "source": "Chiffres du compte, post du 2026-11-09 ; dicefm https://www.instagram.com/p/Dd_qG-Iio-L/",
+      "ajout": "2026-11-15"
     },
     {
-      "format": "Reel « archive » façon souvenir de soirée (cassette, dossier classé) avec une narration courte",
-      "pourquoi": "Raconte la soirée comme une histoire, donne envie d'y être, original.",
-      "source": "groovzcannes, reel « On a retrouvé une cassette derrière le comptoir » (score 10781)",
-      "ajout": "2026-11-13"
+      "format": "Reel avant-après « 1 an sépare ces deux vidéos » version fêtard",
+      "pourquoi": "Format qui cartonne chez les DJ, facile à adapter à la famille techno et très taguable.",
+      "source": "djmvlarosa_officiel, https://www.instagram.com/reel/DcJW7DqtbUs/",
+      "ajout": "2026-11-15"
     },
     {
-      "format": "Carrousel saisonnier « Nouvel An sur la Côte d'Azur » publié tôt",
-      "pourquoi": "Le groupe s'organise des semaines à l'avance : on enregistre et on partage pour décider.",
-      "source": "Post Nouvel An du 2025-12-24 : 58 partages, 18 enregistrements",
-      "ajout": "2026-11-13"
-    },
-    {
-      "format": "Situation vécue « tague le pote » (le pote qui rentre tôt, le dernier tram raté)",
-      "pourquoi": "Passe le test du « c'est trop toi », premier signal pour toucher des non-abonnés.",
-      "source": "Post du 2025-11-17 « La vérité, c'est qu'on a tous déjà eu cette impression » : 67 likes, 14 partages",
-      "ajout": "2026-11-13"
+      "format": "Édition techno hebdo avec hashtags pointus (#hardtechno, #technocotedazur)",
+      "pourquoi": "100/100 pour l'Édition Tekno, traits hashtags techno à +41.",
+      "source": "Chiffres du compte, post du 2026-11-12 et traits_effet_sur_note",
+      "ajout": "2026-11-15"
     }
   ],
   "inspirations_internationales": {

@@ -1,1 +1,118 @@
-[]
+[
+  {
+    "id": "c-2026-11-15-yr0n6u",
+    "titre": "Le groupe WhatsApp du vendredi",
+    "format": "POV",
+    "accroche": "POV : le groupe WhatsApp un vendredi à 18 h",
+    "plans": [
+      {
+        "texte": "18 h : « bon, on sort où ce soir ? »",
+        "video": "phone group chat notifications night"
+      },
+      {
+        "texte": "Le premier : « Vieux-Nice comme d'hab ? »",
+        "video": "friends texting on phone city street"
+      },
+      {
+        "texte": "Le deuxième : « fin de mois, moi je passe »",
+        "video": "young man looking at empty wallet"
+      },
+      {
+        "texte": "La troisième envoie un vocal de 3 minutes",
+        "video": "woman recording voice message phone"
+      },
+      {
+        "texte": "23 h : 47 messages, toujours aucun plan",
+        "video": "phone screen scrolling messages dark room"
+      },
+      {
+        "texte": "1 h : tout le monde en pyjama sur le canap'",
+        "video": "friends on couch watching tv bored"
+      }
+    ],
+    "musique": "house groovy légère 120 bpm, coupée net au dernier plan",
+    "legende": "Chaque vendredi, le même film. 47 messages, trois vocaux, zéro décision. Ce week-end, quelqu'un tranche. Envoie ça au groupe et désigne le chef de soirée en commentaire.",
+    "cta": "Envoie ça au groupe qui ne décide jamais",
+    "inspire_de": "partiful, https://www.instagram.com/p/DfZ4QmknMPs/",
+    "pourquoi_viral": "Situation vécue par tous les groupes de potes, chute drôle, appel direct à l'envoi dans le groupe : le geste de partage est le sujet même du reel.",
+    "test_du_partage": "Au groupe « sorties du week-end », avec « c'est littéralement nous ».",
+    "statut": "propose",
+    "ajout": "2026-11-15"
+  },
+  {
+    "id": "c-2026-11-15-frkni5",
+    "titre": "Tu sais que t'es de la Côte quand…",
+    "format": "classement",
+    "accroche": "Tu sais que t'es de la Côte quand…",
+    "plans": [
+      {
+        "texte": "Tu dis « la Prom' », jamais « la Promenade »",
+        "video": "promenade des anglais nice sunset"
+      },
+      {
+        "texte": "Tu sors en t-shirt en novembre, et t'as raison",
+        "video": "friends walking at night mediterranean city"
+      },
+      {
+        "texte": "Le dernier tram décide de la fin de ta soirée",
+        "video": "tram at night station city lights"
+      },
+      {
+        "texte": "Tu finis la nuit sur les galets, pas sur le sable",
+        "video": "pebble beach sunrise friends sitting"
+      },
+      {
+        "texte": "Nice, Cannes, Monaco : tu défends toujours ta ville",
+        "video": "friends arguing laughing night street"
+      }
+    ],
+    "musique": "afro house solaire 122 bpm",
+    "legende": "La Prom', le dernier tram, les galets au lever du soleil. Si tu coches tout, t'es d'ici. Il manque quoi dans la liste ? Dis-le en commentaire et tague le plus azuréen de ta bande.",
+    "cta": "Tague le pote le plus « de la Côte » que tu connais",
+    "inspire_de": "posh.vip, https://www.instagram.com/p/Dffx3UUgao5/",
+    "pourquoi_viral": "Fierté locale pure, impossible à copier par une autre ville, et la dernière ligne lance le débat Nice, Cannes, Monaco en commentaires.",
+    "test_du_partage": "Au pote niçois exilé à Paris, avec « tu sais que c'est vrai ».",
+    "statut": "propose",
+    "ajout": "2026-11-15"
+  },
+  {
+    "id": "c-2026-11-15-k2bxxr",
+    "titre": "Premier after techno contre dixième",
+    "format": "avant-apres",
+    "accroche": "Ton premier after techno vs ton dixième",
+    "plans": [
+      {
+        "texte": "Premier : tu filmes tout le set",
+        "video": "person filming dj set phone crowd"
+      },
+      {
+        "texte": "Dixième : téléphone dans la poche, yeux fermés",
+        "video": "techno dancer eyes closed dark strobe"
+      },
+      {
+        "texte": "Premier : « c'est quoi ce son ? »",
+        "video": "confused clubber asking friend loud music"
+      },
+      {
+        "texte": "Dixième : tu reconnais le track en deux kicks",
+        "video": "crowd hands up techno warehouse"
+      },
+      {
+        "texte": "Premier : tu rentres à 2 h",
+        "video": "young person leaving club night street"
+      },
+      {
+        "texte": "Dixième : tu vois le soleil se lever sur la mer",
+        "video": "sunrise over sea after party friends"
+      }
+    ],
+    "musique": "hard techno sombre 145 bpm, kick qui tombe au plan 2",
+    "legende": "Au début on filme tout. Après, on ferme les yeux et on attend le lever du soleil. T'en es à combien ? Réponds en com et tague ton binôme de dancefloor depuis le premier after.",
+    "cta": "Tague ton binôme de dancefloor depuis le premier after",
+    "inspire_de": "djmvlarosa_officiel, https://www.instagram.com/reel/DcJW7DqtbUs/",
+    "pourquoi_viral": "Avant-après rapide, codes de la famille techno reconnus en une seconde, fierté de « vétéran » qui pousse à commenter et taguer.",
+    "test_du_partage": "Au pote avec qui on a fait son premier after, avec « on a bien grandi ».",
+    "statut": "propose",
+    "ajout": "2026-11-15"
+  }
+]
