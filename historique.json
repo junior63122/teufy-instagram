@@ -419,5 +419,75 @@
       "legende": "Le Grand Débat #1 🥊 Le pan bagnat : sandwich ou salade ?\n\nKévin dit sandwich. Léo dit salade. À Nice, le débat ne finira jamais.\n\nToi, tu votes quoi ? Un mot en commentaire 👇\nEt tague le pote qui met de la mayo dedans 😭\n\n#TeufyParty #Nice #PanBagnat #CotedAzur",
       "titre": "Le Grand Débat · 01 pan bagnat"
     }
+  },
+  {
+    "id": "libre",
+    "date": "2026-11-16",
+    "media": "18127859321302462",
+    "lien": "https://www.instagram.com/p/Df0L0rmF_V7/",
+    "soirees": [
+      "https://shotgun.live/fr/events/the-show-club-sonore-nice-novembre-2026",
+      "https://shotgun.live/fr/events/do-you-like-tekno-frigo-16-le-109-nice",
+      "https://shotgun.live/fr/events/ref-session-18-acid-pauli-frigo-16",
+      "https://shotgun.live/fr/events/the-first-talk-show-icones-3"
+    ],
+    "le": "2026-11-16T20:12:18.569Z",
+    "publication": {
+      "id": "libre",
+      "type": "bonplan",
+      "variante": "a-reserver",
+      "date": "2026-11-16",
+      "choix": {
+        "post-libre": "a-reserver",
+        "creneau": "18",
+        "seuil-qualite": 0.65,
+        "suivre": "h7y61e",
+        "intro-a-reserver": "4xry4y",
+        "fin-a-reserver": "3exg31",
+        "site": "1p8scyo",
+        "hashtags-local": [
+          "#frenchriviera",
+          "#riviera"
+        ],
+        "hashtags-general": [
+          "#teuf",
+          "#nightlife"
+        ]
+      },
+      "features": [
+        "genre:commercial",
+        "source:web",
+        "style:techno",
+        "style:tech-house",
+        "lieu:mama-shelter-nice",
+        "ville:nice",
+        "prix:gratuit",
+        "horaire:jour",
+        "genre:techno",
+        "source:web",
+        "style:hard-techno",
+        "style:acid",
+        "lieu:frigo-16-le-109",
+        "ville:nice",
+        "prix:moyen",
+        "horaire:nuit",
+        "genre:techno",
+        "source:web",
+        "style:acid",
+        "style:techno",
+        "lieu:frigo-16-le-109",
+        "ville:nice",
+        "prix:moyen",
+        "horaire:nuit",
+        "genre:commercial",
+        "source:web",
+        "lieu:stockfish",
+        "ville:nice",
+        "prix:moyen",
+        "horaire:jour"
+      ],
+      "nb_images": 6,
+      "legende": "À réserver maintenant, pas le jour J. Les dates qu'on surveille pour les prochaines semaines.\n\n→ Jeu 26 nov · The Show Club Sonore - Nice (Techno · Tech house) · Mama Shelter Nice · 19h00 · gratuit\n   Le collectif Club Sonore réunit les jeunes créatifs au Mama Shelter. @mamashelternice @theshow_clubsonore\n→ Sam 28 nov · DO YOU LIKE… TEKNO ? (Hard techno · Acid) · Frigo 16 (Le 109), Nice · 20h00 · 10,99 €\n   Live de 2h du duo 23HZ (Insane Teknology & Nesh Mayday) plus Banditik au 109. @_do.you.like @prizmeconcept\n→ Ven 4 déc · REF Session #18 Acid Pauli - Frigo 16 - NICE (Acid · Techno) · Frigo 16 (Le 109), Nice · 20h00 · 12,49 €\n   Acid Pauli débarque au Frigo 16 pour une session électro psychédélique immanquable. @le109_officiel\n→ Sam 12 déc · The First Talk Show — Cabaret Icônes 3 · Stockfish, Nice · 19h30 · 16,5 €\n   Show drag et talk-show hybride avec Tati Galaxy et la scène niçoise au Stockfish. @stockfishnice\n\nLaquelle vous tente le plus ?\n\nBillets sur les pages des soirées (Shotgun, DICE, organisateurs). Suis le compte : chaque semaine, les soirées à ne pas rater.\n\n🔎 Tu cherches autre chose ? Toutes les soirées sont sur teufyparty.com\n\n#TeufyParty #frenchriviera #riviera #teuf #nightlife"
+    }
   }
 ]
