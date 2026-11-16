@@ -2,13 +2,13 @@
   "jour": "2026-11-16",
   "plan": [
     {
-      "type": "videos",
+      "type": "question",
       "cles": [
-        "v-2026-11-16"
+        "q-son-fermeture"
       ],
       "frames": [
         {
-          "image": "2026-11-16-videos.jpg"
+          "image": "2026-11-16-question.jpg"
         }
       ]
     }
