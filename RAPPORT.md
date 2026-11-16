@@ -2,20 +2,20 @@
 
 Mis à jour automatiquement chaque jour. **Note /100** : 50 = performance habituelle du compte pour ce format, 100 = deux fois mieux. Elle combine likes, commentaires (×2), enregistrements (×3), partages (×4), abonnés gagnés (×10), visites du profil, portée et, pour les reels, la part de la vidéo regardée.
 
-**Abonnés** : 14462 (-12 sur 30 jours) · **Posts notés** : 68 · **Moyenne bot** : 44 · **Moyenne posts de l'équipe** : 61
+**Abonnés** : 14458 (-16 sur 30 jours) · **Posts notés** : 69 · **Moyenne bot** : 40 · **Moyenne posts de l'équipe** : 62
 
-## Objectif du prochain post : 56/100
+## Objectif du prochain post : 49/100
 
+- 2026-11-14 reel-grand-debat : 3/100 ❌
 - 2026-11-14 guide : 13/100 ❌
-- 2026-11-13 reel-tendance : 40/100 ❌
+- 2026-11-13 reel-tendance : 44/100 ❌
 - 2026-11-12 incontournables-tekno : 100/100 ✅
-- 2026-11-10 reel-flash : 13/100 ❌
+- 2026-11-10 reel-flash : 14/100 ❌
 - 2026-11-09 incontournables-techno : 38/100 ❌
 - 2026-11-09 veille : 100/100 ✅
 - 2026-11-08 incontournables-commercial : 5/100 ❌
 - 2026-08-10 post équipe : 96/100 ✅
-- 2026-05-08 post équipe : 51/100 ❌
-- 2026-05-03 post équipe : 67/100 ✅
+- 2026-05-08 post équipe : 51/100 ✅
 
 ## Meilleurs posts
 
@@ -36,19 +36,19 @@ Mis à jour automatiquement chaque jour. **Note /100** : 50 = performance habitu
 
 | Date | Par | Post | Note /100 | Portée | Likes | Comm. | Enreg. | Partages | Abonnés gagnés |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 2026-11-14 | bot | reel-grand-debat | **3** | 400 | 0 | 0 | 0 | 0 | - |
 | 2026-11-08 | bot | incontournables-commercial | **5** | 355 | 1 | 0 | 0 | 0 | 0 |
 | 2026-11-14 | bot | guide | **13** | 730 | 4 | 0 | 0 | 0 | 0 |
-| 2026-11-10 | bot | reel-flash | **13** | 424 | 4 | 0 | 0 | 0 | - |
+| 2026-11-10 | bot | reel-flash | **14** | 424 | 4 | 0 | 0 | 0 | - |
 | 2025-10-03 | équipe | ⚡️ Les meilleurs plans entre potes, c’es | **15** | 567 | 5 | 0 | 0 | 0 | 0 |
-| 2025-10-19 | équipe | 🎃 Halloween, ce n’est pas une fête. | **17** | 525 | 6 | 0 | 1 | 0 | 0 |
 
 ## Pourquoi : ce qui fait monter ou baisser la note
 
 Écart de note moyen quand le post a ce trait (heure, jour, format, type, style, lieu, ville, source, prix, hashtags, forme de la légende…), sur 2 posts minimum.
 
-**Ce qui fait monter** : hashtag:#hardtechno (+41, 3 posts) · hashtag:#acidtechno (+41, 2 posts) · hashtag:#technocotedazur (+41, 3 posts) · hashtag:#technoparty (+41, 2 posts) · hashtag:#soiréetechno (+41, 2 posts) · heure:22h (+25, 2 posts) · hashtag:#sortiracannes (+20, 3 posts) · hashtag:#pandaevents (+16, 2 posts) · heure:12h (+15, 7 posts) · hashtag:#housemusic (+15, 4 posts) · theme:techno (+14, 15 posts) · jour:jeu (+14, 6 posts)
+**Ce qui fait monter** : hashtag:#hardtechno (+41, 3 posts) · hashtag:#acidtechno (+41, 2 posts) · hashtag:#technocotedazur (+41, 3 posts) · hashtag:#technoparty (+41, 2 posts) · hashtag:#soiréetechno (+41, 2 posts) · heure:22h (+25, 2 posts) · hashtag:#sortiracannes (+20, 3 posts) · hashtag:#danse (+18, 3 posts) · hashtag:#soirée (+18, 3 posts) · hashtag:#pandaevents (+17, 2 posts) · heure:12h (+15, 7 posts) · hashtag:#housemusic (+15, 4 posts)
 
-**Ce qui fait baisser** : hashtag:#nice (-35, 2 posts) · hashtag:#soiréehalloween (-33, 2 posts) · hashtag:#jeunes (-32, 2 posts) · hashtag:#weekendmood (-32, 2 posts) · hashtag:#teufyhalloween (-32, 2 posts) · heure:9h (-30, 2 posts) · hashtag:#deguisementhalloween (-30, 2 posts) · hashtag:#halloweenparty (-30, 4 posts) · hashtag:#partyvibes (-25, 4 posts) · hashtag:#sortiessud (-25, 2 posts)
+**Ce qui fait baisser** : jour:sam (-51, 2 posts) · hashtag:#nice (-42, 3 posts) · heure:19h (-35, 2 posts) · hashtag:#soiréehalloween (-32, 2 posts) · hashtag:#teufyhalloween (-31, 2 posts) · heure:9h (-30, 2 posts) · hashtag:#jeunes (-29, 2 posts) · hashtag:#weekendmood (-29, 2 posts) · hashtag:#deguisementhalloween (-28, 2 posts) · hashtag:#halloweenparty (-28, 4 posts)
 
 ## Analyse de la semaine du 2026-11-15
 

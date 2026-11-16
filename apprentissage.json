@@ -376,8 +376,8 @@
         "theme:fetes",
         "auteur:equipe"
       ],
-      "score": 0.622,
-      "note": 31
+      "score": 0.69,
+      "note": 35
     },
     {
       "media": "18432694600107133",
@@ -1248,8 +1248,8 @@
         "theme:debat",
         "auteur:equipe"
       ],
-      "score": 0.781,
-      "note": 39
+      "score": 0.866,
+      "note": 43
     },
     {
       "media": "17853480039559153",
@@ -1511,8 +1511,8 @@
         "hashtag:#nicecotedazur",
         "auteur:equipe"
       ],
-      "score": 0.669,
-      "note": 33
+      "score": 0.742,
+      "note": 37
     },
     {
       "media": "18108616630572732",
@@ -1778,8 +1778,8 @@
         "hashtag:#soireeentreamis",
         "auteur:equipe"
       ],
-      "score": 0.799,
-      "note": 40
+      "score": 0.886,
+      "note": 44
     },
     {
       "media": "18029504888713603",
@@ -1898,7 +1898,7 @@
         "hashtag:#danceallnight",
         "auteur:equipe"
       ],
-      "score": 2.285,
+      "score": 2.534,
       "note": 100
     },
     {
@@ -2031,8 +2031,8 @@
         "theme:gratuit",
         "auteur:equipe"
       ],
-      "score": 0.77,
-      "note": 39
+      "score": 0.854,
+      "note": 43
     },
     {
       "media": "17972983127911232",
@@ -2349,8 +2349,8 @@
         "hashtag:#pote",
         "auteur:equipe"
       ],
-      "score": 1.604,
-      "note": 80
+      "score": 1.779,
+      "note": 89
     },
     {
       "media": "17961355697853498",
@@ -2398,8 +2398,8 @@
         "theme:debat",
         "auteur:equipe"
       ],
-      "score": 1.319,
-      "note": 66
+      "score": 1.463,
+      "note": 73
     },
     {
       "media": "18160797397335835",
@@ -2438,8 +2438,8 @@
         "theme:debat",
         "auteur:equipe"
       ],
-      "score": 1.938,
-      "note": 97
+      "score": 2.149,
+      "note": 100
     },
     {
       "media": "18119387065811592",
@@ -2709,7 +2709,7 @@
         "hashtag:#cotedazur",
         "auteur:bot"
       ],
-      "note": 13,
+      "note": 14,
       "metrics": {
         "reach": 424,
         "likes": 4,
@@ -2722,7 +2722,7 @@
         "duree": 29.2
       },
       "mesure_le": "2026-11-15T15:08:09.313Z",
-      "score": 0.258
+      "score": 0.287
     },
     {
       "media": "18062836039876762",
@@ -2769,7 +2769,7 @@
         "theme:debat",
         "auteur:equipe"
       ],
-      "score": 2.089,
+      "score": 2.317,
       "note": 100
     },
     {
@@ -3002,7 +3002,7 @@
         "theme:debat",
         "auteur:bot"
       ],
-      "note": 40,
+      "note": 44,
       "metrics": {
         "reach": 697,
         "likes": 5,
@@ -3015,7 +3015,7 @@
         "duree": 28.4
       },
       "mesure_le": "2026-11-15T15:08:09.313Z",
-      "score": 0.79
+      "score": 0.876
     },
     {
       "media": "18111823247220555",
@@ -3093,7 +3093,20 @@
         "theme:debat",
         "auteur:bot"
       ],
-      "note": null
+      "note": 3,
+      "metrics": {
+        "reach": 400,
+        "likes": 0,
+        "comments": 0,
+        "saved": 0,
+        "shares": 0,
+        "total_interactions": 0,
+        "views": 500,
+        "ig_reels_avg_watch_time": 5653,
+        "duree": 22
+      },
+      "mesure_le": "2026-11-16T00:56:36.212Z",
+      "score": 0.057
     }
   ],
   "abonnes": [
@@ -3128,6 +3141,10 @@
     {
       "date": "2026-11-15",
       "n": 14462
+    },
+    {
+      "date": "2026-11-16",
+      "n": 14458
     }
   ]
 }
