@@ -2,20 +2,20 @@
   "id": "reel-grand-debat",
   "type": "reel",
   "variante": "grand-debat",
-  "date": "2026-11-14",
-  "video": "reel-2026-11-14.mp4",
-  "couverture": "reel-2026-11-14-couverture.jpg",
-  "legende": "Le Grand Débat #1 🥊 Le pan bagnat : sandwich ou salade ?\n\nKévin dit sandwich. Léo dit salade. À Nice, le débat ne finira jamais.\n\nToi, tu votes quoi ? Un mot en commentaire 👇\nEt tague le pote qui met de la mayo dedans 😭\n\n#TeufyParty #Nice #PanBagnat #CotedAzur",
-  "titre": "Le Grand Débat · 01 pan bagnat",
-  "concept": "grand-debat-01-pan-bagnat",
-  "duree": 22,
+  "date": "2026-11-17",
+  "video": "reel-2026-11-17.mp4",
+  "couverture": "reel-2026-11-17-couverture.jpg",
+  "legende": "Le Grand Débat #2 🥊 Pré-soirée ou direct en boîte ?\n\nKévin : « La pré-soirée, c'est pour ceux qui ont peur de danser. »\nLéo : « C'est là que tout commence. Et c'est moins cher. »\n\nTeam PRÉ-SOIRÉE ou team DIRECT ? Un mot en commentaire 👇 et tag ton groupe de potes.\n\nLes soirées du week-end : teufyparty.com\n\n#TeufyParty",
+  "titre": "Le Grand Débat · 02 pre soiree",
+  "concept": "grand-debat-02-pre-soiree",
+  "duree": 12.2,
   "rubrique": "Le Grand Débat",
   "hors_grille": false,
   "choix": {
-    "creneau": "17"
+    "creneau": "18"
   },
   "features": [],
   "nb_images": 0,
-  "story_video": "reel-2026-11-14.mp4",
+  "story_video": "reel-2026-11-17.mp4",
   "a_tester": []
 }
