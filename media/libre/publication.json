@@ -9,10 +9,9 @@
     "carrousel-02.jpg",
     "carrousel-03.jpg",
     "carrousel-04.jpg",
-    "carrousel-05.jpg",
-    "carrousel-06.jpg"
+    "carrousel-05.jpg"
   ],
-  "legende": "Petit conseil : ces soirées vont partir vite. Les places sont souvent moins chères maintenant que la veille.\n\n→ Jeu 26 nov · The Show Club Sonore - Nice (Techno · Tech house) · Mama Shelter Nice · 19h00 · gratuit\n   Le collectif Club Sonore réunit les jeunes créatifs au Mama Shelter. @mamashelternice @theshow_clubsonore\n→ Sam 28 nov · DO YOU LIKE… TEKNO ? (Hard techno · Acid) · Frigo 16 (Le 109), Nice · 20h00 · 10,99 €\n   Live de 2h du duo 23HZ (Insane Teknology & Nesh Mayday) plus Banditik au 109. @_do.you.like @prizmeconcept\n→ Ven 4 déc · REF Session #18 Acid Pauli - Frigo 16 - NICE (Acid · Techno) · Frigo 16 (Le 109), Nice · 20h00 · 12,49 €\n   Acid Pauli débarque au Frigo 16 pour une session électro psychédélique immanquable. @le109_officiel\n→ Sam 12 déc · The First Talk Show — Cabaret Icônes 3 · Stockfish, Nice · 19h30 · 16,5 €\n   Show drag et talk-show hybride avec Tati Galaxy et la scène niçoise au Stockfish. @stockfishnice\n→ Sam 19 déc · Wado X L'Antre 2 (Acid) · L'Antre Bar Electro, Nice · 22h00 · 5,99 €\n   Deuxième round tekno sans répit avec le Mojo Crew sous les voûtes de Nice. @lantretechno @wado.music\n\nEnvoie ça à ton groupe avant d'oublier.\n\nBillets sur les pages des soirées (Shotgun, DICE, organisateurs). Abonne-toi pour ne rien rater de ce qui se passe sur la Côte.\n\n🔎 L'agenda complet, jour par jour : teufyparty.com\n\n#TeufyParty #nice06 #sortiranice #shatta #soirée",
+  "legende": "À réserver maintenant, pas le jour J. Les dates qu'on surveille pour les prochaines semaines.\n\n→ Jeu 26 nov · The Show Club Sonore - Nice (Techno · Tech house) · Mama Shelter Nice · 19h00 · gratuit\n   Le collectif Club Sonore réunit les jeunes créatifs au Mama Shelter. @mamashelternice @theshow_clubsonore\n→ Sam 28 nov · DO YOU LIKE… TEKNO ? (Hard techno · Acid) · Frigo 16 (Le 109), Nice · 20h00 · 10,99 €\n   Live de 2h du duo 23HZ (Insane Teknology & Nesh Mayday) plus Banditik au 109. @_do.you.like @prizmeconcept\n→ Ven 4 déc · REF Session #18 Acid Pauli - Frigo 16 - NICE (Acid · Techno) · Frigo 16 (Le 109), Nice · 20h00 · 12,49 €\n   Acid Pauli débarque au Frigo 16 pour une session électro psychédélique immanquable. @le109_officiel\n→ Sam 12 déc · The First Talk Show — Cabaret Icônes 3 · Stockfish, Nice · 19h30 · 16,5 €\n   Show drag et talk-show hybride avec Tati Galaxy et la scène niçoise au Stockfish. @stockfishnice\n\nLaquelle vous tente le plus ?\n\nBillets sur les pages des soirées (Shotgun, DICE, organisateurs). Suis le compte : chaque semaine, les soirées à ne pas rater.\n\n🔎 Tu cherches autre chose ? Toutes les soirées sont sur teufyparty.com\n\n#TeufyParty #frenchriviera #riviera #teuf #nightlife",
   "soirees": [
     {
       "source": "web",
@@ -223,51 +222,8 @@
       "instagram": [
         "tatigalaxy",
         "le_stockfish"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "Shotgun",
-      "name": "Wado X L'Antre 2",
-      "start": "2026-12-19T21:00:00.000Z",
-      "venue": "L'Antre Bar Electro",
-      "city": "Nice",
-      "address": "",
-      "url": "https://shotgun.live/fr/events/wado-x-l-antre-2",
-      "image": "evenements/auto/de03fca91f22.jpg",
-      "price": 5.99,
-      "tags": [
-        "acidcore",
-        "tekno",
-        "mentalcore",
-        "acid tekno",
-        "hardcore",
-        "tribe",
-        "Acid Tekno",
-        "Hard-Melodic Tekno"
       ],
-      "description": "",
-      "public_cible": 0.85,
-      "confiance": 0.95,
-      "buzz": 0.7,
-      "buzz_raison": "Deuxième édition acid tekno du Mojo Crew.",
-      "accroche": "Deuxième round tekno sans répit avec le Mojo Crew sous les voûtes de Nice.",
-      "instagram": [
-        "mojocrewevent",
-        "lantretechno",
-        "wado.music"
-      ],
-      "sources_sites": [
-        "Shotgun.live / Mojo Crew",
-        "Shotgun"
-      ],
-      "offres": [
-        {
-          "plateforme": "shotgun.live",
-          "url": "https://shotgun.live/fr/events/wado-x-l-antre-2",
-          "prix": 5
-        }
-      ]
+      "enrichi": true
     }
   ],
   "tags": [
@@ -287,10 +243,6 @@
     ],
     [
       "stockfishnice"
-    ],
-    [
-      "lantretechno",
-      "wado.music"
     ]
   ],
   "collabs": [
@@ -301,18 +253,18 @@
   "choix": {
     "post-libre": "a-reserver",
     "creneau": "18",
-    "seuil-qualite": 0.7,
-    "suivre": "15xhszt",
-    "intro-a-reserver": "7l1inf",
-    "fin-a-reserver": "1tvayyb",
-    "site": "992dqy",
+    "seuil-qualite": 0.65,
+    "suivre": "h7y61e",
+    "intro-a-reserver": "4xry4y",
+    "fin-a-reserver": "3exg31",
+    "site": "1p8scyo",
     "hashtags-local": [
-      "#nice06",
-      "#sortiranice"
+      "#frenchriviera",
+      "#riviera"
     ],
     "hashtags-general": [
-      "#shatta",
-      "#soirée"
+      "#teuf",
+      "#nightlife"
     ]
   },
   "features": [
@@ -345,16 +297,9 @@
     "lieu:stockfish",
     "ville:nice",
     "prix:moyen",
-    "horaire:jour",
-    "genre:techno",
-    "source:web",
-    "style:acid",
-    "lieu:l-antre-bar-electro",
-    "ville:nice",
-    "prix:petit",
-    "horaire:nuit"
+    "horaire:jour"
   ],
-  "nb_images": 7,
+  "nb_images": 6,
   "story": "story.jpg",
   "a_tester": []
 }
