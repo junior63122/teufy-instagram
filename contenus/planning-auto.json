@@ -1,11 +1,27 @@
 {
-  "extras": [],
+  "extras": [
+    {
+      "date": "2026-11-17",
+      "type": "guide",
+      "variante": null,
+      "suite_de": "18111823247220555",
+      "raison": "portée 884 contre 431 d'habitude (×2.1)",
+      "cree_le": "2026-11-16T15:07:44.463Z"
+    }
+  ],
   "jours": {
     "post": {},
     "reel": {}
   },
-  "journal": [],
+  "journal": [
+    {
+      "le": "2026-11-16T15:07:44.463Z",
+      "quoi": "suite",
+      "media": "18111823247220555",
+      "texte": "Engouement sur « Où manger à Monaco après la boîte ? » (portée 884 contre 431 d'habitude (×2.1)) → suite programmée le 2026-11-17 (guide)."
+    }
+  ],
   "_note": "Écrit par le robot (src/reactif.mjs) : suites programmées après un engouement, jours déplacés selon les résultats, journal des changements.",
-  "dernier_controle": "2026-11-16T00:58:38.353Z",
+  "dernier_controle": "2026-11-16T15:07:44.463Z",
   "dernier_replanning": "2026-11-15T15:07:44.719Z"
 }
