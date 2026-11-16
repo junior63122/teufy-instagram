@@ -86,7 +86,8 @@ function episodeGrandDebat(serie = 'grand-debat') {
 const cleSoiree = (e) => e.url || `${e.name || e.nom}|${String(e.start || e.debut || '').slice(0, 10)}`;
 const slotsFor = (d) => {
   const s = slotOfDay(d), srcReel = jourSource(PLAN, 'reel', s.jour);
-  const base = [slotFor(d), ...(config.calendrier_reels || []).filter((c) => c.jour === srcReel && (!SERIES.includes(c.variante) || episodeGrandDebat(c.variante))).map((c) => ({ ...c, second: true }))].filter(Boolean);
+  // Série sans épisode en attente : le reel de secours (`secours`, ex. un guide en vraies images) part à la place, le créneau n'est jamais vide.
+  const base = [slotFor(d), ...(config.calendrier_reels || []).filter((c) => c.jour === srcReel).map((c) => (SERIES.includes(c.variante) && !episodeGrandDebat(c.variante) ? (c.secours ? { ...c, variante: c.secours } : null) : c)).filter(Boolean).map((c) => ({ ...c, second: true }))].filter(Boolean);
   // Suites programmées après un engouement : en plus du reste, après les publications prévues (même écart).
   const extras = extrasDu(PLAN, s.date).map((x) => ({ type: x.type, variante: x.variante || undefined, suite: true, second: true, troisieme: base.length > 1 }))
     .filter((x) => !SERIES.includes(x.variante) || episodeGrandDebat(x.variante));
@@ -277,7 +278,9 @@ async function prepare(slot, now, id) {
   // Reel « viral » (13/11/2026, directeur : « je cherche la viralité, garde tout et améliore avec ce qui marche ») :
   // guide (vraies adresses), humour / POV vécus, histoire illustrée ; l'apprentissage ramène plus souvent le format qui
   // marche le mieux chez nous, et la veille des concurrents (Le Bonbon…) nourrit les scénarios. Jamais de reel de soirées.
-  if (slot.type === 'reel' && slot.variante === 'viral') slot = { ...slot, variante: val('format') || ch.pick('format-reel-viral', ['guide', 'humour', 'histoire', 'teufy'], (x) => x) };
+  // 16/11/2026 (directeur, chiffres du compte) : ce qui se partage = vraies infos et plans concrets en vraies images ;
+  // plus de reels illustrés (humour, histoire) dans le tirage.
+  if (slot.type === 'reel' && slot.variante === 'viral') slot = { ...slot, variante: val('format') || ch.pick('format-reel-viral', ['guide', 'teufy'], (x) => x) };
   // Post « libre » (14/11/2026, directeur : « le planning n'est pas fixe, tu es censé évoluer ») : les jeudis sans Édition
   // Tekno, l'apprentissage choisit entre un guide (manger tard / afters) et un bon plan, et ramène plus souvent ce qui marche.
   if (slot.type === 'libre') { const o = ch.pick('post-libre', ['guide', 'a-reserver', 'petits-prix'], (x) => x); slot = o === 'guide' ? { ...slot, type: 'guide' } : { ...slot, type: 'bonplan', variante: o }; }

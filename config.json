@@ -576,12 +576,13 @@
     "_volume": "Montée en charge automatique : 60, 100, 150, 200 e-mails les 4 premiers jours d'envoi, puis nouveaux_par_jour (250 ; Brevo gratuit = 300/jour, le reste sert aux relances, rapports et paiements).",
     "_pause": "14/11/2026 : Brevo a suspendu l'envoi (examen du compte, politique anti-spam) après des envois de prospection à froid (jusqu'à 250 nouveaux contacts par jour). Envoi automatique coupé. À ne remettre en route qu'après accord de Brevo, et jamais plus de 20 nouveaux contacts par jour."
   },
-  "_calendrier_note": "14/11/2026 (directeur). Posts : lun post « libre », mer bons plans, jeu Édition Tekno la 1re semaine du mois et post « libre » les autres jeudis, ven soirées du week-end (+ débat en story), sam guide. Post « libre » = guide ou bon plan, choisi par l'apprentissage selon ce qui marche (jamais de débat en post). Reels de base : jeu viral, dim « Teufy », mar et sam Le Grand Débat. Stories chaque jour. Le planning n'est PAS figé (directeur : « tu peux changer les jours sans moi, sois réactif ») : src/reactif.mjs déplace les jours selon les résultats et programme une suite dès le lendemain quand une publication décolle ; tout est noté dans contenus/planning-auto.json et RAPPORT.md. Aucune collaboration. 16/11/2026 : série « Et toi, t'aurais fait quoi ? » abandonnée (directeur : « oublie cette idée, on ne comprend pas le rapport avec Teufy »).",
+  "_calendrier_note": "14/11/2026 (directeur). Posts : lun post « libre », mer bons plans, jeu Édition Tekno la 1re semaine du mois et post « libre » les autres jeudis, ven soirées du week-end (+ débat en story), sam guide. Post « libre » = guide ou bon plan, choisi par l'apprentissage selon ce qui marche (jamais de débat en post). Reels de base : jeu viral, dim « Teufy », mar et sam Le Grand Débat. Stories chaque jour. Le planning n'est PAS figé (directeur : « tu peux changer les jours sans moi, sois réactif ») : src/reactif.mjs déplace les jours selon les résultats et programme une suite dès le lendemain quand une publication décolle ; tout est noté dans contenus/planning-auto.json et RAPPORT.md. Aucune collaboration. 16/11/2026 : série « Et toi, t'aurais fait quoi ? » abandonnée (directeur : « oublie cette idée, on ne comprend pas le rapport avec Teufy »). 16/11/2026 (directeur, d'après les chiffres : annonces 6 549 vues, info de dernière minute 1 656, guide 1 475, Grand Débat 388) : priorité aux vraies infos et plans concrets en vraies images. Reel du jeudi = guide ou « Y'a Teufy » (plus d'illustré). Grand Débat à l'essai sur 2 à 3 épisodes ; sans épisode prêt, un guide part à la place (champ secours).",
   "calendrier_reels": [
     {
       "jour": 2,
       "type": "reel",
-      "variante": "grand-debat"
+      "variante": "grand-debat",
+      "secours": "guide"
     },
     {
       "jour": 4,
@@ -591,7 +592,8 @@
     {
       "jour": 6,
       "type": "reel",
-      "variante": "grand-debat"
+      "variante": "grand-debat",
+      "secours": "guide"
     },
     {
       "jour": 7,
