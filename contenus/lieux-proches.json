@@ -2874,5 +2874,125 @@
   ],
   "velo": null,
   "taxi": null
+ },
+ "43.3082,6.63653": {
+  "le": "2026-11-16T13:13:43.212Z",
+  "parkings": [
+   {
+    "nom": "Parking Louis Blanc",
+    "type": "",
+    "payant": null,
+    "m": 214
+   },
+   {
+    "nom": "Place Claude Caranta",
+    "type": "surface",
+    "payant": null,
+    "m": 231
+   },
+   {
+    "nom": "Parking du Port",
+    "type": "surface",
+    "payant": true,
+    "m": 389
+   }
+  ],
+  "transports": [
+   {
+    "nom": "Office de Tourisme",
+    "type": "bus",
+    "m": 88,
+    "lignes": ""
+   },
+   {
+    "nom": "Louis Blanc",
+    "type": "bus",
+    "m": 187,
+    "lignes": ""
+   }
+  ],
+  "velo": null,
+  "taxi": null
+ },
+ "43.6015,7.086": {
+  "le": "2026-11-16T13:14:24.851Z",
+  "parkings": [
+   {
+    "nom": "Parking des Combes",
+    "type": "surface",
+    "payant": true,
+    "m": 385
+   },
+   {
+    "nom": "Croix Rouge",
+    "type": "surface",
+    "payant": false,
+    "m": 546
+   },
+   {
+    "nom": "P2",
+    "type": "surface",
+    "payant": false,
+    "m": 768
+   }
+  ],
+  "transports": [
+   {
+    "nom": "Chapelle des Combes",
+    "type": "bus",
+    "m": 155,
+    "lignes": ""
+   },
+   {
+    "nom": "Super Antibes",
+    "type": "bus",
+    "m": 155,
+    "lignes": ""
+   }
+  ],
+  "velo": null,
+  "taxi": null
+ },
+ "43.09617,6.0697": {
+  "le": "2026-11-16T13:15:03.496Z",
+  "parkings": [
+   {
+    "nom": "Parking du Macaron",
+    "type": "street_side",
+    "payant": null,
+    "m": 232
+   },
+   {
+    "nom": "Parking Félix Rebufat",
+    "type": "surface",
+    "payant": false,
+    "m": 358
+   },
+   {
+    "nom": "Place de la Libération",
+    "type": "surface",
+    "payant": false,
+    "m": 563
+   }
+  ],
+  "transports": [
+   {
+    "nom": "L'Europe",
+    "type": "bus",
+    "m": 29,
+    "lignes": ""
+   },
+   {
+    "nom": "Canebas",
+    "type": "bus",
+    "m": 52,
+    "lignes": "39;92"
+   }
+  ],
+  "velo": null,
+  "taxi": {
+   "nom": "",
+   "m": 462
+  }
  }
 }

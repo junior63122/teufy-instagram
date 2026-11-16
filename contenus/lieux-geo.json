@@ -546,5 +546,195 @@
   "lat": 43.5405,
   "lng": 7.03411,
   "le": "2026-11-13T12:36:20.939Z"
+ },
+ "gwladys dance studio|le cannet": {
+  "lat": 43.60215,
+  "lng": 6.97125,
+  "le": "2026-11-16T13:09:33.877Z"
+ },
+ "le joke club|sainte-maxime": {
+  "lat": 43.3082,
+  "lng": 6.63653,
+  "le": "2026-11-16T13:09:35.409Z"
+ },
+ "cr lounge|vallauris": {
+  "lat": 43.6015,
+  "lng": 7.086,
+  "le": "2026-11-16T13:09:38.174Z"
+ },
+ "le beer boat|toulon": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-16T13:09:43.602Z"
+ },
+ "legend prosper club|hyeres": {
+  "lat": 43.09617,
+  "lng": 6.0697,
+  "le": "2026-11-16T13:09:46.707Z"
+ },
+ "barracuda cannes|cannes": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-16T13:09:49.746Z"
+ },
+ "au son des guitares|nice": {
+  "lat": 43.69591,
+  "lng": 7.2604,
+  "le": "2026-11-16T13:09:51.103Z"
+ },
+ "le blue|nice": {
+  "lat": 43.69669,
+  "lng": 7.25204,
+  "le": "2026-11-16T13:09:52.673Z"
+ },
+ "le diapason|villefranche-sur-mer": {
+  "lat": 43.7205,
+  "lng": 7.29239,
+  "le": "2026-11-16T13:09:55.768Z"
+ },
+ "monte cristo|nice": {
+  "lat": 43.70762,
+  "lng": 7.28417,
+  "le": "2026-11-16T13:09:57.803Z"
+ },
+ "le soft|grasse": {
+  "lat": 43.63996,
+  "lng": 6.94993,
+  "le": "2026-11-16T13:09:59.369Z"
+ },
+ "makao klub|antibes": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-16T13:10:02.325Z"
+ },
+ "chrysalide|la seyne-sur-mer": {
+  "lat": 43.11712,
+  "lng": 5.86517,
+  "le": "2026-11-16T13:10:03.828Z"
+ },
+ "sunbar|nice": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-16T13:10:06.583Z"
+ },
+ "le carre|saint-laurent-du-var": {
+  "lat": 43.65548,
+  "lng": 7.17987,
+  "le": "2026-11-16T13:10:08.231Z"
+ },
+ "le bar ephemere|antibes": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-16T13:10:13.405Z"
+ },
+ "junga nice|nice": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-16T13:10:16.276Z"
+ },
+ "les marches|cannes": {
+  "lat": 43.5509,
+  "lng": 7.01803,
+  "le": "2026-11-16T13:10:17.800Z"
+ },
+ "la javanaise|la seyne-sur-mer": {
+  "lat": 43.70789,
+  "lng": 7.24966,
+  "le": "2026-11-16T13:10:20.738Z"
+ },
+ "let it be|le cannet": {
+  "lat": 43.60492,
+  "lng": 7.0005,
+  "le": "2026-11-16T13:10:21.331Z"
+ },
+ "club vertigo|hyeres": {
+  "lat": 43.12583,
+  "lng": 6.19538,
+  "le": "2026-11-16T13:10:35.932Z"
+ },
+ "305 vice club|nice": {
+  "lat": 43.69903,
+  "lng": 7.27114,
+  "le": "2026-11-16T13:10:37.240Z"
+ },
+ "baby|nice": {
+  "lat": 43.69708,
+  "lng": 7.27325,
+  "le": "2026-11-16T13:10:38.818Z"
+ },
+ "bazaar cannes|cannes": {
+  "lat": 43.55132,
+  "lng": 7.02409,
+  "le": "2026-11-16T13:10:46.249Z"
+ },
+ "bocca nissa|nice": {
+  "lat": 43.69584,
+  "lng": 7.27318,
+  "le": "2026-11-16T13:10:47.628Z"
+ },
+ "charly’s bar|cannes": {
+  "lat": 43.55156,
+  "lng": 7.01027,
+  "le": "2026-11-16T13:10:50.307Z"
+ },
+ "escobar club|saint-laurent-du-var": {
+  "lat": 43.65668,
+  "lng": 7.1813,
+  "le": "2026-11-16T13:10:53.991Z"
+ },
+ "jeanne cocktail club|toulon": {
+  "lat": 43.1224,
+  "lng": 5.9345,
+  "le": "2026-11-16T13:10:54.239Z"
+ },
+ "kosma piano bar|nice": {
+  "lat": 43.69877,
+  "lng": 7.27014,
+  "le": "2026-11-16T13:10:54.427Z"
+ },
+ "l'etoile|nice": {
+  "lat": 43.71671,
+  "lng": 7.26119,
+  "le": "2026-11-16T13:10:56.294Z"
+ },
+ "la rascasse|monaco": {
+  "lat": 43.73256,
+  "lng": 7.42319,
+  "le": "2026-11-16T13:10:57.589Z"
+ },
+ "le bayou|cannes": {
+  "lat": 43.55092,
+  "lng": 7.02399,
+  "le": "2026-11-16T13:10:57.890Z"
+ },
+ "le cigalon plage|cagnes-sur-mer": {
+  "lat": 43.65614,
+  "lng": 7.16436,
+  "le": "2026-11-16T13:10:59.162Z"
+ },
+ "le pam pam|juan-les-pins": {
+  "lat": 43.56799,
+  "lng": 7.11293,
+  "le": "2026-11-16T13:11:02.375Z"
+ },
+ "le rooftop du grand hotel dauphine|toulon": {
+  "lat": 43.12386,
+  "lng": 5.93336,
+  "le": "2026-11-16T13:11:02.974Z"
+ },
+ "le spot mourillon|toulon": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-16T13:11:07.195Z"
+ },
+ "les incompris|menton": {
+  "lat": 43.77668,
+  "lng": 7.50844,
+  "le": "2026-11-16T13:11:10.710Z"
+ },
+ "marea cannes (canopy by hilton)|cannes": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-16T13:11:12.034Z"
  }
 }
