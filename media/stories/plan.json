@@ -1,16 +1,10 @@
 {
-  "jour": "2026-11-16",
+  "jour": "2026-11-17",
   "plan": [
     {
-      "type": "question",
-      "cles": [
-        "q-son-fermeture"
-      ],
-      "frames": [
-        {
-          "image": "2026-11-16-question.jpg"
-        }
-      ]
+      "type": "soirees",
+      "cles": [],
+      "frames": []
     }
   ]
 }
