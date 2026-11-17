@@ -1,20 +1,20 @@
 {
-  "maj": "2026-11-15T15:07:44.740Z",
+  "maj": "2026-11-17T15:07:39.368Z",
   "comptes": {
     "downtown.nice": {
-      "abonnes": 2399,
+      "abonnes": 2400,
       "posts": 25
     },
     "uptown.nice": {
-      "abonnes": 1867,
+      "abonnes": 1868,
       "posts": 25
     },
     "la_dinette__": {
-      "abonnes": 5654,
+      "abonnes": 5651,
       "posts": 25
     },
     "lebarathymtoulon": {
-      "abonnes": 10937,
+      "abonnes": 10941,
       "posts": 25
     },
     "lebonbonmarseille": {
@@ -55,7 +55,7 @@
       "erreur": "Instagram 17841451355992040 : Invalid user id (code 110, sous-code 2207013)"
     },
     "dicefm": {
-      "abonnes": 93160,
+      "abonnes": 93353,
       "posts": 25
     },
     "trax_magazine": {
@@ -65,15 +65,15 @@
       "erreur": "Instagram 17841451355992040 : Invalid user id (code 110, sous-code 2207013)"
     },
     "boilerroomtv": {
-      "abonnes": 2888276,
+      "abonnes": 2887880,
       "posts": 25
     },
     "partiful": {
-      "abonnes": 51767,
+      "abonnes": 51834,
       "posts": 25
     },
     "posh.vip": {
-      "abonnes": 102886,
+      "abonnes": 103053,
       "posts": 25
     },
     "residentadvisor": {
@@ -83,50 +83,50 @@
       "erreur": "Instagram 17841451355992040 : Invalid user id (code 110, sous-code 2207013)"
     },
     "timeoutnewyork": {
-      "abonnes": 778272,
+      "abonnes": 778377,
       "posts": 25
     },
     "theinfatuation": {
       "erreur": "Instagram 17841451355992040 : Invalid user id (code 110, sous-code 2207013)"
     },
     "duolingo": {
-      "abonnes": 5423599,
+      "abonnes": 5425214,
       "posts": 25
     },
     "hinge": {
-      "abonnes": 318579,
+      "abonnes": 319400,
       "posts": 9
     },
     "ryanair": {
-      "abonnes": 1908228,
+      "abonnes": 1907753,
       "posts": 25
     },
     "eater": {
-      "abonnes": 1600857,
+      "abonnes": 1601007,
       "posts": 25
     },
     "bringue_party": {
-      "abonnes": 91359,
+      "abonnes": 91489,
       "posts": 25
     },
     "bazaarcannes": {
-      "abonnes": 3744,
+      "abonnes": 3745,
       "posts": 25
     },
     "mixparty_cannes": {
-      "abonnes": 6986,
+      "abonnes": 6985,
       "posts": 25
     },
     "lelixirclub": {
-      "abonnes": 1443,
+      "abonnes": 1441,
       "posts": 25
     },
     "jokerplay17": {
-      "abonnes": 39779,
+      "abonnes": 39747,
       "posts": 25
     },
     "sowetolesprit": {
-      "abonnes": 3278,
+      "abonnes": 3474,
       "posts": 25
     },
     "tetris.owl": {
@@ -134,11 +134,11 @@
       "posts": 25
     },
     "xka_music": {
-      "abonnes": 32109,
+      "abonnes": 32087,
       "posts": 25
     },
     "djmvlarosa_officiel": {
-      "abonnes": 3195,
+      "abonnes": 3193,
       "posts": 25
     },
     "lesfrench_nghts": {
@@ -152,45 +152,46 @@
     "#pourtoi": 0.642,
     "#dj": 0.582,
     "#antibes": 0.431,
-    "#club": 0.288,
+    "#club": 0.289,
     "#party": 0.18,
-    "#shatta": 0.164,
+    "#shatta": 0.16,
     "#halloween": 0.121,
     "#discotheque": 0.111,
-    "#vieuxnice": 0.102,
-    "#toulon": 0.095,
-    "#dancehall": 0.093,
+    "#dancehall": 0.103,
+    "#vieuxnice": 0.098,
+    "#toulon": 0.093,
     "#oldtownnice": 0.092,
     "#clubs": 0.076,
-    "#3": 0.075,
     "#bar": 0.075,
+    "#3": 0.075,
     "#nightlife": 0.074,
     "#nice": 0.072,
+    "#toulonbynight": 0.07,
+    "#night": 0.065,
     "#music": 0.065,
     "#festival": 0.06,
-    "#toulonbynight": 0.057,
     "#nice06": 0.056,
     "#techno": 0.056,
-    "#ad": 0.016
+    "#ad": 0.012
   },
   "formats": {
     "carrousel": {
-      "score": 6.61,
-      "posts": 191
+      "score": 6.25,
+      "posts": 189
     },
     "image": {
-      "score": 1.89,
-      "posts": 117
+      "score": 1.91,
+      "posts": 118
     },
     "reel": {
-      "score": 2.41,
-      "posts": 276
+      "score": 2.51,
+      "posts": 277
     }
   },
   "heures": {
     "0": {
-      "score": 1.46,
-      "posts": 10
+      "score": 1.32,
+      "posts": 9
     },
     "1": {
       "score": 0.96,
@@ -204,6 +205,10 @@
       "score": 1.33,
       "posts": 1
     },
+    "4": {
+      "score": 1.49,
+      "posts": 2
+    },
     "5": {
       "score": 0.91,
       "posts": 1
@@ -213,8 +218,8 @@
       "posts": 2
     },
     "7": {
-      "score": 1.41,
-      "posts": 1
+      "score": 0.9,
+      "posts": 2
     },
     "8": {
       "score": 1.33,
@@ -225,76 +230,69 @@
       "posts": 1
     },
     "10": {
-      "score": 1.63,
-      "posts": 7
+      "score": 1.81,
+      "posts": 6
     },
     "11": {
       "score": 1.57,
       "posts": 19
     },
     "12": {
-      "score": 1.26,
-      "posts": 23
+      "score": 1.34,
+      "posts": 22
     },
     "13": {
-      "score": 2.8,
-      "posts": 27
+      "score": 2.71,
+      "posts": 28
     },
     "14": {
-      "score": 2.07,
-      "posts": 24
+      "score": 2.16,
+      "posts": 23
     },
     "15": {
-      "score": 1.53,
+      "score": 1.6,
       "posts": 30
     },
     "16": {
-      "score": 5.16,
-      "posts": 40
+      "score": 5.21,
+      "posts": 41
     },
     "17": {
-      "score": 11.53,
-      "posts": 68
+      "score": 12.75,
+      "posts": 69
     },
     "18": {
-      "score": 2.2,
-      "posts": 95
+      "score": 2.33,
+      "posts": 92
     },
     "19": {
       "score": 1.38,
-      "posts": 92
+      "posts": 91
     },
     "20": {
-      "score": 1.77,
-      "posts": 54
+      "score": 1.79,
+      "posts": 55
     },
     "21": {
-      "score": 3.98,
-      "posts": 27
+      "score": 3.99,
+      "posts": 28
     },
     "22": {
-      "score": 3.04,
-      "posts": 26
+      "score": 3.52,
+      "posts": 23
     },
     "23": {
-      "score": 11.37,
-      "posts": 22
+      "score": 3.35,
+      "posts": 25
     }
   },
   "accroches": [
     {
       "compte": "partiful",
       "format": "carrousel",
-      "score": 635.6,
+      "score": 728.8,
       "accroche": "Golden hour at 4:30?? Perfect excuse to host 🕯️ Swipe for your dark-by-5 party lineup",
       "lien": "https://www.instagram.com/p/DfkSWKFnIux/"
-    },
-    {
-      "compte": "posh.vip",
-      "format": "carrousel",
-      "score": 176.05,
-      "accroche": "Wikipedia is built to be neutral and factual, a free encyclopedia written by volunteers since 2001. Every so often, that plain language land",
-      "lien": "https://www.instagram.com/p/DfIf30EEeV7/"
     },
     {
       "compte": "djmvlarosa_officiel",
@@ -306,9 +304,16 @@
     {
       "compte": "partiful",
       "format": "carrousel",
-      "score": 48.4,
+      "score": 50.8,
       "accroche": "Friendsgiving 101 🥧 Swipe for everything you need to know 🍂 Send this to your group chat <3",
       "lien": "https://www.instagram.com/p/DfZ4QmknMPs/"
+    },
+    {
+      "compte": "partiful",
+      "format": "carrousel",
+      "score": 33.4,
+      "accroche": "Need an excuse to leave the couch? Here are 6 events to get you out of the house this weekend in NYC 🍂 Send this to the friend you’re dragg",
+      "lien": "https://www.instagram.com/p/DfpVkKuHMHS/"
     },
     {
       "compte": "djmvlarosa_officiel",
@@ -318,16 +323,9 @@
       "lien": "https://www.instagram.com/reel/DdgdiI7AqzN/"
     },
     {
-      "compte": "partiful",
-      "format": "carrousel",
-      "score": 32.2,
-      "accroche": "Need an excuse to leave the couch? Here are 6 events to get you out of the house this weekend in NYC 🍂 Send this to the friend you’re dragg",
-      "lien": "https://www.instagram.com/p/DfpVkKuHMHS/"
-    },
-    {
       "compte": "dicefm",
       "format": "carrousel",
-      "score": 31.9,
+      "score": 31.84,
       "accroche": "Last week BICEP released new tracks Air, Lemonder and Viper. Next month they’re bringing back their LIVE show for the first time in 3 years.",
       "lien": "https://www.instagram.com/p/Dd_qG-Iio-L/"
     },
@@ -353,16 +351,23 @@
       "lien": "https://www.instagram.com/reel/DcJW7DqtbUs/"
     },
     {
+      "compte": "eater",
+      "format": "reel",
+      "score": 22.77,
+      "accroche": "Potato lovers, we found your new obsession. 🥔",
+      "lien": "https://www.instagram.com/reel/DfPsjTJFP1E/"
+    },
+    {
       "compte": "djmvlarosa_officiel",
       "format": "reel",
-      "score": 22.44,
+      "score": 22.56,
       "accroche": "Partie 1 : TOP 5 - Meilleurs Musiques Club Feria de Nîmes ❤️🤍 ",
       "lien": "https://www.instagram.com/reel/DdoUSn6hhwS/"
     },
     {
       "compte": "posh.vip",
       "format": "carrousel",
-      "score": 21.4,
+      "score": 21.94,
       "accroche": "Before downtown New York became a collection of luxury boutiques, curated coffee shops and Instagram backdrops, there was a generation of ar",
       "lien": "https://www.instagram.com/p/Dffx3UUgao5/"
     }

@@ -343,5 +343,21 @@
     "b": "Le snack encore ouvert à 4 h",
     "legende": "Il y a deux types de fêtards sur la Côte. A ou B ? Dis-le en commentaire et envoie ça à ton binôme de fin de nuit.",
     "ajout": "2026-11-15"
+  },
+  {
+    "id": "ia-2026-11-17-17bdsdt",
+    "q": "Before chez quelqu'un ou direct en soirée ?",
+    "a": "Before, c'est sacré",
+    "b": "Direct, je veux pas rater l'ouverture",
+    "legende": "Le before qui dure tellement qu'on arrive après la fermeture des préventes, on connaît tous. Toi, t'es team A ou team B ? Défends-toi en com 👇",
+    "ajout": "2026-11-17"
+  },
+  {
+    "id": "ia-2026-11-17-8knvao",
+    "q": "Fin de soirée : lever du soleil sur la plage ou lit direct ?",
+    "a": "Plage, sur la Prom' au lever du jour",
+    "b": "Mon lit m'attend",
+    "legende": "5 h, la musique s'arrête. Il y a ceux qui descendent voir le soleil se lever sur la mer, et ceux qui rêvent déjà de leur oreiller. T'es lequel ? Tague ton binôme de fin de soirée 👇",
+    "ajout": "2026-11-17"
   }
 ]

@@ -216,6 +216,7 @@
     "secondes_par_soiree_reel": 1.8,
     "petit_prix_max": 10,
     "creneaux_utc": [
+      15,
       16,
       17,
       18

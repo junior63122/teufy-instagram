@@ -48,7 +48,8 @@
       "#soiree",
       "#teuf",
       "#nightlife06",
-      "#plageselectroniques"
+      "#plageselectroniques",
+      "#toulonbynight"
     ],
     "techno": [
       "#techno",
@@ -133,6 +134,11 @@
         "titre": "Nice ou Cannes : qui sort le mieux le jeudi ?",
         "sous": "Défends ta ville en com",
         "ajout": "2026-11-15"
+      },
+      {
+        "titre": "Le vocal de 3 min envoyé à 4 h du mat'",
+        "sous": "Tague le coupable",
+        "ajout": "2026-11-17"
       }
     ],
     "techno": [
@@ -186,6 +192,11 @@
         "titre": "Ton pote dit « c'est que du boum boum »",
         "sous": "Montre-lui ça",
         "ajout": "2026-11-15"
+      },
+      {
+        "titre": "Sortir à 8 h, finir sur la plage ?",
+        "sous": "Techno · Côte d'Azur",
+        "ajout": "2026-11-17"
       }
     ],
     "petits-prix": [
@@ -225,6 +236,11 @@
         "titre": "Fin de mois, mais le before est gratuit",
         "sous": "Petits prix · Côte d'Azur",
         "ajout": "2026-11-15"
+      },
+      {
+        "titre": "Prévente prise mardi. Samedi, tu souris.",
+        "sous": "Petits prix · Côte d'Azur",
+        "ajout": "2026-11-17"
       }
     ]
   },
@@ -249,7 +265,9 @@
       "Pas encore de plan pour samedi ? Enregistre ce post. Ton groupe te dira merci.",
       "47 messages dans le groupe, toujours aucun plan. On a fait le tri pour toi, de Nice à Monaco.",
       "Ton groupe hésite encore entre trois endroits. On a fait le tri, de Nice à Monaco. Envoie-leur avant qu'ils proposent de rester au canap'.",
-      "Tenue correcte exigée, réservation conseillée, et toi t'as juste envie de danser. Voilà les soirées du week-end sur la Côte."
+      "Tenue correcte exigée, réservation conseillée, et toi t'as juste envie de danser. Voilà les soirées du week-end sur la Côte.",
+      "Il dit « je rentre tôt », il ferme la boîte. Tague-le, et choisis où il va le faire ce week-end, de Cannes à Monaco.",
+      "Samedi, c'est trois clubs contre un canap'. On a choisi pour toi, de Nice à Juan."
     ],
     "techno": [
       "Les caissons tremblent déjà. Ce week-end, la scène underground du 06 ne fait aucun compromis sur les BPM.",
@@ -258,11 +276,13 @@
       "Les dates techno du mois sur la Côte d'Azur. Enregistre avant d'oublier, partage à ceux qui viennent avec toi.",
       "Kicks lourds, after jusqu'au matin. Les dates qui tapent ce week-end sur la Côte, à envoyer à ton binôme de dancefloor.",
       "Si tu lis ça, t'es déjà de la famille. Les dates qui tapent ce mois-ci sur la Côte, sans détour.",
-      "Pas de carré VIP, pas de dress code. Juste des kicks et un lever de soleil. Les soirées techno du week-end sur la Côte."
+      "Pas de carré VIP, pas de dress code. Juste des kicks et un lever de soleil. Les soirées techno du week-end sur la Côte.",
+      "Le premier nom est tombé et ton binôme de rave l'a déjà vu. Les dates qui tapent ce mois-ci sur la Côte.",
+      "Il fait nuit à 17 h. Parfait, on a plus de temps pour les kicks. Les soirées techno du week-end sur la Côte."
     ]
   },
-  "objectif_semaine": 60,
-  "derniere_analyse": "2026-11-15T15:07:44.719Z",
+  "objectif_semaine": 48,
+  "derniere_analyse": "2026-11-17T15:07:39.346Z",
   "concurrents": {
     "_note": "Comptes concurrents ou similaires (guides de sorties, médias nightlife). Le bot regarde chaque jour ce qui marche chez eux (formats, accroches, hashtags, heures). Un nom inexistant est simplement ignoré.",
     "liste": [
@@ -286,28 +306,34 @@
   },
   "formats_a_tester": [
     {
-      "format": "Reel POV d'une situation vraie de soirée (groupe WhatsApp, pote qui rentre tôt), texte lisible sans le son",
-      "pourquoi": "Le seul explicatif partagé (gratuit avant 1 h, 4 partages) touchait un vécu ; les situations se taguent.",
-      "source": "Chiffres du compte, post du 2026-11-13",
-      "ajout": "2026-11-15"
+      "format": "Carrousel « envoie ça à ton groupe » : 5 à 6 soirées du week-end, une par slide, avec la ville et le style",
+      "pourquoi": "Les carrousels font 6,25 chez les autres comptes contre 2,51 pour les reels. Partiful finit par un appel explicite à l'envoyer au groupe.",
+      "source": "https://www.instagram.com/p/DfpVkKuHMHS/",
+      "ajout": "2026-11-17"
     },
     {
-      "format": "Annonce flash d'un line-up ou premier nom dans les 24 h",
-      "pourquoi": "Le post HUGEL a eu la meilleure portée de la semaine (925) et 8 partages.",
-      "source": "Chiffres du compte, post du 2026-11-09 ; dicefm https://www.instagram.com/p/Dd_qG-Iio-L/",
-      "ajout": "2026-11-15"
+      "format": "Actu artiste façon DICE : un nom, un événement, une phrase de contexte",
+      "pourquoi": "L'annonce HUGEL a fait 100/100 avec 8 partages : l'actu line-up se partage tout de suite.",
+      "source": "https://www.instagram.com/p/Dd_qG-Iio-L/",
+      "ajout": "2026-11-17"
     },
     {
-      "format": "Reel avant-après « 1 an sépare ces deux vidéos » version fêtard",
-      "pourquoi": "Format qui cartonne chez les DJ, facile à adapter à la famille techno et très taguable.",
-      "source": "djmvlarosa_officiel, https://www.instagram.com/reel/DcJW7DqtbUs/",
-      "ajout": "2026-11-15"
+      "format": "Récap techno du mois en carrousel, publié le 1er",
+      "pourquoi": "Récap du 2 janvier : 80 partages et 26 enregistrements. Novembre 2025 : 33 partages et 9 abonnés.",
+      "source": "Chiffres du compte (posts du 2026-01-02 et du 2025-11-07)",
+      "ajout": "2026-11-17"
     },
     {
-      "format": "Édition techno hebdo avec hashtags pointus (#hardtechno, #technocotedazur)",
-      "pourquoi": "100/100 pour l'Édition Tekno, traits hashtags techno à +41.",
-      "source": "Chiffres du compte, post du 2026-11-12 et traits_effet_sur_note",
-      "ajout": "2026-11-15"
+      "format": "Concours avec un partenaire local (« tague 2 potes »)",
+      "pourquoi": "Les concours font 97 à 100/100 avec beaucoup de commentaires et le plus d'abonnés gagnés (jusqu'à 13).",
+      "source": "Chiffres du compte (concours LQB, Electro Symphony, Halloween)",
+      "ajout": "2026-11-17"
+    },
+    {
+      "format": "Post texte « situation vraie » sans visuel chargé",
+      "pourquoi": "« La vérité, c'est qu'on a tous déjà eu cette impression » : 84/100, 67 likes, 14 partages.",
+      "source": "Chiffres du compte (post du 2025-11-17)",
+      "ajout": "2026-11-17"
     }
   ],
   "inspirations_internationales": {

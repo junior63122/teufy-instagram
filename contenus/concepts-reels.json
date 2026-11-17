@@ -114,5 +114,113 @@
     "test_du_partage": "Au pote avec qui on a fait son premier after, avec « on a bien grandi ».",
     "statut": "propose",
     "ajout": "2026-11-15"
+  },
+  {
+    "id": "c-2026-11-17-vclqyu",
+    "titre": "Le pote canap' à convaincre",
+    "format": "POV",
+    "accroche": "POV : ton pote canap' a déjà mis son pyjama",
+    "plans": [
+      {
+        "texte": "Lui : « il fait froid ». Toi : on danse, on aura chaud.",
+        "video": "friends dancing club warm lights"
+      },
+      {
+        "texte": "Lui : « j'ai pas de thune ». Toi : la prévente est prise.",
+        "video": "phone ticket scan club entrance"
+      },
+      {
+        "texte": "Lui : « ok mais je rentre tôt ». On connaît la chanson.",
+        "video": "friends laughing night street"
+      },
+      {
+        "texte": "5 h du mat' : c'est lui qui refuse de partir.",
+        "video": "man dancing end of party lights"
+      },
+      {
+        "texte": "Le lendemain : « on remet ça samedi ? »",
+        "video": "friends morning beach sunrise"
+      }
+    ],
+    "musique": "afro house solaire 120 bpm",
+    "legende": "Tout le monde a ce pote. Il dit non à 21 h, il ferme la boîte à 5 h. Envoie-lui ça avant qu'il enfile le pyjama. Et toi, t'es le pote canap' ou celui qui traîne tout le monde dehors ? 👇",
+    "cta": "Envoie ça à ton pote canap' avant qu'il dise non",
+    "inspire_de": "https://www.instagram.com/p/DfpVkKuHMHS/",
+    "pourquoi_viral": "Situation que tout le monde a vécue, chute ironique à la fin : on reconnaît direct un pote et on le tague.",
+    "test_du_partage": "Au pote qui dit toujours non le vendredi, avec « c'est trop toi ».",
+    "statut": "propose",
+    "ajout": "2026-11-17"
+  },
+  {
+    "id": "c-2026-11-17-1vn09oc",
+    "titre": "Nuit à 17 h, donc soirée à 17 h",
+    "format": "autre",
+    "accroche": "Il fait nuit à 17 h. Donc la soirée commence à 17 h ?",
+    "plans": [
+      {
+        "texte": "17 h : il fait nuit. Officiellement, c'est le soir.",
+        "video": "sunset promenade nice dusk"
+      },
+      {
+        "texte": "17 h 30 : quelqu'un crée le groupe « soirée 17 h ».",
+        "video": "phone group chat friends night"
+      },
+      {
+        "texte": "19 h : before chez quelqu'un, la playlist tourne déjà.",
+        "video": "friends apartment party speaker music"
+      },
+      {
+        "texte": "23 h : t'es en forme, t'as six heures d'avance.",
+        "video": "crowd dancing club lights"
+      },
+      {
+        "texte": "Novembre sur la Côte : on sort plus tôt, c'est tout.",
+        "video": "riviera city night lights"
+      }
+    ],
+    "musique": "house disco chaleureuse 118 bpm",
+    "legende": "Novembre nous vole le soleil à 17 h. On a décidé de le prendre comme une invitation. Qui lance le groupe « soirée 17 h » ce week-end ? 👇",
+    "cta": "Envoie ça au groupe : on commence à 17 h ?",
+    "inspire_de": "https://www.instagram.com/p/DfkSWKFnIux/",
+    "pourquoi_viral": "Retourne une galère de saison (la nuit tôt) en excuse pour sortir, comme Partiful. Ça déclenche un plan concret.",
+    "test_du_partage": "Au groupe WhatsApp du week-end, avec « on y va ? ».",
+    "statut": "propose",
+    "ajout": "2026-11-17"
+  },
+  {
+    "id": "c-2026-11-17-1doe0g9",
+    "titre": "Les 5 stades de la file à 1 h",
+    "format": "classement",
+    "accroche": "Les 5 stades de la file d'attente à 1 h du mat'",
+    "plans": [
+      {
+        "texte": "Stade 1 : « on rentre en 5 minutes, tranquille ».",
+        "video": "queue outside nightclub night"
+      },
+      {
+        "texte": "Stade 2 : le vent se lève sur la Croisette.",
+        "video": "windy night street people cold"
+      },
+      {
+        "texte": "Stade 3 : tu regrettes la veste laissée sur le lit.",
+        "video": "person cold arms night street"
+      },
+      {
+        "texte": "Stade 4 : ton pote raconte sa vie au groupe d'à côté.",
+        "video": "friends talking queue club entrance"
+      },
+      {
+        "texte": "Stade 5 : t'entres, et t'as déjà tout oublié.",
+        "video": "club entrance lights crowd cheering"
+      }
+    ],
+    "musique": "commercial house montante 124 bpm",
+    "legende": "Le vent, la tenue légère, le pote qui se fait des amis dans la file. On l'a tous vécu sur la Côte. T'en es à quel stade samedi dernier ? Tague celui qui grelottait 👇",
+    "cta": "Tague celui qui était en t-shirt dans la file",
+    "inspire_de": "Ryanair (autodérision des marques au marketing viral)",
+    "pourquoi_viral": "Classement de galère vécue, très local, avec une fin positive. On se reconnaît à chaque stade et on tague.",
+    "test_du_partage": "Au pote qui sort toujours sans veste, avec « c'est trop toi ».",
+    "statut": "propose",
+    "ajout": "2026-11-17"
   }
 ]
