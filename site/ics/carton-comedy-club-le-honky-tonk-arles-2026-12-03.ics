@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:carton-comedy-club-le-honky-tonk-arles-2026-12-03@teufy
+DTSTAMP:20261117T004436Z
+DTSTART:20261203T160000Z
+DTEND:20261203T210000Z
+SUMMARY:Carton Comedy Club @ Le Honky Tonk (Arles)
+LOCATION:Le Honky tonk\, 7 Rue Molière 13200 Arles\, Arles
+DESCRIPTION:Billets : https://www.eventbrite.fr/e/billets-carton-comedy-club-le-honky-tonk-arles-2004398169883\nVia Teufy @teufy_official
+URL:https://www.eventbrite.fr/e/billets-carton-comedy-club-le-honky-tonk-arles-2004398169883
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Carton Comedy Club @ Le Honky Tonk (Arles)
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Carton Comedy Club @ Le Honky Tonk (Arles)
+END:VALARM
+END:VEVENT
+END:VCALENDAR

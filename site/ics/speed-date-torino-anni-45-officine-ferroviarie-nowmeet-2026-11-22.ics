@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:speed-date-torino-anni-45-officine-ferroviarie-nowmeet-2026-11-22@teufy
+DTSTAMP:20261117T004436Z
+DTSTART:20261122T183000Z
+DTEND:20261122T233000Z
+SUMMARY:Speed Date Torino - anni 45+ - Officine Ferroviarie - nowmeet
+LOCATION:Officine Ferroviarie\, 12 Corso Germano Sommeiller 10125 Torino\, Torino
+DESCRIPTION:Billets : https://www.eventbrite.it/e/biglietti-speed-date-torino-anni-45-officine-ferroviarie-nowmeet-2004062888046\nVia Teufy @teufy_official
+URL:https://www.eventbrite.it/e/biglietti-speed-date-torino-anni-45-officine-ferroviarie-nowmeet-2004062888046
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Speed Date Torino - anni 45+ - Officine Ferroviarie - nowmeet
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Speed Date Torino - anni 45+ - Officine Ferroviarie - nowmeet
+END:VALARM
+END:VEVENT
+END:VCALENDAR

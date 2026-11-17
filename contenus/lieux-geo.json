@@ -868,5 +868,216 @@
   "v": 2,
   "le": "2026-11-17T00:17:46.427Z",
   "adr": true
+ },
+ "naya club cannes|cannes": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-17T00:30:08.249Z"
+ },
+ "o petit monde|sanary-sur-mer": {
+  "lat": 43.11452,
+  "lng": 5.79013,
+  "le": "2026-11-17T00:30:09.835Z"
+ },
+ "people by l'atoll|saint-laurent-du-var": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-17T00:30:14.311Z"
+ },
+ "rooftop basta pinsa|beausoleil": {
+  "lat": 43.73832,
+  "lng": 7.41766,
+  "le": "2026-11-17T00:30:15.222Z"
+ },
+ "the drinkers club|antibes": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-17T00:30:19.428Z"
+ },
+ "up town bar|nice": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-17T00:30:25.140Z"
+ },
+ "absinthe bar|antibes": {
+  "lat": 43.58084,
+  "lng": 7.12742,
+  "le": "2026-11-17T00:30:26.696Z"
+ },
+ "balancia bar|nice": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-17T00:30:30.738Z"
+ },
+ "bb cannes|cannes": {
+  "lat": 43.54016,
+  "lng": 6.95548,
+  "le": "2026-11-17T00:30:32.386Z"
+ },
+ "boka club del magot|toulon": {
+  "lat": 43.11424,
+  "lng": 5.95525,
+  "le": "2026-11-17T00:30:34.498Z"
+ },
+ "chrystie|cannes": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-17T00:30:37.581Z"
+ },
+ "fiesta beach|saint-aygulf": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-17T00:30:44.410Z",
+  "adr": true
+ },
+ "groovz|cannes": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-17T00:30:46.808Z"
+ },
+ "jimbaran plage|golfe-juan": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-17T00:30:51.430Z"
+ },
+ "kwartz club|nice": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-17T00:30:55.107Z"
+ },
+ "l'octopus|la seyne-sur-mer": {
+  "lat": 43.12687,
+  "lng": 5.85819,
+  "le": "2026-11-17T00:30:57.866Z"
+ },
+ "la siesta|antibes": {
+  "lat": 43.61057,
+  "lng": 7.12664,
+  "le": "2026-11-17T00:30:58.452Z"
+ },
+ "le boston cocktail bar|nice": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-17T00:31:03.075Z"
+ },
+ "le corner by 3 tapas|beausoleil": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-17T00:31:07.435Z"
+ },
+ "le petit bain|hyeres": {
+  "lat": 43.09286,
+  "lng": 6.16341,
+  "le": "2026-11-17T00:31:08.777Z"
+ },
+ "le rooftop (hotel mediterranee)|menton": {
+  "lat": 43.77533,
+  "lng": 7.5011,
+  "le": "2026-11-17T00:31:12.949Z"
+ },
+ "les voutes|nice": {
+  "lat": 43.69587,
+  "lng": 7.27725,
+  "le": "2026-11-17T00:31:14.101Z"
+ },
+ "mk club monaco|monaco": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-17T00:31:18.527Z"
+ },
+ "nikki beach monte-carlo|monaco": {
+  "lat": 43.73988,
+  "lng": 7.42952,
+  "le": "2026-11-17T00:31:19.850Z"
+ },
+ "o'sullivans by the beach|mandelieu-la-napoule": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-17T00:31:23.805Z"
+ },
+ "plage beau rivage|nice": {
+  "lat": 43.6947,
+  "lng": 7.26981,
+  "le": "2026-11-17T00:31:25.044Z"
+ },
+ "sam's klub|bandol": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-17T00:31:28.059Z"
+ },
+ "the hop store|antibes": {
+  "lat": 43.58292,
+  "lng": 7.12729,
+  "le": "2026-11-17T00:31:29.726Z"
+ },
+ "zoumai|marseille": {
+  "lat": 43.28628,
+  "lng": 5.38661,
+  "le": "2026-11-17T00:39:39.695Z"
+ },
+ "59 rue de rome|marseille": {
+  "lat": 43.29343,
+  "lng": 5.37959,
+  "le": "2026-11-17T00:39:39.910Z"
+ },
+ "chicoulon caviste restaurant|marseille": {
+  "lat": 43.29175,
+  "lng": 5.37545,
+  "le": "2026-11-17T00:39:40.123Z"
+ },
+ "bar le serre|grugliasco": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-17T00:39:47.435Z",
+  "adr": true
+ },
+ "giardini cavour|torino": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-17T00:39:53.609Z",
+  "adr": true
+ },
+ "officine ferroviarie|torino": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-17T00:40:00.134Z",
+  "adr": true
+ },
+ "l’huilerie|marseille": {
+  "lat": 43.29052,
+  "lng": 5.37248,
+  "le": "2026-11-17T00:40:00.684Z"
+ },
+ "arci trinita|genova": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-17T00:40:05.254Z",
+  "adr": true
+ },
+ "music for peace|genova": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-17T00:40:10.631Z",
+  "adr": true
+ },
+ "annette|marseille": {
+  "lat": 43.29354,
+  "lng": 5.37615,
+  "le": "2026-11-17T00:40:11.166Z"
+ },
+ "marseille comedy club|marseille": {
+  "lat": 43.29343,
+  "lng": 5.37959,
+  "le": "2026-11-17T00:40:11.378Z"
+ },
+ "le honky tonk|arles": {
+  "lat": 43.67547,
+  "lng": 4.62599,
+  "le": "2026-11-17T00:40:11.587Z"
+ },
+ "golden tulip marseille euromed|marseille": {
+  "lat": 43.3092,
+  "lng": 5.36751,
+  "le": "2026-11-17T00:40:11.799Z"
  }
 }

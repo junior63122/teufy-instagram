@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:lucy-kruger-et-the-lost-boys-autorock-trinita-live-club-geno-2026-11-24@teufy
+DTSTAMP:20261117T004436Z
+DTSTART:20261124T203000Z
+DTEND:20261125T013000Z
+SUMMARY:Lucy Kruger & The Lost Boys + Autorock / Trinità Live Club\, Genova
+LOCATION:ARCI Trinità\, 38 Via Pasquale Pastorino 16162 Genova\, Genova
+DESCRIPTION:Billets : https://www.eventbrite.it/e/lucy-kruger-the-lost-boys-autorock-trinita-live-club-genova-tickets-2004476002683\nVia Teufy @teufy_official
+URL:https://www.eventbrite.it/e/lucy-kruger-the-lost-boys-autorock-trinita-live-club-genova-tickets-2004476002683
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Lucy Kruger & The Lost Boys + Autorock / Trinità Live Club\, Genova
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Lucy Kruger & The Lost Boys + Autorock / Trinità Live Club\, Genova
+END:VALARM
+END:VEVENT
+END:VCALENDAR

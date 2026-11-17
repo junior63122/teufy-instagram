@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:dis-moi-mon-ex-te-dit-quelque-chose-2026-11-24@teufy
+DTSTAMP:20261117T004436Z
+DTSTART:20261124T180000Z
+DTEND:20261124T230000Z
+SUMMARY:Dis-moi\, mon ex te dit quelque chose ?
+LOCATION:L’Huilerie\, 3 Boulevard Notre Dame 13006 Marseille\, Marseille
+DESCRIPTION:Billets : https://www.eventbrite.com/e/billets-dis-moi-mon-ex-te-dit-quelque-chose-2004115026995\nVia Teufy @teufy_official
+URL:https://www.eventbrite.com/e/billets-dis-moi-mon-ex-te-dit-quelque-chose-2004115026995
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Dis-moi\, mon ex te dit quelque chose ?
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Dis-moi\, mon ex te dit quelque chose ?
+END:VALARM
+END:VEVENT
+END:VCALENDAR

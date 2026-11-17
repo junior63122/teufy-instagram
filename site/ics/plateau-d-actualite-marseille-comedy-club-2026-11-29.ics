@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:plateau-d-actualite-marseille-comedy-club-2026-11-29@teufy
+DTSTAMP:20261117T004436Z
+DTSTART:20261129T173000Z
+DTEND:20261129T223000Z
+SUMMARY:PLATEAU D'ACTUALITÉ | Marseille Comedy Club
+LOCATION:59 Rue de Rome\, 59 Rue de Rome 13001 Marseille\, Marseille
+DESCRIPTION:Billets : https://www.eventbrite.fr/e/billets-plateau-dactualite-marseille-comedy-club-2002559651826\nVia Teufy @teufy_official
+URL:https://www.eventbrite.fr/e/billets-plateau-dactualite-marseille-comedy-club-2002559651826
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : PLATEAU D'ACTUALITÉ | Marseille Comedy Club
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : PLATEAU D'ACTUALITÉ | Marseille Comedy Club
+END:VALARM
+END:VEVENT
+END:VCALENDAR
