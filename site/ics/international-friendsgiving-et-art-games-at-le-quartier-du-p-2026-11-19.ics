@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:international-friendsgiving-et-art-games-at-le-quartier-du-p-2026-11-19@teufy
+DTSTAMP:20261117T002210Z
+DTSTART:20261119T180000Z
+DTEND:20261119T230000Z
+SUMMARY:International Friendsgiving & Art Games at Le Quartier du Poulpe (Nice\, FR)
+LOCATION:Le Quartier du Poulpe by Delphine’s\, 34 Boulevard Auguste Raynaud 06100 Nice\, Nice
+DESCRIPTION:Billets : https://www.eventbrite.com/e/international-friendsgiving-art-games-at-le-quartier-du-poulpe-nice-fr-registration-2004061154862\nVia Teufy @teufy_official
+URL:https://www.eventbrite.com/e/international-friendsgiving-art-games-at-le-quartier-du-poulpe-nice-fr-registration-2004061154862
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : International Friendsgiving & Art Games at Le Quartier du Poulpe (Nice\, FR)
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : International Friendsgiving & Art Games at Le Quartier du Poulpe (Nice\, FR)
+END:VALARM
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:the-glow-presents-a-christmas-night-la-lueur-presente-une-so-2026-12-04@teufy
+DTSTAMP:20261117T002210Z
+DTSTART:20261204T180000Z
+DTEND:20261204T230000Z
+SUMMARY:The Glow presents a Christmas night/ La Lueur présente une soirée de Noël
+LOCATION:Kyriad Montpellier Centre-Antigone\, 890 Avenue Jean Mermoz 34000 Montpellier\, Montpellier
+DESCRIPTION:Billets : https://www.eventbrite.com/e/billets-the-glow-presents-a-christmas-night-la-lueur-presente-une-soiree-de-noel-2004776632876\nVia Teufy @teufy_official
+URL:https://www.eventbrite.com/e/billets-the-glow-presents-a-christmas-night-la-lueur-presente-une-soiree-de-noel-2004776632876
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : The Glow presents a Christmas night/ La Lueur présente une soirée de Noël
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : The Glow presents a Christmas night/ La Lueur présente une soirée de Noël
+END:VALARM
+END:VEVENT
+END:VCALENDAR

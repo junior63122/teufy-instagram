@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:business-party-2026-11-24@teufy
+DTSTAMP:20261117T002210Z
+DTSTART:20261124T200000Z
+DTEND:20261125T010000Z
+SUMMARY:Business Party
+LOCATION:244 Chem. du Roucas Blanc\, 244 Chemin du Roucas Blanc 13007 Marseille\, Marseille
+DESCRIPTION:Billets : https://www.eventbrite.com/e/billets-business-party-2003454389009\nVia Teufy @teufy_official
+URL:https://www.eventbrite.com/e/billets-business-party-2003454389009
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Business Party
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Business Party
+END:VALARM
+END:VEVENT
+END:VCALENDAR

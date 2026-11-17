@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:rencontre-d-echecs-a-cagnes-sur-mer-la-cave-parallele-2026-12-04@teufy
+DTSTAMP:20261117T002210Z
+DTSTART:20261204T170000Z
+DTEND:20261204T220000Z
+SUMMARY:Rencontre d’échecs à Cagnes-sur-Mer · LA CAVE PARALLELE
+LOCATION:LA CAVE PARALLELE\, 28 Prom. de la Plage\, 06800 Cagnes-sur-Mer\, France 06800 Cagnes-sur-Mer\, Cagnes-sur-Mer
+DESCRIPTION:Billets : https://www.eventbrite.fr/e/rencontre-dechecs-a-cagnes-sur-mer-la-cave-parallele-tickets-2004841977323\nVia Teufy @teufy_official
+URL:https://www.eventbrite.fr/e/rencontre-dechecs-a-cagnes-sur-mer-la-cave-parallele-tickets-2004841977323
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Rencontre d’échecs à Cagnes-sur-Mer · LA CAVE PARALLELE
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Rencontre d’échecs à Cagnes-sur-Mer · LA CAVE PARALLELE
+END:VALARM
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:apericena-col-mentalista-speciale-serata-single-over-35-2026-12-05@teufy
+DTSTAMP:20261117T002210Z
+DTSTART:20261205T183000Z
+DTEND:20261205T233000Z
+SUMMARY:Apericena col Mentalista – Speciale serata single over 35
+LOCATION:Caffe OLTRESTAZIONE\, 29 Via Guido Gozzano 10042 Nichelino\, Nichelino
+DESCRIPTION:Billets : https://www.eventbrite.com/e/apericena-col-mentalista-speciale-serata-single-over-35-tickets-2003960428587\nVia Teufy @teufy_official
+URL:https://www.eventbrite.com/e/apericena-col-mentalista-speciale-serata-single-over-35-tickets-2003960428587
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Apericena col Mentalista – Speciale serata single over 35
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Apericena col Mentalista – Speciale serata single over 35
+END:VALARM
+END:VEVENT
+END:VCALENDAR

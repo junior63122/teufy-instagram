@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:rencontre-d-echecs-a-mougins-ami-amie-2026-12-01@teufy
+DTSTAMP:20261117T002210Z
+DTSTART:20261201T180000Z
+DTEND:20261201T230000Z
+SUMMARY:Rencontre d’échecs à Mougins · Ami-Amie
+LOCATION:Ami-Amie\, Galerie Commerciale de\, 762 Av. de Tournamy\, 06250 Mougins\, France 06250 Mougins\, Mougins
+DESCRIPTION:Billets : https://www.eventbrite.fr/e/rencontre-dechecs-a-mougins-ami-amie-tickets-2004909034894\nVia Teufy @teufy_official
+URL:https://www.eventbrite.fr/e/rencontre-dechecs-a-mougins-ami-amie-tickets-2004909034894
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Rencontre d’échecs à Mougins · Ami-Amie
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Rencontre d’échecs à Mougins · Ami-Amie
+END:VALARM
+END:VEVENT
+END:VCALENDAR

@@ -736,5 +736,137 @@
   "introuvable": true,
   "v": 2,
   "le": "2026-11-16T13:11:12.034Z"
+ },
+ "lou'bar|villeneuve-loubet": {
+  "lat": 43.65828,
+  "lng": 7.12206,
+  "le": "2026-11-17T00:16:53.509Z"
+ },
+ "ohm circus|cannes": {
+  "lat": 43.55312,
+  "lng": 7.01659,
+  "le": "2026-11-17T00:16:53.668Z"
+ },
+ "arcade food+games|torino": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-17T00:16:58.504Z",
+  "adr": true
+ },
+ "casa barbara nice|nice": {
+  "lat": 43.71177,
+  "lng": 7.29296,
+  "le": "2026-11-17T00:16:58.854Z"
+ },
+ "les folies d'edmonde - bar a cocktails|nice": {
+  "lat": 43.69751,
+  "lng": 7.27691,
+  "le": "2026-11-17T00:16:59.026Z"
+ },
+ "40 rue droite|nice": {
+  "lat": 43.69641,
+  "lng": 7.27708,
+  "le": "2026-11-17T00:16:59.207Z"
+ },
+ "restaurant of the week|nice": {
+  "lat": 43.69996,
+  "lng": 7.27298,
+  "le": "2026-11-17T00:16:59.368Z"
+ },
+ "le quartier du poulpe by delphine’s|nice": {
+  "lat": 43.71344,
+  "lng": 7.25878,
+  "le": "2026-11-17T00:16:59.818Z"
+ },
+ "hostel villa saint exupery beach|nice": {
+  "lat": 43.6987,
+  "lng": 7.27018,
+  "le": "2026-11-17T00:16:59.994Z"
+ },
+ "teatro nuovo valleggia|quiliano": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-17T00:17:05.452Z",
+  "adr": true
+ },
+ "la chapa|nice": {
+  "lat": 43.69523,
+  "lng": 7.27443,
+  "le": "2026-11-17T00:17:05.796Z"
+ },
+ "zephyr monaco|monaco": {
+  "lat": 43.74103,
+  "lng": 7.43072,
+  "le": "2026-11-17T00:17:08.783Z"
+ },
+ "244 chem. du roucas blanc|marseille": {
+  "lat": 43.27947,
+  "lng": 5.36832,
+  "le": "2026-11-17T00:17:08.953Z"
+ },
+ "le mistral club|aix-en-provence": {
+  "lat": 43.52663,
+  "lng": 5.45075,
+  "le": "2026-11-17T00:17:09.115Z"
+ },
+ "bricolites|nice": {
+  "lat": 43.70506,
+  "lng": 7.26827,
+  "le": "2026-11-17T00:17:09.279Z"
+ },
+ "restaurant of the month|cannes": {
+  "lat": 43.552,
+  "lng": 7.01796,
+  "le": "2026-11-17T00:17:09.434Z"
+ },
+ "les folies d'edmonde|nice": {
+  "lat": 43.69751,
+  "lng": 7.27691,
+  "le": "2026-11-17T00:17:09.592Z"
+ },
+ "ami-amie|mougins": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-17T00:17:16.147Z",
+  "adr": true
+ },
+ "alt f4|nice": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-17T00:17:21.157Z",
+  "adr": true
+ },
+ "la cave parallele|cagnes-sur-mer": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-17T00:17:29.104Z",
+  "adr": true
+ },
+ "hotel beausejour|saint-raphael": {
+  "lat": 43.83082,
+  "lng": 7.32869,
+  "le": "2026-11-17T00:17:35.843Z"
+ },
+ "caffe oltrestazione|nichelino": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-17T00:17:41.035Z",
+  "adr": true
+ },
+ "245 rte des lucioles|valbonne": {
+  "lat": 43.61453,
+  "lng": 7.04741,
+  "le": "2026-11-17T00:17:41.387Z"
+ },
+ "la peche a la vigne|nice": {
+  "lat": 43.69958,
+  "lng": 7.2828,
+  "le": "2026-11-17T00:17:41.551Z"
+ },
+ "doppio malto|saint-laurent-du-var": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-17T00:17:46.427Z",
+  "adr": true
  }
 }
