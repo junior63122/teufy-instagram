@@ -1,0 +1,39 @@
+{
+  "id": "guide-suite",
+  "type": "guide",
+  "variante": null,
+  "date": "2026-11-17",
+  "images": [
+    "guide-2026-11-17-0.jpg",
+    "guide-2026-11-17-1.jpg",
+    "guide-2026-11-17-2.jpg",
+    "guide-2026-11-17-3.jpg",
+    "guide-2026-11-17-4.jpg",
+    "guide-2026-11-17-5.jpg",
+    "guide-2026-11-17-fin.jpg"
+  ],
+  "legende": "4 h du matin à Nice, la boîte ferme et t'as faim. On a la liste 👇\n\n1. Le Cessole (Pizzeria) · lun–dim 7h–0h\n2. Hippopotamus (Restaurant) · lun–jeu 11h30–23h · ven–sam 11h30–0h · dim 11h30–23h\n3. Le Magnan (Restaurant) · lun–dim 7h–23h\n4. Les Jardins du Capitole (Restaurant) · lun–dim 8h–23h\n5. Don Carlo (Pizzeria) · lun–mar 19h–23h · jeu–sam 19h–23h\n\nHoraires publiés : vérifie avant d'y aller. Toutes les adresses sur teufyparty.com (Manger tard).\n\nEnvoie ça au groupe avant samedi.\n\n#TeufyParty #nice #cotedazur #nightlife #streetfood",
+  "titre": "Où manger à Nice après la boîte ?",
+  "guide": "manger|Nice",
+  "textes_visuels": [
+    "Où manger à [Nice] après la boîte ?",
+    "Le Cessole",
+    "lun–dim 7h–0h",
+    "Hippopotamus",
+    "lun–jeu 11h30–23h · ven–sam 11h30–0h · dim 11h30–23h",
+    "Le Magnan",
+    "lun–dim 7h–23h",
+    "Les Jardins du Capitole",
+    "lun–dim 8h–23h",
+    "Don Carlo",
+    "lun–mar 19h–23h · jeu–sam 19h–23h"
+  ],
+  "choix": {
+    "creneau": "17",
+    "cta-guide": "1otakgw"
+  },
+  "features": [],
+  "nb_images": 7,
+  "story": "story.jpg",
+  "a_tester": []
+}
