@@ -23,7 +23,7 @@ import { nettoyerComptes, legendeFinale, abonnesDe, comptesConfirmes } from './c
 import { igConfig, publishCarousel, publishSingle, publishReel, publishStory, permalink, insights, followers, businessDiscovery, compteMedia } from './instagram.mjs';
 import { TENDANCES, analyserComptes } from './tendances.mjs';
 import { buildModel, chooser, selectBest, eventFeatures, collect, hash, loadData } from './learn.mjs';
-import { filtrerCoherentes, controlePost } from './coherence.mjs';
+import { filtrerCoherentes, controlePost, choixLibre } from './coherence.mjs';
 import { lirePlan, ecrirePlan, engouements, planifierSuite, extrasDu, nettoyer, jourSource, replanifier, sectionRapport, SERIES } from './reactif.mjs';
 import { theme } from './theme.mjs';
 
@@ -105,6 +105,7 @@ const slotsFor = (d) => {
     .filter((x) => !SERIES.includes(x.variante) || episodeGrandDebat(x.variante));
   return [...base, ...extras];
 };
+const optionsLibre = (now) => choixLibre({ now, historique: hist, slots: slotsFor, jourDe: (d) => slotOfDay(d).date });
 const dejaPublie = (s) => hist.some((h) => h.id === slotId(s) && h.date === slotOfDay(NOW).date);
 const slotDuMoment = () => slotsFor(NOW).find((s) => !dejaPublie(s));
 
@@ -297,7 +298,9 @@ async function prepare(slot, now, id) {
   if (slot.type === 'reel' && slot.variante === 'viral') slot = { ...slot, variante: val('format') || ch.pick('format-reel-viral', ['guide'], (x) => x) };
   // Post « libre » (14/11/2026, directeur : « le planning n'est pas fixe, tu es censé évoluer ») : les jeudis sans Édition
   // Tekno, l'apprentissage choisit entre un guide (manger tard / afters) et un bon plan, et ramène plus souvent ce qui marche.
-  if (slot.type === 'libre') { const o = ch.pick('post-libre', ['guide', 'a-reserver', 'petits-prix'], (x) => x); slot = o === 'guide' ? { ...slot, type: 'guide' } : { ...slot, type: 'bonplan', variante: o }; }
+  // Cohérence (18/11/2026, directeur : planning « plus cohérent ») : jamais deux guides ou deux bons plans d'affilée — le
+  // type publié la veille, ou prévu le jour même ou le lendemain (post ou reel guide), est écarté s'il reste un autre choix.
+  if (slot.type === 'libre') { const ok = optionsLibre(now); const o = ch.pick('post-libre', ok, (x) => x); slot = o === 'guide' ? { ...slot, type: 'guide' } : { ...slot, type: 'bonplan', variante: o }; }
   if (cible === 'auto') ch.choix.creneau = String(Math.min(Math.max(NOW.getUTCHours(), +CRENEAUX[0]), +CRENEAUX.at(-1)));
   const villes = config.villes;
   const debugDir = path.join(ROOT, 'out', 'debug');
@@ -474,7 +477,7 @@ async function prepare(slot, now, id) {
     // « Le Grand Débat » (14/11/2026, directeur : 2 épisodes par semaine) : épisodes fabriqués à part (série animée
     // Kévin / Léo) et déposés dans media/grand-debat/ : episode.mp4 + episode.txt (légende). Le plus ancien non publié part.
     // Spots promo (media/spot-promo/) : même principe, le spot est choisi par l'apprentissage selon son type d'accroche.
-    const ep = episodeGrandDebat(slot.variante, slot.variante === 'spot-promo' ? (l) => ch.pick('accroche-spot', l, (x) => x.accroche || 'autre') : null);
+    const ep = episodeGrandDebat(slot.variante, slot.variante === 'spot-promo' ? (l) => (l.some((x) => MODEL.arms[`accroche-spot:${x.accroche || 'autre'}`]) ? ch.pick('accroche-spot', l, (x) => x.accroche || 'autre') : l[0]) : null);
     if (!ep) throw new Error(`${slot.variante} : aucun épisode en attente dans media/${slot.variante}/`);
     const video = path.join(dir, `reel-${stamp}.mp4`), cover = path.join(dir, `reel-${stamp}-couverture.jpg`);
     await copyFile(ep.video, video);

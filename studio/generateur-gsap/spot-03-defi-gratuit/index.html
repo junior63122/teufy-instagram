@@ -23,7 +23,7 @@ html,body{background:#000;width:1080px;height:1920px;overflow:hidden;font-family
 #phone img.c{position:absolute;left:0;top:0;width:552px;opacity:0}
 #phone .notch{position:absolute;left:50%;top:14px;width:150px;height:38px;margin-left:-75px;border-radius:20px;background:#000;z-index:3}
 #splash{position:absolute;inset:0;background:var(--nuit);display:flex;align-items:center;justify-content:center;opacity:0}
-.etape{position:absolute;left:90px;top:380px;display:flex;align-items:center;gap:16px;font-family:Bric;font-weight:800;font-stretch:80%;font-size:72px;opacity:0}
+.etape{position:absolute;z-index:35;left:90px;top:380px;background:#F4EFE6;padding:8px 30px 12px 10px;border-radius:999px;box-shadow:0 10px 30px rgba(0,0,0,.3);display:flex;align-items:center;gap:16px;font-family:Bric;font-weight:800;font-stretch:80%;font-size:72px;opacity:0}
 .etape span{display:inline-flex;width:84px;height:84px;border-radius:50%;background:var(--nuit);color:var(--creme);align-items:center;justify-content:center;font-size:54px}
 .tap{position:absolute;width:110px;height:110px;margin:-55px 0 0 -55px;border-radius:50%;background:rgba(255,90,60,.45);border:6px solid var(--corail);opacity:0;z-index:20}
 #badge{position:absolute;left:150px;top:820px;width:780px;padding:30px 40px;border-radius:40px;background:var(--nuit);color:var(--creme);text-align:center;box-shadow:0 30px 80px rgba(0,0,0,.35);opacity:0;z-index:25}
@@ -39,11 +39,12 @@ html,body{background:#000;width:1080px;height:1920px;overflow:hidden;font-family
 .conf{position:absolute;width:18px;height:30px;border-radius:4px}
 </style></head><body>
 <div id="stage">
+ <div id="fond" style="position:absolute;inset:0;background:#F4EFE6"></div>
  <div id="raies"></div>
  <!-- 0 : le défi -->
  <div class="scene" id="s0">
   <div id="defi">DÉFI</div>
-  <div class="k" id="t0" style="top:600px;font-size:104px">Une soirée <em>gratuite</em><br>en moins de</div>
+  <div class="k" id="t0" style="top:600px;font-size:104px"><span class="m0">Une</span> <span class="m0">soirée</span> <em class="m0" style="display:inline-block">gratuite</em><br><span class="m0">en</span> <span class="m0">moins</span> <span class="m0">de</span></div>
   <div id="dix">10<small> s</small></div>
  </div>
  <div class="k" id="topc" style="top:700px;font-size:190px;opacity:0">TOP<br><em>CHRONO !</em></div>
@@ -55,6 +56,8 @@ html,body{background:#000;width:1080px;height:1920px;overflow:hidden;font-family
  <div id="phone"><div class="ecr">
   <img class="c" id="g1" src="img/g1.jpg"><img class="c" id="g2" src="img/g2.jpg"><img class="c" id="g3" src="img/g3.jpg">
   <div id="splash"><img src="img/logo.png" style="width:300px"></div>
+  <div id="cacheBas" style="position:absolute;left:0;right:0;bottom:0;height:150px;background:linear-gradient(to bottom,rgba(11,11,15,0),#0B0B0F 40%)"></div>
+  <div id="cacheDate" style="position:absolute;left:60px;top:358px;width:200px;height:60px;border-radius:12px;background:#FF5A3C;color:#0B0B0F;font-weight:900;font-size:26px;display:flex;align-items:center;justify-content:center;opacity:0">GRATUIT</div>
  </div><div class="notch"></div></div>
  <div class="tap" id="tp1"></div><div class="tap" id="tp2"></div><div class="tap" id="tp3"></div>
  <div id="badge"><div style="font-family:Bric;font-weight:800;font-stretch:80%;font-size:92px;line-height:1">Entrée libre</div><div style="font-size:46px;font-weight:800;margin-top:10px;color:var(--jaune)">ou petits prix (10 € max)</div></div>
@@ -109,7 +112,7 @@ function build(){S=TL.map(g=>g.start);END=TL[TL.length-1].start+TL[TL.length-1].
   tl.fromTo('#raies',{x:0},{x:280,duration:END,ease:'none'},0);
   // --- 0 : le défi
   montre('s0',0,S[1]);tl.fromTo('#defi',{scale:1.18,rotation:-8},{scale:1,rotation:-4,duration:.3,ease:'back.out(3)'},0);
-  tl.fromTo('#t0',{scale:1.12},{scale:1,duration:.3,ease:'back.out(2)'},0);
+  tl.fromTo('#t0',{scale:1.12},{scale:1,duration:.3,ease:'back.out(2)'},0);[...document.querySelectorAll('.m0')].forEach((e,k)=>{const at=[wt(0,'trouver'),wt(0,'soirée'),wt(0,'gratuite'),wt(0,'en'),wt(0,'moins'),wt(0,'de')][k];tl.fromTo(e,{color:'#FF5A3C',scale:1.4},{color:k===2?'#FF5A3C':'#0B0B0F',scale:1,duration:.18,ease:'back.out(3)',immediateRender:false,display:'inline-block'},at)});tl.to('#defi',{rotation:-1,scale:1.04,duration:.25,yoyo:true,repeat:5,ease:'sine.inOut'},.35);tl.fromTo('#raies',{y:0},{y:-280,duration:3.1,ease:'none',immediateRender:false},0);
   tl.to('#t0 em',{scale:1.15,duration:.12,yoyo:true,repeat:1,display:'inline-block'},wt(0,'gratuite'));choc(wt(0,'gratuite'),12);
   tl.fromTo('#dix',{scale:2.4,opacity:0},{scale:1,opacity:1,duration:.22,ease:'power4.out',immediateRender:false},wt(0,'dix'));choc(wt(0,'dix'),30);flash(wt(0,'dix'),.35);
   tl.to('#defi',{rotation:4,duration:.08,yoyo:true,repeat:5,ease:'none'},wt(0,'secondes'));
@@ -130,7 +133,7 @@ function build(){S=TL.map(g=>g.start);END=TL[TL.length-1].start+TL[TL.length-1].
   // --- 4 : 3. Ta ville : « Où » puis « Nice »
   tl.fromTo('#e3',{x:-400,opacity:0},{x:0,opacity:1,duration:.25,ease:'back.out(2)',immediateRender:false},S[4]);tl.set('#e3',{opacity:0},S[5]);
   tape('tp2',PH(609,1404),wt(4,'tu'));ecran('#g2',wt(4,'tu')+.14);
-  tape('tp3',PH(399,1284),wt(4,'ville'));ecran('#g3',wt(4,'ville')+.14);choc(wt(4,'ville')+.14,10);
+  tape('tp3',PH(399,1284),wt(4,'ville'));ecran('#g3',wt(4,'ville')+.14);tl.set('#cacheDate',{opacity:1},wt(4,'ville')+.14);choc(wt(4,'ville')+.14,10);
   // --- 5 : et voilà : entrée libre ou petits prix
   tl.fromTo('#badge',{scale:0,opacity:0},{scale:1,opacity:1,duration:.25,ease:'back.out(2.2)',immediateRender:false},wt(5,'voilà'));
   tl.fromTo('#tampon',{scale:3,opacity:0},{scale:1,opacity:1,duration:.16,ease:'power4.in',immediateRender:false},wt(5,'entrée'));choc(wt(5,'entrée')+.16,30);
@@ -149,6 +152,11 @@ function build(){S=TL.map(g=>g.start);END=TL[TL.length-1].start+TL[TL.length-1].
   const url='teufyparty.com',u={v:0};tl.to(u,{v:url.length,duration:.7,ease:'none',onUpdate:()=>$('url').textContent=url.slice(0,Math.round(u.v))},wt(7,'teufyparty')-.1);
   tl.to('#curseur',{opacity:0,duration:.25,yoyo:true,repeat:9,ease:'steps(1)'},S[7]);
   tl.to('#btn',{scale:.88,duration:.1,yoyo:true,repeat:1},wt(7,'teufyparty')+.8);tl.set('#btn',{textContent:'Abonné ✓',background:'#3DFF8A'},wt(7,'teufyparty')+1);
+  const FONDS=[[S[1],'#0B0B0F'],[S[2]-.05,'#F4EFE6'],[S[3],'#FF5A3C'],[S[4],'#FFD23F'],[S[5],'#F4EFE6'],[S[6],'#0B0B0F'],[S[7],'#F4EFE6']];
+  FONDS.forEach(([at,c])=>{tl.set('#fond',{backgroundColor:c},at);flash(at,.45)});
+  tl.set('#topc',{color:'#F4EFE6'},0);tl.set('#s6 .k',{color:'#F4EFE6'},0);tl.set('#resultat',{color:'#F4EFE6'},0);tl.set('#facile',{backgroundColor:'#FF5A3C',color:'#0B0B0F'},0);
+  tl.set(['#e2','#e3'],{color:'#0B0B0F'},0);
+  [[wt(3,'gratuit'),PH(171,288)],[wt(4,'tu'),PH(609,1404)],[wt(4,'ville'),PH(399,1284)]].forEach(([at,[x,y]])=>{tl.set('#phone',{transformOrigin:`${x-250}px ${y-500}px`},at-.12);tl.to('#phone',{scale:1.45,duration:.12,ease:'power3.out'},at-.12);tl.to('#phone',{scale:1,duration:.25,ease:'power3.inOut'},at+.25)});
   tl.to({},{duration:.01},END);return END}
 window.init=async(tlData)=>{TL=tlData;buildCaps();await document.fonts.ready;await Promise.all([...document.images].map(i=>i.decode().catch(()=>{})));return build()};
 window.seek=t=>{tl.seek(t,false);renderCaps(t)};

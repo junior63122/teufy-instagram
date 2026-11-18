@@ -61,3 +61,17 @@ export function controlePost({ soirees = [], legende = '', ...opts }) {
   }
   return out;
 }
+
+// --- Planning : post « libre » sans doublon (18/11/2026, directeur : planning « plus cohérent ») ----------------------
+// Écarte la famille (guide / bon plan) publiée la veille ou le jour même, ou prévue le jour même ou le lendemain
+// (post ou reel guide). `slots(date)` = publications prévues ce jour-là ; `jourDe(date)` = 'AAAA-MM-JJ' à Paris.
+const familleSlot = (c) => (!c ? null : c.type === 'guide' || (c.type === 'reel' && ['viral', 'guide'].includes(c.variante)) ? 'guide' : c.type === 'bonplan' ? 'bonplan' : null);
+const familleHist = (h) => (/^guide|^reel-viral|^reel-guide/.test(h.id) ? 'guide' : /^bonplan/.test(h.id) ? 'bonplan' : null);
+export function choixLibre({ now, historique = [], slots, jourDe }) {
+  const j = (k) => new Date(now.getTime() + k * 864e5);
+  const proches = new Set([jourDe(j(-1)), jourDe(now)]);
+  const prises = new Set([...historique.filter((h) => proches.has(h.date)).map(familleHist), ...[0, 1].flatMap((k) => slots(j(k)).map(familleSlot))]);
+  const toutes = ['guide', 'a-reserver', 'petits-prix'];
+  const ok = toutes.filter((o) => !prises.has(o === 'guide' ? 'guide' : 'bonplan'));
+  return ok.length ? ok : toutes;
+}
