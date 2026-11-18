@@ -5,7 +5,7 @@ Vidéo : `promo-teufy.mp4` — **format Instagram Reels 1080×1920 (9:16)**, ≈
 ## v3 (18/11/2026, soir) — retours du directeur sur la v2
 - « Tu sais jamais où sortir **le** soir ? » (voix régénérée pour cette réplique et pour les styles : 63 caractères).
 - 3 premières secondes choc : la boîte change d'angle à chaque mot (flash + secousse), la vitre se fissure sur « soir ? » et éclate quand le téléphone la traverse sur « Ouvre Teufy ». Musique étouffée pendant l'accroche puis qui éclate.
-- Une relance visuelle chaque seconde environ (21 plans / coupes au contrôle qualité).
+- Une relance visuelle chaque seconde environ (20 plans, 0,9 s en moyenne au contrôle qualité).
 - « Près de toi » : plongée de drone sur une ville néon en 3D, faisceaux lumineux au-dessus des lieux ouverts (illustration, aucun nom de lieu).
 - Styles raccourcis (« Techno, house, afro, shatta ! », 1,9 s au lieu de 3,5 s) : 4 plans plein écran, un par mot, couleur et motif propres.
 - Boîte 3D : les danseurs en panneaux plats (ombres bizarres) sont retirés ; foule en contre-jour au premier plan, qui saute en rythme.
