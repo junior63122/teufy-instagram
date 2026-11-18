@@ -1,6 +1,7 @@
 <!doctype html><html><head><meta charset="utf-8">
-<!-- Promo Teufy v2 (motion GSAP + boîte en 3D three.js). Chiffres : relevés sur teufyparty.com le 18/11/2026 (SOURCES.md).
-     Images : boîte 3D, captures du site dans un téléphone (affiches des organisateurs masquées), photos libres (img/CREDITS.json). -->
+<!-- Promo Teufy v3 (18/11/2026, retours du directeur sur la v2) : accroche choc (vitre qui se fissure), une relance visuelle
+     chaque seconde, ville néon en 3D, styles en 4 plans plein écran, vraies photos de nourriture, foule en contre-jour.
+     Chiffres : relevés sur teufyparty.com le 18/11/2026 (SOURCES.md). Images : img/CREDITS.json. -->
 <style>
 @font-face{font-family:Bric;src:url(fonts/bricolage-titre.woff2) format('woff2');font-weight:800;font-stretch:80%}
 @font-face{font-family:IT;src:url(fonts/inter-tight.woff2) format('woff2');font-weight:100 900}
@@ -14,7 +15,8 @@ html,body{background:#000;width:1080px;height:1920px;overflow:hidden;font-family
 .blob{position:absolute;border-radius:50%;filter:blur(110px)}
 .k{position:absolute;left:0;right:0;text-align:center;font-family:Bric;font-weight:800;font-stretch:80%;letter-spacing:-.02em;line-height:.9;color:var(--creme);text-shadow:0 12px 50px rgba(0,0,0,.6)}
 .k em{font-style:normal;color:var(--corail)}
-.glass{position:absolute;border-radius:40px;background:rgba(22,22,28,.72);backdrop-filter:blur(26px);-webkit-backdrop-filter:blur(26px);border:2px solid rgba(255,255,255,.16);box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.rgb{text-shadow:-6px 0 0 rgba(255,43,214,.85),6px 0 0 rgba(61,255,138,.75),0 14px 60px rgba(0,0,0,.7)}
+.glass{position:absolute;border-radius:40px;background:rgba(22,22,28,.74);backdrop-filter:blur(26px);-webkit-backdrop-filter:blur(26px);border:2px solid rgba(255,255,255,.16);box-shadow:0 30px 80px rgba(0,0,0,.5)}
 .chip{position:absolute;border-radius:999px;background:rgba(22,22,28,.88);border:2px solid rgba(255,255,255,.2);font-weight:800;padding:14px 28px;font-size:38px;white-space:nowrap;color:var(--creme);box-shadow:0 14px 40px rgba(0,0,0,.45)}
 .chip b{color:var(--corail)}
 .big{font-family:Bric;font-weight:800;font-stretch:80%;letter-spacing:-.03em;line-height:.9}
@@ -24,59 +26,77 @@ html,body{background:#000;width:1080px;height:1920px;overflow:hidden;font-family
 #phone .notch{position:absolute;left:50%;top:14px;width:150px;height:38px;margin-left:-75px;border-radius:20px;background:#000;z-index:3}
 #splash{position:absolute;inset:0;background:var(--nuit);display:flex;align-items:center;justify-content:center;opacity:0}
 .ring{position:absolute;border-radius:50%;border:8px solid var(--live);box-shadow:0 0 40px rgba(61,255,138,.55)}
-.pin{position:absolute;width:90px;height:90px;margin:-45px 0 0 -45px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:var(--corail);box-shadow:0 10px 30px rgba(0,0,0,.5)}
-.pin span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;transform:rotate(45deg);font-size:40px}
-.ouvert{position:absolute;font-size:28px;font-weight:900;color:var(--nuit);background:var(--live);padding:6px 16px;border-radius:999px;white-space:nowrap}
 .conf{position:absolute;width:18px;height:30px;border-radius:4px}
+.eclat{position:absolute;left:0;top:0;width:1080px;height:1920px;background:linear-gradient(135deg,rgba(255,255,255,.75),rgba(200,220,255,.18) 55%,rgba(255,255,255,.5));opacity:0}
+/* ville néon (scène 3) */
+#cam3{position:absolute;inset:0;transform-origin:540px 860px}
+#plan{position:absolute;left:-460px;top:-260px;width:2000px;height:2400px;transform:perspective(1300px) rotateX(56deg);transform-origin:50% 50%}
+.pin{position:absolute;width:96px;height:96px;margin:-96px 0 0 -48px}
+.pin .tete{position:absolute;inset:0;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:var(--corail);box-shadow:0 0 30px rgba(255,90,60,.8)}
+.pin span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:44px}
+.faisceau{position:absolute;width:30px;height:620px;margin-left:-15px;background:linear-gradient(to top,rgba(255,90,60,.9),rgba(255,43,214,.35) 55%,rgba(255,43,214,0));filter:blur(4px);transform-origin:50% 100%}
+.onde{position:absolute;width:220px;height:80px;margin:-40px 0 0 -110px;border-radius:50%;border:6px solid var(--corail)}
+.ouvert{position:absolute;font-size:30px;font-weight:900;color:var(--nuit);background:var(--live);padding:6px 18px;border-radius:999px;white-space:nowrap;box-shadow:0 0 30px rgba(61,255,138,.6)}
+/* styles (scène 4) */
+.st{position:absolute;inset:0;overflow:hidden}
+.st .mot{position:absolute;left:0;right:0;top:560px;text-align:center;font-family:Bric;font-weight:800;font-stretch:80%;font-size:250px;line-height:.9;letter-spacing:-.03em}
+.st .nb{position:absolute;left:0;right:0;top:850px;text-align:center}
+.st .nb span{display:inline-block;font-weight:900;font-size:52px;padding:14px 34px;border-radius:999px}
+#rayons,#rayons5{position:absolute;left:-1000px;top:-500px;width:3080px;height:3080px;border-radius:50%}
+/* manger */
+.food{position:absolute;inset:0;width:1080px;height:1920px;object-fit:cover;filter:saturate(1.3) contrast(1.08);opacity:0}
+#ferme{position:absolute;left:0;right:0;top:600px;text-align:center;font-family:Bric;font-weight:800;font-stretch:80%;font-size:230px;color:#FFE3E3;text-shadow:0 0 8px #fff,0 0 24px #ff3b3b,0 0 60px #ff1a1a,0 0 140px #ff0000,0 0 220px #ff0000;opacity:0}
 #caps{position:absolute;left:90px;right:90px;top:1300px;height:150px;display:flex;justify-content:center;align-items:center}
-#capbox{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;padding:16px 22px;border-radius:28px;background:rgba(11,11,15,.82);backdrop-filter:blur(12px);border:2px solid rgba(255,255,255,.1)}
+#capbox{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;padding:16px 22px;border-radius:28px;background:rgba(11,11,15,.85);backdrop-filter:blur(12px);border:2px solid rgba(255,255,255,.1)}
 .w{font-family:Bric;font-weight:800;font-stretch:80%;font-size:64px;color:var(--creme);padding:2px 12px;border-radius:12px;line-height:1.1}
 .w.on{background:var(--corail);color:var(--nuit);transform:scale(1.06)}
 #credit{position:absolute;left:84px;top:1440px;font-size:21px;font-weight:700;color:rgba(255,255,255,.85);text-shadow:0 1px 3px rgba(0,0,0,.8)}
 #flash{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none}
+#paup1,#paup2{position:absolute;left:0;width:1080px;height:980px;background:#000;z-index:20}
+#paup1{top:-980px;border-radius:0 0 50% 50%/0 0 30% 30%}#paup2{top:1920px;border-radius:50% 50% 0 0/30% 30% 0 0}
+#foule{position:absolute;left:0;top:1380px;width:1080px;height:540px;filter:drop-shadow(0 -4px 6px rgba(255,90,60,.9)) drop-shadow(0 -2px 18px rgba(255,43,214,.6))}
 #leak{position:absolute;inset:0;pointer-events:none;mix-blend-mode:screen;opacity:.0;background:radial-gradient(600px 900px at 20% 30%,rgba(255,90,60,.55),transparent 70%),radial-gradient(500px 700px at 85% 75%,rgba(255,43,214,.45),transparent 70%)}
 svg text{font-family:IT;font-weight:800}
 </style></head><body>
 <div id="stage">
  <canvas id="c3d" width="1080" height="1920"></canvas>
  <div id="leak"></div>
- <!-- 0 : accroche (sur la boîte 3D) -->
- <div class="scene" id="s0">
-  <div class="k" id="t0" style="top:330px;font-size:150px"><span id="t0a">Tu sais jamais</span><br><span id="t0b">où sortir</span><br><em id="t0c">ce soir&nbsp;?</em></div>
+ <!-- 0 : accroche (boîte 3D, un angle par mot, la vitre se fissure) -->
+ <div class="scene" id="s0"><div style="position:absolute;inset:0;background:radial-gradient(ellipse 900px 700px at 50% 26%,rgba(5,3,12,.78),rgba(5,3,12,0) 70%)"></div>
+  <div class="k rgb" id="t0" style="top:330px;font-size:150px"><span id="t0a">Tu sais jamais</span><br><span id="t0b">où sortir</span><br><em id="t0c" style="display:inline-block">le soir&nbsp;?</em></div>
  </div>
- <!-- 2 : ce soir (fond nuit) -->
+ <svg id="fissure" width="1080" height="1920" style="position:absolute;inset:0;pointer-events:none;filter:drop-shadow(0 0 6px #fff)"></svg>
+ <div id="eclats"></div>
+ <!-- 2 : ce soir -->
  <div class="scene" id="s2"><div class="fond"></div>
-  <div class="blob" style="left:-250px;top:250px;width:800px;height:800px;background:#FF5A3C;opacity:.35"></div><div class="blob" style="left:500px;top:1000px;width:700px;height:700px;background:#7a2cff;opacity:.35"></div>
-  <div class="k" id="t2" style="top:250px;font-size:200px;opacity:.16">CE SOIR</div>
+  <div class="blob" style="left:-250px;top:250px;width:800px;height:800px;background:#FF5A3C;opacity:.4"></div><div class="blob" style="left:500px;top:1000px;width:700px;height:700px;background:#7a2cff;opacity:.4"></div>
+  <div class="k" id="defile1" style="top:240px;font-size:220px;white-space:nowrap;left:-200px;right:auto;opacity:.18">CE SOIR • CE SOIR • CE SOIR • CE SOIR •</div>
+  <div class="k" id="defile2" style="top:1560px;font-size:220px;white-space:nowrap;left:-1800px;right:auto;opacity:.18;color:var(--corail)">EN DIRECT • EN DIRECT • EN DIRECT •</div>
   <div class="chip" id="live" style="left:90px;top:1150px;font-size:30px;padding:10px 22px;border-color:var(--live);z-index:5"><span style="color:var(--live)">●</span> Ce soir · <b style="color:var(--live)">en direct</b></div>
  </div>
- <!-- 3 : près de toi (radar) -->
- <div class="scene" id="s3"><div class="fond"></div>
-  <svg width="1080" height="1920" style="position:absolute;inset:0;opacity:.25"><defs><pattern id="g" width="90" height="90" patternUnits="userSpaceOnUse"><path d="M90 0H0V90" fill="none" stroke="#8C877F" stroke-width="2"/></pattern></defs><rect width="1080" height="1920" fill="url(#g)"/>
-   <path d="M-20 1500 C 200 1300, 300 1350, 520 1150 S 900 900, 1100 950" fill="none" stroke="#2a3a5a" stroke-width="60"/></svg>
-  <div class="k" id="t3" style="top:250px;font-size:130px">Près de <em>toi</em></div>
-  <div class="ring" id="rg1" style="left:390px;top:700px;width:300px;height:300px"></div>
-  <div class="ring" id="rg2" style="left:390px;top:700px;width:300px;height:300px"></div>
-  <div id="moi" style="position:absolute;left:510px;top:820px;width:60px;height:60px;border-radius:50%;background:var(--live);box-shadow:0 0 0 14px rgba(61,255,138,.25)"></div>
-  <div class="chip" id="toi" style="left:455px;top:900px;font-size:30px;padding:8px 20px">Toi</div>
-  <div class="pin" id="p1" style="left:230px;top:640px"><span>🍸</span></div><div class="ouvert" id="o1" style="left:170px;top:705px">Ouvert</div>
-  <div class="pin" id="p2" style="left:820px;top:600px"><span>🎧</span></div><div class="ouvert" id="o2" style="left:760px;top:665px">Ouvert</div>
-  <div class="pin" id="p3" style="left:300px;top:1080px"><span>🍹</span></div><div class="ouvert" id="o3" style="left:240px;top:1145px">Ouvert</div>
-  <div class="pin" id="p4" style="left:800px;top:1050px"><span>🪩</span></div><div class="ouvert" id="o4" style="left:740px;top:1115px">Ouvert</div>
+ <!-- 3 : près de toi (ville néon en 3D, vue de drone) -->
+ <div class="scene" id="s3"><div class="fond" style="background:#05040b"></div>
+  <div id="cam3"><div id="plan"><svg id="ville" width="2000" height="2400"></svg></div>
+   <div id="pins"></div>
+   <div id="moi" style="position:absolute;left:510px;top:830px;width:60px;height:60px;border-radius:50%;background:#4DA3FF;box-shadow:0 0 0 16px rgba(77,163,255,.3),0 0 50px #4DA3FF"></div>
+   <div class="chip" id="toi" style="left:478px;top:905px;font-size:30px;padding:8px 20px">Toi</div>
+  </div>
+  <div class="k rgb" id="t3" style="top:250px;font-size:130px">Près de <em>toi</em></div>
  </div>
- <!-- 4 : styles (sur la boîte 3D) -->
+ <!-- 4 : styles, un plan plein écran par mot -->
  <div class="scene" id="s4">
-  <div class="k" id="gTech" style="top:560px;font-size:210px">TECHNO</div>
-  <div class="k" id="gHouse" style="top:560px;font-size:210px;color:var(--jaune)">HOUSE</div>
-  <div class="k" id="gAfro" style="top:560px;font-size:210px;color:var(--live)">AFRO</div>
-  <div class="k" id="gShat" style="top:560px;font-size:210px;color:var(--rose)">SHATTA</div>
-  <div class="chip" id="n1" style="left:120px;top:300px">Techno · <b>22</b></div><div class="chip" id="n2" style="left:560px;top:300px">House · <b>48</b></div>
-  <div class="chip" id="n3" style="left:120px;top:410px">Afro · <b>15</b></div><div class="chip" id="n4" style="left:500px;top:410px">Shatta · <b>13</b></div>
-  <div class="k" id="ton" style="top:900px;font-size:110px">Choisis <em>ton style</em></div>
+  <div class="st" id="st1" style="background:#000"><div id="raies" style="position:absolute;left:-200px;top:0;width:1600px;height:1920px;background:repeating-linear-gradient(100deg,#fff 0 40px,#000 40px 160px);opacity:.22"></div>
+   <div class="mot rgb" style="color:#fff">TECHNO</div><div class="nb"><span style="background:#fff;color:#000">22 soirées à venir</span></div></div>
+  <div class="st" id="st2" style="background:var(--jaune)"><div id="rayons" style="background:repeating-conic-gradient(rgba(255,90,60,.55) 0 10deg,transparent 10deg 20deg)"></div>
+   <div class="mot" style="color:var(--nuit)">HOUSE</div><div class="nb"><span style="background:var(--nuit);color:var(--jaune)">48 soirées à venir</span></div></div>
+  <div class="st" id="st3" style="background:var(--live)"><div id="cercles" style="position:absolute;left:-460px;top:-100px;width:2000px;height:2000px;background:repeating-radial-gradient(circle,rgba(11,11,15,.22) 0 40px,transparent 40px 110px)"></div>
+   <div class="mot" style="color:var(--nuit)">AFRO</div><div class="nb"><span style="background:var(--nuit);color:var(--live)">15 soirées à venir</span></div></div>
+  <div class="st" id="st4" style="background:var(--rose)"><div id="zig" style="position:absolute;left:-300px;top:-300px;width:1800px;height:2600px;background:linear-gradient(135deg,rgba(255,210,63,.6) 25%,transparent 25%) -60px 0/120px 120px,linear-gradient(225deg,rgba(255,210,63,.6) 25%,transparent 25%) -60px 0/120px 120px"></div>
+   <div class="mot" style="color:var(--jaune);-webkit-text-stroke:8px var(--nuit)">SHATTA</div><div class="nb"><span style="background:var(--nuit);color:var(--rose)">13 soirées à venir</span></div></div>
  </div>
  <!-- 5 : gratuit & bons plans -->
  <div class="scene" id="s5"><div class="fond"></div>
-  <div class="blob" style="left:200px;top:400px;width:700px;height:700px;background:#FFD23F;opacity:.25"></div>
+  <div id="rayons5" style="background:repeating-conic-gradient(rgba(255,210,63,.16) 0 8deg,transparent 8deg 16deg)"></div>
   <div class="glass" id="ticket" style="left:150px;top:420px;width:780px;height:420px;padding:44px 56px;transform-origin:50% 50%">
    <div style="font-size:32px;font-weight:800;color:var(--gris);letter-spacing:.12em">ENTRÉE</div>
    <div class="big" id="zero" style="font-size:230px;color:var(--creme)">0 €</div>
@@ -84,13 +104,20 @@ svg text{font-family:IT;font-weight:800}
   </div>
   <div class="glass" id="bp" style="left:150px;top:900px;width:780px;height:230px;padding:30px 50px;display:flex;align-items:center;gap:36px"><div class="big" style="font-size:150px;color:var(--jaune);min-width:200px"><span id="n43">0</span></div><div style="font-size:48px;font-weight:800;line-height:1.05">gratuit &amp;<br>bons plans</div></div>
  </div>
- <!-- 6 : manger tard (vraie photo de nuit) -->
+ <!-- 6 : la boîte ferme → à manger jusqu'à 5 h (vraies photos) -->
  <div class="scene" id="s6">
-  <img id="pProm" src="img/promenade_nuit.jpg" style="position:absolute;left:-700px;top:0;height:1920px;width:auto;filter:blur(5px) brightness(.45) saturate(1.3)">
-  <div id="noir" style="position:absolute;inset:0;background:#000;opacity:0"></div>
-  <div class="glass" id="clock" style="left:110px;top:270px;width:420px;height:250px;padding:26px 36px;text-align:center">
-   <div style="font-size:28px;font-weight:800;color:var(--gris)">il est</div>
-   <div class="big" style="font-size:150px;color:var(--live)"><span id="hh">01</span>:00</div>
+  <div class="fond" id="noir6" style="background:#000;opacity:0"></div>
+  <div id="ferme">FERMÉ</div>
+  <img class="food" id="f1" src="img/food_pizza.jpg"><img class="food" id="f2" src="img/food_burger.jpg"><img class="food" id="f3" src="img/food_frites.jpg"><img class="food" id="f4" src="img/food_brochettes.jpg">
+  <div id="vig6" style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%,transparent 40%,rgba(0,0,0,.65));opacity:0"></div>
+  <div class="glass" id="clock" style="left:240px;top:330px;width:600px;height:330px;padding:30px 40px;text-align:center">
+   <div style="font-size:34px;font-weight:800;color:var(--gris)">ouvert jusqu'à</div>
+   <div class="big" style="font-size:210px;color:var(--live)"><span id="hh">01</span>:00</div>
+  </div>
+  <div class="glass" id="royal" style="left:150px;top:760px;width:780px;padding:30px 40px">
+   <div style="font-size:28px;font-weight:800;color:var(--gris);letter-spacing:.08em">NICE · SNACK</div>
+   <div style="font-family:Bric;font-weight:800;font-stretch:80%;font-size:72px;margin:6px 0 14px">Royal Food by Night</div>
+   <div style="display:inline-block;font-size:34px;font-weight:900;color:var(--nuit);background:var(--live);padding:8px 22px;border-radius:999px">● jusqu'à 5 h</div>
   </div>
  </div>
  <!-- 7 : toute la Côte d'Azur -->
@@ -103,7 +130,7 @@ svg text{font-family:IT;font-weight:800}
   <div id="villes"></div>
   <div class="glass" id="k94" style="left:200px;top:540px;width:680px;height:180px;padding:22px 44px;display:flex;align-items:center;gap:30px"><div class="big" style="font-size:130px;color:var(--corail)"><span id="n94">0</span></div><div style="font-size:42px;font-weight:800;line-height:1.05">soirées<br>à venir</div></div>
  </div>
- <!-- 8 : appel à l'action (sur la boîte 3D) -->
+ <!-- 8 : appel à l'action (boîte 3D) -->
  <div class="scene" id="s8">
   <img id="logoBig" src="img/logo.png" style="position:absolute;left:340px;top:320px;width:400px">
   <div class="k" style="top:720px;font-size:96px"><span id="url"></span><span id="curseur" style="color:var(--corail)">|</span></div>
@@ -113,15 +140,17 @@ svg text{font-family:IT;font-weight:800}
    <div id="btn" style="background:var(--corail);color:var(--nuit);font-weight:900;font-size:36px;padding:16px 28px;border-radius:18px">S'abonner</div>
   </div>
  </div>
- <!-- téléphone (scènes 1, 2, 6) -->
+ <!-- foule en contre-jour (premier plan, scènes 0, 1, 4, 8) -->
+ <svg id="foule" viewBox="0 0 1080 540"></svg>
+ <!-- téléphone (scènes 1 et 2) -->
  <div id="phone"><div class="ecr">
-  <img class="c" id="scrAcc" src="img/site_accueil.jpg"><img class="c" id="scrSoir" src="img/site_cesoir.jpg"><img class="c" id="scrMan" src="img/site_manger.jpg">
+  <img class="c" id="scrSoir" src="img/site_cesoir.jpg">
   <div id="splash"><img src="img/logo.png" style="width:300px"></div>
-  <div class="ring" id="rMan" style="left:22px;top:0;width:500px;height:110px;border-radius:55px;opacity:0"></div>
  </div><div class="notch"></div></div>
  <div id="confs"></div>
  <div id="credit"></div>
  <div id="caps"><div id="capbox"></div></div>
+ <div id="paup1"></div><div id="paup2"></div>
  <div id="flash"></div>
 </div>
 <script src="../node_modules/gsap/dist/gsap.min.js"></script><script src="../node_modules/three/build/three.min.js"></script><script src="club3d.js"></script>
@@ -139,65 +168,121 @@ function wt(i,sub,n=0){const ws=TL[i].words.filter(w=>w[0].toLowerCase().include
 // confettis : salves pré-créées, positions pseudo-aléatoires fixes (rendu image par image reproductible)
 const SALVES=[];function salve(at,x,y,n=46){const els=[];for(let k=0;k<n;k++){const d=document.createElement('div');d.className='conf';d.style.background=['#FF5A3C','#3DFF8A','#FF2BD6','#FFD23F','#F4EFE6'][k%5];d.style.left=x+'px';d.style.top=y+'px';d.style.opacity=0;$('confs').appendChild(d);els.push(d)}
   els.forEach((d,k)=>{const a=rnd(k+at*7)*Math.PI*2,v=350+rnd(k+3+at)*650;tl.set(d,{opacity:1},at);tl.fromTo(d,{x:0,y:0,rotation:0},{x:Math.cos(a)*v,y:Math.sin(a)*v*.7+500,rotation:rnd(k)*900,duration:1.4,ease:'power2.out',immediateRender:false},at);tl.to(d,{opacity:0,duration:.3},at+1.1)})}
-// quelles scènes affichent la boîte 3D, et avec quel angle de caméra
-const SCENE3D={0:0,1:1,4:2,8:4};
+// ---------- décors construits une fois (positions pseudo-aléatoires fixes : rendu reproductible) ----------
+const CX=540,CY=820;let RAYS=[];
+function construireFissure(){const svg=$('fissure');let h='';RAYS=[];
+  for(let k=0;k<12;k++){const a=k/12*Math.PI*2+rnd(k)*.35;const pts=[[CX,CY]];let r=0;
+    while(r<1500){r+=120+rnd(k*7+r)*160;const aa=a+(rnd(k*13+r)-.5)*.25;pts.push([CX+Math.cos(aa)*r,CY+Math.sin(aa)*r])}
+    RAYS.push(pts);h+=`<polyline class="fl" points="${pts.map(p=>p.map(Math.round).join(',')).join(' ')}" fill="none" stroke="#fff" stroke-width="${5-k%3}" stroke-linejoin="round"/>`}
+  for(let ring=1;ring<=3;ring++){const pts=RAYS.map(r=>r[Math.min(ring,r.length-1)]);h+=`<polyline class="fl" points="${[...pts,pts[0]].map(p=>p.map(Math.round).join(',')).join(' ')}" fill="none" stroke="#fff" stroke-width="2.5" opacity=".8"/>`}
+  svg.innerHTML=h;
+  // éclats : les triangles entre deux fissures voisines
+  RAYS.forEach((r,k)=>{const n=RAYS[(k+1)%12];const e=document.createElement('div');e.className='eclat';
+    const A=r[r.length-1],B=n[n.length-1];e.style.clipPath=`polygon(${CX}px ${CY}px,${A[0]}px ${A[1]}px,${B[0]}px ${B[1]}px)`;e.style.transformOrigin=`${(CX+A[0]+B[0])/3}px ${(CY+A[1]+B[1])/3}px`;$('eclats').appendChild(e)})}
+function construireVille(){const c=document.createElement('canvas');c.width=2000;c.height=2400;const x=c.getContext('2d');
+  x.fillStyle='#07060f';x.fillRect(0,0,2000,2400);
+  // mer en bas (la côte)
+  const g=x.createLinearGradient(0,1750,0,2400);g.addColorStop(0,'#0b2350');g.addColorStop(1,'#04122c');x.fillStyle=g;x.beginPath();x.moveTo(0,1900);
+  for(let i=0;i<=20;i++)x.lineTo(i*100,1850+Math.sin(i*.7)*60+rnd(i)*30);x.lineTo(2000,2400);x.lineTo(0,2400);x.fill();
+  // îlots d'immeubles avec fenêtres allumées
+  for(let i=0;i<20;i++)for(let j=0;j<19;j++){if(rnd(i*31+j)<.12)continue;const X=i*100+12,Y=j*100+12;x.fillStyle=`hsl(${250+rnd(i+j*3)*30},30%,${9+rnd(i*7+j)*7}%)`;x.fillRect(X,Y,76,76);
+    for(let w=0;w<5;w++){if(rnd(i*97+j*13+w)<.55)continue;x.fillStyle=['#FFD23F','#FF5A3C','#FF2BD6','#F4EFE6'][w%4];x.globalAlpha=.75;x.fillRect(X+8+rnd(w+i)*58,Y+8+rnd(w+j)*58,8,8);x.globalAlpha=1}}
+  // petites rues puis grands boulevards néon
+  x.strokeStyle='rgba(122,44,255,.55)';x.lineWidth=5;for(let i=0;i<=20;i++){x.beginPath();x.moveTo(i*100+6,0);x.lineTo(i*100+6,1900);x.stroke()}for(let j=0;j<=19;j++){x.beginPath();x.moveTo(0,j*100+6);x.lineTo(2000,j*100+6);x.stroke()}
+  x.shadowBlur=30;x.lineCap='round';[[['#FF5A3C',14],[[0,606,2000,606],[0,1206,2000,1206],[606,0,606,1900],[1406,0,1406,1900]]],[['#FF2BD6',18],[[100,1800,1900,300]]],[['#3DFF8A',10],[[0,1806,2000,1806]]]].forEach(([[col,w],ls])=>{x.shadowColor=col;x.strokeStyle=col;x.lineWidth=w;ls.forEach(([a,b,c2,d])=>{x.beginPath();x.moveTo(a,b);x.lineTo(c2,d);x.stroke()})});
+  x.shadowBlur=0;const v=$('ville');v.outerHTML=`<img id="ville" src="${c.toDataURL('image/jpeg',.9)}" style="width:2000px;height:2400px">`}
+const PINS=[[250,660,'🍸'],[800,620,'🎧'],[300,1100,'🍹'],[760,1080,'🪩']];
+function construirePins(){PINS.forEach(([X,Y,e],k)=>{$('pins').insertAdjacentHTML('beforeend',`<div class="onde" id="w${k}" style="left:${X}px;top:${Y}px;opacity:0"></div><div class="faisceau" id="b${k}" style="left:${X}px;top:${Y-620}px"></div><div class="pin" id="p${k}" style="left:${X}px;top:${Y}px"><div class="tete"></div><span>${e}</span></div><div class="ouvert" id="o${k}" style="left:${X-64}px;top:${Y+14}px">Ouvert</div>`)})}
+// foule en contre-jour : silhouettes nettes, bras levés, qui sautent en rythme
+const FOULE=[];
+function construireFoule(){let h='';for(let k=0;k<13;k++){const x=-30+k*92+(rnd(k+40)-.5)*40,s=.8+rnd(k+50)*.45,b=560+rnd(k+60)*40,type=k%3;
+   const sh=(d)=>`M${x+d*62*s} ${b-215*s} L${x+d*108*s} ${b-335*s} L${x+d*84*s} ${b-455*s}`;
+   const bras=type===0?sh(-1)+' '+sh(1):type===1?sh(1):'';
+   h+=`<g id="fp${k}"><circle cx="${x}" cy="${b-300*s}" r="${46*s}"/><path d="M${x-78*s} ${b-215*s} Q${x} ${b-262*s} ${x+78*s} ${b-215*s} L${x+92*s} ${b+60} L${x-92*s} ${b+60} Z"/>${bras?`<path d="${bras}" fill="none" stroke="#050308" stroke-width="${32*s}" stroke-linecap="round" stroke-linejoin="round"/>`:''}${type!==2?`<circle cx="${x+(type===1?84:84)*s}" cy="${b-455*s}" r="${21*s}"/>`:''}${type===0?`<circle cx="${x-84*s}" cy="${b-455*s}" r="${21*s}"/>`:''}</g>`;FOULE.push({k,s,x,b})}
+  $('foule').innerHTML=`<g fill="#050308">${h}</g>`}
+function bougerFoule(t){FOULE.forEach(({k,s,x,b})=>{const bob=Math.abs(Math.sin(t*BEAT*Math.PI+k*1.3))*20*s,r=Math.sin(t*BEAT*Math.PI*.5+k)*3;$('fp'+k).setAttribute('transform',`translate(0 ${-bob}) rotate(${r} ${x} ${b})`)})}
+// quelles scènes affichent la boîte 3D (et avec quel angle), et la foule
+function angle3d(t){const i=seg(t);if(i===0)return t<wt(0,'jamais')?[0,0]:t<wt(0,'sortir')?[2,wt(0,'jamais')]:t<wt(0,'soir')?[4,wt(0,'sortir')]:[1,wt(0,'soir')];
+  if(i===1)return[3,S[1]];if(i===6&&t<wt(6,'ferme'))return[2,S[6]];if(i===8)return[0,S[8]];return null}
+const seg=t=>{let i=0;S.forEach((s,k)=>{if(t>=s)i=k});return i};
 function build(){S=TL.map(g=>g.start);END=TL[TL.length-1].start+TL[TL.length-1].dur+1.3;const fin=i=>i+1<S.length?S[i+1]:END;
+  construireFissure();construireVille();construirePins();construireFoule();
   tl=gsap.timeline({paused:true});const sc=['s0','s2','s3','s4','s5','s6','s7','s8'];
-  gsap.set(sc.map(s=>'#'+s),{autoAlpha:0});gsap.set('#s0',{autoAlpha:1});gsap.set(['#phone'],{autoAlpha:0});gsap.set('#flash',{opacity:0});gsap.set(['#gTech','#gHouse','#gAfro','#gShat'],{opacity:0});
+  gsap.set(sc.map(s=>'#'+s),{autoAlpha:0});gsap.set('#s0',{autoAlpha:1});gsap.set(['#phone'],{autoAlpha:0});gsap.set('#flash',{opacity:0});
+  gsap.set(['#st1','#st2','#st3','#st4'],{autoAlpha:0});gsap.set('.fl',{attr:{'stroke-dasharray':1600,'stroke-dashoffset':1600}});gsap.set('#fissure',{opacity:1});
   const montre=(id,at,jusqua)=>{tl.set('#'+id,{autoAlpha:1},at);tl.set('#'+id,{autoAlpha:0},jusqua)};
   const flash=(at,o=.7)=>tl.fromTo('#flash',{opacity:o},{opacity:0,duration:.2,ease:'power2.out',immediateRender:false},at);
-  // caméra : dérive + zooms-chocs sur les mots clés, lumières qui bougent
+  const choc=(at,a=22)=>tl.fromTo('#stage',{x:a,y:-a*.6},{x:0,y:0,duration:.35,ease:'elastic.out(1,.3)',immediateRender:false},at);
+  const punch=(at,s=1.07)=>{tl.to('#stage',{scale:s,duration:.07,ease:'power2.out'},at-.02);tl.to('#stage',{scale:1,duration:.35,ease:'power2.out'},at+.05)};
+  // caméra : dérive + zooms-chocs sur les mots clés
   tl.fromTo('#stage',{rotation:-.4},{rotation:.4,duration:END,ease:'sine.inOut'},0);
-  WORDS.forEach(w=>{if(/^(soir|teufy|toi|techno|house|afro|shatta|gratuites|cinq|monaco|teufyparty\.com)$/i.test(w.w)){tl.to('#stage',{scale:1.06,duration:.07,ease:'power2.out'},w.s-.02);tl.to('#stage',{scale:1,duration:.35,ease:'power2.out'},w.s+.05)}});
-  tl.fromTo('#leak',{opacity:.25,backgroundPosition:'0 0'},{opacity:.45,duration:END,ease:'none'},0);
-  // --- 0 : accroche, titre lisible dès l'image 0, mots qui s'allument avec la voix
-  montre('s0',0,S[1]);tl.fromTo('#t0',{scale:1.08},{scale:1,duration:.45,ease:'back.out(2)'},0);
-  [['#t0a','sais'],['#t0b','sortir']].forEach(([e,m])=>tl.fromTo(e,{color:'#F4EFE6'},{color:'#FFD23F',duration:.1,yoyo:true,repeat:1},wt(0,m)));
-  tl.to('#t0c',{scale:1.18,duration:.12,yoyo:true,repeat:1,transformOrigin:'50% 50%',display:'inline-block'},wt(0,'soir'));tl.to('#t0c',{x:8,duration:.04,yoyo:true,repeat:5,ease:'none'},wt(0,'soir')+.05);
-  // --- 1 : « Ouvre Teufy ! » : le téléphone jaillit, écran de lancement, confettis
-  flash(S[1]);tl.set('#phone',{autoAlpha:1},S[1]);tl.fromTo('#phone',{y:1300,rotation:-18,rotationX:40},{y:0,rotation:0,rotationX:0,duration:.55,ease:'back.out(1.5)',immediateRender:false},S[1]);
-  tl.set('#splash',{opacity:1},S[1]);tl.fromTo('#splash img',{scale:.3},{scale:1.1,duration:.35,ease:'back.out(3)',immediateRender:false},wt(1,'teufy')-.1);
-  salve(wt(1,'teufy'),540,700);
-  // --- 2 : ce soir : la page « Ce soir » défile dans le téléphone
-  montre('s2',S[2],S[3]);tl.set('#splash',{opacity:0},S[2]);tl.set('#scrSoir',{opacity:1},S[2]);flash(S[2],.4);
+  WORDS.forEach(w=>{if(/^(teufy|toi|gratuites|cinq|monaco|teufyparty\.com)$/i.test(w.w))punch(w.s)});
+  tl.fromTo('#leak',{opacity:.25},{opacity:.45,duration:END,ease:'none'},0);
+  // --- 0 : accroche : un angle de boîte par mot, flash et secousse, puis la vitre se fissure
+  montre('s0',0,S[1]);tl.fromTo('#t0',{scale:1.15},{scale:1,duration:.3,ease:'back.out(2.5)'},0);
+  [['jamais',.5],['sortir',.5],['soir',.8]].forEach(([m,o])=>{flash(wt(0,m)-.02,o);choc(wt(0,m),26)});
+  [['#t0a','sais'],['#t0b','sortir']].forEach(([e,m])=>tl.fromTo(e,{color:'#FFD23F'},{color:'#F4EFE6',duration:.25,immediateRender:false},wt(0,m)));
+  tl.fromTo('#t0c',{scale:1.6,rotation:-6},{scale:1,rotation:0,duration:.25,ease:'back.out(3)',immediateRender:false},wt(0,'soir'));
+  const fis=wt(0,'soir')+.2;tl.to('.fl',{attr:{'stroke-dashoffset':0},duration:.1,stagger:.004,ease:'power4.out'},fis);flash(fis,.45);choc(fis,40);
+  // --- 1 : « Ouvre Teufy ! » : la vitre éclate, le téléphone la traverse
+  tl.set('#fissure',{opacity:0},S[1]);
+  [...document.querySelectorAll('.eclat')].forEach((e,k)=>{const r=RAYS[k],A=r[r.length-1],dx=(A[0]-CX),dy=(A[1]-CY),n=Math.hypot(dx,dy);
+    tl.set(e,{opacity:.6},S[1]);tl.fromTo(e,{x:0,y:0,rotation:0,scale:1},{x:dx/n*900,y:dy/n*900,rotation:(rnd(k)-.5)*120,scale:1.6,duration:.55,ease:'power2.in',immediateRender:false},S[1]);tl.to(e,{opacity:0,duration:.2},S[1]+.35)});
+  flash(S[1],.6);choc(S[1],34);tl.set('#phone',{autoAlpha:1},S[1]);tl.fromTo('#phone',{y:1400,rotation:-14,scale:1.3},{y:0,rotation:0,scale:1,duration:.45,ease:'back.out(1.4)',immediateRender:false},S[1]);
+  tl.set('#splash',{opacity:1},S[1]);tl.fromTo('#splash img',{scale:.2,rotation:-30},{scale:1.1,rotation:0,duration:.35,ease:'back.out(3)',immediateRender:false},wt(1,'teufy')-.1);
+  salve(wt(1,'teufy'),540,800);
+  // --- 2 : ce soir : la page « Ce soir » défile, bandeaux qui filent, clin d'œil
+  montre('s2',S[2],S[3]);tl.set('#splash',{opacity:0},S[2]);tl.set('#scrSoir',{opacity:1},S[2]);flash(S[2],.5);
   tl.fromTo('#scrSoir',{y:0},{y:-650,duration:fin(2)-S[2],ease:'power1.inOut',immediateRender:false},S[2]);
-  tl.fromTo('#phone',{scale:1},{scale:.86,x:170,duration:.5,ease:'power2.out',immediateRender:false},S[2]);
-  tl.from('#live',{x:-500,opacity:0,duration:.4,ease:'back.out(2)'},wt(2,'soir',0)-.05);tl.to('#live',{scale:1.08,duration:.25,yoyo:true,repeat:5},wt(2,'soir',0)+.4);
-  tl.from('#t2',{scale:2,opacity:0,duration:.5,ease:'power2.out'},S[2]);
-  // --- 3 : près de toi : radar, lieux ouverts autour de « Toi »
-  tl.set('#phone',{autoAlpha:0},S[3]);montre('s3',S[3],S[4]);flash(S[3],.5);
-  tl.from('#t3',{scale:.4,opacity:0,duration:.4,ease:'back.out(2)'},S[3]);tl.from(['#moi','#toi'],{scale:0,duration:.35,ease:'back.out(3)'},S[3]+.1);
-  ['#rg1','#rg2'].forEach((r,k)=>tl.fromTo(r,{scale:.3,opacity:1},{scale:2.6,opacity:0,duration:1.1,repeat:1,ease:'power1.out',immediateRender:false},S[3]+.2+k*.55));
-  ['p1','p2','p3','p4'].forEach((p,k)=>{const at=wt(3,'boîtes')+k*.18;tl.from('#'+p,{y:-300,opacity:0,duration:.4,ease:'bounce.out'},at)});
-  ['o1','o2','o3','o4'].forEach((o,k)=>tl.from('#'+o,{scale:0,opacity:0,duration:.3,ease:'back.out(3)'},wt(3,'ouvertes')+k*.1));
-  tl.to(['#p1','#p2','#p3','#p4'],{y:-14,duration:.3,yoyo:true,repeat:3,stagger:.08,ease:'sine.inOut'},wt(3,'toi'));
-  // --- 4 : styles : chaque style claque en grand sur la boîte 3D, avec son vrai nombre de soirées
-  montre('s4',S[4],S[5]);flash(S[4],.5);
-  [['techno','#gTech','#n1'],['house','#gHouse','#n2'],['afro','#gAfro','#n3'],['shatta','#gShat','#n4']].forEach(([m,g,n],k,arr)=>{const at=wt(4,m)-.05,fi=k+1<arr.length?wt(4,arr[k+1][0])-.05:wt(4,'choisis')-.05;
-    tl.fromTo(g,{scale:2.4,opacity:0},{scale:1,opacity:1,duration:.22,ease:'power3.out',immediateRender:false},at);tl.set(g,{opacity:0},fi);flash(at,.35);tl.from(n,{y:-60,scale:0,opacity:0,duration:.3,ease:'back.out(2.5)'},at+.05)});
-  tl.from('#ton',{scale:.4,opacity:0,duration:.35,ease:'back.out(2.4)'},wt(4,'choisis'));
-  // --- 5 : gratuit & bons plans : le prix tombe à 0, tampon GRATUIT, compteur 43
-  montre('s5',S[5],S[6]);flash(S[5],1);tl.from('#ticket',{rotationX:70,y:200,opacity:0,duration:.45,ease:'back.out(1.6)'},S[5]);
-  tl.fromTo('#zero',{scale:2.2,opacity:0},{scale:1,opacity:1,duration:.25,ease:'back.out(2.5)',transformOrigin:'0% 50%',immediateRender:false},wt(5,'gratuites')-.2);
-  tl.fromTo('#tampon',{scale:3,opacity:0},{scale:1,opacity:1,duration:.18,ease:'power4.in',immediateRender:false},wt(5,'gratuites')+.15);tl.to('#ticket',{x:12,duration:.04,yoyo:true,repeat:5},wt(5,'gratuites')+.33);
-  tl.from('#bp',{x:600,opacity:0,duration:.4,ease:'back.out(1.8)'},wt(5,'bons')-.2);const b43={v:0};tl.to(b43,{v:43,duration:.7,ease:'power3.out',onUpdate:()=>$('n43').textContent=Math.round(b43.v)},wt(5,'bons'));
-  salve(wt(5,'plans'),540,1000,30);
-  // --- 6 : manger tard : la boîte « ferme » (noir), l'horloge arrive sur 05:00 pile sur « cinq heures », la vraie page
-  montre('s6',S[6],S[7]);flash(S[6],1);tl.set('#credit',{textContent:'Photo : Miguel Mendez · CC BY 2.0 (Wikimedia Commons)'},S[6]);tl.set('#credit',{textContent:''},S[7]);
-  tl.fromTo('#pProm',{x:0,scale:1.1},{x:-300,scale:1.2,duration:fin(6)-S[6],ease:'none',immediateRender:false},S[6]);
-  tl.fromTo('#noir',{opacity:0},{opacity:.85,duration:.12,yoyo:true,repeat:1,immediateRender:false},wt(6,'ferme'));
-  tl.from('#clock',{y:-300,opacity:0,duration:.4,ease:'back.out(1.8)'},wt(6,'ferme')+.1);
-  const h={v:1};tl.to(h,{v:5,duration:wt(6,'cinq')-wt(6,'trouve'),ease:'steps(4)',onUpdate:()=>$('hh').textContent=String(Math.round(h.v)).padStart(2,'0')},wt(6,'trouve'));
-  tl.to('#clock',{scale:1.12,duration:.15,yoyo:true,repeat:1},wt(6,'cinq'));
-  tl.set('#phone',{autoAlpha:1,x:180,scale:.82},wt(6,'on')-.05);tl.set('#scrSoir',{opacity:0},wt(6,'on')-.05);tl.set('#scrMan',{opacity:1},wt(6,'on')-.05);
-  tl.fromTo('#phone',{y:900},{y:120,duration:.45,ease:'back.out(1.5)',immediateRender:false},wt(6,'on')-.05);
-  // capture « Manger tard » : Royal Food by Night « jusqu'à 5 h » (y ≈ 2 840 px de la capture → 1 451 px à l'échelle du téléphone)
-  tl.fromTo('#scrMan',{y:-1000},{y:-1240,duration:fin(6)-wt(6,'on'),ease:'power1.out',immediateRender:false},wt(6,'on')-.05);
-  tl.fromTo('#rMan',{opacity:0,scale:1.8},{opacity:1,scale:1,top:'205px',duration:.3,ease:'back.out(2)',immediateRender:false},wt(6,'cinq')-.05);
-  tl.set('#phone',{autoAlpha:0},S[7]);
-  // --- 7 : toute la Côte d'Azur : la côte se trace d'ouest en est, les villes du site apparaissent, compteur 94
-  montre('s7',S[7],S[8]);flash(S[7],.4);tl.set('#credit',{textContent:'Photo : Spike · CC BY-SA 4.0 (Wikimedia Commons)'},S[7]);tl.set('#credit',{textContent:''},S[8]);
-  tl.fromTo('#pMon',{x:0},{x:-500,duration:fin(7)-S[7],ease:'none',immediateRender:false},S[7]);tl.from('#t7',{scale:.5,opacity:0,duration:.4,ease:'back.out(2)'},S[7]);
+  tl.fromTo('#phone',{scale:1,x:0},{scale:.86,x:170,duration:.4,ease:'power3.out',immediateRender:false},S[2]);
+  tl.to('#phone',{scale:.92,duration:.08,yoyo:true,repeat:1},wt(2,'soirées'));
+  tl.fromTo('#defile1',{x:0},{x:-1100,duration:fin(2)-S[2],ease:'none',immediateRender:false},S[2]);tl.fromTo('#defile2',{x:0},{x:1100,duration:fin(2)-S[2],ease:'none',immediateRender:false},S[2]);
+  tl.from('#live',{x:-500,opacity:0,duration:.35,ease:'back.out(2)'},wt(2,'soir',1)-.05);tl.to('#live',{scale:1.1,duration:.2,yoyo:true,repeat:3},wt(2,'soir',1)+.3);choc(wt(2,'soir',1),14);
+  // clin d'œil sur « coup d'œil » : les paupières se ferment… et s'ouvrent sur la scène suivante
+  tl.to('#paup1',{y:980,duration:.16,ease:'power3.in'},wt(2,'œil'));tl.to('#paup2',{y:-980,duration:.16,ease:'power3.in'},wt(2,'œil'));
+  tl.to('#paup1',{y:0,duration:.18,ease:'power2.out'},S[3]+.02);tl.to('#paup2',{y:0,duration:.18,ease:'power2.out'},S[3]+.02);
+  tl.set('#phone',{autoAlpha:0},S[3]);
+  // --- 3 : près de toi : plongée de drone sur une ville néon, faisceaux au-dessus des lieux ouverts
+  montre('s3',S[3],S[4]);
+  tl.fromTo('#cam3',{scale:2.6,rotation:-40,y:-200},{scale:1,rotation:0,y:0,duration:.6,ease:'power3.out',immediateRender:false},S[3]);
+  tl.to('#cam3',{rotation:7,scale:1.08,duration:fin(3)-S[3]-.6,ease:'sine.inOut'},S[3]+.6);
+  tl.from('#t3',{scale:.4,opacity:0,duration:.35,ease:'back.out(2)'},S[3]+.15);
+  PINS.forEach((p,k)=>{const at=wt(3,'boîtes')+k*.14;tl.from('#b'+k,{scaleY:0,duration:.3,ease:'power3.out'},at);tl.from('#p'+k,{y:-500,opacity:0,duration:.35,ease:'bounce.out'},at);
+    tl.fromTo('#w'+k,{scale:.2,opacity:1},{scale:1.8,opacity:0,duration:.6,ease:'power2.out',immediateRender:false},at+.3);
+    tl.from('#o'+k,{scale:0,opacity:0,duration:.25,ease:'back.out(3)'},wt(3,'ouvertes')+k*.1)});
+  tl.to(['#b0','#b1','#b2','#b3'],{opacity:.45,duration:.12,yoyo:true,repeat:5,stagger:.05},wt(3,'juste'));choc(wt(3,'juste'),12);
+  tl.to('#moi',{scale:1.6,duration:.15,yoyo:true,repeat:1},wt(3,'toi'));
+  // --- 4 : styles : un plan plein écran par mot, avec le vrai nombre de soirées
+  montre('s4',S[4],S[5]);
+  const ST=[['#st1','techno'],['#st2','house'],['#st3','afro'],['#st4','shatta']];
+  ST.forEach(([id,m],k)=>{const at=k?wt(4,m)-.04:S[4],fi=k<3?wt(4,ST[k+1][1])-.04:S[5];tl.set(id,{autoAlpha:1},at);tl.set(id,{autoAlpha:0},fi);
+    tl.fromTo(id+' .mot',{scale:1.9,y:-40},{scale:1,y:0,duration:.18,ease:'power4.out',immediateRender:false},at);
+    tl.fromTo(id+' .nb',{y:120,opacity:0},{y:0,opacity:1,duration:.2,ease:'back.out(2)',immediateRender:false},at+.07);flash(at,.45);choc(at,24)});
+  tl.fromTo('#raies',{x:-200},{x:200,duration:.7,ease:'none',immediateRender:false},S[4]);tl.fromTo('#rayons',{rotation:0},{rotation:40,duration:.5,ease:'none',immediateRender:false},wt(4,'house'));
+  tl.fromTo('#cercles',{scale:1},{scale:1.35,duration:.5,ease:'none',immediateRender:false},wt(4,'afro'));tl.fromTo('#zig',{y:0},{y:240,duration:.5,ease:'none',immediateRender:false},wt(4,'shatta'));
+  // --- 5 : gratuit & bons plans
+  montre('s5',S[5],S[6]);flash(S[5],1);tl.fromTo('#rayons5',{rotation:0},{rotation:60,duration:fin(5)-S[5],ease:'none',immediateRender:false},S[5]);
+  tl.fromTo('#ticket',{rotationY:95,transformPerspective:1200,y:120},{rotationY:0,y:0,duration:.45,ease:'back.out(1.5)',immediateRender:false},S[5]);
+  tl.fromTo('#zero',{scale:2.2,opacity:0},{scale:1,opacity:1,duration:.22,ease:'back.out(2.5)',transformOrigin:'0% 50%',immediateRender:false},wt(5,'gratuites')-.2);
+  tl.fromTo('#tampon',{scale:3,opacity:0},{scale:1,opacity:1,duration:.16,ease:'power4.in',immediateRender:false},wt(5,'gratuites')+.15);choc(wt(5,'gratuites')+.31,30);
+  tl.from('#bp',{x:700,opacity:0,duration:.35,ease:'back.out(1.8)'},wt(5,'bons')-.2);const b43={v:0};tl.to(b43,{v:43,duration:.6,ease:'power3.out',onUpdate:()=>$('n43').textContent=Math.round(b43.v)},wt(5,'bons'));
+  salve(wt(5,'plans'),540,1000,34);
+  // --- 6 : la boîte ferme (noir, néon FERMÉ) → photos de bouffe en rafale → horloge jusqu'à 5 h
+  montre('s6',S[6],S[7]);flash(S[6],1);tl.set('#confs',{autoAlpha:0},S[6]);tl.set('#confs',{autoAlpha:1},S[8]);
+  const fe=wt(6,'ferme');tl.set('#noir6',{opacity:1},fe);flash(fe,.5);choc(fe,30);
+  tl.set('#ferme',{opacity:1},fe+.04);tl.set('#ferme',{opacity:.2},fe+.1);tl.set('#ferme',{opacity:1},fe+.14);tl.set('#ferme',{opacity:.3},fe+.2);tl.set('#ferme',{opacity:1},fe+.23);tl.fromTo('#ferme',{scale:1.15},{scale:1,duration:.3,ease:'power3.out',immediateRender:false},fe+.04);
+  const FO=[['#f1','on'],['#f2','trouve'],['#f3','manger'],['#f4','jusqu']];
+  FO.forEach(([id,m],k)=>{const at=wt(6,m)-.03;tl.set(id,{opacity:1},at);if(k<3)tl.set(id,{opacity:0},wt(6,FO[k+1][1])-.03);
+    tl.fromTo(id,{scale:1.35,rotation:k%2?3:-3},{scale:1.05,rotation:0,duration:.4,ease:'power3.out',immediateRender:false},at);flash(at,.35);choc(at,16)});
+  tl.set('#ferme',{opacity:0},wt(6,'on')-.03);tl.set('#vig6',{opacity:1},wt(6,'on')-.03);
+  tl.to('#f4',{filter:'saturate(1.3) contrast(1.08) brightness(.55)',duration:.3},wt(6,'jusqu')+.15);
+  tl.from('#clock',{scale:0,opacity:0,duration:.25,ease:'back.out(2.5)'},wt(6,'jusqu')-.02);
+  const h={v:1};tl.to(h,{v:5,duration:wt(6,'cinq')-wt(6,'jusqu')-.02,ease:'steps(4)',onUpdate:()=>$('hh').textContent=String(Math.round(h.v)).padStart(2,'0')},wt(6,'jusqu'));
+  tl.to('#clock',{scale:1.14,duration:.12,yoyo:true,repeat:1},wt(6,'cinq'));flash(wt(6,'cinq'),.3);
+  tl.from('#royal',{y:400,opacity:0,duration:.35,ease:'back.out(1.6)'},wt(6,'heures'));tl.to('#royal',{scale:1.06,duration:.12,yoyo:true,repeat:1},wt(6,'mat'));
+  // --- 7 : toute la Côte d'Azur (plan validé par le directeur)
+  montre('s7',S[7],S[8]);flash(S[7],.6);tl.set('#credit',{textContent:'Photo : Spike · CC BY-SA 4.0 (Wikimedia Commons)'},S[7]);tl.set('#credit',{textContent:''},S[8]);
+  tl.fromTo('#pMon',{x:0,scale:1.15},{x:-500,scale:1,duration:fin(7)-S[7],ease:'none',immediateRender:false},S[7]);tl.from('#t7',{scale:.5,opacity:0,duration:.4,ease:'back.out(2)'},S[7]);
   const L=$('cote').getTotalLength();gsap.set('#cote',{attr:{'stroke-dasharray':L,'stroke-dashoffset':L}});const d7=wt(7,'azur')-wt(7,'toulon');
   tl.to('#cote',{attr:{'stroke-dashoffset':0},duration:d7+.2,ease:'none'},wt(7,'toulon')-.1);
   const V=[['Toulon',.0,-20],['Saint-Tropez',.17,40],['Fréjus',.32,-40],['Cannes',.5,40],['Antibes',.63,-40],['Nice',.8,40],['Monaco',1.0,-40]];
@@ -206,16 +291,16 @@ function build(){S=TL.map(g=>g.start);END=TL[TL.length-1].start+TL[TL.length-1].
     const at=k===0?wt(7,'toulon'):k===6?wt(7,'monaco'):wt(7,'toulon')+f*d7;tl.from([c,dot],{scale:0,opacity:0,duration:.25,ease:'back.out(3)'},at)});
   tl.from('#k94',{y:300,opacity:0,duration:.4,ease:'back.out(1.6)'},wt(7,'toute'));const n94={v:0};tl.to(n94,{v:94,duration:.8,ease:'power3.out',onUpdate:()=>$('n94').textContent=Math.round(n94.v)},wt(7,'toute'));
   // --- 8 : appel à l'action
-  montre('s8',S[8],END+1);flash(S[8],.7);tl.from('#logoBig',{scale:0,rotation:-25,duration:.5,ease:'back.out(2.4)'},S[8]);tl.to('#logoBig',{scale:1.07,duration:.25,yoyo:true,repeat:7,ease:'sine.inOut'},S[8]+.6);
+  montre('s8',S[8],END+1);flash(S[8],.8);choc(S[8],24);tl.from('#logoBig',{scale:0,rotation:-25,duration:.5,ease:'back.out(2.4)'},S[8]);tl.to('#logoBig',{scale:1.07,duration:.25,yoyo:true,repeat:7,ease:'sine.inOut'},S[8]+.6);
   tl.from('#follow',{y:300,opacity:0,duration:.45,ease:'back.out(1.6)'},S[8]+.15);
   tl.to('#btn',{scale:.88,duration:.1,yoyo:true,repeat:1},wt(8,'abonne')+.2);tl.set('#btn',{textContent:'Abonné ✓',background:'#3DFF8A'},wt(8,'abonne')+.4);
   const url='teufyparty.com',u={v:0};tl.to(u,{v:url.length,duration:.75,ease:'none',onUpdate:()=>$('url').textContent=url.slice(0,Math.round(u.v))},wt(8,'teufyparty')-.1);
   tl.to('#curseur',{opacity:0,duration:.25,yoyo:true,repeat:11,ease:'steps(1)'},S[8]);
   salve(wt(8,'teufyparty')+.5,540,800);salve(wt(8,'abonne')+.4,700,980,30);
   tl.to({},{duration:.01},END);return END}
-window.init=async(tlData)=>{TL=tlData;buildCaps();await document.fonts.ready;await Promise.all([...document.images].map(i=>i.decode().catch(()=>{})));return build()};
-window.seek=t=>{tl.seek(t,false);renderCaps(t);
-  // boîte 3D : rendue seulement dans les scènes qui la montrent
-  const i=S.findIndex((s,k)=>t>=s&&(k+1>=S.length||t<S[k+1]));const ang=SCENE3D[i];const c=$('c3d');
-  if(ang!==undefined){c.style.opacity=1;club3d(t,{angle:ang,lt:t-S[i]})}else c.style.opacity=0};
+window.init=async(tlData)=>{TL=tlData;buildCaps();await document.fonts.ready;await Promise.all([...document.images].map(i=>i.decode().catch(()=>{})));const e=build();
+  await Promise.all([...document.images].map(i=>i.decode().catch(()=>{})));return e};
+window.seek=t=>{tl.seek(t,false);renderCaps(t);const i=seg(t);
+  const a=angle3d(t),c=$('c3d');if(a){c.style.opacity=1;club3d(t,{angle:a[0],lt:t-a[1],foule:false,dj:false})}else c.style.opacity=0;
+  const f=[0,1,4,8].includes(i);$('foule').style.opacity=f?1:0;if(f)bougerFoule(t)};
 </script></body></html>

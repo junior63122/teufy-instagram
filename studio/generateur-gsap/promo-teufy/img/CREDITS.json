@@ -4,7 +4,7 @@
   "auteur": "Miguel Mendez",
   "licence": "CC BY 2.0",
   "source": "https://commons.wikimedia.org/wiki/File:Promenade_des_Anglais_at_night_(46940440735).jpg",
-  "note": "Version 1280 px (téléchargement en haute définition refusé par Wikimedia, erreur 429) : utilisée floutée en fond."
+  "note": "Non utilisée dans la v3 (gardée pour d'autres montages)."
  },
  "nice": {
   "titre": "Nice_from_Castle_Hill_01.jpg",
@@ -23,7 +23,7 @@
   "titre": "Captures de teufyparty.com (accueil, soirees-nice, soirees-techno, clubs-bars, manger-tard, ce-soir)",
   "auteur": "Teufy",
   "licence": "propriété de Teufy",
-  "note": "Prises le 18/11/2026 avec Playwright ; v2 : accueil, ce-soir et manger-tard affichées dans le téléphone ; affiches des organisateurs masquées (dégradé)."
+  "note": "Prises le 18/11/2026 avec Playwright ; v3 : la page ce-soir dans le téléphone ; affiches des organisateurs masquées (dégradé)."
  },
  "logo": {
   "titre": "Logo Teufy",
@@ -32,11 +32,46 @@
  },
  "sons": {
   "beat.wav": "généré par src/beat.mjs (synthèse house 124 BPM, sans droits)",
-  "acclamation, basse, clic, fete, flash, glitch, impact, pop, pop-dur, riser, swoosh, tampon, whoosh, zoom": "Mixkit Free License (usage commercial, sans attribution), copiés de studio/public/sfx"
+  "kick, sub, snap, verre, souffle, montee, coupure (.wav)": "synthétisés par son/synthe.py (sans droits)",
+  "acclamation, clic, glitch, swoosh, tampon (.mp3)": "Mixkit Free License (usage commercial, sans attribution), copiés de studio/public/sfx"
  },
  "club3d": {
   "titre": "Boîte de nuit en 3D (lasers, dalles, foule, projecteurs)",
   "auteur": "Teufy (code three.js 0.149, licence MIT, porté de riviera-studio/engine/part_club3d.js)",
+  "licence": "création maison"
+ },
+ "food_pizza": {
+  "titre": "A freshly baked pizza with a golden-brown crust",
+  "auteur": "shirishpoudel07",
+  "licence": "CC0",
+  "source": "Openverse (WordPress Photo Directory), CC0 (domaine public, sans attribution obligatoire) — openverse 7f2b96b4-f26a-4afc-8e88-78fed61a6375"
+ },
+ "food_burger": {
+  "titre": "A tasty burger on a white plate, filled with melted cheese",
+  "auteur": "Bigul Malayi",
+  "licence": "CC0",
+  "source": "Openverse (WordPress Photo Directory), CC0 (domaine public, sans attribution obligatoire) — openverse 1d8a7de1-bacd-4407-b159-372c08129310"
+ },
+ "food_frites": {
+  "titre": "A close-up image of golden-brown French fries",
+  "auteur": "Ilkay Beydah Saglam",
+  "licence": "CC0",
+  "source": "Openverse (WordPress Photo Directory), CC0 (domaine public, sans attribution obligatoire) — openverse 7d239c50-9a5f-4b68-ae04-74792e380a79"
+ },
+ "food_brochettes": {
+  "titre": "The colours of Kebabs",
+  "auteur": "quizzycal",
+  "licence": "CC0",
+  "source": "Openverse (WordPress Photo Directory), CC0 (domaine public, sans attribution obligatoire) — openverse 287bd6a9-e58d-4506-b799-e9bf3b8204a1"
+ },
+ "ville_neon": {
+  "titre": "Ville néon vue de drone (scène « Près de toi »)",
+  "auteur": "Teufy (dessinée par le code de index.html)",
+  "licence": "création maison"
+ },
+ "foule": {
+  "titre": "Foule en contre-jour",
+  "auteur": "Teufy (silhouettes dessinées par le code)",
   "licence": "création maison"
  }
 }

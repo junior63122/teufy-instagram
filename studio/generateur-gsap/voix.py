@@ -39,4 +39,4 @@ for i,(spk,text) in enumerate(segs):
     out.append({'i':i,'spk':spk,'text':text,'file':f,'start':round(t,3),'dur':round(dur,3),'words':[[w,round(t+a_,3),round(t+b_,3)] for w,a_,b_ in words],'env':[round(e,4) for e in env]})
     print(lang,i,spk,round(t,2),round(dur,2));t+=dur
 json.dump(out,open(f'timeline_{lang}.json','w'),ensure_ascii=False);print('total',round(t,2))
-for i in [0,4]: print([(w[0],w[1]) for w in out[i]['words']])
+for i in [0,4] if len(out)>4 else []: print([(w[0],w[1]) for w in out[i]['words']])
