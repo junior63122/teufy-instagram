@@ -24,6 +24,7 @@ import { igConfig, publishCarousel, publishSingle, publishReel, publishStory, pe
 import { TENDANCES, analyserComptes } from './tendances.mjs';
 import { buildModel, chooser, selectBest, eventFeatures, collect, hash, loadData } from './learn.mjs';
 import { filtrerCoherentes, controlePost, choixLibre } from './coherence.mjs';
+import { choisirPhoto, photosRecentes } from './photos.mjs';
 import { lirePlan, ecrirePlan, engouements, planifierSuite, extrasDu, nettoyer, jourSource, replanifier, sectionRapport, SERIES } from './reactif.mjs';
 import { theme } from './theme.mjs';
 
@@ -45,6 +46,7 @@ const MEDIA_BASE = (config.site?.domaine ? `https://${config.site.domaine}/media
 { const d = config.llm?.gemini_pause_jusqu_au; if (d && Date.now() < Date.parse(`${d}T00:00:00+01:00`) && process.env.GEMINI_API_KEY) { delete process.env.GEMINI_API_KEY; console.error(`Gemini en pause jusqu'au ${d} (crédit épuisé) : secours sans Gemini.`); } }
 const R = config.reglages;
 const hist = existsSync(HIST_FILE) ? JSON.parse(await readFile(HIST_FILE, 'utf8')) : [];
+let PHOTO_COUV = null; // photo de couverture choisie pour la publication en cours (src/photos.mjs)
 const usedHere = new Set(); // débats / bons plans déjà pris dans ce lancement (aperçu du mois)
 const MODEL = buildModel();
 // Heures de publication (UTC) : seulement celles qui laissent au moins une heure de rattrapage avant l'heure limite à Paris
@@ -281,6 +283,7 @@ if (echecs.length) die(`Échec : ${echecs.join(', ')}`);
 // --- Préparation ------------------------------------------------------------
 
 async function prepare(slot, now, id) {
+  PHOTO_COUV = null;
   const { renderPages, carouselPages, reelPages, debatPage, bonPlanManuelPage, afficheProgramme } = await import('./render.mjs');
   const { photoSource } = await import('./photos.mjs');
   const dir = path.join(MEDIA_DIR, id);
@@ -381,7 +384,7 @@ async function prepare(slot, now, id) {
     const nouvelAn = th.tempsFort?.titre?.includes('Nouvel An');
     const quand = nouvelAn ? 'pour le Nouvel An' : 'ce week-end';
     const photos = await photoSource({ univers: 'club', saison: th.saison, fetes: !!th.tempsFort?.fetes, ch, r });
-    const files = [await couvertureDA({ photo: photoDA(['dj', 'foule', 'danse'], now), rubrique: 'Organisateurs', titre: `Tu organises une soirée ${quand} ? [Poste-la ici]`, sous: `Mets le lien en commentaire avec ${th.hashtag}` }, path.join(dir, `orgas-${stamp}.jpg`))];
+    const files = [await couvertureDA({ photo: `decors/da/${photoCouv(['dj', 'foule', 'danse'])}.jpg`, rubrique: 'Organisateurs', titre: `Tu organises une soirée ${quand} ? [Poste-la ici]`, sous: `Mets le lien en commentaire avec ${th.hashtag}` }, path.join(dir, `orgas-${stamp}.jpg`))];
     pub = { images: files, legende: captionOrgas({ quand, ch, r }), format: 'orgas' };
   } else if (slot.type === 'guide') {
     // Carrousel « Guide » (idée du directeur) : « Où manger à Cannes après la boîte », « Les afters à Nice »… Le format
@@ -394,6 +397,7 @@ async function prepare(slot, now, id) {
     if (G.theme === 'manger') { const { ouvertApresBoite } = await import('./guide.mjs'); const hors = L.filter((l) => !ouvertApresBoite(l.horaires, l.quoi)); if (hors.length) throw new Error(`Guide incohérent : ${hors.map((l) => `${l.nom} (${l.horaires})`).join(', ')} pas ouvert(s) après la boîte`); }
     const titre = G.theme === 'manger' ? `Où manger à [${G.ville}] après la boîte ?` : `Les [afters] à ${G.ville}`;
     const photos = G.theme === 'manger' ? ['taxi', 'terrasse', 'rire', 'plage', 'rooftop', 'taxi', 'terrasse'] : ['dj', 'lasers', 'danse', 'rooftop', 'selfie', 'rire', 'terrasse']; // une photo différente par slide
+    { const c = photoCouv(photos); photos.splice(photos.indexOf(c) >= 0 ? photos.indexOf(c) : 0, photos.includes(c) ? 1 : 0); photos.unshift(c); }
     const files = [await couvertureDA({ photo: `decors/da/${photos[0]}.jpg`, rubrique: 'Guide', titre, sous: G.theme === 'manger' ? 'Ouvert quand tout le reste est fermé. Enregistre-le.' : 'Pour ceux qui ne veulent pas rentrer. Enregistre-le.' }, path.join(dir, `guide-${stamp}-0.jpg`))];
     for (const [i, l] of L.entries()) files.push(await couvertureDA({ photo: `decors/da/${photos[(i + 1) % photos.length]}.jpg`, rubrique: `${i + 1}/${L.length} · ${l.quoi || (G.theme === 'manger' ? 'Manger tard' : 'After')}`, titre: l.nom.replace(/[[\]]/g, ''), sous: [l.lieu, l.horaires].filter(Boolean).join(' · ') }, path.join(dir, `guide-${stamp}-${i + 1}.jpg`)));
     files.push(await couvertureDA({ photo: `decors/da/${photos[L.length + 1] || photos.at(-1)}.jpg`, rubrique: 'La liste complète', titre: `Toutes les adresses sur [teufyparty.com]`, sous: 'Horaires publiés, mis à jour chaque jour. Vérifie avant d\'y aller.' }, path.join(dir, `guide-${stamp}-fin.jpg`)));
@@ -407,7 +411,7 @@ async function prepare(slot, now, id) {
     if (!pool.length) pool = all; // tout a été utilisé : on recommence
     const debat = ch.pick('debat', pool, (d) => d.id);
     usedHere.add(debat.id);
-    const files = [await couvertureDA({ photo: photoDA(['lasers', 'rooftop', 'foule', 'terrasse', 'rire'], now), fond: 'nuit', rubrique: 'Débat', titre: debat.q, options: [debat.a, debat.b] }, path.join(dir, `debat-${stamp}.jpg`))];
+    const files = [await couvertureDA({ photo: `decors/da/${photoCouv(['lasers', 'rooftop', 'foule', 'terrasse', 'rire'])}.jpg`, fond: 'nuit', rubrique: 'Débat', titre: debat.q, options: [debat.a, debat.b] }, path.join(dir, `debat-${stamp}.jpg`))];
     pub = { images: files, legende: captionDebat({ debat, ch, r }), debat: debat.id };
   } else if (slot.type === 'bonplan') {
     const manuel = await bonPlanManuel(now);
@@ -483,7 +487,7 @@ async function prepare(slot, now, id) {
     await copyFile(ep.video, video);
     // Couverture : jamais une image du dessin animé (elle casse la DA de la grille et de l'onglet Reels) ; gabarit de la DA
     // (photo de nuit sombre + titre), comme les autres reels. Image de l'épisode seulement si le gabarit échoue.
-    try { await couvertureDA({ photo: `decors/da/${ep.couvPhoto || (slot.variante === 'serie-nuit' ? 'lasers' : slot.variante === 'spot-promo' ? 'foule' : 'rire')}.jpg`, rubrique: ep.nom, titre: ep.couvTitre }, cover, 'couverture-reel'); }
+    try { await couvertureDA({ photo: `decors/da/${photoCouv([ep.couvPhoto || (slot.variante === 'serie-nuit' ? 'lasers' : slot.variante === 'spot-promo' ? 'foule' : 'rire')])}.jpg`, rubrique: ep.nom, titre: ep.couvTitre }, cover, 'couverture-reel'); }
     catch (err) { console.error(`[${id}] couverture DA impossible (${err.message}) : image de l'épisode à la place.`); spawnSync('ffmpeg', ['-y', '-loglevel', 'error', '-ss', '0.4', '-i', video, '-frames:v', '1', '-q:v', '2', cover]); }
     const d = parseFloat(spawnSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', video]).stdout?.toString()) || 0;
     if (ep.accroche) ch.choix['accroche-spot'] = ep.accroche; // aussi quand un seul spot attendait : la mesure compte
@@ -690,7 +694,7 @@ async function prepare(slot, now, id) {
   // Dernière vérification avant publication : la moindre incohérence restante bloque le post.
   if (pub.soirees?.length && pub.coherence) { const pb = controlePost({ soirees: pub.soirees, ...pub.coherence }); if (pb.length) throw new Error(`Post incohérent, rien n'est publié : ${pb.join(' ; ')}`); }
   if (pub.coherence) delete pub.coherence;
-  const out = { id, type: slot.type, variante: slot.variante || null, date: stamp, ...pub, choix: ch.choix,
+  const out = { id, type: slot.type, variante: slot.variante || null, date: stamp, ...pub, photo: pub.photo || PHOTO_COUV, choix: ch.choix,
     features: (pub.soirees || []).flatMap(eventFeatures), nb_images: pub.images?.length || 0 };
   if (out.images) out.images = out.images.map(rel);
   if (out.video) { out.video = rel(out.video); out.couverture = rel(out.couverture); if (out.video_instagram) out.video_instagram = rel(out.video_instagram); }
@@ -727,7 +731,7 @@ async function prepare(slot, now, id) {
       if (!pool.length) pool = vecus.length ? vecus : all;
       const debat = ch.pick('debat', pool, (d) => d.id);
       usedHere.add(debat.id);
-      const img = await couvertureDA({ photo: photoDA(['lasers', 'rooftop', 'foule', 'terrasse', 'rire'], now), fond: 'nuit', rubrique: 'Débat', titre: debat.q, options: [debat.a, debat.b] }, path.join(dir, `debat-${stamp}.jpg`));
+      const img = await couvertureDA({ photo: `decors/da/${photoCouv(['lasers', 'rooftop', 'foule', 'terrasse', 'rire'])}.jpg`, fond: 'nuit', rubrique: 'Débat', titre: debat.q, options: [debat.a, debat.b] }, path.join(dir, `debat-${stamp}.jpg`));
       const STUDIO = path.join(ROOT, 'studio');
       const src = path.join('evenements', 'auto', `debat-${id}.jpg`);
       await mkdir(path.join(STUDIO, 'public', 'evenements', 'auto'), { recursive: true });
@@ -831,7 +835,7 @@ async function publishPrepared(id) {
     try { const st = await publishStory(url(p.story_debat), ig); console.log(`[${id}] ✅ débat publié en story (${st.id})`); }
     catch (err) { console.error(`[${id}] débat en story impossible : ${err.message}`); }
   }
-  hist.push({ id, date: p.date, media: res.id, lien: link, fete: p.fete, titre: p.titre, guide: p.guide, debat: p.debat, bonplan: p.bonplan, sujet: p.sujet, son: p.son, concept: p.concept, soirees: (p.soirees || []).map(cleSoiree), le: new Date().toISOString(),
+  hist.push({ id, date: p.date, media: res.id, lien: link, fete: p.fete, titre: p.titre, guide: p.guide, debat: p.debat, bonplan: p.bonplan, sujet: p.sujet, son: p.son, concept: p.concept, photo: p.photo || null, hors_grille: p.hors_grille || undefined, soirees: (p.soirees || []).map(cleSoiree), le: new Date().toISOString(),
     publication: { id: p.id, type: p.type, variante: p.variante, date: p.date, choix: p.choix, features: p.features, nb_images: p.nb_images, duree: p.duree, legende: p.legende, titre: p.titre } });
   await writeFile(HIST_FILE, JSON.stringify(hist.slice(-300), null, 2));
 }
@@ -880,6 +884,9 @@ async function nouvelleHistoire(STUDIO, id) {
 // --- DA « Flash nuit » : carrousels et couvertures rendus par le studio, avec contrôle visuel ----------------------
 function sansAccentTag(x) { return String(x).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]/g, ''); }
 function photoDA(noms, now) { return `decors/da/${noms[Math.floor(now / (7 * 864e5)) % noms.length]}.jpg`; }
+// Couverture de la grille : photo qui colle au sujet, jamais une des 9 dernières couvertures (src/photos.mjs).
+const AMORCE_PHOTOS = (() => { try { return JSON.parse(readFileSync(path.join(ROOT, 'contenus', 'photos-grille.json'), 'utf8')).amorce || []; } catch { return []; } })();
+function photoCouv(preferees) { PHOTO_COUV = choisirPhoto(preferees, photosRecentes([...AMORCE_PHOTOS, ...hist])); return PHOTO_COUV; }
 
 async function couvertureDA(props, fichier, composition = 'couverture') {
   const STUDIO = path.join(ROOT, 'studio');
@@ -937,7 +944,7 @@ async function carrouselDA({ chosen, id, dir, now, titre = [], titreFlash, rubri
       const fmt = (d, o) => new Intl.DateTimeFormat('fr-FR', { timeZone: 'Europe/Paris', ...o }).format(d);
       const sous = dts.length ? (fmt(dts[0], { day: 'numeric', month: 'long' }) === fmt(dts.at(-1), { day: 'numeric', month: 'long' }) ? `le ${fmt(dts[0], { weekday: 'long', day: 'numeric', month: 'long' })}`
         : `du ${fmt(dts[0], { day: 'numeric', ...(fmt(dts[0], { month: 'long' }) === fmt(dts.at(-1), { month: 'long' }) ? {} : { month: 'long' }) })} au ${fmt(dts.at(-1), { day: 'numeric', month: 'long' })}`) : '';
-      const entree = { sous, titre, titreFlash, rubrique, question, lieu: (villes.length === 1 ? villes[0] : "CÔTE D'AZUR").toUpperCase(), pied: villes.slice(0, 3).map((v) => v.replace(/-du-.*$/i, '')).join(' · ').toUpperCase(),
+      const entree = { photo: `decors/da/${photoCouv(edition === 'tekno' || edition === 'techno' ? ['lasers', 'dj', 'foule', 'danse'] : ['danse', 'foule', 'dj', 'rire', 'terrasse', 'plage', 'lasers'])}.jpg`, sous, titre, titreFlash, rubrique, question, lieu: (villes.length === 1 ? villes[0] : "CÔTE D'AZUR").toUpperCase(), pied: villes.slice(0, 3).map((v) => v.replace(/-du-.*$/i, '')).join(' · ').toUpperCase(),
         soirees: avecImage.map((e, i) => ({ id: `${i}-${hash(e.name)}`, vedette: vedettes(avecImage).includes(e), nom: e.name, genre: (genresList(e).slice(0, 2).join(' & ') || 'soirée').toLowerCase(), jour: jourC(e.start), debut: e.start, heures: `dès ${heure(e.start)}`, // « dès minuit » pour 23h59 (voir dates.mjs)
           prix: e.price == null ? 'prix sur la billetterie' : e.price === 0 ? 'gratuit' : `dès ${String(Math.round(e.price * 100) / 100).replace('.', ',')} €`, lieu: [e.venue, e.city && !String(e.venue || '').toLowerCase().includes(String(e.city).toLowerCase().split(/[\s-]/)[0]) ? e.city : ''].filter(Boolean).join(' · '), image: e.image })) };
       const fe = path.join(ROOT, 'out', `carrousel-${id}.json`);

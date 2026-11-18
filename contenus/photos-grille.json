@@ -1,0 +1,11 @@
+{
+  "_note": "Couvertures déjà visibles dans la grille avant que le robot note la photo de chaque post (relevé du 18/11/2026 sur la capture du directeur). Lu par src/photos.mjs avec historique.json, pour ne pas reprendre ces photos tout de suite.",
+  "amorce": [
+    { "date": "2026-11-12", "id": "incontournables-tekno", "photo": "lasers" },
+    { "date": "2026-11-14", "id": "guide", "photo": "taxi" },
+    { "date": "2026-11-16", "id": "libre", "photo": "lasers" },
+    { "date": "2026-11-17", "id": "reel-grand-debat", "photo": "foule" },
+    { "date": "2026-11-17", "id": "guide-suite", "photo": "taxi" },
+    { "date": "2026-11-18", "id": "bonplan-petits-prix", "photo": "lasers" }
+  ]
+}
