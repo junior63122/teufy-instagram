@@ -27,7 +27,7 @@ test('légendes des spots : pas de fausse rareté', () => {
   }
 });
 
-test('« Tague ton pote » : chaque épisode a sa légende (avec l'appel à taguer) et sa couverture', () => {
+test("« Tague ton pote » : chaque épisode a sa légende (avec l'appel à taguer) et sa couverture", () => {
   const D = path.join(import.meta.dirname, '..', 'media', 'tague-ton-pote');
   if (!existsSync(D)) return;
   for (const b of readdirSync(D).filter((f) => f.endsWith('.mp4')).map((f) => f.replace(/\.mp4$/, ''))) {
