@@ -166,7 +166,7 @@ function build(){S=TL.map(g=>g.start);END=TL[TL.length-1].start+TL[TL.length-1].
   tl.from('#t2',{scale:2,opacity:0,duration:.5,ease:'power2.out'},S[2]);
   // --- 3 : près de toi : radar, lieux ouverts autour de « Toi »
   tl.set('#phone',{autoAlpha:0},S[3]);montre('s3',S[3],S[4]);flash(S[3],.5);
-  tl.from('#t3',{y:-150,opacity:0,duration:.4,ease:'back.out(2)'},S[3]);tl.from(['#moi','#toi'],{scale:0,duration:.35,ease:'back.out(3)'},S[3]+.1);
+  tl.from('#t3',{scale:.4,opacity:0,duration:.4,ease:'back.out(2)'},S[3]);tl.from(['#moi','#toi'],{scale:0,duration:.35,ease:'back.out(3)'},S[3]+.1);
   ['#rg1','#rg2'].forEach((r,k)=>tl.fromTo(r,{scale:.3,opacity:1},{scale:2.6,opacity:0,duration:1.1,repeat:1,ease:'power1.out',immediateRender:false},S[3]+.2+k*.55));
   ['p1','p2','p3','p4'].forEach((p,k)=>{const at=wt(3,'boîtes')+k*.18;tl.from('#'+p,{y:-300,opacity:0,duration:.4,ease:'bounce.out'},at)});
   ['o1','o2','o3','o4'].forEach((o,k)=>tl.from('#'+o,{scale:0,opacity:0,duration:.3,ease:'back.out(3)'},wt(3,'ouvertes')+k*.1));
@@ -177,13 +177,13 @@ function build(){S=TL.map(g=>g.start);END=TL[TL.length-1].start+TL[TL.length-1].
     tl.fromTo(g,{scale:2.4,opacity:0},{scale:1,opacity:1,duration:.22,ease:'power3.out',immediateRender:false},at);tl.set(g,{opacity:0},fi);flash(at,.35);tl.from(n,{y:-60,scale:0,opacity:0,duration:.3,ease:'back.out(2.5)'},at+.05)});
   tl.from('#ton',{scale:.4,opacity:0,duration:.35,ease:'back.out(2.4)'},wt(4,'choisis'));
   // --- 5 : gratuit & bons plans : le prix tombe à 0, tampon GRATUIT, compteur 43
-  montre('s5',S[5],S[6]);flash(S[5],.4);tl.from('#ticket',{rotationX:70,y:200,opacity:0,duration:.45,ease:'back.out(1.6)'},S[5]);
+  montre('s5',S[5],S[6]);flash(S[5],1);tl.from('#ticket',{rotationX:70,y:200,opacity:0,duration:.45,ease:'back.out(1.6)'},S[5]);
   tl.fromTo('#zero',{scale:2.2,opacity:0},{scale:1,opacity:1,duration:.25,ease:'back.out(2.5)',transformOrigin:'0% 50%',immediateRender:false},wt(5,'gratuites')-.2);
   tl.fromTo('#tampon',{scale:3,opacity:0},{scale:1,opacity:1,duration:.18,ease:'power4.in',immediateRender:false},wt(5,'gratuites')+.15);tl.to('#ticket',{x:12,duration:.04,yoyo:true,repeat:5},wt(5,'gratuites')+.33);
   tl.from('#bp',{x:600,opacity:0,duration:.4,ease:'back.out(1.8)'},wt(5,'bons')-.2);const b43={v:0};tl.to(b43,{v:43,duration:.7,ease:'power3.out',onUpdate:()=>$('n43').textContent=Math.round(b43.v)},wt(5,'bons'));
   salve(wt(5,'plans'),540,1000,30);
   // --- 6 : manger tard : la boîte « ferme » (noir), l'horloge arrive sur 05:00 pile sur « cinq heures », la vraie page
-  montre('s6',S[6],S[7]);tl.set('#credit',{textContent:'Photo : Miguel Mendez · CC BY 2.0 (Wikimedia Commons)'},S[6]);tl.set('#credit',{textContent:''},S[7]);
+  montre('s6',S[6],S[7]);flash(S[6],1);tl.set('#credit',{textContent:'Photo : Miguel Mendez · CC BY 2.0 (Wikimedia Commons)'},S[6]);tl.set('#credit',{textContent:''},S[7]);
   tl.fromTo('#pProm',{x:0,scale:1.1},{x:-300,scale:1.2,duration:fin(6)-S[6],ease:'none',immediateRender:false},S[6]);
   tl.fromTo('#noir',{opacity:0},{opacity:.85,duration:.12,yoyo:true,repeat:1,immediateRender:false},wt(6,'ferme'));
   tl.from('#clock',{y:-300,opacity:0,duration:.4,ease:'back.out(1.8)'},wt(6,'ferme')+.1);

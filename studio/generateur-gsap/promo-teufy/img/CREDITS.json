@@ -10,7 +10,8 @@
   "titre": "Nice_from_Castle_Hill_01.jpg",
   "auteur": "Spike",
   "licence": "CC BY-SA 4.0",
-  "source": "https://commons.wikimedia.org/wiki/File:Nice_from_Castle_Hill_01.jpg"
+  "source": "https://commons.wikimedia.org/wiki/File:Nice_from_Castle_Hill_01.jpg",
+  "note": "Non utilisée dans la v2 (gardée pour d'autres montages)."
  },
  "monaco_pano": {
   "titre": "Monaco_02.jpg",
@@ -22,7 +23,7 @@
   "titre": "Captures de teufyparty.com (accueil, soirees-nice, soirees-techno, clubs-bars, manger-tard, ce-soir)",
   "auteur": "Teufy",
   "licence": "propriété de Teufy",
-  "note": "Prises le 18/11/2026 avec Playwright ; affiches des organisateurs masquées (remplacées par un dégradé)."
+  "note": "Prises le 18/11/2026 avec Playwright ; v2 : accueil, ce-soir et manger-tard affichées dans le téléphone ; affiches des organisateurs masquées (dégradé)."
  },
  "logo": {
   "titre": "Logo Teufy",
@@ -30,7 +31,12 @@
   "licence": "propriété de Teufy"
  },
  "sons": {
-  "beat.wav": "généré par src/beat.mjs (synthèse, sans droits)",
-  "pop/whoosh/impact": "Mixkit Free License (usage commercial, sans attribution), copiés de studio/public/sfx"
+  "beat.wav": "généré par src/beat.mjs (synthèse house 124 BPM, sans droits)",
+  "acclamation, basse, clic, fete, flash, glitch, impact, pop, pop-dur, riser, swoosh, tampon, whoosh, zoom": "Mixkit Free License (usage commercial, sans attribution), copiés de studio/public/sfx"
+ },
+ "club3d": {
+  "titre": "Boîte de nuit en 3D (lasers, dalles, foule, projecteurs)",
+  "auteur": "Teufy (code three.js 0.149, licence MIT, porté de riviera-studio/engine/part_club3d.js)",
+  "licence": "création maison"
  }
 }
