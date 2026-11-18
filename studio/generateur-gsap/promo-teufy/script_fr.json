@@ -1,9 +1,34 @@
 [
- ["narr","Tu sais jamais où sortir ce soir ?"],
- ["narr","Avec Teufy, c'est quatre-vingt-quatorze soirées à venir. Toutes au même endroit !"],
- ["narr","Nice, Cannes, Monaco, Toulon : choisis ta ville !"],
- ["narr","Techno, house, afro, shatta : choisis ton style !"],
- ["narr","Plus de cent clubs et bars, fiche par fiche."],
- ["narr","Et à quatre heures du mat ? On te dit où manger !"],
- ["narr","Abonne-toi, et file sur teufyparty point com !"]
+ [
+  "pub",
+  "Tu sais jamais où sortir ce soir ?"
+ ],
+ [
+  "pub",
+  "Avec Teufy, c'est quatre-vingt-quatorze soirées à venir. Toutes au même endroit !"
+ ],
+ [
+  "pub",
+  "Nice, Cannes, Monaco, Toulon : choisis ta ville !"
+ ],
+ [
+  "pub",
+  "Techno, house, afro, shatta : choisis ton style !"
+ ],
+ [
+  "pub",
+  "Plus de cent clubs et bars, fiche par fiche."
+ ],
+ [
+  "pub",
+  "Et à quatre heures du mat ? On te dit où manger !"
+ ],
+ [
+  "pub",
+  "Les soirées, les boîtes, les bons plans : tout est sur Teufy !"
+ ],
+ [
+  "pub",
+  "Abonne-toi, et file sur teufyparty point com !"
+ ]
 ]

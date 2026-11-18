@@ -1,7 +1,7 @@
 import json,urllib.request,base64,subprocess,sys,os,numpy as np
 lang=sys.argv[1];base=lang.split('_')[0]
 NARR={'fr':('3Tp5mYhT9wrfnry9pzvV',.38,.5,1.12),'en':('TX3LPaxmHKxFdv7VOQHJ',.38,.5,1.08)}
-V={'narr':NARR[base],'leo':('GPAQQPp9dazaB2bl4zg9',.3,.65,1.08),'kevin':('jsScnYkNNda9Q1NES5nn',.3,.7,1.1),'patron':('IHngRooVccHyPqB4uQkG',.3,.7,1.15),'videur':('IHngRooVccHyPqB4uQkG',.45,.5,1.0),'narrU':(NARR[base][0],.22,.85,1.12),'leoCri':('GPAQQPp9dazaB2bl4zg9',.15,1.0,1.15),'ines':('FvmvwvObRqIHojkEGh5N',.35,.6,1.05)}
+V={'narr':NARR[base],'leo':('GPAQQPp9dazaB2bl4zg9',.3,.65,1.08),'kevin':('jsScnYkNNda9Q1NES5nn',.3,.7,1.1),'patron':('IHngRooVccHyPqB4uQkG',.3,.7,1.15),'videur':('IHngRooVccHyPqB4uQkG',.45,.5,1.0),'narrU':(NARR[base][0],.22,.85,1.12),'leoCri':('GPAQQPp9dazaB2bl4zg9',.15,1.0,1.15),'ines':('FvmvwvObRqIHojkEGh5N',.35,.6,1.05),'pub':('3Tp5mYhT9wrfnry9pzvV',.3,.7,1.1)}  # pub : Hugo, voix « waouh » (promo Teufy, essais du 18/11/2026)
 segs=json.load(open(f'script_{lang}.json'));out=[];t=0.0;os.makedirs(f'seg_{lang}',exist_ok=True)
 for i,(spk,text) in enumerate(segs):
     vid,stab,style,speed=V[spk]

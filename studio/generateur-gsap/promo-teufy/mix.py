@@ -10,7 +10,8 @@ ev=[('whoosh',SS(i)-.08,.5) for i in range(1,len(TL))]
 ev+=[('pop',t,.45) for t in (.35,.75,1.15)]
 ev+=[('pop',wt(2,m)-.08,.4) for m in ('nice','cannes','monaco','toulon')]
 ev+=[('pop',wt(3,m)-.06,.4) for m in ('techno','house','afro','shatta')]
-ev+=[('pop-dur',wt(1,'quatre'),.45),('pop-dur',SS(4)+.25,.45),('impact',SS(6),.55),('pop',wt(6,'abonne'),.6)]
+ev+=[('pop-dur',wt(1,'quatre'),.45),('pop-dur',SS(4)+.25,.45),('impact',SS(7),.55),('pop',wt(7,'abonne'),.6)]
+ev+=[('pop-dur',wt(6,x)-.12,.45) for x in ('soirées','boîtes','plans')]
 inputs=[];filt=[];vox=[];bed=[];k=0
 for g in TL:
     inputs+=['-i',g['file']];d=int(g['start']*1000);filt.append(f'[{k}]adelay={d}|{d},volume=1.25[v{k}]');vox.append(f'[v{k}]');k+=1

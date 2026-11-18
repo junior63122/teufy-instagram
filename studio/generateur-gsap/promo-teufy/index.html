@@ -9,6 +9,7 @@
 html,body{background:#000;width:1080px;height:1920px;overflow:hidden;font-family:IT,sans-serif;color:var(--creme)}
 #stage{position:relative;transform-origin:50% 45%;width:1080px;height:1920px;overflow:hidden;background:var(--nuit)}
 .scene{position:absolute;inset:0;overflow:hidden;background:var(--nuit)}
+.cam{position:absolute;inset:0;transform-origin:50% 40%}
 .cap{position:absolute;left:0;top:0;width:1080px;height:auto;transform-origin:50% 0;will-change:transform}
 .photo{position:absolute;top:0;left:0;height:1920px;width:auto;will-change:transform}
 .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,11,15,.55) 0%,rgba(11,11,15,.1) 35%,rgba(11,11,15,.85) 100%)}
@@ -30,7 +31,7 @@ html,body{background:#000;width:1080px;height:1920px;overflow:hidden;font-family
 #capbox{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;padding:16px 22px;border-radius:28px;background:rgba(11,11,15,.82);backdrop-filter:blur(12px);border:2px solid rgba(255,255,255,.1)}
 .w{font-family:Bric;font-weight:800;font-stretch:80%;font-size:66px;color:var(--creme);letter-spacing:-.01em;padding:2px 12px;border-radius:12px;line-height:1.1}
 .w.on{background:var(--corail);color:var(--nuit);transform:scale(1.06)}
-#credit{position:absolute;left:84px;top:1462px;font-size:21px;font-weight:700;color:rgba(255,255,255,.85);text-shadow:0 1px 3px rgba(0,0,0,.8)}
+#credit{position:absolute;left:84px;top:1438px;font-size:21px;font-weight:700;color:rgba(255,255,255,.85);text-shadow:0 1px 3px rgba(0,0,0,.8)}
 #flash{position:absolute;inset:0;background:var(--corail);opacity:0;pointer-events:none;mix-blend-mode:screen}
 #logo{position:absolute;left:84px;top:240px;width:120px}
 svg text{font-family:IT;font-weight:800}
@@ -41,7 +42,7 @@ svg text{font-family:IT;font-weight:800}
   <img id="pProm" src="img/promenade_nuit.jpg" style="position:absolute;left:-600px;top:0;height:1920px;width:auto;filter:blur(7px) brightness(.5) saturate(1.3);transform-origin:50% 50%">
   <div class="blob" style="left:-200px;top:300px;width:800px;height:800px;background:#FF5A3C;opacity:.35"></div>
   <div class="blob" style="left:500px;top:1000px;width:800px;height:800px;background:#7a2cff;opacity:.35"></div>
-  <div class="titre" id="t0" style="top:300px;font-size:150px">Tu sais jamais<br>où sortir<br><em>ce soir&nbsp;?</em></div>
+  <div class="titre" id="t0" style="top:310px;left:130px;right:110px;font-size:136px">Tu sais jamais<br>où sortir<br><em>ce soir&nbsp;?</em></div>
   <div class="bulle g" id="b1" style="left:84px;top:860px"><small>Le groupe 🎉</small>On sort où ce soir ?</div>
   <div class="bulle d" id="b2" style="left:330px;top:1010px">Aucune idée 🤷</div>
   <div class="bulle g" id="b3" style="left:84px;top:1140px">Quelqu'un a un plan ???</div>
@@ -54,14 +55,14 @@ svg text{font-family:IT;font-weight:800}
    <span class="etiq">Agenda · Côte d'Azur &amp; Var</span>
    <div class="big" style="font-size:300px;color:var(--corail);margin-top:16px"><span id="n94">0</span></div>
    <div style="font-size:52px;font-weight:800;margin-top:-6px">soirées à venir</div>
-   <div style="font-size:24px;font-weight:700;color:var(--gris);margin-top:14px">Source : teufyparty.com, relevé du <span id="jour">20 novembre 2026</span></div>
+   <div style="font-size:24px;font-weight:700;color:var(--gris);margin-top:14px">Source : teufyparty.com, relevé du <span id="jour">18 novembre 2026</span></div>
   </div>
  </div>
  <!-- 2 : villes (vraie photo) -->
  <div class="scene" id="s2">
   <img class="photo" id="pNice" src="img/nice.jpg">
   <div class="shade"></div>
-  <div class="titre" id="t2" style="top:250px;font-size:130px">Choisis<br><em>ta ville</em></div>
+  <div class="titre" id="t2" style="top:290px;left:130px;font-size:120px">Choisis<br><em>ta ville</em></div>
   <svg width="1080" height="1920" viewBox="0 0 1080 1920" style="position:absolute;inset:0">
    <path id="cote" d="M120 1120 C 230 1060, 300 1110, 400 1050 C 500 990, 560 1000, 660 940 C 760 880, 830 900, 940 820" fill="none" stroke="#FF5A3C" stroke-width="14" stroke-linecap="round"/>
    <g id="pinT" transform="translate(150 1105)"><circle r="24" fill="#16161C" stroke="#F4EFE6" stroke-width="6"/></g>
@@ -79,10 +80,10 @@ svg text{font-family:IT;font-weight:800}
   <img class="cap" id="cTek" src="img/site_techno.jpg">
   <div class="shade" style="background:linear-gradient(180deg,rgba(11,11,15,.3),rgba(11,11,15,0) 40%,rgba(11,11,15,.75))"></div>
   <div class="ring" id="r3" style="left:50px;top:820px;width:250px;height:150px;border-radius:80px"></div>
-  <div class="chip" id="g1" style="left:84px;top:300px">Techno · <b>22</b></div>
-  <div class="chip" id="g2" style="left:520px;top:300px">House · <b>48</b></div>
-  <div class="chip" id="g3" style="left:84px;top:420px">Afro · <b>15</b></div>
-  <div class="chip" id="g4" style="left:420px;top:420px">Shatta · <b>13</b></div>
+  <div class="chip" id="g1" style="left:84px;top:280px">Techno · <b>22</b></div>
+  <div class="chip" id="g2" style="left:500px;top:280px">House · <b>48</b></div>
+  <div class="chip" id="g3" style="left:84px;top:400px">Afro · <b>15</b></div>
+  <div class="chip" id="g4" style="left:420px;top:400px">Shatta · <b>13</b></div>
  </div>
  <!-- 4 : clubs & bars -->
  <div class="scene" id="s4">
@@ -103,8 +104,16 @@ svg text{font-family:IT;font-weight:800}
    <div class="big" style="font-size:150px;color:var(--live)"><span id="hh">02</span> h</div>
   </div>
  </div>
- <!-- 6 : appel à l'action -->
+ <!-- 6 : récapitulatif -->
  <div class="scene" id="s6">
+  <img class="cap" id="cNice" src="img/site_nice.jpg" style="filter:blur(10px) brightness(.45)">
+  <div class="blob" style="left:-150px;top:500px;width:700px;height:700px;background:#FF5A3C;opacity:.35"></div>
+  <div class="glass" id="r1" style="left:120px;top:330px;width:840px;height:230px;padding:30px 50px;display:flex;align-items:center;gap:36px"><div class="big" style="font-size:150px;color:var(--corail);min-width:230px"><span id="x94">0</span></div><div style="font-size:50px;font-weight:800;line-height:1.05">soirées<br>à venir</div></div>
+  <div class="glass" id="r2" style="left:120px;top:600px;width:840px;height:230px;padding:30px 50px;display:flex;align-items:center;gap:36px"><div class="big" style="font-size:150px;color:var(--live);min-width:230px"><span id="x103">0</span></div><div style="font-size:50px;font-weight:800;line-height:1.05">clubs<br>&amp; bars</div></div>
+  <div class="glass" id="r3b" style="left:120px;top:870px;width:840px;height:230px;padding:30px 50px;display:flex;align-items:center;gap:36px"><div class="big" style="font-size:150px;color:#FFD23F;min-width:230px"><span id="x43">0</span></div><div style="font-size:50px;font-weight:800;line-height:1.05">gratuit &amp;<br>bons plans</div></div>
+ </div>
+ <!-- 7 : appel à l'action -->
+ <div class="scene" id="s7">
   <img class="photo" id="pMon" src="img/monaco_pano.jpg">
   <div class="shade" style="background:rgba(11,11,15,.62)"></div>
   <div class="blob" style="left:200px;top:500px;width:700px;height:700px;background:#FF5A3C;opacity:.35"></div>
@@ -127,7 +136,7 @@ const $=id=>document.getElementById(id);
 function buildCaps(){WORDS=[];TL.forEach(g=>g.words.forEach(([w,s,e])=>{if(/^[^\wÀ-ÿ€0-9]+$/.test(w)){if(WORDS.length){WORDS[WORDS.length-1].e=e;WORDS[WORDS.length-1].stop=true}return}
     WORDS.push({w:w.replace(/\.\.\./g,'').replace(/[.,:…!?]+$/,''),s,e,seg:g.i,stop:/[.?!:,…]$/.test(w)})}));
   let cur=[];WORDS.forEach((w,i)=>{cur.push(i);const n=WORDS[i+1];if(cur.length>=3||!n||n.seg!==w.seg||w.stop){CHUNKS.push(cur);cur=[]}})}
-const HOT=/^(sortir|soir|teufy|quatre-vingt-quatorze|soirées|nice|cannes|monaco|toulon|ville|techno|house|afro|shatta|style|cent|clubs|bars|quatre|manger|abonne-toi|teufyparty)$/i;
+const HOT=/^(sortir|soir|teufy|quatre-vingt-quatorze|soirées|nice|cannes|monaco|toulon|ville|techno|house|afro|shatta|style|cent|clubs|bars|quatre|manger|boîtes|plans|abonne-toi|teufyparty)$/i;
 function renderCaps(t){const ci=CHUNKS.findIndex((c,k)=>t>=WORDS[c[0]].s-.05&&t<(CHUNKS[k+1]?WORDS[CHUNKS[k+1][0]].s-.05:WORDS[c[c.length-1]].e+.6));
   const box=$('capbox');if(ci<0){box.style.opacity=0;return}box.style.opacity=1;const c=CHUNKS[ci];
   box.innerHTML=c.map(i=>{const w=WORDS[i];const on=t>=w.s-.03;return `<span class="w${on&&HOT.test(w.w)?' on':''}" style="opacity:${on?1:.35}">${w.w.toUpperCase()}</span>`}).join('');
@@ -135,15 +144,15 @@ function renderCaps(t){const ci=CHUNKS.findIndex((c,k)=>t>=WORDS[c[0]].s-.05&&t<
 // début du mot (n-ième occurrence) dans la réplique i
 function wt(i,sub,n=0){const ws=TL[i].words.filter(w=>w[0].toLowerCase().includes(sub));return ws[n]?ws[n][1]:TL[i].start}
 function build(){const S=TL.map(g=>g.start),END=TL[TL.length-1].start+TL[TL.length-1].dur+1.0;
-  tl=gsap.timeline({paused:true});const sc=['s0','s1','s2','s3','s4','s5','s6'];
+  tl=gsap.timeline({paused:true});const sc=['s0','s1','s2','s3','s4','s5','s6','s7'];
   gsap.set(sc.map(s=>'#'+s),{autoAlpha:0});gsap.set('#s0',{autoAlpha:1});gsap.set('#flash',{opacity:0});
   const cut=(i,at)=>{tl.set('#'+sc[i],{autoAlpha:1},at);if(i>0)tl.set('#'+sc[i-1],{autoAlpha:0},at+.02);if(i>0)tl.fromTo('#flash',{opacity:.6},{opacity:0,duration:.22,ease:'power2.out',immediateRender:false},at)};
   const fin=i=>i+1<S.length?S[i+1]:END;
   // dérive de caméra permanente + zooms-chocs sur les mots clés
   sc.forEach((s,i)=>tl.fromTo('#'+s,{scale:1.0,rotation:-.5},{scale:1.07,rotation:.5,duration:fin(i)-S[i],ease:'none',transformOrigin:'50% 45%'},S[i]));
-  WORDS.forEach(w=>{if(/^(soir|quatre-vingt-quatorze|ville|style|cent|manger|teufyparty)$/i.test(w.w)){tl.to('#stage',{scale:1.05,duration:.08,ease:'power2.out'},w.s-.02);tl.to('#stage',{scale:1,duration:.35,ease:'power2.out'},w.s+.06)}});
+  WORDS.forEach(w=>{if(/^(soir|quatre-vingt-quatorze|ville|style|cent|manger|teufy|teufyparty)$/i.test(w.w)){tl.to('#stage',{scale:1.05,duration:.08,ease:'power2.out'},w.s-.02);tl.to('#stage',{scale:1,duration:.35,ease:'power2.out'},w.s+.06)}});
   // --- 0 : accroche (titre visible dès l'image 0)
-  cut(0,0);tl.set('#credit',{textContent:'Photo : Miguel Mendez · CC BY 2.0 (Wikimedia Commons)'},0);tl.set('#credit',{textContent:''},S[1]);tl.fromTo('#pProm',{scale:1.15,x:0},{scale:1.3,x:-250,duration:S[1],ease:'none'},0);tl.fromTo('#t0',{scale:1.12},{scale:1,duration:.5,ease:'back.out(2)',transformOrigin:'0% 50%'},0);
+  cut(0,0);tl.set('#credit',{textContent:'Photo : Miguel Mendez · CC BY 2.0 (Wikimedia Commons)'},0);tl.set('#credit',{textContent:''},S[1]);tl.fromTo('#pProm',{scale:1.15,x:0},{scale:1.3,x:-250,duration:S[1],ease:'none'},0);tl.fromTo('#t0',{scale:1.06},{scale:1,duration:.5,ease:'back.out(2)',transformOrigin:'50% 50%'},0);
   [['#b1',.35],['#b2',.75],['#b3',1.15]].forEach(([b,d])=>{tl.from(b,{scale:0,y:60,opacity:0,transformOrigin:'0% 100%',duration:.35,ease:'back.out(2.2)'},d);tl.to(b,{y:-10,duration:.4,yoyo:true,repeat:3,ease:'sine.inOut'},d+.4)});
   tl.to('#t0 em',{color:'#3DFF8A',duration:.15,yoyo:true,repeat:5},.6);
   // --- 1 : accueil qui défile + compteur 94
@@ -154,13 +163,12 @@ function build(){const S=TL.map(g=>g.start),END=TL[TL.length-1].start+TL[TL.leng
   // --- 2 : villes : vraie photo + côte qui se trace + villes au fil de la voix
   cut(2,S[2]);tl.set('#credit',{textContent:'Photo : Spike · CC BY-SA 4.0 (Wikimedia Commons)'},S[2]);tl.set('#credit',{textContent:''},fin(2));
   const nw=3840*1920/1299;gsap.set('#pNice',{width:nw,x:-1100,scale:1.05});tl.to('#pNice',{x:-2300,scale:1.15,duration:fin(2)-S[2],ease:'none'},S[2]);
-  tl.from('#t2',{x:-300,opacity:0,duration:.5,ease:'back.out(2)'},S[2]);
+  tl.from('#t2',{scale:.6,opacity:0,transformOrigin:'0% 50%',duration:.45,ease:'back.out(2)'},S[2]);
   const L=$('cote').getTotalLength();gsap.set('#cote',{attr:{'stroke-dasharray':L,'stroke-dashoffset':L}});tl.to('#cote',{attr:{'stroke-dashoffset':0},duration:1.4,ease:'power2.inOut'},S[2]+.1);
   [['nice','#pinN','#vN'],['cannes','#pinC','#vC'],['monaco','#pinM','#vM'],['toulon','#pinT','#vT']].forEach(([m,p,c])=>{const at=wt(2,m)-.08;tl.from(p,{scale:0,transformOrigin:'50% 50%',duration:.4,ease:'back.out(3)'},at);tl.from(c,{scale:0,opacity:0,duration:.35,ease:'back.out(2.4)'},at+.05)});
   // --- 3 : styles : page techno, zoom sur « 22 soirées », styles qui apparaissent avec la voix
-  cut(3,S[3]);tl.fromTo('#cTek',{y:0,scale:1},{y:-1780,scale:1,duration:(fin(3)-S[3])*.55,ease:'power2.inOut'},S[3]);
-  tl.to('#cTek',{scale:1.18,transformOrigin:'15% 52%',duration:(fin(3)-S[3])*.45,ease:'power1.out'},S[3]+(fin(3)-S[3])*.55);
-  tl.fromTo('#r3',{scale:2.6,opacity:0},{scale:1,opacity:1,duration:.4,ease:'back.out(2)'},S[3]+(fin(3)-S[3])*.55);
+  cut(3,S[3]);tl.fromTo('#cTek',{y:-60,scale:1},{y:-420,scale:1.04,transformOrigin:'50% 30%',duration:fin(3)-S[3],ease:'power1.inOut'},S[3]);
+  gsap.set('#r3',{display:'none'});
   [['techno','#g1'],['house','#g2'],['afro','#g3'],['shatta','#g4']].forEach(([m,c])=>tl.from(c,{y:-80,scale:0,opacity:0,duration:.35,ease:'back.out(2.4)'},wt(3,m)-.06));
   // --- 4 : clubs & bars : compteur 103, la page défile
   cut(4,S[4]);tl.fromTo('#cClub',{y:-300,scale:1.04},{y:-2200,scale:1,duration:fin(4)-S[4],ease:'power1.inOut'},S[4]);
@@ -172,15 +180,25 @@ function build(){const S=TL.map(g=>g.start),END=TL[TL.length-1].start+TL[TL.leng
   tl.from('#clock',{y:-300,opacity:0,duration:.5,ease:'back.out(1.8)'},S[5]+.1);
   const h={v:2};tl.to(h,{v:5,duration:1.2,ease:'steps(3)',onUpdate:()=>$('hh').textContent=String(Math.round(h.v)).padStart(2,'0')},S[5]+.5);
   tl.fromTo('#r5',{scale:2.2,opacity:0},{scale:1,opacity:1,duration:.4,ease:'back.out(2)'},wt(5,'manger')-.1);
-  // --- 6 : appel à l'action
-  cut(6,S[6]);tl.set('#credit',{textContent:'Photo : Spike · CC BY-SA 4.0 (Wikimedia Commons)'},S[6]);
-  const mw=3840*1920/1740;gsap.set('#pMon',{width:mw,x:-900,scale:1.05});tl.to('#pMon',{x:-1900,scale:1.12,duration:END-S[6],ease:'none'},S[6]);
-  tl.from('#logoBig',{scale:0,rotation:-25,duration:.6,ease:'back.out(2.2)'},S[6]);tl.to('#logoBig',{scale:1.06,duration:.3,yoyo:true,repeat:7,ease:'sine.inOut'},S[6]+.7);
-  tl.from('#follow',{y:300,opacity:0,duration:.5,ease:'back.out(1.6)'},S[6]+.25);
-  tl.to('#btn',{scale:.9,duration:.12,yoyo:true,repeat:1,ease:'power2.inOut'},wt(6,'abonne'));tl.set('#btn',{textContent:'Abonné ✓',background:'#3DFF8A'},wt(6,'abonne')+.24);
-  const url='teufyparty.com',u={v:0};tl.to(u,{v:url.length,duration:.9,ease:'none',onUpdate:()=>$('url').textContent=url.slice(0,Math.round(u.v))},wt(6,'teufyparty')-.15);
-  tl.to('#curseur',{opacity:0,duration:.25,yoyo:true,repeat:9,ease:'steps(1)'},S[6]);
+  // --- 6 : récapitulatif : trois cartes en verre en cascade, compteurs au fil de la voix
+  cut(6,S[6]);tl.fromTo('#cNice',{y:0},{y:-900,duration:fin(6)-S[6],ease:'none'},S[6]);
+  [['#r1','#x94',94,'soirées'],['#r2','#x103',103,'boîtes'],['#r3b','#x43',43,'plans']].forEach(([c,n,v,m],k)=>{const at=wt(6,m)-.12;
+    tl.from(c,{x:k%2?700:-700,rotation:k%2?8:-8,opacity:0,duration:.45,ease:'back.out(1.7)'},at);
+    const o={v:0};tl.to(o,{v,duration:.7,ease:'power3.out',onUpdate:()=>$(n.slice(1)).textContent=Math.round(o.v)},at+.1);
+    tl.to(c,{y:-12,duration:.4,yoyo:true,repeat:3,ease:'sine.inOut'},at+.6)});
+  // --- 7 : appel à l'action
+  cut(7,S[7]);tl.set('#credit',{textContent:'Photo : Spike · CC BY-SA 4.0 (Wikimedia Commons)'},S[7]);
+  const mw=3840*1920/1740;gsap.set('#pMon',{width:mw,x:-900,scale:1.05});tl.to('#pMon',{x:-1900,scale:1.12,duration:END-S[7],ease:'none'},S[7]);
+  tl.from('#logoBig',{scale:0,rotation:-25,duration:.6,ease:'back.out(2.2)'},S[7]);tl.to('#logoBig',{scale:1.06,duration:.3,yoyo:true,repeat:7,ease:'sine.inOut'},S[7]+.7);
+  tl.from('#follow',{y:300,opacity:0,duration:.5,ease:'back.out(1.6)'},S[7]+.25);
+  tl.to('#btn',{scale:.9,duration:.12,yoyo:true,repeat:1,ease:'power2.inOut'},wt(7,'abonne'));tl.set('#btn',{textContent:'Abonné ✓',background:'#3DFF8A'},wt(7,'abonne')+.24);
+  const url='teufyparty.com',u={v:0};tl.to(u,{v:url.length,duration:.9,ease:'none',onUpdate:()=>$('url').textContent=url.slice(0,Math.round(u.v))},wt(7,'teufyparty')-.15);
+  tl.to('#curseur',{opacity:0,duration:.25,yoyo:true,repeat:9,ease:'steps(1)'},S[7]);
+  // Coupes franches à l'intérieur des scènes (un changement de plan toutes les 1 à 2 s) : recadrage serré / large en alternance.
+  const foyers=[['50% 30%','50% 55%'],['50% 45%','40% 30%'],['70% 40%','30% 55%'],['50% 25%','50% 70%'],['50% 25%','50% 60%'],['60% 50%','40% 25%'],['50% 30%','50% 60%'],['50% 30%','50% 55%']];
+  sc.forEach((id,i)=>{const d=fin(i)-S[i];const n=Math.floor(d/1.5);for(let k=1;k<=n;k++){const at=S[i]+k*d/(n+1);
+    tl.set('#'+id+' > .cam',{scale:k%2?1.14:1,transformOrigin:foyers[i][(k-1)%2]},at);tl.fromTo('#flash',{opacity:.3},{opacity:0,duration:.15,ease:'power2.out',immediateRender:false},at)}});
   tl.to({},{duration:.01},END);return END}
-window.init=async(tlData)=>{TL=tlData;buildCaps();await document.fonts.ready;await Promise.all([...document.images].map(i=>i.decode().catch(()=>{})));return build()};
+window.init=async(tlData)=>{document.querySelectorAll('.scene').forEach(sc=>{const c=document.createElement('div');c.className='cam';[...sc.children].filter(e=>e.matches('img.cap,img.photo,#pProm,.shade,.blob')).forEach(e=>c.appendChild(e));sc.insertBefore(c,sc.firstChild)});TL=tlData;buildCaps();await document.fonts.ready;await Promise.all([...document.images].map(i=>i.decode().catch(()=>{})));return build()};
 window.seek=t=>{tl.seek(t,false);renderCaps(t)};
 </script></body></html>
