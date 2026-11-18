@@ -1227,5 +1227,153 @@
   "v": 2,
   "le": "2026-11-18T13:28:00.456Z",
   "adr": true
+ },
+ "le six|nice": {
+  "lat": 43.69609,
+  "lng": 7.27294,
+  "le": "2026-11-18T23:07:09.280Z"
+ },
+ "le village|juan-les-pins": {
+  "lat": 43.5809,
+  "lng": 7.12501,
+  "le": "2026-11-18T23:07:12.633Z"
+ },
+ "lilly's club monte carlo|monaco": {
+  "lat": 43.73992,
+  "lng": 7.42968,
+  "le": "2026-11-18T23:07:14.034Z"
+ },
+ "morrison's irish pub & morrison's lounge|cannes": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-18T23:07:19.001Z",
+  "adr": true
+ },
+ "no stresss|la seyne-sur-mer": {
+  "lat": 43.07909,
+  "lng": 5.89415,
+  "le": "2026-11-18T23:07:19.579Z"
+ },
+ "oma|nice": {
+  "lat": 43.69592,
+  "lng": 7.26527,
+  "le": "2026-11-18T23:07:19.821Z"
+ },
+ "quai ouest pub|saint-laurent-du-var": {
+  "lat": 43.65583,
+  "lng": 7.18222,
+  "le": "2026-11-18T23:07:22.425Z"
+ },
+ "tree bo|saint-laurent-du-var": {
+  "lat": 43.65734,
+  "lng": 7.18541,
+  "le": "2026-11-18T23:07:22.906Z"
+ },
+ "au bureau (polygone riviera)|cagnes-sur-mer": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-18T23:07:28.574Z",
+  "adr": true
+ },
+ "blue gin|monaco": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-18T23:07:32.183Z"
+ },
+ "bull-dog pub pompei|nice": {
+  "lat": 43.69674,
+  "lng": 7.2756,
+  "le": "2026-11-18T23:07:32.680Z"
+ },
+ "dry restaurant & cocktail bar|villefranche-sur-mer": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-18T23:07:37.111Z"
+ },
+ "gotha|cannes": {
+  "lat": 43.53673,
+  "lng": 7.03769,
+  "le": "2026-11-18T23:07:37.707Z"
+ },
+ "inky bar|menton": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-18T23:07:43.601Z",
+  "adr": true
+ },
+ "k27|six-fours-les-plages": {
+  "lat": 43.09351,
+  "lng": 5.8394,
+  "le": "2026-11-18T23:07:45.115Z"
+ },
+ "l'elixir lounge club|la seyne-sur-mer": {
+  "lat": 43.08118,
+  "lng": 5.92177,
+  "le": "2026-11-18T23:07:45.608Z"
+ },
+ "la mome plage|cannes": {
+  "lat": 43.55028,
+  "lng": 7.02373,
+  "le": "2026-11-18T23:07:46.802Z"
+ },
+ "le bard'o|sanary-sur-mer": {
+  "lat": 43.69508,
+  "lng": 7.28304,
+  "le": "2026-11-18T23:07:49.631Z"
+ },
+ "le carre bleu|cagnes-sur-mer": {
+  "lat": 43.6565,
+  "lng": 7.16405,
+  "le": "2026-11-18T23:07:49.870Z"
+ },
+ "le new pub|menton": {
+  "lat": 43.77821,
+  "lng": 7.50732,
+  "le": "2026-11-18T23:07:50.057Z"
+ },
+ "le qg port saint-laurent|saint-laurent-du-var": {
+  "lat": 43.65734,
+  "lng": 7.18541,
+  "le": "2026-11-18T23:07:50.284Z"
+ },
+ "le spot (hotel plein large)|bandol": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-18T23:07:54.541Z"
+ },
+ "les bains deli bo|villefranche-sur-mer": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-18T23:08:00.502Z"
+ },
+ "madame amore|hyeres": {
+  "lat": 43.08276,
+  "lng": 6.15693,
+  "le": "2026-11-18T23:08:00.962Z"
+ },
+ "movida|nice": {
+  "lat": 43.69502,
+  "lng": 7.27708,
+  "le": "2026-11-18T23:08:02.227Z"
+ },
+ "nuits blanches|nice": {
+  "lat": 43.69596,
+  "lng": 7.28332,
+  "le": "2026-11-18T23:08:02.387Z"
+ },
+ "opera|nice": {
+  "lat": 43.69695,
+  "lng": 7.27299,
+  "le": "2026-11-18T23:08:05.840Z"
+ },
+ "rhumerie ferdinand|menton": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-18T23:08:08.642Z"
+ },
+ "slammers|monaco": {
+  "lat": 43.73413,
+  "lng": 7.41891,
+  "le": "2026-11-18T23:08:09.863Z"
  }
 }
