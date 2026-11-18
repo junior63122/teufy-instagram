@@ -1,0 +1,80 @@
+<!doctype html><html><head><meta charset="utf-8">
+<!-- « Tague ton pote » (18/11/2026) : remplaçant prévu du Grand Débat s'il ne marche pas (directeur : « une idée ultra
+     engageante pour des gens qui ne connaissent pas déjà Teufy »). Format sans voix : 4 types de potes qu'on a tous en
+     soirée, une chute par type, « tague-le » à la fin. Chaque tag notifie quelqu'un qui ne suit pas encore Teufy.
+     Le contenu de l'épisode est dans episode.js (window.EP) ; le minutage dans timeline_fr.json (fabriquer.py). -->
+<style>
+@font-face{font-family:Bric;src:url(../fonts/bricolage-titre.woff2) format('woff2');font-weight:800;font-stretch:80%}
+@font-face{font-family:IT;src:url(../fonts/inter-tight.woff2) format('woff2');font-weight:100 900}
+:root{--nuit:#0B0B0F;--creme:#F4EFE6;--corail:#FF5A3C;--live:#3DFF8A;--gris:#8C877F;--rose:#FF2BD6;--jaune:#FFD23F}
+*{box-sizing:border-box;margin:0}
+html,body{background:#000;width:1080px;height:1920px;overflow:hidden;font-family:IT,sans-serif;color:var(--creme)}
+#stage{position:relative;transform-origin:50% 45%;width:1080px;height:1920px;overflow:hidden;background:var(--nuit)}
+.scene{position:absolute;inset:0;overflow:hidden}
+.photo{position:absolute;left:0;top:0;width:1080px;height:1920px;object-fit:cover;filter:saturate(1.2)}
+.voile{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,11,15,.82) 0%,rgba(11,11,15,.35) 32%,rgba(11,11,15,.25) 55%,rgba(11,11,15,.85) 100%)}
+.k{position:absolute;left:80px;right:80px;text-align:center;font-family:Bric;font-weight:800;font-stretch:80%;letter-spacing:-.02em;line-height:.95;color:var(--creme);text-shadow:0 10px 40px rgba(0,0,0,.6)}
+.k em{font-style:normal;color:var(--corail)}
+.ligne{background:rgba(11,11,15,.66);border-radius:34px;padding:22px 24px 30px;backdrop-filter:blur(6px)}
+.num{position:absolute;left:50%;top:250px;transform:translateX(-50%);font-family:Bric;font-weight:800;font-stretch:80%;font-size:70px;background:var(--creme);color:var(--nuit);padding:4px 26px 8px;border-radius:999px}
+.chute{position:absolute;left:50%;top:860px;width:860px;margin-left:-430px;text-align:center;font-family:Bric;font-weight:800;font-stretch:80%;font-size:84px;line-height:1;background:var(--corail);color:var(--nuit);padding:20px 26px 26px;border-radius:30px;transform:rotate(-2.5deg);box-shadow:0 20px 60px rgba(0,0,0,.45)}
+.chute.teufy{background:var(--live)}
+.bulle{position:absolute;left:120px;top:1150px;display:flex;align-items:center;gap:20px;padding:20px 30px;border-radius:40px;background:rgba(244,239,230,.94);color:var(--nuit);font-size:44px;font-weight:800;box-shadow:0 14px 40px rgba(0,0,0,.4)}
+.bulle i{font-style:normal;display:inline-flex;width:72px;height:72px;border-radius:50%;background:var(--corail);color:var(--creme);align-items:center;justify-content:center;font-size:40px}
+#arobase{position:absolute;left:50%;top:1040px;margin-left:-150px;width:300px;height:300px;border-radius:50%;background:var(--corail);color:var(--nuit);font-family:Bric;font-weight:800;font-size:230px;line-height:280px;text-align:center}
+#flash{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none}
+.conf{position:absolute;width:18px;height:30px;border-radius:4px}
+</style></head><body>
+<div id="stage">
+ <div class="scene" id="s0"><img class="photo" id="p0"><div class="voile"></div>
+  <div class="k" id="h1" style="top:300px;font-size:170px">TAGUE<br>le pote<br><em>qui…</em></div>
+  <div class="k" id="h2" style="top:860px;font-size:66px"></div>
+  <div id="arobase">@</div>
+ </div>
+ <div id="types"></div>
+ <div class="scene" id="sfin"><img class="photo" id="pf"><div class="voile" style="background:rgba(11,11,15,.78)"></div>
+  <div class="k" id="f1" style="top:300px;font-size:130px">Tague-les<br><em>en commentaire</em> 👇</div>
+  <img id="logo" src="img/logo.png" style="position:absolute;left:390px;top:720px;width:300px">
+  <div class="k" id="url" style="top:1080px;font-size:84px">teufyparty.com</div>
+ </div>
+ <div id="confs"></div>
+ <div id="flash"></div>
+</div>
+<script src="../../node_modules/gsap/dist/gsap.min.js"></script><script src="episode.js"></script>
+<script>
+function rnd(i){const x=Math.sin(i*127.1+311.7)*43758.5453;return x-Math.floor(x)}
+let TL=[],tl,S=[],END=0;const $=id=>document.getElementById(id);
+function salve(at,x,y,n=46){const els=[];for(let k=0;k<n;k++){const d=document.createElement('div');d.className='conf';d.style.background=['#FF5A3C','#3DFF8A','#FF2BD6','#FFD23F','#F4EFE6'][k%5];d.style.left=x+'px';d.style.top=y+'px';d.style.opacity=0;$('confs').appendChild(d);els.push(d)}
+  els.forEach((d,k)=>{const a=rnd(k+at*7)*Math.PI*2,v=350+rnd(k+3+at)*650;tl.set(d,{opacity:1},at);tl.fromTo(d,{x:0,y:0,rotation:0},{x:Math.cos(a)*v,y:Math.sin(a)*v*.7+500,rotation:rnd(k)*900,duration:1.4,ease:'power2.out',immediateRender:false},at);tl.to(d,{opacity:0,duration:.3},at+1.1)})}
+function build(){S=TL.map(g=>g.start);END=TL[TL.length-1].start+TL[TL.length-1].dur;
+  const E=window.EP;$('p0').src=`img/${E.photo}.jpg`;$('pf').src=`img/${E.photoFin}.jpg`;$('h2').innerHTML=E.sous;
+  E.types.forEach((t,k)=>{$('types').insertAdjacentHTML('beforeend',`<div class="scene t" id="t${k}"><img class="photo" src="img/${t.photo}.jpg"><div class="voile"></div>
+    <div class="num">${k+1}/${E.types.length}</div><div class="k ligne" style="top:390px;font-size:${t.taille||120}px">${t.ligne}</div>
+    <div class="chute${t.teufy?' teufy':''}">${t.chute}</div><div class="bulle"><i>@</i>${t.tag||'@ton_pote 👀'}</div></div>`)});
+  tl=gsap.timeline({paused:true});const sc=['#s0','#sfin',...E.types.map((_,k)=>'#t'+k)];gsap.set(sc,{autoAlpha:0});gsap.set('#s0',{autoAlpha:1});gsap.set('#flash',{opacity:0});
+  const flash=(at,o=.6)=>tl.fromTo('#flash',{opacity:o},{opacity:0,duration:.2,ease:'power2.out',immediateRender:false},at);
+  const choc=(at,a=22)=>tl.fromTo('#stage',{x:a,y:-a*.6},{x:0,y:0,duration:.35,ease:'elastic.out(1,.3)',immediateRender:false},at);
+  tl.fromTo('#stage',{rotation:-.4},{rotation:.4,duration:END,ease:'sine.inOut'},0);
+  // accroche : lisible dès l'image 0
+  tl.fromTo('#p0',{scale:1.25},{scale:1.05,duration:S[1],ease:'none',immediateRender:false},0);
+  tl.fromTo('#h1',{scale:1.12},{scale:1,duration:.3,ease:'back.out(2.5)'},0);
+  tl.fromTo('#h2',{y:60,opacity:0},{y:0,opacity:1,duration:.25,ease:'back.out(2)',immediateRender:false},.35);
+  tl.fromTo('#arobase',{scale:0,rotation:-40},{scale:1,rotation:0,duration:.35,ease:'back.out(3)',immediateRender:false},.6);tl.to('#arobase',{scale:1.12,duration:.18,yoyo:true,repeat:3},.95);choc(.6,18);
+  tl.set('#s0',{autoAlpha:0},S[1]);
+  E.types.forEach((t,k)=>{const g=TL[k+1],at=g.start,ch=g.words[1][1],fin=S[k+2];const id='#t'+k;
+    tl.set(id,{autoAlpha:1},at);tl.set(id,{autoAlpha:0},fin);flash(at,.55);choc(at,24);
+    tl.fromTo(id+' .photo',{scale:1.3,x:k%2?-40:40},{scale:1.08,x:0,duration:fin-at,ease:'power1.out',immediateRender:false},at);
+    tl.fromTo(id+' .num',{y:-120,opacity:0},{y:0,opacity:1,duration:.25,ease:'back.out(2)',immediateRender:false},at);
+    tl.fromTo(id+' .ligne',{scale:1.5,opacity:0},{scale:1,opacity:1,duration:.2,ease:'power4.out',immediateRender:false},at+.05);
+    tl.fromTo(id+' .chute',{scale:2.6,opacity:0,rotation:-12},{scale:1,opacity:1,rotation:-2.5,duration:.17,ease:'power4.in',immediateRender:false},ch);choc(ch+.17,30);
+    tl.fromTo(id+' .bulle',{scale:.3,opacity:0},{scale:1,opacity:1,duration:.25,ease:'back.out(2.5)',immediateRender:false},ch+.35)});
+  const f=S[S.length-1];tl.set('#sfin',{autoAlpha:1},f);flash(f,.8);choc(f,26);
+  tl.fromTo('#pf',{scale:1.1},{scale:1.25,duration:END-f,ease:'none',immediateRender:false},f);
+  tl.fromTo('#f1',{scale:.4,opacity:0},{scale:1,opacity:1,duration:.3,ease:'back.out(2)',immediateRender:false},f);
+  tl.fromTo('#logo',{scale:0,rotation:-25},{scale:1,rotation:0,duration:.4,ease:'back.out(2.4)',immediateRender:false},f+.15);tl.to('#logo',{scale:1.08,duration:.22,yoyo:true,repeat:5},f+.6);
+  tl.fromTo('#url',{y:80,opacity:0},{y:0,opacity:1,duration:.3,ease:'back.out(2)',immediateRender:false},f+.35);
+  salve(f+.2,540,800,46);
+  tl.to({},{duration:.01},END);return END}
+window.init=async(tlData)=>{TL=tlData;await document.fonts.ready;build();await Promise.all([...document.images].map(i=>i.decode().catch(()=>{})));return END};
+window.seek=t=>{tl.seek(t,false)};
+</script></body></html>

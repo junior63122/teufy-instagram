@@ -67,7 +67,7 @@ function build(){S=TL.map(g=>g.start);END=TL[TL.length-1].start+TL[TL.length-1].
     tl.fromTo(id+' .num',{y:-120,opacity:0},{y:0,opacity:1,duration:.25,ease:'back.out(2)',immediateRender:false},at);
     tl.fromTo(id+' .ligne',{scale:1.5,opacity:0},{scale:1,opacity:1,duration:.2,ease:'power4.out',immediateRender:false},at+.05);
     tl.fromTo(id+' .chute',{scale:2.6,opacity:0,rotation:-12},{scale:1,opacity:1,rotation:-2.5,duration:.17,ease:'power4.in',immediateRender:false},ch);choc(ch+.17,30);
-    tl.fromTo(id+' .bulle',{x:-700,opacity:0},{x:0,opacity:1,duration:.3,ease:'back.out(1.8)',immediateRender:false},ch+.35)});
+    tl.fromTo(id+' .bulle',{scale:.3,opacity:0},{scale:1,opacity:1,duration:.25,ease:'back.out(2.5)',immediateRender:false},ch+.35)});
   const f=S[S.length-1];tl.set('#sfin',{autoAlpha:1},f);flash(f,.8);choc(f,26);
   tl.fromTo('#pf',{scale:1.1},{scale:1.25,duration:END-f,ease:'none',immediateRender:false},f);
   tl.fromTo('#f1',{scale:.4,opacity:0},{scale:1,opacity:1,duration:.3,ease:'back.out(2)',immediateRender:false},f);
