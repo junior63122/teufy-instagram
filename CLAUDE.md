@@ -23,3 +23,12 @@
 - **Cohérence des posts avec leur titre** (directeur, 18/11/2026) : chaque format a sa promesse (période, genre, prix, « après la
   boîte »…). `src/coherence.mjs` et `src/guide.mjs` (`ouvertApresBoite`) retirent ce qui ne colle pas, et le post est bloqué
   juste avant publication s'il reste une incohérence. Tout nouveau format doit ajouter sa règle et son test.
+- **Spots promo de Teufy** (directeur, 18/11/2026 : « minimum 2 par semaine de ce style, des spots créatifs qui ne se
+  ressemblent pas, certains sur certaines fonctionnalités, d'autres sur d'autres ; essaie des hooks différents, vois ceux qui
+  marchent le mieux et améliore-toi ») : motion design GSAP (`studio/generateur-gsap/`, modèle `promo-teufy/`). Voix ElevenLabs
+  (crédits de l'abonnement Riviera) autorisée **sans redemander** (réponse du directeur le 18/11/2026 : « Oui, sans
+  redemander »). Livrer dans `media/spot-promo/` (`NN-sujet.mp4` + `.txt` + `.couverture.txt` + `.json`
+  `{accroche, fonctionnalites}`) après zone sûre, `controle.py` et vérification à l'œil. Ils passent dans les créneaux promo
+  (avant la promo automatique) ; l'apprentissage choisit d'abord le type d'accroche qui marche (`accroche-spot`). Avant d'en
+  produire : `node outils/bilan-spots.mjs`, puis varier accroche, décor, rythme et fonctionnalités par rapport aux précédents.
+  Couverture DA avec bouton lecture (photo de `decors/da/`). Chiffres affichés : relevés sur le site le jour même, sinon pas de chiffre.
