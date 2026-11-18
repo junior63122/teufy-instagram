@@ -15,7 +15,7 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 export const PLAN_FILE = path.join(ROOT, 'contenus', 'planning-auto.json');
-export const SERIES = ['grand-debat', 'serie-nuit'];
+export const SERIES = ['grand-debat', 'serie-nuit', 'spot-promo'];
 const JOURS = ['', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi', 'dimanche'];
 // Ce qui peut changer de jour tout seul. Restent fixes : les soirées du week-end (vendredi), l'Édition Tekno
 // (1er jeudi du mois) et les séries (rythme promis aux abonnés).

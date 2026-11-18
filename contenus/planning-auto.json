@@ -7,6 +7,13 @@
       "suite_de": "18111823247220555",
       "raison": "portée 884 contre 431 d'habitude (×2.1)",
       "cree_le": "2026-11-16T15:07:44.463Z"
+    },
+    {
+      "date": "2026-11-19",
+      "type": "reel",
+      "variante": "spot-promo",
+      "raison": "Demande du directeur (18/11/2026) : publier le spot promo « Tu sais jamais où sortir le soir ? »",
+      "cree_le": "2026-11-18T20:42:11.402319Z"
     }
   ],
   "jours": {
@@ -19,6 +26,11 @@
       "quoi": "suite",
       "media": "18111823247220555",
       "texte": "Engouement sur « Où manger à Monaco après la boîte ? » (portée 884 contre 431 d'habitude (×2.1)) → suite programmée le 2026-11-17 (guide)."
+    },
+    {
+      "le": "2026-11-18T20:42:11.402351Z",
+      "quoi": "extra",
+      "texte": "Spot promo « Tu sais jamais où sortir le soir ? » programmé le jeudi 19/11 à la demande du directeur (couverture DA avec bouton lecture)."
     }
   ],
   "_note": "Écrit par le robot (src/reactif.mjs) : suites programmées après un engouement, jours déplacés selon les résultats, journal des changements.",

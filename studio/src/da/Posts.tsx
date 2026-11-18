@@ -191,11 +191,19 @@ export const StoryRelais: React.FC<{image: string; rubrique?: string; texte?: st
 
 /** Couverture de reel (1080×1920) : même grammaire que les posts, tout le texte dans la zone 3:4 centrale
  *  (y 240 → 1680) que la grille du profil affiche. Le feed reste cohérent entre posts et reels. */
-export const CouvertureReel: React.FC<{photo: string; position?: string; rubrique: string; titre: string; sous?: string}> = ({photo, position, rubrique, titre, sous}) => (
+// Bouton lecture (18/11/2026, directeur : couverture « qui corresponde au flux, mais qui montre quand même que c'est un
+// réel ») : rond de verre dépoli + triangle crème, dans la zone visible de la grille (recadrage 4:5 : y 285 → 1635).
+const Lecture: React.FC = () => (
+  <div style={{position: 'absolute', left: 540 - 92, top: 700, width: 184, height: 184, borderRadius: '50%', background: 'rgba(11,11,15,.42)', backdropFilter: 'blur(14px)', border: '5px solid rgba(244,239,230,.9)', boxShadow: '0 18px 60px rgba(0,0,0,.45)'}}>
+    <div style={{position: 'absolute', left: 70, top: 50, width: 0, height: 0, borderTop: '42px solid transparent', borderBottom: '42px solid transparent', borderLeft: `68px solid ${C.creme}`}} />
+  </div>
+);
+export const CouvertureReel: React.FC<{photo: string; position?: string; rubrique: string; titre: string; sous?: string; lecture?: boolean}> = ({photo, position, rubrique, titre, sous, lecture = true}) => (
   <AbsoluteFill style={{background: C.nuit, overflow: 'hidden'}}>
     <Photo src={photo} position={position} />
     <AbsoluteFill style={{background: 'linear-gradient(180deg, rgba(11,11,15,.55) 0%, rgba(11,11,15,.2) 22%, rgba(11,11,15,0) 40%, rgba(11,11,15,.35) 58%, rgba(11,11,15,.92) 88%, rgba(11,11,15,.95) 100%)'}} />
     <div style={{position: 'absolute', left: 0, right: 0, top: 240 - 48}}><Signature /></div>
+    {lecture ? <Lecture /> : null}
     <div style={{position: 'absolute', left: 56, right: 56, bottom: 1920 - 1680 + 64}}>
       <Etiquette style={{marginBottom: 26}}>{rubrique}</Etiquette>
       <Titre taille={128} lignes={3}>{titre}</Titre>
