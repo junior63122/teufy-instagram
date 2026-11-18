@@ -1,204 +1,221 @@
 <!doctype html><html><head><meta charset="utf-8">
-<!-- Promo Teufy (motion GSAP). Chiffres : relevés sur teufyparty.com (voir SOURCES.md). Images : captures du site (affiches
-     des organisateurs masquées) et photos libres (img/CREDITS.json). -->
+<!-- Promo Teufy v2 (motion GSAP + boîte en 3D three.js). Chiffres : relevés sur teufyparty.com le 18/11/2026 (SOURCES.md).
+     Images : boîte 3D, captures du site dans un téléphone (affiches des organisateurs masquées), photos libres (img/CREDITS.json). -->
 <style>
 @font-face{font-family:Bric;src:url(fonts/bricolage-titre.woff2) format('woff2');font-weight:800;font-stretch:80%}
 @font-face{font-family:IT;src:url(fonts/inter-tight.woff2) format('woff2');font-weight:100 900}
-:root{--nuit:#0B0B0F;--nuit2:#16161C;--creme:#F4EFE6;--corail:#FF5A3C;--live:#3DFF8A;--gris:#8C877F}
+:root{--nuit:#0B0B0F;--nuit2:#16161C;--creme:#F4EFE6;--corail:#FF5A3C;--live:#3DFF8A;--gris:#8C877F;--rose:#FF2BD6;--jaune:#FFD23F}
 *{box-sizing:border-box;margin:0}
 html,body{background:#000;width:1080px;height:1920px;overflow:hidden;font-family:IT,sans-serif;color:var(--creme)}
 #stage{position:relative;transform-origin:50% 45%;width:1080px;height:1920px;overflow:hidden;background:var(--nuit)}
-.scene{position:absolute;inset:0;overflow:hidden;background:var(--nuit)}
-.cam{position:absolute;inset:0;transform-origin:50% 40%}
-.cap{position:absolute;left:0;top:0;width:1080px;height:auto;transform-origin:50% 0;will-change:transform}
-.photo{position:absolute;top:0;left:0;height:1920px;width:auto;will-change:transform}
-.shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,11,15,.55) 0%,rgba(11,11,15,.1) 35%,rgba(11,11,15,.85) 100%)}
-.blob{position:absolute;border-radius:50%;filter:blur(110px);opacity:.55}
-.titre{position:absolute;left:80px;right:80px;font-family:Bric;font-weight:800;font-stretch:80%;letter-spacing:-.02em;line-height:.92;color:var(--creme)}
-.titre em{font-style:normal;color:var(--corail)}
-.glass{position:absolute;border-radius:40px;background:rgba(22,22,28,.72);backdrop-filter:blur(26px);-webkit-backdrop-filter:blur(26px);border:2px solid rgba(255,255,255,.14);box-shadow:0 30px 80px rgba(0,0,0,.45)}
-.glass.clair{background:rgba(244,239,230,.88);color:var(--nuit);border-color:rgba(255,255,255,.7)}
-.etiq{display:inline-block;background:var(--corail);color:var(--nuit);font-weight:800;font-size:28px;letter-spacing:.14em;text-transform:uppercase;padding:10px 20px 8px;border-radius:8px}
-.chip{position:absolute;border-radius:999px;background:rgba(22,22,28,.85);border:2px solid rgba(255,255,255,.18);font-weight:800;padding:16px 30px;font-size:40px;white-space:nowrap;color:var(--creme);box-shadow:0 14px 40px rgba(0,0,0,.4)}
+#c3d{position:absolute;inset:0;width:1080px;height:1920px}
+.scene{position:absolute;inset:0;overflow:hidden}
+.fond{position:absolute;inset:0;background:var(--nuit)}
+.blob{position:absolute;border-radius:50%;filter:blur(110px)}
+.k{position:absolute;left:0;right:0;text-align:center;font-family:Bric;font-weight:800;font-stretch:80%;letter-spacing:-.02em;line-height:.9;color:var(--creme);text-shadow:0 12px 50px rgba(0,0,0,.6)}
+.k em{font-style:normal;color:var(--corail)}
+.glass{position:absolute;border-radius:40px;background:rgba(22,22,28,.72);backdrop-filter:blur(26px);-webkit-backdrop-filter:blur(26px);border:2px solid rgba(255,255,255,.16);box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.chip{position:absolute;border-radius:999px;background:rgba(22,22,28,.88);border:2px solid rgba(255,255,255,.2);font-weight:800;padding:14px 28px;font-size:38px;white-space:nowrap;color:var(--creme);box-shadow:0 14px 40px rgba(0,0,0,.45)}
 .chip b{color:var(--corail)}
-.bulle{position:absolute;max-width:620px;padding:24px 34px;border-radius:36px;font-size:42px;font-weight:700;box-shadow:0 20px 50px rgba(0,0,0,.45)}
-.bulle.g{background:#2a2a33;color:var(--creme);border-bottom-left-radius:8px}
-.bulle.d{background:var(--corail);color:var(--nuit);border-bottom-right-radius:8px}
-.bulle small{display:block;font-size:24px;font-weight:800;opacity:.6;margin-bottom:4px}
-.ring{position:absolute;border-radius:50%;border:10px solid var(--live);box-shadow:0 0 40px rgba(61,255,138,.55)}
 .big{font-family:Bric;font-weight:800;font-stretch:80%;letter-spacing:-.03em;line-height:.9}
+#phone{position:absolute;left:250px;top:330px;width:580px;height:1180px;border-radius:78px;background:#050507;border:14px solid #24242c;box-shadow:0 50px 120px rgba(0,0,0,.7),0 0 0 3px rgba(255,255,255,.08) inset;overflow:hidden;transform-origin:50% 60%}
+#phone .ecr{position:absolute;inset:0;overflow:hidden;border-radius:62px}
+#phone img.c{position:absolute;left:0;top:0;width:552px;opacity:0}
+#phone .notch{position:absolute;left:50%;top:14px;width:150px;height:38px;margin-left:-75px;border-radius:20px;background:#000;z-index:3}
+#splash{position:absolute;inset:0;background:var(--nuit);display:flex;align-items:center;justify-content:center;opacity:0}
+.ring{position:absolute;border-radius:50%;border:8px solid var(--live);box-shadow:0 0 40px rgba(61,255,138,.55)}
+.pin{position:absolute;width:90px;height:90px;margin:-45px 0 0 -45px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:var(--corail);box-shadow:0 10px 30px rgba(0,0,0,.5)}
+.pin span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;transform:rotate(45deg);font-size:40px}
+.ouvert{position:absolute;font-size:28px;font-weight:900;color:var(--nuit);background:var(--live);padding:6px 16px;border-radius:999px;white-space:nowrap}
+.conf{position:absolute;width:18px;height:30px;border-radius:4px}
 #caps{position:absolute;left:90px;right:90px;top:1300px;height:150px;display:flex;justify-content:center;align-items:center}
 #capbox{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;padding:16px 22px;border-radius:28px;background:rgba(11,11,15,.82);backdrop-filter:blur(12px);border:2px solid rgba(255,255,255,.1)}
-.w{font-family:Bric;font-weight:800;font-stretch:80%;font-size:66px;color:var(--creme);letter-spacing:-.01em;padding:2px 12px;border-radius:12px;line-height:1.1}
+.w{font-family:Bric;font-weight:800;font-stretch:80%;font-size:64px;color:var(--creme);padding:2px 12px;border-radius:12px;line-height:1.1}
 .w.on{background:var(--corail);color:var(--nuit);transform:scale(1.06)}
-#credit{position:absolute;left:84px;top:1438px;font-size:21px;font-weight:700;color:rgba(255,255,255,.85);text-shadow:0 1px 3px rgba(0,0,0,.8)}
-#flash{position:absolute;inset:0;background:var(--corail);opacity:0;pointer-events:none;mix-blend-mode:screen}
-#logo{position:absolute;left:84px;top:240px;width:120px}
+#credit{position:absolute;left:84px;top:1440px;font-size:21px;font-weight:700;color:rgba(255,255,255,.85);text-shadow:0 1px 3px rgba(0,0,0,.8)}
+#flash{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none}
+#leak{position:absolute;inset:0;pointer-events:none;mix-blend-mode:screen;opacity:.0;background:radial-gradient(600px 900px at 20% 30%,rgba(255,90,60,.55),transparent 70%),radial-gradient(500px 700px at 85% 75%,rgba(255,43,214,.45),transparent 70%)}
 svg text{font-family:IT;font-weight:800}
 </style></head><body>
 <div id="stage">
- <!-- 0 : accroche -->
+ <canvas id="c3d" width="1080" height="1920"></canvas>
+ <div id="leak"></div>
+ <!-- 0 : accroche (sur la boîte 3D) -->
  <div class="scene" id="s0">
-  <img id="pProm" src="img/promenade_nuit.jpg" style="position:absolute;left:-600px;top:0;height:1920px;width:auto;filter:blur(7px) brightness(.5) saturate(1.3);transform-origin:50% 50%">
-  <div class="blob" style="left:-200px;top:300px;width:800px;height:800px;background:#FF5A3C;opacity:.35"></div>
-  <div class="blob" style="left:500px;top:1000px;width:800px;height:800px;background:#7a2cff;opacity:.35"></div>
-  <div class="titre" id="t0" style="top:310px;left:130px;right:110px;font-size:136px">Tu sais jamais<br>où sortir<br><em>ce soir&nbsp;?</em></div>
-  <div class="bulle g" id="b1" style="left:84px;top:860px"><small>Le groupe 🎉</small>On sort où ce soir ?</div>
-  <div class="bulle d" id="b2" style="left:330px;top:1010px">Aucune idée 🤷</div>
-  <div class="bulle g" id="b3" style="left:84px;top:1140px">Quelqu'un a un plan ???</div>
+  <div class="k" id="t0" style="top:330px;font-size:150px"><span id="t0a">Tu sais jamais</span><br><span id="t0b">où sortir</span><br><em id="t0c">ce soir&nbsp;?</em></div>
  </div>
- <!-- 1 : accueil + 94 soirées -->
- <div class="scene" id="s1">
-  <img class="cap" id="cAcc" src="img/site_accueil.jpg">
-  <div class="shade" style="background:linear-gradient(180deg,rgba(11,11,15,.2),rgba(11,11,15,.15) 40%,rgba(11,11,15,.8))"></div>
-  <div class="glass" id="k94" style="left:120px;top:560px;width:840px;height:520px;padding:46px 56px">
-   <span class="etiq">Agenda · Côte d'Azur &amp; Var</span>
-   <div class="big" style="font-size:300px;color:var(--corail);margin-top:16px"><span id="n94">0</span></div>
-   <div style="font-size:52px;font-weight:800;margin-top:-6px">soirées à venir</div>
-   <div style="font-size:24px;font-weight:700;color:var(--gris);margin-top:14px">Source : teufyparty.com, relevé du <span id="jour">18 novembre 2026</span></div>
-  </div>
+ <!-- 2 : ce soir (fond nuit) -->
+ <div class="scene" id="s2"><div class="fond"></div>
+  <div class="blob" style="left:-250px;top:250px;width:800px;height:800px;background:#FF5A3C;opacity:.35"></div><div class="blob" style="left:500px;top:1000px;width:700px;height:700px;background:#7a2cff;opacity:.35"></div>
+  <div class="k" id="t2" style="top:250px;font-size:200px;opacity:.16">CE SOIR</div>
+  <div class="chip" id="live" style="left:90px;top:1150px;font-size:30px;padding:10px 22px;border-color:var(--live);z-index:5"><span style="color:var(--live)">●</span> Ce soir · <b style="color:var(--live)">en direct</b></div>
  </div>
- <!-- 2 : villes (vraie photo) -->
- <div class="scene" id="s2">
-  <img class="photo" id="pNice" src="img/nice.jpg">
-  <div class="shade"></div>
-  <div class="titre" id="t2" style="top:290px;left:130px;font-size:120px">Choisis<br><em>ta ville</em></div>
-  <svg width="1080" height="1920" viewBox="0 0 1080 1920" style="position:absolute;inset:0">
-   <path id="cote" d="M120 1120 C 230 1060, 300 1110, 400 1050 C 500 990, 560 1000, 660 940 C 760 880, 830 900, 940 820" fill="none" stroke="#FF5A3C" stroke-width="14" stroke-linecap="round"/>
-   <g id="pinT" transform="translate(150 1105)"><circle r="24" fill="#16161C" stroke="#F4EFE6" stroke-width="6"/></g>
-   <g id="pinC" transform="translate(470 1010)"><circle r="24" fill="#16161C" stroke="#F4EFE6" stroke-width="6"/></g>
-   <g id="pinN" transform="translate(760 885)"><circle r="30" fill="#FF5A3C" stroke="#F4EFE6" stroke-width="6"/></g>
-   <g id="pinM" transform="translate(920 830)"><circle r="24" fill="#16161C" stroke="#F4EFE6" stroke-width="6"/></g>
-  </svg>
-  <div class="chip" id="vT" style="left:84px;top:1150px">Toulon</div>
-  <div class="chip" id="vC" style="left:340px;top:1060px">Cannes</div>
-  <div class="chip" id="vN" style="left:590px;top:690px">Nice · <b>49</b> soirées</div>
-  <div class="chip" id="vM" style="left:700px;top:910px">Monaco</div>
+ <!-- 3 : près de toi (radar) -->
+ <div class="scene" id="s3"><div class="fond"></div>
+  <svg width="1080" height="1920" style="position:absolute;inset:0;opacity:.25"><defs><pattern id="g" width="90" height="90" patternUnits="userSpaceOnUse"><path d="M90 0H0V90" fill="none" stroke="#8C877F" stroke-width="2"/></pattern></defs><rect width="1080" height="1920" fill="url(#g)"/>
+   <path d="M-20 1500 C 200 1300, 300 1350, 520 1150 S 900 900, 1100 950" fill="none" stroke="#2a3a5a" stroke-width="60"/></svg>
+  <div class="k" id="t3" style="top:250px;font-size:130px">Près de <em>toi</em></div>
+  <div class="ring" id="rg1" style="left:390px;top:700px;width:300px;height:300px"></div>
+  <div class="ring" id="rg2" style="left:390px;top:700px;width:300px;height:300px"></div>
+  <div id="moi" style="position:absolute;left:510px;top:820px;width:60px;height:60px;border-radius:50%;background:var(--live);box-shadow:0 0 0 14px rgba(61,255,138,.25)"></div>
+  <div class="chip" id="toi" style="left:455px;top:900px;font-size:30px;padding:8px 20px">Toi</div>
+  <div class="pin" id="p1" style="left:230px;top:640px"><span>🍸</span></div><div class="ouvert" id="o1" style="left:170px;top:705px">Ouvert</div>
+  <div class="pin" id="p2" style="left:820px;top:600px"><span>🎧</span></div><div class="ouvert" id="o2" style="left:760px;top:665px">Ouvert</div>
+  <div class="pin" id="p3" style="left:300px;top:1080px"><span>🍹</span></div><div class="ouvert" id="o3" style="left:240px;top:1145px">Ouvert</div>
+  <div class="pin" id="p4" style="left:800px;top:1050px"><span>🪩</span></div><div class="ouvert" id="o4" style="left:740px;top:1115px">Ouvert</div>
  </div>
- <!-- 3 : styles (capture page techno) -->
- <div class="scene" id="s3">
-  <img class="cap" id="cTek" src="img/site_techno.jpg">
-  <div class="shade" style="background:linear-gradient(180deg,rgba(11,11,15,.3),rgba(11,11,15,0) 40%,rgba(11,11,15,.75))"></div>
-  <div class="ring" id="r3" style="left:50px;top:820px;width:250px;height:150px;border-radius:80px"></div>
-  <div class="chip" id="g1" style="left:84px;top:280px">Techno · <b>22</b></div>
-  <div class="chip" id="g2" style="left:500px;top:280px">House · <b>48</b></div>
-  <div class="chip" id="g3" style="left:84px;top:400px">Afro · <b>15</b></div>
-  <div class="chip" id="g4" style="left:420px;top:400px">Shatta · <b>13</b></div>
- </div>
- <!-- 4 : clubs & bars -->
+ <!-- 4 : styles (sur la boîte 3D) -->
  <div class="scene" id="s4">
-  <img class="cap" id="cClub" src="img/site_clubs.jpg">
-  <div class="shade" style="background:linear-gradient(180deg,rgba(11,11,15,.2),rgba(11,11,15,0) 40%,rgba(11,11,15,.8))"></div>
-  <div class="glass clair" id="k103" style="left:150px;top:300px;width:780px;height:300px;padding:34px 50px">
-   <div style="font-size:30px;font-weight:800;color:#55524c">Fiches clubs &amp; bars</div>
-   <div class="big" style="font-size:190px;color:var(--nuit)"><span id="n103">0</span></div>
-  </div>
+  <div class="k" id="gTech" style="top:560px;font-size:210px">TECHNO</div>
+  <div class="k" id="gHouse" style="top:560px;font-size:210px;color:var(--jaune)">HOUSE</div>
+  <div class="k" id="gAfro" style="top:560px;font-size:210px;color:var(--live)">AFRO</div>
+  <div class="k" id="gShat" style="top:560px;font-size:210px;color:var(--rose)">SHATTA</div>
+  <div class="chip" id="n1" style="left:120px;top:300px">Techno · <b>22</b></div><div class="chip" id="n2" style="left:560px;top:300px">House · <b>48</b></div>
+  <div class="chip" id="n3" style="left:120px;top:410px">Afro · <b>15</b></div><div class="chip" id="n4" style="left:500px;top:410px">Shatta · <b>13</b></div>
+  <div class="k" id="ton" style="top:900px;font-size:110px">Choisis <em>ton style</em></div>
  </div>
- <!-- 5 : manger tard -->
- <div class="scene" id="s5">
-  <img class="cap" id="cMan" src="img/site_manger.jpg">
-  <div class="shade" style="background:linear-gradient(180deg,rgba(11,11,15,.25),rgba(11,11,15,0) 40%,rgba(11,11,15,.8))"></div>
-  <div class="ring" id="r5" style="left:110px;top:900px;width:620px;height:140px;border-radius:70px"></div>
-  <div class="glass" id="clock" style="left:540px;top:290px;width:440px;height:250px;padding:30px 40px;text-align:center">
-   <div style="font-size:28px;font-weight:800;color:var(--gris)">ouvert jusqu'à</div>
-   <div class="big" style="font-size:150px;color:var(--live)"><span id="hh">02</span> h</div>
+ <!-- 5 : gratuit & bons plans -->
+ <div class="scene" id="s5"><div class="fond"></div>
+  <div class="blob" style="left:200px;top:400px;width:700px;height:700px;background:#FFD23F;opacity:.25"></div>
+  <div class="glass" id="ticket" style="left:150px;top:420px;width:780px;height:420px;padding:44px 56px;transform-origin:50% 50%">
+   <div style="font-size:32px;font-weight:800;color:var(--gris);letter-spacing:.12em">ENTRÉE</div>
+   <div class="big" id="zero" style="font-size:230px;color:var(--creme)">0 €</div>
+   <div id="tampon" style="position:absolute;right:50px;top:120px;transform:rotate(-14deg);border:10px solid var(--live);color:var(--live);font-family:Bric;font-weight:800;font-size:90px;padding:6px 26px;border-radius:18px">GRATUIT</div>
   </div>
+  <div class="glass" id="bp" style="left:150px;top:900px;width:780px;height:230px;padding:30px 50px;display:flex;align-items:center;gap:36px"><div class="big" style="font-size:150px;color:var(--jaune);min-width:200px"><span id="n43">0</span></div><div style="font-size:48px;font-weight:800;line-height:1.05">gratuit &amp;<br>bons plans</div></div>
  </div>
- <!-- 6 : récapitulatif -->
+ <!-- 6 : manger tard (vraie photo de nuit) -->
  <div class="scene" id="s6">
-  <img class="cap" id="cNice" src="img/site_nice.jpg" style="filter:blur(10px) brightness(.45)">
-  <div class="blob" style="left:-150px;top:500px;width:700px;height:700px;background:#FF5A3C;opacity:.35"></div>
-  <div class="glass" id="r1" style="left:120px;top:330px;width:840px;height:230px;padding:30px 50px;display:flex;align-items:center;gap:36px"><div class="big" style="font-size:150px;color:var(--corail);min-width:230px"><span id="x94">0</span></div><div style="font-size:50px;font-weight:800;line-height:1.05">soirées<br>à venir</div></div>
-  <div class="glass" id="r2" style="left:120px;top:600px;width:840px;height:230px;padding:30px 50px;display:flex;align-items:center;gap:36px"><div class="big" style="font-size:150px;color:var(--live);min-width:230px"><span id="x103">0</span></div><div style="font-size:50px;font-weight:800;line-height:1.05">clubs<br>&amp; bars</div></div>
-  <div class="glass" id="r3b" style="left:120px;top:870px;width:840px;height:230px;padding:30px 50px;display:flex;align-items:center;gap:36px"><div class="big" style="font-size:150px;color:#FFD23F;min-width:230px"><span id="x43">0</span></div><div style="font-size:50px;font-weight:800;line-height:1.05">gratuit &amp;<br>bons plans</div></div>
+  <img id="pProm" src="img/promenade_nuit.jpg" style="position:absolute;left:-700px;top:0;height:1920px;width:auto;filter:blur(5px) brightness(.45) saturate(1.3)">
+  <div id="noir" style="position:absolute;inset:0;background:#000;opacity:0"></div>
+  <div class="glass" id="clock" style="left:110px;top:270px;width:420px;height:250px;padding:26px 36px;text-align:center">
+   <div style="font-size:28px;font-weight:800;color:var(--gris)">il est</div>
+   <div class="big" style="font-size:150px;color:var(--live)"><span id="hh">01</span>:00</div>
+  </div>
  </div>
- <!-- 7 : appel à l'action -->
+ <!-- 7 : toute la Côte d'Azur -->
  <div class="scene" id="s7">
-  <img class="photo" id="pMon" src="img/monaco_pano.jpg">
-  <div class="shade" style="background:rgba(11,11,15,.62)"></div>
-  <div class="blob" style="left:200px;top:500px;width:700px;height:700px;background:#FF5A3C;opacity:.35"></div>
-  <img id="logoBig" src="img/logo.png" style="position:absolute;left:340px;top:330px;width:400px">
-  <div class="titre" id="t6" style="top:720px;font-size:96px;text-align:center;left:70px;right:70px"><span id="url"></span><span id="curseur" style="color:var(--corail)">|</span></div>
+  <img id="pMon" src="img/monaco_pano.jpg" style="position:absolute;left:-1200px;top:0;height:1920px;width:auto;filter:brightness(.35) saturate(1.2)">
+  <div class="k" id="t7" style="top:250px;font-size:120px">Toute la<br><em>Côte d'Azur</em></div>
+  <svg width="1080" height="1920" viewBox="0 0 1080 1920" style="position:absolute;inset:0">
+   <path id="cote" d="M110 1180 C 200 1190, 240 1130, 300 1120 C 360 1110, 400 1070, 460 1040 C 520 1010, 560 1000, 620 960 C 680 925, 720 900, 790 880 C 860 860, 910 840, 970 800" fill="none" stroke="#FF5A3C" stroke-width="12" stroke-linecap="round"/>
+  </svg>
+  <div id="villes"></div>
+  <div class="glass" id="k94" style="left:200px;top:540px;width:680px;height:180px;padding:22px 44px;display:flex;align-items:center;gap:30px"><div class="big" style="font-size:130px;color:var(--corail)"><span id="n94">0</span></div><div style="font-size:42px;font-weight:800;line-height:1.05">soirées<br>à venir</div></div>
+ </div>
+ <!-- 8 : appel à l'action (sur la boîte 3D) -->
+ <div class="scene" id="s8">
+  <img id="logoBig" src="img/logo.png" style="position:absolute;left:340px;top:320px;width:400px">
+  <div class="k" style="top:720px;font-size:96px"><span id="url"></span><span id="curseur" style="color:var(--corail)">|</span></div>
   <div class="glass" id="follow" style="left:190px;top:900px;width:700px;height:150px;display:flex;align-items:center;gap:24px;padding:0 36px">
    <img src="img/logo.png" style="width:86px;background:var(--nuit);border-radius:50%;padding:10px">
-   <div style="flex:1"><div style="font-size:40px;font-weight:800">@teufy_official</div></div>
+   <div style="flex:1;font-size:40px;font-weight:800">@teufy_official</div>
    <div id="btn" style="background:var(--corail);color:var(--nuit);font-weight:900;font-size:36px;padding:16px 28px;border-radius:18px">S'abonner</div>
   </div>
  </div>
+ <!-- téléphone (scènes 1, 2, 6) -->
+ <div id="phone"><div class="ecr">
+  <img class="c" id="scrAcc" src="img/site_accueil.jpg"><img class="c" id="scrSoir" src="img/site_cesoir.jpg"><img class="c" id="scrMan" src="img/site_manger.jpg">
+  <div id="splash"><img src="img/logo.png" style="width:300px"></div>
+  <div class="ring" id="rMan" style="left:22px;top:0;width:500px;height:110px;border-radius:55px;opacity:0"></div>
+ </div><div class="notch"></div></div>
+ <div id="confs"></div>
  <div id="credit"></div>
  <div id="caps"><div id="capbox"></div></div>
  <div id="flash"></div>
 </div>
-<script src="../node_modules/gsap/dist/gsap.min.js"></script><script src="../node_modules/gsap/dist/MotionPathPlugin.min.js"></script>
+<script src="../node_modules/gsap/dist/gsap.min.js"></script><script src="../node_modules/three/build/three.min.js"></script><script src="club3d.js"></script>
 <script>
-gsap.registerPlugin(MotionPathPlugin);let TL=[],tl,WORDS=[],CHUNKS=[];
-const $=id=>document.getElementById(id);
+let TL=[],tl,WORDS=[],CHUNKS=[],S=[],END=0;const $=id=>document.getElementById(id);
 function buildCaps(){WORDS=[];TL.forEach(g=>g.words.forEach(([w,s,e])=>{if(/^[^\wÀ-ÿ€0-9]+$/.test(w)){if(WORDS.length){WORDS[WORDS.length-1].e=e;WORDS[WORDS.length-1].stop=true}return}
-    WORDS.push({w:w.replace(/\.\.\./g,'').replace(/[.,:…!?]+$/,''),s,e,seg:g.i,stop:/[.?!:,…]$/.test(w)})}));
+    WORDS.push({w:w.replace(/[,:…!?]+$/,'').replace(/\s*!$/,'').replace(/\.$/,''),s,e,seg:g.i,stop:/[.?!:,…]$/.test(w)})}));
   let cur=[];WORDS.forEach((w,i)=>{cur.push(i);const n=WORDS[i+1];if(cur.length>=3||!n||n.seg!==w.seg||w.stop){CHUNKS.push(cur);cur=[]}})}
-const HOT=/^(sortir|soir|teufy|quatre-vingt-quatorze|soirées|nice|cannes|monaco|toulon|ville|techno|house|afro|shatta|style|cent|clubs|bars|quatre|manger|boîtes|plans|abonne-toi|teufyparty)$/i;
+const HOT=/^(sortir|soir|teufy|soirées|ouvertes|toi|techno|house|afro|shatta|style|gratuites|plans|manger|cinq|toulon|monaco|côte|d'azur|abonne-toi|teufyparty\.com)$/i;
 function renderCaps(t){const ci=CHUNKS.findIndex((c,k)=>t>=WORDS[c[0]].s-.05&&t<(CHUNKS[k+1]?WORDS[CHUNKS[k+1][0]].s-.05:WORDS[c[c.length-1]].e+.6));
   const box=$('capbox');if(ci<0){box.style.opacity=0;return}box.style.opacity=1;const c=CHUNKS[ci];
   box.innerHTML=c.map(i=>{const w=WORDS[i];const on=t>=w.s-.03;return `<span class="w${on&&HOT.test(w.w)?' on':''}" style="opacity:${on?1:.35}">${w.w.toUpperCase()}</span>`}).join('');
   const p=Math.min(1,(t-WORDS[c[0]].s+.05)/.15);box.style.transform=`scale(${.85+.15*p})`}
-// début du mot (n-ième occurrence) dans la réplique i
 function wt(i,sub,n=0){const ws=TL[i].words.filter(w=>w[0].toLowerCase().includes(sub));return ws[n]?ws[n][1]:TL[i].start}
-function build(){const S=TL.map(g=>g.start),END=TL[TL.length-1].start+TL[TL.length-1].dur+1.0;
-  tl=gsap.timeline({paused:true});const sc=['s0','s1','s2','s3','s4','s5','s6','s7'];
-  gsap.set(sc.map(s=>'#'+s),{autoAlpha:0});gsap.set('#s0',{autoAlpha:1});gsap.set('#flash',{opacity:0});
-  const cut=(i,at)=>{tl.set('#'+sc[i],{autoAlpha:1},at);if(i>0)tl.set('#'+sc[i-1],{autoAlpha:0},at+.02);if(i>0)tl.fromTo('#flash',{opacity:.6},{opacity:0,duration:.22,ease:'power2.out',immediateRender:false},at)};
-  const fin=i=>i+1<S.length?S[i+1]:END;
-  // dérive de caméra permanente + zooms-chocs sur les mots clés
-  sc.forEach((s,i)=>tl.fromTo('#'+s,{scale:1.0,rotation:-.5},{scale:1.07,rotation:.5,duration:fin(i)-S[i],ease:'none',transformOrigin:'50% 45%'},S[i]));
-  WORDS.forEach(w=>{if(/^(soir|quatre-vingt-quatorze|ville|style|cent|manger|teufy|teufyparty)$/i.test(w.w)){tl.to('#stage',{scale:1.05,duration:.08,ease:'power2.out'},w.s-.02);tl.to('#stage',{scale:1,duration:.35,ease:'power2.out'},w.s+.06)}});
-  // --- 0 : accroche (titre visible dès l'image 0)
-  cut(0,0);tl.set('#credit',{textContent:'Photo : Miguel Mendez · CC BY 2.0 (Wikimedia Commons)'},0);tl.set('#credit',{textContent:''},S[1]);tl.fromTo('#pProm',{scale:1.15,x:0},{scale:1.3,x:-250,duration:S[1],ease:'none'},0);tl.fromTo('#t0',{scale:1.06},{scale:1,duration:.5,ease:'back.out(2)',transformOrigin:'50% 50%'},0);
-  [['#b1',.35],['#b2',.75],['#b3',1.15]].forEach(([b,d])=>{tl.from(b,{scale:0,y:60,opacity:0,transformOrigin:'0% 100%',duration:.35,ease:'back.out(2.2)'},d);tl.to(b,{y:-10,duration:.4,yoyo:true,repeat:3,ease:'sine.inOut'},d+.4)});
-  tl.to('#t0 em',{color:'#3DFF8A',duration:.15,yoyo:true,repeat:5},.6);
-  // --- 1 : accueil qui défile + compteur 94
-  cut(1,S[1]);tl.fromTo('#cAcc',{y:0,scale:1.08},{y:-1300,scale:1,duration:fin(1)-S[1],ease:'power1.inOut'},S[1]);
-  tl.from('#k94',{y:500,opacity:0,rotationX:35,duration:.6,ease:'back.out(1.6)'},S[1]+.15);
-  const k={v:0};tl.to(k,{v:94,duration:1.2,ease:'power3.out',onUpdate:()=>$('n94').textContent=Math.round(k.v)},wt(1,'quatre')-.1);
-  tl.to('#k94',{y:-16,duration:.5,yoyo:true,repeat:3,ease:'sine.inOut'},wt(1,'quatre')+1.2);
-  // --- 2 : villes : vraie photo + côte qui se trace + villes au fil de la voix
-  cut(2,S[2]);tl.set('#credit',{textContent:'Photo : Spike · CC BY-SA 4.0 (Wikimedia Commons)'},S[2]);tl.set('#credit',{textContent:''},fin(2));
-  const nw=3840*1920/1299;gsap.set('#pNice',{width:nw,x:-1100,scale:1.05});tl.to('#pNice',{x:-2300,scale:1.15,duration:fin(2)-S[2],ease:'none'},S[2]);
-  tl.from('#t2',{scale:.6,opacity:0,transformOrigin:'0% 50%',duration:.45,ease:'back.out(2)'},S[2]);
-  const L=$('cote').getTotalLength();gsap.set('#cote',{attr:{'stroke-dasharray':L,'stroke-dashoffset':L}});tl.to('#cote',{attr:{'stroke-dashoffset':0},duration:1.4,ease:'power2.inOut'},S[2]+.1);
-  [['nice','#pinN','#vN'],['cannes','#pinC','#vC'],['monaco','#pinM','#vM'],['toulon','#pinT','#vT']].forEach(([m,p,c])=>{const at=wt(2,m)-.08;tl.from(p,{scale:0,transformOrigin:'50% 50%',duration:.4,ease:'back.out(3)'},at);tl.from(c,{scale:0,opacity:0,duration:.35,ease:'back.out(2.4)'},at+.05)});
-  // --- 3 : styles : page techno, zoom sur « 22 soirées », styles qui apparaissent avec la voix
-  cut(3,S[3]);tl.fromTo('#cTek',{y:-60,scale:1},{y:-420,scale:1.04,transformOrigin:'50% 30%',duration:fin(3)-S[3],ease:'power1.inOut'},S[3]);
-  gsap.set('#r3',{display:'none'});
-  [['techno','#g1'],['house','#g2'],['afro','#g3'],['shatta','#g4']].forEach(([m,c])=>tl.from(c,{y:-80,scale:0,opacity:0,duration:.35,ease:'back.out(2.4)'},wt(3,m)-.06));
-  // --- 4 : clubs & bars : compteur 103, la page défile
-  cut(4,S[4]);tl.fromTo('#cClub',{y:-300,scale:1.04},{y:-2200,scale:1,duration:fin(4)-S[4],ease:'power1.inOut'},S[4]);
-  tl.from('#k103',{scale:.4,opacity:0,rotation:-6,duration:.5,ease:'back.out(1.8)'},S[4]+.1);
-  const c={v:0};tl.to(c,{v:103,duration:1.1,ease:'power3.out',onUpdate:()=>$('n103').textContent=Math.round(c.v)},S[4]+.25);
-  tl.to('#k103',{rotation:2,duration:.3,yoyo:true,repeat:4,ease:'sine.inOut'},S[4]+1.3);
-  // --- 5 : manger tard : la page, cercle sur « jusqu'à 4 h », horloge qui défile
-  cut(5,S[5]);tl.fromTo('#cMan',{y:-1700,scale:1},{y:-2950,scale:1.06,duration:fin(5)-S[5],ease:'power2.out'},S[5]);
-  tl.from('#clock',{y:-300,opacity:0,duration:.5,ease:'back.out(1.8)'},S[5]+.1);
-  const h={v:2};tl.to(h,{v:5,duration:1.2,ease:'steps(3)',onUpdate:()=>$('hh').textContent=String(Math.round(h.v)).padStart(2,'0')},S[5]+.5);
-  tl.fromTo('#r5',{scale:2.2,opacity:0},{scale:1,opacity:1,duration:.4,ease:'back.out(2)'},wt(5,'manger')-.1);
-  // --- 6 : récapitulatif : trois cartes en verre en cascade, compteurs au fil de la voix
-  cut(6,S[6]);tl.fromTo('#cNice',{y:0},{y:-900,duration:fin(6)-S[6],ease:'none'},S[6]);
-  [['#r1','#x94',94,'soirées'],['#r2','#x103',103,'boîtes'],['#r3b','#x43',43,'plans']].forEach(([c,n,v,m],k)=>{const at=wt(6,m)-.12;
-    tl.from(c,{x:k%2?700:-700,rotation:k%2?8:-8,opacity:0,duration:.45,ease:'back.out(1.7)'},at);
-    const o={v:0};tl.to(o,{v,duration:.7,ease:'power3.out',onUpdate:()=>$(n.slice(1)).textContent=Math.round(o.v)},at+.1);
-    tl.to(c,{y:-12,duration:.4,yoyo:true,repeat:3,ease:'sine.inOut'},at+.6)});
-  // --- 7 : appel à l'action
-  cut(7,S[7]);tl.set('#credit',{textContent:'Photo : Spike · CC BY-SA 4.0 (Wikimedia Commons)'},S[7]);
-  const mw=3840*1920/1740;gsap.set('#pMon',{width:mw,x:-900,scale:1.05});tl.to('#pMon',{x:-1900,scale:1.12,duration:END-S[7],ease:'none'},S[7]);
-  tl.from('#logoBig',{scale:0,rotation:-25,duration:.6,ease:'back.out(2.2)'},S[7]);tl.to('#logoBig',{scale:1.06,duration:.3,yoyo:true,repeat:7,ease:'sine.inOut'},S[7]+.7);
-  tl.from('#follow',{y:300,opacity:0,duration:.5,ease:'back.out(1.6)'},S[7]+.25);
-  tl.to('#btn',{scale:.9,duration:.12,yoyo:true,repeat:1,ease:'power2.inOut'},wt(7,'abonne'));tl.set('#btn',{textContent:'Abonné ✓',background:'#3DFF8A'},wt(7,'abonne')+.24);
-  const url='teufyparty.com',u={v:0};tl.to(u,{v:url.length,duration:.9,ease:'none',onUpdate:()=>$('url').textContent=url.slice(0,Math.round(u.v))},wt(7,'teufyparty')-.15);
-  tl.to('#curseur',{opacity:0,duration:.25,yoyo:true,repeat:9,ease:'steps(1)'},S[7]);
-  // Coupes franches à l'intérieur des scènes (un changement de plan toutes les 1 à 2 s) : recadrage serré / large en alternance.
-  const foyers=[['50% 30%','50% 55%'],['50% 45%','40% 30%'],['70% 40%','30% 55%'],['50% 25%','50% 70%'],['50% 25%','50% 60%'],['60% 50%','40% 25%'],['50% 30%','50% 60%'],['50% 30%','50% 55%']];
-  sc.forEach((id,i)=>{const d=fin(i)-S[i];const n=Math.floor(d/1.5);for(let k=1;k<=n;k++){const at=S[i]+k*d/(n+1);
-    tl.set('#'+id+' > .cam',{scale:k%2?1.14:1,transformOrigin:foyers[i][(k-1)%2]},at);tl.fromTo('#flash',{opacity:.3},{opacity:0,duration:.15,ease:'power2.out',immediateRender:false},at)}});
+// confettis : salves pré-créées, positions pseudo-aléatoires fixes (rendu image par image reproductible)
+const SALVES=[];function salve(at,x,y,n=46){const els=[];for(let k=0;k<n;k++){const d=document.createElement('div');d.className='conf';d.style.background=['#FF5A3C','#3DFF8A','#FF2BD6','#FFD23F','#F4EFE6'][k%5];d.style.left=x+'px';d.style.top=y+'px';d.style.opacity=0;$('confs').appendChild(d);els.push(d)}
+  els.forEach((d,k)=>{const a=rnd(k+at*7)*Math.PI*2,v=350+rnd(k+3+at)*650;tl.set(d,{opacity:1},at);tl.fromTo(d,{x:0,y:0,rotation:0},{x:Math.cos(a)*v,y:Math.sin(a)*v*.7+500,rotation:rnd(k)*900,duration:1.4,ease:'power2.out',immediateRender:false},at);tl.to(d,{opacity:0,duration:.3},at+1.1)})}
+// quelles scènes affichent la boîte 3D, et avec quel angle de caméra
+const SCENE3D={0:0,1:1,4:2,8:4};
+function build(){S=TL.map(g=>g.start);END=TL[TL.length-1].start+TL[TL.length-1].dur+1.3;const fin=i=>i+1<S.length?S[i+1]:END;
+  tl=gsap.timeline({paused:true});const sc=['s0','s2','s3','s4','s5','s6','s7','s8'];
+  gsap.set(sc.map(s=>'#'+s),{autoAlpha:0});gsap.set('#s0',{autoAlpha:1});gsap.set(['#phone'],{autoAlpha:0});gsap.set('#flash',{opacity:0});gsap.set(['#gTech','#gHouse','#gAfro','#gShat'],{opacity:0});
+  const montre=(id,at,jusqua)=>{tl.set('#'+id,{autoAlpha:1},at);tl.set('#'+id,{autoAlpha:0},jusqua)};
+  const flash=(at,o=.7)=>tl.fromTo('#flash',{opacity:o},{opacity:0,duration:.2,ease:'power2.out',immediateRender:false},at);
+  // caméra : dérive + zooms-chocs sur les mots clés, lumières qui bougent
+  tl.fromTo('#stage',{rotation:-.4},{rotation:.4,duration:END,ease:'sine.inOut'},0);
+  WORDS.forEach(w=>{if(/^(soir|teufy|toi|techno|house|afro|shatta|gratuites|cinq|monaco|teufyparty\.com)$/i.test(w.w)){tl.to('#stage',{scale:1.06,duration:.07,ease:'power2.out'},w.s-.02);tl.to('#stage',{scale:1,duration:.35,ease:'power2.out'},w.s+.05)}});
+  tl.fromTo('#leak',{opacity:.25,backgroundPosition:'0 0'},{opacity:.45,duration:END,ease:'none'},0);
+  // --- 0 : accroche, titre lisible dès l'image 0, mots qui s'allument avec la voix
+  montre('s0',0,S[1]);tl.fromTo('#t0',{scale:1.08},{scale:1,duration:.45,ease:'back.out(2)'},0);
+  [['#t0a','sais'],['#t0b','sortir']].forEach(([e,m])=>tl.fromTo(e,{color:'#F4EFE6'},{color:'#FFD23F',duration:.1,yoyo:true,repeat:1},wt(0,m)));
+  tl.to('#t0c',{scale:1.18,duration:.12,yoyo:true,repeat:1,transformOrigin:'50% 50%',display:'inline-block'},wt(0,'soir'));tl.to('#t0c',{x:8,duration:.04,yoyo:true,repeat:5,ease:'none'},wt(0,'soir')+.05);
+  // --- 1 : « Ouvre Teufy ! » : le téléphone jaillit, écran de lancement, confettis
+  flash(S[1]);tl.set('#phone',{autoAlpha:1},S[1]);tl.fromTo('#phone',{y:1300,rotation:-18,rotationX:40},{y:0,rotation:0,rotationX:0,duration:.55,ease:'back.out(1.5)',immediateRender:false},S[1]);
+  tl.set('#splash',{opacity:1},S[1]);tl.fromTo('#splash img',{scale:.3},{scale:1.1,duration:.35,ease:'back.out(3)',immediateRender:false},wt(1,'teufy')-.1);
+  salve(wt(1,'teufy'),540,700);
+  // --- 2 : ce soir : la page « Ce soir » défile dans le téléphone
+  montre('s2',S[2],S[3]);tl.set('#splash',{opacity:0},S[2]);tl.set('#scrSoir',{opacity:1},S[2]);flash(S[2],.4);
+  tl.fromTo('#scrSoir',{y:0},{y:-650,duration:fin(2)-S[2],ease:'power1.inOut',immediateRender:false},S[2]);
+  tl.fromTo('#phone',{scale:1},{scale:.86,x:170,duration:.5,ease:'power2.out',immediateRender:false},S[2]);
+  tl.from('#live',{x:-500,opacity:0,duration:.4,ease:'back.out(2)'},wt(2,'soir',0)-.05);tl.to('#live',{scale:1.08,duration:.25,yoyo:true,repeat:5},wt(2,'soir',0)+.4);
+  tl.from('#t2',{scale:2,opacity:0,duration:.5,ease:'power2.out'},S[2]);
+  // --- 3 : près de toi : radar, lieux ouverts autour de « Toi »
+  tl.set('#phone',{autoAlpha:0},S[3]);montre('s3',S[3],S[4]);flash(S[3],.5);
+  tl.from('#t3',{y:-150,opacity:0,duration:.4,ease:'back.out(2)'},S[3]);tl.from(['#moi','#toi'],{scale:0,duration:.35,ease:'back.out(3)'},S[3]+.1);
+  ['#rg1','#rg2'].forEach((r,k)=>tl.fromTo(r,{scale:.3,opacity:1},{scale:2.6,opacity:0,duration:1.1,repeat:1,ease:'power1.out',immediateRender:false},S[3]+.2+k*.55));
+  ['p1','p2','p3','p4'].forEach((p,k)=>{const at=wt(3,'boîtes')+k*.18;tl.from('#'+p,{y:-300,opacity:0,duration:.4,ease:'bounce.out'},at)});
+  ['o1','o2','o3','o4'].forEach((o,k)=>tl.from('#'+o,{scale:0,opacity:0,duration:.3,ease:'back.out(3)'},wt(3,'ouvertes')+k*.1));
+  tl.to(['#p1','#p2','#p3','#p4'],{y:-14,duration:.3,yoyo:true,repeat:3,stagger:.08,ease:'sine.inOut'},wt(3,'toi'));
+  // --- 4 : styles : chaque style claque en grand sur la boîte 3D, avec son vrai nombre de soirées
+  montre('s4',S[4],S[5]);flash(S[4],.5);
+  [['techno','#gTech','#n1'],['house','#gHouse','#n2'],['afro','#gAfro','#n3'],['shatta','#gShat','#n4']].forEach(([m,g,n],k,arr)=>{const at=wt(4,m)-.05,fi=k+1<arr.length?wt(4,arr[k+1][0])-.05:wt(4,'choisis')-.05;
+    tl.fromTo(g,{scale:2.4,opacity:0},{scale:1,opacity:1,duration:.22,ease:'power3.out',immediateRender:false},at);tl.set(g,{opacity:0},fi);flash(at,.35);tl.from(n,{y:-60,scale:0,opacity:0,duration:.3,ease:'back.out(2.5)'},at+.05)});
+  tl.from('#ton',{scale:.4,opacity:0,duration:.35,ease:'back.out(2.4)'},wt(4,'choisis'));
+  // --- 5 : gratuit & bons plans : le prix tombe à 0, tampon GRATUIT, compteur 43
+  montre('s5',S[5],S[6]);flash(S[5],.4);tl.from('#ticket',{rotationX:70,y:200,opacity:0,duration:.45,ease:'back.out(1.6)'},S[5]);
+  tl.fromTo('#zero',{scale:2.2,opacity:0},{scale:1,opacity:1,duration:.25,ease:'back.out(2.5)',transformOrigin:'0% 50%',immediateRender:false},wt(5,'gratuites')-.2);
+  tl.fromTo('#tampon',{scale:3,opacity:0},{scale:1,opacity:1,duration:.18,ease:'power4.in',immediateRender:false},wt(5,'gratuites')+.15);tl.to('#ticket',{x:12,duration:.04,yoyo:true,repeat:5},wt(5,'gratuites')+.33);
+  tl.from('#bp',{x:600,opacity:0,duration:.4,ease:'back.out(1.8)'},wt(5,'bons')-.2);const b43={v:0};tl.to(b43,{v:43,duration:.7,ease:'power3.out',onUpdate:()=>$('n43').textContent=Math.round(b43.v)},wt(5,'bons'));
+  salve(wt(5,'plans'),540,1000,30);
+  // --- 6 : manger tard : la boîte « ferme » (noir), l'horloge arrive sur 05:00 pile sur « cinq heures », la vraie page
+  montre('s6',S[6],S[7]);tl.set('#credit',{textContent:'Photo : Miguel Mendez · CC BY 2.0 (Wikimedia Commons)'},S[6]);tl.set('#credit',{textContent:''},S[7]);
+  tl.fromTo('#pProm',{x:0,scale:1.1},{x:-300,scale:1.2,duration:fin(6)-S[6],ease:'none',immediateRender:false},S[6]);
+  tl.fromTo('#noir',{opacity:0},{opacity:.85,duration:.12,yoyo:true,repeat:1,immediateRender:false},wt(6,'ferme'));
+  tl.from('#clock',{y:-300,opacity:0,duration:.4,ease:'back.out(1.8)'},wt(6,'ferme')+.1);
+  const h={v:1};tl.to(h,{v:5,duration:wt(6,'cinq')-wt(6,'trouve'),ease:'steps(4)',onUpdate:()=>$('hh').textContent=String(Math.round(h.v)).padStart(2,'0')},wt(6,'trouve'));
+  tl.to('#clock',{scale:1.12,duration:.15,yoyo:true,repeat:1},wt(6,'cinq'));
+  tl.set('#phone',{autoAlpha:1,x:180,scale:.82},wt(6,'on')-.05);tl.set('#scrSoir',{opacity:0},wt(6,'on')-.05);tl.set('#scrMan',{opacity:1},wt(6,'on')-.05);
+  tl.fromTo('#phone',{y:900},{y:120,duration:.45,ease:'back.out(1.5)',immediateRender:false},wt(6,'on')-.05);
+  // capture « Manger tard » : Royal Food by Night « jusqu'à 5 h » (y ≈ 2 840 px de la capture → 1 451 px à l'échelle du téléphone)
+  tl.fromTo('#scrMan',{y:-1000},{y:-1240,duration:fin(6)-wt(6,'on'),ease:'power1.out',immediateRender:false},wt(6,'on')-.05);
+  tl.fromTo('#rMan',{opacity:0,scale:1.8},{opacity:1,scale:1,top:'205px',duration:.3,ease:'back.out(2)',immediateRender:false},wt(6,'cinq')-.05);
+  tl.set('#phone',{autoAlpha:0},S[7]);
+  // --- 7 : toute la Côte d'Azur : la côte se trace d'ouest en est, les villes du site apparaissent, compteur 94
+  montre('s7',S[7],S[8]);flash(S[7],.4);tl.set('#credit',{textContent:'Photo : Spike · CC BY-SA 4.0 (Wikimedia Commons)'},S[7]);tl.set('#credit',{textContent:''},S[8]);
+  tl.fromTo('#pMon',{x:0},{x:-500,duration:fin(7)-S[7],ease:'none',immediateRender:false},S[7]);tl.from('#t7',{scale:.5,opacity:0,duration:.4,ease:'back.out(2)'},S[7]);
+  const L=$('cote').getTotalLength();gsap.set('#cote',{attr:{'stroke-dasharray':L,'stroke-dashoffset':L}});const d7=wt(7,'azur')-wt(7,'toulon');
+  tl.to('#cote',{attr:{'stroke-dashoffset':0},duration:d7+.2,ease:'none'},wt(7,'toulon')-.1);
+  const V=[['Toulon',.0,-20],['Saint-Tropez',.17,40],['Fréjus',.32,-40],['Cannes',.5,40],['Antibes',.63,-40],['Nice',.8,40],['Monaco',1.0,-40]];
+  V.forEach(([n,f,dy],k)=>{const pt=$('cote').getPointAtLength(L*f);const c=document.createElement('div');c.className='chip';c.style.cssText+=`;font-size:28px;padding:8px 18px;left:${Math.min(Math.max(pt.x-70,80),860)}px;top:${pt.y+dy-(dy<0?60:0)}px`;c.textContent=n;$('villes').appendChild(c);
+    const dot=document.createElement('div');dot.style.cssText=`position:absolute;left:${pt.x-14}px;top:${pt.y-14}px;width:28px;height:28px;border-radius:50%;background:#F4EFE6;border:6px solid #FF5A3C`;$('villes').appendChild(dot);
+    const at=k===0?wt(7,'toulon'):k===6?wt(7,'monaco'):wt(7,'toulon')+f*d7;tl.from([c,dot],{scale:0,opacity:0,duration:.25,ease:'back.out(3)'},at)});
+  tl.from('#k94',{y:300,opacity:0,duration:.4,ease:'back.out(1.6)'},wt(7,'toute'));const n94={v:0};tl.to(n94,{v:94,duration:.8,ease:'power3.out',onUpdate:()=>$('n94').textContent=Math.round(n94.v)},wt(7,'toute'));
+  // --- 8 : appel à l'action
+  montre('s8',S[8],END+1);flash(S[8],.7);tl.from('#logoBig',{scale:0,rotation:-25,duration:.5,ease:'back.out(2.4)'},S[8]);tl.to('#logoBig',{scale:1.07,duration:.25,yoyo:true,repeat:7,ease:'sine.inOut'},S[8]+.6);
+  tl.from('#follow',{y:300,opacity:0,duration:.45,ease:'back.out(1.6)'},S[8]+.15);
+  tl.to('#btn',{scale:.88,duration:.1,yoyo:true,repeat:1},wt(8,'abonne')+.2);tl.set('#btn',{textContent:'Abonné ✓',background:'#3DFF8A'},wt(8,'abonne')+.4);
+  const url='teufyparty.com',u={v:0};tl.to(u,{v:url.length,duration:.75,ease:'none',onUpdate:()=>$('url').textContent=url.slice(0,Math.round(u.v))},wt(8,'teufyparty')-.1);
+  tl.to('#curseur',{opacity:0,duration:.25,yoyo:true,repeat:11,ease:'steps(1)'},S[8]);
+  salve(wt(8,'teufyparty')+.5,540,800);salve(wt(8,'abonne')+.4,700,980,30);
   tl.to({},{duration:.01},END);return END}
-window.init=async(tlData)=>{document.querySelectorAll('.scene').forEach(sc=>{const c=document.createElement('div');c.className='cam';[...sc.children].filter(e=>e.matches('img.cap,img.photo,#pProm,.shade,.blob')).forEach(e=>c.appendChild(e));sc.insertBefore(c,sc.firstChild)});TL=tlData;buildCaps();await document.fonts.ready;await Promise.all([...document.images].map(i=>i.decode().catch(()=>{})));return build()};
-window.seek=t=>{tl.seek(t,false);renderCaps(t)};
+window.init=async(tlData)=>{TL=tlData;buildCaps();await document.fonts.ready;await Promise.all([...document.images].map(i=>i.decode().catch(()=>{})));return build()};
+window.seek=t=>{tl.seek(t,false);renderCaps(t);
+  // boîte 3D : rendue seulement dans les scènes qui la montrent
+  const i=S.findIndex((s,k)=>t>=s&&(k+1>=S.length||t<S[k+1]));const ang=SCENE3D[i];const c=$('c3d');
+  if(ang!==undefined){c.style.opacity=1;club3d(t,{angle:ang,lt:t-S[i]})}else c.style.opacity=0};
 </script></body></html>

@@ -3,7 +3,8 @@
  "private": true,
  "description": "Générateur de vidéos motion (HTML + CSS + GSAP), copié de riviera-studio",
  "dependencies": {
+  "@fontsource/inter": "5.2.5",
   "gsap": "3.13.0",
-  "@fontsource/inter": "5.2.5"
+  "three": "^0.149.0"
  }
 }
