@@ -1,16 +1,10 @@
 {
-  "jour": "2026-11-17",
+  "jour": "2026-11-18",
   "plan": [
     {
-      "type": "question",
-      "cles": [
-        "d-filmer-set"
-      ],
-      "frames": [
-        {
-          "image": "2026-11-17-question.jpg"
-        }
-      ]
+      "type": "soirees",
+      "cles": [],
+      "frames": []
     }
   ]
 }
