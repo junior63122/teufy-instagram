@@ -1,0 +1,155 @@
+<!doctype html><html><head><meta charset="utf-8">
+<!-- Spot promo n°3 « Défi gratuit » (18/11/2026) : accroche défi (chrono à l'écran, le temps affiché est le vrai temps
+     écoulé dans la vidéo), une seule fonctionnalité (Soirées gratuites et bons plans + filtre Où), DA crème.
+     Captures : vraie page teufyparty.com/soirees-gratuites/ le 18/11/2026, affiches des organisateurs masquées. -->
+<style>
+@font-face{font-family:Bric;src:url(fonts/bricolage-titre.woff2) format('woff2');font-weight:800;font-stretch:80%}
+@font-face{font-family:IT;src:url(fonts/inter-tight.woff2) format('woff2');font-weight:100 900}
+:root{--nuit:#0B0B0F;--creme:#F4EFE6;--corail:#FF5A3C;--live:#3DFF8A;--gris:#8C877F;--rose:#FF2BD6;--jaune:#FFD23F}
+*{box-sizing:border-box;margin:0}
+html,body{background:#000;width:1080px;height:1920px;overflow:hidden;font-family:IT,sans-serif;color:var(--nuit)}
+#stage{position:relative;transform-origin:50% 45%;width:1080px;height:1920px;overflow:hidden;background:var(--creme)}
+.scene{position:absolute;inset:0;overflow:hidden}
+.k{position:absolute;left:0;right:0;text-align:center;font-family:Bric;font-weight:800;font-stretch:80%;letter-spacing:-.02em;line-height:.92;color:var(--nuit)}
+.k em{font-style:normal;color:var(--corail)}
+#raies{position:absolute;left:-600px;top:-600px;width:2400px;height:3200px;background:repeating-linear-gradient(45deg,rgba(255,90,60,.10) 0 60px,transparent 60px 140px)}
+#defi{position:absolute;left:50%;top:250px;margin-left:-330px;width:660px;text-align:center;font-family:Bric;font-weight:800;font-stretch:80%;font-size:230px;line-height:1;color:var(--creme);background:var(--corail);border-radius:36px;padding:10px 0 24px;transform:rotate(-4deg);box-shadow:0 24px 0 var(--nuit)}
+#dix{position:absolute;left:0;right:0;top:880px;text-align:center;font-family:Bric;font-weight:800;font-stretch:80%;font-size:330px;line-height:1;color:var(--nuit);opacity:0}
+#dix small{font-size:150px;color:var(--corail)}
+#chrono{position:absolute;left:50%;top:230px;width:520px;margin-left:-260px;text-align:center;border-radius:999px;background:var(--nuit);color:var(--creme);font-family:Bric;font-weight:800;font-stretch:80%;font-size:96px;padding:6px 0 12px;box-shadow:0 18px 50px rgba(0,0,0,.25);z-index:30;opacity:0}
+#chrono b{color:var(--corail)}
+#phone{position:absolute;left:250px;top:500px;width:580px;height:1180px;border-radius:78px;background:#050507;border:14px solid #24242c;box-shadow:0 50px 120px rgba(0,0,0,.35);overflow:hidden;transform-origin:50% 60%;opacity:0}
+#phone .ecr{position:absolute;inset:0;overflow:hidden;border-radius:62px}
+#phone img.c{position:absolute;left:0;top:0;width:552px;opacity:0}
+#phone .notch{position:absolute;left:50%;top:14px;width:150px;height:38px;margin-left:-75px;border-radius:20px;background:#000;z-index:3}
+#splash{position:absolute;inset:0;background:var(--nuit);display:flex;align-items:center;justify-content:center;opacity:0}
+.etape{position:absolute;left:90px;top:380px;display:flex;align-items:center;gap:16px;font-family:Bric;font-weight:800;font-stretch:80%;font-size:72px;opacity:0}
+.etape span{display:inline-flex;width:84px;height:84px;border-radius:50%;background:var(--nuit);color:var(--creme);align-items:center;justify-content:center;font-size:54px}
+.tap{position:absolute;width:110px;height:110px;margin:-55px 0 0 -55px;border-radius:50%;background:rgba(255,90,60,.45);border:6px solid var(--corail);opacity:0;z-index:20}
+#badge{position:absolute;left:150px;top:820px;width:780px;padding:30px 40px;border-radius:40px;background:var(--nuit);color:var(--creme);text-align:center;box-shadow:0 30px 80px rgba(0,0,0,.35);opacity:0;z-index:25}
+#tampon{position:absolute;left:300px;top:600px;transform:rotate(-12deg);border:12px solid var(--corail);color:var(--corail);font-family:Bric;font-weight:800;font-stretch:80%;font-size:120px;padding:4px 30px;border-radius:22px;background:rgba(244,239,230,.92);opacity:0;z-index:26}
+#resultat{position:absolute;left:0;right:0;top:560px;text-align:center;font-family:Bric;font-weight:800;font-stretch:80%;font-size:250px;line-height:1;opacity:0}
+#facile{position:absolute;left:50%;top:900px;margin-left:-380px;width:760px;text-align:center;font-family:Bric;font-weight:800;font-stretch:80%;font-size:150px;color:var(--creme);background:var(--nuit);border-radius:30px;padding:6px 0 18px;transform:rotate(3deg);opacity:0}
+#caps{position:absolute;left:90px;right:90px;top:1300px;height:150px;display:flex;justify-content:center;align-items:center;z-index:40}
+#capbox{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;padding:16px 22px;border-radius:28px;background:rgba(11,11,15,.9);border:2px solid rgba(255,255,255,.1)}
+.w{font-family:Bric;font-weight:800;font-stretch:80%;font-size:64px;color:var(--creme);padding:2px 12px;border-radius:12px;line-height:1.1}
+.w.on{background:var(--corail);color:var(--nuit);transform:scale(1.06)}
+.glass{position:absolute;border-radius:40px;background:#fff;border:3px solid var(--nuit);box-shadow:0 14px 0 var(--nuit)}
+#flash{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none;z-index:50}
+.conf{position:absolute;width:18px;height:30px;border-radius:4px}
+</style></head><body>
+<div id="stage">
+ <div id="raies"></div>
+ <!-- 0 : le défi -->
+ <div class="scene" id="s0">
+  <div id="defi">DÉFI</div>
+  <div class="k" id="t0" style="top:600px;font-size:104px">Une soirée <em>gratuite</em><br>en moins de</div>
+  <div id="dix">10<small> s</small></div>
+ </div>
+ <div class="k" id="topc" style="top:700px;font-size:190px;opacity:0">TOP<br><em>CHRONO !</em></div>
+ <div id="chrono"><span id="sec">00</span><b>,</b><span id="dec">0</span> s</div>
+ <!-- étapes dans le téléphone -->
+ <div class="etape" id="e1"><span>1</span>Ouvre Teufy</div>
+ <div class="etape" id="e2"><span>2</span>Gratuit</div>
+ <div class="etape" id="e3"><span>3</span>Ta ville</div>
+ <div id="phone"><div class="ecr">
+  <img class="c" id="g1" src="img/g1.jpg"><img class="c" id="g2" src="img/g2.jpg"><img class="c" id="g3" src="img/g3.jpg">
+  <div id="splash"><img src="img/logo.png" style="width:300px"></div>
+ </div><div class="notch"></div></div>
+ <div class="tap" id="tp1"></div><div class="tap" id="tp2"></div><div class="tap" id="tp3"></div>
+ <div id="badge"><div style="font-family:Bric;font-weight:800;font-stretch:80%;font-size:92px;line-height:1">Entrée libre</div><div style="font-size:46px;font-weight:800;margin-top:10px;color:var(--jaune)">ou petits prix (10 € max)</div></div>
+ <div id="tampon">GRATUIT</div>
+ <!-- 6 : résultat -->
+ <div class="scene" id="s6">
+  <div class="k" style="top:400px;font-size:80px">Temps :</div>
+  <div id="resultat"></div>
+  <div id="facile">TROP FACILE</div>
+ </div>
+ <!-- 7 : à toi -->
+ <div class="scene" id="s7">
+  <div class="k" id="t7" style="top:280px;font-size:120px">À <em>toi</em> de jouer</div>
+  <img id="logoBig" src="img/logo.png" style="position:absolute;left:390px;top:470px;width:300px;background:var(--nuit);border-radius:50%;padding:46px">
+  <div class="k" style="top:830px;font-size:96px"><span id="url"></span><span id="curseur" style="color:var(--corail)">|</span></div>
+  <div class="glass" id="follow" style="left:190px;top:980px;width:700px;height:150px;display:flex;align-items:center;gap:24px;padding:0 36px">
+   <img src="img/logo.png" style="width:86px;background:var(--nuit);border-radius:50%;padding:10px">
+   <div style="flex:1;font-size:40px;font-weight:800">@teufy_official</div>
+   <div id="btn" style="background:var(--corail);color:var(--nuit);font-weight:900;font-size:36px;padding:16px 28px;border-radius:18px">S'abonner</div>
+  </div>
+ </div>
+ <div id="confs"></div>
+ <div id="caps"><div id="capbox"></div></div>
+ <div id="flash"></div>
+</div>
+<script src="../node_modules/gsap/dist/gsap.min.js"></script>
+<script>
+function rnd(i){const x=Math.sin(i*127.1+311.7)*43758.5453;return x-Math.floor(x)}
+let TL=[],tl,WORDS=[],CHUNKS=[],S=[],END=0;const $=id=>document.getElementById(id);
+function buildCaps(){WORDS=[];TL.forEach(g=>g.words.forEach(([w,s,e])=>{if(/^[^\wÀ-ÿ€0-9]+$/.test(w)){if(WORDS.length){WORDS[WORDS.length-1].e=e;WORDS[WORDS.length-1].stop=true}return}
+    WORDS.push({w:w.replace(/[,:…!?]+$/,'').replace(/\s*!$/,'').replace(/\.$/,''),s,e,seg:g.i,stop:/[.?!:,…]$/.test(w)})}));
+  let cur=[];WORDS.forEach((w,i)=>{cur.push(i);const n=WORDS[i+1];if(cur.length>=3||!n||n.seg!==w.seg||w.stop){CHUNKS.push(cur);cur=[]}})}
+const HOT=/^(défi|gratuite|dix|secondes|chrono|teufy|gratuit|ville|voilà|libre|petits|prix|trop|facile|toi|jouer|teufyparty\.com)$/i;
+function renderCaps(t){const ci=CHUNKS.findIndex((c,k)=>t>=WORDS[c[0]].s-.05&&t<(CHUNKS[k+1]?WORDS[CHUNKS[k+1][0]].s-.05:WORDS[c[c.length-1]].e+.6));
+  const box=$('capbox');if(ci<0){box.style.opacity=0;return}box.style.opacity=1;const c=CHUNKS[ci];
+  box.innerHTML=c.map(i=>{const w=WORDS[i];const on=t>=w.s-.03;return `<span class="w${on&&HOT.test(w.w)?' on':''}" style="opacity:${on?1:.35}">${w.w.toUpperCase()}</span>`}).join('');
+  const p=Math.min(1,(t-WORDS[c[0]].s+.05)/.15);box.style.transform=`scale(${.85+.15*p})`}
+function wt(i,sub,n=0){const ws=TL[i].words.filter(w=>w[0].toLowerCase().includes(sub));return ws[n]?ws[n][1]:TL[i].start}
+// confettis : salves pré-créées, positions pseudo-aléatoires fixes (rendu image par image reproductible)
+const SALVES=[];function salve(at,x,y,n=46){const els=[];for(let k=0;k<n;k++){const d=document.createElement('div');d.className='conf';d.style.background=['#FF5A3C','#3DFF8A','#FF2BD6','#FFD23F','#F4EFE6'][k%5];d.style.left=x+'px';d.style.top=y+'px';d.style.opacity=0;$('confs').appendChild(d);els.push(d)}
+  els.forEach((d,k)=>{const a=rnd(k+at*7)*Math.PI*2,v=350+rnd(k+3+at)*650;tl.set(d,{opacity:1},at);tl.fromTo(d,{x:0,y:0,rotation:0},{x:Math.cos(a)*v,y:Math.sin(a)*v*.7+500,rotation:rnd(k)*900,duration:1.4,ease:'power2.out',immediateRender:false},at);tl.to(d,{opacity:0,duration:.3},at+1.1)})}
+// téléphone : écran à (264, 514), captures de 1080 px réduites à 552 px (× 0,511)
+const PH=(x,y)=>[264+x*.511,514+y*.511];
+function build(){S=TL.map(g=>g.start);END=TL[TL.length-1].start+TL[TL.length-1].dur+1.3;
+  tl=gsap.timeline({paused:true});
+  gsap.set(['#s6','#s7'],{autoAlpha:0});gsap.set('#flash',{opacity:0});
+  const montre=(id,at,jusqua)=>{tl.set('#'+id,{autoAlpha:1},at);tl.set('#'+id,{autoAlpha:0},jusqua)};
+  const flash=(at,o=.7)=>tl.fromTo('#flash',{opacity:o},{opacity:0,duration:.2,ease:'power2.out',immediateRender:false},at);
+  const choc=(at,a=22)=>tl.fromTo('#stage',{x:a,y:-a*.6},{x:0,y:0,duration:.35,ease:'elastic.out(1,.3)',immediateRender:false},at);
+  const tape=(id,[x,y],at)=>{gsap.set('#'+id,{left:x,top:y});tl.fromTo('#'+id,{scale:.4,opacity:1},{scale:1.8,opacity:0,duration:.4,ease:'power2.out',immediateRender:false},at)};
+  const ecran=(id,at)=>{tl.set(['#g1','#g2','#g3','#splash'],{opacity:0},at);tl.set(id,{opacity:1},at)};
+  tl.fromTo('#raies',{x:0},{x:280,duration:END,ease:'none'},0);
+  // --- 0 : le défi
+  montre('s0',0,S[1]);tl.fromTo('#defi',{scale:1.18,rotation:-8},{scale:1,rotation:-4,duration:.3,ease:'back.out(3)'},0);
+  tl.fromTo('#t0',{scale:1.12},{scale:1,duration:.3,ease:'back.out(2)'},0);
+  tl.to('#t0 em',{scale:1.15,duration:.12,yoyo:true,repeat:1,display:'inline-block'},wt(0,'gratuite'));choc(wt(0,'gratuite'),12);
+  tl.fromTo('#dix',{scale:2.4,opacity:0},{scale:1,opacity:1,duration:.22,ease:'power4.out',immediateRender:false},wt(0,'dix'));choc(wt(0,'dix'),30);flash(wt(0,'dix'),.35);
+  tl.to('#defi',{rotation:4,duration:.08,yoyo:true,repeat:5,ease:'none'},wt(0,'secondes'));
+  // --- 1 : top chrono : le chrono tombe et démarre (le temps affiché est le vrai temps écoulé)
+  const c0=wt(1,'chrono'),c1=S[6],ecoule=c1-c0;
+  tl.fromTo('#chrono',{y:-300,opacity:0},{y:0,opacity:1,duration:.3,ease:'back.out(2)',immediateRender:false},S[1]);flash(c0,.6);choc(c0,26);
+  const ch={v:0};const aff=()=>{$('sec').textContent=String(Math.floor(ch.v)).padStart(2,'0');$('dec').textContent=String(Math.floor(ch.v*10)%10)};
+  tl.fromTo('#topc',{scale:2.5,opacity:0},{scale:1,opacity:1,duration:.2,ease:'power4.out',immediateRender:false},c0);tl.set('#topc',{opacity:0},S[2]-.05);
+  tl.fromTo(ch,{v:0},{v:ecoule,duration:ecoule,ease:'none',onUpdate:aff,immediateRender:false},c0);
+  tl.set('#phone',{opacity:1},S[2]-.05);tl.fromTo('#phone',{y:1300,rotation:-10},{y:0,rotation:0,duration:.4,ease:'back.out(1.4)',immediateRender:false},S[2]-.05);
+  // --- 2 : 1. Ouvre Teufy
+  ecran('#splash',S[2]-.05);tl.fromTo('#splash img',{scale:.3},{scale:1,duration:.3,ease:'back.out(3)',immediateRender:false},wt(2,'teufy')-.1);
+  tl.fromTo('#e1',{x:-400,opacity:0},{x:0,opacity:1,duration:.25,ease:'back.out(2)',immediateRender:false},S[2]);tl.set('#e1',{opacity:0},S[3]);
+  // --- 3 : 2. Gratuit
+  ecran('#g1',wt(3,'vas'));tl.fromTo('#g1',{x:552},{x:0,duration:.22,ease:'power3.out',immediateRender:false},wt(3,'vas'));
+  tl.fromTo('#e2',{x:-400,opacity:0},{x:0,opacity:1,duration:.25,ease:'back.out(2)',immediateRender:false},S[3]);tl.set('#e2',{opacity:0},S[4]);
+  tape('tp1',PH(171,288),wt(3,'gratuit'));choc(wt(3,'gratuit'),10);
+  // --- 4 : 3. Ta ville : « Où » puis « Nice »
+  tl.fromTo('#e3',{x:-400,opacity:0},{x:0,opacity:1,duration:.25,ease:'back.out(2)',immediateRender:false},S[4]);tl.set('#e3',{opacity:0},S[5]);
+  tape('tp2',PH(609,1404),wt(4,'tu'));ecran('#g2',wt(4,'tu')+.14);
+  tape('tp3',PH(399,1284),wt(4,'ville'));ecran('#g3',wt(4,'ville')+.14);choc(wt(4,'ville')+.14,10);
+  // --- 5 : et voilà : entrée libre ou petits prix
+  tl.fromTo('#badge',{scale:0,opacity:0},{scale:1,opacity:1,duration:.25,ease:'back.out(2.2)',immediateRender:false},wt(5,'voilà'));
+  tl.fromTo('#tampon',{scale:3,opacity:0},{scale:1,opacity:1,duration:.16,ease:'power4.in',immediateRender:false},wt(5,'entrée'));choc(wt(5,'entrée')+.16,30);
+  tl.to('#phone',{rotation:-3,duration:.2,ease:'power2.out'},wt(5,'petits'));
+  // --- 6 : le chrono s'arrête : le vrai temps, « trop facile »
+  tl.set(['#phone','#badge','#tampon'],{opacity:0},S[6]);montre('s6',S[6],S[7]);flash(S[6],1);choc(S[6],30);
+  $('resultat').innerHTML=`${(Math.floor(ecoule*10)/10).toFixed(1).replace('.',',')}<span style="font-size:130px;color:var(--corail)"> s</span>`;
+  tl.fromTo('#resultat',{scale:2.2,opacity:0},{scale:1,opacity:1,duration:.22,ease:'power4.out',immediateRender:false},S[6]);
+  tl.to('#chrono',{scale:1.15,duration:.12,yoyo:true,repeat:3},S[6]);
+  tl.fromTo('#facile',{scale:3,opacity:0},{scale:1,opacity:1,duration:.18,ease:'power4.in',immediateRender:false},wt(6,'trop'));choc(wt(6,'trop')+.18,34);
+  salve(wt(6,'facile'),540,1000,46);
+  // --- 7 : à toi de jouer
+  tl.set('#chrono',{opacity:0},S[7]);montre('s7',S[7],END+1);flash(S[7],.8);
+  tl.from('#t7',{scale:.4,opacity:0,duration:.3,ease:'back.out(2)'},S[7]);tl.from('#logoBig',{scale:0,rotation:-25,duration:.45,ease:'back.out(2.4)'},S[7]+.1);tl.to('#logoBig',{scale:1.08,duration:.23,yoyo:true,repeat:9,ease:'sine.inOut'},S[7]+.6);
+  tl.from('#follow',{y:300,opacity:0,duration:.4,ease:'back.out(1.6)'},S[7]+.2);
+  const url='teufyparty.com',u={v:0};tl.to(u,{v:url.length,duration:.7,ease:'none',onUpdate:()=>$('url').textContent=url.slice(0,Math.round(u.v))},wt(7,'teufyparty')-.1);
+  tl.to('#curseur',{opacity:0,duration:.25,yoyo:true,repeat:9,ease:'steps(1)'},S[7]);
+  tl.to('#btn',{scale:.88,duration:.1,yoyo:true,repeat:1},wt(7,'teufyparty')+.8);tl.set('#btn',{textContent:'Abonné ✓',background:'#3DFF8A'},wt(7,'teufyparty')+1);
+  tl.to({},{duration:.01},END);return END}
+window.init=async(tlData)=>{TL=tlData;buildCaps();await document.fonts.ready;await Promise.all([...document.images].map(i=>i.decode().catch(()=>{})));return build()};
+window.seek=t=>{tl.seek(t,false);renderCaps(t)};
+</script></body></html>
