@@ -137,7 +137,8 @@
     {
       "jour": 4,
       "rang": 3,
-      "type": "libre"
+      "type": "incontournables",
+      "variante": "tekno"
     },
     {
       "jour": 4,
@@ -576,7 +577,7 @@
     "_volume": "Montée en charge automatique : 60, 100, 150, 200 e-mails les 4 premiers jours d'envoi, puis nouveaux_par_jour (250 ; Brevo gratuit = 300/jour, le reste sert aux relances, rapports et paiements).",
     "_pause": "14/11/2026 : Brevo a suspendu l'envoi (examen du compte, politique anti-spam) après des envois de prospection à froid (jusqu'à 250 nouveaux contacts par jour). Envoi automatique coupé. À ne remettre en route qu'après accord de Brevo, et jamais plus de 20 nouveaux contacts par jour."
   },
-  "_calendrier_note": "14/11/2026 (directeur). Posts : lun post « libre », mer bons plans, jeu Édition Tekno la 1re semaine du mois et post « libre » les autres jeudis, ven soirées du week-end (+ débat en story), sam guide. Post « libre » = guide ou bon plan, choisi par l'apprentissage selon ce qui marche (jamais de débat en post). Reels de base : jeu viral, dim « Teufy », mar et sam Le Grand Débat. Stories chaque jour. Le planning n'est PAS figé (directeur : « tu peux changer les jours sans moi, sois réactif ») : src/reactif.mjs déplace les jours selon les résultats et programme une suite dès le lendemain quand une publication décolle ; tout est noté dans contenus/planning-auto.json et RAPPORT.md. Aucune collaboration. 16/11/2026 : série « Et toi, t'aurais fait quoi ? » abandonnée (directeur : « oublie cette idée, on ne comprend pas le rapport avec Teufy »). 16/11/2026 (directeur, d'après les chiffres : annonces 6 549 vues, info de dernière minute 1 656, guide 1 475, Grand Débat 388) : priorité aux vraies infos et plans concrets en vraies images. Reel du jeudi = guide ou « Y'a Teufy » (plus d'illustré). Grand Débat à l'essai sur 2 à 3 épisodes ; sans épisode prêt, un guide part à la place (champ secours). 20/11/2026 (directeur) : une vidéo de promotion de Teufy tous les 2 jours (lun, mer, ven, dim) pour amener sur le site, faire suivre le compte et annoncer l'appli ; 7 scénarios à tour de rôle (studio/scripts/concepts/promo-*.json), captures du vrai site. Le reel du jeudi devient un guide. 18/11/2026 (directeur : « réarrange le planning pour le rendre plus cohérent sans enlever de contenu ») : bons plans le mardi (au lieu du mercredi : plus de temps pour réserver, et le mardi n'avait aucun post) ; mercredi = spot promo seul ; samedi, sans épisode du Grand Débat, « Y'a Teufy » (infos) part à la place d'un 2e guide (le samedi a déjà son post guide) ; jamais plus de 2 publications par jour ; le post « libre » évite le type déjà publié la veille ou prévu le jour même / le lendemain (pas 2 guides ou 2 bons plans d'affilée) ; créneaux promo : les spots promo (media/spot-promo/) passent en premier, le plus ancien d'abord tant que l'apprentissage n'a pas de mesure.",
+  "_calendrier_note": "14/11/2026 (directeur). Posts : lun post « libre », mer bons plans, jeu Édition Tekno la 1re semaine du mois et post « libre » les autres jeudis, ven soirées du week-end (+ débat en story), sam guide. Post « libre » = guide ou bon plan, choisi par l'apprentissage selon ce qui marche (jamais de débat en post). Reels de base : jeu viral, dim « Teufy », mar et sam Le Grand Débat. Stories chaque jour. Le planning n'est PAS figé (directeur : « tu peux changer les jours sans moi, sois réactif ») : src/reactif.mjs déplace les jours selon les résultats et programme une suite dès le lendemain quand une publication décolle ; tout est noté dans contenus/planning-auto.json et RAPPORT.md. Aucune collaboration. 16/11/2026 : série « Et toi, t'aurais fait quoi ? » abandonnée (directeur : « oublie cette idée, on ne comprend pas le rapport avec Teufy »). 16/11/2026 (directeur, d'après les chiffres : annonces 6 549 vues, info de dernière minute 1 656, guide 1 475, Grand Débat 388) : priorité aux vraies infos et plans concrets en vraies images. Reel du jeudi = guide ou « Y'a Teufy » (plus d'illustré). Grand Débat à l'essai sur 2 à 3 épisodes ; sans épisode prêt, un guide part à la place (champ secours). 20/11/2026 (directeur) : une vidéo de promotion de Teufy tous les 2 jours (lun, mer, ven, dim) pour amener sur le site, faire suivre le compte et annoncer l'appli ; 7 scénarios à tour de rôle (studio/scripts/concepts/promo-*.json), captures du vrai site. Le reel du jeudi devient un guide. 18/11/2026 (directeur : « réarrange le planning pour le rendre plus cohérent sans enlever de contenu ») : bons plans le mardi (au lieu du mercredi : plus de temps pour réserver, et le mardi n'avait aucun post) ; mercredi = spot promo seul ; samedi, sans épisode du Grand Débat, « Y'a Teufy » (infos) part à la place d'un 2e guide (le samedi a déjà son post guide) ; jamais plus de 2 publications par jour ; le post « libre » évite le type déjà publié la veille ou prévu le jour même / le lendemain (pas 2 guides ou 2 bons plans d'affilée) ; créneaux promo : les spots promo (media/spot-promo/) passent en premier, le plus ancien d'abord tant que l'apprentissage n'a pas de mesure. 18/11/2026 (directeur) : Édition Tekno toutes les 2 semaines (1er et 3e jeudi du mois, 2 posts par mois), chacune couvre les 14 jours suivants (pas de trou entre deux éditions) ; les autres jeudis, post libre. 18/11/2026 (directeur : « si le Grand Débat ne fonctionne pas, trouve une autre idée ultra engageante pour des gens qui ne connaissent pas Teufy ») : après 3 épisodes mesurés, si sa note moyenne est sous 60 % de la note médiane des autres reels, ses créneaux (mar., sam.) passent à « Tague ton pote » (media/tague-ton-pote/, src/reactif.mjs serieEnEchec).",
   "calendrier_reels": [
     {
       "jour": 1,
@@ -587,7 +588,8 @@
       "jour": 2,
       "type": "reel",
       "variante": "grand-debat",
-      "secours": "guide"
+      "secours": "guide",
+      "remplacant": "tague-ton-pote"
     },
     {
       "jour": 3,
@@ -608,7 +610,8 @@
       "jour": 6,
       "type": "reel",
       "variante": "grand-debat",
-      "secours": "teufy"
+      "secours": "teufy",
+      "remplacant": "tague-ton-pote"
     },
     {
       "jour": 7,

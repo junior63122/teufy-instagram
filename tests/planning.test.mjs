@@ -51,3 +51,16 @@ test('post libre : si tout est pris, il reste un choix', () => {
   const slots = () => [{ type: 'guide' }, { type: 'bonplan' }];
   assert.equal(choixLibre({ now: J('2026-11-23'), slots, jourDe }).length, 3);
 });
+
+import { serieEnEchec } from '../src/reactif.mjs';
+const R = (variante, note, j) => ({ source: 'bot', type: 'reel', variante, note, publie_le: `2026-11-${String(j).padStart(2, '0')}T18:00:00Z` });
+test('Grand Débat : remplacé seulement après 3 épisodes mesurés et nettement sous les autres reels', () => {
+  const now = new Date('2026-11-23T12:00:00Z');
+  const base = [R('flash', 14, 9), R('tendance', 41, 13), R('promo', 30, 18)];
+  assert.equal(serieEnEchec([...base, R('grand-debat', 3, 14), R('grand-debat', 19, 16)], 'grand-debat', { now }), null, '2 épisodes : trop tôt');
+  assert.ok(serieEnEchec([...base, R('grand-debat', 3, 14), R('grand-debat', 19, 16), R('grand-debat', 10, 21)], 'grand-debat', { now }));
+  assert.equal(serieEnEchec([...base, R('grand-debat', 30, 14), R('grand-debat', 25, 16), R('grand-debat', 28, 21)], 'grand-debat', { now }), null, 'il marche : on garde');
+});
+test('le Grand Débat a bien un remplaçant prévu', () => {
+  for (const r of config.calendrier_reels.filter((x) => x.variante === 'grand-debat')) assert.equal(r.remplacant, 'tague-ton-pote');
+});

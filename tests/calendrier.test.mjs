@@ -64,11 +64,13 @@ test('légendes « humaines » : pas de tiret cadratin, ≤ 2200 caractères, pe
   }
 });
 
-test('Édition Tekno : une seule fois par mois, le 1er jeudi (directeur 8/11 et 14/11/2026)', () => {
+test('Édition Tekno : toutes les 2 semaines, 1er et 3e jeudi (directeur 18/11/2026 : « 2 posts par mois »)', () => {
   for (let m = 0; m < 12; m++) {
     const jours = daysOfMonth(new Date(Date.UTC(2027, m, 15, 12)));
     const tekno = jours.map((d) => slotOfDay(d)).filter((s) => config.calendrier.some((x) => x.jour === s.jour && x.rang === s.rang && x.variante === 'tekno'));
-    assert.equal(tekno.length, 1, `mois ${m + 1} : ${tekno.length} Édition(s) Tekno`);
-    assert.ok(+tekno[0].date.slice(8, 10) <= 7, `mois ${m + 1} : Tekno le ${tekno[0].date}, pas le 1er jeudi`);
+    assert.equal(tekno.length, 2, `mois ${m + 1} : ${tekno.length} Édition(s) Tekno`);
+    const j = tekno.map((s) => +s.date.slice(8, 10));
+    assert.ok(j[0] <= 7 && j[1] >= 15 && j[1] <= 21, `mois ${m + 1} : Tekno les ${j.join(' et ')}`);
+    assert.equal(j[1] - j[0], 14);
   }
 });

@@ -26,3 +26,12 @@ test('légendes des spots : pas de fausse rareté', () => {
     assert.doesNotMatch(l, /plus que \d+|dernières? places?|places? limitées/i, b);
   }
 });
+
+test('« Tague ton pote » : chaque épisode a sa légende (avec l'appel à taguer) et sa couverture', () => {
+  const D = path.join(import.meta.dirname, '..', 'media', 'tague-ton-pote');
+  if (!existsSync(D)) return;
+  for (const b of readdirSync(D).filter((f) => f.endsWith('.mp4')).map((f) => f.replace(/\.mp4$/, ''))) {
+    assert.match(readFileSync(path.join(D, `${b}.txt`), 'utf8'), /tague/i, b);
+    assert.ok(existsSync(path.join(D, `${b}.couverture.txt`)), b);
+  }
+});

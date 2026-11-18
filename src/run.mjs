@@ -25,7 +25,7 @@ import { TENDANCES, analyserComptes } from './tendances.mjs';
 import { buildModel, chooser, selectBest, eventFeatures, collect, hash, loadData } from './learn.mjs';
 import { filtrerCoherentes, controlePost, choixLibre } from './coherence.mjs';
 import { choisirPhoto, photosRecentes } from './photos.mjs';
-import { lirePlan, ecrirePlan, engouements, planifierSuite, extrasDu, nettoyer, jourSource, replanifier, sectionRapport, SERIES } from './reactif.mjs';
+import { lirePlan, ecrirePlan, engouements, planifierSuite, extrasDu, nettoyer, jourSource, replanifier, sectionRapport, SERIES, serieEnEchec } from './reactif.mjs';
 import { theme } from './theme.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -84,7 +84,7 @@ function episodeGrandDebat(serie = 'grand-debat', choisir = null) {
   const f = choisir && attente.length > 1 ? choisir(attente.map((x) => ({ f: x, ...meta(x) }))).f : attente[0];
   if (!f) return null;
   const base = f.replace(/\.mp4$/, ''), txt = path.join(dir, `${base}.txt`);
-  const nom = serie === 'serie-nuit' ? 'Et toi, t\'aurais fait quoi ?' : serie === 'spot-promo' ? 'Teufy' : 'Le Grand Débat';
+  const nom = serie === 'serie-nuit' ? 'Et toi, t\'aurais fait quoi ?' : serie === 'spot-promo' ? 'Teufy' : serie === 'tague-ton-pote' ? 'Tague ton pote' : 'Le Grand Débat';
   const legende = existsSync(txt) ? readFileSync(txt, 'utf8').trim() : `${nom} Tu votes quoi ? Un mot en commentaire 👇`;
   // Couverture aux couleurs de la DA (15/11/2026, directeur : « ne ruine pas la DA de la grille ») : NN-sujet.couverture.txt
   // = 1re ligne le titre de la couverture, 2e ligne (facultative) la photo de decors/da/ (sans .jpg).
@@ -96,12 +96,16 @@ function episodeGrandDebat(serie = 'grand-debat', choisir = null) {
 // Un épisode du Grand Débat n'est prévu que s'il y en a un en attente (sinon le créneau reste libre).
 // Clé d'une soirée (pour ne pas remontrer les mêmes soirées dans deux posts rapprochés).
 const cleSoiree = (e) => e.url || `${e.name || e.nom}|${String(e.start || e.debut || '').slice(0, 10)}`;
+// Série en échec (src/reactif.mjs, serieEnEchec) : le créneau passe à son remplaçant dès qu'un épisode de celui-ci attend.
+const ECHECS = Object.fromEntries((config.calendrier_reels || []).filter((c) => c.remplacant).map((c) => [c.variante, serieEnEchec(loadData().posts, c.variante, { now: NOW })]));
+for (const [serie, e] of Object.entries(ECHECS)) if (e) console.error(`${serie} ne marche pas (note ${e.note} sur ${e.episodes} épisodes, contre ${e.reference} pour les autres reels) : remplacé quand un épisode du remplaçant est prêt.`);
+const remplace = (c) => (c.remplacant && ECHECS[c.variante] && episodeGrandDebat(c.remplacant) ? { ...c, variante: c.remplacant } : c);
 const slotsFor = (d) => {
   const s = slotOfDay(d), srcReel = jourSource(PLAN, 'reel', s.jour);
   // Série sans épisode en attente : le reel de secours (`secours`, ex. un guide en vraies images) part à la place, le créneau n'est jamais vide.
   // Créneau promo : un spot promo en attente (media/spot-promo/) passe avant la promo automatique du studio.
   const spot = (c) => (c.variante === 'promo' && episodeGrandDebat('spot-promo') ? { ...c, variante: 'spot-promo' } : c);
-  const base = [slotFor(d), ...(config.calendrier_reels || []).filter((c) => c.jour === srcReel).map(spot).map((c) => (SERIES.includes(c.variante) && !episodeGrandDebat(c.variante) ? (c.secours ? { ...c, variante: c.secours } : null) : c)).filter(Boolean).map((c) => ({ ...c, second: true }))].filter(Boolean);
+  const base = [slotFor(d), ...(config.calendrier_reels || []).filter((c) => c.jour === srcReel).map(spot).map(remplace).map((c) => (SERIES.includes(c.variante) && !episodeGrandDebat(c.variante) ? (c.secours ? { ...c, variante: c.secours } : null) : c)).filter(Boolean).map((c) => ({ ...c, second: true }))].filter(Boolean);
   // Suites programmées après un engouement : en plus du reste, après les publications prévues (même écart).
   const extras = extrasDu(PLAN, s.date).map((x) => ({ type: x.type, variante: x.variante || undefined, suite: true, second: true, troisieme: base.length > 1 }))
     .filter((x) => !SERIES.includes(x.variante) || episodeGrandDebat(x.variante));
@@ -444,12 +448,12 @@ async function prepare(slot, now, id) {
     const techno = slot.variante === 'techno' || tekno;
     const pred = tekno ? isUnderground : techno ? isTechno : (e) => !isTechno(e);
     // Techno : un carrousel des incontournables techno DU MOIS (30 jours), pour avoir de vraies grosses dates.
-    let win = tekno ? rolling(now, 0, 7) : techno ? rolling(now, 0, 30) : windowFor([1, 2, 3, 4, 5, 6, 7], now);
+    let win = tekno ? rolling(now, 0, 14) : techno ? rolling(now, 0, 30) : windowFor([1, 2, 3, 4, 5, 6, 7], now);
     win.from = new Date(Math.max(win.from.getTime(), now.getTime() - 6 * 3600e3));
     let list = await pickEv(win, pred);
     let elargi = false;
     const avecAffiche = (l) => l.filter((e) => e.image).length;
-    if (avecAffiche(list) < 4) { win = rolling(now, 0, tekno ? 14 : techno ? 45 : 14); list = await pickEv(win, pred); elargi = true; }
+    if (avecAffiche(list) < 4) { win = rolling(now, 0, tekno ? 21 : techno ? 45 : 14); list = await pickEv(win, pred); elargi = true; }
     // Trop peu de dates de ce genre : on prend toutes les soirées plutôt qu'un carrousel maigre.
     let melange = false;
     if (!tekno && avecAffiche(list) < 4) { const tout = await pickEv(win); if (avecAffiche(tout) > avecAffiche(list)) { list = tout; melange = true; } } // l'édition Tekno ne se mélange jamais
@@ -477,7 +481,7 @@ async function prepare(slot, now, id) {
     if (!files) throw new Error('Carrousel de la DA impossible (studio absent ou moins de 2 affiches) : rien n\'est publié.');
     files ||= await renderPages(programme(pages, chosen, { th, photos, titre, sous: fort ? `En ${MOIS(now)}` : elargi ? 'Ces prochains jours' : 'Cette semaine' }), dir, `incontournables-${stamp}`, { width: 1080, height: 1350 });
     pub = { images: files, legende: captionIncontournables({ variante: enTechno || !techno ? slot.variante : 'commercial', events: chosen, ...win, ch, r, periode: chosen.periode }), soirees: chosen, titre: chosen.titrePost || titre, coherence: coh };
-  } else if (slot.type === 'reel' && ['grand-debat', 'serie-nuit', 'spot-promo'].includes(slot.variante)) {
+  } else if (slot.type === 'reel' && ['grand-debat', 'serie-nuit', 'spot-promo', 'tague-ton-pote'].includes(slot.variante)) {
     // « Le Grand Débat » (14/11/2026, directeur : 2 épisodes par semaine) : épisodes fabriqués à part (série animée
     // Kévin / Léo) et déposés dans media/grand-debat/ : episode.mp4 + episode.txt (légende). Le plus ancien non publié part.
     // Spots promo (media/spot-promo/) : même principe, le spot est choisi par l'apprentissage selon son type d'accroche.
@@ -487,12 +491,12 @@ async function prepare(slot, now, id) {
     await copyFile(ep.video, video);
     // Couverture : jamais une image du dessin animé (elle casse la DA de la grille et de l'onglet Reels) ; gabarit de la DA
     // (photo de nuit sombre + titre), comme les autres reels. Image de l'épisode seulement si le gabarit échoue.
-    try { await couvertureDA({ photo: `decors/da/${photoCouv([ep.couvPhoto || (slot.variante === 'serie-nuit' ? 'lasers' : slot.variante === 'spot-promo' ? 'foule' : 'rire')])}.jpg`, rubrique: ep.nom, titre: ep.couvTitre }, cover, 'couverture-reel'); }
+    try { await couvertureDA({ photo: `decors/da/${photoCouv([ep.couvPhoto || (slot.variante === 'serie-nuit' ? 'lasers' : slot.variante === 'spot-promo' ? 'foule' : slot.variante === 'tague-ton-pote' ? 'selfie' : 'rire')])}.jpg`, rubrique: ep.nom, titre: ep.couvTitre }, cover, 'couverture-reel'); }
     catch (err) { console.error(`[${id}] couverture DA impossible (${err.message}) : image de l'épisode à la place.`); spawnSync('ffmpeg', ['-y', '-loglevel', 'error', '-ss', '0.4', '-i', video, '-frames:v', '1', '-q:v', '2', cover]); }
     const d = parseFloat(spawnSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', video]).stdout?.toString()) || 0;
     if (ep.accroche) ch.choix['accroche-spot'] = ep.accroche; // aussi quand un seul spot attendait : la mesure compte
     for (const f of ep.fonctionnalites) (ch.choix['fonction-spot'] ||= []).push(f);
-    pub = { video, couverture: cover, legende: ep.legende, titre: ep.titre, concept: ep.id, duree: +d.toFixed(1), rubrique: slot.variante === 'serie-nuit' ? 'Et toi, t\'aurais fait quoi ?' : slot.variante === 'spot-promo' ? 'Spot Teufy' : 'Le Grand Débat', hors_grille: slot.variante === 'serie-nuit' }; // la série n'apparaît que dans l'onglet Reels
+    pub = { video, couverture: cover, legende: ep.legende, titre: ep.titre, concept: ep.id, duree: +d.toFixed(1), rubrique: slot.variante === 'serie-nuit' ? 'Et toi, t\'aurais fait quoi ?' : slot.variante === 'spot-promo' ? 'Spot Teufy' : slot.variante === 'tague-ton-pote' ? 'Tague ton pote' : 'Le Grand Débat', hors_grille: slot.variante === 'serie-nuit' }; // la série n'apparaît que dans l'onglet Reels
     console.log(`[${id}] Grand Débat : épisode « ${ep.titre} » (${d.toFixed(1)} s)`);
   } else if (slot.type === 'reel' && config.studio?.actif && ['flash', 'histoire', 'nouveau', 'tendance', 'explicatif', 'humour', 'immersif', 'guide', 'teufy', 'promo'].includes(slot.variante)) { // « guide » manquait : le reel Guide retombait sur un reel de soirées
     // Reels = créations du studio (Remotion) : explicatif, humour ou immersif, jamais un catalogue de soirées.

@@ -15,7 +15,7 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 export const PLAN_FILE = path.join(ROOT, 'contenus', 'planning-auto.json');
-export const SERIES = ['grand-debat', 'serie-nuit', 'spot-promo'];
+export const SERIES = ['grand-debat', 'serie-nuit', 'spot-promo', 'tague-ton-pote'];
 const JOURS = ['', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi', 'dimanche'];
 // Ce qui peut changer de jour tout seul. Restent fixes : les soirées du week-end (vendredi), l'Édition Tekno
 // (1er jeudi du mois) et les séries (rythme promis aux abonnés).
@@ -143,6 +143,20 @@ export function sectionRapport(plan) {
   const lignes = plan.journal.slice(-15).reverse().map((j) => `- ${j.le.slice(0, 10)}${j.urgent ? ' **(urgent)**' : ''} : ${j.texte}`);
   const dep = Object.entries(plan.jours || {}).flatMap(([cat, m]) => Object.entries(m).map(([a, b]) => `${cat === 'post' ? 'post' : 'reel'} du ${JOURS[a]} → ${JOURS[b]}`));
   return `\n\n## Planning réactif (changements faits par le robot)\n\n${dep.length ? `Jours déplacés : ${dep.join(', ')}.\n\n` : ''}${lignes.length ? lignes.join('\n') : 'Rien pour l\'instant.'}\n`;
+}
+
+// --- 3. Série qui ne marche pas ---------------------------------------------------
+// 18/11/2026 (directeur : « si le Grand Débat ne fonctionne pas, trouve une autre idée ultra engageante pour des gens
+// qui ne connaissent pas déjà Teufy »). Au moins `min` épisodes mesurés et une note moyenne sous `ratio` × la note médiane
+// des autres reels du robot (6 dernières semaines) : la série cède son créneau à son remplaçant (config : `remplacant`).
+export function serieEnEchec(posts, serie, { min = 3, ratio = 0.6, semaines = 6, now = new Date() } = {}) {
+  const depuis = now.getTime() - semaines * 7 * 86400e3;
+  const reels = posts.filter((p) => p.source === 'bot' && p.type === 'reel' && p.note != null && Date.parse(p.publie_le) >= depuis);
+  const s = reels.filter((p) => p.variante === serie);
+  const autres = reels.filter((p) => p.variante !== serie).map((p) => p.note);
+  if (s.length < min || autres.length < 2) return null;
+  const moy = s.reduce((a, p) => a + p.note, 0) / s.length, med = mediane(autres);
+  return moy < ratio * med ? { serie, episodes: s.length, note: Math.round(moy), reference: Math.round(med) } : null;
 }
 
 export const _test = { dateParis, jourParis };
