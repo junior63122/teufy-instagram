@@ -1,0 +1,468 @@
+{
+ "id": "promo-agenda",
+ "concept": "reelflash",
+ "fps": 30,
+ "duree": 16.321,
+ "mots": [
+  {
+   "w": "«",
+   "scene": 0,
+   "start": 0.248,
+   "end": 0.272
+  },
+  {
+   "w": "Ah,",
+   "scene": 0,
+   "start": 0.288,
+   "end": 0.4
+  },
+  {
+   "w": "c'était",
+   "scene": 0,
+   "start": 0.44,
+   "end": 0.8
+  },
+  {
+   "w": "HIER",
+   "scene": 0,
+   "start": 0.92,
+   "end": 1.44
+  },
+  {
+   "w": "?",
+   "scene": 0,
+   "start": 1.48,
+   "end": 1.52
+  },
+  {
+   "w": "»",
+   "scene": 0,
+   "start": 1.72,
+   "end": 1.92
+  },
+  {
+   "w": "Encore",
+   "scene": 0,
+   "start": 1.966,
+   "end": 2.24
+  },
+  {
+   "w": "raté.",
+   "scene": 0,
+   "start": 2.3,
+   "end": 2.64
+  },
+  {
+   "w": "Sur",
+   "scene": 1,
+   "start": 3.17,
+   "end": 3.2
+  },
+  {
+   "w": "Teufy,",
+   "scene": 1,
+   "start": 3.253,
+   "end": 3.68
+  },
+  {
+   "w": "ajoute",
+   "scene": 1,
+   "start": 3.76,
+   "end": 4
+  },
+  {
+   "w": "la",
+   "scene": 1,
+   "start": 4.053,
+   "end": 4.16
+  },
+  {
+   "w": "soirée",
+   "scene": 1,
+   "start": 4.208,
+   "end": 4.48
+  },
+  {
+   "w": "à",
+   "scene": 1,
+   "start": 4.54,
+   "end": 4.6
+  },
+  {
+   "w": "ton",
+   "scene": 1,
+   "start": 4.63,
+   "end": 4.72
+  },
+  {
+   "w": "agenda.",
+   "scene": 1,
+   "start": 4.777,
+   "end": 5.28
+  },
+  {
+   "w": "Un",
+   "scene": 2,
+   "start": 5.707,
+   "end": 5.76
+  },
+  {
+   "w": "clic,",
+   "scene": 2,
+   "start": 5.776,
+   "end": 5.841
+  },
+  {
+   "w": "et",
+   "scene": 2,
+   "start": 5.92,
+   "end": 6.08
+  },
+  {
+   "w": "ton",
+   "scene": 2,
+   "start": 6.12,
+   "end": 6.24
+  },
+  {
+   "w": "téléphone",
+   "scene": 2,
+   "start": 6.28,
+   "end": 6.64
+  },
+  {
+   "w": "te",
+   "scene": 2,
+   "start": 6.667,
+   "end": 6.72
+  },
+  {
+   "w": "prévient.",
+   "scene": 2,
+   "start": 6.78,
+   "end": 7.36
+  },
+  {
+   "w": "Et",
+   "scene": 3,
+   "start": 7.507,
+   "end": 7.52
+  },
+  {
+   "w": "garde",
+   "scene": 3,
+   "start": 7.58,
+   "end": 7.84
+  },
+  {
+   "w": "tes",
+   "scene": 3,
+   "start": 7.88,
+   "end": 8
+  },
+  {
+   "w": "soirées",
+   "scene": 3,
+   "start": 8.048,
+   "end": 8.32
+  },
+  {
+   "w": "préférées",
+   "scene": 3,
+   "start": 8.38,
+   "end": 8.88
+  },
+  {
+   "w": "en",
+   "scene": 3,
+   "start": 8.933,
+   "end": 9.04
+  },
+  {
+   "w": "favoris.",
+   "scene": 3,
+   "start": 9.093,
+   "end": 9.64
+  },
+  {
+   "w": "Plus",
+   "scene": 4,
+   "start": 9.878,
+   "end": 9.921
+  },
+  {
+   "w": "rien",
+   "scene": 4,
+   "start": 9.969,
+   "end": 10.161
+  },
+  {
+   "w": "à",
+   "scene": 4,
+   "start": 10.201,
+   "end": 10.241
+  },
+  {
+   "w": "rater",
+   "scene": 4,
+   "start": 10.281,
+   "end": 10.561
+  },
+  {
+   "w": "sur",
+   "scene": 4,
+   "start": 10.641,
+   "end": 10.881
+  },
+  {
+   "w": "TEUFY",
+   "scene": 4,
+   "start": 10.934,
+   "end": 11.201
+  },
+  {
+   "w": "PARTY",
+   "scene": 4,
+   "start": 11.254,
+   "end": 11.521
+  },
+  {
+   "w": "point",
+   "scene": 4,
+   "start": 11.548,
+   "end": 11.681
+  },
+  {
+   "w": "com.",
+   "scene": 4,
+   "start": 11.761,
+   "end": 12.081
+  },
+  {
+   "w": "Abonne-toi",
+   "scene": 5,
+   "start": 12.534,
+   "end": 12.881
+  },
+  {
+   "w": ":",
+   "scene": 5,
+   "start": 13.001,
+   "end": 13.121
+  },
+  {
+   "w": "l'appli",
+   "scene": 5,
+   "start": 13.161,
+   "end": 13.362
+  },
+  {
+   "w": "Teufy",
+   "scene": 5,
+   "start": 13.414,
+   "end": 13.761
+  },
+  {
+   "w": "arrive",
+   "scene": 5,
+   "start": 13.807,
+   "end": 14.081
+  },
+  {
+   "w": "BIENTÔT.",
+   "scene": 5,
+   "start": 14.161,
+   "end": 14.721
+  }
+ ],
+ "scenes": [
+  {
+   "id": "s1",
+   "texte": "[shocked] « Ah, c'était HIER ? » Encore raté.",
+   "sons": [
+    {
+     "son": "basse",
+     "mot": "hier",
+     "volume": 0.6
+    }
+   ],
+   "start": 0,
+   "end": 3.05
+  },
+  {
+   "id": "s2",
+   "texte": "[excited] Sur Teufy, ajoute la soirée à ton agenda.",
+   "sons": [
+    {
+     "son": "clic",
+     "mot": "ajoute",
+     "volume": 0.6
+    }
+   ],
+   "start": 3.05,
+   "end": 5.587
+  },
+  {
+   "id": "s3",
+   "texte": "[curious] Un clic, et ton téléphone te prévient.",
+   "sons": [
+    {
+     "son": "message",
+     "mot": "prévient",
+     "volume": 0.6
+    }
+   ],
+   "start": 5.587,
+   "end": 7.387
+  },
+  {
+   "id": "s4",
+   "texte": "[excited] Et garde tes soirées préférées en favoris.",
+   "sons": [
+    {
+     "son": "pop",
+     "mot": "favoris",
+     "volume": 0.5
+    }
+   ],
+   "start": 7.387,
+   "end": 9.758
+  },
+  {
+   "id": "s5",
+   "texte": "[excited] Plus rien à rater sur TEUFY PARTY point com.",
+   "sons": [],
+   "start": 9.758,
+   "end": 12.414
+  },
+  {
+   "id": "s6",
+   "texte": "[excited] Abonne-toi : l'appli Teufy arrive BIENTÔT.",
+   "sons": [
+    {
+     "son": "acclamation",
+     "mot": "bientôt",
+     "volume": 0.5
+    }
+   ],
+   "start": 12.414,
+   "end": 16.321
+  }
+ ],
+ "bruits": [
+  {
+   "src": "sfx/basse.mp3",
+   "at": 0.92,
+   "volume": 0.6
+  },
+  {
+   "src": "sfx/clic.mp3",
+   "at": 3.76,
+   "volume": 0.6
+  },
+  {
+   "src": "sfx/message.mp3",
+   "at": 6.78,
+   "volume": 0.6
+  },
+  {
+   "src": "sfx/pop.mp3",
+   "at": 9.093,
+   "volume": 0.5
+  },
+  {
+   "src": "sfx/acclamation.mp3",
+   "at": 14.161,
+   "volume": 0.5
+  }
+ ],
+ "voix": {
+  "src": "promo-agenda/voix.mp3",
+  "volume": 1
+ },
+ "musique": {
+  "src": "musique/odd-beats.mp3",
+  "volume": 0.42,
+  "debut": 0,
+  "ducking": 0.3,
+  "bpm": 118.1,
+  "phase": 0.03500000000000003
+ },
+ "plans": [
+  {
+   "gros": [
+    {
+     "mot": "hier",
+     "texte": "C'était [hier] 😭",
+     "style": "sticker"
+    }
+   ],
+   "sombre": 0.35,
+   "photo": "decors/da/file.jpg"
+  },
+  {
+   "gros": [
+    {
+     "mot": "agenda",
+     "texte": "Dans ton [agenda]",
+     "style": "titre"
+    }
+   ],
+   "sombre": 0.15,
+   "capture": "ce-soir",
+   "photo": "decors/promo/promo-agenda/s2.jpg"
+  },
+  {
+   "gros": [
+    {
+     "mot": "prévient",
+     "texte": "[Rappel] auto",
+     "style": "sticker"
+    }
+   ],
+   "sombre": 0.15,
+   "capture": "accueil",
+   "photo": "decors/promo/promo-agenda/s3.jpg",
+   "objet": {
+    "type": "notif",
+    "mot": "clic",
+    "titre": "Agenda",
+    "texte": "Ce soir : ta soirée Teufy 🎉"
+   }
+  },
+  {
+   "gros": [
+    {
+     "mot": "favoris",
+     "texte": "Tes [favoris] ❤️",
+     "style": "titre"
+    }
+   ],
+   "sombre": 0.15,
+   "capture": "accueil@2",
+   "photo": "decors/promo/promo-agenda/s4.jpg"
+  },
+  {
+   "gros": [
+    {
+     "mot": "teufy",
+     "texte": "[teufyparty.com]",
+     "style": "titre"
+    }
+   ],
+   "sombre": 0.15,
+   "photo": "decors/da/danse.jpg"
+  },
+  {
+   "gros": [
+    {
+     "mot": "bientôt",
+     "texte": "L'appli [arrive]",
+     "style": "titre"
+    }
+   ],
+   "sombre": 0.15,
+   "photo": "decors/da/foule.jpg"
+  }
+ ]
+}
