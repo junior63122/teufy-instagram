@@ -1,0 +1,160 @@
+{
+ "id": "promo-manger-tard",
+ "concept": "reelflash",
+ "type": "promo",
+ "promo": true,
+ "rubrique": "Teufy",
+ "titre": "4 h du matin, t'as faim ?",
+ "titre_couverture": "[4 h] du mat, t'as faim ?",
+ "voix": {
+  "voice_id": "3Tp5mYhT9wrfnry9pzvV",
+  "nom": "Hugo",
+  "modele": "eleven_v3",
+  "stabilite": 0.0,
+  "style": 0.85,
+  "vitesse": 1.15
+ },
+ "musique": {
+  "src": "musique/hazy-after-hours.mp3",
+  "volume": 0.42,
+  "ducking": 0.3
+ },
+ "queue": 1.6,
+ "whooshEntreScenes": false,
+ "scenes": [
+  {
+   "id": "s1",
+   "texte": "[groans] Quatre heures du mat. La boîte ferme. Et t'as FAIM.",
+   "sons": [
+    {
+     "son": "basse",
+     "mot": "faim",
+     "volume": 0.6
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "texte": "[excited] Sur Teufy : la page MANGER TARD.",
+   "sons": [
+    {
+     "son": "clic",
+     "mot": "page",
+     "volume": 0.6
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "texte": "[curious] Que des adresses ouvertes entre deux et cinq heures.",
+   "sons": [
+    {
+     "son": "pop",
+     "mot": "cinq",
+     "volume": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "texte": "[excited] Avec les horaires vérifiés. Plus de rideau baissé.",
+   "sons": [
+    {
+     "son": "tampon",
+     "mot": "vérifiés",
+     "volume": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s5",
+   "texte": "[excited] Enregistre TEUFY PARTY point com.",
+   "sons": []
+  },
+  {
+   "id": "s6",
+   "texte": "[excited] Abonne-toi : l'appli Teufy arrive BIENTÔT.",
+   "sons": [
+    {
+     "son": "acclamation",
+     "mot": "bientôt",
+     "volume": 0.5
+    }
+   ]
+  }
+ ],
+ "extra": {
+  "plans": [
+   {
+    "gros": [
+     {
+      "mot": "faim",
+      "texte": "T'as [faim]",
+      "style": "sticker"
+     }
+    ],
+    "sombre": 0.35,
+    "photo": "decors/da/taxi.jpg"
+   },
+   {
+    "gros": [
+     {
+      "mot": "tard",
+      "texte": "[Manger tard]",
+      "style": "titre"
+     }
+    ],
+    "sombre": 0.15,
+    "capture": "manger-tard",
+    "photo": "decors/promo/promo-manger-tard/s2.jpg"
+   },
+   {
+    "gros": [
+     {
+      "mot": "cinq",
+      "texte": "Ouvert [2 h – 5 h]",
+      "style": "sticker"
+     }
+    ],
+    "sombre": 0.15,
+    "capture": "manger-tard@2",
+    "photo": "decors/promo/promo-manger-tard/s3.jpg"
+   },
+   {
+    "gros": [
+     {
+      "mot": "vérifiés",
+      "texte": "Horaires [vérifiés]",
+      "style": "titre"
+     }
+    ],
+    "sombre": 0.15,
+    "capture": "manger-tard@3",
+    "photo": "decors/promo/promo-manger-tard/s4.jpg"
+   },
+   {
+    "gros": [
+     {
+      "mot": "teufy",
+      "texte": "[teufyparty.com]",
+      "style": "titre"
+     }
+    ],
+    "sombre": 0.15,
+    "photo": "decors/da/terrasse.jpg"
+   },
+   {
+    "gros": [
+     {
+      "mot": "bientôt",
+      "texte": "L'appli [arrive]",
+      "style": "titre"
+     }
+    ],
+    "sombre": 0.15,
+    "photo": "decors/da/foule.jpg"
+   }
+  ]
+ },
+ "legende": "4 h du matin, la boîte ferme et t'as faim 🍔\n\nSur Teufy, la page « Manger tard » liste les adresses vraiment ouvertes entre 2 h et 5 h du matin, avec leurs horaires.\n\nTout est sur teufyparty.com (lien en bio) 🔗\nAbonne-toi à @teufy_official : l'appli Teufy arrive bientôt 📲"
+}

@@ -1,0 +1,165 @@
+{
+ "id": "promo-styles",
+ "concept": "reelflash",
+ "type": "promo",
+ "promo": true,
+ "rubrique": "Teufy",
+ "titre": "Techno, house, afro, shatta : ta soirée",
+ "titre_couverture": "Ton [style], tes soirées",
+ "voix": {
+  "voice_id": "3Tp5mYhT9wrfnry9pzvV",
+  "nom": "Hugo",
+  "modele": "eleven_v3",
+  "stabilite": 0.0,
+  "style": 0.85,
+  "vitesse": 1.15
+ },
+ "musique": {
+  "src": "musique/trap.mp3",
+  "volume": 0.42,
+  "ducking": 0.3
+ },
+ "queue": 1.6,
+ "whooshEntreScenes": false,
+ "scenes": [
+  {
+   "id": "s1",
+   "texte": "[laughs] Toi c'est techno. Ton pote, c'est shatta.",
+   "sons": [
+    {
+     "son": "impact",
+     "mot": "shatta",
+     "volume": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "texte": "[excited] Sur Teufy, choisis ton style.",
+   "sons": [
+    {
+     "son": "clic",
+     "mot": "choisis",
+     "volume": 0.6
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "texte": "[excited] Techno, house, afro, latino, rap. Tout y est.",
+   "sons": [
+    {
+     "son": "pop",
+     "mot": "techno",
+     "volume": 0.4
+    },
+    {
+     "son": "pop",
+     "mot": "rap",
+     "volume": 0.4
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "texte": "[curious] Et ta ville : Nice, Cannes, Monaco, Toulon.",
+   "sons": [
+    {
+     "son": "pop",
+     "mot": "toulon",
+     "volume": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s5",
+   "texte": "[excited] Chacun sa soirée sur TEUFY PARTY point com.",
+   "sons": []
+  },
+  {
+   "id": "s6",
+   "texte": "[excited] Abonne-toi : l'appli Teufy arrive BIENTÔT.",
+   "sons": [
+    {
+     "son": "acclamation",
+     "mot": "bientôt",
+     "volume": 0.5
+    }
+   ]
+  }
+ ],
+ "extra": {
+  "plans": [
+   {
+    "gros": [
+     {
+      "mot": "shatta",
+      "texte": "Techno [vs] Shatta",
+      "style": "sticker"
+     }
+    ],
+    "sombre": 0.35,
+    "photo": "decors/da/dj.jpg"
+   },
+   {
+    "gros": [
+     {
+      "mot": "style",
+      "texte": "Choisis ton [style]",
+      "style": "titre"
+     }
+    ],
+    "sombre": 0.15,
+    "capture": "accueil",
+    "photo": "decors/promo/promo-styles/s2.jpg"
+   },
+   {
+    "gros": [
+     {
+      "mot": "rap",
+      "texte": "[Tous] les styles",
+      "style": "sticker"
+     }
+    ],
+    "sombre": 0.15,
+    "capture": "accueil@2",
+    "photo": "decors/promo/promo-styles/s3.jpg"
+   },
+   {
+    "gros": [
+     {
+      "mot": "toulon",
+      "texte": "Toute la [Côte]",
+      "style": "titre"
+     }
+    ],
+    "sombre": 0.15,
+    "capture": "ce-soir",
+    "photo": "decors/promo/promo-styles/s4.jpg"
+   },
+   {
+    "gros": [
+     {
+      "mot": "teufy",
+      "texte": "[teufyparty.com]",
+      "style": "titre"
+     }
+    ],
+    "sombre": 0.15,
+    "photo": "decors/da/lasers.jpg"
+   },
+   {
+    "gros": [
+     {
+      "mot": "bientôt",
+      "texte": "L'appli [arrive]",
+      "style": "titre"
+     }
+    ],
+    "sombre": 0.15,
+    "photo": "decors/da/foule.jpg"
+   }
+  ]
+ },
+ "legende": "Toi c'est techno, ton pote c'est shatta ? 🎧\n\nSur Teufy, filtre les soirées par style : techno, house, afro, shatta, latino, rap… et par ville.\n\nTout est sur teufyparty.com (lien en bio) 🔗\nAbonne-toi à @teufy_official : l'appli Teufy arrive bientôt 📲"
+}

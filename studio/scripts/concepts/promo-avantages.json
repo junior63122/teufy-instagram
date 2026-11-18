@@ -1,0 +1,160 @@
+{
+ "id": "promo-avantages",
+ "concept": "reelflash",
+ "type": "promo",
+ "promo": true,
+ "rubrique": "Teufy",
+ "titre": "Des avantages dans les bars et clubs",
+ "titre_couverture": "Les [avantages] Teufy",
+ "voix": {
+  "voice_id": "3Tp5mYhT9wrfnry9pzvV",
+  "nom": "Hugo",
+  "modele": "eleven_v3",
+  "stabilite": 0.0,
+  "style": 0.85,
+  "vitesse": 1.15
+ },
+ "musique": {
+  "src": "musique/electro-dreams.mp3",
+  "volume": 0.42,
+  "ducking": 0.3
+ },
+ "queue": 1.6,
+ "whooshEntreScenes": false,
+ "scenes": [
+  {
+   "id": "s1",
+   "texte": "[sighs] Sortir, c'est bien. Mais ça coûte CHER.",
+   "sons": [
+    {
+     "son": "caisse",
+     "mot": "cher",
+     "volume": 0.6
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "texte": "[excited] Sur Teufy, ouvre la page AVANTAGES.",
+   "sons": [
+    {
+     "son": "clic",
+     "mot": "ouvre",
+     "volume": 0.6
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "texte": "[excited] Les offres et les codes promo de nos partenaires.",
+   "sons": [
+    {
+     "son": "pop",
+     "mot": "promo",
+     "volume": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "texte": "[curious] Tu montres le code, et c'est tout.",
+   "sons": [
+    {
+     "son": "tampon",
+     "mot": "code",
+     "volume": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s5",
+   "texte": "[excited] Va voir sur TEUFY PARTY point com.",
+   "sons": []
+  },
+  {
+   "id": "s6",
+   "texte": "[excited] Abonne-toi : l'appli Teufy arrive BIENTÔT.",
+   "sons": [
+    {
+     "son": "acclamation",
+     "mot": "bientôt",
+     "volume": 0.5
+    }
+   ]
+  }
+ ],
+ "extra": {
+  "plans": [
+   {
+    "gros": [
+     {
+      "mot": "cher",
+      "texte": "Ça coûte [cher]",
+      "style": "sticker"
+     }
+    ],
+    "sombre": 0.35,
+    "photo": "decors/da/baskets.jpg"
+   },
+   {
+    "gros": [
+     {
+      "mot": "avantages",
+      "texte": "Page [Avantages]",
+      "style": "titre"
+     }
+    ],
+    "sombre": 0.15,
+    "capture": "avantages",
+    "photo": "decors/promo/promo-avantages/s2.jpg"
+   },
+   {
+    "gros": [
+     {
+      "mot": "promo",
+      "texte": "[Codes promo]",
+      "style": "sticker"
+     }
+    ],
+    "sombre": 0.15,
+    "capture": "avantages@2",
+    "photo": "decors/promo/promo-avantages/s3.jpg"
+   },
+   {
+    "gros": [
+     {
+      "mot": "code",
+      "texte": "Montre le [code]",
+      "style": "titre"
+     }
+    ],
+    "sombre": 0.15,
+    "capture": "avantages@3",
+    "photo": "decors/promo/promo-avantages/s4.jpg"
+   },
+   {
+    "gros": [
+     {
+      "mot": "teufy",
+      "texte": "[teufyparty.com]",
+      "style": "titre"
+     }
+    ],
+    "sombre": 0.15,
+    "photo": "decors/da/rire.jpg"
+   },
+   {
+    "gros": [
+     {
+      "mot": "bientôt",
+      "texte": "L'appli [arrive]",
+      "style": "titre"
+     }
+    ],
+    "sombre": 0.15,
+    "photo": "decors/da/foule.jpg"
+   }
+  ]
+ },
+ "legende": "Sortir, c'est bien. Sortir en payant moins, c'est mieux 💸\n\nSur Teufy, la page « Avantages » regroupe les offres et codes promo de nos partenaires sur la Côte d'Azur.\n\nTout est sur teufyparty.com (lien en bio) 🔗\nAbonne-toi à @teufy_official : l'appli Teufy arrive bientôt 📲"
+}

@@ -1,0 +1,148 @@
+{
+ "id": "promo-appli",
+ "concept": "reelflash",
+ "type": "promo",
+ "promo": true,
+ "rubrique": "Teufy",
+ "titre": "L'appli Teufy arrive",
+ "titre_couverture": "L'appli [Teufy] arrive",
+ "voix": {
+  "voice_id": "3Tp5mYhT9wrfnry9pzvV",
+  "nom": "Hugo",
+  "modele": "eleven_v3",
+  "stabilite": 0.0,
+  "style": 0.85,
+  "vitesse": 1.15
+ },
+ "musique": {
+  "src": "musique/trap.mp3",
+  "volume": 0.42,
+  "ducking": 0.3
+ },
+ "queue": 1.6,
+ "whooshEntreScenes": false,
+ "scenes": [
+  {
+   "id": "s1",
+   "texte": "[whispers] Un truc arrive. Et ça va changer tes soirées.",
+   "sons": [
+    {
+     "son": "basse",
+     "mot": "arrive",
+     "volume": 0.6
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "texte": "[excited] L'appli TEUFY. Bientôt dans ta poche.",
+   "sons": [
+    {
+     "son": "impact",
+     "mot": "teufy",
+     "volume": 0.6
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "texte": "[curious] En attendant, tout est déjà sur le site.",
+   "sons": [
+    {
+     "son": "clic",
+     "mot": "site",
+     "volume": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "texte": "[excited] Les soirées, les boîtes ouvertes, manger tard.",
+   "sons": [
+    {
+     "son": "pop",
+     "mot": "soirées",
+     "volume": 0.4
+    },
+    {
+     "son": "pop",
+     "mot": "tard",
+     "volume": 0.4
+    }
+   ]
+  },
+  {
+   "id": "s5",
+   "texte": "[excited] Abonne-toi pour être le PREMIER au courant.",
+   "sons": [
+    {
+     "son": "acclamation",
+     "mot": "premier",
+     "volume": 0.5
+    }
+   ]
+  }
+ ],
+ "extra": {
+  "plans": [
+   {
+    "gros": [
+     {
+      "mot": "arrive",
+      "texte": "Ça [arrive]…",
+      "style": "sticker"
+     }
+    ],
+    "sombre": 0.45,
+    "photo": "decors/da/lasers.jpg"
+   },
+   {
+    "gros": [
+     {
+      "mot": "teufy",
+      "texte": "L'appli [Teufy]",
+      "style": "titre"
+     }
+    ],
+    "sombre": 0.15,
+    "photo": "decors/da/selfie.jpg"
+   },
+   {
+    "gros": [
+     {
+      "mot": "site",
+      "texte": "Déjà sur le [site]",
+      "style": "titre"
+     }
+    ],
+    "sombre": 0.15,
+    "capture": "accueil",
+    "photo": "decors/promo/promo-appli/s3.jpg"
+   },
+   {
+    "gros": [
+     {
+      "mot": "tard",
+      "texte": "[Tout] est là",
+      "style": "sticker"
+     }
+    ],
+    "sombre": 0.15,
+    "capture": "ce-soir",
+    "photo": "decors/promo/promo-appli/s4.jpg"
+   },
+   {
+    "gros": [
+     {
+      "mot": "premier",
+      "texte": "Sois le [premier] 🔔",
+      "style": "titre"
+     }
+    ],
+    "sombre": 0.15,
+    "photo": "decors/da/foule.jpg"
+   }
+  ]
+ },
+ "legende": "Teufy, bientôt dans ta poche 📲\n\nEn attendant l'appli, toutes les soirées, les boîtes ouvertes, les adresses pour manger tard et les avantages sont déjà sur teufyparty.com.\n\nAbonne-toi à @teufy_official pour être le premier au courant de la sortie 🔔"
+}

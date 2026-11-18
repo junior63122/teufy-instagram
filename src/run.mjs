@@ -283,7 +283,7 @@ async function prepare(slot, now, id) {
   // marche le mieux chez nous, et la veille des concurrents (Le Bonbon…) nourrit les scénarios. Jamais de reel de soirées.
   // 16/11/2026 (directeur, chiffres du compte) : ce qui se partage = vraies infos et plans concrets en vraies images ;
   // plus de reels illustrés (humour, histoire) dans le tirage.
-  if (slot.type === 'reel' && slot.variante === 'viral') slot = { ...slot, variante: val('format') || ch.pick('format-reel-viral', ['guide', 'teufy'], (x) => x) };
+  if (slot.type === 'reel' && slot.variante === 'viral') slot = { ...slot, variante: val('format') || ch.pick('format-reel-viral', ['guide'], (x) => x) };
   // Post « libre » (14/11/2026, directeur : « le planning n'est pas fixe, tu es censé évoluer ») : les jeudis sans Édition
   // Tekno, l'apprentissage choisit entre un guide (manger tard / afters) et un bon plan, et ramène plus souvent ce qui marche.
   if (slot.type === 'libre') { const o = ch.pick('post-libre', ['guide', 'a-reserver', 'petits-prix'], (x) => x); slot = o === 'guide' ? { ...slot, type: 'guide' } : { ...slot, type: 'bonplan', variante: o }; }
@@ -473,18 +473,32 @@ async function prepare(slot, now, id) {
     const d = parseFloat(spawnSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', video]).stdout?.toString()) || 0;
     pub = { video, couverture: cover, legende: ep.legende, titre: ep.titre, concept: ep.id, duree: +d.toFixed(1), rubrique: slot.variante === 'serie-nuit' ? 'Et toi, t\'aurais fait quoi ?' : 'Le Grand Débat', hors_grille: slot.variante === 'serie-nuit' }; // la série n'apparaît que dans l'onglet Reels
     console.log(`[${id}] Grand Débat : épisode « ${ep.titre} » (${d.toFixed(1)} s)`);
-  } else if (slot.type === 'reel' && config.studio?.actif && ['flash', 'histoire', 'nouveau', 'tendance', 'explicatif', 'humour', 'immersif', 'guide', 'teufy'].includes(slot.variante)) { // « guide » manquait : le reel Guide retombait sur un reel de soirées
+  } else if (slot.type === 'reel' && config.studio?.actif && ['flash', 'histoire', 'nouveau', 'tendance', 'explicatif', 'humour', 'immersif', 'guide', 'teufy', 'promo'].includes(slot.variante)) { // « guide » manquait : le reel Guide retombait sur un reel de soirées
     // Reels = créations du studio (Remotion) : explicatif, humour ou immersif, jamais un catalogue de soirées.
     const STUDIO = path.join(ROOT, 'studio');
     const dirC = path.join(STUDIO, 'scripts', 'concepts');
     const tous = await Promise.all((await readdir(dirC)).filter((f) => f.endsWith('.json')).map(async (f) => ({fichier: path.join(dirC, f), ...JSON.parse(await readFile(path.join(dirC, f), 'utf8'))})));
     const faits = new Set([...hist.map((h) => h.concept).filter(Boolean), ...usedHere]);
-    const dispo = tous.filter((c) => !faits.has(c.id));
+    // Les promos de Teufy (concepts « promo ») ne servent qu'au créneau promo, jamais comme reel Flash ordinaire.
+    const dispo = tous.filter((c) => !faits.has(c.id) && !c.promo);
+    // Promo de Teufy (20/11/2026, directeur : « tous les 2 jours une vidéo de promotion de Teufy, pour que les gens aillent
+    // sur le site, suivent le compte et attendent l'appli ; mets en avant les fonctionnalités »). Scénarios écrits à
+    // l'avance (studio/scripts/concepts/promo-*.json, sans IA), à tour de rôle : la moins publiée d'abord. Les images
+    // sont des captures du vrai site prises juste avant le rendu (donc toujours à jour).
+    const choisirPromo = async () => {
+      const nb = (x) => hist.filter((h) => h.concept === x.id).length;
+      const P = tous.filter((x) => x.promo).sort((a, b) => nb(a) - nb(b) || a.id.localeCompare(b.id));
+      const c = P[0]; if (!c) return null;
+      for (const pl of c.extra?.plans || []) if (pl.capture) { const f = path.join(STUDIO, 'public', pl.photo); try { await captureSite(pl.capture, f); } catch (err) { console.error(`[${id}] capture ${pl.capture} impossible : ${err.message}`); } if (!existsSync(f)) pl.photo = 'decors/da/foule.jpg'; }
+      await writeFile(c.fichier, JSON.stringify(Object.fromEntries(Object.entries(c).filter(([k]) => k !== 'fichier')), null, 1));
+      return c;
+    };
     // reel:nouveau = forcer un reel inédit écrit par l'IA (sans passer par la banque).
     // Format validé : « Flash ». La rubrique est choisie par l'apprentissage (celle qui marche le mieux revient plus souvent).
     const rubriqueFlash = () => ch.pick('rubrique-reel', ['Explicatif', 'Astuce', 'Humour', 'Actu nuit'], (x) => x);
     // Tendance : format viral repéré par la veille, écrit à neuf ; si l'écriture échoue, reel Flash de la banque (le post sort toujours).
-    let c = slot.variante === 'guide' ? await nouveauFlash(STUDIO, id, 'Guide').catch((err) => { console.error(`[${id}] reel Guide impossible (${err.message}) : reel Humour à la place.`); return DRY ? dispo.find((x) => x.concept === 'reelflash') : nouveauFlash(STUDIO, id, 'Humour').catch(() => dispo.find((x) => x.concept === 'reelflash') || null); })
+    let c = slot.variante === 'promo' ? await choisirPromo()
+      : slot.variante === 'guide' ? await nouveauFlash(STUDIO, id, 'Guide').catch((err) => { console.error(`[${id}] reel Guide impossible (${err.message}) : reel Humour à la place.`); return DRY ? dispo.find((x) => x.concept === 'reelflash') : nouveauFlash(STUDIO, id, 'Humour').catch(() => dispo.find((x) => x.concept === 'reelflash') || null); })
       : slot.variante === 'tendance' ? await nouveauFlash(STUDIO, id, 'Tendance').catch((err) => { console.error(`[${id}] reel Tendance impossible (${err.message}) : reel Flash de la banque.`); return dispo.find((x) => x.concept === 'reelflash') || null; })
       : slot.variante === 'nouveau' ? await nouveauFlash(STUDIO, id, rubriqueFlash())
       : slot.variante === 'teufy' && !DRY ? await nouveauFlash(STUDIO, id, 'Teufy').catch((err) => { console.error(`[${id}] reel Teufy impossible (${err.message}) : reel Humour.`); return nouveauFlash(STUDIO, id, 'Humour').catch(() => null); })
@@ -925,7 +939,9 @@ async function carrouselDA({ chosen, id, dir, now, titre = [], titreFlash, rubri
 // Reel « Flash » inédit : le scénariste IA écrit (sujet utile, script, plans), Gemini fait les photos verticales.
 // Une photo manquante est remplacée par une photo de la banque de la DA (même style).
 // Capture d'une page du site, comme sur un téléphone, au format du reel (1080×1920).
-async function captureSite(page, f) {
+async function captureSite(pageDemandee, f) {
+  // « page@2 » : même page, faite défiler de 2 écrans (pour ne pas montrer deux fois la même image dans un reel).
+  const [page, defile] = String(pageDemandee).split('@');
   const { chromium } = await import('playwright');
   const PAGES = { accueil: '', 'ce-soir': 'ce-soir/', 'pres-de-moi': 'ce-soir/', 'manger-tard': 'manger-tard/', avantages: 'avantages/', 'clubs-bars': 'clubs-bars/' };
   const b = await chromium.launch();
@@ -935,7 +951,7 @@ async function captureSite(page, f) {
     await p.goto(`https://teufyparty.com/${PAGES[page] ?? ''}`, { waitUntil: 'networkidle', timeout: 60000 });
     await p.waitForTimeout(1200);
     if (page === 'pres-de-moi') { await p.click('[data-pres]').catch(() => {}); await p.waitForTimeout(1500); await p.evaluate(() => document.querySelector('.dist-moi')?.closest('section')?.scrollIntoView()); await p.waitForTimeout(800); }
-    else if (page !== 'accueil') { await p.evaluate(() => scrollBy(0, innerHeight * 0.9)); await p.waitForTimeout(900); }
+    else if (page !== 'accueil' || defile) { const k = Number(defile || 1); await p.evaluate((k) => scrollBy(0, innerHeight * 0.9 * k), k); await p.waitForTimeout(900); }
     mkdirSync(path.dirname(f), { recursive: true });
     await p.screenshot({ path: f, type: 'jpeg', quality: 92 });
   } finally { await b.close(); }
