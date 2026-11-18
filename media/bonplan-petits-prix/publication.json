@@ -1,0 +1,226 @@
+{
+  "id": "bonplan-petits-prix",
+  "type": "bonplan",
+  "variante": "petits-prix",
+  "date": "2026-11-18",
+  "images": [
+    "carrousel-00.jpg",
+    "carrousel-01.jpg",
+    "carrousel-02.jpg",
+    "carrousel-03.jpg",
+    "carrousel-04.jpg"
+  ],
+  "legende": "Fin de mois difficile ? Voilà les soirées gratuites ou à petit prix des prochains jours.\n\n→ Sam 21 · Wado X L'Antre (Acid) · L'Antre Bar Electro, Nice · 05h00 · 10 €\n   Live machine hybride tekno et acidcore par Wado du Mojo Crew pour un after bouillant. @wado.music @lantretechno\n→ Sam 21 · La Wave - \"Shatta Séduction\" - Cannes (Shatta · Dancehall) · Skyfall Cannes x Kingdom · 23h00 · 7,99 €\n   Concept célibataires shatta et bouyon avec DJs Sonny & Ticoq au Skyfall Cannes.\n→ Jeu 26 · Jerrycans Release Party @ Frigo 16 (Disco · Électro) · Frigo 16 / Le 109, Nice · 20h00 · gratuit\n   Release party funk et italo disco en entrée gratuite au Frigo 16 avec Les Jerrycans. @le109_officiel\n\nVous connaissez d'autres bons plans ? Partagez en commentaire.\n\nAbonne-toi pour ne rien rater de ce qui se passe sur la Côte.\n\n🔎 Ce soir, ce week-end, gratuit ou techno : tout est sur teufyparty.com\n\n#TeufyParty #sortiranice #oldtownnice #nightlife #sortir",
+  "soirees": [
+    {
+      "source": "web",
+      "source_site": "Shotgun",
+      "name": "Wado X L'Antre",
+      "start": "2026-11-21T04:00:00.000Z",
+      "venue": "L'Antre Bar Electro",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/fr/events/wado-x-l-antre",
+      "image": "evenements/auto/340783c42912.jpg",
+      "price": 10,
+      "tags": [
+        "tekno",
+        "tribe",
+        "acidcore",
+        "hardmelodic",
+        "hardcore",
+        "hard-melodic"
+      ],
+      "description": "",
+      "public_cible": 0.85,
+      "confiance": 0.95,
+      "buzz": 0.65,
+      "buzz_raison": "Live machine du Mojo Crew en after.",
+      "accroche": "Live machine hybride tekno et acidcore par Wado du Mojo Crew pour un after bouillant.",
+      "instagram": [
+        "mojocrewevent",
+        "wado.music",
+        "lantretechno"
+      ],
+      "sources_sites": [
+        "Shotgun",
+        "Shotgun.live / Mojo Crew"
+      ],
+      "offres": [
+        {
+          "plateforme": "shotgun.live",
+          "url": "https://shotgun.live/fr/events/wado-x-l-antre",
+          "prix": 10
+        }
+      ],
+      "enrichi": true
+    },
+    {
+      "source": "web",
+      "source_site": "Shotgun",
+      "name": "La Wave - \"Shatta Séduction\" - Cannes",
+      "start": "2026-11-21T22:00:00.000Z",
+      "venue": "Skyfall Cannes x Kingdom",
+      "city": "Cannes",
+      "address": "",
+      "url": "https://shotgun.live/fr/events/la-wave-shatta-seduction-cannes",
+      "image": "evenements/auto/7e317d4b3f5e.jpg",
+      "price": 7.99,
+      "tags": [
+        "shatta",
+        "dancehall",
+        "bouyon",
+        "afro",
+        "rap",
+        "zouk",
+        "Rap",
+        "Afro",
+        "Afrobeat",
+        "Shatta",
+        "afrobeat",
+        "Bouyon",
+        "Dancehall",
+        "Trap",
+        "Zouk"
+      ],
+      "description": "",
+      "public_cible": 0.95,
+      "confiance": 0.95,
+      "buzz": 0.8,
+      "buzz_raison": "Soirée thématique célibataires très prisée par le public 18-25 ans.",
+      "accroche": "Concept célibataires shatta et bouyon avec DJs Sonny & Ticoq au Skyfall Cannes.",
+      "instagram": [
+        "bolon_events",
+        "skyfallcannes",
+        "skyfall_cannes"
+      ],
+      "offres": [
+        {
+          "plateforme": "shotgun.live",
+          "url": "https://shotgun.live/fr/events/la-wave-shatta-seduction-cannes",
+          "prix": 7.99
+        }
+      ],
+      "sources_sites": [
+        "Shotgun",
+        "shotgun.live",
+        "Shotgun.live"
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true,
+      "enrichi": true
+    },
+    {
+      "source": "web",
+      "source_site": "Shotgun",
+      "name": "Jerrycans Release Party @ Frigo 16",
+      "start": "2026-11-26T19:00:00.000Z",
+      "venue": "Frigo 16 / Le 109",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/fr/events/jerrycans-release-party-frigo-16",
+      "image": "evenements/auto/e6aaf229775a.jpg",
+      "price": 0,
+      "tags": [
+        "pop-funk",
+        "italo disco",
+        "groove",
+        "pop festive",
+        "Italo Disco",
+        "Synth-Pop",
+        "Disco Electro",
+        "pop rock",
+        "live",
+        "Synthwave",
+        "Electro Pop",
+        "Indie",
+        "Rock alternati"
+      ],
+      "description": "",
+      "public_cible": 0.85,
+      "confiance": 0.95,
+      "buzz": 0.7,
+      "buzz_raison": "Gratuit sur réservation pour la sortie d'EP du groupe montant niçois.",
+      "accroche": "Release party funk et italo disco en entrée gratuite au Frigo 16 avec Les Jerrycans.",
+      "instagram": [
+        "panda_events",
+        "frigo16",
+        "lesjerrycans"
+      ],
+      "sources_sites": [
+        "Shotgun.live",
+        "panda-events.com / le109.nice.fr",
+        "Shotgun",
+        "Panda Events / Shotgun"
+      ],
+      "offres": [
+        {
+          "plateforme": "shotgun.live",
+          "url": "https://shotgun.live/fr/events/jerrycans-release-party-frigo-16",
+          "prix": 0
+        }
+      ],
+      "enrichi": true
+    }
+  ],
+  "tags": [
+    [],
+    [
+      "wado.music",
+      "lantretechno"
+    ],
+    [],
+    [
+      "le109_officiel"
+    ]
+  ],
+  "collabs": [
+    "le109_officiel",
+    "lantretechno",
+    "wado.music"
+  ],
+  "choix": {
+    "creneau": "17",
+    "seuil-qualite": 0.65,
+    "suivre": "15xhszt",
+    "intro-petits-prix": "vffasy",
+    "fin-petits-prix": "16w4epw",
+    "site": "v0kxs6",
+    "hashtags-local": [
+      "#sortiranice",
+      "#oldtownnice"
+    ],
+    "hashtags-general": [
+      "#nightlife",
+      "#sortir"
+    ]
+  },
+  "features": [
+    "genre:techno",
+    "source:web",
+    "style:acid",
+    "lieu:l-antre-bar-electro",
+    "ville:nice",
+    "prix:petit",
+    "horaire:nuit",
+    "genre:commercial",
+    "source:web",
+    "style:shatta",
+    "style:dancehall",
+    "lieu:skyfall-cannes-x-kingdom",
+    "ville:cannes",
+    "prix:petit",
+    "horaire:nuit",
+    "genre:commercial",
+    "source:web",
+    "style:disco",
+    "style:electro",
+    "lieu:frigo-16-le-109",
+    "ville:nice",
+    "prix:gratuit",
+    "horaire:nuit"
+  ],
+  "nb_images": 5,
+  "story": "story.jpg",
+  "a_tester": []
+}
