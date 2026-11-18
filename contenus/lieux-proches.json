@@ -2994,5 +2994,62 @@
    "nom": "",
    "m": 462
   }
+ },
+ "43.69669,7.25204": {
+  "le": "2026-11-18T13:32:29.754Z",
+  "parkings": [
+   {
+    "nom": "Parc autos Palmeira",
+    "type": "multi-storey",
+    "payant": true,
+    "m": 298
+   },
+   {
+    "nom": "Parking Parc Estienne D'orves",
+    "type": "surface",
+    "payant": false,
+    "m": 544
+   },
+   {
+    "nom": "Parcazur Tzaréwitch",
+    "type": "multi-storey",
+    "payant": null,
+    "m": 634
+   }
+  ],
+  "transports": [
+   {
+    "nom": "Avenue des Orangers",
+    "type": "bus",
+    "m": 35,
+    "lignes": "11;A;M;75D"
+   },
+   {
+    "nom": "Dante",
+    "type": "bus",
+    "m": 153,
+    "lignes": "11;97"
+   },
+   {
+    "nom": "Alsace Lorraine",
+    "type": "tram",
+    "m": 415,
+    "lignes": ""
+   },
+   {
+    "nom": "Centre Universitaire Méditerranéen",
+    "type": "tram",
+    "m": 455,
+    "lignes": ""
+   }
+  ],
+  "velo": {
+   "nom": "",
+   "m": 73
+  },
+  "taxi": {
+   "nom": "",
+   "m": 587
+  }
  }
 }

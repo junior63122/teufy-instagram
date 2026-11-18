@@ -1079,5 +1079,153 @@
   "lat": 43.3092,
   "lng": 5.36751,
   "le": "2026-11-17T00:40:11.799Z"
+ },
+ "wayne’s bar|nice": {
+  "lat": 43.69676,
+  "lng": 7.27461,
+  "le": "2026-11-18T13:26:00.671Z"
+ },
+ "achill’s|villefranche-sur-mer": {
+  "lat": 43.70381,
+  "lng": 7.3123,
+  "le": "2026-11-18T13:26:01.653Z"
+ },
+ "bisous bisous|cannes": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-18T13:26:18.709Z",
+  "adr": true
+ },
+ "club vertigo|la londe-les-maures": {
+  "lat": 43.12583,
+  "lng": 6.19538,
+  "le": "2026-11-18T13:26:20.314Z"
+ },
+ "jimmy’z monte-carlo|monaco": {
+  "lat": 43.74704,
+  "lng": 7.43857,
+  "le": "2026-11-18T13:26:22.216Z"
+ },
+ "l'eden bar|six-fours-les-plages": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-18T13:26:32.214Z"
+ },
+ "l'omega|nice": {
+  "lat": 43.69842,
+  "lng": 7.26867,
+  "le": "2026-11-18T13:26:37.042Z"
+ },
+ "le 7|cannes": {
+  "lat": 43.55255,
+  "lng": 7.01579,
+  "le": "2026-11-18T13:26:38.364Z"
+ },
+ "le boy's paradise|toulon": {
+  "lat": 43.12848,
+  "lng": 5.92793,
+  "le": "2026-11-18T13:26:43.314Z"
+ },
+ "le petit bellevue (la maison bellevue)|le cannet": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-18T13:26:48.304Z"
+ },
+ "le sax|hyeres": {
+  "lat": 43.08163,
+  "lng": 6.15628,
+  "le": "2026-11-18T13:26:55.673Z"
+ },
+ "le trendy|saint-laurent-du-var": {
+  "lat": 43.65583,
+  "lng": 7.18222,
+  "le": "2026-11-18T13:26:57.835Z"
+ },
+ "let it be|mougins": {
+  "lat": 43.6049,
+  "lng": 7.00085,
+  "le": "2026-11-18T13:26:59.423Z"
+ },
+ "monsieur pablo plage|vallauris": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-18T13:27:05.899Z",
+  "adr": true
+ },
+ "no stresss discotheque|la seyne-sur-mer": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-18T13:27:13.946Z"
+ },
+ "o'sullivans mandelieu|mandelieu-la-napoule": {
+  "lat": 43.52444,
+  "lng": 6.94293,
+  "le": "2026-11-18T13:27:17.416Z"
+ },
+ "poupoune bandol|bandol": {
+  "lat": 43.13615,
+  "lng": 5.75567,
+  "le": "2026-11-18T13:27:18.926Z"
+ },
+ "sass cafe|monaco": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-18T13:27:21.938Z"
+ },
+ "zeits bar|beausoleil": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-18T13:27:26.134Z"
+ },
+ "amazonico monte-carlo|monaco": {
+  "lat": 43.73976,
+  "lng": 7.42774,
+  "le": "2026-11-18T13:27:27.636Z"
+ },
+ "barrel pub|cannes": {
+  "lat": 43.55079,
+  "lng": 7.02364,
+  "le": "2026-11-18T13:27:28.668Z"
+ },
+ "black jack|bandol": {
+  "lat": 43.13706,
+  "lng": 5.7613,
+  "le": "2026-11-18T13:27:30.176Z"
+ },
+ "brasserie de monaco|monaco": {
+  "lat": 43.73382,
+  "lng": 7.42215,
+  "le": "2026-11-18T13:27:39.185Z"
+ },
+ "down town club|nice": {
+  "lat": 43.69696,
+  "lng": 7.27685,
+  "le": "2026-11-18T13:27:46.510Z"
+ },
+ "k-barre|antibes": {
+  "lat": 43.57979,
+  "lng": 7.12214,
+  "le": "2026-11-18T13:27:48.316Z"
+ },
+ "l'elixir club|saint-mandrier-sur-mer": {
+  "lat": 43.08176,
+  "lng": 5.92136,
+  "le": "2026-11-18T13:27:49.588Z"
+ },
+ "le brummell|menton": {
+  "lat": 43.77266,
+  "lng": 7.49831,
+  "le": "2026-11-18T13:27:51.086Z"
+ },
+ "le kosma|nice": {
+  "lat": 43.69861,
+  "lng": 7.25703,
+  "le": "2026-11-18T13:27:56.658Z"
+ },
+ "le petit chicago|toulon": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-18T13:28:00.456Z",
+  "adr": true
  }
 }
