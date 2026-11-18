@@ -11,11 +11,24 @@ const lire = (f, d) => { try { return JSON.parse(readFileSync(path.join(ROOT, f)
 const sa = (x) => String(x || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
 const VILLES = ['Nice', 'Cannes', 'Monaco', 'Antibes', 'Toulon', 'Juan-les-Pins', 'Saint-Tropez', 'Fréjus', 'Menton', 'Hyères'];
 
+// « Après la boîte » (18/11/2026, directeur : « une boîte ferme à 5 h, les gens cherchent à manger entre minuit et 7 h ;
+// vérifie la cohérence avant de poster ») : une adresse n'entre dans le guide « Où manger après la boîte » que si elle est
+// vraiment ouverte au cœur de la nuit : ouverte jusqu'à 2 h du matin ou plus tard (ou 24 h/24), ou boulangerie qui ouvre
+// entre 3 h 30 et 6 h. Une fermeture après 8 h du matin (« 19h30–11h30 ») est presque toujours une erreur de saisie : écartée.
+// Un restaurant qui ferme à 23 h ou à minuit n'y a pas sa place.
+export function ouvertApresBoite(horaires, categorie = '') {
+  const H = lireHoraires(horaires);
+  if (!H) return false;
+  return H.plages.some((p) => (p.de === '00:00' && p.a >= '23:59') || (p.a <= p.de && p.a >= '02:00' && p.a <= '08:00') || (/boulang|bakery/i.test(categorie) && p.de >= '03:30' && p.de <= '06:00'));
+}
+/** Heure de fermeture la plus tardive dans la nuit (pour classer : les plus tardifs d'abord). */
+const fermeTard = (horaires) => Math.max(0, ...(lireHoraires(horaires)?.plages || []).filter((p) => p.a <= p.de).map((p) => +p.a.slice(0, 2)));
+
 /** Adresses par thème et par ville, à partir des données du site. */
 export function adressesGuide({ now = new Date(), tard = lire('contenus/nuit-tardive.json', { lieux: [] }).lieux || [], lieux = lire('contenus/lieux-nuit.json', { lieux: [] }).lieux || [], soirees = lire('evenements-web.json', {}).evenements || [] } = {}) {
   const out = { manger: {}, after: {} };
   const ajoute = (theme, ville, x) => { if (!ville) return; const v = VILLES.find((n) => sa(n) === sa(ville)) || ville; const l = (out[theme][v] ||= []); if (!l.some((y) => sa(y.nom) === sa(x.nom))) l.push(x); };
-  for (const l of tard.filter((x) => /^https?:\/\//.test(x.source || '') && x.horaires)) ajoute(l.type === 'after' ? 'after' : 'manger', l.ville, { nom: l.nom, quoi: l.categorie || '', horaires: l.horaires, source: l.source });
+  for (const l of tard.filter((x) => /^https?:\/\//.test(x.source || '') && x.horaires && (x.type === 'after' || ouvertApresBoite(x.horaires, x.categorie)))) ajoute(l.type === 'after' ? 'after' : 'manger', l.ville, { nom: l.nom, quoi: l.categorie || '', horaires: l.horaires, source: l.source });
   for (const l of lieux) {
     const H = lireHoraires(l.details?.horaires);
     const src = (l.details?.sources || [])[0] || l.details?.source || l.site || '';
@@ -32,6 +45,7 @@ export function adressesGuide({ now = new Date(), tard = lire('contenus/nuit-tar
     }
   }
   for (const v of Object.values(out.after)) v.sort((a, b) => (a.quand || Infinity) - (b.quand || Infinity));
+  for (const v of Object.values(out.manger)) v.sort((a, b) => fermeTard(b.horaires) - fermeTard(a.horaires));
   return out;
 }
 

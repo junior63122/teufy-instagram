@@ -373,8 +373,10 @@ async function prepare(slot, now, id) {
     const G = choisirGuide({ now, deja: hist.map((h) => h.guide).filter(Boolean) });
     if (!G) throw new Error('Guide : pas encore 3 adresses vérifiées pour une ville');
     const L = G.lieux.slice(0, 5);
+    // Contrôle de cohérence AVANT publication (18/11/2026) : chaque adresse doit correspondre au titre du carrousel.
+    if (G.theme === 'manger') { const { ouvertApresBoite } = await import('./guide.mjs'); const hors = L.filter((l) => !ouvertApresBoite(l.horaires, l.quoi)); if (hors.length) throw new Error(`Guide incohérent : ${hors.map((l) => `${l.nom} (${l.horaires})`).join(', ')} pas ouvert(s) après la boîte`); }
     const titre = G.theme === 'manger' ? `Où manger à [${G.ville}] après la boîte ?` : `Les [afters] à ${G.ville}`;
-    const photos = G.theme === 'manger' ? ['taxi', 'rire', 'file', 'baskets', 'selfie', 'terrasse', 'plage'] : ['dj', 'lasers', 'danse', 'rooftop', 'selfie', 'rire', 'terrasse']; // une photo différente par slide
+    const photos = G.theme === 'manger' ? ['taxi', 'terrasse', 'rire', 'plage', 'rooftop', 'taxi', 'terrasse'] : ['dj', 'lasers', 'danse', 'rooftop', 'selfie', 'rire', 'terrasse']; // une photo différente par slide
     const files = [await couvertureDA({ photo: `decors/da/${photos[0]}.jpg`, rubrique: 'Guide', titre, sous: G.theme === 'manger' ? 'Ouvert quand tout le reste est fermé. Enregistre-le.' : 'Pour ceux qui ne veulent pas rentrer. Enregistre-le.' }, path.join(dir, `guide-${stamp}-0.jpg`))];
     for (const [i, l] of L.entries()) files.push(await couvertureDA({ photo: `decors/da/${photos[(i + 1) % photos.length]}.jpg`, rubrique: `${i + 1}/${L.length} · ${l.quoi || (G.theme === 'manger' ? 'Manger tard' : 'After')}`, titre: l.nom.replace(/[[\]]/g, ''), sous: [l.lieu, l.horaires].filter(Boolean).join(' · ') }, path.join(dir, `guide-${stamp}-${i + 1}.jpg`)));
     files.push(await couvertureDA({ photo: `decors/da/${photos[L.length + 1] || photos.at(-1)}.jpg`, rubrique: 'La liste complète', titre: `Toutes les adresses sur [teufyparty.com]`, sous: 'Horaires publiés, mis à jour chaque jour. Vérifie avant d\'y aller.' }, path.join(dir, `guide-${stamp}-fin.jpg`)));
