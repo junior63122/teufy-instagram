@@ -20,3 +20,6 @@
 - **Série animée Le Grand Débat** (« Et toi, t'aurais fait quoi ? » abandonnée le 16/11/2026) : produire les épisodes avec le moteur de `riviera-studio` et
   les voix ElevenLabs (crédits de l'abonnement Riviera) est autorisé **sans redemander** (directeur, 14/11/2026). Livrer dans
   `media/grand-debat/` (`NN-sujet.mp4` + `.txt` + `.couverture.txt`), après vérification à l'œil et contrôle qualité.
+- **Cohérence des posts avec leur titre** (directeur, 18/11/2026) : chaque format a sa promesse (période, genre, prix, « après la
+  boîte »…). `src/coherence.mjs` et `src/guide.mjs` (`ouvertApresBoite`) retirent ce qui ne colle pas, et le post est bloqué
+  juste avant publication s'il reste une incohérence. Tout nouveau format doit ajouter sa règle et son test.

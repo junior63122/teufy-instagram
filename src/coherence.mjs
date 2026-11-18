@@ -1,0 +1,50 @@
+// Contrôle de cohérence des posts (18/11/2026, directeur : « vérifie la cohérence des posts avant de poster, pour éviter
+// les infos erronées ou qui ne correspondent pas au titre du carrousel »). Chaque format a une promesse (son titre) ;
+// une soirée qui ne la tient pas est retirée AVANT la fabrication, et le post entier est bloqué juste avant la publication
+// s'il reste la moindre incohérence (mieux vaut un autre post qu'une fausse info).
+import { isTechno, isUnderground } from './genres.mjs';
+
+const ANNULE = /annul|report[ée]|cancel|postpon/i;
+const COMPLET = /sold ?out|complet|guichets? ferm/i;
+const texte = (e) => `${e.name || ''} ${e.status || ''} ${e.description || ''}`;
+export const cleCoherence = (e) => `${String(e.name || '').toLowerCase().replace(/\s+/g, ' ').trim()}|${String(e.start || '').slice(0, 10)}`;
+
+/**
+ * Problèmes d'une soirée pour un format donné (liste vide = cohérente).
+ * format : 'commercial' | 'tekno' | 'techno' | 'petits-prix' | 'a-reserver' ; fenetre : { from, to } (dates) ; now : Date.
+ */
+export function problemesSoiree(e, { format, fenetre, now = new Date(), prixMax = 10 } = {}) {
+  const p = [];
+  const d = Date.parse(e.start);
+  if (!Number.isFinite(d)) p.push('date illisible');
+  else {
+    if (d < now.getTime() - 6 * 3600e3) p.push('soirée passée');
+    if (fenetre?.from && fenetre?.to && (d < new Date(fenetre.from).getTime() - 6 * 3600e3 || d > new Date(fenetre.to).getTime() + 30 * 3600e3)) p.push('hors de la période annoncée');
+  }
+  if (ANNULE.test(texte(e))) p.push('annulée ou reportée');
+  if (format === 'tekno' && !isUnderground(e)) p.push('pas techno underground');
+  if (format === 'techno' && !isTechno(e)) p.push('pas techno');
+  if (format === 'commercial' && isTechno(e)) p.push('techno dans un post commercial');
+  if (format === 'petits-prix' && !(e.price != null && Number(e.price) <= prixMax)) p.push(`prix inconnu ou supérieur à ${prixMax} €`);
+  if (format === 'a-reserver' && COMPLET.test(texte(e))) p.push('déjà complet');
+  return p;
+}
+
+/** Garde les soirées cohérentes avec le format (sans doublon). */
+export function filtrerCoherentes(list, opts) {
+  const vu = new Set();
+  return list.filter((e) => { const k = cleCoherence(e); if (vu.has(k)) return false; vu.add(k); return problemesSoiree(e, opts).length === 0; });
+}
+
+/** Vérification finale d'un post : rend la liste des incohérences (vide = on peut publier). */
+export function controlePost({ soirees = [], legende = '', ...opts }) {
+  const out = [];
+  const vu = new Set();
+  for (const e of soirees) {
+    const k = cleCoherence(e);
+    if (vu.has(k)) out.push(`${e.name} : en double`);
+    vu.add(k);
+    for (const x of problemesSoiree(e, opts)) out.push(`${e.name} : ${x}`);
+  }
+  return out;
+}

@@ -23,6 +23,7 @@ import { nettoyerComptes, legendeFinale, abonnesDe, comptesConfirmes } from './c
 import { igConfig, publishCarousel, publishSingle, publishReel, publishStory, permalink, insights, followers, businessDiscovery, compteMedia } from './instagram.mjs';
 import { TENDANCES, analyserComptes } from './tendances.mjs';
 import { buildModel, chooser, selectBest, eventFeatures, collect, hash, loadData } from './learn.mjs';
+import { filtrerCoherentes, controlePost } from './coherence.mjs';
 import { lirePlan, ecrirePlan, engouements, planifierSuite, extrasDu, nettoyer, jourSource, replanifier, sectionRapport, SERIES } from './reactif.mjs';
 import { theme } from './theme.mjs';
 
@@ -247,7 +248,7 @@ for (const j of jobs) {
         // Jour sans IA disponible (crédit épuisé, panne) : plutôt que de ne rien publier, le carrousel des soirées
         // à venir, construit sans IA, part à la place du reel (même créneau, même identifiant pour l'historique).
         // Texte refusé par le contrôle : le carrousel des soirées (déjà contrôlé) part à la place.
-        if (cible === 'auto' && /Texte refusé/.test(err.message) && j.slot.type !== 'incontournables') { console.error(`[${id}] ✗ ${err.message} → carrousel des soirées à la place.`); await prepare({ type: 'incontournables', variante: 'commercial' }, j.now, id); continue; }
+        if (cible === 'auto' && /Texte refusé|Post incohérent/.test(err.message) && j.slot.type !== 'incontournables') { console.error(`[${id}] ✗ ${err.message} → carrousel des soirées à la place.`); await prepare({ type: 'incontournables', variante: 'commercial' }, j.now, id); continue; }
         // Carrousel Guide sans 3 adresses vérifiées : reel Flash à la place (le post sort toujours).
         if (cible === 'auto' && ['guide', 'libre'].includes(j.slot.type) && /Guide/.test(err.message)) { console.error(`[${id}] ✗ ${err.message} → reel Flash à la place.`); await prepare({ type: 'reel', variante: 'flash' }, j.now, id); continue; }
         if (cible !== 'auto' || j.slot.type !== 'reel' || !/IA|Scénariste|reel écrit/i.test(err.message)) throw err;
@@ -407,12 +408,15 @@ async function prepare(slot, now, id) {
       let list = variante === 'petits-prix' ? await pickEvN(win, cheap) : [];
       if (list.length < 3) { variante = 'a-reserver'; win = rolling(now, 7, 45); list = await pickEvN(win); }
       if (list.length < 3) { win = rolling(now, 2, 45); list = await pickEvN(win); }
+      // Cohérence avec le titre (« moins de X € » = prix connu et sous le plafond ; « à réserver » = pas complet).
+      const coh = { format: variante, fenetre: { from: win.from, to: win.to }, now, prixMax: R.petit_prix_max };
+      list = filtrerCoherentes(list, coh);
       need(list, 2);
       const chosen = chrono(lesBonnes(list));
       const reserve = variante === 'a-reserver';
       const files = await carrouselDA({ chosen, id, dir, now, rubrique: 'Bon plan', question: reserve ? 'Tu prends [laquelle] ?' : 'Tu fais [laquelle] ?',
         titreFlash: reserve ? 'À réserver avant le [sold out]' : `Sortir à moins de [${R.petit_prix_max} €]`, titre: ['', reserve ? 'les grosses dates' : 'sans se ruiner'] });
-      pub = { images: files, legende: captionBonPlan({ variante, events: chosen, ...win, ch, r }), soirees: chosen };
+      pub = { images: files, legende: captionBonPlan({ variante, events: chosen, ...win, ch, r }), soirees: chosen, coherence: coh };
     }
   } else if (slot.type === 'incontournables') {
     // « Édition Tekno » (chaque jeudi) : soirées techno UNDERGROUND des 7 prochains jours, jamais de house.
@@ -429,6 +433,9 @@ async function prepare(slot, now, id) {
     // Trop peu de dates de ce genre : on prend toutes les soirées plutôt qu'un carrousel maigre.
     let melange = false;
     if (!tekno && avecAffiche(list) < 4) { const tout = await pickEv(win); if (avecAffiche(tout) > avecAffiche(list)) { list = tout; melange = true; } } // l'édition Tekno ne se mélange jamais
+    // Cohérence avec le titre : période annoncée, genre de l'édition (Tekno = underground, techno, commercial sans techno).
+    const coh = { format: tekno ? 'tekno' : techno && !melange ? 'techno' : melange ? null : 'commercial', fenetre: { from: win.from, to: win.to }, now };
+    list = filtrerCoherentes(list, coh);
     need(list, 3);
     const chosen = chrono(lesBonnes(list));
     const { th, photos } = await visuel(techno ? 'techno' : 'club');
@@ -449,7 +456,7 @@ async function prepare(slot, now, id) {
     files = await carrouselDA({ chosen, id, dir, now, edition: tekno ? 'tekno' : enTechno ? 'techno' : 'commercial', titre: [titre, ''] });
     if (!files) throw new Error('Carrousel de la DA impossible (studio absent ou moins de 2 affiches) : rien n\'est publié.');
     files ||= await renderPages(programme(pages, chosen, { th, photos, titre, sous: fort ? `En ${MOIS(now)}` : elargi ? 'Ces prochains jours' : 'Cette semaine' }), dir, `incontournables-${stamp}`, { width: 1080, height: 1350 });
-    pub = { images: files, legende: captionIncontournables({ variante: enTechno || !techno ? slot.variante : 'commercial', events: chosen, ...win, ch, r, periode: chosen.periode }), soirees: chosen, titre: chosen.titrePost || titre };
+    pub = { images: files, legende: captionIncontournables({ variante: enTechno || !techno ? slot.variante : 'commercial', events: chosen, ...win, ch, r, periode: chosen.periode }), soirees: chosen, titre: chosen.titrePost || titre, coherence: coh };
   } else if (slot.type === 'reel' && ['grand-debat', 'serie-nuit'].includes(slot.variante)) {
     // « Le Grand Débat » (14/11/2026, directeur : 2 épisodes par semaine) : épisodes fabriqués à part (série animée
     // Kévin / Léo) et déposés dans media/grand-debat/ : episode.mp4 + episode.txt (légende). Le plus ancien non publié part.
@@ -647,6 +654,9 @@ async function prepare(slot, now, id) {
   }
   // Collaboration : les organisateurs des 3 soirées vedettes (celles affichées sur la couverture).
   if (pub.soirees?.length && pub.images?.length > 1) { pub.collabs = comptesCollab(pub.soirees); console.error(`Collaborations proposées (du plus suivi au moins suivi) : ${pub.collabs.map((h) => `@${h} (${abonnesDe(h) || '?'})`).join(', ')}`); }
+  // Dernière vérification avant publication : la moindre incohérence restante bloque le post.
+  if (pub.soirees?.length && pub.coherence) { const pb = controlePost({ soirees: pub.soirees, ...pub.coherence }); if (pb.length) throw new Error(`Post incohérent, rien n'est publié : ${pb.join(' ; ')}`); }
+  if (pub.coherence) delete pub.coherence;
   const out = { id, type: slot.type, variante: slot.variante || null, date: stamp, ...pub, choix: ch.choix,
     features: (pub.soirees || []).flatMap(eventFeatures), nb_images: pub.images?.length || 0 };
   if (out.images) out.images = out.images.map(rel);
