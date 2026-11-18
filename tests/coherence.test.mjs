@@ -30,3 +30,10 @@ test('doublons retirés et signalés', () => {
   assert.equal(filtrerCoherentes(l, { format: 'commercial', now }).length, 1);
   assert.ok(controlePost({ soirees: l, format: 'commercial', now }).some((x) => /double/.test(x)));
 });
+
+test('soirée démentie par le lieu (Club Sonore au Mama Shelter le 26/11) : retirée, quelle que soit la langue du lien', async () => {
+  const { estRetiree } = await import('../src/coherence.mjs');
+  assert.ok(estRetiree({ name: 'The Show Club Sonore - Nice', start: '2026-11-26T18:00:00.000Z', url: 'https://shotgun.live/en/events/the-show-club-sonore-nice-novembre-2026' }));
+  assert.ok(estRetiree({ name: 'THE SHOW CLUB SONORE – NICE', start: '2026-11-26T19:00:00Z' }));
+  assert.ok(!estRetiree({ name: 'The Show Club Sonore - Nice', start: '2026-12-26T18:00:00Z' }));
+});

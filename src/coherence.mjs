@@ -3,6 +3,18 @@
 // une soirée qui ne la tient pas est retirée AVANT la fabrication, et le post entier est bloqué juste avant la publication
 // s'il reste la moindre incohérence (mieux vaut un autre post qu'une fausse info).
 import { isTechno, isUnderground } from './genres.mjs';
+import { readFileSync } from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const normNom = (x) => String(x || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
+/** Soirées démenties par le lieu, l'organisateur ou le directeur (contenus/soirees-retirees.json). */
+export function soireesRetirees() { try { return JSON.parse(readFileSync(path.join(ROOT, 'contenus', 'soirees-retirees.json'), 'utf8')).soirees || []; } catch { return []; } }
+export function estRetiree(e, liste = soireesRetirees()) {
+  const u = String(e.url || '').replace(/\/(en|fr|es|pt-br|pt-pt)\//, '/').replace(/[?#].*$/, '');
+  return liste.some((r) => (r.url && u && String(r.url).replace(/\/(en|fr|es|pt-br|pt-pt)\//, '/').replace(/[?#].*$/, '') === u) || (r.nom && r.date && normNom(r.nom) === normNom(e.name) && String(e.start || '').slice(0, 10) === r.date));
+}
 
 const ANNULE = /annul|report[ée]|cancel|postpon/i;
 const COMPLET = /sold ?out|complet|guichets? ferm/i;
@@ -22,6 +34,7 @@ export function problemesSoiree(e, { format, fenetre, now = new Date(), prixMax 
     if (fenetre?.from && fenetre?.to && (d < new Date(fenetre.from).getTime() - 6 * 3600e3 || d > new Date(fenetre.to).getTime() + 30 * 3600e3)) p.push('hors de la période annoncée');
   }
   if (ANNULE.test(texte(e))) p.push('annulée ou reportée');
+  if (estRetiree(e)) p.push('démentie (soirees-retirees.json)');
   if (format === 'tekno' && !isUnderground(e)) p.push('pas techno underground');
   if (format === 'techno' && !isTechno(e)) p.push('pas techno');
   if (format === 'commercial' && isTechno(e)) p.push('techno dans un post commercial');

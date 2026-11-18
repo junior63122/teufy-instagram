@@ -201,6 +201,8 @@ async function events() {
       } catch (err) { console.error(`Recherche web impossible : ${err.message}`); webEvents = (await import('./recherche.mjs')).lireCache().evenements || []; }
     }
     cache = await collectEvents(config, { root: ROOT, debugDir: path.join(ROOT, 'out', 'debug'), fixturesDir: fixtures && path.resolve(fixtures), webEvents });
+    // Soirées démenties (contenus/soirees-retirees.json) : retirées partout, même si une billetterie les annonce encore.
+    { const { estRetiree } = await import('./coherence.mjs'); const avant = cache.events.length; cache.events = cache.events.filter((e) => !estRetiree(e)); if (cache.events.length < avant) console.log(`  → ${avant - cache.events.length} soirée(s) démentie(s) retirée(s)`); }
     console.log('Sources :');
     for (const r of cache.report) console.log(`  ${r.source.padEnd(8)} ${r.erreur ? '✗ ' + r.erreur : `${r.evenements} événement(s)`}  ${r.url || ''}`);
     console.log(`  → ${cache.events.length} événement(s) uniques au total`);

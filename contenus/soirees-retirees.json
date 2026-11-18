@@ -1,0 +1,13 @@
+{
+  "_note": "Soirées démenties (par le lieu, l'organisateur ou le directeur) : jamais publiées ni affichées sur le site, même si une billetterie les annonce encore. Une ligne par soirée : url (ou nom + date), raison, qui l'a signalé, quand.",
+  "soirees": [
+    {
+      "url": "https://shotgun.live/fr/events/the-show-club-sonore-nice-novembre-2026",
+      "nom": "The Show Club Sonore - Nice",
+      "date": "2026-11-26",
+      "lieu": "Mama Shelter Nice",
+      "raison": "Mama Shelter Nice (message Instagram du 19/11/2026) : « nous n'avons pas de soirée avec Club Sonore prévue le 26 ». Fiche Shotgun non confirmée par le lieu.",
+      "le": "2026-11-20"
+    }
+  ]
+}
