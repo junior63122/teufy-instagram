@@ -1,0 +1,36 @@
+{
+ "promenade_nuit": {
+  "titre": "Promenade des Anglais at night (46940440735).jpg",
+  "auteur": "Miguel Mendez",
+  "licence": "CC BY 2.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Promenade_des_Anglais_at_night_(46940440735).jpg",
+  "note": "Version 1280 px (téléchargement en haute définition refusé par Wikimedia, erreur 429) : utilisée floutée en fond."
+ },
+ "nice": {
+  "titre": "Nice_from_Castle_Hill_01.jpg",
+  "auteur": "Spike",
+  "licence": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Nice_from_Castle_Hill_01.jpg"
+ },
+ "monaco_pano": {
+  "titre": "Monaco_02.jpg",
+  "auteur": "Spike",
+  "licence": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Monaco_02.jpg"
+ },
+ "site_*": {
+  "titre": "Captures de teufyparty.com (accueil, soirees-nice, soirees-techno, clubs-bars, manger-tard, ce-soir)",
+  "auteur": "Teufy",
+  "licence": "propriété de Teufy",
+  "note": "Prises le 20/11/2026 avec Playwright ; affiches des organisateurs masquées (remplacées par un dégradé)."
+ },
+ "logo": {
+  "titre": "Logo Teufy",
+  "auteur": "Teufy",
+  "licence": "propriété de Teufy"
+ },
+ "sons": {
+  "beat.wav": "généré par src/beat.mjs (synthèse, sans droits)",
+  "pop/whoosh/impact": "Mixkit Free License (usage commercial, sans attribution), copiés de studio/public/sfx"
+ }
+}

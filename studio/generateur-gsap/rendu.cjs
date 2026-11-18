@@ -2,7 +2,8 @@
 // Usage : node rendu.cjs <dossier-episode> <vitesse> <sortie.mp4> [stills=t1,t2,...]
 const {chromium}=require('playwright');const fs=require('fs');const path=require('path');const {spawn}=require('child_process');
 (async()=>{const [dir,fS,out,st]=process.argv.slice(2);const f=parseFloat(fS);const tl=JSON.parse(fs.readFileSync(path.join(dir,'timeline_fr.json')));
-const b=await chromium.launch();const p=await b.newPage({viewport:{width:1080,height:1920}});p.on('pageerror',e=>console.log('ERR',e.message));
+// Navigateur préinstallé (sessions cloud) si la version de Playwright du dépôt n'a pas le sien ; sinon celui de Playwright.
+const exe=[process.env.CHROMIUM_PATH,'/opt/pw-browsers/chromium'].find(x=>x&&fs.existsSync(x));const b=await chromium.launch(exe?{executablePath:exe}:{});const p=await b.newPage({viewport:{width:1080,height:1920}});p.on('pageerror',e=>console.log('ERR',e.message));
 await p.goto('file://'+path.resolve(dir,'index.html'));const END=await p.evaluate(t=>window.init(t),tl);
 // Zone sûre TikTok/Reels : bords recadrés, barre du haut, colonne d'icônes à droite, description en bas
 const ZONE={x0:70,x1:1010,y0:215,y1:1500,iconX:935,iconY0:850,iconY1:1750};const hors={};
