@@ -222,5 +222,125 @@
     "test_du_partage": "Au pote qui sort toujours sans veste, avec « c'est trop toi ».",
     "statut": "propose",
     "ajout": "2026-11-17"
+  },
+  {
+    "id": "c-2026-11-18-1623qj9",
+    "titre": "Rentrer à Sophia à 5 h sans voiture",
+    "format": "POV",
+    "accroche": "POV : 5 h, tu dois rentrer à Sophia sans voiture",
+    "plans": [
+      {
+        "texte": "Le club ferme. Ton pote de Sophia te regarde.",
+        "video": "friends leaving club night street"
+      },
+      {
+        "texte": "Plus de tram, plus de bus, plus de batterie.",
+        "video": "empty tram station night city"
+      },
+      {
+        "texte": "Tu ouvres l'appli VTC. Tu la refermes aussitôt.",
+        "video": "phone screen night close up city lights"
+      },
+      {
+        "texte": "Celui qui avait promis de conduire dort déjà.",
+        "video": "friend asleep backseat car night"
+      },
+      {
+        "texte": "Plan final : attendre le premier bus sur la Prom'.",
+        "video": "sunrise seaside promenade dawn friends"
+      },
+      {
+        "texte": "Tague celui qui habite à Sophia, il comprendra.",
+        "video": "friends laughing sunrise sea"
+      }
+    ],
+    "musique": "house mélancolique et drôle, 118 bpm",
+    "legende": "Tout le monde a un pote à Sophia. Tout le monde a vécu ce retour à 5 h. La Côte, c'est beau, mais la descente sans voiture, c'est un sport. Tague-le avant qu'il te redemande s'il peut dormir chez toi 😅",
+    "cta": "Tague ton pote de Sophia qui a besoin d'un lit ce soir",
+    "inspire_de": "partiful (Send this to your group chat)",
+    "pourquoi_viral": "Une galère précise, locale et vécue par tous les étudiants de Sophia : on se reconnaît en 1 seconde et on tague directement le pote concerné.",
+    "test_du_partage": "Envoyé au pote de Sophia avec « c'est trop toi samedi dernier ».",
+    "statut": "propose",
+    "ajout": "2026-11-18"
+  },
+  {
+    "id": "c-2026-11-18-zrw8yn",
+    "titre": "Même soirée, trois villes",
+    "format": "classement",
+    "accroche": "Même soirée. Nice, Cannes, Monaco. Trois mondes.",
+    "plans": [
+      {
+        "texte": "À Nice : before au Vieux-Nice, on arrive en retard.",
+        "video": "old town narrow street night friends walking"
+      },
+      {
+        "texte": "À Cannes : tout le monde a sa tenue de Croisette.",
+        "video": "stylish people walking palm trees boulevard night"
+      },
+      {
+        "texte": "À Monaco : tu lis la carte deux fois avant de choisir.",
+        "video": "luxury lounge night lights harbor"
+      },
+      {
+        "texte": "À Toulon : le port, les potes, zéro chichi.",
+        "video": "harbor night friends laughing"
+      },
+      {
+        "texte": "Et partout : personne ne veut rentrer.",
+        "video": "crowd dancing club lights"
+      },
+      {
+        "texte": "Ta ville gagne ? Défends-la en com.",
+        "video": "friends cheering dancefloor confetti"
+      }
+    ],
+    "musique": "afro house solaire, 122 bpm",
+    "legende": "Nice, Cannes, Monaco, Toulon : chacun pense que sa ville sort le mieux. On a notre avis, on le garde pour nous. Défends la tienne en com et tague le pote qui va râler 👇",
+    "cta": "Tague le pote qui va défendre sa ville en com",
+    "inspire_de": "djmvlarosa_officiel (TOP 5 Feria de Nîmes)",
+    "pourquoi_viral": "La rivalité entre villes de la Côte pousse les gens à commenter et à taguer, et c'est un contenu impossible à copier pour une autre région.",
+    "test_du_partage": "Envoyé au pote cannois ou monégasque avec « avoue c'est vrai ».",
+    "statut": "propose",
+    "ajout": "2026-11-18"
+  },
+  {
+    "id": "c-2026-11-18-ahyazb",
+    "titre": "23 h contre 5 h : une nuit en 6 étapes",
+    "format": "avant-apres",
+    "accroche": "23 h contre 5 h : même soirée, autre personne",
+    "plans": [
+      {
+        "texte": "23 h : coiffé, parfumé, prêt pour la photo.",
+        "video": "friends getting ready mirror night"
+      },
+      {
+        "texte": "1 h : « je rentre tôt, promis ».",
+        "video": "friends queue club entrance night"
+      },
+      {
+        "texte": "3 h : c'est toi qui réclames LA chanson au DJ.",
+        "video": "dj booth crowd hands up lights"
+      },
+      {
+        "texte": "4 h : tu cherches ce qui est encore ouvert.",
+        "video": "night street food stand neon"
+      },
+      {
+        "texte": "5 h : une chaussure à la main, aucun regret.",
+        "video": "person walking barefoot street dawn"
+      },
+      {
+        "texte": "6 h : la plage, le soleil, ton pote endormi.",
+        "video": "friends sitting beach sunrise pebbles"
+      }
+    ],
+    "musique": "techno mélodique qui monte, 126 bpm",
+    "legende": "La version 23 h de toi et la version 5 h de toi ne se connaissent pas. Elles ont juste en commun la photo floue. Envoie ça à ton pote qui fait exactement ça tous les samedis 🌅",
+    "cta": "Envoie ça au pote qui « rentre tôt » chaque samedi",
+    "inspire_de": "djmvlarosa_officiel (1 an sépare ses deux vidéos)",
+    "pourquoi_viral": "Une progression rapide et drôle, chaque étape étant vécue par tous. La fin sur la plage reste dans le décor de la Côte, sans alcool à l'image.",
+    "test_du_partage": "Envoyé dans le groupe WhatsApp du week-end avec « on est d'accord que c'est Léo ? ».",
+    "statut": "propose",
+    "ajout": "2026-11-18"
   }
 ]

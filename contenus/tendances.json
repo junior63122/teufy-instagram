@@ -139,6 +139,16 @@
         "titre": "Le vocal de 3 min envoyé à 4 h du mat'",
         "sous": "Tague le coupable",
         "ajout": "2026-11-17"
+      },
+      {
+        "titre": "5 h, Sophia, pas de voiture. Qui le ramène ?",
+        "sous": "Tague-le",
+        "ajout": "2026-11-18"
+      },
+      {
+        "titre": "File, vent, tenue légère : le trio du samedi",
+        "sous": "Envoie-le à ton groupe",
+        "ajout": "2026-11-18"
       }
     ],
     "techno": [
@@ -197,6 +207,11 @@
         "titre": "Sortir à 8 h, finir sur la plage ?",
         "sous": "Techno · Côte d'Azur",
         "ajout": "2026-11-17"
+      },
+      {
+        "titre": "Un nom vient de tomber. Ton binôme est au courant ?",
+        "sous": "Techno · Côte d'Azur",
+        "ajout": "2026-11-18"
       }
     ],
     "petits-prix": [
@@ -241,6 +256,11 @@
         "titre": "Prévente prise mardi. Samedi, tu souris.",
         "sous": "Petits prix · Côte d'Azur",
         "ajout": "2026-11-17"
+      },
+      {
+        "titre": "Entrée offerte avant 1 h : t'arrives à quelle heure ?",
+        "sous": "Petits prix · Côte d'Azur",
+        "ajout": "2026-11-18"
       }
     ]
   },
@@ -267,7 +287,9 @@
       "Ton groupe hésite encore entre trois endroits. On a fait le tri, de Nice à Monaco. Envoie-leur avant qu'ils proposent de rester au canap'.",
       "Tenue correcte exigée, réservation conseillée, et toi t'as juste envie de danser. Voilà les soirées du week-end sur la Côte.",
       "Il dit « je rentre tôt », il ferme la boîte. Tague-le, et choisis où il va le faire ce week-end, de Cannes à Monaco.",
-      "Samedi, c'est trois clubs contre un canap'. On a choisi pour toi, de Nice à Juan."
+      "Samedi, c'est trois clubs contre un canap'. On a choisi pour toi, de Nice à Juan.",
+      "Ton groupe a déjà débattu 47 messages. Nous, on a tranché : les soirées du week-end de Nice à Monaco. Envoie-leur avant le prochain « on verra ».",
+      "Le physio, la file, la tenue : on t'évite les surprises. Voilà où sortir ce week-end sur la Côte, à partager avec ceux qui viennent."
     ],
     "techno": [
       "Les caissons tremblent déjà. Ce week-end, la scène underground du 06 ne fait aucun compromis sur les BPM.",
@@ -278,11 +300,13 @@
       "Si tu lis ça, t'es déjà de la famille. Les dates qui tapent ce mois-ci sur la Côte, sans détour.",
       "Pas de carré VIP, pas de dress code. Juste des kicks et un lever de soleil. Les soirées techno du week-end sur la Côte.",
       "Le premier nom est tombé et ton binôme de rave l'a déjà vu. Les dates qui tapent ce mois-ci sur la Côte.",
-      "Il fait nuit à 17 h. Parfait, on a plus de temps pour les kicks. Les soirées techno du week-end sur la Côte."
+      "Il fait nuit à 17 h. Parfait, on a plus de temps pour les kicks. Les soirées techno du week-end sur la Côte.",
+      "Un nom tombe, ton binôme t'envoie déjà le lien. Les dates qui tapent ce mois-ci sur la Côte, à garder sous le coude.",
+      "Pas de table, pas de bouteille, juste du 4/4 jusqu'au matin. Les soirées techno du week-end sur la Côte, pour ceux qui savent."
     ]
   },
-  "objectif_semaine": 48,
-  "derniere_analyse": "2026-11-17T15:07:39.346Z",
+  "objectif_semaine": 42,
+  "derniere_analyse": "2026-11-18T15:07:56.820Z",
   "concurrents": {
     "_note": "Comptes concurrents ou similaires (guides de sorties, médias nightlife). Le bot regarde chaque jour ce qui marche chez eux (formats, accroches, hashtags, heures). Un nom inexistant est simplement ignoré.",
     "liste": [
@@ -306,34 +330,28 @@
   },
   "formats_a_tester": [
     {
-      "format": "Carrousel « envoie ça à ton groupe » : 5 à 6 soirées du week-end, une par slide, avec la ville et le style",
-      "pourquoi": "Les carrousels font 6,25 chez les autres comptes contre 2,51 pour les reels. Partiful finit par un appel explicite à l'envoyer au groupe.",
-      "source": "https://www.instagram.com/p/DfpVkKuHMHS/",
-      "ajout": "2026-11-17"
+      "format": "Annonce flash d'un line-up ou d'un premier nom, publiée le jour même",
+      "pourquoi": "La veille HUGEL a fait 100 avec 8 partages. Dice construit ses meilleurs posts sur l'actu artiste.",
+      "source": "https://www.instagram.com/p/Dd_qG-Iio-L/ (dicefm) + post veille du 09/11",
+      "ajout": "2026-11-18"
     },
     {
-      "format": "Actu artiste façon DICE : un nom, un événement, une phrase de contexte",
-      "pourquoi": "L'annonce HUGEL a fait 100/100 avec 8 partages : l'actu line-up se partage tout de suite.",
-      "source": "https://www.instagram.com/p/Dd_qG-Iio-L/",
-      "ajout": "2026-11-17"
+      "format": "Reel avant-après sur une même nuit (23 h contre 5 h)",
+      "pourquoi": "Le format « 1 an sépare ces deux vidéos » performe chez djmvlarosa. La situation est vécue et se tague facilement.",
+      "source": "https://www.instagram.com/reel/DcJW7DqtbUs/ (djmvlarosa_officiel)",
+      "ajout": "2026-11-18"
     },
     {
-      "format": "Récap techno du mois en carrousel, publié le 1er",
-      "pourquoi": "Récap du 2 janvier : 80 partages et 26 enregistrements. Novembre 2025 : 33 partages et 9 abonnés.",
-      "source": "Chiffres du compte (posts du 2026-01-02 et du 2025-11-07)",
-      "ajout": "2026-11-17"
+      "format": "Top 5 des sons qu'on attend toute la nuit, par style (afro, shatta, techno)",
+      "pourquoi": "Le classement musical fait débattre en commentaires. Le format Top 5 club cartonne chez djmvlarosa.",
+      "source": "https://www.instagram.com/reel/DdoUSn6hhwS/ (djmvlarosa_officiel)",
+      "ajout": "2026-11-18"
     },
     {
-      "format": "Concours avec un partenaire local (« tague 2 potes »)",
-      "pourquoi": "Les concours font 97 à 100/100 avec beaucoup de commentaires et le plus d'abonnés gagnés (jusqu'à 13).",
-      "source": "Chiffres du compte (concours LQB, Electro Symphony, Halloween)",
-      "ajout": "2026-11-17"
-    },
-    {
-      "format": "Post texte « situation vraie » sans visuel chargé",
-      "pourquoi": "« La vérité, c'est qu'on a tous déjà eu cette impression » : 84/100, 67 likes, 14 partages.",
-      "source": "Chiffres du compte (post du 2025-11-17)",
-      "ajout": "2026-11-17"
+      "format": "Concours partenaire avec un organisateur de la Côte avant le Nouvel An",
+      "pourquoi": "Nos concours font 18 à 28 commentaires et jusqu'à 8 abonnés gagnés chacun.",
+      "source": "Données du compte (LQB, REF, Crossover)",
+      "ajout": "2026-11-18"
     }
   ],
   "inspirations_internationales": {
