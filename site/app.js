@@ -145,6 +145,12 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
         else if (min < a) { txt = (T.ouvertJusqua || '{h}').replace('{h}', fmt(pl.a)); cls = 'ouvert'; }
         else { txt = T.fermeMaint; cls = 'ferme'; }
       } else if (plages) { txt = T.fermeCeSoir; cls = 'ferme'; }
+      // Entre minuit et 6 h, la journée d'aujourd'hui a peut-être déjà commencé (boulangerie ouverte dès 4 h le samedi :
+      // vue comme « fermée » avec les horaires de la veille, 18/11/2026). On regarde aussi les horaires du vrai jour.
+      if (plages && cls !== 'ouvert' && min >= 1440) {
+        const vrai = jour === 7 ? 1 : jour + 1, m2 = min - 1440, p2 = plages.find((x) => x.j.includes(vrai));
+        if (p2) { const de2 = enMin(p2.de); let a2 = enMin(p2.a); if (a2 <= de2) a2 += 1440; if (m2 >= de2 && m2 < a2) { txt = (T.ouvertJusqua || '{h}').replace('{h}', fmt(p2.a)); cls = 'ouvert'; } }
+      }
       if (soir && cls !== 'ouvert') { txt = (T.soireeA || '{h}').replace('{h}', fmt(soir[1])); cls = 'soiree'; }
       // Sans horaires vérifiés : aucune étiquette (jamais « horaires non confirmés », jamais deviné).
       if (!txt) { st.hidden = true; el.dataset.statut = 'inconnu'; }
