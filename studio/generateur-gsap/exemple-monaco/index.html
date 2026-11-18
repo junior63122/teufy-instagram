@@ -1,0 +1,176 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Inter;font-weight:700;src:url(../node_modules/@fontsource/inter/files/inter-latin-700-normal.woff2)}
+@font-face{font-family:Inter;font-weight:800;src:url(../node_modules/@fontsource/inter/files/inter-latin-800-normal.woff2)}
+@font-face{font-family:Inter;font-weight:900;src:url(../node_modules/@fontsource/inter/files/inter-latin-900-normal.woff2)}
+*{box-sizing:border-box;margin:0}
+html,body{background:#000;width:1080px;height:1920px;overflow:hidden;font-family:Inter,sans-serif;color:#14141F}
+#stage{position:relative;transform-origin:50% 45%;width:1080px;height:1920px;overflow:hidden;background:#F3F1FA}
+.scene{position:absolute;inset:0;overflow:hidden}
+.photo{position:absolute;top:0;left:0;height:1920px;width:auto;transform-origin:50% 50%;will-change:transform}
+.shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,30,.15) 0%,rgba(10,10,30,0) 35%,rgba(10,10,30,.55) 100%)}
+.pastel{position:absolute;inset:0;background:#F3F1FA}
+.blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:.75}
+.title{position:absolute;left:0;right:0;text-align:center;font-weight:900;letter-spacing:-.04em;line-height:1}
+.grad{background:linear-gradient(90deg,#E8337A,#F37A5B);-webkit-background-clip:text;background-clip:text;color:transparent}
+.glass{position:absolute;border-radius:44px;background:rgba(255,255,255,.82);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);box-shadow:0 24px 70px rgba(60,40,140,.22);border:2px solid rgba(255,255,255,.9)}
+.chip{position:absolute;border-radius:999px;background:#fff;box-shadow:0 12px 40px rgba(60,40,140,.18);font-weight:800;padding:18px 34px;font-size:40px;white-space:nowrap}
+.sticker{position:absolute;filter:drop-shadow(0 0 0 #fff) drop-shadow(0 18px 30px rgba(0,0,0,.25))}
+#caps{position:absolute;left:90px;right:90px;top:1290px;height:150px;display:flex;justify-content:center;align-items:center}
+#capbox{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;padding:16px 22px;border-radius:30px;background:rgba(20,18,40,.82);backdrop-filter:blur(12px)}
+.w{font-weight:900;font-size:58px;color:#fff;letter-spacing:-.02em;padding:2px 12px;border-radius:14px;line-height:1.15}
+.w.on{background:#FF4D6D;transform:scale(1.08)}
+#credit{position:absolute;left:84px;top:1438px;font-size:20px;font-weight:700;color:rgba(255,255,255,.85);text-shadow:0 1px 3px rgba(0,0,0,.6)}
+#flash{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none}
+svg text{font-family:Inter;font-weight:800}
+</style></head><body>
+<div id="stage">
+ <!-- 0 : Nice -->
+ <div class="scene" id="s0">
+  <img class="photo" id="pNice" src="img/nice.jpg">
+  <div class="shade"></div>
+  <div class="title" id="tNice" style="top:300px;font-size:200px;color:#fff;text-shadow:0 10px 40px rgba(0,0,0,.35)">NICE</div>
+  <div class="glass" id="bank" style="left:150px;top:610px;width:780px;height:330px;overflow:hidden">
+   <div style="height:130px;background:linear-gradient(90deg,#1d1b33,#3a2f6b);padding:26px 44px;color:#fff">
+    <div style="font-size:30px;font-weight:700;opacity:.75">Compte de Léo</div><div id="bal" style="font-size:64px;font-weight:900;letter-spacing:-.03em">0,00 €</div></div>
+   <div style="padding:30px 44px;font-size:34px;font-weight:800;color:#6B6B80">22 ans · serveur à Nice</div>
+  </div>
+  <img class="sticker" id="leo0" src="img/leo_cheer.png" style="left:-60px;top:1000px;width:620px">
+ </div>
+ <!-- 1 : carte -->
+ <div class="scene" id="s1">
+  <div class="pastel"><div class="blob" style="left:-100px;top:200px;width:700px;height:700px;background:#FF9EC7"></div><div class="blob" style="left:500px;top:900px;width:800px;height:800px;background:#B9A5FF"></div><div class="blob" style="left:100px;top:1300px;width:600px;height:600px;background:#AACDFF"></div></div>
+  <div class="title" id="tMon" style="top:300px;font-size:150px"><span class="grad">Monaco</span></div>
+  <svg id="map" width="1080" height="1920" viewBox="0 0 1080 1920" style="position:absolute;inset:0">
+   <defs><linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7FD3FF"/><stop offset="1" stop-color="#3A8EE6"/></linearGradient></defs>
+   <g id="mapg">
+    <rect x="90" y="560" width="900" height="760" rx="56" fill="#fff" opacity=".9"/>
+    <path d="M90 1320 L90 1080 C 220 1060, 300 1130, 380 1110 C 470 1090, 520 1000, 600 990 C 700 975, 760 900, 860 880 C 920 868, 960 860, 990 850 L990 1320 Z" fill="url(#sea)"/>
+    <path d="M90 1080 C 220 1060, 300 1130, 380 1110 C 470 1090, 520 1000, 600 990 C 700 975, 760 900, 860 880 C 920 868, 960 860, 990 850" fill="none" stroke="#F4E3B5" stroke-width="14"/>
+    <path id="route" d="M300 1080 C 420 1040, 520 960, 620 950 C 720 940, 780 870, 860 840" fill="none" stroke="#FF4D6D" stroke-width="16" stroke-linecap="round" stroke-dasharray="12 26"/>
+    <g id="pinN" transform="translate(300 1080)"><circle r="26" fill="#14141F"/><circle r="10" fill="#fff"/><text data-deco y="-50" text-anchor="middle" font-size="40" fill="#14141F">Nice</text></g>
+    <g id="pinM" transform="translate(860 840)"><circle r="30" fill="#E8337A"/><circle r="12" fill="#fff"/><text y="-56" text-anchor="middle" font-size="44" fill="#E8337A">Monaco</text></g>
+   </g>
+  </svg>
+  <div id="train" style="position:absolute;left:0;top:0;font-size:84px;line-height:1">🚆</div>
+  <div class="chip" id="km" style="left:330px;top:1180px">🚆 ≈ <span id="kmv">0</span> km</div>
+ </div>
+ <!-- 2 : Monaco -->
+ <div class="scene" id="s2">
+  <img class="photo" id="pMon" src="img/monaco_pano.jpg">
+  <div class="shade"></div>
+  <div class="glass" id="m2card" style="left:140px;top:560px;width:800px;height:330px;padding:40px 50px">
+   <div style="font-size:34px;font-weight:800;color:#6B6B80">Prix moyen à Monaco</div>
+   <div style="font-size:120px;font-weight:900;letter-spacing:-.04em"><span id="m2v">0</span> €<span style="font-size:56px;color:#6B6B80"> / m²</span></div>
+   <div style="font-size:26px;font-weight:800;color:#2BC77A">✔ Source : IMSEE, 2025</div>
+  </div>
+  <div id="ring" style="position:absolute;left:640px;top:1000px;width:300px;height:300px;border-radius:50%;border:10px solid #FFD23F;box-shadow:0 0 0 2000px rgba(0,0,0,.0)"></div>
+ </div>
+ <!-- 3 : studio + jours -->
+ <div class="scene" id="s3">
+  <div class="pastel"><div class="blob" style="left:400px;top:200px;width:700px;height:700px;background:#FFC0A0"></div><div class="blob" style="left:-200px;top:800px;width:800px;height:800px;background:#B9A5FF"></div></div>
+  <div class="glass" id="studio" style="left:120px;top:420px;width:840px;height:400px;padding:40px 50px">
+   <div style="font-size:34px;font-weight:800;color:#6B6B80">Studio de 25 m² à Monaco</div>
+   <div style="font-size:104px;font-weight:900;letter-spacing:-.04em"><span id="stv">0</span> €</div>
+   <div style="margin-top:26px;height:34px;border-radius:17px;background:#ECEAF5;position:relative;overflow:hidden"><div id="bar" style="position:absolute;left:0;top:0;bottom:0;width:0;border-radius:17px;background:#2BC77A"></div></div>
+   <div style="text-align:right;margin-top:14px;font-size:34px;font-weight:900;color:#E8337A">0,004 %</div>
+  </div>
+  <div class="glass" id="cal" style="left:330px;top:880px;width:420px;height:420px;overflow:hidden;transform-origin:50% 0">
+   <div style="height:110px;background:linear-gradient(90deg,#E8337A,#F37A5B);color:#fff;font-size:36px;font-weight:900;text-align:center;line-height:110px">IL RESTE</div>
+   <div id="calv" style="text-align:center;font-size:210px;font-weight:900;letter-spacing:-.05em;line-height:240px">60</div>
+   <div style="text-align:center;font-size:34px;font-weight:800;color:#6B6B80;margin-top:-20px">jours</div>
+  </div>
+  <img class="sticker" id="leo3" src="img/leo_shrug.png" style="left:600px;top:1250px;width:520px">
+ </div>
+ <!-- 4 : choix -->
+ <div class="scene" id="s4">
+  <div class="pastel"><div class="blob" style="left:-100px;top:300px;width:700px;height:700px;background:#9FE8C0"></div><div class="blob" style="left:500px;top:500px;width:700px;height:700px;background:#FF9EB0"></div></div>
+  <div class="title" style="top:330px;font-size:110px" id="t4">Honnête<br><span class="grad">ou fake ?</span></div>
+  <div class="glass" id="c1" style="left:120px;top:640px;width:400px;height:460px;text-align:center;padding-top:40px"><div style="font-size:120px">😇</div><div style="font-size:60px;font-weight:900">Honnête</div><div style="font-size:30px;font-weight:800;color:#6B6B80">Photos de soirée</div></div>
+  <div class="glass" id="c2" style="left:560px;top:640px;width:400px;height:460px;text-align:center;padding-top:40px"><div style="font-size:120px">😈</div><div style="font-size:60px;font-weight:900">Fake</div><div style="font-size:30px;font-weight:800;color:#6B6B80">Formation IA 97 €</div></div>
+  <div class="chip" id="pill4" style="left:150px;top:1120px;background:#FF4D6D;color:#fff;font-size:44px">Écris HONNÊTE ou FAKE 👇</div>
+  <img class="sticker" id="leo4" src="img/leo_shrug.png" style="left:230px;top:1180px;width:620px">
+ </div>
+ <div id="credit"></div>
+ <div id="caps"><div id="capbox"></div></div>
+ <div id="flash"></div>
+</div>
+<script src="../node_modules/gsap/dist/gsap.min.js"></script><script src="../node_modules/gsap/dist/MotionPathPlugin.min.js"></script>
+<script>
+gsap.registerPlugin(MotionPathPlugin);let TL=[],tl,WORDS=[],CHUNKS=[];
+const $=id=>document.getElementById(id);
+function fr(n){return Math.round(n).toLocaleString('fr-FR').replace(/ | /g,' ')}
+function buildCaps(){WORDS=[];TL.forEach(g=>g.words.forEach(([w,s,e])=>{if(/^[^\wÀ-ÿ€0-9]+$/.test(w)){if(WORDS.length){WORDS[WORDS.length-1].e=e;WORDS[WORDS.length-1].stop=true}return}
+    WORDS.push({w:w.replace(/\.\.\./g,'').replace(/[.,:…]+$/,''),s,e,seg:g.i,stop:/[.?!:,…]$/.test(w)})}));
+  // groupes de 3 mots maximum, coupés à chaque ponctuation et à chaque nouvelle réplique
+  let cur=[];WORDS.forEach((w,i)=>{cur.push(i);const n=WORDS[i+1];if(cur.length>=3||!n||n.seg!==w.seg||w.stop){CHUNKS.push(cur);cur=[]}})}
+const HOT=/^(nice|monaco|léo|soixante|euros?|cinquante-sept|mille|cinq|cents|studio|million|quarante|cinquante-huit|jours|honnête|fake|commentaire|vingtaine|kilomètres)$/i;
+function renderCaps(t){const ci=CHUNKS.findIndex(c=>t>=WORDS[c[0]].s-.05&&t<(CHUNKS[CHUNKS.indexOf(c)+1]?WORDS[CHUNKS[CHUNKS.indexOf(c)+1][0]].s-.05:WORDS[c[c.length-1]].e+.6));
+  const box=$('capbox');if(ci<0){box.style.opacity=0;return}box.style.opacity=1;const c=CHUNKS[ci];
+  box.innerHTML=c.map(i=>{const w=WORDS[i];const on=t>=w.s-.03;return `<span class="w${on&&HOT.test(w.w)?' on':''}" style="opacity:${on?1:.35}">${w.w.toUpperCase()}</span>`}).join('');
+  const p=Math.min(1,(t-WORDS[c[0]].s+.05)/.15);box.style.transform=`scale(${.85+.15*p})`}
+function build(){const S=TL.map(g=>g.start),END=TL[TL.length-1].start+TL[TL.length-1].dur+1.2;
+  tl=gsap.timeline({paused:true});const sc=['s0','s1','s2','s3','s4'];
+  gsap.set(sc.map(s=>'#'+s),{autoAlpha:0});
+  const cut=(i,at)=>{tl.set('#'+sc[i],{autoAlpha:1},at);if(i>0)tl.set('#'+sc[i-1],{autoAlpha:0},at+.02);tl.fromTo('#flash',{opacity:.55},{opacity:0,duration:.25,ease:'power2.out'},at)};
+  // --- 0 : Nice
+  cut(0,0);const nw=3840*1920/1299;gsap.set('#pNice',{width:nw,x:-260,scale:1.05});
+  tl.to('#pNice',{x:-900,scale:1.18,duration:S[1],ease:'none'},0);
+  tl.from('#tNice',{y:160,opacity:0,scale:1.3,duration:.6,ease:'back.out(2)'},0);
+  tl.from('#bank',{y:420,opacity:0,rotation:-6,duration:.7,ease:'back.out(1.6)'},.9);
+  const b={v:0};tl.to(b,{v:61,duration:.9,ease:'power3.out',onUpdate:()=>$('bal').textContent=b.v.toFixed(2).replace('.',',')+' €'},1.3);
+  tl.from('#leo0',{x:-500,rotation:-20,duration:.8,ease:'back.out(1.4)'},1.5);
+  tl.to('#leo0',{y:-25,duration:.35,yoyo:true,repeat:Math.floor((S[1]-2.3)/.35),ease:'sine.inOut'},2.3);
+  tl.set('#credit',{textContent:'Photo : Spike · CC BY-SA 4.0 (Wikimedia)'},0);
+  // --- 1 : carte
+  cut(1,S[1]);tl.set('#credit',{textContent:''},S[1]);
+  tl.from('#tMon',{y:-120,opacity:0,duration:.6,ease:'back.out(2)'},S[1]);
+  tl.from('#mapg',{scale:.8,opacity:0,transformOrigin:'540px 940px',duration:.7,ease:'power3.out'},S[1]);
+  const L=document.getElementById('route').getTotalLength();gsap.set('#route',{attr:{'stroke-dasharray':L,'stroke-dashoffset':L}});
+  tl.to('#route',{attr:{'stroke-dashoffset':0},duration:1.6,ease:'power2.inOut'},S[1]+.6);
+  tl.from('#pinN',{y:-200,opacity:0,duration:.5,ease:'bounce.out'},S[1]+.4);tl.from('#pinM',{y:-200,opacity:0,duration:.5,ease:'bounce.out'},S[1]+2.1);
+  tl.from('#km',{scale:0,duration:.5,ease:'back.out(2)'},S[1]+1.2);const k={v:0};tl.to(k,{v:20,duration:1.4,ease:'power2.out',onUpdate:()=>$('kmv').textContent=Math.round(k.v)},S[1]+1.2);
+  tl.to('#mapg',{scale:1.35,x:-260,y:120,transformOrigin:'860px 840px',duration:1.2,ease:'power2.in'},S[2]-1.2);
+  tl.fromTo('#s2',{clipPath:'circle(0px at 860px 840px)'},{clipPath:'circle(2300px at 860px 840px)',duration:.7,ease:'power2.in'},S[2]-.45);
+  tl.set('#s2',{autoAlpha:1},S[2]-.45);
+  // --- 2 : Monaco
+  tl.set('#s1',{autoAlpha:0},S[2]+.3);const mw=3840*1920/1740;gsap.set('#pMon',{width:mw,x:-600,scale:1.05});
+  tl.to('#pMon',{x:-2900,scale:1.15,duration:S[3]-S[2]+.5,ease:'power1.inOut'},S[2]-.45);
+  tl.set('#credit',{textContent:'Photo : Spike · CC BY-SA 4.0 (Wikimedia)'},S[2]);
+  tl.from('#m2card',{y:-300,opacity:0,duration:.6,ease:'back.out(1.6)'},S[2]+.4);const m={v:0};
+  tl.to(m,{v:57500,duration:1.6,ease:'power3.out',onUpdate:()=>$('m2v').textContent=fr(m.v)},S[2]+.7);
+  tl.fromTo('#ring',{scale:3,opacity:0},{scale:1,opacity:1,duration:.5,ease:'back.out(2)'},S[2]+1.6);
+  // --- 3 : studio + jours
+  cut(3,S[3]);tl.set('#credit',{textContent:''},S[3]);
+  tl.from('#studio',{y:300,opacity:0,rotationX:30,duration:.6,ease:'back.out(1.5)'},S[3]);const st={v:0};
+  tl.to(st,{v:1440000,duration:1.3,ease:'power3.out',onUpdate:()=>$('stv').textContent=fr(st.v)},S[3]+.2);
+  tl.to('#bar',{width:'3%',duration:.8,ease:'power2.out'},S[3]+.9);
+  tl.from('#cal',{rotationX:-90,opacity:0,duration:.6,ease:'back.out(1.4)'},S[3]+1.6);const cd={v:60};
+  tl.to(cd,{v:58,duration:.8,ease:'steps(2)',onUpdate:()=>$('calv').textContent=Math.round(cd.v)},S[3]+2.3);
+  // --- 4 : choix
+  cut(4,S[4]);
+  tl.from('#t4',{scale:1.4,opacity:0,duration:.5,ease:'back.out(2)'},S[4]);
+  tl.from('#c1',{x:-500,rotationY:60,opacity:0,duration:.6,ease:'back.out(1.4)'},S[4]+.6);tl.from('#c2',{x:500,rotationY:-60,opacity:0,duration:.6,ease:'back.out(1.4)'},S[4]+1.0);
+  tl.to(['#c1','#c2'],{scale:1.05,duration:.3,yoyo:true,repeat:5,ease:'sine.inOut',stagger:.15},S[4]+1.7);
+  tl.from('#leo4',{y:600,duration:.7,ease:'back.out(1.3)'},S[4]+.3);
+  // --- caméra qui dérive en permanence et zooms-chocs sur les mots clés
+  [[0,S[1]],[2,S[3]],[3,S[4]],[4,END]].forEach(([i,e])=>{const st=i===2?S[2]-.45:S[i];tl.fromTo('#s'+i,{scale:1.0,rotation:-.6},{scale:1.08,rotation:.6,duration:e-st,ease:'none',transformOrigin:'50% 45%'},st)});
+  WORDS.forEach(w=>{if(/^(soixante|monaco|cinquante-sept|million|cinquante-huit|fake)$/i.test(w.w)){tl.to('#stage',{scale:1.05,duration:.08,ease:'power2.out'},w.s-.02);tl.to('#stage',{scale:1,duration:.35,ease:'power2.out'},w.s+.06)}});
+  tl.to('#bank',{y:-18,duration:.6,yoyo:true,repeat:3,ease:'sine.inOut'},1.8);
+  // train le long du trajet
+  tl.from('#train',{opacity:0,duration:.2},S[1]+.6);tl.to('#train',{motionPath:{path:'#route',align:'#route',alignOrigin:[.5,.8],autoRotate:false},duration:1.6,ease:'power2.inOut'},S[1]+.6);
+  tl.to('#km',{y:-14,duration:.4,yoyo:true,repeat:3,ease:'sine.inOut'},S[1]+2.0);
+  tl.to('#mapg',{scale:1.15,transformOrigin:'860px 840px',duration:S[2]-1.2-(S[1]+2.3),ease:'sine.inOut'},S[1]+2.3);
+  // studio : tremblement, Léo qui arrive, barre qui clignote
+  tl.to('#studio',{x:'+=14',duration:.05,yoyo:true,repeat:7,ease:'none'},S[3]+1.45);
+  tl.from('#leo3',{x:600,rotation:15,duration:.6,ease:'back.out(1.4)'},S[3]+1.0);tl.to('#leo3',{y:-30,duration:.3,yoyo:true,repeat:Math.floor((S[4]-S[3]-1.6)/.3),ease:'sine.inOut'},S[3]+1.6);
+  tl.to('#cal',{rotation:4,duration:.25,yoyo:true,repeat:5,ease:'sine.inOut'},S[3]+2.4);
+  // choix : cartes qui flottent, pastille qui rebondit, Léo qui sautille
+  tl.to('#c1',{y:-24,duration:.5,yoyo:true,repeat:7,ease:'sine.inOut'},S[4]+1.2);tl.to('#c2',{y:-24,duration:.5,yoyo:true,repeat:7,ease:'sine.inOut'},S[4]+1.45);
+  tl.from('#pill4',{scale:0,rotation:-10,duration:.5,ease:'back.out(2.2)'},S[4]+2.0);tl.to('#pill4',{scale:1.08,duration:.25,yoyo:true,repeat:7,ease:'sine.inOut'},S[4]+2.5);
+  tl.to('#leo4',{y:-40,duration:.28,yoyo:true,repeat:Math.floor((END-S[4]-1)/.28),ease:'sine.inOut'},S[4]+1.0);
+  tl.to('#t4',{rotation:-2,duration:.4,yoyo:true,repeat:5,ease:'sine.inOut'},S[4]+.6);
+  tl.to({},{duration:.01},END);return END}
+window.init=async(tlData)=>{TL=tlData;buildCaps();await document.fonts.ready;await Promise.all([...document.images].map(i=>i.decode()));return build()};
+window.seek=t=>{tl.seek(t,false);renderCaps(t)};
+</script></body></html>

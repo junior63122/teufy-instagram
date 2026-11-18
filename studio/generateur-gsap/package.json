@@ -1,0 +1,9 @@
+{
+ "name": "generateur-gsap",
+ "private": true,
+ "description": "Générateur de vidéos motion (HTML + CSS + GSAP), copié de riviera-studio",
+ "dependencies": {
+  "gsap": "3.13.0",
+  "@fontsource/inter": "5.2.5"
+ }
+}
