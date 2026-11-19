@@ -1,0 +1,31 @@
+{
+  "id": "reel-spot-promo",
+  "type": "reel",
+  "variante": "spot-promo",
+  "date": "2026-11-19",
+  "video": "reel-2026-11-19.mp4",
+  "couverture": "reel-2026-11-19-couverture.jpg",
+  "legende": "Tu sais jamais où sortir le soir ? 👀\n\nTeufy, c'est toutes les soirées de la Côte d'Azur au même endroit :\n🔥 les soirées de ce soir, en un coup d'œil\n📍 les boîtes ouvertes près de toi\n🎧 ton style : techno, house, afro, shatta\n🆓 les soirées gratuites et les bons plans\n🍕 où manger après la boîte, jusqu'à 5 h\n\nDe Toulon à Monaco 🌊 Tout est sur teufyparty.com (lien en bio)\n\nAbonne-toi pour ne rater aucune soirée, et sois là quand l'appli arrive 📲\n\n#TeufyParty #cotedazur #nice #cannes #monaco",
+  "titre": "Teufy · 01 ou sortir le soir",
+  "concept": "spot-promo-01-ou-sortir-le-soir",
+  "duree": 18.6,
+  "rubrique": "Spot Teufy",
+  "hors_grille": false,
+  "photo": null,
+  "choix": {
+    "creneau": "17",
+    "accroche-spot": "question",
+    "fonction-spot": [
+      "ce-soir",
+      "pres-de-moi",
+      "styles",
+      "gratuit",
+      "manger-tard",
+      "toute-la-cote"
+    ]
+  },
+  "features": [],
+  "nb_images": 0,
+  "story_video": "reel-2026-11-19.mp4",
+  "a_tester": []
+}
