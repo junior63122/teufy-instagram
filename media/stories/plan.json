@@ -1,16 +1,10 @@
 {
-  "jour": "2026-11-18",
+  "jour": "2026-11-19",
   "plan": [
     {
-      "type": "question",
-      "cles": [
-        "q-refoule"
-      ],
-      "frames": [
-        {
-          "image": "2026-11-18-question.jpg"
-        }
-      ]
+      "type": "soirees",
+      "cles": [],
+      "frames": []
     }
   ]
 }
