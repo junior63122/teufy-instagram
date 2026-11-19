@@ -117,6 +117,8 @@ const slotsFor = (d) => {
     const i = aLaPlace.remplace === 'reel' ? base.findIndex((c) => c.type === 'reel') : base.findIndex((c) => c.type !== 'reel');
     if (i >= 0) base[i] = { ...nouveau, ...(base[i].second ? { second: true } : {}) };
     else if (aLaPlace.remplace === 'post') base.unshift(nouveau); else base.push({ ...nouveau, second: true });
+    // « premier »: true : cette publication passe en premier dans la journée, les autres deviennent secondes.
+    if (aLaPlace.premier) { const k = base.findIndex((c) => c.type === nouveau.type && c.variante === nouveau.variante); if (k > 0) { const [x] = base.splice(k, 1); delete x.second; base.unshift(x); for (const c of base.slice(1)) c.second = true; } else if (k === 0) delete base[0].second; }
   }
   const extras = extrasDu(PLAN, s.date).filter(pretValide).filter((x) => x !== aLaPlace).map((x) => ({ type: x.type, variante: x.variante || undefined, suite: true, second: true, troisieme: base.length > 1 }))
     .filter((x) => !SERIES.includes(x.variante) || episodeGrandDebat(x.variante));
