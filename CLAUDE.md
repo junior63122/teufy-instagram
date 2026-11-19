@@ -41,3 +41,10 @@
   vérification que la veille et les posts actus tournent, idées de fonctionnalités ; puis réparer, tester (`npm test`), ajouter la
   version suivante en tête de `contenus/version.json` (numéro +1, date, notes en français simple) et faire un rapport au directeur.
   Ne jamais committer les pages reconstruites localement par les tests (le robot reconstruit le site).
+- **Concours** (directeur, 19/11/2026, valable pour tous les concours) : on doit comprendre **tout de suite** que c'est un
+  concours (le mot « Concours » et le lot visibles sur la couverture), mais le visuel **reste dans la DA du flux** (couverture
+  standard du studio : photo de nuit, étiquette corail, titre, affiches en vignettes). **Le directeur valide les visuels avant
+  toute publication** : un post prêt (`media/posts-prets/<date-nom>/`) et ses stories (`contenus/stories-pretes.json`) ne partent
+  que si `"valide": true`, mis seulement après son accord écrit. Toujours : règlement (gratuit, 18 ans et plus, date et heure du
+  tirage, nombre de gagnants et de places, « Instagram n'est ni organisateur ni partenaire »), mise en garde contre les faux
+  comptes, tags vérifiés seulement.
