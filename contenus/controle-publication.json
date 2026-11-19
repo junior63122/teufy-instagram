@@ -1,0 +1,19 @@
+{
+ "_note": "Auto-contrôle des publications (src/run.mjs controle), à chaque passage horaire. Le plus récent en dernier.",
+ "jours": [
+  {
+   "jour": "2026-11-19",
+   "le": "2026-11-19T22:38:36.602Z",
+   "ok": [
+    "reel-spot-promo : en ligne et conforme (https://www.instagram.com/reel/Df7lgrXAraX/)",
+    "story repost : 1 image(s) en ligne"
+   ],
+   "problemes": [
+    "incontournables-tekno : PAS PUBLIÉ aujourd'hui",
+    "story soirees : notée faite sans aucune image en ligne",
+    "story question : notée faite sans aucune image en ligne",
+    "story coeur : notée faite sans aucune image en ligne"
+   ]
+  }
+ ]
+}
