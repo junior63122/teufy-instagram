@@ -2,9 +2,15 @@
   "jour": "2026-11-19",
   "plan": [
     {
-      "type": "soirees",
-      "cles": [],
-      "frames": []
+      "type": "repost",
+      "cles": [
+        "d-age-boite"
+      ],
+      "frames": [
+        {
+          "image": "2026-11-19-repost.jpg"
+        }
+      ]
     }
   ]
 }
