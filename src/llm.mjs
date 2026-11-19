@@ -219,7 +219,8 @@ async function githubModels({ L, system, prompt, schema, nom }) {
     githubModels.diag = true;
     try { const r = await fetch('https://models.github.ai/catalog/models', { headers: h, signal: AbortSignal.timeout(20000) }); const t = await r.text(); console.error(`GitHub Models : catalogue HTTP ${r.status} — ${(() => { try { return JSON.parse(t).map((x) => x.id).slice(0, 12).join(', '); } catch { return t.slice(0, 120); } })()}`); } catch (err) { console.error(`GitHub Models : catalogue illisible (${err.message})`); }
   }
-  throw new Error(`GitHub Models indisponible — ${journal.join(' | ')}`);
+  for (const j of journal) console.error(`GitHub Models · ${j}`); // une ligne par essai (les journaux coupent les lignes longues)
+  throw new Error(`GitHub Models indisponible (${journal.length} essais, détail ci-dessus)`);
 }
 
 // --- Claude (optionnel, payant) ---------------------------------------------------
