@@ -56,9 +56,15 @@
       "le": "2026-11-19T16:58:00Z",
       "quoi": "extra",
       "texte": "Spot « Tu sais jamais où sortir le soir ? » publié le 19/11 vers 18 h (demande du directeur), Édition Tekno ensuite."
+    },
+    {
+      "le": "2026-11-19T18:07:44.551Z",
+      "quoi": "suite-refusee",
+      "media": "18116970512145923",
+      "texte": "Engouement sur « bonplan-petits-prix » (6 partages + enregistrements contre 2 d'habitude), mais déjà 3 suites cette semaine."
     }
   ],
   "_note": "Écrit par le robot (src/reactif.mjs) : suites programmées après un engouement, jours déplacés selon les résultats, journal des changements.",
-  "dernier_controle": "2026-11-19T15:20:24.883Z",
+  "dernier_controle": "2026-11-19T18:07:44.551Z",
   "dernier_replanning": "2026-11-15T15:07:44.719Z"
 }
