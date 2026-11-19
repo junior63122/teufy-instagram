@@ -47,6 +47,7 @@ const MEDIA_BASE = (config.site?.domaine ? `https://${config.site.domaine}/media
 const R = config.reglages;
 const hist = existsSync(HIST_FILE) ? JSON.parse(await readFile(HIST_FILE, 'utf8')) : [];
 let PHOTO_COUV = null; // photo de couverture choisie pour la publication en cours (src/photos.mjs)
+const AMORCE_PHOTOS = (() => { try { return JSON.parse(readFileSync(path.join(ROOT, 'contenus', 'photos-grille.json'), 'utf8')).amorce || []; } catch { return []; } })();
 const usedHere = new Set(); // débats / bons plans déjà pris dans ce lancement (aperçu du mois)
 const MODEL = buildModel();
 // Heures de publication (UTC) : seulement celles qui laissent au moins une heure de rattrapage avant l'heure limite à Paris
@@ -917,7 +918,6 @@ async function nouvelleHistoire(STUDIO, id) {
 function sansAccentTag(x) { return String(x).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]/g, ''); }
 function photoDA(noms, now) { return `decors/da/${noms[Math.floor(now / (7 * 864e5)) % noms.length]}.jpg`; }
 // Couverture de la grille : photo qui colle au sujet, jamais une des 9 dernières couvertures (src/photos.mjs).
-const AMORCE_PHOTOS = (() => { try { return JSON.parse(readFileSync(path.join(ROOT, 'contenus', 'photos-grille.json'), 'utf8')).amorce || []; } catch { return []; } })();
 function photoCouv(preferees) { PHOTO_COUV = choisirPhoto(preferees, photosRecentes([...AMORCE_PHOTOS, ...hist])); return PHOTO_COUV; }
 
 async function couvertureDA(props, fichier, composition = 'couverture') {

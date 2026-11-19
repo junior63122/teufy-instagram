@@ -29,3 +29,14 @@ test('la photo qui colle au sujet passe en premier quand elle est libre', () => 
 test('les reels hors grille ne comptent pas', () => {
   assert.deepEqual(photosRecentes([{ photo: 'taxi' }, { photo: 'foule', hors_grille: true }]), ['taxi']);
 });
+
+test('le module photos garde toutes ses fonctions (19/11/2026 : photoSource avait été effacée, Édition Tekno en échec)', async () => {
+  const m = await import('../src/photos.mjs');
+  for (const f of ['photoSource', 'choisirPhoto', 'photosRecentes']) assert.equal(typeof m[f], 'function', f);
+});
+
+test('run.mjs : pas de constante lue avant sa déclaration (AMORCE_PHOTOS en tête du fichier)', async () => {
+  const { readFileSync } = await import('node:fs');
+  const s = readFileSync(new URL('../src/run.mjs', import.meta.url), 'utf8');
+  assert.ok(s.indexOf('const AMORCE_PHOTOS') < s.indexOf('async function prepare('), 'AMORCE_PHOTOS doit être déclarée avant prepare()');
+});
