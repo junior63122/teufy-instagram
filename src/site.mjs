@@ -828,6 +828,7 @@ export async function construireSite({ events, eventsFrance = [], eventsOccitani
       ajoute('ambassadeurs/', (c) => pageAmbassadeur(c));
       ajoute('bde/', (c) => pageBde({ ...c, soirees: sl.filter((x) => x.etudiant) }));
       for (const cle of Object.keys(PAGES_LEGALES)) ajoute(`${cle}/`, (c) => pageLegal({ ...c, cle }));
+      if (VERSIONS.length) ajoute('mises-a-jour/', (c) => pageMisesAJour(c));
       for (const k of Object.keys(SORTIES).filter((x) => SORTIES[x].filtre)) ajoute(`${k}/`, (c) => pageSorties({ ...c, cleS: k }));
       for (const s of sl) ajoute(`soiree/${s.id}/`, (c) => pageSoiree({ ...c, s, soirees: sl }));
       for (const s of sf) ajoute(`soiree/${s.id}/`, (c) => pageSoiree({ ...c, s, soirees: sf }));
@@ -1017,7 +1018,9 @@ async function ics(soirees, compte) {
   await mkdir(d, { recursive: true });
   for (const x of readdirSync(d)) if (!x.startsWith('agenda') && !soirees.some((s) => `${s.id}.ics` === x)) rmSync(path.join(d, x), { force: true });
   const f = (t) => new Date(t).toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
-  const e = (x) => String(x || '').replace(/[\\,;]/g, (c) => `\\${c}`).replace(/\n/g, '\\n');
+  // Texte d'une soirée dans un fichier agenda : tout retour à la ligne (\r, \n, \r\n, séparateurs Unicode) et tout caractère
+  // de contrôle est neutralisé, sinon un nom piégé pourrait injecter une ligne (lien, alarme…) dans l'agenda du visiteur.
+  const e = (x) => String(x || '').replace(/[\\,;]/g, (c) => `\\${c}`).replace(/\r\n|[\r\n\u2028\u2029\u0085]/g, '\\n').replace(/[\u0000-\u0008\u000b-\u001f\u007f]/g, '');
   for (const s of soirees) {
     const t = Date.parse(s.debut);
     await writeFile(path.join(d, `${s.id}.ics`), ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Teufy//Agenda//FR', 'CALSCALE:GREGORIAN', 'BEGIN:VEVENT',
@@ -1037,7 +1040,9 @@ async function fluxIcs(soirees, compte) {
   const d = path.join(SITE, 'ics');
   await mkdir(d, { recursive: true });
   const f = (t) => new Date(t).toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
-  const e = (x) => String(x || '').replace(/[\\,;]/g, (c) => `\\${c}`).replace(/\n/g, '\\n');
+  // Texte d'une soirée dans un fichier agenda : tout retour à la ligne (\r, \n, \r\n, séparateurs Unicode) et tout caractère
+  // de contrôle est neutralisé, sinon un nom piégé pourrait injecter une ligne (lien, alarme…) dans l'agenda du visiteur.
+  const e = (x) => String(x || '').replace(/[\\,;]/g, (c) => `\\${c}`).replace(/\r\n|[\r\n\u2028\u2029\u0085]/g, '\\n').replace(/[\u0000-\u0008\u000b-\u001f\u007f]/g, '');
   const plie = (l) => { const c = Array.from(l), o = []; for (let i = 0; i < c.length; i += 70) o.push((i ? " " : "") + c.slice(i, i + 70).join("")); return o.join("\r\n"); };
   const ecrire = (nom, titre, liste) => writeFile(path.join(d, `${nom}.ics`), ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Teufy//Agenda//FR', 'CALSCALE:GREGORIAN', 'METHOD:PUBLISH',
     `X-WR-CALNAME:${e(titre)}`, 'X-WR-TIMEZONE:Europe/Paris', 'REFRESH-INTERVAL;VALUE=DURATION:PT6H', 'X-PUBLISHED-TTL:PT6H',
@@ -1496,7 +1501,7 @@ ${typo(corps, lang)}
     ${groupesNav({ t, lang, SA }).map(([cle, titreG, liens]) => `<div><p class="pied-titre">${esc(titreG)}</p>${liens.map(([d, n]) => `<a href="${accueil}${d}">${esc(n)}</a>`).join('')}${cle === 'teufy' ? `<a href="https://www.instagram.com/${esc(handle)}/" target="_blank" rel="noopener">${esc(compte)}</a>` : ''}</div>`).join('')}
     <div><p class="pied-titre">${esc(t.langue)}</p>${LANGUES.map((l) => `<a href="${base}${pre(l)}${chemin}" hreflang="${l}" lang="${l}">${esc(TXT[l].nom)}</a>`).join('')}</div>
   </div>
-  <p><strong>Teufy</strong> · ${esc(t.pied1)}${maj ? ` · ${esc(maj)}` : ''}</p>
+  <p><strong>Teufy</strong> · ${esc(t.pied1)}${maj ? ` · ${esc(maj)}` : ''}${VERSIONS[0] ? ` · <a href="${accueil}mises-a-jour/">${esc((LIB_MAJ[lang] || LIB_MAJ.fr) + VERSIONS[0].numero)}</a>` : ''}</p>
   <p>${esc(t.pied3)} · <a href="${accueil}mentions-legales/">${esc(t.legal)}</a> · <a href="${accueil}cgu/">CGU</a> · <a href="${accueil}cgv/">CGV</a> · <a href="${accueil}confidentialite/">${esc(TR_LEG[lang] || 'Confidentialité et cookies')}</a></p>
 </footer>
 ${(() => { const L = LIB_NAV[lang] || LIB_NAV.fr; const ico = (k) => `<svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${ICO_ONGLET[k]}</svg>`;
@@ -2588,6 +2593,18 @@ function pageFaq({ lang, t, tr, base, compte, T, chemin, maj, posts }) {
 }
 const TR_SOURCES = { fr: 'Nos sources', en: 'Our sources', it: 'Le nostre fonti', es: 'Nuestras fuentes', zh: '信息来源', ar: 'مصادرنا' };
 const TR_LEG = { fr: 'Confidentialité et cookies', en: 'Privacy and cookies', it: 'Privacy e cookie', es: 'Privacidad y cookies', zh: '隐私与 Cookie', ar: 'الخصوصية وملفات تعريف الارتباط' };
+// Numéro de mise à jour (contenus/version.json, +1 chaque semaine) : pied de page et page /mises-a-jour/ (directeur, 19/11/2026).
+const VERSIONS = (() => { try { return JSON.parse(readFileSync(path.join(ROOT, 'contenus', 'version.json'), 'utf8')).versions || []; } catch { return []; } })();
+const LIB_MAJ = { fr: 'Mise à jour n°', en: 'Update #', it: 'Aggiornamento n.', es: 'Actualización n.º', zh: '更新 #', ar: 'التحديث رقم ' };
+function pageMisesAJour({ lang, t, tr, base, compte, chemin, maj }) {
+  const date = (d) => new Intl.DateTimeFormat(lang === 'zh' ? 'zh-CN' : lang, { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Europe/Paris' }).format(new Date(`${d}T12:00:00Z`));
+  const corps = `<article class="article">
+  <h1>${esc(tr('Mises à jour du site'))}</h1>
+  <p>${esc(tr('Chaque semaine, Teufy vérifie le site (sécurité, fiabilité, nouveautés) et publie une mise à jour. Voici ce qui a changé.'))}</p>
+  ${VERSIONS.map((v) => `<h2 id="maj-${v.numero}">${esc((LIB_MAJ[lang] || LIB_MAJ.fr) + v.numero)} · ${esc(date(v.date))}</h2><ul>${(v.notes || []).map((n) => `<li>${esc(lang === 'fr' ? n : tr(n))}</li>`).join('')}</ul>`).join('\n  ')}
+</article>`;
+  return gabarit({ lang, t, titre: tr('Mises à jour du site Teufy'), description: tr('Le journal des mises à jour hebdomadaires du site Teufy : sécurité, corrections et nouveautés.'), chemin, base, corps, compte, maj });
+}
 const NOMS_LEGAUX = { 'mentions-legales': 'Mentions légales', cgu: "Conditions d'utilisation (CGU)", cgv: 'Conditions de vente et de partenariat (CGV)', confidentialite: 'Confidentialité et cookies' };
 function pageLegal({ lang, t, tr, base, compte, T, chemin, maj, cle = 'mentions-legales' }) {
   const C = (PAGES_LEGALES[cle] || LEGAL)(T, compte);

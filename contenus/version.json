@@ -1,0 +1,14 @@
+{
+  "_note": "Numéro de mise à jour affiché en pied de page du site et sur /mises-a-jour/. +1 à chaque mise à jour hebdomadaire (directeur, 19/11/2026). La plus récente en premier.",
+  "versions": [
+    {
+      "numero": 1,
+      "date": "2026-11-19",
+      "notes": [
+        "Sécurité : contrôle complet (clés secrètes, injections de code, liens piégés, données de soirée malveillantes, fichiers internes) ; une faille corrigée dans les fichiers agenda (.ics) : un nom de soirée piégé ne peut plus y glisser une ligne cachée.",
+        "Manger tard : un lieu ouvert dès le petit matin (boulangerie dès 4 h) n'est plus affiché « fermé » entre minuit et 6 h.",
+        "Numéro de mise à jour affiché en bas de chaque page."
+      ]
+    }
+  ]
+}

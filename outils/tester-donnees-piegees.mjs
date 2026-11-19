@@ -14,7 +14,7 @@ const F = path.join(ROOT, 'evenements-manuels.json');
 const original = readFileSync(F, 'utf8');
 const debut = new Date(Date.now() + 5 * 864e5); debut.setUTCHours(21, 0, 0, 0);
 const PIEGE = {
-  name: 'Piege"><img src=x onerror=alert(1)><script>alert(2)</script> Soiree',
+  name: 'Piege"><img src=x onerror=alert(1)><script>alert(2)</script> Soiree\rATTACH:https://evil.example/x\rX-PIEGE:1',
   start: debut.toISOString(), venue: 'Club</title><svg onload=alert(3)>', city: 'Nice', address: '1 rue <b>x</b>',
   url: 'javascript:alert(4)', image: 'javascript:alert(5)', price: -5,
   tags: ['techno"><script>alert(6)</script>'], instagram: ['x" onmouseover="alert(7)', '../../etc/passwd'],
@@ -23,6 +23,9 @@ const PIEGE = {
   confiance: 1,
 };
 const failles = [];
+// Instantané des fichiers avant le test : tout ce que la soirée piégée a créé (pages, artistes, agenda) est retiré à la fin.
+const DOSSIERS = ['', 'en/', 'it/', 'es/', 'zh/', 'ar/'].flatMap((l) => [`${l}soiree`, `${l}artistes`]).concat(['site/ics']);
+const avant = new Map(DOSSIERS.map((d) => [d, new Set(existsSync(path.join(ROOT, d)) ? readdirSync(path.join(ROOT, d)) : [])]));
 try {
   writeFileSync(F, JSON.stringify([...JSON.parse(original), PIEGE], null, 2));
   const r = spawnSync('node', ['src/run.mjs', 'site', '--force'], { cwd: ROOT, env: { ...process.env, SANS_RECHERCHE: '1', GEMINI_API_KEY: '', ANTHROPIC_API_KEY: '', IG_ACCESS_TOKEN: '' }, encoding: 'utf8', timeout: 900000 });
@@ -43,15 +46,16 @@ try {
     for (const [re, m] of DANGERS) if (re.test(h)) failles.push(`${p} : ${m}`);
     if (/dès -5|>-5(,0+)?\s?€</.test(h)) failles.push(`${p} : prix négatif affiché`);
   }
+  for (const f of existsSync(path.join(ROOT, 'site/ics')) ? readdirSync(path.join(ROOT, 'site/ics')).filter((x) => /piege/.test(x) || /^agenda/.test(x)) : []) {
+    const lignes = readFileSync(path.join(ROOT, 'site/ics', f), 'utf8').split(/\r\n|\r|\n/);
+    if (lignes.some((l) => /^(ATTACH|X-PIEGE)/.test(l))) failles.push(`site/ics/${f} : une ligne a été injectée dans le fichier agenda`);
+  }
   if (!vue) failles.push('la soirée piégée n\'apparaît nulle part : test non concluant');
   console.log(`Soirée piégée retrouvée sur ${vue} page(s) ; ${failles.length} faille(s).`);
 } finally {
   writeFileSync(F, original);
-  // Retire toutes les pages créées par la soirée piégée (soirée, artiste), dans toutes les langues.
-  for (const l of ['', 'en/', 'it/', 'es/', 'zh/', 'ar/']) for (const [dir, re] of [['soiree', /^piege/], ['artistes', /svg-onload|^b-dj-b/]]) {
-    const d = path.join(ROOT, l, dir); if (!existsSync(d)) continue;
-    for (const x of readdirSync(d)) if (re.test(x)) rmSync(path.join(d, x), { recursive: true, force: true });
-  }
+  // Retire tout ce qui a été créé pendant le test (pages de la soirée et des artistes piégés, fichier agenda), toutes langues.
+  for (const [d, deja] of avant) { const D = path.join(ROOT, d); if (!existsSync(D)) continue; for (const x of readdirSync(D)) if (!deja.has(x)) rmSync(path.join(D, x), { recursive: true, force: true }); }
 }
 for (const f of failles) console.log(`✗ ${f}`);
 if (!failles.length) console.log('✓ Aucune donnée piégée n\'est exécutable ni ne modifie la page.');
