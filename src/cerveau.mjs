@@ -174,7 +174,7 @@ export async function analyserSemaine({ now = new Date(), dryRun = false, log = 
   for (const db of (d.nouveaux_debats || []).slice(0, 2)) {
     if ([db.q, db.a, db.b].every((x) => texteOk(x, 160)) && texteOk(db.legende, 500)) {
       const id = `ia-${today}-${hash(db.q)}`;
-      if (!debats.some((x) => x.q === db.q)) { debats.push({ id, q: db.q, a: db.a, b: db.b, legende: String(db.legende).replace(/(^|\s)#[\p{L}\p{N}_]+/gu, '').replace(/[ \t]+$/gm, '').trim(), ajout: today }); // hashtags : ajoutés à la fin par le robot (5 au plus) appliques.push(`débat « ${db.q} »`); }
+      if (!debats.some((x) => x.q === db.q)) { debats.push({ id, q: db.q, a: db.a, b: db.b, legende: String(db.legende).replace(/(^|\s)#[\p{L}\p{N}_]+/gu, '').replace(/[ \t]+$/gm, '').trim(), ajout: today }); /* hashtags retirés : le robot les ajoute à la fin (5 au plus) */ appliques.push(`débat « ${db.q} »`); }
     }
   }
   const SUJETS_FILE = path.join(ROOT, 'contenus', 'sujets-reels.json');
