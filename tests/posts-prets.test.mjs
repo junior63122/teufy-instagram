@@ -17,6 +17,9 @@ test('chaque post prêt a 1 à 10 images, une légende propre et au plus 5 hasht
     assert.ok((l.match(/#[\p{L}\p{N}_]+/gu) || []).length <= 5, `${d} : plus de 5 hashtags`);
     assert.doesNotMatch(l, /plus que \d+|dernières? places?|places? limitées/i, `${d} : fausse rareté`);
     assert.doesNotMatch(l, /—/, `${d} : tiret cadratin`);
+    assert.doesNotMatch(l, /[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}\u{FE0F}\u{20E3}]/u, `${d} : emoji dans la légende (directeur : « ça fait IA »)`);
+    const html = path.join(D, d, 'sources', 'visuels.html');
+    if (existsSync(html)) assert.doesNotMatch(readFileSync(html, 'utf8'), /[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}\u{FE0F}]/u, `${d} : emoji dans les visuels`);
   }
 });
 

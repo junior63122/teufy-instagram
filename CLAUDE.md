@@ -48,3 +48,5 @@
   que si `"valide": true`, mis seulement après son accord écrit. Toujours : règlement (gratuit, 18 ans et plus, date et heure du
   tirage, nombre de gagnants et de places, « Instagram n'est ni organisateur ni partenaire »), mise en garde contre les faux
   comptes, tags vérifiés seulement.
+- **Pas d'emoji** (directeur, 19/11/2026 : « pas d'emoji bizarre, ça fait IA ») : aucun emoji dans les visuels (couvertures,
+  slides, stories, vidéos), ni dans les légendes des concours et des posts prêts ; on compte avec « 1. », « 2. ».
