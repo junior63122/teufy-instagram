@@ -2,13 +2,13 @@
   "jour": "2026-11-19",
   "plan": [
     {
-      "type": "repost",
+      "type": "question",
       "cles": [
         "d-age-boite"
       ],
       "frames": [
         {
-          "image": "2026-11-19-repost.jpg"
+          "image": "2026-11-19-question.jpg"
         }
       ]
     }
