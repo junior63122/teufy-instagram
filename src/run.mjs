@@ -107,7 +107,16 @@ const slotsFor = (d) => {
   const spot = (c) => (c.variante === 'promo' && episodeGrandDebat('spot-promo') ? { ...c, variante: 'spot-promo' } : c);
   const base = [slotFor(d), ...(config.calendrier_reels || []).filter((c) => c.jour === srcReel).map(spot).map(remplace).map((c) => (SERIES.includes(c.variante) && !episodeGrandDebat(c.variante) ? (c.secours ? { ...c, variante: c.secours } : null) : c)).filter(Boolean).map((c) => ({ ...c, second: true }))].filter(Boolean);
   // Suites programmées après un engouement : en plus du reste, après les publications prévues (même écart).
-  const extras = extrasDu(PLAN, s.date).map((x) => ({ type: x.type, variante: x.variante || undefined, suite: true, second: true, troisieme: base.length > 1 }))
+  // Extra « à la place de » (remplace: 'post' ou 'reel') : il prend la place du post ou du reel prévu ce jour-là, pour rester
+  // à 2 publications par jour (19/11/2026 : concours Frigo 16 à la place du reel guide, l'Édition Tekno reste).
+  const aLaPlace = extrasDu(PLAN, s.date).find((x) => ['post', 'reel'].includes(x.remplace));
+  if (aLaPlace) {
+    const nouveau = { type: aLaPlace.type, variante: aLaPlace.variante || undefined };
+    const i = aLaPlace.remplace === 'reel' ? base.findIndex((c) => c.type === 'reel') : base.findIndex((c) => c.type !== 'reel');
+    if (i >= 0) base[i] = { ...nouveau, ...(base[i].second ? { second: true } : {}) };
+    else if (aLaPlace.remplace === 'post') base.unshift(nouveau); else base.push({ ...nouveau, second: true });
+  }
+  const extras = extrasDu(PLAN, s.date).filter((x) => x !== aLaPlace).map((x) => ({ type: x.type, variante: x.variante || undefined, suite: true, second: true, troisieme: base.length > 1 }))
     .filter((x) => !SERIES.includes(x.variante) || episodeGrandDebat(x.variante));
   return [...base, ...extras];
 };
@@ -349,7 +358,20 @@ async function prepare(slot, now, id) {
 
   // Conversation : débat, ou appel aux organisateurs #TeufyParty (le format qui fait le plus commenter).
   const format = slot.type === 'debat' ? ch.pick('format-conversation', ['debat', 'orgas'], (x) => x) : null;
-  if (slot.type === 'veille') {
+  if (slot.type === 'pret') {
+    // Post prêt (19/11/2026 : concours Frigo 16 demandé par le directeur) : media/posts-prets/<dossier>/ contient le
+    // carrousel déjà fait (01.jpg, 02.jpg…), legende.txt et publication.json (titre, photo, story). Publié tel quel, à la
+    // date prévue dans contenus/planning-auto.json ; les mentions passent par la même vérification des comptes.
+    const src = path.join(ROOT, 'media', 'posts-prets', String(slot.variante || '').replace(/[^a-z0-9-]/gi, ''));
+    if (!slot.variante || !existsSync(path.join(src, 'legende.txt'))) throw new Error(`Post prêt introuvable : ${slot.variante}`);
+    const meta = existsSync(path.join(src, 'publication.json')) ? JSON.parse(readFileSync(path.join(src, 'publication.json'), 'utf8')) : {};
+    const images = [];
+    for (const f of readdirSync(src).filter((x) => /^\d+[^/]*\.jpe?g$/i.test(x)).sort()) { const d = path.join(dir, `pret-${f}`); await copyFile(path.join(src, f), d); images.push(d); }
+    if (!images.length || images.length > 10) throw new Error(`Post prêt ${slot.variante} : ${images.length} image(s) (1 à 10)`);
+    pub = { images, legende: readFileSync(path.join(src, 'legende.txt'), 'utf8').trim(), titre: meta.titre || slot.variante, photo: meta.photo || null };
+    if (meta.story && existsSync(path.join(src, meta.story))) { await copyFile(path.join(src, meta.story), path.join(dir, 'story-pret.jpg')); pub.storyPrete = 'story-pret.jpg'; }
+    console.log(`[${id}] post prêt « ${pub.titre} » (${images.length} images)`);
+  } else if (slot.type === 'veille') {
     // Veille : un post unique tout de suite si une annonce exceptionnelle et vérifiée vient de tomber.
     // Jour de fête (Noël, Nouvel An…) : un post spécial bonus, à l'heure prévue, une seule fois par an.
     const fete = feteDue(now);
@@ -721,6 +743,7 @@ async function prepare(slot, now, id) {
       if (rs.status === 0) out.story = 'story.jpg'; else console.error(`[${id}] story non conforme : pas de story pour ce post.`);
     } catch (err) { console.error(`[${id}] story impossible : ${err.message}`); }
   } else if (out.video) out.story_video = out.video;
+  if (pub.storyPrete) { out.story = pub.storyPrete; delete out.storyPrete; }
   // Débat en STORY (12/11/2026, directeur : « ça c'est une story à la rigueur, c'est nul pour un post ») : le jour
   // prévu (calendrier « story: debat »), le fil reçoit un vrai post et le débat part en story à côté.
   if (slot.story === 'debat') {
@@ -1101,7 +1124,15 @@ async function storiesPreparer(S) {
   for (const s of dues) {
     let r = null;
     try {
-      if (s.type === 'soirees') {
+      if (s.fichiers) {
+        // Story prête : fichiers déjà faits (contenus/stories-pretes.json), seulement dans media/ (jamais un chemin hors du dépôt).
+        r = { cles: [s.type], frames: [] };
+        for (const [i, f] of s.fichiers.entries()) {
+          const srcF = path.resolve(ROOT, f);
+          if (!srcF.startsWith(path.join(ROOT, 'media') + path.sep) || !existsSync(srcF)) { console.error(`Story prête introuvable : ${f}`); continue; }
+          const nom = `${jour}-${s.type}-${i + 1}.jpg`; copyFileSync(srcF, path.join(dir, nom)); r.frames.push({ image: nom });
+        }
+      } else if (s.type === 'soirees') {
         const x = S.soireesDuSoir(evts, NOW.getTime(), { potentiel, afficheOk: (e) => !!affiche(e) });
         if (x) r = { cles: x.soirees.map((e) => e.name), frames: [] };
         for (const [i, e] of (x?.soirees || []).entries()) r.frames.push({ image: await cadre({ image: versStudio(affiche(e)), entier: true, rubrique: `${x.quand} · ${heure(e.start)}`, texte: `${e.name} · ${lieuDe(e)}` }, `soirees-${i}`) });

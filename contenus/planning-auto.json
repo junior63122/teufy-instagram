@@ -7,6 +7,14 @@
       "suite_de": "18111823247220555",
       "raison": "portée 884 contre 431 d'habitude (×2.1)",
       "cree_le": "2026-11-16T15:07:44.463Z"
+    },
+    {
+      "date": "2026-11-19",
+      "type": "pret",
+      "variante": "2026-11-19-concours-frigo16",
+      "remplace": "reel",
+      "raison": "Concours Frigo 16 (Panda Events / Charp. agency), demandé par le directeur le 19/11/2026 : à la place du reel guide du jour (l'Édition Tekno reste).",
+      "cree_le": "2026-11-19T14:30:00Z"
     }
   ],
   "jours": {
@@ -29,6 +37,11 @@
       "le": "2026-11-18T22:30:00Z",
       "quoi": "jour",
       "texte": "Planning réorganisé (directeur) : le spot « Tu sais jamais où sortir le soir ? » part au créneau promo du vendredi 20/11 au lieu d'une 3e publication le jeudi 19/11."
+    },
+    {
+      "le": "2026-11-19T14:30:00Z",
+      "quoi": "extra",
+      "texte": "Concours Frigo 16 (2 places pour Phaphane le 27/11 et Do You Like… Tekno ? le 28/11) publié le 19/11 à la place du reel guide ; tirage le 25/11 à 18 h."
     }
   ],
   "_note": "Écrit par le robot (src/reactif.mjs) : suites programmées après un engouement, jours déplacés selon les résultats, journal des changements.",

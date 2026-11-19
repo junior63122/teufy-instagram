@@ -1,0 +1,113 @@
+<!doctype html><html><head><meta charset="utf-8">
+<!-- Concours Frigo 16 (19/11/2026) : carrousel 1080×1350 (5 slides) + stories 1080×1920, DA Teufy. Affiches officielles
+     des soirées (fournies par l'organisateur via Charp. agency, déjà vérifiées sur le site). Rendu : rendre.cjs. -->
+<style>
+@font-face{font-family:Bric;src:url(../../../../studio/generateur-gsap/promo-teufy/fonts/bricolage-titre.woff2) format('woff2');font-weight:800;font-stretch:80%}
+@font-face{font-family:IT;src:url(../../../../studio/generateur-gsap/promo-teufy/fonts/inter-tight.woff2) format('woff2');font-weight:100 900}
+:root{--nuit:#0B0B0F;--creme:#F4EFE6;--corail:#FF5A3C;--live:#3DFF8A;--gris:#8C877F}
+*{box-sizing:border-box;margin:0}
+body{background:#000;font-family:IT,sans-serif;color:var(--creme)}
+.v{position:relative;width:1080px;height:1350px;overflow:hidden;background:var(--nuit);display:none}
+.v.story{height:1920px}
+.v.on{display:block}
+.photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.voile{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,11,15,.55) 0%,rgba(11,11,15,.15) 25%,rgba(11,11,15,.35) 55%,rgba(11,11,15,.94) 85%)}
+.sign{position:absolute;left:56px;top:52px;display:flex;align-items:center;gap:14px;font-weight:700;font-size:30px}
+.sign img{width:58px}
+.etq{display:inline-block;background:var(--corail);color:var(--nuit);font-weight:900;font-size:30px;letter-spacing:.06em;padding:8px 20px;border-radius:8px;text-transform:uppercase}
+.titre{font-family:Bric;font-weight:800;font-stretch:80%;letter-spacing:-.02em;line-height:.95;color:var(--creme)}
+.titre em{font-style:normal;color:var(--corail)}
+.sous{font-size:38px;font-weight:600;line-height:1.3;opacity:.92}
+.bas{position:absolute;left:56px;right:56px;bottom:70px}
+.affiche{position:absolute;border-radius:22px;box-shadow:0 30px 70px rgba(0,0,0,.6);border:4px solid rgba(244,239,230,.9)}
+.glisse{position:absolute;right:56px;bottom:30px;font-size:26px;font-weight:700;opacity:.8}
+.cadeau{position:absolute;right:56px;top:150px;width:190px;height:190px;border-radius:50%;background:var(--corail);color:var(--nuit);display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:Bric;font-weight:800;font-stretch:80%;text-align:center;line-height:.9;transform:rotate(10deg);box-shadow:0 20px 50px rgba(0,0,0,.5)}
+.carte{position:absolute;left:56px;right:56px;background:rgba(22,22,28,.86);border:2px solid rgba(255,255,255,.14);border-radius:30px;padding:30px 36px}
+.pill{display:inline-block;background:var(--live);color:var(--nuit);font-weight:900;font-size:30px;padding:8px 20px;border-radius:999px}
+.etape{display:flex;gap:30px;align-items:flex-start;margin-bottom:46px}
+.etape b{flex:none;width:96px;height:96px;border-radius:50%;background:var(--corail);color:var(--nuit);font-family:Bric;font-weight:800;font-size:64px;display:flex;align-items:center;justify-content:center}
+.etape div{font-size:46px;font-weight:700;line-height:1.2;padding-top:12px}
+.etape span{color:var(--corail)}
+.petit{font-size:27px;line-height:1.45;color:rgba(244,239,230,.86)}
+.petit p{margin-bottom:16px}
+</style></head><body>
+
+<!-- 1 · couverture -->
+<div class="v" id="s1"><img class="photo" src="dj.jpg" style="filter:brightness(.8)"><div class="voile"></div>
+ <div class="sign"><img src="logo.png">@teufy_official</div>
+ <img class="affiche" src="phaphane.jpg" style="left:110px;top:250px;width:390px;transform:rotate(-7deg)">
+ <img class="affiche" src="tekno.jpg" style="left:560px;top:270px;width:390px;transform:rotate(6deg)">
+ <div class="bas"><span class="etq">Concours 🎁</span>
+  <div class="titre" style="font-size:118px;margin:22px 0 18px">On t'invite au<br><em>Frigo 16</em></div>
+  <div class="sous">Ven. 27 et sam. 28 novembre · 2 places à gagner pour chaque soirée</div></div>
+ <div class="glisse">glisse →</div>
+</div>
+
+<!-- 2 · Phaphane -->
+<div class="v" id="s2" style="background:#0d1b26">
+ <div class="sign"><img src="logo.png">@teufy_official</div>
+ <div style="position:absolute;left:56px;top:140px"><span class="etq">Soirée 1 · ven. 27/11 · 20 h</span></div>
+ <img class="affiche" src="phaphane.jpg" style="left:180px;top:225px;width:720px;border-radius:26px">
+ <div class="carte" style="bottom:56px;top:auto;padding:26px 36px"><span class="pill">🎁 2 places à gagner</span><div style="font-size:38px;font-weight:800;margin-top:14px">Commente <span style="color:var(--corail)">PHAPHANE</span></div></div>
+</div>
+
+<!-- 3 · Tekno -->
+<div class="v" id="s3" style="background:#1a0505">
+ <div class="sign"><img src="logo.png">@teufy_official</div>
+ <div style="position:absolute;left:56px;top:140px"><span class="etq">Soirée 2 · sam. 28/11 · 20 h – 2 h</span></div>
+ <img class="affiche" src="tekno.jpg" style="left:185px;top:230px;width:710px;height:820px;object-fit:cover;object-position:top;border-radius:26px">
+ <div class="carte" style="bottom:56px;padding:26px 36px"><span class="pill">🎁 2 places à gagner</span><div style="font-size:38px;font-weight:800;margin-top:14px">Commente <span style="color:var(--corail)">TEKNO</span></div></div>
+</div>
+
+<!-- 4 · comment participer -->
+<div class="v" id="s4"><img class="photo" src="lasers.jpg" style="filter:brightness(.35) saturate(1.2)">
+ <div class="sign"><img src="logo.png">@teufy_official</div>
+ <div style="position:absolute;left:56px;right:56px;top:170px">
+  <span class="etq">Pour participer</span>
+  <div class="titre" style="font-size:96px;margin:24px 0 60px">2 étapes, <em>c'est tout</em></div>
+  <div class="etape"><b>1</b><div>Abonne-toi à <span>@teufy_official</span></div></div>
+  <div class="etape"><b>2</b><div>Commente <span>PHAPHANE</span>, <span>TEKNO</span> ou les deux</div></div>
+  <div style="font-size:34px;font-weight:600;opacity:.9;margin:-10px 0 50px 126px">Astuce : tague la personne qui viendra avec toi 👀</div>
+  <div class="carte" style="position:relative;left:0;right:0"><div style="font-size:40px;font-weight:800">🗓️ Tirage au sort le <span style="color:var(--corail)">mercredi 25 novembre</span></div><div style="font-size:32px;margin-top:10px;opacity:.9">Résultat en story · 1 gagnant par soirée, qui repart avec 2 places</div></div>
+ </div>
+</div>
+
+<!-- 5 · règlement -->
+<div class="v" id="s5" style="background:var(--nuit)">
+ <div class="sign"><img src="logo.png">@teufy_official</div>
+ <div style="position:absolute;left:56px;right:56px;top:170px">
+  <span class="etq">Le règlement</span>
+  <div class="titre" style="font-size:80px;margin:24px 0 40px">Simple et <em>sans piège</em></div>
+  <div class="petit">
+   <p>• Jeu gratuit, sans obligation d'achat, réservé aux 18 ans et plus.</p>
+   <p>• Pour participer : être abonné à @teufy_official et commenter cette publication avant le mercredi 25 novembre à 18 h.</p>
+   <p>• 2 soirées : PHAPHANE (vendredi 27/11) et DO YOU LIKE… TEKNO ? (samedi 28/11), au Frigo 16 – Le 109, 89 route de Turin, Nice. Un gagnant tiré au sort par soirée, qui reçoit 2 places (e-billets).</p>
+   <p>• Résultat en story le 25 novembre. Les gagnants sont contactés uniquement par message depuis @teufy_official : on ne demande jamais de paiement, de mot de passe ni de clic sur un lien.</p>
+   <p>• Places offertes par Panda Events, avec Charp. agency, Twelty Prod et Prizme Concept.</p>
+   <p>• Instagram n'est ni organisateur ni partenaire de ce jeu.</p>
+  </div>
+ </div>
+</div>
+
+<!-- stories 1080×1920 -->
+<div class="v story" id="st-phaphane"><img class="photo" src="phaphane.jpg" style="filter:blur(26px) brightness(.45)">
+ <div class="sign" style="top:250px"><img src="logo.png">@teufy_official</div>
+ <div style="position:absolute;left:0;right:0;top:340px;text-align:center"><span class="etq" style="font-size:40px">Concours 🎁</span></div>
+ <img class="affiche" src="phaphane.jpg" style="left:150px;top:440px;width:780px">
+ <div class="carte" style="top:1440px;text-align:center"><div class="titre" style="font-size:66px">2 places à gagner</div><div style="font-size:36px;font-weight:700;margin-top:12px">Abonne-toi + commente <span style="color:var(--corail)">PHAPHANE</span> sous notre post concours</div></div>
+</div>
+<div class="v story" id="st-tekno"><img class="photo" src="tekno.jpg" style="filter:blur(26px) brightness(.45)">
+ <div class="sign" style="top:250px"><img src="logo.png">@teufy_official</div>
+ <div style="position:absolute;left:0;right:0;top:340px;text-align:center"><span class="etq" style="font-size:40px">Concours 🎁</span></div>
+ <img class="affiche" src="tekno.jpg" style="left:170px;top:440px;width:740px;height:940px;object-fit:cover;object-position:top">
+ <div class="carte" style="top:1440px;text-align:center"><div class="titre" style="font-size:66px">2 places à gagner</div><div style="font-size:36px;font-weight:700;margin-top:12px">Abonne-toi + commente <span style="color:var(--corail)">TEKNO</span> sous notre post concours</div></div>
+</div>
+<div class="v story" id="st-rappel"><img class="photo" src="dj.jpg" style="filter:brightness(.45)">
+ <div class="sign" style="top:250px"><img src="logo.png">@teufy_official</div>
+ <img class="affiche" src="phaphane.jpg" style="left:110px;top:420px;width:420px;transform:rotate(-6deg)">
+ <img class="affiche" src="tekno.jpg" style="left:560px;top:440px;width:420px;transform:rotate(5deg)">
+ <div style="position:absolute;left:70px;right:70px;top:1110px"><span class="etq" style="font-size:38px">Rappel concours 🎁</span>
+  <div class="titre" style="font-size:96px;margin:24px 0">Tirage <em>mercredi</em><br>à 18 h</div>
+  <div style="font-size:40px;font-weight:700;line-height:1.3">2 places pour chaque soirée au Frigo 16 · abonne-toi et commente notre post concours</div></div>
+</div>
+</body></html>

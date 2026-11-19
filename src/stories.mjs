@@ -16,9 +16,13 @@ const heureParis = (d) => +new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/
 const jourSemaine = (d) => ({ Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6, Sun: 7 })[new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Paris', weekday: 'short' }).format(d)];
 
 /** Programme du jour (heures de Paris) : 3 à 4 stories, en plus de la story qui relaie le post. */
+// Stories prêtes (19/11/2026, concours Frigo 16) : visuels déjà faits, à publier tel jour à telle heure
+// (contenus/stories-pretes.json : jour, h, cle, fichiers).
+export const storiesPretes = (now, liste = lire('contenus/stories-pretes.json', [])) => liste.filter((x) => x.jour === jourParis(now) && Array.isArray(x.fichiers) && x.fichiers.length).map((x) => ({ h: x.h, type: `pret-${x.cle}`, fichiers: x.fichiers }));
 export function planDuJour(now) {
   const j = jourSemaine(now);
   return [
+    ...storiesPretes(now),
     { h: 16, type: 'soirees' },
     { h: 18, type: [1, 3, 5, 7].includes(j) ? 'offre' : 'repost' },
     { h: 20, type: 'question' },
