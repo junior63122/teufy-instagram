@@ -622,5 +622,39 @@
       "legende": "« Ah c'était hier ?! » Plus jamais 😤\n\nSur Teufy, ajoute les soirées à ton agenda en un clic, et retrouve tes favorites quand tu veux.\n\nTout est sur teufyparty.com (lien en bio) 🔗\nAbonne-toi à @teufy_official : l'appli Teufy arrive bientôt 📲\n\n#TeufyParty",
       "titre": "Ne rate plus aucune soirée"
     }
+  },
+  {
+    "id": "reel-spot-promo",
+    "date": "2026-11-19",
+    "media": "18506192326103484",
+    "lien": "https://www.instagram.com/reel/Df7lgrXAraX/",
+    "titre": "Teufy · 01 ou sortir le soir",
+    "concept": "spot-promo-01-ou-sortir-le-soir",
+    "photo": null,
+    "soirees": [],
+    "le": "2026-11-19T17:12:09.340Z",
+    "publication": {
+      "id": "reel-spot-promo",
+      "type": "reel",
+      "variante": "spot-promo",
+      "date": "2026-11-19",
+      "choix": {
+        "creneau": "17",
+        "accroche-spot": "question",
+        "fonction-spot": [
+          "ce-soir",
+          "pres-de-moi",
+          "styles",
+          "gratuit",
+          "manger-tard",
+          "toute-la-cote"
+        ]
+      },
+      "features": [],
+      "nb_images": 0,
+      "duree": 18.6,
+      "legende": "Tu sais jamais où sortir le soir ? 👀\n\nTeufy, c'est toutes les soirées de la Côte d'Azur au même endroit :\n🔥 les soirées de ce soir, en un coup d'œil\n📍 les boîtes ouvertes près de toi\n🎧 ton style : techno, house, afro, shatta\n🆓 les soirées gratuites et les bons plans\n🍕 où manger après la boîte, jusqu'à 5 h\n\nDe Toulon à Monaco 🌊 Tout est sur teufyparty.com (lien en bio)\n\nAbonne-toi pour ne rater aucune soirée, et sois là quand l'appli arrive 📲\n\n#TeufyParty #cotedazur #nice #cannes #monaco",
+      "titre": "Teufy · 01 ou sortir le soir"
+    }
   }
 ]
