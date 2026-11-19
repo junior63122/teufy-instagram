@@ -32,3 +32,12 @@
   (avant la promo automatique) ; l'apprentissage choisit d'abord le type d'accroche qui marche (`accroche-spot`). Avant d'en
   produire : `node outils/bilan-spots.mjs`, puis varier accroche, décor, rythme et fonctionnalités par rapport aux précédents.
   Couverture DA avec bouton lecture (photo de `decors/da/`). Chiffres affichés : relevés sur le site le jour même, sinon pas de chiffre.
+- **Mise à jour hebdomadaire** (directeur, 19/11/2026 : « toutes les semaines, vois s'il y a des mises à jour à faire, des
+  fonctionnalités à rajouter ; contrôle complet, tests de hacking, de pénétration, de contrôle d'accès et de tentative malveillante
+  de modification des textes ou images ; si tu trouves des failles, répare-les dans la mise à jour ; mets le numéro de la mise à jour
+  sur le site ») : chaque semaine, `node outils/tester-securite.cjs` (site servi par `outils/serveur-local.cjs`),
+  `node outils/tester-donnees-piegees.mjs`, `npm audit --omit=dev` (racine et `studio/`, versions corrigées publiées depuis plus de
+  2 semaines), recherche de clés dans le code et l'historique, revue des workflows (aucune entrée collée dans une commande),
+  vérification que la veille et les posts actus tournent, idées de fonctionnalités ; puis réparer, tester (`npm test`), ajouter la
+  version suivante en tête de `contenus/version.json` (numéro +1, date, notes en français simple) et faire un rapport au directeur.
+  Ne jamais committer les pages reconstruites localement par les tests (le robot reconstruit le site).
