@@ -8,7 +8,7 @@ const fs = require('fs'); const path = require('path');
 const pw = (() => { try { return require(require('child_process').execSync('npm root -g').toString().trim() + '/playwright'); } catch { return require('playwright'); } })();
 const ROOT = path.resolve(__dirname, '..'); const B = process.env.SITE || 'http://localhost:8765/';
 const failles = []; const ko = (m) => failles.push(m);
-const IGNORE = /^(node_modules|\.git|out|media|studio\/node_modules|livrables|apercus|site\/vendor)(\/|$)/;
+const IGNORE = /(^|\/)node_modules(\/|$)|^(\.git|out|media|livrables|apercus|site\/vendor)(\/|$)/; // tous les node_modules (non publiés)
 const fichiers = []; (function lire(d) { for (const e of fs.readdirSync(path.join(ROOT, d), { withFileTypes: true })) { const r = path.join(d, e.name); if (IGNORE.test(r)) continue; if (e.isDirectory()) lire(r); else fichiers.push(r); } })('');
 // 1. Secrets (motifs des clés Google, Anthropic, GitHub, Meta, Slack, ElevenLabs, clés privées).
 const SECRETS = [/AIza[0-9A-Za-z_-]{35}/, /sk-ant-[A-Za-z0-9_-]{20,}/, /gh[pousr]_[A-Za-z0-9]{36}/, /github_pat_[A-Za-z0-9_]{40,}/, /EAA[A-Za-z0-9]{60,}/, /xox[baprs]-[A-Za-z0-9-]{20,}/, /-----BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY-----/, /sk_[a-f0-9]{48}/];

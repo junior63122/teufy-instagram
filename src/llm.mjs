@@ -198,13 +198,16 @@ async function githubModels({ L, system, prompt, schema, nom }) {
   const h = { 'content-type': 'application/json', accept: 'application/json', authorization: `Bearer ${process.env.GITHUB_TOKEN.trim()}`, 'x-github-api-version': '2022-11-28' };
   const formats = [{ type: 'json_schema', json_schema: { name: nom, strict: true, schema } }, { type: 'json_object' }, null];
   const journal = [];
-  for (const format of formats) {
+  // 19/11/2026 : depuis la pause de Gemini, le point d'accès models.github.ai répond « OK » (texte) au lieu de JSON ; on
+  // essaie aussi l'ancien point d'accès (Azure, mêmes jetons GitHub, nom de modèle sans éditeur) avant d'abandonner.
+  const acces = [[GH, modele], ['https://models.inference.ai.azure.com/chat/completions', modele.split('/').pop()]];
+  for (const [url, mod] of acces) for (const format of formats) {
     try {
-      const res = await fetch(GH, { method: 'POST', signal: AbortSignal.timeout(180000), headers: h,
-        body: JSON.stringify({ model: modele, stream: false, messages: [{ role: 'system', content: `${system}\nRéponds uniquement en JSON valide${format?.type === 'json_schema' ? '' : ` selon ce schéma : ${JSON.stringify(schema)}`}.` }, { role: 'user', content: prompt.slice(0, 60000) }], ...(format ? { response_format: format } : {}) }) });
+      const res = await fetch(url, { method: 'POST', signal: AbortSignal.timeout(180000), headers: h,
+        body: JSON.stringify({ model: mod, stream: false, messages: [{ role: 'system', content: `${system}\nRéponds uniquement en JSON valide${format?.type === 'json_schema' ? '' : ` selon ce schéma : ${JSON.stringify(schema)}`}.` }, { role: 'user', content: prompt.slice(0, 60000) }], ...(format ? { response_format: format } : {}) }) });
       const txt = await res.text();
       if (!res.ok) { journal.push(`${format?.type || 'texte'} : HTTP ${res.status} ${txt.slice(0, 120)}`); continue; }
-      let j; try { j = JSON.parse(txt); } catch { journal.push(`${format?.type || 'texte'} : HTTP ${res.status} ${res.headers.get('content-type')} « ${txt.slice(0, 40).trim()} »`); continue; }
+      let j; try { j = JSON.parse(txt); } catch { journal.push(`${new URL(url).host} ${format?.type || 'texte'} : HTTP ${res.status} ${res.headers.get('content-type')} « ${txt.slice(0, 40).trim()} » (serveur ${res.headers.get('server') || '?'}, ${res.redirected ? `redirigé vers ${res.url}` : 'sans redirection'})`); continue; }
       const c = j.choices?.[0]?.message?.content || '';
       const m = c.match(/\{[\s\S]*\}/);
       if (m) return JSON.parse(m[0]);
