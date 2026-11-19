@@ -109,14 +109,16 @@ const slotsFor = (d) => {
   // Suites programmées après un engouement : en plus du reste, après les publications prévues (même écart).
   // Extra « à la place de » (remplace: 'post' ou 'reel') : il prend la place du post ou du reel prévu ce jour-là, pour rester
   // à 2 publications par jour (19/11/2026 : concours Frigo 16 à la place du reel guide, l'Édition Tekno reste).
-  const aLaPlace = extrasDu(PLAN, s.date).find((x) => ['post', 'reel'].includes(x.remplace));
+  // Post prêt : jamais publié sans la validation du directeur (publication.json « valide »: true ; consigne du 19/11/2026).
+  const pretValide = (x) => x.type !== 'pret' || (() => { try { return JSON.parse(readFileSync(path.join(ROOT, 'media', 'posts-prets', String(x.variante).replace(/[^a-z0-9-]/gi, ''), 'publication.json'), 'utf8')).valide === true; } catch { return false; } })();
+  const aLaPlace = extrasDu(PLAN, s.date).filter(pretValide).find((x) => ['post', 'reel'].includes(x.remplace));
   if (aLaPlace) {
     const nouveau = { type: aLaPlace.type, variante: aLaPlace.variante || undefined };
     const i = aLaPlace.remplace === 'reel' ? base.findIndex((c) => c.type === 'reel') : base.findIndex((c) => c.type !== 'reel');
     if (i >= 0) base[i] = { ...nouveau, ...(base[i].second ? { second: true } : {}) };
     else if (aLaPlace.remplace === 'post') base.unshift(nouveau); else base.push({ ...nouveau, second: true });
   }
-  const extras = extrasDu(PLAN, s.date).filter((x) => x !== aLaPlace).map((x) => ({ type: x.type, variante: x.variante || undefined, suite: true, second: true, troisieme: base.length > 1 }))
+  const extras = extrasDu(PLAN, s.date).filter(pretValide).filter((x) => x !== aLaPlace).map((x) => ({ type: x.type, variante: x.variante || undefined, suite: true, second: true, troisieme: base.length > 1 }))
     .filter((x) => !SERIES.includes(x.variante) || episodeGrandDebat(x.variante));
   return [...base, ...extras];
 };
@@ -365,6 +367,7 @@ async function prepare(slot, now, id) {
     const src = path.join(ROOT, 'media', 'posts-prets', String(slot.variante || '').replace(/[^a-z0-9-]/gi, ''));
     if (!slot.variante || !existsSync(path.join(src, 'legende.txt'))) throw new Error(`Post prêt introuvable : ${slot.variante}`);
     const meta = existsSync(path.join(src, 'publication.json')) ? JSON.parse(readFileSync(path.join(src, 'publication.json'), 'utf8')) : {};
+    if (meta.valide !== true) throw new Error(`Post prêt ${slot.variante} : pas encore validé par le directeur (publication.json « valide »).`);
     const images = [];
     for (const f of readdirSync(src).filter((x) => /^\d+[^/]*\.jpe?g$/i.test(x)).sort()) { const d = path.join(dir, `pret-${f}`); await copyFile(path.join(src, f), d); images.push(d); }
     if (!images.length || images.length > 10) throw new Error(`Post prêt ${slot.variante} : ${images.length} image(s) (1 à 10)`);
