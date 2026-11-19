@@ -33,14 +33,20 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ (inputs.exception_ia) && (secrets.GEMINI_API_KEY || secrets.GEMINI_KEY || secrets.GEMINI || secrets.GOOGLE_API_KEY || secrets.GOOGLE_AI_KEY || secrets.GOOGLE_AI_API_KEY || secrets.GEMINI_TOKEN || secrets.AI_STUDIO_KEY || secrets.CLE_GEMINI || secrets.API_GEMINI) || '' }}
           REFAIRE: ${{ inputs.refaire && '1' || '' }}
+          CONCEPT: ${{ inputs.concept }}
         run: |
+          # Sécurité (19/11/2026) : le nom du concept passe par une variable et ne peut contenir que lettres, chiffres et tirets
+          # (avant, il était collé tel quel dans la commande : un nom piégé aurait pu exécuter une commande).
+          [[ "$CONCEPT" =~ ^[a-z0-9-]+$ ]] || { echo "Nom de concept refusé : $CONCEPT"; exit 1; }
           sudo apt-get install -y --no-install-recommends ffmpeg >/dev/null 2>&1 || true
-          node studio/scripts/decors.mjs studio/scripts/decors/${{ inputs.concept }}.json
+          node studio/scripts/decors.mjs "studio/scripts/decors/$CONCEPT.json"
       - name: Enregistrer les décors
+        env:
+          CONCEPT: ${{ inputs.concept }}
         run: |
           git config user.name "teufy-bot"
           git config user.email "teufy-bot@users.noreply.github.com"
           git add studio/public/decors
           git diff --cached --quiet && exit 0
-          git commit -m "Studio : décors illustrés (${{ inputs.concept }})"
+          git commit -m "Studio : décors illustrés ($CONCEPT)"
           for i in 1 2 3; do git pull --rebase --autostash && git push && break; sleep 5; done
