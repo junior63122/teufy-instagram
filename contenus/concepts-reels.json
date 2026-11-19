@@ -342,5 +342,117 @@
     "test_du_partage": "Envoyé dans le groupe WhatsApp du week-end avec « on est d'accord que c'est Léo ? ».",
     "statut": "propose",
     "ajout": "2026-11-18"
+  },
+  {
+    "id": "c-2026-11-19-y0oc95",
+    "titre": "La carte du before",
+    "format": "classement",
+    "accroche": "Place-toi sur la carte du before. Honnêtement.",
+    "plans": [
+      {
+        "texte": "En haut : t'arrives avant l'ouverture des portes",
+        "video": "friends arriving nightclub entrance night"
+      },
+      {
+        "texte": "En bas : t'arrives quand la prévente est fermée",
+        "video": "friends running city street night"
+      },
+      {
+        "texte": "À gauche : « je rentre tôt, promis »",
+        "video": "person yawning leaving party"
+      },
+      {
+        "texte": "À droite : tu fermes la boîte avec le DJ",
+        "video": "dj closing set crowd cheering lights"
+      },
+      {
+        "texte": "Et lui, il coche les quatre cases en même temps",
+        "video": "friends laughing group night out"
+      }
+    ],
+    "musique": "house groovy 124 bpm",
+    "legende": "Tout le monde a sa case sur cette carte. Toi, t'es où ? Dis-le en com, et tague celui qui est en bas à droite à chaque soirée. On sait tous qui c'est. #nightlife06 #frenchriviera #soirée",
+    "cta": "Tague le pote en bas à droite de la carte",
+    "inspire_de": "https://www.instagram.com/p/Df40odgm5q-/",
+    "pourquoi_viral": "Le format « situe-toi » pousse à commenter sa case et à désigner un pote. C'est une identité de fêtard, pas un catalogue.",
+    "test_du_partage": "Envoyé au pote qui arrive toujours après la prévente, avec « c'est trop toi ».",
+    "statut": "propose",
+    "ajout": "2026-11-19"
+  },
+  {
+    "id": "c-2026-11-19-jzruoh",
+    "titre": "Le nom tombe, le binôme réagit",
+    "format": "reaction",
+    "accroche": "Un nom tombe à 18 h. Ton binôme réagit en 0,3 s",
+    "plans": [
+      {
+        "texte": "18 h 02 : l'annonce tombe sur le compte du festival",
+        "video": "phone screen notification scrolling"
+      },
+      {
+        "texte": "18 h 02 et 3 secondes : il t'a déjà envoyé le lien",
+        "video": "phone message typing fast hands"
+      },
+      {
+        "texte": "18 h 05 : il a déjà prévu le trajet aller et retour",
+        "video": "person planning phone map night"
+      },
+      {
+        "texte": "18 h 10 : le groupe « on y va ? » est créé",
+        "video": "friends group chat phone excited"
+      },
+      {
+        "texte": "Le jour J : premier rang, les deux",
+        "video": "techno crowd front row hands up lasers"
+      }
+    ],
+    "musique": "hard techno 150 bpm, montée puis drop sur le dernier plan",
+    "legende": "On a tous ce binôme de rave qui voit les annonces avant tout le monde. Il t'envoie le lien avant même que t'aies lu le nom. Tague-le, il le mérite. #technocotedazur #hardtechno #nightlife06",
+    "cta": "Tague ton binôme de rave, celui qui envoie toujours le lien en premier",
+    "inspire_de": "https://www.instagram.com/p/Dd_qG-Iio-L/",
+    "pourquoi_viral": "Ça reprend l'actu line-up, notre meilleur sujet, sous un angle de relation entre potes : on tague forcément quelqu'un.",
+    "test_du_partage": "Envoyé au pote de rave avec « c'est littéralement toi ».",
+    "statut": "propose",
+    "ajout": "2026-11-19"
+  },
+  {
+    "id": "c-2026-11-19-15a97rx",
+    "titre": "Le before d'une heure max",
+    "format": "POV",
+    "accroche": "POV : « on fait un petit before, 1 h max »",
+    "plans": [
+      {
+        "texte": "22 h : « on part à 23 h, promis »",
+        "video": "friends apartment living room party lights"
+      },
+      {
+        "texte": "23 h 30 : quelqu'un lance LA playlist",
+        "video": "friends singing apartment speaker"
+      },
+      {
+        "texte": "0 h 45 : « attends, je me change encore »",
+        "video": "person mirror outfit getting ready"
+      },
+      {
+        "texte": "1 h 30 : la prévente est fermée",
+        "video": "person looking at phone disappointed night"
+      },
+      {
+        "texte": "2 h : la file sur le trottoir, en tenue légère",
+        "video": "queue outside nightclub night cold wind"
+      },
+      {
+        "texte": "Et lui répète encore « on est large »",
+        "video": "friends laughing street night"
+      }
+    ],
+    "musique": "afro house énergique 122 bpm",
+    "legende": "Le before d'une heure, ça n'existe pas. Il y a toujours la playlist, le changement de tenue, et le pote qui dit « on est large ». Tague-le avant samedi. #nightlife06 #frenchriviera #soirée",
+    "cta": "Tague celui qui dit « on est large » à chaque before",
+    "inspire_de": "https://www.instagram.com/p/Df5bWnCm3MJ/",
+    "pourquoi_viral": "C'est une situation vécue par toute la cible, racontée en timeline avec une chute qu'on reconnaît. Pas d'alcool à l'écran, juste les potes et la file.",
+    "test_du_partage": "Envoyé dans le groupe du samedi avec « ce week-end on part à l'heure, hein ».",
+    "statut": "propose",
+    "ajout": "2026-11-19"
   }
 ]

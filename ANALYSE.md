@@ -1,45 +1,46 @@
-## Analyse de la semaine du 2026-11-18
+## Analyse de la semaine du 2026-11-19
 
-Peu de données : 11 posts du bot depuis le 8 novembre, et chaque option n'est testée que sur 2 à 4 posts. Les conclusions restent donc provisoires et on privilégie des tests variés. Ce qui marche, c'est la techno et l'info fraîche qu'on a envie de transférer : l'Édition Tekno et l'annonce HUGEL font 100 chacune, avec 8 partages. Le reel sur l'entrée offerte avant 1 h fait 41, avec 4 partages. Ce qui coule : les guides « où manger après la boîte » (11 et 15), le Grand Débat (3 et 19) et les coups de cœur commerciaux (6). Côté Meta, Instagram lance Direct, une appli dédiée aux messages, et étend ses protections des comptes ados : le partage en message privé devient encore plus central, et le contenu doit rester sans alcool mis en avant. Cette semaine, on vise des reels « c'est trop toi » ancrés sur la Côte, on publie surtout à 15-17 h UTC et on garde le rythme des posts techno.
+Cette semaine, 11 posts du bot ont été notés. La moyenne est d'environ 35/100, juste sous l'objectif de 38, et l'échantillon reste petit : on continue des tests variés. Deux posts techno tirent tout vers le haut : l'édition Tekno (99, 8 partages, 2 abonnés) et l'actu HUGEL aux Plages Électroniques (100, 8 partages). Les débats « food » et pré-soirée (3 et 22), les guides « où manger après la boîte » (15 et 16, aucun partage malgré 1 026 de portée à Monaco) et l'incontournable commercial (6) décrochent. La couverture « bas » fait nettement mieux que « centre », et le créneau de 15 h UTC devance 17 h et 18 h. Côté Meta, l'actu à suivre est la nouvelle app de messagerie Direct : elle confirme que les partages en message privé sont le nerf de la guerre.
 
 **Objectif des prochains posts : 42/100**
 
 ### Nouveautés Instagram / Meta
-- 🟢 officiel · 2026-11-17 · **Introducing Direct: An App Just for Messaging** : Meta mise sur une appli entièrement dédiée aux messages. On renforce donc le test du partage en message privé : chaque reel doit se finir sur « envoie-le à… » ou « tague… ». ([source](https://about.fb.com/news/2026/11/introducing-direct-an-app-just-for-messaging/))
-- 🟢 officiel · 2026-11-09 · **Expanding Teen Account Protections to Teens Around the World** : Une partie de la cible a 17 ans. On évite tout visuel ou texte centré sur l'alcool pour ne pas limiter la diffusion auprès des comptes ados. ([source](https://about.fb.com/news/2026/11/expanding-teen-account-protections-to-teens-around-the-world/))
-- 🟢 officiel · 2026-11-17 · **An Update on the Content We Recommend on Instagram in India** : Concerne l'Inde uniquement. Aucun changement pour nous, on surveille si la mesure s'étend. ([source](https://about.fb.com/news/2026/11/an-update-on-the-content-we-recommend-on-instagram-in-india/))
+- 🟢 officiel · 2026-11-17 · **Introducing Direct: An App Just for Messaging** : Meta mise encore plus sur la messagerie. Les contenus qu'on s'envoie entre potes restent le signal prioritaire. Chaque post doit avoir une raison d'être envoyé : tague, « on y va ? », binôme de rave. ([source](https://about.fb.com/news/2026/11/introducing-direct-an-app-just-for-messaging/))
+- 🟢 officiel · 2026-11-09 · **Expanding Teen Account Protections to Teens Around the World** : Une partie de notre cible a 17 ans. Il faut éviter tout ce qui met l'alcool en avant (bouteilles, verres en gros plan) pour ne pas freiner la recommandation auprès des comptes ado. On centre les visuels sur la musique, la foule et les potes. ([source](https://about.fb.com/news/2026/11/expanding-teen-account-protections-to-teens-around-the-world/))
+- 🟢 officiel · 2026-11-17 · **An Update on the Content We Recommend on Instagram in India** : Concerne l'Inde : aucun changement à appliquer pour la Côte d'Azur. ([source](https://about.fb.com/news/2026/11/an-update-on-the-content-we-recommend-on-instagram-in-india/))
 
 ### Pourquoi certains posts marchent mieux
-- **La techno à jour, sous forme de liste ou d'édition, est le format qui se partage le plus.** (Édition Tekno : note 100, 8 partages, 2 abonnés gagnés. Les dates techno de janvier (équipe) : 3821 de portée, 80 partages. Le trait theme:techno ressort positif sur 16 posts.) → On garde au moins 2 posts techno par semaine, avec la couverture en bas (moyenne 70) et les hashtags #hardtechno et #technocotedazur.
-- **L'annonce fraîche d'un nom ou d'un line-up déclenche des partages même sans likes.** (Veille HUGEL : note 100, 950 de portée, 8 partages, alors qu'elle n'a fait que 7 likes.) → Dès qu'un nom tombe sur la Côte, on publie vite un format court : qui, où, quand, et « envoie-le à ton binôme ».
-- **Les guides bouffe et le Grand Débat ne déclenchent rien.** (Les guides sont à 11 et 15 (Monaco : 1000 de portée mais 0 partage). Le Grand Débat est à 3 et 19 (type:guide -46, reel-grand-debat -48).) → On met les guides et le Grand Débat en pause. On remplace par des reels POV ou avant-après tirés de situations vécues, avec un tag explicite.
-- **Le commercial générique ne prend pas.** (« Nos coups de cœur de la semaine » : note 6, 0 partage (genre:commercial -39).) → Les intros commerciales partent désormais d'une situation (le groupe qui hésite, la file, le physio) et non d'une promesse d'ambiance.
-- **Le créneau compte : 15 h UTC fait mieux que 18 h chez nous, et 16-17 h domine chez les autres comptes.** (Chez nous : créneau 15 à 41 de moyenne, 17 à 32, 18 à 22. Chez les autres comptes : 17 h à 12,92 et 16 h à 5,59, contre 2,11 à 18 h.) → On publie à 15, 16 et 17 h UTC, et on teste 16 h, qui n'a jamais été essayé.
-- **Les concours et partenariats restent les rois du commentaire.** (Concours Crossover, LQB et REF : 21 à 28 commentaires et 4 à 8 abonnés gagnés chacun.) → On propose à l'équipe un concours partenaire en décembre pour recruter des abonnés avant le Nouvel An.
+- **La techno et l'actu line-up sont nos seuls vrais moteurs de partage.** (Édition Tekno : 99/100, 8 partages, 2 abonnés. Actu HUGEL : 100/100, 8 partages. Côté historique, le post techno de janvier a fait 80 partages et celui de novembre 2025, 33. L'incontournable commercial plafonne à 6/100 avec 0 partage.) → Passer à 2 posts techno par semaine : 1 carrousel de dates et 1 actu « un nom vient de tomber » dès qu'une annonce officielle sort. Garder #hardtechno et #technocotedazur (effet +41).
+- **Les guides « où manger » et les débats hors nightlife ne se partagent pas.** (Pan bagnat : 3/100, 0 interaction. Pré-soirée : 22/100. Guides Nice et Monaco : 15 et 16/100. Pour Monaco, 1 026 de portée mais 0 partage. Effet type:guide -44, type:reel-grand-debat -47.) → Arrêter les guides food. Transformer les débats en duels d'identité de fêtard (style musical, after ou dodo), avec une vraie vidéo de soirée plutôt qu'un fond texte.
+- **La couverture avec le titre en bas performe beaucoup mieux.** (mise-couverture:bas : 70 de moyenne sur 2 posts, contre 6 pour « centre » sur le post commercial.) → Appliquer « bas » sur tous les carrousels, y compris commerciaux, pour isoler l'effet du sujet.
+- **Publier tôt dans l'après-midi semble mieux marcher.** (Créneau 15 : moyenne 40. Créneau 17 : 33. Créneau 18 : 23. Chez les autres comptes, 16 h UTC ressort fort (score 6,3 sur 40 posts).) → Retirer 18 h UTC. Tester 16 h et 19 h UTC à côté de 15 et 17 pour confirmer.
+- **Les jeux concours de l'équipe génèrent les commentaires et les abonnés que le bot n'obtient pas.** (Concours LQB, REF et Electro Symphony : 18 à 28 commentaires et 4 à 8 abonnés chacun. Les posts du bot de la semaine : 0 à 3 commentaires.) → Caler un concours avec un organisateur partenaire avant les fêtes. À faire par l'équipe, uniquement si les places sont réellement confirmées.
 
 ### Formats et manières de poster à tester
-- **Annonce flash d'un line-up ou d'un premier nom, publiée le jour même** : La veille HUGEL a fait 100 avec 8 partages. Dice construit ses meilleurs posts sur l'actu artiste. ([source](https://www.instagram.com/p/Dd_qG-Iio-L/ (dicefm) + post veille du 09/11))
-- **Reel avant-après sur une même nuit (23 h contre 5 h)** : Le format « 1 an sépare ces deux vidéos » performe chez djmvlarosa. La situation est vécue et se tague facilement. ([source](https://www.instagram.com/reel/DcJW7DqtbUs/ (djmvlarosa_officiel)))
-- **Top 5 des sons qu'on attend toute la nuit, par style (afro, shatta, techno)** : Le classement musical fait débattre en commentaires. Le format Top 5 club cartonne chez djmvlarosa. ([source](https://www.instagram.com/reel/DdoUSn6hhwS/ (djmvlarosa_officiel)))
-- **Concours partenaire avec un organisateur de la Côte avant le Nouvel An** : Nos concours font 18 à 28 commentaires et jusqu'à 8 abonnés gagnés chacun. ([source](Données du compte (LQB, REF, Crossover)))
+- **Carrousel « les dates techno qui tapent », couverture titre en bas** : C'est notre meilleur format : 99/100 et 8 partages cette semaine, 80 partages en janvier. Chez les autres comptes, le carrousel score 10 contre 2,6 pour le reel. ([source](Chiffres du compte (Édition Tekno 12/11, post techno 02/01) + tendances autres comptes))
+- **Carrousel « situe-toi sur le tableau » (axes du fêtard : heure d'arrivée, heure de départ)** : Tout le monde se reconnaît, commente sa case et tague un pote. Ça passe le test du message privé. ([source](https://www.instagram.com/p/Df40odgm5q-/))
+- **Actu « un nom vient de tomber » façon fiche artiste** : L'actu HUGEL a fait 100/100 avec 8 partages. Le format de DICE autour des annonces d'artistes fonctionne. ([source](https://www.instagram.com/p/Dd_qG-Iio-L/))
+- **Carrousel « organise ton before avant [grosse date de la Côte] »** : C'est le post le plus fort des inspirations (score 1 514). Il colle à une situation vécue : le before qui déborde. ([source](https://www.instagram.com/p/Df5bWnCm3MJ/))
+- **Jeu concours avec un organisateur partenaire (tague 2 potes)** : 18 à 28 commentaires et 4 à 8 abonnés à chaque fois, des chiffres jamais atteints par les posts du bot. ([source](Chiffres du compte (concours LQB 25/03, REF 03/05, Crossover 10/08)))
 
 ### Concepts de reels inventés cette semaine (à valider)
-- **Rentrer à Sophia à 5 h sans voiture** (POV, inspiré de partiful (Send this to your group chat)) : « POV : 5 h, tu dois rentrer à Sophia sans voiture » → Une galère précise, locale et vécue par tous les étudiants de Sophia : on se reconnaît en 1 seconde et on tague directement le pote concerné.
-- **Même soirée, trois villes** (classement, inspiré de djmvlarosa_officiel (TOP 5 Feria de Nîmes)) : « Même soirée. Nice, Cannes, Monaco. Trois mondes. » → La rivalité entre villes de la Côte pousse les gens à commenter et à taguer, et c'est un contenu impossible à copier pour une autre région.
-- **23 h contre 5 h : une nuit en 6 étapes** (avant-apres, inspiré de djmvlarosa_officiel (1 an sépare ses deux vidéos)) : « 23 h contre 5 h : même soirée, autre personne » → Une progression rapide et drôle, chaque étape étant vécue par tous. La fin sur la plage reste dans le décor de la Côte, sans alcool à l'image.
+- **La carte du before** (classement, inspiré de https://www.instagram.com/p/Df40odgm5q-/) : « Place-toi sur la carte du before. Honnêtement. » → Le format « situe-toi » pousse à commenter sa case et à désigner un pote. C'est une identité de fêtard, pas un catalogue.
+- **Le nom tombe, le binôme réagit** (reaction, inspiré de https://www.instagram.com/p/Dd_qG-Iio-L/) : « Un nom tombe à 18 h. Ton binôme réagit en 0,3 s » → Ça reprend l'actu line-up, notre meilleur sujet, sous un angle de relation entre potes : on tague forcément quelqu'un.
+- **Le before d'une heure max** (POV, inspiré de https://www.instagram.com/p/Df5bWnCm3MJ/) : « POV : « on fait un petit before, 1 h max » » → C'est une situation vécue par toute la cible, racontée en timeline avec une chute qu'on reconnaît. Pas d'alcool à l'écran, juste les potes et la file.
 
 ### Ce que le bot a changé
-- accroche weekend : « 5 h, Sophia, pas de voiture. Qui le ramène ? »
-- accroche weekend : « File, vent, tenue légère : le trio du samedi »
-- accroche techno : « Un nom vient de tomber. Ton binôme est au courant ? »
-- accroche petits-prix : « Entrée offerte avant 1 h : t'arrives à quelle heure ? »
-- intro commercial : « Ton groupe a déjà débattu 47 messages. Nous, on a tranché : les soirées du week-end de Nice à Monaco. Envoie-leur avant le prochain « on verra ». »
-- intro commercial : « Le physio, la file, la tenue : on t'évite les surprises. Voilà où sortir ce week-end sur la Côte, à partager avec ceux qui viennent. »
-- intro techno : « Un nom tombe, ton binôme t'envoie déjà le lien. Les dates qui tapent ce mois-ci sur la Côte, à garder sous le coude. »
-- intro techno : « Pas de table, pas de bouteille, juste du 4/4 jusqu'au matin. Les soirées techno du week-end sur la Côte, pour ceux qui savent. »
-- débat « Ta fin de soirée idéale ? »
-- débat « Ce samedi, tu choisis quoi ? »
-- heures de publication (UTC) 15, 16, 17, 18 → 15, 16, 17
-- concept de reel « Rentrer à Sophia à 5 h sans voiture » (POV, inspiré de partiful (Send this to your group chat))
-- concept de reel « Même soirée, trois villes » (classement, inspiré de djmvlarosa_officiel (TOP 5 Feria de Nîmes))
-- concept de reel « 23 h contre 5 h : une nuit en 6 étapes » (avant-apres, inspiré de djmvlarosa_officiel (1 an sépare ses deux vidéos))
+- accroche techno : « Hard techno ou trance : ton camp ce samedi ? »
+- accroche techno : « Ton after finit à quelle heure, honnêtement ? »
+- accroche weekend : « Refoulé sans raison ? Tague celui qui disait « ça passe » »
+- accroche petits-prix : « Décembre arrive. Ton budget soirée tient le coup ? »
+- intro techno : « Hard techno, trance, tekno : chacun son BPM, une seule famille. Les dates qui tapent ce week-end sur la Côte, à envoyer à ton binôme. »
+- intro techno : « Les nuits s'allongent, les sets aussi. Les soirées techno du week-end sur la Côte, pour celui qui ferme toujours le dancefloor. »
+- intro commercial : « Vendredi, 23 h, le groupe hésite encore. Voilà où sortir de Cannes à Monaco, sans mauvaise surprise à l'entrée. Envoie-leur maintenant. »
+- intro commercial : « Tu veux danser, pas débattre. Les soirées du week-end de Nice à Juan, triées pour ton groupe. Tague celui qui réserve toujours trop tard. »
+- débat « Ce samedi, t'es plutôt ? »
+- débat « La soirée se finit, tu fais quoi ? »
+- sujet de reel « Plages Électroniques 2027 : premier nom tombé »
+- heures de publication (UTC) 15, 16, 17 → 15, 16, 17, 19
+- concept de reel « La carte du before » (classement, inspiré de https://www.instagram.com/p/Df40odgm5q-/)
+- concept de reel « Le nom tombe, le binôme réagit » (reaction, inspiré de https://www.instagram.com/p/Dd_qG-Iio-L/)
+- concept de reel « Le before d'une heure max » (POV, inspiré de https://www.instagram.com/p/Df5bWnCm3MJ/)

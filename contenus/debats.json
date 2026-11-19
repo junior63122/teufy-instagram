@@ -375,5 +375,21 @@
     "b": "Rooftop entre potes et dodo à 2 h",
     "legende": "Deux camps, un seul samedi. Dis-nous le tien en com et envoie ça à ton binôme de sortie.",
     "ajout": "2026-11-18"
+  },
+  {
+    "id": "ia-2026-11-19-n1p8gp",
+    "q": "Ce samedi, t'es plutôt ?",
+    "a": "Hard techno jusqu'au matin",
+    "b": "Trance et mains en l'air",
+    "legende": "Deux familles, un seul dancefloor. Choisis ton camp en com et tague ton binôme de rave. On compte les votes. #technocotedazur #hardtechno",
+    "ajout": "2026-11-19"
+  },
+  {
+    "id": "ia-2026-11-19-1u3w48w",
+    "q": "La soirée se finit, tu fais quoi ?",
+    "a": "After jusqu'au lever du soleil",
+    "b": "Dodo à 3 h, frais demain",
+    "legende": "Il y a ceux qui voient le lever du soleil sur la Prom' et ceux qui dorment déjà. T'es lequel ? Tague celui qui dit « je rentre tôt ».",
+    "ajout": "2026-11-19"
   }
 ]

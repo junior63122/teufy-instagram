@@ -149,6 +149,11 @@
         "titre": "File, vent, tenue légère : le trio du samedi",
         "sous": "Envoie-le à ton groupe",
         "ajout": "2026-11-18"
+      },
+      {
+        "titre": "Refoulé sans raison ? Tague celui qui disait « ça passe »",
+        "sous": "Côte d'Azur",
+        "ajout": "2026-11-19"
       }
     ],
     "techno": [
@@ -212,6 +217,16 @@
         "titre": "Un nom vient de tomber. Ton binôme est au courant ?",
         "sous": "Techno · Côte d'Azur",
         "ajout": "2026-11-18"
+      },
+      {
+        "titre": "Hard techno ou trance : ton camp ce samedi ?",
+        "sous": "Réponds en com",
+        "ajout": "2026-11-19"
+      },
+      {
+        "titre": "Ton after finit à quelle heure, honnêtement ?",
+        "sous": "Techno · Côte d'Azur",
+        "ajout": "2026-11-19"
       }
     ],
     "petits-prix": [
@@ -261,6 +276,11 @@
         "titre": "Entrée offerte avant 1 h : t'arrives à quelle heure ?",
         "sous": "Petits prix · Côte d'Azur",
         "ajout": "2026-11-18"
+      },
+      {
+        "titre": "Décembre arrive. Ton budget soirée tient le coup ?",
+        "sous": "Petits prix · Côte d'Azur",
+        "ajout": "2026-11-19"
       }
     ]
   },
@@ -289,7 +309,9 @@
       "Il dit « je rentre tôt », il ferme la boîte. Tague-le, et choisis où il va le faire ce week-end, de Cannes à Monaco.",
       "Samedi, c'est trois clubs contre un canap'. On a choisi pour toi, de Nice à Juan.",
       "Ton groupe a déjà débattu 47 messages. Nous, on a tranché : les soirées du week-end de Nice à Monaco. Envoie-leur avant le prochain « on verra ».",
-      "Le physio, la file, la tenue : on t'évite les surprises. Voilà où sortir ce week-end sur la Côte, à partager avec ceux qui viennent."
+      "Le physio, la file, la tenue : on t'évite les surprises. Voilà où sortir ce week-end sur la Côte, à partager avec ceux qui viennent.",
+      "Vendredi, 23 h, le groupe hésite encore. Voilà où sortir de Cannes à Monaco, sans mauvaise surprise à l'entrée. Envoie-leur maintenant.",
+      "Tu veux danser, pas débattre. Les soirées du week-end de Nice à Juan, triées pour ton groupe. Tague celui qui réserve toujours trop tard."
     ],
     "techno": [
       "Les caissons tremblent déjà. Ce week-end, la scène underground du 06 ne fait aucun compromis sur les BPM.",
@@ -302,11 +324,13 @@
       "Le premier nom est tombé et ton binôme de rave l'a déjà vu. Les dates qui tapent ce mois-ci sur la Côte.",
       "Il fait nuit à 17 h. Parfait, on a plus de temps pour les kicks. Les soirées techno du week-end sur la Côte.",
       "Un nom tombe, ton binôme t'envoie déjà le lien. Les dates qui tapent ce mois-ci sur la Côte, à garder sous le coude.",
-      "Pas de table, pas de bouteille, juste du 4/4 jusqu'au matin. Les soirées techno du week-end sur la Côte, pour ceux qui savent."
+      "Pas de table, pas de bouteille, juste du 4/4 jusqu'au matin. Les soirées techno du week-end sur la Côte, pour ceux qui savent.",
+      "Hard techno, trance, tekno : chacun son BPM, une seule famille. Les dates qui tapent ce week-end sur la Côte, à envoyer à ton binôme.",
+      "Les nuits s'allongent, les sets aussi. Les soirées techno du week-end sur la Côte, pour celui qui ferme toujours le dancefloor."
     ]
   },
   "objectif_semaine": 42,
-  "derniere_analyse": "2026-11-18T15:07:56.820Z",
+  "derniere_analyse": "2026-11-19T15:07:52.399Z",
   "concurrents": {
     "_note": "Comptes concurrents ou similaires (guides de sorties, médias nightlife). Le bot regarde chaque jour ce qui marche chez eux (formats, accroches, hashtags, heures). Un nom inexistant est simplement ignoré.",
     "liste": [
@@ -330,28 +354,34 @@
   },
   "formats_a_tester": [
     {
-      "format": "Annonce flash d'un line-up ou d'un premier nom, publiée le jour même",
-      "pourquoi": "La veille HUGEL a fait 100 avec 8 partages. Dice construit ses meilleurs posts sur l'actu artiste.",
-      "source": "https://www.instagram.com/p/Dd_qG-Iio-L/ (dicefm) + post veille du 09/11",
-      "ajout": "2026-11-18"
+      "format": "Carrousel « les dates techno qui tapent », couverture titre en bas",
+      "pourquoi": "C'est notre meilleur format : 99/100 et 8 partages cette semaine, 80 partages en janvier. Chez les autres comptes, le carrousel score 10 contre 2,6 pour le reel.",
+      "source": "Chiffres du compte (Édition Tekno 12/11, post techno 02/01) + tendances autres comptes",
+      "ajout": "2026-11-19"
     },
     {
-      "format": "Reel avant-après sur une même nuit (23 h contre 5 h)",
-      "pourquoi": "Le format « 1 an sépare ces deux vidéos » performe chez djmvlarosa. La situation est vécue et se tague facilement.",
-      "source": "https://www.instagram.com/reel/DcJW7DqtbUs/ (djmvlarosa_officiel)",
-      "ajout": "2026-11-18"
+      "format": "Carrousel « situe-toi sur le tableau » (axes du fêtard : heure d'arrivée, heure de départ)",
+      "pourquoi": "Tout le monde se reconnaît, commente sa case et tague un pote. Ça passe le test du message privé.",
+      "source": "https://www.instagram.com/p/Df40odgm5q-/",
+      "ajout": "2026-11-19"
     },
     {
-      "format": "Top 5 des sons qu'on attend toute la nuit, par style (afro, shatta, techno)",
-      "pourquoi": "Le classement musical fait débattre en commentaires. Le format Top 5 club cartonne chez djmvlarosa.",
-      "source": "https://www.instagram.com/reel/DdoUSn6hhwS/ (djmvlarosa_officiel)",
-      "ajout": "2026-11-18"
+      "format": "Actu « un nom vient de tomber » façon fiche artiste",
+      "pourquoi": "L'actu HUGEL a fait 100/100 avec 8 partages. Le format de DICE autour des annonces d'artistes fonctionne.",
+      "source": "https://www.instagram.com/p/Dd_qG-Iio-L/",
+      "ajout": "2026-11-19"
     },
     {
-      "format": "Concours partenaire avec un organisateur de la Côte avant le Nouvel An",
-      "pourquoi": "Nos concours font 18 à 28 commentaires et jusqu'à 8 abonnés gagnés chacun.",
-      "source": "Données du compte (LQB, REF, Crossover)",
-      "ajout": "2026-11-18"
+      "format": "Carrousel « organise ton before avant [grosse date de la Côte] »",
+      "pourquoi": "C'est le post le plus fort des inspirations (score 1 514). Il colle à une situation vécue : le before qui déborde.",
+      "source": "https://www.instagram.com/p/Df5bWnCm3MJ/",
+      "ajout": "2026-11-19"
+    },
+    {
+      "format": "Jeu concours avec un organisateur partenaire (tague 2 potes)",
+      "pourquoi": "18 à 28 commentaires et 4 à 8 abonnés à chaque fois, des chiffres jamais atteints par les posts du bot.",
+      "source": "Chiffres du compte (concours LQB 25/03, REF 03/05, Crossover 10/08)",
+      "ajout": "2026-11-19"
     }
   ],
   "inspirations_internationales": {
