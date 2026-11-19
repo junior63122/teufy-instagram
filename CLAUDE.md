@@ -47,6 +47,8 @@
   toute publication** : un post prêt (`media/posts-prets/<date-nom>/`) et ses stories (`contenus/stories-pretes.json`) ne partent
   que si `"valide": true`, mis seulement après son accord écrit. Toujours : règlement (gratuit, 18 ans et plus, date et heure du
   tirage, nombre de gagnants et de places, « Instagram n'est ni organisateur ni partenaire »), mise en garde contre les faux
-  comptes, tags vérifiés seulement.
+  comptes, tags vérifiés seulement. Rendu **pro** : aucun cadeau, gadget ou décor fantaisie (directeur : « fais que ça fasse
+  pro ») ; **dès la couverture**, on voit quelles soirées sont en jeu (affiche, date, nom, style de chacune) et ce qu'on gagne.
+  Modèle : `media/posts-prets/2026-11-19-concours-frigo16/sources/visuels.html`.
 - **Pas d'emoji** (directeur, 19/11/2026 : « pas d'emoji bizarre, ça fait IA ») : aucun emoji dans les visuels (couvertures,
   slides, stories, vidéos), ni dans les légendes des concours et des posts prêts ; on compte avec « 1. », « 2. ».
