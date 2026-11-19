@@ -99,3 +99,16 @@ export function choisirPhoto(preferees, recentes, banque = BANQUE) {
   if (libre) return libre;
   return [...ordre].sort((a, b) => recentes.indexOf(b) - recentes.indexOf(a))[0];
 }
+
+// Mises en page des couvertures (19/11/2026, directeur : grille « triste et monotone », toujours image + texte en bas).
+// Cinq compositions de la même DA (studio/src/da/Posts.tsx) qui tournent : on prend celle qui n'a pas servi depuis le plus
+// longtemps, jamais une des MISE_FENETRE dernières. Les anciennes couvertures (sans champ `mise`) comptent comme « bas ».
+export const MISES = ['bas', 'haut', 'cadre', 'bandeau', 'centre'];
+export const MISE_FENETRE = 3;
+export function misesRecentes(historique, n = 12) {
+  return historique.filter((h) => (h.photo || h.mise) && !h.hors_grille).slice(-n).reverse().map((h) => h.mise || 'bas');
+}
+export function choisirMise(recentes, mises = MISES) {
+  const age = (m) => { const i = recentes.indexOf(m); return i < 0 ? Infinity : i; };
+  return [...mises].sort((a, b) => age(b) - age(a) || mises.indexOf(a) - mises.indexOf(b))[0];
+}

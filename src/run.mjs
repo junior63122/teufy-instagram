@@ -24,7 +24,7 @@ import { igConfig, publishCarousel, publishSingle, publishReel, publishStory, pe
 import { TENDANCES, analyserComptes } from './tendances.mjs';
 import { buildModel, chooser, selectBest, eventFeatures, collect, hash, loadData } from './learn.mjs';
 import { filtrerCoherentes, controlePost, choixLibre } from './coherence.mjs';
-import { choisirPhoto, photosRecentes } from './photos.mjs';
+import { choisirMise, choisirPhoto, misesRecentes, photosRecentes } from './photos.mjs';
 import { lirePlan, ecrirePlan, engouements, planifierSuite, extrasDu, nettoyer, jourSource, replanifier, sectionRapport, SERIES, serieEnEchec } from './reactif.mjs';
 import { theme } from './theme.mjs';
 
@@ -47,6 +47,7 @@ const MEDIA_BASE = (config.site?.domaine ? `https://${config.site.domaine}/media
 const R = config.reglages;
 const hist = existsSync(HIST_FILE) ? JSON.parse(await readFile(HIST_FILE, 'utf8')) : [];
 let PHOTO_COUV = null; // photo de couverture choisie pour la publication en cours (src/photos.mjs)
+let MISE_COUV; // mise en page de la couverture de la publication en cours (null = à choisir ; undefined = hors publication)
 const AMORCE_PHOTOS = (() => { try { return JSON.parse(readFileSync(path.join(ROOT, 'contenus', 'photos-grille.json'), 'utf8')).amorce || []; } catch { return []; } })();
 const usedHere = new Set(); // débats / bons plans déjà pris dans ce lancement (aperçu du mois)
 const MODEL = buildModel();
@@ -301,7 +302,7 @@ if (echecs.length) die(`Échec : ${echecs.join(', ')}`);
 // --- Préparation ------------------------------------------------------------
 
 async function prepare(slot, now, id) {
-  PHOTO_COUV = null;
+  PHOTO_COUV = null; MISE_COUV = null;
   const { renderPages, carouselPages, reelPages, debatPage, bonPlanManuelPage, afficheProgramme } = await import('./render.mjs');
   const { photoSource } = await import('./photos.mjs');
   const dir = path.join(MEDIA_DIR, id);
@@ -726,7 +727,7 @@ async function prepare(slot, now, id) {
   // Dernière vérification avant publication : la moindre incohérence restante bloque le post.
   if (pub.soirees?.length && pub.coherence) { const pb = controlePost({ soirees: pub.soirees, ...pub.coherence }); if (pb.length) throw new Error(`Post incohérent, rien n'est publié : ${pb.join(' ; ')}`); }
   if (pub.coherence) delete pub.coherence;
-  const out = { id, type: slot.type, variante: slot.variante || null, date: stamp, ...pub, photo: pub.photo || PHOTO_COUV, choix: ch.choix,
+  const out = { id, type: slot.type, variante: slot.variante || null, date: stamp, ...pub, photo: pub.photo || PHOTO_COUV, mise: pub.mise || MISE_COUV || undefined, choix: ch.choix,
     features: (pub.soirees || []).flatMap(eventFeatures), nb_images: pub.images?.length || 0 };
   if (out.images) out.images = out.images.map(rel);
   if (out.video) { out.video = rel(out.video); out.couverture = rel(out.couverture); if (out.video_instagram) out.video_instagram = rel(out.video_instagram); }
@@ -920,7 +921,19 @@ function photoDA(noms, now) { return `decors/da/${noms[Math.floor(now / (7 * 864
 // Couverture de la grille : photo qui colle au sujet, jamais une des 9 dernières couvertures (src/photos.mjs).
 function photoCouv(preferees) { PHOTO_COUV = choisirPhoto(preferees, photosRecentes([...AMORCE_PHOTOS, ...hist])); return PHOTO_COUV; }
 
+// Mise en page de la couverture : choisie une fois par publication (toutes les images d'un même post gardent la même),
+// celle qui n'a pas servi depuis le plus longtemps dans la grille (src/photos.mjs).
+function miseCouv() { if (MISE_COUV === null) MISE_COUV = choisirMise(misesRecentes([...AMORCE_PHOTOS, ...hist])); return MISE_COUV || 'bas'; }
+
 async function couvertureDA(props, fichier, composition = 'couverture') {
+  if (MISE_COUV !== undefined && !props.mise && /^couverture/.test(composition) && props.photo && props.fond !== 'creme') {
+    try { return await rendreCouverture({ ...props, mise: miseCouv() }, fichier, composition); }
+    catch (err) { if (MISE_COUV === 'bas') throw err; console.error(`Couverture « ${MISE_COUV} » refusée par le contrôle visuel : mise « bas » à la place.`); MISE_COUV = 'bas'; }
+    return rendreCouverture({ ...props, mise: 'bas' }, fichier, composition);
+  }
+  return rendreCouverture(props, fichier, composition);
+}
+async function rendreCouverture(props, fichier, composition) {
   const STUDIO = path.join(ROOT, 'studio');
   if (!existsSync(path.join(STUDIO, 'node_modules'))) spawnSync('npm', ['ci', '--no-audit', '--no-fund'], { cwd: STUDIO, stdio: 'inherit' });
   const B = '/opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell';
@@ -981,8 +994,11 @@ async function carrouselDA({ chosen, id, dir, now, titre = [], titreFlash, rubri
           prix: e.price == null ? 'prix sur la billetterie' : e.price === 0 ? 'gratuit' : `dès ${String(Math.round(e.price * 100) / 100).replace('.', ',')} €`, lieu: [e.venue, e.city && !String(e.venue || '').toLowerCase().includes(String(e.city).toLowerCase().split(/[\s-]/)[0]) ? e.city : ''].filter(Boolean).join(' · '), image: e.image })) };
       const fe = path.join(ROOT, 'out', `carrousel-${id}.json`);
       await mkdir(path.dirname(fe), { recursive: true });
-      await writeFile(fe, JSON.stringify(entree));
-      const r = spawnSync('node', [path.join(ROOT, 'studio', 'scripts', 'affiches.mjs'), fe, dir], { cwd: path.join(ROOT, 'studio'), stdio: 'inherit', env: { ...process.env, NODE_USE_ENV_PROXY: '1' } });
+      entree.mise = miseCouv();
+      const lancer = async () => { await writeFile(fe, JSON.stringify(entree)); return spawnSync('node', [path.join(ROOT, 'studio', 'scripts', 'affiches.mjs'), fe, dir], { cwd: path.join(ROOT, 'studio'), stdio: 'inherit', env: { ...process.env, NODE_USE_ENV_PROXY: '1' } }); };
+      let r = await lancer();
+      // Mise en page refusée par le contrôle visuel (texte trop long…) : on refait avec la composition d'origine.
+      if (r.status !== 0 && r.status !== 3 && entree.mise !== 'bas') { console.error(`Couverture « ${entree.mise} » refusée : mise « bas » à la place.`); entree.mise = MISE_COUV = 'bas'; r = await lancer(); }
       if (r.status === 0) {
         const fichiers = JSON.parse(await readFile(path.join(dir, 'carrousel.json'), 'utf8')).fichiers;
         const gardesIds = new Set(JSON.parse(await readFile(path.join(dir, 'carrousel.json'), 'utf8')).soirees);

@@ -52,3 +52,8 @@
   Modèle : `media/posts-prets/2026-11-19-concours-frigo16/sources/visuels.html`.
 - **Pas d'emoji** (directeur, 19/11/2026 : « pas d'emoji bizarre, ça fait IA ») : aucun emoji dans les visuels (couvertures,
   slides, stories, vidéos), ni dans les légendes des concours et des posts prêts ; on compte avec « 1. », « 2. ».
+- **Couvertures de la grille** (directeur, 19/11/2026 : « tu devais faire une image de couverture pour les réels », « tous les
+  posts ont la même couverture (image + texte en bas), triste et monotone ») : chaque reel a sa couverture DA avec bouton lecture
+  (jamais une image tirée de la vidéo, sauf panne, signalée dans le journal). Cinq mises en page de la DA tournent (`bas`, `haut`,
+  `cadre`, `bandeau`, `centre` : `studio/src/da/Posts.tsx`, choix dans `src/photos.mjs` `choisirMise`) : jamais la même deux fois
+  de suite, en plus de la règle des photos. Toute nouvelle mise est vérifiée à l'œil (texte long, débat, vignettes, reel).

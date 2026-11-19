@@ -8,41 +8,92 @@ import type {Soiree} from '../posts/Affiches';
 // Gabarits de la DA « Flash nuit » (1080×1350). Même grammaire partout :
 // photo plein cadre + titre Bricolage en bas à gauche + étiquette de rubrique + signature en haut.
 
+/** Mises en page des couvertures (19/11/2026, directeur : « tous les posts ont la même couverture (image + texte en bas),
+ *  triste et monotone »). Même DA (photos de nuit, Bricolage, nuit/crème/corail, étiquette), cinq compositions qui tournent
+ *  dans la grille : jamais la même deux fois de suite (src/photos.mjs, choisirMise). */
+export type Mise = 'bas' | 'haut' | 'cadre' | 'bandeau' | 'centre';
+
 /** Couverture générique (carrousel, débat, bon plan, actu, couverture de reel). */
-export const Couverture: React.FC<{photo?: string; position?: string; rubrique: string; titre: string; sous?: string; fond?: 'photo' | 'creme' | 'nuit'; grand?: string; vignettes?: string[]; glisse?: boolean; options?: string[]}> = ({photo, position, rubrique, titre, sous, fond = 'photo', grand, vignettes, glisse, options}) => {
-  const clair = fond === 'creme';
-  const encre = clair ? C.nuit : C.creme;
+export const Couverture: React.FC<{photo?: string; position?: string; rubrique: string; titre: string; sous?: string; fond?: 'photo' | 'creme' | 'nuit'; grand?: string; vignettes?: string[]; glisse?: boolean; options?: string[]; mise?: Mise}> = ({photo, position, rubrique, titre, sous, fond = 'photo', grand, vignettes, glisse, options, mise = 'bas'}) => {
+  // Sans photo (bon plan sur fond crème) : la composition d'origine.
+  const m = (photo && fond !== 'creme' ? mise : 'bas') as Mise;
+  const papier = fond === 'creme' || m === 'cadre';
+  const encre = papier ? C.nuit : C.creme;
+  const centre = m === 'centre';
+  const debat = !!options?.length;
+  const long = titre.length > 50; // question de débat sur 4 lignes : photo plus courte
+  const hautCadre = debat ? (long ? 360 : 540) : 560; // hauteur de la photo encadrée
+  const hautBandeau = debat ? (long ? 500 : 700) : 760; // hauteur de la photo du bandeau
+  const vign = vignettes?.length ? vignettes.slice(0, 3) : [];
+  const petites = m === 'cadre' || m === 'bandeau';
+  const pile = vign.length ? (
+    <div style={{display: 'flex', justifyContent: centre ? 'center' : 'flex-start', paddingLeft: 10}}>
+      {vign.map((v, i) => (
+        <Img key={i} src={staticFile(v)} style={{width: petites ? 190 : 270, height: petites ? 238 : 338, objectFit: 'cover', borderRadius: 12, border: `4px solid ${C.creme}`, marginLeft: i ? (petites ? -30 : -40) : 0, transform: `rotate(${[-5, 2, 6][i]}deg) translateY(${[10, -8, 6][i]}px)`, boxShadow: '0 18px 40px rgba(0,0,0,.5)', zIndex: 3 - i}} />
+      ))}
+    </div>
+  ) : null;
+  const texte = (
+    <>
+      <Etiquette style={{marginBottom: 26}} fond={papier ? C.nuit : C.corail} couleur={papier ? C.creme : C.nuit}>{rubrique}</Etiquette>
+      <Titre taille={titre.length > 34 ? 104 : 128} lignes={debat ? 4 : 3} couleur={encre} style={centre ? {textAlign: 'center'} : undefined}>{titre}</Titre>
+      {debat ? (
+        <div style={{display: 'flex', flexDirection: 'column', gap: 14, marginTop: 30, textAlign: 'left'}}>
+          {options!.slice(0, 2).map((o, i) => (
+            <div key={i} style={{display: 'flex', alignItems: 'center', gap: 18, background: papier ? '#fff' : 'rgba(244,239,230,.12)', border: `2px solid ${encre}33`, borderRadius: 14, padding: '14px 20px'}}>
+              <span style={{fontFamily: T, fontWeight: 800, fontSize: 44, color: C.corail, width: 40}}>{'AB'[i]}</span>
+              <Ajuste max={36} style={{flex: 1, minWidth: 0, fontFamily: B, fontWeight: 700, color: encre}}>{o}</Ajuste>
+            </div>
+          ))}
+        </div>
+      ) : null}
+      {sous || glisse ? <div style={{display: 'flex', justifyContent: centre ? 'center' : 'space-between', alignItems: 'baseline', gap: 24, fontFamily: B, color: encre, marginTop: 22}}><Ajuste max={36} lignes={2} interligne={1.25} style={{flex: centre ? undefined : 1, minWidth: 0, maxWidth: centre ? 760 : undefined, fontWeight: 500, opacity: 0.85, textAlign: centre ? 'center' : 'left'}}>{sous ?? ''}</Ajuste>{glisse && !centre ? <span data-verif="bloc" style={{fontWeight: 700, fontSize: 30, whiteSpace: 'nowrap'}}>glisse →</span> : null}</div> : null}
+    </>
+  );
   return (
-    <AbsoluteFill style={{background: clair ? C.papier : C.nuit, overflow: 'hidden'}}>
-      {fond === 'photo' && photo ? <><Photo src={photo} position={position} /><Voile bas={0.92} haut={0.5} /></> : null}
-      {fond === 'nuit' && photo ? <><Photo src={photo} position={position} assombrir={0.62} /><Voile bas={0.9} haut={0.4} /></> : null}
-      <Signature sombre={clair} />
+    <AbsoluteFill style={{background: papier ? C.papier : C.nuit, overflow: 'hidden'}}>
+      {m === 'bas' && fond === 'photo' && photo ? <><Photo src={photo} position={position} /><Voile bas={0.92} haut={0.5} /></> : null}
+      {m === 'bas' && fond === 'nuit' && photo ? <><Photo src={photo} position={position} assombrir={0.62} /><Voile bas={0.9} haut={0.4} /></> : null}
+      {m === 'haut' ? <><Photo src={photo!} position={position} assombrir={fond === 'nuit' ? 0.4 : 0} /><AbsoluteFill style={{background: 'linear-gradient(180deg, rgba(11,11,15,.93) 0%, rgba(11,11,15,.82) 38%, rgba(11,11,15,.15) 68%, rgba(11,11,15,.55) 100%)'}} /></> : null}
+      {m === 'centre' ? <><Photo src={photo!} position={position} assombrir={0.58} /><AbsoluteFill style={{background: 'radial-gradient(ellipse at 50% 45%, rgba(11,11,15,.35) 0%, rgba(11,11,15,.8) 75%)'}} /></> : null}
+      {m === 'cadre' ? (
+        <div style={{position: 'absolute', left: 56, right: 56, top: 128, height: hautCadre, borderRadius: 16, overflow: 'hidden', transform: 'rotate(-1.2deg)', boxShadow: '0 30px 70px rgba(11,11,15,.35)'}}>
+          <Photo src={photo!} position={position} />
+        </div>
+      ) : null}
+      {m === 'bandeau' ? (
+        <>
+          <div style={{position: 'absolute', left: 0, right: 0, top: 0, height: hautBandeau, overflow: 'hidden'}}>
+            <Photo src={photo!} position={position} />
+            <AbsoluteFill style={{background: 'linear-gradient(180deg, rgba(11,11,15,.5) 0%, rgba(11,11,15,0) 30%)'}} />
+          </div>
+          <div style={{position: 'absolute', left: 0, right: 0, top: hautBandeau, height: 10, background: C.corail}} />
+        </>
+      ) : null}
+      <Signature sombre={papier} />
       {grand ? (
         <div style={{position: 'absolute', left: 50, top: 150, fontFamily: T, fontWeight: 800, fontStretch: '75%', fontSize: 420, lineHeight: 0.8, letterSpacing: '-0.04em', color: C.corail}}>{grand}</div>
       ) : null}
-      <div style={{position: 'absolute', left: 56, right: 56, bottom: 64}}>
-        {vignettes?.length ? (
-          <div style={{display: 'flex', marginBottom: 40, paddingLeft: 10}}>
-            {vignettes.slice(0, 3).map((v, i) => (
-              <Img key={i} src={staticFile(v)} style={{width: 270, height: 338, objectFit: 'cover', borderRadius: 12, border: `4px solid ${C.creme}`, marginLeft: i ? -40 : 0, transform: `rotate(${[-5, 2, 6][i]}deg) translateY(${[10, -8, 6][i]}px)`, boxShadow: '0 18px 40px rgba(0,0,0,.5)', zIndex: 3 - i}} />
-            ))}
+      {m === 'haut' ? (
+        <>
+          <div style={{position: 'absolute', left: 56, right: 56, top: 150}}>{texte}</div>
+          {pile ? <div style={{position: 'absolute', right: 70, bottom: 70, display: 'flex', justifyContent: 'flex-end'}}>{pile}</div> : null}
+        </>
+      ) : m === 'centre' ? (
+        <div style={{position: 'absolute', left: 56, right: 56, top: 0, bottom: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', paddingTop: 60}}>
+          {pile ? <div style={{marginBottom: 40}}>{pile}</div> : null}
+          {texte}
+        </div>
+      ) : (
+        <>
+          {pile && petites ? <div style={{position: 'absolute', right: 70, top: (m === 'cadre' ? 128 + hautCadre : hautBandeau) - 200}}>{pile}</div> : null}
+          <div style={{position: 'absolute', left: 56, right: 56, bottom: 64}}>
+            {pile && !petites ? <div style={{marginBottom: 40}}>{pile}</div> : null}
+            {texte}
           </div>
-        ) : null}
-        <Etiquette style={{marginBottom: 26}} fond={clair ? C.nuit : C.corail} couleur={clair ? C.creme : C.nuit}>{rubrique}</Etiquette>
-        <Titre taille={titre.length > 34 ? 104 : 128} lignes={options?.length ? 4 : 3} couleur={encre}>{titre}</Titre>
-        {options?.length ? (
-          <div style={{display: 'flex', flexDirection: 'column', gap: 14, marginTop: 30}}>
-            {options.slice(0, 2).map((o, i) => (
-              <div key={i} style={{display: 'flex', alignItems: 'center', gap: 18, background: clair ? '#fff' : 'rgba(244,239,230,.12)', border: `2px solid ${encre}33`, borderRadius: 14, padding: '14px 20px'}}>
-                <span style={{fontFamily: T, fontWeight: 800, fontSize: 44, color: C.corail, width: 40}}>{'AB'[i]}</span>
-                <Ajuste max={36} style={{flex: 1, minWidth: 0, fontFamily: B, fontWeight: 700, color: encre}}>{o}</Ajuste>
-              </div>
-            ))}
-          </div>
-        ) : null}
-        {sous || glisse ? <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: 24, fontFamily: B, color: encre, marginTop: 22}}><Ajuste max={36} lignes={2} interligne={1.25} style={{flex: 1, minWidth: 0, fontWeight: 500, opacity: 0.85}}>{sous ?? ''}</Ajuste>{glisse ? <span data-verif="bloc" style={{fontWeight: 700, fontSize: 30, whiteSpace: 'nowrap'}}>glisse →</span> : null}</div> : null}
-      </div>
-      <Grain o={clair ? 0.12 : 0.08} />
+        </>
+      )}
+      <Grain o={papier ? 0.12 : 0.08} />
       <ControleVisuel />
     </AbsoluteFill>
   );
@@ -112,9 +163,9 @@ export const DiapoFin: React.FC<{soirees: Soiree[]; photo: string; question?: st
 );
 
 /** Carrousel complet des sorties (même props que l'ancien, plus les photos de la DA). */
-export const CarrouselFlash: React.FC<{soirees: Soiree[]; slide: number; titre: string; sous?: string; photo?: string; photoFin?: string; rubrique?: string; question?: string}> = ({soirees, slide, titre, sous, photo = 'decors/da/danse.jpg', photoFin = 'decors/da/selfie.jpg', rubrique = "Sorties · Côte d'Azur", question}) => {
+export const CarrouselFlash: React.FC<{soirees: Soiree[]; slide: number; titre: string; sous?: string; photo?: string; photoFin?: string; rubrique?: string; question?: string; mise?: Mise}> = ({soirees, slide, titre, sous, photo = 'decors/da/danse.jpg', photoFin = 'decors/da/selfie.jpg', rubrique = "Sorties · Côte d'Azur", question, mise}) => {
   const n = soirees.length;
-  if (slide === 0) return <Couverture photo={photo} rubrique={rubrique} titre={titre} sous={sous} vignettes={[...soirees.filter((s: any) => s.vedette), ...soirees.filter((s: any) => !s.vedette)].map((s) => s.image)} glisse />;
+  if (slide === 0) return <Couverture photo={photo} rubrique={rubrique} titre={titre} sous={sous} vignettes={[...soirees.filter((s: any) => s.vedette), ...soirees.filter((s: any) => !s.vedette)].map((s) => s.image)} glisse mise={mise} />;
   if (slide > n) return <DiapoFin soirees={soirees} photo={photoFin} question={question} />;
   return <DiapoSoiree s={soirees[slide - 1]} i={slide} n={n} />;
 };
@@ -193,23 +244,51 @@ export const StoryRelais: React.FC<{image: string; rubrique?: string; texte?: st
  *  (y 240 → 1680) que la grille du profil affiche. Le feed reste cohérent entre posts et reels. */
 // Bouton lecture (18/11/2026, directeur : couverture « qui corresponde au flux, mais qui montre quand même que c'est un
 // réel ») : rond de verre dépoli + triangle crème, dans la zone visible de la grille (recadrage 4:5 : y 285 → 1635).
-const Lecture: React.FC = () => (
-  <div style={{position: 'absolute', left: 540 - 92, top: 700, width: 184, height: 184, borderRadius: '50%', background: 'rgba(11,11,15,.42)', backdropFilter: 'blur(14px)', border: '5px solid rgba(244,239,230,.9)', boxShadow: '0 18px 60px rgba(0,0,0,.45)'}}>
+const Lecture: React.FC<{top?: number}> = ({top = 700}) => (
+  <div style={{position: 'absolute', left: 540 - 92, top, width: 184, height: 184, borderRadius: '50%', background: 'rgba(11,11,15,.42)', backdropFilter: 'blur(14px)', border: '5px solid rgba(244,239,230,.9)', boxShadow: '0 18px 60px rgba(0,0,0,.45)'}}>
     <div style={{position: 'absolute', left: 70, top: 50, width: 0, height: 0, borderTop: '42px solid transparent', borderBottom: '42px solid transparent', borderLeft: `68px solid ${C.creme}`}} />
   </div>
 );
-export const CouvertureReel: React.FC<{photo: string; position?: string; rubrique: string; titre: string; sous?: string; lecture?: boolean}> = ({photo, position, rubrique, titre, sous, lecture = true}) => (
-  <AbsoluteFill style={{background: C.nuit, overflow: 'hidden'}}>
-    <Photo src={photo} position={position} />
-    <AbsoluteFill style={{background: 'linear-gradient(180deg, rgba(11,11,15,.55) 0%, rgba(11,11,15,.2) 22%, rgba(11,11,15,0) 40%, rgba(11,11,15,.35) 58%, rgba(11,11,15,.92) 88%, rgba(11,11,15,.95) 100%)'}} />
-    <div style={{position: 'absolute', left: 0, right: 0, top: 240 - 48}}><Signature /></div>
-    {lecture ? <Lecture /> : null}
-    <div style={{position: 'absolute', left: 56, right: 56, bottom: 1920 - 1680 + 64}}>
-      <Etiquette style={{marginBottom: 26}}>{rubrique}</Etiquette>
-      <Titre taille={128} lignes={3}>{titre}</Titre>
-      {sous ? <Ajuste max={36} lignes={2} interligne={1.25} style={{fontFamily: B, fontWeight: 500, color: C.creme, opacity: 0.85, marginTop: 22}}>{sous}</Ajuste> : null}
-    </div>
-    <Grain o={0.08} />
-    <ControleVisuel />
-  </AbsoluteFill>
-);
+// Zone vue dans la grille (recadrage 4:5) : y 285 → 1635. Tout le texte et le bouton lecture y tiennent, quelle que soit la mise.
+export const CouvertureReel: React.FC<{photo: string; position?: string; rubrique: string; titre: string; sous?: string; lecture?: boolean; mise?: Mise}> = ({photo, position, rubrique, titre, sous, lecture = true, mise = 'bas'}) => {
+  const papier = mise === 'cadre';
+  const encre = papier ? C.nuit : C.creme;
+  const centre = mise === 'centre';
+  const texte = (
+    <>
+      <Etiquette style={{marginBottom: 26}} fond={papier ? C.nuit : C.corail} couleur={papier ? C.creme : C.nuit}>{rubrique}</Etiquette>
+      <Titre taille={128} lignes={3} couleur={encre} style={centre ? {textAlign: 'center'} : undefined}>{titre}</Titre>
+      {sous ? <Ajuste max={36} lignes={2} interligne={1.25} style={{fontFamily: B, fontWeight: 500, color: encre, opacity: 0.85, marginTop: 22, textAlign: centre ? 'center' : 'left'}}>{sous}</Ajuste> : null}
+    </>
+  );
+  // position du bouton lecture selon la mise
+  const yLecture = {bas: 700, haut: 1240, cadre: 708, bandeau: 680, centre: 480}[mise];
+  return (
+    <AbsoluteFill style={{background: papier ? C.papier : C.nuit, overflow: 'hidden'}}>
+      {mise === 'bas' ? <><Photo src={photo} position={position} /><AbsoluteFill style={{background: 'linear-gradient(180deg, rgba(11,11,15,.55) 0%, rgba(11,11,15,.2) 22%, rgba(11,11,15,0) 40%, rgba(11,11,15,.35) 58%, rgba(11,11,15,.92) 88%, rgba(11,11,15,.95) 100%)'}} /></> : null}
+      {mise === 'haut' ? <><Photo src={photo} position={position} /><AbsoluteFill style={{background: 'linear-gradient(180deg, rgba(11,11,15,.95) 0%, rgba(11,11,15,.9) 30%, rgba(11,11,15,.7) 45%, rgba(11,11,15,.05) 62%, rgba(11,11,15,.2) 85%, rgba(11,11,15,.6) 100%)'}} /></> : null}
+      {mise === 'centre' ? <><Photo src={photo} position={position} assombrir={0.55} /><AbsoluteFill style={{background: 'radial-gradient(ellipse at 50% 50%, rgba(11,11,15,.3) 0%, rgba(11,11,15,.85) 75%)'}} /></> : null}
+      {mise === 'cadre' ? (
+        <div style={{position: 'absolute', left: 56, right: 56, top: 350, height: 900, borderRadius: 18, overflow: 'hidden', transform: 'rotate(-1.2deg)', boxShadow: '0 30px 70px rgba(11,11,15,.35)'}}>
+          <Photo src={photo} position={position} />
+        </div>
+      ) : null}
+      {mise === 'bandeau' ? (
+        <>
+          <div style={{position: 'absolute', left: 0, right: 0, top: 0, height: 1280, overflow: 'hidden'}}>
+            <Photo src={photo} position={position} />
+            <AbsoluteFill style={{background: 'linear-gradient(180deg, rgba(11,11,15,.55) 0%, rgba(11,11,15,0) 35%)'}} />
+          </div>
+          <div style={{position: 'absolute', left: 0, right: 0, top: 1280, height: 10, background: C.corail}} />
+        </>
+      ) : null}
+      <div style={{position: 'absolute', left: 0, right: 0, top: 240 - 48}}><Signature sombre={papier} /></div>
+      {lecture ? <Lecture top={yLecture} /> : null}
+      {mise === 'haut' ? <div style={{position: 'absolute', left: 56, right: 56, top: 330}}>{texte}</div>
+        : centre ? <div style={{position: 'absolute', left: 56, right: 56, top: 720, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center'}}>{texte}</div>
+        : <div style={{position: 'absolute', left: 56, right: 56, bottom: 1920 - 1680 + 64}}>{texte}</div>}
+      <Grain o={papier ? 0.12 : 0.08} />
+      <ControleVisuel />
+    </AbsoluteFill>
+  );
+};

@@ -40,3 +40,27 @@ test('run.mjs : pas de constante lue avant sa déclaration (AMORCE_PHOTOS en tê
   const s = readFileSync(new URL('../src/run.mjs', import.meta.url), 'utf8');
   assert.ok(s.indexOf('const AMORCE_PHOTOS') < s.indexOf('async function prepare('), 'AMORCE_PHOTOS doit être déclarée avant prepare()');
 });
+
+// Mises en page qui tournent (19/11/2026, directeur : « tous les posts ont la même couverture… triste et monotone »).
+import { MISES, MISE_FENETRE, choisirMise, misesRecentes } from '../src/photos.mjs';
+import { readFileSync } from 'node:fs';
+
+test('mises en page : jamais la même deux fois de suite, toutes servent sur un cycle', () => {
+  let hist = [{ photo: 'dj' }, { photo: 'foule' }]; // anciennes couvertures sans mise = « bas »
+  const suite = [];
+  for (let i = 0; i < 15; i++) { const m = choisirMise(misesRecentes(hist)); suite.push(m); hist.push({ photo: 'x', mise: m }); }
+  assert.notEqual(suite[0], 'bas');
+  for (let i = 1; i < suite.length; i++) assert.ok(!suite.slice(Math.max(0, i - MISE_FENETRE), i).includes(suite[i]), suite.join(' '));
+  assert.deepEqual(new Set(suite.slice(0, MISES.length)), new Set(MISES));
+});
+
+test('mises en page : stories et posts hors grille ne comptent pas', () => {
+  const r = misesRecentes([{ photo: 'a', mise: 'haut' }, { photo: 'b', mise: 'cadre', hors_grille: true }, { id: 'story' }]);
+  assert.deepEqual(r, ['haut']);
+});
+
+test('chaque mise existe dans le studio (posts et couvertures de reel)', () => {
+  const tsx = readFileSync(new URL('../studio/src/da/Posts.tsx', import.meta.url), 'utf8');
+  for (const m of MISES) assert.match(tsx, new RegExp(`'${m}'`), m);
+  assert.match(tsx, /CouvertureReel[^\n]*mise\?: Mise/);
+});
