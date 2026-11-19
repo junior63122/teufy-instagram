@@ -250,6 +250,12 @@ const Lecture: React.FC<{top?: number}> = ({top = 700}) => (
   </div>
 );
 // Zone vue dans la grille (recadrage 4:5) : y 285 → 1635. Tout le texte et le bouton lecture y tiennent, quelle que soit la mise.
+const MarqueReel: React.FC = () => (
+  <div data-verif="bloc" style={{display: 'flex', alignItems: 'center', gap: 14, background: C.corail, color: C.nuit, borderRadius: 999, padding: '12px 26px 12px 20px', boxShadow: '0 10px 30px rgba(0,0,0,.35)'}}>
+    <div style={{width: 0, height: 0, borderTop: '15px solid transparent', borderBottom: '15px solid transparent', borderLeft: `24px solid ${C.nuit}`}} />
+    <span style={{fontFamily: B, fontWeight: 800, fontSize: 34, letterSpacing: '0.12em'}}>RÉEL</span>
+  </div>
+);
 export const CouvertureReel: React.FC<{photo: string; position?: string; rubrique: string; titre: string; sous?: string; lecture?: boolean; mise?: Mise}> = ({photo, position, rubrique, titre, sous, lecture = true, mise = 'bas'}) => {
   const papier = mise === 'cadre';
   const encre = papier ? C.nuit : C.creme;
@@ -282,7 +288,9 @@ export const CouvertureReel: React.FC<{photo: string; position?: string; rubriqu
           <div style={{position: 'absolute', left: 0, right: 0, top: 1280, height: 10, background: C.corail}} />
         </>
       ) : null}
-      <div style={{position: 'absolute', left: 0, right: 0, top: 240 - 48}}><Signature sombre={papier} /></div>
+      {/* Marque « RÉEL » (19/11/2026, directeur : « on doit vite pouvoir différencier les réels des posts ») : pastille en
+          haut à droite, toujours au même endroit, sur toutes les couvertures de reel (jamais sur un post). */}
+      <div style={{position: 'absolute', left: 0, right: 0, top: 240 - 48}}><Signature sombre={papier} droite={<MarqueReel />} /></div>
       {lecture ? <Lecture top={yLecture} /> : null}
       {mise === 'haut' ? <div style={{position: 'absolute', left: 56, right: 56, top: 330}}>{texte}</div>
         : centre ? <div style={{position: 'absolute', left: 56, right: 56, top: 720, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center'}}>{texte}</div>

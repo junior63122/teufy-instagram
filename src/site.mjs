@@ -2593,15 +2593,15 @@ function pageFaq({ lang, t, tr, base, compte, T, chemin, maj, posts }) {
 }
 const TR_SOURCES = { fr: 'Nos sources', en: 'Our sources', it: 'Le nostre fonti', es: 'Nuestras fuentes', zh: '信息来源', ar: 'مصادرنا' };
 const TR_LEG = { fr: 'Confidentialité et cookies', en: 'Privacy and cookies', it: 'Privacy e cookie', es: 'Privacidad y cookies', zh: '隐私与 Cookie', ar: 'الخصوصية وملفات تعريف الارتباط' };
-// Numéro de mise à jour (contenus/version.json, +1 chaque semaine) : pied de page et page /mises-a-jour/ (directeur, 19/11/2026).
+// Numéro de version (contenus/version.json, format 1.13.02, règle dans la note du fichier) : pied de page et page /mises-a-jour/ (directeur, 19/11/2026).
 const VERSIONS = (() => { try { return JSON.parse(readFileSync(path.join(ROOT, 'contenus', 'version.json'), 'utf8')).versions || []; } catch { return []; } })();
-const LIB_MAJ = { fr: 'Mise à jour n°', en: 'Update #', it: 'Aggiornamento n.', es: 'Actualización n.º', zh: '更新 #', ar: 'التحديث رقم ' };
+const LIB_MAJ = { fr: 'Version ', en: 'Version ', it: 'Versione ', es: 'Versión ', zh: '版本 ', ar: 'الإصدار ' };
 function pageMisesAJour({ lang, t, tr, base, compte, chemin, maj }) {
   const date = (d) => new Intl.DateTimeFormat(lang === 'zh' ? 'zh-CN' : lang, { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Europe/Paris' }).format(new Date(`${d}T12:00:00Z`));
   const corps = `<article class="article">
   <h1>${esc(tr('Mises à jour du site'))}</h1>
   <p>${esc(tr('Chaque semaine, Teufy vérifie le site (sécurité, fiabilité, nouveautés) et publie une mise à jour. Voici ce qui a changé.'))}</p>
-  ${VERSIONS.map((v) => `<h2 id="maj-${v.numero}">${esc((LIB_MAJ[lang] || LIB_MAJ.fr) + v.numero)} · ${esc(date(v.date))}</h2><ul>${(v.notes || []).map((n) => `<li>${esc(lang === 'fr' ? n : tr(n))}</li>`).join('')}</ul>`).join('\n  ')}
+  ${VERSIONS.map((v) => `<h2 id="maj-${String(v.numero).replace(/\./g, '-')}">${esc((LIB_MAJ[lang] || LIB_MAJ.fr) + v.numero)} · ${esc(date(v.date))}</h2><ul>${(v.notes || []).map((n) => `<li>${esc(lang === 'fr' ? n : tr(n))}</li>`).join('')}</ul>`).join('\n  ')}
 </article>`;
   return gabarit({ lang, t, titre: tr('Mises à jour du site Teufy'), description: tr('Le journal des mises à jour hebdomadaires du site Teufy : sécurité, corrections et nouveautés.'), chemin, base, corps, compte, maj });
 }

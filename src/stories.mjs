@@ -37,7 +37,7 @@ export function planDuJour(now) {
 /** Stories dues maintenant : heure passée (moins de 3 h de retard), pas encore faites aujourd'hui. */
 export function storiesDues(now, histo = lire(FICHIER_HISTO, [])) {
   const jour = jourParis(now), h = heureParis(now);
-  return planDuJour(now).filter((s) => h >= s.h && h < s.h + 3 && !histo.some((x) => x.jour === jour && x.type === s.type));
+  return planDuJour(now).filter((s) => h >= s.h && h < s.h + 3 && !histo.some((x) => x.jour === jour && x.type === s.type && !x.manquantes?.length));
 }
 
 // --- Choix du contenu (sans IA) ------------------------------------------------------------------------

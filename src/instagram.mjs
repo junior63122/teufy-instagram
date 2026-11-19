@@ -13,6 +13,15 @@ export function igConfig() {
   return token && user ? { token, user } : null;
 }
 
+// Quota de l'API (19/11/2026) : les analyses de comptes (« business discovery », ~50 par passage) épuisaient la limite
+// d'appels d'Instagram, et les stories du jour partaient en erreur « (#4) Application request limit reached ».
+// Les publications passent avant : au plus IG_BUDGET_DECOUVERTE analyses par lancement, et plus aucune dès qu'Instagram
+// signale la limite.
+let LIMITE_ATTEINTE = false;
+let DECOUVERTES = 0;
+const BUDGET_DECOUVERTE = Number(process.env.IG_BUDGET_DECOUVERTE || 20);
+export function quotaInstagram() { return { limite: LIMITE_ATTEINTE, decouvertes: DECOUVERTES, budget: BUDGET_DECOUVERTE }; }
+
 async function call(method, pathname, params, { token }) {
   const url = new URL(`https://${HOST}/${VERSION}/${pathname}`);
   const body = new URLSearchParams({ ...params, access_token: token });
@@ -26,6 +35,7 @@ async function call(method, pathname, params, { token }) {
   const json = await res.json().catch(() => ({}));
   if (!res.ok || json.error) {
     const e = json.error || {};
+    if ([4, 17, 32, 613].includes(e.code)) LIMITE_ATTEINTE = true;
     throw new Error(`Instagram ${pathname} : ${e.message || res.status} (code ${e.code ?? '?'}, sous-code ${e.error_subcode ?? '-'})`);
   }
   return json;
@@ -188,6 +198,8 @@ export async function followers(ig) {
 
 // Posts publics d'un autre compte professionnel (API « Business Discovery »).
 export async function businessDiscovery(handle, ig) {
+  if (LIMITE_ATTEINTE || DECOUVERTES >= BUDGET_DECOUVERTE) throw new Error(`analyse de @${handle} reportée : quota Instagram gardé pour les publications`);
+  DECOUVERTES++;
   const fields = `business_discovery.username(${handle}){username,name,biography,website,profile_picture_url,followers_count,media_count,media.limit(25){caption,like_count,comments_count,media_type,media_product_type,media_url,timestamp,permalink}}`;
   const j = await call('GET', ig.user, { fields }, ig);
   return j.business_discovery;
@@ -238,4 +250,37 @@ export async function etatJeton(ig) {
   } catch (err) {
     return { valide: false, expire: null, jours: null, message: err.message };
   }
+}
+
+// --- Auto-contrôle (19/11/2026, directeur : « juste recevoir un ok ne suffit pas, vérifie que chaque étape a fonctionné ») ---
+
+/** Relit sur Instagram une publication qui vient de partir et vérifie qu'elle est vraiment en ligne, complète et conforme.
+ *  `attendu` : { type: 'reel' | 'carrousel' | 'image' | 'story', images?, legende? }. Ne lève jamais : renvoie les problèmes. */
+export async function verifierMedia(mediaId, ig, attendu = {}) {
+  const problemes = [];
+  let m;
+  try { m = await call('GET', mediaId, { fields: 'id,media_type,media_product_type,permalink,caption,thumbnail_url,media_url,timestamp,children{id}' }, ig); }
+  catch (err) { return { ok: false, problemes: [`introuvable sur Instagram (${err.message.slice(0, 120)})`], media: null }; }
+  const type = attendu.type;
+  if (type === 'reel' && m.media_product_type !== 'REELS') problemes.push(`attendu un reel, Instagram dit ${m.media_product_type || m.media_type}`);
+  if (type === 'story' && m.media_product_type !== 'STORY') problemes.push(`attendu une story, Instagram dit ${m.media_product_type || m.media_type}`);
+  if (type === 'carrousel') {
+    if (m.media_type !== 'CAROUSEL_ALBUM') problemes.push(`attendu un carrousel, Instagram dit ${m.media_type}`);
+    const n = m.children?.data?.length || 0;
+    if (attendu.images && n !== attendu.images) problemes.push(`${n} image(s) en ligne sur ${attendu.images} prévues`);
+  }
+  if (type === 'image' && m.media_type !== 'IMAGE') problemes.push(`attendu une image, Instagram dit ${m.media_type}`);
+  if (type !== 'story') {
+    if (!m.permalink) problemes.push('pas de lien public (publication pas visible)');
+    const net = (x) => String(x || '').replace(/\s+/g, ' ').trim().slice(0, 60);
+    if (attendu.legende && net(m.caption) !== net(attendu.legende)) problemes.push('légende en ligne différente de celle prévue (ou absente)');
+  }
+  if (type === 'reel' && !m.thumbnail_url) problemes.push('pas de couverture visible');
+  return { ok: !problemes.length, problemes, media: m };
+}
+
+/** Stories en ligne en ce moment (24 h) : identifiants, pour vérifier qu'une story publiée est bien visible. */
+export async function storiesEnLigne(ig) {
+  try { return ((await call('GET', `${ig.user}/stories`, { fields: 'id,timestamp,media_type' }, ig)).data || []).map((s) => s.id); }
+  catch { return null; }
 }

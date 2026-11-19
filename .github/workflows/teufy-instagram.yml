@@ -261,3 +261,19 @@ jobs:
           git diff --cached --quiet && exit 0
           git commit -m "Teufy : stories publiées [skip ci]"
           for i in 1 2 3; do git pull --rebase -X theirs --autostash && git push && break; git rebase --abort 2>/dev/null; sleep 5; done
+
+      # Auto-contrôle (19/11/2026, directeur : « tout ce qui doit être publié doit l'être, et tu dois contrôler que ça l'a
+      # été ; un ok ne suffit pas ») : ce qui était prévu aujourd'hui est relu sur Instagram (en ligne, bon format, bon
+      # nombre d'images, légende, couverture DA) ; stories comprises. Un manque avant l'heure limite est repris au passage
+      # suivant ; un manque après l'heure limite ou une publication non conforme fait échouer l'étape (e-mail de GitHub).
+      - name: Auto-contrôle des publications du jour
+        if: always() && (github.event_name == 'schedule' || startsWith(inputs.quoi, 'horaire'))
+        run: |
+          set +e
+          node src/run.mjs controle
+          CODE=$?
+          git config user.name "teufy-bot"
+          git config user.email "teufy-bot@users.noreply.github.com"
+          git add -A -- contenus/controle-publication.json
+          git diff --cached --quiet || { git commit -m "Teufy : auto-contrôle des publications [skip ci]"; for i in 1 2 3; do git pull --rebase -X theirs --autostash && git push && break; git rebase --abort 2>/dev/null; sleep 5; done; }
+          exit $CODE

@@ -39,7 +39,8 @@
   `node outils/tester-donnees-piegees.mjs`, `npm audit --omit=dev` (racine et `studio/`, versions corrigées publiées depuis plus de
   2 semaines), recherche de clés dans le code et l'historique, revue des workflows (aucune entrée collée dans une commande),
   vérification que la veille et les posts actus tournent, idées de fonctionnalités ; puis réparer, tester (`npm test`), ajouter la
-  version suivante en tête de `contenus/version.json` (numéro +1, date, notes en français simple) et faire un rapport au directeur.
+  version suivante en tête de `contenus/version.json` (format « 1.13.02 » : corrections → dernier nombre +1 ; nouvelle
+  fonctionnalité → nombre du milieu +1 et dernier à 01 ; énorme nouveauté → premier nombre +1, « 2.01.01 » ; date, notes en français simple) et faire un rapport au directeur.
   Ne jamais committer les pages reconstruites localement par les tests (le robot reconstruit le site).
 - **Concours** (directeur, 19/11/2026, valable pour tous les concours) : on doit comprendre **tout de suite** que c'est un
   concours (le mot « Concours » et le lot visibles sur la couverture), mais le visuel **reste dans la DA du flux** (couverture
@@ -57,3 +58,10 @@
   (jamais une image tirée de la vidéo, sauf panne, signalée dans le journal). Cinq mises en page de la DA tournent (`bas`, `haut`,
   `cadre`, `bandeau`, `centre` : `studio/src/da/Posts.tsx`, choix dans `src/photos.mjs` `choisirMise`) : jamais la même deux fois
   de suite, en plus de la règle des photos. Toute nouvelle mise est vérifiée à l'œil (texte long, débat, vignettes, reel).
+- **Auto-contrôle permanent** (directeur, 19/11/2026 : « tout ce qui doit être publié doit être publié, tu dois contrôler que ça
+  l'a été, et si ce n'est pas fait, tout faire jusqu'à ce que ce soit publié ; un ok ne suffit pas, vérifie que chaque étape a
+  fonctionné complètement ») : chaque publication est relue sur Instagram après l'envoi (`verifierMedia`) ; `node src/run.mjs
+  controle` à chaque passage horaire (journal `contenus/controle-publication.json`) ; stories reprises tant qu'une image manque ;
+  format de secours si un post ne se prépare pas ; quota de l'API gardé pour les publications. Contrôle quotidien par Claude
+  (tâche programmée) : lire le journal et les passages du jour, réparer ce qui a cassé, et vérifier que la réparation marche.
+  Les reels portent la pastille « RÉEL » sur leur couverture (on les distingue des posts dans la grille).

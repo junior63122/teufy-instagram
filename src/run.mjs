@@ -47,6 +47,7 @@ const MEDIA_BASE = (config.site?.domaine ? `https://${config.site.domaine}/media
 const R = config.reglages;
 const hist = existsSync(HIST_FILE) ? JSON.parse(await readFile(HIST_FILE, 'utf8')) : [];
 let PHOTO_COUV = null; // photo de couverture choisie pour la publication en cours (src/photos.mjs)
+let COUV_SECOURS = false; // couverture de reel tombée en secours (image de la vidéo) : signalée par l'auto-contrôle
 let MISE_COUV; // mise en page de la couverture de la publication en cours (null = à choisir ; undefined = hors publication)
 const AMORCE_PHOTOS = (() => { try { return JSON.parse(readFileSync(path.join(ROOT, 'contenus', 'photos-grille.json'), 'utf8')).amorce || []; } catch { return []; } })();
 const usedHere = new Set(); // débats / bons plans déjà pris dans ce lancement (aperçu du mois)
@@ -167,6 +168,52 @@ if (cible === 'collecter') {
   await appendFile(path.join(ROOT, 'RAPPORT.md'), sectionRapport(PLAN)); // ce que le robot a changé tout seul
   process.exit(0);
 }
+// Auto-contrôle du jour (19/11/2026, directeur : « tout ce qui doit être publié doit être publié, et tu dois contrôler que ça
+// l'a été ; un ok ne suffit pas »). À chaque passage : ce qui était prévu aujourd'hui, ce qui est vraiment en ligne (relu sur
+// Instagram), les couvertures, les stories. Journal dans contenus/controle-publication.json. Tout manque passé l'heure
+// limite ou toute publication non conforme fait échouer l'étape (e-mail de GitHub) ; un manque avant l'heure limite est
+// repris par le passage horaire suivant.
+if (cible === 'controle') {
+  const { verifierMedia } = await import('./instagram.mjs');
+  const S = await import('./stories.mjs');
+  const ig = igConfig();
+  const jour = slotOfDay(NOW).date;
+  const hp = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Paris', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).format(NOW).split(':').map(Number);
+  const [mh, mm] = String(config.instagram?.heure_max_paris || '21:30').split(':').map(Number);
+  const passe = hp[0] * 60 + hp[1] > mh * 60 + (mm || 0);
+  const lignes = [], problemes = [];
+  for (const sl of slotsFor(NOW)) {
+    const sid = slotId(sl), h = hist.find((x) => x.id === sid && x.date === jour);
+    if (!h) { (passe ? problemes : lignes).push(`${sid} : ${passe ? 'PAS PUBLIÉ aujourd\'hui' : 'pas encore publié (repris au prochain passage)'}`); continue; }
+    if (!ig || !h.media) { lignes.push(`${sid} : noté publié (${h.lien || 'sans lien'}), non relu (pas d'accès Instagram)`); continue; }
+    const p = h.publication || {};
+    const v = await verifierMedia(h.media, ig, { type: p.type === 'reel' || h.duree || /reel/.test(sid) ? 'reel' : p.nb_images > 1 ? 'carrousel' : 'image', images: p.nb_images > 1 ? p.nb_images : undefined, legende: p.legende });
+    const pb = [...v.problemes, ...(Array.isArray(h.verifie) ? h.verifie.filter((x) => !v.problemes.includes(x)) : [])];
+    if (pb.length) problemes.push(`${sid} (${h.lien || h.media}) : ${pb.join(' ; ')}`);
+    else lignes.push(`${sid} : en ligne et conforme (${h.lien})`);
+  }
+  const fh = path.join(ROOT, S.FICHIER_HISTO);
+  const histo = existsSync(fh) ? JSON.parse(readFileSync(fh, 'utf8')) : [];
+  const hPar = hp[0];
+  for (const st of S.planDuJour(NOW)) {
+    if (hPar < st.h) continue;
+    const e = histo.find((x) => x.jour === jour && x.type === st.type);
+    if (!e) { if (hPar >= st.h + 3) problemes.push(`story ${st.type} (${st.h} h) : pas publiée`); else lignes.push(`story ${st.type} : en attente`); }
+    else if (e.manquantes?.length) problemes.push(`story ${st.type} : ${e.manquantes.length} image(s) pas publiée(s)`);
+    else if (!e.ids?.length) problemes.push(`story ${st.type} : notée faite sans aucune image en ligne`);
+    else lignes.push(`story ${st.type} : ${e.ids.length} image(s) en ligne`);
+  }
+  console.log(`Auto-contrôle du ${jour} (${hp[0]}h${String(hp[1]).padStart(2, '0')} à Paris) :`);
+  for (const l of lignes) console.log(`  ok  ${l}`);
+  for (const l of problemes) console.error(`::error::Auto-contrôle : ${l}`);
+  const fj = path.join(ROOT, 'contenus', 'controle-publication.json');
+  const journal = existsSync(fj) ? JSON.parse(readFileSync(fj, 'utf8')) : { _note: 'Auto-contrôle des publications (src/run.mjs controle), à chaque passage horaire. Le plus récent en dernier.', jours: [] };
+  journal.jours = [...journal.jours.filter((x) => x.jour !== jour), { jour, le: NOW.toISOString(), ok: lignes, problemes }].slice(-30);
+  await writeFile(fj, JSON.stringify(journal, null, 1) + '\n');
+  if (problemes.length) process.exitCode = 1;
+  else console.log('  Tout ce qui devait être publié à cette heure est en ligne et conforme.');
+  process.exit();
+}
 if (cible === 'reactif') {
   // Toutes les 2 h au plus (passages horaires) : chiffres frais des publications du robot de moins de 48 h.
   const ig = igConfig();
@@ -286,9 +333,16 @@ for (const j of jobs) {
         if (cible === 'auto' && /Texte refusé|Post incohérent/.test(err.message) && j.slot.type !== 'incontournables') { console.error(`[${id}] ✗ ${err.message} → carrousel des soirées à la place.`); await prepare({ type: 'incontournables', variante: 'commercial' }, j.now, id); continue; }
         // Carrousel Guide sans 3 adresses vérifiées : reel Flash à la place (le post sort toujours).
         if (cible === 'auto' && ['guide', 'libre'].includes(j.slot.type) && /Guide/.test(err.message)) { console.error(`[${id}] ✗ ${err.message} → reel Flash à la place.`); await prepare({ type: 'reel', variante: 'flash' }, j.now, id); continue; }
-        if (cible !== 'auto' || j.slot.type !== 'reel' || !/IA|Scénariste|reel écrit/i.test(err.message)) throw err;
-        console.error(`[${id}] ✗ ${err.message} → carrousel des soirées à la place (sans IA).`);
-        await prepare({ type: 'incontournables', variante: 'commercial' }, j.now, id);
+        if (cible === 'auto' && j.slot.type === 'reel' && /IA|Scénariste|reel écrit/i.test(err.message)) {
+          console.error(`[${id}] ✗ ${err.message} → carrousel des soirées à la place (sans IA).`);
+          await prepare({ type: 'incontournables', variante: 'commercial' }, j.now, id);
+          continue;
+        }
+        // Toute autre panne (bug, fichier abîmé…) : la publication du jour sort quand même (règle « les publications
+        // passent toujours ») avec le premier format de secours qui se prépare, et l'erreur est signalée.
+        if (cible !== 'auto' || /valid/i.test(err.message)) throw err;
+        console.error(`::error::[${id}] préparation impossible : ${err.message}`);
+        await prepareSecours(j, id, err);
       }
     }
     if (etape === 'publier' || etape === 'tout') await publishPrepared(id);
@@ -301,8 +355,21 @@ if (echecs.length) die(`Échec : ${echecs.join(', ')}`);
 
 // --- Préparation ------------------------------------------------------------
 
+// Formats de secours, dans l'ordre, sans IA : carrousel des soirées, puis vidéos déjà prêtes (spots, « Tague ton pote »).
+const SECOURS = [{ type: 'incontournables', variante: 'commercial' }, { type: 'reel', variante: 'spot-promo' }, { type: 'reel', variante: 'tague-ton-pote' }];
+async function prepareSecours(j, id, erreur) {
+  let derniere = erreur;
+  for (const sl of SECOURS) {
+    if (sl.type === j.slot.type && sl.variante === j.slot.variante) continue;
+    if (sl.type === 'incontournables' && j.slot.type === 'incontournables') continue; // même moteur que ce qui vient d'échouer
+    try { await prepare(sl, j.now, id); console.error(`::warning::[${id}] publié en secours : ${sl.type} ${sl.variante}.`); return; }
+    catch (err) { console.error(`[${id}] secours ${sl.type} ${sl.variante} impossible : ${err.message}`); derniere = err; }
+  }
+  throw derniere;
+}
+
 async function prepare(slot, now, id) {
-  PHOTO_COUV = null; MISE_COUV = null;
+  PHOTO_COUV = null; MISE_COUV = null; COUV_SECOURS = false;
   const { renderPages, carouselPages, reelPages, debatPage, bonPlanManuelPage, afficheProgramme } = await import('./render.mjs');
   const { photoSource } = await import('./photos.mjs');
   const dir = path.join(MEDIA_DIR, id);
@@ -520,8 +587,7 @@ async function prepare(slot, now, id) {
     await copyFile(ep.video, video);
     // Couverture : jamais une image du dessin animé (elle casse la DA de la grille et de l'onglet Reels) ; gabarit de la DA
     // (photo de nuit sombre + titre), comme les autres reels. Image de l'épisode seulement si le gabarit échoue.
-    try { await couvertureDA({ photo: `decors/da/${photoCouv([ep.couvPhoto || (slot.variante === 'serie-nuit' ? 'lasers' : slot.variante === 'spot-promo' ? 'foule' : slot.variante === 'tague-ton-pote' ? 'selfie' : 'rire')])}.jpg`, rubrique: ep.nom, titre: ep.couvTitre }, cover, 'couverture-reel'); }
-    catch (err) { console.error(`[${id}] couverture DA impossible (${err.message}) : image de l'épisode à la place.`); spawnSync('ffmpeg', ['-y', '-loglevel', 'error', '-ss', '0.4', '-i', video, '-frames:v', '1', '-q:v', '2', cover]); }
+    await couvertureReel({ photo: `decors/da/${photoCouv([ep.couvPhoto || (slot.variante === 'serie-nuit' ? 'lasers' : slot.variante === 'spot-promo' ? 'foule' : slot.variante === 'tague-ton-pote' ? 'selfie' : 'rire')])}.jpg`, rubrique: ep.nom, titre: ep.couvTitre }, cover, id, video, 0.4);
     const d = parseFloat(spawnSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', video]).stdout?.toString()) || 0;
     if (ep.accroche) ch.choix['accroche-spot'] = ep.accroche; // aussi quand un seul spot attendait : la mesure compte
     for (const f of ep.fonctionnalites) (ch.choix['fonction-spot'] ||= []).push(f);
@@ -581,12 +647,11 @@ async function prepare(slot, now, id) {
     if (c.concept === 'reelflash') {
       const photo = c.extra?.plans?.[c.couverture_scene ?? 0]?.photo;
       const props = { photo, rubrique: c.rubrique || 'Explicatif', titre: c.titre_couverture || c.titre };
-      const B = '/opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell';
-      const rc = spawnSync(path.join(STUDIO, 'node_modules', '.bin', 'remotion'), ['still', 'src/index.ts', 'couverture-reel', cover, `--props=${JSON.stringify(props)}`, '--image-format=jpeg', '--jpeg-quality=92', '--log=error', ...(existsSync(B) ? [`--browser-executable=${B}`] : [])], { cwd: STUDIO, stdio: 'inherit' });
-      couvDA = rc.status === 0;
+      couvDA = await couvertureDA(props, cover, 'couverture-reel').then(() => true, () => false);
       if (!couvDA) console.error(`[${id}] couverture DA non conforme, image du reel à la place.`);
     }
-    if (!couvDA) spawnSync('ffmpeg', ['-y', '-loglevel', 'error', '-ss', String(c.couverture ?? 1.5), '-i', video, '-frames:v', '1', '-q:v', '2', cover]);
+    // Toujours une couverture DA (directeur, 19/11/2026) : photo de la banque si le reel n'a pas sa propre photo.
+    if (!couvDA) await couvertureReel({ photo: `decors/da/${photoCouv(['foule', 'dj', 'danse', 'rire'])}.jpg`, rubrique: c.rubrique || 'Teufy', titre: c.titre_couverture || c.titre }, cover, id, video, c.couverture ?? 1.5);
     const d = parseFloat(spawnSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', video]).stdout?.toString()) || 0;
     pub = { video, couverture: cover, legende: c.legende, titre: c.titre, concept: c.id, duree: +d.toFixed(1), rubrique: c.rubrique };
     console.log(`[${id}] reel studio « ${c.id} » (${c.type}) ${d.toFixed(1)} s`);
@@ -706,9 +771,9 @@ async function prepare(slot, now, id) {
       }
       pub = { video, video_instagram: res.video_instagram || undefined, son: res.son || undefined, legende: captionReel({ variante, events: chosen, ch, r, elargi }), soirees: chosen, duree: +res.total.toFixed(1), titre: hook.titre };
     }
-    // Couverture : une image de l'accroche, une fois le titre affiché.
+    // Couverture DA (19/11/2026 : jamais une image tirée de la vidéo, sauf panne).
     const cover = path.join(dir, `reel-${stamp}-couverture.jpg`);
-    spawnSync('ffmpeg', ['-y', '-loglevel', 'error', '-ss', '1.2', '-i', video, '-frames:v', '1', '-q:v', '2', cover]);
+    await couvertureReel({ photo: `decors/da/${photoCouv(variante === 'techno' ? ['lasers', 'dj', 'foule'] : ['danse', 'foule', 'dj', 'lasers'])}.jpg`, rubrique: 'Sorties', titre: String(hook.titre || 'Les soirées de la semaine') }, cover, id, video, 1.2);
     pub.couverture = cover;
     console.log(`[${id}] reel ${variante} ${res.total.toFixed(1)} s${res.grammaire ? `, montage ${res.grammaire} (${res.etalonnage})` : ''}, musique : ${res.son ? res.musique : res.musique ? path.basename(String(res.musique)) : 'aucune'}`);
   } else {
@@ -727,7 +792,7 @@ async function prepare(slot, now, id) {
   // Dernière vérification avant publication : la moindre incohérence restante bloque le post.
   if (pub.soirees?.length && pub.coherence) { const pb = controlePost({ soirees: pub.soirees, ...pub.coherence }); if (pb.length) throw new Error(`Post incohérent, rien n'est publié : ${pb.join(' ; ')}`); }
   if (pub.coherence) delete pub.coherence;
-  const out = { id, type: slot.type, variante: slot.variante || null, date: stamp, ...pub, photo: pub.photo || PHOTO_COUV, mise: pub.mise || MISE_COUV || undefined, choix: ch.choix,
+  const out = { id, type: slot.type, variante: slot.variante || null, date: stamp, ...pub, photo: pub.photo || PHOTO_COUV, mise: pub.mise || MISE_COUV || undefined, couverture_secours: COUV_SECOURS || undefined, choix: ch.choix,
     features: (pub.soirees || []).flatMap(eventFeatures), nb_images: pub.images?.length || 0 };
   if (out.images) out.images = out.images.map(rel);
   if (out.video) { out.video = rel(out.video); out.couverture = rel(out.couverture); if (out.video_instagram) out.video_instagram = rel(out.video_instagram); }
@@ -857,6 +922,14 @@ async function publishPrepared(id) {
     res = await publier();
   }
   const link = await permalink(res.id, ig);
+  // Auto-contrôle : on relit la publication sur Instagram (un « ok » de l'API ne suffit pas, directeur 19/11/2026).
+  const { verifierMedia } = await import('./instagram.mjs');
+  const attendu = { type: p.video ? 'reel' : p.images.length === 1 ? 'image' : 'carrousel', images: p.video ? undefined : p.images.length, legende: p.legende };
+  let verif = await verifierMedia(res.id, ig, attendu);
+  if (!verif.ok) { await new Promise((ok) => setTimeout(ok, 30e3)); verif = await verifierMedia(res.id, ig, attendu); } // le temps qu'Instagram termine
+  if (p.couverture_secours) verif.problemes.push('couverture du reel tombée en secours (image de la vidéo au lieu de la couverture DA)');
+  if (verif.problemes.length) console.error(`::error::[${id}] publication vérifiée avec ${verif.problemes.length} problème(s) : ${verif.problemes.join(' ; ')}`);
+  else console.log(`[${id}] ✅ vérifié sur Instagram : ${attendu.type}${attendu.images ? ` de ${attendu.images} image(s)` : ''}, légende et lien en ligne${p.video ? ', couverture DA' : ''}.`);
   console.log(`[${id}] ✅ publié : ${link || res.id}`);
   // Relais en story (une erreur ici ne remet pas en cause la publication).
   if ((p.story || p.story_video) && config.stories?.actif !== false) {
@@ -869,7 +942,7 @@ async function publishPrepared(id) {
     try { const st = await publishStory(url(p.story_debat), ig); console.log(`[${id}] ✅ débat publié en story (${st.id})`); }
     catch (err) { console.error(`[${id}] débat en story impossible : ${err.message}`); }
   }
-  hist.push({ id, date: p.date, media: res.id, lien: link, fete: p.fete, titre: p.titre, guide: p.guide, debat: p.debat, bonplan: p.bonplan, sujet: p.sujet, son: p.son, concept: p.concept, photo: p.photo || null, hors_grille: p.hors_grille || undefined, soirees: (p.soirees || []).map(cleSoiree), le: new Date().toISOString(),
+  hist.push({ id, date: p.date, media: res.id, lien: link, fete: p.fete, titre: p.titre, guide: p.guide, debat: p.debat, bonplan: p.bonplan, sujet: p.sujet, son: p.son, concept: p.concept, photo: p.photo || null, mise: p.mise || undefined, verifie: verif.problemes.length ? verif.problemes : true, hors_grille: p.hors_grille || undefined, soirees: (p.soirees || []).map(cleSoiree), le: new Date().toISOString(),
     publication: { id: p.id, type: p.type, variante: p.variante, date: p.date, choix: p.choix, features: p.features, nb_images: p.nb_images, duree: p.duree, legende: p.legende, titre: p.titre } });
   await writeFile(HIST_FILE, JSON.stringify(hist.slice(-300), null, 2));
 }
@@ -924,6 +997,19 @@ function photoCouv(preferees) { PHOTO_COUV = choisirPhoto(preferees, photosRecen
 // Mise en page de la couverture : choisie une fois par publication (toutes les images d'un même post gardent la même),
 // celle qui n'a pas servi depuis le plus longtemps dans la grille (src/photos.mjs).
 function miseCouv() { if (MISE_COUV === null) MISE_COUV = choisirMise(misesRecentes([...AMORCE_PHOTOS, ...hist])); return MISE_COUV || 'bas'; }
+
+// Couverture de reel : gabarit de la DA (bouton lecture, mise en page qui tourne), deux essais ; l'image de la vidéo
+// seulement en dernier recours, et alors signalée (::error:: dans le journal + auto-contrôle du jour).
+async function couvertureReel(props, cover, id, video, ss) {
+  for (const essai of [1, 2]) {
+    try { await couvertureDA(props, cover, 'couverture-reel'); return true; }
+    catch (err) { console.error(`[${id}] couverture DA, essai ${essai} : ${err.message}`); if (essai === 1) MISE_COUV = 'bas'; }
+  }
+  console.error(`::error::[${id}] couverture DA impossible : image de la vidéo à la place (à corriger).`);
+  COUV_SECOURS = true;
+  spawnSync('ffmpeg', ['-y', '-loglevel', 'error', '-ss', String(ss), '-i', video, '-frames:v', '1', '-q:v', '2', cover]);
+  return false;
+}
 
 async function couvertureDA(props, fichier, composition = 'couverture') {
   if (MISE_COUV !== undefined && !props.mise && /^couverture/.test(composition) && props.photo && props.fond !== 'creme') {
@@ -1208,15 +1294,28 @@ async function storiesPublier(S) {
     base = fb.replace(/\/$/, '');
     if (!(await waitOnline(plan.flatMap((p) => p.frames.filter((x) => x.image).map((x) => url(x.image))), 3 * 60e3))) throw new Error('Stories : fichiers introuvables.');
   }
+  // Auto-contrôle (19/11/2026) : une story n'est notée « faite » que si TOUTES ses images sont en ligne ; sinon le passage
+  // suivant republie seulement celles qui manquent (avant, une story ratée était notée faite et jamais refaite).
+  const { storiesEnLigne } = await import('./instagram.mjs');
   for (const p of plan) {
-    if (histo.some((x) => x.jour === jour && x.type === p.type)) continue;
-    const ids = [];
-    for (const fr of p.frames) {
+    const deja = histo.find((x) => x.jour === jour && x.type === p.type);
+    if (deja && !deja.manquantes?.length) continue;
+    const entree = deja || { jour, type: p.type, cles: p.cles, ids: [], faites: [] };
+    entree.faites ||= entree.ids.map((_, k) => k); // anciennes entrées : tout ce qui a un id
+    for (const [k, fr] of p.frames.entries()) {
+      if (entree.faites.includes(k)) continue;
       if (DRY || !ig) { console.log(`Story ${p.type} (aperçu) : ${fr.image || fr.video}`); continue; }
-      try { const st = await publishStory(fr.image ? url(fr.image) : fr.video, ig, { video: !!fr.video }); ids.push(st.id); console.log(`✅ story ${p.type} publiée (${st.id})`); }
+      try { const st = await publishStory(fr.image ? url(fr.image) : fr.video, ig, { video: !!fr.video }); entree.ids.push(st.id); entree.faites.push(k); console.log(`✅ story ${p.type} publiée (${st.id})`); }
       catch (err) { console.error(`Story ${p.type} impossible : ${err.message}`); }
     }
-    if (!DRY && ig) histo.push({ jour, type: p.type, cles: p.cles, ids, le: new Date().toISOString() });
+    if (DRY || !ig) continue;
+    const enLigne = await storiesEnLigne(ig);
+    if (enLigne) for (const sid of entree.ids) if (!enLigne.includes(sid)) console.error(`::error::Story ${p.type} ${sid} : publiée selon l'API mais absente des stories en ligne.`);
+    entree.manquantes = p.frames.map((_, k) => k).filter((k) => !entree.faites.includes(k));
+    if (entree.manquantes.length) console.error(`::error::Story ${p.type} : ${entree.manquantes.length} image(s) pas publiée(s), nouvel essai au prochain passage.`);
+    else console.log(`✅ story ${p.type} vérifiée : ${entree.ids.length} image(s) en ligne.`);
+    entree.le = new Date().toISOString();
+    if (!deja) histo.push(entree);
   }
   await writeFile(fh, JSON.stringify(histo.slice(-400), null, 1) + '\n');
 }
