@@ -40,7 +40,7 @@
     "posts21": 8
    },
    "slug": "high-club-nice",
-   "score": 1.05,
+   "score": 1.0458333333333332,
    "photo": "site/lieux/highclubnice-176.webp",
    "details": {
     "le": "2026-11-13T17:38:33.455Z",
@@ -167,7 +167,7 @@
     "posts21": 4
    },
    "slug": "wayne-s-bar-nice",
-   "score": 0.98,
+   "score": 0.9791666666666667,
    "photo": "site/lieux/waynes_bar-176.webp",
    "details": {
     "le": "2026-11-13T17:38:33.455Z",
@@ -207,7 +207,7 @@
    "score": 0,
    "soirs": [],
    "details": {
-    "le": "2026-11-18T23:15:00.430Z",
+    "le": "2026-11-19T23:02:22.465Z",
     "styles": "DJ résidents (ven–sam après 22h)",
     "dress_code": "",
     "horaires": "lun–dim 10h–2h",
@@ -246,7 +246,7 @@
     "posts21": 4
    },
    "slug": "bocca-nissa-nice",
-   "score": 0.08,
+   "score": 0.08333333333333333,
    "photo": "site/lieux/boccanissa-176.webp",
    "soirs": [],
    "instagram_non_verifie": "boccanissa",
@@ -1175,7 +1175,7 @@
     "posts21": 4
    },
    "slug": "o-sullivans-by-the-beach-mandelieu-la-napoule",
-   "score": 0.88,
+   "score": 0.875,
    "photo": "site/lieux/osullivans_mandelieu-176.webp",
    "soirs": [],
    "details": {
@@ -1210,7 +1210,7 @@
     "posts21": 5
    },
    "slug": "jimbaran-plage-golfe-juan",
-   "score": 0.28,
+   "score": 0.29166666666666663,
    "photo": "site/lieux/jimbaran.plage-176.webp",
    "soirs": [],
    "details": {
@@ -1281,7 +1281,7 @@
     "posts21": 2
    },
    "slug": "jimmy-z-monte-carlo-monaco",
-   "score": 0.72,
+   "score": 0.7291666666666666,
    "photo": "site/lieux/jimmyzmc-176.webp",
    "details": {
     "le": "2026-11-13T17:38:33.455Z",
@@ -1356,7 +1356,7 @@
     "posts21": 8
    },
    "slug": "twiga-monte-carlo-monaco",
-   "score": 0.22,
+   "score": 0.22916666666666666,
    "photo": "site/lieux/twigamontecarlo-176.webp",
    "details": {
     "le": "2026-11-13T17:38:33.455Z",
@@ -1397,7 +1397,7 @@
     "posts21": 2
    },
    "slug": "sass-cafe-monaco",
-   "score": 0.44000000000000006,
+   "score": 0.45833333333333337,
    "photo": "site/lieux/sasscafe-176.webp",
    "details": {
     "le": "2026-11-13T17:38:33.455Z",
@@ -1438,7 +1438,7 @@
     "posts21": 9
    },
    "slug": "la-rascasse-monaco",
-   "score": 0.28,
+   "score": 0.29166666666666663,
    "photo": "site/lieux/larascassemc-176.webp",
    "details": {
     "le": "2026-11-13T17:38:33.455Z",
@@ -1627,7 +1627,7 @@
     "posts21": 10
    },
    "slug": "blue-gin-monaco",
-   "score": 0.38,
+   "score": 0.39583333333333337,
    "photo": "site/lieux/blueginmonaco-176.webp",
    "soirs": [],
    "details": {
@@ -1667,7 +1667,7 @@
     "posts21": 4
    },
    "slug": "rooftop-basta-pinsa-beausoleil",
-   "score": 0.48000000000000004,
+   "score": 0.47916666666666663,
    "photo": "site/lieux/bastapinsa-176.webp",
    "soirs": [],
    "details": {
@@ -4257,109 +4257,8 @@
    }
   },
   "frigo.16": {
-   "le": "2026-11-14T18:29:40.497Z",
-   "abonnes": 11809,
-   "posts21": 12,
-   "likes": 77,
-   "commentaires": 6.4,
-   "photo": "https://scontent-sea5-1.xx.fbcdn.net/v/t51.82787-15/641080406_18061342034673284_2437464480577417508_n.jpg?_nc_cat=105&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=7d201b&_nc_ohc=1DhAVIalLIYQ7kNvwF2-mWF&_nc_oc=AdpH-P3bqyR72Sd5krgVQ4AkOHO-Etxcq1x0YQNhsSlUlVa7fIo91uf6vt855ncZhSE&_nc_zt=23&_nc_ht=scontent-sea5-1.xx&edm=AJ-jyNUEAAAA&_nc_gid=Ux1-3ca8vlypH_eCc1cTcg&oh=00_AQRHQ9rtV-vCJxdbnCBDfzwSCx7g7xETGrR7u3YwXAIvYw&oe=6AFE8D31",
-   "absent": false,
-   "posts": [
-    {
-     "u": "https://scontent-sea5-1.cdninstagram.com/v/t51.82787-15/900368516_18100717763673284_6133877670773191750_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=106&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=qt7NLYDhFGAQ7kNvwEtdL6K&_nc_oc=AdrYERLMG_tErwj6-_6qqfUCjteIN9YJspsislASpVUfutPHNMpQJbrzUToobW6XIVw&_nc_zt=23&_nc_ht=scontent-sea5-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=Ux1-3ca8vlypH_eCc1cTcg&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQSVT0tSanXwGSkO3ydjl7ESq23Sq6Fr0oE8CH_I3FfFfw&oe=6AFE8A74",
-     "c": "LA BANDE-SON DE VOTRE ROLLER DISCO ! 🪩\n\nLe 18 décembre, le collectif niçois Mikrosillons prend le contrôle du 109 ! Véritables dénicheurs de pépites, ils vous préparent un set 100% vinyles rempli de good vibes, de disco et de funk. Chaussez vos patins, ils s’occupent de vous faire danser ! 💥 \n\n📆 Ven. 18 décembre 2026 nous\n📍Frigo 16, 89 route de Turin, 06300 Nice\n🕦 18H00-02H30\n💸 Gratuit sur i",
-     "t": "2026-11-14T11:00:02+0000"
-    },
-    {
-     "u": "https://scontent-sea5-2.cdninstagram.com/v/t51.82787-15/901025102_18100568981673284_1922185814550913855_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=110&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=R3gmEC8O3KEQ7kNvwHzgcfh&_nc_oc=AdrBtvcT5dxrEmh77IsNoWnBBWcnlhut5zUNoRA7YpKH76iqFzYDCehxUU77L2ZJOKU&_nc_zt=23&_nc_ht=scontent-sea5-2.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=Ux1-3ca8vlypH_eCc1cTcg&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQQQu101lkL8kXrAMoywoZ1MZeEfdR0lk78Ky-VnSR0BhA&oe=6AFE7174",
-     "c": "LA CHALEUR DE LA RÉUNION S’EMPARE DU FRIGO 16 ! 🌴\n\nLe samedi 24 avril 2027, on accueille les patrons de la scène urbaine réunionnaise : pll_off ! Le trio mythique derrière les hits mondiaux « Dansé », « Roulman » et « Maya » vient retourner le club avec son cocktail explosif de Dancehall et de vibes festives.\n\nLa grosse nouveauté de cette année ? Ils posent leurs valises avec un show live band ex",
-     "t": "2026-11-13T15:30:01+0000"
-    },
-    {
-     "u": "https://scontent-sea5-2.cdninstagram.com/v/t51.82787-15/904269135_18100538213673284_5622383660315056188_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=105&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=-eGZAhjujxcQ7kNvwFw7Jl6&_nc_oc=AdqTo6SmVlBhNfh550XEwFOctzWMtiOXcV2ZSkj_EDL88pt3_75iY_6nVgHDHmMI1RE&_nc_zt=23&_nc_ht=scontent-sea5-2.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=Ux1-3ca8vlypH_eCc1cTcg&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQSnh5aH2uALd8T9C1aWIFId68YcHTxAK2XVEV_6-YFzJQ&oe=6AFE7324",
-     "c": "YKOR AUX CONTRÔLES POUR LA SOIRÉE DAKEEZ ! 🎧 \n\nLe boss des platines de la région débarque au Frigo ! shelovesykor vient retourner le club avec un set ultra-lourd sous vides RNB. Après avoir chauffé les scènes pour Jok’air ou retourné la Machine du Moulin Rouge, il vient vous faire transpirer. Préparez-vous à turn up ! 🥵✨\n\n📆Sam. 05 décembre 2026\n📍Frigo 16, 89 route de Turin, 06300 Nice\n🕦À part",
-     "t": "2026-11-13T11:27:02+0000"
-    },
-    {
-     "u": "https://scontent-sea5-1.cdninstagram.com/v/t51.82787-15/901665235_18100377812673284_5341525493783992115_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=109&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=5J6fNkRJ4LIQ7kNvwGEgjrF&_nc_oc=Adrmd7TDKCzKL14fkH30TjDJtYTuL6c2E_M5o9jOCFpbs5sno8DwuU9T0QdSccLF7SM&_nc_zt=23&_nc_ht=scontent-sea5-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=Ux1-3ca8vlypH_eCc1cTcg&_nc_ct=RQosPBUKFQQAAAA&oh=00_AQTcCRhmY5a5uMBe1tXP1Fj-GNnZpmRmp_XTSxKkQS7UwA&oe=6AFE64A3",
-     "c": "Ce vendredi 13 novembre, viens réveiller tes hanches au Frigo 16 ! juliette.salsaa donne un cours gratuit de 22h15 à 23h15. Le warm-up parfait pour faire monter la pression avant de retourner le club jusqu’à 04h00 avec jetlagang . Arrive tôt ! ✨\n\n📆 Ven. 13 novembre 2026\n📍Frigo 16, 89 route de Turin, 06300 Nice\n🕦 À partir de 22h15 \n🍹Food & Bar \n🐼 Tous nos événements sur : panda-events.com",
-     "t": "2026-11-12T11:03:05+0000"
-    },
-    {
-     "u": "https://scontent-sea5-1.cdninstagram.com/v/t51.82787-15/897772923_18100268564673284_5732965853871213344_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=104&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=q-8y0EE26GMQ7kNvwEkO5tP&_nc_oc=Adq_P0rtJ8urKJ-HgwL9OGdo4JemzvThoCxmoWhZuKH0JFq7X_Qi90Ip5l5-ltAaG8k&_nc_zt=23&_nc_ht=scontent-sea5-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=Ux1-3ca8vlypH_eCc1cTcg&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQSLYea_jlrtXMiFRLaEROI8hGyxffIYJbs7U8gCDrMN3g&oe=6AFE70A8",
-     "c": "🛼 ALERTE BAMBOCHE À ROULETTES XXL ! 🪩\n\nmartinepatine_official_ débarque à Nice pour transformer la salle en véritable temple du groove !\n\nAu programme de cette formule Roller Clubbing : les DJs Prosper & B.I.M aux platines, accompagnés des danseuses Rym & Buzzz L’Eclair (la championne de France 2024, que les riders de la région connaissent bien !) pour retourner la piste avec du freestyle en ple",
-     "t": "2026-11-11T19:00:01+0000"
-    },
-    {
-     "u": "https://scontent-sea5-1.cdninstagram.com/v/t51.82787-15/898504991_18100164551673284_8278943848453889797_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=106&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=_79iAEI8LHcQ7kNvwG7o_RG&_nc_oc=AdqhNi2IJRzbGNinkxTGrLNT3CPmhmek8qssPSZr4tfqvnWeUic2r8gBLbi-Y90WPqE&_nc_zt=23&_nc_ht=scontent-sea5-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=Ux1-3ca8vlypH_eCc1cTcg&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQTMLciN4PM5Ss5hjiAJgt0rkmvwoU07iMJfR54xXFP-0A&oe=6AFE5FFB",
-     "c": "🌴 Pour préparer le terrain avant Marcus Gad, on a fait appel à l’incontournable Long John. Ce passionné, qui explore les platines depuis 1989, te prépare une sélection chaleureuse à la croisée du reggae et du hip-hop. Un échauffement parfait pour faire monter la température avec le sourire avant le live ! ☀️🎶\n\n📆 Sam. 21 novembre 2026 \n📍Frigo 16, 89 route de Turin, 06300 Nice\n🕦 Dès 20h00\n🍹Foo",
-     "t": "2026-11-11T09:00:03+0000"
-    },
-    {
-     "u": "https://scontent-sea5-1.cdninstagram.com/v/t51.82787-15/902141805_18100104401673284_7446176519279544895_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=XhvER4nByfcQ7kNvwEwxExR&_nc_oc=Adr0v5vyr6w3wazjOt05qr0Ytk1qXMfgJCA9iiEE85bzBO20gCYcbMC68zSmYnCiXx4&_nc_zt=23&_nc_ht=scontent-sea5-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=Ux1-3ca8vlypH_eCc1cTcg&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQTvRsMbT4ly12YAsjx1XYEQVV5PMjR687xX7NnlFK76Dg&oe=6AFE85A2",
-     "c": "🔥 WARM-UP : SEEDNÉ OUVRE LE BAL !\n\nAvant dakeez, on te met direct dans le bain avec seedne973 ! Ancien danseur hip-hop, ce prodige guyanais vient retourner la scène avec son mix ultra-caliente de dancehall, zouk et rumba. Un vrai showman qui va te faire bouger dès les premières notes. Arrive tôt, ça va chauffer ! 🌴💥  \n\n📆Sam. 05 décembre 2026\n📍Frigo 16, 89 route de Turin, 06300 Nice\n🕦À partir",
-     "t": "2026-11-10T17:39:57+0000"
-    },
-    {
-     "u": "https://scontent-sea5-1.cdninstagram.com/v/t51.82787-15/899270211_18099920798673284_6701909714034318465_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=110&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=gP72i7VdAG4Q7kNvwENPEUD&_nc_oc=Ado0vLFnn8pdCZz6zAG32y6tDW-dmATci8K7SgqsGfo0vbNeSSuSUvb6KrHFZKbsQJE&_nc_zt=23&_nc_ht=scontent-sea5-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=Ux1-3ca8vlypH_eCc1cTcg&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQRUOBqo5c1xliqNhWw47xzI-PVV3aOrL0oHVmwIuWRV7Q&oe=6AFE6902",
-     "c": "Le samedi 22 mai 2027, la nouvelle vague du rap indie et de la pop alternative s’empare du Frigo 16 avec un double plateau explosif : Stanislas et Poissonchat ! 🔥\n\n🎤 Stanislas : À tout juste 20 ans, le prodige de Colombes est en pleine ascension. Après avoir retourné et rempli La Boule Noire, il vient défendre son nouvel EP Bonsoir Stanislas. Avec son hit « No Tube » qui a percé le top Spotify, ",
-     "t": "2026-11-09T15:18:28+0000"
-    },
-    {
-     "u": "https://scontent-sea5-2.cdninstagram.com/v/t51.82787-15/887316288_18099174599673284_7424384205188771980_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=105&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=ptvdTgtULFQQ7kNvwEcVKul&_nc_oc=AdqJPnpZnhU3Pm0ZRzR8k8tdEmlTGCN0VzLF7DqhPqlH94kIx1oQwM1cyYwipUiGZXc&_nc_zt=23&_nc_ht=scontent-sea5-2.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=Ux1-3ca8vlypH_eCc1cTcg&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQQgGDyL2VdeYAxmCOhzDRr5gzHfzKryCm_b0ycS6cG_9w&oe=6AFE613F",
-     "c": "Venez prendre votre dose de funk à l’italienne avec les thegroovyboyz en première partie des jerrycans__ ! 🔥\n\nPrépare-toi à prendre une énorme claque funk ! 🕺 Les thegroovyboyz débarquent pour te servir un cocktail ultra-énergique de funk, de hip-hop et de pur groove.\n\nNé entre Nice et Sanremo, ce collectif multiculturel (France, Italie, Espagne) puise son inspiration chez les légendes absolues ",
-     "t": "2026-11-04T17:48:51+0000"
-    },
-    {
-     "u": "https://scontent-sea5-2.cdninstagram.com/v/t51.82787-15/869445023_18098996450673284_3996411007776999966_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=HLFNjT87mtoQ7kNvwEAVb5Q&_nc_oc=AdoGm477d5Gfs3kKI7aMWpxRnLBdnzRv4PNgPRjbrmkLCh1H71oUU3O85L_926bfdYk&_nc_zt=23&_nc_ht=scontent-sea5-2.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=Ux1-3ca8vlypH_eCc1cTcg&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQTnTfmC0icCKFxex8sU2rjIAz1GdWT5fSjnoBspsPUcfw&oe=6AFE84C8",
-     "c": "Novembre est là, et le Frigo 16 passe officiellement en mode surchauffe ! 🥵🔥 Interdiction formelle d’hiberner : on a pété le thermostat avec un marathon musical qui va faire trembler les murs tout le mois.\n\nRap, hard music, soirées 100% gratuites, reggaeton, afrobeat ou encore tekno... on t’a préparé le remède parfait contre la grisaille avec un line-up de zinzins !\n\nJette un œil au programme co",
-     "t": "2026-11-03T14:37:22+0000"
-    },
-    {
-     "u": "https://scontent-sea5-1.cdninstagram.com/v/t51.82787-15/878749771_18098862833673284_7596668932276317465_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=109&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=nmdUTiPky24Q7kNvwEjkFDy&_nc_oc=AdpGeIdXzQCMJQw8mqTmcFFdGx-lvlWvVN4vc5lFzOmsIkfvG0GVcUJGg4AM-A5YNQE&_nc_zt=23&_nc_ht=scontent-sea5-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=Ux1-3ca8vlypH_eCc1cTcg&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQR0cBuY3SF1_lZRXqk6PWiQWFSuINt5fkf5tIBbAGbMvg&oe=6AFE88B6",
-     "c": "Originaire du Sud, leardcore va littéralement retourner le dancefloor ! 🌪️ Passionnée de hard music, elle impose ses BPM effrénés depuis 2018 aux côtés de légendes comme Mad Dog ou Hysta. Résidente de l’Esprit Festival, elle maîtrise l’art de la Rawstyle, de l’Uptempo et du Gabber Oldschool à la perfection. Préparez-vous à hakker sur des sets d’une énergie folle... on vous prévient, vous n’en sor",
-     "t": "2026-11-02T17:10:20+0000"
-    },
-    {
-     "u": "https://scontent-sea5-1.cdninstagram.com/v/t51.82787-15/861341349_18096968456673284_5474378649392421661_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=MXozsrbQXAgQ7kNvwHAdmzQ&_nc_oc=Adqk765g13-CiPZjHkShVJl4AWNAjbGQ0qfu8MmIfSScbjJJiyASUwStjVTfJqMkklU&_nc_zt=23&_nc_ht=scontent-sea5-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=Ux1-3ca8vlypH_eCc1cTcg&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQQo4-FCYgP1vFcH8Q2UqzWBBtl4GepPGrN0tt-KXWts4w&oe=6AFE769A",
-     "c": "L’After Show de Paul Seul s’annonce explosif avec la confirmation d’ODYZE sur le line-up 🔥 ! \nVéritable machine de guerre du Sud de la France signée chez 20contre1 et Hardcore France, il débarque pour imposer sa règle absolue : « No BPM limit ». Préparez-vous à transpirer sur un set brutal et sans concession, où l’acidcore, le gabber et le hardcore vont totalement fracasser le dancefloor.\n\n📅 Ven",
-     "t": "2026-10-23T12:00:11+0000"
-    },
-    {
-     "u": "https://scontent-sea5-1.cdninstagram.com/v/t51.82787-15/863066557_18096701222673284_1991209825189394261_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=102&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=6MvRs_wS0gMQ7kNvwF5MnY9&_nc_oc=AdojpymQKw1rL6Aly_2TlwRy9W8CODi1bxJMXseihHmJjdLpnnGcMqTvuy1OD_9hzKo&_nc_zt=23&_nc_ht=scontent-sea5-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=Ux1-3ca8vlypH_eCc1cTcg&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQQAE4UMF9M0O33PYibkmoqchQn4n5fJIQYmzcOMwd2SFw&oe=6AFE8B7B",
-     "c": "Alerte : Release Party imminente ! 🪩 \n\nLes jerrycans__ débarquent au Frigo 16 pour baptiser en live leur tout nouvel EP.\n\nQuatre potes rencontrés sur les bancs du Conservatoire de Nice et biberonnés à la pop-funk des années 70/80, qui n’ont qu’un seul objectif : vous faire bouger. Avec eux, attendez-vous à des claviers rétro, des guitares qui claquent et des lignes de basse tellement généreuses q",
-     "t": "2026-10-21T16:14:04+0000"
-    },
-    {
-     "u": "https://scontent-sea5-2.cdninstagram.com/v/t51.82787-15/858283070_18096501377673284_5036391556256436498_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=107&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=lKTt4Jh23xYQ7kNvwGne9DK&_nc_oc=Adpkgkq60JUECePKgGuHTNW8W-lS2os2mWFMHjaUoNQtTfjx0YwbuzoykJ9v90MbHz0&_nc_zt=23&_nc_ht=scontent-sea5-2.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=Ux1-3ca8vlypH_eCc1cTcg&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQQgP5k8vp7psH_yZp6wkMmAgcifDMIhMr2EF1yRB6uCRw&oe=6AFE7E16",
-     "c": "1800 MERCIS 🤍 ! C’est officiel, on tient le braquage parfait.\n\nUn seul week-end, 3 soirées consécutives au frigo.16, et un triple SOLD OUT retentissant ! 🏆\n\nEntre la masterclass de henrikschwarzlive, les basses monumentales de la chinesemanrecords Party et la chaleur tropicale de latinaddict... vous avez retourné le Frigo comme jamais. On cherchait nos mots, mais « historique » résume finalement",
-     "t": "2026-10-20T10:59:07+0000"
-    },
-    {
-     "u": "https://scontent-sea5-1.cdninstagram.com/v/t51.82787-15/840034127_18094420772673284_8664021558602001324_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=105&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=uNKCYXtkpKIQ7kNvwFs4QP1&_nc_oc=AdqjnCPhexK54tIYjOmPmyD1-xb1vBfNHqVMltx-ehAUYV5VSjxYRUSzUKIuD6th-pY&_nc_zt=23&_nc_ht=scontent-sea5-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=Ux1-3ca8vlypH_eCc1cTcg&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQQYhFLXXuX5ueK7xcA71VFOlyQJGtp0ROmJ8xnnWHLPlQ&oe=6AFE6154",
-     "c": "Vibe Post-Punk, New Wave & UK Roots au frigo.16 ! 🇬🇧🎸\n\nOubliez les étiquettes trop sages. Si joeyorkemusic s’est fait un nom aux côtés de L’Entourloop ou O.B.F, le prodige anglais puise son ADN brut au cœur de la bouillonnante scène de Manchester et de l’énergie punk de son adolescence.\n\nGuitare en main, il repousse les frontières de la musique britannique. Son dernier album *Shallow Fantasies*",
-     "t": "2026-10-07T10:00:09+0000"
-    },
-    {
-     "u": "https://scontent-sea5-1.cdninstagram.com/v/t51.82787-15/833752878_18093676478673284_8102601933448317020_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=3L-er9vPuSEQ7kNvwEpc-Lb&_nc_oc=Adp7wYRlToKgLOafXaQh0bfDHe2o2EYKPhseV2-wlVRop2ObNadA6sqb5Cl_L-xf6I4&_nc_zt=23&_nc_ht=scontent-sea5-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=Ux1-3ca8vlypH_eCc1cTcg&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQQy_1LceAmNKZVLrcFbcVWz2Q1dhJCrLPVQN17-xu_mAQ&oe=6AFE6AB5",
-     "c": "Qui a dit que l’automne rimait avec hibernation ?!\n\nSpoiler : pas nous. Tant que le frigo.16 est ouvert, ton mois d’octobre s’annonce bouillant ! 🔥",
-     "t": "2026-10-02T10:42:03+0000"
-    },
-    {
-     "u": "https://scontent-sea5-1.cdninstagram.com/v/t51.82787-15/828562494_18093206618673284_8257020629034581493_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=103&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=S9AD-iWaDYIQ7kNvwG6sx2d&_nc_oc=AdrD9GeV03W6oLCITA5pGiqdjPYnWFvg9Qak_GSrpHhfY5kbf0jUWM0-B7VqN4bEiI0&_nc_zt=23&_nc_ht=scontent-sea5-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=Ux1-3ca8vlypH_eCc1cTcg&_nc_ct=RQosPBUKFQQAAAA&oh=00_AQTUv-6W-BqbNNn4ZmCsgltonBv_U4di6tph39zGSwFIVg&oe=6AFE91AC",
-     "c": "💜 Parce que le frigo.16 c’est plus qu’une salle de concerts 💜\n\nplusquelamusique, pour nous, une salle de concert c’est avant tout :\n\n🏠 Un lieu où l’on se sent chez soi, pensé pour être accessible à toutes les bourses, parfois même gratuit, où chacun·e trouve sa place, dans une logique d’accueil, de partage et de proximité avec les artistes.\n🤝 Un vrai lieu de vie, ancré dans son territoire bien",
-     "t": "2026-09-29T12:01:57+0000"
-    },
-    {
-     "u": "https://scontent-sea5-2.cdninstagram.com/v/t51.82787-15/817679221_18092563562673284_8058220668683722588_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=109&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=-Omf0XTtIwQQ7kNvwFYxjmI&_nc_oc=AdoSDyvN_7pWq9lwPBJeJFGwUS6iPgZEOqPyA9hJXnf97bru2-uqBz8DvGfENxd2nSI&_nc_zt=23&_nc_ht=scontent-sea5-2.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=Ux1-3ca8vlypH_eCc1cTcg&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQRe2qUr30j5hSVl3mgDt3kPuKAFDXYFdvuYH_ewUJRfUQ&oe=6AFE7A68",
-     "c": "LÉGENDE DU GROOVE : NICKODEMUS AU FRIGO 16 ! 🚨\n\nPour célébrer ses 25 ans d’existence, afroman.radio frappe très fort ! Les fondateurs Sai et Sly Da Wise vous invitent à souffler leurs bougies avec le boss absolu du groove mondial : le DJ et producteur new-yorkais nickodemusnyc .\n\nFondateur du label Wonderwheel Recordings et pilier du mouvement afro-tropical, il fait danser la planète avec ses mix",
-     "t": "2026-09-25T10:08:59+0000"
-    }
-   ],
-   "couv": {
-    "u": "https://scontent-sea5-1.cdninstagram.com/v/t51.82787-15/833752878_18093676478673284_8102601933448317020_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=3L-er9vPuSEQ7kNvwEpc-Lb&_nc_oc=Adp7wYRlToKgLOafXaQh0bfDHe2o2EYKPhseV2-wlVRop2ObNadA6sqb5Cl_L-xf6I4&_nc_zt=23&_nc_ht=scontent-sea5-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=Ux1-3ca8vlypH_eCc1cTcg&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQQy_1LceAmNKZVLrcFbcVWz2Q1dhJCrLPVQN17-xu_mAQ&oe=6AFE6AB5",
-    "lien": "https://www.instagram.com/p/Dd_S22RjRFa/"
-   }
+   "le": "2026-11-19T23:01:28.619Z",
+   "absent": true
   },
   "barriochicagotoulon": {
    "le": "2026-11-17T00:11:56.501Z",
@@ -6102,17 +6001,8 @@
    "couv": null
   },
   "glam.nice": {
-   "le": "2026-11-14T00:52:22.403Z",
-   "abonnes": 467,
-   "posts21": 0,
-   "likes": 0,
-   "commentaires": 0,
-   "photo": "https://scontent-lga3-2.xx.fbcdn.net/v/t51.2885-15/145489802_111836054218332_2158457073491034327_n.jpg?_nc_cat=106&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=7d201b&_nc_ohc=Pd3OpE3M_FUQ7kNvwFbNH7G&_nc_oc=AdoHG3HWC53S0muUtFFVISndxmLZoa3LxjS4JizD-0tz_4Gvk4oINRmP_bh9h9Jxhsc&_nc_zt=23&_nc_ht=scontent-lga3-2.xx&edm=AL-3X8kEAAAA&oh=00_AQTnJJ_pRxkKD3sktfhNS0YUFZLyW3FrXx24bGOy2fTpzQ&oe=6AFD7A89",
-   "posts": [],
-   "couv": {
-    "u": "https://scontent-lga3-2.cdninstagram.com/v/t51.82787-15/626694983_18129342652467338_8680134217849544298_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=106&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=Jm_FpKhdH8gQ7kNvwFS965o&_nc_oc=AdovW6ACXRmdXl8ZX5OM8V90L4Kp6DOZGZcQzY0wkAekSaQLxTXupn0KCfaRn7b_hS4&_nc_zt=23&_nc_ht=scontent-lga3-2.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=Wla3jacmFrw4ZEQSSo0L1Q&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQStd7mv3-oVyY4BoxEEZT3tZZpMmLDR4gwOxN9gnuJpNQ&oe=6AFD8748",
-    "lien": "https://www.instagram.com/p/DAzCDHgyUXj/"
-   }
+   "le": "2026-11-19T23:01:28.619Z",
+   "absent": true
   }
  }
 }
