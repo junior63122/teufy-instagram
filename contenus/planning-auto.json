@@ -80,9 +80,15 @@
       "quoi": "suite-refusee",
       "media": "18116970512145923",
       "texte": "Engouement sur « bonplan-petits-prix » (6 partages + enregistrements contre 2 d'habitude), mais déjà 3 suites cette semaine."
+    },
+    {
+      "le": "2026-11-20T17:07:45.345Z",
+      "quoi": "suite-refusee",
+      "media": "18116970512145923",
+      "texte": "Engouement sur « bonplan-petits-prix » (6 partages + enregistrements contre 2 d'habitude), mais déjà 3 suites cette semaine."
     }
   ],
   "_note": "Écrit par le robot (src/reactif.mjs) : suites programmées après un engouement, jours déplacés selon les résultats, journal des changements.",
-  "dernier_controle": "2026-11-20T15:11:59.582Z",
+  "dernier_controle": "2026-11-20T17:07:45.345Z",
   "dernier_replanning": "2026-11-15T15:07:44.719Z"
 }
