@@ -1447,7 +1447,9 @@
         "Synthwave",
         "Electro Pop",
         "Indie",
-        "Rock alternati"
+        "Rock alternati",
+        "Electronic",
+        "Groove"
       ],
       "description": "",
       "public_cible": 0.85,
@@ -1464,7 +1466,8 @@
         "Shotgun.live",
         "panda-events.com / le109.nice.fr",
         "Shotgun",
-        "Panda Events / Shotgun"
+        "Panda Events / Shotgun",
+        "instagram.com"
       ],
       "offres": [
         {
@@ -1472,7 +1475,8 @@
           "url": "https://shotgun.live/fr/events/jerrycans-release-party-frigo-16",
           "prix": 0
         }
-      ]
+      ],
+      "via_veille": true
     },
     {
       "source": "web",
@@ -3660,6 +3664,79 @@
       "accroche": "Duty Party à Limone, 27 novembre – Afro, dancehall, shatta & bouyon",
       "instagram": [
         "afroheatfestival"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "instagram.com",
+      "via_veille": true,
+      "name": "Matrix",
+      "start": "2026-11-20T21:00:00.000Z",
+      "venue": "DiezeWarehouse, Nice",
+      "city": "Nice",
+      "address": "",
+      "url": "https://www.instagram.com/p/Df9wC1hDVqL/",
+      "image": "https://scontent-atl3-1.cdninstagram.com/v/t51.82787-15/913794076_18102924371655466_2708372825271129863_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=106&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=u3HwG3djpXwQ7kNvwHa2WYz&_nc_oc=AdrFWbMD_hnf2dHZxeGfK5-4GICPvSrryi7lwlMSIz3tmJeOwN5f8mU0oOIMUYgtNfA&_nc_zt=23&_nc_ht=scontent-atl3-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=pFyNhxdpM_P_VhKkiACH3Q&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQR7nbbwg0nA8ux0S1Pvb0o0txLA4e1Nt6Bq-8sKZHw2wg&oe=6B063B9F",
+      "price": null,
+      "tags": [
+        "Techno",
+        "Electronic"
+      ],
+      "description": "",
+      "public_cible": 0.6,
+      "confiance": 0.9,
+      "accroche": "Soirée thématique Matrix au DiezeWarehouse, décor apocalyptique.",
+      "instagram": [
+        "prostcrastination"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "instagram.com",
+      "via_veille": true,
+      "name": "DJ OBD – Groove Oldschool",
+      "start": "2026-12-18T17:00:00.000Z",
+      "venue": "Frigo 16, 89 route de Turin, Nice",
+      "city": "Nice",
+      "address": "",
+      "url": "https://www.instagram.com/p/Df9f1xmDR8w/",
+      "image": "https://scontent-atl3-1.cdninstagram.com/v/t51.82787-15/916887091_18101629658673284_8027568628005297397_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=103&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=MMa4RICPdwIQ7kNvwF23nJr&_nc_oc=AdpON8-xNhD-V4mx39Y9_7PjF0aO95C0TDIw6piWzK7iOLGC_eDtOtyMqxGqZRyrtsw&_nc_zt=23&_nc_ht=scontent-atl3-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=UuYFun0QlAb9-ESvlJ_c8A&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQSjevZSG2DY2rW8UXCPSA9PcRiIciRzBlKTkGcvdec2VA&oe=6B065365",
+      "price": null,
+      "tags": [
+        "Funk",
+        "R&B",
+        "Oldschool"
+      ],
+      "description": "",
+      "public_cible": 0.6,
+      "confiance": 0.9,
+      "accroche": "Soirée gratuite avec DJ OBD, funk, soul et R’n’B, 18 décembre.",
+      "instagram": [
+        "frigo.16"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "instagram.com",
+      "via_veille": true,
+      "name": "Co Club – Hard Music",
+      "start": "2026-11-20T19:00:00.000Z",
+      "venue": "Frigo 16, 89 route de Turin, Nice",
+      "city": "Nice",
+      "address": "",
+      "url": "https://www.instagram.com/reel/Df9XgZstlMV/",
+      "image": "",
+      "price": null,
+      "tags": [
+        "Hardcore",
+        "Gabber"
+      ],
+      "description": "",
+      "public_cible": 0.6,
+      "confiance": 0.9,
+      "accroche": "Soirée hard music avec Paul Seul, Odyze_ et leardcore, 20 novembre.",
+      "instagram": [
+        "frigo.16"
       ]
     }
   ]
