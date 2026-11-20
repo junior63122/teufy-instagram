@@ -17,3 +17,13 @@ test('appel à envoyer le post ajouté avant les hashtags, une seule fois', () =
 test('l\'appel à s\'abonner des promos est gardé (demande du directeur)', () => {
   assert.match(nettoyerLegende('Abonne-toi à @teufy_official : l\'appli arrive bientôt 📲'), /Abonne-toi à @teufy_official/);
 });
+
+import { readdirSync, readFileSync } from 'node:fs';
+test('« Tague ton pote » : aucun emoji dans les épisodes (visuels) ni les légendes, au moins 4 épisodes prêts', () => {
+  const ep = new URL('../studio/generateur-gsap/tague-ton-pote/episodes/', import.meta.url);
+  const md = new URL('../media/tague-ton-pote/', import.meta.url);
+  for (const f of readdirSync(ep)) assert.doesNotMatch(readFileSync(new URL(f, ep), 'utf8'), /\p{Extended_Pictographic}/u, f);
+  assert.doesNotMatch(readFileSync(new URL('../studio/generateur-gsap/tague-ton-pote/modele/index.html', import.meta.url), 'utf8'), /\p{Extended_Pictographic}/u);
+  for (const f of readdirSync(md).filter((x) => x.endsWith('.txt'))) assert.doesNotMatch(readFileSync(new URL(f, md), 'utf8'), /\p{Extended_Pictographic}/u, f);
+  assert.ok(readdirSync(md).filter((x) => x.endsWith('.mp4')).length >= 4);
+});

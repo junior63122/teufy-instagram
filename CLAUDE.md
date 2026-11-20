@@ -68,3 +68,10 @@
   format de secours si un post ne se prépare pas ; quota de l'API gardé pour les publications. Contrôle quotidien par Claude
   (tâche programmée) : lire le journal et les passages du jour, réparer ce qui a cassé, et vérifier que la réparation marche.
   Les reels portent la pastille « RÉEL » sur leur couverture (on les distingue des posts dans la grille).
+- **Planning et croissance confiés à Claude** (directeur, 20/11/2026 : « je te fais confiance, à toi de gérer le planning ; tous les
+  2-3 jours vérifie les chiffres, vois ce que font les concurrents et prends des mesures de toi-même ; respecte toujours le design
+  de la grille ; minimum 1 réel de promotion de Teufy par semaine ; les soirées tekno fonctionnent ; analyse bien les concurrents »).
+  Tâche programmée (mardi et vendredi) : chiffres (`apprentissage.json`, `RAPPORT.md`), comptes comparables (`tendances-auto.json`,
+  `contenus/tendances.json`), décisions écrites dans `ANALYSE-ENGAGEMENT.md` (journal daté), planning dans `config.json`, stock de
+  vidéos prêtes (spots, « Tague ton pote ») tenu à 2 semaines d'avance. Ce qui marche le mieux (20/11) : actus « un nom vient de
+  tomber », techno / Tekno, concours, posts où l'on se reconnaît et où l'on tague. Légendes sans emoji (`nettoyerLegende`).

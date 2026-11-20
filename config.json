@@ -132,7 +132,8 @@
     {
       "jour": 4,
       "rang": 2,
-      "type": "libre"
+      "type": "incontournables",
+      "variante": "techno"
     },
     {
       "jour": 4,
@@ -143,12 +144,14 @@
     {
       "jour": 4,
       "rang": 4,
-      "type": "libre"
+      "type": "incontournables",
+      "variante": "techno"
     },
     {
       "jour": 4,
       "rang": 5,
-      "type": "libre"
+      "type": "incontournables",
+      "variante": "techno"
     },
     {
       "jour": 5,
@@ -184,31 +187,6 @@
       "type": "incontournables",
       "variante": "commercial",
       "story": "debat"
-    },
-    {
-      "jour": 6,
-      "rang": 1,
-      "type": "guide"
-    },
-    {
-      "jour": 6,
-      "rang": 2,
-      "type": "guide"
-    },
-    {
-      "jour": 6,
-      "rang": 3,
-      "type": "guide"
-    },
-    {
-      "jour": 6,
-      "rang": 4,
-      "type": "guide"
-    },
-    {
-      "jour": 6,
-      "rang": 5,
-      "type": "guide"
     }
   ],
   "reglages": {
@@ -219,8 +197,7 @@
     "creneaux_utc": [
       15,
       16,
-      17,
-      19
+      17
     ],
     "_creneaux": "Heures (UTC) parmi lesquelles le bot choisit l'heure de publication selon ce qui marche (16h-19h l'hiver, 17h-20h l'été à Paris). Le passage de 19h UTC sert de rattrapage.",
     "delai_min_heures": 24,
@@ -583,14 +560,13 @@
     {
       "jour": 1,
       "type": "reel",
-      "variante": "promo"
+      "variante": "tendance"
     },
     {
       "jour": 2,
       "type": "reel",
-      "variante": "grand-debat",
-      "secours": "guide",
-      "remplacant": "tague-ton-pote"
+      "variante": "tague-ton-pote",
+      "secours": "teufy"
     },
     {
       "jour": 3,
@@ -603,19 +579,7 @@
       "variante": "viral"
     },
     {
-      "jour": 5,
-      "type": "reel",
-      "variante": "promo"
-    },
-    {
       "jour": 6,
-      "type": "reel",
-      "variante": "grand-debat",
-      "secours": "teufy",
-      "remplacant": "tague-ton-pote"
-    },
-    {
-      "jour": 7,
       "type": "reel",
       "variante": "promo"
     }
@@ -623,5 +587,6 @@
   "_grand_debat": "14/11/2026 (directeur) : « Le Grand Débat », série animée (Kévin / Léo), 2 épisodes par semaine (mardi et samedi). Épisodes déposés dans media/grand-debat/ (NN-sujet.mp4 + NN-sujet.txt pour la légende) ; le plus ancien non publié part ; sans épisode en attente, le créneau reste libre.",
   "grand_debat": {
     "explication": "14/11/2026 (directeur) : AUCUNE collaboration avec Riviera Studio. Le Grand Débat est publié uniquement sur le compte Teufy. Épisodes prêts à déposer dans media/grand-debat/ (mar. et sam., sur la grille), au format NN-sujet.mp4 + NN-sujet.txt (légende). Sans épisode en attente, le créneau est simplement sauté."
-  }
+  },
+  "_planning_20_11_2026": "Planning confié à Claude par le directeur le 20/11/2026 (« je te fais confiance, à toi de gérer le planning ; minimum 1 réel de promotion par semaine ; les soirées tekno fonctionnent ; respecte toujours le design de la grille »). Revu tous les 2-3 jours selon les chiffres et les comptes comparables (tâche programmée). Version du 20/11 : techno chaque jeudi (Tekno 1er et 3e jeudi), Tague ton pote à la place du Grand Débat (0 like), 2 spots promo, plus de guide « où manger » ni de post le samedi, créneaux 15-17 h UTC. Détail : ANALYSE-ENGAGEMENT.md."
 }

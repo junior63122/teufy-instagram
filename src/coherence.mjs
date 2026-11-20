@@ -71,7 +71,8 @@ export function choixLibre({ now, historique = [], slots, jourDe }) {
   const j = (k) => new Date(now.getTime() + k * 864e5);
   const proches = new Set([jourDe(j(-1)), jourDe(now)]);
   const prises = new Set([...historique.filter((h) => proches.has(h.date)).map(familleHist), ...[0, 1].flatMap((k) => slots(j(k)).map(familleSlot))]);
-  const toutes = ['guide', 'a-reserver', 'petits-prix'];
+  // 20/11/2026 : guides « où manger » retirés du choix libre (15 et 16/100, aucun partage).
+  const toutes = ['a-reserver', 'petits-prix'];
   const ok = toutes.filter((o) => !prises.has(o === 'guide' ? 'guide' : 'bonplan'));
   return ok.length ? ok : toutes;
 }

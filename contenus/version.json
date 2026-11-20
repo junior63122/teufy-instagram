@@ -2,6 +2,20 @@
   "_note": "Numéro de version affiché en pied de page du site et sur /mises-a-jour/ (directeur, 19/11/2026 : format « 1.13.02 », comme Minecraft). Règle : correction(s) seulement → dernier nombre +1 (1.13.02 → 1.13.03) ; nouvelle fonctionnalité → nombre du milieu +1 et le dernier revient à 01 (1.13.02 → 1.14.01) ; énorme fonctionnalité ou grosse refonte → premier nombre +1 (1.13.02 → 2.01.01). La plus récente en premier.",
   "versions": [
     {
+      "numero": "1.14.03",
+      "date": "2026-11-20",
+      "titre": "Un nouveau planning sur Instagram",
+      "public": [
+        "Plus de soirées techno sur notre Instagram : chaque jeudi, avec l'Édition Tekno un jeudi sur deux.",
+        "De nouvelles vidéos « Tague ton pote » à partager avec tes potes."
+      ],
+      "notes": [
+        "Instagram : planning revu selon les chiffres (techno chaque jeudi, « Tague ton pote » à la place du Grand Débat, 2 spots promo par semaine, plus de guide « où manger » ni de post le samedi, publication entre 16 h et 18 h).",
+        "Instagram : 4 nouveaux épisodes « Tague ton pote », et les 2 premiers refaits sans emoji ni verre en gros plan.",
+        "Revue des chiffres et des comptes comparables deux fois par semaine, avec décisions notées dans ANALYSE-ENGAGEMENT.md."
+      ]
+    },
+    {
       "numero": "1.14.02",
       "date": "2026-11-20",
       "titre": "Des publications plus naturelles",
