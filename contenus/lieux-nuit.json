@@ -203,7 +203,7 @@
    "score": 0,
    "soirs": [],
    "details": {
-    "le": "2026-11-20T16:52:27.487Z",
+    "le": "2026-11-20T17:20:26.235Z",
     "styles": "DJ résidents (ven–sam après 22h)",
     "dress_code": "",
     "horaires": "lun–dim 10h–2h",
@@ -1321,8 +1321,20 @@
    "instagram": "twigamontecarlo",
    "site": "https://twigamontecarlo.com/",
    "description": "Restaurant puis club au 2e étage du Grimaldi Forum, avec dîner en soirée et club jusqu'à 4-5 h selon les soirs.",
-   "soirees": [],
-   "prochaines": [],
+   "soirees": [
+    "dinner-dj-set-fri-20-2026-11-20",
+    "dinner-dj-set-sat-21-2026-11-21"
+   ],
+   "prochaines": [
+    {
+     "id": "dinner-dj-set-fri-20-2026-11-20",
+     "nom": "Dinner DJ Set – Fri 20"
+    },
+    {
+     "id": "dinner-dj-set-sat-21-2026-11-21",
+     "nom": "Dinner DJ Set – Sat 21"
+    }
+   ],
    "insta": {
     "abonnes": 86842,
     "likes": 20,
@@ -1350,7 +1362,20 @@
     ],
     "relu": "verification 2026-11-13"
    },
-   "soirs": [],
+   "soirs": [
+    [
+     "2026-11-20",
+     "20:30",
+     "dinner-dj-set-fri-20-2026-11-20",
+     "Dinner DJ Set – Fri 20"
+    ],
+    [
+     "2026-11-21",
+     "20:30",
+     "dinner-dj-set-sat-21-2026-11-21",
+     "Dinner DJ Set – Sat 21"
+    ]
+   ],
    "instagram_non_verifie": "twigamontecarlo",
    "stylesSoirees": []
   },

@@ -6,6 +6,119 @@
   "evenements": [
     {
       "source": "web",
+      "source_site": "instagram",
+      "name": "Dinner DJ Set – Wed 18",
+      "start": "2026-11-18T19:30:00.000Z",
+      "venue": "Twiga Monte Carlo",
+      "city": "Monaco",
+      "address": "",
+      "url": "https://www.instagram.com/p/Dfzwpa8M7L_/",
+      "image": "https://scontent-iad3-2.cdninstagram.com/v/t51.82787-15/905668309_18656492167026487_783278000552938517_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=102&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=X5WuBOJQ99IQ7kNvwFtfIr5&_nc_oc=Adpzr9Io-xk9CZ_OaIkkuG4hqoJtHDmJZlv_U_jTPWyOeppNYX3nJ7SQ8CHEyfz1uCQ&_nc_zt=23&_nc_ht=scontent-iad3-2.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=1Ucj4Sln92-otq2yhdBfxA&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQTK5wKRMNZp0kuUeI60hGLRQHdHOuVqOYRFDRvhaaHKWQ&oe=6B065538",
+      "price": null,
+      "tags": [],
+      "description": "Profite d’une soirée dinner DJ Set à Twiga Monte Carlo. Le dîner démarre à 20h30, suivi d’un set de DJ dès 00h30. L’ambiance est électrisante, idéale pour les 17‑30 ans qui cherchent une soirée chic et décontractée.",
+      "public_cible": 0.9,
+      "confiance": 0.9,
+      "buzz": 0.5,
+      "buzz_raison": "Événement de routine, mais venue réputée.",
+      "accroche": "Dinner DJ Set – Wed 18 | Twiga Monte Carlo",
+      "instagram": [
+        "twigamontecarlo"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "instagram",
+      "name": "Dinner DJ Set – Thu 19",
+      "start": "2026-11-19T19:30:00.000Z",
+      "venue": "Twiga Monte Carlo",
+      "city": "Monaco",
+      "address": "",
+      "url": "https://www.instagram.com/p/Dfzwpa8M7L_/",
+      "image": "",
+      "price": null,
+      "tags": [],
+      "description": "Continue la série de soirées dinner DJ Set à Twiga. Dîner à 20h30, club à 00h30. Ambiance festive et musique variée.",
+      "public_cible": 0.9,
+      "confiance": 0.9,
+      "buzz": 0.5,
+      "buzz_raison": "Événement de routine, mais venue réputée.",
+      "accroche": "Dinner DJ Set – Thu 19 | Twiga Monte Carlo",
+      "instagram": [
+        "twigamontecarlo"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "instagram",
+      "name": "Dinner DJ Set – Fri 20",
+      "start": "2026-11-20T19:30:00.000Z",
+      "venue": "Twiga Monte Carlo",
+      "city": "Monaco",
+      "address": "",
+      "url": "https://www.instagram.com/p/Dfzwpa8M7L_/",
+      "image": "",
+      "price": null,
+      "tags": [],
+      "description": "Soirée dinner DJ Set à Twiga. Dîner à 20h30, club à 00h30. Idéal pour les jeunes qui veulent profiter d’une nuit chic.",
+      "public_cible": 0.9,
+      "confiance": 0.9,
+      "buzz": 0.5,
+      "buzz_raison": "Événement de routine, mais venue réputée.",
+      "accroche": "Dinner DJ Set – Fri 20 | Twiga Monte Carlo",
+      "instagram": [
+        "twigamontecarlo"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "instagram",
+      "name": "Dinner DJ Set – Sat 21",
+      "start": "2026-11-21T19:30:00.000Z",
+      "venue": "Twiga Monte Carlo",
+      "city": "Monaco",
+      "address": "",
+      "url": "https://www.instagram.com/p/Dfzwpa8M7L_/",
+      "image": "",
+      "price": null,
+      "tags": [],
+      "description": "Dernier dîner DJ Set de la semaine à Twiga. Dîner à 20h30, club à 00h30. Ambiance festive et musique variée.",
+      "public_cible": 0.9,
+      "confiance": 0.9,
+      "buzz": 0.5,
+      "buzz_raison": "Événement de routine, mais venue réputée.",
+      "accroche": "Dinner DJ Set – Sat 21 | Twiga Monte Carlo",
+      "instagram": [
+        "twigamontecarlo"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "instagram",
+      "name": "La Rascasse Darts Tournament",
+      "start": "2026-12-17T19:00:00.000Z",
+      "venue": "La Rascasse Monaco",
+      "city": "Monaco",
+      "address": "",
+      "url": "https://www.instagram.com/p/Df5Ad7nDgtA/",
+      "image": "https://scontent-iad3-2.cdninstagram.com/v/t51.82787-15/907402936_18505161919097373_1226780540721350682_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=HI3Y6AUWtS0Q7kNvwHuFNPJ&_nc_oc=Adp4KN1YUeKUregBf5NMBh1T2kWk-C9Za2lp29ZzzWq-8VDJUd6Hgfu3wN-H_7sE5KE&_nc_zt=23&_nc_ht=scontent-iad3-2.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=0Fk4zPT8n4jt_5Gg9QPpRw&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQQlUV_ss5PBGy4G_zeY2vAHwZDAR6wg48mwTJvSbZrumg&oe=6B0646BE",
+      "price": 20,
+      "tags": [
+        "darts",
+        "social"
+      ],
+      "description": "Le 17 décembre, La Rascasse Monaco accueille un tournoi de darts ouvert à tous. Pas besoin d’être pro, il suffit de vouloir s’amuser et partager un verre. La soirée démarre à 20 h, l’entrée est de 20 € et la réservation se fait via le lien bio. L’ambiance est détendue, idéale pour rencontrer des amis et profiter de l’atmosphère du club. Pas de dress‑code, juste du fun et de la bonne humeur.",
+      "public_cible": 0.5,
+      "confiance": 0.7,
+      "buzz": 0.5,
+      "buzz_raison": "tournoi de darts ouvert, 20 € de réservation, soirée conviviale, club reconnu",
+      "accroche": "Tente ta chance au tournoi de darts de La Rascasse Monaco – 20€ de réservation, soirée conviviale et fun.",
+      "instagram": [
+        "larascassemc"
+      ]
+    },
+    {
+      "source": "web",
       "source_site": "Instagram",
       "name": "Naya Cannes Night",
       "start": "2026-11-24T23:00:00.000Z",
@@ -3663,5 +3776,5 @@
       ]
     }
   ],
-  "maj_instagram": "2026-11-20T16:43:24.530Z"
+  "maj_instagram": "2026-11-20T17:13:16.164Z"
 }
