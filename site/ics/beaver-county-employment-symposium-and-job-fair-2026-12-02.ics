@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:beaver-county-employment-symposium-and-job-fair-2026-12-02@teufy
+DTSTAMP:20261120T170402Z
+DTSTART:20261203T000000Z
+DTEND:20261203T050000Z
+SUMMARY:Beaver County Employment Symposium and Job Fair
+LOCATION:Community College of Beaver County\, 1 Campus Drive Monaca\, Monaca
+DESCRIPTION:Billets : https://allevents.in/monaca/beaver-county-employment-symposium-and-job-fair/100002002729288213\nVia Teufy @teufy_official
+URL:https://allevents.in/monaca/beaver-county-employment-symposium-and-job-fair/100002002729288213
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Beaver County Employment Symposium and Job Fair
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Beaver County Employment Symposium and Job Fair
+END:VALARM
+END:VEVENT
+END:VCALENDAR

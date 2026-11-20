@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:girls-gone-shopping-holiday-show-2026-12-05@teufy
+DTSTAMP:20261120T170402Z
+DTSTART:20261206T000000Z
+DTEND:20261206T050000Z
+SUMMARY:Girls Gone Shopping Holiday Show 🎄🛍️✨
+LOCATION:Monaca Turners Gymnastics\, 1700 Old Brodhead Road\,Monaca\,PA\,United States Monaca\, Monaca
+DESCRIPTION:Billets : https://allevents.in/monaca/girls-gone-shopping-holiday-show/200030788086330\nVia Teufy @teufy_official
+URL:https://allevents.in/monaca/girls-gone-shopping-holiday-show/200030788086330
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Girls Gone Shopping Holiday Show 🎄🛍️✨
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Girls Gone Shopping Holiday Show 🎄🛍️✨
+END:VALARM
+END:VEVENT
+END:VCALENDAR

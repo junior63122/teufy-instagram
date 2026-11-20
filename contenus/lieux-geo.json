@@ -1459,5 +1459,63 @@
   "lat": 43.31679,
   "lng": 6.07654,
   "le": "2026-11-20T15:46:06.125Z"
+ },
+ "frigo 16, 89 route de turin, nice|nice": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-20T16:52:32.046Z"
+ },
+ "diezewarehouse, nice|nice": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-20T16:52:35.016Z"
+ },
+ "1700 old brodhead rd, monaca, pa 15061-2701|monaca": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-20T16:52:42.990Z",
+  "adr": true
+ },
+ "1130 pennsylvania ave, monaca, pa|monaca": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-20T16:52:47.929Z",
+  "adr": true
+ },
+ "monaca turners|monaca": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-20T16:52:52.455Z",
+  "adr": true
+ },
+ "community college of beaver county|monaca": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-20T16:52:57.903Z",
+  "adr": true
+ },
+ "monaca turners gymnastics|monaca": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-20T16:53:02.502Z",
+  "adr": true
+ },
+ "monacrest fm church|monaca": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-20T16:53:07.808Z",
+  "adr": true
+ },
+ "monaca, pennsylvania|monaca": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-20T16:53:12.120Z",
+  "adr": true
+ },
+ "monaca turners verein|monaca": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-20T16:53:17.488Z",
+  "adr": true
  }
 }

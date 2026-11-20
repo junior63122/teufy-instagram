@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:blue-christmas-service-2026-12-05@teufy
+DTSTAMP:20261120T170402Z
+DTSTART:20261206T000000Z
+DTEND:20261206T050000Z
+SUMMARY:Blue Christmas Service
+LOCATION:Monacrest FM Church\, 995 Elmira St\, Monaca\, PA 15061-1118\, United States Monaca\, Monaca
+DESCRIPTION:Billets : https://allevents.in/monaca/blue-christmas-service/200031015513543\nVia Teufy @teufy_official
+URL:https://allevents.in/monaca/blue-christmas-service/200031015513543
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Blue Christmas Service
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Blue Christmas Service
+END:VALARM
+END:VEVENT
+END:VCALENDAR

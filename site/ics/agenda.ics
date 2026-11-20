@@ -8,28 +8,8 @@ X-WR-TIMEZONE:Europe/Paris
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:rencontre-d-echecs-a-saint-raphael-hotel-beausejour-2026-11-20@teu
- fy
-DTSTAMP:20261120T155144Z
-DTSTART:20261120T180000Z
-DTEND:20261120T230000Z
-SUMMARY:Rencontre d’échecs à Saint-Raphaël · Hôtel Beauséjour
-LOCATION:Hôtel Beauséjour\, Saint-Raphaël
-DESCRIPTION:Fiche et billets : https://teufyparty.com/soiree/rencontre
- -d-echecs-a-saint-raphael-hotel-beausejour-2026-11-20/\nVia Teufy @teu
- fy_official
-URL:https://teufyparty.com/soiree/rencontre-d-echecs-a-saint-raphael-h
- otel-beausejour-2026-11-20/
-BEGIN:VALARM
-ACTION:DISPLAY
-TRIGGER:-PT3H
-DESCRIPTION:Ce soir : Rencontre d’échecs à Saint-Raphaël · Hôtel Beaus
- éjour
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
 UID:mass-hysteria-sans-detour-2026-11-20@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261120T180000Z
 DTEND:20261120T230000Z
 SUMMARY:MASS HYSTERIA - SANS DÉTOUR
@@ -47,7 +27,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:soiree-inside-binome-2026-11-20@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261120T180000Z
 DTEND:20261120T230000Z
 SUMMARY:Soirée Inside - Binôme
@@ -63,26 +43,8 @@ DESCRIPTION:Ce soir : Soirée Inside - Binôme
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:marseille-comedy-club-plateaux-du-weekend-2026-11-20@teufy
-DTSTAMP:20261120T155144Z
-DTSTART:20261120T183000Z
-DTEND:20261120T233000Z
-SUMMARY:MARSEILLE COMEDY CLUB - PLATEAUX DU WEEKEND
-LOCATION:59 Rue de Rome\, Marseille
-DESCRIPTION:Fiche et billets : https://teufyparty.com/soiree/marseille
- -comedy-club-plateaux-du-weekend-2026-11-20/\nVia Teufy @teufy_officia
- l
-URL:https://teufyparty.com/soiree/marseille-comedy-club-plateaux-du-we
- ekend-2026-11-20/
-BEGIN:VALARM
-ACTION:DISPLAY
-TRIGGER:-PT3H
-DESCRIPTION:Ce soir : MARSEILLE COMEDY CLUB - PLATEAUX DU WEEKEND
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
 UID:paul-seul-warm-up-closing-2026-11-20@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261120T190000Z
 DTEND:20261121T000000Z
 SUMMARY:Paul Seul (+ Warm up + Closing)
@@ -99,25 +61,26 @@ DESCRIPTION:Ce soir : Paul Seul (+ Warm up + Closing)
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:mescla-folk-mediterraneo-2026-11-20@teufy
-DTSTAMP:20261120T155144Z
-DTSTART:20261120T193000Z
-DTEND:20261121T003000Z
-SUMMARY:MESCLA – Folk-Mediterraneo
-LOCATION:Le Quartier du Poulpe\, Nice
-DESCRIPTION:Fiche et billets : https://teufyparty.com/soiree/mescla-fo
- lk-mediterraneo-2026-11-20/\nVia Teufy @teufy_official
-URL:https://teufyparty.com/soiree/mescla-folk-mediterraneo-2026-11-20/
+UID:co-club-hard-music-2026-11-20@teufy
+DTSTAMP:20261120T170402Z
+DTSTART:20261120T190000Z
+DTEND:20261121T000000Z
+SUMMARY:Co Club – Hard Music
+LOCATION:Frigo 16\, 89 route de Turin\, Nice\, Nice
+DESCRIPTION:Soirée hard music avec Paul Seul\, Odyze_ et leardcore\, 2
+ 0 novembre.\nFiche et billets : https://teufyparty.com/soiree/co-club-
+ hard-music-2026-11-20/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/co-club-hard-music-2026-11-20/
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT3H
-DESCRIPTION:Ce soir : MESCLA – Folk-Mediterraneo
+DESCRIPTION:Ce soir : Co Club – Hard Music
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:invictus-winter-session-act-ii-laurent-n-liza-dj-safire-2026-11-20
  @teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261120T193000Z
 DTEND:20261121T003000Z
 SUMMARY:Invictus Winter Session Act II (Laurent N. - Liza - Dj Safire)
@@ -136,46 +99,8 @@ DESCRIPTION:Ce soir : Invictus Winter Session Act II (Laurent N. - Liz
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:riviera-bar-crawl-nice-s-1-social-club-for-global-travelers-2026-1
- 1-20@teufy
-DTSTAMP:20261120T155144Z
-DTSTART:20261120T200000Z
-DTEND:20261121T010000Z
-SUMMARY:Riviera Bar Crawl Nice’s #1 Social Club for Global Travelers &
-  Party Lovers
-LOCATION:Hostel Villa Saint Exupery Beach\, Nice
-DESCRIPTION:Fiche et billets : https://teufyparty.com/soiree/riviera-b
- ar-crawl-nice-s-1-social-club-for-global-travelers-2026-11-20/\nVia Te
- ufy @teufy_official
-URL:https://teufyparty.com/soiree/riviera-bar-crawl-nice-s-1-social-cl
- ub-for-global-travelers-2026-11-20/
-BEGIN:VALARM
-ACTION:DISPLAY
-TRIGGER:-PT3H
-DESCRIPTION:Ce soir : Riviera Bar Crawl Nice’s #1 Social Club for Glob
- al Travelers & Party Lovers
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:delirium-international-progressive-group-2026-11-20@teufy
-DTSTAMP:20261120T155144Z
-DTSTART:20261120T200000Z
-DTEND:20261121T010000Z
-SUMMARY:DELIRIUM International Progressive Group
-LOCATION:Teatro Nuovo Valleggia\, Quiliano
-DESCRIPTION:Fiche et billets : https://teufyparty.com/soiree/delirium-
- international-progressive-group-2026-11-20/\nVia Teufy @teufy_official
-URL:https://teufyparty.com/soiree/delirium-international-progressive-g
- roup-2026-11-20/
-BEGIN:VALARM
-ACTION:DISPLAY
-TRIGGER:-PT3H
-DESCRIPTION:Ce soir : DELIRIUM International Progressive Group
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
 UID:mouchki-dhermo-forest-psytrance-2026-11-20@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261120T200000Z
 DTEND:20261121T010000Z
 SUMMARY:Mouchki / Dhermo — Forest / Psytrance
@@ -194,7 +119,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:le-niz-sadras-alpha-2026-11-20@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261120T200000Z
 DTEND:20261121T010000Z
 SUMMARY:Le Niz / Sadras Alpha
@@ -211,7 +136,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:black-and-white-party-2026-11-20@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261120T200000Z
 DTEND:20261121T010000Z
 SUMMARY:Black and White Party
@@ -227,24 +152,42 @@ DESCRIPTION:Ce soir : Black and White Party
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:euphoria-freaky-friday-2026-11-20@teufy
-DTSTAMP:20261120T155144Z
-DTSTART:20261120T223000Z
-DTEND:20261121T033000Z
-SUMMARY:EUPHORIA - Freaky Friday
-LOCATION:Bagni e Dancing Saitta\, Loano
-DESCRIPTION:Fiche et billets : https://teufyparty.com/soiree/euphoria-
- freaky-friday-2026-11-20/\nVia Teufy @teufy_official
-URL:https://teufyparty.com/soiree/euphoria-freaky-friday-2026-11-20/
+UID:matrix-2026-11-20@teufy
+DTSTAMP:20261120T170402Z
+DTSTART:20261120T210000Z
+DTEND:20261121T020000Z
+SUMMARY:Matrix
+LOCATION:DiezeWarehouse\, Nice\, Nice
+DESCRIPTION:Soirée thématique Matrix au DiezeWarehouse\, décor apocaly
+ ptique.\nFiche et billets : https://teufyparty.com/soiree/matrix-2026-
+ 11-20/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/matrix-2026-11-20/
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT3H
-DESCRIPTION:Ce soir : EUPHORIA - Freaky Friday
+DESCRIPTION:Ce soir : Matrix
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:students-party-high-club-2026-11-20@teufy
+DTSTAMP:20261120T170402Z
+DTSTART:20261120T225900Z
+DTEND:20261121T035900Z
+SUMMARY:Students Party @ High Club
+LOCATION:High Club\, Nice
+DESCRIPTION:Le grand rendez-vous étudiant du vendredi soir sur la Prom
+ enade des Anglais.\nFiche et billets : https://teufyparty.com/soiree/s
+ tudents-party-high-club-2026-11-20/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/students-party-high-club-2026-11-20/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Students Party @ High Club
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:axel-birthday-one-night-only-2026-11-20@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261120T225900Z
 DTEND:20261121T035900Z
 SUMMARY:Axel' Birthday One Night Only
@@ -262,25 +205,24 @@ DESCRIPTION:Ce soir : Axel' Birthday One Night Only
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:students-party-high-club-2026-11-20@teufy
-DTSTAMP:20261120T155144Z
-DTSTART:20261120T225900Z
-DTEND:20261121T035900Z
-SUMMARY:Students Party @ High Club
-LOCATION:High Club\, Nice
-DESCRIPTION:Le grand rendez-vous étudiant du vendredi soir sur la Prom
- enade des Anglais.\nFiche et billets : https://teufyparty.com/soiree/s
- tudents-party-high-club-2026-11-20/\nVia Teufy @teufy_official
-URL:https://teufyparty.com/soiree/students-party-high-club-2026-11-20/
+UID:fall-train-et-hobby-sale-2026-11-20@teufy
+DTSTAMP:20261120T170402Z
+DTSTART:20261121T000000Z
+DTEND:20261121T050000Z
+SUMMARY:Fall Train & Hobby Sale
+LOCATION:1700 Old Brodhead Rd\, Monaca\, PA 15061-2701\, Monaca
+DESCRIPTION:Fiche et billets : https://teufyparty.com/soiree/fall-trai
+ n-et-hobby-sale-2026-11-20/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/fall-train-et-hobby-sale-2026-11-20/
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT3H
-DESCRIPTION:Ce soir : Students Party @ High Club
+DESCRIPTION:Ce soir : Fall Train & Hobby Sale
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:wado-x-l-antre-2026-11-21@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261121T040000Z
 DTEND:20261121T090000Z
 SUMMARY:Wado X L'Antre
@@ -298,7 +240,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:de-rio-a-mexico-la-esquina-tropical-x-fort-napoleon-2026-11-21@teu
  fy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261121T180000Z
 DTEND:20261121T230000Z
 SUMMARY:De Rio A Mexico | La Esquina Tropical X Fort Napoleon
@@ -318,7 +260,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:damn-peach-x-cafe-toulonnais-2026-11-21@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261121T180000Z
 DTEND:20261121T230000Z
 SUMMARY:Damn Peach x Café Toulonnais
@@ -336,7 +278,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:before-pacific-neon-night-2026-11-21@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261121T183000Z
 DTEND:20261121T233000Z
 SUMMARY:Before Pacific Neon Night
@@ -353,24 +295,8 @@ DESCRIPTION:Ce soir : Before Pacific Neon Night
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:duo-ovni-live-session-2026-11-21@teufy
-DTSTAMP:20261120T155144Z
-DTSTART:20261121T190000Z
-DTEND:20261122T000000Z
-SUMMARY:DUO oVni – LIVE SESSION
-LOCATION:Le quartier du poulpe\, Nice
-DESCRIPTION:Fiche et billets : https://teufyparty.com/soiree/duo-ovni-
- live-session-2026-11-21/\nVia Teufy @teufy_official
-URL:https://teufyparty.com/soiree/duo-ovni-live-session-2026-11-21/
-BEGIN:VALARM
-ACTION:DISPLAY
-TRIGGER:-PT3H
-DESCRIPTION:Ce soir : DUO oVni – LIVE SESSION
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
 UID:marcus-gad-premiere-partie-2026-11-21@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261121T190000Z
 DTEND:20261122T000000Z
 SUMMARY:Marcus Gad + Première Partie
@@ -388,7 +314,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:frankie-and-the-witch-fingers-2026-11-21@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261121T193000Z
 DTEND:20261122T003000Z
 SUMMARY:Frankie and the Witch Fingers
@@ -407,7 +333,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:dj-set-jordan-kowen-2026-11-21@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261121T193000Z
 DTEND:20261122T003000Z
 SUMMARY:DJ Set - Jordan Kowen
@@ -424,7 +350,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:alienduch-house-techno-acid-rave-2026-11-21@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261121T200000Z
 DTEND:20261122T010000Z
 SUMMARY:Alienduch — House / Techno / Acid / Rave
@@ -443,7 +369,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:redline-frejus-bienvenue-en-enfer-2026-11-21@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261121T210000Z
 DTEND:20261122T020000Z
 SUMMARY:Redline Frejus - Bienvenue En Enfer
@@ -462,7 +388,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:la-wave-shatta-seduction-cannes-2026-11-21@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261121T220000Z
 DTEND:20261122T030000Z
 SUMMARY:La Wave - "Shatta Séduction" - Cannes
@@ -481,7 +407,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:fetish-main-party-mister-fetish-france-2027-2026-11-21@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261121T223000Z
 DTEND:20261122T033000Z
 SUMMARY:Fetish Main Party / Mister Fetish France 2027
@@ -500,7 +426,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:durdenhauer-fastlane-1-an-2026-11-21@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261121T223000Z
 DTEND:20261122T033000Z
 SUMMARY:Durdenhauer Fastlane 1 An
@@ -518,7 +444,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:the-saturday-society-2026-11-21@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261121T225500Z
 DTEND:20261122T035500Z
 SUMMARY:The Saturday Society
@@ -535,7 +461,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:good-times-2026-11-21@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261121T225900Z
 DTEND:20261122T035900Z
 SUMMARY:Good Times
@@ -552,7 +478,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:sensoria-into-the-frequency-w-nico-v-2026-11-21@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261121T225900Z
 DTEND:20261122T035900Z
 SUMMARY:Sensoria — Into The Frequency w/ Nico.V
@@ -570,7 +496,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:bruja-carbur-psytrance-hardtrance-2026-11-22@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261122T040000Z
 DTEND:20261122T090000Z
 SUMMARY:Bruja / Carbur — Psytrance / Hardtrance
@@ -589,7 +515,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:sun7-rooftop-le-meridien-2026-11-22@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261122T130000Z
 DTEND:20261122T180000Z
 SUMMARY:Sun7 Rooftop Le Méridien
@@ -607,7 +533,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:dragolote-avec-lady-miss-tik-2026-11-22@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261122T180000Z
 DTEND:20261122T230000Z
 SUMMARY:Dragolote avec Lady Miss Tik
@@ -625,7 +551,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:afro-bringue-2026-11-22@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261122T190000Z
 DTEND:20261123T000000Z
 SUMMARY:Afro Bringue
@@ -641,27 +567,25 @@ DESCRIPTION:Ce soir : Afro Bringue
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:cabinet-of-curious-sketches-at-bricolites-nice-fr-2026-11-26@teufy
-DTSTAMP:20261120T155144Z
-DTSTART:20261126T180000Z
-DTEND:20261126T230000Z
-SUMMARY:Cabinet of Curious Sketches at BRICOLITÉS (Nice\, FR)
-LOCATION:Bricolités\, Nice
-DESCRIPTION:Fiche et billets : https://teufyparty.com/soiree/cabinet-o
- f-curious-sketches-at-bricolites-nice-fr-2026-11-26/\nVia Teufy @teufy
- _official
-URL:https://teufyparty.com/soiree/cabinet-of-curious-sketches-at-brico
- lites-nice-fr-2026-11-26/
+UID:beaver-moon-ceremony-with-cacao-2026-11-22@teufy
+DTSTAMP:20261120T170402Z
+DTSTART:20261123T000000Z
+DTEND:20261123T050000Z
+SUMMARY:Beaver Moon Ceremony with Cacao 🫶🏻
+LOCATION:1130 Pennsylvania Ave\, Monaca\, PA\, Monaca
+DESCRIPTION:Fiche et billets : https://teufyparty.com/soiree/beaver-mo
+ on-ceremony-with-cacao-2026-11-22/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/beaver-moon-ceremony-with-cacao-2026
+ -11-22/
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT3H
-DESCRIPTION:Ce soir : Cabinet of Curious Sketches at BRICOLITÉS (Nice\
- , FR)
+DESCRIPTION:Ce soir : Beaver Moon Ceremony with Cacao 🫶🏻
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:jerrycans-release-party-frigo-16-2026-11-26@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261126T190000Z
 DTEND:20261127T000000Z
 SUMMARY:Jerrycans Release Party @ Frigo 16
@@ -680,7 +604,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:yuksek-et-roxie-2026-11-26@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261126T193000Z
 DTEND:20261127T003000Z
 SUMMARY:Yuksek & Roxie
@@ -697,7 +621,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:kx-dj-not-so-innocent-2026-11-26@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261126T225900Z
 DTEND:20261127T035900Z
 SUMMARY:Kx Dj / Not So Innocent
@@ -713,69 +637,8 @@ DESCRIPTION:Ce soir : Kx Dj / Not So Innocent
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:smartinibellini-a-pinerolo-workshop-apericena-dj-set-e-notte-2026-
- 11-27@teufy
-DTSTAMP:20261120T155144Z
-DTSTART:20261127T090000Z
-DTEND:20261127T140000Z
-SUMMARY:#SmartiniBellini a Pinerolo: workshop\, apericena\, DJ set e n
- otte in Cascina
-LOCATION:Tenuta La Cascinetta\, Buriasco
-DESCRIPTION:Fiche et billets : https://teufyparty.com/soiree/smartinib
- ellini-a-pinerolo-workshop-apericena-dj-set-e-notte-2026-11-27/\nVia T
- eufy @teufy_official
-URL:https://teufyparty.com/soiree/smartinibellini-a-pinerolo-workshop-
- apericena-dj-set-e-notte-2026-11-27/
-BEGIN:VALARM
-ACTION:DISPLAY
-TRIGGER:-PT3H
-DESCRIPTION:Ce soir : #SmartiniBellini a Pinerolo: workshop\, apericen
- a\, DJ set e notte in Cascina
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:rencontre-d-echecs-a-cagnes-sur-mer-la-cave-parallele-2026-11-27@t
- eufy
-DTSTAMP:20261120T155144Z
-DTSTART:20261127T170000Z
-DTEND:20261127T220000Z
-SUMMARY:Rencontre d’échecs à Cagnes-sur-Mer · LA CAVE PARALLELE
-LOCATION:LA CAVE PARALLELE\, Cagnes-sur-Mer
-DESCRIPTION:Fiche et billets : https://teufyparty.com/soiree/rencontre
- -d-echecs-a-cagnes-sur-mer-la-cave-parallele-2026-11-27/\nVia Teufy @t
- eufy_official
-URL:https://teufyparty.com/soiree/rencontre-d-echecs-a-cagnes-sur-mer-
- la-cave-parallele-2026-11-27/
-BEGIN:VALARM
-ACTION:DISPLAY
-TRIGGER:-PT3H
-DESCRIPTION:Ce soir : Rencontre d’échecs à Cagnes-sur-Mer · LA CAVE PA
- RALLELE
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:soiree-speak-easy-et-animation-magicien-a-marseille-40-50-an-2026-
- 11-27@teufy
-DTSTAMP:20261120T155144Z
-DTSTART:20261127T180000Z
-DTEND:20261127T230000Z
-SUMMARY:Soirée Speak Easy & animation magicien à Marseille (40-50 ans)
-LOCATION:Annette\, Marseille
-DESCRIPTION:Fiche et billets : https://teufyparty.com/soiree/soiree-sp
- eak-easy-et-animation-magicien-a-marseille-40-50-an-2026-11-27/\nVia T
- eufy @teufy_official
-URL:https://teufyparty.com/soiree/soiree-speak-easy-et-animation-magic
- ien-a-marseille-40-50-an-2026-11-27/
-BEGIN:VALARM
-ACTION:DISPLAY
-TRIGGER:-PT3H
-DESCRIPTION:Ce soir : Soirée Speak Easy & animation magicien à Marseil
- le (40-50 ans)
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
 UID:phaphane-a-nice-amapiano-et-afrobeats-lovers-2026-11-27@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261127T190000Z
 DTEND:20261128T000000Z
 SUMMARY:Phaphane à Nice - Amapiano & Afrobeats Lovers
@@ -794,7 +657,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:duty-party-2026-11-27@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261127T190000Z
 DTEND:20261128T000000Z
 SUMMARY:Duty Party
@@ -811,7 +674,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:dj-trvchi-2026-11-27@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261127T193000Z
 DTEND:20261128T003000Z
 SUMMARY:Dj - Trvchi
@@ -828,7 +691,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:skarra-mucci-et-manudigital-ragga-blasta-tour-2026-11-27@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261127T193000Z
 DTEND:20261128T003000Z
 SUMMARY:Skarra Mucci & Manudigital — Ragga Blasta Tour
@@ -847,7 +710,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:mr-hat-vs-verome-bass-vs-hard-music-2026-11-27@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261127T200000Z
 DTEND:20261128T010000Z
 SUMMARY:Mr Hat vs Verome — Bass vs Hard Music
@@ -866,7 +729,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:coachellito-high-club-friends-et-family-edition-2026-11-27@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261127T225900Z
 DTEND:20261128T035900Z
 SUMMARY:Coachellito — High Club (Friends & Family Edition)
@@ -886,7 +749,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:ugo-puccinelli-pretty-little-sins-2026-11-27@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261127T225900Z
 DTEND:20261128T035900Z
 SUMMARY:Ugo Puccinelli / Pretty Little Sins
@@ -903,8 +766,25 @@ DESCRIPTION:Ce soir : Ugo Puccinelli / Pretty Little Sins
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
+UID:bazooka-joe-live-monaca-turners-2026-11-27@teufy
+DTSTAMP:20261120T170402Z
+DTSTART:20261128T000000Z
+DTEND:20261128T050000Z
+SUMMARY:BAZOOKA JOE LIVE @ Monaca Turners
+LOCATION:Monaca Turners\, Monaca
+DESCRIPTION:Fiche et billets : https://teufyparty.com/soiree/bazooka-j
+ oe-live-monaca-turners-2026-11-27/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/bazooka-joe-live-monaca-turners-2026
+ -11-27/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : BAZOOKA JOE LIVE @ Monaca Turners
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
 UID:da-grow-uk-bass-gangsta-house-2026-11-28@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261128T040000Z
 DTEND:20261128T090000Z
 SUMMARY:Da Grow — UK Bass / Gangsta House
@@ -923,7 +803,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:psynaps-2-2026-11-28@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261128T180000Z
 DTEND:20261128T230000Z
 SUMMARY:Psynaps-2
@@ -940,7 +820,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:le-mas-d-hiver-soiree-culture-80-2026-11-28@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261128T183000Z
 DTEND:20261128T233000Z
 SUMMARY:Le Mas d'Hiver : Soirée Culture 80
@@ -959,7 +839,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:this-is-house-2026-11-28@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261128T190000Z
 DTEND:20261129T000000Z
 SUMMARY:This Is House
@@ -976,7 +856,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:do-you-like-tekno-2026-11-28@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261128T190000Z
 DTEND:20261129T000000Z
 SUMMARY:DO YOU LIKE… TEKNO ?
@@ -992,27 +872,8 @@ DESCRIPTION:Ce soir : DO YOU LIKE… TEKNO ?
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:michel-orion-ferre-vos-papiers-orion-tes-chansons-2026-11-28@teufy
-DTSTAMP:20261120T155144Z
-DTSTART:20261128T193000Z
-DTEND:20261129T003000Z
-SUMMARY:MICHEL ORION – FERRÉ\, VOS PAPIERS ! ORION\, TES CHANSONS !
-LOCATION:Le quartier du poulpe\, Nice
-DESCRIPTION:Fiche et billets : https://teufyparty.com/soiree/michel-or
- ion-ferre-vos-papiers-orion-tes-chansons-2026-11-28/\nVia Teufy @teufy
- _official
-URL:https://teufyparty.com/soiree/michel-orion-ferre-vos-papiers-orion
- -tes-chansons-2026-11-28/
-BEGIN:VALARM
-ACTION:DISPLAY
-TRIGGER:-PT3H
-DESCRIPTION:Ce soir : MICHEL ORION – FERRÉ\, VOS PAPIERS ! ORION\, TES
-  CHANSONS !
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
 UID:slip-panther-glam-rock-revival-show-2026-11-28@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261128T193000Z
 DTEND:20261129T003000Z
 SUMMARY:Slip Panther — Glam Rock Revival Show
@@ -1029,25 +890,8 @@ DESCRIPTION:Ce soir : Slip Panther — Glam Rock Revival Show
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:karaoke-aux-folies-d-edmonde-2026-11-28@teufy
-DTSTAMP:20261120T155144Z
-DTSTART:20261128T200000Z
-DTEND:20261129T010000Z
-SUMMARY:Karaoké aux Folies d'Edmonde
-LOCATION:Les folies d'Edmonde\, Nice
-DESCRIPTION:Fiche et billets : https://teufyparty.com/soiree/karaoke-a
- ux-folies-d-edmonde-2026-11-28/\nVia Teufy @teufy_official
-URL:https://teufyparty.com/soiree/karaoke-aux-folies-d-edmonde-2026-11
- -28/
-BEGIN:VALARM
-ACTION:DISPLAY
-TRIGGER:-PT3H
-DESCRIPTION:Ce soir : Karaoké aux Folies d'Edmonde
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
 UID:vibrance-7-2026-11-28@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261128T200000Z
 DTEND:20261129T010000Z
 SUMMARY:Vibrance #7
@@ -1064,7 +908,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:soiree-zouk-et-caribbean-vibes-2026-11-28@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261128T200000Z
 DTEND:20261129T010000Z
 SUMMARY:Soirée Zouk & Caribbean Vibes
@@ -1083,7 +927,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:prizme-concept-tournevis-live-2026-11-28@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261128T210000Z
 DTEND:20261129T020000Z
 SUMMARY:Prizme Concept : TOURNEVIS Live
@@ -1101,7 +945,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:origins-invite-boticka-all-night-long-2026-11-28@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261128T223000Z
 DTEND:20261129T033000Z
 SUMMARY:Origins Invite Boticka All Night Long
@@ -1120,7 +964,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:zouk-love-toulon-edition-chic-2026-11-28@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261128T224500Z
 DTEND:20261129T034500Z
 SUMMARY:Zouk Love Toulon Edition Chic
@@ -1139,7 +983,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:to-have-fun-2026-11-28@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261128T225900Z
 DTEND:20261129T035900Z
 SUMMARY:To Have Fun
@@ -1156,7 +1000,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:alex-duff-overdrive-2026-11-28@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261128T225900Z
 DTEND:20261129T035900Z
 SUMMARY:Alex Duff / Overdrive
@@ -1173,7 +1017,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:dj-k-net-resident-techno-tribe-2026-11-29@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261129T040000Z
 DTEND:20261129T090000Z
 SUMMARY:DJ K-Net (Resident) — Techno / Tribe
@@ -1191,63 +1035,8 @@ DESCRIPTION:Ce soir : DJ K-Net (Resident) — Techno / Tribe
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:l-apero-kanaille-avec-laka-naia-aux-folies-d-edmonde-2026-11-29@te
- ufy
-DTSTAMP:20261120T155144Z
-DTSTART:20261129T170000Z
-DTEND:20261129T220000Z
-SUMMARY:L'Apéro Kanaille avec Laka-Naïa aux Folies d'Edmonde
-LOCATION:Les folies d'Edmonde\, Nice
-DESCRIPTION:Fiche et billets : https://teufyparty.com/soiree/l-apero-k
- anaille-avec-laka-naia-aux-folies-d-edmonde-2026-11-29/\nVia Teufy @te
- ufy_official
-URL:https://teufyparty.com/soiree/l-apero-kanaille-avec-laka-naia-aux-
- folies-d-edmonde-2026-11-29/
-BEGIN:VALARM
-ACTION:DISPLAY
-TRIGGER:-PT3H
-DESCRIPTION:Ce soir : L'Apéro Kanaille avec Laka-Naïa aux Folies d'Edm
- onde
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:rencontre-d-echecs-a-toulon-bouc-ness-2026-11-29@teufy
-DTSTAMP:20261120T155144Z
-DTSTART:20261129T170000Z
-DTEND:20261129T220000Z
-SUMMARY:Rencontre d’échecs à Toulon · BOUC NESS
-LOCATION:BOUC NESS\, Toulon
-DESCRIPTION:Fiche et billets : https://teufyparty.com/soiree/rencontre
- -d-echecs-a-toulon-bouc-ness-2026-11-29/\nVia Teufy @teufy_official
-URL:https://teufyparty.com/soiree/rencontre-d-echecs-a-toulon-bouc-nes
- s-2026-11-29/
-BEGIN:VALARM
-ACTION:DISPLAY
-TRIGGER:-PT3H
-DESCRIPTION:Ce soir : Rencontre d’échecs à Toulon · BOUC NESS
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:rencontre-d-echecs-a-nice-the-sailor-s-pub-2026-11-29@teufy
-DTSTAMP:20261120T155144Z
-DTSTART:20261129T173000Z
-DTEND:20261129T223000Z
-SUMMARY:Rencontre d’échecs à Nice · The Sailor's Pub
-LOCATION:The Sailor's Pub\, Nice
-DESCRIPTION:Fiche et billets : https://teufyparty.com/soiree/rencontre
- -d-echecs-a-nice-the-sailor-s-pub-2026-11-29/\nVia Teufy @teufy_offici
- al
-URL:https://teufyparty.com/soiree/rencontre-d-echecs-a-nice-the-sailor
- -s-pub-2026-11-29/
-BEGIN:VALARM
-ACTION:DISPLAY
-TRIGGER:-PT3H
-DESCRIPTION:Ce soir : Rencontre d’échecs à Nice · The Sailor's Pub
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
 UID:shafro-toulon-2-afro-shatta-dancehall-2026-11-29@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261129T190000Z
 DTEND:20261130T000000Z
 SUMMARY:Shafro @ Toulon #2 : Afro\, Shatta\, Dancehall
@@ -1265,95 +1054,26 @@ DESCRIPTION:Ce soir : Shafro @ Toulon #2 : Afro\, Shatta\, Dancehall
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:blind-test-aux-folies-d-edmonde-2026-11-30@teufy
-DTSTAMP:20261120T155144Z
-DTSTART:20261130T190000Z
-DTEND:20261201T000000Z
-SUMMARY:Blind Test aux Folies d'Edmonde
-LOCATION:Les folies d'Edmonde\, Nice
-DESCRIPTION:Fiche et billets : https://teufyparty.com/soiree/blind-tes
- t-aux-folies-d-edmonde-2026-11-30/\nVia Teufy @teufy_official
-URL:https://teufyparty.com/soiree/blind-test-aux-folies-d-edmonde-2026
- -11-30/
+UID:beaver-county-employment-symposium-and-job-fair-2026-12-02@teufy
+DTSTAMP:20261120T170402Z
+DTSTART:20261203T000000Z
+DTEND:20261203T050000Z
+SUMMARY:Beaver County Employment Symposium and Job Fair
+LOCATION:Community College of Beaver County\, Monaca
+DESCRIPTION:Fiche et billets : https://teufyparty.com/soiree/beaver-co
+ unty-employment-symposium-and-job-fair-2026-12-02/\nVia Teufy @teufy_o
+ fficial
+URL:https://teufyparty.com/soiree/beaver-county-employment-symposium-a
+ nd-job-fair-2026-12-02/
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT3H
-DESCRIPTION:Ce soir : Blind Test aux Folies d'Edmonde
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:aper-elles-evening-december-2026-12-02@teufy
-DTSTAMP:20261120T155144Z
-DTSTART:20261202T173000Z
-DTEND:20261202T223000Z
-SUMMARY:Aper’ELLES Evening December
-LOCATION:Panama\, Nice
-DESCRIPTION:Fiche et billets : https://teufyparty.com/soiree/aper-elle
- s-evening-december-2026-12-02/\nVia Teufy @teufy_official
-URL:https://teufyparty.com/soiree/aper-elles-evening-december-2026-12-
- 02/
-BEGIN:VALARM
-ACTION:DISPLAY
-TRIGGER:-PT3H
-DESCRIPTION:Ce soir : Aper’ELLES Evening December
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:rencontre-d-echecs-a-nice-mamamia-2026-12-02@teufy
-DTSTAMP:20261120T155144Z
-DTSTART:20261202T180000Z
-DTEND:20261202T230000Z
-SUMMARY:Rencontre d’échecs à Nice · Mamamia
-LOCATION:Mamamia\, Nice
-DESCRIPTION:Fiche et billets : https://teufyparty.com/soiree/rencontre
- -d-echecs-a-nice-mamamia-2026-12-02/\nVia Teufy @teufy_official
-URL:https://teufyparty.com/soiree/rencontre-d-echecs-a-nice-mamamia-20
- 26-12-02/
-BEGIN:VALARM
-ACTION:DISPLAY
-TRIGGER:-PT3H
-DESCRIPTION:Ce soir : Rencontre d’échecs à Nice · Mamamia
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:la-golden-ski-2026-12-03@teufy
-DTSTAMP:20261120T155144Z
-DTSTART:20261203T180000Z
-DTEND:20261203T230000Z
-SUMMARY:La Golden Ski
-LOCATION:Golden Tulip Marseille Euromed\, MARSEILLE
-DESCRIPTION:Fiche et billets : https://teufyparty.com/soiree/la-golden
- -ski-2026-12-03/\nVia Teufy @teufy_official
-URL:https://teufyparty.com/soiree/la-golden-ski-2026-12-03/
-BEGIN:VALARM
-ACTION:DISPLAY
-TRIGGER:-PT3H
-DESCRIPTION:Ce soir : La Golden Ski
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:soiree-speak-easy-et-animation-magicien-a-nice-40-50-ans-2026-12-0
- 4@teufy
-DTSTAMP:20261120T155144Z
-DTSTART:20261204T180000Z
-DTEND:20261204T230000Z
-SUMMARY:Soirée Speak Easy & animation magicien à Nice (40-50 ans)
-LOCATION:La Chapa\, Nice
-DESCRIPTION:Fiche et billets : https://teufyparty.com/soiree/soiree-sp
- eak-easy-et-animation-magicien-a-nice-40-50-ans-2026-12-04/\nVia Teufy
-  @teufy_official
-URL:https://teufyparty.com/soiree/soiree-speak-easy-et-animation-magic
- ien-a-nice-40-50-ans-2026-12-04/
-BEGIN:VALARM
-ACTION:DISPLAY
-TRIGGER:-PT3H
-DESCRIPTION:Ce soir : Soirée Speak Easy & animation magicien à Nice (4
- 0-50 ans)
+DESCRIPTION:Ce soir : Beaver County Employment Symposium and Job Fair
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:le-mas-d-hiver-bringue-pull-moche-de-noel-2026-12-04@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261204T183000Z
 DTEND:20261204T233000Z
 SUMMARY:Le Mas d'Hiver : Bringue Pull Moche de Noël
@@ -1371,25 +1091,8 @@ DESCRIPTION:Ce soir : Le Mas d'Hiver : Bringue Pull Moche de Noël
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:soiree-humour-stand-up-au-doppio-malto-2026-12-04@teufy
-DTSTAMP:20261120T155144Z
-DTSTART:20261204T190000Z
-DTEND:20261205T000000Z
-SUMMARY:Soirée humour STAND-UP au Doppio Malto
-LOCATION:Doppio Malto Nice CAP3000\, Saint-Laurent-du-Var
-DESCRIPTION:Fiche et billets : https://teufyparty.com/soiree/soiree-hu
- mour-stand-up-au-doppio-malto-2026-12-04/\nVia Teufy @teufy_official
-URL:https://teufyparty.com/soiree/soiree-humour-stand-up-au-doppio-mal
- to-2026-12-04/
-BEGIN:VALARM
-ACTION:DISPLAY
-TRIGGER:-PT3H
-DESCRIPTION:Ce soir : Soirée humour STAND-UP au Doppio Malto
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
 UID:ref-session-18-acid-pauli-frigo-16-nice-2026-12-04@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261204T190000Z
 DTEND:20261205T000000Z
 SUMMARY:REF Session #18 Acid Pauli - Frigo 16 - NICE
@@ -1408,7 +1111,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:aura-night-fornap-edition-imperiale-2026-12-04@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261204T193000Z
 DTEND:20261205T003000Z
 SUMMARY:Aura Night — Fornap (Édition Impériale)
@@ -1427,7 +1130,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:yard-of-blondes-2026-12-04@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261204T200000Z
 DTEND:20261205T010000Z
 SUMMARY:Yard of Blondes
@@ -1444,7 +1147,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:what-s-up-nice-2026-12-04@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261204T225900Z
 DTEND:20261205T035900Z
 SUMMARY:What's Up Nice
@@ -1461,7 +1164,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:vars-en-scene-bon-entendeur-2026-12-05@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261205T173000Z
 DTEND:20261205T223000Z
 SUMMARY:Vars en Scène : Bon Entendeur
@@ -1480,7 +1183,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:la-dinette-santa-a-la-playa-2026-12-05@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261205T180000Z
 DTEND:20261205T230000Z
 SUMMARY:La Dinette - Santa à la Playa
@@ -1498,28 +1201,8 @@ DESCRIPTION:Ce soir : La Dinette - Santa à la Playa
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:apericena-col-mentalista-speciale-serata-single-over-35-2026-12-05
- @teufy
-DTSTAMP:20261120T155144Z
-DTSTART:20261205T183000Z
-DTEND:20261205T233000Z
-SUMMARY:Apericena col Mentalista – Speciale serata single over 35
-LOCATION:Caffe OLTRESTAZIONE\, Nichelino
-DESCRIPTION:Fiche et billets : https://teufyparty.com/soiree/apericena
- -col-mentalista-speciale-serata-single-over-35-2026-12-05/\nVia Teufy 
- @teufy_official
-URL:https://teufyparty.com/soiree/apericena-col-mentalista-speciale-se
- rata-single-over-35-2026-12-05/
-BEGIN:VALARM
-ACTION:DISPLAY
-TRIGGER:-PT3H
-DESCRIPTION:Ce soir : Apericena col Mentalista – Speciale serata singl
- e over 35
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
 UID:dakeez-2026-12-05@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261205T190000Z
 DTEND:20261206T000000Z
 SUMMARY:Dakeez
@@ -1536,7 +1219,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:la-java-3-2026-12-05@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261205T220000Z
 DTEND:20261206T030000Z
 SUMMARY:La Java 3
@@ -1553,7 +1236,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:mamacita-2026-12-05@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261205T223000Z
 DTEND:20261206T033000Z
 SUMMARY:Mamacita
@@ -1570,7 +1253,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:bad-girls-2026-12-05@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261205T225900Z
 DTEND:20261206T035900Z
 SUMMARY:Bad Girls
@@ -1586,60 +1269,41 @@ DESCRIPTION:Ce soir : Bad Girls
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:rencontre-d-echecs-a-auriol-cafe-pop-2026-12-06@teufy
-DTSTAMP:20261120T155144Z
-DTSTART:20261206T150000Z
-DTEND:20261206T200000Z
-SUMMARY:Rencontre d’échecs à Auriol · Café Pop
-LOCATION:Café Pop\, Auriol
-DESCRIPTION:Fiche et billets : https://teufyparty.com/soiree/rencontre
- -d-echecs-a-auriol-cafe-pop-2026-12-06/\nVia Teufy @teufy_official
-URL:https://teufyparty.com/soiree/rencontre-d-echecs-a-auriol-cafe-pop
- -2026-12-06/
+UID:girls-gone-shopping-holiday-show-2026-12-05@teufy
+DTSTAMP:20261120T170402Z
+DTSTART:20261206T000000Z
+DTEND:20261206T050000Z
+SUMMARY:Girls Gone Shopping Holiday Show 🎄🛍️✨
+LOCATION:Monaca Turners Gymnastics\, Monaca
+DESCRIPTION:Fiche et billets : https://teufyparty.com/soiree/girls-gon
+ e-shopping-holiday-show-2026-12-05/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/girls-gone-shopping-holiday-show-202
+ 6-12-05/
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT3H
-DESCRIPTION:Ce soir : Rencontre d’échecs à Auriol · Café Pop
+DESCRIPTION:Ce soir : Girls Gone Shopping Holiday Show 🎄🛍️✨
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:rencontre-d-echecs-a-toulon-bouc-ness-2026-12-06@teufy
-DTSTAMP:20261120T155144Z
-DTSTART:20261206T170000Z
-DTEND:20261206T220000Z
-SUMMARY:Rencontre d’échecs à Toulon · BOUC NESS
-LOCATION:BOUC NESS\, Toulon
-DESCRIPTION:Fiche et billets : https://teufyparty.com/soiree/rencontre
- -d-echecs-a-toulon-bouc-ness-2026-12-06/\nVia Teufy @teufy_official
-URL:https://teufyparty.com/soiree/rencontre-d-echecs-a-toulon-bouc-nes
- s-2026-12-06/
+UID:blue-christmas-service-2026-12-05@teufy
+DTSTAMP:20261120T170402Z
+DTSTART:20261206T000000Z
+DTEND:20261206T050000Z
+SUMMARY:Blue Christmas Service
+LOCATION:Monacrest FM Church\, Monaca
+DESCRIPTION:Fiche et billets : https://teufyparty.com/soiree/blue-chri
+ stmas-service-2026-12-05/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/blue-christmas-service-2026-12-05/
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT3H
-DESCRIPTION:Ce soir : Rencontre d’échecs à Toulon · BOUC NESS
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:rencontre-d-echecs-a-nice-the-sailor-s-pub-2026-12-06@teufy
-DTSTAMP:20261120T155144Z
-DTSTART:20261206T173000Z
-DTEND:20261206T223000Z
-SUMMARY:Rencontre d’échecs à Nice · The Sailor's Pub
-LOCATION:The Sailor's Pub\, Nice
-DESCRIPTION:Fiche et billets : https://teufyparty.com/soiree/rencontre
- -d-echecs-a-nice-the-sailor-s-pub-2026-12-06/\nVia Teufy @teufy_offici
- al
-URL:https://teufyparty.com/soiree/rencontre-d-echecs-a-nice-the-sailor
- -s-pub-2026-12-06/
-BEGIN:VALARM
-ACTION:DISPLAY
-TRIGGER:-PT3H
-DESCRIPTION:Ce soir : Rencontre d’échecs à Nice · The Sailor's Pub
+DESCRIPTION:Ce soir : Blue Christmas Service
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:plk-tournee-des-zeniths-2026-2026-12-06@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261206T180000Z
 DTEND:20261206T230000Z
 SUMMARY:PLK — Tournée des Zéniths 2026
@@ -1658,7 +1322,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:mala-jaw-oriental-house-2026-12-06@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261206T180000Z
 DTEND:20261206T230000Z
 SUMMARY:Mala Jaw - Oriental House
@@ -1674,42 +1338,25 @@ DESCRIPTION:Ce soir : Mala Jaw - Oriental House
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:rencontre-d-echecs-a-nice-alt-f4-2026-12-08@teufy
-DTSTAMP:20261120T155144Z
-DTSTART:20261208T180000Z
-DTEND:20261208T230000Z
-SUMMARY:Rencontre d’échecs à Nice · ALT F4
-LOCATION:ALT F4\, Nice
-DESCRIPTION:Fiche et billets : https://teufyparty.com/soiree/rencontre
- -d-echecs-a-nice-alt-f4-2026-12-08/\nVia Teufy @teufy_official
-URL:https://teufyparty.com/soiree/rencontre-d-echecs-a-nice-alt-f4-202
- 6-12-08/
+UID:christmas-cookie-decorating-class-2026-12-07@teufy
+DTSTAMP:20261120T170402Z
+DTSTART:20261208T000000Z
+DTEND:20261208T050000Z
+SUMMARY:Christmas Cookie Decorating Class
+LOCATION:Monaca\, Pennsylvania\, Monaca
+DESCRIPTION:Fiche et billets : https://teufyparty.com/soiree/christmas
+ -cookie-decorating-class-2026-12-07/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/christmas-cookie-decorating-class-20
+ 26-12-07/
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT3H
-DESCRIPTION:Ce soir : Rencontre d’échecs à Nice · ALT F4
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:rencontre-d-echecs-a-mougins-ami-amie-2026-12-08@teufy
-DTSTAMP:20261120T155144Z
-DTSTART:20261208T180000Z
-DTEND:20261208T230000Z
-SUMMARY:Rencontre d’échecs à Mougins · Ami-Amie
-LOCATION:Ami-Amie\, Mougins
-DESCRIPTION:Fiche et billets : https://teufyparty.com/soiree/rencontre
- -d-echecs-a-mougins-ami-amie-2026-12-08/\nVia Teufy @teufy_official
-URL:https://teufyparty.com/soiree/rencontre-d-echecs-a-mougins-ami-ami
- e-2026-12-08/
-BEGIN:VALARM
-ACTION:DISPLAY
-TRIGGER:-PT3H
-DESCRIPTION:Ce soir : Rencontre d’échecs à Mougins · Ami-Amie
+DESCRIPTION:Ce soir : Christmas Cookie Decorating Class
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:pony-pony-run-run-2026-12-10@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261210T180000Z
 DTEND:20261210T230000Z
 SUMMARY:Pony Pony Run Run
@@ -1726,11 +1373,11 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:chilli-no-5-80s-apres-ski-christmas-party-2026-12-11@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261211T180000Z
 DTEND:20261211T230000Z
 SUMMARY:Chilli No. 5 - 80s Après-Ski Christmas Party
-LOCATION:245 Rte des Lucioles\, Valbonne
+LOCATION:Espaces 245 Sophia Antipolis\, Valbonne
 DESCRIPTION:Thème festif 80s Après-Ski avec DJ set et cocktails pour f
  êter Noël en avance.\nFiche et billets : https://teufyparty.com/soiree
  /chilli-no-5-80s-apres-ski-christmas-party-2026-12-11/\nVia Teufy @teu
@@ -1745,7 +1392,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:brodinski-en-concert-a-nice-tobhi-tm-et-friends-2026-12-11@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261211T190000Z
 DTEND:20261212T000000Z
 SUMMARY:Brodinski en concert à Nice (+ TOBHI TM & Friends)
@@ -1765,7 +1412,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:kevin-saura-group-en-concert-2026-12-11@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261211T193000Z
 DTEND:20261212T003000Z
 SUMMARY:Kevin Saura Group en concert
@@ -1782,8 +1429,25 @@ DESCRIPTION:Ce soir : Kevin Saura Group en concert
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
+UID:bigfoot-s-winter-wanderland-2026-12-11@teufy
+DTSTAMP:20261120T170402Z
+DTSTART:20261212T000000Z
+DTEND:20261212T050000Z
+SUMMARY:Bigfoot's Winter Wanderland
+LOCATION:Monaca Turners Verein\, Monaca
+DESCRIPTION:Fiche et billets : https://teufyparty.com/soiree/bigfoot-s
+ -winter-wanderland-2026-12-11/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/bigfoot-s-winter-wanderland-2026-12-
+ 11/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Bigfoot's Winter Wanderland
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
 UID:soiree-annees-80-dj-set-2026-12-12@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261212T170000Z
 DTEND:20261212T220000Z
 SUMMARY:Soirée années 80 (DJ Set)
@@ -1800,7 +1464,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:vars-en-scene-skip-the-use-2026-12-12@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261212T173000Z
 DTEND:20261212T223000Z
 SUMMARY:Vars en Scène : Skip The Use
@@ -1818,7 +1482,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:the-first-talk-show-cabaret-icones-3-2026-12-12@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261212T183000Z
 DTEND:20261212T233000Z
 SUMMARY:The First Talk Show — Cabaret Icônes 3
@@ -1837,7 +1501,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:mungo-s-hi-fi-frigo-16-2026-12-12@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261212T190000Z
 DTEND:20261213T000000Z
 SUMMARY:Mungo's Hi Fi @ Frigo 16
@@ -1854,7 +1518,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:tiwayo-et-betsy-rose-2026-12-12@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261212T193000Z
 DTEND:20261213T003000Z
 SUMMARY:Tiwayo et Betsy Rose
@@ -1871,7 +1535,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:ben-carter-2026-12-12@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261212T193000Z
 DTEND:20261213T003000Z
 SUMMARY:Ben Carter
@@ -1888,7 +1552,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:festival-vitrolles-dub-station-2026-2026-12-12@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261212T200000Z
 DTEND:20261213T010000Z
 SUMMARY:Festival Vitrolles Dub Station 2026
@@ -1907,7 +1571,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:showcase-5-luzula-venin-carmin-code-150-harfaang-2026-12-12@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261212T220000Z
 DTEND:20261213T030000Z
 SUMMARY:Showcase #5 : Luzula / Venin Carmin / Code 150 / Harfaang
@@ -1927,7 +1591,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:take-control-2026-12-12@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261212T225900Z
 DTEND:20261213T035900Z
 SUMMARY:Take Control
@@ -1944,7 +1608,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:rakugo-up-date-cyril-coppini-x-dj-click-2026-12-16@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261216T180000Z
 DTEND:20261216T230000Z
 SUMMARY:Rakugo Up Date (Cyril Coppini x DJ Click)
@@ -1963,7 +1627,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:ben-carter-neon-xp-2026-12-17@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261217T193000Z
 DTEND:20261218T003000Z
 SUMMARY:Ben Carter (NEON XP)
@@ -1980,7 +1644,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:roller-disco-gratuit-2026-12-18@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261218T170000Z
 DTEND:20261218T220000Z
 SUMMARY:Roller Disco - Gratuit
@@ -1996,8 +1660,25 @@ DESCRIPTION:Ce soir : Roller Disco - Gratuit
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
+UID:dj-obd-groove-oldschool-2026-12-18@teufy
+DTSTAMP:20261120T170402Z
+DTSTART:20261218T170000Z
+DTEND:20261218T220000Z
+SUMMARY:DJ OBD – Groove Oldschool
+LOCATION:Frigo 16\, 89 route de Turin\, Nice\, Nice
+DESCRIPTION:Soirée gratuite avec DJ OBD\, funk\, soul et R’n’B\, 18 dé
+ cembre.\nFiche et billets : https://teufyparty.com/soiree/dj-obd-groov
+ e-oldschool-2026-12-18/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/dj-obd-groove-oldschool-2026-12-18/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : DJ OBD – Groove Oldschool
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
 UID:le-mome-et-adame-2026-12-18@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261218T193000Z
 DTEND:20261219T003000Z
 SUMMARY:Le Mome & Adamé
@@ -2014,7 +1695,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:more-than-dream-2026-12-18@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261218T225900Z
 DTEND:20261219T035900Z
 SUMMARY:More Than Dream
@@ -2032,7 +1713,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:coachellito-et-le-blanchon-auron-1600-opening-edition-2026-12-19@t
  eufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261219T133000Z
 DTEND:20261219T183000Z
 SUMMARY:Coachellito & Le Blanchon Auron 1600 - Opening Edition
@@ -2052,7 +1733,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:zona-de-perreo-frigo-16-nice-2026-12-19@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261219T190000Z
 DTEND:20261220T000000Z
 SUMMARY:Zona De Perreo • Frigo 16 Nice
@@ -2071,7 +1752,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:wado-x-l-antre-2-2026-12-19@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261219T210000Z
 DTEND:20261220T020000Z
 SUMMARY:Wado X L'Antre 2
@@ -2088,7 +1769,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:shafro-toulon-3-afro-shatta-bouyon-2026-12-20@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261220T190000Z
 DTEND:20261221T000000Z
 SUMMARY:Shafro @ Toulon #3 — Afro\, Shatta\, Bouyon
@@ -2106,7 +1787,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:santa-s-house-party-sud-spicious-x-glass-club-2026-12-21@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261221T220000Z
 DTEND:20261222T030000Z
 SUMMARY:Santa's House Party — Sud'Spicious X Glass Club
@@ -2121,44 +1802,6 @@ BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT3H
 DESCRIPTION:Ce soir : Santa's House Party — Sud'Spicious X Glass Club
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:new-year-s-eve-bar-crawl-party-nice-2026-12-31@teufy
-DTSTAMP:20261120T155144Z
-DTSTART:20261231T200000Z
-DTEND:20270101T010000Z
-SUMMARY:New Year’s Eve Bar Crawl Party Nice
-LOCATION:Hostel Villa Saint Exupery Beach\, Nice
-DESCRIPTION:Fiche et billets : https://teufyparty.com/soiree/new-year-
- s-eve-bar-crawl-party-nice-2026-12-31/\nVia Teufy @teufy_official
-URL:https://teufyparty.com/soiree/new-year-s-eve-bar-crawl-party-nice-
- 2026-12-31/
-BEGIN:VALARM
-ACTION:DISPLAY
-TRIGGER:-PT3H
-DESCRIPTION:Ce soir : New Year’s Eve Bar Crawl Party Nice
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:nice-new-year-s-eve-2026-2027-guaranteed-vip-club-entry-et-5-2026-
- 12-31@teufy
-DTSTAMP:20261120T155144Z
-DTSTART:20261231T200000Z
-DTEND:20270101T010000Z
-SUMMARY:Nice New Year's Eve 2026-2027 — Guaranteed VIP Club Entry & 5 
- Free Shots
-LOCATION:La Chapa\, Nice
-DESCRIPTION:Fiche et billets : https://teufyparty.com/soiree/nice-new-
- year-s-eve-2026-2027-guaranteed-vip-club-entry-et-5-2026-12-31/\nVia T
- eufy @teufy_official
-URL:https://teufyparty.com/soiree/nice-new-year-s-eve-2026-2027-guaran
- teed-vip-club-entry-et-5-2026-12-31/
-BEGIN:VALARM
-ACTION:DISPLAY
-TRIGGER:-PT3H
-DESCRIPTION:Ce soir : Nice New Year's Eve 2026-2027 — Guaranteed VIP C
- lub Entry & 5 Free Shots
 END:VALARM
 END:VEVENT
 END:VCALENDAR

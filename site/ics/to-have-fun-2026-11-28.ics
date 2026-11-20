@@ -4,11 +4,11 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:to-have-fun-2026-11-28@teufy
-DTSTAMP:20261120T155144Z
+DTSTAMP:20261120T170402Z
 DTSTART:20261128T225900Z
 DTEND:20261129T035900Z
 SUMMARY:To Have Fun
-LOCATION:High Club\, Nice
+LOCATION:High Club\, 45 Prom. des Anglais\, 06000 Nice\, France Nice\, Nice
 DESCRIPTION:Format festif généraliste et hip-hop pour lâcher prise un samedi soir face à la mer.\nBillets : https://www.highclub.fr/event/to-have-fun/\nVia Teufy @teufy_official
 URL:https://www.highclub.fr/event/to-have-fun/
 BEGIN:VALARM

@@ -116,7 +116,8 @@
    "stylesSoirees": [
     "house",
     "rap",
-    "commercial"
+    "commercial",
+    "techno"
    ]
   },
   {
@@ -202,7 +203,7 @@
    "score": 0,
    "soirs": [],
    "details": {
-    "le": "2026-11-20T15:45:56.454Z",
+    "le": "2026-11-20T16:52:27.487Z",
     "styles": "DJ résidents (ven–sam après 22h)",
     "dress_code": "",
     "horaires": "lun–dim 10h–2h",

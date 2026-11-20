@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:fall-train-et-hobby-sale-2026-11-20@teufy
+DTSTAMP:20261120T170402Z
+DTSTART:20261121T000000Z
+DTEND:20261121T050000Z
+SUMMARY:Fall Train & Hobby Sale
+LOCATION:1700 Old Brodhead Rd\, Monaca\, PA 15061-2701\, 1700 Brodhead Rd\, Monaca\, PA 15061-2701\, United States Monaca\, Monaca
+DESCRIPTION:Billets : https://allevents.in/monaca/fall-train-and-hobby-sale/200030380554357\nVia Teufy @teufy_official
+URL:https://allevents.in/monaca/fall-train-and-hobby-sale/200030380554357
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Fall Train & Hobby Sale
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Fall Train & Hobby Sale
+END:VALARM
+END:VEVENT
+END:VCALENDAR

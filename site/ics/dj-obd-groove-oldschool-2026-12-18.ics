@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:dj-obd-groove-oldschool-2026-12-18@teufy
+DTSTAMP:20261120T170402Z
+DTSTART:20261218T170000Z
+DTEND:20261218T220000Z
+SUMMARY:DJ OBD – Groove Oldschool
+LOCATION:Frigo 16\, 89 route de Turin\, Nice\, Nice
+DESCRIPTION:Soirée gratuite avec DJ OBD\, funk\, soul et R’n’B\, 18 décembre.\nBillets : https://www.instagram.com/p/Df9f1xmDR8w/\nVia Teufy @teufy_official
+URL:https://www.instagram.com/p/Df9f1xmDR8w/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : DJ OBD – Groove Oldschool
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : DJ OBD – Groove Oldschool
+END:VALARM
+END:VEVENT
+END:VCALENDAR

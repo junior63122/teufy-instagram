@@ -6,57 +6,6 @@
   "evenements": [
     {
       "source": "web",
-      "source_site": "Instagram sowetolesprit",
-      "name": "La Jamaïcaine",
-      "start": "2026-11-09T23:00:00.000Z",
-      "venue": "BOKA CLUB",
-      "city": "Toulon",
-      "address": "",
-      "url": "https://www.instagram.com/reel/DffYntSuxjd/",
-      "image": "",
-      "price": 10,
-      "tags": [
-        "shatta",
-        "dancehall",
-        "afro"
-      ],
-      "description": "Le BOKA CLUB t'accueille le 10 novembre pour \"La Jamaïcaine\", une soirée aux couleurs de la Jamaïque. Au programme du mix : DJ SEVEN & DJ BADBERONE qui balancent du shatta, du dancehall et de l'afro jusqu'à 5h du matin. Entrée 10 €, soirée qui tombe le jour férié, alors prépare ton meilleur déhanché et ramène ta team. Dress code libre, ambiance tropicale, idéal pour les 18‑30 ans qui veulent danser jusqu'au bout de la nuit.",
-      "public_cible": 0.95,
-      "confiance": 0.85,
-      "buzz": 0.6,
-      "buzz_raison": "Première soirée à thème caribéen, jour férié, bonne visibilité sur Instagram.",
-      "accroche": "Une nuit caribéenne au BOKA CLUB avec du shatta, dancehall et afro pour faire monter la température.",
-      "instagram": [
-        "sowetolesprit"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "Instagram sowetolesprit",
-      "name": "Urban Shatta",
-      "start": "2026-11-13T23:00:00.000Z",
-      "venue": "BOKA CLUB",
-      "city": "Toulon",
-      "address": "",
-      "url": "https://www.instagram.com/reel/DffXCxsuDjA/",
-      "image": "",
-      "price": 10,
-      "tags": [
-        "shatta",
-        "urban"
-      ],
-      "description": "Le 14 novembre, le BOKA CLUB accueille \"Urban Shatta\", une soirée organisée par Soweto Lesprit et Privilux. DJ BADBERONE aux platines, avec le guest spécial DJ FLEXTOUCH, assurent une ambiance shatta et urban jusqu'à tard. Entrée 10 € avant 1 h, 15 € après. Le lieu reste le même, idéal pour les fans de sons caribéens et de vibes urbaines, avec une ambiance festive et des cadeaux à gagner.",
-      "public_cible": 0.9,
-      "confiance": 0.85,
-      "buzz": 0.55,
-      "buzz_raison": "Suite à la soirée précédente, même lieu et public, bonne visibilité sur Instagram.",
-      "accroche": "Soweto Lesprit x Privilux présentent Urban Shatta avec DJ Badberone et guest DJ FlexTouch.",
-      "instagram": [
-        "sowetolesprit"
-      ]
-    },
-    {
-      "source": "web",
       "source_site": "Instagram",
       "name": "Naya Cannes Night",
       "start": "2026-11-24T23:00:00.000Z",
@@ -158,32 +107,6 @@
         "nayaclubcannes"
       ],
       "offres": []
-    },
-    {
-      "source": "web",
-      "source_site": "Instagram",
-      "name": "Naya Cannes – Friday Night",
-      "start": "2026-11-19T23:00:00.000Z",
-      "venue": "15 Rue des Frères Pradignac",
-      "city": "Cannes",
-      "address": "",
-      "url": "https://www.instagram.com/reel/DfkZMAOOCCs/",
-      "image": "",
-      "price": null,
-      "tags": [
-        "techno",
-        "house",
-        "electro"
-      ],
-      "description": "Ce vendredi, le Naya Club te donne les clés de la nuit jusqu'à 5 h. Le lieu, 15 rue des Frères Pradignac à Cannes, propose une programmation techno/house électro qui fait vibrer la Côte d'Azur. Réserve ta table via le lien en bio, l'entrée est à la porte. Dress code libre, ambiance festive et énergie garantie pour les 18‑30 ans. Pense à arriver tôt si tu veux éviter la file.",
-      "public_cible": 0.95,
-      "confiance": 0.6,
-      "buzz": 0.55,
-      "buzz_raison": "Followers 19 k, post récent, soirée récurrente le vendredi, risque de sold‑out modéré.",
-      "accroche": "Vendredi jusqu'à 5 h du mat' dans le club Naya, ambiance underground et tables réservées !",
-      "instagram": [
-        "nayaclubcannes"
-      ]
     },
     {
       "source": "web",
@@ -3739,5 +3662,6 @@
         "frigo.16"
       ]
     }
-  ]
+  ],
+  "maj_instagram": "2026-11-20T16:43:24.530Z"
 }

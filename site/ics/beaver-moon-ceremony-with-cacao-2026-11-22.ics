@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:beaver-moon-ceremony-with-cacao-2026-11-22@teufy
+DTSTAMP:20261120T170402Z
+DTSTART:20261123T000000Z
+DTEND:20261123T050000Z
+SUMMARY:Beaver Moon Ceremony with Cacao 🫶🏻
+LOCATION:1130 Pennsylvania Ave\, Monaca\, PA\, 1130 Pennsylvania Ave\, Monaca\, PA 15061-1833\, United States Monaca\, Monaca
+DESCRIPTION:Billets : https://allevents.in/monaca/beaver-moon-ceremony-with-cacao/200031084344453\nVia Teufy @teufy_official
+URL:https://allevents.in/monaca/beaver-moon-ceremony-with-cacao/200031084344453
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Beaver Moon Ceremony with Cacao 🫶🏻
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Beaver Moon Ceremony with Cacao 🫶🏻
+END:VALARM
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:co-club-hard-music-2026-11-20@teufy
+DTSTAMP:20261120T170402Z
+DTSTART:20261120T190000Z
+DTEND:20261121T000000Z
+SUMMARY:Co Club – Hard Music
+LOCATION:Frigo 16\, 89 route de Turin\, Nice\, Nice
+DESCRIPTION:Soirée hard music avec Paul Seul\, Odyze_ et leardcore\, 20 novembre.\nBillets : https://www.instagram.com/reel/Df9XgZstlMV/\nVia Teufy @teufy_official
+URL:https://www.instagram.com/reel/Df9XgZstlMV/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Co Club – Hard Music
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Co Club – Hard Music
+END:VALARM
+END:VEVENT
+END:VCALENDAR
