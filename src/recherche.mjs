@@ -75,13 +75,31 @@ async function postsOrganisateurs({ ig, api, comptes, now, log }) {
   return { posts: out.slice(0, 120), valides };
 }
 
+// Comptes Instagram des clubs et bars (vérifiés) : contenus/lieux-nuit.json et contenus/comptes-lieux.json.
+export function comptesDesLieux() {
+  const lire = (f, d) => { try { return JSON.parse(readFileSync(path.join(ROOT, 'contenus', f), 'utf8')); } catch { return d; } };
+  const ok = (h) => /^[a-z0-9._]{2,30}$/.test(String(h || ''));
+  return [...new Set([...(lire('lieux-nuit.json', {}).lieux || []).map((l) => l.instagram), ...Object.values(lire('comptes-lieux.json', {}))].filter(ok))];
+}
+// Ordre de lecture : un compte de lieu est relu après 12 h, un autre après 24 h ; le plus en retard d'abord, jamais lu en tête.
+export function comptesALire({ orgas = {}, lieux = [], now = new Date(), max = 8 }) {
+  const lus = orgas.lus || {};
+  const autres = [...new Set([...(orgas.partenaires || []), ...(orgas.comptes || []), ...(orgas.suggeres || [])])].filter((h) => !lieux.includes(h));
+  const retard = (h, heures) => (lus[h] ? (now - Date.parse(lus[h])) / (heures * 3600e3) : 1e6);
+  return [...lieux.map((h, i) => ({ h, r: retard(h, 12) + (lus[h] ? 0 : 1e3), i })), ...autres.map((h, i) => ({ h, r: retard(h, 24), i: i + lieux.length }))]
+    .filter((x) => x.r >= 1).sort((a, b) => b.r - a.r || a.i - b.i).slice(0, max).map((x) => x.h);
+}
+
 export async function rechercherSoirees({ config, now = new Date(), ig = null, api = {}, ia = LLM, log = console.log, force = false } = {}) {
   const R = config.recherche_web || {};
   const cache = lireCache();
   if (R.actif === false) return cache;
   if (process.env.SANS_RECHERCHE === '1') return cache; // passe « site seulement » : données déjà trouvées
   const ageJours = cache.maj ? (now - new Date(cache.maj)) / 86400e3 : Infinity;
-  if (!force && ageJours < (R.rafraichir_jours ?? 3)) return cache;
+  // Entre deux recherches complètes, chaque passage relit quelques comptes Instagram (clubs d'abord) : une soirée annoncée
+  // par un club apparaît dans l'heure, sans attendre la recherche du lendemain (20/11/2026, la soirée du High manquait).
+  const instagramSeul = !force && ageJours < (R.rafraichir_jours ?? 3);
+  if (instagramSeul && !(ig && api.businessDiscovery)) return cache;
   if (ia === LLM && !LLM.fournisseurs(config).length) { log('Aucune IA configurée (secret gratuit GEMINI_API_KEY) : pas de recherche web.'); return cache; }
   const jour = now.toISOString().slice(0, 10);
   const fin = new Date(now.getTime() + (R.horizon_jours ?? 45) * 86400e3).toISOString().slice(0, 10);
@@ -113,7 +131,7 @@ export async function rechercherSoirees({ config, now = new Date(), ig = null, a
     'les collectifs, associations et organisateurs de soirées électro, techno, house, afro, latino et rap de la Côte d\'Azur et du Var, leurs pages événements et leurs billetteries',
   ];
   const textes = [];
-  for (const [i, cible] of PASSES.entries()) {
+  for (const [i, cible] of (instagramSeul ? [] : PASSES).entries()) {
     const t = await ia.rechercher({
       config,
       system: `Tu recenses TOUTES les soirées de la Côte d'Azur pour le média Teufy. Tu ne rapportes que des soirées réelles, trouvées sur une page web, jamais inventées.\n${CIBLE}`,
@@ -122,22 +140,28 @@ export async function rechercherSoirees({ config, now = new Date(), ig = null, a
     if (t) textes.push(`### Source : ${cible}\n${t}`);
   }
   const web = textes.join('\n\n');
-  log(`  ${textes.length}/${PASSES.length} recherche(s) web abouties.`);
-  if (!web) log('Pas de recherche web possible (GEMINI_API_KEY absent ou quota atteint) : seulement Instagram et les billetteries.');
+  if (!instagramSeul) log(`  ${textes.length}/${PASSES.length} recherche(s) web abouties.`);
+  if (!web && !instagramSeul) log('Pas de recherche web possible (GEMINI_API_KEY absent ou quota atteint) : seulement Instagram et les billetteries.');
 
-  // 2. Posts Instagram des organisateurs (comptes connus + suggérés).
+  // 2. Posts Instagram des clubs, bars et organisateurs : les lieux d'abord, puis les comptes lus le moins récemment
+  // (avant le 20/11/2026 : toujours les 20 mêmes comptes, surtout des DJ ; les clubs comme le High n'étaient jamais lus).
   const orgas = existsSync(ORGAS) ? JSON.parse(readFileSync(ORGAS, 'utf8')) : { comptes: [], suggeres: [] };
   let posts = [];
   if (ig && api.businessDiscovery) {
-    const comptes = [...new Set([...(orgas.partenaires || []), ...(orgas.comptes || []), ...(orgas.suggeres || [])])].slice(0, R.max_comptes ?? 100); // partenaires d'abord
+    const comptes = comptesALire({ orgas, lieux: comptesDesLieux(), now, max: instagramSeul ? (R.comptes_par_passage ?? 8) : (R.max_comptes ?? 100) });
     const r = await postsOrganisateurs({ ig, api, comptes, now, log });
-    posts = r.posts;
-    orgas.valides = r.valides;
-    log(`Instagram : ${posts.length} post(s) récents chez ${r.valides.length} compte(s).`);
+    orgas.lus ||= {};
+    for (const h of r.valides) orgas.lus[h] = now.toISOString();
+    orgas.valides = [...new Set([...(orgas.valides || []), ...r.valides])];
+    // Seuls les posts jamais lus partent à l'IA (moins d'appels, rien de lu deux fois).
+    orgas.posts_vus ||= {};
+    for (const [k, le] of Object.entries(orgas.posts_vus)) if (now - Date.parse(le) > 30 * 864e5) delete orgas.posts_vus[k];
+    posts = r.posts.filter((p) => !p.lien || !orgas.posts_vus[p.lien]);
+    log(`Instagram : ${comptes.length} compte(s) relu(s) (${comptes.slice(0, 12).map((h) => '@' + h).join(' ')}${comptes.length > 12 ? '…' : ''}), ${posts.length} nouveau(x) post(s).`);
   }
 
   // 3. Mise en forme structurée, par lots (une seule réponse JSON tronquerait la liste), puis fusion des doublons.
-  if (!web && !posts.length) return cache;
+  if (!web && !posts.length) { await writeFile(ORGAS, JSON.stringify(orgas, null, 2) + '\n'); return cache; }
   const lots = [...textes.map((t) => ({ web: t, posts: [] }))];
   // Groq gratuit (20/11/2026) : limite de jetons par minute plus basse que Gemini, donc des lots plus petits.
   const parLot = ia === LLM && LLM.fournisseurs(config, { gratuit: true })[0] === 'groq' ? 6 : 30;
@@ -154,7 +178,8 @@ export async function rechercherSoirees({ config, now = new Date(), ig = null, a
       d.evenements.push(...(r.evenements || [])); d.comptes_instagram.push(...(r.comptes_instagram || [])); ok++;
     } catch (err) { log(`  mise en forme d'un lot impossible (${err.message})`); }
   }
-  if (!ok) { log('Mise en forme impossible : on garde le cache.'); return cache; }
+  if (!ok) { log('Mise en forme impossible : on garde le cache.'); await writeFile(ORGAS, JSON.stringify(orgas, null, 2) + '\n'); return cache; }
+  for (const p of posts) if (p.lien) orgas.posts_vus[p.lien] = now.toISOString();
 
   const min = R.pertinence_min_site ?? 0.35; // le site recense tout ; les posts gardent leur propre seuil
   const evenements = (d.evenements || [])
@@ -168,15 +193,16 @@ export async function rechercherSoirees({ config, now = new Date(), ig = null, a
       instagram: [...new Set((e.instagram || []).map((h) => String(h).replace(/^@/, '').trim().toLowerCase()).filter((h) => /^[a-z0-9._]{2,30}$/.test(h)))].slice(0, 3),
     }));
   // On cumule avec les soirées encore à venir des recherches précédentes : la liste s'enrichit au fil des jours.
+  { const L = new Set(comptesDesLieux()); for (const e of evenements) { const h = String(e.source_site || '').match(/instagram\W+@?([a-z0-9._]{2,30})/i)?.[1]?.toLowerCase(); if (h && L.has(h) && e.instagram.includes(h)) e.par_le_lieu = true; } }
   const anciennes = (cache.evenements || []).filter((e) => Date.parse(e.start) > now.getTime() - 6 * 3600e3);
   const uniques = fusionner([...evenements, ...anciennes]);
-  await completerBilletterie({ liste: uniques, ia, config, log });
+  if (!instagramSeul) await completerBilletterie({ liste: uniques, ia, config, log });
   const nouveaux = (d.comptes_instagram || []).map((h) => String(h).replace(/^@/, '').trim().toLowerCase()).filter((h) => /^[a-z0-9._]{2,30}$/.test(h));
   orgas.suggeres = [...new Set([...(orgas.suggeres || []), ...nouveaux])].filter((h) => !(orgas.comptes || []).includes(h)).slice(0, 80);
-  const out = { maj: now.toISOString(), du: jour, au: fin, nb_bruts: (d.evenements || []).length, evenements: uniques };
+  const out = instagramSeul ? { ...cache, maj_instagram: now.toISOString(), evenements: uniques } : { maj: now.toISOString(), du: jour, au: fin, nb_bruts: (d.evenements || []).length, evenements: uniques };
   await writeFile(CACHE, JSON.stringify(out, null, 2));
   await writeFile(ORGAS, JSON.stringify(orgas, null, 2) + '\n');
-  log(`Recherche web : ${uniques.length} soirée(s) uniques gardées sur ${out.nb_bruts} trouvée(s).`);
+  log(instagramSeul ? `Instagram : ${evenements.length} soirée(s) lue(s), ${uniques.length} au total.` : `Recherche web : ${uniques.length} soirée(s) uniques gardées sur ${out.nb_bruts} trouvée(s).`);
   return out;
 }
 
@@ -259,6 +285,9 @@ export function fusionner(liste) {
     garde.buzz = Math.max(garde.buzz ?? 0, autre.buzz ?? 0) || garde.buzz;
     garde.offres = offresDe([...(garde.offres || []), ...offresDe([garde]), ...(autre.offres || []), ...offresDe([autre])]);
     if (garde.source_site !== autre.source_site) garde.sources_sites = [...new Set([...(garde.sources_sites || [garde.source_site]), autre.source_site])];
+    // Annonce faite par le club lui-même sur son Instagram (20/11/2026 : « GTA 6 au High » s'appelait « Good Times » sur le
+    // site) : son nom et son affiche l'emportent, le reste (heure, prix, billetterie) est complété par l'autre source.
+    if (autre.par_le_lieu && !garde.manuel) { garde.name = autre.name; if (autre.image) garde.image = autre.image; garde.par_le_lieu = true; }
     out[out.indexOf(prev)] = garde;
   }
   return out;

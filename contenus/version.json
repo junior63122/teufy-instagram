@@ -2,6 +2,23 @@
   "_note": "Numéro de version affiché en pied de page du site et sur /mises-a-jour/ (directeur, 19/11/2026 : format « 1.13.02 », comme Minecraft). Règle : correction(s) seulement → dernier nombre +1 (1.13.02 → 1.13.03) ; nouvelle fonctionnalité → nombre du milieu +1 et le dernier revient à 01 (1.13.02 → 1.14.01) ; énorme fonctionnalité ou grosse refonte → premier nombre +1 (1.13.02 → 2.01.01). La plus récente en premier.",
   "versions": [
     {
+      "numero": "1.17.01",
+      "date": "2026-11-20",
+      "titre": "Soirées des clubs lues à la source",
+      "public": [
+        "Les soirées annoncées par les clubs et les bars sur leur Instagram et sur leur site arrivent plus vite sur Teufy.",
+        "L'annuaire compte maintenant aussi les bars de Monaco et de Saint-Tropez.",
+        "La page « Ce soir » est de nouveau à jour."
+      ],
+      "notes": [
+        "Instagram : à chaque passage, 8 comptes relus en rotation, les clubs et bars d'abord (relus toutes les 12 h), les autres toutes les 24 h ; avant, toujours les 20 mêmes comptes et jamais les clubs.",
+        "Seuls les posts jamais lus partent à l'IA gratuite ; le nom et l'affiche annoncés par le club lui-même l'emportent sur ceux d'un autre site.",
+        "Sites officiels des clubs lus sans IA (données de soirée publiées par les pages), relevé gardé 12 h.",
+        "Annuaire : bars et pubs de la carte OpenStreetMap pour Monaco, Beausoleil, Saint-Tropez, Ramatuelle et Gassin.",
+        "Page « Ce soir » figée depuis le 18/11 (non enregistrée par les robots) : réparée."
+      ]
+    },
+    {
       "numero": "1.16.01",
       "date": "2026-11-20",
       "titre": "Nouvelle page : Bien sortir",

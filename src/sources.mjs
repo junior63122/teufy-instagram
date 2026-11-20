@@ -37,6 +37,11 @@ export async function collectEvents(config, { root, debugDir, fixturesDir, webEv
   if (!fixturesDir && nouvelles.n) await writeFile(FICHIER_EB, JSON.stringify(Object.fromEntries([...vus].map(([k, d]) => [k, { le: ebCache[k]?.le || new Date().toISOString(), d }])), null, 1) + '\n').catch(() => {});
   if (webEvents.length || !fixturesDir) report.push({ source: 'web', evenements: webEvents.length });
   all.push(...webEvents);
+  // Sites officiels des clubs et bars (sans IA, relevé gardé 12 h).
+  if (!fixturesDir && root) {
+    try { const { lireSitesClubs } = await import('./sites-clubs.mjs'); const ev = await lireSitesClubs({ root }); report.push({ source: 'clubs', evenements: ev.length }); all.push(...ev); }
+    catch (err) { report.push({ source: 'clubs', erreur: String(err.message || err) }); }
+  }
   const manual = await readManual(root);
   report.push({ source: 'manuel', evenements: manual.length });
   all.push(...manual);

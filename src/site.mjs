@@ -466,6 +466,9 @@ async function lieuxDeNuit({ soirees, partenaires, ig, api, log, now }) {
   // Carte OpenStreetMap (contenus/lieux-osm.json, robot Lieux, sans IA) : TOUTES les boîtes de nuit de nos villes sont
   // ajoutées ; un lieu classé « club » que la carte déclare bar ou pub devient un bar (une boîte de nuit n'est pas un bar
   // dansant, directeur 13/11/2026). L'équipe garde le dernier mot (lieux-manuels.json, appliqué juste après).
+  // Monaco et Saint-Tropez (20/11/2026, directeur : « je veux toutes les boîtes de nuit et bars de Monaco et de
+  // Saint-Tropez ») : les bars et pubs de la carte entrent aussi dans l'annuaire, pas seulement les boîtes.
+  const BARS_OSM = new Set((['Monaco', 'Monte-Carlo', 'Beausoleil', 'Saint-Tropez', 'Ramatuelle', 'Gassin']).map((v) => sansAccent(v)));
   for (const o of lire(path.join(ROOT, 'contenus', 'lieux-osm.json'), { lieux: [] }).lieux || []) {
     const l = trouver(o.nom, o.ville);
     if (l) {
@@ -474,8 +477,8 @@ async function lieuxDeNuit({ soirees, partenaires, ig, api, log, now }) {
       if (!l.site && o.site) l.site = o.site;
       if (o.horaires && !l.details?.horaires) l.horairesOsm = { horaires: o.horaires, source: o.source };
       if (!l.lat && o.lat) { l.lat = o.lat; l.lng = o.lng; }
-    } else if (o.osm === 'nightclub') {
-      tous.push({ nom: o.nom, type: 'club', ville: o.ville, adresse: o.adresse || '', instagram: o.instagram || '', site: o.site || '', description: '', source_carte: o.source, lat: o.lat, lng: o.lng, ...(o.horaires ? { horairesOsm: { horaires: o.horaires, source: o.source } } : {}) });
+    } else if (o.osm === 'nightclub' || BARS_OSM.has(sansAccent(o.ville || ''))) {
+      tous.push({ nom: o.nom, type: o.osm === 'nightclub' ? 'club' : o.osm === 'pub' ? 'pub' : 'bar', ville: o.ville, adresse: o.adresse || '', instagram: o.instagram || '', site: o.site || '', description: '', source_carte: o.source, lat: o.lat, lng: o.lng, ...(o.horaires ? { horairesOsm: { horaires: o.horaires, source: o.source } } : {}) });
     }
   }
   // Lieux ajoutés par l'équipe (contenus/lieux-manuels.json) : jamais effacés par la mise à jour hebdomadaire.
