@@ -37,3 +37,22 @@ test('rythme : la veille dort la nuit et ne retravaille pas avant l\'intervalle'
   await veiller({ config: { veille: {} }, now: new Date('2030-01-10T03:00:00Z'), ia, dryRun: true, log: (l) => journal.push(l) }); // 4 h à Paris
   assert.ok(journal.some((l) => /pause de nuit/.test(l)));
 });
+
+// 20/11/2026 : un sujet retenu pour un post n'est noté « publié » qu'après la publication réelle.
+test('veille : sujet préparé mais jamais publié = toujours candidat, et hors quota du jour', async () => {
+  const { dejaTraite, marquerPublie, cleSujet } = await import('../src/veille.mjs');
+  const jour = '2026-11-10';
+  const vus = { [cleSujet('Grande annonce', jour)]: { le: `${jour}T10:00:00Z`, prevu: true, publie: false }, [cleSujet('Vieux sujet', jour)]: { le: `${jour}T09:00:00Z`, publie: false } };
+  assert.equal(dejaTraite(vus, 'Grande annonce', jour), false, 'post jamais parti : sujet repris');
+  assert.equal(dejaTraite(vus, 'Vieux sujet', jour), true);
+  marquerPublie(vus, 'Grande annonce', { jour, le: `${jour}T11:00:00Z` });
+  assert.equal(dejaTraite(vus, 'Grande annonce', jour), true);
+  assert.equal(vus[cleSujet('Grande annonce', jour)].publie_le, `${jour}T11:00:00Z`);
+});
+test('veille : une recherche web vide ne fait pas inventer de sujets', async () => {
+  let tri = 0;
+  const ia = { rechercher: async () => '', json: async () => { tri++; return { sujets: [sujet('Inventé')] }; } };
+  const r = await veiller({ config: { veille: { recherche_minutes: 0 } }, now: new Date('2026-11-10T15:00:00Z'), ia, dryRun: true, log: () => {} });
+  assert.equal(tri, 0);
+  assert.equal(r.apublier, null);
+});

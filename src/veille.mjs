@@ -100,6 +100,29 @@ async function postsRecents({ ig, api, now, heures = 36, log }) {
   return out;
 }
 
+// Clé d'un sujet dans contenus/veille-vus.json (mois + titre normalisé).
+export const cleSujet = (titre, jour) => `${String(jour).slice(0, 7)}|${String(titre || '').toLowerCase().replace(/[^a-z0-9àâçéèêëîïôûùüÿœ]+/g, ' ').trim().slice(0, 80)}`;
+// Sujet déjà traité : vu un autre passage, SAUF s'il avait été retenu pour un post qui n'est jamais parti (rendu ou
+// publication en échec) : il reste alors candidat (20/11/2026 : avant, il était noté « publié » dès la préparation,
+// comptait dans le quota du jour et n'était plus jamais repris).
+export function dejaTraite(vus, titre, jour) {
+  const k = cleSujet(titre, jour).split('|')[1];
+  return Object.entries(vus).some(([cle, v]) => !cle.startsWith('_') && cle.split('|')[1] === k && !(v?.prevu && !v.publie));
+}
+/** Appelé après la publication RÉELLE du post de veille (src/run.mjs) : le sujet compte enfin comme publié. */
+export function marquerPublie(vus, titre, { jour = new Date().toISOString().slice(0, 10), le = new Date().toISOString() } = {}) {
+  const k = cleSujet(titre, jour).split('|')[1];
+  let n = 0;
+  for (const [cle, v] of Object.entries(vus)) if (!cle.startsWith('_') && cle.split('|')[1] === k && v?.prevu) { v.publie = true; v.publie_le = le; n++; }
+  if (!n) vus[cleSujet(titre, jour)] = { le, publie: true, publie_le: le };
+  return vus;
+}
+export async function confirmerPublicationVeille(titre, now = new Date()) {
+  const vus = lire(VUS, {});
+  marquerPublie(vus, titre, { jour: now.toISOString().slice(0, 10), le: now.toISOString() });
+  await writeFile(VUS, JSON.stringify(vus, null, 1) + '\n');
+}
+
 const texteOk = (s, max) => typeof s === 'string' && s.trim().length > 2 && s.length <= max && !/—|lien en bio|t[ée]l[ée]charg/i.test(s);
 
 /** Analyse de veille. Renvoie { sujets, apublier (ou null), idees } et met à jour les fichiers de suivi. */
@@ -126,7 +149,6 @@ export async function veiller({ config, now = new Date(), ig = null, api = {}, i
   const dernier = vus._derniere_recherche ? Date.parse(vus._derniere_recherche) : 0;
   const attendre = dernier > now.getTime() ? 0 : (V.recherche_minutes ?? 120) * 60e3 - (now - dernier); // date future (horloge, test) : on ne bloque pas
   if (attendre > 0 && !posts.length) { log(`Veille : prochaine recherche web dans ${Math.ceil(attendre / 60e3)} min (budget).`); return { sujets: [], apublier: null, idees: [] }; }
-  if (attendre <= 0) vus._derniere_recherche = now.toISOString();
   const web = attendre > 0 ? '' : await ia.rechercher({
     config, gratuit: true, secondaire: true,
     system: `Tu fais la veille d'un média Instagram. ${CIBLE} Tu ne rapportes que des faits publiés, datés et sourcés.`,
@@ -135,6 +157,13 @@ export async function veiller({ config, now = new Date(), ig = null, api = {}, i
 2. Actualité en France qui touche les sorties des 17-30 ans : prix (billets, boissons, transports), lois et règlements (horaires, sécurité, alcool, bruit), grèves ou manifestations qui perturbent des événements, transports de nuit, nouvelles habitudes.
 Pour chaque point : titre, date et heure de publication, URL de la source la plus officielle, résumé factuel. Ignore ce qui a plus de ${V.fenetre_heures ?? 36} heures et les soirées ordinaires sans rien de spécial.`,
   });
+
+  // Le minuteur de la recherche web n'avance que si elle a vraiment répondu (avant : une recherche vide ou en panne
+  // comptait comme faite et la suivante attendait 2 h).
+  if (attendre <= 0 && String(web || '').trim()) vus._derniere_recherche = now.toISOString();
+  else if (attendre <= 0) log('Veille : recherche web sans résultat (IA indisponible ?) : nouvel essai au prochain passage.');
+  // Aucun signal (recherche vide, aucun post) : on ne demande pas à l'IA de trier du vide (elle inventerait des sujets).
+  if (!String(web || '').trim() && !posts.length) return { sujets: [], apublier: null, idees: [] };
 
   // 2. Tri.
   let d;
@@ -147,11 +176,12 @@ Pour chaque point : titre, date et heure de publication, URL de la source la plu
   } catch (err) { log(`Veille : tri impossible (${err.message}).`); return { sujets: [], apublier: null, idees: [] }; }
 
   const frais = (s) => { const t = Date.parse(s.date_publication); return !isNaN(t) && now - t <= (V.fenetre_heures ?? 36) * 3600e3 && t <= now.getTime() + 3600e3; };
-  const cle = (s) => `${jour.slice(0, 7)}|${s.titre.toLowerCase().replace(/[^a-z0-9àâçéèêëîïôûùüÿœ]+/g, ' ').trim().slice(0, 80)}`;
-  const sujets = (d.sujets || []).filter((s) => s.titre && !vus[cle(s)] && !Object.keys(vus).some((k) => k.split('|')[1] === cle(s).split('|')[1]));
+  const cle = (s) => cleSujet(s.titre, jour);
+  const sujets = (d.sujets || []).filter((s) => s.titre && !dejaTraite(vus, s.titre, jour));
 
   // 3. Décision.
-  const publiesAujourdhui = Object.values(vus).filter((v) => v.publie && v.le?.startsWith(jour)).length;
+  // Seulement les posts vraiment partis (confirmés après publication), pas ceux seulement préparés.
+  const publiesAujourdhui = Object.values(vus).filter((v) => v?.publie && (v.publie_le || v.le)?.startsWith(jour)).length;
   // Fenêtre de publication (heure de Paris), qui peut passer minuit (ex. 7h → 1h).
   const hMin = V.heure_min ?? 8, hMax = V.heure_max ?? 23;
   const fenetreOk = hMin <= hMax ? heureParis >= hMin && heureParis <= hMax : heureParis >= hMin || heureParis <= hMax;
@@ -163,7 +193,8 @@ Pour chaque point : titre, date et heure de publication, URL de la source la plu
   const idees = sujets.filter((s) => s !== apublier && s.importance >= 50);
 
   if (!dryRun) {
-    for (const s of sujets) vus[cle(s)] = { le: now.toISOString(), importance: s.importance, source: s.source_url, publie: s === apublier };
+    // « prevu » : retenu pour un post ; « publie » n'est mis qu'après la publication réelle (confirmerPublicationVeille).
+    for (const s of sujets) vus[cle(s)] = { le: now.toISOString(), importance: s.importance, source: s.source_url, publie: vus[cle(s)]?.publie || false, ...(s === apublier ? { prevu: true } : {}) };
     const banque = lire(IDEES, []);
     for (const s of idees) banque.push({ id: `idee-${hash(s.titre)}`, ajout: now.toISOString(), type: s.type, format: s.format, titre: s.titre, angle: s.angle, resume: s.resume, source: s.source_url, importance: s.importance });
     await mkdir(path.dirname(VUS), { recursive: true });

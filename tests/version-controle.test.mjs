@@ -34,3 +34,16 @@ test('quota Instagram : les analyses de comptes s\'arrêtent avant d\'épuiser l
   for (let i = 0; i < B; i++) await ig.businessDiscovery('a', fauxIg).catch(() => {});
   await assert.rejects(ig.businessDiscovery('a', fauxIg), /quota Instagram gardé/);
 });
+
+test('publication : déjà en ligne malgré une erreur de l\'API = pas de second envoi ; historique écrit tout de suite', async () => {
+  const { correspondPublication } = await import('../src/instagram.mjs?double');
+  const t0 = Date.parse('2026-11-20T18:00:00Z');
+  const medias = [{ id: '9', caption: 'Ton week-end est réglé\n\n#TeufyParty', timestamp: '2026-11-20T18:01:00+0000' }, { id: '8', caption: 'Autre', timestamp: '2026-11-19T18:00:00+0000' }];
+  assert.equal(correspondPublication(medias, 'Ton week-end   est réglé\n\n#TeufyParty', t0)?.id, '9');
+  assert.equal(correspondPublication(medias, 'Autre', t0), null, 'trop ancien : un autre post');
+  assert.equal(correspondPublication(medias, '', t0), null);
+  const run = readFileSync(new URL('../src/run.mjs', import.meta.url), 'utf8');
+  const i = run.indexOf('hist.push(entreeHist)'), j = run.indexOf('verifierMedia(res.id');
+  assert.ok(i > 0 && i < j, 'historique écrit avant la relecture et les stories');
+  assert.match(run, /confirmerPublicationVeille/);
+});

@@ -466,8 +466,9 @@ async function prepare(slot, now, id) {
     const STUDIO = path.join(ROOT, 'studio');
     let image;
     if (/^https?:/.test(s.image || '')) {
-      const res = await fetch(s.image).catch(() => null);
-      if (res?.ok) { image = `evenements/auto/flash-${hash(s.titre)}.jpg`; await mkdir(path.join(STUDIO, 'public', 'evenements', 'auto'), { recursive: true }); await writeFile(path.join(STUDIO, 'public', image), Buffer.from(await res.arrayBuffer())); }
+      // Délai maximum et vraie image (avant : sans délai, et une page HTML d'erreur pouvait être prise pour l'affiche).
+      const res = await fetch(s.image, { signal: AbortSignal.timeout(30000) }).catch(() => null);
+      if (res?.ok && /^image\//i.test(res.headers.get('content-type') || '')) { image = `evenements/auto/flash-${hash(s.titre)}.jpg`; await mkdir(path.join(STUDIO, 'public', 'evenements', 'auto'), { recursive: true }); await writeFile(path.join(STUDIO, 'public', image), Buffer.from(await res.arrayBuffer())); }
     }
     const jourH = new Intl.DateTimeFormat('fr-FR', { timeZone: 'Europe/Paris', weekday: 'short', day: 'numeric', month: 'short' }).format(new Date(s.date_publication)).toUpperCase();
     const domaine = (() => { try { return new URL(s.source_url).hostname.replace(/^www\./, ''); } catch { return s.source_url; } })();
@@ -913,7 +914,13 @@ async function publishPrepared(id) {
       ? await publishSingle(url(p.images[0]), p.legende, ig, { tags: p.tags, legende: (ok) => legendeFinale(p.legende, p.a_tester, ok) })
       : await publishCarousel(p.images.map(url), p.legende, ig, { tags: p.tags, collabs: config.collaborations?.actif ? p.collabs : [], legende: (ok) => legendeFinale(p.legende, p.a_tester, ok) }));
   let res;
+  const debutEnvoi = Date.now();
+  // Erreur de l'API alors que le post est peut-être parti (réponse perdue, délai dépassé) : on regarde d'abord le profil,
+  // pour ne jamais republier en double ni noter « échec » un post qui est en ligne.
+  const dejaParti = async () => { try { const { correspondPublication } = await import('./instagram.mjs'); const m = correspondPublication(await compteMedia(ig, 5), p.legende, debutEnvoi); if (m) console.error(`::warning::[${id}] l'API a répondu par une erreur, mais le post est en ligne (${m.permalink || m.id}) : noté publié, pas de second envoi.`); return m ? { id: m.id } : null; } catch { return null; } };
   try { res = await publier(); } catch (err) {
+    res = await dejaParti();
+    if (res) { /* déjà en ligne */ } else {
     // Instagram n'arrive pas à télécharger les médias depuis teufyparty.com (pare-feu Cloudflare, panne du domaine…) :
     // une seconde tentative depuis l'adresse de secours GitHub, qui ne passe pas par le domaine.
     const fb = process.env.MEDIA_FALLBACK_URL;
@@ -921,9 +928,19 @@ async function publishPrepared(id) {
     console.log(`[${id}] Instagram n'a pas pu lire les médias sur ${base} (${err.message.slice(0, 120)}) : nouvel essai depuis ${fb}`);
     base = fb.replace(/\/$/, '');
     if (!(await waitOnline(urls(), 3 * 60e3))) throw err;
-    res = await publier();
+    try { res = await publier(); } catch (err2) { res = await dejaParti(); if (!res) throw err2; }
+    }
   }
+  // Historique écrit TOUT DE SUITE (20/11/2026) : avant, il ne l'était qu'après la relecture et les stories (jusqu'à
+  // 20 min) ; un arrêt entre-temps (délai du job, panne) laissait un post en ligne sans trace, republié au passage suivant.
+  const entreeHist = { id, date: p.date, media: res.id, lien: null, fete: p.fete, titre: p.titre, guide: p.guide, debat: p.debat, bonplan: p.bonplan, sujet: p.sujet, son: p.son, concept: p.concept, photo: p.photo || null, mise: p.mise || undefined, verifie: 'en cours', hors_grille: p.hors_grille || undefined, soirees: (p.soirees || []).map(cleSoiree), le: new Date().toISOString(),
+    publication: { id: p.id, type: p.type, variante: p.variante, date: p.date, choix: p.choix, features: p.features, nb_images: p.nb_images, duree: p.duree, legende: p.legende, titre: p.titre } };
+  hist.push(entreeHist);
+  await writeFile(HIST_FILE, JSON.stringify(hist.slice(-300), null, 2));
+  // Post de veille : le sujet ne compte comme publié qu'à partir d'ici (avant : dès la préparation, même si rien ne partait).
+  if (p.veille?.titre) await (await import('./veille.mjs')).confirmerPublicationVeille(p.veille.titre).catch((err) => console.error(`Veille : sujet non confirmé (${err.message})`));
   const link = await permalink(res.id, ig);
+  entreeHist.lien = link;
   // Auto-contrôle : on relit la publication sur Instagram (un « ok » de l'API ne suffit pas, directeur 19/11/2026).
   const { verifierMedia } = await import('./instagram.mjs');
   const attendu = { type: p.video ? 'reel' : p.images.length === 1 ? 'image' : 'carrousel', images: p.video ? undefined : p.images.length, legende: p.legende };
@@ -944,8 +961,7 @@ async function publishPrepared(id) {
     try { const st = await publishStory(url(p.story_debat), ig); console.log(`[${id}] ✅ débat publié en story (${st.id})`); }
     catch (err) { console.error(`[${id}] débat en story impossible : ${err.message}`); }
   }
-  hist.push({ id, date: p.date, media: res.id, lien: link, fete: p.fete, titre: p.titre, guide: p.guide, debat: p.debat, bonplan: p.bonplan, sujet: p.sujet, son: p.son, concept: p.concept, photo: p.photo || null, mise: p.mise || undefined, verifie: verif.problemes.length ? verif.problemes : true, hors_grille: p.hors_grille || undefined, soirees: (p.soirees || []).map(cleSoiree), le: new Date().toISOString(),
-    publication: { id: p.id, type: p.type, variante: p.variante, date: p.date, choix: p.choix, features: p.features, nb_images: p.nb_images, duree: p.duree, legende: p.legende, titre: p.titre } });
+  entreeHist.verifie = verif.problemes.length ? verif.problemes : true;
   await writeFile(HIST_FILE, JSON.stringify(hist.slice(-300), null, 2));
 }
 

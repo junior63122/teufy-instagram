@@ -279,6 +279,14 @@ export async function verifierMedia(mediaId, ig, attendu = {}) {
   return { ok: !problemes.length, problemes, media: m };
 }
 
+/** Publication déjà en ligne malgré une erreur de l'API (réponse perdue, délai dépassé après la mise en ligne) : même
+ *  légende (début), publiée depuis `depuis` (ms). Évite de republier en double un post qui est en fait parti. */
+export function correspondPublication(medias = [], legende = '', depuis = 0) {
+  const net = (x) => String(x || '').replace(/\s+/g, ' ').trim().slice(0, 80);
+  if (!net(legende)) return null;
+  return medias.find((m) => Date.parse(m.timestamp) >= depuis - 60e3 && net(m.caption) === net(legende)) || null;
+}
+
 /** Stories en ligne en ce moment (24 h) : identifiants, pour vérifier qu'une story publiée est bien visible. */
 export async function storiesEnLigne(ig) {
   try { return ((await call('GET', `${ig.user}/stories`, { fields: 'id,timestamp,media_type' }, ig)).data || []).map((s) => s.id); }
