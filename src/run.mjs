@@ -197,12 +197,8 @@ if (cible === 'controle') {
   const hPar = hp[0];
   for (const st of S.planDuJour(NOW)) {
     if (hPar < st.h) continue;
-    const e = histo.find((x) => x.jour === jour && x.type === st.type);
-    if (!e) { if (hPar >= (st.jusqu ?? st.h + 3)) problemes.push(`story ${st.type} (${st.h} h) : pas publiée`); else lignes.push(`story ${st.type} : en attente`); }
-    else if (e.vide) lignes.push(`story ${st.type} : pas de visuel conforme aujourd'hui (rien publié plutôt qu'un visuel raté)`);
-    else if (e.manquantes?.length) problemes.push(`story ${st.type} : ${e.manquantes.length} image(s) pas publiée(s)`);
-    else if (!e.ids?.length) problemes.push(`story ${st.type} : notée faite sans aucune image en ligne`);
-    else lignes.push(`story ${st.type} : ${e.ids.length} image(s) en ligne`);
+    const b = S.bilanStory(st, histo.find((x) => x.jour === jour && x.type === st.type), hPar);
+    if (b.probleme) problemes.push(b.probleme); else lignes.push(b.ok);
   }
   console.log(`Auto-contrôle du ${jour} (${hp[0]}h${String(hp[1]).padStart(2, '0')} à Paris) :`);
   for (const l of lignes) console.log(`  ok  ${l}`);
@@ -212,6 +208,7 @@ if (cible === 'controle') {
   journal.jours = [...journal.jours.filter((x) => x.jour !== jour), { jour, le: NOW.toISOString(), ok: lignes, problemes }].slice(-30);
   await writeFile(fj, JSON.stringify(journal, null, 1) + '\n');
   if (problemes.length) process.exitCode = 1;
+  else if (!ig) console.log('  Aucun manque dans le journal, mais rien n\'a été relu sur Instagram (pas d\'accès) : ce n\'est pas une preuve.');
   else console.log('  Tout ce qui devait être publié à cette heure est en ligne et conforme.');
   process.exit();
 }
@@ -1251,7 +1248,7 @@ async function storiesPreparer(S) {
         // 155×200 px a privé la story de ses 15 soirées) : on l'écarte et on garde les autres.
         for (const [i, e] of (x?.soirees || []).entries()) {
           try { r.frames.push({ image: await cadre({ image: versStudio(affiche(e)), entier: true, rubrique: `${x.quand} · ${heure(e.start)}`, texte: `${e.name} · ${lieuDe(e)}` }, `soirees-${i}`) }); }
-          catch (err) { r.cles = r.cles.filter((c) => c !== e.name); console.error(`Story soirees : « ${e.name} » écartée (${err.message})`); }
+          catch (err) { r.cles = r.cles.filter((c) => c !== e.name); r.erreur = err.message; console.error(`Story soirees : « ${e.name} » écartée (${err.message})`); }
         }
       } else if (s.type === 'offre') {
         const o = S.offreDuJour(config, NOW.getTime(), histo);
@@ -1281,8 +1278,9 @@ async function storiesPreparer(S) {
         const x = S.coupDeCoeur(evts.filter((e) => !montrees.has(e.name)), NOW.getTime(), histo, { potentiel, afficheOk: (e) => !!affiche(e), comptes: comptesConfirmes });
         if (x) r = { cles: [x.cle], frames: [{ image: await cadre({ image: versStudio(affiche(x.soiree)), entier: true, rubrique: `Coup de cœur · ${S.quandTexte(x.soiree.start)}`, texte: `${x.soiree.name} · @${x.compte}` }, 'coeur') }] };
       }
-    } catch (err) { console.error(`Story ${s.type} : ${err.message}`); r = null; }
-    plan.push({ type: s.type, cles: r?.cles || [], frames: r?.frames || [] });
+    } catch (err) { console.error(`Story ${s.type} : ${err.message}`); r = { cles: [], frames: [], erreur: err.message }; }
+    // Panne (rendu, API, quota) : notée, pour que la story soit reprise au passage suivant au lieu d'être notée « vide ».
+    plan.push({ type: s.type, cles: r?.cles || [], frames: r?.frames || [], ...(r?.erreur && !r.frames?.length ? { erreur: String(r.erreur).slice(0, 200) } : {}) });
     console.log(`Story ${s.type} : ${r?.frames?.length || 0} image(s)${r?.cles?.length ? ` (${r.cles.join(', ')})` : ''}`);
   }
   await writeFile(path.join(dir, 'plan.json'), JSON.stringify({ jour, plan }, null, 2));
@@ -1292,6 +1290,8 @@ async function storiesPublier(S) {
   const f = path.join(MEDIA_DIR, 'stories', 'plan.json');
   if (!existsSync(f)) return console.log('Stories : rien de préparé.');
   const { jour, plan } = JSON.parse(await readFile(f, 'utf8'));
+  // Plan d'un autre jour (préparation du jour en échec) : jamais publié (« Ce soir » d'hier montré aujourd'hui).
+  if (jour !== S.jourParis(NOW)) { console.error(`::warning::Stories : le plan préparé date du ${jour}, pas d'aujourd'hui : rien n'est publié.`); return; }
   const ig = igConfig();
   const fh = path.join(ROOT, S.FICHIER_HISTO);
   const histo = existsSync(fh) ? JSON.parse(readFileSync(fh, 'utf8')) : [];
@@ -1309,9 +1309,15 @@ async function storiesPublier(S) {
   const { storiesEnLigne } = await import('./instagram.mjs');
   for (const p of plan) {
     const deja = histo.find((x) => x.jour === jour && x.type === p.type);
-    if (deja && !deja.manquantes?.length) continue;
-    // Story sans aucune image (visuel refusé par le contrôle, aucune soirée exploitable) : notée « vide », jamais « faite ».
-    if (!p.frames?.length) { if (!deja && !DRY && ig) histo.push({ jour, type: p.type, vide: true, ids: [], le: new Date().toISOString() }); console.error(`Story ${p.type} : aucune image conforme, pas publiée aujourd'hui.`); continue; }
+    if (S.storyFaite(deja)) continue;
+    // Story sans aucune image : notée « vide », jamais « faite ». Vide à cause d'une panne (`erreur`) : reprise au passage
+    // suivant tant que sa fenêtre est ouverte ; vide faute de contenu conforme : rien d'autre à faire aujourd'hui.
+    if (!p.frames?.length) {
+      if (!DRY && ig) { if (deja) Object.assign(deja, { erreur: p.erreur || undefined, le: new Date().toISOString() }); else histo.push({ jour, type: p.type, vide: true, ids: [], ...(p.erreur ? { erreur: p.erreur } : {}), le: new Date().toISOString() }); }
+      console.error(p.erreur ? `::warning::Story ${p.type} : panne (${p.erreur}), reprise au prochain passage.` : `Story ${p.type} : aucune image conforme, pas publiée aujourd'hui.`);
+      continue;
+    }
+    if (deja?.vide) { delete deja.vide; delete deja.erreur; deja.cles = p.cles; } // story reprise après une panne
     const entree = deja || { jour, type: p.type, cles: p.cles, ids: [], faites: [] };
     entree.faites ||= entree.ids.map((_, k) => k); // anciennes entrées : tout ce qui a un id
     for (const [k, fr] of p.frames.entries()) {
@@ -1321,11 +1327,17 @@ async function storiesPublier(S) {
       catch (err) { console.error(`Story ${p.type} impossible : ${err.message}`); }
     }
     if (DRY || !ig) continue;
-    const enLigne = await storiesEnLigne(ig);
-    if (enLigne) for (const sid of entree.ids) if (!enLigne.includes(sid)) console.error(`::error::Story ${p.type} ${sid} : publiée selon l'API mais absente des stories en ligne.`);
+    // Relecture sur Instagram : une story acceptée par l'API mais absente des stories en ligne n'est jamais dite « en ligne »
+    // (avant le 20/11/2026 : erreur affichée puis « ✅ vérifiée » juste après). Un second essai laisse à Instagram le temps.
+    let enLigne = await storiesEnLigne(ig);
+    if (enLigne && entree.ids.some((sid) => !enLigne.includes(sid))) { await new Promise((ok) => setTimeout(ok, 20e3)); enLigne = await storiesEnLigne(ig); }
+    entree.relue = !!enLigne;
+    entree.absentes = enLigne ? entree.ids.filter((sid) => !enLigne.includes(sid)) : [];
+    for (const sid of entree.absentes) console.error(`::error::Story ${p.type} ${sid} : publiée selon l'API mais absente des stories en ligne.`);
     entree.manquantes = p.frames.map((_, k) => k).filter((k) => !entree.faites.includes(k));
     if (entree.manquantes.length) console.error(`::error::Story ${p.type} : ${entree.manquantes.length} image(s) pas publiée(s), nouvel essai au prochain passage.`);
-    else console.log(`✅ story ${p.type} vérifiée : ${entree.ids.length} image(s) en ligne.`);
+    else if (!enLigne) console.error(`::warning::Story ${p.type} : ${entree.ids.length} image(s) acceptée(s) par l'API, liste des stories illisible : pas relue.`);
+    else if (!entree.absentes.length) console.log(`✅ story ${p.type} vérifiée : ${entree.ids.length} image(s) en ligne.`);
     entree.le = new Date().toISOString();
     if (!deja) histo.push(entree);
   }

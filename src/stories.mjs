@@ -34,10 +34,29 @@ export function planDuJour(now) {
   ];
 }
 
+/** Story vraiment terminée : toutes ses images publiées, ou rien à montrer ce jour-là. Une story restée vide à cause
+ *  d'une panne (rendu, API, quota : `erreur`) n'est PAS terminée : elle est reprise tant que sa fenêtre est ouverte
+ *  (20/11/2026 : avant, une panne passagère la notait « vide » pour toute la journée et l'auto-contrôle la disait ok). */
+export const storyFaite = (x) => !!x && !x.manquantes?.length && !(x.vide && x.erreur);
+
 /** Stories dues maintenant : heure passée (moins de 3 h de retard), pas encore faites aujourd'hui. */
 export function storiesDues(now, histo = lire(FICHIER_HISTO, [])) {
   const jour = jourParis(now), h = heureParis(now);
-  return planDuJour(now).filter((s) => h >= s.h && h < (s.jusqu ?? s.h + 3) && !histo.some((x) => x.jour === jour && x.type === s.type && !x.manquantes?.length));
+  return planDuJour(now).filter((s) => h >= s.h && h < (s.jusqu ?? s.h + 3) && !histo.some((x) => x.jour === jour && x.type === s.type && storyFaite(x)));
+}
+
+/** Bilan d'une story prévue pour l'auto-contrôle : { ok } ou { probleme }, jamais « ok » sans preuve.
+ *  `st` = entrée de planDuJour, `e` = entrée de contenus/stories.json (ou undefined), `h` = heure de Paris. */
+export function bilanStory(st, e, h) {
+  const fin = st.jusqu ?? st.h + 3;
+  if (!e) return h >= fin ? { probleme: `story ${st.type} (${st.h} h) : pas publiée` } : { ok: `story ${st.type} : en attente` };
+  if (e.vide && e.erreur) return h >= fin ? { probleme: `story ${st.type} : aucune image publiée (panne : ${String(e.erreur).slice(0, 120)})` } : { ok: `story ${st.type} : en panne (${String(e.erreur).slice(0, 80)}), reprise au prochain passage` };
+  if (e.vide) return { ok: `story ${st.type} : rien de conforme à montrer aujourd'hui (rien publié plutôt qu'un visuel raté)` };
+  if (e.manquantes?.length) return { probleme: `story ${st.type} : ${e.manquantes.length} image(s) pas publiée(s)` };
+  if (!e.ids?.length) return { probleme: `story ${st.type} : notée faite sans aucune image en ligne` };
+  if (e.absentes?.length) return { probleme: `story ${st.type} : ${e.absentes.length} image(s) acceptée(s) par l'API mais absente(s) des stories en ligne` };
+  if (e.relue === false) return { ok: `story ${st.type} : ${e.ids.length} image(s) publiée(s), pas relues sur Instagram (liste des stories illisible)` };
+  return { ok: `story ${st.type} : ${e.ids.length} image(s) en ligne` };
 }
 
 // --- Choix du contenu (sans IA) ------------------------------------------------------------------------

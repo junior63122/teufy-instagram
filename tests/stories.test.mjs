@@ -49,3 +49,30 @@ test('coup de cœur : soirée des 7 prochains jours d\'un compte vérifié', () 
   assert.equal(x.soiree.name, 'Avec compte');
   assert.equal(x.compte, 'orga');
 });
+
+// Auto-contrôle honnête des stories (20/11/2026) : une panne n'est jamais notée « faite », une story absente des stories
+// en ligne n'est jamais dite « en ligne ».
+test('story vide à cause d\'une panne : reprise au passage suivant, pas notée faite', async () => {
+  const { storyFaite, storiesDues } = await import('../src/stories.mjs');
+  const panne = { jour: '2026-11-13', type: 'question', vide: true, erreur: '(#4) Application request limit reached', ids: [] };
+  assert.equal(storyFaite(panne), false);
+  assert.equal(storyFaite({ jour: '2026-11-13', type: 'question', vide: true, ids: [] }), true, 'rien à montrer : terminé');
+  assert.ok(storiesDues(ven20h, [panne]).some((s) => s.type === 'question'), 'reprise tant que la fenêtre est ouverte');
+});
+test('bilan de story : jamais « ok » sans preuve', async () => {
+  const { bilanStory } = await import('../src/stories.mjs');
+  const st = { h: 20, type: 'question' };
+  assert.ok(bilanStory(st, { vide: true, erreur: 'rendu cassé', ids: [] }, 23).probleme, 'panne jamais rattrapée = problème');
+  assert.ok(bilanStory(st, { vide: true, erreur: 'rendu cassé', ids: [] }, 21).ok, 'panne : reprise possible avant la fin de la fenêtre');
+  assert.ok(bilanStory(st, { ids: ['1'], absentes: ['1'] }, 21).probleme, 'acceptée par l\'API mais absente en ligne');
+  assert.match(bilanStory(st, { ids: ['1'], relue: false }, 21).ok, /pas relues/);
+  assert.match(bilanStory(st, { ids: ['1'], absentes: [], relue: true }, 21).ok, /en ligne/);
+  assert.ok(bilanStory(st, { ids: [] }, 21).probleme);
+  assert.ok(bilanStory(st, undefined, 23).probleme);
+});
+test('stories : un plan préparé un autre jour n\'est jamais publié', async () => {
+  const { readFileSync } = await import('node:fs');
+  const run = readFileSync(new URL('../src/run.mjs', import.meta.url), 'utf8');
+  assert.match(run, /jour !== S\.jourParis\(NOW\)/);
+  assert.match(run, /S\.bilanStory\(/);
+});
