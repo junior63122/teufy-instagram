@@ -6,47 +6,52 @@
   "evenements": [
     {
       "source": "web",
-      "source_site": "instagram",
-      "name": "Dinner DJ Set – Wed 18",
-      "start": "2026-11-18T19:30:00.000Z",
-      "venue": "Twiga Monte Carlo",
-      "city": "Monaco",
+      "source_site": "Shotgun Live / Neon Festival",
+      "name": "Ben Carter (NEON XP)",
+      "start": "2026-12-17T19:30:00.000Z",
+      "venue": "Le Dix-Huit - Adresse d'Expériences",
+      "city": "Nice",
       "address": "",
-      "url": "https://www.instagram.com/p/Dfzwpa8M7L_/",
-      "image": "https://scontent-iad3-2.cdninstagram.com/v/t51.82787-15/905668309_18656492167026487_783278000552938517_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=102&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=X5WuBOJQ99IQ7kNvwFtfIr5&_nc_oc=Adpzr9Io-xk9CZ_OaIkkuG4hqoJtHDmJZlv_U_jTPWyOeppNYX3nJ7SQ8CHEyfz1uCQ&_nc_zt=23&_nc_ht=scontent-iad3-2.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=1Ucj4Sln92-otq2yhdBfxA&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQTK5wKRMNZp0kuUeI60hGLRQHdHOuVqOYRFDRvhaaHKWQ&oe=6B065538",
-      "price": null,
-      "tags": [],
-      "description": "Profite d’une soirée dinner DJ Set à Twiga Monte Carlo. Le dîner démarre à 20h30, suivi d’un set de DJ dès 00h30. L’ambiance est électrisante, idéale pour les 17‑30 ans qui cherchent une soirée chic et décontractée.",
+      "url": "https://shotgun.live/fr/events/ben-carter",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto/production/artworks/SHOTGUN1920x1080_zet2ay.png",
+      "price": 20,
+      "tags": [
+        "Afro House",
+        "Indie Dance",
+        "Latin Tech",
+        "Afro-Tech",
+        "Electro",
+        "House",
+        "afro house",
+        "indie dance",
+        "electronic"
+      ],
+      "description": "Le DJ Ben Carter débarque aux platines du Dix‑Huit pour une soirée afro‑house et indie dance. Le line‑up promet des percussions puissantes, des rythmes afro‑latins et des sons électroniques. Le club, situé au 18 boulevard Carabacel, ouvre ses portes à 22 h pour une nuit de danse. Le tarif d’entrée est de 15 €, sans prévente. L’événement est prévu pour le 17 décembre 2026, un vendredi soir, idéal pour une sortie en fin d’année.",
       "public_cible": 0.9,
-      "confiance": 0.9,
-      "buzz": 0.5,
-      "buzz_raison": "Événement de routine, mais venue réputée.",
-      "accroche": "Dinner DJ Set – Wed 18 | Twiga Monte Carlo",
+      "confiance": 0.95,
+      "buzz": 0.75,
+      "buzz_raison": "DJ international résident à Ibiza programmé dans le cadre des soirées NEON XP.",
+      "accroche": "Le DJ résident d'Ibiza Ben Carter enflamme Le Dix-Huit en session NEON XP.",
       "instagram": [
-        "twigamontecarlo"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "instagram",
-      "name": "Dinner DJ Set – Thu 19",
-      "start": "2026-11-19T19:30:00.000Z",
-      "venue": "Twiga Monte Carlo",
-      "city": "Monaco",
-      "address": "",
-      "url": "https://www.instagram.com/p/Dfzwpa8M7L_/",
-      "image": "",
-      "price": null,
-      "tags": [],
-      "description": "Continue la série de soirées dinner DJ Set à Twiga. Dîner à 20h30, club à 00h30. Ambiance festive et musique variée.",
-      "public_cible": 0.9,
-      "confiance": 0.9,
-      "buzz": 0.5,
-      "buzz_raison": "Événement de routine, mais venue réputée.",
-      "accroche": "Dinner DJ Set – Thu 19 | Twiga Monte Carlo",
-      "instagram": [
-        "twigamontecarlo"
-      ]
+        "neonfestival",
+        "ledixhuitnice",
+        "neonfestival_"
+      ],
+      "sources_sites": [
+        "Shotgun.live",
+        "Shotgun",
+        "shotgun.live",
+        "Instagram"
+      ],
+      "offres": [
+        {
+          "plateforme": "shotgun.live",
+          "url": "https://shotgun.live/fr/events/ben-carter",
+          "prix": 20
+        }
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -785,51 +790,6 @@
       "sources_sites": [
         "Shotgun",
         "shotgun.live"
-      ],
-      "billetterie_cherchee": true,
-      "offres_cherchees": true
-    },
-    {
-      "source": "web",
-      "source_site": "Shotgun Live / Neon Festival",
-      "name": "Ben Carter (NEON XP)",
-      "start": "2026-12-17T19:30:00.000Z",
-      "venue": "Le Dix-Huit - Adresse d'Expériences",
-      "city": "Nice",
-      "address": "",
-      "url": "https://shotgun.live/fr/events/ben-carter",
-      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto/production/artworks/SHOTGUN1920x1080_zet2ay.png",
-      "price": 20,
-      "tags": [
-        "Afro House",
-        "Indie Dance",
-        "Latin Tech",
-        "Afro-Tech",
-        "Electro",
-        "House"
-      ],
-      "description": "",
-      "public_cible": 0.9,
-      "confiance": 0.95,
-      "buzz": 0.75,
-      "buzz_raison": "DJ international résident à Ibiza programmé dans le cadre des soirées NEON XP.",
-      "accroche": "Le DJ résident d'Ibiza Ben Carter enflamme Le Dix-Huit en session NEON XP.",
-      "instagram": [
-        "neonfestival",
-        "ledixhuitnice",
-        "neonfestival_"
-      ],
-      "sources_sites": [
-        "Shotgun.live",
-        "Shotgun",
-        "shotgun.live"
-      ],
-      "offres": [
-        {
-          "plateforme": "shotgun.live",
-          "url": "https://shotgun.live/fr/events/ben-carter",
-          "prix": 20
-        }
       ],
       "billetterie_cherchee": true,
       "offres_cherchees": true
@@ -3776,5 +3736,5 @@
       ]
     }
   ],
-  "maj_instagram": "2026-11-20T17:13:16.164Z"
+  "maj_instagram": "2026-11-20T17:44:36.196Z"
 }
