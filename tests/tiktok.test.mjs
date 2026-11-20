@@ -27,3 +27,12 @@ test('légende TikTok sans emoji ni compte Instagram, avec le site et 5 hashtags
   assert.equal((l.match(/#\w+/g) || []).length, 5);
   assert.match(pageTiktok({ '2026-11-21': [{ ...stock[0], heure: '19:30' }] }, '2026-11-21'), /noindex/);
 });
+
+test('page TikTok protégée : sans code rien n\'est publié, avec code le contenu est chiffré', () => {
+  const plan = { '2026-11-23': [{ ...stock[0], heure: '19:30', legende: 'Légende secrète' }] };
+  const ferme = pageTiktok(plan, '2026-11-23', '');
+  assert.doesNotMatch(ferme, /Légende secrète|media\/x\/a\.mp4/);
+  const chiffre = pageTiktok(plan, '2026-11-23', 'un-code');
+  assert.doesNotMatch(chiffre, /Légende secrète|media\/x\/a\.mp4/);
+  assert.match(chiffre, /data-d="[A-Za-z0-9+/=]{40,}"/);
+});

@@ -5,6 +5,7 @@
 // jamais la même vidéo deux fois en 14 jours, jamais deux vidéos du même type le même jour. Page cachée /tiktok/
 // (non référencée) : jour, heure, vidéo, bouton Télécharger, bouton Copier la légende.
 import { readFileSync, existsSync, readdirSync, copyFileSync, mkdirSync, writeFileSync } from 'node:fs';
+import { randomBytes, pbkdf2Sync, createCipheriv } from 'node:crypto';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -95,8 +96,31 @@ export function planifier(plan, stock, aujourdhui, jours = 7, heureMin = '00:00'
   return P;
 }
 
+// Code d'accès (20/11/2026, directeur : « protège la page avec un code ») : le site est statique et public, donc le contenu
+// (planning, légendes, liens des vidéos) est chiffré (AES-256-GCM, clé tirée du code par PBKDF2) avec le code du secret GitHub
+// TIKTOK_CODE ; le navigateur le déchiffre une fois le bon code tapé. Sans secret : page fermée, rien n'est publié.
+function verrou(code, html) {
+  if (!code) return '<p class="i">Page fermée : le code d\'accès n\'est pas encore défini.</p>';
+  const sel = randomBytes(16), iv = randomBytes(12);
+  const cle = pbkdf2Sync(String(code), sel, 210000, 32, 'sha256');
+  const c = createCipheriv('aes-256-gcm', cle, iv);
+  const donnees = Buffer.concat([c.update(html, 'utf8'), c.final(), c.getAuthTag()]);
+  return `<form id="verrou" data-sel="${sel.toString('base64')}" data-iv="${iv.toString('base64')}" data-d="${donnees.toString('base64')}"><p class="i">Page réservée à l'équipe Teufy.</p>
+<input id="code" type="password" autocomplete="current-password" placeholder="Code d'accès" style="width:100%;padding:14px;border-radius:10px;border:1px solid #ffffff33;background:#16161C;color:#F4EFE6;font-size:17px">
+<button class="btn" style="width:100%;margin-top:10px">Ouvrir</button><p id="err" class="sans" style="color:#FF5A3C"></p></form>`;
+}
+const DECHIFFRE = `const b64=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
+async function ouvrir(code,garder){const f=document.getElementById('verrou');if(!f)return;try{
+const k=await crypto.subtle.importKey('raw',new TextEncoder().encode(code),'PBKDF2',false,['deriveKey']);
+const cle=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(f.dataset.sel),iterations:210000,hash:'SHA-256'},k,{name:'AES-GCM',length:256},false,['decrypt']);
+const t=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(f.dataset.iv)},cle,b64(f.dataset.d));
+document.getElementById('contenu').innerHTML=new TextDecoder().decode(t);if(garder)try{localStorage.setItem('tiktok:code',code)}catch{}activer();
+}catch{try{localStorage.removeItem('tiktok:code')}catch{}const e=document.getElementById('err');if(e)e.textContent=garder?'Code incorrect.':''}}
+document.addEventListener('submit',ev=>{if(ev.target.id==='verrou'){ev.preventDefault();ouvrir(document.getElementById('code').value,true)}});
+try{const c=localStorage.getItem('tiktok:code');if(c)ouvrir(c,false)}catch{}`;
+
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
-export function pageTiktok(plan, aujourdhui) {
+export function pageTiktok(plan, aujourdhui, code = process.env.TIKTOK_CODE) {
   const date = (j) => new Intl.DateTimeFormat('fr-FR', { weekday: 'long', day: 'numeric', month: 'long', timeZone: 'Europe/Paris' }).format(new Date(`${j}T12:00:00Z`));
   const jours = Object.keys(plan).filter((j) => j >= aujourdhui).sort().slice(0, 7);
   const carte = (j, v) => `<article class="v" data-cle="${esc(`${j}|${v.id}`)}">
@@ -116,11 +140,15 @@ h1{font-size:28px;margin:8px 0 4px}p.i{opacity:.8;margin:0 0 20px}h2{font-size:2
 .h{display:flex;justify-content:space-between;align-items:center;margin:0 0 10px;font-size:22px;font-weight:800}.h span{font-size:13px;font-weight:700;background:var(--corail);color:var(--nuit);padding:3px 10px;border-radius:999px}
 video{width:100%;max-height:60vh;border-radius:10px;background:#000}.b{display:flex;gap:8px;margin:10px 0}.btn{flex:1;text-align:center;background:var(--creme);color:var(--nuit);font-weight:800;border:0;border-radius:10px;padding:12px;text-decoration:none;font-size:15px;cursor:pointer}
 textarea{width:100%;background:#0B0B0F;color:var(--creme);border:1px solid #ffffff22;border-radius:10px;padding:10px;font:14px/1.4 system-ui}.fait{display:block;margin-top:8px;font-weight:700}.btn.sec{background:transparent;color:var(--creme);border:2px solid var(--creme)}.sans{opacity:.7;font-size:14px}</style></head><body>
-<h1>Planning TikTok</h1><p class="i">Une vidéo par créneau : télécharge-la, ajoute un son tendance de TikTok à volume bas, colle la légende, mets la couverture (Modifier la couverture, puis Importer), publie à l'heure indiquée. Coche « Publié » une fois fait.</p>
-${jours.map((j) => `<h2${j === aujourdhui ? ' class="auj"' : ''}>${j === aujourdhui ? "Aujourd'hui · " : ''}${esc(date(j))}</h2>\n${plan[j].map((v) => carte(j, v)).join('\n')}`).join('\n')}
+<h1>Planning TikTok</h1>
+<div id="contenu">${verrou(code, `<p class="i">Une vidéo par créneau : télécharge-la, ajoute un son tendance de TikTok à volume bas, colle la légende, mets la couverture (Modifier la couverture, puis Importer), publie à l'heure indiquée. Coche « Publié » une fois fait.</p>
+${jours.map((j) => `<h2${j === aujourdhui ? ' class="auj"' : ''}>${j === aujourdhui ? "Aujourd'hui · " : ''}${esc(date(j))}</h2>\n${plan[j].map((v) => carte(j, v)).join('\n')}`).join('\n')}`)}</div>
 <script>
+${DECHIFFRE}
+function activer(){
 document.querySelectorAll('[data-copie]').forEach(b=>b.onclick=async()=>{const t=b.closest('.v').querySelector('textarea');try{await navigator.clipboard.writeText(t.value)}catch{t.select();document.execCommand('copy')}b.textContent='Copiée';setTimeout(()=>b.textContent='Copier la légende',1500)});
-document.querySelectorAll('.v').forEach(v=>{const c=v.querySelector('.fait input'),k='tiktok:'+v.dataset.cle;try{c.checked=localStorage.getItem(k)==='1'}catch{}v.classList.toggle('ok',c.checked);c.onchange=()=>{try{localStorage.setItem(k,c.checked?'1':'0')}catch{}v.classList.toggle('ok',c.checked)}});
+document.querySelectorAll('.v').forEach(v=>{const c=v.querySelector('.fait input'),k='tiktok:'+v.dataset.cle;try{c.checked=localStorage.getItem(k)==='1'}catch{}v.classList.toggle('ok',c.checked);c.onchange=()=>{try{localStorage.setItem(k,c.checked?'1':'0')}catch{}v.classList.toggle('ok',c.checked)}});}
+if(!document.getElementById('verrou'))activer();
 </script></body></html>
 `;
 }
