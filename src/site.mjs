@@ -2072,7 +2072,7 @@ function imageActu(a, { base, cadre = true, sizes = '(min-width:980px) 560px, 92
   // 20/11/2026 (directeur : « fais gaffe que dans les news les affiches s'affichent bien ») : l'image n'est plus recadrée
   // (affiche coupée en haut, logo tronqué) ; elle est montrée en entier sur un fond flou de la même image.
   const fond = a.image_site.replace(/\.(jpe?g|png|webp)$/i, '-400.webp');
-  const flou = cadre && existsSync(path.join(ROOT, fond)) ? `<img class="actu-fond" src="${base}${esc(fond)}" alt="" aria-hidden="true" loading="lazy" decoding="async">` : '';
+  const flou = cadre && existsSync(path.join(ROOT, fond)) ? `<img class="actu-fond fond-flou" src="${base}${esc(fond)}" alt="" aria-hidden="true" loading="lazy" decoding="async">` : '';
   return flou + image(base, a.image_site, { alt: a.titre, sizes, attrs: `${attrs}${a.dims ? ` width="${a.dims[0]}" height="${a.dims[1]}"` : ''}` });
 }
 const dateActu = (a, t) => { const d = Date.parse(a.date); return isNaN(d) ? '' : paris(d, { day: 'numeric', month: 'long', year: 'numeric' }, t.locale); };

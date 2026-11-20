@@ -12,6 +12,9 @@ const path = require('path');
 const B = process.env.SITE || 'http://localhost:8765/';
 const ROOT = path.resolve(__dirname, '..');
 const echecs = [];
+const samediSoir = () => { const j = new Date(); j.setUTCDate(j.getUTCDate() + ((6 - j.getUTCDay() + 7) % 7)); const jour = j.toISOString().slice(0, 10);
+  const decalage = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Paris', timeZoneName: 'shortOffset' }).formatToParts(new Date(`${jour}T12:00:00Z`)).find((x) => x.type === 'timeZoneName').value.replace('GMT', '') || '+0';
+  const h = Number(decalage.split(':')[0]); return new Date(Date.parse(`${jour}T23:30:00Z`) - h * 3600e3); };
 const nbVisibles = (p) => p.locator('.liste .carte:not([hidden])').count();
 const ok = (cond, msg) => { if (!cond) echecs.push(msg); return !!cond; };
 const premiereSoiree = fs.readdirSync(path.join(ROOT, 'soiree'))[0];
@@ -95,7 +98,9 @@ async function controlerPage(p, nom, u) {
   const b = await chromium.launch(exe ? { executablePath: exe } : {});
   for (const [nom, opt] of Object.entries(APPAREILS)) {
     const c = await b.newContext({ ...opt, permissions: NAV === 'chromium' ? ['geolocation', 'clipboard-read', 'clipboard-write'] : ['geolocation'], geolocation: { latitude: 43.6961, longitude: 7.2718 } });
-    await c.clock.install({ time: new Date('2026-11-14T23:30:00+01:00') });
+    // Le samedi soir qui vient, 23 h 30 à Paris (20/11/2026 : la date figée au 14/11 ne correspondait plus à aucune soirée
+    // des données et faisait échouer « Ce soir » à tort). TEST_DATE=AAAA-MM-JJTHH:MM:SS+01:00 pour imposer une date.
+    await c.clock.install({ time: process.env.TEST_DATE ? new Date(process.env.TEST_DATE) : samediSoir() });
     const p = await c.newPage();
     let total = 0;
     const n = () => nbVisibles(p);
