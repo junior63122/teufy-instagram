@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:saturday-night-fever-gta-vi-2026-11-21@teufy
+DTSTAMP:20261120T190629Z
+DTSTART:20261121T190000Z
+DTEND:20261122T000000Z
+SUMMARY:Saturday Night Fever GTA VI
+LOCATION:Bulldog Pompeï\, Nice
+DESCRIPTION:Soirée GTA VI avec DJ Kenzo et cocktail Miami Vice\nBillets : https://www.instagram.com/p/Df7XUhHsPGk/\nVia Teufy @teufy_official
+URL:https://www.instagram.com/p/Df7XUhHsPGk/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Saturday Night Fever GTA VI
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Saturday Night Fever GTA VI
+END:VALARM
+END:VEVENT
+END:VCALENDAR

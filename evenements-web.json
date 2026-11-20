@@ -6,6 +6,215 @@
   "evenements": [
     {
       "source": "web",
+      "source_site": "naho_club Instagram",
+      "name": "ERA 2000–2010",
+      "start": "2026-11-18T23:00:00.000Z",
+      "venue": "Naho Club",
+      "city": "La Garde",
+      "address": "",
+      "url": "https://www.instagram.com/p/DfxUrQCiI5l/",
+      "image": "https://scontent-ord5-2.cdninstagram.com/v/t51.82787-15/896051680_18128310115917771_4018966771600734974_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=105&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=mp8hggIvTNEQ7kNvwEylvTJ&_nc_oc=Adry7PO8ATFgEQYbQ8ULEobLPX87A2SQgjaqeOx8HCkVo9s9KtZeFdhZ8f10c7rtzHk&_nc_zt=23&_nc_ht=scontent-ord5-2.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=R4s_61uvy6JVKX9jYv9AKg&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQSg6Bt4GZcE4YD9uPREE_JkxRZrs2Q3Dlr67RzHb0yq_g&oe=6B067283",
+      "price": null,
+      "tags": [
+        "house",
+        "dance",
+        "pop",
+        "hip hop"
+      ],
+      "description": "Venez revivre vos meilleures années le temps d’une soirée à Naho Club. Le line‑up se compose de ___ozenn___ et delviinleak qui joueront des classiques de la pop, du house et du hip‑hop. La soirée démarre à 00h et se termine à 05h, dans un club situé à 116 Av. de Digne, 83130 La Garde. Pas de pré‑vente, mais vous pouvez réserver sur le numéro indiqué. L’ambiance est festive, idéale pour les 17‑30 ans qui aiment la nostalgie.",
+      "public_cible": 0.8,
+      "confiance": 0.95,
+      "buzz": 0.6,
+      "buzz_raison": "Année 2000‑2010, line‑up connu, club réputé, soirée du jeudi soir.",
+      "accroche": "Naho Club vous fait voyager dans les années 2000–2010 avec des tubes incontournables.",
+      "instagram": [
+        "naho_club"
+      ],
+      "offres": []
+    },
+    {
+      "source": "web",
+      "source_site": "naho_club Instagram",
+      "name": "FAVELA",
+      "start": "2026-11-19T23:00:00.000Z",
+      "venue": "Naho Club",
+      "city": "La Garde",
+      "address": "",
+      "url": "https://www.instagram.com/p/DfxNzevCKVI/",
+      "image": "https://scontent-ord5-2.cdninstagram.com/v/t51.82787-15/906171986_18128306410917771_7723311153027134257_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=105&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=bm01PdpVH0MQ7kNvwGIzEew&_nc_oc=AdoME30JlLcioYBLlNlEYyRaT2V5eRK8YmRLtH0incdNqqYbpokN0LWg9cFnyXKzAA0&_nc_zt=23&_nc_ht=scontent-ord5-2.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=R4s_61uvy6JVKX9jYv9AKg&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQQe0e2bhjCnlbfmmJ0AUsF1f3n5LjJuhSxTQBGe3s6lkA&oe=6B065D50",
+      "price": null,
+      "tags": [
+        "afro",
+        "shatta",
+        "dance"
+      ],
+      "description": "Le vendredi 20 novembre, Naho Club vous transporte au Brésil avec FAVELA. Le line‑up est composé de ___ozenn___ et dezze_recital qui joueront des sons afro, shatta et dance. La soirée commence à 00h et se termine à 05h. Le club est situé à 116 Av. de Digne, 83130 La Garde. Pas de pré‑vente, mais vous pouvez réserver sur le numéro indiqué. L’ambiance est caliente, idéale pour les 17‑30 ans qui aiment la danse.",
+      "public_cible": 0.9,
+      "confiance": 0.92,
+      "buzz": 0.7,
+      "buzz_raison": "Thème brésilien, line‑up connu, club réputé, vendredi soir.",
+      "accroche": "Une soirée brésilienne à Naho Club avec de la chaleur et du groove.",
+      "instagram": [
+        "naho_club"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "naho_club Instagram",
+      "name": "BANGER RAP FR",
+      "start": "2026-11-20T23:00:00.000Z",
+      "venue": "Naho Club",
+      "city": "La Garde",
+      "address": "",
+      "url": "https://www.instagram.com/p/DfxG53zCDGS/",
+      "image": "https://scontent-ord5-2.cdninstagram.com/v/t51.82787-15/907709906_18128299369917771_5082179090706954869_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=104&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=yHNIYbSh560Q7kNvwFh0Grd&_nc_oc=AdqG0yxkGKyJyiMAun7KrzOUba0MDLgeBkpgJyDJl6VznfaeWGE30uTYG_xDDD4eRKE&_nc_zt=23&_nc_ht=scontent-ord5-2.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=R4s_61uvy6JVKX9jYv9AKg&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQTGirRbVLq7Zj_BI_7hbtmYM4ozxM2k7FeUmwqW620bqg&oe=6B06660B",
+      "price": null,
+      "tags": [
+        "rap",
+        "hip hop"
+      ],
+      "description": "Samedi 21 novembre, Naho Club accueille BANGER, une soirée rap française. Les artistes SDM, Shay et Franglish seront présents, ainsi que les derniers hits et les classiques. La soirée débute à 00h et se termine à 05h. Le club se trouve à 116 Av. de Digne, 83130 La Garde. Pas de pré‑vente, mais vous pouvez réserver sur le numéro indiqué. L’ambiance est forte, idéale pour les 17‑30 ans qui aiment le rap.",
+      "public_cible": 0.95,
+      "confiance": 0.94,
+      "buzz": 0.8,
+      "buzz_raison": "Line‑up rap français connu, club réputé, samedi soir.",
+      "accroche": "BANGER revient au Naho Club pour une édition spéciale RAP FR.",
+      "instagram": [
+        "naho_club"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "naho_club Instagram",
+      "name": "SANDER",
+      "start": "2026-11-16T23:00:00.000Z",
+      "venue": "SANDER",
+      "city": "La Garde",
+      "address": "",
+      "url": "https://www.instagram.com/reel/Df2eh24kuA4/",
+      "image": "",
+      "price": null,
+      "tags": [
+        "shatta",
+        "bouyon",
+        "afro",
+        "dance"
+      ],
+      "description": "Du jeudi au samedi, SANDER propose des soirées Shatta, Bouyon et Afro. La soirée commence à 00h et se termine à 05h. Le lieu est situé à 116 Av. de Digne, 83130 La Garde. Pas de pré‑vente, mais vous pouvez réserver sur le numéro indiqué. L’ambiance est libre et festive, idéale pour les 17‑30 ans.",
+      "public_cible": 0.85,
+      "confiance": 0.9,
+      "buzz": 0.5,
+      "buzz_raison": "Thème afro/shatta, club connu, week‑end.",
+      "accroche": "SANDER vous invite à libérer votre côté sauvage.",
+      "instagram": [
+        "naho_club"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Instagram",
+      "name": "Le Réveillon du Bar Éphémère",
+      "start": "2026-12-31T18:00:00.000Z",
+      "venue": "Auberge TAO",
+      "city": "Biot",
+      "address": "",
+      "url": "https://www.instagram.com/p/Df7lbliDpSz/",
+      "image": "https://scontent-ord5-1.cdninstagram.com/v/t51.82787-15/910317765_18389734858238033_794299453413565988_n.webp?stp=dst-jpg_e35_tt6&_nc_cat=104&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=tnBt_tabJSYQ7kNvwFSLNam&_nc_oc=AdpwjD4paZ_nCn2p34IygkuKoVMMN7iLGJ2xLdc58vmjo-WzL7x2kUfjR7H8LSyKes4&_nc_zt=23&_nc_ht=scontent-ord5-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=muD-u_Q1ElIfLcfZMokg8Q&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQRKqB00QKm6OQlwmXZiDuWlwuvo-nYEauwC0AMj5o1wXA&oe=6B067037",
+      "price": 25,
+      "tags": [
+        "house",
+        "electro"
+      ],
+      "description": "Clôture de l’année 2026 avec un dîner de fête à l’Auberge TAO, suivi d’une soirée de réveillon ultra festive. Le DJ Miss Cecyls joue le meilleur de son répertoire jusqu’à 2h. Deux formules : prévente 120 € pour dîner + soirée, ou 25‑35 € pour la soirée seule. Dress code chic, parking sur place, entrée à 19h, dîner à 20h, fête à 22h. Idéal pour les 17‑30 ans qui cherchent ambiance conviviale et musique électro/house.",
+      "public_cible": 0.9,
+      "confiance": 0.95,
+      "buzz": 0.8,
+      "buzz_raison": "Réveillon, DJ connu, lieu cosy, forte audience Instagram.",
+      "accroche": "Réveillon à l'Auberge TAO : dîner festif + DJ set jusqu’à 2h du matin.",
+      "instagram": [
+        "le.bar.ephemere"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Instagram",
+      "name": "Inside à leservan_valbonne",
+      "start": "2026-11-20T18:00:00.000Z",
+      "venue": "leservan_valbonne",
+      "city": "Valbonne",
+      "address": "",
+      "url": "https://www.instagram.com/reel/Df4_hggxJkU/",
+      "image": "",
+      "price": 0,
+      "tags": [
+        "house",
+        "electro",
+        "dancehall"
+      ],
+      "description": "Première soirée de la saison Inside à leservan_valbonne. Petite carte de tapas et finger food, vin et cocktails, DJ set d’Aaron avec percussion de Paul Palmera. Table réservable entre 19h et 20h30, mais pas incluse dans la prévente. Dress code correct, parking sur place. Horaires 19h à 00h45, idéal pour les 17‑30 ans à la recherche d’une ambiance conviviale et musicale.",
+      "public_cible": 0.7,
+      "confiance": 0.85,
+      "buzz": 0.5,
+      "buzz_raison": "Concept Inside, DJ connu, lieu cosy, audience Instagram modérée.",
+      "accroche": "Soirée Inside à Valbonne : tapas, cocktails et DJ set d’Aaron.",
+      "instagram": [
+        "le.bar.ephemere"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Instagram",
+      "name": "Skyfall – Caribbean Mood",
+      "start": "2026-11-12T23:00:00.000Z",
+      "venue": "Skyfall",
+      "city": "Cannes",
+      "address": "",
+      "url": "https://www.instagram.com/p/Dfh-tKBkRUc/",
+      "image": "https://scontent-ord5-2.cdninstagram.com/v/t51.82787-15/894503908_18644086435063907_3702744291307900835_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=108&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=arCKoHRwiGIQ7kNvwHNvOnj&_nc_oc=Ado37AaB0xgjzRIYDnnqZ0OU4GcJmx22Uhn9jmHP8jscXMKW4n1EHJkUZtREqkwaRJo&_nc_zt=23&_nc_ht=scontent-ord5-2.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=SpEUrOmjtkXA4KOHHhVtlw&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQS9C7soRc95q56lZOgtmydppd25O99nG-EDMtqzWxWkSQ&oe=6B0657F7",
+      "price": 15,
+      "tags": [
+        "dancehall",
+        "shatta",
+        "caribbean"
+      ],
+      "description": "Deux soirées à Skyfall, 21 Bd de la République, Cannes. Vendredi 13 novembre, 00h‑5h, DJ Mygo & DJ Iron, Dancehall/Shatta/Caribbean vibes, 15 € entrée, gratuit avant 1h. Samedi 14 novembre, 20 € avec conso, DJ Enicay, Urban/Shatta/Amapiano, gratuit pour les filles avant 1h. Réservations 07 56 82 70 05. Ambiance festive, idéal pour les 17‑30 ans qui aiment la musique urbaine et les soirées endiablées.",
+      "public_cible": 0.9,
+      "confiance": 0.9,
+      "buzz": 0.85,
+      "buzz_raison": "Deux soirées consécutives, DJ connus, prix attractif, lieu central.",
+      "accroche": "Weekend Skyfall : Caribbean Mood vendredi, The Best or Nothing samedi.",
+      "instagram": [
+        "skyfallinkingdom"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Instagram",
+      "name": "Skyfall – The Best or Nothing",
+      "start": "2026-11-13T23:00:00.000Z",
+      "venue": "Skyfall",
+      "city": "Cannes",
+      "address": "",
+      "url": "https://www.instagram.com/p/Dfh-tKBkRUc/",
+      "image": "https://scontent-ord5-2.cdninstagram.com/v/t51.82787-15/894503908_18644086435063907_3702744291307900835_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=108&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X3VybGdlbi5DMyJ9&_nc_ohc=arCKoHRwiGIQ7kNvwHNvOnj&_nc_oc=Ado37AaB0xgjzRIYDnnqZ0OU4GcJmx22Uhn9jmHP8jscXMKW4n1EHJkUZtREqkwaRJo&_nc_zt=23&_nc_ht=scontent-ord5-2.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=SpEUrOmjtkXA4KOHHhVtlw&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQS9C7soRc95q56lZOgtmydppd25O99nG-EDMtqzWxWkSQ&oe=6B0657F7",
+      "price": 20,
+      "tags": [
+        "urban",
+        "shatta",
+        "amapiano"
+      ],
+      "description": "Samedi 14 novembre à Skyfall, 20 € entrée avec conso, DJ Enicay, Urban/Shatta/Amapiano, gratuit pour les filles avant 1h. Ambiance énergique, lieu central à Cannes. Idéal pour les 17‑30 ans à la recherche d’une soirée urbaine.",
+      "public_cible": 0.9,
+      "confiance": 0.9,
+      "buzz": 0.85,
+      "buzz_raison": "DJ Enicay, prix attractif, soirée endiablée.",
+      "accroche": "Skyfall samedi : The Best or Nothing, DJ Enicay, Urban/Shatta/Amapiano.",
+      "instagram": [
+        "skyfallinkingdom"
+      ]
+    },
+    {
+      "source": "web",
       "source_site": "Shotgun Live / Neon Festival",
       "name": "Ben Carter (NEON XP)",
       "start": "2026-12-17T19:30:00.000Z",
@@ -3761,5 +3970,5 @@
       ]
     }
   ],
-  "maj_instagram": "2026-11-20T18:12:06.229Z"
+  "maj_instagram": "2026-11-20T18:44:19.144Z"
 }

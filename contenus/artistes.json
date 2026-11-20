@@ -684,5 +684,41 @@
    "nom": "Ben Carter",
    "type": "dj"
   }
+ ],
+ "0327a0085d62": [
+  {
+   "nom": "Aaron",
+   "type": "dj"
+  },
+  {
+   "nom": "Paul Palmera",
+   "type": "artiste"
+  }
+ ],
+ "74b302fa7d63": [
+  {
+   "nom": "SDM",
+   "type": "rappeur"
+  },
+  {
+   "nom": "Shay",
+   "type": "rappeur"
+  },
+  {
+   "nom": "Franglish",
+   "type": "rappeur"
+  }
+ ],
+ "c281dd68cd1d": [
+  {
+   "nom": "Kenzo",
+   "type": "dj"
+  }
+ ],
+ "74f26df252c0": [
+  {
+   "nom": "Miss Cecyls",
+   "type": "dj"
+  }
  ]
 }
