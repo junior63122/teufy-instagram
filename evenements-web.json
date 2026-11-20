@@ -313,28 +313,35 @@
     },
     {
       "source": "web",
-      "source_site": "Instagram",
-      "name": "Inside à leservan_valbonne",
+      "source_site": "le.bar.ephemere",
+      "name": "Soirée Inside - Binôme",
       "start": "2026-11-20T18:00:00.000Z",
-      "venue": "leservan_valbonne",
+      "venue": "Le Servan",
       "city": "Valbonne",
       "address": "",
-      "url": "https://www.instagram.com/reel/Df4_hggxJkU/",
-      "image": "",
+      "url": "https://www.instagram.com/p/DfNYz7KOumV/",
+      "image": "https://scontent-ord5-2.cdninstagram.com/v/t51.82787-15/879589436_18386963512238033_1099276741363965797_n.webp?stp=dst-jpg_e35_tt6&_nc_cat=102&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=JOikiJynTdQQ7kNvwFSCgZE&_nc_oc=Ado4Kg-KtydsQzQbpghA8QOlHHIFo8dWKE_8DlshifCq8kKjx1K0rajZprgqarYaUIo&_nc_zt=23&_nc_ht=scontent-ord5-2.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=QtVK4NxjwkZ_QqEh2gCyUw&oh=00_AQTUGwD9bN2ztvlbF-YCJmjkJW1j2Gs3Nns1ewjlxhYZrg&oe=6AF8C22A",
       "price": 0,
       "tags": [
+        "open format",
         "house",
         "electro",
         "dancehall"
       ],
       "description": "Première soirée de la saison Inside à leservan_valbonne. Petite carte de tapas et finger food, vin et cocktails, DJ set d’Aaron avec percussion de Paul Palmera. Table réservable entre 19h et 20h30, mais pas incluse dans la prévente. Dress code correct, parking sur place. Horaires 19h à 00h45, idéal pour les 17‑30 ans à la recherche d’une ambiance conviviale et musicale.",
-      "public_cible": 0.7,
-      "confiance": 0.85,
+      "public_cible": 0.75,
+      "confiance": 0.95,
       "buzz": 0.5,
-      "buzz_raison": "Concept Inside, DJ connu, lieu cosy, audience Instagram modérée.",
-      "accroche": "Soirée Inside à Valbonne : tapas, cocktails et DJ set d’Aaron.",
+      "buzz_raison": "Soirée à thème binôme/déguisement de lancement de saison.",
+      "accroche": "Première soirée inside au Servan avec DJ set by Aaron et Paul Palmera aux percussions.",
       "instagram": [
-        "le.bar.ephemere"
+        "le.bar.ephemere",
+        "leservan_valbonne"
+      ],
+      "offres": [],
+      "sources_sites": [
+        "le.bar.ephemere",
+        "Instagram"
       ]
     },
     {
@@ -3214,32 +3221,6 @@
     },
     {
       "source": "web",
-      "source_site": "le.bar.ephemere",
-      "name": "Soirée Inside - Binôme",
-      "start": "2026-11-20T18:00:00.000Z",
-      "venue": "Le Servan",
-      "city": "Valbonne",
-      "address": "",
-      "url": "https://www.instagram.com/p/DfNYz7KOumV/",
-      "image": "https://scontent-ord5-2.cdninstagram.com/v/t51.82787-15/879589436_18386963512238033_1099276741363965797_n.webp?stp=dst-jpg_e35_tt6&_nc_cat=102&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=JOikiJynTdQQ7kNvwFSCgZE&_nc_oc=Ado4Kg-KtydsQzQbpghA8QOlHHIFo8dWKE_8DlshifCq8kKjx1K0rajZprgqarYaUIo&_nc_zt=23&_nc_ht=scontent-ord5-2.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=QtVK4NxjwkZ_QqEh2gCyUw&oh=00_AQTUGwD9bN2ztvlbF-YCJmjkJW1j2Gs3Nns1ewjlxhYZrg&oe=6AF8C22A",
-      "price": null,
-      "tags": [
-        "open format",
-        "house",
-        "electro"
-      ],
-      "description": "",
-      "public_cible": 0.75,
-      "confiance": 0.95,
-      "buzz": 0.5,
-      "buzz_raison": "Soirée à thème binôme/déguisement de lancement de saison.",
-      "accroche": "Première soirée inside au Servan avec DJ set by Aaron et Paul Palmera aux percussions.",
-      "instagram": [
-        "le.bar.ephemere"
-      ]
-    },
-    {
-      "source": "web",
       "source_site": "shotgun.live",
       "name": "Origins Invite Boticka All Night Long",
       "start": "2026-11-28T22:30:00.000Z",
@@ -3950,5 +3931,5 @@
       ]
     }
   ],
-  "maj_instagram": "2026-11-20T20:12:34.757Z"
+  "maj_instagram": "2026-11-20T20:44:16.699Z"
 }

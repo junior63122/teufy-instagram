@@ -3745,5 +3745,59 @@
    "nom": "",
    "m": 141
   }
+ },
+ "43.6974,7.2764": {
+  "le": "2026-11-20T20:49:02.420Z",
+  "parkings": [
+   {
+    "nom": "Palais de Justice",
+    "type": "underground",
+    "payant": true,
+    "m": 211
+   },
+   {
+    "nom": "Parking Corvésy",
+    "type": "multi-storey",
+    "payant": true,
+    "m": 350
+   },
+   {
+    "nom": "Promenade des Arts",
+    "type": "underground",
+    "payant": true,
+    "m": 421
+   }
+  ],
+  "transports": [
+   {
+    "nom": "Cathédrale - Vieille Ville",
+    "type": "bus",
+    "m": 114,
+    "lignes": "33;33S;98"
+   },
+   {
+    "nom": "Cathédrale - Vieille Ville",
+    "type": "tram",
+    "m": 115,
+    "lignes": ""
+   },
+   {
+    "nom": "Lycée Masséna",
+    "type": "bus",
+    "m": 229,
+    "lignes": "8+;12+;57"
+   },
+   {
+    "nom": "Opéra - Vieille Ville",
+    "type": "tram",
+    "m": 277,
+    "lignes": ""
+   }
+  ],
+  "velo": {
+   "nom": "Nice cycle tours",
+   "m": 76
+  },
+  "taxi": null
  }
 }
