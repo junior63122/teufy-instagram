@@ -79,8 +79,27 @@ function ocrAffiche(s) {
   const ok = lues.some((d) => dateCompatible(d, [J, M]));
   return {ok, raison: ok ? 'date de l\'affiche conforme (OCR)' : `date lue ${lues.map(([j, m]) => `${j}/${m}`).join(', ')} ≠ ${J}/${M} (OCR)`};
 }
+// Groq (gratuit, 20/11/2026) : un modèle qui lit les images vérifie l'affiche quand Gemini n'est pas disponible.
+async function verifierAfficheGroq(s, consigne) {
+  const CLE = (process.env.GROQ_API_KEY || '').trim();
+  if (!CLE || CLE.startsWith('xai-')) return null;
+  const brut = readFileSync(path.join(STUDIO, 'public', s.image));
+  if (brut.length > 3.5e6) return null; // limite de taille des images envoyées
+  const mime = brut[0] === 0x89 ? 'image/png' : brut.subarray(8, 12).toString() === 'WEBP' ? 'image/webp' : 'image/jpeg';
+  try {
+    const r = await fetch('https://api.groq.com/openai/v1/chat/completions', {method: 'POST', headers: {'content-type': 'application/json', authorization: `Bearer ${CLE}`}, signal: AbortSignal.timeout(90000), body: JSON.stringify({
+      model: process.env.GROQ_MODELE_VISION || 'meta-llama/llama-4-scout-17b-16e-instruct', response_format: {type: 'json_object'}, temperature: 0,
+      messages: [{role: 'user', content: [{type: 'text', text: consigne}, {type: 'image_url', image_url: {url: `data:${mime};base64,${brut.toString('base64')}`}}]}]})});
+    if (!r.ok) return null;
+    const v = JSON.parse((await r.json()).choices?.[0]?.message?.content || '');
+    if (typeof v.correspond !== 'boolean') return null; // réponse incomplète : jamais prise pour un « ok »
+    return {ok: v.correspond, raison: `${v.raison || ''} (Groq)`};
+  } catch { return null; }
+}
 async function verifierAffiche(s) {
   const CLE = (process.env.GEMINI_API_KEY || '').trim();
+  const consigneGroq = `Voici l'affiche censée illustrer cette soirée : « ${s.nom} », ${s.jour}, ${s.lieu}. Regarde le texte et les noms sur l'image. Réponds en JSON {"correspond": true|false, "raison": "..."} : false seulement si l'affiche annonce clairement une AUTRE soirée (autre nom, autre artiste principal, autre lieu ou autre date). Une affiche sans texte, un visuel d'artiste ou de lieu cohérent = true.`;
+  if (process.env.TEUFY_IA_MANUEL !== '1' && (!CLE || process.env.GEMINI_EN_PAUSE === '1')) { const g = await verifierAfficheGroq(s, consigneGroq); if (g) return g; }
   if (!CLE || process.env.TEUFY_IA_MANUEL === '1') return ocrAffiche(s); // contrôle gratuit (lecture du texte de l'affiche)
   const API = 'https://generativelanguage.googleapis.com/v1beta/models';
   try {

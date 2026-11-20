@@ -30,3 +30,10 @@ test('veille : rien la nuit (hors créneau 8h-23h)', async () => {
   const r = await veiller({ config: { veille: {} }, now, ia, dryRun: true, log: () => {} });
   assert.equal(r.apublier, null);
 });
+
+test('rythme : la veille dort la nuit et ne retravaille pas avant l\'intervalle', async () => {
+  const ia = { rechercher: async () => { throw new Error('ne doit pas être appelée'); }, json: async () => { throw new Error('ne doit pas être appelée'); } };
+  const journal = [];
+  await veiller({ config: { veille: {} }, now: new Date('2030-01-10T03:00:00Z'), ia, dryRun: true, log: (l) => journal.push(l) }); // 4 h à Paris
+  assert.ok(journal.some((l) => /pause de nuit/.test(l)));
+});

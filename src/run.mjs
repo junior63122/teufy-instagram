@@ -1082,7 +1082,7 @@ async function carrouselDA({ chosen, id, dir, now, titre = [], titreFlash, rubri
       const fe = path.join(ROOT, 'out', `carrousel-${id}.json`);
       await mkdir(path.dirname(fe), { recursive: true });
       entree.mise = miseCouv();
-      const lancer = async () => { await writeFile(fe, JSON.stringify(entree)); return spawnSync('node', [path.join(ROOT, 'studio', 'scripts', 'affiches.mjs'), fe, dir], { cwd: path.join(ROOT, 'studio'), stdio: 'inherit', env: { ...process.env, NODE_USE_ENV_PROXY: '1' } }); };
+      const lancer = async () => { await writeFile(fe, JSON.stringify(entree)); return spawnSync('node', [path.join(ROOT, 'studio', 'scripts', 'affiches.mjs'), fe, dir], { cwd: path.join(ROOT, 'studio'), stdio: 'inherit', env: { ...process.env, NODE_USE_ENV_PROXY: '1', GEMINI_EN_PAUSE: (await import('./llm.mjs')).geminiEnPause(config) ? '1' : '0' } }); };
       let r = await lancer();
       // Mise en page refusée par le contrôle visuel (texte trop long…) : on refait avec la composition d'origine.
       if (r.status !== 0 && r.status !== 3 && entree.mise !== 'bas') { console.error(`Couverture « ${entree.mise} » refusée : mise « bas » à la place.`); entree.mise = MISE_COUV = 'bas'; r = await lancer(); }

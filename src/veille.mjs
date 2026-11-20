@@ -109,6 +109,15 @@ export async function veiller({ config, now = new Date(), ig = null, api = {}, i
   const jour = now.toISOString().slice(0, 10);
   const heureParis = parseInt(new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Paris', hour: '2-digit', hourCycle: 'h23' }).format(now), 10);
 
+  // Rythme (20/11/2026) : le déclencheur externe passe toutes les 30 min ; la veille ne travaille qu'une fois par
+  // config.veille.intervalle_minutes (60 par défaut) et dort la nuit (config.veille.nuit, 2 h à 8 h à Paris) : moins
+  // d'appels à l'API Instagram et à l'IA, sans rater une annonce (elles tombent en journée).
+  const [nDeb, nFin] = V.nuit || [2, 8];
+  if (!V.toujours && heureParis >= nDeb && heureParis < nFin) { log(`Veille : pause de nuit (${nDeb} h à ${nFin} h).`); return { sujets: [], apublier: null, idees: [] }; }
+  const dernierPassage = vus._dernier_passage ? Date.parse(vus._dernier_passage) : 0;
+  if (dernierPassage <= now.getTime() && now - dernierPassage < ((V.intervalle_minutes ?? 60) - 5) * 60e3) { log(`Veille : dernier passage il y a ${Math.round((now - dernierPassage) / 60e3)} min (rythme : ${V.intervalle_minutes ?? 60} min).`); return { sujets: [], apublier: null, idees: [] }; }
+  if (!dryRun) { vus._dernier_passage = now.toISOString(); await mkdir(path.dirname(VUS), { recursive: true }); await writeFile(VUS, JSON.stringify(vus, null, 1) + '\n'); }
+
   // 1. Signaux.
   const posts = ig && api.businessDiscovery ? await postsRecents({ ig, api, now, heures: V.fenetre_heures ?? 36, log }) : [];
   log(`Veille : ${posts.length} post(s) Instagram récents chez les comptes suivis.`);
@@ -158,8 +167,8 @@ Pour chaque point : titre, date et heure de publication, URL de la source la plu
     const banque = lire(IDEES, []);
     for (const s of idees) banque.push({ id: `idee-${hash(s.titre)}`, ajout: now.toISOString(), type: s.type, format: s.format, titre: s.titre, angle: s.angle, resume: s.resume, source: s.source_url, importance: s.importance });
     await mkdir(path.dirname(VUS), { recursive: true });
-    const derniere = vus._derniere_recherche; delete vus._derniere_recherche; // gardée à part (sinon élaguée avec les anciens sujets)
-    await writeFile(VUS, JSON.stringify({ ...Object.fromEntries(Object.entries(vus).slice(-1500)), ...(derniere ? { _derniere_recherche: derniere } : {}) }, null, 1) + '\n');
+    const derniere = vus._derniere_recherche, passage = vus._dernier_passage; delete vus._derniere_recherche; delete vus._dernier_passage; // gardés à part (sinon élagués avec les anciens sujets)
+    await writeFile(VUS, JSON.stringify({ ...Object.fromEntries(Object.entries(vus).slice(-1500)), ...(derniere ? { _derniere_recherche: derniere } : {}), ...(passage ? { _dernier_passage: passage } : {}) }, null, 1) + '\n');
     await writeFile(IDEES, JSON.stringify(banque.slice(-300), null, 1) + '\n');
     // Soirées annoncées (source officielle, date et lieu certains) : ajoutées tout de suite à l'agenda du site.
     try {

@@ -285,7 +285,13 @@
     "fenetre_heures": 36,
     "max_par_jour": 2,
     "heure_min": 8,
-    "heure_max": 23
+    "heure_max": 23,
+    "intervalle_minutes": 60,
+    "nuit": [
+      2,
+      8
+    ],
+    "_rythme": "20/11/2026 : veille toutes les heures de 8 h à 2 h (Paris), pause la nuit. Pas toutes les 6 h : une annonce (« un nom vient de tomber ») vaut surtout dans les premières heures, et c'est notre format qui marche le mieux."
   },
   "commentaires": {
     "actif": false,

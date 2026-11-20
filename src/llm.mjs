@@ -249,10 +249,21 @@ async function claude({ system, prompt, schema, outils = false, L = {} }) {
 }
 
 // --- Groq (gratuit, sans carte bancaire ; API compatible OpenAI) -----------------------------------------------
-const GROQ = 'https://api.groq.com/openai/v1/chat/completions';
+// Une clé Grok (xAI, « xai-… ») mise par erreur sous ce nom marche aussi : même format d'API, autre adresse.
+const estXai = () => process.env.GROQ_API_KEY.trim().startsWith('xai-');
+const GROQ = () => (estXai() ? 'https://api.x.ai/v1/chat/completions' : 'https://api.groq.com/openai/v1/chat/completions');
 const groqEntetes = () => ({ 'content-type': 'application/json', authorization: `Bearer ${process.env.GROQ_API_KEY.trim()}` });
+let xaiModeles;
+async function modelesXai() {
+  if (!xaiModeles) {
+    try { const j = await (await fetch('https://api.x.ai/v1/models', { headers: groqEntetes(), signal: AbortSignal.timeout(20000) })).json();
+      xaiModeles = (j.data || []).map((m) => m.id).filter((id) => /grok/.test(id) && !/image|vision|imagine|video/.test(id)).sort((a, b) => (/fast|mini/.test(b) ? 1 : 0) - (/fast|mini/.test(a) ? 1 : 0)).slice(0, 2);
+    } catch { xaiModeles = []; }
+  }
+  return xaiModeles;
+}
 async function groqAppel(body) {
-  const res = await fetch(GROQ, { method: 'POST', headers: groqEntetes(), body: JSON.stringify(body), signal: AbortSignal.timeout(180000) });
+  const res = await fetch(GROQ(), { method: 'POST', headers: groqEntetes(), body: JSON.stringify(body), signal: AbortSignal.timeout(180000) });
   const txt = await res.text();
   if (!res.ok) { const e = new Error(`Groq HTTP ${res.status} ${txt.slice(0, 200)}`); e.status = res.status; throw e; }
   const j = JSON.parse(txt); // une réponse non JSON (comme le « OK » de GitHub Models) lève une erreur : jamais pris pour un succès
@@ -262,7 +273,7 @@ async function groqAppel(body) {
 }
 // JSON : sortie structurée stricte si le modèle la prend, sinon mode JSON, sinon texte ; toujours relu et vérifié.
 async function groqJson({ L, system, prompt, schema, nom }) {
-  const modeles = [...new Set([L.modele_groq || 'openai/gpt-oss-120b', 'llama-3.3-70b-versatile'])];
+  const modeles = estXai() ? await modelesXai() : [...new Set([L.modele_groq || 'openai/gpt-oss-120b', 'llama-3.3-70b-versatile'])];
   const formats = [{ type: 'json_schema', json_schema: { name: nom, strict: true, schema } }, { type: 'json_object' }, null];
   const journal = [];
   for (const model of modeles) for (const format of formats) {
@@ -281,5 +292,6 @@ async function groqJson({ L, system, prompt, schema, nom }) {
 }
 // Recherche web : modèle « groq/compound » (recherche intégrée), sources citées dans la réponse.
 async function groqRecherche({ L, system, prompt }) {
+  if (estXai()) throw new Error('recherche web non branchée pour une clé xAI');
   return groqAppel({ model: L.modele_groq_recherche || 'groq/compound', messages: [{ role: 'system', content: `${system}\nCite l'adresse (URL) de chaque source.` }, { role: 'user', content: prompt }] });
 }
