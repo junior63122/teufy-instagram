@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>新功能 · Teufy</title>
-<meta name="description" content="Les nouveautés de Teufy, version par version : nouvelles fonctions, corrections et sécurité.">
+<meta name="description" content="Teufy 的新功能、修复与安全更新，按版本列出。">
 <link rel="canonical" href="https://teufyparty.com/zh/mises-a-jour/">
 <link rel="alternate" hreflang="fr" href="https://teufyparty.com/mises-a-jour/">
 <link rel="alternate" hreflang="en" href="https://teufyparty.com/en/mises-a-jour/">
@@ -14,7 +14,7 @@
 <link rel="alternate" hreflang="ar" href="https://teufyparty.com/ar/mises-a-jour/">
 <link rel="alternate" hreflang="x-default" href="https://teufyparty.com/mises-a-jour/">
 <meta property="og:title" content="新功能 · Teufy">
-<meta property="og:description" content="Les nouveautés de Teufy, version par version : nouvelles fonctions, corrections et sécurité.">
+<meta property="og:description" content="Teufy 的新功能、修复与安全更新，按版本列出。">
 <meta property="og:image" content="https://teufyparty.com/site/img/equipe/monaco.jpg">
 <meta property="og:url" content="https://teufyparty.com/zh/mises-a-jour/">
 <meta property="og:type" content="website">
@@ -53,86 +53,86 @@
 <main id="contenu">
 <article class="article page-maj">
   <h1>新功能</h1>
-  <p>Teufy évolue chaque semaine : nouvelles fonctions, corrections et sécurité. Voici ce qui a changé, version par version.</p>
+  <p>Teufy每周更新：新功能、修复和安全。以下是各版本的变化。</p>
   <section class="maj maj-derniere" id="maj-1-19-01">
     <p class="maj-tete"><span class="maj-num">版本 1.19.01</span><span class="maj-neuf">新</span><time datetime="2026-11-20">2026年11月20日</time></p>
     <h2>在互联网上搜索不使用Google</h2>
-    <ul><li>Teufy cherche de nouveau les soirées et les actus sur internet, même quand Google (Gemini) est en pause.</li></ul>
-    <details><summary>Le détail</summary><ul><li>Moteur de recherche gratuit Tavily (secret TAVILY_API_KEY, 1 000 recherches par mois) : Groq écrit la requête, Tavily cherche, Groq répond uniquement à partir des pages trouvées et cite ses sources ; aucun résultat = rien d&#39;inventé.</li><li>Au plus 30 recherches par jour ; prospection et fiches de lieux s&#39;arrêtent à 15 pour garder la veille des actus et les soirées ; recherche des soirées : 6 sources par jour à tour de rôle.</li></ul></details>
+    <ul><li>Teufy再次在互联网上寻找派对和新闻，即使Google（Gemini）暂停。</li></ul>
+    <details><summary>细节</summary><ul><li>免费搜索引擎Tavily（秘密TAVILY_API_KEY，每月1,000次搜索）：Groq编写查询，Tavily搜索，Groq仅根据找到的页面回答并引用其来源；无结果=不编造。</li><li>每天最多30次搜索；场所列表和信息收集停在15个，以保持新闻和派对的监控；派对搜索：每天轮流6个来源。</li></ul></details>
   </section>
   <section class="maj" id="maj-1-18-01">
     <p class="maj-tete"><span class="maj-num">版本 1.18.01</span><time datetime="2026-11-20">2026年11月20日</time></p>
-    <h2>Plus de billetteries et veille quotidienne</h2>
-    <ul><li>Teufy lit maintenant plus de billetteries et d&#39;agendas (concerts, festivals, soirées) sur toute la Côte d&#39;Azur, Monaco, Saint-Tropez et le Var.</li><li>Chaque jour, Teufy vérifie que toutes ses sources marchent et répare ce qui manque.</li></ul>
-    <details><summary>Le détail</summary><ul><li>Billetteries ajoutées : Eventbrite (concerts et musique à Nice, Cannes, Monaco, Toulon ; Saint-Tropez, Fréjus), DICE Monaco, Allevents (7 villes), Xceed (Nice, Cannes, Monaco), Shotgun Nice.</li><li>Billetteries lues toutes les 6 h, 4 à la fois, dernier relevé gardé entre deux lectures : une source lente ne retarde plus les publications.</li><li>Veille technique quotidienne sans IA : version de l&#39;API Instagram, modèles d&#39;IA encore ouverts, actions GitHub et Node, failles npm, état de chaque billetterie, informations manquantes des soirées (contenus/veille-technique.json).</li></ul></details>
+    <h2>更多票务平台和每日监控</h2>
+    <ul><li>Teufy现在阅读更多票务和日程（音乐会、节日、派对）来自整个法国里维埃拉、摩纳哥、圣特罗佩和瓦尔。</li><li>每天，Teufy检查所有来源是否正常工作并修复缺失的部分。</li></ul>
+    <details><summary>细节</summary><ul><li>新增票务平台：Eventbrite（尼斯、坎城、摩纳哥、土伦的音乐会和音乐；圣特罗佩、弗雷尤），DICE Monaco，Allevents（7个城市），Xceed（尼斯、坎城、摩纳哥），Shotgun Nice。</li><li>每6小时读取一次票务平台，4个一次，最近一次读取保留在两次读取之间：慢速来源不再延迟发布。</li><li>每日技术监控无AI：Instagram API版本、仍开放的AI模型、GitHub和Node操作、npm漏洞、每个票务平台的状态、派对缺失信息（contents/veille-technique.json）。</li></ul></details>
   </section>
   <section class="maj" id="maj-1-17-01">
     <p class="maj-tete"><span class="maj-num">版本 1.17.01</span><time datetime="2026-11-20">2026年11月20日</time></p>
-    <h2>Soirées des clubs lues à la source</h2>
-    <ul><li>Les soirées annoncées par les clubs et les bars sur leur Instagram et sur leur site arrivent plus vite sur Teufy.</li><li>L&#39;annuaire compte maintenant aussi les bars de Monaco et de Saint-Tropez.</li><li>La page « Ce soir » est de nouveau à jour.</li></ul>
-    <details><summary>Le détail</summary><ul><li>Instagram : à chaque passage, 8 comptes relus en rotation, les clubs et bars d&#39;abord (relus toutes les 12 h), les autres toutes les 24 h ; avant, toujours les 20 mêmes comptes et jamais les clubs.</li><li>Seuls les posts jamais lus partent à l&#39;IA gratuite ; le nom et l&#39;affiche annoncés par le club lui-même l&#39;emportent sur ceux d&#39;un autre site.</li><li>Sites officiels des clubs lus sans IA (données de soirée publiées par les pages), relevé gardé 12 h.</li><li>Annuaire : bars et pubs de la carte OpenStreetMap pour Monaco, Beausoleil, Saint-Tropez, Ramatuelle et Gassin.</li><li>Page « Ce soir » figée depuis le 18/11 (non enregistrée par les robots) : réparée.</li></ul></details>
+    <h2>俱乐部派对从源头读取</h2>
+    <ul><li>由俱乐部和酒吧在其 Instagram 及网站上公布的派对信息，比在 Teufy 上更快到达。</li><li>目录现在也包括摩纳哥和圣特罗佩的酒吧。</li><li>“今晚”页面再次保持最新。</li></ul>
+    <details><summary>细节</summary><ul><li>Instagram：每次更新时，8 个账号按轮换方式重新审核，先审核俱乐部和酒吧（每 12 小时一次），其余账号每 24 小时一次；以前总是同 20 个账号，从未审核俱乐部。</li><li>仅将从未阅读过的帖子发送至免费 AI；俱乐部自身公布的名称和海报优先于其他网站的。</li><li>官方俱乐部网站不使用 AI 读取（页面发布的派对数据），记录保留 12 小时。</li><li>目录：摩纳哥、博索莱、圣特罗佩、拉马图耶尔和加辛的 OpenStreetMap 地图上的酒吧和酒馆。</li><li>“今晚”页面自 18/11 起被冻结（未被机器人保存）：已修复。</li></ul></details>
   </section>
   <section class="maj" id="maj-1-16-01">
     <p class="maj-tete"><span class="maj-num">版本 1.16.01</span><time datetime="2026-11-20">2026年11月20日</time></p>
     <h2>新页面：好好出门</h2>
-    <ul><li>Une page « Bien sortir » : les bons réflexes pour rentrer, garder son verre, appeler à l&#39;aide, et acheter ses billets sans se faire arnaquer.</li></ul>
-    <details><summary>Le détail</summary><ul><li>Site : page « Bien sortir » (sécurité en soirée, numéros d&#39;urgence officiels, arnaques à la revente de billets), dans le menu Teufy et le pied de page, en 6 langues.</li></ul></details>
+    <ul><li>“好出门”页面：进入、保管饮料、寻求帮助以及购买门票时的正确做法，防止被骗。</li></ul>
+    <details><summary>细节</summary><ul><li>网站：在 Teufy 菜单和页脚中提供“好出门”页面（夜间安全、官方紧急号码、票务转售骗局），共 6 秀语言。</li></ul></details>
   </section>
   <section class="maj" id="maj-1-15-01">
     <p class="maj-tete"><span class="maj-num">版本 1.15.01</span><time datetime="2026-11-20">2026年11月20日</time></p>
-    <h2>Teufy arrive sur TikTok</h2>
-    <ul><li>Teufy publie aussi ses vidéos sur TikTok : soirées, bons plans et « Tague ton pote ».</li></ul>
-    <details><summary>Le détail</summary><ul><li>TikTok : planning automatique de 1 à 2 vidéos par jour (12 h 30 et 19 h 30), jamais la même vidéo deux fois en 14 jours, sur une page interne non référencée avec téléchargement et légende à copier ; les reels Instagram publiés y sont ajoutés automatiquement.</li></ul></details>
+    <h2>Teufy 正在进入 TikTok。</h2>
+    <ul><li>Teufy 也在 TikTok 上发布视频：派对、优惠和“标记你的伙伴”。</li></ul>
+    <details><summary>细节</summary><ul><li>TikTok：每天自动发布 1 至 2 条视频（12:30 和 19:30），14 天内不重复同一视频，使用内部未索引页面，提供可下载和复制的字幕；Instagram Reels 自动添加。</li></ul></details>
   </section>
   <section class="maj" id="maj-1-14-06">
     <p class="maj-tete"><span class="maj-num">版本 1.14.06</span><time datetime="2026-11-20">2026年11月20日</time></p>
-    <h2>Le site se remet à jour tout seul</h2>
-    <ul><li>Les fiches des lieux, les affiches et les traductions du site se remettent à jour automatiquement.</li></ul>
-    <details><summary>Le détail</summary><ul><li>Site : les tâches qui lisaient les affiches, cherchaient sur le web ou complétaient les fiches des lieux avec Gemini passent par Groq (gratuit) tant que Gemini est en pause.</li></ul></details>
+    <h2>网站自行更新。</h2>
+    <ul><li>地点资料、海报和网站翻译会自动更新。</li></ul>
+    <details><summary>细节</summary><ul><li>网站：通过 Groq（免费）处理阅读海报、在网络上搜索或使用 Gemini 完成地点信息的任务，只要 Gemini 暂停。</li></ul></details>
   </section>
   <section class="maj" id="maj-1-14-05">
     <p class="maj-tete"><span class="maj-num">版本 1.14.05</span><time datetime="2026-11-20">2026年11月20日</time></p>
-    <h2>Des affiches mieux vérifiées</h2>
-    <ul><li>Les affiches des soirées sont vérifiées par une IA qui lit l&#39;image (bon nom, bonne date) avant d&#39;apparaître sur notre Instagram.</li></ul>
-    <details><summary>Le détail</summary><ul><li>Veille : une fois par heure de 8 h à 2 h, pause la nuit (au lieu de toutes les 30 min).</li><li>Affiches : vérification par Groq (modèle qui lit les images) quand Gemini est indisponible ; une réponse incomplète n&#39;est jamais prise pour un accord.</li><li>IA : une clé Grok (xAI) enregistrée sous le nom GROQ_API_KEY est reconnue.</li></ul></details>
+    <h2>更可靠的海报</h2>
+    <ul><li>派对海报由人工智能读取图像（正确的名称、正确的日期）后进行验证，才会出现在我们的 Instagram 上。</li></ul>
+    <details><summary>细节</summary><ul><li>监控：每小时一次，从上午 8 点到凌晨 2 点，夜间暂停（不再每 30 分钟一次）。</li><li>海报：当 Gemini 不可用时，由 Groq（图像识别模型）进行验证；不完整的回复永不视为同意。</li><li>人工智能：在名为 GROQ_API_KEY 的 Grok（xAI）密钥下注册。</li></ul></details>
   </section>
   <section class="maj" id="maj-1-14-04">
     <p class="maj-tete"><span class="maj-num">版本 1.14.04</span><time datetime="2026-11-20">2026年11月20日</time></p>
-    <h2>Les actus reviennent plus vite</h2>
-    <ul><li>Les actus de la nuit (annonces de line-up, nouvelles dates, festivals) reprennent dès que la nouvelle IA gratuite est branchée.</li></ul>
-    <details><summary>Le détail</summary><ul><li>IA : Groq ajouté (gratuit, sans carte bancaire) pour la veille et les actus, avec recherche web ; GitHub Models retiré (fermé par GitHub le 30/07/2026, il répondait « OK » à tout). Une réponse vide ou non conforme n&#39;est jamais prise pour un succès.</li></ul></details>
+    <h2>新闻更新更快</h2>
+    <ul><li>夜间新闻（阵容公告、新日期、节日）将在新的免费 AI 接入后立即恢复。</li></ul>
+    <details><summary>细节</summary><ul><li>人工智能：为监控和新闻添加了 Groq（免费，无需信用卡），并支持网页搜索；GitHub Models 已被移除（2026 年 7 月 30 日被 GitHub 关闭，之前对所有请求都回复“OK”）。空白或不符合要求的回复永不视为成功。</li></ul></details>
   </section>
   <section class="maj" id="maj-1-14-03">
     <p class="maj-tete"><span class="maj-num">版本 1.14.03</span><time datetime="2026-11-20">2026年11月20日</time></p>
-    <h2>Un nouveau planning sur Instagram</h2>
-    <ul><li>Plus de soirées techno sur notre Instagram : chaque jeudi, avec l&#39;Édition Tekno un jeudi sur deux.</li><li>De nouvelles vidéos « Tague ton pote » à partager avec tes potes.</li></ul>
-    <details><summary>Le détail</summary><ul><li>Instagram : planning revu selon les chiffres (techno chaque jeudi, « Tague ton pote » à la place du Grand Débat, 2 spots promo par semaine, plus de guide « où manger » ni de post le samedi, publication entre 16 h et 18 h).</li><li>Instagram : 4 nouveaux épisodes « Tague ton pote », et les 2 premiers refaits sans emoji ni verre en gros plan.</li><li>Revue des chiffres et des comptes comparables deux fois par semaine, avec décisions notées dans ANALYSE-ENGAGEMENT.md.</li></ul></details>
+    <h2>Instagram 上的新日程表</h2>
+    <ul><li>我们的 Instagram 将不再仅发布科技派对：每周四发布，Tekno 版每隔一周一次。</li><li>全新“标记你的朋友”视频，供你与朋友分享。</li></ul>
+    <details><summary>细节</summary><ul><li>Instagram：根据数据重新规划日程（每周四发布科技音乐，“标记你的朋友”取代大辩论，每周两次推广点，取消“哪里吃”指南及周六帖子，发布时间在 16 点至 18 点之间）。</li><li>Instagram：新增 4 集“标记你的朋友”，前两集重新制作，去除表情符号和特写酒杯。</li><li>每周两次审查数据和可比账户，并在 ANALYSE-ENGAGEMENT.md 中记录决策。</li></ul></details>
   </section>
   <section class="maj" id="maj-1-14-02">
     <p class="maj-tete"><span class="maj-num">版本 1.14.02</span><time datetime="2026-11-20">2026年11月20日</time></p>
-    <h2>Des publications plus naturelles</h2>
-    <ul><li>Les légendes de nos posts Instagram sont plus naturelles et plus simples à partager avec tes potes.</li></ul>
-    <details><summary>Le détail</summary><ul><li>Instagram : légendes sans emoji, terminées par un appel à envoyer le post à un pote (l&#39;appel à s&#39;abonner des promos est gardé). Analyse complète : ANALYSE-ENGAGEMENT.md.</li></ul></details>
+    <h2>更自然的发布</h2>
+    <ul><li>我们的 Instagram 帖子标题更自然、更易于与朋友分享</li></ul>
+    <details><summary>细节</summary><ul><li>Instagram：无表情符号的标题，结尾附上发送帖子给朋友的呼吁（保留订阅促销的呼吁）。完整分析：ANALYSE-ENGAGEMENT.md。</li></ul></details>
   </section>
   <section class="maj" id="maj-1-14-01">
     <p class="maj-tete"><span class="maj-num">版本 1.14.01</span><time datetime="2026-11-20">2026年11月20日</time></p>
-    <h2>La page Nouveautés est en ligne</h2>
-    <ul><li>Cette page : toutes les nouveautés de Teufy, version par version. Un bandeau te prévient quand une nouvelle version sort.</li><li>Les couvertures de nos réels s&#39;affichent en entier aussi dans la grille du profil Instagram (plus de titre coupé).</li></ul>
-    <details><summary>Le détail</summary><ul><li>Site : page « Nouveautés » (adresse /mises-a-jour/), lien dans le menu Teufy avec la pastille « Nouveau » pendant 14 jours, bandeau en haut des pages pendant 7 jours après une nouvelle version.</li><li>Instagram : couvertures de réels recomposées pour la grille du profil (recadrage 3:4) et pour l&#39;onglet Réels (9:16) ; textes et pastilles hors des zones où Instagram affiche le nombre de vues et ses icônes. Même précaution pour les couvertures des posts.</li></ul></details>
+    <h2>新功能页面上线</h2>
+    <ul><li>此页面：Teufy 的所有新功能，按版本展示。一个横幅会在新版本发布时提醒你。</li><li>我们的 Reels 封面在 Instagram 个人资料网格中完整显示（不再被截断标题）。</li></ul>
+    <details><summary>细节</summary><ul><li>网站：新功能页面（/mises-a-jour/ 地址），在 Teufy 菜单中加入“新”徽章，持续 14 天；页面顶部横幅在新版本发布后 7 天内显示。</li><li>Instagram：Reels 封面重新组合以适配个人资料网格（3:4）和 Reels 选项卡（9:16）；文本和徽章位于 Instagram 显示观看次数和图标的区域之外。对帖子封面同样采取此预防措施。</li></ul></details>
   </section>
   <section class="maj" id="maj-1-13-02">
     <p class="maj-tete"><span class="maj-num">版本 1.13.02</span><time datetime="2026-11-19">2026年11月19日</time></p>
-    <h2>Une Teufy plus fiable sur Instagram</h2>
-    <ul><li>Plus aucune publication oubliée : chaque post, réel et story est vérifié une fois en ligne, et repris s&#39;il manque.</li><li>Les réels se reconnaissent d&#39;un coup d&#39;œil dans notre grille Instagram (pastille « RÉEL »).</li><li>Des couvertures plus variées dans la grille Instagram.</li><li>Les versions de Teufy sont numérotées (comme celle-ci).</li></ul>
-    <details><summary>Le détail</summary><ul><li>Instagram : chaque publication est relue sur Instagram juste après son envoi (en ligne, bon format, bon nombre d&#39;images, légende, couverture) au lieu de se fier au simple « ok » de l&#39;API.</li><li>Instagram : auto-contrôle à chaque passage horaire de tout ce qui devait sortir dans la journée (posts, reels, stories) ; ce qui manque est repris au passage suivant, et toute anomalie est signalée.</li><li>Instagram : une story ratée n&#39;est plus notée « faite » ; seules les images manquantes sont republiées au passage suivant.</li><li>Instagram : une partie du quota de l&#39;API est gardée pour les publications (les analyses de comptes passent après).</li><li>Instagram : si un post ne peut pas être préparé (panne), un format de secours sort à sa place.</li><li>Instagram : chaque reel a sa couverture dans la charte, avec un bouton lecture et la pastille « RÉEL » pour le distinguer des posts ; cinq mises en page de couverture tournent dans la grille.</li><li>Numérotation des versions au format 1.13.02.</li></ul></details>
+    <h2>更可靠的 Teufy Instagram</h2>
+    <ul><li>不再遗漏任何发布：每条帖子、Reel 和故事上线后都会被检查一次，如有缺失则重新发布。</li><li>Reels 在我们的 Instagram 网格中一眼可辨（徽章“REEL”）。</li><li>Instagram 网格中的封面更加多样化。</li><li>Teufy 的版本已编号（如本例）。</li></ul>
+    <details><summary>细节</summary><ul><li>Instagram：每条发布在发送后立即在 Instagram 上再次校对（上线、格式、图片数量、标题、封面），而不是仅依赖 API 的“ok”。</li><li>Instagram：在每个小时的时间点自动检查当天所有计划发布的内容（帖子、Reels、故事）；缺失的内容将在下一个检查时重新发布，任何异常都会被报告。</li><li>Instagram：未完成的故事不再标记为“完成”；仅缺失的图片会在下一个页面重新发布。</li><li>Instagram：API配额的一部分保留用于发布（账户分析将在之后进行）。</li><li>Instagram：如果帖子无法准备（故障），将使用备用格式替代。</li><li>Instagram：每个短片都有其封面在规范中，带有播放按钮和“短片”徽章以区别于帖子；五种封面布局在网格中循环。</li><li>版本编号采用 1.13.02 格式。</li></ul></details>
   </section>
   <section class="maj" id="maj-1-13-01">
     <p class="maj-tete"><span class="maj-num">版本 1.13.01</span><time datetime="2026-11-19">2026年11月19日</time></p>
-    <h2>Sécurité renforcée et horaires de nuit corrigés</h2>
-    <ul><li>Les adresses ouvertes tôt le matin (boulangeries dès 4 h…) ne sont plus affichées « fermées » après minuit.</li><li>Sécurité du site renforcée (contrôle complet et corrections).</li><li>Le numéro de version est affiché en bas de chaque page.</li></ul>
-    <details><summary>Le détail</summary><ul><li>Sécurité : contrôle complet (clés secrètes dans le code et son historique, injections de code, liens piégés, fausses soirées malveillantes, fichiers internes, bibliothèques). Corrigé : un nom de soirée piégé ne peut plus glisser une ligne cachée dans les fichiers agenda (.ics) ; bibliothèques du studio vidéo et du navigateur des robots mises à jour (failles critiques) ; lancement des décors du studio verrouillé.</li><li>Manger tard : un lieu ouvert dès le petit matin (boulangerie dès 4 h) n&#39;est plus affiché « fermé » entre minuit et 6 h.</li><li>Numéro de mise à jour affiché en bas de chaque page.</li></ul></details>
+    <h2>加强安全性并修正夜间时段。</h2>
+    <ul><li>凌晨开放的地址（如凌晨4点的面包店）不再在午夜后显示为“关闭”。</li><li>网站安全性加强（完整控制和修正）。</li><li>页面底部显示版本号。</li></ul>
+    <details><summary>细节</summary><ul><li>安全：完整控制（代码及其历史中的秘密密钥、代码注入、钓鱼链接、恶意假派对、内部文件、库）。已修复：被钓鱼的派对名称不再能在日程文件（.ics）中插入隐藏行；视频工作室和机器人浏览器的库已更新（关键漏洞）；工作室场景启动已锁定。</li><li>深夜用餐：凌晨开放的地点（如凌晨4点的面包店）不再在午夜至6点间显示为“关闭”。</li><li>更新编号显示在每页底部。</li></ul></details>
   </section>
-  <p class="maj-suivre">Pour ne rien rater, suis Teufy sur Instagram. <a href="https://www.instagram.com/teufy_official/" target="_blank" rel="noopener">@teufy_official</a></p>
+  <p class="maj-suivre">想不错过任何事，关注 Teufy 的 Instagram。 <a href="https://www.instagram.com/teufy_official/" target="_blank" rel="noopener">@teufy_official</a></p>
 </article>
 </main>
 <footer>
