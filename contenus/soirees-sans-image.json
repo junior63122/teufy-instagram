@@ -1,25 +1,7 @@
 {
- "le": "2026-11-20T21:44:56.243Z",
- "total": 95,
+ "le": "2026-11-20T22:12:07.781Z",
+ "total": 93,
  "sans_image": [
-  {
-   "id": "soiree-inside-binome-2026-11-20",
-   "nom": "Soirée Inside - Binôme",
-   "jour": "2026-11-20",
-   "lieu": "Le Servan",
-   "ville": "Valbonne",
-   "instagram": "le.bar.ephemere",
-   "url": "https://www.instagram.com/p/DfNYz7KOumV/"
-  },
-  {
-   "id": "mass-hysteria-sans-detour-2026-11-20",
-   "nom": "MASS HYSTERIA - SANS DÉTOUR",
-   "jour": "2026-11-20",
-   "lieu": "Le Live - Zénith de Toulon",
-   "ville": "Toulon",
-   "instagram": "masshysteria_official",
-   "url": "https://www.ticketmaster.fr/fr/manifestation/mass-hysteria-billet/idmanif/648840"
-  },
   {
    "id": "co-club-hard-music-2026-11-20",
    "nom": "Co Club – Hard Music",
