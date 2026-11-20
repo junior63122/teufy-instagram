@@ -50,3 +50,12 @@ test('lieu écrit comme un pseudo Instagram : nom lisible, pseudo gardé, doublo
   assert.equal(f[0].image, 'https://x/a.jpg');
   assert.equal(assainir({ name: 'X', venue: 'Le 109', city: 'Nice' }).venue, 'Le 109');
 });
+
+test("sans IA pour lire l'affiche : on garde celle de la billetterie ou du post qui annonce la soirée, jamais une image d'ailleurs", async () => {
+  const { imageDeLaSource } = await import('../src/site.mjs');
+  assert.equal(imageDeLaSource({ image: 'https://assets.shotgun.live/a.jpg', source_site: 'Shotgun', url: 'https://shotgun.live/fr/events/x' }), true);
+  assert.equal(imageDeLaSource({ image: 'https://scontent.cdninstagram.com/a.jpg', source_site: 'Instagram highclubnice', instagram: ['highclubnice'] }), true);
+  assert.equal(imageDeLaSource({ image: 'https://assets.tmassets.fr/a.jpg', source_site: 'ticketmaster.fr', url: 'https://www.ticketmaster.fr/x' }), true);
+  assert.equal(imageDeLaSource({ image: 'https://scontent.cdninstagram.com/a.jpg', source_site: 'shotgun.live', url: 'https://shotgun.live/x' }), false);
+  assert.equal(imageDeLaSource({ image: 'https://blog-quelconque.fr/a.jpg', source_site: 'Shotgun', url: 'https://shotgun.live/e' }), false);
+});

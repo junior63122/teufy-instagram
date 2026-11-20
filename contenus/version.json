@@ -8,13 +8,14 @@
       "public": [
         "Les villes et les noms des lieux s'affichent correctement sur toutes les cartes.",
         "Seules les soirées de la Côte d'Azur, de Monaco et du Var apparaissent dans les suggestions.",
-        "Plus de soirées illustrées par leur affiche ou une photo du lieu."
+        "Beaucoup plus de soirées affichées avec leur affiche."
       ],
       "notes": [
         "Pastille de ville bornée à l'image, masquée dans les suggestions ; filtre de zone du site (dansZoneSite) ; agenda Allevents « monaco » retiré (Monaca, PA).",
         "Lieu écrit comme un pseudo Instagram : nom lisible, pseudo rangé dans les comptes, doublons fusionnés (« Le Servan » = « leservan_valbonne »).",
         "Contrôle des soirées sans image : contenus/soirees-sans-image.json à chaque construction du site, alerte dans la veille technique.",
-        "Story « ce soir » : une affiche refusée n'emporte plus toute la story ; reprise possible jusqu'à 23 h."
+        "Story « ce soir » : une affiche refusée n'emporte plus toute la story ; reprise possible jusqu'à 23 h.",
+        "Affiches : sans IA de lecture d'image disponible, l'affiche venue de la billetterie, du site source ou du post Instagram qui annonce la soirée est acceptée (avant : toutes écartées, environ 95 par construction)."
       ]
     },
     {

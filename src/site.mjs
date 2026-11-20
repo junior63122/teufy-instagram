@@ -150,6 +150,18 @@ async function imageDePartage(url) {
     return m && /^https?:\/\//.test(m[1]) ? m[1].replace(/&amp;/g, '&') : '';
   } catch { return ''; }
 }
+// Affiche venue de la source même de la soirée (20/11/2026 : sans IA qui lit les images, ~95 affiches étaient écartées) :
+// image de la billetterie ou du site où la soirée a été lue, ou du post Instagram du compte qui l'annonce. Une image
+// d'un autre site, associée par la recherche, reste écartée.
+const domaine2 = (u) => { try { return new URL(u).hostname.split('.').slice(-2).join('.').toLowerCase(); } catch { return ''; } };
+export function imageDeLaSource(e = {}) {
+  const di = domaine2(e.image); if (!di) return false;
+  const src = String(e.source_site || '').toLowerCase().replace(/\s+/g, '');
+  if (/cdninstagram\.com|fbcdn\.net/.test(di)) return /instagram/.test(src) || (e.instagram || []).some((h) => src.includes(String(h).toLowerCase()));
+  // Serveurs d'images propres à une billetterie ou à un agenda officiel.
+  const ALIAS = { 'tmassets.fr': 'ticketmaster', 'digitick.com': 'seetickets', 'apidae-tourisme.com': 'provence-alpes-cotedazur' };
+  return !!(di === domaine2(e.url) || src.includes(di.split('.')[0])) || !!(ALIAS[di] && (src.includes(ALIAS[di]) || String(e.url || '').includes(ALIAS[di])));
+}
 async function verifier(e, fichier, cache) {
   const k = `v2|${h(`${e.image}|${e.name}`)}`, ancien = cache[h(`${e.image}|${e.name}`)];
   if (e.manuel) return true; // affiche fournie et vérifiée par l'équipe
@@ -157,9 +169,9 @@ async function verifier(e, fichier, cache) {
   // Sans IA disponible (ou plus de temps) : ancien verdict s'il existe ; sinon on ne montre une affiche non vérifiée que
   // si elle vient de la billetterie ou de l'organisateur, jamais si c'est la recherche web qui l'a associée (risque
   // d'affiche d'une autre soirée, cas « La Tocardise » / « Noise Protocol » du 11/11/2026).
-  if (!tempsOk() || !(process.env.GEMINI_API_KEY || '').trim()) return ancien ? ancien.ok : e.source !== 'web';
+  if (!tempsOk() || !(process.env.GEMINI_API_KEY || '').trim()) return ancien ? ancien.ok : e.source !== 'web' || imageDeLaSource(e);
   const r = await gemini([{ inline_data: { mime_type: 'image/jpeg', data: readFileSync(fichier).toString('base64') } }, { text: 'Lis cette affiche de soirée. Réponds en JSON {"titre":string,"artistes":[string],"lieu":string,"ville":string,"dates":["AAAA-MM-JJ"]}. Recopie seulement ce qui est écrit sur l\'affiche (dates au format AAAA-MM-JJ, année 2026 ou 2027 si elle n\'est pas écrite ; tableau vide si aucune date). Chaîne vide si absent.' }]);
-  if (!r || typeof r !== 'object') return ancien ? ancien.ok : e.source !== 'web'; // lecture impossible : même règle
+  if (!r || typeof r !== 'object') return ancien ? ancien.ok : e.source !== 'web' || imageDeLaSource(e); // lecture impossible : même règle
   const lu = { titre: r.titre, dates: (r.dates || []).filter((d) => /^\d{4}-\d{2}-\d{2}$/.test(d)), artistes: (r.artistes || []).slice(0, 6), lieu: r.lieu || '' };
   const ok = jugerAffiche(e, lu);
   cache[k] = { ok, le: new Date().toISOString(), nom: e.name, lu, commun: [...motsAffiche([lu.titre, ...lu.artistes].join(' '))].filter((m) => motsAffiche(`${e.name} ${(e.artistes || []).join(' ')}`).has(m)).slice(0, 5) };
@@ -191,7 +203,7 @@ export function afficheFiable(e) {
   const c = cache[`v2|${h(`${e.image}|${e.name}`)}`];
   if (c) return c.lu ? jugerAffiche(e, c.lu) : !!c.ok;
   const ancien = cache[h(`${e.image}|${e.name}`)];
-  return ancien ? !!ancien.ok && e.source !== 'web' : e.source !== 'web';
+  return ancien ? !!ancien.ok && e.source !== 'web' : e.source !== 'web' || imageDeLaSource(e);
 }
 
 // Position des lieux (OpenStreetMap / Nominatim, 1 requête par seconde, résultats gardés).
