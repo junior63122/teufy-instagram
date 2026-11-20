@@ -54,15 +54,6 @@
   "date": "2026-11-16T20:11:57+0000"
  },
  {
-  "id": "18148105030572664",
-  "lien": "https://www.instagram.com/reel/Dfu0PfwiOzZ/",
-  "image": "site/img/insta/18148105030572664.jpg",
-  "reel": true,
-  "carrousel": false,
-  "titre": "Le Grand Débat #1 🥊 Le pan bagnat : sandwich ou salade ?",
-  "date": "2026-11-14T18:09:58+0000"
- },
- {
   "id": "18111823247220555",
   "lien": "https://www.instagram.com/p/DfutdxRl6Nt/",
   "image": "site/img/insta/18111823247220555.jpg",
@@ -106,5 +97,14 @@
   "carrousel": true,
   "titre": "Pour ceux qui viennent pour la musique, et rien d'autre.",
   "date": "2026-11-09T15:13:02+0000"
+ },
+ {
+  "id": "17886115122523411",
+  "lien": "https://www.instagram.com/p/DfhEUGIlB3x/",
+  "image": "site/img/insta/17886115122523411.jpg",
+  "reel": false,
+  "carrousel": false,
+  "titre": "HUGEL débarque pour clôturer Les Plages Électroniques 2027. L'organisation vient de confirmer le tout premier nom de sa ",
+  "date": "2026-11-09T10:00:44+0000"
  }
 ]

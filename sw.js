@@ -2,7 +2,7 @@
 // - images, polices, scripts versionnés : servis depuis le cache (instantané), mis en cache au premier passage ;
 // - pages : toujours le réseau d'abord (agenda à jour), le cache seulement hors connexion ou réseau très lent ;
 // - vidéos et autres sites : jamais interceptés.
-const V = '20084b68';
+const V = '6ffe0193';
 const PAGES = `teufy-pages-${V}`, FICHIERS = 'teufy-fichiers-v1';
 const MAX_FICHIERS = 400;
 
