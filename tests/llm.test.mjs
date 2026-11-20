@@ -10,17 +10,18 @@ const env = (vars, fn) => async () => {
   try { await fn(); } finally { process.env = avant; globalThis.fetch = f; }
 };
 
-test('gratuit par défaut : Claude seulement si payant autorisé', env({ GEMINI_API_KEY: 'g', GITHUB_TOKEN: 't', GITHUB_ACTIONS: 'true', ANTHROPIC_API_KEY: 'a' }, async () => {
-  assert.deepEqual(fournisseurs({}), ['gemini', 'github']);
-  assert.deepEqual(fournisseurs({ llm: { payant_autorise: true } }), ['anthropic', 'gemini', 'github']);
+test('gratuit par défaut : Claude seulement si payant autorisé ; GitHub Models (fermé le 30/07/2026) n\'est plus proposé', env({ GEMINI_API_KEY: 'g', GROQ_API_KEY: 'q', GITHUB_TOKEN: 't', GITHUB_ACTIONS: 'true', ANTHROPIC_API_KEY: 'a' }, async () => {
+  assert.deepEqual(fournisseurs({}), ['gemini', 'groq']);
+  assert.deepEqual(fournisseurs({ llm: { payant_autorise: true } }), ['anthropic', 'gemini', 'groq']);
 }));
 
-test('JSON : Gemini en panne → GitHub Models prend le relais', env({ GEMINI_API_KEY: 'g', GITHUB_TOKEN: 't', GITHUB_ACTIONS: 'true' }, async () => {
+test('JSON : Gemini en panne → Groq (gratuit) prend le relais', env({ GEMINI_API_KEY: 'g', GROQ_API_KEY: 'q' }, async () => {
   const appels = [];
   globalThis.fetch = async (url, o) => {
     appels.push(String(url));
     if (String(url).includes('generativelanguage')) return new Response('quota', { status: 429 });
-    assert.match(o.headers.authorization, /^Bearer t$/);
+    assert.match(String(url), /api\.groq\.com/);
+    assert.match(o.headers.authorization, /^Bearer q$/);
     return new Response(JSON.stringify({ choices: [{ message: { content: '{"ok":true}' } }] }));
   };
   const r = await json({ config: {}, system: 's', prompt: 'p', schema: { type: 'object' } });
@@ -38,7 +39,7 @@ test('recherche Gemini : texte et sources citées', env({ GEMINI_API_KEY: 'g' },
   assert.match(t, /https:\/\/a/);
 }));
 
-test('GitHub Models jamais hors de GitHub Actions (le jeton d\'une session locale n\'est pas une clé Teufy)', env({ GEMINI_API_KEY: 'g', GITHUB_TOKEN: 't' }, async () => {
+test('GitHub Models jamais par défaut (fermé par GitHub le 30/07/2026)', env({ GEMINI_API_KEY: 'g', GITHUB_TOKEN: 't', GITHUB_ACTIONS: 'true' }, async () => {
   assert.deepEqual(fournisseurs({}), ['gemini']);
 }));
 
