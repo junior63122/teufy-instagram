@@ -2069,9 +2069,11 @@ async function imagesActus(actus, { soirees, hist }) {
 function imageActu(a, { base, cadre = true, sizes = '(min-width:980px) 560px, 92vw', attrs = 'loading="lazy" decoding="async"' } = {}) {
   if (!a.image_site) return `<span class="actu-flash" aria-hidden="true"><b>${esc(a.ville || 'Teufy')}</b></span>`;
   // Dans les cartes, le cadre est en 4/5 : une image en paysage y est recadrée donc agrandie ; on demande la taille réelle affichée.
-  const f = cadre && a.dims ? Math.max(1, 1.25 * a.dims[0] / a.dims[1]) : 1;
-  if (f > 1) sizes = sizes.replace(/(\d+)(px|vw)/g, (_, n, u) => `${Math.round(n * f)}${u}`);
-  return image(base, a.image_site, { alt: a.titre, sizes, attrs: `${attrs}${a.dims ? ` width="${a.dims[0]}" height="${a.dims[1]}"` : ''}` });
+  // 20/11/2026 (directeur : « fais gaffe que dans les news les affiches s'affichent bien ») : l'image n'est plus recadrée
+  // (affiche coupée en haut, logo tronqué) ; elle est montrée en entier sur un fond flou de la même image.
+  const fond = a.image_site.replace(/\.(jpe?g|png|webp)$/i, '-400.webp');
+  const flou = cadre && existsSync(path.join(ROOT, fond)) ? `<img class="actu-fond" src="${base}${esc(fond)}" alt="" aria-hidden="true" loading="lazy" decoding="async">` : '';
+  return flou + image(base, a.image_site, { alt: a.titre, sizes, attrs: `${attrs}${a.dims ? ` width="${a.dims[0]}" height="${a.dims[1]}"` : ''}` });
 }
 const dateActu = (a, t) => { const d = Date.parse(a.date); return isNaN(d) ? '' : paris(d, { day: 'numeric', month: 'long', year: 'numeric' }, t.locale); };
 function pageActus({ lang, t, tr, base, compte, T, chemin, actus, maj }) {
