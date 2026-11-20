@@ -5,6 +5,17 @@
       "type": "soirees",
       "cles": [],
       "frames": []
+    },
+    {
+      "type": "offre",
+      "cles": [
+        "av-Le Barathym-1 shooter offert sur présentation de Teufy"
+      ],
+      "frames": [
+        {
+          "image": "2026-11-20-offre.jpg"
+        }
+      ]
     }
   ]
 }
