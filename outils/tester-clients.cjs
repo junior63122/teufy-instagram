@@ -139,7 +139,7 @@ async function visiter(navigateur, c) {
         const b = p.locator('.fiche-actions a.bouton, .barre-billets a.bouton').filter({ hasText: /billet|ticket|bigliett|entrada|r[ée]server/i }).first();
         const href = (await b.count()) ? await b.getAttribute('href') : '';
         r.ok = /^https?:\/\//.test(href || '');
-        if (!r.ok) souci('fiche soirée : pas de lien billetterie');
+        if (!r.ok) { const sur = /sur place|entr[ée]e libre|gratuit|free|ingresso libero|entrada libre/i.test(await p.locator('main').innerText()); if (sur) r.ok = true; else souci(`fiche soirée : pas de lien billetterie ni d'info d'entrée (${p.url().split('/soiree/')[1] || ''})`); }
         const infos = await p.evaluate(() => document.querySelector('main')?.innerText || '');
         if (!/\d{1,2}h\d{2}|minuit|\d{1,2}:\d{2}/.test(infos)) souci('fiche soirée : heure absente');
         if (!/Itin|Directions|Indicazioni|Cómo llegar|maps/i.test(infos + (await p.content()).slice(0, 0))) { if (!(await p.locator('a[href*="google.com/maps"]').count())) souci('fiche soirée : pas d\'itinéraire'); }
@@ -175,7 +175,9 @@ async function visiter(navigateur, c) {
         if (r.resultats && r.sansPhoto / r.resultats > 0.5) souci(`annuaire ${v} : plus de la moitié des lieux sans photo (${r.sansPhoto}/${r.resultats})`);
         break; }
       case 'favoris': {
-        const coeur = p.locator('.carte .coeur').filter({ visible: true }).first();
+        // Un cœur de l'agenda principal, sous les yeux du visiteur (pas une carte cachée hors champ d'un carrousel horizontal).
+        await p.locator('.liste .carte').first().scrollIntoViewIfNeeded().catch(() => {});
+        const coeur = p.locator('.liste .carte .coeur').filter({ visible: true }).first();
         if (!(await coeur.count())) { souci('aucun cœur « favori » visible'); break; }
         await coeur.scrollIntoViewIfNeeded().catch(() => {});
         await act((f) => coeur.click({ force: f }));

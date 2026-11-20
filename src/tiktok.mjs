@@ -133,7 +133,7 @@ export function pageTiktok(plan, aujourdhui, code = process.env.TIKTOK_CODE) {
    <label class="fait"><input type="checkbox"> Publié</label>
   </article>`;
   return `<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, nofollow"><title>Planning TikTok · Teufy</title>
+<meta name="robots" content="noindex, nofollow"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; base-uri 'none'; form-action 'none'"><title>Planning TikTok · Teufy</title>
 <style>:root{--nuit:#0B0B0F;--creme:#F4EFE6;--corail:#FF5A3C;--live:#3DFF8A}*{box-sizing:border-box}body{margin:0;background:var(--nuit);color:var(--creme);font:16px/1.4 system-ui,sans-serif;padding:16px;max-width:760px;margin:auto}
 h1{font-size:28px;margin:8px 0 4px}p.i{opacity:.8;margin:0 0 20px}h2{font-size:20px;margin:28px 0 10px;text-transform:capitalize}h2.auj{color:var(--corail)}
 .v{background:#16161C;border:1px solid #ffffff22;border-radius:16px;padding:14px;margin-bottom:14px}.v.ok{opacity:.45}
@@ -143,15 +143,17 @@ textarea{width:100%;background:#0B0B0F;color:var(--creme);border:1px solid #ffff
 <h1>Planning TikTok</h1>
 <div id="contenu">${verrou(code, `<p class="i">Une vidéo par créneau : télécharge-la, ajoute un son tendance de TikTok à volume bas, colle la légende, mets la couverture (Modifier la couverture, puis Importer), publie à l'heure indiquée. Coche « Publié » une fois fait.</p>
 ${jours.map((j) => `<h2${j === aujourdhui ? ' class="auj"' : ''}>${j === aujourdhui ? "Aujourd'hui · " : ''}${esc(date(j))}</h2>\n${plan[j].map((v) => carte(j, v)).join('\n')}`).join('\n')}`)}</div>
-<script>
-${DECHIFFRE}
+<script src="tiktok.js"></script></body></html>
+`;
+}
+
+// Script de la page (fichier à part : la politique de sécurité de la page interdit tout script écrit dans la page).
+export const SCRIPT_TIKTOK = `${DECHIFFRE}
 function activer(){
 document.querySelectorAll('[data-copie]').forEach(b=>b.onclick=async()=>{const t=b.closest('.v').querySelector('textarea');try{await navigator.clipboard.writeText(t.value)}catch{t.select();document.execCommand('copy')}b.textContent='Copiée';setTimeout(()=>b.textContent='Copier la légende',1500)});
 document.querySelectorAll('.v').forEach(v=>{const c=v.querySelector('.fait input'),k='tiktok:'+v.dataset.cle;try{c.checked=localStorage.getItem(k)==='1'}catch{}v.classList.toggle('ok',c.checked);c.onchange=()=>{try{localStorage.setItem(k,c.checked?'1':'0')}catch{}v.classList.toggle('ok',c.checked)}});}
 if(!document.getElementById('verrou'))activer();
-</script></body></html>
 `;
-}
 
 /** Met à jour le stock, le planning (contenus/tiktok.json) et la page tiktok/index.html. */
 export function construireTiktok({ now = new Date(), root = ROOT, log = console.log } = {}) {
@@ -168,6 +170,7 @@ export function construireTiktok({ now = new Date(), root = ROOT, log = console.
   writeFileSync(f, JSON.stringify(etat, null, 1) + '\n');
   mkdirSync(path.join(root, 'tiktok'), { recursive: true });
   writeFileSync(path.join(root, 'tiktok', 'index.html'), pageTiktok(etat.plan, auj0));
+  writeFileSync(path.join(root, 'tiktok', 'tiktok.js'), SCRIPT_TIKTOK);
   const aVenir = Object.entries(etat.plan).filter(([j]) => j >= auj);
   log(`TikTok : ${n} reel(s) archivé(s), ${aVenir.reduce((s, [, l]) => s + l.length, 0)} vidéo(s) planifiée(s) sur ${aVenir.length} jour(s).`);
   return etat;
