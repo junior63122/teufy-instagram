@@ -74,3 +74,19 @@ test('Édition Tekno : toutes les 2 semaines, 1er et 3e jeudi (directeur 18/11/2
     assert.equal(j[1] - j[0], 14);
   }
 });
+
+// 20/11/2026 : une heure sans fuseau est l'heure de Paris (serveurs GitHub en UTC).
+test('dates des sources : heure sans fuseau = heure de Paris ; date seule = minuit des billetteries (23h59)', async () => {
+  const { dateParis, heure, jourLong } = await import('../src/dates.mjs');
+  assert.equal(dateParis('2026-11-21T23:00:00').toISOString(), '2026-11-21T22:00:00.000Z'); // hiver : UTC+1
+  assert.equal(dateParis('2026-07-11T23:30').toISOString(), '2026-07-11T21:30:00.000Z'); // été : UTC+2
+  assert.equal(dateParis('2026-11-21T23:00:00+01:00').toISOString(), '2026-11-21T22:00:00.000Z');
+  assert.equal(dateParis('2026-11-21T22:00:00Z').toISOString(), '2026-11-21T22:00:00.000Z');
+  const d = dateParis('2026-11-21', { dateSeule: 'minuit' });
+  assert.equal(heure(d), 'minuit');
+  assert.equal(jourLong(d), 'Samedi', 'reste dans la nuit du samedi (avant : 1 h dimanche = nuit du vendredi)');
+  assert.ok(isNaN(dateParis('')));
+  const { extractEvents } = await import('../src/extract.mjs');
+  const html = '<script type="application/ld+json">{"@type":"MusicEvent","name":"Techno Night","startDate":"2026-11-21T23:30:00","location":{"name":"Club","address":"Nice"}}</script>';
+  assert.equal(extractEvents(html, { source: 'site-club', baseUrl: 'https://x.fr/' })[0].start, '2026-11-21T22:30:00.000Z');
+});

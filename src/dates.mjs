@@ -16,6 +16,22 @@ export function parisToUtc(y, m, d, h = 0, min = 0) {
   return new Date(guess - (asUtc - guess));
 }
 
+// Date lue dans une source (IA, JSON-LD, saisie) : une heure SANS fuseau est l'heure de Paris, jamais celle du serveur
+// (en UTC sur GitHub : une soirée annoncée « 2026-11-21T23:00:00 » passait à minuit, une à 0 h 30 changeait de nuit).
+// dateSeule 'minuit' : une date sans heure devient 23h59 à Paris (convention des billetteries, affichée « minuit ») au
+// lieu de 1 h du matin le lendemain (minuit UTC), qui la rangeait dans la nuit de la veille.
+export function dateParis(v, { dateSeule = null } = {}) {
+  if (v == null || v === '') return new Date(NaN);
+  if (typeof v !== 'string') return new Date(v);
+  const t = v.trim();
+  if (/(Z|[+-]\d{2}:?\d{2})$/i.test(t)) return new Date(t);
+  let m = t.match(/^(\d{4})-(\d{2})-(\d{2})[T ](\d{2}):(\d{2})(?::\d{2}(?:\.\d+)?)?$/);
+  if (m) return parisToUtc(+m[1], +m[2], +m[3], +m[4], +m[5]);
+  m = t.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (m && dateSeule === 'minuit') return parisToUtc(+m[1], +m[2], +m[3], 23, 59);
+  return new Date(t);
+}
+
 // Lundi 00:00 (Paris) de la semaine contenant `now`.
 export function mondayOf(now = new Date()) {
   const p = parts(now);

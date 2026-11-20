@@ -3,6 +3,7 @@ import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { extractEvents, dedupe, keyOf } from './extract.mjs';
 import { fusionner } from './recherche.mjs';
+import { dateParis } from './dates.mjs';
 
 const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36';
 
@@ -48,8 +49,13 @@ export async function collectEvents(config, { root, debugDir, fixturesDir, webEv
       }
     };
     await Promise.all(Array.from({ length: fixturesDir ? 1 : 4 }, travail));
+    // Billetterie en panne ce passage-ci : ses soirées du relevé précédent sont gardées (avant : le relevé partiel était
+    // enregistré comme frais et ses soirées disparaissaient du site et des posts pendant 6 h).
+    const repris = fixturesDir ? [] : reprendreEnPanne(report, bil.evenements || [], Date.now());
+    if (repris.length) report.push({ source: 'billetteries', evenements: repris.length, url: '(relevé précédent des billetteries en panne)' });
+    trouves.push(...repris);
     all.push(...trouves);
-    if (!fixturesDir && trouves.length) await writeFile(FICHIER_BIL, JSON.stringify({ maj: new Date().toISOString(), evenements: trouves }, null, 1) + '\n').catch(() => {});
+    if (!fixturesDir && trouves.length) await writeFile(FICHIER_BIL, JSON.stringify({ maj: new Date().toISOString(), evenements: trouves, en_panne: [...new Set(report.filter((r) => r.erreur).map((r) => r.url))] }, null, 1) + '\n').catch(() => {});
   }
   if (!fixturesDir && nouvelles.n) await writeFile(FICHIER_EB, JSON.stringify(Object.fromEntries([...vus].map(([k, d]) => [k, { le: ebCache[k]?.le || new Date().toISOString(), d }])), null, 1) + '\n').catch(() => {});
   if (webEvents.length || !fixturesDir) report.push({ source: 'web', evenements: webEvents.length });
@@ -64,6 +70,12 @@ export async function collectEvents(config, { root, debugDir, fixturesDir, webEv
   all.push(...manual);
   // Doublons exacts, puis la même soirée vue sur plusieurs sources (même nuit + même lieu ou nom proche).
   return { events: fusionner(dedupe(all)), report };
+}
+
+/** Soirées à venir du relevé précédent pour les sources dont au moins une page a échoué ce passage-ci. */
+export function reprendreEnPanne(report, anciennes, now = Date.now()) {
+  const enPanne = new Set(report.filter((r) => r.erreur && r.source).map((r) => r.source));
+  return anciennes.filter((e) => enPanne.has(e.source) && Date.parse(e.start) > now - 6 * 3600e3);
 }
 
 async function fetchHtml(url, tries = 3) {
@@ -103,7 +115,7 @@ async function readManual(root) {
   const list = JSON.parse(await readFile(f, 'utf8'));
   return list.filter((e) => e.name && e.start).map((e) => ({
     source: 'teufy', venue: '', city: '', address: '', url: '', image: '', price: null, end: null, ...e,
-    start: new Date(e.start).toISOString(), ...(e.end ? { end: new Date(e.end).toISOString() } : {}), manuel: true,
+    start: dateParis(e.start).toISOString(), ...(e.end ? { end: dateParis(e.end).toISOString() } : {}), manuel: true,
   }));
 }
 

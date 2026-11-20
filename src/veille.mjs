@@ -14,6 +14,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import * as LLM from './llm.mjs';
 import { hash } from './learn.mjs';
+import { dateParis } from './dates.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const VUS = path.join(ROOT, 'contenus', 'veille-vus.json');
@@ -206,10 +207,10 @@ Pour chaque point : titre, date et heure de publication, URL de la source la plu
       const { lireCache, fusionner, FICHIER_CACHE } = await import('./recherche.mjs');
       const cacheEv = lireCache();
       const ajouts = sujets.filter((x) => x.source_officielle && /^https?:\/\//.test(x.source_url)).flatMap((x) => (x.soirees || []).map((e) => ({ e, x })))
-        .filter(({ e }) => e.nom && e.lieu && !isNaN(Date.parse(e.debut)) && Date.parse(e.debut) > now.getTime() && Date.parse(e.debut) < now.getTime() + 120 * 864e5)
+        .filter(({ e }) => { const t = dateParis(e.debut, { dateSeule: 'minuit' }).getTime(); return e.nom && e.lieu && !isNaN(t) && t > now.getTime() && t < now.getTime() + 120 * 864e5; })
         .map(({ e, x }) => ({
           source: 'web', source_site: (() => { try { return new URL(x.source_url).hostname.replace(/^www\./, ''); } catch { return 'veille'; } })(), via_veille: true,
-          name: e.nom.trim(), start: new Date(e.debut).toISOString(), venue: e.lieu, city: e.ville || '', address: '',
+          name: e.nom.trim(), start: dateParis(e.debut, { dateSeule: 'minuit' }).toISOString(), venue: e.lieu, city: e.ville || '', address: '',
           url: /^https?:\/\//.test(e.billetterie) ? e.billetterie : x.source_url, image: /^https?:\/\//.test(e.affiche) ? e.affiche : (x.image || ''),
           price: typeof e.prix === 'number' && e.prix >= 0 && e.prix < 500 ? e.prix : null, tags: e.styles || [], description: '', public_cible: 0.6,
           confiance: 0.9, accroche: e.accroche && e.accroche.length <= 120 && !/—/.test(e.accroche) ? e.accroche : '',

@@ -8,6 +8,7 @@
 // Chaque soirée reçoit une note de pertinence pour les 17-30 ans ; le reste est écarté.
 // Résultat mis en cache dans evenements-web.json (rafraîchi tous les N jours).
 import * as LLM from './llm.mjs';
+import { dateParis } from './dates.mjs';
 import { readFileSync, existsSync } from 'node:fs';
 import { writeFile } from 'node:fs/promises';
 import path from 'node:path';
@@ -98,7 +99,11 @@ export async function rechercherSoirees({ config, now = new Date(), ig = null, a
   const ageJours = cache.maj ? (now - new Date(cache.maj)) / 86400e3 : Infinity;
   // Entre deux recherches complètes, chaque passage relit quelques comptes Instagram (clubs d'abord) : une soirée annoncée
   // par un club apparaît dans l'heure, sans attendre la recherche du lendemain (20/11/2026, la soirée du High manquait).
-  const instagramSeul = !force && ageJours < (R.rafraichir_jours ?? 3);
+  // Recherche web complète en échec (IA ou moteur indisponibles) : la date de la dernière recherche réussie n'avance pas
+  // (avant : « maj » était mise à jour même avec 0 recherche aboutie, et le cache passait pour frais pendant des jours) ;
+  // nouvel essai 6 h après l'échec, pour ne pas épuiser le quota gratuit du moteur à chaque passage.
+  const reessaiTropTot = cache.echec_web && now - Date.parse(cache.echec_web) < 6 * 3600e3;
+  const instagramSeul = !force && (ageJours < (R.rafraichir_jours ?? 3) || reessaiTropTot);
   if (instagramSeul && !(ig && api.businessDiscovery)) return cache;
   if (ia === LLM && !LLM.fournisseurs(config).length) { log('Aucune IA configurée (secret gratuit GEMINI_API_KEY) : pas de recherche web.'); return cache; }
   const jour = now.toISOString().slice(0, 10);
@@ -165,13 +170,17 @@ export async function rechercherSoirees({ config, now = new Date(), ig = null, a
   }
 
   // 3. Mise en forme structurée, par lots (une seule réponse JSON tronquerait la liste), puis fusion des doublons.
-  if (!web && !posts.length) { await writeFile(ORGAS, JSON.stringify(orgas, null, 2) + '\n'); return cache; }
+  if (!web && !posts.length) {
+    await writeFile(ORGAS, JSON.stringify(orgas, null, 2) + '\n');
+    if (!instagramSeul) { const c = { ...cache, echec_web: now.toISOString() }; await writeFile(CACHE, JSON.stringify(c, null, 2)); return c; }
+    return cache;
+  }
   const lots = [...textes.map((t) => ({ web: t, posts: [] }))];
   // Groq gratuit (20/11/2026) : limite de jetons par minute plus basse que Gemini, donc des lots plus petits.
   const parLot = ia === LLM && LLM.fournisseurs(config, { gratuit: true })[0] === 'groq' ? 6 : 30;
   for (let i = 0; i < posts.length; i += parLot) lots.push({ web: '', posts: posts.slice(i, i + parLot) });
   const d = { evenements: [], comptes_instagram: [] };
-  let ok = 0;
+  let ok = 0, okWeb = 0;
   for (const lot of lots) {
     try {
       const r = await ia.json({
@@ -179,7 +188,7 @@ export async function rechercherSoirees({ config, now = new Date(), ig = null, a
         system: `Tu transformes des informations de soirées en données propres. N'invente rien : une soirée sans date ou sans lieu certain est écartée ou reçoit une confiance basse. Dates au fuseau Europe/Paris.\n${CIBLE}`,
         prompt: `Aujourd'hui : ${jour}. Garde les soirées entre ${jour} et ${fin}, fusionne les doublons (même soirée trouvée sur plusieurs sites). Liste-les TOUTES.\n\nRésultats de la recherche web :\n${lot.web || '(aucun)'}\n\nPosts Instagram récents d'organisateurs (l'URL "affiche" est l'image du post, à reprendre comme image de la soirée annoncée) :\n${JSON.stringify(lot.posts)}`,
       });
-      d.evenements.push(...(r.evenements || [])); d.comptes_instagram.push(...(r.comptes_instagram || [])); ok++;
+      d.evenements.push(...(r.evenements || [])); d.comptes_instagram.push(...(r.comptes_instagram || [])); ok++; if (lot.web) okWeb++;
     } catch (err) { log(`  mise en forme d'un lot impossible (${err.message})`); }
   }
   if (!ok) { log('Mise en forme impossible : on garde le cache.'); await writeFile(ORGAS, JSON.stringify(orgas, null, 2) + '\n'); return cache; }
@@ -187,9 +196,9 @@ export async function rechercherSoirees({ config, now = new Date(), ig = null, a
 
   const min = R.pertinence_min_site ?? 0.35; // le site recense tout ; les posts gardent leur propre seuil
   const evenements = (d.evenements || [])
-    .filter((e) => e.name && !isNaN(Date.parse(e.start)) && e.venue && e.confiance >= 0.6 && e.public_17_30 >= min)
+    .filter((e) => e.name && !isNaN(dateParis(e.start, { dateSeule: 'minuit' })) && e.venue && e.confiance >= 0.6 && e.public_17_30 >= min)
     .map((e) => ({
-      source: 'web', source_site: e.source_site, name: e.name.trim(), start: new Date(e.start).toISOString(), venue: e.venue, city: e.city,
+      source: 'web', source_site: e.source_site, name: e.name.trim(), start: dateParis(e.start, { dateSeule: 'minuit' }).toISOString(), venue: e.venue, city: e.city,
       address: '', url: /^https?:\/\//.test(e.url) ? e.url : '', image: /^https?:\/\//.test(e.image) ? e.image : '',
       price: typeof e.price === 'number' ? e.price : null, tags: e.styles || [], description: typeof e.description === 'string' && e.description.length <= 900 ? e.description.replace(/\s*—\s*/g, ', ').trim() : '', public_cible: e.public_17_30, confiance: e.confiance,
       buzz: typeof e.buzz === 'number' ? Math.max(0, Math.min(1, e.buzz)) : undefined, buzz_raison: e.buzz_raison || undefined,
@@ -203,7 +212,9 @@ export async function rechercherSoirees({ config, now = new Date(), ig = null, a
   if (!instagramSeul) await completerBilletterie({ liste: uniques, ia, config, log });
   const nouveaux = (d.comptes_instagram || []).map((h) => String(h).replace(/^@/, '').trim().toLowerCase()).filter((h) => /^[a-z0-9._]{2,30}$/.test(h));
   orgas.suggeres = [...new Set([...(orgas.suggeres || []), ...nouveaux])].filter((h) => !(orgas.comptes || []).includes(h)).slice(0, 80);
-  const out = instagramSeul ? { ...cache, maj_instagram: now.toISOString(), evenements: uniques } : { maj: now.toISOString(), du: jour, au: fin, nb_bruts: (d.evenements || []).length, evenements: uniques };
+  const webRate = !instagramSeul && !okWeb;
+  if (webRate) log(`::warning::Recherche web des soirées : aucune recherche aboutie (${textes.length}/${cibles.length} réponses, 0 mise en forme) : le cache n'est pas noté à jour, nouvel essai dans 6 h.`);
+  const out = instagramSeul || webRate ? { ...cache, maj_instagram: now.toISOString(), ...(webRate ? { echec_web: now.toISOString() } : {}), evenements: uniques } : { maj: now.toISOString(), du: jour, au: fin, nb_bruts: (d.evenements || []).length, recherches_abouties: `${okWeb}/${cibles.length}`, evenements: uniques };
   await writeFile(CACHE, JSON.stringify(out, null, 2));
   await writeFile(ORGAS, JSON.stringify(orgas, null, 2) + '\n');
   log(instagramSeul ? `Instagram : ${evenements.length} soirée(s) lue(s), ${uniques.length} au total.` : `Recherche web : ${uniques.length} soirée(s) uniques gardées sur ${out.nb_bruts} trouvée(s).`);
@@ -380,8 +391,8 @@ export async function rechercherFrance({ config, now = new Date(), ia = LLM, log
         system: "Tu transformes des informations de soirées en données propres. N'invente rien : une soirée sans date ou sans lieu certain est écartée. Dates au fuseau Europe/Paris. Public : les 18-30 ans qui sortent dans les grandes villes de France.",
         prompt: `Aujourd'hui : ${jour}. Garde les soirées entre ${jour} et ${fin}.\n\n${web}` });
       for (const e of r.evenements || []) {
-        if (!e.name || isNaN(Date.parse(e.start)) || !e.venue || !e.city || e.confiance < 0.75) continue;
-        evenements.push({ source: 'web', source_site: e.source_site, name: e.name.trim(), start: new Date(e.start).toISOString(), venue: e.venue, city: e.city, address: '',
+        if (!e.name || isNaN(dateParis(e.start, { dateSeule: 'minuit' })) || !e.venue || !e.city || e.confiance < 0.75) continue;
+        evenements.push({ source: 'web', source_site: e.source_site, name: e.name.trim(), start: dateParis(e.start, { dateSeule: 'minuit' }).toISOString(), venue: e.venue, city: e.city, address: '',
           url: /^https?:\/\//.test(e.url) ? e.url : '', image: /^https?:\/\//.test(e.image) ? e.image : '', price: typeof e.price === 'number' ? e.price : null, tags: e.styles || [],
           description: typeof e.description === 'string' && e.description.length <= 900 ? e.description.replace(/\s*—\s*/g, ', ').trim() : '', public_cible: e.public_17_30, confiance: e.confiance, verifie: e.confiance >= 0.85, buzz: e.buzz,
           accroche: typeof e.accroche === 'string' && e.accroche.length <= 120 && !/—/.test(e.accroche) ? e.accroche.trim() : '', instagram: [] });
@@ -456,8 +467,8 @@ export async function rechercherOccitanie({ config, now = new Date(), ia = LLM, 
           system: "Tu transformes des informations de soirées en données propres. N'invente rien : une soirée sans date ou sans lieu certain est écartée. Dates au fuseau Europe/Paris. Seulement des soirées en Occitanie, pour les 18-30 ans.",
           prompt: `Aujourd'hui : ${jour}. Garde les soirées entre ${jour} et ${fin}.\n\n${web}` });
         for (const e of r.evenements || []) {
-          if (!e.name || isNaN(Date.parse(e.start)) || !e.venue || !e.city || e.confiance < 0.75 || !villeOccitanie(e) || PAS_SOIREE.test(e.name)) continue;
-          evenements.push({ source: 'web', source_site: e.source_site, name: e.name.trim(), start: new Date(e.start).toISOString(), venue: e.venue, city: e.city, address: '',
+          if (!e.name || isNaN(dateParis(e.start, { dateSeule: 'minuit' })) || !e.venue || !e.city || e.confiance < 0.75 || !villeOccitanie(e) || PAS_SOIREE.test(e.name)) continue;
+          evenements.push({ source: 'web', source_site: e.source_site, name: e.name.trim(), start: dateParis(e.start, { dateSeule: 'minuit' }).toISOString(), venue: e.venue, city: e.city, address: '',
             url: /^https?:\/\//.test(e.url) ? e.url : '', image: /^https?:\/\//.test(e.image) ? e.image : '', price: typeof e.price === 'number' ? e.price : null, tags: e.styles || [],
             description: typeof e.description === 'string' && e.description.length <= 900 ? e.description.replace(/\s*—\s*/g, ', ').trim() : '', public_cible: e.public_17_30, confiance: e.confiance, verifie: e.confiance >= 0.85, buzz: e.buzz,
             accroche: typeof e.accroche === 'string' && e.accroche.length <= 120 && !/—/.test(e.accroche) ? e.accroche.trim() : '', instagram: [] });

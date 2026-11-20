@@ -4,6 +4,7 @@
 // application/json, flux RSC self.__next_f). On parcourt tout ce JSON et on garde
 // les objets qui ressemblent à un événement (un nom + une date de début).
 
+import { dateParis } from './dates.mjs';
 const EVENT_TYPES = /event$/i; // Event, MusicEvent, DanceEvent, SocialEvent…
 
 export function extractEvents(html, { source, baseUrl }) {
@@ -124,7 +125,9 @@ function date(...cands) {
     if (c == null || c === '') continue;
     let d;
     if (typeof c === 'number') d = new Date(c < 1e12 ? c * 1000 : c);
-    else if (typeof c === 'string' && /\d{4}-\d{2}-\d{2}/.test(c)) d = new Date(c);
+    // Heure sans fuseau (JSON-LD de certains sites) : heure de Paris, pas celle du serveur. Date seule : inchangée
+    // (minuit UTC sert de repère « heure inconnue » à la lecture Eventbrite).
+    else if (typeof c === 'string' && /\d{4}-\d{2}-\d{2}/.test(c)) d = /^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d+)?)?$/.test(c.trim()) ? dateParis(c) : new Date(c);
     else continue;
     if (!isNaN(d)) return d.toISOString();
   }
