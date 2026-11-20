@@ -10,16 +10,16 @@
     [
       "pandaevents06",
       "frigo.16",
-      "charpagency",
       "tweltyprod",
-      "bde.azur"
+      "prizmeconcept",
+      "charpagency"
     ],
     [
       "tweltyprod",
       "pandaevents06",
       "frigo.16",
       "charpagency",
-      "prizmeconcept"
+      "le109_officiel"
     ],
     [
       "prizmeconcept",
@@ -32,9 +32,9 @@
       "pandaevents06",
       "frigo.16",
       "charpagency",
-      "bde.azur",
-      "le109_officiel"
+      "le109_officiel",
+      "bde.azur"
     ]
   ],
-  "_tags": "Identifications par image, dans l'ordre de publication (01 couverture, 02 Phaphane, 03 Tekno, 04 pour participer) ; vérifiées par l'API au moment de publier (un compte refusé est retiré)."
+  "_tags": "Directeur (20/11/2026) : en priorité les acteurs de l'événement (organisateurs, lieu, agence) ; le BDE en tout dernier (dernière image, dernière place). Le suivre n'est pas une condition pour participer."
 }
