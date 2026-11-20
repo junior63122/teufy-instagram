@@ -1,4 +1,15 @@
-# Pourquoi si peu de likes et d'abonnés ? (analyse du 20/11/2026)
+# Journal des revues de croissance
+
+## Revue du 20/11/2026, 11 h (1re revue programmée)
+
+- **Chiffres :** rien de nouveau depuis l'analyse de ce matin (dernier relevé du robot le 19/11 ; 11 posts du robot notés, abonnés 14 441). Les premiers effets du nouveau planning (version 1.14.03) seront visibles à partir du 24/11.
+- **Concurrents :** l'analyse ne gardait que des moyennes, et la protection du quota d'API la limitait à 20 comptes par passage sur 40. Corrigé : les comptes sont relus à tour de rôle et le détail de leurs posts est gardé 10 jours ; le rapport quotidien (RAPPORT.md) donne maintenant, pour chaque compte, le rythme de publication, les likes et commentaires habituels, le taux d'interaction, la part de reels et leur meilleur post.
+- **Décisions :** pas de changement de planning (trop tôt pour mesurer). Stock prêt : 6 « Tague ton pote », 3 spots promo, soit environ 3 semaines.
+- **À mesurer à la prochaine revue (mardi 24/11) :** likes et partages des Tekno et techno du jeudi, premier « Tague ton pote » (commentaires avec tags), effet des légendes sans emoji ; comparaison de notre taux d'interaction avec celui des comptes locaux (nouveau tableau). Vérifier aussi que la clé Groq a été ajoutée et que les actus repartent.
+
+---
+
+## Analyse de départ : pourquoi si peu de likes et d'abonnés ? (20/11/2026)
 
 Données : `apprentissage.json` (75 publications mesurées), `RAPPORT.md`, `tendances-auto.json` (40 comptes comparables analysés).
 

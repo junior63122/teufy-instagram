@@ -35,24 +35,28 @@ export function scoreHashtag(tag) {
 export async function analyserComptes({ ig, api, now = new Date(), force = false }) {
   const prev = tendancesAuto();
   if (!force && prev.maj && (now - new Date(prev.maj)) / 86400e3 < 0.9) return { deja: true };
-  const posts = [];
-  const comptes = {};
-  for (const handle of comptesSuivis()) {
+  // 20/11/2026 : le quota Instagram n'autorise qu'une partie des comptes par passage (src/instagram.mjs). Les comptes sont
+  // relus à tour de rôle (le plus ancien d'abord) et le détail de leurs posts est gardé 10 jours entre deux lectures.
+  const detail = prev.detail || {};
+  const ordre = comptesSuivis().sort((a, b) => Date.parse(detail[a]?.maj || 0) - Date.parse(detail[b]?.maj || 0));
+  const comptes = { ...(prev.comptes || {}) };
+  for (const handle of ordre) {
     try {
       const bd = await api.businessDiscovery(handle, ig);
-      const followers = Math.max(bd.followers_count || 0, 100);
-      const media = bd.media?.data || [];
-      for (const m of media) {
-        const eng = ((m.like_count || 0) + 3 * (m.comments_count || 0)) / followers;
-        posts.push({ ...m, handle, eng });
-      }
-      comptes[handle] = { abonnes: bd.followers_count, posts: media.length };
+      detail[handle] = { maj: now.toISOString(), abonnes: bd.followers_count || 0, posts: (bd.media?.data || []).map((m) => ({
+        ts: m.timestamp, format: m.media_product_type === 'REELS' ? 'reel' : m.media_type === 'CAROUSEL_ALBUM' ? 'carrousel' : 'image',
+        likes: m.like_count || 0, comm: m.comments_count || 0, accroche: (m.caption || '').split('\n')[0].slice(0, 140), caption: (m.caption || '').slice(0, 600), lien: m.permalink })) };
+      comptes[handle] = { abonnes: bd.followers_count, posts: detail[handle].posts.length };
     } catch (err) {
+      if (/quota Instagram|request limit/i.test(err.message)) break; // la suite au prochain passage
       comptes[handle] = { erreur: String(err.message || err).slice(0, 160) };
     }
   }
+  for (const h of Object.keys(detail)) if (!comptesSuivis().includes(h) || now - Date.parse(detail[h].maj) > 10 * 864e5) delete detail[h];
+  const posts = Object.entries(detail).flatMap(([handle, d]) => d.posts.map((m) => ({ handle, timestamp: m.ts, media_product_type: m.format === 'reel' ? 'REELS' : '', media_type: m.format === 'carrousel' ? 'CAROUSEL_ALBUM' : 'IMAGE',
+    like_count: m.likes, comments_count: m.comm, caption: m.caption, permalink: m.lien, eng: (m.likes + 3 * m.comm) / Math.max(d.abonnes, 100) })));
   if (!posts.length) {
-    const out = { ...prev, maj: now.toISOString(), comptes };
+    const out = { ...prev, maj: now.toISOString(), comptes, detail };
     await writeFile(AUTO, JSON.stringify(out, null, 2));
     return out;
   }
@@ -93,12 +97,34 @@ export async function analyserComptes({ ig, api, now = new Date(), force = false
     formats: agg(fmt),
     heures: agg(heureParis),
     accroches: top.map((p) => ({ compte: p.handle, format: fmt(p), score: +p.rel.toFixed(2), accroche: (p.caption || '').split('\n')[0].slice(0, 140), lien: p.permalink })),
+    reperes: reperes(detail, now),
+    detail,
   };
   await writeFile(AUTO, JSON.stringify(out, null, 2));
   return out;
 }
 
 // Section du rapport : ce qui marche chez les autres comptes.
+// Repères par compte (20/11/2026, directeur : « analyse bien les concurrents ») : rythme de publication, likes et
+// commentaires habituels, taux d'interaction, part de reels, et leurs 3 meilleurs posts (accroche, format, chiffres).
+const mediane = (l) => { const t = [...l].sort((a, b) => a - b); return t.length ? t[Math.floor(t.length / 2)] : 0; };
+export function reperes(detail, now = new Date()) {
+  const out = {};
+  for (const [h, d] of Object.entries(detail || {})) {
+    const P = d.posts || []; if (!P.length) continue;
+    const dates = P.map((p) => Date.parse(p.ts)).filter(Boolean).sort((a, b) => a - b);
+    const semaines = Math.max(1, (now - dates[0]) / (7 * 864e5));
+    out[h] = {
+      abonnes: d.abonnes, posts_par_semaine: +(P.length / semaines).toFixed(1),
+      likes: mediane(P.map((p) => p.likes)), commentaires: mediane(P.map((p) => p.comm)),
+      taux_pour_cent: +((100 * mediane(P.map((p) => p.likes + p.comm))) / Math.max(d.abonnes, 1)).toFixed(2),
+      part_reels: +(P.filter((p) => p.format === 'reel').length / P.length).toFixed(2),
+      meilleurs: [...P].sort((a, b) => (b.likes + 3 * b.comm) - (a.likes + 3 * a.comm)).slice(0, 3).map((p) => ({ format: p.format, likes: p.likes, comm: p.comm, accroche: p.accroche, lien: p.lien })),
+    };
+  }
+  return out;
+}
+
 export function rapportTendances() {
   const t = tendancesAuto();
   if (!t.maj) return '## Tendances des autres comptes\n\n- Pas encore analysées (il faut les secrets Instagram).\n';
@@ -112,5 +138,11 @@ export function rapportTendances() {
 
 **Accroches des meilleurs posts** (pour inspiration) :
 ${(t.accroches || []).slice(0, 8).map((a) => `- @${a.compte} (${a.format}, ×${a.score}) : « ${a.accroche} »`).join('\n') || '-'}
-`;
+${Object.keys(t.reperes || {}).length ? `
+**Repères par compte** (médianes de leurs derniers posts ; taux = likes + commentaires pour 100 abonnés) :
+
+| Compte | Abonnés | Posts/sem. | Likes | Comm. | Taux | Part de reels | Meilleur post |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+${Object.entries(t.reperes).sort((a, b) => b[1].taux_pour_cent - a[1].taux_pour_cent).map(([h, r]) => `| @${h} | ${r.abonnes} | ${r.posts_par_semaine} | ${r.likes} | ${r.commentaires} | ${r.taux_pour_cent} % | ${Math.round(r.part_reels * 100)} % | ${r.meilleurs[0] ? `${r.meilleurs[0].format}, ${r.meilleurs[0].likes} likes : « ${r.meilleurs[0].accroche.replace(/\|/g, '/').slice(0, 70)} »` : '-'} |`).join('\n')}
+` : ''}`;
 }
