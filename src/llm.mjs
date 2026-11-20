@@ -295,3 +295,24 @@ async function groqRecherche({ L, system, prompt }) {
   if (estXai()) throw new Error('recherche web non branchée pour une clé xAI');
   return groqAppel({ model: L.modele_groq_recherche || 'groq/compound', messages: [{ role: 'system', content: `${system}\nCite l'adresse (URL) de chaque source.` }, { role: 'user', content: prompt }] });
 }
+
+// Secours Groq pour les appels « façon Gemini » (parties texte et images) faits directement par le site (src/site.mjs)
+// quand Gemini est en pause (20/11/2026) : lecture d'images (affiches, photos de lieux), recherche web, JSON libre.
+// Renvoie le JSON lu (objet ou tableau), ou le texte pour une recherche ; null si rien d'exploitable (jamais un faux « ok »).
+export async function groqParties(parts, { recherche = false, config = {}, secondaire = true } = {}) {
+  if (!process.env.GROQ_API_KEY || estXai() || !budgetOk('groq', config.llm || {}, secondaire)) return null;
+  const L = config.llm || {};
+  const texte = parts.filter((p) => p.text).map((p) => p.text).join('\n\n');
+  const images = parts.filter((p) => p.inline_data || p.inlineData).map((p) => p.inline_data || p.inlineData);
+  try {
+    if (recherche) { const r = await groqRecherche({ L, system: 'Tu réponds en français, avec des faits sourcés.', prompt: texte }); compter('groq', 'recherche'); return r; }
+    const content = images.length
+      ? [{ type: 'text', text: texte }, ...images.slice(0, 5).map((d) => ({ type: 'image_url', image_url: { url: `data:${d.mime_type || d.mimeType || 'image/jpeg'};base64,${d.data}` } }))]
+      : texte;
+    const model = images.length ? (L.modele_groq_vision || 'meta-llama/llama-4-scout-17b-16e-instruct') : (L.modele_groq || 'openai/gpt-oss-120b');
+    const c = await groqAppel({ model, temperature: 0.2, messages: [{ role: 'system', content: 'Réponds uniquement en JSON valide, sans texte autour.' }, { role: 'user', content }] });
+    compter('groq');
+    const m = c.match(/[[{][\s\S]*[\]}]/);
+    return m ? JSON.parse(m[0]) : null;
+  } catch (err) { marquerASec('groq', err); return null; }
+}

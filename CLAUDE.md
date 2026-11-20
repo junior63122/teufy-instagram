@@ -75,3 +75,7 @@
   `contenus/tendances.json`), décisions écrites dans `ANALYSE-ENGAGEMENT.md` (journal daté), planning dans `config.json`, stock de
   vidéos prêtes (spots, « Tague ton pote ») tenu à 2 semaines d'avance. Ce qui marche le mieux (20/11) : actus « un nom vient de
   tomber », techno / Tekno, concours, posts où l'on se reconnaît et où l'on tague. Légendes sans emoji (`nettoyerLegende`).
+- **Groq** (IA gratuite, secret `GROQ_API_KEY`, 20/11/2026 ; directeur : « aide-toi d'elle sur tout ce qui te semble pertinent,
+  sauf les commentaires Instagram ») : secours gratuit de Gemini partout (veille et actus avec recherche web, vérification des
+  affiches par lecture d'image, traductions du site, scénarios de reels, analyse, prospection, appels directs du site via
+  `groqParties`). Jamais pour répondre aux commentaires Instagram. Une réponse vide ou non conforme n'est jamais prise pour un succès.

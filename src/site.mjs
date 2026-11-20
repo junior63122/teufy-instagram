@@ -107,7 +107,8 @@ let SEUIL_DEMANDE = 0.85;
 const tempsOk = () => Date.now() < LIMITE;
 async function gemini(parts, { recherche = false, secondaire = false } = {}) {
   const CLE = (process.env.GEMINI_API_KEY || '').trim();
-  if (!CLE) return null;
+  // Gemini absent ou en pause : Groq (gratuit) prend le relais, mêmes consignes (20/11/2026).
+  if (!CLE || LLM.geminiEnPause({ llm: CONFIG_LLM })) return LLM.groqParties(parts, { recherche, config: { llm: CONFIG_LLM }, secondaire });
   if (!LLM.budgetOk('gemini', CONFIG_LLM, secondaire)) return null; // plafonds de dépense (contenus/budget-ia.json) ou compte à sec
   const API = 'https://generativelanguage.googleapis.com/v1beta/models';
   try {
