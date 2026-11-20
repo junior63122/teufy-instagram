@@ -94,3 +94,12 @@
   Tâche programmée quotidienne de Claude : lire ce relevé, lire les annonces officielles (Meta / Instagram, TikTok, Groq, Google,
   GitHub, ElevenLabs), réparer et mettre à jour sans demander (tests, push, version), tenir `VEILLE.md` (journal daté :
   changements repérés, règles de publication mises à jour, décisions), puis compte rendu court au directeur.
+- **Protocoles qualité du directeur** (20/11/2026 : « chaque semaine, applique le prompt 3 ; toutes les semaines, ajoute en
+  alternance le prompt 1 puis le prompt 2, en mode récurrent ; après chaque modification importante du site ou des bots, applique
+  aussi le prompt concerné ; tu as tous les droits pour les exécuter et mettre en œuvre ce que les analyses diront ») :
+  `outils/PROMPT-VEILLE-HEBDO.md` (veille hebdomadaire, chaque lundi), `outils/PROMPT-AUDIT.md` (audit intégral du site, semaines
+  ISO paires) et `outils/PROMPT-PARCOURS-BOTS.md` (1 000 parcours clients `outils/tester-clients.cjs` + fiabilisation des bots,
+  semaines ISO impaires). Rapports datés dans `audits/AAAA-MM-JJ.md`, registre maître `audits/REGISTRE.md`. États explicites
+  (SUCCESS_VERIFIED, PENDING_VERIFICATION, FAILED, PARTIAL_SUCCESS, UNKNOWN, BLOCKED) ; jamais de note gonflée ; les 1 000 clients
+  sont des simulations, pas des tests humains (toujours le dire). Modification importante du site → audit du site ; des bots ou des
+  parcours → prompt parcours et bots (au moins la partie concernée). Jamais de publication Instagram pendant un audit.
