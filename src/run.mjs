@@ -292,6 +292,8 @@ async function events() {
 
 // Site internet : agenda des soirées vérifiées, régénéré chaque jour (index.html + site/).
 if (cible === 'site') {
+  // Planning TikTok (src/tiktok.mjs) : à chaque passage, même si le site est déjà à jour (créneaux du jour).
+  try { (await import('./tiktok.mjs')).construireTiktok({ now: NOW }); } catch (err) { console.error(`TikTok : planning impossible (${err.message})`); }
   // Une fois par jour suffit (sauf --force) : l'agenda change peu dans la journée.
   const marque = path.join(ROOT, 'site', '.maj');
   // Une fois par jour, ou dès qu'une nouvelle actu ou une nouvelle soirée est arrivée (rubrique « Actus » alimentée par la veille).

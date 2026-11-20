@@ -1,0 +1,103 @@
+{
+ "_note": "Planning TikTok (src/tiktok.mjs) : le directeur publie lui-même, page /tiktok/.",
+ "plan": {
+  "2026-11-20": [
+   {
+    "id": "01-ou-sortir-le-soir",
+    "video": "media/spot-promo/01-ou-sortir-le-soir.mp4",
+    "type": "spot",
+    "legende": "Tu sais jamais où sortir le soir ?\nTeufy, c'est toutes les soirées de la Côte d'Azur au même endroit :\nles soirées de ce soir, en un coup d'œil\n\nToutes les soirées de la Côte : teufyparty.com (lien en bio)\n\n#soiree #nice #cotedazur #sortiranice #fyp",
+    "heure": "19:30"
+   }
+  ],
+  "2026-11-21": [
+   {
+    "id": "01-potes-en-soiree",
+    "video": "media/tague-ton-pote/01-potes-en-soiree.mp4",
+    "type": "tague",
+    "legende": "Les 4 potes qu'on a tous en soirée sur la Côte\n1. Celui qui dit « je rentre tôt »… et finit à l'after à 6 h\n2. Celui qui « connaît le videur »\n3. Celui qui a la dalle à 4 h du mat\n4. Celui qui sait toujours où ça bouge (il a Teufy)\nTague-les en commentaire. On sait que t'en as au moins un.\n\nToutes les soirées de la Côte : teufyparty.com (lien en bio)\n\n#tagueTonPote #soiree #nice #cotedazur #fyp",
+    "heure": "12:30"
+   },
+   {
+    "id": "02-manger-tard",
+    "video": "media/spot-promo/02-manger-tard.mp4",
+    "type": "spot",
+    "legende": "Il est 4 h, la boîte ferme… et t'as la dalle\nchoisis jusqu'à quelle heure c'est ouvert (2 h, 3 h, 4 h, 5 h et +)\n« Près de moi » : le plus proche de toi en premier\n\nToutes les soirées de la Côte : teufyparty.com (lien en bio)\n\n#soiree #nice #cotedazur #sortiranice #fyp",
+    "heure": "19:30"
+   }
+  ],
+  "2026-11-22": [
+   {
+    "id": "02-pre-soiree",
+    "video": "media/tague-ton-pote/02-pre-soiree.mp4",
+    "type": "tague",
+    "legende": "Spécial pré-soirée : on a tous les mêmes\n1. Celui qui dit « j'arrive dans 5 min » (1 h après)\n2. Celui qui vient pour « juste un verre »\n3. Celui qui paye l'entrée plein pot (alors qu'il y a des soirées gratuites sur Teufy)\n4. Celui qui demande « on va où ? » à 23 h\n\nToutes les soirées de la Côte : teufyparty.com (lien en bio)\n\n#tagueTonPote #soiree #nice #cotedazur #fyp",
+    "heure": "12:30"
+   },
+   {
+    "id": "03-defi-gratuit",
+    "video": "media/spot-promo/03-defi-gratuit.mp4",
+    "type": "spot",
+    "legende": "Défi : une soirée gratuite en moins de 10 secondes\n2. Gratuit et bons plans\n3. Choisis ta ville (Nice, Cannes, Monaco, Antibes, le Var…)\n\nToutes les soirées de la Côte : teufyparty.com (lien en bio)\n\n#soiree #nice #cotedazur #sortiranice #fyp",
+    "heure": "19:30"
+   }
+  ],
+  "2026-11-23": [
+   {
+    "id": "03-retour-de-soiree",
+    "video": "media/tague-ton-pote/03-retour-de-soiree.mp4",
+    "type": "tague",
+    "legende": "Spécial retour de soirée : on les connaît tous\n1. Celui qui dit « on prend un taxi à 4 » (on est 7)\n2. Celui qui perd sa veste à chaque soirée\n3. Celui qui veut manger à 5 h du mat\n4. Celui qui demande déjà « on remet ça quand ? »\n\nToutes les soirées de la Côte : teufyparty.com (lien en bio)\n\n#tagueTonPote #soiree #nice #cotedazur #fyp",
+    "heure": "12:30"
+   },
+   {
+    "id": "flash-2026-11-10",
+    "video": "media/tiktok/flash-2026-11-10.mp4",
+    "type": "reel",
+    "legende": "Ton billet passe de 12 à 25 € en une nuit ? C'est pas une arnaque\nLes soirées vendent par paliers : early (le moins cher), regular, last. Dès qu'un palier est sold out, le prix monte.\nLe bon réflexe : prendre sa place dès l'annonce et activer les notifs de l'organisateur.\n\nToutes les soirées de la Côte : teufyparty.com (lien en bio)\n\n#soiree #nice #cotedazur #sortiranice #fyp",
+    "heure": "19:30"
+   }
+  ],
+  "2026-11-24": [
+   {
+    "id": "04-soiree-techno",
+    "video": "media/tague-ton-pote/04-soiree-techno.mp4",
+    "type": "tague",
+    "legende": "Spécial techno : t'en as forcément un\n1. Celui qui vient « juste pour le son » et filme tout le set\n2. Celui qui reste collé à l'enceinte toute la nuit\n3. Celui qui « connaît le DJ » (il le suit sur Insta)\n4. Celui qui sait toujours où est la prochaine (il a Teufy)\n\nToutes les soirées de la Côte : teufyparty.com (lien en bio)\n\n#tagueTonPote #soiree #nice #cotedazur #fyp",
+    "heure": "12:30"
+   },
+   {
+    "id": "promo-2026-11-18",
+    "video": "media/tiktok/promo-2026-11-18.mp4",
+    "type": "reel",
+    "legende": "« Ah c'était hier ?! » Plus jamais\nSur Teufy, ajoute les soirées à ton agenda en un clic, et retrouve tes favorites quand tu veux.\n\nToutes les soirées de la Côte : teufyparty.com (lien en bio)\n\n#soiree #nice #cotedazur #sortiranice #fyp",
+    "heure": "19:30"
+   }
+  ],
+  "2026-11-25": [
+   {
+    "id": "05-groupe-whatsapp",
+    "video": "media/tague-ton-pote/05-groupe-whatsapp.mp4",
+    "type": "tague",
+    "legende": "Le groupe de soirée : chacun son rôle\n1. Celui qui écrit « on sort ce soir ? » à 22 h 45\n2. Celui qui répond « chaud » puis ne vient pas\n3. Celui qui a un avis sur tout, mais aucune idée de lieu\n4. Celui qui envoie le lien Teufy et règle le débat\n\nToutes les soirées de la Côte : teufyparty.com (lien en bio)\n\n#tagueTonPote #soiree #nice #cotedazur #fyp",
+    "heure": "12:30"
+   },
+   {
+    "id": "tendance-2026-11-13",
+    "video": "media/tiktok/tendance-2026-11-13.mp4",
+    "type": "reel",
+    "legende": "Tu t'es déjà demandé pourquoi l'entrée est offerte avant 1h ?\nCe n'est pas un geste d'amitié, c'est une stratégie rodée :\n1. Amorcer l'ambiance pour les arrivants de 2h qui payent plein tarif.\n\nToutes les soirées de la Côte : teufyparty.com (lien en bio)\n\n#soiree #nice #cotedazur #sortiranice #fyp",
+    "heure": "19:30"
+   }
+  ],
+  "2026-11-26": [
+   {
+    "id": "06-budget-soiree",
+    "video": "media/tague-ton-pote/06-budget-soiree.mp4",
+    "type": "tague",
+    "legende": "Spécial budget : on a tous ces potes\n1. Celui qui dit « soirée tranquille » et dépense tout son mois\n2. Celui qui cherche l'entrée gratuite (elles sont sur Teufy)\n3. Celui qui paye le taxi pour tout le monde\n4. Celui qui connaît tous les bons plans\n\nToutes les soirées de la Côte : teufyparty.com (lien en bio)\n\n#tagueTonPote #soiree #nice #cotedazur #fyp",
+    "heure": "19:30"
+   }
+  ]
+ }
+}

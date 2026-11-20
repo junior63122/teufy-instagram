@@ -2,6 +2,17 @@
   "_note": "Numéro de version affiché en pied de page du site et sur /mises-a-jour/ (directeur, 19/11/2026 : format « 1.13.02 », comme Minecraft). Règle : correction(s) seulement → dernier nombre +1 (1.13.02 → 1.13.03) ; nouvelle fonctionnalité → nombre du milieu +1 et le dernier revient à 01 (1.13.02 → 1.14.01) ; énorme fonctionnalité ou grosse refonte → premier nombre +1 (1.13.02 → 2.01.01). La plus récente en premier.",
   "versions": [
     {
+      "numero": "1.15.01",
+      "date": "2026-11-20",
+      "titre": "Teufy arrive sur TikTok",
+      "public": [
+        "Teufy publie aussi ses vidéos sur TikTok : soirées, bons plans et « Tague ton pote »."
+      ],
+      "notes": [
+        "TikTok : planning automatique de 1 à 2 vidéos par jour (12 h 30 et 19 h 30), jamais la même vidéo deux fois en 14 jours, sur une page interne non référencée avec téléchargement et légende à copier ; les reels Instagram publiés y sont ajoutés automatiquement."
+      ]
+    },
+    {
       "numero": "1.14.06",
       "date": "2026-11-20",
       "titre": "Le site se remet à jour tout seul",
