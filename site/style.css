@@ -1780,6 +1780,11 @@ html.onglets-caches .onglets{transform:translateY(105%)}
    la ville est TOUJOURS une pastille avec épingle (aussi sur les affiches de remplacement), le lieu porte aussi l'épingle,
    et les pastilles passent à la ligne au lieu d'être coupées en fondu. */
 .affiche.sans .ville-tag{display:inline-flex}
+/* 20/11/2026 : la ville débordait de l'image sur les cartes étroites (« Marseill », « Mandelie… ») : jamais plus large que l'image,
+   et pas affichée dans les suggestions (la ville y est déjà écrite à côté). */
+.affiche .ville-tag{max-width:calc(100% - 24px);white-space:nowrap;overflow:hidden}
+.affiche .ville-tag::before{flex:none}
+.similaires .affiche.sans .ville-tag{display:none}
 .affiche.sans .v-lieu{display:none}
 .meta .ou{display:inline-flex;align-items:center}
 .rangee .carte .meta{flex-wrap:wrap;overflow:visible;-webkit-mask-image:none;mask-image:none}

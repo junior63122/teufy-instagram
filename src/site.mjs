@@ -20,6 +20,8 @@ import { VILLES_FRANCE, VILLES_OCCITANIE, villeOccitanie, fusionner, PAS_BILLETT
 const nomDomaine = (u) => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch { return ''; } };
 import * as LLM from './llm.mjs';
 import { comptesConfirmes } from './comptes.mjs';
+import { dansZoneSite } from './sources.mjs';
+const VILLES_POSTS = (() => { try { return JSON.parse(readFileSync(path.join(path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..'), 'config.json'), 'utf8')).villes || []; } catch { return []; } })();
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SITE = path.join(ROOT, 'site');
@@ -675,6 +677,7 @@ export async function construireSite({ events, eventsFrance = [], eventsOccitani
   const debut = now.getTime() - 4 * 3600e3;
   // Mêmes règles de fiabilité que les posts : pas de soirée douteuse, web vérifié ou très fiable.
   const fiables = fusionner(events)
+    .filter((e) => dansZoneSite(e, VILLES_POSTS))
     .filter((e) => e.source !== 'web' || (!e.douteux && (e.verifie || (e.confiance ?? 0) >= 0.85)))
     .filter((e) => { const t = Date.parse(e.start); return t >= debut && t <= fin; })
     .sort((a, b) => a.start.localeCompare(b.start));

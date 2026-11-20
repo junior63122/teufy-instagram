@@ -113,6 +113,10 @@ function slug(url) { return url.replace(/^https?:\/\//, '').replace(/[^a-z0-9]+/
 
 const norm = (s) => String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[’']/g, "'").replace(/\s+/g, '-');
 
+// Zone du site (Côte d'Azur, Monaco et Var), au-delà des villes des posts (20/11/2026 : des soirées de Monaca aux
+// États-Unis, de Marseille et de Vars apparaissaient dans « Le même soir »).
+export const VILLES_SITE = ['toulon', 'seyne', 'la-garde', 'farlede', 'valette', 'hyeres', 'six-fours', 'sanary', 'bandol', 'ollioules', 'pradet', 'carqueiranne', 'la-crau', 'cuers', 'sollies', 'draguignan', 'puget', 'roquebrune', 'lavandou', 'bormes', 'londe', 'mandrier', 'cogolin', 'gassin', 'grimaud', 'brignoles', 'maximin', 'le-luc', 'le-muy', 'les-arcs', 'isola', 'auron', 'valberg', 'tende', 'vesubie', 'beausoleil', 'turbie', 'tourrette', 'tourette', 'opio', 'roquefort', 'rouret', 'chateauneuf', 'peymeinade', 'cezaire', 'fayence', 'aygulf', 'agay', 'saint-jeannet', 'gattieres', 'levens', 'contes', 'drap', 'trinite', 'falicon', 'mouans', 'pegomas', 'tanneron', 'la-gaude'];
+export const dansZoneSite = (e, villes = []) => isCoteAzur(e, [...villes, ...VILLES_SITE]);
 export function isCoteAzur(e, villes) {
   const lieu = norm([e.city, e.address].join(' '));
   if (!lieu.replace(/-/g, '')) return true; // page « ville » sans précision : on garde
