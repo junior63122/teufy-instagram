@@ -2,6 +2,19 @@
   "_note": "Numéro de version affiché en pied de page du site et sur /mises-a-jour/ (directeur, 19/11/2026 : format « 1.13.02 », comme Minecraft). Règle : correction(s) seulement → dernier nombre +1 (1.13.02 → 1.13.03) ; nouvelle fonctionnalité → nombre du milieu +1 et le dernier revient à 01 (1.13.02 → 1.14.01) ; énorme fonctionnalité ou grosse refonte → premier nombre +1 (1.13.02 → 2.01.01). La plus récente en premier.",
   "versions": [
     {
+      "numero": "1.14.01",
+      "date": "2026-11-20",
+      "titre": "La page Nouveautés est en ligne",
+      "public": [
+        "Cette page : toutes les nouveautés de Teufy, version par version. Un bandeau te prévient quand une nouvelle version sort.",
+        "Les couvertures de nos réels s'affichent en entier aussi dans la grille du profil Instagram (plus de titre coupé)."
+      ],
+      "notes": [
+        "Site : page « Nouveautés » (adresse /mises-a-jour/), lien dans le menu Teufy avec la pastille « Nouveau » pendant 14 jours, bandeau en haut des pages pendant 7 jours après une nouvelle version.",
+        "Instagram : couvertures de réels recomposées pour la grille du profil (recadrage 3:4) et pour l'onglet Réels (9:16) ; textes et pastilles hors des zones où Instagram affiche le nombre de vues et ses icônes. Même précaution pour les couvertures des posts."
+      ]
+    },
+    {
       "numero": "1.13.02",
       "date": "2026-11-19",
       "notes": [
@@ -12,6 +25,13 @@
         "Instagram : si un post ne peut pas être préparé (panne), un format de secours sort à sa place.",
         "Instagram : chaque reel a sa couverture dans la charte, avec un bouton lecture et la pastille « RÉEL » pour le distinguer des posts ; cinq mises en page de couverture tournent dans la grille.",
         "Numérotation des versions au format 1.13.02."
+      ],
+      "titre": "Une Teufy plus fiable sur Instagram",
+      "public": [
+        "Plus aucune publication oubliée : chaque post, réel et story est vérifié une fois en ligne, et repris s'il manque.",
+        "Les réels se reconnaissent d'un coup d'œil dans notre grille Instagram (pastille « RÉEL »).",
+        "Des couvertures plus variées dans la grille Instagram.",
+        "Les versions de Teufy sont numérotées (comme celle-ci)."
       ]
     },
     {
@@ -21,6 +41,12 @@
         "Sécurité : contrôle complet (clés secrètes dans le code et son historique, injections de code, liens piégés, fausses soirées malveillantes, fichiers internes, bibliothèques). Corrigé : un nom de soirée piégé ne peut plus glisser une ligne cachée dans les fichiers agenda (.ics) ; bibliothèques du studio vidéo et du navigateur des robots mises à jour (failles critiques) ; lancement des décors du studio verrouillé.",
         "Manger tard : un lieu ouvert dès le petit matin (boulangerie dès 4 h) n'est plus affiché « fermé » entre minuit et 6 h.",
         "Numéro de mise à jour affiché en bas de chaque page."
+      ],
+      "titre": "Sécurité renforcée et horaires de nuit corrigés",
+      "public": [
+        "Les adresses ouvertes tôt le matin (boulangeries dès 4 h…) ne sont plus affichées « fermées » après minuit.",
+        "Sécurité du site renforcée (contrôle complet et corrections).",
+        "Le numéro de version est affiché en bas de chaque page."
       ]
     }
   ]

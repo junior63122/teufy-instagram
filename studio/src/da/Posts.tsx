@@ -12,6 +12,9 @@ import type {Soiree} from '../posts/Affiches';
  *  triste et monotone »). Même DA (photos de nuit, Bricolage, nuit/crème/corail, étiquette), cinq compositions qui tournent
  *  dans la grille : jamais la même deux fois de suite (src/photos.mjs, choisirMise). */
 export type Mise = 'bas' | 'haut' | 'cadre' | 'bandeau' | 'centre';
+// Grille du profil Instagram (relevé sur capture du 20/11/2026) : vignettes en 3:4, nombre de vues en bas à gauche (≈ 10 % de
+// la hauteur), icône (carrousel, réel) en haut à droite (≈ 14 %). Rien d'important dans ces deux coins.
+const BAS_GRILLE = 150;
 
 /** Couverture générique (carrousel, débat, bon plan, actu, couverture de reel). */
 export const Couverture: React.FC<{photo?: string; position?: string; rubrique: string; titre: string; sous?: string; fond?: 'photo' | 'creme' | 'nuit'; grand?: string; vignettes?: string[]; glisse?: boolean; options?: string[]; mise?: Mise}> = ({photo, position, rubrique, titre, sous, fond = 'photo', grand, vignettes, glisse, options, mise = 'bas'}) => {
@@ -22,8 +25,8 @@ export const Couverture: React.FC<{photo?: string; position?: string; rubrique: 
   const centre = m === 'centre';
   const debat = !!options?.length;
   const long = titre.length > 50; // question de débat sur 4 lignes : photo plus courte
-  const hautCadre = debat ? (long ? 360 : 540) : 560; // hauteur de la photo encadrée
-  const hautBandeau = debat ? (long ? 500 : 700) : 760; // hauteur de la photo du bandeau
+  const hautCadre = debat ? (long ? 280 : 460) : 480; // hauteur de la photo encadrée
+  const hautBandeau = debat ? (long ? 420 : 620) : 680; // hauteur de la photo du bandeau
   const vign = vignettes?.length ? vignettes.slice(0, 3) : [];
   const petites = m === 'cadre' || m === 'bandeau';
   const pile = vign.length ? (
@@ -77,7 +80,7 @@ export const Couverture: React.FC<{photo?: string; position?: string; rubrique: 
       {m === 'haut' ? (
         <>
           <div style={{position: 'absolute', left: 56, right: 56, top: 150}}>{texte}</div>
-          {pile ? <div style={{position: 'absolute', right: 70, bottom: 70, display: 'flex', justifyContent: 'flex-end'}}>{pile}</div> : null}
+          {pile ? <div style={{position: 'absolute', right: 70, bottom: BAS_GRILLE, display: 'flex', justifyContent: 'flex-end'}}>{pile}</div> : null}
         </>
       ) : m === 'centre' ? (
         <div style={{position: 'absolute', left: 56, right: 56, top: 0, bottom: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', paddingTop: 60}}>
@@ -87,7 +90,8 @@ export const Couverture: React.FC<{photo?: string; position?: string; rubrique: 
       ) : (
         <>
           {pile && petites ? <div style={{position: 'absolute', right: 70, top: (m === 'cadre' ? 128 + hautCadre : hautBandeau) - 200}}>{pile}</div> : null}
-          <div style={{position: 'absolute', left: 56, right: 56, bottom: 64}}>
+          {/* bas : 150 px libres, Instagram y affiche le nombre de vues dans la grille du profil (20/11/2026) */}
+          <div style={{position: 'absolute', left: 56, right: 56, bottom: BAS_GRILLE}}>
             {pile && !petites ? <div style={{marginBottom: 40}}>{pile}</div> : null}
             {texte}
           </div>
@@ -249,11 +253,12 @@ const Lecture: React.FC<{top?: number}> = ({top = 700}) => (
     <div style={{position: 'absolute', left: 70, top: 50, width: 0, height: 0, borderTop: '42px solid transparent', borderBottom: '42px solid transparent', borderLeft: `68px solid ${C.creme}`}} />
   </div>
 );
-// Zone vue dans la grille (recadrage 4:5) : y 285 → 1635. Tout le texte et le bouton lecture y tiennent, quelle que soit la mise.
+// Zone vue dans la grille du profil (recadrage 3:4) : y 240 → 1680 ; Instagram y pose son icône en haut à droite et le nombre de
+// vues en bas à gauche : contenu entre y 300 et y 1500, coin haut droit libre (relevé du 20/11/2026).
 const MarqueReel: React.FC = () => (
-  <div data-verif="bloc" style={{display: 'flex', alignItems: 'center', gap: 14, background: C.corail, color: C.nuit, borderRadius: 999, padding: '12px 26px 12px 20px', boxShadow: '0 10px 30px rgba(0,0,0,.35)'}}>
-    <div style={{width: 0, height: 0, borderTop: '15px solid transparent', borderBottom: '15px solid transparent', borderLeft: `24px solid ${C.nuit}`}} />
-    <span style={{fontFamily: B, fontWeight: 800, fontSize: 34, letterSpacing: '0.12em'}}>RÉEL</span>
+  <div data-verif="bloc" style={{display: 'flex', alignItems: 'center', gap: 10, background: C.creme, color: C.nuit, borderRadius: 6, padding: '9px 16px 9px 14px'}}>
+    <div style={{width: 0, height: 0, borderTop: '11px solid transparent', borderBottom: '11px solid transparent', borderLeft: `17px solid ${C.nuit}`}} />
+    <span style={{fontFamily: B, fontWeight: 800, fontSize: 26, letterSpacing: '0.14em'}}>RÉEL</span>
   </div>
 );
 export const CouvertureReel: React.FC<{photo: string; position?: string; rubrique: string; titre: string; sous?: string; lecture?: boolean; mise?: Mise}> = ({photo, position, rubrique, titre, sous, lecture = true, mise = 'bas'}) => {
@@ -262,39 +267,42 @@ export const CouvertureReel: React.FC<{photo: string; position?: string; rubriqu
   const centre = mise === 'centre';
   const texte = (
     <>
-      <Etiquette style={{marginBottom: 26}} fond={papier ? C.nuit : C.corail} couleur={papier ? C.creme : C.nuit}>{rubrique}</Etiquette>
+      <div style={{display: 'flex', gap: 14, alignItems: 'center', justifyContent: centre ? 'center' : 'flex-start', marginBottom: 26}}>
+        <MarqueReel />
+        <Etiquette fond={papier ? C.nuit : C.corail} couleur={papier ? C.creme : C.nuit}>{rubrique}</Etiquette>
+      </div>
       <Titre taille={128} lignes={3} couleur={encre} style={centre ? {textAlign: 'center'} : undefined}>{titre}</Titre>
       {sous ? <Ajuste max={36} lignes={2} interligne={1.25} style={{fontFamily: B, fontWeight: 500, color: encre, opacity: 0.85, marginTop: 22, textAlign: centre ? 'center' : 'left'}}>{sous}</Ajuste> : null}
     </>
   );
   // position du bouton lecture selon la mise
-  const yLecture = {bas: 700, haut: 1240, cadre: 708, bandeau: 680, centre: 480}[mise];
+  const yLecture = {bas: 720, haut: 1150, cadre: 608, bandeau: 600, centre: 500}[mise];
   return (
     <AbsoluteFill style={{background: papier ? C.papier : C.nuit, overflow: 'hidden'}}>
       {mise === 'bas' ? <><Photo src={photo} position={position} /><AbsoluteFill style={{background: 'linear-gradient(180deg, rgba(11,11,15,.55) 0%, rgba(11,11,15,.2) 22%, rgba(11,11,15,0) 40%, rgba(11,11,15,.35) 58%, rgba(11,11,15,.92) 88%, rgba(11,11,15,.95) 100%)'}} /></> : null}
       {mise === 'haut' ? <><Photo src={photo} position={position} /><AbsoluteFill style={{background: 'linear-gradient(180deg, rgba(11,11,15,.95) 0%, rgba(11,11,15,.9) 30%, rgba(11,11,15,.7) 45%, rgba(11,11,15,.05) 62%, rgba(11,11,15,.2) 85%, rgba(11,11,15,.6) 100%)'}} /></> : null}
       {mise === 'centre' ? <><Photo src={photo} position={position} assombrir={0.55} /><AbsoluteFill style={{background: 'radial-gradient(ellipse at 50% 50%, rgba(11,11,15,.3) 0%, rgba(11,11,15,.85) 75%)'}} /></> : null}
       {mise === 'cadre' ? (
-        <div style={{position: 'absolute', left: 56, right: 56, top: 350, height: 900, borderRadius: 18, overflow: 'hidden', transform: 'rotate(-1.2deg)', boxShadow: '0 30px 70px rgba(11,11,15,.35)'}}>
+        <div style={{position: 'absolute', left: 56, right: 56, top: 400, height: 600, borderRadius: 18, overflow: 'hidden', transform: 'rotate(-1.2deg)', boxShadow: '0 30px 70px rgba(11,11,15,.35)'}}>
           <Photo src={photo} position={position} />
         </div>
       ) : null}
       {mise === 'bandeau' ? (
         <>
-          <div style={{position: 'absolute', left: 0, right: 0, top: 0, height: 1280, overflow: 'hidden'}}>
+          <div style={{position: 'absolute', left: 0, right: 0, top: 0, height: 1000, overflow: 'hidden'}}>
             <Photo src={photo} position={position} />
             <AbsoluteFill style={{background: 'linear-gradient(180deg, rgba(11,11,15,.55) 0%, rgba(11,11,15,0) 35%)'}} />
           </div>
-          <div style={{position: 'absolute', left: 0, right: 0, top: 1280, height: 10, background: C.corail}} />
+          <div style={{position: 'absolute', left: 0, right: 0, top: 1000, height: 10, background: C.corail}} />
         </>
       ) : null}
       {/* Marque « RÉEL » (19/11/2026, directeur : « on doit vite pouvoir différencier les réels des posts ») : pastille en
           haut à droite, toujours au même endroit, sur toutes les couvertures de reel (jamais sur un post). */}
-      <div style={{position: 'absolute', left: 0, right: 0, top: 240 - 48}}><Signature sombre={papier} droite={<MarqueReel />} /></div>
+      <div style={{position: 'absolute', left: 0, right: 0, top: 300 - 48}}><Signature sombre={papier} /></div>
       {lecture ? <Lecture top={yLecture} /> : null}
-      {mise === 'haut' ? <div style={{position: 'absolute', left: 56, right: 56, top: 330}}>{texte}</div>
-        : centre ? <div style={{position: 'absolute', left: 56, right: 56, top: 720, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center'}}>{texte}</div>
-        : <div style={{position: 'absolute', left: 56, right: 56, bottom: 1920 - 1680 + 64}}>{texte}</div>}
+      {mise === 'haut' ? <div style={{position: 'absolute', left: 56, right: 56, top: 400}}>{texte}</div>
+        : centre ? <div style={{position: 'absolute', left: 56, right: 56, top: 760, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center'}}>{texte}</div>
+        : <div style={{position: 'absolute', left: 56, right: 56, bottom: 1920 - 1500}}>{texte}</div>}
       <Grain o={papier ? 0.12 : 0.08} />
       <ControleVisuel />
     </AbsoluteFill>

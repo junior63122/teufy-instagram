@@ -1418,7 +1418,7 @@ const groupesNav = ({ t, lang, SA }) => { const L = LIB_NAV[lang] || LIB_NAV.fr;
   ['lieux', L.lieux, [['clubs-bars/', t.lieuxNav], ['restaurants/', t.restos], ['manger-tard/', { fr: 'Manger tard (2 h–5 h)', en: 'Late-night food', it: 'Mangiare di notte', es: 'Comer de madrugada', zh: '深夜美食', ar: 'أكل في آخر الليل' }[lang] || 'Manger tard'], ['after/', 'After'], ['activites/', t.activites], ['dates/', t.dates]]],
   ['styles', L.styles, PAGES_STYLES.map((k) => [`soirees-${k}/`, nomStyle(k, t, lang)])],
   ['pros', L.pros, [['partenaires/', L.devenir], ['partenaires/#tarifs', L.tarifs], ['ambassadeurs/', t.ambassadeurs], ['bde/', t.bde]]],
-  ['teufy', L.teufy, [['a-propos/', t.qui], ['a-propos/#modele', { fr: 'Comment Teufy se finance', en: 'How Teufy makes money', it: 'Come si finanzia Teufy', es: 'Cómo se financia Teufy', zh: 'Teufy 如何盈利', ar: 'كيف تموّل Teufy نفسها' }[lang] || 'Comment Teufy se finance'], ['actus/', t.actus], ['faq/', 'FAQ']]],
+  ['teufy', L.teufy, [['a-propos/', t.qui], ['a-propos/#modele', { fr: 'Comment Teufy se finance', en: 'How Teufy makes money', it: 'Come si finanzia Teufy', es: 'Cómo se financia Teufy', zh: 'Teufy 如何盈利', ar: 'كيف تموّل Teufy نفسها' }[lang] || 'Comment Teufy se finance'], ['actus/', t.actus], ...(VERSIONS.length ? [['mises-a-jour/', LIB_NOUV[lang] || LIB_NOUV.fr]] : []), ['faq/', 'FAQ']]],
 ]; };
 const ICO_ONGLET = {
   agenda: '<path d="M4 6h16v14H4zM4 10h16M8 3v5M16 3v5"/>', soir: '<path d="M15 3a8 8 0 1 0 6 13A7 7 0 0 1 15 3z"/>',
@@ -1486,12 +1486,13 @@ ${ld.length ? `<script type="application/ld+json">${JSON.stringify(ld).replace(/
 <nav class="nav" aria-label="Menu">${(() => {
       const G = groupesNav({ t, lang, SA }), tous = G.flatMap((g) => g[2]).map(([d]) => d).filter((d) => !d.startsWith('#')).map((d) => d.split('#')[0]);
       const actif = rubriqueNav ?? ([...tous, 'ce-soir/'].includes(chemin) ? chemin : tous.filter((d) => d && chemin.startsWith(d)).sort((a, b) => b.length - a.length)[0]);
-      const lien = ([d, n]) => `<a href="${accueil}${d}"${d === chemin ? ' aria-current="page"' : d === actif ? ' aria-current="true"' : ''}>${esc(n)}${d === 'avantages/' && AVANTAGES.length + CODES.length ? ` <small class="nb-nav nb-offre">${AVANTAGES.length + CODES.length} ${AVANTAGES.length + CODES.length > 1 ? 'offres' : 'offre'}</small>` : ''}${COMPTES_NAV[d] ? ` <small class="nb-nav" aria-label="${COMPTES_NAV[d]} ${esc(t.js.soirees?.replace('{n}', '').trim() || 'soirées')}">${COMPTES_NAV[d]}</small>` : ''}</a>`;
+      const lien = ([d, n]) => `<a href="${accueil}${d}"${d === chemin ? ' aria-current="page"' : d === actif ? ' aria-current="true"' : ''}>${esc(n)}${d === 'mises-a-jour/' && majRecente() ? ` <small class="nb-nav nb-offre">${esc(LIB_NEUF[lang] || LIB_NEUF.fr)}</small>` : ''}${d === 'avantages/' && AVANTAGES.length + CODES.length ? ` <small class="nb-nav nb-offre">${AVANTAGES.length + CODES.length} ${AVANTAGES.length + CODES.length > 1 ? 'offres' : 'offre'}</small>` : ''}${COMPTES_NAV[d] ? ` <small class="nb-nav" aria-label="${COMPTES_NAV[d]} ${esc(t.js.soirees?.replace('{n}', '').trim() || 'soirées')}">${COMPTES_NAV[d]}</small>` : ''}</a>`;
       const groupe = ([cle, titreG, liens]) => `<details class="nav-groupe g-${cle}${liens.some(([d]) => (d && !d.startsWith('#') && d.split('#')[0] === actif) || (cle === 'villes' && /^(france|occitanie)\//.test(chemin))) ? ' actif' : ''}"><summary>${esc(titreG)}</summary><div>${liens.map(lien).join('')}</div></details>`;
       const L = LIB_NAV[lang] || LIB_NAV.fr, par = Object.fromEntries(G.map((g) => [g[0], g]));
       // Styles rangés dans « Sortir » (menu plus court) ; Ce soir à part (le plus demandé).
       const sortir = ['sortir', L.sortir, [...par.sortir[2].filter(([d]) => d !== 'ce-soir/'), ...par.styles[2]]];
       return `${lien(['', L.agenda])}${lien(['ce-soir/', t.js.ceSoir])}${groupe(par.villes)}${groupe(sortir)}${groupe(par.lieux)}`; })()}</nav>
+${!SA && majRecente(7) && chemin !== 'mises-a-jour/' ? `<a class="bandeau-saison bandeau-nouveau" href="${accueil}mises-a-jour/"><b>${esc(LIB_NEUF[lang] || LIB_NEUF.fr)}</b> · ${esc(lang === 'fr' ? VERSIONS[0].titre || '' : trad(lang, VERSIONS[0].titre || ''))} <span aria-hidden="true">→</span></a>` : ''}
 ${SA ? `<a class="bandeau-saison" href="${accueil}${SA.slug}/"><span aria-hidden="true">${SA.emoji}</span> <b>${esc(SA.nom[lang] || SA.nom.fr)}</b> · ${esc(t.toutes)} <span aria-hidden="true">→</span></a>` : ''}
 <main id="contenu">
 ${typo(corps, lang)}
@@ -1510,7 +1511,7 @@ ${(() => { const L = LIB_NAV[lang] || LIB_NAV.fr; const ico = (k) => `<svg viewB
   <div class="menu-tete"><a class="marque" href="${accueil || './'}"><img src="${base}site/img/logo-96.webp" alt="Teufy" width="39" height="32"></a><a href="#" class="menu-x" role="button" aria-label="${esc(L.fermer)}">×</a></div>
   <div class="menu-corps">
     <a class="menu-cherche" href="${ici}#recherche" data-chercher>${ico('chercher')}<span>${esc(t.placeholder)}</span></a>
-    ${groupesNav({ t, lang, SA }).map(([cle, titreG, liens]) => `<section class="menu-groupe menu-${cle}"><h2>${esc(titreG)}</h2><div>${liens.map(([d, n]) => `<a href="${accueil}${d}"${d === chemin ? ' aria-current="page"' : ''}>${esc(n)}${d === 'avantages/' && AVANTAGES.length + CODES.length ? ` <small class="nb-nav nb-offre">${AVANTAGES.length + CODES.length}</small>` : ''}${COMPTES_NAV[d] ? ` <small class="nb-nav">${COMPTES_NAV[d]}</small>` : ''}</a>`).join('')}</div></section>`).join('')}
+    ${groupesNav({ t, lang, SA }).map(([cle, titreG, liens]) => `<section class="menu-groupe menu-${cle}"><h2>${esc(titreG)}</h2><div>${liens.map(([d, n]) => `<a href="${accueil}${d}"${d === chemin ? ' aria-current="page"' : ''}>${esc(n)}${d === 'mises-a-jour/' && majRecente() ? ` <small class="nb-nav nb-offre">${esc(LIB_NEUF[lang] || LIB_NEUF.fr)}</small>` : ''}${d === 'avantages/' && AVANTAGES.length + CODES.length ? ` <small class="nb-nav nb-offre">${AVANTAGES.length + CODES.length}</small>` : ''}${COMPTES_NAV[d] ? ` <small class="nb-nav">${COMPTES_NAV[d]}</small>` : ''}</a>`).join('')}</div></section>`).join('')}
     <section class="menu-groupe menu-langue"><h2>${esc(t.langue)}</h2><div>${LANGUES.map((l) => `<a href="${base}${pre(l)}${chemin}" hreflang="${l}" lang="${l}"${l === lang ? ' aria-current="true"' : ''}>${esc(TXT[l].nom)}</a>`).join('')}</div></section>
   </div>
 </div>
@@ -2596,14 +2597,28 @@ const TR_LEG = { fr: 'Confidentialité et cookies', en: 'Privacy and cookies', i
 // Numéro de version (contenus/version.json, format 1.13.02, règle dans la note du fichier) : pied de page et page /mises-a-jour/ (directeur, 19/11/2026).
 const VERSIONS = (() => { try { return JSON.parse(readFileSync(path.join(ROOT, 'contenus', 'version.json'), 'utf8')).versions || []; } catch { return []; } })();
 const LIB_MAJ = { fr: 'Version ', en: 'Version ', it: 'Versione ', es: 'Versión ', zh: '版本 ', ar: 'الإصدار ' };
+// Page « Nouveautés » (20/11/2026, directeur : « une page où tu marques les nouvelles mises à jour, afin que les gens sachent
+// quand il y a des nouveautés ») : pour chaque version, un titre et ce qui change pour le visiteur (champ `public`), puis le
+// détail (champ `notes`) replié.
+const LIB_NOUV = { fr: 'Nouveautés', en: "What's new", it: 'Novità', es: 'Novedades', zh: '新功能', ar: 'الجديد' };
+const LIB_NEUF = { fr: 'Nouveau', en: 'New', it: 'Nuovo', es: 'Nuevo', zh: '新', ar: 'جديد' };
+function majRecente(jours = 14) { return !!VERSIONS[0]?.date && (Date.now() - Date.parse(`${VERSIONS[0].date}T12:00:00Z`)) / 864e5 <= jours; }
 function pageMisesAJour({ lang, t, tr, base, compte, chemin, maj }) {
   const date = (d) => new Intl.DateTimeFormat(lang === 'zh' ? 'zh-CN' : lang, { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Europe/Paris' }).format(new Date(`${d}T12:00:00Z`));
-  const corps = `<article class="article">
-  <h1>${esc(tr('Mises à jour du site'))}</h1>
-  <p>${esc(tr('Chaque semaine, Teufy vérifie le site (sécurité, fiabilité, nouveautés) et publie une mise à jour. Voici ce qui a changé.'))}</p>
-  ${VERSIONS.map((v) => `<h2 id="maj-${String(v.numero).replace(/\./g, '-')}">${esc((LIB_MAJ[lang] || LIB_MAJ.fr) + v.numero)} · ${esc(date(v.date))}</h2><ul>${(v.notes || []).map((n) => `<li>${esc(lang === 'fr' ? n : tr(n))}</li>`).join('')}</ul>`).join('\n  ')}
+  const T = (x) => esc(lang === 'fr' ? x : tr(x));
+  const carte = (v, i) => `<section class="maj${i === 0 ? ' maj-derniere' : ''}" id="maj-${String(v.numero).replace(/\./g, '-')}">
+    <p class="maj-tete"><span class="maj-num">${esc((LIB_MAJ[lang] || LIB_MAJ.fr) + v.numero)}</span>${i === 0 && majRecente() ? `<span class="maj-neuf">${esc(LIB_NEUF[lang] || LIB_NEUF.fr)}</span>` : ''}<time datetime="${esc(v.date)}">${esc(date(v.date))}</time></p>
+    ${v.titre ? `<h2>${T(v.titre)}</h2>` : ''}
+    <ul>${(v.public || v.notes || []).map((n) => `<li>${T(n)}</li>`).join('')}</ul>
+    ${v.public && v.notes?.length ? `<details><summary>${T('Le détail')}</summary><ul>${v.notes.map((n) => `<li>${T(n)}</li>`).join('')}</ul></details>` : ''}
+  </section>`;
+  const corps = `<article class="article page-maj">
+  <h1>${esc(LIB_NOUV[lang] || LIB_NOUV.fr)}</h1>
+  <p>${T('Teufy évolue chaque semaine : nouvelles fonctions, corrections et sécurité. Voici ce qui a changé, version par version.')}</p>
+  ${VERSIONS.map(carte).join('\n  ')}
+  <p class="maj-suivre">${T('Pour ne rien rater, suis Teufy sur Instagram.')} <a href="https://www.instagram.com/${esc(compte.replace(/^@/, ''))}/" target="_blank" rel="noopener">${esc(compte)}</a></p>
 </article>`;
-  return gabarit({ lang, t, titre: tr('Mises à jour du site Teufy'), description: tr('Le journal des mises à jour hebdomadaires du site Teufy : sécurité, corrections et nouveautés.'), chemin, base, corps, compte, maj });
+  return gabarit({ lang, t, titre: `${LIB_NOUV[lang] || LIB_NOUV.fr} · Teufy`, description: tr('Les nouveautés de Teufy, version par version : nouvelles fonctions, corrections et sécurité.'), chemin, base, corps, compte, maj, rubriqueNav: 'mises-a-jour/' });
 }
 const NOMS_LEGAUX = { 'mentions-legales': 'Mentions légales', cgu: "Conditions d'utilisation (CGU)", cgv: 'Conditions de vente et de partenariat (CGV)', confidentialite: 'Confidentialité et cookies' };
 function pageLegal({ lang, t, tr, base, compte, T, chemin, maj, cle = 'mentions-legales' }) {

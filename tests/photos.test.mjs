@@ -64,3 +64,10 @@ test('chaque mise existe dans le studio (posts et couvertures de reel)', () => {
   for (const m of MISES) assert.match(tsx, new RegExp(`'${m}'`), m);
   assert.match(tsx, /CouvertureReel[^\n]*mise\?: Mise/);
 });
+
+test('couvertures : coins de la grille Instagram libres (nombre de vues en bas, icône en haut à droite)', () => {
+  const tsx = readFileSync(new URL('../studio/src/da/Posts.tsx', import.meta.url), 'utf8');
+  assert.match(tsx, /const BAS_GRILLE = (1[5-9]\d|[2-9]\d\d);/);
+  assert.match(tsx, /bottom: 1920 - 1500/); // reels : texte au-dessus de y 1500
+  assert.doesNotMatch(tsx, /droite=\{<MarqueReel/); // pastille RÉEL hors du coin de l'icône Instagram
+});

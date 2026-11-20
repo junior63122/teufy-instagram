@@ -58,6 +58,9 @@
   (jamais une image tirée de la vidéo, sauf panne, signalée dans le journal). Cinq mises en page de la DA tournent (`bas`, `haut`,
   `cadre`, `bandeau`, `centre` : `studio/src/da/Posts.tsx`, choix dans `src/photos.mjs` `choisirMise`) : jamais la même deux fois
   de suite, en plus de la règle des photos. Toute nouvelle mise est vérifiée à l'œil (texte long, débat, vignettes, reel).
+  Grille du profil (relevé du 20/11/2026) : vignettes recadrées en 3:4, icône Instagram en haut à droite, nombre de vues en bas
+  à gauche ; rien d'important dans ces coins (posts : 150 px libres en bas ; reels : contenu entre y 300 et y 1500 sur 1920).
+  Vérifier chaque nouvelle couverture dans les deux grilles (profil 3:4 et onglet Réels 9:16).
 - **Auto-contrôle permanent** (directeur, 19/11/2026 : « tout ce qui doit être publié doit être publié, tu dois contrôler que ça
   l'a été, et si ce n'est pas fait, tout faire jusqu'à ce que ce soit publié ; un ok ne suffit pas, vérifie que chaque étape a
   fonctionné complètement ») : chaque publication est relue sur Instagram après l'envoi (`verifierMedia`) ; `node src/run.mjs
