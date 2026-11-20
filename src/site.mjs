@@ -649,7 +649,7 @@ async function traduireManquants(log) {
 }
 
 // Taille d'un JPEG (largeur, hauteur) : évite que la page saute pendant le chargement des affiches.
-function tailleJpeg(f) {
+export function tailleJpeg(f) {
   try {
     const b = readFileSync(f);
     for (let i = 2; i < b.length;) {

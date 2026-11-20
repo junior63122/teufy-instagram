@@ -1218,12 +1218,12 @@ async function storiesPreparer(S) {
   await mkdir(dir, { recursive: true });
   for (const f of readdirSync(dir)) if (/^\d{4}-\d{2}-\d{2}/.test(f) && f.slice(0, 10) < S.jourParis(new Date(NOW - 3 * 864e5))) rmSync(path.join(dir, f), { force: true });
   const { fautesTexte } = await import('./controle-texte.mjs');
-  const { afficheFiable } = await import('./site.mjs');
+  const { afficheFiable, tailleJpeg } = await import('./site.mjs');
   const { createHash } = await import('node:crypto');
   const { heure } = await import('./dates.mjs');
   const evts = (await import('./recherche.mjs')).lireCache().evenements || [];
   // Affiche vérifiée, déjà téléchargée nette par le site (même règle que les carrousels).
-  const affiche = (e) => { if (!e.image || !afficheFiable(e)) return ''; const f = path.join(ROOT, 'site', 'affiches', `${createHash('sha1').update(String(e.image)).digest('hex').slice(0, 12)}.jpg`); return existsSync(f) ? f : ''; };
+  const affiche = (e) => { if (!e.image || !afficheFiable(e)) return ''; const f = path.join(ROOT, 'site', 'affiches', `${createHash('sha1').update(String(e.image)).digest('hex').slice(0, 12)}.jpg`); if (!existsSync(f)) return ''; const d = tailleJpeg(f); return d && Math.max(d[0], d[1]) < 420 ? '' : f; }; // trop petite = floue en story
   const jour = S.jourParis(NOW), plan = [];
   const lieuDe = (e) => [e.venue, e.city && !String(e.venue || '').toLowerCase().includes(String(e.city).toLowerCase()) ? e.city : ''].filter(Boolean).join(', ');
   const cadre = async (props, nom) => { for (const t of [props.rubrique, props.texte]) { const f = fautesTexte(t); if (f.length) throw new Error(`texte refusé (${f.join(', ')}) : « ${t} »`); } return path.basename(await storyStill(props, path.join(dir, `${jour}-${nom}.jpg`))); };
@@ -1247,7 +1247,12 @@ async function storiesPreparer(S) {
       } else if (s.type === 'soirees') {
         const x = S.soireesDuSoir(evts, NOW.getTime(), { potentiel, afficheOk: (e) => !!affiche(e) });
         if (x) r = { cles: x.soirees.map((e) => e.name), frames: [] };
-        for (const [i, e] of (x?.soirees || []).entries()) r.frames.push({ image: await cadre({ image: versStudio(affiche(e)), entier: true, rubrique: `${x.quand} · ${heure(e.start)}`, texte: `${e.name} · ${lieuDe(e)}` }, `soirees-${i}`) });
+        // Une affiche refusée (trop petite, texte trop long) n'emporte plus toute la story (20/11/2026 : une affiche de
+        // 155×200 px a privé la story de ses 15 soirées) : on l'écarte et on garde les autres.
+        for (const [i, e] of (x?.soirees || []).entries()) {
+          try { r.frames.push({ image: await cadre({ image: versStudio(affiche(e)), entier: true, rubrique: `${x.quand} · ${heure(e.start)}`, texte: `${e.name} · ${lieuDe(e)}` }, `soirees-${i}`) }); }
+          catch (err) { r.cles = r.cles.filter((c) => c !== e.name); console.error(`Story soirees : « ${e.name} » écartée (${err.message})`); }
+        }
       } else if (s.type === 'offre') {
         const o = S.offreDuJour(config, NOW.getTime(), histo);
         if (o) {
