@@ -50,9 +50,12 @@
     ]
   },
   "sources": {
-    "shotgun": [],
+    "shotgun": [
+      "https://shotgun.live/fr/cities/nice"
+    ],
     "dice": [
-      "https://dice.fm/browse/nice-60d0784c7645c67f491834e4"
+      "https://dice.fm/browse/nice-60d0784c7645c67f491834e4",
+      "https://dice.fm/browse/monaco"
     ],
     "eventbrite": [
       "https://www.eventbrite.fr/d/france--nice/nightlife/",
@@ -60,11 +63,32 @@
       "https://www.eventbrite.fr/d/france--cannes/parties/",
       "https://www.eventbrite.fr/d/france--antibes/nightlife/",
       "https://www.eventbrite.fr/d/monaco--monaco/nightlife/",
-      "https://www.eventbrite.fr/d/france--toulon/nightlife/"
+      "https://www.eventbrite.fr/d/france--toulon/nightlife/",
+      "https://www.eventbrite.fr/d/france--nice/music--events/",
+      "https://www.eventbrite.fr/d/france--cannes/music--events/",
+      "https://www.eventbrite.fr/d/monaco--monaco/music--events/",
+      "https://www.eventbrite.fr/d/france--saint-tropez/events/",
+      "https://www.eventbrite.fr/d/france--frejus/events/",
+      "https://www.eventbrite.fr/d/france--toulon/music--events/"
     ],
     "bizouk": [
       "https://www.bizouk.com/"
-    ]
+    ],
+    "allevents": [
+      "https://allevents.in/nice/all",
+      "https://allevents.in/cannes/all",
+      "https://allevents.in/monaco/all",
+      "https://allevents.in/antibes/all",
+      "https://allevents.in/toulon/all",
+      "https://allevents.in/saint-tropez/all",
+      "https://allevents.in/frejus/all"
+    ],
+    "xceed": [
+      "https://xceed.me/fr/nice/events",
+      "https://xceed.me/fr/cannes/events",
+      "https://xceed.me/fr/monaco/events"
+    ],
+    "_note_20_11": "Billetteries ajoutées le 20/11/2026 (concerts, festivals, soirées). Chacune est testée chaque jour par outils/veille-technique.mjs : une source qui ne donne plus rien est réparée ou remplacée."
   },
   "calendrier_explication": "Chaque ligne = une publication. jour : 1 = lundi … 7 = dimanche. rang : 1 = premier de ce jour dans le mois… (1 à 5). Depuis le 11 novembre 2026 (relance du compte après un an d'inactivité) : 1 publication par jour, 7 par semaine. Lundi : carrousel des sorties de la semaine ; jeudi : « Édition Tekno » (soirées techno underground des 7 prochains jours : hard techno, tekno, acid, tribe, psytrance, jamais de house) ; mardi, samedi, dimanche : reel « Flash » (astuce, explicatif, humour, actu) ; mercredi : reel « Tendance » (format viral repéré par la veille : POV, types de personnes, devinette… fait pour être partagé et toucher les non-abonnés) ; vendredi : bon plan ou débat en alternance. Les annonces exceptionnelles passent en plus par la veille (2 par jour au maximum). Heure : apprise par le cerveau (créneaux_utc). Titres calculés sur les dates réelles des soirées (cette semaine, ce week-end, en novembre, du 13 au 18 novembre).",
   "calendrier": [

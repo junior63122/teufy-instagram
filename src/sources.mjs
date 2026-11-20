@@ -14,25 +14,42 @@ export async function collectEvents(config, { root, debugDir, fixturesDir, webEv
   const ebCache = existsSync(FICHIER_EB) ? JSON.parse(await readFile(FICHIER_EB, 'utf8').catch(() => '{}')) : {};
   const vus = new Map(Object.entries(ebCache).filter(([, v]) => Date.now() - Date.parse(v.le) < 7 * 864e5).map(([k, v]) => [k, v.d]));
   const nouvelles = { n: 0 };
-  for (const [source, urls] of Object.entries(config.sources)) {
-    if (!Array.isArray(urls)) continue;
-    for (const url of urls) {
-      let html = '';
-      try {
-        html = fixturesDir ? await readFixture(fixturesDir, source, url) : await fetchHtml(url);
-      } catch (err) {
-        report.push({ source, url, erreur: String(err.message || err) });
-        continue;
+  // Billetteries lues toutes les 6 h au plus, 4 à la fois (20/11/2026 : une vingtaine de sources, une billetterie lente ne
+  // doit jamais retarder les publications) ; entre deux lectures, le dernier relevé (contenus/billetteries.json).
+  const FICHIER_BIL = path.join(root || '.', 'contenus', 'billetteries.json');
+  const bil = !fixturesDir && existsSync(FICHIER_BIL) ? JSON.parse(await readFile(FICHIER_BIL, 'utf8').catch(() => '{}')) : {};
+  const frais = !fixturesDir && bil.maj && Date.now() - Date.parse(bil.maj) < 6 * 3600e3;
+  if (frais) {
+    const evs = (bil.evenements || []).filter((e) => Date.parse(e.start) > Date.now() - 6 * 3600e3);
+    report.push({ source: 'billetteries', evenements: evs.length, url: `(relevé du ${bil.maj.slice(11, 16)} UTC)` });
+    all.push(...evs);
+  } else {
+    const taches = Object.entries(config.sources).filter(([, urls]) => Array.isArray(urls)).flatMap(([source, urls]) => urls.map((url) => ({ source, url })));
+    const trouves = [];
+    let i = 0;
+    const travail = async () => {
+      while (i < taches.length) {
+        const { source, url } = taches[i++];
+        let html = '';
+        try {
+          html = fixturesDir ? await readFixture(fixturesDir, source, url) : await fetchHtml(url, 2);
+        } catch (err) {
+          report.push({ source, url, erreur: String(err.message || err) });
+          continue;
+        }
+        if (debugDir) {
+          await mkdir(debugDir, { recursive: true });
+          await writeFile(path.join(debugDir, `${source}-${slug(url)}.html`), html);
+        }
+        let evs = source === 'bizouk' && !fixturesDir ? await soireesBizouk(html) : extractEvents(html, { source, baseUrl: url });
+        if (source === 'eventbrite' && !fixturesDir) evs = await heuresEventbrite(evs, vus, nouvelles);
+        report.push({ source, url, evenements: evs.length });
+        trouves.push(...evs);
       }
-      if (debugDir) {
-        await mkdir(debugDir, { recursive: true });
-        await writeFile(path.join(debugDir, `${source}-${slug(url)}.html`), html);
-      }
-      let evs = source === 'bizouk' && !fixturesDir ? await soireesBizouk(html) : extractEvents(html, { source, baseUrl: url });
-      if (source === 'eventbrite' && !fixturesDir) evs = await heuresEventbrite(evs, vus, nouvelles);
-      report.push({ source, url, evenements: evs.length });
-      all.push(...evs);
-    }
+    };
+    await Promise.all(Array.from({ length: fixturesDir ? 1 : 4 }, travail));
+    all.push(...trouves);
+    if (!fixturesDir && trouves.length) await writeFile(FICHIER_BIL, JSON.stringify({ maj: new Date().toISOString(), evenements: trouves }, null, 1) + '\n').catch(() => {});
   }
   if (!fixturesDir && nouvelles.n) await writeFile(FICHIER_EB, JSON.stringify(Object.fromEntries([...vus].map(([k, d]) => [k, { le: ebCache[k]?.le || new Date().toISOString(), d }])), null, 1) + '\n').catch(() => {});
   if (webEvents.length || !fixturesDir) report.push({ source: 'web', evenements: webEvents.length });
@@ -56,7 +73,7 @@ async function fetchHtml(url, tries = 3) {
       const res = await fetch(url, {
         headers: { 'user-agent': UA, 'accept-language': 'fr-FR,fr;q=0.9,en;q=0.8', accept: 'text/html,application/xhtml+xml' },
         redirect: 'follow',
-        signal: AbortSignal.timeout(30000),
+        signal: AbortSignal.timeout(20000),
       });
       if (!res.ok) {
         const txt = await res.text().catch(() => '');

@@ -86,3 +86,11 @@
   les 2 premières secondes, 7 à 15 s idéal, texte hors des zones de l'interface, mots-clés dans le texte et la légende, aucun
   alcool mis en avant, pas de musique sous droits dans le fichier (le directeur ajoute un son tendance dans TikTok), droit à
   l'image respecté pour les vidéos de soirée qu'il fournit.
+- **Veille quotidienne** (directeur, 20/11/2026 : « surveille toutes les mises à jour de tout ce qu'on utilise pour ne jamais être
+  pris de cours ; une fois par jour ; en cas de souci, répare sans me demander » ; idem pour les règles des réseaux sociaux et pour
+  les soirées : « qu'il ne manque jamais d'informations » ; « connecte toutes les billetteries utiles ») : le robot
+  `teufy-veille-technique.yml` (sans IA) écrit chaque matin `contenus/veille-technique.json` (API Instagram, modèles Groq et Gemini,
+  actions GitHub, Node, failles npm, état de chaque billetterie de `config.json` `sources`, infos manquantes des soirées).
+  Tâche programmée quotidienne de Claude : lire ce relevé, lire les annonces officielles (Meta / Instagram, TikTok, Groq, Google,
+  GitHub, ElevenLabs), réparer et mettre à jour sans demander (tests, push, version), tenir `VEILLE.md` (journal daté :
+  changements repérés, règles de publication mises à jour, décisions), puis compte rendu court au directeur.

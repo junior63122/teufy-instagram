@@ -1,0 +1,48 @@
+name: Teufy - Veille technique (mises à jour des prestataires)
+
+# Chaque jour, sans IA et sans dépense : version de l'API Instagram, modèles d'IA encore ouverts (simple liste, aucun
+# crédit consommé), actions GitHub et Node, failles npm, état de chaque billetterie, informations manquantes des soirées.
+# Le relevé (contenus/veille-technique.json) est lu chaque jour par Claude, qui répare et s'adapte (directeur, 20/11/2026).
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "17 5 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: teufy-veille-technique
+  cancel-in-progress: false
+
+jobs:
+  veille:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Relevé
+        env:
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN || secrets.INSTAGRAM_ACCESS_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID || secrets.INSTAGRAM_USER_ID }}
+          IG_API_HOST: ${{ vars.IG_API_HOST || 'graph.facebook.com' }}
+          # Liste des modèles seulement (gratuit, aucune génération).
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY || '' }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY || '' }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          npm ci --no-audit --no-fund >/dev/null 2>&1 || npm install --no-audit --no-fund >/dev/null 2>&1 || true
+          (cd studio && npm ci --no-audit --no-fund --ignore-scripts >/dev/null 2>&1) || true
+          node outils/veille-technique.mjs
+      - name: Enregistrer
+        if: always()
+        run: |
+          git config user.name "teufy-bot"
+          git config user.email "teufy-bot@users.noreply.github.com"
+          git add -A -- contenus/veille-technique.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Teufy : veille technique du jour [skip ci]"
+          for i in 1 2 3; do git pull --rebase -X theirs --autostash && git push && break; git rebase --abort 2>/dev/null; sleep 5; done

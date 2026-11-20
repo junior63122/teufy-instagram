@@ -2,6 +2,20 @@
   "_note": "Numéro de version affiché en pied de page du site et sur /mises-a-jour/ (directeur, 19/11/2026 : format « 1.13.02 », comme Minecraft). Règle : correction(s) seulement → dernier nombre +1 (1.13.02 → 1.13.03) ; nouvelle fonctionnalité → nombre du milieu +1 et le dernier revient à 01 (1.13.02 → 1.14.01) ; énorme fonctionnalité ou grosse refonte → premier nombre +1 (1.13.02 → 2.01.01). La plus récente en premier.",
   "versions": [
     {
+      "numero": "1.18.01",
+      "date": "2026-11-20",
+      "titre": "Plus de billetteries et veille quotidienne",
+      "public": [
+        "Teufy lit maintenant plus de billetteries et d'agendas (concerts, festivals, soirées) sur toute la Côte d'Azur, Monaco, Saint-Tropez et le Var.",
+        "Chaque jour, Teufy vérifie que toutes ses sources marchent et répare ce qui manque."
+      ],
+      "notes": [
+        "Billetteries ajoutées : Eventbrite (concerts et musique à Nice, Cannes, Monaco, Toulon ; Saint-Tropez, Fréjus), DICE Monaco, Allevents (7 villes), Xceed (Nice, Cannes, Monaco), Shotgun Nice.",
+        "Billetteries lues toutes les 6 h, 4 à la fois, dernier relevé gardé entre deux lectures : une source lente ne retarde plus les publications.",
+        "Veille technique quotidienne sans IA : version de l'API Instagram, modèles d'IA encore ouverts, actions GitHub et Node, failles npm, état de chaque billetterie, informations manquantes des soirées (contenus/veille-technique.json)."
+      ]
+    },
+    {
       "numero": "1.17.01",
       "date": "2026-11-20",
       "titre": "Soirées des clubs lues à la source",
