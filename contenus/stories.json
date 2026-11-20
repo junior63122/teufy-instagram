@@ -300,5 +300,35 @@
   ],
   "manquantes": [],
   "le": "2026-11-20T17:11:02.638Z"
+ },
+ {
+  "jour": "2026-11-20",
+  "type": "pret-concours-frigo16-tekno",
+  "cles": [
+   "pret-concours-frigo16-tekno"
+  ],
+  "ids": [
+   "17973877659192905"
+  ],
+  "faites": [
+   0
+  ],
+  "manquantes": [],
+  "le": "2026-11-20T19:10:59.759Z"
+ },
+ {
+  "jour": "2026-11-20",
+  "type": "question",
+  "cles": [
+   "q-faim-toulon"
+  ],
+  "ids": [
+   "18129677779905389"
+  ],
+  "faites": [
+   0
+  ],
+  "manquantes": [],
+  "le": "2026-11-20T19:11:07.284Z"
  }
 ]
