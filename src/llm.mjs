@@ -253,6 +253,30 @@ async function claude({ system, prompt, schema, outils = false, L = {} }) {
 const estXai = () => process.env.GROQ_API_KEY.trim().startsWith('xai-');
 const GROQ = () => (estXai() ? 'https://api.x.ai/v1/chat/completions' : 'https://api.groq.com/openai/v1/chat/completions');
 const groqEntetes = () => ({ 'content-type': 'application/json', authorization: `Bearer ${process.env.GROQ_API_KEY.trim()}` });
+// Modèles réellement ouverts à ce compte Groq (20/11/2026 : « llama-3.3-70b-versatile » et « groq/compound » répondaient
+// 404 pour ce compte) : lus une fois par passage sur /models, puis choisis dans l'ordre de préférence.
+let groqDispo;
+async function modelesGroq() {
+  if (!groqDispo) {
+    try {
+      const j = await (await fetch('https://api.groq.com/openai/v1/models', { headers: groqEntetes(), signal: AbortSignal.timeout(20000) })).json();
+      groqDispo = (j.data || []).filter((m) => m.active !== false).map((m) => m.id);
+      console.error(`Groq : ${groqDispo.length} modèle(s) ouverts (${groqDispo.slice(0, 15).join(', ')})`);
+    } catch (err) { groqDispo = []; console.error(`Groq : liste des modèles illisible (${err.message})`); }
+  }
+  return groqDispo;
+}
+const PREF_JSON = ['openai/gpt-oss-120b', 'openai/gpt-oss-20b', 'meta-llama/llama-4-maverick-17b-128e-instruct', 'moonshotai/kimi-k2-instruct', 'qwen/qwen3-32b', 'meta-llama/llama-4-scout-17b-16e-instruct', 'llama-3.3-70b-versatile'];
+const PREF_RECHERCHE = ['groq/compound', 'groq/compound-mini', 'compound-beta', 'compound-beta-mini'];
+const PREF_VISION = ['meta-llama/llama-4-scout-17b-16e-instruct', 'meta-llama/llama-4-maverick-17b-128e-instruct'];
+async function choisirGroq(pref, voulu) {
+  const dispo = await modelesGroq();
+  const l = [...new Set([voulu, ...pref].filter(Boolean))];
+  if (!dispo.length) return l.slice(0, 2); // liste illisible : on essaie les préférés
+  const ok = l.filter((m) => dispo.includes(m));
+  if (ok.length || pref === PREF_RECHERCHE || pref === PREF_VISION) return ok;
+  return dispo.filter((m) => !/whisper|tts|guard|orpheus|playai|distil|prompt-guard|safeguard|compound/i.test(m)).slice(0, 2);
+}
 let xaiModeles;
 async function modelesXai() {
   if (!xaiModeles) {
@@ -273,18 +297,18 @@ async function groqAppel(body) {
 }
 // JSON : sortie structurée stricte si le modèle la prend, sinon mode JSON, sinon texte ; toujours relu et vérifié.
 async function groqJson({ L, system, prompt, schema, nom }) {
-  const modeles = estXai() ? await modelesXai() : [...new Set([L.modele_groq || 'openai/gpt-oss-120b', 'llama-3.3-70b-versatile'])];
+  const modeles = estXai() ? await modelesXai() : (await choisirGroq(PREF_JSON, L.modele_groq)).slice(0, 3);
   const formats = [{ type: 'json_schema', json_schema: { name: nom, strict: true, schema } }, { type: 'json_object' }, null];
   const journal = [];
   for (const model of modeles) for (const format of formats) {
     try {
-      const c = await groqAppel({ model, temperature: 0.4, messages: [{ role: 'system', content: `${system}\nRéponds uniquement en JSON valide${format?.type === 'json_schema' ? '' : ` selon ce schéma : ${JSON.stringify(schema)}`}.` }, { role: 'user', content: prompt }], ...(format ? { response_format: format } : {}) });
+      const c = await groqAppel({ model, temperature: 0.4, max_completion_tokens: 5000, ...(/gpt-oss/.test(model) ? { reasoning_effort: 'low' } : {}), messages: [{ role: 'system', content: `${system}\nRéponds uniquement en JSON valide${format?.type === 'json_schema' ? '' : ` selon ce schéma : ${JSON.stringify(schema)}`}.` }, { role: 'user', content: prompt }], ...(format ? { response_format: format } : {}) });
       const m = c.match(/\{[\s\S]*\}/);
       if (m) return JSON.parse(m[0]);
       journal.push(`${model} ${format?.type || 'texte'} : pas de JSON`);
     } catch (err) {
       journal.push(`${model} ${format?.type || 'texte'} : ${err.message.slice(0, 120)}`);
-      if (err.status === 429 || err.status === 401) break; // quota du jour ou clé refusée : inutile d'insister sur ce modèle
+      if (err.status === 429 || err.status === 401 || err.status === 404 || err.status === 413 || /max completion tokens|too large/i.test(err.message)) break; // modèle absent, quota, trop long : modèle suivant
     }
   }
   for (const l of journal) console.error(`Groq · ${l}`);
@@ -293,7 +317,9 @@ async function groqJson({ L, system, prompt, schema, nom }) {
 // Recherche web : modèle « groq/compound » (recherche intégrée), sources citées dans la réponse.
 async function groqRecherche({ L, system, prompt }) {
   if (estXai()) throw new Error('recherche web non branchée pour une clé xAI');
-  return groqAppel({ model: L.modele_groq_recherche || 'groq/compound', messages: [{ role: 'system', content: `${system}\nCite l'adresse (URL) de chaque source.` }, { role: 'user', content: prompt }] });
+  const [model] = await choisirGroq(PREF_RECHERCHE, L.modele_groq_recherche);
+  if (!model) throw new Error('aucun modèle Groq de recherche web ouvert pour ce compte');
+  return groqAppel({ model, messages: [{ role: 'system', content: `${system}\nCite l'adresse (URL) de chaque source.` }, { role: 'user', content: prompt }] });
 }
 
 // Secours Groq pour les appels « façon Gemini » (parties texte et images) faits directement par le site (src/site.mjs)
@@ -309,8 +335,9 @@ export async function groqParties(parts, { recherche = false, config = {}, secon
     const content = images.length
       ? [{ type: 'text', text: texte }, ...images.slice(0, 5).map((d) => ({ type: 'image_url', image_url: { url: `data:${d.mime_type || d.mimeType || 'image/jpeg'};base64,${d.data}` } }))]
       : texte;
-    const model = images.length ? (L.modele_groq_vision || 'meta-llama/llama-4-scout-17b-16e-instruct') : (L.modele_groq || 'openai/gpt-oss-120b');
-    const c = await groqAppel({ model, temperature: 0.2, messages: [{ role: 'system', content: 'Réponds uniquement en JSON valide, sans texte autour.' }, { role: 'user', content }] });
+    const [model] = images.length ? await choisirGroq(PREF_VISION, L.modele_groq_vision) : await choisirGroq(PREF_JSON, L.modele_groq);
+    if (!model) return null;
+    const c = await groqAppel({ model, temperature: 0.2, max_completion_tokens: 5000, ...(/gpt-oss/.test(model) ? { reasoning_effort: 'low' } : {}), messages: [{ role: 'system', content: 'Réponds uniquement en JSON valide, sans texte autour.' }, { role: 'user', content }] });
     compter('groq');
     const m = c.match(/[[{][\s\S]*[\]}]/);
     return m ? JSON.parse(m[0]) : null;

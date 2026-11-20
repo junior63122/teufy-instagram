@@ -21,12 +21,12 @@ test('JSON : Gemini en panne → Groq (gratuit) prend le relais', env({ GEMINI_A
     appels.push(String(url));
     if (String(url).includes('generativelanguage')) return new Response('quota', { status: 429 });
     assert.match(String(url), /api\.groq\.com/);
-    assert.match(o.headers.authorization, /^Bearer q$/);
+    assert.match((o?.headers || {}).authorization, /^Bearer q$/);
     return new Response(JSON.stringify({ choices: [{ message: { content: '{"ok":true}' } }] }));
   };
   const r = await json({ config: {}, system: 's', prompt: 'p', schema: { type: 'object' } });
   assert.deepEqual(r, { ok: true });
-  assert.equal(appels.filter((u) => !u.includes('pageSize')).length, 2); // (+ la liste des modèles Gemini)
+  assert.equal(appels.filter((u) => !u.includes('pageSize') && !u.endsWith('/models')).length, 2); // (+ les listes de modèles Gemini et Groq)
 }));
 
 test('recherche Gemini : texte et sources citées', env({ GEMINI_API_KEY: 'g' }, async () => {

@@ -53,7 +53,7 @@ jobs:
           [ -z "$IG_ACCESS_TOKEN" ] && PUBLIER=false
           echo "publier=$PUBLIER" >> "$GITHUB_OUTPUT"
           # La préparation s'arrête seule (rien=true) si aucun sujet ne mérite un post immédiat.
-          sudo apt-get install -y --no-install-recommends ffmpeg >/dev/null 2>&1 || true
+          command -v ffmpeg >/dev/null || timeout 240 sudo apt-get install -y --no-install-recommends ffmpeg >/dev/null 2>&1 || true # 20/11 : l'installation a pris 22 min une fois, plafonnée à 4 min
           npm ci --prefix studio --no-audit --no-fund
           node src/run.mjs veille preparer $([ "$PUBLIER" = "true" ] || echo --dry-run)
 
@@ -77,7 +77,7 @@ jobs:
         continue-on-error: true
         run: |
           # Ne régénère que si une nouvelle actu est arrivée ou au premier passage de la journée (repère site/.maj).
-          sudo apt-get install -y --no-install-recommends tesseract-ocr tesseract-ocr-fra >/dev/null 2>&1 || true # repère les « photos de lieu » qui sont des affiches
+          command -v tesseract >/dev/null || timeout 240 sudo apt-get install -y --no-install-recommends tesseract-ocr tesseract-ocr-fra >/dev/null 2>&1 || true # repère les « photos de lieu » qui sont des affiches
           SITE_MINUTES=6 node src/run.mjs site || exit 0
           node outils/controle-donnees.mjs || echo "::warning::Contrôle des données du site : erreurs à corriger (voir ci-dessus)"
           git add -A -- $(ls -d index.html 404.html .nojekyll site a-propos soirees-* soiree festivals actus partenaires ambassadeurs bde mentions-legales cgu cgv confidentialite dates restaurants activites france occitanie clubs-bars evenements-france.json evenements-occitanie.json en it es zh ar sitemap.xml robots.txt llms.txt *.txt .well-known CNAME sw.js contenus evenements-web.json 2>/dev/null) || true # seulement les chemins existants (un seul absent bloquait tout)

@@ -142,7 +142,7 @@ Pour chaque point : titre, date et heure de publication, URL de la source la plu
     d = await ia.json({
       config, gratuit: true, secondaire: true, nom: 'veille', schema: SCHEMA,
       system: `Tu es rédacteur en chef d'un média Instagram. ${CIBLE} Tu notes l'importance avec exigence : une soirée ordinaire parmi des centaines ne dépasse pas 40. N'invente rien ; sans source officielle datée, source_officielle = false.`,
-      prompt: `Signaux de la veille (web) :\n${web || '(aucun)'}\n\nPosts Instagram récents des organisateurs et lieux suivis (sources officielles) :\n${JSON.stringify(posts).slice(0, 40000)}\n\nDéjà traités (ne les reprends pas) :\n${Object.keys(vus).slice(-200).join('\n')}\n\nListe les sujets nouveaux selon le schéma.`,
+      prompt: `Signaux de la veille (web) :\n${web || '(aucun)'}\n\nPosts Instagram récents des organisateurs et lieux suivis (sources officielles) :\n${JSON.stringify(posts).slice(0, 12000)}\n\nDéjà traités (ne les reprends pas) :\n${Object.keys(vus).filter((k) => !k.startsWith("_")).slice(-60).join('\n')}\n\nListe les sujets nouveaux selon le schéma.`,
     });
   } catch (err) { log(`Veille : tri impossible (${err.message}).`); return { sujets: [], apublier: null, idees: [] }; }
 
