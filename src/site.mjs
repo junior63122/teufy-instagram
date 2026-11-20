@@ -2663,8 +2663,7 @@ function pageMisesAJour({ lang, t, tr, base, compte, chemin, maj }) {
   const carte = (v, i) => `<section class="maj${i === 0 ? ' maj-derniere' : ''}" id="maj-${String(v.numero).replace(/\./g, '-')}">
     <p class="maj-tete"><span class="maj-num">${esc((LIB_MAJ[lang] || LIB_MAJ.fr) + v.numero)}</span>${i === 0 && majRecente() ? `<span class="maj-neuf">${esc(LIB_NEUF[lang] || LIB_NEUF.fr)}</span>` : ''}<time datetime="${esc(v.date)}">${esc(date(v.date))}</time></p>
     ${v.titre ? `<h2>${T(v.titre)}</h2>` : ''}
-    <ul>${(v.public || v.notes || []).map((n) => `<li>${T(n)}</li>`).join('')}</ul>
-    ${v.public && v.notes?.length ? `<details><summary>${T('Le détail')}</summary><ul>${v.notes.map((n) => `<li>${T(n)}</li>`).join('')}</ul></details>` : ''}
+    <ul>${(v.public || []).map((n) => `<li>${T(n)}</li>`).join('')}</ul>
   </section>`;
   const corps = `<article class="article page-maj">
   <h1>${esc(LIB_NOUV[lang] || LIB_NOUV.fr)}</h1>

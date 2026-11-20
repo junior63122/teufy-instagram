@@ -1,12 +1,12 @@
 {
-  "_note": "Numéro de version affiché en pied de page du site et sur /mises-a-jour/ (directeur, 19/11/2026 : format « 1.13.02 », comme Minecraft). Règle : correction(s) seulement → dernier nombre +1 (1.13.02 → 1.13.03) ; nouvelle fonctionnalité → nombre du milieu +1 et le dernier revient à 01 (1.13.02 → 1.14.01) ; énorme fonctionnalité ou grosse refonte → premier nombre +1 (1.13.02 → 2.01.01). La plus récente en premier.",
+  "_note": "Numéro de version affiché en pied de page du site et sur /mises-a-jour/ (directeur, 19/11/2026 : format « 1.13.02 », comme Minecraft). Règle : correction(s) seulement → dernier nombre +1 (1.13.02 → 1.13.03) ; nouvelle fonctionnalité → nombre du milieu +1 et le dernier revient à 01 (1.13.02 → 1.14.01) ; énorme fonctionnalité ou grosse refonte → premier nombre +1 (1.13.02 → 2.01.01). La plus récente en premier. Le site n'affiche que « titre » et « public » : phrases simples pour les visiteurs, sans détail technique ni nom de prestataire (directeur, 20/11/2026). « notes » reste interne.",
   "versions": [
     {
       "numero": "1.19.01",
       "date": "2026-11-20",
-      "titre": "Recherche sur internet sans Google",
+      "titre": "Des actus et des soirées toujours à jour",
       "public": [
-        "Teufy cherche de nouveau les soirées et les actus sur internet, même quand Google (Gemini) est en pause."
+        "Teufy trouve encore plus vite les nouvelles soirées et les actus de la nuit."
       ],
       "notes": [
         "Moteur de recherche gratuit Tavily (secret TAVILY_API_KEY, 1 000 recherches par mois) : Groq écrit la requête, Tavily cherche, Groq répond uniquement à partir des pages trouvées et cite ses sources ; aucun résultat = rien d'inventé.",
@@ -18,8 +18,8 @@
       "date": "2026-11-20",
       "titre": "Plus de billetteries et veille quotidienne",
       "public": [
-        "Teufy lit maintenant plus de billetteries et d'agendas (concerts, festivals, soirées) sur toute la Côte d'Azur, Monaco, Saint-Tropez et le Var.",
-        "Chaque jour, Teufy vérifie que toutes ses sources marchent et répare ce qui manque."
+        "Plus de concerts, festivals et soirées sur toute la Côte d'Azur, Monaco, Saint-Tropez et le Var.",
+        "Teufy vérifie chaque jour que ses informations sont complètes et à jour."
       ],
       "notes": [
         "Billetteries ajoutées : Eventbrite (concerts et musique à Nice, Cannes, Monaco, Toulon ; Saint-Tropez, Fréjus), DICE Monaco, Allevents (7 villes), Xceed (Nice, Cannes, Monaco), Shotgun Nice.",
@@ -32,7 +32,7 @@
       "date": "2026-11-20",
       "titre": "Soirées des clubs lues à la source",
       "public": [
-        "Les soirées annoncées par les clubs et les bars sur leur Instagram et sur leur site arrivent plus vite sur Teufy.",
+        "Les soirées annoncées par les clubs et les bars arrivent plus vite sur Teufy.",
         "L'annuaire compte maintenant aussi les bars de Monaco et de Saint-Tropez.",
         "La page « Ce soir » est de nouveau à jour."
       ],
@@ -82,7 +82,7 @@
       "date": "2026-11-20",
       "titre": "Des affiches mieux vérifiées",
       "public": [
-        "Les affiches des soirées sont vérifiées par une IA qui lit l'image (bon nom, bonne date) avant d'apparaître sur notre Instagram."
+        "Les affiches des soirées sont mieux vérifiées (bon nom, bonne date) avant d'apparaître sur notre Instagram."
       ],
       "notes": [
         "Veille : une fois par heure de 8 h à 2 h, pause la nuit (au lieu de toutes les 30 min).",
@@ -95,7 +95,7 @@
       "date": "2026-11-20",
       "titre": "Les actus reviennent plus vite",
       "public": [
-        "Les actus de la nuit (annonces de line-up, nouvelles dates, festivals) reprennent dès que la nouvelle IA gratuite est branchée."
+        "Les actus de la nuit (line-up, nouvelles dates, festivals) reviennent plus vite."
       ],
       "notes": [
         "IA : Groq ajouté (gratuit, sans carte bancaire) pour la veille et les actus, avec recherche web ; GitHub Models retiré (fermé par GitHub le 30/07/2026, il répondait « OK » à tout). Une réponse vide ou non conforme n'est jamais prise pour un succès."
@@ -170,7 +170,7 @@
       "titre": "Sécurité renforcée et horaires de nuit corrigés",
       "public": [
         "Les adresses ouvertes tôt le matin (boulangeries dès 4 h…) ne sont plus affichées « fermées » après minuit.",
-        "Sécurité du site renforcée (contrôle complet et corrections).",
+        "Site plus sûr.",
         "Le numéro de version est affiché en bas de chaque page."
       ]
     }

@@ -40,7 +40,7 @@
   2 semaines), recherche de clés dans le code et l'historique, revue des workflows (aucune entrée collée dans une commande),
   vérification que la veille et les posts actus tournent, idées de fonctionnalités ; puis réparer, tester (`npm test`), ajouter la
   version suivante en tête de `contenus/version.json` (format « 1.13.02 » : corrections → dernier nombre +1 ; nouvelle
-  fonctionnalité → nombre du milieu +1 et dernier à 01 ; énorme nouveauté → premier nombre +1, « 2.01.01 » ; date, notes en français simple) et faire un rapport au directeur.
+  fonctionnalité → nombre du milieu +1 et dernier à 01 ; énorme nouveauté → premier nombre +1, « 2.01.01 » ; date ; « public » : 1 à 3 phrases simples pour les visiteurs, sans détail technique, sans nom de prestataire ni de clé (directeur, 20/11/2026 : « pas autant de détails ») ; « notes » : détail interne, jamais affiché) et faire un rapport au directeur.
   Ne jamais committer les pages reconstruites localement par les tests (le robot reconstruit le site).
 - **Concours** (directeur, 19/11/2026, valable pour tous les concours) : on doit comprendre **tout de suite** que c'est un
   concours (le mot « Concours » et le lot visibles sur la couverture), mais le visuel **reste dans la DA du flux** (couverture
