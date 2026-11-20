@@ -1,13 +1,13 @@
 [
   {
-    "jour": "2026-11-19",
-    "h": 21,
+    "jour": "2026-11-20",
+    "h": 20,
     "cle": "concours-frigo16-tekno",
     "fichiers": [
       "media/posts-prets/2026-11-19-concours-frigo16/stories/tekno.jpg"
     ],
-    "_note": "Lancement du concours, soirée 2 (la story Phaphane part avec le post).",
-    "valide": false
+    "_note": "Lancement du concours, soirée 2 (la story Phaphane part avec le post de 16-18 h).",
+    "valide": true
   },
   {
     "jour": "2026-11-23",
@@ -17,6 +17,6 @@
       "media/posts-prets/2026-11-19-concours-frigo16/stories/rappel.jpg"
     ],
     "_note": "Rappel : tirage mercredi 25/11 à 18 h.",
-    "valide": false
+    "valide": true
   }
 ]

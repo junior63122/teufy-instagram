@@ -442,7 +442,8 @@ async function prepare(slot, now, id) {
     const images = [];
     for (const f of readdirSync(src).filter((x) => /^\d+[^/]*\.jpe?g$/i.test(x)).sort()) { const d = path.join(dir, `pret-${f}`); await copyFile(path.join(src, f), d); images.push(d); }
     if (!images.length || images.length > 10) throw new Error(`Post prêt ${slot.variante} : ${images.length} image(s) (1 à 10)`);
-    pub = { images, legende: readFileSync(path.join(src, 'legende.txt'), 'utf8').trim(), titre: meta.titre || slot.variante, photo: meta.photo || null };
+    pub = { images, legende: readFileSync(path.join(src, 'legende.txt'), 'utf8').trim(), titre: meta.titre || slot.variante, photo: meta.photo || null,
+      ...(Array.isArray(meta.tags) ? { tags: meta.tags.slice(0, images.length) } : {}) }; // identifications par image (vérifiées avant publication)
     if (meta.story && existsSync(path.join(src, meta.story))) { await copyFile(path.join(src, meta.story), path.join(dir, 'story-pret.jpg')); pub.storyPrete = 'story-pret.jpg'; }
     console.log(`[${id}] post prêt « ${pub.titre} » (${images.length} images)`);
   } else if (slot.type === 'veille') {

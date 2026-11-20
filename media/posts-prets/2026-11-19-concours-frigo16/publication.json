@@ -3,6 +3,37 @@
   "titre": "Concours : 2 places pour Phaphane et Do You Like… Tekno ? au Frigo 16",
   "photo": "dj",
   "story": "stories/phaphane.jpg",
-  "valide": false,
-  "_valide": "Le directeur valide les visuels avant toute publication (19/11/2026). Passer à true seulement après son accord écrit."
+  "valide": true,
+  "_valide": "Validé par le directeur le 20/11/2026 (« J'ai le okay pour le concours ! Tu peux poster aujourd'hui entre 16 h et 18 h. Personne en collaboration. Mais faudra taguer tout le monde concerné, même l'agence charpagency »).",
+  "collabs": [],
+  "tags": [
+    [
+      "pandaevents06",
+      "frigo.16",
+      "charpagency",
+      "tweltyprod",
+      "prizmeconcept"
+    ],
+    [
+      "tweltyprod",
+      "pandaevents06",
+      "frigo.16",
+      "charpagency",
+      "le109_officiel"
+    ],
+    [
+      "prizmeconcept",
+      "_do.you.like",
+      "pandaevents06",
+      "frigo.16",
+      "charpagency"
+    ],
+    [
+      "pandaevents06",
+      "frigo.16",
+      "charpagency",
+      "le109_officiel"
+    ]
+  ],
+  "_tags": "Identifications par image, dans l'ordre de publication (01 couverture, 02 Phaphane, 03 Tekno, 04 pour participer) ; vérifiées par l'API au moment de publier (un compte refusé est retiré)."
 }
