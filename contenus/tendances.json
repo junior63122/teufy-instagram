@@ -154,6 +154,11 @@
         "titre": "Refoulé sans raison ? Tague celui qui disait « ça passe »",
         "sous": "Côte d'Azur",
         "ajout": "2026-11-19"
+      },
+      {
+        "titre": "Il dit « je rentre tôt ». Il propose la plage à 7 h.",
+        "sous": "Tague-le",
+        "ajout": "2026-11-20"
       }
     ],
     "techno": [
@@ -227,6 +232,11 @@
         "titre": "Ton after finit à quelle heure, honnêtement ?",
         "sous": "Techno · Côte d'Azur",
         "ajout": "2026-11-19"
+      },
+      {
+        "titre": "Ton binôme de rave sait déjà où on va samedi ?",
+        "sous": "Envoie-lui ça",
+        "ajout": "2026-11-20"
       }
     ],
     "petits-prix": [
@@ -281,6 +291,11 @@
         "titre": "Décembre arrive. Ton budget soirée tient le coup ?",
         "sous": "Petits prix · Côte d'Azur",
         "ajout": "2026-11-19"
+      },
+      {
+        "titre": "Fin novembre, 20 € en poche. On sort où ?",
+        "sous": "Petits prix · Côte d'Azur",
+        "ajout": "2026-11-20"
       }
     ]
   },
@@ -311,7 +326,9 @@
       "Ton groupe a déjà débattu 47 messages. Nous, on a tranché : les soirées du week-end de Nice à Monaco. Envoie-leur avant le prochain « on verra ».",
       "Le physio, la file, la tenue : on t'évite les surprises. Voilà où sortir ce week-end sur la Côte, à partager avec ceux qui viennent.",
       "Vendredi, 23 h, le groupe hésite encore. Voilà où sortir de Cannes à Monaco, sans mauvaise surprise à l'entrée. Envoie-leur maintenant.",
-      "Tu veux danser, pas débattre. Les soirées du week-end de Nice à Juan, triées pour ton groupe. Tague celui qui réserve toujours trop tard."
+      "Tu veux danser, pas débattre. Les soirées du week-end de Nice à Juan, triées pour ton groupe. Tague celui qui réserve toujours trop tard.",
+      "Le physio te regarde, la file avance pas, et ton groupe hésite encore. Voilà où sortir ce week-end de Cannes à Monaco, à envoyer à ceux qui viennent.",
+      "Jeudi, vendredi, samedi : trois soirs, un seul budget. On a fait le tri de Nice à Juan. Tague celui qui choisit toujours trop tard."
     ],
     "techno": [
       "Les caissons tremblent déjà. Ce week-end, la scène underground du 06 ne fait aucun compromis sur les BPM.",
@@ -326,11 +343,13 @@
       "Un nom tombe, ton binôme t'envoie déjà le lien. Les dates qui tapent ce mois-ci sur la Côte, à garder sous le coude.",
       "Pas de table, pas de bouteille, juste du 4/4 jusqu'au matin. Les soirées techno du week-end sur la Côte, pour ceux qui savent.",
       "Hard techno, trance, tekno : chacun son BPM, une seule famille. Les dates qui tapent ce week-end sur la Côte, à envoyer à ton binôme.",
-      "Les nuits s'allongent, les sets aussi. Les soirées techno du week-end sur la Côte, pour celui qui ferme toujours le dancefloor."
+      "Les nuits s'allongent, les sets aussi. Les soirées techno du week-end sur la Côte, pour celui qui ferme toujours le dancefloor.",
+      "Un nom vient de tomber et le groupe s'enflamme déjà. Les dates qui tapent ce mois-ci sur la Côte, à envoyer à ton binôme avant qu'il les découvre seul.",
+      "Warehouse, after, lever de soleil sur la mer. Les soirées techno du week-end sur la Côte, pour ceux qui viennent pour la musique."
     ]
   },
   "objectif_semaine": 42,
-  "derniere_analyse": "2026-11-19T15:07:52.399Z",
+  "derniere_analyse": "2026-11-20T15:07:51.142Z",
   "concurrents": {
     "_note": "Comptes concurrents ou similaires (guides de sorties, médias nightlife). Le bot regarde chaque jour ce qui marche chez eux (formats, accroches, hashtags, heures). Un nom inexistant est simplement ignoré.",
     "liste": [
@@ -354,34 +373,34 @@
   },
   "formats_a_tester": [
     {
-      "format": "Carrousel « les dates techno qui tapent », couverture titre en bas",
-      "pourquoi": "C'est notre meilleur format : 99/100 et 8 partages cette semaine, 80 partages en janvier. Chez les autres comptes, le carrousel score 10 contre 2,6 pour le reel.",
-      "source": "Chiffres du compte (Édition Tekno 12/11, post techno 02/01) + tendances autres comptes",
-      "ajout": "2026-11-19"
+      "format": "Carrousel « les dates techno du mois » avec couverture texte en bas",
+      "pourquoi": "Le format qui a le plus partagé dans l'histoire du compte (80 partages en janvier 2026) et le carrousel domine chez les autres comptes (score 1,87).",
+      "source": "Chiffres du compte (posts du 2026-01-02 et 2025-11-07) + tendances autres comptes",
+      "ajout": "2026-11-20"
     },
     {
-      "format": "Carrousel « situe-toi sur le tableau » (axes du fêtard : heure d'arrivée, heure de départ)",
-      "pourquoi": "Tout le monde se reconnaît, commente sa case et tague un pote. Ça passe le test du message privé.",
-      "source": "https://www.instagram.com/p/Df40odgm5q-/",
-      "ajout": "2026-11-19"
+      "format": "Post « premier nom tombé » publié dès l'annonce officielle",
+      "pourquoi": "Info fraîche qu'on envoie à son binôme : note 100 et 8 partages pour HUGEL, même logique chez dicefm (score 33).",
+      "source": "Post veille du 2026-11-09 + https://www.instagram.com/p/Dd_qG-Iio-L/",
+      "ajout": "2026-11-20"
     },
     {
-      "format": "Actu « un nom vient de tomber » façon fiche artiste",
-      "pourquoi": "L'actu HUGEL a fait 100/100 avec 8 partages. Le format de DICE autour des annonces d'artistes fonctionne.",
-      "source": "https://www.instagram.com/p/Dd_qG-Iio-L/",
-      "ajout": "2026-11-19"
+      "format": "Reel explicatif court sur une règle de soirée qui fait économiser",
+      "pourquoi": "L'entrée gratuite avant 1 h a fait 47 et 4 partages : astuce concrète qu'on envoie au groupe.",
+      "source": "Chiffres du compte (reel du 2026-11-13, créneau 15 h)",
+      "ajout": "2026-11-20"
     },
     {
-      "format": "Carrousel « organise ton before avant [grosse date de la Côte] »",
-      "pourquoi": "C'est le post le plus fort des inspirations (score 1 514). Il colle à une situation vécue : le before qui déborde.",
-      "source": "https://www.instagram.com/p/Df5bWnCm3MJ/",
-      "ajout": "2026-11-19"
+      "format": "Reel POV ou classement de situations vécues, CTA « tague-le »",
+      "pourquoi": "Les posts « vérité » de l'équipe ont fait 88 et 64 avec 14 et 12 partages, alors que les débats abstraits plafonnent à 26.",
+      "source": "Chiffres du compte (posts du 2025-11-17 et 2025-11-21)",
+      "ajout": "2026-11-20"
     },
     {
-      "format": "Jeu concours avec un organisateur partenaire (tague 2 potes)",
-      "pourquoi": "18 à 28 commentaires et 4 à 8 abonnés à chaque fois, des chiffres jamais atteints par les posts du bot.",
-      "source": "Chiffres du compte (concours LQB 25/03, REF 03/05, Crossover 10/08)",
-      "ajout": "2026-11-19"
+      "format": "Jeu concours avec un partenaire local, condition « tague un pote »",
+      "pourquoi": "Le format le plus régulier en abonnés gagnés (6 à 8 par concours) et en commentaires.",
+      "source": "Chiffres du compte (concours du 2026-03-25, 2026-04-28, 2026-08-10)",
+      "ajout": "2026-11-20"
     }
   ],
   "inspirations_internationales": {

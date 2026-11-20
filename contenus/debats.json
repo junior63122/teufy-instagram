@@ -391,5 +391,21 @@
     "b": "Dodo à 3 h, frais demain",
     "legende": "Il y a ceux qui voient le lever du soleil sur la Prom' et ceux qui dorment déjà. T'es lequel ? Tague celui qui dit « je rentre tôt ».",
     "ajout": "2026-11-19"
+  },
+  {
+    "id": "ia-2026-11-20-1rckbxs",
+    "q": "5 h, plus de tram. Tu fais quoi ?",
+    "a": "VTC partagé à quatre",
+    "b": "J'attends le premier tram en refaisant la soirée",
+    "legende": "5 h, la soirée est finie, le retour commence. Team VTC à quatre ou team premier tram ? Réponds A ou B en com et tague celui qui rate toujours le retour 👇",
+    "ajout": "2026-11-20"
+  },
+  {
+    "id": "ia-2026-11-20-geh25d",
+    "q": "Ce samedi, ton camp ?",
+    "a": "Techno qui tape jusqu'au matin",
+    "b": "Afro qui fait danser toute la nuit",
+    "legende": "Même nuit, deux ambiances. Kicks lourds ou basses qui font bouger les hanches ? A ou B en com, et envoie ça à ton binôme pour voir s'il est d'accord 👇",
+    "ajout": "2026-11-20"
   }
 ]

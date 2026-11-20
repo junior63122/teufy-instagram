@@ -376,8 +376,8 @@
         "theme:fetes",
         "auteur:equipe"
       ],
-      "score": 0.726,
-      "note": 36
+      "score": 0.812,
+      "note": 41
     },
     {
       "media": "18432694600107133",
@@ -1248,8 +1248,8 @@
         "theme:debat",
         "auteur:equipe"
       ],
-      "score": 0.907,
-      "note": 45
+      "score": 1.076,
+      "note": 54
     },
     {
       "media": "17853480039559153",
@@ -1511,8 +1511,8 @@
         "hashtag:#nicecotedazur",
         "auteur:equipe"
       ],
-      "score": 0.777,
-      "note": 39
+      "score": 0.919,
+      "note": 46
     },
     {
       "media": "18108616630572732",
@@ -1778,8 +1778,8 @@
         "hashtag:#soireeentreamis",
         "auteur:equipe"
       ],
-      "score": 0.9,
-      "note": 45
+      "score": 1.437,
+      "note": 72
     },
     {
       "media": "18029504888713603",
@@ -1898,7 +1898,7 @@
         "hashtag:#danceallnight",
         "auteur:equipe"
       ],
-      "score": 2.651,
+      "score": 3.172,
       "note": 100
     },
     {
@@ -2031,8 +2031,8 @@
         "theme:gratuit",
         "auteur:equipe"
       ],
-      "score": 0.88,
-      "note": 44
+      "score": 1.224,
+      "note": 61
     },
     {
       "media": "17972983127911232",
@@ -2349,8 +2349,8 @@
         "hashtag:#pote",
         "auteur:equipe"
       ],
-      "score": 1.843,
-      "note": 92
+      "score": 2.441,
+      "note": 100
     },
     {
       "media": "17961355697853498",
@@ -2398,8 +2398,8 @@
         "theme:debat",
         "auteur:equipe"
       ],
-      "score": 1.53,
-      "note": 77
+      "score": 1.831,
+      "note": 92
     },
     {
       "media": "18160797397335835",
@@ -2438,7 +2438,7 @@
         "theme:debat",
         "auteur:equipe"
       ],
-      "score": 2.252,
+      "score": 2.651,
       "note": 100
     },
     {
@@ -2560,17 +2560,17 @@
       ],
       "note": 100,
       "metrics": {
-        "reach": 953,
-        "likes": 7,
+        "reach": 958,
+        "likes": 8,
         "comments": 0,
         "saved": 0,
         "shares": 8,
-        "total_interactions": 15,
+        "total_interactions": 16,
         "follows": 0,
-        "profile_visits": 1
+        "profile_visits": 2
       },
-      "mesure_le": "2026-11-19T15:08:05.190Z",
-      "score": 2.69
+      "mesure_le": "2026-11-20T15:07:59.753Z",
+      "score": 2.768
     },
     {
       "media": "18100117979106694",
@@ -2664,9 +2664,9 @@
         "theme:techno",
         "auteur:bot"
       ],
-      "note": 40,
+      "note": 39,
       "metrics": {
-        "reach": 373,
+        "reach": 379,
         "likes": 9,
         "comments": 1,
         "saved": 0,
@@ -2675,8 +2675,8 @@
         "follows": 0,
         "profile_visits": 4
       },
-      "mesure_le": "2026-11-19T15:08:05.190Z",
-      "score": 0.798
+      "mesure_le": "2026-11-20T15:07:59.753Z",
+      "score": 0.788
     },
     {
       "media": "18132087004853350",
@@ -2709,20 +2709,20 @@
         "hashtag:#cotedazur",
         "auteur:bot"
       ],
-      "note": 14,
+      "note": 17,
       "metrics": {
-        "reach": 465,
+        "reach": 470,
         "likes": 4,
         "comments": 0,
         "saved": 0,
         "shares": 0,
         "total_interactions": 4,
-        "views": 640,
-        "ig_reels_avg_watch_time": 4903,
+        "views": 646,
+        "ig_reels_avg_watch_time": 4883,
         "duree": 29.2
       },
-      "mesure_le": "2026-11-19T15:08:05.190Z",
-      "score": 0.283
+      "mesure_le": "2026-11-20T15:07:59.753Z",
+      "score": 0.346
     },
     {
       "media": "18062836039876762",
@@ -2769,7 +2769,7 @@
         "theme:debat",
         "auteur:equipe"
       ],
-      "score": 2.432,
+      "score": 2.801,
       "note": 100
     },
     {
@@ -2955,9 +2955,9 @@
         "theme:techno",
         "auteur:bot"
       ],
-      "note": 99,
+      "note": 97,
       "metrics": {
-        "reach": 468,
+        "reach": 478,
         "likes": 8,
         "comments": 3,
         "saved": 0,
@@ -2966,8 +2966,8 @@
         "follows": 2,
         "profile_visits": 6
       },
-      "mesure_le": "2026-11-19T15:08:05.190Z",
-      "score": 1.985
+      "mesure_le": "2026-11-20T15:07:59.753Z",
+      "score": 1.947
     },
     {
       "media": "18170367442470235",
@@ -3002,20 +3002,20 @@
         "theme:debat",
         "auteur:bot"
       ],
-      "note": 41,
+      "note": 47,
       "metrics": {
-        "reach": 817,
+        "reach": 829,
         "likes": 5,
         "comments": 0,
         "saved": 0,
         "shares": 4,
         "total_interactions": 9,
-        "views": 1094,
-        "ig_reels_avg_watch_time": 6901,
+        "views": 1111,
+        "ig_reels_avg_watch_time": 6876,
         "duree": 28.4
       },
-      "mesure_le": "2026-11-19T15:08:05.190Z",
-      "score": 0.817
+      "mesure_le": "2026-11-20T15:07:59.753Z",
+      "score": 0.937
     },
     {
       "media": "18111823247220555",
@@ -3035,16 +3035,16 @@
       "source": "bot",
       "caption": "4 h du matin à Monaco, la boîte ferme et t'as faim. On a la liste 👇\n\n1. Stars ’n’ Bars (Restaurant) · lun–dim 11h–0h\n2. Quai des Artistes (Restaurant) · lun–dim 19h30–23h\n3. Beefbar (Restaurant) · lun–dim 14h30–0h\n4. Buddha-Bar (Restaurant) · mar–sam 18h–2h\n5. Le Cabanon (Restaurant) · lun–dim 9h–23h\n\nHoraires publiés : vérifie avant d'y aller. Toutes les adresses sur teufyparty.com (Manger tard).\n\nEnregistre ce post pour ta prochaine sortie.\n\n#TeufyParty #monaco #cotedazur #nightlife #streetfood",
       "metrics": {
-        "reach": 1026,
+        "reach": 1058,
         "likes": 5,
         "comments": 0,
-        "saved": 0,
+        "saved": 1,
         "shares": 0,
-        "total_interactions": 5,
+        "total_interactions": 6,
         "follows": 0,
         "profile_visits": 5
       },
-      "mesure_le": "2026-11-19T15:08:05.190Z",
+      "mesure_le": "2026-11-20T15:07:59.753Z",
       "features_generales": [
         "heure:18h",
         "jour:sam",
@@ -3058,8 +3058,8 @@
         "hashtag:#streetfood",
         "auteur:bot"
       ],
-      "score": 0.307,
-      "note": 15
+      "score": 0.347,
+      "note": 17
     },
     {
       "media": "18148105030572664",
@@ -3093,7 +3093,7 @@
         "theme:debat",
         "auteur:bot"
       ],
-      "note": 3,
+      "note": 6,
       "metrics": {
         "reach": 439,
         "likes": 0,
@@ -3106,7 +3106,7 @@
         "duree": 22
       },
       "mesure_le": "2026-11-19T15:08:05.190Z",
-      "score": 0.063
+      "score": 0.114
     },
     {
       "media": "18127859321302462",
@@ -3186,7 +3186,7 @@
       ],
       "note": 33,
       "metrics": {
-        "reach": 657,
+        "reach": 675,
         "likes": 5,
         "comments": 1,
         "saved": 0,
@@ -3195,8 +3195,8 @@
         "follows": 1,
         "profile_visits": 4
       },
-      "mesure_le": "2026-11-19T15:08:05.190Z",
-      "score": 0.663
+      "mesure_le": "2026-11-20T15:07:59.753Z",
+      "score": 0.652
     },
     {
       "media": "17877067128639358",
@@ -3227,20 +3227,20 @@
         "theme:debat",
         "auteur:bot"
       ],
-      "note": 22,
+      "note": 26,
       "metrics": {
-        "reach": 571,
+        "reach": 588,
         "likes": 2,
         "comments": 0,
         "saved": 0,
         "shares": 1,
         "total_interactions": 3,
-        "views": 843,
-        "ig_reels_avg_watch_time": 6072,
+        "views": 870,
+        "ig_reels_avg_watch_time": 6014,
         "duree": 12.2
       },
-      "mesure_le": "2026-11-19T15:08:05.190Z",
-      "score": 0.442
+      "mesure_le": "2026-11-20T15:07:59.753Z",
+      "score": 0.517
     },
     {
       "media": "18179546929453371",
@@ -3260,7 +3260,7 @@
       "source": "bot",
       "caption": "4 h du matin à Nice, la boîte ferme et t'as faim. On a la liste 👇\n\n1. Le Cessole (Pizzeria) · lun–dim 7h–0h\n2. Hippopotamus (Restaurant) · lun–jeu 11h30–23h · ven–sam 11h30–0h · dim 11h30–23h\n3. Le Magnan (Restaurant) · lun–dim 7h–23h\n4. Les Jardins du Capitole (Restaurant) · lun–dim 8h–23h\n5. Don Carlo (Pizzeria) · lun–mar 19h–23h · jeu–sam 19h–23h\n\nHoraires publiés : vérifie avant d'y aller. Toutes les adresses sur teufyparty.com (Manger tard).\n\nEnvoie ça au groupe avant samedi.\n\n#TeufyParty #nice #cotedazur #nightlife #streetfood",
       "metrics": {
-        "reach": 446,
+        "reach": 471,
         "likes": 1,
         "comments": 0,
         "saved": 1,
@@ -3269,7 +3269,7 @@
         "follows": 0,
         "profile_visits": 0
       },
-      "mesure_le": "2026-11-19T15:08:05.190Z",
+      "mesure_le": "2026-11-20T15:07:59.753Z",
       "features_generales": [
         "heure:18h",
         "jour:mar",
@@ -3283,7 +3283,7 @@
         "hashtag:#streetfood",
         "auteur:bot"
       ],
-      "score": 0.322,
+      "score": 0.315,
       "note": 16
     },
     {
@@ -3355,7 +3355,19 @@
         "theme:debat",
         "auteur:bot"
       ],
-      "note": null
+      "note": 37,
+      "metrics": {
+        "reach": 884,
+        "likes": 8,
+        "comments": 0,
+        "saved": 3,
+        "shares": 3,
+        "total_interactions": 14,
+        "follows": 1,
+        "profile_visits": 0
+      },
+      "mesure_le": "2026-11-20T15:07:59.753Z",
+      "score": 0.748
     },
     {
       "media": "18121666664086611",
@@ -3384,7 +3396,77 @@
         "hashtag:#teufyparty",
         "auteur:bot"
       ],
-      "note": null
+      "note": 12,
+      "metrics": {
+        "reach": 331,
+        "likes": 2,
+        "comments": 0,
+        "saved": 0,
+        "shares": 0,
+        "total_interactions": 2,
+        "views": 423,
+        "ig_reels_avg_watch_time": 2889,
+        "duree": 16.4
+      },
+      "mesure_le": "2026-11-20T15:07:59.753Z",
+      "score": 0.247
+    },
+    {
+      "media": "18506192326103484",
+      "id": "reel-spot-promo",
+      "type": "reel",
+      "variante": "spot-promo",
+      "date": "2026-11-19",
+      "choix": {
+        "creneau": "17",
+        "accroche-spot": "question",
+        "fonction-spot": [
+          "ce-soir",
+          "pres-de-moi",
+          "styles",
+          "gratuit",
+          "manger-tard",
+          "toute-la-cote"
+        ]
+      },
+      "features": [],
+      "nb_images": 0,
+      "duree": 18.6,
+      "legende": "Tu sais jamais où sortir le soir ? 👀\n\nTeufy, c'est toutes les soirées de la Côte d'Azur au même endroit :\n🔥 les soirées de ce soir, en un coup d'œil\n📍 les boîtes ouvertes près de toi\n🎧 ton style : techno, house, afro, shatta\n🆓 les soirées gratuites et les bons plans\n🍕 où manger après la boîte, jusqu'à 5 h\n\nDe Toulon à Monaco 🌊 Tout est sur teufyparty.com (lien en bio)\n\nAbonne-toi pour ne rater aucune soirée, et sois là quand l'appli arrive 📲\n\n#TeufyParty #cotedazur #nice #cannes #monaco",
+      "titre": "Teufy · 01 ou sortir le soir",
+      "publie_le": "2026-11-19T17:12:09.340Z",
+      "source": "bot",
+      "caption": "Tu sais jamais où sortir le soir ? 👀\n\nTeufy, c'est toutes les soirées de la Côte d'Azur au même endroit :\n🔥 les soirées de ce soir, en un coup d'œil\n📍 les boîtes ouvertes près de toi\n🎧 ton style : techno, house, afro, shatta\n🆓 les soirées gratuites et les bons plans\n🍕 où manger après la boîte, jusqu'à 5 h\n\nDe Toulon à Monaco 🌊 Tout est sur teufyparty.com (lien en bio)\n\nAbonne-toi pour ne rater aucune soirée, et sois là quand l'appli arrive 📲\n\n#TeufyParty #cotedazur #nice #cannes #monaco",
+      "metrics": {
+        "reach": 276,
+        "likes": 0,
+        "comments": 0,
+        "saved": 1,
+        "shares": 1,
+        "total_interactions": 2,
+        "views": 377,
+        "ig_reels_avg_watch_time": 3915,
+        "duree": 18.6
+      },
+      "mesure_le": "2026-11-20T15:07:59.753Z",
+      "features_generales": [
+        "heure:18h",
+        "jour:jeu",
+        "format:reel",
+        "type:reel-spot-promo",
+        "legende:moyenne",
+        "accroche:question",
+        "hashtag:#teufyparty",
+        "hashtag:#cotedazur",
+        "hashtag:#nice",
+        "hashtag:#cannes",
+        "hashtag:#monaco",
+        "theme:techno",
+        "theme:gratuit",
+        "auteur:bot"
+      ],
+      "score": 0.772,
+      "note": 39
     }
   ],
   "abonnes": [
@@ -3434,6 +3516,10 @@
     },
     {
       "date": "2026-11-19",
+      "n": 14441
+    },
+    {
+      "date": "2026-11-20",
       "n": 14441
     }
   ]

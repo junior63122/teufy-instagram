@@ -454,5 +454,121 @@
     "test_du_partage": "Envoyé dans le groupe du samedi avec « ce week-end on part à l'heure, hein ».",
     "statut": "propose",
     "ajout": "2026-11-19"
+  },
+  {
+    "id": "c-2026-11-20-sb572s",
+    "titre": "Le DJ et LA chanson",
+    "format": "POV",
+    "accroche": "POV : 3 h que t'attends LA chanson",
+    "plans": [
+      {
+        "texte": "Minuit. Tu demandes LA chanson au DJ.",
+        "video": "person talking to dj booth club"
+      },
+      {
+        "texte": "1 h. Il te fait un signe. Tu y crois.",
+        "video": "dj nodding booth club lights"
+      },
+      {
+        "texte": "2 h. Toujours rien. Tu fixes la cabine.",
+        "video": "woman staring at dj booth crowd"
+      },
+      {
+        "texte": "3 h. Tu t'éloignes juste deux minutes.",
+        "video": "club corridor neon walking"
+      },
+      {
+        "texte": "Tu reviens. Tout le monde chante LA chanson.",
+        "video": "crowd singing hands up club"
+      },
+      {
+        "texte": "Le DJ te regarde. Il savait.",
+        "video": "dj smiling at crowd close up"
+      }
+    ],
+    "musique": "house euphorique 124 bpm, montée qui explose au dernier plan",
+    "legende": "3 h d'attente, deux minutes d'absence, et c'est là qu'elle tombe. Le DJ savait. On le sait tous. C'est quoi, la chanson que tu rates à chaque fois ? Dis-la en com 👇",
+    "cta": "Tague celui qui rate toujours LA chanson",
+    "inspire_de": "boilerroomtv (plans serrés cabine et foule)",
+    "pourquoi_viral": "Situation vécue par tous, chute à la fin qui pousse à revoir le reel, et commentaires faciles : chacun donne sa chanson.",
+    "test_du_partage": "Au pote qui disparaît pile au drop : « c'est trop toi ».",
+    "statut": "propose",
+    "ajout": "2026-11-20"
+  },
+  {
+    "id": "c-2026-11-20-11kzew0",
+    "titre": "Ce qu'il dit à 23 h, ce qu'il fait à 7 h",
+    "format": "avant-apres",
+    "accroche": "Il dit « je rentre tôt ». Regarde la suite.",
+    "plans": [
+      {
+        "texte": "23 h : « Je viens, mais je rentre tôt. »",
+        "video": "young man putting jacket leaving apartment night"
+      },
+      {
+        "texte": "Minuit : « Je reste juste pour un son. »",
+        "video": "friends arriving club entrance night"
+      },
+      {
+        "texte": "2 h : c'est lui le premier sur la piste.",
+        "video": "man dancing center of crowd club"
+      },
+      {
+        "texte": "4 h : il demande s'il y a un after.",
+        "video": "friends outside club laughing night"
+      },
+      {
+        "texte": "7 h : il propose de finir sur la plage.",
+        "video": "friends walking beach sunrise"
+      },
+      {
+        "texte": "Lundi : « Moi ? J'suis parti tôt. »",
+        "video": "man yawning coffee morning"
+      }
+    ],
+    "musique": "afro house solaire 120 bpm",
+    "legende": "On a tous ce pote. Il annonce un départ à minuit, il ferme la boîte et propose la Prom' au lever du soleil. Lundi, il nie tout. Tague-le, on veut sa version 👇",
+    "cta": "Tague celui qui « rentre tôt » à chaque fois",
+    "inspire_de": "boilerroomtv (énergie de foule brute, réactions sans filtre)",
+    "pourquoi_viral": "Chacun a ce pote : le tag est immédiat, le dernier plan fait rire et donne envie de l'envoyer en privé.",
+    "test_du_partage": "Au pote qui « rentre tôt » : « c'est littéralement toi samedi ».",
+    "statut": "propose",
+    "ajout": "2026-11-20"
+  },
+  {
+    "id": "c-2026-11-20-uj53yl",
+    "titre": "Les 5 potes qu'on a tous en soirée",
+    "format": "classement",
+    "accroche": "Les 5 potes qu'on a tous en soirée sur la Côte",
+    "plans": [
+      {
+        "texte": "Celle qui a pris la prévente mardi. La légende.",
+        "video": "woman showing phone ticket smiling"
+      },
+      {
+        "texte": "Celui qui « connaît le physio ». Il le connaît pas.",
+        "video": "man walking confidently to club door"
+      },
+      {
+        "texte": "Celle qui voulait juste passer dire bonjour.",
+        "video": "woman dancing joyful club lights"
+      },
+      {
+        "texte": "Celui qui gère le retour quand plus rien ne roule.",
+        "video": "friends getting into car city night"
+      },
+      {
+        "texte": "Et celui qui défend sa ville contre tout le monde.",
+        "video": "friends laughing arguing street night"
+      }
+    ],
+    "musique": "afro house rythmée 122 bpm, un coup de basse à chaque profil",
+    "legende": "La prévente de mardi, le faux pote du physio, celle qui passait juste dire bonjour… Ton groupe a forcément les cinq. Tague chacun dans sa case, et dis-nous lequel t'es 👇",
+    "cta": "Tague chaque pote dans la bonne case",
+    "inspire_de": "dicefm (format liste qui présente des profils et des lieux)",
+    "pourquoi_viral": "Format liste rapide, chaque profil appelle un tag différent, donc plusieurs partages par personne qui regarde.",
+    "test_du_partage": "Dans le groupe WhatsApp du week-end : « on a les cinq, c'est fou ».",
+    "statut": "propose",
+    "ajout": "2026-11-20"
   }
 ]

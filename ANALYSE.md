@@ -1,46 +1,43 @@
-## Analyse de la semaine du 2026-11-19
+## Analyse de la semaine du 2026-11-20
 
-Cette semaine, 11 posts du bot ont été notés. La moyenne est d'environ 35/100, juste sous l'objectif de 38, et l'échantillon reste petit : on continue des tests variés. Deux posts techno tirent tout vers le haut : l'édition Tekno (99, 8 partages, 2 abonnés) et l'actu HUGEL aux Plages Électroniques (100, 8 partages). Les débats « food » et pré-soirée (3 et 22), les guides « où manger après la boîte » (15 et 16, aucun partage malgré 1 026 de portée à Monaco) et l'incontournable commercial (6) décrochent. La couverture « bas » fait nettement mieux que « centre », et le créneau de 15 h UTC devance 17 h et 18 h. Côté Meta, l'actu à suivre est la nouvelle app de messagerie Direct : elle confirme que les partages en message privé sont le nerf de la guerre.
+Semaine contrastée. Ce qui marche : l'actu techno (HUGEL aux Plages Électroniques, note 100, 8 partages), l'édition Tekno (97, 8 partages, 2 abonnés) et le reel qui explique l'entrée gratuite avant 1 h (47, 4 partages). Ce qui échoue : les débats food (pan bagnat 6), le reel promo (12), les guides « où manger » (16 et 17 malgré 1 058 de portée) et le commercial (6). Les données restent minces : chaque option n'a que 2 à 3 posts, donc on varie les tests au lieu de tout miser sur une piste. Côté Meta, l'annonce de Direct, une appli dédiée aux messages, confirme que le partage en privé reste le levier n°1. On vise 42 la semaine prochaine.
 
 **Objectif des prochains posts : 42/100**
 
 ### Nouveautés Instagram / Meta
-- 🟢 officiel · 2026-11-17 · **Introducing Direct: An App Just for Messaging** : Meta mise encore plus sur la messagerie. Les contenus qu'on s'envoie entre potes restent le signal prioritaire. Chaque post doit avoir une raison d'être envoyé : tague, « on y va ? », binôme de rave. ([source](https://about.fb.com/news/2026/11/introducing-direct-an-app-just-for-messaging/))
-- 🟢 officiel · 2026-11-09 · **Expanding Teen Account Protections to Teens Around the World** : Une partie de notre cible a 17 ans. Il faut éviter tout ce qui met l'alcool en avant (bouteilles, verres en gros plan) pour ne pas freiner la recommandation auprès des comptes ado. On centre les visuels sur la musique, la foule et les potes. ([source](https://about.fb.com/news/2026/11/expanding-teen-account-protections-to-teens-around-the-world/))
-- 🟢 officiel · 2026-11-17 · **An Update on the Content We Recommend on Instagram in India** : Concerne l'Inde : aucun changement à appliquer pour la Côte d'Azur. ([source](https://about.fb.com/news/2026/11/an-update-on-the-content-we-recommend-on-instagram-in-india/))
+- 🟢 officiel · 2026-11-17 · **Introducing Direct: An App Just for Messaging** : Les messages privés prennent encore plus de place chez Meta. Chaque contenu doit passer le test « je l'envoie à mon pote ». CTA de partage en privé dans chaque reel. ([source](https://about.fb.com/news/2026/11/introducing-direct-an-app-just-for-messaging/))
+- 🟢 officiel · 2026-11-09 · **Expanding Teen Account Protections to Teens Around the World** : Une partie de la cible a 17 ans. Rester loin de l'alcool et de tout contenu limite, sinon on risque d'être moins recommandé auprès des comptes ados. ([source](https://about.fb.com/news/2026/11/expanding-teen-account-protections-to-teens-around-the-world/))
+- 🟢 officiel · 2026-11-17 · **An Update on the Content We Recommend on Instagram in India** : Concerne l'Inde uniquement, aucun changement à appliquer pour la Côte d'Azur. ([source](https://about.fb.com/news/2026/11/an-update-on-the-content-we-recommend-on-instagram-in-india/))
 
 ### Pourquoi certains posts marchent mieux
-- **La techno et l'actu line-up sont nos seuls vrais moteurs de partage.** (Édition Tekno : 99/100, 8 partages, 2 abonnés. Actu HUGEL : 100/100, 8 partages. Côté historique, le post techno de janvier a fait 80 partages et celui de novembre 2025, 33. L'incontournable commercial plafonne à 6/100 avec 0 partage.) → Passer à 2 posts techno par semaine : 1 carrousel de dates et 1 actu « un nom vient de tomber » dès qu'une annonce officielle sort. Garder #hardtechno et #technocotedazur (effet +41).
-- **Les guides « où manger » et les débats hors nightlife ne se partagent pas.** (Pan bagnat : 3/100, 0 interaction. Pré-soirée : 22/100. Guides Nice et Monaco : 15 et 16/100. Pour Monaco, 1 026 de portée mais 0 partage. Effet type:guide -44, type:reel-grand-debat -47.) → Arrêter les guides food. Transformer les débats en duels d'identité de fêtard (style musical, after ou dodo), avec une vraie vidéo de soirée plutôt qu'un fond texte.
-- **La couverture avec le titre en bas performe beaucoup mieux.** (mise-couverture:bas : 70 de moyenne sur 2 posts, contre 6 pour « centre » sur le post commercial.) → Appliquer « bas » sur tous les carrousels, y compris commerciaux, pour isoler l'effet du sujet.
-- **Publier tôt dans l'après-midi semble mieux marcher.** (Créneau 15 : moyenne 40. Créneau 17 : 33. Créneau 18 : 23. Chez les autres comptes, 16 h UTC ressort fort (score 6,3 sur 40 posts).) → Retirer 18 h UTC. Tester 16 h et 19 h UTC à côté de 15 et 17 pour confirmer.
-- **Les jeux concours de l'équipe génèrent les commentaires et les abonnés que le bot n'obtient pas.** (Concours LQB, REF et Electro Symphony : 18 à 28 commentaires et 4 à 8 abonnés chacun. Les posts du bot de la semaine : 0 à 3 commentaires.) → Caler un concours avec un organisateur partenaire avant les fêtes. À faire par l'équipe, uniquement si les places sont réellement confirmées.
+- **Les infos techno exclusives et les sélections techno sont les seuls posts qui déclenchent des partages en série.** (Veille HUGEL : 100, 8 partages. Tekno : 97, 8 partages, 2 abonnés. Archives : techno janvier 2026, 80 partages ; techno novembre 2025, 33 partages, 9 abonnés.) → Un post techno par semaine minimum, plus un post « premier nom tombé » dès qu'une annonce officielle sort. Garder la mise en couverture en bas (moyenne 68).
+- **Les reels explicatifs utiles battent les débats et la promo.** (Entrée gratuite avant 1 h : 47, 4 partages. Débats : 26 et 6. Reel promo « Ne rate plus aucune soirée » : 12, 0 partage.) → Arrêter les reels promo du service. Remplacer les débats food par des situations vécues de soirée (concepts POV et classement).
+- **Les guides « où manger » attirent de la portée mais aucun engagement.** (Monaco : 1 058 de portée, 0 partage, note 17. Nice : 471, 1 partage, note 16. Effet type:guide -43.) → Mettre les guides en pause. Tester la faim de 4 h en ton humour (situation à taguer) plutôt qu'en liste.
+- **Le créneau de 15 h UTC fait mieux que 17 h et 18 h, et les autres comptes performent à 16 h.** (Créneau 15 : moyenne 43. 17 : 32. 18 : 25. Autres comptes : 16 h score 6,46, 17 h score 2,88.) → Publier à 15, 16 et 17 h UTC, et tester 16 h sur le prochain post techno.
+- **Le commercial et les hashtags de ville trop larges plombent la note.** (Commercial : 6. Effets : genre commercial -34, #nice -36, #monaco -31.) → Commercial angle situation (file, physio, dress code) et hashtags précis (#sortiracannes, #nightlife06, #vieuxnice).
 
 ### Formats et manières de poster à tester
-- **Carrousel « les dates techno qui tapent », couverture titre en bas** : C'est notre meilleur format : 99/100 et 8 partages cette semaine, 80 partages en janvier. Chez les autres comptes, le carrousel score 10 contre 2,6 pour le reel. ([source](Chiffres du compte (Édition Tekno 12/11, post techno 02/01) + tendances autres comptes))
-- **Carrousel « situe-toi sur le tableau » (axes du fêtard : heure d'arrivée, heure de départ)** : Tout le monde se reconnaît, commente sa case et tague un pote. Ça passe le test du message privé. ([source](https://www.instagram.com/p/Df40odgm5q-/))
-- **Actu « un nom vient de tomber » façon fiche artiste** : L'actu HUGEL a fait 100/100 avec 8 partages. Le format de DICE autour des annonces d'artistes fonctionne. ([source](https://www.instagram.com/p/Dd_qG-Iio-L/))
-- **Carrousel « organise ton before avant [grosse date de la Côte] »** : C'est le post le plus fort des inspirations (score 1 514). Il colle à une situation vécue : le before qui déborde. ([source](https://www.instagram.com/p/Df5bWnCm3MJ/))
-- **Jeu concours avec un organisateur partenaire (tague 2 potes)** : 18 à 28 commentaires et 4 à 8 abonnés à chaque fois, des chiffres jamais atteints par les posts du bot. ([source](Chiffres du compte (concours LQB 25/03, REF 03/05, Crossover 10/08)))
+- **Carrousel « les dates techno du mois » avec couverture texte en bas** : Le format qui a le plus partagé dans l'histoire du compte (80 partages en janvier 2026) et le carrousel domine chez les autres comptes (score 1,87). ([source](Chiffres du compte (posts du 2026-01-02 et 2025-11-07) + tendances autres comptes))
+- **Post « premier nom tombé » publié dès l'annonce officielle** : Info fraîche qu'on envoie à son binôme : note 100 et 8 partages pour HUGEL, même logique chez dicefm (score 33). ([source](Post veille du 2026-11-09 + https://www.instagram.com/p/Dd_qG-Iio-L/))
+- **Reel explicatif court sur une règle de soirée qui fait économiser** : L'entrée gratuite avant 1 h a fait 47 et 4 partages : astuce concrète qu'on envoie au groupe. ([source](Chiffres du compte (reel du 2026-11-13, créneau 15 h)))
+- **Reel POV ou classement de situations vécues, CTA « tague-le »** : Les posts « vérité » de l'équipe ont fait 88 et 64 avec 14 et 12 partages, alors que les débats abstraits plafonnent à 26. ([source](Chiffres du compte (posts du 2025-11-17 et 2025-11-21)))
+- **Jeu concours avec un partenaire local, condition « tague un pote »** : Le format le plus régulier en abonnés gagnés (6 à 8 par concours) et en commentaires. ([source](Chiffres du compte (concours du 2026-03-25, 2026-04-28, 2026-08-10)))
 
 ### Concepts de reels inventés cette semaine (à valider)
-- **La carte du before** (classement, inspiré de https://www.instagram.com/p/Df40odgm5q-/) : « Place-toi sur la carte du before. Honnêtement. » → Le format « situe-toi » pousse à commenter sa case et à désigner un pote. C'est une identité de fêtard, pas un catalogue.
-- **Le nom tombe, le binôme réagit** (reaction, inspiré de https://www.instagram.com/p/Dd_qG-Iio-L/) : « Un nom tombe à 18 h. Ton binôme réagit en 0,3 s » → Ça reprend l'actu line-up, notre meilleur sujet, sous un angle de relation entre potes : on tague forcément quelqu'un.
-- **Le before d'une heure max** (POV, inspiré de https://www.instagram.com/p/Df5bWnCm3MJ/) : « POV : « on fait un petit before, 1 h max » » → C'est une situation vécue par toute la cible, racontée en timeline avec une chute qu'on reconnaît. Pas d'alcool à l'écran, juste les potes et la file.
+- **Le DJ et LA chanson** (POV, inspiré de boilerroomtv (plans serrés cabine et foule)) : « POV : 3 h que t'attends LA chanson » → Situation vécue par tous, chute à la fin qui pousse à revoir le reel, et commentaires faciles : chacun donne sa chanson.
+- **Ce qu'il dit à 23 h, ce qu'il fait à 7 h** (avant-apres, inspiré de boilerroomtv (énergie de foule brute, réactions sans filtre)) : « Il dit « je rentre tôt ». Regarde la suite. » → Chacun a ce pote : le tag est immédiat, le dernier plan fait rire et donne envie de l'envoyer en privé.
+- **Les 5 potes qu'on a tous en soirée** (classement, inspiré de dicefm (format liste qui présente des profils et des lieux)) : « Les 5 potes qu'on a tous en soirée sur la Côte » → Format liste rapide, chaque profil appelle un tag différent, donc plusieurs partages par personne qui regarde.
 
 ### Ce que le bot a changé
-- accroche techno : « Hard techno ou trance : ton camp ce samedi ? »
-- accroche techno : « Ton after finit à quelle heure, honnêtement ? »
-- accroche weekend : « Refoulé sans raison ? Tague celui qui disait « ça passe » »
-- accroche petits-prix : « Décembre arrive. Ton budget soirée tient le coup ? »
-- intro techno : « Hard techno, trance, tekno : chacun son BPM, une seule famille. Les dates qui tapent ce week-end sur la Côte, à envoyer à ton binôme. »
-- intro techno : « Les nuits s'allongent, les sets aussi. Les soirées techno du week-end sur la Côte, pour celui qui ferme toujours le dancefloor. »
-- intro commercial : « Vendredi, 23 h, le groupe hésite encore. Voilà où sortir de Cannes à Monaco, sans mauvaise surprise à l'entrée. Envoie-leur maintenant. »
-- intro commercial : « Tu veux danser, pas débattre. Les soirées du week-end de Nice à Juan, triées pour ton groupe. Tague celui qui réserve toujours trop tard. »
-- débat « Ce samedi, t'es plutôt ? »
-- débat « La soirée se finit, tu fais quoi ? »
-- sujet de reel « Plages Électroniques 2027 : premier nom tombé »
-- heures de publication (UTC) 15, 16, 17 → 15, 16, 17, 19
-- concept de reel « La carte du before » (classement, inspiré de https://www.instagram.com/p/Df40odgm5q-/)
-- concept de reel « Le nom tombe, le binôme réagit » (reaction, inspiré de https://www.instagram.com/p/Dd_qG-Iio-L/)
-- concept de reel « Le before d'une heure max » (POV, inspiré de https://www.instagram.com/p/Df5bWnCm3MJ/)
+- accroche weekend : « Il dit « je rentre tôt ». Il propose la plage à 7 h. »
+- accroche techno : « Ton binôme de rave sait déjà où on va samedi ? »
+- accroche petits-prix : « Fin novembre, 20 € en poche. On sort où ? »
+- intro commercial : « Le physio te regarde, la file avance pas, et ton groupe hésite encore. Voilà où sortir ce week-end de Cannes à Monaco, à envoyer à ceux qui viennent. »
+- intro commercial : « Jeudi, vendredi, samedi : trois soirs, un seul budget. On a fait le tri de Nice à Juan. Tague celui qui choisit toujours trop tard. »
+- intro techno : « Un nom vient de tomber et le groupe s'enflamme déjà. Les dates qui tapent ce mois-ci sur la Côte, à envoyer à ton binôme avant qu'il les découvre seul. »
+- intro techno : « Warehouse, after, lever de soleil sur la mer. Les soirées techno du week-end sur la Côte, pour ceux qui viennent pour la musique. »
+- débat « 5 h, plus de tram. Tu fais quoi ? »
+- débat « Ce samedi, ton camp ? »
+- concept de reel « Le DJ et LA chanson » (POV, inspiré de boilerroomtv (plans serrés cabine et foule))
+- concept de reel « Ce qu'il dit à 23 h, ce qu'il fait à 7 h » (avant-apres, inspiré de boilerroomtv (énergie de foule brute, réactions sans filtre))
+- concept de reel « Les 5 potes qu'on a tous en soirée » (classement, inspiré de dicefm (format liste qui présente des profils et des lieux))
