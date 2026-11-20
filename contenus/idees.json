@@ -394,5 +394,38 @@
   "resume": "Le Dix-Huit annonce la chasse au Golden Ticket à Nice. La première personne à le trouver remportera un an de spectacles et de concerts gratuits.",
   "source": "https://www.instagram.com/reel/Df90FrRQvCL/",
   "importance": 60
+ },
+ {
+  "id": "idee-p59bdx",
+  "ajout": "2026-11-20T18:42:23.860Z",
+  "type": "annonce",
+  "format": "post-annonce",
+  "titre": "Bulldog Pompeï – Saturday Night Fever GTA VI",
+  "angle": "Une soirée immersive qui combine musique, cocktails et univers GTA VI, idéale pour les fans de jeux et de soirées à thème.",
+  "resume": "Le club Bulldog Pompeï organise une soirée spéciale GTA VI le samedi 21 novembre avec le DJ Kenzo officiel. La soirée propose un cocktail Miami Vice et une ambiance inspirée de Miami.",
+  "source": "https://www.instagram.com/p/Df7XUhHsPGk/",
+  "importance": 70
+ },
+ {
+  "id": "idee-1oo5hds",
+  "ajout": "2026-11-20T18:42:23.860Z",
+  "type": "annonce",
+  "format": "post-annonce",
+  "titre": "Bulldog Pompeï – No Sleep Mode",
+  "angle": "Un mode continu qui garantit une nuit sans interruption, idéal pour les fans de DJ Kenzo.",
+  "resume": "Le club Bulldog Pompeï annonce un mode « No Sleep » chaque vendredi, sans bouton OFF, avec le DJ Kenzo officiel. La soirée dure jusqu’à l’aube.",
+  "source": "https://www.instagram.com/p/Df9FM-IoGDc/",
+  "importance": 50
+ },
+ {
+  "id": "idee-a1z83l",
+  "ajout": "2026-11-20T18:42:23.860Z",
+  "type": "annonce",
+  "format": "post-annonce",
+  "titre": "Le Swing Nice – Castings Drag’s Legacy Saison 5",
+  "angle": "Une série de soirées drag qui promet de révéler de nouveaux talents, à suivre tout le mois.",
+  "resume": "Le Swing Nice lance les castings de la saison 5 de Drag’s Legacy, avec des auditions tous les vendredis de novembre. La sélection finale aura lieu le 20 novembre.",
+  "source": "https://www.instagram.com/p/Df93ynMtGxw/",
+  "importance": 60
  }
 ]
