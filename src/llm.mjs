@@ -158,6 +158,8 @@ export async function rechercher({ config, system, prompt, gratuit = false, seco
           tools: [{ google_search: {} }],
         });
         compter(f, 'recherche');
+        // Réponse vide (blocage, quota) : jamais un succès (avant : « Sources consultées : » seul passait pour un résultat).
+        if (!texteGemini(j)) throw new Error('Gemini : recherche sans réponse');
         const sources = (j.candidates?.[0]?.groundingMetadata?.groundingChunks || []).map((c) => c.web?.uri).filter(Boolean);
         return `${texteGemini(j)}\n\nSources consultées :\n${sources.slice(0, 40).join('\n')}`;
       }
@@ -169,6 +171,21 @@ export async function rechercher({ config, system, prompt, gratuit = false, seco
 }
 
 // --- Réponse JSON contrôlée par un schéma -----------------------------------------
+
+/** Écarts d'une réponse au schéma demandé (champs obligatoires du premier niveau, listes). Vide = conforme.
+ *  20/11/2026 : un « {} » ou une réponse sans la liste attendue était pris pour un succès (lot compté « fait »). */
+export function ecartsSchema(schema, obj) {
+  if (!schema || schema.type !== 'object') return [];
+  if (!obj || typeof obj !== 'object' || Array.isArray(obj)) return ['la réponse n\'est pas un objet JSON'];
+  const pb = [];
+  for (const k of schema.required || []) {
+    if (!(k in obj) || obj[k] === undefined) { pb.push(`champ « ${k} » absent`); continue; }
+    const t = schema.properties?.[k]?.type;
+    if (t === 'array' && !Array.isArray(obj[k])) pb.push(`« ${k} » n'est pas une liste`);
+  }
+  return pb;
+}
+const conforme = (schema, r, qui) => { const pb = ecartsSchema(schema, r); if (pb.length) throw new Error(`${qui} : réponse non conforme au schéma (${pb.join(', ')})`); return r; };
 
 export async function json({ config, system, prompt, schema, nom = 'reponse', gratuit = false, secondaire = false }) {
   const L = config.llm || {}; reglerCouts(L);
@@ -186,11 +203,11 @@ export async function json({ config, system, prompt, schema, nom = 'reponse', gr
           j = await postGemini(L, { ...base, contents: [{ role: 'user', parts: [{ text: `${prompt}\n\nRéponds uniquement en JSON valide selon ce schéma :\n${JSON.stringify(schema)}` }] }], generationConfig: { responseMimeType: 'application/json' } });
         }
         compter(f);
-        return JSON.parse(texteGemini(j));
+        return conforme(schema, JSON.parse(texteGemini(j)), 'Gemini');
       }
-      if (f === 'github') return await githubModels({ L, system, prompt, schema, nom });
-      if (f === 'groq') { const r = await groqJson({ L, system, prompt, schema, nom }); compter(f); return r; }
-      if (f === 'anthropic') { const r = JSON.parse(await claude({ system, prompt, schema, L })); compter(f); return r; }
+      if (f === 'github') return conforme(schema, await githubModels({ L, system, prompt, schema, nom }), 'GitHub Models');
+      if (f === 'groq') { const r = await groqJson({ L, system, prompt, schema, nom }); compter(f); return conforme(schema, r, 'Groq'); }
+      if (f === 'anthropic') { const r = JSON.parse(await claude({ system, prompt, schema, L })); compter(f); return conforme(schema, r, 'Claude'); }
     } catch (err) { marquerASec(f, err); console.error(`IA ${f} impossible : ${err.message.slice(0, 160)}`); }
   }
   throw new Error('Aucune IA disponible (secret gratuit GROQ_API_KEY ou GEMINI_API_KEY)');
@@ -286,19 +303,28 @@ async function modelesXai() {
   }
   return xaiModeles;
 }
-async function groqAppel(body, essai = 0) {
+// Réponse coupée par la limite de longueur (finish_reason « length ») : jamais prise telle quelle. JSON → erreur (modèle
+// suivant) ; texte de recherche (`tronqueOk`) → gardé sans sa dernière ligne, coupée (URL ou date à moitié écrite).
+async function groqAppel(body, essai = 0, { tronqueOk = false } = {}) {
   const res = await fetch(GROQ(), { method: 'POST', headers: groqEntetes(), body: JSON.stringify(body), signal: AbortSignal.timeout(180000) });
   // Limite par minute de l'offre gratuite (HTTP 429) : on attend le délai indiqué par Groq (au plus 30 s), deux fois au plus.
   if (res.status === 429 && essai < 2) {
     const attente = Math.min(30, parseFloat(res.headers?.get?.('retry-after')) || 12);
     await new Promise((ok) => setTimeout(ok, attente * 1000));
-    return groqAppel(body, essai + 1);
+    return groqAppel(body, essai + 1, { tronqueOk });
   }
   const txt = await res.text();
   if (!res.ok) { const e = new Error(`Groq HTTP ${res.status} ${txt.slice(0, 200)}`); e.status = res.status; throw e; }
   const j = JSON.parse(txt); // une réponse non JSON (comme le « OK » de GitHub Models) lève une erreur : jamais pris pour un succès
   const c = j.choices?.[0]?.message?.content;
-  if (!c) throw new Error('Groq : réponse vide');
+  if (!c || !String(c).trim()) throw new Error('Groq : réponse vide');
+  if (j.choices[0].finish_reason === 'length') {
+    if (!tronqueOk) throw new Error('Groq : réponse tronquée (limite de longueur)');
+    const sans = String(c).replace(/\n[^\n]*$/, '').trim();
+    if (!sans) throw new Error('Groq : réponse tronquée (limite de longueur)');
+    console.error('Groq : réponse coupée par la limite de longueur, dernière ligne retirée.');
+    return sans;
+  }
   return c;
 }
 // JSON : sortie structurée stricte si le modèle la prend, sinon mode JSON, sinon texte ; toujours relu et vérifié.
@@ -310,11 +336,11 @@ async function groqJson({ L, system, prompt, schema, nom }) {
     try {
       const c = await groqAppel({ model, temperature: 0.4, max_completion_tokens: 5000, ...(/gpt-oss/.test(model) ? { reasoning_effort: 'low' } : {}), messages: [{ role: 'system', content: `${system}\nRéponds uniquement en JSON valide${format?.type === 'json_schema' ? '' : ` selon ce schéma : ${JSON.stringify(schema)}`}.` }, { role: 'user', content: prompt }], ...(format ? { response_format: format } : {}) });
       const m = c.match(/\{[\s\S]*\}/);
-      if (m) return JSON.parse(m[0]);
+      if (m) { const r = JSON.parse(m[0]); const pb = ecartsSchema(schema, r); if (!pb.length) return r; journal.push(`${model} ${format?.type || 'texte'} : non conforme (${pb.join(', ')})`); continue; }
       journal.push(`${model} ${format?.type || 'texte'} : pas de JSON`);
     } catch (err) {
       journal.push(`${model} ${format?.type || 'texte'} : ${err.message.slice(0, 120)}`);
-      if (err.status === 429 || err.status === 401 || err.status === 404 || err.status === 413 || /max completion tokens|too large/i.test(err.message)) break; // modèle absent, quota, trop long : modèle suivant
+      if (err.status === 429 || err.status === 401 || err.status === 404 || err.status === 413 || /max completion tokens|too large|tronqu/i.test(err.message)) break; // modèle absent, quota, trop long : modèle suivant
     }
   }
   for (const l of journal) console.error(`Groq · ${l}`);
@@ -324,7 +350,7 @@ async function groqJson({ L, system, prompt, schema, nom }) {
 async function groqRecherche({ L, system, prompt, secondaire = false }) {
   if (estXai()) throw new Error('recherche web non branchée pour une clé xAI');
   const [model] = await choisirGroq(PREF_RECHERCHE, L.modele_groq_recherche);
-  if (model) return groqAppel({ model, messages: [{ role: 'system', content: `${system}\nCite l'adresse (URL) de chaque source.` }, { role: 'user', content: prompt }] });
+  if (model) return groqAppel({ model, messages: [{ role: 'system', content: `${system}\nCite l'adresse (URL) de chaque source.` }, { role: 'user', content: prompt }] }, 0, { tronqueOk: true });
   // Pas de modèle de recherche chez Groq (20/11/2026, directeur : « il faut aller sur le net sans attendre Google ») :
   // moteur de recherche gratuit Tavily (1 000 recherches par mois, sans carte bancaire, secret TAVILY_API_KEY), puis
   // Groq lit les résultats et répond en citant les pages. Aucun résultat : erreur (jamais une réponse inventée).
@@ -357,7 +383,7 @@ async function rechercheTavily({ L, system, prompt, secondaire = false }) {
   for (const q of requetes) for (const x of await tavily(q, { secondaire })) if (!vus.has(x.url)) { vus.add(x.url); res.push(x); }
   if (!res.length) throw new Error('Tavily : aucun résultat');
   const pages = res.slice(0, 14).map((x, i) => `[${i + 1}] ${x.title || ''}\n${x.url}\n${String(x.content || '').slice(0, 1200)}`).join('\n\n');
-  const c = await groqAppel({ model, ...opt, max_completion_tokens: 5000, messages: [{ role: 'system', content: `${system}\nTu ne réponds qu'à partir des résultats de recherche fournis ; rien d'autre. Cite l'adresse (URL) de chaque information. Si les résultats ne contiennent pas la réponse, dis-le.` }, { role: 'user', content: `${prompt}\n\nRésultats de recherche web (${new Date().toISOString().slice(0, 10)}) :\n${pages}` }] });
+  const c = await groqAppel({ model, ...opt, max_completion_tokens: 5000, messages: [{ role: 'system', content: `${system}\nTu ne réponds qu'à partir des résultats de recherche fournis ; rien d'autre. Cite l'adresse (URL) de chaque information. Si les résultats ne contiennent pas la réponse, dis-le.` }, { role: 'user', content: `${prompt}\n\nRésultats de recherche web (${new Date().toISOString().slice(0, 10)}) :\n${pages}` }] }, 0, { tronqueOk: true });
   return `${c}\n\nSources consultées :\n${res.slice(0, 14).map((x) => x.url).join('\n')}`;
 }
 

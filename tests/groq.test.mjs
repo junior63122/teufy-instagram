@@ -62,3 +62,20 @@ test('recherche web sans Gemini : Groq écrit la requête, Tavily cherche, Groq 
     assert.equal(await LLM2.rechercher({ config, system: 's', prompt: 'p', gratuit: true }), '');
   } finally { globalThis.fetch = vrai; delete process.env.TAVILY_API_KEY; }
 });
+
+// 20/11/2026 : réponses « vides de sens » jamais prises pour un succès.
+test('JSON : réponse sans le champ obligatoire du schéma ou coupée par la limite de longueur = échec, jamais un succès', async () => {
+  const LLM = await import('../src/llm.mjs?schema');
+  const schema = { type: 'object', required: ['evenements'], properties: { evenements: { type: 'array' } } };
+  assert.deepEqual(LLM.ecartsSchema(schema, { evenements: [] }), []);
+  assert.ok(LLM.ecartsSchema(schema, {}).length);
+  assert.ok(LLM.ecartsSchema(schema, { evenements: 'aucune' }).length);
+  assert.ok(LLM.ecartsSchema(schema, []).length);
+  const vrai = globalThis.fetch;
+  try {
+    globalThis.fetch = async (url) => /models$/.test(url) ? reponse(200, JSON.stringify({ data: [{ id: 'openai/gpt-oss-120b' }] })) : reponse(200, JSON.stringify({ choices: [{ message: { content: '{}' } }] }));
+    await assert.rejects(LLM.json({ config, system: 's', prompt: 'p', schema, gratuit: true }), /Aucune IA/);
+    globalThis.fetch = async (url) => /models$/.test(url) ? reponse(200, JSON.stringify({ data: [{ id: 'openai/gpt-oss-120b' }] })) : reponse(200, JSON.stringify({ choices: [{ finish_reason: 'length', message: { content: '{"evenements":[{"name":"A"}]}' } }] }));
+    await assert.rejects(LLM.json({ config, system: 's', prompt: 'p', schema, gratuit: true }), /Aucune IA/);
+  } finally { globalThis.fetch = vrai; }
+});
