@@ -7,6 +7,7 @@ Disallow: /livrables/
 Disallow: /tests/
 Disallow: /studio/
 Disallow: /veille/
+Disallow: /tiktok/
 
 User-agent: Googlebot
 Allow: /
@@ -16,6 +17,7 @@ Disallow: /livrables/
 Disallow: /tests/
 Disallow: /studio/
 Disallow: /veille/
+Disallow: /tiktok/
 
 User-agent: Bingbot
 Allow: /
@@ -25,6 +27,7 @@ Disallow: /livrables/
 Disallow: /tests/
 Disallow: /studio/
 Disallow: /veille/
+Disallow: /tiktok/
 
 User-agent: DuckDuckBot
 Allow: /
@@ -34,6 +37,7 @@ Disallow: /livrables/
 Disallow: /tests/
 Disallow: /studio/
 Disallow: /veille/
+Disallow: /tiktok/
 
 User-agent: Applebot
 Allow: /
@@ -43,6 +47,7 @@ Disallow: /livrables/
 Disallow: /tests/
 Disallow: /studio/
 Disallow: /veille/
+Disallow: /tiktok/
 
 User-agent: YandexBot
 Allow: /
@@ -52,6 +57,7 @@ Disallow: /livrables/
 Disallow: /tests/
 Disallow: /studio/
 Disallow: /veille/
+Disallow: /tiktok/
 
 User-agent: OAI-SearchBot
 Allow: /
@@ -61,6 +67,7 @@ Disallow: /livrables/
 Disallow: /tests/
 Disallow: /studio/
 Disallow: /veille/
+Disallow: /tiktok/
 
 User-agent: ChatGPT-User
 Allow: /
@@ -70,6 +77,7 @@ Disallow: /livrables/
 Disallow: /tests/
 Disallow: /studio/
 Disallow: /veille/
+Disallow: /tiktok/
 
 User-agent: Claude-SearchBot
 Allow: /
@@ -79,6 +87,7 @@ Disallow: /livrables/
 Disallow: /tests/
 Disallow: /studio/
 Disallow: /veille/
+Disallow: /tiktok/
 
 User-agent: Claude-User
 Allow: /
@@ -88,6 +97,7 @@ Disallow: /livrables/
 Disallow: /tests/
 Disallow: /studio/
 Disallow: /veille/
+Disallow: /tiktok/
 
 User-agent: PerplexityBot
 Allow: /
@@ -97,6 +107,7 @@ Disallow: /livrables/
 Disallow: /tests/
 Disallow: /studio/
 Disallow: /veille/
+Disallow: /tiktok/
 
 User-agent: Perplexity-User
 Allow: /
@@ -106,6 +117,7 @@ Disallow: /livrables/
 Disallow: /tests/
 Disallow: /studio/
 Disallow: /veille/
+Disallow: /tiktok/
 
 User-agent: MistralAI-User
 Allow: /
@@ -115,6 +127,7 @@ Disallow: /livrables/
 Disallow: /tests/
 Disallow: /studio/
 Disallow: /veille/
+Disallow: /tiktok/
 
 User-agent: DuckAssistBot
 Allow: /
@@ -124,6 +137,7 @@ Disallow: /livrables/
 Disallow: /tests/
 Disallow: /studio/
 Disallow: /veille/
+Disallow: /tiktok/
 
 User-agent: GPTBot
 Disallow: /
