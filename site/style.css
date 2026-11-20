@@ -1795,7 +1795,9 @@ html.onglets-caches .onglets{transform:translateY(105%)}
    et pas affichée dans les suggestions (la ville y est déjà écrite à côté). */
 .affiche .ville-tag{max-width:calc(100% - 24px);white-space:nowrap;overflow:hidden}
 .affiche .ville-tag::before{flex:none}
-.similaires .affiche.sans .ville-tag{display:none}
+/* 20/11/2026 (directeur : « il faut qu'on voie rapidement dans quelle ville est la soirée ») : la ville revient sur l'image
+   des suggestions, en plus petit et sur deux lignes au besoin, jamais coupée. */
+.similaires .carte .affiche .ville-tag,.similaires .carte .affiche.sans .ville-tag{display:inline-flex;left:6px;bottom:8px;max-width:calc(100% - 12px);font-size:10.5px;line-height:1.15;white-space:normal;overflow-wrap:normal;hyphens:none;overflow:visible;padding:4px 7px 4px 6px;gap:3px;letter-spacing:0}
 .affiche.sans .v-lieu{display:none}
 .meta .ou{display:inline-flex;align-items:center}
 .rangee .carte .meta{flex-wrap:wrap;overflow:visible;-webkit-mask-image:none;mask-image:none}
