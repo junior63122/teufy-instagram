@@ -30,7 +30,11 @@ export function legendeTiktok(texte, type) {
 /** Vidéos disponibles. Les reels Instagram publiés (media/reel-*) sont copiés dans media/tiktok/ dès qu'ils apparaissent. */
 export function stockVideos(root = ROOT) {
   const out = [];
-  const ajoute = (fichier, type, texte) => out.push({ id: path.basename(fichier, '.mp4'), video: path.relative(root, fichier).split(path.sep).join('/'), type, legende: legendeTiktok(texte, type) });
+  const ajoute = (fichier, type, texte) => {
+    const id = path.basename(fichier, '.mp4');
+    const couv = path.join(root, 'media', 'tiktok', 'couvertures', `${id}.jpg`); // couverture dans la charte (directeur, 20/11/2026)
+    out.push({ id, video: path.relative(root, fichier).split(path.sep).join('/'), type, legende: legendeTiktok(texte, type), ...(existsSync(couv) ? { couverture: `media/tiktok/couvertures/${id}.jpg` } : {}) });
+  };
   for (const [dossier, type] of [['tague-ton-pote', 'tague'], ['spot-promo', 'spot']]) {
     const d = path.join(root, 'media', dossier);
     for (const f of existsSync(d) ? readdirSync(d).filter((x) => x.endsWith('.mp4')).sort() : []) {
@@ -58,6 +62,8 @@ export function archiverReels(root = ROOT) {
       if (existsSync(path.join(dest, `${nom}.mp4`))) continue;
       mkdirSync(dest, { recursive: true });
       copyFileSync(path.join(m, d, f), path.join(dest, `${nom}.mp4`));
+      const c = path.join(m, d, f.replace(/\.mp4$/, '-couverture.jpg'));
+      if (existsSync(c)) { mkdirSync(path.join(dest, 'couvertures'), { recursive: true }); copyFileSync(c, path.join(dest, 'couvertures', `${nom}.jpg`)); }
       const leg = path.join(m, d, 'legende.txt');
       writeFileSync(path.join(dest, `${nom}.txt`), existsSync(leg) ? readFileSync(leg, 'utf8') : '');
       n++;
@@ -95,9 +101,10 @@ export function pageTiktok(plan, aujourdhui) {
   const jours = Object.keys(plan).filter((j) => j >= aujourdhui).sort().slice(0, 7);
   const carte = (j, v) => `<article class="v" data-cle="${esc(`${j}|${v.id}`)}">
    <p class="h">${esc(v.heure.replace(':', ' h '))}<span>${esc({ tague: 'Tague ton pote', spot: 'Spot Teufy', reel: 'Réel' }[v.type] || '')}</span></p>
-   <video src="../${esc(v.video)}" controls preload="none" playsinline></video>
+   <video src="../${esc(v.video)}" controls preload="none" playsinline${v.couverture ? ` poster="../${esc(v.couverture)}"` : ''}></video>
    <div class="b"><a class="btn" href="../${esc(v.video)}" download="teufy-${esc(j)}-${esc(v.heure.replace(':', 'h'))}.mp4">Télécharger la vidéo</a>
    <button class="btn" data-copie>Copier la légende</button></div>
+   ${v.couverture ? `<div class="b"><a class="btn sec" href="../${esc(v.couverture)}" download="teufy-${esc(j)}-${esc(v.heure.replace(':', 'h'))}-couverture.jpg">Télécharger la couverture</a></div>` : '<p class="sans">Pas de couverture : choisis une image de la vidéo.</p>'}
    <textarea readonly rows="7">${esc(v.legende)}</textarea>
    <label class="fait"><input type="checkbox"> Publié</label>
   </article>`;
@@ -108,8 +115,8 @@ h1{font-size:28px;margin:8px 0 4px}p.i{opacity:.8;margin:0 0 20px}h2{font-size:2
 .v{background:#16161C;border:1px solid #ffffff22;border-radius:16px;padding:14px;margin-bottom:14px}.v.ok{opacity:.45}
 .h{display:flex;justify-content:space-between;align-items:center;margin:0 0 10px;font-size:22px;font-weight:800}.h span{font-size:13px;font-weight:700;background:var(--corail);color:var(--nuit);padding:3px 10px;border-radius:999px}
 video{width:100%;max-height:60vh;border-radius:10px;background:#000}.b{display:flex;gap:8px;margin:10px 0}.btn{flex:1;text-align:center;background:var(--creme);color:var(--nuit);font-weight:800;border:0;border-radius:10px;padding:12px;text-decoration:none;font-size:15px;cursor:pointer}
-textarea{width:100%;background:#0B0B0F;color:var(--creme);border:1px solid #ffffff22;border-radius:10px;padding:10px;font:14px/1.4 system-ui}.fait{display:block;margin-top:8px;font-weight:700}</style></head><body>
-<h1>Planning TikTok</h1><p class="i">Une vidéo par créneau : télécharge-la, ajoute un son tendance de TikTok à volume bas, colle la légende, publie à l'heure indiquée. Coche « Publié » une fois fait.</p>
+textarea{width:100%;background:#0B0B0F;color:var(--creme);border:1px solid #ffffff22;border-radius:10px;padding:10px;font:14px/1.4 system-ui}.fait{display:block;margin-top:8px;font-weight:700}.btn.sec{background:transparent;color:var(--creme);border:2px solid var(--creme)}.sans{opacity:.7;font-size:14px}</style></head><body>
+<h1>Planning TikTok</h1><p class="i">Une vidéo par créneau : télécharge-la, ajoute un son tendance de TikTok à volume bas, colle la légende, mets la couverture (Modifier la couverture, puis Importer), publie à l'heure indiquée. Coche « Publié » une fois fait.</p>
 ${jours.map((j) => `<h2${j === aujourdhui ? ' class="auj"' : ''}>${j === aujourdhui ? "Aujourd'hui · " : ''}${esc(date(j))}</h2>\n${plan[j].map((v) => carte(j, v)).join('\n')}`).join('\n')}
 <script>
 document.querySelectorAll('[data-copie]').forEach(b=>b.onclick=async()=>{const t=b.closest('.v').querySelector('textarea');try{await navigator.clipboard.writeText(t.value)}catch{t.select();document.execCommand('copy')}b.textContent='Copiée';setTimeout(()=>b.textContent='Copier la légende',1500)});

@@ -79,3 +79,10 @@
   sauf les commentaires Instagram ») : secours gratuit de Gemini partout (veille et actus avec recherche web, vérification des
   affiches par lecture d'image, traductions du site, scénarios de reels, analyse, prospection, appels directs du site via
   `groqParties`). Jamais pour répondre aux commentaires Instagram. Une réponse vide ou non conforme n'est jamais prise pour un succès.
+- **TikTok** (directeur, 20/11/2026 : il publie lui-même, 1 à 2 vidéos par jour ; « mets aussi les photos de couverture ») :
+  planning automatique `src/tiktok.mjs` (12 h 30 et 19 h 30, page cachée `/tiktok/`, jamais la même vidéo en 14 jours). Chaque
+  vidéo a sa couverture dans la charte (`media/tiktok/couvertures/<id>.jpg` : composition `couverture-reel`, mises en page qui
+  tournent, sans pastille RÉEL ni bouton lecture) : à faire pour chaque nouvel épisode ou spot. Règles TikTok : accroche dans
+  les 2 premières secondes, 7 à 15 s idéal, texte hors des zones de l'interface, mots-clés dans le texte et la légende, aucun
+  alcool mis en avant, pas de musique sous droits dans le fichier (le directeur ajoute un son tendance dans TikTok), droit à
+  l'image respecté pour les vidéos de soirée qu'il fournit.

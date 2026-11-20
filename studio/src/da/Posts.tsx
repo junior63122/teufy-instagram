@@ -261,14 +261,14 @@ const MarqueReel: React.FC = () => (
     <span style={{fontFamily: B, fontWeight: 800, fontSize: 26, letterSpacing: '0.14em'}}>RÉEL</span>
   </div>
 );
-export const CouvertureReel: React.FC<{photo: string; position?: string; rubrique: string; titre: string; sous?: string; lecture?: boolean; mise?: Mise}> = ({photo, position, rubrique, titre, sous, lecture = true, mise = 'bas'}) => {
+export const CouvertureReel: React.FC<{photo: string; position?: string; rubrique: string; titre: string; sous?: string; lecture?: boolean; mise?: Mise; marque?: boolean}> = ({photo, position, rubrique, titre, sous, lecture = true, mise = 'bas', marque = true}) => {
   const papier = mise === 'cadre';
   const encre = papier ? C.nuit : C.creme;
   const centre = mise === 'centre';
   const texte = (
     <>
       <div style={{display: 'flex', gap: 14, alignItems: 'center', justifyContent: centre ? 'center' : 'flex-start', marginBottom: 26}}>
-        <MarqueReel />
+        {marque ? <MarqueReel /> : null}
         <Etiquette fond={papier ? C.nuit : C.corail} couleur={papier ? C.creme : C.nuit}>{rubrique}</Etiquette>
       </div>
       <Titre taille={128} lignes={3} couleur={encre} style={centre ? {textAlign: 'center'} : undefined}>{titre}</Titre>
