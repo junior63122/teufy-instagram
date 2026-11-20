@@ -2,18 +2,24 @@
   "jour": "2026-11-20",
   "plan": [
     {
-      "type": "soirees",
-      "cles": [],
-      "frames": []
-    },
-    {
-      "type": "offre",
+      "type": "pret-concours-frigo16-tekno",
       "cles": [
-        "av-Le Barathym-1 shooter offert sur présentation de Teufy"
+        "pret-concours-frigo16-tekno"
       ],
       "frames": [
         {
-          "image": "2026-11-20-offre.jpg"
+          "image": "2026-11-20-pret-concours-frigo16-tekno-1.jpg"
+        }
+      ]
+    },
+    {
+      "type": "question",
+      "cles": [
+        "q-faim-toulon"
+      ],
+      "frames": [
+        {
+          "image": "2026-11-20-question.jpg"
         }
       ]
     }
