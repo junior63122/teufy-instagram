@@ -115,7 +115,7 @@ export async function veiller({ config, now = new Date(), ig = null, api = {}, i
   const [nDeb, nFin] = V.nuit || [2, 8];
   if (!V.toujours && heureParis >= nDeb && heureParis < nFin) { log(`Veille : pause de nuit (${nDeb} h à ${nFin} h).`); return { sujets: [], apublier: null, idees: [] }; }
   const dernierPassage = vus._dernier_passage ? Date.parse(vus._dernier_passage) : 0;
-  if (dernierPassage <= now.getTime() && now - dernierPassage < ((V.intervalle_minutes ?? 60) - 5) * 60e3) { log(`Veille : dernier passage il y a ${Math.round((now - dernierPassage) / 60e3)} min (rythme : ${V.intervalle_minutes ?? 60} min).`); return { sujets: [], apublier: null, idees: [] }; }
+  if (process.env.VEILLE_FORCER !== '1' && dernierPassage <= now.getTime() && now - dernierPassage < ((V.intervalle_minutes ?? 60) - 5) * 60e3) { log(`Veille : dernier passage il y a ${Math.round((now - dernierPassage) / 60e3)} min (rythme : ${V.intervalle_minutes ?? 60} min).`); return { sujets: [], apublier: null, idees: [] }; }
   if (!dryRun) { vus._dernier_passage = now.toISOString(); await mkdir(path.dirname(VUS), { recursive: true }); await writeFile(VUS, JSON.stringify(vus, null, 1) + '\n'); }
 
   // 1. Signaux.

@@ -14,6 +14,10 @@ on:
         description: "Publier vraiment sur Instagram si un sujet exceptionnel est trouvé"
         type: boolean
         default: false
+      forcer:
+        description: "Passer outre le rythme d'une heure (passage demandé par le directeur)"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -55,7 +59,7 @@ jobs:
           # La préparation s'arrête seule (rien=true) si aucun sujet ne mérite un post immédiat.
           command -v ffmpeg >/dev/null || timeout 240 sudo apt-get install -y --no-install-recommends ffmpeg >/dev/null 2>&1 || true # 20/11 : l'installation a pris 22 min une fois, plafonnée à 4 min
           npm ci --prefix studio --no-audit --no-fund
-          node src/run.mjs veille preparer $([ "$PUBLIER" = "true" ] || echo --dry-run)
+          VEILLE_FORCER=${{ inputs.forcer && '1' || '0' }} node src/run.mjs veille preparer $([ "$PUBLIER" = "true" ] || echo --dry-run)
 
       - name: Répondre aux commentaires
         if: always()
