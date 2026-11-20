@@ -6,6 +6,32 @@
   "evenements": [
     {
       "source": "web",
+      "source_site": "Instagram",
+      "name": "Naya Cannes - rudboy_music x djaymoune",
+      "start": "2026-11-20T23:00:00.000Z",
+      "venue": "Naya Cannes",
+      "city": "Cannes",
+      "address": "",
+      "url": "https://www.instagram.com/p/Df5e_fbxyi4/",
+      "image": "https://scontent-iad3-2.cdninstagram.com/v/t51.82787-15/910650491_18020357819975157_6980853114371674440_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=107&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=9Wv42JGeFSEQ7kNvwEnOe8F&_nc_oc=Adr2P1t-Obj-5UH8prh-UlAFEsM-GBc-qBPOfPbvvMPqNfV-zlUEVtnweFODhU3ypEM&_nc_zt=23&_nc_ht=scontent-iad3-2.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=lFRxeS6XW8JOy6DdlQ60ZQ&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQSb053cQ_J05gCC1yBQ5a6b9J64fywB8ISIcWYJFTNCEw&oe=6B06909D",
+      "price": 0,
+      "tags": [
+        "club",
+        "dj_set",
+        "electro"
+      ],
+      "description": "Soirée club au Naya Cannes avec les DJ rudboy_music et djaymoune. Ouvert du vendredi au samedi de minuit à 5h du matin.",
+      "public_cible": 0.95,
+      "confiance": 0.9,
+      "buzz": 0.65,
+      "buzz_raison": "Club de niche à Cannes, engagement Instagram modéré mais régulier sur la zone cible.",
+      "accroche": "Naya Cannes : DJ set avec rudboy_music et djaymoune",
+      "instagram": [
+        "nayaclubcannes"
+      ]
+    },
+    {
+      "source": "web",
       "source_site": "provence-alpes-cotedazur.com",
       "name": "Paul Seul (+ Warm up + Closing)",
       "start": "2026-11-20T19:00:00.000Z",
@@ -186,33 +212,6 @@
         "instagram"
       ],
       "via_veille": true
-    },
-    {
-      "source": "web",
-      "source_site": "instagram",
-      "name": "JetLag Gang – Frigo 16",
-      "start": "2026-11-13T22:30:00.000Z",
-      "venue": "Frigo 16",
-      "city": "Nice",
-      "address": "",
-      "url": "https://www.instagram.com/reel/DfNBAk2NNlL/",
-      "image": "",
-      "price": 0,
-      "tags": [
-        "reggaeton",
-        "trap",
-        "cumbia",
-        "perreo"
-      ],
-      "description": "Le 13 novembre, le JetLag Gang débarque à Frigo 16 pour une soirée qui promet des vibes Bad Bunny & Rosalía. La nuit s’annonce 100 % reggaeton, perreo, cumbia et trap, avec un line‑up qui fait vibrer les 17‑30 ans. Le club, situé sur la route de Turin, ouvre à 23h30 et se ferme à 4h30 h. Il y a food & bar, et l’entrée est libre. L’événement est confirmé sur la page officielle du club et sur la billetterie Panda‑Events.",
-      "public_cible": 1,
-      "confiance": 0.9,
-      "buzz": 0.8,
-      "buzz_raison": "Line‑up de JetLag Gang, club réputé, soirée à thème, week‑end, engagement élevé.",
-      "accroche": "JetLag Gang braque le Frigo 16 pour une nuit 100 % reggaeton, perreo, cumbia et trap.",
-      "instagram": [
-        "frigo16"
-      ]
     },
     {
       "source": "web",
@@ -3951,5 +3950,5 @@
       ]
     }
   ],
-  "maj_instagram": "2026-11-20T19:12:26.220Z"
+  "maj_instagram": "2026-11-20T20:12:34.757Z"
 }
