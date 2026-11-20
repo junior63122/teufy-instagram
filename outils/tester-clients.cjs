@@ -129,6 +129,15 @@ async function visiter(navigateur, c) {
         r.requete = q;
         const champ = p.locator('#recherche-hero:visible, #recherche:visible').first();
         if (!(await champ.count())) { await act((f) => p.locator('nav.onglets [data-chercher]').first().click({ force: f })); }
+        // Panneau de recherche (mobile) : le bouton × doit être visible et touchable, même après avoir fait défiler la liste
+        // (20/11/2026, vidéo du directeur : le × passait sous le champ de recherche).
+        if (await p.locator('.feuille-filtres').count()) {
+          const x = async () => p.evaluate(() => { const e = document.querySelector('.feuille-x'); if (!e) return false; const b = e.getBoundingClientRect(); const t = document.elementFromPoint(b.left + b.width / 2, b.top + b.height / 2); return !!t && (t === e || e.contains(t)); });
+          if (!(await x())) souci('panneau de recherche : bouton × caché');
+          await p.evaluate(() => document.querySelector('.feuille-corps')?.scrollBy(0, 300)); await p.waitForTimeout(150);
+          if (!(await x())) souci('panneau de recherche : bouton × caché après défilement');
+          await p.evaluate(() => document.querySelector('.feuille-corps')?.scrollTo(0, 0));
+        }
         await act((f) => p.locator('#recherche-hero:visible, #recherche:visible').first().fill(q));
         await p.keyboard.press('Enter').catch(() => {});
         await p.waitForTimeout(500);

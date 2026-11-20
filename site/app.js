@@ -930,7 +930,9 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
     // Glisser vers le bas depuis la poignée (ou depuis le haut du contenu) pour fermer.
     const boite = feuille.querySelector('.feuille-boite'), corps = feuille.querySelector('.feuille-corps');
     let y0 = null, dy = 0;
-    boite.addEventListener('touchstart', (e) => { if (e.target.closest('.feuille-poignee') || corps.scrollTop <= 0) { y0 = e.touches[0].clientY; dy = 0; } }, { passive: true });
+    // Fermeture au doigt seulement depuis la poignée (20/11/2026 : en faisant défiler la liste en haut, toute la feuille
+    // bougeait et sautait sur iPhone).
+    boite.addEventListener('touchstart', (e) => { if (e.target.closest('.feuille-poignee') && !e.target.closest('.feuille-x')) { y0 = e.touches[0].clientY; dy = 0; } }, { passive: true });
     boite.addEventListener('touchmove', (e) => { if (y0 == null) return; dy = Math.max(0, e.touches[0].clientY - y0); if (dy > 0) boite.style.transform = `translateY(${dy}px)`; }, { passive: true });
     boite.addEventListener('touchend', () => { if (y0 == null) return; y0 = null; boite.style.transform = ''; if (dy > 90) fermer(); });
     appliquer();

@@ -435,6 +435,13 @@ html.bloque body{position:fixed;left:0;right:0;width:100%}
 .feuille-poignee span{width:48px;height:5px;border-radius:9px;background:#ffffff55}
 .feuille-x{position:absolute;inset-inline-end:10px;top:6px;width:40px;height:40px;border-radius:50%;border:0;background:#ffffff1a;color:var(--creme);font-size:24px;line-height:1;cursor:pointer}
 .feuille-corps{overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:0 16px}
+/* 20/11/2026 (vidéo du directeur) : le bouton × dépassait de la bande de la poignée et passait sous le champ de recherche ;
+   la bande fait maintenant toute sa hauteur et reste au-dessus du contenu qui défile. Hauteur suivant l'écran visible
+   (clavier ouvert compris). */
+.feuille-poignee{min-height:52px;z-index:2;background:var(--nuit);border-radius:22px 22px 0 0;flex:none}
+.feuille-x{z-index:3;top:6px;display:flex;align-items:center;justify-content:center;background:#ffffff26}
+.feuille-boite{max-height:88dvh}
+.feuille-corps{flex:1 1 auto;min-height:0;position:relative;z-index:1}
 .feuille-corps .filtres{position:static;padding:8px 0 12px;border:0}
 .feuille-corps .groupe{flex-wrap:wrap}
 .feuille-pied{padding:12px 16px calc(14px + env(safe-area-inset-bottom));border-top:1px solid #ffffff14}
