@@ -188,7 +188,7 @@ Pour chaque point : titre, date et heure de publication, URL de la source la plu
         const avant = cacheEv.evenements.length;
         cacheEv.evenements = fusionner([...cacheEv.evenements, ...ajouts]);
         await writeFile(FICHIER_CACHE, JSON.stringify(cacheEv, null, 2));
-        log(`Veille : ${cacheEv.evenements.length - avant} nouvelle(s) soirée(s) ajoutée(s) à l'agenda (${ajouts.length} repérée(s)).`);
+        log(`Veille : ${Math.max(0, cacheEv.evenements.length - avant)} nouvelle(s) soirée(s) ajoutée(s) à l'agenda (${ajouts.length} repérée(s)).`);
       }
     } catch (err) { log(`Veille : ajout à l'agenda impossible (${err.message}).`); }
 

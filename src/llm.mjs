@@ -266,7 +266,7 @@ async function modelesGroq() {
   }
   return groqDispo;
 }
-const PREF_JSON = ['openai/gpt-oss-120b', 'openai/gpt-oss-20b', 'meta-llama/llama-4-maverick-17b-128e-instruct', 'moonshotai/kimi-k2-instruct', 'qwen/qwen3-32b', 'meta-llama/llama-4-scout-17b-16e-instruct', 'llama-3.3-70b-versatile'];
+const PREF_JSON = ['openai/gpt-oss-120b', 'openai/gpt-oss-20b', 'qwen/qwen3.8-27b', 'meta-llama/llama-4-maverick-17b-128e-instruct', 'moonshotai/kimi-k2-instruct', 'qwen/qwen3-32b', 'meta-llama/llama-4-scout-17b-16e-instruct', 'llama-3.3-70b-versatile'];
 const PREF_RECHERCHE = ['groq/compound', 'groq/compound-mini', 'compound-beta', 'compound-beta-mini'];
 const PREF_VISION = ['meta-llama/llama-4-scout-17b-16e-instruct', 'meta-llama/llama-4-maverick-17b-128e-instruct'];
 async function choisirGroq(pref, voulu) {
@@ -286,8 +286,14 @@ async function modelesXai() {
   }
   return xaiModeles;
 }
-async function groqAppel(body) {
+async function groqAppel(body, essai = 0) {
   const res = await fetch(GROQ(), { method: 'POST', headers: groqEntetes(), body: JSON.stringify(body), signal: AbortSignal.timeout(180000) });
+  // Limite par minute de l'offre gratuite (HTTP 429) : on attend le délai indiqué par Groq (au plus 30 s), deux fois au plus.
+  if (res.status === 429 && essai < 2) {
+    const attente = Math.min(30, parseFloat(res.headers?.get?.('retry-after')) || 12);
+    await new Promise((ok) => setTimeout(ok, attente * 1000));
+    return groqAppel(body, essai + 1);
+  }
   const txt = await res.text();
   if (!res.ok) { const e = new Error(`Groq HTTP ${res.status} ${txt.slice(0, 200)}`); e.status = res.status; throw e; }
   const j = JSON.parse(txt); // une réponse non JSON (comme le « OK » de GitHub Models) lève une erreur : jamais pris pour un succès

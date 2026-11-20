@@ -621,7 +621,8 @@ async function traduireManquants(log) {
     for (let i = 0; i < liste.length;) {
       const lot = []; let taille = 0;
       if (Date.now() > LIMITE + 10 * 60e3) break; // le reste sera traduit au prochain passage
-      while (i < liste.length && lot.length < 40 && taille < 7000) { lot.push(liste[i]); taille += liste[i].length; i++; }
+      const petit = !process.env.GEMINI_API_KEY || LLM.geminiEnPause({ llm: CONFIG_LLM }); // Groq gratuit : lots plus petits (limite de jetons par minute)
+      while (i < liste.length && lot.length < (petit ? 15 : 40) && taille < (petit ? 2500 : 7000)) { lot.push(liste[i]); taille += liste[i].length; i++; }
       const r = await gemini([{ text: `Translate these French texts from a nightlife guide website (French Riviera) into ${NOMS_LANGUE[l]}. Keep every HTML tag exactly as it is (<em>, <strong>, <a …>). Keep names of parties, artists, venues, brands and festivals unchanged (Teufy, Shotgun, DICE, Nice Jazz Festival…). Natural, casual tone for 17-30 year olds. Answer with a JSON array of ${lot.length} strings, same order.\n${JSON.stringify(lot)}` }]);
       let t = r;
       // Relais si Gemini est indisponible (crédits, panne) : Claude puis GitHub Models, même consigne.

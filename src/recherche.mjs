@@ -139,7 +139,9 @@ export async function rechercherSoirees({ config, now = new Date(), ig = null, a
   // 3. Mise en forme structurée, par lots (une seule réponse JSON tronquerait la liste), puis fusion des doublons.
   if (!web && !posts.length) return cache;
   const lots = [...textes.map((t) => ({ web: t, posts: [] }))];
-  for (let i = 0; i < posts.length; i += 30) lots.push({ web: '', posts: posts.slice(i, i + 30) });
+  // Groq gratuit (20/11/2026) : limite de jetons par minute plus basse que Gemini, donc des lots plus petits.
+  const parLot = ia === LLM && LLM.fournisseurs(config, { gratuit: true })[0] === 'groq' ? 6 : 30;
+  for (let i = 0; i < posts.length; i += parLot) lots.push({ web: '', posts: posts.slice(i, i + parLot) });
   const d = { evenements: [], comptes_instagram: [] };
   let ok = 0;
   for (const lot of lots) {
