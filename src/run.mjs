@@ -797,6 +797,7 @@ async function prepare(slot, now, id) {
   if (out.images) out.images = out.images.map(rel);
   if (out.video) { out.video = rel(out.video); out.couverture = rel(out.couverture); if (out.video_instagram) out.video_instagram = rel(out.video_instagram); }
   // Hashtags : 5 au maximum (règle Instagram), #TeufyParty en premier, sans doublon, regroupés en fin de légende.
+  if (out.legende) out.legende = (await import('./captions.mjs')).nettoyerLegende(out.legende, hist.length); // sans emoji, appel au partage
   if (out.legende) {
     const tags = [...new Set(['#TeufyParty', ...(out.legende.match(/(?<=^|\s)#\p{L}[\p{L}\p{N}_]*/gmu) || [])].map((h) => (h.toLowerCase() === '#teufyparty' ? '#TeufyParty' : h)))].slice(0, R.hashtags_max ?? 5);
     out.legende = `${out.legende.replace(/(^|[ \t])#\p{L}[\p{L}\p{N}_]*(?=[ \t]*(\n|$|#))/gmu, '$1').replace(/[ \t]+\n/g, '\n').replace(/\n{3,}/g, '\n\n').trim()}\n\n${tags.join(' ')}`;

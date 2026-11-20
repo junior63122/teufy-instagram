@@ -182,3 +182,27 @@ export function captionExplicatif({ sujet, ch, r }) {
   const fin = ch.pick('fin-explicatif', ['📌 Enregistre-le et envoie-le à ton crew.', '📌 Enregistre pour plus tard. Tu connais d\'autres astuces ? Dis-le en commentaire.', '📌 Envoie-le à celui ou celle qui en a besoin.']);
   return clip(`${sujet.legende || sujet.titre}\n\n${sujet.points.map((p, i) => `${i + 1}. ${p}`).join('\n')}\n\n${fin}\n\n${hashtags(ch)}`);
 }
+
+// --- Nettoyage final des légendes (20/11/2026, analyse de l'engagement) ---------------------------------------
+// Constats : les posts du robot font 0,7 like pour 100 personnes touchées, contre 2 à 3 pour ceux de l'équipe ; les
+// légendes du robot sont saturées d'emojis (le directeur : « ça fait IA ») et finissent par de l'autopromotion
+// (« abonne-toi, l'appli arrive »), alors que le signal qui compte le plus pour Instagram est l'envoi en message privé.
+// Donc : aucun emoji, et un appel à envoyer le post à ses potes quand la légende n'en a pas (l'appel à s'abonner, demandé
+// par le directeur pour les promos, est gardé).
+const EMOJI = /(\p{Extended_Pictographic}|\p{Regional_Indicator}|[\u{1F3FB}-\u{1F3FF}\u{FE0F}\u{20E3}\u{200D}])/gu;
+export const APPEL_PARTAGE = ['Envoie-le à ceux avec qui tu sors.', 'Envoie-le au pote qui dit toujours « on verra ».', 'Envoie-le à ton binôme de soirée.'];
+export function nettoyerLegende(texte, k = 0) {
+  const E = EMOJI.source;
+  let t = String(texte || '')
+    .replace(new RegExp(`^[ \\t]*(?:${E})+[ \\t]*(?=\\S)`, 'gmu'), '- ') // puce emoji en début de ligne → tiret
+    .replace(new RegExp(`([\\p{L}\\p{N}])[ \\t]*(?:${E})+[ \\t]+(?=\\p{Lu})`, 'gu'), '$1. ') // emoji entre deux phrases → point
+    .replace(EMOJI, '');
+  t = t.replace(/[ \t]{2,}/g, ' ').replace(/^[ \t]+|[ \t]+$/gm, '').replace(/\n{3,}/g, '\n\n').trim();
+  if (!/envoie|tague|partage|identifie|concours|règlement/i.test(t)) {
+    // avant les hashtags de fin s'il y en a
+    const m = t.match(/\n\n((?:#[\p{L}\p{N}_]+\s*)+)$/u);
+    const appel = APPEL_PARTAGE[k % APPEL_PARTAGE.length];
+    t = m ? `${t.slice(0, m.index)}\n\n${appel}${t.slice(m.index)}` : `${t}\n\n${appel}`;
+  }
+  return t;
+}

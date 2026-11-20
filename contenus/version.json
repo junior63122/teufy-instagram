@@ -2,6 +2,17 @@
   "_note": "Numéro de version affiché en pied de page du site et sur /mises-a-jour/ (directeur, 19/11/2026 : format « 1.13.02 », comme Minecraft). Règle : correction(s) seulement → dernier nombre +1 (1.13.02 → 1.13.03) ; nouvelle fonctionnalité → nombre du milieu +1 et le dernier revient à 01 (1.13.02 → 1.14.01) ; énorme fonctionnalité ou grosse refonte → premier nombre +1 (1.13.02 → 2.01.01). La plus récente en premier.",
   "versions": [
     {
+      "numero": "1.14.02",
+      "date": "2026-11-20",
+      "titre": "Des publications plus naturelles",
+      "public": [
+        "Les légendes de nos posts Instagram sont plus naturelles et plus simples à partager avec tes potes."
+      ],
+      "notes": [
+        "Instagram : légendes sans emoji, terminées par un appel à envoyer le post à un pote (l'appel à s'abonner des promos est gardé). Analyse complète : ANALYSE-ENGAGEMENT.md."
+      ]
+    },
+    {
       "numero": "1.14.01",
       "date": "2026-11-20",
       "titre": "La page Nouveautés est en ligne",
