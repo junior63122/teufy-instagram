@@ -285,5 +285,27 @@
   "cles": [],
   "ids": [],
   "le": "2026-11-19T21:08:33.847Z"
+ },
+ {
+  "jour": "2026-11-20",
+  "type": "soirees",
+  "vide": true,
+  "ids": [],
+  "le": "2026-11-20T17:10:47.339Z"
+ },
+ {
+  "jour": "2026-11-20",
+  "type": "offre",
+  "cles": [
+   "av-Le Barathym-1 shooter offert sur présentation de Teufy"
+  ],
+  "ids": [
+   "18117741281025169"
+  ],
+  "faites": [
+   0
+  ],
+  "manquantes": [],
+  "le": "2026-11-20T17:11:02.638Z"
  }
 ]
