@@ -6433,6 +6433,31 @@
       "instagram": [
         "prizmeconcept"
       ]
+    },
+    {
+      "source": "web",
+      "source_site": "instagram.com",
+      "via_veille": true,
+      "name": "Afro Bringue",
+      "start": "2026-11-22T19:00:00.000Z",
+      "venue": "Lieu à confirmer",
+      "city": "Nice",
+      "address": "",
+      "url": "https://www.instagram.com/p/Df7_SH7iCCa/",
+      "image": "https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/917425263_18350375338254355_1804463581972076383_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=89y4SlDLF0UQ7kNvwGVls_C&_nc_oc=AdqXFXW2_FNeDS5OfuErY63PxYTbnjxlpkLE1KREWIyetK5U26JrCAws7y_0f380Je8&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=Fwid_p2byo4i3nDopy-mHQ&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQR7Ez7awwi6H_S8JHcV56u90n_sAeDrzRllGbiEeoA5Dg&oe=6B0612E3",
+      "price": null,
+      "tags": [
+        "Afro",
+        "Dance",
+        "Party"
+      ],
+      "description": "",
+      "public_cible": 0.6,
+      "confiance": 0.9,
+      "accroche": "Soirée Afro Bringue ce vendredi à Nice – ambiance afro‑dance garantie.",
+      "instagram": [
+        "bringue_party"
+      ]
     }
   ]
 }
