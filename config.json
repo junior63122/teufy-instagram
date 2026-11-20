@@ -291,7 +291,9 @@
       2,
       8
     ],
-    "_rythme": "20/11/2026 : veille toutes les heures de 8 h à 2 h (Paris), pause la nuit. Pas toutes les 6 h : une annonce (« un nom vient de tomber ») vaut surtout dans les premières heures, et c'est notre format qui marche le mieux."
+    "_rythme": "20/11/2026 : veille toutes les heures de 8 h à 2 h (Paris), pause la nuit. Pas toutes les 6 h : une annonce (« un nom vient de tomber ») vaut surtout dans les premières heures, et c'est notre format qui marche le mieux.",
+    "seuil_site": 60,
+    "_seuils": "Directeur (20/11/2026) : de 60 à 79/100, l'actu va seulement sur le site (rubrique Actus) ; un post Instagram seulement pour une annonce vraiment importante, qui fera liker et commenter (80/100 et plus, source officielle)."
   },
   "commentaires": {
     "actif": false,
