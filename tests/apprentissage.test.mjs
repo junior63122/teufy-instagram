@@ -47,3 +47,18 @@ test('couleurs de saison', () => {
   assert.equal(saison(new Date('2026-11-07T12:00:00Z')), 'automne');
   assert.notEqual(theme(new Date('2026-07-14'), 'club').css, theme(new Date('2026-01-14'), 'club').css);
 });
+
+// 20/11/2026 : posts de l'équipe et du robot mesurés de la même façon (sinon la comparaison est biaisée).
+test('mesure des statistiques : même règle pour l\'équipe et le robot, de J+1 à J+21, puis une mesure finale', async () => {
+  const { aMesurer } = await import('../src/learn.mjs');
+  const now = new Date('2026-11-20T12:00:00Z');
+  const post = (src, publie, mesure, extra = {}) => ({ source: src, publie_le: publie, ...(mesure ? { mesure_le: mesure, metrics: { reach: 100 } } : {}), ...extra });
+  for (const src of ['manuel', 'bot']) {
+    assert.equal(aMesurer(post(src, '2026-11-18T12:00:00Z', '2026-11-19T12:00:00Z'), now), true, `${src} : suivi après J+1`);
+    assert.equal(aMesurer(post(src, '2026-11-18T12:00:00Z', '2026-11-20T08:00:00Z'), now), false, `${src} : une fois par jour`);
+    assert.equal(aMesurer(post(src, '2026-11-20T08:00:00Z'), now), false, `${src} : pas avant J+1`);
+    assert.equal(aMesurer(post(src, '2026-09-01T12:00:00Z', '2026-10-01T12:00:00Z'), now), false, `${src} : mesure finale déjà prise`);
+    assert.equal(aMesurer(post(src, '2026-09-01T12:00:00Z'), now), true, `${src} : ancien post jamais mesuré`);
+    assert.equal(aMesurer(post(src, '2026-09-01T12:00:00Z', null, { mesure_finale_tentee: true }), now), false, `${src} : un seul dernier essai`);
+  }
+});

@@ -185,6 +185,17 @@ export function generalFeatures(p) {
 
 // --- Collecte des statistiques ------------------------------------------------
 
+// Même règle pour les posts du bot et ceux de l'équipe (20/11/2026 : un post de l'équipe était mesuré une seule fois, dès
+// J+1, et comparé ensuite aux posts du bot mesurés jusqu'à J+21 : comparaison biaisée en faveur du bot). Suivi de J+1 à
+// J+21, une fois par jour ; mesure finale prise à J+21 ou plus (ancien post jamais mesuré : une fois, valeur finale).
+export function aMesurer(p, now = new Date()) {
+  const age = (now - new Date(p.publie_le)) / 86400e3;
+  if (!(age >= 0.9)) return false;
+  if (p.mesure_le && (now - new Date(p.mesure_le)) / 86400e3 < 0.9) return false;
+  const finale = p.mesure_le && (new Date(p.mesure_le) - new Date(p.publie_le)) / 86400e3 >= 21;
+  return !finale && !(age > 21 && p.mesure_finale_tentee); // post supprimé ou statistiques refusées : un seul dernier essai
+}
+
 export async function collect({ hist, ig, api, now = new Date() }) {
   const data = loadData();
   const byMedia = new Map(data.posts.map((p) => [p.media, p]));
@@ -214,8 +225,8 @@ export async function collect({ hist, ig, api, now = new Date() }) {
   for (const p of data.posts) {
     const age = (now - new Date(p.publie_le)) / 86400e3;
     if (age < 0.9) continue;
-    // Posts du bot suivis de J+1 à J+21 ; anciens posts mesurés une seule fois (valeur finale).
-    if (p.source === 'manuel' ? !!p.metrics : (age > 21 || (p.mesure_le && (now - new Date(p.mesure_le)) / 86400e3 < 0.9))) continue;
+    if (!aMesurer(p, now)) continue;
+    if (age > 21) p.mesure_finale_tentee = true;
     const m = await api.insights(p.media, p.type === 'reel', ig);
     if (m) { p.metrics = { ...m, duree: p.duree }; p.mesure_le = now.toISOString(); n++; }
   }
