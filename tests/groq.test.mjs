@@ -35,3 +35,30 @@ test('secours des appels directs du site : image envoyée à un modèle qui lit 
     assert.equal(await LLM.groqParties([{ text: 'x' }], { config }), null);
   } finally { globalThis.fetch = vrai; }
 });
+
+test('recherche web sans Gemini : Groq écrit la requête, Tavily cherche, Groq répond à partir des résultats seulement', async () => {
+  const vrai = globalThis.fetch; const appels = [];
+  const reponse = (status, corps) => ({ ok: status < 400, status, text: async () => corps, json: async () => JSON.parse(corps), headers: new Map() });
+  process.env.TAVILY_API_KEY = 'tvly-test';
+  const LLM = await import('../src/llm.mjs?tavily'); // module neuf : le test précédent a marqué Groq « à sec »
+  try {
+    globalThis.fetch = async (url, o = {}) => {
+      appels.push(String(url));
+      if (/models$/.test(url)) return reponse(200, JSON.stringify({ data: [{ id: 'openai/gpt-oss-120b' }] }));
+      if (/tavily/.test(url)) return reponse(200, JSON.stringify({ results: [{ title: 'GTA 6 au High', url: 'https://www.instagram.com/p/x/', content: 'Samedi 21 novembre au High Club' }] }));
+      const b = JSON.parse(o.body);
+      if (/moteur de recherche/.test(b.messages[0].content)) return reponse(200, JSON.stringify({ choices: [{ message: { content: '{"requetes":["High Club Nice soirée 21 novembre 2026"]}' } }] }));
+      assert.match(b.messages[1].content, /Samedi 21 novembre au High Club/);
+      assert.match(b.messages[0].content, /qu'à partir des résultats/);
+      return reponse(200, JSON.stringify({ choices: [{ message: { content: 'GTA 6 au High le 21/11 (https://www.instagram.com/p/x/)' } }] }));
+    };
+    const r = await LLM.rechercher({ config, system: 's', prompt: 'Soirées du High ce week-end ?', gratuit: true });
+    assert.match(r, /GTA 6 au High/);
+    assert.match(r, /Sources consultées :\nhttps:\/\/www\.instagram\.com\/p\/x\//);
+    assert.ok(appels.some((u) => /api\.tavily\.com/.test(u)));
+    // Aucun résultat : erreur, jamais une réponse inventée.
+    globalThis.fetch = async (url, o = {}) => /models$/.test(url) ? reponse(200, JSON.stringify({ data: [{ id: 'openai/gpt-oss-120b' }] })) : /tavily/.test(url) ? reponse(200, '{"results":[]}') : reponse(200, JSON.stringify({ choices: [{ message: { content: '{"requetes":["x"]}' } }] }));
+    const LLM2 = await import('../src/llm.mjs?tavily-vide');
+    assert.equal(await LLM2.rechercher({ config, system: 's', prompt: 'p', gratuit: true }), '');
+  } finally { globalThis.fetch = vrai; delete process.env.TAVILY_API_KEY; }
+});

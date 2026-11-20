@@ -2,6 +2,18 @@
   "_note": "Numéro de version affiché en pied de page du site et sur /mises-a-jour/ (directeur, 19/11/2026 : format « 1.13.02 », comme Minecraft). Règle : correction(s) seulement → dernier nombre +1 (1.13.02 → 1.13.03) ; nouvelle fonctionnalité → nombre du milieu +1 et le dernier revient à 01 (1.13.02 → 1.14.01) ; énorme fonctionnalité ou grosse refonte → premier nombre +1 (1.13.02 → 2.01.01). La plus récente en premier.",
   "versions": [
     {
+      "numero": "1.19.01",
+      "date": "2026-11-20",
+      "titre": "Recherche sur internet sans Google",
+      "public": [
+        "Teufy cherche de nouveau les soirées et les actus sur internet, même quand Google (Gemini) est en pause."
+      ],
+      "notes": [
+        "Moteur de recherche gratuit Tavily (secret TAVILY_API_KEY, 1 000 recherches par mois) : Groq écrit la requête, Tavily cherche, Groq répond uniquement à partir des pages trouvées et cite ses sources ; aucun résultat = rien d'inventé.",
+        "Au plus 30 recherches par jour ; prospection et fiches de lieux s'arrêtent à 15 pour garder la veille des actus et les soirées ; recherche des soirées : 6 sources par jour à tour de rôle."
+      ]
+    },
+    {
       "numero": "1.18.01",
       "date": "2026-11-20",
       "titre": "Plus de billetteries et veille quotidienne",

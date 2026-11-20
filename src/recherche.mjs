@@ -131,7 +131,11 @@ export async function rechercherSoirees({ config, now = new Date(), ig = null, a
     'les collectifs, associations et organisateurs de soirées électro, techno, house, afro, latino et rap de la Côte d\'Azur et du Var, leurs pages événements et leurs billetteries',
   ];
   const textes = [];
-  for (const [i, cible] of (instagramSeul ? [] : PASSES).entries()) {
+  // Recherche par Tavily (offre gratuite limitée) : 6 cibles par jour, à tour de rôle, au lieu des 21.
+  const parJour = ia === LLM && LLM.avecTavily(config) ? (R.passes_tavily ?? 6) : PASSES.length;
+  const tour = Math.floor(now / 864e5) * parJour;
+  const cibles = parJour >= PASSES.length ? PASSES : Array.from({ length: parJour }, (_, k) => PASSES[(tour + k) % PASSES.length]);
+  for (const [i, cible] of (instagramSeul ? [] : cibles).entries()) {
     const t = await ia.rechercher({
       config,
       system: `Tu recenses TOUTES les soirées de la Côte d'Azur pour le média Teufy. Tu ne rapportes que des soirées réelles, trouvées sur une page web, jamais inventées.\n${CIBLE}`,
@@ -140,7 +144,7 @@ export async function rechercherSoirees({ config, now = new Date(), ig = null, a
     if (t) textes.push(`### Source : ${cible}\n${t}`);
   }
   const web = textes.join('\n\n');
-  if (!instagramSeul) log(`  ${textes.length}/${PASSES.length} recherche(s) web abouties.`);
+  if (!instagramSeul) log(`  ${textes.length}/${cibles.length} recherche(s) web abouties.`);
   if (!web && !instagramSeul) log('Pas de recherche web possible (GEMINI_API_KEY absent ou quota atteint) : seulement Instagram et les billetteries.');
 
   // 2. Posts Instagram des clubs, bars et organisateurs : les lieux d'abord, puis les comptes lus le moins récemment

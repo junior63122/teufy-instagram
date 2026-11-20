@@ -4,7 +4,7 @@ import { fournisseurs, json, rechercher, budgetOk } from '../src/llm.mjs';
 
 const env = (vars, fn) => async () => {
   const avant = { ...process.env };
-  for (const k of ['GEMINI_API_KEY', 'GROQ_API_KEY', 'GITHUB_TOKEN', 'GITHUB_ACTIONS', 'ANTHROPIC_API_KEY', 'ANTHROPIC_AUTH_TOKEN', 'TEUFY_IA_MANUEL', 'TEUFY_PUBLICATION']) delete process.env[k]; // y compris les vraies clés des robots (le 20/11, GROQ_API_KEY présente sur GitHub faisait échouer ce test et bloquait les publications)
+  for (const k of ['GEMINI_API_KEY', 'GROQ_API_KEY', 'TAVILY_API_KEY', 'GITHUB_TOKEN', 'GITHUB_ACTIONS', 'ANTHROPIC_API_KEY', 'ANTHROPIC_AUTH_TOKEN', 'TEUFY_IA_MANUEL', 'TEUFY_PUBLICATION']) delete process.env[k]; // y compris les vraies clés des robots (le 20/11, GROQ_API_KEY présente sur GitHub faisait échouer ce test et bloquait les publications)
   Object.assign(process.env, vars);
   const f = globalThis.fetch;
   try { await fn(); } finally { process.env = avant; globalThis.fetch = f; }

@@ -17,7 +17,7 @@ const GEMINI = 'https://generativelanguage.googleapis.com/v1beta/models';
 // Compteur d'appels par IA, par jour et par mois, enregistré dans contenus/budget-ia.json (committé par les workflows).
 // Au-delà des plafonds de config.llm (max_appels_<ia>_jour / _mois), l'IA n'est plus appelée jusqu'au lendemain / mois suivant.
 const FICHIER_BUDGET = path.join(path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..'), 'contenus', 'budget-ia.json');
-const PLAFONDS = { gemini: [1500, 30000], anthropic: [120, 2500], groq: [900, 25000] }; // anti-emballement seulement (boucle, panne) : jamais atteints en usage normal
+const PLAFONDS = { gemini: [1500, 30000], anthropic: [120, 2500], groq: [900, 25000], tavily: [30, 950] }; // anti-emballement seulement (boucle, panne) : jamais atteints en usage normal
 function lireBudget() {
   const j = new Date().toISOString().slice(0, 10), m = j.slice(0, 7);
   let b = {}; try { b = existsSync(FICHIER_BUDGET) ? JSON.parse(readFileSync(FICHIER_BUDGET, 'utf8')) : {}; } catch { b = {}; }
@@ -162,7 +162,7 @@ export async function rechercher({ config, system, prompt, gratuit = false, seco
         return `${texteGemini(j)}\n\nSources consultées :\n${sources.slice(0, 40).join('\n')}`;
       }
       if (f === 'anthropic') { const r = await claude({ system, prompt, outils: true, L }); compter(f, 'recherche'); return r; }
-      if (f === 'groq') { const r = await groqRecherche({ L, system, prompt }); compter(f, 'recherche'); return r; }
+      if (f === 'groq') { const r = await groqRecherche({ L, system, prompt, secondaire }); compter(f, 'recherche'); return r; }
     } catch (err) { marquerASec(f, err); console.error(`Recherche ${f} impossible : ${err.message.slice(0, 160)}`); }
   }
   return '';
@@ -321,11 +321,44 @@ async function groqJson({ L, system, prompt, schema, nom }) {
   throw new Error(`Groq indisponible (${journal.length} essais, détail ci-dessus)`);
 }
 // Recherche web : modèle « groq/compound » (recherche intégrée), sources citées dans la réponse.
-async function groqRecherche({ L, system, prompt }) {
+async function groqRecherche({ L, system, prompt, secondaire = false }) {
   if (estXai()) throw new Error('recherche web non branchée pour une clé xAI');
   const [model] = await choisirGroq(PREF_RECHERCHE, L.modele_groq_recherche);
-  if (!model) throw new Error('aucun modèle Groq de recherche web ouvert pour ce compte');
-  return groqAppel({ model, messages: [{ role: 'system', content: `${system}\nCite l'adresse (URL) de chaque source.` }, { role: 'user', content: prompt }] });
+  if (model) return groqAppel({ model, messages: [{ role: 'system', content: `${system}\nCite l'adresse (URL) de chaque source.` }, { role: 'user', content: prompt }] });
+  // Pas de modèle de recherche chez Groq (20/11/2026, directeur : « il faut aller sur le net sans attendre Google ») :
+  // moteur de recherche gratuit Tavily (1 000 recherches par mois, sans carte bancaire, secret TAVILY_API_KEY), puis
+  // Groq lit les résultats et répond en citant les pages. Aucun résultat : erreur (jamais une réponse inventée).
+  if (!process.env.TAVILY_API_KEY) throw new Error('aucun modèle Groq de recherche web ouvert et pas de clé TAVILY_API_KEY (moteur de recherche gratuit)');
+  return rechercheTavily({ L, system, prompt, secondaire });
+}
+// Offre gratuite : 1 000 recherches par mois → 30 par jour au plus ; les tâches secondaires (prospection, fiches de lieux)
+// s'arrêtent à 15 pour garder la veille des actus et la recherche des soirées.
+export const avecTavily = (config = {}) => !!process.env.TAVILY_API_KEY && !fournisseurs(config).includes('gemini');
+export async function tavily(requete, { max = 8, secondaire = false } = {}) {
+  if (!budgetOk('tavily', {})) throw new Error('Tavily : plafond de recherches atteint');
+  if (secondaire && (lireBudget().aujourdhui.tavily || 0) >= 15) throw new Error('Tavily : recherches du jour gardées pour la veille et les soirées');
+  const r = await fetch('https://api.tavily.com/search', { method: 'POST', headers: { 'content-type': 'application/json', authorization: `Bearer ${process.env.TAVILY_API_KEY}` }, body: JSON.stringify({ query: requete, search_depth: 'basic', max_results: max, topic: 'general' }), signal: AbortSignal.timeout(30000) });
+  const txt = await r.text();
+  if (!r.ok) throw new Error(`Tavily HTTP ${r.status} ${txt.slice(0, 160)}`);
+  compter('tavily', 'recherche');
+  return (JSON.parse(txt).results || []).filter((x) => /^https?:\/\//.test(x.url || ''));
+}
+async function rechercheTavily({ L, system, prompt, secondaire = false }) {
+  const [model] = await choisirGroq(PREF_JSON, L.modele_groq);
+  if (!model) throw new Error('aucun modèle Groq ouvert');
+  const opt = /gpt-oss/.test(model) ? { reasoning_effort: 'low' } : {};
+  let requetes = [];
+  try {
+    const q = await groqAppel({ model, ...opt, max_completion_tokens: 800, messages: [{ role: 'system', content: 'Tu écris des requêtes pour un moteur de recherche web. Réponds uniquement en JSON : {"requetes": ["...", "..."]}, 1 ou 2 requêtes courtes et précises (mots-clés, lieux, mois, année), la meilleure en premier, en français.' }, { role: 'user', content: prompt.slice(0, 4000) }] });
+    requetes = (JSON.parse(q.match(/\{[\s\S]*\}/)?.[0] || '{}').requetes || []).filter((x) => typeof x === 'string' && x.trim()).slice(0, L.tavily_requetes ?? 1);
+  } catch {}
+  if (!requetes.length) requetes = [prompt.replace(/\s+/g, ' ').slice(0, 300)];
+  const vus = new Set(), res = [];
+  for (const q of requetes) for (const x of await tavily(q, { secondaire })) if (!vus.has(x.url)) { vus.add(x.url); res.push(x); }
+  if (!res.length) throw new Error('Tavily : aucun résultat');
+  const pages = res.slice(0, 14).map((x, i) => `[${i + 1}] ${x.title || ''}\n${x.url}\n${String(x.content || '').slice(0, 1200)}`).join('\n\n');
+  const c = await groqAppel({ model, ...opt, max_completion_tokens: 5000, messages: [{ role: 'system', content: `${system}\nTu ne réponds qu'à partir des résultats de recherche fournis ; rien d'autre. Cite l'adresse (URL) de chaque information. Si les résultats ne contiennent pas la réponse, dis-le.` }, { role: 'user', content: `${prompt}\n\nRésultats de recherche web (${new Date().toISOString().slice(0, 10)}) :\n${pages}` }] });
+  return `${c}\n\nSources consultées :\n${res.slice(0, 14).map((x) => x.url).join('\n')}`;
 }
 
 // Secours Groq pour les appels « façon Gemini » (parties texte et images) faits directement par le site (src/site.mjs)
@@ -337,7 +370,7 @@ export async function groqParties(parts, { recherche = false, config = {}, secon
   const texte = parts.filter((p) => p.text).map((p) => p.text).join('\n\n');
   const images = parts.filter((p) => p.inline_data || p.inlineData).map((p) => p.inline_data || p.inlineData);
   try {
-    if (recherche) { const r = await groqRecherche({ L, system: 'Tu réponds en français, avec des faits sourcés.', prompt: texte }); compter('groq', 'recherche'); return r; }
+    if (recherche) { const r = await groqRecherche({ L, system: 'Tu réponds en français, avec des faits sourcés.', prompt: texte, secondaire }); compter('groq', 'recherche'); return r; }
     const content = images.length
       ? [{ type: 'text', text: texte }, ...images.slice(0, 5).map((d) => ({ type: 'image_url', image_url: { url: `data:${d.mime_type || d.mimeType || 'image/jpeg'};base64,${d.data}` } }))]
       : texte;
