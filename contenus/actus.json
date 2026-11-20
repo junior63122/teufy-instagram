@@ -292,5 +292,23 @@
    "Les places au tarif le plus bas étant contingentées, les réservations se réalisent directement sur les plateformes officielles de distribution de la SNCF."
   ],
   "ville": "Côte d'Azur"
+ },
+ {
+  "cle": "2026-11|mandelieu mimosa 2027",
+  "date": "2026-11-20T10:00:54+0000",
+  "ajout": "2026-11-20T13:42:01.145Z",
+  "type": "annonce",
+  "importance": 60,
+  "source": "https://www.instagram.com/p/Df9ZB1eCN6N/",
+  "image": "https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/915604618_18612893194071849_4575519182941552218_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=105&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X3VybGdlbi5DMyJ9&_nc_ohc=rIXWs1mrQ1EQ7kNvwFygai9&_nc_oc=AdqRAU8g4ca88vqKBCYbldTTIwgF-WeZl7X5XYzgnBuGvdU6swPpMcjR0SIbfg776Xo&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=un712FT6ori07FSK9KcDaQ&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQT0bh0PLwpPbY2Qaqn_CsdKt_r39JSt5p8MfPdCZ41HYQ&oe=6B0629BE",
+  "chapo": "Du 10 au 14 février 2027, Mandelieu accueille la Fête du Mimosa 2027, un événement floral et musical pour les 17‑30 ans.",
+  "paragraphes": [
+   "La Fête du Mimosa 2027 se déroule sur cinq jours, du 10 au 14 février, et propose des chars fleuris, des défilés, des spectacles et des animations musicales.",
+   "Le point d’orgue est le Grand Corso Fleuri du dimanche 14 février, où les visiteurs peuvent profiter de la floraison du mimosa.",
+   "Les billets sont disponibles à 19 € pour les adultes et 16 € pour les enfants, avec accès gratuit aux promenoirs.",
+   "Les organisateurs n’ont pas encore précisé les artistes ou les DJ qui se produiront pendant la semaine."
+  ],
+  "titre": "Mandelieu fête le Mimosa 2027 : chars fleuris, défilés et concerts",
+  "ville": "Mandelieu"
  }
 ]
