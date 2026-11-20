@@ -128,15 +128,18 @@ document.querySelectorAll('.v').forEach(v=>{const c=v.querySelector('.fait input
 /** Met à jour le stock, le planning (contenus/tiktok.json) et la page tiktok/index.html. */
 export function construireTiktok({ now = new Date(), root = ROOT, log = console.log } = {}) {
   const n = archiverReels(root);
-  const auj = jourParis(now);
+  const auj0 = jourParis(now);
+  const etat0 = lire(path.join(root, 'contenus', 'tiktok.json'), {});
+  const auj = etat0.debut && etat0.debut > auj0 ? etat0.debut : auj0; // début choisi par le directeur (lundi 23/11/2026)
   const f = path.join(root, 'contenus', 'tiktok.json');
   const etat = lire(f, { _note: 'Planning TikTok (src/tiktok.mjs) : le directeur publie lui-même, page /tiktok/.', plan: {} });
   // On garde 30 jours d'historique (pour ne pas reposter trop tôt la même vidéo).
-  const hm = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Paris', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).format(new Date(now.getTime() + 15 * 60e3));
+  if (auj !== auj0) for (const j of Object.keys(etat.plan || {})) if (j >= auj0 && j < auj) delete etat.plan[j]; // rien de planifié avant le début
+  const hm = auj !== auj0 ? '00:00' : new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Paris', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).format(new Date(now.getTime() + 15 * 60e3));
   etat.plan = Object.fromEntries(Object.entries(planifier(etat.plan || {}, stockVideos(root), auj, 7, hm)).filter(([j]) => j >= plusJours(auj, -30)));
   writeFileSync(f, JSON.stringify(etat, null, 1) + '\n');
   mkdirSync(path.join(root, 'tiktok'), { recursive: true });
-  writeFileSync(path.join(root, 'tiktok', 'index.html'), pageTiktok(etat.plan, auj));
+  writeFileSync(path.join(root, 'tiktok', 'index.html'), pageTiktok(etat.plan, auj0));
   const aVenir = Object.entries(etat.plan).filter(([j]) => j >= auj);
   log(`TikTok : ${n} reel(s) archivé(s), ${aVenir.reduce((s, [, l]) => s + l.length, 0)} vidéo(s) planifiée(s) sur ${aVenir.length} jour(s).`);
   return etat;
