@@ -199,6 +199,7 @@ if (cible === 'controle') {
     if (hPar < st.h) continue;
     const e = histo.find((x) => x.jour === jour && x.type === st.type);
     if (!e) { if (hPar >= st.h + 3) problemes.push(`story ${st.type} (${st.h} h) : pas publiée`); else lignes.push(`story ${st.type} : en attente`); }
+    else if (e.vide) lignes.push(`story ${st.type} : pas de visuel conforme aujourd'hui (rien publié plutôt qu'un visuel raté)`);
     else if (e.manquantes?.length) problemes.push(`story ${st.type} : ${e.manquantes.length} image(s) pas publiée(s)`);
     else if (!e.ids?.length) problemes.push(`story ${st.type} : notée faite sans aucune image en ligne`);
     else lignes.push(`story ${st.type} : ${e.ids.length} image(s) en ligne`);
@@ -1304,6 +1305,8 @@ async function storiesPublier(S) {
   for (const p of plan) {
     const deja = histo.find((x) => x.jour === jour && x.type === p.type);
     if (deja && !deja.manquantes?.length) continue;
+    // Story sans aucune image (visuel refusé par le contrôle, aucune soirée exploitable) : notée « vide », jamais « faite ».
+    if (!p.frames?.length) { if (!deja && !DRY && ig) histo.push({ jour, type: p.type, vide: true, ids: [], le: new Date().toISOString() }); console.error(`Story ${p.type} : aucune image conforme, pas publiée aujourd'hui.`); continue; }
     const entree = deja || { jour, type: p.type, cles: p.cles, ids: [], faites: [] };
     entree.faites ||= entree.ids.map((_, k) => k); // anciennes entrées : tout ce qui a un id
     for (const [k, fr] of p.frames.entries()) {
