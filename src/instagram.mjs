@@ -35,7 +35,7 @@ async function call(method, pathname, params, { token }) {
   const json = await res.json().catch(() => ({}));
   if (!res.ok || json.error) {
     const e = json.error || {};
-    if ([4, 17, 32, 613].includes(e.code)) LIMITE_ATTEINTE = true;
+    if ([4, 17, 32, 613, 80002].includes(e.code)) LIMITE_ATTEINTE = true; // 80002 : trop d'appels pour ce compte Instagram
     throw new Error(`Instagram ${pathname} : ${e.message || res.status} (code ${e.code ?? '?'}, sous-code ${e.error_subcode ?? '-'})`);
   }
   return json;
@@ -175,6 +175,9 @@ export async function insights(mediaId, isReel, ig) {
   try {
     out = parseInsights(await call('GET', `${mediaId}/insights`, { metric: metrics.join(',') }, ig));
   } catch {
+    // Limite d'appels atteinte : surtout pas 8 appels de plus (une métrique à la fois) qui épuiseraient le quota gardé
+    // pour les publications ; la mesure sera reprise au prochain relevé.
+    if (LIMITE_ATTEINTE) return null;
     // Une métrique non disponible fait échouer tout l'appel : on les demande une par une.
     for (const m of metrics) {
       try { Object.assign(out, parseInsights(await call('GET', `${mediaId}/insights`, { metric: m }, ig))); } catch { /* ignorée */ }

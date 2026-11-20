@@ -16,3 +16,12 @@ test('page commune à plusieurs nuits (festival) : soirées différentes restent
   const u = 'https://shotgun.live/festivals/xyz-festival';
   assert.ok(!memeSoiree({ name: 'Mouchki / Dhermo — Forest / Psytrance', start: '2026-11-20T20:00:00Z', venue: 'Forêt', url: u }, { name: 'Alienduch — House / Techno / Acid / Rave', start: '2026-11-21T20:00:00Z', venue: 'Forêt', url: u }));
 });
+
+// 20/11/2026 : fichiers des comptes relus seulement s'ils changent (des milliers de lectures par passage avant).
+test('comptes confirmés : fichiers mis en mémoire tant qu\'ils ne changent pas', async () => {
+  const { contexteComptes, comptesConfirmes } = await import('../src/comptes.mjs');
+  assert.equal(contexteComptes(), contexteComptes());
+  const t = Date.now();
+  for (let i = 0; i < 2000; i++) comptesConfirmes({ name: 'Soirée', venue: 'High Club', instagram: ['highclubnice'] });
+  assert.ok(Date.now() - t < 1500, 'rapide');
+});

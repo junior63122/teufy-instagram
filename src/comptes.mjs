@@ -7,7 +7,7 @@
 //   - identifiant approximatif : remplacé par le vrai compte (voir resoudre) ;
 //   - sinon : testé par Instagram au moment de publier (refusé = retiré de l'image et de la légende).
 // Résultats gardés dans contenus/comptes-verifies.json (confirmé : revérifié après 30 jours ; introuvable : après 7).
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync, statSync } from 'node:fs';
 import { writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -164,10 +164,19 @@ export function abonnesDe(handle) {
 // Comptes Instagram CONFIRMÉS d'une soirée (corrections appliquées, existence vérifiée par l'API, compte qui correspond
 // au lieu / à l'organisateur / aux artistes), plus le compte confirmé de son lieu s'il est connu.
 // Sans vérification faite : aucun compte (jamais un pseudo deviné sur le site ou sur Instagram).
+// Fichiers relus seulement s'ils ont changé (20/11/2026 : comptesConfirmes relisait et analysait ~130 Ko de JSON à chaque
+// appel, y compris dans les comparaisons de tri des soirées : des milliers de lectures par passage). Lecture seule.
+const fige = new Map();
+const empreinte = (f) => { try { const st = statSync(f); return `${st.mtimeMs}|${st.size}`; } catch { return 'absent'; } };
+const FICHIERS_COMPTES = () => [CACHE, ...['comptes-corrections.json', 'comptes-lieux.json', 'partenaires-comptes.json', 'organisateurs.json'].map((f) => path.join(ROOT, 'contenus', f))];
+export function contexteComptes() {
+  const cle = FICHIERS_COMPTES().map(empreinte).join(';');
+  if (fige.get('cle') !== cle) { fige.set('cle', cle); fige.set('v', { cache: lire(CACHE, {}), corr: corrections(), lieux: lire(path.join(ROOT, 'contenus', 'comptes-lieux.json'), {}), surs: suivis() }); }
+  return fige.get('v');
+}
 export function comptesConfirmes(e) {
-  const cache = lire(CACHE, {}), corr = corrections(), lieux = lire(path.join(ROOT, 'contenus', 'comptes-lieux.json'), {});
+  const { cache, corr, lieux, surs } = contexteComptes();
   const textes = [e.venue, e.name, e.organisateur, ...(e.artistes || [])].filter(Boolean);
-  const surs = suivis();
   const out = [];
   for (const brut of e.instagram || []) {
     const h = propre(corr[propre(brut)] || brut);

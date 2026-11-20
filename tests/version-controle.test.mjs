@@ -47,3 +47,13 @@ test('publication : déjà en ligne malgré une erreur de l\'API = pas de second
   assert.ok(i > 0 && i < j, 'historique écrit avant la relecture et les stories');
   assert.match(run, /confirmerPublicationVeille/);
 });
+
+test('quota Instagram atteint : les statistiques ne repartent pas en 8 appels d\'une métrique', async () => {
+  const ig = await import('../src/instagram.mjs?insights');
+  const vrai = globalThis.fetch; let n = 0;
+  try {
+    globalThis.fetch = async () => { n++; return { ok: false, status: 400, json: async () => ({ error: { code: 4, message: 'Application request limit reached' } }) }; };
+    assert.equal(await ig.insights('1', false, { user: '1', token: 'x' }), null);
+    assert.equal(n, 1);
+  } finally { globalThis.fetch = vrai; }
+});
