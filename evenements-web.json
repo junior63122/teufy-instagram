@@ -20,12 +20,12 @@
         "dj_set",
         "electro"
       ],
-      "description": "Soirée club au Naya Cannes avec les DJ rudboy_music et djaymoune. Ouvert du vendredi au samedi de minuit à 5h du matin.",
+      "description": "Soirée club au Naya Cannes avec les DJ Rudboy Music et djaymoune. Ouvert du vendredi au samedi de minuit à 5h du matin.",
       "public_cible": 0.95,
       "confiance": 0.9,
       "buzz": 0.65,
       "buzz_raison": "Club de niche à Cannes, engagement Instagram modéré mais régulier sur la zone cible.",
-      "accroche": "Naya Cannes : DJ set avec rudboy_music et djaymoune",
+      "accroche": "Naya Cannes : DJ set avec Rudboy Music et djaymoune",
       "instagram": [
         "nayaclubcannes",
         "rudboy_music"
@@ -329,7 +329,7 @@
         "electro",
         "dancehall"
       ],
-      "description": "Première soirée de la saison Inside à leservan_valbonne. Petite carte de tapas et finger food, vin et cocktails, DJ set d’Aaron avec percussion de Paul Palmera. Table réservable entre 19h et 20h30, mais pas incluse dans la prévente. Dress code correct, parking sur place. Horaires 19h à 00h45, idéal pour les 17‑30 ans à la recherche d’une ambiance conviviale et musicale.",
+      "description": "Première soirée de la saison Inside à Leservan Valbonne. Petite carte de tapas et finger food, vin et cocktails, DJ set d’Aaron avec percussion de Paul Palmera. Table réservable entre 19h et 20h30, mais pas incluse dans la prévente. Dress code correct, parking sur place. Horaires 19h à 00h45, idéal pour les 17‑30 ans à la recherche d’une ambiance conviviale et musicale.",
       "public_cible": 0.75,
       "confiance": 0.95,
       "buzz": 0.5,
@@ -3932,5 +3932,5 @@
       ]
     }
   ],
-  "maj_instagram": "2026-11-20T21:12:09.251Z"
+  "maj_instagram": "2026-11-20T21:44:56.243Z"
 }
