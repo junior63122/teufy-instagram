@@ -14,6 +14,16 @@
     "story question : notée faite sans aucune image en ligne",
     "story coeur : notée faite sans aucune image en ligne"
    ]
+  },
+  {
+   "jour": "2026-11-20",
+   "le": "2026-11-20T15:13:05.102Z",
+   "ok": [
+    "pret-2026-11-19-concours-frigo16 : pas encore publié (repris au prochain passage)"
+   ],
+   "problemes": [
+    "story soirees : notée faite sans aucune image en ligne"
+   ]
   }
  ]
 }
