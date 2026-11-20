@@ -198,7 +198,7 @@ if (cible === 'controle') {
   for (const st of S.planDuJour(NOW)) {
     if (hPar < st.h) continue;
     const e = histo.find((x) => x.jour === jour && x.type === st.type);
-    if (!e) { if (hPar >= st.h + 3) problemes.push(`story ${st.type} (${st.h} h) : pas publiée`); else lignes.push(`story ${st.type} : en attente`); }
+    if (!e) { if (hPar >= (st.jusqu ?? st.h + 3)) problemes.push(`story ${st.type} (${st.h} h) : pas publiée`); else lignes.push(`story ${st.type} : en attente`); }
     else if (e.vide) lignes.push(`story ${st.type} : pas de visuel conforme aujourd'hui (rien publié plutôt qu'un visuel raté)`);
     else if (e.manquantes?.length) problemes.push(`story ${st.type} : ${e.manquantes.length} image(s) pas publiée(s)`);
     else if (!e.ids?.length) problemes.push(`story ${st.type} : notée faite sans aucune image en ligne`);

@@ -23,7 +23,7 @@ export function planDuJour(now) {
   const j = jourSemaine(now);
   return [
     ...storiesPretes(now),
-    { h: 16, type: 'soirees' },
+    { h: 16, type: 'soirees', jusqu: 23 }, // « ce soir » : encore utile jusqu'à 23 h si un passage a échoué (20/11/2026)
     { h: 18, type: [1, 3, 5, 7].includes(j) ? 'offre' : 'repost' },
     { h: 20, type: 'question' },
     ...([4, 5, 6].includes(j) ? [{ h: 22, type: 'coeur' }] : []),
@@ -37,7 +37,7 @@ export function planDuJour(now) {
 /** Stories dues maintenant : heure passée (moins de 3 h de retard), pas encore faites aujourd'hui. */
 export function storiesDues(now, histo = lire(FICHIER_HISTO, [])) {
   const jour = jourParis(now), h = heureParis(now);
-  return planDuJour(now).filter((s) => h >= s.h && h < s.h + 3 && !histo.some((x) => x.jour === jour && x.type === s.type && !x.manquantes?.length));
+  return planDuJour(now).filter((s) => h >= s.h && h < (s.jusqu ?? s.h + 3) && !histo.some((x) => x.jour === jour && x.type === s.type && !x.manquantes?.length));
 }
 
 // --- Choix du contenu (sans IA) ------------------------------------------------------------------------

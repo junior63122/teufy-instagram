@@ -4,10 +4,11 @@ import assert from 'node:assert/strict';
 import { planDuJour, storiesDues, soireesDuSoir, offreDuJour, questionDuJour, repostDuJour, coupDeCoeur } from '../src/stories.mjs';
 
 const ven20h = new Date('2026-11-13T19:10:00Z'); // vendredi 20h10 à Paris
-test('programme : 3 à 4 stories par jour, chacune une seule fois, jamais 3 h après son heure', () => {
+test('programme : 3 à 4 stories par jour, chacune une seule fois, jamais 3 h après son heure (sauf « ce soir », jusqu\'à 23 h)', () => {
   assert.deepEqual(planDuJour(ven20h).map((s) => s.type), ['soirees', 'offre', 'question', 'coeur']);
-  assert.deepEqual(storiesDues(ven20h, []).map((s) => s.type), ['offre', 'question']);
-  assert.deepEqual(storiesDues(ven20h, [{ jour: '2026-11-13', type: 'question' }]).map((s) => s.type), ['offre']);
+  assert.deepEqual(storiesDues(ven20h, []).map((s) => s.type), ['soirees', 'offre', 'question']);
+  assert.deepEqual(storiesDues(ven20h, [{ jour: '2026-11-13', type: 'question' }, { jour: '2026-11-13', type: 'soirees' }]).map((s) => s.type), ['offre']);
+  assert.ok(!storiesDues(new Date('2026-11-13T22:30:00Z'), []).some((s) => s.type === 'soirees'), 'après 23 h : plus de story « ce soir »');
   const lundi = planDuJour(new Date('2026-11-16T12:00:00Z')).map((s) => s.type);
   assert.ok(!lundi.includes('coeur'), 'lundi : pas de coup de cœur');
   assert.ok(lundi.includes('videos'), 'lundi : appel aux vidéos de soirée (WeTransfer)');
