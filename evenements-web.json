@@ -6,56 +6,260 @@
   "evenements": [
     {
       "source": "web",
-      "source_site": "naho_club Instagram",
-      "name": "ERA 2000–2010",
-      "start": "2026-11-18T23:00:00.000Z",
-      "venue": "Naho Club",
-      "city": "La Garde",
+      "source_site": "provence-alpes-cotedazur.com",
+      "name": "Paul Seul (+ Warm up + Closing)",
+      "start": "2026-11-20T19:00:00.000Z",
+      "venue": "Frigo 16 (Le 109)",
+      "city": "Nice",
       "address": "",
-      "url": "https://www.instagram.com/p/DfxUrQCiI5l/",
-      "image": "https://scontent-ord5-2.cdninstagram.com/v/t51.82787-15/896051680_18128310115917771_4018966771600734974_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=105&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=mp8hggIvTNEQ7kNvwEylvTJ&_nc_oc=Adry7PO8ATFgEQYbQ8ULEobLPX87A2SQgjaqeOx8HCkVo9s9KtZeFdhZ8f10c7rtzHk&_nc_zt=23&_nc_ht=scontent-ord5-2.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=R4s_61uvy6JVKX9jYv9AKg&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQSg6Bt4GZcE4YD9uPREE_JkxRZrs2Q3Dlr67RzHb0yq_g&oe=6B067283",
-      "price": null,
+      "url": "https://my.weezevent.com/paul-seul-premiere-partie-frigo-16",
+      "image": "https://static.apidae-tourisme.com/filestore/objets-touristiques/images/99/147/42832739.jpg",
+      "price": 12.49,
       "tags": [
-        "house",
-        "dance",
-        "pop",
-        "hip hop"
+        "techno",
+        "gabber",
+        "club",
+        "hard techno",
+        "Techno",
+        "Hard Dance",
+        "Gabber",
+        "Electro",
+        "Hard Techno",
+        "Eurodance",
+        "Néo-Pop",
+        "rave",
+        "frapcore",
+        "electro",
+        "Rave",
+        "Pop/Electro",
+        "Hardcore",
+        "Fast Pop",
+        "eurodance",
+        "hard dance",
+        "hard music",
+        "core"
       ],
-      "description": "Venez revivre vos meilleures années le temps d’une soirée à Naho Club. Le line‑up se compose de ___ozenn___ et delviinleak qui joueront des classiques de la pop, du house et du hip‑hop. La soirée démarre à 00h et se termine à 05h, dans un club situé à 116 Av. de Digne, 83130 La Garde. Pas de pré‑vente, mais vous pouvez réserver sur le numéro indiqué. L’ambiance est festive, idéale pour les 17‑30 ans qui aiment la nostalgie.",
-      "public_cible": 0.8,
+      "description": "Ce vendredi 20 novembre, Frigo 16 ouvre ses portes à la scène hard music. Paul Orzoni, Odyze_ et Leardcore se succèdent sur les platines pour une nuit 100 % hard. La soirée démarre à 20 h, avec food & drinks et un accès gratuit sur inscription. L’ambiance est brute, les beats lourds et la foule prête à vibrer jusqu’à 2 h du matin.",
+      "public_cible": 0.9,
       "confiance": 0.95,
-      "buzz": 0.6,
-      "buzz_raison": "Année 2000‑2010, line‑up connu, club réputé, soirée du jeudi soir.",
-      "accroche": "Naho Club vous fait voyager dans les années 2000–2010 avec des tubes incontournables.",
+      "buzz": 0.9,
+      "buzz_raison": "Cofondateur de Casual Gabberz et membre d'Ascendant Vierge",
+      "accroche": "Paul Seul de Casual Gabberz et Ascendant Vierge débarque au Frigo 16.",
       "instagram": [
-        "naho_club"
+        "pandaevents06",
+        "paulseul",
+        "le109nice"
       ],
-      "offres": []
+      "offres": [
+        {
+          "plateforme": "shotgun.live",
+          "url": "https://shotgun.live/events/paul-seul-premiere-partie-frigo-16",
+          "prix": 12.49
+        },
+        {
+          "plateforme": "my.weezevent.com",
+          "url": "https://my.weezevent.com/paul-seul-premiere-partie-frigo-16",
+          "prix": 10
+        }
+      ],
+      "sources_sites": [
+        "provence-alpes-cotedazur.com",
+        "Shotgun",
+        "Shotgun.live",
+        "Shotgun / Panda Events",
+        "shotgun.live",
+        "webtimemedias.com",
+        "instagram"
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true,
+      "via_veille": true
     },
     {
       "source": "web",
-      "source_site": "naho_club Instagram",
-      "name": "FAVELA",
-      "start": "2026-11-19T23:00:00.000Z",
-      "venue": "Naho Club",
-      "city": "La Garde",
+      "source_site": "Shotgun",
+      "name": "Jerrycans Release Party @ Frigo 16",
+      "start": "2026-11-26T19:00:00.000Z",
+      "venue": "Frigo 16 / Le 109",
+      "city": "Nice",
       "address": "",
-      "url": "https://www.instagram.com/p/DfxNzevCKVI/",
-      "image": "https://scontent-ord5-2.cdninstagram.com/v/t51.82787-15/906171986_18128306410917771_7723311153027134257_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=105&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=bm01PdpVH0MQ7kNvwGIzEew&_nc_oc=AdoME30JlLcioYBLlNlEYyRaT2V5eRK8YmRLtH0incdNqqYbpokN0LWg9cFnyXKzAA0&_nc_zt=23&_nc_ht=scontent-ord5-2.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=R4s_61uvy6JVKX9jYv9AKg&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQQe0e2bhjCnlbfmmJ0AUsF1f3n5LjJuhSxTQBGe3s6lkA&oe=6B065D50",
-      "price": null,
+      "url": "https://shotgun.live/fr/events/jerrycans-release-party-frigo-16",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto/production/artworks/Frigo_261126_jerrycans_event_1920x1080px_rmsji6.jpg",
+      "price": 0,
       "tags": [
-        "afro",
-        "shatta",
+        "pop-funk",
+        "italo disco",
+        "groove",
+        "pop festive",
+        "Italo Disco",
+        "Synth-Pop",
+        "Disco Electro",
+        "pop rock",
+        "live",
+        "Synthwave",
+        "Electro Pop",
+        "Indie",
+        "Rock alternati",
+        "Electronic",
+        "Groove",
+        "hip‑hop",
         "dance"
       ],
-      "description": "Le vendredi 20 novembre, Naho Club vous transporte au Brésil avec FAVELA. Le line‑up est composé de ___ozenn___ et dezze_recital qui joueront des sons afro, shatta et dance. La soirée commence à 00h et se termine à 05h. Le club est situé à 116 Av. de Digne, 83130 La Garde. Pas de pré‑vente, mais vous pouvez réserver sur le numéro indiqué. L’ambiance est caliente, idéale pour les 17‑30 ans qui aiment la danse.",
-      "public_cible": 0.9,
-      "confiance": 0.92,
+      "description": "Le jeudi 26 novembre, Frigo 16 accueille la release party de Jerrycans, accompagnés des TheGroovyBoyz. La soirée commence à 20 h, se termine à minuit 30, avec food & bar. L’événement est gratuit sur inscription, idéal pour les jeunes fans de hip‑hop et de groove. L’ambiance est décontractée, les beats dynamiques et la scène animée.",
+      "public_cible": 0.85,
+      "confiance": 0.95,
       "buzz": 0.7,
-      "buzz_raison": "Thème brésilien, line‑up connu, club réputé, vendredi soir.",
-      "accroche": "Une soirée brésilienne à Naho Club avec de la chaleur et du groove.",
+      "buzz_raison": "Gratuit sur réservation pour la sortie d'EP du groupe montant niçois.",
+      "accroche": "Release party funk et italo disco en entrée gratuite au Frigo 16 avec Les Jerrycans.",
       "instagram": [
-        "naho_club"
+        "panda_events",
+        "frigo16",
+        "lesjerrycans"
+      ],
+      "sources_sites": [
+        "Shotgun.live",
+        "panda-events.com / le109.nice.fr",
+        "Shotgun",
+        "Panda Events / Shotgun",
+        "instagram.com",
+        "instagram"
+      ],
+      "offres": [
+        {
+          "plateforme": "shotgun.live",
+          "url": "https://shotgun.live/fr/events/jerrycans-release-party-frigo-16",
+          "prix": 0
+        }
+      ],
+      "via_veille": true
+    },
+    {
+      "source": "web",
+      "source_site": "Shotgun",
+      "name": "Roller Disco - Gratuit",
+      "start": "2026-12-18T17:00:00.000Z",
+      "venue": "Frigo 16 (Le 109)",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/fr/events/roller-disco-gratuit-frigo-16",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto/production/artworks/Panda26_Sept-De%CC%81cembre_2026-3000x1000_fkc8ho",
+      "price": 0,
+      "tags": [
+        "disco",
+        "funk",
+        "house",
+        "disco house",
+        "Disco",
+        "Funk",
+        "House",
+        "Nu-Disco",
+        "Disco House",
+        "Groove",
+        "new funk",
+        "R&B",
+        "neo soul",
+        "acid jazz",
+        "hip‑hop"
+      ],
+      "description": "Le vendredi 18 décembre, DJ OBD vous fait voyager à travers la Golden Era. Des classiques de funk, new funk, R&B, neo soul, acid‑jazz et hip‑hop à l’ancienne. La soirée démarre à 18 h et se termine à 2 h 30, avec food & bar. L’entrée est gratuite sur inscription, idéale pour les amateurs de musique vintage.",
+      "public_cible": 0.9,
+      "confiance": 0.95,
+      "buzz": 0.75,
+      "buzz_raison": "Concept original gratuit au 109.",
+      "accroche": "Piste roller indoor et DJ sets disco funk en accès libre au Frigo 16.",
+      "instagram": [
+        "frigo.16",
+        "pandaevents06",
+        "panda_events"
+      ],
+      "offres": [
+        {
+          "plateforme": "shotgun.live",
+          "url": "https://shotgun.live/fr/events/roller-disco-gratuit-frigo-16",
+          "prix": 0
+        }
+      ],
+      "sources_sites": [
+        "Shotgun",
+        "Shotgun.live",
+        "instagram.com",
+        "instagram"
+      ],
+      "via_veille": true
+    },
+    {
+      "source": "web",
+      "source_site": "instagram",
+      "name": "JetLag Gang – Frigo 16",
+      "start": "2026-11-13T22:30:00.000Z",
+      "venue": "Frigo 16",
+      "city": "Nice",
+      "address": "",
+      "url": "https://www.instagram.com/reel/DfNBAk2NNlL/",
+      "image": "",
+      "price": 0,
+      "tags": [
+        "reggaeton",
+        "trap",
+        "cumbia",
+        "perreo"
+      ],
+      "description": "Le 13 novembre, le JetLag Gang débarque à Frigo 16 pour une soirée qui promet des vibes Bad Bunny & Rosalía. La nuit s’annonce 100 % reggaeton, perreo, cumbia et trap, avec un line‑up qui fait vibrer les 17‑30 ans. Le club, situé sur la route de Turin, ouvre à 23h30 et se ferme à 4h30 h. Il y a food & bar, et l’entrée est libre. L’événement est confirmé sur la page officielle du club et sur la billetterie Panda‑Events.",
+      "public_cible": 1,
+      "confiance": 0.9,
+      "buzz": 0.8,
+      "buzz_raison": "Line‑up de JetLag Gang, club réputé, soirée à thème, week‑end, engagement élevé.",
+      "accroche": "JetLag Gang braque le Frigo 16 pour une nuit 100 % reggaeton, perreo, cumbia et trap.",
+      "instagram": [
+        "frigo16"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Instagram",
+      "name": "SOIRÉE PICON",
+      "start": "2026-12-17T16:00:00.000Z",
+      "venue": "Barrio Chicago – Place de l’Équerre",
+      "city": "Toulon",
+      "address": "",
+      "url": "https://www.instagram.com/p/DfM9waQMzU8/",
+      "image": "https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/883374870_18180669466444237_7786088558785717952_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=108&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=ZSZIaah-VKQQ7kNvwEP74Y5&_nc_oc=AdpKxpijSJ9LdzlyIMCNMW5BDm6pFqOpl8mody7jvaQArDt22EMVPBEI_DX6bue2IHM&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=VBvO1W3_Q6X6IqkVaHwUyw&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQRoji7qa0BoesqD6tU335GDthLHdYa2pEaY9bQqkX7F2Q&oe=6B067156",
+      "price": 0,
+      "tags": [
+        "house"
+      ],
+      "description": "La soirée Picon du Barrio Chicago te fait découvrir un cocktail créatif à base de Picon, accompagné de bières et d’une ambiance musicale conviviale. Le club, situé sur la Place de l’Équerre, propose un cadre décontracté avec un line‑up de DJ house pour rythmer la soirée. L’entrée est gratuite, l’événement démarre à 17h et s’adresse aux 17‑30 ans qui aiment la bonne musique et les bons moments. La soirée est annoncée sur Instagram avec un visuel coloré et un compte de 3 475 abonnés.",
+      "public_cible": 0.8,
+      "confiance": 0.7,
+      "buzz": 0.5,
+      "buzz_raison": "Annonce officielle, lieu connu, ambiance conviviale, date proche.",
+      "accroche": "Soirée Picon, bière, cocktails et bonne humeur à Toulon",
+      "instagram": [
+        "barriochicagotoulon"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Instagram",
+      "name": "APÉROL PARTY",
+      "start": "2026-11-26T16:00:00.000Z",
+      "venue": "Barrio Chicago – Place de l’Équerre",
+      "city": "Toulon",
+      "address": "",
+      "url": "https://www.instagram.com/p/DfM9OcJMIPa/",
+      "image": "https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/883300158_18180668416444237_4958539333734117332_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=104&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=sduV7ThW2Z0Q7kNvwHA0d8g&_nc_oc=AdpPs5qd2Kgs_uc-TS9gSw0RKcqPdoB6RxmqXnsZ4rmBbAX05RM1iBaTKZp9T1p9iXo&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=VBvO1W3_Q6X6IqkVaHwUyw&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQQ4oOdqJWRKx2YT1NdkqQgqMszfsZIY4qNHpuw1QyQ1Qw&oe=6B0681C0",
+      "price": 0,
+      "tags": [
+        "house"
+      ],
+      "description": "Le Barrio Chicago organise une Apéro Party le 26 novembre, avec des cocktails Spritz, une ambiance chaleureuse et de la musique house. L’événement se déroule dans le club de la Place de l’Équerre et commence à 17h. L’entrée est gratuite, l’événement est destiné aux 17‑30 ans qui cherchent une soirée décontractée et festive. La promotion est faite via Instagram, avec un visuel attractif et un compte de 3 475 abonnés.",
+      "public_cible": 0.8,
+      "confiance": 0.7,
+      "buzz": 0.5,
+      "buzz_raison": "Annonce officielle, lieu connu, ambiance conviviale, date proche.",
+      "accroche": "Apéro Party, Spritz et vibes Dolce Vita à Toulon",
+      "instagram": [
+        "barriochicagotoulon"
       ]
     },
     {
@@ -79,33 +283,6 @@
       "buzz": 0.8,
       "buzz_raison": "Line‑up rap français connu, club réputé, samedi soir.",
       "accroche": "BANGER revient au Naho Club pour une édition spéciale RAP FR.",
-      "instagram": [
-        "naho_club"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "naho_club Instagram",
-      "name": "SANDER",
-      "start": "2026-11-16T23:00:00.000Z",
-      "venue": "SANDER",
-      "city": "La Garde",
-      "address": "",
-      "url": "https://www.instagram.com/reel/Df2eh24kuA4/",
-      "image": "",
-      "price": null,
-      "tags": [
-        "shatta",
-        "bouyon",
-        "afro",
-        "dance"
-      ],
-      "description": "Du jeudi au samedi, SANDER propose des soirées Shatta, Bouyon et Afro. La soirée commence à 00h et se termine à 05h. Le lieu est situé à 116 Av. de Digne, 83130 La Garde. Pas de pré‑vente, mais vous pouvez réserver sur le numéro indiqué. L’ambiance est libre et festive, idéale pour les 17‑30 ans.",
-      "public_cible": 0.85,
-      "confiance": 0.9,
-      "buzz": 0.5,
-      "buzz_raison": "Thème afro/shatta, club connu, week‑end.",
-      "accroche": "SANDER vous invite à libérer votre côté sauvage.",
       "instagram": [
         "naho_club"
       ]
@@ -159,58 +336,6 @@
       "accroche": "Soirée Inside à Valbonne : tapas, cocktails et DJ set d’Aaron.",
       "instagram": [
         "le.bar.ephemere"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "Instagram",
-      "name": "Skyfall – Caribbean Mood",
-      "start": "2026-11-12T23:00:00.000Z",
-      "venue": "Skyfall",
-      "city": "Cannes",
-      "address": "",
-      "url": "https://www.instagram.com/p/Dfh-tKBkRUc/",
-      "image": "https://scontent-ord5-2.cdninstagram.com/v/t51.82787-15/894503908_18644086435063907_3702744291307900835_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=108&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=arCKoHRwiGIQ7kNvwHNvOnj&_nc_oc=Ado37AaB0xgjzRIYDnnqZ0OU4GcJmx22Uhn9jmHP8jscXMKW4n1EHJkUZtREqkwaRJo&_nc_zt=23&_nc_ht=scontent-ord5-2.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=SpEUrOmjtkXA4KOHHhVtlw&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQS9C7soRc95q56lZOgtmydppd25O99nG-EDMtqzWxWkSQ&oe=6B0657F7",
-      "price": 15,
-      "tags": [
-        "dancehall",
-        "shatta",
-        "caribbean"
-      ],
-      "description": "Deux soirées à Skyfall, 21 Bd de la République, Cannes. Vendredi 13 novembre, 00h‑5h, DJ Mygo & DJ Iron, Dancehall/Shatta/Caribbean vibes, 15 € entrée, gratuit avant 1h. Samedi 14 novembre, 20 € avec conso, DJ Enicay, Urban/Shatta/Amapiano, gratuit pour les filles avant 1h. Réservations 07 56 82 70 05. Ambiance festive, idéal pour les 17‑30 ans qui aiment la musique urbaine et les soirées endiablées.",
-      "public_cible": 0.9,
-      "confiance": 0.9,
-      "buzz": 0.85,
-      "buzz_raison": "Deux soirées consécutives, DJ connus, prix attractif, lieu central.",
-      "accroche": "Weekend Skyfall : Caribbean Mood vendredi, The Best or Nothing samedi.",
-      "instagram": [
-        "skyfallinkingdom"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "Instagram",
-      "name": "Skyfall – The Best or Nothing",
-      "start": "2026-11-13T23:00:00.000Z",
-      "venue": "Skyfall",
-      "city": "Cannes",
-      "address": "",
-      "url": "https://www.instagram.com/p/Dfh-tKBkRUc/",
-      "image": "https://scontent-ord5-2.cdninstagram.com/v/t51.82787-15/894503908_18644086435063907_3702744291307900835_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=108&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X3VybGdlbi5DMyJ9&_nc_ohc=arCKoHRwiGIQ7kNvwHNvOnj&_nc_oc=Ado37AaB0xgjzRIYDnnqZ0OU4GcJmx22Uhn9jmHP8jscXMKW4n1EHJkUZtREqkwaRJo&_nc_zt=23&_nc_ht=scontent-ord5-2.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=SpEUrOmjtkXA4KOHHhVtlw&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQS9C7soRc95q56lZOgtmydppd25O99nG-EDMtqzWxWkSQ&oe=6B0657F7",
-      "price": 20,
-      "tags": [
-        "urban",
-        "shatta",
-        "amapiano"
-      ],
-      "description": "Samedi 14 novembre à Skyfall, 20 € entrée avec conso, DJ Enicay, Urban/Shatta/Amapiano, gratuit pour les filles avant 1h. Ambiance énergique, lieu central à Cannes. Idéal pour les 17‑30 ans à la recherche d’une soirée urbaine.",
-      "public_cible": 0.9,
-      "confiance": 0.9,
-      "buzz": 0.85,
-      "buzz_raison": "DJ Enicay, prix attractif, soirée endiablée.",
-      "accroche": "Skyfall samedi : The Best or Nothing, DJ Enicay, Urban/Shatta/Amapiano.",
-      "instagram": [
-        "skyfallinkingdom"
       ]
     },
     {
@@ -1302,74 +1427,6 @@
     {
       "source": "web",
       "source_site": "provence-alpes-cotedazur.com",
-      "name": "Paul Seul (+ Warm up + Closing)",
-      "start": "2026-11-20T19:00:00.000Z",
-      "venue": "Frigo 16 (Le 109)",
-      "city": "Nice",
-      "address": "",
-      "url": "https://my.weezevent.com/paul-seul-premiere-partie-frigo-16",
-      "image": "https://static.apidae-tourisme.com/filestore/objets-touristiques/images/99/147/42832739.jpg",
-      "price": 12.49,
-      "tags": [
-        "techno",
-        "gabber",
-        "club",
-        "hard techno",
-        "Techno",
-        "Hard Dance",
-        "Gabber",
-        "Electro",
-        "Hard Techno",
-        "Eurodance",
-        "Néo-Pop",
-        "rave",
-        "frapcore",
-        "electro",
-        "Rave",
-        "Pop/Electro",
-        "Hardcore",
-        "Fast Pop",
-        "eurodance",
-        "hard dance"
-      ],
-      "description": "",
-      "public_cible": 0.9,
-      "confiance": 0.95,
-      "buzz": 0.9,
-      "buzz_raison": "Cofondateur de Casual Gabberz et membre d'Ascendant Vierge",
-      "accroche": "Paul Seul de Casual Gabberz et Ascendant Vierge débarque au Frigo 16.",
-      "instagram": [
-        "pandaevents06",
-        "paulseul",
-        "le109nice"
-      ],
-      "offres": [
-        {
-          "plateforme": "shotgun.live",
-          "url": "https://shotgun.live/events/paul-seul-premiere-partie-frigo-16",
-          "prix": 12.49
-        },
-        {
-          "plateforme": "my.weezevent.com",
-          "url": "https://my.weezevent.com/paul-seul-premiere-partie-frigo-16",
-          "prix": 10
-        }
-      ],
-      "sources_sites": [
-        "provence-alpes-cotedazur.com",
-        "Shotgun",
-        "Shotgun.live",
-        "Shotgun / Panda Events",
-        "shotgun.live",
-        "webtimemedias.com"
-      ],
-      "billetterie_cherchee": true,
-      "offres_cherchees": true,
-      "via_veille": true
-    },
-    {
-      "source": "web",
-      "source_site": "provence-alpes-cotedazur.com",
       "name": "Dakeez",
       "start": "2026-12-05T19:00:00.000Z",
       "venue": "Frigo 16 (Le 109)",
@@ -1627,61 +1684,6 @@
         "highclub.fr",
         "yp.events"
       ]
-    },
-    {
-      "source": "web",
-      "source_site": "Shotgun",
-      "name": "Jerrycans Release Party @ Frigo 16",
-      "start": "2026-11-26T19:00:00.000Z",
-      "venue": "Frigo 16 / Le 109",
-      "city": "Nice",
-      "address": "",
-      "url": "https://shotgun.live/fr/events/jerrycans-release-party-frigo-16",
-      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto/production/artworks/Frigo_261126_jerrycans_event_1920x1080px_rmsji6.jpg",
-      "price": 0,
-      "tags": [
-        "pop-funk",
-        "italo disco",
-        "groove",
-        "pop festive",
-        "Italo Disco",
-        "Synth-Pop",
-        "Disco Electro",
-        "pop rock",
-        "live",
-        "Synthwave",
-        "Electro Pop",
-        "Indie",
-        "Rock alternati",
-        "Electronic",
-        "Groove"
-      ],
-      "description": "",
-      "public_cible": 0.85,
-      "confiance": 0.95,
-      "buzz": 0.7,
-      "buzz_raison": "Gratuit sur réservation pour la sortie d'EP du groupe montant niçois.",
-      "accroche": "Release party funk et italo disco en entrée gratuite au Frigo 16 avec Les Jerrycans.",
-      "instagram": [
-        "panda_events",
-        "frigo16",
-        "lesjerrycans"
-      ],
-      "sources_sites": [
-        "Shotgun.live",
-        "panda-events.com / le109.nice.fr",
-        "Shotgun",
-        "Panda Events / Shotgun",
-        "instagram.com"
-      ],
-      "offres": [
-        {
-          "plateforme": "shotgun.live",
-          "url": "https://shotgun.live/fr/events/jerrycans-release-party-frigo-16",
-          "prix": 0
-        }
-      ],
-      "via_veille": true
     },
     {
       "source": "web",
@@ -2485,54 +2487,6 @@
       "instagram": [
         "highclubnice"
       ]
-    },
-    {
-      "source": "web",
-      "source_site": "Shotgun",
-      "name": "Roller Disco - Gratuit",
-      "start": "2026-12-18T17:00:00.000Z",
-      "venue": "Frigo 16 (Le 109)",
-      "city": "Nice",
-      "address": "",
-      "url": "https://shotgun.live/fr/events/roller-disco-gratuit-frigo-16",
-      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto/production/artworks/Panda26_Sept-De%CC%81cembre_2026-3000x1000_fkc8ho",
-      "price": 0,
-      "tags": [
-        "disco",
-        "funk",
-        "house",
-        "disco house",
-        "Disco",
-        "Funk",
-        "House",
-        "Nu-Disco",
-        "Disco House",
-        "Groove"
-      ],
-      "description": "",
-      "public_cible": 0.9,
-      "confiance": 0.95,
-      "buzz": 0.75,
-      "buzz_raison": "Concept original gratuit au 109.",
-      "accroche": "Piste roller indoor et DJ sets disco funk en accès libre au Frigo 16.",
-      "instagram": [
-        "frigo.16",
-        "pandaevents06",
-        "panda_events"
-      ],
-      "offres": [
-        {
-          "plateforme": "shotgun.live",
-          "url": "https://shotgun.live/fr/events/roller-disco-gratuit-frigo-16",
-          "prix": 0
-        }
-      ],
-      "sources_sites": [
-        "Shotgun",
-        "Shotgun.live",
-        "instagram.com"
-      ],
-      "via_veille": true
     },
     {
       "source": "web",
@@ -3970,5 +3924,5 @@
       ]
     }
   ],
-  "maj_instagram": "2026-11-20T18:44:19.144Z"
+  "maj_instagram": "2026-11-20T19:12:26.220Z"
 }
