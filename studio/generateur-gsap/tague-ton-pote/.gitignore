@@ -1,2 +1,8 @@
-still_*.jpg
-video_silent.mp4
+# Fichiers de rendu, refaits par fabriquer.py et rendu.cjs ; la vidéo finale est rangée dans media/tague-ton-pote/.
+*.log
+*/video_silent.mp4
+*/still_*.jpg
+*/episode.mp4
+*/mix_fr.m4a
+*/img/
+*/son/
