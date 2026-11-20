@@ -20,5 +20,6 @@ jobs:
       - name: Tester Gemini et Claude
         env:
           GEMINI_API_KEY: ${{ (inputs.exception_ia) && (secrets.GEMINI_API_KEY) || '' }}
+          GROQ_API_KEY: ${{ (inputs.exception_ia) && (secrets.GROQ_API_KEY) || '' }} # IA gratuite (Groq, sans carte bancaire), 20/11/2026
           ANTHROPIC_API_KEY: ${{ (inputs.exception_ia) && (secrets.ANTHROPIC_API_KEY) || '' }}
         run: node outils/tester-ia.mjs

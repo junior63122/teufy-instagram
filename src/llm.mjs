@@ -3,6 +3,8 @@
 //     Google intégrée (« grounding ») pour trouver les soirées et faire la veille.
 //  2. GitHub Models (gratuit dans GitHub Actions avec le GITHUB_TOKEN, permission models: read) : Jamais en local (le jeton de la session n'est pas une clé Teufy).
 //     texte et JSON, sans recherche web.
+//  2 bis. Groq (offre gratuite sans carte bancaire, clé GROQ_API_KEY, 20/11/2026) : texte, JSON, et recherche web
+//     (modèle « groq/compound »). Remplace GitHub Models, fermé par GitHub le 30/07/2026.
 //  3. Claude (API Anthropic, payante) : seulement si config.llm.payant_autorise = true, et alors en premier.
 
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
@@ -15,7 +17,7 @@ const GEMINI = 'https://generativelanguage.googleapis.com/v1beta/models';
 // Compteur d'appels par IA, par jour et par mois, enregistré dans contenus/budget-ia.json (committé par les workflows).
 // Au-delà des plafonds de config.llm (max_appels_<ia>_jour / _mois), l'IA n'est plus appelée jusqu'au lendemain / mois suivant.
 const FICHIER_BUDGET = path.join(path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..'), 'contenus', 'budget-ia.json');
-const PLAFONDS = { gemini: [1500, 30000], anthropic: [120, 2500] }; // anti-emballement seulement (boucle, panne) : jamais atteints en usage normal
+const PLAFONDS = { gemini: [1500, 30000], anthropic: [120, 2500], groq: [900, 25000] }; // anti-emballement seulement (boucle, panne) : jamais atteints en usage normal
 function lireBudget() {
   const j = new Date().toISOString().slice(0, 10), m = j.slice(0, 7);
   let b = {}; try { b = existsSync(FICHIER_BUDGET) ? JSON.parse(readFileSync(FICHIER_BUDGET, 'utf8')) : {}; } catch { b = {}; }
@@ -86,7 +88,9 @@ export function fournisseurs(config = {}, { gratuit = false } = {}) {
   const L = config.llm || {};
   const out = [];
   if (process.env.GEMINI_API_KEY && !geminiEnPause(config)) out.push('gemini');
-  if (process.env.GITHUB_ACTIONS === 'true' && process.env.GITHUB_TOKEN && L.github_models !== false) out.push('github');
+  if (process.env.GROQ_API_KEY && L.groq !== false) out.push('groq');
+  // GitHub Models : fermé par GitHub le 30/07/2026 (répond « OK » à tout) ; gardé seulement si la config le réactive.
+  if (process.env.GITHUB_ACTIONS === 'true' && process.env.GITHUB_TOKEN && L.github_models === true) out.push('github');
   // Claude passe en premier quand le payant est autorisé (meilleure qualité), les IA gratuites restent en secours.
   // Continuité : si Gemini est à sec, Claude prend le relais des tâches fréquentes (secours_payant, actif par défaut),
   // dans la limite des plafonds anti-emballement ; et inversement. GitHub Models (gratuit) reste le dernier secours.
@@ -95,7 +99,7 @@ export function fournisseurs(config = {}, { gratuit = false } = {}) {
   }
   return out;
 }
-export const rechercheWebDisponible = (config) => fournisseurs(config).some((f) => f === 'gemini' || f === 'anthropic');
+export const rechercheWebDisponible = (config) => fournisseurs(config).some((f) => ['gemini', 'anthropic', 'groq'].includes(f));
 
 async function post(url, body, headers = {}) {
   const res = await fetch(url, { method: 'POST', headers: { 'content-type': 'application/json', ...headers }, body: JSON.stringify(body), signal: AbortSignal.timeout(body?.tools ? 150000 : 180000) });
@@ -158,6 +162,7 @@ export async function rechercher({ config, system, prompt, gratuit = false, seco
         return `${texteGemini(j)}\n\nSources consultées :\n${sources.slice(0, 40).join('\n')}`;
       }
       if (f === 'anthropic') { const r = await claude({ system, prompt, outils: true, L }); compter(f, 'recherche'); return r; }
+      if (f === 'groq') { const r = await groqRecherche({ L, system, prompt }); compter(f, 'recherche'); return r; }
     } catch (err) { marquerASec(f, err); console.error(`Recherche ${f} impossible : ${err.message.slice(0, 160)}`); }
   }
   return '';
@@ -184,10 +189,11 @@ export async function json({ config, system, prompt, schema, nom = 'reponse', gr
         return JSON.parse(texteGemini(j));
       }
       if (f === 'github') return await githubModels({ L, system, prompt, schema, nom });
+      if (f === 'groq') { const r = await groqJson({ L, system, prompt, schema, nom }); compter(f); return r; }
       if (f === 'anthropic') { const r = JSON.parse(await claude({ system, prompt, schema, L })); compter(f); return r; }
     } catch (err) { marquerASec(f, err); console.error(`IA ${f} impossible : ${err.message.slice(0, 160)}`); }
   }
-  throw new Error('Aucune IA disponible (ajoute le secret gratuit GEMINI_API_KEY)');
+  throw new Error('Aucune IA disponible (secret gratuit GROQ_API_KEY ou GEMINI_API_KEY)');
 }
 
 // --- GitHub Models (gratuit, dernier secours quand Gemini et Claude n'ont plus de crédit) ----------------------------
@@ -240,4 +246,40 @@ async function claude({ system, prompt, schema, outils = false, L = {} }) {
     return res.content.filter((b) => b.type === 'text').map((b) => b.text).join('\n').trim();
   }
   throw new Error('pas de réponse');
+}
+
+// --- Groq (gratuit, sans carte bancaire ; API compatible OpenAI) -----------------------------------------------
+const GROQ = 'https://api.groq.com/openai/v1/chat/completions';
+const groqEntetes = () => ({ 'content-type': 'application/json', authorization: `Bearer ${process.env.GROQ_API_KEY.trim()}` });
+async function groqAppel(body) {
+  const res = await fetch(GROQ, { method: 'POST', headers: groqEntetes(), body: JSON.stringify(body), signal: AbortSignal.timeout(180000) });
+  const txt = await res.text();
+  if (!res.ok) { const e = new Error(`Groq HTTP ${res.status} ${txt.slice(0, 200)}`); e.status = res.status; throw e; }
+  const j = JSON.parse(txt); // une réponse non JSON (comme le « OK » de GitHub Models) lève une erreur : jamais pris pour un succès
+  const c = j.choices?.[0]?.message?.content;
+  if (!c) throw new Error('Groq : réponse vide');
+  return c;
+}
+// JSON : sortie structurée stricte si le modèle la prend, sinon mode JSON, sinon texte ; toujours relu et vérifié.
+async function groqJson({ L, system, prompt, schema, nom }) {
+  const modeles = [...new Set([L.modele_groq || 'openai/gpt-oss-120b', 'llama-3.3-70b-versatile'])];
+  const formats = [{ type: 'json_schema', json_schema: { name: nom, strict: true, schema } }, { type: 'json_object' }, null];
+  const journal = [];
+  for (const model of modeles) for (const format of formats) {
+    try {
+      const c = await groqAppel({ model, temperature: 0.4, messages: [{ role: 'system', content: `${system}\nRéponds uniquement en JSON valide${format?.type === 'json_schema' ? '' : ` selon ce schéma : ${JSON.stringify(schema)}`}.` }, { role: 'user', content: prompt }], ...(format ? { response_format: format } : {}) });
+      const m = c.match(/\{[\s\S]*\}/);
+      if (m) return JSON.parse(m[0]);
+      journal.push(`${model} ${format?.type || 'texte'} : pas de JSON`);
+    } catch (err) {
+      journal.push(`${model} ${format?.type || 'texte'} : ${err.message.slice(0, 120)}`);
+      if (err.status === 429 || err.status === 401) break; // quota du jour ou clé refusée : inutile d'insister sur ce modèle
+    }
+  }
+  for (const l of journal) console.error(`Groq · ${l}`);
+  throw new Error(`Groq indisponible (${journal.length} essais, détail ci-dessus)`);
+}
+// Recherche web : modèle « groq/compound » (recherche intégrée), sources citées dans la réponse.
+async function groqRecherche({ L, system, prompt }) {
+  return groqAppel({ model: L.modele_groq_recherche || 'groq/compound', messages: [{ role: 'system', content: `${system}\nCite l'adresse (URL) de chaque source.` }, { role: 'user', content: prompt }] });
 }

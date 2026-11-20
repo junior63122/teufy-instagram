@@ -2,6 +2,17 @@
   "_note": "Numéro de version affiché en pied de page du site et sur /mises-a-jour/ (directeur, 19/11/2026 : format « 1.13.02 », comme Minecraft). Règle : correction(s) seulement → dernier nombre +1 (1.13.02 → 1.13.03) ; nouvelle fonctionnalité → nombre du milieu +1 et le dernier revient à 01 (1.13.02 → 1.14.01) ; énorme fonctionnalité ou grosse refonte → premier nombre +1 (1.13.02 → 2.01.01). La plus récente en premier.",
   "versions": [
     {
+      "numero": "1.14.04",
+      "date": "2026-11-20",
+      "titre": "Les actus reviennent plus vite",
+      "public": [
+        "Les actus de la nuit (annonces de line-up, nouvelles dates, festivals) reprennent dès que la nouvelle IA gratuite est branchée."
+      ],
+      "notes": [
+        "IA : Groq ajouté (gratuit, sans carte bancaire) pour la veille et les actus, avec recherche web ; GitHub Models retiré (fermé par GitHub le 30/07/2026, il répondait « OK » à tout). Une réponse vide ou non conforme n'est jamais prise pour un succès."
+      ]
+    },
+    {
       "numero": "1.14.03",
       "date": "2026-11-20",
       "titre": "Un nouveau planning sur Instagram",

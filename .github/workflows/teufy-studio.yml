@@ -32,6 +32,7 @@ jobs:
       - name: Générer les décors
         env:
           GEMINI_API_KEY: ${{ (inputs.exception_ia) && (secrets.GEMINI_API_KEY || secrets.GEMINI_KEY || secrets.GEMINI || secrets.GOOGLE_API_KEY || secrets.GOOGLE_AI_KEY || secrets.GOOGLE_AI_API_KEY || secrets.GEMINI_TOKEN || secrets.AI_STUDIO_KEY || secrets.CLE_GEMINI || secrets.API_GEMINI) || '' }}
+          GROQ_API_KEY: ${{ (inputs.exception_ia) && (secrets.GROQ_API_KEY) || '' }} # IA gratuite (Groq, sans carte bancaire), 20/11/2026
           REFAIRE: ${{ inputs.refaire && '1' || '' }}
           CONCEPT: ${{ inputs.concept }}
         run: |

@@ -242,7 +242,7 @@
     "max_appels_gemini_mois": 30000,
     "max_recherches_claude": 20,
     "budget_note": "Qualité inchangée (Claude Opus en premier, recherches complètes). Plafonds = garde-fou anti-emballement (boucle, panne), pas une limite de qualité. Continuité : une IA sans crédit est sautée pendant le passage et l'autre prend le relais ; GitHub Models gratuit en dernier recours ; sinon le site garde les dernières données valides. Seuls les appels réussis sont comptés (contenus/budget-ia.json).",
-    "github_models": true,
+    "github_models": false,
     "modele_gemini": "gemini-3.8-flash",
     "cerveau_jours": 1,
     "budget_jour_eur": 2.5,
@@ -258,7 +258,8 @@
       "anthropic_appel": 0.12
     },
     "lieux_par_passage": 15,
-    "modele_github": "openai/gpt-4.1-mini"
+    "modele_github": "openai/gpt-4.1-mini",
+    "_groq": "Groq (gratuit, sans carte bancaire) : secret GitHub GROQ_API_KEY (console.groq.com). Ajouté le 20/11/2026 : GitHub Models a été fermé par GitHub le 30/07/2026."
   },
   "studio": {
     "explication": "Reels = format « Flash » (validé le 8 novembre 2026) : le scénariste IA (studio/scripts/ecrire-flash.mjs) choisit un sujet utile, écrit le script (voix Hugo, émotions), les plans (photo flash par scène, mots géants, objets animés) ; Gemini génère les photos verticales ; ElevenLabs la voix ; Remotion le rendu (studio/src/concepts/Flash.tsx) ; contrôle qualité ; couverture au gabarit de la DA ; publication + story. La rubrique (Explicatif, Astuce, Humour, Actu nuit) est choisie par l'apprentissage selon les notes. Chaque script est relu et noté /10 par l'IA ; sous 7 il est réécrit (2 fois max), sinon pas de reel.",

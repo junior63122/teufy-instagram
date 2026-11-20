@@ -27,6 +27,7 @@ jobs:
     env:
       TEUFY_IA_MANUEL: ${{ (github.event_name == 'schedule' || inputs.exception_ia) && '0' || '1' }}
       GEMINI_API_KEY: ${{ (github.event_name == 'schedule' || inputs.exception_ia) && (secrets.GEMINI_API_KEY || secrets.GEMINI_KEY || secrets.GOOGLE_API_KEY) || '' }}
+      GROQ_API_KEY: ${{ (github.event_name == 'schedule' || inputs.exception_ia) && (secrets.GROQ_API_KEY) || '' }} # IA gratuite (Groq, sans carte bancaire), 20/11/2026
       ANTHROPIC_API_KEY: ${{ (github.event_name == 'schedule' || inputs.exception_ia) && (secrets.ANTHROPIC_API_KEY || secrets.CLAUDE_API_KEY) || '' }}
       BREVO_API_KEY: ${{ secrets.BREVO_API_KEY || secrets.BREVO_KEY || secrets.SENDINBLUE_API_KEY }}
       PROSPECTION_CLE: ${{ secrets.PROSPECTION_CLE }}
