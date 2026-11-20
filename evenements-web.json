@@ -176,7 +176,8 @@
         "hip-hop",
         "Urbain",
         "electro",
-        "dj set"
+        "dj set",
+        "house"
       ],
       "description": "",
       "public_cible": 0.9,
@@ -199,7 +200,8 @@
       "sources_sites": [
         "nice.fr / Shotgun",
         "shotgun.live",
-        "Shotgun"
+        "Shotgun",
+        "Instagram @mamashelternice"
       ],
       "billetterie_cherchee": true,
       "offres_cherchees": true
@@ -764,11 +766,6 @@
           "plateforme": "shotgun.live",
           "url": "https://shotgun.live/events/lqb-session-6-caravel-frigo-16",
           "prix": 7.49
-        },
-        {
-          "plateforme": "vertexaisearch.cloud.google.com",
-          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEHqEB7NVKRQRDzKGGHKGNXL0ZcZ5QBL7qDACGTJFfe0Jd09JwaQmUA1Z8MtzwmMzB5WGvlDkMUBULa8PzMhTMarzbkr6D-J4KDi6Zu6qcOK-jhyA==",
-          "prix": 5
         }
       ],
       "sources_sites": [
@@ -776,10 +773,12 @@
         "shotgun.live",
         "Shotgun",
         "Shotgun.live",
-        "Shotgun / Les Copains d'Abord / Panda Events"
+        "Shotgun / Les Copains d'Abord / Panda Events",
+        "webtimemedias.com"
       ],
       "billetterie_cherchee": true,
-      "offres_cherchees": true
+      "offres_cherchees": true,
+      "via_veille": true
     },
     {
       "source": "web",
@@ -3812,7 +3811,8 @@
         "Funk",
         "House",
         "Nu-Disco",
-        "Disco House"
+        "Disco House",
+        "Groove"
       ],
       "description": "",
       "public_cible": 0.9,
@@ -3834,8 +3834,10 @@
       ],
       "sources_sites": [
         "Shotgun",
-        "Shotgun.live"
-      ]
+        "Shotgun.live",
+        "instagram.com"
+      ],
+      "via_veille": true
     },
     {
       "source": "web",
@@ -5840,32 +5842,6 @@
     {
       "source": "web",
       "source_site": "Instagram @mamashelternice",
-      "name": "Mama x Épisode Culture",
-      "start": "2026-11-10T19:00:00.000Z",
-      "venue": "Mama Shelter Nice",
-      "city": "Nice",
-      "address": "",
-      "url": "https://www.instagram.com/p/DfSV2FJDoP9/",
-      "image": "https://scontent-sjc6-1.cdninstagram.com/v/t51.82787-15/876258227_17986904040094268_5330521541180242558_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=108&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=Q55Ikfv14IcQ7kNvwGF2sNX&_nc_oc=Adqr5nGHwtozrzvJ78Cug4mXi3gbAAr5-dA24aBKtU_poCwhBuoyf8lue2y_k9JEbK8&_nc_zt=23&_nc_ht=scontent-sjc6-1.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=Y5c6MtWeVCYw1zsoWfC8ZA&oh=00_AQT5XYWDeRXuY7mBrnRKj9zYxb9zOMXt5rua3TxyNKJbOQ&oe=6AF6BE55",
-      "price": 0,
-      "tags": [
-        "electro",
-        "house"
-      ],
-      "description": "",
-      "public_cible": 0.8,
-      "confiance": 0.85,
-      "buzz": 0.55,
-      "buzz_raison": "Session clubbing en semaine dans un lieu prisé à Nice.",
-      "accroche": "Rendez-vous au Mama Shelter Nice pour une soirée musicale signée Épisode Culture.",
-      "instagram": [
-        "mamashelternice",
-        "episode.culture"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "Instagram @mamashelternice",
       "name": "Dragolote avec Lady Miss Tik",
       "start": "2026-11-22T18:00:00.000Z",
       "venue": "Mama Shelter Nice",
@@ -6073,33 +6049,6 @@
     },
     {
       "source": "web",
-      "source_site": "instagram.com",
-      "via_veille": true,
-      "name": "Martine Patine Roller Clubbing",
-      "start": "2026-12-18T19:00:00.000Z",
-      "venue": "Frigo 16",
-      "city": "Nice",
-      "address": "",
-      "url": "https://www.instagram.com/p/DfjyUZpDYLN/",
-      "image": "https://scontent-ord5-2.cdninstagram.com/v/t51.82787-15/899610093_18100051070673284_3152989694763129256_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=Nt-7NYW9wwcQ7kNvwFz8R7c&_nc_oc=AdrmMpWtKvh9VNdNZQKmat8Fl3FGNBynvr1Gs39F-GKLi3UQV-TOHJhqvUZUbhmWxVQ&_nc_zt=23&_nc_ht=scontent-ord5-2.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=zqxnfrlPq_CINycbUyCBdA&oh=00_AQTP47Rr7a48tS9Aql7OgDtPndxeoS1wbToDGWcPVCAuyg&oe=6AF8D852",
-      "price": null,
-      "tags": [
-        "Groove",
-        "Funk",
-        "House",
-        "Disco"
-      ],
-      "description": "",
-      "public_cible": 0.6,
-      "confiance": 0.9,
-      "accroche": "Session roller clubbing rétro avec Prosper, B.I.M et shows freestyle.",
-      "instagram": [
-        "frigo.16",
-        "martinepatine_official_"
-      ]
-    },
-    {
-      "source": "web",
       "source_site": "nouvelle-vague.com",
       "via_veille": true,
       "name": "Vars en Scène : Bon Entendeur",
@@ -6189,31 +6138,6 @@
       "confiance": 0.9,
       "accroche": "Projection d'ouverture du film Un bon petit soldat de Stéphane Brizé.",
       "instagram": []
-    },
-    {
-      "source": "web",
-      "source_site": "webtimemedias.com",
-      "via_veille": true,
-      "name": "LQB Session #7 : Caravel",
-      "start": "2026-11-14T22:00:00.000Z",
-      "venue": "Frigo 16",
-      "city": "Nice",
-      "address": "",
-      "url": "https://panda-events.com",
-      "image": "",
-      "price": null,
-      "tags": [
-        "Hard Techno",
-        "Techno"
-      ],
-      "description": "",
-      "public_cible": 0.6,
-      "confiance": 0.9,
-      "accroche": "La tornade hard techno Caravel débarque au Frigo 16 pour une session survoltée.",
-      "instagram": [
-        "pandaevents06",
-        "frigo.16"
-      ]
     },
     {
       "source": "web",
@@ -6484,6 +6408,30 @@
       "accroche": "Tartiflette maison et sélection musicale par DJ Stiff place de l'Équerre.",
       "instagram": [
         "barriochicagotoulon"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "instagram.com",
+      "via_veille": true,
+      "name": "Acidpach @ Le 109",
+      "start": "2027-02-13T19:00:00.000Z",
+      "venue": "Le 109, Nice",
+      "city": "Nice",
+      "address": "",
+      "url": "https://www.instagram.com/p/Df7kPhpgDQb/",
+      "image": "https://scontent-sjc6-1.cdninstagram.com/v/t51.82787-15/913468144_18035279861913950_1610398101972365121_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=104&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=rhimGTRgg_kQ7kNvwEYJ7Ko&_nc_oc=AdoCPMIQloPtAYIN9DLc15akEzT3r2YgGSV44qB5AE2MLpkh-12I56Li_t9zGR7OzGU&_nc_zt=23&_nc_ht=scontent-sjc6-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=kzV7g6ucWyi1oclmCqyprA&_nc_ct=RQosPBUKFQ4AAAA&oh=00_AQT5YUjoGmrMLkpakC5jR_SvzhI9ERuUUwZnh7qarOJSpQ&oe=6B05FB27",
+      "price": null,
+      "tags": [
+        "Techno",
+        "Underground"
+      ],
+      "description": "",
+      "public_cible": 0.6,
+      "confiance": 0.9,
+      "accroche": "Acidpach, première venue à Nice, techno mentale et mélodique au 109.",
+      "instagram": [
+        "prizmeconcept"
       ]
     }
   ]
