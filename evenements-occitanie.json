@@ -1,5 +1,5 @@
 {
-  "maj": "2026-11-17T00:11:56.501Z",
+  "maj": "2026-11-20T12:42:37.786Z",
   "evenements": [
     {
       "source": "eventbrite",
@@ -17,82 +17,14 @@
       "popularite": null,
       "confiance": 0.9,
       "verifie": true,
-      "instagram": []
-    },
-    {
-      "source": "web",
-      "source_site": "Shotgun",
-      "name": "Osiris At La Notte : Germain Rojo - Jeanba - Nostra",
-      "start": "2026-11-18T18:00:00.000Z",
-      "venue": "La Notte - Marché du Lez",
-      "city": "Montpellier",
-      "address": "",
-      "url": "https://shotgun.live/events/osiris-at-la-notte-germain-rojo-jeanba-nostra",
-      "image": "",
-      "price": 0,
-      "tags": [
-        "House",
-        "Afro House",
-        "Tech House"
-      ],
-      "description": "",
-      "public_cible": 0.8,
-      "confiance": 0.95,
-      "verifie": true,
-      "buzz": 0.5,
-      "accroche": "House et afro house avec Germain Rojo, Jeanba et Nostra en entrée libre à La Notte.",
-      "instagram": []
-    },
-    {
-      "source": "web",
-      "source_site": "Shotgun",
-      "name": "Le Grand Barathon - Montpellier - Ski 2026",
-      "start": "2026-11-19T17:00:00.000Z",
-      "venue": "Milk, Austra Rocks, Le Club, Panama, Le Fizz",
-      "city": "Montpellier",
-      "address": "",
-      "url": "https://shotgun.live/events/le-grand-barathon-ski-2026",
-      "image": "https://assets.shotgun.live/image/upload/c_limit,w_1200,h_630,f_jpg,q_auto/production/artworks/COUV_BILLETTERIE_v2_gzqigz",
-      "price": 14.99,
-      "tags": [
-        "House",
-        "Disco",
-        "Pop",
-        "Techno",
-        "Electro",
-        "Hip Hop"
-      ],
-      "description": "",
-      "public_cible": 0.95,
-      "confiance": 0.95,
-      "verifie": true,
-      "buzz": 0.8,
-      "accroche": "Tournée géante sur 3 jours dans 25 bars et 5 clubs montpelliérains sur le thème ski.",
-      "instagram": []
-    },
-    {
-      "source": "web",
-      "source_site": "Shotgun",
-      "name": "Mega B2b @Antirouille 19.11.26",
-      "start": "2026-11-19T22:59:00.000Z",
-      "venue": "L'Antirouille",
-      "city": "Montpellier",
-      "address": "",
-      "url": "https://shotgun.live/events/mega-b2b-antirouille-19-11-26",
-      "image": "",
-      "price": 0,
-      "tags": [
-        "Techno",
-        "Trance",
-        "Hard Bounce"
-      ],
-      "description": "",
-      "public_cible": 0.9,
-      "confiance": 0.95,
-      "verifie": true,
-      "buzz": 0.6,
-      "accroche": "Format XXL en b2b techno, trance et hard bounce gratuit toute la nuit à L'Antirouille.",
-      "instagram": []
+      "instagram": [],
+      "offres": [
+        {
+          "plateforme": "eventbrite.com",
+          "url": "https://www.eventbrite.com/e/billets-the-glow-presents-a-christmas-night-la-lueur-presente-une-soiree-de-noel-2004776632876",
+          "prix": 0
+        }
+      ]
     },
     {
       "source": "web",
@@ -701,42 +633,6 @@
     {
       "source": "web",
       "source_site": "Paloma Nîmes",
-      "name": "Meryl",
-      "start": "2026-11-19T19:30:00.000Z",
-      "venue": "Paloma (Grande Salle)",
-      "city": "Nîmes",
-      "address": "",
-      "url": "https://paloma-nimes.fr/agenda/meryl/",
-      "image": "https://paloma-nimes.fr/wp-content/uploads/2025/06/at-1-fotomaraalonso-504x605.jpg",
-      "price": 32.1,
-      "tags": [
-        "rap",
-        "dancehall",
-        "trap",
-        "shatta"
-      ],
-      "description": "",
-      "public_cible": 0.95,
-      "confiance": 0.95,
-      "verifie": true,
-      "buzz": 0.85,
-      "accroche": "Le flow percutant de Meryl entre rap et dancehall en live à la Grande Salle de Paloma.",
-      "instagram": [],
-      "offres": [
-        {
-          "plateforme": "paloma-nimes.fr",
-          "url": "https://paloma-nimes.fr/agenda/meryl/",
-          "prix": 32.1
-        }
-      ],
-      "sources_sites": [
-        "Paloma Nîmes",
-        "paloma-nimes.fr"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "Paloma Nîmes",
       "name": "Pierre de Maere",
       "start": "2026-11-25T19:30:00.000Z",
       "venue": "Paloma (Grande Salle)",
@@ -1018,28 +914,6 @@
     {
       "source": "web",
       "source_site": "narbonne-arena.fr",
-      "name": "L'Héritage Goldman 2",
-      "start": "2026-11-18T19:00:00.000Z",
-      "venue": "Narbonne Arena",
-      "city": "Narbonne",
-      "address": "",
-      "url": "https://www.narbonne-arena.fr/evenement/lheritage-goldman/",
-      "image": "https://www.narbonne-arena.fr/wp/wp-content/uploads/sites/9/2025/08/HG-NEW-40x60-1-350x524.jpg",
-      "price": 24,
-      "tags": [
-        "variété française"
-      ],
-      "description": "",
-      "public_cible": 0.25,
-      "confiance": 0.9,
-      "verifie": true,
-      "buzz": 0.4,
-      "accroche": "Les tubes de Goldman repris en live à la Narbonne Arena.",
-      "instagram": []
-    },
-    {
-      "source": "web",
-      "source_site": "narbonne-arena.fr",
       "name": "David Hallyday – Requiem pour un fou",
       "start": "2026-11-27T19:30:00.000Z",
       "venue": "Narbonne Arena",
@@ -1261,53 +1135,6 @@
       "verifie": false,
       "buzz": 0.65,
       "accroche": "Jwles en concert au Rex de Toulouse",
-      "instagram": []
-    },
-    {
-      "source": "web",
-      "source_site": "icisete.fr",
-      "name": "Bal traditionnel des Balkans avec Oyna K à Sète",
-      "start": "2026-11-17T20:00:00.000Z",
-      "venue": "Théâtre Molière, 30b avenue Victor Hugo",
-      "city": "Sète",
-      "address": "",
-      "url": "https://icisete.fr/evenement/bal-traditionnel-des-balkans-avec-oyna-k-a-sete/",
-      "image": "",
-      "price": 0,
-      "tags": [
-        "musique traditionnelle des Balkans",
-        "bal"
-      ],
-      "description": "",
-      "public_cible": 0.35,
-      "confiance": 0.75,
-      "verifie": false,
-      "buzz": 0.3,
-      "accroche": "Bal des Balkans gratuit avec Oyna K au Théâtre Molière, ça va tourner !",
-      "instagram": []
-    },
-    {
-      "source": "web",
-      "source_site": "paloma-nimes.fr",
-      "name": "FFF + BLEU SATELLITE (concert chansigné)",
-      "start": "2026-11-18T19:30:00.000Z",
-      "venue": "Paloma, Grande Salle",
-      "city": "Nîmes",
-      "address": "",
-      "url": "https://paloma-nimes.fr/agenda/2026-11/fff-2-event-36412/",
-      "image": "https://paloma-nimes.fr/wp-content/uploads/2025/12/dsc06202-3.png",
-      "price": 23,
-      "tags": [
-        "funk",
-        "pop alternative",
-        "rock"
-      ],
-      "description": "",
-      "public_cible": 0.5,
-      "confiance": 0.95,
-      "verifie": true,
-      "buzz": 0.55,
-      "accroche": "Le funk rock de FFF en concert chansigné à Paloma, Bleu Satellite en ouverture.",
       "instagram": []
     },
     {

@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:the-biggest-problem-in-the-world-victor-patrascan-in-marseil-2026-11-27@teufy
+DTSTAMP:20261120T130318Z
+DTSTART:20261127T183000Z
+DTEND:20261127T233000Z
+SUMMARY:the biggest Problem in the world • Victor Patrascan in Marseille
+LOCATION:Marseille Comedy Club\, 59 Rue de Rome 13001 Marseille\, Marseille
+DESCRIPTION:Billets : https://www.eventbrite.co.uk/e/the-biggest-problem-in-the-world-victor-patrascan-in-marseille-tickets-2003206175596\nVia Teufy @teufy_official
+URL:https://www.eventbrite.co.uk/e/the-biggest-problem-in-the-world-victor-patrascan-in-marseille-tickets-2003206175596
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : the biggest Problem in the world • Victor Patrascan in Marseille
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : the biggest Problem in the world • Victor Patrascan in Marseille
+END:VALARM
+END:VEVENT
+END:VCALENDAR

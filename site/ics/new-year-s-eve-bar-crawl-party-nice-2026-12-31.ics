@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:new-year-s-eve-bar-crawl-party-nice-2026-12-31@teufy
+DTSTAMP:20261120T130318Z
+DTSTART:20261231T200000Z
+DTEND:20270101T010000Z
+SUMMARY:New Year’s Eve Bar Crawl Party Nice
+LOCATION:Hostel Villa Saint Exupery Beach\, 6 Rue Sacha Guitry 06000 Nice\, Nice
+DESCRIPTION:Billets : https://www.eventbrite.fr/e/new-years-eve-bar-crawl-party-nice-tickets-2004418564885\nVia Teufy @teufy_official
+URL:https://www.eventbrite.fr/e/new-years-eve-bar-crawl-party-nice-tickets-2004418564885
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : New Year’s Eve Bar Crawl Party Nice
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : New Year’s Eve Bar Crawl Party Nice
+END:VALARM
+END:VEVENT
+END:VCALENDAR

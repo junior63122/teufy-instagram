@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:carton-comedy-club-la-cale-a-biere-nimes-2026-12-02@teufy
+DTSTAMP:20261120T130318Z
+DTSTART:20261202T173000Z
+DTEND:20261202T223000Z
+SUMMARY:Carton Comedy Club @ La Cale à Bière (Nîmes)
+LOCATION:La Cale à Bière\, D6113 30230 Bouillargues\, Bouillargues
+DESCRIPTION:Billets : https://www.eventbrite.fr/e/billets-carton-comedy-club-la-cale-a-biere-nimes-2004398166874\nVia Teufy @teufy_official
+URL:https://www.eventbrite.fr/e/billets-carton-comedy-club-la-cale-a-biere-nimes-2004398166874
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Carton Comedy Club @ La Cale à Bière (Nîmes)
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Carton Comedy Club @ La Cale à Bière (Nîmes)
+END:VALARM
+END:VEVENT
+END:VCALENDAR

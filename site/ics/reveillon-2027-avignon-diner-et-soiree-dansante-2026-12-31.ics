@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:reveillon-2027-avignon-diner-et-soiree-dansante-2026-12-31@teufy
+DTSTAMP:20261120T130318Z
+DTSTART:20261231T183000Z
+DTEND:20261231T233000Z
+SUMMARY:Réveillon 2027 Avignon – Dîner & Soirée Dansante
+LOCATION:BODEGUITA AVIGNON\, 18 BD LIMBERT 84000 84000\, 84000
+DESCRIPTION:Billets : https://www.eventbrite.fr/e/reveillon-2027-avignon-diner-soiree-dansante-tickets-2004867872777\nVia Teufy @teufy_official
+URL:https://www.eventbrite.fr/e/reveillon-2027-avignon-diner-soiree-dansante-tickets-2004867872777
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Réveillon 2027 Avignon – Dîner & Soirée Dansante
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Réveillon 2027 Avignon – Dîner & Soirée Dansante
+END:VALARM
+END:VEVENT
+END:VCALENDAR

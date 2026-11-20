@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:delirium-international-progressive-group-2026-11-20@teufy
+DTSTAMP:20261120T130318Z
+DTSTART:20261120T200000Z
+DTEND:20261121T010000Z
+SUMMARY:DELIRIUM International Progressive Group
+LOCATION:Teatro Nuovo Valleggia\, 28 Via San Pietro 17047 Quiliano\, Quiliano
+DESCRIPTION:Billets : https://www.eventbrite.it/e/delirium-international-progressive-group-tickets-2002424255853\nVia Teufy @teufy_official
+URL:https://www.eventbrite.it/e/delirium-international-progressive-group-tickets-2002424255853
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : DELIRIUM International Progressive Group
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : DELIRIUM International Progressive Group
+END:VALARM
+END:VEVENT
+END:VCALENDAR

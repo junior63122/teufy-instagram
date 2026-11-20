@@ -489,5 +489,137 @@
    "nom": "DJ",
    "type": "dj"
   }
- ]
+ ],
+ "45e19b5dae59": [
+  {
+   "nom": "MESCLA",
+   "type": "groupe"
+  }
+ ],
+ "443f3cef75fe": [
+  {
+   "nom": "DELIRIUM",
+   "type": "groupe"
+  }
+ ],
+ "7da4a5ba1e54": [
+  {
+   "nom": "DUO oVni",
+   "type": "groupe"
+  }
+ ],
+ "6ef9df47e658": [
+  {
+   "nom": "Joël",
+   "type": "artiste"
+  },
+  {
+   "nom": "Dédé",
+   "type": "artiste"
+  }
+ ],
+ "37d7a9f4e629": [],
+ "47e564b15809": [],
+ "916534c9b25d": [],
+ "cd3e7fc6e0f0": [],
+ "6b4c12f22a58": [],
+ "b0057663f561": [],
+ "56fc67606492": [],
+ "b931eb0f5f46": [],
+ "a02c7c31ffab": [],
+ "d14ddb8a339d": [],
+ "041a9c8da358": [],
+ "c8befd589486": [],
+ "c27c10022c6a": [],
+ "d2a4889b4d92": [],
+ "0a6666a6513c": [],
+ "9a4bbda1a732": [],
+ "b318b667e7c0": [],
+ "bfff90019ca6": [
+  {
+   "nom": "Victor Patrascan",
+   "type": "artiste"
+  }
+ ],
+ "eac41ecabe45": [],
+ "3c4f2e6a76e4": [
+  {
+   "nom": "Michel Orion",
+   "type": "artiste"
+  }
+ ],
+ "d5cf422e4f94": [],
+ "c9905d6f5a8a": [
+  {
+   "nom": "Laka-Naïa",
+   "type": "artiste"
+  }
+ ],
+ "86ca54d0dd5b": [],
+ "25faeb47aec6": [],
+ "7d50b13ffeaa": [],
+ "15a4f4b82403": [],
+ "f617c985b395": [],
+ "ffde0997068a": [],
+ "87424de4c2d3": [],
+ "2e10f5a62d58": [],
+ "121a99a33675": [],
+ "975bd2a710f7": [],
+ "bdbd3fc90f41": [],
+ "1ad8489dc01e": [
+  {
+   "nom": "Nill",
+   "type": "artiste"
+  }
+ ],
+ "195ef2cc61a5": [
+  {
+   "nom": "DJ Grace",
+   "type": "dj"
+  }
+ ],
+ "1630c5eaad2a": [
+  {
+   "nom": "Le Mome",
+   "type": "artiste"
+  },
+  {
+   "nom": "Adamé",
+   "type": "artiste"
+  }
+ ],
+ "2e2e6527173f": [],
+ "76c97d6fa281": [
+  {
+   "nom": "Coachellito",
+   "type": "artiste"
+  }
+ ],
+ "0e5d796ba268": [
+  {
+   "nom": "Latin Addict",
+   "type": "artiste"
+  }
+ ],
+ "81c4882e23a0": [
+  {
+   "nom": "Mojo Crew",
+   "type": "artiste"
+  }
+ ],
+ "c2ee1985c41f": [
+  {
+   "nom": "DJ Abi",
+   "type": "dj"
+  }
+ ],
+ "00fd2f6c2b8e": [
+  {
+   "nom": "Sud'Spicious",
+   "type": "artiste"
+  }
+ ],
+ "0f20ae5bab0c": [],
+ "f5a47a49f599": [],
+ "b9805ea792f8": []
 }

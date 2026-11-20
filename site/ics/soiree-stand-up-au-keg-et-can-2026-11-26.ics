@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:soiree-stand-up-au-keg-et-can-2026-11-26@teufy
+DTSTAMP:20261120T130318Z
+DTSTART:20261126T200000Z
+DTEND:20261127T010000Z
+SUMMARY:Soirée Stand Up au Keg & Can
+LOCATION:314 Bd du Redon\, 314 Boulevard du Redon 13009 Marseille\, Marseille
+DESCRIPTION:Billets : https://www.eventbrite.fr/e/billets-soiree-stand-up-au-keg-can-2004882045167\nVia Teufy @teufy_official
+URL:https://www.eventbrite.fr/e/billets-soiree-stand-up-au-keg-can-2004882045167
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Soirée Stand Up au Keg & Can
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Soirée Stand Up au Keg & Can
+END:VALARM
+END:VEVENT
+END:VCALENDAR
