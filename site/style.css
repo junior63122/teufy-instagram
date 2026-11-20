@@ -1793,6 +1793,8 @@ html.onglets-caches .onglets{transform:translateY(105%)}
 .meta .ou{display:inline-flex;align-items:center}
 .rangee .carte .meta{flex-wrap:wrap;overflow:visible;-webkit-mask-image:none;mask-image:none}
 .rangee .carte .meta>*{flex:0 1 auto;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+/* 20/11/2026 (tests utilisateurs) : le lieu n'est plus coupé (« So Blue Hôtel Restaurant, Anti… ») : il passe sur 2 lignes. */
+.rangee .carte .meta>.ou{white-space:normal;overflow:visible;line-height:1.25}
 .fiche-liens{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
 /* Avantages plus compacts */
 .avantage-carte{grid-template-columns:minmax(220px,30%) 1fr}

@@ -759,7 +759,9 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
   let compris = null;
   // Lieux, artistes et villes qui correspondent à la recherche (« bisous bisous » → la fiche du club), même quand
   // aucune soirée ne correspond. Index : site/recherche.json (généré avec le site).
-  const RACINE = (document.querySelector('script[src*="app.js"]')?.src || '').replace(/site\/app\.js.*$/, '');
+  // 20/11/2026 : le site charge app.min.js ; l'ancien sélecteur (« app.js ») ne le trouvait pas, et l'index de recherche était
+  // demandé à côté de la page (introuvable dans /en/, /es/… : « autres résultats » absents hors du français).
+  const RACINE = (document.querySelector('script[src*="site/app"]')?.src || '').replace(/site\/app(\.min)?\.js.*$/, '');
   const LANGUE = document.documentElement.lang || 'fr', PRE = LANGUE.startsWith('fr') ? '' : `${LANGUE.slice(0, 2)}/`;
   let INDEX = null, dernierQ = null;
   async function autresResultats(qBrut, visibles) {

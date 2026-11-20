@@ -59,3 +59,12 @@ test("sans IA pour lire l'affiche : on garde celle de la billetterie ou du post 
   assert.equal(imageDeLaSource({ image: 'https://scontent.cdninstagram.com/a.jpg', source_site: 'shotgun.live', url: 'https://shotgun.live/x' }), false);
   assert.equal(imageDeLaSource({ image: 'https://blog-quelconque.fr/a.jpg', source_site: 'Shotgun', url: 'https://shotgun.live/e' }), false);
 });
+
+test('pseudo Instagram dans le nom de la soirée : écrit lisiblement', async () => {
+  const { assainir } = await import('../src/recherche.mjs');
+  const a = assainir({ name: 'Naya Cannes - rudboy_music x djaymoune', venue: 'Naya', city: 'Cannes', instagram: [] });
+  assert.equal(a.name, 'Naya Cannes - Rudboy Music x djaymoune');
+  assert.ok(a.instagram.includes('rudboy_music'));
+  assert.equal(assainir({ name: 'Soirée Vol.2 @ Le 109', venue: 'Le 109' }).name, 'Soirée Vol.2 @ Le 109');
+  assert.equal(assainir({ name: 'B2B Techno', venue: 'X' }).name, 'B2B Techno');
+});

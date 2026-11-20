@@ -282,6 +282,12 @@ export function assainir(e) {
     o.name = String(o.name || '').split(pseudo).join(joli);
     o.venue = joli;
   }
+  // Pseudos Instagram restés dans le nom de la soirée (« Naya Cannes - rudboy_music x djaymoune ») : écrits lisiblement,
+  // le pseudo rejoint les comptes de la soirée.
+  if (typeof o.name === 'string') o.name = o.name.replace(/(^|[\s(@,/+&-])@?([a-z0-9]+(?:_[a-z0-9]+)+|[a-z]{3,}(?:\.[a-z]{3,})+)(?=$|[\s),/+&-])/g, (m, avant, h) => {
+    o.instagram = [...new Set([...(Array.isArray(o.instagram) ? o.instagram : []), h.toLowerCase()])].slice(0, 4);
+    return avant.replace('@', '') + h.split(/[._]+/).map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+  });
   for (const k of ['url', 'image']) if (o[k] && !/^https?:\/\//i.test(o[k]) && !(k === 'image' && /^(site|contenus)\//.test(o[k]))) o[k] = '';
   if (o.price != null && (typeof o.price !== 'number' || !isFinite(o.price) || o.price < 0 || o.price > 2000)) o.price = null;
   return o;
