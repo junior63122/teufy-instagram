@@ -37,3 +37,16 @@ test("Fusion : l'annonce du club sur son Instagram donne le nom et l'affiche, l'
   assert.equal(e.image, 'https://x/affiche.jpg');
   assert.equal(e.price, 20);
 });
+
+test('lieu écrit comme un pseudo Instagram : nom lisible, pseudo gardé, doublon fusionné', async () => {
+  const { fusionner, assainir } = await import('../src/recherche.mjs');
+  const a = assainir({ name: 'Inside à leservan_valbonne', venue: 'leservan_valbonne', city: 'Valbonne', start: '2026-11-20T18:00:00.000Z', instagram: [] });
+  assert.equal(a.venue, 'Leservan');
+  assert.equal(a.name, 'Inside à Leservan');
+  assert.deepEqual(a.instagram, ['leservan_valbonne']);
+  const b = { name: 'Soirée Inside - Binôme', venue: 'Le Servan', city: 'Valbonne', start: '2026-11-20T18:00:00.000Z', image: 'https://x/a.jpg', confiance: 0.9, instagram: [] };
+  const f = fusionner([a, b]);
+  assert.equal(f.length, 1);
+  assert.equal(f[0].image, 'https://x/a.jpg');
+  assert.equal(assainir({ name: 'X', venue: 'Le 109', city: 'Nice' }).venue, 'Le 109');
+});

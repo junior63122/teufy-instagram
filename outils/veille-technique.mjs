@@ -117,6 +117,17 @@ await essai('donnees', async () => {
   if (sem.length < 40) alerte('Soirées', `seulement ${sem.length} soirée(s) dans les 7 prochains jours : sources à renforcer.`);
 });
 
+// 7. Soirées sans image (relevé du site) et lieux écrits comme un pseudo Instagram.
+await essai('images', async () => {
+  const f = path.join(ROOT, 'contenus', 'soirees-sans-image.json');
+  if (!existsSync(f)) return;
+  const j = JSON.parse(readFileSync(f, 'utf8')), proches = (j.sans_image || []).filter((s) => Date.parse(`${s.jour}T23:00:00Z`) < Date.now() + 7 * 864e5);
+  R.images = { total: j.total, sans_image: (j.sans_image || []).length, dans_7_jours: proches.length };
+  if (proches.length) alerte('Images', `${proches.length} soirée(s) des 7 prochains jours sans affiche ni photo : ${proches.slice(0, 15).map((s) => `${s.nom} (${s.lieu || s.ville}, ${s.jour})`).join(' ; ')}`);
+  const pseudos = (JSON.parse(readFileSync(path.join(ROOT, 'evenements-web.json'), 'utf8')).evenements || []).filter((e) => /^@?[a-z0-9]+([._][a-z0-9]+)+$/.test(String(e.venue || '').trim()));
+  if (pseudos.length) alerte('Lieux', `${pseudos.length} soirée(s) avec un pseudo Instagram comme lieu : ${pseudos.slice(0, 8).map((e) => e.venue).join(', ')}`);
+});
+
 R.alertes = alertes;
 writeFileSync(path.join(ROOT, 'contenus', 'veille-technique.json'), `${JSON.stringify(R, null, 1)}\n`);
 console.log(`Veille technique : ${alertes.length} alerte(s).`);

@@ -233,7 +233,8 @@ export function memeSoiree(a, b) {
   const mots = (x) => new Set(sansAccents(x).replace(/[^a-z0-9]+/g, ' ').replace(/\b(le|la|les|club|nice|cannes|monaco|by|beach|bar|the)\b/g, ' ').trim().split(/\s+/).filter((w) => w.length >= 2));
   const [ma, mb] = [mots(a.venue), mots(b.venue)];
   const [petit, grand] = ma.size <= mb.size ? [ma, mb] : [mb, ma];
-  const lieu = (lieuCle(a.venue) && lieuCle(a.venue) === lieuCle(b.venue)) || (petit.size > 0 && [...petit].every((w) => grand.has(w)));
+  const compact = (x) => sansAccents(x).replace(/[^a-z0-9]+/g, ''), [ca, cb] = [compact(a.venue), compact(b.venue)]; // « Le Servan » = « Leservan »
+  const lieu = (lieuCle(a.venue) && lieuCle(a.venue) === lieuCle(b.venue)) || (petit.size > 0 && [...petit].every((w) => grand.has(w))) || (ca.length >= 5 && cb.length >= 5 && (ca.startsWith(cb) || cb.startsWith(ca)));
   const nom = jaccard(a.name, b.name);
   // Même lieu, même nuit et un mot distinctif commun (nom d'artiste, de concept) : la même soirée annoncée sous deux
   // noms par deux sources (« Caravel (+ No2theG, May-Li) » = « LQB Session #7 : Caravel », 12/11/2026).
@@ -268,6 +269,19 @@ export function assainir(e) {
   if (Array.isArray(o.tags)) o.tags = o.tags.map(sansBalises).filter(Boolean);
   if (Array.isArray(o.artistes)) o.artistes = o.artistes.map((a) => (typeof a === 'string' ? sansBalises(a) : a)).filter(Boolean);
   if (Array.isArray(o.instagram)) o.instagram = o.instagram.map((h) => String(h).replace(/^@/, '').toLowerCase()).filter((h) => /^[a-z0-9._]{2,30}$/.test(h) && !h.includes('..'));
+  // Lieu écrit comme un pseudo Instagram (20/11/2026 : « leservan_valbonne ») : le pseudo rejoint les comptes, le lieu
+  // et le nom de la soirée reçoivent un nom lisible (sans la ville répétée), pour l'affichage et la fusion des doublons.
+  const pseudo = String(o.venue || '').trim().match(/^@?([a-z0-9]+(?:[._][a-z0-9]+)+|@[a-z0-9._]{2,30})$/)?.[0];
+  if (pseudo) {
+    const h = pseudo.replace(/^@/, '').toLowerCase();
+    o.instagram = [...new Set([...(Array.isArray(o.instagram) ? o.instagram : []), h])].slice(0, 3);
+    const ville = sansAccents(o.city || '').replace(/[^a-z0-9]+/g, '');
+    const morceaux = h.split(/[._]+/).filter(Boolean);
+    const garde = morceaux.length > 1 && ville && morceaux.at(-1) === ville ? morceaux.slice(0, -1) : morceaux;
+    const joli = garde.map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+    o.name = String(o.name || '').split(pseudo).join(joli);
+    o.venue = joli;
+  }
   for (const k of ['url', 'image']) if (o[k] && !/^https?:\/\//i.test(o[k]) && !(k === 'image' && /^(site|contenus)\//.test(o[k]))) o[k] = '';
   if (o.price != null && (typeof o.price !== 'number' || !isFinite(o.price) || o.price < 0 || o.price > 2000)) o.price = null;
   return o;

@@ -1209,6 +1209,11 @@ async function imagesManquantes({ soirees, lieux, log, now }) {
     }
   }
   if (affiches || photos) log(`Site : ${affiches} affiche(s) retrouvée(s) sur l'Instagram des lieux, ${pl(photos, 'soirée')} illustrée(s) par une photo de leur lieu`);
+  // Contrôle (20/11/2026, directeur : « toutes les soirées doivent avoir leur photo si possible ») : liste des soirées
+  // encore sans affiche ni photo du lieu, lue par la veille quotidienne qui cherche leur visuel officiel.
+  const sans = soirees.filter((s) => s.zone !== 'france' && s.zone !== 'occitanie' && !s.affiche && !s.photoLieu);
+  try { writeFileSync(path.join(ROOT, 'contenus', 'soirees-sans-image.json'), `${JSON.stringify({ le: now.toISOString(), total: soirees.filter((s) => s.zone !== 'france' && s.zone !== 'occitanie').length, sans_image: sans.map((s) => ({ id: s.id, nom: s.nom, jour: s.jour, lieu: s.lieu, ville: s.ville, instagram: s.instagram || '', url: s.url || '' })) }, null, 1)}\n`); } catch {}
+  log(`Site : ${pl(sans.length, 'soirée')} encore sans image (contenus/soirees-sans-image.json)`);
 }
 // Une « photo du lieu » qui est en fait une affiche (beaucoup de texte, une date) : lecture gratuite (Tesseract), gardée
 // en cache dans contenus/photos-texte.json. Sans Tesseract : on se fie au filtre des légendes (outils/images-lieux.mjs).

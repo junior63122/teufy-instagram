@@ -2,6 +2,22 @@
   "_note": "Numéro de version affiché en pied de page du site et sur /mises-a-jour/ (directeur, 19/11/2026 : format « 1.13.02 », comme Minecraft). Règle : correction(s) seulement → dernier nombre +1 (1.13.02 → 1.13.03) ; nouvelle fonctionnalité → nombre du milieu +1 et le dernier revient à 01 (1.13.02 → 1.14.01) ; énorme fonctionnalité ou grosse refonte → premier nombre +1 (1.13.02 → 2.01.01). La plus récente en premier. Le site n'affiche que « titre » et « public » : phrases simples pour les visiteurs, sans détail technique ni nom de prestataire (directeur, 20/11/2026). « notes » reste interne.",
   "versions": [
     {
+      "numero": "1.19.02",
+      "date": "2026-11-20",
+      "titre": "Des soirées mieux présentées",
+      "public": [
+        "Les villes et les noms des lieux s'affichent correctement sur toutes les cartes.",
+        "Seules les soirées de la Côte d'Azur, de Monaco et du Var apparaissent dans les suggestions.",
+        "Plus de soirées illustrées par leur affiche ou une photo du lieu."
+      ],
+      "notes": [
+        "Pastille de ville bornée à l'image, masquée dans les suggestions ; filtre de zone du site (dansZoneSite) ; agenda Allevents « monaco » retiré (Monaca, PA).",
+        "Lieu écrit comme un pseudo Instagram : nom lisible, pseudo rangé dans les comptes, doublons fusionnés (« Le Servan » = « leservan_valbonne »).",
+        "Contrôle des soirées sans image : contenus/soirees-sans-image.json à chaque construction du site, alerte dans la veille technique.",
+        "Story « ce soir » : une affiche refusée n'emporte plus toute la story ; reprise possible jusqu'à 23 h."
+      ]
+    },
+    {
       "numero": "1.19.01",
       "date": "2026-11-20",
       "titre": "Des actus et des soirées toujours à jour",
