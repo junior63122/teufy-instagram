@@ -295,7 +295,7 @@ export function assainir(e) {
   }
   // Pseudos Instagram restés dans le nom de la soirée (« Naya Cannes - rudboy_music x djaymoune ») : écrits lisiblement,
   // le pseudo rejoint les comptes de la soirée.
-  if (typeof o.name === 'string') o.name = o.name.replace(/(^|[\s(@,/+&-])@?([a-z0-9]+(?:_[a-z0-9]+)+|[a-z]{3,}(?:\.[a-z]{3,})+)(?=$|[\s),/+&-])/g, (m, avant, h) => {
+  for (const k of ['name', 'accroche', 'description']) if (typeof o[k] === 'string') o[k] = o[k].replace(/(^|[\s(@,/+&-])@?([a-z0-9]+(?:_[a-z0-9]+)+|[a-z]{3,}(?:\.[a-z]{3,})+)(?=$|[\s),/+&-])/g, (m, avant, h) => {
     o.instagram = [...new Set([...(Array.isArray(o.instagram) ? o.instagram : []), h.toLowerCase()])].slice(0, 4);
     return avant.replace('@', '') + h.split(/[._]+/).map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
   });

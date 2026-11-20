@@ -97,7 +97,7 @@ async function visiter(navigateur, c) {
     if (r.premierAffichage > (c.lent ? 6000 : 2500)) souci(`page lente à s'afficher (${r.premierAffichage} ms${c.lent ? ', connexion 3G' : ''})`);
     switch (c.intention) {
       case 'ce-soir': {
-        await act((f) => p.locator('nav.onglets a[href$="ce-soir/"], header a[href$="ce-soir/"]').filter({ visible: true }).first().click({ force: f }));
+        await act((f) => p.locator('nav.onglets a[href$="ce-soir/"], nav.nav a[href$="ce-soir/"]').filter({ visible: true }).first().click({ force: f }));
         await p.waitForURL(/ce-soir\//);
         if (c.ville !== 'tout') { const vv = c.ville === 'var' ? 'toulon' : c.ville; const b = p.locator(`[data-jc-ville="${vv}"], [data-jc-ville^="${vv}"]`).filter({ visible: true }).first(); if (await b.count()) await act((f) => b.click({ force: f })); else souci(`ville « ${vv} » absente des choix de « Ce soir »`); }
         const n = await visibles().count(), vide = await p.locator('[data-aucune-soiree]:not([hidden]), [data-soir-ville-vide]:not([hidden])').count();
@@ -177,8 +177,9 @@ async function visiter(navigateur, c) {
       case 'favoris': {
         const coeur = p.locator('.carte .coeur').filter({ visible: true }).first();
         if (!(await coeur.count())) { souci('aucun cœur « favori » visible'); break; }
+        await coeur.scrollIntoViewIfNeeded().catch(() => {});
         await act((f) => coeur.click({ force: f }));
-        const vers = p.locator('nav.onglets a[href$="#favoris"], header a[href$="#favoris"], [data-favoris]').filter({ visible: true }).first();
+        const vers = p.locator('nav.onglets a[href$="#favoris"], nav.nav a[href$="#favoris"], [data-favoris]').filter({ visible: true }).first();
         if (await vers.count()) await act((f) => vers.click({ force: f })); else await choisir('quand', 'favoris');
         await p.waitForTimeout(400);
         r.resultats = await visibles().count();
@@ -198,8 +199,8 @@ async function visiter(navigateur, c) {
         if (!(await a.count())) { souci('actus : aucune actu'); break; }
         await act((f) => a.click({ force: f }));
         await p.waitForTimeout(400);
-        const img = await p.evaluate(() => { const i = document.querySelector('.actu-figure img, article img'); return i ? { ok: i.complete && i.naturalWidth > 0, fit: getComputedStyle(i).objectFit } : null; });
-        if (img && !img.ok) souci('actus : image de l\'article cassée');
+        const img = await p.evaluate(async () => { const i = document.querySelector('.actu-figure img:not(.actu-fond)'); if (!i) return null; if (!i.complete) await new Promise((ok) => { i.onload = i.onerror = ok; setTimeout(ok, 4000); }); return { ok: i.naturalWidth > 0, src: i.currentSrc }; });
+        if (img && !img.ok) souci(`actus : image de l'article cassée (${img.src.split('/').pop()})`);
         r.ok = true;
         break; }
       case 'egare': {

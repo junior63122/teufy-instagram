@@ -23,6 +23,14 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
   const enCours = (c) => debut(c) <= maintenant && maintenant < debut(c) + DUREE;
   const nb = (n) => (n === 1 ? T.soiree : (T.soirees || '{n}').replace('{n}', n));
   const norm = (x) => String(x || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').trim();
+  // Recherche tolérante aux fautes de frappe (20/11/2026, tests utilisateurs : « Paul Sul », « Café Tulonnais »,
+  // « AubergeTAO », « Pony Pny Run » ne trouvaient rien) : un mot de 4 lettres ou plus peut avoir une lettre en trop,
+  // en moins ou changée (deux à partir de 8 lettres), et les espaces et la ponctuation ne comptent pas.
+  const proche = (a, b, max) => { if (Math.abs(a.length - b.length) > max) return false; let prev = Array.from({ length: b.length + 1 }, (_, j) => j);
+    for (let i = 1; i <= a.length; i++) { const cur = [i]; let mini = i; for (let j = 1; j <= b.length; j++) { cur[j] = Math.min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1)); mini = Math.min(mini, cur[j]); } if (mini > max) return false; prev = cur; } return prev[b.length] <= max; };
+  const contient = (texte, m) => { if (!m || texte.includes(m)) return true; const t = texte.replace(/[^a-z0-9]+/g, ''), mc = m.replace(/[^a-z0-9]+/g, '');
+    if (!mc || t.includes(mc)) return true; if (mc.length < 3) return false; const max = mc.length >= 8 ? 2 : 1;
+    return texte.split(/[^a-z0-9]+/).some((w) => w.length >= Math.max(3, mc.length - max) && (mc.length > 3 || w.length === 4) && proche(w, mc, max)); };
   // Peu de soirées ce soir (ordinateur) : tuiles de suggestion à côté des cartes au lieu d'un grand vide.
   const lienLang = (chemin) => `${T.base || '/'}${T.langue && T.langue !== 'fr' ? T.langue + '/' : ''}${chemin}`;
   const suggerer = (conteneur, nbCartes) => {
@@ -610,7 +618,7 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
     for (const c of cartes) {
       const p = c.dataset.prix === '' ? null : +c.dataset.prix;
       const ok = !finies.has(c) && dansQuand(c)
-        && (!etat.q || etat.q.split(/\s+/).every((m) => (c.dataset.q || '').includes(m)))
+        && (!etat.q || etat.q.split(/\s+/).every((m) => contient(c.dataset.q || '', m)))
         && (!etat.ville.size || etat.ville.has(c.dataset.ville))
         && (!etat.style.size || c.dataset.styles.split(' ').some((s) => etat.style.has(s)))
         && (etat.prix === 'tout' || (etat.prix === 'gratuit' ? p === 0 : p != null && p < 10))
@@ -755,7 +763,7 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
   const avantAuto = { fait: false };
   const restaurer = () => { if (!avantAuto.fait) return; Object.assign(etat, { quand: avantAuto.quand, date: avantAuto.date, prix: avantAuto.prix, ville: new Set(avantAuto.ville), style: new Set(avantAuto.style), acces: new Set(avantAuto.acces) }); avantAuto.fait = false; };
   const sauverAvant = () => { Object.assign(avantAuto, { fait: true, quand: etat.quand, date: etat.date, prix: etat.prix, ville: [...etat.ville], style: [...etat.style], acces: [...etat.acces] }); };
-  const compte = () => cartes.filter((c) => { const p = c.dataset.prix === '' ? null : +c.dataset.prix; return !finies.has(c) && dansQuand(c) && (!etat.q || etat.q.split(/\s+/).every((m) => (c.dataset.q || '').includes(m))) && (!etat.ville.size || etat.ville.has(c.dataset.ville)) && (!etat.style.size || (c.dataset.styles || '').split(' ').some((x) => etat.style.has(x))) && (etat.prix === 'tout' || (etat.prix === 'gratuit' ? p === 0 : p != null && p < 10)) && accesOk(c); }).length;
+  const compte = () => cartes.filter((c) => { const p = c.dataset.prix === '' ? null : +c.dataset.prix; return !finies.has(c) && dansQuand(c) && (!etat.q || etat.q.split(/\s+/).every((m) => contient(c.dataset.q || '', m))) && (!etat.ville.size || etat.ville.has(c.dataset.ville)) && (!etat.style.size || (c.dataset.styles || '').split(' ').some((x) => etat.style.has(x))) && (etat.prix === 'tout' || (etat.prix === 'gratuit' ? p === 0 : p != null && p < 10)) && accesOk(c); }).length;
   let compris = null;
   // Lieux, artistes et villes qui correspondent à la recherche (« bisous bisous » → la fiche du club), même quand
   // aucune soirée ne correspond. Index : site/recherche.json (généré avec le site).
@@ -772,7 +780,7 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
     try { INDEX ||= await (await fetch(`${RACINE}site/recherche.json`)).json(); } catch { return; }
     if (q !== dernierQ) return;
     const mots = q.split(' ');
-    const trouves = INDEX.filter((x) => mots.every((m) => x.q.includes(m))).slice(0, 6);
+    const trouves = INDEX.filter((x) => mots.every((m) => contient(x.q, m))).slice(0, 6);
     if (!bloc) { bloc = document.createElement('div'); bloc.id = 'autres-res'; bloc.className = 'autres-res'; (document.getElementById('aucune') || document.querySelector('.liste'))?.before(bloc); }
     if (!bloc) return;
     bloc.hidden = !trouves.length;
