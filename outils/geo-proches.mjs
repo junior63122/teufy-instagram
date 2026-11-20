@@ -5,7 +5,7 @@
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { geocoder, aProximite } from '../src/site.mjs';
+import { geocoder, aProximite, limiterTemps } from '../src/site.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const lire = (f, d) => { try { return JSON.parse(readFileSync(path.join(ROOT, f), 'utf8')); } catch { return d; } };
@@ -19,6 +19,7 @@ for (const e of sources) {
 }
 for (const l of lire('contenus/lieux-manuels.json', { lieux: [] }).lieux || []) soirees.push({ lieu: l.nom, ville: l.ville, adresse: l.adresse || '', nom: l.nom });
 console.log(`${soirees.length} lieu(x) à placer ou vérifier.`);
+limiterTemps(Number(process.env.GEO_MINUTES || 9)); // le reste au passage suivant (4 par jour)
 await geocoder(soirees, console.log);
 await aProximite(soirees, console.log);
 const g = soirees.filter((s) => !s.approx && s.lat);

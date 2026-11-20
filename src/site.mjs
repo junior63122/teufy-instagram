@@ -101,6 +101,9 @@ let MODELES = null;
 // Budget de temps : les enrichissements (lieux, partenaires, transports…) s'arrêtent à temps pour que la mise à jour
 // se termine et s'enregistre toujours (GitHub coupe un passage au bout d'une heure). Le reste se fait au passage suivant.
 let LIMITE = Infinity;
+// Budget de temps pour les outils lancés seuls (outils/geo-proches.mjs) : sans lui, la recherche des transports tournait
+// jusqu'à la coupure de GitHub (15 min) et rien n'était enregistré (20/11/2026).
+export function limiterTemps(minutes) { LIMITE = Date.now() + minutes * 60e3; }
 let CONFIG_LLM = {};
 // « Très demandée » : seulement les soirées les plus attendues (environ 1 sur 8, et buzz ≥ 0,85).
 let SEUIL_DEMANDE = 0.85;

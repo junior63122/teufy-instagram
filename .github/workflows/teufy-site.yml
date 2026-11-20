@@ -17,7 +17,7 @@ concurrency:
 jobs:
   site:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 80 # 20/11/2026 : la limite de 20 min coupait le robot avant l'enregistrement, à chaque passage
     env:
       IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN || secrets.INSTAGRAM_ACCESS_TOKEN }}
       IG_USER_ID: ${{ secrets.IG_USER_ID || secrets.INSTAGRAM_USER_ID }}
@@ -30,23 +30,29 @@ jobs:
       # En premier (≈ 15 lectures) : avant, la vérification des comptes épuisait la limite Instagram et aucune photo n'arrivait.
       - name: Fiches artistes (photo, bio, abonnés depuis leur compte Instagram vérifié)
         timeout-minutes: 10
+        continue-on-error: true
         env:
           MAX_ARTISTES: '40'
         run: |
-          (sudo apt-get update -qq && sudo apt-get install -y --no-install-recommends ffmpeg) >/dev/null 2>&1 || true
+          command -v ffmpeg >/dev/null || timeout 240 sh -c 'sudo apt-get update -qq && sudo apt-get install -y --no-install-recommends ffmpeg' >/dev/null 2>&1 || true
           node outils/artistes-insta.mjs
       - name: Vérifier les comptes Instagram (existence + correspondance) et retrouver les vrais comptes
         timeout-minutes: 15
+        continue-on-error: true
         env:
           MAX_COMPTES: '90' # + 40 artistes + 60 images : sous la limite Instagram de 200 lectures par heure
         run: node outils/verifier-comptes.mjs
       - name: Images des lieux et affiches retrouvées sur Instagram
         timeout-minutes: 15
+        continue-on-error: true
         run: |
-          sudo apt-get install -y --no-install-recommends ffmpeg >/dev/null 2>&1 || true
+          command -v ffmpeg >/dev/null || timeout 240 sudo apt-get install -y --no-install-recommends ffmpeg >/dev/null 2>&1 || true
           node outils/images-lieux.mjs
       - name: Placer les lieux sur la carte + transports et parkings autour
-        timeout-minutes: 15
+        timeout-minutes: 13
+        continue-on-error: true
+        env:
+          GEO_MINUTES: '9' # la suite au passage suivant (le résultat est enregistré quoi qu'il arrive)
         run: node outils/geo-proches.mjs
       - name: Où manger tard et afters (horaires OpenStreetMap, sans IA)
         timeout-minutes: 14
@@ -69,6 +75,7 @@ jobs:
           node outils/nuit-tardive.mjs --lieux /tmp/lieux.geojsonseq
       - name: Reconstruire le site avec les nouvelles images (sans IA, sans recherche web)
         timeout-minutes: 25
+        continue-on-error: true
         env:
           SANS_RECHERCHE: '1'
           SITE_MINUTES: '8'
@@ -82,6 +89,7 @@ jobs:
           # artistes n'apparaissaient qu'au passage suivant de la veille). Le compteur de dépenses IA n'est jamais touché ici.
           git add -A . ':!contenus/budget-ia.json' || true
       - name: Enregistrer
+        if: always() # ce qui a été trouvé est enregistré même si une étape a échoué ou a été coupée
         run: |
           git config user.name "teufy-bot"
           git config user.email "teufy-bot@users.noreply.github.com"
