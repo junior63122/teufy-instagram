@@ -190,6 +190,8 @@ async function visiter(navigateur, c) {
         if (!(await coeur.count())) { souci('aucun cœur « favori » visible'); break; }
         await coeur.scrollIntoViewIfNeeded().catch(() => {});
         await act((f) => coeur.click({ force: f }));
+        // La barre d'onglets se cache quand on descend et revient quand on remonte : le visiteur remonte un peu pour l'atteindre.
+        await p.mouse.wheel(0, -250).catch(() => {}); await p.waitForTimeout(350);
         const vers = p.locator('nav.onglets a[href$="#favoris"], nav.nav a[href$="#favoris"], [data-favoris]').filter({ visible: true }).first();
         if (await vers.count()) await act((f) => vers.click({ force: f })); else await choisir('quand', 'favoris');
         await p.waitForTimeout(400);

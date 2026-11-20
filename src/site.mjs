@@ -1132,7 +1132,9 @@ function carte(s, { t, base, lang, vedette = false, prioritaire = false }) {
     ${s.genres ? `<p class="genre">${esc(s.genres)}</p>` : ''}
     <h3><a href="${lien}">${esc(s.nom)}</a></h3>
     <p class="quand-long">${esc(dateLongue(s.debut, t))}</p>
-    ${s.accroche ? `<p class="accroche">${esc(s.accroche)}</p>` : ''}
+    ${(() => { // Sans accroche : la première phrase de la présentation (20/11/2026 : les cartes sans texte laissaient un grand vide).
+      const a = s.accroche || ((s.description || '').match(/^[^.!?]{12,140}[.!?]/)?.[0] || '').trim();
+      return a ? `<p class="accroche">${esc(a)}</p>` : ''; })()}
     <p class="meta"><span>${esc(heure(s.debut, t))}</span><span>${esc(prix || t.prixBillet)}</span>${s.offres.length ? `<span class="comparer">${esc(t.comparer)} · ${s.offres.length}</span>` : ''}${promo ? `<span class="promo">${(() => { const e = economie(promo, s.prix); return e ? `${esc(t.locale.startsWith('fr') ? 'Économise' : '−')} ${esc(euros(e.eco, t))}` : esc(promo.remise); })()} · ${esc(promo.code)}</span>` : ''}<span class="distance"></span><span class="ou">${esc(lieuEtVille(s))}</span></p>
     <p class="actions">${boutonBillets(s, t)}<a class="lien" href="${lien}">${esc(t.voir)}</a></p>
   </div>
