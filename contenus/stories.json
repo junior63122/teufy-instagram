@@ -330,5 +330,26 @@
   ],
   "manquantes": [],
   "le": "2026-11-20T19:11:07.284Z"
+ },
+ {
+  "jour": "2026-11-20",
+  "type": "soirees",
+  "cles": [
+   "Paul Seul (+ Warm up + Closing)",
+   "Invictus Winter Session Act II (Laurent N. - Liza - Dj Safire)",
+   "Axel' Birthday One Night Only"
+  ],
+  "ids": [
+   "17894127486459064",
+   "17898697977654744",
+   "17902774626612369"
+  ],
+  "faites": [
+   0,
+   1,
+   2
+  ],
+  "manquantes": [],
+  "le": "2026-11-20T20:13:06.311Z"
  }
 ]
