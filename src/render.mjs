@@ -164,7 +164,7 @@ export function debatPage({ th, debat, photos }) {
   return [message(th, 1080, 1350, {
     src: photos.next(), pill: '#TeufyDébat', texte: debat.q,
     options: debat.a && debat.b ? [['A', debat.a], ['B', debat.b]] : [],
-    pied: 'Réponds en commentaire 👇',
+    pied: 'Réponds en commentaire',
   })];
 }
 
@@ -176,8 +176,8 @@ export function reelPages({ th, events, photos, titre, sous, question, compte })
   return [
     couverture(th, 1080, 1920, { titre, sous, src: photos.next(events[0]?.image) }),
     ...events.map((e) => soiree(th, 1080, 1920, { e, haut: photos.next(e.image), bas: photos.next(e.image), milieu: e.image ? undefined : photos.next() })),
-    message(th, 1080, 1920, { src: photos.next(events[0]?.image), pill: th.hashtag, texte: question, options: events.map((e, i) => [String(i + 1), e.name]).slice(0, 6), pied: 'Ton numéro en commentaire 👇' }),
-    message(th, 1080, 1920, { src: photos.next(events.at(-1)?.image), texte: `Abonne-toi à ${compte}`, pied: 'Les soirées de la Côte, chaque semaine. Envoie à ton crew 📲' }),
+    message(th, 1080, 1920, { src: photos.next(events[0]?.image), pill: th.hashtag, texte: question, options: events.map((e, i) => [String(i + 1), e.name]).slice(0, 6), pied: 'Ton numéro en commentaire' }),
+    message(th, 1080, 1920, { src: photos.next(events.at(-1)?.image), texte: `Abonne-toi à ${compte}`, pied: 'Les soirées de la Côte, chaque semaine. Envoie à ton crew.' }),
   ];
 }
 
@@ -221,7 +221,7 @@ export function afficheProgramme({ th, titre, sous, events, photos }) {
     <div class="tete">${logo(th, 70)}<h1 class="large fit ombre" data-maxh="300">${nl(titre)}</h1>${sous ? `<h2 class="large">${esc(sous)}</h2>` : ''}</div>
     <ul>${lignes}</ul>
   </div>
-  <p class="pied">📌 Enregistre · Envoie à ton crew</p>`, `
+  <p class="pied">Enregistre · Envoie à ton crew</p>`, `
   .wrap{position:absolute;top:60px;left:64px;right:64px;bottom:120px;display:flex;flex-direction:column;gap:30px}
   .tete{display:flex;flex-direction:column;align-items:flex-start;gap:14px}
   .tete .logo{width:auto}

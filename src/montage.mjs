@@ -200,7 +200,7 @@ function grammaireRush({ sections, b, acc, th, r, compte }) {
     } else if (s.type === 'cta') {
       html += fen(t0, t1, `<p class="wide bloc ombre" data-h="420" style="width:900px;font-size:190px;line-height:.9;${anim('slam', 0.14, t0)}">${esc(s.question)}</p>`, 'left:90px;top:260px');
       s.events.forEach((e, i) => { const t = t0 + b + i * b * 0.5; html += fen(t, t1, `<p style="font-weight:900;font-size:54px;display:flex;align-items:center;gap:22px;${anim('skew', 0.25, t)}"><b class="mono" style="font-size:46px;background:${acc};color:#0b0b0f;padding:4px 14px">${i + 1}</b><span class="ombre">${esc(e.name)}</span></p>`, `left:90px;right:150px;top:${730 + i * 100}px;white-space:nowrap;overflow:hidden`); });
-      html += fen(t0 + b * 3, t1, `<span class="mono" style="font-size:42px;background:#fff;color:#0b0b0f;padding:12px 20px;${anim('pop', 0.4, t0 + b * 3, RESSORT)}">ton numéro en com 👇</span>`, `left:0;right:0;top:${Math.min(1290, 760 + s.events.length * 100 + 40)}px;text-align:center`);
+      html += fen(t0 + b * 3, t1, `<span class="mono" style="font-size:42px;background:#fff;color:#0b0b0f;padding:12px 20px;${anim('pop', 0.4, t0 + b * 3, RESSORT)}">ton numéro en com</span>`, `left:0;right:0;top:${Math.min(1290, 760 + s.events.length * 100 + 40)}px;text-align:center`);
     } else if (s.type === 'point') {
       html += fen(t0, t1, `<span class="wide" style="font-size:260px;color:${acc};${anim('slam', 0.16, t0)};display:inline-block">${s.n}</span>`, 'left:90px;top:220px');
       html += fen(t0 + b * 0.5, t1, `<p class="ombre" style="font-weight:800;font-size:${s.texte.length > 90 ? 64 : 76}px;line-height:1.12">${motsMasques(s.texte, t0 + b * 0.5, 0.05)}</p>`, 'left:90px;right:150px;top:600px');
@@ -243,7 +243,7 @@ function grammaireCamescope({ sections, b, acc, th, r, compte, now }) {
     } else if (s.type === 'cta') {
       html += fen(t0, t1, `<p class="serif ombre" style="font-size:160px;line-height:.95">${motsMasques(s.question.toLowerCase(), t0, 0.08)}</p>`, 'left:100px;right:150px;top:300px');
       s.events.forEach((e, i) => { const t = t0 + b * 0.6 + i * 0.22; html += fen(t, t1, `<p class="mono" style="font-size:40px;${anim('monte', 0.3, t)}"><span style="color:${acc}">${i + 1}.</span> ${esc(e.name.toLowerCase())}</p>`, `left:100px;right:150px;top:${620 + i * 80}px;white-space:nowrap;overflow:hidden`); });
-      html += fen(t0 + b * 2.2, t1, `<p class="serif" style="font-size:72px;${anim('monte', 0.4, t0 + b * 2.2)}">réponds en com 👇</p>`, `left:100px;top:${Math.min(1250, 660 + s.events.length * 80 + 40)}px`);
+      html += fen(t0 + b * 2.2, t1, `<p class="serif" style="font-size:72px;${anim('monte', 0.4, t0 + b * 2.2)}">réponds en com</p>`, `left:100px;top:${Math.min(1250, 660 + s.events.length * 80 + 40)}px`);
     } else if (s.type === 'point') {
       html += fen(t0, t1, `<span class="mono" style="font-size:44px;color:${acc};${anim('monte', 0.3, t0)}">astuce ${s.n}/${s.total}</span>`, 'left:100px;top:300px');
       html += fen(t0, t1, `<p class="serif ombre" style="font-size:${s.texte.length > 90 ? 82 : 96}px;line-height:1.06">${motsMasques(s.texte, t0 + 0.15, 0.045)}</p>`, 'left:100px;right:150px;top:400px');

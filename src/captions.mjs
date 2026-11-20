@@ -155,7 +155,9 @@ export function captionDebat({ debat, ch, r }) {
   // Une seule consigne claire (A ou B en commentaire) + identification d'un pote : c'est ce qui fait tourner un débat
   // (commentaires et identifications = portée). 12/11/2026 : avant, deux questions différentes se contredisaient.
   const vote = debat.a && debat.b
-    ? `\n\n${ch.pick('vote', ['Écris A ou B en commentaire 👇', 'A ou B ? Ton camp en commentaire 👇', 'Vote en commentaire : A ou B 👇'])}\n🅰️ ${debat.a}\n🅱️ ${debat.b}\n\n${ch.pick('tag-debat', [`Tague le pote qui va répondre « ${debat.a} » sans hésiter.`, 'Tague le pote avec qui tu vas te disputer là-dessus.', 'Envoie ça à ton groupe et regarde qui répond quoi.'])}`
+    // « A. » / « B. » écrits en lettres (20/11/2026 : les 🅰️ 🅱️ étaient retirés avec les emojis et le lecteur ne savait
+    // plus quelle option était A ou B).
+    ? `\n\n${ch.pick('vote', ['Écris A ou B en commentaire', 'A ou B ? Ton camp en commentaire', 'Vote en commentaire : A ou B'])}\nA. ${debat.a}\nB. ${debat.b}\n\n${ch.pick('tag-debat', [`Tague le pote qui va répondre « ${debat.a} » sans hésiter.`, 'Tague le pote avec qui tu vas te disputer là-dessus.', 'Envoie ça à ton groupe et regarde qui répond quoi.'])}`
     : '';
   return clip(`${debat.legende}${vote}\n\n${hashtags(ch, 'general', { sansLieux: true })}`);
 }
@@ -179,7 +181,7 @@ function clip(s) { return s.length <= 2200 ? s : s.slice(0, 2190) + '…'; }
 // --- Reel explicatif -----------------------------------------------------------
 
 export function captionExplicatif({ sujet, ch, r }) {
-  const fin = ch.pick('fin-explicatif', ['📌 Enregistre-le et envoie-le à ton crew.', '📌 Enregistre pour plus tard. Tu connais d\'autres astuces ? Dis-le en commentaire.', '📌 Envoie-le à celui ou celle qui en a besoin.']);
+  const fin = ch.pick('fin-explicatif', ['Enregistre-le et envoie-le à ton crew.', 'Enregistre pour plus tard. Tu connais d\'autres astuces ? Dis-le en commentaire.', 'Envoie-le à celui ou celle qui en a besoin.']);
   return clip(`${sujet.legende || sujet.titre}\n\n${sujet.points.map((p, i) => `${i + 1}. ${p}`).join('\n')}\n\n${fin}\n\n${hashtags(ch)}`);
 }
 
@@ -190,6 +192,14 @@ export function captionExplicatif({ sujet, ch, r }) {
 // Donc : aucun emoji, et un appel à envoyer le post à ses potes quand la légende n'en a pas (l'appel à s'abonner, demandé
 // par le directeur pour les promos, est gardé).
 const EMOJI = /(\p{Extended_Pictographic}|\p{Regional_Indicator}|[\u{1F3FB}-\u{1F3FF}\u{FE0F}\u{20E3}\u{200D}])/gu;
+/** Textes d'un visuel (props d'une couverture, d'une story) sans emoji (directeur, 19/11/2026 : « pas d'emoji bizarre,
+ *  ça fait IA ») : défense en profondeur, quel que soit l'endroit d'où vient le texte (IA, fichier, code). */
+export function sansEmoji(v) {
+  if (typeof v === 'string') return v.replace(EMOJI, '').replace(/[ \t]{2,}/g, ' ').replace(/[ \t]+$/gm, '').trim();
+  if (Array.isArray(v)) return v.map(sansEmoji);
+  if (v && typeof v === 'object') return Object.fromEntries(Object.entries(v).map(([k, x]) => [k, /^(image|photo|src|fichier|video)$/.test(k) ? x : sansEmoji(x)]));
+  return v;
+}
 export const APPEL_PARTAGE = ['Envoie-le à ceux avec qui tu sors.', 'Envoie-le au pote qui dit toujours « on verra ».', 'Envoie-le à ton binôme de soirée.'];
 export function nettoyerLegende(texte, k = 0) {
   const E = EMOJI.source;

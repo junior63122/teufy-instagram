@@ -27,3 +27,18 @@ test('« Tague ton pote » : aucun emoji dans les épisodes (visuels) ni les lé
   for (const f of readdirSync(md).filter((x) => x.endsWith('.txt'))) assert.doesNotMatch(readFileSync(new URL(f, md), 'utf8'), /\p{Extended_Pictographic}/u, f);
   assert.ok(readdirSync(md).filter((x) => x.endsWith('.mp4')).length >= 4);
 });
+
+// 20/11/2026 : aucun emoji dans les visuels (stories, couvertures, reels), et le débat garde ses options A et B.
+test('visuels sans emoji, débat avec « A. » et « B. » lisibles', async () => {
+  const { sansEmoji, captionDebat, nettoyerLegende } = await import('../src/captions.mjs');
+  const { readFileSync } = await import('node:fs');
+  assert.deepEqual(sansEmoji({ texte: 'Réponds en message 👀', image: 'evenements/auto/x.jpg', options: ['A 🔥', 'B'] }), { texte: 'Réponds en message', image: 'evenements/auto/x.jpg', options: ['A', 'B'] });
+  const EMO = /\p{Extended_Pictographic}/u;
+  for (const f of ['montage.mjs', 'motion.mjs', 'render.mjs']) assert.doesNotMatch(readFileSync(new URL(`../src/${f}`, import.meta.url), 'utf8'), EMO, `emoji dans src/${f}`);
+  // run.mjs : les ✅ du journal sont permis (jamais affichés sur un visuel), pas les autres.
+  assert.doesNotMatch(readFileSync(new URL('../src/run.mjs', import.meta.url), 'utf8').replace(/✅/g, ''), EMO, 'emoji dans src/run.mjs');
+  const ch = { pick: (_, l) => l[0], pickMany: (_, l, k) => l.slice(0, k) };
+  const t = nettoyerLegende(captionDebat({ debat: { legende: 'Le débat.', a: 'Rooftop', b: 'Club' }, ch, r: () => 0.1 }));
+  assert.match(t, /^A\. Rooftop$/m);
+  assert.match(t, /^B\. Club$/m);
+});

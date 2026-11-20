@@ -88,13 +88,13 @@ function episodeGrandDebat(serie = 'grand-debat', choisir = null) {
   if (!f) return null;
   const base = f.replace(/\.mp4$/, ''), txt = path.join(dir, `${base}.txt`);
   const nom = serie === 'serie-nuit' ? 'Et toi, t\'aurais fait quoi ?' : serie === 'spot-promo' ? 'Teufy' : serie === 'tague-ton-pote' ? 'Tague ton pote' : 'Le Grand Débat';
-  const legende = existsSync(txt) ? readFileSync(txt, 'utf8').trim() : `${nom} Tu votes quoi ? Un mot en commentaire 👇`;
+  const legende = existsSync(txt) ? readFileSync(txt, 'utf8').trim() : `${nom} Tu votes quoi ? Un mot en commentaire.`;
   // Couverture aux couleurs de la DA (15/11/2026, directeur : « ne ruine pas la DA de la grille ») : NN-sujet.couverture.txt
   // = 1re ligne le titre de la couverture, 2e ligne (facultative) la photo de decors/da/ (sans .jpg).
   const cf = path.join(dir, `${base}.couverture.txt`);
   const [couvTitre, couvPhoto] = existsSync(cf) ? readFileSync(cf, 'utf8').split('\n').map((x) => x.trim()) : [];
   const m = meta(f);
-  return { id: `${serie}-${base}`, video: path.join(dir, f), legende, titre: `${nom} · ${base.replace(/[-_]/g, ' ')}`, nom, couvTitre: couvTitre || legende.split('\n')[0].replace(/^Le Grand Débat #\d+\s*🥊?\s*/, '').slice(0, 60), couvPhoto: couvPhoto || null, accroche: m.accroche || null, fonctionnalites: m.fonctionnalites || [] };
+  return { id: `${serie}-${base}`, video: path.join(dir, f), legende, titre: `${nom} · ${base.replace(/[-_]/g, ' ')}`, nom, couvTitre: couvTitre || legende.split('\n')[0].replace(/^Le Grand Débat #\d+\s*\u{1F94A}?\s*/u, '').slice(0, 60), couvPhoto: couvPhoto || null, accroche: m.accroche || null, fonctionnalites: m.fonctionnalites || [] };
 }
 // Un épisode du Grand Débat n'est prévu que s'il y en a un en attente (sinon le créneau reste libre).
 // Clé d'une soirée (pour ne pas remontrer les mêmes soirées dans deux posts rapprochés).
@@ -476,7 +476,7 @@ async function prepare(slot, now, id) {
     if (!existsSync(path.join(STUDIO, 'node_modules'))) spawnSync('npm', ['ci', '--no-audit', '--no-fund'], { cwd: STUDIO, stdio: 'inherit' });
     const fichier = path.join(dir, `flash-${stamp}.jpg`);
     const B = '/opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell';
-    const rr = spawnSync(path.join(STUDIO, 'node_modules', '.bin', 'remotion'), ['still', 'src/index.ts', 'flash', fichier, `--props=${JSON.stringify({ f })}`, '--image-format=jpeg', '--jpeg-quality=92', '--log=error', ...(existsSync(B) ? [`--browser-executable=${B}`] : [])], { cwd: STUDIO, stdio: 'inherit' });
+    const rr = spawnSync(path.join(STUDIO, 'node_modules', '.bin', 'remotion'), ['still', 'src/index.ts', 'flash', fichier, `--props=${JSON.stringify((await import('./captions.mjs')).sansEmoji({ f }))}`, '--image-format=jpeg', '--jpeg-quality=92', '--log=error', ...(existsSync(B) ? [`--browser-executable=${B}`] : [])], { cwd: STUDIO, stdio: 'inherit' });
     if (rr.status !== 0) throw new Error('Rendu du post de veille impossible');
     pub = { images: [fichier], legende: s.post.legende, titre: s.post.titre, veille: { titre: s.titre, source: s.source_url, importance: s.importance }, tags: [(s.comptes_instagram || []).map((h) => h.replace(/^@/, '')).slice(0, 5)] };
     console.log(`[${id}] post de veille : « ${s.post.titre} » (${s.importance}/100, ${s.source_url})`);
@@ -503,7 +503,7 @@ async function prepare(slot, now, id) {
     const files = [await couvertureDA({ photo: `decors/da/${photos[0]}.jpg`, rubrique: 'Guide', titre, sous: G.theme === 'manger' ? 'Ouvert quand tout le reste est fermé. Enregistre-le.' : 'Pour ceux qui ne veulent pas rentrer. Enregistre-le.' }, path.join(dir, `guide-${stamp}-0.jpg`))];
     for (const [i, l] of L.entries()) files.push(await couvertureDA({ photo: `decors/da/${photos[(i + 1) % photos.length]}.jpg`, rubrique: `${i + 1}/${L.length} · ${l.quoi || (G.theme === 'manger' ? 'Manger tard' : 'After')}`, titre: l.nom.replace(/[[\]]/g, ''), sous: [l.lieu, l.horaires].filter(Boolean).join(' · ') }, path.join(dir, `guide-${stamp}-${i + 1}.jpg`)));
     files.push(await couvertureDA({ photo: `decors/da/${photos[L.length + 1] || photos.at(-1)}.jpg`, rubrique: 'La liste complète', titre: `Toutes les adresses sur [teufyparty.com]`, sous: 'Horaires publiés, mis à jour chaque jour. Vérifie avant d\'y aller.' }, path.join(dir, `guide-${stamp}-fin.jpg`)));
-    const accroche = G.theme === 'manger' ? `4 h du matin à ${G.ville}, la boîte ferme et t'as faim. On a la liste 👇` : `La boîte ferme, mais toi tu ne rentres pas. Les afters à ${G.ville} 👇`;
+    const accroche = G.theme === 'manger' ? `4 h du matin à ${G.ville}, la boîte ferme et t'as faim. On a la liste.` : `La boîte ferme, mais toi tu ne rentres pas. Les afters à ${G.ville}.`;
     const legende = `${accroche}\n\n${L.map((l, i) => `${i + 1}. ${l.nom}${l.lieu ? ` @ ${l.lieu}` : l.quoi ? ` (${l.quoi})` : ''} · ${l.horaires}`).join('\n')}\n\nHoraires publiés : vérifie avant d'y aller. Toutes les adresses sur teufyparty.com (${G.theme === 'manger' ? 'Manger tard' : 'After'}).\n\n${ch.pick('cta-guide', ['Enregistre ce post pour ta prochaine sortie.', 'Envoie ça à ton pote qui a toujours faim à 4 h.', 'Envoie ça au groupe avant samedi.'])}\n\n#TeufyParty #${sansAccentTag(G.ville)} #cotedazur #nightlife #${G.theme === 'manger' ? 'streetfood' : 'afterparty'}`;
     pub = { images: files, legende, titre: titre.replace(/[[\]]/g, ''), guide: `${G.theme}|${G.ville}`, textes_visuels: [titre, ...L.flatMap((l) => [l.nom, [l.lieu, l.horaires].filter(Boolean).join(' · ')])] };
   } else if (slot.type === 'debat') {
@@ -703,11 +703,11 @@ async function prepare(slot, now, id) {
       usedHere.add(sujet.id);
       const { th, photos } = await visuel(/techno/.test(sujet.sous || '') ? 'techno' : 'club');
       try {
-        res = await monter({ th, genre: 'club', contenu: { hook: { titre: sujet.titre, sous: sujet.sous }, points: sujet.points, fin: 'enregistre pour plus tard 📌' } });
+        res = await monter({ th, genre: 'club', contenu: { hook: { titre: sujet.titre, sous: sujet.sous }, points: sujet.points, fin: 'enregistre pour plus tard' } });
       } catch (err) {
         console.error(`[${id}] montage impossible (${err.message}), motion simple.`);
         const scenes = [...motion.scenesExplication(th, { titre: sujet.titre, sous: sujet.sous, points: sujet.points, photos }),
-          motion.sceneFin(th, { compte: config.compte, photo: photos.next(), texte: 'Enregistre pour plus tard 📌' })];
+          motion.sceneFin(th, { compte: config.compte, photo: photos.next(), texte: 'Enregistre pour plus tard' })];
         res = await motion.motionReel({ scenes, out: video, root: ROOT, genre: 'club', tmp, voix, config });
       }
       pub = { video, video_instagram: res.video_instagram || undefined, son: res.son || undefined, legende: captionExplicatif({ sujet, ch, r }), duree: +res.total.toFixed(1), titre: sujet.titre, sujet: sujet.id };
@@ -814,7 +814,7 @@ async function prepare(slot, now, id) {
       const texte = String(out.titre || pub.titre || '').replace(/[[\]]/g, '').trim();
       const props = { image: src, rubrique: out.fete ? 'Nouveau post' : slot.type === 'veille' ? 'Info de dernière minute' : 'Nouveau post', ...(texte ? { texte: `${texte} : le post complet est sur le profil` } : {}) };
       const B = '/opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell';
-      const rs = spawnSync(path.join(STUDIO, 'node_modules', '.bin', 'remotion'), ['still', 'src/index.ts', 'story', path.join(dir, 'story.jpg'), `--props=${JSON.stringify(props)}`, '--image-format=jpeg', '--jpeg-quality=92', '--log=error', ...(existsSync(B) ? [`--browser-executable=${B}`] : [])], { cwd: STUDIO, stdio: 'inherit' });
+      const rs = spawnSync(path.join(STUDIO, 'node_modules', '.bin', 'remotion'), ['still', 'src/index.ts', 'story', path.join(dir, 'story.jpg'), `--props=${JSON.stringify((await import('./captions.mjs')).sansEmoji(props))}`, '--image-format=jpeg', '--jpeg-quality=92', '--log=error', ...(existsSync(B) ? [`--browser-executable=${B}`] : [])], { cwd: STUDIO, stdio: 'inherit' });
       if (rs.status === 0) out.story = 'story.jpg'; else console.error(`[${id}] story non conforme : pas de story pour ce post.`);
     } catch (err) { console.error(`[${id}] story impossible : ${err.message}`); }
   } else if (out.video) out.story_video = out.video;
@@ -838,7 +838,7 @@ async function prepare(slot, now, id) {
       const src = path.join('evenements', 'auto', `debat-${id}.jpg`);
       await mkdir(path.join(STUDIO, 'public', 'evenements', 'auto'), { recursive: true });
       await copyFile(img, path.join(STUDIO, 'public', src));
-      const props = { image: src, rubrique: 'Ton avis', texte: 'A ou B ? Réponds en message 👀' }; // « Débat » est déjà écrit sur la carte
+      const props = { image: src, rubrique: 'Ton avis', texte: 'A ou B ? Réponds en message' }; // « Débat » est déjà écrit sur la carte
       const B = '/opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell';
       const rs = spawnSync(path.join(STUDIO, 'node_modules', '.bin', 'remotion'), ['still', 'src/index.ts', 'story', path.join(dir, 'story-debat.jpg'), `--props=${JSON.stringify(props)}`, '--image-format=jpeg', '--jpeg-quality=92', '--log=error', ...(existsSync(B) ? [`--browser-executable=${B}`] : [])], { cwd: STUDIO, stdio: 'inherit' });
       if (rs.status === 0) { out.story_debat = 'story-debat.jpg'; out.debat = debat.id; console.log(`[${id}] débat en story : « ${debat.q} »`); }
@@ -1038,6 +1038,7 @@ async function couvertureDA(props, fichier, composition = 'couverture') {
   return rendreCouverture(props, fichier, composition);
 }
 async function rendreCouverture(props, fichier, composition) {
+  props = (await import('./captions.mjs')).sansEmoji(props); // aucun emoji dans les visuels (directeur, 19/11/2026)
   const STUDIO = path.join(ROOT, 'studio');
   if (!existsSync(path.join(STUDIO, 'node_modules'))) spawnSync('npm', ['ci', '--no-audit', '--no-fund'], { cwd: STUDIO, stdio: 'inherit' });
   const B = '/opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell';
@@ -1215,6 +1216,7 @@ async function photoFete(f) {
 
 // --- Stories du jour (sans IA) ------------------------------------------------------------------------------
 async function storyStill(props, fichier) {
+  props = (await import('./captions.mjs')).sansEmoji(props); // aucun emoji dans les visuels (directeur, 19/11/2026)
   const STUDIO = path.join(ROOT, 'studio');
   if (!existsSync(path.join(STUDIO, 'node_modules'))) spawnSync('npm', ['ci', '--no-audit', '--no-fund'], { cwd: STUDIO, stdio: 'inherit' });
   const B = '/opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell';
@@ -1244,7 +1246,7 @@ async function storiesPreparer(S) {
     const q = S.questionDuJour(NOW.getTime(), histo, { postes: hist.map((h) => h.debat).filter(Boolean) });
     if (!q) return null;
     const carte = await couvertureDA(q.debat ? { photo: photoDA(['rire', 'selfie', 'danse', 'terrasse'], NOW), fond: 'nuit', rubrique: 'Débat', titre: q.q, options: [q.a, q.b] } : { photo: photoDA(['rire', 'selfie', 'danse', 'terrasse'], NOW), rubrique: 'Question', titre: q.q }, path.join(dir, `${jour}-${cle}-carte.jpg`));
-    return { cles: [q.cle], frames: [{ image: await cadre({ image: versStudio(carte), rubrique: 'Ton avis', texte: q.debat ? 'A ou B ? Réponds en message 👀' : 'Réponds en message 👀' }, cle) }] };
+    return { cles: [q.cle], frames: [{ image: await cadre({ image: versStudio(carte), rubrique: 'Ton avis', texte: q.debat ? 'A ou B ? Réponds en message' : 'Réponds en message' }, cle) }] };
   };
   for (const s of dues) {
     let r = null;
@@ -1270,7 +1272,7 @@ async function storiesPreparer(S) {
         const o = S.offreDuJour(config, NOW.getTime(), histo);
         if (o) {
           const carte = await couvertureDA({ photo: photoDA(['terrasse', 'rooftop', 'rire'], NOW), rubrique: 'Avantage Teufy', titre: o.titre, sous: [o.partenaire, o.ville, o.conditions].filter(Boolean).join(' · ') }, path.join(dir, `${jour}-offre-carte.jpg`));
-          r = { cles: [o.cle], frames: [{ image: await cadre({ image: versStudio(carte), rubrique: 'Bon plan', texte: o.code ? `Code ${o.code} sur la billetterie` : 'Montre cette story sur place 😉' }, 'offre') }] };
+          r = { cles: [o.cle], frames: [{ image: await cadre({ image: versStudio(carte), rubrique: 'Bon plan', texte: o.code ? `Code ${o.code} sur la billetterie` : 'Montre cette story sur place' }, 'offre') }] };
         }
       } else if (s.type === 'repost') {
         const ig = igConfig();
@@ -1282,12 +1284,12 @@ async function storiesPreparer(S) {
       } else if (s.type === 'videos') {
         const mail = config.site?.email || 'teufy.app@gmail.com';
         const carte = await couvertureDA({ photo: photoDA(['foule', 'danse', 'lasers', 'selfie'], NOW), rubrique: 'Ta vidéo', titre: 'Ta meilleure vidéo de soirée ?', sous: `Envoie-la en WeTransfer à ${mail} : on la reposte en te créditant` }, path.join(dir, `${jour}-videos-carte.jpg`));
-        r = { cles: [`v-${jour}`], frames: [{ image: await cadre({ image: versStudio(carte), rubrique: 'Qualité originale', texte: 'WeTransfer, en HD : ta soirée sur Teufy 🎥' }, 'videos') }] };
+        r = { cles: [`v-${jour}`], frames: [{ image: await cadre({ image: versStudio(carte), rubrique: 'Qualité originale', texte: 'WeTransfer, en HD : ta soirée sur Teufy' }, 'videos') }] };
       } else if (s.type === 'astuce') {
         const a = S.astuceDuJour(NOW.getTime(), histo);
         if (a) {
           const carte = await couvertureDA({ photo: photoDA(['rire', 'terrasse', 'foule', 'rooftop'], NOW), rubrique: 'Astuce', titre: a.titre, sous: a.sous }, path.join(dir, `${jour}-astuce-carte.jpg`));
-          r = { cles: [a.cle], frames: [{ image: await cadre({ image: versStudio(carte), rubrique: 'Le bon réflexe', texte: 'Envoie-la à ton pote qui en a besoin 👀' }, 'astuce') }] };
+          r = { cles: [a.cle], frames: [{ image: await cadre({ image: versStudio(carte), rubrique: 'Le bon réflexe', texte: 'Envoie-la à ton pote qui en a besoin' }, 'astuce') }] };
         }
       } else if (s.type === 'coeur') {
         const montrees = new Set([...histo.filter((h) => h.type === 'soirees' && Date.parse(h.le) > NOW - 3 * 864e5).flatMap((h) => h.cles || []), ...plan.filter((p) => p.type === 'soirees').flatMap((p) => p.cles)]);
