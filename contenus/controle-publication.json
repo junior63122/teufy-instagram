@@ -17,13 +17,16 @@
   },
   {
    "jour": "2026-11-20",
-   "le": "2026-11-20T18:07:49.682Z",
+   "le": "2026-11-20T19:11:08.506Z",
    "ok": [
     "pret-2026-11-19-concours-frigo16 : en ligne et conforme (https://www.instagram.com/p/Df-DlvCFxb4/)",
-    "story soirees : pas de visuel conforme aujourd'hui (rien publié plutôt qu'un visuel raté)",
-    "story offre : 1 image(s) en ligne"
+    "story pret-concours-frigo16-tekno : 1 image(s) en ligne",
+    "story offre : 1 image(s) en ligne",
+    "story question : 1 image(s) en ligne"
    ],
-   "problemes": []
+   "problemes": [
+    "story soirees (16 h) : pas publiée"
+   ]
   }
  ]
 }
