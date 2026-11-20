@@ -64,8 +64,10 @@ jobs:
           frais || timeout 300 node outils/nuit-tardive.mjs || true
           # Secours : carte OpenStreetMap de la région (Geofabrik, gratuit) lue sur place, sans serveur Overpass.
           sudo apt-get install -y --no-install-recommends osmium-tool >/dev/null 2>&1
-          curl -sSfL -o /tmp/paca.pbf https://download.geofabrik.de/europe/france/provence-alpes-cote-d-azur-latest.osm.pbf
-          curl -sSfL -o /tmp/monaco.pbf https://download.geofabrik.de/europe/monaco-latest.osm.pbf
+          # Téléchargement réessayé (20/11/2026 : Geofabrik injoignable une fois, l'étape s'arrêtait et l'annuaire n'était pas relu).
+          tele() { curl -sSfL --retry 4 --retry-delay 20 --retry-all-errors -o "$1" "$2"; }
+          tele /tmp/paca.pbf https://download.geofabrik.de/europe/france/provence-alpes-cote-d-azur-latest.osm.pbf || { echo "::warning::Carte OpenStreetMap (Geofabrik) injoignable : listes de nuit inchangées, reprise au prochain passage"; exit 0; }
+          tele /tmp/monaco.pbf https://download.geofabrik.de/europe/monaco-latest.osm.pbf || { echo "::warning::Carte de Monaco (Geofabrik) injoignable : reprise au prochain passage"; exit 0; }
           for z in paca monaco; do osmium tags-filter /tmp/$z.pbf nwr/opening_hours -o /tmp/$z-oh.pbf --overwrite; osmium export /tmp/$z-oh.pbf -f geojsonseq -a type,id --geometry-types=point,polygon -o /tmp/$z.geojsonseq --overwrite; done
           cat /tmp/paca.geojsonseq /tmp/monaco.geojsonseq > /tmp/nuit.geojsonseq
           frais || node outils/nuit-tardive.mjs --geojson /tmp/nuit.geojsonseq
