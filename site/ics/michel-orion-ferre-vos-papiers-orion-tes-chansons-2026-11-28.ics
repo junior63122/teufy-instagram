@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:michel-orion-ferre-vos-papiers-orion-tes-chansons-2026-11-28@teufy
+DTSTAMP:20261120T155144Z
+DTSTART:20261128T193000Z
+DTEND:20261129T003000Z
+SUMMARY:MICHEL ORION – FERRÉ\, VOS PAPIERS ! ORION\, TES CHANSONS !
+LOCATION:Le quartier du poulpe\, 34 boulevard Auguste Raynaud 06100 Nice\, Nice
+DESCRIPTION:Billets : https://www.eventbrite.com/e/michel-orion-ferre-vos-papiers-orion-tes-chansons-tickets-2004957394539\nVia Teufy @teufy_official
+URL:https://www.eventbrite.com/e/michel-orion-ferre-vos-papiers-orion-tes-chansons-tickets-2004957394539
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : MICHEL ORION – FERRÉ\, VOS PAPIERS ! ORION\, TES CHANSONS !
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : MICHEL ORION – FERRÉ\, VOS PAPIERS ! ORION\, TES CHANSONS !
+END:VALARM
+END:VEVENT
+END:VCALENDAR

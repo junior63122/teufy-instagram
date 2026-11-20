@@ -1438,5 +1438,26 @@
   "introuvable": true,
   "v": 2,
   "le": "2026-11-20T14:44:27.828Z"
+ },
+ "15 rue des freres pradignac|cannes": {
+  "lat": 43.55145,
+  "lng": 7.02345,
+  "le": "2026-11-20T15:29:22.508Z"
+ },
+ "le 109, nice|nice": {
+  "lat": 43.71736,
+  "lng": 7.28411,
+  "le": "2026-11-20T15:29:24.051Z"
+ },
+ "mamamia|nice": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-20T15:46:01.388Z",
+  "adr": true
+ },
+ "cafe pop|auriol": {
+  "lat": 43.31679,
+  "lng": 6.07654,
+  "le": "2026-11-20T15:46:06.125Z"
  }
 }

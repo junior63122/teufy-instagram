@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:rencontre-d-echecs-a-nice-alt-f4-2026-12-08@teufy
+DTSTAMP:20261120T155144Z
+DTSTART:20261208T180000Z
+DTEND:20261208T230000Z
+SUMMARY:Rencontre d’échecs à Nice · ALT F4
+LOCATION:ALT F4\, 20 Rue Jules Bianchi\, 06200 Nice\, France 06200 Nice\, Nice
+DESCRIPTION:Billets : https://www.eventbrite.fr/e/rencontre-dechecs-a-nice-alt-f4-tickets-2005036740866\nVia Teufy @teufy_official
+URL:https://www.eventbrite.fr/e/rencontre-dechecs-a-nice-alt-f4-tickets-2005036740866
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Rencontre d’échecs à Nice · ALT F4
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Rencontre d’échecs à Nice · ALT F4
+END:VALARM
+END:VEVENT
+END:VCALENDAR

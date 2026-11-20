@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:cabinet-of-curious-sketches-at-bricolites-nice-fr-2026-11-26@teufy
+DTSTAMP:20261120T155144Z
+DTSTART:20261126T180000Z
+DTEND:20261126T230000Z
+SUMMARY:Cabinet of Curious Sketches at BRICOLITÉS (Nice\, FR)
+LOCATION:Bricolités\, 14 Rue de Paris 06000 Nice\, Nice
+DESCRIPTION:Billets : https://www.eventbrite.com/e/cabinet-of-curious-sketches-at-bricolites-nice-fr-registration-2004062124763\nVia Teufy @teufy_official
+URL:https://www.eventbrite.com/e/cabinet-of-curious-sketches-at-bricolites-nice-fr-registration-2004062124763
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Cabinet of Curious Sketches at BRICOLITÉS (Nice\, FR)
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Cabinet of Curious Sketches at BRICOLITÉS (Nice\, FR)
+END:VALARM
+END:VEVENT
+END:VCALENDAR

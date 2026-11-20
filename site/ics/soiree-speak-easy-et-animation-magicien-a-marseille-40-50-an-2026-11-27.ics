@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:soiree-speak-easy-et-animation-magicien-a-marseille-40-50-an-2026-11-27@teufy
+DTSTAMP:20261120T155144Z
+DTSTART:20261127T180000Z
+DTEND:20261127T230000Z
+SUMMARY:Soirée Speak Easy & animation magicien à Marseille (40-50 ans)
+LOCATION:Annette\, 9 Rue Molière 13001 Marseille\, Marseille
+DESCRIPTION:Billets : https://www.eventbrite.com/e/billets-soiree-speak-easy-animation-magicien-a-marseille-40-50-ans-2004643665166\nVia Teufy @teufy_official
+URL:https://www.eventbrite.com/e/billets-soiree-speak-easy-animation-magicien-a-marseille-40-50-ans-2004643665166
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Soirée Speak Easy & animation magicien à Marseille (40-50 ans)
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Soirée Speak Easy & animation magicien à Marseille (40-50 ans)
+END:VALARM
+END:VEVENT
+END:VCALENDAR

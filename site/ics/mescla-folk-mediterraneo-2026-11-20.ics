@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:mescla-folk-mediterraneo-2026-11-20@teufy
+DTSTAMP:20261120T155144Z
+DTSTART:20261120T193000Z
+DTEND:20261121T003000Z
+SUMMARY:MESCLA – Folk-Mediterraneo
+LOCATION:Le Quartier du Poulpe\, 34 Boulevard Auguste Raynaud 06100 Nice\, Nice
+DESCRIPTION:Billets : https://www.eventbrite.com/e/mescla-folk-mediterraneo-tickets-2004511179899\nVia Teufy @teufy_official
+URL:https://www.eventbrite.com/e/mescla-folk-mediterraneo-tickets-2004511179899
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : MESCLA – Folk-Mediterraneo
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : MESCLA – Folk-Mediterraneo
+END:VALARM
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:smartinibellini-a-pinerolo-workshop-apericena-dj-set-e-notte-2026-11-27@teufy
+DTSTAMP:20261120T155144Z
+DTSTART:20261127T090000Z
+DTEND:20261127T140000Z
+SUMMARY:#SmartiniBellini a Pinerolo: workshop\, apericena\, DJ set e notte in Cascina
+LOCATION:Tenuta La Cascinetta\, Regione Rena 10060 Buriasco\, Buriasco
+DESCRIPTION:Billets : https://www.eventbrite.com/e/biglietti-smartinibellini-a-pinerolo-workshop-apericena-dj-set-e-notte-in-cascina-2005061287285\nVia Teufy @teufy_official
+URL:https://www.eventbrite.com/e/biglietti-smartinibellini-a-pinerolo-workshop-apericena-dj-set-e-notte-in-cascina-2005061287285
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : #SmartiniBellini a Pinerolo: workshop\, apericena\, DJ set e notte in Cascina
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : #SmartiniBellini a Pinerolo: workshop\, apericena\, DJ set e notte in Cascina
+END:VALARM
+END:VEVENT
+END:VCALENDAR
