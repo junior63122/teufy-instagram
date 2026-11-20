@@ -2,6 +2,17 @@
   "_note": "Numéro de version affiché en pied de page du site et sur /mises-a-jour/ (directeur, 19/11/2026 : format « 1.13.02 », comme Minecraft). Règle : correction(s) seulement → dernier nombre +1 (1.13.02 → 1.13.03) ; nouvelle fonctionnalité → nombre du milieu +1 et le dernier revient à 01 (1.13.02 → 1.14.01) ; énorme fonctionnalité ou grosse refonte → premier nombre +1 (1.13.02 → 2.01.01). La plus récente en premier.",
   "versions": [
     {
+      "numero": "1.16.01",
+      "date": "2026-11-20",
+      "titre": "Nouvelle page : Bien sortir",
+      "public": [
+        "Une page « Bien sortir » : les bons réflexes pour rentrer, garder son verre, appeler à l'aide, et acheter ses billets sans se faire arnaquer."
+      ],
+      "notes": [
+        "Site : page « Bien sortir » (sécurité en soirée, numéros d'urgence officiels, arnaques à la revente de billets), dans le menu Teufy et le pied de page, en 6 langues."
+      ]
+    },
+    {
       "numero": "1.15.01",
       "date": "2026-11-20",
       "titre": "Teufy arrive sur TikTok",

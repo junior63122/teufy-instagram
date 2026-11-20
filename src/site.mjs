@@ -827,6 +827,7 @@ export async function construireSite({ events, eventsFrance = [], eventsOccitani
       for (const a of actus) ajoute(`actus/${a.id}/`, (c) => pageActu({ ...c, a }));
       ajoute('partenaires/', (c) => pagePartenaire(c));
       ajoute('faq/', (c) => pageFaq(c));
+      ajoute('bien-sortir/', (c) => pageBienSortir(c));
       ajoute('ambassadeurs/', (c) => pageAmbassadeur(c));
       ajoute('bde/', (c) => pageBde({ ...c, soirees: sl.filter((x) => x.etudiant) }));
       for (const cle of Object.keys(PAGES_LEGALES)) ajoute(`${cle}/`, (c) => pageLegal({ ...c, cle }));
@@ -1420,7 +1421,7 @@ const groupesNav = ({ t, lang, SA }) => { const L = LIB_NAV[lang] || LIB_NAV.fr;
   ['lieux', L.lieux, [['clubs-bars/', t.lieuxNav], ['restaurants/', t.restos], ['manger-tard/', { fr: 'Manger tard (2 h–5 h)', en: 'Late-night food', it: 'Mangiare di notte', es: 'Comer de madrugada', zh: '深夜美食', ar: 'أكل في آخر الليل' }[lang] || 'Manger tard'], ['after/', 'After'], ['activites/', t.activites], ['dates/', t.dates]]],
   ['styles', L.styles, PAGES_STYLES.map((k) => [`soirees-${k}/`, nomStyle(k, t, lang)])],
   ['pros', L.pros, [['partenaires/', L.devenir], ['partenaires/#tarifs', L.tarifs], ['ambassadeurs/', t.ambassadeurs], ['bde/', t.bde]]],
-  ['teufy', L.teufy, [['a-propos/', t.qui], ['a-propos/#modele', { fr: 'Comment Teufy se finance', en: 'How Teufy makes money', it: 'Come si finanzia Teufy', es: 'Cómo se financia Teufy', zh: 'Teufy 如何盈利', ar: 'كيف تموّل Teufy نفسها' }[lang] || 'Comment Teufy se finance'], ['actus/', t.actus], ...(VERSIONS.length ? [['mises-a-jour/', LIB_NOUV[lang] || LIB_NOUV.fr]] : []), ['faq/', 'FAQ']]],
+  ['teufy', L.teufy, [['a-propos/', t.qui], ['a-propos/#modele', { fr: 'Comment Teufy se finance', en: 'How Teufy makes money', it: 'Come si finanzia Teufy', es: 'Cómo se financia Teufy', zh: 'Teufy 如何盈利', ar: 'كيف تموّل Teufy نفسها' }[lang] || 'Comment Teufy se finance'], ['actus/', t.actus], ['bien-sortir/', { fr: 'Bien sortir', en: 'Going out safely', it: 'Uscire sicuri', es: 'Salir seguro', zh: '安全出行', ar: 'الخروج بأمان' }[lang] || 'Bien sortir'], ...(VERSIONS.length ? [['mises-a-jour/', LIB_NOUV[lang] || LIB_NOUV.fr]] : []), ['faq/', 'FAQ']]],
 ]; };
 const ICO_ONGLET = {
   agenda: '<path d="M4 6h16v14H4zM4 10h16M8 3v5M16 3v5"/>', soir: '<path d="M15 3a8 8 0 1 0 6 13A7 7 0 0 1 15 3z"/>',
@@ -2581,6 +2582,51 @@ ${soirees.length ? `<section class="bloc-large reveal"><h2>${tr(C.soireesH2)}</h
   return gabarit({ lang, t, titre: tr(C.titre), description: tr(C.desc), chemin, base, corps, compte, maj, image: soirees.find((x) => x.affiche)?.affiche || 'site/img/selfie.jpg', ld: [...ldOrganisation(T, compte, t, lang), ...jsonld(soirees, lang), fil(lang, [['Teufy', ''], [t.bde, chemin]])] });
 }
 // FAQ générale + sources (FAQPage pour Google), avec un sommaire cliquable.
+// Page « Bien sortir » (20/11/2026) : sécurité en soirée et arnaques aux billets. Uniquement des conseils généraux et des
+// numéros officiels (aucune info inventée) ; traduite comme le reste du site.
+const BIEN_SORTIR = {
+  titre: 'Bien sortir : sécurité en soirée et billets sans arnaque · Teufy', h1: 'Bien sortir', etiquette: 'Sécurité',
+  chapo: 'Les réflexes pour profiter de la nuit sans mauvaise surprise : rentrer, se protéger, appeler à l’aide, acheter ses billets sans se faire avoir.',
+  desc: 'Conseils pour sortir en sécurité sur la Côte d’Azur : retour de soirée, verre surveillé, numéros d’urgence, revente de billets sans arnaque.',
+  groupes: [
+    ['Avant de sortir', [
+      ['Partage ta soirée', 'Dis à un proche où tu vas et vers quelle heure tu comptes rentrer. Tu peux aussi partager ta position en direct depuis ton téléphone (Localiser sur iPhone, Partager ma position dans Google Maps).'],
+      ['Prévois ton retour avant de partir', 'Regarde l’heure du dernier train ou bus, garde de quoi payer un taxi, et ne monte jamais dans une voiture conduite par quelqu’un qui a bu ou consommé.'],
+      ['Batterie et numéro de secours', 'Charge ton téléphone avant de partir et garde sur toi un numéro de proche écrit sur papier, au cas où ta batterie lâche.'],
+    ]],
+    ['Pendant la soirée', [
+      ['Ton verre, tu le gardes', 'Ne laisse jamais ton verre sans surveillance et n’accepte pas un verre dont tu n’as pas vu le service. Au moindre doute, ne le bois pas.'],
+      ['Malaise soudain après un verre', 'Vertiges, somnolence ou trous de mémoire sans raison : préviens tout de suite le personnel ou la sécurité du lieu et appelle le 15. Certaines substances ne se détectent que quelques heures : fais-toi examiner rapidement.'],
+      ['Harcèlement ou agression', 'Préviens la sécurité ou le personnel, puis appelle le 17 ou le 112. Si tu ne peux pas parler, envoie un SMS au 114.'],
+      ['« Demande Angela »', 'Dans les bars et les clubs qui affichent ce dispositif, demander « Angela » au personnel signale discrètement que tu as besoin d’aide pour quitter une situation qui te met mal à l’aise.'],
+    ]],
+    ['Numéros utiles', [
+      ['112', 'Numéro d’urgence européen, depuis n’importe quel téléphone.'],
+      ['15 · 17 · 18', 'SAMU (urgence médicale), police, pompiers.'],
+      ['114', 'Urgences par SMS, quand tu ne peux pas appeler ou parler.'],
+      ['3919', 'Violences faites aux femmes : écoute gratuite et anonyme, jour et nuit.'],
+      ['0 800 23 13 13', 'Drogues info service : écoute gratuite et anonyme.'],
+    ]],
+    ['Billets : ne te fais pas arnaquer', [
+      ['Achète sur la billetterie officielle', 'Passe par le lien de l’organisateur (c’est celui que nous donnons sur chaque fiche soirée), jamais par un lien reçu en message.'],
+      ['Revente : la voie officielle d’abord', 'Beaucoup de billetteries ont leur propre système de revente ou de liste d’attente : c’est la seule revente vraiment sûre.'],
+      ['Les signes d’une arnaque', 'Prix très bas pour une soirée complète, vendeur pressé, paiement « entre amis », virement ou carte prépayée : en cas de problème, tu n’as aucun recours.'],
+      ['Un billet peut être revendu plusieurs fois', 'Un billet électronique copié peut être vendu à plusieurs personnes : seule la première qui le fait scanner entre.'],
+      ['Faux comptes de concours', 'Teufy ne demande jamais de paiement, de mot de passe ni de clic sur un lien pour te remettre un lot. Les gagnants sont contactés uniquement par @teufy_official.'],
+    ]],
+  ],
+};
+function pageBienSortir({ lang, t, tr, base, compte, T, chemin, maj }) {
+  const C = BIEN_SORTIR;
+  const corps = `<article class="article page-bien-sortir">
+  <p class="etiquette">${esc(tr(C.etiquette))}</p>
+  <h1>${esc(tr(C.h1))}</h1>
+  <p>${esc(tr(C.chapo))}</p>
+  ${C.groupes.map(([g, l]) => `<section class="qui faq"><h2>${esc(tr(g))}</h2>${l.map(([q, r]) => `<details><summary>${esc(/^[\d ·]+$/.test(q) ? q : tr(q))}</summary><p>${esc(tr(r))}</p></details>`).join('')}</section>`).join('\n  ')}
+</article>`;
+  return gabarit({ lang, t, titre: tr(C.titre), description: tr(C.desc), chemin, base, corps, compte, maj, ld: [...ldOrganisation(T, compte, t, lang), fil(lang, [['Teufy', ''], [tr(C.h1), chemin]])] });
+}
+
 function pageFaq({ lang, t, tr, base, compte, T, chemin, maj, posts }) {
   const C = FAQ, slugG = (x) => slug(x);
   const faq = C.groupes.flatMap(([, l]) => l.map(([q, r]) => [tr(q), tr(r)]));

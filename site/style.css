@@ -1824,3 +1824,6 @@ button.puce.actif{background:var(--creme);color:var(--nuit)}
 .page-maj details{margin-top:12px;font-size:14px;opacity:.85}
 .page-maj summary{cursor:pointer;font-weight:700}
 .page-maj details ul{margin-top:8px}
+/* Page « Bien sortir » (20/11/2026) : blocs pleine largeur, alignés à gauche */
+.page-bien-sortir .qui.faq{width:100%;max-width:none;margin:8px 0 0;text-align:left;align-self:stretch}
+.page-bien-sortir .qui.faq details{width:100%}
