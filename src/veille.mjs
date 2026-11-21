@@ -127,6 +127,44 @@ export async function confirmerPublicationVeille(titre, now = new Date()) {
 const texteOk = (s, max) => typeof s === 'string' && s.trim().length > 2 && s.length <= max && !/—|lien en bio|t[ée]l[ée]charg/i.test(s);
 
 /** Analyse de veille. Renvoie { sujets, apublier (ou null), idees } et met à jour les fichiers de suivi. */
+// Rattrapage des actus (21/11/2026, directeur : « dans la page Actus il y en a vraiment pas beaucoup ») : les idées notées
+// 60/100 et plus (contenus/idees.json) n'avaient jamais d'article, seuls les sujets tout juste détectés en recevaient un.
+// À chaque passage, au plus `max` idées récentes deviennent un article, écrit UNIQUEMENT à partir de la page source relue
+// maintenant (si la page ne confirme pas l'info, ou n'est pas lisible, rien n'est publié et l'idée est marquée).
+export async function rattraperActus({ config, ia = LLM, now = new Date(), log = console.log, max = 2, lirePage } = {}) {
+  const V = config.veille || {};
+  const IDEES = path.join(ROOT, 'contenus', 'idees.json'), ACTUS = path.join(ROOT, 'contenus', 'actus.json');
+  const idees = lire(IDEES, []), actus = lire(ACTUS, []);
+  const liste = Array.isArray(idees) ? idees : [];
+  const deja = new Set(actus.map((a) => a.cle));
+  const cand = liste.filter((x) => (x.importance ?? 0) >= (V.seuil_site ?? 60) && /^https?:\/\//.test(x.source || '') && !x.actu_refusee && !deja.has(String(x.id))
+    && (!x.ajout || now - Date.parse(x.ajout) < 30 * 864e5)).sort((a, b) => (b.importance ?? 0) - (a.importance ?? 0)).slice(0, max);
+  if (!cand.length) return 0;
+  const page = lirePage || (async (u) => { const r = await fetch(u, { headers: { 'user-agent': 'Mozilla/5.0 (compatible; TeufyVeille/1.0)' }, signal: AbortSignal.timeout(20000) }); if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    return (await r.text()).replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>/gi, ' ').replace(/<[^>]+>/g, ' ').replace(/&nbsp;|&#160;/g, ' ').replace(/\s+/g, ' ').slice(0, 9000); });
+  const SCHEMA_ART = { type: 'object', additionalProperties: false, required: ['confirme', 'titre', 'chapo', 'paragraphes', 'ville'], properties: {
+    confirme: { type: 'boolean', description: 'true seulement si le texte de la page confirme l\'information.' }, titre: { type: 'string' }, chapo: { type: 'string' },
+    paragraphes: { type: 'array', items: { type: 'string' } }, ville: { type: 'string' } } };
+  let n = 0;
+  for (const x of cand) {
+    let texte = '';
+    try { texte = await page(x.source); } catch (err) { log(`Actus : source illisible pour « ${x.titre} » (${err.message}).`); }
+    if (texte.length < 300) { x.actu_refusee = 'source illisible'; continue; }
+    try {
+      const a = await ia.json({ config, gratuit: true, secondaire: true, nom: 'article', schema: SCHEMA_ART,
+        system: `Tu écris une courte actu pour le site d'un guide des soirées de la Côte d'Azur (17-30 ans), en français simple. N'utilise QUE les faits présents dans le texte de la page fournie : aucun chiffre, date, nom ou lieu qui n'y figure pas. Si la page ne confirme pas l'information, ou si l'événement est déjà passé (nous sommes le ${now.toISOString().slice(0, 10)}), confirme = false.`,
+        prompt: `Information repérée : ${x.titre}\nRésumé : ${x.resume || x.angle || ''}\nSource : ${x.source}\n\nTexte de la page :\n${texte}\n\nÉcris : un titre (70 caractères au plus), un chapô d'une phrase, 2 à 4 paragraphes courts (ce qui se passe, quand, où, pour qui, comment y aller ou réserver si la page le dit), la ville.` });
+      const ok = a && a.confirme === true && a.titre && a.chapo && Array.isArray(a.paragraphes) && a.paragraphes.filter((p) => String(p).trim().length > 40).length >= 2;
+      if (!ok) { x.actu_refusee = 'non confirmée par la source'; log(`Actus : « ${x.titre} » non confirmée par sa source, pas publiée.`); continue; }
+      actus.push({ cle: String(x.id), date: x.ajout || now.toISOString(), ajout: now.toISOString(), type: x.type, importance: x.importance, source: x.source, image: '', titre: a.titre, chapo: a.chapo, paragraphes: a.paragraphes.slice(0, 4), ville: a.ville });
+      n++; log(`Actus : article ajouté (rattrapage) : « ${a.titre} ».`);
+    } catch (err) { log(`Actus : rédaction impossible pour « ${x.titre} » (${err.message}).`); }
+  }
+  await writeFile(ACTUS, JSON.stringify(actus.slice(-200), null, 1) + '\n');
+  await writeFile(IDEES, JSON.stringify(idees, null, 1) + '\n');
+  return n;
+}
+
 export async function veiller({ config, now = new Date(), ig = null, api = {}, ia = LLM, log = console.log, dryRun = false } = {}) {
   const V = config.veille || {};
   const vus = lire(VUS, {});
@@ -141,6 +179,7 @@ export async function veiller({ config, now = new Date(), ig = null, api = {}, i
   const dernierPassage = vus._dernier_passage ? Date.parse(vus._dernier_passage) : 0;
   if (process.env.VEILLE_FORCER !== '1' && dernierPassage <= now.getTime() && now - dernierPassage < ((V.intervalle_minutes ?? 60) - 5) * 60e3) { log(`Veille : dernier passage il y a ${Math.round((now - dernierPassage) / 60e3)} min (rythme : ${V.intervalle_minutes ?? 60} min).`); return { sujets: [], apublier: null, idees: [] }; }
   if (!dryRun) { vus._dernier_passage = now.toISOString(); await mkdir(path.dirname(VUS), { recursive: true }); await writeFile(VUS, JSON.stringify(vus, null, 1) + '\n'); }
+  if (!dryRun) { try { await rattraperActus({ config, ia, now, log }); } catch (err) { log(`Actus : rattrapage impossible (${err.message}).`); } }
 
   // 1. Signaux.
   const posts = ig && api.businessDiscovery ? await postsRecents({ ig, api, now, heures: V.fenetre_heures ?? 36, log }) : [];
