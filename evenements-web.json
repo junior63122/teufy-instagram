@@ -3420,6 +3420,30 @@
       "instagram": [
         "bulldogpompeipub"
       ]
+    },
+    {
+      "source": "web",
+      "source_site": "instagram.com",
+      "via_veille": true,
+      "name": "Week‑end Techno L'Antre",
+      "start": "2026-11-23T19:00:00.000Z",
+      "venue": "L'Antre Techno, Nice",
+      "city": "Nice",
+      "address": "",
+      "url": "https://www.instagram.com/reel/Df-VMRsRCgs/",
+      "image": "",
+      "price": null,
+      "tags": [
+        "Techno",
+        "Electronic"
+      ],
+      "description": "",
+      "public_cible": 0.6,
+      "confiance": 0.9,
+      "accroche": "Bon son comme on les aime à L'Antre les 23‑24 nov.",
+      "instagram": [
+        "lantretechno"
+      ]
     }
   ],
   "maj_instagram": "2026-11-21T09:42:05.716Z"
