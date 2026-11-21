@@ -10,7 +10,6 @@
    "site": "https://highclub.com/",
    "description": "Grand club de la Promenade des Anglais réunissant plusieurs salles, dont le Studio 47 (années 80 et disco).",
    "soirees": [
-    "students-party-high-club-2026-11-20",
     "good-times-2026-11-21",
     "coachellito-high-club-friends-et-family-edition-2026-11-27",
     "to-have-fun-2026-11-28",
@@ -21,16 +20,16 @@
    ],
    "prochaines": [
     {
-     "id": "students-party-high-club-2026-11-20",
-     "nom": "Students Party @ High Club"
-    },
-    {
      "id": "good-times-2026-11-21",
      "nom": "Good Times"
     },
     {
      "id": "coachellito-high-club-friends-et-family-edition-2026-11-27",
      "nom": "Coachellito — High Club (Friends & Family Edition)"
+    },
+    {
+     "id": "to-have-fun-2026-11-28",
+     "nom": "To Have Fun"
     }
    ],
    "insta": {
@@ -61,12 +60,6 @@
     "relu": "verification 2026-11-13"
    },
    "soirs": [
-    [
-     "2026-11-20",
-     "minuit",
-     "students-party-high-club-2026-11-20",
-     "Students Party @ High Club"
-    ],
     [
      "2026-11-21",
      "minuit",
@@ -116,8 +109,7 @@
    "stylesSoirees": [
     "house",
     "rap",
-    "commercial",
-    "techno"
+    "commercial"
    ]
   },
   {
@@ -208,7 +200,7 @@
    "score": 0,
    "soirs": [],
    "details": {
-    "le": "2026-11-20T23:06:53.533Z",
+    "le": "2026-11-21T07:13:56.747Z",
     "styles": "DJ résidents (ven–sam après 22h)",
     "dress_code": "",
     "horaires": "lun–dim 10h–2h",
@@ -711,7 +703,6 @@
    "site": "https://glasscannes.com",
    "description": "Bar à cocktails haut de gamme doublé d'un petit club (80 à 90 personnes) à une minute de la Croisette et du Palais des Festivals, tourné vers la house et la deep house.",
    "soirees": [
-    "axel-birthday-one-night-only-2026-11-20",
     "sensoria-into-the-frequency-w-nico-v-2026-11-21",
     "kx-dj-not-so-innocent-2026-11-26",
     "ugo-puccinelli-pretty-little-sins-2026-11-27",
@@ -720,16 +711,16 @@
    ],
    "prochaines": [
     {
-     "id": "axel-birthday-one-night-only-2026-11-20",
-     "nom": "Axel' Birthday One Night Only"
-    },
-    {
      "id": "sensoria-into-the-frequency-w-nico-v-2026-11-21",
      "nom": "Sensoria — Into The Frequency w/ Nico.V"
     },
     {
      "id": "kx-dj-not-so-innocent-2026-11-26",
      "nom": "Kx Dj / Not So Innocent"
+    },
+    {
+     "id": "ugo-puccinelli-pretty-little-sins-2026-11-27",
+     "nom": "Ugo Puccinelli / Pretty Little Sins"
     }
    ],
    "insta": {
@@ -739,12 +730,6 @@
    "score": 0,
    "photo": "site/lieux/site-ac23a09caae7-176.webp",
    "soirs": [
-    [
-     "2026-11-20",
-     "minuit",
-     "axel-birthday-one-night-only-2026-11-20",
-     "Axel' Birthday One Night Only"
-    ],
     [
      "2026-11-21",
      "minuit",
@@ -1342,14 +1327,9 @@
    "site": "https://twigamontecarlo.com/",
    "description": "Restaurant puis club au 2e étage du Grimaldi Forum, avec dîner en soirée et club jusqu'à 4-5 h selon les soirs.",
    "soirees": [
-    "dinner-dj-set-fri-20-2026-11-20",
     "dinner-dj-set-sat-21-2026-11-21"
    ],
    "prochaines": [
-    {
-     "id": "dinner-dj-set-fri-20-2026-11-20",
-     "nom": "Dinner DJ Set – Fri 20"
-    },
     {
      "id": "dinner-dj-set-sat-21-2026-11-21",
      "nom": "Dinner DJ Set – Sat 21"
@@ -1362,7 +1342,7 @@
     "posts21": 8
    },
    "slug": "twiga-monte-carlo-monaco",
-   "score": 0.32727272727272727,
+   "score": 0.2772727272727273,
    "photo": "site/lieux/twigamontecarlo-176.webp",
    "details": {
     "le": "2026-11-13T17:38:33.455Z",
@@ -1383,12 +1363,6 @@
     "relu": "verification 2026-11-13"
    },
    "soirs": [
-    [
-     "2026-11-20",
-     "20:30",
-     "dinner-dj-set-fri-20-2026-11-20",
-     "Dinner DJ Set – Fri 20"
-    ],
     [
      "2026-11-21",
      "20:30",

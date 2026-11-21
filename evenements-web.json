@@ -6,104 +6,6 @@
   "evenements": [
     {
       "source": "web",
-      "source_site": "Instagram",
-      "name": "Naya Cannes - Rudboy Music x djaymoune",
-      "start": "2026-11-20T23:00:00.000Z",
-      "venue": "Naya Cannes",
-      "city": "Cannes",
-      "address": "",
-      "url": "https://www.instagram.com/p/Df5e_fbxyi4/",
-      "image": "https://scontent-iad3-2.cdninstagram.com/v/t51.82787-15/910650491_18020357819975157_6980853114371674440_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=107&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=9Wv42JGeFSEQ7kNvwEnOe8F&_nc_oc=Adr2P1t-Obj-5UH8prh-UlAFEsM-GBc-qBPOfPbvvMPqNfV-zlUEVtnweFODhU3ypEM&_nc_zt=23&_nc_ht=scontent-iad3-2.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=lFRxeS6XW8JOy6DdlQ60ZQ&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQSb053cQ_J05gCC1yBQ5a6b9J64fywB8ISIcWYJFTNCEw&oe=6B06909D",
-      "price": 0,
-      "tags": [
-        "club",
-        "dj_set",
-        "electro"
-      ],
-      "description": "Soirée club au Naya Cannes avec les DJ Rudboy Music et djaymoune. Ouvert du vendredi au samedi de minuit à 5h du matin.",
-      "public_cible": 0.95,
-      "confiance": 0.9,
-      "buzz": 0.65,
-      "buzz_raison": "Club de niche à Cannes, engagement Instagram modéré mais régulier sur la zone cible.",
-      "accroche": "Naya Cannes : DJ set avec Rudboy Music et djaymoune",
-      "instagram": [
-        "nayaclubcannes",
-        "rudboy_music"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "provence-alpes-cotedazur.com",
-      "name": "Paul Seul (+ Warm up + Closing)",
-      "start": "2026-11-20T19:00:00.000Z",
-      "venue": "Frigo 16 (Le 109)",
-      "city": "Nice",
-      "address": "",
-      "url": "https://my.weezevent.com/paul-seul-premiere-partie-frigo-16",
-      "image": "https://static.apidae-tourisme.com/filestore/objets-touristiques/images/99/147/42832739.jpg",
-      "price": 12.49,
-      "tags": [
-        "techno",
-        "gabber",
-        "club",
-        "hard techno",
-        "Techno",
-        "Hard Dance",
-        "Gabber",
-        "Electro",
-        "Hard Techno",
-        "Eurodance",
-        "Néo-Pop",
-        "rave",
-        "frapcore",
-        "electro",
-        "Rave",
-        "Pop/Electro",
-        "Hardcore",
-        "Fast Pop",
-        "eurodance",
-        "hard dance",
-        "hard music",
-        "core"
-      ],
-      "description": "Ce vendredi 20 novembre, Frigo 16 ouvre ses portes à la scène hard music. Paul Orzoni, Odyze_ et Leardcore se succèdent sur les platines pour une nuit 100 % hard. La soirée démarre à 20 h, avec food & drinks et un accès gratuit sur inscription. L’ambiance est brute, les beats lourds et la foule prête à vibrer jusqu’à 2 h du matin.",
-      "public_cible": 0.9,
-      "confiance": 0.95,
-      "buzz": 0.9,
-      "buzz_raison": "Cofondateur de Casual Gabberz et membre d'Ascendant Vierge",
-      "accroche": "Paul Seul de Casual Gabberz et Ascendant Vierge débarque au Frigo 16.",
-      "instagram": [
-        "pandaevents06",
-        "paulseul",
-        "le109nice"
-      ],
-      "offres": [
-        {
-          "plateforme": "shotgun.live",
-          "url": "https://shotgun.live/events/paul-seul-premiere-partie-frigo-16",
-          "prix": 12.49
-        },
-        {
-          "plateforme": "my.weezevent.com",
-          "url": "https://my.weezevent.com/paul-seul-premiere-partie-frigo-16",
-          "prix": 10
-        }
-      ],
-      "sources_sites": [
-        "provence-alpes-cotedazur.com",
-        "Shotgun",
-        "Shotgun.live",
-        "Shotgun / Panda Events",
-        "shotgun.live",
-        "webtimemedias.com",
-        "instagram"
-      ],
-      "billetterie_cherchee": true,
-      "offres_cherchees": true,
-      "via_veille": true
-    },
-    {
-      "source": "web",
       "source_site": "Shotgun",
       "name": "Jerrycans Release Party @ Frigo 16",
       "start": "2026-11-26T19:00:00.000Z",
@@ -264,31 +166,6 @@
     },
     {
       "source": "web",
-      "source_site": "naho_club Instagram",
-      "name": "BANGER RAP FR",
-      "start": "2026-11-20T23:00:00.000Z",
-      "venue": "Naho Club",
-      "city": "La Garde",
-      "address": "",
-      "url": "https://www.instagram.com/p/DfxG53zCDGS/",
-      "image": "https://scontent-ord5-2.cdninstagram.com/v/t51.82787-15/907709906_18128299369917771_5082179090706954869_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=104&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=yHNIYbSh560Q7kNvwFh0Grd&_nc_oc=AdqG0yxkGKyJyiMAun7KrzOUba0MDLgeBkpgJyDJl6VznfaeWGE30uTYG_xDDD4eRKE&_nc_zt=23&_nc_ht=scontent-ord5-2.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=R4s_61uvy6JVKX9jYv9AKg&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQTGirRbVLq7Zj_BI_7hbtmYM4ozxM2k7FeUmwqW620bqg&oe=6B06660B",
-      "price": null,
-      "tags": [
-        "rap",
-        "hip hop"
-      ],
-      "description": "Samedi 21 novembre, Naho Club accueille BANGER, une soirée rap française. Les artistes SDM, Shay et Franglish seront présents, ainsi que les derniers hits et les classiques. La soirée débute à 00h et se termine à 05h. Le club se trouve à 116 Av. de Digne, 83130 La Garde. Pas de pré‑vente, mais vous pouvez réserver sur le numéro indiqué. L’ambiance est forte, idéale pour les 17‑30 ans qui aiment le rap.",
-      "public_cible": 0.95,
-      "confiance": 0.94,
-      "buzz": 0.8,
-      "buzz_raison": "Line‑up rap français connu, club réputé, samedi soir.",
-      "accroche": "BANGER revient au Naho Club pour une édition spéciale RAP FR.",
-      "instagram": [
-        "naho_club"
-      ]
-    },
-    {
-      "source": "web",
       "source_site": "Instagram",
       "name": "Le Réveillon du Bar Éphémère",
       "start": "2026-12-31T18:00:00.000Z",
@@ -310,39 +187,6 @@
       "accroche": "Réveillon à l'Auberge TAO : dîner festif + DJ set jusqu’à 2h du matin.",
       "instagram": [
         "le.bar.ephemere"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "le.bar.ephemere",
-      "name": "Soirée Inside - Binôme",
-      "start": "2026-11-20T18:00:00.000Z",
-      "venue": "Le Servan",
-      "city": "Valbonne",
-      "address": "",
-      "url": "https://www.instagram.com/p/DfNYz7KOumV/",
-      "image": "https://scontent-ord5-2.cdninstagram.com/v/t51.82787-15/879589436_18386963512238033_1099276741363965797_n.webp?stp=dst-jpg_e35_tt6&_nc_cat=102&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=JOikiJynTdQQ7kNvwFSCgZE&_nc_oc=Ado4Kg-KtydsQzQbpghA8QOlHHIFo8dWKE_8DlshifCq8kKjx1K0rajZprgqarYaUIo&_nc_zt=23&_nc_ht=scontent-ord5-2.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=QtVK4NxjwkZ_QqEh2gCyUw&oh=00_AQTUGwD9bN2ztvlbF-YCJmjkJW1j2Gs3Nns1ewjlxhYZrg&oe=6AF8C22A",
-      "price": 0,
-      "tags": [
-        "open format",
-        "house",
-        "electro",
-        "dancehall"
-      ],
-      "description": "Première soirée de la saison Inside à Leservan Valbonne. Petite carte de tapas et finger food, vin et cocktails, DJ set d’Aaron avec percussion de Paul Palmera. Table réservable entre 19h et 20h30, mais pas incluse dans la prévente. Dress code correct, parking sur place. Horaires 19h à 00h45, idéal pour les 17‑30 ans à la recherche d’une ambiance conviviale et musicale.",
-      "public_cible": 0.75,
-      "confiance": 0.95,
-      "buzz": 0.5,
-      "buzz_raison": "Soirée à thème binôme/déguisement de lancement de saison.",
-      "accroche": "Première soirée inside au Servan avec DJ set by Aaron et Paul Palmera aux percussions.",
-      "instagram": [
-        "le.bar.ephemere",
-        "leservan_valbonne"
-      ],
-      "offres": [],
-      "sources_sites": [
-        "le.bar.ephemere",
-        "Instagram"
       ]
     },
     {
@@ -393,28 +237,6 @@
       ],
       "billetterie_cherchee": true,
       "offres_cherchees": true
-    },
-    {
-      "source": "web",
-      "source_site": "instagram",
-      "name": "Dinner DJ Set – Fri 20",
-      "start": "2026-11-20T19:30:00.000Z",
-      "venue": "Twiga Monte Carlo",
-      "city": "Monaco",
-      "address": "",
-      "url": "https://www.instagram.com/p/Dfzwpa8M7L_/",
-      "image": "",
-      "price": null,
-      "tags": [],
-      "description": "Soirée dinner DJ Set à Twiga. Dîner à 20h30, club à 00h30. Idéal pour les jeunes qui veulent profiter d’une nuit chic.",
-      "public_cible": 0.9,
-      "confiance": 0.9,
-      "buzz": 0.5,
-      "buzz_raison": "Événement de routine, mais venue réputée.",
-      "accroche": "Dinner DJ Set – Fri 20 | Twiga Monte Carlo",
-      "instagram": [
-        "twigamontecarlo"
-      ]
     },
     {
       "source": "web",
@@ -566,118 +388,6 @@
         "nayaclubcannes"
       ],
       "offres": []
-    },
-    {
-      "source": "web",
-      "source_site": "Instagram",
-      "name": "Naya Cannes – Saturday Night",
-      "start": "2026-11-20T23:00:00.000Z",
-      "venue": "15 Rue des Frères Pradignac",
-      "city": "Cannes",
-      "address": "",
-      "url": "https://www.instagram.com/reel/DfaLq77xCmW/",
-      "image": "",
-      "price": null,
-      "tags": [
-        "techno",
-        "house",
-        "electro"
-      ],
-      "description": "Le samedi, le Naya Club poursuit la fièvre nocturne jusqu'à 5 h du matin. Situé au 15 rue des Frères Pradignac à Cannes, le club propose une ambiance techno/house électro pour les jeunes de la Riviera. Réserve ta table via le lien en bio, l'entrée se paye à la porte. Dress code libre, ambiance survoltée, idéal pour finir le week‑end en beauté.",
-      "public_cible": 0.95,
-      "confiance": 0.6,
-      "buzz": 0.55,
-      "buzz_raison": "Même audience que le vendredi, soirée récurrente, engagement moyen (likes 33, commentaires 2).",
-      "accroche": "Samedi jusqu'à l'aube, Naya te fait danser sans limite !",
-      "instagram": [
-        "nayaclubcannes"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "Shotgun.live",
-      "name": "Invictus Winter Session Act II (Laurent N. - Liza - Dj Safire)",
-      "start": "2026-11-20T19:30:00.000Z",
-      "venue": "So Blue Hôtel Restaurant",
-      "city": "Antibes",
-      "address": "",
-      "url": "https://shotgun.live/fr/events/invictus-winter-session-act-ii-laurent-n-liza-dj-safire",
-      "image": "https://assets.shotgun.live/image/upload/c_limit,w_384,fl_lossy,f_webp,q_5/production/artworks/Affiche_steampunk_Invictvs_%C3%A0_Nice_vzdwba.png",
-      "price": 15,
-      "tags": [
-        "afro house",
-        "tech house",
-        "house",
-        "Afro House",
-        "Tech House",
-        "House"
-      ],
-      "description": "",
-      "public_cible": 0.75,
-      "confiance": 0.95,
-      "buzz": 0.65,
-      "buzz_raison": "Session Invictus réunissant des figures de la scène électro azuréenne.",
-      "accroche": "Rendez-vous house avec Laurent N., Liza et DJ Safire au So Blue Antibes.",
-      "instagram": [
-        "laurentn_music",
-        "sobluehotel",
-        "sobluehotelnice"
-      ],
-      "sources_sites": [
-        "Shotgun Live",
-        "Shotgun",
-        "shotgun.live"
-      ],
-      "offres": [
-        {
-          "plateforme": "shotgun.live",
-          "url": "https://shotgun.live/fr/events/invictus-winter-session-act-ii-laurent-n-liza-dj-safire",
-          "prix": 15
-        }
-      ],
-      "billetterie_cherchee": true,
-      "offres_cherchees": true
-    },
-    {
-      "source": "web",
-      "source_site": "shotgun.live",
-      "name": "Axel' Birthday One Night Only",
-      "start": "2026-11-20T22:59:00.000Z",
-      "venue": "Glass Club Cannes",
-      "city": "Cannes",
-      "address": "",
-      "url": "https://shotgun.live/events/axel-birthday-one-night-only",
-      "image": "https://assets.shotgun.live/image/upload/c_limit,ar_16:9,w_3840,fl_lossy,f_webp,q_auto/production/artworks/42_4_lyypwn.png",
-      "price": 9.99,
-      "tags": [
-        "House",
-        "Deep House",
-        "Tech House",
-        "Afro",
-        "house"
-      ],
-      "description": "",
-      "public_cible": 0.85,
-      "confiance": 0.95,
-      "buzz": 0.6,
-      "buzz_raison": "Soirée anniversaire exclusive très attendue par les habitués",
-      "accroche": "Nuit exclusive house et afro au Glass Club pour fêter l'anniversaire d'Axel avec conso.",
-      "instagram": [
-        "glassclubcannes"
-      ],
-      "offres": [
-        {
-          "plateforme": "shotgun.live",
-          "url": "https://shotgun.live/events/axel-birthday-one-night-only",
-          "prix": 9.99
-        }
-      ],
-      "sources_sites": [
-        "shotgun.live",
-        "Shotgun"
-      ],
-      "billetterie_cherchee": true,
-      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -1243,56 +953,6 @@
     },
     {
       "source": "web",
-      "source_site": "ticketmaster.fr",
-      "name": "MASS HYSTERIA - SANS DÉTOUR",
-      "start": "2026-11-20T18:00:00.000Z",
-      "venue": "Le Live - Zénith de Toulon",
-      "city": "Toulon",
-      "address": "",
-      "url": "https://www.ticketmaster.fr/fr/manifestation/mass-hysteria-billet/idmanif/648840",
-      "image": "https://assets.tmassets.fr/image/upload/v1781564304/mediaflows/legacy%20import%20folder/a_648840.jpg",
-      "price": 32.2,
-      "tags": [
-        "Metal alternatif",
-        "Nu Metal",
-        "Fusion",
-        "Rock",
-        "Metal Industriel",
-        "Rock Énergique",
-        "Moshpit"
-      ],
-      "description": "",
-      "public_cible": 0.7,
-      "confiance": 0.95,
-      "buzz": 0.8,
-      "buzz_raison": "Jauge club limitée à 680 places et fort risque de sold out.",
-      "accroche": "Mass Hysteria en concert intimiste et fosse bouillante au Live de Toulon.",
-      "instagram": [
-        "tandem83",
-        "masshysteria_official",
-        "zenithdetoulon"
-      ],
-      "offres": [
-        {
-          "plateforme": "ticketmaster.fr",
-          "url": "https://www.ticketmaster.fr/fr/manifestation/mass-hysteria-billet/idmanif/648840",
-          "prix": 32.2
-        },
-        {
-          "plateforme": "shotgun.live",
-          "url": "https://shotgun.live/fr/events/mass-hysteria-sans-detour",
-          "prix": 28
-        }
-      ],
-      "sources_sites": [
-        "ticketmaster.fr",
-        "Shotgun"
-      ],
-      "billetterie_cherchee": true,
-      "offres_cherchees": true
-    },
-    {
-      "source": "web",
       "source_site": "See Tickets",
       "name": "PLK — Tournée des Zéniths 2026",
       "start": "2026-12-06T18:00:00.000Z",
@@ -1637,64 +1297,6 @@
     {
       "source": "web",
       "source_site": "Xceed",
-      "name": "Students Party @ High Club",
-      "start": "2026-11-20T22:59:00.000Z",
-      "venue": "High Club",
-      "city": "Nice",
-      "address": "",
-      "url": "https://xceed.me/fr/nice/event/students-party-nice",
-      "image": "https://images.xceed.me/events/banners/students-party-nice-xceed-square-2a95.png?w=1920&h=1920&ar=1:1&fm=auto",
-      "price": 15,
-      "tags": [
-        "hits",
-        "hip-hop",
-        "pop clubbing",
-        "house",
-        "club hits",
-        "Généraliste",
-        "Clubbing",
-        "Hip Hop",
-        "Commercial",
-        "open format",
-        "electro",
-        "rap club",
-        "pop"
-      ],
-      "description": "",
-      "public_cible": 0.95,
-      "confiance": 0.95,
-      "buzz": 0.75,
-      "buzz_raison": "Rendez-vous étudiant phare du vendredi dans le plus grand club niçois.",
-      "accroche": "Le grand rendez-vous étudiant du vendredi soir sur la Promenade des Anglais.",
-      "instagram": [
-        "highclubnice"
-      ],
-      "offres": [
-        {
-          "plateforme": "xceed.me",
-          "url": "https://xceed.me/fr/nice/event/students-party-nice",
-          "prix": 15
-        },
-        {
-          "plateforme": "highclub.fr",
-          "url": "https://www.highclub.fr/event/students-only-chic/",
-          "prix": 10
-        },
-        {
-          "plateforme": "yp.events",
-          "url": "https://yp.events/events/students-only-chic",
-          "prix": 10
-        }
-      ],
-      "sources_sites": [
-        "Xceed",
-        "highclub.fr",
-        "yp.events"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "Xceed",
       "name": "Coachellito — High Club (Friends & Family Edition)",
       "start": "2026-11-27T22:59:00.000Z",
       "venue": "High Club",
@@ -1842,42 +1444,6 @@
       "instagram": [
         "tatigalaxy",
         "le_stockfish"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "Shotgun.live",
-      "name": "Mouchki / Dhermo — Forest / Psytrance",
-      "start": "2026-11-20T20:00:00.000Z",
-      "venue": "L'Antre Bar Electro",
-      "city": "Nice",
-      "address": "",
-      "url": "https://shotgun.live/fr/venues/l-antre",
-      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto/production/artworks/IMG_1883_bwtzsy.jpg",
-      "price": 5.99,
-      "tags": [
-        "forest",
-        "psytrance"
-      ],
-      "description": "",
-      "public_cible": 0.8,
-      "confiance": 0.95,
-      "buzz": 0.55,
-      "buzz_raison": "Soirée psytrance underground locale",
-      "accroche": "Ambiance psychédélique et sonorités forest dans la cave de L'Antre avec Mouchki et Dhermo.",
-      "instagram": [
-        "lantretechno"
-      ],
-      "offres": [
-        {
-          "plateforme": "shotgun.live",
-          "url": "https://shotgun.live/fr/venues/l-antre",
-          "prix": 5.99
-        }
-      ],
-      "sources_sites": [
-        "Shotgun.live",
-        "Shotgun"
       ]
     },
     {
@@ -2788,33 +2354,6 @@
     {
       "source": "web",
       "source_site": "cannes.com / Infoconcert",
-      "name": "Le Niz / Sadras Alpha",
-      "start": "2026-11-20T20:00:00.000Z",
-      "venue": "MJC Picaud / Studio 13",
-      "city": "Cannes",
-      "address": "",
-      "url": "https://www.cannes.com/fr/agenda/annee-2026/novembre/le-niz-sadras-alpha.html",
-      "image": "",
-      "price": 8,
-      "tags": [
-        "Rap",
-        "Hip-Hop",
-        "Trap"
-      ],
-      "description": "",
-      "public_cible": 0.88,
-      "confiance": 0.92,
-      "buzz": 0.6,
-      "buzz_raison": "Scène rap émergente locale à 8 euros.",
-      "accroche": "La jeune scène rap et trap azuréenne en live percutant à petit tarif.",
-      "instagram": [
-        "mjcpicaud_cannes",
-        "leniz_officiel"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "cannes.com / Infoconcert",
       "name": "Yard of Blondes",
       "start": "2026-12-04T20:00:00.000Z",
       "venue": "MJC Picaud / La Tangente",
@@ -3119,32 +2658,6 @@
         "shafroevents",
         "segagency",
         "lefactoryclub"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "L'Artiste 83",
-      "name": "Black and White Party",
-      "start": "2026-11-20T20:00:00.000Z",
-      "venue": "L'Artiste 83",
-      "city": "Roquebrune-sur-Argens",
-      "address": "",
-      "url": "https://www.lartiste83.com",
-      "image": "https://www.lartiste83.com/files/sf72-30u8jfigvspq-p0lrx.jpg",
-      "price": 0,
-      "tags": [
-        "disco",
-        "electro",
-        "club"
-      ],
-      "description": "",
-      "public_cible": 0.7,
-      "confiance": 0.9,
-      "buzz": 0.5,
-      "buzz_raison": "Dress code Noir et Blanc et b2b pour une soirée spéciale anniversaire",
-      "accroche": "Dress code Noir et Blanc et b2b de DJ Pascal et DJ Jérôme Delplanque.",
-      "instagram": [
-        "lartiste83"
       ]
     },
     {
@@ -3813,30 +3326,6 @@
       "source": "web",
       "source_site": "instagram.com",
       "via_veille": true,
-      "name": "Matrix",
-      "start": "2026-11-20T21:00:00.000Z",
-      "venue": "DiezeWarehouse, Nice",
-      "city": "Nice",
-      "address": "",
-      "url": "https://www.instagram.com/p/Df9wC1hDVqL/",
-      "image": "https://scontent-atl3-1.cdninstagram.com/v/t51.82787-15/913794076_18102924371655466_2708372825271129863_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=106&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=u3HwG3djpXwQ7kNvwHa2WYz&_nc_oc=AdrFWbMD_hnf2dHZxeGfK5-4GICPvSrryi7lwlMSIz3tmJeOwN5f8mU0oOIMUYgtNfA&_nc_zt=23&_nc_ht=scontent-atl3-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=pFyNhxdpM_P_VhKkiACH3Q&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQR7nbbwg0nA8ux0S1Pvb0o0txLA4e1Nt6Bq-8sKZHw2wg&oe=6B063B9F",
-      "price": null,
-      "tags": [
-        "Techno",
-        "Electronic"
-      ],
-      "description": "",
-      "public_cible": 0.6,
-      "confiance": 0.9,
-      "accroche": "Soirée thématique Matrix au DiezeWarehouse, décor apocalyptique.",
-      "instagram": [
-        "prostcrastination"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "instagram.com",
-      "via_veille": true,
       "name": "DJ OBD – Groove Oldschool",
       "start": "2026-12-18T17:00:00.000Z",
       "venue": "Frigo 16, 89 route de Turin, Nice",
@@ -3854,30 +3343,6 @@
       "public_cible": 0.6,
       "confiance": 0.9,
       "accroche": "Soirée gratuite avec DJ OBD, funk, soul et R’n’B, 18 décembre.",
-      "instagram": [
-        "frigo.16"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "instagram.com",
-      "via_veille": true,
-      "name": "Co Club – Hard Music",
-      "start": "2026-11-20T19:00:00.000Z",
-      "venue": "Frigo 16, 89 route de Turin, Nice",
-      "city": "Nice",
-      "address": "",
-      "url": "https://www.instagram.com/reel/Df9XgZstlMV/",
-      "image": "",
-      "price": null,
-      "tags": [
-        "Hardcore",
-        "Gabber"
-      ],
-      "description": "",
-      "public_cible": 0.6,
-      "confiance": 0.9,
-      "accroche": "Soirée hard music avec Paul Seul, Odyze_ et leardcore, 20 novembre.",
       "instagram": [
         "frigo.16"
       ]
@@ -3932,5 +3397,5 @@
       ]
     }
   ],
-  "maj_instagram": "2026-11-20T23:03:38.671Z"
+  "maj_instagram": "2026-11-21T07:12:43.693Z"
 }
