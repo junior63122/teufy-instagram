@@ -1,6 +1,6 @@
 {
- "le": "2026-11-21T09:42:05.716Z",
- "total": 81,
+ "le": "2026-11-21T10:12:09.690Z",
+ "total": 82,
  "sans_image": [
   {
    "id": "dj-set-jordan-kowen-2026-11-21",
@@ -55,6 +55,15 @@
    "ville": "Nice",
    "instagram": "mamashelternice",
    "url": "https://www.instagram.com/p/DfSV2FJDoP9/"
+  },
+  {
+   "id": "week-end-techno-l-antre-2026-11-23",
+   "nom": "Week‑end Techno L'Antre",
+   "jour": "2026-11-23",
+   "lieu": "L'Antre Techno, Nice",
+   "ville": "Nice",
+   "instagram": "lantretechno",
+   "url": "https://www.instagram.com/reel/Df-VMRsRCgs/"
   },
   {
    "id": "phaphane-a-nice-amapiano-et-afrobeats-lovers-2026-11-27",

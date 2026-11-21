@@ -6,6 +6,32 @@
   "evenements": [
     {
       "source": "web",
+      "source_site": "instagram",
+      "name": "La Dinette – Halloween 6 Novembre",
+      "start": "2026-11-06T18:30:00.000Z",
+      "venue": "SO Blue Hotel",
+      "city": "Antibes",
+      "address": "",
+      "url": "https://www.instagram.com/p/DfVDfYHEeWZ/",
+      "image": "https://scontent-sjc6-1.cdninstagram.com/v/t51.82787-15/881796335_17997074136027036_4465905139777843890_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=101&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=eJMp28oKUUIQ7kNvwEGgEBp&_nc_oc=Adqs4g8tIcRKVFVrnObWQ1taBssYWGzsMnmpBpiTTLdrKsyyO9pAKxGZMSlSmwvidGQ&_nc_zt=23&_nc_ht=scontent-sjc6-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=TE5AGwWX8chex2Xg9Lvs6Q&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQRxn_Atiz0EEfOy5RL4VH4nQiP8piJoGtJD7wRs59Okvw&oe=6B07440F",
+      "price": null,
+      "tags": [
+        "house",
+        "techno",
+        "electro"
+      ],
+      "description": "Le 6 novembre, La Dinette vous embarque dans une soirée Halloween décalée au SO Blue Hotel d’Antibes. Le DJ Greenhigh vous fera vibrer sur du gros son house et techno jusqu’à 2h30 du matin. Le concept est un mélange de jeux, d’animations et de défis, avec un parking gratuit et un nouveau lieu sur deux étages. La soirée promet une ambiance festive et un décor terrifiant, idéal pour les 17‑30 ans qui cherchent une expérience unique. Réservations en ligne via le lien en bio, entrée libre sur place.",
+      "public_cible": 1,
+      "confiance": 0.95,
+      "buzz": 0.6,
+      "buzz_raison": "Halloween unique, DJ Greenhigh, parking gratuit, retour d’une soirée populaire.",
+      "accroche": "Halloween décalé au SO Blue Hotel – DJ Greenhigh, jeux, parking gratuit, jusqu’à 2h30.",
+      "instagram": [
+        "la_dinette__"
+      ]
+    },
+    {
+      "source": "web",
       "source_site": "Shotgun",
       "name": "Jerrycans Release Party @ Frigo 16",
       "start": "2026-11-26T19:00:00.000Z",
@@ -1444,48 +1470,6 @@
       "instagram": [
         "tatigalaxy",
         "le_stockfish"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "Shotgun",
-      "name": "Wado X L'Antre",
-      "start": "2026-11-21T04:00:00.000Z",
-      "venue": "L'Antre Bar Electro",
-      "city": "Nice",
-      "address": "",
-      "url": "https://shotgun.live/fr/events/wado-x-l-antre",
-      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto/production/artworks/827b8c57-83c0-450d-9c69-6585ae71f449_y3nsco.jpg",
-      "price": 10,
-      "tags": [
-        "tekno",
-        "tribe",
-        "acidcore",
-        "hardmelodic",
-        "hardcore",
-        "hard-melodic"
-      ],
-      "description": "",
-      "public_cible": 0.85,
-      "confiance": 0.95,
-      "buzz": 0.65,
-      "buzz_raison": "Live machine du Mojo Crew en after.",
-      "accroche": "Live machine hybride tekno et acidcore par Wado du Mojo Crew pour un after bouillant.",
-      "instagram": [
-        "mojocrewevent",
-        "wado.music",
-        "lantretechno"
-      ],
-      "sources_sites": [
-        "Shotgun",
-        "Shotgun.live / Mojo Crew"
-      ],
-      "offres": [
-        {
-          "plateforme": "shotgun.live",
-          "url": "https://shotgun.live/fr/events/wado-x-l-antre",
-          "prix": 10
-        }
       ]
     },
     {
@@ -3446,5 +3430,5 @@
       ]
     }
   ],
-  "maj_instagram": "2026-11-21T09:42:05.716Z"
+  "maj_instagram": "2026-11-21T10:12:09.690Z"
 }
