@@ -523,5 +523,12 @@
   "licence": "Public domain",
   "licence_url": "",
   "source": "https://commons.wikimedia.org/wiki/File:Gassin-2.jpg"
+ },
+ "Tourette": {
+  "fichier": "site/img/villes/tourette.jpg",
+  "auteur": "METGE Jean",
+  "licence": "CC BY-SA 3.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "source": "https://commons.wikimedia.org/wiki/File:La_Tourette-Cabard%C3%A8s_-_vue_g%C3%A9n%C3%A9rale.jpg"
  }
 }

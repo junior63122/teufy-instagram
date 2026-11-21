@@ -570,5 +570,117 @@
     "test_du_partage": "Dans le groupe WhatsApp du week-end : « on a les cinq, c'est fou ».",
     "statut": "propose",
     "ajout": "2026-11-20"
+  },
+  {
+    "id": "c-2026-11-21-m10kqn",
+    "titre": "Décembre en 4 soirées qu'on vit tous",
+    "format": "classement",
+    "accroche": "Les 4 soirées de décembre qu'on vit tous",
+    "plans": [
+      {
+        "texte": "Fin des partiels : la soirée BDE où tout le monde lâche",
+        "video": "students party crowd jumping club lights"
+      },
+      {
+        "texte": "Le pot de Noël du taf qui finit en boîte un jeudi",
+        "video": "coworkers christmas party dancing club"
+      },
+      {
+        "texte": "Le 24 au soir : tout le monde rentre, tout le monde sort",
+        "video": "friends reunion night street christmas lights"
+      },
+      {
+        "texte": "Le 31 : trois semaines de débat pour choisir la soirée",
+        "video": "new year countdown crowd confetti club"
+      },
+      {
+        "texte": "Le 1er janvier : lever de soleil sur la Prom'",
+        "video": "sunrise beach friends after party mediterranean"
+      }
+    ],
+    "musique": "house festive énergique 124 bpm",
+    "legende": "Décembre sur la Côte, c'est quatre soirées dans un seul mois. Partiels, pot du taf, retour au bercail, Nouvel An. T'en es à laquelle ? Tague ton groupe, et celui qui a déjà prévu sa tenue du 31.",
+    "cta": "Tague celui qui est déjà en mode Nouvel An",
+    "inspire_de": "https://www.instagram.com/p/Df7YQlonBp8/",
+    "pourquoi_viral": "Saison des fêtes, chacun se reconnaît dans au moins une case, chute locale sur la Prom' au lever du soleil.",
+    "test_du_partage": "Au groupe de potes ou aux collègues : « on est exactement là » ou « le pot de jeudi, c'est nous ».",
+    "statut": "propose",
+    "ajout": "2026-11-21"
+  },
+  {
+    "id": "c-2026-11-21-1pgf90s",
+    "titre": "4 h, Vieux-Nice, batterie à 3 %",
+    "format": "POV",
+    "accroche": "POV : 4 h, Vieux-Nice, ton tel est à 3 %",
+    "plans": [
+      {
+        "texte": "Le groupe s'est éparpillé entre deux rues",
+        "video": "night old town narrow street friends lost"
+      },
+      {
+        "texte": "Le VTC affiche un prix que tu veux pas voir",
+        "video": "phone screen night taxi app close up"
+      },
+      {
+        "texte": "Ton pote répond enfin : « t'es où ? »",
+        "video": "phone notification night street hand"
+      },
+      {
+        "texte": "2 %. Tu cherches une prise comme un trésor",
+        "video": "searching phone charger night bar counter"
+      },
+      {
+        "texte": "1 %. Tu envoies juste « Masséna »",
+        "video": "phone battery dying close up night"
+      },
+      {
+        "texte": "Place Masséna, 4 h 20. Tout le monde est là.",
+        "video": "friends meeting square night city lights hug"
+      }
+    ],
+    "musique": "électro tendue qui monte, 120 bpm, coupure nette au dernier plan",
+    "legende": "On a tous un pote qui sort à 10 % de batterie et qui compte sur toi pour rentrer. Rendez-vous à Masséna, comme d'hab. Tague-le avant samedi.",
+    "cta": "Tague celui qui sort toujours à 10 % de batterie",
+    "inspire_de": "https://www.instagram.com/reel/Df-MTyXs-tQ/",
+    "pourquoi_viral": "Situation ultra vécue, suspense plan par plan, fin rassurante et repère niçois que tout le monde connaît.",
+    "test_du_partage": "Au pote à la batterie toujours vide : « c'est trop toi », ou au groupe avant de sortir.",
+    "statut": "propose",
+    "ajout": "2026-11-21"
+  },
+  {
+    "id": "c-2026-11-21-kdp683",
+    "titre": "Devine la ville à 4 h du mat'",
+    "format": "challenge",
+    "accroche": "Nice, Cannes ou Monaco ? Devine la ville",
+    "plans": [
+      {
+        "texte": "Manche 1 : galets, Prom', tram de nuit",
+        "video": "pebble beach promenade night city tram"
+      },
+      {
+        "texte": "Manche 2 : palmiers, Croisette, tenue de soirée",
+        "video": "palm trees seaside boulevard night elegant crowd"
+      },
+      {
+        "texte": "Manche 3 : yachts, casino, addition qui pique",
+        "video": "yachts harbor night casino lights"
+      },
+      {
+        "texte": "Réponses en com avant de regarder la suite",
+        "video": "crowd cheering club lights countdown"
+      },
+      {
+        "texte": "Nice, Cannes, Monaco. T'as fait 3 sur 3 ?",
+        "video": "friends laughing night city skyline"
+      }
+    ],
+    "musique": "afro house joueuse 118 bpm",
+    "legende": "Trois villes, trois façons de sortir. Si t'as pas fait 3 sur 3, t'es pas vraiment de la Côte. Donne ton score en com et défends ta ville.",
+    "cta": "Tague le pote qui défend sa ville quoi qu'il arrive",
+    "inspire_de": "https://www.instagram.com/p/Df40odgm5q-/",
+    "pourquoi_viral": "Devinette facile qui flatte la fierté locale, réponse à la fin pour garder les gens, débat Nice contre Cannes contre Monaco en com.",
+    "test_du_partage": "Au pote cannois ou monégasque du groupe : « vas-y, fais mieux que moi ».",
+    "statut": "propose",
+    "ajout": "2026-11-21"
   }
 ]

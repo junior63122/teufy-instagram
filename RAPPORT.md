@@ -2,20 +2,20 @@
 
 Mis à jour automatiquement chaque jour. **Note /100** : 50 = performance habituelle du compte pour ce format, 100 = deux fois mieux. Elle combine likes, commentaires (×2), enregistrements (×3), partages (×4), abonnés gagnés (×10), visites du profil, portée et, pour les reels, la part de la vidéo regardée.
 
-**Abonnés** : 14441 (-33 sur 30 jours) · **Posts notés** : 75 · **Moyenne bot** : 35 · **Moyenne posts de l'équipe** : 65
+**Abonnés** : 14432 (-42 sur 30 jours) · **Posts notés** : 76 · **Moyenne bot** : 37 · **Moyenne posts de l'équipe** : 65
 
 ## Objectif du prochain post : 38/100
 
-- 2026-11-19 reel-spot-promo : 39/100 ✅
+- 2026-11-20 pret-2026-11-19-concours-frigo16 : 63/100 ✅
+- 2026-11-19 reel-spot-promo : 38/100 ✅
 - 2026-11-18 reel-promo : 12/100 ❌
 - 2026-11-18 bonplan-petits-prix : 37/100 ❌
 - 2026-11-17 guide-suite : 16/100 ❌
 - 2026-11-17 reel-grand-debat : 26/100 ❌
 - 2026-11-16 libre : 33/100 ❌
 - 2026-11-14 reel-grand-debat : 6/100 ❌
-- 2026-11-14 guide : 17/100 ❌
+- 2026-11-14 guide : 18/100 ❌
 - 2026-11-13 reel-tendance : 47/100 ✅
-- 2026-11-12 incontournables-tekno : 97/100 ✅
 
 ## Meilleurs posts
 
@@ -38,77 +38,79 @@ Mis à jour automatiquement chaque jour. **Note /100** : 50 = performance habitu
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 2026-11-14 | bot | reel-grand-debat | **6** | 439 | 0 | 0 | 0 | 0 | - |
 | 2026-11-08 | bot | incontournables-commercial | **6** | 355 | 1 | 0 | 0 | 0 | 0 |
-| 2026-11-18 | bot | reel-promo | **12** | 331 | 2 | 0 | 0 | 0 | - |
-| 2026-11-17 | bot | guide-suite | **16** | 471 | 1 | 0 | 1 | 1 | 0 |
+| 2026-11-18 | bot | reel-promo | **12** | 360 | 2 | 0 | 0 | 0 | - |
+| 2026-11-17 | bot | guide-suite | **16** | 498 | 1 | 0 | 1 | 1 | 0 |
 | 2025-10-03 | équipe | ⚡️ Les meilleurs plans entre potes, c’es | **16** | 567 | 5 | 0 | 0 | 0 | 0 |
 
 ## Pourquoi : ce qui fait monter ou baisser la note
 
 Écart de note moyen quand le post a ce trait (heure, jour, format, type, style, lieu, ville, source, prix, hashtags, forme de la légende…), sur 2 posts minimum.
 
-**Ce qui fait monter** : hashtag:#acidtechno (+41, 2 posts) · hashtag:#technocotedazur (+41, 3 posts) · hashtag:#technoparty (+41, 2 posts) · hashtag:#soiréetechno (+41, 2 posts) · hashtag:#hardtechno (+40, 3 posts) · hashtag:#danse (+28, 3 posts) · hashtag:#soirée (+28, 3 posts) · heure:22h (+26, 2 posts) · hashtag:#evenement (+21, 2 posts) · hashtag:#france (+21, 2 posts) · hashtag:#sudest (+21, 2 posts) · hashtag:#fun (+21, 2 posts)
+**Ce qui fait monter** : hashtag:#acidtechno (+40, 2 posts) · hashtag:#technocotedazur (+40, 3 posts) · hashtag:#technoparty (+40, 2 posts) · hashtag:#soiréetechno (+40, 2 posts) · hashtag:#hardtechno (+39, 3 posts) · hashtag:#danse (+28, 3 posts) · hashtag:#soirée (+28, 3 posts) · heure:22h (+27, 2 posts) · hashtag:#evenement (+21, 2 posts) · hashtag:#france (+21, 2 posts) · hashtag:#sudest (+21, 2 posts) · hashtag:#fun (+21, 2 posts)
 
-**Ce qui fait baisser** : jour:sam (-48, 2 posts) · type:reel-grand-debat (-43, 2 posts) · hashtag:#streetfood (-43, 2 posts) · type:guide (-43, 2 posts) · horaire:jour (-40, 2 posts) · style:tech-house (-40, 2 posts) · heure:0h (-38, 2 posts) · style:disco (-38, 2 posts) · hashtag:#nice (-36, 5 posts) · prix:gratuit (-34, 3 posts)
+**Ce qui fait baisser** : jour:sam (-48, 2 posts) · type:reel-grand-debat (-44, 2 posts) · hashtag:#streetfood (-43, 2 posts) · type:guide (-43, 2 posts) · horaire:jour (-40, 2 posts) · style:tech-house (-40, 2 posts) · heure:0h (-38, 2 posts) · style:disco (-38, 2 posts) · prix:gratuit (-34, 3 posts) · genre:commercial (-34, 3 posts)
 
-## Analyse de la semaine du 2026-11-20
+## Analyse de la semaine du 2026-11-21
 
-Semaine contrastée. Ce qui marche : l'actu techno (HUGEL aux Plages Électroniques, note 100, 8 partages), l'édition Tekno (97, 8 partages, 2 abonnés) et le reel qui explique l'entrée gratuite avant 1 h (47, 4 partages). Ce qui échoue : les débats food (pan bagnat 6), le reel promo (12), les guides « où manger » (16 et 17 malgré 1 058 de portée) et le commercial (6). Les données restent minces : chaque option n'a que 2 à 3 posts, donc on varie les tests au lieu de tout miser sur une piste. Côté Meta, l'annonce de Direct, une appli dédiée aux messages, confirme que le partage en privé reste le levier n°1. On vise 42 la semaine prochaine.
+Semaine contrastée : les posts qui partent d'un vrai nom ou d'une vraie date (veille HUGEL 100/100, Édition Tekno 97/100, concours Frigo 16 63/100) dominent. Les reels qui parlent de Teufy (12 et 38), les guides bouffe (16 et 18) et les Grands Débats (6 et 26) tirent la moyenne vers le bas, autour de 37/100. On a une quinzaine de posts du bot, mais chaque option n'a été testée que 2 ou 3 fois : les tendances restent fragiles, donc on varie les tests plutôt que de tout miser sur un format. Côté Meta, seule l'arrivée de l'appli Direct (messagerie) nous concerne : le partage en message privé reste le signal à viser. Cap sur décembre : concours, dates techno, Nouvel An et situations vécues des fêtes.
 
 **Objectif des prochains posts : 42/100**
 
 ### Nouveautés Instagram / Meta
-- 🟢 officiel · 2026-11-17 · **Introducing Direct: An App Just for Messaging** : Les messages privés prennent encore plus de place chez Meta. Chaque contenu doit passer le test « je l'envoie à mon pote ». CTA de partage en privé dans chaque reel. ([source](https://about.fb.com/news/2026/11/introducing-direct-an-app-just-for-messaging/))
-- 🟢 officiel · 2026-11-09 · **Expanding Teen Account Protections to Teens Around the World** : Une partie de la cible a 17 ans. Rester loin de l'alcool et de tout contenu limite, sinon on risque d'être moins recommandé auprès des comptes ados. ([source](https://about.fb.com/news/2026/11/expanding-teen-account-protections-to-teens-around-the-world/))
-- 🟢 officiel · 2026-11-17 · **An Update on the Content We Recommend on Instagram in India** : Concerne l'Inde uniquement, aucun changement à appliquer pour la Côte d'Azur. ([source](https://about.fb.com/news/2026/11/an-update-on-the-content-we-recommend-on-instagram-in-india/))
+- 🟢 officiel · 2026-11-17 · **Introducing Direct: An App Just for Messaging** : Meta pousse la messagerie à part entière. Les envois en privé restent le levier n°1 : chaque contenu doit donner envie d'être envoyé à un pote (tag, « c'est trop toi », « on y va ? »). ([source](https://about.fb.com/news/2026/11/introducing-direct-an-app-just-for-messaging/))
+- 🟢 officiel · 2026-11-17 · **An Update on the Content We Recommend on Instagram in India** : Concerne l'Inde uniquement. Aucun changement de règle pour nous, on surveille si ça s'étend à l'Europe. ([source](https://about.fb.com/news/2026/11/an-update-on-the-content-we-recommend-on-instagram-in-india/))
 
 ### Pourquoi certains posts marchent mieux
-- **Les infos techno exclusives et les sélections techno sont les seuls posts qui déclenchent des partages en série.** (Veille HUGEL : 100, 8 partages. Tekno : 97, 8 partages, 2 abonnés. Archives : techno janvier 2026, 80 partages ; techno novembre 2025, 33 partages, 9 abonnés.) → Un post techno par semaine minimum, plus un post « premier nom tombé » dès qu'une annonce officielle sort. Garder la mise en couverture en bas (moyenne 68).
-- **Les reels explicatifs utiles battent les débats et la promo.** (Entrée gratuite avant 1 h : 47, 4 partages. Débats : 26 et 6. Reel promo « Ne rate plus aucune soirée » : 12, 0 partage.) → Arrêter les reels promo du service. Remplacer les débats food par des situations vécues de soirée (concepts POV et classement).
-- **Les guides « où manger » attirent de la portée mais aucun engagement.** (Monaco : 1 058 de portée, 0 partage, note 17. Nice : 471, 1 partage, note 16. Effet type:guide -43.) → Mettre les guides en pause. Tester la faim de 4 h en ton humour (situation à taguer) plutôt qu'en liste.
-- **Le créneau de 15 h UTC fait mieux que 17 h et 18 h, et les autres comptes performent à 16 h.** (Créneau 15 : moyenne 43. 17 : 32. 18 : 25. Autres comptes : 16 h score 6,46, 17 h score 2,88.) → Publier à 15, 16 et 17 h UTC, et tester 16 h sur le prochain post techno.
-- **Le commercial et les hashtags de ville trop larges plombent la note.** (Commercial : 6. Effets : genre commercial -34, #nice -36, #monaco -31.) → Commercial angle situation (file, physio, dress code) et hashtags précis (#sortiracannes, #nightlife06, #vieuxnice).
+- **Les vrais noms et les vraies dates techno font partager.** (Veille HUGEL : 100/100, 8 partages. Édition Tekno : 97/100, 8 partages, 2 abonnés gagnés, alors que Nos coups de cœur commercial plafonne à 6/100.) → Publier une veille dès qu'un nom de line-up tombe sur la Côte et garder 2 Éditions Tekno par semaine, couverture en bas (68/100 de moyenne).
+- **Les concours restent la meilleure machine à commentaires et abonnés.** (Concours Frigo 16 : 63/100, 5 commentaires ; historique équipe : 100, 71, 100, 100 avec 18 à 28 commentaires et jusqu'à 8 abonnés gagnés.) → Un concours avec partenaire toutes les 2 semaines, avec tag d'un pote obligatoire pour pousser les envois.
+- **Les reels qui parlent de Teufy ne marchent pas.** (« Ne rate plus aucune soirée » : 12/100, 0 partage. « Tu sais jamais où sortir ? » : 38/100, 1 partage.) → Arrêter les reels promo. Remplacer par des reels de situations vécues ou de devinettes locales, sans parler du compte.
+- **Guides bouffe et Grands Débats déçoivent malgré une bonne portée.** (Guide Monaco : 1071 de portée mais 18/100 ; Grand Débat pan bagnat : 6/100, 0 interaction ; pré-soirée : 26/100.) → Mettre les Grands Débats en pause sauf sujet saison fort (Nouvel An) et transformer les guides en carrousels « situe-toi ».
+- **L'heure compte : plus tôt, c'est mieux.** (Créneau 15 h UTC : 43/100 en moyenne, 17 h : 32, 18 h : 25. Le concours posté à 16 h fait 63. Chez les autres comptes, 16 h UTC sort nettement du lot.) → Basculer les posts forts sur 15 h et 16 h UTC, garder 17 h pour les tests, abandonner 18 h.
+- **Le bon plan petits prix touche large mais engage peu.** (Petits prix : 1115 de portée, 3 enregistrements, 3 partages, mais 37/100.) → Tester une couverture avec une situation (« Le 30, la paye tombe ») plutôt qu'une liste, et finir par un tag de pote.
 
 ### Formats et manières de poster à tester
-- **Carrousel « les dates techno du mois » avec couverture texte en bas** : Le format qui a le plus partagé dans l'histoire du compte (80 partages en janvier 2026) et le carrousel domine chez les autres comptes (score 1,87). ([source](Chiffres du compte (posts du 2026-01-02 et 2025-11-07) + tendances autres comptes))
-- **Post « premier nom tombé » publié dès l'annonce officielle** : Info fraîche qu'on envoie à son binôme : note 100 et 8 partages pour HUGEL, même logique chez dicefm (score 33). ([source](Post veille du 2026-11-09 + https://www.instagram.com/p/Dd_qG-Iio-L/))
-- **Reel explicatif court sur une règle de soirée qui fait économiser** : L'entrée gratuite avant 1 h a fait 47 et 4 partages : astuce concrète qu'on envoie au groupe. ([source](Chiffres du compte (reel du 2026-11-13, créneau 15 h)))
-- **Reel POV ou classement de situations vécues, CTA « tague-le »** : Les posts « vérité » de l'équipe ont fait 88 et 64 avec 14 et 12 partages, alors que les débats abstraits plafonnent à 26. ([source](Chiffres du compte (posts du 2025-11-17 et 2025-11-21)))
-- **Jeu concours avec un partenaire local, condition « tague un pote »** : Le format le plus régulier en abonnés gagnés (6 à 8 par concours) et en commentaires. ([source](Chiffres du compte (concours du 2026-03-25, 2026-04-28, 2026-08-10)))
+- **Carrousel « situe-toi sur le tableau » : axes rentre tôt / ferme la boîte et arrive à l'heure / arrive après la prévente** : Le carrousel écrase tout chez les autres comptes (score 1068 contre 27 pour le reel) et ce format pousse à taguer son pote dans la bonne case. ([source](https://www.instagram.com/p/Df40odgm5q-/))
+- **Concours avec partenaire local, tag d'un pote obligatoire** : Meilleur ratio commentaires et abonnés gagnés du compte (Frigo 16 : 63/100, historique jusqu'à 100/100). ([source](Chiffres du compte (concours 2026-11-20, 2026-03-25, 2026-04-28)))
+- **Post veille « un nom vient de tomber » dès l'annonce d'un line-up** : Veille HUGEL : 100/100 et 8 partages, sans concours ni pub. ([source](Chiffres du compte (veille 2026-11-09)))
+- **Carrousel thème de before des fêtes (before Nouvel An, before pot de Noël)** : Le carrousel before à thème de Partiful est leur meilleur post de loin, et décembre est la saison des befores. ([source](https://www.instagram.com/p/Df5bWnCm3MJ/))
+- **Publication à 16 h UTC (17 h à Nice) pour les posts forts** : 16 h UTC ressort chez les autres comptes et notre concours à 16 h a fait 63/100, contre 25 en moyenne à 18 h. ([source](Tendances autres comptes + chiffres du compte))
 
 ### Concepts de reels inventés cette semaine (à valider)
-- **Le DJ et LA chanson** (POV, inspiré de boilerroomtv (plans serrés cabine et foule)) : « POV : 3 h que t'attends LA chanson » → Situation vécue par tous, chute à la fin qui pousse à revoir le reel, et commentaires faciles : chacun donne sa chanson.
-- **Ce qu'il dit à 23 h, ce qu'il fait à 7 h** (avant-apres, inspiré de boilerroomtv (énergie de foule brute, réactions sans filtre)) : « Il dit « je rentre tôt ». Regarde la suite. » → Chacun a ce pote : le tag est immédiat, le dernier plan fait rire et donne envie de l'envoyer en privé.
-- **Les 5 potes qu'on a tous en soirée** (classement, inspiré de dicefm (format liste qui présente des profils et des lieux)) : « Les 5 potes qu'on a tous en soirée sur la Côte » → Format liste rapide, chaque profil appelle un tag différent, donc plusieurs partages par personne qui regarde.
+- **Décembre en 4 soirées qu'on vit tous** (classement, inspiré de https://www.instagram.com/p/Df7YQlonBp8/) : « Les 4 soirées de décembre qu'on vit tous » → Saison des fêtes, chacun se reconnaît dans au moins une case, chute locale sur la Prom' au lever du soleil.
+- **4 h, Vieux-Nice, batterie à 3 %** (POV, inspiré de https://www.instagram.com/reel/Df-MTyXs-tQ/) : « POV : 4 h, Vieux-Nice, ton tel est à 3 % » → Situation ultra vécue, suspense plan par plan, fin rassurante et repère niçois que tout le monde connaît.
+- **Devine la ville à 4 h du mat'** (challenge, inspiré de https://www.instagram.com/p/Df40odgm5q-/) : « Nice, Cannes ou Monaco ? Devine la ville » → Devinette facile qui flatte la fierté locale, réponse à la fin pour garder les gens, débat Nice contre Cannes contre Monaco en com.
 
 ### Ce que le bot a changé
-- accroche weekend : « Il dit « je rentre tôt ». Il propose la plage à 7 h. »
-- accroche techno : « Ton binôme de rave sait déjà où on va samedi ? »
-- accroche petits-prix : « Fin novembre, 20 € en poche. On sort où ? »
-- intro commercial : « Le physio te regarde, la file avance pas, et ton groupe hésite encore. Voilà où sortir ce week-end de Cannes à Monaco, à envoyer à ceux qui viennent. »
-- intro commercial : « Jeudi, vendredi, samedi : trois soirs, un seul budget. On a fait le tri de Nice à Juan. Tague celui qui choisit toujours trop tard. »
-- intro techno : « Un nom vient de tomber et le groupe s'enflamme déjà. Les dates qui tapent ce mois-ci sur la Côte, à envoyer à ton binôme avant qu'il les découvre seul. »
-- intro techno : « Warehouse, after, lever de soleil sur la mer. Les soirées techno du week-end sur la Côte, pour ceux qui viennent pour la musique. »
-- débat « 5 h, plus de tram. Tu fais quoi ? »
-- débat « Ce samedi, ton camp ? »
-- concept de reel « Le DJ et LA chanson » (POV, inspiré de boilerroomtv (plans serrés cabine et foule))
-- concept de reel « Ce qu'il dit à 23 h, ce qu'il fait à 7 h » (avant-apres, inspiré de boilerroomtv (énergie de foule brute, réactions sans filtre))
-- concept de reel « Les 5 potes qu'on a tous en soirée » (classement, inspiré de dicefm (format liste qui présente des profils et des lieux))
+- accroche weekend : « Le pot de Noël du taf qui finit en boîte »
+- accroche weekend : « Premier week-end de décembre. T'as un plan ? »
+- accroche techno : « Dehors il fait 8 degrés. Dedans, 140 BPM. »
+- accroche petits-prix : « Le 30, la paye tombe. Le 29, on sort comment ? »
+- intro commercial : « Décembre commence, les pots de Noël aussi. Les soirées du week-end de Nice à Monaco, à envoyer à ceux qui disent encore « on verra ». »
+- intro commercial : « Avant les fêtes, on se fait plaisir. Les soirées du week-end de Cannes à Monaco, triées pour ton groupe. Tague celui qui choisit sa tenue trois heures avant. »
+- intro techno : « Il fait froid, les warehouses chauffent. Les dates qui tapent ce week-end sur la Côte, à envoyer à ton binôme qui a déjà pris sa prévente. »
+- intro techno : « Décembre, mois des gros line-ups. Les soirées techno du week-end sur la Côte, pour ceux qui finissent toujours au lever du jour. »
+- débat « Nouvel An : tu fais quoi ? »
+- débat « Ce samedi, t'es plutôt… »
+- sujet de reel « Plages Électroniques 2027 : le premier nom »
+- concept de reel « Décembre en 4 soirées qu'on vit tous » (classement, inspiré de https://www.instagram.com/p/Df7YQlonBp8/)
+- concept de reel « 4 h, Vieux-Nice, batterie à 3 % » (POV, inspiré de https://www.instagram.com/reel/Df-MTyXs-tQ/)
+- concept de reel « Devine la ville à 4 h du mat' » (challenge, inspiré de https://www.instagram.com/p/Df40odgm5q-/)
 
-## Tendances des autres comptes (2026-11-20)
+## Tendances des autres comptes (2026-11-21)
 
-- **Formats qui marchent** : carrousel 1.87 (68 posts) · image 1.62 (52 posts) · reel 1.36 (55 posts)
-- **Meilleures heures** : 16h (6.46), 17h (2.88), 12h (2.09)
+- **Formats qui marchent** : carrousel 1068.65 (117 posts) · reel 27.53 (103 posts) · image 1.59 (55 posts)
+- **Meilleures heures** : 22h (3996.98), 16h (516.98), 23h (352.58)
 - **Hashtags qui accompagnent les meilleurs posts** : #oldtownnice #vieuxnice #party #bar #nightlife #djset #nice #nice06
 
 **Accroches des meilleurs posts** (pour inspiration) :
-- @dicefm (carrousel, ×33.14) : « Last week BICEP released new tracks Air, Lemonder and Viper. Next month they’re bringing back their LIVE show for the first time in 3 years. »
-- @la_dinette__ (image, ×29.18) : « 🚨 ATTENTION : ÉVÉNEMENT REPORTÉ ! 🎃 »
-- @boilerroomtv (carrousel, ×8.68) : « hannahlaingdj • Boiler Room LA: teletechuk  »
-- @dicefm (carrousel, ×6.89) : « A new BICEP album. A live performance on the River Thames. What next? »
-- @boilerroomtv (reel, ×6.36) : « nattevissstick • Boiler Room LA⁠: teletechuk⁠ »
-- @dicefm (carrousel, ×6.01) : « Meet some of the spaces turning up the volume on how we experience music. »
-- @boilerroomtv (reel, ×5.49) : « We touched down in Osaka last month, showcasing the sounds of the city with some of it’s most exciting talents.⁠ »
-- @dicefm (carrousel, ×4.95) : « A huge win for grassroots venues, as one of DICE’s first  partners, we’re proud to have stood alongside mothclub and everyone who fought to  »
+- @partiful (carrousel, ×110781.61) : « Planning the ultimate pre-game before heading to Arrakis? 👀🪱 »
+- @partiful (carrousel, ×7355.91) : « Congrats to our 2026 Halloween Fund winners 🎃 here’s a sneak peak of the 700 person bash they threw in NYC!  »
+- @partiful (carrousel, ×3870.52) : « Hosting? Attending? Showing up with the pie still in the box? Please locate yourself on the chart. »
+- @partiful (carrousel, ×2792.17) : « How early is too early to host your holiday party? Swipe for Holiday party themes ❄️  »
+- @partiful (reel, ×1579.02) : « partiful »
+- @partiful (reel, ×751) : « partiful »
+- @partiful (reel, ×250.33) : « partiful »
+- @partiful (reel, ×77.03) : « partiful »
 
 **Repères par compte** (médianes de leurs derniers posts ; taux = likes + commentaires pour 100 abonnés) :
 
@@ -117,14 +119,20 @@ Semaine contrastée. Ce qui marche : l'actu techno (HUGEL aux Plages Électroniq
 | @downtown.nice | 2398 | 1.3 | 52 | 0 | 2.17 % | 16 % | image, 132 likes : « Le maître des soirées Afro Dancehall est de retour vendredi 23 octobre » |
 | @uptown.nice | 1865 | 2.2 | 35 | 1 | 1.98 % | 56 % | reel, 159 likes : « Bah voilà, on vous présente le bar 👋 » |
 | @monaco.nightlife | 5408 | 0.1 | 104 | 2 | 1.96 % | 0 % | image, 248 likes : « M O N A C O  F I N E S T » |
-| @lebarathymtoulon | 10957 | 3.1 | 74 | 1 | 0.68 % | 24 % | image, 189 likes : « 🍻 LE PETIT RITUEL DE L’ÉQUIPE… » |
-| @la_dinette__ | 5659 | 3.5 | 31 | 3 | 0.67 % | 36 % | image, 1254 likes : « 🚨 ATTENTION : ÉVÉNEMENT REPORTÉ ! 🎃 » |
+| @duolingo | 5438613 | 7.7 | 50960 | 391 | 0.94 % | 60 % | reel, 1151154 likes : « the birthday girl is muy bonita » |
+| @lebarathymtoulon | 10957 | 3 | 74 | 1 | 0.68 % | 24 % | image, 189 likes : « 🍻 LE PETIT RITUEL DE L’ÉQUIPE… » |
+| @la_dinette__ | 5659 | 3.4 | 31 | 3 | 0.67 % | 36 % | image, 1254 likes : « 🚨 ATTENTION : ÉVÉNEMENT REPORTÉ ! 🎃 » |
 | @dicefm | 93596 | 3.4 | 433 | 12 | 0.47 % | 12 % | carrousel, 14750 likes : « Last week BICEP released new tracks Air, Lemonder and Viper. Next mont » |
-| @boilerroomtv | 2886989 | 12.6 | 984 | 13 | 0.04 % | 76 % | carrousel, 9761 likes : « hannahlaingdj • Boiler Room LA: teletechuk  » |
+| @posh.vip | 103536 | 13.5 | 405 | 6 | 0.39 % | 8 % | carrousel, 6221 likes : « Before downtown New York became a collection of luxury boutiques, cura » |
+| @boilerroomtv | 2886989 | 11.7 | 984 | 13 | 0.04 % | 76 % | carrousel, 9761 likes : « hannahlaingdj • Boiler Room LA: teletechuk  » |
+| @timeoutnewyork | 778053 | 14.8 | 313 | 13 | 0.04 % | 40 % | reel, 4855 likes : « These pancakes might just be worth the trip out of NYC. 🥞👀 » |
+| @partiful | 51931 | 22.6 | 0 | 0 | 0 % | 84 % | carrousel, 5645 likes : « Planning the ultimate pre-game before heading to Arrakis? 👀🪱 » |
 
 
 ## Planning réactif (changements faits par le robot)
 
+- 2026-11-20 : Engouement sur « bonplan-petits-prix » (6 partages + enregistrements contre 2 d'habitude), mais déjà 3 suites cette semaine.
+- 2026-11-20 : Engouement sur « bonplan-petits-prix » (6 partages + enregistrements contre 2 d'habitude), mais déjà 3 suites cette semaine.
 - 2026-11-19 : Engouement sur « bonplan-petits-prix » (6 partages + enregistrements contre 2 d'habitude), mais déjà 3 suites cette semaine.
 - 2026-11-19 : Engouement sur « bonplan-petits-prix » (6 partages + enregistrements contre 2 d'habitude), mais déjà 3 suites cette semaine.
 - 2026-11-19 : Engouement sur « bonplan-petits-prix » (6 partages + enregistrements contre 2 d'habitude), mais déjà 3 suites cette semaine.
