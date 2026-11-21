@@ -391,5 +391,20 @@
   "absentes": [],
   "manquantes": [],
   "le": "2026-11-21T15:16:02.768Z"
+ },
+ {
+  "jour": "2026-11-21",
+  "type": "repost",
+  "cles": [
+   "r-18170367442470235"
+  ],
+  "ids": [],
+  "faites": [],
+  "relue": true,
+  "absentes": [],
+  "manquantes": [
+   0
+  ],
+  "le": "2026-11-21T18:08:20.892Z"
  }
 ]
