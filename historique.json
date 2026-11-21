@@ -680,5 +680,38 @@
       "legende": "CONCOURS · On t'invite au Frigo 16 !\n\n2 soirées, 2 ambiances :\n\nVen. 27/11 · PHAPHANE · Amapiano & Afrobeats Lovers avec @tweltyprod\nSam. 28/11 · DO YOU LIKE… TEKNO ? · Tekno, Acidcore, Tribe avec @prizmeconcept\nFrigo 16 – Le 109, 89 route de Turin, Nice · dès 20 h\n\nPour participer :\nAbonne-toi à @teufy_official @frigo.16 et @pandaevents06\nCommente PHAPHANE, TEKNO ou les deux (tague la personne qui viendra avec toi)\nTirage au sort le mercredi 25 novembre à 18h, résultat en story.\n\nLes gagnants sont contactés uniquement par @teufy_official : on ne demande jamais de paiement ni de clic sur un lien.\n\nPlaces offertes par @pandaevents06 et @charpagency\n\nJeu gratuit sans obligation d'achat, réservé aux 18 ans et plus. Instagram n'est ni organisateur ni partenaire de ce jeu.\n\n#TeufyParty #concours #nice #amapiano #tekno",
       "titre": "Concours : 2 places pour Phaphane et Do You Like… Tekno ? au Frigo 16"
     }
+  },
+  {
+    "id": "reel-spot-promo",
+    "date": "2026-11-21",
+    "media": "18082878002394130",
+    "lien": "https://www.instagram.com/reel/DgAvEaFkjEB/",
+    "titre": "Teufy · 02 manger tard",
+    "concept": "spot-promo-02-manger-tard",
+    "photo": "danse",
+    "mise": "haut",
+    "verifie": true,
+    "soirees": [],
+    "le": "2026-11-21T17:11:14.441Z",
+    "publication": {
+      "id": "reel-spot-promo",
+      "type": "reel",
+      "variante": "spot-promo",
+      "date": "2026-11-21",
+      "choix": {
+        "creneau": "17",
+        "accroche-spot": "pov",
+        "fonction-spot": [
+          "manger-tard",
+          "pres-de-moi",
+          "toute-la-cote"
+        ]
+      },
+      "features": [],
+      "nb_images": 0,
+      "duree": 12.9,
+      "legende": "Il est 4 h, la boîte ferme… et t'as la dalle\n\nSur teufyparty.com, rubrique Manger tard :\n- choisis jusqu'à quelle heure c'est ouvert (2 h, 3 h, 4 h, 5 h et +)\n- « Près de moi » : le plus proche de toi en premier\n- de Toulon à Menton\n\nHoraires publiés, relevés chaque jour : vérifie avant d'y aller.\nEnvoie ça à celui qui a toujours faim en sortant\n\n#TeufyParty #mangertard #nice #cannes #monaco",
+      "titre": "Teufy · 02 manger tard"
+    }
   }
 ]
