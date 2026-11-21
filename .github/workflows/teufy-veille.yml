@@ -21,6 +21,7 @@ on:
 
 permissions:
   contents: write
+  actions: write # relancer la veille technique (sans IA) quand GitHub a sauté son horaire
   models: read
 
 concurrency:
@@ -49,6 +50,15 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+
+      - name: Veille technique en retard ? (GitHub saute parfois ses horaires) — la relancer, elle n'utilise aucun crédit d'IA
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          DERNIER=$(gh run list -R "$GITHUB_REPOSITORY" --workflow teufy-veille-technique.yml --limit 1 --json createdAt -q '.[0].createdAt' 2>/dev/null || echo "")
+          AGE=$(( $(date +%s) - $(date -d "${DERNIER:-1970-01-01}" +%s) ))
+          if [ "$AGE" -gt 72000 ]; then gh workflow run teufy-veille-technique.yml -R "$GITHUB_REPOSITORY" --ref main && echo "Veille technique relancée (dernier passage il y a $((AGE/3600)) h)."; else echo "Veille technique à jour."; fi
 
       - name: Veille (détection)
         id: veille
