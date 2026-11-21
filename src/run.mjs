@@ -1278,7 +1278,10 @@ async function storiesPreparer(S) {
         const ig = igConfig();
         const medias = ig ? await compteMedia(ig, 50, 'media_url,like_count,comments_count') : [];
         const x = S.repostDuJour(hist, medias, NOW.getTime(), histo);
-        r = x ? { cles: [x.cle], frames: [{ video: x.url }] } : await question('repost'); // rien à reposter : une question
+        // La vidéo est copiée chez nous (21/11/2026 : le lien temporaire d'Instagram expirait et l'envoi échouait, erreur 2207076).
+        let local = '';
+        if (x) { try { const rep = await fetch(x.url, { signal: AbortSignal.timeout(60000) }); const b = Buffer.from(await rep.arrayBuffer()); if (rep.ok && b.length > 50000 && /video|octet/.test(rep.headers.get('content-type') || 'video')) { local = `${jour}-repost.mp4`; writeFileSync(path.join(dir, local), b); } } catch (err) { console.error(`Story repost : vidéo non téléchargée (${err.message})`); } }
+        r = x && local ? { cles: [x.cle], frames: [{ video: local, local: true }] } : await question('repost'); // rien à reposter (ou vidéo introuvable) : une question
       } else if (s.type === 'question') {
         r = await question('question');
       } else if (s.type === 'videos') {
@@ -1320,7 +1323,7 @@ async function storiesPublier(S) {
     const fb = process.env.MEDIA_FALLBACK_URL;
     if (!fb) throw new Error('Stories : fichiers pas en ligne.');
     base = fb.replace(/\/$/, '');
-    if (!(await waitOnline(plan.flatMap((p) => p.frames.filter((x) => x.image).map((x) => url(x.image))), 3 * 60e3))) throw new Error('Stories : fichiers introuvables.');
+    if (!(await waitOnline(plan.flatMap((p) => p.frames.filter((x) => x.image || x.local).map((x) => url(x.image || x.video))), 3 * 60e3))) throw new Error('Stories : fichiers introuvables.');
   }
   // Auto-contrôle (19/11/2026) : une story n'est notée « faite » que si TOUTES ses images sont en ligne ; sinon le passage
   // suivant republie seulement celles qui manquent (avant, une story ratée était notée faite et jamais refaite).
@@ -1341,7 +1344,7 @@ async function storiesPublier(S) {
     for (const [k, fr] of p.frames.entries()) {
       if (entree.faites.includes(k)) continue;
       if (DRY || !ig) { console.log(`Story ${p.type} (aperçu) : ${fr.image || fr.video}`); continue; }
-      try { const st = await publishStory(fr.image ? url(fr.image) : fr.video, ig, { video: !!fr.video }); entree.ids.push(st.id); entree.faites.push(k); console.log(`✅ story ${p.type} publiée (${st.id})`); }
+      try { const st = await publishStory(fr.image ? url(fr.image) : fr.local ? url(fr.video) : fr.video, ig, { video: !!fr.video }); entree.ids.push(st.id); entree.faites.push(k); console.log(`✅ story ${p.type} publiée (${st.id})`); }
       catch (err) { console.error(`Story ${p.type} impossible : ${err.message}`); }
     }
     if (DRY || !ig) continue;
