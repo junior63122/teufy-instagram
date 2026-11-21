@@ -6,6 +6,31 @@
   "evenements": [
     {
       "source": "web",
+      "source_site": "Instagram (tweltyprod)",
+      "name": "Phaphane @ FRIGO 16",
+      "start": "2026-11-27T19:00:00.000Z",
+      "venue": "FRIGO 16 - 89, route de Turin",
+      "city": "Nice",
+      "address": "",
+      "url": "https://www.instagram.com/reel/Df5NOdohBYJ/",
+      "image": "",
+      "price": null,
+      "tags": [
+        "amapiano",
+        "afrobeats"
+      ],
+      "description": "Le 27 novembre, le FRIGO 16 de Nice accueille Phaphane, le king de la scène Amapiano, suivi en première partie par senadj_. Le set promet un mix explosif d'Amapiano et d'Afrobeats, idéal pour danser jusqu'au petit matin. L'entrée se fait via la billetterie en bio, stand, food & bar sur place, ambiance club décontractée. Ouvert de 20h à 2h, prépare-toi à vivre une nuit mémorable sur la Côte d'Azur.",
+      "public_cible": 0.9,
+      "confiance": 0.7,
+      "buzz": 0.7,
+      "buzz_raison": "Tête d'affiche reconnue dans l'Amapiano, soirée week‑end, forte interaction du post (commentaires, partages).",
+      "accroche": "Phaphane enflamme le FRIGO 16 à Nice le 27 nov avec ses sons Amapiano et Afrobeats.",
+      "instagram": [
+        "tweltyprod"
+      ]
+    },
+    {
+      "source": "web",
       "source_site": "Shotgun",
       "name": "Phaphane à Nice - Amapiano & Afrobeats Lovers",
       "start": "2026-11-27T19:00:00.000Z",
@@ -3433,5 +3458,5 @@
       ]
     }
   ],
-  "maj_instagram": "2026-11-21T12:13:30.688Z"
+  "maj_instagram": "2026-11-21T12:41:56.611Z"
 }
