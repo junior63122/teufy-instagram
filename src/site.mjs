@@ -914,7 +914,7 @@ export async function construireSite({ events, eventsFrance = [], eventsOccitani
   // Robots : moteurs de recherche et assistants qui CITENT Teufy (avec lien) autorisés ; robots qui aspirent le site pour
   // ENTRAÎNER des IA refusés (choix du directeur). robots.txt est respecté par les robots sérieux ; les aspirateurs qui
   // l'ignorent ne peuvent être bloqués qu'en amont (pare-feu type Cloudflare), pas par GitHub Pages.
-  const prives = ['/out/', '/apercus/', '/livrables/', '/tests/', '/studio/', '/veille/', '/tiktok/'];
+  const prives = ['/out/', '/apercus/', '/livrables/', '/tests/', '/studio/', '/veille/', '/tiktok/', '/pilotage/'];
   const CITENT = ['Googlebot', 'Bingbot', 'DuckDuckBot', 'Applebot', 'YandexBot', 'OAI-SearchBot', 'ChatGPT-User', 'Claude-SearchBot', 'Claude-User', 'PerplexityBot', 'Perplexity-User', 'MistralAI-User', 'DuckAssistBot'];
   const ENTRAINENT = ['GPTBot', 'ClaudeBot', 'anthropic-ai', 'Google-Extended', 'Applebot-Extended', 'CCBot', 'Bytespider', 'meta-externalagent', 'Meta-ExternalAgent', 'FacebookBot', 'cohere-ai', 'cohere-training-data-crawler', 'Diffbot', 'Omgilibot', 'Timpibot', 'ImagesiftBot', 'PetalBot', 'Amazonbot', 'AI2Bot', 'Ai2Bot-Dolma', 'img2dataset', 'Scrapy', 'DataForSeoBot', 'magpie-crawler', 'webzio-extended', 'PanguBot', 'Kangaroo Bot', 'Sidetrade indexer bot', 'SemrushBot-OCOB', 'iaskspider/2.0', 'VelenPublicWebCrawler', 'QualifiedBot', 'TurnitinBot', 'Brightbot 1.0'];
   await writeFile(path.join(ROOT, 'robots.txt'), [

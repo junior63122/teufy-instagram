@@ -99,7 +99,7 @@ export function planifier(plan, stock, aujourdhui, jours = 7, heureMin = '00:00'
 // Code d'accès (20/11/2026, directeur : « protège la page avec un code ») : le site est statique et public, donc le contenu
 // (planning, légendes, liens des vidéos) est chiffré (AES-256-GCM, clé tirée du code par PBKDF2) avec le code du secret GitHub
 // TIKTOK_CODE ; le navigateur le déchiffre une fois le bon code tapé. Sans secret : page fermée, rien n'est publié.
-function verrou(code, html) {
+export function verrou(code, html) {
   if (!code) return '<p class="i">Page fermée : le code d\'accès n\'est pas encore défini.</p>';
   const sel = randomBytes(16), iv = randomBytes(12);
   const cle = pbkdf2Sync(String(code), sel, 210000, 32, 'sha256');
@@ -109,7 +109,7 @@ function verrou(code, html) {
 <input id="code" type="password" autocomplete="current-password" placeholder="Code d'accès" style="width:100%;padding:14px;border-radius:10px;border:1px solid #ffffff33;background:#16161C;color:#F4EFE6;font-size:17px">
 <button class="btn" style="width:100%;margin-top:10px">Ouvrir</button><p id="err" class="sans" style="color:#FF5A3C"></p></form>`;
 }
-const DECHIFFRE = `const b64=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
+export const DECHIFFRE = `const b64=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
 async function ouvrir(code,garder){const f=document.getElementById('verrou');if(!f)return;try{
 const k=await crypto.subtle.importKey('raw',new TextEncoder().encode(code),'PBKDF2',false,['deriveKey']);
 const cle=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(f.dataset.sel),iterations:210000,hash:'SHA-256'},k,{name:'AES-GCM',length:256},false,['decrypt']);
