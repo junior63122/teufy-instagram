@@ -62,7 +62,7 @@ const CIBLE = `Public visé par Teufy : les 17-30 ans qui sortent sur la Côte d
 // Posts récents des comptes d'organisateurs (légende + affiche), pour extraction.
 async function postsOrganisateurs({ ig, api, comptes, now, log }) {
   const out = [];
-  const valides = [];
+  const valides = [], introuvables = [];
   for (const handle of comptes) {
     try {
       const bd = await api.businessDiscovery(handle, ig);
@@ -71,9 +71,14 @@ async function postsOrganisateurs({ ig, api, comptes, now, log }) {
         if ((now - new Date(m.timestamp)) / 86400e3 > 21 || !m.caption) continue;
         out.push({ compte: handle, abonnes: bd.followers_count, likes: m.like_count, commentaires: m.comments_count, publie: m.timestamp.slice(0, 10), legende: m.caption.slice(0, 1200), affiche: m.media_type === 'VIDEO' ? '' : (m.media_url || ''), lien: m.permalink });
       }
-    } catch (err) { log(`  @${handle} : ${String(err.message).slice(0, 80)}`); }
+    } catch (err) {
+      // Compte inexistant, personnel ou renommé (« Invalid user id », code 110) : mis de côté 30 jours au lieu d'être relu à
+      // chaque passage (21/11/2026 : 8 lectures perdues par passage sur des comptes introuvables).
+      if (/code 110|Invalid user id|2207013|does not exist|cannot be found/i.test(String(err.message))) introuvables.push(handle);
+      log(`  @${handle} : ${String(err.message).slice(0, 80)}`);
+    }
   }
-  return { posts: out.slice(0, 120), valides };
+  return { posts: out.slice(0, 120), valides, introuvables };
 }
 
 // Comptes Instagram des clubs et bars (vérifiés) : contenus/lieux-nuit.json et contenus/comptes-lieux.json.
@@ -84,8 +89,10 @@ export function comptesDesLieux() {
 }
 // Ordre de lecture : un compte de lieu est relu après 12 h, un autre après 24 h ; le plus en retard d'abord, jamais lu en tête.
 export function comptesALire({ orgas = {}, lieux = [], now = new Date(), max = 8 }) {
-  const lus = orgas.lus || {};
-  const autres = [...new Set([...(orgas.partenaires || []), ...(orgas.comptes || []), ...(orgas.suggeres || [])])].filter((h) => !lieux.includes(h));
+  const lus = orgas.lus || {}, introuvables = orgas.introuvables || {};
+  const ecarte = (h) => introuvables[h] && now - Date.parse(introuvables[h]) < 30 * 864e5;
+  lieux = lieux.filter((h) => !ecarte(h));
+  const autres = [...new Set([...(orgas.partenaires || []), ...(orgas.comptes || []), ...(orgas.suggeres || [])])].filter((h) => !lieux.includes(h) && !ecarte(h));
   const retard = (h, heures) => (lus[h] ? (now - Date.parse(lus[h])) / (heures * 3600e3) : 1e6);
   return [...lieux.map((h, i) => ({ h, r: retard(h, 12) + (lus[h] ? 0 : 1e3), i })), ...autres.map((h, i) => ({ h, r: retard(h, 24), i: i + lieux.length }))]
     .filter((x) => x.r >= 1).sort((a, b) => b.r - a.r || a.i - b.i).slice(0, max).map((x) => x.h);
@@ -159,8 +166,9 @@ export async function rechercherSoirees({ config, now = new Date(), ig = null, a
   if (ig && api.businessDiscovery) {
     const comptes = comptesALire({ orgas, lieux: comptesDesLieux(), now, max: instagramSeul ? (R.comptes_par_passage ?? 8) : (R.max_comptes ?? 100) });
     const r = await postsOrganisateurs({ ig, api, comptes, now, log });
-    orgas.lus ||= {};
-    for (const h of r.valides) orgas.lus[h] = now.toISOString();
+    orgas.lus ||= {}; orgas.introuvables ||= {};
+    for (const h of r.valides) { orgas.lus[h] = now.toISOString(); delete orgas.introuvables[h]; }
+    for (const h of r.introuvables || []) orgas.introuvables[h] = now.toISOString();
     orgas.valides = [...new Set([...(orgas.valides || []), ...r.valides])];
     // Seuls les posts jamais lus partent à l'IA (moins d'appels, rien de lu deux fois).
     orgas.posts_vus ||= {};

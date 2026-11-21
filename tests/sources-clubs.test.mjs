@@ -68,3 +68,11 @@ test('pseudo Instagram dans le nom de la soirée : écrit lisiblement', async ()
   assert.equal(assainir({ name: 'Soirée Vol.2 @ Le 109', venue: 'Le 109' }).name, 'Soirée Vol.2 @ Le 109');
   assert.equal(assainir({ name: 'B2B Techno', venue: 'X' }).name, 'B2B Techno');
 });
+
+test('Instagram : un compte introuvable (code 110) est mis de côté 30 jours', async () => {
+  const { comptesALire } = await import('../src/recherche.mjs');
+  const now = new Date('2026-11-21T18:00:00Z');
+  const orgas = { partenaires: ['inconnu', 'dj1'], introuvables: { inconnu: '2026-11-21T10:00:00Z' } };
+  assert.deepEqual(comptesALire({ orgas, lieux: [], now, max: 5 }), ['dj1']);
+  assert.ok(comptesALire({ orgas, lieux: [], now: new Date('2026-12-25T00:00:00Z'), max: 5 }).includes('inconnu'));
+});
