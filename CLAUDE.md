@@ -103,3 +103,9 @@
   (SUCCESS_VERIFIED, PENDING_VERIFICATION, FAILED, PARTIAL_SUCCESS, UNKNOWN, BLOCKED) ; jamais de note gonflée ; les 1 000 clients
   sont des simulations, pas des tests humains (toujours le dire). Modification importante du site → audit du site ; des bots ou des
   parcours → prompt parcours et bots (au moins la partie concernée). Jamais de publication Instagram pendant un audit.
+- **Étiquette « contenu généré par IA »** (directeur, 21/11/2026 : « oui, marque image générée par IA quand c'est nécessaire ») :
+  sur Instagram, toute publication dont un visuel contient une image réaliste générée par IA (photos de décor `studio/public/decors/**`,
+  générées par Gemini, voir `CREDITS.json`) porte l'étiquette IA de Meta ; jamais sur les affiches officielles ni les vraies photos.
+  Mise en place avec la migration de l'API Instagram (v21 retirée le 21/01/2027).
+- **Tests et publication** (autorisation du directeur, 21/11/2026) : un test en échec ne bloque plus le robot Instagram ; il publie,
+  puis finit le passage en erreur (« Alerte - tests en échec ») ; le contrôle quotidien répare le test le jour même.
