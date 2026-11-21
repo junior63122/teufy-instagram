@@ -858,5 +858,27 @@
    "nom": "Héritage Goldman",
    "type": "groupe"
   }
+ ],
+ "c97799d88f2b": [
+  {
+   "nom": "Galingas",
+   "type": "artiste"
+  },
+  {
+   "nom": "Slackreb",
+   "type": "artiste"
+  },
+  {
+   "nom": "Tao",
+   "type": "artiste"
+  },
+  {
+   "nom": "Marshall",
+   "type": "artiste"
+  },
+  {
+   "nom": "ZIAX",
+   "type": "artiste"
+  }
  ]
 }
