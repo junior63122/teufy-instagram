@@ -96,7 +96,8 @@
   "angle": "Comment bouger et rentrer de soirée sans aucun train entre Nice, Monaco et Vintimille pendant deux jours.",
   "resume": "Le trafic ferroviaire des TER et grandes lignes est entièrement interrompu entre Nice et Vintimille les 10 et 11 novembre 2026. Cette interruption liée à des travaux SNCF Réseau bloque l'axe majeur de déplacement nocturne pour la veille de jour férié.",
   "source": "https://www.monacoinfo.com",
-  "importance": 78
+  "importance": 78,
+  "actu_refusee": "non confirmée par la source"
  },
  {
   "id": "idee-vx6ybr",
@@ -272,7 +273,8 @@
   "angle": "Une orientation résolument plus brute et hard techno sur la grande scène du festival cannois.",
   "resume": "Le festival cannois Les Plages Électroniques officialise la DJ et productrice belge NOVAH sur sa Main Stage le vendredi 6 août 2027. Elle rejoint le DJ marseillais HUGEL parmi les premiers noms annoncés pour cette nouvelle édition.",
   "source": "https://events.europa.tips/uploads/events/les-plages-electroniques-full.webp",
-  "importance": 78
+  "importance": 78,
+  "actu_refusee": "non confirmée par la source"
  },
  {
   "id": "idee-i1px1",
@@ -526,5 +528,16 @@
   "resume": "Nino Arial se produit au Palais Nikaïa le 29 mai 2027. Les billets sont disponibles sur www.nikaia.fr.",
   "source": "https://www.instagram.com/reel/Df9bfL1jofw/",
   "importance": 50
+ },
+ {
+  "id": "idee-1betxao",
+  "ajout": "2026-11-21T19:12:17.659Z",
+  "type": "annonce",
+  "format": "post-annonce",
+  "titre": "Castings de la Saison 5 de DRAG’S LEGACY au Swing Nice",
+  "angle": "Les jeunes de la Côte d’Azur pourront découvrir de nouveaux talents et participer à une soirée à thème drag, avec restauration et karaoké.",
+  "resume": "Le Swing Nice lance les castings de la Saison 5 de DRAG’S LEGACY, qui se dérouleront chaque vendredi de novembre. La soirée du 20 novembre mettra en scène la Maison PSYCHO DRAMA de la coach Aemonaoff, avec 5 candidats se disputant la place finale.",
+  "source": "https://www.instagram.com/p/Df93ynMtGxw/",
+  "importance": 60
  }
 ]
