@@ -827,5 +827,30 @@
    "nom": "Latin Addict",
    "type": "groupe"
   }
- ]
+ ],
+ "8ca78955ceb5": [
+  {
+   "nom": "23HZ",
+   "type": "groupe"
+  },
+  {
+   "nom": "Banditik",
+   "type": "dj"
+  }
+ ],
+ "e507f9f800de": [
+  {
+   "nom": "Acid Pauli",
+   "type": "dj"
+  },
+  {
+   "nom": "Emma",
+   "type": "dj"
+  },
+  {
+   "nom": "Legri",
+   "type": "dj"
+  }
+ ],
+ "a241962caa14": []
 }

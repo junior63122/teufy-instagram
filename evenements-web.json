@@ -6,6 +6,233 @@
   "evenements": [
     {
       "source": "web",
+      "source_site": "Resident Advisor",
+      "name": "REF Session #18 Acid Pauli - Frigo 16 - NICE",
+      "start": "2026-12-04T19:00:00.000Z",
+      "venue": "Frigo 16 (Le 109)",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/fr/events/ref-session-18-acid-pauli-frigo-16",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto/production/artworks/REFSESSION18-ACID-PAULI-cover_ihgs9i.jpg",
+      "price": 12.49,
+      "tags": [
+        "acid house",
+        "acid techno",
+        "house",
+        "melodic techno",
+        "organic house",
+        "techno",
+        "ambient",
+        "downtempo",
+        "Melodic Techno",
+        "Acid House",
+        "Electro",
+        "Acid Techno",
+        "electro",
+        "Downtempo",
+        "minimal",
+        "Psychedelic House",
+        "Ambient Techno",
+        "Organic",
+        "House",
+        "Ambient",
+        "Musique électronique",
+        "electronic"
+      ],
+      "description": "Le vendredi 4 décembre, la REF Session #18 se réunit à Frigo 16, Nice, pour une nuit de house hypnotique et d’expérimentations sonores. Headliner, Acid Pauli, est reconnu pour ses sets libres et immersifs mêlant house, electronica et ambient. Il ouvre la soirée après un set d’Emma, qui propose une house groovy et percussive, avant que Legri, ancien duo Cab25, ne clôture le programme avec son mélange de funk, hip‑hop et house des années 90. L’ambiance promet d’être électrisante, avec food & drinks sur place et parking disponible. L’événement est accessible aux 17‑30 ans, sans restriction d’âge.",
+      "public_cible": 0.95,
+      "confiance": 0.95,
+      "buzz": 0.9,
+      "buzz_raison": "Venue exceptionnelle d'Acid Pauli, figure culte berlinoise, dans le spot warehouse du Frigo 16.",
+      "accroche": "Acid Pauli débarque au Frigo 16 pour une session électro psychédélique immanquable.",
+      "instagram": [
+        "ref_festival",
+        "panda_events",
+        "le109nice"
+      ],
+      "offres": [
+        {
+          "plateforme": "shotgun.live",
+          "url": "https://shotgun.live/events/ref-session-18-acid-pauli-frigo-16",
+          "prix": 10
+        },
+        {
+          "plateforme": "ra.co",
+          "url": "https://ra.co/events/2043686",
+          "prix": 12.49
+        }
+      ],
+      "sources_sites": [
+        "Resident Advisor",
+        "provence-alpes-cotedazur.com",
+        "Shotgun",
+        "Shotgun.live",
+        "Shotgun / REF Festival",
+        "shotgun.live",
+        "Instagram (reffestival)"
+      ],
+      "via_veille": true,
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
+    },
+    {
+      "source": "web",
+      "source_site": "instagram.com",
+      "name": "CARIBBEAN MOOD",
+      "start": "2026-11-12T23:00:00.000Z",
+      "venue": "SKYFALL CANNES",
+      "city": "Cannes",
+      "address": "",
+      "url": "https://www.instagram.com/reel/Dfm-6AlI9xE/",
+      "image": "",
+      "price": 15,
+      "tags": [
+        "Caribbean",
+        "House",
+        "Dance"
+      ],
+      "description": "Le 13 novembre, SKYFALL CANNES se transforme en un véritable paradis tropical. DJ Mygo et DJ Iron vous feront vibrer avec un mix de house, dance et sons caribéens. L’ambiance promet d’être chaude et festive, avec une entrée gratuite jusqu’à 01h, puis 15€ après. L’événement est parfait pour les 17‑30 ans qui cherchent une soirée pleine d’énergie et de soleil, même en pleine nuit.",
+      "public_cible": 0.8,
+      "confiance": 0.9,
+      "buzz": 0.6,
+      "buzz_raison": "Line‑up de DJ connus, lieu réputé, soirée nocturne avec entrée gratuite avant 01h.",
+      "accroche": "Caribbean vibes, 00h‑05h, free entry before 01h, 15€ after – le meilleur du son caribéen sur Cannes.",
+      "instagram": [
+        "dj_mygo",
+        "jobar.event"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Shotgun",
+      "name": "La Java 3",
+      "start": "2026-12-05T22:00:00.000Z",
+      "venue": "Le Green Musik",
+      "city": "Antibes",
+      "address": "",
+      "url": "https://shotgun.live/fr/events/la-java-3",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,w_1200,h_630,f_jpg,q_auto/production/artworks/LA_JAVA_3_shotgun_1_e8r9xv.png",
+      "price": 11.99,
+      "tags": [
+        "bounce",
+        "hard techno",
+        "psytrance",
+        "hardcore",
+        "Hardcore",
+        "Hard Bounce",
+        "Hard Techno",
+        "Bounce"
+      ],
+      "description": "Le 5 décembre, Le Green Musik d’Antibes accueille LA JAVA, une soirée techno hardcore à 23h, qui se poursuit jusqu’à 5h du matin. Furious Reaperz, duo français de renommée, vous livrent un set intense mêlant gabber, hardcore et uptempo. L’ambiance est électrique, avec une montée en puissance constante et des tracks exclusifs. L’événement est destiné aux 17‑30 ans passionnés de techno hardcore et de soirées endiablées.",
+      "public_cible": 0.95,
+      "confiance": 0.95,
+      "buzz": 0.75,
+      "buzz_raison": "Rave avec 5 DJs hard techno et psytrance sur gros système son.",
+      "accroche": "6h de rave non-stop hard techno et psytrance sur sound system Martin Audio.",
+      "instagram": [
+        "jobarevent",
+        "green_musikclub",
+        "jobar_event"
+      ],
+      "sources_sites": [
+        "Shotgun.live",
+        "Shotgun",
+        "instagram.com"
+      ],
+      "via_veille": true,
+      "offres": [
+        {
+          "plateforme": "shotgun.live",
+          "url": "https://shotgun.live/fr/events/la-java-3",
+          "prix": 11.99
+        }
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Instagram",
+      "name": "NOISE PROTOCOL IS BACK",
+      "start": "2026-11-14T16:00:00.000Z",
+      "venue": "SECRET PLACE 83",
+      "city": "La Valette-du-Var",
+      "address": "",
+      "url": "https://www.instagram.com/reel/DfeYoHCyyDO/",
+      "image": "",
+      "price": 0,
+      "tags": [
+        "tekno",
+        "dub",
+        "house"
+      ],
+      "description": "Le retour de Noise Protocol à Secret Place 83, La Valette‑du‑Var, promet une nuit de 25 KW de son, avec des artistes live comme Anilomogu, Mental Obscur, Coleno, Light, Meadowfairy, Melio et Sam. La soirée démarre à 17 h et se termine à 1 h du matin, avec bar et snack à petits prix. L’ambiance est pure techno, dub et house, idéale pour les 17‑30 ans qui cherchent une expérience rave authentique.",
+      "public_cible": 0.8,
+      "confiance": 0.7,
+      "buzz": 0.6,
+      "buzz_raison": "Line‑up live confirmé, retour d’une soirée populaire, date proche de la fin de semaine.",
+      "accroche": "Noise Protocol revient à Secret Place 83 : 25 KW de son, line‑up live et ambiance rave à couper le souffle.",
+      "instagram": [
+        "kontakt_6tem"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Shotgun",
+      "name": "DO YOU LIKE… TEKNO ?",
+      "start": "2026-11-28T19:00:00.000Z",
+      "venue": "Frigo 16 (Le 109)",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/fr/events/do-you-like-tekno-frigo-16-le-109-nice",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,w_1200,h_630,f_jpg,q_auto/dev/artworks/Banni%C3%A8re_Shotgun_t785wx",
+      "price": 10.99,
+      "tags": [
+        "tekno",
+        "acidcore",
+        "tribe",
+        "techno",
+        "hardtek",
+        "Tekno",
+        "Acidcore",
+        "Tribe",
+        "Hardtek",
+        "Techno",
+        "Hard Techno",
+        "Mental Tekno",
+        "Mental",
+        "hard techno",
+        "Free Tekno",
+        "Hardtechno",
+        "acid"
+      ],
+      "description": "Le 28 novembre, le Frigo16 à Nice accueille la deuxième édition de la série DO YOU LIKE TEKNO ? de Prizme Concept. La soirée promet une immersion totale dans le tekno hardcore, avec la présence de Cera Khin, figure incontournable de la scène techno internationale, et un line‑up qui mêle hard techno, schranz, acid et psytrance. L’ambiance est brute, les BPM sont élevés, et le concept est de laisser le son parler. L’entrée est libre, mais la billetterie est ouverte en prévente via le lien dans la bio. L’événement s’adresse aux 17‑30 ans qui cherchent une expérience électro intense dans un club emblématique de Nice.",
+      "public_cible": 0.95,
+      "confiance": 0.95,
+      "buzz": 0.85,
+      "buzz_raison": "Duo mythique 23HZ en live et grosse production tekno.",
+      "accroche": "Live de 2h du duo 23HZ (Insane Teknology & Nesh Mayday) plus Banditik au 109.",
+      "instagram": [
+        "_do.you.like",
+        "prizmeconcept",
+        "frigo.16"
+      ],
+      "offres": [
+        {
+          "plateforme": "shotgun.live",
+          "url": "https://shotgun.live/fr/events/do-you-like-tekno-frigo-16-le-109-nice",
+          "prix": 10.99
+        }
+      ],
+      "sources_sites": [
+        "Shotgun",
+        "Shotgun.live",
+        "Shotgun / Panda Events",
+        "shotgun.live",
+        "Shotgun Live / Prizme Concept",
+        "Instagram"
+      ]
+    },
+    {
+      "source": "web",
       "source_site": "Instagram (tweltyprod)",
       "name": "Phaphane @ FRIGO 16",
       "start": "2026-11-27T19:00:00.000Z",
@@ -1002,75 +1229,6 @@
     },
     {
       "source": "web",
-      "source_site": "Resident Advisor",
-      "name": "REF Session #18 Acid Pauli - Frigo 16 - NICE",
-      "start": "2026-12-04T19:00:00.000Z",
-      "venue": "Frigo 16 (Le 109)",
-      "city": "Nice",
-      "address": "",
-      "url": "https://shotgun.live/fr/events/ref-session-18-acid-pauli-frigo-16",
-      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto/production/artworks/REFSESSION18-ACID-PAULI-cover_ihgs9i.jpg",
-      "price": 12.49,
-      "tags": [
-        "acid house",
-        "acid techno",
-        "house",
-        "melodic techno",
-        "organic house",
-        "techno",
-        "ambient",
-        "downtempo",
-        "Melodic Techno",
-        "Acid House",
-        "Electro",
-        "Acid Techno",
-        "electro",
-        "Downtempo",
-        "minimal",
-        "Psychedelic House",
-        "Ambient Techno",
-        "Organic",
-        "House",
-        "Ambient",
-        "Musique électronique"
-      ],
-      "description": "",
-      "public_cible": 0.95,
-      "confiance": 0.95,
-      "buzz": 0.9,
-      "buzz_raison": "Venue exceptionnelle d'Acid Pauli, figure culte berlinoise, dans le spot warehouse du Frigo 16.",
-      "accroche": "Acid Pauli débarque au Frigo 16 pour une session électro psychédélique immanquable.",
-      "instagram": [
-        "ref_festival",
-        "panda_events",
-        "le109nice"
-      ],
-      "offres": [
-        {
-          "plateforme": "shotgun.live",
-          "url": "https://shotgun.live/events/ref-session-18-acid-pauli-frigo-16",
-          "prix": 10
-        },
-        {
-          "plateforme": "ra.co",
-          "url": "https://ra.co/events/2043686",
-          "prix": 12.49
-        }
-      ],
-      "sources_sites": [
-        "Resident Advisor",
-        "provence-alpes-cotedazur.com",
-        "Shotgun",
-        "Shotgun.live",
-        "Shotgun / REF Festival",
-        "shotgun.live"
-      ],
-      "via_veille": true,
-      "billetterie_cherchee": true,
-      "offres_cherchees": true
-    },
-    {
-      "source": "web",
       "source_site": "eventbrite.fr",
       "name": "Chilli No. 5 - 80s Après-Ski Christmas Party",
       "start": "2026-12-11T18:00:00.000Z",
@@ -1793,61 +1951,6 @@
     {
       "source": "web",
       "source_site": "Shotgun",
-      "name": "DO YOU LIKE… TEKNO ?",
-      "start": "2026-11-28T19:00:00.000Z",
-      "venue": "Frigo 16 (Le 109)",
-      "city": "Nice",
-      "address": "",
-      "url": "https://shotgun.live/fr/events/do-you-like-tekno-frigo-16-le-109-nice",
-      "image": "https://assets.shotgun.live/image/upload/c_limit,w_1200,h_630,f_jpg,q_auto/dev/artworks/Banni%C3%A8re_Shotgun_t785wx",
-      "price": 10.99,
-      "tags": [
-        "tekno",
-        "acidcore",
-        "tribe",
-        "techno",
-        "hardtek",
-        "Tekno",
-        "Acidcore",
-        "Tribe",
-        "Hardtek",
-        "Techno",
-        "Hard Techno",
-        "Mental Tekno",
-        "Mental",
-        "hard techno",
-        "Free Tekno",
-        "Hardtechno"
-      ],
-      "description": "",
-      "public_cible": 0.95,
-      "confiance": 0.95,
-      "buzz": 0.85,
-      "buzz_raison": "Duo mythique 23HZ en live et grosse production tekno.",
-      "accroche": "Live de 2h du duo 23HZ (Insane Teknology & Nesh Mayday) plus Banditik au 109.",
-      "instagram": [
-        "_do.you.like",
-        "prizmeconcept",
-        "frigo.16"
-      ],
-      "offres": [
-        {
-          "plateforme": "shotgun.live",
-          "url": "https://shotgun.live/fr/events/do-you-like-tekno-frigo-16-le-109-nice",
-          "prix": 10.99
-        }
-      ],
-      "sources_sites": [
-        "Shotgun",
-        "Shotgun.live",
-        "Shotgun / Panda Events",
-        "shotgun.live",
-        "Shotgun Live / Prizme Concept"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "Shotgun",
       "name": "Vibrance #7",
       "start": "2026-11-28T20:00:00.000Z",
       "venue": "L'Antre Bar Electro",
@@ -2315,52 +2418,6 @@
       "accroche": "Alex Duff aux platines pour une nuit house et tech house survitaminée.",
       "instagram": [
         "glassclubcannes"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "Shotgun",
-      "name": "La Java 3",
-      "start": "2026-12-05T22:00:00.000Z",
-      "venue": "Le Green Musik",
-      "city": "Antibes",
-      "address": "",
-      "url": "https://shotgun.live/fr/events/la-java-3",
-      "image": "https://assets.shotgun.live/image/upload/c_limit,w_1200,h_630,f_jpg,q_auto/production/artworks/LA_JAVA_3_shotgun_1_e8r9xv.png",
-      "price": 11.99,
-      "tags": [
-        "bounce",
-        "hard techno",
-        "psytrance",
-        "hardcore",
-        "Hardcore",
-        "Hard Bounce",
-        "Hard Techno",
-        "Bounce"
-      ],
-      "description": "",
-      "public_cible": 0.95,
-      "confiance": 0.95,
-      "buzz": 0.75,
-      "buzz_raison": "Rave avec 5 DJs hard techno et psytrance sur gros système son.",
-      "accroche": "6h de rave non-stop hard techno et psytrance sur sound system Martin Audio.",
-      "instagram": [
-        "jobarevent",
-        "green_musikclub",
-        "jobar_event"
-      ],
-      "sources_sites": [
-        "Shotgun.live",
-        "Shotgun",
-        "instagram.com"
-      ],
-      "via_veille": true,
-      "offres": [
-        {
-          "plateforme": "shotgun.live",
-          "url": "https://shotgun.live/fr/events/la-java-3",
-          "prix": 11.99
-        }
       ]
     },
     {
@@ -3458,5 +3515,6 @@
       ]
     }
   ],
-  "maj_instagram": "2026-11-21T12:41:56.611Z"
+  "maj_instagram": "2026-11-21T13:12:32.886Z",
+  "echec_web": "2026-11-21T13:12:32.886Z"
 }
