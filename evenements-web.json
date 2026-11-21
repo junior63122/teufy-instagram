@@ -6,6 +6,108 @@
   "evenements": [
     {
       "source": "web",
+      "source_site": "Instagram",
+      "name": "PSYDIEZE",
+      "start": "2026-11-27T23:00:00.000Z",
+      "venue": "Dieze Warehouse",
+      "city": "Montpellier",
+      "address": "",
+      "url": "https://www.instagram.com/reel/Df47EWDtKyL/",
+      "image": "",
+      "price": null,
+      "tags": [
+        "psytrance",
+        "techno"
+      ],
+      "description": "Le PSYDIEZE ouvre les portes de la psytrance pour une nuit intense. En tête d’affiche, KALKI vous embarque dans un voyage hypnotique entre basses psychédéliques et sonorités puissantes, accompagné de LA ROUZ et WILDTRACK. Attendez-vous à une énergie explosive, des rythmes hypnotiques et une ambiance qui vous fera vibrer jusqu’au petit matin. L’événement se déroule à 00h00 – 06h00, sans prévente annoncée, mais la billetterie est disponible sur Shotgun.",
+      "public_cible": 0.9,
+      "confiance": 0.8,
+      "buzz": 0.6,
+      "buzz_raison": "Line‑up de psytrance reconnu, lieu réputé pour ses soirées underground, date en fin de mois.",
+      "accroche": "Une nuit psytrance explosive avec KALKI, LA ROUZ et WILDTRACK au cœur du Dieze.",
+      "instagram": [
+        "diezewarehouse"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Instagram",
+      "name": "Hard Night",
+      "start": "2026-12-10T23:00:00.000Z",
+      "venue": "Dieze Warehouse",
+      "city": "Montpellier",
+      "address": "",
+      "url": "https://www.instagram.com/reel/Df7dboiSsbv/",
+      "image": "",
+      "price": null,
+      "tags": [
+        "techno",
+        "hardtek",
+        "acid"
+      ],
+      "description": "La Hard Night revient au Dieze Warehouse pour une édition explosive. En tête d’affiche, HANNIBASS, artiste underground, apporte une fusion de tekno, acid et hardtek. La soirée promet des kicks puissants, des basses percutantes et une énergie rave sans limites. Le set se déroule de 00h00 à 06h00, avec billetterie disponible sur Shotgun. Attendez une ambiance brute et intense qui vous fera vibrer jusqu’au petit matin.",
+      "public_cible": 0.8,
+      "confiance": 0.8,
+      "buzz": 0.7,
+      "buzz_raison": "Tête d’affiche reconnue dans la scène underground, événement récurrent, date en fin de semaine.",
+      "accroche": "Hard Night revient pour une nuit de kicks ravageurs et de BPM survoltés.",
+      "instagram": [
+        "diezewarehouse"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "instagram",
+      "name": "INDUS FACTORY 6",
+      "start": "2026-11-19T23:00:00.000Z",
+      "venue": "Dieze Warehouse",
+      "city": "Montpellier",
+      "address": "",
+      "url": "https://www.instagram.com/reel/Df4WUQWSYfx/",
+      "image": "",
+      "price": null,
+      "tags": [
+        "hardstyle",
+        "industrial"
+      ],
+      "description": "INDUS FACTORY 6 débarque à Dieze Warehouse pour une nuit de hardstyle industriel. En tête d’affiche, ANDEREX, figure montante de la scène raw hardstyle, sera accompagné d’ANOLUXX, PRASKA et YOUR POIZON. Dress code : Black / Leather / Metal / Chains. L’événement se déroule de minuit à 6 h, à 188 avenue du Marché Gare, 34000 Montpellier. Billetterie sur Shotgun.",
+      "public_cible": 0.7,
+      "confiance": 0.9,
+      "buzz": 0.6,
+      "buzz_raison": "Tête d’affiche reconnue, lieu réputé, événement de retour de la série.",
+      "accroche": "INDUS FACTORY revient le 20 novembre avec ANDEREX, le prod australien qui fusionne kicks dévastateurs et acid futuriste.",
+      "instagram": [
+        "diezewarehouse"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "instagram",
+      "name": "PUNISH – KINKY PARTY",
+      "start": "2026-12-03T23:00:00.000Z",
+      "venue": "Dieze Warehouse",
+      "city": "Montpellier",
+      "address": "",
+      "url": "https://www.instagram.com/p/Df1yuKSjWfP/",
+      "image": "https://scontent-sea5-1.cdninstagram.com/v/t51.82787-15/904321311_18447879523179396_2011963488069090914_n.jpg?stp=dst-jpg_e35_tt6",
+      "price": null,
+      "tags": [
+        "techno",
+        "hardgroove"
+      ],
+      "description": "Le 4 décembre, PUNISH transforme le Dieze Warehouse en une kinky party où techno hypnotique et hardgroove se rencontrent. Dress code : Kinky. La soirée commence à minuit et se termine à 6 h. L’événement inclut une performance de Nox Aera avec danseuses, pole dance et accessoires. L’adresse est 188 avenue du Marché Gare, 34000 Montpellier. Pas de photo ni vidéo autorisées.",
+      "public_cible": 0.8,
+      "confiance": 0.9,
+      "buzz": 0.5,
+      "buzz_raison": "Concept unique, dress code strict, lieu connu.",
+      "accroche": "PUNISH prend possession du Dieze Warehouse le 4 décembre pour une soirée techno hypnotique et performance kinky.",
+      "instagram": [
+        "diezewarehouse",
+        "nox_aera"
+      ]
+    },
+    {
+      "source": "web",
       "source_site": "Resident Advisor",
       "name": "REF Session #18 Acid Pauli - Frigo 16 - NICE",
       "start": "2026-12-04T19:00:00.000Z",
@@ -77,33 +179,6 @@
     },
     {
       "source": "web",
-      "source_site": "instagram.com",
-      "name": "CARIBBEAN MOOD",
-      "start": "2026-11-12T23:00:00.000Z",
-      "venue": "SKYFALL CANNES",
-      "city": "Cannes",
-      "address": "",
-      "url": "https://www.instagram.com/reel/Dfm-6AlI9xE/",
-      "image": "",
-      "price": 15,
-      "tags": [
-        "Caribbean",
-        "House",
-        "Dance"
-      ],
-      "description": "Le 13 novembre, SKYFALL CANNES se transforme en un véritable paradis tropical. DJ Mygo et DJ Iron vous feront vibrer avec un mix de house, dance et sons caribéens. L’ambiance promet d’être chaude et festive, avec une entrée gratuite jusqu’à 01h, puis 15€ après. L’événement est parfait pour les 17‑30 ans qui cherchent une soirée pleine d’énergie et de soleil, même en pleine nuit.",
-      "public_cible": 0.8,
-      "confiance": 0.9,
-      "buzz": 0.6,
-      "buzz_raison": "Line‑up de DJ connus, lieu réputé, soirée nocturne avec entrée gratuite avant 01h.",
-      "accroche": "Caribbean vibes, 00h‑05h, free entry before 01h, 15€ after – le meilleur du son caribéen sur Cannes.",
-      "instagram": [
-        "dj_mygo",
-        "jobar.event"
-      ]
-    },
-    {
-      "source": "web",
       "source_site": "Shotgun",
       "name": "La Java 3",
       "start": "2026-12-05T22:00:00.000Z",
@@ -146,32 +221,6 @@
           "url": "https://shotgun.live/fr/events/la-java-3",
           "prix": 11.99
         }
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "Instagram",
-      "name": "NOISE PROTOCOL IS BACK",
-      "start": "2026-11-14T16:00:00.000Z",
-      "venue": "SECRET PLACE 83",
-      "city": "La Valette-du-Var",
-      "address": "",
-      "url": "https://www.instagram.com/reel/DfeYoHCyyDO/",
-      "image": "",
-      "price": 0,
-      "tags": [
-        "tekno",
-        "dub",
-        "house"
-      ],
-      "description": "Le retour de Noise Protocol à Secret Place 83, La Valette‑du‑Var, promet une nuit de 25 KW de son, avec des artistes live comme Anilomogu, Mental Obscur, Coleno, Light, Meadowfairy, Melio et Sam. La soirée démarre à 17 h et se termine à 1 h du matin, avec bar et snack à petits prix. L’ambiance est pure techno, dub et house, idéale pour les 17‑30 ans qui cherchent une expérience rave authentique.",
-      "public_cible": 0.8,
-      "confiance": 0.7,
-      "buzz": 0.6,
-      "buzz_raison": "Line‑up live confirmé, retour d’une soirée populaire, date proche de la fin de semaine.",
-      "accroche": "Noise Protocol revient à Secret Place 83 : 25 KW de son, line‑up live et ambiance rave à couper le souffle.",
-      "instagram": [
-        "kontakt_6tem"
       ]
     },
     {
@@ -3515,6 +3564,6 @@
       ]
     }
   ],
-  "maj_instagram": "2026-11-21T13:12:32.886Z",
+  "maj_instagram": "2026-11-21T13:42:28.310Z",
   "echec_web": "2026-11-21T13:12:32.886Z"
 }

@@ -1,5 +1,5 @@
 {
-  "maj": "2026-11-20T12:42:37.786Z",
+  "maj": "2026-11-21T13:42:28.310Z",
   "evenements": [
     {
       "source": "eventbrite",
@@ -25,102 +25,6 @@
           "prix": 0
         }
       ]
-    },
-    {
-      "source": "web",
-      "source_site": "Resident Advisor",
-      "name": "A DECADE OF MELODIES — 10 YEARS OF LABO T",
-      "start": "2026-11-20T22:59:00.000Z",
-      "venue": "Rockstore",
-      "city": "Montpellier",
-      "address": "",
-      "url": "https://ra.co/events/1990500",
-      "image": "https://images.ra.co/90d48d03139ec9a58c29d230e0ed362f42ba0734.jpg",
-      "price": 15,
-      "tags": [
-        "Melodic Techno",
-        "Deep House",
-        "Electronic"
-      ],
-      "description": "",
-      "public_cible": 0.85,
-      "confiance": 0.95,
-      "verifie": true,
-      "buzz": 0.7,
-      "accroche": "Le label Labo T fête ses 10 ans au Rockstore pour une nuit melodic techno et deep house.",
-      "instagram": []
-    },
-    {
-      "source": "web",
-      "source_site": "Shotgun",
-      "name": "Drakhard Présente : Prophecy Of The Runes",
-      "start": "2026-11-20T22:59:00.000Z",
-      "venue": "Mélomane Club",
-      "city": "Montpellier",
-      "address": "",
-      "url": "https://shotgun.live/events/prophecy-of-the-runes",
-      "image": "",
-      "price": 15.99,
-      "tags": [
-        "Uptempo",
-        "Hard Techno",
-        "Hardcore"
-      ],
-      "description": "",
-      "public_cible": 0.9,
-      "confiance": 0.95,
-      "verifie": true,
-      "buzz": 0.7,
-      "accroche": "Drakhard frappe fort au Mélomane Club avec une nuit dédiée à l'uptempo et au hardcore.",
-      "instagram": []
-    },
-    {
-      "source": "web",
-      "source_site": "Shotgun",
-      "name": "I Love Disco - Antirouille",
-      "start": "2026-11-20T22:59:00.000Z",
-      "venue": "L'Antirouille",
-      "city": "Montpellier",
-      "address": "",
-      "url": "https://shotgun.live/events/i-love-disco-antirouille",
-      "image": "",
-      "price": 8.2,
-      "tags": [
-        "Disco",
-        "Pop",
-        "Funk"
-      ],
-      "description": "",
-      "public_cible": 0.85,
-      "confiance": 0.95,
-      "verifie": true,
-      "buzz": 0.55,
-      "accroche": "Boule à facettes et hymnes intemporels disco, funk et pop pour danser à L'Antirouille.",
-      "instagram": []
-    },
-    {
-      "source": "web",
-      "source_site": "Shotgun",
-      "name": "Vespi Dj Set",
-      "start": "2026-11-20T22:59:00.000Z",
-      "venue": "TS Bar / Clubbing",
-      "city": "Montpellier",
-      "address": "",
-      "url": "https://shotgun.live/events/vespi-dj-set",
-      "image": "https://assets.shotgun.live/image/upload/c_limit,w_384,fl_lossy,f_webp,q_5/production/artworks/Vespi_shotgun_xmbyxp.png",
-      "price": 8,
-      "tags": [
-        "Pop",
-        "Electro",
-        "Club"
-      ],
-      "description": "",
-      "public_cible": 0.85,
-      "confiance": 0.95,
-      "verifie": true,
-      "buzz": 0.5,
-      "accroche": "DJ set festif electro pop signé Vespi pour enflammer le dancefloor du TS Bar.",
-      "instagram": []
     },
     {
       "source": "web",
@@ -725,31 +629,6 @@
     },
     {
       "source": "web",
-      "source_site": "See Tickets France",
-      "name": "Pulse 2# - Live Electro & Arts Numériques (Tadej Droljc, Annabelle Playe, Takkak Takkak, Brodinski)",
-      "start": "2026-11-20T19:30:00.000Z",
-      "venue": "El Mediator",
-      "city": "Perpignan",
-      "address": "",
-      "url": "https://www.seetickets.com/fr/d/event/pulse-2-/el-mediator/10839074",
-      "image": "https://statics.digitick.com/commun/images/upload/events/15/d5/1928H_300.jpg",
-      "price": 15,
-      "tags": [
-        "électro",
-        "techno",
-        "live A/V",
-        "arts numériques"
-      ],
-      "description": "",
-      "public_cible": 0.85,
-      "confiance": 0.85,
-      "verifie": true,
-      "buzz": 0.75,
-      "accroche": "Brodinski et des lives A/V au Mediator : une nuit électro et arts numériques à 15 €",
-      "instagram": []
-    },
-    {
-      "source": "web",
       "source_site": "Ticketmaster",
       "name": "The Inspector Cluzo + 7 Weeks (Less Is More Worldwide Tour)",
       "start": "2026-11-26T19:30:00.000Z",
@@ -891,29 +770,6 @@
     {
       "source": "web",
       "source_site": "narbonne-arena.fr",
-      "name": "Fiesta Vino",
-      "start": "2026-11-20T16:00:00.000Z",
-      "venue": "Narbonne Arena",
-      "city": "Narbonne",
-      "address": "",
-      "url": "https://www.narbonne-arena.fr/evenement/fiesta-vino/",
-      "image": "https://www.narbonne-arena.fr/wp/wp-content/uploads/sites/9/2024/07/AFFICHE_FIESTAVINO-1-350x524.jpg",
-      "price": 7,
-      "tags": [
-        "concerts live",
-        "banda"
-      ],
-      "description": "",
-      "public_cible": 0.6,
-      "confiance": 0.9,
-      "verifie": true,
-      "buzz": 0.65,
-      "accroche": "Trois jours de fête du vin avec concerts et banda, 7 € la journée.",
-      "instagram": []
-    },
-    {
-      "source": "web",
-      "source_site": "narbonne-arena.fr",
       "name": "David Hallyday – Requiem pour un fou",
       "start": "2026-11-27T19:30:00.000Z",
       "venue": "Narbonne Arena",
@@ -998,52 +854,6 @@
       "verifie": false,
       "buzz": 0.55,
       "accroche": "Benjamin Biolay en tournée, escale au Zinga Zanga.",
-      "instagram": []
-    },
-    {
-      "source": "web",
-      "source_site": "Bizouk",
-      "name": "Kompa And Gouyad Édition : Noel",
-      "start": "2026-11-20T22:00:00.000Z",
-      "venue": "Le Baia Club",
-      "city": "Toulouse",
-      "address": "",
-      "url": "https://www.bizouk.com/events/details/kompa-and-gouyad-edition-noel/133244",
-      "image": "https://data-prod.bizouk.com/events/cards/2026/11/133244-174178-6edc3b66.jpg",
-      "price": 10.99,
-      "tags": [
-        "kompa",
-        "gouyad"
-      ],
-      "description": "",
-      "public_cible": 0.7,
-      "confiance": 0.85,
-      "verifie": true,
-      "buzz": 0.55,
-      "accroche": "Kompa et gouyad en édition Noël au Baia Club",
-      "instagram": []
-    },
-    {
-      "source": "web",
-      "source_site": "Bizouk",
-      "name": "Bethere Birthday - Meryl Showcase",
-      "start": "2026-11-20T22:00:00.000Z",
-      "venue": "NINE",
-      "city": "Toulouse",
-      "address": "",
-      "url": "https://www.bizouk.com/events/details/bethere-birthday-meryl-showcase/132694",
-      "image": "https://data-prod.bizouk.com/events/cards/2026/11/132694-173139-ae7e43e8.jpg",
-      "price": 20.99,
-      "tags": [
-        "clubbing",
-        "showcase"
-      ],
-      "description": "",
-      "public_cible": 0.85,
-      "confiance": 0.85,
-      "verifie": true,
-      "buzz": 0.75,
-      "accroche": "Bethere fête son anniversaire au Nine avec Meryl en showcase",
       "instagram": []
     },
     {
@@ -1135,28 +945,6 @@
       "verifie": false,
       "buzz": 0.65,
       "accroche": "Jwles en concert au Rex de Toulouse",
-      "instagram": []
-    },
-    {
-      "source": "web",
-      "source_site": "paloma-nimes.fr",
-      "name": "CAMILLE",
-      "start": "2026-11-20T19:30:00.000Z",
-      "venue": "Paloma, Grande Salle",
-      "city": "Nîmes",
-      "address": "",
-      "url": "https://paloma-nimes.fr/agenda/2026-11/camille-7-event-36832/",
-      "image": "https://paloma-nimes.fr/wp-content/uploads/2026/03/capture-decran-2026-03-24-a-17.08.10.png",
-      "price": null,
-      "tags": [
-        "chanson"
-      ],
-      "description": "",
-      "public_cible": 0.4,
-      "confiance": 0.95,
-      "verifie": true,
-      "buzz": 0.6,
-      "accroche": "Camille en Grande Salle de Paloma un vendredi : complet, tente la revente.",
       "instagram": []
     }
   ]
