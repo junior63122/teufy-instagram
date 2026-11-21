@@ -12,7 +12,7 @@ const IGNORE = /(^|\/)node_modules(\/|$)|^(\.git|out|media|livrables|apercus|sit
 const fichiers = []; (function lire(d) { for (const e of fs.readdirSync(path.join(ROOT, d), { withFileTypes: true })) { const r = path.join(d, e.name); if (IGNORE.test(r)) continue; if (e.isDirectory()) lire(r); else fichiers.push(r); } })('');
 // 1. Secrets (motifs des clés Google, Anthropic, GitHub, Meta, Slack, ElevenLabs, clés privées).
 const SECRETS = [/AIza[0-9A-Za-z_-]{35}/, /sk-ant-[A-Za-z0-9_-]{20,}/, /gh[pousr]_[A-Za-z0-9]{36}/, /github_pat_[A-Za-z0-9_]{40,}/, /EAA[A-Za-z0-9]{60,}/, /xox[baprs]-[A-Za-z0-9-]{20,}/, /-----BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY-----/, /sk_[a-f0-9]{48}/];
-for (const f of fichiers) { if (!/\.(m?js|cjs|json|html|md|ya?ml|txt|env|css|xml)$/.test(f)) continue; const t = fs.readFileSync(path.join(ROOT, f), 'utf8'); for (const re of SECRETS) if (re.test(t)) ko(`clé secrète possible dans ${f} (${re.source.slice(0, 18)}…)`); }
+for (const f of fichiers) { if (!/\.(m?js|cjs|json|html|md|ya?ml|txt|env|css|xml)$/.test(f)) continue; const t = fs.readFileSync(path.join(ROOT, f), 'utf8').replace(/data-(?:d|sel|iv)="[A-Za-z0-9+/=]+"/g, ''); /* contenu chiffré des pages à code (base64 aléatoire) : pas une clé */ for (const re of SECRETS) if (re.test(t)) ko(`clé secrète possible dans ${f} (${re.source.slice(0, 18)}…)`); }
 // 2 à 5 et 7 : contrôle de toutes les pages HTML publiées.
 const pages = fichiers.filter((f) => f.endsWith('.html') && !/^(tests|outils|studio|veille)\//.test(f));
 const SCRIPTS_OK = /^<script( type="(application\/ld\+json|application\/json|speculationrules)"( id="[a-z-]+")?| src="[^"]+"( defer)?)?>/;

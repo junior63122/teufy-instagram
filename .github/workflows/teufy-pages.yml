@@ -34,7 +34,7 @@ jobs:
     timeout-minutes: 20
     environment:
       name: github-pages
-      url: ${{ steps.deploiement.outputs.page_url }}
+      url: ${{ steps.essai1.outputs.page_url || steps.deploiement.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -70,5 +70,14 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
+      # 21/11/2026 : 9 échecs « No artifacts named github-pages » le même jour (l'envoi était fini, GitHub ne le voyait pas
+      # encore 0,4 s après) → mails d'échec au directeur. Deuxième essai 30 s plus tard ; échec seulement si les deux ratent.
+      - id: essai1
+        continue-on-error: true
+        uses: actions/deploy-pages@v4
+      - name: Attendre avant le deuxième essai
+        if: steps.essai1.outcome == 'failure'
+        run: sleep 30
       - id: deploiement
+        if: steps.essai1.outcome == 'failure'
         uses: actions/deploy-pages@v4
