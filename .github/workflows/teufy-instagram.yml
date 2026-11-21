@@ -166,7 +166,12 @@ jobs:
           npm ci --prefix studio --no-audit --no-fund # studio Remotion (reels créatifs)
 
       - name: Tests
+        id: tests
         if: steps.choix.outputs.rien != 'true'
+        # 20-21/11/2026 (directeur : « les publications passent toujours », autorisation écrite du 21/11) : un test en échec ne
+        # bloque plus la publication (le 20/11, un test mal écrit avait retardé le concours de 2 h). L'échec reste signalé :
+        # le job finit en erreur à la dernière étape, après les publications, et le contrôle quotidien le répare.
+        continue-on-error: true
         run: npm test
 
       - name: Récupérer les soirées et générer les visuels
@@ -281,3 +286,9 @@ jobs:
           git add -A -- contenus/controle-publication.json
           git diff --cached --quiet || { git commit -m "Teufy : auto-contrôle des publications [skip ci]"; for i in 1 2 3; do git pull --rebase -X theirs --autostash && git push && break; git rebase --abort 2>/dev/null; sleep 5; done; }
           exit $CODE
+
+      - name: Alerte - tests en échec (signalé après les publications)
+        if: always() && steps.tests.outcome == 'failure'
+        run: |
+          echo "::error::Les tests ont échoué à ce passage : publications faites quand même (« les publications passent toujours »), à réparer."
+          exit 1
