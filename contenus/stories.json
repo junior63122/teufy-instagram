@@ -368,5 +368,28 @@
   "absentes": [],
   "manquantes": [],
   "le": "2026-11-20T21:11:11.865Z"
+ },
+ {
+  "jour": "2026-11-21",
+  "type": "soirees",
+  "cles": [
+   "De Rio A Mexico | La Esquina Tropical X Fort Napoleon",
+   "Marcus Gad + Première Partie",
+   "The Saturday Society"
+  ],
+  "ids": [
+   "17911439838596615",
+   "18168930556488215",
+   "18440028223196273"
+  ],
+  "faites": [
+   0,
+   1,
+   2
+  ],
+  "relue": true,
+  "absentes": [],
+  "manquantes": [],
+  "le": "2026-11-21T15:16:02.768Z"
  }
 ]
