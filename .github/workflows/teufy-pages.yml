@@ -8,7 +8,12 @@ name: Teufy - Mise en ligne du site (GitHub Pages)
 on:
   push:
     branches: [main]
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      sauvegarde:
+        description: "Remettre en ligne une sauvegarde (ex. sauvegarde-2026-11-21) ; vide = version actuelle"
+        required: false
+        default: ""
   # Les robots poussent avec le jeton GitHub, ce qui ne relance pas les workflows « push » : on publie à la fin de leur passage.
   workflow_run:
     workflows: ["Teufy - Instagram automatique", "Teufy - Lieux (images, carte, transports)", "Teufy - Veille et publication réactive", "Teufy - Paiements", "Teufy - Prospection", "Teufy - Studio (décors illustrés)"]
@@ -35,6 +40,20 @@ jobs:
         with:
           ref: main
           fetch-depth: 1
+      # Retour à une sauvegarde (21/11/2026, directeur : « des sauvegardes du site pour revenir à une version précédente en cas
+      # de souci grave ») : soit demandée à la main (champ « sauvegarde »), soit figée dans contenus/gel-site.txt (nom de la
+      # sauvegarde) tant que le souci n'est pas réparé : les robots continuent, mais c'est la sauvegarde qui reste en ligne.
+      - name: Version à mettre en ligne (actuelle ou sauvegarde)
+        env:
+          DEMANDE: ${{ inputs.sauvegarde }}
+        run: |
+          CIBLE="$DEMANDE"
+          [ -z "$CIBLE" ] && [ -f contenus/gel-site.txt ] && CIBLE=$(head -1 contenus/gel-site.txt | tr -cd 'A-Za-z0-9._-')
+          if [ -n "$CIBLE" ]; then
+            case "$CIBLE" in sauvegarde-*) ;; *) echo "::error::Nom de sauvegarde invalide : $CIBLE"; exit 1;; esac
+            git fetch --depth 1 origin "refs/tags/$CIBLE:refs/tags/$CIBLE" && git checkout -q "$CIBLE"
+            echo "::warning::Site remis à la sauvegarde $CIBLE (pour revenir à la version actuelle : supprimer contenus/gel-site.txt)"
+          else echo "Version actuelle du site."; fi
       - name: Ne garder que le site public
         run: |
           mkdir -p ../_site

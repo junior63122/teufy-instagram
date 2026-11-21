@@ -1523,7 +1523,7 @@ ${ld.length ? `<script type="application/ld+json">${JSON.stringify(ld).replace(/
       // Styles rangés dans « Sortir » (menu plus court) ; Ce soir à part (le plus demandé).
       const sortir = ['sortir', L.sortir, [...par.sortir[2].filter(([d]) => d !== 'ce-soir/'), ...par.styles[2]]];
       return `${lien(['', L.agenda])}${lien(['ce-soir/', t.js.ceSoir])}${groupe(par.villes)}${groupe(sortir)}${groupe(par.lieux)}`; })()}</nav>
-${!SA && majRecente(7) && chemin !== 'mises-a-jour/' ? `<a class="bandeau-saison bandeau-nouveau" href="${accueil}mises-a-jour/"><b>${esc(LIB_NEUF[lang] || LIB_NEUF.fr)}</b> · ${esc(lang === 'fr' ? VERSIONS[0].titre || '' : trad(lang, VERSIONS[0].titre || ''))} <span aria-hidden="true">→</span></a>` : ''}
+${!SA && majRecente(7) && chemin !== 'mises-a-jour/' ? `<a class="bandeau-saison bandeau-nouveau" href="${accueil}mises-a-jour/"><b class="bn-etiquette">${esc(LIB_NEUF[lang] || LIB_NEUF.fr)}</b><span class="bn-texte">${esc(lang === 'fr' ? VERSIONS[0].titre || '' : trad(lang, VERSIONS[0].titre || ''))}</span><span class="bn-fleche" aria-hidden="true">→</span></a>` : ''}
 ${SA ? `<a class="bandeau-saison" href="${accueil}${SA.slug}/"><span aria-hidden="true">${SA.emoji}</span> <b>${esc(SA.nom[lang] || SA.nom.fr)}</b> · ${esc(t.toutes)} <span aria-hidden="true">→</span></a>` : ''}
 <main id="contenu">
 ${typo(corps, lang)}

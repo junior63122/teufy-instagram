@@ -1141,6 +1141,12 @@ html.en-route::before{content:"";position:fixed;inset:0 auto auto 0;height:3px;w
 /* Temps forts : bandeau sous le menu */
 .bandeau-saison{display:flex;justify-content:center;align-items:center;gap:8px;padding:9px 16px;background:linear-gradient(90deg,#ff5a3c,#ff8a3c);color:var(--nuit);font-weight:700;font-size:14px;text-decoration:none;text-align:center}
 .bandeau-saison:hover{filter:brightness(1.08)}
+/* Bandeau « Nouveau » (21/11/2026 : le point « · » partait en début de ligne et le titre s'étalait sur deux lignes) :
+   étiquette en pastille, titre sur une ligne (coupé proprement s'il est trop long), flèche à droite. */
+.bandeau-nouveau{justify-content:center;gap:10px}
+.bandeau-nouveau .bn-etiquette{flex:none;background:var(--nuit);color:var(--creme);border-radius:999px;padding:3px 10px;font-size:12px;letter-spacing:.04em;text-transform:uppercase}
+.bandeau-nouveau .bn-texte{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bandeau-nouveau .bn-fleche{flex:none}
 html[data-saison=noel] .bandeau-saison{background:linear-gradient(90deg,#c8102e,#1f7a3a);color:#fff}
 html[data-saison=halloween] .bandeau-saison{background:linear-gradient(90deg,#ff7a00,#6b2fb3);color:#fff}
 html[data-saison=nouvel-an] .bandeau-saison{background:linear-gradient(90deg,#d4af37,#f6e27a);color:var(--nuit)}

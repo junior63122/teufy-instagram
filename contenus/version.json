@@ -1,10 +1,10 @@
 {
-  "_note": "Numéro de version affiché en pied de page du site et sur /mises-a-jour/ (directeur, 19/11/2026 : format « 1.13.02 », comme Minecraft). Règle : correction(s) seulement → dernier nombre +1 (1.13.02 → 1.13.03) ; nouvelle fonctionnalité → nombre du milieu +1 et le dernier revient à 01 (1.13.02 → 1.14.01) ; énorme fonctionnalité ou grosse refonte → premier nombre +1 (1.13.02 → 2.01.01). La plus récente en premier. Le site n'affiche que « titre » et « public » : phrases simples pour les visiteurs, sans détail technique ni nom de prestataire (directeur, 20/11/2026). « notes » reste interne.",
+  "_note": "Numéro de version affiché en pied de page du site et sur /mises-a-jour/ (directeur, 19/11/2026 : format « 1.13.02 », comme Minecraft). Règle : correction(s) seulement → dernier nombre +1 (1.13.02 → 1.13.03) ; nouvelle fonctionnalité → nombre du milieu +1 et le dernier revient à 01 (1.13.02 → 1.14.01) ; énorme fonctionnalité ou grosse refonte → premier nombre +1 (1.13.02 → 2.01.01). La plus récente en premier. Le site n'affiche que « titre » et « public » : phrases simples pour les visiteurs, sans détail technique ni nom de prestataire (directeur, 20/11/2026). « notes » reste interne. « titre » : 28 caractères au plus (il s'affiche en entier dans le bandeau « Nouveau » sur téléphone).",
   "versions": [
     {
       "numero": "1.19.04",
       "date": "2026-11-21",
-      "titre": "Une recherche plus agréable sur téléphone",
+      "titre": "Recherche facile sur mobile",
       "public": [
         "Sur téléphone, le panneau de recherche se ferme facilement et ne bouge plus quand on fait défiler les filtres.",
         "La ville de chaque soirée est visible partout, même dans les suggestions.",

@@ -46,3 +46,15 @@ jobs:
           git diff --cached --quiet && exit 0
           git commit -m "Teufy : veille technique du jour [skip ci]"
           for i in 1 2 3; do git pull --rebase -X theirs --autostash && git push && break; git rebase --abort 2>/dev/null; sleep 5; done
+
+      # Sauvegarde quotidienne du site et des robots (21/11/2026) : une étiquette « sauvegarde-AAAA-MM-JJ » sur l'état du dépôt,
+      # gardée 90 jours ; une page entière (site, données, médias) peut être remise en ligne avec « Mise en ligne du site ».
+      - name: Sauvegarde du jour
+        if: always()
+        run: |
+          git fetch -q --tags origin || true
+          T="sauvegarde-$(date -u +%F)"
+          git rev-parse -q --verify "refs/tags/$T" >/dev/null || { git tag "$T" origin/main 2>/dev/null || git tag "$T"; git push -q origin "$T"; echo "Sauvegarde $T créée."; }
+          LIMITE=$(date -u -d '90 days ago' +%F)
+          for t in $(git tag -l 'sauvegarde-*'); do [ "${t#sauvegarde-}" \< "$LIMITE" ] && git push -q origin ":refs/tags/$t" && echo "Ancienne sauvegarde $t retirée."; done || true
+

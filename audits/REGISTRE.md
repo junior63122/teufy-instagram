@@ -57,6 +57,7 @@ Contrôle quotidien des publications (19 h 52), veille quotidienne (7 h 47), chi
 
 - Domaine teufyparty.com, DNS, certificat : géré hors du dépôt — dates d'expiration **à fournir par le directeur** (UNKNOWN).
 - Comptes critiques (GitHub, Meta, registrar, e-mail) et double authentification : **non vérifiable d'ici** (UNKNOWN).
-- Sauvegarde : le dépôt GitHub contient le code, les données et les médias (historique complet) ; aucune autre sauvegarde
-  connue ; test de restauration : jamais fait (à faire une fois par mois, par un clone neuf et une reconstruction du site).
+- Sauvegarde : historique Git complet + sauvegarde quotidienne `sauvegarde-AAAA-MM-JJ` (gardée 90 jours, créée par le robot
+  « Veille technique ») ; remise en ligne d'une sauvegarde : `outils/RESTAURER.md` (workflow « Mise en ligne du site », champ
+  « sauvegarde », ou gel par `contenus/gel-site.txt`). Test de restauration : à faire une fois par mois (veille hebdomadaire).
 - Surveillance : auto-contrôle horaire des publications, contrôle quotidien et veille quotidienne par Claude, veille technique.

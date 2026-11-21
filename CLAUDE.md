@@ -109,3 +109,7 @@
   Mise en place avec la migration de l'API Instagram (v21 retirée le 21/01/2027).
 - **Tests et publication** (autorisation du directeur, 21/11/2026) : un test en échec ne bloque plus le robot Instagram ; il publie,
   puis finit le passage en erreur (« Alerte - tests en échec ») ; le contrôle quotidien répare le test le jour même.
+- **Versions et sauvegardes** (directeur, 21/11/2026 : « tu es censé faire le versionning » ; « des sauvegardes pour revenir à une
+  version précédente ») : chaque jour où le site change visiblement (pas les simples mises à jour des soirées), ajouter la version le
+  jour même dans `contenus/version.json` (titre de 28 caractères au plus, testé par `tests/versions.test.mjs`). Sauvegarde quotidienne
+  `sauvegarde-AAAA-MM-JJ` (90 jours) ; retour en arrière et gel du site : `outils/RESTAURER.md`.
