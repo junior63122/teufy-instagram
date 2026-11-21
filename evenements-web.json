@@ -58,31 +58,6 @@
     {
       "source": "web",
       "source_site": "instagram",
-      "name": "INDUS FACTORY 6",
-      "start": "2026-11-19T23:00:00.000Z",
-      "venue": "Dieze Warehouse",
-      "city": "Montpellier",
-      "address": "",
-      "url": "https://www.instagram.com/reel/Df4WUQWSYfx/",
-      "image": "",
-      "price": null,
-      "tags": [
-        "hardstyle",
-        "industrial"
-      ],
-      "description": "INDUS FACTORY 6 débarque à Dieze Warehouse pour une nuit de hardstyle industriel. En tête d’affiche, ANDEREX, figure montante de la scène raw hardstyle, sera accompagné d’ANOLUXX, PRASKA et YOUR POIZON. Dress code : Black / Leather / Metal / Chains. L’événement se déroule de minuit à 6 h, à 188 avenue du Marché Gare, 34000 Montpellier. Billetterie sur Shotgun.",
-      "public_cible": 0.7,
-      "confiance": 0.9,
-      "buzz": 0.6,
-      "buzz_raison": "Tête d’affiche reconnue, lieu réputé, événement de retour de la série.",
-      "accroche": "INDUS FACTORY revient le 20 novembre avec ANDEREX, le prod australien qui fusionne kicks dévastateurs et acid futuriste.",
-      "instagram": [
-        "diezewarehouse"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "instagram",
       "name": "PUNISH – KINKY PARTY",
       "start": "2026-12-03T23:00:00.000Z",
       "venue": "Dieze Warehouse",
@@ -3564,6 +3539,6 @@
       ]
     }
   ],
-  "maj_instagram": "2026-11-21T13:42:28.310Z",
+  "maj_instagram": "2026-11-21T14:13:18.637Z",
   "echec_web": "2026-11-21T13:12:32.886Z"
 }
