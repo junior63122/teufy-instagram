@@ -305,10 +305,16 @@ async function modelesXai() {
 }
 // Réponse coupée par la limite de longueur (finish_reason « length ») : jamais prise telle quelle. JSON → erreur (modèle
 // suivant) ; texte de recherche (`tronqueOk`) → gardé sans sa dernière ligne, coupée (URL ou date à moitié écrite).
+// Échéance globale (21/11/2026) : la mise à jour du site dépassait 30 min (appels Groq de 3 min + attentes 429 en série)
+// et le passage de la veille était coupé avant d'enregistrer le site. Passé l'échéance, plus aucun appel n'est lancé.
+let ECHEANCE = Infinity;
+export const echeanceIA = (t = Infinity) => { ECHEANCE = t; };
+const resteIA = () => { const r = ECHEANCE - Date.now(); if (r < 5000) { const e = new Error('IA : temps du passage écoulé'); e.status = 408; throw e; } return r; };
 async function groqAppel(body, essai = 0, { tronqueOk = false } = {}) {
-  const res = await fetch(GROQ(), { method: 'POST', headers: groqEntetes(), body: JSON.stringify(body), signal: AbortSignal.timeout(180000) });
+  const reste = resteIA();
+  const res = await fetch(GROQ(), { method: 'POST', headers: groqEntetes(), body: JSON.stringify(body), signal: AbortSignal.timeout(Math.min(180000, reste)) });
   // Limite par minute de l'offre gratuite (HTTP 429) : on attend le délai indiqué par Groq (au plus 30 s), deux fois au plus.
-  if (res.status === 429 && essai < 2) {
+  if (res.status === 429 && essai < 2 && ECHEANCE - Date.now() > 60000) {
     const attente = Math.min(30, parseFloat(res.headers?.get?.('retry-after')) || 12);
     await new Promise((ok) => setTimeout(ok, attente * 1000));
     return groqAppel(body, essai + 1, { tronqueOk });
@@ -362,6 +368,7 @@ async function groqRecherche({ L, system, prompt, secondaire = false }) {
 export const avecTavily = (config = {}) => !!process.env.TAVILY_API_KEY && !fournisseurs(config).includes('gemini');
 export async function tavily(requete, { max = 8, secondaire = false } = {}) {
   if (!budgetOk('tavily', {})) throw new Error('Tavily : plafond de recherches atteint');
+  resteIA();
   if (secondaire && (lireBudget().aujourdhui.tavily || 0) >= 15) throw new Error('Tavily : recherches du jour gardées pour la veille et les soirées');
   const r = await fetch('https://api.tavily.com/search', { method: 'POST', headers: { 'content-type': 'application/json', authorization: `Bearer ${process.env.TAVILY_API_KEY}` }, body: JSON.stringify({ query: requete, search_depth: 'basic', max_results: max, topic: 'general' }), signal: AbortSignal.timeout(30000) });
   const txt = await r.text();

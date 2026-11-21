@@ -683,6 +683,7 @@ export async function construireSite({ events, eventsFrance = [], eventsOccitani
   CONFIG_LLM = config.llm || {}; LLM.reglerCouts(CONFIG_LLM);
   const PLAFOND = Date.now() + (Number(process.env.SITE_MINUTES) || config.site?.minutes_enrichissement || 30) * 60e3;
   LIMITE = PLAFOND;
+  LLM.echeanceIA(PLAFOND + 11 * 60e3); // enrichissement + traductions (LIMITE + 10 min), jamais au-delà : le passage doit finir
   await mkdir(path.join(SITE, 'affiches'), { recursive: true });
   const cache = lire(VERIF, {});
   const fin = now.getTime() + 45 * 864e5;
