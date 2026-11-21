@@ -136,12 +136,20 @@ export async function rattraperActus({ config, ia = LLM, now = new Date(), log =
   const IDEES = path.join(ROOT, 'contenus', 'idees.json'), ACTUS = path.join(ROOT, 'contenus', 'actus.json');
   const idees = lire(IDEES, []), actus = lire(ACTUS, []);
   const liste = Array.isArray(idees) ? idees : [];
-  const deja = new Set(actus.map((a) => a.cle));
-  const cand = liste.filter((x) => (x.importance ?? 0) >= (V.seuil_site ?? 60) && /^https?:\/\//.test(x.source || '') && !x.actu_refusee && !deja.has(String(x.id))
-    && (!x.ajout || now - Date.parse(x.ajout) < 30 * 864e5)).sort((a, b) => (b.importance ?? 0) - (a.importance ?? 0)).slice(0, max);
+  // 21/11/2026 : une info déjà en actu sous une autre clé (même page source) n'est pas réécrite ; une source par passage.
+  const deja = new Set(actus.flatMap((a) => [a.cle, a.source].filter(Boolean).map(String)));
+  const sources = new Set();
+  const cand = liste.filter((x) => (x.importance ?? 0) >= (V.seuil_site ?? 60) && /^https?:\/\//.test(x.source || '') && !x.actu_refusee && !deja.has(String(x.id)) && !deja.has(x.source)
+    && /^https?:\/\/[^/]+\/.+/.test(x.source) && !/\.(webp|jpe?g|png|gif|mp4)(\?|$)/i.test(x.source) // page d'accueil ou image : rien à vérifier
+    && (!x.ajout || now - Date.parse(x.ajout) < 30 * 864e5)).sort((a, b) => (b.importance ?? 0) - (a.importance ?? 0))
+    .filter((x) => !sources.has(x.source) && sources.add(x.source)).slice(0, max);
   if (!cand.length) return 0;
   const page = lirePage || (async (u) => { const r = await fetch(u, { headers: { 'user-agent': 'Mozilla/5.0 (compatible; TeufyVeille/1.0)' }, signal: AbortSignal.timeout(20000) }); if (!r.ok) throw new Error(`HTTP ${r.status}`);
-    return (await r.text()).replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>/gi, ' ').replace(/<[^>]+>/g, ' ').replace(/&nbsp;|&#160;/g, ' ').replace(/\s+/g, ' ').slice(0, 9000); });
+    const html = await r.text();
+    // Posts Instagram : la légende n'est lisible que dans les métadonnées (og:description) ; on la garde en tête du texte.
+    const meta = [...html.matchAll(/<meta[^>]+(?:property|name)=["'](?:og:title|og:description|description)["'][^>]*content=["']([^"']+)["']/gi)].map((m) => m[1]).join(' \n ')
+      .replace(/&quot;/g, '"').replace(/&#x27;|&#39;/g, "'").replace(/&amp;/g, '&');
+    return (meta + ' \n ' + html).replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>/gi, ' ').replace(/<[^>]+>/g, ' ').replace(/&nbsp;|&#160;/g, ' ').replace(/\s+/g, ' ').slice(0, 9000); });
   const SCHEMA_ART = { type: 'object', additionalProperties: false, required: ['confirme', 'titre', 'chapo', 'paragraphes', 'ville'], properties: {
     confirme: { type: 'boolean', description: 'true seulement si le texte de la page confirme l\'information.' }, titre: { type: 'string' }, chapo: { type: 'string' },
     paragraphes: { type: 'array', items: { type: 'string' } }, ville: { type: 'string' } } };
@@ -149,7 +157,7 @@ export async function rattraperActus({ config, ia = LLM, now = new Date(), log =
   for (const x of cand) {
     let texte = '';
     try { texte = await page(x.source); } catch (err) { log(`Actus : source illisible pour « ${x.titre} » (${err.message}).`); }
-    if (texte.length < 300) { x.actu_refusee = 'source illisible'; continue; }
+    if (texte.length < 300) { x.actu_essais = (x.actu_essais || 0) + 1; if (x.actu_essais >= 3) x.actu_refusee = 'source illisible'; log(`Actus : source illisible pour « ${x.titre} » (essai ${x.actu_essais}/3).`); continue; }
     try {
       const a = await ia.json({ config, gratuit: true, secondaire: true, nom: 'article', schema: SCHEMA_ART,
         system: `Tu écris une courte actu pour le site d'un guide des soirées de la Côte d'Azur (17-30 ans), en français simple. N'utilise QUE les faits présents dans le texte de la page fournie : aucun chiffre, date, nom ou lieu qui n'y figure pas. Si la page ne confirme pas l'information, ou si l'événement est déjà passé (nous sommes le ${now.toISOString().slice(0, 10)}), confirme = false.`,

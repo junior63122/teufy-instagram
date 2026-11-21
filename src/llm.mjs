@@ -369,13 +369,20 @@ export async function tavily(requete, { max = 8, secondaire = false } = {}) {
   compter('tavily', 'recherche');
   return (JSON.parse(txt).results || []).filter((x) => /^https?:\/\//.test(x.url || ''));
 }
+// 21/11/2026 : une limite d'appels (429) sur un modèle faisait perdre une recherche Tavily déjà payée → modèle suivant.
+async function groqSuivant(modeles, corps, opts) {
+  let derniere;
+  for (const model of modeles) {
+    try { return await groqAppel({ model, ...(/gpt-oss/.test(model) ? { reasoning_effort: 'low' } : {}), ...corps }, 0, opts); } catch (err) { derniere = err; if (![429, 404, 413, 503].includes(err.status)) throw err; }
+  }
+  throw derniere || new Error('aucun modèle Groq ouvert');
+}
 async function rechercheTavily({ L, system, prompt, secondaire = false }) {
-  const [model] = await choisirGroq(PREF_JSON, L.modele_groq);
-  if (!model) throw new Error('aucun modèle Groq ouvert');
-  const opt = /gpt-oss/.test(model) ? { reasoning_effort: 'low' } : {};
+  const modeles = (await choisirGroq(PREF_JSON, L.modele_groq)).slice(0, 3);
+  if (!modeles.length) throw new Error('aucun modèle Groq ouvert');
   let requetes = [];
   try {
-    const q = await groqAppel({ model, ...opt, max_completion_tokens: 800, messages: [{ role: 'system', content: 'Tu écris des requêtes pour un moteur de recherche web. Réponds uniquement en JSON : {"requetes": ["...", "..."]}, 1 ou 2 requêtes courtes et précises (mots-clés, lieux, mois, année), la meilleure en premier, en français.' }, { role: 'user', content: prompt.slice(0, 4000) }] });
+    const q = await groqSuivant(modeles, { max_completion_tokens: 800, messages: [{ role: 'system', content: 'Tu écris des requêtes pour un moteur de recherche web. Réponds uniquement en JSON : {"requetes": ["...", "..."]}, 1 ou 2 requêtes courtes et précises (mots-clés, lieux, mois, année), la meilleure en premier, en français.' }, { role: 'user', content: prompt.slice(0, 4000) }] });
     requetes = (JSON.parse(q.match(/\{[\s\S]*\}/)?.[0] || '{}').requetes || []).filter((x) => typeof x === 'string' && x.trim()).slice(0, L.tavily_requetes ?? 1);
   } catch {}
   if (!requetes.length) requetes = [prompt.replace(/\s+/g, ' ').slice(0, 300)];
@@ -383,7 +390,7 @@ async function rechercheTavily({ L, system, prompt, secondaire = false }) {
   for (const q of requetes) for (const x of await tavily(q, { secondaire })) if (!vus.has(x.url)) { vus.add(x.url); res.push(x); }
   if (!res.length) throw new Error('Tavily : aucun résultat');
   const pages = res.slice(0, 14).map((x, i) => `[${i + 1}] ${x.title || ''}\n${x.url}\n${String(x.content || '').slice(0, 1200)}`).join('\n\n');
-  const c = await groqAppel({ model, ...opt, max_completion_tokens: 5000, messages: [{ role: 'system', content: `${system}\nTu ne réponds qu'à partir des résultats de recherche fournis ; rien d'autre. Cite l'adresse (URL) de chaque information. Si les résultats ne contiennent pas la réponse, dis-le.` }, { role: 'user', content: `${prompt}\n\nRésultats de recherche web (${new Date().toISOString().slice(0, 10)}) :\n${pages}` }] }, 0, { tronqueOk: true });
+  const c = await groqSuivant(modeles, { max_completion_tokens: 5000, messages: [{ role: 'system', content: `${system}\nTu ne réponds qu'à partir des résultats de recherche fournis ; rien d'autre. Cite l'adresse (URL) de chaque information. Si les résultats ne contiennent pas la réponse, dis-le.` }, { role: 'user', content: `${prompt}\n\nRésultats de recherche web (${new Date().toISOString().slice(0, 10)}) :\n${pages}` }] }, 0, { tronqueOk: true });
   return `${c}\n\nSources consultées :\n${res.slice(0, 14).map((x) => x.url).join('\n')}`;
 }
 
