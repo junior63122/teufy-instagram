@@ -1,14 +1,22 @@
 {
-  "jour": "2026-11-20",
+  "jour": "2026-11-21",
   "plan": [
     {
-      "type": "coeur",
+      "type": "soirees",
       "cles": [
-        "c-BANGER RAP FR"
+        "De Rio A Mexico | La Esquina Tropical X Fort Napoleon",
+        "Marcus Gad + Première Partie",
+        "The Saturday Society"
       ],
       "frames": [
         {
-          "image": "2026-11-20-coeur.jpg"
+          "image": "2026-11-21-soirees-0.jpg"
+        },
+        {
+          "image": "2026-11-21-soirees-1.jpg"
+        },
+        {
+          "image": "2026-11-21-soirees-2.jpg"
         }
       ]
     }
