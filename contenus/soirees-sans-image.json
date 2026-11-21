@@ -1,6 +1,6 @@
 {
- "le": "2026-11-21T17:12:42.106Z",
- "total": 83,
+ "le": "2026-11-21T17:42:04.303Z",
+ "total": 84,
  "sans_image": [
   {
    "id": "heritage-goldman-2026-11-21",
@@ -217,6 +217,15 @@
    "ville": "Nice",
    "instagram": "ledixhuit_nice",
    "url": "https://shotgun.live/fr/events/ben-carter"
+  },
+  {
+   "id": "la-tocardise-edition-hard-2026-12-12",
+   "nom": "La Tocardise – édition Hard",
+   "jour": "2026-12-12",
+   "lieu": "Green Musik",
+   "ville": "Antibes",
+   "instagram": "",
+   "url": "https://www.instagram.com/reel/Dfz-kJDBQ-4/"
   },
   {
    "id": "showcase-5-luzula-venin-carmin-code-150-harfaang-2026-12-12",

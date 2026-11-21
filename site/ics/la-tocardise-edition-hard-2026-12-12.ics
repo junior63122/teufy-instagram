@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:la-tocardise-edition-hard-2026-12-12@teufy
+DTSTAMP:20261121T175226Z
+DTSTART:20261212T220000Z
+DTEND:20261213T030000Z
+SUMMARY:La Tocardise – édition Hard
+LOCATION:Green Musik\, Antibes
+DESCRIPTION:Hard‑techno et DnB en mode maximal à Green Musik : prépare‑toi à vibrer toute la nuit.\nBillets : https://www.instagram.com/reel/Dfz-kJDBQ-4/\nVia Teufy @teufy_official
+URL:https://www.instagram.com/reel/Dfz-kJDBQ-4/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : La Tocardise – édition Hard
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : La Tocardise – édition Hard
+END:VALARM
+END:VEVENT
+END:VCALENDAR
