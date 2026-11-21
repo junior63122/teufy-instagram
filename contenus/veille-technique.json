@@ -1,0 +1,273 @@
+{
+ "le": "2026-11-21T07:12:24.759Z",
+ "instagram": {
+  "utilisee": "v21.0",
+  "derniere": "v27.0",
+  "compte": "teufy_official",
+  "entetes": [
+   "facebook-api-version: v27.0"
+  ]
+ },
+ "groq": {
+  "ouverts": [
+   "allam-2-7b",
+   "canopylabs/orpheus-arabic-saudi",
+   "canopylabs/orpheus-v1-english",
+   "meta-llama/llama-prompt-guard-2-22m",
+   "meta-llama/llama-prompt-guard-2-86m",
+   "openai/gpt-oss-120b",
+   "openai/gpt-oss-20b",
+   "openai/gpt-oss-safeguard-20b",
+   "qwen/qwen3.8-27b",
+   "whisper-large-v3",
+   "whisper-large-v3-turbo"
+  ],
+  "PREF_JSON": [
+   "openai/gpt-oss-120b",
+   "openai/gpt-oss-20b",
+   "qwen/qwen3.8-27b"
+  ],
+  "PREF_VISION": [],
+  "PREF_RECHERCHE": []
+ },
+ "gemini": {
+  "modele": "gemini-3.8-flash",
+  "ouvert": true,
+  "flash": [
+   "gemini-3.8-flash",
+   "gemini-3.1-flash-tts-preview",
+   "gemini-3.8-flash-tts",
+   "gemini-3.8-flash-lite-tts",
+   "gemini-2.5-flash-native-audio-latest",
+   "gemini-2.5-flash-native-audio-preview-09-2025",
+   "gemini-2.5-flash-native-audio-preview-12-2025",
+   "gemini-3.1-flash-live-preview"
+  ]
+ },
+ "github": {
+  "actions": {
+   "actions/checkout@v4": "v7.0.1",
+   "actions/setup-node@v4": "v7.1.0",
+   "actions/upload-artifact@v4": "v7.0.2",
+   "actions/upload-pages-artifact@v3": "v5.0.0",
+   "actions/deploy-pages@v4": "v5.0.1",
+   "actions/cache@v4": "v6.1.0"
+  }
+ },
+ "node": {
+  "utilisees": [
+   20,
+   22
+  ],
+  "lts": 26
+ },
+ "npm": {
+  ".": {
+   "vulnerabilites": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 0,
+    "critical": 0,
+    "total": 0
+   }
+  },
+  "studio": {
+   "vulnerabilites": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 10,
+    "critical": 0,
+    "total": 10
+   }
+  }
+ },
+ "sources": {
+  "https://shotgun.live/fr/cities/nice": {
+   "http": 429,
+   "soirees": 0
+  },
+  "https://dice.fm/browse/nice-60d0784c7645c67f491834e4": {
+   "http": 200,
+   "soirees": 1
+  },
+  "https://dice.fm/browse/monaco": {
+   "http": 404,
+   "soirees": 0
+  },
+  "https://www.eventbrite.fr/d/france--nice/nightlife/": {
+   "http": 405,
+   "soirees": 0
+  },
+  "https://www.eventbrite.fr/d/france--nice/parties/": {
+   "http": 405,
+   "soirees": 0
+  },
+  "https://www.eventbrite.fr/d/france--cannes/parties/": {
+   "http": 405,
+   "soirees": 0
+  },
+  "https://www.eventbrite.fr/d/france--antibes/nightlife/": {
+   "http": 405,
+   "soirees": 0
+  },
+  "https://www.eventbrite.fr/d/monaco--monaco/nightlife/": {
+   "http": 405,
+   "soirees": 0
+  },
+  "https://www.eventbrite.fr/d/france--toulon/nightlife/": {
+   "http": 405,
+   "soirees": 0
+  },
+  "https://www.eventbrite.fr/d/france--nice/music--events/": {
+   "http": 405,
+   "soirees": 0
+  },
+  "https://www.eventbrite.fr/d/france--cannes/music--events/": {
+   "http": 405,
+   "soirees": 0
+  },
+  "https://www.eventbrite.fr/d/monaco--monaco/music--events/": {
+   "http": 405,
+   "soirees": 0
+  },
+  "https://www.eventbrite.fr/d/france--saint-tropez/events/": {
+   "http": 405,
+   "soirees": 0
+  },
+  "https://www.eventbrite.fr/d/france--frejus/events/": {
+   "http": 405,
+   "soirees": 0
+  },
+  "https://www.eventbrite.fr/d/france--toulon/music--events/": {
+   "http": 405,
+   "soirees": 0
+  },
+  "https://www.bizouk.com/": {
+   "http": 200,
+   "soirees": 0
+  },
+  "https://allevents.in/nice/all": {
+   "http": 404,
+   "soirees": 0
+  },
+  "https://allevents.in/cannes/all": {
+   "http": 200,
+   "soirees": 0
+  },
+  "https://allevents.in/antibes/all": {
+   "http": 200,
+   "soirees": 0
+  },
+  "https://allevents.in/toulon/all": {
+   "http": 404,
+   "soirees": 0
+  },
+  "https://allevents.in/saint-tropez/all": {
+   "http": 200,
+   "soirees": 0
+  },
+  "https://allevents.in/frejus/all": {
+   "http": 200,
+   "soirees": 0
+  },
+  "https://xceed.me/fr/nice/events": {
+   "http": 200,
+   "soirees": 3
+  },
+  "https://xceed.me/fr/cannes/events": {
+   "http": 200,
+   "soirees": 0
+  },
+  "https://xceed.me/fr/monaco/events": {
+   "http": 200,
+   "soirees": 0
+  }
+ },
+ "sites_clubs": {
+  "maj": "2026-11-20T16:50:54.738Z",
+  "lus": 37,
+  "avec_soirees": 0,
+  "total": 68
+ },
+ "donnees": {
+  "semaine": 35,
+  "sans_heure": 6,
+  "sans_prix": 5,
+  "sans_affiche": 4,
+  "sans_billetterie": 2,
+  "par_ville": {
+   "Nice": 20,
+   "Toulon": 3,
+   "Monaco": 1,
+   "Cannes": 5,
+   "Roquebrune-sur-Argens": 2,
+   "La Seyne-sur-Mer": 3,
+   "Marseille": 1
+  }
+ },
+ "images": {
+  "total": 91,
+  "sans_image": 29,
+  "dans_7_jours": 13
+ },
+ "alertes": [
+  {
+   "sujet": "Instagram",
+   "detail": "API v21.0 utilisée, Meta en est à v27.0 : une version vit environ 2 ans, passer à une version récente (tester une publication)."
+  },
+  {
+   "sujet": "Groq",
+   "detail": "aucun modèle lecture d'images (affiches) ouvert parmi meta-llama/llama-4-scout-17b-16e-instruct, meta-llama/llama-4-maverick-17b-128e-instruct ; ouverts : allam-2-7b, canopylabs/orpheus-arabic-saudi, canopylabs/orpheus-v1-english, meta-llama/llama-prompt-guard-2-22m, meta-llama/llama-prompt-guard-2-86m, openai/gpt-oss-120b, openai/gpt-oss-20b, openai/gpt-oss-safeguard-20b, qwen/qwen3.8-27b, whisper-large-v3, whisper-large-v3-turbo"
+  },
+  {
+   "sujet": "Groq",
+   "detail": "aucun modèle recherche web ouvert parmi groq/compound, groq/compound-mini, compound-beta, compound-beta-mini ; ouverts : allam-2-7b, canopylabs/orpheus-arabic-saudi, canopylabs/orpheus-v1-english, meta-llama/llama-prompt-guard-2-22m, meta-llama/llama-prompt-guard-2-86m, openai/gpt-oss-120b, openai/gpt-oss-20b, openai/gpt-oss-safeguard-20b, qwen/qwen3.8-27b, whisper-large-v3, whisper-large-v3-turbo"
+  },
+  {
+   "sujet": "GitHub Actions",
+   "detail": "actions/checkout : v4 utilisée, v7.0.1 publiée (les anciennes versions finissent par être bloquées)."
+  },
+  {
+   "sujet": "GitHub Actions",
+   "detail": "actions/setup-node : v4 utilisée, v7.1.0 publiée (les anciennes versions finissent par être bloquées)."
+  },
+  {
+   "sujet": "GitHub Actions",
+   "detail": "actions/upload-artifact : v4 utilisée, v7.0.2 publiée (les anciennes versions finissent par être bloquées)."
+  },
+  {
+   "sujet": "GitHub Actions",
+   "detail": "actions/upload-pages-artifact : v3 utilisée, v5.0.0 publiée (les anciennes versions finissent par être bloquées)."
+  },
+  {
+   "sujet": "GitHub Actions",
+   "detail": "actions/deploy-pages : v4 utilisée, v5.0.1 publiée (les anciennes versions finissent par être bloquées)."
+  },
+  {
+   "sujet": "GitHub Actions",
+   "detail": "actions/cache : v4 utilisée, v6.1.0 publiée (les anciennes versions finissent par être bloquées)."
+  },
+  {
+   "sujet": "Node",
+   "detail": "Node 20 est en fin de vie depuis 2026-04-30 : passer à Node 26 dans les workflows."
+  },
+  {
+   "sujet": "npm",
+   "detail": "studio : 0 faille(s) critique(s), 10 haute(s) (npm audit)."
+  },
+  {
+   "sujet": "Sources",
+   "detail": "23 source(s) sans soirée lue : https://shotgun.live/fr/cities/nice (429) ; https://dice.fm/browse/monaco (404) ; https://www.eventbrite.fr/d/france--nice/nightlife/ (405) ; https://www.eventbrite.fr/d/france--nice/parties/ (405) ; https://www.eventbrite.fr/d/france--cannes/parties/ (405) ; https://www.eventbrite.fr/d/france--antibes/nightlife/ (405) ; https://www.eventbrite.fr/d/monaco--monaco/nightlife/ (405) ; https://www.eventbrite.fr/d/france--toulon/nightlife/ (405) ; https://www.eventbrite.fr/d/france--nice/music--events/ (405) ; https://www.eventbrite.fr/d/france--cannes/music--events/ (405) ; https://www.eventbrite.fr/d/monaco--monaco/music--events/ (405) ; https://www.eventbrite.fr/d/france--saint-tropez/events/ (405) ; https://www.eventbrite.fr/d/france--frejus/events/ (405) ; https://www.eventbrite.fr/d/france--toulon/music--events/ (405) ; https://www.bizouk.com/ (200) ; https://allevents.in/nice/all (404)"
+  },
+  {
+   "sujet": "Soirées",
+   "detail": "seulement 35 soirée(s) dans les 7 prochains jours : sources à renforcer."
+  },
+  {
+   "sujet": "Images",
+   "detail": "13 soirée(s) des 7 prochains jours sans affiche ni photo : Mouchki / Dhermo — Forest / Psytrance (L'Antre Bar Electro, 2026-11-20) ; Le Niz / Sadras Alpha (MJC Picaud / Studio 13, 2026-11-20) ; Black and White Party (L'Artiste 83, 2026-11-20) ; DJ Set - Jordan Kowen (Mama Shelter Nice, 2026-11-21) ; Alienduch — House / Techno / Acid / Rave (L'Antre Bar Electro, 2026-11-21) ; Fetish Main Party / Mister Fetish France 2027 (Le Glam, 2026-11-21) ; Durdenhauer Fastlane 1 An (Switch Club, 2026-11-21) ; Bruja / Carbur — Psytrance / Hardtrance (L'Antre Bar Electro, 2026-11-22) ; Dragolote avec Lady Miss Tik (Mama Shelter Nice, 2026-11-22) ; Phaphane à Nice - Amapiano & Afrobeats Lovers (Frigo 16 (Le 109), 2026-11-27) ; Dj - Trvchi (Mama Shelter Nice, 2026-11-27) ; Skarra Mucci & Manudigital — Ragga Blasta Tour (Centre Culturel Tisot, 2026-11-27) ; Mr Hat vs Verome — Bass vs Hard Music (L'Antre Bar Electro, 2026-11-27)"
+  }
+ ]
+}
