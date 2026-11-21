@@ -1,7 +1,16 @@
 {
- "le": "2026-11-21T15:10:14.143Z",
- "total": 82,
+ "le": "2026-11-21T15:14:01.587Z",
+ "total": 83,
  "sans_image": [
+  {
+   "id": "heritage-goldman-2026-11-21",
+   "nom": "Héritage Goldman",
+   "jour": "2026-11-21",
+   "lieu": "Palais Nikaïa",
+   "ville": "Nice",
+   "instagram": "palaisnikaia",
+   "url": ""
+  },
   {
    "id": "dj-set-jordan-kowen-2026-11-21",
    "nom": "DJ Set - Jordan Kowen",
