@@ -59,7 +59,7 @@ for (const f of pages) {
     if (!/\swidth="/.test(img) && !/class="[^"]*(principale|fond-flou|hero-photo)/.test(img) && !/data-src/.test(img)) avertissements.push(`${rel} : image sans dimensions (${(attr(img, 'src') || '').slice(-40)})`);
   }
   for (const a of h.match(/<a\b[^>]*target="_blank"[^>]*>/g) || []) { nbLiensExt++; if (!/rel="[^"]*noopener/.test(a)) bloquants.push(`${rel} : lien externe sans rel=noopener`); }
-  if (/AIza[0-9A-Za-z_-]{30,}|EAA[A-Za-z0-9]{40,}|sk-[A-Za-z0-9]{30,}|ghp_[A-Za-z0-9]{30,}/.test(h.replace(/data-(?:d|sel|iv)="[A-Za-z0-9+/=]+"/g, ''))) // contenu chiffré des pages à code : pas une clé bloquants.push(`${rel} : ressemble à une clé secrète exposée !`);
+  if (/AIza[0-9A-Za-z_-]{30,}|EAA[A-Za-z0-9]{40,}|sk-[A-Za-z0-9]{30,}|ghp_[A-Za-z0-9]{30,}/.test(h.replace(/data-(?:d|sel|iv)="[A-Za-z0-9+/=]+"/g, ''))) /* contenu chiffré des pages à code : pas une clé */ bloquants.push(`${rel} : ressemble à une clé secrète exposée !`);
 }
 for (const [t, l] of titres) if (l.length > 1) avertissements.push(`titre en double sur ${l.length} pages : « ${t.slice(0, 60)} » (${l.slice(0, 3).join(', ')})`);
 for (const [d, l] of descriptions) if (l.length > 1) avertissements.push(`description en double sur ${l.length} pages (${l.slice(0, 3).join(', ')})`);
