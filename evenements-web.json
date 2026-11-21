@@ -3625,6 +3625,31 @@
       "instagram": [
         "palaisnikaia"
       ]
+    },
+    {
+      "source": "web",
+      "source_site": "instagram.com",
+      "via_veille": true,
+      "name": "Soirée tropicale",
+      "start": "2026-11-26T23:00:00.000Z",
+      "venue": "Boka Club, 3261 avenue de la Résistance, 83000 Toulon",
+      "city": "Toulon",
+      "address": "",
+      "url": "https://www.instagram.com/p/DgApj3iIGwb/",
+      "image": "https://scontent-iad3-1.cdninstagram.com/v/t39.30808-6/914266679_122108830359545622_6820875835762589316_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=101&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=1BJYP6-OeLkQ7kNvwFdAQtP&_nc_oc=Adqxplp4O0n9nXeC00BPzLcfHhOBO0dTdnpKDIh8cdjCFGB_MHZfq0fdLKLZ9P-iA6E&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=U4SBMFJYlT7kKpPWq6etlw&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQRzcug01l6F7RclsZTMLNleNwaO06AeNLDHdICM9n6ppQ&oe=6B07DBE2",
+      "price": 10,
+      "tags": [
+        "Shatta",
+        "Dancehall",
+        "Bouyon"
+      ],
+      "description": "",
+      "public_cible": 0.6,
+      "confiance": 0.9,
+      "accroche": "Soirée tropicale au Boka Club, 27 novembre, 00h-05h.",
+      "instagram": [
+        "boka_officiel"
+      ]
     }
   ],
   "maj_instagram": "2026-11-21T17:42:04.303Z",
