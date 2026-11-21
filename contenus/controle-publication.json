@@ -30,13 +30,14 @@
   },
   {
    "jour": "2026-11-21",
-   "le": "2026-11-21T17:12:35.815Z",
+   "le": "2026-11-21T18:08:22.327Z",
    "ok": [
     "reel-spot-promo : en ligne et conforme (https://www.instagram.com/reel/DgAvEaFkjEB/)",
-    "story soirees : 3 image(s) en ligne",
-    "story repost : en attente"
+    "story soirees : 3 image(s) en ligne"
    ],
-   "problemes": []
+   "problemes": [
+    "story repost : 1 image(s) pas publiée(s)"
+   ]
   }
  ]
 }
