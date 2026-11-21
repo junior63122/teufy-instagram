@@ -2,6 +2,21 @@
   "_note": "Numéro de version affiché en pied de page du site et sur /mises-a-jour/ (directeur, 19/11/2026 : format « 1.13.02 », comme Minecraft). Règle : correction(s) seulement → dernier nombre +1 (1.13.02 → 1.13.03) ; nouvelle fonctionnalité → nombre du milieu +1 et le dernier revient à 01 (1.13.02 → 1.14.01) ; énorme fonctionnalité ou grosse refonte → premier nombre +1 (1.13.02 → 2.01.01). La plus récente en premier. Le site n'affiche que « titre » et « public » : phrases simples pour les visiteurs, sans détail technique ni nom de prestataire (directeur, 20/11/2026). « notes » reste interne.",
   "versions": [
     {
+      "numero": "1.19.04",
+      "date": "2026-11-21",
+      "titre": "Une recherche plus agréable sur téléphone",
+      "public": [
+        "Sur téléphone, le panneau de recherche se ferme facilement et ne bouge plus quand on fait défiler les filtres.",
+        "La ville de chaque soirée est visible partout, même dans les suggestions.",
+        "Des cartes de soirées plus nettes, avec une courte présentation quand l'organisateur en donne une."
+      ],
+      "notes": [
+        "Panneau de recherche : bouton × au-dessus du contenu, fermeture au doigt seulement depuis la poignée, hauteur suivant l'écran visible.",
+        "Suggestions : pastille de ville en petit sur deux lignes ; carrousels : infos et bouton groupés en bas ; accroche de secours tirée de la présentation.",
+        "Robots : test en échec ne bloquant plus la publication, comptes Instagram introuvables mis de côté 30 jours, veille technique relancée si GitHub saute son horaire."
+      ]
+    },
+    {
       "numero": "1.19.03",
       "date": "2026-11-20",
       "titre": "Une recherche qui comprend les fautes de frappe",
