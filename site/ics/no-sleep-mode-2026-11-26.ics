@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:no-sleep-mode-2026-11-26@teufy
+DTSTAMP:20261121T082143Z
+DTSTART:20261126T210000Z
+DTEND:20261127T020000Z
+SUMMARY:No Sleep Mode
+LOCATION:Bulldog Pub Pompeï\, Nice\, Nice
+DESCRIPTION:Tous les vendredis\, le Bulldog Pub Pompeï reste ouvert jusqu’au bout de la nuit avec DJ Kenzo.\nBillets : https://www.instagram.com/p/Df9FM-IoGDc/\nVia Teufy @teufy_official
+URL:https://www.instagram.com/p/Df9FM-IoGDc/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : No Sleep Mode
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : No Sleep Mode
+END:VALARM
+END:VEVENT
+END:VCALENDAR
