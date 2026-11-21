@@ -200,7 +200,13 @@
     "club_sonore",
     "house_en_provence",
     "dreamevent_location",
-    "ldpeventsproduction"
+    "ldpeventsproduction",
+    "la_dolce_events",
+    "azura_events_officiel",
+    "flow.indoor",
+    "misterrivierablog",
+    "gioianice",
+    "lepetitchicagotoulon"
   ],
   "partenaires": [
     "bringue_party",
@@ -456,7 +462,13 @@
     "club_sonore": "2026-11-21T08:13:01.568Z",
     "house_en_provence": "2026-11-21T08:13:01.568Z",
     "dreamevent_location": "2026-11-21T08:13:01.568Z",
-    "ldpeventsproduction": "2026-11-21T08:13:01.568Z"
+    "ldpeventsproduction": "2026-11-21T08:13:01.568Z",
+    "la_dolce_events": "2026-11-21T08:42:02.260Z",
+    "azura_events_officiel": "2026-11-21T08:42:02.260Z",
+    "flow.indoor": "2026-11-21T08:42:02.260Z",
+    "misterrivierablog": "2026-11-21T08:42:02.260Z",
+    "gioianice": "2026-11-21T08:42:02.260Z",
+    "lepetitchicagotoulon": "2026-11-21T08:42:02.260Z"
   },
   "posts_vus": {
     "https://www.instagram.com/p/Df7WgyrNIhj/": "2026-11-20T16:43:24.530Z",
@@ -846,6 +858,13 @@
     "https://www.instagram.com/reel/DfXhDtdxyp-/": "2026-11-21T08:13:01.568Z",
     "https://www.instagram.com/p/DfK83WZiGWq/": "2026-11-21T08:13:01.568Z",
     "https://www.instagram.com/p/Df-JGJIDsp8/": "2026-11-21T08:13:01.568Z",
-    "https://www.instagram.com/reel/DfZcvjrh_P1/": "2026-11-21T08:13:01.568Z"
+    "https://www.instagram.com/reel/DfZcvjrh_P1/": "2026-11-21T08:13:01.568Z",
+    "https://www.instagram.com/reel/DfvCN99tCp7/": "2026-11-21T08:42:02.260Z",
+    "https://www.instagram.com/reel/DfsQlLCNPfr/": "2026-11-21T08:42:02.260Z",
+    "https://www.instagram.com/p/Dfo4sQlNz-L/": "2026-11-21T08:42:02.260Z",
+    "https://www.instagram.com/p/DfkoAn_tZu5/": "2026-11-21T08:42:02.260Z",
+    "https://www.instagram.com/p/DfhyJiht-Dc/": "2026-11-21T08:42:02.260Z",
+    "https://www.instagram.com/reel/Dfcn_Yzt3Fn/": "2026-11-21T08:42:02.260Z",
+    "https://www.instagram.com/reel/DfachdUtr1e/": "2026-11-21T08:42:02.260Z"
   }
 }
