@@ -6,6 +6,32 @@
   "evenements": [
     {
       "source": "web",
+      "source_site": "instagram",
+      "name": "GTA Night – BOKA CLUB",
+      "start": "2026-11-19T23:00:00.000Z",
+      "venue": "BOKA CLUB",
+      "city": "Toulon",
+      "address": "",
+      "url": "https://www.instagram.com/p/Df5gqIRsuOA/",
+      "image": "https://scontent-dfw6-1.cdninstagram.com/v/t51.82787-15/910832142_18151324801552654_2146131151664129383_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=101&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=HUbiAZFjLXYQ7kNvwFXu0yp&_nc_oc=AdphlJO8oVwK0cS1CWXkFQZAdHu_tIKpFsYPDV-ETvF6090VH6uOh_OsXokA6jGdRuo&_nc_zt=23&_nc_ht=scontent-dfw6-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=lpkahLhmyO5FnOGlf4zOTA&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQRKpF8thD4TUCqXmabF06DpEQOwTMNsZNDJ9_0_ZV06nQ&oe=6B0778E2",
+      "price": null,
+      "tags": [
+        "house",
+        "electro",
+        "rap"
+      ],
+      "description": "Le 20 novembre, BOKA CLUB transforme son club en un univers GTA. La soirée dure de minuit à 5h, avec une sélection de house, electro et rap qui rappelle l’ambiance de Los Santos. Le club, situé au 3261 Av. de la Résistance à Toulon, propose une ambiance immersive et un line‑up qui s’inspire de la culture gaming. Les réservations se font par téléphone, et la soirée est ouverte aux 18‑30 ans. Pas de dress‑code, mais prépare‑toi à danser toute la nuit.",
+      "public_cible": 0.9,
+      "confiance": 0.7,
+      "buzz": 0.5,
+      "buzz_raison": "Thème GTA unique, club reconnu, date proche, post avec 24 likes.",
+      "accroche": "Soirée GTA à BOKA CLUB : 00h-05h, ambiance Los Santos, vibes house & rap.",
+      "instagram": [
+        "boka_officiel"
+      ]
+    },
+    {
+      "source": "web",
       "source_site": "Instagram",
       "name": "PSYDIEZE",
       "start": "2026-11-27T23:00:00.000Z",
@@ -3539,6 +3565,6 @@
       ]
     }
   ],
-  "maj_instagram": "2026-11-21T14:34:30.902Z",
+  "maj_instagram": "2026-11-21T14:42:04.615Z",
   "echec_web": "2026-11-21T13:12:32.886Z"
 }
