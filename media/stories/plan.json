@@ -2,24 +2,13 @@
   "jour": "2026-11-21",
   "plan": [
     {
-      "type": "repost",
+      "type": "coeur",
       "cles": [
-        "q-faim-cannes"
+        "c-DO YOU LIKE… TEKNO ?"
       ],
       "frames": [
         {
-          "image": "2026-11-21-repost.jpg"
-        }
-      ]
-    },
-    {
-      "type": "question",
-      "cles": [
-        "q-faim-cannes"
-      ],
-      "frames": [
-        {
-          "image": "2026-11-21-question.jpg"
+          "image": "2026-11-21-coeur.jpg"
         }
       ]
     }
