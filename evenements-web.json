@@ -6,27 +6,164 @@
   "evenements": [
     {
       "source": "web",
-      "source_site": "Instagram",
-      "name": "Matrix",
-      "start": "2026-11-14T21:00:00.000Z",
-      "venue": "Dieze Warehouse",
-      "city": "Montpellier",
+      "source_site": "Shotgun",
+      "name": "Phaphane à Nice - Amapiano & Afrobeats Lovers",
+      "start": "2026-11-27T19:00:00.000Z",
+      "venue": "Frigo 16 (Le 109)",
+      "city": "Nice",
       "address": "",
-      "url": "https://www.instagram.com/p/DfupFDejecY/",
-      "image": "https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/901899605_18102117080655466_8917867006858368833_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=109&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=XpXb4SpeLV8Q7kNvwGSh2KV&_nc_oc=Adr-8zWRGyZDhfCBD1delH558kAYdBAg5SmtPduoBuHFGuRLi8tK-6pzcC4d-j0HfS4&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=iMVm1qlpJVPAKFl-LyL53w&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQTQa2WAVXap-UchORN1XPhlCFW_u8IyZq67pv9C6w7_xg&oe=6B075096",
-      "price": 0,
+      "url": "https://shotgun.live/fr/venues/frigo16",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto/production/artworks/FRIGO16-SAISON_sept-dec_2026-cover-3000x1000_qi4spw",
+      "price": 12.1,
       "tags": [
-        "techno",
-        "hard techno"
+        "amapiano",
+        "afrobeats",
+        "afro house",
+        "Amapiano",
+        "Afrobeat",
+        "Afrobeats",
+        "Afro House",
+        "afrobeat",
+        "South African House",
+        "Afropop"
       ],
-      "description": "La soirée Matrix de Prostcrastination arrive à Dieze Warehouse, Montpellier, le 14 novembre. Prépare-toi à vivre une expérience techno underground, où les basses et les lumières se mêlent à un décor apocalyptique. Le line‑up comprend des DJs locaux et des artistes émergents, garantissant une ambiance électrisante. L'entrée est gratuite, mais les places sont limitées, alors arrive tôt pour éviter les files. Dress code : libre, mais le thème « Matrix » encourage les tenues futuristes et cyber‑punk.",
-      "public_cible": 1,
-      "confiance": 0.7,
-      "buzz": 0.6,
-      "buzz_raison": "Soirée gratuite, lieu réputé, hype autour du thème Matrix, post officiel.",
-      "accroche": "Plonge dans la Matrice : basses, lumière et code pour une nuit techno inoubliable.",
+      "description": "Le 27 novembre, le producteur PHAPHANE pose ses platines au Frigo 16 à Nice. Attends‑toi à des grooves d’Amapiano mêlés à des rythmes Afrobeats qui feront vibrer la piste jusqu’au petit matin. L’ambiance sera festive, les lumières tamisées et le son lourd. Entrée libre, pré‑vente possible via les stories du compte.",
+      "public_cible": 0.95,
+      "confiance": 0.95,
+      "buzz": 0.8,
+      "buzz_raison": "Format dédié amapiano et afrobeats en pleine expansion.",
+      "accroche": "Basses amapiano et rythmiques afrobeats ensoleillées pour une nuit chaleureuse au 109.",
       "instagram": [
-        "prostcrastination"
+        "pandaevents06",
+        "frigo.16",
+        "agence_twelty"
+      ],
+      "offres": [
+        {
+          "plateforme": "my.weezevent.com",
+          "url": "https://my.weezevent.com/phaphane-a-nice-amapiano-afrobeats-lovers",
+          "prix": 12
+        },
+        {
+          "plateforme": "shotgun.live",
+          "url": "https://shotgun.live/events/phaphane-a-nice-amapiano-afrobeats-lovers",
+          "prix": 12.1
+        }
+      ],
+      "sources_sites": [
+        "Weezevent",
+        "shotgun.live",
+        "Shotgun.live",
+        "Shotgun / Twelty Prod / Panda Events",
+        "instagram.com",
+        "Instagram"
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true,
+      "via_veille": true
+    },
+    {
+      "source": "web",
+      "source_site": "Shotgun",
+      "name": "Mamacita",
+      "start": "2026-12-05T22:30:00.000Z",
+      "venue": "Frigo 16 (Le 109)",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/fr/events/mamacita-frigo-16",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,ar_3:4,w_3840,fl_lossy,f_webp,q_auto/production/artworks/MOT_Nice-2026-01_dojrvb.jpg",
+      "price": 12,
+      "tags": [
+        "reggaeton",
+        "baile funk",
+        "urban",
+        "Reggaeton",
+        "Baile Funk",
+        "Shatta",
+        "Latin Urbain",
+        "Dembow",
+        "shatta"
+      ],
+      "description": "Le 5 décembre, le collectif parisien Mamacita propose sa 3ᵉ after‑party au Frigo 16 de Nice. Le line‑up mise sur du reggaeton et du shatta, avec des sets qui font bouger les corps jusqu’à l’aube. L’atmosphère sera décontractée, idéale pour les étudiants et les fêtards. L’entrée est gratuite, mais arrive tôt pour profiter du before.",
+      "public_cible": 0.95,
+      "confiance": 0.95,
+      "buzz": 0.85,
+      "buzz_raison": "Marque de soirées caliente et perreo très suivie.",
+      "accroche": "Ambiance perreo et baile funk ultra chaude signée Mamacita au Frigo 16.",
+      "instagram": [
+        "mamacita",
+        "frigo.16",
+        "pandaevents06"
+      ],
+      "offres": [
+        {
+          "plateforme": "shotgun.live",
+          "url": "https://shotgun.live/events/mamacita-frigo-16",
+          "prix": 0
+        }
+      ],
+      "sources_sites": [
+        "Shotgun",
+        "Shotgun.live",
+        "Shotgun / Mamacita Productions",
+        "Instagram"
+      ],
+      "via_veille": true
+    },
+    {
+      "source": "web",
+      "source_site": "Shotgun",
+      "name": "Zona De Perreo • Frigo 16 Nice",
+      "start": "2026-12-19T19:00:00.000Z",
+      "venue": "Frigo 16 (Le 109)",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/fr/venues/frigo16",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,ar_16:9,w_3840,fl_lossy,f_webp,q_auto/production/artworks/e8a4d8f7-8165-41e7-8501-7b50acc848f5_w58tjz.jpg",
+      "price": 12,
+      "tags": [
+        "reggaeton",
+        "dembow",
+        "shatta",
+        "salsa",
+        "bachata",
+        "perreo",
+        "Reggaeton",
+        "Dembow",
+        "Perreo",
+        "Shatta",
+        "Neoperreo",
+        "Reggaeton Old School",
+        "Baile Funk",
+        "Salsa Colombienne",
+        "latin club",
+        "Latin Bass",
+        "baile funk"
+      ],
+      "description": "Le 19 décembre, Latin Addict organise la soirée Zona de Perreo au Frigo 16, Nice. Le programme comprend salsa, bachata, reggaeton old school, dembow et baile funk, pour une nuit de danse latine non‑stop. L’ambiance sera chaleureuse, les lumières colorées, et le dancefloor sera plein jusqu’à 2 h du matin. Entrée libre, dress‑code casual.",
+      "public_cible": 0.95,
+      "confiance": 0.95,
+      "buzz": 0.85,
+      "buzz_raison": "Format perreo très attendu orchestré par Latin Addict.",
+      "accroche": "Le crew Latin Addict débarque au 109 pour une nuit 100% perreo, dembow et shatta.",
+      "instagram": [
+        "latinaddict",
+        "frigo.16",
+        "pandaevents06"
+      ],
+      "offres": [
+        {
+          "plateforme": "shotgun.live",
+          "url": "https://shotgun.live/fr/venues/frigo16",
+          "prix": 12
+        }
+      ],
+      "sources_sites": [
+        "Shotgun",
+        "Shotgun.live",
+        "Shotgun / Panda Events",
+        "shotgun.live",
+        "Instagram"
       ]
     },
     {
@@ -607,63 +744,6 @@
       ],
       "billetterie_cherchee": true,
       "offres_cherchees": true
-    },
-    {
-      "source": "web",
-      "source_site": "Shotgun",
-      "name": "Phaphane à Nice - Amapiano & Afrobeats Lovers",
-      "start": "2026-11-27T19:00:00.000Z",
-      "venue": "Frigo 16 (Le 109)",
-      "city": "Nice",
-      "address": "",
-      "url": "https://shotgun.live/fr/venues/frigo16",
-      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto/production/artworks/FRIGO16-SAISON_sept-dec_2026-cover-3000x1000_qi4spw",
-      "price": 12.1,
-      "tags": [
-        "amapiano",
-        "afrobeats",
-        "afro house",
-        "Amapiano",
-        "Afrobeat",
-        "Afrobeats",
-        "Afro House",
-        "afrobeat",
-        "South African House",
-        "Afropop"
-      ],
-      "description": "",
-      "public_cible": 0.95,
-      "confiance": 0.95,
-      "buzz": 0.8,
-      "buzz_raison": "Format dédié amapiano et afrobeats en pleine expansion.",
-      "accroche": "Basses amapiano et rythmiques afrobeats ensoleillées pour une nuit chaleureuse au 109.",
-      "instagram": [
-        "pandaevents06",
-        "frigo.16",
-        "agence_twelty"
-      ],
-      "offres": [
-        {
-          "plateforme": "my.weezevent.com",
-          "url": "https://my.weezevent.com/phaphane-a-nice-amapiano-afrobeats-lovers",
-          "prix": 12
-        },
-        {
-          "plateforme": "shotgun.live",
-          "url": "https://shotgun.live/events/phaphane-a-nice-amapiano-afrobeats-lovers",
-          "prix": 12.1
-        }
-      ],
-      "sources_sites": [
-        "Weezevent",
-        "shotgun.live",
-        "Shotgun.live",
-        "Shotgun / Twelty Prod / Panda Events",
-        "instagram.com"
-      ],
-      "billetterie_cherchee": true,
-      "offres_cherchees": true,
-      "via_veille": true
     },
     {
       "source": "web",
@@ -1863,52 +1943,6 @@
     },
     {
       "source": "web",
-      "source_site": "Shotgun",
-      "name": "Mamacita",
-      "start": "2026-12-05T22:30:00.000Z",
-      "venue": "Frigo 16 (Le 109)",
-      "city": "Nice",
-      "address": "",
-      "url": "https://shotgun.live/fr/events/mamacita-frigo-16",
-      "image": "https://assets.shotgun.live/image/upload/c_limit,ar_3:4,w_3840,fl_lossy,f_webp,q_auto/production/artworks/MOT_Nice-2026-01_dojrvb.jpg",
-      "price": 12,
-      "tags": [
-        "reggaeton",
-        "baile funk",
-        "urban",
-        "Reggaeton",
-        "Baile Funk",
-        "Shatta",
-        "Latin Urbain",
-        "Dembow"
-      ],
-      "description": "",
-      "public_cible": 0.95,
-      "confiance": 0.95,
-      "buzz": 0.85,
-      "buzz_raison": "Marque de soirées caliente et perreo très suivie.",
-      "accroche": "Ambiance perreo et baile funk ultra chaude signée Mamacita au Frigo 16.",
-      "instagram": [
-        "mamacita",
-        "frigo.16",
-        "pandaevents06"
-      ],
-      "offres": [
-        {
-          "plateforme": "shotgun.live",
-          "url": "https://shotgun.live/events/mamacita-frigo-16",
-          "prix": 0
-        }
-      ],
-      "sources_sites": [
-        "Shotgun",
-        "Shotgun.live",
-        "Shotgun / Mamacita Productions"
-      ],
-      "via_veille": true
-    },
-    {
-      "source": "web",
       "source_site": "highclub.fr",
       "name": "Bad Girls",
       "start": "2026-12-05T22:59:00.000Z",
@@ -2093,61 +2127,6 @@
       "accroche": "Célèbre le lancement des vacances de fin d'année sur le grand dancefloor du front de mer.",
       "instagram": [
         "highclubnice"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "Shotgun",
-      "name": "Zona De Perreo • Frigo 16 Nice",
-      "start": "2026-12-19T19:00:00.000Z",
-      "venue": "Frigo 16 (Le 109)",
-      "city": "Nice",
-      "address": "",
-      "url": "https://shotgun.live/fr/venues/frigo16",
-      "image": "https://assets.shotgun.live/image/upload/c_limit,ar_16:9,w_3840,fl_lossy,f_webp,q_auto/production/artworks/e8a4d8f7-8165-41e7-8501-7b50acc848f5_w58tjz.jpg",
-      "price": 12,
-      "tags": [
-        "reggaeton",
-        "dembow",
-        "shatta",
-        "salsa",
-        "bachata",
-        "perreo",
-        "Reggaeton",
-        "Dembow",
-        "Perreo",
-        "Shatta",
-        "Neoperreo",
-        "Reggaeton Old School",
-        "Baile Funk",
-        "Salsa Colombienne",
-        "latin club",
-        "Latin Bass",
-        "baile funk"
-      ],
-      "description": "",
-      "public_cible": 0.95,
-      "confiance": 0.95,
-      "buzz": 0.85,
-      "buzz_raison": "Format perreo très attendu orchestré par Latin Addict.",
-      "accroche": "Le crew Latin Addict débarque au 109 pour une nuit 100% perreo, dembow et shatta.",
-      "instagram": [
-        "latinaddict",
-        "frigo.16",
-        "pandaevents06"
-      ],
-      "offres": [
-        {
-          "plateforme": "shotgun.live",
-          "url": "https://shotgun.live/fr/venues/frigo16",
-          "prix": 12
-        }
-      ],
-      "sources_sites": [
-        "Shotgun",
-        "Shotgun.live",
-        "Shotgun / Panda Events",
-        "shotgun.live"
       ]
     },
     {
@@ -3454,5 +3433,5 @@
       ]
     }
   ],
-  "maj_instagram": "2026-11-21T11:12:44.758Z"
+  "maj_instagram": "2026-11-21T11:42:03.983Z"
 }
