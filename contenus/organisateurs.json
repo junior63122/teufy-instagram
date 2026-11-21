@@ -231,7 +231,10 @@
     "je_dis_techno_nice",
     "bliss.evenement",
     "pandaevents06",
-    "lubi.light"
+    "lubi.light",
+    "bimbeauf",
+    "paranormalfestival",
+    "soon.event"
   ],
   "partenaires": [
     "bringue_party",
@@ -518,7 +521,10 @@
     "je_dis_techno_nice": "2026-11-21T11:42:03.983Z",
     "bliss.evenement": "2026-11-21T11:42:03.983Z",
     "pandaevents06": "2026-11-21T11:42:03.983Z",
-    "lubi.light": "2026-11-21T11:42:03.983Z"
+    "lubi.light": "2026-11-21T11:42:03.983Z",
+    "bimbeauf": "2026-11-21T12:13:30.688Z",
+    "paranormalfestival": "2026-11-21T12:13:30.688Z",
+    "soon.event": "2026-11-21T12:13:30.688Z"
   },
   "posts_vus": {
     "https://www.instagram.com/p/Df7WgyrNIhj/": "2026-11-20T16:43:24.530Z",
@@ -1022,6 +1028,9 @@
     "https://www.instagram.com/reel/DfZc1LYsaTf/": "2026-11-21T11:42:03.983Z",
     "https://www.instagram.com/p/DfXiDPyDPZj/": "2026-11-21T11:42:03.983Z",
     "https://www.instagram.com/reel/DfXMkK0yjcs/": "2026-11-21T11:42:03.983Z",
-    "https://www.instagram.com/p/DfSDBbgAMAw/": "2026-11-21T11:42:03.983Z"
+    "https://www.instagram.com/p/DfSDBbgAMAw/": "2026-11-21T11:42:03.983Z",
+    "https://www.instagram.com/p/DfSbBXuAAdo/": "2026-11-21T12:13:30.688Z",
+    "https://www.instagram.com/p/DfZY2kixcSc/": "2026-11-21T12:13:30.688Z",
+    "https://www.instagram.com/p/DfLGmZcxt-s/": "2026-11-21T12:13:30.688Z"
   }
 }
