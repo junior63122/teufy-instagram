@@ -3874,5 +3874,229 @@
   ],
   "velo": null,
   "taxi": null
+ },
+ "43.60492,7.0005": {
+  "le": "2026-11-21T13:04:14.828Z",
+  "parkings": [
+   {
+    "nom": "Hubac 3",
+    "type": "surface",
+    "payant": false,
+    "m": 490
+   },
+   {
+    "nom": "Parking Moulin de la Croix",
+    "type": "surface",
+    "payant": false,
+    "m": 517
+   },
+   {
+    "nom": "École maternelle",
+    "type": "surface",
+    "payant": false,
+    "m": 571
+   }
+  ],
+  "transports": [
+   {
+    "nom": "Moulin de la Croix",
+    "type": "bus",
+    "m": 76,
+    "lignes": ""
+   },
+   {
+    "nom": "Qui Vend Bon",
+    "type": "bus",
+    "m": 119,
+    "lignes": ""
+   }
+  ],
+  "velo": null,
+  "taxi": null
+ },
+ "43.12583,6.19538": {
+  "le": "2026-11-21T13:04:49.523Z",
+  "parkings": [],
+  "transports": [
+   {
+    "nom": "St-Nicolas",
+    "type": "bus",
+    "m": 54,
+    "lignes": "103"
+   },
+   {
+    "nom": "Mauvanne",
+    "type": "bus",
+    "m": 433,
+    "lignes": "103"
+   }
+  ],
+  "velo": null,
+  "taxi": null
+ },
+ "43.69708,7.27325": {
+  "le": "2026-11-21T13:05:24.009Z",
+  "parkings": [
+   {
+    "nom": "Palais de Justice",
+    "type": "underground",
+    "payant": true,
+    "m": 96
+   },
+   {
+    "nom": "Parking Corvésy",
+    "type": "multi-storey",
+    "payant": true,
+    "m": 96
+   },
+   {
+    "nom": "Parking Sulzer",
+    "type": "underground",
+    "payant": true,
+    "m": 258
+   }
+  ],
+  "transports": [
+   {
+    "nom": "Opéra - Vieille Ville",
+    "type": "tram",
+    "m": 31,
+    "lignes": ""
+   },
+   {
+    "nom": "Opéra - Vieille Ville",
+    "type": "bus",
+    "m": 47,
+    "lignes": "8+;12+;98"
+   },
+   {
+    "nom": "Masséna",
+    "type": "bus",
+    "m": 169,
+    "lignes": "8+;12+"
+   },
+   {
+    "nom": "Cathédrale - Vieille Ville",
+    "type": "tram",
+    "m": 304,
+    "lignes": ""
+   }
+  ],
+  "velo": {
+   "nom": "Nice cycle tours",
+   "m": 180
+  },
+  "taxi": {
+   "nom": "",
+   "m": 559
+  }
+ },
+ "43.55132,7.02409": {
+  "le": "2026-11-21T13:06:28.526Z",
+  "parkings": [
+   {
+    "nom": "Palais Stéphanie",
+    "type": "underground",
+    "payant": true,
+    "m": 143
+   },
+   {
+    "nom": "Marché Gambetta",
+    "type": "surface",
+    "payant": true,
+    "m": 244
+   },
+   {
+    "nom": "Parking du Gray D'albion",
+    "type": "underground",
+    "payant": true,
+    "m": 284
+   }
+  ],
+  "transports": [
+   {
+    "nom": "La Malmaison",
+    "type": "bus",
+    "m": 119,
+    "lignes": ""
+   },
+   {
+    "nom": "Palais Croisette",
+    "type": "bus",
+    "m": 225,
+    "lignes": ""
+   },
+   {
+    "nom": "Cannes",
+    "type": "train",
+    "m": 459,
+    "lignes": ""
+   }
+  ],
+  "velo": {
+   "nom": "Bike Trip",
+   "m": 465
+  },
+  "taxi": {
+   "nom": "",
+   "m": 374
+  }
+ },
+ "43.69584,7.27318": {
+  "le": "2026-11-21T13:07:23.205Z",
+  "parkings": [
+   {
+    "nom": "Palais de Justice",
+    "type": "underground",
+    "payant": true,
+    "m": 103
+   },
+   {
+    "nom": "Parking Corvésy",
+    "type": "multi-storey",
+    "payant": true,
+    "m": 131
+   },
+   {
+    "nom": "Parking Sulzer",
+    "type": "underground",
+    "payant": true,
+    "m": 191
+   }
+  ],
+  "transports": [
+   {
+    "nom": "Opéra - Vieille Ville",
+    "type": "tram",
+    "m": 159,
+    "lignes": ""
+   },
+   {
+    "nom": "Opéra - Vieille Ville",
+    "type": "bus",
+    "m": 183,
+    "lignes": "8+;12+;98"
+   },
+   {
+    "nom": "Quai des États-Unis",
+    "type": "bus",
+    "m": 187,
+    "lignes": "98"
+   },
+   {
+    "nom": "Cathédrale - Vieille Ville",
+    "type": "tram",
+    "m": 395,
+    "lignes": ""
+   }
+  ],
+  "velo": {
+   "nom": "",
+   "m": 122
+  },
+  "taxi": {
+   "nom": "",
+   "m": 542
+  }
  }
 }
