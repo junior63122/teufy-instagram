@@ -6,6 +6,56 @@
   "evenements": [
     {
       "source": "web",
+      "source_site": "Instagram",
+      "name": "Matrix",
+      "start": "2026-11-14T21:00:00.000Z",
+      "venue": "Dieze Warehouse",
+      "city": "Montpellier",
+      "address": "",
+      "url": "https://www.instagram.com/p/DfupFDejecY/",
+      "image": "https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/901899605_18102117080655466_8917867006858368833_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=109&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=XpXb4SpeLV8Q7kNvwGSh2KV&_nc_oc=Adr-8zWRGyZDhfCBD1delH558kAYdBAg5SmtPduoBuHFGuRLi8tK-6pzcC4d-j0HfS4&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=iMVm1qlpJVPAKFl-LyL53w&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQTQa2WAVXap-UchORN1XPhlCFW_u8IyZq67pv9C6w7_xg&oe=6B075096",
+      "price": 0,
+      "tags": [
+        "techno",
+        "hard techno"
+      ],
+      "description": "La soirée Matrix de Prostcrastination arrive à Dieze Warehouse, Montpellier, le 14 novembre. Prépare-toi à vivre une expérience techno underground, où les basses et les lumières se mêlent à un décor apocalyptique. Le line‑up comprend des DJs locaux et des artistes émergents, garantissant une ambiance électrisante. L'entrée est gratuite, mais les places sont limitées, alors arrive tôt pour éviter les files. Dress code : libre, mais le thème « Matrix » encourage les tenues futuristes et cyber‑punk.",
+      "public_cible": 1,
+      "confiance": 0.7,
+      "buzz": 0.6,
+      "buzz_raison": "Soirée gratuite, lieu réputé, hype autour du thème Matrix, post officiel.",
+      "accroche": "Plonge dans la Matrice : basses, lumière et code pour une nuit techno inoubliable.",
+      "instagram": [
+        "prostcrastination"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Instagram",
+      "name": "Technoël",
+      "start": "2026-12-19T21:00:00.000Z",
+      "venue": "Dieze Warehouse",
+      "city": "Montpellier",
+      "address": "",
+      "url": "https://www.instagram.com/p/Df4-Jq1DRSF/",
+      "image": "https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/913805424_18102717524655466_854149010016952969_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=102&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=VSflLfE7Z0oQ7kNvwFRW10J&_nc_oc=AdrMiFRNaf6xPe80ocBJlc4JUFPb0rb0ua6Ta6Gw_fPQoHOn0snlOdFnLTt_3brO_J8&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=iMVm1qlpJVPAKFl-LyL53w&_nc_ct=RQosPBUKFQQAAAA&oh=00_AQQwkNceNq1ZuNACFyPqW1YQniKGht4MCo-7G8mI6U1pcA&oe=6B075050",
+      "price": 0,
+      "tags": [
+        "techno",
+        "hard techno"
+      ],
+      "description": "Le 19 décembre, Prostcrastination transforme le Dieze Warehouse en une rave de Noël. L'entrée est gratuite et la soirée est centrée sur la techno et le hard techno. Le dress code est « Noël version rave » : pères Noël, lutins, rennes et autres déguisements festifs sont encouragés. Le line‑up comprend BLAKEYS, HEARTREAVER, MIDO, PROST et NOA, garantissant une nuit pleine d’énergie. La soirée se déroule en soirée, avec un début à 22h, et se termine vers minuit.",
+      "public_cible": 1,
+      "confiance": 0.7,
+      "buzz": 0.7,
+      "buzz_raison": "Soirée gratuite, thème festif, line‑up connu, hype de Noël.",
+      "accroche": "Technoël : une rave de Noël gratuite, déguisements et beats hard techno.",
+      "instagram": [
+        "prostcrastination"
+      ]
+    },
+    {
+      "source": "web",
       "source_site": "Shotgun",
       "name": "Jerrycans Release Party @ Frigo 16",
       "start": "2026-11-26T19:00:00.000Z",
@@ -3404,5 +3454,5 @@
       ]
     }
   ],
-  "maj_instagram": "2026-11-21T10:42:13.853Z"
+  "maj_instagram": "2026-11-21T11:12:44.758Z"
 }
