@@ -83,15 +83,11 @@
     "heure": "12:30"
    },
    {
-    "id": "montage-tague-samedi",
-    "video": "media/tiktok/montage-tague-samedi.mp4",
+    "id": "promo-2026-11-18",
+    "video": "media/tiktok/promo-2026-11-18.mp4",
     "type": "reel",
-    "legende": "Tague la personne avec qui tu sors samedi.\nEt trouvez votre soirée sur Teufy : Nice, Cannes, Monaco, le Var.\n\nToutes les soirées de la Côte : teufyparty.com (lien en bio)\n\n#soiree #nice #cotedazur #sortiranice #fyp",
-    "couverture": "media/tiktok/couvertures/montage-tague-samedi.jpg",
-    "son": {
-     "titre": "Funkytown (Lipps Inc.)",
-     "depart": "2:44"
-    },
+    "legende": "« Ah c'était hier ?! » Plus jamais\nSur Teufy, ajoute les soirées à ton agenda en un clic, et retrouve tes favorites quand tu veux.\n\nToutes les soirées de la Côte : teufyparty.com (lien en bio)\n\n#soiree #nice #cotedazur #sortiranice #fyp",
+    "couverture": "media/tiktok/couvertures/promo-2026-11-18.jpg",
     "heure": "19:30"
    }
   ],
@@ -105,40 +101,15 @@
     "heure": "12:30"
    },
    {
-    "id": "montage-samedi-soir",
-    "video": "media/tiktok/montage-samedi-soir.mp4",
+    "id": "tendance-2026-11-13",
+    "video": "media/tiktok/tendance-2026-11-13.mp4",
     "type": "reel",
-    "legende": "Ton samedi soir commence ici.\nToutes les soirées de Nice, Cannes, Monaco et du Var, au même endroit.\n\nToutes les soirées de la Côte : teufyparty.com (lien en bio)\n\n#soiree #nice #cotedazur #sortiranice #fyp",
-    "couverture": "media/tiktok/couvertures/montage-samedi-soir.jpg",
-    "son": {
-     "titre": "Pump Up the Jam (Technotronic)",
-     "depart": "1:11"
-    },
+    "legende": "Tu t'es déjà demandé pourquoi l'entrée est offerte avant 1h ?\nCe n'est pas un geste d'amitié, c'est une stratégie rodée :\n1. Amorcer l'ambiance pour les arrivants de 2h qui payent plein tarif.\n\nToutes les soirées de la Côte : teufyparty.com (lien en bio)\n\n#soiree #nice #cotedazur #sortiranice #fyp",
+    "couverture": "media/tiktok/couvertures/tendance-2026-11-13.jpg",
     "heure": "19:30"
    }
   ],
-  "2026-11-29": [
-   {
-    "id": "montage-coucher-de-soleil",
-    "video": "media/tiktok/montage-coucher-de-soleil.mp4",
-    "type": "reel",
-    "legende": "Du coucher de soleil jusqu'au bout de la nuit.\nOù sortir ce week-end sur la Côte d'Azur ? Tout est sur Teufy.\n\nToutes les soirées de la Côte : teufyparty.com (lien en bio)\n\n#soiree #nice #cotedazur #sortiranice #fyp",
-    "couverture": "media/tiktok/couvertures/montage-coucher-de-soleil.jpg",
-    "son": {
-     "titre": "Night Fever (Bee Gees)",
-     "depart": "2:42"
-    },
-    "heure": "12:30"
-   },
-   {
-    "id": "promo-2026-11-18",
-    "video": "media/tiktok/promo-2026-11-18.mp4",
-    "type": "reel",
-    "legende": "« Ah c'était hier ?! » Plus jamais\nSur Teufy, ajoute les soirées à ton agenda en un clic, et retrouve tes favorites quand tu veux.\n\nToutes les soirées de la Côte : teufyparty.com (lien en bio)\n\n#soiree #nice #cotedazur #sortiranice #fyp",
-    "couverture": "media/tiktok/couvertures/promo-2026-11-18.jpg",
-    "heure": "19:30"
-   }
-  ]
+  "2026-11-29": []
  },
  "debut": "2026-11-23"
 }
