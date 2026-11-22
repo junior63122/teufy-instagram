@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22 # 22/11/2026 : Node 20 en fin de vie (veille technique)
       - name: Tester Gemini et Claude
         env:
           GEMINI_API_KEY: ${{ (inputs.exception_ia) && (secrets.GEMINI_API_KEY) || '' }}

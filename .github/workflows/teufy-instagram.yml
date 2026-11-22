@@ -85,7 +85,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22 # 22/11/2026 : Node 20 en fin de vie (veille technique)
 
       - name: Robot « Lieux » en retard ? (GitHub saute parfois ses horaires) — le relancer, il n'utilise pas d'IA
         if: github.event_name == 'schedule' || startsWith(inputs.quoi, 'horaire')

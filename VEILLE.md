@@ -4,6 +4,29 @@ Journal daté (le plus récent en premier) : changements des prestataires et des
 mises à jour, sources de soirées réparées ou ajoutées, décisions prises. Tenu par la tâche programmée quotidienne
 (demande du directeur du 20/11/2026), à partir de `contenus/veille-technique.json` et des annonces officielles.
 
+## 22/11/2026
+
+- **Robot « Veille technique » : horaire de 6 h 17 encore sauté par GitHub** (dernier relevé le 21/11 à 14 h 29). Réparé : le robot
+  de veille le relance maintenant dès 7 h (Paris) s'il n'a pas tourné le jour même (avant : seulement après 20 h sans passage).
+  Sauvegarde du jour créée par ce passage. État : PENDING_VERIFICATION (premier passage de la veille vers 8 h).
+- **Failles npm (studio)** : 10 « hautes » venant de zod < 4.6.6 (épuisement mémoire sur collections énormes, GHSA-mrhx-c7xc-m3w5),
+  embarqué par Remotion. Corrigé en imposant zod 4.6.7 (publié le 12/10/2026, plus de 2 semaines) ; `npm audit` : 0 faille.
+  Rendu d'une story vérifié à l'œil (Remotion signale qu'il attend zod 4.5.4 exact : avertissement seulement, rendu correct ;
+  à revoir à la prochaine mise à jour de Remotion).
+- **Node 20 en fin de vie** : les workflows Instagram, Contrôle qualité et Test IA passent à Node 22 (changé à 8 h, hors
+  créneaux de publication). Actions GitHub (checkout, setup-node, cache, upload/deploy-pages) : nouvelles versions majeures
+  publiées ; GitHub les fait déjà tourner sous Node 24 ; montée de version prévue à la veille hebdomadaire de lundi, une à la
+  fois, hors créneaux de publication.
+- **Billetteries** : DICE Monaco n'existe plus (404) : retirée. Bizouk répond mais n'a aucune soirée de la Côte en ce moment
+  (lecture correcte, seulement des soirées d'Île-de-France et des Antilles). Shotgun bloque les robots (429), Allevents et Xceed
+  Cannes/Monaco renvoient 0 : non joignables depuis l'environnement de Claude, à examiner depuis le robot (veille hebdomadaire).
+- **Annonces officielles** : rien de nouveau trouvé pour Meta / Instagram (dernières entrées : v26 du 29/07/2026, réponses
+  rapides désactivées le 05/10/2026) ni pour Groq (dernier retrait : groq/compound le 21/09/2026 ; gpt-oss-120b toujours ouvert).
+  API Instagram v21 : migration toujours prévue le 24/11 (retrait le 21/01/2027).
+- **Soirées** : 37 dans les 7 prochains jours (Nice 22, Cannes 5, Toulon 3, La Seyne 3, Roquebrune 2, Monaco 1) ; 11 sans affiche.
+- **Hier soir aussi** : mise en ligne du site fiabilisée (deuxième essai si GitHub ne voit pas encore l'envoi : 9 échecs et
+  autant de mails le 21/11), mise à jour du site plafonnée à 15 min, appels IA avec échéance, tableau de bord /pilotage/.
+
 ## 21/11/2026
 
 - **Robot « Veille technique » : n'a jamais tourné** (GitHub n'a pas déclenché l'horaire de 6 h 17 du nouveau robot). Réparé :

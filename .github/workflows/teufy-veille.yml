@@ -58,7 +58,8 @@ jobs:
         run: |
           DERNIER=$(gh run list -R "$GITHUB_REPOSITORY" --workflow teufy-veille-technique.yml --limit 1 --json createdAt -q '.[0].createdAt' 2>/dev/null || echo "")
           AGE=$(( $(date +%s) - $(date -d "${DERNIER:-1970-01-01}" +%s) ))
-          if [ "$AGE" -gt 72000 ]; then gh workflow run teufy-veille-technique.yml -R "$GITHUB_REPOSITORY" --ref main && echo "Veille technique relancée (dernier passage il y a $((AGE/3600)) h)."; else echo "Veille technique à jour."; fi
+          # 22/11/2026 : l'horaire de 6 h 17 a été sauté (dernier passage 21/11 à 14 h 29) : relance aussi dès 7 h si rien aujourd'hui.
+          if [ "$AGE" -gt 72000 ] || { [ "${DERNIER:0:10}" != "$(date -u +%F)" ] && [ "$(date -u +%H)" -ge 6 ]; }; then gh workflow run teufy-veille-technique.yml -R "$GITHUB_REPOSITORY" --ref main && echo "Veille technique relancée (dernier passage il y a $((AGE/3600)) h)."; else echo "Veille technique à jour."; fi
 
       - name: Veille (détection)
         id: veille
