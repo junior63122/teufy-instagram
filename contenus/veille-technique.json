@@ -1,5 +1,5 @@
 {
- "le": "2026-11-21T13:29:45.537Z",
+ "le": "2026-11-22T07:12:12.691Z",
  "instagram": {
   "utilisee": "v21.0",
   "derniere": "v27.0",
@@ -56,7 +56,6 @@
  },
  "node": {
   "utilisees": [
-   20,
    22
   ],
   "lts": 26
@@ -77,9 +76,9 @@
     "info": 0,
     "low": 0,
     "moderate": 0,
-    "high": 10,
+    "high": 0,
     "critical": 0,
-    "total": 10
+    "total": 0
    }
   }
  },
@@ -92,64 +91,61 @@
    "http": 200,
    "soirees": 1
   },
-  "https://dice.fm/browse/monaco": {
-   "http": 404,
+  "https://www.eventbrite.fr/d/france--nice/nightlife/": {
+   "http": 405,
    "soirees": 0
   },
-  "https://www.eventbrite.fr/d/france--nice/nightlife/": {
-   "http": 200,
-   "soirees": 16
-  },
   "https://www.eventbrite.fr/d/france--nice/parties/": {
-   "http": 200,
-   "soirees": 20
+   "http": 405,
+   "soirees": 0
   },
   "https://www.eventbrite.fr/d/france--cannes/parties/": {
-   "http": 200,
-   "soirees": 20
+   "http": 405,
+   "soirees": 0
   },
   "https://www.eventbrite.fr/d/france--antibes/nightlife/": {
-   "http": 200,
-   "soirees": 20
+   "http": 405,
+   "soirees": 0
   },
   "https://www.eventbrite.fr/d/monaco--monaco/nightlife/": {
-   "http": 200,
-   "soirees": 20
+   "http": 405,
+   "soirees": 0
   },
   "https://www.eventbrite.fr/d/france--toulon/nightlife/": {
-   "http": 200,
-   "soirees": 20
+   "http": 405,
+   "soirees": 0
   },
   "https://www.eventbrite.fr/d/france--nice/music--events/": {
-   "http": 200,
-   "soirees": 8
+   "http": 405,
+   "soirees": 0
   },
   "https://www.eventbrite.fr/d/france--cannes/music--events/": {
-   "http": 200,
-   "soirees": 8
+   "http": 405,
+   "soirees": 0
   },
   "https://www.eventbrite.fr/d/monaco--monaco/music--events/": {
-   "http": 200,
-   "soirees": 8
+   "http": 405,
+   "soirees": 0
   },
   "https://www.eventbrite.fr/d/france--saint-tropez/events/": {
-   "http": 200,
-   "soirees": 16
+   "http": 405,
+   "soirees": 0
   },
   "https://www.eventbrite.fr/d/france--frejus/events/": {
-   "http": 200,
-   "soirees": 16
+   "http": 405,
+   "soirees": 0
   },
   "https://www.eventbrite.fr/d/france--toulon/music--events/": {
-   "http": 200,
-   "soirees": 8
+   "http": 405,
+   "soirees": 0
   },
   "https://www.bizouk.com/": {
    "http": 200,
    "soirees": 0
   },
   "https://allevents.in/nice/all": {
-   "erreur": "The operation was aborted due to timeout"
+   "http": 404,
+   "soirees": 0
   },
   "https://allevents.in/cannes/all": {
    "http": 200,
@@ -185,31 +181,34 @@
   }
  },
  "sites_clubs": {
-  "maj": "2026-11-21T07:12:56.522Z",
+  "maj": "2026-11-21T19:24:47.200Z",
   "lus": 37,
   "avec_soirees": 0,
   "total": 68
  },
  "donnees": {
   "semaine": 37,
-  "sans_heure": 6,
+  "sans_heure": 8,
   "sans_prix": 8,
-  "sans_affiche": 6,
+  "sans_affiche": 9,
   "sans_billetterie": 2,
   "par_ville": {
-   "Nice": 22,
-   "Toulon": 3,
-   "Monaco": 1,
-   "Cannes": 5,
+   "Montpellier": 1,
+   "Nice": 20,
+   "Toulon": 4,
+   "Cannes": 4,
+   "Hyères": 1,
+   "La Seyne-sur-Mer": 2,
    "Roquebrune-sur-Argens": 2,
-   "La Seyne-sur-Mer": 3,
-   "Marseille": 1
+   "Puget-sur-Argens": 1,
+   "Marseille": 1,
+   "Tourette": 1
   }
  },
  "images": {
-  "total": 82,
-  "sans_image": 27,
-  "dans_7_jours": 11
+  "total": 74,
+  "sans_image": 26,
+  "dans_7_jours": 13
  },
  "alertes": [
   {
@@ -249,16 +248,8 @@
    "detail": "actions/cache : v4 utilisée, v6.1.0 publiée (les anciennes versions finissent par être bloquées)."
   },
   {
-   "sujet": "Node",
-   "detail": "Node 20 est en fin de vie depuis 2026-04-30 : passer à Node 26 dans les workflows."
-  },
-  {
-   "sujet": "npm",
-   "detail": "studio : 0 faille(s) critique(s), 10 haute(s) (npm audit)."
-  },
-  {
    "sujet": "Sources",
-   "detail": "11 source(s) sans soirée lue : https://shotgun.live/fr/cities/nice (429) ; https://dice.fm/browse/monaco (404) ; https://www.bizouk.com/ (200) ; https://allevents.in/nice/all (The operation was aborted due to timeout) ; https://allevents.in/cannes/all (200) ; https://allevents.in/antibes/all (200) ; https://allevents.in/toulon/all (404) ; https://allevents.in/saint-tropez/all (200) ; https://allevents.in/frejus/all (200) ; https://xceed.me/fr/cannes/events (200) ; https://xceed.me/fr/monaco/events (200)"
+   "detail": "22 source(s) sans soirée lue : https://shotgun.live/fr/cities/nice (429) ; https://www.eventbrite.fr/d/france--nice/nightlife/ (405) ; https://www.eventbrite.fr/d/france--nice/parties/ (405) ; https://www.eventbrite.fr/d/france--cannes/parties/ (405) ; https://www.eventbrite.fr/d/france--antibes/nightlife/ (405) ; https://www.eventbrite.fr/d/monaco--monaco/nightlife/ (405) ; https://www.eventbrite.fr/d/france--toulon/nightlife/ (405) ; https://www.eventbrite.fr/d/france--nice/music--events/ (405) ; https://www.eventbrite.fr/d/france--cannes/music--events/ (405) ; https://www.eventbrite.fr/d/monaco--monaco/music--events/ (405) ; https://www.eventbrite.fr/d/france--saint-tropez/events/ (405) ; https://www.eventbrite.fr/d/france--frejus/events/ (405) ; https://www.eventbrite.fr/d/france--toulon/music--events/ (405) ; https://www.bizouk.com/ (200) ; https://allevents.in/nice/all (404) ; https://allevents.in/cannes/all (20"
   },
   {
    "sujet": "Soirées",
@@ -266,7 +257,7 @@
   },
   {
    "sujet": "Images",
-   "detail": "11 soirée(s) des 7 prochains jours sans affiche ni photo : DJ Set - Jordan Kowen (Mama Shelter Nice, 2026-11-21) ; Alienduch — House / Techno / Acid / Rave (L'Antre Bar Electro, 2026-11-21) ; Fetish Main Party / Mister Fetish France 2027 (Le Glam, 2026-11-21) ; Durdenhauer Fastlane 1 An (Switch Club, 2026-11-21) ; Bruja / Carbur — Psytrance / Hardtrance (L'Antre Bar Electro, 2026-11-22) ; Dragolote avec Lady Miss Tik (Mama Shelter Nice, 2026-11-22) ; Week‑end Techno L'Antre (L'Antre Techno, Nice, 2026-11-23) ; Phaphane à Nice - Amapiano & Afrobeats Lovers (Frigo 16 (Le 109), 2026-11-27) ; Dj - Trvchi (Mama Shelter Nice, 2026-11-27) ; Skarra Mucci & Manudigital — Ragga Blasta Tour (Centre Culturel Tisot, 2026-11-27) ; Mr Hat vs Verome — Bass vs Hard Music (L'Antre Bar Electro, 2026-11-27)"
+   "detail": "13 soirée(s) des 7 prochains jours sans affiche ni photo : Fetish Main Party / Mister Fetish France 2027 (Le Glam, 2026-11-21) ; Durdenhauer Fastlane 1 An (Switch Club, 2026-11-21) ; Bruja / Carbur — Psytrance / Hardtrance (L'Antre Bar Electro, 2026-11-22) ; Dragolote avec Lady Miss Tik (Mama Shelter Nice, 2026-11-22) ; Week‑end Techno L'Antre (L'Antre Techno, Nice, 2026-11-23) ; Phaphane à Nice - Amapiano & Afrobeats Lovers (Frigo 16 (Le 109), 2026-11-27) ; Dj - Trvchi (Mama Shelter Nice, 2026-11-27) ; Skarra Mucci & Manudigital — Ragga Blasta Tour (Centre Culturel Tisot, 2026-11-27) ; Mr Hat vs Verome — Bass vs Hard Music (L'Antre Bar Electro, 2026-11-27) ; Da Grow — UK Bass / Gangsta House (L'Antre Bar Electro, 2026-11-28) ; Psynaps-2 (Fort Napoléon, 2026-11-28) ; Soirée Zouk & Caribbean Vibes (L'Artiste 83, 2026-11-28) ; Origins Invite Boticka All Night Long (Switch Club, 2026-11-28)"
   }
  ]
 }
