@@ -1783,44 +1783,6 @@
     },
     {
       "source": "web",
-      "source_site": "Shotgun.live",
-      "name": "Bruja / Carbur — Psytrance / Hardtrance",
-      "start": "2026-11-22T04:00:00.000Z",
-      "venue": "L'Antre Bar Electro",
-      "city": "Nice",
-      "address": "",
-      "url": "https://shotgun.live/fr/venues/l-antre",
-      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto/production/artworks/IMG_1883_bwtzsy.jpg",
-      "price": 11,
-      "tags": [
-        "hard trance",
-        "psytrance"
-      ],
-      "description": "",
-      "public_cible": 0.8,
-      "confiance": 0.95,
-      "buzz": 0.6,
-      "buzz_raison": "After hard trance et psytrance pour les habitués de kicks rapides",
-      "accroche": "After dominical sous haute tension avec Bruja et Carbur entre hard trance et psytrance.",
-      "instagram": [
-        "lantretechno"
-      ],
-      "offres": [
-        {
-          "plateforme": "shotgun.live",
-          "url": "https://shotgun.live/fr/venues/l-antre",
-          "prix": 11
-        }
-      ],
-      "sources_sites": [
-        "Shotgun.live",
-        "Shotgun"
-      ],
-      "billetterie_cherchee": true,
-      "offres_cherchees": true
-    },
-    {
-      "source": "web",
       "source_site": "Shotgun",
       "name": "Vibrance #7",
       "start": "2026-11-28T20:00:00.000Z",
@@ -3185,5 +3147,5 @@
       "offres": []
     }
   ],
-  "maj_instagram": "2026-11-22T07:12:19.557Z"
+  "maj_instagram": "2026-11-22T16:14:22.665Z"
 }
