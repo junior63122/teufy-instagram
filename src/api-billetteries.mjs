@@ -104,6 +104,9 @@ export async function lireApiBilletteries({ root, log = console.log, villes = ()
     try { const ev = await fn(cle); evenements.push(...ev); rapport.push({ source: `${nom}-api`, evenements: ev.length }); }
     catch (err) { rapport.push({ source: `${nom}-api`, erreur: String(err.message).slice(0, 160) }); evenements.push(...(cache.evenements || []).filter((e) => e.source === nom)); }
   }
-  if (evenements.length || !existsSync(f)) writeFileSync(f, JSON.stringify({ maj: new Date(now).toISOString(), evenements, rapport }, null, 1) + '\n');
+  // Une clé présente mais refusée ou une panne : nouvel essai dans 30 min (et non 6 h), pour qu'une clé corrigée serve vite.
+  const panne = rapport.some((r) => r.erreur && !/pas de clé/.test(r.erreur));
+  const maj = new Date(panne ? now - 5.5 * 3600e3 : now).toISOString();
+  writeFileSync(f, JSON.stringify({ maj, evenements, rapport }, null, 1) + '\n');
   return { evenements, rapport };
 }
