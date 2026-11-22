@@ -2,13 +2,13 @@
   "jour": "2026-11-22",
   "plan": [
     {
-      "type": "astuce",
+      "type": "offre",
       "cles": [
-        "a-codes"
+        "code-TEUFYxPANDA20"
       ],
       "frames": [
         {
-          "image": "2026-11-22-astuce.jpg"
+          "image": "2026-11-22-offre.jpg"
         }
       ]
     }
