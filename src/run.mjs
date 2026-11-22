@@ -334,6 +334,10 @@ if (cible === 'site') {
   if (!flag('force') && existsSync(marque) && (await readFile(marque, 'utf8')).trim() === signature) { console.log('Site déjà à jour.'); process.exit(0); }
   const { construireSite } = await import('./site.mjs');
   const LLM_SITE = await import('./llm.mjs');
+  // Heure limite globale de la mise à jour (le passage de la veille coupe à 15 min) : toutes les étapes à IA s'arrêtent avant,
+  // et la construction des pages garde au moins 4 minutes.
+  const FIN_SITE = Date.now() + (Number(process.env.SITE_BUDGET_MIN) || 12) * 60e3;
+  LLM_SITE.plafondGlobalIA(FIN_SITE - 4 * 60e3);
   const igSite = igConfig();
   const { rechercherFrance, rechercherOccitanie } = await import('./recherche.mjs');
   // Rubriques France et Occitanie (22/11/2026) : leur recherche se relançait à chaque passage tant qu'elle n'avait pas réussi,

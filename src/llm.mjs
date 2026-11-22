@@ -307,8 +307,10 @@ async function modelesXai() {
 // suivant) ; texte de recherche (`tronqueOk`) → gardé sans sa dernière ligne, coupée (URL ou date à moitié écrite).
 // Échéance globale (21/11/2026) : la mise à jour du site dépassait 30 min (appels Groq de 3 min + attentes 429 en série)
 // et le passage de la veille était coupé avant d'enregistrer le site. Passé l'échéance, plus aucun appel n'est lancé.
-let ECHEANCE = Infinity;
-export const echeanceIA = (t = Infinity) => { ECHEANCE = t; };
+let ECHEANCE = Infinity, PLAFOND_GLOBAL = Infinity;
+// Heure limite globale d'un passage (22/11/2026) : aucune échéance posée ensuite ne peut la dépasser.
+export const plafondGlobalIA = (t = Infinity) => { PLAFOND_GLOBAL = t; ECHEANCE = Math.min(ECHEANCE, t); };
+export const echeanceIA = (t = Infinity) => { ECHEANCE = Math.min(t, PLAFOND_GLOBAL); };
 const resteIA = () => { const r = ECHEANCE - Date.now(); if (r < 5000) { const e = new Error('IA : temps du passage écoulé'); e.status = 408; throw e; } return r; };
 async function groqAppel(body, essai = 0, { tronqueOk = false } = {}) {
   const reste = resteIA();

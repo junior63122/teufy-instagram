@@ -54,8 +54,14 @@ async function eventbrite({ root, token, log, villes }) {
   let lus = 0;
   for (const id of [...new Set(urls.map(idEventbrite).filter(Boolean))]) {
     if (etat.evenements_vus[id] || lus >= 60) continue;
-    try { const e = await json(`https://www.eventbriteapi.com/v3/events/${id}/`, H); if (e.organizer_id) etat.organisateurs[e.organizer_id] ||= { depuis: id, le: new Date().toISOString() }; } catch { /* événement supprimé */ }
-    etat.evenements_vus[id] = new Date().toISOString(); lus++; await attendre(250);
+    try { const e = await json(`https://www.eventbriteapi.com/v3/events/${id}/`, H); if (e.organizer_id) etat.organisateurs[e.organizer_id] ||= { depuis: id, le: new Date().toISOString() }; etat.evenements_vus[id] = new Date().toISOString(); }
+    catch (err) {
+      // Jeton refusé : on s'arrête et on le dit (avant : erreur avalée, « 0 organisateur » sans explication).
+      if (/HTTP 40[13]/.test(err.message)) throw new Error(`Eventbrite : jeton refusé (${err.message}) : vérifier le « Private token » dans le secret EVENTBRITE_TOKEN`);
+      if (/HTTP 404/.test(err.message)) etat.evenements_vus[id] = new Date().toISOString(); // soirée supprimée : inutile de réessayer
+      else log(`  Eventbrite (API) : soirée ${id} illisible (${err.message})`);
+    }
+    lus++; await attendre(250);
   }
   // 2. Prochaines soirées de chaque organisateur, gardées si elles sont dans nos villes.
   const sortie = [];
