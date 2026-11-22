@@ -26,7 +26,7 @@ const ZONES = [
 async function json(url, opts = {}) {
   const r = await fetch(url, { ...opts, signal: AbortSignal.timeout(25000) });
   if (r.status === 429) { await attendre(5000); const r2 = await fetch(url, { ...opts, signal: AbortSignal.timeout(25000) }); if (!r2.ok) throw new Error(`HTTP ${r2.status}`); return r2.json(); }
-  if (!r.ok) throw new Error(`HTTP ${r.status}`);
+  if (!r.ok) { const t = await r.text().catch(() => ''); throw new Error(`HTTP ${r.status}${t ? ` ${t.replace(/\s+/g, ' ').slice(0, 160)}` : ''}`); }
   return r.json();
 }
 
@@ -79,8 +79,11 @@ async function eventbrite({ root, token, log, villes }) {
   let recues = 0, erreurs = 0;
   for (const org of Object.keys(etat.organisateurs)) {
     try {
-      const r = await json(`https://www.eventbriteapi.com/v3/organizers/${org}/events/?status=live&order_by=start_asc&expand=venue,ticket_availability&page_size=50`, H);
-      for (const e of r.events || []) { recues++; const x = depuisEventbrite(e); if (x.start && villes(x) && soiree(`${x.name} ${x.description}`)) sortie.push(x); else ecartees.push(`${x.name.slice(0, 40)} (${x.city || x.venue || 'lieu inconnu'})`); }
+      // 22/11/2026 : « HTTP 400 » pour tous les organisateurs avec la requête complète → repli sur la requête la plus simple.
+      const base = `https://www.eventbriteapi.com/v3/organizers/${org}/events/`;
+      const r = await json(`${base}?status=live&expand=venue,ticket_availability`, H).catch((err) => (/HTTP 400/.test(err.message) ? json(`${base}?expand=venue`, H) : Promise.reject(err)))
+        .catch((err) => (/HTTP 400/.test(err.message) ? json(base, H) : Promise.reject(err)));
+      for (const e of r.events || []) { recues++; const x = depuisEventbrite(e); if (x.start && Date.parse(x.start) > Date.now() - 6 * 3600e3 && villes(x) && soiree(`${x.name} ${x.description}`)) sortie.push(x); else ecartees.push(`${x.name.slice(0, 40)} (${x.city || x.venue || 'lieu inconnu'})`); }
     } catch (err) { if (/HTTP 40[13]/.test(err.message)) throw new Error(`Eventbrite : jeton refusé (${err.message})`); erreurs++; if (erreurs <= 3) log(`  Eventbrite (API) : organisateur ${org} illisible (${err.message})`); }
     await attendre(250);
   }
