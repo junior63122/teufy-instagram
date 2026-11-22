@@ -274,7 +274,9 @@
     "clubsonore_frenchriviera",
     "agencetwelty",
     "laplaturne",
-    "lanonchalance"
+    "lanonchalance",
+    "lemeridiennice",
+    "palaisnikaia"
   ],
   "partenaires": [
     "bringue_party",
@@ -604,7 +606,9 @@
     "clubsonore_frenchriviera": "2026-11-22T01:09:10.129Z",
     "agencetwelty": "2026-11-22T01:09:10.129Z",
     "laplaturne": "2026-11-22T01:09:10.129Z",
-    "lanonchalance": "2026-11-22T01:09:10.129Z"
+    "lanonchalance": "2026-11-22T01:09:10.129Z",
+    "lemeridiennice": "2026-11-22T07:12:19.557Z",
+    "palaisnikaia": "2026-11-22T07:12:19.557Z"
   },
   "posts_vus": {
     "https://www.instagram.com/p/Df7WgyrNIhj/": "2026-11-20T16:43:24.530Z",
@@ -1271,7 +1275,39 @@
     "https://www.instagram.com/reel/DfZicjNK7FG/": "2026-11-22T01:09:10.129Z",
     "https://www.instagram.com/reel/DfUsHF1oPe2/": "2026-11-22T01:09:10.129Z",
     "https://www.instagram.com/p/DfUqRJjIf-r/": "2026-11-22T01:09:10.129Z",
-    "https://www.instagram.com/p/DfNS0aVqyB0/": "2026-11-22T01:09:10.129Z"
+    "https://www.instagram.com/p/DfNS0aVqyB0/": "2026-11-22T01:09:10.129Z",
+    "https://www.instagram.com/p/Df9o_FMR41X/": "2026-11-22T07:12:19.557Z",
+    "https://www.instagram.com/p/DfsZ37uxMGV/": "2026-11-22T07:12:19.557Z",
+    "https://www.instagram.com/p/DfunPsckSa1/": "2026-11-22T07:12:19.557Z",
+    "https://www.instagram.com/p/DfoqslpRPwC/": "2026-11-22T07:12:19.557Z",
+    "https://www.instagram.com/p/DfaR_NXTj6Q/": "2026-11-22T07:12:19.557Z",
+    "https://www.instagram.com/p/DfU2WrwxQb5/": "2026-11-22T07:12:19.557Z",
+    "https://www.instagram.com/p/DfHOclvT8U_/": "2026-11-22T07:12:19.557Z",
+    "https://www.instagram.com/p/DgAutBXgFHH/": "2026-11-22T07:12:19.557Z",
+    "https://www.instagram.com/p/Df_svJ3jO0N/": "2026-11-22T07:12:19.557Z",
+    "https://www.instagram.com/reel/Df-KXdBj4XJ/": "2026-11-22T07:12:19.557Z",
+    "https://www.instagram.com/p/Df9gj9dCBPB/": "2026-11-22T07:12:19.557Z",
+    "https://www.instagram.com/reel/Df9bfL1jofw/": "2026-11-22T07:12:19.557Z",
+    "https://www.instagram.com/p/Df7lhGIlfy0/": "2026-11-22T07:12:19.557Z",
+    "https://www.instagram.com/p/Df6uKtGCI6b/": "2026-11-22T07:12:19.557Z",
+    "https://www.instagram.com/p/Df5SgYoHY8p/": "2026-11-22T07:12:19.557Z",
+    "https://www.instagram.com/p/Df4IeX-ld3q/": "2026-11-22T07:12:19.557Z",
+    "https://www.instagram.com/p/Df3-XOdlQp2/": "2026-11-22T07:12:19.557Z",
+    "https://www.instagram.com/reel/Df2gT9ZnNxF/": "2026-11-22T07:12:19.557Z",
+    "https://www.instagram.com/reel/Dfz7IEsCst9/": "2026-11-22T07:12:19.557Z",
+    "https://www.instagram.com/p/DfzVO0_CKBW/": "2026-11-22T07:12:19.557Z",
+    "https://www.instagram.com/p/DfyxgOzCBi2/": "2026-11-22T07:12:19.557Z",
+    "https://www.instagram.com/reel/DfxdAMiDohB/": "2026-11-22T07:12:19.557Z",
+    "https://www.instagram.com/p/DfutAtxmxI-/": "2026-11-22T07:12:19.557Z",
+    "https://www.instagram.com/reel/Dftu2Psgh1J/": "2026-11-22T07:12:19.557Z",
+    "https://www.instagram.com/p/DfsLQaYFUcD/": "2026-11-22T07:12:19.557Z",
+    "https://www.instagram.com/p/Dfr0OIRlb6L/": "2026-11-22T07:12:19.557Z",
+    "https://www.instagram.com/p/DfrRWsdlWHk/": "2026-11-22T07:12:19.557Z",
+    "https://www.instagram.com/p/DfrGaCmFfJX/": "2026-11-22T07:12:19.557Z",
+    "https://www.instagram.com/p/DfpRS4nFUg3/": "2026-11-22T07:12:19.557Z",
+    "https://www.instagram.com/p/DfojbW_lZsh/": "2026-11-22T07:12:19.557Z",
+    "https://www.instagram.com/reel/DfmAhYTkwCZ/": "2026-11-22T07:12:19.557Z",
+    "https://www.instagram.com/reel/DfjlPWikbbs/": "2026-11-22T07:12:19.557Z"
   },
   "introuvables": {
     "jayson.wayts": "2026-11-22T01:09:10.129Z",
@@ -1285,6 +1321,12 @@
     "bolon_events": "2026-11-22T01:09:10.129Z",
     "aztera_crew": "2026-11-22T01:09:10.129Z",
     "frigo16nice": "2026-11-22T01:09:10.129Z",
-    "lantrenice": "2026-11-22T01:09:10.129Z"
+    "lantrenice": "2026-11-22T01:09:10.129Z",
+    "ledixhuit.nice": "2026-11-22T07:12:19.557Z",
+    "glassclubcannes": "2026-11-22T07:12:19.557Z",
+    "viceclubnice": "2026-11-22T07:12:19.557Z",
+    "skyfall_cannes": "2026-11-22T07:12:19.557Z",
+    "twiga_mc": "2026-11-22T07:12:19.557Z",
+    "playachica_mandelieu": "2026-11-22T07:12:19.557Z"
   }
 }

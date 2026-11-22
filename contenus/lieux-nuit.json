@@ -10,7 +10,6 @@
    "site": "https://highclub.com/",
    "description": "Grand club de la Promenade des Anglais réunissant plusieurs salles, dont le Studio 47 (années 80 et disco).",
    "soirees": [
-    "good-times-2026-11-21",
     "coachellito-high-club-friends-et-family-edition-2026-11-27",
     "to-have-fun-2026-11-28",
     "what-s-up-nice-2026-12-04",
@@ -20,16 +19,16 @@
    ],
    "prochaines": [
     {
-     "id": "good-times-2026-11-21",
-     "nom": "Good Times"
-    },
-    {
      "id": "coachellito-high-club-friends-et-family-edition-2026-11-27",
      "nom": "Coachellito — High Club (Friends & Family Edition)"
     },
     {
      "id": "to-have-fun-2026-11-28",
      "nom": "To Have Fun"
+    },
+    {
+     "id": "what-s-up-nice-2026-12-04",
+     "nom": "What's Up Nice"
     }
    ],
    "insta": {
@@ -60,12 +59,6 @@
     "relu": "verification 2026-11-13"
    },
    "soirs": [
-    [
-     "2026-11-21",
-     "minuit",
-     "good-times-2026-11-21",
-     "Good Times"
-    ],
     [
      "2026-11-27",
      "minuit",
@@ -200,7 +193,7 @@
    "score": 0,
    "soirs": [],
    "details": {
-    "le": "2026-11-22T02:01:58.233Z",
+    "le": "2026-11-22T07:16:47.793Z",
     "styles": "DJ résidents (ven–sam après 22h)",
     "dress_code": "",
     "horaires": "lun–dim 10h–2h",
@@ -703,7 +696,6 @@
    "site": "https://glasscannes.com",
    "description": "Bar à cocktails haut de gamme doublé d'un petit club (80 à 90 personnes) à une minute de la Croisette et du Palais des Festivals, tourné vers la house et la deep house.",
    "soirees": [
-    "sensoria-into-the-frequency-w-nico-v-2026-11-21",
     "kx-dj-not-so-innocent-2026-11-26",
     "ugo-puccinelli-pretty-little-sins-2026-11-27",
     "alex-duff-overdrive-2026-11-28",
@@ -711,16 +703,16 @@
    ],
    "prochaines": [
     {
-     "id": "sensoria-into-the-frequency-w-nico-v-2026-11-21",
-     "nom": "Sensoria — Into The Frequency w/ Nico.V"
-    },
-    {
      "id": "kx-dj-not-so-innocent-2026-11-26",
      "nom": "Kx Dj / Not So Innocent"
     },
     {
      "id": "ugo-puccinelli-pretty-little-sins-2026-11-27",
      "nom": "Ugo Puccinelli / Pretty Little Sins"
+    },
+    {
+     "id": "alex-duff-overdrive-2026-11-28",
+     "nom": "Alex Duff / Overdrive"
     }
    ],
    "insta": {
@@ -730,12 +722,6 @@
    "score": 0,
    "photo": "site/lieux/site-ac23a09caae7-176.webp",
    "soirs": [
-    [
-     "2026-11-21",
-     "minuit",
-     "sensoria-into-the-frequency-w-nico-v-2026-11-21",
-     "Sensoria — Into The Frequency w/ Nico.V"
-    ],
     [
      "2026-11-26",
      "minuit",
@@ -782,8 +768,7 @@
    "instagram_non_verifie": "glassclubcannes",
    "stylesSoirees": [
     "house",
-    "afro",
-    "techno"
+    "afro"
    ]
   },
   {

@@ -8,39 +8,6 @@
     {
       "source": "web",
       "source_site": "Instagram",
-      "name": "MALIVE @ La Nonchalance",
-      "start": "2026-11-12T23:00:00.000Z",
-      "venue": "La Nonchalance",
-      "city": "Monaco",
-      "address": "",
-      "url": "https://www.instagram.com/p/DffISXKKU8E/",
-      "image": "https://scontent-ord5-2.cdninstagram.com/v/t51.82787-15/890716565_18651922597041727_4845886643609070775_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=102&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=C98zZhkRZgEQ7kNvwF4NQHx&_nc_oc=Adr2Q6_0DYSIuGmrl0Ot_-JmOoXiLutxFAI-rR828YUnnPyNHpG_Xt-nDvUNuBenUfk&_nc_zt=23&_nc_ht=scontent-ord5-2.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=HIhpEzvyFy0kZfslXqx8Dw&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQSpLhmV_Myu4PJNVydqCBN0eI4omPWKN6HW4qFFuiOvMQ&oe=6B082933",
-      "price": 15,
-      "tags": [
-        "house"
-      ],
-      "description": "Le 13 novembre, La Nonchalance accueille MALIVE pour une nuit house qui promet de faire vibrer les dancefloors monégasques. Soutenu par Keinemusic, le DJ apporte son son signature, entre deep grooves et mélodies envoûtantes. L’ambiance sera chic‑décontractée, idéale pour les 18‑30 ans qui veulent danser jusqu’au petit matin. L’entrée est en libre accès, pré‑vente non précisée, prévoyez une tenue stylée et votre énergie ! Le lieu, en plein cœur de Monaco, offre un décor élégant et une piste prête à accueillir les noctambules.",
-      "public_cible": 1,
-      "confiance": 0.7,
-      "buzz": 0.6,
-      "buzz_raison": "Tête d’affiche reconnue dans la scène house, lieu prestigieux à Monaco, date proche du week‑end, bonne visibilité Instagram.",
-      "accroche": "MALIVE en live à La Nonchalance, le 13 novembre : house deep, vibes de Monaco et soirée qui dépasse l’ordinaire.",
-      "instagram": [
-        "lanonchalance"
-      ],
-      "offres": [
-        {
-          "plateforme": "shotgun.live",
-          "url": "https://shotgun.live/es/events/lanonchalance-pres-malive",
-          "prix": 15
-        }
-      ],
-      "billetterie_cherchee": true,
-      "offres_cherchees": true
-    },
-    {
-      "source": "web",
-      "source_site": "Instagram",
       "name": "La Tocardise – édition Hard",
       "start": "2026-12-12T22:00:00.000Z",
       "venue": "Green Musik",
@@ -808,31 +775,6 @@
     {
       "source": "web",
       "source_site": "instagram",
-      "name": "Dinner DJ Set – Sat 21",
-      "start": "2026-11-21T19:30:00.000Z",
-      "venue": "Twiga Monte Carlo",
-      "city": "Monaco",
-      "address": "",
-      "url": "https://www.instagram.com/p/Dfzwpa8M7L_/",
-      "image": "",
-      "price": null,
-      "tags": [],
-      "description": "Dernier dîner DJ Set de la semaine à Twiga. Dîner à 20h30, club à 00h30. Ambiance festive et musique variée.",
-      "public_cible": 0.9,
-      "confiance": 0.9,
-      "buzz": 0.5,
-      "buzz_raison": "Événement de routine, mais venue réputée.",
-      "accroche": "Dinner DJ Set – Sat 21 | Twiga Monte Carlo",
-      "instagram": [
-        "twigamontecarlo"
-      ],
-      "offres": [],
-      "billetterie_cherchee": true,
-      "offres_cherchees": true
-    },
-    {
-      "source": "web",
-      "source_site": "instagram",
       "name": "La Rascasse Darts Tournament",
       "start": "2026-12-17T19:00:00.000Z",
       "venue": "La Rascasse Monaco",
@@ -967,60 +909,6 @@
         "nayaclubcannes"
       ],
       "offres": [],
-      "billetterie_cherchee": true,
-      "offres_cherchees": true
-    },
-    {
-      "source": "web",
-      "source_site": "Shotgun",
-      "name": "La Wave - \"Shatta Séduction\" - Cannes",
-      "start": "2026-11-21T22:00:00.000Z",
-      "venue": "Skyfall Cannes x Kingdom",
-      "city": "Cannes",
-      "address": "",
-      "url": "https://shotgun.live/fr/events/la-wave-shatta-seduction-cannes",
-      "image": "https://assets.shotgun.live/image/upload/c_limit,ar_16:9,w_3840,fl_lossy,f_webp,q_auto/production/artworks/WAVE_CANNES_21_NOV_COUV_jqx8di.png",
-      "price": 7.99,
-      "tags": [
-        "shatta",
-        "dancehall",
-        "bouyon",
-        "afro",
-        "rap",
-        "zouk",
-        "Rap",
-        "Afro",
-        "Afrobeat",
-        "Shatta",
-        "afrobeat",
-        "Bouyon",
-        "Dancehall",
-        "Trap",
-        "Zouk"
-      ],
-      "description": "",
-      "public_cible": 0.95,
-      "confiance": 0.95,
-      "buzz": 0.8,
-      "buzz_raison": "Soirée thématique célibataires très prisée par le public 18-25 ans.",
-      "accroche": "Concept célibataires shatta et bouyon avec DJs Sonny & Ticoq au Skyfall Cannes.",
-      "instagram": [
-        "bolon_events",
-        "skyfallcannes",
-        "skyfall_cannes"
-      ],
-      "offres": [
-        {
-          "plateforme": "shotgun.live",
-          "url": "https://shotgun.live/fr/events/la-wave-shatta-seduction-cannes",
-          "prix": 7.99
-        }
-      ],
-      "sources_sites": [
-        "Shotgun",
-        "shotgun.live",
-        "Shotgun.live"
-      ],
       "billetterie_cherchee": true,
       "offres_cherchees": true
     },
@@ -1896,118 +1784,6 @@
     {
       "source": "web",
       "source_site": "Shotgun.live",
-      "name": "Alienduch — House / Techno / Acid / Rave",
-      "start": "2026-11-21T20:00:00.000Z",
-      "venue": "L'Antre Bar Electro",
-      "city": "Nice",
-      "address": "",
-      "url": "https://shotgun.live/fr/venues/l-antre",
-      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto/production/artworks/IMG_1883_bwtzsy.jpg",
-      "price": 5.99,
-      "tags": [
-        "house",
-        "techno",
-        "acid",
-        "rave",
-        "acid techno"
-      ],
-      "description": "",
-      "public_cible": 0.85,
-      "confiance": 0.95,
-      "buzz": 0.55,
-      "buzz_raison": "Set acid et rave intimiste dans le Vieux-Nice",
-      "accroche": "Alienduch aux platines pour un set énergique entre house, rave et acid techno.",
-      "instagram": [
-        "lantretechno"
-      ],
-      "offres": [
-        {
-          "plateforme": "shotgun.live",
-          "url": "https://shotgun.live/fr/venues/l-antre",
-          "prix": 5.99
-        }
-      ],
-      "sources_sites": [
-        "Shotgun.live",
-        "Shotgun"
-      ],
-      "billetterie_cherchee": true,
-      "offres_cherchees": true
-    },
-    {
-      "source": "web",
-      "source_site": "Agenda LGBT",
-      "name": "Fetish Main Party / Mister Fetish France 2027",
-      "start": "2026-11-21T22:30:00.000Z",
-      "venue": "Le Glam",
-      "city": "Nice",
-      "address": "",
-      "url": "https://agendalgbt.com/lieux/le-glam-nice",
-      "image": "https://agendalgbt.com/_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fagendalgbt-app.firebasestorage.app%2Fo%2Fevents%252FLe_Glam_20260309_164101.png%3Falt%3Dmedia%26token%3D&w=3840&q=75",
-      "price": 10,
-      "tags": [
-        "house",
-        "tech house",
-        "dance"
-      ],
-      "description": "",
-      "public_cible": 0.8,
-      "confiance": 0.9,
-      "buzz": 0.7,
-      "buzz_raison": "Événement national officiel Nice So Fétiche.",
-      "accroche": "Soirée officielle Mister Fetish France au Glam avec sets house et tech house jusqu'à l'aube.",
-      "instagram": [
-        "glamnice"
-      ],
-      "offres": [
-        {
-          "plateforme": "agendalgbt.com",
-          "url": "https://agendalgbt.com/lieux/le-glam-nice",
-          "prix": 10
-        }
-      ],
-      "billetterie_cherchee": true,
-      "offres_cherchees": true
-    },
-    {
-      "source": "web",
-      "source_site": "highclub.fr",
-      "name": "Good Times",
-      "start": "2026-11-21T22:59:00.000Z",
-      "venue": "High Club",
-      "city": "Nice",
-      "address": "",
-      "url": "https://www.highclub.fr/event/good-times/",
-      "image": "https://www.highclub.fr/wp-content/uploads/2022/08/193A6968-192B-40EE-9DF0-53122D721470.jpg",
-      "price": 20,
-      "tags": [
-        "hip-hop",
-        "electro",
-        "clubbing",
-        "pop"
-      ],
-      "description": "",
-      "public_cible": 0.85,
-      "confiance": 0.95,
-      "buzz": 0.6,
-      "buzz_raison": "Gros format habituel du samedi soir.",
-      "accroche": "Gros son hip-hop et électro pour le grand rendez-vous festif du samedi sur la Prom'.",
-      "instagram": [
-        "highclubnice"
-      ],
-      "billetterie_cherchee": true,
-      "offres": [
-        {
-          "plateforme": "highclub.fr",
-          "url": "https://www.highclub.fr/event/good-times/",
-          "prix": 20
-        }
-      ],
-      "offres_cherchees": true
-    },
-    {
-      "source": "web",
-      "source_site": "Shotgun.live",
       "name": "Bruja / Carbur — Psytrance / Hardtrance",
       "start": "2026-11-22T04:00:00.000Z",
       "venue": "L'Antre Bar Electro",
@@ -2427,49 +2203,6 @@
     },
     {
       "source": "web",
-      "source_site": "Shotgun Live",
-      "name": "Sensoria — Into The Frequency w/ Nico.V",
-      "start": "2026-11-21T22:59:00.000Z",
-      "venue": "Glass Club Cannes",
-      "city": "Cannes",
-      "address": "",
-      "url": "https://shotgun.live/fr/venues/glass-club-cannes",
-      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto/production/artworks/37_6_harhjz.png",
-      "price": 9.99,
-      "tags": [
-        "Melodic House & Techno",
-        "Tech House",
-        "Melodic Techno",
-        "House",
-        "house",
-        "melodic house & techno",
-        "tech house"
-      ],
-      "description": "",
-      "public_cible": 0.85,
-      "confiance": 0.95,
-      "buzz": 0.6,
-      "buzz_raison": "Soirée clubbing melodic house et techno du samedi à Cannes.",
-      "accroche": "Immersion melodic techno et tech house emmenée par Nico.V au Glass Club.",
-      "instagram": [
-        "glassclubcannes"
-      ],
-      "sources_sites": [
-        "Shotgun Live",
-        "Shotgun"
-      ],
-      "offres": [
-        {
-          "plateforme": "shotgun.live",
-          "url": "https://shotgun.live/fr/venues/glass-club-cannes",
-          "prix": 9.99
-        }
-      ],
-      "billetterie_cherchee": true,
-      "offres_cherchees": true
-    },
-    {
-      "source": "web",
       "source_site": "Shotgun",
       "name": "Kx Dj / Not So Innocent",
       "start": "2026-11-26T22:59:00.000Z",
@@ -2650,77 +2383,6 @@
     },
     {
       "source": "web",
-      "source_site": "Shotgun",
-      "name": "Durdenhauer Fastlane 1 An",
-      "start": "2026-11-21T22:30:00.000Z",
-      "venue": "Switch Club",
-      "city": "Roquebrune-sur-Argens",
-      "address": "",
-      "url": "https://shotgun.live/events/durdenhauer-fastlane-1-an-switch-club",
-      "image": "https://assets.shotgun.live/image/upload/production/artworks/SHOTGUN_29_x68mru.png",
-      "price": 14.99,
-      "tags": [
-        "Trance",
-        "Fast Techno",
-        "Hard Trance",
-        "Techno",
-        "Bounce",
-        "Neo-Rave"
-      ],
-      "description": "",
-      "public_cible": 0.95,
-      "confiance": 0.95,
-      "buzz": 0.85,
-      "buzz_raison": "Venue du producteur international Durdenhauer pour les 1 an du club.",
-      "accroche": "Durdenhauer en fast techno et hard trance pour l'anniversaire du Switch Club.",
-      "instagram": [
-        "switchclub_",
-        "durdenhauer",
-        "switch_club_"
-      ],
-      "offres": [
-        {
-          "plateforme": "shotgun.live",
-          "url": "https://shotgun.live/events/durdenhauer-fastlane-1-an-switch-club-westfall",
-          "prix": 12.99
-        }
-      ],
-      "sources_sites": [
-        "shotgun.live",
-        "Shotgun",
-        "Shotgun / Fastlane",
-        "Shotgun.live"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "Cultura",
-      "name": "Frankie and the Witch Fingers",
-      "start": "2026-11-21T19:30:00.000Z",
-      "venue": "Centre Culturel Tisot",
-      "city": "La Seyne-sur-Mer",
-      "address": "",
-      "url": "https://billetterie.cultura.com",
-      "image": "",
-      "price": 17.2,
-      "tags": [
-        "Garage Rock",
-        "Post-Punk",
-        "Fuzz"
-      ],
-      "description": "",
-      "public_cible": 0.7,
-      "confiance": 0.9,
-      "buzz": 0.65,
-      "buzz_raison": "Groupe culte de la scène garage rock de Los Angeles en tournée.",
-      "accroche": "Le rock psychédélique survolté des Californiens de Frankie and the Witch Fingers sur scène.",
-      "instagram": [
-        "frankieandthewitchfingers",
-        "centre_culturel_tisot"
-      ]
-    },
-    {
-      "source": "web",
       "source_site": "Fnac Spectacles",
       "name": "Skarra Mucci & Manudigital — Ragga Blasta Tour",
       "start": "2026-11-27T19:30:00.000Z",
@@ -2860,50 +2522,6 @@
         "shafroevents",
         "segagency",
         "lefactoryclub"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "Shotgun Live",
-      "name": "The Saturday Society",
-      "start": "2026-11-21T22:55:00.000Z",
-      "venue": "OMA CLUB",
-      "city": "Nice",
-      "address": "",
-      "url": "https://shotgun.live/fr/events/the-saturday-society-every-sarurday-oma-club-21-11",
-      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto/production/artworks/BD5D3F19-A6EB-4FAC-828D-758DD4F7E77C_ogwfzg.png",
-      "price": 14.3,
-      "tags": [
-        "Club",
-        "Hip-Hop",
-        "House",
-        "Open Format",
-        "electro",
-        "club",
-        "dance"
-      ],
-      "description": "",
-      "public_cible": 0.95,
-      "confiance": 0.95,
-      "buzz": 0.6,
-      "buzz_raison": "QG du clubbing niçois du week-end pour les jeunes.",
-      "accroche": "Soirée clubbing hip-hop et house incontournable du samedi soir à l'OMA Club.",
-      "instagram": [
-        "omaclubnice",
-        "oma_club_",
-        "lartiste83"
-      ],
-      "sources_sites": [
-        "Shotgun Live",
-        "Shotgun.live",
-        "L'Artiste 83"
-      ],
-      "offres": [
-        {
-          "plateforme": "shotgun.live",
-          "url": "https://shotgun.live/fr/events/the-saturday-society-every-sarurday-oma-club-21-11",
-          "prix": 14.3
-        }
       ]
     },
     {
@@ -3111,37 +2729,6 @@
     },
     {
       "source": "web",
-      "source_site": "Shotgun.live",
-      "name": "Redline Frejus - Bienvenue En Enfer",
-      "start": "2026-11-21T21:00:00.000Z",
-      "venue": "Switch Club",
-      "city": "Roquebrune-sur-Argens",
-      "address": "",
-      "url": "https://shotgun.live/fr/events/redline-frejus-bienvenue-en-enfer",
-      "image": "https://assets.shotgun.live/image/upload/production/artworks/gemini-image-2_A_REAL_PHOTOGRAPH_horizontal_format._Shot_on_Hasselblad_H6D_Kodak_Portra_800_fil-0_5_uuh4s6.jpg",
-      "price": 16,
-      "tags": [
-        "Acid Techno",
-        "Hard Techno"
-      ],
-      "description": "",
-      "public_cible": 0.95,
-      "confiance": 0.95,
-      "buzz": 0.8,
-      "buzz_raison": "Soirée thématique sombre très suivie par la communauté rave locale.",
-      "accroche": "Nuit acid et hard techno immersive au Switch Club pour les adeptes de kicks industriels.",
-      "instagram": [
-        "redline.event",
-        "switchclubfrejus",
-        "redline_production"
-      ],
-      "sources_sites": [
-        "Shotgun.live",
-        "Shotgun"
-      ]
-    },
-    {
-      "source": "web",
       "source_site": "Shotgun",
       "name": "Ben Carter",
       "start": "2026-12-12T19:30:00.000Z",
@@ -3273,33 +2860,6 @@
       "instagram": [
         "sudspicious",
         "glassclubcannes"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "Shotgun / Mama Shelter",
-      "name": "DJ Set - Jordan Kowen",
-      "start": "2026-11-21T19:30:00.000Z",
-      "venue": "Mama Shelter Nice",
-      "city": "Nice",
-      "address": "",
-      "url": "https://shotgun.live/fr/events/dj-set-jordan-kowen",
-      "image": "https://assets.shotgun.live/image/upload/c_limit,w_384,fl_lossy,f_webp,q_5/production/artworks/JORDAN-KOENE_1_srxtjq.webp",
-      "price": 0,
-      "tags": [
-        "Electro",
-        "House",
-        "Disco"
-      ],
-      "description": "",
-      "public_cible": 0.85,
-      "confiance": 0.95,
-      "buzz": 0.6,
-      "buzz_raison": "Soirée festive gratuite dans un spot branché niçois.",
-      "accroche": "DJ set house et disco par Jordan Kowen au Mama Shelter, entrée gratuite.",
-      "instagram": [
-        "jordankowen",
-        "mamashelternice"
       ]
     },
     {
@@ -3622,5 +3182,6 @@
         "boka_officiel"
       ]
     }
-  ]
+  ],
+  "maj_instagram": "2026-11-22T07:12:19.557Z"
 }
