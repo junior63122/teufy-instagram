@@ -9,7 +9,7 @@ REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
 UID:week-end-techno-l-antre-2026-11-23@teufy
-DTSTAMP:20261122T202119Z
+DTSTAMP:20261122T204912Z
 DTSTART:20261123T190000Z
 DTEND:20261124T000000Z
 SUMMARY:Week‑end Techno L'Antre
@@ -25,50 +25,8 @@ DESCRIPTION:Ce soir : Week‑end Techno L'Antre
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:riviera-bar-crawl-nice-s-1-social-club-for-global-travelers-2026-1
- 1-27@teufy
-DTSTAMP:20261122T202119Z
-DTSTART:20261127T200000Z
-DTEND:20261128T010000Z
-SUMMARY:Riviera Bar Crawl Nice’s #1 Social Club for Global Travelers &
-  Party Lovers
-LOCATION:Hostel Villa Saint Exupery Beach\, Nice
-DESCRIPTION:Fiche et billets : https://teufyparty.com/soiree/riviera-b
- ar-crawl-nice-s-1-social-club-for-global-travelers-2026-11-27/\nVia Te
- ufy @teufy_official
-URL:https://teufyparty.com/soiree/riviera-bar-crawl-nice-s-1-social-cl
- ub-for-global-travelers-2026-11-27/
-BEGIN:VALARM
-ACTION:DISPLAY
-TRIGGER:-PT3H
-DESCRIPTION:Ce soir : Riviera Bar Crawl Nice’s #1 Social Club for Glob
- al Travelers & Party Lovers
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:decouvrez-les-nouvelles-optiques-leica-nice-samedi-28-novemb-2026-
- 11-28@teufy
-DTSTAMP:20261122T202119Z
-DTSTART:20261128T090000Z
-DTEND:20261128T140000Z
-SUMMARY:DÉCOUVREZ LES NOUVELLES OPTIQUES LEICA // NICE // SAMEDI 28 NO
- VEMBRE
-LOCATION:Panajou Nice - Riviera\, Nice
-DESCRIPTION:Fiche et billets : https://teufyparty.com/soiree/decouvrez
- -les-nouvelles-optiques-leica-nice-samedi-28-novemb-2026-11-28/\nVia T
- eufy @teufy_official
-URL:https://teufyparty.com/soiree/decouvrez-les-nouvelles-optiques-lei
- ca-nice-samedi-28-novemb-2026-11-28/
-BEGIN:VALARM
-ACTION:DISPLAY
-TRIGGER:-PT3H
-DESCRIPTION:Ce soir : DÉCOUVREZ LES NOUVELLES OPTIQUES LEICA // NICE /
- / SAMEDI 28 NOVEMBRE
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
 UID:psynaps-2-2026-11-28@teufy
-DTSTAMP:20261122T202119Z
+DTSTAMP:20261122T204912Z
 DTSTART:20261128T180000Z
 DTEND:20261128T230000Z
 SUMMARY:Psynaps-2
@@ -85,7 +43,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:do-you-like-tekno-2026-11-28@teufy
-DTSTAMP:20261122T202119Z
+DTSTAMP:20261122T204912Z
 DTSTART:20261128T190000Z
 DTEND:20261129T000000Z
 SUMMARY:DO YOU LIKE… TEKNO ?
@@ -102,7 +60,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:this-is-house-2026-11-28@teufy
-DTSTAMP:20261122T202119Z
+DTSTAMP:20261122T204912Z
 DTSTART:20261128T190000Z
 DTEND:20261129T000000Z
 SUMMARY:This Is House
@@ -119,7 +77,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:kontakt-road-secret-line-up-2026-11-28@teufy
-DTSTAMP:20261122T202119Z
+DTSTAMP:20261122T204912Z
 DTSTART:20261128T190000Z
 DTEND:20261129T000000Z
 SUMMARY:KONTAKT ROAD – SECRET LINE UP
@@ -136,29 +94,8 @@ DESCRIPTION:Ce soir : KONTAKT ROAD – SECRET LINE UP
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:riviera-bar-crawl-nice-s-1-social-club-for-global-travelers-2026-1
- 1-28@teufy
-DTSTAMP:20261122T202119Z
-DTSTART:20261128T200000Z
-DTEND:20261129T010000Z
-SUMMARY:Riviera Bar Crawl Nice’s #1 Social Club for Global Travelers &
-  Party Lovers
-LOCATION:Hostel Villa Saint Exupery Beach\, Nice
-DESCRIPTION:Fiche et billets : https://teufyparty.com/soiree/riviera-b
- ar-crawl-nice-s-1-social-club-for-global-travelers-2026-11-28/\nVia Te
- ufy @teufy_official
-URL:https://teufyparty.com/soiree/riviera-bar-crawl-nice-s-1-social-cl
- ub-for-global-travelers-2026-11-28/
-BEGIN:VALARM
-ACTION:DISPLAY
-TRIGGER:-PT3H
-DESCRIPTION:Ce soir : Riviera Bar Crawl Nice’s #1 Social Club for Glob
- al Travelers & Party Lovers
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
 UID:vibrance-7-2026-11-28@teufy
-DTSTAMP:20261122T202119Z
+DTSTAMP:20261122T204912Z
 DTSTART:20261128T200000Z
 DTEND:20261129T010000Z
 SUMMARY:Vibrance #7
@@ -175,7 +112,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:prizme-concept-tournevis-live-2026-11-28@teufy
-DTSTAMP:20261122T202119Z
+DTSTAMP:20261122T204912Z
 DTSTART:20261128T210000Z
 DTEND:20261129T020000Z
 SUMMARY:Prizme Concept : TOURNEVIS Live
@@ -193,7 +130,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:origins-invite-boticka-all-night-long-2026-11-28@teufy
-DTSTAMP:20261122T202119Z
+DTSTAMP:20261122T204912Z
 DTSTART:20261128T223000Z
 DTEND:20261129T033000Z
 SUMMARY:Origins Invite Boticka All Night Long
@@ -212,7 +149,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:dj-k-net-resident-techno-tribe-2026-11-29@teufy
-DTSTAMP:20261122T202119Z
+DTSTAMP:20261122T204912Z
 DTSTART:20261129T040000Z
 DTEND:20261129T090000Z
 SUMMARY:DJ K-Net (Resident) — Techno / Tribe
@@ -231,7 +168,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:ref-session-18-acid-pauli-frigo-16-nice-2026-12-04@teufy
-DTSTAMP:20261122T202119Z
+DTSTAMP:20261122T204912Z
 DTSTART:20261204T190000Z
 DTEND:20261205T000000Z
 SUMMARY:REF Session #18 Acid Pauli - Frigo 16 - NICE
@@ -249,29 +186,8 @@ DESCRIPTION:Ce soir : REF Session #18 Acid Pauli - Frigo 16 - NICE
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:riviera-bar-crawl-nice-s-1-social-club-for-global-travelers-2026-1
- 2-04@teufy
-DTSTAMP:20261122T202119Z
-DTSTART:20261204T200000Z
-DTEND:20261205T010000Z
-SUMMARY:Riviera Bar Crawl Nice’s #1 Social Club for Global Travelers &
-  Party Lovers
-LOCATION:Hostel Villa Saint Exupery Beach\, Nice
-DESCRIPTION:Fiche et billets : https://teufyparty.com/soiree/riviera-b
- ar-crawl-nice-s-1-social-club-for-global-travelers-2026-12-04/\nVia Te
- ufy @teufy_official
-URL:https://teufyparty.com/soiree/riviera-bar-crawl-nice-s-1-social-cl
- ub-for-global-travelers-2026-12-04/
-BEGIN:VALARM
-ACTION:DISPLAY
-TRIGGER:-PT3H
-DESCRIPTION:Ce soir : Riviera Bar Crawl Nice’s #1 Social Club for Glob
- al Travelers & Party Lovers
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
 UID:what-s-up-nice-2026-12-04@teufy
-DTSTAMP:20261122T202119Z
+DTSTAMP:20261122T204912Z
 DTSTART:20261204T225900Z
 DTEND:20261205T035900Z
 SUMMARY:What's Up Nice
@@ -287,29 +203,8 @@ DESCRIPTION:Ce soir : What's Up Nice
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:riviera-bar-crawl-nice-s-1-social-club-for-global-travelers-2026-1
- 2-05@teufy
-DTSTAMP:20261122T202119Z
-DTSTART:20261205T200000Z
-DTEND:20261206T010000Z
-SUMMARY:Riviera Bar Crawl Nice’s #1 Social Club for Global Travelers &
-  Party Lovers
-LOCATION:Hostel Villa Saint Exupery Beach\, Nice
-DESCRIPTION:Fiche et billets : https://teufyparty.com/soiree/riviera-b
- ar-crawl-nice-s-1-social-club-for-global-travelers-2026-12-05/\nVia Te
- ufy @teufy_official
-URL:https://teufyparty.com/soiree/riviera-bar-crawl-nice-s-1-social-cl
- ub-for-global-travelers-2026-12-05/
-BEGIN:VALARM
-ACTION:DISPLAY
-TRIGGER:-PT3H
-DESCRIPTION:Ce soir : Riviera Bar Crawl Nice’s #1 Social Club for Glob
- al Travelers & Party Lovers
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
 UID:la-java-3-2026-12-05@teufy
-DTSTAMP:20261122T202119Z
+DTSTAMP:20261122T204912Z
 DTSTART:20261205T220000Z
 DTEND:20261206T030000Z
 SUMMARY:La Java 3
@@ -326,7 +221,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:brodinski-en-concert-a-nice-tobhi-tm-et-friends-2026-12-11@teufy
-DTSTAMP:20261122T202119Z
+DTSTAMP:20261122T204912Z
 DTSTART:20261211T190000Z
 DTEND:20261212T000000Z
 SUMMARY:Brodinski en concert à Nice (+ TOBHI TM & Friends)
@@ -345,50 +240,8 @@ DESCRIPTION:Ce soir : Brodinski en concert à Nice (+ TOBHI TM & Friend
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:riviera-bar-crawl-nice-s-1-social-club-for-global-travelers-2026-1
- 2-11@teufy
-DTSTAMP:20261122T202119Z
-DTSTART:20261211T200000Z
-DTEND:20261212T010000Z
-SUMMARY:Riviera Bar Crawl Nice’s #1 Social Club for Global Travelers &
-  Party Lovers
-LOCATION:Hostel Villa Saint Exupery Beach\, Nice
-DESCRIPTION:Fiche et billets : https://teufyparty.com/soiree/riviera-b
- ar-crawl-nice-s-1-social-club-for-global-travelers-2026-12-11/\nVia Te
- ufy @teufy_official
-URL:https://teufyparty.com/soiree/riviera-bar-crawl-nice-s-1-social-cl
- ub-for-global-travelers-2026-12-11/
-BEGIN:VALARM
-ACTION:DISPLAY
-TRIGGER:-PT3H
-DESCRIPTION:Ce soir : Riviera Bar Crawl Nice’s #1 Social Club for Glob
- al Travelers & Party Lovers
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:riviera-bar-crawl-nice-s-1-social-club-for-global-travelers-2026-1
- 2-12@teufy
-DTSTAMP:20261122T202119Z
-DTSTART:20261212T200000Z
-DTEND:20261213T010000Z
-SUMMARY:Riviera Bar Crawl Nice’s #1 Social Club for Global Travelers &
-  Party Lovers
-LOCATION:Hostel Villa Saint Exupery Beach\, Nice
-DESCRIPTION:Fiche et billets : https://teufyparty.com/soiree/riviera-b
- ar-crawl-nice-s-1-social-club-for-global-travelers-2026-12-12/\nVia Te
- ufy @teufy_official
-URL:https://teufyparty.com/soiree/riviera-bar-crawl-nice-s-1-social-cl
- ub-for-global-travelers-2026-12-12/
-BEGIN:VALARM
-ACTION:DISPLAY
-TRIGGER:-PT3H
-DESCRIPTION:Ce soir : Riviera Bar Crawl Nice’s #1 Social Club for Glob
- al Travelers & Party Lovers
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
 UID:la-tocardise-edition-hard-2026-12-12@teufy
-DTSTAMP:20261122T202119Z
+DTSTAMP:20261122T204912Z
 DTSTART:20261212T220000Z
 DTEND:20261213T030000Z
 SUMMARY:La Tocardise – édition Hard
@@ -407,7 +260,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:roller-disco-gratuit-2026-12-18@teufy
-DTSTAMP:20261122T202119Z
+DTSTAMP:20261122T204912Z
 DTSTART:20261218T170000Z
 DTEND:20261218T220000Z
 SUMMARY:Roller Disco - Gratuit
@@ -423,30 +276,9 @@ DESCRIPTION:Ce soir : Roller Disco - Gratuit
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:riviera-bar-crawl-nice-s-1-social-club-for-global-travelers-2026-1
- 2-18@teufy
-DTSTAMP:20261122T202119Z
-DTSTART:20261218T200000Z
-DTEND:20261219T010000Z
-SUMMARY:Riviera Bar Crawl Nice’s #1 Social Club for Global Travelers &
-  Party Lovers
-LOCATION:Hostel Villa Saint Exupery Beach\, Nice
-DESCRIPTION:Fiche et billets : https://teufyparty.com/soiree/riviera-b
- ar-crawl-nice-s-1-social-club-for-global-travelers-2026-12-18/\nVia Te
- ufy @teufy_official
-URL:https://teufyparty.com/soiree/riviera-bar-crawl-nice-s-1-social-cl
- ub-for-global-travelers-2026-12-18/
-BEGIN:VALARM
-ACTION:DISPLAY
-TRIGGER:-PT3H
-DESCRIPTION:Ce soir : Riviera Bar Crawl Nice’s #1 Social Club for Glob
- al Travelers & Party Lovers
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
 UID:coachellito-et-le-blanchon-auron-1600-opening-edition-2026-12-19@t
  eufy
-DTSTAMP:20261122T202119Z
+DTSTAMP:20261122T204912Z
 DTSTART:20261219T133000Z
 DTEND:20261219T183000Z
 SUMMARY:Coachellito & Le Blanchon Auron 1600 - Opening Edition
@@ -465,29 +297,8 @@ DESCRIPTION:Ce soir : Coachellito & Le Blanchon Auron 1600 - Opening E
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:riviera-bar-crawl-nice-s-1-social-club-for-global-travelers-2026-1
- 2-19@teufy
-DTSTAMP:20261122T202119Z
-DTSTART:20261219T200000Z
-DTEND:20261220T010000Z
-SUMMARY:Riviera Bar Crawl Nice’s #1 Social Club for Global Travelers &
-  Party Lovers
-LOCATION:Hostel Villa Saint Exupery Beach\, Nice
-DESCRIPTION:Fiche et billets : https://teufyparty.com/soiree/riviera-b
- ar-crawl-nice-s-1-social-club-for-global-travelers-2026-12-19/\nVia Te
- ufy @teufy_official
-URL:https://teufyparty.com/soiree/riviera-bar-crawl-nice-s-1-social-cl
- ub-for-global-travelers-2026-12-19/
-BEGIN:VALARM
-ACTION:DISPLAY
-TRIGGER:-PT3H
-DESCRIPTION:Ce soir : Riviera Bar Crawl Nice’s #1 Social Club for Glob
- al Travelers & Party Lovers
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
 UID:wado-x-l-antre-2-2026-12-19@teufy
-DTSTAMP:20261122T202119Z
+DTSTAMP:20261122T204912Z
 DTSTART:20261219T210000Z
 DTEND:20261220T020000Z
 SUMMARY:Wado X L'Antre 2
@@ -500,48 +311,6 @@ BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT3H
 DESCRIPTION:Ce soir : Wado X L'Antre 2
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:riviera-bar-crawl-nice-s-1-social-club-for-global-travelers-2026-1
- 2-25@teufy
-DTSTAMP:20261122T202119Z
-DTSTART:20261225T200000Z
-DTEND:20261226T010000Z
-SUMMARY:Riviera Bar Crawl Nice’s #1 Social Club for Global Travelers &
-  Party Lovers
-LOCATION:Hostel Villa Saint Exupery Beach\, Nice
-DESCRIPTION:Fiche et billets : https://teufyparty.com/soiree/riviera-b
- ar-crawl-nice-s-1-social-club-for-global-travelers-2026-12-25/\nVia Te
- ufy @teufy_official
-URL:https://teufyparty.com/soiree/riviera-bar-crawl-nice-s-1-social-cl
- ub-for-global-travelers-2026-12-25/
-BEGIN:VALARM
-ACTION:DISPLAY
-TRIGGER:-PT3H
-DESCRIPTION:Ce soir : Riviera Bar Crawl Nice’s #1 Social Club for Glob
- al Travelers & Party Lovers
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:riviera-bar-crawl-nice-s-1-social-club-for-global-travelers-2026-1
- 2-26@teufy
-DTSTAMP:20261122T202119Z
-DTSTART:20261226T200000Z
-DTEND:20261227T010000Z
-SUMMARY:Riviera Bar Crawl Nice’s #1 Social Club for Global Travelers &
-  Party Lovers
-LOCATION:Hostel Villa Saint Exupery Beach\, Nice
-DESCRIPTION:Fiche et billets : https://teufyparty.com/soiree/riviera-b
- ar-crawl-nice-s-1-social-club-for-global-travelers-2026-12-26/\nVia Te
- ufy @teufy_official
-URL:https://teufyparty.com/soiree/riviera-bar-crawl-nice-s-1-social-cl
- ub-for-global-travelers-2026-12-26/
-BEGIN:VALARM
-ACTION:DISPLAY
-TRIGGER:-PT3H
-DESCRIPTION:Ce soir : Riviera Bar Crawl Nice’s #1 Social Club for Glob
- al Travelers & Party Lovers
 END:VALARM
 END:VEVENT
 END:VCALENDAR

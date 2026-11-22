@@ -5097,5 +5097,62 @@
    "nom": "",
    "m": 579
   }
+ },
+ "43.70046,7.28072": {
+  "le": "2026-11-22T20:44:32.003Z",
+  "parkings": [
+   {
+    "nom": "Promenade des Arts",
+    "type": "underground",
+    "payant": true,
+    "m": 214
+   },
+   {
+    "nom": "Parking Arson",
+    "type": "underground",
+    "payant": true,
+    "m": 404
+   },
+   {
+    "nom": "Parking Marshall",
+    "type": "underground",
+    "payant": true,
+    "m": 467
+   }
+  ],
+  "transports": [
+   {
+    "nom": "Garibaldi - Le Château",
+    "type": "tram",
+    "m": 26,
+    "lignes": ""
+   },
+   {
+    "nom": "Garibaldi / Le Château",
+    "type": "bus",
+    "m": 55,
+    "lignes": "98"
+   },
+   {
+    "nom": "Garibaldi",
+    "type": "tram",
+    "m": 118,
+    "lignes": ""
+   },
+   {
+    "nom": "Garibaldi",
+    "type": "bus",
+    "m": 146,
+    "lignes": "15;33;33S;57"
+   }
+  ],
+  "velo": {
+   "nom": "",
+   "m": 197
+  },
+  "taxi": {
+   "nom": "",
+   "m": 471
+  }
  }
 }
