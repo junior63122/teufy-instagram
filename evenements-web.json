@@ -7,6 +7,33 @@
   "evenements": [
     {
       "source": "web",
+      "source_site": "Instagram (playachica_official)",
+      "name": "THE SHOW CLUB SONORE × MARAKA × PLAYA CHICA",
+      "start": "2026-11-28T19:00:00.000Z",
+      "venue": "PLAYA CHICA",
+      "city": "Mandelieu-la-Napoule",
+      "address": "",
+      "url": "https://shotgun.live/fr/events/the-show-club-sonore-nice-novembre-2026?fbclid=PAZnRzaAVvdeNleHRuA2FlbQExAHBkb2YCZmRpZBZRK0SHQh77KMz3q-tNxQrrCKQy0TQ8c3J0YwZhcHBfaWQPMTI0MDI0NTc0Mjg3NDE0AAGnYf2VTaHVO9yt35knXDrgnt-z8IbakKxpL82tL0cvmN2Shz6t7fZ5kobcJKw_aem_MLJp_gsbYYouc7J8_Euhjw",
+      "image": "",
+      "price": null,
+      "tags": [
+        "house",
+        "electro",
+        "live"
+      ],
+      "description": "Le Show Club Sonore débarque le samedi 28 novembre à Playa Chica, 100 avenue du Général de Gaulle, Mandelieu‑la‑Napoule. De 20 h à 2 h, profite d’un dîner festif suivi de performances live : Yori, Dany Bnk en percussions, Axelino en show live et le set électro de Plezy. Ambiance club‑house, son électro‑house et moments improvisés. Réserve via le lien en bio, dress‑code décontracté, entrée libre ou tarif à préciser sur la billetterie. Une soirée idéale pour les 18‑30 ans qui veulent danser et découvrir des artistes du monde entier.",
+      "public_cible": 0.9,
+      "confiance": 0.7,
+      "buzz": 0.6,
+      "buzz_raison": "Première édition du Show Club Sonore à Mandelieu, line‑up international, date week‑end proche du 28 nov.",
+      "accroche": "",
+      "instagram": [
+        "playachica_official"
+      ],
+      "par_le_lieu": true
+    },
+    {
+      "source": "web",
       "source_site": "instagram",
       "name": "DJ SEBB – AFROCHELLA à Honey Club",
       "start": "2026-11-26T22:00:00.000Z",
@@ -28,30 +55,6 @@
       "accroche": "DJ SEBB en show à Juan‑les‑Pins, soirée afro‑house qui fait vibrer la côte !",
       "instagram": [
         "honeyclubjuanlespins"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "instagram",
-      "name": "House Music – Glass Club Cannes",
-      "start": "2026-11-20T23:00:00.000Z",
-      "venue": "Glass Club",
-      "city": "Cannes",
-      "address": "",
-      "url": "https://www.instagram.com/p/DfzrejZqFwc/",
-      "image": "https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/914356611_18000184614105115_5444261791896609710_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=105&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=f2089ix4ELAQ7kNvwHk-Zs0&_nc_oc=AdpLVGlIubGrQcTJ6kZTVogJhkdeRcfSPHuScWzQQpcH55Ye0FQNnH-yu7ko7u671tQ&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=nh8pNIgXREGqseAW2awtkA&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQQgluFdueuewtHfDKR0ws3xCplr30habTxl0M_PbzvrtA&oe=6B08F87B",
-      "price": null,
-      "tags": [
-        "house"
-      ],
-      "description": "Le jeudi et le vendredi, le Glass Club à Cannes propose une soirée house qui débute à minuit et se poursuit jusqu’à 6h du matin. L’ambiance est décontractée, avec un décor moderne et une sélection de DJs spécialisés en house. L’événement est idéal pour les jeunes qui veulent danser toute la nuit dans un cadre chic de la Côte d’Azur.",
-      "public_cible": 1,
-      "confiance": 0.9,
-      "buzz": 0.5,
-      "buzz_raison": "Le club est réputé pour ses soirées house, et l’événement est annoncé sur Instagram avec un engagement modéré.",
-      "accroche": "Soirée house à Glass Club, soirée qui dure jusqu’à 6h du matin !",
-      "instagram": [
-        "glass_club_cannes"
       ]
     },
     {
@@ -3196,5 +3199,5 @@
       "offres": []
     }
   ],
-  "maj_instagram": "2026-11-22T17:42:01.285Z"
+  "maj_instagram": "2026-11-22T18:14:26.827Z"
 }
