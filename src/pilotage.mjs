@@ -68,6 +68,9 @@ export function donneesPilotage({ root = ROOT, now = new Date() } = {}) {
     ia: budget ? { jour: budget.jour, aujourdhui: budget.aujourdhui || {}, euros_jour: budget.euros_jour, euros_mois: budget.euros_mois } : null,
     tiktokAuj: (tiktok?.plan?.[auj] || []).map((v) => ({ heure: v.heure, type: v.type, id: v.id })),
     prets,
+    drive: (() => { const d = f('contenus/drive.json'); if (!d) return null; const v = Object.values(d.videos || {});
+      return { le: d.le, videos: v.length, utilisables: v.filter((x) => x.utilisable && !x.doublon_de).length, musiques: Object.keys(d.musiques || {}).length,
+        nouvelles: v.filter((x) => Date.parse(x.vu_le) > now - 864e5).length }; })(),
   };
 }
 
@@ -110,6 +113,7 @@ ${bloc('Actions rapides', actions)}
 ${bloc('Publications du jour', pub + st + tk)}
 ${bloc('Robots', robots)}
 ${bloc('Le site', site)}
+${bloc('Vidéos du Drive', D.drive ? `<p>${esc(D.drive.videos)} vidéo(s) relevée(s), dont ${esc(D.drive.utilisables)} utilisable(s) pour les montages (ni floues, ni trop sombres, sans doublon) ; ${esc(D.drive.nouvelles)} nouvelle(s) depuis hier. ${esc(D.drive.musiques)} musique(s) avec leur tempo.</p><p><small>Dernier relevé : ${esc(quand(D.drive.le))} (chaque matin).</small></p>` : '<p>Premier relevé demain matin.</p>')}
 ${bloc('Posts prêts et concours', prets)}
 ${bloc('Veille technique', veille)}
 ${bloc('IA et recherches', ia)}

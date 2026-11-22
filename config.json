@@ -619,5 +619,10 @@
   "grand_debat": {
     "explication": "14/11/2026 (directeur) : AUCUNE collaboration avec Riviera Studio. Le Grand Débat est publié uniquement sur le compte Teufy. Épisodes prêts à déposer dans media/grand-debat/ (mar. et sam., sur la grille), au format NN-sujet.mp4 + NN-sujet.txt (légende). Sans épisode en attente, le créneau est simplement sauté."
   },
-  "_planning_20_11_2026": "Planning confié à Claude par le directeur le 20/11/2026 (« je te fais confiance, à toi de gérer le planning ; minimum 1 réel de promotion par semaine ; les soirées tekno fonctionnent ; respecte toujours le design de la grille »). Revu tous les 2-3 jours selon les chiffres et les comptes comparables (tâche programmée). Version du 20/11 : techno chaque jeudi (Tekno 1er et 3e jeudi), Tague ton pote à la place du Grand Débat (0 like), 2 spots promo, plus de guide « où manger » ni de post le samedi, créneaux 15-17 h UTC. Détail : ANALYSE-ENGAGEMENT.md."
+  "_planning_20_11_2026": "Planning confié à Claude par le directeur le 20/11/2026 (« je te fais confiance, à toi de gérer le planning ; minimum 1 réel de promotion par semaine ; les soirées tekno fonctionnent ; respecte toujours le design de la grille »). Revu tous les 2-3 jours selon les chiffres et les comptes comparables (tâche programmée). Version du 20/11 : techno chaque jeudi (Tekno 1er et 3e jeudi), Tague ton pote à la place du Grand Débat (0 like), 2 spots promo, plus de guide « où manger » ni de post le samedi, créneaux 15-17 h UTC. Détail : ANALYSE-ENGAGEMENT.md.",
+  "_drive": "Dossiers Drive du directeur (22/11/2026) : vidéos de soirée (accord des créateurs obtenu par le directeur) et musiques (repères de rythme). Relevés chaque jour par src/drive.mjs (robot Veille technique).",
+  "drive": {
+    "videos": "16lDzJQr_L-AQfcmsDEWE3at4hHv-LT7u",
+    "musique": "1r9pcDqHsNDR6ylO2qatsPocWtQygWD4M"
+  }
 }

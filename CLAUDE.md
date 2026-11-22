@@ -84,8 +84,20 @@
   vidéo a sa couverture dans la charte (`media/tiktok/couvertures/<id>.jpg` : composition `couverture-reel`, mises en page qui
   tournent, sans pastille RÉEL ni bouton lecture) : à faire pour chaque nouvel épisode ou spot. Règles TikTok : accroche dans
   les 2 premières secondes, 7 à 15 s idéal, texte hors des zones de l'interface, mots-clés dans le texte et la légende, aucun
-  alcool mis en avant, pas de musique sous droits dans le fichier (le directeur ajoute un son tendance dans TikTok), droit à
+  alcool mis en avant, pas de musique sous droits dans le fichier (le directeur ajoute un son tendance dans TikTok ; seule exception :
+  les montages du Drive, où la musique sert de repère de rythme et où il remet le même son depuis TikTok), droit à
   l'image respecté pour les vidéos de soirée qu'il fournit.
+- **Vidéos et musiques du Drive** (directeur, 22/11/2026 : « fais le montage avec les sons que je t'ai donnés, moi je mettrai les
+  mêmes sons depuis la bibliothèque TikTok » ; vidéos de soirée dont il a l'accord des créateurs) : `src/drive.mjs` relève chaque
+  matin les deux dossiers (`config.json` `drive`) dans le robot « Veille technique » (fiche qualité de chaque vidéo, doublons,
+  tempo des musiques ; `contenus/drive.json`). Montages : `studio/montage/` (`rythme.py`, `analyse_video.py`, `composer.py`,
+  `montage.py`) : coupes sur les temps, étalonnage commun, grain commun, texte dans la zone sûre, 11-15 s, 1080x1920, ≈ 10 Mo.
+  Livraison dans `media/tiktok/<id>.mp4` + `.txt` (légende) + `.json` `{son:{titre, depart}}` (affiché sur la page TikTok :
+  le directeur met le même son, démarré au même endroit, et le son d'origine à 0) + couverture `couverture-reel`. Jamais de
+  bouteille ni d'alcool mis en avant, jamais de lieu inventé (les vidéos ne viennent pas forcément de la Côte : accroches
+  générales). Musiques du commerce : jamais recopiées dans le dépôt (seulement l'extrait de 13 s du montage) ; vidéos brutes du
+  Drive : jamais dans ce dépôt public ni ses « releases » (visages) ; sauvegarde dans un espace privé seulement, à choisir par
+  le directeur. Seuls les montages finis, destinés à être publiés, vont dans `media/tiktok/`.
 - **Veille quotidienne** (directeur, 20/11/2026 : « surveille toutes les mises à jour de tout ce qu'on utilise pour ne jamais être
   pris de cours ; une fois par jour ; en cas de souci, répare sans me demander » ; idem pour les règles des réseaux sociaux et pour
   les soirées : « qu'il ne manque jamais d'informations » ; « connecte toutes les billetteries utiles ») : le robot

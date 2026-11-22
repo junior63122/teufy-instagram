@@ -34,7 +34,10 @@ export function stockVideos(root = ROOT) {
   const ajoute = (fichier, type, texte) => {
     const id = path.basename(fichier, '.mp4');
     const couv = path.join(root, 'media', 'tiktok', 'couvertures', `${id}.jpg`); // couverture dans la charte (directeur, 20/11/2026)
-    out.push({ id, video: path.relative(root, fichier).split(path.sep).join('/'), type, legende: legendeTiktok(texte, type), ...(existsSync(couv) ? { couverture: `media/tiktok/couvertures/${id}.jpg` } : {}) });
+    // Montages calés sur une musique (22/11/2026) : <id>.json { son: { titre, depart } } → le directeur met le même son depuis la
+    // bibliothèque TikTok, démarré au même moment, pour que les coupes tombent sur le rythme.
+    const meta = lire(fichier.replace(/\.mp4$/, '.json'), {});
+    out.push({ id, video: path.relative(root, fichier).split(path.sep).join('/'), type, legende: legendeTiktok(texte, type), ...(existsSync(couv) ? { couverture: `media/tiktok/couvertures/${id}.jpg` } : {}), ...(meta.son?.titre ? { son: meta.son } : {}) });
   };
   for (const [dossier, type] of [['tague-ton-pote', 'tague'], ['spot-promo', 'spot']]) {
     const d = path.join(root, 'media', dossier);
@@ -129,6 +132,7 @@ export function pageTiktok(plan, aujourdhui, code = process.env.TIKTOK_CODE) {
    <div class="b"><a class="btn" href="../${esc(v.video)}" download="teufy-${esc(j)}-${esc(v.heure.replace(':', 'h'))}.mp4">Télécharger la vidéo</a>
    <button class="btn" data-copie>Copier la légende</button></div>
    ${v.couverture ? `<div class="b"><a class="btn sec" href="../${esc(v.couverture)}" download="teufy-${esc(j)}-${esc(v.heure.replace(':', 'h'))}-couverture.jpg">Télécharger la couverture</a></div>` : '<p class="sans">Pas de couverture : choisis une image de la vidéo.</p>'}
+   ${v.son ? `<p class="son">Son à mettre dans TikTok : <b>${esc(v.son.titre)}</b>, à partir de <b>${esc(v.son.depart)}</b> (le montage suit son rythme). Mets le son d'origine de la vidéo à 0.</p>` : ''}
    <textarea readonly rows="7">${esc(v.legende)}</textarea>
    <label class="fait"><input type="checkbox"> Publié</label>
   </article>`;
@@ -139,7 +143,7 @@ h1{font-size:28px;margin:8px 0 4px}p.i{opacity:.8;margin:0 0 20px}h2{font-size:2
 .v{background:#16161C;border:1px solid #ffffff22;border-radius:16px;padding:14px;margin-bottom:14px}.v.ok{opacity:.45}
 .h{display:flex;justify-content:space-between;align-items:center;margin:0 0 10px;font-size:22px;font-weight:800}.h span{font-size:13px;font-weight:700;background:var(--corail);color:var(--nuit);padding:3px 10px;border-radius:999px}
 video{width:100%;max-height:60vh;border-radius:10px;background:#000}.b{display:flex;gap:8px;margin:10px 0}.btn{flex:1;text-align:center;background:var(--creme);color:var(--nuit);font-weight:800;border:0;border-radius:10px;padding:12px;text-decoration:none;font-size:15px;cursor:pointer}
-textarea{width:100%;background:#0B0B0F;color:var(--creme);border:1px solid #ffffff22;border-radius:10px;padding:10px;font:14px/1.4 system-ui}.fait{display:block;margin-top:8px;font-weight:700}.btn.sec{background:transparent;color:var(--creme);border:2px solid var(--creme)}.sans{opacity:.7;font-size:14px}</style></head><body>
+textarea{width:100%;background:#0B0B0F;color:var(--creme);border:1px solid #ffffff22;border-radius:10px;padding:10px;font:14px/1.4 system-ui}.fait{display:block;margin-top:8px;font-weight:700}.btn.sec{background:transparent;color:var(--creme);border:2px solid var(--creme)}.sans{opacity:.7;font-size:14px}.son{background:#FF5A3C22;border-left:3px solid var(--corail);padding:8px 10px;border-radius:8px;font-size:14px}</style></head><body>
 <h1>Planning TikTok</h1>
 <div id="contenu">${verrou(code, `<p class="i">Une vidéo par créneau : télécharge-la, ajoute un son tendance de TikTok à volume bas, colle la légende, mets la couverture (Modifier la couverture, puis Importer), publie à l'heure indiquée. Coche « Publié » une fois fait.</p>
 ${jours.map((j) => `<h2${j === aujourdhui ? ' class="auj"' : ''}>${j === aujourdhui ? "Aujourd'hui · " : ''}${esc(date(j))}</h2>\n${plan[j].map((v) => carte(j, v)).join('\n')}`).join('\n')}`)}</div>
