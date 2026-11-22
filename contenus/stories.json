@@ -442,5 +442,25 @@
   "absentes": [],
   "manquantes": [],
   "le": "2026-11-21T21:09:55.721Z"
+ },
+ {
+  "jour": "2026-11-22",
+  "type": "soirees",
+  "cles": [
+   "Afro Bringue",
+   "Sun7 Rooftop Le Méridien"
+  ],
+  "ids": [
+   "18028980764867539",
+   "18649848046059884"
+  ],
+  "faites": [
+   0,
+   1
+  ],
+  "relue": true,
+  "absentes": [],
+  "manquantes": [],
+  "le": "2026-11-22T15:10:12.236Z"
  }
 ]
