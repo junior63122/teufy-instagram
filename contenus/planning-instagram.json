@@ -1,0 +1,567 @@
+{
+ "le": "2026-11-22T14:10:46.412Z",
+ "jours": [
+  {
+   "date": "2026-11-22",
+   "pause": null,
+   "publications": [],
+   "stories": [
+    {
+     "heure": "16 h",
+     "type": "soirees",
+     "cle": null
+    },
+    {
+     "heure": "18 h",
+     "type": "offre",
+     "cle": null
+    },
+    {
+     "heure": "20 h",
+     "type": "question",
+     "cle": null
+    },
+    {
+     "heure": "17 h",
+     "type": "astuce",
+     "cle": null
+    }
+   ]
+  },
+  {
+   "date": "2026-11-23",
+   "pause": null,
+   "publications": [
+    {
+     "id": "libre",
+     "type": "libre",
+     "variante": null,
+     "heure": "17 h 07",
+     "suite": false,
+     "fait": false,
+     "lien": null
+    },
+    {
+     "id": "reel-tendance",
+     "type": "reel",
+     "variante": "tendance",
+     "heure": "18 h 07",
+     "suite": false,
+     "fait": false,
+     "lien": null
+    }
+   ],
+   "stories": [
+    {
+     "heure": "18 h",
+     "type": "pret-concours-frigo16-rappel",
+     "cle": null
+    },
+    {
+     "heure": "16 h",
+     "type": "soirees",
+     "cle": null
+    },
+    {
+     "heure": "18 h",
+     "type": "offre",
+     "cle": null
+    },
+    {
+     "heure": "20 h",
+     "type": "question",
+     "cle": null
+    },
+    {
+     "heure": "19 h",
+     "type": "videos",
+     "cle": null
+    }
+   ]
+  },
+  {
+   "date": "2026-11-24",
+   "pause": null,
+   "publications": [
+    {
+     "id": "bonplan-a-reserver",
+     "type": "bonplan",
+     "variante": "a-reserver",
+     "heure": "17 h 07",
+     "suite": false,
+     "fait": false,
+     "lien": null
+    },
+    {
+     "id": "reel-tague-ton-pote",
+     "type": "reel",
+     "variante": "tague-ton-pote",
+     "heure": "18 h 07",
+     "suite": false,
+     "fait": false,
+     "lien": null
+    }
+   ],
+   "stories": [
+    {
+     "heure": "16 h",
+     "type": "soirees",
+     "cle": null
+    },
+    {
+     "heure": "18 h",
+     "type": "repost",
+     "cle": null
+    },
+    {
+     "heure": "20 h",
+     "type": "question",
+     "cle": null
+    },
+    {
+     "heure": "17 h",
+     "type": "astuce",
+     "cle": null
+    }
+   ]
+  },
+  {
+   "date": "2026-11-25",
+   "pause": null,
+   "publications": [
+    {
+     "id": "reel-spot-promo",
+     "type": "reel",
+     "variante": "spot-promo",
+     "heure": "18 h 07",
+     "suite": false,
+     "fait": false,
+     "lien": null
+    }
+   ],
+   "stories": [
+    {
+     "heure": "11 h",
+     "type": "pret-concours-frigo16-dernier-jour",
+     "cle": null
+    },
+    {
+     "heure": "16 h",
+     "type": "soirees",
+     "cle": null
+    },
+    {
+     "heure": "18 h",
+     "type": "offre",
+     "cle": null
+    },
+    {
+     "heure": "20 h",
+     "type": "question",
+     "cle": null
+    },
+    {
+     "heure": "17 h",
+     "type": "astuce",
+     "cle": null
+    }
+   ]
+  },
+  {
+   "date": "2026-11-26",
+   "pause": null,
+   "publications": [
+    {
+     "id": "incontournables-techno",
+     "type": "incontournables",
+     "variante": "techno",
+     "heure": "17 h 07",
+     "suite": false,
+     "fait": false,
+     "lien": null
+    },
+    {
+     "id": "reel-viral",
+     "type": "reel",
+     "variante": "viral",
+     "heure": "18 h 07",
+     "suite": false,
+     "fait": false,
+     "lien": null
+    }
+   ],
+   "stories": [
+    {
+     "heure": "16 h",
+     "type": "soirees",
+     "cle": null
+    },
+    {
+     "heure": "18 h",
+     "type": "repost",
+     "cle": null
+    },
+    {
+     "heure": "20 h",
+     "type": "question",
+     "cle": null
+    },
+    {
+     "heure": "22 h",
+     "type": "coeur",
+     "cle": null
+    }
+   ]
+  },
+  {
+   "date": "2026-11-27",
+   "pause": null,
+   "publications": [
+    {
+     "id": "incontournables-commercial",
+     "type": "incontournables",
+     "variante": "commercial",
+     "heure": "16 h 07",
+     "suite": false,
+     "fait": false,
+     "lien": null
+    }
+   ],
+   "stories": [
+    {
+     "heure": "16 h",
+     "type": "soirees",
+     "cle": null
+    },
+    {
+     "heure": "18 h",
+     "type": "offre",
+     "cle": null
+    },
+    {
+     "heure": "20 h",
+     "type": "question",
+     "cle": null
+    },
+    {
+     "heure": "22 h",
+     "type": "coeur",
+     "cle": null
+    }
+   ]
+  },
+  {
+   "date": "2026-11-28",
+   "pause": null,
+   "publications": [
+    {
+     "id": "reel-spot-promo",
+     "type": "reel",
+     "variante": "spot-promo",
+     "heure": "18 h 07",
+     "suite": false,
+     "fait": false,
+     "lien": null
+    }
+   ],
+   "stories": [
+    {
+     "heure": "16 h",
+     "type": "soirees",
+     "cle": null
+    },
+    {
+     "heure": "18 h",
+     "type": "repost",
+     "cle": null
+    },
+    {
+     "heure": "20 h",
+     "type": "question",
+     "cle": null
+    },
+    {
+     "heure": "22 h",
+     "type": "coeur",
+     "cle": null
+    }
+   ]
+  },
+  {
+   "date": "2026-11-29",
+   "pause": null,
+   "publications": [],
+   "stories": [
+    {
+     "heure": "16 h",
+     "type": "soirees",
+     "cle": null
+    },
+    {
+     "heure": "18 h",
+     "type": "offre",
+     "cle": null
+    },
+    {
+     "heure": "20 h",
+     "type": "question",
+     "cle": null
+    },
+    {
+     "heure": "17 h",
+     "type": "astuce",
+     "cle": null
+    }
+   ]
+  },
+  {
+   "date": "2026-11-30",
+   "pause": null,
+   "publications": [
+    {
+     "id": "libre",
+     "type": "libre",
+     "variante": null,
+     "heure": "18 h 07",
+     "suite": false,
+     "fait": false,
+     "lien": null
+    },
+    {
+     "id": "reel-tendance",
+     "type": "reel",
+     "variante": "tendance",
+     "heure": "18 h 07",
+     "suite": false,
+     "fait": false,
+     "lien": null
+    }
+   ],
+   "stories": [
+    {
+     "heure": "16 h",
+     "type": "soirees",
+     "cle": null
+    },
+    {
+     "heure": "18 h",
+     "type": "offre",
+     "cle": null
+    },
+    {
+     "heure": "20 h",
+     "type": "question",
+     "cle": null
+    },
+    {
+     "heure": "19 h",
+     "type": "videos",
+     "cle": null
+    }
+   ]
+  },
+  {
+   "date": "2026-12-01",
+   "pause": null,
+   "publications": [
+    {
+     "id": "bonplan-petits-prix",
+     "type": "bonplan",
+     "variante": "petits-prix",
+     "heure": "17 h 07",
+     "suite": false,
+     "fait": false,
+     "lien": null
+    },
+    {
+     "id": "reel-tague-ton-pote",
+     "type": "reel",
+     "variante": "tague-ton-pote",
+     "heure": "18 h 07",
+     "suite": false,
+     "fait": false,
+     "lien": null
+    }
+   ],
+   "stories": [
+    {
+     "heure": "16 h",
+     "type": "soirees",
+     "cle": null
+    },
+    {
+     "heure": "18 h",
+     "type": "repost",
+     "cle": null
+    },
+    {
+     "heure": "20 h",
+     "type": "question",
+     "cle": null
+    },
+    {
+     "heure": "17 h",
+     "type": "astuce",
+     "cle": null
+    }
+   ]
+  },
+  {
+   "date": "2026-12-02",
+   "pause": null,
+   "publications": [
+    {
+     "id": "reel-spot-promo",
+     "type": "reel",
+     "variante": "spot-promo",
+     "heure": "18 h 07",
+     "suite": false,
+     "fait": false,
+     "lien": null
+    }
+   ],
+   "stories": [
+    {
+     "heure": "16 h",
+     "type": "soirees",
+     "cle": null
+    },
+    {
+     "heure": "18 h",
+     "type": "offre",
+     "cle": null
+    },
+    {
+     "heure": "20 h",
+     "type": "question",
+     "cle": null
+    },
+    {
+     "heure": "17 h",
+     "type": "astuce",
+     "cle": null
+    }
+   ]
+  },
+  {
+   "date": "2026-12-03",
+   "pause": null,
+   "publications": [
+    {
+     "id": "incontournables-tekno",
+     "type": "incontournables",
+     "variante": "tekno",
+     "heure": "17 h 07",
+     "suite": false,
+     "fait": false,
+     "lien": null
+    },
+    {
+     "id": "reel-viral",
+     "type": "reel",
+     "variante": "viral",
+     "heure": "18 h 07",
+     "suite": false,
+     "fait": false,
+     "lien": null
+    }
+   ],
+   "stories": [
+    {
+     "heure": "16 h",
+     "type": "soirees",
+     "cle": null
+    },
+    {
+     "heure": "18 h",
+     "type": "repost",
+     "cle": null
+    },
+    {
+     "heure": "20 h",
+     "type": "question",
+     "cle": null
+    },
+    {
+     "heure": "22 h",
+     "type": "coeur",
+     "cle": null
+    }
+   ]
+  },
+  {
+   "date": "2026-12-04",
+   "pause": null,
+   "publications": [
+    {
+     "id": "incontournables-commercial",
+     "type": "incontournables",
+     "variante": "commercial",
+     "heure": "17 h 07",
+     "suite": false,
+     "fait": false,
+     "lien": null
+    }
+   ],
+   "stories": [
+    {
+     "heure": "16 h",
+     "type": "soirees",
+     "cle": null
+    },
+    {
+     "heure": "18 h",
+     "type": "offre",
+     "cle": null
+    },
+    {
+     "heure": "20 h",
+     "type": "question",
+     "cle": null
+    },
+    {
+     "heure": "22 h",
+     "type": "coeur",
+     "cle": null
+    }
+   ]
+  },
+  {
+   "date": "2026-12-05",
+   "pause": null,
+   "publications": [
+    {
+     "id": "reel-spot-promo",
+     "type": "reel",
+     "variante": "spot-promo",
+     "heure": "18 h 07",
+     "suite": false,
+     "fait": false,
+     "lien": null
+    }
+   ],
+   "stories": [
+    {
+     "heure": "16 h",
+     "type": "soirees",
+     "cle": null
+    },
+    {
+     "heure": "18 h",
+     "type": "repost",
+     "cle": null
+    },
+    {
+     "heure": "20 h",
+     "type": "question",
+     "cle": null
+    },
+    {
+     "heure": "22 h",
+     "type": "coeur",
+     "cle": null
+    }
+   ]
+  }
+ ]
+}

@@ -230,6 +230,32 @@ if (cible === 'reactif') {
   await ecrirePlan(PLAN);
   process.exit(0);
 }
+// Planning Instagram des 14 prochains jours (22/11/2026, directeur : « mets-moi le planning Instagram dans la partie admin,
+// comme pour TikTok ») : mêmes règles que le robot (slotsFor, heure apprise, écart du 2e créneau, stories du jour),
+// écrit dans contenus/planning-instagram.json et affiché sur /pilotage/. Simple aperçu : rien n'est publié d'ici.
+async function ecrirePlanningInstagram(jours = 14) {
+  const { planDuJour } = await import('./stories.mjs');
+  const parisH = (h) => { const d = new Date(NOW); d.setUTCHours(h, 7, 0, 0); return new Intl.DateTimeFormat('fr-FR', { timeZone: 'Europe/Paris', hour: '2-digit', minute: '2-digit' }).format(d).replace(':', ' h '); };
+  const sortie = [];
+  for (let k = 0; k < jours; k++) {
+    const d = new Date(NOW.getTime() + k * 864e5);
+    const date = slotOfDay(d).date;
+    let pubs = [];
+    try { pubs = slotsFor(d); } catch (err) { console.error(`Planning Instagram : ${date} illisible (${err.message})`); }
+    const premier = +creneauDuJour(d), dernier = Math.max(...CRENEAUX.map(Number));
+    sortie.push({ date, pause: R.pause_publication || null,
+      publications: pubs.map((s) => {
+        const h = s.second ? Math.min(premier + Number(R.ecart_reel_h ?? 2) * (s.troisieme ? 2 : 1), dernier) : premier;
+        const fait = hist.find((x) => x.id === slotId(s) && x.date === date);
+        return { id: slotId(s), type: s.type, variante: s.variante || null, heure: parisH(h), suite: !!s.suite, fait: !!fait, lien: fait?.permalink || fait?.lien || null };
+      }),
+      stories: planDuJour(d).map((x) => ({ heure: `${x.h} h`, type: x.type, cle: x.cle || null })) });
+  }
+  await writeFile(path.join(ROOT, 'contenus', 'planning-instagram.json'), JSON.stringify({ le: new Date().toISOString(), jours: sortie }, null, 1) + '\n');
+  return sortie;
+}
+if (cible === 'planning') { const p = await ecrirePlanningInstagram(); for (const j of p) console.log(j.date, j.publications.map((x) => `${x.heure} ${x.id}`).join(' | ')); process.exit(0); }
+
 if (cible === 'auto') {
   const s = slotDuMoment();
   if (flag('quoi')) {
@@ -292,6 +318,7 @@ async function events() {
 if (cible === 'site') {
   // Planning TikTok (src/tiktok.mjs) : à chaque passage, même si le site est déjà à jour (créneaux du jour).
   try { (await import('./tiktok.mjs')).construireTiktok({ now: NOW }); } catch (err) { console.error(`TikTok : planning impossible (${err.message})`); }
+  try { await ecrirePlanningInstagram(); } catch (err) { console.error(`Planning Instagram : impossible (${err.message})`); }
   // Tableau de bord du directeur (/pilotage/, même code que /tiktok/), à chaque passage.
   try { (await import('./pilotage.mjs')).construirePilotage({ now: NOW }); } catch (err) { console.error(`Pilotage : tableau de bord impossible (${err.message})`); }
   // Une fois par jour suffit (sauf --force) : l'agenda change peu dans la journée.

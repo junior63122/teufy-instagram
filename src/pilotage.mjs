@@ -68,6 +68,18 @@ export function donneesPilotage({ root = ROOT, now = new Date() } = {}) {
     ia: budget ? { jour: budget.jour, aujourdhui: budget.aujourdhui || {}, euros_jour: budget.euros_jour, euros_mois: budget.euros_mois } : null,
     tiktokAuj: (tiktok?.plan?.[auj] || []).map((v) => ({ heure: v.heure, type: v.type, id: v.id })),
     prets,
+    planningIg: f('contenus/planning-instagram.json'),
+    tiktok7: Object.entries(tiktok?.plan || {}).filter(([j]) => j >= auj).sort().slice(0, 7).map(([j, l]) => ({ jour: j, videos: l.map((v) => ({ heure: v.heure, id: v.id, type: v.type })) })),
+    insta: (() => { const a = f('apprentissage.json'); if (!a) return null;
+      const ab = (a.abonnes || []).filter((x) => x.n); const der = ab.at(-1), il = (n) => ab.filter((x) => Date.parse(x.date) <= now - n * 864e5).at(-1);
+      const posts = (a.posts || []).filter((x) => x.metrics).sort((x, y) => String(y.date).localeCompare(String(x.date)));
+      const m = (x, k) => x.metrics?.[k] ?? 0;
+      const parType = {}; for (const x of posts.slice(0, 40)) { const t = x.type || 'post'; (parType[t] ||= []).push(m(x, 'reach')); }
+      return { abonnes: der?.n ?? null, d7: der && il(7) ? der.n - il(7).n : null, d30: der && il(30) ? der.n - il(30).n : null,
+        dernieres: posts.slice(0, 10).map((x) => ({ date: x.date, type: x.type, titre: String(x.caption || '').split('\n')[0].slice(0, 70), portee: m(x, 'reach'), likes: m(x, 'likes'), partages: m(x, 'shares'), enreg: m(x, 'saved'), lien: x.lien })),
+        moyennes: Object.fromEntries(Object.entries(parType).map(([t, l]) => [t, Math.round(l.reduce((s, v) => s + v, 0) / l.length)])),
+        top: [...posts].sort((x, y) => m(y, 'shares') - m(x, 'shares')).slice(0, 3).map((x) => ({ date: x.date, titre: String(x.caption || '').split('\n')[0].slice(0, 70), partages: m(x, 'shares'), lien: x.lien })) }; })(),
+    controles7: (controle?.jours || []).slice(-7).reverse().map((j) => ({ jour: j.jour, ok: (j.ok || []).length, problemes: j.problemes || [] })),
     drive: (() => { const d = f('contenus/drive.json'); if (!d) return null; const v = Object.values(d.videos || {});
       return { le: d.le, videos: v.length, utilisables: v.filter((x) => x.utilisable && !x.doublon_de).length, musiques: Object.keys(d.musiques || {}).length,
         nouvelles: v.filter((x) => Date.parse(x.vu_le) > now - 864e5).length }; })(),
@@ -76,6 +88,15 @@ export function donneesPilotage({ root = ROOT, now = new Date() } = {}) {
 
 const bloc = (titre, corps) => `<section><h2>${esc(titre)}</h2>${corps}</section>`;
 const pastille = (ok, txt) => `<span class="p ${ok ? 'ok' : 'ko'}">${esc(txt)}</span>`;
+
+
+const NOMS = { libre: 'Format libre (celui qui marche le mieux)', 'bonplan-a-reserver': 'Bon plan : à réserver', 'bonplan-petits-prix': 'Bon plan : petits prix',
+  'incontournables-techno': 'Incontournables techno', 'incontournables-tekno': 'Incontournables Tekno', 'incontournables-commercial': 'Incontournables du week-end',
+  'reel-tendance': 'Réel tendance', 'reel-tague-ton-pote': 'Réel « Tague ton pote »', 'reel-spot-promo': 'Réel promo de Teufy', 'reel-viral': 'Réel viral',
+  'reel-flash': 'Réel Flash', debat: 'Débat', 'reel-guide': 'Réel guide' };
+const NOMS_STORIES = { soirees: 'soirées de ce soir', offre: 'offre partenaire', repost: 'repost', question: 'question du jour', coeur: 'coup de cœur', astuce: 'astuce', videos: 'appel à vos vidéos' };
+const nomPub = (p) => NOMS[p.id] || (p.type === 'pret' ? `Post prêt : ${p.variante}` : p.id.replace(/-/g, ' '));
+const jourFr = (j) => new Intl.DateTimeFormat('fr-FR', { weekday: 'long', day: 'numeric', month: 'long', timeZone: 'Europe/Paris' }).format(new Date(`${j}T12:00:00Z`));
 
 export function contenuPilotage(D) {
   const robots = `<table>${D.robots.map((r) => `<tr><td><b>${esc(r.nom)}</b><br><small>${esc(r.quand)} · ${esc(r.role)}</small></td><td>${pastille(!r.retard, r.retard ? 'en retard' : 'à l\'heure')}<br><small>dernier passage : ${esc(quand(r.dernier))}</small></td></tr>`).join('')}</table>
@@ -111,6 +132,16 @@ ${s?.liste?.length ? `<details><summary>Soirées sans photo (les ${s.liste.lengt
   return `<p class="i">Mis à jour ${esc(quand(D.le))} · se met à jour à chaque passage des robots.</p>
 ${bloc('Actions rapides', actions)}
 ${bloc('Publications du jour', pub + st + tk)}
+${bloc('Planning Instagram (14 jours)', D.planningIg ? `${D.planningIg.jours.map((j) => `<div class="jour${j.date === D.auj ? ' auj' : ''}"><h3>${esc(jourFr(j.date))}</h3>${j.pause ? `<p class="ko">Publications en pause : ${esc(j.pause)}</p>` : ''}
+${j.publications.length ? `<ul>${j.publications.map((p) => `<li><b>${esc(p.heure)}</b> · ${esc(nomPub(p))}${p.suite ? ' <small>(suite d\'un post qui a marché)</small>' : ''} ${p.fait ? `${pastille(true, 'publié')}${p.lien ? ` <a href="${esc(p.lien)}" target="_blank" rel="noopener">voir</a>` : ''}` : ''}</li>`).join('')}</ul>` : '<p><small>Pas de post ni de réel prévu (actus importantes possibles à tout moment).</small></p>'}
+<p><small>Stories : ${j.stories.map((x) => `${esc(x.heure)} ${esc(NOMS_STORIES[x.type] || (x.cle ? 'story prête : ' + String(x.cle).replace(/^pret-/, '').replace(/-/g, ' ') : x.type))}`).join(' · ')}</small></p></div>`).join('')}
+<p><small>Calculé avec les mêmes règles que le robot (heure de publication apprise des chiffres, 2e publication décalée). Les actus « un nom vient de tomber » s'ajoutent en plus quand elles arrivent. Mis à jour ${esc(quand(D.planningIg.le))}.</small></p>` : '<p>Planning en cours de calcul (prochain passage des robots).</p>')}
+${bloc('Planning TikTok (7 jours)', D.tiktok7.length ? `<ul>${D.tiktok7.map((j) => `<li><b>${esc(jourFr(j.jour))}</b> : ${j.videos.map((v) => `${esc(v.heure)} ${esc(v.id)}`).join(' · ') || 'rien'}</li>`).join('')}</ul><p><a href="../tiktok/">Ouvrir la page TikTok (vidéos, légendes, couvertures)</a></p>` : '<p>Rien de planifié.</p>')}
+${bloc('Instagram : les chiffres', D.insta ? `<div class="chiffres"><div><b>${esc(D.insta.abonnes ?? '?')}</b>abonnés</div><div><b>${D.insta.d7 == null ? '?' : (D.insta.d7 > 0 ? '+' : '') + esc(D.insta.d7)}</b>sur 7 jours</div><div><b>${D.insta.d30 == null ? '?' : (D.insta.d30 > 0 ? '+' : '') + esc(D.insta.d30)}</b>sur 30 jours</div>${Object.entries(D.insta.moyennes).map(([t, v]) => `<div><b>${esc(v)}</b>portée moyenne ${esc(t === 'reel' ? 'des réels' : t === 'post' ? 'des posts' : t)}</div>`).join('')}</div>
+<details open><summary>Dernières publications</summary><table><tr><th>Date</th><th>Publication</th><th>Portée</th><th>J'aime</th><th>Partages</th><th>Enreg.</th></tr>${D.insta.dernieres.map((x) => `<tr><td>${esc(x.date)}</td><td>${x.lien ? `<a href="${esc(x.lien)}" target="_blank" rel="noopener">${esc(x.titre || x.type)}</a>` : esc(x.titre || x.type)}</td><td>${esc(x.portee)}</td><td>${esc(x.likes)}</td><td>${esc(x.partages)}</td><td>${esc(x.enreg)}</td></tr>`).join('')}</table></details>
+<details><summary>Les plus partagées</summary><ul>${D.insta.top.map((x) => `<li>${esc(x.date)} · ${esc(x.titre)} · <b>${esc(x.partages)} partages</b></li>`).join('')}</ul></details>` : '<p>Pas encore de chiffres.</p>')}
+${bloc('Contrôles des 7 derniers jours', D.controles7.length ? `<table>${D.controles7.map((j) => `<tr><td>${esc(jourFr(j.jour))}</td><td>${j.problemes.length ? pastille(false, `${j.problemes.length} problème(s)`) + `<br><small>${j.problemes.map(esc).join('<br>')}</small>` : pastille(true, `${j.ok} en ligne, tout bon`)}</td></tr>`).join('')}</table>` : '<p>Pas encore de contrôle.</p>')}
+${bloc('Visites du site', '<p>Le site ne mesure pas encore ses visites : aucun outil de mesure n\'est installé (rien n\'est inventé ici). Pour avoir le nombre de visiteurs, les pages vues et les soirées les plus regardées, il faut un compteur respectueux de la vie privée (sans cookie ni bandeau) : à valider par toi, voir mon message.</p>')}
 ${bloc('Robots', robots)}
 ${bloc('Le site', site)}
 ${bloc('Vidéos du Drive', D.drive ? `<p>${esc(D.drive.videos)} vidéo(s) relevée(s), dont ${esc(D.drive.utilisables)} utilisable(s) pour les montages (ni floues, ni trop sombres, sans doublon) ; ${esc(D.drive.nouvelles)} nouvelle(s) depuis hier. ${esc(D.drive.musiques)} musique(s) avec leur tempo.</p><p><small>Dernier relevé : ${esc(quand(D.drive.le))} (chaque matin).</small></p>` : '<p>Premier relevé demain matin.</p>')}
@@ -125,11 +156,11 @@ export function pagePilotage(D, code = process.env.TIKTOK_CODE) {
 <meta name="robots" content="noindex, nofollow"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; base-uri 'none'; form-action 'none'"><title>Pilotage · Teufy</title>
 <style>:root{--nuit:#0B0B0F;--creme:#F4EFE6;--corail:#FF5A3C;--live:#3DFF8A}*{box-sizing:border-box}body{margin:0;background:var(--nuit);color:var(--creme);font:16px/1.45 system-ui,sans-serif;padding:16px;max-width:860px;margin:auto}
 h1{font-size:28px;margin:8px 0 4px}p.i{opacity:.8;margin:0 0 16px}section{background:#16161C;border:1px solid #ffffff22;border-radius:16px;padding:14px 16px;margin-bottom:14px}h2{font-size:19px;margin:0 0 10px;color:var(--corail)}
-a{color:var(--creme)}table{width:100%;border-collapse:collapse}td,th{text-align:left;padding:8px 6px;border-top:1px solid #ffffff14;vertical-align:top}small{opacity:.75}ul{padding-left:20px;margin:6px 0}li{margin:3px 0}
+a{color:var(--creme)}table{width:100%;border-collapse:collapse;display:block;overflow-x:auto;max-width:100%}td{word-break:break-word}td,th{text-align:left;padding:8px 6px;border-top:1px solid #ffffff14;vertical-align:top}small{opacity:.75}ul{padding-left:20px;margin:6px 0}li{margin:3px 0}
 .p{display:inline-block;font-size:12px;font-weight:800;padding:2px 9px;border-radius:999px}.p.ok{background:var(--live);color:var(--nuit)}.p.ko{background:var(--corail);color:var(--nuit)}ul.ko li{color:#ffb4a6}.vert{color:var(--live)}
 .chiffres{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px}.chiffres div{background:#0B0B0F;border-radius:12px;padding:10px;font-size:13px;opacity:.9}.chiffres b{display:block;font-size:26px}
 .actions{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:8px}.btn{display:block;text-align:center;background:var(--creme);color:var(--nuit);font-weight:800;border:0;border-radius:10px;padding:12px;text-decoration:none;font-size:15px;cursor:pointer}.btn.sec{background:transparent;color:var(--creme);border:2px solid #ffffff55}
-details{margin-top:8px}summary{cursor:pointer;font-weight:700}.sans{opacity:.7;font-size:14px}</style></head><body>
+details{margin-top:8px}.jour{border-top:1px solid #ffffff14;padding:8px 0}.jour h3{margin:0 0 4px;font-size:16px;text-transform:capitalize}.jour.auj h3{color:var(--corail)}td,th{font-size:14px}summary{cursor:pointer;font-weight:700}.sans{opacity:.7;font-size:14px}</style></head><body>
 <h1>Pilotage Teufy</h1>
 <div id="contenu">${verrou(code, contenuPilotage(D))}</div>
 <script src="pilotage.js"></script></body></html>
