@@ -394,7 +394,7 @@ async function rechercheTavily({ L, system, prompt, secondaire = false }) {
   } catch {}
   if (!requetes.length) requetes = [prompt.replace(/\s+/g, ' ').slice(0, 300)];
   const vus = new Set(), res = [];
-  for (const q of requetes) for (const x of await tavily(q, { secondaire })) if (!vus.has(x.url)) { vus.add(x.url); res.push(x); }
+  for (const q of requetes) for (const x of await tavily(q, { secondaire, max: L.tavily_resultats ?? 15 })) if (!vus.has(x.url)) { vus.add(x.url); res.push(x); }
   if (!res.length) throw new Error('Tavily : aucun résultat');
   const pages = res.slice(0, 14).map((x, i) => `[${i + 1}] ${x.title || ''}\n${x.url}\n${String(x.content || '').slice(0, 1200)}`).join('\n\n');
   const c = await groqSuivant(modeles, { max_completion_tokens: 5000, messages: [{ role: 'system', content: `${system}\nTu ne réponds qu'à partir des résultats de recherche fournis ; rien d'autre. Cite l'adresse (URL) de chaque information. Si les résultats ne contiennent pas la réponse, dis-le.` }, { role: 'user', content: `${prompt}\n\nRésultats de recherche web (${new Date().toISOString().slice(0, 10)}) :\n${pages}` }] }, 0, { tronqueOk: true });

@@ -122,7 +122,12 @@ export async function rechercherSoirees({ config, now = new Date(), ig = null, a
     'la billetterie shotgun.live (pages des soirées à Nice, Cannes, Antibes, Monaco, Menton, Cagnes, Saint-Laurent-du-Var, Fréjus, Saint-Raphaël)',
     'la billetterie dice.fm (événements Nice, Côte d\'Azur, Monaco)',
     'Resident Advisor ra.co (événements Nice, Monaco, Cannes, Antibes)',
-    'la billetterie eventbrite.fr (événements soirées, clubs, concerts à Nice, Cannes, Antibes, Monaco, Toulon et dans le Var)',
+    // 22/11/2026 : Eventbrite et Shotgun bloquent désormais la lecture directe de leurs pages par nos robots (HTTP 405 / 429) ;
+    // leurs soirées passent par le moteur de recherche, ville par ville (c'étaient nos plus grosses sources).
+    'la billetterie eventbrite.fr : soirées, clubs et DJ à Nice et Saint-Laurent-du-Var',
+    'la billetterie eventbrite.fr : soirées, clubs et concerts à Cannes, Antibes, Juan-les-Pins et Monaco',
+    'la billetterie eventbrite.fr : soirées, clubs et concerts à Toulon, Hyères, Fréjus, Saint-Raphaël et Saint-Tropez',
+    'la billetterie shotgun.live : soirées à Nice (Frigo 16, L\'Antre, High Club, Mama Shelter, Ghost)',
     'la billetterie ticketmaster.fr (concerts, soirées et festivals dans les Alpes-Maritimes, à Monaco et dans le Var : Nikaïa, Palais des Festivals, Zénith Toulon…)',
     'la billetterie bizouk.com (soirées afro, shatta, dancehall, kompa, zouk, bouyon et caribéennes sur la Côte d\'Azur et dans le Var)',
     'l\'agenda officiel provence-alpes-cotedazur.com rubrique « que faire / sortir / toutes les sorties » (soirées, concerts, festivals des Alpes-Maritimes et du Var)',

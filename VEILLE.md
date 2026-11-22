@@ -6,6 +6,11 @@ mises à jour, sources de soirées réparées ou ajoutées, décisions prises. T
 
 ## 22/11/2026
 
+- **Eventbrite bloque nos robots** (HTTP 405, vérification anti-robot) sur ses 12 pages depuis le 20/11, et Shotgun (429) :
+  c'étaient nos plus grosses sources ; le site est passé à 67 soirées. On ne contourne pas un blocage : leurs soirées passent
+  désormais par le moteur de recherche (Tavily), ville par ville (3 recherches Eventbrite + 1 Shotgun Nice en plus), 12 recherches
+  de soirées par jour au lieu de 6, 15 résultats par recherche au lieu de 8 (même coût). Budget : environ 22 recherches par jour
+  sur 30 autorisées. État : PENDING_VERIFICATION (prochaine recherche complète demain matin).
 - **Robot « Veille technique » : horaire de 6 h 17 encore sauté par GitHub** (dernier relevé le 21/11 à 14 h 29). Réparé : le robot
   de veille le relance maintenant dès 7 h (Paris) s'il n'a pas tourné le jour même (avant : seulement après 20 h sans passage).
   Sauvegarde du jour créée par ce passage. État : PENDING_VERIFICATION (premier passage de la veille vers 8 h).
