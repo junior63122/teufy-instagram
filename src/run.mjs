@@ -327,7 +327,10 @@ if (cible === 'site') {
   const actusF = path.join(ROOT, 'contenus', 'actus.json');
   const evF = path.join(ROOT, 'evenements-web.json');
   const empreinte = async (f) => (existsSync(f) ? createHash('sha1').update(await readFile(f)).digest('hex').slice(0, 10) : '');
-  const signature = `${isoLocal(NOW)}|${await empreinte(actusF)}|${await empreinte(evF)}`;
+  // 22/11/2026 : le code du site compte aussi (un changement de script ou de style n'était mis en ligne qu'au passage
+  // suivant d'une nouvelle soirée : la mesure des visites est restée plusieurs heures sans effet).
+  const code = (await Promise.all(['site/app.js', 'site/style.css', 'src/site.mjs', 'src/site-contenus.mjs', 'src/site-langues.mjs'].map((f) => empreinte(path.join(ROOT, f))))).join('');
+  const signature = `${isoLocal(NOW)}|${await empreinte(actusF)}|${await empreinte(evF)}|${createHash('sha1').update(code).digest('hex').slice(0, 10)}`;
   if (!flag('force') && existsSync(marque) && (await readFile(marque, 'utf8')).trim() === signature) { console.log('Site déjà à jour.'); process.exit(0); }
   const { construireSite } = await import('./site.mjs');
   const igSite = igConfig();
