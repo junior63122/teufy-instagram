@@ -7,6 +7,16 @@ production de vidéo TikTok ou réel, et à mettre à jour à chaque veille hebd
 Prudence : la plupart des études publiques sont des blogs d'agences ou d'outils ; leurs chiffres sont indicatifs. Les seules
 données sûres sont les nôtres (Instagram, `apprentissage.json`) et, dès qu'il publiera, celles du compte TikTok du directeur.
 
+## 0. Correction du directeur (22/11/2026, à respecter avant tout le reste)
+
+« Je n'ai pas demandé de montrer forcément l'application ; il faut des vidéos qui puissent être virales ; là ça fait campagne de
+marketing ; je veux voir des gens qui s'amusent, qui font la fête ; ce n'est pas captivant, on s'ennuie. »
+Donc sur TikTok, la priorité est la **vidéo de fête pure** (`studio/montage/fete.py`) : on démarre sur la drop, des gens qui
+dansent, rient, sautent, des confettis, une coupe à chaque temps, zoom et secousse sur les basses, 7 à 10 s pour être revue en
+boucle, **une seule phrase courte** où l'on se reconnaît (« POV : t'avais dit « juste un verre » »), marque discrète. Pas d'affiche,
+pas d'écran du site, pas de slogan, pas de fin publicitaire. Les formats « liste de soirées » et « appli en usage » restent pour
+Instagram (où nos chiffres les montrent forts), pas pour TikTok tant que le directeur ne les demande pas.
+
 ## 1. Ce que disent NOS chiffres (Instagram, 78 publications mesurées)
 
 | Ce qui marche chez nous | Exemple | Résultat |
