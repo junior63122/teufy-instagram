@@ -5211,5 +5211,59 @@
    "nom": "",
    "m": 384
   }
+ },
+ "43.69523,7.27443": {
+  "le": "2026-11-22T22:15:22.397Z",
+  "parkings": [
+   {
+    "nom": "Palais de Justice",
+    "type": "underground",
+    "payant": true,
+    "m": 142
+   },
+   {
+    "nom": "Parking Corvésy",
+    "type": "multi-storey",
+    "payant": true,
+    "m": 250
+   },
+   {
+    "nom": "Parking Sulzer",
+    "type": "underground",
+    "payant": true,
+    "m": 291
+   }
+  ],
+  "transports": [
+   {
+    "nom": "Cours Saleya",
+    "type": "bus",
+    "m": 141,
+    "lignes": "98"
+   },
+   {
+    "nom": "Opéra - Vieille Ville",
+    "type": "tram",
+    "m": 255,
+    "lignes": ""
+   },
+   {
+    "nom": "Opéra - Vieille Ville",
+    "type": "bus",
+    "m": 262,
+    "lignes": "8+;12+;98"
+   },
+   {
+    "nom": "Cathédrale - Vieille Ville",
+    "type": "tram",
+    "m": 394,
+    "lignes": ""
+   }
+  ],
+  "velo": {
+   "nom": "",
+   "m": 20
+  },
+  "taxi": null
  }
 }
