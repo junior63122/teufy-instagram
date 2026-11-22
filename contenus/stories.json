@@ -496,5 +496,22 @@
   "absentes": [],
   "manquantes": [],
   "le": "2026-11-22T17:10:08.232Z"
+ },
+ {
+  "jour": "2026-11-22",
+  "type": "question",
+  "cles": [
+   "q-lendemain"
+  ],
+  "ids": [
+   "17921328072263086"
+  ],
+  "faites": [
+   0
+  ],
+  "relue": true,
+  "absentes": [],
+  "manquantes": [],
+  "le": "2026-11-22T19:10:24.561Z"
  }
 ]
