@@ -479,5 +479,22 @@
   "absentes": [],
   "manquantes": [],
   "le": "2026-11-22T16:09:52.730Z"
+ },
+ {
+  "jour": "2026-11-22",
+  "type": "offre",
+  "cles": [
+   "code-TEUFYxPANDA20"
+  ],
+  "ids": [
+   "18118061315045562"
+  ],
+  "faites": [
+   0
+  ],
+  "relue": true,
+  "absentes": [],
+  "manquantes": [],
+  "le": "2026-11-22T17:10:08.232Z"
  }
 ]
