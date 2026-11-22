@@ -87,6 +87,12 @@
   alcool mis en avant, pas de musique sous droits dans le fichier (le directeur ajoute un son tendance dans TikTok ; seule exception :
   les montages du Drive, où la musique sert de repère de rythme et où il remet le même son depuis TikTok), droit à
   l'image respecté pour les vidéos de soirée qu'il fournit.
+- **Vidéos TikTok et réels : partir de la veille** (directeur, 22/11/2026 : « réfléchis de toi-même ; tu es censé avoir fait des veilles
+  sur les vidéos d'applis et de soirées qui marchent le mieux, quel montage, pourquoi, quels hashtags ») : avant toute vidéo, relire
+  `outils/VEILLE-TIKTOK.md` (nos chiffres, veille extérieure, règles, formats prioritaires) et la mettre à jour à chaque veille du
+  lundi. Une vidéo de Teufy doit être concrète (vraies soirées datées ou l'appli montrée en usage), concerner le spectateur dès
+  1,5 s (sa ville, son week-end, son groupe), faire de Teufy la solution de l'histoire et déclencher un geste (envoyer, taguer,
+  enregistrer). Jamais d'ambiance générique seule. Moteur : `studio/montage/tiktok.py` (récit, affiches, écran du site filmé).
 - **Vidéos et musiques du Drive** (directeur, 22/11/2026 : « fais le montage avec les sons que je t'ai donnés, moi je mettrai les
   mêmes sons depuis la bibliothèque TikTok » ; vidéos de soirée dont il a l'accord des créateurs) : `src/drive.mjs` relève chaque
   matin les deux dossiers (`config.json` `drive`) dans le robot « Veille technique » (fiche qualité de chaque vidéo, doublons,

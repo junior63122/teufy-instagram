@@ -41,6 +41,14 @@ def plan(c, duree, cible, sortie):
         effets.append('hue=s=0.35,eq=brightness=-0.05')
     if c.get('flash'):                 # flash blanc sur la drop
         effets.append("fade=t=in:st=0:d=0.18:color=white")
+    if c.get('affiche'):
+        # affiche d'une vraie soirée : nette au centre (zoom d'impact), fond flouté de la même affiche
+        vf = (f"fps={FPS},split[a][b];[a]scale={L}:{H}:force_original_aspect_ratio=increase,crop={L}:{H},boxblur=40:2,eq=brightness=-0.3[fond];"
+              f"[b]scale='min(880,iw*1100/ih)':-2,scale=w='iw*(1+0.12*max(0\\,1-t/0.22))+iw*0.03*t/{duree:.3f}':h=-2:eval=frame[aff];"
+              f"[fond][aff]overlay=(W-w)/2:560+(1100-h)/2,crop={L}:{H},setsar=1")
+        run(['ffmpeg', '-v', 'error', '-y', '-loop', '1', '-t', f'{duree:.3f}', '-i', c['affiche'], '-filter_complex', vf, '-t', f'{duree:.3f}',
+             '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '16', '-pix_fmt', 'yuv420p', sortie])
+        return
     if c.get('ecran'):
         # écran du site en « téléphone » au centre, sur un fond flouté du même écran : le texte du récit reste lisible au-dessus
         vf = (f"fps={FPS},split[a][b];[a]scale={L}:{H}:force_original_aspect_ratio=increase,crop={L}:{H},boxblur=30:2,eq=brightness=-0.25[fond];"
