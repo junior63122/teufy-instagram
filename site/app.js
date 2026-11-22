@@ -1244,3 +1244,23 @@ document.querySelectorAll('.abonnement').forEach((a) => {
   if (android && g && ap) { g.classList.remove('contour'); ap.classList.add('contour'); g.parentElement.prepend(g); a.querySelector('.abo-aide-android')?.removeAttribute('hidden'); }
   if (apple) a.querySelector('.abo-aide-apple')?.removeAttribute('hidden');
 });
+
+// Mesure d'audience (22/11/2026, demande du directeur : « les données d'utilisation ») : GoatCounter, sans cookie, sans
+// identifiant, sans script extérieur (un simple signal image vers teufy.goatcounter.com) : pages vues, provenance, taille d'écran,
+// et clics sur « Billets ». Seulement sur teufyparty.com (jamais en test ni en local), jamais pour un robot.
+(() => { try {
+  if (location.hostname !== 'teufyparty.com' || navigator.webdriver) return;
+  const envoi = (p, t, evenement) => {
+    const u = new URL('https://teufy.goatcounter.com/count');
+    u.searchParams.set('p', p); if (t) u.searchParams.set('t', t.slice(0, 120));
+    if (evenement) u.searchParams.set('e', 'true');
+    else { if (document.referrer && !document.referrer.startsWith(location.origin)) u.searchParams.set('r', document.referrer); u.searchParams.set('s', String(screen.width)); }
+    u.searchParams.set('rnd', Math.random().toString(36).slice(2));
+    new Image().src = u.href;
+  };
+  envoi(location.pathname, document.title);
+  document.addEventListener('click', (ev) => {
+    const a = ev.target.closest && ev.target.closest('a.bouton[target="_blank"]');
+    if (a) envoi(`billets${location.pathname}`, (a.closest('[data-nom]') || {}).dataset?.nom || document.title, true);
+  }, true);
+} catch { /* la mesure ne doit jamais gêner le site */ } })();

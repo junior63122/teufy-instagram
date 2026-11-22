@@ -1,224 +1,238 @@
 {
-  "_note": "Numéro de version affiché en pied de page du site et sur /mises-a-jour/ (directeur, 19/11/2026 : format « 1.13.02 », comme Minecraft). Règle : correction(s) seulement → dernier nombre +1 (1.13.02 → 1.13.03) ; nouvelle fonctionnalité → nombre du milieu +1 et le dernier revient à 01 (1.13.02 → 1.14.01) ; énorme fonctionnalité ou grosse refonte → premier nombre +1 (1.13.02 → 2.01.01). La plus récente en premier. Le site n'affiche que « titre » et « public » : phrases simples pour les visiteurs, sans détail technique ni nom de prestataire (directeur, 20/11/2026). « notes » reste interne. « titre » : 28 caractères au plus (il s'affiche en entier dans le bandeau « Nouveau » sur téléphone).",
-  "versions": [
-    {
-      "numero": "1.19.04",
-      "date": "2026-11-21",
-      "titre": "Recherche facile sur mobile",
-      "public": [
-        "Sur téléphone, le panneau de recherche se ferme facilement et ne bouge plus quand on fait défiler les filtres.",
-        "La ville de chaque soirée est visible partout, même dans les suggestions.",
-        "Des cartes de soirées plus nettes, avec une courte présentation quand l'organisateur en donne une."
-      ],
-      "notes": [
-        "Panneau de recherche : bouton × au-dessus du contenu, fermeture au doigt seulement depuis la poignée, hauteur suivant l'écran visible.",
-        "Suggestions : pastille de ville en petit sur deux lignes ; carrousels : infos et bouton groupés en bas ; accroche de secours tirée de la présentation.",
-        "Robots : test en échec ne bloquant plus la publication, comptes Instagram introuvables mis de côté 30 jours, veille technique relancée si GitHub saute son horaire."
-      ]
-    },
-    {
-      "numero": "1.19.03",
-      "date": "2026-11-20",
-      "titre": "Une recherche qui comprend les fautes de frappe",
-      "public": [
-        "La recherche trouve la soirée même avec une faute de frappe.",
-        "La recherche marche aussi dans toutes les langues du site.",
-        "Publications Instagram plus fiables : rien n'est noté publié tant que ce n'est pas vraiment en ligne."
-      ],
-      "notes": [
-        "Tests utilisateurs simulés (outils/tester-clients.cjs, 1000 clients) : recherche tolérante aux fautes, index de recherche introuvable hors du français (RACINE de app.min.js), lieu coupé dans les carrousels, pseudos Instagram dans les noms et accroches.",
-        "Robots : validations trompeuses retirées (stories, publication, veille, réponses d'IA relues contre le schéma), heures lues à l'heure de Paris, emojis retirés des visuels, apprentissage non biaisé, comptes vérifiés mis en cache."
-      ]
-    },
-    {
-      "numero": "1.19.02",
-      "date": "2026-11-20",
-      "titre": "Des soirées mieux présentées",
-      "public": [
-        "Les villes et les noms des lieux s'affichent correctement sur toutes les cartes.",
-        "Seules les soirées de la Côte d'Azur, de Monaco et du Var apparaissent dans les suggestions.",
-        "Beaucoup plus de soirées affichées avec leur affiche."
-      ],
-      "notes": [
-        "Pastille de ville bornée à l'image, masquée dans les suggestions ; filtre de zone du site (dansZoneSite) ; agenda Allevents « monaco » retiré (Monaca, PA).",
-        "Lieu écrit comme un pseudo Instagram : nom lisible, pseudo rangé dans les comptes, doublons fusionnés (« Le Servan » = « leservan_valbonne »).",
-        "Contrôle des soirées sans image : contenus/soirees-sans-image.json à chaque construction du site, alerte dans la veille technique.",
-        "Story « ce soir » : une affiche refusée n'emporte plus toute la story ; reprise possible jusqu'à 23 h.",
-        "Affiches : sans IA de lecture d'image disponible, l'affiche venue de la billetterie, du site source ou du post Instagram qui annonce la soirée est acceptée (avant : toutes écartées, environ 95 par construction)."
-      ]
-    },
-    {
-      "numero": "1.19.01",
-      "date": "2026-11-20",
-      "titre": "Des actus et des soirées toujours à jour",
-      "public": [
-        "Teufy trouve encore plus vite les nouvelles soirées et les actus de la nuit."
-      ],
-      "notes": [
-        "Moteur de recherche gratuit Tavily (secret TAVILY_API_KEY, 1 000 recherches par mois) : Groq écrit la requête, Tavily cherche, Groq répond uniquement à partir des pages trouvées et cite ses sources ; aucun résultat = rien d'inventé.",
-        "Au plus 30 recherches par jour ; prospection et fiches de lieux s'arrêtent à 15 pour garder la veille des actus et les soirées ; recherche des soirées : 6 sources par jour à tour de rôle."
-      ]
-    },
-    {
-      "numero": "1.18.01",
-      "date": "2026-11-20",
-      "titre": "Plus de billetteries et veille quotidienne",
-      "public": [
-        "Plus de concerts, festivals et soirées sur toute la Côte d'Azur, Monaco, Saint-Tropez et le Var.",
-        "Teufy vérifie chaque jour que ses informations sont complètes et à jour."
-      ],
-      "notes": [
-        "Billetteries ajoutées : Eventbrite (concerts et musique à Nice, Cannes, Monaco, Toulon ; Saint-Tropez, Fréjus), DICE Monaco, Allevents (7 villes), Xceed (Nice, Cannes, Monaco), Shotgun Nice.",
-        "Billetteries lues toutes les 6 h, 4 à la fois, dernier relevé gardé entre deux lectures : une source lente ne retarde plus les publications.",
-        "Veille technique quotidienne sans IA : version de l'API Instagram, modèles d'IA encore ouverts, actions GitHub et Node, failles npm, état de chaque billetterie, informations manquantes des soirées (contenus/veille-technique.json)."
-      ]
-    },
-    {
-      "numero": "1.17.01",
-      "date": "2026-11-20",
-      "titre": "Soirées des clubs lues à la source",
-      "public": [
-        "Les soirées annoncées par les clubs et les bars arrivent plus vite sur Teufy.",
-        "L'annuaire compte maintenant aussi les bars de Monaco et de Saint-Tropez.",
-        "La page « Ce soir » est de nouveau à jour."
-      ],
-      "notes": [
-        "Instagram : à chaque passage, 8 comptes relus en rotation, les clubs et bars d'abord (relus toutes les 12 h), les autres toutes les 24 h ; avant, toujours les 20 mêmes comptes et jamais les clubs.",
-        "Seuls les posts jamais lus partent à l'IA gratuite ; le nom et l'affiche annoncés par le club lui-même l'emportent sur ceux d'un autre site.",
-        "Sites officiels des clubs lus sans IA (données de soirée publiées par les pages), relevé gardé 12 h.",
-        "Annuaire : bars et pubs de la carte OpenStreetMap pour Monaco, Beausoleil, Saint-Tropez, Ramatuelle et Gassin.",
-        "Page « Ce soir » figée depuis le 18/11 (non enregistrée par les robots) : réparée."
-      ]
-    },
-    {
-      "numero": "1.16.01",
-      "date": "2026-11-20",
-      "titre": "Nouvelle page : Bien sortir",
-      "public": [
-        "Une page « Bien sortir » : les bons réflexes pour rentrer, garder son verre, appeler à l'aide, et acheter ses billets sans se faire arnaquer."
-      ],
-      "notes": [
-        "Site : page « Bien sortir » (sécurité en soirée, numéros d'urgence officiels, arnaques à la revente de billets), dans le menu Teufy et le pied de page, en 6 langues."
-      ]
-    },
-    {
-      "numero": "1.15.01",
-      "date": "2026-11-20",
-      "titre": "Teufy arrive sur TikTok",
-      "public": [
-        "Teufy publie aussi ses vidéos sur TikTok : soirées, bons plans et « Tague ton pote »."
-      ],
-      "notes": [
-        "TikTok : planning automatique de 1 à 2 vidéos par jour (12 h 30 et 19 h 30), jamais la même vidéo deux fois en 14 jours, sur une page interne non référencée avec téléchargement et légende à copier ; les reels Instagram publiés y sont ajoutés automatiquement."
-      ]
-    },
-    {
-      "numero": "1.14.06",
-      "date": "2026-11-20",
-      "titre": "Le site se remet à jour tout seul",
-      "public": [
-        "Les fiches des lieux, les affiches et les traductions du site se remettent à jour automatiquement."
-      ],
-      "notes": [
-        "Site : les tâches qui lisaient les affiches, cherchaient sur le web ou complétaient les fiches des lieux avec Gemini passent par Groq (gratuit) tant que Gemini est en pause."
-      ]
-    },
-    {
-      "numero": "1.14.05",
-      "date": "2026-11-20",
-      "titre": "Des affiches mieux vérifiées",
-      "public": [
-        "Les affiches des soirées sont mieux vérifiées (bon nom, bonne date) avant d'apparaître sur notre Instagram."
-      ],
-      "notes": [
-        "Veille : une fois par heure de 8 h à 2 h, pause la nuit (au lieu de toutes les 30 min).",
-        "Affiches : vérification par Groq (modèle qui lit les images) quand Gemini est indisponible ; une réponse incomplète n'est jamais prise pour un accord.",
-        "IA : une clé Grok (xAI) enregistrée sous le nom GROQ_API_KEY est reconnue."
-      ]
-    },
-    {
-      "numero": "1.14.04",
-      "date": "2026-11-20",
-      "titre": "Les actus reviennent plus vite",
-      "public": [
-        "Les actus de la nuit (line-up, nouvelles dates, festivals) reviennent plus vite."
-      ],
-      "notes": [
-        "IA : Groq ajouté (gratuit, sans carte bancaire) pour la veille et les actus, avec recherche web ; GitHub Models retiré (fermé par GitHub le 30/07/2026, il répondait « OK » à tout). Une réponse vide ou non conforme n'est jamais prise pour un succès."
-      ]
-    },
-    {
-      "numero": "1.14.03",
-      "date": "2026-11-20",
-      "titre": "Un nouveau planning sur Instagram",
-      "public": [
-        "Plus de soirées techno sur notre Instagram : chaque jeudi, avec l'Édition Tekno un jeudi sur deux.",
-        "De nouvelles vidéos « Tague ton pote » à partager avec tes potes."
-      ],
-      "notes": [
-        "Instagram : planning revu selon les chiffres (techno chaque jeudi, « Tague ton pote » à la place du Grand Débat, 2 spots promo par semaine, plus de guide « où manger » ni de post le samedi, publication entre 16 h et 18 h).",
-        "Instagram : 4 nouveaux épisodes « Tague ton pote », et les 2 premiers refaits sans emoji ni verre en gros plan.",
-        "Revue des chiffres et des comptes comparables deux fois par semaine, avec décisions notées dans ANALYSE-ENGAGEMENT.md."
-      ]
-    },
-    {
-      "numero": "1.14.02",
-      "date": "2026-11-20",
-      "titre": "Des publications plus naturelles",
-      "public": [
-        "Les légendes de nos posts Instagram sont plus naturelles et plus simples à partager avec tes potes."
-      ],
-      "notes": [
-        "Instagram : légendes sans emoji, terminées par un appel à envoyer le post à un pote (l'appel à s'abonner des promos est gardé). Analyse complète : ANALYSE-ENGAGEMENT.md."
-      ]
-    },
-    {
-      "numero": "1.14.01",
-      "date": "2026-11-20",
-      "titre": "La page Nouveautés est en ligne",
-      "public": [
-        "Cette page : toutes les nouveautés de Teufy, version par version. Un bandeau te prévient quand une nouvelle version sort.",
-        "Les couvertures de nos réels s'affichent en entier aussi dans la grille du profil Instagram (plus de titre coupé)."
-      ],
-      "notes": [
-        "Site : page « Nouveautés » (adresse /mises-a-jour/), lien dans le menu Teufy avec la pastille « Nouveau » pendant 14 jours, bandeau en haut des pages pendant 7 jours après une nouvelle version.",
-        "Instagram : couvertures de réels recomposées pour la grille du profil (recadrage 3:4) et pour l'onglet Réels (9:16) ; textes et pastilles hors des zones où Instagram affiche le nombre de vues et ses icônes. Même précaution pour les couvertures des posts."
-      ]
-    },
-    {
-      "numero": "1.13.02",
-      "date": "2026-11-19",
-      "notes": [
-        "Instagram : chaque publication est relue sur Instagram juste après son envoi (en ligne, bon format, bon nombre d'images, légende, couverture) au lieu de se fier au simple « ok » de l'API.",
-        "Instagram : auto-contrôle à chaque passage horaire de tout ce qui devait sortir dans la journée (posts, reels, stories) ; ce qui manque est repris au passage suivant, et toute anomalie est signalée.",
-        "Instagram : une story ratée n'est plus notée « faite » ; seules les images manquantes sont republiées au passage suivant.",
-        "Instagram : une partie du quota de l'API est gardée pour les publications (les analyses de comptes passent après).",
-        "Instagram : si un post ne peut pas être préparé (panne), un format de secours sort à sa place.",
-        "Instagram : chaque reel a sa couverture dans la charte, avec un bouton lecture et la pastille « RÉEL » pour le distinguer des posts ; cinq mises en page de couverture tournent dans la grille.",
-        "Numérotation des versions au format 1.13.02."
-      ],
-      "titre": "Une Teufy plus fiable sur Instagram",
-      "public": [
-        "Plus aucune publication oubliée : chaque post, réel et story est vérifié une fois en ligne, et repris s'il manque.",
-        "Les réels se reconnaissent d'un coup d'œil dans notre grille Instagram (pastille « RÉEL »).",
-        "Des couvertures plus variées dans la grille Instagram.",
-        "Les versions de Teufy sont numérotées (comme celle-ci)."
-      ]
-    },
-    {
-      "numero": "1.13.01",
-      "date": "2026-11-19",
-      "notes": [
-        "Sécurité : contrôle complet (clés secrètes dans le code et son historique, injections de code, liens piégés, fausses soirées malveillantes, fichiers internes, bibliothèques). Corrigé : un nom de soirée piégé ne peut plus glisser une ligne cachée dans les fichiers agenda (.ics) ; bibliothèques du studio vidéo et du navigateur des robots mises à jour (failles critiques) ; lancement des décors du studio verrouillé.",
-        "Manger tard : un lieu ouvert dès le petit matin (boulangerie dès 4 h) n'est plus affiché « fermé » entre minuit et 6 h.",
-        "Numéro de mise à jour affiché en bas de chaque page."
-      ],
-      "titre": "Sécurité renforcée et horaires de nuit corrigés",
-      "public": [
-        "Les adresses ouvertes tôt le matin (boulangeries dès 4 h…) ne sont plus affichées « fermées » après minuit.",
-        "Site plus sûr.",
-        "Le numéro de version est affiché en bas de chaque page."
-      ]
-    }
-  ]
+ "_note": "Numéro de version affiché en pied de page du site et sur /mises-a-jour/ (directeur, 19/11/2026 : format « 1.13.02 », comme Minecraft). Règle : correction(s) seulement → dernier nombre +1 (1.13.02 → 1.13.03) ; nouvelle fonctionnalité → nombre du milieu +1 et le dernier revient à 01 (1.13.02 → 1.14.01) ; énorme fonctionnalité ou grosse refonte → premier nombre +1 (1.13.02 → 2.01.01). La plus récente en premier. Le site n'affiche que « titre » et « public » : phrases simples pour les visiteurs, sans détail technique ni nom de prestataire (directeur, 20/11/2026). « notes » reste interne. « titre » : 28 caractères au plus (il s'affiche en entier dans le bandeau « Nouveau » sur téléphone).",
+ "versions": [
+  {
+   "numero": "1.19.05",
+   "date": "2026-11-22",
+   "titre": "Plus de soirées trouvées",
+   "public": [
+    "On cherche encore plus de soirées chaque jour pour que tu n'en rates aucune.",
+    "Le site compte ses visites de façon anonyme, sans cookie, pour savoir ce qui t'est utile."
+   ],
+   "notes": [
+    "Eventbrite et Shotgun bloquent la lecture directe : recherche web ville par ville, 12 recherches par jour, 15 résultats.",
+    "Mesure d'audience GoatCounter sans cookie (signal image depuis app.js, CSP img-src), pages légales mises à jour, chiffres dans /pilotage/.",
+    "Tableau de bord : planning Instagram 14 jours, chiffres Instagram, contrôles de la semaine."
+   ]
+  },
+  {
+   "numero": "1.19.04",
+   "date": "2026-11-21",
+   "titre": "Recherche facile sur mobile",
+   "public": [
+    "Sur téléphone, le panneau de recherche se ferme facilement et ne bouge plus quand on fait défiler les filtres.",
+    "La ville de chaque soirée est visible partout, même dans les suggestions.",
+    "Des cartes de soirées plus nettes, avec une courte présentation quand l'organisateur en donne une."
+   ],
+   "notes": [
+    "Panneau de recherche : bouton × au-dessus du contenu, fermeture au doigt seulement depuis la poignée, hauteur suivant l'écran visible.",
+    "Suggestions : pastille de ville en petit sur deux lignes ; carrousels : infos et bouton groupés en bas ; accroche de secours tirée de la présentation.",
+    "Robots : test en échec ne bloquant plus la publication, comptes Instagram introuvables mis de côté 30 jours, veille technique relancée si GitHub saute son horaire."
+   ]
+  },
+  {
+   "numero": "1.19.03",
+   "date": "2026-11-20",
+   "titre": "Une recherche qui comprend les fautes de frappe",
+   "public": [
+    "La recherche trouve la soirée même avec une faute de frappe.",
+    "La recherche marche aussi dans toutes les langues du site.",
+    "Publications Instagram plus fiables : rien n'est noté publié tant que ce n'est pas vraiment en ligne."
+   ],
+   "notes": [
+    "Tests utilisateurs simulés (outils/tester-clients.cjs, 1000 clients) : recherche tolérante aux fautes, index de recherche introuvable hors du français (RACINE de app.min.js), lieu coupé dans les carrousels, pseudos Instagram dans les noms et accroches.",
+    "Robots : validations trompeuses retirées (stories, publication, veille, réponses d'IA relues contre le schéma), heures lues à l'heure de Paris, emojis retirés des visuels, apprentissage non biaisé, comptes vérifiés mis en cache."
+   ]
+  },
+  {
+   "numero": "1.19.02",
+   "date": "2026-11-20",
+   "titre": "Des soirées mieux présentées",
+   "public": [
+    "Les villes et les noms des lieux s'affichent correctement sur toutes les cartes.",
+    "Seules les soirées de la Côte d'Azur, de Monaco et du Var apparaissent dans les suggestions.",
+    "Beaucoup plus de soirées affichées avec leur affiche."
+   ],
+   "notes": [
+    "Pastille de ville bornée à l'image, masquée dans les suggestions ; filtre de zone du site (dansZoneSite) ; agenda Allevents « monaco » retiré (Monaca, PA).",
+    "Lieu écrit comme un pseudo Instagram : nom lisible, pseudo rangé dans les comptes, doublons fusionnés (« Le Servan » = « leservan_valbonne »).",
+    "Contrôle des soirées sans image : contenus/soirees-sans-image.json à chaque construction du site, alerte dans la veille technique.",
+    "Story « ce soir » : une affiche refusée n'emporte plus toute la story ; reprise possible jusqu'à 23 h.",
+    "Affiches : sans IA de lecture d'image disponible, l'affiche venue de la billetterie, du site source ou du post Instagram qui annonce la soirée est acceptée (avant : toutes écartées, environ 95 par construction)."
+   ]
+  },
+  {
+   "numero": "1.19.01",
+   "date": "2026-11-20",
+   "titre": "Des actus et des soirées toujours à jour",
+   "public": [
+    "Teufy trouve encore plus vite les nouvelles soirées et les actus de la nuit."
+   ],
+   "notes": [
+    "Moteur de recherche gratuit Tavily (secret TAVILY_API_KEY, 1 000 recherches par mois) : Groq écrit la requête, Tavily cherche, Groq répond uniquement à partir des pages trouvées et cite ses sources ; aucun résultat = rien d'inventé.",
+    "Au plus 30 recherches par jour ; prospection et fiches de lieux s'arrêtent à 15 pour garder la veille des actus et les soirées ; recherche des soirées : 6 sources par jour à tour de rôle."
+   ]
+  },
+  {
+   "numero": "1.18.01",
+   "date": "2026-11-20",
+   "titre": "Plus de billetteries et veille quotidienne",
+   "public": [
+    "Plus de concerts, festivals et soirées sur toute la Côte d'Azur, Monaco, Saint-Tropez et le Var.",
+    "Teufy vérifie chaque jour que ses informations sont complètes et à jour."
+   ],
+   "notes": [
+    "Billetteries ajoutées : Eventbrite (concerts et musique à Nice, Cannes, Monaco, Toulon ; Saint-Tropez, Fréjus), DICE Monaco, Allevents (7 villes), Xceed (Nice, Cannes, Monaco), Shotgun Nice.",
+    "Billetteries lues toutes les 6 h, 4 à la fois, dernier relevé gardé entre deux lectures : une source lente ne retarde plus les publications.",
+    "Veille technique quotidienne sans IA : version de l'API Instagram, modèles d'IA encore ouverts, actions GitHub et Node, failles npm, état de chaque billetterie, informations manquantes des soirées (contenus/veille-technique.json)."
+   ]
+  },
+  {
+   "numero": "1.17.01",
+   "date": "2026-11-20",
+   "titre": "Soirées des clubs lues à la source",
+   "public": [
+    "Les soirées annoncées par les clubs et les bars arrivent plus vite sur Teufy.",
+    "L'annuaire compte maintenant aussi les bars de Monaco et de Saint-Tropez.",
+    "La page « Ce soir » est de nouveau à jour."
+   ],
+   "notes": [
+    "Instagram : à chaque passage, 8 comptes relus en rotation, les clubs et bars d'abord (relus toutes les 12 h), les autres toutes les 24 h ; avant, toujours les 20 mêmes comptes et jamais les clubs.",
+    "Seuls les posts jamais lus partent à l'IA gratuite ; le nom et l'affiche annoncés par le club lui-même l'emportent sur ceux d'un autre site.",
+    "Sites officiels des clubs lus sans IA (données de soirée publiées par les pages), relevé gardé 12 h.",
+    "Annuaire : bars et pubs de la carte OpenStreetMap pour Monaco, Beausoleil, Saint-Tropez, Ramatuelle et Gassin.",
+    "Page « Ce soir » figée depuis le 18/11 (non enregistrée par les robots) : réparée."
+   ]
+  },
+  {
+   "numero": "1.16.01",
+   "date": "2026-11-20",
+   "titre": "Nouvelle page : Bien sortir",
+   "public": [
+    "Une page « Bien sortir » : les bons réflexes pour rentrer, garder son verre, appeler à l'aide, et acheter ses billets sans se faire arnaquer."
+   ],
+   "notes": [
+    "Site : page « Bien sortir » (sécurité en soirée, numéros d'urgence officiels, arnaques à la revente de billets), dans le menu Teufy et le pied de page, en 6 langues."
+   ]
+  },
+  {
+   "numero": "1.15.01",
+   "date": "2026-11-20",
+   "titre": "Teufy arrive sur TikTok",
+   "public": [
+    "Teufy publie aussi ses vidéos sur TikTok : soirées, bons plans et « Tague ton pote »."
+   ],
+   "notes": [
+    "TikTok : planning automatique de 1 à 2 vidéos par jour (12 h 30 et 19 h 30), jamais la même vidéo deux fois en 14 jours, sur une page interne non référencée avec téléchargement et légende à copier ; les reels Instagram publiés y sont ajoutés automatiquement."
+   ]
+  },
+  {
+   "numero": "1.14.06",
+   "date": "2026-11-20",
+   "titre": "Le site se remet à jour tout seul",
+   "public": [
+    "Les fiches des lieux, les affiches et les traductions du site se remettent à jour automatiquement."
+   ],
+   "notes": [
+    "Site : les tâches qui lisaient les affiches, cherchaient sur le web ou complétaient les fiches des lieux avec Gemini passent par Groq (gratuit) tant que Gemini est en pause."
+   ]
+  },
+  {
+   "numero": "1.14.05",
+   "date": "2026-11-20",
+   "titre": "Des affiches mieux vérifiées",
+   "public": [
+    "Les affiches des soirées sont mieux vérifiées (bon nom, bonne date) avant d'apparaître sur notre Instagram."
+   ],
+   "notes": [
+    "Veille : une fois par heure de 8 h à 2 h, pause la nuit (au lieu de toutes les 30 min).",
+    "Affiches : vérification par Groq (modèle qui lit les images) quand Gemini est indisponible ; une réponse incomplète n'est jamais prise pour un accord.",
+    "IA : une clé Grok (xAI) enregistrée sous le nom GROQ_API_KEY est reconnue."
+   ]
+  },
+  {
+   "numero": "1.14.04",
+   "date": "2026-11-20",
+   "titre": "Les actus reviennent plus vite",
+   "public": [
+    "Les actus de la nuit (line-up, nouvelles dates, festivals) reviennent plus vite."
+   ],
+   "notes": [
+    "IA : Groq ajouté (gratuit, sans carte bancaire) pour la veille et les actus, avec recherche web ; GitHub Models retiré (fermé par GitHub le 30/07/2026, il répondait « OK » à tout). Une réponse vide ou non conforme n'est jamais prise pour un succès."
+   ]
+  },
+  {
+   "numero": "1.14.03",
+   "date": "2026-11-20",
+   "titre": "Un nouveau planning sur Instagram",
+   "public": [
+    "Plus de soirées techno sur notre Instagram : chaque jeudi, avec l'Édition Tekno un jeudi sur deux.",
+    "De nouvelles vidéos « Tague ton pote » à partager avec tes potes."
+   ],
+   "notes": [
+    "Instagram : planning revu selon les chiffres (techno chaque jeudi, « Tague ton pote » à la place du Grand Débat, 2 spots promo par semaine, plus de guide « où manger » ni de post le samedi, publication entre 16 h et 18 h).",
+    "Instagram : 4 nouveaux épisodes « Tague ton pote », et les 2 premiers refaits sans emoji ni verre en gros plan.",
+    "Revue des chiffres et des comptes comparables deux fois par semaine, avec décisions notées dans ANALYSE-ENGAGEMENT.md."
+   ]
+  },
+  {
+   "numero": "1.14.02",
+   "date": "2026-11-20",
+   "titre": "Des publications plus naturelles",
+   "public": [
+    "Les légendes de nos posts Instagram sont plus naturelles et plus simples à partager avec tes potes."
+   ],
+   "notes": [
+    "Instagram : légendes sans emoji, terminées par un appel à envoyer le post à un pote (l'appel à s'abonner des promos est gardé). Analyse complète : ANALYSE-ENGAGEMENT.md."
+   ]
+  },
+  {
+   "numero": "1.14.01",
+   "date": "2026-11-20",
+   "titre": "La page Nouveautés est en ligne",
+   "public": [
+    "Cette page : toutes les nouveautés de Teufy, version par version. Un bandeau te prévient quand une nouvelle version sort.",
+    "Les couvertures de nos réels s'affichent en entier aussi dans la grille du profil Instagram (plus de titre coupé)."
+   ],
+   "notes": [
+    "Site : page « Nouveautés » (adresse /mises-a-jour/), lien dans le menu Teufy avec la pastille « Nouveau » pendant 14 jours, bandeau en haut des pages pendant 7 jours après une nouvelle version.",
+    "Instagram : couvertures de réels recomposées pour la grille du profil (recadrage 3:4) et pour l'onglet Réels (9:16) ; textes et pastilles hors des zones où Instagram affiche le nombre de vues et ses icônes. Même précaution pour les couvertures des posts."
+   ]
+  },
+  {
+   "numero": "1.13.02",
+   "date": "2026-11-19",
+   "notes": [
+    "Instagram : chaque publication est relue sur Instagram juste après son envoi (en ligne, bon format, bon nombre d'images, légende, couverture) au lieu de se fier au simple « ok » de l'API.",
+    "Instagram : auto-contrôle à chaque passage horaire de tout ce qui devait sortir dans la journée (posts, reels, stories) ; ce qui manque est repris au passage suivant, et toute anomalie est signalée.",
+    "Instagram : une story ratée n'est plus notée « faite » ; seules les images manquantes sont republiées au passage suivant.",
+    "Instagram : une partie du quota de l'API est gardée pour les publications (les analyses de comptes passent après).",
+    "Instagram : si un post ne peut pas être préparé (panne), un format de secours sort à sa place.",
+    "Instagram : chaque reel a sa couverture dans la charte, avec un bouton lecture et la pastille « RÉEL » pour le distinguer des posts ; cinq mises en page de couverture tournent dans la grille.",
+    "Numérotation des versions au format 1.13.02."
+   ],
+   "titre": "Une Teufy plus fiable sur Instagram",
+   "public": [
+    "Plus aucune publication oubliée : chaque post, réel et story est vérifié une fois en ligne, et repris s'il manque.",
+    "Les réels se reconnaissent d'un coup d'œil dans notre grille Instagram (pastille « RÉEL »).",
+    "Des couvertures plus variées dans la grille Instagram.",
+    "Les versions de Teufy sont numérotées (comme celle-ci)."
+   ]
+  },
+  {
+   "numero": "1.13.01",
+   "date": "2026-11-19",
+   "notes": [
+    "Sécurité : contrôle complet (clés secrètes dans le code et son historique, injections de code, liens piégés, fausses soirées malveillantes, fichiers internes, bibliothèques). Corrigé : un nom de soirée piégé ne peut plus glisser une ligne cachée dans les fichiers agenda (.ics) ; bibliothèques du studio vidéo et du navigateur des robots mises à jour (failles critiques) ; lancement des décors du studio verrouillé.",
+    "Manger tard : un lieu ouvert dès le petit matin (boulangerie dès 4 h) n'est plus affiché « fermé » entre minuit et 6 h.",
+    "Numéro de mise à jour affiché en bas de chaque page."
+   ],
+   "titre": "Sécurité renforcée et horaires de nuit corrigés",
+   "public": [
+    "Les adresses ouvertes tôt le matin (boulangeries dès 4 h…) ne sont plus affichées « fermées » après minuit.",
+    "Site plus sûr.",
+    "Le numéro de version est affiché en bas de chaque page."
+   ]
+  }
+ ]
 }

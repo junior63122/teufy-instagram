@@ -1493,7 +1493,7 @@ ${(() => { // Image principale de la page (fetchpriority="high") annoncée dès 
   const src = m[0].match(/\ssrc="([^"]+)"/)?.[1], srcset = m[0].match(/\ssrcset="([^"]+)"/)?.[1], sizes = m[0].match(/\ssizes="([^"]+)"/)?.[1];
   return src ? `<link rel="preload" as="image" href="${src}"${srcset ? ` imagesrcset="${srcset}"` : ''}${sizes ? ` imagesizes="${sizes}"` : ''} fetchpriority="high">` : ''; })()}
 <style>${CSS_EN_LIGNE.replace(/__BASE__/g, base)}</style>
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-Du+OJKJSbdUgz5nrHeWWINvez6XKDDU/tyj/5c2uvwo=' 'sha256-${HASH_SPECULATION}'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://tiles.openfreemap.org; font-src 'self'; media-src 'self'; connect-src 'self' https://tiles.openfreemap.org; worker-src 'self' blob:; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-Du+OJKJSbdUgz5nrHeWWINvez6XKDDU/tyj/5c2uvwo=' 'sha256-${HASH_SPECULATION}'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://tiles.openfreemap.org https://teufy.goatcounter.com; font-src 'self'; media-src 'self'; connect-src 'self' https://tiles.openfreemap.org; worker-src 'self' blob:; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="tdm-reservation" content="1"><meta name="tdm-policy" content="${URL_SITE}cgu/"><meta name="robots" content="max-image-preview:large, noai, noimageai">
 <script>document.documentElement.classList.add('js')</script>
