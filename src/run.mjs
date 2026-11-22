@@ -333,12 +333,28 @@ if (cible === 'site') {
   const signature = `${isoLocal(NOW)}|${await empreinte(actusF)}|${await empreinte(evF)}|${createHash('sha1').update(code).digest('hex').slice(0, 10)}`;
   if (!flag('force') && existsSync(marque) && (await readFile(marque, 'utf8')).trim() === signature) { console.log('Site déjà à jour.'); process.exit(0); }
   const { construireSite } = await import('./site.mjs');
+  const LLM_SITE = await import('./llm.mjs');
   const igSite = igConfig();
   const { rechercherFrance, rechercherOccitanie } = await import('./recherche.mjs');
+  // Rubriques France et Occitanie (22/11/2026) : leur recherche se relançait à chaque passage tant qu'elle n'avait pas réussi,
+  // et avec l'IA gratuite saturée elle prenait les 15 minutes du passage : le site n'était plus reconstruit. Désormais :
+  // 5 minutes au plus, puis pas de nouvel essai avant 6 h (en attendant, leurs soirées déjà trouvées restent affichées).
+  const ESSAI_REG = path.join(ROOT, 'contenus', 'regions-essai.json');
+  const dernierEssai = (() => { try { return Date.parse(JSON.parse(readFileSync(ESSAI_REG, 'utf8')).le) || 0; } catch { return 0; } })();
+  const sansRegions = Date.now() - dernierEssai < 6 * 3600e3 && !flag('force');
+  const avant = process.env.SANS_RECHERCHE;
+  if (sansRegions) process.env.SANS_RECHERCHE = '1';
+  else { writeFileSync(ESSAI_REG, JSON.stringify({ le: new Date().toISOString() }) + '\n'); LLM_SITE.echeanceIA(Date.now() + 5 * 60e3); }
   const france = await rechercherFrance({ config, now: NOW }).catch((err) => { console.error(`France : ${err.message}`); return { evenements: [] }; });
   // Occitanie : rubrique du site uniquement (les posts Instagram restent 100 % Côte d'Azur).
   const occitanie = await rechercherOccitanie({ config, now: NOW }).catch((err) => { console.error(`Occitanie : ${err.message}`); return { evenements: [] }; });
-  await construireSite({ events: await events(), eventsFrance: france.evenements || [], eventsOccitanie: occitanie.evenements || [], hist, config, now: NOW, ig: igSite, api: igSite ? { businessDiscovery, compteMedia } : {} });
+  if (avant === undefined) delete process.env.SANS_RECHERCHE; else process.env.SANS_RECHERCHE = avant;
+  LLM_SITE.echeanceIA();
+  // Soirées de la Côte (recherche, Instagram, billetteries) : 6 minutes d'IA au plus, le site doit sortir dans le passage.
+  LLM_SITE.echeanceIA(Date.now() + 6 * 60e3);
+  const evCote = await events();
+  LLM_SITE.echeanceIA();
+  await construireSite({ events: evCote, eventsFrance: france.evenements || [], eventsOccitanie: occitanie.evenements || [], hist, config, now: NOW, ig: igSite, api: igSite ? { businessDiscovery, compteMedia } : {} });
   await writeFile(marque, signature + '\n');
   process.exit(0);
 }
