@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:l-homme-qui-plantait-des-arbres-2026-11-26@teufy
+DTSTAMP:20261122T202119Z
+DTSTART:20261126T190000Z
+DTEND:20261127T000000Z
+SUMMARY:L’Homme qui plantait des arbres
+LOCATION:Le quartier du poulpe\, 41 avenue Bellevue\, 06100 Nice\, Nice
+DESCRIPTION:Billets : https://www.eventbrite.com/e/lhomme-qui-plantait-des-arbres-tickets-2005004339954\nVia Teufy @teufy_official
+URL:https://www.eventbrite.com/e/lhomme-qui-plantait-des-arbres-tickets-2005004339954
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : L’Homme qui plantait des arbres
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : L’Homme qui plantait des arbres
+END:VALARM
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:soiree-live-music-avec-dolce-farniente-2026-12-13@teufy
+DTSTAMP:20261122T202119Z
+DTSTART:20261213T183000Z
+DTEND:20261213T233000Z
+SUMMARY:Soirée Live Music avec Dolce Farniente
+LOCATION:Le quartier du poulpe\, 41 avenue Bellevue\, 06100 Nice\, Nice
+DESCRIPTION:Billets : https://www.eventbrite.com/e/soiree-live-music-avec-dolce-farniente-tickets-2005219313947\nVia Teufy @teufy_official
+URL:https://www.eventbrite.com/e/soiree-live-music-avec-dolce-farniente-tickets-2005219313947
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Soirée Live Music avec Dolce Farniente
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Soirée Live Music avec Dolce Farniente
+END:VALARM
+END:VEVENT
+END:VCALENDAR

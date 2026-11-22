@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:lillian-palmer-en-concert-a-swingin-noel-2026-12-06@teufy
+DTSTAMP:20261122T202119Z
+DTSTART:20261206T173000Z
+DTEND:20261206T223000Z
+SUMMARY:Lillian Palmer en concert – A Swingin’ Noël
+LOCATION:Le Quartier du Poulpe\, 34 Boulevard Auguste Raynaud\, 06100 Nice\, Nice
+DESCRIPTION:Billets : https://www.eventbrite.com/e/lillian-palmer-en-concert-a-swingin-noel-tickets-1998868741213\nVia Teufy @teufy_official
+URL:https://www.eventbrite.com/e/lillian-palmer-en-concert-a-swingin-noel-tickets-1998868741213
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Lillian Palmer en concert – A Swingin’ Noël
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Lillian Palmer en concert – A Swingin’ Noël
+END:VALARM
+END:VEVENT
+END:VCALENDAR

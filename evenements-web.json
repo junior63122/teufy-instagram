@@ -7,6 +7,31 @@
   "evenements": [
     {
       "source": "web",
+      "source_site": "Instagram @trafalbarnice",
+      "name": "Traf’ Fever Saturday",
+      "start": "2026-11-22T19:00:00.000Z",
+      "venue": "Trafalbar Vieux Nice",
+      "city": "Nice",
+      "address": "",
+      "url": "https://www.instagram.com/p/DgALkADh3hF/",
+      "image": "https://scontent-iad3-2.cdninstagram.com/v/t39.30808-6/915606962_1459099532861089_1162063003974808949_n.jpg?stp=dst-jpg_e35_tt6",
+      "price": 0,
+      "tags": [
+        "house",
+        "techno"
+      ],
+      "description": "Trafalbar Vieux Nice ouvre ses portes du mardi au samedi. Happy hour 20h-22h, 1 acheté = 1 offert. Ambiance rythmée, musique house et techno. Entrée gratuite avant 2h30. Idéal pour les étudiants et les 17‑30 ans qui cherchent une soirée décontractée.",
+      "public_cible": 1,
+      "confiance": 0.6,
+      "buzz": 0.4,
+      "buzz_raison": "Happy hour, club populaire, cible jeune.",
+      "accroche": "Happy hours 20h-22h, 1 acheté = 1 offert, club à l’ambiance pirate.",
+      "instagram": [
+        "trafalbarnice"
+      ]
+    },
+    {
+      "source": "web",
       "source_site": "Instagram",
       "name": "BLOCK",
       "start": "2026-11-25T23:00:00.000Z",
@@ -3238,5 +3263,5 @@
       "offres": []
     }
   ],
-  "maj_instagram": "2026-11-22T19:13:23.940Z"
+  "maj_instagram": "2026-11-22T20:12:45.801Z"
 }

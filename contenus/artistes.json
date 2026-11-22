@@ -922,5 +922,41 @@
    "nom": "Dezze Recital",
    "type": "dj"
   }
+ ],
+ "0bd48c6b249e": [
+  {
+   "nom": "Couleur du Temps",
+   "type": "groupe"
+  }
+ ],
+ "53fc37324c5c": [],
+ "6beb5ad50f32": [
+  {
+   "nom": "François Voisin",
+   "type": "artiste"
+  }
+ ],
+ "ab1fb38e2b2f": [],
+ "559dd99f9e08": [
+  {
+   "nom": "Thomas Vollaire",
+   "type": "artiste"
+  },
+  {
+   "nom": "Bastian Huber",
+   "type": "artiste"
+  }
+ ],
+ "fe619ef24042": [
+  {
+   "nom": "Lillian Palmer",
+   "type": "chanteur"
+  }
+ ],
+ "fdff0c7906a1": [
+  {
+   "nom": "Dolce Farniente",
+   "type": "groupe"
+  }
  ]
 }
