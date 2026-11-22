@@ -7,6 +7,34 @@
   "evenements": [
     {
       "source": "web",
+      "source_site": "instagram",
+      "name": "ALIENDUCH",
+      "start": "2026-11-21T20:00:00.000Z",
+      "venue": "L'Antre",
+      "city": "Nice",
+      "address": "",
+      "url": "https://www.instagram.com/reel/DgA7GLlRIuU/",
+      "image": "",
+      "price": 5,
+      "tags": [
+        "house",
+        "techno",
+        "acid",
+        "rave",
+        "trance"
+      ],
+      "description": "ALIENDUCH, l’artistique acid‑techno de l’Acid Concept Production, prend les platines le samedi 21 novembre à L'Antre, Vieux‑Nice. Le set, qui débute à 21 h, mélange acid, rave, techno et trance pour une nuit de 3 h 30 min. L’ambiance club, climatisée et équipée d’un son Martin Audio, promet une expérience club optimale. Le tarif est de 5 € et l’entrée est libre à partir de 21 h.",
+      "public_cible": 1,
+      "confiance": 0.9,
+      "buzz": 0.5,
+      "buzz_raison": "line‑up confirmé, lieu réputé, date proche",
+      "accroche": "ALIENDUCH, acid‑techno à L'Antre, 21 novembre, 21 h – 02:30 h",
+      "instagram": [
+        "lantretechno"
+      ]
+    },
+    {
+      "source": "web",
       "source_site": "Instagram",
       "name": "La Tocardise – édition Hard",
       "start": "2026-12-12T22:00:00.000Z",
@@ -3147,5 +3175,5 @@
       "offres": []
     }
   ],
-  "maj_instagram": "2026-11-22T16:42:11.754Z"
+  "maj_instagram": "2026-11-22T17:12:24.100Z"
 }
