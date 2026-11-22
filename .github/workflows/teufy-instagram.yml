@@ -72,6 +72,8 @@ jobs:
       # Règle du directeur : IA payante seulement pour les passages automatiques (horaire GitHub ou déclencheur externe).
       TEUFY_IA_MANUEL: ${{ (github.event_name == 'schedule' || startsWith(inputs.quoi, 'horaire') || inputs.exception_ia) && '0' || '1' }}
       IG_API_HOST: ${{ vars.IG_API_HOST || 'graph.facebook.com' }}
+      EVENTBRITE_TOKEN: ${{ secrets.EVENTBRITE_TOKEN || '' }} # API officielle Eventbrite, jeton personnel gratuit (22/11/2026)
+      TICKETMASTER_KEY: ${{ secrets.TICKETMASTER_KEY || '' }} # API officielle Ticketmaster Discovery, clé gratuite (22/11/2026)
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub Models, gratuit
       MEDIA_BASE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/media
       MEDIA_FALLBACK_URL: https://raw.githubusercontent.com/${{ github.repository }}/${{ github.ref_name }}/media

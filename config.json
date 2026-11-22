@@ -238,7 +238,9 @@
     "_note": "Recherche des soirées sur le web et chez les organisateurs Instagram par Claude (clé ANTHROPIC_API_KEY). Coût indicatif : 1 à 3 € par recherche, environ 2 par semaine.",
     "pertinence_min_site": 0.35,
     "passes_tavily": 12,
-    "_passes_tavily": "22/11/2026 : 12 recherches de soirées par jour (au lieu de 6) depuis qu'Eventbrite et Shotgun bloquent nos robots ; 15 résultats par recherche (même coût). Plafond Tavily : 30 par jour, 1 000 par mois."
+    "_passes_tavily": "22/11/2026 : 12 recherches de soirées par jour (au lieu de 6) depuis qu'Eventbrite et Shotgun bloquent nos robots ; 15 résultats par recherche (même coût). Plafond Tavily : 30 par jour, 1 000 par mois.",
+    "comptes_par_passage": 16,
+    "_comptes_par_passage": "22/11/2026 : 16 comptes Instagram de clubs et organisateurs relus à chaque passage (au lieu de 8), pour voir chaque soirée annoncée dans l'heure ; reste loin de la limite de l'API (200 appels par heure)."
   },
   "voix_off": {
     "fournisseur": "aucune",

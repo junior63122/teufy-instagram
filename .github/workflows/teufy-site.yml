@@ -22,6 +22,8 @@ jobs:
       IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN || secrets.INSTAGRAM_ACCESS_TOKEN }}
       IG_USER_ID: ${{ secrets.IG_USER_ID || secrets.INSTAGRAM_USER_ID }}
       IG_API_HOST: ${{ vars.IG_API_HOST || 'graph.facebook.com' }}
+      EVENTBRITE_TOKEN: ${{ secrets.EVENTBRITE_TOKEN || '' }} # API officielle Eventbrite, jeton personnel gratuit (22/11/2026)
+      TICKETMASTER_KEY: ${{ secrets.TICKETMASTER_KEY || '' }} # API officielle Ticketmaster Discovery, clé gratuite (22/11/2026)
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

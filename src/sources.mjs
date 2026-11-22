@@ -58,6 +58,12 @@ export async function collectEvents(config, { root, debugDir, fixturesDir, webEv
     if (!fixturesDir && trouves.length) await writeFile(FICHIER_BIL, JSON.stringify({ maj: new Date().toISOString(), evenements: trouves, en_panne: [...new Set(report.filter((r) => r.erreur).map((r) => r.url))] }, null, 1) + '\n').catch(() => {});
   }
   if (!fixturesDir && nouvelles.n) await writeFile(FICHIER_EB, JSON.stringify(Object.fromEntries([...vus].map(([k, d]) => [k, { le: ebCache[k]?.le || new Date().toISOString(), d }])), null, 1) + '\n').catch(() => {});
+  // API officielles (Eventbrite, Ticketmaster), 22/11/2026 : remplacent la lecture des pages bloquées. Sans clé : sautées.
+  if (!fixturesDir && root) {
+    try { const { lireApiBilletteries } = await import('./api-billetteries.mjs'); const r = await lireApiBilletteries({ root, villes: (e) => VILLES_COTE.test(`${e.city} ${e.address} ${e.venue}`) });
+      report.push(...r.rapport); all.push(...r.evenements); }
+    catch (err) { report.push({ source: 'api', erreur: String(err.message || err) }); }
+  }
   if (webEvents.length || !fixturesDir) report.push({ source: 'web', evenements: webEvents.length });
   all.push(...webEvents);
   // Sites officiels des clubs et bars (sans IA, relevé gardé 12 h).
