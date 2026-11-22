@@ -2,17 +2,13 @@
   "jour": "2026-11-22",
   "plan": [
     {
-      "type": "soirees",
+      "type": "astuce",
       "cles": [
-        "Afro Bringue",
-        "Sun7 Rooftop Le Méridien"
+        "a-codes"
       ],
       "frames": [
         {
-          "image": "2026-11-22-soirees-0.jpg"
-        },
-        {
-          "image": "2026-11-22-soirees-1.jpg"
+          "image": "2026-11-22-astuce.jpg"
         }
       ]
     }
