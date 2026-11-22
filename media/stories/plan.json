@@ -1,14 +1,18 @@
 {
-  "jour": "2026-11-21",
+  "jour": "2026-11-22",
   "plan": [
     {
-      "type": "coeur",
+      "type": "soirees",
       "cles": [
-        "c-DO YOU LIKE… TEKNO ?"
+        "Afro Bringue",
+        "Sun7 Rooftop Le Méridien"
       ],
       "frames": [
         {
-          "image": "2026-11-21-coeur.jpg"
+          "image": "2026-11-22-soirees-0.jpg"
+        },
+        {
+          "image": "2026-11-22-soirees-1.jpg"
         }
       ]
     }
