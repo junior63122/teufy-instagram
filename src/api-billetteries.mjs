@@ -13,7 +13,15 @@ import path from 'node:path';
 
 const lire = (f, d) => { try { return JSON.parse(readFileSync(f, 'utf8')); } catch { return d; } };
 const attendre = (ms) => new Promise((ok) => setTimeout(ok, ms));
-const ZONES = [{ nom: 'Nice', latlong: '43.70,7.26', rayon: 45 }, { nom: 'Toulon', latlong: '43.20,6.05', rayon: 40 }, { nom: 'Fréjus', latlong: '43.43,6.74', rayon: 25 }];
+// Zones Ticketmaster (22/11/2026, directeur : « ce n'est pas que la Côte d'Azur, mais aussi les grandes villes ») : la Côte, l'Occitanie et
+// les grandes villes de la rubrique France ; seulement la musique (concerts, festivals, soirées), pas le sport ni le théâtre.
+const ZONES = [
+  { nom: 'Nice', latlong: '43.70,7.26', rayon: 45 }, { nom: 'Toulon', latlong: '43.20,6.05', rayon: 40 }, { nom: 'Fréjus', latlong: '43.43,6.74', rayon: 25 },
+  { nom: 'Montpellier', latlong: '43.61,3.88', rayon: 30 }, { nom: 'Toulouse', latlong: '43.60,1.44', rayon: 30 }, { nom: 'Nîmes', latlong: '43.84,4.36', rayon: 20 }, { nom: 'Perpignan', latlong: '42.70,2.90', rayon: 25 },
+  { nom: 'Paris', latlong: '48.86,2.35', rayon: 15 }, { nom: 'Lyon', latlong: '45.76,4.84', rayon: 20 }, { nom: 'Marseille', latlong: '43.30,5.37', rayon: 20 },
+  { nom: 'Bordeaux', latlong: '44.84,-0.58', rayon: 20 }, { nom: 'Lille', latlong: '50.63,3.06', rayon: 20 }, { nom: 'Nantes', latlong: '47.22,-1.55', rayon: 20 },
+  { nom: 'Strasbourg', latlong: '48.58,7.75', rayon: 20 }, { nom: 'Rennes', latlong: '48.11,-1.68', rayon: 20 }, { nom: 'Grenoble', latlong: '45.19,5.72', rayon: 20 }, { nom: 'Aix-en-Provence', latlong: '43.53,5.45', rayon: 15 },
+];
 
 async function json(url, opts = {}) {
   const r = await fetch(url, { ...opts, signal: AbortSignal.timeout(25000) });
@@ -46,14 +54,17 @@ export function depuisTicketmaster(e) {
 }
 
 async function eventbrite({ root, token, log, villes }) {
+  // Seulement des soirées (pas d'ateliers, conférences, stand-up…) : mêmes règles que pour les pages des billetteries.
+  const { PAS_SOIREE, EST_SOIREE } = await import('./recherche.mjs');
+  const soiree = (t) => EST_SOIREE.test(t) && !PAS_SOIREE.test(t);
   const H = { headers: { authorization: `Bearer ${token}` } };
   const etat = lire(path.join(root, 'contenus', 'eventbrite-organisateurs.json'), { organisateurs: {}, evenements_vus: {} });
   // 1. Organisateurs : à partir des soirées Eventbrite déjà connues (pages lues avant le blocage + recherche web).
   const urls = [...Object.keys(lire(path.join(root, 'contenus', 'eventbrite-pages.json'), {})),
-    ...(lire(path.join(root, 'evenements-web.json'), {}).evenements || []).map((e) => e.url)];
+    ...['evenements-web.json', 'evenements-france.json', 'evenements-occitanie.json'].flatMap((f) => (lire(path.join(root, f), {}).evenements || []).map((e) => e.url))];
   let lus = 0;
   for (const id of [...new Set(urls.map(idEventbrite).filter(Boolean))]) {
-    if (etat.evenements_vus[id] || lus >= 60) continue;
+    if (etat.evenements_vus[id] || lus >= 120) continue;
     try { const e = await json(`https://www.eventbriteapi.com/v3/events/${id}/`, H); if (e.organizer_id) etat.organisateurs[e.organizer_id] ||= { depuis: id, le: new Date().toISOString() }; etat.evenements_vus[id] = new Date().toISOString(); }
     catch (err) {
       // Jeton refusé : on s'arrête et on le dit (avant : erreur avalée, « 0 organisateur » sans explication).
@@ -69,7 +80,7 @@ async function eventbrite({ root, token, log, villes }) {
   for (const org of Object.keys(etat.organisateurs)) {
     try {
       const r = await json(`https://www.eventbriteapi.com/v3/organizers/${org}/events/?status=live&order_by=start_asc&expand=venue,ticket_availability&page_size=50`, H);
-      for (const e of r.events || []) { recues++; const x = depuisEventbrite(e); if (x.start && villes(x)) sortie.push(x); else ecartees.push(`${x.name.slice(0, 40)} (${x.city || x.venue || 'lieu inconnu'})`); }
+      for (const e of r.events || []) { recues++; const x = depuisEventbrite(e); if (x.start && villes(x) && soiree(`${x.name} ${x.description}`)) sortie.push(x); else ecartees.push(`${x.name.slice(0, 40)} (${x.city || x.venue || 'lieu inconnu'})`); }
     } catch (err) { if (/HTTP 40[13]/.test(err.message)) throw new Error(`Eventbrite : jeton refusé (${err.message})`); erreurs++; if (erreurs <= 3) log(`  Eventbrite (API) : organisateur ${org} illisible (${err.message})`); }
     await attendre(250);
   }
@@ -85,7 +96,7 @@ async function ticketmaster({ key, log, villes }) {
   for (const z of ZONES) {
     for (let page = 0; page < 3; page++) {
       const u = new URL('https://app.ticketmaster.com/discovery/v2/events.json');
-      for (const [k, v] of Object.entries({ apikey: key, latlong: z.latlong, radius: z.rayon, unit: 'km', locale: '*', size: 100, page, sort: 'date,asc', startDateTime: debut })) u.searchParams.set(k, v);
+      for (const [k, v] of Object.entries({ apikey: key, latlong: z.latlong, radius: z.rayon, unit: 'km', locale: '*', size: 100, page, sort: 'date,asc', startDateTime: debut, classificationName: 'Music' })) u.searchParams.set(k, v);
       const r = await json(u.href);
       for (const e of r._embedded?.events || []) { const x = depuisTicketmaster(e); if (x.start && villes(x)) sortie.push(x); }
       if ((r.page?.totalPages ?? 1) <= page + 1) break;
@@ -96,7 +107,8 @@ async function ticketmaster({ key, log, villes }) {
   return sortie;
 }
 
-/** Soirées des API officielles (relevé gardé 6 h). `villes(e)` : vrai si la soirée est dans la zone couverte. */
+/** Soirées des API officielles (relevé gardé 6 h). `villes(e)` : vrai si la soirée est dans une zone couverte par le site
+ *  (Côte d'Azur, Occitanie, grandes villes) ; le rangement par rubrique se fait ensuite (sources.mjs et run.mjs). */
 export async function lireApiBilletteries({ root, log = console.log, villes = () => true, now = Date.now() } = {}) {
   const f = path.join(root, 'contenus', 'api-billetteries.json');
   const cache = lire(f, {});

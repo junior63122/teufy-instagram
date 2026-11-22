@@ -17,3 +17,13 @@ test('Eventbrite et Ticketmaster → format commun, prix et heure réels seuleme
     classifications: [{ genre: { name: 'Hip-Hop/Rap' }, subGenre: { name: 'Undefined' } }], images: [{ url: 'a', width: 100 }, { url: 'b', width: 1000 }] });
   assert.deepEqual([t.start, t.venue, t.image, t.price, t.tags], ['2026-12-05T19:30:00.000Z', 'Palais Nikaïa', 'b', null, ['Hip-Hop/Rap']]);
 });
+
+test('rubrique d\'une soirée : Côte, Occitanie, grandes villes, ou rien', async () => {
+  const { rubriqueDe } = await import('../src/sources.mjs');
+  assert.equal(rubriqueDe({ city: 'Nice' }), 'cote');
+  assert.equal(rubriqueDe({ city: 'Toulon' }), 'cote');
+  assert.equal(rubriqueDe({ city: 'Montpellier' }), 'occitanie');
+  assert.equal(rubriqueDe({ city: 'Lyon' }), 'france');
+  assert.equal(rubriqueDe({ city: 'Aix-en-Provence' }), 'france');
+  assert.equal(rubriqueDe({ city: 'Berlin' }), '');
+});

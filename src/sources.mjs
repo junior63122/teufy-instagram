@@ -2,7 +2,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { extractEvents, dedupe, keyOf } from './extract.mjs';
-import { fusionner } from './recherche.mjs';
+import { fusionner, villeOccitanie, VILLES_FRANCE } from './recherche.mjs';
 import { dateParis } from './dates.mjs';
 
 const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36';
@@ -60,8 +60,8 @@ export async function collectEvents(config, { root, debugDir, fixturesDir, webEv
   if (!fixturesDir && nouvelles.n) await writeFile(FICHIER_EB, JSON.stringify(Object.fromEntries([...vus].map(([k, d]) => [k, { le: ebCache[k]?.le || new Date().toISOString(), d }])), null, 1) + '\n').catch(() => {});
   // API officielles (Eventbrite, Ticketmaster), 22/11/2026 : remplacent la lecture des pages bloquées. Sans clé : sautées.
   if (!fixturesDir && root) {
-    try { const { lireApiBilletteries } = await import('./api-billetteries.mjs'); const r = await lireApiBilletteries({ root, villes: (e) => VILLES_COTE.test(`${e.city} ${e.address} ${e.venue}`) });
-      report.push(...r.rapport); all.push(...r.evenements); }
+    try { const { lireApiBilletteries } = await import('./api-billetteries.mjs'); const r = await lireApiBilletteries({ root, villes: (e) => !!rubriqueDe(e) });
+      report.push(...r.rapport); all.push(...r.evenements.filter((e) => rubriqueDe(e) === 'cote')); }
     catch (err) { report.push({ source: 'api', erreur: String(err.message || err) }); }
   }
   if (webEvents.length || !fixturesDir) report.push({ source: 'web', evenements: webEvents.length });
@@ -217,6 +217,14 @@ async function heuresEventbrite(evs, vus, nouvelles = { n: 0 }) {
 // Bizouk (soirées afro, zouk, shatta, kompa…) : pas de page par ville. La page d'accueil liste les soirées avec leur
 // ville (« Clubbing · Nice ») ; on garde celles de la Côte d'Azur, de Monaco et du Var, puis on lit leur page
 // (données structurées de l'événement : date et heure, lieu, prix, image).
+/** Rubrique du site d'une soirée (22/11/2026) : « cote » (Côte d'Azur, Monaco, Var), « occitanie », « france » (grandes villes), ou ''. */
+export function rubriqueDe(e) {
+  const t = `${e.city || ''} ${e.address || ''} ${e.venue || ''}`;
+  if (VILLES_COTE.test(t)) return 'cote';
+  if (villeOccitanie(e)) return 'occitanie';
+  const n = t.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  return VILLES_FRANCE.some((v) => n.includes(v.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().split('-')[0])) ? 'france' : '';
+}
 const VILLES_COTE = /\b(nice|cannes|antibes|juan|monaco|monte.?carlo|menton|cagnes|saint.?laurent.?du.?var|villeneuve.?loubet|grasse|mougins|le cannet|mandelieu|vallauris|golfe.?juan|beausoleil|villefranche|toulon|la seyne|hy[eè]res|six.?fours|sanary|bandol|fr[ée]jus|saint.?rapha[eë]l|sainte.?maxime|saint.?tropez|draguignan|puget|brignoles|la valette|la garde)\b/i;
 async function soireesBizouk(html) {
   const liens = new Map();

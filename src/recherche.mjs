@@ -433,8 +433,8 @@ export function villeOccitanie(e) {
   return VILLES_OCCITANIE.find((v) => t.includes(sansAcc(v).split('-')[0])) || (RE_CP_OCCITANIE.test(t) ? e.city : '');
 }
 // Ce qui n'est pas une soirée (conférences, stand-up, ateliers, rencontres pro…) : écarté des pages billetterie.
-const PAS_SOIREE = /comedy|stand ?up|humou?r|conf[ée]rence|atelier|workshop|formation|s[ée]minaire|networking|r[ée]seautage|[ée]checs|meetup|webinar|salon|rencontre(s)? (pro|d'affaires)|apéropreneur|yoga|m[ée]ditation|visite guid|dégustation de vin|speed ?dating|quiz|book ?club|lecture|jeux|vide[- ]?dressing|clothes|sale\b|afterwork|after work|[ée]loquence|brocante|march[ée] de/i;
-const EST_SOIREE = /soir[ée]e|party|club|\bdj\b|techno|house|[ée]lectro|\brap\b|afro|shatta|dancehall|reggaeton|latino|kompa|zouk|open ?air|festival|night|rave|disco|bal\b|concert|live/i;
+export const PAS_SOIREE = /comedy|stand ?up|humou?r|conf[ée]rence|atelier|workshop|formation|s[ée]minaire|networking|r[ée]seautage|[ée]checs|meetup|webinar|salon|rencontre(s)? (pro|d'affaires)|apéropreneur|yoga|m[ée]ditation|visite guid|dégustation de vin|speed ?dating|quiz|book ?club|lecture|jeux|vide[- ]?dressing|clothes|sale\b|afterwork|after work|[ée]loquence|brocante|march[ée] de/i;
+export const EST_SOIREE = /soir[ée]e|party|club|\bdj\b|techno|house|[ée]lectro|\brap\b|afro|shatta|dancehall|reggaeton|latino|kompa|zouk|open ?air|festival|night|rave|disco|bal\b|concert|live/i;
 export function lireOccitanie() { return existsSync(CACHE_OCCITANIE) ? JSON.parse(readFileSync(CACHE_OCCITANIE, 'utf8')) : { maj: null, evenements: [] }; }
 export async function rechercherOccitanie({ config, now = new Date(), ia = LLM, log = console.log, force = false } = {}) {
   const R = config.recherche_web || {};
