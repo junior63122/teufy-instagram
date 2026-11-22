@@ -2432,45 +2432,6 @@
     },
     {
       "source": "web",
-      "source_site": "Instagram sun7riviera",
-      "name": "Sun7 Rooftop Le Méridien",
-      "start": "2026-11-22T13:00:00.000Z",
-      "venue": "Rooftop Le Méridien",
-      "city": "Nice",
-      "address": "",
-      "url": "https://shotgun.live/events/sun-7-rooftop-2",
-      "image": "https://scontent-sjc6-1.cdninstagram.com/v/t51.82787-15/888386173_18095445695689296_4243305765591842514_n.webp?stp=dst-jpg_e35_tt6&_nc_cat=111&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=RxEPAjG0LC0Q7kNvwH3iTLv&_nc_oc=AdrG-NGNeM7hoKQoimT_XCAuPl_Z82iMc4Fucf3YZCNRKFQ6KYEJXNaJwapGwbKrBDU&_nc_zt=23&_nc_ht=scontent-sjc6-1.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=0F17f3JF1eKev0lJ0Y5IvA&oh=00_AQSkxbFxhtffqC_lzWr4rhL-0VuFehSywiaSmj6Mcx8HmA&oe=6AF6B610",
-      "price": 11,
-      "tags": [
-        "house",
-        "latin house"
-      ],
-      "description": "",
-      "public_cible": 0.85,
-      "confiance": 0.95,
-      "buzz": 0.65,
-      "buzz_raison": "Day party sur un rooftop réputé de la Promenade des Anglais.",
-      "accroche": "Day party house sur le rooftop du Méridien face à la mer avec sunset et dress code bleu et blanc.",
-      "instagram": [
-        "sun7riviera"
-      ],
-      "billetterie_cherchee": true,
-      "offres": [
-        {
-          "plateforme": "shotgun.live",
-          "url": "https://shotgun.live/events/sun-7-rooftop-2",
-          "prix": 11
-        }
-      ],
-      "sources_sites": [
-        "Instagram sun7riviera",
-        "Shotgun.live",
-        "Instagram"
-      ],
-      "offres_cherchees": true
-    },
-    {
-      "source": "web",
       "source_site": "Fnac Spectacles",
       "name": "Skarra Mucci & Manudigital — Ragga Blasta Tour",
       "start": "2026-11-27T19:30:00.000Z",
@@ -3273,5 +3234,5 @@
       "offres": []
     }
   ],
-  "maj_instagram": "2026-11-22T18:41:52.391Z"
+  "maj_instagram": "2026-11-22T19:13:23.940Z"
 }
