@@ -46,6 +46,14 @@ jobs:
           command -v ffmpeg >/dev/null || timeout 240 sudo apt-get install -y --no-install-recommends ffmpeg >/dev/null 2>&1 || true
           python3 -c "import numpy" 2>/dev/null || pip install --quiet numpy
           node src/drive.mjs
+      # Agendas ouverts (22/11/2026) : DATAtourisme (export quotidien des offices de tourisme, sans clé) et OpenAgenda (agendas
+      # officiels des villes, clé gratuite OPENAGENDA_KEY) : soirées de la Côte, d'Occitanie et des grandes villes. Sans IA.
+      - name: Agendas ouverts (DATAtourisme, OpenAgenda)
+        continue-on-error: true
+        timeout-minutes: 15
+        env:
+          OPENAGENDA_KEY: ${{ secrets.OPENAGENDA_KEY || '' }}
+        run: node src/agendas.mjs
       # Visites du site (GoatCounter, sans cookie) pour le tableau de bord ; clé en lecture seule dans le secret GOATCOUNTER_TOKEN.
       - name: Visites du site
         continue-on-error: true
@@ -57,7 +65,7 @@ jobs:
         run: |
           git config user.name "teufy-bot"
           git config user.email "teufy-bot@users.noreply.github.com"
-          git add -A -- contenus/veille-technique.json contenus/drive.json contenus/visites.json
+          git add -A -- contenus/veille-technique.json contenus/drive.json contenus/visites.json contenus/agendas.json
           git diff --cached --quiet && exit 0
           git commit -m "Teufy : veille technique du jour [skip ci]"
           for i in 1 2 3; do git pull --rebase -X theirs --autostash && git push && break; git rebase --abort 2>/dev/null; sleep 5; done

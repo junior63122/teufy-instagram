@@ -28,3 +28,10 @@ test('rubrique d\'une soirée : Côte, Occitanie, grandes villes, ou rien', asyn
   assert.equal(rubriqueDe({ city: 'Aix-en-Provence' }), 'france');
   assert.equal(rubriqueDe({ city: 'Berlin' }), '');
 });
+
+test('agendas : lecture du CSV (guillemets, séparateur) et colonnes reconnues par leur nom', async () => {
+  const { ligneCsv, colonnes } = await import('../src/agendas.mjs');
+  assert.deepEqual(ligneCsv('a;"b; c";"d ""e"""', ';'), ['a', 'b; c', 'd "e"']);
+  const C = colonnes(['Nom_du_POI', 'Date_debut', 'Date_fin', 'Commune', 'Code_postal', 'Adresse_postale', 'Site_web', 'Categories_de_POI', 'Description']);
+  assert.deepEqual([C.nom, C.debut, C.fin, C.commune, C.cp, C.adresse, C.url, C.categories, C.description], [0, 1, 2, 3, 4, 5, 6, 7, 8]);
+});

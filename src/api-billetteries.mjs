@@ -56,9 +56,10 @@ export function depuisTicketmaster(e) {
 async function eventbrite({ root, token, log, villes }) {
   // Seulement des soirées (pas d'ateliers, conférences, stand-up…) : mêmes règles que pour les pages des billetteries.
   const { PAS_SOIREE, EST_SOIREE } = await import('./recherche.mjs');
-  // 22/11/2026 : premier relevé = bar crawls et pub crawls (l'alcool comme programme), dîners d'entrepreneurs, lancement
-  // d'optiques, ventes privées : écartés (Teufy ne met jamais l'alcool en avant et ne liste que des soirées).
-  const HORS_SUJET = /\b(pub|bar)\s*crawl|\bcrawl\b|\bshots?\b|open ?bar|dinner|d[iî]ner|entrepreneur|business|networking|optique|leica|black friday|vente priv|magicien|\(\s*\d{2}\s*-\s*\d{2}\s*ans/i;
+  // 22/11/2026 (directeur : « ces soirées correspondent à Teufy, Teufy est aussi pour les touristes, d'où le multilingue ») : bar
+  // crawls, pub crawls, speakeasy, soirées entre filles sont gardés ; seuls les événements qui ne sont pas des soirées sont écartés
+  // (vente privée, lancement de produit en magasin).
+  const HORS_SUJET = /black friday|vente priv|optique|leica|\bsoldes\b|portes ouvertes/i;
   const soiree = (t) => EST_SOIREE.test(t) && !PAS_SOIREE.test(t) && !HORS_SUJET.test(t);
   const H = { headers: { authorization: `Bearer ${token}` } };
   const etat = lire(path.join(root, 'contenus', 'eventbrite-organisateurs.json'), { organisateurs: {}, evenements_vus: {} });
@@ -92,6 +93,11 @@ async function eventbrite({ root, token, log, villes }) {
   }
   // 22/11/2026 : premier essai « 34 organisateurs, 0 soirée » sans explication : on dit ce qui est reçu et écarté.
   log(`  Eventbrite (API) : ${recues} soirée(s) reçue(s), ${ecartees.length} hors de nos villes${ecartees.length ? ` (ex. ${ecartees.slice(0, 5).join(' ; ')})` : ''}, ${erreurs} organisateur(s) illisible(s).`);
+  // Soirée répétée (ex. un bar crawl deux fois par semaine) : ses 3 prochaines dates seulement, pour ne pas inonder l'agenda.
+  sortie.sort((x, y) => x.start.localeCompare(y.start));
+  const parNom = {};
+  const garde = sortie.filter((x) => { const k = `${x.name.toLowerCase().replace(/\s+/g, ' ').trim()}|${x.venue}`; parNom[k] = (parNom[k] || 0) + 1; return parNom[k] <= 3; });
+  sortie.length = 0; sortie.push(...garde);
   writeFileSync(path.join(root, 'contenus', 'eventbrite-organisateurs.json'), JSON.stringify(etat, null, 1) + '\n');
   log(`  Eventbrite (API) : ${Object.keys(etat.organisateurs).length} organisateur(s), ${sortie.length} soirée(s) dans nos villes.`);
   return sortie;

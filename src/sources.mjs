@@ -64,6 +64,13 @@ export async function collectEvents(config, { root, debugDir, fixturesDir, webEv
       report.push(...r.rapport); all.push(...r.evenements.filter((e) => rubriqueDe(e) === 'cote')); }
     catch (err) { report.push({ source: 'api', erreur: String(err.message || err) }); }
   }
+  // Agendas ouverts (DATAtourisme, OpenAgenda), relevés chaque matin par src/agendas.mjs : soirées de la Côte.
+  if (!fixturesDir && root && existsSync(path.join(root, 'contenus', 'agendas.json'))) {
+    try { const ag = JSON.parse(await readFile(path.join(root, 'contenus', 'agendas.json'), 'utf8'));
+      const ev = (ag.evenements || []).filter((e) => rubriqueDe(e) === 'cote' && Date.parse(e.start) > Date.now() - 6 * 3600e3);
+      report.push({ source: 'agendas', evenements: ev.length, url: `(relevé du ${String(ag.maj).slice(0, 10)})` }); all.push(...ev); }
+    catch (err) { report.push({ source: 'agendas', erreur: String(err.message || err) }); }
+  }
   if (webEvents.length || !fixturesDir) report.push({ source: 'web', evenements: webEvents.length });
   all.push(...webEvents);
   // Sites officiels des clubs et bars (sans IA, relevé gardé 12 h).
