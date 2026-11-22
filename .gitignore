@@ -8,3 +8,4 @@ studio/public/*/bande.wav
 studio/public/evenements/auto/
 livrables/
 .cache/
+__pycache__/
