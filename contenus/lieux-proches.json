@@ -5154,5 +5154,62 @@
    "nom": "",
    "m": 471
   }
+ },
+ "43.69996,7.27298": {
+  "le": "2026-11-22T21:18:03.713Z",
+  "parkings": [
+   {
+    "nom": "Marshall",
+    "type": "underground",
+    "payant": true,
+    "m": 306
+   },
+   {
+    "nom": "Parking Marshall",
+    "type": "underground",
+    "payant": true,
+    "m": 356
+   },
+   {
+    "nom": "Massena",
+    "type": "underground",
+    "payant": true,
+    "m": 358
+   }
+  ],
+  "transports": [
+   {
+    "nom": "Alberti / Gioffredo",
+    "type": "bus",
+    "m": 95,
+    "lignes": "5;38;57;P"
+   },
+   {
+    "nom": "Alberti - Hôtel des Postes",
+    "type": "bus",
+    "m": 103,
+    "lignes": "57"
+   },
+   {
+    "nom": "Durandy",
+    "type": "tram",
+    "m": 172,
+    "lignes": ""
+   },
+   {
+    "nom": "Opéra - Vieille Ville",
+    "type": "tram",
+    "m": 297,
+    "lignes": ""
+   }
+  ],
+  "velo": {
+   "nom": "Holland Bikes",
+   "m": 178
+  },
+  "taxi": {
+   "nom": "",
+   "m": 384
+  }
  }
 }

@@ -1,6 +1,6 @@
 {
- "le": "2026-11-22T20:41:56.394Z",
- "total": 75,
+ "le": "2026-11-22T21:13:28.863Z",
+ "total": 82,
  "sans_image": [
   {
    "id": "dragolote-avec-lady-miss-tik-2026-11-22",
@@ -75,6 +75,15 @@
    "url": "https://shotgun.live/fr/events/psynaps-2"
   },
   {
+   "id": "riviera-bar-crawl-nice-s-1-social-club-for-global-travelers-2026-11-28",
+   "nom": "Riviera Bar Crawl Nice’s #1 Social Club for Global Travelers & Party Lovers",
+   "jour": "2026-11-28",
+   "lieu": "Hostel Villa Saint Exupery Beach",
+   "ville": "Nice",
+   "instagram": "",
+   "url": "https://www.eventbrite.fr/e/riviera-bar-crawl-nices-1-social-club-for-global-travelers-party-lovers-tickets-1286313140229"
+  },
+  {
    "id": "soiree-zouk-et-caribbean-vibes-2026-11-28",
    "nom": "Soirée Zouk & Caribbean Vibes",
    "jour": "2026-11-28",
@@ -82,6 +91,15 @@
    "ville": "Roquebrune-sur-Argens",
    "instagram": "",
    "url": ""
+  },
+  {
+   "id": "nice-orange-pub-crawl-5-shots-party-games-et-vip-club-entry-2026-11-28",
+   "nom": "Nice Orange Pub Crawl – 5 Shots, Party Games & VIP Club Entry",
+   "jour": "2026-11-28",
+   "lieu": "La Chapa",
+   "ville": "Nice",
+   "instagram": "lachapanice",
+   "url": "https://www.eventbrite.fr/e/nice-orange-pub-crawl-5-shots-party-games-vip-club-entry-tickets-2004292869928"
   },
   {
    "id": "origins-invite-boticka-all-night-long-2026-11-28",
@@ -109,6 +127,15 @@
    "ville": "Puget-sur-Argens",
    "instagram": "lemas_concert",
    "url": "https://lemas-concert.com/line-up-hiver-2026/"
+  },
+  {
+   "id": "riviera-bar-crawl-nice-s-1-social-club-for-global-travelers-2026-12-04",
+   "nom": "Riviera Bar Crawl Nice’s #1 Social Club for Global Travelers & Party Lovers",
+   "jour": "2026-12-04",
+   "lieu": "Hostel Villa Saint Exupery Beach",
+   "ville": "Nice",
+   "instagram": "",
+   "url": "https://www.eventbrite.fr/e/riviera-bar-crawl-nices-1-social-club-for-global-travelers-party-lovers-tickets-1286313150259"
   },
   {
    "id": "yard-of-blondes-2026-12-04",
