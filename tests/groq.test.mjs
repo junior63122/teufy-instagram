@@ -1,3 +1,5 @@
+import path from 'node:path';
+import os from 'node:os';
 // Groq, IA gratuite de secours (20/11/2026) : GitHub Models a fermé le 30/07/2026 et répondait « OK » à tout.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -40,6 +42,8 @@ test('recherche web sans Gemini : Groq écrit la requête, Tavily cherche, Groq 
   const vrai = globalThis.fetch; const appels = [];
   const reponse = (status, corps) => ({ ok: status < 400, status, text: async () => corps, json: async () => JSON.parse(corps), headers: new Map() });
   process.env.TAVILY_API_KEY = 'tvly-test';
+  // compteur de dépenses à part : le vrai compteur du jour (plafond Tavily parfois atteint) ne doit pas faire échouer le test
+  process.env.TEUFY_BUDGET_FICHIER = path.join(os.tmpdir(), `teufy-budget-test-${process.pid}.json`);
   const LLM = await import('../src/llm.mjs?tavily'); // module neuf : le test précédent a marqué Groq « à sec »
   try {
     globalThis.fetch = async (url, o = {}) => {

@@ -16,7 +16,7 @@ const GEMINI = 'https://generativelanguage.googleapis.com/v1beta/models';
 // --- Garde-fous budget (demande du directeur : budget mensuel limité) ------------------------------------------
 // Compteur d'appels par IA, par jour et par mois, enregistré dans contenus/budget-ia.json (committé par les workflows).
 // Au-delà des plafonds de config.llm (max_appels_<ia>_jour / _mois), l'IA n'est plus appelée jusqu'au lendemain / mois suivant.
-const FICHIER_BUDGET = path.join(path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..'), 'contenus', 'budget-ia.json');
+const FICHIER_BUDGET = process.env.TEUFY_BUDGET_FICHIER || path.join(path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..'), 'contenus', 'budget-ia.json'); // fichier de test possible (les tests ne dépendent pas du vrai compteur du jour)
 const PLAFONDS = { gemini: [1500, 30000], anthropic: [120, 2500], groq: [900, 25000], tavily: [30, 950] }; // anti-emballement seulement (boucle, panne) : jamais atteints en usage normal
 function lireBudget() {
   const j = new Date().toISOString().slice(0, 10), m = j.slice(0, 7);
