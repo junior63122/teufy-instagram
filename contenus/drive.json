@@ -1,0 +1,814 @@
+{
+ "_note": "Dossiers Drive du directeur (src/drive.mjs) : vidéos (fiche qualité, sauvegarde) et musiques (tempo).",
+ "videos": {
+  "19J7S9vUh1kLutdptFv6qOi_MOj68JL6o": {
+   "nom": "From Klickpin.com- 12 Trending Open Kitchen Ideas for Right Now-pin-id-722405596499824356.mp4",
+   "chemin": "From Klickpin.com- 12 Trending Open Kitchen Ideas for Right Now-pin-id-722405596499824356.mp4",
+   "vu_le": "2026-11-22T13:23:58.902Z",
+   "octets": 4730166,
+   "fiche": {
+    "largeur": 720,
+    "hauteur": 1280,
+    "fps": 30,
+    "duree": 7.9,
+    "luma": 0.254,
+    "saturation": 0.443,
+    "nettete": 0.042,
+    "mouvement": 0.0958,
+    "teinte": 25.1,
+    "chaleur": 0.094,
+    "empreinte": "0111111001111111011111111111100001111110101000101110000000000000"
+   },
+   "utilisable": true
+  },
+  "1EzGvXgI8GLUsGx3Op3En_J_lp5mVUD0G": {
+   "nom": "From Klickpin.com- 13 Gorgeous romantic date night ideas that help you create a polished look with very simple and affordable details for anyone p.mp4",
+   "chemin": "From Klickpin.com- 13 Gorgeous romantic date night ideas that help you create a polished look with very simple and affordable details for anyone p.mp4",
+   "vu_le": "2026-11-22T13:24:00.363Z",
+   "octets": 4041348,
+   "fiche": {
+    "largeur": 720,
+    "hauteur": 1280,
+    "fps": 30,
+    "duree": 20.47,
+    "luma": 0.211,
+    "saturation": 0.507,
+    "nettete": 0.0302,
+    "mouvement": 0.0966,
+    "teinte": 242.5,
+    "chaleur": -0.11,
+    "empreinte": "0000000000000000000010010001111000111000001110010011101100010100"
+   },
+   "utilisable": true
+  },
+  "10suGo2vjKm0wF1BjDJtPYdxVe_heex-g": {
+   "nom": "From Klickpin.com- 17 Clever Fall Fashion Trends-pin-id-637470522275769345.mp4",
+   "chemin": "From Klickpin.com- 17 Clever Fall Fashion Trends-pin-id-637470522275769345.mp4",
+   "vu_le": "2026-11-22T13:24:02.961Z",
+   "octets": 4348706,
+   "fiche": {
+    "largeur": 720,
+    "hauteur": 1280,
+    "fps": 30,
+    "duree": 7.03,
+    "luma": 0.097,
+    "saturation": 0.795,
+    "nettete": 0.039,
+    "mouvement": 0.0707,
+    "teinte": 255.1,
+    "chaleur": -0.09,
+    "empreinte": "0001000001011000011011101111011100111111000111001010000000000000"
+   },
+   "utilisable": true
+  },
+  "1o1x12tB_QQ2AkTve5SFeBe9X0IAY6NVv": {
+   "nom": "From Klickpin.com- 26 Trending Glowy Skin Tips for Right Now-pin-id-611222980714094803.mp4",
+   "chemin": "From Klickpin.com- 26 Trending Glowy Skin Tips for Right Now-pin-id-611222980714094803.mp4",
+   "vu_le": "2026-11-22T13:24:04.795Z",
+   "octets": 2623584,
+   "fiche": {
+    "largeur": 720,
+    "hauteur": 1280,
+    "fps": 30,
+    "duree": 7.03,
+    "luma": 0.113,
+    "saturation": 0.351,
+    "nettete": 0.0718,
+    "mouvement": 0.0801,
+    "teinte": 2.7,
+    "chaleur": 0.023,
+    "empreinte": "0000001000000100000010011010000101111101011101110000100000000000"
+   },
+   "utilisable": true
+  },
+  "1cgZcnKd5uCUTmlruiGVc66VIf9DYg7-B": {
+   "nom": "From Klickpin.com- 32 Practical wedding hair ideas that are perfect when you want something stylish modern and easy to copy for creators who love.mp4",
+   "chemin": "From Klickpin.com- 32 Practical wedding hair ideas that are perfect when you want something stylish modern and easy to copy for creators who love.mp4",
+   "vu_le": "2026-11-22T13:24:06.607Z",
+   "octets": 1732629,
+   "fiche": {
+    "largeur": 720,
+    "hauteur": 1280,
+    "fps": 30,
+    "duree": 7.43,
+    "luma": 0.142,
+    "saturation": 0.602,
+    "nettete": 0.0374,
+    "mouvement": 0.0882,
+    "teinte": 342.3,
+    "chaleur": 0.066,
+    "empreinte": "0000000000101100011110001101000110101001001111000001000001110000"
+   },
+   "utilisable": true
+  },
+  "1U1fUgmJ-yvXUViu3T4MEq60kezSn_glW": {
+   "nom": "From Klickpin.com- 5 Stunning Vision Board Ideas-pin-id-909516087257053168.mp4",
+   "chemin": "From Klickpin.com- 5 Stunning Vision Board Ideas-pin-id-909516087257053168.mp4",
+   "vu_le": "2026-11-22T13:24:08.457Z",
+   "octets": 3091255,
+   "fiche": {
+    "largeur": 720,
+    "hauteur": 1280,
+    "fps": 30,
+    "duree": 10.77,
+    "luma": 0.375,
+    "saturation": 0.302,
+    "nettete": 0.0465,
+    "mouvement": 0.2086,
+    "teinte": 21.2,
+    "chaleur": 0.108,
+    "empreinte": "0001000001111100011000000111011101111111100001110110011000000001"
+   },
+   "utilisable": true
+  },
+  "1yxOrPWCZnHcfz2ucxq-CFSD3eZk1lqEr": {
+   "nom": "From Klickpin.com- 8 Gorgeous wedding hair ideas that feel fresh elevated and surprisingly easy to recreate at home for beginners 1who want impress.mp4",
+   "chemin": "From Klickpin.com- 8 Gorgeous wedding hair ideas that feel fresh elevated and surprisingly easy to recreate at home for beginners 1who want impress.mp4",
+   "vu_le": "2026-11-22T13:24:10.453Z",
+   "octets": 3863456,
+   "fiche": {
+    "largeur": 720,
+    "hauteur": 1280,
+    "fps": 30,
+    "duree": 15.03,
+    "luma": 0.243,
+    "saturation": 0.476,
+    "nettete": 0.0508,
+    "mouvement": 0.1048,
+    "teinte": 210.9,
+    "chaleur": -0.082,
+    "empreinte": "1000000010000000111111101101001010010010101000101110001001111000"
+   },
+   "utilisable": true
+  },
+  "1GqrfL9o1kfHbeIUAI-KZEiWNyb6RAg0i": {
+   "nom": "From Klickpin.com- 8 Gorgeous wedding hair ideas that feel fresh elevated and surprisingly easy to recreate at home for beginners who want impress.mp4",
+   "chemin": "From Klickpin.com- 8 Gorgeous wedding hair ideas that feel fresh elevated and surprisingly easy to recreate at home for beginners who want impress.mp4",
+   "vu_le": "2026-11-22T13:24:12.976Z",
+   "octets": 1164449,
+   "fiche": {
+    "largeur": 720,
+    "hauteur": 1280,
+    "fps": 30,
+    "duree": 5,
+    "luma": 0.139,
+    "saturation": 0.579,
+    "nettete": 0.0211,
+    "mouvement": 0.103,
+    "teinte": 208.8,
+    "chaleur": -0.033,
+    "empreinte": "0100000001100000111110111110011100111001000000110000000000000000"
+   },
+   "utilisable": true
+  },
+  "1DbkGQ46Zke_zMVTDbucOeKLFra_pU-T5": {
+   "nom": "From Klickpin.com- 81 Stunning Elegant Wedding Invitations 57863-pin-id-1146166174178513774.mp4",
+   "chemin": "From Klickpin.com- 81 Stunning Elegant Wedding Invitations 57863-pin-id-1146166174178513774.mp4",
+   "vu_le": "2026-11-22T13:24:14.453Z",
+   "octets": 1906771,
+   "fiche": {
+    "largeur": 720,
+    "hauteur": 1280,
+    "fps": 30,
+    "duree": 7.04,
+    "luma": 0.258,
+    "saturation": 0.4,
+    "nettete": 0.0437,
+    "mouvement": 0.1409,
+    "teinte": 73.3,
+    "chaleur": 0.049,
+    "empreinte": "1011110111100011111111100000110100001010000010001000001000000010"
+   },
+   "utilisable": true
+  },
+  "19YrfcyPwhrXxvJ-tZp925eFIjmCyDLyf": {
+   "nom": "From Klickpin.com- 87 Effortless Family Dinner Ideas-pin-id-814307176400837987.mp4",
+   "chemin": "From Klickpin.com- 87 Effortless Family Dinner Ideas-pin-id-814307176400837987.mp4",
+   "vu_le": "2026-11-22T13:24:15.940Z",
+   "octets": 818330,
+   "fiche": {
+    "largeur": 720,
+    "hauteur": 1280,
+    "fps": 30,
+    "duree": 19.6,
+    "luma": 0.137,
+    "saturation": 0.673,
+    "nettete": 0.0084,
+    "mouvement": 0.0023,
+    "teinte": 2.4,
+    "chaleur": 0.051,
+    "empreinte": "0001101011111111111111111111111111011111000000000000000000000000"
+   },
+   "utilisable": false
+  },
+  "11xHXNdT3asgKvoKIC44CnRZPy2M26JP0": {
+   "nom": "From Klickpin.com- Affordable Mountain Cabin Inspiration for Students-pin-id-1069534611521309798.mp4",
+   "chemin": "From Klickpin.com- Affordable Mountain Cabin Inspiration for Students-pin-id-1069534611521309798.mp4",
+   "vu_le": "2026-11-22T13:24:17.750Z",
+   "octets": 4880317,
+   "fiche": {
+    "largeur": 720,
+    "hauteur": 1280,
+    "fps": 30,
+    "duree": 13.37,
+    "luma": 0.264,
+    "saturation": 0.596,
+    "nettete": 0.0693,
+    "mouvement": 0.1219,
+    "teinte": 318.4,
+    "chaleur": 0.004,
+    "empreinte": "0000000000000000000000001000000010111110111111110111111111100000"
+   },
+   "utilisable": true
+  },
+  "1_2zkUQ5OCZ3OzyP1hhI9J-6miZYez4q0": {
+   "nom": "From Klickpin.com- Balanced peaceful debate ideas for people who love beauty for daily inspiration for community-minded-pin-id-997195542499727837.mp4",
+   "chemin": "From Klickpin.com- Balanced peaceful debate ideas for people who love beauty for daily inspiration for community-minded-pin-id-997195542499727837.mp4",
+   "vu_le": "2026-11-22T13:24:20.076Z",
+   "octets": 5584935,
+   "fiche": {
+    "largeur": 720,
+    "hauteur": 1280,
+    "fps": 30,
+    "duree": 19.9,
+    "luma": 0.177,
+    "saturation": 0.553,
+    "nettete": 0.0517,
+    "mouvement": 0.0879,
+    "teinte": 255.8,
+    "chaleur": -0.062,
+    "empreinte": "0000000000000000000000000000000011111010111110011111100101001100"
+   },
+   "utilisable": true
+  },
+  "1kMybctVImV3ga68f3cyIyFALPlXyrdB8": {
+   "nom": "From Klickpin.com- Beachy beach picnic thoughts with charm and useful ideas for living to brighten your feed-pin-id-915356693005417721.mp4",
+   "chemin": "From Klickpin.com- Beachy beach picnic thoughts with charm and useful ideas for living to brighten your feed-pin-id-915356693005417721.mp4",
+   "vu_le": "2026-11-22T13:24:22.363Z",
+   "octets": 4319430,
+   "fiche": {
+    "largeur": 720,
+    "hauteur": 1280,
+    "fps": 30,
+    "duree": 14.24,
+    "luma": 0.528,
+    "saturation": 0.286,
+    "nettete": 0.0896,
+    "mouvement": 0.169,
+    "teinte": 356.1,
+    "chaleur": 0.022,
+    "empreinte": "1111111111111111111101111001011100000000010001000101111000011111"
+   },
+   "utilisable": true
+  },
+  "1SMm4tUKmrRgrsjItOq2QT3tW3Sxc_YNs": {
+   "nom": "From Klickpin.com- Bold car care routines with charm and useful ideas for modern homes without spending too much-pin-id-634585403793559198.mp4",
+   "chemin": "From Klickpin.com- Bold car care routines with charm and useful ideas for modern homes without spending too much-pin-id-634585403793559198.mp4",
+   "vu_le": "2026-11-22T13:24:24.646Z",
+   "octets": 7326878,
+   "fiche": {
+    "largeur": 720,
+    "hauteur": 1280,
+    "fps": 30,
+    "duree": 13.77,
+    "luma": 0.113,
+    "saturation": 0.893,
+    "nettete": 0.0719,
+    "mouvement": 0.0915,
+    "teinte": 244.7,
+    "chaleur": -0.265,
+    "empreinte": "0000000000000001000011110001111111110111000000110000001000000011"
+   },
+   "utilisable": true
+  },
+  "1AK1XuedEGHSMAcdPk1x6G4__qlT4WxuC": {
+   "nom": "From Klickpin.com- Bold Street Style Looks on a Budget-pin-id-722405596499824356.mp4",
+   "chemin": "From Klickpin.com- Bold Street Style Looks on a Budget-pin-id-722405596499824356.mp4",
+   "vu_le": "2026-11-22T13:24:26.857Z",
+   "octets": 4730166,
+   "fiche": {
+    "largeur": 720,
+    "hauteur": 1280,
+    "fps": 30,
+    "duree": 7.9,
+    "luma": 0.254,
+    "saturation": 0.443,
+    "nettete": 0.042,
+    "mouvement": 0.0958,
+    "teinte": 25.1,
+    "chaleur": 0.094,
+    "empreinte": "0111111001111111011111111111100001111110101000101110000000000000"
+   },
+   "utilisable": true,
+   "doublon_de": "19J7S9vUh1kLutdptFv6qOi_MOj68JL6o"
+  },
+  "1dTAh4-GLrldqy6B58AgUqd4uVJEF5JKc": {
+   "nom": "From Klickpin.com- Bookmark these 33 Aesthetic bridal shower decor ideas that instantly upgrade your space style or celebration without much effor.mp4",
+   "chemin": "From Klickpin.com- Bookmark these 33 Aesthetic bridal shower decor ideas that instantly upgrade your space style or celebration without much effor.mp4",
+   "vu_le": "2026-11-22T13:24:28.703Z",
+   "octets": 2367426,
+   "fiche": {
+    "largeur": 720,
+    "hauteur": 1280,
+    "fps": 30,
+    "duree": 14.72,
+    "luma": 0.048,
+    "saturation": 0.773,
+    "nettete": 0.0233,
+    "mouvement": 0.0467,
+    "teinte": 266,
+    "chaleur": -0.053,
+    "empreinte": "0000000000000000000010000000100000000111001110110001110100000111"
+   },
+   "utilisable": false
+  },
+  "1Di7FaTBJBJNbmUTaXct8LUs0smAHJI2s": {
+   "nom": "From Klickpin.com- Bridesmaid dress inspiration that make everyday moments look more intentional memorable and beautifully styled for busy people.mp4",
+   "chemin": "From Klickpin.com- Bridesmaid dress inspiration that make everyday moments look more intentional memorable and beautifully styled for busy people.mp4",
+   "vu_le": "2026-11-22T13:24:30.461Z",
+   "octets": 1816098,
+   "fiche": {
+    "largeur": 720,
+    "hauteur": 1280,
+    "fps": 30,
+    "duree": 8.92,
+    "luma": 0.06,
+    "saturation": 0.902,
+    "nettete": 0.0268,
+    "mouvement": 0.0455,
+    "teinte": 242.5,
+    "chaleur": -0.179,
+    "empreinte": "0001000000100000000000010000111100011100011000110000001100000011"
+   },
+   "utilisable": false
+  },
+  "11bNGrNhIQW4TxeH7l2to5MDIqiD8QqfG": {
+   "nom": "From Klickpin.com- Bright growth mindset ideas with easy charm that feel fresh and shareable for daily inspiration-pin-id-800726008794142913.mp4",
+   "chemin": "From Klickpin.com- Bright growth mindset ideas with easy charm that feel fresh and shareable for daily inspiration-pin-id-800726008794142913.mp4",
+   "vu_le": "2026-11-22T13:24:32.008Z",
+   "octets": 24392496,
+   "fiche": {
+    "largeur": 720,
+    "hauteur": 1280,
+    "fps": 30,
+    "duree": 85.05,
+    "luma": 0.253,
+    "saturation": 0.464,
+    "nettete": 0.0689,
+    "mouvement": 0.0518,
+    "teinte": 336,
+    "chaleur": 0.01,
+    "empreinte": "0000000001100000111111001111111101111111001111110011100000000000"
+   },
+   "utilisable": true
+  },
+  "1Ek_-UpqFfzP49rP33F0vOn71VztYNlI1": {
+   "nom": "From Klickpin.com- Bright mindful affirmations with charm and useful ideas with timeless style that brighten any day-pin-id-1076571485904877227.mp4",
+   "chemin": "From Klickpin.com- Bright mindful affirmations with charm and useful ideas with timeless style that brighten any day-pin-id-1076571485904877227.mp4",
+   "vu_le": "2026-11-22T13:24:38.194Z",
+   "octets": 1666117,
+   "fiche": {
+    "largeur": 720,
+    "hauteur": 1280,
+    "fps": 30,
+    "duree": 6.27,
+    "luma": 0.249,
+    "saturation": 0.437,
+    "nettete": 0.0304,
+    "mouvement": 0.0619,
+    "teinte": 291.4,
+    "chaleur": 0.001,
+    "empreinte": "0000000000001000000111111111111111111111111000101111000000000000"
+   },
+   "utilisable": true
+  },
+  "16E39PKxrZSgzpEwNfxXCX6P1eKF_EBPD": {
+   "nom": "From Klickpin.com- Brilliant Road Trip Essentials That Are Surprisingly Easy-pin-id-698128379761807842.mp4",
+   "chemin": "From Klickpin.com- Brilliant Road Trip Essentials That Are Surprisingly Easy-pin-id-698128379761807842.mp4",
+   "vu_le": "2026-11-22T13:24:40.438Z",
+   "octets": 6016824,
+   "fiche": {
+    "largeur": 720,
+    "hauteur": 1280,
+    "fps": 60,
+    "duree": 9.5,
+    "luma": 0.122,
+    "saturation": 0.355,
+    "nettete": 0.046,
+    "mouvement": 0.063,
+    "teinte": 19.8,
+    "chaleur": 0.042,
+    "empreinte": "0000000000000000000000001111100011111011111000110101100000000000"
+   },
+   "utilisable": true
+  },
+  "1Tk3wH9lsB6B5pYrMRnM3LkECM4mnRH6H": {
+   "nom": "From Klickpin.com- Budget-friendly bathroom storage ideas for your next Pinterest save using practical inspiration that still feels highly aesthet.mp4",
+   "chemin": "From Klickpin.com- Budget-friendly bathroom storage ideas for your next Pinterest save using practical inspiration that still feels highly aesthet.mp4",
+   "vu_le": "2026-11-22T13:24:42.577Z",
+   "octets": 3851713,
+   "fiche": {
+    "largeur": 576,
+    "hauteur": 1024,
+    "fps": 30,
+    "duree": 16.63,
+    "luma": 0.186,
+    "saturation": 0.547,
+    "nettete": 0.0845,
+    "mouvement": 0.1073,
+    "teinte": 336.4,
+    "chaleur": 0.044,
+    "empreinte": "0000000000000000001110000111100000110100110111111111011111100011"
+   },
+   "utilisable": true
+  },
+  "1kKdxLtqaKevlJCi9ww0pJ-p6qnxPGhXO": {
+   "nom": "From Klickpin.com- Capsule Wardrobe Essentials Ideas Youll Keep Coming Back To 80943-pin-id-792774340687614474.mp4",
+   "chemin": "From Klickpin.com- Capsule Wardrobe Essentials Ideas Youll Keep Coming Back To 80943-pin-id-792774340687614474.mp4",
+   "vu_le": "2026-11-22T13:24:44.703Z",
+   "octets": 2137977,
+   "fiche": {
+    "largeur": 720,
+    "hauteur": 1280,
+    "fps": 30,
+    "duree": 15.21,
+    "luma": 0.102,
+    "saturation": 0.47,
+    "nettete": 0.0361,
+    "mouvement": 0.0441,
+    "teinte": 17.8,
+    "chaleur": 0.041,
+    "empreinte": "1111111100000111000001101010110011111000000001000000000000000000"
+   },
+   "utilisable": true
+  },
+  "1zGB1IRtEU159BBJrEjmoMaxE0naauuq2": {
+   "nom": "From Klickpin.com- Charming mountain town stories with charm and useful ideas today for culture-rich mood boards-pin-id-1086563847568705978.mp4",
+   "chemin": "From Klickpin.com- Charming mountain town stories with charm and useful ideas today for culture-rich mood boards-pin-id-1086563847568705978.mp4",
+   "vu_le": "2026-11-22T13:24:46.657Z",
+   "octets": 2210110,
+   "fiche": {
+    "largeur": 640,
+    "hauteur": 1136,
+    "fps": 30,
+    "duree": 8.37,
+    "luma": 0.239,
+    "saturation": 0.549,
+    "nettete": 0.0577,
+    "mouvement": 0.1094,
+    "teinte": 334.5,
+    "chaleur": 0.077,
+    "empreinte": "1111111101111111011111111100010110000110000001100011010000000000"
+   },
+   "utilisable": true
+  },
+  "1a_--PWwSdSQ-_EKEyD2oYjDk_HTISqmJ": {
+   "nom": "From Klickpin.com- Classic Family Dinner Ideas That Actually Work-pin-id-600245456610809838.mp4",
+   "chemin": "From Klickpin.com- Classic Family Dinner Ideas That Actually Work-pin-id-600245456610809838.mp4",
+   "vu_le": "2026-11-22T13:24:48.036Z",
+   "octets": 6787229,
+   "fiche": {
+    "largeur": 720,
+    "hauteur": 1280,
+    "fps": 30,
+    "duree": 15.9,
+    "luma": 0.105,
+    "saturation": 0.968,
+    "nettete": 0.0269,
+    "mouvement": 0.0483,
+    "teinte": 248.7,
+    "chaleur": -0.359,
+    "empreinte": "0000000011100000111100001100100000010000101101100110011000110000"
+   },
+   "utilisable": true
+  },
+  "161FZrxvm06SgNGRITaBB-20N6xvbNr7S": {
+   "nom": "From Klickpin.com- Classy nail design inspiration that make everyday moments look more intentional memorable and beautifully styled for people who.mp4",
+   "chemin": "From Klickpin.com- Classy nail design inspiration that make everyday moments look more intentional memorable and beautifully styled for people who.mp4",
+   "vu_le": "2026-11-22T13:24:50.606Z",
+   "octets": 5091695,
+   "fiche": {
+    "largeur": 576,
+    "hauteur": 1024,
+    "fps": 30,
+    "duree": 28.03,
+    "luma": 0.484,
+    "saturation": 0.239,
+    "nettete": 0.0621,
+    "mouvement": 0.1517,
+    "teinte": 224.5,
+    "chaleur": -0.034,
+    "empreinte": "0000000000110000001000001111011111011011010101000001011101110110"
+   },
+   "utilisable": true
+  },
+  "1pv8WDEOpAIpkxJQOpGxav_zIN3UOlTfd": {
+   "nom": "From Klickpin.com- Classy summer outfit inspiration that instantly upgrade your space style or celebration without much effort for people who want.mp4",
+   "chemin": "From Klickpin.com- Classy summer outfit inspiration that instantly upgrade your space style or celebration without much effort for people who want.mp4",
+   "vu_le": "2026-11-22T13:24:53.134Z",
+   "octets": 3827982,
+   "fiche": {
+    "largeur": 720,
+    "hauteur": 1280,
+    "fps": 60,
+    "duree": 5.98,
+    "luma": 0.291,
+    "saturation": 0.314,
+    "nettete": 0.0294,
+    "mouvement": 0.0157,
+    "teinte": 20.4,
+    "chaleur": 0.106,
+    "empreinte": "0000000101111111111111111111111111111111000010010000000100000000"
+   },
+   "utilisable": true
+  },
+  "1mSvrUR0Vzmm8qquJ88jr7mQzL5FHxoeV": {
+   "nom": "From Klickpin.com- Clean girl makeup ideas that look expensive while staying practical realistic and beginner friendly for women who love classy P.mp4",
+   "chemin": "From Klickpin.com- Clean girl makeup ideas that look expensive while staying practical realistic and beginner friendly for women who love classy P.mp4",
+   "vu_le": "2026-11-22T13:24:54.993Z",
+   "octets": 1301888,
+   "fiche": {
+    "largeur": 720,
+    "hauteur": 1280,
+    "fps": 30,
+    "duree": 14,
+    "luma": 0.072,
+    "saturation": 0.517,
+    "nettete": 0.0212,
+    "mouvement": 0.0142,
+    "teinte": 12.8,
+    "chaleur": 0.045,
+    "empreinte": "0000000000011111001111110011111100000011001100010001000000000000"
+   },
+   "utilisable": true
+  },
+  "1KmQRB-hbeDyl9hydblAkZkeZmyzRzc5M": {
+   "nom": "From Klickpin.com- Clean Girl Makeup Looks for Fall 96669-pin-id-992903049107531776.mp4",
+   "chemin": "From Klickpin.com- Clean Girl Makeup Looks for Fall 96669-pin-id-992903049107531776.mp4",
+   "vu_le": "2026-11-22T13:24:57.028Z",
+   "octets": 7244846,
+   "fiche": {
+    "largeur": 576,
+    "hauteur": 1024,
+    "fps": 30,
+    "duree": 15.07,
+    "luma": 0.35,
+    "saturation": 0.386,
+    "nettete": 0.0985,
+    "mouvement": 0.1116,
+    "teinte": 294.7,
+    "chaleur": -0.003,
+    "empreinte": "1010000011110000111111000111100011110101101000001000000000011110"
+   },
+   "utilisable": true
+  },
+  "1K49Or4gvV5AGEeySqM-ujMAlSV1WncE2": {
+   "nom": "From Klickpin.com- Cozy Meditation Space Ideas for This Year-pin-id-1045609238521732406.mp4",
+   "chemin": "From Klickpin.com- Cozy Meditation Space Ideas for This Year-pin-id-1045609238521732406.mp4",
+   "vu_le": "2026-11-22T13:24:59.553Z",
+   "octets": 2414317,
+   "fiche": {
+    "largeur": 576,
+    "hauteur": 1024,
+    "fps": 30,
+    "duree": 12.77,
+    "luma": 0.26,
+    "saturation": 0.414,
+    "nettete": 0.0396,
+    "mouvement": 0.011,
+    "teinte": 16.7,
+    "chaleur": 0.14,
+    "empreinte": "0001110001111111111111111110111100001000000110000000000000000000"
+   },
+   "utilisable": true
+  },
+  "1qbxODASouB-9b4zZI914kW5x0YlJ9Cir": {
+   "nom": "From Klickpin.com- Discover Stunning bridal shower themes for your next inspiration board using ideas that balance beauty and everyday function-pi.mp4",
+   "chemin": "From Klickpin.com- Discover Stunning bridal shower themes for your next inspiration board using ideas that balance beauty and everyday function-pi.mp4",
+   "vu_le": "2026-11-22T13:25:01.203Z",
+   "octets": 5282142,
+   "fiche": {
+    "largeur": 720,
+    "hauteur": 1280,
+    "fps": 30,
+    "duree": 7.93,
+    "luma": 0.337,
+    "saturation": 0.463,
+    "nettete": 0.0721,
+    "mouvement": 0.1691,
+    "teinte": 244.4,
+    "chaleur": -0.111,
+    "empreinte": "0110000011100100111111100111111110111110101111000000000000010000"
+   },
+   "utilisable": true
+  },
+  "1qLz77bpoO-eXDy4sXaYH1yQRBjiYbJVi": {
+   "nom": "From Klickpin.com- Discover these 16 Unique capsule wardrobe ideas that are trending right now and still timeless enough to save for later for any.mp4",
+   "chemin": "From Klickpin.com- Discover these 16 Unique capsule wardrobe ideas that are trending right now and still timeless enough to save for later for any.mp4",
+   "vu_le": "2026-11-22T13:25:02.990Z",
+   "octets": 3222703,
+   "fiche": {
+    "largeur": 720,
+    "hauteur": 960,
+    "fps": 30,
+    "duree": 6.24,
+    "luma": 0.31,
+    "saturation": 0.542,
+    "nettete": 0.0907,
+    "mouvement": 0.161,
+    "teinte": 310.1,
+    "chaleur": 0.026,
+    "empreinte": "1111111111111110000001011110100111000000001000100001000000001001"
+   },
+   "utilisable": true
+  },
+  "149Yy71_Z6LaUtdh01xSc0ohHm_50So9D": {
+   "nom": "From Klickpin.com- Easy minimalist bedroom decor that are perfect for beginners who still want an impressive result for ideas worth saving right n.mp4",
+   "chemin": "From Klickpin.com- Easy minimalist bedroom decor that are perfect for beginners who still want an impressive result for ideas worth saving right n.mp4",
+   "vu_le": "2026-11-22T13:25:04.137Z",
+   "octets": 1797329,
+   "fiche": {
+    "largeur": 486,
+    "hauteur": 864,
+    "fps": 30,
+    "duree": 9.38,
+    "luma": 0.404,
+    "saturation": 0.418,
+    "nettete": 0.0274,
+    "mouvement": 0.1897,
+    "teinte": 316.1,
+    "chaleur": 0.038,
+    "empreinte": "1111111111111111110110010101000011011011001110101011000000000000"
+   },
+   "utilisable": true
+  },
+  "1drJ8Ce-pX5pn73PXf17tynEWlOaY5egu": {
+   "nom": "From Klickpin.com- Elegant clean girl makeup looks for your next Pinterest save with simple details that elevate the final look-pin-id-92964154811.mp4",
+   "chemin": "From Klickpin.com- Elegant clean girl makeup looks for your next Pinterest save with simple details that elevate the final look-pin-id-92964154811.mp4",
+   "vu_le": "2026-11-22T13:25:05.948Z",
+   "octets": 7198974,
+   "fiche": {
+    "largeur": 720,
+    "hauteur": 1280,
+    "fps": 30,
+    "duree": 10.84,
+    "luma": 0.236,
+    "saturation": 0.553,
+    "nettete": 0.0461,
+    "mouvement": 0.0422,
+    "teinte": 12.2,
+    "chaleur": 0.154,
+    "empreinte": "0000000000000000000000000001110000111100001111000001110011011110"
+   },
+   "utilisable": true
+  },
+  "1N6qDx6SFGSuXo3BsnUTV606462jBxXbH": {
+   "nom": "From Klickpin.com- Explore Budget-friendly side hustle ideas that feel fresh practical and surprisingly easy to try for ideas worth saving right n.mp4",
+   "chemin": "From Klickpin.com- Explore Budget-friendly side hustle ideas that feel fresh practical and surprisingly easy to try for ideas worth saving right n.mp4",
+   "vu_le": "2026-11-22T13:25:07.938Z",
+   "octets": 4875100,
+   "fiche": {
+    "largeur": 720,
+    "hauteur": 1280,
+    "fps": 30,
+    "duree": 15.02,
+    "luma": 0.208,
+    "saturation": 0.592,
+    "nettete": 0.0677,
+    "mouvement": 0.1683,
+    "teinte": 34.5,
+    "chaleur": 0.102,
+    "empreinte": "0010110111111111101110000000100000000010011001000000000000000000"
+   },
+   "utilisable": true
+  },
+  "1tYFFGOmfIJOTPDYskQoOrpdSBdPhgIMZ": {
+   "nom": "From Klickpin.com- Explore Must-save cozy living room styling that feel fresh practical and surprisingly easy to try for your next Pinterest save-.mp4",
+   "chemin": "From Klickpin.com- Explore Must-save cozy living room styling that feel fresh practical and surprisingly easy to try for your next Pinterest save-.mp4",
+   "vu_le": "2026-11-22T13:25:10.331Z",
+   "octets": 19516173,
+   "fiche": {
+    "largeur": 720,
+    "hauteur": 1280,
+    "fps": 30,
+    "duree": 48.3,
+    "luma": 0.257,
+    "saturation": 0.761,
+    "nettete": 0.0701,
+    "mouvement": 0.0984,
+    "teinte": 338.3,
+    "chaleur": 0.187,
+    "empreinte": "0001111100111000000110010111110100111100011111101111100000000000"
+   },
+   "utilisable": true
+  },
+  "1Dep2jprVOvix6N4xpT-7d6xss00yf2OU": {
+   "nom": "From Klickpin.com- Fresh Clean Girl Makeup Looks for Right Now-pin-id-975521969297599777.mp4",
+   "chemin": "From Klickpin.com- Fresh Clean Girl Makeup Looks for Right Now-pin-id-975521969297599777.mp4",
+   "vu_le": "2026-11-22T13:25:14.842Z",
+   "octets": 12976398,
+   "fiche": {
+    "largeur": 720,
+    "hauteur": 1280,
+    "fps": 30,
+    "duree": 35.7,
+    "luma": 0.242,
+    "saturation": 0.594,
+    "nettete": 0.0618,
+    "mouvement": 0.0752,
+    "teinte": 332,
+    "chaleur": 0.058,
+    "empreinte": "0000000000000000011110001111111111111100001111110000000000000000"
+   },
+   "utilisable": true
+  },
+  "1fLRC_97ogBXzfj-5wgxBSSXQ9bO5_fQ1": {
+   "nom": "From Klickpin.com- Get inspired by Aesthetic old money style looks that are trending right now across Pinterest boards for ideas worth saving righ.mp4",
+   "chemin": "From Klickpin.com- Get inspired by Aesthetic old money style looks that are trending right now across Pinterest boards for ideas worth saving righ.mp4",
+   "vu_le": "2026-11-22T13:25:18.475Z",
+   "octets": 8497877,
+   "fiche": {
+    "largeur": 720,
+    "hauteur": 1280,
+    "fps": 30,
+    "duree": 23.33,
+    "luma": 0.244,
+    "saturation": 0.591,
+    "nettete": 0.0378,
+    "mouvement": 0.1277,
+    "teinte": 248.7,
+    "chaleur": -0.135,
+    "empreinte": "0000000000000000001111111111111111111110111111111111111010000110"
+   },
+   "utilisable": true
+  },
+  "1DrInYbFA2x3IH9mngUwJjcyhF92sol-T": {
+   "nom": "From Klickpin.com- Get inspired by Cozy fall outfit ideas for your next inspiration board with thoughtful touches that make everything feel comple.mp4",
+   "chemin": "From Klickpin.com- Get inspired by Cozy fall outfit ideas for your next inspiration board with thoughtful touches that make everything feel comple.mp4",
+   "vu_le": "2026-11-22T13:25:20.884Z",
+   "octets": 7398405,
+   "fiche": {
+    "largeur": 720,
+    "hauteur": 1280,
+    "fps": 30,
+    "duree": 16.4,
+    "luma": 0.226,
+    "saturation": 0.417,
+    "nettete": 0.1231,
+    "mouvement": 0.0899,
+    "teinte": 20.6,
+    "chaleur": 0.08,
+    "empreinte": "0000100000000000100001000011000000000001101000001111100011111111"
+   },
+   "utilisable": true
+  },
+  "16mMalxi0vNX4nNbcRmkWsh2BT6BuAU_R": {
+   "nom": "From Klickpin.com- Get inspired by Unique boho home decor for your next Pinterest save designed for people who want results that look intentional-.mp4",
+   "chemin": "From Klickpin.com- Get inspired by Unique boho home decor for your next Pinterest save designed for people who want results that look intentional-.mp4",
+   "vu_le": "2026-11-22T13:25:23.651Z",
+   "octets": 6985444,
+   "fiche": {
+    "largeur": 720,
+    "hauteur": 1280,
+    "fps": 30,
+    "duree": 10.27,
+    "luma": 0.417,
+    "saturation": 0.348,
+    "nettete": 0.0666,
+    "mouvement": 0.1805,
+    "teinte": 251.5,
+    "chaleur": -0.078,
+    "empreinte": "0000000000000000001000000010000111110011101111111111111100011111"
+   },
+   "utilisable": true
+  },
+  "1cXmySIvg-HD_1XR1PuDtb8hJKUtBefld": {
+   "nom": "From Klickpin.com- Grounding hopeful notes with simple charm and useful ideas for simple living to revisit all week-pin-id-879046421036743157.mp4",
+   "chemin": "From Klickpin.com- Grounding hopeful notes with simple charm and useful ideas for simple living to revisit all week-pin-id-879046421036743157.mp4",
+   "vu_le": "2026-11-22T13:25:26.402Z",
+   "octets": 900058,
+   "fiche": {
+    "largeur": 720,
+    "hauteur": 1280,
+    "fps": 30,
+    "duree": 8.08,
+    "luma": 0.127,
+    "saturation": 0.456,
+    "nettete": 0.021,
+    "mouvement": 0.0871,
+    "teinte": 20.3,
+    "chaleur": 0.038,
+    "empreinte": "0000000011001001111111011111110100000000000000000100000010000000"
+   },
+   "utilisable": true
+  }
+ },
+ "musiques": {},
+ "le": "2026-11-22T13:25:28.750Z",
+ "bilan": {
+  "nouvelles_videos": 40,
+  "nouvelles_musiques": 0,
+  "erreurs": 0,
+  "absentes": 0
+ }
+}

@@ -1,5 +1,5 @@
 {
- "le": "2026-11-22T07:12:12.691Z",
+ "le": "2026-11-22T13:23:33.971Z",
  "instagram": {
   "utilisee": "v21.0",
   "derniere": "v27.0",
@@ -181,20 +181,20 @@
   }
  },
  "sites_clubs": {
-  "maj": "2026-11-21T19:24:47.200Z",
-  "lus": 37,
+  "maj": "2026-11-22T13:07:16.979Z",
+  "lus": 36,
   "avec_soirees": 0,
   "total": 68
  },
  "donnees": {
-  "semaine": 37,
+  "semaine": 36,
   "sans_heure": 8,
   "sans_prix": 8,
   "sans_affiche": 9,
   "sans_billetterie": 2,
   "par_ville": {
    "Montpellier": 1,
-   "Nice": 20,
+   "Nice": 19,
    "Toulon": 4,
    "Cannes": 4,
    "Hyères": 1,
@@ -206,9 +206,9 @@
   }
  },
  "images": {
-  "total": 74,
-  "sans_image": 26,
-  "dans_7_jours": 13
+  "total": 67,
+  "sans_image": 23,
+  "dans_7_jours": 10
  },
  "alertes": [
   {
@@ -253,11 +253,11 @@
   },
   {
    "sujet": "Soirées",
-   "detail": "seulement 37 soirée(s) dans les 7 prochains jours : sources à renforcer."
+   "detail": "seulement 36 soirée(s) dans les 7 prochains jours : sources à renforcer."
   },
   {
    "sujet": "Images",
-   "detail": "13 soirée(s) des 7 prochains jours sans affiche ni photo : Fetish Main Party / Mister Fetish France 2027 (Le Glam, 2026-11-21) ; Durdenhauer Fastlane 1 An (Switch Club, 2026-11-21) ; Bruja / Carbur — Psytrance / Hardtrance (L'Antre Bar Electro, 2026-11-22) ; Dragolote avec Lady Miss Tik (Mama Shelter Nice, 2026-11-22) ; Week‑end Techno L'Antre (L'Antre Techno, Nice, 2026-11-23) ; Phaphane à Nice - Amapiano & Afrobeats Lovers (Frigo 16 (Le 109), 2026-11-27) ; Dj - Trvchi (Mama Shelter Nice, 2026-11-27) ; Skarra Mucci & Manudigital — Ragga Blasta Tour (Centre Culturel Tisot, 2026-11-27) ; Mr Hat vs Verome — Bass vs Hard Music (L'Antre Bar Electro, 2026-11-27) ; Da Grow — UK Bass / Gangsta House (L'Antre Bar Electro, 2026-11-28) ; Psynaps-2 (Fort Napoléon, 2026-11-28) ; Soirée Zouk & Caribbean Vibes (L'Artiste 83, 2026-11-28) ; Origins Invite Boticka All Night Long (Switch Club, 2026-11-28)"
+   "detail": "10 soirée(s) des 7 prochains jours sans affiche ni photo : Dragolote avec Lady Miss Tik (Mama Shelter Nice, 2026-11-22) ; Week‑end Techno L'Antre (L'Antre Techno, Nice, 2026-11-23) ; Phaphane à Nice - Amapiano & Afrobeats Lovers (Frigo 16 (Le 109), 2026-11-27) ; Dj - Trvchi (Mama Shelter Nice, 2026-11-27) ; Skarra Mucci & Manudigital — Ragga Blasta Tour (Centre Culturel Tisot, 2026-11-27) ; Mr Hat vs Verome — Bass vs Hard Music (L'Antre Bar Electro, 2026-11-27) ; Da Grow — UK Bass / Gangsta House (L'Antre Bar Electro, 2026-11-28) ; Psynaps-2 (Fort Napoléon, 2026-11-28) ; Soirée Zouk & Caribbean Vibes (L'Artiste 83, 2026-11-28) ; Origins Invite Boticka All Night Long (Switch Club, 2026-11-28)"
   }
  ]
 }
