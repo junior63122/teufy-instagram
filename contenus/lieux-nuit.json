@@ -194,7 +194,7 @@
    "score": 0,
    "soirs": [],
    "details": {
-    "le": "2026-11-22T17:18:22.811Z",
+    "le": "2026-11-22T17:44:33.893Z",
     "styles": "DJ résidents (ven–sam après 22h)",
     "dress_code": "",
     "horaires": "lun–dim 10h–2h",
@@ -949,14 +949,28 @@
    "instagram": "honeyclubjuanlespins",
    "site": "https://honeyclub.fr",
    "description": "Lieu de soirées et de concerts de l'avenue Georges Gallice à Juan-les-Pins.",
-   "soirees": [],
-   "prochaines": [],
+   "soirees": [
+    "dj-sebb-afrochella-a-honey-club-2026-11-26"
+   ],
+   "prochaines": [
+    {
+     "id": "dj-sebb-afrochella-a-honey-club-2026-11-26",
+     "nom": "DJ SEBB – AFROCHELLA à Honey Club"
+    }
+   ],
    "insta": {
     "abonnes": 8601
    },
    "slug": "honey-club-juan-les-pins",
    "score": 0,
-   "soirs": [],
+   "soirs": [
+    [
+     "2026-11-26",
+     "23:00",
+     "dj-sebb-afrochella-a-honey-club-2026-11-26",
+     "DJ SEBB – AFROCHELLA à Honey Club"
+    ]
+   ],
    "details": {
     "le": "2026-11-13T17:38:33.455Z",
     "styles": "",
@@ -975,7 +989,10 @@
    "photo": "site/lieux/honeyclubjuanlespins-176.webp",
    "lat": 43.5679364,
    "lng": 7.113293,
-   "stylesSoirees": []
+   "stylesSoirees": [
+    "house",
+    "afro"
+   ]
   },
   {
    "nom": "Le Pam Pam",

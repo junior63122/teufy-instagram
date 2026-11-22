@@ -8,29 +8,50 @@
     {
       "source": "web",
       "source_site": "instagram",
-      "name": "ALIENDUCH",
-      "start": "2026-11-21T20:00:00.000Z",
-      "venue": "L'Antre",
-      "city": "Nice",
+      "name": "DJ SEBB – AFROCHELLA à Honey Club",
+      "start": "2026-11-26T22:00:00.000Z",
+      "venue": "Honey Club",
+      "city": "Juan-les-Pins",
       "address": "",
-      "url": "https://www.instagram.com/reel/DgA7GLlRIuU/",
+      "url": "https://www.instagram.com/reel/DgC4kPZACd6/",
       "image": "",
-      "price": 5,
+      "price": null,
       "tags": [
-        "house",
-        "techno",
-        "acid",
-        "rave",
-        "trance"
+        "afro",
+        "house"
       ],
-      "description": "ALIENDUCH, l’artistique acid‑techno de l’Acid Concept Production, prend les platines le samedi 21 novembre à L'Antre, Vieux‑Nice. Le set, qui débute à 21 h, mélange acid, rave, techno et trance pour une nuit de 3 h 30 min. L’ambiance club, climatisée et équipée d’un son Martin Audio, promet une expérience club optimale. Le tarif est de 5 € et l’entrée est libre à partir de 21 h.",
+      "description": "Le jeudi 26 novembre, le club Honey Club accueille DJ SEBB en collaboration avec AFROCHELLA. La soirée commence à 23h et se poursuit jusqu’à 4h du matin, avec des sets d’afro‑house et de la musique de La Réunion. Le club propose des tables réservables et un cadre convivial sur la Côte d’Azur. Idéal pour les 17‑30 ans qui cherchent une nuit de danse et de bonne ambiance.",
+      "public_cible": 1,
+      "confiance": 0.9,
+      "buzz": 0.6,
+      "buzz_raison": "DJ SEBB est connu sur la scène afro‑house locale, et l’événement est annoncé comme une collaboration spéciale avec AFROCHELLA, ce qui augmente l’intérêt.",
+      "accroche": "DJ SEBB en show à Juan‑les‑Pins, soirée afro‑house qui fait vibrer la côte !",
+      "instagram": [
+        "honeyclubjuanlespins"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "instagram",
+      "name": "House Music – Glass Club Cannes",
+      "start": "2026-11-20T23:00:00.000Z",
+      "venue": "Glass Club",
+      "city": "Cannes",
+      "address": "",
+      "url": "https://www.instagram.com/p/DfzrejZqFwc/",
+      "image": "https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/914356611_18000184614105115_5444261791896609710_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=105&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=f2089ix4ELAQ7kNvwHk-Zs0&_nc_oc=AdpLVGlIubGrQcTJ6kZTVogJhkdeRcfSPHuScWzQQpcH55Ye0FQNnH-yu7ko7u671tQ&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=nh8pNIgXREGqseAW2awtkA&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQQgluFdueuewtHfDKR0ws3xCplr30habTxl0M_PbzvrtA&oe=6B08F87B",
+      "price": null,
+      "tags": [
+        "house"
+      ],
+      "description": "Le jeudi et le vendredi, le Glass Club à Cannes propose une soirée house qui débute à minuit et se poursuit jusqu’à 6h du matin. L’ambiance est décontractée, avec un décor moderne et une sélection de DJs spécialisés en house. L’événement est idéal pour les jeunes qui veulent danser toute la nuit dans un cadre chic de la Côte d’Azur.",
       "public_cible": 1,
       "confiance": 0.9,
       "buzz": 0.5,
-      "buzz_raison": "line‑up confirmé, lieu réputé, date proche",
-      "accroche": "ALIENDUCH, acid‑techno à L'Antre, 21 novembre, 21 h – 02:30 h",
+      "buzz_raison": "Le club est réputé pour ses soirées house, et l’événement est annoncé sur Instagram avec un engagement modéré.",
+      "accroche": "Soirée house à Glass Club, soirée qui dure jusqu’à 6h du matin !",
       "instagram": [
-        "lantretechno"
+        "glass_club_cannes"
       ]
     },
     {
@@ -3175,5 +3196,5 @@
       "offres": []
     }
   ],
-  "maj_instagram": "2026-11-22T17:12:24.100Z"
+  "maj_instagram": "2026-11-22T17:42:01.285Z"
 }
