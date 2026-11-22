@@ -1,5 +1,5 @@
 {
- "maj": "2026-11-21T19:24:47.199Z",
+ "maj": "2026-11-22T02:00:59.721Z",
  "evenements": [
   {
    "source": "dice",
@@ -56,9 +56,24 @@
    "address": "45 Prom. des Anglais, 06000 Nice, France Nice",
    "url": "https://xceed.me/fr/nice/event/tickets-gta-6/253346",
    "image": "https://images.xceed.me/events/banners/tickets-gat6-nice-xceed-square-53f1.png?w=1920&ar=16%3A9&fm=auto",
-   "price": 20,
+   "price": null,
    "tags": [],
    "description": "Samedi 21 novembre @ High club - NICE 🤩🤗😍 ❌ => DJ Set Hip-Hop / Rap Français 🇫🇷 ❌ => Ticket GTA6 20€ ❌ => Le ticket vous permet de participer au tirage au sort pour gagner des jeux GTA6 et de rentrer dans le club en priorité. ❌ Entrée gratuite pour les filles avant 1h 😍",
+   "popularite": null
+  },
+  {
+   "source": "dice",
+   "name": "The Jazz Room : un voyage au cœur de La Nouvelle-Orléans (Première)",
+   "start": "2027-01-10T15:30:00.000Z",
+   "end": "2027-01-10T17:00:00.000Z",
+   "venue": "Théâtre de la Cité",
+   "city": "Nice",
+   "address": "3 Rue Paganini, 06000 Nice, France",
+   "url": "",
+   "image": "https://dice-media.imgix.net/attachments/2026-10-27/3148eaca-a73b-4e48-ba18-13d28473960c.jpg?rect=0%2C0%2C768%2C768",
+   "price": 23,
+   "tags": [],
+   "description": "",
    "popularite": null
   },
   {
@@ -261,17 +276,17 @@
   "https://shotgun.live/fr/cities/nice",
   "https://www.eventbrite.fr/d/france--nice/parties/",
   "https://www.eventbrite.fr/d/france--nice/nightlife/",
+  "https://dice.fm/browse/monaco",
   "https://www.eventbrite.fr/d/france--antibes/nightlife/",
   "https://www.eventbrite.fr/d/monaco--monaco/nightlife/",
-  "https://www.eventbrite.fr/d/france--toulon/nightlife/",
   "https://www.eventbrite.fr/d/france--nice/music--events/",
   "https://www.eventbrite.fr/d/france--cannes/music--events/",
-  "https://www.eventbrite.fr/d/monaco--monaco/music--events/",
-  "https://www.eventbrite.fr/d/france--saint-tropez/events/",
+  "https://www.eventbrite.fr/d/france--toulon/nightlife/",
   "https://www.eventbrite.fr/d/france--cannes/parties/",
+  "https://www.eventbrite.fr/d/monaco--monaco/music--events/",
   "https://www.eventbrite.fr/d/france--frejus/events/",
+  "https://www.eventbrite.fr/d/france--saint-tropez/events/",
   "https://www.eventbrite.fr/d/france--toulon/music--events/",
-  "https://dice.fm/browse/monaco",
   "https://allevents.in/nice/all",
   "https://allevents.in/toulon/all"
  ]

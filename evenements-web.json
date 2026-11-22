@@ -1,38 +1,42 @@
 {
-  "maj": "2026-11-20T12:42:37.786Z",
-  "du": "2026-11-20",
-  "au": "2027-01-04",
-  "nb_bruts": 12,
+  "maj": "2026-11-22T01:09:10.129Z",
+  "du": "2026-11-22",
+  "au": "2027-01-06",
+  "nb_bruts": 1,
+  "recherches_abouties": "6/6",
   "evenements": [
     {
       "source": "web",
       "source_site": "Instagram",
-      "name": "La Tocardise",
-      "start": "2026-11-14T22:00:00.000Z",
-      "venue": "Green Musik",
-      "city": "Antibes",
+      "name": "MALIVE @ La Nonchalance",
+      "start": "2026-11-12T23:00:00.000Z",
+      "venue": "La Nonchalance",
+      "city": "Monaco",
       "address": "",
-      "url": "https://www.instagram.com/p/DfVMB07iPBA/",
-      "image": "https://scontent-iad6-1.cdninstagram.com/v/t51.82787-15/890294176_17955076671300142_1783708044551825404_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=104&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0XWlnaWxlbmdpbmciLCJ0eXBlIjoiYmxvYiJ9&_nc_ohc=kSC3dxXoBvEQ7kNvwGrqGNe&_nc_oc=AdpXf0vO58BvUWkqI9hk82_cLhlkB_tq_ToMyqXGAdkbZvJPbtIHSiDxi1pVttdKaZM&_nc_zt=23&_nc_ht=scontent-iad6-1.cdninstagram.com",
-      "price": 0,
+      "url": "https://www.instagram.com/p/DffISXKKU8E/",
+      "image": "https://scontent-ord5-2.cdninstagram.com/v/t51.82787-15/890716565_18651922597041727_4845886643609070775_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=102&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=C98zZhkRZgEQ7kNvwF4NQHx&_nc_oc=Adr2Q6_0DYSIuGmrl0Ot_-JmOoXiLutxFAI-rR828YUnnPyNHpG_Xt-nDvUNuBenUfk&_nc_zt=23&_nc_ht=scontent-ord5-2.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=HIhpEzvyFy0kZfslXqx8Dw&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQSpLhmV_Myu4PJNVydqCBN0eI4omPWKN6HW4qFFuiOvMQ&oe=6B082933",
+      "price": 15,
       "tags": [
-        "techno",
-        "hard bounce",
-        "schranz",
-        "hardtechno",
-        "psytrance",
-        "hard trance",
-        "hitech"
+        "house"
       ],
-      "description": "Le 14 novembre, Green Musik à Antibes accueille La Tocardise, une soirée ultra‑hard où techno, hard‑bounce, schranz et hard‑techno s’enchaînent. Au programme : Art Winder en tête d’affiche, suivi de sets explosifs de Galingas, Slackreb, Tao, Marshall (b2b secret guest) et ZIAX. L’ambiance rave, les kicks qui cognent et les BPM qui s’affolent promettent une transe jusqu’à 5 h du matin. Entrée gratuite, dress‑code libre, soirée réservée aux 18‑30 ans. Le lieu se trouve au 11 avenue du 11 Novembre, 06600 Antibes, avec parkings à proximité.",
+      "description": "Le 13 novembre, La Nonchalance accueille MALIVE pour une nuit house qui promet de faire vibrer les dancefloors monégasques. Soutenu par Keinemusic, le DJ apporte son son signature, entre deep grooves et mélodies envoûtantes. L’ambiance sera chic‑décontractée, idéale pour les 18‑30 ans qui veulent danser jusqu’au petit matin. L’entrée est en libre accès, pré‑vente non précisée, prévoyez une tenue stylée et votre énergie ! Le lieu, en plein cœur de Monaco, offre un décor élégant et une piste prête à accueillir les noctambules.",
       "public_cible": 1,
-      "confiance": 0.9,
-      "buzz": 0.7,
-      "buzz_raison": "Première édition de la série en fin d’année, line‑up reconnu dans la scène techno locale, post Instagram avec 62 likes et 13 commentaires.",
-      "accroche": "Une nuit hardcore à Green Musik : techno, schranz et hard‑bounce jusqu’à l’aube, avec Art Winder en focus.",
+      "confiance": 0.7,
+      "buzz": 0.6,
+      "buzz_raison": "Tête d’affiche reconnue dans la scène house, lieu prestigieux à Monaco, date proche du week‑end, bonne visibilité Instagram.",
+      "accroche": "MALIVE en live à La Nonchalance, le 13 novembre : house deep, vibes de Monaco et soirée qui dépasse l’ordinaire.",
       "instagram": [
-        "_lestocards_"
-      ]
+        "lanonchalance"
+      ],
+      "offres": [
+        {
+          "plateforme": "shotgun.live",
+          "url": "https://shotgun.live/es/events/lanonchalance-pres-malive",
+          "prix": 15
+        }
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -60,7 +64,10 @@
       "accroche": "Hard‑techno et DnB en mode maximal à Green Musik : prépare‑toi à vibrer toute la nuit.",
       "instagram": [
         "_lestocards_"
-      ]
+      ],
+      "offres": [],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -85,7 +92,10 @@
       "accroche": "Une nuit psytrance explosive avec KALKI, LA ROUZ et WILDTRACK au cœur du Dieze.",
       "instagram": [
         "diezewarehouse"
-      ]
+      ],
+      "offres": [],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -111,7 +121,10 @@
       "accroche": "Hard Night revient pour une nuit de kicks ravageurs et de BPM survoltés.",
       "instagram": [
         "diezewarehouse"
-      ]
+      ],
+      "offres": [],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -137,7 +150,10 @@
       "instagram": [
         "diezewarehouse",
         "nox_aera"
-      ]
+      ],
+      "offres": [],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -254,7 +270,9 @@
           "url": "https://shotgun.live/fr/events/la-java-3",
           "prix": 11.99
         }
-      ]
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -311,7 +329,9 @@
         "shotgun.live",
         "Shotgun Live / Prizme Concept",
         "Instagram"
-      ]
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -336,7 +356,10 @@
       "accroche": "Phaphane enflamme le FRIGO 16 à Nice le 27 nov avec ses sons Amapiano et Afrobeats.",
       "instagram": [
         "tweltyprod"
-      ]
+      ],
+      "offres": [],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -442,7 +465,9 @@
         "Shotgun / Mamacita Productions",
         "Instagram"
       ],
-      "via_veille": true
+      "via_veille": true,
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -498,7 +523,9 @@
         "Shotgun / Panda Events",
         "shotgun.live",
         "Instagram"
-      ]
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -523,7 +550,9 @@
       "accroche": "Technoël : une rave de Noël gratuite, déguisements et beats hard techno.",
       "instagram": [
         "prostcrastination"
-      ]
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -581,7 +610,9 @@
           "prix": 0
         }
       ],
-      "via_veille": true
+      "via_veille": true,
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -642,7 +673,9 @@
         "instagram.com",
         "instagram"
       ],
-      "via_veille": true
+      "via_veille": true,
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -666,7 +699,9 @@
       "accroche": "Soirée Picon, bière, cocktails et bonne humeur à Toulon",
       "instagram": [
         "barriochicagotoulon"
-      ]
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -690,7 +725,9 @@
       "accroche": "Apéro Party, Spritz et vibes Dolce Vita à Toulon",
       "instagram": [
         "barriochicagotoulon"
-      ]
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -715,7 +752,9 @@
       "accroche": "Réveillon à l'Auberge TAO : dîner festif + DJ set jusqu’à 2h du matin.",
       "instagram": [
         "le.bar.ephemere"
-      ]
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -786,7 +825,10 @@
       "accroche": "Dinner DJ Set – Sat 21 | Twiga Monte Carlo",
       "instagram": [
         "twigamontecarlo"
-      ]
+      ],
+      "offres": [],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -811,7 +853,10 @@
       "accroche": "Tente ta chance au tournoi de darts de La Rascasse Monaco – 20€ de réservation, soirée conviviale et fun.",
       "instagram": [
         "larascassemc"
-      ]
+      ],
+      "offres": [],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -837,7 +882,9 @@
       "instagram": [
         "nayaclubcannes"
       ],
-      "offres": []
+      "offres": [],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -863,7 +910,9 @@
       "instagram": [
         "nayaclubcannes"
       ],
-      "offres": []
+      "offres": [],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -889,7 +938,9 @@
       "instagram": [
         "nayaclubcannes"
       ],
-      "offres": []
+      "offres": [],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -915,7 +966,9 @@
       "instagram": [
         "nayaclubcannes"
       ],
-      "offres": []
+      "offres": [],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -1423,42 +1476,6 @@
     {
       "source": "web",
       "source_site": "bizouk.com",
-      "name": "Before Pacific Neon Night",
-      "start": "2026-11-21T18:30:00.000Z",
-      "venue": "Boka Club",
-      "city": "Toulon",
-      "address": "",
-      "url": "https://www.bizouk.com/events/details/before-pacific-neon-night/132113",
-      "image": "https://thumb.bizouk.com/t/width=800,height=1067,fit=scale-down/events/images/13/21/13/132113_058564c8d72bd45486426ffd29ebd833.png?v=2",
-      "price": 15.99,
-      "tags": [
-        "pacific",
-        "tahitien",
-        "hip-hop",
-        "tropical"
-      ],
-      "description": "",
-      "public_cible": 0.8,
-      "confiance": 0.95,
-      "buzz": 0.55,
-      "buzz_raison": "Warm-up officiel le samedi soir avec DJ Man's 987 et le Bringue Tahitian Crew.",
-      "accroche": "Warm-up officiel Pacific Neon Night avec DJ Man's 987 et le Bringue Tahitian Crew.",
-      "instagram": [
-        "boka_club_del_magot"
-      ],
-      "offres": [
-        {
-          "plateforme": "bizouk.com",
-          "url": "https://www.bizouk.com/events/details/before-pacific-neon-night/132113",
-          "prix": 15.99
-        }
-      ],
-      "billetterie_cherchee": true,
-      "offres_cherchees": true
-    },
-    {
-      "source": "web",
-      "source_site": "bizouk.com",
       "name": "Zouk Love Toulon Edition Chic",
       "start": "2026-11-28T22:45:00.000Z",
       "venue": "Le Boka Club",
@@ -1639,7 +1656,9 @@
         "Shotgun",
         "Shotgun / Panda Events",
         "shotgun.live"
-      ]
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -1666,7 +1685,10 @@
       "instagram": [
         "frejustourisme",
         "villedefrejus"
-      ]
+      ],
+      "offres": [],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -1676,7 +1698,7 @@
       "venue": "Théâtre Denis",
       "city": "Hyères",
       "address": "",
-      "url": "https://www.tandem83.com",
+      "url": "https://www.ticketmaster.fr/fr/manifestation/tiwayo-betsy-rose-billet/idmanif/670861/idtier/43209120",
       "image": "",
       "price": 12,
       "tags": [
@@ -1694,7 +1716,16 @@
         "tandem83",
         "villehyeres",
         "tiwayorockers"
-      ]
+      ],
+      "offres": [
+        {
+          "plateforme": "ticketmaster.fr",
+          "url": "https://www.ticketmaster.fr/fr/manifestation/tiwayo-betsy-rose-billet/idmanif/670861/idtier/43209120",
+          "prix": 12
+        }
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -1741,7 +1772,8 @@
         "Xceed",
         "highclub.fr"
       ],
-      "billetterie_cherchee": true
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -1780,7 +1812,9 @@
           "url": "https://shotgun.live/fr/events/this-is-house",
           "prix": 10.5
         }
-      ]
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -1818,7 +1852,9 @@
           "url": "https://shotgun.live/fr/events/psynaps-2",
           "prix": 5.99
         }
-      ]
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -1846,60 +1882,16 @@
       "instagram": [
         "tatigalaxy",
         "le_stockfish"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "Shotgun",
-      "name": "Marcus Gad + Première Partie",
-      "start": "2026-11-21T19:00:00.000Z",
-      "venue": "Frigo 16 (Le 109)",
-      "city": "Nice",
-      "address": "",
-      "url": "https://shotgun.live/fr/events/marcus-gad-premiere-partie-frigo-16",
-      "image": "https://assets.shotgun.live/image/upload/c_limit,w_384,fl_lossy,f_webp,q_5/production/artworks/Frigo_261121_MarcusGad_event_1920x1080px_cjea17.jpg",
-      "price": 22.5,
-      "tags": [
-        "reggae",
-        "dub",
-        "Reggae",
-        "Dub",
-        "Roots contemporain",
-        "Reggae Roots",
-        "World",
-        "roots",
-        "roots reggae",
-        "Roots Reggae",
-        "Stepper",
-        "Roots",
-        "World Music",
-        "Hip-Hop"
-      ],
-      "description": "",
-      "public_cible": 0.8,
-      "confiance": 0.95,
-      "buzz": 0.7,
-      "buzz_raison": "Artiste reggae roots renommé en tournée.",
-      "accroche": "Vibrations reggae roots et dub envoûtantes en live avec Marcus Gad au 109.",
-      "instagram": [
-        "marcus.gad",
-        "frigo.16",
-        "pandaevents06"
       ],
       "offres": [
         {
           "plateforme": "shotgun.live",
-          "url": "https://shotgun.live/fr/events/marcus-gad-premiere-partie-frigo-16",
-          "prix": 22.5
+          "url": "https://shotgun.live/fr/events/the-first-talk-show-icones-3",
+          "prix": 16.5
         }
       ],
-      "sources_sites": [
-        "Shotgun",
-        "nice.fr / Shotgun",
-        "shotgun.live",
-        "instagram.com"
-      ],
-      "via_veille": true
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -1938,7 +1930,9 @@
       "sources_sites": [
         "Shotgun.live",
         "Shotgun"
-      ]
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -1964,7 +1958,16 @@
       "accroche": "Soirée officielle Mister Fetish France au Glam avec sets house et tech house jusqu'à l'aube.",
       "instagram": [
         "glamnice"
-      ]
+      ],
+      "offres": [
+        {
+          "plateforme": "agendalgbt.com",
+          "url": "https://agendalgbt.com/lieux/le-glam-nice",
+          "prix": 10
+        }
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -1999,7 +2002,8 @@
           "url": "https://www.highclub.fr/event/good-times/",
           "prix": 20
         }
-      ]
+      ],
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -2035,7 +2039,9 @@
       "sources_sites": [
         "Shotgun.live",
         "Shotgun"
-      ]
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -2084,7 +2090,9 @@
         "Shotgun.live",
         "Shotgun / Aztera",
         "shotgun.live"
-      ]
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -2120,7 +2128,8 @@
           "url": "https://www.highclub.fr/event/to-have-fun/",
           "prix": 20
         }
-      ]
+      ],
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -2156,7 +2165,8 @@
           "url": "https://www.highclub.fr/event/whats-up-nice/",
           "prix": 15
         }
-      ]
+      ],
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -2192,7 +2202,8 @@
           "url": "https://www.highclub.fr/event/bad-girls/",
           "prix": 20
         }
-      ]
+      ],
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -2232,7 +2243,9 @@
       "sources_sites": [
         "Shotgun.live",
         "Shotgun"
-      ]
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -2292,7 +2305,9 @@
           "prix": 18.5
         }
       ],
-      "via_veille": true
+      "via_veille": true,
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -2318,7 +2333,16 @@
       "accroche": "Show lasers, performers et kicks tech house percutants pour votre samedi soir.",
       "instagram": [
         "highclubnice"
-      ]
+      ],
+      "offres": [
+        {
+          "plateforme": "highclub.fr",
+          "url": "https://www.highclub.fr/event/take-control/",
+          "prix": 20
+        }
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -2344,7 +2368,16 @@
       "accroche": "Célèbre le lancement des vacances de fin d'année sur le grand dancefloor du front de mer.",
       "instagram": [
         "highclubnice"
-      ]
+      ],
+      "offres": [
+        {
+          "plateforme": "highclub.fr",
+          "url": "https://www.highclub.fr/event/more-than-dream/",
+          "prix": 20
+        }
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -2388,7 +2421,9 @@
           "url": "https://shotgun.live/fr/events/wado-x-l-antre-2",
           "prix": 5
         }
-      ]
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -2429,7 +2464,9 @@
           "url": "https://shotgun.live/fr/venues/glass-club-cannes",
           "prix": 9.99
         }
-      ]
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -2455,7 +2492,16 @@
       "accroche": "Set afro house et deep house rythmé par KX DJ au Glass Club Cannes.",
       "instagram": [
         "glassclubcannes"
-      ]
+      ],
+      "offres": [
+        {
+          "plateforme": "shotgun.live",
+          "url": "https://shotgun.live/fr/venues/glass-club-cannes",
+          "prix": 9.99
+        }
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -2481,7 +2527,16 @@
       "accroche": "Pépites tech house et deep house mixées par Ugo Puccinelli au Glass Club.",
       "instagram": [
         "glassclubcannes"
-      ]
+      ],
+      "offres": [
+        {
+          "plateforme": "shotgun.live",
+          "url": "https://shotgun.live/fr/venues/glass-club-cannes",
+          "prix": 9.99
+        }
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -2507,7 +2562,16 @@
       "accroche": "Alex Duff aux platines pour une nuit house et tech house survitaminée.",
       "instagram": [
         "glassclubcannes"
-      ]
+      ],
+      "offres": [
+        {
+          "plateforme": "shotgun.live",
+          "url": "https://shotgun.live/fr/venues/glass-club-cannes",
+          "prix": 9.99
+        }
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -2534,7 +2598,16 @@
       "instagram": [
         "mjcpicaud_cannes",
         "yardofblondes"
-      ]
+      ],
+      "offres": [
+        {
+          "plateforme": "cannes.com",
+          "url": "https://www.cannes.com/fr/agenda/annee-2026/decembre/yard-of-blondes.html",
+          "prix": 0
+        }
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -2572,7 +2645,8 @@
         "Instagram sun7riviera",
         "Shotgun.live",
         "Instagram"
-      ]
+      ],
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -2616,36 +2690,6 @@
         "Shotgun",
         "Shotgun / Fastlane",
         "Shotgun.live"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "Shotgun",
-      "name": "De Rio A Mexico | La Esquina Tropical X Fort Napoleon",
-      "start": "2026-11-21T18:00:00.000Z",
-      "venue": "Fort Napoléon",
-      "city": "La Seyne-sur-Mer",
-      "address": "",
-      "url": "https://shotgun.live/fr/events/de-rio-a-mexico-la-esquina-tropical-x-fort-napoleon",
-      "image": "https://assets.shotgun.live/image/upload/v1793896564/production/artworks/FORNAP_21.11_w5xdtc.png",
-      "price": 0,
-      "tags": [
-        "Reggaeton",
-        "Dembow",
-        "Baile Funk",
-        "Salsa",
-        "Bachata",
-        "Latin Trap"
-      ],
-      "description": "",
-      "public_cible": 0.9,
-      "confiance": 0.95,
-      "buzz": 0.75,
-      "buzz_raison": "Collectif marseillais reconnu, gratuit avant 21h au Fort Napoléon.",
-      "accroche": "Fiesta latino géante avec le collectif La Esquina Tropical et DJ Frankz au fort.",
-      "instagram": [
-        "esquinatropical13",
-        "fornap.fr"
       ]
     },
     {
@@ -3381,31 +3425,6 @@
       "source": "web",
       "source_site": "instagram.com",
       "via_veille": true,
-      "name": "Damn Peach x Café Toulonnais",
-      "start": "2026-11-21T18:00:00.000Z",
-      "venue": "Café Toulonnais (Les Halles de Toulon)",
-      "city": "Toulon",
-      "address": "",
-      "url": "https://www.instagram.com/p/DfnG6VXCPUr/",
-      "image": "https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/899029118_18008581988990129_6865004572818388069_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=108&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=6TH3bCjFC-4Q7kNvwFl4alO&_nc_oc=Adrir6wnua9zyxTs2ZZn7yAWz2a1DROlQI7KNOwVFAkyUX6RACKkVHKxguAP1fzSGGI&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=WgczZiRVRB9zTRNVd80A-A&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQTks4CyRL5fXlA9PEcMDQk-ABZ62D5g519SSJN4hX74Gg&oe=6AFB58C0",
-      "price": null,
-      "tags": [
-        "Urbain",
-        "Hip-Hop",
-        "Classiques"
-      ],
-      "description": "",
-      "public_cible": 0.6,
-      "confiance": 0.9,
-      "accroche": "Session urbaine et restauration aux Halles de Toulon de 19h à minuit.",
-      "instagram": [
-        "damnpeach__"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "instagram.com",
-      "via_veille": true,
       "name": "Acidpach @ Le 109",
       "start": "2027-02-13T19:00:00.000Z",
       "venue": "Le 109, Nice",
@@ -3509,31 +3528,6 @@
       "source": "web",
       "source_site": "instagram.com",
       "via_veille": true,
-      "name": "Saturday Night Fever GTA VI",
-      "start": "2026-11-21T19:00:00.000Z",
-      "venue": "Bulldog Pompeï",
-      "city": "Nice",
-      "address": "",
-      "url": "https://www.instagram.com/p/Df7XUhHsPGk/",
-      "image": "https://scontent-ord5-1.cdninstagram.com/v/t51.82787-15/917540322_18217530928369532_3686359507110837614_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=103&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=SaoW76F-554Q7kNvwGh79o_&_nc_oc=AdoqXz_68gzsrfCHWBT5CxWTKkTaqbjqNjxBhpyyhFJVkq2rA1KTtJFHTo8tAGfE3Xw&_nc_zt=23&_nc_ht=scontent-ord5-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=Jyw4ssOIpyVtalhL5N0AYA&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQRJZEbRbZ_7vj71cwXMfkeFPmKMZ6k8M0w-cMGoQm0-dg&oe=6B0652B9",
-      "price": null,
-      "tags": [
-        "DJ",
-        "Cocktail",
-        "Nightclub"
-      ],
-      "description": "",
-      "public_cible": 0.6,
-      "confiance": 0.9,
-      "accroche": "Soirée GTA VI avec DJ Kenzo et cocktail Miami Vice",
-      "instagram": [
-        "bulldogpompeipub"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "instagram.com",
-      "via_veille": true,
       "name": "KONTAKT ROAD – SECRET LINE UP",
       "start": "2026-11-28T19:00:00.000Z",
       "venue": "THE SALOON",
@@ -3607,29 +3601,6 @@
       "source": "web",
       "source_site": "instagram.com",
       "via_veille": true,
-      "name": "Héritage Goldman",
-      "start": "2026-11-21T19:00:00.000Z",
-      "venue": "Palais Nikaïa",
-      "city": "Nice",
-      "address": "",
-      "url": "https://www.nikaia.fr",
-      "image": "https://scontent-sea5-1.cdninstagram.com/v/t51.82787-15/922122326_18451922278131431_8525407828252579662_n.jpg",
-      "price": null,
-      "tags": [
-        "rock"
-      ],
-      "description": "",
-      "public_cible": 0.6,
-      "confiance": 0.9,
-      "accroche": "Concert de Héritage Goldman le 21/11 à Palais Nikaïa",
-      "instagram": [
-        "palaisnikaia"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "instagram.com",
-      "via_veille": true,
       "name": "Soirée tropicale",
       "start": "2026-11-26T23:00:00.000Z",
       "venue": "Boka Club, 3261 avenue de la Résistance, 83000 Toulon",
@@ -3651,7 +3622,5 @@
         "boka_officiel"
       ]
     }
-  ],
-  "maj_instagram": "2026-11-21T17:42:04.303Z",
-  "echec_web": "2026-11-21T13:12:32.886Z"
+  ]
 }

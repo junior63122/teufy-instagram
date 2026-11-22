@@ -3512,6 +3512,44 @@
       ],
       "score": 1.266,
       "note": 63
+    },
+    {
+      "media": "18082878002394130",
+      "id": "reel-spot-promo",
+      "type": "reel",
+      "variante": "spot-promo",
+      "date": "2026-11-21",
+      "choix": {
+        "creneau": "17",
+        "accroche-spot": "pov",
+        "fonction-spot": [
+          "manger-tard",
+          "pres-de-moi",
+          "toute-la-cote"
+        ]
+      },
+      "features": [],
+      "nb_images": 0,
+      "duree": 12.9,
+      "legende": "Il est 4 h, la boîte ferme… et t'as la dalle\n\nSur teufyparty.com, rubrique Manger tard :\n- choisis jusqu'à quelle heure c'est ouvert (2 h, 3 h, 4 h, 5 h et +)\n- « Près de moi » : le plus proche de toi en premier\n- de Toulon à Menton\n\nHoraires publiés, relevés chaque jour : vérifie avant d'y aller.\nEnvoie ça à celui qui a toujours faim en sortant\n\n#TeufyParty #mangertard #nice #cannes #monaco",
+      "titre": "Teufy · 02 manger tard",
+      "publie_le": "2026-11-21T17:11:14.441Z",
+      "source": "bot",
+      "caption": "Il est 4 h, la boîte ferme… et t'as la dalle\n\nSur teufyparty.com, rubrique Manger tard :\n- choisis jusqu'à quelle heure c'est ouvert (2 h, 3 h, 4 h, 5 h et +)\n- « Près de moi » : le plus proche de toi en premier\n- de Toulon à Menton\n\nHoraires publiés, relevés chaque jour : vérifie avant d'y aller.\nEnvoie ça à celui qui a toujours faim en sortant\n\n#TeufyParty #mangertard #nice #cannes #monaco",
+      "features_generales": [
+        "heure:18h",
+        "jour:sam",
+        "format:reel",
+        "type:reel-spot-promo",
+        "legende:moyenne",
+        "hashtag:#teufyparty",
+        "hashtag:#mangertard",
+        "hashtag:#nice",
+        "hashtag:#cannes",
+        "hashtag:#monaco",
+        "auteur:bot"
+      ],
+      "note": null
     }
   ],
   "abonnes": [
@@ -3570,6 +3608,10 @@
     {
       "date": "2026-11-21",
       "n": 14432
+    },
+    {
+      "date": "2026-11-22",
+      "n": 14430
     }
   ]
 }

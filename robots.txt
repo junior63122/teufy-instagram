@@ -8,6 +8,7 @@ Disallow: /tests/
 Disallow: /studio/
 Disallow: /veille/
 Disallow: /tiktok/
+Disallow: /pilotage/
 
 User-agent: Googlebot
 Allow: /
@@ -18,6 +19,7 @@ Disallow: /tests/
 Disallow: /studio/
 Disallow: /veille/
 Disallow: /tiktok/
+Disallow: /pilotage/
 
 User-agent: Bingbot
 Allow: /
@@ -28,6 +30,7 @@ Disallow: /tests/
 Disallow: /studio/
 Disallow: /veille/
 Disallow: /tiktok/
+Disallow: /pilotage/
 
 User-agent: DuckDuckBot
 Allow: /
@@ -38,6 +41,7 @@ Disallow: /tests/
 Disallow: /studio/
 Disallow: /veille/
 Disallow: /tiktok/
+Disallow: /pilotage/
 
 User-agent: Applebot
 Allow: /
@@ -48,6 +52,7 @@ Disallow: /tests/
 Disallow: /studio/
 Disallow: /veille/
 Disallow: /tiktok/
+Disallow: /pilotage/
 
 User-agent: YandexBot
 Allow: /
@@ -58,6 +63,7 @@ Disallow: /tests/
 Disallow: /studio/
 Disallow: /veille/
 Disallow: /tiktok/
+Disallow: /pilotage/
 
 User-agent: OAI-SearchBot
 Allow: /
@@ -68,6 +74,7 @@ Disallow: /tests/
 Disallow: /studio/
 Disallow: /veille/
 Disallow: /tiktok/
+Disallow: /pilotage/
 
 User-agent: ChatGPT-User
 Allow: /
@@ -78,6 +85,7 @@ Disallow: /tests/
 Disallow: /studio/
 Disallow: /veille/
 Disallow: /tiktok/
+Disallow: /pilotage/
 
 User-agent: Claude-SearchBot
 Allow: /
@@ -88,6 +96,7 @@ Disallow: /tests/
 Disallow: /studio/
 Disallow: /veille/
 Disallow: /tiktok/
+Disallow: /pilotage/
 
 User-agent: Claude-User
 Allow: /
@@ -98,6 +107,7 @@ Disallow: /tests/
 Disallow: /studio/
 Disallow: /veille/
 Disallow: /tiktok/
+Disallow: /pilotage/
 
 User-agent: PerplexityBot
 Allow: /
@@ -108,6 +118,7 @@ Disallow: /tests/
 Disallow: /studio/
 Disallow: /veille/
 Disallow: /tiktok/
+Disallow: /pilotage/
 
 User-agent: Perplexity-User
 Allow: /
@@ -118,6 +129,7 @@ Disallow: /tests/
 Disallow: /studio/
 Disallow: /veille/
 Disallow: /tiktok/
+Disallow: /pilotage/
 
 User-agent: MistralAI-User
 Allow: /
@@ -128,6 +140,7 @@ Disallow: /tests/
 Disallow: /studio/
 Disallow: /veille/
 Disallow: /tiktok/
+Disallow: /pilotage/
 
 User-agent: DuckAssistBot
 Allow: /
@@ -138,6 +151,7 @@ Disallow: /tests/
 Disallow: /studio/
 Disallow: /veille/
 Disallow: /tiktok/
+Disallow: /pilotage/
 
 User-agent: GPTBot
 Disallow: /

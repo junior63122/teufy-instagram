@@ -200,7 +200,7 @@
    "score": 0,
    "soirs": [],
    "details": {
-    "le": "2026-11-21T22:10:01.643Z",
+    "le": "2026-11-22T02:01:58.233Z",
     "styles": "DJ résidents (ven–sam après 22h)",
     "dress_code": "",
     "horaires": "lun–dim 10h–2h",
@@ -1326,15 +1326,8 @@
    "instagram": "twigamontecarlo",
    "site": "https://twigamontecarlo.com/",
    "description": "Restaurant puis club au 2e étage du Grimaldi Forum, avec dîner en soirée et club jusqu'à 4-5 h selon les soirs.",
-   "soirees": [
-    "dinner-dj-set-sat-21-2026-11-21"
-   ],
-   "prochaines": [
-    {
-     "id": "dinner-dj-set-sat-21-2026-11-21",
-     "nom": "Dinner DJ Set – Sat 21"
-    }
-   ],
+   "soirees": [],
+   "prochaines": [],
    "insta": {
     "abonnes": 86839,
     "likes": 20,
@@ -1342,7 +1335,7 @@
     "posts21": 8
    },
    "slug": "twiga-monte-carlo-monaco",
-   "score": 0.2772727272727273,
+   "score": 0.22727272727272727,
    "photo": "site/lieux/twigamontecarlo-176.webp",
    "details": {
     "le": "2026-11-13T17:38:33.455Z",
@@ -1362,14 +1355,7 @@
     ],
     "relu": "verification 2026-11-13"
    },
-   "soirs": [
-    [
-     "2026-11-21",
-     "20:30",
-     "dinner-dj-set-sat-21-2026-11-21",
-     "Dinner DJ Set – Sat 21"
-    ]
-   ],
+   "soirs": [],
    "instagram_non_verifie": "twigamontecarlo",
    "stylesSoirees": []
   },
@@ -1930,14 +1916,9 @@
    "site": "https://www.facebook.com/bokaclubdelmagot",
    "description": "Discothèque et club karaoké en haut de la corniche du Mourillon, avec soirées DJ et terrasse.",
    "soirees": [
-    "before-pacific-neon-night-2026-11-21",
     "zouk-love-toulon-edition-chic-2026-11-28"
    ],
    "prochaines": [
-    {
-     "id": "before-pacific-neon-night-2026-11-21",
-     "nom": "Before Pacific Neon Night"
-    },
     {
      "id": "zouk-love-toulon-edition-chic-2026-11-28",
      "nom": "Zouk Love Toulon Edition Chic"
@@ -1947,12 +1928,6 @@
    "slug": "boka-club-del-magot-toulon",
    "score": 0,
    "soirs": [
-    [
-     "2026-11-21",
-     "19:30",
-     "before-pacific-neon-night-2026-11-21",
-     "Before Pacific Neon Night"
-    ],
     [
      "2026-11-28",
      "23:45",
@@ -1977,7 +1952,6 @@
     "relu": "verification 2026-11-13"
    },
    "stylesSoirees": [
-    "rap",
     "shatta"
    ]
   },
