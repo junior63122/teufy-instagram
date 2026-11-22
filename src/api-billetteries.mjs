@@ -64,14 +64,17 @@ async function eventbrite({ root, token, log, villes }) {
     lus++; await attendre(250);
   }
   // 2. Prochaines soirées de chaque organisateur, gardées si elles sont dans nos villes.
-  const sortie = [];
+  const sortie = [], ecartees = [];
+  let recues = 0, erreurs = 0;
   for (const org of Object.keys(etat.organisateurs)) {
     try {
       const r = await json(`https://www.eventbriteapi.com/v3/organizers/${org}/events/?status=live&order_by=start_asc&expand=venue,ticket_availability&page_size=50`, H);
-      for (const e of r.events || []) { const x = depuisEventbrite(e); if (x.start && villes(x)) sortie.push(x); }
-    } catch (err) { if (/HTTP 40[13]/.test(err.message)) throw new Error(`Eventbrite : jeton refusé (${err.message})`); }
+      for (const e of r.events || []) { recues++; const x = depuisEventbrite(e); if (x.start && villes(x)) sortie.push(x); else ecartees.push(`${x.name.slice(0, 40)} (${x.city || x.venue || 'lieu inconnu'})`); }
+    } catch (err) { if (/HTTP 40[13]/.test(err.message)) throw new Error(`Eventbrite : jeton refusé (${err.message})`); erreurs++; if (erreurs <= 3) log(`  Eventbrite (API) : organisateur ${org} illisible (${err.message})`); }
     await attendre(250);
   }
+  // 22/11/2026 : premier essai « 34 organisateurs, 0 soirée » sans explication : on dit ce qui est reçu et écarté.
+  log(`  Eventbrite (API) : ${recues} soirée(s) reçue(s), ${ecartees.length} hors de nos villes${ecartees.length ? ` (ex. ${ecartees.slice(0, 5).join(' ; ')})` : ''}, ${erreurs} organisateur(s) illisible(s).`);
   writeFileSync(path.join(root, 'contenus', 'eventbrite-organisateurs.json'), JSON.stringify(etat, null, 1) + '\n');
   log(`  Eventbrite (API) : ${Object.keys(etat.organisateurs).length} organisateur(s), ${sortie.length} soirée(s) dans nos villes.`);
   return sortie;
