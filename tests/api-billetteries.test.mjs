@@ -11,7 +11,8 @@ test('identifiant Eventbrite tiré de l\'adresse de la page', () => {
 
 test('Eventbrite et Ticketmaster → format commun, prix et heure réels seulement', () => {
   const e = depuisEventbrite({ name: { text: 'Soirée' }, start: { utc: '2026-11-28T21:00:00Z' }, url: 'u', is_free: false,
-    ticket_availability: { minimum_ticket_price: { major_value: '12.00' } }, venue: { name: 'High Club', address: { city: 'Nice', localized_address_display: 'Promenade, Nice' } } });
+    ticket_availability: { minimum_ticket_price: { major_value: '12.00' } }, venue: { name: 'High Club', address: { city: 'Nice', country: 'FR', localized_address_display: 'Promenade, Nice' } } });
+  assert.equal(e.pays, 'FR');
   assert.deepEqual([e.name, e.start, e.price, e.city, e.venue], ['Soirée', '2026-11-28T21:00:00.000Z', 12, 'Nice', 'High Club']);
   const t = depuisTicketmaster({ name: 'Concert', url: 'u', dates: { start: { dateTime: '2026-12-05T19:30:00Z' } }, _embedded: { venues: [{ name: 'Palais Nikaïa', city: { name: 'Nice' } }] },
     classifications: [{ genre: { name: 'Hip-Hop/Rap' }, subGenre: { name: 'Undefined' } }], images: [{ url: 'a', width: 100 }, { url: 'b', width: 1000 }] });

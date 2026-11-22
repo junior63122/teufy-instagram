@@ -39,7 +39,7 @@ export function depuisEventbrite(e) {
   const prix = e.is_free ? 0 : e.ticket_availability?.minimum_ticket_price?.major_value != null ? Number(e.ticket_availability.minimum_ticket_price.major_value) : null;
   return { source: 'eventbrite', name: e.name?.text || '', start: e.start?.utc ? new Date(e.start.utc).toISOString() : null, end: e.end?.utc ? new Date(e.end.utc).toISOString() : '',
     venue: v.name || '', city: a.city || '', address: a.localized_address_display || [a.address_1, a.postal_code, a.city].filter(Boolean).join(', '),
-    url: e.url || '', image: e.logo?.original?.url || e.logo?.url || '', price: prix, tags: [], description: (e.summary || '').slice(0, 400), popularite: null };
+    url: e.url || '', image: e.logo?.original?.url || e.logo?.url || '', price: prix, tags: [], description: (e.summary || '').slice(0, 400), popularite: null, pays: a.country || '' };
 }
 
 /** Événement Ticketmaster Discovery v2 → format commun. */
@@ -50,13 +50,16 @@ export function depuisTicketmaster(e) {
   const start = e.dates?.start?.dateTime || (e.dates?.start?.localDate && e.dates?.start?.localTime ? `${e.dates.start.localDate}T${e.dates.start.localTime}+01:00` : null);
   return { source: 'ticketmaster', name: e.name || '', start: start ? new Date(start).toISOString() : null, end: '', venue: v.name || '', city: v.city?.name || '',
     address: [v.address?.line1, v.postalCode, v.city?.name].filter(Boolean).join(', '), url: e.url || '', image: img?.url || '',
-    price: e.priceRanges?.[0]?.min ?? null, tags: [...new Set(g)].slice(0, 4), description: '', popularite: null };
+    price: e.priceRanges?.[0]?.min ?? null, tags: [...new Set(g)].slice(0, 4), description: '', popularite: null, pays: v.country?.countryCode || '' };
 }
 
 async function eventbrite({ root, token, log, villes }) {
   // Seulement des soirées (pas d'ateliers, conférences, stand-up…) : mêmes règles que pour les pages des billetteries.
   const { PAS_SOIREE, EST_SOIREE } = await import('./recherche.mjs');
-  const soiree = (t) => EST_SOIREE.test(t) && !PAS_SOIREE.test(t);
+  // 22/11/2026 : premier relevé = bar crawls et pub crawls (l'alcool comme programme), dîners d'entrepreneurs, lancement
+  // d'optiques, ventes privées : écartés (Teufy ne met jamais l'alcool en avant et ne liste que des soirées).
+  const HORS_SUJET = /\b(pub|bar)\s*crawl|\bcrawl\b|\bshots?\b|open ?bar|dinner|d[iî]ner|entrepreneur|business|networking|optique|leica|black friday|vente priv|magicien|\(\s*\d{2}\s*-\s*\d{2}\s*ans/i;
+  const soiree = (t) => EST_SOIREE.test(t) && !PAS_SOIREE.test(t) && !HORS_SUJET.test(t);
   const H = { headers: { authorization: `Bearer ${token}` } };
   const etat = lire(path.join(root, 'contenus', 'eventbrite-organisateurs.json'), { organisateurs: {}, evenements_vus: {} });
   // 1. Organisateurs : à partir des soirées Eventbrite déjà connues (pages lues avant le blocage + recherche web).
@@ -83,7 +86,7 @@ async function eventbrite({ root, token, log, villes }) {
       const base = `https://www.eventbriteapi.com/v3/organizers/${org}/events/`;
       const r = await json(`${base}?status=live&expand=venue,ticket_availability`, H).catch((err) => (/HTTP 400/.test(err.message) ? json(`${base}?expand=venue`, H) : Promise.reject(err)))
         .catch((err) => (/HTTP 400/.test(err.message) ? json(base, H) : Promise.reject(err)));
-      for (const e of r.events || []) { recues++; const x = depuisEventbrite(e); if (x.start && Date.parse(x.start) > Date.now() - 6 * 3600e3 && villes(x) && soiree(`${x.name} ${x.description}`)) sortie.push(x); else ecartees.push(`${x.name.slice(0, 40)} (${x.city || x.venue || 'lieu inconnu'})`); }
+      for (const e of r.events || []) { recues++; const x = depuisEventbrite(e); if (x.start && Date.parse(x.start) > Date.now() - 6 * 3600e3 && ['FR', 'MC'].includes(x.pays) && villes(x) && soiree(`${x.name} ${x.description}`)) sortie.push(x); else ecartees.push(`${x.name.slice(0, 40)} (${x.city || x.venue || 'lieu inconnu'})`); }
     } catch (err) { if (/HTTP 40[13]/.test(err.message)) throw new Error(`Eventbrite : jeton refusé (${err.message})`); erreurs++; if (erreurs <= 3) log(`  Eventbrite (API) : organisateur ${org} illisible (${err.message})`); }
     await attendre(250);
   }
@@ -101,7 +104,7 @@ async function ticketmaster({ key, log, villes }) {
       const u = new URL('https://app.ticketmaster.com/discovery/v2/events.json');
       for (const [k, v] of Object.entries({ apikey: key, latlong: z.latlong, radius: z.rayon, unit: 'km', locale: '*', size: 100, page, sort: 'date,asc', startDateTime: debut, classificationName: 'Music' })) u.searchParams.set(k, v);
       const r = await json(u.href);
-      for (const e of r._embedded?.events || []) { const x = depuisTicketmaster(e); if (x.start && villes(x)) sortie.push(x); }
+      for (const e of r._embedded?.events || []) { const x = depuisTicketmaster(e); if (x.start && ['FR', 'MC'].includes(x.pays) && villes(x)) sortie.push(x); }
       if ((r.page?.totalPages ?? 1) <= page + 1) break;
       await attendre(300);
     }
