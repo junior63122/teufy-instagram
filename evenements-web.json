@@ -3179,8 +3179,10 @@
       "confiance": 0.9,
       "accroche": "Soirée tropicale au Boka Club, 27 novembre, 00h-05h.",
       "instagram": [
-        "boka_officiel"
-      ]
+        "boka_officiel",
+        "_boka_officiel_"
+      ],
+      "offres": []
     }
   ],
   "maj_instagram": "2026-11-22T07:12:19.557Z"
