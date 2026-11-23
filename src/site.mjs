@@ -1589,9 +1589,12 @@ const defile = (t) => `<div class="defile" aria-hidden="true" dir="ltr"><div cla
 // « Ce soir / En ce moment » : pré-rempli à la génération (le robot régénère le site plusieurs fois par jour) pour que
 // rien ne bouge à l'affichage ; app.js le recalcule ensuite à l'heure du visiteur (cartes finies retirées, statuts).
 const GENERE = Date.now();
+// « Ce soir » = début entre 17 h et 6 h, heure de Paris (23/11/2026 : une dégustation à midi apparaissait « en ce moment ce soir »).
+const heureParis = (iso) => +new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Paris', hour: '2-digit', hourCycle: 'h23' }).format(new Date(iso));
+export const duSoir = (s) => { const h = heureParis(s.debut); return Number.isNaN(h) || h >= 17 || h < 6; };
 const ceSoir = (t, soirees = [], base = '', lang = 'fr') => {
   const auj = cle(new Date(GENERE).toISOString()), DUREE = 6 * 3600e3, d = (s) => Date.parse(s.debut);
-  const soir = soirees.filter((s) => s.jour === auj && d(s) + DUREE > GENERE).sort((a, b) => (d(b) <= GENERE) - (d(a) <= GENERE) || d(a) - d(b)); // en cours d'abord, puis par heure
+  const soir = soirees.filter((s) => s.jour === auj && d(s) + DUREE > GENERE && duSoir(s)).sort((a, b) => (d(b) <= GENERE) - (d(a) <= GENERE) || d(a) - d(b)); // en cours d'abord, puis par heure
   const live = soir.filter((s) => d(s) <= GENERE), tard = soir.filter((s) => d(s) > GENERE);
   const nb = (n) => (n === 1 ? t.js.soiree : t.js.soirees.replace('{n}', n));
   const groupe = (nom, l) => `<div class="groupe-soir" data-groupe="${nom}"${l.length ? '' : ' hidden'}><h3>${nom === 'live' ? '<i class="point"></i>' : ''}<span>${l.length ? esc(`${nom === 'live' ? t.js.live : t.js.plusTard} · ${nb(l.length)}`) : ''}</span></h3><div class="rangee">${l.map((s) => carte(s, { t, base, lang })).join('')}</div>${l.length > 8 ? `<button type="button" class="bouton contour voir-tout-soir">${lang === 'fr' ? `Voir les ${l.length - 8} autres soirées` : `+ ${l.length - 8}`}</button>` : ''}</div>`;
@@ -2425,7 +2428,7 @@ const blocAvantage = ({ tr, handle, email }) => { const ig = `https://ig.me/m/${
 function pageCeSoir({ lang, t, tr, base, compte, T, chemin, maj, soirees, lieux, now }) {
   const jour = (d) => new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Paris' }).format(d);
   const auj = jour(new Date(now - 6 * 3600e3)), demain = jour(new Date(now + 18 * 3600e3));
-  const soir = soirees.filter((s) => s.jour === auj || s.jour === demain).sort((a, b) => a.debut.localeCompare(b.debut));
+  const soir = soirees.filter((s) => (s.jour === auj || s.jour === demain) && duSoir(s)).sort((a, b) => a.debut.localeCompare(b.debut));
   const L = (lieux || []).filter((l) => ['club', 'bar', 'rooftop', 'beach-club', 'bar-a-cocktails', 'pub', 'lounge'].includes(l.type));
   const villes = [...new Set(L.map((l) => l.ville).filter(Boolean))].sort((a, b) => L.filter((l) => l.ville === b).length - L.filter((l) => l.ville === a).length);
   const ctx = { t, tr, base, lang };

@@ -61,7 +61,8 @@ export async function collectEvents(config, { root, debugDir, fixturesDir, webEv
   // API officielles (Eventbrite, Ticketmaster), 22/11/2026 : remplacent la lecture des pages bloquées. Sans clé : sautées.
   if (!fixturesDir && root) {
     try { const { lireApiBilletteries } = await import('./api-billetteries.mjs'); const r = await lireApiBilletteries({ root, villes: (e) => !!rubriqueDe(e) });
-      report.push(...r.rapport); all.push(...r.evenements.filter((e) => rubriqueDe(e) === 'cote')); }
+      report.push(...r.rapport); const { PAS_SOIREE } = await import('./recherche.mjs'); // règles du jour appliquées aussi au relevé gardé 6 h
+      all.push(...r.evenements.filter((e) => rubriqueDe(e) === 'cote' && !PAS_SOIREE.test(`${e.name} ${e.description || ''}`))); }
     catch (err) { report.push({ source: 'api', erreur: String(err.message || err) }); }
   }
   // Agendas ouverts (DATAtourisme, OpenAgenda), relevés chaque matin par src/agendas.mjs : soirées de la Côte.
@@ -82,7 +83,10 @@ export async function collectEvents(config, { root, debugDir, fixturesDir, webEv
   report.push({ source: 'manuel', evenements: manual.length });
   all.push(...manual);
   // Doublons exacts, puis la même soirée vue sur plusieurs sources (même nuit + même lieu ou nom proche).
-  return { events: fusionner(dedupe(all)), report };
+  // 23/11/2026 (directeur, captures) : les pages Eventbrite mélangent tout ; webinaires et dégustations (journée, alcool mis
+  // en avant) ne sont pas des soirées. Stand-up, blind tests, quiz restent (sorties du soir, en attente de l'avis du directeur).
+  const garde = all.filter((e) => e.source !== 'eventbrite' || !HORS_SOIREE_EB.test(`${e.name} ${e.description || ''}`));
+  return { events: fusionner(dedupe(garde)), report };
 }
 
 /** Soirées à venir du relevé précédent pour les sources dont au moins une page a échoué ce passage-ci. */
@@ -142,9 +146,14 @@ const norm = (s) => String(s || '').toLowerCase().normalize('NFD').replace(/[̀-
 // États-Unis, de Marseille et de Vars apparaissaient dans « Le même soir »).
 export const VILLES_SITE = ['toulon', 'seyne', 'la-garde', 'farlede', 'valette', 'hyeres', 'six-fours', 'sanary', 'bandol', 'ollioules', 'pradet', 'carqueiranne', 'la-crau', 'cuers', 'sollies', 'draguignan', 'puget', 'roquebrune', 'lavandou', 'bormes', 'londe', 'mandrier', 'cogolin', 'gassin', 'grimaud', 'brignoles', 'maximin', 'le-luc', 'le-muy', 'les-arcs', 'isola', 'auron', 'valberg', 'tende', 'vesubie', 'beausoleil', 'turbie', 'tourrette', 'tourette', 'opio', 'roquefort', 'rouret', 'chateauneuf', 'peymeinade', 'cezaire', 'fayence', 'aygulf', 'agay', 'saint-jeannet', 'gattieres', 'levens', 'contes', 'drap', 'trinite', 'falicon', 'mouans', 'pegomas', 'tanneron', 'la-gaude'];
 export const dansZoneSite = (e, villes = []) => isCoteAzur(e, [...villes, ...VILLES_SITE]);
+const HORS_SOIREE_EB = /webinar|webinaire|d[ée]gustation|tasting|wines? (?:&|and) (?:\w+ )?(?:cheese|charcuterie)/i;
+const EN_LIGNE = /webinar|webinaire|\ben ligne\b|\bonline\b|\bvirtual\b|\bvirtuel(le)?\b|livestream/i;
 export function isCoteAzur(e, villes) {
   const lieu = norm([e.city, e.address].join(' '));
-  if (!lieu.replace(/-/g, '')) return true; // page « ville » sans précision : on garde
+  // 23/11/2026 : un événement en ligne (webinaire HBR sans lieu) passait pour une soirée de la Côte. Sans lieu, on ne
+  // garde que ce qui vient d'une page « ville » d'une billetterie qui donne d'habitude le lieu, jamais Eventbrite (sans lieu = en ligne).
+  if (EN_LIGNE.test(`${e.name || ''} ${e.venue || ''}`)) return false;
+  if (!lieu.replace(/-/g, '')) return e.source !== 'eventbrite';
   if (/\b0?6\d{3}\b|\b83\d{3}\b|98000/.test(lieu)) return true; // codes postaux 06, 83, Monaco
   return villes.some((v) => lieu.includes(norm(v)));
 }

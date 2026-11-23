@@ -21,6 +21,10 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
   const DUREE = 6 * 3600e3; // durée supposée d'une soirée (l'heure de fin est rarement publiée)
   const debut = (c) => Date.parse(c.dataset.debut);
   const enCours = (c) => debut(c) <= maintenant && maintenant < debut(c) + DUREE;
+  // 23/11/2026 (directeur : « ça met que c'est ce soir alors que c'est durant la journée, ça prête à confusion ») :
+  // « Ce soir » = ce qui commence entre 17 h et 6 h (heure de Paris). Les événements de journée restent dans l'agenda.
+  const heureParis = (c) => +new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Paris', hour: '2-digit', hourCycle: 'h23' }).format(debut(c));
+  const duSoir = (c) => { const h = heureParis(c); return h >= 17 || h < 6; };
   const nb = (n) => (n === 1 ? T.soiree : (T.soirees || '{n}').replace('{n}', n));
   const norm = (x) => String(x || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').trim();
   // Recherche tolérante aux fautes de frappe (20/11/2026, tests utilisateurs : « Paul Sul », « Café Tulonnais »,
@@ -503,7 +507,7 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
 
   // --- Ce soir / En ce moment -------------------------------------------------------------------------------
   const ceSoir = document.getElementById('ce-soir');
-  const soir = cartes.filter((c) => !finies.has(c) && c.dataset.jour === auj).sort((a, b) => enCours(b) - enCours(a) || debut(a) - debut(b));
+  const soir = cartes.filter((c) => !finies.has(c) && c.dataset.jour === auj && duSoir(c)).sort((a, b) => enCours(b) - enCours(a) || debut(a) - debut(b));
   if (ceSoir && !soir.length) ceSoir.hidden = true; // plus aucune soirée ce soir à l'heure du visiteur
   if (ceSoir && soir.length) {
     // Deux groupes distincts : « En ce moment » (déjà commencées) et « Plus tard ce soir » (pas encore commencées).

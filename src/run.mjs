@@ -359,11 +359,11 @@ if (cible === 'site') {
   // Soirées des API officielles (Eventbrite, Ticketmaster) des rubriques France et Occitanie (22/11/2026, directeur : « ce n'est pas
   // que la Côte d'Azur, mais aussi les grandes villes ») : ajoutées à leurs rubriques, sans doublon.
   try {
-    const { rubriqueDe } = await import('./sources.mjs');
+    const { rubriqueDe } = await import('./sources.mjs'); const { PAS_SOIREE } = await import('./recherche.mjs');
     const lireEv = (f) => { try { return JSON.parse(readFileSync(path.join(ROOT, 'contenus', f), 'utf8')).evenements || []; } catch { return []; } };
     const api = [...lireEv('api-billetteries.json'), ...lireEv('agendas.json')]; // + agendas ouverts (DATAtourisme, OpenAgenda)
     const ajouter = (cible, rub) => { const vus = new Set((cible.evenements ||= []).map((e) => e.url || `${e.name}|${String(e.start).slice(0, 10)}`));
-      for (const e of api) if (rubriqueDe(e) === rub && Date.parse(e.start) > Date.now() - 6 * 3600e3 && !vus.has(e.url)) cible.evenements.push(e); };
+      for (const e of api) if (rubriqueDe(e) === rub && Date.parse(e.start) > Date.now() - 6 * 3600e3 && !vus.has(e.url) && !PAS_SOIREE.test(`${e.name} ${e.description || ''}`)) cible.evenements.push(e); };
     ajouter(france, 'france'); ajouter(occitanie, 'occitanie');
   } catch { /* pas encore de relevé des API */ }
   LLM_SITE.echeanceIA();

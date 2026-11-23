@@ -211,11 +211,16 @@ function matchBracket(s, start) {
   return -1;
 }
 
+// Même annonce sous deux titres (23/11/2026 : « HBR Book Webinar » et « HBR Press Webinar ») : même heure de début et
+// même image (adresse sans ses paramètres de recadrage) = un seul événement.
+const cleImage = (e) => (e.image && e.start ? `${e.start}|${String(e.image).replace(/^https?:\/\//, '').split('?')[0]}` : '');
 export function dedupe(events) {
-  const map = new Map();
+  const map = new Map(), parImage = new Map();
   for (const e of events) {
     const k = keyOf(e);
-    const prev = map.get(k);
+    const ki = cleImage(e);
+    const prev = map.get(k) || (ki && parImage.get(ki));
+    if (!prev && ki) parImage.set(ki, e);
     if (!prev) { map.set(k, e); continue; }
     // On fusionne en gardant les champs renseignés.
     for (const f of Object.keys(e)) if (!prev[f] && e[f]) prev[f] = e[f];
