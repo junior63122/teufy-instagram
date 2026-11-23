@@ -5472,5 +5472,164 @@
    "nom": "Palais",
    "m": 225
   }
+ },
+ "43.69641,7.27708": {
+  "le": "2026-11-23T07:45:07.106Z",
+  "parkings": [
+   {
+    "nom": "Palais de Justice",
+    "type": "underground",
+    "payant": true,
+    "m": 240
+   },
+   {
+    "nom": "Parking Corvésy",
+    "type": "multi-storey",
+    "payant": true,
+    "m": 399
+   },
+   {
+    "nom": "Parking Sulzer",
+    "type": "underground",
+    "payant": true,
+    "m": 511
+   }
+  ],
+  "transports": [
+   {
+    "nom": "Cours Saleya",
+    "type": "bus",
+    "m": 167,
+    "lignes": "98"
+   },
+   {
+    "nom": "Cathédrale - Vieille Ville",
+    "type": "tram",
+    "m": 229,
+    "lignes": ""
+   },
+   {
+    "nom": "Cathédrale - Vieille Ville",
+    "type": "bus",
+    "m": 231,
+    "lignes": "33;33S;98"
+   },
+   {
+    "nom": "Opéra - Vieille Ville",
+    "type": "tram",
+    "m": 345,
+    "lignes": ""
+   }
+  ],
+  "velo": {
+   "nom": "Scoty",
+   "m": 120
+  },
+  "taxi": null
+ },
+ "43.552,7.01796": {
+  "le": "2026-11-23T07:45:54.114Z",
+  "parkings": [
+   {
+    "nom": "Parking Palais",
+    "type": "underground",
+    "payant": true,
+    "m": 171
+   },
+   {
+    "nom": "Parking du Gray D'albion",
+    "type": "underground",
+    "payant": true,
+    "m": 234
+   },
+   {
+    "nom": "Parking Pantiero",
+    "type": "underground",
+    "payant": true,
+    "m": 316
+   }
+  ],
+  "transports": [
+   {
+    "nom": "Square Mérimée",
+    "type": "bus",
+    "m": 65,
+    "lignes": ""
+   },
+   {
+    "nom": "Les Allées",
+    "type": "bus",
+    "m": 144,
+    "lignes": ""
+   },
+   {
+    "nom": "Cannes",
+    "type": "train",
+    "m": 289,
+    "lignes": ""
+   }
+  ],
+  "velo": {
+   "nom": "Bike Trip",
+   "m": 201
+  },
+  "taxi": {
+   "nom": "Palais",
+   "m": 104
+  }
+ },
+ "43.69751,7.27691": {
+  "le": "2026-11-23T07:48:25.527Z",
+  "parkings": [
+   {
+    "nom": "Palais de Justice",
+    "type": "underground",
+    "payant": true,
+    "m": 253
+   },
+   {
+    "nom": "Parking Corvésy",
+    "type": "multi-storey",
+    "payant": true,
+    "m": 393
+   },
+   {
+    "nom": "Promenade des Arts",
+    "type": "underground",
+    "payant": true,
+    "m": 397
+   }
+  ],
+  "transports": [
+   {
+    "nom": "Cathédrale - Vieille Ville",
+    "type": "tram",
+    "m": 107,
+    "lignes": ""
+   },
+   {
+    "nom": "Cathédrale - Vieille Ville",
+    "type": "bus",
+    "m": 110,
+    "lignes": "33;33S;98"
+   },
+   {
+    "nom": "Lycée Masséna",
+    "type": "bus",
+    "m": 219,
+    "lignes": "8+;12+;57"
+   },
+   {
+    "nom": "Opéra - Vieille Ville",
+    "type": "tram",
+    "m": 319,
+    "lignes": ""
+   }
+  ],
+  "velo": {
+   "nom": "Scoty",
+   "m": 72
+  },
+  "taxi": null
  }
 }
