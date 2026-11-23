@@ -194,7 +194,7 @@ if (cible === 'controle') {
     if (!h) { (passe ? problemes : lignes).push(`${sid} : ${passe ? 'PAS PUBLIÉ aujourd\'hui' : hUtc > prevu + 60 ? `EN RETARD (prévu à ${new Intl.DateTimeFormat('fr-FR', { timeZone: 'Europe/Paris', hour: '2-digit', minute: '2-digit' }).format(new Date(Date.UTC(NOW.getUTCFullYear(), NOW.getUTCMonth(), NOW.getUTCDate(), 0, prevu))).replace(':', ' h ')}, repris au prochain passage)` : 'pas encore publié (repris au prochain passage)'}`); continue; }
     if (!ig || !h.media) { lignes.push(`${sid} : noté publié (${h.lien || 'sans lien'}), non relu (pas d'accès Instagram)`); continue; }
     const p = h.publication || {};
-    const v = await verifierMedia(h.media, ig, { type: p.type === 'reel' || h.duree || /reel/.test(sid) ? 'reel' : p.nb_images > 1 ? 'carrousel' : 'image', images: p.nb_images > 1 ? p.nb_images : undefined, legende: p.legende });
+    const v = await verifierMedia(h.media, ig, { /* le format réellement publié (un carrousel peut remplacer un reel en secours, 23/11/2026) */ type: p.type ? (p.type === 'reel' ? 'reel' : p.nb_images > 1 ? 'carrousel' : 'image') : h.duree || /reel/.test(sid) ? 'reel' : p.nb_images > 1 ? 'carrousel' : 'image', images: p.nb_images > 1 ? p.nb_images : undefined, legende: p.legende });
     const pb = [...v.problemes, ...(Array.isArray(h.verifie) ? h.verifie.filter((x) => !v.problemes.includes(x)) : [])];
     if (pb.length) problemes.push(`${sid} (${h.lien || h.media}) : ${pb.join(' ; ')}`);
     else lignes.push(`${sid} : en ligne et conforme (${h.lien})`);
