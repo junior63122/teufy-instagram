@@ -1,5 +1,5 @@
 {
- "maj": "2026-11-23T16:06:06.846Z",
+ "maj": "2026-11-23T22:17:56.840Z",
  "evenements": [
   {
    "source": "dice",
@@ -1128,21 +1128,6 @@
   },
   {
    "source": "eventbrite",
-   "name": "French Riviera: 3 Local Wines & French Cheese Tasting",
-   "start": "2026-11-23T11:00:00.000Z",
-   "end": "2026-11-23T12:00:00.000Z",
-   "venue": "LOU'BAR",
-   "city": "Villeneuve-Loubet",
-   "address": "3 Rue des Mesures 06270 Villeneuve-Loubet",
-   "url": "https://www.eventbrite.fr/e/french-riviera-3-local-wines-french-cheese-tasting-tickets-2004292973237",
-   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1177916234%2F2149570374853%2F1%2Foriginal.20260219-094849?w=1080&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C454%2C4596%2C2298&s=004423f1cc1ae0994659830f619de76b",
-   "price": 41.7,
-   "tags": [],
-   "description": "Taste 3 local wines from the French Riviera paired with French cheeses in a guided and intimate tasting experience.",
-   "popularite": null
-  },
-  {
-   "source": "eventbrite",
    "name": "Cabinet of Curious Sketches at BRICOLITÉS (Nice, FR)",
    "start": "2026-11-26T18:00:00.000Z",
    "end": "2026-11-26T20:00:00.000Z",
@@ -1154,21 +1139,6 @@
    "price": 11.85,
    "tags": [],
    "description": "A sketch session at Bricolités, a cabinet of curiosities in Nice, drawing vintage finds and odd treasures. Beginner friendly.",
-   "popularite": null
-  },
-  {
-   "source": "eventbrite",
-   "name": "French Riviera: 3 Local Wines & French Charcuterie Tasting",
-   "start": "2026-11-23T11:00:00.000Z",
-   "end": "2026-11-23T12:00:00.000Z",
-   "venue": "LOU'BAR",
-   "city": "Villeneuve-Loubet",
-   "address": "3 Rue des Mesures 06270 Villeneuve-Loubet",
-   "url": "https://www.eventbrite.fr/e/french-riviera-3-local-wines-french-charcuterie-tasting-tickets-2004347917577",
-   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1177927568%2F2149570374853%2F1%2Foriginal.20260219-132432?w=1080&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C724%2C1200%2C600&s=6d5fbd913540e66dba00e9fb76190e6d",
-   "price": 40.64,
-   "tags": [],
-   "description": "Taste 3 local wines from the French Riviera paired with French charcuterie in a guided gourmet experience.",
    "popularite": null
   },
   {
@@ -1293,21 +1263,6 @@
   },
   {
    "source": "eventbrite",
-   "name": "French Riviera: 3 Local Wines & French Cheese Tasting",
-   "start": "2026-11-23T11:00:00.000Z",
-   "end": "2026-11-23T12:00:00.000Z",
-   "venue": "LOU'BAR",
-   "city": "Villeneuve-Loubet",
-   "address": "3 Rue des Mesures 06270 Villeneuve-Loubet",
-   "url": "https://www.eventbrite.fr/e/french-riviera-3-local-wines-french-cheese-tasting-tickets-2004292973237",
-   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1177916234%2F2149570374853%2F1%2Foriginal.20260219-094849?w=1080&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C454%2C4596%2C2298&s=004423f1cc1ae0994659830f619de76b",
-   "price": 41.7,
-   "tags": [],
-   "description": "Taste 3 local wines from the French Riviera paired with French cheeses in a guided and intimate tasting experience.",
-   "popularite": null
-  },
-  {
-   "source": "eventbrite",
    "name": "Nice Orange Bar Crawl – Party Bars, Music, Nightlife & Club Experience",
    "start": "2026-11-27T20:30:00.000Z",
    "end": "2026-11-28T01:00:00.000Z",
@@ -1334,21 +1289,6 @@
    "price": 22.51,
    "tags": [],
    "description": "Meet travelers from around the world during Nice’s most social pub crawl. Games, friendly bars, drink deals and VIP club entry.",
-   "popularite": null
-  },
-  {
-   "source": "eventbrite",
-   "name": "French Riviera: 3 Local Wines & French Charcuterie Tasting",
-   "start": "2026-11-23T11:00:00.000Z",
-   "end": "2026-11-23T12:00:00.000Z",
-   "venue": "LOU'BAR",
-   "city": "Villeneuve-Loubet",
-   "address": "3 Rue des Mesures 06270 Villeneuve-Loubet",
-   "url": "https://www.eventbrite.fr/e/french-riviera-3-local-wines-french-charcuterie-tasting-tickets-2004347917577",
-   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1177927568%2F2149570374853%2F1%2Foriginal.20260219-132432?w=1080&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C724%2C1200%2C600&s=6d5fbd913540e66dba00e9fb76190e6d",
-   "price": 40.64,
-   "tags": [],
-   "description": "Taste 3 local wines from the French Riviera paired with French charcuterie in a guided gourmet experience.",
    "popularite": null
   },
   {
@@ -1848,36 +1788,6 @@
   },
   {
    "source": "eventbrite",
-   "name": "HBR Book Webinar: Unspeakable",
-   "start": "2026-11-23T13:00:00.000Z",
-   "end": "2026-11-23T14:00:00.000Z",
-   "venue": "",
-   "city": "",
-   "address": "",
-   "url": "https://www.eventbrite.co.uk/e/hbr-book-webinar-unspeakable-tickets-2003706919334",
-   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1196269285%2F24792341007%2F1%2Foriginal.20261021-115932?crop=focalpoint&fit=crop&w=1080&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=d392636701397a0b9c4e37f0d1622775",
-   "price": 0,
-   "tags": [],
-   "description": "",
-   "popularite": null
-  },
-  {
-   "source": "eventbrite",
-   "name": "HBR Press Webinar: Unspeakable",
-   "start": "2026-11-23T13:00:00.000Z",
-   "end": "2026-11-23T14:00:00.000Z",
-   "venue": "",
-   "city": "",
-   "address": "",
-   "url": "https://www.eventbrite.com/e/hbr-press-webinar-unspeakable-tickets-2004063230069",
-   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1196845866%2F24792341007%2F1%2Foriginal.20261029-115629?crop=focalpoint&fit=crop&w=1080&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=c169e6d23b68c84f11ea561474361cb8",
-   "price": 0,
-   "tags": [],
-   "description": "Thinking scientifically to drive better business decisions with Stefan Thomke",
-   "popularite": null
-  },
-  {
-   "source": "eventbrite",
    "name": "Dégustation de Whisky Privée à CANNES",
    "start": "2026-11-24T16:00:00.000Z",
    "end": "2026-11-24T18:00:00.000Z",
@@ -2342,36 +2252,6 @@
    "popularite": null
   },
   {
-   "source": "eventbrite",
-   "name": "HBR Book Webinar: Unspeakable",
-   "start": "2026-11-23T13:00:00.000Z",
-   "end": "2026-11-23T14:00:00.000Z",
-   "venue": "",
-   "city": "",
-   "address": "",
-   "url": "https://www.eventbrite.co.uk/e/hbr-book-webinar-unspeakable-tickets-2003706919334",
-   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1196269285%2F24792341007%2F1%2Foriginal.20261021-115932?crop=focalpoint&fit=crop&w=1080&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=d392636701397a0b9c4e37f0d1622775",
-   "price": 0,
-   "tags": [],
-   "description": "",
-   "popularite": null
-  },
-  {
-   "source": "eventbrite",
-   "name": "HBR Press Webinar: Unspeakable",
-   "start": "2026-11-23T13:00:00.000Z",
-   "end": "2026-11-23T14:00:00.000Z",
-   "venue": "",
-   "city": "",
-   "address": "",
-   "url": "https://www.eventbrite.com/e/hbr-press-webinar-unspeakable-tickets-2004063230069",
-   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1196845866%2F24792341007%2F1%2Foriginal.20261029-115629?crop=focalpoint&fit=crop&w=1080&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=c169e6d23b68c84f11ea561474361cb8",
-   "price": 0,
-   "tags": [],
-   "description": "Thinking scientifically to drive better business decisions with Stefan Thomke",
-   "popularite": null
-  },
-  {
    "source": "allevents",
    "name": "Bigfoot's Winter Wanderland",
    "start": "2026-12-12T00:00:00.000Z",
@@ -2493,7 +2373,7 @@
   }
  ],
  "en_panne": [
-  "https://shotgun.live/fr/cities/nice",
+  "https://www.eventbrite.fr/d/france--nice/nightlife/",
   "https://www.eventbrite.fr/d/france--nice/parties/",
   "https://www.eventbrite.fr/d/france--cannes/parties/",
   "https://www.eventbrite.fr/d/monaco--monaco/nightlife/",
@@ -2501,11 +2381,11 @@
   "https://www.eventbrite.fr/d/france--nice/music--events/",
   "https://www.eventbrite.fr/d/france--cannes/music--events/",
   "https://www.eventbrite.fr/d/monaco--monaco/music--events/",
-  "https://www.eventbrite.fr/d/france--saint-tropez/events/",
   "https://www.eventbrite.fr/d/france--antibes/nightlife/",
+  "https://www.eventbrite.fr/d/france--saint-tropez/events/",
   "https://www.eventbrite.fr/d/france--frejus/events/",
   "https://www.eventbrite.fr/d/france--toulon/music--events/",
-  "https://www.eventbrite.fr/d/monaco--monaco/nightlife/",
+  "https://shotgun.live/fr/cities/nice",
   "https://allevents.in/nice/all",
   "https://allevents.in/toulon/all"
  ]
