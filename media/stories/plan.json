@@ -2,13 +2,13 @@
   "jour": "2026-11-23",
   "plan": [
     {
-      "type": "videos",
+      "type": "question",
       "cles": [
-        "v-2026-11-23"
+        "d-ia-2026-11-18-sboypu"
       ],
       "frames": [
         {
-          "image": "2026-11-23-videos.jpg"
+          "image": "2026-11-23-question.jpg"
         }
       ]
     }
