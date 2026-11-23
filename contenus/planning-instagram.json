@@ -1,5 +1,5 @@
 {
- "le": "2026-11-23T08:42:07.316Z",
+ "le": "2026-11-23T09:12:22.842Z",
  "jours": [
   {
    "date": "2026-11-23",
@@ -263,7 +263,17 @@
   {
    "date": "2026-11-29",
    "pause": null,
-   "publications": [],
+   "publications": [
+    {
+     "id": "libre",
+     "type": "libre",
+     "variante": null,
+     "heure": "17 h 07",
+     "suite": false,
+     "fait": false,
+     "lien": null
+    }
+   ],
    "stories": [
     {
      "heure": "16 h",
@@ -539,7 +549,17 @@
   {
    "date": "2026-12-06",
    "pause": null,
-   "publications": [],
+   "publications": [
+    {
+     "id": "libre",
+     "type": "libre",
+     "variante": null,
+     "heure": "17 h 07",
+     "suite": false,
+     "fait": false,
+     "lien": null
+    }
+   ],
    "stories": [
     {
      "heure": "16 h",
