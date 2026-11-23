@@ -86,7 +86,8 @@ export async function collectEvents(config, { root, debugDir, fixturesDir, webEv
   // 23/11/2026 (directeur, captures) : les pages Eventbrite mélangent tout ; webinaires et dégustations (journée, alcool mis
   // en avant) ne sont pas des soirées. Stand-up, blind tests, quiz restent (sorties du soir, en attente de l'avis du directeur).
   const garde = all.filter((e) => e.source !== 'eventbrite' || !HORS_SOIREE_EB.test(`${e.name} ${e.description || ''}`));
-  return { events: fusionner(dedupe(garde)), report };
+  const { nettoyerSoirees } = await import('./qualite-soirees.mjs');
+  return { events: nettoyerSoirees(fusionner(dedupe(garde)), { log: (m) => report.push({ source: 'qualite', evenements: 0, url: m.trim() }) }), report };
 }
 
 /** Soirées à venir du relevé précédent pour les sources dont au moins une page a échoué ce passage-ci. */
