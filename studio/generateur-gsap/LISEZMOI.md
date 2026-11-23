@@ -28,3 +28,8 @@ Playwright et Chromium sont ceux du dépôt.
 
 ## Exemple fourni
 `exemple-monaco/` : 17 secondes (Objectif Monaco) avec vraies photos de Nice et Monaco (Wikimedia, Spike, CC BY-SA 4.0), carte bancaire en verre, trajet Nice → Monaco tracé avec un train qui le suit, prix au m² qui défile, transition en cercle, calendrier, choix final, sous-titres surlignés.
+
+## Logo dans un cercle (directeur, 23/11/2026 : « attention à ne plus cropper le logo »)
+Le logo (`img/logo.png`, 577 × 472, blanc sur transparent) n'est pas carré : ne jamais lui donner directement `border-radius:50%`
+(il devient une ellipse qui coupe les lettres). Toujours un conteneur carré rond (`display:grid;place-items:center`) et le logo
+dedans en `object-fit:contain`, avec une marge d'au moins 15 % du diamètre. Test : `tests/logo-videos.test.mjs`. Vérifier aussi la carte de fin à l'œil avant livraison.
