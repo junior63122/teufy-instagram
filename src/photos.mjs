@@ -86,7 +86,10 @@ export async function photoSource({ univers, saison, fetes = false, debat = fals
 // Photos de couverture sans répétition (18/11/2026, directeur : « fais gaffe à ne pas utiliser tout le temps les mêmes
 // images dans le flux en couverture »). Banque de la DA : studio/public/decors/da/*.jpg. Une couverture ne reprend jamais
 // une photo déjà visible dans les FENETRE dernières cases de la grille (3 rangées) ; si toutes y sont, la moins récente.
-export const BANQUE = ['danse', 'foule', 'dj', 'rire', 'terrasse', 'plage', 'lasers', 'selfie', 'rooftop', 'taxi', 'baskets', 'file'];
+const BANQUE_DE_BASE = ['danse', 'foule', 'dj', 'rire', 'terrasse', 'plage', 'lasers', 'selfie', 'rooftop', 'taxi', 'baskets', 'file'];
+// 23/11/2026 (directeur : « tout se ressemble ») : la banque grandit chaque jour (variantes « danse-2 », « foule-3 »… générées par
+// le robot dans le style de la DA, src/run.mjs enrichirDA) ; elle est lue sur le disque.
+export const BANQUE = (() => { try { const d = path.join(ROOT, 'studio', 'public', 'decors', 'da'); const l = readdirSync(d).filter((f) => f.endsWith('.jpg')).map((f) => f.replace(/\.jpg$/, '')); return [...new Set([...BANQUE_DE_BASE.filter((x) => l.includes(x)), ...l])]; } catch { return BANQUE_DE_BASE; } })();
 export const FENETRE = 9;
 // Photos des dernières couvertures de la grille, la plus récente d'abord (historique.json : champ `photo`).
 export function photosRecentes(historique, n = FENETRE) {
@@ -94,7 +97,9 @@ export function photosRecentes(historique, n = FENETRE) {
 }
 // `preferees` : photos qui collent au sujet, dans l'ordre ; le reste de la banque sert de réserve.
 export function choisirPhoto(preferees, recentes, banque = BANQUE) {
-  const ordre = [...new Set([...preferees, ...banque])];
+  // Chaque thème préféré compte avec toutes ses variantes (« danse », « danse-2 »…), la moins vue en premier.
+  const variantes = (p) => banque.filter((b) => b === p || b.startsWith(`${p}-`)).sort((a, b) => (recentes.indexOf(a) < 0 ? -1 : recentes.indexOf(a)) - (recentes.indexOf(b) < 0 ? -1 : recentes.indexOf(b)));
+  const ordre = [...new Set([...preferees.flatMap((p) => { const v = variantes(p); return v.length ? v : [p]; }), ...banque])];
   const libre = ordre.find((x) => !recentes.includes(x));
   if (libre) return libre;
   return [...ordre].sort((a, b) => recentes.indexOf(b) - recentes.indexOf(a))[0];

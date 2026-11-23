@@ -24,7 +24,7 @@ import { igConfig, publishCarousel, publishSingle, publishReel, publishStory, pe
 import { TENDANCES, analyserComptes } from './tendances.mjs';
 import { buildModel, chooser, selectBest, eventFeatures, collect, hash, loadData } from './learn.mjs';
 import { filtrerCoherentes, controlePost, choixLibre } from './coherence.mjs';
-import { choisirMise, choisirPhoto, misesRecentes, photosRecentes } from './photos.mjs';
+import { BANQUE, choisirMise, choisirPhoto, misesRecentes, photosRecentes } from './photos.mjs';
 import { lirePlan, ecrirePlan, engouements, planifierSuite, extrasDu, nettoyer, jourSource, replanifier, sectionRapport, SERIES, serieEnEchec } from './reactif.mjs';
 import { theme } from './theme.mjs';
 
@@ -390,6 +390,9 @@ if (cible === 'stories') {
   if (etape === 'publier' || etape === 'tout') await storiesPublier(S);
   process.exit(0);
 }
+// Banque de photos de la DA enrichie chaque jour (23/11/2026, directeur : « tout se ressemble, même les photos »), avant de préparer
+// le premier post du jour ; jamais bloquant (une panne de l'image ne retarde pas la publication).
+if (cible === 'auto' && (etape === 'preparer' || etape === 'tout') && jobs.length) { try { await enrichirDA(); } catch (err) { console.error(`Banque DA : ${err.message}`); } }
 for (const j of jobs) {
   const id = cible === 'mois' ? `${isoLocal(j.now)}-${slotId(j.slot)}` : slotId(j.slot);
   try {
@@ -1079,7 +1082,8 @@ async function nouvelleHistoire(STUDIO, id) {
 
 // --- DA « Flash nuit » : carrousels et couvertures rendus par le studio, avec contrôle visuel ----------------------
 function sansAccentTag(x) { return String(x).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]/g, ''); }
-function photoDA(noms, now) { return `decors/da/${noms[Math.floor(now / (7 * 864e5)) % noms.length]}.jpg`; }
+// Stories : une photo différente chaque jour, parmi les thèmes demandés et toutes leurs variantes (23/11/2026 : avant, la même toute la semaine).
+function photoDA(noms, now) { const l = noms.flatMap((n) => BANQUE.filter((b) => b === n || b.startsWith(`${n}-`))); const liste = l.length ? l : noms; return `decors/da/${liste[Math.floor(now / 864e5) % liste.length]}.jpg`; }
 // Couverture de la grille : photo qui colle au sujet, jamais une des 9 dernières couvertures (src/photos.mjs).
 function photoCouv(preferees) { PHOTO_COUV = choisirPhoto(preferees, photosRecentes([...AMORCE_PHOTOS, ...hist])); return PHOTO_COUV; }
 
@@ -1269,6 +1273,29 @@ function feteDue(now) {
   if (+parts.hour < (f.heure ?? 12) || +parts.hour > 22) return null;
   if (hist.some((h) => h.fete === `${f.id}-${parts.year}`)) return null; // déjà fait cette année
   return f;
+}
+
+// Deux nouvelles photos par jour dans la banque de la DA (studio/public/decors/da), jusqu'à 72 : même style (flash 35 mm, nuit),
+// mêmes thèmes que les 12 photos d'origine, scène différente à chaque fois. Gemini seulement (robots automatiques, budget commun).
+async function enrichirDA({ parJour = 2, max = 72 } = {}) {
+  if (!process.env.GEMINI_API_KEY) return;
+  const STUDIO = path.join(ROOT, 'studio'), dir = path.join(STUDIO, 'public', 'decors', 'da');
+  const marque = path.join(ROOT, 'contenus', 'da-enrichie.txt'), jour = slotOfDay(NOW).date;
+  if (existsSync(marque) && readFileSync(marque, 'utf8').trim() === jour) return;
+  const presentes = readdirSync(dir).filter((f) => f.endsWith('.jpg')).map((f) => f.replace(/\.jpg$/, ''));
+  if (presentes.length >= max) return;
+  const da = JSON.parse(await readFile(path.join(STUDIO, 'scripts', 'decors', 'da.json'), 'utf8'));
+  const n = (t) => presentes.filter((x) => x === t || x.startsWith(`${t}-`)).length;
+  const lieux = ['a packed club dancefloor', 'a beach bar at night', 'a narrow old-town street at night', 'a rooftop with city lights', 'a taxi back seat', 'a terrace with string lights', 'a festival crowd near the sea', 'a house party kitchen', 'a karaoke bar', 'a club entrance queue'];
+  const choix = [...da.decors].sort((a, b) => n(a.id) - n(b.id) || Math.random() - 0.5).slice(0, parJour);
+  const decors = choix.map((d) => { const k = n(d.id) + 1; return { id: `${d.id}-${k}`, format: '4:5', prompt: `${d.prompt} New scene, different from previous photos of this series: different people, outfits and setting (${lieux[(k + d.id.length) % lieux.length]}), different camera angle.` }; });
+  const def = path.join(ROOT, 'out', 'da-enrichie.json');
+  await mkdir(path.dirname(def), { recursive: true });
+  await writeFile(def, JSON.stringify({ concept: 'da', style: da.style, qualite: 'premium', decors }));
+  spawnSync('node', [path.join(STUDIO, 'scripts', 'decors.mjs'), def], { cwd: STUDIO, stdio: 'inherit', env: { ...process.env, NODE_USE_ENV_PROXY: '1' } });
+  const faites = decors.filter((d) => existsSync(path.join(dir, `${d.id}.jpg`))).map((d) => d.id);
+  await writeFile(marque, `${jour}\n`);
+  console.log(`Banque DA : ${faites.length} nouvelle(s) photo(s) (${faites.join(', ') || 'aucune'}), ${presentes.length + faites.length} au total.`);
 }
 
 // Photo de la fête : générée une fois par Gemini dans le style de la DA (puis gardée), sinon une photo de la banque.
