@@ -1608,13 +1608,580 @@
     "empreinte": "0000000000111111111111111000111110001001110000000000000000000000"
    },
    "utilisable": true
+  },
+  "1HgyqmkK7_nM_F4Bq845eIs1_kKJhn7fs": {
+   "nom": "From Klickpin.com- Wedding Hair Ideas That Are All Over Pinterest-pin-id-845902742542118529.mp4",
+   "chemin": "From Klickpin.com- Wedding Hair Ideas That Are All Over Pinterest-pin-id-845902742542118529.mp4",
+   "vu_le": "2026-11-23T16:01:45.753Z",
+   "octets": 4354429,
+   "fiche": {
+    "largeur": 720,
+    "hauteur": 1280,
+    "fps": 30,
+    "duree": 12.65,
+    "luma": 0.253,
+    "saturation": 0.502,
+    "nettete": 0.0704,
+    "mouvement": 0.1406,
+    "teinte": 145.3,
+    "chaleur": 0.021,
+    "empreinte": "1111110111110011101110101101010000001100011000000100111000101101"
+   },
+   "utilisable": true
   }
  },
- "musiques": {},
- "le": "2026-11-23T08:44:05.962Z",
+ "musiques": {
+  "1jTpII73qXRi65tczVJioO95Wnvwpop_L": {
+   "nom": "01  Gigi l'amoroso - Dalida.mp3",
+   "chemin": "01  Gigi l'amoroso - Dalida.mp3",
+   "vu_le": "2026-11-23T16:01:48.842Z",
+   "octets": 17999872,
+   "rythme": {
+    "bpm": 95.7,
+    "duree": 450.32,
+    "meilleur": {
+     "debut": 412.32,
+     "fin": 432.32
+    }
+   }
+  },
+  "1U4Wx-fcjwgMPhJ-8O7VzarlDnT2LR6y5": {
+   "nom": "01 F The Disco (Original Mix).mp3",
+   "chemin": "01 F The Disco (Original Mix).mp3",
+   "vu_le": "2026-11-23T16:01:52.582Z",
+   "octets": 11487526,
+   "rythme": {
+    "bpm": 123,
+    "duree": 284.51,
+    "meilleur": {
+     "debut": 185.84,
+     "fin": 205.84
+    }
+   }
+  },
+  "1RGhXKJdZTF-uiwFtMh8QrDsvx8bFu-87": {
+   "nom": "01 Femme libérée.m4a",
+   "chemin": "01 Femme libérée.m4a",
+   "vu_le": "2026-11-23T16:01:55.100Z",
+   "octets": 7910113,
+   "rythme": {
+    "bpm": 132.5,
+    "duree": 221.45,
+    "meilleur": {
+     "debut": 168.43,
+     "fin": 188.43
+    }
+   }
+  },
+  "1ohgAc_k_qTXRp830Q_qUz6BjFt5brWYC": {
+   "nom": "01 I'm Good (Blue) (Oliver Heldens extended .mp3",
+   "chemin": "01 I'm Good (Blue) (Oliver Heldens extended .mp3",
+   "vu_le": "2026-11-23T16:01:57.998Z",
+   "octets": 11693394,
+   "rythme": {
+    "bpm": 129.2,
+    "duree": 288.87,
+    "meilleur": {
+     "debut": 232.08,
+     "fin": 252.08
+    }
+   }
+  },
+  "1UkM6hI8UNEK_nq48oLmJpR9hvfJDi_H8": {
+   "nom": "01 Je danse le Mia (Le terrible funk remix e 2.m4a",
+   "chemin": "01 Je danse le Mia (Le terrible funk remix e 2.m4a",
+   "vu_le": "2026-11-23T16:02:01.280Z",
+   "octets": 9380671,
+   "rythme": {
+    "bpm": 103.4,
+    "duree": 270.86,
+    "meilleur": {
+     "debut": 150.69,
+     "fin": 170.69
+    }
+   }
+  },
+  "1bfGh8mDFi6w3-z9O_IfaHo6Az2kNBC9K": {
+   "nom": "01 Je danse le Mia (Le terrible funk remix e.m4a",
+   "chemin": "01 Je danse le Mia (Le terrible funk remix e.m4a",
+   "vu_le": "2026-11-23T16:02:04.114Z",
+   "octets": 9380671,
+   "rythme": {
+    "bpm": 103.4,
+    "duree": 270.86,
+    "meilleur": {
+     "debut": 150.69,
+     "fin": 170.69
+    }
+   }
+  },
+  "1oQkSP1XO9qRw7WOxdtcrqDfTVWRpREHO": {
+   "nom": "01 Morricone (A Man And His Harmonica _ Once.mp3",
+   "chemin": "01 Morricone (A Man And His Harmonica _ Once.mp3",
+   "vu_le": "2026-11-23T16:02:06.602Z",
+   "octets": 12813111,
+   "rythme": {
+    "bpm": 123,
+    "duree": 501.29,
+    "meilleur": {
+     "debut": 281.6,
+     "fin": 301.6
+    }
+   }
+  },
+  "1Lvlnm40RndbCW13kbipgpysKkZCUJi9T": {
+   "nom": "01 Pump Up the Jam.m4a",
+   "chemin": "01 Pump Up the Jam.m4a",
+   "vu_le": "2026-11-23T16:02:09.664Z",
+   "octets": 11698785,
+   "rythme": {
+    "bpm": 126,
+    "duree": 320.32,
+    "meilleur": {
+     "debut": 71.34,
+     "fin": 91.34
+    }
+   }
+  },
+  "1jCFNv1IGTW5kQXeZAiidmCsxTYKomNXE": {
+   "nom": "01.- The Girl From Ipanema - Getz  Gilberto - Stan Getz & Joao Gilberto.wav",
+   "chemin": "01.- The Girl From Ipanema - Getz  Gilberto - Stan Getz & Joao Gilberto.wav",
+   "vu_le": "2026-11-23T16:02:11.907Z",
+   "octets": 58220622,
+   "rythme": {
+    "bpm": 129.2,
+    "duree": 330.05,
+    "meilleur": {
+     "debut": 192.56,
+     "fin": 212.56
+    }
+   }
+  },
+  "1c5bmlNIw0M6f2Ea1L_SZjRotYwxSRCyF": {
+   "nom": "03 - Ashford & Simpson - Found A Cure (12'' .mp3",
+   "chemin": "03 - Ashford & Simpson - Found A Cure (12'' .mp3",
+   "vu_le": "2026-11-23T16:02:15.505Z",
+   "octets": 16996553,
+   "rythme": {
+    "bpm": 123,
+    "duree": 424.84,
+    "meilleur": {
+     "debut": 108.56,
+     "fin": 128.56
+    }
+   }
+  },
+  "1WHbeauZZMP0MQF-KcQsJ_Ek9V2oUk2MB": {
+   "nom": "03 I Can Help.mp3",
+   "chemin": "03 I Can Help.mp3",
+   "vu_le": "2026-11-23T16:02:18.976Z",
+   "octets": 9684676,
+   "rythme": {
+    "bpm": 126,
+    "duree": 238.88,
+    "meilleur": {
+     "debut": 126.49,
+     "fin": 146.49
+    }
+   }
+  },
+  "1ZTiNRoQUMAoOJJGuIOQuKO-oWGCJ1_0f": {
+   "nom": "03 The Weekend (Original 12 Inch Mix).mp3",
+   "chemin": "03 The Weekend (Original 12 Inch Mix).mp3",
+   "vu_le": "2026-11-23T16:02:21.231Z",
+   "octets": 19112118,
+   "rythme": {
+    "bpm": 126,
+    "duree": 472.76,
+    "meilleur": {
+     "debut": 232.05,
+     "fin": 252.05
+    }
+   }
+  },
+  "1q7j0Z-3RA0VWMkwVeAn0h1nrUJ8oFtRE": {
+   "nom": "04 - Diana Ross - The Boss (12'' Remix).mp3",
+   "chemin": "04 - Diana Ross - The Boss (12'' Remix).mp3",
+   "vu_le": "2026-11-23T16:02:25.294Z",
+   "octets": 17856560,
+   "rythme": {
+    "bpm": 123,
+    "duree": 446.33,
+    "meilleur": {
+     "debut": 310.04,
+     "fin": 330.04
+    }
+   }
+  },
+  "1zL8PO01BYZDmzpMdSsctMGP_93nIb3hx": {
+   "nom": "04 Give Me the Night.m4a",
+   "chemin": "04 Give Me the Night.m4a",
+   "vu_le": "2026-11-23T16:02:29.274Z",
+   "octets": 10454499,
+   "rythme": {
+    "bpm": 110,
+    "duree": 301.05,
+    "meilleur": {
+     "debut": 254.3,
+     "fin": 274.3
+    }
+   }
+  },
+  "1exrqr3RBAbFttPdvMip3ZH8rpNjmPq2f": {
+   "nom": "04 Mourir sur scene.mp3",
+   "chemin": "04 Mourir sur scene.mp3",
+   "vu_le": "2026-11-23T16:02:31.589Z",
+   "octets": 8495104,
+   "rythme": {
+    "bpm": 126,
+    "duree": 211.12,
+    "meilleur": {
+     "debut": 145,
+     "fin": 165
+    }
+   }
+  },
+  "1oPUr_u2gpPcebV1C03amm1h44TBAUH6K": {
+   "nom": "05 Relax.m4a",
+   "chemin": "05 Relax.m4a",
+   "vu_le": "2026-11-23T16:02:34.322Z",
+   "octets": 8426364,
+   "rythme": {
+    "bpm": 114.8,
+    "duree": 237.38,
+    "meilleur": {
+     "debut": 211.12,
+     "fin": 231.12
+    }
+   }
+  },
+  "1E8YTh_ApLIMHjQ5VEWnYs1xQWAvWQPue": {
+   "nom": "06 - Silly Love Songs.flac",
+   "chemin": "06 - Silly Love Songs.flac",
+   "vu_le": "2026-11-23T16:02:36.363Z",
+   "octets": 36038553,
+   "rythme": {
+    "bpm": 126,
+    "duree": 356.8,
+    "meilleur": {
+     "debut": 144.64,
+     "fin": 164.64
+    }
+   }
+  },
+  "1kYfmuf7IS_bhYUYq5J0eFQ0vPavTeOA4": {
+   "nom": "06 - Somebody To Love.wav",
+   "chemin": "06 - Somebody To Love.wav",
+   "vu_le": "2026-11-23T16:02:40.093Z",
+   "octets": 52733378,
+   "rythme": {
+    "bpm": 112.3,
+    "duree": 298.93,
+    "meilleur": {
+     "debut": 104.13,
+     "fin": 124.13
+    }
+   }
+  },
+  "1R0k5XfEylFGW7mOwRjisrBmPJhi6TtV4": {
+   "nom": "07 - Queen - Don't Stop Me Now.wav",
+   "chemin": "07 - Queen - Don't Stop Me Now.wav",
+   "vu_le": "2026-11-23T16:02:45.277Z",
+   "octets": 37350052,
+   "rythme": {
+    "bpm": 156.6,
+    "duree": 211.73,
+    "meilleur": {
+     "debut": 146.47,
+     "fin": 166.47
+    }
+   }
+  },
+  "1B3-9UbvKIzsdRtwr3aehf-1jH-LjgLBH": {
+   "nom": "07 Charles Aznavour - La Boheme.wav",
+   "chemin": "07 Charles Aznavour - La Boheme.wav",
+   "vu_le": "2026-11-23T16:02:48.907Z",
+   "octets": 43030544,
+   "rythme": {
+    "bpm": 117.5,
+    "duree": 243.93,
+    "meilleur": {
+     "debut": 206.83,
+     "fin": 226.83
+    }
+   }
+  },
+  "1i4RplWGiHvwtURnHsea7KxzB66o-up0A": {
+   "nom": "07 One Kiss (Extended Mix).mp3",
+   "chemin": "07 One Kiss (Extended Mix).mp3",
+   "vu_le": "2026-11-23T16:02:53.303Z",
+   "octets": 11350349,
+   "rythme": {
+    "bpm": 123,
+    "duree": 282.59,
+    "meilleur": {
+     "debut": 227.86,
+     "fin": 247.86
+    }
+   }
+  },
+  "1_m-DdniYbit2W1MwBaDQxJKUQuPUfemq": {
+   "nom": "09 As It Was.mp3",
+   "chemin": "09 As It Was.mp3",
+   "vu_le": "2026-11-23T16:02:56.097Z",
+   "octets": 6759878,
+   "rythme": {
+    "bpm": 87.6,
+    "duree": 167.3,
+    "meilleur": {
+     "debut": 90.11,
+     "fin": 110.11
+    }
+   }
+  },
+  "1iGav5ns-cyWRwZP48706b8pO2lepO7KR": {
+   "nom": "1-11 Gaby Oh Gaby (Remix 1991).m4a",
+   "chemin": "1-11 Gaby Oh Gaby (Remix 1991).m4a",
+   "vu_le": "2026-11-23T16:02:58.832Z",
+   "octets": 8347470,
+   "rythme": {
+    "bpm": 129.2,
+    "duree": 235.08,
+    "meilleur": {
+     "debut": 182.72,
+     "fin": 202.72
+    }
+   }
+  },
+  "1bBPZzGlg84sKuQ1dWs95a3xhX6XcHYaR": {
+   "nom": "15 Aqua - Barbie Girl.wav",
+   "chemin": "15 Aqua - Barbie Girl.wav",
+   "vu_le": "2026-11-23T16:03:00.897Z",
+   "octets": 34622814,
+   "rythme": {
+    "bpm": 129.2,
+    "duree": 196.27,
+    "meilleur": {
+     "debut": 64.95,
+     "fin": 84.95
+    }
+   }
+  },
+  "1f8CDOe1qiunpC28S8aIhQXW18duOr7vS": {
+   "nom": "15 My Sharona.mp3",
+   "chemin": "15 My Sharona.mp3",
+   "vu_le": "2026-11-23T16:03:04.427Z",
+   "octets": 9614406,
+   "rythme": {
+    "bpm": 147.7,
+    "duree": 240.03,
+    "meilleur": {
+     "debut": 83.43,
+     "fin": 103.43
+    }
+   }
+  },
+  "1RoHKNxxqEjj7EzCrblrW3oGnTeBOfunp": {
+   "nom": "2-01 When Love Takes Over (Extended Version).mp3",
+   "chemin": "2-01 When Love Takes Over (Extended Version).mp3",
+   "vu_le": "2026-11-23T16:03:06.762Z",
+   "octets": 19750874,
+   "rythme": {
+    "bpm": 129.2,
+    "duree": 468.77,
+    "meilleur": {
+     "debut": 245.81,
+     "fin": 265.81
+    }
+   }
+  },
+  "15bSeyN0NdsNd62DMFI0ITHZ5jrFg18xG": {
+   "nom": "2.12. Taste of Bitter Love (12″ version) - G.wav",
+   "chemin": "2.12. Taste of Bitter Love (12″ version) - G.wav",
+   "vu_le": "2026-11-23T16:03:10.552Z",
+   "octets": 48881512,
+   "rythme": {
+    "bpm": 110,
+    "duree": 277.09,
+    "meilleur": {
+     "debut": 192.9,
+     "fin": 212.9
+    }
+   }
+  },
+  "1IzzN8kj-v5NqVnoXbXc3vWgF8DYGO78I": {
+   "nom": "22 - Jump (For My Love) (Single Remix).mp3",
+   "chemin": "22 - Jump (For My Love) (Single Remix).mp3",
+   "vu_le": "2026-11-23T16:03:14.959Z",
+   "octets": 9580284,
+   "rythme": {
+    "bpm": 136,
+    "duree": 238.45,
+    "meilleur": {
+     "debut": 204.65,
+     "fin": 224.65
+    }
+   }
+  },
+  "1D0TIPFEDnAMhpBazoFYcYnP6T0o0N2Qu": {
+   "nom": "Abba - Gimme Gimme Gimme (A Man After Midnig.wav",
+   "chemin": "Abba - Gimme Gimme Gimme (A Man After Midnig.wav",
+   "vu_le": "2026-11-23T16:03:17.931Z",
+   "octets": 51591302,
+   "rythme": {
+    "bpm": 120.2,
+    "duree": 292.47,
+    "meilleur": {
+     "debut": 151,
+     "fin": 171
+    }
+   }
+  },
+  "1zJCataNMISrsAa2jtflkU8chv_HstCYr": {
+   "nom": "Adriano Celentano - I want to Know.wav",
+   "chemin": "Adriano Celentano - I want to Know.wav",
+   "vu_le": "2026-11-23T16:03:22.321Z",
+   "octets": 56671554,
+   "rythme": {
+    "bpm": 94,
+    "duree": 321.27,
+    "meilleur": {
+     "debut": 229.74,
+     "fin": 249.74
+    }
+   }
+  },
+  "1Jz5elry4HzjimhuHiFle5NQ4ZjWnKNhS": {
+   "nom": "Adriano Celentano - Il Ragazzo Della Via Gluck.wav",
+   "chemin": "Adriano Celentano - Il Ragazzo Della Via Gluck.wav",
+   "vu_le": "2026-11-23T16:03:26.009Z",
+   "octets": 45040878,
+   "rythme": {
+    "bpm": 110,
+    "duree": 255.33,
+    "meilleur": {
+     "debut": 204.66,
+     "fin": 224.66
+    }
+   }
+  },
+  "1pZZBi611UxMMPX8n0yRit7Z5J2iDegjI": {
+   "nom": "Ah ! Le Petit Vin Blanc (Valse).wav",
+   "chemin": "Ah ! Le Petit Vin Blanc (Valse).wav",
+   "vu_le": "2026-11-23T16:03:30.477Z",
+   "octets": 16445262,
+   "rythme": {
+    "bpm": 103.4,
+    "duree": 93.23,
+    "meilleur": {
+     "debut": 65.43,
+     "fin": 85.43
+    }
+   }
+  },
+  "1Nd7opIHPWoW7y1Zfpp1XCdsuAVX8Wouy": {
+   "nom": "Alan sorrenti - Figli Delle Stelle2.wav",
+   "chemin": "Alan sorrenti - Figli Delle Stelle2.wav",
+   "vu_le": "2026-11-23T16:03:32.921Z",
+   "octets": 47804506,
+   "rythme": {
+    "bpm": 107.7,
+    "duree": 271,
+    "meilleur": {
+     "debut": 217.8,
+     "fin": 237.8
+    }
+   }
+  },
+  "1hTkGGbX0NZ0pm4TSxdMHpbYxL4nfNk14": {
+   "nom": "Amii Stewart - Knock On Wood2.wav",
+   "chemin": "Amii Stewart - Knock On Wood2.wav",
+   "vu_le": "2026-11-23T16:03:37.127Z",
+   "octets": 72825102,
+   "rythme": {
+    "bpm": 139.7,
+    "duree": 412.84,
+    "meilleur": {
+     "debut": 230.26,
+     "fin": 250.26
+    }
+   }
+  },
+  "1tThrBOcHwYvUveanSx9A690cnNOM7Id8": {
+   "nom": "Antoine - Les élucubrations dAntoine..wav",
+   "chemin": "Antoine - Les élucubrations dAntoine..wav",
+   "vu_le": "2026-11-23T16:03:40.455Z",
+   "octets": 36585690,
+   "rythme": {
+    "bpm": 172.3,
+    "duree": 207.4,
+    "meilleur": {
+     "debut": 71.03,
+     "fin": 91.03
+    }
+   }
+  },
+  "18j6sAk3LgHn2Mo3VEalMmVgD0bCQekKI": {
+   "nom": "Aretha Franklin -  Think.wav",
+   "chemin": "Aretha Franklin -  Think.wav",
+   "vu_le": "2026-11-23T16:03:43.016Z",
+   "octets": 33930060,
+   "rythme": {
+    "bpm": 129.2,
+    "duree": 192.35,
+    "meilleur": {
+     "debut": 108.19,
+     "fin": 128.19
+    }
+   }
+  },
+  "1CL4dt4QEooAaY-UEanKl576jZPgsCQJS": {
+   "nom": "Aretha Franklin - Respect3.wav",
+   "chemin": "Aretha Franklin - Respect3.wav",
+   "vu_le": "2026-11-23T16:03:46.312Z",
+   "octets": 26130830,
+   "rythme": {
+    "bpm": 114.8,
+    "duree": 148.13,
+    "meilleur": {
+     "debut": 118.9,
+     "fin": 138.9
+    }
+   }
+  },
+  "1mhTIolNjMF8wJld1kC6weQM1m6UgLQQ7": {
+   "nom": "Avicii - Levels [www.slider.kz].mp3",
+   "chemin": "Avicii - Levels [www.slider.kz].mp3",
+   "vu_le": "2026-11-23T16:03:48.256Z",
+   "octets": 13428027,
+   "rythme": {
+    "bpm": 126,
+    "duree": 335.63,
+    "meilleur": {
+     "debut": 276.89,
+     "fin": 296.89
+    }
+   }
+  },
+  "1ek_43qG9Xflx4AUM8YqI0bUzVohBuH7V": {
+   "nom": "Barry White - Let the music play.mp3",
+   "chemin": "Barry White - Let the music play.mp3",
+   "vu_le": "2026-11-23T16:03:51.585Z",
+   "octets": 10207763,
+   "rythme": {
+    "bpm": 99.4,
+    "duree": 253.73,
+    "meilleur": {
+     "debut": 152.71,
+     "fin": 172.71
+    }
+   }
+  }
+ },
+ "le": "2026-11-23T16:03:54.396Z",
  "bilan": {
-  "nouvelles_videos": 40,
-  "nouvelles_musiques": 0,
+  "nouvelles_videos": 1,
+  "nouvelles_musiques": 39,
   "erreurs": 0,
   "absentes": 0
  }

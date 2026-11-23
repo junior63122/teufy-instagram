@@ -1,5 +1,5 @@
 {
- "le": "2026-11-23T08:42:05.472Z",
+ "le": "2026-11-23T16:00:12.827Z",
  "instagram": {
   "utilisee": "v21.0",
   "derniere": "v27.0",
@@ -27,8 +27,11 @@
    "openai/gpt-oss-20b",
    "qwen/qwen3.8-27b"
   ],
-  "PREF_VISION": [],
-  "PREF_RECHERCHE": []
+  "PREF_VISION": [
+   "qwen/qwen3.8-27b"
+  ],
+  "PREF_RECHERCHE": [],
+  "recherche": "Tavily (Groq n'a plus de recherche web)"
  },
  "gemini": {
   "modele": "gemini-3.8-flash",
@@ -183,23 +186,23 @@
   }
  },
  "sites_clubs": {
-  "maj": "2026-11-23T01:43:03.767Z",
+  "maj": "2026-11-23T13:48:18.738Z",
   "lus": 37,
   "avec_soirees": 0,
   "total": 68
  },
  "donnees": {
-  "semaine": 40,
+  "semaine": 41,
   "sans_heure": 12,
-  "sans_prix": 12,
-  "sans_affiche": 11,
+  "sans_prix": 13,
+  "sans_affiche": 12,
   "sans_billetterie": 2,
   "par_ville": {
    "Mandelieu-la-Napoule": 1,
    "Juan-les-Pins": 2,
    "La Garde": 3,
    "Montpellier": 1,
-   "Nice": 16,
+   "Nice": 17,
    "Toulon": 4,
    "Cannes": 4,
    "Hyères": 1,
@@ -212,7 +215,7 @@
   }
  },
  "images": {
-  "total": 108,
+  "total": 100,
   "sans_image": 24,
   "dans_7_jours": 11
  },
@@ -220,14 +223,6 @@
   {
    "sujet": "Instagram",
    "detail": "API v21.0 utilisée, Meta en est à v27.0 : une version vit environ 2 ans, passer à une version récente (tester une publication)."
-  },
-  {
-   "sujet": "Groq",
-   "detail": "aucun modèle lecture d'images (affiches) ouvert parmi meta-llama/llama-4-scout-17b-16e-instruct, meta-llama/llama-4-maverick-17b-128e-instruct ; ouverts : allam-2-7b, canopylabs/orpheus-arabic-saudi, canopylabs/orpheus-v1-english, meta-llama/llama-prompt-guard-2-22m, meta-llama/llama-prompt-guard-2-86m, openai/gpt-oss-120b, openai/gpt-oss-20b, openai/gpt-oss-safeguard-20b, qwen/qwen3.8-27b, whisper-large-v3, whisper-large-v3-turbo"
-  },
-  {
-   "sujet": "Groq",
-   "detail": "aucun modèle recherche web ouvert parmi groq/compound, groq/compound-mini, compound-beta, compound-beta-mini ; ouverts : allam-2-7b, canopylabs/orpheus-arabic-saudi, canopylabs/orpheus-v1-english, meta-llama/llama-prompt-guard-2-22m, meta-llama/llama-prompt-guard-2-86m, openai/gpt-oss-120b, openai/gpt-oss-20b, openai/gpt-oss-safeguard-20b, qwen/qwen3.8-27b, whisper-large-v3, whisper-large-v3-turbo"
   },
   {
    "sujet": "GitHub Actions",
