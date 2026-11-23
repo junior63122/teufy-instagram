@@ -4,12 +4,12 @@
  "total": {
   "anthropic": 26,
   "gemini": 72,
-  "groq": 819,
+  "groq": 843,
   "tavily": 67
  },
  "aujourdhui": {
   "tavily": 30,
-  "groq": 88,
+  "groq": 112,
   "anthropic": 1,
   "gemini": 2
  },
