@@ -1,5 +1,5 @@
 {
-  "maj": "2026-11-21T13:42:28.310Z",
+  "maj": "2026-11-23T13:16:44.369Z",
   "evenements": [
     {
       "source": "eventbrite",
@@ -25,53 +25,6 @@
           "prix": 0
         }
       ]
-    },
-    {
-      "source": "web",
-      "source_site": "Shotgun",
-      "name": "Neotekk X Mélomane Club",
-      "start": "2026-11-21T22:59:00.000Z",
-      "venue": "Mélomane Club",
-      "city": "Montpellier",
-      "address": "",
-      "url": "https://shotgun.live/events/neotekk-x-melomane-club",
-      "image": "",
-      "price": 5.99,
-      "tags": [
-        "Hardtek",
-        "Hard Techno",
-        "Acidcore"
-      ],
-      "description": "",
-      "public_cible": 0.9,
-      "confiance": 0.95,
-      "verifie": true,
-      "buzz": 0.65,
-      "accroche": "Neotekk prend d'assaut le Mélomane Club pour une nuit sous pression hardtek et acidcore.",
-      "instagram": []
-    },
-    {
-      "source": "web",
-      "source_site": "Shotgun",
-      "name": "Salsa Ninkasi Novembre",
-      "start": "2026-11-22T18:30:00.000Z",
-      "venue": "Ninkasi Montpellier",
-      "city": "Montpellier",
-      "address": "",
-      "url": "https://shotgun.live/events/salsa-ninkasi-novembre",
-      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto/production/artworks/NINKASI_1920_x_1080_px_2_skynqw.png",
-      "price": 0,
-      "tags": [
-        "Salsa Cubaine",
-        "Latino"
-      ],
-      "description": "",
-      "public_cible": 0.6,
-      "confiance": 0.95,
-      "verifie": true,
-      "buzz": 0.45,
-      "accroche": "Soirée salsa cubaine gratuite le dimanche soir pour clore le week-end au Ninkasi.",
-      "instagram": []
     },
     {
       "source": "web",
@@ -248,76 +201,6 @@
     {
       "source": "web",
       "source_site": "Shotgun",
-      "name": "[Hard Arena XXL] : 23h - 05h30, Après Le Concert (Dr. Peacock, The Dark Horror, Le Bask...)",
-      "start": "2026-11-21T22:00:00.000Z",
-      "venue": "ARENA Electronic Club",
-      "city": "Toulouse",
-      "address": "",
-      "url": "https://shotgun.live/events/hard-arena-xxl-23-h-05-h-30-apres-le-concert-3-stages",
-      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto/production/artworks/00d92df2-bef4-433c-8972-2ec7cf392136_vwgsea.jpg",
-      "price": 34.9,
-      "tags": [
-        "Hardcore",
-        "Frenchcore"
-      ],
-      "description": "",
-      "public_cible": 0.95,
-      "confiance": 0.95,
-      "verifie": true,
-      "buzz": 0.9,
-      "accroche": "Dr. Peacock, The Dark Horror et Le Bask sur 3 stages a l'ARENA Club.",
-      "instagram": []
-    },
-    {
-      "source": "web",
-      "source_site": "Shotgun",
-      "name": "Le Cri Inv. D'ram & Seg",
-      "start": "2026-11-21T22:55:00.000Z",
-      "venue": "Le Cri de la Mouette",
-      "city": "Toulouse",
-      "address": "",
-      "url": "https://shotgun.live/events/le-cri-inv-d-ram-seg-hard-bounce-to-hard-techno",
-      "image": "https://assets.shotgun.live/image/upload/c_limit,ar_16:9,w_3840,fl_lossy,f_webp,q_auto/production/artworks/LECRI_INV_SHOTGUN1920x1080-4_rgl8is.png",
-      "price": 8.69,
-      "tags": [
-        "Hard Bounce",
-        "Hard Techno"
-      ],
-      "description": "",
-      "public_cible": 0.85,
-      "confiance": 0.95,
-      "verifie": true,
-      "buzz": 0.5,
-      "accroche": "Hard bounce et hard techno a bord de la peniche du Cri de la Mouette.",
-      "instagram": []
-    },
-    {
-      "source": "web",
-      "source_site": "Shotgun",
-      "name": "After Now : Chloé B2B Ivan Smagghe",
-      "start": "2026-11-22T17:00:00.000Z",
-      "venue": "La Cabane - Les Halles de la Cartoucherie",
-      "city": "Toulouse",
-      "address": "",
-      "url": "https://shotgun.live/events/after-now-chloe-b2b-ivan-smagghe",
-      "image": "https://shotgun.live",
-      "price": 18,
-      "tags": [
-        "Electronica",
-        "Techno",
-        "Electro"
-      ],
-      "description": "",
-      "public_cible": 0.75,
-      "confiance": 0.95,
-      "verifie": true,
-      "buzz": 0.7,
-      "accroche": "B2B rare entre Chloe et Ivan Smagghe pour un dimanche electro a la Cartoucherie.",
-      "instagram": []
-    },
-    {
-      "source": "web",
-      "source_site": "Shotgun",
       "name": "Blankka Club* 021 Toulouse : Matalhani * Nizart * Bigkid",
       "start": "2026-11-26T22:59:00.000Z",
       "venue": "Blankka Club",
@@ -409,54 +292,6 @@
       "verifie": true,
       "buzz": 0.5,
       "accroche": "Mix urbain, afro et shatta jusqu'a 6h a L'Etoile Club pour petits budgets.",
-      "instagram": []
-    },
-    {
-      "source": "web",
-      "source_site": "Shotgun",
-      "name": "Lafrench",
-      "start": "2026-11-21T18:00:00.000Z",
-      "venue": "Bora Beach - Cap d'Agde",
-      "city": "Agde",
-      "address": "",
-      "url": "https://shotgun.live/fr/events/lafrench",
-      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto/production/artworks/1_vtcaro.png",
-      "price": 10,
-      "tags": [
-        "reggaeton",
-        "house",
-        "rap"
-      ],
-      "description": "",
-      "public_cible": 0.9,
-      "confiance": 0.95,
-      "verifie": true,
-      "buzz": 0.6,
-      "accroche": "Ambiance reggaeton, house et rap au Bora Beach au Cap d'Agde.",
-      "instagram": []
-    },
-    {
-      "source": "web",
-      "source_site": "Shotgun",
-      "name": "Bøho Sunday X La Cetta",
-      "start": "2026-11-22T16:00:00.000Z",
-      "venue": "La Cetta",
-      "city": "Sète",
-      "address": "",
-      "url": "https://shotgun.live/fr/events/boho-sunday-x-la-cetta",
-      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto/production/artworks/couverture_shotgun_xjyask.png",
-      "price": 0,
-      "tags": [
-        "indie dance",
-        "tech house",
-        "afro house"
-      ],
-      "description": "",
-      "public_cible": 0.85,
-      "confiance": 0.95,
-      "verifie": true,
-      "buzz": 0.55,
-      "accroche": "Rendez-vous dominical à Sète avec tech house et afro house jusqu'à minuit.",
       "instagram": []
     },
     {

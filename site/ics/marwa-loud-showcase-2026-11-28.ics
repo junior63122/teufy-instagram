@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:marwa-loud-showcase-2026-11-28@teufy
+DTSTAMP:20261123T132450Z
+DTSTART:20261128T190000Z
+DTEND:20261129T000000Z
+SUMMARY:Marwa Loud Showcase
+LOCATION:High Club Nice\, Nice
+DESCRIPTION:Showcase de Marwa Loud au High Club le 28 novembre.\nBillets : https://www.instagram.com/reel/DgCvAjBNmdo/\nVia Teufy @teufy_official
+URL:https://www.instagram.com/reel/DgCvAjBNmdo/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Marwa Loud Showcase
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Marwa Loud Showcase
+END:VALARM
+END:VEVENT
+END:VCALENDAR

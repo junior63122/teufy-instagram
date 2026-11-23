@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:coachellito-high-club-2026-11-27@teufy
+DTSTAMP:20261123T132450Z
+DTSTART:20261127T225900Z
+DTEND:20261128T035900Z
+SUMMARY:COACHELLITO - HIGH CLUB
+LOCATION:High Club\, 45 Prom. des Anglais\, 06000 Nice\, France Nice\, Nice
+DESCRIPTION:Takeover total du High Club par Coachellito avec B4B exclusif et nouvelle scénographie.\nBillets : https://xceed.me/fr/nice/event/coachellito-high-club/251510\nVia Teufy @teufy_official
+URL:https://xceed.me/fr/nice/event/coachellito-high-club/251510
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : COACHELLITO - HIGH CLUB
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : COACHELLITO - HIGH CLUB
+END:VALARM
+END:VEVENT
+END:VCALENDAR

@@ -1004,5 +1004,33 @@
    "nom": "Magam & Lyff",
    "type": "groupe"
   }
+ ],
+ "28e6c46e2a83": [
+  {
+   "nom": "COACHELLITO",
+   "type": "artiste"
+  },
+  {
+   "nom": "B4B",
+   "type": "artiste"
+  },
+  {
+   "nom": "SHAYAN",
+   "type": "artiste"
+  },
+  {
+   "nom": "CAVALLI",
+   "type": "artiste"
+  },
+  {
+   "nom": "MACEW",
+   "type": "artiste"
+  }
+ ],
+ "79c5c3b93cf7": [
+  {
+   "nom": "Marwa Loud",
+   "type": "artiste"
+  }
  ]
 }
