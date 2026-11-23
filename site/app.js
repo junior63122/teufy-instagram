@@ -150,16 +150,23 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
       let txt = '', cls = '';
       const soir = (() => { try { return JSON.parse(el.dataset.soirs || '[]').find((x) => x[0] === auj); } catch { return null; } })();
       const plages = (() => { try { return JSON.parse(el.dataset.horaires || 'null'); } catch { return null; } })();
-      const pl = plages && plages.find((x) => x.j.includes(jour));
-      if (pl) {
+      // Saison (23/11/2026) : hors de la période publiée, « Fermé hors saison » ; saisonnier sans dates publiées : rien n'est
+      // annoncé hors de l'été (mai à septembre), jamais « ouvre ce soir » deviné.
+      const saison = (() => { const v = el.dataset.saison; if (!v) return null; if (v === '1') return true; try { return JSON.parse(v); } catch { return true; } })();
+      const mmjj = new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Paris', month: '2-digit', day: '2-digit' }).format(new Date(maintenant)).replace('/', '-');
+      const dansSaison = !saison ? true : saison === true ? (+mmjj.slice(0, 2) >= 5 && +mmjj.slice(0, 2) <= 9 ? null : false) : (saison.de <= saison.a ? mmjj >= saison.de && mmjj <= saison.a : mmjj >= saison.de || mmjj <= saison.a);
+      const pl = dansSaison !== false && plages && plages.find((x) => x.j.includes(jour));
+      if (dansSaison === false && saison !== true) { txt = T.horsSaison || T.fermeCeSoir; cls = 'ferme'; }
+      else if (dansSaison === false) { /* saisonnier sans dates, hors été : statut inconnu */ }
+      else if (pl) {
         const de = enMin(pl.de); let a = enMin(pl.a); if (a <= de) a += 1440;
         if (min < de) { txt = (T.ouvreA || '{h}').replace('{h}', fmt(pl.de)); cls = 'bientot'; }
         else if (min < a) { txt = (T.ouvertJusqua || '{h}').replace('{h}', fmt(pl.a)); cls = 'ouvert'; }
         else { txt = T.fermeMaint; cls = 'ferme'; }
-      } else if (plages) { txt = T.fermeCeSoir; cls = 'ferme'; }
+      } else if (plages && dansSaison !== false) { txt = T.fermeCeSoir; cls = 'ferme'; }
       // Entre minuit et 6 h, la journée d'aujourd'hui a peut-être déjà commencé (boulangerie ouverte dès 4 h le samedi :
       // vue comme « fermée » avec les horaires de la veille, 18/11/2026). On regarde aussi les horaires du vrai jour.
-      if (plages && cls !== 'ouvert' && min >= 1440) {
+      if (plages && dansSaison !== false && cls !== 'ouvert' && min >= 1440) {
         const vrai = jour === 7 ? 1 : jour + 1, m2 = min - 1440, p2 = plages.find((x) => x.j.includes(vrai));
         if (p2) { const de2 = enMin(p2.de); let a2 = enMin(p2.a); if (a2 <= de2) a2 += 1440; if (m2 >= de2 && m2 < a2) { txt = (T.ouvertJusqua || '{h}').replace('{h}', fmt(p2.a)); cls = 'ouvert'; } }
       }
@@ -167,7 +174,7 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
       // Sans horaires vérifiés : aucune étiquette (jamais « horaires non confirmés », jamais deviné).
       if (!txt) { st.hidden = true; el.dataset.statut = 'inconnu'; }
       else {
-        if (el.dataset.saison && plages) txt += ` · ${T.saison}`;
+        if (el.dataset.saison && plages && dansSaison !== false) txt += ` · ${T.saison}`;
         st.textContent = txt; st.className = `lieu-statut ${cls}`; st.hidden = false; el.dataset.statut = cls;
       }
     }
@@ -187,20 +194,25 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
     document.querySelectorAll('.lieux-ce-soir').forEach((g) => {
       const l = [...g.querySelectorAll('.fiche-lieu')].sort((a, b) => rang[a.dataset.statut] - rang[b.dataset.statut]);
       l.forEach((x) => g.append(x));
-      const fermes = l.filter((x) => x.dataset.statut === 'ferme');
+      // 23/11/2026 (directeur : « on n'arrive pas à différencier ce qui est ouvert de ce qui est fermé ») : la liste ne garde
+      // que les lieux ouverts ou qui ouvrent ce soir ; horaires non confirmés et fermés sont repliés dans deux groupes titrés.
+      const fermes = l.filter((x) => x.dataset.statut === 'ferme' || x.dataset.statut === 'inconnu');
       g.__fermesTous = fermes;
       majCompte(g);
       if (fermes.length && g.dataset.replier) { fermes.forEach((x) => { x.hidden = true; }); const b = g.parentElement.querySelector('.voir-fermes'); if (b) { b.hidden = false; b.querySelector('span').textContent = fermes.length; b.addEventListener('click', () => {
         // Les lieux fermés dans une section à part, juste ici (pas noyés à la fin de la liste des ouverts).
         const ville = document.querySelector('.filtre-villes [aria-pressed="true"]')?.dataset.ville;
         const sec = document.createElement('div'); sec.className = 'lieux-fermes';
-        const h = document.createElement('h3'); h.textContent = `${T.fermesCeSoir || 'Fermés ce soir'} · ${fermes.length}`;
-        const grille = document.createElement('div'); grille.className = 'fiches'; grille.dataset.grouper = '1';
-        fermes.forEach((x) => { x.hidden = false; x.classList.remove('en-trop'); grille.append(x); });
-        sec.append(h, grille); b.replaceWith(sec); g.__fermes = fermes;
-        const majH = () => { const n = fermes.filter((x) => !x.classList.contains('hors-ville') && !x.classList.contains('hors-type')).length; h.textContent = `${T.fermesCeSoir || 'Fermés ce soir'} · ${n}`; sec.hidden = !n; };
+        const groupes = [['inconnu', T.nonConfirmes || 'Horaires non confirmés'], ['ferme', T.fermesCeSoir || 'Fermés ce soir']].map(([st, titre]) => {
+          const membres = fermes.filter((x) => x.dataset.statut === st);
+          const h = document.createElement('h3'); const grille = document.createElement('div'); grille.className = 'fiches'; grille.dataset.grouper = '1';
+          membres.forEach((x) => { x.hidden = false; x.classList.remove('en-trop'); grille.append(x); });
+          sec.append(h, grille); return { h, grille, membres, titre };
+        });
+        b.replaceWith(sec); g.__fermes = fermes;
+        const majH = () => { let total = 0; for (const x of groupes) { const n = x.membres.filter((y) => !y.classList.contains('hors-ville') && !y.classList.contains('hors-type')).length; total += n; x.h.textContent = `${x.titre} · ${n}`; x.h.hidden = x.grille.hidden = !n; } sec.hidden = !total; };
         majH(); document.querySelectorAll('.filtre-villes, .filtre-types').forEach((f) => f.addEventListener('click', () => setTimeout(majH, 0)));
-        majCompte(g); replier(g); window.__regrouper?.(grille);
+        majCompte(g); replier(g); groupes.forEach((x) => window.__regrouper?.(x.grille));
         sec.scrollIntoView({ behavior: reduit ? 'auto' : 'smooth', block: 'start' });
       }); } }
     });

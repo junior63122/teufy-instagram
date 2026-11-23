@@ -1050,12 +1050,9 @@
   {
    "nom": "Gotha",
    "ville": "Cannes",
-   "_verifie": "2026-11-13",
-   "_fiabilite": "faible",
-   "_source": "https://pullman.accor.com/gb/destinations/poi/gotha-club-cannes.shtml https://www.yelp.com/biz/gotha-club-cannes https://www.clubbable.com/Cannes/Gotha",
-   "adresse": "Place Franklin Roosevelt (Palm Beach), 06400 Cannes",
-   "type": "club",
-   "description": "Boîte de nuit saisonnière située place Franklin Roosevelt, à côté de l'ancien casino Palm Beach, ouverte principalement du Festival de Cannes à la fin de l'été."
+   "retirer": true,
+   "_raison": "fermé définitivement (fiche Google « Permanently closed », Tripadvisor ; enseigne suivante Palm Club aussi fermée) — signalé par le directeur le 23/11/2026",
+   "_verifie": "2026-11-23"
   },
   {
    "nom": "Inky Bar",
