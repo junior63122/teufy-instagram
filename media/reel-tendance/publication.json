@@ -1,23 +1,238 @@
 {
   "id": "reel-tendance",
-  "type": "reel",
-  "variante": "tendance",
-  "date": "2026-11-13",
-  "video": "reel-2026-11-13.mp4",
-  "couverture": "reel-2026-11-13-couverture.jpg",
-  "legende": "Tu t'es déjà demandé pourquoi l'entrée est offerte avant 1h ? 🎟️\n\nCe n'est pas un geste d'amitié, c'est une stratégie rodée :\n1. Amorcer l'ambiance pour les arrivants de 2h qui payent plein tarif.\n2. T'inciter à commander au bar pendant le warm-up.\n3. Rentabiliser la soirée sur les consos plutôt que sur l'entrée.\n\nTu préfères payer 0 € et arriver tôt ou payer 20 € et arriver quand c'est blindé ? Dis-le en com !\n\n#TeufyParty #SortirSurLaCote #NiceNightlife #CannesParty #AstuceSoiree",
-  "titre": "Pourquoi l'entrée est gratuite avant 1h dans les clubs ?",
-  "concept": "pourquoi-entree-gratuite-avant",
-  "duree": 28.4,
-  "rubrique": "Explicatif",
+  "type": "incontournables",
+  "variante": "commercial",
+  "date": "2026-11-23",
+  "images": [
+    "carrousel-00.jpg",
+    "carrousel-01.jpg",
+    "carrousel-02.jpg",
+    "carrousel-03.jpg",
+    "carrousel-04.jpg"
+  ],
+  "legende": "Décembre commence, les pots de Noël aussi. Les soirées du week-end de Nice à Monaco, à envoyer à ceux qui disent encore « on verra ».\n- Soirées à Nice et Mandelieu-la-Napoule cette semaine\n\n- La plus attendue : COACHELLITO - HIGH CLUB, privatisation du High Club et B4B XXL réunissant Chaps, Shayan, Cavalli et Macew.\n\n→ Jeu 26 · Jerrycans Release Party @ Frigo 16 (Disco · Électro) · Frigo 16 / Le 109, Nice · 20h00 · gratuit\nRelease party funk et italo disco en entrée gratuite au Frigo 16 avec Les Jerrycans. @le109_officiel\n→ Ven 27 · COACHELLITO - HIGH CLUB (House · Électro) · High Club, Nice · minuit · 11 €\nTakeover total du High Club par Coachellito avec B4B exclusif et nouvelle scénographie. @highclubnice\n→ Sam 28 · THE SHOW CLUB SONORE × MARAKA × PLAYA CHICA (House · Électro) · PLAYA CHICA, 100 avenue du Général de Gaulle, 06210 Mandelieu-la-Napoule · 20h00\nSamedi 28 nov, 20h‑02h, des artistes du monde entier live à Playa Chica ! @playachica_official\n\nLaquelle on fait ensemble ? Enregistre le post pour ne pas oublier. Suis le compte : chaque semaine, les soirées à ne pas rater.\n\n- L'agenda complet, jour par jour : teufyparty.com\n\nEnvoie-le à ceux avec qui tu sors.\n\n#TeufyParty #nice #cotedazur #nightlife06 #plageselectroniques",
+  "soirees": [
+    {
+      "source": "web",
+      "source_site": "Shotgun",
+      "name": "Jerrycans Release Party @ Frigo 16",
+      "start": "2026-11-26T19:00:00.000Z",
+      "venue": "Frigo 16 / Le 109",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/fr/events/jerrycans-release-party-frigo-16",
+      "image": "evenements/auto/e6aaf229775a.jpg",
+      "price": 0,
+      "tags": [
+        "pop-funk",
+        "italo disco",
+        "groove",
+        "pop festive",
+        "Italo Disco",
+        "Synth-Pop",
+        "Disco Electro",
+        "pop rock",
+        "live",
+        "Synthwave",
+        "Electro Pop",
+        "Indie",
+        "Rock alternati",
+        "Electronic",
+        "Groove",
+        "hip‑hop",
+        "dance"
+      ],
+      "description": "Le jeudi 26 novembre, Frigo 16 accueille la release party de Jerrycans, accompagnés des TheGroovyBoyz. La soirée commence à 20 h, se termine à minuit 30, avec food & bar. L’événement est gratuit sur inscription, idéal pour les jeunes fans de hip‑hop et de groove. L’ambiance est décontractée, les beats dynamiques et la scène animée.",
+      "public_cible": 0.85,
+      "confiance": 0.95,
+      "buzz": 0.7,
+      "buzz_raison": "Gratuit sur réservation pour la sortie d'EP du groupe montant niçois.",
+      "accroche": "Release party funk et italo disco en entrée gratuite au Frigo 16 avec Les Jerrycans.",
+      "instagram": [
+        "panda_events",
+        "frigo16",
+        "lesjerrycans"
+      ],
+      "sources_sites": [
+        "Shotgun.live",
+        "panda-events.com / le109.nice.fr",
+        "Shotgun",
+        "Panda Events / Shotgun",
+        "instagram.com",
+        "instagram"
+      ],
+      "offres": [
+        {
+          "plateforme": "shotgun.live",
+          "url": "https://shotgun.live/fr/events/jerrycans-release-party-frigo-16",
+          "prix": 0
+        }
+      ],
+      "via_veille": true,
+      "billetterie_cherchee": true,
+      "offres_cherchees": true,
+      "enrichi": true
+    },
+    {
+      "source": "xceed",
+      "name": "COACHELLITO - HIGH CLUB",
+      "start": "2026-11-27T22:59:00.000Z",
+      "end": "2026-11-28T04:00:00.000Z",
+      "venue": "High Club",
+      "city": "Nice",
+      "address": "45 Prom. des Anglais, 06000 Nice, France Nice",
+      "url": "https://xceed.me/fr/nice/event/coachellito-high-club/251510",
+      "image": "evenements/auto/6974f57bf1c2.jpg",
+      "price": 11,
+      "tags": [
+        "house",
+        "electro",
+        "clubbing",
+        "edm",
+        "electro house",
+        "urbain"
+      ],
+      "description": "COACHELLITO & LE HIGH CLUB — NICE PRIVATISATION COMPLÈTE — FRIENDS & FAMILY EDITION LINE-UP : CHAPS B4B SHAYAN B4B CAVALLI B4B MACEW Retour sur le dancefloor de nos premières nuits ! Il y a des lieux qui font partie de notre histoire. Le High Club, c’est un peu celle de toute une génération de Niçois : les premières soirées, les rencontres et les souvenirs qu’on raconte encore. Le temps d’une nuit, COACHELLITO prend les clés de cette boîte mythique pour une édition Friends & Family. L’occasion de se retrouver entre amis, de raviver quelques souvenirs et surtout d’en créer de nouveaux. Nouveau",
+      "popularite": null,
+      "source_site": "Xceed",
+      "public_cible": 0.9,
+      "confiance": 0.95,
+      "buzz": 0.75,
+      "buzz_raison": "Privatisation du High Club et B4B XXL réunissant Chaps, Shayan, Cavalli et Macew.",
+      "accroche": "Takeover total du High Club par Coachellito avec B4B exclusif et nouvelle scénographie.",
+      "instagram": [
+        "coachellito",
+        "highclubnice"
+      ],
+      "offres": [
+        {
+          "plateforme": "xceed.me",
+          "url": "https://xceed.me/fr/nice/event/coachellito-high-club",
+          "prix": 15
+        },
+        {
+          "plateforme": "highclub.fr",
+          "url": "https://www.highclub.fr/event/coachellito/",
+          "prix": 15
+        }
+      ],
+      "sources_sites": [
+        "Xceed",
+        "highclub.fr"
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true,
+      "sources": [
+        "xceed",
+        "web"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Instagram",
+      "name": "THE SHOW CLUB SONORE × MARAKA × PLAYA CHICA",
+      "start": "2026-11-28T19:00:00.000Z",
+      "venue": "PLAYA CHICA, 100 avenue du Général de Gaulle, 06210 Mandelieu-la-Napoule",
+      "city": "Mandelieu-la-Napoule",
+      "address": "",
+      "url": "https://www.instagram.com/p/DgEL5lGIi8Q/",
+      "image": "evenements/auto/8386d785dc37.jpg",
+      "price": null,
+      "tags": [
+        "electro",
+        "live",
+        "house"
+      ],
+      "description": "Le Show Club Sonore débarque le samedi 28 novembre à Playa Chica, 100 avenue du Général de Gaulle, Mandelieu‑la‑Napoule. De 20 h à 2 h, profite d’un dîner festif suivi de performances live : Yori, Dany Bnk en percussions, Axelino en show live et le set électro de Plezy. Ambiance club‑house, son électro‑house et moments improvisés. Réserve via le lien en bio, dress‑code décontracté, entrée libre ou tarif à préciser sur la billetterie. Une soirée idéale pour les 18‑30 ans qui veulent danser et découvrir des artistes du monde entier.",
+      "public_cible": 1,
+      "confiance": 0.95,
+      "buzz": 0.6,
+      "buzz_raison": "Tête d'affiche internationale, lieu populaire, post Instagram récent, date week‑end.",
+      "accroche": "Samedi 28 nov, 20h‑02h, des artistes du monde entier live à Playa Chica ! 🎶",
+      "instagram": [
+        "playachica_official"
+      ],
+      "par_le_lieu": true,
+      "offres": [
+        {
+          "plateforme": "shotgun.live",
+          "url": "https://shotgun.live/fr/events/the-show-club-sonore-nice-novembre-2026?fbclid=PAZnRzaAVvdeNleHRuA2FlbQExAHBkb2YCZmRpZBZRK0SHQh77KMz3q-tNxQrrCKQy0TQ8c3J0YwZhcHBfaWQPMTI0MDI0NTc0Mjg3NDE0AAGnYf2VTaHVO9yt35knXDrgnt-z8IbakKxpL82tL0cvmN2Shz6t7fZ5kobcJKw_aem_MLJp_gsbYYouc7J8_Euhjw",
+          "prix": null
+        }
+      ],
+      "sources_sites": [
+        "Instagram",
+        "Instagram (playachica_official)"
+      ],
+      "enrichi": true,
+      "verifie": false
+    }
+  ],
+  "titre": "Ta semaine est réglée",
+  "tags": [
+    [],
+    [
+      "le109_officiel"
+    ],
+    [
+      "highclubnice"
+    ],
+    [
+      "playachica_official"
+    ]
+  ],
+  "collabs": [
+    "highclubnice",
+    "le109_officiel",
+    "playachica_official"
+  ],
+  "photo": "terrasse",
+  "mise": "bandeau",
   "choix": {
-    "creneau": "15",
-    "debat": "laser-game"
+    "creneau": "18",
+    "seuil-qualite": 0.55,
+    "titre-commercial": "1avowyl",
+    "mise-couverture": "bas",
+    "intro-commercial": "amke8v",
+    "question-commercial": "1yehf49",
+    "suivre": "h7y61e",
+    "site": "992dqy",
+    "hashtags-local": [
+      "#nice",
+      "#cotedazur"
+    ],
+    "hashtags-commercial": [
+      "#nightlife06",
+      "#plageselectroniques"
+    ]
   },
-  "features": [],
-  "nb_images": 0,
-  "story_video": "reel-2026-11-13.mp4",
-  "story_debat": "story-debat.jpg",
-  "debat": "laser-game",
+  "features": [
+    "genre:commercial",
+    "source:web",
+    "style:disco",
+    "style:electro",
+    "lieu:frigo-16-le-109",
+    "ville:nice",
+    "prix:gratuit",
+    "horaire:nuit",
+    "genre:commercial",
+    "source:xceed",
+    "style:house",
+    "style:electro",
+    "lieu:high-club",
+    "ville:nice",
+    "prix:moyen",
+    "horaire:nuit",
+    "genre:commercial",
+    "source:web",
+    "style:house",
+    "style:electro",
+    "lieu:playa-chica-100-avenue-du-general-de-gaulle-06210-mandelieu-la-napoule",
+    "ville:mandelieu-la-napoule",
+    "prix:inconnu",
+    "horaire:nuit"
+  ],
+  "nb_images": 5,
+  "story": "story.jpg",
   "a_tester": []
 }
