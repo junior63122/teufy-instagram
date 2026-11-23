@@ -7,6 +7,44 @@
   "evenements": [
     {
       "source": "web",
+      "source_site": "instagram.com",
+      "via_veille": true,
+      "name": "Dub Coast Sound System / Magam & Lyff",
+      "start": "2026-12-04T20:30:00.000Z",
+      "venue": "L'Antre – 22 bis rue Benoît Bunico – 06300 Vieux‑Nice",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/event/dubcoast",
+      "image": "",
+      "price": 5,
+      "tags": [
+        "dub",
+        "bass",
+        "electronic"
+      ],
+      "description": "Vendredi 4 décembre 2026, L’Antre se transforme en temple du dub. Magam et Lyff enflamment le before de 21h30 à 02h30 avec des basses lourdes, des rythmes hypnotiques et des échos qui te font vibrer. Le club est climatisé, éclairé pro et équipé d’un son Martin Audio pour une immersion totale. Les tickets sont à 5 €, en prévente sur Shotgun ou sur place. Dress code libre, ambiance underground, 18+.",
+      "public_cible": 0.6,
+      "confiance": 0.9,
+      "accroche": "Dub deep vibes à L'Antre le 4 déc, avant de 21h30 à 02h30.",
+      "instagram": [
+        "lantretechno"
+      ],
+      "buzz": 0.6,
+      "buzz_raison": "Tête d’affiche locale reconnue dans la scène dub, lieu populaire, prix abordable, soirée en week‑end.",
+      "offres": [
+        {
+          "plateforme": "shotgun.live",
+          "url": "https://shotgun.live/event/dubcoast",
+          "prix": 5
+        }
+      ],
+      "sources_sites": [
+        "instagram.com",
+        "Instagram"
+      ]
+    },
+    {
+      "source": "web",
       "source_site": "Instagram",
       "name": "THE SHOW CLUB SONORE × MARAKA × PLAYA CHICA",
       "start": "2026-11-28T19:00:00.000Z",
@@ -3229,31 +3267,6 @@
       "source": "web",
       "source_site": "instagram.com",
       "via_veille": true,
-      "name": "Dub Coast Sound System / Magam & Lyff",
-      "start": "2026-12-04T20:30:00.000Z",
-      "venue": "L'Antre – 22 bis rue Benoît Bunico – 06300 Vieux‑Nice",
-      "city": "Nice",
-      "address": "",
-      "url": "https://shotgun.live/event/dubcoast",
-      "image": "",
-      "price": 5,
-      "tags": [
-        "dub",
-        "bass",
-        "electronic"
-      ],
-      "description": "",
-      "public_cible": 0.6,
-      "confiance": 0.9,
-      "accroche": "Dub deep vibes à L'Antre le 4 déc, avant de 21h30 à 02h30.",
-      "instagram": [
-        "lantretechno"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "instagram.com",
-      "via_veille": true,
       "name": "Marwa Loud Showcase",
       "start": "2026-11-28T19:00:00.000Z",
       "venue": "High Club Nice",
@@ -3272,5 +3285,5 @@
       ]
     }
   ],
-  "maj_instagram": "2026-11-23T17:08:31.103Z"
+  "maj_instagram": "2026-11-23T17:14:12.153Z"
 }
