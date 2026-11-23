@@ -1,0 +1,15 @@
+{
+ "maj": "2026-11-23T08:44:09.599Z",
+ "rapport": [
+  {
+   "source": "datatourisme",
+   "evenements": 0
+  },
+  {
+   "source": "openagenda",
+   "erreur": "pas de clé (secret OPENAGENDA_KEY à ajouter)"
+  }
+ ],
+ "par_rubrique": {},
+ "evenements": []
+}
