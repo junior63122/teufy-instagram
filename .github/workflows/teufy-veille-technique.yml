@@ -65,7 +65,7 @@ jobs:
         run: |
           git config user.name "teufy-bot"
           git config user.email "teufy-bot@users.noreply.github.com"
-          git add -A -- contenus/veille-technique.json contenus/drive.json contenus/visites.json contenus/agendas.json
+          git add -A -- $(ls -d contenus/veille-technique.json contenus/drive.json contenus/visites.json contenus/agendas.json 2>/dev/null) # seulement les fichiers existants (23/11 : un fichier absent faisait tout échouer)
           git diff --cached --quiet && exit 0
           git commit -m "Teufy : veille technique du jour [skip ci]"
           for i in 1 2 3; do git pull --rebase -X theirs --autostash && git push && break; git rebase --abort 2>/dev/null; sleep 5; done

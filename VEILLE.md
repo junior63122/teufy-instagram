@@ -74,3 +74,10 @@ mises à jour, sources de soirées réparées ou ajoutées, décisions prises. T
   (llama-4-scout / maverick) absents de la liste des modèles ouverts du compte : lecture des affiches par Groq à rebrancher.
 - Billetteries ajoutées : Eventbrite (musique, Saint-Tropez, Fréjus), DICE Monaco, Allevents, Xceed, Shotgun Nice. Le relevé
   dira lesquelles donnent vraiment des soirées ; celles qui restent muettes seront réparées ou remplacées.
+
+### 23/11/2026 (suite) : relevé des agendas ouverts
+- Veille technique de 07 h 11 : échec à l'enregistrement (`git add` sur `contenus/visites.json`, absent tant que la clé GoatCounter
+  n'est pas mise ; erreur de ma part). Rien n'a été enregistré (agendas, fiches des 40 vidéos du Drive, relevé). Corrigé : seuls les
+  fichiers présents sont ajoutés. Les actions checkout@v7 / setup-node@v7 ont fonctionné.
+- DATAtourisme : l'export « événements » est compressé (gzip) malgré son nom en .csv ; 52 166 lignes illisibles, 0 soirée gardée.
+  Corrigé : décompression si besoin et lecture des champs sur plusieurs lignes (test ajouté). Vérification au prochain relevé.

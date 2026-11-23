@@ -35,3 +35,8 @@ test('agendas : lecture du CSV (guillemets, séparateur) et colonnes reconnues p
   const C = colonnes(['Nom_du_POI', 'Date_debut', 'Date_fin', 'Commune', 'Code_postal', 'Adresse_postale', 'Site_web', 'Categories_de_POI', 'Description']);
   assert.deepEqual([C.nom, C.debut, C.fin, C.commune, C.cp, C.adresse, C.url, C.categories, C.description], [0, 1, 2, 3, 4, 5, 6, 7, 8]);
 });
+
+test('agendas : CSV avec un champ sur plusieurs lignes', async () => {
+  const { lignesCsv } = await import('../src/agendas.mjs');
+  assert.deepEqual([...lignesCsv('nom;desc\n"Soirée";"ligne 1\nligne 2"\nB;x\n', ';')], [['nom', 'desc'], ['Soirée', 'ligne 1\nligne 2'], ['B', 'x']]);
+});
