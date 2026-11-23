@@ -201,7 +201,7 @@
    "score": 0,
    "soirs": [],
    "details": {
-    "le": "2026-11-23T13:20:16.562Z",
+    "le": "2026-11-23T13:49:06.863Z",
     "styles": "DJ résidents (ven–sam après 22h)",
     "dress_code": "",
     "horaires": "lun–dim 10h–2h",
@@ -925,7 +925,8 @@
    },
    "soirs": [],
    "instagram_non_verifie": "lamomeplage",
-   "stylesSoirees": []
+   "stylesSoirees": [],
+   "saison": true
   },
   {
    "nom": "Le Village",
