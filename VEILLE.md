@@ -85,3 +85,5 @@ mises à jour, sources de soirées réparées ou ajoutées, décisions prises. T
   Instagram 28, autres billetteries et sites) ; API Eventbrite : 28 ; Tavily : 30 recherches aujourd'hui (plafond atteint, pas
   dépassé). DATAtourisme : la décompression marche (69 771 événements lus) mais 0 gardé ; lecture des dates rendue tolérante
   (plusieurs dates dans une case, format français) et motifs de rejet écrits dans le journal. Vérification au relevé de demain matin.
+- Veille hebdomadaire + audit du site (S48) : rapport `audits/2026-11-23.md`. Lecture des affiches par Groq rebranchée
+  (`qwen/qwen3.8-27b`, les Llama 4 sont retirés) ; plus d'alerte quotidienne pour la recherche web de Groq (Tavily la remplace).

@@ -285,7 +285,8 @@ async function modelesGroq() {
 }
 const PREF_JSON = ['openai/gpt-oss-120b', 'openai/gpt-oss-20b', 'qwen/qwen3.8-27b', 'meta-llama/llama-4-maverick-17b-128e-instruct', 'moonshotai/kimi-k2-instruct', 'qwen/qwen3-32b', 'meta-llama/llama-4-scout-17b-16e-instruct', 'llama-3.3-70b-versatile'];
 const PREF_RECHERCHE = ['groq/compound', 'groq/compound-mini', 'compound-beta', 'compound-beta-mini'];
-const PREF_VISION = ['meta-llama/llama-4-scout-17b-16e-instruct', 'meta-llama/llama-4-maverick-17b-128e-instruct'];
+// 23/11/2026 : Llama 4 Scout et Maverick retirés par Groq ; qwen/qwen3.8-27b lit les images (3 au plus par requête).
+const PREF_VISION = ['qwen/qwen3.8-27b', 'meta-llama/llama-4-scout-17b-16e-instruct', 'meta-llama/llama-4-maverick-17b-128e-instruct'];
 async function choisirGroq(pref, voulu) {
   const dispo = await modelesGroq();
   const l = [...new Set([voulu, ...pref].filter(Boolean))];
@@ -414,13 +415,14 @@ export async function groqParties(parts, { recherche = false, config = {}, secon
   try {
     if (recherche) { const r = await groqRecherche({ L, system: 'Tu réponds en français, avec des faits sourcés.', prompt: texte, secondaire }); compter('groq', 'recherche'); return r; }
     const content = images.length
-      ? [{ type: 'text', text: texte }, ...images.slice(0, 5).map((d) => ({ type: 'image_url', image_url: { url: `data:${d.mime_type || d.mimeType || 'image/jpeg'};base64,${d.data}` } }))]
+      ? [{ type: 'text', text: texte }, ...images.slice(0, 3).map((d) => ({ type: 'image_url', image_url: { url: `data:${d.mime_type || d.mimeType || 'image/jpeg'};base64,${d.data}` } }))]
       : texte;
     const [model] = images.length ? await choisirGroq(PREF_VISION, L.modele_groq_vision) : await choisirGroq(PREF_JSON, L.modele_groq);
     if (!model) return null;
     const c = await groqAppel({ model, temperature: 0.2, max_completion_tokens: 5000, ...(/gpt-oss/.test(model) ? { reasoning_effort: 'low' } : {}), messages: [{ role: 'system', content: 'Réponds uniquement en JSON valide, sans texte autour.' }, { role: 'user', content }] });
     compter('groq');
-    const m = c.match(/[[{][\s\S]*[\]}]/);
+    // Modèles qui raisonnent à voix haute (Qwen) : la réflexion entre <think> n'est jamais prise pour la réponse.
+    const m = String(c).replace(/<think>[\s\S]*?<\/think>/g, '').match(/[[{][\s\S]*[\]}]/);
     return m ? JSON.parse(m[0]) : null;
   } catch (err) { marquerASec('groq', err); return null; }
 }

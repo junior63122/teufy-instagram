@@ -1,3 +1,22 @@
+# Rapport qualité du site Teufy — audit du 23 novembre 2026 (veille hebdomadaire, semaine ISO 48)
+
+Détail complet : `audits/2026-11-23.md`. Notes honnêtes, mesurées aujourd'hui ; ce n'est pas une certification indépendante.
+
+- **A. Note générale** : 93,6 au début, **94,2 / 100** à la fin (objectif 99 non atteint). Grille plus sévère que le 12/11 (97) : soirées sans affiche et Lighthouse local comptés.
+- **B. Notes** : design 9,6/10 ; UX 9,6/10 ; performances 9,4/10 ; animations 9/10 ; fonctionnalités 14,4/15 ; compatibilité 9,3/10 ; SEO 9,5/10 ; contenus 4,6/5 ; médias 4,5/5 ; sécurité 4,9/5 ; accessibilité 4,8/5 ; innovation 4,6/5.
+- **C. Inventaire** : 3 027 pages, 610 164 liens internes, 62 551 liens externes (non visités), 37 541 images, 2 988 blocs JSON-LD, 177 fiches soirée, 252 boutons « Itinéraire » vérifiés, 7 428 fichiers passés au contrôle de sécurité.
+- **D. Bugs** : texte des lieux fermés illisible (contraste 2,1:1) ; décalage de page sur ordinateur (CLS 0,124 Ce soir, 0,093 Manger tard) ; 12 pages h1 → h3 ; agendas DATAtourisme sans soirée gardée.
+- **E. Corrections** : `site/style.css` (seule l'image des lieux fermés est atténuée) ; `src/site.mjs` (police du texte préchargée, titres h2 sur Avantages et Manger tard) ; `src/agendas.mjs` (dates).
+- **F. Tests** : 158 tests unitaires verts ; tester-site 4 écrans ✓ ; robustesse ✓ (seule sur la machine) ; sécurité 0 faille ; données piégées 0 faille ; liens 0 cassé ; contrôle des données 0 erreur ; audit SEO 0 bloquant. Non exécutés : CI Firefox et WebKit, tests clavier.
+- **G. Performances** (local, sans compression) : mobile accueil 95, Ce soir 88-94, Nice 98, Clubs 98, Actus 91-92, Manger tard 95 ; ordinateur 100 partout ; CLS ≤ 0,023 après correction.
+- **H. SEO** : 3 024 URL dans le sitemap, 0 problème bloquant ; restent 396 images sans dimensions déclarées et 13 titres longs (arabe).
+- **I. Compatibilité** : Chromium, iPhone, Pixel 7, tablette, ordinateur 1350-1440 px (simulés). Aucun appareil physique.
+- **J. Limites** : production non mesurée (Lighthouse en local) ; Search Console inaccessible ; formulaires non testables en réel ; captures de référence absentes.
+- **K. À améliorer** : LCP mobile de Ce soir et Actus (au-dessus de 2,5 s) ; affiches manquantes (24 soirées) ; dimensions des images d'actus.
+- **L. Verdict** : site fiable et sûr, 94/100 mesuré ; les écarts restants sont surtout des contenus manquants (affiches, heures, prix) et le LCP mobile de deux pages.
+
+---
+
 # Rapport qualité du site Teufy — audit du 12 novembre 2026 (revue complète du design, page par page)
 
 Demande du directeur (captures à l'appui) : textes qui se superposent, cœur mal placé, emojis « qui font IA », soirées

@@ -47,6 +47,8 @@ await essai('groq', async () => {
   for (const [nom, usage] of [['PREF_JSON', 'textes et JSON'], ['PREF_VISION', 'lecture d\'images (affiches)'], ['PREF_RECHERCHE', 'recherche web']]) {
     const dispo = pref(nom).filter((m) => ouverts.includes(m));
     R.groq[nom] = dispo;
+    // 23/11/2026 : la recherche web de Groq a fermé (groq/compound) ; Tavily la remplace depuis le 20/11 : pas d'alerte quotidienne.
+    if (!dispo.length && nom === 'PREF_RECHERCHE') { R.groq.recherche = 'Tavily (Groq n\'a plus de recherche web)'; continue; }
     if (!dispo.length) alerte('Groq', `aucun modèle ${usage} ouvert parmi ${pref(nom).join(', ')} ; ouverts : ${ouverts.join(', ')}`);
   }
 });

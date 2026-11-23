@@ -1679,7 +1679,7 @@ html.onglets-caches .onglets{transform:translateY(105%)}
 .fiche-lieu.hors-heure{display:none}
 .filtre-tard .filtre-titre{font-weight:700;opacity:.8;margin-inline-end:6px;align-self:center}
 .tard-ce-soir{display:inline-block;margin:2px 0 6px;padding:4px 10px;border-radius:999px;background:#3dff8a22;color:#7dffb0;font-weight:700;font-size:13px}
-.tard-ce-soir.ferme{background:#ffffff12;color:var(--creme);opacity:.7}
+.tard-ce-soir.ferme{background:#ffffff12;color:#cfc9bf}
 /* Modèle économique : la dernière carte prend la place restante (pas de trou sur la dernière rangée). */
 @media(min-width:760px){.modele li:last-child:nth-child(3n+2){grid-column:span 2}.modele li:last-child:nth-child(3n+1){grid-column:span 3}}
 /* Filtre Boîtes de nuit / Bars (13/11/2026) */
@@ -1730,8 +1730,9 @@ html.onglets-caches .onglets{transform:translateY(105%)}
 .groupe-ville{grid-column:1/-1;display:flex;align-items:baseline;gap:12px;margin:18px 0 2px;padding-bottom:6px;border-bottom:1px solid #ffffff1f;font-family:var(--titre);font-size:clamp(22px,3vw,30px)}
 .groupe-ville:first-child{margin-top:0}
 .groupe-ville small{font-family:var(--texte);font-size:14px;font-weight:700;color:#7dffb0}
-.fiche-lieu[data-statut="ferme"]{opacity:.5;filter:grayscale(.7)}
-.fiche-lieu[data-statut="ferme"]:hover{opacity:.85;filter:none}
+/* 23/11/2026 (audit) : seule l'image des lieux fermés est atténuée ; le texte garde un contraste lisible (WCAG 4,5:1). */
+.fiche-lieu[data-statut="ferme"]>:not(.fiche-corps){opacity:.5;filter:grayscale(.7)}
+.fiche-lieu[data-statut="ferme"]:hover>:not(.fiche-corps){opacity:.85;filter:none}
 .lieux-fermes h3{opacity:.8}
 .affiche .ville-tag{position:absolute;left:12px;bottom:12px;z-index:2;display:inline-flex;align-items:center;gap:6px;padding:5px 11px 5px 9px;border-radius:999px;background:#0b0b0fd9;color:var(--creme);font-weight:800;font-size:13px;letter-spacing:.02em;backdrop-filter:blur(6px)}
 .affiche .ville-tag::before{content:"";width:12px;height:12px;background:var(--corail);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z'/%3E%3C/svg%3E") center/contain no-repeat}

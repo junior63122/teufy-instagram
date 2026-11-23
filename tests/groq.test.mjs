@@ -31,8 +31,11 @@ test('secours des appels directs du site : image envoyée à un modèle qui lit 
     globalThis.fetch = async (url, o) => { corps = JSON.parse(o.body); return reponse(200, JSON.stringify({ choices: [{ message: { content: 'Voici : {"titre":"TEKNO","dates":["2026-11-28"]}' } }] })); };
     const r = await LLM.groqParties([{ inline_data: { mime_type: 'image/jpeg', data: 'AAAA' } }, { text: 'Lis cette affiche.' }], { config });
     assert.deepEqual(r, { titre: 'TEKNO', dates: ['2026-11-28'] });
-    assert.match(corps.model, /scout|vision|llama-4/);
+    assert.equal(corps.model, 'qwen/qwen3.8-27b'); // 23/11/2026 : seul modèle Groq qui lit les images (Llama 4 retirés)
     assert.equal(corps.messages[1].content[1].type, 'image_url');
+    // Réflexion du modèle entre <think> (avec des accolades) : jamais prise pour la réponse.
+    globalThis.fetch = async () => reponse(200, JSON.stringify({ choices: [{ message: { content: '<think>essai {"titre":"FAUX"}</think>{"titre":"VRAI"}' } }] }));
+    assert.deepEqual(await LLM.groqParties([{ inline_data: { mime_type: 'image/jpeg', data: 'AAAA' } }, { text: 'Lis.' }], { config }), { titre: 'VRAI' });
     globalThis.fetch = async () => reponse(200, JSON.stringify({ choices: [{ message: { content: 'pas de json' } }] }));
     assert.equal(await LLM.groqParties([{ text: 'x' }], { config }), null);
   } finally { globalThis.fetch = vrai; }
