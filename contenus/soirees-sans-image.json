@@ -1,6 +1,6 @@
 {
- "le": "2026-11-23T10:42:00.342Z",
- "total": 108,
+ "le": "2026-11-23T11:12:15.234Z",
+ "total": 109,
  "sans_image": [
   {
    "id": "week-end-techno-l-antre-2026-11-23",
@@ -136,6 +136,15 @@
    "ville": "Cannes",
    "instagram": "yardofblondes",
    "url": "https://www.cannes.com/fr/agenda/annee-2026/decembre/yard-of-blondes.html"
+  },
+  {
+   "id": "dub-coast-sound-system-magam-et-lyff-2026-12-04",
+   "nom": "Dub Coast Sound System / Magam & Lyff",
+   "jour": "2026-12-04",
+   "lieu": "L'Antre – 22 bis rue Benoît Bunico – 06300 Vieux‑Nice",
+   "ville": "Nice",
+   "instagram": "lantretechno",
+   "url": "https://shotgun.live/event/dubcoast"
   },
   {
    "id": "plk-tournee-des-zeniths-2026-2026-12-06",

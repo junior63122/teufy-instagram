@@ -5795,5 +5795,227 @@
    "m": 54
   },
   "taxi": null
+ },
+ "43.69622,7.27707": {
+  "le": "2026-11-23T11:13:45.224Z",
+  "parkings": [
+   {
+    "nom": "Palais de Justice",
+    "type": "underground",
+    "payant": true,
+    "m": 241
+   },
+   {
+    "nom": "Parking Corvésy",
+    "type": "multi-storey",
+    "payant": true,
+    "m": 401
+   },
+   {
+    "nom": "Parking Sulzer",
+    "type": "underground",
+    "payant": true,
+    "m": 507
+   }
+  ],
+  "transports": [
+   {
+    "nom": "Cours Saleya",
+    "type": "bus",
+    "m": 148,
+    "lignes": "98"
+   },
+   {
+    "nom": "Cathédrale - Vieille Ville",
+    "type": "tram",
+    "m": 250,
+    "lignes": ""
+   },
+   {
+    "nom": "Cathédrale - Vieille Ville",
+    "type": "bus",
+    "m": 251,
+    "lignes": "33;33S;98"
+   },
+   {
+    "nom": "Opéra - Vieille Ville",
+    "type": "tram",
+    "m": 350,
+    "lignes": ""
+   }
+  ],
+  "velo": {
+   "nom": "Scoty",
+   "m": 139
+  },
+  "taxi": null
+ },
+ "43.66043,7.1946": {
+  "le": "2026-11-23T11:14:22.416Z",
+  "parkings": [
+   {
+    "nom": "",
+    "type": "multi-storey",
+    "payant": true,
+    "m": 173
+   },
+   {
+    "nom": "Parking relais",
+    "type": "",
+    "payant": null,
+    "m": 173
+   },
+   {
+    "nom": "",
+    "type": "underground",
+    "payant": true,
+    "m": 461
+   }
+  ],
+  "transports": [
+   {
+    "nom": "La Passerelle",
+    "type": "bus",
+    "m": 125,
+    "lignes": "9;12;51c;51d;622;650;200;N200;217;400;500"
+   },
+   {
+    "nom": "Centre Commercial Cap 3000",
+    "type": "bus",
+    "m": 142,
+    "lignes": "12;20;54;55;73"
+   },
+   {
+    "nom": "Saint-Laurent-du-Var",
+    "type": "train",
+    "m": 218,
+    "lignes": ""
+   },
+   {
+    "nom": "Aéroport Terminal 2",
+    "type": "tram",
+    "m": 848,
+    "lignes": ""
+   }
+  ],
+  "velo": {
+   "nom": "VéloBleu 211",
+   "m": 40
+  },
+  "taxi": {
+   "nom": "",
+   "m": 223
+  }
+ },
+ "43.69578,7.27195": {
+  "le": "2026-11-23T11:14:57.824Z",
+  "parkings": [
+   {
+    "nom": "Parking Sulzer",
+    "type": "underground",
+    "payant": true,
+    "m": 93
+   },
+   {
+    "nom": "Parking Corvésy",
+    "type": "multi-storey",
+    "payant": true,
+    "m": 109
+   },
+   {
+    "nom": "Palais de Justice",
+    "type": "underground",
+    "payant": true,
+    "m": 190
+   }
+  ],
+  "transports": [
+   {
+    "nom": "Quai des États-Unis",
+    "type": "bus",
+    "m": 98,
+    "lignes": "98"
+   },
+   {
+    "nom": "Opéra - Vieille Ville",
+    "type": "tram",
+    "m": 184,
+    "lignes": ""
+   },
+   {
+    "nom": "Albert 1er",
+    "type": "bus",
+    "m": 220,
+    "lignes": "8;12;98;630;Exp3"
+   },
+   {
+    "nom": "Masséna",
+    "type": "tram",
+    "m": 353,
+    "lignes": ""
+   }
+  ],
+  "velo": {
+   "nom": "",
+   "m": 203
+  },
+  "taxi": {
+   "nom": "",
+   "m": 443
+  }
+ },
+ "43.69804,7.27801": {
+  "le": "2026-11-23T11:17:31.539Z",
+  "parkings": [
+   {
+    "nom": "Promenade des Arts",
+    "type": "underground",
+    "payant": true,
+    "m": 326
+   },
+   {
+    "nom": "Palais de Justice",
+    "type": "underground",
+    "payant": true,
+    "m": 359
+   },
+   {
+    "nom": "Parking Corvésy",
+    "type": "multi-storey",
+    "payant": true,
+    "m": 494
+   }
+  ],
+  "transports": [
+   {
+    "nom": "Cathédrale - Vieille Ville",
+    "type": "tram",
+    "m": 127,
+    "lignes": ""
+   },
+   {
+    "nom": "Cathédrale - Vieille Ville",
+    "type": "bus",
+    "m": 138,
+    "lignes": "33;33S;98"
+   },
+   {
+    "nom": "Lycée Masséna",
+    "type": "bus",
+    "m": 200,
+    "lignes": "8+;12+;57"
+   },
+   {
+    "nom": "Garibaldi - Le Château",
+    "type": "tram",
+    "m": 319,
+    "lignes": ""
+   }
+  ],
+  "velo": {
+   "nom": "Scoty",
+   "m": 78
+  },
+  "taxi": null
  }
 }
