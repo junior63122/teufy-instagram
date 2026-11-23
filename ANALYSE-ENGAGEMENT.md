@@ -46,3 +46,12 @@ Données : `apprentissage.json` (75 publications mesurées), `RAPPORT.md`, `tend
 2. **Donner la permission des commentaires** au jeton Instagram (`instagram_manage_comments`), pour que le robot réponde à chaque commentaire.
 3. **Interagir 15 minutes par jour depuis le compte** sur les posts des organisateurs, des clubs et des DJ de la Côte : likes, commentaires, partages en story. L'API ne permet pas de le faire automatiquement.
 4. **Des vraies vidéos de soirée.** La story du lundi « envoie ta meilleure vidéo » en récolte : les reposter en reel, en créditant les auteurs.
+
+## 23/11/2026 : plus aucun jour sans publication
+- Constat du directeur : « la dernière publication date d'il y a deux jours, c'est absolument pas normal ». Vérifié : le planning
+  du 20/11 (écrit par moi) ne prévoyait rien le dimanche ; samedi 21 seul le réel promo est parti, dimanche 22 seulement des
+  stories, prochain post lundi 23 à 17 h 07 (près de 48 h sans post dans le fil). Le contrôle n'a rien signalé car il ne vérifie
+  que ce qui est prévu.
+- Décision : un post chaque dimanche (créneau libre, choisi par l'apprentissage), et règle générale dans le code : un jour sans
+  rien de prévu reçoit un post libre. Test `tests/planning-chaque-jour.test.mjs`. Semaine : lun 2, mar 2, mer 1, jeu 2, ven 1,
+  sam 1, dim 1 publications dans le fil.

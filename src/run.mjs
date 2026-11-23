@@ -125,6 +125,9 @@ const slotsFor = (d) => {
   }
   const extras = extrasDu(PLAN, s.date).filter(pretValide).filter((x) => x !== aLaPlace).map((x) => ({ type: x.type, variante: x.variante || undefined, suite: true, second: true, troisieme: base.length > 1 }))
     .filter((x) => !SERIES.includes(x.variante) || episodeGrandDebat(x.variante));
+  // 23/11/2026 (directeur : « la dernière publication date d'il y a deux jours, c'est absolument pas normal ») : jamais un jour
+  // sans publication dans le fil ; un jour sans rien de prévu reçoit un post libre.
+  if (!base.length && !extras.length) base.push({ type: 'libre' });
   return [...base, ...extras];
 };
 const optionsLibre = (now) => choixLibre({ now, historique: hist, slots: slotsFor, jourDe: (d) => slotOfDay(d).date });

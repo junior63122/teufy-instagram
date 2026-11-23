@@ -209,6 +209,31 @@
       "type": "incontournables",
       "variante": "commercial",
       "story": "debat"
+    },
+    {
+      "jour": 7,
+      "rang": 1,
+      "type": "libre"
+    },
+    {
+      "jour": 7,
+      "rang": 2,
+      "type": "libre"
+    },
+    {
+      "jour": 7,
+      "rang": 3,
+      "type": "libre"
+    },
+    {
+      "jour": 7,
+      "rang": 4,
+      "type": "libre"
+    },
+    {
+      "jour": 7,
+      "rang": 5,
+      "type": "libre"
     }
   ],
   "reglages": {
@@ -629,5 +654,6 @@
   "drive": {
     "videos": "16lDzJQr_L-AQfcmsDEWE3at4hHv-LT7u",
     "musique": "1r9pcDqHsNDR6ylO2qatsPocWtQygWD4M"
-  }
+  },
+  "_planning_23_11_2026": "23/11/2026 (directeur : « la dernière publication date d'il y a deux jours, c'est absolument pas normal ») : un post chaque dimanche (créneau libre), et jamais un jour sans publication dans le fil (un jour vide reçoit un post libre)."
 }
