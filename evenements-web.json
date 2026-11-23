@@ -7,6 +7,32 @@
   "evenements": [
     {
       "source": "web",
+      "source_site": "Instagram (honeyclubjuanlespins)",
+      "name": "Spicy Saturday",
+      "start": "2026-11-27T23:00:00.000Z",
+      "venue": "Honey Club",
+      "city": "Juan-les-Pins",
+      "address": "",
+      "url": "https://www.instagram.com/p/DgDpsEOAQn3/",
+      "image": "https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/925302218_18112595828255127_3958446131869795175_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=_KLJK9mrqq0Q7kNvwEOu_C2&_nc_oc=AdpmrvlPIesEyJHqzGwdSAjgggB1R9WSzskyrtxkwHczqsHrM4EvxAX1gWKgax25ldI&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=YMePloPBFqB41XNHcPXkLA&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQRP6aBmDvrMrmDAsaGY-UE6-R1Njah0wqfK4IsksvtEFQ&oe=6B09BF4C",
+      "price": 0,
+      "tags": [
+        "house",
+        "techno"
+      ],
+      "description": "Le Honey Club te donne rendez‑vous le 28 novembre pour le Spicy Saturday, une soirée club où les sons brûlants de Gianni, Shaylan et Aleks font monter la température sur le dancefloor. L’entrée est gratuite pour les filles avant 00 h 30, puis le tarif standard s’applique. Le club, situé au 5 av. Georges Gallice à Juan‑les‑Pins, ouvre ses portes à minuit et te promet une ambiance caliente jusqu’au petit matin. Pas de dress‑code imposé, juste l’envie de danser et de sentir la chaleur de la musique. Prépare ta team et viens vivre une nuit épicée sur la Côte d’Azur !",
+      "public_cible": 0.9,
+      "confiance": 0.6,
+      "buzz": 0.6,
+      "buzz_raison": "Première soirée Spicy Saturday, DJ set connu localement, entrée gratuite partielle, date week‑end proche du 28 novembre.",
+      "accroche": "",
+      "instagram": [
+        "honeyclubjuanlespins"
+      ],
+      "par_le_lieu": true
+    },
+    {
+      "source": "web",
       "source_site": "Instagram",
       "name": "Noël sur la plage",
       "start": "2026-12-05T18:00:00.000Z",
@@ -3188,5 +3214,6 @@
       ],
       "offres": []
     }
-  ]
+  ],
+  "maj_instagram": "2026-11-23T07:12:24.597Z"
 }

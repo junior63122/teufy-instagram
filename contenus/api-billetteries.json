@@ -1,22 +1,6 @@
 {
- "maj": "2026-11-22T21:13:39.860Z",
+ "maj": "2026-11-23T07:17:27.947Z",
  "evenements": [
-  {
-   "source": "eventbrite",
-   "name": "Couleur du Temps – Concert Piano & Guitare | Pop, Jazz, Rock & Chanson Fr",
-   "start": "2026-11-22T18:30:00.000Z",
-   "end": "2026-12-22T20:30:00.000Z",
-   "venue": "Le Quartier du Poulpe",
-   "city": "Nice",
-   "address": "34 Boulevard Auguste Raynaud, 06100 Nice",
-   "url": "https://www.eventbrite.com/e/couleur-du-temps-concert-piano-guitare-pop-jazz-rock-chanson-fr-tickets-2004510315313",
-   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1197481219%2F2988009644804%2F1%2Foriginal.20261107-080355?auto=format%2Ccompress&q=75&sharp=10&s=d08155d2bf3c564fabcc7f92b9473f42",
-   "price": 0,
-   "tags": [],
-   "description": "Laissez-vous emporter par Couleur du Temps, un duo piano-guitare qui revisite avec élégance de la pop, du jazz, du rock",
-   "popularite": null,
-   "pays": "FR"
-  },
   {
    "source": "eventbrite",
    "name": "Riviera Bar Crawl Paris #1 Social Club for Global Travelers & Party Lovers",
@@ -62,6 +46,22 @@
    "price": 0,
    "tags": [],
    "description": "Prépare-toi pour une soirée de folie avec l'école d'ingénieurs CESI et NRJ, ça va envoyer du lourd toute la nuit !",
+   "popularite": null,
+   "pays": "FR"
+  },
+  {
+   "source": "eventbrite",
+   "name": "Concert d'orgue du midi (entrée libre) par Luc RAGOMAHARISOA",
+   "start": "2026-11-26T11:15:00.000Z",
+   "end": "2026-11-26T12:00:00.000Z",
+   "venue": "Église Protestante Unie de Nice",
+   "city": "Nice",
+   "address": "21 Boulevard Victor Hugo, 06000 Nice",
+   "url": "https://www.eventbrite.fr/e/concert-dorgue-du-midi-entree-libre-par-luc-ragomaharisoa-tickets-2003858097512",
+   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1195887814%2F246664469747%2F1%2Foriginal.20261015-181752?auto=format%2Ccompress&q=75&sharp=10&s=ddbf3c3a54fef5666d14c647b9a53ab9",
+   "price": 0,
+   "tags": [],
+   "description": "Concert d'orgue de 45 mn pour faire découvrir l'orgue baroque du Temple Protestant de Nice. Entrée libre et libre participation aux frais",
    "popularite": null,
    "pays": "FR"
   },
@@ -131,6 +131,22 @@
   },
   {
    "source": "eventbrite",
+   "name": "Concert à Marseille : Mozart, Verdi, Bizet, Waxman, Puccini, Rossini",
+   "start": "2026-11-27T19:30:00.000Z",
+   "end": "2026-11-27T20:45:00.000Z",
+   "venue": "Abbaye Saint-Victor",
+   "city": "Marseille",
+   "address": "Place Saint-Victor, 13007 Marseille",
+   "url": "https://www.eventbrite.fr/e/concert-a-marseille-mozart-verdi-bizet-waxman-puccini-rossini-tickets-2003336039021",
+   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1195671699%2F465876791261%2F1%2Foriginal.20261013-085339?auto=format%2Ccompress&q=75&sharp=10&s=0ef22e7f187b6e591bc8a2f2e8193e37",
+   "price": 27.84,
+   "tags": [],
+   "description": "Concert d’opéra à Marseille avec Musicâme France : Mozart, Verdi, Puccini et Bizet à l’Abbaye Saint-Victor. Réservez vos places !",
+   "popularite": null,
+   "pays": "FR"
+  },
+  {
+   "source": "eventbrite",
    "name": "Riviera Bar Crawl Nice’s #1 Social Club for Global Travelers & Party Lovers",
    "start": "2026-11-27T20:00:00.000Z",
    "end": "2026-11-28T01:00:00.000Z",
@@ -179,6 +195,22 @@
   },
   {
    "source": "eventbrite",
+   "name": "Concert à Aix-En-Provence : Mozart, Verdi, Bizet, Waxman",
+   "start": "2026-11-28T20:00:00.000Z",
+   "end": "2026-11-28T21:15:00.000Z",
+   "venue": "Eglise et Paroisse Saint-Jean-de-Malte d'Aix-en-Provence",
+   "city": "Aix-en-Provence",
+   "address": "24 Rue d'Italie, 13100 Aix-en-Provence",
+   "url": "https://www.eventbrite.fr/e/concert-a-aix-en-provence-mozart-verdi-bizet-waxman-tickets-2003350638689",
+   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1195684183%2F465876791261%2F1%2Foriginal.20261013-124807?auto=format%2Ccompress&q=75&sharp=10&s=997bf6a8cf7babd04dd37fc9fdae4b06",
+   "price": 27.84,
+   "tags": [],
+   "description": "Concert d’opéra à Aix avec Musicâme France : Mozart, Verdi, Puccini et Bizet à l’Eglise St Jean de Malte. Réservez vos places !",
+   "popularite": null,
+   "pays": "FR"
+  },
+  {
+   "source": "eventbrite",
    "name": "Nice Orange Pub Crawl – 5 Shots, Party Games & VIP Club Entry",
    "start": "2026-11-28T21:00:00.000Z",
    "end": "2026-11-29T01:00:00.000Z",
@@ -190,6 +222,22 @@
    "price": 27.84,
    "tags": [],
    "description": "The wildest pub crawl in Nice. 5 party venues, drinking games, 5 free shots and VIP club entry with an international crowd.",
+   "popularite": null,
+   "pays": "FR"
+  },
+  {
+   "source": "eventbrite",
+   "name": "Concert à Montpellier : Mozart, Verdi, Bizet, Waxman, Puccini, Rossini",
+   "start": "2026-11-29T16:00:00.000Z",
+   "end": "2026-11-29T17:15:00.000Z",
+   "venue": "Basilique Notre-Dame-des-Tables",
+   "city": "Montpellier",
+   "address": "43 Rue de l'Aiguillerie, 34000 Montpellier",
+   "url": "https://www.eventbrite.fr/e/concert-a-montpellier-mozart-verdi-bizet-waxman-puccini-rossini-tickets-2004217672009",
+   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1197071052%2F465876791261%2F1%2Foriginal.20261102-113527?auto=format%2Ccompress&q=75&sharp=10&s=5991a383b7511786e5be923d9c9fcd83",
+   "price": 27.84,
+   "tags": [],
+   "description": "Concert de musique classique et airs d’opéra à Montpellier le 29 novembre. Rossini, Verdi, Puccini, Mozart et Bizet avec Musicâme France.",
    "popularite": null,
    "pays": "FR"
   },
@@ -224,6 +272,22 @@
    "description": "Join Internation_Elles evening Aper’Elles for a fun in-person night of chats, laughs, and new global friendships!!",
    "popularite": null,
    "pays": "FR"
+  },
+  {
+   "source": "eventbrite",
+   "name": "IL CONCERTO DI NATALE 2026",
+   "start": "2026-12-03T17:00:00.000Z",
+   "end": "2026-12-03T19:00:00.000Z",
+   "venue": "Léo Ferré space",
+   "city": "Monaco",
+   "address": "25 Avenue Albert II, 98000 Monaco",
+   "url": "https://www.eventbrite.fr/e/il-concerto-di-natale-2026-tickets-2004033932439",
+   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1197172474%2F1282814167223%2F1%2Foriginal.20261103-142522?auto=format%2Ccompress&q=75&sharp=10&s=20202a575e301cf4231d831bbc0cfc55",
+   "price": 0,
+   "tags": [],
+   "description": "Un concerto di Natale in presenza.",
+   "popularite": null,
+   "pays": "MC"
   },
   {
    "source": "eventbrite",
@@ -320,12 +384,76 @@
    "description": "Venez profiter d'une soirée musicale chaleureuse et conviviale en compagnie de Dolce Farniente",
    "popularite": null,
    "pays": "FR"
+  },
+  {
+   "source": "eventbrite",
+   "name": "Concert à Nice : Tchaikovsky, Williams, Vivaldi, Pachelbel, Corelli, Monti,",
+   "start": "2026-12-16T19:00:00.000Z",
+   "end": "2026-12-16T20:15:00.000Z",
+   "venue": "Théâtre Francis Gag",
+   "city": "Nice",
+   "address": "4 Rue de la Croix, 06300 Nice",
+   "url": "https://www.eventbrite.fr/e/concert-a-nice-tchaikovsky-williams-vivaldi-pachelbel-corelli-monti-tickets-2003962756550",
+   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1196675920%2F465876791261%2F1%2Foriginal.20261027-122551?auto=format%2Ccompress&q=75&sharp=10&s=f611ebd8055ebdb3a039a60630638399",
+   "price": 27.84,
+   "tags": [],
+   "description": "Concert de Noël à Nice avec Musicâme France : vivez un moment musical magique entre grands classiques et mélodies de Noël.",
+   "popularite": null,
+   "pays": "FR"
+  },
+  {
+   "source": "eventbrite",
+   "name": "Concert à Strasbourg : Tchaikovsky, Williams, Vivaldi, Pachelbel, Corelli,",
+   "start": "2026-12-19T19:00:00.000Z",
+   "end": "2026-12-19T20:15:00.000Z",
+   "venue": "Église Saint-Thomas",
+   "city": "Strasbourg",
+   "address": "11 Rue Martin Luther, 67000 Strasbourg",
+   "url": "https://www.eventbrite.fr/e/concert-a-strasbourg-tchaikovsky-williams-vivaldi-pachelbel-corelli-tickets-2004058784773",
+   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1196838996%2F465876791261%2F1%2Foriginal.20261029-093148?auto=format%2Ccompress&q=75&sharp=10&s=1406d8f316b1e929a6c509f4bdfa43ae",
+   "price": 27.84,
+   "tags": [],
+   "description": "Concert de Noël à Strasbourg avec Musicâme : grands classiques et mélodies de Noël pour une soirée musicale festive et pleine d’émotions !",
+   "popularite": null,
+   "pays": "FR"
+  },
+  {
+   "source": "eventbrite",
+   "name": "Concert de Noël à Toulouse : Musicâme France",
+   "start": "2026-12-23T19:00:00.000Z",
+   "end": "2026-12-23T20:15:00.000Z",
+   "venue": "Chapelle Sainte-Anne",
+   "city": "Toulouse",
+   "address": "15 Rue Sainte-Anne, 31000 Toulouse",
+   "url": "https://www.eventbrite.fr/e/concert-de-noel-a-toulouse-musicame-france-tickets-2004946795838",
+   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1198150030%2F465876791261%2F1%2Foriginal.20261117-110826?auto=format%2Ccompress&q=75&sharp=10&s=20ab71865cc6e9c453ea94658bd2c9a7",
+   "price": 27.84,
+   "tags": [],
+   "description": "Vivez la magie de Noël en musique à Toulouse ! Tchaïkovski, John Williams et Vivaldi au programme d’un concert exceptionnel.",
+   "popularite": null,
+   "pays": "FR"
+  },
+  {
+   "source": "eventbrite",
+   "name": "Concert d'orgue  du Nouvel An 2027",
+   "start": "2027-01-03T15:00:00.000Z",
+   "end": "2027-01-03T16:00:00.000Z",
+   "venue": "7 Cor Fahnestock",
+   "city": "Saint-Laurent-du-Var",
+   "address": "7 Corniche Fahnestock, 06700 Saint-Laurent-du-Var",
+   "url": "https://www.eventbrite.fr/e/concert-dorgue-du-nouvel-an-2027-tickets-2003858451571",
+   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1196509812%2F246664469747%2F1%2Foriginal.20261024-181542?auto=format%2Ccompress&q=75&sharp=10&s=3d7a5bf2e1e4047503abc4d7dfe4ccb5",
+   "price": 0,
+   "tags": [],
+   "description": "Interprétation d'œuvres d'orgue et de transcriptions orchestrales",
+   "popularite": null,
+   "pays": "FR"
   }
  ],
  "rapport": [
   {
    "source": "eventbrite-api",
-   "evenements": 20
+   "evenements": 28
   },
   {
    "source": "ticketmaster-api",
