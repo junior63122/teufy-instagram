@@ -3,26 +3,26 @@
  "jour": "2026-11-23",
  "total": {
   "anthropic": 26,
-  "gemini": 73,
-  "groq": 864,
+  "gemini": 74,
+  "groq": 870,
   "tavily": 67
  },
  "aujourdhui": {
   "tavily": 30,
-  "groq": 133,
+  "groq": 139,
   "anthropic": 1,
-  "gemini": 3
+  "gemini": 4
  },
- "euros_jour": 0.24,
- "euros_mois": 6.124,
+ "euros_jour": 0.28,
+ "euros_mois": 6.164,
  "euros_ia": {
   "anthropic": {
    "jour": 0.12,
    "mois": 3.6
   },
   "gemini": {
-   "jour": 0.12,
-   "mois": 2.524
+   "jour": 0.16,
+   "mois": 2.564
   },
   "groq": {
    "jour": 0,
