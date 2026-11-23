@@ -1,5 +1,5 @@
 {
- "maj": "2026-11-13T11:25:13.663Z",
+ "maj": "2026-11-23T16:03:35.383Z",
  "source": "OpenStreetMap (ODbL), extrait Geofabrik",
  "lieux": [
   {
@@ -260,7 +260,7 @@
    "type": "resto-soir",
    "categorie": "Restaurant",
    "ville": "Nice",
-   "adresse": "52 Promenade des Anglais, 06000",
+   "adresse": "",
    "horaires": "lun–dim 8h–23h",
    "fermetures": {
     "1": 0,
@@ -399,7 +399,7 @@
    "categorie": "Restaurant",
    "ville": "Nice",
    "adresse": "",
-   "horaires": "lun–ven 17h30–0h",
+   "horaires": "lun–ven 17h30–0h · sam 18h–0h",
    "fermetures": {
     "1": 0,
     "2": 0,
@@ -4575,7 +4575,7 @@
    "type": "resto-soir",
    "categorie": "Restaurant",
    "ville": "Nice",
-   "adresse": "49 Rue Pastorelli",
+   "adresse": "",
    "horaires": "ven–dim 18h45–23h",
    "fermetures": {
     "1": 0,
@@ -4589,7 +4589,7 @@
    "lat": 43.6998965,
    "lng": 7.2693162,
    "instagram": "",
-   "site": "https://tigermilkrestaurants.com",
+   "site": "https://www.tigermilkrestaurants.com/en/restaurants/nice/",
    "source": "https://www.openstreetmap.org/node/11879452567",
    "slug": "tigermilk-nice"
   },
@@ -5257,6 +5257,29 @@
    "slug": "bistro-coe-beausoleil"
   },
   {
+   "nom": "Gruppomimo",
+   "type": "resto-soir",
+   "categorie": "Pizzeria",
+   "ville": "Nice",
+   "adresse": "",
+   "horaires": "lun–ven 19h–23h · sam–dim 12h–23h",
+   "fermetures": {
+    "1": 0,
+    "2": 0,
+    "3": 0,
+    "4": 0,
+    "5": 0,
+    "6": 0,
+    "7": 0
+   },
+   "lat": 43.700375,
+   "lng": 7.2690614,
+   "instagram": "",
+   "site": "https://www.gruppomimo.com/nos-restaurants/gruppomimo-nice",
+   "source": "https://www.openstreetmap.org/node/14406207663",
+   "slug": "gruppomimo-nice"
+  },
+  {
    "nom": "La Croissanterie",
    "type": "manger-tard",
    "categorie": "Boulangerie",
@@ -5456,8 +5479,8 @@
     "6": 60,
     "7": 0
    },
-   "lat": 43.4443448,
-   "lng": 6.7029586,
+   "lat": 43.444302,
+   "lng": 6.7029232,
    "instagram": "",
    "site": "https://www.aubureau.fr/restaurant-brasserie/au-bureau-puget",
    "source": "https://www.openstreetmap.org/way/1226736966",

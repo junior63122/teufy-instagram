@@ -1,5 +1,5 @@
 {
- "maj": "2026-11-13T11:25:35.493Z",
+ "maj": "2026-11-23T16:03:46.638Z",
  "source": "OpenStreetMap (ODbL), extrait Geofabrik",
  "lieux": [
   {
@@ -162,12 +162,12 @@
    "nom": "High Club",
    "osm": "nightclub",
    "ville": "Nice",
-   "adresse": "45 Promenade des Anglais",
+   "adresse": "",
    "site": "https://www.highclub.fr",
    "instagram": "",
-   "horaires": "ven–dim 0h–5h30",
-   "lat": 43.6940025,
-   "lng": 7.2559561,
+   "horaires": "ven–dim 0h–5h",
+   "lat": 43.6939661,
+   "lng": 7.2559313,
    "source": "https://www.openstreetmap.org/node/472530931"
   },
   {
@@ -4374,7 +4374,7 @@
    "nom": "Santana",
    "osm": "pub",
    "ville": "Nice",
-   "adresse": "1 Rue d'Alsace Lorraine",
+   "adresse": "",
    "site": "",
    "instagram": "",
    "horaires": "",
