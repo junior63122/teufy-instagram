@@ -713,5 +713,37 @@
       "legende": "Il est 4 h, la boîte ferme… et t'as la dalle\n\nSur teufyparty.com, rubrique Manger tard :\n- choisis jusqu'à quelle heure c'est ouvert (2 h, 3 h, 4 h, 5 h et +)\n- « Près de moi » : le plus proche de toi en premier\n- de Toulon à Menton\n\nHoraires publiés, relevés chaque jour : vérifie avant d'y aller.\nEnvoie ça à celui qui a toujours faim en sortant\n\n#TeufyParty #mangertard #nice #cannes #monaco",
       "titre": "Teufy · 02 manger tard"
     }
+  },
+  {
+    "id": "libre",
+    "date": "2026-11-23",
+    "media": "17927521158445416",
+    "lien": "https://www.instagram.com/reel/DgGGYRPlX5a/",
+    "titre": "Teufy · 03 defi gratuit",
+    "concept": "spot-promo-03-defi-gratuit",
+    "photo": "rire",
+    "mise": "cadre",
+    "verifie": true,
+    "soirees": [],
+    "le": "2026-11-23T19:11:01.457Z",
+    "publication": {
+      "id": "libre",
+      "type": "reel",
+      "variante": "spot-promo",
+      "date": "2026-11-23",
+      "choix": {
+        "creneau": "18",
+        "accroche-spot": "defi",
+        "fonction-spot": [
+          "gratuit",
+          "filtre-ville"
+        ]
+      },
+      "features": [],
+      "nb_images": 0,
+      "duree": 12.8,
+      "legende": "Défi : une soirée gratuite en moins de 10 secondes\n\n1. Ouvre teufyparty.com\n2. Gratuit et bons plans\n3. Choisis ta ville (Nice, Cannes, Monaco, Antibes, le Var…)\nEt voilà : entrée libre ou petits prix (10 € max).\n\nTon temps ? Dis-le en commentaire\n\nEnvoie-le à ton binôme de soirée.\n\n#TeufyParty #soireegratuite #bonplan #nice #cannes",
+      "titre": "Teufy · 03 defi gratuit"
+    }
   }
 ]
