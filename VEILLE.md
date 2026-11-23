@@ -4,6 +4,19 @@ Journal daté (le plus récent en premier) : changements des prestataires et des
 mises à jour, sources de soirées réparées ou ajoutées, décisions prises. Tenu par la tâche programmée quotidienne
 (demande du directeur du 20/11/2026), à partir de `contenus/veille-technique.json` et des annonces officielles.
 
+## 23/11/2026
+
+- **Robot « Veille technique »** : relevé du jour pas encore fait à 7 h 50 (horaire GitHub sauté, comme souvent) ; la veille le relance
+  dès 8 h. Premier passage des **agendas ouverts** (DATAtourisme, OpenAgenda) avec lui : contrôle prévu à 9 h 15.
+- **Actions GitHub** : essai des nouvelles versions majeures sur le seul robot sans publication (checkout v7, setup-node v7 dans
+  « Veille technique ») ; si son passage d'aujourd'hui est bon, généralisation aux autres robots, hors créneaux de publication.
+- **Meta / Instagram** : pas d'annonce de novembre trouvée (dernière entrée du changelog : 05/10/2026). À retenir pour la migration
+  du 24/11 : depuis le 28/09/2026, l'API de publication accepte le paramètre `is_ai_generated` à la création du conteneur
+  (étiquette « contenu généré par IA », demandée par le directeur le 21/11), ainsi que des sondages en légende.
+- **Failles npm** : 0 (racine et studio). **Groq** : toujours pas de modèle de lecture d'image ni de recherche web (secours en place).
+- **Soirées** : 36 dans les 7 prochains jours (Nice 19, Toulon 4, Cannes 4…) ; Eventbrite par son API (clé du directeur) ajouté
+  le 22/11, Ticketmaster et OpenAgenda en attente de leur clé.
+
 ## 22/11/2026
 
 - **Eventbrite bloque nos robots** (HTTP 405, vérification anti-robot) sur ses 12 pages depuis le 20/11, et Shotgun (429) :
