@@ -3224,6 +3224,31 @@
         "_boka_officiel_"
       ],
       "offres": []
+    },
+    {
+      "source": "web",
+      "source_site": "instagram.com",
+      "via_veille": true,
+      "name": "Dub Coast Sound System / Magam & Lyff",
+      "start": "2026-12-04T20:30:00.000Z",
+      "venue": "L'Antre – 22 bis rue Benoît Bunico – 06300 Vieux‑Nice",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/event/dubcoast",
+      "image": "",
+      "price": 5,
+      "tags": [
+        "dub",
+        "bass",
+        "electronic"
+      ],
+      "description": "",
+      "public_cible": 0.6,
+      "confiance": 0.9,
+      "accroche": "Dub deep vibes à L'Antre le 4 déc, avant de 21h30 à 02h30.",
+      "instagram": [
+        "lantretechno"
+      ]
     }
   ],
   "maj_instagram": "2026-11-23T10:42:00.342Z"
