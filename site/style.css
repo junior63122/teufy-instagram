@@ -1863,3 +1863,4 @@ button.bouton{font-family:var(--texte)}
 /* 23/11/2026 (testeur navigation) : sur la fiche soirée (téléphone), « Haut de page » passait sous la barre Billets. */
 @media(max-width:759px){body:has(.barre-billets:not([hidden])) .haut{bottom:calc(150px + env(safe-area-inset-bottom))}}
 [dir=rtl] .bandeau-nouveau .bn-fleche,[dir=rtl] .bandeau-nouveau .fleche{display:inline-block;transform:scaleX(-1)}
+.bloc-large[id^="v-"]{scroll-margin-top:120px}

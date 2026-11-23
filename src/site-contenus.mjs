@@ -46,10 +46,10 @@ export const PARTENAIRE = {
   titre: 'Devenir partenaire Teufy · Clubs, organisateurs, BDE, marques',
   desc: "Clubs, bars, beach clubs, organisateurs, festivals, artistes : rejoins les partenaires de Teufy, le guide des soirées de la Côte d'Azur. Agenda vérifié, posts en collaboration, stories et reels.",
   etiquette: 'Partenaires', h1: 'Remplis ta soirée avec <em>Teufy</em>',
-  chapo: "Teufy, c'est l'agenda des soirées de la Côte d'Azur et le média Instagram des 17-30 ans qui sortent. On met ta soirée devant les gens qui cherchent où sortir ce soir.",
+  chapo: "Teufy, c'est l'agenda des soirées de la Côte d'Azur et le média Instagram des 18-30 ans qui sortent. On met ta soirée devant les gens qui cherchent où sortir ce soir.",
   pourquoiH2: 'Pourquoi <em>Teufy</em>',
   pourquoi: [
-    ["Un public qui sort vraiment", "Les 17-30 ans de Nice, Cannes, Antibes et Monaco qui cherchent leur prochaine soirée, au moment où ils la cherchent."],
+    ["Un public qui sort vraiment", "Les 18-30 ans de Nice, Cannes, Antibes et Monaco qui cherchent leur prochaine soirée, au moment où ils la cherchent."],
     ['Un agenda vérifié chaque jour', "Chaque soirée est vérifiée sur sa page officielle : date, heure, lieu, prix et lien de billetterie. Ce sérieux fait revenir les gens."],
     ['Six langues, Google compris', "Le site est traduit en anglais, italien, espagnol, chinois et arabe, et chaque soirée a sa page optimisée pour Google : les touristes et les étudiants étrangers te trouvent aussi."],
     ['Le lien direct vers ta billetterie', "Le bouton « Billets » envoie directement sur ta page Shotgun, DICE, Weezevent ou ton site."],
@@ -95,7 +95,7 @@ export const AMBASSADEUR = {
   avantages: [
     ["Faire partie de l'équipe", "Tu rejoins l'équipe Teufy et tu vois comment fonctionne un média de l'événementiel de l'intérieur."],
     ['Une vraie expérience à valoriser', "Repérage, réseaux sociaux, relation avec les organisateurs : de quoi enrichir ton CV, ton portfolio ou ton stage."],
-    ['Le réseau', "Tu rencontres les organisateurs, les clubs, les DJ et les 200+ partenaires de Teufy."],
+    ['Le réseau', "Tu rencontres les organisateurs, les clubs, les DJ et les partenaires de Teufy."],
     ['Des avantages en soirée', "Quand nos partenaires en proposent : invitations, entrées en liste et réductions, réservées aux ambassadeurs."],
   ],
   profilH2: 'Le <em>profil</em>',
@@ -107,14 +107,14 @@ export const AMBASSADEUR = {
 
 export const BDE = {
   titre: 'BDE et associations étudiantes · Partenariat Teufy',
-  desc: "BDE, BDS, associations étudiantes de Nice, Sophia Antipolis, Cannes et Monaco : faites connaître vos soirées gratuitement sur Teufy et organisez vos événements avec nos 200+ partenaires.",
+  desc: "BDE, BDS, associations étudiantes de Nice, Sophia Antipolis, Cannes et Monaco : faites connaître vos soirées gratuitement sur Teufy et organisez vos événements avec nos partenaires.",
   etiquette: 'BDE · Associations', h1: 'Vos soirées étudiantes, <em>en grand</em>',
   chapo: "BDE, BDS, BDA, associations d'Université Côte d'Azur, de Sophia Antipolis, des écoles de Nice, Cannes et Monaco : Teufy vous aide à remplir vos soirées et à les organiser.",
   offreH2: 'Ce que Teufy vous <em>propose</em>',
   offre: [
     ['Vos soirées dans l\'agenda, gratuitement', "Votre soirée apparaît sur le site, dans la page de votre ville et sur Google, avec le lien vers votre billetterie (HelloAsso, Shotgun, Weezevent…)."],
     ['Une mise en avant sur Instagram', "Les soirées étudiantes qui se démarquent entrent dans les sélections Teufy, en collaboration avec votre compte."],
-    ['Le bon lieu pour votre soirée', "Teufy travaille avec plus de 200 clubs, bars, beach clubs et salles de la Côte : on vous met en relation avec ceux qui accueillent des soirées étudiantes."],
+    ['Le bon lieu pour votre soirée', "Teufy travaille avec de nombreux clubs, bars, beach clubs et salles de la Côte : on vous met en relation avec ceux qui accueillent des soirées étudiantes."],
     ["Des conditions négociées", "Quand c'est possible, on vous aide à obtenir de meilleures conditions auprès de nos partenaires pour vos événements (privatisation, tarifs de groupe)."],
     ['Un ambassadeur dans votre école', "Un membre du bureau peut devenir ambassadeur Teufy et relayer vos événements en priorité."],
   ],
@@ -175,7 +175,7 @@ export const CGV = (T, compte) => ({
   titre: 'Conditions générales de vente et de partenariat · Teufy', h1: 'Conditions générales de <em>vente</em> et de partenariat', desc: "Billets, commission comprise dans le prix, rétractation, annulation, codes promo, prestations et partenariats Teufy : les conditions générales de vente complètes.",
   blocs: [
     ['1. Objet et champ d\'application', [MAJ(T), `Les présentes conditions générales de vente et de partenariat (CGV) s'appliquent aux offres présentées sur le site Teufy (billets accessibles depuis le site, comparateur de prix, codes promo) et à toutes les prestations proposées par ${EDITEUR(T)} aux professionnels : organisateurs, établissements, artistes, associations et marques.`, "Toute commande ou tout accord de partenariat implique l'acceptation de ces CGV, qui prévalent sur tout autre document sauf accord écrit contraire. Elles complètent les conditions générales d'utilisation (CGU) du site."]],
-    ['2. Qui vend', [`Le prestataire est ${EDITEUR(T)}, société de droit monégasque. Contact : ${T.email || 'teufy.app@gmail.com'} ou message privé Instagram ${compte}.`, "Pour les billets, le vendeur est l'organisateur de la soirée ou sa billetterie (Shotgun, Weezevent, Dice…) : c'est avec lui que le contrat de vente du billet est conclu."]],
+    ['2. Qui vend', [`Le prestataire est ${EDITEUR(T)}${/monégasque/.test(T.forme || '') ? '' : ', société de droit monégasque'}. Contact : ${T.email || 'teufy.app@gmail.com'} ou message privé Instagram ${compte}.`, "Pour les billets, le vendeur est l'organisateur de la soirée ou sa billetterie (Shotgun, Weezevent, Dice…) : c'est avec lui que le contrat de vente du billet est conclu."]],
     ['3. Billets et prix', ["Teufy ne vend pas les billets en son nom et n'encaisse aucun paiement de billet. Le bouton « Billets » mène à la billetterie officielle de la soirée, dont les conditions de vente s'appliquent (prix, frais, nombre de places, revente, contrôle à l'entrée).", "Le prix est fixé par l'organisateur. La commission de Teufy sur les billets vendus grâce à la plateforme est déjà comprise dans ce prix : l'acheteur ne paie aucun coût supplémentaire du fait de Teufy.", "Les prix affichés sur Teufy sont relevés sur les billetteries et donnés à titre indicatif : seul le prix affiché par la billetterie au moment du paiement fait foi."]],
     ['4. Droit de rétractation', ["Les billets d'une soirée ou d'un événement à une date déterminée ne bénéficient pas du droit de rétractation de 14 jours (article L221-28, 12° du Code de la consommation français et règles équivalentes applicables aux consommateurs de l'Union européenne). Un billet acheté n'est donc ni repris ni remboursé, sauf annulation de l'événement ou conditions plus favorables de la billetterie.", "Les prestations de Teufy décrites à l'article 7 s'adressent aux professionnels et ne relèvent pas du droit de rétractation des consommateurs."]],
     ['5. Annulation, report et modification d\'un événement', ["Chaque soirée est sous la seule responsabilité de son organisateur. En cas d'annulation, de report ou de changement important (lieu, date, artistes), le remboursement ou l'échange se demande auprès de l'organisateur ou de la billetterie qui a vendu le billet, selon ses conditions.", "Teufy met à jour l'agenda dès qu'il a connaissance d'un changement, mais ne peut être tenu responsable d'une information modifiée par l'organisateur."]],

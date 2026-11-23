@@ -141,6 +141,14 @@ for (const [id, html] of parId) for (const m of html.matchAll(/class="orga-carte
 { const f = path.join(ROOT, 'clubs-bars', 'index.html');
   if (existsSync(f)) for (const m of new Set(readFileSync(f, 'utf8').match(/data-ville="[^"]*"/g) || [])) if (/partenaire|undefined|null/.test(m)) err('clubs-bars/', `ville impossible ${m}`); }
 
+// 23/11/2026 : une erreur de code a fait disparaître toute la rubrique « France » (108 pages) sans aucune autre alerte.
+for (const [f, rub] of [['evenements-france.json', 'france'], ['evenements-occitanie.json', 'occitanie']]) {
+  const d = lire(f, null); const l = Array.isArray(d) ? d : d?.evenements || [];
+  const avenir = l.filter((e) => Date.parse(e.start) > Date.now()).length;
+  if (avenir >= 5 && !existsSync(path.join(ROOT, rub, 'index.html'))) err(`${rub}/`, `${avenir} soirées à venir dans ${f} mais aucune page ${rub}/`);
+  if (avenir >= 5 && existsSync(path.join(ROOT, rub)) && !readdirSync(path.join(ROOT, rub), { withFileTypes: true }).some((x) => x.isDirectory())) err(`${rub}/`, `aucune page de ville dans ${rub}/`);
+}
+
 // --- 3. Bilan -------------------------------------------------------------------------------------------------
 console.log(`Contrôle des données : ${liste.length} pages lues, ${parId.size} fiches soirée.`);
 for (const e of erreurs) console.log(`✗ ${e}`);

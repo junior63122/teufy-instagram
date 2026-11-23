@@ -282,7 +282,7 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
         const h = document.createElement('h3'); h.className = 'groupe-ville';
         const tous = items.filter((y) => visible(y) && (y.dataset.villeNom || '') === v), fermes = tous.filter((y) => y.dataset.statut === 'ferme').length;
         const sansStatut = !items.some((y) => y.dataset.statut), fr = (document.documentElement.lang || 'fr').startsWith('fr');
-        h.innerHTML = `<span>${v || '—'}</span><small${ouverts || sansStatut || fermes < tous.length ? '' : ' class="gris"'}>${sansStatut ? `${tous.length} ${fr ? (tous.length > 1 ? 'adresses' : 'adresse') : (tous.length > 1 ? 'places' : 'place')}` : ouverts ? `${ouverts} ${fr ? (ouverts > 1 ? 'ouverts' : 'ouvert') : 'open'}` : fermes === tous.length ? (fr ? 'fermés ce soir' : 'closed tonight') : `${tous.length} ${fr ? (tous.length > 1 ? 'adresses' : 'adresse') : (tous.length > 1 ? 'places' : 'place')}`}</small>`;
+        h.innerHTML = `<span>${v || ({ fr: 'Autres lieux', en: 'Other places', it: 'Altri locali', es: 'Otros lugares', zh: '其他地点', ar: 'أماكن أخرى' })[(document.documentElement.lang || 'fr').slice(0, 2)] || 'Autres lieux'}</span><small${ouverts || sansStatut || fermes < tous.length ? '' : ' class="gris"'}>${sansStatut ? `${tous.length} ${fr ? (tous.length > 1 ? 'adresses' : 'adresse') : (tous.length > 1 ? 'places' : 'place')}` : ouverts ? `${ouverts} ${fr ? (ouverts > 1 ? 'ouverts' : 'ouvert') : 'open'}` : fermes === tous.length ? (fr ? 'fermés ce soir' : 'closed tonight') : `${tous.length} ${fr ? (tous.length > 1 ? 'adresses' : 'adresse') : (tous.length > 1 ? 'places' : 'place')}`}</small>`;
         g.append(h); cur = v;
       }
       g.append(x);
@@ -392,6 +392,15 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
   }
 
   // Filtre Boîtes de nuit / Bars (page Ce soir et annuaire des lieux).
+  // Puces de ville de l'annuaire : la page s'allonge pendant le saut (images chargées au fil de l'eau) ; on recale la position
+  // une fois les images arrivées (23/11/2026 : « Monaco » arrivait dans Cannes, 2 365 px trop haut, sur téléphone).
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('a.puce[href^="#v-"]'); if (!a) return;
+    const cible = document.getElementById(a.hash.slice(1)); if (!cible) return;
+    e.preventDefault(); history.replaceState(null, '', a.hash);
+    const aller = () => cible.scrollIntoView({ behavior: 'auto', block: 'start' });
+    aller(); [250, 700, 1400].forEach((t) => setTimeout(aller, t));
+  });
   document.querySelectorAll('.filtre-types').forEach((f) => f.addEventListener('click', (e) => {
     const b = e.target.closest('[data-type-lieu]'); if (!b) return;
     f.querySelectorAll('.puce').forEach((x) => x.classList.toggle('actif', x === b));
@@ -400,6 +409,11 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
     document.querySelectorAll('.fiches[data-max]').forEach(replier);
     const g = document.getElementById('lieux-ce-soir'); if (g && window.__majCompte) window.__majCompte(g);
     document.querySelectorAll('.bloc-large[id^="v-"]').forEach((sec) => { sec.hidden = ![...sec.querySelectorAll('.fiche-lieu')].some((x) => !x.classList.contains('hors-type')); });
+    // 23/11/2026 (testeur pratique) : les puces de ville gardaient leur nombre (« Nice · 19 » pour 11 clubs) et pointaient vers
+    // des sections cachées : nombre recalculé, puce cachée quand sa ville n'a plus de lieu de ce type.
+    document.querySelectorAll('a.puce[href^="#v-"]').forEach((a) => { const sec = document.getElementById(a.hash.slice(1)); if (!sec) return;
+      const n = [...sec.querySelectorAll('.fiche-lieu')].filter((x) => !x.classList.contains('hors-type')).length;
+      a.dataset.nom ||= a.textContent.replace(/\s*·\s*\d+$/, ''); a.textContent = `${a.dataset.nom} · ${n}`; a.hidden = !n; });
     document.querySelectorAll('[data-grouper]').forEach((x) => window.__regrouper?.(x));
   }));
   document.querySelectorAll('.filtre-villes').forEach((f) => f.addEventListener('click', (e) => {

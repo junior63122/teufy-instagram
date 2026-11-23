@@ -769,7 +769,8 @@ export async function construireSite({ events, eventsFrance = [], eventsOccitani
     const url = /^https?:\/\//.test(e.url || '') && !/^https?:\/\/[^/]+\/?$/.test(e.url) && !/vertexaisearch|googleusercontent|google\.[a-z.]+\/(url|search)/i.test(e.url) ? e.url : '';
     const offres = (e.offres || []).filter((o) => o.url && !PAS_BILLETTERIE.test(nomDomaine(o.url))).sort((a, b) => (a.prix ?? 1e9) - (b.prix ?? 1e9)); // jamais un réseau social
     return {
-      id, zone, nom: e.name, debut: e.start, jour: cle(e.start), lieu: e.venue || '', ville: e.city || '', adresse: e.address || '', filtreVille: ville,
+      // Adresse sans « France » collé par la fusion de deux sources (« …, 06000 Nice, France Nice », 23/11/2026).
+      id, zone, nom: e.name, debut: e.start, jour: cle(e.start), lieu: e.venue || '', ville: e.city || '', adresse: String(e.address || '').replace(/,?\s*France\b/gi, '').replace(/\s{2,}/g, ' ').trim(), filtreVille: ville,
       // « dès X € » = le moins cher de tous les prix connus (23/11/2026 : 22,49 € affiché alors qu'une billetterie le vendait 15 €).
       prix: (() => { const ok = (x) => typeof x === 'number' && isFinite(x) && x >= 0 && x <= 2000; const l = [e.price, ...offres.map((o) => o.prix)].filter(ok); return l.length ? Math.min(...l) : null; })(), /* prix aberrant = inconnu */ styles: styleDe(e), genres: genresList(e, 3).join(' · '), techno: isTechno(e), tags: e.tags || [],
       url, affiche, dims, accroche: propreTexte(e.accroche), description: propreTexte(e.description), fin: e.end && !isNaN(Date.parse(e.end)) ? new Date(e.end).toISOString() : '',
@@ -840,7 +841,8 @@ export async function construireSite({ events, eventsFrance = [], eventsOccitani
   NOTIF.soirs = Object.fromEntries(Object.entries(NOTIF.soirs).sort().filter(([j]) => j >= cle(new Date(now.getTime() - 864e5).toISOString())).slice(0, 4));
   const compte = config.compte || '@teufy_official';
   const T = { ...TEUFY, ...(config.site || {}) };
-  T.nbPartenaires = (String(T.partenaires).match(/\d+/) || ['200'])[0];
+  // Nombre de partenaires = ceux réellement affichés, arrondi à la dizaine inférieure (23/11/2026 : « plus de 200 » annoncés, 163 affichés).
+  { const n = (partenaires || []).filter((p) => p.nom && p.fichier).length; T.nbPartenaires = String(n >= 20 ? Math.floor(n / 10) * 10 : n); T.partenaires = `plus de ${T.nbPartenaires}`; }
   GOOGLE = (config.site?.google_verification || '').trim(); BING = (config.site?.bing_verification || '').trim();
   // Domaine propre (ex. teufyparty.com) : fichier CNAME lu par GitHub Pages ; vide = adresse GitHub Pages.
   const domaine = (config.site?.domaine || '').trim().replace(/^https?:\/\//, '').replace(/\/.*$/, '');
@@ -1890,7 +1892,11 @@ const lieuDe = (s, lieux) => (lieux || []).find((l) => l.slug && normLieu(l.nom)
 function pageSoiree({ lang, t, tr, base, compte, T, chemin, s, soirees, maj, lieux }) {
   const P = pre(lang);
   const sa = (x) => sansAccent(String(x || '')).toLowerCase(); // pas de « Antibes, Antibes » quand l'adresse contient déjà la ville
-  const lieu = [s.lieu, s.adresse && s.adresse !== s.lieu ? s.adresse : '', s.adresse && sa(s.adresse).includes(sa(s.ville)) ? '' : s.ville].filter(Boolean).join(', ');
+  // Lieu, adresse et ville sans répétition (23/11/2026 : « Nice, Nice », « 40 Rue Droite, 40 Rue Droite », « 06000 Nice, France Nice »).
+  const lieu = (() => { const parts = [];
+    for (const x of [s.lieu, String(s.adresse || '').replace(/,?\s*France\s*$/i, ''), s.ville].map((x) => String(x || '').trim()).filter(Boolean))
+      for (const y0 of x.split(/\s*,\s*/)) { const y = y0.replace(/\bFrance\b/gi, '').replace(/\s{2,}/g, ' ').trim(); const k = sa(y); if (k && !parts.some((p) => sa(p).includes(k))) parts.push(y); }
+    return parts.join(', '); })();
   // La même ville d'abord (puis le reste de la région), pour que les suggestions soient utiles.
   const villeDabord = (l) => [...l.filter((x) => x.filtreVille === s.filtreVille), ...l.filter((x) => x.filtreVille !== s.filtreVille)];
   // Suggestions dans la même zone (23/11/2026 : une soirée à Marseille proposait Lille, Grenoble, Rennes) : sur la Côte, toute la
@@ -2577,7 +2583,7 @@ const CONTACTS = {
 const blocContact = ({ tr, handle, email, type }) => { const [h, p, ph, objet] = CONTACTS[type]; const ig = `https://ig.me/m/${esc(handle)}`; return `<section class="bloc-large contact-pro" id="contact">
   <h2>${esc(tr(h))}</h2><p class="intro">${esc(tr(p))}</p>
   <form class="form-contact" data-objet="${esc(tr(objet))}" data-ok-ig="${esc(tr('✓ Message copié. Colle-le dans la conversation Instagram qui vient de s\'ouvrir.'))}" data-ok-mail="${esc(tr('✓ Ton application e-mail s\'ouvre avec le message prêt à envoyer.'))}" data-manque="${esc(tr('Indique au moins ton nom et ton message.'))}" novalidate>
-    <label class="large"><span>${esc(tr('Ton nom ou celui de ton lieu'))}</span><input name="nom" autocomplete="name" required></label>
+    <label class="large"><span>${esc(tr(type === 'ambassadeur' ? 'Ton prénom et ton nom' : type === 'bde' ? 'Votre école ou association' : 'Ton nom ou celui de ton lieu'))}</span><input name="nom" autocomplete="name" required></label>
     <label><span>${esc(tr('Ton compte Instagram'))}</span><input name="insta" placeholder="@" autocomplete="off" autocapitalize="off"></label>
     <label><span>${esc(tr('Ville'))}</span><input name="ville" autocomplete="address-level2"></label>
     <label class="large"><span>${esc(tr('Ton message'))}</span><textarea name="message" rows="4" required placeholder="${esc(tr(ph))}"></textarea></label>
