@@ -39,7 +39,15 @@ const pre = (l) => (l === 'fr' ? '' : `${l}/`);
 const dort = (ms) => new Promise((r) => setTimeout(r, ms));
 
 const VILLES = ['Nice', 'Cannes', 'Monaco', 'Antibes'];
-const RE_VAR = /toulon|hy[èe]res|fr[ée]jus|saint.?rapha|saint.?tropez|sainte.?maxime|draguignan|la seyne|six.?fours|sanary|bandol|la ciotat|roquebrune.?sur.?argens|puget.?sur.?argens|cogolin|ramatuelle|le lavandou|brignoles|\bvar\b|\b83\d{3}\b/i;
+// 23/11/2026 (testeur agenda) : « Saint-Laurent-du-Var » (Alpes-Maritimes) était rangé dans le Var à cause de « var » ;
+// La Garde, La Farlède… étaient « Ailleurs ». Une seule règle pour l'agenda, les filtres et les compteurs.
+const RE_VAR = /toulon|hy[èe]res|fr[ée]jus|saint.?rapha|saint.?tropez|sainte.?maxime|draguignan|la seyne|six.?fours|sanary|bandol|la ciotat|roquebrune.?sur.?argens|puget.?sur.?argens|cogolin|ramatuelle|le lavandou|brignoles|la garde|la farl[èe]de|la valette|le pradet|ollioules|carqueiranne|grimaud|cavalaire|saint.?aygulf|bormes|(?<!du.)\bvar\b|\b83\d{3}\b/i;
+const zoneCote = (txt) => { const x = String(txt || '');
+  if (/juan|antibes|vallauris|\bbiot\b/i.test(x)) return 'antibes';
+  if (/mandelieu|napoule|le cannet|th[ée]oule|\bcannes\b/i.test(x)) return 'cannes';
+  if (/monaco|monte.?carlo|beausoleil|cap.?d.?ail/i.test(x)) return 'monaco';
+  if (/\bnice\b|saint.?laurent.?du.?var|villefranche/i.test(x)) return 'nice';
+  return RE_VAR.test(x) ? 'var' : 'autres'; };
 const styleDe = (e) => {
   const t = [...(e.tags || []), e.name, e.description || ''].join(' ');
   return STYLES_MUSIQUE.filter(({ re }) => re.test(t)).map(({ cle }) => cle).slice(0, 3);
@@ -55,6 +63,13 @@ const CENTRES = [
   [/golfe.?juan|vallauris/i, 43.578, 7.053], [/le cannet/i, 43.577, 7.019], [/mandelieu|napoule/i, 43.546, 6.938], [/th[ée]oule/i, 43.507, 6.94],
   [/cannes/i, 43.5528, 7.0174], [/grasse/i, 43.658, 6.923], [/auron/i, 44.225, 6.931], [/isola/i, 44.186, 7.05],
   [/saint.?rapha/i, 43.425, 6.768], [/fr[ée]jus/i, 43.433, 6.737], [/puget.?sur.?argens/i, 43.455, 6.685], [/roquebrune.?sur.?argens/i, 43.443, 6.638],
+  // 23/11/2026 (testeur agenda : des soirées du Var à « 61 m » de Nice) : villes du Var et de l'arrière-pays ajoutées.
+  [/garde.?freinet/i, 43.317, 6.47], [/la seyne/i, 43.1007, 5.8788], [/la garde\b/i, 43.1246, 6.0106], [/la farl[èe]de/i, 43.1683, 6.0436], [/la valette/i, 43.1375, 5.9831],
+  [/six.?fours/i, 43.0939, 5.8395], [/sanary/i, 43.1192, 5.8013], [/bandol/i, 43.1364, 5.7531], [/ollioules/i, 43.1394, 5.8478], [/le pradet/i, 43.1058, 6.0228],
+  [/carqueiranne/i, 43.0947, 6.0731], [/lavandou/i, 43.1373, 6.3689], [/bormes/i, 43.1508, 6.3419], [/cavalaire/i, 43.1727, 6.5302], [/ramatuelle/i, 43.216, 6.611],
+  [/grimaud/i, 43.2737, 6.5214], [/cogolin/i, 43.2525, 6.5306], [/saint.?aygulf/i, 43.3911, 6.7246], [/brignoles/i, 43.4058, 6.0614], [/tourrettes.?sur.?loup/i, 43.7167, 7.0597],
+  [/tourrette.?levens/i, 43.7864, 7.2767], [/cap.?ferrat/i, 43.6886, 7.3328], [/beaulieu/i, 43.7075, 7.3322], [/mougins/i, 43.6, 6.995], [/villeneuve.?loubet/i, 43.6589, 7.1222],
+  [/la colle/i, 43.686, 7.104],
   [/sainte.?maxime/i, 43.309, 6.635], [/saint.?tropez/i, 43.2692, 6.6389], [/draguignan/i, 43.536, 6.464], [/hy[èe]res/i, 43.1204, 6.1286], [/toulon/i, 43.1242, 5.928],
 ];
 
@@ -243,10 +258,20 @@ export async function geocoder(soirees, log) {
         if (p) trouves++;
       }
     }
-    const g = cache[k];
+    let g = cache[k];
+    // 23/11/2026 (testeur fiches : une rencontre d'échecs à Marseille placée dans les Alpes, à 150 km) : une position trop loin
+    // de la ville de la soirée est fausse (homonyme trouvé dans la zone de recherche de la Côte) et n'est pas utilisée.
+    if (g && !g.introuvable) {
+      const centre = CENTRES.find(([re]) => re.test(s.ville || ''));
+      const km = centre ? Math.hypot((g.lat - centre[1]) * 111, (g.lng - centre[2]) * 80) : 0;
+      const dansCote = g.lng > 5.6 && g.lng < 7.8 && g.lat > 42.9 && g.lat < 44.4;
+      if ((centre && km > 40) || (!centre && s.zone && s.zone !== 'cote' && dansCote)) g = null;
+    }
     if (g && !g.introuvable) Object.assign(s, { lat: g.lat, lng: g.lng, approx: false });
     else {
-      const [, lat, lng] = CENTRES.find(([re]) => re.test(`${s.ville} ${s.lieu}`)) || [null, 43.7009, 7.2683];
+      const [, lat, lng] = CENTRES.find(([re]) => re.test(`${s.ville} ${s.lieu}`)) || [null, null, null];
+      // Ville inconnue : aucune position (jamais Nice par défaut : « près de moi » la mettait à quelques mètres).
+      if (lat == null) { Object.assign(s, { lat: null, lng: null, approx: true }); continue; }
       const d = parseInt(h(s.lieu || s.nom), 16); // décalage stable : deux lieux d'une même ville ne se superposent pas
       Object.assign(s, { lat: +(lat + ((d % 100) - 50) * 0.00008).toFixed(5), lng: +(lng + ((Math.floor(d / 256) % 100) - 50) * 0.00011).toFixed(5), approx: true });
     }
@@ -500,7 +525,8 @@ async function lieuxDeNuit({ soirees, partenaires, ig, api, log, now }) {
     const l = trouver(m.nom, m.ville), propre = Object.fromEntries(Object.entries(m).filter(([k, v]) => !k.startsWith('_') && !['retirer', 'nouvelle_ville'].includes(k) && v !== ''));
     // « retirer » : lieu introuvable, fermé ou qui n'est pas un lieu de nuit (vérifié par l'équipe) : il quitte l'annuaire.
     if (m.retirer) { for (let i = tous.length - 1; i >= 0; i--) if (tous[i] === l || (norm(tous[i].nom) === norm(m.nom) && sansAccent(tous[i].ville || '').slice(0, 4) === sansAccent(m.ville || '').slice(0, 4))) tous.splice(i, 1); continue; }
-    if (l) Object.assign(l, propre); else tous.push({ instagram: '', site: '', description: '', ...propre });
+    // Une correction (saison, nouvelle ville) qui ne trouve pas son lieu ne crée jamais un lieu fantôme (23/11/2026 : « Nice Partenaires »).
+    if (l) Object.assign(l, propre); else if (m.type || m.adresse) tous.push({ instagram: '', site: '', description: '', ...propre }); else { console.error(`Lieu manuel sans correspondance : ${m.nom} (${m.ville})`); continue; }
     if (m.nouvelle_ville) (l || tous.at(-1)).ville = m.nouvelle_ville; // ville corrigée (la carte se trompait de commune)
   }
   for (const l of tous) { const p = PAYANTS().find((x) => (x.instagram && x.instagram === l.instagram) || (norm(x.etablissement) && norm(x.etablissement) === norm(l.nom))); if (p) Object.assign(l, { partenaire: true, formule: p.formule }); }
@@ -735,7 +761,7 @@ export async function construireSite({ events, eventsFrance = [], eventsOccitani
       if (Math.max(lw, lh) < 700) { log(`Site : affiche floue écartée pour « ${e.name} » (${lw}×${lh} px)`); affiche = ''; dims = null; }
     }
     const ville = zone === 'occitanie' ? slug(villeOccitanie(e) || e.city) : zone === 'france' ? slug(VILLES_FRANCE.find((v) => sansAccent(e.city).includes(sansAccent(v).split('-')[0])) || e.city)
-      : (VILLES.find((v) => new RegExp(v, 'i').test(`${e.city} ${e.venue}`)) || (RE_VAR.test(`${e.city} ${e.venue} ${e.address || ''}`) ? 'var' : 'autres')).toLowerCase();
+      : (zoneCote(e.city) !== 'autres' ? zoneCote(e.city) : zoneCote(`${e.venue} ${e.address || ''}`)); // la ville d'abord (« route d'Antibes, Cannes » = Cannes)
     let id = `${slug(e.name) || 'soiree'}-${cle(e.start)}`;
     for (let k = 2; pris.has(id); k++) id = `${slug(e.name)}-${cle(e.start)}-${k}`;
     pris.add(id);
@@ -744,7 +770,8 @@ export async function construireSite({ events, eventsFrance = [], eventsOccitani
     const offres = (e.offres || []).filter((o) => o.url && !PAS_BILLETTERIE.test(nomDomaine(o.url))).sort((a, b) => (a.prix ?? 1e9) - (b.prix ?? 1e9)); // jamais un réseau social
     return {
       id, zone, nom: e.name, debut: e.start, jour: cle(e.start), lieu: e.venue || '', ville: e.city || '', adresse: e.address || '', filtreVille: ville,
-      prix: typeof e.price !== 'number' || !isFinite(e.price) || e.price < 0 || e.price > 2000 ? null : e.price, /* prix aberrant = inconnu */ styles: styleDe(e), genres: genresList(e, 3).join(' · '), techno: isTechno(e), tags: e.tags || [],
+      // « dès X € » = le moins cher de tous les prix connus (23/11/2026 : 22,49 € affiché alors qu'une billetterie le vendait 15 €).
+      prix: (() => { const ok = (x) => typeof x === 'number' && isFinite(x) && x >= 0 && x <= 2000; const l = [e.price, ...offres.map((o) => o.prix)].filter(ok); return l.length ? Math.min(...l) : null; })(), /* prix aberrant = inconnu */ styles: styleDe(e), genres: genresList(e, 3).join(' · '), techno: isTechno(e), tags: e.tags || [],
       url, affiche, dims, accroche: propreTexte(e.accroche), description: propreTexte(e.description), fin: e.end && !isNaN(Date.parse(e.end)) ? new Date(e.end).toISOString() : '',
       instagram: comptesConfirmes(e)[0] || '', organisateur: e.organisateur || '', artistes: Array.isArray(e.artistes) ? e.artistes.filter((x) => typeof x === 'string' && x.trim()).map((x) => x.trim()) : [], buzz: e.buzz ?? null, offres: offres.length >= 2 ? offres : [],
       festival: RE_FESTIVAL.test(`${e.name} ${(e.tags || []).join(' ')}`), etudiant: RE_ETUDIANT.test(`${e.name} ${(e.tags || []).join(' ')} ${e.public_cible || ''}`),
@@ -1097,8 +1124,9 @@ const nombre = (p, t) => new Intl.NumberFormat(t.locale, { maximumFractionDigits
 const prixTexte = (p, t) => (p == null ? '' : p === 0 ? t.gratuit : t.des(nombre(Math.round(p * 100) / 100, t)));
 // 23h59 = « minuit » saisi par les billetteries pour rester sur la bonne date : affiché « minuit », jamais 23h59.
 const heure = (d, t) => { const x = t.locale === 'fr-FR' ? paris(d, { hour: '2-digit', minute: '2-digit' }).replace(':', 'h') : paris(d, { hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }, t.locale); return /^23[h:]59$/.test(x) ? (t.minuit || (t.locale === 'fr-FR' ? 'minuit' : '00:00')) : x; };
-const dateCourte = (d, t) => paris(d, { weekday: 'short', day: 'numeric', month: 'short' }, t.locale).replace(/\.(?=\s|$)/g, '');
-const dateLongue = (d, t) => { const x = paris(d, { weekday: 'long', day: 'numeric', month: 'long' }, t.locale); return x.charAt(0).toUpperCase() + x.slice(1); };
+// Date affichée = la nuit de la soirée, comme le classement de l'agenda (23/11/2026 : « jeu 26 » rangé sous « mercredi 25 »).
+const dateCourte = (d, t) => paris(nuit(d), { weekday: 'short', day: 'numeric', month: 'short' }, t.locale).replace(/\.(?=\s|$)/g, '');
+const dateLongue = (d, t) => { const x = paris(nuit(d), { weekday: 'long', day: 'numeric', month: 'long' }, t.locale); return x.charAt(0).toUpperCase() + x.slice(1); };
 
 // Noms des styles dans chaque langue.
 const SN = {
@@ -1151,7 +1179,7 @@ function accesDe(s) {
 }
 // Codes promo négociés avec les partenaires (config.json, rubrique « codes_promo ») : affichés sur les soirées concernées.
 let CODES = [];
-const promoDe = (s) => CODES.find((c) => (!c.jusqu_au || Date.parse(c.jusqu_au) >= Date.parse(s.debut)) && new RegExp(c.s_applique.replace(/^\(\?i\)/, ''), 'i').test(`${s.nom} ${s.lieu} ${s.url}`));
+const promoDe = (s) => (s.prix === 0 ? null : CODES.find((c) => (!c.jusqu_au || Date.parse(c.jusqu_au) >= Date.parse(s.debut)) && new RegExp(c.s_applique.replace(/^\(\?i\)/, ''), 'i').test(`${s.nom} ${s.lieu} ${s.url}`))); // gratuit : pas de code promo (23/11/2026)
 // Économie concrète d'un code : « -20 % » ou « -5 € » appliqué au prix affiché de la soirée (place la moins chère).
 const euros = (x, t) => new Intl.NumberFormat(t.locale, { style: 'currency', currency: 'EUR' }).format(Math.round(x * 100) / 100);
 function economie(c, prix) {
@@ -1272,8 +1300,12 @@ async function artistesDesSoirees({ soirees, log }) {
   }
   await writeFile(F, JSON.stringify(cache, null, 1) + '\n');
   const parNom = new Map();
+  // 23/11/2026 (testeur fiches) : « DJ », « Le Live Toulon » (un lieu), « Psynaps-2 » (une soirée)… avaient une page artiste.
+  const EXCLUS = new Set((lire(path.join(ROOT, 'contenus', 'artistes-exclus.json'), { noms: [] }).noms || []).map((x) => slugArtiste(x)));
+  const pasArtiste = (nom, s) => { const k = slugArtiste(nom); return EXCLUS.has(k) || /^(dj|mc|live|guest|guests|invite|invites|special guest)$/i.test(String(nom).trim()) || (s.lieu && k === slugArtiste(s.lieu)) || /[-#]\s?\d+$/.test(String(nom).trim()); };
   for (const s of soirees) {
-    const liste = s.artistes.length ? s.artistes.map((nom) => ({ nom, type: 'artiste' })) : (cache[cleS(s)] || []);
+    const liste0 = s.artistes.length ? s.artistes.map((nom) => ({ nom, type: 'artiste' })) : (cache[cleS(s)] || []);
+    const liste = liste0.filter((a) => !pasArtiste(a.nom, s));
     s.artistes = [];
     for (const a of liste) {
       const k = slugArtiste(a.nom); if (!k || k.length < 2) continue;
@@ -1311,13 +1343,14 @@ function pageArtiste({ lang, t, tr, base, compte, T, chemin, maj, a, soirees }) 
   // Accroche qui donne envie (12/11/2026, « il faut un teasing ») : ton enthousiaste, mais uniquement des faits vrais
   // (lieu, date, styles, audience Instagram) — jamais de fausse rareté.
   const estDJ = a.type === 'dj' || /\b(dj|house|techno|trance|afro|amapiano|electro|électro)\b/i.test((a.styles || []).join(' '));
-  const lieuP = (s) => (s.lieu ? (/^les\s/i.test(s.lieu) ? `aux ${s.lieu.slice(4)}` : /^le\s/i.test(s.lieu) ? `au ${s.lieu.slice(3)}` : /^(la\s|l')/i.test(s.lieu) ? `à ${s.lieu}` : `au ${s.lieu}`) : `à ${s.ville}`);
+  // « au Église », « au Place » (testeur fiches, 23/11/2026) : devant ces mots, « à ».
+  const lieuP = (s) => (s.lieu ? /^(église|eglise|place|salle|maison|halle|villa|chapelle|cave|plage|terrasse|péniche|peniche|scène|scene)\b/i.test(s.lieu) ? `à ${s.lieu}` : (/^les\s/i.test(s.lieu) ? `aux ${s.lieu.slice(4)}` : /^le\s/i.test(s.lieu) ? `au ${s.lieu.slice(3)}` : /^(la\s|l')/i.test(s.lieu) ? `à ${s.lieu}` : `au ${s.lieu}`) : `à ${s.ville}`);
   const teasing = prochaine ? [
-    `${a.nom} ${estDJ ? 'prend les platines' : 'monte sur scène'} ${lieuP(prochaine)} ${prochaine.ville && !sansAccent(prochaine.lieu || '').toLowerCase().includes(sansAccent(prochaine.ville).toLowerCase()) ? `(${prochaine.ville}) ` : ''}le ${dateLongue(prochaine.debut, t).toLowerCase()} !`,
+    `${a.nom} ${estDJ ? 'prend les platines' : 'monte sur scène'} ${lieuP(prochaine)} ${prochaine.ville && !sansAccent(prochaine.lieu || '').toLowerCase().includes(sansAccent(prochaine.ville).toLowerCase()) ? `(${prochaine.ville}) ` : ''}le ${dateLongue(prochaine.debut, TXT.fr).toLowerCase()} !`, // phrase française entière (traduite d'un bloc hors du français)
     a.styles?.length ? `Au programme : ${a.styles.slice(0, 3).join(', ').toLowerCase()}, ${estDJ ? 'et un set pensé pour que la piste ne désemplisse pas' : 'et un live à vivre en vrai, pas en story'}.` : '',
     a.abonnes >= 1000 ? `${new Intl.NumberFormat('fr-FR').format(Math.round(a.abonnes / 100) * 100)} personnes suivent déjà ${a.nom} sur Instagram : c'est le moment de découvrir pourquoi, en vrai.` : '',
     liste.length > 1 ? `${liste.length} dates sur la Côte : choisis la tienne et ramène ta bande.` : 'Billets, horaires et accès juste en dessous : ramène ta bande.',
-  ].filter(Boolean).join(' ') : '';
+  ].filter(Boolean).map((x) => (lang === 'fr' ? x : tr(x))).join(' ') : '';
   const intro = prochaine ? `${a.nom}${a.styles?.length ? ` (${a.styles.slice(0, 3).join(', ').toLowerCase()})` : ''} ${liste.length > 1 ? `joue ${liste.length} fois` : 'joue'} bientôt sur la Côte : ${dateLongue(prochaine.debut, t).toLowerCase()}${prochaine.lieu ? ` au ${prochaine.lieu}` : ''}${prochaine.ville && !sansAccent(prochaine.lieu || '').toLowerCase().includes(sansAccent(prochaine.ville).toLowerCase()) ? ` à ${prochaine.ville}` : ''}.` : '';
   const img = a.photo || affiches[0] || '';
   // Bio Instagram utile seulement : sans liens, e-mails, « booking », flèches « lien ici » ; trop courte → présentation.
@@ -1341,7 +1374,7 @@ function pageArtiste({ lang, t, tr, base, compte, T, chemin, maj, a, soirees }) 
   const corps = `${hero}
 <section class="bloc-large reveal" id="dates"><h2>${tr('Prochaines <em>dates</em>')}</h2>${liste.length ? `<div class="grille">${liste.map((s) => carte(s, { t, base, lang })).join('')}</div>` : `<p class="vide">${esc(tr('Pas de date annoncée pour le moment.'))}</p>`}
 <p class="petit">${esc(tr(a.insta ? 'Photo, bio et abonnés : compte Instagram officiel de l\'artiste. Line-up relevé sur les pages officielles des soirées.' : 'Line-up relevé sur les pages officielles des soirées. Une erreur ? Écris-nous sur Instagram.'))}</p></section>`;
-  return gabarit({ lang, t, titre: `${a.nom} : prochaines dates et soirées sur la Côte d'Azur · Teufy`, description: `${a.nom}${a.styles?.length ? ` (${a.styles.slice(0, 3).join(', ')})` : ''} en soirée sur la Côte d'Azur et dans le Var : ${pl(liste.length, 'date')} à venir, lieux, horaires et billets.`, chemin, base, corps, compte, maj,
+  return gabarit({ lang, t, titre: `${({ fr: `${a.nom} : prochaines dates et soirées sur la Côte d'Azur`, en: `${a.nom}: upcoming dates and parties on the French Riviera`, it: `${a.nom}: prossime date e serate in Costa Azzurra`, es: `${a.nom}: próximas fechas y fiestas en la Costa Azul`, zh: `${a.nom}：蓝色海岸近期演出与派对`, ar: `${a.nom}: المواعيد والحفلات القادمة في الكوت دازور` })[lang] || `${a.nom} : prochaines dates et soirées sur la Côte d'Azur`} · Teufy`, description: tr(`${a.nom}${a.styles?.length ? ` (${a.styles.slice(0, 3).join(', ')})` : ''} en soirée sur la Côte d'Azur et dans le Var : ${pl(liste.length, 'date')} à venir, lieux, horaires et billets.`), chemin, base, corps, compte, maj,
     ...(img ? { image: `${URL_SITE}${img}` } : {}),
     ld: [{ '@context': 'https://schema.org', '@type': a.type === 'groupe' ? 'MusicGroup' : 'Person', name: a.nom, url: `${URL_SITE}${pre(lang)}${chemin}`, ...(img ? { image: `${URL_SITE}${img}` } : {}), ...(a.insta ? { sameAs: [`https://www.instagram.com/${a.insta}/`] } : {}), ...(a.styles?.length ? { genre: a.styles } : {}) }, fil(lang, [['Teufy', ''], [tr('Artistes'), 'artistes/'], [a.nom, chemin]])] });
 }
@@ -1378,10 +1411,14 @@ function vignette(s, base = '') {
   return `<span class="vignette${ph && !pv ? ' avec-lieu' : ''}${pv ? ' avec-ville avec-photo-lieu' : ''}" style="--a:rgb(${a.join(',')});--b:rgb(${b.join(',')})" aria-hidden="true">${pv ? `<img class="vignette-ville" src="${base}${esc(pv.fichier.replace(/\.jpg$/, '-800.webp'))}" srcset="${base}${esc(pv.fichier.replace(/\.jpg$/, '-480.webp'))} 480w, ${base}${esc(pv.fichier.replace(/\.jpg$/, '-800.webp'))} 800w${grandeVille(pv.fichier) ? `, ${base}${esc(grandeVille(pv.fichier))} 1200w` : ''}" sizes="(min-width:980px) 50vw, 92vw" alt="" width="800" height="533" loading="lazy" decoding="async">` : ''}<small>${esc((s.genres || '').split(' · ').slice(0, 2).join(' · ') || 'Soirée')}</small><b${nomCourtCarte(s).length > 38 ? ' class="long"' : ''}>${esc(nomCourtCarte(s))}</b><i class="v-lieu">${ph ? `<img src="${base}${esc(ph)}" alt="" width="34" height="34" loading="lazy" decoding="async">` : ''}<span>${esc([s.lieu, s.lieu && sansAccent(s.lieu).toLowerCase().includes(sansAccent(s.ville || '').toLowerCase()) ? '' : s.ville].filter(Boolean).join(' · '))}</span></i></span>`;
 }
 
-const boutonBillets = (s, t) => (s.url
+// 23/11/2026 (testeur fiches) : « Billets » seulement vers une vraie billetterie ; vers une publication Instagram ou une recherche,
+// le bouton dit « Infos » (jamais une recherche Google présentée comme une billetterie).
+const RESEAU_SOCIAL = /instagram\.com|facebook\.com|tiktok\.com|google\./i;
+const boutonBillets = (s, t) => (s.url && !RESEAU_SOCIAL.test(s.url)
   ? `<a class="bouton" href="${esc(s.url)}" target="_blank" rel="noopener">${esc(t.billets)}</a>`
+  : s.url || s.instagram ? `<a class="bouton" href="${esc(s.url || `https://www.instagram.com/${s.instagram}/`)}" target="_blank" rel="noopener">${esc(t.infos || 'Infos')}</a>`
   // Pas de lien de billetterie connu : même bouton (un seul style sur tout le site, directeur 13/11), « Infos » si l'entrée est gratuite.
-  : `<a class="bouton" href="https://www.google.com/search?q=${encodeURIComponent(`${s.nom} ${s.lieu} ${s.prix === 0 ? '' : 'billetterie'}`.trim())}" target="_blank" rel="noopener">${esc(s.prix === 0 ? (t.infos || 'Infos') : t.billets)}</a>`);
+  : `<a class="bouton" href="https://www.google.com/search?q=${encodeURIComponent(`${s.nom} ${s.lieu}`.trim())}" target="_blank" rel="noopener">${esc(t.trouverBillets || t.billets)}</a>`);
 
 function jsonEvent(s, lang) {
   const offres = s.offres.length ? s.offres : s.prix != null ? [{ url: s.url, prix: s.prix }] : [];
@@ -1627,6 +1664,7 @@ function agenda(soirees, { t, base, lang, filtresVille = true, filtreStyle = tru
     ${groupe('acces', ['tout', 'pres', 'tram', 'train', 'bus', 'parking'], t.acces)}
     ${groupe('tri', ['date', 'prix', 'demande'], t.tris)}
     <p class="nb-res" aria-live="polite"></p>
+    <button type="button" class="reinit-filtres" hidden>${esc({ fr: 'Tout effacer', en: 'Clear all', it: 'Cancella tutto', es: 'Borrar todo', zh: '清除全部', ar: 'مسح الكل' }[lang] || 'Tout effacer')}</button>
     </div>
   </div></div>
   <div class="liste">
@@ -1855,8 +1893,11 @@ function pageSoiree({ lang, t, tr, base, compte, T, chemin, s, soirees, maj, lie
   const lieu = [s.lieu, s.adresse && s.adresse !== s.lieu ? s.adresse : '', s.adresse && sa(s.adresse).includes(sa(s.ville)) ? '' : s.ville].filter(Boolean).join(', ');
   // La même ville d'abord (puis le reste de la région), pour que les suggestions soient utiles.
   const villeDabord = (l) => [...l.filter((x) => x.filtreVille === s.filtreVille), ...l.filter((x) => x.filtreVille !== s.filtreVille)];
-  const meme = villeDabord(soirees.filter((x) => x.jour === s.jour && x.id !== s.id)).slice(0, 6);
-  const style = villeDabord(soirees.filter((x) => x.id !== s.id && x.jour !== s.jour && x.styles.some((k) => s.styles.includes(k)))).slice(0, 6);
+  // Suggestions dans la même zone (23/11/2026 : une soirée à Marseille proposait Lille, Grenoble, Rennes) : sur la Côte, toute la
+  // Côte ; ailleurs en France ou en Occitanie, la même ville seulement.
+  const proche = (x) => (s.zone === 'cote' || !s.zone ? (x.zone || 'cote') === 'cote' : x.zone === s.zone && x.filtreVille === s.filtreVille);
+  const meme = villeDabord(soirees.filter((x) => x.jour === s.jour && x.id !== s.id && proche(x))).slice(0, 6);
+  const style = villeDabord(soirees.filter((x) => x.id !== s.id && x.jour !== s.jour && proche(x) && x.styles.some((k) => s.styles.includes(k)))).slice(0, 6);
   const mini = (l, titre) => (l.length ? `<section class="similaires reveal"><h2>${titre}</h2><div class="grille">${l.map((x) => carte(x, { t, base, lang })).join('')}</div></section>` : '');
   const offres = s.offres.length ? `<div class="offres"><p class="pied-titre">${esc(t.comparer)}</p>${s.offres.map((o, i) => `<a href="${esc(o.url)}" target="_blank" rel="noopener"><span>${esc(nomPlateforme(o.url))}</span><b>${esc(o.prix == null ? t.prixBillet : prixTexte(o.prix, t))}</b>${i === 0 && o.prix != null ? `<i>${esc(t.meilleurPrix)}</i>` : ''}</a>`).join('')}</div>` : '';
   const img = s.affiche ? image(base, s.affiche, { alt: t.affiche + s.nom, sizes: '(min-width:860px) 460px, 92vw', attrs: `fetchpriority="high"${s.dims ? ` width="${s.dims[0]}" height="${s.dims[1]}"` : ''}${s.dims && s.dims[0] < 560 ? ` class="petite" style="max-width:${s.dims[0]}px"` : ''}` }) : `<div class="affiche-fiche">${vignette(s, base)}</div>`;
@@ -2380,7 +2421,7 @@ function pageAvantages({ lang, t, tr, base, compte, T, chemin, maj, now, lieux, 
   const lieuDe = (insta, nom) => (lieux || []).find((l) => (insta && l.instagram === insta) || (normLieu(nom || '') && normLieu(l.nom) === normLieu(nom || '')));
   const img = (f) => (existsSync(path.join(ROOT, f)) ? f : '');
   const couvDe = (insta) => insta ? img(`site/lieux/${insta}-couv-800.webp`) : '';
-  const quand = (x) => `${paris(x.debut, { weekday: 'short', day: 'numeric', month: 'short' }, t.locale)} · ${heure(x.debut, t)}`;
+  const quand = (x) => `${paris(nuit(x.debut), { weekday: 'short', day: 'numeric', month: 'short' }, t.locale)} · ${heure(x.debut, t)}`;
   const carteOffre = ({ cle, type, titre, description, conditions, jusqu, partenaire, insta, ville, code, remise, liste }) => {
     const L = lieuDe(insta, partenaire);
     const sxAff = (liste || []).find((x) => x.affiche);
@@ -2452,12 +2493,12 @@ ${hub}
 <div id="sugg-source" hidden>${soirees.filter((s) => s.jour > auj && duSoir(s) && Date.parse(`${s.jour}T12:00:00Z`) - now < 8 * 864e5).slice(0, 12).map((s) => carte(s, { t, base, lang })).join('')}</div>
 <p class="vide" data-soir-ville-vide hidden>${esc(tr('Ce soir, aucune soirée annoncée à'))} <b></b>${esc(tr(' : les boîtes et bars ouverts sont juste en dessous, ou choisis une ville voisine.'))}</p>
 <p class="vide" data-aucune-soiree hidden>${esc(tr("Pas de soirée annoncée ce soir pour l'instant : regarde les lieux ouverts juste en dessous, ou l'agenda des prochains jours."))} <a href="${base}${pre(lang)}#agenda">${esc(t.toutes)}</a></p></section>
-<section class="bloc-large" id="lieux-ouverts" data-rubrique="clubs bars"><h2>${tr('Boîtes de nuit et bars <em>ouverts ce soir</em>')} <span class="compte-ce-soir"><b data-compte-ouverts="lieux-ce-soir">·</b> ${esc(tr('ouverts sur'))} <span data-compte-total="lieux-ce-soir">${L.length}</span></span></h2>
+<section class="bloc-large" id="lieux-ouverts" data-rubrique="clubs bars"><h2>${tr('Boîtes de nuit et bars <em>ouverts ce soir</em>')} <span class="compte-ce-soir"><b data-compte-ouverts="lieux-ce-soir">·</b> <span data-accord-ouverts data-un="${esc(({ fr: 'ouvert sur', it: 'aperto su', es: 'abierto de' })[lang] || '')}">${esc(({ fr: 'ouverts sur', en: 'open of', it: 'aperti su', es: 'abiertos de', zh: '营业 / 共', ar: 'مفتوحة من' })[lang] || 'ouverts sur')}</span> <span data-compte-total="lieux-ce-soir">${L.length}</span></span></h2>
 <p class="avert">${esc(tr("Horaires relevés sur les sources officielles des lieux (site, Instagram, fiche Google). Ils peuvent changer, surtout les jours fériés : en cas de doute, vérifie sur leur Instagram avant d'y aller."))}</p>
 ${filtreTypes(L, tr)}
 <p class="liens-styles filtre-villes"><button type="button" class="puce actif" data-ville="">${esc(tr('Partout'))}</button><button type="button" class="puce pres-moi" data-pres>${ICO_INFO.lieu}${esc(tr('Près de moi'))}</button>${villes.map((v) => `<button type="button" class="puce" data-ville="${esc(slug(v))}">${esc(v)}</button>`).join('')}</p>
 <div class="fiches lieux-ce-soir" id="lieux-ce-soir" data-replier="1" data-grouper="1">${L.map((l, i) => carteLieu(l, ctx, i)).join('')}</div>
-<p class="cta"><button type="button" class="bouton contour voir-fermes" hidden>${esc(tr('Voir les lieux fermés ou aux horaires non confirmés'))} (<span></span>)</button></p></section>
+<p class="cta"><button type="button" class="bouton contour voir-fermes" hidden>${esc(({ fr: 'Voir les lieux fermés ou aux horaires non confirmés', en: 'See closed places and unconfirmed hours', it: 'Vedi i locali chiusi o con orari non confermati', es: 'Ver los locales cerrados o con horario sin confirmar', zh: '查看已关闭或营业时间未确认的场所', ar: 'عرض الأماكن المغلقة أو غير المؤكدة المواعيد' })[lang] || 'Voir les lieux fermés')} (<span></span>)</button></p></section>
 ${[['resto-soir', tr('Un resto <em>avant de sortir</em> ?'), tr("Pour bien commencer la soirée ou pour un date : ces restos servent encore à 23 h. Réserve, puis enchaîne.")], ['manger-tard', tr('3 h du mat, <em>t\'as faim</em> ?'), tr("La boîte ferme, l'estomac crie : kebabs, pizzas, snacks et boulangeries encore ouverts après 2 h, triés par ville, les ouverts en premier.")], ['after', tr('Pas fatigué ? <em>Les afters</em>'), tr("La nuit n'est pas finie : les lieux et soirées qui continuent quand les boîtes ferment.")]].map(([type, h, p]) => { const l = TARDIFS.filter((x) => x.type === type); const clubsTard = type === 'after' ? afterLieux : []; return l.length || clubsTard.length ? `<section class="bloc-large" id="${type}" data-rubrique="${type}"><h2>${h}</h2><p class="avert">${esc(p)} ${esc(tr("Vérifie toujours avant d'y aller : les horaires de nuit changent souvent."))}</p><div class="fiches lieux-tard" data-grouper="1">${clubsTard.map((x, i) => carteLieu(x, ctx, i)).join('')}${l.map((x, i) => carteTardive(x, tr, i)).join('')}</div></section>` : ''; }).join('\n')}`;
   // Les questions qu'on pose à Google ou à ChatGPT (« on fait quoi ce soir à Cannes ? », « quelle boîte est ouverte ? »,
   // « on mange où après la boîte ? ») : réponses réelles, ville par ville, tirées des données du jour (13/11/2026).
@@ -2776,7 +2817,7 @@ ${blocPros(ctx)}`;
 function page404(t) {
   const B = new URL(URL_SITE).pathname; // « / » sur le domaine propre, « /teufy-instagram/ » sur GitHub Pages
   return `<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${esc(t.e404)} · Teufy</title><meta name="robots" content="noindex"><link rel="icon" type="image/png" sizes="64x64" href="${B}site/img/favicon-fond-64.png"><link rel="stylesheet" href="${B}site/style.min.css"></head>
-<body><main class="page-404"><a href="${B}"><img src="${B}site/img/logo-200.webp" alt="Teufy" width="96" height="79"></a><h1>4<em>0</em>4</h1><p>${esc(t.e404p)}</p><p><a class="bouton" href="${B}#agenda">${esc(t.e404b)}</a></p>
-<p class="langues-pied">${LANGUES.map((l) => `<a href="${B}${pre(l)}" hreflang="${l}" lang="${l}">${esc(TXT[l].nom)}</a>`).join(' · ')}</p></main></body></html>
+<body><main class="page-404"><a href="${B}"><img src="${B}site/img/logo-200.webp" alt="Teufy" width="96" height="79"></a><h1>4<em>0</em>4</h1>${LANGUES.map((l) => `<div class="l404" lang="${l}"${l === 'ar' ? ' dir="rtl"' : ''}${l === 'fr' ? '' : ' hidden'}><p>${esc(TXT[l].e404p || t.e404p)}</p><p><a class="bouton" href="${B}${pre(l)}#agenda">${esc(TXT[l].e404b || t.e404b)}</a></p></div>`).join('')}
+<p class="langues-pied">${LANGUES.map((l) => `<a href="${B}${pre(l)}" hreflang="${l}" lang="${l}">${esc(TXT[l].nom)}</a>`).join(' · ')}</p></main><script src="${B}site/page-404.js" defer></script></body></html>
 `;
 }

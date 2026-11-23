@@ -137,6 +137,10 @@ for (const [id, html] of parId) for (const m of html.matchAll(/class="orga-carte
   }
 }
 
+// 23/11/2026 (testeur pratique) : villes fantômes (« Nice Partenaires ») dans les filtres et les adresses des pages.
+{ const f = path.join(ROOT, 'clubs-bars', 'index.html');
+  if (existsSync(f)) for (const m of new Set(readFileSync(f, 'utf8').match(/data-ville="[^"]*"/g) || [])) if (/partenaire|undefined|null/.test(m)) err('clubs-bars/', `ville impossible ${m}`); }
+
 // --- 3. Bilan -------------------------------------------------------------------------------------------------
 console.log(`Contrôle des données : ${liste.length} pages lues, ${parId.size} fiches soirée.`);
 for (const e of erreurs) console.log(`✗ ${e}`);

@@ -5,16 +5,20 @@ const JOURS = { lun: 1, lundi: 1, mar: 2, mardi: 2, mer: 3, mercredi: 3, jeu: 4,
   mon: 1, tue: 2, wed: 3, thu: 4, fri: 5, sat: 6, sun: 7 };
 const sansAccent = (s) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
 const hh = (h, m) => `${String(+h % 24).padStart(2, '0')}:${String(m || '00').padStart(2, '0')}`;
-const RE_JOUR = '(lundi|mardi|mercredi|jeudi|vendredi|samedi|dimanche|lun|mar|mer|jeu|ven|sam|dim|mon|tue|wed|thu|fri|sat|sun)\\.?';
+const RE_JOUR = '\\b(lundi|mardi|mercredi|jeudi|vendredi|samedi|dimanche|lun|mar|mer|jeu|ven|sam|dim|mon|tue|wed|thu|fri|sat|sun)\\b\\.?'; // \\b : « mer » n'est pas dans « confirmer »
 const RE_HEURE = /(\d{1,2})\s*h\s*(\d{2})?(?:\s*\/\s*\d{1,2}\s*h\s*(?:\d{2})?)?\s*(?:–|-|à|a|to)\s*(\d{1,2})\s*(?:h\s*(\d{2})?)?/;
 
 export function lireHoraires(texte) {
   if (!texte || typeof texte !== 'string') return null;
   const t = sansAccent(texte).replace(/7\s*j\s*\/\s*7|tous les jours|every ?day|daily/g, 'lun–dim');
+  // 23/11/2026 (testeur pratique) : « fermé le dimanche » était lu comme « ouvert le dimanche ». Les jours de fermeture sont
+  // retirés du texte avant la lecture (un horaire sans jour ouvert explicite reste alors « non confirmé »).
+  const tt = t.replace(/(?:ferme|fermeture|closed|sauf|except)\s*(?:le|les|on|du|the)?\s*(?:lundi|mardi|mercredi|jeudi|vendredi|samedi|dimanche|lun|mar|mer|jeu|ven|sam|dim)s?\b(?:\s*(?:et|,|and)\s*(?:lundi|mardi|mercredi|jeudi|vendredi|samedi|dimanche|lun|mar|mer|jeu|ven|sam|dim)s?\b)*/g, ' ');
   const plages = [];
-  let jours = null;
+  let jours = null, enAttente = null;
   // On avance dans le texte : chaque groupe de jours s'applique aux heures qui le suivent.
-  const morceaux = t.split(/\s*(?:·|;|\||,(?=\s*(?:lun|mar|mer|jeu|ven|sam|dim)[a-z]*\s*(?:–|-|au|\d)))\s*/);
+  // Les précisions entre parenthèses (« été : jusqu'à 3 h », « haute saison ») ne sont pas les horaires de base.
+  const morceaux = tt.replace(/\([^)]*\)/g, ' ').split(/\s*(?:·|;|\||,(?=\s*(?:lun|mar|mer|jeu|ven|sam|dim)[a-z]*\s*(?:–|-|au|\d)))\s*/);
   for (const m of morceaux) {
     const dj = [...m.matchAll(new RegExp(`${RE_JOUR}(?:\\s*(?:–|-|au|a|to)\\s*${RE_JOUR})?`, 'g'))];
     if (dj.length) {
@@ -24,14 +28,19 @@ export function lireHoraires(texte) {
         if (!a) continue;
         if (b) for (let i = 0, x = a; i < 7; i++, x = x % 7 + 1) { set.add(x); if (x === b) break; } else set.add(a);
       }
-      if (set.size) jours = [...set].sort((x, y) => x - y);
+      // « jeu, dim, lun 19h30–1h » : les jours listés sans heure s'ajoutent au groupe suivant.
+      if (set.size) jours = [...new Set([...(enAttente || []), ...set])].sort((x, y) => x - y);
     }
     const h = m.match(RE_HEURE);
-    if (h && jours) plages.push({ j: jours, de: hh(h[1], h[2]), a: hh(h[3], h[4]) });
+    enAttente = dj.length && !h ? jours : null;
+    // « 0h–0h » ou « 0h–24h » : ouvert 24 h sur 24 (fin notée 24:00).
+    if (h && jours) { const de = hh(h[1], h[2]), a0 = hh(h[3], h[4]); plages.push({ j: jours, de, a: de === '00:00' && a0 === '00:00' ? '24:00' : a0 }); }
   }
   // Saison (23/11/2026 : le Bâoli, « 1er mai–31 oct. », était annoncé « ouvre ce soir » en novembre) : la période publiée
   // est gardée ({ de: 'MM-JJ', a: 'MM-JJ' }) ; « true » si le lieu est saisonnier sans dates publiées.
-  const saisonnier = /saison|\bete\b|estival|summer|d'avril|de mai|juin|juillet|aout/.test(t);
+  // Saisonnier = une période publiée (« 1er mai–31 oct. ») ou une fermeture d'hiver dite clairement. « été : jusqu'à 3 h »
+  // ou « haute / basse saison » ne sont que des variantes d'horaires d'un lieu ouvert toute l'année (23/11/2026 : Bard'Ô, Sam's Klub).
+  const saisonnier = !!periodeSaison(t) || /saison estivale|\ben saison\b|seulement en saison|uniquement en saison|(?:seulement|uniquement) l'ete|ferme (?:l'hiver|en hiver|hors saison)|summer only/.test(t);
   return plages.length ? { plages, saison: saisonnier ? (periodeSaison(t) || true) : false } : null;
 }
 

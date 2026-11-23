@@ -36,6 +36,13 @@ export function corrigerRecurrence(e) {
   return { ...e, start: new Date(t + ecart * 864e5).toISOString(), ...(e.end && Date.parse(e.end) ? { end: new Date(Date.parse(e.end) + ecart * 864e5).toISOString() } : {}), _jour_corrige: true };
 }
 
+/** 5. « Week-end » placé du lundi au jeudi (23/11/2026 : « Week-end Techno L'Antre » un lundi, lu dans une vidéo) : date fausse. */
+export function weekEndIncoherent(e) {
+  const t = Date.parse(e.start); if (!t || !/week.?end/.test(texte(e))) return false;
+  const j = JOUR_EN[partsParis(t - 6 * 3600e3).weekday];
+  return j >= 1 && j <= 4;
+}
+
 /** 3. Événement de journée (6 h–17 h, heure de Paris) qui n'a rien d'une sortie : pas dans l'agenda de nuit. */
 export function estJourneeHorsSujet(e) {
   const t = Date.parse(e.start); if (!t) return false;
@@ -68,8 +75,8 @@ export function fusionnerMemeNuit(events) {
 export function nettoyerSoirees(events, { log = () => {} } = {}) {
   let n = 0;
   const corriges = events.map((e) => { const x = corrigerRecurrence(corrigerNuit(e)); if (x !== e) n++; return x; });
-  const journee = corriges.filter(estJourneeHorsSujet);
-  const fusion = fusionnerMemeNuit(corriges.filter((e) => !estJourneeHorsSujet(e)));
+  const journee = corriges.filter((e) => estJourneeHorsSujet(e) || weekEndIncoherent(e));
+  const fusion = fusionnerMemeNuit(corriges.filter((e) => !estJourneeHorsSujet(e) && !weekEndIncoherent(e)));
   log(`  Qualité des soirées : ${n} date(s) corrigée(s), ${journee.length} événement(s) de journée écarté(s), ${corriges.length - journee.length - fusion.length} doublon(s) fusionné(s).`);
   return fusion;
 }

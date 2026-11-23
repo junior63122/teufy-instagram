@@ -35,3 +35,10 @@ test('même club, même nuit, même artiste : une seule soirée, la billetterie 
   assert.equal(r.find((x) => /marwa/i.test(x.name)).url, billet.url);
   assert.equal(nettoyerSoirees([insta, billet, autre]).length, 2);
 });
+
+test('« week-end » placé un lundi : écarté ; un vrai week-end gardé', async () => {
+  const { weekEndIncoherent } = await import('../src/qualite-soirees.mjs');
+  assert.ok(weekEndIncoherent({ name: "Week‑end Techno L'Antre", start: '2026-11-23T19:00:00.000Z' }));
+  assert.ok(!weekEndIncoherent({ name: 'Week-end Techno', start: '2026-11-27T21:00:00.000Z' }));
+  assert.ok(!weekEndIncoherent({ name: 'Techno Night', start: '2026-11-23T19:00:00.000Z' }));
+});

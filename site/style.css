@@ -278,7 +278,7 @@ a.affiche{display:block}
 
 /* page soirée */
 .fiche{max-width:1180px;margin:0 auto;padding:20px 16px 0}
-.ariane{font-size:13px;opacity:.7;margin-bottom:18px;display:flex;flex-wrap:wrap;gap:6px}
+.ariane{font-size:13px;color:#b8b2a8;margin-bottom:18px;display:flex;flex-wrap:wrap;gap:6px}
 .ariane a{text-decoration:none}
 .ariane span{opacity:.8;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:60vw}
 .fiche-grille{display:grid;grid-template-columns:1fr;gap:28px;align-items:start}
@@ -299,12 +299,12 @@ a.affiche{display:block}
 .offres a{display:flex;align-items:center;gap:10px;text-decoration:none;background:#fff8;border-radius:12px;padding:12px 14px;font-weight:700;transition:transform .2s}
 .offres a:hover{transform:translateX(4px)}
 .offres a span{flex:1}
-.offres a i{font-style:normal;font-size:12px;background:#1a9b4f;color:#fff;border-radius:999px;padding:3px 9px}
+.offres a i{font-style:normal;font-size:12px;background:#137a3d;color:#fff;border-radius:999px;padding:3px 9px}
 .pied-titre{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#b8b2a8}
 .offres .pied-titre{color:#4a4640}
 .similaires{max-width:1180px;margin:64px auto 0;padding:0 16px}
 .similaires h2{font-size:clamp(30px,6vw,46px);margin-bottom:16px}
-.retour{text-align:center;margin-top:48px}
+.retour{text-align:center;margin-top:48px;padding-inline:16px}
 
 /* rubriques */
 .bloc-large{max-width:1180px;margin:72px auto 0;padding:0 16px}
@@ -1013,7 +1013,7 @@ details[data-bloc="tri"]>.groupe{inset-inline-start:auto;inset-inline-end:0}
 .form-contact .envoyer .bouton{display:inline-flex;align-items:center;gap:8px}
 .form-contact .retour-form{margin:0;padding:12px 14px;border-radius:14px;background:#ff5a3c22;color:#ffb4a6;font-weight:700}
 .form-contact .retour-form.ok{background:#3ce08a22;color:#8ff0bd}
-@media(max-width:640px){.form-contact{padding:16px;gap:12px}}
+@media(max-width:640px){.form-contact{padding:16px;gap:12px;grid-template-columns:1fr}}
 .cta .bouton svg{vertical-align:-3px;margin-inline-end:8px}
 .bloc-large>.grille{content-visibility:auto;contain-intrinsic-size:auto 1200px}
 .faq,.faq-groupe,#sources,.contact-pro{content-visibility:visible}
@@ -1856,3 +1856,10 @@ button.puce.actif{background:var(--creme);color:var(--nuit)}
 /* Page « Bien sortir » (20/11/2026) : blocs pleine largeur, alignés à gauche */
 .page-bien-sortir .qui.faq{width:100%;max-width:none;margin:8px 0 0;text-align:left;align-self:stretch}
 .page-bien-sortir .qui.faq details{width:100%}
+
+/* 23/11/2026 (testeurs) : boutons <button> dans la police du site ; repère de focus sur l'épingle de la carte. */
+button.bouton{font-family:var(--texte)}
+.maplibregl-marker:focus-visible,.mini-carte :focus-visible{outline:3px solid var(--corail);outline-offset:3px}
+/* 23/11/2026 (testeur navigation) : sur la fiche soirée (téléphone), « Haut de page » passait sous la barre Billets. */
+@media(max-width:759px){body:has(.barre-billets:not([hidden])) .haut{bottom:calc(150px + env(safe-area-inset-bottom))}}
+[dir=rtl] .bandeau-nouveau .bn-fleche,[dir=rtl] .bandeau-nouveau .fleche{display:inline-block;transform:scaleX(-1)}

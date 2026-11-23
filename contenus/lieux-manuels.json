@@ -1313,7 +1313,7 @@
   },
   {
    "nom": "O'Sullivans Mandelieu",
-   "ville": "Mandelieu-la-Napoule Partenaires",
+   "ville": "Mandelieu-la-Napoule",
    "retirer": true,
    "_raison": "doublon d'O'Sullivans By The Beach (même adresse)",
    "_verifie": "2026-11-23",
@@ -1432,7 +1432,7 @@
   },
   {
    "nom": "Fiesta Beach",
-   "ville": "Fréjus (Saint-Aygulf) Partenaires",
+   "ville": "Fréjus (Saint-Aygulf)",
    "saison": {
     "de": "06-02",
     "a": "10-31"
@@ -1502,7 +1502,7 @@
   },
   {
    "nom": "Monsieur Pablo Plage",
-   "ville": "Vallauris Partenaires",
+   "ville": "Vallauris",
    "saison": {
     "de": "04-15",
     "a": "10-15"
@@ -1546,7 +1546,7 @@
   },
   {
    "nom": "Plage Beau Rivage",
-   "ville": "Nice Partenaires",
+   "ville": "Nice",
    "saison": {
     "de": "05-01",
     "a": "09-15"

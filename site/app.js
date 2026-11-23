@@ -32,8 +32,12 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
   // en moins ou changée (deux à partir de 8 lettres), et les espaces et la ponctuation ne comptent pas.
   const proche = (a, b, max) => { if (Math.abs(a.length - b.length) > max) return false; let prev = Array.from({ length: b.length + 1 }, (_, j) => j);
     for (let i = 1; i <= a.length; i++) { const cur = [i]; let mini = i; for (let j = 1; j <= b.length; j++) { cur[j] = Math.min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1)); mini = Math.min(mini, cur[j]); } if (mini > max) return false; prev = cur; } return prev[b.length] <= max; };
+  // Mots utiles d'une recherche (lettres ou chiffres) ; une recherche faite seulement de symboles ne trouve rien.
+  const motsUtiles = (q) => String(q || '').split(/\s+/).filter((m) => /[\p{L}\p{N}]/u.test(m));
+  const trouveTexte = (texte, q) => { const m = motsUtiles(q); return m.length > 0 && m.every((x) => contient(texte || '', x)); };
   const contient = (texte, m) => { if (!m || texte.includes(m)) return true; const t = texte.replace(/[^a-z0-9]+/g, ''), mc = m.replace(/[^a-z0-9]+/g, '');
-    if (!mc || t.includes(mc)) return true; if (mc.length < 3) return false; const max = mc.length >= 8 ? 2 : 1;
+    // 23/11/2026 : « % », « ( », « 中文 » ne correspondent plus à tout (mot sans lettre ni chiffre = aucune correspondance).
+    if (!mc) return false; if (t.includes(mc)) return true; if (mc.length < 3) return false; const max = mc.length >= 8 ? 2 : 1;
     return texte.split(/[^a-z0-9]+/).some((w) => w.length >= Math.max(3, mc.length - max) && (mc.length > 3 || w.length === 4) && proche(w, mc, max)); };
   // Peu de soirées ce soir (ordinateur) : tuiles de suggestion à côté des cartes au lieu d'un grand vide.
   const lienLang = (chemin) => `${T.base || '/'}${T.langue && T.langue !== 'fr' ? T.langue + '/' : ''}${chemin}`;
@@ -90,13 +94,18 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
   // Dernière rangée incomplète d'une grille de soirées (ordinateur) : la ou les dernières cartes s'élargissent en format
   // horizontal pour remplir la rangée (1 restante → toute la largeur ; 2 restantes → la dernière sur 2 colonnes).
   // Lieux et blocs de texte : la dernière carte seule sur sa rangée s'étire en format horizontal (ordinateur).
+  // 23/11/2026 (testeur visuel : CLS de 2 à 4,6 au défilement) : la classe était retirée puis remise à chaque passage, ce qui
+  // relançait l'observateur de la page en boucle. On ne touche plus à rien quand la bonne carte est déjà élargie.
   const completerAutres = () => document.querySelectorAll('main .fiches, main .cartes-texte').forEach((g) => {
-    g.querySelectorAll(':scope > .rangee-fin').forEach((c) => { c.classList.remove('rangee-fin'); c.style.gridColumn = ''; });
-    if (!matchMedia('(min-width: 980px)').matches || getComputedStyle(g).display !== 'grid') return;
-    const vis = [...g.children].filter((c) => !c.hidden && getComputedStyle(c).display !== 'none');
-    const cols = getComputedStyle(g).gridTemplateColumns.split(' ').length; if (cols < 3 || vis.length <= cols) return;
-    const reste = vis.length % cols; if (!reste) return;
-    const der = vis[vis.length - 1]; der.classList.add('rangee-fin'); der.style.gridColumn = `span ${cols - reste + 1}`;
+    let cible = null, span = '';
+    if (matchMedia('(min-width: 980px)').matches && getComputedStyle(g).display === 'grid') {
+      const vis = [...g.children].filter((c) => !c.hidden && getComputedStyle(c).display !== 'none');
+      const cols = getComputedStyle(g).gridTemplateColumns.split(' ').length;
+      const reste = vis.length % cols;
+      if (cols >= 3 && vis.length > cols && reste) { cible = vis[vis.length - 1]; span = `span ${cols - reste + 1}`; }
+    }
+    g.querySelectorAll(':scope > .rangee-fin').forEach((c) => { if (c !== cible) { c.classList.remove('rangee-fin'); c.style.gridColumn = ''; } });
+    if (cible && (!cible.classList.contains('rangee-fin') || cible.style.gridColumn !== span)) { cible.classList.add('rangee-fin'); cible.style.gridColumn = span; }
   });
   const completerRangees = () => document.querySelectorAll('main .grille').forEach((g) => {
     g.querySelectorAll('.carte.rangee-fin').forEach((c) => { c.classList.remove('rangee-fin', 'solo-large', 'solo-3'); c.style.gridColumn = ''; });
@@ -120,7 +129,8 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
   const ong = document.querySelector('.onglets');
   const hOng = () => { if (ong && ong.offsetHeight) document.documentElement.style.setProperty('--h-onglets', `${ong.offsetHeight}px`); };
   hOng(); addEventListener('resize', hOng, { passive: true });
-  document.querySelectorAll('.nav-groupe').forEach((d) => {
+  // 23/11/2026 (testeur visuel) : le menu des langues restait ouvert après Échap ou un clic ailleurs : même règle que les autres menus.
+  document.querySelectorAll('.nav-groupe, details.langues').forEach((d) => {
     d.addEventListener('toggle', () => {
       if (!d.open) return;
       document.querySelectorAll('.nav-groupe[open]').forEach((x) => { if (x !== d) x.open = false; });
@@ -144,7 +154,12 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
     let jour = JOUR[p.weekday], min = +p.hour * 60 + +p.minute;
     if (min < 360) { jour = jour === 1 ? 7 : jour - 1; min += 1440; } // entre minuit et 6 h : c'est encore « ce soir »
     const enMin = (h) => { const [a, b] = h.split(':').map(Number); return a * 60 + b; };
-    const fmt = (h) => (/^(23:5[5-9]|24:00)$/.test(h) ? (document.documentElement.lang === 'fr' ? 'minuit' : '12 am') : h.replace(/^0/, '').replace(':00', 'h').replace(':', 'h'));
+    // Heures dans le format de la langue (23/11/2026 : « 23h » affiché aussi en anglais).
+    const LG = (document.documentElement.lang || 'fr').slice(0, 2);
+    const fmt = (h) => { if (/^(23:5[5-9]|24:00)$/.test(h)) return ({ fr: 'minuit', en: 'midnight', it: 'mezzanotte', es: 'medianoche', zh: '午夜', ar: 'منتصف الليل' })[LG] || 'minuit';
+      if (LG === 'fr') return h.replace(/^0/, '').replace(':00', 'h').replace(':', 'h');
+      const [H, M] = h.split(':').map(Number);
+      return LG === 'en' ? `${H % 12 || 12}${M ? `:${String(M).padStart(2, '0')}` : ''} ${H < 12 ? 'am' : 'pm'}` : `${String(H).padStart(2, '0')}:${String(M).padStart(2, '0')}`; };
     for (const el of lieux) {
       const st = el.querySelector('.lieu-statut'); if (!st) continue;
       let txt = '', cls = '';
@@ -160,7 +175,8 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
       else if (dansSaison === false) { /* saisonnier sans dates, hors été : statut inconnu */ }
       else if (pl) {
         const de = enMin(pl.de); let a = enMin(pl.a); if (a <= de) a += 1440;
-        if (min < de) { txt = (T.ouvreA || '{h}').replace('{h}', fmt(pl.de)); cls = 'bientot'; }
+        if (pl.de === '00:00' && pl.a === '24:00') { txt = ({ fr: 'Ouvert 24 h/24', en: 'Open 24/7', it: 'Aperto 24 ore su 24', es: 'Abierto 24 horas', zh: '24小时营业', ar: 'مفتوح 24 ساعة' })[(document.documentElement.lang || 'fr').slice(0, 2)] || 'Ouvert 24 h/24'; cls = 'ouvert'; }
+        else if (min < de) { txt = (T.ouvreA || '{h}').replace('{h}', fmt(pl.de)); cls = 'bientot'; }
         else if (min < a) { txt = (T.ouvertJusqua || '{h}').replace('{h}', fmt(pl.a)); cls = 'ouvert'; }
         else { txt = T.fermeMaint; cls = 'ferme'; }
       } else if (plages && dansSaison !== false) { txt = T.fermeCeSoir; cls = 'ferme'; }
@@ -183,6 +199,7 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
       const l = [...g.querySelectorAll('.fiche-lieu'), ...(g.__fermes || [])].filter((x) => !x.classList.contains('hors-ville') && !x.classList.contains('hors-type'));
       const o = document.querySelector(`[data-compte-ouverts="${g.id}"]`), tt = document.querySelector(`[data-compte-total="${g.id}"]`);
       if (o) o.textContent = String(l.filter((x) => ['ouvert', 'soiree', 'bientot'].includes(x.dataset.statut)).length);
+      { const n = l.filter((x) => ['ouvert', 'soiree', 'bientot'].includes(x.dataset.statut)).length, sp = o?.parentElement?.querySelector('[data-accord-ouverts]'); if (sp) { sp.dataset.plur ||= sp.textContent; sp.textContent = n <= 1 && sp.dataset.un ? sp.dataset.un : sp.dataset.plur; } } // « 1 ouvert sur 10 »
       if (tt) tt.textContent = String(l.length);
       // Bouton « Voir les lieux fermés » : le nombre suit la ville et le type choisis ; caché s'il n'y en a aucun.
       const bt = g.parentElement?.querySelector('.voir-fermes');
@@ -296,6 +313,10 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
       const b = e.target.closest('[data-pres]'); if (!b) return;
       if (b.classList.contains('actif')) return;
       if (!(await posMoi())) return;
+      // 23/11/2026 (testeur pratique) : avec une ville choisie, « Près de moi » montrait tous les lieux mais le compteur restait
+      // sur la ville. On repasse d'abord sur « Partout » (compteurs et rubriques à jour), puis on trie par distance.
+      const tout = document.querySelector('.jc-villes [data-jc-ville=""]:not(.actif)') || document.querySelector('.filtre-villes [data-ville=""]:not(.actif)');
+      if (tout) { tout.click(); await new Promise((r) => setTimeout(r, 40)); }
       b.parentElement.querySelectorAll('.puce').forEach((x) => x.classList.toggle('actif', x === b));
       document.querySelectorAll('.hors-ville').forEach((x) => x.classList.remove('hors-ville'));
       document.querySelectorAll('.vide-ville').forEach((x) => x.classList.remove('vide-ville'));
@@ -303,7 +324,7 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
       document.querySelectorAll('[data-lat][data-lng]').forEach((el) => {
         const d = metres(moi, [+el.dataset.lat, +el.dataset.lng]); el.dataset.dist = d;
         el.querySelector('.dist-moi')?.remove();
-        const s = document.createElement('span'); s.className = 'dist-moi'; s.textContent = `à ${txt(d)}`;
+        const s = document.createElement('span'); s.className = 'dist-moi'; s.textContent = `${({ fr: 'à', en: '', it: 'a', es: 'a', zh: '距离', ar: 'على بعد' })[(document.documentElement.lang || 'fr').slice(0, 2)] ?? 'à'} ${txt(d)}`.trim();
         (el.querySelector('.fiche-corps, .corps, .meta') || el).prepend(s);
         if (el.parentElement) listes.add(el.parentElement);
       });
@@ -313,6 +334,7 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
         [...g.children].filter((x) => x.dataset).sort((a, c) => (+(a.dataset.dist ?? 1e9)) - (+(c.dataset.dist ?? 1e9))).forEach((x) => g.append(x));
       });
       const n = document.querySelector('[data-compte-soir]'); if (n) n.textContent = '';
+      { const g = document.getElementById('lieux-ce-soir'); if (g && window.__majCompte) window.__majCompte(g); }
       toast(document.documentElement.lang === 'fr' ? 'Trié du plus proche au plus loin' : 'Sorted by distance');
     });
   }
@@ -399,7 +421,9 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
     const fmt = (m) => (m >= 1440 ? (document.documentElement.lang === 'fr' ? 'toute la nuit' : '24/7') : `${Math.floor(m / 60)} h${m % 60 ? String(m % 60).padStart(2, '0') : ''}`);
     tard.forEach((el) => {
       let f = 0, o = 0; try { f = JSON.parse(el.dataset.ferme)[jour] || 0; o = JSON.parse(el.dataset.ouvre || '{}')[jour] || 0; } catch { /* données illisibles */ }
-      el.dataset.ceSoir = f || (o ? 300 : 0); // ouvre au petit matin : compté dans « 5 h et + »
+      // 23/11/2026 (testeur pratique) : une boulangerie qui ouvre à 5 h n'est pas « ouverte ce soir jusqu'à 5 h » : elle reste dans
+      // « Toutes », pas dans les filtres d'heure (qui ne gardent que les adresses ouvertes cette nuit jusqu'à l'heure choisie).
+      el.dataset.ceSoir = f || 0;
       const fr = document.documentElement.lang === 'fr';
       const b = document.createElement('p'); b.className = `tard-ce-soir${f || o ? '' : ' ferme'}`;
       b.textContent = f ? (fr ? `Ce soir jusqu'à ${fmt(f)}` : `Tonight until ${fmt(f)}`) : o ? (fr ? `Ouvre dès ${fmt(o)}` : `Opens at ${fmt(o)}`) : (fr ? 'Fermé tard ce soir' : 'Not open late tonight');
@@ -628,13 +652,27 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
       b.textContent = (T.voirPlus || 'Voir plus de soirées ({n})').replace('{n}', reste); b.hidden = false;
     } else if (b) b.hidden = true;
   };
+  // Filtres gardés pour la session (23/11/2026, testeur agenda : Nice + Techno perdus après « retour » depuis une fiche).
+  const CLE_FILTRES = `teufy-filtres:${location.pathname}`;
+  const garderFiltres = () => { try { sessionStorage.setItem(CLE_FILTRES, JSON.stringify({ quand: etat.quand, date: etat.date, tri: etat.tri, prix: etat.prix, ville: [...etat.ville], style: [...etat.style], acces: [...etat.acces].filter((a) => a !== 'pres') })); } catch { /* stockage indisponible */ } };
+  const reprendreFiltres = () => { try { const f = JSON.parse(sessionStorage.getItem(CLE_FILTRES) || 'null'); if (!f) return false; Object.assign(etat, { quand: f.quand || 'tout', date: f.date || '', tri: f.tri || 'date', prix: f.prix || 'tout', ville: new Set(f.ville || []), style: new Set(f.style || []), acces: new Set(f.acces || []) }); return true; } catch { return false; } };
+  // Bouton « Tout effacer » (23/11/2026, testeur agenda : il fallait remettre les 6 menus à zéro un par un).
+  const filtresActifs = () => etat.quand !== 'tout' || etat.prix !== 'tout' || etat.tri !== 'date' || etat.ville.size || etat.style.size || etat.acces.size || !!etat.q;
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.reinit-filtres')) return;
+    Object.assign(etat, { quand: 'tout', date: '', tri: 'date', prix: 'tout', ville: new Set(), style: new Set(), acces: new Set(), q: '', qBrut: '' });
+    champs.forEach((c) => { c.value = ''; const x = c.parentElement.querySelector('.effacer'); if (x) x.hidden = true; });
+    appliquer();
+  });
   const appliquer = () => {
+    garderFiltres();
+    document.querySelectorAll('.reinit-filtres').forEach((b) => { b.hidden = !filtresActifs(); });
     limite = PAS;
     visibles = 0;
     for (const c of cartes) {
       const p = c.dataset.prix === '' ? null : +c.dataset.prix;
       const ok = !finies.has(c) && dansQuand(c)
-        && (!etat.q || etat.q.split(/\s+/).every((m) => contient(c.dataset.q || '', m)))
+        && (!etat.q || trouveTexte(c.dataset.q, etat.q))
         && (!etat.ville.size || etat.ville.has(c.dataset.ville))
         && (!etat.style.size || c.dataset.styles.split(' ').some((s) => etat.style.has(s)))
         && (etat.prix === 'tout' || (etat.prix === 'gratuit' ? p === 0 : p != null && p < 10))
@@ -746,6 +784,12 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
     const d = e.target;
     if (!d.matches?.('details.filtre') || !d.open || feuille) return;
     document.querySelectorAll('details.filtre[open]').forEach((x) => { if (x !== d) x.removeAttribute('open'); });
+    // 23/11/2026 (testeur visuel, tablette) : la liste sortait de l'écran (« Trier » de -55 px à 339 px) : on la recale.
+    const p = d.querySelector(':scope>.groupe'); if (!p) return;
+    p.style.translate = '';
+    const r = p.getBoundingClientRect(), W = document.documentElement.clientWidth;
+    const dx = r.right > W - 12 ? W - 12 - r.right : r.left < 12 ? 12 - r.left : 0;
+    if (dx) p.style.translate = `${Math.round(dx)}px 0`;
   }, true);
   document.addEventListener('click', (e) => { if (feuille || e.target.closest('details.filtre')) return; document.querySelectorAll('details.filtre[open]').forEach((x) => x.removeAttribute('open')); });
   addEventListener('keydown', (e) => { if (e.key === 'Escape' && !feuille) document.querySelectorAll('details.filtre[open]').forEach((x) => x.removeAttribute('open')); });
@@ -770,16 +814,17 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
   const SYN = {
     ville: { nice: 'nice', cannes: 'cannes', 'le cannet': 'cannes', mandelieu: 'cannes', monaco: 'monaco', 'monte carlo': 'monaco', 'monte-carlo': 'monaco', menton: 'monaco', beausoleil: 'monaco', antibes: 'antibes', juan: 'antibes', 'juan les pins': 'antibes', 'juan-les-pins': 'antibes', 'golfe juan': 'antibes', var: 'var', toulon: 'var', hyeres: 'var', 'la seyne': 'var', frejus: 'var', 'saint raphael': 'var', 'saint-raphael': 'var', 'saint tropez': 'var', 'saint-tropez': 'var', sanary: 'var', bandol: 'var', 'six fours': 'var' },
     style: { techno: 'techno', 'hard techno': 'techno', tekno: 'techno', trance: 'techno', psytrance: 'techno', 'hard trance': 'techno', electro: 'techno', house: 'house', 'deep house': 'house', 'tech house': 'house', afro: 'afro', afrobeat: 'afro', afrobeats: 'afro', amapiano: 'afro', shatta: 'shatta', dancehall: 'shatta', latino: 'latino', latina: 'latino', reggaeton: 'latino', salsa: 'latino', bachata: 'latino', rap: 'rap', rnb: 'rap', 'r&b': 'rap', 'hip hop': 'rap', 'hip-hop': 'rap', commercial: 'commercial', generaliste: 'commercial', annees: 'commercial', live: 'live', concert: 'live', concerts: 'live' },
-    quand: { 'ce soir': 'soir', soir: 'soir', tonight: 'soir', "aujourd'hui": 'soir', aujourdhui: 'soir', 'ce week end': 'weekend', 'ce week-end': 'weekend', 'week end': 'weekend', 'week-end': 'weekend', weekend: 'weekend', 'cette semaine': 'semaine', semaine: 'semaine' },
-    prix: { gratuit: 'gratuit', gratuite: 'gratuit', gratuites: 'gratuit', free: 'gratuit', 'pas cher': '10', 'pas chere': '10', 'petit prix': '10', 'moins de 10': '10' },
-    acces: { 'pres de moi': 'pres', 'autour de moi': 'pres', tram: 'tram', train: 'train', bus: 'bus', parking: 'parking' },
+    quand: { 'ce soir': 'soir', soir: 'soir', tonight: 'soir', today: 'soir', 'this weekend': 'weekend', 'this week': 'semaine', 'stasera': 'soir', 'esta noche': 'soir', 'fin de semana': 'weekend', "aujourd'hui": 'soir', aujourdhui: 'soir', 'ce week end': 'weekend', 'ce week-end': 'weekend', 'week end': 'weekend', 'week-end': 'weekend', weekend: 'weekend', 'cette semaine': 'semaine', semaine: 'semaine' },
+    prix: { gratuit: 'gratuit', gratuite: 'gratuit', gratuites: 'gratuit', free: 'gratuit', gratis: 'gratuit', gratuito: 'gratuit', cheap: '10', 'low cost': '10', economico: '10', barato: '10', 'pas cher': '10', 'pas chere': '10', 'petit prix': '10', 'moins de 10': '10' },
+    acces: { 'pres de moi': 'pres', 'autour de moi': 'pres', 'near me': 'pres', 'nearby': 'pres', 'vicino a me': 'pres', 'cerca de mi': 'pres', tram: 'tram', train: 'train', bus: 'bus', parking: 'parking' },
   };
   const JOURS = ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'];
-  const VIDES = new Set('je j cherche recherche veux voudrais trouve trouver une un des de du d la le les l a au aux en pour sur dans avec et ou soiree soirees fete fetes sortir sortie boite boites club clubs teuf teufs son sons musique style ambiance plan quoi faire ou qui moi on nous svp stp'.split(' '));
+  const JOURS_EN = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+  const VIDES = new Set('i want looking look find party parties event events night nights in at the a an to go out where what something with for of on this tonight\'s je j cherche recherche veux voudrais trouve trouver une un des de du d la le les l a au aux en pour sur dans avec et ou soiree soirees fete fetes sortir sortie boite boites club clubs teuf teufs son sons musique style ambiance plan quoi faire ou qui moi on nous svp stp'.split(' '));
   const avantAuto = { fait: false };
   const restaurer = () => { if (!avantAuto.fait) return; Object.assign(etat, { quand: avantAuto.quand, date: avantAuto.date, prix: avantAuto.prix, ville: new Set(avantAuto.ville), style: new Set(avantAuto.style), acces: new Set(avantAuto.acces) }); avantAuto.fait = false; };
   const sauverAvant = () => { Object.assign(avantAuto, { fait: true, quand: etat.quand, date: etat.date, prix: etat.prix, ville: [...etat.ville], style: [...etat.style], acces: [...etat.acces] }); };
-  const compte = () => cartes.filter((c) => { const p = c.dataset.prix === '' ? null : +c.dataset.prix; return !finies.has(c) && dansQuand(c) && (!etat.q || etat.q.split(/\s+/).every((m) => contient(c.dataset.q || '', m))) && (!etat.ville.size || etat.ville.has(c.dataset.ville)) && (!etat.style.size || (c.dataset.styles || '').split(' ').some((x) => etat.style.has(x))) && (etat.prix === 'tout' || (etat.prix === 'gratuit' ? p === 0 : p != null && p < 10)) && accesOk(c); }).length;
+  const compte = () => cartes.filter((c) => { const p = c.dataset.prix === '' ? null : +c.dataset.prix; return !finies.has(c) && dansQuand(c) && (!etat.q || trouveTexte(c.dataset.q, etat.q)) && (!etat.ville.size || etat.ville.has(c.dataset.ville)) && (!etat.style.size || (c.dataset.styles || '').split(' ').some((x) => etat.style.has(x))) && (etat.prix === 'tout' || (etat.prix === 'gratuit' ? p === 0 : p != null && p < 10)) && accesOk(c); }).length;
   let compris = null;
   // Lieux, artistes et villes qui correspondent à la recherche (« bisous bisous » → la fiche du club), même quand
   // aucune soirée ne correspond. Index : site/recherche.json (généré avec le site).
@@ -796,7 +841,9 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
     try { INDEX ||= await (await fetch(`${RACINE}site/recherche.json`)).json(); } catch { return; }
     if (q !== dernierQ) return;
     const mots = q.split(' ');
-    const trouves = INDEX.filter((x) => mots.every((m) => contient(x.q, m))).slice(0, 6);
+    // Les correspondances exactes d'abord (23/11/2026 : « Cannes » proposait d'abord des lieux de Cagnes-sur-Mer).
+    const exacts = INDEX.filter((x) => mots.every((m) => x.q.includes(m)));
+    const trouves = (exacts.length ? exacts : INDEX.filter((x) => mots.every((m) => contient(x.q, m)))).slice(0, 6);
     if (!bloc) { bloc = document.createElement('div'); bloc.id = 'autres-res'; bloc.className = 'autres-res'; (document.getElementById('aucune') || document.querySelector('.liste'))?.before(bloc); }
     if (!bloc) return;
     bloc.hidden = !trouves.length;
@@ -817,6 +864,10 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
       if (f === 'ville' && v === 'var' && k !== 'var') texteVille.push(k); // « Toulon » : le Var, en gardant Toulon en priorité
       lu.push(k);
     }
+    // « près de moi » tapé dans la recherche : on demande la position comme le bouton (avant : étiquette vide, rien ne se passait).
+    if (trouve.acces.has('pres') && !position) demanderPosition().then((ok) => { if (ok) { interpreter(); appliquer(); } });
+    reste = reste.replace(/\stomorrow\s/, ' demain ');
+    for (const [i, j] of JOURS_EN.entries()) reste = reste.replace(new RegExp(`\\s${j}\\s`), ` ${JOURS[i]} `);
     if (/\sdemain\s/.test(reste)) { quand = 'date'; date = jPlus(1); reste = reste.replace(/\sdemain\s/, ' '); lu.push('demain'); }
     for (const [i, j] of JOURS.entries()) if (new RegExp(`\\s${j}\\s`).test(reste)) { quand = 'date'; date = jPlus((i - dow + 7) % 7); reste = reste.replace(new RegExp(`\\s${j}\\s`), ' '); lu.push(j); }
     const mots = reste.split(' ').filter((m) => m && !VIDES.has(m) && m.length > 1);
@@ -1109,12 +1160,18 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
   // --- Page d'une soirée sur téléphone : barre « Billets » en bas dès que les boutons principaux sont hors écran ---
   const barre = document.querySelector('.barre-billets'), actions = document.querySelector('.fiche-actions');
   if (barre && actions && 'IntersectionObserver' in window) {
-    new IntersectionObserver(([e]) => { barre.hidden = e.isIntersecting; }).observe(actions); // visible dès l'arrivée tant que les boutons ne sont pas à l'écran
+    // 23/11/2026 (testeur visuel, 360 × 740) : la barre recouvrait le titre de la soirée à l'arrivée. Elle n'apparaît que quand ni
+    // le titre ni les boutons ne sont à l'écran.
+    const titre = document.querySelector('main h1'), vus = new Map();
+    const maj = () => { barre.hidden = [...vus.values()].some(Boolean); };
+    const obs = new IntersectionObserver((l) => { l.forEach((e) => vus.set(e.target, e.isIntersecting)); maj(); });
+    obs.observe(actions); if (titre) obs.observe(titre);
   }
 
   // --- Démarrage -----------------------------------------------------------------------------------------------
   const q0 = new URLSearchParams(location.search).get('q');
   if (q0 && champs.length) { champs.forEach((c) => { c.value = q0; const x = c.parentElement.querySelector('.effacer'); if (x) x.hidden = false; }); etat.qBrut = q0; etat.q = norm(q0); if (agenda) setTimeout(() => agenda.scrollIntoView(), 60); }
+  if (!q0 && cartes.length && document.querySelector('.filtres')) reprendreFiltres();
   if (q0 && cartes.length) interpreter();
   if (cartes.length || document.querySelector('.filtres')) appliquer(); else animerCartes();
   // Fiche soirée (ordinateur) : les blocs secondaires (le lieu, ta nuit complète) passent sous l'affiche tant que la
@@ -1145,6 +1202,15 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
   menu?.querySelector('.menu-x').addEventListener('click', (e) => { e.preventDefault(); fermerMenu(); });
   menu?.addEventListener('click', (e) => { const a = e.target.closest('a'); if (a && a.hash && a.pathname === location.pathname && !a.hasAttribute('data-chercher')) fermerMenu(); });
   addEventListener('keydown', (e) => { if (e.key === 'Escape') fermerMenu(); });
+  // Le focus reste dans le menu plein écran tant qu'il est ouvert (fenêtre modale : 23/11/2026, la touche Tab passait derrière).
+  menu?.addEventListener('keydown', (e) => {
+    if (e.key !== 'Tab' || menu.hidden) return;
+    const f = [...menu.querySelectorAll('a[href], button:not([disabled]), input, select, summary, [tabindex]:not([tabindex="-1"])')].filter((x) => x.offsetParent !== null);
+    if (!f.length) return;
+    const premier = f[0], dernier = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === premier) { e.preventDefault(); dernier.focus(); }
+    else if (!e.shiftKey && document.activeElement === dernier) { e.preventDefault(); premier.focus(); }
+  });
   if (location.hash === '#menu') ouvrirMenu();
   // « Chercher » : sur une page d'agenda, ouvre directement la recherche et les filtres (feuille sur mobile).
   const ouvrirRecherche = (doux) => {
@@ -1195,7 +1261,7 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
       if (r.parentElement.querySelector(':scope > .fleche')) return;
       r.parentElement.classList.add('a-fleches');
       const f = (sens) => { const b = document.createElement('button'); b.type = 'button'; b.className = `fleche ${sens < 0 ? 'prec' : 'suiv'}`;
-        b.setAttribute('aria-label', sens < 0 ? (en ? 'Previous' : 'Précédent') : (en ? 'Next' : 'Suivant'));
+        { const L = ({ fr: ['Précédent', 'Suivant'], en: ['Previous', 'Next'], it: ['Precedente', 'Successivo'], es: ['Anterior', 'Siguiente'], zh: ['上一个', '下一个'], ar: ['السابق', 'التالي'] })[(document.documentElement.lang || 'fr').slice(0, 2)] || ['Précédent', 'Suivant']; b.setAttribute('aria-label', sens < 0 ? L[0] : L[1]); }
         b.innerHTML = `<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="${sens < 0 ? 'M15 5l-7 7 7 7' : 'M9 5l7 7-7 7'}" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
         b.addEventListener('click', () => r.scrollBy({ left: sens * Math.max(240, r.clientWidth * 0.85) * (document.dir === 'rtl' ? -1 : 1), behavior: reduit ? 'auto' : 'smooth' }));
         r.after(b); return b; };
