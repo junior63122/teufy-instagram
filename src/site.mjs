@@ -2449,7 +2449,7 @@ function pageCeSoir({ lang, t, tr, base, compte, T, chemin, maj, soirees, lieux,
 ${hub}
 <section class="bloc-large ce-soir-page" id="soirees-ce-soir" data-rubrique="soirees"><h2>${tr('Les soirées de <em>ce soir</em>')} <span class="compte-ce-soir" data-compte-soir></span></h2>
 <div class="grille ce-soir-liste">${soir.map((s, i) => carte(s, { t, base, lang, prioritaire: i === 0 })).join('')}</div>
-<div id="sugg-source" hidden>${soirees.filter((s) => s.jour > auj && Date.parse(`${s.jour}T12:00:00Z`) - now < 8 * 864e5).slice(0, 12).map((s) => carte(s, { t, base, lang })).join('')}</div>
+<div id="sugg-source" hidden>${soirees.filter((s) => s.jour > auj && duSoir(s) && Date.parse(`${s.jour}T12:00:00Z`) - now < 8 * 864e5).slice(0, 12).map((s) => carte(s, { t, base, lang })).join('')}</div>
 <p class="vide" data-soir-ville-vide hidden>${esc(tr('Ce soir, aucune soirée annoncée à'))} <b></b>${esc(tr(' : les boîtes et bars ouverts sont juste en dessous, ou choisis une ville voisine.'))}</p>
 <p class="vide" data-aucune-soiree hidden>${esc(tr("Pas de soirée annoncée ce soir pour l'instant : regarde les lieux ouverts juste en dessous, ou l'agenda des prochains jours."))} <a href="${base}${pre(lang)}#agenda">${esc(t.toutes)}</a></p></section>
 <section class="bloc-large" id="lieux-ouverts" data-rubrique="clubs bars"><h2>${tr('Boîtes de nuit et bars <em>ouverts ce soir</em>')} <span class="compte-ce-soir"><b data-compte-ouverts="lieux-ce-soir">·</b> ${esc(tr('ouverts sur'))} <span data-compte-total="lieux-ce-soir">${L.length}</span></span></h2>

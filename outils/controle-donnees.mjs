@@ -116,6 +116,27 @@ const verif = lire('contenus/comptes-verifies.json', {});
 const suivis = new Set([...(lire('contenus/partenaires-comptes.json', []).comptes || lire('contenus/partenaires-comptes.json', [])).map?.((x) => String(x.instagram || '').toLowerCase()) || []]);
 for (const [id, html] of parId) for (const m of html.matchAll(/class="orga-carte" href="https:\/\/www\.instagram\.com\/([a-z0-9._]+)\//g)) if (!verif[m[1]]?.ok && !suivis.has(m[1])) err(`soiree/${id}/`, `compte Instagram non vérifié affiché : @${m[1]}`);
 
+// 23/11/2026 (directeur : Gotha fermé définitivement, Bâoli « ouvre ce soir » en novembre, dégustation de midi « ce soir ») :
+// un lieu décrit comme saisonnier doit avoir sa saison (sinon il est annoncé ouvert toute l'année) ; « Ce soir » ne montre
+// jamais un événement de journée.
+{ const f = path.join(ROOT, 'ce-soir', 'index.html');
+  if (existsSync(f)) {
+    const h = readFileSync(f, 'utf8');
+    for (const m of h.matchAll(/<article class="fiche-lieu[^"]*"[^>]*>[\s\S]*?<\/article>/g)) {
+      const art = m[0], nom = (art.match(/<h3[^>]*>(?:<a[^>]*>)?([^<]+)/) || [])[1] || '?';
+      const texte = art.replace(/<[^>]+>/g, ' ');
+      if (/saisonni|ouvert(e)? (?:seulement |uniquement )?en saison|saison estivale|l'été seulement|de mai à|d'avril à/i.test(texte) && !/data-saison=/.test(art.slice(0, 1200))) err('ce-soir/', `${nom.trim()} : décrit comme saisonnier mais sans saison enregistrée (risque « ouvert ce soir » hors saison)`);
+    }
+  }
+  const heure = (iso) => +new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Paris', hour: '2-digit', hourCycle: 'h23' }).format(new Date(iso));
+  for (const page of ['index.html', 'ce-soir/index.html']) {
+    const g = path.join(ROOT, page); if (!existsSync(g)) continue;
+    const h = readFileSync(g, 'utf8');
+    const bloc = page === 'index.html' ? (h.match(/<section id="ce-soir"[\s\S]*?<\/section>/) || [''])[0] : (h.match(/id="soirees-ce-soir"[\s\S]*?<\/section>/) || [''])[0];
+    for (const m of bloc.matchAll(/data-debut="([^"]+)"/g)) { const x = heure(m[1]); if (x >= 6 && x < 17) err(page, `événement de journée (${x} h) affiché dans « Ce soir »`); }
+  }
+}
+
 // --- 3. Bilan -------------------------------------------------------------------------------------------------
 console.log(`Contrôle des données : ${liste.length} pages lues, ${parId.size} fiches soirée.`);
 for (const e of erreurs) console.log(`✗ ${e}`);

@@ -44,7 +44,7 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
     // Un seul panneau compact, rempli d'infos réelles : les prochaines soirées du week-end (affiche, nom, jour, lieu)
     // et deux accès (lieux ouverts ce soir, tout le week-end). Il occupe la place restante de la rangée.
     const vues = new Set(), prochaines = [...document.querySelectorAll('.liste .carte, #sugg-source .carte')]
-      .filter((c) => c.dataset.jour > auj && c.dataset.jour <= dimanche && c.dataset.jour >= vendredi && !vues.has(c.dataset.id) && vues.add(c.dataset.id)).slice(0, 4);
+      .filter((c) => c.dataset.jour > auj && c.dataset.jour <= dimanche && c.dataset.jour >= vendredi && duSoir(c) && !vues.has(c.dataset.id) && vues.add(c.dataset.id)).slice(0, 4);
     const p = document.createElement('aside'); p.className = 'carte-suggestion';
     p.style.gridColumn = `span ${Math.max(1, (getComputedStyle(conteneur).gridTemplateColumns.split(' ').length || 3) - nbCartes)}`;
     const tete = document.createElement('p'); tete.className = 'sugg-tete';

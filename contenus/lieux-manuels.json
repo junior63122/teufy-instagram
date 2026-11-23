@@ -1596,6 +1596,13 @@
    "ville": "Beausoleil",
    "nouvelle_ville": "Monaco",
    "_verifie": "2026-11-23"
+  },
+  {
+   "nom": "La Môme Plage",
+   "ville": "Cannes",
+   "saison": true,
+   "_saison_preuve": "déjeuner toute l'année, dîner et soirées en saison estivale seulement (horaires du soir non publiés)",
+   "_verifie": "2026-11-23"
   }
  ]
 }
