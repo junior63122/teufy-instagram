@@ -4,11 +4,11 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:rencontre-d-echecs-a-toulon-bouc-ness-2026-11-29@teufy
-DTSTAMP:20261123T180526Z
+DTSTAMP:20261123T182143Z
 DTSTART:20261129T170000Z
 DTEND:20261129T220000Z
 SUMMARY:Rencontre d’échecs à Toulon · BOUC NESS
-LOCATION:BOUC NESS\, 56 Bd de Tessé\, 83000 Toulon\, France 83000 Toulon\, Toulon
+LOCATION:BOUC NESS\, 56 Bd de Tessé\, 83000 Toulon 83000 Toulon\, Toulon
 DESCRIPTION:Billets : https://www.eventbrite.fr/e/rencontre-dechecs-a-toulon-bouc-ness-tickets-2004808494174\nVia Teufy @teufy_official
 URL:https://www.eventbrite.fr/e/rencontre-dechecs-a-toulon-bouc-ness-tickets-2004808494174
 BEGIN:VALARM

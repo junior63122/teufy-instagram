@@ -6371,5 +6371,44 @@
    "nom": "",
    "m": 32
   }
+ },
+ "43.11754,5.94618": {
+  "le": "2026-11-23T18:15:28.019Z",
+  "parkings": [
+   {
+    "nom": "Parking La Rode Colibri",
+    "type": "underground",
+    "payant": true,
+    "m": 338
+   },
+   {
+    "nom": "Parking le Colibri",
+    "type": "multi-storey",
+    "payant": true,
+    "m": 363
+   },
+   {
+    "nom": "Parking Mayol",
+    "type": "multi-storey",
+    "payant": true,
+    "m": 729
+   }
+  ],
+  "transports": [
+   {
+    "nom": "Audéoud",
+    "type": "bus",
+    "m": 13,
+    "lignes": "6;36A"
+   },
+   {
+    "nom": "L'Eygoutier",
+    "type": "bus",
+    "m": 179,
+    "lignes": "31"
+   }
+  ],
+  "velo": null,
+  "taxi": null
  }
 }
