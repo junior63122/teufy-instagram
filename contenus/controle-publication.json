@@ -53,13 +53,14 @@
   },
   {
    "jour": "2026-11-23",
-   "le": "2026-11-23T17:11:25.408Z",
+   "le": "2026-11-23T18:11:07.698Z",
    "ok": [
     "libre : pas encore publié (repris au prochain passage)",
     "reel-tendance : pas encore publié (repris au prochain passage)",
     "story pret-concours-frigo16-rappel : 1 image(s) en ligne",
     "story soirees : rien de conforme à montrer aujourd'hui (rien publié plutôt qu'un visuel raté)",
-    "story offre : 1 image(s) en ligne"
+    "story offre : 1 image(s) en ligne",
+    "story videos : 1 image(s) en ligne"
    ],
    "problemes": []
   }
