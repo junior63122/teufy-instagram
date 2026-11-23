@@ -571,5 +571,22 @@
   "absentes": [],
   "manquantes": [],
   "le": "2026-11-23T18:11:05.984Z"
+ },
+ {
+  "jour": "2026-11-23",
+  "type": "question",
+  "cles": [
+   "d-ia-2026-11-18-sboypu"
+  ],
+  "ids": [
+   "18116569169163957"
+  ],
+  "faites": [
+   0
+  ],
+  "relue": true,
+  "absentes": [],
+  "manquantes": [],
+  "le": "2026-11-23T19:13:28.832Z"
  }
 ]
