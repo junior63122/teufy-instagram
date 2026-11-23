@@ -53,17 +53,18 @@
   },
   {
    "jour": "2026-11-23",
-   "le": "2026-11-23T19:13:30.771Z",
+   "le": "2026-11-23T20:21:19.205Z",
    "ok": [
     "libre : en ligne et conforme (https://www.instagram.com/reel/DgGGYRPlX5a/)",
-    "reel-tendance : EN RETARD (prévu à 19 h 07, repris au prochain passage)",
     "story pret-concours-frigo16-rappel : 1 image(s) en ligne",
     "story soirees : rien de conforme à montrer aujourd'hui (rien publié plutôt qu'un visuel raté)",
     "story offre : 1 image(s) en ligne",
     "story question : 1 image(s) en ligne",
     "story videos : 1 image(s) en ligne"
    ],
-   "problemes": []
+   "problemes": [
+    "reel-tendance (https://www.instagram.com/p/DgGObZ9kjPC/) : attendu un reel, Instagram dit FEED ; pas de couverture visible"
+   ]
   }
  ]
 }
