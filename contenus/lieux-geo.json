@@ -1629,5 +1629,170 @@
   "lat": 43.69397,
   "lng": 7.25593,
   "le": "2026-11-23T13:20:19.132Z"
+ },
+ "explorers pub|monaco": {
+  "lat": 43.73352,
+  "lng": 7.42228,
+  "le": "2026-11-23T15:09:26.304Z"
+ },
+ "l'elixir lounge club|saint-mandrier-sur-mer": {
+  "lat": 43.08176,
+  "lng": 5.92136,
+  "le": "2026-11-23T15:09:27.608Z"
+ },
+ "o'sullivans mandelieu|mandelieu-la-napoule partenaires": {
+  "lat": 43.52444,
+  "lng": 6.94293,
+  "le": "2026-11-23T15:09:30.517Z"
+ },
+ "twiga|monaco": {
+  "lat": 43.74368,
+  "lng": 7.43135,
+  "le": "2026-11-23T15:09:32.095Z"
+ },
+ "cova|beausoleil": {
+  "lat": 43.66235,
+  "lng": 6.98677,
+  "le": "2026-11-23T15:09:35.030Z"
+ },
+ "tiffany's|monaco": {
+  "lat": 43.72312,
+  "lng": 7.39744,
+  "le": "2026-11-23T15:09:37.897Z"
+ },
+ "bar des moulins|beausoleil": {
+  "lat": 43.74484,
+  "lng": 7.4293,
+  "le": "2026-11-23T15:09:40.875Z"
+ },
+ "english pub|beausoleil": {
+  "lat": 43.74294,
+  "lng": 7.42571,
+  "le": "2026-11-23T15:09:42.109Z"
+ },
+ "cino bar|monaco": {
+  "lat": 43.73118,
+  "lng": 7.42702,
+  "le": "2026-11-23T15:09:43.677Z"
+ },
+ "la cabane|saint-tropez": {
+  "lat": 44.2532,
+  "lng": 6.02218,
+  "le": "2026-11-23T15:09:46.710Z"
+ },
+ "la paillotte|saint-tropez": {
+  "lat": 43.03897,
+  "lng": 6.15081,
+  "le": "2026-11-23T15:09:49.521Z"
+ },
+ "u tapu|monaco": {
+  "lat": 43.73242,
+  "lng": 7.42009,
+  "le": "2026-11-23T15:09:51.034Z"
+ },
+ "whine and sushi bar|monaco": {
+  "lat": 43.73307,
+  "lng": 7.41815,
+  "le": "2026-11-23T15:09:53.344Z"
+ },
+ "le barbagiuan|monaco": {
+  "lat": 43.72924,
+  "lng": 7.4172,
+  "le": "2026-11-23T15:09:54.878Z"
+ },
+ "alang bar|monaco": {
+  "lat": 43.74783,
+  "lng": 7.43625,
+  "le": "2026-11-23T15:09:56.497Z"
+ },
+ "canopy|saint-tropez": {
+  "lat": 43.2784,
+  "lng": 6.58379,
+  "le": "2026-11-23T15:09:59.388Z"
+ },
+ "fiesta beach|frejus (saint-aygulf) partenaires": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-23T15:10:03.798Z"
+ },
+ "indie beach|saint-tropez": {
+  "lat": 43.21341,
+  "lng": 6.66274,
+  "le": "2026-11-23T15:10:06.619Z"
+ },
+ "l'ephemere|saint-tropez": {
+  "lat": 43.21125,
+  "lng": 6.63144,
+  "le": "2026-11-23T15:10:09.264Z"
+ },
+ "la pirogue plage|saint-tropez": {
+  "lat": 43.27439,
+  "lng": 6.58403,
+  "le": "2026-11-23T15:10:12.257Z"
+ },
+ "long bar|saint-tropez": {
+  "lat": 43.27717,
+  "lng": 6.58249,
+  "le": "2026-11-23T15:10:15.036Z"
+ },
+ "mada lounge (part of mada one)|monaco": {
+  "lat": 43.73999,
+  "lng": 7.42652,
+  "le": "2026-11-23T15:10:16.384Z"
+ },
+ "monsieur pablo plage|vallauris partenaires": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-23T15:10:20.829Z"
+ },
+ "new moods|monaco": {
+  "lat": 43.74001,
+  "lng": 7.42849,
+  "le": "2026-11-23T15:10:22.367Z"
+ },
+ "nikki beach club st. tropez|saint-tropez": {
+  "lat": 43.22118,
+  "lng": 6.66032,
+  "le": "2026-11-23T15:10:25.372Z"
+ },
+ "pablo|saint-tropez": {
+  "lat": 43.26981,
+  "lng": 6.6419,
+  "le": "2026-11-23T15:10:26.708Z"
+ },
+ "plage beau rivage|nice partenaires": {
+  "lat": 43.41813,
+  "lng": 6.77289,
+  "le": "2026-11-23T15:10:29.274Z"
+ },
+ "tangerine|saint-tropez": {
+  "lat": 43.27827,
+  "lng": 6.58421,
+  "le": "2026-11-23T15:10:31.998Z"
+ },
+ "plage de rock|saint-tropez": {
+  "lat": 43.27727,
+  "lng": 6.58242,
+  "le": "2026-11-23T15:10:34.829Z"
+ },
+ "bar cercle du littoral|saint-tropez": {
+  "lat": 43.21549,
+  "lng": 6.61285,
+  "le": "2026-11-23T15:10:38.136Z"
+ },
+ "le cafe lacoste|beausoleil": {
+  "lat": 43.74806,
+  "lng": 7.43581,
+  "le": "2026-11-23T15:10:40.862Z"
+ },
+ "trinity irish bar|beausoleil": {
+  "lat": 43.742,
+  "lng": 7.42955,
+  "le": "2026-11-23T15:10:43.564Z"
+ },
+ "trinity cocktail club|beausoleil": {
+  "lat": 43.74199,
+  "lng": 7.42956,
+  "le": "2026-11-23T15:10:46.774Z"
  }
 }

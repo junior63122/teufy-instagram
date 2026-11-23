@@ -6017,5 +6017,161 @@
    "m": 78
   },
   "taxi": null
+ },
+ "43.69676,7.27461": {
+  "le": "2026-11-23T15:15:23.575Z",
+  "parkings": [
+   {
+    "nom": "Palais de Justice",
+    "type": "underground",
+    "payant": true,
+    "m": 51
+   },
+   {
+    "nom": "Parking Corvésy",
+    "type": "multi-storey",
+    "payant": true,
+    "m": 198
+   },
+   {
+    "nom": "Parking Sulzer",
+    "type": "underground",
+    "payant": true,
+    "m": 332
+   }
+  ],
+  "transports": [
+   {
+    "nom": "Opéra - Vieille Ville",
+    "type": "bus",
+    "m": 122,
+    "lignes": "8+;12+;98"
+   },
+   {
+    "nom": "Opéra - Vieille Ville",
+    "type": "tram",
+    "m": 144,
+    "lignes": ""
+   },
+   {
+    "nom": "Cours Saleya",
+    "type": "bus",
+    "m": 226,
+    "lignes": "98"
+   },
+   {
+    "nom": "Cathédrale - Vieille Ville",
+    "type": "tram",
+    "m": 242,
+    "lignes": ""
+   }
+  ],
+  "velo": {
+   "nom": "Nice cycle tours",
+   "m": 92
+  },
+  "taxi": null
+ },
+ "43.74704,7.43857": {
+  "le": "2026-11-23T15:18:26.885Z",
+  "parkings": [
+   {
+    "nom": "Parking du Larvotto",
+    "type": "underground",
+    "payant": true,
+    "m": 328
+   },
+   {
+    "nom": "Parking des Carmes",
+    "type": "underground",
+    "payant": true,
+    "m": 336
+   },
+   {
+    "nom": "Parking du Larvotto",
+    "type": "underground",
+    "payant": true,
+    "m": 402
+   }
+  ],
+  "transports": [
+   {
+    "nom": "Sporting",
+    "type": "bus",
+    "m": 256,
+    "lignes": ""
+   },
+   {
+    "nom": "Larvotto",
+    "type": "bus",
+    "m": 262,
+    "lignes": ""
+   }
+  ],
+  "velo": {
+   "nom": "Larvotto",
+   "m": 313
+  },
+  "taxi": {
+   "nom": "",
+   "m": 304
+  }
+ },
+ "43.69397,7.25593": {
+  "le": "2026-11-23T15:34:45.542Z",
+  "parkings": [
+   {
+    "nom": "Parking Palais Massena",
+    "type": "multi-storey",
+    "payant": true,
+    "m": 337
+   },
+   {
+    "nom": "Meyerbeer",
+    "type": "multi-storey",
+    "payant": true,
+    "m": 409
+   },
+   {
+    "nom": "Parc autos Palmeira",
+    "type": "multi-storey",
+    "payant": true,
+    "m": 489
+   }
+  ],
+  "transports": [
+   {
+    "nom": "Gambetta / Promenade",
+    "type": "bus",
+    "m": 71,
+    "lignes": "630"
+   },
+   {
+    "nom": "École des Baumettes",
+    "type": "bus",
+    "m": 175,
+    "lignes": "8+"
+   },
+   {
+    "nom": "Alsace Lorraine",
+    "type": "tram",
+    "m": 425,
+    "lignes": ""
+   },
+   {
+    "nom": "Centre Universitaire Méditerranéen",
+    "type": "tram",
+    "m": 526,
+    "lignes": ""
+   }
+  ],
+  "velo": {
+   "nom": "",
+   "m": 41
+  },
+  "taxi": {
+   "nom": "",
+   "m": 228
+  }
  }
 }
