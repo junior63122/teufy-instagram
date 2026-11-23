@@ -187,7 +187,11 @@ if (cible === 'controle') {
   const lignes = [], problemes = [];
   for (const sl of slotsFor(NOW)) {
     const sid = slotId(sl), h = hist.find((x) => x.id === sid && x.date === jour);
-    if (!h) { (passe ? problemes : lignes).push(`${sid} : ${passe ? 'PAS PUBLIÉ aujourd\'hui' : 'pas encore publié (repris au prochain passage)'}`); continue; }
+    // 23/11/2026 : un post prévu à 17 h 07 et toujours absent à 19 h 11 était noté « ok ». Passé son créneau d'une heure, il est
+    // signalé « EN RETARD » (sans faire échouer l'étape avant l'heure limite : le passage suivant le reprend).
+    const prevu = (sl.second ? Math.min(+creneauDuJour(NOW) + Number(R.ecart_reel_h ?? 2) * (sl.troisieme ? 2 : 1), Math.max(...CRENEAUX.map(Number))) : +creneauDuJour(NOW)) * 60 + 7;
+    const hUtc = NOW.getUTCHours() * 60 + NOW.getUTCMinutes();
+    if (!h) { (passe ? problemes : lignes).push(`${sid} : ${passe ? 'PAS PUBLIÉ aujourd\'hui' : hUtc > prevu + 60 ? `EN RETARD (prévu à ${new Intl.DateTimeFormat('fr-FR', { timeZone: 'Europe/Paris', hour: '2-digit', minute: '2-digit' }).format(new Date(Date.UTC(NOW.getUTCFullYear(), NOW.getUTCMonth(), NOW.getUTCDate(), 0, prevu))).replace(':', ' h ')}, repris au prochain passage)` : 'pas encore publié (repris au prochain passage)'}`); continue; }
     if (!ig || !h.media) { lignes.push(`${sid} : noté publié (${h.lien || 'sans lien'}), non relu (pas d'accès Instagram)`); continue; }
     const p = h.publication || {};
     const v = await verifierMedia(h.media, ig, { type: p.type === 'reel' || h.duree || /reel/.test(sid) ? 'reel' : p.nb_images > 1 ? 'carrousel' : 'image', images: p.nb_images > 1 ? p.nb_images : undefined, legende: p.legende });
@@ -421,8 +425,10 @@ if (echecs.length) die(`Échec : ${echecs.join(', ')}`);
 // --- Préparation ------------------------------------------------------------
 
 // Formats de secours, dans l'ordre, sans IA : carrousel des soirées, puis vidéos déjà prêtes (spots, « Tague ton pote »).
-const SECOURS = [{ type: 'incontournables', variante: 'commercial' }, { type: 'reel', variante: 'spot-promo' }, { type: 'reel', variante: 'tague-ton-pote' }];
 async function prepareSecours(j, id, erreur) {
+  // 23/11/2026 : la liste était une constante déclarée après la boucle principale (« Cannot access 'SECOURS' before
+  // initialization ») : aucun secours ne partait et le post du jour sautait. Elle est maintenant dans la fonction.
+  const SECOURS = [{ type: 'incontournables', variante: 'commercial' }, { type: 'reel', variante: 'spot-promo' }, { type: 'reel', variante: 'tague-ton-pote' }];
   let derniere = erreur;
   for (const sl of SECOURS) {
     if (sl.type === j.slot.type && sl.variante === j.slot.variante) continue;
