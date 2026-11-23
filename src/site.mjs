@@ -2139,7 +2139,9 @@ const avantageDe = (l) => AVANTAGES.find((a) => (a.instagram && a.instagram === 
 // OpenStreetMap, « Sa 00:00-05:00 » est le samedi calendaire, donc la nuit de vendredi. Les deux sont ramenés à la même
 // forme : la nuit du jour J commence à « 24:00 ».
 function horairesSoir(l) {
-  const H = lireHoraires(l?.details?.horaires); if (!H) return null;
+  // Saison vérifiée par l'équipe (lieux-manuels.json « saison », 23/11/2026) : prime sur ce que disent les horaires.
+  const H0 = lireHoraires(l?.details?.horaires);
+  const H = H0 ? { ...H0, ...(l?.saison ? { saison: l.saison } : {}) } : l?.saison ? { plages: [], saison: l.saison } : null; if (!H) return null;
   const osm = !!l.details?.osm;
   return { ...H, plages: H.plages.map((p) => (p.de < '06:00' && p.a > p.de && p.a <= '12:00' ? { j: osm ? p.j.map((x) => (x === 1 ? 7 : x - 1)) : p.j, de: '24:00', a: p.a } : p)) };
 }

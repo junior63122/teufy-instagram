@@ -149,7 +149,7 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
       const st = el.querySelector('.lieu-statut'); if (!st) continue;
       let txt = '', cls = '';
       const soir = (() => { try { return JSON.parse(el.dataset.soirs || '[]').find((x) => x[0] === auj); } catch { return null; } })();
-      const plages = (() => { try { return JSON.parse(el.dataset.horaires || 'null'); } catch { return null; } })();
+      const plages = (() => { try { const v = JSON.parse(el.dataset.horaires || 'null'); return v && v.length ? v : null; } catch { return null; } })(); // [] = saison seule, sans horaires
       // Saison (23/11/2026) : hors de la période publiée, « Fermé hors saison » ; saisonnier sans dates publiées : rien n'est
       // annoncé hors de l'été (mai à septembre), jamais « ouvre ce soir » deviné.
       const saison = (() => { const v = el.dataset.saison; if (!v) return null; if (v === '1') return true; try { return JSON.parse(v); } catch { return true; } })();

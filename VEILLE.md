@@ -87,3 +87,8 @@ mises à jour, sources de soirées réparées ou ajoutées, décisions prises. T
   (plusieurs dates dans une case, format français) et motifs de rejet écrits dans le journal. Vérification au relevé de demain matin.
 - Veille hebdomadaire + audit du site (S48) : rapport `audits/2026-11-23.md`. Lecture des affiches par Groq rebranchée
   (`qwen/qwen3.8-27b`, les Llama 4 sont retirés) ; plus d'alerte quotidienne pour la recherche web de Groq (Tavily la remplace).
+- Vérification de l'état réel des 142 lieux de l'annuaire (recherche web, sources citées : `audits/verif-lieux/2026-11-23.json`),
+  après le signalement du directeur (Gotha fermé définitivement, Bâoli annoncé ouvert hors saison) : 17 lieux retirés (3 fermés
+  définitivement : Gotha, MK Club Monaco, Explorers Pub ; 4 doublons ; 10 introuvables ou qui ne sont pas des lieux de nuit),
+  27 saisons enregistrées (« Fermé hors saison » affiché hors période), 11 villes corrigées (Grimaud, Ramatuelle, Monaco).
+  Restent 64 lieux « incertains » (pas de preuve datée 2025-2026) : à revérifier au prochain contrôle.

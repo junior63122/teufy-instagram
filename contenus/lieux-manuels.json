@@ -258,29 +258,44 @@
   {
    "nom": "Le Cigalon Plage",
    "ville": "Cagnes-sur-Mer",
-   "_verifie": "2026-11-13",
+   "_verifie": "2026-11-23",
    "_fiabilite": "moyenne",
    "_source": "https://cotedazurfrance.fr/offres/cigalon-plage-cagnes-sur-mer-fr-3760608/ https://www.explorenicecotedazur.com/restaurant/cigalon-plage/ https://www.plages.tv/privee/le-cigalon-plage-privee-cagnes-sur-mer-06800",
    "adresse": "59 ter promenade de la Plage, 06800 Cagnes-sur-Mer",
    "type": "beach-club",
-   "description": "Une des plus anciennes plages privées de Cagnes-sur-Mer, près du port du Cros-de-Cagnes, avec restaurant (salades, poissons, pizzas, grillades)."
+   "description": "Une des plus anciennes plages privées de Cagnes-sur-Mer, près du port du Cros-de-Cagnes, avec restaurant (salades, poissons, pizzas, grillades).",
+   "saison": {
+    "de": "04-01",
+    "a": "10-15"
+   },
+   "_saison_preuve": "Plage ouverte du 1er avril au 15 octobre 2026 ; le restaurant reste ouvert le midi d'octobre à mai, le soir seulement de juin à septembre.",
+   "_saison_source": "https://cotedazurfrance.fr/offres/cigalon-plage-cagnes-sur-mer-fr-3760608/ https://www.explorenicecotedazur.com/restaurant/cigalon-plage/"
   },
   {
    "nom": "Le Pam Pam",
    "ville": "Juan-les-Pins",
-   "_verifie": "2026-11-13",
+   "_verifie": "2026-11-23",
    "_fiabilite": "faible",
    "_source": "https://www.privateaser.com/lieu/57987-pam-pam https://www.seeantibes.com/bars/pam-pam-juan-les-pins-681497 https://mapstr.com/place/gE2Ji8R2f3g",
-   "type": "bar-a-cocktails"
+   "type": "bar-a-cocktails",
+   "saison": true,
+   "_saison_preuve": "Plusieurs contributeurs Tripadvisor signalent une fermeture l'hiver (réouverture vers début mars) ; dates non officielles, les annuaires affichent « tous les jours » : à confirmer avant toute annonce en novembre.",
+   "_saison_source": "https://fr.tripadvisor.ca/FAQ_Answers-g187229-d3166658-t7840245-Bonjour_le_pam_pam_est_il_ouvert_aujourd_hui.html https://www.tripadvisor.co.uk/Restaurant_Review-g187229-d4259811-Reviews-PAM_PAM-Juan_les_Pins_Antibes_French_Riviera_Cote_d_Azur_Provence_Alpes_Cote_d_Az.html"
   },
   {
    "nom": "Le Rooftop du Grand Hôtel Dauphiné",
    "ville": "Toulon",
-   "_verifie": "2026-11-13",
+   "_verifie": "2026-11-23",
    "_fiabilite": "moyenne",
    "_source": "https://provence-alpes-cotedazur.com/en/things-to-do/leisure-relaxation/all-relaxation-and-leisure-activities/le-rooftop-du-grand-hotel-dauphine-toulon-en-4333960/ https://provence-alpes-cotedazur.com/sejourner/hebergements/tous-les-hebergements/hotels/grand-hotel-dauphine-boutique-hotel-suite-toulon-fr-2868303/ https://www.staycation.co/fr/hotels/grand-hotel-dauphine-boutique-hotel-suites-3090",
    "adresse": "10 rue Berthelot, 83000 Toulon",
-   "type": "rooftop"
+   "type": "rooftop",
+   "saison": {
+    "de": "06-11",
+    "a": "09-12"
+   },
+   "_saison_preuve": "Le site de l'hôtel annonce l'ouverture du bar du rooftop le jeudi 11 juin 2026 et sa fermeture le 12 septembre 2026 (du mardi au samedi le soir).",
+   "_saison_source": "https://www.grandhoteldauphine.com/notre-hotel/actualites/ https://provence-alpes-cotedazur.com/en/things-to-do/leisure-relaxation/all-relaxation-and-leisure-activities/le-rooftop-du-grand-hotel-dauphine-toulon-en-4333960/"
   },
   {
    "nom": "Le Spot Mourillon",
@@ -321,11 +336,17 @@
   {
    "nom": "Ô Petit Monde",
    "ville": "Sanary-sur-Mer",
-   "_verifie": "2026-11-13",
+   "_verifie": "2026-11-23",
    "_fiabilite": "moyenne",
    "_source": "https://provence-alpes-cotedazur.com/en/plan-your-stay/restaurants/all-restaurants/o-petit-monde-sanary-sur-mer-en-2891808 https://provence-alpes-cotedazur.com/sejourner/hebergements/tous-les-hebergements/hotels/o-petit-monde-sanary-sur-mer-fr-3272932/ https://mysunbed.com/en/france/sanary-sur-mer/ô-petit-monde/",
    "type": "beach-club",
-   "description": "Restaurant de plage et petit hôtel sur la plage de Portissol, cuisine méditerranéenne et poisson, transats à réserver."
+   "description": "Restaurant de plage et petit hôtel sur la plage de Portissol, cuisine méditerranéenne et poisson, transats à réserver.",
+   "saison": {
+    "de": "04-01",
+    "a": "10-31"
+   },
+   "_saison_preuve": "Restaurant de plage de Portissol (ouvert en 2024) ; fiche de l'office de tourisme : ouvert tous les jours d'avril à fin octobre (seules les 3 chambres d'hôtes sont ouvertes toute l'année).",
+   "_saison_source": "https://provence-alpes-cotedazur.com/sejourner/restaurants/tous-les-restaurants/o-petit-monde-sanary-sur-mer-fr-2891808/ https://mapstr.com/place/didsXm4cXOg"
   },
   {
    "nom": "People by L'Atoll",
@@ -432,11 +453,17 @@
   {
    "nom": "Jimbaran Plage",
    "ville": "Golfe-Juan",
-   "_verifie": "2026-11-13",
+   "_verifie": "2026-11-23",
    "_fiabilite": "moyenne",
    "_source": "https://www.plageprivee.com/france/06-alpes-maritimes/golfe-juan/jimbaran-beach https://cotedazurfrance.com/offers/jimbaran-plage-vallauris-golfe-juan-en-2828573/ https://www.tendancehotellerie.fr/articles-breves/communique-de-presse/20015-article/jimbaran-beach-evadez-vous-a-bali-a-10-minutes-de-cannes",
    "type": "beach-club",
-   "description": "Plage privée et restaurant au décor balinais à Golfe-Juan, ouverts midi et soir en saison avec animations en soirée."
+   "description": "Plage privée et restaurant au décor balinais à Golfe-Juan, ouverts midi et soir en saison avec animations en soirée.",
+   "saison": {
+    "de": "04-15",
+    "a": "10-15"
+   },
+   "_saison_preuve": "Office de tourisme : ouvert du 15 avril au 15 octobre 2026 (plageprivee.com indique dès le 1er avril).",
+   "_saison_source": "https://www.cotedazurfrance.com/offers/jimbaran-beach-open-from-15-april-to-15-october-vallauris-golfe-juan-en-2828573/ https://www.plageprivee.com/france/06-alpes-maritimes/golfe-juan/jimbaran-beach"
   },
   {
    "nom": "Kwartz Club",
@@ -455,12 +482,18 @@
   {
    "nom": "La Siesta",
    "ville": "Antibes",
-   "_verifie": "2026-11-13",
+   "_verifie": "2026-11-23",
    "_fiabilite": "moyenne",
    "_source": "https://cotedazurfrance.com/offers/casino-joa-dantibes-la-siesta-antibes-en-4891386 https://shotgun.live/en/events/aura-siesta https://shotgun.live/en/events/lesmercredis-latinaddict-by-lasiesta",
    "adresse": "2000 route du Bord de Mer, 06600 Antibes",
    "type": "beach-club",
-   "description": "Casino JOA et beach club en bord de mer entre Antibes et Villeneuve-Loubet, avec en été des soirées house « Aura » le vendredi et « Latin Addict » le mercredi."
+   "description": "Casino JOA et beach club en bord de mer entre Antibes et Villeneuve-Loubet, avec en été des soirées house « Aura » le vendredi et « Latin Addict » le mercredi.",
+   "saison": {
+    "de": "07-03",
+    "a": "08-29"
+   },
+   "_saison_preuve": "La discothèque n'existe plus sous cette forme ; le beach club a rouvert le 3 juillet 2026 pour une saison jusqu'au 29 août (closing le 26/08), travaux du site jusqu'en juin 2027.",
+   "_saison_source": "https://www.tripadvisor.com/Attraction_Review-g187217-d17433288-Reviews-La_Siesta_Beach_Club-Antibes_French_Riviera_Cote_d_Azur_Provence_Alpes_Cote_d_Az.html https://les-enjeux.com/2026/06/08/la-siesta-antibes-transformation-joa/"
   },
   {
    "nom": "Le Boston Cocktail Bar",
@@ -515,20 +548,25 @@
   {
    "nom": "MK Club Monaco",
    "ville": "Monaco",
-   "_verifie": "2026-11-13",
-   "_fiabilite": "haute",
-   "_source": "https://www.visitmonaco.com/en/地方/397/night-club https://monaco-tribune.com/en/2021/10/where-to-dance-and-listen-to-music-in-monaco https://www.nightflow.com/?p=13235",
-   "type": "club",
-   "description": "Boîte de nuit de la route de la Piscine, sur le port Hercule, ouverte le vendredi et le samedi soir avec un mélange musical varié."
+   "retirer": true,
+   "_raison": "fermé définitivement : Monaco Hebdo et Monaco-Matin : la discothèque MK du port Hercule a fermé définitivement (dernière soirée le 14 juin 2024, local domanial rendu début 2025).",
+   "_verifie": "2026-11-23",
+   "_source": "https://monaco-hebdo.com/actualites/societe/fermeture-definitive-pour-la-discotheque-le-mk/ https://www.monacomatin.mc/detente/la-discotheque-mk-ferme-definitivement-ses-portes-948944"
   },
   {
    "nom": "Nikki Beach Monte-Carlo",
    "ville": "Monaco",
-   "_verifie": "2026-11-13",
+   "_verifie": "2026-11-23",
    "_fiabilite": "haute",
    "_source": "https://www.fairmont.com/monte-carlo/dining/nikki-beach-at-fairmont-monte-carlo https://nikkibeach.com/monte-carlo https://www.visitmonaco.com/en/enjoy/beaches-and-swimming-pools/hotel-swimming-pools-in-monaco",
    "type": "beach-club",
-   "description": "Beach club saisonnier autour de la piscine sur le toit du Fairmont Monte-Carlo, ouvert tous les jours de 8h à 20h en saison."
+   "description": "Beach club saisonnier autour de la piscine sur le toit du Fairmont Monte-Carlo, ouvert tous les jours de 8h à 20h en saison.",
+   "saison": {
+    "de": "04-02",
+    "a": "09-13"
+   },
+   "_saison_preuve": "Rooftop du Fairmont rouvert le 2 avril 2026 (Panorama) et fermeture annoncée le 13 septembre (communiqué Nikki Beach, mars 2026).",
+   "_saison_source": "https://www.panorama.it/tempo-libero/viaggi/monte-carlo-riaccende-lestate-riapre-nikki-beach-sul-rooftop-piu-iconico-del-principato https://www.journaldespalaces.com/communique-77715-saison-estivale-sur-la-riviera-nikki-beach-monte-carlo-et-saint-tropez-annoncent-leur-reouverture.html"
   },
   {
    "nom": "O'Sullivans By The Beach",
@@ -588,12 +626,18 @@
   {
    "nom": "Bâoli",
    "ville": "Cannes",
-   "_verifie": "2026-11-13",
+   "_verifie": "2026-11-23",
    "_fiabilite": "moyenne",
    "_source": "https://cotedazurfrance.fr/offres/baoli-cannes-cannes-fr-3466869/ https://cotedazurfrance.fr/offres/le-club-baoli-cannes-fr-3602769/ https://provence-alpes-cotedazur.com/en/offers/le-baoli-cannes-cannes-en-3466519",
    "adresse": "Port Pierre Canto, Boulevard de la Croisette, 06400 Cannes",
    "type": "club",
-   "description": "Restaurant (cuisine méditerranéenne et asiatique) et club au Port Pierre Canto, sur la Croisette ; le club démarre vers minuit."
+   "description": "Restaurant (cuisine méditerranéenne et asiatique) et club au Port Pierre Canto, sur la Croisette ; le club démarre vers minuit.",
+   "saison": {
+    "de": "05-01",
+    "a": "10-31"
+   },
+   "_saison_preuve": "Fiche régionale : ouvert du 1er mai au 31 octobre 2026 (20h-5h) ; réouverture 2026 après refonte annoncée par le Palais des Festivals ; fermé fin novembre.",
+   "_saison_source": "https://cotedazurfrance.fr/offres/baoli-cannes-cannes-fr-3466869/ https://www.palaisdesfestivals.com/app/uploads/cannes-palais/2026/06/CP_Nouvelles-adresses-nouvelles-icones-lhospitalite-legendaire-cannoise-se-reinvente-en-2026.pdf"
   },
   {
    "nom": "Bisous Bisous",
@@ -644,11 +688,17 @@
   {
    "nom": "Jimmy’z Monte-Carlo",
    "ville": "Monaco",
-   "_verifie": "2026-11-13",
+   "_verifie": "2026-11-23",
    "_fiabilite": "haute",
    "_source": "https://www.montecarlosbm.com/fr/nightlife/jimmyz-monte-carlo https://www.montecarlosbm-corporate.com/wp-content/uploads/2026/04/mcsbm-press-release-jimmyz-monte-carlo-2026-season.pdf https://media-trade.visitmonaco.com/en/editorial-resources/press-releases/with-a-mix-of-electronic-music-rap-and-disco-nights-jimmy-z-monte-carlo-promises-an-even-more-festive-season-in-2026",
    "type": "club",
-   "description": "Boîte de nuit de la SBM au Sporting Monte-Carlo, avec lagon, jardin japonais et Summer Bar flottant ; saison 2026 mêlant électro, rap et disco."
+   "description": "Boîte de nuit de la SBM au Sporting Monte-Carlo, avec lagon, jardin japonais et Summer Bar flottant ; saison 2026 mêlant électro, rap et disco.",
+   "saison": {
+    "de": "03-20",
+    "a": "09-30"
+   },
+   "_saison_preuve": "Réouverture le 20 mars 2026, vendredis et samedis de mars à juin et en septembre, mercredi-samedi en juillet-août ; fermé l'hiver sauf soirée du Nouvel An le 31/12/2026.",
+   "_saison_source": "https://www.montecarlosbm.com/fr/agenda/programmation-saison-jimmyz-monte-carlo https://www.montecarlosbm.com/fr/agenda/nouvel-an-jimmyz-monte-carlo"
   },
   {
    "nom": "L'Eden Bar",
@@ -743,11 +793,10 @@
   {
    "nom": "No Stresss Discothèque",
    "ville": "La Seyne-sur-Mer",
-   "_verifie": "2026-11-13",
-   "_fiabilite": "moyenne",
-   "_source": "https://provence-alpes-cotedazur.com/que-faire/detente-et-loisirs/toutes-les-activites-detente-et-loisirs/no-stresss-la-seyne-sur-mer-fr-4728556/ https://provence-alpes-cotedazur.com/en/things-to-do/leisure-relaxation/all-relaxation-and-leisure-activities/no-stresss-la-seyne-sur-mer-en-4728556",
-   "type": "club",
-   "description": "Discothèque du quartier des Sablettes, avenue Charles-de-Gaulle."
+   "retirer": true,
+   "_raison": "doublon de No Stresss",
+   "_verifie": "2026-11-23",
+   "_source": "https://www.no-stresss-discotheque.fr/ https://annuaire-entreprises.data.gouv.fr/etablissement/98388400800027"
   },
   {
    "nom": "O'Sullivans Mandelieu",
@@ -795,11 +844,14 @@
   {
    "nom": "Amazónico Monte-Carlo",
    "ville": "Monaco",
-   "_verifie": "2026-11-13",
+   "_verifie": "2026-11-23",
    "_fiabilite": "moyenne",
    "_source": "https://meetings.montecarlosbm.com/en/restaurants/amazonico-monte-carlo https://www.montecarlosbm.com/fr/restaurant-monaco/amazonico-monte-carlo https://www.monaco-tribune.com/2025/07/notre-selection-des-meilleurs-rooftops-de-monaco/",
    "type": "club",
-   "description": "Restaurant-bar festif au thème amazonien installé sur le toit du Café de Paris, place du Casino, avec DJ résident ou invité aux sonorités électro-tropicales (électro et rythmes latino-américains)."
+   "description": "Restaurant-bar festif au thème amazonien installé sur le toit du Café de Paris, place du Casino, avec DJ résident ou invité aux sonorités électro-tropicales (électro et rythmes latino-américains).",
+   "saison": true,
+   "_saison_preuve": "Le site officiel affiche « fermé pour la saison, réouverture le 7 février » (année non précisée) ; programme d'été du 15 mai au 24 septembre 2026 et réveillon annoncé le 31 décembre 2026 : fermeture hivernale à dates non claires.",
+   "_saison_source": "https://amazonicorestaurant.com/monte-carlo/contact https://www.montecarlosbm.com/fr/activity/celebrez-le-nouvel-amazonico-monte-carlo"
   },
   {
    "nom": "Barrel Pub",
@@ -1041,18 +1093,25 @@
   {
    "nom": "DRY Restaurant & Cocktail Bar",
    "ville": "Villefranche-sur-Mer",
-   "_verifie": "2026-11-13",
+   "_verifie": "2026-11-23",
    "_fiabilite": "moyenne",
    "_source": "https://provence-alpes-cotedazur.com/en/plan-your-stay/restaurants/all-restaurants/dry-restaurant-cocktail-bar-villefranche-sur-mer-en-2883782 https://cotedazurfrance.fr/offres/dry-restaurant-cocktail-bar-villefranche-sur-mer-fr-2830308/ https://www.pariseater.com/france-travel-guides/our-favourite-restaurants-in-villefranche-sur-mer/",
    "type": "bar-a-cocktails",
-   "description": "Restaurant-bar à cocktails sur le front de mer de Villefranche, mêlant cuisine méditerranéenne, street food internationale et cocktails de fruits pressés."
+   "description": "Restaurant-bar à cocktails sur le front de mer de Villefranche, mêlant cuisine méditerranéenne, street food internationale et cocktails de fruits pressés.",
+   "saison": {
+    "de": "02-01",
+    "a": "10-31"
+   },
+   "_saison_preuve": "Fiche office de tourisme : ouvert de février à octobre, fermé de novembre à fin janvier.",
+   "_saison_source": "https://www.explorenicecotedazur.com/restaurant/dry-restaurant-cocktail-bar/ https://cotedazurfrance.fr/offres/dry-restaurant-cocktail-bar-villefranche-sur-mer-fr-2830308/"
   },
   {
    "nom": "Gotha",
    "ville": "Cannes",
    "retirer": true,
-   "_raison": "fermé définitivement (fiche Google « Permanently closed », Tripadvisor ; enseigne suivante Palm Club aussi fermée) — signalé par le directeur le 23/11/2026",
-   "_verifie": "2026-11-23"
+   "_raison": "fermé définitivement : TripAdvisor marque le Gotha Club « définitivement fermé » ; Clubbable indique le Palm Club (ex-Gotha) fermé ; Google le donne fermé définitivement (signalé par le directeur).",
+   "_verifie": "2026-11-23",
+   "_source": "https://www.tripadvisor.com/Attraction_Review-g187221-d3571307-Reviews-Gotha_Club-Cannes_French_Riviera_Cote_d_Azur_Provence_Alpes_Cote_d_Azur.html https://www.clubbable.com/Cannes/Palm-Club"
   },
   {
    "nom": "Inky Bar",
@@ -1136,20 +1195,32 @@
   {
    "nom": "Le Spot (Hôtel Plein Large)",
    "ville": "Bandol",
-   "_verifie": "2026-11-13",
+   "_verifie": "2026-11-23",
    "_fiabilite": "moyenne",
    "_source": "https://www.bandoltourisme.fr/en/a-restaurant/the-spot/ https://provence-alpes-cotedazur.com/sejourner/restaurants/tous-les-restaurants/le-spot-bandol-fr-6239120/ https://www.fr.lastminute.com/hotel/france/bandol/hotel-plein-large_hid-893294",
    "type": "beach-club",
-   "description": "Bar avec terrasse en bois face à la mer dans l'anse de Renécros, ouvert de 11 h au coucher du soleil selon la météo."
+   "description": "Bar avec terrasse en bois face à la mer dans l'anse de Renécros, ouvert de 11 h au coucher du soleil selon la météo.",
+   "saison": {
+    "de": "04-01",
+    "a": "10-15"
+   },
+   "_saison_preuve": "Le site de l'hôtel annonce la terrasse du Spot d'avril à mi-octobre (midi au coucher du soleil) ; l'office de tourisme dit « toute l'année si météo favorable », mais l'hôtel fait foi.",
+   "_saison_source": "https://www.hotel-pleinlarge.com/plage-hotel-plein-large-bandol https://www.bandoltourisme.fr/restaurant/le-spot/"
   },
   {
    "nom": "Les Bains Déli Bo",
    "ville": "Villefranche-sur-Mer",
-   "_verifie": "2026-11-13",
+   "_verifie": "2026-11-23",
    "_fiabilite": "faible",
    "_source": "https://www.gillespudlowski.com/174847/restaurants/villefranche-sur-mer-deli-bo-dans-le-bain https://mapstr.com/place/ErRGNoLjVWg https://www.euansguide.com/venues/delibo-les-bains-plage-restaurant-villefranche-sur-mer-7623",
    "type": "beach-club",
-   "description": "Plage privée et restaurant de la promenade des Marinières."
+   "description": "Plage privée et restaurant de la promenade des Marinières.",
+   "saison": {
+    "de": "05-01",
+    "a": "09-30"
+   },
+   "_saison_preuve": "La plage privée a changé de nom et de concept en 2024 (« Les Marinières », même gérant, rénovée) ; Tripadvisor indique une saison de mai à septembre.",
+   "_saison_source": "https://inout-cotedazur.com/2024/06/01/villefranche-sur-mer-les-marinieres/ https://www.tripadvisor.fr/ShowUserReviews-g187246-d10452726-r963798242-Les_Bains_de_la_plage-Villefranche_sur_Mer_French_Riviera_Cote_d_Azur_Provence_.html"
   },
   {
    "nom": "Madame aMore",
@@ -1223,6 +1294,308 @@
    "retirer": true,
    "_raison": "doublon de Le Kosma (8 rue Sacha Guitry)",
    "_verifie": "2026-11-13"
+  },
+  {
+   "nom": "Explorers Pub",
+   "ville": "Monaco",
+   "retirer": true,
+   "_raison": "fermé définitivement : TripAdvisor affiche « Explorers Pub - FERMÉ » ; un avis signale un changement de propriétaire (burgers « Fun in a Bun », fiche Restaurant Guru « Son of a Bun »).",
+   "_verifie": "2026-11-23",
+   "_source": "https://www.tripadvisor.fr/LocationPhotoDirectLink-g190409-d2083294-i87908620-Explorers_Pub-Monte_Carlo.html https://restaurantguru.com/Son-of-a-Bun-Monaco-Ville-2"
+  },
+  {
+   "nom": "L'élixir lounge club",
+   "ville": "Saint-Mandrier-sur-Mer",
+   "retirer": true,
+   "_raison": "doublon de L'Élixir Club (36 quai Séverine)",
+   "_verifie": "2026-11-23",
+   "_source": "https://provence-alpes-cotedazur.com/en/things-to-do/leisure-relaxation/all-relaxation-and-leisure-activities/lelixir-lounge-club-saint-mandrier-sur-mer-en-3243294"
+  },
+  {
+   "nom": "O'Sullivans Mandelieu",
+   "ville": "Mandelieu-la-Napoule Partenaires",
+   "retirer": true,
+   "_raison": "doublon d'O'Sullivans By The Beach (même adresse)",
+   "_verifie": "2026-11-23",
+   "_source": "https://www.justacote.com/mandelieu-la-napoule-06210/hotel-et-autre-hebergement/osullivans-mandelieu-3065827.htm https://www.skyscanner.co.za/hotels/france/mandelieu-la-napoule-hotels/o-sullivans-bar-and-hotel/ht-134567746"
+  },
+  {
+   "nom": "Twiga",
+   "ville": "Monaco",
+   "retirer": true,
+   "_raison": "doublon de Twiga Monte-Carlo",
+   "_verifie": "2026-11-23",
+   "_source": "https://www.access.sb/fr/monaco/restaurants/diner/twiga-monte-carlo https://www.opentable.com/r/twiga-sumosan-crazy-fish-monte-carlo"
+  },
+  {
+   "nom": "Cova",
+   "ville": "Beausoleil",
+   "retirer": true,
+   "_raison": "pâtisserie-salon de thé (8 h–20 h), pas un lieu de nuit",
+   "_verifie": "2026-11-23",
+   "_source": "https://pasticceriacova.com/ja/stores/montecarlo https://www.monaco-tribune.com/en/2022/04/taste-test-the-new-cova-pastry-shop-on-the-larvotto/"
+  },
+  {
+   "nom": "Tiffany's",
+   "ville": "Monaco",
+   "retirer": true,
+   "_raison": "café-bar PMU de Cap-d'Ail, pas un lieu de nuit",
+   "_verifie": "2026-11-23",
+   "_source": "https://cotedazurfrance.fr/offres/le-tiffany-s-cap-dail-fr-2972841/"
+  },
+  {
+   "nom": "Bar des moulins",
+   "ville": "Beausoleil",
+   "retirer": true,
+   "_raison": "introuvable",
+   "_verifie": "2026-11-23",
+   "_source": ""
+  },
+  {
+   "nom": "English Pub",
+   "ville": "Beausoleil",
+   "retirer": true,
+   "_raison": "introuvable",
+   "_verifie": "2026-11-23",
+   "_source": ""
+  },
+  {
+   "nom": "Cino Bar",
+   "ville": "Monaco",
+   "retirer": true,
+   "_raison": "introuvable",
+   "_verifie": "2026-11-23",
+   "_source": ""
+  },
+  {
+   "nom": "La Cabane",
+   "ville": "Saint-Tropez",
+   "retirer": true,
+   "_raison": "introuvable",
+   "_verifie": "2026-11-23",
+   "_source": "https://www.sainttropeztourisme.com/fr/fiche/cabane-bambou-5445695/ https://www.sainttropeztourisme.com/fr/fiche/gentlemen-cafe-7813405/"
+  },
+  {
+   "nom": "La Paillotte",
+   "ville": "Saint-Tropez",
+   "retirer": true,
+   "_raison": "introuvable",
+   "_verifie": "2026-11-23",
+   "_source": "https://www.sainttropeztourisme.com/fr/sejourner/sorties/restaurants-de-plage/plages-de-pampelonne-et-du-golfe/"
+  },
+  {
+   "nom": "u Tapu",
+   "ville": "Monaco",
+   "retirer": true,
+   "_raison": "aucune trace hors OpenStreetMap",
+   "_verifie": "2026-11-23",
+   "_source": "https://www.openstreetmap.org/node/5663448422"
+  },
+  {
+   "nom": "Whine and Sushi Bar",
+   "ville": "Monaco",
+   "retirer": true,
+   "_raison": "restaurant de sushis, pas un bar de nuit",
+   "_verifie": "2026-11-23",
+   "_source": "https://www.monaco-tribune.com/en/listing/caposushi/ https://wanderlog.com/place/details/2703766/wine--sushi-bar-caposushi"
+  },
+  {
+   "nom": "Le barbagiuan",
+   "ville": "Monaco",
+   "retirer": true,
+   "_raison": "restaurant familial, pas un lieu de nuit",
+   "_verifie": "2026-11-23",
+   "_source": "https://www.monaco-tribune.com/listing/le-barbagiuan/"
+  },
+  {
+   "nom": "Alang bar",
+   "ville": "Monaco",
+   "saison": {
+    "de": "05-01",
+    "a": "09-30"
+   },
+   "_saison_preuve": "Bar d'été (beach bar) du Méridien Beach Plaza ; saison de la plage du 1er mai au 30 septembre 2026 (d'autres fiches disent avril à septembre).",
+   "_saison_source": "https://www.plageprivee.com/france/monaco/monaco/le-meridien-beach-plaza https://www.tendancehotellerie.fr/articles-breves/communique-de-presse/25559-article/la-plage-more-l-experience-daycation-signature-du-meridien-beach-plaza-a-monaco",
+   "_verifie": "2026-11-23"
+  },
+  {
+   "nom": "Canopy",
+   "ville": "Saint-Tropez",
+   "saison": {
+    "de": "03-28",
+    "a": "10-11"
+   },
+   "_saison_preuve": "Bar-restaurant du camping Les Prairies de la Mer à Grimaud (pas Saint-Tropez), ouvert du 28 mars au 11 octobre 2026.",
+   "_saison_source": "https://www.golfe-saint-tropez-information.com/fr/sorties/restaurant/grimaud/canopy-6190899 https://en.riviera-villages.com/Prairies-de-la-Mer",
+   "_verifie": "2026-11-23",
+   "nouvelle_ville": "Grimaud"
+  },
+  {
+   "nom": "Fiesta Beach",
+   "ville": "Fréjus (Saint-Aygulf) Partenaires",
+   "saison": {
+    "de": "06-02",
+    "a": "10-31"
+   },
+   "_saison_preuve": "Fiche office de tourisme : ouvert du 2 juin au 31 octobre 2026, du mercredi au samedi 18h-3h.",
+   "_saison_source": "https://cotedazurfrance.fr/offres/fiesta-beach-club-frejus-fr-5814027/ https://www.esterel-cotedazur.com/?p=82206",
+   "_verifie": "2026-11-23"
+  },
+  {
+   "nom": "Indie Beach",
+   "ville": "Saint-Tropez",
+   "saison": {
+    "de": "04-24",
+    "a": "10-03"
+   },
+   "_saison_preuve": "Saison 2026 du 24 avril au 3 octobre (plage de Pampelonne, Ramatuelle), tous les jours 12 h - 19 h.",
+   "_saison_source": "https://cotedazurfrance.fr/offres/indie-beach-ramatuelle-fr-2909718/ https://www.golfe-saint-tropez-information.com/fr/sorties/restaurant/ramatuelle/indie-beach-4601194",
+   "_verifie": "2026-11-23",
+   "nouvelle_ville": "Ramatuelle"
+  },
+  {
+   "nom": "L'éphémère",
+   "ville": "Saint-Tropez",
+   "saison": {
+    "de": "04-25",
+    "a": "09-19"
+   },
+   "_saison_preuve": "Bar à vins en plein air du domaine Fondugues-Pradugues (Ramatuelle) : ouvert de fin avril (jour exact non relevé, 04-25 approximatif) au 19 septembre 2026.",
+   "_saison_source": "https://www.golfe-saint-tropez-information.com/en/entertaining/restaurant/ramatuelle/the-ephemeral-5175497 https://cotedazurfrance.com/offers/lephemere-ramatuelle-en-2911212/",
+   "_verifie": "2026-11-23",
+   "nouvelle_ville": "Ramatuelle"
+  },
+  {
+   "nom": "La Pirogue Plage",
+   "ville": "Saint-Tropez",
+   "saison": {
+    "de": "06-13",
+    "a": "10-13"
+   },
+   "_saison_preuve": "Situé en réalité sur la plage de Port Grimaud (Grimaud) ; saison relevée du 13/06 au 13/10 (dates 2024, pas de dates 2026 trouvées), fermé les jours de pluie.",
+   "_saison_source": "https://golfe-saint-tropez-information.com/en/entertaining/restaurant/grimaud/la-pirogue-6920051/amp https://mysunbed.com/en/france/grimaud/la-pirogue-plage",
+   "_verifie": "2026-11-23",
+   "nouvelle_ville": "Grimaud"
+  },
+  {
+   "nom": "Long Bar",
+   "ville": "Saint-Tropez",
+   "saison": {
+    "de": "03-28",
+    "a": "10-11"
+   },
+   "_saison_preuve": "Bar situé en réalité à Grimaud (Les Prairies de la Mer, route du Littoral), ouvert du 28/03 au 11/10/2026 selon les fiches touristiques.",
+   "_saison_source": "https://www.golfe-saint-tropez-information.com/en/leisure-activities/leisure/grimaud/long-bar-867157 https://cotedazurfrance.fr/offres/long-bar-grimaud-fr-3009956/",
+   "_verifie": "2026-11-23",
+   "nouvelle_ville": "Grimaud"
+  },
+  {
+   "nom": "Mada Lounge (Part of Mada One)",
+   "ville": "Monaco",
+   "saison": {
+    "de": "07-01",
+    "a": "08-30"
+   },
+   "_saison_preuve": "Bar éphémère d'été de la SBM aux jardins des Boulingrins : du 1er juillet au 30 août 2025 (2024 : du 3 juillet au 1er septembre) ; dates 2026 non publiées.",
+   "_saison_source": "https://www.montecarlosbm.com/en/agenda/mada-lounge https://monacolife.net/mada-lounge-to-open-this-weekend-in-the-jardins-des-boulingrins/",
+   "_verifie": "2026-11-23"
+  },
+  {
+   "nom": "Monsieur Pablo Plage",
+   "ville": "Vallauris Partenaires",
+   "saison": {
+    "de": "04-15",
+    "a": "10-15"
+   },
+   "_saison_preuve": "Fiche de l'office de tourisme mise à jour le 22 mai 2026 : ouvert du 15 avril au 15 octobre 2026, tous les jours.",
+   "_saison_source": "https://cotedazurfrance.fr/offres/monsieur-pablo-plage-vallauris-golfe-juan-fr-2828746/ https://provence-alpes-cotedazur.com/sejourner/restaurants/tous-les-restaurants/monsieur-pablo-plage-vallauris-fr-2863930/",
+   "_verifie": "2026-11-23"
+  },
+  {
+   "nom": "New Moods",
+   "ville": "Monaco",
+   "saison": {
+    "de": "10-01",
+    "a": "03-31"
+   },
+   "_saison_preuve": "Communiqué SBM du 7 septembre 2026 : réouverture le 1er octobre 2026 pour la saison 2026-2027 (d'octobre à mars, concerts du jeudi au samedi).",
+   "_saison_source": "https://www.montecarlosbm-corporate.com/wp-content/uploads/2026/09/mcsbm-pr-new-moods-2026.pdf https://www.montecarlosbm.com/fr/nightlife/new-moods",
+   "_verifie": "2026-11-23"
+  },
+  {
+   "nom": "Nikki Beach Club St. Tropez",
+   "ville": "Saint-Tropez",
+   "saison": {
+    "de": "04-24",
+    "a": "09-13"
+   },
+   "_saison_preuve": "Communiqué Nikki Beach et office de tourisme : saison 2026 du 24 avril au 13 septembre.",
+   "_saison_source": "https://www.journaldespalaces.com/communique-77715-saison-estivale-sur-la-riviera-nikki-beach-monte-carlo-et-saint-tropez-annoncent-leur-reouverture.html https://www.sainttropeztourisme.com/en/fiche/nikki-beach-4601240/",
+   "_verifie": "2026-11-23"
+  },
+  {
+   "nom": "Pablo",
+   "ville": "Saint-Tropez",
+   "saison": {
+    "de": "04-03",
+    "a": "10-03"
+   },
+   "_saison_preuve": "Restaurant-club Pablõ (Indie Group), 5 place Carnot / place des Lices : l'office de tourisme de Saint-Tropez l'indique ouvert tous les jours du 3 avril au 3 octobre 2026.",
+   "_saison_source": "https://www.sainttropeztourisme.com/en/fiche/pablo-5927042 https://www.golfe-saint-tropez-information.com/fr/sorties/restaurant/saint-tropez/pablo-5927042",
+   "_verifie": "2026-11-23"
+  },
+  {
+   "nom": "Plage Beau Rivage",
+   "ville": "Nice Partenaires",
+   "saison": {
+    "de": "05-01",
+    "a": "09-15"
+   },
+   "_saison_preuve": "Office de tourisme (mis à jour début 2026) : restaurant ouvert le midi toute l'année, mais service du soir de mai à mi-septembre et transats jusqu'à début octobre ; soirées DJ seulement en été (13-15 août 2026).",
+   "_saison_source": "https://provence-alpes-cotedazur.com/sejourner/restaurants/tous-les-restaurants/restaurant-plage-beau-rivage-nice-fr-3015522/ https://cotedazurfrance.fr/offres/soirees-de-lete-plage-beau-rivage-nice-fr-6715339/",
+   "_verifie": "2026-11-23"
+  },
+  {
+   "nom": "Tangerine",
+   "ville": "Saint-Tropez",
+   "saison": {
+    "de": "03-28",
+    "a": "10-11"
+   },
+   "_saison_preuve": "C'est Tangerine Plage, restaurant de plage du camping des Prairies de la Mer à Grimaud (pas Saint-Tropez) : ouvert du 28/03 au 11/10/2026 selon l'office de tourisme (fiche du 5 mai 2026).",
+   "_saison_source": "https://www.golfe-saint-tropez-information.com/fr/sorties/restaurant/grimaud/tangerine-plage-868330 https://cotedazurfrance.fr/offres/tangerine-plage-grimaud-fr-2910112/",
+   "_verifie": "2026-11-23",
+   "nouvelle_ville": "Grimaud"
+  },
+  {
+   "nom": "Plage de Rock",
+   "ville": "Saint-Tropez",
+   "nouvelle_ville": "Grimaud",
+   "_verifie": "2026-11-23"
+  },
+  {
+   "nom": "Bar Cercle du Littoral",
+   "ville": "Saint-Tropez",
+   "nouvelle_ville": "Ramatuelle",
+   "_verifie": "2026-11-23"
+  },
+  {
+   "nom": "Le Café Lacoste",
+   "ville": "Beausoleil",
+   "nouvelle_ville": "Monaco",
+   "_verifie": "2026-11-23"
+  },
+  {
+   "nom": "Trinity Irish Bar",
+   "ville": "Beausoleil",
+   "nouvelle_ville": "Monaco",
+   "_verifie": "2026-11-23"
+  },
+  {
+   "nom": "Trinity  Cocktail Club",
+   "ville": "Beausoleil",
+   "nouvelle_ville": "Monaco",
+   "_verifie": "2026-11-23"
   }
  ]
 }
