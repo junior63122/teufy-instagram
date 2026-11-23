@@ -3249,6 +3249,27 @@
       "instagram": [
         "lantretechno"
       ]
+    },
+    {
+      "source": "web",
+      "source_site": "instagram.com",
+      "via_veille": true,
+      "name": "Marwa Loud Showcase",
+      "start": "2026-11-28T19:00:00.000Z",
+      "venue": "High Club Nice",
+      "city": "Nice",
+      "address": "",
+      "url": "https://www.instagram.com/reel/DgCvAjBNmdo/",
+      "image": "",
+      "price": null,
+      "tags": [],
+      "description": "",
+      "public_cible": 0.6,
+      "confiance": 0.9,
+      "accroche": "Showcase de Marwa Loud au High Club le 28 novembre.",
+      "instagram": [
+        "highclubnice"
+      ]
     }
   ],
   "maj_instagram": "2026-11-23T10:42:00.342Z"
