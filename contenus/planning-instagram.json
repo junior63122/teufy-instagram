@@ -1,5 +1,5 @@
 {
- "le": "2026-11-23T18:41:56.914Z",
+ "le": "2026-11-23T19:12:12.988Z",
  "jours": [
   {
    "date": "2026-11-23",
@@ -11,8 +11,8 @@
      "variante": null,
      "heure": "17 h 07",
      "suite": false,
-     "fait": false,
-     "lien": null
+     "fait": true,
+     "lien": "https://www.instagram.com/reel/DgGGYRPlX5a/"
     },
     {
      "id": "reel-tendance",
@@ -103,9 +103,9 @@
    "pause": null,
    "publications": [
     {
-     "id": "reel-spot-promo",
+     "id": "reel-promo",
      "type": "reel",
-     "variante": "spot-promo",
+     "variante": "promo",
      "heure": "19 h 07",
      "suite": false,
      "fait": false,
@@ -228,9 +228,9 @@
    "pause": null,
    "publications": [
     {
-     "id": "reel-spot-promo",
+     "id": "reel-promo",
      "type": "reel",
-     "variante": "spot-promo",
+     "variante": "promo",
      "heure": "19 h 07",
      "suite": false,
      "fait": false,
@@ -394,9 +394,9 @@
    "pause": null,
    "publications": [
     {
-     "id": "reel-spot-promo",
+     "id": "reel-promo",
      "type": "reel",
-     "variante": "spot-promo",
+     "variante": "promo",
      "heure": "19 h 07",
      "suite": false,
      "fait": false,
@@ -514,9 +514,9 @@
    "pause": null,
    "publications": [
     {
-     "id": "reel-spot-promo",
+     "id": "reel-promo",
      "type": "reel",
-     "variante": "spot-promo",
+     "variante": "promo",
      "heure": "19 h 07",
      "suite": false,
      "fait": false,
