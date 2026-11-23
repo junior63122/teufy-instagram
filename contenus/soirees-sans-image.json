@@ -1,6 +1,6 @@
 {
- "le": "2026-11-22T22:41:52.233Z",
- "total": 80,
+ "le": "2026-11-23T01:36:49.905Z",
+ "total": 107,
  "sans_image": [
   {
    "id": "week-end-techno-l-antre-2026-11-23",
@@ -66,15 +66,6 @@
    "url": "https://shotgun.live/fr/events/psynaps-2"
   },
   {
-   "id": "riviera-bar-crawl-nice-s-1-social-club-for-global-travelers-2026-11-28",
-   "nom": "Riviera Bar Crawl Nice’s #1 Social Club for Global Travelers & Party Lovers",
-   "jour": "2026-11-28",
-   "lieu": "Hostel Villa Saint Exupery Beach",
-   "ville": "Nice",
-   "instagram": "",
-   "url": "https://www.eventbrite.fr/e/riviera-bar-crawl-nices-1-social-club-for-global-travelers-party-lovers-tickets-1286313140229"
-  },
-  {
    "id": "soiree-zouk-et-caribbean-vibes-2026-11-28",
    "nom": "Soirée Zouk & Caribbean Vibes",
    "jour": "2026-11-28",
@@ -82,15 +73,6 @@
    "ville": "Roquebrune-sur-Argens",
    "instagram": "",
    "url": ""
-  },
-  {
-   "id": "nice-orange-pub-crawl-5-shots-party-games-et-vip-club-entry-2026-11-28",
-   "nom": "Nice Orange Pub Crawl – 5 Shots, Party Games & VIP Club Entry",
-   "jour": "2026-11-28",
-   "lieu": "La Chapa",
-   "ville": "Nice",
-   "instagram": "lachapanice",
-   "url": "https://www.eventbrite.fr/e/nice-orange-pub-crawl-5-shots-party-games-vip-club-entry-tickets-2004292869928"
   },
   {
    "id": "origins-invite-boticka-all-night-long-2026-11-28",
@@ -109,6 +91,24 @@
    "ville": "Nice",
    "instagram": "lantretechno",
    "url": "https://shotgun.live/events/dj-k-net-resident-techno-tribe"
+  },
+  {
+   "id": "rencontre-d-echecs-a-nice-the-sailor-s-pub-2026-11-29",
+   "nom": "Rencontre d’échecs à Nice · The Sailor's Pub",
+   "jour": "2026-11-29",
+   "lieu": "The Sailor's Pub",
+   "ville": "Nice",
+   "instagram": "",
+   "url": "https://www.eventbrite.fr/e/rencontre-dechecs-a-nice-the-sailors-pub-tickets-2004925100948"
+  },
+  {
+   "id": "rencontre-d-echecs-a-marseille-le-chaperon-rouge-2026-11-30",
+   "nom": "Rencontre d’échecs à Marseille · Le Chaperon Rouge",
+   "jour": "2026-11-30",
+   "lieu": "Le Chaperon Rouge",
+   "ville": "Marseille",
+   "instagram": "",
+   "url": "https://www.eventbrite.fr/e/rencontre-dechecs-a-marseille-le-chaperon-rouge-tickets-2004895461295"
   },
   {
    "id": "le-mas-d-hiver-bringue-pull-moche-de-noel-2026-12-04",
@@ -136,15 +136,6 @@
    "ville": "Cannes",
    "instagram": "yardofblondes",
    "url": "https://www.cannes.com/fr/agenda/annee-2026/decembre/yard-of-blondes.html"
-  },
-  {
-   "id": "lillian-palmer-en-concert-a-swingin-noel-2026-12-06",
-   "nom": "Lillian Palmer en concert – A Swingin’ Noël",
-   "jour": "2026-12-06",
-   "lieu": "Le Quartier du Poulpe",
-   "ville": "Nice",
-   "instagram": "",
-   "url": "https://www.eventbrite.com/e/lillian-palmer-en-concert-a-swingin-noel-tickets-1998868741213"
   },
   {
    "id": "plk-tournee-des-zeniths-2026-2026-12-06",

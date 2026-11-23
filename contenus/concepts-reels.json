@@ -682,5 +682,125 @@
     "test_du_partage": "Au pote cannois ou monégasque du groupe : « vas-y, fais mieux que moi ».",
     "statut": "propose",
     "ajout": "2026-11-21"
+  },
+  {
+    "id": "c-2026-11-23-1stzoxz",
+    "titre": "Les notifs de Teufy le samedi soir",
+    "format": "personnage",
+    "accroche": "Samedi, 22 h. Ton téléphone vibre.",
+    "plans": [
+      {
+        "texte": "22 h : « T'es encore en pyjama ? On voit tout. »",
+        "video": "phone notification dark bedroom night"
+      },
+      {
+        "texte": "23 h : « Ton groupe est déjà dans le Vieux-Nice. »",
+        "video": "friends walking old town narrow street night"
+      },
+      {
+        "texte": "23 h 30 : « Le canap' t'invitera jamais à danser. »",
+        "video": "person on couch scrolling phone dark room"
+      },
+      {
+        "texte": "0 h 30 : « La file s'allonge. On dit ça, on dit rien. »",
+        "video": "queue outside club night street lights"
+      },
+      {
+        "texte": "1 h : « Bon. On te garde une place sur le dancefloor. »",
+        "video": "crowd dancing club lights"
+      },
+      {
+        "texte": "7 h : « La mer est calme. Toi un peu moins. »",
+        "video": "sunrise beach friends after party"
+      }
+    ],
+    "musique": "pop électronique douce qui bascule en house 124 bpm au plan 5",
+    "legende": "On a tous un pote qui a besoin de ces notifs le samedi. Lui, il a encore dit « je suis fatigué » à 22 h. Tague-le avant qu'il se mette en pyjama.",
+    "cta": "Tague le pote qui a besoin de ces notifs samedi",
+    "inspire_de": "https://www.instagram.com/reel/DfnZ7CchmsQ/ (Duolingo)",
+    "pourquoi_viral": "Mascotte taquine façon Duolingo, situation que tout le monde vit, chute à la plage du matin : on rit et on tague le pote canap'.",
+    "test_du_partage": "Au pote canap' du groupe avec « ça c'est toi samedi dernier ».",
+    "statut": "propose",
+    "ajout": "2026-11-23"
+  },
+  {
+    "id": "c-2026-11-23-4djxrw",
+    "titre": "Place-toi sur la carte de la soirée",
+    "format": "classement",
+    "accroche": "Place-toi sur la carte. Honnêtement.",
+    "plans": [
+      {
+        "texte": "En haut, t'arrives à 23 h. En bas, à 2 h.",
+        "video": "friends arriving club entrance night"
+      },
+      {
+        "texte": "À gauche, tu rentres à 2 h. À droite, tu fermes.",
+        "video": "club lights turning on end of night crowd"
+      },
+      {
+        "texte": "Tôt et tôt : il a cours à 8 h à Valrose.",
+        "video": "student leaving party early taxi night"
+      },
+      {
+        "texte": "Tard et tard : le before a duré quatre heures.",
+        "video": "friends laughing apartment pregame night"
+      },
+      {
+        "texte": "Tôt et ferme la boîte : il connaît déjà le DJ.",
+        "video": "dj booth crowd hands up"
+      },
+      {
+        "texte": "Tard et rentre tôt : il est venu pour la story.",
+        "video": "person taking selfie club lights"
+      }
+    ],
+    "musique": "afro house légère 120 bpm, rythme régulier pour lire chaque case",
+    "legende": "Arrive tôt ou tard, rentre tôt ou ferme la boîte : quatre cases, aucune excuse. Dis ta case en com, et tague celui qui va mentir sur la sienne.",
+    "cta": "Dis ta case en com et tague celui qui ment sur la sienne",
+    "inspire_de": "https://www.instagram.com/p/Df40odgm5q-/ (Partiful)",
+    "pourquoi_viral": "Le format « locate yourself on the chart » de Partiful, version fêtards de la Côte : chacun commente sa case et tague ses potes.",
+    "test_du_partage": "Dans le groupe « sorties du week-end » : « on est tous dans la case en bas à droite ».",
+    "statut": "propose",
+    "ajout": "2026-11-23"
+  },
+  {
+    "id": "c-2026-11-23-cr14uw",
+    "titre": "Le traducteur du groupe WhatsApp",
+    "format": "autre",
+    "accroche": "Ce qu'il écrit à 4 h. Ce que ça veut dire.",
+    "plans": [
+      {
+        "texte": "« J'suis devant » : il vient de sortir de la douche.",
+        "video": "friend getting ready mirror night"
+      },
+      {
+        "texte": "« C'est à 5 min » : 25 min à pied sur la Prom'.",
+        "video": "walking promenade seafront night lights"
+      },
+      {
+        "texte": "« On rentre à 2 h » : rendez-vous à la plage à 7 h.",
+        "video": "sunrise beach promenade friends"
+      },
+      {
+        "texte": "« J'ai pris les préventes » : il les prend là, maintenant.",
+        "video": "phone screen buying tickets night"
+      },
+      {
+        "texte": "« Vocal de 3 min » : rien de grave, juste trop d'émotion.",
+        "video": "phone voice message street night"
+      },
+      {
+        "texte": "« On verra » : on sort. Évidemment qu'on sort.",
+        "video": "friends cheering dancing club lights"
+      }
+    ],
+    "musique": "house groovy 122 bpm avec un petit son de notification à chaque plan",
+    "legende": "Ton groupe parle une langue à part, on a fait le dictionnaire. Envoie-le à celui qui est « devant » depuis quarante minutes. Et toi, c'est quoi la phrase qu'on traduit en premier ? Réponds en com.",
+    "cta": "Envoie ça dans ton groupe, ils vont se reconnaître",
+    "inspire_de": "https://www.instagram.com/p/Df5bWnCm3MJ/ (Partiful)",
+    "pourquoi_viral": "Phrases que tout le monde a écrites ou lues, repères locaux (la Prom'), chaque plan désigne un pote précis à taguer.",
+    "test_du_partage": "Au pote toujours en retard : « j'suis devant, c'est toi ».",
+    "statut": "propose",
+    "ajout": "2026-11-23"
   }
 ]

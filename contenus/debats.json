@@ -423,5 +423,21 @@
     "b": "Fermer la boîte",
     "legende": "Sois honnête. Et tague le pote qui dit A mais fait toujours B.",
     "ajout": "2026-11-21"
+  },
+  {
+    "id": "ia-2026-11-23-9a1cyq",
+    "q": "5 h, plus de tram : tu fais quoi ?",
+    "a": "VTC partagé à quatre",
+    "b": "Plage, puis premier bus",
+    "legende": "5 h du mat', le tram dort, ton groupe aussi un peu. Team VTC partagé ou team plage en attendant le premier bus ? Dis-le en com et tague celui qui a promis de conduire.",
+    "ajout": "2026-11-23"
+  },
+  {
+    "id": "ia-2026-11-23-tbnvyn",
+    "q": "Sortir le jeudi ou le samedi ?",
+    "a": "Jeudi, moins de monde",
+    "b": "Samedi, sinon c'est pas sortir",
+    "legende": "Les uns jurent que le jeudi c'est le vrai soir, les autres que le samedi reste sacré. Ton camp ? Réponds A ou B et tague ton collègue qui sort le jeudi et arrive frais le vendredi.",
+    "ajout": "2026-11-23"
   }
 ]

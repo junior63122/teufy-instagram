@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:blind-wine-tasting-of-6-local-wines-nice-experience-2026-11-24@teufy
+DTSTAMP:20261123T014915Z
+DTSTART:20261124T100000Z
+DTEND:20261124T150000Z
+SUMMARY:Blind Wine Tasting of 6 Local Wines – Nice Experience
+LOCATION:La pêche à la vigne\, 13 Rue Cassini 06300 Nice\, Nice
+DESCRIPTION:Billets : https://www.eventbrite.fr/e/blind-wine-tasting-of-6-local-wines-nice-experience-tickets-2004308066381\nVia Teufy @teufy_official
+URL:https://www.eventbrite.fr/e/blind-wine-tasting-of-6-local-wines-nice-experience-tickets-2004308066381
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Blind Wine Tasting of 6 Local Wines – Nice Experience
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Blind Wine Tasting of 6 Local Wines – Nice Experience
+END:VALARM
+END:VEVENT
+END:VCALENDAR

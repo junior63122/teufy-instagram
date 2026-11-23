@@ -1,5 +1,5 @@
 {
-  "maj": "2026-11-21T15:07:46.230Z",
+  "maj": "2026-11-23T01:34:09.284Z",
   "comptes": {
     "downtown.nice": {
       "abonnes": 2398,
@@ -94,19 +94,19 @@
       "posts": 25
     },
     "hinge": {
-      "abonnes": 320187,
+      "abonnes": 321098,
       "posts": 9
     },
     "ryanair": {
-      "abonnes": 1907763,
+      "abonnes": 1907099,
       "posts": 25
     },
     "eater": {
-      "abonnes": 1601198,
+      "abonnes": 1600008,
       "posts": 25
     },
     "bringue_party": {
-      "abonnes": 91622,
+      "abonnes": 91862,
       "posts": 25
     },
     "bazaarcannes": {
@@ -158,30 +158,30 @@
   },
   "formats": {
     "carrousel": {
-      "score": 1068.65,
-      "posts": 117
+      "score": 828.35,
+      "posts": 151
     },
     "image": {
-      "score": 1.59,
-      "posts": 55
+      "score": 1.63,
+      "posts": 79
     },
     "reel": {
-      "score": 27.53,
-      "posts": 103
+      "score": 22.65,
+      "posts": 129
     }
   },
   "heures": {
     "0": {
-      "score": 2.02,
-      "posts": 2
+      "score": 1.03,
+      "posts": 5
     },
     "1": {
       "score": 0.97,
       "posts": 1
     },
     "2": {
-      "score": 0.95,
-      "posts": 1
+      "score": 2,
+      "posts": 10
     },
     "4": {
       "score": 2.09,
@@ -203,61 +203,65 @@
       "score": 1.01,
       "posts": 1
     },
-    "10": {
-      "score": 1.61,
+    "9": {
+      "score": 0.28,
       "posts": 1
     },
-    "11": {
-      "score": 1.44,
+    "10": {
+      "score": 1.1,
       "posts": 3
     },
+    "11": {
+      "score": 1.15,
+      "posts": 4
+    },
     "12": {
-      "score": 2.09,
-      "posts": 7
+      "score": 2.2,
+      "posts": 8
     },
     "13": {
-      "score": 1.16,
-      "posts": 7
+      "score": 1.64,
+      "posts": 9
     },
     "14": {
-      "score": 1.63,
-      "posts": 6
+      "score": 1.24,
+      "posts": 10
     },
     "15": {
       "score": 1.36,
-      "posts": 17
-    },
-    "16": {
-      "score": 516.98,
-      "posts": 13
-    },
-    "17": {
-      "score": 2.49,
-      "posts": 29
-    },
-    "18": {
-      "score": 35.7,
-      "posts": 46
-    },
-    "19": {
-      "score": 1.14,
-      "posts": 55
-    },
-    "20": {
-      "score": 2.3,
       "posts": 18
     },
+    "16": {
+      "score": 259.27,
+      "posts": 26
+    },
+    "17": {
+      "score": 2.54,
+      "posts": 32
+    },
+    "18": {
+      "score": 26.77,
+      "posts": 62
+    },
+    "19": {
+      "score": 1.13,
+      "posts": 57
+    },
+    "20": {
+      "score": 3.03,
+      "posts": 34
+    },
     "21": {
-      "score": 1.47,
-      "posts": 14
+      "score": 1.3,
+      "posts": 18
     },
     "22": {
-      "score": 3996.98,
-      "posts": 28
+      "score": 3392.14,
+      "posts": 33
     },
     "23": {
-      "score": 352.58,
-      "posts": 21
+      "score": 336.62,
+      "posts": 22
     }
   },
   "accroches": [
@@ -332,18 +336,18 @@
       "lien": "https://www.instagram.com/p/DeCb24BKjE-/"
     },
     {
+      "compte": "bringue_party",
+      "format": "reel",
+      "score": 27.61,
+      "accroche": "🎤 On a demandé aux Parisiennes ce qui les font venir à la Bringue 💬👀",
+      "lien": "https://www.instagram.com/reel/DfVOtlEgKqO/"
+    },
+    {
       "compte": "duolingo",
       "format": "reel",
       "score": 22.33,
       "accroche": "the birthday girl is muy bonita",
       "lien": "https://www.instagram.com/reel/DfnZ7CchmsQ/"
-    },
-    {
-      "compte": "partiful",
-      "format": "reel",
-      "score": 19.26,
-      "accroche": "partiful",
-      "lien": "https://www.instagram.com/reel/DfsjP8nuoLo/"
     }
   ],
   "reperes": {
@@ -380,7 +384,7 @@
     },
     "uptown.nice": {
       "abonnes": 1865,
-      "posts_par_semaine": 2.2,
+      "posts_par_semaine": 2.1,
       "likes": 35,
       "commentaires": 1,
       "taux_pour_cent": 1.98,
@@ -411,7 +415,7 @@
     },
     "la_dinette__": {
       "abonnes": 5659,
-      "posts_par_semaine": 3.4,
+      "posts_par_semaine": 3.3,
       "likes": 31,
       "commentaires": 3,
       "taux_pour_cent": 0.67,
@@ -442,7 +446,7 @@
     },
     "lebarathymtoulon": {
       "abonnes": 10957,
-      "posts_par_semaine": 3,
+      "posts_par_semaine": 2.9,
       "likes": 74,
       "commentaires": 1,
       "taux_pour_cent": 0.68,
@@ -504,7 +508,7 @@
     },
     "dicefm": {
       "abonnes": 93596,
-      "posts_par_semaine": 3.4,
+      "posts_par_semaine": 3.3,
       "likes": 433,
       "commentaires": 12,
       "taux_pour_cent": 0.47,
@@ -535,7 +539,7 @@
     },
     "boilerroomtv": {
       "abonnes": 2886989,
-      "posts_par_semaine": 11.7,
+      "posts_par_semaine": 10.7,
       "likes": 984,
       "commentaires": 13,
       "taux_pour_cent": 0.04,
@@ -566,7 +570,7 @@
     },
     "partiful": {
       "abonnes": 51931,
-      "posts_par_semaine": 22.6,
+      "posts_par_semaine": 19,
       "likes": 0,
       "commentaires": 0,
       "taux_pour_cent": 0,
@@ -597,7 +601,7 @@
     },
     "posh.vip": {
       "abonnes": 103536,
-      "posts_par_semaine": 13.5,
+      "posts_par_semaine": 12.2,
       "likes": 405,
       "commentaires": 6,
       "taux_pour_cent": 0.39,
@@ -628,7 +632,7 @@
     },
     "timeoutnewyork": {
       "abonnes": 778053,
-      "posts_par_semaine": 14.8,
+      "posts_par_semaine": 13.2,
       "likes": 313,
       "commentaires": 13,
       "taux_pour_cent": 0.04,
@@ -659,7 +663,7 @@
     },
     "duolingo": {
       "abonnes": 5438613,
-      "posts_par_semaine": 7.7,
+      "posts_par_semaine": 7.2,
       "likes": 50960,
       "commentaires": 391,
       "taux_pour_cent": 0.94,
@@ -685,6 +689,130 @@
           "comm": 391,
           "accroche": "everyone’s favorite galán 💋",
           "lien": "https://www.instagram.com/reel/DfQBS7uBTN5/"
+        }
+      ]
+    },
+    "hinge": {
+      "abonnes": 321098,
+      "posts_par_semaine": 0,
+      "likes": 3686,
+      "commentaires": 0,
+      "taux_pour_cent": 1.15,
+      "part_reels": 0,
+      "meilleurs": [
+        {
+          "format": "image",
+          "likes": 39189,
+          "comm": 0,
+          "accroche": "",
+          "lien": "https://www.instagram.com/p/CIhMyyqFJUq/"
+        },
+        {
+          "format": "image",
+          "likes": 6005,
+          "comm": 0,
+          "accroche": "",
+          "lien": "https://www.instagram.com/p/CIhM79DFXll/"
+        },
+        {
+          "format": "image",
+          "likes": 4348,
+          "comm": 0,
+          "accroche": "",
+          "lien": "https://www.instagram.com/p/CIhM6R4FA30/"
+        }
+      ]
+    },
+    "ryanair": {
+      "abonnes": 1907099,
+      "posts_par_semaine": 20.7,
+      "likes": 1115,
+      "commentaires": 18,
+      "taux_pour_cent": 0.06,
+      "part_reels": 0.32,
+      "meilleurs": [
+        {
+          "format": "image",
+          "likes": 6778,
+          "comm": 38,
+          "accroche": "well...",
+          "lien": "https://www.instagram.com/p/DfzpUwuCKzy/"
+        },
+        {
+          "format": "reel",
+          "likes": 4092,
+          "comm": 125,
+          "accroche": "be ready 💸🤑",
+          "lien": "https://www.instagram.com/reel/DfxRLQcHHMs/"
+        },
+        {
+          "format": "reel",
+          "likes": 3981,
+          "comm": 43,
+          "accroche": "sorry mate 👍 #stitch w/ avrate",
+          "lien": "https://www.instagram.com/reel/Df5NPovDf-M/"
+        }
+      ]
+    },
+    "eater": {
+      "abonnes": 1600008,
+      "posts_par_semaine": 13.1,
+      "likes": 837,
+      "commentaires": 19,
+      "taux_pour_cent": 0.05,
+      "part_reels": 0.6,
+      "meilleurs": [
+        {
+          "format": "reel",
+          "likes": 10122,
+          "comm": 89,
+          "accroche": "PSA: Don’t watch if you're lactose-intolerant. 😳",
+          "lien": "https://www.instagram.com/reel/Df0D6q7AFIZ/"
+        },
+        {
+          "format": "reel",
+          "likes": 5693,
+          "comm": 110,
+          "accroche": "This chef invented two new versions of butter chicken.",
+          "lien": "https://www.instagram.com/reel/Dfm-HPYD0IJ/"
+        },
+        {
+          "format": "reel",
+          "likes": 5371,
+          "comm": 53,
+          "accroche": "Yes, that’s ox tongue. Yes, it’s delicious. 👅",
+          "lien": "https://www.instagram.com/reel/Df5NgRbAHvB/"
+        }
+      ]
+    },
+    "bringue_party": {
+      "abonnes": 91862,
+      "posts_par_semaine": 6.4,
+      "likes": 397,
+      "commentaires": 4,
+      "taux_pour_cent": 0.43,
+      "part_reels": 0.12,
+      "meilleurs": [
+        {
+          "format": "reel",
+          "likes": 9484,
+          "comm": 520,
+          "accroche": "🎤 On a demandé aux Parisiennes ce qui les font venir à la Bringue 💬👀",
+          "lien": "https://www.instagram.com/reel/DfVOtlEgKqO/"
+        },
+        {
+          "format": "reel",
+          "likes": 4077,
+          "comm": 352,
+          "accroche": "Pourquoi venir en soirée girls only ? 🤔",
+          "lien": "https://www.instagram.com/reel/DfVP3kAgi0B/"
+        },
+        {
+          "format": "carrousel",
+          "likes": 2250,
+          "comm": 8,
+          "accroche": "AFRO BRINGUE IS BACK 🔥🔥 ",
+          "lien": "https://www.instagram.com/p/DfpBk-RCHRA/"
         }
       ]
     }
@@ -3228,6 +3356,786 @@
           "accroche": "the capital of italy is what??",
           "caption": "the capital of italy is what??",
           "lien": "https://www.instagram.com/reel/DfF0Cf-Bk_Z/"
+        }
+      ]
+    },
+    "hinge": {
+      "maj": "2026-11-23T01:34:09.284Z",
+      "abonnes": 321098,
+      "posts": [
+        {
+          "ts": "2020-12-08T01:44:36+0000",
+          "format": "image",
+          "likes": 6005,
+          "comm": 0,
+          "accroche": "",
+          "caption": "",
+          "lien": "https://www.instagram.com/p/CIhM79DFXll/"
+        },
+        {
+          "ts": "2020-12-08T01:44:22+0000",
+          "format": "image",
+          "likes": 4348,
+          "comm": 0,
+          "accroche": "",
+          "caption": "",
+          "lien": "https://www.instagram.com/p/CIhM6R4FA30/"
+        },
+        {
+          "ts": "2020-12-08T01:44:06+0000",
+          "format": "image",
+          "likes": 3751,
+          "comm": 0,
+          "accroche": "",
+          "caption": "",
+          "lien": "https://www.instagram.com/p/CIhM4T-FVAu/"
+        },
+        {
+          "ts": "2020-12-08T01:43:51+0000",
+          "format": "image",
+          "likes": 3686,
+          "comm": 0,
+          "accroche": "",
+          "caption": "",
+          "lien": "https://www.instagram.com/p/CIhM2dQFnYI/"
+        },
+        {
+          "ts": "2020-12-08T01:43:21+0000",
+          "format": "image",
+          "likes": 39189,
+          "comm": 0,
+          "accroche": "",
+          "caption": "",
+          "lien": "https://www.instagram.com/p/CIhMyyqFJUq/"
+        },
+        {
+          "ts": "2020-12-08T01:43:07+0000",
+          "format": "image",
+          "likes": 3503,
+          "comm": 0,
+          "accroche": "",
+          "caption": "",
+          "lien": "https://www.instagram.com/p/CIhMxDmF6_D/"
+        },
+        {
+          "ts": "2020-12-08T01:42:33+0000",
+          "format": "image",
+          "likes": 3120,
+          "comm": 0,
+          "accroche": "",
+          "caption": "",
+          "lien": "https://www.instagram.com/p/CIhMs9qlKTr/"
+        },
+        {
+          "ts": "2020-12-08T01:42:12+0000",
+          "format": "image",
+          "likes": 3116,
+          "comm": 0,
+          "accroche": "",
+          "caption": "",
+          "lien": "https://www.instagram.com/p/CIhMqYVlfgU/"
+        },
+        {
+          "ts": "2020-12-08T01:41:56+0000",
+          "format": "image",
+          "likes": 3634,
+          "comm": 0,
+          "accroche": "",
+          "caption": "",
+          "lien": "https://www.instagram.com/p/CIhMoaUlHvO/"
+        }
+      ]
+    },
+    "ryanair": {
+      "maj": "2026-11-23T01:34:09.284Z",
+      "abonnes": 1907099,
+      "posts": [
+        {
+          "ts": "2026-11-22T15:00:02+0000",
+          "format": "carrousel",
+          "likes": 1916,
+          "comm": 27,
+          "accroche": "travelmaxxing 🤝",
+          "caption": "travelmaxxing 🤝",
+          "lien": "https://www.instagram.com/p/DgDE_tZCLp_/"
+        },
+        {
+          "ts": "2026-11-21T23:00:05+0000",
+          "format": "image",
+          "likes": 363,
+          "comm": 5,
+          "accroche": "Discover Santander through art: FARO Santander and Centro Botín, two cultural spaces facing each other in the city centre, with the bay as t",
+          "caption": "Discover Santander through art: FARO Santander and Centro Botín, two cultural spaces facing each other in the city centre, with the bay as their backdrop. Fly to Santander and let culture lead the way.\n\n#CantabriaInfinita #CantabriaApetece",
+          "lien": "https://www.instagram.com/p/DgBXD-EhHsm/"
+        },
+        {
+          "ts": "2026-11-21T19:01:23+0000",
+          "format": "reel",
+          "likes": 388,
+          "comm": 8,
+          "accroche": "no excuses now 😭",
+          "caption": "no excuses now 😭",
+          "lien": "https://www.instagram.com/reel/DgA7tOMHPsH/"
+        },
+        {
+          "ts": "2026-11-21T13:00:25+0000",
+          "format": "image",
+          "likes": 594,
+          "comm": 8,
+          "accroche": "who even is he 😭",
+          "caption": "who even is he 😭",
+          "lien": "https://www.instagram.com/p/DgASb0RBddZ/"
+        },
+        {
+          "ts": "2026-11-21T10:00:11+0000",
+          "format": "carrousel",
+          "likes": 339,
+          "comm": 5,
+          "accroche": "FIRST DEAL OF CYBER WEEK 🔥",
+          "caption": "FIRST DEAL OF CYBER WEEK 🔥\n\nLINK IN BIO 🔗",
+          "lien": "https://www.instagram.com/p/Df_9z44Iee1/"
+        },
+        {
+          "ts": "2026-11-20T19:01:27+0000",
+          "format": "reel",
+          "likes": 1455,
+          "comm": 13,
+          "accroche": "send this to her 🎁",
+          "caption": "send this to her 🎁",
+          "lien": "https://www.instagram.com/reel/Df-W7ELlMbJ/"
+        },
+        {
+          "ts": "2026-11-20T14:00:20+0000",
+          "format": "image",
+          "likes": 1614,
+          "comm": 46,
+          "accroche": "oh no 🥀",
+          "caption": "oh no 🥀",
+          "lien": "https://www.instagram.com/p/Df90f0rFWOW/"
+        },
+        {
+          "ts": "2026-11-20T09:49:11+0000",
+          "format": "carrousel",
+          "likes": 180,
+          "comm": 3,
+          "accroche": "christmas sorted 🤝",
+          "caption": "christmas sorted 🤝",
+          "lien": "https://www.instagram.com/p/Df9XwehoJCT/"
+        },
+        {
+          "ts": "2026-11-19T15:39:14+0000",
+          "format": "carrousel",
+          "likes": 1115,
+          "comm": 27,
+          "accroche": "RYANAIR ADDS 4 NEW ROUTES FROM LEEDS BRADFORD FOR SUMMER 2027 ✈️",
+          "caption": "RYANAIR ADDS 4 NEW ROUTES FROM LEEDS BRADFORD FOR SUMMER 2027 ✈️",
+          "lien": "https://www.instagram.com/p/Df7bBbaoJey/"
+        },
+        {
+          "ts": "2026-11-19T13:00:11+0000",
+          "format": "carrousel",
+          "likes": 577,
+          "comm": 17,
+          "accroche": "why...🫪",
+          "caption": "why...🫪",
+          "lien": "https://www.instagram.com/p/Df7I0mZFdmC/"
+        },
+        {
+          "ts": "2026-11-18T19:00:44+0000",
+          "format": "reel",
+          "likes": 3981,
+          "comm": 43,
+          "accroche": "sorry mate 👍 #stitch w/ avrate",
+          "caption": "sorry mate 👍 #stitch w/ avrate",
+          "lien": "https://www.instagram.com/reel/Df5NPovDf-M/"
+        },
+        {
+          "ts": "2026-11-18T17:24:34+0000",
+          "format": "reel",
+          "likes": 800,
+          "comm": 23,
+          "accroche": "take a look at the announcement of our first ever engine MRO facility in Seville 👀🇪🇸",
+          "caption": "take a look at the announcement of our first ever engine MRO facility in Seville 👀🇪🇸",
+          "lien": "https://www.instagram.com/reel/Df5CKsBDlOk/"
+        },
+        {
+          "ts": "2026-11-18T13:00:22+0000",
+          "format": "image",
+          "likes": 1058,
+          "comm": 18,
+          "accroche": "shark cards well spent 🤝",
+          "caption": "shark cards well spent 🤝",
+          "lien": "https://www.instagram.com/p/Df4kCwDCZOf/"
+        },
+        {
+          "ts": "2026-11-18T09:52:30+0000",
+          "format": "carrousel",
+          "likes": 1605,
+          "comm": 79,
+          "accroche": "RYANAIR RECORD SUMMER 2027 SCHEDULE FOR BLACK SEA AIRPORTS +40% GROWTH 🇧🇬✈️",
+          "caption": "RYANAIR RECORD SUMMER 2027 SCHEDULE FOR BLACK SEA AIRPORTS +40% GROWTH 🇧🇬✈️",
+          "lien": "https://www.instagram.com/p/Df4OjGDIjiI/"
+        },
+        {
+          "ts": "2026-11-18T08:55:21+0000",
+          "format": "carrousel",
+          "likes": 314,
+          "comm": 5,
+          "accroche": "stop freezing, start booking 🙄",
+          "caption": "stop freezing, start booking 🙄\n\nLINK IN BIO 🔗",
+          "lien": "https://www.instagram.com/p/Df4IAhToa9K/"
+        },
+        {
+          "ts": "2026-11-17T17:06:28+0000",
+          "format": "reel",
+          "likes": 487,
+          "comm": 18,
+          "accroche": "wish me luck 🤞🍀",
+          "caption": "wish me luck 🤞🍀",
+          "lien": "https://www.instagram.com/reel/Df2bXCdgSZd/"
+        },
+        {
+          "ts": "2026-11-17T15:50:23+0000",
+          "format": "carrousel",
+          "likes": 1437,
+          "comm": 14,
+          "accroche": "RYANAIR OPENS FIRST-EVER ENGINE MRO FACILITY IN SEVILLE 🇪🇸",
+          "caption": "RYANAIR OPENS FIRST-EVER ENGINE MRO FACILITY IN SEVILLE 🇪🇸",
+          "lien": "https://www.instagram.com/p/Df2StW-oJL3/"
+        },
+        {
+          "ts": "2026-11-17T11:50:51+0000",
+          "format": "image",
+          "likes": 3451,
+          "comm": 41,
+          "accroche": "take a day off mate 🥱",
+          "caption": "take a day off mate 🥱",
+          "lien": "https://www.instagram.com/p/Df13S28iNR9/"
+        },
+        {
+          "ts": "2026-11-16T23:00:07+0000",
+          "format": "image",
+          "likes": 316,
+          "comm": 11,
+          "accroche": "In Castellón, farm-to-table is a way of life! Dive into rich culinary traditions with iconic dishes like paella, rossejat and tombet, fresh ",
+          "caption": "In Castellón, farm-to-table is a way of life! Dive into rich culinary traditions with iconic dishes like paella, rossejat and tombet, fresh produce, and local delicacies. Your taste buds will thank you!",
+          "lien": "https://www.instagram.com/p/Df0fF3_DNvb/"
+        },
+        {
+          "ts": "2026-11-16T18:31:11+0000",
+          "format": "reel",
+          "likes": 1211,
+          "comm": 10,
+          "accroche": "the usual sir? 🤷🏻‍♂️",
+          "caption": "the usual sir? 🤷🏻‍♂️",
+          "lien": "https://www.instagram.com/reel/Df0ARqmESWg/"
+        },
+        {
+          "ts": "2026-11-16T15:10:19+0000",
+          "format": "image",
+          "likes": 6778,
+          "comm": 38,
+          "accroche": "well...",
+          "caption": "well...",
+          "lien": "https://www.instagram.com/p/DfzpUwuCKzy/"
+        },
+        {
+          "ts": "2026-11-15T17:01:11+0000",
+          "format": "reel",
+          "likes": 4092,
+          "comm": 125,
+          "accroche": "be ready 💸🤑",
+          "caption": "be ready 💸🤑",
+          "lien": "https://www.instagram.com/reel/DfxRLQcHHMs/"
+        },
+        {
+          "ts": "2026-11-15T15:00:37+0000",
+          "format": "image",
+          "likes": 1339,
+          "comm": 19,
+          "accroche": "open a tab 🙏",
+          "caption": "open a tab 🙏",
+          "lien": "https://www.instagram.com/p/DfxDaryoCby/"
+        },
+        {
+          "ts": "2026-11-14T19:01:29+0000",
+          "format": "reel",
+          "likes": 265,
+          "comm": 10,
+          "accroche": "it's the spider's now 🕷️",
+          "caption": "it's the spider's now 🕷️",
+          "lien": "https://www.instagram.com/reel/Dfu6JUOCQ3Y/"
+        },
+        {
+          "ts": "2026-11-14T15:00:16+0000",
+          "format": "carrousel",
+          "likes": 3129,
+          "comm": 47,
+          "accroche": "time to lock IN 🔎",
+          "caption": "time to lock IN 🔎",
+          "lien": "https://www.instagram.com/p/DfuelvBMJn8/"
+        }
+      ]
+    },
+    "eater": {
+      "maj": "2026-11-23T01:34:09.284Z",
+      "abonnes": 1600008,
+      "posts": [
+        {
+          "ts": "2026-11-21T15:03:21+0000",
+          "format": "carrousel",
+          "likes": 0,
+          "comm": 6,
+          "accroche": "This Thanksgiving, let’s be grateful for all the different slices of personality our friends bring to the table. ",
+          "caption": "This Thanksgiving, let’s be grateful for all the different slices of personality our friends bring to the table. \n\n📸: Getty, Shutterstock",
+          "lien": "https://www.instagram.com/p/DgASrzNjiaC/"
+        },
+        {
+          "ts": "2026-11-20T19:02:36+0000",
+          "format": "reel",
+          "likes": 176,
+          "comm": 19,
+          "accroche": "At the Eater Awards presented by capitalone, we awarded the Maison Bar à Vins (_maisondc) team with the Pre Shift Peer Award for excellence ",
+          "caption": "At the Eater Awards presented by capitalone, we awarded the Maison Bar à Vins (_maisondc) team with the Pre Shift Peer Award for excellence in hospitality. We got a chance to catch up with the winners, Chef Matt (conroy_matt) and Chef Jason (jasonchavenson), to get their reaction to winning the award and find out what the future of hospitality looks like to them.\n\nCheck out the full list of winners and all available perks (terms apply) at the link in bio. #CapitalOnePartner",
+          "lien": "https://www.instagram.com/reel/Df-JV0bgjgX/"
+        },
+        {
+          "ts": "2026-11-19T21:02:35+0000",
+          "format": "reel",
+          "likes": 924,
+          "comm": 15,
+          "accroche": "Soup season is here and chef Esther Choi (choibites) knows that French onion reigns supreme. On her day off, Esther visits Pastis (pastisnyc",
+          "caption": "Soup season is here and chef Esther Choi (choibites) knows that French onion reigns supreme. On her day off, Esther visits Pastis (pastisnyc) for their iconic version which takes the staff over four hours to make. All that hard work is rewarded with a savory, brothy soup topped with crispy, caramelized cheese — no wonder it’s their top seller.\n\nTap the link in our bio to watch the full episode of \"Chef’s Day Off\" with Esther Choi and discover all her favorite food spots.",
+          "lien": "https://www.instagram.com/reel/Df7yJBKj5_g/"
+        },
+        {
+          "ts": "2026-11-19T19:03:02+0000",
+          "format": "reel",
+          "likes": 197,
+          "comm": 14,
+          "accroche": "Supervising producer Jordan Shalhoub (jordls) and audience editor Kat Thompson (katthompsonn) tried everything from bubble waffles to baked ",
+          "caption": "Supervising producer Jordan Shalhoub (jordls) and audience editor Kat Thompson (katthompsonn) tried everything from bubble waffles to baked crab rolls at the Hong Kong Wine and Dine Festival, but their food adventure didn’t stop there. On the way back to the States, they were able to choose from Cathay Pacific’s (cathaypacific) six(!) lounges in the Hong Kong airport to enjoy lattes, noodles, and even a tasting menu, and washed it all down with cool cans of Betsy, the airline’s very own brand of beer. When are you booking your flight?\n\n🎥: jordls, katthompsonn",
+          "lien": "https://www.instagram.com/reel/Df7vcDfme3Q/"
+        },
+        {
+          "ts": "2026-11-19T17:04:51+0000",
+          "format": "reel",
+          "likes": 159,
+          "comm": 7,
+          "accroche": "Bar or restaurant — what’s your go-to spot for a night of celebration?",
+          "caption": "Bar or restaurant — what’s your go-to spot for a night of celebration?\n\nWe asked some of the attendees and winners at the Eater Awards what their move is, and their answers came along with some recommendations. Check out the full list of winners and all available perks (terms apply) at the link in bio.",
+          "lien": "https://www.instagram.com/reel/Df7fEbAjpJ3/"
+        },
+        {
+          "ts": "2026-11-18T23:01:58+0000",
+          "format": "carrousel",
+          "likes": 410,
+          "comm": 17,
+          "accroche": "More than 200 chefs, restaurateurs, bartenders, and friends of Eater gathered in NYC on Sunday to celebrate the talented winners of the 2026",
+          "caption": "More than 200 chefs, restaurateurs, bartenders, and friends of Eater gathered in NYC on Sunday to celebrate the talented winners of the 2026 Eater Awards presented by Capital One (capitalone).\n\nGuests enjoyed rooftop views, live portraiture, custom engraving by Toast (toasttab), and dishes inspired by the winning restaurants. A champagne toast honored hospitality’s resilience, and the inaugural, peer-voted Pre Shift Future of Hospitality Award went to Matt Conroy (conroy_matt) and Jason Chavenson (jasonchavenson) of Maison Bar à Vins (_maisondc) in D.C.\n\nHead to the link in bio to learn more a",
+          "lien": "https://www.instagram.com/p/Df5ey4Rk4cF/"
+        },
+        {
+          "ts": "2026-11-18T21:00:44+0000",
+          "format": "reel",
+          "likes": 5371,
+          "comm": 53,
+          "accroche": "Yes, that’s ox tongue. Yes, it’s delicious. 👅",
+          "caption": "Yes, that’s ox tongue. Yes, it’s delicious. 👅\n\nAt Somssi (somssi_nyc), the new restaurant from the team behind Atoboy, Atomix, and Naro, this wagyu grilled ox tongue gets a serious amount of attention before it ever hits the grill. The tongues are brined for up to 24 hours, confited in beef tallow with aromatics for four hours, then peeled and rested overnight before being portioned and finished over the fire. It’s served with romesco and wasabi for a combination that might just change your mind about eating tongue.\n\nTap the link in our bio to see more from Somssi and how its chefs turn unexp",
+          "lien": "https://www.instagram.com/reel/Df5NgRbAHvB/"
+        },
+        {
+          "ts": "2026-11-18T19:03:12+0000",
+          "format": "carrousel",
+          "likes": 101,
+          "comm": 1,
+          "accroche": "The holiday season is officially here! If you need inspiration for your next dinner party setup, SAVE this guide saved for easy reference.",
+          "caption": "The holiday season is officially here! If you need inspiration for your next dinner party setup, SAVE this guide saved for easy reference.\n\nHead to the link in bio to shop our collection with Fortessa.",
+          "lien": "https://www.instagram.com/p/Df5ISp2E-mL/"
+        },
+        {
+          "ts": "2026-11-18T17:04:26+0000",
+          "format": "reel",
+          "likes": 51,
+          "comm": 1,
+          "accroche": "At our event for The Eater Awards presented by capitalone, we asked: What’s your late-night bite that hits so hard every time that you’d giv",
+          "caption": "At our event for The Eater Awards presented by capitalone, we asked: What’s your late-night bite that hits so hard every time that you’d give it an award? 🥇\n\nFrom juicy Peruvian chicken to cereal, we asked some of our Eater Award winners for their takes. \n\nCheck out the full list of winners and all available perks (terms apply) at the link in bio. #CapitalOnePartner\n\n📸: janae_larie",
+          "lien": "https://www.instagram.com/reel/Df4468eHFG-/"
+        },
+        {
+          "ts": "2026-11-17T21:02:00+0000",
+          "format": "carrousel",
+          "likes": 3662,
+          "comm": 27,
+          "accroche": "Bar Nuestro (barnuestrodc) is an explosion of patterns, some of them painted from floor to ceiling, others applied to the tiniest of details",
+          "caption": "Bar Nuestro (barnuestrodc) is an explosion of patterns, some of them painted from floor to ceiling, others applied to the tiniest of details, like a patio umbrella, a banquette, or a curtain that spans the vast dining room. At a time when it’s starting to feel like every restaurant’s got the same lighting and bathroom candle, the restaurant seems to fully be doing its own thing. For Pre Shift, our newsletter for the hospitality industry, we asked founder Daniella Senior to share how it all came together. Read the full interview at the link in our bio.\n\n📸: Rey Lopez (reylopezphoto_)",
+          "lien": "https://www.instagram.com/p/Df2wJvOk4D-/"
+        },
+        {
+          "ts": "2026-11-17T19:03:43+0000",
+          "format": "reel",
+          "likes": 1907,
+          "comm": 70,
+          "accroche": "Tucson-based chef Aaron Lopez (aaron_lopez_86), one of the chefs of the year winners from this year's Eater Awards presented by Capital One ",
+          "caption": "Tucson-based chef Aaron Lopez (aaron_lopez_86), one of the chefs of the year winners from this year's Eater Awards presented by Capital One (capitalone), is giving the desert a seat at the table. At Ursa (ursa_az), opened with his wife June Chee, Lopez merges Indigenous cooking techniques with foraged and locally farmed ingredients, letting the pre-colonial produce and meats boast their innate flavors. Check out the full list of winners and all available perks (terms apply) at the link in bio. #CapitalOnePartner",
+          "lien": "https://www.instagram.com/reel/Df2a27AkrsC/"
+        },
+        {
+          "ts": "2026-11-17T17:03:14+0000",
+          "format": "reel",
+          "likes": 414,
+          "comm": 25,
+          "accroche": "We had a blast at the Eater Awards presented by Capital One (capitalone) this year. Winners across all categories were celebrated in-person ",
+          "caption": "We had a blast at the Eater Awards presented by Capital One (capitalone) this year. Winners across all categories were celebrated in-person for the first time in over ten years!  Have you bookmarked all the spots yet? #CapitalOnePartner\n\n🎥: Sergio Scardigno (sergescardigno)\n\nCheck out the full list of winners and all available perks (terms apply) at the link in bio.",
+          "lien": "https://www.instagram.com/reel/Df2UH84jpf9/"
+        },
+        {
+          "ts": "2026-11-16T21:00:05+0000",
+          "format": "reel",
+          "likes": 10122,
+          "comm": 89,
+          "accroche": "PSA: Don’t watch if you're lactose-intolerant. 😳",
+          "caption": "PSA: Don’t watch if you're lactose-intolerant. 😳\n\nChef Esther Choi (choibites) visits Dominique Ansel's (dominiqueansel) latest bakery, Papa d’Amour (papadamournyc), to see how he crafts some of NYC’s most innovative desserts, from taro mochi donuts to butter-dipped soft serve.\n\nTap the link in our bio to watch the full episode of \"Chef’s Day Off\" with Esther Choi and discover all her favorite food spots.",
+          "lien": "https://www.instagram.com/reel/Df0D6q7AFIZ/"
+        },
+        {
+          "ts": "2026-11-16T19:02:50+0000",
+          "format": "carrousel",
+          "likes": 1143,
+          "comm": 154,
+          "accroche": "Whether the news has you feeling shaken or craving a stirred vesper, Robert Pattinson has officially been cast as the next 007. Thoughts? 🍸",
+          "caption": "Whether the news has you feeling shaken or craving a stirred vesper, Robert Pattinson has officially been cast as the next 007. Thoughts? 🍸",
+          "lien": "https://www.instagram.com/p/Dfz19J6EwOG/"
+        },
+        {
+          "ts": "2026-11-16T17:04:01+0000",
+          "format": "reel",
+          "likes": 61,
+          "comm": 1,
+          "accroche": "#ad Need ideas for this Thanksgiving? Head over to TikTok (TikTok). ",
+          "caption": "#ad Need ideas for this Thanksgiving? Head over to TikTok (TikTok). \n\nWhether you’re hosting Thanksgiving for the first or tenth time, updating your favorite holiday recipes and traditions can feel challenging. Jessie Sheehan (jessiesheehanbakes) turned to the app to find endless inspiration, scrolling through to discover simple, effortless recipes like these Thanksgiving sweet potato biscuits that even include a fun surprise element for guests.\n\nWhat are you making this holiday season?",
+          "lien": "https://www.instagram.com/reel/DfzoZV2j511/"
+        },
+        {
+          "ts": "2026-11-14T17:04:23+0000",
+          "format": "carrousel",
+          "likes": 802,
+          "comm": 10,
+          "accroche": "What did it take to find the winners of this year’s Eater Awards, presented by Capital One? Hundreds of restaurants, bakeries, and bars visi",
+          "caption": "What did it take to find the winners of this year’s Eater Awards, presented by Capital One? Hundreds of restaurants, bakeries, and bars visited across 44 cities. A lot of two-dinner evenings. Some laughably expensive bread. Some dogged, determined line-waiting and reservation stalking. \n\nSwipe through for a highly technical breakdown of our efforts, and click the link in bio to check out this year’s winners. #CapitalOnePartner \n\n📸: Cassidy Araiza (cassidy_araiza), Ellen Mary Cronin (ellenmarycronin), Kim Kovacik (kimkovacik), Haas and Haas (haasandhaas), Cole Saladino (colesaladinophoto), Gar",
+          "lien": "https://www.instagram.com/p/Dfue1ABgIdU/"
+        },
+        {
+          "ts": "2026-11-12T17:10:38+0000",
+          "format": "reel",
+          "likes": 569,
+          "comm": 15,
+          "accroche": "From roast chickens to hand-rolls, there were a lot of patterns we noticed while scouting restaurants across the country for this year's Eat",
+          "caption": "From roast chickens to hand-rolls, there were a lot of patterns we noticed while scouting restaurants across the country for this year's Eater Awards presented by capitalone. Matthew Kang (mattatouille) and Lesley Suter (lesleybs) sat down to chat 2026 food trends and which winners are leading the way.\n\nCheck out the full list of winners and all available perks (terms apply) at the link in bio. #CapitalOnePartner\n\n🎥: jordls",
+          "lien": "https://www.instagram.com/reel/DfpjnQzDuT2/"
+        },
+        {
+          "ts": "2026-11-12T15:03:09+0000",
+          "format": "carrousel",
+          "likes": 1180,
+          "comm": 16,
+          "accroche": "A lot goes into choosing the restaurants, bars, chefs, bakeries, and more honored in the 2026 Eater Awards, presented by capitalone. But it ",
+          "caption": "A lot goes into choosing the restaurants, bars, chefs, bakeries, and more honored in the 2026 Eater Awards, presented by capitalone. But it all comes back to the food. Meet the five best dishes of the year: the creamy, spicy, briny, sweet, savory, and even jiggly creations from around the country that our editors can’t stop thinking about.\n\nBe sure to keep an eye on our channels for more on the 2026 Eater Awards winners. #CapitalOnePartner\n\n📸: Victoria Quirk (victoriaquirkphoto), Victoria Quirk, Nick Oxford (nickoxfordphoto), Megann Galehouse/Lady Lucky Studio (meganngalehouse, ladyluck_studi",
+          "lien": "https://www.instagram.com/p/DfpQ87iE0U_/"
+        },
+        {
+          "ts": "2026-11-11T19:01:56+0000",
+          "format": "reel",
+          "likes": 5693,
+          "comm": 110,
+          "accroche": "This chef invented two new versions of butter chicken.",
+          "caption": "This chef invented two new versions of butter chicken.\n\nChef Mayank Istwal (chefmayankistwal7) is reimagining one of India’s most iconic dishes at Musaafer (musaafernyc), featuring two new distinct variations. The green butter chicken gets its color from vibrant tomatillos and serrano chiles, while the white butter chicken is achieved through the removal of the tomato juice's pigments — transforming the sauce into something completely unexpected. \n\nTap the link in our bio to see more from Musaafer.",
+          "lien": "https://www.instagram.com/reel/Dfm-HPYD0IJ/"
+        },
+        {
+          "ts": "2026-11-11T17:01:40+0000",
+          "format": "carrousel",
+          "likes": 3065,
+          "comm": 33,
+          "accroche": "For the 2026 Eater Awards, presented by capitalone, we’re recognizing the five best new bakeries of the year. With pastry cases packed with ",
+          "caption": "For the 2026 Eater Awards, presented by capitalone, we’re recognizing the five best new bakeries of the year. With pastry cases packed with seasonal (and sometimes viral) treats, lines stretching down the block, and fresh twists on flaky classics, there’s no doubt that the country’s pastry game is stronger than ever. Offering everything from croissants piped with clam chowder to enormous Afghan flatbreads crowned with sour cherry cream cheese, these bakeries are proving that pastries deserve a serious place at the table. \n\nBe sure to keep an eye on our channels for more on the 2026 Eater Award",
+          "lien": "https://www.instagram.com/p/DfmwYq7k_Ya/"
+        },
+        {
+          "ts": "2026-11-10T21:03:09+0000",
+          "format": "carrousel",
+          "likes": 1346,
+          "comm": 19,
+          "accroche": "Today, we announced the 2026 Eater Awards, presented by capitalone, celebrating the best new restaurants, dishes, bakeries, and more across ",
+          "caption": "Today, we announced the 2026 Eater Awards, presented by capitalone, celebrating the best new restaurants, dishes, bakeries, and more across the country. Behind these standout dining experiences are the talented, hardworking chefs who make it all happen. Meet our five Chefs of the Year, whose electric energy, distinct perspectives, attention to detail, and ambition brought exceptional food and unforgettable experiences to diners this year.\n\nBe sure to keep an eye on our channels for more on the 2026 Eater Awards winners. #CapitalOnePartner\n\n📸: Sarah Silbiger (sarahsilbiger), Rey Lopez (reylope",
+          "lien": "https://www.instagram.com/p/DfknGIsk-SD/"
+        },
+        {
+          "ts": "2026-11-10T19:03:46+0000",
+          "format": "reel",
+          "likes": 1518,
+          "comm": 34,
+          "accroche": "15 restaurants. Incredible food. Stories worth telling. Meet the 2026 Best New Restaurants, part of the Eater Awards presented by capitalone",
+          "caption": "15 restaurants. Incredible food. Stories worth telling. Meet the 2026 Best New Restaurants, part of the Eater Awards presented by capitalone.\n\nCheck out the full list of winners and all available perks (terms apply) at the link in bio. #CapitalOnePartner",
+          "lien": "https://www.instagram.com/reel/DfkZXo2k27G/"
+        },
+        {
+          "ts": "2026-11-10T16:46:27+0000",
+          "format": "carrousel",
+          "likes": 3210,
+          "comm": 88,
+          "accroche": "The 2026 Eater Awards presented by capitalone, are here, and most notably, our picks for the Best New Restaurants of the year. These 15 exci",
+          "caption": "The 2026 Eater Awards presented by capitalone, are here, and most notably, our picks for the Best New Restaurants of the year. These 15 exciting destinations across the U.S. not only serve great food with exceptional service but have a compelling story to tell about the year in dining.\n\nBe sure to keep an eye on our channels for more on the 2026 Eater Awards winners. #CapitalOnePartner\n\n📸: Rey Lopez (reylopezphoto_), Pilsen Photo Co-op (pilsenphotocoop), Sarah Silbiger (sarahsilbiger), Haas and Haas (haasandhaas), Kim Kovacik (kimkovacik), James Jackman (james_jackman_), Hannah Rushton (hanna",
+          "lien": "https://www.instagram.com/p/DfkXelxk4Kr/"
+        },
+        {
+          "ts": "2026-11-09T19:15:23+0000",
+          "format": "reel",
+          "likes": 837,
+          "comm": 12,
+          "accroche": "When your app is also art 🎨",
+          "caption": "When your app is also art 🎨\n\nChef Mayank Istwal (chefmayankistwal7) of Musaafer (musaafernyc) brings a traditional Indian art form to the plate in the form of a crispy, rangoli-inspired stenciled stamp made in-house and placed atop a tuna papad. The dish itself reimagines masala papad, a classic Indian snack, with a denser crisp base inspired by mathri, with marinated tuna, pineapple chutney, and mango pickle emulsion.\n\nTap the link in our bio to see how this dish comes together, and tell us: What’s your favorite Diwali food tradition?",
+          "lien": "https://www.instagram.com/reel/DfiDPfQCXnD/"
+        },
+        {
+          "ts": "2026-11-09T17:04:26+0000",
+          "format": "reel",
+          "likes": 493,
+          "comm": 26,
+          "accroche": "Something big is coming…stay tuned tomorrow!",
+          "caption": "Something big is coming…stay tuned tomorrow!",
+          "lien": "https://www.instagram.com/reel/DfhmqaNErpb/"
+        }
+      ]
+    },
+    "bringue_party": {
+      "maj": "2026-11-23T01:34:09.284Z",
+      "abonnes": 91862,
+      "posts": [
+        {
+          "ts": "2026-11-21T15:45:10+0000",
+          "format": "carrousel",
+          "likes": 100,
+          "comm": 1,
+          "accroche": "On vous présente les filles qui vont animer la Bringue de Bordeaux ce soir ! 💕",
+          "caption": "On vous présente les filles qui vont animer la Bringue de Bordeaux ce soir ! 💕\n\n🎶 Aux platines tu retrouveras klemeedjms qui arrive tout droit de Paris pour vous faire kiffer, accompagnée de djlollipop__ spécialiste des années 2000 🪩\n\n🔥 Tu pourras immortaliser la soirée avec un tattoo par _nyx.tattoo \n\n💍 Ou avec un piercing de opiercing_bordeaux \n\n💕 Tu pourras aussi profiter du stand de lash_strasseuse.studio33 qui propose des strass dentaires et des portes clés fait mains \n\nOn se retrouve ce soir pour la Bringue 🥳\n\n📆 SAMEDI 21 NOVEMBRE\n📍 lieucheri \n🎟️ Billetterie en bio",
+          "lien": "https://www.instagram.com/p/DgAlSofCFZi/"
+        },
+        {
+          "ts": "2026-11-19T20:56:05+0000",
+          "format": "carrousel",
+          "likes": 141,
+          "comm": 0,
+          "accroche": "Tu veux te mettre dans le mood pour la soirée Afro Bringue de ce vendredi ? 👀🎶",
+          "caption": "Tu veux te mettre dans le mood pour la soirée Afro Bringue de ce vendredi ? 👀🎶\n\n👉🏽 Swipe pour découvrir quelques sons qui passeront pendant la soirée \n\n💬 Et mets nous en commentaire ton son afro préféré du moment 😍",
+          "lien": "https://www.instagram.com/p/Df7_SH7iCCa/"
+        },
+        {
+          "ts": "2026-11-17T20:21:40+0000",
+          "format": "carrousel",
+          "likes": 239,
+          "comm": 2,
+          "accroche": "On vous présente les filles qui vont animer la Bringue à Paris ce vendredi 🥳",
+          "caption": "On vous présente les filles qui vont animer la Bringue à Paris ce vendredi 🥳\n\n🪩Aux platines, c’est low.lox klemeedjms et chulanza_ qui vont vous faire kiffer toute la soirée avec une playlist exclusivement afro 😍 Afro beat, logobi, gqom, amapiano, coupé décalé… ça va chauffer 🔥🔥\n\n✨ Profites du stand de gemorphosis pour te faire une pose de strass dentaires iconique\n\n🧶 Chopes ta meilleur pièce 100% fait main au stand de honey_.knit._ qui propose aussi des et de press on nails 💅🏾\n\n💇🏾‍♀️ Passses au stand de welovemelanine pour découvrir la routine capillaire parfaite pour tes cheveux \n\n",
+          "lien": "https://www.instagram.com/p/Df2xwX8iEN8/"
+        },
+        {
+          "ts": "2026-11-16T15:51:27+0000",
+          "format": "carrousel",
+          "likes": 158,
+          "comm": 1,
+          "accroche": "Les Bordelaises 👀👀 La Bringue Y2K est de retour et nos meilleurs inspis outfit … C’EST VOUS 😍💕",
+          "caption": "Les Bordelaises 👀👀 La Bringue Y2K est de retour et nos meilleurs inspis outfit … C’EST VOUS 😍💕\n\nRendez-vous ce samedi au lieucheri pour la Bringue Y2k Classics 🪩🥳\n\n🎟️ Billetterie en bio\n\n📸 tranchau.photography",
+          "lien": "https://www.instagram.com/p/DfzuCS2CEuM/"
+        },
+        {
+          "ts": "2026-11-16T15:45:31+0000",
+          "format": "carrousel",
+          "likes": 117,
+          "comm": 2,
+          "accroche": "Les Bringues de la semaine :",
+          "caption": "Les Bringues de la semaine :\n\n📆 Vendredi 20 novembre 📍 Paris\nAfro Bringue à 42__marches dès 23h45 🔥 Aux -1 klemeedjms low.lox et chulanza_ vous feront danser toute la soirée et à l’étage vous pourrez profiter du coin stands ✨\n\n📆 Samedi 21 novembre 📍 Bordeaux\nSoirée Y2K au lieucheri, de 20h à 2h 💿 Aux platines klemeedjms et djlollipop__ vont vous faire kiffer sur tout les hits des années 2000 et 2010 🥳\n\n🎟️ Toutes les billetteries en bio",
+          "lien": "https://www.instagram.com/p/DfztW5EiL-F/"
+        },
+        {
+          "ts": "2026-11-12T19:32:35+0000",
+          "format": "carrousel",
+          "likes": 0,
+          "comm": 4,
+          "accroche": "BRINGUE MEMORIES 💗📼",
+          "caption": "BRINGUE MEMORIES 💗📼\n\n📍Montpellier · Novembre 2023\n\nCe soir-là, on invitait sheryfalunaofficiel pour un showcase qu’on n’est pas près d’oublier 🥹🎤\n\nVous aimeriez voir quelles artistes à La Bringue ? Dites-nous en commentaires 👇💗\n\n📸 tasmyneboumiza",
+          "lien": "https://www.instagram.com/p/Dfp0KcklqSg/"
+        },
+        {
+          "ts": "2026-11-12T18:28:08+0000",
+          "format": "carrousel",
+          "likes": 271,
+          "comm": 8,
+          "accroche": "THE GIRLS LOVE TECHNO ‼️ LINEUP UPDATE",
+          "caption": "THE GIRLS LOVE TECHNO ‼️ LINEUP UPDATE\n\nLa Bringue passe en mode techno avec une edition explosive ! \n\n💥 Line-up de choc, exclusivement féminin avec un mix de hard techno qui va te faire taper du pied toute la soirée.\n-> claude.emmanuelle \n-> lunatixx.vibes \n-> klone.music \n\n💥 Sororité et bienveillance. La Bringue est une safe place, aucun comportement déplacé ne sera toléré\n\n🚫 No Men No Problem 🚫\n\n💥 Une piste de danse réservée aux meufs pour exprimer votre liberté\n\n💥 Un son qui va vous faire vibrer de la tête aux pieds.\n\n💥 PAS DE DRESS CODE ! À La Bringue, on vous accepte comme vous êt",
+          "lien": "https://www.instagram.com/p/DfpsyXeFvL6/"
+        },
+        {
+          "ts": "2026-11-12T13:45:13+0000",
+          "format": "image",
+          "likes": 250,
+          "comm": 3,
+          "accroche": "⭐️💕 NANCY 💕⭐️",
+          "caption": "⭐️💕 NANCY 💕⭐️\n\nLa Bringue est de retour à Nancy pour une dernière soirée entre meufs avant la fin de l’année ! 🥳\n\nAu programme pour cette édition \n\n🎧 DJ set exclusivement féminin avec hninv_v et dj_honey_b qui vont vous ambiancer toute la nuit ! \n\n🔥 SHATTA • BOUYON • RAP • AFRO •  HIP-HOP • POP \n\n💃 Une soirée girls only crée pour toutes les girls et personnes s’identifiant au spectre féminin \n\n👗 PAS DE DRESS CODE ! \nEn talons, basket, mini jupes ou pantalons cargo, vous êtes les bienvenues ! Un seul mot d’ordre : être à l’aise pour s’amuser !\n\n📸 Une photographe sera présente pour immor",
+          "lien": "https://www.instagram.com/p/DfpMI-foTqR/"
+        },
+        {
+          "ts": "2026-11-12T12:10:34+0000",
+          "format": "carrousel",
+          "likes": 2250,
+          "comm": 8,
+          "accroche": "AFRO BRINGUE IS BACK 🔥🔥 ",
+          "caption": "AFRO BRINGUE IS BACK 🔥🔥 \n\nPlus que quelques jours avant notre Bringue 100% Afro et 100% Giiiiirls 🥰🥳\n\nPréviens tes copines et prépares tes meilleurs pas de danse ! ✨\n\n📆 VENDREDI 20 NOV\n📍 42__marches \n🎟️ Billetterie en bio \n\n📸 solangethebadd",
+          "lien": "https://www.instagram.com/p/DfpBk-RCHRA/"
+        },
+        {
+          "ts": "2026-11-09T16:11:05+0000",
+          "format": "carrousel",
+          "likes": 1358,
+          "comm": 6,
+          "accroche": "Les Parisiennes vous avez mis le feuuuuu pour Halloween 😍😍 ",
+          "caption": "Les Parisiennes vous avez mis le feuuuuu pour Halloween 😍😍 \n\nOn vous retrouve le 20.11 pour une Afro Bringue à ne pas rater 🥳\n\n📸 solangethebadd",
+          "lien": "https://www.instagram.com/p/DfhuuBDCJeq/"
+        },
+        {
+          "ts": "2026-11-06T19:31:59+0000",
+          "format": "carrousel",
+          "likes": 410,
+          "comm": 11,
+          "accroche": "🎀💥 THE GIRLS LOVE TECHNO 💥🎀",
+          "caption": "🎀💥 THE GIRLS LOVE TECHNO 💥🎀\n\nLa Bringue passe en mode techno avec une nouvelle edition explosive ! \n\n💥 Line-up de choc avec un mix de hard techno qui va te faire taper du pied toute la soirée.\n-> claude.emmanuelle \n-> chailatheee \n-> klone.music \n\n💥 Sororité et bienveillance. La Bringue est une safe place, aucun comportement déplacé ne sera toléré\n\n🚫 No Men No Problem 🚫\n\n💥 Une piste de danse réservée aux meufs pour exprimer votre liberté\n\n💥 Un son qui va vous faire vibrer de la tête aux pieds.\n\n💥 PAS DE DRESS CODE ! À La Bringue, on vous accepte comme vous êtes. Talons, basket, mini",
+          "lien": "https://www.instagram.com/p/DfaXU0diL7k/"
+        },
+        {
+          "ts": "2026-11-05T20:26:05+0000",
+          "format": "carrousel",
+          "likes": 397,
+          "comm": 1,
+          "accroche": "Dans quelques jours on est de retour à Metz pour une Bringue XXL au barlatinometz 🥳🔥 ",
+          "caption": "Dans quelques jours on est de retour à Metz pour une Bringue XXL au barlatinometz 🥳🔥 \n\nAu programme : un espace girls only, du gros sons, un max de stands et une énergie de dingue ! 🤩😍\n\nSi ta pas encore pris ta place, fonce sur le lien en bio pour la prendre !\n\n📆 MARDI 10 NOVEMBRE (veille de jours férié)\n📍 barlatinometz \n🎟️ Billetterie en bio",
+          "lien": "https://www.instagram.com/p/DfX4uNplpIa/"
+        },
+        {
+          "ts": "2026-11-05T17:58:21+0000",
+          "format": "image",
+          "likes": 215,
+          "comm": 4,
+          "accroche": "🪩 LA BRINGUE PASSE EN MODE TEEN PARTY 🪩",
+          "caption": "🪩 LA BRINGUE PASSE EN MODE TEEN PARTY 🪩\n\nTu as entre 14 et 17 ans et tu veux profiter d’une soirée entre meufs ? Cette Bringue est pour toi ! 🥳🫵🏼\n\nUne Bringue 100% girls, rien que pour les filles de 14 à 17 ans, de 19h à 23h, en plein coeur de Paris ! 😍😍\n\nAU PROGRAMME :\n\n💃 Une soirée girls only créée pour toutes les girls de 14 à 17 ans (et uniquement elles !)\n\n🍹 Une conso offerte dès l’entrée\n\n🥤 Des cocktails sans alcool pour trinquer toute la soirée\n\n🎧 DJ set pour danser toute la soirée !\n🎵 Mets nous en commentaire le son que tu veux absolument entendre pendant la soirée 👀\n\n🌟 D",
+          "lien": "https://www.instagram.com/p/DfXmv47sWLF/"
+        },
+        {
+          "ts": "2026-11-04T19:51:55+0000",
+          "format": "reel",
+          "likes": 4077,
+          "comm": 352,
+          "accroche": "Pourquoi venir en soirée girls only ? 🤔",
+          "caption": "Pourquoi venir en soirée girls only ? 🤔\nOn laisse le Bringueuses te répondre ! 💬\n\n#soirée",
+          "lien": "https://www.instagram.com/reel/DfVP3kAgi0B/"
+        },
+        {
+          "ts": "2026-11-04T19:50:09+0000",
+          "format": "reel",
+          "likes": 9484,
+          "comm": 520,
+          "accroche": "🎤 On a demandé aux Parisiennes ce qui les font venir à la Bringue 💬👀",
+          "caption": "🎤 On a demandé aux Parisiennes ce qui les font venir à la Bringue 💬👀",
+          "lien": "https://www.instagram.com/reel/DfVOtlEgKqO/"
+        },
+        {
+          "ts": "2026-11-04T15:45:26+0000",
+          "format": "carrousel",
+          "likes": 530,
+          "comm": 1,
+          "accroche": "Les Bringueuses de Nancy sont toujours au rendez-vous ! 😍😍",
+          "caption": "Les Bringueuses de Nancy sont toujours au rendez-vous ! 😍😍\n\nOn se retrouve demain pour fêter Halloween entre meufs au mybeersnancy.essey ! 🥳\n\n📸 erys.atelier",
+          "lien": "https://www.instagram.com/p/DfUzzxKiEXK/"
+        },
+        {
+          "ts": "2026-11-03T17:59:17+0000",
+          "format": "image",
+          "likes": 444,
+          "comm": 8,
+          "accroche": "💅🏽🥳 PYJAMA PARTY À RENNES 🥳💅🏽",
+          "caption": "💅🏽🥳 PYJAMA PARTY À RENNES 🥳💅🏽\n\nRennes ! On espère que vous êtes prêtes pour une nouvelle soirée. Cette fois, La Bringue passe en mode pyjama party 🌃\n\n💃 Une soirée girls only crée pour toutes les girls et personnes s’identifiant au spectre féminin\n\n🎧 Dj set de llanamour et blissmew_ \n\n🔥POP • HIP POP • RAP • SHATTA • R&B• AFROBEATS • ... Un mix explosif qui va vous faire danser jusqu’à l’aube 🎶🎧\n\n💋Des stands pour te mettre au max pendant la soirée !\n\n🎤 Une salle karaoké pour chanter tes sons préférés \n\n🚫No men no problem -> profites d’une soirée bienveillante en sororité\n \n🌭 Food",
+          "lien": "https://www.instagram.com/p/DfSduPJIJSl/"
+        },
+        {
+          "ts": "2026-10-30T16:42:32+0000",
+          "format": "image",
+          "likes": 671,
+          "comm": 12,
+          "accroche": "🪩💘 Y2K CLASSICS À BORDEAUX 💘🪩",
+          "caption": "🪩💘 Y2K CLASSICS À BORDEAUX 💘🪩\n\nPréviens tes copines, c’est l’heure de faire la Bringue en mode Y2K à Bordeaux ! \n\nAu programme pour cette soirée : \n\n💃 Une espace 100% girls, pensé pour toutes les femmes et personnes s’identifiant au spectre féminin \n\n🎧 DJ set exclusivement féminin avec klemeedjms et djlollipop__ qui vont vous ambiancer toute la soirée !\n\n🔥 Prépare toi à redécouvrir tous les bangers des années 2000 & 2010 ! \n\n🎀 DRESS CODE : Y2K -> Baby tees, mini-jupes, cargos, strass, lunettes teintées, denim, petits sacs, tracksuits… ressors ton meilleur look années 2000 💿✨ Le dress ",
+          "lien": "https://www.instagram.com/p/DfICSHKosvS/"
+        },
+        {
+          "ts": "2026-10-28T22:19:47+0000",
+          "format": "carrousel",
+          "likes": 598,
+          "comm": 7,
+          "accroche": "La semaine dernière, les Bringueuses de Bruxelles ont donné le top départ pour Halloween ! 😍🎃 ",
+          "caption": "La semaine dernière, les Bringueuses de Bruxelles ont donné le top départ pour Halloween ! 😍🎃 \n\nOn continue Halloween dans encore 8 villes ! \n📍 BORDEAUX \n📍 TOULOUSE\n📍 NANTES\n📍 LYON\n📍 MONTPELLIER\n📍 LILLE\n📍 PARIS \n📍 NANCY \n\n🎟️ Toutes les billetteries en bio \n📸 coeurs.sauvagees",
+          "lien": "https://www.instagram.com/p/DfDfX9AiD05/"
+        },
+        {
+          "ts": "2026-10-28T17:00:19+0000",
+          "format": "image",
+          "likes": 523,
+          "comm": 12,
+          "accroche": "🇨🇲🇨🇩 AFRO BRINGUE À PARIS 🇨🇮🇿🇦",
+          "caption": "🇨🇲🇨🇩 AFRO BRINGUE À PARIS 🇨🇮🇿🇦\n\nLa Bringue revient avec une édition 100% Afro qui va vous faire danser toute la nuit ! 🥳\n\nAu programme pour cette édition : \n\n🎧 Aux platines, c’est klemeedjms , chulanza_ et low.lox qui vont vous ambiancer \n\n🔥 AFRO • AMAPIANO • GQOM • COUPÉ DÉCALÉ ... Un mix 100% Afro qui va vous faire kiffer jusqu’à l’aube 🎵💫\n\n💃 Une ambiance 100% girls, une nuit de folie, de danse et de sororité\n\n👗 NO DRESS CODE ! En talons, basket, mini jupes ou pantalons cargo, vous êtes les bienvenues ! Un seul mot d’ordre : être à l’aise pour s’amuser !\n\n🚫 No men, no problem",
+          "lien": "https://www.instagram.com/p/DfC6FFwoZXX/"
+        },
+        {
+          "ts": "2026-10-28T15:34:40+0000",
+          "format": "carrousel",
+          "likes": 1193,
+          "comm": 1,
+          "accroche": "Retour sur notre Halloween à Bordeaux en 2024 👻💘 ",
+          "caption": "Retour sur notre Halloween à Bordeaux en 2024 👻💘 \n\nOn remet ça demain à labelleenfolie.bordeaux dès 20h ! 🎃👻\n\nPrends ta place et prépares ton costume ! \n\n📸 social.media.happener",
+          "lien": "https://www.instagram.com/p/DfCxAxaiOqA/"
+        },
+        {
+          "ts": "2026-10-28T12:55:27+0000",
+          "format": "image",
+          "likes": 360,
+          "comm": 5,
+          "accroche": "💘 BRINGUE Y2K À REIMS💘",
+          "caption": "💘 BRINGUE Y2K À REIMS💘\n\nPréviens tes copines, on fait un retour dans les années 2000 ! \n\n💃 Une espace 100% girls, pensé pour toutes les femmes et personnes s’identifiant au spectre féminin \n\n🎧 DJ set exclusivement feminin avec llanamour et vampti_12 qui vont vous ambiancer toute la soirée !\n\n🔥 Prépare toi à redécouvrir tout les bangers des années 2000 & 2010 ! \n\n🎀 DRESS CODE : Y2K -> Baby tees, mini-jupes, cargos, strass, lunettes teintées, denim, petits sacs, tracksuits… ressors ton meilleur look années 2000 💿✨ Le dress code reste une inspiration, jamais une obligation : viens comme tu",
+          "lien": "https://www.instagram.com/p/DfCeOdgIsmV/"
+        },
+        {
+          "ts": "2026-10-26T20:14:02+0000",
+          "format": "carrousel",
+          "likes": 327,
+          "comm": 2,
+          "accroche": "Lille, tu te souviens d’Halloween 2022 ? 🎃🖤",
+          "caption": "Lille, tu te souviens d’Halloween 2022 ? 🎃🖤\nMaquillages de dingue, costumes d’enfer, 100% girls et zéro jugement. On remet ça en plus fou ce samedi au jost.lille ! 😈\n\nPréviens tes copines et venez faire la Bringue 🎃👻\n\n📸 coeurs.sauvagees",
+          "lien": "https://www.instagram.com/p/De-HZMtiEK5/"
+        },
+        {
+          "ts": "2026-10-26T17:10:49+0000",
+          "format": "image",
+          "likes": 861,
+          "comm": 5,
+          "accroche": "🌟 BRINGUE Y2K À STRASBOURG🌟",
+          "caption": "🌟 BRINGUE Y2K À STRASBOURG🌟\n\nPréviens tes copines, c’est l’heure de faire la Bringue à Strasbourg en mode Y2K ! \n\n💃 Une espace 100% girls, pensé pour toutes les femmes et personnes s’identifiant au spectre féminin \n\n🎧 DJ set exclusivement feminin avec DJ Nesquik et aurorasow qui vont vous ambiancer toute la soirée !\n\n🔥 Prépare toi à redécouvrir tout les bangers des années 2000 & 2010 ! \n\n🎀 DRESS CODE : Y2K -> Baby tees, mini-jupes, cargos, strass, lunettes teintées, denim, petits sacs, tracksuits… ressors ton meilleur look années 2000 💿✨\nLe dress code reste une inspiration, jamais une o",
+          "lien": "https://www.instagram.com/p/De9yIOuIYf3/"
+        },
+        {
+          "ts": "2026-10-26T17:00:01+0000",
+          "format": "reel",
+          "likes": 165,
+          "comm": 0,
+          "accroche": "Les Montpelliéraines, on vous donne rendez-vous ce vendredi pour un Halloween 100% GIIIIRLS 👻🎃",
+          "caption": "Les Montpelliéraines, on vous donne rendez-vous ce vendredi pour un Halloween 100% GIIIIRLS 👻🎃\n\nPréviens tes copines et venez faire la Bringue pour Halloween, ça se pass a l’ austrarocksmontpellier ce vendredi dès 20h ! \n\n🖤 DJ SET DE lw2.music \n🖤 Des stands selenaa.mua cocow_nails.and.strass yellowtattoo_ mysukia.ttt \n🖤 Show de cotonxgum et suspiria_charmz \n\n🎟️ Billetterie en bio \n\n📹 viennatish",
+          "lien": "https://www.instagram.com/reel/De9vy0RIfQK/"
         }
       ]
     }

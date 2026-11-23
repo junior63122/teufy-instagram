@@ -530,5 +530,12 @@
   "licence": "CC BY-SA 3.0",
   "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
   "source": "https://commons.wikimedia.org/wiki/File:La_Tourette-Cabard%C3%A8s_-_vue_g%C3%A9n%C3%A9rale.jpg"
+ },
+ "Mandelieu": {
+  "fichier": "site/img/villes/mandelieu.jpg",
+  "auteur": "Drov06210",
+  "licence": "CC BY-SA 4.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Mandelieu-La_Napoule_vue_a%C3%A9rienne.jpg"
  }
 }

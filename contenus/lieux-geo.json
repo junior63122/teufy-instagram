@@ -1574,5 +1574,45 @@
   "introuvable": true,
   "v": 2,
   "le": "2026-11-22T21:44:34.548Z"
+ },
+ "the whisky shop cannes|cannes": {
+  "lat": 43.55312,
+  "lng": 7.02001,
+  "le": "2026-11-23T01:44:33.119Z"
+ },
+ "eglise protestante unie de nice|nice": {
+  "lat": 43.6992,
+  "lng": 7.26385,
+  "le": "2026-11-23T01:44:33.329Z"
+ },
+ "restaurant of the week|cannes": {
+  "lat": 43.55201,
+  "lng": 7.01405,
+  "le": "2026-11-23T01:44:33.750Z"
+ },
+ "hotel mercure nice centre notre dame|nice": {
+  "lat": 43.70368,
+  "lng": 7.26686,
+  "le": "2026-11-23T01:44:33.961Z"
+ },
+ "leo ferre space|monaco": {
+  "lat": 43.73015,
+  "lng": 7.41688,
+  "le": "2026-11-23T01:44:35.615Z"
+ },
+ "eglise saint-francois-de-paule de nice|nice": {
+  "lat": 43.69578,
+  "lng": 7.27195,
+  "le": "2026-11-23T01:44:35.828Z"
+ },
+ "theatre francis gag|nice": {
+  "lat": 43.69804,
+  "lng": 7.27801,
+  "le": "2026-11-23T01:44:36.116Z"
+ },
+ "7 cor fahnestock|saint-laurent-du-var": {
+  "lat": 43.67619,
+  "lng": 7.18476,
+  "le": "2026-11-23T01:44:36.333Z"
  }
 }

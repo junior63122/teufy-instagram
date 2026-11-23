@@ -5265,5 +5265,212 @@
    "m": 20
   },
   "taxi": null
+ },
+ "43.55312,7.02001": {
+  "le": "2026-11-23T01:45:23.125Z",
+  "parkings": [
+   {
+    "nom": "Parking du Gray D'albion",
+    "type": "underground",
+    "payant": true,
+    "m": 114
+   },
+   {
+    "nom": "Gare SNCF",
+    "type": "multi-storey",
+    "payant": true,
+    "m": 152
+   },
+   {
+    "nom": "Parking Saint-Nicolas",
+    "type": "underground",
+    "payant": null,
+    "m": 178
+   }
+  ],
+  "transports": [
+   {
+    "nom": "Gare Centrale",
+    "type": "bus",
+    "m": 60,
+    "lignes": ""
+   },
+   {
+    "nom": "Cannes",
+    "type": "train",
+    "m": 115,
+    "lignes": ""
+   },
+   {
+    "nom": "Rue des Serbes - BHNS",
+    "type": "bus",
+    "m": 184,
+    "lignes": ""
+   }
+  ],
+  "velo": {
+   "nom": "Bike Trip",
+   "m": 80
+  },
+  "taxi": {
+   "nom": "",
+   "m": 86
+  }
+ },
+ "43.52663,5.45075": {
+  "le": "2026-11-23T01:47:51.967Z",
+  "parkings": [
+   {
+    "nom": "Parking Mignet",
+    "type": "underground",
+    "payant": true,
+    "m": 312
+   },
+   {
+    "nom": "Parking Mignet",
+    "type": "underground",
+    "payant": true,
+    "m": 345
+   },
+   {
+    "nom": "Parking Carnot",
+    "type": "underground",
+    "payant": true,
+    "m": 404
+   }
+  ],
+  "transports": [
+   {
+    "nom": "Roi René",
+    "type": "bus",
+    "m": 314,
+    "lignes": ""
+   },
+   {
+    "nom": "Gambetta",
+    "type": "bus",
+    "m": 332,
+    "lignes": ""
+   },
+   {
+    "nom": "Aix-en-Provence",
+    "type": "train",
+    "m": 629,
+    "lignes": ""
+   }
+  ],
+  "velo": null,
+  "taxi": {
+   "nom": "Rotonde",
+   "m": 437
+  }
+ },
+ "43.6992,7.26385": {
+  "le": "2026-11-23T01:48:23.279Z",
+  "parkings": [
+   {
+    "nom": "Louvre",
+    "type": "underground",
+    "payant": true,
+    "m": 96
+   },
+   {
+    "nom": "Espace Grimaldi",
+    "type": "",
+    "payant": null,
+    "m": 129
+   },
+   {
+    "nom": "Parking Mozart",
+    "type": "underground",
+    "payant": true,
+    "m": 222
+   }
+  ],
+  "transports": [
+   {
+    "nom": "Alphonse Karr",
+    "type": "bus",
+    "m": 108,
+    "lignes": "38"
+   },
+   {
+    "nom": "Congrès / Joffre",
+    "type": "bus",
+    "m": 121,
+    "lignes": "38"
+   },
+   {
+    "nom": "Jean Médecin",
+    "type": "tram",
+    "m": 252,
+    "lignes": ""
+   },
+   {
+    "nom": "Masséna",
+    "type": "tram",
+    "m": 456,
+    "lignes": ""
+   }
+  ],
+  "velo": {
+   "nom": "",
+   "m": 190
+  },
+  "taxi": {
+   "nom": "",
+   "m": 393
+  }
+ },
+ "43.55201,7.01405": {
+  "le": "2026-11-23T01:48:51.571Z",
+  "parkings": [
+   {
+    "nom": "Parking Pantiero",
+    "type": "underground",
+    "payant": true,
+    "m": 98
+   },
+   {
+    "nom": "Parking Palais",
+    "type": "underground",
+    "payant": true,
+    "m": 336
+   },
+   {
+    "nom": "Parking Vauban",
+    "type": "multi-storey",
+    "payant": true,
+    "m": 353
+   }
+  ],
+  "transports": [
+   {
+    "nom": "Hôtel de Ville - Pantiero - BHNS",
+    "type": "bus",
+    "m": 146,
+    "lignes": ""
+   },
+   {
+    "nom": "Gare Maritime - BHNS",
+    "type": "bus",
+    "m": 154,
+    "lignes": ""
+   },
+   {
+    "nom": "Cannes",
+    "type": "train",
+    "m": 533,
+    "lignes": ""
+   }
+  ],
+  "velo": {
+   "nom": "Mistral",
+   "m": 265
+  },
+  "taxi": {
+   "nom": "Palais",
+   "m": 225
+  }
  }
 }

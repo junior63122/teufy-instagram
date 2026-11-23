@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:concert-a-nice-tchaikovsky-williams-vivaldi-pachelbel-corell-2026-12-16@teufy
+DTSTAMP:20261123T014915Z
+DTSTART:20261216T190000Z
+DTEND:20261217T000000Z
+SUMMARY:Concert à Nice : Tchaikovsky\, Williams\, Vivaldi\, Pachelbel\, Corelli\, Monti\,
+LOCATION:Théâtre Francis Gag\, 4 Rue de la Croix 06300 Nice\, Nice
+DESCRIPTION:Billets : https://www.eventbrite.fr/e/concert-a-nice-tchaikovsky-williams-vivaldi-pachelbel-corelli-monti-tickets-2003962756550\nVia Teufy @teufy_official
+URL:https://www.eventbrite.fr/e/concert-a-nice-tchaikovsky-williams-vivaldi-pachelbel-corelli-monti-tickets-2003962756550
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Concert à Nice : Tchaikovsky\, Williams\, Vivaldi\, Pachelbel\, Corelli\, Monti\,
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Concert à Nice : Tchaikovsky\, Williams\, Vivaldi\, Pachelbel\, Corelli\, Monti\,
+END:VALARM
+END:VEVENT
+END:VCALENDAR

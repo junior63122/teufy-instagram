@@ -4,11 +4,11 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:aper-elles-evening-december-2026-12-02@teufy
-DTSTAMP:20261122T224921Z
+DTSTAMP:20261123T014915Z
 DTSTART:20261202T173000Z
 DTEND:20261202T223000Z
 SUMMARY:Aper’ELLES Evening December
-LOCATION:Panama\, 11 Place Garibaldi\, 06300 Nice\, Nice
+LOCATION:Panama\, 11 Place Garibaldi 06300 Nice\, Nice
 DESCRIPTION:Billets : https://www.eventbrite.com/e/aperelles-evening-december-tickets-2004949139849\nVia Teufy @teufy_official
 URL:https://www.eventbrite.com/e/aperelles-evening-december-tickets-2004949139849
 BEGIN:VALARM

@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:hbr-press-webinar-unspeakable-2026-11-23@teufy
+DTSTAMP:20261123T014915Z
+DTSTART:20261123T130000Z
+DTEND:20261123T180000Z
+SUMMARY:HBR Press Webinar: Unspeakable
+LOCATION:
+DESCRIPTION:Billets : https://www.eventbrite.com/e/hbr-press-webinar-unspeakable-tickets-2004063230069\nVia Teufy @teufy_official
+URL:https://www.eventbrite.com/e/hbr-press-webinar-unspeakable-tickets-2004063230069
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : HBR Press Webinar: Unspeakable
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : HBR Press Webinar: Unspeakable
+END:VALARM
+END:VEVENT
+END:VCALENDAR

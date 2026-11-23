@@ -169,6 +169,16 @@
         "titre": "Premier week-end de décembre. T'as un plan ?",
         "sous": "Envoie-le à ton groupe",
         "ajout": "2026-11-21"
+      },
+      {
+        "titre": "Ce qu'il écrit à 4 h. Ce que ça veut dire.",
+        "sous": "Envoie-le à ton groupe",
+        "ajout": "2026-11-23"
+      },
+      {
+        "titre": "Arrive tôt ou tard ? Rentre tôt ou ferme ?",
+        "sous": "Place-toi, tague les autres",
+        "ajout": "2026-11-23"
       }
     ],
     "techno": [
@@ -252,6 +262,11 @@
         "titre": "Dehors il fait 8 degrés. Dedans, 140 BPM.",
         "sous": "Techno · Côte d'Azur",
         "ajout": "2026-11-21"
+      },
+      {
+        "titre": "Celui qui dit « juste un set » à minuit",
+        "sous": "Tague ton binôme",
+        "ajout": "2026-11-23"
       }
     ],
     "petits-prix": [
@@ -316,6 +331,11 @@
         "titre": "Le 30, la paye tombe. Le 29, on sort comment ?",
         "sous": "Petits prix · Côte d'Azur",
         "ajout": "2026-11-21"
+      },
+      {
+        "titre": "Black Friday sur ton canap' ? Sors plutôt.",
+        "sous": "Petits prix · Côte d'Azur",
+        "ajout": "2026-11-23"
       }
     ]
   },
@@ -350,7 +370,9 @@
       "Le physio te regarde, la file avance pas, et ton groupe hésite encore. Voilà où sortir ce week-end de Cannes à Monaco, à envoyer à ceux qui viennent.",
       "Jeudi, vendredi, samedi : trois soirs, un seul budget. On a fait le tri de Nice à Juan. Tague celui qui choisit toujours trop tard.",
       "Décembre commence, les pots de Noël aussi. Les soirées du week-end de Nice à Monaco, à envoyer à ceux qui disent encore « on verra ».",
-      "Avant les fêtes, on se fait plaisir. Les soirées du week-end de Cannes à Monaco, triées pour ton groupe. Tague celui qui choisit sa tenue trois heures avant."
+      "Avant les fêtes, on se fait plaisir. Les soirées du week-end de Cannes à Monaco, triées pour ton groupe. Tague celui qui choisit sa tenue trois heures avant.",
+      "Il dit « j'suis devant ». Il sort de la douche. Les soirées du week-end de Nice à Monaco, à envoyer avant qu'il dise « 5 min ».  Tu fais laquelle ? Réponds en com.",
+      "Jeudi pour les malins, samedi pour tout le monde. Les soirées de la semaine de Cannes à Monaco, triées pour ton groupe. Tague celui qui dit toujours « ce week-end, promis »."
     ],
     "techno": [
       "Les caissons tremblent déjà. Ce week-end, la scène underground du 06 ne fait aucun compromis sur les BPM.",
@@ -369,11 +391,13 @@
       "Un nom vient de tomber et le groupe s'enflamme déjà. Les dates qui tapent ce mois-ci sur la Côte, à envoyer à ton binôme avant qu'il les découvre seul.",
       "Warehouse, after, lever de soleil sur la mer. Les soirées techno du week-end sur la Côte, pour ceux qui viennent pour la musique.",
       "Il fait froid, les warehouses chauffent. Les dates qui tapent ce week-end sur la Côte, à envoyer à ton binôme qui a déjà pris sa prévente.",
-      "Décembre, mois des gros line-ups. Les soirées techno du week-end sur la Côte, pour ceux qui finissent toujours au lever du jour."
+      "Décembre, mois des gros line-ups. Les soirées techno du week-end sur la Côte, pour ceux qui finissent toujours au lever du jour.",
+      "Minuit : « juste un set ». 7 h : sur la plage. Les dates qui tapent ce week-end sur la Côte, à envoyer à ton binôme qui ment pareil.",
+      "Hard techno, trance ou tekno : dis-nous en com, on compte les camps. Les soirées du week-end sur la Côte, pour ceux qui viennent pour la musique."
     ]
   },
-  "objectif_semaine": 42,
-  "derniere_analyse": "2026-11-21T15:07:46.214Z",
+  "objectif_semaine": 40,
+  "derniere_analyse": "2026-11-23T01:34:08.878Z",
   "concurrents": {
     "_note": "Comptes concurrents ou similaires (guides de sorties, médias nightlife). Le bot regarde chaque jour ce qui marche chez eux (formats, accroches, hashtags, heures). Un nom inexistant est simplement ignoré.",
     "liste": [
@@ -397,34 +421,34 @@
   },
   "formats_a_tester": [
     {
-      "format": "Carrousel « situe-toi sur le tableau » : axes rentre tôt / ferme la boîte et arrive à l'heure / arrive après la prévente",
-      "pourquoi": "Le carrousel écrase tout chez les autres comptes (score 1068 contre 27 pour le reel) et ce format pousse à taguer son pote dans la bonne case.",
-      "source": "https://www.instagram.com/p/Df40odgm5q-/",
-      "ajout": "2026-11-21"
+      "format": "Concours hebdo « tague le pote qui vient avec toi » sur une soirée techno ou un festival",
+      "pourquoi": "Meilleur ratio commentaires et abonnés du compte, se partage naturellement entre potes.",
+      "source": "Chiffres du compte : Frigo 16 97/100 (18 com.), LQB Festival 100 (28 com., 8 abonnés)",
+      "ajout": "2026-11-23"
     },
     {
-      "format": "Concours avec partenaire local, tag d'un pote obligatoire",
-      "pourquoi": "Meilleur ratio commentaires et abonnés gagnés du compte (Frigo 16 : 63/100, historique jusqu'à 100/100).",
-      "source": "Chiffres du compte (concours 2026-11-20, 2026-03-25, 2026-04-28)",
-      "ajout": "2026-11-21"
+      "format": "Carrousel « place-toi sur la carte » (deux axes, quatre profils de fêtards)",
+      "pourquoi": "Format qui fait commenter sa case et taguer les autres, adaptable aux galères de la Côte.",
+      "source": "https://www.instagram.com/p/Df40odgm5q-/ (Partiful)",
+      "ajout": "2026-11-23"
     },
     {
-      "format": "Post veille « un nom vient de tomber » dès l'annonce d'un line-up",
-      "pourquoi": "Veille HUGEL : 100/100 et 8 partages, sans concours ni pub.",
-      "source": "Chiffres du compte (veille 2026-11-09)",
-      "ajout": "2026-11-21"
+      "format": "Reel personnage : la mascotte Teufy qui envoie des notifs taquines",
+      "pourquoi": "Humour de marque qui se partage sans parler de produit, très loin du ton publicitaire.",
+      "source": "https://www.instagram.com/reel/DfnZ7CchmsQ/ (Duolingo)",
+      "ajout": "2026-11-23"
     },
     {
-      "format": "Carrousel thème de before des fêtes (before Nouvel An, before pot de Noël)",
-      "pourquoi": "Le carrousel before à thème de Partiful est leur meilleur post de loin, et décembre est la saison des befores.",
-      "source": "https://www.instagram.com/p/Df5bWnCm3MJ/",
-      "ajout": "2026-11-21"
+      "format": "Carrousel « plan du before avant d'aller à X » avec étapes illustrées",
+      "pourquoi": "Le plus gros score des inspirations, transposable au before avant une soirée techno ou au Vieux-Nice.",
+      "source": "https://www.instagram.com/p/Df5bWnCm3MJ/ (Partiful)",
+      "ajout": "2026-11-23"
     },
     {
-      "format": "Publication à 16 h UTC (17 h à Nice) pour les posts forts",
-      "pourquoi": "16 h UTC ressort chez les autres comptes et notre concours à 16 h a fait 63/100, contre 25 en moyenne à 18 h.",
-      "source": "Tendances autres comptes + chiffres du compte",
-      "ajout": "2026-11-21"
+      "format": "Même reel en Trial Reels avec deux accroches différentes",
+      "pourquoi": "Permet de tester l'accroche sans abîmer la note du feed, sur des concepts encore jamais notés.",
+      "source": "https://www.instagram.com/p/Dc5WyRQH2Mw (info créateur, à vérifier dans l'app)",
+      "ajout": "2026-11-23"
     }
   ],
   "inspirations_internationales": {

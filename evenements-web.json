@@ -1,9 +1,9 @@
 {
-  "maj": "2026-11-22T01:09:10.129Z",
-  "du": "2026-11-22",
-  "au": "2027-01-06",
-  "nb_bruts": 1,
-  "recherches_abouties": "6/6",
+  "maj": "2026-11-23T01:36:49.905Z",
+  "du": "2026-11-23",
+  "au": "2027-01-07",
+  "nb_bruts": 0,
+  "recherches_abouties": "1/12",
   "evenements": [
     {
       "source": "web",
@@ -65,31 +65,6 @@
       ],
       "billetterie_cherchee": true,
       "offres_cherchees": true
-    },
-    {
-      "source": "web",
-      "source_site": "Instagram @trafalbarnice",
-      "name": "Traf’ Fever Saturday",
-      "start": "2026-11-22T19:00:00.000Z",
-      "venue": "Trafalbar Vieux Nice",
-      "city": "Nice",
-      "address": "",
-      "url": "https://www.instagram.com/p/DgALkADh3hF/",
-      "image": "https://scontent-iad3-2.cdninstagram.com/v/t39.30808-6/915606962_1459099532861089_1162063003974808949_n.jpg?stp=dst-jpg_e35_tt6",
-      "price": 0,
-      "tags": [
-        "house",
-        "techno"
-      ],
-      "description": "Trafalbar Vieux Nice ouvre ses portes du mardi au samedi. Happy hour 20h-22h, 1 acheté = 1 offert. Ambiance rythmée, musique house et techno. Entrée gratuite avant 2h30. Idéal pour les étudiants et les 17‑30 ans qui cherchent une soirée décontractée.",
-      "public_cible": 1,
-      "confiance": 0.6,
-      "buzz": 0.4,
-      "buzz_raison": "Happy hour, club populaire, cible jeune.",
-      "accroche": "Happy hours 20h-22h, 1 acheté = 1 offert, club à l’ambiance pirate.",
-      "instagram": [
-        "trafalbarnice"
-      ]
     },
     {
       "source": "web",
@@ -2836,32 +2811,6 @@
     },
     {
       "source": "web",
-      "source_site": "Instagram @mamashelternice",
-      "name": "Dragolote avec Lady Miss Tik",
-      "start": "2026-11-22T18:00:00.000Z",
-      "venue": "Mama Shelter Nice",
-      "city": "Nice",
-      "address": "",
-      "url": "https://www.instagram.com/p/DfSV2FJDoP9/",
-      "image": "https://scontent-sjc6-1.cdninstagram.com/v/t51.82787-15/876258227_17986904040094268_5330521541180242558_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=108&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=Q55Ikfv14IcQ7kNvwGF2sNX&_nc_oc=Adqr5nGHwtozrzvJ78Cug4mXi3gbAAr5-dA24aBKtU_poCwhBuoyf8lue2y_k9JEbK8&_nc_zt=23&_nc_ht=scontent-sjc6-1.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=Y5c6MtWeVCYw1zsoWfC8ZA&oh=00_AQT5XYWDeRXuY7mBrnRKj9zYxb9zOMXt5rua3TxyNKJbOQ&oe=6AF6BE55",
-      "price": 0,
-      "tags": [
-        "drag show",
-        "pop"
-      ],
-      "description": "",
-      "public_cible": 0.75,
-      "confiance": 0.85,
-      "buzz": 0.6,
-      "buzz_raison": "Format drag show convivial très populaire le dimanche soir.",
-      "accroche": "Loto décalé et performances drag animés par Lady Miss Tik au Mama Shelter Nice.",
-      "instagram": [
-        "mamashelternice",
-        "lady_miss_tik"
-      ]
-    },
-    {
-      "source": "web",
       "source_site": "cannes.com",
       "name": "Showcase #5 : Luzula / Venin Carmin / Code 150 / Harfaang",
       "start": "2026-12-12T22:00:00.000Z",
@@ -3092,31 +3041,6 @@
       "source": "web",
       "source_site": "instagram.com",
       "via_veille": true,
-      "name": "Afro Bringue",
-      "start": "2026-11-22T19:00:00.000Z",
-      "venue": "Lieu à confirmer",
-      "city": "Nice",
-      "address": "",
-      "url": "https://www.instagram.com/p/Df7_SH7iCCa/",
-      "image": "https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/917425263_18350375338254355_1804463581972076383_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=89y4SlDLF0UQ7kNvwGVls_C&_nc_oc=AdqXFXW2_FNeDS5OfuErY63PxYTbnjxlpkLE1KREWIyetK5U26JrCAws7y_0f380Je8&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=Fwid_p2byo4i3nDopy-mHQ&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQR7Ez7awwi6H_S8JHcV56u90n_sAeDrzRllGbiEeoA5Dg&oe=6B0612E3",
-      "price": null,
-      "tags": [
-        "Afro",
-        "Dance",
-        "Party"
-      ],
-      "description": "",
-      "public_cible": 0.6,
-      "confiance": 0.9,
-      "accroche": "Soirée Afro Bringue ce vendredi à Nice – ambiance afro‑dance garantie.",
-      "instagram": [
-        "bringue_party"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "instagram.com",
-      "via_veille": true,
       "name": "Duty Party",
       "start": "2026-11-27T19:00:00.000Z",
       "venue": "Limone, Marseille",
@@ -3264,6 +3188,5 @@
       ],
       "offres": []
     }
-  ],
-  "maj_instagram": "2026-11-22T22:41:52.233Z"
+  ]
 }
