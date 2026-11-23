@@ -81,3 +81,7 @@ mises à jour, sources de soirées réparées ou ajoutées, décisions prises. T
   fichiers présents sont ajoutés. Les actions checkout@v7 / setup-node@v7 ont fonctionné.
 - DATAtourisme : l'export « événements » est compressé (gzip) malgré son nom en .csv ; 52 166 lignes illisibles, 0 soirée gardée.
   Corrigé : décompression si besoin et lecture des champs sur plusieurs lignes (test ajouté). Vérification au prochain relevé.
+- 10 h 30 : bilan des soirées. Le site affiche 108 soirées (67 le 22/11). Recherche web : 88 soirées à venir (Shotgun 34,
+  Instagram 28, autres billetteries et sites) ; API Eventbrite : 28 ; Tavily : 30 recherches aujourd'hui (plafond atteint, pas
+  dépassé). DATAtourisme : la décompression marche (69 771 événements lus) mais 0 gardé ; lecture des dates rendue tolérante
+  (plusieurs dates dans une case, format français) et motifs de rejet écrits dans le journal. Vérification au relevé de demain matin.

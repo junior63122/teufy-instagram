@@ -40,3 +40,12 @@ test('agendas : CSV avec un champ sur plusieurs lignes', async () => {
   const { lignesCsv } = await import('../src/agendas.mjs');
   assert.deepEqual([...lignesCsv('nom;desc\n"Soirée";"ligne 1\nligne 2"\nB;x\n', ';')], [['nom', 'desc'], ['Soirée', 'ligne 1\nligne 2'], ['B', 'x']]);
 });
+
+test('agendas : prochaine date lisible (plusieurs dates, format français)', async () => {
+  const { prochaineDate } = await import('../src/agendas.mjs');
+  const m = Date.parse('2026-11-23T10:00:00Z');
+  assert.equal(new Date(prochaineDate('2026-11-20|2026-11-27', m)).toISOString().slice(0, 10), '2026-11-27');
+  assert.equal(new Date(prochaineDate('28/11/2026', m)).toISOString().slice(0, 10), '2026-11-28');
+  assert.equal(new Date(prochaineDate('2026-11-29T22:00:00+01:00', m)).toISOString(), '2026-11-29T21:00:00.000Z');
+  assert.equal(prochaineDate('bientôt', m), null);
+});

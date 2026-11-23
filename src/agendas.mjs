@@ -37,13 +37,24 @@ export function* lignesCsv(texte, sep) {
   if (champ || ligne.length) { ligne.push(champ); yield ligne; }
 }
 
+/** Prochaine date à venir d'une case de date (ISO, AAAA-MM-JJ, JJ/MM/AAAA, plusieurs dates séparées), sinon la première ; null si illisible. */
+export function prochaineDate(texte, maintenant = Date.now()) {
+  const ts = [];
+  for (const m of String(texte).matchAll(/(\d{4}-\d{2}-\d{2})(T[\d:.]+(?:Z|[+-]\d{2}:?\d{2})?)?|(\d{2})\/(\d{2})\/(\d{4})/g)) {
+    const iso = m[1] ? (m[2] ? `${m[1]}${m[2]}` : `${m[1]}T20:00:00+01:00`) : `${m[5]}-${m[4]}-${m[3]}T20:00:00+01:00`;
+    const t = Date.parse(iso); if (!Number.isNaN(t)) ts.push(t);
+  }
+  if (!ts.length) return null;
+  return ts.filter((t) => t >= maintenant - 6 * 3600e3).sort((a, b) => a - b)[0] ?? ts[0];
+}
+
 /** Colonnes reconnues d'après leur nom (le format exact de l'export peut changer : on cherche par mots). */
 export function colonnes(entetes) {
   const n = entetes.map((h) => h.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase());
   const trouve = (...re) => n.findIndex((h) => re.some((r) => r.test(h)));
   return { nom: trouve(/^nom/, /label/, /titre/, /^name/), debut: trouve(/date.*debut/, /debut/, /start/), fin: trouve(/date.*fin/, /^fin/, /end/),
     commune: trouve(/commune/, /ville/, /city/, /locality/), cp: trouve(/code.?postal/, /postal/), adresse: trouve(/adresse/, /address/, /street/),
-    lieu: trouve(/lieu/, /etablissement/, /venue/), url: trouve(/url/, /site.?web/, /homepage/), image: trouve(/image/, /photo/, /illustration/),
+    lieu: trouve(/lieu/, /etablissement/, /venue/), url: trouve(/url/, /site.?web/, /homepage/, /^web$/), image: trouve(/image/, /photo/, /illustration/),
     categories: trouve(/categor/, /type/, /theme/), description: trouve(/description/, /resume/) };
 }
 
@@ -60,20 +71,25 @@ async function datatourisme({ garder, log }) {
   const texte = brut.toString('utf8').replace(/^\uFEFF/, '');
   const premiere = texte.slice(0, texte.indexOf('\n'));
   const sep = (premiere.match(/;/g) || []).length > (premiere.match(/,/g) || []).length ? ';' : ',';
-  let C, n = 0; const sortie = [];
+  let C, n = 0; const sortie = [], rejets = {};
+  const rejet = (k, ex) => { const r = (rejets[k] ||= { n: 0, ex: [] }); r.n++; if (r.ex.length < 3 && ex) r.ex.push(String(ex).slice(0, 60)); };
   for (const v of lignesCsv(texte, sep)) {
     if (!C) { C = colonnes(v); log(`  DATAtourisme : colonnes ${v.slice(0, 16).join(' | ')}`); continue; }
     n++;
     const g = (k) => (C[k] >= 0 ? (v[C[k]] || '').trim() : '');
     const e = { source: 'datatourisme', name: g('nom'), start: g('debut'), end: g('fin'), venue: g('lieu'), city: g('commune'), address: [g('adresse'), g('cp'), g('commune')].filter(Boolean).join(', '),
       url: g('url').split(/[\s|,]/)[0] || '', image: g('image').split(/[\s|,]/)[0] || '', price: null, tags: g('categories').split(/[|,;]/).map((x) => x.trim()).filter(Boolean).slice(0, 4), description: g('description').slice(0, 400), popularite: null };
-    if (!e.name || !e.start) continue;
-    const t = Date.parse(e.start.length === 10 ? `${e.start}T20:00:00+01:00` : e.start);
-    if (!t || t < Date.now() - 6 * 3600e3 || t > Date.now() + 60 * 864e5) continue;
+    if (!e.name || !e.start) { rejet('sans nom ou date', e.start); continue; }
+    // Plusieurs dates possibles dans la case (« 2026-11-23|2026-11-30 »), ou au format français : la prochaine à venir.
+    const t = prochaineDate(e.start);
+    if (t == null) { rejet('date illisible', e.start); continue; }
+    if (t < Date.now() - 6 * 3600e3 || t > Date.now() + 60 * 864e5) { rejet('hors période', e.start); continue; }
     e.start = new Date(t).toISOString();
-    if (garder(e)) sortie.push(e);
+    const r = garder(e);
+    if (r === true) sortie.push(e); else rejet(r || 'écarté', `${e.name} (${e.city})`);
   }
   log(`  DATAtourisme : ${n} événement(s) lus, ${sortie.length} soirée(s) gardée(s) dans nos villes.`);
+  log(`  DATAtourisme : écartés ${Object.entries(rejets).map(([k, v]) => `${k} ${v.n} (ex. ${v.ex.join(' ; ')})`).join(' | ') || 'aucun'}`);
   return sortie;
 }
 
@@ -93,7 +109,7 @@ async function openagenda({ key, garder, log, villes }) {
           const e = { source: 'openagenda', name: t(ev.title), start: tim.begin ? new Date(tim.begin).toISOString() : '', end: tim.end ? new Date(tim.end).toISOString() : '',
             venue: loc.name || '', city: loc.city || '', address: loc.address || '', url: ev.canonicalUrl || ev.registration?.find?.((x) => /^http/.test(x.value || ''))?.value || '',
             image: ev.image ? `${ev.image.base || ''}${ev.image.filename || ''}` : '', price: null, tags: (t(ev.keywords) || []).slice?.(0, 4) || [], description: t(ev.description).slice(0, 400), popularite: null };
-          if (e.name && e.start && Date.parse(e.start) > Date.now() - 6 * 3600e3 && garder(e)) sortie.push(e);
+          if (e.name && e.start && Date.parse(e.start) > Date.now() - 6 * 3600e3 && garder(e) === true) sortie.push(e);
         }
       } catch { /* agenda illisible */ }
     }
@@ -105,7 +121,8 @@ async function openagenda({ key, garder, log, villes }) {
 export async function releverAgendas({ log = console.log } = {}) {
   const { rubriqueDe } = await import('./sources.mjs');
   const { PAS_SOIREE, EST_SOIREE, VILLES_FRANCE, VILLES_OCCITANIE } = await import('./recherche.mjs');
-  const garder = (e) => { const t = `${e.name} ${e.tags.join(' ')} ${e.description}`; return !!rubriqueDe(e) && EST_SOIREE.test(t) && !PAS_SOIREE.test(t); };
+  // true = gardé ; sinon le motif (journal du relevé).
+  const garder = (e) => { const t = `${e.name} ${e.tags.join(' ')} ${e.description}`; if (!rubriqueDe(e)) return 'hors de nos villes'; if (!EST_SOIREE.test(t)) return 'pas une soirée'; if (PAS_SOIREE.test(t)) return 'exclu (atelier, salon…)'; return true; };
   const rapport = [], evenements = [];
   try { const ev = await datatourisme({ garder, log }); evenements.push(...ev); rapport.push({ source: 'datatourisme', evenements: ev.length }); }
   catch (err) { rapport.push({ source: 'datatourisme', erreur: String(err.message).slice(0, 200) }); log(`  DATAtourisme : ${err.message}`); }
