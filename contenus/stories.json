@@ -520,5 +520,39 @@
   "vide": true,
   "ids": [],
   "le": "2026-11-23T15:08:07.851Z"
+ },
+ {
+  "jour": "2026-11-23",
+  "type": "pret-concours-frigo16-rappel",
+  "cles": [
+   "pret-concours-frigo16-rappel"
+  ],
+  "ids": [
+   "18196965985403177"
+  ],
+  "faites": [
+   0
+  ],
+  "relue": true,
+  "absentes": [],
+  "manquantes": [],
+  "le": "2026-11-23T17:11:08.396Z"
+ },
+ {
+  "jour": "2026-11-23",
+  "type": "offre",
+  "cles": [
+   "av-Le Barathym-1 shooter offert sur présentation de Teufy"
+  ],
+  "ids": [
+   "18113757908226146"
+  ],
+  "faites": [
+   0
+  ],
+  "relue": true,
+  "absentes": [],
+  "manquantes": [],
+  "le": "2026-11-23T17:11:23.770Z"
  }
 ]
