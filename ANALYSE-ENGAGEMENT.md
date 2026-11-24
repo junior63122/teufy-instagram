@@ -1,5 +1,65 @@
 # Journal des revues de croissance
 
+## Analyse complète des publications, 24/11/2026 (tâche programmée)
+
+**Données** : 78 publications mesurées (`apprentissage.json`, de décembre 2024 au 21/11/2026), dont 61 faites à la main
+(2024-2026) et 17 par le robot (depuis le 08/11/2026) ; abonnés relevés du 08 au 23/11. Limites : statistiques relues dans le
+relevé du robot, pas en direct sur l'API (pas d'accès réseau à Instagram depuis la session d'analyse) ; les 3 publications du
+22 au 24/11 ne sont pas encore mesurées ; rétention des réels = durée moyenne regardée seulement (pas de courbe).
+
+| Moyennes par publication | Comptes touchés | Vues (réels) | J'aime | Enregistrements | Partages |
+|---|---|---|---|---|---|
+| Posts faits à la main (51) | 1 863 | — | 41,8 | 7,7 | 13,5 |
+| dont listes à thème (Halloween, Nouvel An, techno, été) (23) | 2 287 | — | 59,8 | 13,8 | 21,8 |
+| Réels faits à la main (10) | 2 528 | 3 944 | 42,5 | 7,9 | 4,7 |
+| Posts du robot (9) | 697 | — | 6,7 | 0,8 | 2,9 |
+| Réels du robot (7) | 491 | 655 | 2,3 | 0,1 | 0,9 |
+
+Abonnés : 14 474 le 08/11, 14 426 le 23/11 (−48, environ −3 par jour). Avec 14 400 abonnés, un réel du robot touche 2 à 6 %
+d'entre eux : la base est en grande partie inactive (beaucoup d'abonnés viennent d'anciens concours).
+
+**Ce qui marche** (toutes périodes) : les listes de soirées à thème daté avec une promesse claire (été 2025 : 7 772 comptes,
+116 enregistrements ; Halloween : 5 442 comptes, 174 partages ; Nouvel An : 3 900, 58 partages ; techno de janvier : 3 821,
+80 partages) ; côté robot, les petits prix (« Fin de mois difficile ? », 1 292 comptes), le guide « Où manger à Monaco après la
+boîte » (1 088), l'actu HUGEL (977, 8 partages) et le réel « Pourquoi l'entrée est gratuite avant 1 h » (1 140 vues, 6,8 s).
+
+**Ce qui ne marche pas du tout** : les spots promo de l'appli (268 à 524 vues, 0 à 3 j'aime, 3 à 4 s regardées sur 13 : on
+décroche avant la moitié), le Grand Débat (550 et 942 vues, 0 et 2 j'aime), les carrousels « coups de cœur » génériques
+(355 comptes, le pire), et les publications de minuit (deux réels partis vers 0 h 50 à Paris le 11 et le 18/11).
+
+**Les 3 causes principales**
+1. **Trop de publicité pour l'appli, pas assez de soirées concrètes.** Sur 17 publications du robot, 6 parlent de Teufy
+   (spots, promo) plutôt que des soirées ; ce sont les moins vues. Ce qui a fait le succès du compte, ce sont des listes datées
+   (« les soirées d'Halloween », « du Nouvel An », « la techno d'octobre ») qu'on enregistre et qu'on partage.
+2. **Les réels perdent le spectateur dès les premières secondes** : 2,9 à 4,8 s regardées en moyenne pour le robot, contre 5 à
+   7,6 s pour les réels faits à la main (images réelles de soirée, visages). Les visuels animés et les écrans de l'appli ne
+   retiennent pas.
+3. **Une base d'abonnés peu active et un compte relancé après un an de silence** : chaque publication peu engageante réduit
+   encore la diffusion (moins de 5 % des abonnés touchés), d'où la baisse continue des abonnés.
+
+**Comparaison avec les comptes de la Côte** (`tendances-auto.json`, 40 comptes, 15 analysés en détail) : les clubs locaux
+(Down Town, Uptown, Nice) font environ 2 % de j'aime par abonné avec 1 à 2 publications par semaine, presque toujours de
+vraies photos ou vidéos de leurs soirées (foule, DJ, visages) et une info pratique (heure, prix, adresse). Teufy est à 0,05 %
+de j'aime par abonné. Les comptes d'événements qui marchent le plus (Partiful) jouent sur l'humour et la reconnaissance
+(« situe-toi sur le tableau »), en carrousel.
+
+**Correctifs mis en place le 24/11** (poussés sur `main`, 184 tests verts, couvertures vérifiées à l'œil)
+- Décembre : le carrousel du vendredi devient « Les soirées du Nouvel An » (nuit du 31) une fois par semaine dès qu'il y a
+  4 soirées du 31 avec affiche (`src/themes-posts.mjs`, `fenetreNouvelAn`, testé).
+- Spots promo : 2 → 1 par semaine (le mercredi, minimum fixé par le directeur) ; le samedi passe en réel « tendance », le
+  format réel du robot qui marche le mieux.
+- Titres de secours concrets (« Où sortir cette semaine sur la Côte »…) au lieu de « Nos coups de cœur ».
+- Scénarios et légendes des réels écrits d'abord par Gemini (essai d'une semaine, voir plus bas).
+- Les événements de journée et ceux qui ne parlent pas aux 18-30 ans (orgue, classique, thé dansant) ne sont plus proposés aux posts.
+
+**Signalé au directeur (ne coûte rien, mais demande sa participation)** : les vidéos de vraies soirées (Drive) sont ce qui
+retient le mieux ; plus il y en a, plus le robot peut faire de réels « soirée réelle » au lieu de réels animés.
+
+**À mesurer aux revues du 27/11 et du 01/12** : comptes touchés et partages du carrousel du vendredi (objectif : plus de
+1 000 comptes, comme les meilleurs posts du robot) ; durée regardée des réels « tendance » du samedi contre les spots
+(objectif : plus de 5 s) ; courbe des abonnés (objectif : arrêter la baisse) ; aucune publication après 21 h 30 à Paris (les deux
+réels de 0 h 50 sont à expliquer : le garde-fou existe depuis le 12/11).
+
 ## Décision du 24/11/2026 : Gemini écrit les réels (essai d'une semaine)
 - Directeur : « Gemini doit surtout servir au marketing ». Scénarios et légendes des réels (`studio/scripts/ecrire*.mjs`) :
   Gemini d'abord, Claude en secours ; Claude gardé pour l'analyse et la stratégie ; Groq pour le site, la veille, les traductions.
