@@ -4,12 +4,11 @@
     {
       "type": "repost",
       "cles": [
-        "r-17877067128639358"
+        "q-dj-reve"
       ],
       "frames": [
         {
-          "video": "2026-11-24-repost.mp4",
-          "local": true
+          "image": "2026-11-24-repost.jpg"
         }
       ]
     }
