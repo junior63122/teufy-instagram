@@ -7877,5 +7877,52 @@
    "lieu": ""
   },
   "commun": []
+ },
+ "v2|f007b69ac0fa": {
+  "ok": true,
+  "le": "2026-11-24T18:13:56.378Z",
+  "nom": "Sisters Of Sand 3",
+  "lu": {
+   "titre": "Sisters of Sand",
+   "dates": [],
+   "artistes": [
+    "Fornap"
+   ],
+   "lieu": ""
+  },
+  "commun": [
+   "sisters",
+   "sand"
+  ]
+ },
+ "v2|1978e41e2dde": {
+  "ok": true,
+  "le": "2026-11-24T18:14:08.804Z",
+  "nom": "La Grande Nuit du Disco",
+  "lu": {
+   "titre": "La Grande Nuit du Disco",
+   "dates": [],
+   "artistes": [],
+   "lieu": ""
+  },
+  "commun": [
+   "grande",
+   "nuit",
+   "disco"
+  ]
+ },
+ "v2|08c63dc1babd": {
+  "ok": true,
+  "le": "2026-11-24T18:18:34.657Z",
+  "nom": "PONY PONY RUN RUN / ALASTAIR LANE en concert",
+  "lu": {
+   "titre": "PONY PONY RUN RUN",
+   "dates": [],
+   "artistes": [],
+   "lieu": ""
+  },
+  "commun": [
+   "pony"
+  ]
  }
 }
