@@ -67,14 +67,16 @@
   },
   {
    "jour": "2026-11-24",
-   "le": "2026-11-24T16:11:15.098Z",
+   "le": "2026-11-24T17:14:49.802Z",
    "ok": [
     "bonplan-a-reserver : en ligne et conforme (https://www.instagram.com/p/DgISQfaFLQC/)",
-    "reel-tague-ton-pote : pas encore publié (repris au prochain passage)",
+    "reel-tague-ton-pote : en ligne et conforme (https://www.instagram.com/reel/DgIdnqmDZcw/)",
     "story soirees : 1 image(s) en ligne",
     "story astuce : 1 image(s) en ligne"
    ],
-   "problemes": []
+   "problemes": [
+    "story repost : 1 image(s) pas publiée(s)"
+   ]
   }
  ]
 }
