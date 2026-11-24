@@ -5937,6 +5937,48 @@
       "instagram": [
         "ledixhuit_nice"
       ]
+    },
+    {
+      "source": "web",
+      "source_site": "instagram.com",
+      "via_veille": true,
+      "name": "Ladies Night",
+      "start": "2026-11-28T19:00:00.000Z",
+      "venue": "Bulldog Pub, Nice",
+      "city": "Nice",
+      "address": "",
+      "url": "https://www.instagram.com/p/DgHhUwLI0uu/",
+      "image": "https://scontent-ord5-2.cdninstagram.com/v/t51.82787-15/924303805_18218001775369532_1316104191243016237_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=103&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=AyT5sZiORqYQ7kNvwHqtTcC&_nc_oc=AdrXvwCBz5jQDM7h-_Yl7FNu4reBbyzsxE6mKyBO1DxwoEXquVDyRR_BhugQKmZH-jg&_nc_zt=23&_nc_ht=scontent-ord5-2.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=6IolxqFXYuqq0XLEjxagrA&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQTHcQSUkC6I5tJ4sVjD-Fo7D0oXSD1zrW7J2YCtNg1DCg&oe=6B0B4DA5",
+      "price": null,
+      "tags": [],
+      "description": "",
+      "public_cible": 0.6,
+      "confiance": 0.8,
+      "accroche": "Ladies Night chaque mardi avec happy hour long island et DJ Kenzo.",
+      "instagram": [
+        "bulldogpompeipub"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "instagram.com",
+      "via_veille": true,
+      "name": "Happy hour Barracuda",
+      "start": "2026-11-24T19:00:00.000Z",
+      "venue": "9 Rue du Batéguier - Carré d’Or, Cannes",
+      "city": "Cannes",
+      "address": "",
+      "url": "https://www.instagram.com/p/DgGCZQyEftd/",
+      "image": "https://scontent-ord5-2.cdninstagram.com/v/t51.82787-15/927867410_17964308448250848_3784470895261804610_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=109&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=O8aSv9pcn4AQ7kNvwH8Y5Yy&_nc_oc=AdrBwULMK_2NgpE6mrU4IzXCnpQLWJhWG-dnwf19-UM6RCZaTh-xC32EXVAEDngiRxg&_nc_zt=23&_nc_ht=scontent-ord5-2.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=u4wOaQN1S3mDub-iAdTazg&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQQjgshAL_yuBIp4W12e2dtXYVWhMuEtAD8C2qJEyVY4Tg&oe=6B0B39DF",
+      "price": null,
+      "tags": [],
+      "description": "",
+      "public_cible": 0.6,
+      "confiance": 0.8,
+      "accroche": "Happy hour 1 acheté = 1 offert, 20h-22h, du mercredi au samedi.",
+      "instagram": [
+        "barracuda.cannes"
+      ]
     }
   ],
   "maj_instagram": "2026-11-24T11:12:31.538Z"
