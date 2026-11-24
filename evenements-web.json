@@ -1005,7 +1005,8 @@
         "Organic",
         "Ambient",
         "Musique électronique",
-        "electronic"
+        "electronic",
+        "Groove"
       ],
       "description": "Le vendredi 4 décembre, la REF Session #18 se réunit à Frigo 16, Nice, pour une nuit de house hypnotique et d’expérimentations sonores. Headliner, Acid Pauli, est reconnu pour ses sets libres et immersifs mêlant house, electronica et ambient. Il ouvre la soirée après un set d’Emma, qui propose une house groovy et percussive, avant que Legri, ancien duo Cab25, ne clôture le programme avec son mélange de funk, hip‑hop et house des années 90. L’ambiance promet d’être électrisante, avec food & drinks sur place et parking disponible. L’événement est accessible aux 17‑30 ans, sans restriction d’âge.",
       "public_cible": 0.9,
@@ -1058,7 +1059,8 @@
         "Shotgun",
         "Panda Events",
         "InfoConcert",
-        "Shotgun / Resident Advisor"
+        "Shotgun / Resident Advisor",
+        "instagram.com"
       ],
       "via_veille": true,
       "billetterie_cherchee": true,
