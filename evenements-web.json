@@ -7,30 +7,75 @@
   "evenements": [
     {
       "source": "web",
-      "source_site": "instagram",
-      "name": "BAD JUNGLE",
-      "start": "2026-11-22T23:00:00.000Z",
-      "venue": "BOKA CLUB",
-      "city": "Toulon",
+      "source_site": "shotgun.live",
+      "name": "Phaphane À Nice - Amapiano & Afrobeats Lovers",
+      "start": "2026-11-27T19:00:00.000Z",
+      "venue": "Frigo 16",
+      "city": "Nice",
       "address": "",
-      "url": "https://www.instagram.com/p/DgF20wgsLau/",
-      "image": "https://scontent-iad6-1.cdninstagram.com/v/t51.82787-15/924013801_18151837018552654_1908199569892917775_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=107&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=AAINBUGc-aYQ7kNvwEbLlOY&_nc_oc=AdrFaj-nSeOE2k1yQwa1aHR51Hj8mNCVuCPDsebB7UdJ-rzFCBH8hee1HsfrPyw84Y0&_nc_zt=23&_nc_ht=scontent-iad6-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=IlIUkjoGc1MD9lKTQUwV0g&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQR4d6eKUPAE1gUWZK5DKEBjcVY14phLp8LZaPc1TZLBPg&oe=6B0B3994",
-      "price": null,
+      "url": "https://shotgun.live/events/phaphane-a-nice-amapiano-afrobeats-lovers",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto:good/dev/artworks/FORMAT_FB_PHAPHANE_wxp0zf.jpg",
+      "price": 12.1,
       "tags": [
-        "shatta",
-        "afro",
-        "hip-hop",
-        "amapiano"
+        "amapiano",
+        "afrobeat",
+        "Amapiano",
+        "Afrobeats",
+        "afrobeats",
+        "afro house",
+        "Électro",
+        "Club",
+        "Afrobeat",
+        "Afro House",
+        "South African House",
+        "Afropop"
       ],
-      "description": "Du 23 au 25 novembre le BOKA CLUB se transforme en jungle party. Au programme : shatta, afro, hip‑hop et amapiano pour faire monter la température du dancefloor jusqu’au petit matin. Lieu : 3261 avenue de la Résistance, Toulon. Horaires : 00h‑05h chaque soir. Réservations au 04 94 27 08 55. Pas de prix indiqué, donc à vérifier sur place ou en story.",
-      "public_cible": 1,
-      "confiance": 0.9,
-      "buzz": 0.6,
-      "buzz_raison": "3 nuits consécutives, line‑up varié, lieu connu localement",
-      "accroche": "Trois nuits de jungle à Toulon avec shatta, afro, hip‑hop et amapiano !",
+      "description": "Le 27 novembre, le FRIGO 16 de Nice accueille Phaphane, le king de la scène Amapiano, suivi en première partie par senadj_. Le set promet un mix explosif d'Amapiano et d'Afrobeats, idéal pour danser jusqu'au petit matin. L'entrée se fait via la billetterie en bio, stand, food & bar sur place, ambiance club décontractée. Ouvert de 20h à 2h, prépare-toi à vivre une nuit mémorable sur la Côte d'Azur.",
+      "public_cible": 0.95,
+      "confiance": 0.95,
+      "buzz": 0.85,
+      "buzz_raison": "Très forte notoriété virale de DJ Phaphane auprès du jeune public.",
+      "accroche": "La référence amapiano DJ Phaphane débarque au hangar du Frigo 16.",
       "instagram": [
-        "boka_officiel"
-      ]
+        "tweltyprod",
+        "pandaevents06",
+        "frigo.16"
+      ],
+      "offres": [
+        {
+          "plateforme": "shotgun.live",
+          "url": "https://shotgun.live/events/phaphane-a-nice-amapiano-afrobeats-lovers",
+          "prix": 12.1
+        },
+        {
+          "plateforme": "le109.nice.fr",
+          "url": "https://le109.nice.fr/evenement/phaphane-27-11-2026",
+          "prix": 12.1
+        },
+        {
+          "plateforme": "infoconcert.com",
+          "url": "https://www.infoconcert.com/artiste/dj-phaphane-206776/concerts.html",
+          "prix": 12.1
+        },
+        {
+          "plateforme": "my.weezevent.com",
+          "url": "https://my.weezevent.com/phaphane-a-nice-amapiano-afrobeats-lovers",
+          "prix": 12
+        }
+      ],
+      "sources_sites": [
+        "shotgun.live",
+        "le109.nice.fr",
+        "Shotgun Live",
+        "InfoConcert",
+        "Shotgun",
+        "Instagram (tweltyprod)",
+        "instagram.com",
+        "instagram"
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true,
+      "via_veille": true
     },
     {
       "source": "web",
@@ -410,77 +455,6 @@
       ],
       "billetterie_cherchee": true,
       "offres_cherchees": true
-    },
-    {
-      "source": "web",
-      "source_site": "shotgun.live",
-      "name": "Phaphane À Nice - Amapiano & Afrobeats Lovers",
-      "start": "2026-11-27T19:00:00.000Z",
-      "venue": "Frigo 16",
-      "city": "Nice",
-      "address": "",
-      "url": "https://shotgun.live/events/phaphane-a-nice-amapiano-afrobeats-lovers",
-      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto:good/dev/artworks/FORMAT_FB_PHAPHANE_wxp0zf.jpg",
-      "price": 12.1,
-      "tags": [
-        "amapiano",
-        "afrobeat",
-        "Amapiano",
-        "Afrobeats",
-        "afrobeats",
-        "afro house",
-        "Électro",
-        "Club",
-        "Afrobeat",
-        "Afro House",
-        "South African House",
-        "Afropop"
-      ],
-      "description": "Le 27 novembre, le FRIGO 16 de Nice accueille Phaphane, le king de la scène Amapiano, suivi en première partie par senadj_. Le set promet un mix explosif d'Amapiano et d'Afrobeats, idéal pour danser jusqu'au petit matin. L'entrée se fait via la billetterie en bio, stand, food & bar sur place, ambiance club décontractée. Ouvert de 20h à 2h, prépare-toi à vivre une nuit mémorable sur la Côte d'Azur.",
-      "public_cible": 0.95,
-      "confiance": 0.95,
-      "buzz": 0.85,
-      "buzz_raison": "Très forte notoriété virale de DJ Phaphane auprès du jeune public.",
-      "accroche": "La référence amapiano DJ Phaphane débarque au hangar du Frigo 16.",
-      "instagram": [
-        "tweltyprod",
-        "pandaevents06",
-        "frigo.16"
-      ],
-      "offres": [
-        {
-          "plateforme": "shotgun.live",
-          "url": "https://shotgun.live/events/phaphane-a-nice-amapiano-afrobeats-lovers",
-          "prix": 12.1
-        },
-        {
-          "plateforme": "le109.nice.fr",
-          "url": "https://le109.nice.fr/evenement/phaphane-27-11-2026",
-          "prix": 12.1
-        },
-        {
-          "plateforme": "infoconcert.com",
-          "url": "https://www.infoconcert.com/artiste/dj-phaphane-206776/concerts.html",
-          "prix": 12.1
-        },
-        {
-          "plateforme": "my.weezevent.com",
-          "url": "https://my.weezevent.com/phaphane-a-nice-amapiano-afrobeats-lovers",
-          "prix": 12
-        }
-      ],
-      "sources_sites": [
-        "shotgun.live",
-        "le109.nice.fr",
-        "Shotgun Live",
-        "InfoConcert",
-        "Shotgun",
-        "Instagram (tweltyprod)",
-        "instagram.com"
-      ],
-      "billetterie_cherchee": true,
-      "offres_cherchees": true,
-      "via_veille": true
     },
     {
       "source": "web",
@@ -5981,5 +5955,5 @@
       ]
     }
   ],
-  "maj_instagram": "2026-11-24T11:12:31.538Z"
+  "maj_instagram": "2026-11-24T12:12:54.719Z"
 }

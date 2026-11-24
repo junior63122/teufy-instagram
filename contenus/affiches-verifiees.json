@@ -7239,5 +7239,289 @@
   "commun": [
    "euphoria"
   ]
+ },
+ "v2|65c276b859e4": {
+  "ok": true,
+  "le": "2026-11-24T12:15:33.176Z",
+  "nom": "Cannes Social Club | Foodies + New Friends",
+  "lu": {
+   "titre": "FOODIES + NEW WAVE",
+   "dates": [],
+   "artistes": [],
+   "lieu": "SOCIAL CLUB"
+  },
+  "commun": [
+   "foodies"
+  ]
+ },
+ "v2|6fb2b31ff885": {
+  "ok": true,
+  "le": "2026-11-24T12:15:34.754Z",
+  "nom": "Psynaps-2",
+  "lu": {
+   "titre": "PSYNAPS",
+   "dates": [],
+   "artistes": [],
+   "lieu": ""
+  },
+  "commun": [
+   "psynaps"
+  ]
+ },
+ "v2|e21bef8ba0e8": {
+  "ok": true,
+  "le": "2026-11-24T12:15:52.265Z",
+  "nom": "Do You Like... Tekno ? @ Frigo16 - Le 109",
+  "lu": {
+   "titre": "FRIGO 16",
+   "dates": [],
+   "artistes": [
+    "63OG",
+    "AAWADH",
+    "ACID PAULI",
+    "ALTERNATIV3",
+    "AREZKI",
+    "BATTLE DE DANSE 2V2"
+   ],
+   "lieu": "FRIGO 16"
+  },
+  "commun": []
+ },
+ "v2|ec5e8d4c1a2b": {
+  "ok": true,
+  "le": "2026-11-24T12:16:13.666Z",
+  "nom": "THE SHOW CLUB SONORE × MARAKA × PLAYA CHICA",
+  "lu": {
+   "titre": "AN INTIMATE FESTIVE DINNER",
+   "dates": [
+    "2026-11-28"
+   ],
+   "artistes": [
+    "DANY BNK"
+   ],
+   "lieu": "PLAYA chira"
+  },
+  "commun": []
+ },
+ "v2|bd6cd4211c57": {
+  "ok": true,
+  "le": "2026-11-24T12:16:34.976Z",
+  "nom": "This Is House",
+  "lu": {
+   "titre": "THIS IS HOUSE",
+   "dates": [
+    "2026-11-28"
+   ],
+   "artistes": [
+    "LYDIA SCARFO",
+    "PAPEGUAY",
+    "BARAZA"
+   ],
+   "lieu": "BARAZA"
+  },
+  "commun": [
+   "this",
+   "house"
+  ]
+ },
+ "v2|32b08f0525c6": {
+  "ok": true,
+  "le": "2026-11-24T12:16:57.632Z",
+  "nom": "KONTAKT ROAD – SECRET LINE UP",
+  "lu": {
+   "titre": "KONTAKT ROAD",
+   "dates": [
+    "2026-11-28"
+   ],
+   "artistes": [
+    "SECRET LINE UP"
+   ],
+   "lieu": "THE SALOON"
+  },
+  "commun": [
+   "kontakt",
+   "road",
+   "secret",
+   "line"
+  ]
+ },
+ "v2|949fbff5dcd2": {
+  "ok": true,
+  "le": "2026-11-24T12:17:17.839Z",
+  "nom": "MICHEL ORION – FERRÉ, VOS PAPIERS ! ORION, TES CHANSONS !",
+  "lu": {
+   "titre": "Michel Orion chante... Léo Ferré et Michel Orion",
+   "dates": [
+    "2026-11-28"
+   ],
+   "artistes": [
+    "Michel Orion",
+    "Léo Ferré"
+   ],
+   "lieu": "Quartier du Poulpe"
+  },
+  "commun": [
+   "michel",
+   "orion",
+   "ferre"
+  ]
+ },
+ "v2|c4242e6b9007": {
+  "ok": true,
+  "le": "2026-11-24T12:17:38.485Z",
+  "nom": "Slip Panther - Glamrock Revival Show",
+  "lu": {
+   "titre": "REVIVAL GLAM ROCK SHOW",
+   "dates": [],
+   "artistes": [
+    "slip panther"
+   ],
+   "lieu": ""
+  },
+  "commun": [
+   "revival",
+   "show",
+   "slip",
+   "panther"
+  ]
+ },
+ "v2|6346d4c8ff76": {
+  "ok": false,
+  "le": "2026-11-24T12:17:59.609Z",
+  "nom": "La Cale Sèche – Soirée Spritz + PSG / Lorient",
+  "lu": {
+   "titre": "LE PROGRAMME DE LA SEMAINE",
+   "dates": [
+    "2026-11-24",
+    "2026-11-25",
+    "2026-11-26",
+    "2026-11-27",
+    "2026-11-28",
+    "2026-11-29"
+   ],
+   "artistes": [],
+   "lieu": "LA CALE SÈCHE"
+  },
+  "commun": []
+ },
+ "v2|9fe3cc948aab": {
+  "ok": false,
+  "le": "2026-11-24T12:18:21.242Z",
+  "nom": "La Cale Sèche – Soirée Spritz + PSG / Lorient",
+  "lu": {
+   "titre": "SOIRÉE Ti PUNCH",
+   "dates": [],
+   "artistes": [],
+   "lieu": "LA CALE SECHE L'EMBUSCADE DES PIRATES"
+  },
+  "commun": []
+ },
+ "v2|d8887d90c52a": {
+  "ok": false,
+  "le": "2026-11-24T12:18:41.660Z",
+  "nom": "Karaoké aux Folies d'Edmonde",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": [],
+   "lieu": ""
+  },
+  "commun": []
+ },
+ "v2|da188e328b2d": {
+  "ok": false,
+  "le": "2026-11-24T12:19:02.731Z",
+  "nom": "Riviera Bar Crawl Nice’s #1 Social Club for Global Travelers & Party Lovers",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": [],
+   "lieu": ""
+  },
+  "commun": []
+ },
+ "og|https://www.eventbrite.fr/e/riviera-bar-crawl-nices-1-social-club-for-global-travelers-party-lovers-tickets-1286313140229": "https://www.eventbrite.fr/_next/image?url=https%3A%2F%2Fimg.evbuc.com%2Fhttps%253A%252F%252Fcdn.evbuc.com%252Fimages%252F793522169%252F95356021183%252F1%252Foriginal.20240620-202552%3Fw%3D940%26auto%3Dformat%252Ccompress%26q%3D75%26sharp%3D10%26rect%3D0%252C201%252C1920%252C960%26s%3D4cee787775498d4baadbbf0882227f84&w=940&q=75",
+ "v2|78abb1c44916": {
+  "ok": false,
+  "le": "2026-11-24T12:19:22.871Z",
+  "nom": "Vibrance #7",
+  "lu": {
+   "titre": "NOVEMBRE",
+   "dates": [
+    "2026-11-20"
+   ],
+   "artistes": [
+    "MOUCHKI",
+    "DHERMO"
+   ],
+   "lieu": "L'ANTRE_TECHNO"
+  },
+  "commun": []
+ },
+ "v2|0addf8a228b8": {
+  "ok": false,
+  "le": "2026-11-24T12:19:42.932Z",
+  "nom": "Nice Orange Pub Crawl – 5 Shots, Party Games & VIP Club Entry",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": [],
+   "lieu": ""
+  },
+  "commun": []
+ },
+ "og|https://www.eventbrite.fr/e/nice-orange-pub-crawl-5-shots-party-games-vip-club-entry-tickets-2004292869928": "https://www.eventbrite.fr/_next/image?url=https%3A%2F%2Fimg.evbuc.com%2Fhttps%253A%252F%252Fcdn.evbuc.com%252Fimages%252F1177182143%252F2149570374853%252F1%252Foriginal.20260210-162712%3Fcrop%3Dfocalpoint%26fit%3Dcrop%26w%3D940%26auto%3Dformat%252Ccompress%26q%3D75%26sharp%3D10%26fp-x%3D0.5%26fp-y%3D0.5%26s%3Dbe7a842a0b1f4a63e396b0190eb8c4c5&w=940&q=75",
+ "v2|4d66ea223729": {
+  "ok": false,
+  "le": "2026-11-24T12:20:03.041Z",
+  "nom": "Nice Orange Pub Crawl – 5 Shots, Party Games & VIP Club Entry",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": [],
+   "lieu": ""
+  },
+  "commun": []
+ },
+ "og|https://www.eventbrite.fr/e/riviera-bar-crawl-nices-1-social-club-for-global-travelers-party-lovers-tickets-1286313150259": "https://www.eventbrite.fr/_next/image?url=https%3A%2F%2Fimg.evbuc.com%2Fhttps%253A%252F%252Fcdn.evbuc.com%252Fimages%252F793522169%252F95356021183%252F1%252Foriginal.20240620-202552%3Fw%3D940%26auto%3Dformat%252Ccompress%26q%3D75%26sharp%3D10%26rect%3D0%252C201%252C1920%252C960%26s%3D4cee787775498d4baadbbf0882227f84&w=940&q=75",
+ "v2|eb1ddba66ba8": {
+  "ok": true,
+  "le": "2026-11-24T12:20:23.032Z",
+  "nom": "Nice | Char Bell | 11 December @ Casino De Beaulieu",
+  "lu": {
+   "titre": "Char Bell",
+   "dates": [
+    "2026-12-11"
+   ],
+   "artistes": [
+    "Char Bell"
+   ],
+   "lieu": "CASINO DE BEAULIEU"
+  },
+  "commun": [
+   "char",
+   "bell"
+  ]
+ },
+ "v2|7b216d020f9b": {
+  "ok": true,
+  "le": "2026-11-24T12:20:45.822Z",
+  "nom": "IPN X Whynot? : Techno III",
+  "lu": {
+   "titre": "WHYNOT?",
+   "dates": [
+    "2026-11-24"
+   ],
+   "artistes": [
+    "ARKANGE",
+    "CROW",
+    "LUX LA CROIX",
+    "IGN"
+   ],
+   "lieu": "21 CR BEAUMES"
+  },
+  "commun": [
+   "whynot"
+  ]
  }
 }

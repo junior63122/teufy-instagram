@@ -282,10 +282,9 @@
   "ia": true
  },
  "naho club|la garde": {
-  "introuvable": true,
-  "v": 2,
-  "le": "2026-11-10T10:30:28.474Z",
-  "ia": true
+  "lat": 43.14848,
+  "lng": 6.03513,
+  "le": "2026-11-24T12:21:25.898Z"
  },
  "fort napoleon|la seyne-sur-mer": {
   "introuvable": true,

@@ -1,5 +1,5 @@
 {
- "le": "2026-11-24T11:12:31.538Z",
+ "le": "2026-11-24T12:12:54.719Z",
  "total": 149,
  "sans_image": [
   {
@@ -28,15 +28,6 @@
    "ville": "Nice",
    "instagram": "",
    "url": "https://www.eventbrite.com/e/foodies-new-friends-nice-tickets-1976266119162"
-  },
-  {
-   "id": "yuksek-et-roxie-2026-11-26",
-   "nom": "Yuksek & Roxie",
-   "jour": "2026-11-26",
-   "lieu": "Le Dix-Huit - Adresse d'Expériences",
-   "ville": "Nice",
-   "instagram": "ledixhuit_nice",
-   "url": "https://shotgun.live/events/yuksek-roxie"
   },
   {
    "id": "block-2026-11-26",
@@ -147,15 +138,6 @@
    "url": "https://shotgun.live/events/da-grow-uk-bass-gangsta-house"
   },
   {
-   "id": "cannes-social-club-foodies-new-friends-2026-11-28",
-   "nom": "Cannes Social Club | Foodies + New Friends",
-   "jour": "2026-11-28",
-   "lieu": "Restaurant of the Month",
-   "ville": "Cannes",
-   "instagram": "",
-   "url": "https://www.eventbrite.com/e/cannes-social-club-foodies-new-friends-tickets-1994633657965"
-  },
-  {
    "id": "do-you-like-tekno-frigo16-le-109-2026-11-28",
    "nom": "Do You Like... Tekno ? @ Frigo16 - Le 109",
    "jour": "2026-11-28",
@@ -163,24 +145,6 @@
    "ville": "Nice",
    "instagram": "_do.you.like",
    "url": "https://shotgun.live/events/do-you-like-tekno-frigo-16-le-109-nice"
-  },
-  {
-   "id": "kontakt-road-secret-line-up-2026-11-28",
-   "nom": "KONTAKT ROAD – SECRET LINE UP",
-   "jour": "2026-11-28",
-   "lieu": "THE SALOON",
-   "ville": "Tourette",
-   "instagram": "kontakt_6tem",
-   "url": "https://www.instagram.com/p/Df9_blIOvSr/"
-  },
-  {
-   "id": "michel-orion-ferre-vos-papiers-orion-tes-chansons-2026-11-28",
-   "nom": "MICHEL ORION – FERRÉ, VOS PAPIERS ! ORION, TES CHANSONS !",
-   "jour": "2026-11-28",
-   "lieu": "Le quartier du poulpe",
-   "ville": "Nice",
-   "instagram": "",
-   "url": "https://www.eventbrite.com/e/michel-orion-ferre-vos-papiers-orion-tes-chansons-tickets-2004957394539"
   },
   {
    "id": "slip-panther-glamrock-revival-show-2026-11-28",
@@ -210,6 +174,24 @@
    "url": "https://www.eventbrite.com/e/billets-karaoke-aux-folies-dedmonde-2004891180491"
   },
   {
+   "id": "riviera-bar-crawl-nice-s-1-social-club-for-global-travelers-2026-11-28",
+   "nom": "Riviera Bar Crawl Nice’s #1 Social Club for Global Travelers & Party Lovers",
+   "jour": "2026-11-28",
+   "lieu": "Hostel Villa Saint Exupery Beach",
+   "ville": "Nice",
+   "instagram": "",
+   "url": "https://www.eventbrite.fr/e/riviera-bar-crawl-nices-1-social-club-for-global-travelers-party-lovers-tickets-1286313140229"
+  },
+  {
+   "id": "vibrance-7-2026-11-28",
+   "nom": "Vibrance #7",
+   "jour": "2026-11-28",
+   "lieu": "L'Antre Bar Electro",
+   "ville": "Nice",
+   "instagram": "lantretechno",
+   "url": "https://shotgun.live/events/vibrance-7"
+  },
+  {
    "id": "soiree-zouk-et-caribbean-vibes-2026-11-28",
    "nom": "Soirée Zouk & Caribbean Vibes",
    "jour": "2026-11-28",
@@ -217,6 +199,15 @@
    "ville": "Roquebrune-sur-Argens",
    "instagram": "",
    "url": ""
+  },
+  {
+   "id": "nice-orange-pub-crawl-5-shots-party-games-et-vip-club-entry-2026-11-28",
+   "nom": "Nice Orange Pub Crawl – 5 Shots, Party Games & VIP Club Entry",
+   "jour": "2026-11-28",
+   "lieu": "La Chapa",
+   "ville": "Nice",
+   "instagram": "lachapanice",
+   "url": "https://www.eventbrite.fr/e/nice-orange-pub-crawl-5-shots-party-games-vip-club-entry-tickets-2004292869928"
   },
   {
    "id": "zouk-love-toulon-edition-chic-2026-11-28",
@@ -228,15 +219,6 @@
    "url": "https://bizouk.com/events/details/zouk-love-toulon-edition-chic/132615"
   },
   {
-   "id": "dj-k-net-resident-techno-tribe-2026-11-29",
-   "nom": "Dj K-Net (Resident) : Techno / Tribe",
-   "jour": "2026-11-29",
-   "lieu": "L'Antre Bar Electro",
-   "ville": "Nice",
-   "instagram": "lantretechno",
-   "url": "https://shotgun.live/events/dj-k-net-resident-techno-tribe"
-  },
-  {
    "id": "la-cale-seche-france-afrique-du-sud-karaoke-2026-11-29",
    "nom": "La Cale Sèche – France / Afrique du Sud + karaoké",
    "jour": "2026-11-29",
@@ -246,24 +228,6 @@
    "url": "https://www.instagram.com/p/DgGIZohoA8x/"
   },
   {
-   "id": "l-apero-kanaille-avec-laka-naia-aux-folies-d-edmonde-2026-11-29",
-   "nom": "L'Apéro Kanaille avec Laka-Naïa aux Folies d'Edmonde",
-   "jour": "2026-11-29",
-   "lieu": "Les folies d'Edmonde",
-   "ville": "Nice",
-   "instagram": "",
-   "url": "https://www.eventbrite.com/e/billets-lapero-kanaille-avec-laka-naia-aux-folies-dedmonde-2004689447101"
-  },
-  {
-   "id": "rencontre-d-echecs-a-toulon-bouc-ness-2026-11-29",
-   "nom": "Rencontre d’échecs à Toulon · BOUC NESS",
-   "jour": "2026-11-29",
-   "lieu": "BOUC NESS",
-   "ville": "Toulon",
-   "instagram": "",
-   "url": "https://www.eventbrite.fr/e/rencontre-dechecs-a-toulon-bouc-ness-tickets-2004808494174"
-  },
-  {
    "id": "rencontre-d-echecs-a-nice-the-sailor-s-pub-2026-11-29",
    "nom": "Rencontre d’échecs à Nice · The Sailor's Pub",
    "jour": "2026-11-29",
@@ -271,78 +235,6 @@
    "ville": "Nice",
    "instagram": "",
    "url": "https://www.eventbrite.fr/e/rencontre-dechecs-a-nice-the-sailors-pub-tickets-2004925100948"
-  },
-  {
-   "id": "reading-hour-nice-2026-11-30",
-   "nom": "Reading hour (Nice)",
-   "jour": "2026-11-30",
-   "lieu": "Jardin Albert 1er",
-   "ville": "Nice",
-   "instagram": "",
-   "url": "https://www.eventbrite.co.uk/e/reading-hour-nice-tickets-1995469509018"
-  },
-  {
-   "id": "blind-test-aux-folies-d-edmonde-2026-11-30",
-   "nom": "Blind Test aux Folies d'Edmonde",
-   "jour": "2026-11-30",
-   "lieu": "Les folies d'Edmonde",
-   "ville": "Nice",
-   "instagram": "",
-   "url": "https://www.eventbrite.com/e/billets-blind-test-aux-folies-dedmonde-2004892530529"
-  },
-  {
-   "id": "dinner-with-entrepreneurs-nice-girls-night-out-edition-2026-12-01",
-   "nom": "Dinner with Entrepreneurs Nice: Girls Night Out Edition",
-   "jour": "2026-12-01",
-   "lieu": "Restaurant of the Week",
-   "ville": "Nice",
-   "instagram": "",
-   "url": "https://www.eventbrite.com/e/dinner-with-entrepreneurs-nice-girls-night-out-edition-tickets-1902509921389"
-  },
-  {
-   "id": "aper-elles-evening-december-2026-12-02",
-   "nom": "Aper’ELLES Evening December",
-   "jour": "2026-12-02",
-   "lieu": "Panama",
-   "ville": "Nice",
-   "instagram": "",
-   "url": "https://www.eventbrite.com/e/aperelles-evening-december-tickets-2004949139849"
-  },
-  {
-   "id": "il-concerto-di-natale-2026-2026-12-03",
-   "nom": "IL CONCERTO DI NATALE 2026",
-   "jour": "2026-12-03",
-   "lieu": "Léo Ferré space",
-   "ville": "Monaco",
-   "instagram": "",
-   "url": "https://www.eventbrite.fr/e/il-concerto-di-natale-2026-tickets-2004033932439"
-  },
-  {
-   "id": "foodies-new-friends-nice-giving-back-edition-2026-12-03",
-   "nom": "Foodies + New Friends: Nice | Giving Back Edition",
-   "jour": "2026-12-03",
-   "lieu": "Restaurant of the Week",
-   "ville": "Nice",
-   "instagram": "",
-   "url": "https://www.eventbrite.com/e/foodies-new-friends-nice-giving-back-edition-tickets-1989238521968"
-  },
-  {
-   "id": "soiree-speak-easy-et-animation-magicien-a-nice-40-50-ans-2026-12-04",
-   "nom": "Soirée Speak Easy & animation magicien à Nice (40-50 ans)",
-   "jour": "2026-12-04",
-   "lieu": "La Chapa",
-   "ville": "Nice",
-   "instagram": "lachapanice",
-   "url": "https://www.eventbrite.com/e/billets-soiree-speak-easy-animation-magicien-a-nice-40-50-ans-2005071724503"
-  },
-  {
-   "id": "soiree-humour-stand-up-au-doppio-malto-2026-12-04",
-   "nom": "Soirée humour STAND-UP au Doppio Malto",
-   "jour": "2026-12-04",
-   "lieu": "Doppio Malto Nice CAP3000",
-   "ville": "Saint-Laurent-du-Var",
-   "instagram": "",
-   "url": "https://www.eventbrite.fr/e/billets-soiree-humour-stand-up-au-doppio-malto-2004857459631"
   },
   {
    "id": "ref-session-18-acid-pauli-frigo-16-2026-12-04",
@@ -453,15 +345,6 @@
    "url": "https://shotgun.live/events/switch-dimension-psytrance-edition-w-ranyo-hug-ette"
   },
   {
-   "id": "lillian-palmer-en-concert-a-swingin-noel-2026-12-06",
-   "nom": "Lillian Palmer en concert – A Swingin’ Noël",
-   "jour": "2026-12-06",
-   "lieu": "Le Quartier du Poulpe",
-   "ville": "Nice",
-   "instagram": "",
-   "url": "https://www.eventbrite.com/e/lillian-palmer-en-concert-a-swingin-noel-tickets-1998868741213"
-  },
-  {
    "id": "plk-tournee-des-zeniths-2026-2026-12-06",
    "nom": "PLK — Tournée des Zéniths 2026",
    "jour": "2026-12-06",
@@ -550,15 +433,6 @@
    "ville": "Monaco",
    "instagram": "",
    "url": "https://www.grimaldiforum.com/fr/agenda-manifestations-monaco/thursday-live-sessions-dirty-deep"
-  },
-  {
-   "id": "roller-disco-gratuit-frigo-16-2026-12-18",
-   "nom": "Roller Disco - Gratuit @ Frigo 16",
-   "jour": "2026-12-18",
-   "lieu": "Frigo 16",
-   "ville": "Nice",
-   "instagram": "frigo.16",
-   "url": "https://shotgun.live/events/roller-disco-gratuit-frigo-16"
   },
   {
    "id": "le-mome-et-adame-2026-12-18",
@@ -703,24 +577,6 @@
    "ville": "Saint-Tropez",
    "instagram": "",
    "url": "https://www.arevcollection.com/offers/saint-tropez-new-year"
-  },
-  {
-   "id": "new-year-s-eve-bar-crawl-party-nice-2026-12-31",
-   "nom": "New Year’s Eve Bar Crawl Party Nice",
-   "jour": "2026-12-31",
-   "lieu": "Hostel Villa Saint Exupery Beach",
-   "ville": "Nice",
-   "instagram": "",
-   "url": "https://www.eventbrite.fr/e/new-years-eve-bar-crawl-party-nice-tickets-2004418564885"
-  },
-  {
-   "id": "nice-new-year-s-eve-2026-2027-guaranteed-vip-club-entry-et-5-2026-12-31",
-   "nom": "Nice New Year's Eve 2026-2027 — Guaranteed VIP Club Entry & 5 Free Shots",
-   "jour": "2026-12-31",
-   "lieu": "La Chapa",
-   "ville": "Nice",
-   "instagram": "lachapanice",
-   "url": "https://www.eventbrite.fr/e/nice-new-years-eve-2026-2027-guaranteed-vip-club-entry-5-free-shots-tickets-2004295126678"
   },
   {
    "id": "nouvel-an-2027-le-mas-d-hiver-2026-12-31",
