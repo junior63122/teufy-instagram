@@ -2736,12 +2736,166 @@
      "fin": 548.78
     }
    }
+  },
+  "1I8iRRW9QeSbpaJ-OmLpuwASb6op66AR-": {
+   "nom": "Fade (feat. KimBlee) [Grant Nelson Big Room Extended Remix].wav",
+   "chemin": "Fade (feat. KimBlee) [Grant Nelson Big Room Extended Remix].wav",
+   "vu_le": "2026-11-24T15:55:32.870Z",
+   "octets": 81205230,
+   "rythme": {
+    "bpm": 126,
+    "duree": 460.35,
+    "meilleur": {
+     "debut": 341.41,
+     "fin": 361.41
+    }
+   }
+  },
+  "1-AWokAxjQrX6OgRaZGajuv7LnTvCxIQi": {
+   "nom": "Flash & The Pan - Waiting For A Train (Exten.mp3",
+   "chemin": "Flash & The Pan - Waiting For A Train (Exten.mp3",
+   "vu_le": "2026-11-24T15:55:37.115Z",
+   "octets": 17616319,
+   "rythme": {
+    "bpm": 136,
+    "duree": 440.28,
+    "meilleur": {
+     "debut": 113.74,
+     "fin": 133.74
+    }
+   }
+  },
+  "1JyAhhii7iw3lYcjY0KwxFSLe2H_ohsZy": {
+   "nom": "France Gall - Il Jouait Du Piano Debout.wav",
+   "chemin": "France Gall - Il Jouait Du Piano Debout.wav",
+   "vu_le": "2026-11-24T15:55:40.024Z",
+   "octets": 48004448,
+   "rythme": {
+    "bpm": 105.5,
+    "duree": 272.13,
+    "meilleur": {
+     "debut": 119.25,
+     "fin": 139.25
+    }
+   }
+  },
+  "1MSXlP_mONV_XoRaN_URiwF5K-lBM5jNT": {
+   "nom": "France National Anthem La Marseillaise (Instrumental).wav",
+   "chemin": "France National Anthem La Marseillaise (Instrumental).wav",
+   "vu_le": "2026-11-24T15:55:44.128Z",
+   "octets": 14000356,
+   "rythme": {
+    "bpm": 117.5,
+    "duree": 79.37,
+    "meilleur": {
+     "debut": 37.85,
+     "fin": 57.85
+    }
+   }
+  },
+  "1zIJWHQAk87E8zp8WBG_eq9a5MuhbW-Ys": {
+   "nom": "Frank Sinatra - Theme From New York, New Yor.wav",
+   "chemin": "Frank Sinatra - Theme From New York, New Yor.wav",
+   "vu_le": "2026-11-24T15:55:48.628Z",
+   "octets": 36571354,
+   "rythme": {
+    "bpm": 110,
+    "duree": 207.32,
+    "meilleur": {
+     "debut": 183.15,
+     "fin": 203.15
+    }
+   }
+  },
+  "16NcICUU9COWpKXc38tI6Bb3v7hQXqwfN": {
+   "nom": "FRANKIE GOES TO HOLLYWOOD - Relax [Long Vers.mp3",
+   "chemin": "FRANKIE GOES TO HOLLYWOOD - Relax [Long Vers.mp3",
+   "vu_le": "2026-11-24T15:55:50.984Z",
+   "octets": 10640541,
+   "rythme": {
+    "bpm": 114.8,
+    "duree": 443.35,
+    "meilleur": {
+     "debut": 422.02,
+     "fin": 442.02
+    }
+   }
+  },
+  "1-c5PjQg__Aoadlgk-4Gt6Xbmx_6lKbaW": {
+   "nom": "Funkytown - Radio Edit.mp3",
+   "chemin": "Funkytown - Radio Edit.mp3",
+   "vu_le": "2026-11-24T15:55:54.813Z",
+   "octets": 18702428,
+   "rythme": {
+    "bpm": 123,
+    "duree": 595.15,
+    "meilleur": {
+     "debut": 164.72,
+     "fin": 184.72
+    }
+   }
+  },
+  "17r1dlz2GAKuQn6crmcxCVwYO02gv2wD7": {
+   "nom": "Gil Scott-Heron - The Bottle.wav",
+   "chemin": "Gil Scott-Heron - The Bottle.wav",
+   "vu_le": "2026-11-24T15:55:58.652Z",
+   "octets": 55971714,
+   "rythme": {
+    "bpm": 112.3,
+    "duree": 317.3,
+    "meilleur": {
+     "debut": 236.17,
+     "fin": 256.17
+    }
+   }
+  },
+  "1aNxllbaBmr-0T1IgY27w7KcxHoA-RyHr": {
+   "nom": "Gilberto Gil - Toda Menina Baiana.wav",
+   "chemin": "Gilberto Gil - Toda Menina Baiana.wav",
+   "vu_le": "2026-11-24T15:56:02.337Z",
+   "octets": 41077802,
+   "rythme": {
+    "bpm": 105.5,
+    "duree": 232.87,
+    "meilleur": {
+     "debut": 112.07,
+     "fin": 132.07
+    }
+   }
+  },
+  "1giwNug2H1K4cPWr4JFwjCuXwKnboA7Vh": {
+   "nom": "Gloria Gaynor - I Am What I Am (Extended Mix.mp3",
+   "chemin": "Gloria Gaynor - I Am What I Am (Extended Mix.mp3",
+   "vu_le": "2026-11-24T15:56:08.163Z",
+   "octets": 14092540,
+   "rythme": {
+    "bpm": 129.2,
+    "duree": 352.29,
+    "meilleur": {
+     "debut": 219.15,
+     "fin": 239.15
+    }
+   }
+  },
+  "1wPykyoV-o2jPm2rQ3Ig0THjzJip-bl-c": {
+   "nom": "Hey Jude (Remastered 2015).mp3",
+   "chemin": "Hey Jude (Remastered 2015).mp3",
+   "vu_le": "2026-11-24T15:56:13.703Z",
+   "octets": 14693523,
+   "rythme": {
+    "bpm": 147.7,
+    "duree": 425.66,
+    "meilleur": {
+     "debut": 303.97,
+     "fin": 323.97
+    }
+   }
   }
  },
- "le": "2026-11-24T07:15:29.599Z",
+ "le": "2026-11-24T15:56:17.009Z",
  "bilan": {
   "nouvelles_videos": 0,
-  "nouvelles_musiques": 40,
+  "nouvelles_musiques": 11,
   "erreurs": 0,
   "absentes": 0
  }

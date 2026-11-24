@@ -1,7 +1,7 @@
 {
- "le": "2026-11-24T07:12:07.826Z",
+ "le": "2026-11-24T15:55:02.660Z",
  "instagram": {
-  "utilisee": "v21.0",
+  "utilisee": "v26.0",
   "derniere": "v27.0",
   "compte": "teufy_official",
   "entetes": [
@@ -184,24 +184,24 @@
   }
  },
  "sites_clubs": {
-  "maj": "2026-11-24T03:12:32.169Z",
-  "lus": 35,
+  "maj": "2026-11-24T15:34:56.786Z",
+  "lus": 34,
   "avec_soirees": 0,
-  "total": 68
+  "total": 63
  },
  "donnees": {
-  "semaine": 51,
-  "sans_heure": 13,
-  "sans_prix": 10,
-  "sans_affiche": 8,
+  "semaine": 66,
+  "sans_heure": 16,
+  "sans_prix": 23,
+  "sans_affiche": 7,
   "sans_billetterie": 2,
   "par_ville": {
-   "Cannes": 7,
+   "Cannes": 10,
+   "Nice": 21,
+   "Toulon": 13,
    "Juan-les-Pins": 3,
-   "Nice": 17,
    "Roquebrune-sur-Argens": 2,
    "Le Cannet": 1,
-   "Toulon": 6,
    "Monaco": 3,
    "Carqueiranne": 1,
    "La Seyne-sur-Mer": 2,
@@ -211,19 +211,16 @@
    "Montpellier": 1,
    "Puget-sur-Argens": 1,
    "Marseille": 1,
-   "Tourette": 1
+   "Tourette": 1,
+   "Antibes": 1
   }
  },
  "images": {
-  "total": 100,
-  "sans_image": 22,
-  "dans_7_jours": 11
+  "total": 148,
+  "sans_image": 69,
+  "dans_7_jours": 32
  },
  "alertes": [
-  {
-   "sujet": "Instagram",
-   "detail": "API v21.0 utilisée, Meta en est à v27.0 : une version vit environ 2 ans, passer à une version récente (tester une publication)."
-  },
   {
    "sujet": "GitHub Actions",
    "detail": "actions/upload-artifact : v4 utilisée, v7.0.2 publiée (les anciennes versions finissent par être bloquées)."
@@ -246,7 +243,7 @@
   },
   {
    "sujet": "Images",
-   "detail": "11 soirée(s) des 7 prochains jours sans affiche ni photo : Phaphane à Nice - Amapiano & Afrobeats Lovers (Frigo 16 (Le 109), 2026-11-27) ; Dj - Trvchi (Mama Shelter Nice, 2026-11-27) ; Skarra Mucci & Manudigital — Ragga Blasta Tour (Centre Culturel Tisot, 2026-11-27) ; Mr Hat vs Verome — Bass vs Hard Music (L'Antre Bar Electro, 2026-11-27) ; Da Grow — UK Bass / Gangsta House (L'Antre Bar Electro, 2026-11-28) ; Psynaps-2 (Fort Napoléon, 2026-11-28) ; Soirée Zouk & Caribbean Vibes (L'Artiste 83, 2026-11-28) ; Origins Invite Boticka All Night Long (Switch Club, 2026-11-28) ; DJ K-Net (Resident) — Techno / Tribe (L'Antre Bar Electro, 2026-11-29) ; Rencontre d’échecs à Nice · The Sailor's Pub (The Sailor's Pub, 2026-11-29) ; Rencontre d’échecs à Marseille · Le Chaperon Rouge (Le Chaperon Rouge, 2026-11-30)"
+   "detail": "32 soirée(s) des 7 prochains jours sans affiche ni photo : La Cale Sèche – Bouteille de planteur à 15 € + PSG / AS Roma (La Cale Sèche, Toulon, 2026-11-24) ; 10 People Group Nice: Karao-Quiz Night – Fun Karaoke & Music Quiz Party (40 Rue Droite, 2026-11-25) ; Foodies + New Friends: Nice (Restaurant of the Week, 2026-11-26) ; The Brand New Heavies & GoGo Penguin (Monte-Carlo Jazz Festival) (Salle Garnier – Opéra de Monte-Carlo, 2026-11-26) ; BLOCK (Naho Club, 2026-11-26) ; Rencontre d’échecs à Saint-Raphaël · Hôtel Beauséjour (Hôtel Beauséjour, 2026-11-27) ; Restaurant of the Week | Foodies + New Friends: Cannes (Restaurant of the Week, 2026-11-27) ; LES TAMBOURS DU BRONX (Théâtre Lino Ventura, 2026-11-27) ; Skarra Mucci & Manudigital — Ragga Blasta Tour (Centre Culturel Tisot, 2026-11-27) ; Riviera Bar Crawl Nice’s #1 Social Club for Global Travelers & Party Lovers (Hostel Villa Saint Exupery Beach, 2026-11-27) ; Mr Hat Vs Verome : Bass Vs Hard Music (L'Antre Bar Electro, 2026-11-27) ; Nice Orange Bar Crawl – Party Bars, Music, Nightlife & Club Experience (La Chapa, 2026-11-27) ; Bambam At Inda House : 27.11.26 (Inda House, 2026-11-27) ; La Cale Sèche – L’Embuscade des Pirates (La Cale Sèche, Toulon, 2026-11-27) ; Da Grow — UK Bass / Gangsta House (L'Antre Bar Electro, 2026-11-28)"
   }
  ]
 }
