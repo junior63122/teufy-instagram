@@ -184,6 +184,7 @@ export function imageDeLaSource(e = {}) {
 async function verifier(e, fichier, cache) {
   const k = `v2|${h(`${e.image}|${e.name}`)}`, ancien = cache[h(`${e.image}|${e.name}`)];
   if (e.manuel) return true; // affiche fournie et vérifiée par l'équipe
+  if (cache[k]?.lu && nuitDeLAffiche(e, cache[k].lu)) decaler(e);
   if (cache[k]?.lu && dateContredite(e, cache[k].lu)) DATES_CONTREDITES.add(`${e.name}|${e.start}`);
   if (cache[k]) return cache[k].lu ? jugerAffiche(e, cache[k].lu) : cache[k].ok;
   // Sans IA disponible (ou plus de temps) : ancien verdict s'il existe ; sinon on ne montre une affiche non vérifiée que
@@ -193,6 +194,7 @@ async function verifier(e, fichier, cache) {
   const r = await gemini([{ inline_data: { mime_type: 'image/jpeg', data: readFileSync(fichier).toString('base64') } }, { text: 'Lis cette affiche de soirée. Réponds en JSON {"titre":string,"artistes":[string],"lieu":string,"ville":string,"dates":["AAAA-MM-JJ"]}. Recopie seulement ce qui est écrit sur l\'affiche (dates au format AAAA-MM-JJ, année 2026 ou 2027 si elle n\'est pas écrite ; tableau vide si aucune date). Chaîne vide si absent.' }]);
   if (!r || typeof r !== 'object') return ancien ? ancien.ok : !e.via_veille && (e.source !== 'web' || imageDeLaSource(e)); // lecture impossible : même règle (veille : jamais sans lecture)
   const lu = { titre: r.titre, dates: (r.dates || []).filter((d) => /^\d{4}-\d{2}-\d{2}$/.test(d)), artistes: (r.artistes || []).slice(0, 6), lieu: r.lieu || '' };
+  if (nuitDeLAffiche(e, lu)) decaler(e);
   const ok = jugerAffiche(e, lu);
   if (dateContredite(e, lu)) DATES_CONTREDITES.add(`${e.name}|${e.start}`);
   cache[k] = { ok, le: new Date().toISOString(), nom: e.name, lu, commun: [...motsAffiche([lu.titre, ...lu.artistes].join(' '))].filter((m) => motsAffiche(`${e.name} ${(e.artistes || []).join(' ')}`).has(m)).slice(0, 5) };
@@ -214,6 +216,18 @@ export function dateContredite(e, lu = {}) {
   return [...titre].some((m) => nom.has(m));
 }
 export const DATES_CONTREDITES = new Set();
+/** Affiche « Jeudi 26 novembre, 00h-05h » et soirée lue le 26 à 0 h (donc rangée dans la nuit du 25) : c'est la nuit du 26
+ *  (24/11/2026, « Soirée Shatta », La Spicy). Une seule date sur l'affiche, le titre de l'affiche = la soirée. */
+export function nuitDeLAffiche(e, lu = {}) {
+  const dates = (lu.dates || []).filter((d) => /^\d{4}-\d{2}-\d{2}$/.test(d)); if (dates.length !== 1) return false;
+  const t = Date.parse(e.start); if (!t) return false;
+  const p = Object.fromEntries(new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Paris', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', hourCycle: 'h23' }).formatToParts(new Date(t)).map((x) => [x.type, x.value]));
+  if (`${p.year}-${p.month}-${p.day}` !== dates[0] || +p.hour >= 6) return false;
+  const nom = motsAffiche(`${e.name} ${(e.artistes || []).join(' ')}`), titre = motsAffiche([lu.titre, ...(lu.artistes || [])].join(' '));
+  for (const m of motsAffiche(`${e.venue || ''} ${e.city || ''}`)) { nom.delete(m); titre.delete(m); }
+  return [...titre].some((m) => nom.has(m));
+}
+const decaler = (e) => { e.start = new Date(Date.parse(e.start) + 864e5).toISOString(); if (e.end && Date.parse(e.end)) e.end = new Date(Date.parse(e.end) + 864e5).toISOString(); e._nuit_affiche = true; };
 export function jugerAffiche(e, lu = {}) {
   const jour = cle(e.start), j = Date.parse(`${jour}T12:00:00Z`);
   const dates = (lu.dates || []).filter((d) => /^\d{4}-\d{2}-\d{2}$/.test(d));

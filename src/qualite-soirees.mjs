@@ -6,7 +6,8 @@
 //  4. Même soirée sous plusieurs annonces (« Marwa Loud Showcase » sur Instagram + « MARWA LOUD FAST PASS HIGH CLUB » sur la
 //     billetterie, même club, même nuit) : fusionnées, la billetterie l'emporte (heure, lien).
 const JOURS = ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'];
-const partsParis = (t) => Object.fromEntries(new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Paris', weekday: 'short', day: '2-digit', hour: '2-digit', hourCycle: 'h23' }).formatToParts(new Date(t)).map((x) => [x.type, x.value]));
+const MOIS = ['janvier', 'fevrier', 'mars', 'avril', 'mai', 'juin', 'juillet', 'aout', 'septembre', 'octobre', 'novembre', 'decembre'];
+const partsParis = (t) => Object.fromEntries(new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Paris', weekday: 'short', day: '2-digit', month: '2-digit', hour: '2-digit', hourCycle: 'h23' }).formatToParts(new Date(t)).map((x) => [x.type, x.value]));
 const JOUR_EN = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 };
 const sansAccent = (s) => String(s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
 const texte = (e) => sansAccent(`${e.name || ''} ${e.description || ''}`);
@@ -26,7 +27,10 @@ export function corrigerNuit(e) {
   if (h >= 2) return e; // « minuit » ou « 1 h » seulement (une vraie ouverture à 2 h du matin reste telle quelle)
   const jour = JOURS[JOUR_EN[p.weekday]], d = +p.day;
   // La description annonce ce jour-là (« vendredi 27 ») : la soirée commence le soir de ce jour, pas la nuit d'avant.
-  if (new RegExp(`\\b${jour}\\s+${d}\\b`).test(texte(e))) return { ...e, start: new Date(t + 864e5).toISOString(), ...(e.end && Date.parse(e.end) ? { end: new Date(Date.parse(e.end) + 864e5).toISOString() } : {}), _nuit_corrigee: true };
+  // « vendredi 27 » ou « 27 novembre » (24/11/2026 : « Soirée Shatta 26 novembre », affiche « Jeudi 26 novembre 00h-05h », lue à
+  // 0 h le 26 et donc affichée mercredi 25).
+  const mois = MOIS[+p.month - 1];
+  if (new RegExp(`\\b${jour}\\s+${d}\\b|\\b${d}(er)?\\s+${mois}\\b`).test(texte(e))) return { ...e, start: new Date(t + 864e5).toISOString(), ...(e.end && Date.parse(e.end) ? { end: new Date(Date.parse(e.end) + 864e5).toISOString() } : {}), _nuit_corrigee: true };
   return e;
 }
 

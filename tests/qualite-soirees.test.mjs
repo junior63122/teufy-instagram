@@ -99,3 +99,21 @@ test('affiche qui contredit la date (24/11) : soirée retirée ; affiche sans da
   assert.equal(dateContredite(e, { titre: 'Je Dis Techno', dates: [] }), false);
   assert.equal(dateContredite(e, { titre: 'Autre soirée', dates: ['2026-11-26'] }), false); // autre affiche : jugée ailleurs
 });
+
+test('minuit et « 26 novembre » dans le titre (24/11) : la nuit du 26, pas celle du 25', async () => {
+  const { corrigerNuit } = await import('../src/qualite-soirees.mjs');
+  const e = corrigerNuit({ name: 'Soirée Shatta 26 novembre', description: '', start: '2026-11-25T23:00:00.000Z' });
+  assert.equal(e.start, '2026-11-26T23:00:00.000Z');
+  const f = corrigerNuit({ name: 'Soirée du 1er décembre', description: '', start: '2026-11-30T23:00:00.000Z' });
+  assert.equal(f.start, '2026-12-01T23:00:00.000Z');
+  const g = corrigerNuit({ name: 'Afterwork 26 novembre', description: '', start: '2026-11-26T18:00:00.000Z' }); // 19 h : rien à corriger
+  assert.equal(g.start, '2026-11-26T18:00:00.000Z');
+});
+
+test('affiche « Jeudi 26 novembre, 00h-05h » et soirée lue le 26 à 0 h : nuit du 26', async () => {
+  const { nuitDeLAffiche } = await import('../src/site.mjs');
+  const e = { name: '100% Shatta', venue: 'Bora Club', city: 'Toulon', start: '2026-11-25T23:00:00.000Z' };
+  assert.equal(nuitDeLAffiche(e, { titre: '100% Shatta', dates: ['2026-11-26'] }), true);
+  assert.equal(nuitDeLAffiche({ ...e, start: '2026-11-26T21:00:00.000Z' }, { titre: '100% Shatta', dates: ['2026-11-26'] }), false); // 22 h : déjà bon
+  assert.equal(nuitDeLAffiche(e, { titre: 'Autre soirée', dates: ['2026-11-26'] }), false);
+});
