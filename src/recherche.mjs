@@ -428,9 +428,16 @@ export const VILLES_OCCITANIE = ['Montpellier', 'Toulouse', 'Nîmes', 'Perpignan
 // Code postal ou ville d'Occitanie (départements 09, 11, 12, 30, 31, 32, 34, 46, 48, 65, 66, 81, 82).
 const RE_CP_OCCITANIE = /\b(09|11|12|30|31|32|34|46|48|65|66|81|82)\d{3}\b/;
 const sansAcc = (x) => String(x || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+/** La ville v est-elle citée dans t, en mot entier ? (24/11/2026 : « la » de La Grande-Motte trouvait toutes les adresses,
+ *  « Rennes » trouvait Marennes, « Aix » trouvait Aix-les-Bains.) Aix seul vaut Aix-en-Provence. */
+export function citeVille(t, v) {
+  const n = sansAcc(t), base = sansAcc(v).replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/[- ]+/g, '[- ]+');
+  const alias = /^aix-en-provence$/i.test(sansAcc(v)) ? '|aix(?![- ]+les)' : '';
+  return new RegExp(`(^|[^a-z0-9])(${base}${alias})($|[^a-z0-9])`).test(n);
+}
 export function villeOccitanie(e) {
-  const t = sansAcc(`${e.city || ''} ${e.address || ''} ${e.venue || ''}`);
-  return VILLES_OCCITANIE.find((v) => t.includes(sansAcc(v).split('-')[0])) || (RE_CP_OCCITANIE.test(t) ? e.city : '');
+  const t = `${e.city || ''} ${e.address || ''} ${e.venue || ''}`;
+  return VILLES_OCCITANIE.find((v) => citeVille(t, v)) || (RE_CP_OCCITANIE.test(t) ? e.city : '');
 }
 // Ce qui n'est pas une soirée (conférences, stand-up, ateliers, rencontres pro…) : écarté des pages billetterie.
 export const PAS_SOIREE = /comedy|stand ?up|humou?r|conf[ée]rence|atelier|workshop|formation|s[ée]minaire|networking|r[ée]seautage|[ée]checs|meetup|webinar|salon|rencontre(s)? (pro|d'affaires)|apéropreneur|yoga|m[ée]ditation|visite guid|dégustation de vin|d[ée]gustation|wine tasting|tasting|wines? (?:&|and) (?:\w+ )?cheese|speed ?dating|quiz|book ?club|lecture|jeux|vide[- ]?dressing|clothes|sale\b|afterwork|after work|[ée]loquence|brocante|march[ée] de/i;

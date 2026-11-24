@@ -7,7 +7,6 @@
 // Sortie : contenus/agendas.json, relu par src/sources.mjs (Côte) et src/run.mjs (France, Occitanie).
 import { writeFileSync } from 'node:fs';
 import path from 'node:path';
-import { gunzipSync } from 'node:zlib';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -58,42 +57,127 @@ export function colonnes(entetes) {
     categories: trouve(/categor/, /type/, /theme/), description: trouve(/description/, /resume/) };
 }
 
-async function datatourisme({ garder, log }) {
-  // Ressource « événements » du jeu de données DATAtourisme sur data.gouv.fr (adresse retrouvée chaque jour par l'API data.gouv).
-  const ds = await (await fetch('https://www.data.gouv.fr/api/1/datasets/donnees-touristiques-de-la-base-datatourisme/', { headers: H, signal: AbortSignal.timeout(30000) })).json();
-  const res = (ds.resources || []).filter((r) => /csv/i.test(r.format || r.url) && /v[eé]nement|event|fete|manifest/i.test(`${r.title} ${r.url}`));
-  if (!res.length) throw new Error(`pas d'export « événements » en CSV (ressources : ${(ds.resources || []).map((r) => r.title).slice(0, 6).join(' | ')})`);
-  const r = await fetch(res[0].url, { headers: H, signal: AbortSignal.timeout(300000) });
-  if (!r.ok) throw new Error(`export HTTP ${r.status}`);
-  // 23/11/2026 : l'export est compressé (gzip) même quand son nom finit par .csv : on regarde les premiers octets.
-  let brut = Buffer.from(await r.arrayBuffer());
-  if (brut[0] === 0x1f && brut[1] === 0x8b) brut = gunzipSync(brut);
-  const texte = brut.toString('utf8').replace(/^\uFEFF/, '');
-  const premiere = texte.slice(0, texte.indexOf('\n'));
-  // Séparateur le plus fréquent de la première ligne (virgule, point-virgule, tabulation, barre).
-  const sep = [',', ';', '\t', '|'].sort((x, y) => premiere.split(y).length - premiere.split(x).length)[0];
-  // 24/11/2026 : 67 879 lignes lues, toutes « sans nom ni date » : aperçu brut des premières lignes dans le journal.
-  log(`  DATAtourisme : séparateur « ${sep === '\t' ? 'tab' : sep} », début du fichier : ${JSON.stringify(texte.slice(0, 600))}`);
-  let C, n = 0; const sortie = [], rejets = {};
-  const rejet = (k, ex) => { const r = (rejets[k] ||= { n: 0, ex: [] }); r.n++; if (r.ex.length < 3 && ex) r.ex.push(String(ex).slice(0, 60)); };
-  for (const v of lignesCsv(texte, sep)) {
-    if (!C) { C = colonnes(v); log(`  DATAtourisme : colonnes ${v.slice(0, 16).join(' | ')}`); continue; }
-    n++;
-    if (n <= 2) log(`  DATAtourisme : ligne ${n} (${v.length} champs) : ${JSON.stringify(v.slice(0, 8)).slice(0, 400)}`);
-    const g = (k) => (C[k] >= 0 ? (v[C[k]] || '').trim() : '');
-    const e = { source: 'datatourisme', name: g('nom'), start: g('debut'), end: g('fin'), venue: g('lieu'), city: g('commune'), address: [g('adresse'), g('cp'), g('commune')].filter(Boolean).join(', '),
-      url: g('url').split(/[\s|,]/)[0] || '', image: g('image').split(/[\s|,]/)[0] || '', price: null, tags: g('categories').split(/[|,;]/).map((x) => x.trim()).filter(Boolean).slice(0, 4), description: g('description').slice(0, 400), popularite: null };
-    if (!e.name || !e.start) { rejet('sans nom ou date', e.start); continue; }
-    // Plusieurs dates possibles dans la case (« 2026-11-23|2026-11-30 »), ou au format français : la prochaine à venir.
-    const t = prochaineDate(e.start);
-    if (t == null) { rejet('date illisible', e.start); continue; }
-    if (t < Date.now() - 6 * 3600e3 || t > Date.now() + 60 * 864e5) { rejet('hors période', e.start); continue; }
-    e.start = new Date(t).toISOString();
-    const r = garder(e);
-    if (r === true) sortie.push(e); else rejet(r || 'écarté', `${e.name} (${e.city})`);
+// 24/11/2026 : le « CSV simplifié » publié sur data.gouv.fr (data.cquest.org) n'a plus que l'identifiant, le titre et le type :
+// dates, villes, liens vides sur ses 67 879 lignes. On lit donc l'export complet JSON-LD du même éditeur (700 Mo une fois
+// décompressé), objet par objet, sans jamais le charger en entier.
+const val = (x) => (Array.isArray(x) ? (x.find((y) => y?.['@language'] === 'fr') ?? x[0]) : x);
+const texteDe = (x) => { const v = val(x); return String(v && typeof v === 'object' ? v['@value'] ?? '' : v ?? '').trim(); };
+const liste = (x) => (x == null ? [] : Array.isArray(x) ? x : [x]);
+
+/** Rend un à un les objets du tableau « @graph » d'un JSON-LD lu par morceaux (chaînes). */
+export async function* objetsGraph(morceaux) {
+  const pile = []; let chaine = false, echap = false, buf = '', dedans = false;
+  for await (const m of morceaux) {
+    let debut = dedans ? 0 : -1;
+    for (let i = 0; i < m.length; i++) {
+      const c = m[i];
+      if (chaine) { if (echap) echap = false; else if (c === '\\') echap = true; else if (c === '"') chaine = false; continue; }
+      if (c === '"') { chaine = true; continue; }
+      if (c === '{' || c === '[') {
+        if (c === '{' && pile.length === 2 && pile[1] === '[') { dedans = true; debut = i; buf = ''; }
+        pile.push(c);
+      } else if (c === '}' || c === ']') {
+        pile.pop();
+        if (c === '}' && dedans && pile.length === 2) { buf += m.slice(debut, i + 1); dedans = false; debut = -1; try { yield JSON.parse(buf); } catch { /* objet illisible : ignoré */ } buf = ''; }
+      }
+    }
+    if (dedans) buf += m.slice(debut);
   }
-  log(`  DATAtourisme : ${n} événement(s) lus, ${sortie.length} soirée(s) gardée(s) dans nos villes.`);
-  log(`  DATAtourisme : écartés ${Object.entries(rejets).map(([k, v]) => `${k} ${v.n} (ex. ${v.ex.join(' ; ')})`).join(' | ') || 'aucun'}`);
+}
+
+/** Instant (ms) d'une date + heure locales de Paris. */
+const FMT_OFFSET = new Intl.DateTimeFormat('en-US', { timeZone: 'Europe/Paris', timeZoneName: 'longOffset' });
+export function instantParis(date, heure = '00:00:00') {
+  const brut = Date.parse(`${date}T${`${heure}:00:00`.slice(0, 8)}Z`); if (Number.isNaN(brut)) return null;
+  const ecart = (t) => { const z = FMT_OFFSET.formatToParts(new Date(t)).find((x) => x.type === 'timeZoneName')?.value || '';
+    const m = z.match(/([+-])(\d{2}):(\d{2})/); return m ? (m[1] === '+' ? 1 : -1) * (+m[2] * 60 + +m[3]) * 60e3 : 0; };
+  return brut - ecart(brut - ecart(brut));
+}
+
+/** Fiche DATAtourisme (objet JSON-LD) → événement Teufy, à la prochaine date à venir ; null si rien à venir. */
+export function evenementDT(o, maintenant = Date.now()) {
+  const nom = texteDe(o['rdfs:label']); if (!nom) return null;
+  // Prochaine occurrence : chaque période (début, fin, heures) ; une période de plusieurs jours compte pour chaque jour.
+  let meilleur = null;
+  const lieu = val(o.isLocatedAt) || {};
+  // Heure absente de la période : celle des horaires d'ouverture du même jour (donnée de la fiche), jamais inventée.
+  const horaires = liste(lieu['schema:openingHoursSpecification']).map((h) => ({ de: texteDe(h['schema:validFrom']).slice(0, 10), a: texteDe(h['schema:validThrough']).slice(0, 10), o: texteDe(h['schema:opens']), f: texteDe(h['schema:closes']) }));
+  for (const p of liste(o.takesPlaceAt)) {
+    const d1 = texteDe(p.startDate), d2 = texteDe(p.endDate) || d1;
+    let h1 = texteDe(p.startTime), h2 = texteDe(p.endTime);
+    if (!h1) { const h = horaires.find((x) => x.o && x.de <= d1.slice(0, 10) && (!x.a || x.a >= d1.slice(0, 10))); if (h) { h1 = h.o; h2 ||= h.f; } }
+    if (/^00:00(:00)?$/.test(h1)) h1 = '';
+    if (!/^\d{4}-\d{2}-\d{2}/.test(d1)) continue;
+    // Période longue (exposition, « tous les samedis » saisis comme une période) : on part de la veille d'aujourd'hui.
+    const hier = new Date(maintenant - 864e5).toISOString().slice(0, 10);
+    for (let j = 0, d = d1.slice(0, 10) < hier ? hier : d1.slice(0, 10); j < 400 && d <= d2.slice(0, 10); j++) {
+      const t = instantParis(d, h1 || '00:00:00');
+      if (t != null && t >= maintenant - 6 * 3600e3 && (!meilleur || t < meilleur.t)) {
+        let f = h2 ? instantParis(d, h2) : null; if (f != null && f <= t) f += 864e5;
+        meilleur = { t, f, heure: !!h1 }; break;
+      }
+      d = new Date(Date.parse(`${d}T12:00:00Z`) + 864e5).toISOString().slice(0, 10);
+    }
+  }
+  if (!meilleur) return null;
+  const adr = val(lieu['schema:address']) || {}, geo = val(lieu['schema:geo']) || {};
+  const contact = liste(o.hasContact).concat(liste(o.hasBookingContact));
+  const web = contact.map((c) => texteDe(c?.['foaf:homepage'])).find((u) => /^https?:/.test(u)) || '';
+  const image = liste(o.hasMainRepresentation).concat(liste(o.hasRepresentation)).map((r) => texteDe(val(r?.['ebucore:hasRelatedResource'])?.['ebucore:locator'])).find((u) => /^https?:/.test(u)) || '';
+  const prix = val(val(o['schema:offers'])?.['schema:priceSpecification']) || {};
+  const pm = texteDe(prix['schema:minPrice']) || texteDe(prix['schema:price']), pmin = pm !== '' && Number.isFinite(+pm) ? +pm : null;
+  const types = liste(o['@type']).map((t) => String(t).replace(/^.*:/, '')).filter((t) => !/^(PointOfInterest|resource|Event|EntertainmentAndEvent)$/.test(t));
+  const desc = texteDe(o['rdfs:comment']) || texteDe(o.hasDescription?.shortDescription) || texteDe(o['owl:topObjectProperty']?.shortDescription);
+  const rue = liste(adr['schema:streetAddress']).map(String)[0] || '';
+  return { source: 'datatourisme', name: nom, start: new Date(meilleur.t).toISOString(), end: meilleur.f ? new Date(meilleur.f).toISOString() : '',
+    ...(meilleur.heure ? {} : { heure_inconnue: true }),
+    venue: texteDe(lieu['schema:name']) || (liste(adr['schema:streetAddress']).length > 1 ? String(liste(adr['schema:streetAddress'])[1]) : ''),
+    city: String(adr['schema:addressLocality'] || ''), address: [rue, adr['schema:postalCode'], adr['schema:addressLocality']].filter(Boolean).join(', '),
+    lat: Number(texteDe(geo['schema:latitude'])) || null, lng: Number(texteDe(geo['schema:longitude'])) || null,
+    url: web, image, price: pmin ?? null, tags: [...new Set(types)].slice(0, 4), description: desc.slice(0, 400), popularite: null };
+}
+
+// DATAtourisme recense tout le tourisme (expositions, marchés, visites, tournois…) : on ne garde que les sorties du soir,
+// d'après le type de la fiche et des mots précis (un « concert » d'orgue à l'église n'est pas une soirée).
+const TYPES_HORS = /^(Exhibition|ExhibitionEvent|Market|SaleEvent|Visit|Product|SportsCompetition|ChildrensEvent|Game|TrainingWorkshop|BusinessEvent|Conference|ReligiousEvent|SportsDemonstration|Rally|Course|WalkingTour)$/;
+export const NUIT_DT = /soir[ée]e|party|club|\bdj\b|techno|\bhouse\b|[ée]lectro|\brap\b|hip.?hop|afro|shatta|dancehall|reggae|\bdub\b|reggaeton|latino|salsa|bachata|kizomba|kompa|zouk|open ?air|\bnight\b|\brave\b|disco|\bbal\b|guinguette|cabaret|karaok|blind.?test|jazz|\brock\b|metal|punk|sound ?system|sc[eè]ne ouverte|stand.?up|dancing|\bdanse\b|apéro|concert/i;
+export const PAS_NUIT_DT = /bougie|[ée]glise|cath[ée]drale|chapelle|messe|orgue|gospel|chorale|chœur|choeur|classique|baroque|lyrique|symphoni|enfant|famille|go[uû]ter|atelier|conf[ée]rence|exposition|visite|march[ée]|tournoi|r[ée]gate|randonn|loto|thé dansant|th[ée].dansant|apr[eè]s.midi dansant|seniors?|retrait[ée]s|conservatoire|quatuor|r[ée]cital|vivaldi|\bbach\b|mozart|fl[uû]te|violon|piano|musique de chambre|martin[uů]|tcha[iï]kovsk|handi|sport/i;
+export function estSortieDT(e) {
+  if (e.tags.some((t) => TYPES_HORS.test(t))) return 'pas une sortie (type)';
+  const t = `${e.name} ${e.description} ${e.venue}`;
+  if (!NUIT_DT.test(t)) return 'pas une soirée';
+  if (PAS_NUIT_DT.test(t)) return 'exclu (église, enfants, exposition…)';
+  return true;
+}
+
+async function datatourisme({ garder, log }) {
+  // Ressource « événements » en JSON-LD du jeu de données DATAtourisme (adresse retrouvée chaque jour par l'API data.gouv).
+  const ds = await (await fetch('https://www.data.gouv.fr/api/1/datasets/donnees-touristiques-de-la-base-datatourisme/', { headers: H, signal: AbortSignal.timeout(30000) })).json();
+  const res = (ds.resources || []).filter((r) => /json/i.test(`${r.format} ${r.url}`) && /v[eé]nement|event/i.test(`${r.title} ${r.url}`));
+  if (!res.length) throw new Error(`pas d'export « événements » en JSON (ressources : ${(ds.resources || []).map((r) => r.title).slice(0, 6).join(' | ')})`);
+  const url = res[0].url.replace(/^http:/, 'https:');
+  const r = await fetch(url, { headers: H, signal: AbortSignal.timeout(600000) });
+  if (!r.ok) throw new Error(`export HTTP ${r.status}`);
+  // Décompression au fil de l'eau (le fichier fait ~100 Mo compressé, ~700 Mo décompressé).
+  const { Readable } = await import('node:stream'); const { createGunzip } = await import('node:zlib');
+  const flux = Readable.fromWeb(r.body).pipe(createGunzip()); flux.setEncoding('utf8');
+  let n = 0, aVenir = 0; const sortie = [], rejets = {};
+  const rejet = (k, ex) => { const x = (rejets[k] ||= { n: 0, ex: [] }); x.n++; if (x.ex.length < 3 && ex) x.ex.push(String(ex).slice(0, 60)); };
+  const limite = Date.now() + 60 * 864e5;
+  for await (const o of objetsGraph(flux)) {
+    if (!o['rdfs:label']) continue; n++;
+    const e = evenementDT(o);
+    if (!e) { rejet('passé ou sans date'); continue; }
+    if (Date.parse(e.start) > limite) { rejet('dans plus de 60 jours'); continue; }
+    if (e.heure_inconnue) { rejet('sans heure de début', `${e.name} (${e.city})`); continue; } // jamais d'heure inventée
+    aVenir++;
+    // Ville d'après la commune seule (« rue de Paris » dans une adresse de Moselle ne fait pas une soirée à Paris).
+    const g = estSortieDT(e) === true ? garder({ ...e, address: e.city, venue: '' }) : estSortieDT(e);
+    if (g === true) sortie.push(e); else rejet(g || 'écarté', `${e.name} (${e.city})`);
+  }
+  if (!n) throw new Error('aucun événement lu dans l\'export JSON-LD (format changé ?)');
+  log(`  DATAtourisme : ${n} événement(s) lus, ${aVenir} dans les 60 jours, ${sortie.length} gardé(s) dans nos villes.`);
+  log(`  DATAtourisme : écartés ${Object.entries(rejets).map(([k, v]) => `${k} ${v.n}${v.ex.length ? ` (ex. ${v.ex.join(' ; ')})` : ''}`).join(' | ') || 'aucun'}`);
   return sortie;
 }
 

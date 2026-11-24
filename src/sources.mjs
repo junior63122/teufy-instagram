@@ -2,7 +2,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { extractEvents, dedupe, keyOf } from './extract.mjs';
-import { fusionner, villeOccitanie, VILLES_FRANCE } from './recherche.mjs';
+import { fusionner, villeOccitanie, citeVille, VILLES_FRANCE } from './recherche.mjs';
 import { dateParis } from './dates.mjs';
 
 const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36';
@@ -239,8 +239,7 @@ export function rubriqueDe(e) {
   const t = `${e.city || ''} ${e.address || ''} ${e.venue || ''}`;
   if (VILLES_COTE.test(t)) return 'cote';
   if (villeOccitanie(e)) return 'occitanie';
-  const n = t.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
-  return VILLES_FRANCE.some((v) => n.includes(v.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().split('-')[0])) ? 'france' : '';
+  return VILLES_FRANCE.some((v) => citeVille(t, v)) ? 'france' : '';
 }
 const VILLES_COTE = /\b(nice|cannes|antibes|juan|monaco|monte.?carlo|menton|cagnes|saint.?laurent.?du.?var|villeneuve.?loubet|grasse|mougins|le cannet|mandelieu|vallauris|golfe.?juan|beausoleil|villefranche|toulon|la seyne|hy[eè]res|six.?fours|sanary|bandol|fr[ée]jus|saint.?rapha[eë]l|sainte.?maxime|saint.?tropez|draguignan|puget|brignoles|la valette|la garde)\b/i;
 async function soireesBizouk(html) {

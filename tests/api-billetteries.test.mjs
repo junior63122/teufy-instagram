@@ -49,3 +49,36 @@ test('agendas : prochaine date lisible (plusieurs dates, format français)', asy
   assert.equal(new Date(prochaineDate('2026-11-29T22:00:00+01:00', m)).toISOString(), '2026-11-29T21:00:00.000Z');
   assert.equal(prochaineDate('bientôt', m), null);
 });
+
+test('agendas : DATAtourisme lu en JSON-LD, objet par objet, au fil de morceaux coupés n\'importe où', async () => {
+  const { objetsGraph, evenementDT, estSortieDT } = await import('../src/agendas.mjs');
+  const fiche = { '@id': 'x', '@type': ['schema:Event', 'MusicEvent', 'Concert'], 'rdfs:label': { '@value': 'Soirée techno au Bikini', '@language': 'fr' },
+    takesPlaceAt: { startDate: { '@value': '2026-12-05' }, startTime: { '@value': '23:00:00' }, endTime: { '@value': '05:00:00' } },
+    isLocatedAt: { 'schema:address': { 'schema:addressLocality': 'Toulouse', 'schema:postalCode': '31000', 'schema:streetAddress': 'rue « {x} »' } },
+    hasContact: { 'foaf:homepage': 'https://lebikini.com/' } };
+  const json = JSON.stringify({ '@context': { a: 'b' }, '@graph': [fiche, { ...fiche, '@id': 'y' }] });
+  async function* morceaux() { for (let i = 0; i < json.length; i += 7) yield json.slice(i, i + 7); }
+  const lus = []; for await (const o of objetsGraph(morceaux())) lus.push(o['@id']);
+  assert.deepEqual(lus, ['x', 'y']);
+  const e = evenementDT(fiche, Date.parse('2026-12-01T12:00:00Z'));
+  assert.equal(e.start, '2026-12-05T22:00:00.000Z'); // 23 h à Paris en hiver
+  assert.equal(e.end, '2026-12-06T04:00:00.000Z'); // fin après minuit = lendemain
+  assert.equal(e.city, 'Toulouse'); assert.equal(e.url, 'https://lebikini.com/');
+  assert.equal(estSortieDT(e), true);
+  // Sans heure de début : signalée, jamais inventée ; une exposition n'est pas une sortie.
+  assert.equal(evenementDT({ ...fiche, takesPlaceAt: { startDate: { '@value': '2026-12-05' } } }, Date.parse('2026-12-01')).heure_inconnue, true);
+  assert.notEqual(estSortieDT({ ...e, tags: ['Exhibition'] }), true);
+  assert.notEqual(estSortieDT({ ...e, name: "Concert d'orgue à l'église" }), true);
+});
+
+test('villes : nom entier seulement (Marennes n\'est pas Rennes, « la » n\'est pas La Grande-Motte)', async () => {
+  const { citeVille, villeOccitanie } = await import('../src/recherche.mjs');
+  const { rubriqueDe } = await import('../src/sources.mjs');
+  assert.equal(citeVille('Marennes', 'Rennes'), false);
+  assert.equal(citeVille('Aix-les-Bains', 'Aix-en-Provence'), false);
+  assert.equal(citeVille('Aix', 'Aix-en-Provence'), true);
+  assert.equal(citeVille('Lyon 5e Arrondissement', 'Lyon'), true);
+  assert.equal(villeOccitanie({ city: 'Dieuze', address: '1 rue de la Paix' }), '');
+  assert.equal(rubriqueDe({ city: 'Marennes-Hiers-Brouage' }), '');
+  assert.equal(rubriqueDe({ city: 'Toulouse' }), 'occitanie');
+});
