@@ -16,11 +16,14 @@ const GEMINI = 'https://generativelanguage.googleapis.com/v1beta/models';
 // --- Garde-fous budget (demande du directeur : budget mensuel limité) ------------------------------------------
 // Compteur d'appels par IA, par jour et par mois, enregistré dans contenus/budget-ia.json (committé par les workflows).
 // Au-delà des plafonds de config.llm (max_appels_<ia>_jour / _mois), l'IA n'est plus appelée jusqu'au lendemain / mois suivant.
-const FICHIER_BUDGET = process.env.TEUFY_BUDGET_FICHIER || path.join(path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..'), 'contenus', 'budget-ia.json'); // fichier de test possible (les tests ne dépendent pas du vrai compteur du jour)
+const fichierBudget = () => process.env.TEUFY_BUDGET_FICHIER || BUDGET_DEFAUT;
+const BUDGET_DEFAUT = path.join(path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..'), 'contenus', 'budget-ia.json');
+// Lu à chaque appel (24/11/2026) : un test peut pointer vers un compteur vide (le vrai compteur du jour, plafond atteint, faisait
+// échouer les tests du robot). Fichier de test possible (les tests ne dépendent pas du vrai compteur du jour)
 const PLAFONDS = { gemini: [1500, 30000], anthropic: [120, 2500], groq: [900, 25000], tavily: [30, 950] }; // anti-emballement seulement (boucle, panne) : jamais atteints en usage normal
 function lireBudget() {
   const j = new Date().toISOString().slice(0, 10), m = j.slice(0, 7);
-  let b = {}; try { b = existsSync(FICHIER_BUDGET) ? JSON.parse(readFileSync(FICHIER_BUDGET, 'utf8')) : {}; } catch { b = {}; }
+  let b = {}; try { b = existsSync(fichierBudget()) ? JSON.parse(readFileSync(fichierBudget(), 'utf8')) : {}; } catch { b = {}; }
   if (b.mois !== m) b = { mois: m, jour: j, total: {}, aujourdhui: {}, euros_jour: 0, euros_mois: 0 };
   if (b.jour !== j) { b.jour = j; b.aujourdhui = {}; b.euros_jour = 0; for (const x of Object.values(b.euros_ia || {})) x.jour = 0; }
   b.total ||= {}; b.aujourdhui ||= {};
@@ -81,7 +84,7 @@ export const reglerCouts = (L = {}) => { COUTS = { ...COUT_DEFAUT, ...(L.cout_eu
 export function compter(f, type = 'appel') {
   if (f === 'github') return;
   try { const b = lireBudget(); b.aujourdhui[f] = (b.aujourdhui[f] || 0) + 1; b.total[f] = (b.total[f] || 0) + 1;
-    const c = COUTS[`${f}_${type}`] ?? 0; b.euros_jour = Math.round(((b.euros_jour || 0) + c) * 1000) / 1000; b.euros_mois = Math.round(((b.euros_mois || 0) + c) * 1000) / 1000; b.euros_ia ||= {}; const e = (b.euros_ia[f] ||= { jour: 0, mois: 0 }); e.jour = Math.round((e.jour + c) * 1000) / 1000; e.mois = Math.round((e.mois + c) * 1000) / 1000; mkdirSync(path.dirname(FICHIER_BUDGET), { recursive: true }); writeFileSync(FICHIER_BUDGET, JSON.stringify(b, null, 1) + '\n'); } catch { /* compteur indisponible : pas bloquant */ }
+    const c = COUTS[`${f}_${type}`] ?? 0; b.euros_jour = Math.round(((b.euros_jour || 0) + c) * 1000) / 1000; b.euros_mois = Math.round(((b.euros_mois || 0) + c) * 1000) / 1000; b.euros_ia ||= {}; const e = (b.euros_ia[f] ||= { jour: 0, mois: 0 }); e.jour = Math.round((e.jour + c) * 1000) / 1000; e.mois = Math.round((e.mois + c) * 1000) / 1000; mkdirSync(path.dirname(fichierBudget()), { recursive: true }); writeFileSync(fichierBudget(), JSON.stringify(b, null, 1) + '\n'); } catch { /* compteur indisponible : pas bloquant */ }
 }
 export function etatBudget() { return lireBudget(); }
 const GH = 'https://models.github.ai/inference/chat/completions';

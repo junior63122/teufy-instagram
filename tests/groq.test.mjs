@@ -3,6 +3,8 @@ import os from 'node:os';
 // Groq, IA gratuite de secours (20/11/2026) : GitHub Models a fermé le 30/07/2026 et répondait « OK » à tout.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
+// Compteur de dépense IA de test (24/11/2026) : jamais le vrai compteur du jour (contenus/budget-ia.json).
+process.env.TEUFY_BUDGET_FICHIER = (await import('node:path')).join((await import('node:os')).tmpdir(), `teufy-budget-test-${process.pid}.json`);
 
 process.env.GROQ_API_KEY = 'cle-de-test';
 delete process.env.GEMINI_API_KEY; delete process.env.ANTHROPIC_API_KEY;

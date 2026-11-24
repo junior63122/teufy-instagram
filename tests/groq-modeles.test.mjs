@@ -1,6 +1,8 @@
 // Groq : les modèles sont choisis parmi ceux réellement ouverts au compte (20/11/2026 : deux modèles répondaient 404).
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
+// Compteur de dépense IA de test (24/11/2026) : jamais le vrai compteur du jour (contenus/budget-ia.json).
+process.env.TEUFY_BUDGET_FICHIER = (await import('node:path')).join((await import('node:os')).tmpdir(), `teufy-budget-test-${process.pid}.json`);
 
 process.env.GROQ_API_KEY = 'cle-de-test';
 delete process.env.GEMINI_API_KEY; delete process.env.ANTHROPIC_API_KEY;
