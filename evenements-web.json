@@ -7,6 +7,28 @@
   "evenements": [
     {
       "source": "web",
+      "source_site": "Instagram",
+      "name": "Barracuda Cannes Student Party",
+      "start": "2026-11-25T19:00:00.000Z",
+      "venue": "9 Rue du Batéguier - Carré d’Or",
+      "city": "Cannes",
+      "address": "",
+      "url": "https://www.instagram.com/p/DgGCZQyEftd/",
+      "image": "https://scontent-ord5-2.cdninstagram.com/v/t51.82787-15/927867410_17964308448250848_3784470895261804610_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=109&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=O8aSv9pcn4AQ7kNvwE78xgE&_nc_oc=Ado6M7HPt6XcUsd2DwTWAkopVAYfFRq2NmWf3n4hd3VWekMnB_9WcUR2tKcECxZuL9I&_nc_zt=23&_nc_ht=scontent-ord5-2.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=CxdvdDHlPvJD5UrKys_wRw&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQT0ylT-IYU6Htdl6o8hUTQlDfedNT5gZ0XnEk0YG7Ve1A&oe=6B0B39DF",
+      "price": null,
+      "tags": [],
+      "description": "Rendez‑vous à la Rhumerie Barracuda, 9 Rue du Batéguier, pour une soirée étudiante qui dure du mercredi au samedi de 20h à 02h30. Happy‑hour 20h‑22h : un cocktail acheté, le second offert. L’ambiance est festive, décor pirate, idéale pour se détendre entre cours. Entrée libre, dress‑code décontracté, âge minimum 18 ans. Le lieu est central, parfait pour prolonger la nuit sur le Carré d’Or de Cannes.",
+      "public_cible": 0.9,
+      "confiance": 0.7,
+      "buzz": 0.5,
+      "buzz_raison": "Événement récurrent, bonne visibilité locale, happy‑hour attractif, cible étudiante.",
+      "accroche": "Soirée étudiante à la Rhumerie de Cannes, happy‑hour 20h‑22h, ambiance pirate du mercredi au samedi !",
+      "instagram": [
+        "barracuda.cannes"
+      ]
+    },
+    {
+      "source": "web",
       "source_site": "instagram.com",
       "via_veille": true,
       "name": "La Cale Sèche – Bouteille de planteur à 15 € + PSG / AS Roma",
@@ -5761,5 +5783,5 @@
       ]
     }
   ],
-  "maj_instagram": "2026-11-24T07:42:06.655Z"
+  "maj_instagram": "2026-11-24T08:42:11.518Z"
 }

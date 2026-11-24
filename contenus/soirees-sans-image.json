@@ -1,6 +1,6 @@
 {
- "le": "2026-11-24T08:18:34.847Z",
- "total": 152,
+ "le": "2026-11-24T08:42:11.518Z",
+ "total": 157,
  "sans_image": [
   {
    "id": "je-dis-techno-tous-les-jeudis-2026-11-26",
@@ -352,6 +352,15 @@
    "ville": "La Valette-du-Var",
    "instagram": "",
    "url": "https://shotgun.live/fr/events/the-boiler-r"
+  },
+  {
+   "id": "coachellito-et-le-blanchon-auron-1600-opening-edition-2026-12-19",
+   "nom": "Coachellito & Le Blanchon Auron 1600 - Opening Edition",
+   "jour": "2026-12-19",
+   "lieu": "Le Blanchon - Auron 1600",
+   "ville": "Auron",
+   "instagram": "",
+   "url": "https://shotgun.live/fr/events/coachellito-le-blanchon-auron-1600-opening-edition"
   },
   {
    "id": "soirees-dj-du-village-de-noel-de-bandol-2026-12-19",
