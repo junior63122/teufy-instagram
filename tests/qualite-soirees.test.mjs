@@ -42,3 +42,15 @@ test('« week-end » placé un lundi : écarté ; un vrai week-end gardé', asyn
   assert.ok(!weekEndIncoherent({ name: 'Week-end Techno', start: '2026-11-27T21:00:00.000Z' }));
   assert.ok(!weekEndIncoherent({ name: 'Techno Night', start: '2026-11-23T19:00:00.000Z' }));
 });
+
+test('événement de journée : gardé et signalé « journee » (directeur 24/11), soirée de nuit non signalée', async () => {
+  const { nettoyerSoirees, estDeJour } = await import('../src/qualite-soirees.mjs');
+  const jour = { name: "Concert d'orgue du midi", start: '2026-11-26T11:15:00.000Z', venue: 'Église' };
+  const nuit = { name: 'Techno Night', start: '2026-11-28T22:00:00.000Z', venue: 'High Club' };
+  const r = nettoyerSoirees([jour, nuit]);
+  assert.equal(r.length, 2);
+  assert.equal(r.find((e) => /orgue/.test(e.name)).journee, true);
+  assert.ok(!r.find((e) => /Techno/.test(e.name)).journee);
+  assert.ok(estDeJour({ start: '2026-11-29T15:59:00.000Z' })); // 16 h 59 à Paris
+  assert.ok(!estDeJour({ start: '2026-11-29T16:00:00.000Z' })); // 17 h
+});

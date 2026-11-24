@@ -2,7 +2,7 @@
 // news ») : quatre erreurs de fond, corrigées pour toutes les sources, jamais en inventant.
 //  1. « Le vendredi 27, ouverture à minuit » lu comme le 27 à 0 h (donc la nuit du jeudi) : décalé à la nuit annoncée.
 //  2. « Tous les vendredis » placé un jeudi : ramené au jour annoncé (même heure), dans les 7 jours.
-//  3. Événement de journée sans rien d'une sortie (concert d'orgue à midi, après-midi dansant) : retiré de l'agenda de nuit.
+//  3. Événement de journée : gardé mais signalé « journee » (24/11/2026), jamais présenté comme une soirée de nuit.
 //  4. Même soirée sous plusieurs annonces (« Marwa Loud Showcase » sur Instagram + « MARWA LOUD FAST PASS HIGH CLUB » sur la
 //     billetterie, même club, même nuit) : fusionnées, la billetterie l'emporte (heure, lien).
 const JOURS = ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'];
@@ -71,12 +71,18 @@ export function fusionnerMemeNuit(events) {
   return gardes;
 }
 
-/** Les quatre règles, dans l'ordre. */
+/** Commence entre 6 h et 17 h (heure de Paris) : événement de journée. */
+export function estDeJour(e) { const t = Date.parse(e.start); if (!t) return false; const h = +partsParis(t).hour; return h >= 6 && h < 17; }
+
+/** Les règles, dans l'ordre. */
 export function nettoyerSoirees(events, { log = () => {} } = {}) {
   let n = 0;
   const corriges = events.map((e) => { const x = corrigerRecurrence(corrigerNuit(e)); if (x !== e) n++; return x; });
-  const journee = corriges.filter((e) => estJourneeHorsSujet(e) || weekEndIncoherent(e));
-  const fusion = fusionnerMemeNuit(corriges.filter((e) => !estJourneeHorsSujet(e) && !weekEndIncoherent(e)));
-  log(`  Qualité des soirées : ${n} date(s) corrigée(s), ${journee.length} événement(s) de journée écarté(s), ${corriges.length - journee.length - fusion.length} doublon(s) fusionné(s).`);
+  // 24/11/2026 (directeur : « il peut y avoir des événements en journée, ils peuvent intéresser les gens aussi, mais on doit très
+  // bien différencier la nuit de la journée ») : les événements de journée restent, marqués « journee » ; le site les signale
+  // (pastille « En journée », menu « Moment ») et ne les met jamais sous « Ce soir ». Seul le « week-end » placé en semaine est retiré.
+  const faux = corriges.filter((e) => weekEndIncoherent(e));
+  const fusion = fusionnerMemeNuit(corriges.filter((e) => !weekEndIncoherent(e))).map((e) => (estDeJour(e) ? { ...e, journee: true } : e));
+  log(`  Qualité des soirées : ${n} date(s) corrigée(s), ${fusion.filter((e) => e.journee).length} événement(s) de journée signalé(s), ${faux.length} date(s) impossible(s) retirée(s), ${corriges.length - faux.length - fusion.length} doublon(s) fusionné(s).`);
   return fusion;
 }

@@ -1864,3 +1864,10 @@ button.bouton{font-family:var(--texte)}
 @media(max-width:759px){body:has(.barre-billets:not([hidden])) .haut{bottom:calc(150px + env(safe-area-inset-bottom))}}
 [dir=rtl] .bandeau-nouveau .bn-fleche,[dir=rtl] .bandeau-nouveau .fleche{display:inline-block;transform:scaleX(-1)}
 .bloc-large[id^="v-"]{scroll-margin-top:120px}
+/* 24/11/2026 (directeur) : événements de journée gardés mais bien distincts de la nuit (pastille jaune soleil, menu « Moment »). */
+.moment-jour{display:inline-flex;align-items:center;gap:6px;background:#FFD56B;color:#0B0B0F;font-weight:800;font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:5px 9px;border-radius:6px}
+.moment-jour::before{content:"";width:9px;height:9px;border-radius:50%;background:#0B0B0F;box-shadow:0 0 0 2px #0B0B0F inset,0 0 0 3px #FFD56B}
+.affiche .moment-jour{position:absolute;inset-inline-start:12px;top:50px;z-index:2}
+.moment-jour.en-ligne{margin-inline-start:8px;vertical-align:middle;font-size:11px;padding:3px 7px}
+.txt-jour{font-weight:800;color:inherit}
+.similaires .affiche .moment-jour{top:32px;left:6px;font-size:10px;padding:2px 6px}

@@ -471,7 +471,8 @@ async function prepare(slot, now, id) {
   // Pas de soirée du soir même : au moins `delai_min_heures` entre la publication et le début.
   const debutMin = now.getTime() + (R.delai_min_heures ?? 24) * 3600e3;
   const pickEv = async (win, pred = () => true) => {
-    const list = filterEvents(await events(), { ...win, villes }).filter((e) => Date.parse(e.start) >= debutMin);
+    // Les posts parlent de soirées : les événements de journée (gardés sur le site avec leur pastille, 24/11/2026) n'y entrent pas.
+    const list = filterEvents((await events()).filter((e) => !e.journee), { ...win, villes }).filter((e) => Date.parse(e.start) >= debutMin);
     if (!val('fixtures')) await enrich(list.slice(0, 60), { debugDir });
     // Soirées trouvées sur le web : gardées seulement si leur page les confirme (ou très fiables).
     // Posts : soirées fiables ET pertinentes pour les 17-30 ans (le site, lui, recense plus large).

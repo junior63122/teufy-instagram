@@ -478,6 +478,16 @@ const PLUS4 = { fr: { lieuxNav: 'Clubs & bars', franceNav: 'Ailleurs en France' 
 for (const l of LANGUES) Object.assign(TXT[l], PLUS4[l]);
 const PLUS5 = { fr: { accesL: 'Accès' }, en: { accesL: 'Access' }, it: { accesL: 'Accesso' }, es: { accesL: 'Acceso' }, zh: { accesL: '交通' }, ar: { accesL: 'الوصول' } };
 for (const l of LANGUES) Object.assign(TXT[l], PLUS5[l]);
+// 24/11/2026 (directeur) : événements de journée gardés, mais bien distingués de la nuit.
+const PLUS_MOMENT = {
+  fr: { momentL: 'Moment', moments: ['Jour et nuit', 'La nuit', 'En journée'], enJournee: 'En journée', enJourneeInfo: "Événement en journée (il commence avant 17 h), pas une soirée de nuit." },
+  en: { momentL: 'Time of day', moments: ['Day and night', 'At night', 'Daytime'], enJournee: 'Daytime', enJourneeInfo: 'Daytime event (it starts before 5 pm), not a night party.' },
+  it: { momentL: 'Momento', moments: ['Giorno e notte', 'Di notte', 'Di giorno'], enJournee: 'Di giorno', enJourneeInfo: 'Evento di giorno (inizia prima delle 17), non una serata notturna.' },
+  es: { momentL: 'Momento', moments: ['Día y noche', 'De noche', 'De día'], enJournee: 'De día', enJourneeInfo: 'Evento de día (empieza antes de las 17 h), no una fiesta nocturna.' },
+  zh: { momentL: '时段', moments: ['白天和夜晚', '夜晚', '白天'], enJournee: '白天活动', enJourneeInfo: '白天活动（17点前开始），不是夜间派对。' },
+  ar: { momentL: 'التوقيت', moments: ['نهارًا وليلًا', 'ليلًا', 'نهارًا'], enJournee: 'نهارًا', enJourneeInfo: 'فعالية نهارية (تبدأ قبل الساعة 17)، وليست حفلة ليلية.' },
+};
+for (const l of LANGUES) Object.assign(TXT[l], PLUS_MOMENT[l]);
 // Compte à rebours et « très demandée ».
 const PLUS6 = {
   fr: { tresDemandee: 'Très demandée', commenceDans: 'La soirée commence dans', reserveTot: 'Soirée très attendue (mesuré sur l\'intérêt du public) : vérifie les places sur la billetterie.', js: { dans: 'Dans', u: ['j', 'h', 'min', 's'], cestParti: "C'est parti !" } },

@@ -2,6 +2,18 @@
  "_note": "Numéro de version affiché en pied de page du site et sur /mises-a-jour/ (directeur, 19/11/2026 : format « 1.13.02 », comme Minecraft). Règle : correction(s) seulement → dernier nombre +1 (1.13.02 → 1.13.03) ; nouvelle fonctionnalité → nombre du milieu +1 et le dernier revient à 01 (1.13.02 → 1.14.01) ; énorme fonctionnalité ou grosse refonte → premier nombre +1 (1.13.02 → 2.01.01). La plus récente en premier. Le site n'affiche que « titre » et « public » : phrases simples pour les visiteurs, sans détail technique ni nom de prestataire (directeur, 20/11/2026). « notes » reste interne. « titre » : 28 caractères au plus (il s'affiche en entier dans le bandeau « Nouveau » sur téléphone).",
  "versions": [
   {
+   "numero": "1.20.01",
+   "date": "2026-11-24",
+   "titre": "Jour et nuit bien séparés",
+   "public": [
+    "Les sorties en journée reviennent, avec une pastille « En journée » et un choix « La nuit / En journée » dans les filtres. « Ce soir » ne montre que la nuit.",
+    "Quelques soirées en plus en Occitanie et ailleurs en France, venues des agendas officiels du tourisme."
+   ],
+   "notes": [
+    "Directeur 24/11 : événements de journée gardés mais très bien distingués (qualite-soirees : journee=true au lieu de retrait ; site : data-moment, pastille jaune .moment-jour, menu « Moment » dans 6 langues, fiche « Quand » ; posts Instagram : journée exclue). DATAtourisme : le CSV simplifié de data.gouv n'a plus ni dates ni villes, lecture de l'export JSON-LD complet en flux (src/agendas.mjs). citeVille : villes en mot entier (Gênes n'est plus en Occitanie)."
+   ]
+  },
+  {
    "numero": "1.19.07",
    "date": "2026-11-23",
    "titre": "Infos plus justes",

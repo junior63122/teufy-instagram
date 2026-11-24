@@ -1155,18 +1155,18 @@ function carte(s, { t, base, lang, vedette = false, prioritaire = false }) {
   const imgP = prioritaire ? img.replace(/loading="lazy"/g, 'loading="eager" fetchpriority="high"') : img;
   const acces = accesDe(s);
   const promo = promoDe(s);
-  return `<article class="carte${vedette ? ' vedette' : ''}" data-acces="${acces.join(' ')}" data-id="${s.id}" data-jour="${s.jour}" data-debut="${esc(s.debut)}" data-heure="${esc(heure(s.debut, t))}" data-ville="${s.filtreVille}" data-commune="${esc(slug(s.ville || ''))}" data-styles="${s.styles.join(' ')}" data-prix="${s.prix ?? ''}" data-buzz="${s.buzz ?? ''}" data-lat="${s.lat ?? ''}" data-lng="${s.lng ?? ''}"${s.approx ? ' data-approx="1"' : ''} data-q="${esc(q)}">
-  <a class="affiche${s.affiche ? '' : ' sans'}${s.affiche && s.dims && (s.dims[0] / s.dims[1] > 0.95 || s.dims[0] < 560) ? ' entiere' : ''}" href="${lien}" tabindex="-1" aria-hidden="true"${s.affiche && teinte(s.affiche) ? ` style="--teinte:${teinte(s.affiche)}"` : ''}>${imgP}<span class="date">${esc(dateCourte(s.debut, t))}</span>${s.ville ? `<span class="ville-tag">${esc(s.ville)}</span>` : ''}</a>
+  return `<article class="carte${vedette ? ' vedette' : ''}" data-acces="${acces.join(' ')}" data-id="${s.id}" data-jour="${s.jour}" data-debut="${esc(s.debut)}" data-heure="${esc(heure(s.debut, t))}" data-ville="${s.filtreVille}" data-commune="${esc(slug(s.ville || ''))}" data-styles="${s.styles.join(' ')}" data-prix="${s.prix ?? ''}" data-moment="${enJournee(s) ? 'jour' : 'nuit'}" data-buzz="${s.buzz ?? ''}" data-lat="${s.lat ?? ''}" data-lng="${s.lng ?? ''}"${s.approx ? ' data-approx="1"' : ''} data-q="${esc(q)}">
+  <a class="affiche${s.affiche ? '' : ' sans'}${s.affiche && s.dims && (s.dims[0] / s.dims[1] > 0.95 || s.dims[0] < 560) ? ' entiere' : ''}" href="${lien}" tabindex="-1" aria-hidden="true"${s.affiche && teinte(s.affiche) ? ` style="--teinte:${teinte(s.affiche)}"` : ''}>${imgP}<span class="date">${esc(dateCourte(s.debut, t))}</span>${enJournee(s) ? `<span class="moment-jour">${esc(t.enJournee)}</span>` : ''}${s.ville ? `<span class="ville-tag">${esc(s.ville)}</span>` : ''}</a>
   <button type="button" class="coeur" aria-label="${esc(t.ajouterFav)}" aria-pressed="false"></button>
   <div class="infos">
     ${(s.buzz ?? 0) >= SEUIL_DEMANDE ? `<p class="demande"><b>${esc(t.tresDemandee)}</b><i class="rebours" data-debut="${esc(s.debut)}"></i></p>` : ''}
     ${s.genres ? `<p class="genre">${esc(s.genres)}</p>` : ''}
     <h3><a href="${lien}">${esc(s.nom)}</a></h3>
-    <p class="quand-long">${esc(dateLongue(s.debut, t))}</p>
+    <p class="quand-long">${esc(dateLongue(s.debut, t))}${enJournee(s) ? ` · <b class="txt-jour">${esc(t.enJournee)}</b>` : ''}</p>
     ${(() => { // Sans accroche : la première phrase de la présentation (20/11/2026 : les cartes sans texte laissaient un grand vide).
       const a = s.accroche || ((s.description || '').match(/^[^.!?]{12,140}[.!?]/)?.[0] || '').trim();
       return a ? `<p class="accroche">${esc(a)}</p>` : ''; })()}
-    <p class="meta"><span>${esc(heure(s.debut, t))}</span><span>${esc(prix || t.prixBillet)}</span>${s.offres.length ? `<span class="comparer">${esc(t.comparer)} · ${s.offres.length}</span>` : ''}${promo ? `<span class="promo">${(() => { const e = economie(promo, s.prix); return e ? `${esc(t.locale.startsWith('fr') ? 'Économise' : '−')} ${esc(euros(e.eco, t))}` : esc(promo.remise); })()} · ${esc(promo.code)}</span>` : ''}<span class="distance"></span><span class="ou">${esc(lieuEtVille(s))}</span></p>
+    <p class="meta"><span${enJournee(s) ? ` class="heure-jour" title="${esc(t.enJourneeInfo)}"` : ''}>${esc(heure(s.debut, t))}</span><span>${esc(prix || t.prixBillet)}</span>${s.offres.length ? `<span class="comparer">${esc(t.comparer)} · ${s.offres.length}</span>` : ''}${promo ? `<span class="promo">${(() => { const e = economie(promo, s.prix); return e ? `${esc(t.locale.startsWith('fr') ? 'Économise' : '−')} ${esc(euros(e.eco, t))}` : esc(promo.remise); })()} · ${esc(promo.code)}</span>` : ''}<span class="distance"></span><span class="ou">${esc(lieuEtVille(s))}</span></p>
     <p class="actions">${boutonBillets(s, t)}<a class="lien" href="${lien}">${esc(t.voir)}</a></p>
   </div>
 </article>`;
@@ -1631,6 +1631,8 @@ const GENERE = Date.now();
 // « Ce soir » = début entre 17 h et 6 h, heure de Paris (23/11/2026 : une dégustation à midi apparaissait « en ce moment ce soir »).
 const heureParis = (iso) => +new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Paris', hour: '2-digit', hourCycle: 'h23' }).format(new Date(iso));
 export const duSoir = (s) => { const h = heureParis(s.debut); return Number.isNaN(h) || h >= 17 || h < 6; };
+// Événement de journée (commence entre 6 h et 17 h) : gardé, avec une pastille et un menu « Moment » pour le distinguer de la nuit.
+export const enJournee = (s) => !duSoir(s);
 const ceSoir = (t, soirees = [], base = '', lang = 'fr') => {
   const auj = cle(new Date(GENERE).toISOString()), DUREE = 6 * 3600e3, d = (s) => Date.parse(s.debut);
   const soir = soirees.filter((s) => s.jour === auj && d(s) + DUREE > GENERE && duSoir(s)).sort((a, b) => (d(b) <= GENERE) - (d(a) <= GENERE) || d(a) - d(b)); // en cours d'abord, puis par heure
@@ -1651,7 +1653,7 @@ function agenda(soirees, { t, base, lang, filtresVille = true, filtreStyle = tru
   for (const s of soirees) (parJour[s.jour] ||= []).push(s);
   const jours = Object.entries(parJour).map(([jour, l]) => `<section class="jour" data-jour="${jour}"><h2>${esc(dateLongue(`${jour}T12:00:00Z`, t))}</h2><div class="grille">${l.map((s) => carte(s, { t, base, lang })).join('\n')}</div></section>`).join('\n');
   // Chaque filtre est un menu déroulant (une seule barre sur ordinateur) ; dans la feuille mobile, ils sont tous ouverts.
-  const TITRES = { quand: t.quandL, ville: t.ou, style: t.stylesL, prix: t.prixL, acces: t.accesL, tri: t.trierL };
+  const TITRES = { quand: t.quandL, moment: t.momentL, ville: t.ou, style: t.stylesL, prix: t.prixL, acces: t.accesL, tri: t.trierL };
   const groupe = (f, valeurs, libelles) => `<details class="filtre" data-bloc="${f}"><summary><span>${esc(TITRES[f])}</span><b class="choix">${esc(libelles[0])}</b></summary><div class="groupe" data-filtre="${f}">${valeurs.map((v, i) => `<button type="button"${i ? '' : ' class="actif"'} data-v="${v}">${esc(libelles[i])}</button>`).join('')}</div></details>`;
   const styles = STYLES_MUSIQUE.map((x) => x.cle).filter((k) => soirees.some((s) => s.styles.includes(k)));
   return `<section id="agenda" class="agenda">
@@ -1662,6 +1664,7 @@ function agenda(soirees, { t, base, lang, filtresVille = true, filtreStyle = tru
     ${groupe('quand', ['tout', 'soir', 'weekend', 'semaine', 'favoris'], [...t.quand, t.favoris]).replace('</div></details>', `<label class="choix-date"><span>${esc(t.choisirDate)}</span><input type="date" min="${cle(new Date().toISOString())}"></label></div></details>`)}
     ${filtresVille ? groupe('ville', ['tout', ...VILLES.map((v) => v.toLowerCase()), 'var', 'autres'], [t.partout, t.villes.nice, t.villes.cannes, t.villes.monaco, t.villes.antibesCourt, t.var, t.ailleurs]) : ''}
     ${filtreStyle && styles.length > 1 ? groupe('style', ['tout', ...styles], [t.sons[0], ...styles.map((k) => nomStyle(k, t, lang))]) : ''}
+    ${soirees.some(enJournee) ? groupe('moment', ['tout', 'nuit', 'jour'], t.moments) : ''}
     ${groupe('prix', ['tout', 'gratuit', '10'], t.prix)}
     ${groupe('acces', ['tout', 'pres', 'tram', 'train', 'bus', 'parking'], t.acces)}
     ${groupe('tri', ['date', 'prix', 'demande'], t.tris)}
@@ -1921,7 +1924,7 @@ function pageSoiree({ lang, t, tr, base, compte, T, chemin, s, soirees, maj, lie
       ${s.artistes?.length ? `<p class="line-up"><span class="pied-titre">${esc(tr('Line-up'))}</span>${s.artistes.map((a) => `<a class="puce" href="${base}${pre(lang)}artistes/${a.slug}/">${esc(a.nom)}</a>`).join('')}</p>` : ''}
       <div class="rebours-bloc" data-debut="${esc(s.debut)}"><p class="pied-titre">${esc(t.commenceDans)}</p><p class="rebours-grand rebours" data-debut="${esc(s.debut)}" data-long="1"></p>${(s.buzz ?? 0) >= SEUIL_DEMANDE ? `<p class="petit">${esc(t.tresDemandee)} · ${esc(t.reserveTot)}</p>` : ''}</div>
       <dl>
-        <div><dt>${esc(t.quandL)}</dt><dd>${esc(dateLongue(s.debut, t))} · ${esc(heure(s.debut, t))}</dd></div>
+        <div><dt>${esc(t.quandL)}</dt><dd>${esc(dateLongue(s.debut, t))} · ${esc(heure(s.debut, t))}${enJournee(s) ? ` <span class="moment-jour en-ligne" title="${esc(t.enJourneeInfo)}">${esc(t.enJournee)}</span>` : ''}</dd></div>
         <div><dt>${esc(t.ou)}</dt><dd>${esc(lieu)}</dd></div>
         <div><dt>${esc(t.prixL)}</dt><dd>${esc(prixTexte(s.prix, t) || t.prixBillet)}</dd></div>
         ${(() => { const d = detailsDuLieu(s); if (!d) return ''; return [[tr('Dress code'), d.dress_code], [tr('Âge'), d.age_min], [tr('Verres'), d.prix_verre]].filter((x) => x[1]).map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(tr(v))}</dd></div>`).join(''); })()}

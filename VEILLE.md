@@ -11,6 +11,14 @@ mises à jour, sources de soirées réparées ou ajoutées, décisions prises. T
   Restent en essai séparé : upload-artifact (v7), upload-pages-artifact (v5), deploy-pages (v5), cache (v6).
 - DATAtourisme : 67 879 lignes lues, toutes écartées « sans nom ni date » (le découpage des lignes ne suit pas l'en-tête) :
   séparateur détecté automatiquement et aperçu brut des premières lignes dans le journal du prochain relevé.
+  Suite (fin de matinée) : l'aperçu montre que le « CSV simplifié » publié sur data.gouv.fr (data.cquest.org) ne contient plus que
+  l'identifiant, le titre et le type ; dates, villes et liens sont vides sur toutes les lignes. Réparé : lecture de l'export complet
+  JSON-LD du même jeu de données (700 Mo, lu en flux en 10 s), heure prise sur la fiche ou ses horaires (jamais inventée), tri des
+  vraies sorties (pas d'exposition, de marché, de visite, d'église ni de concert classique). Essai sur l'export du 23/11 : 67 301
+  fiches, 12 638 dans les 60 jours, 9 soirées gardées (Toulouse, Cahors, Tarbes, Aix, Marseille) ; aucune sur la Côte, où l'agenda
+  officiel ne recense presque pas la nuit. 2 517 fiches sans heure de début écartées (dont une dizaine de réveillons et bals).
+  Au passage : villes reconnues en mot entier (« Rennes » trouvait Marennes, « la » de La Grande-Motte classait en Occitanie toute
+  adresse contenant « la », dont deux soirées de Gênes).
 - Meta : aucune dépréciation de publication annoncée ; nouveautés de l'API de publication (28/09/2026) : sondages et invitations à
   commenter en complément de légende, et paramètre is_ai_generated (étiquette IA) à la création du média (migration prévue aujourd'hui).
   Source : developers.facebook.com/docs/instagram-platform/changelog.

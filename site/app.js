@@ -606,7 +606,7 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
 
   // --- Filtres : « quand » et « prix » à choix unique ; villes, styles et accès à choix multiples --------------
   const MULTI = new Set(['ville', 'style', 'acces']);
-  const etat = { quand: 'tout', prix: 'tout', tri: 'date', date: '', ville: new Set(), style: new Set(), acces: new Set(), q: '', qBrut: '' };
+  const etat = { quand: 'tout', prix: 'tout', moment: 'tout', tri: 'date', date: '', ville: new Set(), style: new Set(), acces: new Set(), q: '', qBrut: '' };
   let favoris = new Set();
   try { favoris = new Set(JSON.parse(localStorage.getItem('teufy-favoris') || '[]')); } catch { /* stockage indisponible */ }
   // Favoris : nom et lien gardés à l'enregistrement (pour les montrer depuis n'importe quelle page) ; les soirées
@@ -642,6 +642,8 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
       || (etat.quand === 'semaine' && j >= auj && j <= jPlus(6))
       || (etat.quand === 'weekend' && j >= (dow >= 5 || dow === 0 ? auj : vendredi) && j <= dimanche);
   };
+  // 24/11/2026 (directeur) : les événements de journée restent, mais bien séparés de la nuit (menu « Moment »).
+  const momentOk = (c) => etat.moment === 'tout' || (c.dataset.moment || 'nuit') === etat.moment;
   const accesOk = (c) => {
     for (const a of etat.acces) {
       if (a === 'pres') { const d = distanceKm(c); if (d == null || d > RAYON) return false; } else if (!(c.dataset.acces || '').split(' ').includes(a)) return false;
@@ -668,13 +670,13 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
   };
   // Filtres gardés pour la session (23/11/2026, testeur agenda : Nice + Techno perdus après « retour » depuis une fiche).
   const CLE_FILTRES = `teufy-filtres:${location.pathname}`;
-  const garderFiltres = () => { try { sessionStorage.setItem(CLE_FILTRES, JSON.stringify({ quand: etat.quand, date: etat.date, tri: etat.tri, prix: etat.prix, ville: [...etat.ville], style: [...etat.style], acces: [...etat.acces].filter((a) => a !== 'pres') })); } catch { /* stockage indisponible */ } };
-  const reprendreFiltres = () => { try { const f = JSON.parse(sessionStorage.getItem(CLE_FILTRES) || 'null'); if (!f) return false; Object.assign(etat, { quand: f.quand || 'tout', date: f.date || '', tri: f.tri || 'date', prix: f.prix || 'tout', ville: new Set(f.ville || []), style: new Set(f.style || []), acces: new Set(f.acces || []) }); return true; } catch { return false; } };
+  const garderFiltres = () => { try { sessionStorage.setItem(CLE_FILTRES, JSON.stringify({ quand: etat.quand, date: etat.date, tri: etat.tri, prix: etat.prix, moment: etat.moment, ville: [...etat.ville], style: [...etat.style], acces: [...etat.acces].filter((a) => a !== 'pres') })); } catch { /* stockage indisponible */ } };
+  const reprendreFiltres = () => { try { const f = JSON.parse(sessionStorage.getItem(CLE_FILTRES) || 'null'); if (!f) return false; Object.assign(etat, { quand: f.quand || 'tout', date: f.date || '', tri: f.tri || 'date', prix: f.prix || 'tout', moment: f.moment || 'tout', ville: new Set(f.ville || []), style: new Set(f.style || []), acces: new Set(f.acces || []) }); return true; } catch { return false; } };
   // Bouton « Tout effacer » (23/11/2026, testeur agenda : il fallait remettre les 6 menus à zéro un par un).
-  const filtresActifs = () => etat.quand !== 'tout' || etat.prix !== 'tout' || etat.tri !== 'date' || etat.ville.size || etat.style.size || etat.acces.size || !!etat.q;
+  const filtresActifs = () => etat.quand !== 'tout' || etat.prix !== 'tout' || etat.moment !== 'tout' || etat.tri !== 'date' || etat.ville.size || etat.style.size || etat.acces.size || !!etat.q;
   document.addEventListener('click', (e) => {
     if (!e.target.closest('.reinit-filtres')) return;
-    Object.assign(etat, { quand: 'tout', date: '', tri: 'date', prix: 'tout', ville: new Set(), style: new Set(), acces: new Set(), q: '', qBrut: '' });
+    Object.assign(etat, { quand: 'tout', date: '', tri: 'date', prix: 'tout', moment: 'tout', ville: new Set(), style: new Set(), acces: new Set(), q: '', qBrut: '' });
     champs.forEach((c) => { c.value = ''; const x = c.parentElement.querySelector('.effacer'); if (x) x.hidden = true; });
     appliquer();
   });
@@ -690,7 +692,7 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
         && (!etat.ville.size || etat.ville.has(c.dataset.ville))
         && (!etat.style.size || c.dataset.styles.split(' ').some((s) => etat.style.has(s)))
         && (etat.prix === 'tout' || (etat.prix === 'gratuit' ? p === 0 : p != null && p < 10))
-        && accesOk(c);
+        && momentOk(c) && accesOk(c);
       c.hidden = !ok;
       if (ok) visibles++;
       const d = distanceKm(c), span = c.querySelector('.distance');
@@ -838,7 +840,7 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
   const avantAuto = { fait: false };
   const restaurer = () => { if (!avantAuto.fait) return; Object.assign(etat, { quand: avantAuto.quand, date: avantAuto.date, prix: avantAuto.prix, ville: new Set(avantAuto.ville), style: new Set(avantAuto.style), acces: new Set(avantAuto.acces) }); avantAuto.fait = false; };
   const sauverAvant = () => { Object.assign(avantAuto, { fait: true, quand: etat.quand, date: etat.date, prix: etat.prix, ville: [...etat.ville], style: [...etat.style], acces: [...etat.acces] }); };
-  const compte = () => cartes.filter((c) => { const p = c.dataset.prix === '' ? null : +c.dataset.prix; return !finies.has(c) && dansQuand(c) && (!etat.q || trouveTexte(c.dataset.q, etat.q)) && (!etat.ville.size || etat.ville.has(c.dataset.ville)) && (!etat.style.size || (c.dataset.styles || '').split(' ').some((x) => etat.style.has(x))) && (etat.prix === 'tout' || (etat.prix === 'gratuit' ? p === 0 : p != null && p < 10)) && accesOk(c); }).length;
+  const compte = () => cartes.filter((c) => { const p = c.dataset.prix === '' ? null : +c.dataset.prix; return !finies.has(c) && dansQuand(c) && (!etat.q || trouveTexte(c.dataset.q, etat.q)) && (!etat.ville.size || etat.ville.has(c.dataset.ville)) && (!etat.style.size || (c.dataset.styles || '').split(' ').some((x) => etat.style.has(x))) && (etat.prix === 'tout' || (etat.prix === 'gratuit' ? p === 0 : p != null && p < 10)) && momentOk(c) && accesOk(c); }).length;
   let compris = null;
   // Lieux, artistes et villes qui correspondent à la recherche (« bisous bisous » → la fiche du club), même quand
   // aucune soirée ne correspond. Index : site/recherche.json (généré avec le site).
@@ -987,7 +989,7 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
   const flottant = document.querySelector('.flottant');
   const mobile = matchMedia('(max-width: 759px)');
   let feuille = null, scrollAvant = 0, etatAvant = '';
-  const signature = () => JSON.stringify([etat.quand, etat.date, etat.tri, etat.prix, [...etat.ville], [...etat.style], [...etat.acces], etat.q]);
+  const signature = () => JSON.stringify([etat.quand, etat.date, etat.tri, etat.prix, etat.moment, [...etat.ville], [...etat.style], [...etat.acces], etat.q]);
   const feuilleOuverte = () => !!feuille;
   const ouvrir = () => {
     if (feuille || !filtres) return;
