@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:coldplay-tribute-by-coldshivers-new-moods-monte-carlo-2026-12-17@teufy
+DTSTAMP:20261124T072837Z
+DTSTART:20261217T183000Z
+DTEND:20261217T233000Z
+SUMMARY:Coldplay Tribute by Coldshivers - New Moods Monte-Carlo
+LOCATION:New Moods\, Monaco
+DESCRIPTION:Tous les hymnes de Coldplay repris en live sous la Place du Casino au New Moods.\nBillets : https://www.montecarlosbm.com/fr/bars-monaco/le-new-moods\nVia Teufy @teufy_official
+URL:https://www.montecarlosbm.com/fr/bars-monaco/le-new-moods
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Coldplay Tribute by Coldshivers - New Moods Monte-Carlo
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Coldplay Tribute by Coldshivers - New Moods Monte-Carlo
+END:VALARM
+END:VEVENT
+END:VCALENDAR

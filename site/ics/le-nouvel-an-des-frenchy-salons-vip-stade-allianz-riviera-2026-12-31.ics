@@ -1,0 +1,24 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:le-nouvel-an-des-frenchy-salons-vip-stade-allianz-riviera-2026-12-31@teufy
+DTSTAMP:20261124T072837Z
+DTSTART:20261231T183000Z
+DTEND:20261231T233000Z
+SUMMARY:Le nouvel an des Frenchy @ Salons VIP Stade Allianz Riviera
+LOCATION:Salons VIP Est – Stade Allianz Riviera\, Nice
+DESCRIPTION:Célèbre le réveillon du 31 décembre dans les salons VIP de l'Allianz Riviera.\nVia Teufy @teufy_official
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Le nouvel an des Frenchy @ Salons VIP Stade Allianz Riviera
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Le nouvel an des Frenchy @ Salons VIP Stade Allianz Riviera
+END:VALARM
+END:VEVENT
+END:VCALENDAR

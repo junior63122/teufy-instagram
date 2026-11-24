@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:les-tambours-du-bronx-2026-11-27@teufy
+DTSTAMP:20261124T072837Z
+DTSTART:20261127T193000Z
+DTEND:20261128T003000Z
+SUMMARY:LES TAMBOURS DU BRONX
+LOCATION:Théâtre Lino Ventura\, Nice
+DESCRIPTION:La puissance brute des bidons des Tambours du Bronx résonne au Théâtre Lino Ventura.\nBillets : https://www.ticketmaster.fr/fr/manifestation/les-tambours-du-bronx-billet/idmanif/669788\nVia Teufy @teufy_official
+URL:https://www.ticketmaster.fr/fr/manifestation/les-tambours-du-bronx-billet/idmanif/669788
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : LES TAMBOURS DU BRONX
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : LES TAMBOURS DU BRONX
+END:VALARM
+END:VEVENT
+END:VCALENDAR

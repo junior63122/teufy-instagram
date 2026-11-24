@@ -4,22 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:shafro-toulon-2-afro-shatta-dancehall-2026-11-29@teufy
-DTSTAMP:20261124T031406Z
+DTSTAMP:20261124T072837Z
 DTSTART:20261129T190000Z
 DTEND:20261130T000000Z
-SUMMARY:Shafro @ Toulon #2 : Afro\, Shatta\, Dancehall
-LOCATION:Le Factory Club\, La Farlède
-DESCRIPTION:Retour de la soirée Shafro avec kicks shatta et rythmes afrobeats au Factory.\nBillets : https://shotgun.live/fr/events/shafro-toulon-ep-2-1-st-time-afro-shatta-danceha\nVia Teufy @teufy_official
-URL:https://shotgun.live/fr/events/shafro-toulon-ep-2-1-st-time-afro-shatta-danceha
+SUMMARY:Shafro @Toulon #2 Afro \, Shatta\, Dancehall
+LOCATION:Le Factory La Farlède\, La Farlède
+DESCRIPTION:La tournée nationale Shafro débarque au Factory avec ses hymnes afro et shatta.\nBillets : https://shotgun.live/fr/events/shafro-toulon-2-afro-shatta-dancehall\nVia Teufy @teufy_official
+URL:https://shotgun.live/fr/events/shafro-toulon-2-afro-shatta-dancehall
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-P1D
-DESCRIPTION:Demain : Shafro @ Toulon #2 : Afro\, Shatta\, Dancehall
+DESCRIPTION:Demain : Shafro @Toulon #2 Afro \, Shatta\, Dancehall
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT2H
-DESCRIPTION:Dans 2 h : Shafro @ Toulon #2 : Afro\, Shatta\, Dancehall
+DESCRIPTION:Dans 2 h : Shafro @Toulon #2 Afro \, Shatta\, Dancehall
 END:VALARM
 END:VEVENT
 END:VCALENDAR

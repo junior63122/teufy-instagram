@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:dj-set-tim-lienderss-2026-12-04@teufy
+DTSTAMP:20261124T072837Z
+DTSTART:20261204T193000Z
+DTEND:20261205T003000Z
+SUMMARY:Dj Set - Tim Lienderss
+LOCATION:Mama Shelter Nice\, Nice
+DESCRIPTION:DJ set gratuit mêlant house\, afrobeat et hip-hop au Mama Shelter.\nBillets : https://shotgun.live/events/dj-set-tim-lienderss\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/dj-set-tim-lienderss
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Dj Set - Tim Lienderss
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Dj Set - Tim Lienderss
+END:VALARM
+END:VEVENT
+END:VCALENDAR

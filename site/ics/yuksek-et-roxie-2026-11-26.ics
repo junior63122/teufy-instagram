@@ -4,12 +4,12 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:yuksek-et-roxie-2026-11-26@teufy
-DTSTAMP:20261124T031406Z
+DTSTAMP:20261124T072837Z
 DTSTART:20261126T193000Z
 DTEND:20261127T003000Z
 SUMMARY:Yuksek & Roxie
-LOCATION:Le Dix-Huit - Adresse d'Expériences\, Nice
-DESCRIPTION:Yuksek et Roxie en DJ set électro et house au Dix-Huit à Nice.\nBillets : https://shotgun.live/events/yuksek-roxie\nVia Teufy @teufy_official
+LOCATION:Le Dix-Huit - Adresse d'Expériences\, Cannes
+DESCRIPTION:Le producteur culte Yuksek débarque à Cannes pour un set house survitaminé.\nBillets : https://shotgun.live/events/yuksek-roxie\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/yuksek-roxie
 BEGIN:VALARM
 ACTION:DISPLAY

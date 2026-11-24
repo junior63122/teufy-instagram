@@ -4,22 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:le-mome-et-adame-2026-12-18@teufy
-DTSTAMP:20261124T031406Z
+DTSTAMP:20261124T072837Z
 DTSTART:20261218T193000Z
 DTEND:20261219T003000Z
-SUMMARY:Le Mome & Adamé
-LOCATION:Le Dix-Huit - Adresse d'Expériences\, Nice
-DESCRIPTION:Soirée veille de vacances avec la scène urbaine montante de Le Mome et Adamé.\nBillets : https://shotgun.live/fr/events/le-mome-adame\nVia Teufy @teufy_official
-URL:https://shotgun.live/fr/events/le-mome-adame
+SUMMARY:LE MOME & ADAME
+LOCATION:Le Dix-Huit\, Nice
+DESCRIPTION:La jeune garde niçoise rap et pop urbaine s'empare de la scène du Dix-Huit.\nBillets : https://www.ticketmaster.fr/fr/manifestation/le-mome-et-adame-billet/idmanif/676342\nVia Teufy @teufy_official
+URL:https://www.ticketmaster.fr/fr/manifestation/le-mome-et-adame-billet/idmanif/676342
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-P1D
-DESCRIPTION:Demain : Le Mome & Adamé
+DESCRIPTION:Demain : LE MOME & ADAME
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT2H
-DESCRIPTION:Dans 2 h : Le Mome & Adamé
+DESCRIPTION:Dans 2 h : LE MOME & ADAME
 END:VALARM
 END:VEVENT
 END:VCALENDAR

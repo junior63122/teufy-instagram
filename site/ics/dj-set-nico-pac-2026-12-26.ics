@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:dj-set-nico-pac-2026-12-26@teufy
+DTSTAMP:20261124T072837Z
+DTSTART:20261226T193000Z
+DTEND:20261227T003000Z
+SUMMARY:Dj Set - Nico Pac
+LOCATION:Mama Shelter Nice\, Nice
+DESCRIPTION:Vibes soul\, funk et RnB old school gratuites après Noël à Nice.\nBillets : https://shotgun.live/events/dj-set-nico-pac\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/dj-set-nico-pac
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Dj Set - Nico Pac
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Dj Set - Nico Pac
+END:VALARM
+END:VEVENT
+END:VCALENDAR

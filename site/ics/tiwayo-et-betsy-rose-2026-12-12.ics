@@ -4,13 +4,13 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:tiwayo-et-betsy-rose-2026-12-12@teufy
-DTSTAMP:20261124T031406Z
+DTSTAMP:20261124T072837Z
 DTSTART:20261212T193000Z
 DTEND:20261213T003000Z
 SUMMARY:Tiwayo et Betsy Rose
 LOCATION:Théâtre Denis\, Hyères
-DESCRIPTION:Concert soul et R&B moderne signé Tiwayo et Betsy Rose au Théâtre Denis.\nBillets : https://www.ticketmaster.fr/fr/manifestation/tiwayo-betsy-rose-billet/idmanif/670861/idtier/43209120\nVia Teufy @teufy_official
-URL:https://www.ticketmaster.fr/fr/manifestation/tiwayo-betsy-rose-billet/idmanif/670861/idtier/43209120
+DESCRIPTION:Concert soul envoûtant avec Tiwayo et Betsy Rose au Théâtre Denis.\nBillets : https://provence-alpes-cotedazur.com/fiche/tiwayo-et-betsy-rose-7977464/\nVia Teufy @teufy_official
+URL:https://provence-alpes-cotedazur.com/fiche/tiwayo-et-betsy-rose-7977464/
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-P1D

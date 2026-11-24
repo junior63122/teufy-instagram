@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:new-year-s-eve-prohibition-edition-casino-de-beaulieu-2026-12-31@teufy
+DTSTAMP:20261124T072837Z
+DTSTART:20261231T190000Z
+DTEND:20270101T000000Z
+SUMMARY:New Year's Eve : Prohibition Edition @ Casino de Beaulieu
+LOCATION:Casino de Beaulieu\, Beaulieu-sur-Mer
+DESCRIPTION:Réveillon thème Années Folles et Prohibition face à la mer au Casino de Beaulieu.\nBillets : https://shotgun.live/events/new-year-s-eve-prohibition-edition-casino-de-beaulieu\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/new-year-s-eve-prohibition-edition-casino-de-beaulieu
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : New Year's Eve : Prohibition Edition @ Casino de Beaulieu
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : New Year's Eve : Prohibition Edition @ Casino de Beaulieu
+END:VALARM
+END:VEVENT
+END:VCALENDAR

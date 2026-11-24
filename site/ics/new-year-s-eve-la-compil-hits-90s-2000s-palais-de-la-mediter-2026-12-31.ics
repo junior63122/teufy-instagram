@@ -1,0 +1,24 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:new-year-s-eve-la-compil-hits-90s-2000s-palais-de-la-mediter-2026-12-31@teufy
+DTSTAMP:20261124T072837Z
+DTSTART:20261231T190000Z
+DTEND:20270101T000000Z
+SUMMARY:NEW YEAR'S EVE - La compil' Hits 90s 2000s @ Palais de la Méditerranée
+LOCATION:Hyatt Regency Palais de la Méditerranée\, Nice
+DESCRIPTION:Réveillon masqué et rétro au cœur d'un palace de la Promenade des Anglais.\nVia Teufy @teufy_official
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : NEW YEAR'S EVE - La compil' Hits 90s 2000s @ Palais de la Méditerranée
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : NEW YEAR'S EVE - La compil' Hits 90s 2000s @ Palais de la Méditerranée
+END:VALARM
+END:VEVENT
+END:VCALENDAR

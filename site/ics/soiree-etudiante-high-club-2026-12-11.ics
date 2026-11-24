@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:soiree-etudiante-high-club-2026-12-11@teufy
+DTSTAMP:20261124T072837Z
+DTSTART:20261211T225900Z
+DTEND:20261212T035900Z
+SUMMARY:Soirée Étudiante High Club
+LOCATION:High Club\, Nice
+DESCRIPTION:Grosse teuf de décompression de fin de partiels pour les étudiants niçois au High Club.\nBillets : https://www.highclub.fr/agenda/soiree-etudiante/\nVia Teufy @teufy_official
+URL:https://www.highclub.fr/agenda/soiree-etudiante/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Soirée Étudiante High Club
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Soirée Étudiante High Club
+END:VALARM
+END:VEVENT
+END:VCALENDAR

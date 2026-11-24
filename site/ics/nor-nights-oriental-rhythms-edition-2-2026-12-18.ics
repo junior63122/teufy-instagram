@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:nor-nights-oriental-rhythms-edition-2-2026-12-18@teufy
+DTSTAMP:20261124T072837Z
+DTSTART:20261218T183000Z
+DTEND:20261218T233000Z
+SUMMARY:NŌR - Nights Oriental Rhythms | Édition #2
+LOCATION:So Blue Hôtel Restaurant\, Antibes
+DESCRIPTION:Percussions live\, tapas et clubbing afro-oriental pour la 2e édition de NŌR à Antibes.\nBillets : https://shotgun.live/events/nor-nights-oriental-rhythms-edition-2\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/nor-nights-oriental-rhythms-edition-2
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : NŌR - Nights Oriental Rhythms | Édition #2
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : NŌR - Nights Oriental Rhythms | Édition #2
+END:VALARM
+END:VEVENT
+END:VCALENDAR

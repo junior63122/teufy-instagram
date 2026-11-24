@@ -11,10 +11,11 @@
    "description": "Grand club de la Promenade des Anglais réunissant plusieurs salles, dont le Studio 47 (années 80 et disco).",
    "soirees": [
     "coachellito-high-club-2026-11-27",
-    "marwa-loud-showcase-2026-11-28",
-    "to-have-fun-2026-11-28",
-    "what-s-up-nice-2026-12-04",
+    "marwa-loud-showcase-au-high-club-2026-11-28",
+    "high-students-2026-12-04",
     "bad-girls-2026-12-05",
+    "les-copains-d-abord-2026-12-10",
+    "soiree-etudiante-high-club-2026-12-11",
     "take-control-2026-12-12",
     "more-than-dream-2026-12-18"
    ],
@@ -24,12 +25,12 @@
      "nom": "COACHELLITO - HIGH CLUB"
     },
     {
-     "id": "marwa-loud-showcase-2026-11-28",
-     "nom": "Marwa Loud Showcase"
+     "id": "marwa-loud-showcase-au-high-club-2026-11-28",
+     "nom": "Marwa Loud Showcase au High Club"
     },
     {
-     "id": "to-have-fun-2026-11-28",
-     "nom": "To Have Fun"
+     "id": "high-students-2026-12-04",
+     "nom": "HIGH STUDENTS"
     }
    ],
    "insta": {
@@ -68,27 +69,33 @@
     ],
     [
      "2026-11-28",
-     "20:00",
-     "marwa-loud-showcase-2026-11-28",
-     "Marwa Loud Showcase"
-    ],
-    [
-     "2026-11-28",
      "minuit",
-     "to-have-fun-2026-11-28",
-     "To Have Fun"
+     "marwa-loud-showcase-au-high-club-2026-11-28",
+     "Marwa Loud Showcase au High Club"
     ],
     [
      "2026-12-04",
      "minuit",
-     "what-s-up-nice-2026-12-04",
-     "What's Up Nice"
+     "high-students-2026-12-04",
+     "HIGH STUDENTS"
     ],
     [
      "2026-12-05",
      "minuit",
      "bad-girls-2026-12-05",
      "Bad Girls"
+    ],
+    [
+     "2026-12-10",
+     "minuit",
+     "les-copains-d-abord-2026-12-10",
+     "Les Copains d'Abord"
+    ],
+    [
+     "2026-12-11",
+     "minuit",
+     "soiree-etudiante-high-club-2026-12-11",
+     "Soirée Étudiante High Club"
     ],
     [
      "2026-12-12",
@@ -108,9 +115,9 @@
    "lng": 7.2559561,
    "stylesSoirees": [
     "house",
+    "latino",
     "rap",
-    "commercial",
-    "live"
+    "commercial"
    ]
   },
   {
@@ -201,7 +208,7 @@
    "score": 0,
    "soirs": [],
    "details": {
-    "le": "2026-11-24T03:13:38.733Z",
+    "le": "2026-11-24T07:22:21.644Z",
     "styles": "DJ résidents (ven–sam après 22h)",
     "dress_code": "",
     "horaires": "lun–dim 10h–2h",
@@ -723,12 +730,13 @@
     "kx-dj-not-so-innocent-2026-11-26",
     "ugo-puccinelli-pretty-little-sins-2026-11-27",
     "alex-duff-overdrive-2026-11-28",
-    "santa-s-house-party-sud-spicious-x-glass-club-2026-12-21"
+    "santa-s-house-party-sud-spicious-x-glass-club-2026-12-21",
+    "nye-see-you-in-2027-ambre-ballester-b2b-ugo-puccinelli-2026-12-31"
    ],
    "prochaines": [
     {
      "id": "kx-dj-not-so-innocent-2026-11-26",
-     "nom": "Kx Dj / Not So Innocent"
+     "nom": "KX DJ / Not So Innocent"
     },
     {
      "id": "ugo-puccinelli-pretty-little-sins-2026-11-27",
@@ -750,7 +758,7 @@
      "2026-11-26",
      "minuit",
      "kx-dj-not-so-innocent-2026-11-26",
-     "Kx Dj / Not So Innocent"
+     "KX DJ / Not So Innocent"
     ],
     [
      "2026-11-27",
@@ -769,6 +777,12 @@
      "23:00",
      "santa-s-house-party-sud-spicious-x-glass-club-2026-12-21",
      "Santa's House Party — Sud'Spicious X Glass Club"
+    ],
+    [
+     "2026-12-31",
+     "22:00",
+     "nye-see-you-in-2027-ambre-ballester-b2b-ugo-puccinelli-2026-12-31",
+     "Nye See You In 2027 : Ambre Ballester B2B Ugo Puccinelli"
     ]
    ],
    "details": {
@@ -974,12 +988,22 @@
    "site": "https://honeyclub.fr",
    "description": "Lieu de soirées et de concerts de l'avenue Georges Gallice à Juan-les-Pins.",
    "soirees": [
-    "dj-sebb-afrochella-a-honey-club-2026-11-26"
+    "dj-sebb-afrochella-a-honey-club-2026-11-26",
+    "spicy-saturday-2026-11-27",
+    "honey-club-x-shafro-france-tour-2026-12-11"
    ],
    "prochaines": [
     {
      "id": "dj-sebb-afrochella-a-honey-club-2026-11-26",
      "nom": "DJ SEBB – AFROCHELLA à Honey Club"
+    },
+    {
+     "id": "spicy-saturday-2026-11-27",
+     "nom": "Spicy Saturday"
+    },
+    {
+     "id": "honey-club-x-shafro-france-tour-2026-12-11",
+     "nom": "Honey Club X Shafro - France Tour"
     }
    ],
    "insta": {
@@ -993,6 +1017,18 @@
      "23:00",
      "dj-sebb-afrochella-a-honey-club-2026-11-26",
      "DJ SEBB – AFROCHELLA à Honey Club"
+    ],
+    [
+     "2026-11-27",
+     "minuit",
+     "spicy-saturday-2026-11-27",
+     "Spicy Saturday"
+    ],
+    [
+     "2026-12-11",
+     "minuit",
+     "honey-club-x-shafro-france-tour-2026-12-11",
+     "Honey Club X Shafro - France Tour"
     ]
    ],
    "details": {
@@ -1014,8 +1050,10 @@
    "lat": 43.5679364,
    "lng": 7.113293,
    "stylesSoirees": [
+    "afro",
     "house",
-    "afro"
+    "techno",
+    "shatta"
    ]
   },
   {
@@ -1283,8 +1321,15 @@
    "instagram": "jimmyzmc",
    "site": "https://www.montecarlosbm.com/fr/bar-monaco/jimmy-z-monte-carlo",
    "description": "Boîte de nuit de la SBM au Sporting Monte-Carlo, avec lagon, jardin japonais et Summer Bar flottant ; saison 2026 mêlant électro, rap et disco.",
-   "soirees": [],
-   "prochaines": [],
+   "soirees": [
+    "cerrone-x-jimmy-z-mc-new-year-s-eve-2026-12-31"
+   ],
+   "prochaines": [
+    {
+     "id": "cerrone-x-jimmy-z-mc-new-year-s-eve-2026-12-31",
+     "nom": "Cerrone X Jimmy'Z MC - New Year's Eve"
+    }
+   ],
    "insta": {
     "abonnes": 61673,
     "likes": 275,
@@ -1292,7 +1337,7 @@
     "posts21": 2
    },
    "slug": "jimmy-z-monte-carlo-monaco",
-   "score": 0.7380952380952381,
+   "score": 0.7880952380952382,
    "photo": "site/lieux/jimmyzmc-176.webp",
    "details": {
     "le": "2026-11-13T17:38:33.455Z",
@@ -1312,11 +1357,22 @@
     ],
     "relu": "verification 2026-11-13"
    },
-   "soirs": [],
+   "soirs": [
+    [
+     "2026-12-31",
+     "22:00",
+     "cerrone-x-jimmy-z-mc-new-year-s-eve-2026-12-31",
+     "Cerrone X Jimmy'Z MC - New Year's Eve"
+    ]
+   ],
    "instagram_non_verifie": "jimmyzmc",
    "lat": 43.747042,
    "lng": 7.4385701,
-   "stylesSoirees": [],
+   "stylesSoirees": [
+    "house",
+    "afro",
+    "live"
+   ],
    "saison": {
     "de": "03-20",
     "a": "09-30"
@@ -1362,8 +1418,15 @@
    "instagram": "twigamontecarlo",
    "site": "https://twigamontecarlo.com/",
    "description": "Restaurant puis club au 2e étage du Grimaldi Forum, avec dîner en soirée et club jusqu'à 4-5 h selon les soirs.",
-   "soirees": [],
-   "prochaines": [],
+   "soirees": [
+    "solly-smith-au-club-twiga-monte-carlo-2026-11-27"
+   ],
+   "prochaines": [
+    {
+     "id": "solly-smith-au-club-twiga-monte-carlo-2026-11-27",
+     "nom": "Solly Smith au Club Twiga Monte Carlo"
+    }
+   ],
    "insta": {
     "abonnes": 86838,
     "likes": 20,
@@ -1371,7 +1434,7 @@
     "posts21": 8
    },
    "slug": "twiga-monte-carlo-monaco",
-   "score": 0.23809523809523808,
+   "score": 0.28809523809523807,
    "photo": "site/lieux/twigamontecarlo-176.webp",
    "details": {
     "le": "2026-11-13T17:38:33.455Z",
@@ -1391,9 +1454,20 @@
     ],
     "relu": "verification 2026-11-13"
    },
-   "soirs": [],
+   "soirs": [
+    [
+     "2026-11-27",
+     "23:30",
+     "solly-smith-au-club-twiga-monte-carlo-2026-11-27",
+     "Solly Smith au Club Twiga Monte Carlo"
+    ]
+   ],
    "instagram_non_verifie": "twigamontecarlo",
-   "stylesSoirees": []
+   "stylesSoirees": [
+    "house",
+    "afro",
+    "latino"
+   ]
   },
   {
    "nom": "Sass Café",
@@ -1993,7 +2067,8 @@
     "relu": "verification 2026-11-13"
    },
    "stylesSoirees": [
-    "shatta"
+    "shatta",
+    "latino"
    ]
   },
   {

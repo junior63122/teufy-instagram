@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:slip-panther-glamrock-revival-show-2026-11-28@teufy
+DTSTAMP:20261124T072837Z
+DTSTART:20261128T193000Z
+DTEND:20261129T003000Z
+SUMMARY:Slip Panther - Glamrock Revival Show
+LOCATION:Le Live (Zénith Toulon)\, Toulon
+DESCRIPTION:Revival glam rock des années 80 et 90 en fosse debout au Live du Zénith.\nBillets : https://provence-alpes-cotedazur.com/fiche/concert-revival-glamrock-show-slip-panther-7874772/\nVia Teufy @teufy_official
+URL:https://provence-alpes-cotedazur.com/fiche/concert-revival-glamrock-show-slip-panther-7874772/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Slip Panther - Glamrock Revival Show
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Slip Panther - Glamrock Revival Show
+END:VALARM
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:solly-smith-au-club-twiga-monte-carlo-2026-11-27@teufy
+DTSTAMP:20261124T072837Z
+DTSTART:20261127T223000Z
+DTEND:20261128T033000Z
+SUMMARY:Solly Smith au Club Twiga Monte Carlo
+LOCATION:Twiga Monte-Carlo\, Monaco
+DESCRIPTION:Set deep et afro house au Twiga Monte-Carlo avec Solly Smith face à la mer.\nBillets : https://twigaworld.com/montecarlo/calendar/\nVia Teufy @teufy_official
+URL:https://twigaworld.com/montecarlo/calendar/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Solly Smith au Club Twiga Monte Carlo
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Solly Smith au Club Twiga Monte Carlo
+END:VALARM
+END:VEVENT
+END:VCALENDAR

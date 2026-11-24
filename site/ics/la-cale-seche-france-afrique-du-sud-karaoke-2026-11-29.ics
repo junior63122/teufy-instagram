@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:la-cale-seche-france-afrique-du-sud-karaoke-2026-11-29@teufy
+DTSTAMP:20261124T072837Z
+DTSTART:20261129T164000Z
+DTEND:20261129T214000Z
+SUMMARY:La Cale Sèche – France / Afrique du Sud + karaoké
+LOCATION:La Cale Sèche\, Toulon\, Toulon
+DESCRIPTION:Match France / Afrique du Sud à 17h40 + karaoké\nBillets : https://www.instagram.com/p/DgGIZohoA8x/\nVia Teufy @teufy_official
+URL:https://www.instagram.com/p/DgGIZohoA8x/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : La Cale Sèche – France / Afrique du Sud + karaoké
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : La Cale Sèche – France / Afrique du Sud + karaoké
+END:VALARM
+END:VEVENT
+END:VCALENDAR

@@ -7,6 +7,165 @@
   "evenements": [
     {
       "source": "web",
+      "source_site": "instagram.com",
+      "via_veille": true,
+      "name": "La Cale Sèche – Soirée Ti Punch + multiplex Ligue des Champions",
+      "start": "2026-11-24T20:00:00.000Z",
+      "venue": "La Cale Sèche, Toulon",
+      "city": "Toulon",
+      "address": "",
+      "url": "https://www.instagram.com/p/DgGIZohoA8x/",
+      "image": "https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/928552767_18472742122186229_8034317840126112657_n.webp?stp=dst-jpg_e35_tt6&_nc_cat=105&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=4nSRko8AfOUQ7kNvwE1j2I2&_nc_oc=AdqEuTdJiWCypds345EPuFRz8L5YJIH-co-2Q9znQAukmn8mm8lnjokIuzvdGj5NLR8&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=GkJUD4CHcWHYdRvonX6EOg&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQRdRFg6eL-H_FeijjN-81Fk1qaSBHi3jRg4dpCA_3PnVw&oe=6B0B0673",
+      "price": null,
+      "tags": [
+        "cocktail",
+        "sport"
+      ],
+      "description": "Ce jeudi 24 novembre, La Cale Sèche te donne rendez‑vous pour une soirée Ti Punch et le match de la Ligue des Champions à 21 h. L’ambiance pirate, les boissons tropicales et le grand écran créent le cocktail parfait pour les fans de foot et de bonne musique. Le bar est ouvert dès 21 h, l’entrée est libre et le dress‑code est décontracté. Viens profiter d’une soirée entre potes dans le quartier de Toulon, à 4 place Monsenergue.",
+      "public_cible": 0.6,
+      "confiance": 0.9,
+      "accroche": "Soirée Ti Punch + match de Ligue des Champions à 21h",
+      "instagram": [
+        "lacalesechetoulon"
+      ],
+      "buzz": 0.5,
+      "buzz_raison": "Événement hebdomadaire avec thème original, bonne visibilité locale, jour de semaine mais match attractif.",
+      "par_le_lieu": true,
+      "offres": [],
+      "sources_sites": [
+        "instagram.com",
+        "Instagram – lacalesechetoulon"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "instagram.com",
+      "via_veille": true,
+      "name": "La Cale Sèche – Bouteille de planteur à 15 € + PSG / AS Roma",
+      "start": "2026-11-24T23:00:00.000Z",
+      "venue": "La Cale Sèche, Toulon",
+      "city": "Toulon",
+      "address": "",
+      "url": "https://www.instagram.com/p/DgGIZohoA8x/",
+      "image": "https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/928552767_18472742122186229_8034317840126112657_n.webp?stp=dst-jpg_e35_tt6&_nc_cat=105&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=4nSRko8AfOUQ7kNvwE1j2I2&_nc_oc=AdqEuTdJiWCypds345EPuFRz8L5YJIH-co-2Q9znQAukmn8mm8lnjokIuzvdGj5NLR8&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=GkJUD4CHcWHYdRvonX6EOg&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQRdRFg6eL-H_FeijjN-81Fk1qaSBHi3jRg4dpCA_3PnVw&oe=6B0B0673",
+      "price": 15,
+      "tags": [
+        "cocktail"
+      ],
+      "description": "Le mercredi 25 novembre, La Cale Sèche propose une bouteille de planteur à 15 € toute la soirée et diffuse le match PSG / AS Roma. L’ambiance détendue, les cocktails exotiques et le foot en direct attirent les jeunes fans. L’entrée est libre, le bar reste ouvert dès 21 h et le dress‑code reste casual. Lieu : 4 place Monsenergue, Toulon.",
+      "public_cible": 0.6,
+      "confiance": 0.9,
+      "accroche": "Bouteille de planteur à 15 € toute la soirée",
+      "instagram": [
+        "lacalesechetoulon"
+      ],
+      "buzz": 0.5,
+      "buzz_raison": "Offre spéciale + match de foot, bonne visibilité locale, soirée en semaine.",
+      "par_le_lieu": true,
+      "offres": [],
+      "sources_sites": [
+        "instagram.com",
+        "Instagram – lacalesechetoulon"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "instagram.com",
+      "via_veille": true,
+      "name": "La Cale Sèche – L’Embuscade des Pirates",
+      "start": "2026-11-26T23:00:00.000Z",
+      "venue": "La Cale Sèche, Toulon",
+      "city": "Toulon",
+      "address": "",
+      "url": "https://www.instagram.com/p/DgGIZohoA8x/",
+      "image": "https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/928552767_18472742122186229_8034317840126112657_n.webp?stp=dst-jpg_e35_tt6&_nc_cat=105&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=4nSRko8AfOUQ7kNvwE1j2I2&_nc_oc=AdqEuTdJiWCypds345EPuFRz8L5YJIH-co-2Q9znQAukmn8mm8lnjokIuzvdGj5NLR8&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=GkJUD4CHcWHYdRvonX6EOg&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQRdRFg6eL-H_FeijjN-81Fk1qaSBHi3jRg4dpCA_3PnVw&oe=6B0B0673",
+      "price": null,
+      "tags": [
+        "promo",
+        "cocktail"
+      ],
+      "description": "Vendredi 27 novembre, La Cale Sèche lance « L’Embuscade des Pirates » : jusqu’à 21 h, chaque boisson achetée donne droit à une seconde offerte (alcools, softs, bouteilles d’arrangés). L’ambiance pirate, les cocktails exotiques et la musique entraînante font de cette soirée un must‑see. Entrée libre, bar ouvert dès 00 h, dress‑code casual. Adresse : 4 place Monsenergue, Toulon.",
+      "public_cible": 0.6,
+      "confiance": 0.9,
+      "accroche": "1 acheté = 1 offert jusqu’à 21h sur alcools et softs",
+      "instagram": [
+        "lacalesechetoulon"
+      ],
+      "buzz": 0.5,
+      "buzz_raison": "Match européen, thème original, visibilité locale.",
+      "par_le_lieu": true,
+      "offres": [],
+      "sources_sites": [
+        "instagram.com",
+        "Instagram – lacalesechetoulon"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "instagram.com",
+      "via_veille": true,
+      "name": "La Cale Sèche – Soirée Spritz + PSG / Lorient",
+      "start": "2026-11-28T19:45:00.000Z",
+      "venue": "La Cale Sèche, Toulon",
+      "city": "Toulon",
+      "address": "",
+      "url": "https://www.instagram.com/p/DgGIZohoA8x/",
+      "image": "https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/928552767_18472742122186229_8034317840126112657_n.webp?stp=dst-jpg_e35_tt6&_nc_cat=105&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=4nSRko8AfOUQ7kNvwE1j2I2&_nc_oc=AdqEuTdJiWCypds345EPuFRz8L5YJIH-co-2Q9znQAukmn8mm8lnjokIuzvdGj5NLR8&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=GkJUD4CHcWHYdRvonX6EOg&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQRdRFg6eL-H_FeijjN-81Fk1qaSBHi3jRg4dpCA_3PnVw&oe=6B0B0673",
+      "price": null,
+      "tags": [
+        "spritz",
+        "sport"
+      ],
+      "description": "Samedi 28 novembre, La Cale Sèche propose une soirée Spritz accompagnée du match PSG / Lorient à 20 h 45. Profite d’un cocktail rafraîchissant, d’une ambiance conviviale et du foot en direct. Entrée libre, bar ouvert dès 20 h 45, dress‑code casual. Adresse : 4 place Monsenergue, Toulon.",
+      "public_cible": 0.6,
+      "confiance": 0.9,
+      "accroche": "Spritz + match PSG / Lorient à 20h45",
+      "instagram": [
+        "lacalesechetoulon"
+      ],
+      "buzz": 0.5,
+      "buzz_raison": "Combinaison foot + cocktails, attrait pour les jeunes, visibilité locale.",
+      "par_le_lieu": true,
+      "offres": [],
+      "sources_sites": [
+        "instagram.com",
+        "Instagram – lacalesechetoulon"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "instagram.com",
+      "via_veille": true,
+      "name": "La Cale Sèche – France / Afrique du Sud + karaoké",
+      "start": "2026-11-29T16:40:00.000Z",
+      "venue": "La Cale Sèche, Toulon",
+      "city": "Toulon",
+      "address": "",
+      "url": "https://www.instagram.com/p/DgGIZohoA8x/",
+      "image": "https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/928552767_18472742122186229_8034317840126112657_n.webp?stp=dst-jpg_e35_tt6&_nc_cat=105&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=4nSRko8AfOUQ7kNvwE1j2I2&_nc_oc=AdqEuTdJiWCypds345EPuFRz8L5YJIH-co-2Q9znQAukmn8mm8lnjokIuzvdGj5NLR8&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=GkJUD4CHcWHYdRvonX6EOg&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQRdRFg6eL-H_FeijjN-81Fk1qaSBHi3jRg4dpCA_3PnVw&oe=6B0B0673",
+      "price": null,
+      "tags": [
+        "sport",
+        "karaoke"
+      ],
+      "description": "Dimanche 29 novembre, La Cale Sèche diffuse le match France / Afrique du Sud à 17 h 40, suivi d’une session karaoké. Une soirée idéale pour les fans de sport et les amateurs de chant. Entrée libre, bar ouvert dès le début du match, dress‑code casual. Adresse : 4 place Monsenergue, Toulon.",
+      "public_cible": 0.6,
+      "confiance": 0.9,
+      "accroche": "Match France / Afrique du Sud à 17h40 + karaoké",
+      "instagram": [
+        "lacalesechetoulon"
+      ],
+      "buzz": 0.5,
+      "buzz_raison": "Match international + karaoké, format attractif pour les jeunes, visibilité locale.",
+      "par_le_lieu": true,
+      "offres": [],
+      "sources_sites": [
+        "instagram.com",
+        "Instagram – lacalesechetoulon"
+      ]
+    },
+    {
+      "source": "web",
       "source_site": "shotgun.live",
       "name": "Yuksek & Roxie",
       "start": "2026-11-26T19:30:00.000Z",
@@ -5589,33 +5748,6 @@
       "source": "web",
       "source_site": "instagram.com",
       "via_veille": true,
-      "name": "Bad Jungle – Shatta, Afro, Hip‑Hop & Amapiano",
-      "start": "2026-11-23T23:00:00.000Z",
-      "venue": "3261 Av. de la Résistance, 83000 Toulon",
-      "city": "Toulon",
-      "address": "",
-      "url": "https://www.instagram.com/p/DgF20wgsLau/",
-      "image": "https://scontent-iad6-1.cdninstagram.com/v/t51.82787-15/924013801_18151837018552654_1908199569892917775_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=107&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=AAINBUGc-aYQ7kNvwFENCen&_nc_oc=AdqRxuaIgwrMlOjjT4gqJnbVWQC3nc26EE_ehrDmS6DpZm1BbeU539Kum2RZ6UQ-iO0&_nc_zt=23&_nc_ht=scontent-iad6-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=RHZIuOuMa_GFtR1SAz1BoA&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQTpx1rWdaOVGCz7xJhidUyRtyyCwU4MAGIo3U7D-E5C4Q&oe=6B0A5894",
-      "price": 10,
-      "tags": [
-        "Shatta",
-        "Afro",
-        "Hip‑Hop",
-        "Amapiano"
-      ],
-      "description": "",
-      "public_cible": 0.6,
-      "confiance": 0.9,
-      "accroche": "3 nuits jungle, 00h-05h, entrée 10€",
-      "instagram": [
-        "_boka_officiel_"
-      ],
-      "offres": []
-    },
-    {
-      "source": "web",
-      "source_site": "instagram.com",
-      "via_veille": true,
       "name": "Soirée Shatta 26 novembre",
       "start": "2026-11-25T23:00:00.000Z",
       "venue": "3261 Av. de la Résistance, 83000 Toulon",
@@ -5633,125 +5765,6 @@
       "accroche": "Soirée 100% Shatta, 00h-05h, entrée 10€",
       "instagram": [
         "_boka_officiel_"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "instagram.com",
-      "via_veille": true,
-      "name": "Ti Punch + Ligue des Champions",
-      "start": "2026-11-24T20:00:00.000Z",
-      "venue": "La Cale Sèche, Toulon",
-      "city": "Toulon",
-      "address": "",
-      "url": "https://www.instagram.com/p/DgGIZohoA8x/",
-      "image": "https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/928552767_18472742122186229_8034317840126112657_n.webp?stp=dst-jpg_e35_tt6&_nc_cat=105&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=4nSRko8AfOUQ7kNvwE1j2I2&_nc_oc=AdqEuTdJiWCypds345EPuFRz8L5YJIH-co-2Q9znQAukmn8mm8lnjokIuzvdGj5NLR8&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=_65e4GqaDPnC1ZJZ_1gAiA&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQS1Q1YJdi2ksJg_mNrZqBHlmlfBhQEN5RTbC09kCvmVCw&oe=6B0B0673",
-      "price": null,
-      "tags": [
-        "cocktail",
-        "sport"
-      ],
-      "description": "",
-      "public_cible": 0.6,
-      "confiance": 0.9,
-      "accroche": "Soirée Ti Punch + match de Ligue des Champions à 21h",
-      "instagram": [
-        "lacalesechetoulon"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "instagram.com",
-      "via_veille": true,
-      "name": "Bouteille de planteur à 15€",
-      "start": "2026-11-24T23:00:00.000Z",
-      "venue": "La Cale Sèche, Toulon",
-      "city": "Toulon",
-      "address": "",
-      "url": "https://www.instagram.com/p/DgGIZohoA8x/",
-      "image": "https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/928552767_18472742122186229_8034317840126112657_n.webp?stp=dst-jpg_e35_tt6&_nc_cat=105&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=4nSRko8AfOUQ7kNvwE1j2I2&_nc_oc=AdqEuTdJiWCypds345EPuFRz8L5YJIH-co-2Q9znQAukmn8mm8lnjokIuzvdGj5NLR8&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=_65e4GqaDPnC1ZJZ_1gAiA&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQS1Q1YJdi2ksJg_mNrZqBHlmlfBhQEN5RTbC09kCvmVCw&oe=6B0B0673",
-      "price": null,
-      "tags": [
-        "cocktail"
-      ],
-      "description": "",
-      "public_cible": 0.6,
-      "confiance": 0.9,
-      "accroche": "Bouteille de planteur à 15 € toute la soirée",
-      "instagram": [
-        "lacalesechetoulon"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "instagram.com",
-      "via_veille": true,
-      "name": "L’Embuscade des Pirates",
-      "start": "2026-11-26T23:00:00.000Z",
-      "venue": "La Cale Sèche, Toulon",
-      "city": "Toulon",
-      "address": "",
-      "url": "https://www.instagram.com/p/DgGIZohoA8x/",
-      "image": "https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/928552767_18472742122186229_8034317840126112657_n.webp?stp=dst-jpg_e35_tt6&_nc_cat=105&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=4nSRko8AfOUQ7kNvwE1j2I2&_nc_oc=AdqEuTdJiWCypds345EPuFRz8L5YJIH-co-2Q9znQAukmn8mm8lnjokIuzvdGj5NLR8&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=_65e4GqaDPnC1ZJZ_1gAiA&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQS1Q1YJdi2ksJg_mNrZqBHlmlfBhQEN5RTbC09kCvmVCw&oe=6B0B0673",
-      "price": null,
-      "tags": [
-        "promo",
-        "cocktail"
-      ],
-      "description": "",
-      "public_cible": 0.6,
-      "confiance": 0.9,
-      "accroche": "1 acheté = 1 offert jusqu’à 21h sur alcools et softs",
-      "instagram": [
-        "lacalesechetoulon"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "instagram.com",
-      "via_veille": true,
-      "name": "Soirée Spritz + PSG / Lorient",
-      "start": "2026-11-28T19:45:00.000Z",
-      "venue": "La Cale Sèche, Toulon",
-      "city": "Toulon",
-      "address": "",
-      "url": "https://www.instagram.com/p/DgGIZohoA8x/",
-      "image": "https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/928552767_18472742122186229_8034317840126112657_n.webp?stp=dst-jpg_e35_tt6&_nc_cat=105&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=4nSRko8AfOUQ7kNvwE1j2I2&_nc_oc=AdqEuTdJiWCypds345EPuFRz8L5YJIH-co-2Q9znQAukmn8mm8lnjokIuzvdGj5NLR8&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=_65e4GqaDPnC1ZJZ_1gAiA&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQS1Q1YJdi2ksJg_mNrZqBHlmlfBhQEN5RTbC09kCvmVCw&oe=6B0B0673",
-      "price": null,
-      "tags": [
-        "spritz",
-        "sport"
-      ],
-      "description": "",
-      "public_cible": 0.6,
-      "confiance": 0.9,
-      "accroche": "Spritz + match PSG / Lorient à 20h45",
-      "instagram": [
-        "lacalesechetoulon"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "instagram.com",
-      "via_veille": true,
-      "name": "France / Afrique du Sud + karaoké",
-      "start": "2026-11-29T16:40:00.000Z",
-      "venue": "La Cale Sèche, Toulon",
-      "city": "Toulon",
-      "address": "",
-      "url": "https://www.instagram.com/p/DgGIZohoA8x/",
-      "image": "https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/928552767_18472742122186229_8034317840126112657_n.webp?stp=dst-jpg_e35_tt6&_nc_cat=105&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=4nSRko8AfOUQ7kNvwE1j2I2&_nc_oc=AdqEuTdJiWCypds345EPuFRz8L5YJIH-co-2Q9znQAukmn8mm8lnjokIuzvdGj5NLR8&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=_65e4GqaDPnC1ZJZ_1gAiA&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQS1Q1YJdi2ksJg_mNrZqBHlmlfBhQEN5RTbC09kCvmVCw&oe=6B0B0673",
-      "price": null,
-      "tags": [
-        "sport",
-        "karaoke"
-      ],
-      "description": "",
-      "public_cible": 0.6,
-      "confiance": 0.9,
-      "accroche": "Match France / Afrique du Sud à 17h40 + karaoké",
-      "instagram": [
-        "lacalesechetoulon"
       ]
     },
     {
@@ -5778,5 +5791,6 @@
         "magnoliacafenice"
       ]
     }
-  ]
+  ],
+  "maj_instagram": "2026-11-24T07:18:28.562Z"
 }

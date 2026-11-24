@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:showcase-exclusif-la-fouine-2026-12-05@teufy
+DTSTAMP:20261124T072837Z
+DTSTART:20261205T223000Z
+DTEND:20261206T033000Z
+SUMMARY:Showcase Exclusif : La Fouine
+LOCATION:Sky Club / Sky Beach – Casino de Beaulieu\, Beaulieu-sur-Mer
+DESCRIPTION:Tous les classiques de La Fouine en showcase intime au Sky Club.\nBillets : https://shotgun.live/events/la-fouine-x-skyclub-showcase-exclusif\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/la-fouine-x-skyclub-showcase-exclusif
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Showcase Exclusif : La Fouine
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Showcase Exclusif : La Fouine
+END:VALARM
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:les-bonnes-franquettes-christmas-2026-12-19@teufy
+DTSTAMP:20261124T072837Z
+DTSTART:20261219T193000Z
+DTEND:20261220T003000Z
+SUMMARY:Les Bonnes Franquettes - Christmas
+LOCATION:La Séguinière\, Valbonne
+DESCRIPTION:Fête de fin d'année festive et house avec Les Bonnes Franquettes.\nBillets : https://shotgun.live/events/les-bonnes-franquettes-christmas\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/les-bonnes-franquettes-christmas
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Les Bonnes Franquettes - Christmas
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Les Bonnes Franquettes - Christmas
+END:VALARM
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:nice-char-bell-11-december-casino-de-beaulieu-2026-12-11@teufy
+DTSTAMP:20261124T072837Z
+DTSTART:20261211T200000Z
+DTEND:20261212T010000Z
+SUMMARY:Nice | Char Bell | 11 December @ Casino De Beaulieu
+LOCATION:Casino de Beaulieu\, Beaulieu-sur-Mer
+DESCRIPTION:L'Arabic House Night avec Char Bell dans le cadre magique du Casino de Beaulieu.\nBillets : https://shotgun.live/events/nice-char-bell-11-december-casino-de-beaulieu\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/nice-char-bell-11-december-casino-de-beaulieu
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Nice | Char Bell | 11 December @ Casino De Beaulieu
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Nice | Char Bell | 11 December @ Casino De Beaulieu
+END:VALARM
+END:VEVENT
+END:VCALENDAR

@@ -75,8 +75,7 @@
  "so blue hotel restaurant|antibes": {
   "introuvable": true,
   "v": 2,
-  "le": "2026-11-08T22:08:07.393Z",
-  "ia": true
+  "le": "2026-11-24T07:23:33.427Z"
  },
  "le calypso - frejus plage|frejus": {
   "lat": 43.38772,
@@ -1804,5 +1803,140 @@
   "introuvable": true,
   "v": 2,
   "le": "2026-11-23T22:08:39.682Z"
+ },
+ "la cale seche, toulon|toulon": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-24T07:22:28.386Z"
+ },
+ "opera garnier de monte-carlo|monaco": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-24T07:22:32.949Z"
+ },
+ "le dix-huit - adresse d'experiences|cannes": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-24T07:22:37.097Z"
+ },
+ "salle garnier – opera de monte-carlo|monaco": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-24T07:22:41.426Z"
+ },
+ "la suite restaurant festif|juan-les-pins": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-24T07:22:46.292Z"
+ },
+ "cannes karting|cannes": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-24T07:22:48.854Z"
+ },
+ "la palestre|le cannet": {
+  "lat": 43.57003,
+  "lng": 6.9848,
+  "le": "2026-11-24T07:22:50.071Z"
+ },
+ "theatre lino ventura|nice": {
+  "lat": 43.73899,
+  "lng": 7.30817,
+  "le": "2026-11-24T07:22:51.351Z"
+ },
+ "playa chica & glass club cannes|cannes": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-24T07:22:55.622Z"
+ },
+ "le live (zenith toulon)|toulon": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-24T07:23:00.056Z"
+ },
+ "le factory la farlede|la farlede": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-24T07:23:04.190Z"
+ },
+ "jardin albert 1er|nice": {
+  "lat": 43.69649,
+  "lng": 7.26774,
+  "le": "2026-11-24T07:23:04.544Z"
+ },
+ "skyfall cannes|cannes": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-24T07:23:07.343Z"
+ },
+ "playa chica|cannes": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-24T07:23:10.153Z"
+ },
+ "esterel arena|saint-raphael": {
+  "lat": 43.43457,
+  "lng": 6.80097,
+  "le": "2026-11-24T07:23:11.385Z"
+ },
+ "altherax music|nice": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-24T07:23:14.310Z"
+ },
+ "sky club / sky beach – casino de beaulieu|beaulieu-sur-mer": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-24T07:23:20.338Z"
+ },
+ "casino de beaulieu|beaulieu-sur-mer": {
+  "lat": 43.70401,
+  "lng": 7.33069,
+  "le": "2026-11-24T07:23:21.892Z"
+ },
+ "quai charles de gaulle|bandol": {
+  "lat": 43.13657,
+  "lng": 5.7579,
+  "le": "2026-11-24T07:23:23.120Z"
+ },
+ "espace indigo - grimaldi forum monaco|monaco": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-24T07:23:27.523Z"
+ },
+ "the boiler r***|la valette-du-var": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-24T07:23:36.118Z"
+ },
+ "la seguiniere|valbonne": {
+  "lat": 43.72058,
+  "lng": 7.16498,
+  "le": "2026-11-24T07:23:38.731Z"
+ },
+ "magnolia cafe, nice|nice": {
+  "lat": 43.70077,
+  "lng": 7.28206,
+  "le": "2026-11-24T07:23:40.224Z"
+ },
+ "port de saint-tropez|saint-tropez": {
+  "lat": 43.27191,
+  "lng": 6.63797,
+  "le": "2026-11-24T07:23:41.656Z"
+ },
+ "salons vip est – stade allianz riviera|nice": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-24T07:23:46.055Z"
+ },
+ "hyatt regency palais de la mediterranee|nice": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-24T07:23:50.255Z"
+ },
+ "arev saint-tropez|saint-tropez": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-24T07:23:51.643Z"
  }
 }

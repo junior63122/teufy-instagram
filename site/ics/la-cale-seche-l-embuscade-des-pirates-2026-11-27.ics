@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:la-cale-seche-l-embuscade-des-pirates-2026-11-27@teufy
+DTSTAMP:20261124T072837Z
+DTSTART:20261127T230000Z
+DTEND:20261128T040000Z
+SUMMARY:La Cale Sèche – L’Embuscade des Pirates
+LOCATION:La Cale Sèche\, Toulon\, Toulon
+DESCRIPTION:1 acheté = 1 offert jusqu’à 21h sur alcools et softs\nBillets : https://www.instagram.com/p/DgGIZohoA8x/\nVia Teufy @teufy_official
+URL:https://www.instagram.com/p/DgGIZohoA8x/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : La Cale Sèche – L’Embuscade des Pirates
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : La Cale Sèche – L’Embuscade des Pirates
+END:VALARM
+END:VEVENT
+END:VCALENDAR

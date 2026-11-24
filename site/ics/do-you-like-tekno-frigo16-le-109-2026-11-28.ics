@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:do-you-like-tekno-frigo16-le-109-2026-11-28@teufy
+DTSTAMP:20261124T072837Z
+DTSTART:20261128T190000Z
+DTEND:20261129T000000Z
+SUMMARY:Do You Like... Tekno ? @ Frigo16 - Le 109
+LOCATION:Frigo 16\, Nice
+DESCRIPTION:Rave tekno et acidcore avec système Meyer Sound au Frigo 16.\nBillets : https://shotgun.live/events/do-you-like-tekno-frigo-16-le-109-nice\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/do-you-like-tekno-frigo-16-le-109-nice
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Do You Like... Tekno ? @ Frigo16 - Le 109
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Do You Like... Tekno ? @ Frigo16 - Le 109
+END:VALARM
+END:VEVENT
+END:VCALENDAR

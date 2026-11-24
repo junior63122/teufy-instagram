@@ -4,22 +4,22 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:dj-k-net-resident-techno-tribe-2026-11-29@teufy
-DTSTAMP:20261124T031406Z
+DTSTAMP:20261124T072837Z
 DTSTART:20261129T040000Z
 DTEND:20261129T090000Z
-SUMMARY:DJ K-Net (Resident) — Techno / Tribe
+SUMMARY:Dj K-Net (Resident) : Techno / Tribe
 LOCATION:L'Antre Bar Electro\, Nice
-DESCRIPTION:Clôture du mois en set vinyle techno et tribe par le résident historique DJ K-Net dès 5h.\nBillets : https://shotgun.live/events/dj-k-net-resident-techno-tribe\nVia Teufy @teufy_official
+DESCRIPTION:L'after techno officiel au petit matin pour prolonger la nuit à Nice.\nBillets : https://shotgun.live/events/dj-k-net-resident-techno-tribe\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/dj-k-net-resident-techno-tribe
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-P1D
-DESCRIPTION:Demain : DJ K-Net (Resident) — Techno / Tribe
+DESCRIPTION:Demain : Dj K-Net (Resident) : Techno / Tribe
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT2H
-DESCRIPTION:Dans 2 h : DJ K-Net (Resident) — Techno / Tribe
+DESCRIPTION:Dans 2 h : Dj K-Net (Resident) : Techno / Tribe
 END:VALARM
 END:VEVENT
 END:VCALENDAR

@@ -8,17 +8,75 @@ X-WR-TIMEZONE:Europe/Paris
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
+UID:the-brand-new-heavies-et-gogo-penguin-monte-carlo-jazz-festi-2026-
+ 11-26@teufy
+DTSTAMP:20261124T072837Z
+DTSTART:20261126T193000Z
+DTEND:20261127T003000Z
+SUMMARY:The Brand New Heavies & GoGo Penguin (Monte-Carlo Jazz Festiva
+ l)
+LOCATION:Salle Garnier – Opéra de Monte-Carlo\, Monaco
+DESCRIPTION:Double plateau d'exception entre acid jazz légendaire et b
+ reakbeat électro à Monaco.\nFiche et billets : https://teufyparty.com/
+ soiree/the-brand-new-heavies-et-gogo-penguin-monte-carlo-jazz-festi-20
+ 26-11-26/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/the-brand-new-heavies-et-gogo-pengui
+ n-monte-carlo-jazz-festi-2026-11-26/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : The Brand New Heavies & GoGo Penguin (Monte-Carl
+ o Jazz Festival)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:je-dis-techno-tous-les-jeudis-2026-11-26@teufy
+DTSTAMP:20261124T072837Z
+DTSTART:20261126T210000Z
+DTEND:20261127T020000Z
+SUMMARY:Je Dis Techno (Tous Les Jeudis)
+LOCATION:L'Antre Bar Electro\, Nice
+DESCRIPTION:Gros BPM et ambiance underground à petit prix tous les jeu
+ dis à Nice.\nFiche et billets : https://teufyparty.com/soiree/je-dis-t
+ echno-tous-les-jeudis-2026-11-26/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/je-dis-techno-tous-les-jeudis-2026-1
+ 1-26/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Je Dis Techno (Tous Les Jeudis)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:les-tambours-du-bronx-2026-11-27@teufy
+DTSTAMP:20261124T072837Z
+DTSTART:20261127T193000Z
+DTEND:20261128T003000Z
+SUMMARY:LES TAMBOURS DU BRONX
+LOCATION:Théâtre Lino Ventura\, Nice
+DESCRIPTION:La puissance brute des bidons des Tambours du Bronx résonn
+ e au Théâtre Lino Ventura.\nFiche et billets : https://teufyparty.com/
+ soiree/les-tambours-du-bronx-2026-11-27/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/les-tambours-du-bronx-2026-11-27/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : LES TAMBOURS DU BRONX
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
 UID:riviera-bar-crawl-nice-s-1-social-club-for-global-travelers-2026-1
  1-27@teufy
-DTSTAMP:20261124T031406Z
+DTSTAMP:20261124T072837Z
 DTSTART:20261127T200000Z
 DTEND:20261128T010000Z
 SUMMARY:Riviera Bar Crawl Nice’s #1 Social Club for Global Travelers &
   Party Lovers
 LOCATION:Hostel Villa Saint Exupery Beach\, Nice
-DESCRIPTION:Fiche et billets : https://teufyparty.com/soiree/riviera-b
- ar-crawl-nice-s-1-social-club-for-global-travelers-2026-11-27/\nVia Te
- ufy @teufy_official
+DESCRIPTION:La virée nocturne incontournable à Nice avec shots\, jeux 
+ et accès direct en discothèque.\nFiche et billets : https://teufyparty
+ .com/soiree/riviera-bar-crawl-nice-s-1-social-club-for-global-traveler
+ s-2026-11-27/\nVia Teufy @teufy_official
 URL:https://teufyparty.com/soiree/riviera-bar-crawl-nice-s-1-social-cl
  ub-for-global-travelers-2026-11-27/
 BEGIN:VALARM
@@ -29,15 +87,32 @@ DESCRIPTION:Ce soir : Riviera Bar Crawl Nice’s #1 Social Club for Glob
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
+UID:spicy-saturday-2026-11-27@teufy
+DTSTAMP:20261124T072837Z
+DTSTART:20261127T225900Z
+DTEND:20261128T035900Z
+SUMMARY:Spicy Saturday
+LOCATION:Honey Club\, Juan-les-Pins
+DESCRIPTION:Ambiance tropicale bouillante jusqu'à 05h00 au Honey Club.
+ \nFiche et billets : https://teufyparty.com/soiree/spicy-saturday-2026
+ -11-27/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/spicy-saturday-2026-11-27/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Spicy Saturday
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
 UID:psynaps-2-2026-11-28@teufy
-DTSTAMP:20261124T031406Z
+DTSTAMP:20261124T072837Z
 DTSTART:20261128T180000Z
 DTEND:20261128T230000Z
 SUMMARY:Psynaps-2
 LOCATION:Fort Napoléon\, La Seyne-sur-Mer
-DESCRIPTION:Immersion psychédélique et hypnotic techno au Fort Napoléo
- n à prix tout doux.\nFiche et billets : https://teufyparty.com/soiree/
- psynaps-2-2026-11-28/\nVia Teufy @teufy_official
+DESCRIPTION:Messe psytrance et hypnotic techno entre les remparts du F
+ ort Napoléon.\nFiche et billets : https://teufyparty.com/soiree/psynap
+ s-2-2026-11-28/\nVia Teufy @teufy_official
 URL:https://teufyparty.com/soiree/psynaps-2-2026-11-28/
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -46,32 +121,51 @@ DESCRIPTION:Ce soir : Psynaps-2
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:do-you-like-tekno-2026-11-28@teufy
-DTSTAMP:20261124T031406Z
+UID:do-you-like-tekno-frigo16-le-109-2026-11-28@teufy
+DTSTAMP:20261124T072837Z
 DTSTART:20261128T190000Z
 DTEND:20261129T000000Z
-SUMMARY:DO YOU LIKE… TEKNO ?
-LOCATION:Frigo 16 (Le 109)\, Nice
-DESCRIPTION:Live de 2h du duo 23HZ (Insane Teknology & Nesh Mayday) pl
- us Banditik au 109.\nFiche et billets : https://teufyparty.com/soiree/
- do-you-like-tekno-2026-11-28/\nVia Teufy @teufy_official
-URL:https://teufyparty.com/soiree/do-you-like-tekno-2026-11-28/
+SUMMARY:Do You Like... Tekno ? @ Frigo16 - Le 109
+LOCATION:Frigo 16\, Nice
+DESCRIPTION:Rave tekno et acidcore avec système Meyer Sound au Frigo 1
+ 6.\nFiche et billets : https://teufyparty.com/soiree/do-you-like-tekno
+ -frigo16-le-109-2026-11-28/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/do-you-like-tekno-frigo16-le-109-202
+ 6-11-28/
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT3H
-DESCRIPTION:Ce soir : DO YOU LIKE… TEKNO ?
+DESCRIPTION:Ce soir : Do You Like... Tekno ? @ Frigo16 - Le 109
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:the-show-club-sonore-maraka-playa-chica-2026-11-28@teufy
+DTSTAMP:20261124T072837Z
+DTSTART:20261128T190000Z
+DTEND:20261129T000000Z
+SUMMARY:THE SHOW CLUB SONORE × MARAKA × PLAYA CHICA
+LOCATION:Playa Chica & Glass Club Cannes\, Cannes
+DESCRIPTION:Double étape festive signée Club Sonore entre plage et clu
+ b cannois.\nFiche et billets : https://teufyparty.com/soiree/the-show-
+ club-sonore-maraka-playa-chica-2026-11-28/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/the-show-club-sonore-maraka-playa-ch
+ ica-2026-11-28/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : THE SHOW CLUB SONORE × MARAKA × PLAYA CHICA
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:this-is-house-2026-11-28@teufy
-DTSTAMP:20261124T031406Z
+DTSTAMP:20261124T072837Z
 DTSTART:20261128T190000Z
 DTEND:20261129T000000Z
 SUMMARY:This Is House
 LOCATION:Le Baraza\, Hyères
-DESCRIPTION:Sets vinyles et kicks groovy par Papeguay et Lydia Scarfo 
- au Baraza.\nFiche et billets : https://teufyparty.com/soiree/this-is-h
- ouse-2026-11-28/\nVia Teufy @teufy_official
+DESCRIPTION:Soirée club intimiste aux grooves house et acid house au B
+ araza à Hyères.\nFiche et billets : https://teufyparty.com/soiree/this
+ -is-house-2026-11-28/\nVia Teufy @teufy_official
 URL:https://teufyparty.com/soiree/this-is-house-2026-11-28/
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -81,7 +175,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:kontakt-road-secret-line-up-2026-11-28@teufy
-DTSTAMP:20261124T031406Z
+DTSTAMP:20261124T072837Z
 DTSTART:20261128T190000Z
 DTEND:20261129T000000Z
 SUMMARY:KONTAKT ROAD – SECRET LINE UP
@@ -100,7 +194,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:riviera-bar-crawl-nice-s-1-social-club-for-global-travelers-2026-1
  1-28@teufy
-DTSTAMP:20261124T031406Z
+DTSTAMP:20261124T072837Z
 DTSTART:20261128T200000Z
 DTEND:20261129T010000Z
 SUMMARY:Riviera Bar Crawl Nice’s #1 Social Club for Global Travelers &
@@ -120,14 +214,14 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:vibrance-7-2026-11-28@teufy
-DTSTAMP:20261124T031406Z
+DTSTAMP:20261124T072837Z
 DTSTART:20261128T200000Z
 DTEND:20261129T010000Z
 SUMMARY:Vibrance #7
 LOCATION:L'Antre Bar Electro\, Nice
-DESCRIPTION:Le collectif Aztera installe sa rave psytrance et acid tec
- hno dans le Vieux-Nice.\nFiche et billets : https://teufyparty.com/soi
- ree/vibrance-7-2026-11-28/\nVia Teufy @teufy_official
+DESCRIPTION:Voyage psytrance et sonorités acid psychédéliques à Nice.\
+ nFiche et billets : https://teufyparty.com/soiree/vibrance-7-2026-11-2
+ 8/\nVia Teufy @teufy_official
 URL:https://teufyparty.com/soiree/vibrance-7-2026-11-28/
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -137,7 +231,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:prizme-concept-tournevis-live-2026-11-28@teufy
-DTSTAMP:20261124T031406Z
+DTSTAMP:20261124T072837Z
 DTSTART:20261128T210000Z
 DTEND:20261129T020000Z
 SUMMARY:Prizme Concept : TOURNEVIS Live
@@ -155,15 +249,14 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:origins-invite-boticka-all-night-long-2026-11-28@teufy
-DTSTAMP:20261124T031406Z
+DTSTAMP:20261124T072837Z
 DTSTART:20261128T223000Z
 DTEND:20261129T033000Z
 SUMMARY:Origins Invite Boticka All Night Long
-LOCATION:Switch Club\, Roquebrune-sur-Argens
-DESCRIPTION:6 heures de set non-stop de Boticka pour une nuit techno i
- ndustrielle intense.\nFiche et billets : https://teufyparty.com/soiree
- /origins-invite-boticka-all-night-long-2026-11-28/\nVia Teufy @teufy_o
- fficial
+LOCATION:switch Club\, Roquebrune-sur-Argens
+DESCRIPTION:Marathon hard techno en configuration 360° avec Boticka al
+ l night long.\nFiche et billets : https://teufyparty.com/soiree/origin
+ s-invite-boticka-all-night-long-2026-11-28/\nVia Teufy @teufy_official
 URL:https://teufyparty.com/soiree/origins-invite-boticka-all-night-lon
  g-2026-11-28/
 BEGIN:VALARM
@@ -174,46 +267,44 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:dj-k-net-resident-techno-tribe-2026-11-29@teufy
-DTSTAMP:20261124T031406Z
+DTSTAMP:20261124T072837Z
 DTSTART:20261129T040000Z
 DTEND:20261129T090000Z
-SUMMARY:DJ K-Net (Resident) — Techno / Tribe
+SUMMARY:Dj K-Net (Resident) : Techno / Tribe
 LOCATION:L'Antre Bar Electro\, Nice
-DESCRIPTION:Clôture du mois en set vinyle techno et tribe par le résid
- ent historique DJ K-Net dès 5h.\nFiche et billets : https://teufyparty
- .com/soiree/dj-k-net-resident-techno-tribe-2026-11-29/\nVia Teufy @teu
- fy_official
+DESCRIPTION:L'after techno officiel au petit matin pour prolonger la n
+ uit à Nice.\nFiche et billets : https://teufyparty.com/soiree/dj-k-net
+ -resident-techno-tribe-2026-11-29/\nVia Teufy @teufy_official
 URL:https://teufyparty.com/soiree/dj-k-net-resident-techno-tribe-2026-
  11-29/
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT3H
-DESCRIPTION:Ce soir : DJ K-Net (Resident) — Techno / Tribe
+DESCRIPTION:Ce soir : Dj K-Net (Resident) : Techno / Tribe
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:ref-session-18-acid-pauli-frigo-16-nice-2026-12-04@teufy
-DTSTAMP:20261124T031406Z
+UID:ref-session-18-acid-pauli-frigo-16-2026-12-04@teufy
+DTSTAMP:20261124T072837Z
 DTSTART:20261204T190000Z
 DTEND:20261205T000000Z
-SUMMARY:REF Session #18 Acid Pauli - Frigo 16 - NICE
-LOCATION:Frigo 16 (Le 109)\, Nice
-DESCRIPTION:Acid Pauli débarque au Frigo 16 pour une session électro p
- sychédélique immanquable.\nFiche et billets : https://teufyparty.com/s
- oiree/ref-session-18-acid-pauli-frigo-16-nice-2026-12-04/\nVia Teufy @
- teufy_official
-URL:https://teufyparty.com/soiree/ref-session-18-acid-pauli-frigo-16-n
- ice-2026-12-04/
+SUMMARY:Ref Session #18 Acid Pauli @ Frigo 16
+LOCATION:Frigo 16\, Nice
+DESCRIPTION:La légende Acid Pauli en session hypnotique et immersive a
+ u 109.\nFiche et billets : https://teufyparty.com/soiree/ref-session-1
+ 8-acid-pauli-frigo-16-2026-12-04/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/ref-session-18-acid-pauli-frigo-16-2
+ 026-12-04/
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT3H
-DESCRIPTION:Ce soir : REF Session #18 Acid Pauli - Frigo 16 - NICE
+DESCRIPTION:Ce soir : Ref Session #18 Acid Pauli @ Frigo 16
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:riviera-bar-crawl-nice-s-1-social-club-for-global-travelers-2026-1
  2-04@teufy
-DTSTAMP:20261124T031406Z
+DTSTAMP:20261124T072837Z
 DTSTART:20261204T200000Z
 DTEND:20261205T010000Z
 SUMMARY:Riviera Bar Crawl Nice’s #1 Social Club for Global Travelers &
@@ -232,25 +323,60 @@ DESCRIPTION:Ce soir : Riviera Bar Crawl Nice’s #1 Social Club for Glob
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:what-s-up-nice-2026-12-04@teufy
-DTSTAMP:20261124T031406Z
+UID:high-students-2026-12-04@teufy
+DTSTAMP:20261124T072837Z
 DTSTART:20261204T225900Z
 DTEND:20261205T035900Z
-SUMMARY:What's Up Nice
+SUMMARY:HIGH STUDENTS
 LOCATION:High Club\, Nice
-DESCRIPTION:Nuit 100% niçoise et tracks house sur le dancefloor princi
- pal de la Prom'.\nFiche et billets : https://teufyparty.com/soiree/wha
- t-s-up-nice-2026-12-04/\nVia Teufy @teufy_official
-URL:https://teufyparty.com/soiree/what-s-up-nice-2026-12-04/
+DESCRIPTION:Le grand rendez-vous étudiant du vendredi soir sur la Prom
+ enade des Anglais.\nFiche et billets : https://teufyparty.com/soiree/h
+ igh-students-2026-12-04/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/high-students-2026-12-04/
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT3H
-DESCRIPTION:Ce soir : What's Up Nice
+DESCRIPTION:Ce soir : HIGH STUDENTS
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:format-boiler-360-ii-hangar-and-hard-techno-2026-12-05@teufy
+DTSTAMP:20261124T072837Z
+DTSTART:20261205T210000Z
+DTEND:20261206T020000Z
+SUMMARY:Format Boiler 360° II - Hangar And Hard Techno
+LOCATION:Altherax Music\, Nice
+DESCRIPTION:DJ booth au centre de la salle et déluge neorave à l'Althe
+ rax.\nFiche et billets : https://teufyparty.com/soiree/format-boiler-3
+ 60-ii-hangar-and-hard-techno-2026-12-05/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/format-boiler-360-ii-hangar-and-hard
+ -techno-2026-12-05/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Format Boiler 360° II - Hangar And Hard Techno
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ohm-family-l-antre-2026-12-05@teufy
+DTSTAMP:20261124T072837Z
+DTSTART:20261205T210000Z
+DTEND:20261206T020000Z
+SUMMARY:Ohm Family @ L'Antre
+LOCATION:L'Antre Bar Electro Bar à Cocktails\, Nice
+DESCRIPTION:Immersion totale dans la techno sombre et percutante avec 
+ le crew Ohm Family.\nFiche et billets : https://teufyparty.com/soiree/
+ ohm-family-l-antre-2026-12-05/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/ohm-family-l-antre-2026-12-05/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Ohm Family @ L'Antre
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:la-java-3-2026-12-05@teufy
-DTSTAMP:20261124T031406Z
+DTSTAMP:20261124T072837Z
 DTSTART:20261205T220000Z
 DTEND:20261206T030000Z
 SUMMARY:La Java 3
@@ -266,28 +392,67 @@ DESCRIPTION:Ce soir : La Java 3
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:brodinski-en-concert-a-nice-tobhi-tm-et-friends-2026-12-11@teufy
-DTSTAMP:20261124T031406Z
-DTSTART:20261211T190000Z
-DTEND:20261212T000000Z
-SUMMARY:Brodinski en concert à Nice (+ TOBHI TM & Friends)
-LOCATION:Frigo 16 (Le 109)\, Nice
-DESCRIPTION:Brodinski enflamme le Frigo 16 entre trap wave\, électro e
- t gros son club.\nFiche et billets : https://teufyparty.com/soiree/bro
- dinski-en-concert-a-nice-tobhi-tm-et-friends-2026-12-11/\nVia Teufy @t
- eufy_official
-URL:https://teufyparty.com/soiree/brodinski-en-concert-a-nice-tobhi-tm
- -et-friends-2026-12-11/
+UID:switch-dimension-psytrance-edition-w-ranyo-hug-ette-2026-12-05@teu
+ fy
+DTSTAMP:20261124T072837Z
+DTSTART:20261205T223000Z
+DTEND:20261206T033000Z
+SUMMARY:Switch Dimension (Psytrance Edition) W/ Ranyo - Hug'ette
+LOCATION:switch Club\, Roquebrune-sur-Argens
+DESCRIPTION:Immersion psychédélique et sound system massif au switch C
+ lub.\nFiche et billets : https://teufyparty.com/soiree/switch-dimensio
+ n-psytrance-edition-w-ranyo-hug-ette-2026-12-05/\nVia Teufy @teufy_off
+ icial
+URL:https://teufyparty.com/soiree/switch-dimension-psytrance-edition-w
+ -ranyo-hug-ette-2026-12-05/
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT3H
-DESCRIPTION:Ce soir : Brodinski en concert à Nice (+ TOBHI TM & Friend
- s)
+DESCRIPTION:Ce soir : Switch Dimension (Psytrance Edition) W/ Ranyo - 
+ Hug'ette
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:brodinski-tobhi-tm-et-friends-lariate-club-2026-12-11@teufy
+DTSTAMP:20261124T072837Z
+DTSTART:20261211T190000Z
+DTEND:20261212T000000Z
+SUMMARY:BRODINSKI (+ Tobhi TM & Friends / Lariate Club)
+LOCATION:Le 109 - Frigo 16\, Nice
+DESCRIPTION:Brodinski et le Lariate Club fusionnent techno sombre et t
+ rap au Frigo 16.\nFiche et billets : https://teufyparty.com/soiree/bro
+ dinski-tobhi-tm-et-friends-lariate-club-2026-12-11/\nVia Teufy @teufy_
+ official
+URL:https://teufyparty.com/soiree/brodinski-tobhi-tm-et-friends-lariat
+ e-club-2026-12-11/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : BRODINSKI (+ Tobhi TM & Friends / Lariate Club)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mungo-s-hi-fi-1ere-partie-red-echoes-2026-12-12@teufy
+DTSTAMP:20261124T072837Z
+DTSTART:20261212T190000Z
+DTEND:20261213T000000Z
+SUMMARY:MUNGO'S HI FI (+ 1ère partie : Red Echoes)
+LOCATION:Le 109 - Frigo 16\, Nice
+DESCRIPTION:Vibrations massives et culture sound system au Frigo 16 av
+ ec Mungo's Hi Fi.\nFiche et billets : https://teufyparty.com/soiree/mu
+ ngo-s-hi-fi-1ere-partie-red-echoes-2026-12-12/\nVia Teufy @teufy_offic
+ ial
+URL:https://teufyparty.com/soiree/mungo-s-hi-fi-1ere-partie-red-echoes
+ -2026-12-12/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : MUNGO'S HI FI (+ 1ère partie : Red Echoes)
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:la-tocardise-edition-hard-2026-12-12@teufy
-DTSTAMP:20261124T031406Z
+DTSTAMP:20261124T072837Z
 DTSTART:20261212T220000Z
 DTEND:20261213T030000Z
 SUMMARY:La Tocardise – édition Hard
@@ -305,32 +470,51 @@ DESCRIPTION:Ce soir : La Tocardise – édition Hard
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:roller-disco-gratuit-2026-12-18@teufy
-DTSTAMP:20261124T031406Z
-DTSTART:20261218T170000Z
-DTEND:20261218T220000Z
-SUMMARY:Roller Disco - Gratuit
-LOCATION:Frigo 16 (Le 109)\, Nice
-DESCRIPTION:Piste roller indoor et DJ sets disco funk en accès libre a
- u Frigo 16.\nFiche et billets : https://teufyparty.com/soiree/roller-d
- isco-gratuit-2026-12-18/\nVia Teufy @teufy_official
-URL:https://teufyparty.com/soiree/roller-disco-gratuit-2026-12-18/
+UID:switch-to-vido-odyze-b2b-nz-furious-tao-2026-12-12@teufy
+DTSTAMP:20261124T072837Z
+DTSTART:20261212T223000Z
+DTEND:20261213T033000Z
+SUMMARY:Switch To Vido - Odyze B2b Nzø - Furious - Tao
+LOCATION:switch Club\, Roquebrune-sur-Argens
+DESCRIPTION:Le phénomène hard techno VIDO débarque au switch Club en f
+ ormat 360°.\nFiche et billets : https://teufyparty.com/soiree/switch-t
+ o-vido-odyze-b2b-nz-furious-tao-2026-12-12/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/switch-to-vido-odyze-b2b-nz-furious-
+ tao-2026-12-12/
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT3H
-DESCRIPTION:Ce soir : Roller Disco - Gratuit
+DESCRIPTION:Ce soir : Switch To Vido - Odyze B2b Nzø - Furious - Tao
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:roller-disco-gratuit-frigo-16-2026-12-18@teufy
+DTSTAMP:20261124T072837Z
+DTSTART:20261218T170000Z
+DTEND:20261218T220000Z
+SUMMARY:Roller Disco - Gratuit @ Frigo 16
+LOCATION:Frigo 16\, Nice
+DESCRIPTION:Patins\, boules à facettes et son disco gratuit au Frigo 1
+ 6.\nFiche et billets : https://teufyparty.com/soiree/roller-disco-grat
+ uit-frigo-16-2026-12-18/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/roller-disco-gratuit-frigo-16-2026-1
+ 2-18/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Roller Disco - Gratuit @ Frigo 16
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:wado-x-l-antre-2-2026-12-19@teufy
-DTSTAMP:20261124T031406Z
+DTSTAMP:20261124T072837Z
 DTSTART:20261219T210000Z
 DTEND:20261220T020000Z
 SUMMARY:Wado X L'Antre 2
-LOCATION:L'Antre Bar Electro\, Nice
-DESCRIPTION:Deuxième round tekno sans répit avec le Mojo Crew sous les
-  voûtes de Nice.\nFiche et billets : https://teufyparty.com/soiree/wad
- o-x-l-antre-2-2026-12-19/\nVia Teufy @teufy_official
+LOCATION:L'Antre Bar Electro Bar à Cocktails\, Nice
+DESCRIPTION:Live acidcore et tekno nouvelle génération avec le product
+ eur Wado à L'Antre.\nFiche et billets : https://teufyparty.com/soiree/
+ wado-x-l-antre-2-2026-12-19/\nVia Teufy @teufy_official
 URL:https://teufyparty.com/soiree/wado-x-l-antre-2-2026-12-19/
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -341,15 +525,16 @@ END:VEVENT
 BEGIN:VEVENT
 UID:nice-new-year-s-eve-2026-2027-guaranteed-vip-club-entry-et-5-2026-
  12-31@teufy
-DTSTAMP:20261124T031406Z
+DTSTAMP:20261124T072837Z
 DTSTART:20261231T200000Z
 DTEND:20270101T010000Z
 SUMMARY:Nice New Year's Eve 2026-2027 — Guaranteed VIP Club Entry & 5 
  Free Shots
 LOCATION:La Chapa\, Nice
-DESCRIPTION:Fiche et billets : https://teufyparty.com/soiree/nice-new-
- year-s-eve-2026-2027-guaranteed-vip-club-entry-et-5-2026-12-31/\nVia T
- eufy @teufy_official
+DESCRIPTION:Passe le réveillon du Nouvel An entre bars et boîte VIP av
+ ec 5 shots offerts à Nice.\nFiche et billets : https://teufyparty.com/
+ soiree/nice-new-year-s-eve-2026-2027-guaranteed-vip-club-entry-et-5-20
+ 26-12-31/\nVia Teufy @teufy_official
 URL:https://teufyparty.com/soiree/nice-new-year-s-eve-2026-2027-guaran
  teed-vip-club-entry-et-5-2026-12-31/
 BEGIN:VALARM
@@ -357,6 +542,24 @@ ACTION:DISPLAY
 TRIGGER:-PT3H
 DESCRIPTION:Ce soir : Nice New Year's Eve 2026-2027 — Guaranteed VIP C
  lub Entry & 5 Free Shots
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:nouvel-an-je-dis-techno-after-2026-12-31@teufy
+DTSTAMP:20261124T072837Z
+DTSTART:20261231T220000Z
+DTEND:20270101T030000Z
+SUMMARY:Nouvel An : Je Dis Techno + After
+LOCATION:KOSMA - Live Club\, Nice
+DESCRIPTION:Réveillon XXL et after hard techno avec Je Dis Techno au K
+ OSMA.\nFiche et billets : https://teufyparty.com/soiree/nouvel-an-je-d
+ is-techno-after-2026-12-31/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/nouvel-an-je-dis-techno-after-2026-1
+ 2-31/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Ce soir : Nouvel An : Je Dis Techno + After
 END:VALARM
 END:VEVENT
 END:VCALENDAR

@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:ohm-family-l-antre-2026-12-05@teufy
+DTSTAMP:20261124T072837Z
+DTSTART:20261205T210000Z
+DTEND:20261206T020000Z
+SUMMARY:Ohm Family @ L'Antre
+LOCATION:L'Antre Bar Electro Bar à Cocktails\, Nice
+DESCRIPTION:Immersion totale dans la techno sombre et percutante avec le crew Ohm Family.\nBillets : https://shotgun.live/venues/l-antre-bar-electro-bar-a-cocktails\nVia Teufy @teufy_official
+URL:https://shotgun.live/venues/l-antre-bar-electro-bar-a-cocktails
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Ohm Family @ L'Antre
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Ohm Family @ L'Antre
+END:VALARM
+END:VEVENT
+END:VCALENDAR

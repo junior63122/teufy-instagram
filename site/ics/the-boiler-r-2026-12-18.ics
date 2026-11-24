@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:the-boiler-r-2026-12-18@teufy
+DTSTAMP:20261124T072837Z
+DTSTART:20261218T200000Z
+DTEND:20261219T010000Z
+SUMMARY:The Boiler R***
+LOCATION:The Boiler R***\, La Valette-du-Var
+DESCRIPTION:Expérience clubbing à 360° inspirée des Boiler Rooms à La Valette.\nBillets : https://shotgun.live/fr/events/the-boiler-r\nVia Teufy @teufy_official
+URL:https://shotgun.live/fr/events/the-boiler-r
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : The Boiler R***
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : The Boiler R***
+END:VALARM
+END:VEVENT
+END:VCALENDAR

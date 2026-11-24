@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:high-students-2026-12-04@teufy
+DTSTAMP:20261124T072837Z
+DTSTART:20261204T225900Z
+DTEND:20261205T035900Z
+SUMMARY:HIGH STUDENTS
+LOCATION:High Club\, 45 Prom. des Anglais\, 06000 Nice Nice\, Nice
+DESCRIPTION:Le grand rendez-vous étudiant du vendredi soir sur la Promenade des Anglais.\nBillets : https://xceed.me/fr/nice/event/high-students/253250\nVia Teufy @teufy_official
+URL:https://xceed.me/fr/nice/event/high-students/253250
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : HIGH STUDENTS
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : HIGH STUDENTS
+END:VALARM
+END:VEVENT
+END:VCALENDAR

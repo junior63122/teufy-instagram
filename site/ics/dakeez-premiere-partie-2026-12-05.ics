@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:dakeez-premiere-partie-2026-12-05@teufy
+DTSTAMP:20261124T072837Z
+DTSTART:20261205T190000Z
+DTEND:20261206T000000Z
+SUMMARY:Dakeez (+ Première Partie)
+LOCATION:Frigo 16 (Le 109)\, Nice
+DESCRIPTION:Le show R&B et trapsoul ultra chaud de Dakeez débarque à Nice au Frigo 16.\nBillets : https://provence-alpes-cotedazur.com/fiche/dakeez-8016075/\nVia Teufy @teufy_official
+URL:https://provence-alpes-cotedazur.com/fiche/dakeez-8016075/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Dakeez (+ Première Partie)
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Dakeez (+ Première Partie)
+END:VALARM
+END:VEVENT
+END:VCALENDAR

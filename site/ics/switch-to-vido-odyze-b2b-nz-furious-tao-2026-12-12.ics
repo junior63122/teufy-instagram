@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:switch-to-vido-odyze-b2b-nz-furious-tao-2026-12-12@teufy
+DTSTAMP:20261124T072837Z
+DTSTART:20261212T223000Z
+DTEND:20261213T033000Z
+SUMMARY:Switch To Vido - Odyze B2b Nzø - Furious - Tao
+LOCATION:switch Club\, Roquebrune-sur-Argens
+DESCRIPTION:Le phénomène hard techno VIDO débarque au switch Club en format 360°.\nBillets : https://shotgun.live/events/switch-to-vido-odyze-b-2-b-nz-furious-tao\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/switch-to-vido-odyze-b-2-b-nz-furious-tao
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Switch To Vido - Odyze B2b Nzø - Furious - Tao
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Switch To Vido - Odyze B2b Nzø - Furious - Tao
+END:VALARM
+END:VEVENT
+END:VCALENDAR

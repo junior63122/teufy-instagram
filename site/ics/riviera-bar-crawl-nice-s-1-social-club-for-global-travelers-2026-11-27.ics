@@ -4,12 +4,12 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:riviera-bar-crawl-nice-s-1-social-club-for-global-travelers-2026-11-27@teufy
-DTSTAMP:20261124T031406Z
+DTSTAMP:20261124T072837Z
 DTSTART:20261127T200000Z
 DTEND:20261128T010000Z
 SUMMARY:Riviera Bar Crawl Nice’s #1 Social Club for Global Travelers & Party Lovers
 LOCATION:Hostel Villa Saint Exupery Beach\, 6 Rue Sacha Guitry 06000 Nice\, Nice
-DESCRIPTION:Billets : https://www.eventbrite.fr/e/riviera-bar-crawl-nices-1-social-club-for-global-travelers-party-lovers-tickets-1286313130199\nVia Teufy @teufy_official
+DESCRIPTION:La virée nocturne incontournable à Nice avec shots\, jeux et accès direct en discothèque.\nBillets : https://www.eventbrite.fr/e/riviera-bar-crawl-nices-1-social-club-for-global-travelers-party-lovers-tickets-1286313130199\nVia Teufy @teufy_official
 URL:https://www.eventbrite.fr/e/riviera-bar-crawl-nices-1-social-club-for-global-travelers-party-lovers-tickets-1286313130199
 BEGIN:VALARM
 ACTION:DISPLAY

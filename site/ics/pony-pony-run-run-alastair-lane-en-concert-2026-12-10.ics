@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:pony-pony-run-run-alastair-lane-en-concert-2026-12-10@teufy
+DTSTAMP:20261124T072837Z
+DTSTART:20261210T190000Z
+DTEND:20261211T000000Z
+SUMMARY:PONY PONY RUN RUN / ALASTAIR LANE en concert
+LOCATION:Le Stockfish\, Nice
+DESCRIPTION:Soirée pop-électro et DJ set nu-disco pour 5 euros tout rond au Stockfish.\nBillets : https://www.infoconcert.com/artiste/pony-pony-run-run-41399/concerts.html\nVia Teufy @teufy_official
+URL:https://www.infoconcert.com/artiste/pony-pony-run-run-41399/concerts.html
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : PONY PONY RUN RUN / ALASTAIR LANE en concert
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : PONY PONY RUN RUN / ALASTAIR LANE en concert
+END:VALARM
+END:VEVENT
+END:VCALENDAR

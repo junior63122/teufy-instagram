@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:je-dis-techno-tous-les-jeudis-2026-11-26@teufy
+DTSTAMP:20261124T072837Z
+DTSTART:20261126T210000Z
+DTEND:20261127T020000Z
+SUMMARY:Je Dis Techno (Tous Les Jeudis)
+LOCATION:L'Antre Bar Electro\, Nice
+DESCRIPTION:Gros BPM et ambiance underground à petit prix tous les jeudis à Nice.\nBillets : https://shotgun.live/events/je-dis-techno-tous-les-jeudis\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/je-dis-techno-tous-les-jeudis
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Je Dis Techno (Tous Les Jeudis)
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Je Dis Techno (Tous Les Jeudis)
+END:VALARM
+END:VEVENT
+END:VCALENDAR

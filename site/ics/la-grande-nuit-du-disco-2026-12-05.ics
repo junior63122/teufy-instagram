@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:la-grande-nuit-du-disco-2026-12-05@teufy
+DTSTAMP:20261124T072837Z
+DTSTART:20261205T180000Z
+DTEND:20261205T230000Z
+SUMMARY:La Grande Nuit du Disco
+LOCATION:Estérel Aréna\, Saint-Raphaël
+DESCRIPTION:Plus de 50 artistes sur scène pour revivre les hymnes disco et funk à l'Estérel Aréna.\nBillets : https://www.saint-raphael.com/fetes-et-manifestations/la-grande-nuit-du-disco/\nVia Teufy @teufy_official
+URL:https://www.saint-raphael.com/fetes-et-manifestations/la-grande-nuit-du-disco/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : La Grande Nuit du Disco
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : La Grande Nuit du Disco
+END:VALARM
+END:VEVENT
+END:VCALENDAR

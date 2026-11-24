@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:sisters-of-sand-3-2026-12-05@teufy
+DTSTAMP:20261124T072837Z
+DTSTART:20261205T180000Z
+DTEND:20261205T230000Z
+SUMMARY:Sisters Of Sand 3
+LOCATION:Fort Napoléon\, La Seyne-sur-Mer
+DESCRIPTION:House et percussions orientales en live au Flèche Klub du Fort Napoléon.\nBillets : https://shotgun.live/fr/events/sisters-of-sand3\nVia Teufy @teufy_official
+URL:https://shotgun.live/fr/events/sisters-of-sand3
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Sisters Of Sand 3
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Sisters Of Sand 3
+END:VALARM
+END:VEVENT
+END:VCALENDAR
