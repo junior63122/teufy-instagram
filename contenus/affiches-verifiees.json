@@ -7834,5 +7834,48 @@
    "acid",
    "pauli"
   ]
+ },
+ "v2|3d8c45632dd9": {
+  "ok": false,
+  "le": "2026-11-24T17:14:03.632Z",
+  "nom": "Dj Set - Tim Lienderss",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": [],
+   "lieu": ""
+  },
+  "commun": []
+ },
+ "v2|0a854a01e7ed": {
+  "ok": true,
+  "le": "2026-11-24T17:14:07.734Z",
+  "nom": "Aura Night - Fornap (Édition 100% Femmes)",
+  "lu": {
+   "titre": "AURA NIGHTS",
+   "dates": [
+    "2026-12-04"
+   ],
+   "artistes": [
+    "DJ JESS",
+    "DJ AAFROO"
+   ],
+   "lieu": "FORNAD"
+  },
+  "commun": [
+   "aura"
+  ]
+ },
+ "v2|85f72ee7cf52": {
+  "ok": false,
+  "le": "2026-11-24T17:19:13.016Z",
+  "nom": "Dakeez (+ Première Partie)",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": [],
+   "lieu": ""
+  },
+  "commun": []
  }
 }
