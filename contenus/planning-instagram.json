@@ -1,5 +1,5 @@
 {
- "le": "2026-11-24T14:12:48.874Z",
+ "le": "2026-11-24T15:11:02.553Z",
  "jours": [
   {
    "date": "2026-11-24",
@@ -9,7 +9,7 @@
      "id": "bonplan-a-reserver",
      "type": "bonplan",
      "variante": "a-reserver",
-     "heure": "17 h 07",
+     "heure": "16 h 07",
      "suite": false,
      "fait": false,
      "lien": null
@@ -18,7 +18,7 @@
      "id": "reel-tague-ton-pote",
      "type": "reel",
      "variante": "tague-ton-pote",
-     "heure": "19 h 07",
+     "heure": "18 h 07",
      "suite": false,
      "fait": false,
      "lien": null
@@ -55,7 +55,7 @@
      "id": "reel-spot-promo",
      "type": "reel",
      "variante": "spot-promo",
-     "heure": "19 h 07",
+     "heure": "18 h 07",
      "suite": false,
      "fait": false,
      "lien": null
@@ -106,7 +106,7 @@
      "id": "reel-viral",
      "type": "reel",
      "variante": "viral",
-     "heure": "19 h 07",
+     "heure": "18 h 07",
      "suite": false,
      "fait": false,
      "lien": null
@@ -143,7 +143,7 @@
      "id": "incontournables-commercial",
      "type": "incontournables",
      "variante": "commercial",
-     "heure": "17 h 07",
+     "heure": "16 h 07",
      "suite": false,
      "fait": false,
      "lien": null
@@ -180,7 +180,7 @@
      "id": "reel-tendance",
      "type": "reel",
      "variante": "tendance",
-     "heure": "19 h 07",
+     "heure": "18 h 07",
      "suite": false,
      "fait": false,
      "lien": null
@@ -254,7 +254,7 @@
      "id": "libre",
      "type": "libre",
      "variante": null,
-     "heure": "19 h 07",
+     "heure": "18 h 07",
      "suite": false,
      "fait": false,
      "lien": null
@@ -263,7 +263,7 @@
      "id": "reel-tendance",
      "type": "reel",
      "variante": "tendance",
-     "heure": "19 h 07",
+     "heure": "18 h 07",
      "suite": false,
      "fait": false,
      "lien": null
@@ -309,7 +309,7 @@
      "id": "reel-tague-ton-pote",
      "type": "reel",
      "variante": "tague-ton-pote",
-     "heure": "19 h 07",
+     "heure": "18 h 07",
      "suite": false,
      "fait": false,
      "lien": null
@@ -346,7 +346,7 @@
      "id": "reel-spot-promo",
      "type": "reel",
      "variante": "spot-promo",
-     "heure": "19 h 07",
+     "heure": "18 h 07",
      "suite": false,
      "fait": false,
      "lien": null
@@ -383,7 +383,7 @@
      "id": "incontournables-tekno",
      "type": "incontournables",
      "variante": "tekno",
-     "heure": "17 h 07",
+     "heure": "16 h 07",
      "suite": false,
      "fait": false,
      "lien": null
@@ -392,7 +392,7 @@
      "id": "reel-viral",
      "type": "reel",
      "variante": "viral",
-     "heure": "19 h 07",
+     "heure": "18 h 07",
      "suite": false,
      "fait": false,
      "lien": null
@@ -466,7 +466,7 @@
      "id": "reel-tendance",
      "type": "reel",
      "variante": "tendance",
-     "heure": "19 h 07",
+     "heure": "18 h 07",
      "suite": false,
      "fait": false,
      "lien": null
@@ -503,7 +503,7 @@
      "id": "libre",
      "type": "libre",
      "variante": null,
-     "heure": "17 h 07",
+     "heure": "16 h 07",
      "suite": false,
      "fait": false,
      "lien": null
@@ -549,7 +549,7 @@
      "id": "reel-tendance",
      "type": "reel",
      "variante": "tendance",
-     "heure": "19 h 07",
+     "heure": "18 h 07",
      "suite": false,
      "fait": false,
      "lien": null

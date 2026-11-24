@@ -7423,5 +7423,52 @@
   ],
   "velo": null,
   "taxi": null
+ },
+ "43.14848,6.03513": {
+  "le": "2026-11-24T15:20:07.539Z",
+  "parkings": [],
+  "transports": [
+   {
+    "nom": "Digne 1",
+    "type": "bus",
+    "m": 148,
+    "lignes": ""
+   },
+   {
+    "nom": "Digne 2",
+    "type": "bus",
+    "m": 220,
+    "lignes": ""
+   }
+  ],
+  "velo": null,
+  "taxi": null
+ },
+ "43.0924,5.89212": {
+  "le": "2026-11-24T15:22:38.385Z",
+  "parkings": [
+   {
+    "nom": "Tamaris",
+    "type": "surface",
+    "payant": false,
+    "m": 669
+   }
+  ],
+  "transports": [
+   {
+    "nom": "Sand",
+    "type": "bus",
+    "m": 54,
+    "lignes": "81"
+   },
+   {
+    "nom": "Montplaisant",
+    "type": "bus",
+    "m": 138,
+    "lignes": "81"
+   }
+  ],
+  "velo": null,
+  "taxi": null
  }
 }

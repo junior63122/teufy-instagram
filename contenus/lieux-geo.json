@@ -287,10 +287,9 @@
   "le": "2026-11-24T12:21:25.898Z"
  },
  "fort napoleon|la seyne-sur-mer": {
-  "introuvable": true,
-  "v": 2,
-  "le": "2026-11-10T10:30:28.474Z",
-  "ia": true
+  "lat": 43.0924,
+  "lng": 5.89212,
+  "le": "2026-11-24T15:19:27.610Z"
  },
  "le quartier du poulpe|nice": {
   "lat": 43.6989,
@@ -337,8 +336,7 @@
  "inda house|carqueiranne": {
   "introuvable": true,
   "v": 2,
-  "le": "2026-11-10T10:30:28.474Z",
-  "ia": true
+  "le": "2026-11-24T15:19:26.491Z"
  },
  "elva club|cannes": {
   "introuvable": true,
@@ -407,10 +405,9 @@
   "ia": true
  },
  "centre culturel tisot|la seyne-sur-mer": {
-  "introuvable": true,
-  "v": 2,
-  "le": "2026-11-10T10:30:28.474Z",
-  "ia": true
+  "lat": 43.11434,
+  "lng": 5.86549,
+  "le": "2026-11-24T15:19:24.256Z"
  },
  "le glam|nice": {
   "lat": 43.7009,

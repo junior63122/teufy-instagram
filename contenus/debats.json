@@ -439,5 +439,21 @@
     "b": "Samedi, sinon c'est pas sortir",
     "legende": "Les uns jurent que le jeudi c'est le vrai soir, les autres que le samedi reste sacré. Ton camp ? Réponds A ou B et tague ton collègue qui sort le jeudi et arrive frais le vendredi.",
     "ajout": "2026-11-23"
+  },
+  {
+    "id": "ia-2026-11-24-obyfnb",
+    "q": "Entrée offerte avant 1 h : t'arrives quand ?",
+    "a": "Avant 1 h, le porte-monnaie dit merci",
+    "b": "Quand ça chauffe, peu importe le prix",
+    "legende": "Le débat qui coupe chaque groupe en deux. Team A ou team B ? Réponds en com et tague celui qui arrive toujours à 1 h 05.",
+    "ajout": "2026-11-24"
+  },
+  {
+    "id": "ia-2026-11-24-o17h8g",
+    "q": "Fin de soirée : lever du soleil sur la plage ou direct au lit ?",
+    "a": "La plage à 7 h, obligé",
+    "b": "Le lit, la plage c'est pour l'été",
+    "legende": "La Prom' à 7 h ou la couette à 6 h ? Choisis ton camp en com et envoie ça à celui qui propose toujours la plage.",
+    "ajout": "2026-11-24"
   }
 ]

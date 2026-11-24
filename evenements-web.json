@@ -9,31 +9,6 @@
       "source": "web",
       "source_site": "Instagram",
       "name": "House Night – Glass Club Cannes",
-      "start": "2026-11-23T23:00:00.000Z",
-      "venue": "Glass Club",
-      "city": "Cannes",
-      "address": "",
-      "url": "https://www.instagram.com/p/DgIFTCWFQbV/",
-      "image": "https://scontent-sjc3-1.cdninstagram.com/v/t39.30808-6/928261814_122271249710255538_1685465914242028776_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=108&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=7N9_7Y1CLwEQ7kNvwG4lTvp&_nc_oc=AdoODDjpd01Sv6Bg4FP0TuaukfTyQJxfEdeHFo2fNDW-GLMxXDLoci_h-Ec9gspWfy8&_nc_zt=23&_nc_ht=scontent-sjc3-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=RWTUYl1JRPPSCI9I68UkJw&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQSvmyr--qhei8KrulLjHeok4dFWzdC3BT_SLS4XGsfkvQ&oe=6B0B7C0C",
-      "price": null,
-      "tags": [
-        "house"
-      ],
-      "description": "Le Glass Club te propose une soirée house de folie du jeudi au samedi, de minuit à 6 h du matin. Le lieu, 6 rue des Frères Pradignac, accueille les meilleurs sons house pour faire vibrer la piste. Pas de dress code imposé, l’ambiance est purement danse et bonne humeur. L’entrée est libre, préviens tes potes et prépare-toi à danser toute la nuit.",
-      "public_cible": 1,
-      "confiance": 0.6,
-      "buzz": 0.5,
-      "buzz_raison": "Première annonce officielle, lieu connu, créneau week‑end, engagement Instagram modéré.",
-      "accroche": "Des house heads prêts à danser jusqu’au petit matin au Glass Club de Cannes !",
-      "instagram": [
-        "glass_club_cannes"
-      ],
-      "offres": []
-    },
-    {
-      "source": "web",
-      "source_site": "Instagram",
-      "name": "House Night – Glass Club Cannes",
       "start": "2026-11-25T23:00:00.000Z",
       "venue": "Glass Club",
       "city": "Cannes",
@@ -6056,5 +6031,5 @@
       ]
     }
   ],
-  "maj_instagram": "2026-11-24T14:12:48.806Z"
+  "maj_instagram": "2026-11-24T15:11:02.494Z"
 }

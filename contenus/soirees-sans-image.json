@@ -1,5 +1,5 @@
 {
- "le": "2026-11-24T14:12:48.806Z",
+ "le": "2026-11-24T15:11:02.494Z",
  "total": 148,
  "sans_image": [
   {
@@ -28,15 +28,6 @@
    "ville": "Nice",
    "instagram": "",
    "url": "https://www.eventbrite.com/e/foodies-new-friends-nice-tickets-1976266119162"
-  },
-  {
-   "id": "yuksek-et-roxie-2026-11-26",
-   "nom": "Yuksek & Roxie",
-   "jour": "2026-11-26",
-   "lieu": "Le Dix-Huit - Adresse d'Expériences",
-   "ville": "Nice",
-   "instagram": "ledixhuit_nice",
-   "url": "https://shotgun.live/events/yuksek-roxie"
   },
   {
    "id": "block-2026-11-26",
@@ -309,6 +300,15 @@
    "url": "https://www.eventbrite.com/e/dinner-with-entrepreneurs-nice-girls-night-out-edition-tickets-1902509921389"
   },
   {
+   "id": "foodies-new-friends-nice-giving-back-edition-2026-12-03",
+   "nom": "Foodies + New Friends: Nice | Giving Back Edition",
+   "jour": "2026-12-03",
+   "lieu": "Restaurant of the Week",
+   "ville": "Nice",
+   "instagram": "",
+   "url": "https://www.eventbrite.com/e/foodies-new-friends-nice-giving-back-edition-tickets-1989238521968"
+  },
+  {
    "id": "ref-session-18-acid-pauli-frigo-16-2026-12-04",
    "nom": "Ref Session #18 Acid Pauli @ Frigo 16",
    "jour": "2026-12-04",
@@ -496,15 +496,6 @@
    "ville": "Monaco",
    "instagram": "",
    "url": "https://www.grimaldiforum.com/fr/agenda-manifestations-monaco/thursday-live-sessions-dirty-deep"
-  },
-  {
-   "id": "roller-disco-gratuit-frigo-16-2026-12-18",
-   "nom": "Roller Disco - Gratuit @ Frigo 16",
-   "jour": "2026-12-18",
-   "lieu": "Frigo 16",
-   "ville": "Nice",
-   "instagram": "frigo.16",
-   "url": "https://shotgun.live/events/roller-disco-gratuit-frigo-16"
   },
   {
    "id": "le-mome-et-adame-2026-12-18",

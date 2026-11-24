@@ -802,5 +802,113 @@
     "test_du_partage": "Au pote toujours en retard : « j'suis devant, c'est toi ».",
     "statut": "propose",
     "ajout": "2026-11-23"
+  },
+  {
+    "id": "c-2026-11-24-9rf0wl",
+    "titre": "La prévente qui te parle",
+    "format": "personnage",
+    "accroche": "POV : ta prévente te parle (et elle est vexée)",
+    "plans": [
+      {
+        "texte": "Lundi : « Coucou, je suis là, prends-moi tant que je suis pas chère »",
+        "video": "phone screen notification night city"
+      },
+      {
+        "texte": "Mercredi : « Tu m'as vue en story et t'as rien fait »",
+        "video": "person scrolling phone in bed night"
+      },
+      {
+        "texte": "Vendredi 18 h : « Ton groupe débat encore, hein ? »",
+        "video": "friends on couch looking at phones"
+      },
+      {
+        "texte": "Samedi 23 h : « Bon. À minuit, je change de prix. »",
+        "video": "clock midnight neon light"
+      },
+      {
+        "texte": "Minuit pile : tu paies plus cher, elle te regarde",
+        "video": "friends queue club entrance night"
+      }
+    ],
+    "musique": "suspense comique qui bascule en afro house énergique 120 bpm",
+    "legende": "Elle t'avait prévenu. Trois fois. Ton groupe a préféré débattre jusqu'à samedi 23 h. Cette semaine, on fait autrement ? Tague celui qui prend toujours sa place sur place.",
+    "cta": "Tague celui qui achète toujours sa place sur place",
+    "inspire_de": "duolingo https://www.instagram.com/reel/DfnZ7CchmsQ/",
+    "pourquoi_viral": "Un objet qui culpabilise comme la chouette Duolingo, une situation que chaque groupe vit chaque week-end, chute drôle à la fin.",
+    "test_du_partage": "Envoyé au pote qui attend toujours samedi soir pour prendre sa place : « c'est trop toi ».",
+    "statut": "propose",
+    "ajout": "2026-11-24"
+  },
+  {
+    "id": "c-2026-11-24-6bab3i",
+    "titre": "Le before à thème que t'as pas lu",
+    "format": "POV",
+    "accroche": "POV : le before a un thème et t'as pas lu le groupe",
+    "plans": [
+      {
+        "texte": "Le message disait « thème années 2000 ». Toi : tout en noir.",
+        "video": "friends costume party apartment"
+      },
+      {
+        "texte": "Tout le monde a des paillettes. Toi, ton jean de mardi.",
+        "video": "glitter party friends laughing apartment"
+      },
+      {
+        "texte": "L'organisatrice te regarde comme un physio à 1 h",
+        "video": "woman crossing arms at party door"
+      },
+      {
+        "texte": "Toi : « Si, si, je suis en thème : soirée techno »",
+        "video": "dark techno outfit black clothes club"
+      },
+      {
+        "texte": "Au final, c'est toi la star de la photo de groupe",
+        "video": "group photo flash apartment party"
+      }
+    ],
+    "musique": "pop 2000 qui part en techno sombre 130 bpm au plan 4",
+    "legende": "Le message était épinglé. Il y avait même un sondage. Et toi t'es arrivé en noir, comme d'hab. Tague celui qui ne lit jamais le message du thème, et celle qui organise tout.",
+    "cta": "Tague celui qui lit jamais le message du thème",
+    "inspire_de": "partiful https://www.instagram.com/p/Df5bWnCm3MJ/",
+    "pourquoi_viral": "Le before à thème cartonne chez Partiful. Ici on part du raté que tout le monde a vécu, avec le clin d'œil techno contre déguisement.",
+    "test_du_partage": "Envoyé dans le groupe du before de samedi : « lisez le message cette fois ».",
+    "statut": "propose",
+    "ajout": "2026-11-24"
+  },
+  {
+    "id": "c-2026-11-24-36g5vy",
+    "titre": "Devine où il sort à sa tenue",
+    "format": "challenge",
+    "accroche": "Devine où il sort ce soir. Juste à sa tenue.",
+    "plans": [
+      {
+        "texte": "Tout en noir, lunettes de soleil à minuit : il va où ?",
+        "video": "person black outfit sunglasses night street"
+      },
+      {
+        "texte": "Chemise ouverte, mocassins, montre qui brille",
+        "video": "man shirt loafers night city luxury"
+      },
+      {
+        "texte": "Baskets propres, prêt à danser jusqu'à 6 h",
+        "video": "dancing sneakers crowd afro party"
+      },
+      {
+        "texte": "Short, tongs, du sable encore sur les pieds",
+        "video": "beach party sunset dancing"
+      },
+      {
+        "texte": "Réponses : warehouse, Monaco, soirée afro, beach club",
+        "video": "club lights crowd dancing"
+      }
+    ],
+    "musique": "house groovy 124 bpm avec un temps d'arrêt avant les réponses",
+    "legende": "Quatre tenues, quatre soirées, une seule Côte. T'as eu combien de bonnes réponses ? Et toi, ta tenue de samedi, elle dit où tu vas ? Dis-le en com et tague le pote qu'on reconnaît direct.",
+    "cta": "Tague le pote qu'on reconnaît direct et dis où il va en com",
+    "inspire_de": "partiful https://www.instagram.com/p/Df40odgm5q-/",
+    "pourquoi_viral": "Devinette avec réponse à la fin qui retient jusqu'au bout, chaque tribu de la Côte s'y reconnaît, les coms se remplissent.",
+    "test_du_partage": "Envoyé au pote toujours en noir à minuit : « c'est littéralement toi ».",
+    "statut": "propose",
+    "ajout": "2026-11-24"
   }
 ]

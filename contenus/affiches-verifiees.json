@@ -7747,5 +7747,37 @@
    "format",
    "boiler"
   ]
+ },
+ "v2|cfac1803ef6e": {
+  "ok": true,
+  "le": "2026-11-24T15:12:30.892Z",
+  "nom": "IL CONCERTO DI NATALE 2026",
+  "lu": {
+   "titre": "IL CONCERTO DI NATALE",
+   "dates": [
+    "2026-12-03"
+   ],
+   "artistes": [
+    "ITALIAN GOSPEL CHOIR",
+    "EZIO GREGGIO"
+   ],
+   "lieu": "ESPACE LÉO FERRÉ"
+  },
+  "commun": [
+   "concerto",
+   "natale"
+  ]
+ },
+ "v2|f378f89ca9f4": {
+  "ok": false,
+  "le": "2026-11-24T15:12:31.639Z",
+  "nom": "Foodies + New Friends: Nice | Giving Back Edition",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": [],
+   "lieu": ""
+  },
+  "commun": []
  }
 }
