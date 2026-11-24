@@ -436,5 +436,22 @@
    "Des indices sont fournis dans la vidéo pour aider à retrouver la cachette du ticket."
   ],
   "ville": "Nice"
+ },
+ {
+  "cle": "2026-11|magnolia café annonce sa soirée du nouvel an",
+  "date": "2026-11-23T17:04:41+00:00",
+  "ajout": "2026-11-24T07:15:44.533Z",
+  "type": "annonce",
+  "importance": 60,
+  "source": "https://www.instagram.com/p/DgF3JP3o8Nk/",
+  "image": "https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/923948838_18400971427203902_6992547412365701511_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=101&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=NEV6Rsz-rrEQ7kNvwGCZChV&_nc_oc=AdoFQmI4TufiMDIfbrFdm9uXJ646GAOMySraYd00IxbfFI7Til6WnnBeGh3LBrwk2ss&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=oW8rv3ARx_qKCAiadCSDDw&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQTkvmc8kCljFGhW4NxWyEXMaLV6hFgHGODd8eNBeQD6_A&oe=6B0B1532",
+  "titre": "Magnolia Café prépare son réveillon du Nouvel An à Nice",
+  "chapo": "Le Magnolia Café de Nice organise une soirée du Nouvel An le 31 décembre 2026 dès 18 h, avec champagne, créations spéciales et ambiance festive.",
+  "paragraphes": [
+   "Le restaurant Magnolia Café, situé à Nice, a annoncé le 23 novembre 2026 une soirée spéciale pour le réveillon du Nouvel An, prévue le 31 décembre à partir de 18 h.",
+   "L'événement promet une ambiance élégante avec du champagne, des créations culinaires exclusives et une atmosphère festive, les réservations étant déjà ouvertes via le numéro indiqué.",
+   "Cette soirée cible les 17‑30 ans cherchant une expérience de fin d'année haut de gamme sur la Côte d'Azur, avec un nombre de places limitées qui incite à réserver rapidement."
+  ],
+  "ville": "Nice"
  }
 ]
