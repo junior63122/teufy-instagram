@@ -2,13 +2,13 @@
   "jour": "2026-11-24",
   "plan": [
     {
-      "type": "repost",
+      "type": "question",
       "cles": [
         "q-dj-reve"
       ],
       "frames": [
         {
-          "image": "2026-11-24-repost.jpg"
+          "image": "2026-11-24-question.jpg"
         }
       ]
     }
