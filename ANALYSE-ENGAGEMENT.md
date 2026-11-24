@@ -28,8 +28,8 @@ décroche avant la moitié), le Grand Débat (550 et 942 vues, 0 et 2 j'aime), l
 (355 comptes, le pire), et les publications de minuit (deux réels partis vers 0 h 50 à Paris le 11 et le 18/11).
 
 **Les 3 causes principales**
-1. **Trop de publicité pour l'appli, pas assez de soirées concrètes.** Sur 17 publications du robot, 6 parlent de Teufy
-   (spots, promo) plutôt que des soirées ; ce sont les moins vues. Ce qui a fait le succès du compte, ce sont des listes datées
+1. **Trop de publicité pour l'appli, pas assez de soirées concrètes.** Sur les 16 publications mesurées du robot, 5 ne
+   montrent aucune soirée (3 promos de l'appli, 2 Grand Débat) ; ce sont les moins vues. Ce qui a fait le succès du compte, ce sont des listes datées
    (« les soirées d'Halloween », « du Nouvel An », « la techno d'octobre ») qu'on enregistre et qu'on partage.
 2. **Les réels perdent le spectateur dès les premières secondes** : 2,9 à 4,8 s regardées en moyenne pour le robot, contre 5 à
    7,6 s pour les réels faits à la main (images réelles de soirée, visages). Les visuels animés et les écrans de l'appli ne
@@ -39,8 +39,8 @@ décroche avant la moitié), le Grand Débat (550 et 942 vues, 0 et 2 j'aime), l
 
 **Comparaison avec les comptes de la Côte** (`tendances-auto.json`, 40 comptes, 15 analysés en détail) : les clubs locaux
 (Down Town, Uptown, Nice) font environ 2 % de j'aime par abonné avec 1 à 2 publications par semaine, presque toujours de
-vraies photos ou vidéos de leurs soirées (foule, DJ, visages) et une info pratique (heure, prix, adresse). Teufy est à 0,05 %
-de j'aime par abonné. Les comptes d'événements qui marchent le plus (Partiful) jouent sur l'humour et la reconnaissance
+vraies photos ou vidéos de leurs soirées (foule, DJ, visages) et une info pratique (heure, prix, adresse). Teufy (robot) est à
+environ 0,03 % de j'aime par abonné. Les comptes d'événements qui marchent le plus (Partiful) jouent sur l'humour et la reconnaissance
 (« situe-toi sur le tableau »), en carrousel.
 
 **Correctifs mis en place le 24/11** (poussés sur `main`, 184 tests verts, couvertures vérifiées à l'œil)
