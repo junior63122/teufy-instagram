@@ -6905,5 +6905,339 @@
    "lieu": ""
   },
   "commun": []
+ },
+ "v2|ae764f427b51": {
+  "ok": false,
+  "le": "2026-11-24T11:13:04.063Z",
+  "nom": "La Cale Sèche – Bouteille de planteur à 15 € + PSG / AS Roma",
+  "lu": {
+   "titre": "LE PROGRAMME DE LA SEMAINE",
+   "dates": [
+    "2026-11-24",
+    "2026-11-25",
+    "2026-11-26",
+    "2026-11-27",
+    "2026-11-28",
+    "2026-11-29"
+   ],
+   "artistes": [],
+   "lieu": "LA CALE SÈCHE"
+  },
+  "commun": []
+ },
+ "v2|4c3e2aac3ddf": {
+  "ok": true,
+  "le": "2026-11-24T11:13:05.852Z",
+  "nom": "La Cale Sèche – Bouteille de planteur à 15 € + PSG / AS Roma",
+  "lu": {
+   "titre": "SOIRÉE Ti PUNCH",
+   "dates": [],
+   "artistes": [],
+   "lieu": "LA CALE SECHE L'EMBUSCADE DES PIRATES"
+  },
+  "commun": []
+ },
+ "v2|b18899c8785c": {
+  "ok": true,
+  "le": "2026-11-24T11:13:22.790Z",
+  "nom": "Selah Sue and The Gallands / Tyreek McDole - Monte-Carlo Jazz Festival",
+  "lu": {
+   "titre": "JAZZ FESTIVAL",
+   "dates": [],
+   "artistes": [],
+   "lieu": ""
+  },
+  "commun": [
+   "jazz",
+   "festival"
+  ]
+ },
+ "v2|ef8d64f8ff8b": {
+  "ok": true,
+  "le": "2026-11-24T11:13:43.273Z",
+  "nom": "Cabinet of Curious Sketches at BRICOLITÉS (Nice, FR)",
+  "lu": {
+   "titre": "CABINET OF CURIOUS SKETCHES",
+   "dates": [
+    "2026-11-26"
+   ],
+   "artistes": [
+    "ADULT ART CLUB"
+   ],
+   "lieu": "BRICOLITÉS"
+  },
+  "commun": [
+   "cabinet",
+   "curious",
+   "sketches"
+  ]
+ },
+ "v2|061f43174214": {
+  "ok": false,
+  "le": "2026-11-24T11:14:04.811Z",
+  "nom": "Yuksek & Roxie",
+  "lu": {
+   "titre": "PLACES COMEDY CLUB",
+   "dates": [
+    "2026-11-29"
+   ],
+   "artistes": [
+    "EDIX HUIT"
+   ],
+   "lieu": "LE DIX-HUIT"
+  },
+  "commun": []
+ },
+ "v2|9455e6a06a8d": {
+  "ok": true,
+  "le": "2026-11-24T11:14:25.662Z",
+  "nom": "Je Dis Techno (Tous Les Jeudis)",
+  "lu": {
+   "titre": "JEDIS TECHNO",
+   "dates": [
+    "2026-11-26"
+   ],
+   "artistes": [
+    "INSOLENTE",
+    "BROWSKY",
+    "ZIAX"
+   ],
+   "lieu": "22 BIS, RUE BENOÎT BUNICO / 8, RUE SACHA-GUITRY"
+  },
+  "commun": [
+   "techno"
+  ]
+ },
+ "v2|85efa6e0e310": {
+  "ok": true,
+  "le": "2026-11-24T11:14:44.846Z",
+  "nom": "DJ SEBB – AFROCHELLA à Honey Club",
+  "lu": {
+   "titre": "EN SHOW A JUAN-LES-PINS",
+   "dates": [],
+   "artistes": [
+    "DJ SEBB"
+   ],
+   "lieu": ""
+  },
+  "commun": [
+   "sebb"
+  ]
+ },
+ "v2|c16a0e28ba93": {
+  "ok": true,
+  "le": "2026-11-24T11:15:04.875Z",
+  "nom": "SHATTA NIGHT @ BOKA CLUB",
+  "lu": {
+   "titre": "100% SHATTA",
+   "dates": [
+    "2026-11-26"
+   ],
+   "artistes": [
+    "DJ MITCH"
+   ],
+   "lieu": "BOKA CLUB"
+  },
+  "commun": [
+   "shatta"
+  ]
+ },
+ "v2|64c1b4b5c91f": {
+  "ok": false,
+  "le": "2026-11-24T11:15:24.977Z",
+  "nom": "Restaurant of the Week | Foodies + New Friends: Cannes",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": [],
+   "lieu": ""
+  },
+  "commun": []
+ },
+ "v2|d081a3a0137b": {
+  "ok": true,
+  "le": "2026-11-24T11:15:45.131Z",
+  "nom": "Phaphane À Nice - Amapiano & Afrobeats Lovers",
+  "lu": {
+   "titre": "AMAPIANO & AFROBEATS LOVERS",
+   "dates": [
+    "2026-11-27"
+   ],
+   "artistes": [
+    "PHAPHANE"
+   ],
+   "lieu": "FRIGO 16 - 109 NICE"
+  },
+  "commun": [
+   "amapiano",
+   "afrobeats",
+   "lovers",
+   "phaphane"
+  ]
+ },
+ "v2|70b42256be47": {
+  "ok": true,
+  "le": "2026-11-24T11:16:05.434Z",
+  "nom": "CALEMA - TOUR 2026",
+  "lu": {
+   "titre": "FRENCH TOUR 26/27",
+   "dates": [],
+   "artistes": [
+    "CALEMA"
+   ],
+   "lieu": ""
+  },
+  "commun": [
+   "tour",
+   "calema"
+  ]
+ },
+ "v2|eacb8ddadcb1": {
+  "ok": true,
+  "le": "2026-11-24T11:16:25.000Z",
+  "nom": "LES TAMBOURS DU BRONX",
+  "lu": {
+   "titre": "LES TAMBOURS du BRONX",
+   "dates": [],
+   "artistes": [],
+   "lieu": ""
+  },
+  "commun": [
+   "tambours",
+   "bronx"
+  ]
+ },
+ "v2|53132285f798": {
+  "ok": false,
+  "le": "2026-11-24T11:16:45.221Z",
+  "nom": "Riviera Bar Crawl Nice’s #1 Social Club for Global Travelers & Party Lovers",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": [],
+   "lieu": ""
+  },
+  "commun": []
+ },
+ "og|https://www.eventbrite.fr/e/riviera-bar-crawl-nice-nightlife-soiree-barathon-a-nicefr-tickets": "",
+ "v2|bf58b90b00d5": {
+  "ok": false,
+  "le": "2026-11-24T11:17:04.550Z",
+  "nom": "Mr Hat Vs Verome : Bass Vs Hard Music",
+  "lu": {
+   "titre": "NOVEMBRE",
+   "dates": [
+    "2026-11-20"
+   ],
+   "artistes": [
+    "MOUCHKI",
+    "DHERMO"
+   ],
+   "lieu": "L'ANTRE_TECHNO"
+  },
+  "commun": []
+ },
+ "v2|e884e85bde0c": {
+  "ok": false,
+  "le": "2026-11-24T11:17:24.819Z",
+  "nom": "Nice Orange Bar Crawl – Party Bars, Music, Nightlife & Club Experience",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": [],
+   "lieu": ""
+  },
+  "commun": []
+ },
+ "v2|c7090a6c8817": {
+  "ok": true,
+  "le": "2026-11-24T11:17:45.836Z",
+  "nom": "COACHELLITO - HIGH CLUB",
+  "lu": {
+   "titre": "COACHELLITO 2026 FRIENDS AND FAMILY EDITION",
+   "dates": [
+    "2026-11-27"
+   ],
+   "artistes": [
+    "CHAPAY B4B",
+    "SHAYAN B4B",
+    "CAVALLI B4B",
+    "MACEW"
+   ],
+   "lieu": "HIGH CLUB NICE"
+  },
+  "commun": [
+   "coachellito"
+  ]
+ },
+ "v2|1ea79caf0438": {
+  "ok": true,
+  "le": "2026-11-24T11:18:06.837Z",
+  "nom": "Spicy Saturday",
+  "lu": {
+   "titre": "Spicy",
+   "dates": [
+    "2026-11-28"
+   ],
+   "artistes": [
+    "GIANNI",
+    "SHAYLAN",
+    "ALEKS"
+   ],
+   "lieu": "HONEY club"
+  },
+  "commun": [
+   "spicy"
+  ]
+ },
+ "v2|5bfc3c139698": {
+  "ok": false,
+  "le": "2026-11-24T11:18:26.885Z",
+  "nom": "La Cale Sèche – L’Embuscade des Pirates",
+  "lu": {
+   "titre": "LE PROGRAMME DE LA SEMAINE",
+   "dates": [
+    "2026-11-24",
+    "2026-11-25",
+    "2026-11-26",
+    "2026-11-27",
+    "2026-11-28",
+    "2026-11-29"
+   ],
+   "artistes": [],
+   "lieu": "LA CALE SÈCHE"
+  },
+  "commun": []
+ },
+ "v2|724bc722bd97": {
+  "ok": false,
+  "le": "2026-11-24T11:18:47.018Z",
+  "nom": "La Cale Sèche – L’Embuscade des Pirates",
+  "lu": {
+   "titre": "SOIRÉE Ti PUNCH",
+   "dates": [],
+   "artistes": [],
+   "lieu": "LA CALE SECHE L'EMBUSCADE DES PIRATES"
+  },
+  "commun": []
+ },
+ "v2|c0dc8ff8fb60": {
+  "ok": true,
+  "le": "2026-11-24T11:19:08.016Z",
+  "nom": "EUPHORIA",
+  "lu": {
+   "titre": "EUPHORIA",
+   "dates": [
+    "2026-11-27"
+   ],
+   "artistes": [
+    "ØZEN",
+    "DEVIN LEAK"
+   ],
+   "lieu": "116 AV. DE DIGNE, 83130 LA GARDE"
+  },
+  "commun": [
+   "euphoria"
+  ]
  }
 }

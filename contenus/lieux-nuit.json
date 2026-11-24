@@ -208,7 +208,7 @@
    "score": 0,
    "soirs": [],
    "details": {
-    "le": "2026-11-24T10:19:58.179Z",
+    "le": "2026-11-24T11:19:27.877Z",
     "styles": "DJ résidents (ven–sam après 22h)",
     "dress_code": "",
     "horaires": "lun–dim 10h–2h",
@@ -2031,9 +2031,14 @@
    "site": "https://www.facebook.com/bokaclubdelmagot",
    "description": "Discothèque et club karaoké en haut de la corniche du Mourillon, avec soirées DJ et terrasse.",
    "soirees": [
+    "shatta-night-boka-club-2026-11-26",
     "zouk-love-toulon-edition-chic-2026-11-28"
    ],
    "prochaines": [
+    {
+     "id": "shatta-night-boka-club-2026-11-26",
+     "nom": "SHATTA NIGHT @ BOKA CLUB"
+    },
     {
      "id": "zouk-love-toulon-edition-chic-2026-11-28",
      "nom": "Zouk Love Toulon Edition Chic"
@@ -2043,6 +2048,12 @@
    "slug": "boka-club-del-magot-toulon",
    "score": 0,
    "soirs": [
+    [
+     "2026-11-26",
+     "00:00",
+     "shatta-night-boka-club-2026-11-26",
+     "SHATTA NIGHT @ BOKA CLUB"
+    ],
     [
      "2026-11-28",
      "23:45",

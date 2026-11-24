@@ -109,8 +109,46 @@
     "heure": "19:30"
    }
   ],
-  "2026-11-29": [],
-  "2026-11-30": []
+  "2026-11-29": [
+   {
+    "id": "06-samedi-trouve",
+    "video": "media/spot-promo/06-samedi-trouve.mp4",
+    "type": "spot",
+    "legende": "Samedi 18 h, le groupe : « on sort où ce soir ? »\n2 minutes sur Teufy et la soirée est trouvée.\nTague celui qui pose toujours la question à 18 h.\n\nToutes les soirées de la Côte : teufyparty.com (lien en bio)\n\n#soiree #nice #cotedazur #sortiranice #fyp",
+    "couverture": "media/tiktok/couvertures/06-samedi-trouve.jpg",
+    "heure": "12:30"
+   },
+   {
+    "id": "brut-01-confettis",
+    "video": "media/tiktok/brut-01-confettis.mp4",
+    "type": "reel",
+    "legende": "Ce week-end, c'est toi dans la vidéo.\n\nToutes les soirées de la Côte : teufyparty.com (lien en bio)\n\n#soiree #nice #cotedazur #sortiranice #fyp",
+    "couverture": "media/tiktok/couvertures/brut-01-confettis.jpg",
+    "heure": "19:30"
+   }
+  ],
+  "2026-11-30": [
+   {
+    "id": "07-merci-qui",
+    "video": "media/spot-promo/07-merci-qui.mp4",
+    "type": "spot",
+    "legende": "Vendredi, samedi, dimanche : un week-end entier planifié en 2 minutes.\nMerci qui ?\nEnregistre pour ton prochain week-end.\n\nToutes les soirées de la Côte : teufyparty.com (lien en bio)\n\n#soiree #nice #cotedazur #sortiranice #fyp",
+    "couverture": "media/tiktok/couvertures/07-merci-qui.jpg",
+    "heure": "12:30"
+   },
+   {
+    "id": "fete-01-envoie-a-ton-groupe",
+    "video": "media/tiktok/fete-01-envoie-a-ton-groupe.mp4",
+    "type": "reel",
+    "legende": "Envoie ça à ton groupe qui dit « on verra » pour ce week-end.\n\nToutes les soirées de la Côte : teufyparty.com (lien en bio)\n\n#soiree #nice #cotedazur #sortiranice #fyp",
+    "couverture": "media/tiktok/couvertures/fete-01-envoie-a-ton-groupe.jpg",
+    "son": {
+     "titre": "I'm Good (Blue) - David Guetta & Bebe Rexha (version remix d'Oliver Heldens dans le Drive)",
+     "depart": "un refrain (le montage suit le tempo, 128-129 BPM ; dans le fichier du Drive : 3:52)"
+    },
+    "heure": "19:30"
+   }
+  ]
  },
  "debut": "2026-11-23"
 }
