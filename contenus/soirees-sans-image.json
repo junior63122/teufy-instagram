@@ -1,5 +1,5 @@
 {
- "le": "2026-11-24T20:12:43.510Z",
+ "le": "2026-11-24T21:12:34.204Z",
  "total": 150,
  "sans_image": [
   {
@@ -28,6 +28,15 @@
    "ville": "Nice",
    "instagram": "",
    "url": "https://www.eventbrite.com/e/foodies-new-friends-nice-tickets-1976266119162"
+  },
+  {
+   "id": "yuksek-et-roxie-2026-11-26",
+   "nom": "Yuksek & Roxie",
+   "jour": "2026-11-26",
+   "lieu": "Le Dix-Huit - Adresse d'Expériences",
+   "ville": "Nice",
+   "instagram": "ledixhuit_nice",
+   "url": "https://shotgun.live/events/yuksek-roxie"
   },
   {
    "id": "the-brand-new-heavies-et-gogo-penguin-monte-carlo-jazz-festi-2026-11-26",
@@ -354,13 +363,13 @@
    "url": "https://provence-alpes-cotedazur.com/fiche/dakeez-8016075/"
   },
   {
-   "id": "mamacita-frigo-16-2026-12-05",
-   "nom": "Mamacita @ Frigo 16",
+   "id": "ohm-family-l-antre-2026-12-05",
+   "nom": "Ohm Family @ L'Antre",
    "jour": "2026-12-05",
-   "lieu": "Frigo 16",
+   "lieu": "L'Antre Bar Electro Bar à Cocktails",
    "ville": "Nice",
-   "instagram": "frigo.16",
-   "url": "https://shotgun.live/events/mamacita-frigo-16"
+   "instagram": "lantretechno",
+   "url": "https://shotgun.live/venues/l-antre-bar-electro-bar-a-cocktails"
   },
   {
    "id": "switch-dimension-psytrance-edition-w-ranyo-hug-ette-2026-12-05",
@@ -460,6 +469,15 @@
    "ville": "Monaco",
    "instagram": "",
    "url": "https://www.grimaldiforum.com/fr/agenda-manifestations-monaco/thursday-live-sessions-dirty-deep"
+  },
+  {
+   "id": "roller-disco-gratuit-frigo-16-2026-12-18",
+   "nom": "Roller Disco - Gratuit @ Frigo 16",
+   "jour": "2026-12-18",
+   "lieu": "Frigo 16",
+   "ville": "Nice",
+   "instagram": "frigo.16",
+   "url": "https://shotgun.live/events/roller-disco-gratuit-frigo-16"
   },
   {
    "id": "le-mome-et-adame-2026-12-18",
@@ -577,6 +595,24 @@
    "ville": "Saint-Tropez",
    "instagram": "",
    "url": "https://www.arevcollection.com/offers/saint-tropez-new-year"
+  },
+  {
+   "id": "new-year-s-eve-bar-crawl-party-nice-2026-12-31",
+   "nom": "New Year’s Eve Bar Crawl Party Nice",
+   "jour": "2026-12-31",
+   "lieu": "Hostel Villa Saint Exupery Beach",
+   "ville": "Nice",
+   "instagram": "",
+   "url": "https://www.eventbrite.fr/e/new-years-eve-bar-crawl-party-nice-tickets-2004418564885"
+  },
+  {
+   "id": "nice-new-year-s-eve-2026-2027-guaranteed-vip-club-entry-et-5-2026-12-31",
+   "nom": "Nice New Year's Eve 2026-2027 — Guaranteed VIP Club Entry & 5 Free Shots",
+   "jour": "2026-12-31",
+   "lieu": "La Chapa",
+   "ville": "Nice",
+   "instagram": "lachapanice",
+   "url": "https://www.eventbrite.fr/e/nice-new-years-eve-2026-2027-guaranteed-vip-club-entry-5-free-shots-tickets-2004295126678"
   },
   {
    "id": "nouvel-an-2027-le-mas-d-hiver-2026-12-31",

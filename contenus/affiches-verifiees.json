@@ -7990,5 +7990,58 @@
   },
   "commun": []
  },
- "og|https://zenith-toulon.com": ""
+ "og|https://zenith-toulon.com": "",
+ "v2|8e9144de086b": {
+  "ok": false,
+  "le": "2026-11-24T21:12:55.038Z",
+  "nom": "Ohm Family @ L'Antre",
+  "lu": {
+   "titre": "NOVEMBRE",
+   "dates": [
+    "2026-11-20"
+   ],
+   "artistes": [
+    "MOUCHKI",
+    "DHERMO"
+   ],
+   "lieu": "L'ANTRE_TECHNO"
+  },
+  "commun": []
+ },
+ "v2|e209fe7bd218": {
+  "ok": true,
+  "le": "2026-11-24T21:12:55.716Z",
+  "nom": "Mamacita @ Frigo 16",
+  "lu": {
+   "titre": "Mamacita NICE",
+   "dates": [
+    "2026-12-05"
+   ],
+   "artistes": [
+    "DRIVER MC",
+    "KANA DU ATIN"
+   ],
+   "lieu": ""
+  },
+  "commun": [
+   "mamacita"
+  ]
+ },
+ "v2|a5e2b478fba6": {
+  "ok": false,
+  "le": "2026-11-24T21:13:05.371Z",
+  "nom": "Switch Dimension (Psytrance Edition) W/ Ranyo - Hug'ette",
+  "lu": {
+   "titre": "NOVEMBRE",
+   "dates": [
+    "2026-11-20"
+   ],
+   "artistes": [
+    "MOUCHKI",
+    "DHERMO"
+   ],
+   "lieu": "L'ANTRE_TECHNO"
+  },
+  "commun": []
+ }
 }
