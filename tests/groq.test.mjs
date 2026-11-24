@@ -86,3 +86,18 @@ test('JSON : réponse sans le champ obligatoire du schéma ou coupée par la lim
     await assert.rejects(LLM.json({ config, system: 's', prompt: 'p', schema, gratuit: true }), /Aucune IA/);
   } finally { globalThis.fetch = vrai; }
 });
+
+test('24/11 : tâches fréquentes → Groq avant Gemini ; commentaires Instagram jamais par Groq ; dépense secondaire étalée', async () => {
+  const LLM = await import('../src/llm.mjs');
+  const avant = { ...process.env };
+  process.env.GEMINI_API_KEY = 'x'; process.env.GROQ_API_KEY = 'y';
+  try {
+    assert.deepEqual(LLM.fournisseurs({ llm: {} }, { gratuit: true }).slice(0, 2), ['groq', 'gemini']);
+    assert.equal(LLM.fournisseurs({ llm: {} })[0], 'gemini');
+  } finally { for (const k of ['GEMINI_API_KEY', 'GROQ_API_KEY']) if (avant[k] === undefined) delete process.env[k]; else process.env[k] = avant[k]; }
+  assert.equal(LLM.partSecondaire(new Date('2026-11-24T07:00:00Z')), 0.15); // 8 h à Paris
+  assert.equal(LLM.partSecondaire(new Date('2026-11-24T21:00:00Z')), 0.75); // 22 h
+  const midi = LLM.partSecondaire(new Date('2026-11-24T11:00:00Z')); assert.ok(midi > 0.15 && midi < 0.75);
+  const src = (await import('node:fs')).readFileSync(new URL('../src/commentaires.mjs', import.meta.url), 'utf8');
+  assert.match(src, /reponses_commentaires', gratuit: true, sansGroq: true/);
+});

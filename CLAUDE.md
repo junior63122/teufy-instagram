@@ -14,7 +14,9 @@
   la main un workflow qui utilise une IA ; tester en local (aucune clé IA ici). Seule exception : quand le directeur écrit
   explicitement que c'est une exception (case « exception_ia » des workflows). Garde-fous dans le code : les workflows
   lancés à la main n'ont pas les clés IA (TEUFY_IA_MANUEL=1) ; seul le workflow « Lieux (images, carte, transports) » peut
-  être lancé, il n'a pas de clé IA.
+  être lancé, il n'a pas de clé IA. Le robot de veille reçoit Gemini et Claude seulement avec la case « horaire » (déclencheur externe) ;
+  Groq et Tavily (gratuits) restent permis partout. Reconstruction du site : Groq d'abord, Gemini en secours secondaire ; dépense
+  secondaire étalée sur la journée (15 % du budget à 8 h, 75 % à 22 h), le reste gardé pour les publications (24/11/2026).
 - **Les publications passent toujours** : le plafond IA du jour ne doit jamais empêcher de créer ou de poster
   (TEUFY_PUBLICATION=1 : dépassement du plafond du jour en exception ; sans IA du tout, carrousel des soirées de secours).
 - **Série animée Le Grand Débat** (« Et toi, t'aurais fait quoi ? » abandonnée le 16/11/2026) : produire les épisodes avec le moteur de `riviera-studio` et

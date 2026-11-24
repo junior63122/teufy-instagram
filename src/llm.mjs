@@ -48,10 +48,15 @@ export const iaPayanteInterdite = () => process.env.TEUFY_IA_MANUEL === '1';
 // Publication (TEUFY_PUBLICATION=1) : le plafond DU JOUR ne doit jamais empêcher de poster ni de créer le post ;
 // il est alors dépassé en exception (le plafond du mois et les garde-fous anti-emballement restent actifs).
 const publication = () => process.env.TEUFY_PUBLICATION === '1';
+export function partSecondaire(now = new Date()) {
+  const h = +new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Paris', hour: '2-digit', hourCycle: 'h23' }).format(now);
+  return Math.round(Math.min(0.75, Math.max(0.15, 0.15 + (0.6 * (h - 8)) / 14)) * 100) / 100;
+}
 export function budgetOk(f, L = {}, secondaire = false) { // L est réaffecté pour Gemini (budget propre)
   if (aSec.has(f)) return false;
   if (f === 'github') return true; // gratuit
-  if (iaPayanteInterdite()) { if (!(budgetOk.manuel ||= new Set()).has(f)) console.error(`IA ${f} non utilisée : lancement manuel (réservée aux robots automatiques, sauf exception).`); budgetOk.manuel.add(f); return false; }
+  // Groq est gratuit : permis même lancé à la main (seules Gemini et Claude, payantes, sont réservées aux robots automatiques).
+  if (iaPayanteInterdite() && f !== 'groq') { if (!(budgetOk.manuel ||= new Set()).has(f)) console.error(`IA ${f} non utilisée : lancement manuel (réservée aux robots automatiques, sauf exception).`); budgetOk.manuel.add(f); return false; }
   const exception = publication() && !secondaire;
   const b = lireBudget(), [dj, dm] = PLAFONDS[f] || [Infinity, Infinity];
   const okJ = (b.aujourdhui[f] || 0) < (L[`max_appels_${f}_jour`] ?? dj), okM = (b.total[f] || 0) < (L[`max_appels_${f}_mois`] ?? dm);
@@ -61,7 +66,9 @@ export function budgetOk(f, L = {}, secondaire = false) { // L est réaffecté p
   // Gemini : config.llm.budget_gemini_jour_eur (par défaut 2 €) ; Claude : budget_jour_eur / budget_mois_eur.
   const eJ = (b.euros_ia?.[f]?.jour) || 0, eM = (b.euros_ia?.[f]?.mois) || 0;
   if (f === 'gemini') L = { ...L, budget_jour_eur: L.budget_gemini_jour_eur ?? 2, budget_mois_eur: L.budget_gemini_mois_eur ?? 40 };
-  if (secondaire && L.budget_jour_eur != null && eJ >= 0.75 * L.budget_jour_eur) { console.error(`Budget IA : tâche secondaire reportée (≈ ${eJ.toFixed(2)} € dépensés, réserve gardée pour les soirées et les publications).`); return false; }
+  // Tâches secondaires étalées sur la journée (24/11/2026) : à 8 h, 15 % du budget du jour au plus ; la part autorisée
+  // monte jusqu'à 75 % à 22 h. Le reste est la réserve des soirées et des publications.
+  if (secondaire && L.budget_jour_eur != null && eJ >= partSecondaire() * L.budget_jour_eur) { console.error(`Budget IA : tâche secondaire reportée (≈ ${eJ.toFixed(2)} € dépensés, réserve gardée pour les soirées et les publications).`); return false; }
   const okEJ = L.budget_jour_eur == null || eJ < L.budget_jour_eur, okEM = L.budget_mois_eur == null || eM < L.budget_mois_eur;
   if (!okEJ || !okEM) { if (!(budgetOk.dit ||= new Set()).has(f)) console.error(`Budget IA (${f}) : ${okEM ? `budget du jour atteint (≈ ${eJ.toFixed(2)} € / ${L.budget_jour_eur} €)` : `budget du mois atteint (≈ ${eM.toFixed(2)} € / ${L.budget_mois_eur} €)`} : plus d'appel payant avant ${okEM ? 'demain' : 'le mois prochain'}.`); budgetOk.dit.add(f); }
   if (exception && okM && okEM && (!okJ || !okEJ)) { if (!budgetOk.exc) console.error(`Budget IA (${f}) : plafond du jour dépassé en exception pour publier.`); budgetOk.exc = true; return true; }
@@ -89,6 +96,8 @@ export function fournisseurs(config = {}, { gratuit = false } = {}) {
   const out = [];
   if (process.env.GEMINI_API_KEY && !geminiEnPause(config)) out.push('gemini');
   if (process.env.GROQ_API_KEY && L.groq !== false) out.push('groq');
+  // Tâches fréquentes (gratuit: true) : Groq, gratuit, avant Gemini (24/11/2026 : Gemini vidé avant 9 h par la veille).
+  if (gratuit && out[0] === 'gemini' && out.includes('groq')) out.push(out.shift());
   // GitHub Models : fermé par GitHub le 30/07/2026 (répond « OK » à tout) ; gardé seulement si la config le réactive.
   if (process.env.GITHUB_ACTIONS === 'true' && process.env.GITHUB_TOKEN && L.github_models === true) out.push('github');
   // Claude passe en premier quand le payant est autorisé (meilleure qualité), les IA gratuites restent en secours.
@@ -187,9 +196,10 @@ export function ecartsSchema(schema, obj) {
 }
 const conforme = (schema, r, qui) => { const pb = ecartsSchema(schema, r); if (pb.length) throw new Error(`${qui} : réponse non conforme au schéma (${pb.join(', ')})`); return r; };
 
-export async function json({ config, system, prompt, schema, nom = 'reponse', gratuit = false, secondaire = false }) {
+export async function json({ config, system, prompt, schema, nom = 'reponse', gratuit = false, secondaire = false, sansGroq = false }) {
   const L = config.llm || {}; reglerCouts(L);
-  for (const f of fournisseurs(config, { gratuit })) {
+  // sansGroq : réponses aux commentaires Instagram (directeur, 20/11/2026 : jamais Groq pour les commentaires).
+  for (const f of fournisseurs(config, { gratuit }).filter((x) => !sansGroq || x !== 'groq')) {
     if (!budgetOk(f, L, secondaire)) continue;
     try {
       if (f === 'gemini') {

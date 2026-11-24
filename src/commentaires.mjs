@@ -73,7 +73,7 @@ Règles strictes :
 const prompt = `Posts concernés :\n${JSON.stringify(posts)}\n\nCommentaires à traiter :\n${JSON.stringify(aTraiter.slice(0, 40).map(({ id, auteur, texte, post }) => ({ id, auteur, texte, post })))}\n\nRéponds selon le schéma, un élément par commentaire.`;
 
 let res;
-try { res = await json({ config, system, prompt, schema: SCHEMA, nom: 'reponses_commentaires', gratuit: true }); } catch (err) { console.error(`Commentaires : IA indisponible (${err.message})`); process.exit(0); }
+try { res = await json({ config, system, prompt, schema: SCHEMA, nom: 'reponses_commentaires', gratuit: true, sansGroq: true }); } catch (err) { console.error(`Commentaires : IA indisponible (${err.message})`); process.exit(0); }
 
 // Adresses de nuit proposées par la communauté (directeur 13/11/2026 : « utiliser les réponses pour alimenter la base,
 // mais vérifier, pas un Wikipédia ») : mises en attente dans contenus/suggestions-nuit.json, JAMAIS publiées sans

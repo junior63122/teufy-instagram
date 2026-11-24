@@ -127,9 +127,13 @@ let SEUIL_DEMANDE = 0.85;
 const tempsOk = () => Date.now() < LIMITE;
 async function gemini(parts, { recherche = false, secondaire = false } = {}) {
   const CLE = (process.env.GEMINI_API_KEY || '').trim();
-  // Gemini absent ou en pause : Groq (gratuit) prend le relais, mêmes consignes (20/11/2026).
-  if (!CLE || LLM.geminiEnPause({ llm: CONFIG_LLM })) return LLM.groqParties(parts, { recherche, config: { llm: CONFIG_LLM }, secondaire });
-  if (!LLM.budgetOk('gemini', CONFIG_LLM, secondaire)) return null; // plafonds de dépense (contenus/budget-ia.json) ou compte à sec
+  // 24/11/2026 (directeur : « il faut que Gemini ne soit pas vidé dès le matin ») : la reconstruction du site (relancée par
+  // la veille toutes les 30 min) passe d'abord par Groq, gratuit (lecture d'affiches, traductions, recherches) ; Gemini
+  // n'est plus qu'un secours, compté comme tâche secondaire : il ne touche jamais la réserve des publications.
+  const g = await LLM.groqParties(parts, { recherche, config: { llm: CONFIG_LLM }, secondaire });
+  if (g != null && g !== '') return g;
+  if (!CLE || LLM.geminiEnPause({ llm: CONFIG_LLM })) return null;
+  if (!LLM.budgetOk('gemini', CONFIG_LLM, true)) return null; // plafonds de dépense (contenus/budget-ia.json) ou compte à sec
   const API = 'https://generativelanguage.googleapis.com/v1beta/models';
   try {
     if (!MODELES) {
@@ -184,7 +188,7 @@ async function verifier(e, fichier, cache) {
   // Sans IA disponible (ou plus de temps) : ancien verdict s'il existe ; sinon on ne montre une affiche non vérifiée que
   // si elle vient de la billetterie ou de l'organisateur, jamais si c'est la recherche web qui l'a associée (risque
   // d'affiche d'une autre soirée, cas « La Tocardise » / « Noise Protocol » du 11/11/2026).
-  if (!tempsOk() || !(process.env.GEMINI_API_KEY || '').trim()) return ancien ? ancien.ok : e.source !== 'web' || imageDeLaSource(e);
+  if (!tempsOk() || !((process.env.GEMINI_API_KEY || '').trim() || (process.env.GROQ_API_KEY || '').trim())) return ancien ? ancien.ok : e.source !== 'web' || imageDeLaSource(e);
   const r = await gemini([{ inline_data: { mime_type: 'image/jpeg', data: readFileSync(fichier).toString('base64') } }, { text: 'Lis cette affiche de soirée. Réponds en JSON {"titre":string,"artistes":[string],"lieu":string,"ville":string,"dates":["AAAA-MM-JJ"]}. Recopie seulement ce qui est écrit sur l\'affiche (dates au format AAAA-MM-JJ, année 2026 ou 2027 si elle n\'est pas écrite ; tableau vide si aucune date). Chaîne vide si absent.' }]);
   if (!r || typeof r !== 'object') return ancien ? ancien.ok : e.source !== 'web' || imageDeLaSource(e); // lecture impossible : même règle
   const lu = { titre: r.titre, dates: (r.dates || []).filter((d) => /^\d{4}-\d{2}-\d{2}$/.test(d)), artistes: (r.artistes || []).slice(0, 6), lieu: r.lieu || '' };

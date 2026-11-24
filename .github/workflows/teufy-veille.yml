@@ -18,6 +18,14 @@ on:
         description: "Passer outre le rythme d'une heure (passage demandé par le directeur)"
         type: boolean
         default: false
+      horaire:
+        description: "Passage automatique (déclencheur externe) : IA payante autorisée. Ne pas cocher à la main."
+        type: boolean
+        default: false
+      exception_ia:
+        description: "Exception écrite du directeur : autoriser Gemini et Claude pour ce lancement manuel"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -36,12 +44,15 @@ jobs:
       # Clés : plusieurs noms de secrets acceptés (ElevenLabs, Gemini, Claude, Instagram…)
       IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN || secrets.INSTAGRAM_ACCESS_TOKEN || secrets.INSTAGRAM_TOKEN || secrets.IG_TOKEN || secrets.META_ACCESS_TOKEN || secrets.FB_ACCESS_TOKEN }}
       IG_USER_ID: ${{ secrets.IG_USER_ID || secrets.INSTAGRAM_USER_ID || secrets.INSTAGRAM_ID || secrets.IG_ID || secrets.IG_ACCOUNT_ID || secrets.INSTAGRAM_ACCOUNT_ID }}
-      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY || secrets.GEMINI_KEY || secrets.GEMINI || secrets.GOOGLE_API_KEY || secrets.GOOGLE_AI_KEY || secrets.GOOGLE_AI_API_KEY || secrets.GEMINI_TOKEN || secrets.AI_STUDIO_KEY || secrets.CLE_GEMINI || secrets.API_GEMINI }}
+      GEMINI_API_KEY: ${{ (github.event_name == 'schedule' || inputs.horaire || inputs.exception_ia) && (secrets.GEMINI_API_KEY || secrets.GEMINI_KEY || secrets.GEMINI || secrets.GOOGLE_API_KEY || secrets.GOOGLE_AI_KEY || secrets.GOOGLE_AI_API_KEY || secrets.GEMINI_TOKEN || secrets.AI_STUDIO_KEY || secrets.CLE_GEMINI || secrets.API_GEMINI) || '' }}
       GROQ_API_KEY: ${{ secrets.GROQ_API_KEY || '' }} # IA gratuite (Groq, sans carte bancaire), 20/11/2026
       TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY || '' }} # moteur de recherche web gratuit (Tavily, 1 000 recherches par mois), 20/11/2026
       TIKTOK_CODE: ${{ secrets.TIKTOK_CODE }} # code de la page /tiktok/ (choisi par le directeur, jamais écrit dans le dépôt)
       GOATCOUNTER_TOKEN: ${{ secrets.GOATCOUNTER_TOKEN || '' }} # visites du site, lecture seule (22/11/2026)
-      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY || secrets.ANTHROPIC_KEY || secrets.ANTHROPIC || secrets.CLAUDE_API_KEY || secrets.CLAUDE_KEY || secrets.CLAUDE }}
+      ANTHROPIC_API_KEY: ${{ (github.event_name == 'schedule' || inputs.horaire || inputs.exception_ia) && (secrets.ANTHROPIC_API_KEY || secrets.ANTHROPIC_KEY || secrets.ANTHROPIC || secrets.CLAUDE_API_KEY || secrets.CLAUDE_KEY || secrets.CLAUDE) || '' }}
+      # Règle du directeur : IA payante seulement pour les passages automatiques (horaire GitHub ou déclencheur externe avec
+      # « horaire »). Groq et Tavily, gratuits, restent toujours disponibles.
+      TEUFY_IA_MANUEL: ${{ (github.event_name == 'schedule' || inputs.horaire || inputs.exception_ia) && '0' || '1' }}
       IG_API_HOST: ${{ vars.IG_API_HOST || 'graph.facebook.com' }}
       EVENTBRITE_TOKEN: ${{ secrets.EVENTBRITE_TOKEN || '' }} # API officielle Eventbrite, jeton personnel gratuit (22/11/2026)
       TICKETMASTER_KEY: ${{ secrets.TICKETMASTER_KEY || '' }} # API officielle Ticketmaster Discovery, clé gratuite (22/11/2026)
@@ -101,6 +112,9 @@ jobs:
           # Ne régénère que si une nouvelle actu est arrivée ou au premier passage de la journée (repère site/.maj).
           command -v tesseract >/dev/null || timeout 240 sudo apt-get install -y --no-install-recommends tesseract-ocr tesseract-ocr-fra >/dev/null 2>&1 || true # repère les « photos de lieu » qui sont des affiches
           node outils/visites.mjs || true # visites du site (GoatCounter) pour le tableau de bord
+          # 24/11/2026 (directeur) : reconstruction au plus une fois par heure (passages de la première demi-heure), pour ne pas
+          # vider l'IA dès le matin ; un nouveau jour ou un lancement « forcer » passe toujours.
+          if [ "$(date -u +%M)" -ge 30 ] && [ "${{ inputs.forcer }}" != "true" ] && [ -f site/.maj ] && grep -q "^$(TZ=Europe/Paris date +%F)" site/.maj; then echo "Site : reconstruit à la demi-heure précédente, prochain passage à l'heure."; exit 0; fi
           SITE_MINUTES=6 timeout 15m node src/run.mjs site || { echo "::warning::Mise à jour du site arrêtée (plus de 15 min ou erreur) : reprise au passage suivant"; exit 0; } # 21/11 : 3 passages coupés à 30 min sans journal lisible
           node outils/controle-donnees.mjs || echo "::warning::Contrôle des données du site : erreurs à corriger (voir ci-dessus)"
           git add -A -- $(ls -d tiktok media/tiktok index.html 404.html .nojekyll site a-propos soirees-* soiree festivals actus partenaires ambassadeurs bde mentions-legales cgu cgv confidentialite dates restaurants activites france occitanie clubs-bars evenements-france.json evenements-occitanie.json en it es zh ar sitemap.xml robots.txt llms.txt *.txt .well-known CNAME sw.js contenus evenements-web.json 2>/dev/null) || true # seulement les chemins existants (un seul absent bloquait tout)

@@ -56,3 +56,9 @@ test('publication : le plafond du jour est dépassé en exception, jamais pour u
   assert.equal(budgetOk('gemini', L, true), false);
   assert.equal(budgetOk('gemini', { budget_gemini_jour_eur: 0, budget_gemini_mois_eur: 0 }), false); // le plafond du mois reste actif
 }));
+
+test('lancement manuel : Groq (gratuit) reste permis, Gemini non', env({ GEMINI_API_KEY: 'g', GROQ_API_KEY: 'q', TEUFY_IA_MANUEL: '1' }, async () => {
+  const { budgetOk } = await import('../src/llm.mjs');
+  assert.equal(budgetOk('gemini', {}), false);
+  assert.equal(budgetOk('groq', {}), true);
+}));
