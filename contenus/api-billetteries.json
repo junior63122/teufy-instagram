@@ -1,5 +1,5 @@
 {
- "maj": "2026-11-24T07:19:12.281Z",
+ "maj": "2026-11-24T14:13:16.115Z",
  "evenements": [
   {
    "source": "eventbrite",
@@ -70,9 +70,9 @@
    "name": "L’Homme qui plantait des arbres",
    "start": "2026-11-26T19:00:00.000Z",
    "end": "2026-11-26T21:00:00.000Z",
-   "venue": "Le quartier du poulpe",
+   "venue": "Le Quartier du Poulpe",
    "city": "Nice",
-   "address": "41 avenue Bellevue, 06100 Nice",
+   "address": "34 Boulevard Auguste Raynaud, 06100 Nice",
    "url": "https://www.eventbrite.com/e/lhomme-qui-plantait-des-arbres-tickets-2005004339954",
    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1198221779%2F2988009644804%2F1%2Foriginal.20261118-063319?auto=format%2Ccompress&q=75&sharp=10&s=f25f707d5e7a402c1920760448d920b9",
    "price": 0,
@@ -374,9 +374,9 @@
    "name": "Soirée Live Music avec Dolce Farniente",
    "start": "2026-12-13T18:30:00.000Z",
    "end": "2026-12-13T21:00:00.000Z",
-   "venue": "Le quartier du poulpe",
+   "venue": "Le Quartier du Poulpe",
    "city": "Nice",
-   "address": "41 avenue Bellevue, 06100 Nice",
+   "address": "34 Boulevard Auguste Raynaud, 06100 Nice",
    "url": "https://www.eventbrite.com/e/soiree-live-music-avec-dolce-farniente-tickets-2005219313947",
    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1198478853%2F2988009644804%2F1%2Foriginal.20261122-115332?auto=format%2Ccompress&q=75&sharp=10&s=062904a464348f1321bd051ad26e5a99",
    "price": 0,

@@ -7698,5 +7698,54 @@
    "lieu": ""
   },
   "commun": []
+ },
+ "v2|8838ffb7459f": {
+  "ok": false,
+  "le": "2026-11-24T14:14:40.749Z",
+  "nom": "Dinner with Entrepreneurs Nice: Girls Night Out Edition",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": [],
+   "lieu": ""
+  },
+  "commun": []
+ },
+ "v2|c836a5990393": {
+  "ok": true,
+  "le": "2026-11-24T14:14:41.387Z",
+  "nom": "Aper’ELLES Evening December",
+  "lu": {
+   "titre": "APER'ELLES",
+   "dates": [],
+   "artistes": [
+    "INTER_NATION_ELLES"
+   ],
+   "lieu": "Place Garibaldi"
+  },
+  "commun": [
+   "aper",
+   "elles"
+  ]
+ },
+ "v2|a2f44dffbe76": {
+  "ok": true,
+  "le": "2026-11-24T14:19:54.421Z",
+  "nom": "Format Boiler 360° II - Hangar And Hard Techno",
+  "lu": {
+   "titre": "FORMAT BOILER ROOM ÉDITION II",
+   "dates": [],
+   "artistes": [
+    "DJ CONTEST",
+    "SLACKREB",
+    "INSOLENTE",
+    "BLAKEYS"
+   ],
+   "lieu": "105 RTE DE CANTA GALET ROUTE DE 06200, 06200 NICE"
+  },
+  "commun": [
+   "format",
+   "boiler"
+  ]
  }
 }
