@@ -165,11 +165,11 @@
  },
  "lantrebarnice": {
   "ok": false,
-  "le": "2026-11-12T03:44:53.985Z"
+  "le": "2026-11-24T15:09:17.031Z"
  },
  "rivierabarcrawl": {
   "ok": false,
-  "le": "2026-11-12T03:44:54.279Z"
+  "le": "2026-11-24T15:09:17.250Z"
  },
  "villahostels": {
   "ok": true,
@@ -4202,5 +4202,369 @@
  "3261avresistance83000.toulon": {
   "ok": false,
   "le": "2026-11-23T22:08:14.118Z"
+ },
+ "barracuda.cannes": {
+  "ok": true,
+  "nom": "Barracuda Cannes",
+  "bio": "Rhumerie & Cie 🇫🇷\nNouvelle rhumerie dans le carré d'or à Cannes 🏴‍☠️\nOuvert 7 jours / 7• 20h - 2h30 ⚓️\n9, Rue du Batéguier 06400 Cannes 📍",
+  "site": "",
+  "abonnes": 1217,
+  "le": "2026-11-24T15:09:11.688Z"
+ },
+ "je_dis_techno_nice": {
+  "ok": true,
+  "nom": "Je Dis Techno",
+  "bio": "💚Ton rendez-vous techno niçois tous les jeudis\n🔊Before: @lantretechno 21h-2h\n🔊club : @kosma.liveclub 00h00-5h00\nHard Techno/Rave/Hard bounce/Acid",
+  "site": "https://shotgun.live/venues/je-dis-techno",
+  "abonnes": 7964,
+  "le": "2026-11-24T15:09:12.963Z"
+ },
+ "operademontecarlo": {
+  "ok": false,
+  "le": "2026-11-24T15:09:13.150Z"
+ },
+ "backtobactoulon": {
+  "ok": false,
+  "le": "2026-11-24T15:09:13.372Z"
+ },
+ "pandaevents": {
+  "ok": false,
+  "le": "2026-11-24T15:09:13.571Z"
+ },
+ "ledixhuitcannes": {
+  "ok": false,
+  "le": "2026-11-24T15:09:13.846Z"
+ },
+ "directoproductions": {
+  "ok": false,
+  "le": "2026-11-24T15:09:14.096Z"
+ },
+ "gogo_penguin": {
+  "ok": true,
+  "nom": "GoGo Penguin",
+  "bio": "New EP ‘Call to the Void’ out now! #gogopenguin #manchester @xximrecords",
+  "site": "https://linktr.ee/gogo_penguin",
+  "abonnes": 51051,
+  "le": "2026-11-24T15:09:15.073Z"
+ },
+ "thebrandnewheavies": {
+  "ok": false,
+  "le": "2026-11-24T15:09:15.285Z"
+ },
+ "lasuite_antibes": {
+  "ok": false,
+  "le": "2026-11-24T15:09:15.614Z"
+ },
+ "djsebb_officiel": {
+  "ok": false,
+  "le": "2026-11-24T15:09:15.804Z"
+ },
+ "canneskarting": {
+  "ok": false,
+  "le": "2026-11-24T15:09:16.057Z"
+ },
+ "vertigoprod": {
+  "ok": false,
+  "le": "2026-11-24T15:09:16.283Z"
+ },
+ "lapalestre_lecannet": {
+  "ok": false,
+  "le": "2026-11-24T15:09:16.555Z"
+ },
+ "theatrelinoventura": {
+  "ok": false,
+  "le": "2026-11-24T15:09:16.776Z"
+ },
+ "villasaintexupery": {
+  "ok": false,
+  "le": "2026-11-24T15:09:17.538Z"
+ },
+ "sollysmith": {
+  "ok": false,
+  "le": "2026-11-24T15:09:17.826Z"
+ },
+ "bambam_paris_": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.090Z"
+ },
+ "indahouseclub": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.090Z"
+ },
+ "honeyclub_juanlespins": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.090Z"
+ },
+ "macewmusic": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.090Z"
+ },
+ "fornap_laseyne": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.090Z"
+ },
+ "playachica_cannes": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.090Z"
+ },
+ "zenithtoulon": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.090Z"
+ },
+ "aztera_": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.090Z"
+ },
+ "switchclub83": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.090Z"
+ },
+ "switch_club_off": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.090Z"
+ },
+ "switch_club_official": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.090Z"
+ },
+ "marwa_loud": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.090Z"
+ },
+ "marwaloud": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.090Z"
+ },
+ "lefactory_lafarlede": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.090Z"
+ },
+ "suitefestifjuanlespins": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.186Z"
+ },
+ "suitefestif_juanlespins": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.186Z"
+ },
+ "suite_festif_juanlespins": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.186Z"
+ },
+ "suitefestif.juanlespins": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.186Z"
+ },
+ "lestocards": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.186Z"
+ },
+ "vido.fr": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.186Z"
+ },
+ "altherax_music": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.242Z"
+ },
+ "insolente_techno": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.242Z"
+ },
+ "altheraxmusic": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.268Z"
+ },
+ "altherax.music": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.268Z"
+ },
+ "altheraxmusic_officiel": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.268Z"
+ },
+ "altheraxmusicofficiel": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.268Z"
+ },
+ "altherax_music_officiel": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.268Z"
+ },
+ "altheraxmusic_official": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.268Z"
+ },
+ "altheraxmusicnice": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.268Z"
+ },
+ "altheraxmusic_nice": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.268Z"
+ },
+ "altherax_music_nice": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.268Z"
+ },
+ "altheraxmusic.nice": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.268Z"
+ },
+ "glofadproduction": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.295Z"
+ },
+ "charbellmusic": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.295Z"
+ },
+ "casinodebeaulieu": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.295Z"
+ },
+ "casinobeaulieu": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.318Z"
+ },
+ "casino_beaulieu": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.318Z"
+ },
+ "casino.beaulieu": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.318Z"
+ },
+ "casinobeaulieu_officiel": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.319Z"
+ },
+ "casinobeaulieuofficiel": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.319Z"
+ },
+ "casino_beaulieu_officiel": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.319Z"
+ },
+ "casinobeaulieu_official": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.319Z"
+ },
+ "casinobeaulieubeaulieusurmer": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.319Z"
+ },
+ "casinobeaulieu_beaulieusurmer": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.319Z"
+ },
+ "casino_beaulieu_beaulieusurmer": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.319Z"
+ },
+ "casinobeaulieu.beaulieusurmer": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.319Z"
+ },
+ "casino_de_beaulieu": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.319Z"
+ },
+ "casino.de.beaulieu": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.319Z"
+ },
+ "casinodebeaulieu_officiel": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.319Z"
+ },
+ "casinodebeaulieuofficiel": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.319Z"
+ },
+ "casino_de_beaulieu_officiel": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.319Z"
+ },
+ "casinodebeaulieu_official": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.319Z"
+ },
+ "casinodebeaulieubeaulieusurmer": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.319Z"
+ },
+ "nor_nights": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.319Z"
+ },
+ "nor.nights": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.319Z"
+ },
+ "lesbonnesfranquettes_officiel": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.345Z"
+ },
+ "seguiniere": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.367Z"
+ },
+ "seguiniere_officiel": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.367Z"
+ },
+ "seguiniereofficiel": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.367Z"
+ },
+ "seguiniere_official": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.367Z"
+ },
+ "seguinierevalbonne": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.367Z"
+ },
+ "seguiniere_valbonne": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.367Z"
+ },
+ "seguiniere.valbonne": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.367Z"
+ },
+ "laseguiniere": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.367Z"
+ },
+ "la_seguiniere": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.367Z"
+ },
+ "la.seguiniere": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.367Z"
+ },
+ "laseguiniere_officiel": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.367Z"
+ },
+ "laseguiniereofficiel": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.367Z"
+ },
+ "la_seguiniere_officiel": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.367Z"
+ },
+ "laseguiniere_official": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.367Z"
+ },
+ "laseguinierevalbonne": {
+  "ok": false,
+  "le": "2026-11-24T15:09:18.367Z"
  }
 }

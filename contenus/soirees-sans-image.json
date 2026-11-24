@@ -1,5 +1,5 @@
 {
- "le": "2026-11-24T15:11:02.494Z",
+ "le": "2026-11-24T15:19:48.536Z",
  "total": 148,
  "sans_image": [
   {
@@ -28,6 +28,15 @@
    "ville": "Nice",
    "instagram": "",
    "url": "https://www.eventbrite.com/e/foodies-new-friends-nice-tickets-1976266119162"
+  },
+  {
+   "id": "the-brand-new-heavies-et-gogo-penguin-monte-carlo-jazz-festi-2026-11-26",
+   "nom": "The Brand New Heavies & GoGo Penguin (Monte-Carlo Jazz Festival)",
+   "jour": "2026-11-26",
+   "lieu": "Salle Garnier – Opéra de Monte-Carlo",
+   "ville": "Monaco",
+   "instagram": "gogo_penguin",
+   "url": "https://www.visitmonaco.com/fr/evenement/festivals/20708/monte-carlo-jazz-festival-2026"
   },
   {
    "id": "block-2026-11-26",
@@ -66,15 +75,6 @@
    "url": "https://www.ticketmaster.fr/fr/manifestation/les-tambours-du-bronx-billet/idmanif/669788"
   },
   {
-   "id": "dj-trvchi-2026-11-27",
-   "nom": "Dj - Trvchi",
-   "jour": "2026-11-27",
-   "lieu": "Mama Shelter Nice",
-   "ville": "Nice",
-   "instagram": "mamashelternice",
-   "url": "https://shotgun.live/events/dj-trvchi"
-  },
-  {
    "id": "skarra-mucci-et-manudigital-ragga-blasta-tour-2026-11-27",
    "nom": "Skarra Mucci & Manudigital — Ragga Blasta Tour",
    "jour": "2026-11-27",
@@ -98,7 +98,7 @@
    "jour": "2026-11-27",
    "lieu": "L'Antre Bar Electro",
    "ville": "Nice",
-   "instagram": "lantretechno",
+   "instagram": "je_dis_techno_nice",
    "url": "https://shotgun.live/events/mr-hat-vs-verome-bass-vs-hard-music"
   },
   {
@@ -188,7 +188,7 @@
    "jour": "2026-11-28",
    "lieu": "L'Antre Bar Electro",
    "ville": "Nice",
-   "instagram": "lantretechno",
+   "instagram": "je_dis_techno_nice",
    "url": "https://shotgun.live/events/vibrance-7"
   },
   {
@@ -224,7 +224,7 @@
    "jour": "2026-11-28",
    "lieu": "Le Boka Club",
    "ville": "Toulon",
-   "instagram": "",
+   "instagram": "_boka_officiel_",
    "url": "https://bizouk.com/events/details/zouk-love-toulon-edition-chic/132615"
   },
   {
@@ -233,7 +233,7 @@
    "jour": "2026-11-29",
    "lieu": "L'Antre Bar Electro",
    "ville": "Nice",
-   "instagram": "lantretechno",
+   "instagram": "je_dis_techno_nice",
    "url": "https://shotgun.live/events/dj-k-net-resident-techno-tribe"
   },
   {
@@ -318,15 +318,6 @@
    "url": "https://shotgun.live/events/ref-session-18-acid-pauli-frigo-16"
   },
   {
-   "id": "dj-set-tim-lienderss-2026-12-04",
-   "nom": "Dj Set - Tim Lienderss",
-   "jour": "2026-12-04",
-   "lieu": "Mama Shelter Nice",
-   "ville": "Nice",
-   "instagram": "mamashelternice",
-   "url": "https://shotgun.live/events/dj-set-tim-lienderss"
-  },
-  {
    "id": "riviera-bar-crawl-nice-s-1-social-club-for-global-travelers-2026-12-04",
    "nom": "Riviera Bar Crawl Nice’s #1 Social Club for Global Travelers & Party Lovers",
    "jour": "2026-12-04",
@@ -354,15 +345,6 @@
    "url": "https://shotgun.live/event/dubcoast"
   },
   {
-   "id": "la-dinette-santa-a-la-playa-2026-12-05",
-   "nom": "La Dinette - Santa À La Playa",
-   "jour": "2026-12-05",
-   "lieu": "Playa Chica",
-   "ville": "Cannes",
-   "instagram": "playachica_official",
-   "url": "https://shotgun.live/events/la-dinette-santa-a-la-playa"
-  },
-  {
    "id": "la-grande-nuit-du-disco-2026-12-05",
    "nom": "La Grande Nuit du Disco",
    "jour": "2026-12-05",
@@ -379,15 +361,6 @@
    "ville": "Nice",
    "instagram": "pandaevents06",
    "url": "https://provence-alpes-cotedazur.com/fiche/dakeez-8016075/"
-  },
-  {
-   "id": "dj-trvchi-2026-12-05",
-   "nom": "Dj - Trvchi",
-   "jour": "2026-12-05",
-   "lieu": "Mama Shelter Nice",
-   "ville": "Nice",
-   "instagram": "mamashelternice",
-   "url": "https://shotgun.live/events/dj-trvchi"
   },
   {
    "id": "mamacita-frigo-16-2026-12-05",
@@ -534,15 +507,6 @@
    "url": "https://www.esterel-cotedazur.com/fetes-et-manifestations/electro-party-de-noel"
   },
   {
-   "id": "dj-set-karl-zen-k-2026-12-19",
-   "nom": "Dj Set - Karl Zen K",
-   "jour": "2026-12-19",
-   "lieu": "Mama Shelter Nice",
-   "ville": "Nice",
-   "instagram": "mamashelternice",
-   "url": "https://shotgun.live/events/dj-set-karl-zen-k"
-  },
-  {
    "id": "les-bonnes-franquettes-christmas-2026-12-19",
    "nom": "Les Bonnes Franquettes - Christmas",
    "jour": "2026-12-19",
@@ -559,15 +523,6 @@
    "ville": "Bandol",
    "instagram": "",
    "url": "https://provence-alpes-cotedazur.com/fiche/soirees-dj-8041695/"
-  },
-  {
-   "id": "dj-set-nico-pac-2026-12-26",
-   "nom": "Dj Set - Nico Pac",
-   "jour": "2026-12-26",
-   "lieu": "Mama Shelter Nice",
-   "ville": "Nice",
-   "instagram": "mamashelternice",
-   "url": "https://shotgun.live/events/dj-set-nico-pac"
   },
   {
    "id": "grande-soiree-du-nouvel-an-2027-2026-12-31",
@@ -595,15 +550,6 @@
    "ville": "Saint-Tropez",
    "instagram": "",
    "url": ""
-  },
-  {
-   "id": "aztek-x-club-sonore-x-playa-chica-new-year-eve-31-12-2026-12-31",
-   "nom": "Aztek X Club Sonore X Playa Chica - New Year Eve 31.12",
-   "jour": "2026-12-31",
-   "lieu": "Playa Chica",
-   "ville": "Cannes",
-   "instagram": "playachica_official",
-   "url": "https://shotgun.live/fr/organizers/club-sonore"
   },
   {
    "id": "le-nouvel-an-des-frenchy-salons-vip-stade-allianz-riviera-2026-12-31",

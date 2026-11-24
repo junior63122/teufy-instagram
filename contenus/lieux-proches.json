@@ -7424,20 +7424,14 @@
   "velo": null,
   "taxi": null
  },
- "43.14848,6.03513": {
-  "le": "2026-11-24T15:20:07.539Z",
+ "43.72058,7.16498": {
+  "le": "2026-11-24T15:15:27.523Z",
   "parkings": [],
   "transports": [
    {
-    "nom": "Digne 1",
+    "nom": "Domaine de l'Etoile",
     "type": "bus",
-    "m": 148,
-    "lignes": ""
-   },
-   {
-    "nom": "Digne 2",
-    "type": "bus",
-    "m": 220,
+    "m": 155,
     "lignes": ""
    }
   ],
@@ -7445,7 +7439,7 @@
   "taxi": null
  },
  "43.0924,5.89212": {
-  "le": "2026-11-24T15:22:38.385Z",
+  "le": "2026-11-24T15:19:41.098Z",
   "parkings": [
    {
     "nom": "Tamaris",
@@ -7466,6 +7460,73 @@
     "type": "bus",
     "m": 138,
     "lignes": "81"
+   }
+  ],
+  "velo": null,
+  "taxi": null
+ },
+ "43.14848,6.03513": {
+  "le": "2026-11-24T15:22:09.950Z",
+  "parkings": [],
+  "transports": [
+   {
+    "nom": "Digne 1",
+    "type": "bus",
+    "m": 148,
+    "lignes": ""
+   },
+   {
+    "nom": "Digne 2",
+    "type": "bus",
+    "m": 220,
+    "lignes": ""
+   }
+  ],
+  "velo": null,
+  "taxi": null
+ },
+ "43.11434,5.86549": {
+  "le": "2026-11-24T15:22:43.196Z",
+  "parkings": [
+   {
+    "nom": "",
+    "type": "multi-storey",
+    "payant": null,
+    "m": 629
+   }
+  ],
+  "transports": [
+   {
+    "nom": "Tisot",
+    "type": "bus",
+    "m": 53,
+    "lignes": "81"
+   },
+   {
+    "nom": "Bartolini",
+    "type": "bus",
+    "m": 243,
+    "lignes": "8"
+   }
+  ],
+  "velo": null,
+  "taxi": null
+ },
+ "43.43457,6.80097": {
+  "le": "2026-11-24T15:23:33.206Z",
+  "parkings": [],
+  "transports": [
+   {
+    "nom": "Stanislas",
+    "type": "bus",
+    "m": 75,
+    "lignes": ""
+   },
+   {
+    "nom": "IME",
+    "type": "bus",
+    "m": 150,
+    "lignes": ""
    }
   ],
   "velo": null,
