@@ -2176,12 +2176,572 @@
      "fin": 172.71
     }
    }
+  },
+  "1Wra0K-P7X_03t46iS8UtRjaZWbacXQho": {
+   "nom": "Bee Gees - More Than A Woman1.wav",
+   "chemin": "Bee Gees - More Than A Woman1.wav",
+   "vu_le": "2026-11-24T07:12:41.613Z",
+   "octets": 80886870,
+   "rythme": {
+    "bpm": 105.5,
+    "duree": 280.86,
+    "meilleur": {
+     "debut": 217.92,
+     "fin": 237.92
+    }
+   }
+  },
+  "10rnLgZZpUjw6dD6MdB6x9qqABFDNThKV": {
+   "nom": "Bee Gees - Night Fever.wav",
+   "chemin": "Bee Gees - Night Fever.wav",
+   "vu_le": "2026-11-24T07:12:46.750Z",
+   "octets": 37441582,
+   "rythme": {
+    "bpm": 110,
+    "duree": 212.25,
+    "meilleur": {
+     "debut": 162.74,
+     "fin": 182.74
+    }
+   }
+  },
+  "1Q3FXndnLDUvtoYf_zrfIztoJ9kjz4F_p": {
+   "nom": "Bee Gees - You Should Be Dancing (Dj ''S''-1.mp3",
+   "chemin": "Bee Gees - You Should Be Dancing (Dj ''S''-1.mp3",
+   "vu_le": "2026-11-24T07:12:50.093Z",
+   "octets": 10075991,
+   "rythme": {
+    "bpm": 123,
+    "duree": 251.87,
+    "meilleur": {
+     "debut": 87.9,
+     "fin": 107.9
+    }
+   }
+  },
+  "1TtnieWXB8hIkBVF8tMtffyxm5eTGDuaP": {
+   "nom": "Bill Haley & His Comets - Rock Around the Clock (Remastered).wav",
+   "chemin": "Bill Haley & His Comets - Rock Around the Clock (Remastered).wav",
+   "vu_le": "2026-11-24T07:13:02.966Z",
+   "octets": 22910910,
+   "rythme": {
+    "bpm": 178.2,
+    "duree": 129.88,
+    "meilleur": {
+     "debut": 90.22,
+     "fin": 110.22
+    }
+   }
+  },
+  "1CmVk9Q6R0euBet5eBfjNUla7myymVIAt": {
+   "nom": "Bill Medley & Jennifer Warnes - (I've Had) T.wav",
+   "chemin": "Bill Medley & Jennifer Warnes - (I've Had) T.wav",
+   "vu_le": "2026-11-24T07:13:05.231Z",
+   "octets": 50445832,
+   "rythme": {
+    "bpm": 107.7,
+    "duree": 285.97,
+    "meilleur": {
+     "debut": 247.61,
+     "fin": 267.61
+    }
+   }
+  },
+  "1T-EZS_BpXwBgImcfvOoo2yZGph2r5Yjm": {
+   "nom": "Black Blood  -  A.I.E. A Mwana (  T-Kolai Edit ).wav",
+   "chemin": "Black Blood  -  A.I.E. A Mwana (  T-Kolai Edit ).wav",
+   "vu_le": "2026-11-24T07:13:09.534Z",
+   "octets": 79741006,
+   "rythme": {
+    "bpm": 123,
+    "duree": 452.05,
+    "meilleur": {
+     "debut": 265.2,
+     "fin": 285.2
+    }
+   }
+  },
+  "1AbxsQJv6swVVBjZM6EDWWfRaKisOtv_m": {
+   "nom": "Black Blood - Aie mwana (t kolai special edi.mp3",
+   "chemin": "Black Blood - Aie mwana (t kolai special edi.mp3",
+   "vu_le": "2026-11-24T07:13:13.780Z",
+   "octets": 17892675,
+   "rythme": {
+    "bpm": 123,
+    "duree": 447.1,
+    "meilleur": {
+     "debut": 262.93,
+     "fin": 282.93
+    }
+   }
+  },
+  "13DCL7BUxgZPcJ_WVoefN013Akdy4ImWK": {
+   "nom": "Blitzkrieg Bop (2016 Remaster).wav",
+   "chemin": "Blitzkrieg Bop (2016 Remaster).wav",
+   "vu_le": "2026-11-24T07:13:16.979Z",
+   "octets": 23721948,
+   "rythme": {
+    "bpm": 87.6,
+    "duree": 134.48,
+    "meilleur": {
+     "debut": 53.99,
+     "fin": 73.99
+    }
+   }
+  },
+  "1W2h3sdLLsFtnRcYKqg4of7tBMhod9e8z": {
+   "nom": "Boule Noire - Aimer D'amour (12' version).mp3",
+   "chemin": "Boule Noire - Aimer D'amour (12' version).mp3",
+   "vu_le": "2026-11-24T07:13:18.995Z",
+   "octets": 16390295,
+   "rythme": {
+    "bpm": 97.5,
+    "duree": 409.65,
+    "meilleur": {
+     "debut": 257.82,
+     "fin": 277.82
+    }
+   }
+  },
+  "1VePiiJC3ZkrA6xiaPjlJ89IOdfcuCsnl": {
+   "nom": "Boys Town Gang - Can't Take My Eyes Off You .wav",
+   "chemin": "Boys Town Gang - Can't Take My Eyes Off You .wav",
+   "vu_le": "2026-11-24T07:13:22.190Z",
+   "octets": 101378396,
+   "rythme": {
+    "bpm": 129.2,
+    "duree": 574.71,
+    "meilleur": {
+     "debut": 238.49,
+     "fin": 258.49
+    }
+   }
+  },
+  "1Uo2fOTsIyyKZrGzSkfEuJhopbwATj8aF": {
+   "nom": "Can't Get Enough of Your Love, Babe (Groovef.mp3",
+   "chemin": "Can't Get Enough of Your Love, Babe (Groovef.mp3",
+   "vu_le": "2026-11-24T07:13:29.032Z",
+   "octets": 21804295,
+   "rythme": {
+    "bpm": 112.3,
+    "duree": 541.73,
+    "meilleur": {
+     "debut": 325.22,
+     "fin": 345.22
+    }
+   }
+  },
+  "1CgUKq0hCp2sESKXreyY7IEfFmsl-uVX0": {
+   "nom": "Candi Staton - Young Hearts Run Free5.wav",
+   "chemin": "Candi Staton - Young Hearts Run Free5.wav",
+   "vu_le": "2026-11-24T07:13:34.160Z",
+   "octets": 40173690,
+   "rythme": {
+    "bpm": 117.5,
+    "duree": 227.74,
+    "meilleur": {
+     "debut": 168.28,
+     "fin": 188.28
+    }
+   }
+  },
+  "1frWiEUxKPUovzR1hLrfguOm6qtskATiY": {
+   "nom": "Carl Douglas - Kung Fu Fighting.wav",
+   "chemin": "Carl Douglas - Kung Fu Fighting.wav",
+   "vu_le": "2026-11-24T07:13:37.929Z",
+   "octets": 34532182,
+   "rythme": {
+    "bpm": 103.4,
+    "duree": 195.76,
+    "meilleur": {
+     "debut": 119.11,
+     "fin": 139.11
+    }
+   }
+  },
+  "1HIlUyh5zlDXDKHYtcliYsUau-9tq6ist": {
+   "nom": "Central Line - Walking Into Sunshine (Specia.wav",
+   "chemin": "Central Line - Walking Into Sunshine (Specia.wav",
+   "vu_le": "2026-11-24T07:13:40.551Z",
+   "octets": 83444404,
+   "rythme": {
+    "bpm": 112.3,
+    "duree": 473.04,
+    "meilleur": {
+     "debut": 416.24,
+     "fin": 436.24
+    }
+   }
+  },
+  "1fJJN_kjD3Y4kuohstWAVGahp4VSWvuzn": {
+   "nom": "Cerrone - Give Me Love1.wav",
+   "chemin": "Cerrone - Give Me Love1.wav",
+   "vu_le": "2026-11-24T07:13:45.702Z",
+   "octets": 81548648,
+   "rythme": {
+    "bpm": 126,
+    "duree": 462.29,
+    "meilleur": {
+     "debut": 218.35,
+     "fin": 238.35
+    }
+   }
+  },
+  "1JA6B-IE9BwlWSTMUEHoFByEUmAmVO-F1": {
+   "nom": "Cerrone - Supernature2.wav",
+   "chemin": "Cerrone - Supernature2.wav",
+   "vu_le": "2026-11-24T07:13:50.059Z",
+   "octets": 85960988,
+   "rythme": {
+    "bpm": 123,
+    "duree": 487.31,
+    "meilleur": {
+     "debut": 455.8,
+     "fin": 475.8
+    }
+   }
+  },
+  "1a4oPOkOPLnDOu-P-PwbwJytR5X_krvFQ": {
+   "nom": "Change - A Lover's Holiday (12 Version).mp3",
+   "chemin": "Change - A Lover's Holiday (12 Version).mp3",
+   "vu_le": "2026-11-24T07:13:55.618Z",
+   "octets": 15744919,
+   "rythme": {
+    "bpm": 117.5,
+    "duree": 388.91,
+    "meilleur": {
+     "debut": 173.43,
+     "fin": 193.43
+    }
+   }
+  },
+  "1xRd0KJvWVKRFn_rjaYJYcspPdqMzzQ0Z": {
+   "nom": "Charles Aznavour - Emmenez-moi.wav",
+   "chemin": "Charles Aznavour - Emmenez-moi.wav",
+   "vu_le": "2026-11-24T07:13:59.280Z",
+   "octets": 37643870,
+   "rythme": {
+    "bpm": 107.7,
+    "duree": 213.4,
+    "meilleur": {
+     "debut": 180.79,
+     "fin": 200.79
+    }
+   }
+  },
+  "1LdN4ViYLsOfhGl-10vkrStU-VpS2Ya_M": {
+   "nom": "Chemise - She Can't Love You (Extended).wav",
+   "chemin": "Chemise - She Can't Love You (Extended).wav",
+   "vu_le": "2026-11-24T07:14:02.785Z",
+   "octets": 55147468,
+   "rythme": {
+    "bpm": 114.8,
+    "duree": 312.63,
+    "meilleur": {
+     "debut": 133.1,
+     "fin": 153.1
+    }
+   }
+  },
+  "1i57uhg6ud58dGvwfLGcRRa3SGPX58Fic": {
+   "nom": "Chuck Berry - You Never Can Tell.wav",
+   "chemin": "Chuck Berry - You Never Can Tell.wav",
+   "vu_le": "2026-11-24T07:14:07.225Z",
+   "octets": 28979246,
+   "rythme": {
+    "bpm": 78.3,
+    "duree": 164.28,
+    "meilleur": {
+     "debut": 45.21,
+     "fin": 65.21
+    }
+   }
+  },
+  "1Mi1HKQo4ENQ_KjDWBGsVjo3yzYuNDo-z": {
+   "nom": "Claude Francois - Comme D'habitude2.mp3",
+   "chemin": "Claude Francois - Comme D'habitude2.mp3",
+   "vu_le": "2026-11-24T07:14:09.512Z",
+   "octets": 9992381,
+   "rythme": {
+    "bpm": 172.3,
+    "duree": 249.84,
+    "meilleur": {
+     "debut": 216.17,
+     "fin": 236.17
+    }
+   }
+  },
+  "1xX93MyuY_JwAqEH7tl-3j4VoODAmkoGx": {
+   "nom": "Coldplay - Adventure of a lifetime.wav",
+   "chemin": "Coldplay - Adventure of a lifetime.wav",
+   "vu_le": "2026-11-24T07:14:12.391Z",
+   "octets": 46532086,
+   "rythme": {
+    "bpm": 112.3,
+    "duree": 263.79,
+    "meilleur": {
+     "debut": 200.02,
+     "fin": 220.02
+    }
+   }
+  },
+  "1EA7FWrwSFG61rlGrxtUcBsspjTuwWSYy": {
+   "nom": "could it be magic ( extended).mp3",
+   "chemin": "could it be magic ( extended).mp3",
+   "vu_le": "2026-11-24T07:14:14.938Z",
+   "octets": 15684184,
+   "rythme": {
+    "bpm": 126,
+    "duree": 392.02,
+    "meilleur": {
+     "debut": 333.01,
+     "fin": 353.01
+    }
+   }
+  },
+  "1nEZlcXR7Ht1R8VcmXVV1GFW1pZ-gd40h": {
+   "nom": "Cuba, Quiero Bailar Salsa (12'' Issue).mp3",
+   "chemin": "Cuba, Quiero Bailar Salsa (12'' Issue).mp3",
+   "vu_le": "2026-11-24T07:14:18.433Z",
+   "octets": 11338812,
+   "rythme": {
+    "bpm": 120.2,
+    "duree": 472.4,
+    "meilleur": {
+     "debut": 340.67,
+     "fin": 360.67
+    }
+   }
+  },
+  "1HJsTxaQ_AgidM7irVWUHkZjbNylajED6": {
+   "nom": "Cyndi Lauper - Girls Just Want To Have Fun2.wav",
+   "chemin": "Cyndi Lauper - Girls Just Want To Have Fun2.wav",
+   "vu_le": "2026-11-24T07:14:21.285Z",
+   "octets": 40920222,
+   "rythme": {
+    "bpm": 120.2,
+    "duree": 231.97,
+    "meilleur": {
+     "debut": 179.21,
+     "fin": 199.21
+    }
+   }
+  },
+  "1eIRCNRkKAbciwzZ-k-nc6U_PBZqBUqJk": {
+   "nom": "Darude - Sandstorm (Original mix).flac",
+   "chemin": "Darude - Sandstorm (Original mix).flac",
+   "vu_le": "2026-11-24T07:14:23.516Z",
+   "octets": 56692974,
+   "rythme": {
+    "bpm": 136,
+    "duree": 445.57,
+    "meilleur": {
+     "debut": 202.63,
+     "fin": 222.63
+    }
+   }
+  },
+  "1pgx3GdtsgfmuKpgfnp9jLFdQy2OdaaFR": {
+   "nom": "DB Boulevard - Point Of View (Club Mix).mp3",
+   "chemin": "DB Boulevard - Point Of View (Club Mix).mp3",
+   "vu_le": "2026-11-24T07:14:27.578Z",
+   "octets": 13508676,
+   "rythme": {
+    "bpm": 129.2,
+    "duree": 337.61,
+    "meilleur": {
+     "debut": 118.13,
+     "fin": 138.13
+    }
+   }
+  },
+  "1MzKrcza6RmKIYGGhtIkfWp4n_u6iy5Ja": {
+   "nom": "Deep Purple - Smoke On The Water.wav",
+   "chemin": "Deep Purple - Smoke On The Water.wav",
+   "vu_le": "2026-11-24T07:14:30.825Z",
+   "octets": 79692942,
+   "rythme": {
+    "bpm": 120.2,
+    "duree": 451.77,
+    "meilleur": {
+     "debut": 333.25,
+     "fin": 353.25
+    }
+   }
+  },
+  "1qBHbmLw7tR0Kn7MkhTPI-TSCJxWgS1oG": {
+   "nom": "Desireless - Voyage, Voyage.wav",
+   "chemin": "Desireless - Voyage, Voyage.wav",
+   "vu_le": "2026-11-24T07:14:35.962Z",
+   "octets": 46096972,
+   "rythme": {
+    "bpm": 123,
+    "duree": 261.32,
+    "meilleur": {
+     "debut": 148.33,
+     "fin": 168.33
+    }
+   }
+  },
+  "1dD2FGY8J3R8qNTKTtvjCBTrC0y5uzNPR": {
+   "nom": "Diana Ross - The Boss (Original 12' Remix).wav",
+   "chemin": "Diana Ross - The Boss (Original 12' Remix).wav",
+   "vu_le": "2026-11-24T07:14:40.592Z",
+   "octets": 77350338,
+   "rythme": {
+    "bpm": 123,
+    "duree": 438.49,
+    "meilleur": {
+     "debut": 305.12,
+     "fin": 325.12
+    }
+   }
+  },
+  "1lZ6dPsijpIQ37EN_W6K2ENvp2J2vYV8M": {
+   "nom": "Dj Rolando - Jaguar (Original Mix).wav",
+   "chemin": "Dj Rolando - Jaguar (Original Mix).wav",
+   "vu_le": "2026-11-24T07:14:46.991Z",
+   "octets": 70030906,
+   "rythme": {
+    "bpm": 136,
+    "duree": 397,
+    "meilleur": {
+     "debut": 172.14,
+     "fin": 192.14
+    }
+   }
+  },
+  "1K_SKUxqkuO-wtbbESlWkWf1DTB8rMG3f": {
+   "nom": "Domenico Modugno - Volare (Nel Blu Dipinto Di Blu) (Remastered).wav",
+   "chemin": "Domenico Modugno - Volare (Nel Blu Dipinto Di Blu) (Remastered).wav",
+   "vu_le": "2026-11-24T07:14:52.462Z",
+   "octets": 37296126,
+   "rythme": {
+    "bpm": 132.5,
+    "duree": 211.43,
+    "meilleur": {
+     "debut": 129.01,
+     "fin": 149.01
+    }
+   }
+  },
+  "1k3bCJMR8M6kvvuzK2VWNSMdKe-9Rjree": {
+   "nom": "Donna Summer - Last Dance2.wav",
+   "chemin": "Donna Summer - Last Dance2.wav",
+   "vu_le": "2026-11-24T07:14:54.836Z",
+   "octets": 86572528,
+   "rythme": {
+    "bpm": 126,
+    "duree": 490.77,
+    "meilleur": {
+     "debut": 250.64,
+     "fin": 270.64
+    }
+   }
+  },
+  "1wxHT84l5cMkKk2RTksslFpMiOZUBi0uy": {
+   "nom": "Dont Look Any Further (Original 12” M+M Mix).wav",
+   "chemin": "Dont Look Any Further (Original 12” M+M Mix).wav",
+   "vu_le": "2026-11-24T07:15:03.799Z",
+   "octets": 57116656,
+   "rythme": {
+    "bpm": 95.7,
+    "duree": 323.79,
+    "meilleur": {
+     "debut": 191.26,
+     "fin": 211.26
+    }
+   }
+  },
+  "1w3vehjqiDH7FXFAZB5LddJ1H2GM2Skv6": {
+   "nom": "Don´t Let Me Be Misunderstood - Santa Esmeralda - Kill Bill Vol. 1.wav",
+   "chemin": "Don´t Let Me Be Misunderstood - Santa Esmeralda - Kill Bill Vol. 1.wav",
+   "vu_le": "2026-11-24T07:15:07.300Z",
+   "octets": 110948430,
+   "rythme": {
+    "bpm": 117.5,
+    "duree": 628.96,
+    "meilleur": {
+     "debut": 136.87,
+     "fin": 156.87
+    }
+   }
+  },
+  "1_k_mefUFmMCbGeJ5-v1Z7PbCSkBfRpLD": {
+   "nom": "Elton John & Kiki Dee - Don't Go Breaking My.wav",
+   "chemin": "Elton John & Kiki Dee - Don't Go Breaking My.wav",
+   "vu_le": "2026-11-24T07:15:12.814Z",
+   "octets": 48279626,
+   "rythme": {
+    "bpm": 132.5,
+    "duree": 273.69,
+    "meilleur": {
+     "debut": 221.9,
+     "fin": 241.9
+    }
+   }
+  },
+  "1-Ie8SC_8LlEcrLvWbxkeDHTP4K8Ls2xX": {
+   "nom": "Elvis Presley - All Shook Up (Official Audio).wav",
+   "chemin": "Elvis Presley - All Shook Up (Official Audio).wav",
+   "vu_le": "2026-11-24T07:15:15.763Z",
+   "octets": 20959456,
+   "rythme": {
+    "bpm": 74.9,
+    "duree": 118.82,
+    "meilleur": {
+     "debut": 71.2,
+     "fin": 91.2
+    }
+   }
+  },
+  "1211sTnQn75N2WMt1qm19FkOhwd3cbLjX": {
+   "nom": "Elvis Presley - Cant Help Falling In Love (Official Audio).wav",
+   "chemin": "Elvis Presley - Cant Help Falling In Love (Official Audio).wav",
+   "vu_le": "2026-11-24T07:15:18.898Z",
+   "octets": 31875310,
+   "rythme": {
+    "bpm": 101.3,
+    "duree": 180.7,
+    "meilleur": {
+     "debut": 102.99,
+     "fin": 122.99
+    }
+   }
+  },
+  "1q2Vi2gq8TdUApMJ9YlZ5EQc5uPmc4fvt": {
+   "nom": "Elvis Presley - Jailhouse Rock (Official Audio).wav",
+   "chemin": "Elvis Presley - Jailhouse Rock (Official Audio).wav",
+   "vu_le": "2026-11-24T07:15:21.837Z",
+   "octets": 27529442,
+   "rythme": {
+    "bpm": 83.4,
+    "duree": 156.06,
+    "meilleur": {
+     "debut": 67.59,
+     "fin": 87.59
+    }
+   }
+  },
+  "1Tn4e0zUPSspAvA1s_Th4cPL9FWhUtI0A": {
+   "nom": "Eric Prydz - Opus (Original Mix X Four Tet R.mp3",
+   "chemin": "Eric Prydz - Opus (Original Mix X Four Tet R.mp3",
+   "vu_le": "2026-11-24T07:15:24.782Z",
+   "octets": 22117727,
+   "rythme": {
+    "bpm": 126,
+    "duree": 687.57,
+    "meilleur": {
+     "debut": 528.78,
+     "fin": 548.78
+    }
+   }
   }
  },
- "le": "2026-11-23T16:03:54.396Z",
+ "le": "2026-11-24T07:15:29.599Z",
  "bilan": {
-  "nouvelles_videos": 1,
-  "nouvelles_musiques": 39,
+  "nouvelles_videos": 0,
+  "nouvelles_musiques": 40,
   "erreurs": 0,
   "absentes": 0
  }
