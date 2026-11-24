@@ -2,28 +2,27 @@
   "id": "reel-spot-promo",
   "type": "reel",
   "variante": "spot-promo",
-  "date": "2026-11-21",
-  "video": "reel-2026-11-21.mp4",
-  "couverture": "reel-2026-11-21-couverture.jpg",
-  "legende": "Il est 4 h, la boîte ferme… et t'as la dalle\n\nSur teufyparty.com, rubrique Manger tard :\n- choisis jusqu'à quelle heure c'est ouvert (2 h, 3 h, 4 h, 5 h et +)\n- « Près de moi » : le plus proche de toi en premier\n- de Toulon à Menton\n\nHoraires publiés, relevés chaque jour : vérifie avant d'y aller.\nEnvoie ça à celui qui a toujours faim en sortant\n\n#TeufyParty #mangertard #nice #cannes #monaco",
-  "titre": "Teufy · 02 manger tard",
-  "concept": "spot-promo-02-manger-tard",
-  "duree": 12.9,
+  "date": "2026-11-25",
+  "video": "reel-2026-11-25.mp4",
+  "couverture": "reel-2026-11-25-couverture.jpg",
+  "legende": "Samedi 18 h, le groupe : « on sort où ce soir ? »\n2 minutes sur Teufy et la soirée est trouvée.\n\nToutes les soirées de la Côte d'Azur au même endroit, avec les horaires, les prix et le lien vers la billetterie : teufyparty.com\n\nTague celui qui pose toujours la question à 18 h.\n\n#TeufyParty #soiree #samedisoir #cotedazur #nightlife",
+  "titre": "Teufy · 06 samedi trouve",
+  "concept": "spot-promo-06-samedi-trouve",
+  "duree": 14.6,
   "rubrique": "Spot Teufy",
   "hors_grille": false,
-  "photo": "danse",
+  "photo": "rooftop",
   "mise": "haut",
   "choix": {
     "creneau": "17",
-    "accroche-spot": "pov",
+    "accroche-spot": "avant-apres",
     "fonction-spot": [
-      "manger-tard",
-      "pres-de-moi",
-      "toute-la-cote"
+      "agenda",
+      "fiche-soiree"
     ]
   },
   "features": [],
   "nb_images": 0,
-  "story_video": "reel-2026-11-21.mp4",
+  "story_video": "reel-2026-11-25.mp4",
   "a_tester": []
 }
