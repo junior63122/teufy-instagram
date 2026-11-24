@@ -93,6 +93,12 @@
   alcool mis en avant, pas de musique sous droits dans le fichier (le directeur ajoute un son tendance dans TikTok ; seule exception :
   les montages du Drive, où la musique sert de repère de rythme et où il remet le même son depuis TikTok), droit à
   l'image respecté pour les vidéos de soirée qu'il fournit.
+- **Liberté créative des vidéos** (directeur, 24/11/2026 : « je t'autorise à inventer à partir de maintenant ; n'hésite pas à faire
+  des vidéos comme les comptes qui fonctionnent bien ; souvent elles sont virales même sans texte ; vérifie quoi faire à chaque fois,
+  peut-être que la spontanéité c'est mieux ; c'est à toi d'analyser ») : dans les vidéos, mises en scène, situations et phrases
+  inventées sont permises (« grâce à Teufy j'ai fait ça », POV, dialogues). Jamais pour les faits de l'agenda (dates, lieux, prix,
+  artistes) ni pour un faux témoignage chiffré. Avant chaque vidéo, regarder ce qui marche sur les comptes comparables (vidéos brutes
+  sans texte, son tendance, spontanéité…) et alterner les styles ; comparer ensuite les résultats (`accroche-spot`).
 - **Vidéos TikTok et réels : partir de la veille** (directeur, 22/11/2026 : « réfléchis de toi-même ; tu es censé avoir fait des veilles
   sur les vidéos d'applis et de soirées qui marchent le mieux, quel montage, pourquoi, quels hashtags ») : avant toute vidéo, relire
   `outils/VEILLE-TIKTOK.md` (nos chiffres, veille extérieure, règles, formats prioritaires) et la mettre à jour à chaque veille du

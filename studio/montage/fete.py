@@ -71,8 +71,8 @@ def main(f):
     open(os.path.join(tmp, 'l.txt'), 'w').write(''.join(f"file '{m}'\n" for m in out))
     brut = os.path.join(tmp, 'brut.mp4')
     run(['ffmpeg', '-v', 'error', '-y', '-f', 'concat', '-safe', '0', '-i', os.path.join(tmp, 'l.txt'), '-c', 'copy', brut])
-    lignes = P['phrase'].split('\n')
-    taille = min(64, int(900 / (0.5 * max(len(l) for l in lignes))))
+    lignes = [l for l in P.get('phrase', '').split('\n') if l.strip()]  # vidéo brute sans texte permise (24/11/2026)
+    taille = min(64, int(900 / (0.5 * max(len(l) for l in lignes)))) if lignes else 64
     vf = [f"drawtext=fontfile={POLICE}:text='{esc(l)}':fontsize={taille}:fontcolor=white:borderw=6:bordercolor=black:x=(w-text_w)/2:y={P.get('y_texte', 250) + n * int(taille * 1.15)}"
           for n, l in enumerate(lignes)]
     if P.get('marque', True):
