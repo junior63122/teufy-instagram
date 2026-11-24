@@ -1,5 +1,14 @@
 # Journal des revues de croissance
 
+## Revue du 24/11/2026, 11 h (mardi)
+- Chiffres : identiques à l'analyse complète de 10 h 40 (ci-dessous) ; abonnés 14 426 le 23/11 (−48 depuis le 08/11).
+- Stock de vidéos : « Tague ton pote » 6 épisodes en attente (6 mardis) ; spots promo : 0 en attente (les 3 publiés).
+- Mesure prise : 2 spots promo montés avec les vraies vidéos de soirée du Drive du directeur (« Envoie ça à ton groupe qui dit
+  « on verra » » et « POV : t'as enfin trouvé où sortir ce week-end »), 11 à 13 s, musique libre de droits (Mixkit) pour Instagram,
+  carte de fin teufyparty.com, couvertures Instagram et TikTok de la DA vérifiées à l'œil. Avec 1 spot par semaine, stock jusqu'au
+  09/12. Hypothèse testée : de vraies images de soirée retiennent mieux que le motion design (spots 01-03 : 3 à 4 s regardées).
+- Prochaine revue (vendredi 27/11) : durée regardée du spot 04 (objectif : plus de 5 s), comptes touchés du carrousel du vendredi.
+
 ## Analyse complète des publications, 24/11/2026 (tâche programmée)
 
 **Données** : 78 publications mesurées (`apprentissage.json`, de décembre 2024 au 21/11/2026), dont 61 faites à la main

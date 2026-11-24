@@ -4,7 +4,8 @@ captivant, viral, pas une campagne marketing ; pas forcément montrer l'applicat
 basses, choix du passage le plus vivant de chaque vidéo (mouvement, couleurs), une seule phrase courte où l'on se reconnaît, en
 haut, pendant toute la vidéo, 7 à 10 s pour qu'on la regarde en boucle, marque discrète.
 Usage : python3 fete.py scenario.json
-scenario = {sortie, musique, rythme, musique_debut, plans:[{fichier, fiche, temps}], phrase, marque?}
+scenario = {sortie, musique, rythme, musique_debut, plans:[{fichier, fiche, temps}], phrase, marque?, y_texte?}
+(y_texte : 250 pour TikTok ; 340 pour les réels Instagram, dont l'interface cache plus le haut)
 """
 import json, os, subprocess, sys, tempfile
 
@@ -72,7 +73,7 @@ def main(f):
     run(['ffmpeg', '-v', 'error', '-y', '-f', 'concat', '-safe', '0', '-i', os.path.join(tmp, 'l.txt'), '-c', 'copy', brut])
     lignes = P['phrase'].split('\n')
     taille = min(64, int(900 / (0.5 * max(len(l) for l in lignes))))
-    vf = [f"drawtext=fontfile={POLICE}:text='{esc(l)}':fontsize={taille}:fontcolor=white:borderw=6:bordercolor=black:x=(w-text_w)/2:y={250 + n * int(taille * 1.15)}"
+    vf = [f"drawtext=fontfile={POLICE}:text='{esc(l)}':fontsize={taille}:fontcolor=white:borderw=6:bordercolor=black:x=(w-text_w)/2:y={P.get('y_texte', 250) + n * int(taille * 1.15)}"
           for n, l in enumerate(lignes)]
     if P.get('marque', True):
         vf.append(f"drawtext=fontfile={POLICE}:text='teufy':fontsize=34:fontcolor=white@0.75:borderw=3:bordercolor=black@0.5:x=60:y=h-470")
