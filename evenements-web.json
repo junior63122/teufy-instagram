@@ -228,7 +228,8 @@
       "price": 15,
       "tags": [
         "cocktail",
-        "sport"
+        "sport",
+        "bar"
       ],
       "description": "Ce jeudi 24 novembre, La Cale Sèche te donne rendez‑vous pour une soirée Ti Punch et le match de la Ligue des Champions à 21 h. L’ambiance pirate, les boissons tropicales et le grand écran créent le cocktail parfait pour les fans de foot et de bonne musique. Le bar est ouvert dès 21 h, l’entrée est libre et le dress‑code est décontracté. Viens profiter d’une soirée entre potes dans le quartier de Toulon, à 4 place Monsenergue.",
       "public_cible": 0.6,
@@ -292,7 +293,8 @@
       "price": null,
       "tags": [
         "spritz",
-        "sport"
+        "sport",
+        "bar"
       ],
       "description": "Samedi 28 novembre, La Cale Sèche propose une soirée Spritz accompagnée du match PSG / Lorient à 20 h 45. Profite d’un cocktail rafraîchissant, d’une ambiance conviviale et du foot en direct. Entrée libre, bar ouvert dès 20 h 45, dress‑code casual. Adresse : 4 place Monsenergue, Toulon.",
       "public_cible": 0.6,
@@ -324,7 +326,9 @@
       "price": null,
       "tags": [
         "sport",
-        "karaoke"
+        "karaoke",
+        "bar",
+        "karaoké"
       ],
       "description": "Dimanche 29 novembre, La Cale Sèche diffuse le match France / Afrique du Sud à 17 h 40, suivi d’une session karaoké. Une soirée idéale pour les fans de sport et les amateurs de chant. Entrée libre, bar ouvert dès le début du match, dress‑code casual. Adresse : 4 place Monsenergue, Toulon.",
       "public_cible": 0.6,
@@ -6001,6 +6005,54 @@
       "accroche": "Happy hour 1 acheté = 1 offert, 20h-22h, du mercredi au samedi.",
       "instagram": [
         "barracuda.cannes"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "instagram.com",
+      "via_veille": true,
+      "name": "Soirée foot spéciale Ligue Europa",
+      "start": "2026-11-26T20:00:00.000Z",
+      "venue": "La Cale Sèche, Toulon",
+      "city": "Toulon",
+      "address": "",
+      "url": "https://www.instagram.com/p/DgGIZohoA8x/",
+      "image": "https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/928552767_18472742122186229_8034317840126112657_n.webp?stp=dst-jpg_e35_tt6&_nc_cat=105&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X3VybGdlbi5DMyJ9&_nc_ohc=4nSRko8AfOUQ7kNvwHh1YJ1&_nc_oc=AdpwvwDErrVB_Lz4EJm5R_5nXqlEPIZODNhy3_YgFaeITx070H4H8JtX8ufhRzB-R9o&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=n7f0tFRVYtey2EhQqGIDGw&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQSnkuz7tzfd-zq_CRuc_65nwdCKgT-ORtpwzJPABGu-Qg&oe=6B0B76F3",
+      "price": null,
+      "tags": [
+        "bar",
+        "sport"
+      ],
+      "description": "",
+      "public_cible": 0.6,
+      "confiance": 0.8,
+      "accroche": "Jeudi 26 : soirée foot spéciale Ligue Europa",
+      "instagram": [
+        "lacalesechetoulon"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "instagram.com",
+      "via_veille": true,
+      "name": "Embuscade pirates 1 acheté = 1 offert",
+      "start": "2026-11-27T20:00:00.000Z",
+      "venue": "La Cale Sèche, Toulon",
+      "city": "Toulon",
+      "address": "",
+      "url": "https://www.instagram.com/p/DgGIZohoA8x/",
+      "image": "https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/928552767_18472742122186229_8034317840126112657_n.webp?stp=dst-jpg_e35_tt6&_nc_cat=105&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X3VybGdlbi5DMyJ9&_nc_ohc=4nSRko8AfOUQ7kNvwHh1YJ1&_nc_oc=AdpwvwDErrVB_Lz4EJm5R_5nXqlEPIZODNhy3_YgFaeITx070H4H8JtX8ufhRzB-R9o&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=n7f0tFRVYtey2EhQqGIDGw&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQSnkuz7tzfd-zq_CRuc_65nwdCKgT-ORtpwzJPABGu-Qg&oe=6B0B76F3",
+      "price": null,
+      "tags": [
+        "bar",
+        "promo"
+      ],
+      "description": "",
+      "public_cible": 0.6,
+      "confiance": 0.8,
+      "accroche": "Vendredi 27 : L’Embuscade des Pirates 1 acheté = 1 offert jusqu’à 21h",
+      "instagram": [
+        "lacalesechetoulon"
       ]
     }
   ],
