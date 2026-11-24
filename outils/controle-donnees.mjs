@@ -7,7 +7,7 @@
 //     lien billetterie vers une page de recherche, ville incohérente avec le lieu, compte Instagram non vérifié ;
 //   - images : affiche absente du disque, affiche trop petite (floue).
 // Sortie : liste des problèmes ; code 1 s'il y a des erreurs bloquantes (utilisable en CI).
-import { readFileSync, readdirSync, existsSync, statSync } from 'node:fs';
+import { readFileSync, readdirSync, existsSync, statSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
@@ -149,7 +149,37 @@ for (const [f, rub] of [['evenements-france.json', 'france'], ['evenements-occit
   if (avenir >= 5 && existsSync(path.join(ROOT, rub)) && !readdirSync(path.join(ROOT, rub), { withFileTypes: true }).some((x) => x.isDirectory())) err(`${rub}/`, `aucune page de ville dans ${rub}/`);
 }
 
-// --- 3. Bilan -------------------------------------------------------------------------------------------------
+// --- 3. Corriger (24/11/2026, directeur : « le contrôle doit contrôler et corriger, c'est logique ») ----------------------
+// Chaque erreur qui touche une fiche soirée (titre et date qui ne collent pas, texte abîmé, doublon, lien de recherche, compte
+// non vérifié…) inscrit la soirée dans contenus/corrections-auto.json : la construction suivante du site (dans l'heure) et les
+// posts l'écartent. Une soirée passée sort de la liste. --lecture-seule : ne rien écrire.
+if (!process.argv.includes('--lecture-seule')) {
+  const F = path.join(ROOT, 'contenus', 'corrections-auto.json');
+  const ancien = lire('contenus/corrections-auto.json', { soirees: [] });
+  const aujourdhui = new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Paris' }).format(new Date());
+  const liste = (ancien.soirees || []).filter((c) => c.nuit >= aujourdhui);
+  const ajouts = [];
+  for (const e of erreurs) {
+    const m = e.match(/^(?:[a-z]{2}\/)?soiree\/([^/]+)\/ : (.*)$/); if (!m) continue;
+    if (/^(même affiche|affiche absente|caractère spécial doublement échappé)/.test(m[2])) continue; // corrigés à la construction (affiche retirée, traduction décodée), pas la soirée
+    // Erreur de texte : seulement si elle est dans le contenu propre de la soirée (pas dans les cartes « Le même soir »).
+    const regle = MAUVAIS.find(([, lib]) => lib && m[2].startsWith(lib));
+    if (regle) { const pageHtml = readFileSync(path.join(ROOT, e.split(' : ')[0], 'index.html'), 'utf8'); const propre = visible(pageHtml.split('class="similaires')[0].replace(/data-q="[^"]*"/g, '')); if (!regle[0].test(propre)) continue; }
+    const html = parId.get(m[1]); if (!html) continue;
+    const nom = ((html.match(/<h1>([^<]*)<\/h1>/) || [])[1] || '').replace(/&#39;/g, "'").replace(/&amp;/g, '&');
+    const debut = (html.match(/data-debut="([^"]+)"/) || [])[1]; if (!nom || !debut) continue;
+    const nuit = new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Paris' }).format(new Date(Date.parse(debut) - 5 * 3600e3));
+    const nom_cle = sansAccent(nom).replace(/[^a-z0-9]/g, '');
+    if (liste.some((c) => c.nom_cle === nom_cle && c.nuit === nuit) || ajouts.some((c) => c.nom_cle === nom_cle && c.nuit === nuit)) continue;
+    ajouts.push({ nom, nom_cle, nuit, page: `soiree/${m[1]}/`, raison: m[2].slice(0, 200), le: new Date().toISOString() });
+  }
+  if (ajouts.length || liste.length !== (ancien.soirees || []).length) {
+    writeFileSync(F, JSON.stringify({ _note: 'Soirées écartées automatiquement par le contrôle des données (outils/controle-donnees.mjs) : jamais affichées ni publiées tant que l\'erreur n\'est pas corrigée à la source. Retirer une ligne pour remettre la soirée.', soirees: [...liste, ...ajouts] }, null, 1) + '\n');
+    for (const a of ajouts) console.log(`→ corrigé : « ${a.nom} » (${a.nuit}) sera écartée à la prochaine construction (${a.raison.slice(0, 80)})`);
+  }
+}
+
+// --- 4. Bilan -------------------------------------------------------------------------------------------------
 console.log(`Contrôle des données : ${liste.length} pages lues, ${parId.size} fiches soirée.`);
 for (const e of erreurs) console.log(`✗ ${e}`);
 for (const a of alertes.slice(0, 80)) console.log(`! ${a}`);

@@ -40,7 +40,7 @@ jobs:
       - name: SEO, partage, images, sécurité
         run: node outils/audit-seo.mjs
       - name: Données affichées (texte cassé, dates, doublons, liens de billetterie, comptes Instagram non vérifiés)
-        run: node outils/controle-donnees.mjs
+        run: node outils/controle-donnees.mjs --lecture-seule
       - name: Attaque par données piégées (soirée malveillante injectée, rien ne doit s'exécuter)
         run: node outils/tester-donnees-piegees.mjs
 

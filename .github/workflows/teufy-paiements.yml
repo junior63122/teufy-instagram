@@ -50,6 +50,7 @@ jobs:
           sudo apt-get install -y --no-install-recommends tesseract-ocr tesseract-ocr-fra >/dev/null 2>&1 || true # repère les « photos de lieu » qui sont des affiches
           SITE_MINUTES=6 node src/run.mjs site --force || true
           node outils/controle-donnees.mjs || echo "::warning::Contrôle des données du site : erreurs à corriger (voir ci-dessus)"
+          git add contenus/corrections-auto.json 2>/dev/null || true # soirées écartées par le contrôle (24/11/2026 : « le contrôle doit corriger »)
       - name: Enregistrer
         if: steps.paiements.outputs.change == 'true'
         run: |

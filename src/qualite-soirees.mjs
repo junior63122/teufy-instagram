@@ -6,6 +6,17 @@
 //  4. Même soirée sous plusieurs annonces (« Marwa Loud Showcase » sur Instagram + « MARWA LOUD FAST PASS HIGH CLUB » sur la
 //     billetterie, même club, même nuit) : fusionnées, la billetterie l'emporte (heure, lien).
 const JOURS = ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'];
+import { readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+// Soirées signalées par le contrôle des données du site après une construction (outils/controle-donnees.mjs →
+// contenus/corrections-auto.json) : écartées à la construction suivante (24/11/2026, directeur : « le contrôle doit contrôler et corriger »).
+const FICHIER_CORRECTIONS = fileURLToPath(new URL('../contenus/corrections-auto.json', import.meta.url));
+let CORRECTIONS;
+export function estCorrigee(e, liste) {
+  liste ??= (CORRECTIONS ??= (() => { try { return JSON.parse(readFileSync(FICHIER_CORRECTIONS, 'utf8')).soirees || []; } catch { return []; } })());
+  const n = sansAccent(e.name).replace(/[^a-z0-9]/g, ''), j = new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Paris' }).format(new Date(Date.parse(e.start) - 5 * 3600e3));
+  return liste.some((c) => c.nom_cle === n && c.nuit === j);
+}
 const MOIS = ['janvier', 'fevrier', 'mars', 'avril', 'mai', 'juin', 'juillet', 'aout', 'septembre', 'octobre', 'novembre', 'decembre'];
 const partsParis = (t) => Object.fromEntries(new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Paris', weekday: 'short', day: '2-digit', month: '2-digit', hour: '2-digit', hourCycle: 'h23' }).formatToParts(new Date(t)).map((x) => [x.type, x.value]));
 const JOUR_EN = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 };
@@ -102,18 +113,38 @@ export function pourJeunes(e) {
   return !estDeJour(e) || JEUNE_DE_JOUR.test(t);
 }
 
+/** 7. Texte abîmé par une source (24/11/2026, contrôle des données : « R&amp;amp;B », « The Boiler R*** ») : réparé avant affichage. */
+export function nettoyerTexte(t) {
+  return String(t ?? '').replace(/&amp;(?=(amp|lt|gt|quot|#\d+);)/g, '&').replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'")
+    .replace(/\*{2}([^*\n]{1,60})\*{2}/g, '$1').replace(/\s{2,}/g, ' ').trim();
+}
+const MOIS_N = { janvier: 1, fevrier: 2, mars: 3, avril: 4, mai: 5, juin: 6, juillet: 7, aout: 8, septembre: 9, octobre: 10, novembre: 11, decembre: 12 };
+/** 8. Le titre annonce une date (« 26 novembre », « 26/11 ») qui n'est pas la nuit de la soirée (après corrigerNuit) : soirée écartée. */
+export function titreDateIncoherente(e) {
+  const t = Date.parse(e.start); if (!t) return false;
+  const [a, m, j] = new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Paris' }).format(new Date(t - 5 * 3600e3)).split('-').map(Number);
+  const n = sansAccent(e.name);
+  for (const x of n.matchAll(/\b([0-3]?\d)(?:er)?\s+(janvier|fevrier|mars|avril|mai|juin|juillet|aout|septembre|octobre|novembre|decembre)\b/g)) if (+x[1] !== j || MOIS_N[x[2]] !== m) return true;
+  for (const x of n.matchAll(/\b([0-3]?\d)\/([01]?\d)(?:\/(?:20)?\d\d)?\b/g)) if (+x[2] >= 1 && +x[2] <= 12 && (+x[1] !== j || +x[2] !== m)) return true;
+  void a; return false;
+}
+
 /** Commence entre 6 h et 17 h (heure de Paris) : événement de journée. */
 export function estDeJour(e) { const t = Date.parse(e.start); if (!t) return false; const h = +partsParis(t).hour; return h >= 6 && h < 17; }
 
 /** Les règles, dans l'ordre. */
 export function nettoyerSoirees(events, { log = () => {} } = {}) {
   let n = 0;
-  const corriges = corrigerVilles(events).map((e) => { const x = corrigerRecurrence(corrigerNuit(e)); if (x !== e || e._ville_corrigee) n++; return x; });
+  const corriges = corrigerVilles(events.map((e) => ({ ...e, name: nettoyerTexte(e.name), description: nettoyerTexte(e.description), venue: nettoyerTexte(e.venue) })))
+    .map((e) => { const x = corrigerRecurrence(corrigerNuit(e)); if (x !== e || e._ville_corrigee) n++; return x; });
   // 24/11/2026 (directeur : « il peut y avoir des événements en journée, ils peuvent intéresser les gens aussi, mais on doit très
   // bien différencier la nuit de la journée ») : les événements de journée restent, marqués « journee » ; le site les signale
   // (pastille « En journée », menu « Moment ») et ne les met jamais sous « Ce soir ». Seul le « week-end » placé en semaine est retiré.
-  const faux = corriges.filter((e) => weekEndIncoherent(e) || !pourJeunes(e));
-  const fusion = fusionnerMemeNuit(corriges.filter((e) => !weekEndIncoherent(e) && pourJeunes(e))).map((e) => (estDeJour(e) ? { ...e, journee: true } : e));
+  // Nom tronqué ou censuré par la source (« The Boiler R*** ») : jamais deviné, la soirée est écartée.
+  const exclu = (e) => weekEndIncoherent(e) || !pourJeunes(e) || titreDateIncoherente(e) || estCorrigee(e) || /\*{2,}/.test(e.name);
+  const faux = corriges.filter(exclu);
+  for (const e of faux.filter((e) => titreDateIncoherente(e) || estCorrigee(e))) log(`  Contrôle : « ${e.name} » écartée (${estCorrigee(e) ? 'signalée par le contrôle des données' : 'le titre annonce une autre date'}).`);
+  const fusion = fusionnerMemeNuit(corriges.filter((e) => !exclu(e))).map((e) => (estDeJour(e) ? { ...e, journee: true } : e));
   log(`  Qualité des soirées : ${n} date(s) corrigée(s), ${fusion.filter((e) => e.journee).length} événement(s) de journée gardé(s), ${faux.length} retiré(s) (date impossible ou pas pour les jeunes), ${corriges.length - faux.length - fusion.length} doublon(s) fusionné(s).`);
   return fusion;
 }

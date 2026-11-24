@@ -685,7 +685,9 @@ const NOMS_LANGUE = { en: 'English', it: 'Italian', es: 'Spanish', zh: 'Simplifi
 const TR = { cache: {}, manque: {} };
 const trad = (lang, x) => {
   if (lang === 'fr' || !x || !/[a-zà-ÿ]/i.test(x)) return x;
-  const v = TR.cache[`${lang}|${h(x)}`];
+  let v = TR.cache[`${lang}|${h(x)}`];
+  // Traduction rendue avec des entités (« R&amp;B ») d'un texte qui n'en avait pas : décodée (sinon « R&amp;amp;B » à l'écran).
+  if (v && !/&(amp|lt|gt|quot);/.test(x)) v = v.replace(/&amp;/g, '&').replace(/&quot;/g, '"');
   if (v) return v;
   (TR.manque[lang] ||= new Set()).add(x);
   return x;

@@ -117,3 +117,14 @@ test('affiche « Jeudi 26 novembre, 00h-05h » et soirée lue le 26 à 0 h : nui
   assert.equal(nuitDeLAffiche({ ...e, start: '2026-11-26T21:00:00.000Z' }, { titre: '100% Shatta', dates: ['2026-11-26'] }), false); // 22 h : déjà bon
   assert.equal(nuitDeLAffiche(e, { titre: 'Autre soirée', dates: ['2026-11-26'] }), false);
 });
+
+test('contrôle qui corrige (24/11) : texte réparé, nom censuré écarté, titre à une autre date écarté', async () => {
+  const { nettoyerTexte, titreDateIncoherente, nettoyerSoirees, estCorrigee } = await import('../src/qualite-soirees.mjs');
+  assert.equal(nettoyerTexte('soul, hip-hop and R&amp;amp;B'), 'soul, hip-hop and R&B');
+  assert.equal(nettoyerTexte('**Line-up** complet'), 'Line-up complet');
+  assert.equal(titreDateIncoherente({ name: 'Soirée Shatta 26 novembre', start: '2026-11-26T23:00:00.000Z' }), false);
+  assert.equal(titreDateIncoherente({ name: 'Soirée Shatta 26 novembre', start: '2026-11-27T21:00:00.000Z' }), true);
+  const r = nettoyerSoirees([{ name: 'The Boiler R***', start: '2026-12-18T22:00:00.000Z', venue: 'X' }, { name: 'Techno Night', start: '2026-12-18T22:00:00.000Z', venue: 'Y' }]);
+  assert.deepEqual(r.map((e) => e.name), ['Techno Night']);
+  assert.equal(estCorrigee({ name: 'Le Mome & Adame', start: '2026-12-18T22:00:00.000Z' }, [{ nom_cle: 'lemomeadame', nuit: '2026-12-18' }]), true);
+});

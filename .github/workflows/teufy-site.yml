@@ -89,6 +89,7 @@ jobs:
           sudo apt-get install -y --no-install-recommends tesseract-ocr tesseract-ocr-fra >/dev/null 2>&1 || true # repère les « photos de lieu » qui sont des affiches
           node src/run.mjs site --force || echo "::warning::Site non reconstruit"
           node outils/controle-donnees.mjs || echo "::warning::Contrôle des données du site : erreurs à corriger"
+          git add contenus/corrections-auto.json 2>/dev/null || true # soirées écartées par le contrôle (24/11/2026 : « le contrôle doit corriger »)
           # Toutes les pages reconstruites (avant : liste figée, il manquait artistes, ce-soir, avantages… : les photos des
           # artistes n'apparaissaient qu'au passage suivant de la veille). Le compteur de dépenses IA n'est jamais touché ici.
           git add -A . ':!contenus/budget-ia.json' || true
