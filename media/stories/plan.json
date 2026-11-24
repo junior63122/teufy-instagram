@@ -2,13 +2,13 @@
   "jour": "2026-11-24",
   "plan": [
     {
-      "type": "soirees",
+      "type": "astuce",
       "cles": [
-        "Je Dis Techno"
+        "a-pres-de-moi"
       ],
       "frames": [
         {
-          "image": "2026-11-24-soirees-0.jpg"
+          "image": "2026-11-24-astuce.jpg"
         }
       ]
     }
