@@ -6174,6 +6174,30 @@
       "instagram": [
         "twigamontecarlo"
       ]
+    },
+    {
+      "source": "web",
+      "source_site": "instagram.com",
+      "via_veille": true,
+      "name": "JC VITTO au Kosma",
+      "start": "2026-11-25T22:00:00.000Z",
+      "venue": "Kosma, Nice",
+      "city": "Nice",
+      "address": "",
+      "url": "https://www.instagram.com/p/DgIBi9jBBcG/",
+      "image": "https://scontent-ord5-1.cdninstagram.com/v/t51.82787-15/924002302_18584233915078335_39916775359537201_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=105&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=AqI5EPyDxg8Q7kNvwHpUUpW&_nc_oc=AdogzYT6QRsQWCCQOTV4fDqYBPiaIui5HS34nfleMEhtao5urUvz3IrY4U9Kzx7lZlM&_nc_zt=23&_nc_ht=scontent-ord5-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=wUYoFCTYQAk5WTuZB7hdww&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQS9BFcOpkpk6sIVuuaN8r_bMDDGtyBBMotbP64NdpUbXQ&oe=6B0BCD84",
+      "price": null,
+      "tags": [
+        "House",
+        "Techno"
+      ],
+      "description": "",
+      "public_cible": 0.6,
+      "confiance": 0.8,
+      "accroche": "JC VITTO enflamme le Kosma à Nice le 25 novembre, de 23 h à 5 h.",
+      "instagram": [
+        "kosma.liveclub"
+      ]
     }
   ],
   "maj_instagram": "2026-11-24T17:12:38.013Z"
