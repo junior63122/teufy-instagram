@@ -33,7 +33,9 @@
   (crédits de l'abonnement Riviera) autorisée **sans redemander** (réponse du directeur le 18/11/2026 : « Oui, sans
   redemander »). Livrer dans `media/spot-promo/` (`NN-sujet.mp4` + `.txt` + `.couverture.txt` + `.json`
   `{accroche, fonctionnalites}`) après zone sûre, `controle.py` et vérification à l'œil. Ils passent dans les créneaux promo
-  (avant la promo automatique) ; l'apprentissage choisit d'abord le type d'accroche qui marche (`accroche-spot`). Avant d'en
+  (avant la promo automatique) ; l'apprentissage choisit d'abord le type d'accroche qui marche (`accroche-spot`). Analyse du 24/11/2026 : les
+  spots touchent le moins de monde (268 à 524 vues, 3 à 4 s regardées sur 13) ; ramenés à 1 par semaine (le mercredi), le minimum
+  fixé le 20/11, jusqu'à ce qu'une nouvelle accroche dépasse les autres réels. Avant d'en
   produire : `node outils/bilan-spots.mjs`, puis varier accroche, décor, rythme et fonctionnalités par rapport aux précédents.
   Couverture DA avec bouton lecture (photo de `decors/da/`). Chiffres affichés : relevés sur le site le jour même, sinon pas de chiffre.
 - **Mise à jour hebdomadaire** (directeur, 19/11/2026 : « toutes les semaines, vois s'il y a des mises à jour à faire, des

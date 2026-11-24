@@ -16,6 +16,7 @@ import { spawnSync } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { collectEvents, filterEvents, enrich } from './sources.mjs';
+import { TITRES_COMMERCIAL, fenetreNouvelAn } from './themes-posts.mjs';
 import { windowFor, rolling, isoLocal, plage, slotOfDay, daysOfMonth } from './dates.mjs';
 import { isTechno, isUnderground } from './genres.mjs';
 import { captionIncontournables, captionBonPlan, captionDebat, captionReel, captionOrgas, captionExplicatif, rng } from './captions.mjs';
@@ -626,15 +627,21 @@ async function prepare(slot, now, id) {
     // Techno : un carrousel des incontournables techno DU MOIS (30 jours), pour avoir de vraies grosses dates.
     let win = tekno ? rolling(now, 0, 14) : techno ? rolling(now, 0, 30) : windowFor([1, 2, 3, 4, 5, 6, 7], now);
     win.from = new Date(Math.max(win.from.getTime(), now.getTime() - 6 * 3600e3));
-    let list = await pickEv(win, pred);
+    // Analyse du 24/11/2026 : les listes à thème daté marchent 3 à 8 fois mieux que « nos coups de cœur » (Nouvel An 2025 :
+    // 3 900 comptes touchés et 58 partages ; Halloween : 5 442 et 174 partages). En décembre (jusqu'au 30), le carrousel
+    // « commercial » devient « Les soirées du Nouvel An » dès qu'il y a 4 soirées du 31 avec affiche, une fois par semaine.
+    const nouvelAn = !techno ? fenetreNouvelAn(now, hist) : null;
+    let list = nouvelAn ? await pickEv(nouvelAn) : [];
+    if (nouvelAn && list.filter((e) => e.image).length >= 4) win = nouvelAn; else list = await pickEv(win, pred);
+    const estNouvelAn = win === nouvelAn;
     let elargi = false;
     const avecAffiche = (l) => l.filter((e) => e.image).length;
-    if (avecAffiche(list) < 4) { win = rolling(now, 0, tekno ? 21 : techno ? 45 : 14); list = await pickEv(win, pred); elargi = true; }
+    if (!estNouvelAn && avecAffiche(list) < 4) { win = rolling(now, 0, tekno ? 21 : techno ? 45 : 14); list = await pickEv(win, pred); elargi = true; }
     // Trop peu de dates de ce genre : on prend toutes les soirées plutôt qu'un carrousel maigre.
     let melange = false;
-    if (!tekno && avecAffiche(list) < 4) { const tout = await pickEv(win); if (avecAffiche(tout) > avecAffiche(list)) { list = tout; melange = true; } } // l'édition Tekno ne se mélange jamais
+    if (!tekno && !estNouvelAn && avecAffiche(list) < 4) { const tout = await pickEv(win); if (avecAffiche(tout) > avecAffiche(list)) { list = tout; melange = true; } } // l'édition Tekno ne se mélange jamais
     // Cohérence avec le titre : période annoncée, genre de l'édition (Tekno = underground, techno, commercial sans techno).
-    const coh = { format: tekno ? 'tekno' : techno && !melange ? 'techno' : melange ? null : 'commercial', fenetre: { from: win.from, to: win.to }, now };
+    const coh = { format: tekno ? 'tekno' : techno && !melange ? 'techno' : melange || estNouvelAn ? null : 'commercial', fenetre: { from: win.from, to: win.to }, now };
     list = filtrerCoherentes(list, coh);
     need(list, 3);
     const chosen = chrono(lesBonnes(list));
@@ -643,20 +650,22 @@ async function prepare(slot, now, id) {
     const enTechno = techno && !melange; // carrousel élargi à tous les genres : on ne l'annonce plus comme « techno »
     const titre = enTechno
       ? ch.pick('titre-techno', ['Les incontournables techno du mois', 'Les dates techno à ne pas manquer ce mois-ci'])
-      : fort || ch.pick('titre-commercial', ['Nos événements coups de cœur de la semaine', 'Les soirées à ne pas manquer', 'Nos coups de cœur de la semaine']);
+      : estNouvelAn ? 'Les soirées du Nouvel An sur la Côte'
+      : fort || ch.pick('titre-commercial', TITRES_COMMERCIAL);
     const pages = carouselPages({ mise: ch.pick('mise-couverture', ['centre', 'bas'], (x) => x),
       th, photos, events: chosen, titre,
-      sous: fort ? `En ${MOIS(now)}` : elargi ? 'Ces prochains jours' : 'Cette semaine',
+      sous: estNouvelAn ? 'Le 31 décembre' : fort ? `En ${MOIS(now)}` : elargi ? 'Ces prochains jours' : 'Cette semaine',
       fin: techno
         ? { texte: 'On se voit sur le dancefloor.\nTu seras à laquelle ?', pied: 'Toutes les soirées sur teufyparty.com' }
         : { texte: 'Tu sors où cette semaine ?\nDis-le en commentaire.', pied: 'Toutes les soirées sur teufyparty.com' },
     });
     let files = null;
     // Carrousel du studio (affiches officielles, DA éditoriale) ; repli sur l'ancien gabarit si impossible.
-    files = await carrouselDA({ chosen, id, dir, now, edition: tekno ? 'tekno' : enTechno ? 'techno' : 'commercial', titre: [titre, ''] });
+    files = await carrouselDA({ chosen, id, dir, now, edition: tekno ? 'tekno' : enTechno ? 'techno' : 'commercial', titre: [titre, ''],
+      ...(estNouvelAn ? { titreFlash: 'Les soirées du [Nouvel An]', question: 'Tu passes le réveillon [où] ?', rubrique: "Nouvel An · Côte d'Azur" } : {}) });
     if (!files) throw new Error('Carrousel de la DA impossible (studio absent ou moins de 2 affiches) : rien n\'est publié.');
     files ||= await renderPages(programme(pages, chosen, { th, photos, titre, sous: fort ? `En ${MOIS(now)}` : elargi ? 'Ces prochains jours' : 'Cette semaine' }), dir, `incontournables-${stamp}`, { width: 1080, height: 1350 });
-    pub = { images: files, legende: captionIncontournables({ variante: enTechno || !techno ? slot.variante : 'commercial', events: chosen, ...win, ch, r, periode: chosen.periode }), soirees: chosen, titre: chosen.titrePost || titre, coherence: coh };
+    pub = { images: files, legende: captionIncontournables({ variante: enTechno || !techno ? slot.variante : 'commercial', events: chosen, ...win, ch, r, periode: chosen.periode }), soirees: chosen, titre: estNouvelAn ? titre : chosen.titrePost || titre, coherence: coh, ...(estNouvelAn ? { theme: 'nouvel-an' } : {}) };
   } else if (slot.type === 'reel' && ['grand-debat', 'serie-nuit', 'spot-promo', 'tague-ton-pote'].includes(slot.variante)) {
     // « Le Grand Débat » (14/11/2026, directeur : 2 épisodes par semaine) : épisodes fabriqués à part (série animée
     // Kévin / Léo) et déposés dans media/grand-debat/ : episode.mp4 + episode.txt (légende). Le plus ancien non publié part.
@@ -1012,7 +1021,7 @@ async function publishPrepared(id) {
   // Historique écrit TOUT DE SUITE (20/11/2026) : avant, il ne l'était qu'après la relecture et les stories (jusqu'à
   // 20 min) ; un arrêt entre-temps (délai du job, panne) laissait un post en ligne sans trace, republié au passage suivant.
   const entreeHist = { id, date: p.date, media: res.id, lien: null, fete: p.fete, titre: p.titre, guide: p.guide, debat: p.debat, bonplan: p.bonplan, sujet: p.sujet, son: p.son, concept: p.concept, photo: p.photo || null, mise: p.mise || undefined, verifie: 'en cours', hors_grille: p.hors_grille || undefined, soirees: (p.soirees || []).map(cleSoiree), le: new Date().toISOString(),
-    publication: { id: p.id, type: p.type, variante: p.variante, date: p.date, choix: p.choix, features: p.features, nb_images: p.nb_images, duree: p.duree, legende: p.legende, titre: p.titre } };
+    publication: { id: p.id, type: p.type, variante: p.variante, date: p.date, choix: p.choix, features: p.features, nb_images: p.nb_images, duree: p.duree, legende: p.legende, titre: p.titre, theme: p.theme } };
   hist.push(entreeHist);
   await writeFile(HIST_FILE, JSON.stringify(hist.slice(-300), null, 2));
   // Post de veille : le sujet ne compte comme publié qu'à partir d'ici (avant : dès la préparation, même si rien ne partait).

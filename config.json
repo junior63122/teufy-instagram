@@ -641,7 +641,7 @@
     {
       "jour": 6,
       "type": "reel",
-      "variante": "promo"
+      "variante": "tendance"
     }
   ],
   "_grand_debat": "14/11/2026 (directeur) : « Le Grand Débat », série animée (Kévin / Léo), 2 épisodes par semaine (mardi et samedi). Épisodes déposés dans media/grand-debat/ (NN-sujet.mp4 + NN-sujet.txt pour la légende) ; le plus ancien non publié part ; sans épisode en attente, le créneau reste libre.",
@@ -654,5 +654,6 @@
     "videos": "16lDzJQr_L-AQfcmsDEWE3at4hHv-LT7u",
     "musique": "1r9pcDqHsNDR6ylO2qatsPocWtQygWD4M"
   },
-  "_planning_23_11_2026": "23/11/2026 (directeur : « la dernière publication date d'il y a deux jours, c'est absolument pas normal ») : un post chaque dimanche (créneau libre), et jamais un jour sans publication dans le fil (un jour vide reçoit un post libre)."
+  "_planning_23_11_2026": "23/11/2026 (directeur : « la dernière publication date d'il y a deux jours, c'est absolument pas normal ») : un post chaque dimanche (créneau libre), et jamais un jour sans publication dans le fil (un jour vide reçoit un post libre).",
+  "_planning_24_11_2026": "24/11/2026 (analyse complète des publications, ANALYSE-ENGAGEMENT.md) : 1 seul spot promo par semaine (mercredi) au lieu de 2 ; le samedi passe en reel « tendance » (meilleur reel du robot : 1 140 vues, 6,8 s regardées ; spots promo : 268 à 524 vues, 3 à 4 s sur 13). Carrousel « commercial » : titres concrets (Ton week-end est réglé…) au lieu de « Nos coups de cœur » (355 comptes touchés, le pire) ; en décembre, « Les soirées du Nouvel An » une fois par semaine dès 4 soirées du 31 avec affiche (Nouvel An 2025 : 3 900 comptes touchés, 58 partages)."
 }

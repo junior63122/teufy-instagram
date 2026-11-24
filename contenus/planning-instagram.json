@@ -1,5 +1,5 @@
 {
- "le": "2026-11-24T09:12:42.537Z",
+ "le": "2026-11-24T09:41:28.135Z",
  "jours": [
   {
    "date": "2026-11-24",
@@ -177,9 +177,9 @@
    "pause": null,
    "publications": [
     {
-     "id": "reel-promo",
+     "id": "reel-tendance",
      "type": "reel",
-     "variante": "promo",
+     "variante": "tendance",
      "heure": "19 h 07",
      "suite": false,
      "fait": false,
@@ -463,9 +463,9 @@
    "pause": null,
    "publications": [
     {
-     "id": "reel-promo",
+     "id": "reel-tendance",
      "type": "reel",
-     "variante": "promo",
+     "variante": "tendance",
      "heure": "19 h 07",
      "suite": false,
      "fait": false,
