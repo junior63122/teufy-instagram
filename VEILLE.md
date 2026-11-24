@@ -13,6 +13,10 @@ mises à jour, sources de soirées réparées ou ajoutées, décisions prises. T
   22/06/2026, toutes versions ; carrousel : conteneur principal seulement), mis quand un visuel contient une photo de la DA
   (générée par Gemini) ; relu après publication (GET ?fields=is_ai_generated) ; champ « ia » dans l'historique. À vérifier au
   premier passage de publication de ce soir.
+  Résultat (contrôle de 19 h 53) : passages de 16 h, 17 h et 18 h (UTC) en v26.0 sans repli ; carrousel bons plans et réel « Tague
+  ton pote » publiés, relus en ligne et conformes (ia = true dans l'historique, aucune alerte « étiquette absente ») ; story repost
+  refusée une fois par Instagram (code 2207076), reprise et en ligne au passage suivant. 2 tests de l'IA échouaient sur le robot
+  (vrai compteur de dépense au plafond) : rendus indépendants du compteur.
 - Relevé technique : celui de la veille a tourné à 16 h 59 (horaire de 6 h 17 sauté par GitHub, relancé ensuite) ; celui du jour sera
   relancé par le robot de veille à partir de 7 h.
 - Actions GitHub : checkout et setup-node passés en v7 sur tous les robots (essayées 2 jours sur la veille technique sans souci).
