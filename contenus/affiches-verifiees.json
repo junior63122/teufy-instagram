@@ -7957,5 +7957,38 @@
    "lieu": "PLAYA CHICA"
   },
   "commun": []
- }
+ },
+ "v2|4010411c35ef": {
+  "ok": true,
+  "le": "2026-11-24T20:17:27.839Z",
+  "nom": "Carol Nakari Quintet – Pourquoi pas ce soir ? | Concert live",
+  "lu": {
+   "titre": "Carol Nakari Quintet",
+   "dates": [
+    "2026-12-05"
+   ],
+   "artistes": [
+    "Carol Nakari"
+   ],
+   "lieu": "LE QUARTIER DU POULPE"
+  },
+  "commun": [
+   "carol",
+   "nakari",
+   "quintet"
+  ]
+ },
+ "v2|5dbb4bc02215": {
+  "ok": false,
+  "le": "2026-11-24T20:17:28.959Z",
+  "nom": "Dj - Trvchi",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": [],
+   "lieu": ""
+  },
+  "commun": []
+ },
+ "og|https://zenith-toulon.com": ""
 }

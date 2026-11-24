@@ -1,0 +1,24 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:one-night-of-queen-wembley-show-2027-01-08@teufy
+DTSTAMP:20261124T202537Z
+DTSTART:20270108T193000Z
+DTEND:20270109T003000Z
+SUMMARY:One Night of Queen - Wembley Show
+LOCATION:Zénith de Toulon\, Toulon
+DESCRIPTION:Le grand show hommage à Freddie Mercury et Queen en live au Zénith de Toulon.\nVia Teufy @teufy_official
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : One Night of Queen - Wembley Show
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : One Night of Queen - Wembley Show
+END:VALARM
+END:VEVENT
+END:VCALENDAR

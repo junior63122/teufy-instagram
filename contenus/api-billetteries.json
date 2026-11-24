@@ -1,5 +1,5 @@
 {
- "maj": "2026-11-24T14:13:16.115Z",
+ "maj": "2026-11-24T20:16:13.521Z",
  "evenements": [
   {
    "source": "eventbrite",
@@ -94,22 +94,6 @@
    "price": 19.32,
    "tags": [],
    "description": "Riviera Bar Crawl Paris presents the ultimate bar hopping in Paris Latin Quarter with a group of travelers, expats, and locals. Every Night",
-   "popularite": null,
-   "pays": "FR"
-  },
-  {
-   "source": "eventbrite",
-   "name": "Soirée Speak Easy & animation magicien à Marseille (40-50 ans)",
-   "start": "2026-11-27T18:00:00.000Z",
-   "end": "2026-11-27T22:30:00.000Z",
-   "venue": "Annette",
-   "city": "Marseille",
-   "address": "9 Rue Molière, 13001 Marseille",
-   "url": "https://www.eventbrite.com/e/billets-soiree-speak-easy-animation-magicien-a-marseille-40-50-ans-2004643665166",
-   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1190963556%2F1189724529443%2F1%2Foriginal.20260813-090725?auto=format%2Ccompress&q=75&sharp=10&s=aca009d6d4f8e19bf481c84850e03998",
-   "price": 19,
-   "tags": [],
-   "description": "Envie de faire de vraies rencontres à Marseille ? Participe à notre soirée dédiée aux rencontres entre femmes et hommes, le 27 novembre.",
    "popularite": null,
    "pays": "FR"
   },
@@ -307,6 +291,22 @@
   },
   {
    "source": "eventbrite",
+   "name": "Soirée Speak Easy & animation magicien à Marseille (40-50 ans)",
+   "start": "2026-12-04T18:00:00.000Z",
+   "end": "2026-12-04T20:00:00.000Z",
+   "venue": "Annette",
+   "city": "Marseille",
+   "address": "9 Rue Molière, 13001 Marseille",
+   "url": "https://www.eventbrite.com/e/billets-soiree-speak-easy-animation-magicien-a-marseille-40-50-ans-2004643665166",
+   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1190963556%2F1189724529443%2F1%2Foriginal.20260813-090725?auto=format%2Ccompress&q=75&sharp=10&s=aca009d6d4f8e19bf481c84850e03998",
+   "price": 19,
+   "tags": [],
+   "description": "Envie de faire de vraies rencontres à Marseille ? Participe à notre soirée dédiée aux rencontres entre femmes et hommes, le 4 décembre.",
+   "popularite": null,
+   "pays": "FR"
+  },
+  {
+   "source": "eventbrite",
    "name": "Soirée Speak Easy & animation magicien à Nice (40-50 ans)",
    "start": "2026-12-04T18:00:00.000Z",
    "end": "2026-12-04T22:30:00.000Z",
@@ -350,6 +350,22 @@
    "price": 27.84,
    "tags": [],
    "description": "Experience the best of Nice nightlife with Riviera Bar Crawl Nice. Meet people worldwide, enjoy exclusive deals, create  your memories now",
+   "popularite": null,
+   "pays": "FR"
+  },
+  {
+   "source": "eventbrite",
+   "name": "Carol Nakari Quintet – Pourquoi pas ce soir ? | Concert live",
+   "start": "2026-12-05T19:00:00.000Z",
+   "end": "2026-12-05T22:59:00.000Z",
+   "venue": "Le Quartier du Poulpe",
+   "city": "Nice",
+   "address": "34 boulevard Auguste Raynaud, 06100 Nice",
+   "url": "https://www.eventbrite.com/e/carol-nakari-quintet-pourquoi-pas-ce-soir-concert-live-tickets-2005397934205",
+   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1198610795%2F2988009644804%2F1%2Foriginal.20261124-144318?auto=format%2Ccompress&q=75&sharp=10&s=ef8dbbfddf38c8fcb67499451bd37e65",
+   "price": 0,
+   "tags": [],
+   "description": "Une soirée musicale entre jazz, pop, world music, compositions originales et reprises incontournables au QDP!",
    "popularite": null,
    "pays": "FR"
   },
@@ -469,7 +485,7 @@
  "rapport": [
   {
    "source": "eventbrite-api",
-   "evenements": 29
+   "evenements": 30
   },
   {
    "source": "ticketmaster-api",
