@@ -9,7 +9,7 @@ const B = process.env.BASE || 'http://localhost:8765/';
   { const c = await b.newContext({ geolocation: { latitude: 43.7009, longitude: 7.2683 }, permissions: ['geolocation'], viewport: { width: 1440, height: 900 } }); const p = await c.newPage();
     await p.goto(B, { waitUntil: 'networkidle' });
     const r = await p.evaluate(() => [...document.querySelectorAll('.carte[data-ville="var"]')].filter((x) => x.dataset.lat).map((x) => Math.round(Math.hypot((+x.dataset.lat - 43.7009) * 111, (+x.dataset.lng - 7.2683) * 80))));
-    ok('Var : plus aucune soirée placée à Nice', r.every((km) => km > 50), `distances ${[...new Set(r)].slice(0, 8).join(', ')} km`); await c.close(); }
+    ok('Var : plus aucune soirée placée à Nice (Saint-Raphaël est à 48 km)', r.every((km) => km > 30), `distances ${[...new Set(r)].slice(0, 8).join(', ')} km`); await c.close(); }
   const p = await (await b.newContext({ viewport: { width: 1440, height: 900 } })).newPage();
   const visibles = () => p.evaluate(() => [...document.querySelectorAll('.liste .carte')].filter((c) => c.offsetParent).length);
   await p.goto(B, { waitUntil: 'networkidle' });
