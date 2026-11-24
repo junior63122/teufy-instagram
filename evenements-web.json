@@ -415,7 +415,8 @@
         "Shotgun Live",
         "InfoConcert",
         "Shotgun",
-        "Instagram (tweltyprod)"
+        "Instagram (tweltyprod)",
+        "instagram.com"
       ],
       "billetterie_cherchee": true,
       "offres_cherchees": true,
@@ -5781,6 +5782,31 @@
       "instagram": [
         "magnoliacafenice"
       ]
+    },
+    {
+      "source": "web",
+      "source_site": "instagram.com",
+      "via_veille": true,
+      "name": "Je Dis Techno",
+      "start": "2026-11-24T21:00:00.000Z",
+      "venue": "L’Antre",
+      "city": "Antibes",
+      "address": "",
+      "url": "https://www.instagram.com/p/DgF-RyOgEeo/",
+      "image": "https://scontent-sjc3-1.cdninstagram.com/v/t51.82787-15/920018501_18077717174766120_4547510483687883969_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=111&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=LRXM_DHjy7MQ7kNvwGkktyt&_nc_oc=AdoohJS4Zo5ECawCtvmywkI-qxli0LouDdHypJH2BkbUEFO5jNQEVESyYD8Wn8KnoOI&_nc_zt=23&_nc_ht=scontent-sjc3-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=A_Grj3MIcxvQ-Av4n6a2rw&_nc_ct=RQosPBUKFQQAAAA&oh=00_AQSQmqhbmA6jk-8BnpaUkH61oc0b1RucfbPu6Be6O7GSew&oe=6B0B31AB",
+      "price": null,
+      "tags": [
+        "Hard Rave",
+        "Hard Techno"
+      ],
+      "description": "",
+      "public_cible": 0.6,
+      "confiance": 0.9,
+      "accroche": "Je Dis Techno – deux lieux, une nuit explosive",
+      "instagram": [
+        "je_dis_techno_nice"
+      ],
+      "offres": []
     }
   ],
   "maj_instagram": "2026-11-24T08:42:11.518Z"
