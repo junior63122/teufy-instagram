@@ -2,13 +2,14 @@
   "jour": "2026-11-24",
   "plan": [
     {
-      "type": "astuce",
+      "type": "repost",
       "cles": [
-        "a-pres-de-moi"
+        "r-17877067128639358"
       ],
       "frames": [
         {
-          "image": "2026-11-24-astuce.jpg"
+          "video": "2026-11-24-repost.mp4",
+          "local": true
         }
       ]
     }
