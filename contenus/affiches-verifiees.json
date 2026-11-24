@@ -7779,5 +7779,60 @@
    "lieu": ""
   },
   "commun": []
+ },
+ "v2|0b14a35fecf2": {
+  "ok": true,
+  "le": "2026-11-24T16:13:01.478Z",
+  "nom": "Soirée Speak Easy & animation magicien à Nice (40-50 ans)",
+  "lu": {
+   "titre": "SPEAK easy",
+   "dates": [],
+   "artistes": [],
+   "lieu": ""
+  },
+  "commun": [
+   "speak",
+   "easy"
+  ]
+ },
+ "v2|4e212ba4940f": {
+  "ok": true,
+  "le": "2026-11-24T16:13:02.445Z",
+  "nom": "Soirée humour STAND-UP au Doppio Malto",
+  "lu": {
+   "titre": "STAND UP COMEDY CLUB",
+   "dates": [
+    "2026-12-04"
+   ],
+   "artistes": [
+    "BANANA COMEDY CLUB",
+    "DOPPIO MALTO"
+   ],
+   "lieu": "Cap3000, 217 Av. Eugène Donadéi"
+  },
+  "commun": [
+   "stand",
+   "doppio",
+   "malto"
+  ]
+ },
+ "v2|916e6bf5b8ba": {
+  "ok": true,
+  "le": "2026-11-24T16:13:11.097Z",
+  "nom": "Ref Session #18 Acid Pauli @ Frigo 16",
+  "lu": {
+   "titre": "ACID PAULI",
+   "dates": [
+    "2026-12-04"
+   ],
+   "artistes": [
+    "ACID PAULI"
+   ],
+   "lieu": "FRIGO 16"
+  },
+  "commun": [
+   "acid",
+   "pauli"
+  ]
  }
 }
