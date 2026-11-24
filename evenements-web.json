@@ -6032,6 +6032,55 @@
       "instagram": [
         "lacalesechetoulon"
       ]
+    },
+    {
+      "source": "web",
+      "source_site": "instagram.com",
+      "via_veille": true,
+      "name": "NayaClub Cannes – Soirée du vendredi",
+      "start": "2026-11-24T23:00:00.000Z",
+      "venue": "15 Rue des Frères Pradignac, Cannes",
+      "city": "Cannes",
+      "address": "",
+      "url": "https://www.instagram.com/p/DgHtuDlRAc5/",
+      "image": "https://scontent-iad3-2.cdninstagram.com/v/t51.82787-15/927316559_18021056117975157_9028451248625547259_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=107&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=CChIP4eceSoQ7kNvwHAKr4A&_nc_oc=AdpokQlNY29t-y_Bco2ebjYvOJgb2gUeN495yEi9V0K_sWYynC9ZrikN0tcuLbnfMro&_nc_zt=23&_nc_ht=scontent-iad3-2.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=KEQif5tVeZy3CW8Xg7oUcQ&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQS4rwF-vo6ZU6rfgCiXFQWPGyMDY9-9UVbj1nqBJIsW8Q&oe=6B0BA5A7",
+      "price": null,
+      "tags": [
+        "Techno",
+        "House"
+      ],
+      "description": "",
+      "public_cible": 0.6,
+      "confiance": 0.8,
+      "accroche": "NayaClub ouvre ses portes de minuit à 5h avec djdrozzy.",
+      "instagram": [
+        "nayaclubcannes"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "instagram.com",
+      "via_veille": true,
+      "name": "NayaClub Cannes – Soirée du samedi",
+      "start": "2026-11-25T23:00:00.000Z",
+      "venue": "15 Rue des Frères Pradignac, Cannes",
+      "city": "Cannes",
+      "address": "",
+      "url": "https://www.instagram.com/p/DgHtuDlRAc5/",
+      "image": "https://scontent-iad3-2.cdninstagram.com/v/t51.82787-15/927316559_18021056117975157_9028451248625547259_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=107&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=CChIP4eceSoQ7kNvwHAKr4A&_nc_oc=AdpokQlNY29t-y_Bco2ebjYvOJgb2gUeN495yEi9V0K_sWYynC9ZrikN0tcuLbnfMro&_nc_zt=23&_nc_ht=scontent-iad3-2.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=KEQif5tVeZy3CW8Xg7oUcQ&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQS4rwF-vo6ZU6rfgCiXFQWPGyMDY9-9UVbj1nqBJIsW8Q&oe=6B0BA5A7",
+      "price": null,
+      "tags": [
+        "Techno",
+        "House"
+      ],
+      "description": "",
+      "public_cible": 0.6,
+      "confiance": 0.8,
+      "accroche": "NayaClub continue la nuit jusqu’à 5h avec Dj Williamnc.",
+      "instagram": [
+        "nayaclubcannes",
+        "dj_williamnc"
+      ]
     }
   ],
   "maj_instagram": "2026-11-24T15:27:24.484Z"
