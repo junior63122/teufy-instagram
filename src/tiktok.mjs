@@ -37,6 +37,8 @@ export function stockVideos(root = ROOT) {
     // Montages calés sur une musique (22/11/2026) : <id>.json { son: { titre, depart } } → le directeur met le même son depuis la
     // bibliothèque TikTok, démarré au même moment, pour que les coupes tombent sur le rythme.
     const meta = lire(fichier.replace(/\.mp4$/, '.json'), {});
+    // Spot dont une version TikTok sur une vraie musique existe dans media/tiktok/ (24/11/2026) : pas deux fois les mêmes images.
+    if (meta.tiktok === false) return;
     out.push({ id, video: path.relative(root, fichier).split(path.sep).join('/'), type, legende: legendeTiktok(texte, type), ...(existsSync(couv) ? { couverture: `media/tiktok/couvertures/${id}.jpg` } : {}), ...(meta.son?.titre ? { son: meta.son } : {}) });
   };
   for (const [dossier, type] of [['tague-ton-pote', 'tague'], ['spot-promo', 'spot']]) {
