@@ -6125,6 +6125,55 @@
       "instagram": [
         "frigo.16"
       ]
+    },
+    {
+      "source": "web",
+      "source_site": "instagram.com",
+      "via_veille": true,
+      "name": "DJ set dîner vendredi 27 novembre",
+      "start": "2026-11-27T19:30:00.000Z",
+      "venue": "Twiga Monte Carlo",
+      "city": "Monaco",
+      "address": "",
+      "url": "https://www.instagram.com/p/DgFEcnloRGc/",
+      "image": "https://www.scontent-lga3-3.cdninstagram.com/v/t51.82787-15/924731820_18658631851026487_7872379843694342338_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=105&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0aW1lX3VybGdlbiJ9&_nc_ohc=IQSyHaaxWkMQ7kNvwHyqaxp&_nc_oc=Adp6cggFc1At1p4pkcdEM5rhOdm7deLj5eEuNF4mVZfn8mRzpnxMd0Qyq_SleRlza10&_nc_zt=23&_nc_ht=scontent-lga3-3.cdninstagram.com",
+      "price": null,
+      "tags": [
+        "DJ set",
+        "dîner"
+      ],
+      "description": "",
+      "public_cible": 0.6,
+      "confiance": 0.8,
+      "accroche": "Dîner suivi du DJ set Solly Smith à partir de 20h30/00h30.",
+      "instagram": [
+        "twigamontecarlo",
+        "solly_smith"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "instagram.com",
+      "via_veille": true,
+      "name": "DJ set dîner dimanche 29 novembre",
+      "start": "2026-11-29T19:30:00.000Z",
+      "venue": "Twiga Monte Carlo",
+      "city": "Monaco",
+      "address": "",
+      "url": "https://www.instagram.com/p/DgFEcnloRGc/",
+      "image": "https://www.scontent-lga3-3.cdninstagram.com/v/t51.82787-15/924731820_18658631851026487_7872379843694342338_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=105&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0aW1lX3VybGdlbiJ9&_nc_ohc=IQSyHaaxWkMQ7kNvwHyqaxp&_nc_oc=Adp6cggFc1At1p4pkcdEM5rhOdm7deLj5eEuNF4mVZfn8mRzpnxMd0Qyq_SleRlza10&_nc_zt=23&_nc_ht=scontent-lga3-3.cdninstagram.com",
+      "price": null,
+      "tags": [
+        "DJ set",
+        "dîner"
+      ],
+      "description": "",
+      "public_cible": 0.6,
+      "confiance": 0.8,
+      "accroche": "Dîner suivi du DJ set à partir de 20h30/00h30.",
+      "instagram": [
+        "twigamontecarlo"
+      ]
     }
   ],
   "maj_instagram": "2026-11-24T17:12:38.013Z"
