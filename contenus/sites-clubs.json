@@ -1,9 +1,13 @@
 {
- "maj": "2026-11-24T15:19:01.251Z",
+ "maj": "2026-11-24T15:34:56.786Z",
  "evenements": [],
  "sites": {
   "https://kwartzclub.com/": {
    "lieu": "Kwartz Club",
+   "erreur": "fetch failed"
+  },
+  "https://highclub.com/": {
+   "lieu": "High Club",
    "erreur": "fetch failed"
   },
   "https://waynespub.com/": {
@@ -36,19 +40,14 @@
    "pages": 1,
    "soirees": 0
   },
-  "https://www.people.restaurant/": {
-   "lieu": "People by L'Atoll",
-   "pages": 2,
-   "soirees": 0
-  },
-  "https://dryrestaurant.com/": {
-   "lieu": "DRY Restaurant & Cocktail Bar",
-   "pages": 1,
-   "soirees": 0
-  },
   "https://quai-ouest-pub.fr/": {
    "lieu": "Quai Ouest Pub",
    "pages": 1,
+   "soirees": 0
+  },
+  "https://www.people.restaurant/": {
+   "lieu": "People by L'Atoll",
+   "pages": 2,
    "soirees": 0
   },
   "https://www.people.restaurant/": {
@@ -78,14 +77,9 @@
    "lieu": "Charly’s Bar",
    "erreur": "fetch failed"
   },
-  "https://achills.com/": {
-   "lieu": "Achill’s",
-   "pages": 2,
-   "soirees": 0
-  },
-  "https://plagenicebeaurivage.com/": {
-   "lieu": "Plage Beau Rivage",
-   "pages": 2,
+  "https://carrebleuplage.com/": {
+   "lieu": "Le Carré Bleu",
+   "pages": 1,
    "soirees": 0
   },
   "https://www.hotelsbarriere.com/en/cannes/le-majestic/restaurants-and-bars/bisous-bisous.html": {
@@ -93,14 +87,18 @@
    "pages": 1,
    "soirees": 0
   },
+  "https://achills.com/": {
+   "lieu": "Achill’s",
+   "pages": 2,
+   "soirees": 0
+  },
   "https://honeyclub.fr": {
    "lieu": "Honey Club",
    "erreur": "fetch failed"
   },
-  "https://www.marea-restaurant.com": {
-   "lieu": "Marea Cannes (Canopy by Hilton)",
-   "pages": 1,
-   "soirees": 0
+  "http://www.pampam.fr": {
+   "lieu": "Le Pam Pam",
+   "erreur": "HTTP 403"
   },
   "https://www.thehopstore.fr": {
    "lieu": "The Hop Store",
@@ -110,9 +108,14 @@
    "lieu": "The Drinkers Club",
    "erreur": "HTTP 400"
   },
-  "http://www.pampam.fr": {
-   "lieu": "Le Pam Pam",
+  "https://www.marea-restaurant.com": {
+   "lieu": "Marea Cannes (Canopy by Hilton)",
    "pages": 1,
+   "soirees": 0
+  },
+  "https://plagenicebeaurivage.com/": {
+   "lieu": "Plage Beau Rivage",
+   "pages": 2,
    "soirees": 0
   },
   "http://www.juanbynight.com": {
@@ -124,27 +127,21 @@
    "lieu": "Jimbaran Plage",
    "erreur": "fetch failed"
   },
-  "https://www.osullivans-pubs.com": {
-   "lieu": "O'Sullivans By The Beach",
-   "pages": 5,
-   "soirees": 0
-  },
-  "https://lamaisonbellevue.com": {
-   "lieu": "Le Petit Bellevue (La Maison Bellevue)",
-   "pages": 1,
+  "https://glasscannes.com": {
+   "lieu": "Glass Club Cannes",
+   "pages": 2,
    "soirees": 0
   },
   "https://www.mkmonaco.com/": {
    "lieu": "MK Club Monaco",
    "erreur": "fetch failed"
   },
-  "https://lamomecannes.com": {
-   "lieu": "La Môme Plage",
-   "pages": 1,
-   "soirees": 0
+  "https://www.montecarlosbm.com/fr/bar-monaco/jimmy-z-monte-carlo": {
+   "lieu": "Jimmy’z Monte-Carlo",
+   "erreur": "HTTP 404"
   },
-  "https://www.sasscafe.com/": {
-   "lieu": "Sass Café",
+  "https://lamaisonbellevue.com": {
+   "lieu": "Le Petit Bellevue (La Maison Bellevue)",
    "pages": 1,
    "soirees": 0
   },
@@ -152,14 +149,15 @@
    "lieu": "La Rascasse",
    "erreur": "HTTP 404"
   },
-  "http://www.absinthebar.com": {
-   "lieu": "Absinthe Bar",
-   "pages": 1,
+  "https://www.osullivans-pubs.com": {
+   "lieu": "O'Sullivans By The Beach",
+   "pages": 5,
    "soirees": 0
   },
-  "https://www.montecarlosbm.com/fr/bar-monaco/jimmy-z-monte-carlo": {
-   "lieu": "Jimmy’z Monte-Carlo",
-   "erreur": "HTTP 404"
+  "https://www.sasscafe.com/": {
+   "lieu": "Sass Café",
+   "pages": 1,
+   "soirees": 0
   },
   "https://www.amazonico.com/monte-carlo": {
    "lieu": "Amazónico Monte-Carlo",
@@ -171,17 +169,17 @@
    "pages": 1,
    "soirees": 0
   },
-  "https://www.slammers-bar.com/": {
-   "lieu": "Slammers",
-   "pages": 2,
-   "soirees": 0
-  },
   "https://www.montecarlosbm.com/fr/bar-monaco/le-blue-gin": {
    "lieu": "Blue Gin",
    "erreur": "HTTP 404"
   },
-  "https://www.bar-tapas-monaco.fr/": {
-   "lieu": "Le Corner by 3 Tapas",
+  "https://lamomecannes.com": {
+   "lieu": "La Môme Plage",
+   "pages": 1,
+   "soirees": 0
+  },
+  "http://www.absinthebar.com": {
+   "lieu": "Absinthe Bar",
    "pages": 1,
    "soirees": 0
   },
@@ -195,21 +193,18 @@
    "pages": 1,
    "soirees": 0
   },
-  "https://www.facebook.com/lenewpubmenton/": {
-   "lieu": "Le New Pub",
-   "erreur": "HTTP 400"
-  },
-  "https://lesincompris.fr/": {
-   "lieu": "Les Incompris",
-   "erreur": "fetch failed"
-  },
-  "https://www.facebook.com/lenewpubmenton/": {
-   "lieu": "Le New Pub",
-   "erreur": "HTTP 400"
-  },
-  "https://www.ports-menton.fr/activites-commerces/inky-bar/": {
-   "lieu": "Inky Bar",
+  "https://zeits-bar.com/": {
+   "lieu": "Zeits Bar",
    "pages": 1,
+   "soirees": 0
+  },
+  "https://www.facebook.com/lenewpubmenton/": {
+   "lieu": "Le New Pub",
+   "erreur": "HTTP 400"
+  },
+  "https://www.slammers-bar.com/": {
+   "lieu": "Slammers",
+   "pages": 2,
    "soirees": 0
   },
   "https://www.rhumerieferdinand.com/": {
@@ -227,11 +222,10 @@
   },
   "https://www.facebook.com/lebarathym.mourillon": {
    "lieu": "Le Barathym",
-   "pages": 1,
-   "soirees": 0
+   "erreur": "HTTP 400"
   },
-  "https://www.ports-menton.fr/activites-commerces/inky-bar/": {
-   "lieu": "Inky Bar",
+  "https://bastapinsa.com/": {
+   "lieu": "Rooftop Basta Pinsa",
    "pages": 1,
    "soirees": 0
   },
@@ -239,26 +233,26 @@
    "lieu": "Jeanne Cocktail Club",
    "erreur": "fetch failed"
   },
-  "https://brasseriedemonaco.com/": {
-   "lieu": "Brasserie de Monaco",
-   "pages": 3,
-   "soirees": 0
+  "https://www.hotel-med-menton.com/fr/bar-rooftop.html": {
+   "lieu": "Le Rooftop (Hôtel Méditerranée)",
+   "erreur": "HTTP 404"
   },
-  "https://glasscannes.com": {
-   "lieu": "Glass Club Cannes",
-   "pages": 2,
+  "https://www.grandhoteldauphine.com/": {
+   "lieu": "Le Rooftop du Grand Hôtel Dauphiné",
+   "pages": 1,
    "soirees": 0
   },
   "https://www.lajavanaise-sablettes.fr/": {
    "lieu": "La Javanaise",
    "erreur": "fetch failed"
   },
-  "https://carrebleuplage.com/": {
-   "lieu": "Le Carré Bleu",
-   "erreur": "fetch failed"
+  "https://www.lespotmourillon.fr/": {
+   "lieu": "Le Spot Mourillon",
+   "pages": 1,
+   "soirees": 0
   },
-  "https://www.grandhoteldauphine.com/": {
-   "lieu": "Le Rooftop du Grand Hôtel Dauphiné",
+  "https://www.ports-menton.fr/activites-commerces/inky-bar/": {
+   "lieu": "Inky Bar",
    "pages": 1,
    "soirees": 0
   },
@@ -280,11 +274,6 @@
    "pages": 1,
    "soirees": 0
   },
-  "https://www.lespotmourillon.fr/": {
-   "lieu": "Le Spot Mourillon",
-   "pages": 1,
-   "soirees": 0
-  },
   "https://www.restaurantmadamem.fr/": {
    "lieu": "Madame aMore",
    "pages": 2,
@@ -292,17 +281,17 @@
   },
   "https://www.restaurantmadamem.fr/": {
    "lieu": "Madame aMore",
+   "pages": 2,
+   "soirees": 0
+  },
+  "https://lepetitbainhyeres.fr/": {
+   "lieu": "Le Petit Bain",
    "pages": 2,
    "soirees": 0
   },
   "https://www.facebook.com/poupounebandol": {
    "lieu": "Poupoune Bandol",
    "erreur": "HTTP 400"
-  },
-  "https://lepetitbainhyeres.fr/": {
-   "lieu": "Le Petit Bain",
-   "pages": 2,
-   "soirees": 0
   },
   "https://www.le-bardo.com/": {
    "lieu": "Le Bard'Ô",
@@ -317,6 +306,11 @@
   "https://sams-klub.com/": {
    "lieu": "Sam's Klub",
    "pages": 1,
+   "soirees": 0
+  },
+  "https://brasseriedemonaco.com/": {
+   "lieu": "Brasserie de Monaco",
+   "pages": 3,
    "soirees": 0
   },
   "https://twigamontecarlo.com/": {
