@@ -2,6 +2,17 @@
  "_note": "Numéro de version affiché en pied de page du site et sur /mises-a-jour/ (directeur, 19/11/2026 : format « 1.13.02 », comme Minecraft). Règle : correction(s) seulement → dernier nombre +1 (1.13.02 → 1.13.03) ; nouvelle fonctionnalité → nombre du milieu +1 et le dernier revient à 01 (1.13.02 → 1.14.01) ; énorme fonctionnalité ou grosse refonte → premier nombre +1 (1.13.02 → 2.01.01). La plus récente en premier. Le site n'affiche que « titre » et « public » : phrases simples pour les visiteurs, sans détail technique ni nom de prestataire (directeur, 20/11/2026). « notes » reste interne. « titre » : 28 caractères au plus (il s'affiche en entier dans le bandeau « Nouveau » sur téléphone).",
  "versions": [
   {
+   "numero": "1.20.02",
+   "date": "2026-11-24",
+   "titre": "Des sorties pour les jeunes",
+   "public": [
+    "L'agenda garde uniquement des sorties qui parlent aux jeunes : en journée, les day parties, brunchs, concerts et festivals ; plus de concerts d'orgue ni de thés dansants."
+   ],
+   "notes": [
+    "Directeur 24/11 : « garde le principe d'événements pour jeunes ». qualite-soirees.pourJeunes : PAS_JEUNE (orgue, classique, chorale, thé dansant, seniors, loto, conférence…) retiré de jour comme de nuit, sauf vraie marque de soirée (DJ, party, techno, shatta, funk…) ; en journée, seulement les sorties jeunes (JEUNE_DE_JOUR). Appliqué à la Côte, à la France et à l'Occitanie. Sur les données du jour : 4 des 5 événements de journée retirés (2 orgues, Bach, après-midi dansant), concerts classiques des API retirés, aucune vraie soirée perdue."
+   ]
+  },
+  {
    "numero": "1.20.01",
    "date": "2026-11-24",
    "titre": "Jour et nuit bien séparés",
