@@ -813,9 +813,10 @@ export async function construireSite({ events, eventsFrance = [], eventsOccitani
   };
   const soirees = [];
   for (const e of fiables) soirees.push(await preparer(e, 'cote'));
-  // Date contredite par l'affiche lue, ou soirée de la veille dont l'affiche n'a pas confirmé la date : retirée (24/11/2026).
+  // Date contredite par l'affiche lue : soirée retirée (24/11/2026). Une soirée de la veille dont l'affiche n'a pas pu être lue
+  // reste, sans affiche et jamais dans les posts (confiance 0,8) : un jour sans IA ne doit pas vider l'agenda.
   { const avant = soirees.length;
-    for (let i = soirees.length - 1; i >= 0; i--) { const e = fiables[i]; if (DATES_CONTREDITES.has(`${e.name}|${e.start}`) || (e.via_veille && !soirees[i].affiche)) { log(`Site : « ${e.name} » (${cle(e.start)}) retirée : ${DATES_CONTREDITES.has(`${e.name}|${e.start}`) ? 'l\'affiche montre une autre date' : 'date de la veille non confirmée par l\'affiche'}`); soirees.splice(i, 1); } }
+    for (let i = soirees.length - 1; i >= 0; i--) { const e = fiables[i]; if (DATES_CONTREDITES.has(`${e.name}|${e.start}`)) { log(`Site : « ${e.name} » (${cle(e.start)}) retirée : ${DATES_CONTREDITES.has(`${e.name}|${e.start}`) ? 'l\'affiche montre une autre date' : 'date de la veille non confirmée par l\'affiche'}`); soirees.splice(i, 1); } }
     if (soirees.length < avant) log(`Site : ${avant - soirees.length} soirée(s) retirée(s) pour date non confirmée.`); }
   // Une affiche ne sert qu'à UNE soirée (12/11/2026) : si plusieurs soirées ont reçu la même image (affiche générale d'un
   // festival, erreur de source), on la garde pour celle dont le nom figure dans le nom de fichier lu (titre de l'affiche)
@@ -1154,6 +1155,19 @@ function blocAbonnement({ tr, base, nom = 'agenda', libelle = '' }) {
 }
 
 // Les 12 photos d'ambiance : chacune n'est utilisée qu'à UN seul endroit du site (pas de répétition).
+// Photo d'ambiance de la banque de la DA (studio/public/decors/da/, générée par le robot) publiée sur le site au premier besoin
+// (site/img/<nom>.jpg et ses versions WebP) ; sinon la photo de repli.
+function photoAmbiance(nom, repli) {
+  const dest = path.join(SITE, 'img', `${nom}.jpg`);
+  if (!existsSync(dest)) {
+    const src = [`${nom}.jpg`, `${nom}-1.jpg`].map((f) => path.join(ROOT, 'studio', 'public', 'decors', 'da', f)).find((f) => existsSync(f));
+    if (!src) return repli;
+    spawnSync('ffmpeg', ['-v', 'error', '-y', '-i', src, '-vf', "scale='min(1600,iw)':-2", '-q:v', '3', dest]);
+    if (!existsSync(dest)) return repli;
+    for (const l of [400, 600, 800, 1200]) webp(dest, l);
+  }
+  return nom;
+}
 const PHOTOS = ['danse', 'foule', 'selfie', 'rire', 'dj', 'lasers', 'rooftop', 'terrasse', 'plage', 'baskets', 'file', 'taxi'];
 // Photos de Junior et de l'équipe en soirée (site/img/equipe/).
 // Photos d'ambiance du hero d'accueil (diaporama) : pas de visage de l'équipe (seul le portrait du directeur est montré, page « Qui sommes-nous »).
@@ -1766,7 +1780,7 @@ const ldFaq = (faq) => ({ '@context': 'https://schema.org', '@type': 'FAQPage', 
 // Fond du hero : la vidéo du port de Monaco (muette, en boucle) ou une photo.
 const fond = (base, photo, video, alt) => (video
   ? `<video class="hero-photo" autoplay muted loop playsinline preload="none" poster="${base}site/img/equipe/${photo}-600.webp" aria-label="${esc(alt)}"><source src="${base}site/img/equipe/${photo}.mp4" type='video/mp4; codecs="avc1.64001F"'>${existsSync(path.join(SITE, 'img', 'equipe', `${photo}.webm`)) ? `<source src="${base}site/img/equipe/${photo}.webm" type="video/webm">` : ''}</video>`
-  : image(base, `site/img/${PHOTOS.includes(photo) ? '' : 'equipe/'}${photo}.jpg`, { alt, sizes: TAILLE_HERO, attrs: 'class="hero-photo" fetchpriority="high"' }));
+  : image(base, `site/img/${PHOTOS.includes(photo) || existsSync(path.join(SITE, 'img', `${photo}.jpg`)) ? '' : 'equipe/'}${photo}.jpg`, { alt, sizes: TAILLE_HERO, attrs: 'class="hero-photo" fetchpriority="high"' }));
 // Sur ordinateur, la photo du hero est une carte à droite (jamais étirée, donc jamais floue) ; sur mobile, elle est en fond.
 const TAILLE_HERO = '(min-width:980px) 560px, 100vw';
 
@@ -2043,7 +2057,10 @@ function pageSorties({ lang, t, tr, base, compte, T, chemin, maj, partenaires, c
   </article>`;
   const ICONES = ['🌅', '🌊', '🌿', '🎨', '⛵'];
   const spots = cleS === 'dates' ? SPOTS_DATE.map((g, k) => `<section class="bloc-large reveal"><h2>${ICONES[k] || '✦'} ${esc(tr(g.titre))}</h2><div class="spots">${g.lieux.map(([nom, ville, texte], i) => { const ph = PHOTOS_SPOTS[nom] || photoVille(ville); return `<article class="spot-carte${ph ? '' : ' sans-photo'}" style="--i:${i}">${ph ? `<figure class="spot-photo">${image(base, ph.fichier, { alt: `${nom}, ${ville}`, sizes: '(min-width:980px) 380px, 92vw', attrs: 'loading="lazy" decoding="async" width="800" height="533"' })}<figcaption>${esc(tr(PHOTOS_SPOTS[nom] ? 'Photo' : 'Photo de la ville'))} : ${esc(ph.auteur)} · <a href="${esc(ph.source)}" target="_blank" rel="noopener nofollow">${esc(ph.licence)}</a></figcaption></figure>` : `<span class="spot-vignette" aria-hidden="true">${ICONES[k] || '✦'}</span>`}<div class="spot-corps"><p class="genre">${esc(ville)}</p><h3>${esc(nom)}</h3><p>${esc(tr(texte))}</p><p class="lieu-actions"><a href="https://www.google.com/maps/search/?api=1&amp;query=${encodeURIComponent(`${nom}, ${ville}`)}" target="_blank" rel="noopener">${ICO.map}<span>${esc(t.itineraire)}</span></a></p></div></article>`; }).join('')}</div></section>`).join('\n') : '';
-  const corps = `${heroCourt({ partage: t.partager, base, photo: null, images: cleS === 'dates' ? Object.values(PHOTOS_SPOTS).map((x) => x.fichier) : null, logos: cleS === 'dates' ? null : (() => { const lg = l.filter((x) => x.fichier).map((x) => x.fichier); return lg.length >= 4 ? lg : null; })(), alt: tr(C.etiquette), etiquette: tr(C.etiquette), h1: tr(C.h1), p: esc(tr(C.p)), k: 8 + Object.keys(SORTIES).indexOf(cleS) })}
+  // 24/11/2026 (directeur : « vérifie si le haut des pages n'a pas besoin de jolies images ») : peu de logos (Restos 6, Activités 5)
+  // donnaient un en-tête vide ; une photo d'ambiance de la DA à la place (les logos restent dans « Les bonnes adresses »).
+  const logosS = l.filter((x) => x.fichier).map((x) => x.fichier), photoS = cleS !== 'dates' && logosS.length < 8 ? { restaurants: photoAmbiance('diner', 'terrasse'), activites: photoAmbiance('activite', 'rire') }[cleS] || null : null;
+  const corps = `${heroCourt({ partage: t.partager, base, photo: photoS, images: cleS === 'dates' ? Object.values(PHOTOS_SPOTS).map((x) => x.fichier) : null, logos: cleS === 'dates' || photoS ? null : (logosS.length >= 4 ? logosS : null), alt: tr(C.etiquette), etiquette: tr(C.etiquette), h1: tr(C.h1), p: esc(tr(C.p)), k: 8 + Object.keys(SORTIES).indexOf(cleS) })}
 ${spots}
 <section class="bloc-large reveal">${l.length ? `<h2>${tr('Les bonnes adresses de nos <em>partenaires</em>')}</h2>` : ''}${l.length ? `<div class="fiches" data-grouper="1">${l.map(carteP).join('')}</div>` : cleS === 'dates' ? '' : `<p class="vide">${esc(tr(SORTIES.vide))}</p>`}${ctaIg(handle, t.orgaBouton, T.email)}</section>`;
   return gabarit({ lang, t, titre: tr(C.titre), description: tr(C.desc), chemin, base, corps, compte, maj, image: cleS === 'dates' ? Object.values(PHOTOS_SPOTS)[0]?.fichier : undefined, ld: [...ldOrganisation(T, compte, t, lang), fil(lang, [['Teufy', ''], [tr(C.etiquette), chemin]]),

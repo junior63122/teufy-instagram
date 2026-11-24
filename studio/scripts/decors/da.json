@@ -61,6 +61,21 @@
       "id": "selfie",
       "format": "4:5",
       "prompt": "A group selfie of five friends at a club, faces close together, big smiles, flash glare, some eyes closed, very candid."
+    },
+    {
+      "id": "diner",
+      "format": "4:5",
+      "prompt": "Four friends in their twenties laughing around a small restaurant table before going out, warm candle light, plates of food, phones on the table, candid direct flash, festive Saturday-night mood on the French Riviera."
+    },
+    {
+      "id": "activite",
+      "format": "4:5",
+      "prompt": "A group of young friends cheering at a neon bowling alley at night, one throwing the ball, others laughing with arms up, colorful neon lights, candid direct flash."
+    },
+    {
+      "id": "retour",
+      "format": "4:5",
+      "prompt": "Two young friends smiling in the back seat of a ride-share car late at night after a party, city lights streaking past the window, seat belts on, candid direct flash, safe and happy mood."
     }
   ]
 }
