@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:je-dis-techno-2026-11-24@teufy
+DTSTAMP:20261124T102103Z
+DTSTART:20261124T210000Z
+DTEND:20261125T020000Z
+SUMMARY:Je Dis Techno
+LOCATION:L’Antre\, Antibes
+DESCRIPTION:Je Dis Techno – deux lieux\, une nuit explosive\nBillets : https://www.instagram.com/p/DgF-RyOgEeo/\nVia Teufy @teufy_official
+URL:https://www.instagram.com/p/DgF-RyOgEeo/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Je Dis Techno
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Je Dis Techno
+END:VALARM
+END:VEVENT
+END:VCALENDAR
