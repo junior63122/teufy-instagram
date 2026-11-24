@@ -55,5 +55,13 @@
  "diner-1": {
   "modele": "gemini-3-pro-image-preview",
   "le": "2026-11-24T15:27:54.773Z"
+ },
+ "retour-1": {
+  "modele": "gemini-3-pro-image-preview",
+  "le": "2026-11-24T23:52:11.234Z"
+ },
+ "terrasse-2": {
+  "modele": "gemini-3-pro-image-preview",
+  "le": "2026-11-24T23:52:24.982Z"
  }
 }
