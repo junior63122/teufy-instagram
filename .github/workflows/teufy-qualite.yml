@@ -31,8 +31,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version: 22 # 22/11/2026 : Node 20 en fin de vie (veille technique)
       - name: Liens internes
@@ -56,8 +56,8 @@ jobs:
     env:
       NAVIGATEUR: ${{ matrix.navigateur }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version: 22 # 22/11/2026 : Node 20 en fin de vie (veille technique)
       - name: Garder les navigateurs de test en cache (installation plus rapide et plus fiable)

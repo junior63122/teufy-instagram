@@ -25,8 +25,8 @@ jobs:
       EVENTBRITE_TOKEN: ${{ secrets.EVENTBRITE_TOKEN || '' }} # API officielle Eventbrite, jeton personnel gratuit (22/11/2026)
       TICKETMASTER_KEY: ${{ secrets.TICKETMASTER_KEY || '' }} # API officielle Ticketmaster Discovery, clé gratuite (22/11/2026)
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version: 22
       # En premier (≈ 15 lectures) : avant, la vérification des comptes épuisait la limite Instagram et aucune photo n'arrivait.

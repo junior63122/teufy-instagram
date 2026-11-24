@@ -70,12 +70,16 @@ async function datatourisme({ garder, log }) {
   if (brut[0] === 0x1f && brut[1] === 0x8b) brut = gunzipSync(brut);
   const texte = brut.toString('utf8').replace(/^\uFEFF/, '');
   const premiere = texte.slice(0, texte.indexOf('\n'));
-  const sep = (premiere.match(/;/g) || []).length > (premiere.match(/,/g) || []).length ? ';' : ',';
+  // Séparateur le plus fréquent de la première ligne (virgule, point-virgule, tabulation, barre).
+  const sep = [',', ';', '\t', '|'].sort((x, y) => premiere.split(y).length - premiere.split(x).length)[0];
+  // 24/11/2026 : 67 879 lignes lues, toutes « sans nom ni date » : aperçu brut des premières lignes dans le journal.
+  log(`  DATAtourisme : séparateur « ${sep === '\t' ? 'tab' : sep} », début du fichier : ${JSON.stringify(texte.slice(0, 600))}`);
   let C, n = 0; const sortie = [], rejets = {};
   const rejet = (k, ex) => { const r = (rejets[k] ||= { n: 0, ex: [] }); r.n++; if (r.ex.length < 3 && ex) r.ex.push(String(ex).slice(0, 60)); };
   for (const v of lignesCsv(texte, sep)) {
     if (!C) { C = colonnes(v); log(`  DATAtourisme : colonnes ${v.slice(0, 16).join(' | ')}`); continue; }
     n++;
+    if (n <= 2) log(`  DATAtourisme : ligne ${n} (${v.length} champs) : ${JSON.stringify(v.slice(0, 8)).slice(0, 400)}`);
     const g = (k) => (C[k] >= 0 ? (v[C[k]] || '').trim() : '');
     const e = { source: 'datatourisme', name: g('nom'), start: g('debut'), end: g('fin'), venue: g('lieu'), city: g('commune'), address: [g('adresse'), g('cp'), g('commune')].filter(Boolean).join(', '),
       url: g('url').split(/[\s|,]/)[0] || '', image: g('image').split(/[\s|,]/)[0] || '', price: null, tags: g('categories').split(/[|,;]/).map((x) => x.trim()).filter(Boolean).slice(0, 4), description: g('description').slice(0, 400), popularite: null };
