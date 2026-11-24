@@ -47,5 +47,13 @@
   "modele": "gemini-3-pro-image-preview",
   "le": "2026-11-08T12:08:10.859Z"
  },
- "_note": "Images générées par Google Gemini (API) pour Teufy."
+ "_note": "Images générées par Google Gemini (API) pour Teufy.",
+ "activite-1": {
+  "modele": "gemini-3-pro-image-preview",
+  "le": "2026-11-24T15:27:40.009Z"
+ },
+ "diner-1": {
+  "modele": "gemini-3-pro-image-preview",
+  "le": "2026-11-24T15:27:54.773Z"
+ }
 }
