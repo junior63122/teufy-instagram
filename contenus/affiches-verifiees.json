@@ -7523,5 +7523,180 @@
   "commun": [
    "whynot"
   ]
+ },
+ "v2|dccf4c15675f": {
+  "ok": false,
+  "le": "2026-11-24T13:14:18.463Z",
+  "nom": "Origins Invite Boticka All Night Long",
+  "lu": {
+   "titre": "ORIVINS",
+   "dates": [],
+   "artistes": [],
+   "lieu": ""
+  },
+  "commun": []
+ },
+ "v2|f56ab793c3b9": {
+  "ok": true,
+  "le": "2026-11-24T13:14:19.737Z",
+  "nom": "Zouk Love Toulon Edition Chic",
+  "lu": {
+   "titre": "ZOUK Love",
+   "dates": [],
+   "artistes": [
+    "DJ FEELING"
+   ],
+   "lieu": ""
+  },
+  "commun": [
+   "zouk",
+   "love"
+  ]
+ },
+ "v2|431e9b2a6bc8": {
+  "ok": true,
+  "le": "2026-11-24T13:14:41.476Z",
+  "nom": "SHATTA",
+  "lu": {
+   "titre": "SHATTA Hot & Wild",
+   "dates": [
+    "2026-11-28"
+   ],
+   "artistes": [
+    "SHATTA",
+    "ØZEN DEZZE"
+   ],
+   "lieu": "116 AV. DE DIGNE, 83130 LA GARDE"
+  },
+  "commun": [
+   "shatta"
+  ]
+ },
+ "v2|b8650d855c83": {
+  "ok": false,
+  "le": "2026-11-24T13:15:03.394Z",
+  "nom": "Dj K-Net (Resident) : Techno / Tribe",
+  "lu": {
+   "titre": "NOVEMBRE",
+   "dates": [
+    "2026-11-20"
+   ],
+   "artistes": [
+    "MOUCHKI",
+    "DHERMO"
+   ],
+   "lieu": "L'ANTRE_TECHNO"
+  },
+  "commun": []
+ },
+ "v2|1836a51290b5": {
+  "ok": false,
+  "le": "2026-11-24T13:15:25.226Z",
+  "nom": "La Cale Sèche – France / Afrique du Sud + karaoké",
+  "lu": {
+   "titre": "LE PROGRAMME DE LA SEMAINE",
+   "dates": [
+    "2026-11-24",
+    "2026-11-25",
+    "2026-11-26",
+    "2026-11-27",
+    "2026-11-28",
+    "2026-11-29"
+   ],
+   "artistes": [],
+   "lieu": "LA CALE SÈCHE"
+  },
+  "commun": []
+ },
+ "v2|f5e5c0be2470": {
+  "ok": false,
+  "le": "2026-11-24T13:15:46.421Z",
+  "nom": "La Cale Sèche – France / Afrique du Sud + karaoké",
+  "lu": {
+   "titre": "SOIRÉE Ti PUNCH",
+   "dates": [],
+   "artistes": [],
+   "lieu": "LA CALE SECHE L'EMBUSCADE DES PIRATES"
+  },
+  "commun": []
+ },
+ "v2|1810e51a5378": {
+  "ok": false,
+  "le": "2026-11-24T13:16:06.479Z",
+  "nom": "L'Apéro Kanaille avec Laka-Naïa aux Folies d'Edmonde",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": [],
+   "lieu": ""
+  },
+  "commun": []
+ },
+ "v2|982bba3c01c0": {
+  "ok": false,
+  "le": "2026-11-24T13:16:26.168Z",
+  "nom": "Rencontre d’échecs à Toulon · BOUC NESS",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": [],
+   "lieu": ""
+  },
+  "commun": []
+ },
+ "v2|30c3f0cc9a9c": {
+  "ok": false,
+  "le": "2026-11-24T13:16:45.808Z",
+  "nom": "Rencontre d’échecs à Nice · The Sailor's Pub",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": [],
+   "lieu": ""
+  },
+  "commun": []
+ },
+ "v2|3f4040fedcca": {
+  "ok": false,
+  "le": "2026-11-24T13:17:05.885Z",
+  "nom": "Shafro @Toulon #2 Afro , Shatta, Dancehall",
+  "lu": {
+   "titre": "SHAFRO TOULON",
+   "dates": [
+    "2026-12-20"
+   ],
+   "artistes": [
+    "SHAFRO",
+    "BÔBAR"
+   ],
+   "lieu": ""
+  },
+  "commun": [
+   "shafro"
+  ]
+ },
+ "v2|680052a0abcd": {
+  "ok": false,
+  "le": "2026-11-24T13:17:26.184Z",
+  "nom": "Reading hour (Nice)",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": [],
+   "lieu": ""
+  },
+  "commun": []
+ },
+ "v2|eb1eb28e248f": {
+  "ok": false,
+  "le": "2026-11-24T13:17:46.352Z",
+  "nom": "Blind Test aux Folies d'Edmonde",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": [],
+   "lieu": ""
+  },
+  "commun": []
  }
 }
