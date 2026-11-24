@@ -1916,7 +1916,7 @@ function pageSoiree({ lang, t, tr, base, compte, T, chemin, s, soirees, maj, lie
     <div class="fiche-affiche${s.affiche && s.dims && (s.dims[0] / s.dims[1] > 0.95 || s.dims[0] < 560) ? ' cadre' : ''}${s.affiche && s.dims && s.dims[0] / s.dims[1] > 1.2 ? ' large' : ''}">${s.affiche && s.dims && (s.dims[0] / s.dims[1] > 0.95 || s.dims[0] < 560) ? `<img class="fond-flou" src="${base}${s.affiche.replace(/\.jpg$/, '-480.webp')}" alt="" aria-hidden="true">` : ''}${img}</div>
     <div class="fiche-infos">
       ${s.genres ? `<p class="genre">${esc(s.genres)}</p>` : ''}
-      <h1>${esc(s.nom)}</h1>
+      ${enJournee(s) ? `<p class="moment-jour haut-fiche" title="${esc(t.enJourneeInfo)}">${esc(t.enJournee)}</p>` : ''}<h1>${esc(s.nom)}</h1>
       ${s.accroche ? `<p class="fiche-accroche">${esc(s.accroche)}</p>` : ''}
       ${s.instagram ? `<a class="orga-carte" href="https://www.instagram.com/${esc(s.instagram)}/" target="_blank" rel="noopener"><span class="orga-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.3" fill="currentColor"/></svg></span><span class="orga-txt"><small>${esc(tr('Organisé par'))}</small><b>${esc(s.organisateur || `@${s.instagram}`)}</b>${s.organisateur ? `<em>@${esc(s.instagram)}</em>` : ''}</span><span class="orga-cta">${esc(tr('Voir sur Instagram'))} →</span></a>` : ''}
       ${s.description && s.description !== s.accroche ? `<p class="fiche-desc">${esc(s.description)}</p>` : ''}

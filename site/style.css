@@ -1871,3 +1871,4 @@ button.bouton{font-family:var(--texte)}
 .moment-jour.en-ligne{margin-inline-start:8px;vertical-align:middle;font-size:11px;padding:3px 7px}
 .txt-jour{font-weight:800;color:inherit}
 .similaires .affiche .moment-jour{top:32px;left:6px;font-size:10px;padding:2px 6px}
+.moment-jour.haut-fiche{margin:0 0 12px;width:max-content}
