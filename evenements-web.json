@@ -9,14 +9,14 @@
       "source": "web",
       "source_site": "instagram.com",
       "via_veille": true,
-      "name": "La Cale Sèche – Soirée Ti Punch + multiplex Ligue des Champions",
+      "name": "La Cale Sèche – Bouteille de planteur à 15 € + PSG / AS Roma",
       "start": "2026-11-24T20:00:00.000Z",
       "venue": "La Cale Sèche, Toulon",
       "city": "Toulon",
       "address": "",
       "url": "https://www.instagram.com/p/DgGIZohoA8x/",
       "image": "https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/928552767_18472742122186229_8034317840126112657_n.webp?stp=dst-jpg_e35_tt6&_nc_cat=105&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=4nSRko8AfOUQ7kNvwE1j2I2&_nc_oc=AdqEuTdJiWCypds345EPuFRz8L5YJIH-co-2Q9znQAukmn8mm8lnjokIuzvdGj5NLR8&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=GkJUD4CHcWHYdRvonX6EOg&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQRdRFg6eL-H_FeijjN-81Fk1qaSBHi3jRg4dpCA_3PnVw&oe=6B0B0673",
-      "price": null,
+      "price": 15,
       "tags": [
         "cocktail",
         "sport"
@@ -30,37 +30,6 @@
       ],
       "buzz": 0.5,
       "buzz_raison": "Événement hebdomadaire avec thème original, bonne visibilité locale, jour de semaine mais match attractif.",
-      "par_le_lieu": true,
-      "offres": [],
-      "sources_sites": [
-        "instagram.com",
-        "Instagram – lacalesechetoulon"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "instagram.com",
-      "via_veille": true,
-      "name": "La Cale Sèche – Bouteille de planteur à 15 € + PSG / AS Roma",
-      "start": "2026-11-24T23:00:00.000Z",
-      "venue": "La Cale Sèche, Toulon",
-      "city": "Toulon",
-      "address": "",
-      "url": "https://www.instagram.com/p/DgGIZohoA8x/",
-      "image": "https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/928552767_18472742122186229_8034317840126112657_n.webp?stp=dst-jpg_e35_tt6&_nc_cat=105&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=4nSRko8AfOUQ7kNvwE1j2I2&_nc_oc=AdqEuTdJiWCypds345EPuFRz8L5YJIH-co-2Q9znQAukmn8mm8lnjokIuzvdGj5NLR8&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=GkJUD4CHcWHYdRvonX6EOg&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQRdRFg6eL-H_FeijjN-81Fk1qaSBHi3jRg4dpCA_3PnVw&oe=6B0B0673",
-      "price": 15,
-      "tags": [
-        "cocktail"
-      ],
-      "description": "Le mercredi 25 novembre, La Cale Sèche propose une bouteille de planteur à 15 € toute la soirée et diffuse le match PSG / AS Roma. L’ambiance détendue, les cocktails exotiques et le foot en direct attirent les jeunes fans. L’entrée est libre, le bar reste ouvert dès 21 h et le dress‑code reste casual. Lieu : 4 place Monsenergue, Toulon.",
-      "public_cible": 0.6,
-      "confiance": 0.9,
-      "accroche": "Bouteille de planteur à 15 € toute la soirée",
-      "instagram": [
-        "lacalesechetoulon"
-      ],
-      "buzz": 0.5,
-      "buzz_raison": "Offre spéciale + match de foot, bonne visibilité locale, soirée en semaine.",
       "par_le_lieu": true,
       "offres": [],
       "sources_sites": [
@@ -5792,5 +5761,5 @@
       ]
     }
   ],
-  "maj_instagram": "2026-11-24T07:18:28.562Z"
+  "maj_instagram": "2026-11-24T07:42:06.655Z"
 }

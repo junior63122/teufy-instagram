@@ -7313,5 +7313,32 @@
    "nom": "",
    "m": 375
   }
+ },
+ "43.57003,6.9848": {
+  "le": "2026-11-24T07:45:01.476Z",
+  "parkings": [
+   {
+    "nom": "Place Pierre Sauvaigo",
+    "type": "",
+    "payant": null,
+    "m": 814
+   }
+  ],
+  "transports": [
+   {
+    "nom": "Cimetière du Claus Sud",
+    "type": "bus",
+    "m": 379,
+    "lignes": ""
+   },
+   {
+    "nom": "Mairie Annexe de l'Aubarède",
+    "type": "bus",
+    "m": 480,
+    "lignes": ""
+   }
+  ],
+  "velo": null,
+  "taxi": null
  }
 }

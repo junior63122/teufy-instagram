@@ -1,5 +1,5 @@
 {
- "le": "2026-11-24T07:18:28.562Z",
+ "le": "2026-11-24T07:42:06.655Z",
  "total": 152,
  "sans_image": [
   {
@@ -19,42 +19,6 @@
    "ville": "Nice",
    "instagram": "",
    "url": "https://shotgun.live/events/je-dis-techno-tous-les-jeudis"
-  },
-  {
-   "id": "dj-sebb-en-show-a-juan-les-pins-2026-11-26",
-   "nom": "DJ Sebb En Show À Juan-Les-Pins",
-   "jour": "2026-11-26",
-   "lieu": "La Suite Restaurant Festif",
-   "ville": "Juan-les-Pins",
-   "instagram": "",
-   "url": "https://shotgun.live/events/dj-sebb-en-show-a-juan-les-pins"
-  },
-  {
-   "id": "soiree-kart-and-rock-cannes-by-gam-it-racing-2-2026-11-27",
-   "nom": "Soirée KART AND ROCK Cannes by Gam'it Racing (2)",
-   "jour": "2026-11-27",
-   "lieu": "Cannes Karting",
-   "ville": "Cannes",
-   "instagram": "",
-   "url": "https://www.helloasso.com/associations/gam-it-racing/evenements/soiree-kart-and-rock-cannes-by-gam-it-racing-2"
-  },
-  {
-   "id": "phaphane-a-nice-amapiano-et-afrobeats-lovers-2026-11-27",
-   "nom": "Phaphane À Nice - Amapiano & Afrobeats Lovers",
-   "jour": "2026-11-27",
-   "lieu": "Frigo 16",
-   "ville": "Nice",
-   "instagram": "tweltyprod",
-   "url": "https://shotgun.live/events/phaphane-a-nice-amapiano-afrobeats-lovers"
-  },
-  {
-   "id": "calema-tour-2026-2026-11-27",
-   "nom": "CALEMA - TOUR 2026",
-   "jour": "2026-11-27",
-   "lieu": "La Palestre",
-   "ville": "Le Cannet",
-   "instagram": "",
-   "url": "https://www.ticketmaster.fr/fr/manifestation/calema-billet/idmanif/661895"
   },
   {
    "id": "les-tambours-du-bronx-2026-11-27",
@@ -93,15 +57,6 @@
    "url": "https://shotgun.live/events/mr-hat-vs-verome-bass-vs-hard-music"
   },
   {
-   "id": "nice-orange-bar-crawl-party-bars-music-nightlife-et-club-exp-2026-11-27",
-   "nom": "Nice Orange Bar Crawl – Party Bars, Music, Nightlife & Club Experience",
-   "jour": "2026-11-27",
-   "lieu": "La Chapa",
-   "ville": "Nice",
-   "instagram": "lachapanice",
-   "url": "https://www.eventbrite.fr/e/nice-orange-bar-crawl-party-bars-music-nightlife-club-experience-tickets-2004294701406"
-  },
-  {
    "id": "bambam-at-inda-house-27-11-26-2026-11-27",
    "nom": "Bambam At Inda House : 27.11.26",
    "jour": "2026-11-27",
@@ -109,15 +64,6 @@
    "ville": "Carqueiranne",
    "instagram": "",
    "url": "https://shotgun.live/fr/events/bambam-at-inda-house-27-11-26"
-  },
-  {
-   "id": "la-cale-seche-l-embuscade-des-pirates-2026-11-27",
-   "nom": "La Cale Sèche – L’Embuscade des Pirates",
-   "jour": "2026-11-27",
-   "lieu": "La Cale Sèche, Toulon",
-   "ville": "Toulon",
-   "instagram": "lacalesechetoulon",
-   "url": "https://www.instagram.com/p/DgGIZohoA8x/"
   },
   {
    "id": "da-grow-uk-bass-gangsta-house-2026-11-28",
@@ -129,15 +75,6 @@
    "url": "https://shotgun.live/events/da-grow-uk-bass-gangsta-house"
   },
   {
-   "id": "psynaps-2-2026-11-28",
-   "nom": "Psynaps-2",
-   "jour": "2026-11-28",
-   "lieu": "Fort Napoléon",
-   "ville": "La Seyne-sur-Mer",
-   "instagram": "",
-   "url": "https://shotgun.live/fr/events/psynaps-2"
-  },
-  {
    "id": "do-you-like-tekno-frigo16-le-109-2026-11-28",
    "nom": "Do You Like... Tekno ? @ Frigo16 - Le 109",
    "jour": "2026-11-28",
@@ -145,15 +82,6 @@
    "ville": "Nice",
    "instagram": "_do.you.like",
    "url": "https://shotgun.live/events/do-you-like-tekno-frigo-16-le-109-nice"
-  },
-  {
-   "id": "this-is-house-2026-11-28",
-   "nom": "This Is House",
-   "jour": "2026-11-28",
-   "lieu": "Le Baraza",
-   "ville": "Hyères",
-   "instagram": "",
-   "url": "https://shotgun.live/fr/events/this-is-house"
   },
   {
    "id": "slip-panther-glamrock-revival-show-2026-11-28",
@@ -174,15 +102,6 @@
    "url": "https://www.instagram.com/p/DgGIZohoA8x/"
   },
   {
-   "id": "vibrance-7-2026-11-28",
-   "nom": "Vibrance #7",
-   "jour": "2026-11-28",
-   "lieu": "L'Antre Bar Electro",
-   "ville": "Nice",
-   "instagram": "lantretechno",
-   "url": "https://shotgun.live/events/vibrance-7"
-  },
-  {
    "id": "soiree-zouk-et-caribbean-vibes-2026-11-28",
    "nom": "Soirée Zouk & Caribbean Vibes",
    "jour": "2026-11-28",
@@ -190,15 +109,6 @@
    "ville": "Roquebrune-sur-Argens",
    "instagram": "",
    "url": ""
-  },
-  {
-   "id": "origins-invite-boticka-all-night-long-2026-11-28",
-   "nom": "Origins Invite Boticka All Night Long",
-   "jour": "2026-11-28",
-   "lieu": "switch Club",
-   "ville": "Roquebrune-sur-Argens",
-   "instagram": "",
-   "url": "https://shotgun.live/events/origins-invite-boticka-all-night-long"
   },
   {
    "id": "zouk-love-toulon-edition-chic-2026-11-28",
@@ -246,15 +156,6 @@
    "url": "https://www.eventbrite.fr/e/rencontre-dechecs-a-nice-the-sailors-pub-tickets-2004925100948"
   },
   {
-   "id": "reading-hour-nice-2026-11-30",
-   "nom": "Reading hour (Nice)",
-   "jour": "2026-11-30",
-   "lieu": "Jardin Albert 1er",
-   "ville": "Nice",
-   "instagram": "",
-   "url": "https://www.eventbrite.co.uk/e/reading-hour-nice-tickets-1995469509018"
-  },
-  {
    "id": "le-mas-d-hiver-bringue-pull-moche-de-noel-2026-12-04",
    "nom": "Le Mas d'Hiver : Bringue Pull Moche de Noël",
    "jour": "2026-12-04",
@@ -262,15 +163,6 @@
    "ville": "Puget-sur-Argens",
    "instagram": "lemas_concert",
    "url": "https://lemas-concert.com/line-up-hiver-2026/"
-  },
-  {
-   "id": "ref-session-18-acid-pauli-frigo-16-2026-12-04",
-   "nom": "Ref Session #18 Acid Pauli @ Frigo 16",
-   "jour": "2026-12-04",
-   "lieu": "Frigo 16",
-   "ville": "Nice",
-   "instagram": "reffestival",
-   "url": "https://shotgun.live/events/ref-session-18-acid-pauli-frigo-16"
   },
   {
    "id": "dj-set-tim-lienderss-2026-12-04",
@@ -318,15 +210,6 @@
    "url": "https://shotgun.live/events/la-dinette-santa-a-la-playa"
   },
   {
-   "id": "sisters-of-sand-3-2026-12-05",
-   "nom": "Sisters Of Sand 3",
-   "jour": "2026-12-05",
-   "lieu": "Fort Napoléon",
-   "ville": "La Seyne-sur-Mer",
-   "instagram": "",
-   "url": "https://shotgun.live/fr/events/sisters-of-sand3"
-  },
-  {
    "id": "la-grande-nuit-du-disco-2026-12-05",
    "nom": "La Grande Nuit du Disco",
    "jour": "2026-12-05",
@@ -354,15 +237,6 @@
    "url": "https://shotgun.live/events/dj-trvchi"
   },
   {
-   "id": "format-boiler-360-ii-hangar-and-hard-techno-2026-12-05",
-   "nom": "Format Boiler 360° II - Hangar And Hard Techno",
-   "jour": "2026-12-05",
-   "lieu": "Altherax Music",
-   "ville": "Nice",
-   "instagram": "",
-   "url": "https://shotgun.live/events/format-boiler-360-ii-hangar-and-hard-techno"
-  },
-  {
    "id": "ohm-family-l-antre-2026-12-05",
    "nom": "Ohm Family @ L'Antre",
    "jour": "2026-12-05",
@@ -372,15 +246,6 @@
    "url": "https://shotgun.live/venues/l-antre-bar-electro-bar-a-cocktails"
   },
   {
-   "id": "mamacita-frigo-16-2026-12-05",
-   "nom": "Mamacita @ Frigo 16",
-   "jour": "2026-12-05",
-   "lieu": "Frigo 16",
-   "ville": "Nice",
-   "instagram": "frigo.16",
-   "url": "https://shotgun.live/events/mamacita-frigo-16"
-  },
-  {
    "id": "switch-dimension-psytrance-edition-w-ranyo-hug-ette-2026-12-05",
    "nom": "Switch Dimension (Psytrance Edition) W/ Ranyo - Hug'ette",
    "jour": "2026-12-05",
@@ -388,15 +253,6 @@
    "ville": "Roquebrune-sur-Argens",
    "instagram": "",
    "url": "https://shotgun.live/events/switch-dimension-psytrance-edition-w-ranyo-hug-ette"
-  },
-  {
-   "id": "showcase-exclusif-la-fouine-2026-12-05",
-   "nom": "Showcase Exclusif : La Fouine",
-   "jour": "2026-12-05",
-   "lieu": "Sky Club / Sky Beach – Casino de Beaulieu",
-   "ville": "Beaulieu-sur-Mer",
-   "instagram": "",
-   "url": "https://shotgun.live/events/la-fouine-x-skyclub-showcase-exclusif"
   },
   {
    "id": "plk-tournee-des-zeniths-2026-2026-12-06",
@@ -435,15 +291,6 @@
    "url": "https://nouvelle-vague.com/live/kevin-saura-group-en-concert-a-nice/"
   },
   {
-   "id": "nice-char-bell-11-december-casino-de-beaulieu-2026-12-11",
-   "nom": "Nice | Char Bell | 11 December @ Casino De Beaulieu",
-   "jour": "2026-12-11",
-   "lieu": "Casino de Beaulieu",
-   "ville": "Beaulieu-sur-Mer",
-   "instagram": "",
-   "url": "https://shotgun.live/events/nice-char-bell-11-december-casino-de-beaulieu"
-  },
-  {
    "id": "soirees-dj-du-village-de-noel-de-bandol-2026-12-12",
    "nom": "Soirées DJ du Village de Noël de Bandol",
    "jour": "2026-12-12",
@@ -451,15 +298,6 @@
    "ville": "Bandol",
    "instagram": "",
    "url": "https://provence-alpes-cotedazur.com/fiche/soirees-dj-8041695/"
-  },
-  {
-   "id": "soiree-annees-80-frejus-remonte-le-temps-2026-12-12",
-   "nom": "Soirée Années 80 : Fréjus remonte le temps !",
-   "jour": "2026-12-12",
-   "lieu": "Place Jean Camille Formigé",
-   "ville": "Fréjus",
-   "instagram": "",
-   "url": "https://www.esterel-cotedazur.com/fetes-et-manifestations/soiree-annees-80/"
   },
   {
    "id": "mungo-s-hi-fi-1ere-partie-red-echoes-2026-12-12",
@@ -489,15 +327,6 @@
    "url": "https://www.cannes.com/fr/agenda/annee-2026/decembre/showcase-5-luzula-venin-carmin-code-150-harfaang.html"
   },
   {
-   "id": "switch-to-vido-odyze-b2b-nz-furious-tao-2026-12-12",
-   "nom": "Switch To Vido - Odyze B2b Nzø - Furious - Tao",
-   "jour": "2026-12-12",
-   "lieu": "switch Club",
-   "ville": "Roquebrune-sur-Argens",
-   "instagram": "",
-   "url": "https://shotgun.live/events/switch-to-vido-odyze-b-2-b-nz-furious-tao"
-  },
-  {
    "id": "thursday-live-sessions-dirty-deep-2026-12-17",
    "nom": "Thursday Live Sessions - DIRTY DEEP",
    "jour": "2026-12-17",
@@ -505,24 +334,6 @@
    "ville": "Monaco",
    "instagram": "",
    "url": "https://www.grimaldiforum.com/fr/agenda-manifestations-monaco/thursday-live-sessions-dirty-deep"
-  },
-  {
-   "id": "roller-disco-gratuit-frigo-16-2026-12-18",
-   "nom": "Roller Disco - Gratuit @ Frigo 16",
-   "jour": "2026-12-18",
-   "lieu": "Frigo 16",
-   "ville": "Nice",
-   "instagram": "frigo.16",
-   "url": "https://shotgun.live/events/roller-disco-gratuit-frigo-16"
-  },
-  {
-   "id": "nor-nights-oriental-rhythms-edition-2-2026-12-18",
-   "nom": "NŌR - Nights Oriental Rhythms | Édition #2",
-   "jour": "2026-12-18",
-   "lieu": "So Blue Hôtel Restaurant",
-   "ville": "Antibes",
-   "instagram": "",
-   "url": "https://shotgun.live/events/nor-nights-oriental-rhythms-edition-2"
   },
   {
    "id": "le-mome-et-adame-2026-12-18",
@@ -559,15 +370,6 @@
    "ville": "Fréjus",
    "instagram": "",
    "url": "https://www.esterel-cotedazur.com/fetes-et-manifestations/electro-party-de-noel"
-  },
-  {
-   "id": "zona-de-perreo-frigo-16-nice-2026-12-19",
-   "nom": "Zona De Perreo • Frigo 16 Nice",
-   "jour": "2026-12-19",
-   "lieu": "Frigo 16",
-   "ville": "Nice",
-   "instagram": "latinaddict",
-   "url": "https://shotgun.live/events/zona-de-perreo-frigo-16-nice"
   },
   {
    "id": "dj-set-karl-zen-k-2026-12-19",
@@ -613,15 +415,6 @@
    "ville": "Fréjus",
    "instagram": "",
    "url": "https://cotedazurfrance.fr/offres/grande-soiree-du-nouvel-an-frejus-fr-8051670/"
-  },
-  {
-   "id": "reveillon-du-nouvel-an-2026-12-31",
-   "nom": "Réveillon du Nouvel An",
-   "jour": "2026-12-31",
-   "lieu": "Magnolia Café, Nice",
-   "ville": "Nice",
-   "instagram": "magnoliacafenice",
-   "url": "https://www.instagram.com/p/DgF3JP3o8Nk/"
   },
   {
    "id": "la-grande-nuit-de-la-saint-sylvestre-sur-le-port-de-saint-tr-2026-12-31",
@@ -694,15 +487,6 @@
    "ville": "Nice",
    "instagram": "",
    "url": "https://shotgun.live/fr/cities/cote-d-azur"
-  },
-  {
-   "id": "fete-de-la-saint-sylvestre-drone-show-et-nuit-du-nouvel-an-s-2026-12-31",
-   "nom": "Fête de la Saint-Sylvestre : Drone Show & Nuit du Nouvel An sur la Croisette",
-   "jour": "2026-12-31",
-   "lieu": "Baie de Cannes & Plages de la Croisette",
-   "ville": "Cannes",
-   "instagram": "",
-   "url": "https://www.cannes.com/fr/agenda/annee-2026/decembre/feu-d-artifice-du-nouvel-an.html"
   },
   {
    "id": "soirees-dj-du-village-de-noel-de-bandol-2027-01-02",
