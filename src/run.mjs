@@ -994,12 +994,15 @@ async function publishPrepared(id) {
     if (!(await waitOnline(urls(), 3 * 60e3))) throw new Error(`Fichiers introuvables aussi sur ${fb}.`);
   }
 
+  // Étiquette IA (directeur, 21/11/2026) : un visuel contient une photo de la DA (studio/public/decors/**, générées par Gemini) ou
+  // le format est marqué « ia » ; jamais pour les affiches officielles ni les vraies photos et vidéos (ia: false explicite).
+  const ia = p.ia ?? (!!p.photo || /decors\//.test(JSON.stringify(p.images || [])));
   const publier = async () => (p.video
     ? await publishReel(url(p.son?.audio_id && p.video_instagram ? p.video_instagram : p.video), url(p.couverture), p.legende, ig,
-      { essai: !!TENDANCES.reels_essai?.actif, audio: p.son?.audio_id ? { audio_id: p.son.audio_id } : null, videoSecours: url(p.video), grille: !p.hors_grille })
+      { essai: !!TENDANCES.reels_essai?.actif, audio: p.son?.audio_id ? { audio_id: p.son.audio_id } : null, videoSecours: url(p.video), grille: !p.hors_grille, ia })
     : p.images.length === 1
-      ? await publishSingle(url(p.images[0]), p.legende, ig, { tags: p.tags, legende: (ok) => legendeFinale(p.legende, p.a_tester, ok) })
-      : await publishCarousel(p.images.map(url), p.legende, ig, { tags: p.tags, collabs: config.collaborations?.actif ? p.collabs : [], legende: (ok) => legendeFinale(p.legende, p.a_tester, ok) }));
+      ? await publishSingle(url(p.images[0]), p.legende, ig, { tags: p.tags, ia, legende: (ok) => legendeFinale(p.legende, p.a_tester, ok) })
+      : await publishCarousel(p.images.map(url), p.legende, ig, { tags: p.tags, ia, collabs: config.collaborations?.actif ? p.collabs : [], legende: (ok) => legendeFinale(p.legende, p.a_tester, ok) }));
   let res;
   const debutEnvoi = Date.now();
   // Erreur de l'API alors que le post est peut-être parti (réponse perdue, délai dépassé) : on regarde d'abord le profil,
@@ -1020,7 +1023,7 @@ async function publishPrepared(id) {
   }
   // Historique écrit TOUT DE SUITE (20/11/2026) : avant, il ne l'était qu'après la relecture et les stories (jusqu'à
   // 20 min) ; un arrêt entre-temps (délai du job, panne) laissait un post en ligne sans trace, republié au passage suivant.
-  const entreeHist = { id, date: p.date, media: res.id, lien: null, fete: p.fete, titre: p.titre, guide: p.guide, debat: p.debat, bonplan: p.bonplan, sujet: p.sujet, son: p.son, concept: p.concept, photo: p.photo || null, mise: p.mise || undefined, verifie: 'en cours', hors_grille: p.hors_grille || undefined, soirees: (p.soirees || []).map(cleSoiree), le: new Date().toISOString(),
+  const entreeHist = { id, date: p.date, media: res.id, lien: null, fete: p.fete, titre: p.titre, guide: p.guide, debat: p.debat, bonplan: p.bonplan, sujet: p.sujet, son: p.son, concept: p.concept, photo: p.photo || null, mise: p.mise || undefined, ia: ia || undefined, verifie: 'en cours', hors_grille: p.hors_grille || undefined, soirees: (p.soirees || []).map(cleSoiree), le: new Date().toISOString(),
     publication: { id: p.id, type: p.type, variante: p.variante, date: p.date, choix: p.choix, features: p.features, nb_images: p.nb_images, duree: p.duree, legende: p.legende, titre: p.titre, theme: p.theme } };
   hist.push(entreeHist);
   await writeFile(HIST_FILE, JSON.stringify(hist.slice(-300), null, 2));
@@ -1030,7 +1033,7 @@ async function publishPrepared(id) {
   entreeHist.lien = link;
   // Auto-contrôle : on relit la publication sur Instagram (un « ok » de l'API ne suffit pas, directeur 19/11/2026).
   const { verifierMedia } = await import('./instagram.mjs');
-  const attendu = { type: p.video ? 'reel' : p.images.length === 1 ? 'image' : 'carrousel', images: p.video ? undefined : p.images.length, legende: p.legende };
+  const attendu = { type: p.video ? 'reel' : p.images.length === 1 ? 'image' : 'carrousel', images: p.video ? undefined : p.images.length, legende: p.legende, ia };
   let verif = await verifierMedia(res.id, ig, attendu);
   if (!verif.ok) { await new Promise((ok) => setTimeout(ok, 30e3)); verif = await verifierMedia(res.id, ig, attendu); } // le temps qu'Instagram termine
   if (p.couverture_secours) verif.problemes.push('couverture du reel tombée en secours (image de la vidéo au lieu de la couverture DA)');

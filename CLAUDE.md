@@ -136,7 +136,9 @@
 - **Étiquette « contenu généré par IA »** (directeur, 21/11/2026 : « oui, marque image générée par IA quand c'est nécessaire ») :
   sur Instagram, toute publication dont un visuel contient une image réaliste générée par IA (photos de décor `studio/public/decors/**`,
   générées par Gemini, voir `CREDITS.json`) porte l'étiquette IA de Meta ; jamais sur les affiches officielles ni les vraies photos.
-  Mise en place avec la migration de l'API Instagram (v21 retirée le 21/01/2027).
+  En place depuis le 24/11/2026 : paramètre `is_ai_generated` (carrousel : conteneur principal seulement), mis quand la publication
+  a une photo de la DA (`p.photo`) ou `ia: true` ; `ia: false` explicite pour les vraies photos et vidéos ; relu par `verifierMedia`.
+  API Instagram en v26.0 par défaut (`IG_API_VERSION`), repli automatique sur v21.0 (valable jusqu'au 21/01/2027) si refusée.
 - **Tests et publication** (autorisation du directeur, 21/11/2026) : un test en échec ne bloque plus le robot Instagram ; il publie,
   puis finit le passage en erreur (« Alerte - tests en échec ») ; le contrôle quotidien répare le test le jour même.
 - **Versions et sauvegardes** (directeur, 21/11/2026 : « tu es censé faire le versionning » ; « des sauvegardes pour revenir à une

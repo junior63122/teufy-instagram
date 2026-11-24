@@ -3,7 +3,9 @@
 // ou graph.instagram.com (« Instagram API with Instagram Login »).
 // Les médias doivent être accessibles par une URL publique (ici GitHub Pages).
 
-const VERSION = process.env.IG_API_VERSION || 'v21.0';
+// 24/11/2026 : v21.0 retirée le 21/01/2027 ; v26.0 = dernière version (29/07/2026). Aucune métrique supprimée depuis v22
+// (impressions, plays, clips_replays_count, ig_reels_aggregated_all_plays_count) n'est demandée ici. Réglable par IG_API_VERSION.
+export const VERSION = process.env.IG_API_VERSION || 'v26.0';
 const HOST = process.env.IG_API_HOST || 'graph.facebook.com';
 
 export function igConfig() {
@@ -22,8 +24,21 @@ let DECOUVERTES = 0;
 const BUDGET_DECOUVERTE = Number(process.env.IG_BUDGET_DECOUVERTE || 20);
 export function quotaInstagram() { return { limite: LIMITE_ATTEINTE, decouvertes: DECOUVERTES, budget: BUDGET_DECOUVERTE }; }
 
-async function call(method, pathname, params, { token }) {
-  const url = new URL(`https://${HOST}/${VERSION}/${pathname}`);
+// Filet de la migration (24/11/2026) : si Meta refuse la version demandée (version inconnue ou non autorisée pour l'app), on
+// repasse à v21.0, valable jusqu'au 21/01/2027, pour la suite du passage, et on le signale dans le journal.
+let VERSION_ACTIVE = VERSION;
+const REFUS_VERSION = /unsupported .*version|unknown version|version .*(not|n't) (supported|available)|invalid api version/i;
+async function call(method, pathname, params, ig) {
+  try { return await appel(method, pathname, params, ig); }
+  catch (err) {
+    if (VERSION_ACTIVE === 'v21.0' || !REFUS_VERSION.test(err.message) || Date.now() > Date.parse('2027-01-21')) throw err;
+    console.error(`::warning::API Instagram ${VERSION_ACTIVE} refusée (${err.message.slice(0, 120)}) : repli sur v21.0 pour ce passage.`);
+    VERSION_ACTIVE = 'v21.0';
+    return appel(method, pathname, params, ig);
+  }
+}
+async function appel(method, pathname, params, { token }) {
+  const url = new URL(`https://${HOST}/${VERSION_ACTIVE}/${pathname}`);
   const body = new URLSearchParams({ ...params, access_token: token });
   let res;
   if (method === 'GET') {
@@ -88,7 +103,10 @@ async function conteneur(params, handles, ig, acceptes = []) {
   return call('POST', `${ig.user}/media`, params, ig);
 }
 
-export async function publishCarousel(imageUrls, caption, ig, { tags = [], collabs = [], legende = null } = {}) {
+// Étiquette « IA info » (is_ai_generated, API de publication, 22/06/2026, toutes versions) : publications dont un visuel contient une
+// image réaliste générée par IA (directeur, 21/11/2026). Carrousel : sur le conteneur principal seulement, jamais sur les enfants.
+const etiquetteIA = (ia) => (ia ? { is_ai_generated: 'true' } : {});
+export async function publishCarousel(imageUrls, caption, ig, { tags = [], collabs = [], legende = null, ia = false } = {}) {
   const children = [], acceptes = [];
   for (const [i, image_url] of imageUrls.slice(0, 10).entries()) {
     const { id } = await conteneur({ image_url, is_carousel_item: 'true' }, tags[i], ig, acceptes);
@@ -96,16 +114,16 @@ export async function publishCarousel(imageUrls, caption, ig, { tags = [], colla
   }
   for (const id of children) await waitReady(id, ig, { timeoutMs: 3 * 60e3 });
   if (legende) caption = legende(acceptes); // @mentions : seulement les comptes qu'Instagram a acceptés
-  const { id } = await avecCollabs({ media_type: 'CAROUSEL', children: children.join(','), caption }, collabs, ig);
+  const { id } = await avecCollabs({ media_type: 'CAROUSEL', children: children.join(','), caption, ...etiquetteIA(ia) }, collabs, ig);
   await waitReady(id, ig, { timeoutMs: 3 * 60e3 });
   return publish(id, ig);
 }
 
-export async function publishSingle(imageUrl, caption, ig, { tags = [], legende = null } = {}) {
+export async function publishSingle(imageUrl, caption, ig, { tags = [], legende = null, ia = false } = {}) {
   // Légende provisoire sans les comptes non confirmés, puis finale une fois les identifications acceptées connues.
   const acceptes = [];
-  let { id } = await conteneur({ image_url: imageUrl, caption: legende ? legende((tags[0] || []).filter(() => false)) : caption }, tags[0], ig, acceptes);
-  if (legende) { const finale = legende(acceptes); if (finale !== legende([])) ({ id } = await conteneur({ image_url: imageUrl, caption: finale }, acceptes, ig, [])); }
+  let { id } = await conteneur({ image_url: imageUrl, caption: legende ? legende((tags[0] || []).filter(() => false)) : caption, ...etiquetteIA(ia) }, tags[0], ig, acceptes);
+  if (legende) { const finale = legende(acceptes); if (finale !== legende([])) ({ id } = await conteneur({ image_url: imageUrl, caption: finale, ...etiquetteIA(ia) }, acceptes, ig, [])); }
   await waitReady(id, ig, { timeoutMs: 3 * 60e3 });
   return publish(id, ig);
 }
@@ -119,10 +137,10 @@ export async function chercherSons(ig, { type = 'music', requete = '' } = {}) {
 
 // audio = { audio_id, audio_volume, video_volume } : son Instagram attaché au reel. videoSecours = la même
 // vidéo avec la musique incluse, publiée si Instagram refuse le son.
-export async function publishReel(videoUrl, coverUrl, caption, ig, { essai = false, audio = null, videoSecours = null, collabs = [], grille = true } = {}) {
+export async function publishReel(videoUrl, coverUrl, caption, ig, { essai = false, audio = null, videoSecours = null, collabs = [], grille = true, ia = false } = {}) {
   if (collabs?.length || !grille) essai = false; // collaboration ou reel hors grille : publication normale (pas en essai)
   // grille = false : le reel n'apparaît que dans l'onglet Reels du profil, pas sur la grille (série « Et toi, t'aurais fait quoi ? »).
-  const params = { media_type: 'REELS', video_url: videoUrl, caption, share_to_feed: grille ? 'true' : 'false' };
+  const params = { media_type: 'REELS', video_url: videoUrl, caption, share_to_feed: grille ? 'true' : 'false', ...etiquetteIA(ia) };
   if (coverUrl) params.cover_url = coverUrl;
   if (audio?.audio_id) {
     params.audio_configuration = JSON.stringify({ audio_id: audio.audio_id, audio_volume: audio.audio_volume ?? 100, video_volume: audio.video_volume ?? 35 });
@@ -279,6 +297,11 @@ export async function verifierMedia(mediaId, ig, attendu = {}) {
     if (attendu.legende && net(m.caption) !== net(attendu.legende)) problemes.push('légende en ligne différente de celle prévue (ou absente)');
   }
   if (type === 'reel' && !m.thumbnail_url) problemes.push('pas de couverture visible');
+  // Étiquette IA demandée : relue à part (champ récent ; une erreur de lecture ne fait pas échouer le contrôle).
+  if (attendu.ia) {
+    try { const x = await call('GET', mediaId, { fields: 'is_ai_generated' }, ig); if (x.is_ai_generated === false) problemes.push('étiquette « IA info » absente'); m.is_ai_generated = x.is_ai_generated; }
+    catch (err) { m.ia_illisible = err.message.slice(0, 120); }
+  }
   return { ok: !problemes.length, problemes, media: m };
 }
 

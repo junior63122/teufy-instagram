@@ -72,3 +72,15 @@ test('marketing (24/11) : scénarios et légendes des réels → Gemini d\'abord
     assert.ok(!/json\(\{config, system,/.test(src), `${f} : appel sans marketing`);
   }
 });
+
+test('API Instagram (24/11) : v26 par défaut, étiquette IA sur le conteneur principal seulement, jamais de métrique supprimée', async () => {
+  const fs = await import('node:fs');
+  const src = fs.readFileSync(new URL('../src/instagram.mjs', import.meta.url), 'utf8');
+  assert.match(src, /IG_API_VERSION \|\| 'v26\.0'/);
+  assert.match(src, /media_type: 'CAROUSEL', children: children\.join\(','\), caption, \.\.\.etiquetteIA\(ia\)/);
+  assert.ok(!/is_carousel_item: 'true', \.\.\.etiquetteIA/.test(src), 'jamais sur les enfants');
+  for (const m of ['impressions', "'plays'", 'clips_replays_count', 'ig_reels_aggregated_all_plays_count']) assert.ok(!src.includes(`'${m.replace(/'/g, '')}'`) || m === "'plays'" && !/'plays'/.test(src), m);
+  const run = fs.readFileSync(new URL('../src/run.mjs', import.meta.url), 'utf8');
+  assert.match(run, /const ia = p\.ia \?\? \(!!p\.photo/);
+  assert.ok(!/v21\.0/.test(fs.readFileSync(new URL('../src/prospection.mjs', import.meta.url), 'utf8')));
+});

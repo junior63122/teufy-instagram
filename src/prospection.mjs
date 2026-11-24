@@ -107,7 +107,7 @@ async function contactInstagram(p) {
   const T = process.env.IG_ACCESS_TOKEN, U = process.env.IG_USER_ID, H = process.env.IG_API_HOST || 'graph.facebook.com';
   if (!T || !U || !p.instagram) return null;
   try {
-    const r = await fetch(`https://${H}/v21.0/${U}?fields=business_discovery.username(${encodeURIComponent(p.instagram)}){biography,website,name}&access_token=${T}`, { signal: AbortSignal.timeout(15000) });
+    const r = await fetch(`https://${H}/${process.env.IG_API_VERSION || 'v26.0'}/${U}?fields=business_discovery.username(${encodeURIComponent(p.instagram)}){biography,website,name}&access_token=${T}`, { signal: AbortSignal.timeout(15000) });
     const b = (await r.json()).business_discovery; if (!b) return null;
     if (b.website && !p.site) p.site = b.website;
     const e = emailsDe(b.biography || '', b.website || '')[0];

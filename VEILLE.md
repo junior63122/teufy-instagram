@@ -5,6 +5,14 @@ mises à jour, sources de soirées réparées ou ajoutées, décisions prises. T
 (demande du directeur du 20/11/2026), à partir de `contenus/veille-technique.json` et des annonces officielles.
 
 ## 24/11/2026 : veille quotidienne
+- API Instagram (tâche programmée de 14 h 23) : documentation officielle relue (changelog Instagram, versions Graph API, référence
+  POST /{ig-user-id}/media). Dernière version v26.0 (29/07/2026) ; v21.0 expire le 21/01/2027. Métriques supprimées depuis v22
+  (impressions, plays, clips_replays_count, ig_reels_aggregated_all_plays_count) : aucune n'est demandée par Teufy (views, reach,
+  saved, shares, total_interactions, ig_reels_avg_watch_time). Bascule en v26.0 par défaut (IG_API_VERSION), prospection comprise ;
+  repli automatique sur v21.0 si Meta refuse la version. Étiquette « IA info » : paramètre is_ai_generated=true (changelog du
+  22/06/2026, toutes versions ; carrousel : conteneur principal seulement), mis quand un visuel contient une photo de la DA
+  (générée par Gemini) ; relu après publication (GET ?fields=is_ai_generated) ; champ « ia » dans l'historique. À vérifier au
+  premier passage de publication de ce soir.
 - Relevé technique : celui de la veille a tourné à 16 h 59 (horaire de 6 h 17 sauté par GitHub, relancé ensuite) ; celui du jour sera
   relancé par le robot de veille à partir de 7 h.
 - Actions GitHub : checkout et setup-node passés en v7 sur tous les robots (essayées 2 jours sur la veille technique sans souci).
