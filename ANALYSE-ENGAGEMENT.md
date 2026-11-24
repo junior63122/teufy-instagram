@@ -1,5 +1,12 @@
 # Journal des revues de croissance
 
+## Décision du 24/11/2026 : Gemini écrit les réels (essai d'une semaine)
+- Directeur : « Gemini doit surtout servir au marketing ». Scénarios et légendes des réels (`studio/scripts/ecrire*.mjs`) :
+  Gemini d'abord, Claude en secours ; Claude gardé pour l'analyse et la stratégie ; Groq pour le site, la veille, les traductions.
+- À comparer aux revues du 27/11 et du 01/12 : vues, partages et enregistrements des réels écrits par Gemini contre ceux des
+  deux semaines précédentes (écrits par Claude). Si l'engagement baisse nettement, remettre Claude en premier.
+- Réponses aux commentaires : faites par le directeur lui-même pour le moment (`config.json`, commentaires.actif reste à false).
+
 ## Revue du 20/11/2026, 11 h (1re revue programmée)
 
 - **Chiffres :** rien de nouveau depuis l'analyse de ce matin (dernier relevé du robot le 19/11 ; 11 posts du robot notés, abonnés 14 441). Les premiers effets du nouveau planning (version 1.14.03) seront visibles à partir du 24/11.

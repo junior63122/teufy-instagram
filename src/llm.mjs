@@ -196,10 +196,15 @@ export function ecartsSchema(schema, obj) {
 }
 const conforme = (schema, r, qui) => { const pb = ecartsSchema(schema, r); if (pb.length) throw new Error(`${qui} : réponse non conforme au schéma (${pb.join(', ')})`); return r; };
 
-export async function json({ config, system, prompt, schema, nom = 'reponse', gratuit = false, secondaire = false, sansGroq = false }) {
+export const ORDRE_MARKETING = ['gemini', 'anthropic', 'groq', 'github'];
+export async function json({ config, system, prompt, schema, nom = 'reponse', gratuit = false, secondaire = false, sansGroq = false, marketing = false }) {
   const L = config.llm || {}; reglerCouts(L);
   // sansGroq : réponses aux commentaires Instagram (directeur, 20/11/2026 : jamais Groq pour les commentaires).
-  for (const f of fournisseurs(config, { gratuit }).filter((x) => !sansGroq || x !== 'groq')) {
+  // marketing (directeur, 24/11/2026 : « Gemini doit surtout servir au marketing ») : scénarios et légendes des réels →
+  // Gemini d'abord, Claude en secours (Claude est gardé pour l'analyse et la stratégie), puis Groq.
+  let liste = fournisseurs(config, { gratuit });
+  if (marketing) liste = [...liste].sort((a, b) => ORDRE_MARKETING.indexOf(a) - ORDRE_MARKETING.indexOf(b));
+  for (const f of liste.filter((x) => !sansGroq || x !== 'groq')) {
     if (!budgetOk(f, L, secondaire)) continue;
     try {
       if (f === 'gemini') {

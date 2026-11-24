@@ -122,7 +122,7 @@ Date : ${new Date().toISOString().slice(0, 10)}.
 Écris un reel original selon le schéma.`;
 
 // ECRIRE_REPONSE=<fichier.json> : réponse toute faite (tests, sans appel à l'IA).
-const r = process.env.ECRIRE_REPONSE ? lire(process.env.ECRIRE_REPONSE, {}) : await json({config, system, prompt, schema: SCHEMA, nom: 'reel_illustre'});
+const r = process.env.ECRIRE_REPONSE ? lire(process.env.ECRIRE_REPONSE, {}) : await json({config, marketing: true, system, prompt, schema: SCHEMA, nom: 'reel_illustre'});
 if (!r?.mondes?.length) { console.error('Scénariste : aucune réponse exploitable.'); process.exit(1); }
 
 // --- Vérifications et mise en forme -------------------------------------------------------

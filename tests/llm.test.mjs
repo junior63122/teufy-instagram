@@ -62,3 +62,13 @@ test('lancement manuel : Groq (gratuit) reste permis, Gemini non', env({ GEMINI_
   assert.equal(budgetOk('gemini', {}), false);
   assert.equal(budgetOk('groq', {}), true);
 }));
+
+test('marketing (24/11) : scénarios et légendes des réels → Gemini d\'abord, puis Claude, puis Groq', async () => {
+  const { ORDRE_MARKETING } = await import('../src/llm.mjs');
+  assert.deepEqual(ORDRE_MARKETING.slice(0, 3), ['gemini', 'anthropic', 'groq']);
+  const fs = await import('node:fs');
+  for (const f of ['studio/scripts/ecrire.mjs', 'studio/scripts/ecrire-flash.mjs']) {
+    const src = fs.readFileSync(new URL(`../${f}`, import.meta.url), 'utf8');
+    assert.ok(!/json\(\{config, system,/.test(src), `${f} : appel sans marketing`);
+  }
+});

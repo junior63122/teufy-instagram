@@ -153,7 +153,7 @@ const CRITIQUE = {type: 'object', additionalProperties: false, required: ['note'
 const relire = (script) => json({config, nom: 'relecture', gratuit: true, schema: CRITIQUE,
   system: `Tu es rédacteur en chef exigeant des reels de Teufy (soirées Côte d'Azur, 17-30 ans). TEST DU PARTAGE (éliminatoire) : un fêtard de 22 ans de Nice l'enverrait-il à son pote ou dans son groupe WhatsApp ? Sujet scolaire, générique (valable pour n'importe quelle ville) ou sans situation vécue = note maximum 6. Note le script sur 10 : rétention (le public décroche en 1 s : la scène 1 fait-elle ≤ 8 mots avec un choc immédiat ? chaque réplique ≤ 12 mots ? une histoire avec tension et retournement ? une raison de rester jusqu'à la fin ?), accroche (2 premières secondes), valeur apportée (on apprend ou on rit vraiment), rythme (un temps fort toutes les 1-2 s), exactitude (nombre d'éléments annoncé = nombre donné ; TOUTE affirmation chiffrée ou présentée comme un fait — « ×2 », « le double », « 80 % », une règle générale — sans source ni mention d'exemple est une faute grave : note 5 maximum), ton (complice, inclusif, sans stéréotype de genre, d'origine ou d'apparence), cohérence rubrique/contenu, appel à l'action. Sois sévère : 7 = publiable.`,
   prompt: `Rubrique : ${rubrique}\nScript :\n${JSON.stringify({titre: script.titre, titre_couverture: script.titre_couverture, scenes: script.scenes.map((x) => ({texte: x.texte, gros: x.gros, objet: x.objet?.type})), legende: script.legende})}`});
-let r = process.env.ECRIRE_REPONSE ? lire(process.env.ECRIRE_REPONSE, {}) : await json({config, system, prompt, schema: SCHEMA, nom: 'reel_flash'});
+let r = process.env.ECRIRE_REPONSE ? lire(process.env.ECRIRE_REPONSE, {}) : await json({config, marketing: true, system, prompt, schema: SCHEMA, nom: 'reel_flash'});
 // Contrôles de rythme mesurables (avant l'avis de l'IA) : accroche courte, répliques courtes, pas de pauses.
 const mots = (x) => String(x || '').replace(/\[[^\]]*\]/g, ' ').trim().split(/\s+/).filter(Boolean).length;
 const rythme = (sc) => [
@@ -169,7 +169,7 @@ if (!process.env.ECRIRE_REPONSE && r?.scenes?.length) {
     console.error(`Relecture : ${avis.note}/10${avis.problemes?.length ? ` — ${avis.problemes.join(' ; ')}` : ''}`);
     if (avis.note >= 7) break;
     if (essai === 2) { console.error('Script refusé par la relecture : pas de reel.'); process.exit(1); }
-    r = await json({config, system, schema: SCHEMA, nom: 'reel_flash', prompt: `${prompt}\n\nUne première version a été refusée par la relecture (${avis.note}/10). Problèmes à corriger : ${avis.problemes.join(' ; ')}.\nVersion refusée : ${JSON.stringify(r).slice(0, 6000)}\nRéécris un reel meilleur selon le schéma.`});
+    r = await json({config, marketing: true, system, schema: SCHEMA, nom: 'reel_flash', prompt: `${prompt}\n\nUne première version a été refusée par la relecture (${avis.note}/10). Problèmes à corriger : ${avis.problemes.join(' ; ')}.\nVersion refusée : ${JSON.stringify(r).slice(0, 6000)}\nRéécris un reel meilleur selon le schéma.`});
   }
 }
 if (!r?.scenes?.length) { console.error('Scénariste : aucune réponse exploitable.'); process.exit(1); }
