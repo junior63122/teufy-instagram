@@ -7924,5 +7924,38 @@
   "commun": [
    "pony"
   ]
+ },
+ "v2|e9b6f55e6d1f": {
+  "ok": true,
+  "le": "2026-11-24T19:13:00.193Z",
+  "nom": "HIGH STUDENTS",
+  "lu": {
+   "titre": "high STUDENTS",
+   "dates": [
+    "2026-12-04"
+   ],
+   "artistes": [],
+   "lieu": ""
+  },
+  "commun": [
+   "high",
+   "students"
+  ]
+ },
+ "v2|3ccad23ddff3": {
+  "ok": true,
+  "le": "2026-11-24T19:13:02.140Z",
+  "nom": "La Dinette - Santa À La Playa",
+  "lu": {
+   "titre": "NOEL SUR LA PLAGE",
+   "dates": [
+    "2026-12-05"
+   ],
+   "artistes": [
+    "DJ GREENHIGH"
+   ],
+   "lieu": "PLAYA CHICA"
+  },
+  "commun": []
  }
 }
