@@ -77,3 +77,25 @@ test('pour les jeunes : une vraie soirée n\'est jamais retirée pour un mot iso
   assert.ok(pourJeunes({ name: 'SHATTA', description: 'Soirée 100 % shatta avec les DJs Ozenn et Dezze Recital aux platines.', start: '2026-11-27T23:00:00.000Z' }));
   assert.ok(!pourJeunes({ name: 'Concert à Nice : Tchaikovsky, Vivaldi, Pachelbel', start: '2026-12-16T19:00:00.000Z' }));
 });
+
+test('ville d\'un lieu (24/11) : L\'Antre placée à Antibes par une IA, Nice pour toutes les billetteries → Nice', async () => {
+  const { corrigerVilles } = await import('../src/qualite-soirees.mjs');
+  const ev = [
+    { name: 'Je Dis Techno', venue: 'L’Antre', city: 'Antibes', start: '2026-11-26T21:00:00Z' },
+    { name: 'Pump Up', venue: "L'Antre Bar Electro", city: 'Nice', start: '2026-11-14T20:00:00Z' },
+    { name: 'Da Grow', venue: "L'Antre Bar Electro", city: 'Nice', start: '2026-11-28T21:00:00Z' },
+    { name: 'Seul', venue: 'Autre lieu', city: 'Cannes', start: '2026-11-28T21:00:00Z' },
+  ];
+  const r = corrigerVilles(ev);
+  assert.equal(r[0].city, 'Nice');
+  assert.equal(r[3].city, 'Cannes');
+});
+
+test('affiche qui contredit la date (24/11) : soirée retirée ; affiche sans date ou à J±1 : gardée', async () => {
+  const { dateContredite } = await import('../src/site.mjs');
+  const e = { name: 'Je Dis Techno', venue: 'L’Antre', city: 'Nice', start: '2026-11-24T21:00:00.000Z' };
+  assert.equal(dateContredite(e, { titre: 'Je Dis Techno', dates: ['2026-11-26'] }), true);
+  assert.equal(dateContredite(e, { titre: 'Je Dis Techno', dates: ['2026-11-25'] }), false);
+  assert.equal(dateContredite(e, { titre: 'Je Dis Techno', dates: [] }), false);
+  assert.equal(dateContredite(e, { titre: 'Autre soirée', dates: ['2026-11-26'] }), false); // autre affiche : jugée ailleurs
+});

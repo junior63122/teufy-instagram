@@ -184,15 +184,17 @@ export function imageDeLaSource(e = {}) {
 async function verifier(e, fichier, cache) {
   const k = `v2|${h(`${e.image}|${e.name}`)}`, ancien = cache[h(`${e.image}|${e.name}`)];
   if (e.manuel) return true; // affiche fournie et vérifiée par l'équipe
+  if (cache[k]?.lu && dateContredite(e, cache[k].lu)) DATES_CONTREDITES.add(`${e.name}|${e.start}`);
   if (cache[k]) return cache[k].lu ? jugerAffiche(e, cache[k].lu) : cache[k].ok;
   // Sans IA disponible (ou plus de temps) : ancien verdict s'il existe ; sinon on ne montre une affiche non vérifiée que
   // si elle vient de la billetterie ou de l'organisateur, jamais si c'est la recherche web qui l'a associée (risque
   // d'affiche d'une autre soirée, cas « La Tocardise » / « Noise Protocol » du 11/11/2026).
-  if (!tempsOk() || !((process.env.GEMINI_API_KEY || '').trim() || (process.env.GROQ_API_KEY || '').trim())) return ancien ? ancien.ok : e.source !== 'web' || imageDeLaSource(e);
+  if (!tempsOk() || !((process.env.GEMINI_API_KEY || '').trim() || (process.env.GROQ_API_KEY || '').trim())) return ancien ? ancien.ok : !e.via_veille && (e.source !== 'web' || imageDeLaSource(e));
   const r = await gemini([{ inline_data: { mime_type: 'image/jpeg', data: readFileSync(fichier).toString('base64') } }, { text: 'Lis cette affiche de soirée. Réponds en JSON {"titre":string,"artistes":[string],"lieu":string,"ville":string,"dates":["AAAA-MM-JJ"]}. Recopie seulement ce qui est écrit sur l\'affiche (dates au format AAAA-MM-JJ, année 2026 ou 2027 si elle n\'est pas écrite ; tableau vide si aucune date). Chaîne vide si absent.' }]);
-  if (!r || typeof r !== 'object') return ancien ? ancien.ok : e.source !== 'web' || imageDeLaSource(e); // lecture impossible : même règle
+  if (!r || typeof r !== 'object') return ancien ? ancien.ok : !e.via_veille && (e.source !== 'web' || imageDeLaSource(e)); // lecture impossible : même règle (veille : jamais sans lecture)
   const lu = { titre: r.titre, dates: (r.dates || []).filter((d) => /^\d{4}-\d{2}-\d{2}$/.test(d)), artistes: (r.artistes || []).slice(0, 6), lieu: r.lieu || '' };
   const ok = jugerAffiche(e, lu);
+  if (dateContredite(e, lu)) DATES_CONTREDITES.add(`${e.name}|${e.start}`);
   cache[k] = { ok, le: new Date().toISOString(), nom: e.name, lu, commun: [...motsAffiche([lu.titre, ...lu.artistes].join(' '))].filter((m) => motsAffiche(`${e.name} ${(e.artistes || []).join(' ')}`).has(m)).slice(0, 5) };
   return ok;
 }
@@ -201,6 +203,17 @@ async function verifier(e, fichier, cache) {
 //  - le TITRE ou un ARTISTE de l'affiche doit se retrouver dans le nom de la soirée (ou ses artistes) ;
 //  - la date lue doit être celle de la soirée (veille ou lendemain toléré seulement si le titre correspond, soirée
 //    après minuit) ; une affiche sans date lisible passe si le titre correspond.
+/** L'affiche (lue) montre son titre et d'autres dates que la soirée : c'est la date de la fiche qui est fausse (24/11/2026 :
+ *  « Je Dis Techno » annoncée le 24/11 par la veille, l'affiche de l'organisateur dit 26-11). */
+export function dateContredite(e, lu = {}) {
+  const dates = (lu.dates || []).filter((d) => /^\d{4}-\d{2}-\d{2}$/.test(d)); if (!dates.length) return false;
+  const jour = cle(e.start), j = Date.parse(`${jour}T12:00:00Z`);
+  if (dates.some((d) => Math.abs(Date.parse(`${d}T12:00:00Z`) - j) <= 864e5)) return false;
+  const nom = motsAffiche(`${e.name} ${(e.artistes || []).join(' ')}`), titre = motsAffiche([lu.titre, ...(lu.artistes || [])].join(' '));
+  for (const m of motsAffiche(`${e.venue || ''} ${e.city || ''}`)) { nom.delete(m); titre.delete(m); }
+  return [...titre].some((m) => nom.has(m));
+}
+export const DATES_CONTREDITES = new Set();
 export function jugerAffiche(e, lu = {}) {
   const jour = cle(e.start), j = Date.parse(`${jour}T12:00:00Z`);
   const dates = (lu.dates || []).filter((d) => /^\d{4}-\d{2}-\d{2}$/.test(d));
@@ -784,6 +797,10 @@ export async function construireSite({ events, eventsFrance = [], eventsOccitani
   };
   const soirees = [];
   for (const e of fiables) soirees.push(await preparer(e, 'cote'));
+  // Date contredite par l'affiche lue, ou soirée de la veille dont l'affiche n'a pas confirmé la date : retirée (24/11/2026).
+  { const avant = soirees.length;
+    for (let i = soirees.length - 1; i >= 0; i--) { const e = fiables[i]; if (DATES_CONTREDITES.has(`${e.name}|${e.start}`) || (e.via_veille && !soirees[i].affiche)) { log(`Site : « ${e.name} » (${cle(e.start)}) retirée : ${DATES_CONTREDITES.has(`${e.name}|${e.start}`) ? 'l\'affiche montre une autre date' : 'date de la veille non confirmée par l\'affiche'}`); soirees.splice(i, 1); } }
+    if (soirees.length < avant) log(`Site : ${avant - soirees.length} soirée(s) retirée(s) pour date non confirmée.`); }
   // Une affiche ne sert qu'à UNE soirée (12/11/2026) : si plusieurs soirées ont reçu la même image (affiche générale d'un
   // festival, erreur de source), on la garde pour celle dont le nom figure dans le nom de fichier lu (titre de l'affiche)
   // ou, à défaut, la première ; les autres passent à la photo de leur lieu.

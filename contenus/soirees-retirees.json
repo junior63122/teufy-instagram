@@ -16,6 +16,15 @@
       "raison": "date incohérente (« week-end » placé un lundi et un mardi, lue dans une vidéo, aucune autre source)",
       "signale_par": "directeur",
       "le": "2026-11-23"
+    },
+    {
+      "url": "https://www.instagram.com/p/DgF-RyOgEeo/",
+      "nom": "Je Dis Techno",
+      "date": "2026-11-24",
+      "lieu": "L’Antre",
+      "raison": "Date et ville fausses (lues par la veille dans un post Instagram) : l'affiche de @je_dis_techno_nice dit jeudi 26-11, à L'Antre (22 bis rue Benoît Bunico) puis au Kosma (8 rue Sacha Guitry), à Nice. La bonne soirée est « Je Dis Techno (Tous Les Jeudis) » du 26/11.",
+      "signale_par": "directeur (capture du site)",
+      "le": "2026-11-24"
     }
   ]
 }

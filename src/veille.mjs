@@ -260,7 +260,9 @@ Pour chaque point : titre, date et heure de publication, URL de la source la plu
           name: e.nom.trim(), start: dateParis(e.debut, { dateSeule: 'minuit' }).toISOString(), venue: e.lieu, city: e.ville || '', address: '',
           url: /^https?:\/\//.test(e.billetterie) ? e.billetterie : x.source_url, image: /^https?:\/\//.test(e.affiche) ? e.affiche : (x.image || ''),
           price: typeof e.prix === 'number' && e.prix >= 0 && e.prix < 500 ? e.prix : null, tags: e.styles || [], description: '', public_cible: 0.6,
-          confiance: 0.9, accroche: e.accroche && e.accroche.length <= 120 && !/—/.test(e.accroche) ? e.accroche : '',
+          // 24/11/2026 : date et ville lues par l'IA dans un post (« Je Dis Techno » placée le 24/11 à Antibes au lieu du 26/11 à
+          // Nice) : jamais assez sûr pour les posts (0,85) ; le site ne la montre que si l'affiche lue confirme la date.
+          confiance: 0.8, accroche: e.accroche && e.accroche.length <= 120 && !/—/.test(e.accroche) ? e.accroche : '',
           instagram: (x.comptes_instagram || []).map((h) => String(h).replace(/^@/, '').toLowerCase()).filter((h) => /^[a-z0-9._]{2,30}$/.test(h)).slice(0, 3),
         }));
       if (ajouts.length && cacheEv.evenements) {

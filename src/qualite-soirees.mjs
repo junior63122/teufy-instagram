@@ -77,6 +77,19 @@ export function fusionnerMemeNuit(events) {
   return gardes;
 }
 
+/** 6. Ville d'un lieu (24/11/2026, « Je Dis Techno » à L'Antre placée à Antibes) : si au moins 2 autres annonces du même lieu
+ *  donnent toutes une même autre ville, c'est elle (une IA qui lit un post peut se tromper de ville, pas plusieurs billetteries). */
+export function corrigerVilles(events) {
+  const v = (e) => sansAccent(e.city || '').trim();
+  return events.map((e) => {
+    if (!lieuCle(e) || !v(e)) return e;
+    const autres = events.filter((x) => x !== e && memeLieu(x, e) && v(x));
+    if (autres.some((x) => v(x) === v(e))) return e;
+    const villes = [...new Set(autres.map(v))];
+    return villes.length === 1 && autres.length >= 2 ? { ...e, city: autres[0].city, _ville_corrigee: e.city } : e;
+  });
+}
+
 /** Intéresse un public jeune : jamais d'orgue, de thé dansant, de chorale… ; en journée, une vraie sortie (day party, concert…). */
 export function pourJeunes(e) {
   const t = texte(e);
@@ -91,7 +104,7 @@ export function estDeJour(e) { const t = Date.parse(e.start); if (!t) return fal
 /** Les règles, dans l'ordre. */
 export function nettoyerSoirees(events, { log = () => {} } = {}) {
   let n = 0;
-  const corriges = events.map((e) => { const x = corrigerRecurrence(corrigerNuit(e)); if (x !== e) n++; return x; });
+  const corriges = corrigerVilles(events).map((e) => { const x = corrigerRecurrence(corrigerNuit(e)); if (x !== e || e._ville_corrigee) n++; return x; });
   // 24/11/2026 (directeur : « il peut y avoir des événements en journée, ils peuvent intéresser les gens aussi, mais on doit très
   // bien différencier la nuit de la journée ») : les événements de journée restent, marqués « journee » ; le site les signale
   // (pastille « En journée », menu « Moment ») et ne les met jamais sous « Ce soir ». Seul le « week-end » placé en semaine est retiré.
