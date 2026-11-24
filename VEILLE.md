@@ -4,6 +4,19 @@ Journal daté (le plus récent en premier) : changements des prestataires et des
 mises à jour, sources de soirées réparées ou ajoutées, décisions prises. Tenu par la tâche programmée quotidienne
 (demande du directeur du 20/11/2026), à partir de `contenus/veille-technique.json` et des annonces officielles.
 
+## 24/11/2026 : veille quotidienne
+- Relevé technique : celui de la veille a tourné à 16 h 59 (horaire de 6 h 17 sauté par GitHub, relancé ensuite) ; celui du jour sera
+  relancé par le robot de veille à partir de 7 h.
+- Actions GitHub : checkout et setup-node passés en v7 sur tous les robots (essayées 2 jours sur la veille technique sans souci).
+  Restent en essai séparé : upload-artifact (v7), upload-pages-artifact (v5), deploy-pages (v5), cache (v6).
+- DATAtourisme : 67 879 lignes lues, toutes écartées « sans nom ni date » (le découpage des lignes ne suit pas l'en-tête) :
+  séparateur détecté automatiquement et aperçu brut des premières lignes dans le journal du prochain relevé.
+- Meta : aucune dépréciation de publication annoncée ; nouveautés de l'API de publication (28/09/2026) : sondages et invitations à
+  commenter en complément de légende, et paramètre is_ai_generated (étiquette IA) à la création du média (migration prévue aujourd'hui).
+  Source : developers.facebook.com/docs/instagram-platform/changelog.
+- Gemini rouvert hier soir (crédit rechargé par le directeur) : réels avec scénario et 2 nouvelles photos de la DA par jour.
+- Soirées des 7 prochains jours (relevé de la veille) : 40, dont 12 sans heure, 12 sans prix, 11 sans affiche.
+
 ## 23/11/2026
 
 - **Robot « Veille technique »** : relevé du jour pas encore fait à 7 h 50 (horaire GitHub sauté, comme souvent) ; la veille le relance
