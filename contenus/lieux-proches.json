@@ -7340,5 +7340,62 @@
   ],
   "velo": null,
   "taxi": null
+ },
+ "43.69649,7.26774": {
+  "le": "2026-11-24T08:21:04.516Z",
+  "parkings": [
+   {
+    "nom": "Ruhl Méridien",
+    "type": "underground",
+    "payant": true,
+    "m": 161
+   },
+   {
+    "nom": "Massena",
+    "type": "underground",
+    "payant": true,
+    "m": 216
+   },
+   {
+    "nom": "Parking Sulzer",
+    "type": "underground",
+    "payant": true,
+    "m": 271
+   }
+  ],
+  "transports": [
+   {
+    "nom": "Jardin d'Arménie",
+    "type": "bus",
+    "m": 126,
+    "lignes": "8+;12+;630"
+   },
+   {
+    "nom": "Albert 1er / Phocéens",
+    "type": "bus",
+    "m": 138,
+    "lignes": "8;12;98;630"
+   },
+   {
+    "nom": "Masséna",
+    "type": "tram",
+    "m": 248,
+    "lignes": ""
+   },
+   {
+    "nom": "Jean Médecin",
+    "type": "tram",
+    "m": 407,
+    "lignes": ""
+   }
+  ],
+  "velo": {
+   "nom": "MobilBoard",
+   "m": 218
+  },
+  "taxi": {
+   "nom": "",
+   "m": 152
+  }
  }
 }
