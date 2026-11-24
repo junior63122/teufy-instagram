@@ -1,0 +1,289 @@
+{
+  "id": "bonplan-a-reserver",
+  "type": "bonplan",
+  "variante": "a-reserver",
+  "date": "2026-11-24",
+  "images": [
+    "carrousel-00.jpg",
+    "carrousel-01.jpg",
+    "carrousel-02.jpg",
+    "carrousel-03.jpg",
+    "carrousel-04.jpg"
+  ],
+  "legende": "Bon plan : les grosses dates qui arrivent sur la Côte. Prenez vos places avant que ce soit sold out.\n\n→ Ven 4 déc · Ref Session #18 Acid Pauli @ Frigo 16 (Acid · Techno) · Frigo 16, Nice · 20h00 · 12,49 €\nLa légende Acid Pauli en session hypnotique et immersive au 109. @reffestival @pandaevents06\n→ Ven 4 déc · HIGH STUDENTS (Trance · Reggaeton) · High Club, Nice · minuit · 20 €\nLe grand rendez-vous étudiant du vendredi soir sur la Promenade des Anglais. @highclubnice\n→ Sam 19 déc · Zona De Perreo • Frigo 16 Nice (Shatta · Reggaeton) · Frigo 16, Nice · 20h00 · 12 €\nLe temple du perreo et du dembow réinvestit le Frigo 16 avec Latin Addict. @latinaddict @pandaevents06\n\nEnvoie ça à ton groupe avant d'oublier.\n\nBillets sur les pages des soirées (Shotgun, DICE, organisateurs). Envoie-le à ceux avec qui tu sors.\n\n- Toutes les soirées de la Côte, par ville, style et prix : teufyparty.com\n\n#TeufyParty #vieuxnice #nice #nightlife #weekend",
+  "soirees": [
+    {
+      "source": "web",
+      "source_site": "shotgun.live",
+      "name": "Ref Session #18 Acid Pauli @ Frigo 16",
+      "start": "2026-12-04T19:00:00.000Z",
+      "venue": "Frigo 16",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/events/ref-session-18-acid-pauli-frigo-16",
+      "image": "evenements/auto/88d33b0cd576.jpg",
+      "price": 12.49,
+      "tags": [
+        "acid house",
+        "acid techno",
+        "melodic techno",
+        "house",
+        "psychedelic house",
+        "minimal",
+        "techno",
+        "ambient",
+        "Acid House",
+        "Acid Techno",
+        "Melodic Techno",
+        "Minimal Techno",
+        "Psychedelic House",
+        "Minimal",
+        "Techno",
+        "Deep House",
+        "Downtempo",
+        "organic house",
+        "downtempo",
+        "psychedelic electronic",
+        "melodic house",
+        "House",
+        "Electro",
+        "electro",
+        "Ambient Techno",
+        "Organic",
+        "Ambient",
+        "Musique électronique",
+        "electronic"
+      ],
+      "description": "Le vendredi 4 décembre, la REF Session #18 se réunit à Frigo 16, Nice, pour une nuit de house hypnotique et d’expérimentations sonores. Headliner, Acid Pauli, est reconnu pour ses sets libres et immersifs mêlant house, electronica et ambient. Il ouvre la soirée après un set d’Emma, qui propose une house groovy et percussive, avant que Legri, ancien duo Cab25, ne clôture le programme avec son mélange de funk, hip‑hop et house des années 90. L’ambiance promet d’être électrisante, avec food & drinks sur place et parking disponible. L’événement est accessible aux 17‑30 ans, sans restriction d’âge.",
+      "public_cible": 0.9,
+      "confiance": 0.95,
+      "buzz": 0.9,
+      "buzz_raison": "Venue rare d'Acid Pauli, artiste de renommée mondiale sur la scène électro.",
+      "accroche": "La légende Acid Pauli en session hypnotique et immersive au 109.",
+      "instagram": [
+        "reffestival",
+        "pandaevents06",
+        "frigo.16"
+      ],
+      "offres": [
+        {
+          "plateforme": "shotgun.live",
+          "url": "https://shotgun.live/events/ref-session-18-acid-pauli-frigo-16",
+          "prix": 10
+        },
+        {
+          "plateforme": "ra.co",
+          "url": "https://ra.co/events/2041280",
+          "prix": 10
+        },
+        {
+          "plateforme": "provence-alpes-cotedazur.com",
+          "url": "https://provence-alpes-cotedazur.com/fiche/acid-pauli-x-ref-session-18-8016059/",
+          "prix": 12.49
+        },
+        {
+          "plateforme": "le109.nice.fr",
+          "url": "https://le109.nice.fr/evenement/acid-pauli-x-ref-session-18-04-12-2026",
+          "prix": 10
+        },
+        {
+          "plateforme": "allevents.in",
+          "url": "https://allevents.in/nice/ref-session-18-acid-pauli-ven-04-d%C3%A9cembre-2026-frigo-16-nice/200028793980969",
+          "prix": 15
+        },
+        {
+          "plateforme": "infoconcert.com",
+          "url": "https://www.infoconcert.com/artiste/acid-pauli-112702/concerts.html",
+          "prix": 12.49
+        }
+      ],
+      "sources_sites": [
+        "shotgun.live",
+        "Resident Advisor",
+        "provence-alpes-cotedazur.com",
+        "le109.nice.fr",
+        "Shotgun",
+        "Panda Events",
+        "InfoConcert",
+        "Shotgun / Resident Advisor"
+      ],
+      "via_veille": true,
+      "billetterie_cherchee": true,
+      "offres_cherchees": true,
+      "enrichi": true
+    },
+    {
+      "source": "xceed",
+      "name": "HIGH STUDENTS",
+      "start": "2026-12-04T22:59:00.000Z",
+      "end": "2026-12-05T04:00:00.000Z",
+      "venue": "High Club",
+      "city": "Nice",
+      "address": "45 Prom. des Anglais, 06000 Nice, France Nice",
+      "url": "https://xceed.me/fr/nice/event/high-students/253250",
+      "image": "evenements/auto/dd82cf723be0.jpg",
+      "price": 20,
+      "tags": [
+        "Généraliste",
+        "Hip-Hop",
+        "House",
+        "Reggaeton",
+        "house",
+        "electro",
+        "clubbing",
+        "urban",
+        "commercial"
+      ],
+      "description": "Vendredi 04 décembre @ High club - NICE 🤩🤗😍 Friday December 04th @ High club - NICE ❌ => HIGH STUDENTS ❌ => Entrée 15€ sur place / Tickets FAST PASS 20€ en ligne ( accès rapide et prioritaire ) ❌ => Entrance fee 15€ on site / Tickets FAST PASS 20€ online ( fast and priority access )",
+      "popularite": null,
+      "source_site": "highclub.fr",
+      "public_cible": 0.95,
+      "confiance": 0.95,
+      "buzz": 0.7,
+      "buzz_raison": "Grosse affluence étudiante bimensuelle dans le principal club niçois.",
+      "accroche": "Le grand rendez-vous étudiant du vendredi soir sur la Promenade des Anglais.",
+      "instagram": [
+        "highclubnice"
+      ],
+      "billetterie_cherchee": true,
+      "offres": [
+        {
+          "plateforme": "highclub.fr",
+          "url": "https://www.highclub.fr/event/whats-up-nice/",
+          "prix": 15
+        }
+      ],
+      "offres_cherchees": true,
+      "sources": [
+        "xceed",
+        "web"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "shotgun.live",
+      "name": "Zona De Perreo • Frigo 16 Nice",
+      "start": "2026-12-19T19:00:00.000Z",
+      "venue": "Frigo 16",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/events/zona-de-perreo-frigo-16-nice",
+      "image": "evenements/auto/7bcec45231be.jpg",
+      "price": 12,
+      "tags": [
+        "reggaeton",
+        "perreo",
+        "dembow",
+        "Reggaeton",
+        "Perreo",
+        "Shatta",
+        "Dembow",
+        "shatta",
+        "latin urban",
+        "baile funk",
+        "salsa",
+        "bachata",
+        "Neoperreo",
+        "Reggaeton Old School",
+        "Baile Funk",
+        "Salsa Colombienne",
+        "latin club",
+        "Latin Bass"
+      ],
+      "description": "La Zona De Perreo revient au Frigo 16 pour une édition spéciale de Noël sous haute température. Viens t'ambiancer sur le meilleur du reggaeton, dembow et shatta mixé par les DJ résidents du collectif dans un 109 redécoré pour l'occasion. Le rendez-vous est fixé de 20h00 à 02h00 pour célébrer les vacances de fin d'année. Les préventes sont à chopper dès 12 euros sur Shotgun.",
+      "public_cible": 0.95,
+      "confiance": 0.95,
+      "buzz": 0.85,
+      "buzz_raison": "La référence des soirées perreo et reggaeton à Nice par Latin Addict.",
+      "accroche": "Le temple du perreo et du dembow réinvestit le Frigo 16 avec Latin Addict.",
+      "instagram": [
+        "latinaddict",
+        "pandaevents06",
+        "frigo.16"
+      ],
+      "offres": [
+        {
+          "plateforme": "shotgun.live",
+          "url": "https://shotgun.live/events/zona-de-perreo-frigo-16-nice",
+          "prix": 12
+        }
+      ],
+      "sources_sites": [
+        "shotgun.live",
+        "panda-events.com",
+        "Shotgun Live",
+        "Shotgun"
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
+    }
+  ],
+  "tags": [
+    [],
+    [
+      "reffestival",
+      "pandaevents06",
+      "frigo.16"
+    ],
+    [
+      "highclubnice"
+    ],
+    [
+      "latinaddict",
+      "pandaevents06",
+      "frigo.16"
+    ]
+  ],
+  "collabs": [
+    "latinaddict",
+    "highclubnice",
+    "pandaevents06"
+  ],
+  "photo": "plage",
+  "mise": "centre",
+  "choix": {
+    "creneau": "15",
+    "seuil-qualite": 0.65,
+    "suivre": "tgkzd2",
+    "intro-a-reserver": "10m5qi9",
+    "fin-a-reserver": "1tvayyb",
+    "site": "1mt90u2",
+    "hashtags-local": [
+      "#vieuxnice",
+      "#nice"
+    ],
+    "hashtags-general": [
+      "#nightlife",
+      "#weekend"
+    ]
+  },
+  "features": [
+    "genre:techno",
+    "source:web",
+    "style:acid",
+    "style:techno",
+    "lieu:frigo-16",
+    "ville:nice",
+    "prix:moyen",
+    "horaire:nuit",
+    "genre:commercial",
+    "source:xceed",
+    "style:trance",
+    "style:reggaeton",
+    "lieu:high-club",
+    "ville:nice",
+    "prix:moyen",
+    "horaire:nuit",
+    "genre:commercial",
+    "source:web",
+    "style:shatta",
+    "style:reggaeton",
+    "lieu:frigo-16",
+    "ville:nice",
+    "prix:moyen",
+    "horaire:nuit"
+  ],
+  "nb_images": 5,
+  "story": "story.jpg",
+  "a_tester": []
+}
