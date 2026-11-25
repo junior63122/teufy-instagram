@@ -1,5 +1,5 @@
 {
- "le": "2026-11-25T08:13:22.943Z",
+ "le": "2026-11-25T09:12:28.640Z",
  "total": 148,
  "sans_image": [
   {
@@ -19,6 +19,15 @@
    "ville": "Nice",
    "instagram": "",
    "url": "https://www.eventbrite.com/e/foodies-new-friends-nice-tickets-1976266119162"
+  },
+  {
+   "id": "yuksek-et-roxie-2026-11-26",
+   "nom": "Yuksek & Roxie",
+   "jour": "2026-11-26",
+   "lieu": "Le Dix-Huit - Adresse d'Expériences",
+   "ville": "Nice",
+   "instagram": "ledixhuit_nice",
+   "url": "https://shotgun.live/events/yuksek-roxie"
   },
   {
    "id": "the-brand-new-heavies-et-gogo-penguin-monte-carlo-jazz-festi-2026-11-26",
@@ -136,15 +145,6 @@
    "ville": "Nice",
    "instagram": "",
    "url": "https://www.eventbrite.com/e/billets-language-exchange-rooftop-by-event-nice-free-entry-857406545057"
-  },
-  {
-   "id": "do-you-like-tekno-frigo16-le-109-2026-11-28",
-   "nom": "Do You Like... Tekno ? @ Frigo16 - Le 109",
-   "jour": "2026-11-28",
-   "lieu": "Frigo 16",
-   "ville": "Nice",
-   "instagram": "_do.you.like",
-   "url": "https://shotgun.live/events/do-you-like-tekno-frigo-16-le-109-nice"
   },
   {
    "id": "slip-panther-glamrock-revival-show-2026-11-28",
@@ -444,6 +444,15 @@
    "url": "https://www.grimaldiforum.com/fr/agenda-manifestations-monaco/thursday-live-sessions-dirty-deep"
   },
   {
+   "id": "ben-carter-le-dix-huit-neon-experience-2026-12-17",
+   "nom": "Ben Carter @ Le Dix-Huit (Neon Experience)",
+   "jour": "2026-12-17",
+   "lieu": "Le Dix-Huit - Adresse d'Expériences",
+   "ville": "Nice",
+   "instagram": "ledixhuit_nice",
+   "url": "https://shotgun.live/fr/events/ben-carter-nice"
+  },
+  {
    "id": "le-mome-et-adame-2026-12-18",
    "nom": "LE MOME & ADAME",
    "jour": "2026-12-18",
@@ -471,13 +480,13 @@
    "url": "https://provence-alpes-cotedazur.com/fiche/soirees-dj-8041695/"
   },
   {
-   "id": "electro-party-dj-de-noel-2026-12-19",
-   "nom": "Électro Party DJ de Noël",
+   "id": "zona-de-perreo-frigo-16-nice-2026-12-19",
+   "nom": "Zona De Perreo • Frigo 16 Nice",
    "jour": "2026-12-19",
-   "lieu": "Place Jean Camille Formigé",
-   "ville": "Fréjus",
-   "instagram": "",
-   "url": "https://www.esterel-cotedazur.com/fetes-et-manifestations/electro-party-de-noel"
+   "lieu": "Frigo 16",
+   "ville": "Nice",
+   "instagram": "latinaddict",
+   "url": "https://shotgun.live/events/zona-de-perreo-frigo-16-nice"
   },
   {
    "id": "les-bonnes-franquettes-christmas-2026-12-19",
@@ -559,6 +568,24 @@
    "ville": "Saint-Tropez",
    "instagram": "",
    "url": "https://www.arevcollection.com/offers/saint-tropez-new-year"
+  },
+  {
+   "id": "new-year-s-eve-bar-crawl-party-nice-2026-12-31",
+   "nom": "New Year’s Eve Bar Crawl Party Nice",
+   "jour": "2026-12-31",
+   "lieu": "Hostel Villa Saint Exupery Beach",
+   "ville": "Nice",
+   "instagram": "rivierabarcrawltours",
+   "url": "https://www.eventbrite.fr/e/new-years-eve-bar-crawl-party-nice-tickets-2004418564885"
+  },
+  {
+   "id": "nice-new-year-s-eve-2026-2027-guaranteed-vip-club-entry-et-5-2026-12-31",
+   "nom": "Nice New Year's Eve 2026-2027 — Guaranteed VIP Club Entry & 5 Free Shots",
+   "jour": "2026-12-31",
+   "lieu": "La Chapa",
+   "ville": "Nice",
+   "instagram": "lachapanice",
+   "url": "https://www.eventbrite.fr/e/nice-new-years-eve-2026-2027-guaranteed-vip-club-entry-5-free-shots-tickets-2004295126678"
   },
   {
    "id": "nouvel-an-2027-le-mas-d-hiver-2026-12-31",

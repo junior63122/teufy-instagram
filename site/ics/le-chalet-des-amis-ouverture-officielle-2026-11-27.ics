@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:le-chalet-des-amis-ouverture-officielle-2026-11-27@teufy
+DTSTAMP:20261125T092044Z
+DTSTART:20261127T170000Z
+DTEND:20261127T220000Z
+SUMMARY:Le Chalet des Amis – Ouverture officielle
+LOCATION:Village de Noël\, Place d’Armes\, Toulon
+DESCRIPTION:Billets : https://www.instagram.com/p/DgIbnW_DjWp/\nVia Teufy @teufy_official
+URL:https://www.instagram.com/p/DgIbnW_DjWp/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Le Chalet des Amis – Ouverture officielle
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Le Chalet des Amis – Ouverture officielle
+END:VALARM
+END:VEVENT
+END:VCALENDAR

@@ -8248,5 +8248,253 @@
    "lieu": ""
   },
   "commun": []
+ },
+ "v2|aaf21465f73d": {
+  "ok": true,
+  "le": "2026-11-25T09:12:53.046Z",
+  "nom": "Le Chalet des Amis – Ouverture officielle",
+  "lu": {
+   "titre": "VILLAGE DE NOËL TOULON",
+   "dates": [],
+   "artistes": [
+    "Pietra",
+    "Le Barathym"
+   ],
+   "lieu": "PLACE D'ARMES"
+  },
+  "commun": []
+ },
+ "v2|2f96558b0009": {
+  "ok": true,
+  "le": "2026-11-25T09:12:55.625Z",
+  "nom": "IL CONCERTO DI NATALE 2026",
+  "lu": {
+   "titre": "IL CONCERTO DI NATALE",
+   "dates": [
+    "2026-12-03"
+   ],
+   "artistes": [
+    "ITALIAN GOSPEL CHOIR",
+    "EZIO GREGGIO"
+   ],
+   "lieu": "ESPACE LÉO FERRÉ"
+  },
+  "commun": [
+   "concerto",
+   "natale"
+  ]
+ },
+ "v2|a5383193823a": {
+  "ok": false,
+  "le": "2026-11-25T09:13:07.021Z",
+  "nom": "Coldplay Tribute by Coldshivers - New Moods Monte-Carlo",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": [],
+   "lieu": ""
+  },
+  "commun": []
+ },
+ "v2|ee921367c222": {
+  "ok": false,
+  "le": "2026-11-25T09:13:27.004Z",
+  "nom": "Ben Carter @ Le Dix-Huit (Neon Experience)",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": [
+    "Le Dix-Huit"
+   ],
+   "lieu": ""
+  },
+  "commun": [
+   "huit"
+  ]
+ },
+ "og|https://shotgun.live/fr/events/ben-carter-nice": "",
+ "v2|f98dd280cb41": {
+  "ok": true,
+  "le": "2026-11-25T09:13:47.621Z",
+  "nom": "Roller Disco - Gratuit @ Frigo 16",
+  "lu": {
+   "titre": "ROLLER DISCO",
+   "dates": [
+    "2026-12-18"
+   ],
+   "artistes": [],
+   "lieu": "FRIGO 16 ET GRANDE HALLE LE 109"
+  },
+  "commun": [
+   "roller",
+   "disco"
+  ]
+ },
+ "v2|c37ec926b15c": {
+  "ok": true,
+  "le": "2026-11-25T09:14:08.289Z",
+  "nom": "NŌR - Nights Oriental Rhythms | Édition #2",
+  "lu": {
+   "titre": "NOR NIGHTS · ORIENTAL · RHYTHMS",
+   "dates": [],
+   "artistes": [
+    "Maison ALEXIA",
+    "HOBI"
+   ],
+   "lieu": ""
+  },
+  "commun": [
+   "nights",
+   "oriental",
+   "rhythms"
+  ]
+ },
+ "v2|e3e2c8b0df64": {
+  "ok": false,
+  "le": "2026-11-25T09:14:31.927Z",
+  "nom": "LE MOME & ADAME",
+  "lu": {
+   "titre": "PLACES COMEDY CLUB",
+   "dates": [
+    "2026-11-29"
+   ],
+   "artistes": [
+    "EDIX HUIT"
+   ],
+   "lieu": "LE DIX-HUIT"
+  },
+  "commun": []
+ },
+ "v2|a8011ea0b2c7": {
+  "ok": false,
+  "le": "2026-11-25T09:14:55.881Z",
+  "nom": "Électro Party DJ de Noël",
+  "lu": {
+   "titre": "FRÉJUS VIVE NOËL",
+   "dates": [
+    "2026-12-05",
+    "2027-01-02"
+   ],
+   "artistes": [],
+   "lieu": "CŒUR HISTORIQUE - FRÉJUS-PLAGE PORT-FRÉJUS - SAINT-AYGULF"
+  },
+  "commun": [
+   "noel"
+  ]
+ },
+ "v2|b465588d57b7": {
+  "ok": false,
+  "le": "2026-11-25T09:15:20.894Z",
+  "nom": "Zona De Perreo • Frigo 16 Nice",
+  "lu": {
+   "titre": "FRIGO 16",
+   "dates": [],
+   "artistes": [
+    "63OG",
+    "AAWADH",
+    "ACID PAULI",
+    "ALTERNATIV3",
+    "AREZKI",
+    "BATTLE DE DANSE 2V2"
+   ],
+   "lieu": ""
+  },
+  "commun": [
+   "frigo"
+  ]
+ },
+ "v2|ed0ca6c6e12b": {
+  "ok": true,
+  "le": "2026-11-25T09:15:43.568Z",
+  "nom": "Shafro @Toulon #3 - Afro, Shatta , Bouyon",
+  "lu": {
+   "titre": "SHAFRO TOULON",
+   "dates": [
+    "2026-12-20"
+   ],
+   "artistes": [
+    "SHAFRO",
+    "SHATTA",
+    "BOUYON",
+    "BÔBAR"
+   ],
+   "lieu": ""
+  },
+  "commun": [
+   "shafro",
+   "shatta",
+   "bouyon"
+  ]
+ },
+ "v2|2f06c675f482": {
+  "ok": true,
+  "le": "2026-11-25T09:16:07.844Z",
+  "nom": "Grande soirée du Nouvel An 2027",
+  "lu": {
+   "titre": "GRANDE SOIREE DU NOUVEL AN",
+   "dates": [
+    "2026-12-31"
+   ],
+   "artistes": [],
+   "lieu": "place Formigé cœur historique"
+  },
+  "commun": [
+   "grande",
+   "nouvel"
+  ]
+ },
+ "v2|ae0ef8799751": {
+  "ok": false,
+  "le": "2026-11-25T09:16:29.522Z",
+  "nom": "Réveillon du Nouvel An",
+  "lu": {
+   "titre": "GOLDEN NIGHTS",
+   "dates": [
+    "2026-12-31"
+   ],
+   "artistes": [],
+   "lieu": "MAGNOLIA CAFE"
+  },
+  "commun": []
+ },
+ "v2|4365c97cbee6": {
+  "ok": false,
+  "le": "2026-11-25T09:16:49.245Z",
+  "nom": "Réveillon du Nouvel An",
+  "lu": {
+   "titre": "GOLDEN NIGHTS",
+   "dates": [],
+   "artistes": [],
+   "lieu": "MAGNOLIA CAFÉ"
+  },
+  "commun": []
+ },
+ "v2|085405ad4160": {
+  "ok": false,
+  "le": "2026-11-25T09:17:11.107Z",
+  "nom": "La Grande Nuit de la Saint-Sylvestre sur le Port de Saint-Tropez",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": [],
+   "lieu": ""
+  },
+  "commun": []
+ },
+ "v2|0da4208d6005": {
+  "ok": true,
+  "le": "2026-11-25T09:17:33.629Z",
+  "nom": "Le Réveillon du Bar Éphémère",
+  "lu": {
+   "titre": "RÉVEILLON DU NOUVEL AN",
+   "dates": [
+    "2026-12-31"
+   ],
+   "artistes": [],
+   "lieu": "LE BAR ÉPHÉMÈRE"
+  },
+  "commun": [
+   "reveillon"
+  ]
  }
 }

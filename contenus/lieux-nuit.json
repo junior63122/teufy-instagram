@@ -208,7 +208,7 @@
    "score": 0,
    "soirs": [],
    "details": {
-    "le": "2026-11-25T08:21:19.095Z",
+    "le": "2026-11-25T09:19:45.688Z",
     "styles": "DJ résidents (ven–sam après 22h)",
     "dress_code": "",
     "horaires": "lun–dim 10h–2h",
@@ -950,12 +950,26 @@
    "instagram": "",
    "site": "http://www.juanbynight.com",
    "description": "Discothèque historique de Juan-les-Pins, près de la pinède, proposant house, dance, soul et musiques latines avec DJ et soirées à thème.",
-   "soirees": [],
-   "prochaines": [],
+   "soirees": [
+    "le-chalet-des-amis-ouverture-officielle-2026-11-27"
+   ],
+   "prochaines": [
+    {
+     "id": "le-chalet-des-amis-ouverture-officielle-2026-11-27",
+     "nom": "Le Chalet des Amis – Ouverture officielle"
+    }
+   ],
    "insta": null,
    "slug": "le-village-juan-les-pins",
    "score": 0,
-   "soirs": [],
+   "soirs": [
+    [
+     "2026-11-27",
+     "18:00",
+     "le-chalet-des-amis-ouverture-officielle-2026-11-27",
+     "Le Chalet des Amis – Ouverture officielle"
+    ]
+   ],
    "details": {
     "le": "2026-11-13T17:38:33.455Z",
     "styles": "Salsa · Disco · Soul · House",
