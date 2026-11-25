@@ -941,5 +941,27 @@
       "legende": "Samedi 18 h, le groupe : « on sort où ce soir ? »\n2 minutes sur Teufy et la soirée est trouvée.\n\nToutes les soirées de la Côte d'Azur au même endroit, avec les horaires, les prix et le lien vers la billetterie : teufyparty.com\n\nTague celui qui pose toujours la question à 18 h.\n\n#TeufyParty #soiree #samedisoir #cotedazur #nightlife",
       "titre": "Teufy · 06 samedi trouve"
     }
+  },
+  {
+    "id": "veille",
+    "date": "2026-11-25",
+    "media": "18111734258260097",
+    "lien": "https://www.instagram.com/p/DgLAtnOjF2F/",
+    "titre": "Glorious 5 Décembre",
+    "photo": null,
+    "verifie": true,
+    "soirees": [],
+    "le": "2026-11-25T16:57:26.137Z",
+    "publication": {
+      "id": "veille",
+      "type": "veille",
+      "variante": null,
+      "date": "2026-11-25",
+      "choix": {},
+      "features": [],
+      "nb_images": 1,
+      "legende": "- Glorious à Palais Nikaïa le 5 Décembre\nConcert + concours tirage au sort le 1er Déc.\nVous êtes prêts ?\n\n#TeufyParty #Nice #Glorious",
+      "titre": "Glorious 5 Décembre"
+    }
   }
 ]
