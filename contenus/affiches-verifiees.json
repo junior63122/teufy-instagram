@@ -8584,5 +8584,31 @@
   "commun": [
    "show"
   ]
+ },
+ "v2|93a208f0bba6": {
+  "ok": false,
+  "le": "2026-11-25T12:14:14.455Z",
+  "nom": "Nice New Year's Eve 2026-2027 — Guaranteed VIP Club Entry & 5 Free Shots",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": [],
+   "lieu": ""
+  },
+  "commun": []
+ },
+ "og|https://www.eventbrite.fr/e/nice-new-years-eve-2026-2027-guaranteed-vip-club-entry-5-free-shots-tickets-1197180661": "",
+ "og|https://allevents.in/nice/nice-new-years-eve-2026-2027-%E2%80%94-guaranteed-vip-club-entry-and-5-free-shots/10000193821549447": "",
+ "v2|5e12c55b52ad": {
+  "ok": true,
+  "le": "2026-11-25T12:14:16.584Z",
+  "nom": "Cerrone X Jimmy'Z MC - New Year's Eve",
+  "lu": {
+   "titre": "TANTRÜM",
+   "dates": [],
+   "artistes": [],
+   "lieu": ""
+  },
+  "commun": []
  }
 }
