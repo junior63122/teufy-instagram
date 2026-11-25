@@ -7,6 +7,39 @@
   "evenements": [
     {
       "source": "web",
+      "source_site": "Instagram",
+      "name": "JC VITTO @ Kosma",
+      "start": "2026-11-25T22:00:00.000Z",
+      "venue": "Kosma",
+      "city": "Nice",
+      "address": "",
+      "url": "https://www.instagram.com/p/DgIBi9jBBcG/",
+      "image": "https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/924002302_18584233915078335_39916775359537201_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=105&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=AqI5EPyDxg8Q7kNvwFWLI-8&_nc_oc=AdpIO18XOsPkte7_0mZd0tbCRgFzOjVD1GOisvoG9RWpWYr7j9tjOY1I3-Y2OVA2fxI&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=hxB99MJmbAH1tZQ6uFlxvg&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQSbQ7YXKVxSGhrfVhBzs5DxbacRjgWXI5yCk8RikA3JWA&oe=6B0CAE84",
+      "price": null,
+      "tags": [
+        "house",
+        "techno",
+        "House",
+        "Techno"
+      ],
+      "description": "Le club Kosma te donne rendez‑vous le mercredi 25 novembre à Nice pour une soirée qui démarre à 23 h et se prolonge jusqu’à 5 h du matin. Le DJ JC VITTO, connu pour ses sets house et techno qui font bouger la foule, sera aux platines pour garantir une ambiance électrisante. Le lieu, en plein cœur de Nice, offre une piste de danse spacieuse et une sonorité de qualité. Pas de prix indiqué, pense à vérifier la billetterie ou le dress‑code sur le compte Instagram du club. Prépare‑toi à danser toute la nuit et à profiter d’une atmosphère festive entre amis.",
+      "public_cible": 1,
+      "confiance": 0.85,
+      "buzz": 0.6,
+      "buzz_raison": "DJ reconnu, club populaire, soirée en semaine mais avec bonne visibilité sur Instagram.",
+      "accroche": "JC VITTO enflamme le Kosma à Nice le 25 novembre, de 23 h à 5 h, pour une nuit de good vibes.",
+      "instagram": [
+        "kosma.liveclub"
+      ],
+      "via_veille": true,
+      "offres": [],
+      "sources_sites": [
+        "Instagram",
+        "instagram.com"
+      ]
+    },
+    {
+      "source": "web",
       "source_site": "Instagram sowetolesprit",
       "name": "IVoir 83",
       "start": "2026-12-05T19:00:00.000Z",
@@ -6184,30 +6217,6 @@
       "source": "web",
       "source_site": "instagram.com",
       "via_veille": true,
-      "name": "JC VITTO au Kosma",
-      "start": "2026-11-25T22:00:00.000Z",
-      "venue": "Kosma, Nice",
-      "city": "Nice",
-      "address": "",
-      "url": "https://www.instagram.com/p/DgIBi9jBBcG/",
-      "image": "https://scontent-ord5-1.cdninstagram.com/v/t51.82787-15/924002302_18584233915078335_39916775359537201_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=105&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=AqI5EPyDxg8Q7kNvwHpUUpW&_nc_oc=AdogzYT6QRsQWCCQOTV4fDqYBPiaIui5HS34nfleMEhtao5urUvz3IrY4U9Kzx7lZlM&_nc_zt=23&_nc_ht=scontent-ord5-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=wUYoFCTYQAk5WTuZB7hdww&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQS9BFcOpkpk6sIVuuaN8r_bMDDGtyBBMotbP64NdpUbXQ&oe=6B0BCD84",
-      "price": null,
-      "tags": [
-        "House",
-        "Techno"
-      ],
-      "description": "",
-      "public_cible": 0.6,
-      "confiance": 0.8,
-      "accroche": "JC VITTO enflamme le Kosma à Nice le 25 novembre, de 23 h à 5 h.",
-      "instagram": [
-        "kosma.liveclub"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "instagram.com",
-      "via_veille": true,
       "name": "Atelier aquarelle de Noël",
       "start": "2026-12-01T17:30:00.000Z",
       "venue": "Goya Nice",
@@ -6275,6 +6284,6 @@
       ]
     }
   ],
-  "maj_instagram": "2026-11-25T12:13:26.892Z",
+  "maj_instagram": "2026-11-25T13:13:22.730Z",
   "echec_web": "2026-11-25T08:13:22.943Z"
 }

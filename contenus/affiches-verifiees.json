@@ -8610,5 +8610,69 @@
    "lieu": ""
   },
   "commun": []
+ },
+ "v2|2ab6f475301a": {
+  "ok": true,
+  "le": "2026-11-25T13:13:50.001Z",
+  "nom": "JC VITTO @ Kosma",
+  "lu": {
+   "titre": "MERCREDI SOIR",
+   "dates": [],
+   "artistes": [
+    "JC VITTO"
+   ],
+   "lieu": "K Le OSMA - Live Music Club"
+  },
+  "commun": [
+   "vitto"
+  ]
+ },
+ "v2|491cfb7eeff4": {
+  "ok": true,
+  "le": "2026-11-25T13:14:28.989Z",
+  "nom": "Nye See You In 2027 : Ambre Ballester B2B Ugo Puccinelli",
+  "lu": {
+   "titre": "SEE YOU IN 2027",
+   "dates": [
+    "2026-12-31"
+   ],
+   "artistes": [
+    "AMBRE BALLESTER",
+    "UGO PUCCINELLI"
+   ],
+   "lieu": "GLASS CLUB"
+  },
+  "commun": [
+   "ambre",
+   "ballester",
+   "puccinelli"
+  ]
+ },
+ "v2|e3fcf0efd7c9": {
+  "ok": true,
+  "le": "2026-11-25T13:14:29.962Z",
+  "nom": "Nouvel An 2027 @ Le Mas d'Hiver",
+  "lu": {
+   "titre": "le mas d'hiver",
+   "dates": [
+    "2026-11-06",
+    "2026-11-14",
+    "2026-11-27",
+    "2026-11-28",
+    "2026-12-31"
+   ],
+   "artistes": [
+    "YAEEL NAIM",
+    "LILLY WOOD AND THE PRICK",
+    "EIFFEL",
+    "CULTURE 80",
+    "NOUVEL AN 27"
+   ],
+   "lieu": "PUGET SUR ARGENS"
+  },
+  "commun": [
+   "hiver",
+   "nouvel"
+  ]
  }
 }
