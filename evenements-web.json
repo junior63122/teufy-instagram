@@ -5825,7 +5825,10 @@
         "Afro",
         "Dancehall",
         "Shatta",
-        "Bouyon"
+        "Bouyon",
+        "dancehall",
+        "shatta",
+        "bouyon"
       ],
       "description": "",
       "public_cible": 0.6,
@@ -5833,6 +5836,13 @@
       "accroche": "Duty Party à Limone, 27 novembre – Afro, dancehall, shatta & bouyon",
       "instagram": [
         "afroheatfestival"
+      ],
+      "offres": [
+        {
+          "plateforme": "shotgun.com",
+          "url": "https://shotgun.com/event/afroheat-duty-party-2026",
+          "prix": 30
+        }
       ]
     },
     {
@@ -6281,6 +6291,102 @@
       "accroche": "Soirée golden vibes & birthday party à Playa Chica le 12 déc.",
       "instagram": [
         "le.bar.ephemere"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "instagram.com",
+      "via_veille": true,
+      "name": "Afro Heat Reggaeton",
+      "start": "2026-11-27T19:00:00.000Z",
+      "venue": "Limone Rooftop",
+      "city": "Marseille",
+      "address": "",
+      "url": "https://shotgun.com/afro-heat-reggaeton-marseille",
+      "image": "",
+      "price": null,
+      "tags": [
+        "Reggaeton",
+        "Latino"
+      ],
+      "description": "",
+      "public_cible": 0.6,
+      "confiance": 0.8,
+      "accroche": "Afro Heat Reggaeton 27 Nov",
+      "instagram": [
+        "afroheatfestival"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "instagram.com",
+      "via_veille": true,
+      "name": "Glorious",
+      "start": "2026-12-05T19:00:00.000Z",
+      "venue": "Palais Nikaïa",
+      "city": "Nice",
+      "address": "",
+      "url": "https://palaisnikaia.com/boite/Glorious",
+      "image": "",
+      "price": null,
+      "tags": [
+        "Rock",
+        "Alternative"
+      ],
+      "description": "",
+      "public_cible": 0.6,
+      "confiance": 0.8,
+      "accroche": "Glorious 5 Décembre",
+      "instagram": [
+        "palaisnikaia"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "instagram.com",
+      "via_veille": true,
+      "name": "Christophe Maé",
+      "start": "2026-12-04T19:00:00.000Z",
+      "venue": "Palais Nikaïa",
+      "city": "Nice",
+      "address": "",
+      "url": "https://palaisnikaia.com/boite/ChristopheMaé",
+      "image": "",
+      "price": null,
+      "tags": [
+        "Pop",
+        "Chanson française"
+      ],
+      "description": "",
+      "public_cible": 0.6,
+      "confiance": 0.8,
+      "accroche": "Christophe Maé 4 Décembre",
+      "instagram": [
+        "palaisnikaia"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "instagram.com",
+      "via_veille": true,
+      "name": "GTA 6 Night",
+      "start": "2026-11-25T19:00:00.000Z",
+      "venue": "High Club Nice",
+      "city": "Nice",
+      "address": "",
+      "url": "https://highclubnice.com/boite/GTA6Night",
+      "image": "",
+      "price": null,
+      "tags": [
+        "Gaming",
+        "Musique"
+      ],
+      "description": "",
+      "public_cible": 0.6,
+      "confiance": 0.8,
+      "accroche": "GTA 6 Night 25 Nov",
+      "instagram": [
+        "highclubnice"
       ]
     }
   ],
