@@ -8877,5 +8877,61 @@
    "lieu": ""
   },
   "commun": []
+ },
+ "v2|6b556265a45f": {
+  "ok": true,
+  "le": "2026-11-25T21:15:32.240Z",
+  "nom": "The Stranglers",
+  "lu": {
+   "titre": "the stranglers FRENCH TOUR 26",
+   "dates": [
+    "2026-11-27"
+   ],
+   "artistes": [
+    "the stranglers"
+   ],
+   "lieu": "ZINGA ZANGA"
+  },
+  "commun": [
+   "stranglers"
+  ]
+ },
+ "v2|482656612357": {
+  "ok": true,
+  "le": "2026-11-25T21:15:34.073Z",
+  "nom": "La Wave \"Full Black\" - Montpellier",
+  "lu": {
+   "titre": "FULL BLACK",
+   "dates": [
+    "2026-11-28"
+   ],
+   "artistes": [
+    "O'SULLIVANS"
+   ],
+   "lieu": "O'SULLIVANS"
+  },
+  "commun": [
+   "full",
+   "black"
+  ]
+ },
+ "v2|16432bff20a3": {
+  "ok": true,
+  "le": "2026-11-25T21:18:36.470Z",
+  "nom": "Five Stars",
+  "lu": {
+   "titre": "FIVE STARS",
+   "dates": [
+    "2026-11-28"
+   ],
+   "artistes": [
+    "MTO"
+   ],
+   "lieu": "L'ETOILE"
+  },
+  "commun": [
+   "five",
+   "stars"
+  ]
  }
 }
