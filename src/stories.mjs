@@ -18,7 +18,9 @@ const jourSemaine = (d) => ({ Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6, Su
 /** Programme du jour (heures de Paris) : 3 à 4 stories, en plus de la story qui relaie le post. */
 // Stories prêtes (19/11/2026, concours Frigo 16) : visuels déjà faits, à publier tel jour à telle heure
 // (contenus/stories-pretes.json : jour, h, cle, fichiers, valide). Jamais publiées sans « valide »: true (directeur, 19/11/2026).
-export const storiesPretes = (now, liste = lire('contenus/stories-pretes.json', [])) => liste.filter((x) => x.valide === true && x.jour === jourParis(now) && Array.isArray(x.fichiers) && x.fichiers.length).map((x) => ({ h: x.h, type: `pret-${x.cle}`, fichiers: x.fichiers }));
+export const storiesPretes = (now, liste = lire('contenus/stories-pretes.json', [])) => liste.filter((x) => x.valide === true && x.jour === jourParis(now) && Array.isArray(x.fichiers) && x.fichiers.length).map((x) => ({ h: x.h, type: `pret-${x.cle}`, fichiers: x.fichiers, jusqu: 23 }));
+// 25/11/2026 : la story « dernier jour » du concours, prévue à 11 h, n'est jamais partie : le robot ne passe qu'entre 16 h et
+// 23 h (heure de Paris) et une story n'était due que dans les 3 h suivant son heure. Une story prête validée reste due jusqu'à 23 h.
 export function planDuJour(now) {
   const j = jourSemaine(now);
   return [

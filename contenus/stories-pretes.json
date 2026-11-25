@@ -26,7 +26,7 @@
     "fichiers": [
       "media/posts-prets/2026-11-19-concours-frigo16/stories/dernier-jour.jpg"
     ],
-    "_note": "Dernier jour : tirage ce soir à 18 h (2e rappel).",
-    "valide": true
+    "_note": "Dernier jour : tirage ce soir à 18 h (2e rappel). NON PARTIE (prévue à 11 h, hors des passages du robot) ; désactivée le 25/11 à 18 h 10 : le tirage est passé.",
+    "valide": false
   }
 ]
