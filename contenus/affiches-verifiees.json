@@ -8496,5 +8496,50 @@
   "commun": [
    "reveillon"
   ]
+ },
+ "v2|cdd0f186c46d": {
+  "ok": false,
+  "le": "2026-11-25T10:13:46.317Z",
+  "nom": "Dj Set - Karl Zen K",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": [],
+   "lieu": ""
+  },
+  "commun": []
+ },
+ "v2|2836314629cb": {
+  "ok": true,
+  "le": "2026-11-25T10:13:53.872Z",
+  "nom": "Le nouvel an des Frenchy @ Salons VIP Stade Allianz Riviera",
+  "lu": {
+   "titre": "Le nouvel an des Frenchy",
+   "dates": [
+    "2026-12-31"
+   ],
+   "artistes": [],
+   "lieu": "ALLIANZ RIVIERA"
+  },
+  "commun": [
+   "nouvel",
+   "frenchy"
+  ]
+ },
+ "v2|2686fc5d7ff7": {
+  "ok": true,
+  "le": "2026-11-25T10:13:55.909Z",
+  "nom": "NEW YEAR'S EVE - La compil' Hits 90s 2000s @ Palais de la Méditerranée",
+  "lu": {
+   "titre": "la compil",
+   "dates": [
+    "2026-12-31"
+   ],
+   "artistes": [],
+   "lieu": "PALAIS DE LA MÉDITERRANÉE"
+  },
+  "commun": [
+   "compil"
+  ]
  }
 }
