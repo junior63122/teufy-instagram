@@ -1,9 +1,9 @@
 {
- "maj": "2026-11-24T19:13:26.976Z",
+ "maj": "2026-11-25T07:13:09.085Z",
  "rapport": [
   {
    "source": "datatourisme",
-   "evenements": 9
+   "evenements": 8
   },
   {
    "source": "openagenda",
@@ -11,7 +11,7 @@
   }
  ],
  "par_rubrique": {
-  "occitanie": 5,
+  "occitanie": 4,
   "france": 4
  },
  "evenements": [
@@ -34,23 +34,6 @@
     "CulturalEvent"
    ],
    "description": "<p>Les professeurs du département Jazz &amp; Musiques Actuelles vous invitent à découvrir un programme inédit, imaginé comme un terrain de jeu musical en constante évolution",
-   "popularite": null
-  },
-  {
-   "source": "datatourisme",
-   "name": "Et si on allait danser ? Reconversion au féminin",
-   "start": "2026-12-09T18:00:00.000Z",
-   "end": "2026-12-09T20:45:00.000Z",
-   "venue": "V&B",
-   "city": "Cahors",
-   "address": "Place Bessières, 46000, Cahors",
-   "lat": 44.4520799,
-   "lng": 1.43825556,
-   "url": "https://docs.google.com/forms/d/e/1FAIpQLScEakjQxsZiv2rUrY3X4Dq3YiJTOWhOtfeNBeh9Xrm0_QjFDQ/viewform",
-   "image": "https://cdt46.media.tourinsoft.eu/upload/f335e06e-5e21-414e-a140-f32da2142daa.jpg",
-   "price": null,
-   "tags": [],
-   "description": "<p><span style=\"font-size: 16px; font-family: &quot;Calibri Light&quot;, &quot;Helvetica Light&quot;, sans-serif, serif, EmojiFont; color: rgb(0, 0, 0);\">Envie d&#39;un nouvel élan professionnel ? Un collectif de femmes inspirantes s&#39;est réuni pour vous concocter une soirée dédiée à la reconversion au féminin, placée sous le signe du partage, de l&#39;audace et de la convivialité.</span></p><p",
    "popularite": null
   },
   {
