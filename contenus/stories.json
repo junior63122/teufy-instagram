@@ -656,5 +656,62 @@
   "absentes": [],
   "manquantes": [],
   "le": "2026-11-24T19:10:34.457Z"
+ },
+ {
+  "jour": "2026-11-25",
+  "type": "soirees",
+  "cles": [
+   "Selah Sue and The Gallands / Tyreek McDole - Monte-Carlo Jazz Festival",
+   "JC VITTO @ Kosma",
+   "SHATTA NIGHT @ BOKA CLUB"
+  ],
+  "ids": [
+   "18121023683085803",
+   "18174338437464211",
+   "17959916889292879"
+  ],
+  "faites": [
+   0,
+   1,
+   2
+  ],
+  "relue": true,
+  "absentes": [],
+  "manquantes": [],
+  "le": "2026-11-25T18:15:08.861Z"
+ },
+ {
+  "jour": "2026-11-25",
+  "type": "offre",
+  "cles": [
+   "av-Le Barathym-1 shooter offert sur présentation de Teufy"
+  ],
+  "ids": [
+   "18026784581934129"
+  ],
+  "faites": [
+   0
+  ],
+  "relue": true,
+  "absentes": [],
+  "manquantes": [],
+  "le": "2026-11-25T18:15:26.113Z"
+ },
+ {
+  "jour": "2026-11-25",
+  "type": "astuce",
+  "cles": [
+   "a-potes"
+  ],
+  "ids": [
+   "17903949711608522"
+  ],
+  "faites": [
+   0
+  ],
+  "relue": true,
+  "absentes": [],
+  "manquantes": [],
+  "le": "2026-11-25T18:15:42.648Z"
  }
 ]
