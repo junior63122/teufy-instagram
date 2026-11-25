@@ -1,14 +1,6 @@
 {
   "extras": [
     {
-      "date": "2026-11-17",
-      "type": "guide",
-      "variante": null,
-      "suite_de": "18111823247220555",
-      "raison": "portée 884 contre 431 d'habitude (×2.1)",
-      "cree_le": "2026-11-16T15:07:44.463Z"
-    },
-    {
       "date": "2026-11-19",
       "type": "reel",
       "variante": "spot-promo",
@@ -89,6 +81,6 @@
     }
   ],
   "_note": "Écrit par le robot (src/reactif.mjs) : suites programmées après un engouement, jours déplacés selon les résultats, journal des changements.",
-  "dernier_controle": "2026-11-24T22:08:00.814Z",
+  "dernier_controle": "2026-11-25T16:39:20.474Z",
   "dernier_replanning": "2026-11-23T01:34:08.878Z"
 }
