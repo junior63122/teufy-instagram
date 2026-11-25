@@ -6291,7 +6291,8 @@
       "accroche": "Soirée golden vibes & birthday party à Playa Chica le 12 déc.",
       "instagram": [
         "le.bar.ephemere"
-      ]
+      ],
+      "offres": []
     },
     {
       "source": "web",
@@ -6387,6 +6388,27 @@
       "accroche": "GTA 6 Night 25 Nov",
       "instagram": [
         "highclubnice"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "instagram.com",
+      "via_veille": true,
+      "name": "Before Club Damn Peach",
+      "start": "2026-12-05T21:00:00.000Z",
+      "venue": "Damn Peach, Avenue Marcelin Berthelot, La Valette-du-Var",
+      "city": "La Valette-du-Var",
+      "address": "",
+      "url": "https://www.instagram.com/reel/DgLBUwYo8QN/",
+      "image": "",
+      "price": null,
+      "tags": [],
+      "description": "",
+      "public_cible": 0.6,
+      "confiance": 0.8,
+      "accroche": "Un nouveau lieu, une nouvelle ambiance avant la nuit",
+      "instagram": [
+        "damnpeach__"
       ]
     }
   ],
