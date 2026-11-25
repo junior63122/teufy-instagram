@@ -69,6 +69,8 @@
   Grille du profil (relevé du 20/11/2026) : vignettes recadrées en 3:4, icône Instagram en haut à droite, nombre de vues en bas
   à gauche ; rien d'important dans ces coins (posts : 150 px libres en bas ; reels : contenu entre y 300 et y 1500 sur 1920).
   Vérifier chaque nouvelle couverture dans les deux grilles (profil 3:4 et onglet Réels 9:16).
+  **Grille toujours sombre** (directeur, 25/11/2026 : « tu utilises des fonds crèmes des fois ! ») : aucune couverture sur fond
+  crème ou papier (la mise `cadre` est posée sur la nuit) ; le post de veille passe aussi par la rotation des photos.
 - **Auto-contrôle permanent** (directeur, 19/11/2026 : « tout ce qui doit être publié doit être publié, tu dois contrôler que ça
   l'a été, et si ce n'est pas fait, tout faire jusqu'à ce que ce soit publié ; un ok ne suffit pas, vérifie que chaque étape a
   fonctionné complètement ») : chaque publication est relue sur Instagram après l'envoi (`verifierMedia`) ; `node src/run.mjs

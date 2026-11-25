@@ -20,7 +20,8 @@ const BAS_GRILLE = 150;
 export const Couverture: React.FC<{photo?: string; position?: string; rubrique: string; titre: string; sous?: string; fond?: 'photo' | 'creme' | 'nuit'; grand?: string; vignettes?: string[]; glisse?: boolean; options?: string[]; mise?: Mise}> = ({photo, position, rubrique, titre, sous, fond = 'photo', grand, vignettes, glisse, options, mise = 'bas'}) => {
   // Sans photo (bon plan sur fond crème) : la composition d'origine.
   const m = (photo && fond !== 'creme' ? mise : 'bas') as Mise;
-  const papier = fond === 'creme' || m === 'cadre';
+  // 25/11/2026 (directeur : « tu utilises des fonds crèmes des fois ! ») : la grille reste sombre ; le cadre est posé sur la nuit.
+  const papier = false;
   const encre = papier ? C.nuit : C.creme;
   const centre = m === 'centre';
   const debat = !!options?.length;
@@ -262,7 +263,7 @@ const MarqueReel: React.FC = () => (
   </div>
 );
 export const CouvertureReel: React.FC<{photo: string; position?: string; rubrique: string; titre: string; sous?: string; lecture?: boolean; mise?: Mise; marque?: boolean}> = ({photo, position, rubrique, titre, sous, lecture = true, mise = 'bas', marque = true}) => {
-  const papier = mise === 'cadre';
+  const papier = false; // 25/11/2026 (directeur) : plus de fond crème dans la grille, le cadre est posé sur la nuit
   const encre = papier ? C.nuit : C.creme;
   const centre = mise === 'centre';
   const texte = (

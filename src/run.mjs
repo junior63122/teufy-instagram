@@ -606,7 +606,7 @@ async function prepare(slot, now, id) {
     const manuel = await bonPlanManuel(now);
     if (manuel) {
       usedHere.add(manuel.titre);
-      const files = [await couvertureDA({ fond: 'creme', rubrique: 'Bon plan', titre: manuel.titre, sous: String(manuel.texte).split(/(?<=[.!?])\s/)[0] }, path.join(dir, `bonplan-${stamp}.jpg`))];
+      const files = [await couvertureDA({ fond: 'nuit', photo: `decors/da/${photoCouv(['terrasse', 'rire', 'foule'])}.jpg`, rubrique: 'Bon plan', titre: manuel.titre, sous: String(manuel.texte).split(/(?<=[.!?])\s/)[0] }, path.join(dir, `bonplan-${stamp}.jpg`))];
       pub = { images: files, legende: captionBonPlan({ manuel, ch, r }), bonplan: manuel.titre };
     } else {
       let variante = slot.variante;
