@@ -87,6 +87,8 @@
   sauf les commentaires Instagram ») : secours gratuit de Gemini partout (veille et actus avec recherche web, vérification des
   affiches par lecture d'image, traductions du site, scénarios de reels, analyse, prospection, appels directs du site via
   `groqParties`). Jamais pour répondre aux commentaires Instagram. Une réponse vide ou non conforme n'est jamais prise pour un succès.
+- **TikTok EN PAUSE depuis le 25/11/2026** (directeur : « mets en pause les générations TikTok, je n'ai pas encore commencé à
+  poster ») : `contenus/tiktok.json` `pause` ; ni planning, ni archivage, ni nouvelle vidéo TikTok tant qu'il ne relance pas.
 - **TikTok** (directeur, 20/11/2026 : il publie lui-même, 1 à 2 vidéos par jour ; « mets aussi les photos de couverture ») :
   planning automatique `src/tiktok.mjs` (12 h 30 et 19 h 30, page cachée `/tiktok/`, jamais la même vidéo en 14 jours). Chaque
   vidéo a sa couverture dans la charte (`media/tiktok/couvertures/<id>.jpg` : composition `couverture-reel`, mises en page qui

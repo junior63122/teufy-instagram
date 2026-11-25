@@ -163,9 +163,20 @@ if(!document.getElementById('verrou'))activer();
 
 /** Met à jour le stock, le planning (contenus/tiktok.json) et la page tiktok/index.html. */
 export function construireTiktok({ now = new Date(), root = ROOT, log = console.log } = {}) {
+  const etat0 = lire(path.join(root, 'contenus', 'tiktok.json'), {});
+  // Pause (directeur, 25/11/2026 : « mets en pause les générations TikTok, je n'ai pas encore commencé à poster ») :
+  // ni archivage, ni planning ; le plan est vidé (rien n'a été posté, aucune vidéo ne doit compter comme déjà passée).
+  if (etat0.pause) {
+    const etat = { ...etat0, plan: {} };
+    writeFileSync(path.join(root, 'contenus', 'tiktok.json'), JSON.stringify(etat, null, 1) + '\n');
+    mkdirSync(path.join(root, 'tiktok'), { recursive: true });
+    writeFileSync(path.join(root, 'tiktok', 'index.html'), pageTiktok({}, jourParis(now)));
+    writeFileSync(path.join(root, 'tiktok', 'tiktok.js'), SCRIPT_TIKTOK);
+    log(`TikTok en pause : ${etat0.pause}`);
+    return etat;
+  }
   const n = archiverReels(root);
   const auj0 = jourParis(now);
-  const etat0 = lire(path.join(root, 'contenus', 'tiktok.json'), {});
   const auj = etat0.debut && etat0.debut > auj0 ? etat0.debut : auj0; // début choisi par le directeur (lundi 23/11/2026)
   const f = path.join(root, 'contenus', 'tiktok.json');
   const etat = lire(f, { _note: 'Planning TikTok (src/tiktok.mjs) : le directeur publie lui-même, page /tiktok/.', plan: {} });
