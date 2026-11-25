@@ -1,6 +1,6 @@
 {
- "le": "2026-11-25T01:13:37.121Z",
- "total": 149,
+ "le": "2026-11-25T08:13:22.943Z",
+ "total": 148,
  "sans_image": [
   {
    "id": "10-people-group-nice-karao-quiz-night-fun-karaoke-et-music-q-2026-11-25",
@@ -129,6 +129,15 @@
    "url": "https://shotgun.live/events/da-grow-uk-bass-gangsta-house"
   },
   {
+   "id": "language-exchange-rooftop-by-event-nice-free-entry-2026-11-28",
+   "nom": "Language Exchange Rooftop by Event Nice - Free Entry",
+   "jour": "2026-11-28",
+   "lieu": "Hôtel Mercure Nice Centre Notre Dame",
+   "ville": "Nice",
+   "instagram": "",
+   "url": "https://www.eventbrite.com/e/billets-language-exchange-rooftop-by-event-nice-free-entry-857406545057"
+  },
+  {
    "id": "do-you-like-tekno-frigo16-le-109-2026-11-28",
    "nom": "Do You Like... Tekno ? @ Frigo16 - Le 109",
    "jour": "2026-11-28",
@@ -246,33 +255,6 @@
    "url": "https://www.eventbrite.com/e/billets-lapero-kanaille-avec-laka-naia-aux-folies-dedmonde-2004689447101"
   },
   {
-   "id": "rencontre-d-echecs-a-toulon-bouc-ness-2026-11-29",
-   "nom": "Rencontre d’échecs à Toulon · BOUC NESS",
-   "jour": "2026-11-29",
-   "lieu": "BOUC NESS",
-   "ville": "Toulon",
-   "instagram": "",
-   "url": "https://www.eventbrite.fr/e/rencontre-dechecs-a-toulon-bouc-ness-tickets-2004808494174"
-  },
-  {
-   "id": "rencontre-d-echecs-a-nice-the-sailor-s-pub-2026-11-29",
-   "nom": "Rencontre d’échecs à Nice · The Sailor's Pub",
-   "jour": "2026-11-29",
-   "lieu": "The Sailor's Pub",
-   "ville": "Nice",
-   "instagram": "",
-   "url": "https://www.eventbrite.fr/e/rencontre-dechecs-a-nice-the-sailors-pub-tickets-2004925100948"
-  },
-  {
-   "id": "reading-hour-nice-2026-11-30",
-   "nom": "Reading hour (Nice)",
-   "jour": "2026-11-30",
-   "lieu": "Jardin Albert 1er",
-   "ville": "Nice",
-   "instagram": "",
-   "url": "https://www.eventbrite.co.uk/e/reading-hour-nice-tickets-1995469509018"
-  },
-  {
    "id": "blind-test-aux-folies-d-edmonde-2026-11-30",
    "nom": "Blind Test aux Folies d'Edmonde",
    "jour": "2026-11-30",
@@ -298,6 +280,15 @@
    "ville": "Nice",
    "instagram": "",
    "url": "https://www.eventbrite.com/e/foodies-new-friends-nice-giving-back-edition-tickets-1989238521968"
+  },
+  {
+   "id": "rencontre-d-echecs-a-marseille-le-chaperon-rouge-2026-12-03",
+   "nom": "Rencontre d’échecs à Marseille · Le Chaperon Rouge",
+   "jour": "2026-12-03",
+   "lieu": "Le Chaperon Rouge",
+   "ville": "Marseille",
+   "instagram": "",
+   "url": "https://www.eventbrite.fr/e/rencontre-dechecs-a-marseille-le-chaperon-rouge-tickets-2004937813973"
   },
   {
    "id": "riviera-bar-crawl-nice-s-1-social-club-for-global-travelers-2026-12-04",
@@ -363,6 +354,15 @@
    "url": "https://shotgun.live/events/switch-dimension-psytrance-edition-w-ranyo-hug-ette"
   },
   {
+   "id": "lillian-palmer-en-concert-a-swingin-noel-2026-12-06",
+   "nom": "Lillian Palmer en concert – A Swingin’ Noël",
+   "jour": "2026-12-06",
+   "lieu": "Le Quartier du Poulpe",
+   "ville": "Nice",
+   "instagram": "",
+   "url": "https://www.eventbrite.com/e/lillian-palmer-en-concert-a-swingin-noel-tickets-1998868741213"
+  },
+  {
    "id": "plk-tournee-des-zeniths-2026-2026-12-06",
    "nom": "PLK — Tournée des Zéniths 2026",
    "jour": "2026-12-06",
@@ -424,15 +424,6 @@
    "ville": "Nice",
    "instagram": "ledixhuit_nice",
    "url": "https://shotgun.live/fr/events/ben-carter"
-  },
-  {
-   "id": "la-tocardise-edition-hard-2026-12-12",
-   "nom": "La Tocardise – édition Hard",
-   "jour": "2026-12-12",
-   "lieu": "Green Musik",
-   "ville": "Antibes",
-   "instagram": "",
-   "url": "https://www.instagram.com/reel/Dfz-kJDBQ-4/"
   },
   {
    "id": "showcase-5-luzula-venin-carmin-code-150-harfaang-2026-12-12",

@@ -4,11 +4,11 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:il-concerto-di-natale-2026-2026-12-03@teufy
-DTSTAMP:20261125T011517Z
+DTSTAMP:20261125T082221Z
 DTSTART:20261203T170000Z
 DTEND:20261203T220000Z
 SUMMARY:IL CONCERTO DI NATALE 2026
-LOCATION:Léo Ferré space\, 25 Avenue Albert II 98000 Monaco\, Monaco
+LOCATION:Léo Ferré space\, 25 Avenue Albert II\, 98000 Monaco\, Monaco
 DESCRIPTION:Billets : https://www.eventbrite.fr/e/il-concerto-di-natale-2026-tickets-2004033932439\nVia Teufy @teufy_official
 URL:https://www.eventbrite.fr/e/il-concerto-di-natale-2026-tickets-2004033932439
 BEGIN:VALARM

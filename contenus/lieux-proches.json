@@ -8244,5 +8244,59 @@
    "m": 84
   },
   "taxi": null
+ },
+ "43.69958,7.27814": {
+  "le": "2026-11-25T08:21:51.428Z",
+  "parkings": [
+   {
+    "nom": "Promenade des Arts",
+    "type": "underground",
+    "payant": true,
+    "m": 154
+   },
+   {
+    "nom": "Marshall",
+    "type": "underground",
+    "payant": true,
+    "m": 363
+   },
+   {
+    "nom": "Parking Marshall",
+    "type": "underground",
+    "payant": true,
+    "m": 383
+   }
+  ],
+  "transports": [
+   {
+    "nom": "Garibaldi",
+    "type": "bus",
+    "m": 103,
+    "lignes": "8+;12+;38;P"
+   },
+   {
+    "nom": "Lycée Masséna",
+    "type": "bus",
+    "m": 134,
+    "lignes": "8+;12+;57"
+   },
+   {
+    "nom": "Cathédrale - Vieille Ville",
+    "type": "tram",
+    "m": 181,
+    "lignes": ""
+   },
+   {
+    "nom": "Garibaldi - Le Château",
+    "type": "tram",
+    "m": 210,
+    "lignes": ""
+   }
+  ],
+  "velo": {
+   "nom": "",
+   "m": 169
+  },
+  "taxi": null
  }
 }

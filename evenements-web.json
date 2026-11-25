@@ -274,39 +274,6 @@
       "source": "web",
       "source_site": "instagram.com",
       "via_veille": true,
-      "name": "La Cale Sèche – Bouteille de planteur à 15 € + PSG / AS Roma",
-      "start": "2026-11-24T20:00:00.000Z",
-      "venue": "La Cale Sèche, Toulon",
-      "city": "Toulon",
-      "address": "",
-      "url": "https://www.instagram.com/p/DgGIZohoA8x/",
-      "image": "https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/928552767_18472742122186229_8034317840126112657_n.webp?stp=dst-jpg_e35_tt6&_nc_cat=105&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=4nSRko8AfOUQ7kNvwE1j2I2&_nc_oc=AdqEuTdJiWCypds345EPuFRz8L5YJIH-co-2Q9znQAukmn8mm8lnjokIuzvdGj5NLR8&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=GkJUD4CHcWHYdRvonX6EOg&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQRdRFg6eL-H_FeijjN-81Fk1qaSBHi3jRg4dpCA_3PnVw&oe=6B0B0673",
-      "price": 15,
-      "tags": [
-        "cocktail",
-        "sport",
-        "bar"
-      ],
-      "description": "Ce jeudi 24 novembre, La Cale Sèche te donne rendez‑vous pour une soirée Ti Punch et le match de la Ligue des Champions à 21 h. L’ambiance pirate, les boissons tropicales et le grand écran créent le cocktail parfait pour les fans de foot et de bonne musique. Le bar est ouvert dès 21 h, l’entrée est libre et le dress‑code est décontracté. Viens profiter d’une soirée entre potes dans le quartier de Toulon, à 4 place Monsenergue.",
-      "public_cible": 0.6,
-      "confiance": 0.9,
-      "accroche": "Soirée Ti Punch + match de Ligue des Champions à 21h",
-      "instagram": [
-        "lacalesechetoulon"
-      ],
-      "buzz": 0.5,
-      "buzz_raison": "Événement hebdomadaire avec thème original, bonne visibilité locale, jour de semaine mais match attractif.",
-      "par_le_lieu": true,
-      "offres": [],
-      "sources_sites": [
-        "instagram.com",
-        "Instagram – lacalesechetoulon"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "instagram.com",
-      "via_veille": true,
       "name": "La Cale Sèche – L’Embuscade des Pirates",
       "start": "2026-11-26T23:00:00.000Z",
       "venue": "La Cale Sèche, Toulon",
@@ -4999,34 +4966,6 @@
       "source": "web",
       "source_site": "Instagram",
       "name": "Naya Cannes Night",
-      "start": "2026-11-24T23:00:00.000Z",
-      "venue": "Naya Club Cannes",
-      "city": "Cannes",
-      "address": "",
-      "url": "https://www.instagram.com/p/Dfu1NcdEYA8/",
-      "image": "https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/902440821_18019706546975157_2530539391866746462_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=106&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=V0Ahj4wk_lEQ7kNvwFhsKLz&_nc_oc=AdqiVtmkwOvPJDZYncPCRRy5GsrbS8gzUTLPWpYOZXAyHaRg-p1KdN-xEVZocd_ThyI&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=iejl43GiEmrKp-nycvK08Q&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQQ58MaZpdVaV9wHhetutVccf2KDJcx6hiCaERwWd_Fofg&oe=6B06046D",
-      "price": null,
-      "tags": [
-        "house",
-        "techno"
-      ],
-      "description": "Chaque vendredi et samedi, le Naya Club de Cannes ouvre ses portes de minuit à 5 h du matin. Le concept : une ambiance électro‑house/techno, des DJ locaux et invités qui font monter la température. L’adresse : 15 Rue des Frères Pradignac, à deux pas de la plage. Réserve ta table via le lien en bio, l’entrée est libre mais le dress‑code est chic‑décontracté. Parfait pour les 18‑30 ans qui veulent prolonger la nuit sur la French Riviera.",
-      "public_cible": 0.95,
-      "confiance": 0.8,
-      "buzz": 0.6,
-      "buzz_raison": "Répétition hebdo, lieu connu, bonne visibilité Instagram, weekend fréquenté.",
-      "accroche": "Naya Cannes te fait vibrer du vendredi au samedi jusqu’à 5 h du mat, au cœur de la Croisette.",
-      "instagram": [
-        "nayaclubcannes"
-      ],
-      "offres": [],
-      "billetterie_cherchee": true,
-      "offres_cherchees": true
-    },
-    {
-      "source": "web",
-      "source_site": "Instagram",
-      "name": "Naya Cannes Night",
       "start": "2026-12-01T23:00:00.000Z",
       "venue": "Naya Club Cannes",
       "city": "Cannes",
@@ -5938,31 +5877,6 @@
       "source": "web",
       "source_site": "instagram.com",
       "via_veille": true,
-      "name": "Je Dis Techno",
-      "start": "2026-11-24T21:00:00.000Z",
-      "venue": "L’Antre",
-      "city": "Antibes",
-      "address": "",
-      "url": "https://www.instagram.com/p/DgF-RyOgEeo/",
-      "image": "https://scontent-sjc3-1.cdninstagram.com/v/t51.82787-15/920018501_18077717174766120_4547510483687883969_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=111&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=LRXM_DHjy7MQ7kNvwGkktyt&_nc_oc=AdoohJS4Zo5ECawCtvmywkI-qxli0LouDdHypJH2BkbUEFO5jNQEVESyYD8Wn8KnoOI&_nc_zt=23&_nc_ht=scontent-sjc3-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=A_Grj3MIcxvQ-Av4n6a2rw&_nc_ct=RQosPBUKFQQAAAA&oh=00_AQSQmqhbmA6jk-8BnpaUkH61oc0b1RucfbPu6Be6O7GSew&oe=6B0B31AB",
-      "price": null,
-      "tags": [
-        "Hard Rave",
-        "Hard Techno"
-      ],
-      "description": "",
-      "public_cible": 0.6,
-      "confiance": 0.9,
-      "accroche": "Je Dis Techno – deux lieux, une nuit explosive",
-      "instagram": [
-        "je_dis_techno_nice"
-      ],
-      "offres": []
-    },
-    {
-      "source": "web",
-      "source_site": "instagram.com",
-      "via_veille": true,
       "name": "Charlie Winston et Medi and The Medicine Show",
       "start": "2026-11-27T21:00:00.000Z",
       "venue": "Le Dix-Huit – 18 boulevard Carabacel, Nice",
@@ -6054,27 +5968,6 @@
       "source": "web",
       "source_site": "instagram.com",
       "via_veille": true,
-      "name": "Happy hour Barracuda",
-      "start": "2026-11-24T19:00:00.000Z",
-      "venue": "9 Rue du Batéguier - Carré d’Or, Cannes",
-      "city": "Cannes",
-      "address": "",
-      "url": "https://www.instagram.com/p/DgGCZQyEftd/",
-      "image": "https://scontent-ord5-2.cdninstagram.com/v/t51.82787-15/927867410_17964308448250848_3784470895261804610_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=109&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=O8aSv9pcn4AQ7kNvwH8Y5Yy&_nc_oc=AdrBwULMK_2NgpE6mrU4IzXCnpQLWJhWG-dnwf19-UM6RCZaTh-xC32EXVAEDngiRxg&_nc_zt=23&_nc_ht=scontent-ord5-2.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=u4wOaQN1S3mDub-iAdTazg&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQQjgshAL_yuBIp4W12e2dtXYVWhMuEtAD8C2qJEyVY4Tg&oe=6B0B39DF",
-      "price": null,
-      "tags": [],
-      "description": "",
-      "public_cible": 0.6,
-      "confiance": 0.8,
-      "accroche": "Happy hour 1 acheté = 1 offert, 20h-22h, du mercredi au samedi.",
-      "instagram": [
-        "barracuda.cannes"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "instagram.com",
-      "via_veille": true,
       "name": "Soirée foot spéciale Ligue Europa",
       "start": "2026-11-26T20:00:00.000Z",
       "venue": "La Cale Sèche, Toulon",
@@ -6117,30 +6010,6 @@
       "accroche": "Vendredi 27 : L’Embuscade des Pirates 1 acheté = 1 offert jusqu’à 21h",
       "instagram": [
         "lacalesechetoulon"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "instagram.com",
-      "via_veille": true,
-      "name": "NayaClub Cannes – Soirée du vendredi",
-      "start": "2026-11-24T23:00:00.000Z",
-      "venue": "15 Rue des Frères Pradignac, Cannes",
-      "city": "Cannes",
-      "address": "",
-      "url": "https://www.instagram.com/p/DgHtuDlRAc5/",
-      "image": "https://scontent-iad3-2.cdninstagram.com/v/t51.82787-15/927316559_18021056117975157_9028451248625547259_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=107&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=CChIP4eceSoQ7kNvwHAKr4A&_nc_oc=AdpokQlNY29t-y_Bco2ebjYvOJgb2gUeN495yEi9V0K_sWYynC9ZrikN0tcuLbnfMro&_nc_zt=23&_nc_ht=scontent-iad3-2.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=KEQif5tVeZy3CW8Xg7oUcQ&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQS4rwF-vo6ZU6rfgCiXFQWPGyMDY9-9UVbj1nqBJIsW8Q&oe=6B0BA5A7",
-      "price": null,
-      "tags": [
-        "Techno",
-        "House"
-      ],
-      "description": "",
-      "public_cible": 0.6,
-      "confiance": 0.8,
-      "accroche": "NayaClub ouvre ses portes de minuit à 5h avec djdrozzy.",
-      "instagram": [
-        "nayaclubcannes"
       ]
     },
     {
@@ -6284,5 +6153,6 @@
       ]
     }
   ],
-  "maj_instagram": "2026-11-24T20:12:43.510Z"
+  "maj_instagram": "2026-11-25T08:13:22.943Z",
+  "echec_web": "2026-11-25T08:13:22.943Z"
 }

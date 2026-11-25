@@ -8043,5 +8043,210 @@
    "lieu": "L'ANTRE_TECHNO"
   },
   "commun": []
+ },
+ "og|https://www.eventbrite.it/e/aperitivo-night-tickets-2004599136981": "https://www.eventbrite.it/_next/image?url=https%3A%2F%2Fimg.evbuc.com%2Fhttps%253A%252F%252Fcdn.evbuc.com%252Fimages%252F1198535729%252F854992251363%252F1%252Foriginal.20261123-150427%3Fcrop%3Dfocalpoint%26fit%3Dcrop%26w%3D940%26auto%3Dformat%252Ccompress%26q%3D75%26sharp%3D10%26fp-x%3D0.041%26fp-y%3D0.053%26s%3D77455daa1447d23c2c366f748c6e4bc6&w=940&q=75",
+ "v2|17179aa17d06": {
+  "ok": true,
+  "le": "2026-11-25T08:16:43.996Z",
+  "nom": "Aperitivo Night",
+  "lu": {
+   "titre": "APERITIVO NIGHT",
+   "dates": [
+    "2026-11-28"
+   ],
+   "artistes": [],
+   "lieu": "PaneOlio Nizza"
+  },
+  "commun": [
+   "aperitivo"
+  ]
+ },
+ "v2|037a38fd4c2d": {
+  "ok": false,
+  "le": "2026-11-25T08:16:44.715Z",
+  "nom": "Language Exchange Rooftop by Event Nice - Free Entry",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": [],
+   "lieu": ""
+  },
+  "commun": []
+ },
+ "og|https://www.eventbrite.fr/e/rencontre-dechecs-a-marseille-le-chaperon-rouge-tickets-2004937813973": "https://www.eventbrite.fr/_next/image?url=https%3A%2F%2Fimg.evbuc.com%2Fhttps%253A%252F%252Fcdn.evbuc.com%252Fimages%252F1197697977%252F2827791142421%252F1%252Foriginal.20261110-171959%3Fcrop%3Dfocalpoint%26fit%3Dcrop%26w%3D940%26auto%3Dformat%252Ccompress%26q%3D75%26sharp%3D10%26fp-x%3D0.29%26fp-y%3D0.497%26s%3Da06e2c124598572ca82cf9d9e48915ee&w=940&q=75",
+ "v2|2706997b9567": {
+  "ok": false,
+  "le": "2026-11-25T08:17:14.720Z",
+  "nom": "Rencontre d’échecs à Marseille · Le Chaperon Rouge",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": [],
+   "lieu": ""
+  },
+  "commun": []
+ },
+ "v2|252e6da157ef": {
+  "ok": true,
+  "le": "2026-11-25T08:17:40.178Z",
+  "nom": "Showcase Exclusif : La Fouine",
+  "lu": {
+   "titre": "SHOWCASE EXCLUSIF",
+   "dates": [
+    "2026-12-05"
+   ],
+   "artistes": [
+    "LA FOUINE"
+   ],
+   "lieu": "SKY CLUB"
+  },
+  "commun": [
+   "showcase",
+   "exclusif",
+   "fouine"
+  ]
+ },
+ "v2|b7a46e38c485": {
+  "ok": false,
+  "le": "2026-11-25T08:17:52.758Z",
+  "nom": "Lillian Palmer en concert – A Swingin’ Noël",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": [],
+   "lieu": ""
+  },
+  "commun": []
+ },
+ "v2|a046f7782208": {
+  "ok": true,
+  "le": "2026-11-25T08:18:12.399Z",
+  "nom": "Chilli No. 5 - 80s Après-Ski Christmas Party",
+  "lu": {
+   "titre": "80s Après-Ski Christmas Party.",
+   "dates": [
+    "2026-12-11"
+   ],
+   "artistes": [],
+   "lieu": "The Rainforest Café, by 245 Sophia Antipolis"
+  },
+  "commun": [
+   "apres",
+   "christmas"
+  ]
+ },
+ "v2|fb50a7afcf71": {
+  "ok": false,
+  "le": "2026-11-25T08:18:31.859Z",
+  "nom": "BRODINSKI (+ Tobhi TM & Friends / Lariate Club)",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": [],
+   "lieu": ""
+  },
+  "commun": []
+ },
+ "v2|fd17100c9b1a": {
+  "ok": true,
+  "le": "2026-11-25T08:19:03.676Z",
+  "nom": "Soirée Années 80 : Fréjus remonte le temps !",
+  "lu": {
+   "titre": "80",
+   "dates": [
+    "2026-12-12"
+   ],
+   "artistes": [],
+   "lieu": "place Formigé cœur historique"
+  },
+  "commun": []
+ },
+ "v2|73942b2cdde1": {
+  "ok": true,
+  "le": "2026-11-25T08:19:17.183Z",
+  "nom": "MUNGO'S HI FI (+ 1ère partie : Red Echoes)",
+  "lu": {
+   "titre": "BÉBÉ À TOUT PRIX !",
+   "dates": [],
+   "artistes": [],
+   "lieu": ""
+  },
+  "commun": []
+ },
+ "v2|e7439dddeba5": {
+  "ok": true,
+  "le": "2026-11-25T08:19:37.497Z",
+  "nom": "La Tocardise – édition Hard",
+  "lu": {
+   "titre": "LA TOCARDISE",
+   "dates": [
+    "2026-12-12"
+   ],
+   "artistes": [
+    "Slackreb",
+    "Tao",
+    "Marshall b2b Secret guest",
+    "Ziax",
+    "Galingas"
+   ],
+   "lieu": "Green Musik"
+  },
+  "commun": [
+   "tocardise"
+  ]
+ },
+ "v2|ec68a9ac61bb": {
+  "ok": true,
+  "le": "2026-11-25T08:19:57.242Z",
+  "nom": "Switch To Vido - Odyze B2b Nzø - Furious - Tao",
+  "lu": {
+   "titre": "VIDO",
+   "dates": [
+    "2026-12-12"
+   ],
+   "artistes": [
+    "FURIOUS",
+    "NZ0 B2B ODYZE",
+    "TAO"
+   ],
+   "lieu": "FRÉJUS"
+  },
+  "commun": [
+   "vido",
+   "furious",
+   "odyze"
+  ]
+ },
+ "og|https://www.eventbrite.com/e/soiree-live-music-avec-dolce-farniente-tickets-2005219313947": "https://www.eventbrite.com/_next/image?url=https%3A%2F%2Fimg.evbuc.com%2Fhttps%253A%252F%252Fcdn.evbuc.com%252Fimages%252F1198478853%252F2988009644804%252F1%252Foriginal.20261122-115332%3Fcrop%3Dfocalpoint%26fit%3Dcrop%26w%3D940%26auto%3Dformat%252Ccompress%26q%3D75%26sharp%3D10%26fp-x%3D0.622%26fp-y%3D0.074%26s%3D76554a362503699a8c16c1908bb11c49&w=940&q=75",
+ "v2|a6341dd98a99": {
+  "ok": true,
+  "le": "2026-11-25T08:20:17.187Z",
+  "nom": "Soirée Live Music avec Dolce Farniente",
+  "lu": {
+   "titre": "Duo acoustique guitare-voix",
+   "dates": [
+    "2026-12-13"
+   ],
+   "artistes": [
+    "Dolce Farniente"
+   ],
+   "lieu": "Le Quartier du Poulpe"
+  },
+  "commun": [
+   "dolce",
+   "farniente"
+  ]
+ },
+ "v2|cf838738e80e": {
+  "ok": false,
+  "le": "2026-11-25T08:20:37.407Z",
+  "nom": "Thursday Live Sessions - DIRTY DEEP",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": [],
+   "lieu": ""
+  },
+  "commun": []
  }
 }
