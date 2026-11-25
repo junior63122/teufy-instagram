@@ -963,5 +963,75 @@
       "legende": "- Glorious à Palais Nikaïa le 5 Décembre\nConcert + concours tirage au sort le 1er Déc.\nVous êtes prêts ?\n\n#TeufyParty #Nice #Glorious",
       "titre": "Glorious 5 Décembre"
     }
+  },
+  {
+    "id": "bonplan-petits-prix",
+    "date": "2026-11-25",
+    "media": "17964961565998463",
+    "lien": "https://www.instagram.com/p/DgLJDDiE-P9/",
+    "titre": "Où sortir ce week-end",
+    "photo": "foule",
+    "mise": "cadre",
+    "ia": true,
+    "verifie": true,
+    "soirees": [
+      "https://shotgun.live/events/phaphane-a-nice-amapiano-afrobeats-lovers",
+      "https://xceed.me/fr/nice/event/coachellito-high-club/251510",
+      "https://shotgun.live/events/the-show-club-sonore-november-28-playachica-glass-club"
+    ],
+    "le": "2026-11-25T18:10:14.260Z",
+    "publication": {
+      "id": "bonplan-petits-prix",
+      "type": "incontournables",
+      "variante": "commercial",
+      "date": "2026-11-25",
+      "choix": {
+        "creneau": "16",
+        "seuil-qualite": 0.6,
+        "titre-commercial": "140lf6o",
+        "mise-couverture": "bas",
+        "intro-commercial": "100m6kb",
+        "question-commercial": "1yehf49",
+        "suivre": "h7y61e",
+        "site": "992dqy",
+        "hashtags-local": [
+          "#nicefrance",
+          "#nice06"
+        ],
+        "hashtags-commercial": [
+          "#soirée",
+          "#nightlife"
+        ]
+      },
+      "features": [
+        "genre:commercial",
+        "source:web",
+        "style:amapiano",
+        "style:afro",
+        "lieu:frigo-16",
+        "ville:nice",
+        "prix:moyen",
+        "horaire:nuit",
+        "genre:commercial",
+        "source:xceed",
+        "style:reggaeton",
+        "style:latino",
+        "lieu:high-club",
+        "ville:nice",
+        "prix:moyen",
+        "horaire:nuit",
+        "genre:commercial",
+        "source:web",
+        "style:techno",
+        "style:tech-house",
+        "lieu:playa-chica-glass-club-cannes",
+        "ville:cannes",
+        "prix:moyen",
+        "horaire:nuit"
+      ],
+      "nb_images": 5,
+      "legende": "Ton groupe a déjà débattu 47 messages. Nous, on a tranché : les soirées du week-end de Nice à Monaco. Envoie-leur avant le prochain « on verra ».\n- Soirées à Nice et Cannes ce week-end\n\n- La plus attendue : Phaphane À Nice - Amapiano & Afrobeats Lovers, très forte notoriété virale de DJ Phaphane auprès du jeune public.\n\n→ Ven 27 · Phaphane À Nice - Amapiano & Afrobeats Lovers (Amapiano · Afro) · Frigo 16, Nice · 20h00 · 12,1 €\nLa référence amapiano DJ Phaphane débarque au hangar du Frigo 16. @tweltyprod @pandaevents06\n→ Ven 27 · COACHELLITO - HIGH CLUB (Reggaeton · Latino) · High Club, Nice · minuit · 11 €\nAmbiance festival américain sur la Promenade des Anglais avec le DJ niçois MACEW. @highclubnice\n→ Sam 28 · THE SHOW CLUB SONORE × MARAKA × PLAYA CHICA (Techno · Tech house) · Playa Chica & Glass Club Cannes · 20h00 · 10,99 €\nDouble étape festive signée Club Sonore entre plage et club cannois. @glass_club_cannes\n\nLaquelle on fait ensemble ? Enregistre le post pour ne pas oublier. Suis le compte : chaque semaine, les soirées à ne pas rater.\n\n- L'agenda complet, jour par jour : teufyparty.com\n\n#TeufyParty #nicefrance #nice06 #soirée #nightlife",
+      "titre": "Où sortir ce week-end"
+    }
   }
 ]
