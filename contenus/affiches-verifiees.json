@@ -8674,5 +8674,97 @@
    "hiver",
    "nouvel"
   ]
+ },
+ "v2|38a0e207cb70": {
+  "ok": true,
+  "le": "2026-11-25T17:26:16.653Z",
+  "nom": "La Folie Douce X Austra Rocks - The Takeover",
+  "lu": {
+   "titre": "THE TAKEOVER",
+   "dates": [
+    "2026-11-26"
+   ],
+   "artistes": [
+    "LA FOLIE DOUCE",
+    "AUSTRALIA ROCKS"
+   ],
+   "lieu": "BAR LIVE CLUB AUSTRALIA ROCKS"
+  },
+  "commun": [
+   "takeover",
+   "folie",
+   "douce",
+   "rocks"
+  ]
+ },
+ "v2|763b11154b1f": {
+  "ok": true,
+  "le": "2026-11-25T17:26:19.440Z",
+  "nom": "1KR Invite Area Øne",
+  "lu": {
+   "titre": "AREA ONE",
+   "dates": [
+    "2026-12-05"
+   ],
+   "artistes": [
+    "JAKOBE",
+    "ABSOLUTECK",
+    "DORY",
+    "GIGI ACID",
+    "JIL WAGNER",
+    "DISSSTAN"
+   ],
+   "lieu": ""
+  },
+  "commun": [
+   "area"
+  ]
+ },
+ "v2|62ae9448fc7b": {
+  "ok": true,
+  "le": "2026-11-25T17:26:26.405Z",
+  "nom": "Impact Nantes",
+  "lu": {
+   "titre": "IMPACT",
+   "dates": [
+    "2026-12-11"
+   ],
+   "artistes": [
+    "JUNKIE KID",
+    "MAJES",
+    "JOWI",
+    "KX CHR",
+    "JAAZ",
+    "EZZA"
+   ],
+   "lieu": "WAREHOUSE"
+  },
+  "commun": [
+   "impact"
+  ]
+ },
+ "v2|23dddd4374a6": {
+  "ok": false,
+  "le": "2026-11-25T17:26:45.844Z",
+  "nom": "Dakeez - Première Tournée Solo",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": [],
+   "lieu": ""
+  },
+  "commun": []
+ },
+ "v2|12c60bb94c61": {
+  "ok": false,
+  "le": "2026-11-25T17:27:05.557Z",
+  "nom": "Pierre de Maere",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": [],
+   "lieu": ""
+  },
+  "commun": []
  }
 }
