@@ -6174,6 +6174,27 @@
       "instagram": [
         "kosma.liveclub"
       ]
+    },
+    {
+      "source": "web",
+      "source_site": "instagram.com",
+      "via_veille": true,
+      "name": "Atelier aquarelle de Noël",
+      "start": "2026-12-01T17:30:00.000Z",
+      "venue": "Goya Nice",
+      "city": "Nice",
+      "address": "",
+      "url": "https://www.instagram.com/reel/DgIS-3ZtP2x/",
+      "image": "",
+      "price": null,
+      "tags": [],
+      "description": "",
+      "public_cible": 0.6,
+      "confiance": 0.8,
+      "accroche": "Atelier aquarelle le 1er déc. à Goya Nice – créez vos cartes de vœux.",
+      "instagram": [
+        "lesaperosartistiques"
+      ]
     }
   ],
   "maj_instagram": "2026-11-25T09:12:28.640Z",
