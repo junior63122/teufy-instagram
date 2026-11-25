@@ -280,7 +280,10 @@ if (cible === 'auto') {
       // jour n'est plus publié par les passages de rattrapage (config.instagram.heure_max_paris pour changer).
       const hp = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Paris', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).format(NOW).split(':').map(Number);
       const [mh, mm] = String(config.instagram?.heure_max_paris || '21:30').split(':').map(Number);
-      if (rep !== 'rien' && hp[0] * 60 + hp[1] > mh * 60 + (mm || 0)) { console.error(`Trop tard pour publier (${hp[0]}h${String(hp[1]).padStart(2, '0')} à Paris, limite ${mh}h${String(mm || 0).padStart(2, '0')}).`); rep = 'rien'; }
+      // 25/11/2026 : un passage en retard de GitHub (lancé à 23h50 UTC) a publié à 0h55 : après minuit, l'heure de Paris
+      // repassait sous la limite. On exige maintenant aussi une heure minimale (heure_min_paris, 12h par défaut).
+      const [nh, nm] = String(config.instagram?.heure_min_paris || '12:00').split(':').map(Number);
+      if (rep !== 'rien' && (hp[0] * 60 + hp[1] > mh * 60 + (mm || 0) || hp[0] * 60 + hp[1] < nh * 60 + (nm || 0))) { console.error(`Trop tard pour publier (${hp[0]}h${String(hp[1]).padStart(2, '0')} à Paris, limite ${mh}h${String(mm || 0).padStart(2, '0')}).`); rep = 'rien'; }
     }
     await output('slot', rep === 'rien' ? '' : rep);
     console.log(rep);
@@ -435,7 +438,8 @@ if (echecs.length) die(`Échec : ${echecs.join(', ')}`);
 async function prepareSecours(j, id, erreur) {
   // 23/11/2026 : la liste était une constante déclarée après la boucle principale (« Cannot access 'SECOURS' before
   // initialization ») : aucun secours ne partait et le post du jour sautait. Elle est maintenant dans la fonction.
-  const SECOURS = [{ type: 'incontournables', variante: 'commercial' }, { type: 'reel', variante: 'spot-promo' }, { type: 'reel', variante: 'tague-ton-pote' }];
+  // 25/11/2026 : plus de spot promo en secours (directeur : « on avait dit qu'on arrêtait les réels comme ça »).
+  const SECOURS = [{ type: 'incontournables', variante: 'commercial' }, { type: 'bonplan', variante: 'petits-prix' }, { type: 'reel', variante: 'tague-ton-pote' }];
   let derniere = erreur;
   for (const sl of SECOURS) {
     if (sl.type === j.slot.type && sl.variante === j.slot.variante) continue;

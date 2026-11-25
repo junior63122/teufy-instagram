@@ -131,3 +131,16 @@ Données : `apprentissage.json` (75 publications mesurées), `RAPPORT.md`, `tend
 - Décision : un post chaque dimanche (créneau libre, choisi par l'apprentissage), et règle générale dans le code : un jour sans
   rien de prévu reçoit un post libre. Test `tests/planning-chaque-jour.test.mjs`. Semaine : lun 2, mar 2, mer 1, jeu 2, ven 1,
   sam 1, dim 1 publications dans le fil.
+
+## 25/11/2026 : arrêt des réels promo sur Instagram
+
+Constat (grille relevée par le directeur) : spot 06 « samedi trouvé » 249 vues, spots 02 et 03 298 et 267, « Tague ton pote » 222 ;
+à l'inverse, carrousel bon plan « Sortir à moins de 10 € » 4 076 vues, concours 1 093, « À réserver » 411.
+Le directeur : « ton dernier réel est vraiment horrible, on avait dit qu'on arrêtait les réels comme ça ».
+
+Décisions :
+1. Plus aucun spot promo de l'appli sur Instagram (calendrier et secours). Mercredi : carrousel bon plan « petits prix ».
+   Mardi : « à réserver » chaque semaine.
+2. Le spot 06 est parti à 0 h 55 (passage de GitHub lancé en retard à 23 h 50 UTC) : après minuit, la limite de 21 h 30
+   ne bloquait plus. Ajout d'une heure minimale (12 h à Paris) : plus aucune publication la nuit.
+3. « Tague ton pote » (222 vues) reste en observation une semaine : s'il reste sous 400 vues, il est remplacé.

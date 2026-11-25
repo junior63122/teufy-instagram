@@ -9,10 +9,11 @@ const famille = (c) => (c.type === 'guide' || (c.type === 'reel' && ['viral', 'g
 
 // 20/11/2026 : planning confié à Claude (directeur : « à toi de gérer le planning ; minimum 1 réel de promotion par semaine ;
 // les soirées tekno fonctionnent »). Règles qui restent : au moins 4 posts et 3 reels, 1 promo minimum, la techno chaque semaine.
-test('planning : au moins 4 posts et 3 reels par semaine, 1 promo minimum, techno chaque jeudi', () => {
+test('planning : au moins 4 posts et 3 reels par semaine, plus de réel promo, techno chaque jeudi', () => {
   const R = config.calendrier_reels;
   assert.ok(R.length >= 3);
-  assert.ok(R.filter((r) => r.variante === 'promo').length >= 1);
+  assert.ok(!R.some((r) => r.variante === 'promo'), 'réels promo arrêtés (directeur, 25/11/2026)');
+  assert.ok(config.calendrier.filter((c) => c.jour === 3).every((c) => c.type === 'bonplan' && c.variante === 'petits-prix'), 'mercredi : petits prix');
   assert.ok(new Set(config.calendrier.map((c) => c.jour)).size >= 4);
   for (let rang = 1; rang <= 5; rang++) assert.match(config.calendrier.find((c) => c.jour === 4 && c.rang === rang)?.variante || '', /^(tekno|techno)$/, `jeudi rang ${rang}`);
   assert.ok(!R.some((r) => r.variante === 'grand-debat'), 'Grand Débat retiré (0 like)');

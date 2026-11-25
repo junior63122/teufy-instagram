@@ -119,7 +119,7 @@
       "jour": 2,
       "rang": 1,
       "type": "bonplan",
-      "variante": "petits-prix"
+      "variante": "a-reserver"
     },
     {
       "jour": 2,
@@ -131,7 +131,7 @@
       "jour": 2,
       "rang": 3,
       "type": "bonplan",
-      "variante": "petits-prix"
+      "variante": "a-reserver"
     },
     {
       "jour": 2,
@@ -141,6 +141,36 @@
     },
     {
       "jour": 2,
+      "rang": 5,
+      "type": "bonplan",
+      "variante": "a-reserver"
+    },
+    {
+      "jour": 3,
+      "rang": 1,
+      "type": "bonplan",
+      "variante": "petits-prix"
+    },
+    {
+      "jour": 3,
+      "rang": 2,
+      "type": "bonplan",
+      "variante": "petits-prix"
+    },
+    {
+      "jour": 3,
+      "rang": 3,
+      "type": "bonplan",
+      "variante": "petits-prix"
+    },
+    {
+      "jour": 3,
+      "rang": 4,
+      "type": "bonplan",
+      "variante": "petits-prix"
+    },
+    {
+      "jour": 3,
       "rang": 5,
       "type": "bonplan",
       "variante": "petits-prix"
@@ -628,11 +658,6 @@
       "secours": "teufy"
     },
     {
-      "jour": 3,
-      "type": "reel",
-      "variante": "promo"
-    },
-    {
       "jour": 4,
       "type": "reel",
       "variante": "viral"
@@ -654,5 +679,6 @@
     "musique": "1r9pcDqHsNDR6ylO2qatsPocWtQygWD4M"
   },
   "_planning_23_11_2026": "23/11/2026 (directeur : « la dernière publication date d'il y a deux jours, c'est absolument pas normal ») : un post chaque dimanche (créneau libre), et jamais un jour sans publication dans le fil (un jour vide reçoit un post libre).",
-  "_planning_24_11_2026": "24/11/2026 (analyse complète des publications, ANALYSE-ENGAGEMENT.md) : 1 seul spot promo par semaine (mercredi) au lieu de 2 ; le samedi passe en reel « tendance » (meilleur reel du robot : 1 140 vues, 6,8 s regardées ; spots promo : 268 à 524 vues, 3 à 4 s sur 13). Carrousel « commercial » : titres concrets (Ton week-end est réglé…) au lieu de « Nos coups de cœur » (355 comptes touchés, le pire) ; en décembre, « Les soirées du Nouvel An » une fois par semaine dès 4 soirées du 31 avec affiche (Nouvel An 2025 : 3 900 comptes touchés, 58 partages)."
+  "_planning_24_11_2026": "24/11/2026 (analyse complète des publications, ANALYSE-ENGAGEMENT.md) : 1 seul spot promo par semaine (mercredi) au lieu de 2 ; le samedi passe en reel « tendance » (meilleur reel du robot : 1 140 vues, 6,8 s regardées ; spots promo : 268 à 524 vues, 3 à 4 s sur 13). Carrousel « commercial » : titres concrets (Ton week-end est réglé…) au lieu de « Nos coups de cœur » (355 comptes touchés, le pire) ; en décembre, « Les soirées du Nouvel An » une fois par semaine dès 4 soirées du 31 avec affiche (Nouvel An 2025 : 3 900 comptes touchés, 58 partages).",
+  "_planning_25_11_2026": "25/11/2026 (directeur : « ton dernier réel est vraiment horrible, on avait dit qu'on arrêtait les réels comme ça ») : plus aucun spot promo de l'appli sur Instagram (vues : 249 à 298, contre 4 076 pour le carrousel « Sortir à moins de 10 € »). Le mercredi passe en carrousel bon plan « petits prix » ; le mardi devient « à réserver » chaque semaine. Les spots restent possibles sur TikTok seulement."
 }

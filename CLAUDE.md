@@ -34,8 +34,10 @@
   redemander »). Livrer dans `media/spot-promo/` (`NN-sujet.mp4` + `.txt` + `.couverture.txt` + `.json`
   `{accroche, fonctionnalites}`) après zone sûre, `controle.py` et vérification à l'œil. Ils passent dans les créneaux promo
   (avant la promo automatique) ; l'apprentissage choisit d'abord le type d'accroche qui marche (`accroche-spot`). Analyse du 24/11/2026 : les
-  spots touchent le moins de monde (268 à 524 vues, 3 à 4 s regardées sur 13) ; ramenés à 1 par semaine (le mercredi), le minimum
-  fixé le 20/11, jusqu'à ce qu'une nouvelle accroche dépasse les autres réels. Avant d'en
+  spots touchent le moins de monde (268 à 524 vues, 3 à 4 s regardées sur 13). **Arrêtés sur Instagram le 25/11/2026**
+  (directeur : « ton dernier réel est vraiment horrible, on avait dit qu'on arrêtait les réels comme ça », 249 vues contre
+  4 076 pour le carrousel « Sortir à moins de 10 € ») : le mercredi passe en carrousel bon plan « petits prix », plus de spot en
+  secours. Les spots déjà faits peuvent servir sur TikTok seulement ; n'en produire de nouveaux que sur demande du directeur. Avant d'en
   produire : `node outils/bilan-spots.mjs`, puis varier accroche, décor, rythme et fonctionnalités par rapport aux précédents.
   Couverture DA avec bouton lecture (photo de `decors/da/`). Chiffres affichés : relevés sur le site le jour même, sinon pas de chiffre.
 - **Mise à jour hebdomadaire** (directeur, 19/11/2026 : « toutes les semaines, vois s'il y a des mises à jour à faire, des
@@ -76,7 +78,7 @@
   Les reels portent la pastille « RÉEL » sur leur couverture (on les distingue des posts dans la grille).
 - **Planning et croissance confiés à Claude** (directeur, 20/11/2026 : « je te fais confiance, à toi de gérer le planning ; tous les
   2-3 jours vérifie les chiffres, vois ce que font les concurrents et prends des mesures de toi-même ; respecte toujours le design
-  de la grille ; minimum 1 réel de promotion de Teufy par semaine ; les soirées tekno fonctionnent ; analyse bien les concurrents »).
+  de la grille ; ~~minimum 1 réel de promotion de Teufy par semaine~~ (levé le 25/11) ; les soirées tekno fonctionnent ; analyse bien les concurrents »).
   Tâche programmée (mardi et vendredi) : chiffres (`apprentissage.json`, `RAPPORT.md`), comptes comparables (`tendances-auto.json`,
   `contenus/tendances.json`), décisions écrites dans `ANALYSE-ENGAGEMENT.md` (journal daté), planning dans `config.json`, stock de
   vidéos prêtes (spots, « Tague ton pote ») tenu à 2 semaines d'avance. Ce qui marche le mieux (20/11) : actus « un nom vient de
