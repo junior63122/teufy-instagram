@@ -1,5 +1,5 @@
 {
- "le": "2026-11-25T07:12:29.346Z",
+ "le": "2026-11-25T15:38:19.476Z",
  "instagram": {
   "utilisee": "v26.0",
   "derniere": "v27.0",
@@ -143,7 +143,7 @@
    "soirees": 0
   },
   "https://www.bizouk.com/": {
-   "http": 403,
+   "http": 200,
    "soirees": 0
   },
   "https://allevents.in/nice/all": {
@@ -184,22 +184,22 @@
   }
  },
  "sites_clubs": {
-  "maj": "2026-11-24T15:34:56.786Z",
-  "lus": 34,
+  "maj": "2026-11-25T08:16:17.524Z",
+  "lus": 37,
   "avec_soirees": 0,
-  "total": 63
+  "total": 68
  },
  "donnees": {
-  "semaine": 68,
+  "semaine": 71,
   "sans_heure": 18,
-  "sans_prix": 25,
-  "sans_affiche": 7,
+  "sans_prix": 28,
+  "sans_affiche": 9,
   "sans_billetterie": 2,
   "par_ville": {
+   "Nice": 24,
+   "Toulon": 13,
    "Montpellier": 2,
    "Cannes": 10,
-   "Nice": 22,
-   "Toulon": 12,
    "Juan-les-Pins": 3,
    "Roquebrune-sur-Argens": 2,
    "Le Cannet": 1,
@@ -216,17 +216,17 @@
  },
  "images": {
   "total": 149,
-  "sans_image": 68,
-  "dans_7_jours": 32
+  "sans_image": 65,
+  "dans_7_jours": 28
  },
  "alertes": [
   {
    "sujet": "Sources",
-   "detail": "22 source(s) sans soirée lue : https://shotgun.live/fr/cities/nice (429) ; https://www.eventbrite.fr/d/france--nice/nightlife/ (405) ; https://www.eventbrite.fr/d/france--nice/parties/ (405) ; https://www.eventbrite.fr/d/france--cannes/parties/ (405) ; https://www.eventbrite.fr/d/france--antibes/nightlife/ (405) ; https://www.eventbrite.fr/d/monaco--monaco/nightlife/ (405) ; https://www.eventbrite.fr/d/france--toulon/nightlife/ (405) ; https://www.eventbrite.fr/d/france--nice/music--events/ (405) ; https://www.eventbrite.fr/d/france--cannes/music--events/ (405) ; https://www.eventbrite.fr/d/monaco--monaco/music--events/ (405) ; https://www.eventbrite.fr/d/france--saint-tropez/events/ (405) ; https://www.eventbrite.fr/d/france--frejus/events/ (405) ; https://www.eventbrite.fr/d/france--toulon/music--events/ (405) ; https://www.bizouk.com/ (403) ; https://allevents.in/nice/all (404) ; https://allevents.in/cannes/all (20"
+   "detail": "22 source(s) sans soirée lue : https://shotgun.live/fr/cities/nice (429) ; https://www.eventbrite.fr/d/france--nice/nightlife/ (405) ; https://www.eventbrite.fr/d/france--nice/parties/ (405) ; https://www.eventbrite.fr/d/france--cannes/parties/ (405) ; https://www.eventbrite.fr/d/france--antibes/nightlife/ (405) ; https://www.eventbrite.fr/d/monaco--monaco/nightlife/ (405) ; https://www.eventbrite.fr/d/france--toulon/nightlife/ (405) ; https://www.eventbrite.fr/d/france--nice/music--events/ (405) ; https://www.eventbrite.fr/d/france--cannes/music--events/ (405) ; https://www.eventbrite.fr/d/monaco--monaco/music--events/ (405) ; https://www.eventbrite.fr/d/france--saint-tropez/events/ (405) ; https://www.eventbrite.fr/d/france--frejus/events/ (405) ; https://www.eventbrite.fr/d/france--toulon/music--events/ (405) ; https://www.bizouk.com/ (200) ; https://allevents.in/nice/all (404) ; https://allevents.in/cannes/all (20"
   },
   {
    "sujet": "Images",
-   "detail": "32 soirée(s) des 7 prochains jours sans affiche ni photo : 10 People Group Nice: Karao-Quiz Night – Fun Karaoke & Music Quiz Party (40 Rue Droite, 2026-11-25) ; Foodies + New Friends: Nice (Restaurant of the Week, 2026-11-26) ; The Brand New Heavies & GoGo Penguin (Monte-Carlo Jazz Festival) (Salle Garnier – Opéra de Monte-Carlo, 2026-11-26) ; BLOCK (Naho Club, 2026-11-26) ; Rencontre d’échecs à Saint-Raphaël · Hôtel Beauséjour (Hôtel Beauséjour, 2026-11-27) ; Restaurant of the Week | Foodies + New Friends: Cannes (Restaurant of the Week, 2026-11-27) ; LES TAMBOURS DU BRONX (Théâtre Lino Ventura, 2026-11-27) ; Skarra Mucci & Manudigital — Ragga Blasta Tour (Centre Culturel Tisot, 2026-11-27) ; Riviera Bar Crawl Nice’s #1 Social Club for Global Travelers & Party Lovers (Hostel Villa Saint Exupery Beach, 2026-11-27) ; Mr Hat Vs Verome : Bass Vs Hard Music (L'Antre Bar Electro, 2026-11-27) ; Nice Orange Bar Crawl – Party Bars, Music, Nightlife & Club Experience (La Chapa, 2026-11-27) ; Bambam At Inda House : 27.11.26 (Inda House, 2026-11-27) ; La Cale Sèche – L’Embuscade des Pirates (La Cale Sèche, Toulon, 2026-11-27) ; Da Grow — UK Bass / Gangsta House (L'Antre Bar Electro, 2026-11-28) ; Do You Like... Tekno ? @ Frigo16 - Le 109 (Frigo 16, 2026-11-28)"
+   "detail": "28 soirée(s) des 7 prochains jours sans affiche ni photo : 10 People Group Nice: Karao-Quiz Night – Fun Karaoke & Music Quiz Party (40 Rue Droite, 2026-11-25) ; Foodies + New Friends: Nice (Restaurant of the Week, 2026-11-26) ; The Brand New Heavies & GoGo Penguin (Monte-Carlo Jazz Festival) (Salle Garnier – Opéra de Monte-Carlo, 2026-11-26) ; BLOCK (Naho Club, 2026-11-26) ; Rencontre d’échecs à Saint-Raphaël · Hôtel Beauséjour (Hôtel Beauséjour, 2026-11-27) ; Restaurant of the Week | Foodies + New Friends: Cannes (Restaurant of the Week, 2026-11-27) ; LES TAMBOURS DU BRONX (Théâtre Lino Ventura, 2026-11-27) ; Skarra Mucci & Manudigital — Ragga Blasta Tour (Centre Culturel Tisot, 2026-11-27) ; Riviera Bar Crawl Nice’s #1 Social Club for Global Travelers & Party Lovers (Hostel Villa Saint Exupery Beach, 2026-11-27) ; Mr Hat Vs Verome : Bass Vs Hard Music (L'Antre Bar Electro, 2026-11-27) ; Nice Orange Bar Crawl – Party Bars, Music, Nightlife & Club Experience (La Chapa, 2026-11-27) ; Bambam At Inda House : 27.11.26 (Inda House, 2026-11-27) ; La Cale Sèche – L’Embuscade des Pirates (La Cale Sèche, Toulon, 2026-11-27) ; Da Grow — UK Bass / Gangsta House (L'Antre Bar Electro, 2026-11-28) ; Language Exchange Rooftop by Event Nice - Free Entry (Hôtel Mercure Nice Centre Notre Dame, 2026-11-28)"
   }
  ]
 }
