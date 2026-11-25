@@ -1,5 +1,5 @@
 {
- "le": "2026-11-25T17:20:10.683Z",
+ "le": "2026-11-25T18:16:53.644Z",
  "jours": [
   {
    "date": "2026-11-25",
@@ -11,16 +11,11 @@
      "variante": "petits-prix",
      "heure": "17 h 07",
      "suite": false,
-     "fait": false,
-     "lien": null
+     "fait": true,
+     "lien": "https://www.instagram.com/p/DgLJDDiE-P9/"
     }
    ],
    "stories": [
-    {
-     "heure": "11 h",
-     "type": "pret-concours-frigo16-dernier-jour",
-     "cle": null
-    },
     {
      "heure": "16 h",
      "type": "soirees",

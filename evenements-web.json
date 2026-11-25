@@ -7,6 +7,81 @@
   "evenements": [
     {
       "source": "web",
+      "source_site": "unica_culture",
+      "name": "Concert PLK – Palais Nikaïa",
+      "start": "2026-12-06T19:00:00.000Z",
+      "venue": "Palais Nikaïa",
+      "city": "Nice",
+      "address": "",
+      "url": "https://www.instagram.com/p/DgKV19WIRYP/",
+      "image": "https://scontent-iad3-1.cdninstagram.com/v/t39.30808-6/919302914_1779813734144945_4814300970442242161_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=111&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=RHpxykzcY9EQ7kNvwEr4M_G&_nc_oc=AdpKWOSguinCX_EI_RFl4ay5NJ9QjJVy5wSzg65doN3iwYKHo19q2l1EQRRBj9NijkU&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=a2NUqISz9T1IJmLDJCi1xw&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQTiy3k9xbtWFJ_KinCG_oi5Dh7OBWHnOYDgPn4AgfVGTA&oe=6B0D0DF1",
+      "price": null,
+      "tags": [
+        "rap",
+        "RnB"
+      ],
+      "description": "Le rappeur PLK, connu pour ses hits « Maman » et « Joker », se produit à Nice le 6 décembre à 20 h au Palais Nikaïa. L’événement promet une ambiance urbaine et festive, avec un son mêlant rap, RnB et hip‑hop. La billetterie est ouverte en prévente, le tarif varie selon les sections. Prépare-toi à vibrer sur les beats de PLK dans un cadre chic et moderne.",
+      "public_cible": 0.8,
+      "confiance": 0.9,
+      "buzz": 0.6,
+      "buzz_raison": "Tête d’affiche populaire, lieu réputé, prévente active.",
+      "accroche": "PLK revient à Nice pour un concert électrisant au Palais Nikaïa le 6 décembre.",
+      "instagram": [
+        "unica_culture"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "InfoConcert",
+      "name": "PONY PONY RUN RUN / ALASTAIR LANE en concert",
+      "start": "2026-12-10T19:00:00.000Z",
+      "venue": "Le Stockfish",
+      "city": "Nice",
+      "address": "",
+      "url": "https://www.infoconcert.com/artiste/pony-pony-run-run-41399/concerts.html",
+      "image": "https://optimg.infoconcert.com/insecure/rs:fit:640:0/q:80/f:webp/aHR0cHM6Ly9zdGF0aWNzLWluZm9jb25jZXJ0LmRpZ2l0aWNrLmNvbS9tZWRpYS9hcnRpc3RlL2FydGlzdGVfc3VpdGUvcG9ueS1wb255LXJ1bi1ydW5fY29uY2VydHMtdG91cm5lZS0yMDI2LTIwMjcuanBn",
+      "price": 5,
+      "tags": [
+        "Électro-pop",
+        "Nu-disco",
+        "House",
+        "Indie Dance",
+        "Electro Pop",
+        "Synthpop",
+        "pop",
+        "dance"
+      ],
+      "description": "Gros plan festif au Stockfish avec un plateau taillé pour la fête étudiante. Les cultes Pony Pony Run Run viennent chanter leurs hymnes électro-pop comme Hey You, suivis par le producteur Alastair Lane et sa sélection nu-disco et house entraînante. La salle niçoise ouvre à 20h00 avec une entrée imbattable à seulement 5 euros. Une opportunité parfaite pour danser sans exploser son budget.",
+      "public_cible": 0.9,
+      "confiance": 0.95,
+      "buzz": 0.75,
+      "buzz_raison": "Tarif à 5 euros et line-up ultra festif dans la salle jeune de Nice.",
+      "accroche": "Soirée pop-électro et DJ set nu-disco pour 5 euros tout rond au Stockfish.",
+      "instagram": [
+        "ponyponyrunrun",
+        "alastairlanemusic",
+        "stockfishnice"
+      ],
+      "offres": [
+        {
+          "plateforme": "infoconcert.com",
+          "url": "https://www.infoconcert.com/artiste/pony-pony-run-run-41399/concerts.html",
+          "prix": 5
+        },
+        {
+          "plateforme": "etudiants.nice.fr",
+          "url": "https://etudiants.nice.fr/evenement/pony-pony-run-run",
+          "prix": 5
+        }
+      ],
+      "sources_sites": [
+        "InfoConcert",
+        "Portail Étudiants Ville de Nice (etudiants.nice.fr / nice.fr)",
+        "pandaevents06"
+      ]
+    },
+    {
+      "source": "web",
       "source_site": "Eventbrite Nice",
       "name": "Nice New Year's Eve 2026‑2027 – Guaranteed VIP Club Entry & 5 Free Shots",
       "start": "2026-12-31T20:00:00.000Z",
@@ -129,32 +204,6 @@
       ],
       "billetterie_cherchee": true,
       "offres_cherchees": true
-    },
-    {
-      "source": "web",
-      "source_site": "Bizouk.com",
-      "name": "Caraïbazur Festival – Théâtre de Verdure",
-      "start": "2026-10-16T18:30:00.000Z",
-      "venue": "Théâtre de Verdure",
-      "city": "Nice",
-      "address": "",
-      "url": "https://www.bizouk.com/events/details/caraibazur-festival/128780",
-      "image": "",
-      "price": 19.3,
-      "tags": [
-        "Zouk",
-        "Konpa"
-      ],
-      "description": "Première édition du Caraïbazur Festival, un événement Zouk‑Konpa qui se déroule dans le cadre verdoyant du Théâtre de Verdure sur la Promenade des Anglais. Le programme promet une soirée festive et dansante, avec des artistes afro‑caribéens à l'affiche. Le tarif est de 19,30 € et l'événement est ouvert aux jeunes de 17 à 30 ans.",
-      "public_cible": 0.5,
-      "confiance": 0.9,
-      "buzz": 0.7,
-      "buzz_raison": "Première édition, lieu emblématique (Théâtre de Verdure)",
-      "accroche": "1ère édition du festival Zouk Konpa au Théâtre de Verdure",
-      "instagram": [
-        "caraibazurfest",
-        "theatredeverdure"
-      ]
     },
     {
       "source": "web",
@@ -4485,53 +4534,6 @@
     {
       "source": "web",
       "source_site": "InfoConcert",
-      "name": "PONY PONY RUN RUN / ALASTAIR LANE en concert",
-      "start": "2026-12-10T19:00:00.000Z",
-      "venue": "Le Stockfish",
-      "city": "Nice",
-      "address": "",
-      "url": "https://www.infoconcert.com/artiste/pony-pony-run-run-41399/concerts.html",
-      "image": "https://optimg.infoconcert.com/insecure/rs:fit:640:0/q:80/f:webp/aHR0cHM6Ly9zdGF0aWNzLWluZm9jb25jZXJ0LmRpZ2l0aWNrLmNvbS9tZWRpYS9hcnRpc3RlL2FydGlzdGVfc3VpdGUvcG9ueS1wb255LXJ1bi1ydW5fY29uY2VydHMtdG91cm5lZS0yMDI2LTIwMjcuanBn",
-      "price": 5,
-      "tags": [
-        "Électro-pop",
-        "Nu-disco",
-        "House",
-        "Indie Dance",
-        "Electro Pop",
-        "Synthpop"
-      ],
-      "description": "Gros plan festif au Stockfish avec un plateau taillé pour la fête étudiante. Les cultes Pony Pony Run Run viennent chanter leurs hymnes électro-pop comme Hey You, suivis par le producteur Alastair Lane et sa sélection nu-disco et house entraînante. La salle niçoise ouvre à 20h00 avec une entrée imbattable à seulement 5 euros. Une opportunité parfaite pour danser sans exploser son budget.",
-      "public_cible": 0.9,
-      "confiance": 0.95,
-      "buzz": 0.75,
-      "buzz_raison": "Tarif à 5 euros et line-up ultra festif dans la salle jeune de Nice.",
-      "accroche": "Soirée pop-électro et DJ set nu-disco pour 5 euros tout rond au Stockfish.",
-      "instagram": [
-        "ponyponyrunrun",
-        "alastairlanemusic",
-        "stockfishnice"
-      ],
-      "offres": [
-        {
-          "plateforme": "infoconcert.com",
-          "url": "https://www.infoconcert.com/artiste/pony-pony-run-run-41399/concerts.html",
-          "prix": 5
-        },
-        {
-          "plateforme": "etudiants.nice.fr",
-          "url": "https://etudiants.nice.fr/evenement/pony-pony-run-run",
-          "prix": 5
-        }
-      ],
-      "sources_sites": [
-        "InfoConcert",
-        "Portail Étudiants Ville de Nice (etudiants.nice.fr / nice.fr)"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "InfoConcert",
       "name": "RFM PARTY 80 - LES 20 ANS !",
       "start": "2027-01-07T19:00:00.000Z",
       "venue": "Zénith de Toulon",
@@ -6462,5 +6464,6 @@
         "damnpeach__"
       ]
     }
-  ]
+  ],
+  "maj_instagram": "2026-11-25T18:16:53.589Z"
 }
