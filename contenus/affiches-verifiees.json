@@ -8827,5 +8827,55 @@
    "lieu": ""
   },
   "commun": []
+ },
+ "v2|042bf787118b": {
+  "ok": true,
+  "le": "2026-11-25T20:13:21.072Z",
+  "nom": "Blankka Club* 021 Toulouse : Matalhani * Nizart * Bigkid",
+  "lu": {
+   "titre": "AZŪL",
+   "dates": [
+    "2026-11-26"
+   ],
+   "artistes": [
+    "MATALHANI",
+    "NIZART",
+    "BIGKID*"
+   ],
+   "lieu": "37 RUE DE L'INDUSTRIE, 31000 TOULOUSE, FRANCE"
+  },
+  "commun": [
+   "matalhani",
+   "nizart",
+   "bigkid"
+  ]
+ },
+ "v2|1cd8b1eeb027": {
+  "ok": false,
+  "le": "2026-11-25T20:13:22.468Z",
+  "nom": "Nassim X Antirouille",
+  "lu": {
+   "titre": "NASSIMO TOUR",
+   "dates": [
+    "2026-11-27"
+   ],
+   "artistes": [
+    "NASSIMO"
+   ],
+   "lieu": "L'ANTIROUILLE"
+  },
+  "commun": []
+ },
+ "v2|a8283be8973c": {
+  "ok": false,
+  "le": "2026-11-25T20:14:23.883Z",
+  "nom": "Soirée Concert Metal & Punk",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": [],
+   "lieu": ""
+  },
+  "commun": []
  }
 }
