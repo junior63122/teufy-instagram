@@ -4,12 +4,14 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:format-boiler-360-ii-hangar-and-hard-techno-2026-12-05@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261205T210000Z
 DTEND:20261206T020000Z
 SUMMARY:Format Boiler 360° II - Hangar And Hard Techno
 LOCATION:Altherax Music\, Nice
-DESCRIPTION:DJ booth au centre de la salle et déluge neorave à l'Altherax.\nBillets : https://shotgun.live/events/format-boiler-360-ii-hangar-and-hard-techno\nVia Teufy @teufy_official
+DESCRIPTION:DJ booth au centre de la salle et déluge neorave à l'Altherax
+ .\nBillets : https://shotgun.live/events/format-boiler-360-ii-hangar-and-h
+ ard-techno\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/format-boiler-360-ii-hangar-and-hard-techno
 BEGIN:VALARM
 ACTION:DISPLAY

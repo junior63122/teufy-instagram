@@ -4,12 +4,14 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:roller-disco-gratuit-frigo-16-2026-12-18@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261218T170000Z
 DTEND:20261218T220000Z
 SUMMARY:Roller Disco - Gratuit @ Frigo 16
 LOCATION:Frigo 16\, Nice
-DESCRIPTION:Patins\, boules à facettes et son disco gratuit au Frigo 16.\nBillets : https://shotgun.live/events/roller-disco-gratuit-frigo-16\nVia Teufy @teufy_official
+DESCRIPTION:Patins\, boules à facettes et son disco gratuit au Frigo 16.\n
+ Billets : https://shotgun.live/events/roller-disco-gratuit-frigo-16\nVia T
+ eufy @teufy_official
 URL:https://shotgun.live/events/roller-disco-gratuit-frigo-16
 BEGIN:VALARM
 ACTION:DISPLAY

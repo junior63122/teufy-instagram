@@ -4,12 +4,14 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:les-copains-d-abord-2026-12-10@teufy
-DTSTAMP:20261125T132131Z
-DTSTART:20261210T225900Z
-DTEND:20261211T035900Z
+DTSTAMP:20261125T142020Z
+DTSTART:20261210T230000Z
+DTEND:20261211T040000Z
 SUMMARY:Les Copains d'Abord
 LOCATION:High Club\, Nice
-DESCRIPTION:Nuit décomplexée au High Club pour danser entre potes sur tous les classiques festifs.\nBillets : https://www.highclub.fr/agenda/les-copains-dabord/\nVia Teufy @teufy_official
+DESCRIPTION:Nuit décomplexée au High Club pour danser entre potes sur tou
+ s les classiques festifs.\nBillets : https://www.highclub.fr/agenda/les-co
+ pains-dabord/\nVia Teufy @teufy_official
 URL:https://www.highclub.fr/agenda/les-copains-dabord/
 BEGIN:VALARM
 ACTION:DISPLAY

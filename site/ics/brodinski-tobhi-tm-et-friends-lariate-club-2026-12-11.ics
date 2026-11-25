@@ -4,13 +4,16 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:brodinski-tobhi-tm-et-friends-lariate-club-2026-12-11@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261211T190000Z
 DTEND:20261212T000000Z
 SUMMARY:BRODINSKI (+ Tobhi TM & Friends / Lariate Club)
 LOCATION:Le 109 - Frigo 16\, Nice
-DESCRIPTION:Brodinski et le Lariate Club fusionnent techno sombre et trap au Frigo 16.\nBillets : https://www.ticketmaster.fr/fr/manifestation/brodinski-billet/idmanif/677085\nVia Teufy @teufy_official
-URL:https://www.ticketmaster.fr/fr/manifestation/brodinski-billet/idmanif/677085
+DESCRIPTION:Brodinski et le Lariate Club fusionnent techno sombre et trap a
+ u Frigo 16.\nBillets : https://www.ticketmaster.fr/fr/manifestation/brodin
+ ski-billet/idmanif/677085\nVia Teufy @teufy_official
+URL:https://www.ticketmaster.fr/fr/manifestation/brodinski-billet/idmanif/6
+ 77085
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-P1D

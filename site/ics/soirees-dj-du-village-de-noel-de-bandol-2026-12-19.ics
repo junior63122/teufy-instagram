@@ -4,12 +4,14 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:soirees-dj-du-village-de-noel-de-bandol-2026-12-19@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261219T170000Z
 DTEND:20261219T220000Z
 SUMMARY:Soirées DJ du Village de Noël de Bandol
 LOCATION:Quai Charles de Gaulle\, Bandol
-DESCRIPTION:Trois scènes DJ gratuites en front de mer pour faire la fête sur le port de Bandol.\nBillets : https://provence-alpes-cotedazur.com/fiche/soirees-dj-8041695/\nVia Teufy @teufy_official
+DESCRIPTION:Trois scènes DJ gratuites en front de mer pour faire la fête 
+ sur le port de Bandol.\nBillets : https://provence-alpes-cotedazur.com/fic
+ he/soirees-dj-8041695/\nVia Teufy @teufy_official
 URL:https://provence-alpes-cotedazur.com/fiche/soirees-dj-8041695/
 BEGIN:VALARM
 ACTION:DISPLAY

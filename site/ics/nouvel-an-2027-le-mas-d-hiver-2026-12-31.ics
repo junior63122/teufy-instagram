@@ -4,12 +4,14 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:nouvel-an-2027-le-mas-d-hiver-2026-12-31@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261231T210000Z
 DTEND:20270101T020000Z
 SUMMARY:Nouvel An 2027 @ Le Mas d'Hiver
 LOCATION:Le Mas d'Hiver\, Puget-sur-Argens
-DESCRIPTION:Le réveillon mythique du Mas d'Hiver pour célébrer le passage en 2027.\nBillets : https://lemas-concert.com/line-up-hiver\nVia Teufy @teufy_official
+DESCRIPTION:Le réveillon mythique du Mas d'Hiver pour célébrer le passag
+ e en 2027.\nBillets : https://lemas-concert.com/line-up-hiver\nVia Teufy @
+ teufy_official
 URL:https://lemas-concert.com/line-up-hiver
 BEGIN:VALARM
 ACTION:DISPLAY

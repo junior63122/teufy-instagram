@@ -4,12 +4,14 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:this-is-house-2026-11-28@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261128T190000Z
 DTEND:20261129T000000Z
 SUMMARY:This Is House
 LOCATION:Le Baraza\, Hyères
-DESCRIPTION:Soirée club intimiste aux grooves house et acid house au Baraza à Hyères.\nBillets : https://shotgun.live/fr/events/this-is-house\nVia Teufy @teufy_official
+DESCRIPTION:Soirée club intimiste aux grooves house et acid house au Baraz
+ a à Hyères.\nBillets : https://shotgun.live/fr/events/this-is-house\nVia
+  Teufy @teufy_official
 URL:https://shotgun.live/fr/events/this-is-house
 BEGIN:VALARM
 ACTION:DISPLAY

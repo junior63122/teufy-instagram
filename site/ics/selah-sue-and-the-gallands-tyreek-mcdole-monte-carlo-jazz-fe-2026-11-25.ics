@@ -3,23 +3,30 @@ VERSION:2.0
 PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
-UID:selah-sue-and-the-gallands-tyreek-mcdole-monte-carlo-jazz-fe-2026-11-25@teufy
-DTSTAMP:20261125T132131Z
+UID:selah-sue-and-the-gallands-tyreek-mcdole-monte-carlo-jazz-fe-2026-11-25
+ @teufy
+DTSTAMP:20261125T142020Z
 DTSTART:20261125T193000Z
 DTEND:20261126T003000Z
-SUMMARY:Selah Sue and The Gallands / Tyreek McDole - Monte-Carlo Jazz Festival
+SUMMARY:Selah Sue and The Gallands / Tyreek McDole - Monte-Carlo Jazz Festi
+ val
 LOCATION:Opéra Garnier de Monte-Carlo\, Monaco
-DESCRIPTION:Selah Sue en concert groove soul et funk pour le 20e Monte-Carlo Jazz Festival.\nBillets : https://www.montecarlosbm.com/fr/spectacles-monaco/monte-carlo-jazz-festival\nVia Teufy @teufy_official
-URL:https://www.montecarlosbm.com/fr/spectacles-monaco/monte-carlo-jazz-festival
+DESCRIPTION:Selah Sue en concert groove soul et funk pour le 20e Monte-Carl
+ o Jazz Festival.\nBillets : https://www.montecarlosbm.com/fr/spectacles-mo
+ naco/monte-carlo-jazz-festival\nVia Teufy @teufy_official
+URL:https://www.montecarlosbm.com/fr/spectacles-monaco/monte-carlo-jazz-fes
+ tival
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-P1D
-DESCRIPTION:Demain : Selah Sue and The Gallands / Tyreek McDole - Monte-Carlo Jazz Festival
+DESCRIPTION:Demain : Selah Sue and The Gallands / Tyreek McDole - Monte-Car
+ lo Jazz Festival
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT2H
-DESCRIPTION:Dans 2 h : Selah Sue and The Gallands / Tyreek McDole - Monte-Carlo Jazz Festival
+DESCRIPTION:Dans 2 h : Selah Sue and The Gallands / Tyreek McDole - Monte-C
+ arlo Jazz Festival
 END:VALARM
 END:VEVENT
 END:VCALENDAR

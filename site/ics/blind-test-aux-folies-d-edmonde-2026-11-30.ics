@@ -4,13 +4,15 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:blind-test-aux-folies-d-edmonde-2026-11-30@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261130T190000Z
 DTEND:20261201T000000Z
 SUMMARY:Blind Test aux Folies d'Edmonde
 LOCATION:Les folies d'Edmonde\, 16 Rue Benoît Bunico 06300 Nice\, Nice
-DESCRIPTION:Billets : https://www.eventbrite.com/e/billets-blind-test-aux-folies-dedmonde-2004892530529\nVia Teufy @teufy_official
-URL:https://www.eventbrite.com/e/billets-blind-test-aux-folies-dedmonde-2004892530529
+DESCRIPTION:Billets : https://www.eventbrite.com/e/billets-blind-test-aux-f
+ olies-dedmonde-2004892530529\nVia Teufy @teufy_official
+URL:https://www.eventbrite.com/e/billets-blind-test-aux-folies-dedmonde-200
+ 4892530529
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-P1D

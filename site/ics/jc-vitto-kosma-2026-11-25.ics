@@ -4,12 +4,14 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:jc-vitto-kosma-2026-11-25@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261125T220000Z
 DTEND:20261126T030000Z
 SUMMARY:JC VITTO @ Kosma
 LOCATION:Kosma\, Nice
-DESCRIPTION:JC VITTO enflamme le Kosma à Nice le 25 novembre\, de 23 h à 5 h\, pour une nuit de good vibes.\nBillets : https://www.instagram.com/p/DgIBi9jBBcG/\nVia Teufy @teufy_official
+DESCRIPTION:JC VITTO enflamme le Kosma à Nice le 25 novembre\, de 23 h
+  à 5 h\, pour une nuit de good vibes.\nBillets : https://www.instagram.
+ com/p/DgIBi9jBBcG/\nVia Teufy @teufy_official
 URL:https://www.instagram.com/p/DgIBi9jBBcG/
 BEGIN:VALARM
 ACTION:DISPLAY

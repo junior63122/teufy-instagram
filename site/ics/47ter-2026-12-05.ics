@@ -4,13 +4,17 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:47ter-2026-12-05@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261205T193000Z
 DTEND:20261206T003000Z
 SUMMARY:47Ter
 LOCATION:El Mediator\, Perpignan
-DESCRIPTION:47Ter en concert au Mediator un samedi soir\, de quoi chanter tous les refrains\nBillets : https://www.infoconcert.com/salle/el-mediator---theatre-de-l-archipel---le-grenat---le-carre-a-perpignan-1327/concerts.html\nVia Teufy @teufy_official
-URL:https://www.infoconcert.com/salle/el-mediator---theatre-de-l-archipel---le-grenat---le-carre-a-perpignan-1327/concerts.html
+DESCRIPTION:47Ter en concert au Mediator un samedi soir\, de quoi chanter t
+ ous les refrains\nBillets : https://www.infoconcert.com/salle/el-mediator-
+ --theatre-de-l-archipel---le-grenat---le-carre-a-perpignan-1327/concerts.h
+ tml\nVia Teufy @teufy_official
+URL:https://www.infoconcert.com/salle/el-mediator---theatre-de-l-archipel--
+ -le-grenat---le-carre-a-perpignan-1327/concerts.html
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-P1D

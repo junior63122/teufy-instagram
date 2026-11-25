@@ -4,12 +4,14 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:rfm-party-80-les-20-ans-2027-01-07@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20270107T190000Z
 DTEND:20270108T000000Z
 SUMMARY:RFM PARTY 80 - LES 20 ANS !
 LOCATION:Zénith de Toulon\, Toulon
-DESCRIPTION:Le méga show revival des années 80 pour chanter sur des tubes rétro au Zénith.\nBillets : https://www.infoconcert.com/artiste/rfm-party-80-33307/concerts.html\nVia Teufy @teufy_official
+DESCRIPTION:Le méga show revival des années 80 pour chanter sur des tubes
+  rétro au Zénith.\nBillets : https://www.infoconcert.com/artiste/rfm-par
+ ty-80-33307/concerts.html\nVia Teufy @teufy_official
 URL:https://www.infoconcert.com/artiste/rfm-party-80-33307/concerts.html
 BEGIN:VALARM
 ACTION:DISPLAY

@@ -4,13 +4,17 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:soiree-kart-and-rock-cannes-by-gam-it-racing-2-2026-11-27@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261127T170000Z
 DTEND:20261127T220000Z
 SUMMARY:Soirée KART AND ROCK Cannes by Gam'it Racing (2)
 LOCATION:Cannes Karting\, Cannes
-DESCRIPTION:Karting privatisé\, buffet et live rock suivi d'un DJ set festif à Cannes.\nBillets : https://www.helloasso.com/associations/gam-it-racing/evenements/soiree-kart-and-rock-cannes-by-gam-it-racing-2\nVia Teufy @teufy_official
-URL:https://www.helloasso.com/associations/gam-it-racing/evenements/soiree-kart-and-rock-cannes-by-gam-it-racing-2
+DESCRIPTION:Karting privatisé\, buffet et live rock suivi d'un DJ set fest
+ if à Cannes.\nBillets : https://www.helloasso.com/associations/gam-it-rac
+ ing/evenements/soiree-kart-and-rock-cannes-by-gam-it-racing-2\nVia Teufy @
+ teufy_official
+URL:https://www.helloasso.com/associations/gam-it-racing/evenements/soiree-
+ kart-and-rock-cannes-by-gam-it-racing-2
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-P1D

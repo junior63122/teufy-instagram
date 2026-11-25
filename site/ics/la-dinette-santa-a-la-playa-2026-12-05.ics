@@ -4,12 +4,14 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:la-dinette-santa-a-la-playa-2026-12-05@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261205T180000Z
 DTEND:20261205T230000Z
 SUMMARY:La Dinette - Santa À La Playa
 LOCATION:Playa Chica\, Cannes
-DESCRIPTION:Esprit de Noël décalé et sons hip hop les pieds dans le sable.\nBillets : https://shotgun.live/events/la-dinette-santa-a-la-playa\nVia Teufy @teufy_official
+DESCRIPTION:Esprit de Noël décalé et sons hip hop les pieds dans le sabl
+ e.\nBillets : https://shotgun.live/events/la-dinette-santa-a-la-playa\nVia
+  Teufy @teufy_official
 URL:https://shotgun.live/events/la-dinette-santa-a-la-playa
 BEGIN:VALARM
 ACTION:DISPLAY

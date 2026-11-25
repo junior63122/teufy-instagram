@@ -4,12 +4,14 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:dj-sebb-en-show-a-juan-les-pins-2026-11-26@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261126T220000Z
 DTEND:20261127T030000Z
 SUMMARY:DJ Sebb En Show À Juan-Les-Pins
 LOCATION:La Suite Restaurant Festif\, Juan-les-Pins
-DESCRIPTION:La superstar du son shatta DJ Sebb enflamme Juan-les-Pins en showcase.\nBillets : https://shotgun.live/events/dj-sebb-en-show-a-juan-les-pins\nVia Teufy @teufy_official
+DESCRIPTION:La superstar du son shatta DJ Sebb enflamme Juan-les-Pins en sh
+ owcase.\nBillets : https://shotgun.live/events/dj-sebb-en-show-a-juan-les-
+ pins\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/dj-sebb-en-show-a-juan-les-pins
 BEGIN:VALARM
 ACTION:DISPLAY

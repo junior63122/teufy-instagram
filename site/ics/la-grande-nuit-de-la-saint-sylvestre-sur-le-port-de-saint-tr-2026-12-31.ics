@@ -3,22 +3,26 @@ VERSION:2.0
 PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
-UID:la-grande-nuit-de-la-saint-sylvestre-sur-le-port-de-saint-tr-2026-12-31@teufy
-DTSTAMP:20261125T132131Z
+UID:la-grande-nuit-de-la-saint-sylvestre-sur-le-port-de-saint-tr-2026-12-31
+ @teufy
+DTSTAMP:20261125T142020Z
 DTSTART:20261231T173000Z
 DTEND:20261231T223000Z
 SUMMARY:La Grande Nuit de la Saint-Sylvestre sur le Port de Saint-Tropez
 LOCATION:Port de Saint-Tropez\, Saint-Tropez
-DESCRIPTION:Feu d'artifice à minuit et ambiance DJ sur les quais du port de Saint-Tropez.\nVia Teufy @teufy_official
+DESCRIPTION:Feu d'artifice à minuit et ambiance DJ sur les quais du port d
+ e Saint-Tropez.\nVia Teufy @teufy_official
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-P1D
-DESCRIPTION:Demain : La Grande Nuit de la Saint-Sylvestre sur le Port de Saint-Tropez
+DESCRIPTION:Demain : La Grande Nuit de la Saint-Sylvestre sur le Port de Sa
+ int-Tropez
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT2H
-DESCRIPTION:Dans 2 h : La Grande Nuit de la Saint-Sylvestre sur le Port de Saint-Tropez
+DESCRIPTION:Dans 2 h : La Grande Nuit de la Saint-Sylvestre sur le Port de 
+ Saint-Tropez
 END:VALARM
 END:VEVENT
 END:VCALENDAR

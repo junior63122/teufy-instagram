@@ -4,13 +4,16 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:grande-soiree-du-nouvel-an-2027-2026-12-31@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261231T170000Z
 DTEND:20261231T220000Z
 SUMMARY:Grande soirée du Nouvel An 2027
 LOCATION:Place Jean Camille Formigé\, Fréjus
-DESCRIPTION:Réveillon géant en plein air avec DJ sets\, danseurs et show robot LED à Fréjus.\nBillets : https://cotedazurfrance.fr/offres/grande-soiree-du-nouvel-an-frejus-fr-8051670/\nVia Teufy @teufy_official
-URL:https://cotedazurfrance.fr/offres/grande-soiree-du-nouvel-an-frejus-fr-8051670/
+DESCRIPTION:Réveillon géant en plein air avec DJ sets\, danseurs et show 
+ robot LED à Fréjus.\nBillets : https://cotedazurfrance.fr/offres/grande-
+ soiree-du-nouvel-an-frejus-fr-8051670/\nVia Teufy @teufy_official
+URL:https://cotedazurfrance.fr/offres/grande-soiree-du-nouvel-an-frejus-fr-
+ 8051670/
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-P1D

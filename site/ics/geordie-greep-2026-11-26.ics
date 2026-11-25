@@ -4,12 +4,13 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:geordie-greep-2026-11-26@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261126T193000Z
 DTEND:20261127T003000Z
 SUMMARY:Geordie Greep
 LOCATION:Le Makeda\, Marseille
-DESCRIPTION:Geordie Greep (black midi) débarque au Makeda pour un show avant-gardiste.\nVia Teufy @teufy_official
+DESCRIPTION:Geordie Greep (black midi) débarque au Makeda pour un show ava
+ nt-gardiste.\nVia Teufy @teufy_official
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-P1D

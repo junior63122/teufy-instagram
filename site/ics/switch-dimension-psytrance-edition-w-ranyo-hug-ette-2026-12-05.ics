@@ -4,22 +4,27 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:switch-dimension-psytrance-edition-w-ranyo-hug-ette-2026-12-05@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261205T223000Z
 DTEND:20261206T033000Z
 SUMMARY:Switch Dimension (Psytrance Edition) W/ Ranyo - Hug'ette
 LOCATION:switch Club\, Roquebrune-sur-Argens
-DESCRIPTION:Immersion psychédélique et sound system massif au switch Club.\nBillets : https://shotgun.live/events/switch-dimension-psytrance-edition-w-ranyo-hug-ette\nVia Teufy @teufy_official
-URL:https://shotgun.live/events/switch-dimension-psytrance-edition-w-ranyo-hug-ette
+DESCRIPTION:Immersion psychédélique et sound system massif au switch Club
+ .\nBillets : https://shotgun.live/events/switch-dimension-psytrance-editio
+ n-w-ranyo-hug-ette\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/switch-dimension-psytrance-edition-w-ranyo-
+ hug-ette
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-P1D
-DESCRIPTION:Demain : Switch Dimension (Psytrance Edition) W/ Ranyo - Hug'ette
+DESCRIPTION:Demain : Switch Dimension (Psytrance Edition) W/ Ranyo - Hug'et
+ te
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT2H
-DESCRIPTION:Dans 2 h : Switch Dimension (Psytrance Edition) W/ Ranyo - Hug'ette
+DESCRIPTION:Dans 2 h : Switch Dimension (Psytrance Edition) W/ Ranyo - Hug'
+ ette
 END:VALARM
 END:VEVENT
 END:VCALENDAR

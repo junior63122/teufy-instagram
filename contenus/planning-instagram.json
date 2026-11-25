@@ -1,18 +1,18 @@
 {
- "le": "2026-11-25T13:13:22.798Z",
+ "le": "2026-11-25T14:12:33.095Z",
  "jours": [
   {
    "date": "2026-11-25",
    "pause": null,
    "publications": [
     {
-     "id": "reel-spot-promo",
-     "type": "reel",
-     "variante": "spot-promo",
-     "heure": "18 h 07",
+     "id": "bonplan-petits-prix",
+     "type": "bonplan",
+     "variante": "petits-prix",
+     "heure": "17 h 07",
      "suite": false,
-     "fait": true,
-     "lien": "https://www.instagram.com/reel/DgJLtbMHDGc/"
+     "fait": false,
+     "lien": null
     }
    ],
    "stories": [
@@ -251,9 +251,9 @@
    "pause": null,
    "publications": [
     {
-     "id": "bonplan-petits-prix",
+     "id": "bonplan-a-reserver",
      "type": "bonplan",
-     "variante": "petits-prix",
+     "variante": "a-reserver",
      "heure": "17 h 07",
      "suite": false,
      "fait": false,
@@ -297,10 +297,10 @@
    "pause": null,
    "publications": [
     {
-     "id": "reel-spot-promo",
-     "type": "reel",
-     "variante": "spot-promo",
-     "heure": "18 h 07",
+     "id": "bonplan-petits-prix",
+     "type": "bonplan",
+     "variante": "petits-prix",
+     "heure": "17 h 07",
      "suite": false,
      "fait": false,
      "lien": null

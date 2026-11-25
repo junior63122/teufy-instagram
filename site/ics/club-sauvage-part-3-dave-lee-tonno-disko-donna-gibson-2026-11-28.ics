@@ -4,22 +4,26 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:club-sauvage-part-3-dave-lee-tonno-disko-donna-gibson-2026-11-28@teufy
-DTSTAMP:20261125T132131Z
-DTSTART:20261128T225900Z
-DTEND:20261129T035900Z
+DTSTAMP:20261125T142020Z
+DTSTART:20261128T230000Z
+DTEND:20261129T040000Z
 SUMMARY:¡Club Sauvage Part 3 : Dave Lee / Tonno Disko / Donna Gibson
 LOCATION:Bien Public\, Bordeaux
-DESCRIPTION:La légende du disco Dave Lee s'installe au Bien Public pour une nuit funky.\nBillets : https://ra.co/events/fr/bordeaux\nVia Teufy @teufy_official
+DESCRIPTION:La légende du disco Dave Lee s'installe au Bien Public pour un
+ e nuit funky.\nBillets : https://ra.co/events/fr/bordeaux\nVia Teufy @teuf
+ y_official
 URL:https://ra.co/events/fr/bordeaux
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-P1D
-DESCRIPTION:Demain : ¡Club Sauvage Part 3 : Dave Lee / Tonno Disko / Donna Gibson
+DESCRIPTION:Demain : ¡Club Sauvage Part 3 : Dave Lee / Tonno Disko / Donna
+  Gibson
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT2H
-DESCRIPTION:Dans 2 h : ¡Club Sauvage Part 3 : Dave Lee / Tonno Disko / Donna Gibson
+DESCRIPTION:Dans 2 h : ¡Club Sauvage Part 3 : Dave Lee / Tonno Disko / Don
+ na Gibson
 END:VALARM
 END:VEVENT
 END:VCALENDAR

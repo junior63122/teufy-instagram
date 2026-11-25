@@ -4,13 +4,16 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:soiree-annees-80-frejus-remonte-le-temps-2026-12-12@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261212T170000Z
 DTEND:20261212T220000Z
 SUMMARY:Soirée Années 80 : Fréjus remonte le temps !
 LOCATION:Place Jean Camille Formigé\, Fréjus
-DESCRIPTION:Open air rétro gratuit au cœur du centre historique avec DJ sets 100 % années 80.\nBillets : https://www.esterel-cotedazur.com/fetes-et-manifestations/soiree-annees-80/\nVia Teufy @teufy_official
-URL:https://www.esterel-cotedazur.com/fetes-et-manifestations/soiree-annees-80/
+DESCRIPTION:Open air rétro gratuit au cœur du centre historique avec DJ s
+ ets 100 % années 80.\nBillets : https://www.esterel-cotedazur.com/fetes-e
+ t-manifestations/soiree-annees-80/\nVia Teufy @teufy_official
+URL:https://www.esterel-cotedazur.com/fetes-et-manifestations/soiree-annees
+ -80/
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-P1D

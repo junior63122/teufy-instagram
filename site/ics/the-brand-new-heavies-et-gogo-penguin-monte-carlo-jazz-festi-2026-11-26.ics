@@ -3,23 +3,30 @@ VERSION:2.0
 PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
-UID:the-brand-new-heavies-et-gogo-penguin-monte-carlo-jazz-festi-2026-11-26@teufy
-DTSTAMP:20261125T132131Z
+UID:the-brand-new-heavies-et-gogo-penguin-monte-carlo-jazz-festi-2026-11-26
+ @teufy
+DTSTAMP:20261125T142020Z
 DTSTART:20261126T193000Z
 DTEND:20261127T003000Z
 SUMMARY:The Brand New Heavies & GoGo Penguin (Monte-Carlo Jazz Festival)
 LOCATION:Salle Garnier – Opéra de Monte-Carlo\, Monaco
-DESCRIPTION:Double plateau d'exception entre acid jazz légendaire et breakbeat électro à Monaco.\nBillets : https://www.visitmonaco.com/fr/evenement/festivals/20708/monte-carlo-jazz-festival-2026\nVia Teufy @teufy_official
-URL:https://www.visitmonaco.com/fr/evenement/festivals/20708/monte-carlo-jazz-festival-2026
+DESCRIPTION:Double plateau d'exception entre acid jazz légendaire et break
+ beat électro à Monaco.\nBillets : https://www.visitmonaco.com/fr/eveneme
+ nt/festivals/20708/monte-carlo-jazz-festival-2026\nVia Teufy @teufy_offici
+ al
+URL:https://www.visitmonaco.com/fr/evenement/festivals/20708/monte-carlo-ja
+ zz-festival-2026
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-P1D
-DESCRIPTION:Demain : The Brand New Heavies & GoGo Penguin (Monte-Carlo Jazz Festival)
+DESCRIPTION:Demain : The Brand New Heavies & GoGo Penguin (Monte-Carlo Jazz
+  Festival)
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT2H
-DESCRIPTION:Dans 2 h : The Brand New Heavies & GoGo Penguin (Monte-Carlo Jazz Festival)
+DESCRIPTION:Dans 2 h : The Brand New Heavies & GoGo Penguin (Monte-Carlo Ja
+ zz Festival)
 END:VALARM
 END:VEVENT
 END:VCALENDAR

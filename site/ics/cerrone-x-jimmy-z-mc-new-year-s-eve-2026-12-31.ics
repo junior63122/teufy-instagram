@@ -4,12 +4,14 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:cerrone-x-jimmy-z-mc-new-year-s-eve-2026-12-31@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261231T210000Z
 DTEND:20270101T020000Z
 SUMMARY:Cerrone X Jimmy'Z MC - New Year's Eve
 LOCATION:Jimmy'z Monte-Carlo\, Monaco
-DESCRIPTION:Passe ton réveillon du Nouvel An au Jimmy'z avec la légende disco Cerrone et le crew TANTRÜM.\nBillets : https://shotgun.live/events/cerrone-x-jimmy-z-mc-new-year-s-eve\nVia Teufy @teufy_official
+DESCRIPTION:Passe ton réveillon du Nouvel An au Jimmy'z avec la légende d
+ isco Cerrone et le crew TANTRÜM.\nBillets : https://shotgun.live/events/c
+ errone-x-jimmy-z-mc-new-year-s-eve\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/cerrone-x-jimmy-z-mc-new-year-s-eve
 BEGIN:VALARM
 ACTION:DISPLAY

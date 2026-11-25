@@ -4,13 +4,16 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:cannes-social-club-foodies-new-friends-2026-11-28@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261128T180000Z
 DTEND:20261128T230000Z
 SUMMARY:Cannes Social Club | Foodies + New Friends
-LOCATION:Restaurant of the Month\, Rue Bivouac Napoléon 06400 Cannes\, Cannes
-DESCRIPTION:Billets : https://www.eventbrite.com/e/cannes-social-club-foodies-new-friends-tickets-1994633657965\nVia Teufy @teufy_official
-URL:https://www.eventbrite.com/e/cannes-social-club-foodies-new-friends-tickets-1994633657965
+LOCATION:Restaurant of the Month\, Rue Bivouac Napoléon 06400 Cannes\, Can
+ nes
+DESCRIPTION:Billets : https://www.eventbrite.com/e/cannes-social-club-foodi
+ es-new-friends-tickets-1994633657965\nVia Teufy @teufy_official
+URL:https://www.eventbrite.com/e/cannes-social-club-foodies-new-friends-tic
+ kets-1994633657965
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-P1D

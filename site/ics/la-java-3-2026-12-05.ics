@@ -4,12 +4,14 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:la-java-3-2026-12-05@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261205T220000Z
 DTEND:20261206T030000Z
 SUMMARY:La Java 3
 LOCATION:Le Green Musik\, Antibes
-DESCRIPTION:6h de rave non-stop hard techno et psytrance sur sound system Martin Audio.\nBillets : https://shotgun.live/fr/events/la-java-3\nVia Teufy @teufy_official
+DESCRIPTION:6h de rave non-stop hard techno et psytrance sur sound system M
+ artin Audio.\nBillets : https://shotgun.live/fr/events/la-java-3\nVia Teuf
+ y @teufy_official
 URL:https://shotgun.live/fr/events/la-java-3
 BEGIN:VALARM
 ACTION:DISPLAY

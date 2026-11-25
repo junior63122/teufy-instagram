@@ -4,12 +4,14 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:shafro-toulon-3-afro-shatta-bouyon-2026-12-20@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261220T190000Z
 DTEND:20261221T000000Z
 SUMMARY:Shafro @Toulon #3 - Afro\, Shatta \, Bouyon
 LOCATION:Le Factory La Farlède\, La Farlède
-DESCRIPTION:Dernière teuf shatta et bouyon avant Noël avec le crew SHAFRO au Factory.\nBillets : https://shotgun.live/fr/events/shafro-toulon-3-afro-shatta-bouyon\nVia Teufy @teufy_official
+DESCRIPTION:Dernière teuf shatta et bouyon avant Noël avec le crew SHAFRO
+  au Factory.\nBillets : https://shotgun.live/fr/events/shafro-toulon-3-afr
+ o-shatta-bouyon\nVia Teufy @teufy_official
 URL:https://shotgun.live/fr/events/shafro-toulon-3-afro-shatta-bouyon
 BEGIN:VALARM
 ACTION:DISPLAY

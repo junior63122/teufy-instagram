@@ -4,12 +4,13 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:reveillon-du-nouvel-an-2026-12-31@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261231T170000Z
 DTEND:20261231T220000Z
 SUMMARY:Réveillon du Nouvel An
 LOCATION:Magnolia Café\, Nice\, Nice
-DESCRIPTION:Soirée Nouvel An avec champagne et menu spécial\nBillets : https://www.instagram.com/p/DgF3JP3o8Nk/\nVia Teufy @teufy_official
+DESCRIPTION:Soirée Nouvel An avec champagne et menu spécial\nBillets : ht
+ tps://www.instagram.com/p/DgF3JP3o8Nk/\nVia Teufy @teufy_official
 URL:https://www.instagram.com/p/DgF3JP3o8Nk/
 BEGIN:VALARM
 ACTION:DISPLAY

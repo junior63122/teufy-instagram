@@ -3,23 +3,30 @@ VERSION:2.0
 PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
-UID:fete-de-la-saint-sylvestre-drone-show-et-nuit-du-nouvel-an-s-2026-12-31@teufy
-DTSTAMP:20261125T132131Z
+UID:fete-de-la-saint-sylvestre-drone-show-et-nuit-du-nouvel-an-s-2026-12-31
+ @teufy
+DTSTAMP:20261125T142020Z
 DTSTART:20261231T223000Z
 DTEND:20270101T033000Z
-SUMMARY:Fête de la Saint-Sylvestre : Drone Show & Nuit du Nouvel An sur la Croisette
+SUMMARY:Fête de la Saint-Sylvestre : Drone Show & Nuit du Nouvel An sur la
+  Croisette
 LOCATION:Baie de Cannes & Plages de la Croisette\, Cannes
-DESCRIPTION:Passe le réveillon du Nouvel An sur la plage de Cannes avec un show de drones géant !\nBillets : https://www.cannes.com/fr/agenda/annee-2026/decembre/feu-d-artifice-du-nouvel-an.html\nVia Teufy @teufy_official
-URL:https://www.cannes.com/fr/agenda/annee-2026/decembre/feu-d-artifice-du-nouvel-an.html
+DESCRIPTION:Passe le réveillon du Nouvel An sur la plage de Cannes avec un
+  show de drones géant !\nBillets : https://www.cannes.com/fr/agenda/annee
+ -2026/decembre/feu-d-artifice-du-nouvel-an.html\nVia Teufy @teufy_official
+URL:https://www.cannes.com/fr/agenda/annee-2026/decembre/feu-d-artifice-du-
+ nouvel-an.html
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-P1D
-DESCRIPTION:Demain : Fête de la Saint-Sylvestre : Drone Show & Nuit du Nouvel An sur la Croisette
+DESCRIPTION:Demain : Fête de la Saint-Sylvestre : Drone Show & Nuit du Nou
+ vel An sur la Croisette
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT2H
-DESCRIPTION:Dans 2 h : Fête de la Saint-Sylvestre : Drone Show & Nuit du Nouvel An sur la Croisette
+DESCRIPTION:Dans 2 h : Fête de la Saint-Sylvestre : Drone Show & Nuit du N
+ ouvel An sur la Croisette
 END:VALARM
 END:VEVENT
 END:VCALENDAR

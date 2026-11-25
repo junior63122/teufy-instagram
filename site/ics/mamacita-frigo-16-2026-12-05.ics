@@ -4,12 +4,14 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:mamacita-frigo-16-2026-12-05@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261205T223000Z
 DTEND:20261206T033000Z
 SUMMARY:Mamacita @ Frigo 16
 LOCATION:Frigo 16\, Nice
-DESCRIPTION:La folie 100% reggaeton et latino urbain s'empare du Frigo 16 à Nice.\nBillets : https://shotgun.live/events/mamacita-frigo-16\nVia Teufy @teufy_official
+DESCRIPTION:La folie 100% reggaeton et latino urbain s'empare du Frigo 16 
+ à Nice.\nBillets : https://shotgun.live/events/mamacita-frigo-16\nVia Teu
+ fy @teufy_official
 URL:https://shotgun.live/events/mamacita-frigo-16
 BEGIN:VALARM
 ACTION:DISPLAY

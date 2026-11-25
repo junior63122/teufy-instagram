@@ -4,12 +4,14 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:the-stranglers-2026-11-27@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261127T193000Z
 DTEND:20261128T003000Z
 SUMMARY:The Stranglers
 LOCATION:Zinga Zanga\, Béziers
-DESCRIPTION:Les légendes punk The Stranglers sur la scène du Zinga Zanga.\nBillets : https://www.zinga-zanga-beziers.fr/the-stranglers-342873.html\nVia Teufy @teufy_official
+DESCRIPTION:Les légendes punk The Stranglers sur la scène du Zinga Zanga.
+ \nBillets : https://www.zinga-zanga-beziers.fr/the-stranglers-342873.html\
+ nVia Teufy @teufy_official
 URL:https://www.zinga-zanga-beziers.fr/the-stranglers-342873.html
 BEGIN:VALARM
 ACTION:DISPLAY

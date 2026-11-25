@@ -4,13 +4,17 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:thursday-live-sessions-dirty-deep-2026-12-17@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261217T173000Z
 DTEND:20261217T223000Z
 SUMMARY:Thursday Live Sessions - DIRTY DEEP
 LOCATION:Espace Indigo - Grimaldi Forum Monaco\, Monaco
-DESCRIPTION:Concert heavy blues rock survolté et gratuit face à la mer au Grimaldi Forum.\nBillets : https://www.grimaldiforum.com/fr/agenda-manifestations-monaco/thursday-live-sessions-dirty-deep\nVia Teufy @teufy_official
-URL:https://www.grimaldiforum.com/fr/agenda-manifestations-monaco/thursday-live-sessions-dirty-deep
+DESCRIPTION:Concert heavy blues rock survolté et gratuit face à la mer au
+  Grimaldi Forum.\nBillets : https://www.grimaldiforum.com/fr/agenda-manife
+ stations-monaco/thursday-live-sessions-dirty-deep\nVia Teufy @teufy_offici
+ al
+URL:https://www.grimaldiforum.com/fr/agenda-manifestations-monaco/thursday-
+ live-sessions-dirty-deep
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-P1D

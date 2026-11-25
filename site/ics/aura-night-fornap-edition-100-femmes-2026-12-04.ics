@@ -4,12 +4,14 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:aura-night-fornap-edition-100-femmes-2026-12-04@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261204T193000Z
 DTEND:20261205T003000Z
 SUMMARY:Aura Night - Fornap (Édition 100% Femmes)
 LOCATION:Fort Napoléon\, La Seyne-sur-Mer
-DESCRIPTION:Soirée clubbing caribéenne et safe place 100% femmes au Fort Napoléon.\nBillets : https://shotgun.live/fr/events/aura-night-fornap\nVia Teufy @teufy_official
+DESCRIPTION:Soirée clubbing caribéenne et safe place 100% femmes au Fort 
+ Napoléon.\nBillets : https://shotgun.live/fr/events/aura-night-fornap\nVi
+ a Teufy @teufy_official
 URL:https://shotgun.live/fr/events/aura-night-fornap
 BEGIN:VALARM
 ACTION:DISPLAY

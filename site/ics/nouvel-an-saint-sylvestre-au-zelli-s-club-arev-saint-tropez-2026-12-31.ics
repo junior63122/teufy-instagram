@@ -3,23 +3,28 @@ VERSION:2.0
 PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
-UID:nouvel-an-saint-sylvestre-au-zelli-s-club-arev-saint-tropez-2026-12-31@teufy
-DTSTAMP:20261125T132131Z
+UID:nouvel-an-saint-sylvestre-au-zelli-s-club-arev-saint-tropez-2026-12-31@
+ teufy
+DTSTAMP:20261125T142020Z
 DTSTART:20261231T190000Z
 DTEND:20270101T000000Z
 SUMMARY:Nouvel An Saint-Sylvestre au Zelli's Club / AREV Saint-Tropez
 LOCATION:AREV Saint-Tropez\, Saint-Tropez
-DESCRIPTION:Le Zelli's Club s'installe à l'AREV pour un réveillon chic et festif jusqu'à l'aube.\nBillets : https://www.arevcollection.com/offers/saint-tropez-new-year\nVia Teufy @teufy_official
+DESCRIPTION:Le Zelli's Club s'installe à l'AREV pour un réveillon chic et
+  festif jusqu'à l'aube.\nBillets : https://www.arevcollection.com/offers/
+ saint-tropez-new-year\nVia Teufy @teufy_official
 URL:https://www.arevcollection.com/offers/saint-tropez-new-year
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-P1D
-DESCRIPTION:Demain : Nouvel An Saint-Sylvestre au Zelli's Club / AREV Saint-Tropez
+DESCRIPTION:Demain : Nouvel An Saint-Sylvestre au Zelli's Club / AREV Saint
+ -Tropez
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT2H
-DESCRIPTION:Dans 2 h : Nouvel An Saint-Sylvestre au Zelli's Club / AREV Saint-Tropez
+DESCRIPTION:Dans 2 h : Nouvel An Saint-Sylvestre au Zelli's Club / AREV Sai
+ nt-Tropez
 END:VALARM
 END:VEVENT
 END:VCALENDAR

@@ -3,23 +3,29 @@ VERSION:2.0
 PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
-UID:soiree-speak-easy-et-animation-magicien-a-nice-40-50-ans-2026-12-04@teufy
-DTSTAMP:20261125T132131Z
+UID:soiree-speak-easy-et-animation-magicien-a-nice-40-50-ans-2026-12-04@teu
+ fy
+DTSTAMP:20261125T142020Z
 DTSTART:20261204T180000Z
 DTEND:20261204T230000Z
 SUMMARY:Soirée Speak Easy & animation magicien à Nice (40-50 ans)
 LOCATION:La Chapa\, 73 Quai des États-Unis 06300 Nice\, Nice
-DESCRIPTION:Billets : https://www.eventbrite.com/e/billets-soiree-speak-easy-animation-magicien-a-nice-40-50-ans-2005071724503\nVia Teufy @teufy_official
-URL:https://www.eventbrite.com/e/billets-soiree-speak-easy-animation-magicien-a-nice-40-50-ans-2005071724503
+DESCRIPTION:Billets : https://www.eventbrite.com/e/billets-soiree-speak-eas
+ y-animation-magicien-a-nice-40-50-ans-2005071724503\nVia Teufy @teufy_offi
+ cial
+URL:https://www.eventbrite.com/e/billets-soiree-speak-easy-animation-magici
+ en-a-nice-40-50-ans-2005071724503
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-P1D
-DESCRIPTION:Demain : Soirée Speak Easy & animation magicien à Nice (40-50 ans)
+DESCRIPTION:Demain : Soirée Speak Easy & animation magicien à Nice (40-50
+  ans)
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT2H
-DESCRIPTION:Dans 2 h : Soirée Speak Easy & animation magicien à Nice (40-50 ans)
+DESCRIPTION:Dans 2 h : Soirée Speak Easy & animation magicien à Nice (40-
+ 50 ans)
 END:VALARM
 END:VEVENT
 END:VCALENDAR

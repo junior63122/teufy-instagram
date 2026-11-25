@@ -4,12 +4,14 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:dub-coast-sound-system-magam-et-lyff-2026-12-04@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261204T203000Z
 DTEND:20261205T013000Z
 SUMMARY:Dub Coast Sound System / Magam & Lyff
-LOCATION:L'Antre – 22 bis rue Benoît Bunico – 06300 Vieux‑Nice\, Nice
-DESCRIPTION:Dub deep vibes à L'Antre le 4 déc\, avant de 21h30 à 02h30.\nBillets : https://shotgun.live/event/dubcoast\nVia Teufy @teufy_official
+LOCATION:L'Antre – 22 bis rue Benoît Bunico – 06300 Vieux‑Nice\, Nic
+ e
+DESCRIPTION:Dub deep vibes à L'Antre le 4 déc\, avant de 21h30 à 02h30.\
+ nBillets : https://shotgun.live/event/dubcoast\nVia Teufy @teufy_official
 URL:https://shotgun.live/event/dubcoast
 BEGIN:VALARM
 ACTION:DISPLAY

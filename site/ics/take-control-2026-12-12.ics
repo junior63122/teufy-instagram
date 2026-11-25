@@ -4,12 +4,14 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:take-control-2026-12-12@teufy
-DTSTAMP:20261125T132131Z
-DTSTART:20261212T225900Z
-DTEND:20261213T035900Z
+DTSTAMP:20261125T142020Z
+DTSTART:20261212T230000Z
+DTEND:20261213T040000Z
 SUMMARY:Take Control
 LOCATION:High Club\, Nice
-DESCRIPTION:Show lasers\, performers et kicks tech house percutants pour votre samedi soir.\nBillets : https://www.highclub.fr/event/take-control/\nVia Teufy @teufy_official
+DESCRIPTION:Show lasers\, performers et kicks tech house percutants pour vo
+ tre samedi soir.\nBillets : https://www.highclub.fr/event/take-control/\nV
+ ia Teufy @teufy_official
 URL:https://www.highclub.fr/event/take-control/
 BEGIN:VALARM
 ACTION:DISPLAY

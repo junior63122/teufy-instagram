@@ -4,22 +4,27 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:rencontre-d-echecs-a-marseille-le-chaperon-rouge-2026-12-03@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261203T190000Z
 DTEND:20261204T000000Z
 SUMMARY:Rencontre d’échecs à Marseille · Le Chaperon Rouge
-LOCATION:Le Chaperon Rouge\, 16 Cr Pierre Puget\, 13006 Marseille 13006 Marseille\, Marseille
-DESCRIPTION:Billets : https://www.eventbrite.fr/e/rencontre-dechecs-a-marseille-le-chaperon-rouge-tickets-2004937813973\nVia Teufy @teufy_official
-URL:https://www.eventbrite.fr/e/rencontre-dechecs-a-marseille-le-chaperon-rouge-tickets-2004937813973
+LOCATION:Le Chaperon Rouge\, 16 Cr Pierre Puget\, 13006 Marseille 13006 Mar
+ seille\, Marseille
+DESCRIPTION:Billets : https://www.eventbrite.fr/e/rencontre-dechecs-a-marse
+ ille-le-chaperon-rouge-tickets-2004937813973\nVia Teufy @teufy_official
+URL:https://www.eventbrite.fr/e/rencontre-dechecs-a-marseille-le-chaperon-r
+ ouge-tickets-2004937813973
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-P1D
-DESCRIPTION:Demain : Rencontre d’échecs à Marseille · Le Chaperon Rouge
+DESCRIPTION:Demain : Rencontre d’échecs à Marseille · Le Chaperon Roug
+ e
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT2H
-DESCRIPTION:Dans 2 h : Rencontre d’échecs à Marseille · Le Chaperon Rouge
+DESCRIPTION:Dans 2 h : Rencontre d’échecs à Marseille · Le Chaperon Ro
+ uge
 END:VALARM
 END:VEVENT
 END:VCALENDAR

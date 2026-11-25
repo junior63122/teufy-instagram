@@ -4,12 +4,14 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:piche-2026-12-12@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261212T193000Z
 DTEND:20261213T003000Z
 SUMMARY:Piche
 LOCATION:El Mediator\, Perpignan
-DESCRIPTION:Piche débarque au Mediator pour un samedi rap et drag pop\nBillets : https://www.seetickets.com/fr/d/event/piche/el-mediator/10786524\nVia Teufy @teufy_official
+DESCRIPTION:Piche débarque au Mediator pour un samedi rap et drag pop\nBil
+ lets : https://www.seetickets.com/fr/d/event/piche/el-mediator/10786524\nV
+ ia Teufy @teufy_official
 URL:https://www.seetickets.com/fr/d/event/piche/el-mediator/10786524
 BEGIN:VALARM
 ACTION:DISPLAY

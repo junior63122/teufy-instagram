@@ -4,12 +4,14 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:ben-carter-le-dix-huit-neon-experience-2026-12-17@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261217T193000Z
 DTEND:20261218T003000Z
 SUMMARY:Ben Carter @ Le Dix-Huit (Neon Experience)
 LOCATION:Le Dix-Huit - Adresse d'Expériences\, Nice
-DESCRIPTION:Neon Experience invite Ben Carter au Dix-Huit pour un set afro house et tech house percutant.\nBillets : https://shotgun.live/fr/events/ben-carter-nice\nVia Teufy @teufy_official
+DESCRIPTION:Neon Experience invite Ben Carter au Dix-Huit pour un set afro 
+ house et tech house percutant.\nBillets : https://shotgun.live/fr/events/b
+ en-carter-nice\nVia Teufy @teufy_official
 URL:https://shotgun.live/fr/events/ben-carter-nice
 BEGIN:VALARM
 ACTION:DISPLAY

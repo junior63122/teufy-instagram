@@ -4,13 +4,16 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:macadam-kyle-starkey-dj-physical-britney-speed-2026-11-27@teufy
-DTSTAMP:20261125T132131Z
-DTSTART:20261127T225900Z
-DTEND:20261128T035900Z
+DTSTAMP:20261125T142020Z
+DTSTART:20261127T230000Z
+DTEND:20261128T040000Z
 SUMMARY:Macadam • Kyle Starkey ~ Dj Physical ~ Britney Speed
 LOCATION:Macadam\, Nantes
-DESCRIPTION:Du gros hardgroove et de la speed house avec Kyle Starkey et Dj Physical.\nBillets : https://shotgun.live/fr/events/macadam-kyle-starkey-dj-physical-britney-speed\nVia Teufy @teufy_official
-URL:https://shotgun.live/fr/events/macadam-kyle-starkey-dj-physical-britney-speed
+DESCRIPTION:Du gros hardgroove et de la speed house avec Kyle Starkey et Dj
+  Physical.\nBillets : https://shotgun.live/fr/events/macadam-kyle-starkey-
+ dj-physical-britney-speed\nVia Teufy @teufy_official
+URL:https://shotgun.live/fr/events/macadam-kyle-starkey-dj-physical-britney
+ -speed
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-P1D
@@ -19,7 +22,8 @@ END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT2H
-DESCRIPTION:Dans 2 h : Macadam • Kyle Starkey ~ Dj Physical ~ Britney Speed
+DESCRIPTION:Dans 2 h : Macadam • Kyle Starkey ~ Dj Physical ~ Britney Spe
+ ed
 END:VALARM
 END:VEVENT
 END:VCALENDAR

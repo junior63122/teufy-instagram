@@ -4,13 +4,16 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:hortense-de-beauharnais-all-night-long-2026-12-05@teufy
-DTSTAMP:20261125T132131Z
-DTSTART:20261205T225900Z
-DTEND:20261206T035900Z
+DTSTAMP:20261125T142020Z
+DTSTART:20261205T230000Z
+DTEND:20261206T040000Z
 SUMMARY:Hortense De Beauharnais All Night Long
 LOCATION:DIEZE WAREHOUSE\, Montpellier
-DESCRIPTION:Marathon sonore en all night long par Hortense De Beauharnais au Dieze Warehouse.\nBillets : https://shotgun.live/events/hortense-de-beauharnais-all-night-long-dieze-warehouse\nVia Teufy @teufy_official
-URL:https://shotgun.live/events/hortense-de-beauharnais-all-night-long-dieze-warehouse
+DESCRIPTION:Marathon sonore en all night long par Hortense De Beauharnais a
+ u Dieze Warehouse.\nBillets : https://shotgun.live/events/hortense-de-beau
+ harnais-all-night-long-dieze-warehouse\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/hortense-de-beauharnais-all-night-long-diez
+ e-warehouse
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-P1D

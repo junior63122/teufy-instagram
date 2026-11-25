@@ -4,12 +4,13 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:skarra-mucci-et-manudigital-ragga-blasta-tour-2026-11-27@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261127T193000Z
 DTEND:20261128T003000Z
 SUMMARY:Skarra Mucci & Manudigital — Ragga Blasta Tour
 LOCATION:Centre Culturel Tisot\, La Seyne-sur-Mer
-DESCRIPTION:Session explosive entre basses numériques et toasting ragga par deux références du genre.\nVia Teufy @teufy_official
+DESCRIPTION:Session explosive entre basses numériques et toasting ragga pa
+ r deux références du genre.\nVia Teufy @teufy_official
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-P1D

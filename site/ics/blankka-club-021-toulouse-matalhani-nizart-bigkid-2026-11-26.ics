@@ -4,22 +4,27 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:blankka-club-021-toulouse-matalhani-nizart-bigkid-2026-11-26@teufy
-DTSTAMP:20261125T132131Z
-DTSTART:20261126T225900Z
-DTEND:20261127T035900Z
+DTSTAMP:20261125T142020Z
+DTSTART:20261126T230000Z
+DTEND:20261127T040000Z
 SUMMARY:Blankka Club* 021 Toulouse : Matalhani * Nizart * Bigkid
 LOCATION:Blankka Club\, Toulouse
-DESCRIPTION:Trap et afrobeats a fond au Blankka Club avec Matalhani\, Nizart et Bigkid.\nBillets : https://shotgun.live/events/blankka-club-021-toulouse-matalhani-nizart-bigkid\nVia Teufy @teufy_official
-URL:https://shotgun.live/events/blankka-club-021-toulouse-matalhani-nizart-bigkid
+DESCRIPTION:Trap et afrobeats a fond au Blankka Club avec Matalhani\, Nizar
+ t et Bigkid.\nBillets : https://shotgun.live/events/blankka-club-021-toulo
+ use-matalhani-nizart-bigkid\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/blankka-club-021-toulouse-matalhani-nizart-
+ bigkid
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-P1D
-DESCRIPTION:Demain : Blankka Club* 021 Toulouse : Matalhani * Nizart * Bigkid
+DESCRIPTION:Demain : Blankka Club* 021 Toulouse : Matalhani * Nizart * Bigk
+ id
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT2H
-DESCRIPTION:Dans 2 h : Blankka Club* 021 Toulouse : Matalhani * Nizart * Bigkid
+DESCRIPTION:Dans 2 h : Blankka Club* 021 Toulouse : Matalhani * Nizart * Bi
+ gkid
 END:VALARM
 END:VEVENT
 END:VCALENDAR

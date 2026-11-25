@@ -4,13 +4,16 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:mungo-s-hi-fi-1ere-partie-red-echoes-2026-12-12@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261212T190000Z
 DTEND:20261213T000000Z
 SUMMARY:MUNGO'S HI FI (+ 1ère partie : Red Echoes)
 LOCATION:Le 109 - Frigo 16\, Nice
-DESCRIPTION:Vibrations massives et culture sound system au Frigo 16 avec Mungo's Hi Fi.\nBillets : https://www.ticketmaster.fr/fr/manifestation/mungo-s-hi-fi-billet/idmanif/677086\nVia Teufy @teufy_official
-URL:https://www.ticketmaster.fr/fr/manifestation/mungo-s-hi-fi-billet/idmanif/677086
+DESCRIPTION:Vibrations massives et culture sound system au Frigo 16 avec Mu
+ ngo's Hi Fi.\nBillets : https://www.ticketmaster.fr/fr/manifestation/mungo
+ -s-hi-fi-billet/idmanif/677086\nVia Teufy @teufy_official
+URL:https://www.ticketmaster.fr/fr/manifestation/mungo-s-hi-fi-billet/idman
+ if/677086
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-P1D

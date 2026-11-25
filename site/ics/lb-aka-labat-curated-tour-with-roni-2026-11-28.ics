@@ -4,12 +4,14 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:lb-aka-labat-curated-tour-with-roni-2026-11-28@teufy
-DTSTAMP:20261125T132131Z
-DTSTART:20261128T225900Z
-DTEND:20261129T035900Z
+DTSTAMP:20261125T142020Z
+DTSTART:20261128T230000Z
+DTEND:20261129T040000Z
 SUMMARY:LB aka LABAT curated tour with RONI
 LOCATION:Rockstore\, Montpellier
-DESCRIPTION:LB aka LABAT invite RONI au Rockstore pour une nuit frénétique entre acid\, rave et breaks.\nBillets : https://ra.co/events/1990503\nVia Teufy @teufy_official
+DESCRIPTION:LB aka LABAT invite RONI au Rockstore pour une nuit frénétiqu
+ e entre acid\, rave et breaks.\nBillets : https://ra.co/events/1990503\nVi
+ a Teufy @teufy_official
 URL:https://ra.co/events/1990503
 BEGIN:VALARM
 ACTION:DISPLAY

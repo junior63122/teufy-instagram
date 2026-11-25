@@ -4,13 +4,16 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:the-show-club-sonore-maraka-playa-chica-2026-11-28@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261128T190000Z
 DTEND:20261129T000000Z
 SUMMARY:THE SHOW CLUB SONORE × MARAKA × PLAYA CHICA
 LOCATION:Playa Chica & Glass Club Cannes\, Cannes
-DESCRIPTION:Double étape festive signée Club Sonore entre plage et club cannois.\nBillets : https://shotgun.live/events/the-show-club-sonore-november-28-playachica-glass-club\nVia Teufy @teufy_official
-URL:https://shotgun.live/events/the-show-club-sonore-november-28-playachica-glass-club
+DESCRIPTION:Double étape festive signée Club Sonore entre plage et club c
+ annois.\nBillets : https://shotgun.live/events/the-show-club-sonore-novemb
+ er-28-playachica-glass-club\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/the-show-club-sonore-november-28-playachica
+ -glass-club
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-P1D

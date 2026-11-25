@@ -4,12 +4,14 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:mala-jaw-oriental-house-2026-12-06@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261206T180000Z
 DTEND:20261206T230000Z
 SUMMARY:Mala Jaw - Oriental House
 LOCATION:La Suite Restaurant Festif\, Vallauris
-DESCRIPTION:Beats électroniques et mélodies orientales le dimanche soir à La Suite.\nBillets : https://shotgun.live/fr/events/mala-jaw-oriental-house\nVia Teufy @teufy_official
+DESCRIPTION:Beats électroniques et mélodies orientales le dimanche soir 
+ à La Suite.\nBillets : https://shotgun.live/fr/events/mala-jaw-oriental-h
+ ouse\nVia Teufy @teufy_official
 URL:https://shotgun.live/fr/events/mala-jaw-oriental-house
 BEGIN:VALARM
 ACTION:DISPLAY

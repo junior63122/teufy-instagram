@@ -4,12 +4,14 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:plk-tournee-des-zeniths-2026-2026-12-06@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261206T180000Z
 DTEND:20261206T230000Z
 SUMMARY:PLK — Tournée des Zéniths 2026
 LOCATION:Palais Nikaïa\, Nice
-DESCRIPTION:PLK investit la scène du Palais Nikaïa pour une grosse date de rap français à Nice.\nBillets : https://www.seetickets.com/fr/event/plk/le-palais-nikaia/3012844\nVia Teufy @teufy_official
+DESCRIPTION:PLK investit la scène du Palais Nikaïa pour une grosse date d
+ e rap français à Nice.\nBillets : https://www.seetickets.com/fr/event/pl
+ k/le-palais-nikaia/3012844\nVia Teufy @teufy_official
 URL:https://www.seetickets.com/fr/event/plk/le-palais-nikaia/3012844
 BEGIN:VALARM
 ACTION:DISPLAY

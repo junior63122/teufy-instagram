@@ -4,13 +4,16 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:benjamin-biolay-2026-12-15@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261215T190000Z
 DTEND:20261216T000000Z
 SUMMARY:Benjamin Biolay
 LOCATION:Zinga Zanga\, Béziers
-DESCRIPTION:Benjamin Biolay en tournée\, escale au Zinga Zanga.\nBillets : https://www.jds.fr/beziers/concerts/chanson-francaise/benjamin-biolay-en-tournee-1386275_A\nVia Teufy @teufy_official
-URL:https://www.jds.fr/beziers/concerts/chanson-francaise/benjamin-biolay-en-tournee-1386275_A
+DESCRIPTION:Benjamin Biolay en tournée\, escale au Zinga Zanga.\nBillets :
+  https://www.jds.fr/beziers/concerts/chanson-francaise/benjamin-biolay-en-
+ tournee-1386275_A\nVia Teufy @teufy_official
+URL:https://www.jds.fr/beziers/concerts/chanson-francaise/benjamin-biolay-e
+ n-tournee-1386275_A
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-P1D

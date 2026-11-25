@@ -4,12 +4,14 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:showcase-kalash-2026-11-27@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261127T220000Z
 DTEND:20261128T030000Z
 SUMMARY:Showcase Kalash
 LOCATION:L'Etoile\, Toulouse
-DESCRIPTION:Kalash en showcase à L'Etoile un vendredi soir\nBillets : https://www.bizouk.com/events/details/showcase-kalash/133226\nVia Teufy @teufy_official
+DESCRIPTION:Kalash en showcase à L'Etoile un vendredi soir\nBillets : http
+ s://www.bizouk.com/events/details/showcase-kalash/133226\nVia Teufy @teufy
+ _official
 URL:https://www.bizouk.com/events/details/showcase-kalash/133226
 BEGIN:VALARM
 ACTION:DISPLAY

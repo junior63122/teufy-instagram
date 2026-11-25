@@ -4,22 +4,27 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:nye-see-you-in-2027-ambre-ballester-b2b-ugo-puccinelli-2026-12-31@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261231T210000Z
 DTEND:20270101T020000Z
 SUMMARY:Nye See You In 2027 : Ambre Ballester B2B Ugo Puccinelli
 LOCATION:Glass Club Cannes\, Cannes
-DESCRIPTION:Passe le réveillon 2027 au rythme de la house et tech house au Glass Club.\nBillets : https://shotgun.live/events/nye-see-you-in-2027-ambre-ballester-b2b-ugo-puccinelli\nVia Teufy @teufy_official
-URL:https://shotgun.live/events/nye-see-you-in-2027-ambre-ballester-b2b-ugo-puccinelli
+DESCRIPTION:Passe le réveillon 2027 au rythme de la house et tech house au
+  Glass Club.\nBillets : https://shotgun.live/events/nye-see-you-in-2027-am
+ bre-ballester-b2b-ugo-puccinelli\nVia Teufy @teufy_official
+URL:https://shotgun.live/events/nye-see-you-in-2027-ambre-ballester-b2b-ugo
+ -puccinelli
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-P1D
-DESCRIPTION:Demain : Nye See You In 2027 : Ambre Ballester B2B Ugo Puccinelli
+DESCRIPTION:Demain : Nye See You In 2027 : Ambre Ballester B2B Ugo Puccinel
+ li
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT2H
-DESCRIPTION:Dans 2 h : Nye See You In 2027 : Ambre Ballester B2B Ugo Puccinelli
+DESCRIPTION:Dans 2 h : Nye See You In 2027 : Ambre Ballester B2B Ugo Puccin
+ elli
 END:VALARM
 END:VEVENT
 END:VCALENDAR

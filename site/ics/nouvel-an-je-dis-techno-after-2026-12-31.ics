@@ -4,12 +4,14 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:nouvel-an-je-dis-techno-after-2026-12-31@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261231T220000Z
 DTEND:20270101T030000Z
 SUMMARY:Nouvel An : Je Dis Techno + After
 LOCATION:KOSMA - Live Club\, Nice
-DESCRIPTION:Réveillon XXL et after hard techno avec Je Dis Techno au KOSMA.\nBillets : https://shotgun.live/fr/cities/cote-d-azur\nVia Teufy @teufy_official
+DESCRIPTION:Réveillon XXL et after hard techno avec Je Dis Techno au KOSMA
+ .\nBillets : https://shotgun.live/fr/cities/cote-d-azur\nVia Teufy @teufy_
+ official
 URL:https://shotgun.live/fr/cities/cote-d-azur
 BEGIN:VALARM
 ACTION:DISPLAY

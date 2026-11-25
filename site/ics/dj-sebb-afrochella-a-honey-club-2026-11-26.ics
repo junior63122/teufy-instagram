@@ -4,12 +4,14 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:dj-sebb-afrochella-a-honey-club-2026-11-26@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261126T220000Z
 DTEND:20261127T030000Z
 SUMMARY:DJ SEBB – AFROCHELLA à Honey Club
 LOCATION:Honey Club\, Juan-les-Pins
-DESCRIPTION:DJ SEBB en show à Juan‑les‑Pins\, soirée afro‑house qui fait vibrer la côte !\nBillets : https://www.instagram.com/reel/DgC4kPZACd6/\nVia Teufy @teufy_official
+DESCRIPTION:DJ SEBB en show à Juan‑les‑Pins\, soirée afro‑house qui
+  fait vibrer la côte !\nBillets : https://www.instagram.com/reel/DgC4kPZA
+ Cd6/\nVia Teufy @teufy_official
 URL:https://www.instagram.com/reel/DgC4kPZACd6/
 BEGIN:VALARM
 ACTION:DISPLAY

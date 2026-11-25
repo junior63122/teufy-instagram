@@ -4,12 +4,14 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:groove-tek-27-novembre-2026-2026-11-27@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261127T210000Z
 DTEND:20261128T020000Z
 SUMMARY:Groove’tek – 27 novembre 2026
 LOCATION:Hangar DS\, Bordeaux
-DESCRIPTION:Une nuit hors norme où la techno et la house explosent dans le Hangar DS.\nBillets : https://shotgun.live/en/cities/bordeaux\nVia Teufy @teufy_official
+DESCRIPTION:Une nuit hors norme où la techno et la house explosent dans le
+  Hangar DS.\nBillets : https://shotgun.live/en/cities/bordeaux\nVia Teufy 
+ @teufy_official
 URL:https://shotgun.live/en/cities/bordeaux
 BEGIN:VALARM
 ACTION:DISPLAY

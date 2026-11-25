@@ -4,13 +4,16 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:soiree-humour-stand-up-au-doppio-malto-2026-12-04@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261204T190000Z
 DTEND:20261205T000000Z
 SUMMARY:Soirée humour STAND-UP au Doppio Malto
-LOCATION:Doppio Malto Nice CAP3000\, 217 Avenue Eugène Donadeï 06700 Saint-Laurent-du-Var\, Saint-Laurent-du-Var
-DESCRIPTION:Billets : https://www.eventbrite.fr/e/billets-soiree-humour-stand-up-au-doppio-malto-2004857459631\nVia Teufy @teufy_official
-URL:https://www.eventbrite.fr/e/billets-soiree-humour-stand-up-au-doppio-malto-2004857459631
+LOCATION:Doppio Malto Nice CAP3000\, 217 Avenue Eugène Donadeï 06700 Sain
+ t-Laurent-du-Var\, Saint-Laurent-du-Var
+DESCRIPTION:Billets : https://www.eventbrite.fr/e/billets-soiree-humour-sta
+ nd-up-au-doppio-malto-2004857459631\nVia Teufy @teufy_official
+URL:https://www.eventbrite.fr/e/billets-soiree-humour-stand-up-au-doppio-ma
+ lto-2004857459631
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-P1D

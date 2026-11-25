@@ -4,12 +4,14 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:ref-session-18-acid-pauli-frigo-16-2026-12-04@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261204T190000Z
 DTEND:20261205T000000Z
 SUMMARY:Ref Session #18 Acid Pauli @ Frigo 16
 LOCATION:Frigo 16\, Nice
-DESCRIPTION:La légende Acid Pauli en session hypnotique et immersive au 109.\nBillets : https://shotgun.live/events/ref-session-18-acid-pauli-frigo-16\nVia Teufy @teufy_official
+DESCRIPTION:La légende Acid Pauli en session hypnotique et immersive au 10
+ 9.\nBillets : https://shotgun.live/events/ref-session-18-acid-pauli-frigo-
+ 16\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/ref-session-18-acid-pauli-frigo-16
 BEGIN:VALARM
 ACTION:DISPLAY

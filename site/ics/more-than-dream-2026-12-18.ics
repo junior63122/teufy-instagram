@@ -4,12 +4,14 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:more-than-dream-2026-12-18@teufy
-DTSTAMP:20261125T132131Z
-DTSTART:20261218T225900Z
-DTEND:20261219T035900Z
+DTSTAMP:20261125T142020Z
+DTSTART:20261218T230000Z
+DTEND:20261219T040000Z
 SUMMARY:More Than Dream
 LOCATION:High Club\, Nice
-DESCRIPTION:Célèbre le lancement des vacances de fin d'année sur le grand dancefloor du front de mer.\nBillets : https://www.highclub.fr/event/more-than-dream/\nVia Teufy @teufy_official
+DESCRIPTION:Célèbre le lancement des vacances de fin d'année sur le gran
+ d dancefloor du front de mer.\nBillets : https://www.highclub.fr/event/mor
+ e-than-dream/\nVia Teufy @teufy_official
 URL:https://www.highclub.fr/event/more-than-dream/
 BEGIN:VALARM
 ACTION:DISPLAY

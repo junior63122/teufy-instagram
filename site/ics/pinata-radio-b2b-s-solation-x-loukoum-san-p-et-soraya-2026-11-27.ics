@@ -4,22 +4,26 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:pinata-radio-b2b-s-solation-x-loukoum-san-p-et-soraya-2026-11-27@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261127T190000Z
 DTEND:20261128T000000Z
 SUMMARY:Piñata Radio B2B's: Solation x Loukoum\, San P & Soraya
 LOCATION:Piñata Radio\, Montpellier
-DESCRIPTION:Série de b2b pointus entre house\, breakbeat et UK bass dans les studios de Piñata Radio.\nBillets : https://ra.co/events/1990502\nVia Teufy @teufy_official
+DESCRIPTION:Série de b2b pointus entre house\, breakbeat et UK bass dans l
+ es studios de Piñata Radio.\nBillets : https://ra.co/events/1990502\nVia 
+ Teufy @teufy_official
 URL:https://ra.co/events/1990502
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-P1D
-DESCRIPTION:Demain : Piñata Radio B2B's: Solation x Loukoum\, San P & Soraya
+DESCRIPTION:Demain : Piñata Radio B2B's: Solation x Loukoum\, San P & Sora
+ ya
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT2H
-DESCRIPTION:Dans 2 h : Piñata Radio B2B's: Solation x Loukoum\, San P & Soraya
+DESCRIPTION:Dans 2 h : Piñata Radio B2B's: Solation x Loukoum\, San P & So
+ raya
 END:VALARM
 END:VEVENT
 END:VCALENDAR

@@ -4,12 +4,13 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:aperitivo-night-2026-11-28@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261128T190000Z
 DTEND:20261129T000000Z
 SUMMARY:Aperitivo Night
 LOCATION:Paneolio\, 6 Boulevard Jean Jaures 06300 Nice\, Nice
-DESCRIPTION:Billets : https://www.eventbrite.it/e/aperitivo-night-tickets-2004599136981\nVia Teufy @teufy_official
+DESCRIPTION:Billets : https://www.eventbrite.it/e/aperitivo-night-tickets-2
+ 004599136981\nVia Teufy @teufy_official
 URL:https://www.eventbrite.it/e/aperitivo-night-tickets-2004599136981
 BEGIN:VALARM
 ACTION:DISPLAY

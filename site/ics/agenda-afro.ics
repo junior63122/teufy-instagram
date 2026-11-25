@@ -9,16 +9,16 @@ REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
 UID:dj-sebb-en-show-a-juan-les-pins-2026-11-26@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261126T220000Z
 DTEND:20261127T030000Z
 SUMMARY:DJ Sebb En Show À Juan-Les-Pins
 LOCATION:La Suite Restaurant Festif\, Juan-les-Pins
-DESCRIPTION:La superstar du son shatta DJ Sebb enflamme Juan-les-Pins 
- en showcase.\nFiche et billets : https://teufyparty.com/soiree/dj-sebb
- -en-show-a-juan-les-pins-2026-11-26/\nVia Teufy @teufy_official
-URL:https://teufyparty.com/soiree/dj-sebb-en-show-a-juan-les-pins-2026
- -11-26/
+DESCRIPTION:La superstar du son shatta DJ Sebb enflamme Juan-les-Pins en sh
+ owcase.\nFiche et billets : https://teufyparty.com/soiree/dj-sebb-en-show-
+ a-juan-les-pins-2026-11-26/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/dj-sebb-en-show-a-juan-les-pins-2026-11-2
+ 6/
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT3H
@@ -27,16 +27,16 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:dj-sebb-afrochella-a-honey-club-2026-11-26@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261126T220000Z
 DTEND:20261127T030000Z
 SUMMARY:DJ SEBB – AFROCHELLA à Honey Club
 LOCATION:Honey Club\, Juan-les-Pins
-DESCRIPTION:DJ SEBB en show à Juan‑les‑Pins\, soirée afro‑house qui fa
- it vibrer la côte !\nFiche et billets : https://teufyparty.com/soiree/
+DESCRIPTION:DJ SEBB en show à Juan‑les‑Pins\, soirée afro‑house qui
+  fait vibrer la côte !\nFiche et billets : https://teufyparty.com/soiree/
  dj-sebb-afrochella-a-honey-club-2026-11-26/\nVia Teufy @teufy_official
-URL:https://teufyparty.com/soiree/dj-sebb-afrochella-a-honey-club-2026
- -11-26/
+URL:https://teufyparty.com/soiree/dj-sebb-afrochella-a-honey-club-2026-11-2
+ 6/
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT3H
@@ -45,14 +45,14 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:kx-dj-not-so-innocent-2026-11-26@teufy
-DTSTAMP:20261125T132131Z
-DTSTART:20261126T225900Z
-DTEND:20261127T035900Z
+DTSTAMP:20261125T142020Z
+DTSTART:20261126T230000Z
+DTEND:20261127T040000Z
 SUMMARY:KX DJ / Not So Innocent
 LOCATION:Glass Club Cannes\, Cannes
-DESCRIPTION:Session afro house intimiste et bouillante au sous-sol du 
- Glass Club.\nFiche et billets : https://teufyparty.com/soiree/kx-dj-no
- t-so-innocent-2026-11-26/\nVia Teufy @teufy_official
+DESCRIPTION:Session afro house intimiste et bouillante au sous-sol du Glass
+  Club.\nFiche et billets : https://teufyparty.com/soiree/kx-dj-not-so-inno
+ cent-2026-11-26/\nVia Teufy @teufy_official
 URL:https://teufyparty.com/soiree/kx-dj-not-so-innocent-2026-11-26/
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -62,17 +62,16 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:phaphane-a-nice-amapiano-et-afrobeats-lovers-2026-11-27@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261127T190000Z
 DTEND:20261128T000000Z
 SUMMARY:Phaphane À Nice - Amapiano & Afrobeats Lovers
 LOCATION:Frigo 16\, Nice
-DESCRIPTION:La référence amapiano DJ Phaphane débarque au hangar du Fr
- igo 16.\nFiche et billets : https://teufyparty.com/soiree/phaphane-a-n
- ice-amapiano-et-afrobeats-lovers-2026-11-27/\nVia Teufy @teufy_officia
- l
-URL:https://teufyparty.com/soiree/phaphane-a-nice-amapiano-et-afrobeat
- s-lovers-2026-11-27/
+DESCRIPTION:La référence amapiano DJ Phaphane débarque au hangar du Frig
+ o 16.\nFiche et billets : https://teufyparty.com/soiree/phaphane-a-nice-am
+ apiano-et-afrobeats-lovers-2026-11-27/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/phaphane-a-nice-amapiano-et-afrobeats-lov
+ ers-2026-11-27/
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT3H
@@ -81,14 +80,14 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:calema-tour-2026-2026-11-27@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261127T193000Z
 DTEND:20261128T003000Z
 SUMMARY:CALEMA - TOUR 2026
 LOCATION:La Palestre\, Le Cannet
-DESCRIPTION:Le duo Calema pose sa tournée festive et rythmée sur la sc
- ène de La Palestre.\nFiche et billets : https://teufyparty.com/soiree/
- calema-tour-2026-2026-11-27/\nVia Teufy @teufy_official
+DESCRIPTION:Le duo Calema pose sa tournée festive et rythmée sur la scèn
+ e de La Palestre.\nFiche et billets : https://teufyparty.com/soiree/calema
+ -tour-2026-2026-11-27/\nVia Teufy @teufy_official
 URL:https://teufyparty.com/soiree/calema-tour-2026-2026-11-27/
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -98,17 +97,16 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:solly-smith-au-club-twiga-monte-carlo-2026-11-27@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261127T223000Z
 DTEND:20261128T033000Z
 SUMMARY:Solly Smith au Club Twiga Monte Carlo
 LOCATION:Twiga Monte-Carlo\, Monaco
-DESCRIPTION:Set deep et afro house au Twiga Monte-Carlo avec Solly Smi
- th face à la mer.\nFiche et billets : https://teufyparty.com/soiree/so
- lly-smith-au-club-twiga-monte-carlo-2026-11-27/\nVia Teufy @teufy_offi
- cial
-URL:https://teufyparty.com/soiree/solly-smith-au-club-twiga-monte-carl
- o-2026-11-27/
+DESCRIPTION:Set deep et afro house au Twiga Monte-Carlo avec Solly Smith fa
+ ce à la mer.\nFiche et billets : https://teufyparty.com/soiree/solly-smit
+ h-au-club-twiga-monte-carlo-2026-11-27/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/solly-smith-au-club-twiga-monte-carlo-202
+ 6-11-27/
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT3H
@@ -117,14 +115,14 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:spicy-saturday-2026-11-27@teufy
-DTSTAMP:20261125T132131Z
-DTSTART:20261127T225900Z
-DTEND:20261128T035900Z
+DTSTAMP:20261125T142020Z
+DTSTART:20261127T230000Z
+DTEND:20261128T040000Z
 SUMMARY:Spicy Saturday
 LOCATION:Honey Club\, Juan-les-Pins
-DESCRIPTION:Ambiance tropicale bouillante jusqu'à 05h00 au Honey Club.
- \nFiche et billets : https://teufyparty.com/soiree/spicy-saturday-2026
- -11-27/\nVia Teufy @teufy_official
+DESCRIPTION:Ambiance tropicale bouillante jusqu'à 05h00 au Honey Club.\nFi
+ che et billets : https://teufyparty.com/soiree/spicy-saturday-2026-11-27/\
+ nVia Teufy @teufy_official
 URL:https://teufyparty.com/soiree/spicy-saturday-2026-11-27/
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -134,16 +132,16 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:the-show-club-sonore-maraka-playa-chica-2026-11-28@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261128T190000Z
 DTEND:20261129T000000Z
 SUMMARY:THE SHOW CLUB SONORE × MARAKA × PLAYA CHICA
 LOCATION:Playa Chica & Glass Club Cannes\, Cannes
-DESCRIPTION:Double étape festive signée Club Sonore entre plage et clu
- b cannois.\nFiche et billets : https://teufyparty.com/soiree/the-show-
- club-sonore-maraka-playa-chica-2026-11-28/\nVia Teufy @teufy_official
-URL:https://teufyparty.com/soiree/the-show-club-sonore-maraka-playa-ch
- ica-2026-11-28/
+DESCRIPTION:Double étape festive signée Club Sonore entre plage et club c
+ annois.\nFiche et billets : https://teufyparty.com/soiree/the-show-club-so
+ nore-maraka-playa-chica-2026-11-28/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/the-show-club-sonore-maraka-playa-chica-2
+ 026-11-28/
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT3H
@@ -152,17 +150,16 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:soiree-zouk-et-caribbean-vibes-2026-11-28@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261128T200000Z
 DTEND:20261129T010000Z
 SUMMARY:Soirée Zouk & Caribbean Vibes
 LOCATION:L'Artiste 83\, Roquebrune-sur-Argens
-DESCRIPTION:Showcase live de Layanah et DJ Vanpiro pour une grosse nui
- t shatta et caribéenne.\nFiche et billets : https://teufyparty.com/soi
- ree/soiree-zouk-et-caribbean-vibes-2026-11-28/\nVia Teufy @teufy_offic
- ial
-URL:https://teufyparty.com/soiree/soiree-zouk-et-caribbean-vibes-2026-
- 11-28/
+DESCRIPTION:Showcase live de Layanah et DJ Vanpiro pour une grosse nuit sha
+ tta et caribéenne.\nFiche et billets : https://teufyparty.com/soiree/soir
+ ee-zouk-et-caribbean-vibes-2026-11-28/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/soiree-zouk-et-caribbean-vibes-2026-11-28
+ /
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT3H
@@ -171,14 +168,14 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:dj-set-tim-lienderss-2026-12-04@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261204T193000Z
 DTEND:20261205T003000Z
 SUMMARY:Dj Set - Tim Lienderss
 LOCATION:Mama Shelter Nice\, Nice
-DESCRIPTION:DJ set gratuit mêlant house\, afrobeat et hip-hop au Mama 
- Shelter.\nFiche et billets : https://teufyparty.com/soiree/dj-set-tim-
- lienderss-2026-12-04/\nVia Teufy @teufy_official
+DESCRIPTION:DJ set gratuit mêlant house\, afrobeat et hip-hop au Mama Shel
+ ter.\nFiche et billets : https://teufyparty.com/soiree/dj-set-tim-lienders
+ s-2026-12-04/\nVia Teufy @teufy_official
 URL:https://teufyparty.com/soiree/dj-set-tim-lienderss-2026-12-04/
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -188,16 +185,16 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:aura-night-fornap-edition-100-femmes-2026-12-04@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261204T193000Z
 DTEND:20261205T003000Z
 SUMMARY:Aura Night - Fornap (Édition 100% Femmes)
 LOCATION:Fort Napoléon\, La Seyne-sur-Mer
-DESCRIPTION:Soirée clubbing caribéenne et safe place 100% femmes au Fo
- rt Napoléon.\nFiche et billets : https://teufyparty.com/soiree/aura-ni
- ght-fornap-edition-100-femmes-2026-12-04/\nVia Teufy @teufy_official
-URL:https://teufyparty.com/soiree/aura-night-fornap-edition-100-femmes
- -2026-12-04/
+DESCRIPTION:Soirée clubbing caribéenne et safe place 100% femmes au Fort 
+ Napoléon.\nFiche et billets : https://teufyparty.com/soiree/aura-night-fo
+ rnap-edition-100-femmes-2026-12-04/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/aura-night-fornap-edition-100-femmes-2026
+ -12-04/
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT3H
@@ -206,16 +203,15 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:isla-tropical-skyfall-cannes-2026-12-04@teufy
-DTSTAMP:20261125T132131Z
-DTSTART:20261204T225900Z
-DTEND:20261205T035900Z
+DTSTAMP:20261125T142020Z
+DTSTART:20261204T230000Z
+DTEND:20261205T040000Z
 SUMMARY:Isla Tropical - Skyfall - Cannes
 LOCATION:Skyfall Cannes\, Cannes
-DESCRIPTION:Secousse caribéenne garantie entre bouyon\, shatta et bail
- e funk à Cannes.\nFiche et billets : https://teufyparty.com/soiree/isl
- a-tropical-skyfall-cannes-2026-12-04/\nVia Teufy @teufy_official
-URL:https://teufyparty.com/soiree/isla-tropical-skyfall-cannes-2026-12
- -04/
+DESCRIPTION:Secousse caribéenne garantie entre bouyon\, shatta et baile fu
+ nk à Cannes.\nFiche et billets : https://teufyparty.com/soiree/isla-tropi
+ cal-skyfall-cannes-2026-12-04/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/isla-tropical-skyfall-cannes-2026-12-04/
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT3H
@@ -224,16 +220,15 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:la-dinette-santa-a-la-playa-2026-12-05@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261205T180000Z
 DTEND:20261205T230000Z
 SUMMARY:La Dinette - Santa À La Playa
 LOCATION:Playa Chica\, Cannes
-DESCRIPTION:Esprit de Noël décalé et sons hip hop les pieds dans le sa
- ble.\nFiche et billets : https://teufyparty.com/soiree/la-dinette-sant
- a-a-la-playa-2026-12-05/\nVia Teufy @teufy_official
-URL:https://teufyparty.com/soiree/la-dinette-santa-a-la-playa-2026-12-
- 05/
+DESCRIPTION:Esprit de Noël décalé et sons hip hop les pieds dans le sabl
+ e.\nFiche et billets : https://teufyparty.com/soiree/la-dinette-santa-a-la
+ -playa-2026-12-05/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/la-dinette-santa-a-la-playa-2026-12-05/
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT3H
@@ -242,16 +237,15 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:showcase-exclusif-la-fouine-2026-12-05@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261205T223000Z
 DTEND:20261206T033000Z
 SUMMARY:Showcase Exclusif : La Fouine
 LOCATION:Sky Club / Sky Beach – Casino de Beaulieu\, Beaulieu-sur-Mer
-DESCRIPTION:Tous les classiques de La Fouine en showcase intime au Sky
-  Club.\nFiche et billets : https://teufyparty.com/soiree/showcase-excl
- usif-la-fouine-2026-12-05/\nVia Teufy @teufy_official
-URL:https://teufyparty.com/soiree/showcase-exclusif-la-fouine-2026-12-
- 05/
+DESCRIPTION:Tous les classiques de La Fouine en showcase intime au Sky Club
+ .\nFiche et billets : https://teufyparty.com/soiree/showcase-exclusif-la-f
+ ouine-2026-12-05/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/showcase-exclusif-la-fouine-2026-12-05/
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT3H
@@ -260,14 +254,14 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:mala-jaw-oriental-house-2026-12-06@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261206T180000Z
 DTEND:20261206T230000Z
 SUMMARY:Mala Jaw - Oriental House
 LOCATION:La Suite Restaurant Festif\, Vallauris
-DESCRIPTION:Beats électroniques et mélodies orientales le dimanche soi
- r à La Suite.\nFiche et billets : https://teufyparty.com/soiree/mala-j
- aw-oriental-house-2026-12-06/\nVia Teufy @teufy_official
+DESCRIPTION:Beats électroniques et mélodies orientales le dimanche soir 
+ à La Suite.\nFiche et billets : https://teufyparty.com/soiree/mala-jaw-or
+ iental-house-2026-12-06/\nVia Teufy @teufy_official
 URL:https://teufyparty.com/soiree/mala-jaw-oriental-house-2026-12-06/
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -277,14 +271,14 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:afrobbean-bobar-2026-12-06@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261206T190000Z
 DTEND:20261207T000000Z
 SUMMARY:Afrobbean (Bobar)
 LOCATION:Le Factory La Farlède\, La Farlède
-DESCRIPTION:Ambiance caribéenne intense avec le crew Bobar au Factory 
- La Farlède.\nFiche et billets : https://teufyparty.com/soiree/afrobbea
- n-bobar-2026-12-06/\nVia Teufy @teufy_official
+DESCRIPTION:Ambiance caribéenne intense avec le crew Bobar au Factory La F
+ arlède.\nFiche et billets : https://teufyparty.com/soiree/afrobbean-bobar
+ -2026-12-06/\nVia Teufy @teufy_official
 URL:https://teufyparty.com/soiree/afrobbean-bobar-2026-12-06/
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -294,36 +288,35 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:nice-char-bell-11-december-casino-de-beaulieu-2026-12-11@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261211T200000Z
 DTEND:20261212T010000Z
 SUMMARY:Nice | Char Bell | 11 December @ Casino De Beaulieu
 LOCATION:Casino de Beaulieu\, Beaulieu-sur-Mer
-DESCRIPTION:L'Arabic House Night avec Char Bell dans le cadre magique 
- du Casino de Beaulieu.\nFiche et billets : https://teufyparty.com/soir
- ee/nice-char-bell-11-december-casino-de-beaulieu-2026-12-11/\nVia Teuf
- y @teufy_official
-URL:https://teufyparty.com/soiree/nice-char-bell-11-december-casino-de
- -beaulieu-2026-12-11/
+DESCRIPTION:L'Arabic House Night avec Char Bell dans le cadre magique du Ca
+ sino de Beaulieu.\nFiche et billets : https://teufyparty.com/soiree/nice-c
+ har-bell-11-december-casino-de-beaulieu-2026-12-11/\nVia Teufy @teufy_offi
+ cial
+URL:https://teufyparty.com/soiree/nice-char-bell-11-december-casino-de-beau
+ lieu-2026-12-11/
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT3H
-DESCRIPTION:Ce soir : Nice | Char Bell | 11 December @ Casino De Beaul
- ieu
+DESCRIPTION:Ce soir : Nice | Char Bell | 11 December @ Casino De Beaulieu
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:honey-club-x-shafro-france-tour-2026-12-11@teufy
-DTSTAMP:20261125T132131Z
-DTSTART:20261211T225900Z
-DTEND:20261212T035900Z
+DTSTAMP:20261125T142020Z
+DTSTART:20261211T230000Z
+DTEND:20261212T040000Z
 SUMMARY:Honey Club X Shafro - France Tour
 LOCATION:Honey Club\, Juan-les-Pins
-DESCRIPTION:L'étape officielle du Shafro France Tour pose ses valises 
- à Juan-les-Pins.\nFiche et billets : https://teufyparty.com/soiree/hon
- ey-club-x-shafro-france-tour-2026-12-11/\nVia Teufy @teufy_official
-URL:https://teufyparty.com/soiree/honey-club-x-shafro-france-tour-2026
- -12-11/
+DESCRIPTION:L'étape officielle du Shafro France Tour pose ses valises à J
+ uan-les-Pins.\nFiche et billets : https://teufyparty.com/soiree/honey-club
+ -x-shafro-france-tour-2026-12-11/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/honey-club-x-shafro-france-tour-2026-12-1
+ 1/
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT3H
@@ -332,17 +325,17 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:ben-carter-le-dix-huit-neon-experience-2026-12-17@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261217T193000Z
 DTEND:20261218T003000Z
 SUMMARY:Ben Carter @ Le Dix-Huit (Neon Experience)
 LOCATION:Le Dix-Huit - Adresse d'Expériences\, Nice
-DESCRIPTION:Neon Experience invite Ben Carter au Dix-Huit pour un set 
- afro house et tech house percutant.\nFiche et billets : https://teufyp
- arty.com/soiree/ben-carter-le-dix-huit-neon-experience-2026-12-17/\nVi
- a Teufy @teufy_official
-URL:https://teufyparty.com/soiree/ben-carter-le-dix-huit-neon-experien
- ce-2026-12-17/
+DESCRIPTION:Neon Experience invite Ben Carter au Dix-Huit pour un set afro 
+ house et tech house percutant.\nFiche et billets : https://teufyparty.com/
+ soiree/ben-carter-le-dix-huit-neon-experience-2026-12-17/\nVia Teufy @teuf
+ y_official
+URL:https://teufyparty.com/soiree/ben-carter-le-dix-huit-neon-experience-20
+ 26-12-17/
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT3H
@@ -351,17 +344,17 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:nor-nights-oriental-rhythms-edition-2-2026-12-18@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261218T183000Z
 DTEND:20261218T233000Z
 SUMMARY:NŌR - Nights Oriental Rhythms | Édition #2
 LOCATION:So Blue Hôtel Restaurant\, Antibes
-DESCRIPTION:Percussions live\, tapas et clubbing afro-oriental pour la
-  2e édition de NŌR à Antibes.\nFiche et billets : https://teufyparty.c
- om/soiree/nor-nights-oriental-rhythms-edition-2-2026-12-18/\nVia Teufy
-  @teufy_official
-URL:https://teufyparty.com/soiree/nor-nights-oriental-rhythms-edition-
- 2-2026-12-18/
+DESCRIPTION:Percussions live\, tapas et clubbing afro-oriental pour la 2e 
+ édition de NŌR à Antibes.\nFiche et billets : https://teufyparty.com/so
+ iree/nor-nights-oriental-rhythms-edition-2-2026-12-18/\nVia Teufy @teufy_o
+ fficial
+URL:https://teufyparty.com/soiree/nor-nights-oriental-rhythms-edition-2-202
+ 6-12-18/
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT3H
@@ -369,38 +362,37 @@ DESCRIPTION:Ce soir : NŌR - Nights Oriental Rhythms | Édition #2
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:coachellito-et-le-blanchon-auron-1600-opening-edition-2026-12-19@t
- eufy
-DTSTAMP:20261125T132131Z
+UID:coachellito-et-le-blanchon-auron-1600-opening-edition-2026-12-19@teufy
+DTSTAMP:20261125T142020Z
 DTSTART:20261219T133000Z
 DTEND:20261219T183000Z
 SUMMARY:Coachellito & Le Blanchon Auron 1600 - Opening Edition
 LOCATION:Le Blanchon - Auron 1600\, Auron
-DESCRIPTION:Day party d'opening sur les pistes à Auron avec le crew Co
- achellito.\nFiche et billets : https://teufyparty.com/soiree/coachelli
- to-et-le-blanchon-auron-1600-opening-edition-2026-12-19/\nVia Teufy @t
- eufy_official
-URL:https://teufyparty.com/soiree/coachellito-et-le-blanchon-auron-160
- 0-opening-edition-2026-12-19/
+DESCRIPTION:Day party d'opening sur les pistes à Auron avec le crew Coache
+ llito.\nFiche et billets : https://teufyparty.com/soiree/coachellito-et-le
+ -blanchon-auron-1600-opening-edition-2026-12-19/\nVia Teufy @teufy_officia
+ l
+URL:https://teufyparty.com/soiree/coachellito-et-le-blanchon-auron-1600-ope
+ ning-edition-2026-12-19/
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT3H
-DESCRIPTION:Ce soir : Coachellito & Le Blanchon Auron 1600 - Opening E
- dition
+DESCRIPTION:Ce soir : Coachellito & Le Blanchon Auron 1600 - Opening Editio
+ n
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:shafro-toulon-3-afro-shatta-bouyon-2026-12-20@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261220T190000Z
 DTEND:20261221T000000Z
 SUMMARY:Shafro @Toulon #3 - Afro\, Shatta \, Bouyon
 LOCATION:Le Factory La Farlède\, La Farlède
-DESCRIPTION:Dernière teuf shatta et bouyon avant Noël avec le crew SHA
- FRO au Factory.\nFiche et billets : https://teufyparty.com/soiree/shaf
- ro-toulon-3-afro-shatta-bouyon-2026-12-20/\nVia Teufy @teufy_official
-URL:https://teufyparty.com/soiree/shafro-toulon-3-afro-shatta-bouyon-2
- 026-12-20/
+DESCRIPTION:Dernière teuf shatta et bouyon avant Noël avec le crew SHAFRO
+  au Factory.\nFiche et billets : https://teufyparty.com/soiree/shafro-toul
+ on-3-afro-shatta-bouyon-2026-12-20/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/shafro-toulon-3-afro-shatta-bouyon-2026-1
+ 2-20/
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT3H
@@ -409,17 +401,17 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:santa-s-house-party-sud-spicious-x-glass-club-2026-12-21@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261221T220000Z
 DTEND:20261222T030000Z
 SUMMARY:Santa's House Party — Sud'Spicious X Glass Club
 LOCATION:Glass Club Cannes\, Cannes
-DESCRIPTION:Soirée de Noël du crew Sud'Spicious sur le sound system VO
- ID du Glass Club.\nFiche et billets : https://teufyparty.com/soiree/sa
- nta-s-house-party-sud-spicious-x-glass-club-2026-12-21/\nVia Teufy @te
- ufy_official
-URL:https://teufyparty.com/soiree/santa-s-house-party-sud-spicious-x-g
- lass-club-2026-12-21/
+DESCRIPTION:Soirée de Noël du crew Sud'Spicious sur le sound system VOID 
+ du Glass Club.\nFiche et billets : https://teufyparty.com/soiree/santa-s-h
+ ouse-party-sud-spicious-x-glass-club-2026-12-21/\nVia Teufy @teufy_officia
+ l
+URL:https://teufyparty.com/soiree/santa-s-house-party-sud-spicious-x-glass-
+ club-2026-12-21/
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT3H
@@ -427,39 +419,38 @@ DESCRIPTION:Ce soir : Santa's House Party — Sud'Spicious X Glass Club
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:aztek-x-club-sonore-x-playa-chica-new-year-eve-31-12-2026-12-31@te
- ufy
-DTSTAMP:20261125T132131Z
+UID:aztek-x-club-sonore-x-playa-chica-new-year-eve-31-12-2026-12-31@teufy
+DTSTAMP:20261125T142020Z
 DTSTART:20261231T180000Z
 DTEND:20261231T230000Z
 SUMMARY:Aztek X Club Sonore X Playa Chica - New Year Eve 31.12
 LOCATION:Playa Chica\, Mandelieu-la-Napoule
-DESCRIPTION:Le réveillon électro du 31 décembre signé Aztek et Club So
- nore en bord de mer.\nFiche et billets : https://teufyparty.com/soiree
- /aztek-x-club-sonore-x-playa-chica-new-year-eve-31-12-2026-12-31/\nVia
-  Teufy @teufy_official
-URL:https://teufyparty.com/soiree/aztek-x-club-sonore-x-playa-chica-ne
- w-year-eve-31-12-2026-12-31/
+DESCRIPTION:Le réveillon électro du 31 décembre signé Aztek et Club Son
+ ore en bord de mer.\nFiche et billets : https://teufyparty.com/soiree/azte
+ k-x-club-sonore-x-playa-chica-new-year-eve-31-12-2026-12-31/\nVia Teufy @t
+ eufy_official
+URL:https://teufyparty.com/soiree/aztek-x-club-sonore-x-playa-chica-new-yea
+ r-eve-31-12-2026-12-31/
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT3H
-DESCRIPTION:Ce soir : Aztek X Club Sonore X Playa Chica - New Year Eve
-  31.12
+DESCRIPTION:Ce soir : Aztek X Club Sonore X Playa Chica - New Year Eve 31.1
+ 2
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cerrone-x-jimmy-z-mc-new-year-s-eve-2026-12-31@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261231T210000Z
 DTEND:20270101T020000Z
 SUMMARY:Cerrone X Jimmy'Z MC - New Year's Eve
 LOCATION:Jimmy'z Monte-Carlo\, Monaco
-DESCRIPTION:Passe ton réveillon du Nouvel An au Jimmy'z avec la légend
- e disco Cerrone et le crew TANTRÜM.\nFiche et billets : https://teufyp
- arty.com/soiree/cerrone-x-jimmy-z-mc-new-year-s-eve-2026-12-31/\nVia T
- eufy @teufy_official
-URL:https://teufyparty.com/soiree/cerrone-x-jimmy-z-mc-new-year-s-eve-
- 2026-12-31/
+DESCRIPTION:Passe ton réveillon du Nouvel An au Jimmy'z avec la légende d
+ isco Cerrone et le crew TANTRÜM.\nFiche et billets : https://teufyparty.c
+ om/soiree/cerrone-x-jimmy-z-mc-new-year-s-eve-2026-12-31/\nVia Teufy @teuf
+ y_official
+URL:https://teufyparty.com/soiree/cerrone-x-jimmy-z-mc-new-year-s-eve-2026-
+ 12-31/
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT3H

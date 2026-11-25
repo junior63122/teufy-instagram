@@ -4,12 +4,14 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:bambam-at-inda-house-27-11-26-2026-11-27@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261127T223000Z
 DTEND:20261128T033000Z
 SUMMARY:Bambam At Inda House : 27.11.26
 LOCATION:Inda House\, Carqueiranne
-DESCRIPTION:Clubbing house et tech-house underground jusqu'à 5h du matin à Carqueiranne.\nBillets : https://shotgun.live/fr/events/bambam-at-inda-house-27-11-26\nVia Teufy @teufy_official
+DESCRIPTION:Clubbing house et tech-house underground jusqu'à 5h du matin 
+ à Carqueiranne.\nBillets : https://shotgun.live/fr/events/bambam-at-inda-
+ house-27-11-26\nVia Teufy @teufy_official
 URL:https://shotgun.live/fr/events/bambam-at-inda-house-27-11-26
 BEGIN:VALARM
 ACTION:DISPLAY

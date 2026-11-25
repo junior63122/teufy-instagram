@@ -4,12 +4,13 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:soiree-zouk-et-caribbean-vibes-2026-11-28@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261128T200000Z
 DTEND:20261129T010000Z
 SUMMARY:Soirée Zouk & Caribbean Vibes
 LOCATION:L'Artiste 83\, Roquebrune-sur-Argens
-DESCRIPTION:Showcase live de Layanah et DJ Vanpiro pour une grosse nuit shatta et caribéenne.\nVia Teufy @teufy_official
+DESCRIPTION:Showcase live de Layanah et DJ Vanpiro pour une grosse nuit sha
+ tta et caribéenne.\nVia Teufy @teufy_official
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-P1D

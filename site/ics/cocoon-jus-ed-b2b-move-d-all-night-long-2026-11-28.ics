@@ -4,12 +4,14 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:cocoon-jus-ed-b2b-move-d-all-night-long-2026-11-28@teufy
-DTSTAMP:20261125T132131Z
-DTSTART:20261128T225900Z
-DTEND:20261129T035900Z
+DTSTAMP:20261125T142020Z
+DTSTART:20261128T230000Z
+DTEND:20261129T040000Z
 SUMMARY:cocoon - Jus-Ed b2b Move D - all night long
 LOCATION:essaim\, Paris
-DESCRIPTION:Jus-Ed et Move D en all night long pour une traversée deep house unique.\nBillets : https://ra.co/events/fr/paris\nVia Teufy @teufy_official
+DESCRIPTION:Jus-Ed et Move D en all night long pour une traversée deep hou
+ se unique.\nBillets : https://ra.co/events/fr/paris\nVia Teufy @teufy_offi
+ cial
 URL:https://ra.co/events/fr/paris
 BEGIN:VALARM
 ACTION:DISPLAY

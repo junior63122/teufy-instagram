@@ -4,22 +4,28 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:carol-nakari-quintet-pourquoi-pas-ce-soir-concert-live-2026-12-05@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261205T190000Z
 DTEND:20261206T000000Z
 SUMMARY:Carol Nakari Quintet – Pourquoi pas ce soir ? | Concert live
-LOCATION:Le Quartier du Poulpe\, 34 boulevard Auguste Raynaud\, 06100 Nice\, Nice
-DESCRIPTION:Billets : https://www.eventbrite.com/e/carol-nakari-quintet-pourquoi-pas-ce-soir-concert-live-tickets-2005397934205\nVia Teufy @teufy_official
-URL:https://www.eventbrite.com/e/carol-nakari-quintet-pourquoi-pas-ce-soir-concert-live-tickets-2005397934205
+LOCATION:Le Quartier du Poulpe\, 34 boulevard Auguste Raynaud\, 06100 Nice\
+ , Nice
+DESCRIPTION:Billets : https://www.eventbrite.com/e/carol-nakari-quintet-pou
+ rquoi-pas-ce-soir-concert-live-tickets-2005397934205\nVia Teufy @teufy_off
+ icial
+URL:https://www.eventbrite.com/e/carol-nakari-quintet-pourquoi-pas-ce-soir-
+ concert-live-tickets-2005397934205
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-P1D
-DESCRIPTION:Demain : Carol Nakari Quintet – Pourquoi pas ce soir ? | Concert live
+DESCRIPTION:Demain : Carol Nakari Quintet – Pourquoi pas ce soir ? | Conc
+ ert live
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT2H
-DESCRIPTION:Dans 2 h : Carol Nakari Quintet – Pourquoi pas ce soir ? | Concert live
+DESCRIPTION:Dans 2 h : Carol Nakari Quintet – Pourquoi pas ce soir ? | Co
+ ncert live
 END:VALARM
 END:VEVENT
 END:VCALENDAR

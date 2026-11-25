@@ -4,12 +4,14 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:kevin-saura-group-en-concert-2026-12-11@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261211T193000Z
 DTEND:20261212T003000Z
 SUMMARY:Kevin Saura Group en concert
 LOCATION:Le Dix-Huit\, Nice
-DESCRIPTION:Concert jazz fusion du quintette Kevin Saura Group au Dix-Huit à Nice.\nBillets : https://nouvelle-vague.com/live/kevin-saura-group-en-concert-a-nice/\nVia Teufy @teufy_official
+DESCRIPTION:Concert jazz fusion du quintette Kevin Saura Group au Dix-Huit 
+ à Nice.\nBillets : https://nouvelle-vague.com/live/kevin-saura-group-en-c
+ oncert-a-nice/\nVia Teufy @teufy_official
 URL:https://nouvelle-vague.com/live/kevin-saura-group-en-concert-a-nice/
 BEGIN:VALARM
 ACTION:DISPLAY

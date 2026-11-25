@@ -4,12 +4,14 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:shatta-night-boka-club-2026-11-26@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261126T230000Z
 DTEND:20261127T040000Z
 SUMMARY:SHATTA NIGHT @ BOKA CLUB
 LOCATION:BOKA CLUB\, Toulon
-DESCRIPTION:Soirée 100 % SHATTA ce jeudi 26 novembre à Toulon !\nBillets : https://www.instagram.com/p/DgF2oSns9c7/\nVia Teufy @teufy_official
+DESCRIPTION:Soirée 100 % SHATTA ce jeudi 26 novembre à Toulon !\nBi
+ llets : https://www.instagram.com/p/DgF2oSns9c7/\nVia Teufy @teufy_officia
+ l
 URL:https://www.instagram.com/p/DgF2oSns9c7/
 BEGIN:VALARM
 ACTION:DISPLAY

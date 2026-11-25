@@ -9,15 +9,14 @@ REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
 UID:jc-vitto-kosma-2026-11-25@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261125T220000Z
 DTEND:20261126T030000Z
 SUMMARY:JC VITTO @ Kosma
 LOCATION:Kosma\, Nice
 DESCRIPTION:JC VITTO enflamme le Kosma à Nice le 25 novembre\, de 23 h
-  à 5 h\, pour une nuit de good vibes.\nFiche et billets : https://teuf
- yparty.com/soiree/jc-vitto-kosma-2026-11-25/\nVia Teufy @teufy_officia
- l
+  à 5 h\, pour une nuit de good vibes.\nFiche et billets : https://teufy
+ party.com/soiree/jc-vitto-kosma-2026-11-25/\nVia Teufy @teufy_official
 URL:https://teufyparty.com/soiree/jc-vitto-kosma-2026-11-25/
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -27,14 +26,14 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:yuksek-et-roxie-2026-11-26@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261126T193000Z
 DTEND:20261127T003000Z
 SUMMARY:Yuksek & Roxie
 LOCATION:Le Dix-Huit - Adresse d'Expériences\, Nice
-DESCRIPTION:Le producteur culte Yuksek débarque à Cannes pour un set h
- ouse survitaminé.\nFiche et billets : https://teufyparty.com/soiree/yu
- ksek-et-roxie-2026-11-26/\nVia Teufy @teufy_official
+DESCRIPTION:Le producteur culte Yuksek débarque à Cannes pour un set hous
+ e survitaminé.\nFiche et billets : https://teufyparty.com/soiree/yuksek-e
+ t-roxie-2026-11-26/\nVia Teufy @teufy_official
 URL:https://teufyparty.com/soiree/yuksek-et-roxie-2026-11-26/
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -44,14 +43,14 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:shatta-night-boka-club-2026-11-26@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261126T230000Z
 DTEND:20261127T040000Z
 SUMMARY:SHATTA NIGHT @ BOKA CLUB
 LOCATION:BOKA CLUB\, Toulon
-DESCRIPTION:Soirée 100 % SHATTA ce jeudi 26 novembre à Toulon !\nFiche
-  et billets : https://teufyparty.com/soiree/shatta-night-boka-club-202
- 6-11-26/\nVia Teufy @teufy_official
+DESCRIPTION:Soirée 100 % SHATTA ce jeudi 26 novembre à Toulon !\nFi
+ che et billets : https://teufyparty.com/soiree/shatta-night-boka-club-2026
+ -11-26/\nVia Teufy @teufy_official
 URL:https://teufyparty.com/soiree/shatta-night-boka-club-2026-11-26/
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -61,15 +60,15 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:block-2026-11-26@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261126T230000Z
 DTEND:20261127T040000Z
 SUMMARY:BLOCK
 LOCATION:Naho Club\, La Garde
-DESCRIPTION:BLOCK revient le 26 novembre au Naho pour une nuit de rap 
- français brut et des basses qui claquent jusqu’à 5 h du mat’.\nFiche e
- t billets : https://teufyparty.com/soiree/block-2026-11-26/\nVia Teufy
-  @teufy_official
+DESCRIPTION:BLOCK revient le 26 novembre au Naho pour une nuit de rap fra
+ nçais brut et des basses qui claquent jusqu’à 5 h du mat’.\nFiche 
+ et billets : https://teufyparty.com/soiree/block-2026-11-26/\nVia Teufy @t
+ eufy_official
 URL:https://teufyparty.com/soiree/block-2026-11-26/
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -79,14 +78,14 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:calema-tour-2026-2026-11-27@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261127T193000Z
 DTEND:20261128T003000Z
 SUMMARY:CALEMA - TOUR 2026
 LOCATION:La Palestre\, Le Cannet
-DESCRIPTION:Le duo Calema pose sa tournée festive et rythmée sur la sc
- ène de La Palestre.\nFiche et billets : https://teufyparty.com/soiree/
- calema-tour-2026-2026-11-27/\nVia Teufy @teufy_official
+DESCRIPTION:Le duo Calema pose sa tournée festive et rythmée sur la scèn
+ e de La Palestre.\nFiche et billets : https://teufyparty.com/soiree/calema
+ -tour-2026-2026-11-27/\nVia Teufy @teufy_official
 URL:https://teufyparty.com/soiree/calema-tour-2026-2026-11-27/
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -95,40 +94,39 @@ DESCRIPTION:Ce soir : CALEMA - TOUR 2026
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:riviera-bar-crawl-nice-s-1-social-club-for-global-travelers-2026-1
- 1-27@teufy
-DTSTAMP:20261125T132131Z
+UID:riviera-bar-crawl-nice-s-1-social-club-for-global-travelers-2026-11-27@
+ teufy
+DTSTAMP:20261125T142020Z
 DTSTART:20261127T200000Z
 DTEND:20261128T010000Z
-SUMMARY:Riviera Bar Crawl Nice’s #1 Social Club for Global Travelers &
-  Party Lovers
+SUMMARY:Riviera Bar Crawl Nice’s #1 Social Club for Global Travelers & Pa
+ rty Lovers
 LOCATION:Hostel Villa Saint Exupery Beach\, Nice
-DESCRIPTION:La virée nocturne incontournable à Nice avec shots\, jeux 
- et accès direct en discothèque.\nFiche et billets : https://teufyparty
- .com/soiree/riviera-bar-crawl-nice-s-1-social-club-for-global-traveler
- s-2026-11-27/\nVia Teufy @teufy_official
-URL:https://teufyparty.com/soiree/riviera-bar-crawl-nice-s-1-social-cl
- ub-for-global-travelers-2026-11-27/
+DESCRIPTION:La virée nocturne incontournable à Nice avec shots\, jeux et 
+ accès direct en discothèque.\nFiche et billets : https://teufyparty.com/
+ soiree/riviera-bar-crawl-nice-s-1-social-club-for-global-travelers-2026-11
+ -27/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/riviera-bar-crawl-nice-s-1-social-club-fo
+ r-global-travelers-2026-11-27/
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT3H
-DESCRIPTION:Ce soir : Riviera Bar Crawl Nice’s #1 Social Club for Glob
- al Travelers & Party Lovers
+DESCRIPTION:Ce soir : Riviera Bar Crawl Nice’s #1 Social Club for Global 
+ Travelers & Party Lovers
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:solly-smith-au-club-twiga-monte-carlo-2026-11-27@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261127T223000Z
 DTEND:20261128T033000Z
 SUMMARY:Solly Smith au Club Twiga Monte Carlo
 LOCATION:Twiga Monte-Carlo\, Monaco
-DESCRIPTION:Set deep et afro house au Twiga Monte-Carlo avec Solly Smi
- th face à la mer.\nFiche et billets : https://teufyparty.com/soiree/so
- lly-smith-au-club-twiga-monte-carlo-2026-11-27/\nVia Teufy @teufy_offi
- cial
-URL:https://teufyparty.com/soiree/solly-smith-au-club-twiga-monte-carl
- o-2026-11-27/
+DESCRIPTION:Set deep et afro house au Twiga Monte-Carlo avec Solly Smith fa
+ ce à la mer.\nFiche et billets : https://teufyparty.com/soiree/solly-smit
+ h-au-club-twiga-monte-carlo-2026-11-27/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/solly-smith-au-club-twiga-monte-carlo-202
+ 6-11-27/
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT3H
@@ -137,16 +135,15 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:bambam-at-inda-house-27-11-26-2026-11-27@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261127T223000Z
 DTEND:20261128T033000Z
 SUMMARY:Bambam At Inda House : 27.11.26
 LOCATION:Inda House\, Carqueiranne
-DESCRIPTION:Clubbing house et tech-house underground jusqu'à 5h du mat
- in à Carqueiranne.\nFiche et billets : https://teufyparty.com/soiree/b
- ambam-at-inda-house-27-11-26-2026-11-27/\nVia Teufy @teufy_official
-URL:https://teufyparty.com/soiree/bambam-at-inda-house-27-11-26-2026-1
- 1-27/
+DESCRIPTION:Clubbing house et tech-house underground jusqu'à 5h du matin 
+ à Carqueiranne.\nFiche et billets : https://teufyparty.com/soiree/bambam-
+ at-inda-house-27-11-26-2026-11-27/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/bambam-at-inda-house-27-11-26-2026-11-27/
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT3H
@@ -155,14 +152,14 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:coachellito-high-club-2026-11-27@teufy
-DTSTAMP:20261125T132131Z
-DTSTART:20261127T225900Z
-DTEND:20261128T035900Z
+DTSTAMP:20261125T142020Z
+DTSTART:20261127T230000Z
+DTEND:20261128T040000Z
 SUMMARY:COACHELLITO - HIGH CLUB
 LOCATION:High Club\, Nice
-DESCRIPTION:Ambiance festival américain sur la Promenade des Anglais a
- vec le DJ niçois MACEW.\nFiche et billets : https://teufyparty.com/soi
- ree/coachellito-high-club-2026-11-27/\nVia Teufy @teufy_official
+DESCRIPTION:Ambiance festival américain sur la Promenade des Anglais avec 
+ le DJ niçois MACEW.\nFiche et billets : https://teufyparty.com/soiree/coa
+ chellito-high-club-2026-11-27/\nVia Teufy @teufy_official
 URL:https://teufyparty.com/soiree/coachellito-high-club-2026-11-27/
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -172,16 +169,15 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:zouk-love-toulon-edition-chic-2026-11-28@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261128T224500Z
 DTEND:20261129T034500Z
 SUMMARY:Zouk Love Toulon Edition Chic
 LOCATION:Le Boka Club\, Toulon
-DESCRIPTION:Édition Chic du Zouk Love Toulon avec DJ Feeling aux plati
- nes du Boka Club.\nFiche et billets : https://teufyparty.com/soiree/zo
- uk-love-toulon-edition-chic-2026-11-28/\nVia Teufy @teufy_official
-URL:https://teufyparty.com/soiree/zouk-love-toulon-edition-chic-2026-1
- 1-28/
+DESCRIPTION:Édition Chic du Zouk Love Toulon avec DJ Feeling aux platines 
+ du Boka Club.\nFiche et billets : https://teufyparty.com/soiree/zouk-love-
+ toulon-edition-chic-2026-11-28/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/zouk-love-toulon-edition-chic-2026-11-28/
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT3H
@@ -190,17 +186,16 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:marwa-loud-showcase-au-high-club-2026-11-28@teufy
-DTSTAMP:20261125T132131Z
-DTSTART:20261128T225900Z
-DTEND:20261129T035900Z
+DTSTAMP:20261125T142020Z
+DTSTART:20261128T230000Z
+DTEND:20261129T040000Z
 SUMMARY:Marwa Loud Showcase au High Club
 LOCATION:High Club\, Nice
-DESCRIPTION:Showcase live exclusif de Marwa Loud sur la Promenade des 
- Anglais pour chanter ses tubes.\nFiche et billets : https://teufyparty
- .com/soiree/marwa-loud-showcase-au-high-club-2026-11-28/\nVia Teufy @t
- eufy_official
-URL:https://teufyparty.com/soiree/marwa-loud-showcase-au-high-club-202
- 6-11-28/
+DESCRIPTION:Showcase live exclusif de Marwa Loud sur la Promenade des Angla
+ is pour chanter ses tubes.\nFiche et billets : https://teufyparty.com/soir
+ ee/marwa-loud-showcase-au-high-club-2026-11-28/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/marwa-loud-showcase-au-high-club-2026-11-
+ 28/
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT3H
@@ -209,14 +204,14 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:shatta-2026-11-28@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261128T230000Z
 DTEND:20261129T040000Z
 SUMMARY:SHATTA
 LOCATION:Naho Club\, La Garde
 DESCRIPTION:Samedi 28 novembre\, le Naho s’enflamme avec une soirée 10
- 0 % SHATTA\, chaleur et danse garantis.\nFiche et billets : https://te
- ufyparty.com/soiree/shatta-2026-11-28/\nVia Teufy @teufy_official
+ 0 % SHATTA\, chaleur et danse garantis.\nFiche et billets : https://teuf
+ yparty.com/soiree/shatta-2026-11-28/\nVia Teufy @teufy_official
 URL:https://teufyparty.com/soiree/shatta-2026-11-28/
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -226,16 +221,16 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:dj-k-net-resident-techno-tribe-2026-11-29@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261129T040000Z
 DTEND:20261129T090000Z
 SUMMARY:Dj K-Net (Resident) : Techno / Tribe
 LOCATION:L'Antre Bar Electro\, Nice
-DESCRIPTION:L'after techno officiel au petit matin pour prolonger la n
- uit à Nice.\nFiche et billets : https://teufyparty.com/soiree/dj-k-net
- -resident-techno-tribe-2026-11-29/\nVia Teufy @teufy_official
-URL:https://teufyparty.com/soiree/dj-k-net-resident-techno-tribe-2026-
- 11-29/
+DESCRIPTION:L'after techno officiel au petit matin pour prolonger la nuit 
+ à Nice.\nFiche et billets : https://teufyparty.com/soiree/dj-k-net-reside
+ nt-techno-tribe-2026-11-29/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/dj-k-net-resident-techno-tribe-2026-11-29
+ /
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT3H
@@ -244,14 +239,14 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:dj-set-tim-lienderss-2026-12-04@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261204T193000Z
 DTEND:20261205T003000Z
 SUMMARY:Dj Set - Tim Lienderss
 LOCATION:Mama Shelter Nice\, Nice
-DESCRIPTION:DJ set gratuit mêlant house\, afrobeat et hip-hop au Mama 
- Shelter.\nFiche et billets : https://teufyparty.com/soiree/dj-set-tim-
- lienderss-2026-12-04/\nVia Teufy @teufy_official
+DESCRIPTION:DJ set gratuit mêlant house\, afrobeat et hip-hop au Mama Shel
+ ter.\nFiche et billets : https://teufyparty.com/soiree/dj-set-tim-lienders
+ s-2026-12-04/\nVia Teufy @teufy_official
 URL:https://teufyparty.com/soiree/dj-set-tim-lienderss-2026-12-04/
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -261,16 +256,16 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:aura-night-fornap-edition-100-femmes-2026-12-04@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261204T193000Z
 DTEND:20261205T003000Z
 SUMMARY:Aura Night - Fornap (Édition 100% Femmes)
 LOCATION:Fort Napoléon\, La Seyne-sur-Mer
-DESCRIPTION:Soirée clubbing caribéenne et safe place 100% femmes au Fo
- rt Napoléon.\nFiche et billets : https://teufyparty.com/soiree/aura-ni
- ght-fornap-edition-100-femmes-2026-12-04/\nVia Teufy @teufy_official
-URL:https://teufyparty.com/soiree/aura-night-fornap-edition-100-femmes
- -2026-12-04/
+DESCRIPTION:Soirée clubbing caribéenne et safe place 100% femmes au Fort 
+ Napoléon.\nFiche et billets : https://teufyparty.com/soiree/aura-night-fo
+ rnap-edition-100-femmes-2026-12-04/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/aura-night-fornap-edition-100-femmes-2026
+ -12-04/
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT3H
@@ -279,14 +274,14 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:high-students-2026-12-04@teufy
-DTSTAMP:20261125T132131Z
-DTSTART:20261204T225900Z
-DTEND:20261205T035900Z
+DTSTAMP:20261125T142020Z
+DTSTART:20261204T230000Z
+DTEND:20261205T040000Z
 SUMMARY:HIGH STUDENTS
 LOCATION:High Club\, Nice
-DESCRIPTION:Le grand rendez-vous étudiant du vendredi soir sur la Prom
- enade des Anglais.\nFiche et billets : https://teufyparty.com/soiree/h
- igh-students-2026-12-04/\nVia Teufy @teufy_official
+DESCRIPTION:Le grand rendez-vous étudiant du vendredi soir sur la Promenad
+ e des Anglais.\nFiche et billets : https://teufyparty.com/soiree/high-stud
+ ents-2026-12-04/\nVia Teufy @teufy_official
 URL:https://teufyparty.com/soiree/high-students-2026-12-04/
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -296,16 +291,15 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:isla-tropical-skyfall-cannes-2026-12-04@teufy
-DTSTAMP:20261125T132131Z
-DTSTART:20261204T225900Z
-DTEND:20261205T035900Z
+DTSTAMP:20261125T142020Z
+DTSTART:20261204T230000Z
+DTEND:20261205T040000Z
 SUMMARY:Isla Tropical - Skyfall - Cannes
 LOCATION:Skyfall Cannes\, Cannes
-DESCRIPTION:Secousse caribéenne garantie entre bouyon\, shatta et bail
- e funk à Cannes.\nFiche et billets : https://teufyparty.com/soiree/isl
- a-tropical-skyfall-cannes-2026-12-04/\nVia Teufy @teufy_official
-URL:https://teufyparty.com/soiree/isla-tropical-skyfall-cannes-2026-12
- -04/
+DESCRIPTION:Secousse caribéenne garantie entre bouyon\, shatta et baile fu
+ nk à Cannes.\nFiche et billets : https://teufyparty.com/soiree/isla-tropi
+ cal-skyfall-cannes-2026-12-04/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/isla-tropical-skyfall-cannes-2026-12-04/
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT3H
@@ -314,14 +308,14 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:sisters-of-sand-3-2026-12-05@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261205T180000Z
 DTEND:20261205T230000Z
 SUMMARY:Sisters Of Sand 3
 LOCATION:Fort Napoléon\, La Seyne-sur-Mer
-DESCRIPTION:House et percussions orientales en live au Flèche Klub du 
- Fort Napoléon.\nFiche et billets : https://teufyparty.com/soiree/siste
- rs-of-sand-3-2026-12-05/\nVia Teufy @teufy_official
+DESCRIPTION:House et percussions orientales en live au Flèche Klub du Fort
+  Napoléon.\nFiche et billets : https://teufyparty.com/soiree/sisters-of-s
+ and-3-2026-12-05/\nVia Teufy @teufy_official
 URL:https://teufyparty.com/soiree/sisters-of-sand-3-2026-12-05/
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -331,14 +325,14 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:dakeez-premiere-partie-2026-12-05@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261205T190000Z
 DTEND:20261206T000000Z
 SUMMARY:Dakeez (+ Première Partie)
 LOCATION:Frigo 16 (Le 109)\, Nice
-DESCRIPTION:Le show R&B et trapsoul ultra chaud de Dakeez débarque à N
- ice au Frigo 16.\nFiche et billets : https://teufyparty.com/soiree/dak
- eez-premiere-partie-2026-12-05/\nVia Teufy @teufy_official
+DESCRIPTION:Le show R&B et trapsoul ultra chaud de Dakeez débarque à Nice
+  au Frigo 16.\nFiche et billets : https://teufyparty.com/soiree/dakeez-pre
+ miere-partie-2026-12-05/\nVia Teufy @teufy_official
 URL:https://teufyparty.com/soiree/dakeez-premiere-partie-2026-12-05/
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -348,14 +342,14 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:mamacita-frigo-16-2026-12-05@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261205T223000Z
 DTEND:20261206T033000Z
 SUMMARY:Mamacita @ Frigo 16
 LOCATION:Frigo 16\, Nice
-DESCRIPTION:La folie 100% reggaeton et latino urbain s'empare du Frigo
-  16 à Nice.\nFiche et billets : https://teufyparty.com/soiree/mamacita
- -frigo-16-2026-12-05/\nVia Teufy @teufy_official
+DESCRIPTION:La folie 100% reggaeton et latino urbain s'empare du Frigo 16 
+ à Nice.\nFiche et billets : https://teufyparty.com/soiree/mamacita-frigo-
+ 16-2026-12-05/\nVia Teufy @teufy_official
 URL:https://teufyparty.com/soiree/mamacita-frigo-16-2026-12-05/
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -365,14 +359,14 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:bad-girls-2026-12-05@teufy
-DTSTAMP:20261125T132131Z
-DTSTART:20261205T225900Z
-DTEND:20261206T035900Z
+DTSTAMP:20261125T142020Z
+DTSTART:20261205T230000Z
+DTEND:20261206T040000Z
 SUMMARY:Bad Girls
 LOCATION:High Club\, Nice
-DESCRIPTION:Ambiance baddie\, bangers hip-hop US et RnB pour mettre le
-  feu au High Club.\nFiche et billets : https://teufyparty.com/soiree/b
- ad-girls-2026-12-05/\nVia Teufy @teufy_official
+DESCRIPTION:Ambiance baddie\, bangers hip-hop US et RnB pour mettre le feu 
+ au High Club.\nFiche et billets : https://teufyparty.com/soiree/bad-girls-
+ 2026-12-05/\nVia Teufy @teufy_official
 URL:https://teufyparty.com/soiree/bad-girls-2026-12-05/
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -382,17 +376,17 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:ben-carter-le-dix-huit-neon-experience-2026-12-17@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261217T193000Z
 DTEND:20261218T003000Z
 SUMMARY:Ben Carter @ Le Dix-Huit (Neon Experience)
 LOCATION:Le Dix-Huit - Adresse d'Expériences\, Nice
-DESCRIPTION:Neon Experience invite Ben Carter au Dix-Huit pour un set 
- afro house et tech house percutant.\nFiche et billets : https://teufyp
- arty.com/soiree/ben-carter-le-dix-huit-neon-experience-2026-12-17/\nVi
- a Teufy @teufy_official
-URL:https://teufyparty.com/soiree/ben-carter-le-dix-huit-neon-experien
- ce-2026-12-17/
+DESCRIPTION:Neon Experience invite Ben Carter au Dix-Huit pour un set afro 
+ house et tech house percutant.\nFiche et billets : https://teufyparty.com/
+ soiree/ben-carter-le-dix-huit-neon-experience-2026-12-17/\nVia Teufy @teuf
+ y_official
+URL:https://teufyparty.com/soiree/ben-carter-le-dix-huit-neon-experience-20
+ 26-12-17/
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT3H
@@ -401,14 +395,14 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:more-than-dream-2026-12-18@teufy
-DTSTAMP:20261125T132131Z
-DTSTART:20261218T225900Z
-DTEND:20261219T035900Z
+DTSTAMP:20261125T142020Z
+DTSTART:20261218T230000Z
+DTEND:20261219T040000Z
 SUMMARY:More Than Dream
 LOCATION:High Club\, Nice
-DESCRIPTION:Célèbre le lancement des vacances de fin d'année sur le gr
- and dancefloor du front de mer.\nFiche et billets : https://teufyparty
- .com/soiree/more-than-dream-2026-12-18/\nVia Teufy @teufy_official
+DESCRIPTION:Célèbre le lancement des vacances de fin d'année sur le gran
+ d dancefloor du front de mer.\nFiche et billets : https://teufyparty.com/s
+ oiree/more-than-dream-2026-12-18/\nVia Teufy @teufy_official
 URL:https://teufyparty.com/soiree/more-than-dream-2026-12-18/
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -418,16 +412,15 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:zona-de-perreo-frigo-16-nice-2026-12-19@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261219T190000Z
 DTEND:20261220T000000Z
 SUMMARY:Zona De Perreo • Frigo 16 Nice
 LOCATION:Frigo 16\, Nice
-DESCRIPTION:Le temple du perreo et du dembow réinvestit le Frigo 16 av
- ec Latin Addict.\nFiche et billets : https://teufyparty.com/soiree/zon
- a-de-perreo-frigo-16-nice-2026-12-19/\nVia Teufy @teufy_official
-URL:https://teufyparty.com/soiree/zona-de-perreo-frigo-16-nice-2026-12
- -19/
+DESCRIPTION:Le temple du perreo et du dembow réinvestit le Frigo 16 avec L
+ atin Addict.\nFiche et billets : https://teufyparty.com/soiree/zona-de-per
+ reo-frigo-16-nice-2026-12-19/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/zona-de-perreo-frigo-16-nice-2026-12-19/
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT3H
@@ -436,14 +429,14 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:dj-set-karl-zen-k-2026-12-19@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261219T193000Z
 DTEND:20261220T003000Z
 SUMMARY:Dj Set - Karl Zen K
 LOCATION:Mama Shelter Nice\, Nice
-DESCRIPTION:Set house élégant par Karl Zen K dans l'ambiance cosy du M
- ama Shelter.\nFiche et billets : https://teufyparty.com/soiree/dj-set-
- karl-zen-k-2026-12-19/\nVia Teufy @teufy_official
+DESCRIPTION:Set house élégant par Karl Zen K dans l'ambiance cosy du Mama
+  Shelter.\nFiche et billets : https://teufyparty.com/soiree/dj-set-karl-ze
+ n-k-2026-12-19/\nVia Teufy @teufy_official
 URL:https://teufyparty.com/soiree/dj-set-karl-zen-k-2026-12-19/
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -453,17 +446,16 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:new-year-s-eve-bar-crawl-party-nice-2026-12-31@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261231T200000Z
 DTEND:20270101T010000Z
 SUMMARY:New Year’s Eve Bar Crawl Party Nice
 LOCATION:Hostel Villa Saint Exupery Beach\, Nice
-DESCRIPTION:La plus grande tournée des bars du réveillon du Nouvel An 
- dans le Vieux-Nice.\nFiche et billets : https://teufyparty.com/soiree/
- new-year-s-eve-bar-crawl-party-nice-2026-12-31/\nVia Teufy @teufy_offi
- cial
-URL:https://teufyparty.com/soiree/new-year-s-eve-bar-crawl-party-nice-
- 2026-12-31/
+DESCRIPTION:La plus grande tournée des bars du réveillon du Nouvel An dan
+ s le Vieux-Nice.\nFiche et billets : https://teufyparty.com/soiree/new-yea
+ r-s-eve-bar-crawl-party-nice-2026-12-31/\nVia Teufy @teufy_official
+URL:https://teufyparty.com/soiree/new-year-s-eve-bar-crawl-party-nice-2026-
+ 12-31/
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT3H

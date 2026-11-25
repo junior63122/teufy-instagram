@@ -4,12 +4,14 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:ugo-puccinelli-pretty-little-sins-2026-11-27@teufy
-DTSTAMP:20261125T132131Z
-DTSTART:20261127T225900Z
-DTEND:20261128T035900Z
+DTSTAMP:20261125T142020Z
+DTSTART:20261127T230000Z
+DTEND:20261128T040000Z
 SUMMARY:Ugo Puccinelli / Pretty Little Sins
 LOCATION:Glass Club Cannes\, Cannes
-DESCRIPTION:Soirée clubbing tech house feutrée au sous-sol du Glass Club Cannes.\nBillets : https://shotgun.live/events/ugo-puccinelli-pretty-little-sins\nVia Teufy @teufy_official
+DESCRIPTION:Soirée clubbing tech house feutrée au sous-sol du Glass Club 
+ Cannes.\nBillets : https://shotgun.live/events/ugo-puccinelli-pretty-littl
+ e-sins\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/ugo-puccinelli-pretty-little-sins
 BEGIN:VALARM
 ACTION:DISPLAY

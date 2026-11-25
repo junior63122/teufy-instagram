@@ -4,12 +4,14 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:isla-tropical-skyfall-cannes-2026-12-04@teufy
-DTSTAMP:20261125T132131Z
-DTSTART:20261204T225900Z
-DTEND:20261205T035900Z
+DTSTAMP:20261125T142020Z
+DTSTART:20261204T230000Z
+DTEND:20261205T040000Z
 SUMMARY:Isla Tropical - Skyfall - Cannes
 LOCATION:Skyfall Cannes\, Cannes
-DESCRIPTION:Secousse caribéenne garantie entre bouyon\, shatta et baile funk à Cannes.\nBillets : https://shotgun.live/events/isla-tropical-skyfall-cannes\nVia Teufy @teufy_official
+DESCRIPTION:Secousse caribéenne garantie entre bouyon\, shatta et baile fu
+ nk à Cannes.\nBillets : https://shotgun.live/events/isla-tropical-skyfall
+ -cannes\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/isla-tropical-skyfall-cannes
 BEGIN:VALARM
 ACTION:DISPLAY

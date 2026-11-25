@@ -4,12 +4,14 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:the-first-talk-show-cabaret-icones-3-2026-12-12@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261212T183000Z
 DTEND:20261212T233000Z
 SUMMARY:The First Talk Show — Cabaret Icônes 3
 LOCATION:Stockfish\, Nice
-DESCRIPTION:Show drag et talk-show hybride avec Tati Galaxy et la scène niçoise au Stockfish.\nBillets : https://shotgun.live/fr/events/the-first-talk-show-icones-3\nVia Teufy @teufy_official
+DESCRIPTION:Show drag et talk-show hybride avec Tati Galaxy et la scène ni
+ çoise au Stockfish.\nBillets : https://shotgun.live/fr/events/the-first-t
+ alk-show-icones-3\nVia Teufy @teufy_official
 URL:https://shotgun.live/fr/events/the-first-talk-show-icones-3
 BEGIN:VALARM
 ACTION:DISPLAY

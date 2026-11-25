@@ -4,12 +4,14 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:dj-set-karl-zen-k-2026-12-19@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261219T193000Z
 DTEND:20261220T003000Z
 SUMMARY:Dj Set - Karl Zen K
 LOCATION:Mama Shelter Nice\, Nice
-DESCRIPTION:Set house élégant par Karl Zen K dans l'ambiance cosy du Mama Shelter.\nBillets : https://shotgun.live/events/dj-set-karl-zen-k\nVia Teufy @teufy_official
+DESCRIPTION:Set house élégant par Karl Zen K dans l'ambiance cosy du Mama
+  Shelter.\nBillets : https://shotgun.live/events/dj-set-karl-zen-k\nVia Te
+ ufy @teufy_official
 URL:https://shotgun.live/events/dj-set-karl-zen-k
 BEGIN:VALARM
 ACTION:DISPLAY

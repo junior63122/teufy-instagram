@@ -4,12 +4,14 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:euphoria-2026-11-27@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261127T230000Z
 DTEND:20261128T040000Z
 SUMMARY:EUPHORIA
 LOCATION:Naho Club\, La Garde
-DESCRIPTION:Le vendredi 27 novembre\, EUPHORIA te plonge dans un univers clubbing électro‑house au Naho.\nBillets : https://www.instagram.com/p/DgDPTgfjZbU/\nVia Teufy @teufy_official
+DESCRIPTION:Le vendredi 27 novembre\, EUPHORIA te plonge dans un univers 
+ clubbing électro‑house au Naho.\nBillets : https://www.instagram.com/p/
+ DgDPTgfjZbU/\nVia Teufy @teufy_official
 URL:https://www.instagram.com/p/DgDPTgfjZbU/
 BEGIN:VALARM
 ACTION:DISPLAY

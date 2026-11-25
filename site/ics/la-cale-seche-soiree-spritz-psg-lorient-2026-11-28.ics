@@ -4,12 +4,13 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:la-cale-seche-soiree-spritz-psg-lorient-2026-11-28@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261128T194500Z
 DTEND:20261129T004500Z
 SUMMARY:La Cale Sèche – Soirée Spritz + PSG / Lorient
 LOCATION:La Cale Sèche\, Toulon\, Toulon
-DESCRIPTION:Spritz + match PSG / Lorient à 20h45\nBillets : https://www.instagram.com/p/DgGIZohoA8x/\nVia Teufy @teufy_official
+DESCRIPTION:Spritz + match PSG / Lorient à 20h45\nBillets : https://www.in
+ stagram.com/p/DgGIZohoA8x/\nVia Teufy @teufy_official
 URL:https://www.instagram.com/p/DgGIZohoA8x/
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -19,7 +20,8 @@ END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT2H
-DESCRIPTION:Dans 2 h : La Cale Sèche – Soirée Spritz + PSG / Lorient
+DESCRIPTION:Dans 2 h : La Cale Sèche – Soirée Spritz + PSG / Lorien
+ t
 END:VALARM
 END:VEVENT
 END:VCALENDAR

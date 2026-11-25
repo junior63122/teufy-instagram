@@ -4,12 +4,14 @@ PRODID:-//Teufy//Agenda//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:origins-invite-boticka-all-night-long-2026-11-28@teufy
-DTSTAMP:20261125T132131Z
+DTSTAMP:20261125T142020Z
 DTSTART:20261128T223000Z
 DTEND:20261129T033000Z
 SUMMARY:Origins Invite Boticka All Night Long
 LOCATION:switch Club\, Roquebrune-sur-Argens
-DESCRIPTION:Marathon hard techno en configuration 360° avec Boticka all night long.\nBillets : https://shotgun.live/events/origins-invite-boticka-all-night-long\nVia Teufy @teufy_official
+DESCRIPTION:Marathon hard techno en configuration 360° avec Boticka all ni
+ ght long.\nBillets : https://shotgun.live/events/origins-invite-boticka-al
+ l-night-long\nVia Teufy @teufy_official
 URL:https://shotgun.live/events/origins-invite-boticka-all-night-long
 BEGIN:VALARM
 ACTION:DISPLAY
