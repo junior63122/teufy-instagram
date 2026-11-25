@@ -6466,6 +6466,31 @@
       "instagram": [
         "damnpeach__"
       ]
+    },
+    {
+      "source": "web",
+      "source_site": "instagram.com",
+      "via_veille": true,
+      "name": "Julianne & Jeremy DJ Set",
+      "start": "2026-11-25T22:00:00.000Z",
+      "venue": "Downtown Nice",
+      "city": "Nice",
+      "address": "",
+      "url": "https://www.instagram.com/p/DgLKYcijZeu/",
+      "image": "https://scontent-ord5-2.cdninstagram.com/v/t51.82787-15/930142529_18056432765815469_5536421173977830077_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=106&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=ABIiOrmDzNsQ7kNvwGGqQy8&_nc_oc=AdpFdp0jpoRITJUrfT4jEAQGEM1ehJ6CH3CL2-y7i0yCzEInwFYt5UNZto8UKq3liQ4&_nc_zt=23&_nc_ht=scontent-ord5-2.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=8v5W6vthxRDqmdFpT9YpZw&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQR4j7w5QCSO9eygME8B3S76vpZXYHekavDwobfym4A8Tw&oe=6B0D3317",
+      "price": null,
+      "tags": [
+        "DJ",
+        "House",
+        "Techno"
+      ],
+      "description": "",
+      "public_cible": 0.6,
+      "confiance": 0.8,
+      "accroche": "DJ set du 23h au 4h, Happy Hours 22h-0h",
+      "instagram": [
+        "downtown.nice"
+      ]
     }
   ],
   "maj_instagram": "2026-11-25T20:12:26.712Z"
