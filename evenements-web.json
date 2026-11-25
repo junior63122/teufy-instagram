@@ -7,6 +7,60 @@
   "evenements": [
     {
       "source": "web",
+      "source_site": "Shotgun",
+      "name": "La Java 3",
+      "start": "2026-12-05T22:00:00.000Z",
+      "venue": "Le Green Musik",
+      "city": "Antibes",
+      "address": "",
+      "url": "https://shotgun.live/fr/events/la-java-3",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,w_1200,h_630,f_jpg,q_auto/production/artworks/LA_JAVA_3_shotgun_1_e8r9xv.png",
+      "price": 11.99,
+      "tags": [
+        "bounce",
+        "hard techno",
+        "psytrance",
+        "hardcore",
+        "Hardcore",
+        "Hard Bounce",
+        "Hard Techno",
+        "Bounce",
+        "hard bounce",
+        "Techno",
+        "techno",
+        "hard trance"
+      ],
+      "description": "Prépare‑toi pour LA JAVA, une soirée techno hardcore qui démarre le 5 décembre à 23 h au Green Musik d’Antibes et file jusqu’à 5 h du matin. Le DJ Bodru Music, connu pour ses tracks « Sorry, mama » et ses collaborations avec I HATE MODELS, enflamme le dancefloor avec des sons hard trance, techno acid et hardcore. L’ambiance est intense, sans dress‑code particulier, et l’entrée est en libre accès (billetterie en bio). Une bonne vibe pour les 18‑30 ans qui aiment les sons lourds et l’énergie pure.",
+      "public_cible": 0.95,
+      "confiance": 0.95,
+      "buzz": 0.75,
+      "buzz_raison": "Rave avec 5 DJs hard techno et psytrance sur gros système son.",
+      "accroche": "6h de rave non-stop hard techno et psytrance sur sound system Martin Audio.",
+      "instagram": [
+        "jobarevent",
+        "green_musikclub",
+        "jobar_event"
+      ],
+      "sources_sites": [
+        "Shotgun.live",
+        "Shotgun",
+        "instagram.com",
+        "shotgun.live",
+        "Instagram"
+      ],
+      "via_veille": true,
+      "offres": [
+        {
+          "plateforme": "shotgun.live",
+          "url": "https://shotgun.live/fr/events/la-java-3",
+          "prix": 11.99
+        }
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
+    },
+    {
+      "source": "web",
       "source_site": "unica_culture",
       "name": "Concert PLK – Palais Nikaïa",
       "start": "2026-12-06T19:00:00.000Z",
@@ -1617,57 +1671,6 @@
       "sources_sites": [
         "shotgun.live",
         "Shotgun"
-      ],
-      "billetterie_cherchee": true,
-      "offres_cherchees": true
-    },
-    {
-      "source": "web",
-      "source_site": "Shotgun",
-      "name": "La Java 3",
-      "start": "2026-12-05T22:00:00.000Z",
-      "venue": "Le Green Musik",
-      "city": "Antibes",
-      "address": "",
-      "url": "https://shotgun.live/fr/events/la-java-3",
-      "image": "https://assets.shotgun.live/image/upload/c_limit,w_1200,h_630,f_jpg,q_auto/production/artworks/LA_JAVA_3_shotgun_1_e8r9xv.png",
-      "price": 11.99,
-      "tags": [
-        "bounce",
-        "hard techno",
-        "psytrance",
-        "hardcore",
-        "Hardcore",
-        "Hard Bounce",
-        "Hard Techno",
-        "Bounce",
-        "hard bounce",
-        "Techno"
-      ],
-      "description": "Le 5 décembre, Le Green Musik d’Antibes accueille LA JAVA, une soirée techno hardcore à 23h, qui se poursuit jusqu’à 5h du matin. Furious Reaperz, duo français de renommée, vous livrent un set intense mêlant gabber, hardcore et uptempo. L’ambiance est électrique, avec une montée en puissance constante et des tracks exclusifs. L’événement est destiné aux 17‑30 ans passionnés de techno hardcore et de soirées endiablées.",
-      "public_cible": 0.95,
-      "confiance": 0.95,
-      "buzz": 0.75,
-      "buzz_raison": "Rave avec 5 DJs hard techno et psytrance sur gros système son.",
-      "accroche": "6h de rave non-stop hard techno et psytrance sur sound system Martin Audio.",
-      "instagram": [
-        "jobarevent",
-        "green_musikclub",
-        "jobar_event"
-      ],
-      "sources_sites": [
-        "Shotgun.live",
-        "Shotgun",
-        "instagram.com",
-        "shotgun.live"
-      ],
-      "via_veille": true,
-      "offres": [
-        {
-          "plateforme": "shotgun.live",
-          "url": "https://shotgun.live/fr/events/la-java-3",
-          "prix": 11.99
-        }
       ],
       "billetterie_cherchee": true,
       "offres_cherchees": true
@@ -6465,5 +6468,5 @@
       ]
     }
   ],
-  "maj_instagram": "2026-11-25T18:16:53.589Z"
+  "maj_instagram": "2026-11-25T19:12:21.036Z"
 }

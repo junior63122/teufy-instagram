@@ -8799,5 +8799,33 @@
   "commun": [
    "hamslow"
   ]
+ },
+ "v2|e772d911c37c": {
+  "ok": false,
+  "le": "2026-11-25T19:13:56.542Z",
+  "nom": "Concert PLK – Palais Nikaïa",
+  "lu": {
+   "titre": "OFFRE DE PLACES",
+   "dates": [
+    "2026-12-06"
+   ],
+   "artistes": [
+    "PLK"
+   ],
+   "lieu": "PALAIS NIKAIÄ"
+  },
+  "commun": []
+ },
+ "v2|1c5be2ae0d1e": {
+  "ok": false,
+  "le": "2026-11-25T19:14:06.500Z",
+  "nom": "Concert PLK – Palais Nikaïa",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": [],
+   "lieu": ""
+  },
+  "commun": []
  }
 }
