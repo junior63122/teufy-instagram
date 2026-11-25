@@ -8541,5 +8541,48 @@
   "commun": [
    "compil"
   ]
+ },
+ "v2|25076b63d350": {
+  "ok": false,
+  "le": "2026-11-25T11:13:14.613Z",
+  "nom": "Nouvel An Saint-Sylvestre au Zelli's Club / AREV Saint-Tropez",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": [],
+   "lieu": ""
+  },
+  "commun": []
+ },
+ "v2|06734c9ca1f8": {
+  "ok": false,
+  "le": "2026-11-25T11:13:15.233Z",
+  "nom": "New Year’s Eve Bar Crawl Party Nice",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": [],
+   "lieu": ""
+  },
+  "commun": []
+ },
+ "og|https://shotgun.live/events/new-year-s-eve-bar-crawl-party-nice": "",
+ "og|https://www.eventbrite.fr/e/new-years-eve-bar-crawl-party-nice-tickets-1197332295": "",
+ "og|https://allevents.in/nice/new-years-eve-bar-crawl-party-nice/": "",
+ "v2|c64eef4a26d4": {
+  "ok": true,
+  "le": "2026-11-25T11:16:17.111Z",
+  "nom": "Fête de la Saint-Sylvestre : Drone Show & Nuit du Nouvel An sur la Croisette",
+  "lu": {
+   "titre": "Feu d'artifice SHOW DE DRONES",
+   "dates": [
+    "2026-12-31"
+   ],
+   "artistes": [],
+   "lieu": "Baie de Cannes"
+  },
+  "commun": [
+   "show"
+  ]
  }
 }

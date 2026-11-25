@@ -1,5 +1,5 @@
 {
- "le": "2026-11-25T10:12:59.353Z",
+ "le": "2026-11-25T11:12:37.589Z",
  "total": 148,
  "sans_image": [
   {
@@ -550,6 +550,15 @@
    "ville": "Saint-Tropez",
    "instagram": "",
    "url": "https://www.arevcollection.com/offers/saint-tropez-new-year"
+  },
+  {
+   "id": "new-year-s-eve-bar-crawl-party-nice-2026-12-31",
+   "nom": "New Year’s Eve Bar Crawl Party Nice",
+   "jour": "2026-12-31",
+   "lieu": "Hostel Villa Saint Exupery Beach",
+   "ville": "Nice",
+   "instagram": "rivierabarcrawltours",
+   "url": "https://www.eventbrite.fr/e/new-years-eve-bar-crawl-party-nice-tickets-2004418564885"
   },
   {
    "id": "nouvel-an-2027-le-mas-d-hiver-2026-12-31",

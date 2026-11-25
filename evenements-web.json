@@ -7,6 +7,35 @@
   "evenements": [
     {
       "source": "web",
+      "source_site": "Instagram sowetolesprit",
+      "name": "IVoir 83",
+      "start": "2026-12-05T19:00:00.000Z",
+      "venue": "Boka Club",
+      "city": "Toulon",
+      "address": "",
+      "url": "https://www.instagram.com/reel/DgIwrZ4o_rA/",
+      "image": "",
+      "price": 35,
+      "tags": [
+        "Afro",
+        "Coupé Décalé",
+        "Amapiano",
+        "Shatta",
+        "Zouk",
+        "Kompa"
+      ],
+      "description": "La Soweto Family t’invite à une soirée aux couleurs de la Côte d’Ivoire le samedi 5 décembre au Boka Club à Toulon. Tu profiteras d’un menu ivoirien à 35 €, entrée comprise, et d’une programmation Afro qui mixe Coupé Décalé, Amapiano, Shatta, Zouk et Kompa. L’ambiance sera festive, entre rythmes africains et décor tropical, de 20 h à 23 h. Réserve vite via Instagram : sowetolesprit, le nombre de places est limité. Dress code décontracté, soirée réservée aux 18‑30 ans.",
+      "public_cible": 0.9,
+      "confiance": 0.7,
+      "buzz": 0.6,
+      "buzz_raison": "Première soirée ivoirienne à Toulon, menu inclus, forte visibilité locale",
+      "accroche": "Soirée 100 % ivoirienne au Boka Club : menu, sons afro et vibes tropicales le 5 déc !",
+      "instagram": [
+        "sowetolesprit"
+      ]
+    },
+    {
+      "source": "web",
       "source_site": "Instagram - lebarathymtoulon",
       "name": "Le Chalet des Amis – Ouverture officielle",
       "start": "2026-11-27T17:00:00.000Z",
@@ -6221,6 +6250,6 @@
       ]
     }
   ],
-  "maj_instagram": "2026-11-25T10:12:59.353Z",
+  "maj_instagram": "2026-11-25T11:12:37.589Z",
   "echec_web": "2026-11-25T08:13:22.943Z"
 }
