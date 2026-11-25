@@ -6248,6 +6248,31 @@
       "instagram": [
         "afroheatfestival"
       ]
+    },
+    {
+      "source": "web",
+      "source_site": "instagram.com",
+      "via_veille": true,
+      "name": "Golden Vibes & Birthday Party",
+      "start": "2026-12-12T18:00:00.000Z",
+      "venue": "Playa Chica, Mandelieu",
+      "city": "Mandelieu",
+      "address": "",
+      "url": "https://www.instagram.com/p/DgIe44COVrW/",
+      "image": "https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/924043452_18390421708238033_2004032595113989788_n.webp?stp=dst-jpg_e35_tt6&_nc_cat=104&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=3k_y16b46UIQ7kNvwHjo28x&_nc_oc=AdrWC_QiT0B1RFqRBo2VImIQwWiVLGqJ4IJ-aJs7g75eqnLbwv_kV6AYxBeEnjrGi54&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=jX6ash-BfDHG2fbdDl7jvw&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQQX6FRFQNk03169G3HGyQRaPZ95bFVr6rezrf1vFAsV7w&oe=6B0CA2F3",
+      "price": null,
+      "tags": [
+        "house",
+        "electro",
+        "birthday"
+      ],
+      "description": "",
+      "public_cible": 0.6,
+      "confiance": 0.8,
+      "accroche": "Soirée golden vibes & birthday party à Playa Chica le 12 déc.",
+      "instagram": [
+        "le.bar.ephemere"
+      ]
     }
   ],
   "maj_instagram": "2026-11-25T11:12:37.589Z",
