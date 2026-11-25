@@ -1,0 +1,27 @@
+{
+  "id": "veille",
+  "type": "veille",
+  "variante": null,
+  "date": "2026-11-25",
+  "images": [
+    "flash-2026-11-25.jpg"
+  ],
+  "legende": "- Glorious à Palais Nikaïa le 5 Décembre\nConcert + concours tirage au sort le 1er Déc.\nVous êtes prêts ?\n\n#TeufyParty #Nice #Glorious",
+  "titre": "Glorious 5 Décembre",
+  "veille": {
+    "titre": "Concert Glorious le 5 décembre à Palais Nikaïa",
+    "source": "https://www.instagram.com/p/DgKGwW4FVVS/",
+    "importance": 85
+  },
+  "tags": [
+    [
+      "palaisnikaia"
+    ]
+  ],
+  "photo": null,
+  "choix": {},
+  "features": [],
+  "nb_images": 1,
+  "story": "story.jpg",
+  "a_tester": []
+}
