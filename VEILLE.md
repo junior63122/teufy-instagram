@@ -4,6 +4,21 @@ Journal daté (le plus récent en premier) : changements des prestataires et des
 mises à jour, sources de soirées réparées ou ajoutées, décisions prises. Tenu par la tâche programmée quotidienne
 (demande du directeur du 20/11/2026), à partir de `contenus/veille-technique.json` et des annonces officielles.
 
+## 25/11/2026 : veille quotidienne
+- Relevé technique : celui de 6 h 17 pas encore passé à 7 h (le robot de veille le relance dès 7 h) ; relevé d'hier 19 h 12 lu.
+- DATAtourisme : premier vrai relevé en JSON-LD réussi (9 soirées gardées : Réveillon au Bikini et Kalinka à Toulouse, concerts
+  à Aix, Marseille, Tarbes, Cahors). « Reconversion au féminin » (Cahors) n'est pas une soirée : « reconversion » et « formation »
+  ajoutés aux exclusions.
+- Actions GitHub : upload-artifact v4 → v7 (robots Instagram et veille, aperçus seulement), cache v4 → v6 (contrôle qualité),
+  upload-pages-artifact v3 → v5 et deploy-pages v4 → v5 (mise en ligne du site), avec include-hidden-files: true : depuis la v4,
+  les fichiers cachés ne partaient plus et .well-known/tdmrep.json (pas d'entraînement des IA) aurait disparu. Vérification
+  ajoutée après chaque mise en ligne. Changé à 7 h, hors des créneaux de publication.
+- Meta (changelog) : 18/11, la recherche par hashtag (top_media) sera limitée à 200 résultats à partir du 16/02/2027 ; Teufy ne
+  l'utilise pas. Rien d'autre depuis le 22/11 qui touche la publication.
+- Soirées des 7 prochains jours : 68 (Nice 21, Toulon 13, Cannes 12, Monaco 3, Juan-les-Pins 3, La Garde 3…) ; 18 sans heure,
+  25 sans prix, 7 sans affiche, 2 sans billetterie. Sources muettes inchangées (Shotgun 429, pages Eventbrite 405 : remplacées par
+  l'API officielle Eventbrite).
+
 ## 24/11/2026 : veille quotidienne
 - API Instagram (tâche programmée de 14 h 23) : documentation officielle relue (changelog Instagram, versions Graph API, référence
   POST /{ig-user-id}/media). Dernière version v26.0 (29/07/2026) ; v21.0 expire le 21/01/2027. Métriques supprimées depuis v22

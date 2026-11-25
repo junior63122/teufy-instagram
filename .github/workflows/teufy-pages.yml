@@ -67,17 +67,25 @@ jobs:
           mv ../_site ./_site
           touch _site/.nojekyll
           du -sh _site; test -f _site/index.html && test -f _site/CNAME
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: _site
+          # v4+ : fichiers cachés exclus par défaut ; .well-known/tdmrep.json (pas d'entraînement des IA) doit rester en ligne.
+          include-hidden-files: true
       # 21/11/2026 : 9 échecs « No artifacts named github-pages » le même jour (l'envoi était fini, GitHub ne le voyait pas
       # encore 0,4 s après) → mails d'échec au directeur. Deuxième essai 30 s plus tard ; échec seulement si les deux ratent.
       - id: essai1
         continue-on-error: true
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
       - name: Attendre avant le deuxième essai
         if: steps.essai1.outcome == 'failure'
         run: sleep 30
       - id: deploiement
         if: steps.essai1.outcome == 'failure'
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
+      # 25/11/2026 : passage aux actions Pages v5 (fichiers cachés exclus par défaut) : on vérifie que le fichier qui interdit
+      # l'entraînement des IA est toujours en ligne (avertissement seulement, le site est déjà publié).
+      - name: Vérifier .well-known/tdmrep.json en ligne
+        run: |
+          sleep 45
+          curl -sf --max-time 30 "https://teufyparty.com/.well-known/tdmrep.json" >/dev/null && echo "tdmrep.json en ligne." || echo "::warning::.well-known/tdmrep.json absent du site en ligne (vérifier include-hidden-files)."

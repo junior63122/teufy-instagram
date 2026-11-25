@@ -61,7 +61,7 @@ jobs:
         with:
           node-version: 22 # 22/11/2026 : Node 20 en fin de vie (veille technique)
       - name: Garder les navigateurs de test en cache (installation plus rapide et plus fiable)
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: ~/.cache/ms-playwright
           key: playwright-${{ matrix.navigateur }}-${{ hashFiles('package-lock.json') }}
