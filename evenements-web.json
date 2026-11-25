@@ -1282,10 +1282,12 @@
       "sources_sites": [
         "shotgun.live",
         "Shotgun",
-        "Shotgun.live"
+        "Shotgun.live",
+        "instagram.com"
       ],
       "billetterie_cherchee": true,
-      "offres_cherchees": true
+      "offres_cherchees": true,
+      "via_veille": true
     },
     {
       "source": "web",
