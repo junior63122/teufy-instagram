@@ -1,10 +1,200 @@
 {
-  "maj": "2026-11-24T02:11:15.107Z",
-  "du": "2026-11-24",
-  "au": "2027-01-08",
-  "nb_bruts": 215,
-  "recherches_abouties": "22/24",
+  "maj": "2026-11-25T16:39:50.227Z",
+  "du": "2026-11-25",
+  "au": "2027-01-09",
+  "nb_bruts": 7,
+  "recherches_abouties": "23/24",
   "evenements": [
+    {
+      "source": "web",
+      "source_site": "Eventbrite Nice",
+      "name": "Nice New Year's Eve 2026‑2027 – Guaranteed VIP Club Entry & 5 Free Shots",
+      "start": "2026-12-31T20:00:00.000Z",
+      "venue": "La Chapa",
+      "city": "Nice",
+      "address": "",
+      "url": "https://www.eventbrite.fr/e/nice-new-years-eve-2026-2027-guaranteed-vip-club-entry-5-free-shots-tickets-xxx",
+      "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1197180661%2F2149570374853%2F1%2Foriginal.20241229-105819?w=1880&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C215%2C2048%2C1024&s=b83f036940fc184a8715201972bdddd8",
+      "price": 30,
+      "tags": [
+        "Electro",
+        "House",
+        "dance",
+        "pop",
+        "electro",
+        "hip-hop",
+        "Open Format",
+        "Électro",
+        "Hip-Hop",
+        "Club"
+      ],
+      "description": "Passe le réveillon de la Saint-Sylvestre dans une immense fête internationale réunissant des jeunes du monde entier. Le programme inclut une tournée des bars avec 5 shots offerts, décompte festif à minuit et un accès VIP coupe-file garanti en discothèque partenaire pour finir au petit matin. Rendez-vous fixé dès 21h00 au bar La Chapa à Nice. Le pass démarre à 50 euros pour s assurer une soirée complète.",
+      "public_cible": 0.9,
+      "confiance": 0.95,
+      "buzz": 0.85,
+      "buzz_raison": "VIP, lieu réputé, sold‑out probable",
+      "accroche": "Vibe club, VIP, 5 shots gratuits pour fêter le Nouvel An",
+      "instagram": [
+        "eventbrite",
+        "lachapa",
+        "lachapanice"
+      ],
+      "offres": [
+        {
+          "plateforme": "eventbrite.fr",
+          "url": "https://www.eventbrite.fr/e/nice-new-years-eve-2026-2027-guaranteed-vip-club-entry-5-free-shots-tickets-xxx",
+          "prix": 30
+        },
+        {
+          "plateforme": "allevents.in",
+          "url": "https://allevents.in/nice/nice-new-years-eve-2026-2027-%E2%80%94-guaranteed-vip-club-entry-and-5-free-shots/10000193821549447",
+          "prix": 50
+        }
+      ],
+      "sources_sites": [
+        "eventbrite.fr",
+        "AllEvents"
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
+    },
+    {
+      "source": "web",
+      "source_site": "shotgun.live",
+      "name": "Do You Like... Tekno ? @ Frigo16 - Le 109",
+      "start": "2026-11-28T19:00:00.000Z",
+      "venue": "Frigo 16",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/events/do-you-like-tekno-frigo-16-le-109-nice",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto:good/production/artworks/FRIGO16-SAISON_sept-dec_2026-cover-3000x1000_qi4spw",
+      "price": 25,
+      "tags": [
+        "techno",
+        "acidcore",
+        "tribe",
+        "hardtek",
+        "Techno",
+        "Acidcore",
+        "Tribe",
+        "Hardtek",
+        "Tekno",
+        "Acid Techno",
+        "Hard Rave",
+        "tekno",
+        "hard techno",
+        "Hard Techno",
+        "Mental Tekno",
+        "Mental",
+        "Free Tekno",
+        "Hardtechno",
+        "acid",
+        "acid‑core",
+        "hard‑tech"
+      ],
+      "description": "Le 28 novembre, le Frigo16 à Nice accueille la deuxième édition de la série DO YOU LIKE TEKNO ? de Prizme Concept. La soirée promet une immersion totale dans le tekno hardcore, avec la présence de Cera Khin, figure incontournable de la scène techno internationale, et un line‑up qui mêle hard techno, schranz, acid et psytrance. L’ambiance est brute, les BPM sont élevés, et le concept est de laisser le son parler. L’entrée est libre, mais la billetterie est ouverte en prévente via le lien dans la bio. L’événement s’adresse aux 17‑30 ans qui cherchent une expérience électro intense dans un club emblématique de Nice.",
+      "public_cible": 0.9,
+      "confiance": 0.95,
+      "buzz": 0.85,
+      "buzz_raison": "Poids lourds de la scène tekno européenne réunis sur un son Meyer Sound.",
+      "accroche": "Rave tekno et acidcore avec système Meyer Sound au Frigo 16.",
+      "instagram": [
+        "_do.you.like",
+        "prizmeconcept",
+        "frigo.16"
+      ],
+      "offres": [
+        {
+          "plateforme": "shotgun.live",
+          "url": "https://shotgun.live/fr/events/do-you-like-tekno-frigo-16-le-109-nice",
+          "prix": 10.99
+        },
+        {
+          "plateforme": "le109.nice.fr",
+          "url": "https://le109.nice.fr/evenement/do-you-like-tekno-28-11-2026",
+          "prix": 10.99
+        },
+        {
+          "plateforme": "festscanner.com",
+          "url": "https://festscanner.com/en/event/do-you-like-tekno-nice-2026-11-28",
+          "prix": 11.29
+        }
+      ],
+      "sources_sites": [
+        "shotgun.live",
+        "le109.nice.fr",
+        "Shotgun",
+        "Shotgun Live",
+        "https://festscanner.com/en/event/do-you-like-tekno-nice-2026-11-28"
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
+    },
+    {
+      "source": "web",
+      "source_site": "Bizouk.com",
+      "name": "Caraïbazur Festival – Théâtre de Verdure",
+      "start": "2026-10-16T18:30:00.000Z",
+      "venue": "Théâtre de Verdure",
+      "city": "Nice",
+      "address": "",
+      "url": "https://www.bizouk.com/events/details/caraibazur-festival/128780",
+      "image": "",
+      "price": 19.3,
+      "tags": [
+        "Zouk",
+        "Konpa"
+      ],
+      "description": "Première édition du Caraïbazur Festival, un événement Zouk‑Konpa qui se déroule dans le cadre verdoyant du Théâtre de Verdure sur la Promenade des Anglais. Le programme promet une soirée festive et dansante, avec des artistes afro‑caribéens à l'affiche. Le tarif est de 19,30 € et l'événement est ouvert aux jeunes de 17 à 30 ans.",
+      "public_cible": 0.5,
+      "confiance": 0.9,
+      "buzz": 0.7,
+      "buzz_raison": "Première édition, lieu emblématique (Théâtre de Verdure)",
+      "accroche": "1ère édition du festival Zouk Konpa au Théâtre de Verdure",
+      "instagram": [
+        "caraibazurfest",
+        "theatredeverdure"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "grimaldiforum.com",
+      "name": "Thursday Live Sessions - DIRTY DEEP",
+      "start": "2026-12-17T17:30:00.000Z",
+      "venue": "Espace Indigo - Grimaldi Forum Monaco",
+      "city": "Monaco",
+      "address": "",
+      "url": "https://www.grimaldiforum.com/fr/agenda-manifestations-monaco/thursday-live-sessions-dirty-deep",
+      "image": "https://www.grimaldiforum.com/medias/c/465x254/content/AGENDA/2026/2%C3%88ME%20SEMESTRE%202026/shrek-image-1.jpg",
+      "price": 0,
+      "tags": [
+        "Heavy Blues",
+        "Garage Rock",
+        "Rock alternatif",
+        "deep house",
+        "techno"
+      ],
+      "description": "Le Grimaldi Forum t’invite à une session live dédiée à la deep‑house et au techno. La soirée, prévue le 17 décembre, se déroule dans un cadre intime, propice à la découverte de talents émergents. Les DJs sélectionnés promettent une ambiance électrisante, mêlant grooves profonds et beats techno. L’entrée est à 30 € et l’événement est ouvert aux 18‑30 ans, sans dress code particulier.",
+      "public_cible": 0.65,
+      "confiance": 0.95,
+      "buzz": 0.6,
+      "buzz_raison": "Concert live 100 % gratuit face à la mer.",
+      "accroche": "Concert heavy blues rock survolté et gratuit face à la mer au Grimaldi Forum.",
+      "instagram": [
+        "grimaldiforum"
+      ],
+      "offres": [
+        {
+          "plateforme": "grimaldiforum.com",
+          "url": "https://www.grimaldiforum.com/fr/agenda-manifestations-monaco/thursday-live-sessions-dirty-deep",
+          "prix": 0
+        }
+      ],
+      "sources_sites": [
+        "grimaldiforum.com",
+        "https://www.grimaldiforum.com/en"
+      ]
+    },
     {
       "source": "web",
       "source_site": "Instagram",
@@ -742,70 +932,6 @@
       "sources_sites": [
         "shotgun.live",
         "Shotgun"
-      ],
-      "billetterie_cherchee": true,
-      "offres_cherchees": true
-    },
-    {
-      "source": "web",
-      "source_site": "shotgun.live",
-      "name": "Do You Like... Tekno ? @ Frigo16 - Le 109",
-      "start": "2026-11-28T19:00:00.000Z",
-      "venue": "Frigo 16",
-      "city": "Nice",
-      "address": "",
-      "url": "https://shotgun.live/events/do-you-like-tekno-frigo-16-le-109-nice",
-      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto:good/production/artworks/FRIGO16-SAISON_sept-dec_2026-cover-3000x1000_qi4spw",
-      "price": 25,
-      "tags": [
-        "techno",
-        "acidcore",
-        "tribe",
-        "hardtek",
-        "Techno",
-        "Acidcore",
-        "Tribe",
-        "Hardtek",
-        "Tekno",
-        "Acid Techno",
-        "Hard Rave",
-        "tekno",
-        "hard techno",
-        "Hard Techno",
-        "Mental Tekno",
-        "Mental",
-        "Free Tekno",
-        "Hardtechno",
-        "acid"
-      ],
-      "description": "Le 28 novembre, le Frigo16 à Nice accueille la deuxième édition de la série DO YOU LIKE TEKNO ? de Prizme Concept. La soirée promet une immersion totale dans le tekno hardcore, avec la présence de Cera Khin, figure incontournable de la scène techno internationale, et un line‑up qui mêle hard techno, schranz, acid et psytrance. L’ambiance est brute, les BPM sont élevés, et le concept est de laisser le son parler. L’entrée est libre, mais la billetterie est ouverte en prévente via le lien dans la bio. L’événement s’adresse aux 17‑30 ans qui cherchent une expérience électro intense dans un club emblématique de Nice.",
-      "public_cible": 0.9,
-      "confiance": 0.95,
-      "buzz": 0.85,
-      "buzz_raison": "Poids lourds de la scène tekno européenne réunis sur un son Meyer Sound.",
-      "accroche": "Rave tekno et acidcore avec système Meyer Sound au Frigo 16.",
-      "instagram": [
-        "_do.you.like",
-        "prizmeconcept",
-        "frigo.16"
-      ],
-      "offres": [
-        {
-          "plateforme": "shotgun.live",
-          "url": "https://shotgun.live/fr/events/do-you-like-tekno-frigo-16-le-109-nice",
-          "prix": 10.99
-        },
-        {
-          "plateforme": "le109.nice.fr",
-          "url": "https://le109.nice.fr/evenement/do-you-like-tekno-28-11-2026",
-          "prix": 10.99
-        }
-      ],
-      "sources_sites": [
-        "shotgun.live",
-        "le109.nice.fr",
-        "Shotgun",
-        "Shotgun Live"
       ],
       "billetterie_cherchee": true,
       "offres_cherchees": true
@@ -2002,55 +2128,6 @@
         "Shotgun Live",
         "AllEvents",
         "Shotgun"
-      ],
-      "billetterie_cherchee": true,
-      "offres_cherchees": true
-    },
-    {
-      "source": "web",
-      "source_site": "eventbrite.fr",
-      "name": "Nice New Year's Eve 2026-2027 — Guaranteed VIP Club Entry & 5 Free Shots",
-      "start": "2026-12-31T20:00:00.000Z",
-      "venue": "La Chapa",
-      "city": "Nice",
-      "address": "",
-      "url": "https://www.eventbrite.fr/e/nice-new-years-eve-2026-2027-guaranteed-vip-club-entry-5-free-shots-tickets-1197180661",
-      "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1197180661%2F2149570374853%2F1%2Foriginal.20241229-105819?w=1880&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C215%2C2048%2C1024&s=b83f036940fc184a8715201972bdddd8",
-      "price": 50,
-      "tags": [
-        "dance",
-        "pop",
-        "electro",
-        "hip-hop",
-        "Open Format",
-        "Électro",
-        "Hip-Hop",
-        "Club"
-      ],
-      "description": "Passe le réveillon de la Saint-Sylvestre dans une immense fête internationale réunissant des jeunes du monde entier. Le programme inclut une tournée des bars avec 5 shots offerts, décompte festif à minuit et un accès VIP coupe-file garanti en discothèque partenaire pour finir au petit matin. Rendez-vous fixé dès 21h00 au bar La Chapa à Nice. Le pass démarre à 50 euros pour s assurer une soirée complète.",
-      "public_cible": 0.95,
-      "confiance": 0.95,
-      "buzz": 0.85,
-      "buzz_raison": "Soirée du Nouvel An 2026-2027 avec accès garanti en club VIP dans un Nice complet.",
-      "accroche": "Passe le réveillon du Nouvel An entre bars et boîte VIP avec 5 shots offerts à Nice.",
-      "instagram": [
-        "lachapanice"
-      ],
-      "offres": [
-        {
-          "plateforme": "eventbrite.fr",
-          "url": "https://www.eventbrite.fr/e/nice-new-years-eve-2026-2027-guaranteed-vip-club-entry-5-free-shots-tickets-1197180661",
-          "prix": 50
-        },
-        {
-          "plateforme": "allevents.in",
-          "url": "https://allevents.in/nice/nice-new-years-eve-2026-2027-%E2%80%94-guaranteed-vip-club-entry-and-5-free-shots/10000193821549447",
-          "prix": 50
-        }
-      ],
-      "sources_sites": [
-        "eventbrite.fr",
-        "AllEvents"
       ],
       "billetterie_cherchee": true,
       "offres_cherchees": true
@@ -4481,32 +4558,6 @@
     },
     {
       "source": "web",
-      "source_site": "grimaldiforum.com",
-      "name": "Thursday Live Sessions - DIRTY DEEP",
-      "start": "2026-12-17T17:30:00.000Z",
-      "venue": "Espace Indigo - Grimaldi Forum Monaco",
-      "city": "Monaco",
-      "address": "",
-      "url": "https://www.grimaldiforum.com/fr/agenda-manifestations-monaco/thursday-live-sessions-dirty-deep",
-      "image": "https://www.grimaldiforum.com/medias/c/465x254/content/AGENDA/2026/2%C3%88ME%20SEMESTRE%202026/shrek-image-1.jpg",
-      "price": 0,
-      "tags": [
-        "Heavy Blues",
-        "Garage Rock",
-        "Rock alternatif"
-      ],
-      "description": "Le Grimaldi Forum t'accueille pour sa soirée live mensuelle gratuite dans l'espace Indigo face à la Méditerranée. Dès 18h30, profite d'un apéromix warm-up avant le concert de Dirty Deep à 20h30. Ce power-trio français va envoyer du gros son entre heavy blues et garage rock explosif emmené par Victor Sbrovazzo. L'entrée est totalement gratuite, les consos restent payantes sur place.",
-      "public_cible": 0.65,
-      "confiance": 0.95,
-      "buzz": 0.6,
-      "buzz_raison": "Concert live 100 % gratuit face à la mer.",
-      "accroche": "Concert heavy blues rock survolté et gratuit face à la mer au Grimaldi Forum.",
-      "instagram": [
-        "grimaldiforum"
-      ]
-    },
-    {
-      "source": "web",
       "source_site": "montecarlosbm.com",
       "name": "Coldplay Tribute by Coldshivers - New Moods Monte-Carlo",
       "start": "2026-12-17T18:30:00.000Z",
@@ -6411,7 +6462,5 @@
         "damnpeach__"
       ]
     }
-  ],
-  "maj_instagram": "2026-11-25T17:20:10.607Z",
-  "echec_web": "2026-11-25T17:20:10.607Z"
+  ]
 }
