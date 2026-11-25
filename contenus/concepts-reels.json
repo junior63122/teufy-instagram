@@ -910,5 +910,121 @@
     "test_du_partage": "Envoyé au pote toujours en noir à minuit : « c'est littéralement toi ».",
     "statut": "propose",
     "ajout": "2026-11-24"
+  },
+  {
+    "id": "c-2026-11-25-1iz9vts",
+    "titre": "Black Friday des excuses pour pas sortir",
+    "format": "classement",
+    "accroche": "Black Friday : ses excuses pour pas sortir, soldées",
+    "plans": [
+      {
+        "texte": "« Je suis crevé » : -50 %, personne y croit",
+        "video": "friend lying on couch phone night"
+      },
+      {
+        "texte": "« J'ai plus de sous » : déjà utilisée en octobre",
+        "video": "empty wallet young man smiling"
+      },
+      {
+        "texte": "« Il pleut » : on habite sur la Côte, frère",
+        "video": "rain city street night lights"
+      },
+      {
+        "texte": "« Je rentre tôt » : article jamais livré",
+        "video": "friends dancing club late night"
+      },
+      {
+        "texte": "Dernière pièce en stock : « on verra »",
+        "video": "group chat phone screen typing"
+      },
+      {
+        "texte": "Rupture de stock samedi. Il sort quand même.",
+        "video": "crowd cheering club lights"
+      }
+    ],
+    "musique": "afro house énergique 122 bpm, cut sur chaque prix barré",
+    "legende": "Black Friday chez ton pote : toutes ses excuses à prix cassé. Problème, plus personne les achète. Samedi il sort, point. Tague celui qui a tout le stock 👇",
+    "cta": "Tague celui qui a toutes ces excuses en stock",
+    "inspire_de": "partiful (humour de situation) et le ton des marques type Ryanair",
+    "pourquoi_viral": "Collé à l'actu du week-end, situation que tout le monde reconnaît, chaque excuse appelle un nom précis.",
+    "test_du_partage": "Au pote qui annule chaque vendredi : « c'est trop toi », envoyé en message privé.",
+    "statut": "propose",
+    "ajout": "2026-11-25"
+  },
+  {
+    "id": "c-2026-11-25-zay4lr",
+    "titre": "Le calendrier de l'avent du fêtard azuréen",
+    "format": "classement",
+    "accroche": "Le calendrier de l'avent du fêtard de la Côte",
+    "plans": [
+      {
+        "texte": "Case 1 : le pot de Noël du taf qui finit en boîte",
+        "video": "office christmas party friends toast"
+      },
+      {
+        "texte": "Case 6 : la file au vent, en tenue légère",
+        "video": "queue outside club night wind"
+      },
+      {
+        "texte": "Case 12 : le vocal de 3 min envoyé à 4 h",
+        "video": "phone voice message night street"
+      },
+      {
+        "texte": "Case 18 : le before qui déborde, préventes fermées",
+        "video": "house party friends laughing"
+      },
+      {
+        "texte": "Case 24 : « cette année je reste en famille »",
+        "video": "christmas dinner family table"
+      },
+      {
+        "texte": "Case 31 : tu sais très bien où tu seras",
+        "video": "new year fireworks crowd sea"
+      }
+    ],
+    "musique": "house festive avec clochettes discrètes, 120 bpm",
+    "legende": "Décembre sur la Côte, une case par jour. On commence le 1er, on finit le 31 comme chaque année. T'en es à quelle case ? Envoie-le à ton groupe 🎄",
+    "cta": "Envoie-le à ton groupe et dis-nous ta case en com",
+    "inspire_de": "partiful « How early is too early to host your holiday party? »",
+    "pourquoi_viral": "Calendrier connu de tous, sorti au bon moment, chaque case est une situation vécue.",
+    "test_du_partage": "Au groupe WhatsApp des sorties : « on fait toutes les cases cette année ? »",
+    "statut": "propose",
+    "ajout": "2026-11-25"
+  },
+  {
+    "id": "c-2026-11-25-8u5yh8",
+    "titre": "Le dernier tram de Nice, s'il pouvait parler",
+    "format": "personnage",
+    "accroche": "Le dernier tram de Nice, s'il pouvait parler",
+    "plans": [
+      {
+        "texte": "« Je passe bientôt. Tu dis au revoir à 12 personnes. »",
+        "video": "tram night city lights empty platform"
+      },
+      {
+        "texte": "« Tu cours. Je te vois. Je pars quand même. »",
+        "video": "person running street night"
+      },
+      {
+        "texte": "« Ton pote avait promis de conduire ? Lol. »",
+        "video": "friends waiting street night phone"
+      },
+      {
+        "texte": "« Le VTC t'envoie ses amitiés. »",
+        "video": "phone ride app screen night"
+      },
+      {
+        "texte": "« On se revoit au premier passage du matin. »",
+        "video": "sunrise city street empty"
+      }
+    ],
+    "musique": "électro minimale ironique, tempo calme qui contraste avec la course",
+    "legende": "Le dernier tram n'attend personne, surtout pas toi qui dis au revoir à tout le monde. Tague celui qui le rate à chaque fois, on sait qu'il existe.",
+    "cta": "Tague celui qui rate toujours le dernier tram",
+    "inspire_de": "partiful (objet du quotidien qui parle) et le ton Duolingo",
+    "pourquoi_viral": "Galère 100 % niçoise, ton moqueur qui fait rire sans juger, un coupable évident à taguer.",
+    "test_du_partage": "Au pote qui finit toujours en VTC hors de prix : « c'est toi chaque samedi ».",
+    "statut": "propose",
+    "ajout": "2026-11-25"
   }
 ]

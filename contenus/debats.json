@@ -455,5 +455,21 @@
     "b": "Le lit, la plage c'est pour l'été",
     "legende": "La Prom' à 7 h ou la couette à 6 h ? Choisis ton camp en com et envoie ça à celui qui propose toujours la plage.",
     "ajout": "2026-11-24"
+  },
+  {
+    "id": "ia-2026-11-25-15o4792",
+    "q": "Fin de soirée sur la Côte : tu finis où ?",
+    "a": "La plage au lever du soleil",
+    "b": "Ton lit, direct",
+    "legende": "La boîte ferme, il est 5 h. Toi tu fais quoi ? A ou B en com, et tague celui qui dit toujours « allez, juste la plage ».",
+    "ajout": "2026-11-25"
+  },
+  {
+    "id": "ia-2026-11-25-5l4vnt",
+    "q": "Tu sors plutôt le jeudi ou le samedi ?",
+    "a": "Jeudi, moins de monde",
+    "b": "Samedi, sinon c'est pas sortir",
+    "legende": "Jeudi pour les malins, samedi pour tout le monde. Ton camp en com, et envoie ça à celui qui dit « jeudi c'est trop tôt ».",
+    "ajout": "2026-11-25"
   }
 ]

@@ -189,6 +189,16 @@
         "titre": "Le groupe a voté. Personne a respecté le vote.",
         "sous": "Envoie-le à ton groupe",
         "ajout": "2026-11-24"
+      },
+      {
+        "titre": "Décembre : 4 pots de Noël, 1 seule tenue",
+        "sous": "Tague celui qui va la remettre",
+        "ajout": "2026-11-25"
+      },
+      {
+        "titre": "« On se capte devant. » Réseau : 0 barre.",
+        "sous": "Envoie-le à ton groupe",
+        "ajout": "2026-11-25"
       }
     ],
     "techno": [
@@ -282,6 +292,11 @@
         "titre": "Dehors il pleut. Dans la warehouse, personne a vu.",
         "sous": "Techno · Côte d'Azur",
         "ajout": "2026-11-24"
+      },
+      {
+        "titre": "Ta prévente est prise. Ton binôme a dit « ouais ouais ».",
+        "sous": "Envoie-lui ça",
+        "ajout": "2026-11-25"
       }
     ],
     "petits-prix": [
@@ -356,6 +371,11 @@
         "titre": "Paye pas tombée, soirée déjà choisie",
         "sous": "Petits prix · Côte d'Azur",
         "ajout": "2026-11-24"
+      },
+      {
+        "titre": "Black Friday : la seule promo qui compte, c'est samedi",
+        "sous": "Petits prix · Côte d'Azur",
+        "ajout": "2026-11-25"
       }
     ]
   },
@@ -394,7 +414,9 @@
       "Il dit « j'suis devant ». Il sort de la douche. Les soirées du week-end de Nice à Monaco, à envoyer avant qu'il dise « 5 min ».  Tu fais laquelle ? Réponds en com.",
       "Jeudi pour les malins, samedi pour tout le monde. Les soirées de la semaine de Cannes à Monaco, triées pour ton groupe. Tague celui qui dit toujours « ce week-end, promis ».",
       "Le before s'éternise, les préventes ferment. Cette fois, tu choisis avant. Les soirées du week-end de Nice à Monaco, à envoyer à ton groupe.",
-      "Décembre, les pots de Noël et la même question : on finit où ? Les soirées du week-end de Cannes à Monaco. Tague celui qui dit « on rentre après celle-là »."
+      "Décembre, les pots de Noël et la même question : on finit où ? Les soirées du week-end de Cannes à Monaco. Tague celui qui dit « on rentre après celle-là ».",
+      "Pots de Noël, Black Friday, fin de mois : décembre arrive vite. Où sortir ce week-end de Nice à Monaco, avec qui y aller et comment rentrer. Envoie-le à ton groupe.",
+      "Ton groupe a besoin d'un plan, pas d'un sondage. Trois soirées ce week-end sur la Côte, une par ambiance. Réponds 1, 2 ou 3 en com."
     ],
     "techno": [
       "Les caissons tremblent déjà. Ce week-end, la scène underground du 06 ne fait aucun compromis sur les BPM.",
@@ -417,11 +439,13 @@
       "Minuit : « juste un set ». 7 h : sur la plage. Les dates qui tapent ce week-end sur la Côte, à envoyer à ton binôme qui ment pareil.",
       "Hard techno, trance ou tekno : dis-nous en com, on compte les camps. Les soirées du week-end sur la Côte, pour ceux qui viennent pour la musique.",
       "Les noms tombent un par un. Les dates qui tapent ce week-end sur la Côte, à envoyer à ton binôme avant qu'il te les envoie.",
-      "Tekno, hard techno, trance : les soirées du week-end sur la Côte. Laquelle tu fais ? Ton binôme répond en com."
+      "Tekno, hard techno, trance : les soirées du week-end sur la Côte. Laquelle tu fais ? Ton binôme répond en com.",
+      "Kicks lourds, il fait froid dehors, personne s'en rend compte dedans. Les dates qui tapent ce week-end sur la Côte, à envoyer à ton binôme avant qu'il prenne sa prévente sans toi.",
+      "Un nom tombe, le groupe rave s'allume. Les soirées techno du week-end de Nice à Toulon. Tu fais laquelle ? Réponds juste le nom en com."
     ]
   },
-  "objectif_semaine": 40,
-  "derniere_analyse": "2026-11-24T15:08:02.227Z",
+  "objectif_semaine": 35,
+  "derniere_analyse": "2026-11-25T16:34:53.432Z",
   "concurrents": {
     "_note": "Comptes concurrents ou similaires (guides de sorties, médias nightlife). Le bot regarde chaque jour ce qui marche chez eux (formats, accroches, hashtags, heures). Un nom inexistant est simplement ignoré.",
     "liste": [
@@ -445,34 +469,34 @@
   },
   "formats_a_tester": [
     {
-      "format": "Carrousel dates techno avec musique de la bibliothèque pro",
-      "pourquoi": "Notre meilleur type de post (techno) dans le format qui domine chez les autres comptes, et qui entre aussi dans le fil Reels.",
-      "source": "vu-magazine.com (carrousels avec musique) + tendances_autres_comptes : carrousel 762 contre reel 14,66",
-      "ajout": "2026-11-24"
+      "format": "Concours places à gagner (tague 2 potes + abonne-toi) avec un lieu partenaire",
+      "pourquoi": "Le seul format qui fait commenter et gagner des abonnés de façon régulière. Chaque tag est un envoi à un pote.",
+      "source": "Données du compte : concours Frigo 16 45/100, LQB 100, Electro Symphony 100, Crossover 100",
+      "ajout": "2026-11-25"
     },
     {
-      "format": "Post « un nom vient de tomber » dès une annonce confirmée",
-      "pourquoi": "8 partages pour 8 likes : l'info fraîche s'envoie au binôme de rave.",
-      "source": "Compte : veille HUGEL, note 100",
-      "ajout": "2026-11-24"
+      "format": "Carrousel « place-toi » façon graphique à axes (arrive tôt/tard, rentre tôt/ferme)",
+      "pourquoi": "Les carrousels dominent chez les autres comptes. On se tague dans sa case et on commente sa position.",
+      "source": "partiful « Please locate yourself on the chart » (https://www.instagram.com/p/Df40odgm5q-/), score carrousel 655 contre 12 pour les reels",
+      "ajout": "2026-11-25"
     },
     {
-      "format": "Carrousel « place-toi sur le graphique » (tribus de la Côte)",
-      "pourquoi": "On se situe, on tague les potes, on débat en com sans polémique.",
-      "source": "partiful, « Please locate yourself on the chart » (score 3870)",
-      "ajout": "2026-11-24"
+      "format": "Annonce de line-up en 1 visuel dès qu'une info officielle tombe",
+      "pourquoi": "Info fraîche et vérifiée = envoi immédiat au binôme de rave.",
+      "source": "Post veille HUGEL 100/100, 8 partages ; dicefm (https://www.instagram.com/p/Dd_qG-Iio-L/)",
+      "ajout": "2026-11-25"
     },
     {
-      "format": "Reel personnage qui parle (objet ou appli qui culpabilise)",
-      "pourquoi": "Humour à la Duolingo, situation reconnue en 1 seconde, envoyé au pote concerné.",
-      "source": "duolingo, https://www.instagram.com/reel/DfnZ7CchmsQ/",
-      "ajout": "2026-11-24"
+      "format": "Édition techno ciblée (tekno, hard techno, trance) avec question « laquelle tu fais »",
+      "pourquoi": "Meilleur score du bot hors veille, commentaires et partages.",
+      "source": "Édition Tekno du 12/11 : 95/100, 8 partages",
+      "ajout": "2026-11-25"
     },
     {
-      "format": "Concours avec un lieu ou festival partenaire, tag d'un pote obligatoire",
-      "pourquoi": "Historique : 4 concours à 100 ou plus de 70, 18 à 28 commentaires, jusqu'à 8 abonnés gagnés.",
-      "source": "Compte : concours LQB, Electro Symphony, Crossover",
-      "ajout": "2026-11-24"
+      "format": "Reel question utile « où sortir / combien / comment rentrer »",
+      "pourquoi": "Les reels qui répondent à une vraie galère se partagent, les sketchs génériques non.",
+      "source": "Reel « Tu sais jamais où sortir le soir ? » 68/100 et « entrée gratuite avant 1h » 51/100",
+      "ajout": "2026-11-25"
     }
   ],
   "inspirations_internationales": {

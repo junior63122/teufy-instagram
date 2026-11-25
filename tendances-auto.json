@@ -1,5 +1,5 @@
 {
-  "maj": "2026-11-24T15:08:02.258Z",
+  "maj": "2026-11-25T16:34:53.862Z",
   "comptes": {
     "downtown.nice": {
       "abonnes": 2398,
@@ -126,19 +126,19 @@
       "posts": 25
     },
     "sowetolesprit": {
-      "abonnes": 3482,
+      "abonnes": 3438,
       "posts": 25
     },
     "tetris.owl": {
-      "abonnes": 11402,
+      "abonnes": 11501,
       "posts": 25
     },
     "xka_music": {
-      "abonnes": 32082,
+      "abonnes": 32043,
       "posts": 25
     },
     "djmvlarosa_officiel": {
-      "abonnes": 3193,
+      "abonnes": 3178,
       "posts": 25
     },
     "lesfrench_nghts": {
@@ -147,30 +147,42 @@
     }
   },
   "hashtags": {
-    "#discotheque": 1,
-    "#oldtownnice": 0.966,
-    "#vieuxnice": 0.909,
-    "#party": 0.709,
-    "#bar": 0.695,
-    "#nightlife": 0.691,
-    "#djset": 0.688,
-    "#nice": 0.664,
-    "#clubbing": 0.655,
-    "#toulon": 0.646,
-    "#nice06": 0.517
+    "#soirée": 1,
+    "#fyp": 0.658,
+    "#pourtoi": 0.614,
+    "#dj": 0.577,
+    "#club": 0.286,
+    "#shatta": 0.215,
+    "#party": 0.191,
+    "#toulon": 0.166,
+    "#dancehall": 0.11,
+    "#discotheque": 0.108,
+    "#oldtownnice": 0.104,
+    "#vieuxnice": 0.098,
+    "#clubs": 0.076,
+    "#bar": 0.075,
+    "#nightlife": 0.075,
+    "#djset": 0.074,
+    "#nice": 0.072,
+    "#clubbing": 0.071,
+    "#toulonbynight": 0.066,
+    "#music": 0.065,
+    "#festival": 0.059,
+    "#nice06": 0.056,
+    "#techno": 0.055
   },
   "formats": {
     "carrousel": {
-      "score": 762.78,
-      "posts": 164
+      "score": 655.14,
+      "posts": 191
     },
     "image": {
-      "score": 1.55,
-      "posts": 88
+      "score": 1.99,
+      "posts": 98
     },
     "reel": {
-      "score": 14.66,
-      "posts": 207
+      "score": 12.29,
+      "posts": 270
     }
   },
   "heures": {
@@ -215,52 +227,52 @@
       "posts": 2
     },
     "10": {
-      "score": 1.08,
-      "posts": 5
+      "score": 1.76,
+      "posts": 8
     },
     "11": {
-      "score": 1.24,
-      "posts": 10
-    },
-    "12": {
-      "score": 1.65,
-      "posts": 16
-    },
-    "13": {
-      "score": 1.6,
-      "posts": 16
-    },
-    "14": {
-      "score": 1.5,
+      "score": 1.67,
       "posts": 17
     },
+    "12": {
+      "score": 1.59,
+      "posts": 22
+    },
+    "13": {
+      "score": 2.52,
+      "posts": 26
+    },
+    "14": {
+      "score": 2.32,
+      "posts": 21
+    },
     "15": {
-      "score": 1.3,
-      "posts": 23
+      "score": 1.19,
+      "posts": 26
     },
     "16": {
-      "score": 210.92,
-      "posts": 32
+      "score": 173.96,
+      "posts": 39
     },
     "17": {
-      "score": 2.17,
-      "posts": 52
+      "score": 2.23,
+      "posts": 66
     },
     "18": {
-      "score": 23.79,
-      "posts": 70
+      "score": 20.26,
+      "posts": 86
     },
     "19": {
-      "score": 1.12,
-      "posts": 63
+      "score": 1.46,
+      "posts": 75
     },
     "20": {
-      "score": 2.61,
-      "posts": 44
+      "score": 2.43,
+      "posts": 54
     },
     "21": {
-      "score": 1.29,
-      "posts": 20
+      "score": 3.72,
+      "posts": 28
     },
     "22": {
       "score": 3109.58,
@@ -329,6 +341,20 @@
       "lien": "https://www.instagram.com/reel/DfsjSZUBKFd/"
     },
     {
+      "compte": "djmvlarosa_officiel",
+      "format": "reel",
+      "score": 52.33,
+      "accroche": "Closing adixia + Le Roi de Lloret de Mar à la fin de la vidéo… ⭐️⭐️🌶️ ",
+      "lien": "https://www.instagram.com/reel/Dbqki0vti6Y/"
+    },
+    {
+      "compte": "djmvlarosa_officiel",
+      "format": "reel",
+      "score": 33.22,
+      "accroche": "Intro MV LA ROSA à la Feria de Nîmes 2026 ! ❤️🤍",
+      "lien": "https://www.instagram.com/reel/DdgdiI7AqzN/"
+    },
+    {
       "compte": "dicefm",
       "format": "carrousel",
       "score": 33.14,
@@ -341,26 +367,12 @@
       "score": 29.18,
       "accroche": "🚨 ATTENTION : ÉVÉNEMENT REPORTÉ ! 🎃",
       "lien": "https://www.instagram.com/p/DeCb24BKjE-/"
-    },
-    {
-      "compte": "bringue_party",
-      "format": "reel",
-      "score": 27.61,
-      "accroche": "🎤 On a demandé aux Parisiennes ce qui les font venir à la Bringue 💬👀",
-      "lien": "https://www.instagram.com/reel/DfVOtlEgKqO/"
-    },
-    {
-      "compte": "duolingo",
-      "format": "reel",
-      "score": 22.33,
-      "accroche": "the birthday girl is muy bonita",
-      "lien": "https://www.instagram.com/reel/DfnZ7CchmsQ/"
     }
   ],
   "reperes": {
     "downtown.nice": {
       "abonnes": 2398,
-      "posts_par_semaine": 1.3,
+      "posts_par_semaine": 1.2,
       "likes": 52,
       "commentaires": 0,
       "taux_pour_cent": 2.17,
@@ -453,7 +465,7 @@
     },
     "lebarathymtoulon": {
       "abonnes": 10957,
-      "posts_par_semaine": 2.9,
+      "posts_par_semaine": 2.8,
       "likes": 74,
       "commentaires": 1,
       "taux_pour_cent": 0.68,
@@ -515,7 +527,7 @@
     },
     "dicefm": {
       "abonnes": 93596,
-      "posts_par_semaine": 3.2,
+      "posts_par_semaine": 3.1,
       "likes": 433,
       "commentaires": 12,
       "taux_pour_cent": 0.47,
@@ -546,7 +558,7 @@
     },
     "boilerroomtv": {
       "abonnes": 2886989,
-      "posts_par_semaine": 9.8,
+      "posts_par_semaine": 9.2,
       "likes": 984,
       "commentaires": 13,
       "taux_pour_cent": 0.04,
@@ -577,7 +589,7 @@
     },
     "partiful": {
       "abonnes": 51931,
-      "posts_par_semaine": 16.3,
+      "posts_par_semaine": 14.8,
       "likes": 0,
       "commentaires": 0,
       "taux_pour_cent": 0,
@@ -608,7 +620,7 @@
     },
     "posh.vip": {
       "abonnes": 103536,
-      "posts_par_semaine": 11,
+      "posts_par_semaine": 10.3,
       "likes": 405,
       "commentaires": 6,
       "taux_pour_cent": 0.39,
@@ -639,7 +651,7 @@
     },
     "timeoutnewyork": {
       "abonnes": 778053,
-      "posts_par_semaine": 11.8,
+      "posts_par_semaine": 11,
       "likes": 313,
       "commentaires": 13,
       "taux_pour_cent": 0.04,
@@ -670,7 +682,7 @@
     },
     "duolingo": {
       "abonnes": 5438613,
-      "posts_par_semaine": 6.8,
+      "posts_par_semaine": 6.5,
       "likes": 50960,
       "commentaires": 391,
       "taux_pour_cent": 0.94,
@@ -732,7 +744,7 @@
     },
     "ryanair": {
       "abonnes": 1907099,
-      "posts_par_semaine": 17.5,
+      "posts_par_semaine": 15.8,
       "likes": 1115,
       "commentaires": 18,
       "taux_pour_cent": 0.06,
@@ -763,7 +775,7 @@
     },
     "eater": {
       "abonnes": 1600008,
-      "posts_par_semaine": 11.7,
+      "posts_par_semaine": 11,
       "likes": 837,
       "commentaires": 19,
       "taux_pour_cent": 0.05,
@@ -794,7 +806,7 @@
     },
     "bringue_party": {
       "abonnes": 91862,
-      "posts_par_semaine": 6.1,
+      "posts_par_semaine": 5.8,
       "likes": 397,
       "commentaires": 4,
       "taux_pour_cent": 0.43,
@@ -944,6 +956,130 @@
           "comm": 15,
           "accroche": "CIRCUS TIME",
           "lien": "https://www.instagram.com/p/Derfq7ODI7m/"
+        }
+      ]
+    },
+    "sowetolesprit": {
+      "abonnes": 3438,
+      "posts_par_semaine": 1.3,
+      "likes": 25,
+      "commentaires": 0,
+      "taux_pour_cent": 0.73,
+      "part_reels": 0.72,
+      "meilleurs": [
+        {
+          "format": "image",
+          "likes": 233,
+          "comm": 6,
+          "accroche": "🔥 TOULON, PRÉPARE-TOI ! 🔥",
+          "lien": "https://www.instagram.com/p/Dd3ZTzVOmYb/"
+        },
+        {
+          "format": "reel",
+          "likes": 113,
+          "comm": 5,
+          "accroche": "🌴 LA SAUVAGERIE débarque à Antibes ! 🦍🔥",
+          "lien": "https://www.instagram.com/reel/DdyahO-Oqak/"
+        },
+        {
+          "format": "reel",
+          "likes": 111,
+          "comm": 2,
+          "accroche": "On se retrouve le 16 octobre à honeyclubjuanlespins pour retrouver LA SAUVAGERIE 🔥",
+          "lien": "https://www.instagram.com/reel/DeBqxneOthk/"
+        }
+      ]
+    },
+    "tetris.owl": {
+      "abonnes": 11501,
+      "posts_par_semaine": 1.2,
+      "likes": 128,
+      "commentaires": 47,
+      "taux_pour_cent": 1.49,
+      "part_reels": 0.28,
+      "meilleurs": [
+        {
+          "format": "reel",
+          "likes": 322,
+          "comm": 188,
+          "accroche": "Spotify PREMIUM could never. ",
+          "lien": "https://www.instagram.com/reel/DcERKAqoTHK/"
+        },
+        {
+          "format": "carrousel",
+          "likes": 359,
+          "comm": 99,
+          "accroche": "🦉Everybody supports women until a woman's doing better than you",
+          "lien": "https://www.instagram.com/p/DeeyFgXiCNg/"
+        },
+        {
+          "format": "reel",
+          "likes": 507,
+          "comm": 47,
+          "accroche": "enjooyfestival  vous avez encore fait très fort cette année 🙉",
+          "lien": "https://www.instagram.com/reel/Ddt0XxMIz3u/"
+        }
+      ]
+    },
+    "xka_music": {
+      "abonnes": 32043,
+      "posts_par_semaine": 0.1,
+      "likes": 189,
+      "commentaires": 62,
+      "taux_pour_cent": 0.81,
+      "part_reels": 0.6,
+      "meilleurs": [
+        {
+          "format": "image",
+          "likes": 2660,
+          "comm": 87,
+          "accroche": "Ça y est j’ai 30 ans & je peux dire que je suis une femme épanouie et heureuse ! Je connais la définition du mot « Bonheur » et c’est magnif",
+          "lien": "https://www.instagram.com/tv/CfRp9rPK4HM/"
+        },
+        {
+          "format": "image",
+          "likes": 2359,
+          "comm": 95,
+          "accroche": "🤍",
+          "lien": "https://www.instagram.com/p/CYMqzLOqDcN/"
+        },
+        {
+          "format": "image",
+          "likes": 1831,
+          "comm": 80,
+          "accroche": "La vie est faite de choix, pour nous emmener vers la vie que nous rêvons ! ",
+          "lien": "https://www.instagram.com/p/CZM7EY1qT49/"
+        }
+      ]
+    },
+    "djmvlarosa_officiel": {
+      "abonnes": 3178,
+      "posts_par_semaine": 1.4,
+      "likes": 0,
+      "commentaires": 1,
+      "taux_pour_cent": 0.09,
+      "part_reels": 0.92,
+      "meilleurs": [
+        {
+          "format": "reel",
+          "likes": 375,
+          "comm": 32,
+          "accroche": "Closing adixia + Le Roi de Lloret de Mar à la fin de la vidéo… ⭐️⭐️🌶️ ",
+          "lien": "https://www.instagram.com/reel/Dbqki0vti6Y/"
+        },
+        {
+          "format": "reel",
+          "likes": 260,
+          "comm": 13,
+          "accroche": "Intro MV LA ROSA à la Feria de Nîmes 2026 ! ❤️🤍",
+          "lien": "https://www.instagram.com/reel/DdgdiI7AqzN/"
+        },
+        {
+          "format": "reel",
+          "likes": 227,
+          "comm": 2,
+          "accroche": "VESQUIT LE GOUMIN en Feria de Nîmes ❤️🤍 ",
+          "lien": "https://www.instagram.com/reel/Ddl-2vvhxbY/"
         }
       ]
     }
@@ -5191,6 +5327,930 @@
           "accroche": "KENNY MOOD",
           "caption": "KENNY MOOD",
           "lien": "https://www.instagram.com/p/DcbbYCBMkP-/"
+        }
+      ]
+    },
+    "sowetolesprit": {
+      "maj": "2026-11-25T16:34:53.862Z",
+      "abonnes": 3438,
+      "posts": [
+        {
+          "ts": "2026-11-24T19:59:16+0000",
+          "format": "reel",
+          "likes": 14,
+          "comm": 0,
+          "accroche": "🇨🇮 IVOIR 83 : UNE SOIRÉE 100% IVOIRIENNE ! 🔥",
+          "caption": "🇨🇮 IVOIR 83 : UNE SOIRÉE 100% IVOIRIENNE ! 🔥\n\nLa Soweto Family vous donne rendez-vous pour une soirée aux couleurs de la Côte d’Ivoire ! 💚🤍🧡\n\nAu programme : ambiance festive, sonorités africaines et saveurs ivoiriennes ! 🌴\n\n🍽️ MENU IVOIRIEN – 35€\n\n• Alloco, foutou banane & sauce graine\n• Ou alloco, riz & sauce graine\n\n🎟️ Entrée comprise dans le prix du menu !\n\n📅 Samedi 5 décembre\n🕗 De 20H à 23H\n📍 Boka Club – Toulon\n\n⚠️ Réservation obligatoire uniquement sur Instagram : sowetolesprit\n\n🎧 Afro | Coupé Décalé | Dembolow | Amapiano | Caraïbeen | Shatta | Zouk | Kompa\n\nLa Côte d’Ivoire ",
+          "lien": "https://www.instagram.com/reel/DgIwrZ4o_rA/"
+        },
+        {
+          "ts": "2026-11-08T18:21:06+0000",
+          "format": "reel",
+          "likes": 25,
+          "comm": 0,
+          "accroche": "🇯🇲🌴 LA JAMAÏCAINE débarque au BOKA CLUB ! 🔥",
+          "caption": "🇯🇲🌴 LA JAMAÏCAINE débarque au BOKA CLUB ! 🔥\n\nDirection les Caraïbes pour une nuit aux couleurs de la Jamaïque ! 🇯🇲☀️ Du shatta, du dancehall, de l’afro et toutes les vibes pour faire monter la température ! 🌶️\n\n🎧 MIX BY DJ SEVEN & DJ BADBERONE\n\n📅 Mardi 10 novembre\n⏰ 00H – 05H\n🎟️ Entrée : 10€\n🔥 Veille de jour férié !\n\n📍 BOKA CLUB\n3261 avenue de la Résistance, 83000 Toulon\n\nRamène ta team, prépare ton meilleur déhanché et viens faire trembler le dancefloor ! 🌴💃🏽\n\n#LaJamaïcaine #BokaClub #ToulonByNight #Dancehall #SowetoLesprit",
+          "lien": "https://www.instagram.com/reel/DffYntSuxjd/"
+        },
+        {
+          "ts": "2026-11-08T18:07:40+0000",
+          "format": "reel",
+          "likes": 36,
+          "comm": 0,
+          "accroche": "SAMEDI 14 NOVEMBRE :",
+          "caption": "SAMEDI 14 NOVEMBRE :\n\nSOWETO LESPRIT x PRIVILUX PRÉSENTENT : \n\nTITRE : URBAN SHATTA\nDJ : BADBERONE \nSPÉCIAL GUEST : DJ FLEXTOUCH\n( officiel la mano )\n\nSHOW | AMBIANCE | CADEAUX \n\nENTRÉE : 10€ AVANT 1H | 15€ APRÈS 1H\n\n📍Adresse : BOKA CLUB - 3261 avenue \nde la résistance, 83000 Toulon\n\nINFOS | SNAPCHAT : ESPOIRMB01 | SOWETO_SOWE",
+          "lien": "https://www.instagram.com/reel/DffXCxsuDjA/"
+        },
+        {
+          "ts": "2026-11-07T16:19:51+0000",
+          "format": "image",
+          "likes": 35,
+          "comm": 1,
+          "accroche": "🇯🇲🌴 LA JAMAÏCAINE débarque au BOKA CLUB ! 🔥",
+          "caption": "🇯🇲🌴 LA JAMAÏCAINE débarque au BOKA CLUB ! 🔥\n\nDirection les Caraïbes pour une nuit aux couleurs de la Jamaïque ! 🇯🇲☀️ Du shatta, du dancehall, de l’afro et toutes les vibes pour faire monter la température ! 🌶️\n\n🎧 MIX BY DJ SEVEN & DJ BADBERONE\n\n📅 Mardi 10 novembre\n⏰ 00H – 05H\n🎟️ Entrée : 10€\n🔥 Veille de jour férié !\n\n📍 BOKA CLUB\n3261 avenue de la Résistance, 83000 Toulon\n\nRamène ta team, prépare ton meilleur déhanché et viens faire trembler le dancefloor ! 🌴💃🏽\n\n#LaJamaïcaine #BokaClub #ToulonByNight #Dancehall #SowetoLesprit",
+          "lien": "https://www.instagram.com/p/DfcmIHQOH_6/"
+        },
+        {
+          "ts": "2026-11-02T20:48:31+0000",
+          "format": "image",
+          "likes": 78,
+          "comm": 4,
+          "accroche": "SAMEDI 14 NOVEMBRE :",
+          "caption": "SAMEDI 14 NOVEMBRE :\n\nSOWETO LESPRIT x PRIVILUX PRÉSENTENT : \n\nTITRE : URBAN SHATTA\nDJ : BADBERONE \nSPÉCIAL GUEST : DJ FLEXTOUCH\n( officiel la mano )\n\nSHOW | AMBIANCE | CADEAUX \n\nENTRÉE : 10€ AVANT 1H | 15€ APRÈS 1H\n\n📍Adresse : BOKA CLUB - 3261 avenue \nde la résistance, 83000 Toulon\n\nINFOS | SNAPCHAT : ESPOIRMB01 | SOWETO_SOWE",
+          "lien": "https://www.instagram.com/p/DfQMxUHuLMu/"
+        },
+        {
+          "ts": "2026-10-21T11:33:15+0000",
+          "format": "reel",
+          "likes": 17,
+          "comm": 0,
+          "accroche": "🏀🔥 UNE PAIRE DE JORDAN À GAGNER, ÇA TE DIT ?! 🔥🏀",
+          "caption": "🏀🔥 UNE PAIRE DE JORDAN À GAGNER, ÇA TE DIT ?! 🔥🏀\n\nCe samedi, le Boka Club passe en mode JORDAN 🏀🔴 ! Une ambiance US, du gros son et une paire de Jordan à la clé. 👟💥\n\n🎁 TENTE DE REMPORTER TA PAIRE DE JORDAN !\n\n📅 SAMEDI 7 NOVEMBRE\n🕛 00H – 01H : 10€\n🕐 01H – 05H : 15€\n\n🎧 MIX BY dSEVEN\n\n👟 DRESS CODE :\n🔴 Jordan aux pieds\n🏀 Ou maillot de basket\n\n📍 BOKA CLUB\n3261 avenue de la Résistance, 83000 Toulon\n\n🔥 Sors ta meilleure tenue basket, ramène ta team et viens mettre l’ambiance !\n\n⚠️ Le style peut te faire gagner gros… 👀🏆\n\n#SowetoLesprit #BokaClub #Jordan #JordanGiveaway #BasketballV",
+          "lien": "https://www.instagram.com/reel/DewTxPGusvC/"
+        },
+        {
+          "ts": "2026-10-19T09:25:46+0000",
+          "format": "image",
+          "likes": 56,
+          "comm": 4,
+          "accroche": "🏀🔥 UNE PAIRE DE JORDAN À GAGNER, ÇA TE DIT ?! 🔥🏀",
+          "caption": "🏀🔥 UNE PAIRE DE JORDAN À GAGNER, ÇA TE DIT ?! 🔥🏀\n\nCe samedi, le Boka Club passe en mode JORDAN 🏀🔴 ! Une ambiance US, du gros son et une paire de Jordan à la clé. 👟💥\n\n🎁 TENTE DE REMPORTER TA PAIRE DE JORDAN !\n\n📅 SAMEDI 7 NOVEMBRE\n🕛 00H – 01H : 10€\n🕐 01H – 05H : 15€\n\n🎧 MIX BY dj SEVEN\n\n👟 DRESS CODE :\n🔴 Jordan aux pieds\n🏀 Ou maillot de basket\n\n📍 BOKA CLUB\n3261 avenue de la Résistance, 83000 Toulon\n\n🔥 Sors ta meilleure tenue basket, ramène ta team et viens mettre l’ambiance !\n\n⚠️ Le style peut te faire gagner gros… 👀🏆\n\n#SowetoLesprit #BokaClub #Jordan #JordanGiveaway #Basketbal",
+          "lien": "https://www.instagram.com/p/Deq7eYnOwyR/"
+        },
+        {
+          "ts": "2026-10-12T08:29:34+0000",
+          "format": "reel",
+          "likes": 101,
+          "comm": 0,
+          "accroche": "🌴 LA SAUVAGERIE débarque à Antibes ! 🦍🔥",
+          "caption": "🌴 LA SAUVAGERIE débarque à Antibes ! 🦍🔥\n\nUne nuit sauvage, tropicale et complètement déchaînée vous attend au Honey Club.\nPour cette édition spéciale, place au SHATTA avec DJ Killa 🎶et Dj Badberone 💥\n\n💃 Show danseuses\n🔥 Ambiance Afro • Shatta • Dancehall\n🍯 Honey Club – Antibes\n📅 Vendredi 16 octobre\n⏰ 00H – 05H\n\n📍 5 Avenue Georges Galice, 06160 Antibes\n\nPrépare-toi à entrer dans la jungle… LA SAUVAGERIE commence ici. 🐒🌴\n\n#SowetoLesprit #HoneyClub #Antibes #Shatta",
+          "lien": "https://www.instagram.com/reel/DeYzbm3OOuk/"
+        },
+        {
+          "ts": "2026-10-03T08:51:51+0000",
+          "format": "reel",
+          "likes": 111,
+          "comm": 2,
+          "accroche": "On se retrouve le 16 octobre à honeyclubjuanlespins pour retrouver LA SAUVAGERIE 🔥",
+          "caption": "On se retrouve le 16 octobre à honeyclubjuanlespins pour retrouver LA SAUVAGERIE 🔥\n\nDj Badberone et Dj Killa seront présent pour vous faire danser toute la night 🥵\n\nOn vous attend nombreux et nombreuses pour une soirée où tout est permis 🥵🔥",
+          "lien": "https://www.instagram.com/reel/DeBqxneOthk/"
+        },
+        {
+          "ts": "2026-09-29T09:06:19+0000",
+          "format": "image",
+          "likes": 233,
+          "comm": 6,
+          "accroche": "🔥 TOULON, PRÉPARE-TOI ! 🔥",
+          "caption": "🔥 TOULON, PRÉPARE-TOI ! 🔥\n\nLe 03 OCTOBRE, ça va être chaud au BOKA CLUB ! 👑🔥\nRetrouvez YOUNG CHANG MC en SHOWCASE pour une nuit exceptionnelle de 00H à 05H 🎤💥\n\n🎧 Aux platines : DJ FEELING × DJ RICO\n🌍 AFRO VIBES • CLUB NIGHT • LIVE PERFORMANCE\n\n📍 BOKA CLUB – TOULON\n📅 03 OCTOBRE\n⏰ 00H → 05H\n🎟️ 10€ avant 1H | 15€ après 1H\n\n⚠️ Arrive tôt et prends ta place !\nPrépare-toi pour une grosse ambiance, du son et du show toute la nuit 🔥🥂\n\n📲 Partage l’affiche, identifie ta team et rendez-vous au BOKA CLUB !\n\nyoungchangmc boka_officiel \n\n#BokaClub #Toulon #YoungChangMC #Showcase #AfroVibes",
+          "lien": "https://www.instagram.com/p/Dd3ZTzVOmYb/"
+        },
+        {
+          "ts": "2026-09-28T18:22:25+0000",
+          "format": "reel",
+          "likes": 49,
+          "comm": 2,
+          "accroche": "🌴 LA SAUVAGERIE débarque à Antibes ! 🦍🔥",
+          "caption": "🌴 LA SAUVAGERIE débarque à Antibes ! 🦍🔥\n\nUne nuit sauvage, tropicale et complètement déchaînée vous attend au Honey Club.\nPour cette édition spéciale, place au SHATTA avec DJ Killa 🎶💥\n\n💃 Show danseuses\n🔥 Ambiance Afro • Shatta • Dancehall\n🍯 Honey Club – Antibes\n📅 Vendredi 16 octobre\n⏰ 00H – 05H\n\n📍 5 Avenue Georges Galice, 06160 Antibes\n\nPrépare-toi à entrer dans la jungle… LA SAUVAGERIE commence ici. 🐒🌴\n\n#LaSauvagerye #SowetoLesprit #HoneyClub #Antibes #Shatta",
+          "lien": "https://www.instagram.com/reel/Dd10M3wubQP/"
+        },
+        {
+          "ts": "2026-09-28T18:11:16+0000",
+          "format": "reel",
+          "likes": 18,
+          "comm": 0,
+          "accroche": "Flash-back Sexy Valley 🥵",
+          "caption": "Flash-back Sexy Valley 🥵",
+          "lien": "https://www.instagram.com/reel/Dd1y7UAu880/"
+        },
+        {
+          "ts": "2026-09-27T10:39:55+0000",
+          "format": "reel",
+          "likes": 113,
+          "comm": 5,
+          "accroche": "🌴 LA SAUVAGERIE débarque à Antibes ! 🦍🔥",
+          "caption": "🌴 LA SAUVAGERIE débarque à Antibes ! 🦍🔥\n\nUne nuit sauvage, tropicale et complètement déchaînée vous attend au Honey Club.\nPour cette édition spéciale, place au SHATTA avec DJ Killa 🎶💥\n\n💃 Show danseuses\n🔥 Ambiance Afro • Shatta • Dancehall\n🍯 Honey Club – Antibes\n📅 Vendredi 16 octobre\n⏰ 00H – 05H\n\n📍 5 Avenue Georges Galice, 06160 Antibes\n\nPrépare-toi à entrer dans la jungle… LA SAUVAGERIE commence ici. 🐒🌴\n\n#LaSauvagerye #SowetoLesprit #HoneyClub #Antibes #Shatta",
+          "lien": "https://www.instagram.com/reel/DdyahO-Oqak/"
+        },
+        {
+          "ts": "2026-09-25T09:10:25+0000",
+          "format": "reel",
+          "likes": 20,
+          "comm": 0,
+          "accroche": "🌴 LA SAUVAGERIE débarque à Antibes ! 🦍🔥",
+          "caption": "🌴 LA SAUVAGERIE débarque à Antibes ! 🦍🔥\n\nUne nuit sauvage, tropicale et complètement déchaînée vous attend au Honey Club.\nPour cette édition spéciale, place au SHATTA avec DJ Killa 🎶💥\n\n💃 Show danseuses\n🔥 Ambiance Afro • Shatta • Dancehall\n🍯 Honey Club – Antibes\n📅 Vendredi 16 octobre\n⏰ 00H – 05H\n\n📍 5 Avenue Georges Galice, 06160 Antibes\n\nPrépare-toi à entrer dans la jungle… LA SAUVAGERIE commence ici. 🐒🌴\n\n#SowetoLesprit #HoneyClub #Antibes #AfroShatta",
+          "lien": "https://www.instagram.com/reel/DdtGk6OuyA5/"
+        },
+        {
+          "ts": "2026-09-17T08:57:26+0000",
+          "format": "reel",
+          "likes": 16,
+          "comm": 0,
+          "accroche": "🔥 SEXY VALLEY – La soirée la plus chaude de l’année au Boka Club ! 🔥",
+          "caption": "🔥 SEXY VALLEY – La soirée la plus chaude de l’année au Boka Club ! 🔥\n\nPréparez-vous à une nuit incandescente et inoubliable !\n\n Le Boka Club vous donne rendez-vous pour un événement 100% sexy et survolté 🥵 \nVenez vibrer sur le dancefloor dans une ambiance bouillante avec un show garanti et des danseuses gogo d’exception ! 💃✨\n\n📆 Samedi 19 Septembre\n🕧  00h à 05h\n📍 Boka Club \n3261 Avenue de La Resistance 83100 Toulon \n🎧 DJ BADBERONE\n\n🎟️ \n 10€ sur place \n\nMentionne tes potes en commentaires pour ne pas rater ça et viens enflammer le dancefloor avec nous ! 👇🔥\n\n#SexyValley #BokaClub #Part",
+          "lien": "https://www.instagram.com/reel/DdYe7xWOS4h/"
+        },
+        {
+          "ts": "2026-09-07T11:32:14+0000",
+          "format": "reel",
+          "likes": 30,
+          "comm": 1,
+          "accroche": "🔥 SEXY VALLEY – La soirée la plus chaude de l’année au Boka Club ! 🔥",
+          "caption": "🔥 SEXY VALLEY – La soirée la plus chaude de l’année au Boka Club ! 🔥\n\nPréparez-vous à une nuit incandescente et inoubliable !\n\n Le Boka Club vous donne rendez-vous pour un événement 100% sexy et survolté 🥵 \nVenez vibrer sur le dancefloor dans une ambiance bouillante avec un show garanti et des danseuses gogo d’exception ! 💃✨\n\n📆 Samedi 19 Septembre\n🕧  00h à 05h\n📍 Boka Club \n3261 Avenue de La Resistance 83100 Toulon \n🎧 DJ BADBERONE\n\n🎟️ \nFemmes : 10 €\nGarçons : 10€\n\nMentionne tes potes en commentaires pour ne pas rater ça et viens enflammer le dancefloor avec nous ! 👇🔥\n\n#SexyValley #Bo",
+          "lien": "https://www.instagram.com/reel/Dc_AgttOGHg/"
+        },
+        {
+          "ts": "2026-09-07T10:49:01+0000",
+          "format": "reel",
+          "likes": 21,
+          "comm": 1,
+          "accroche": "💗 AFROPINK débarque au Boka Club ! 💗",
+          "caption": "💗 AFROPINK débarque au Boka Club ! 💗\n\nUne nuit 100% Afro, vibes & pink energy 🌸🔥\n\nDress code : PINK 🎀 Alors prépare ton meilleur look, parce que cette nuit-là, le rose est de rigueur.\n\n📅 Jeudi 10 septembre\n🕛 00H00 – 04H00\n📍 Boka Club\n3261 Avenue de la Résistance, 83000 Toulon\n\n🎧 Mix by dSEVEN\n\n💗 Filles : 5€\n💙 Garçons : 10€\n\nSoweto L’Esprit vous donne rendez-vous pour une nuit AfroPink qu’il serait franchement dommage de rater. 🌸🥂\n\n#AFROPINK #SowetoLEsprit #BokaClub #Toulon #AfroParty",
+          "lien": "https://www.instagram.com/reel/Dc-7lNquNA1/"
+        },
+        {
+          "ts": "2026-08-30T11:17:54+0000",
+          "format": "reel",
+          "likes": 7,
+          "comm": 0,
+          "accroche": "",
+          "caption": "",
+          "lien": "https://www.instagram.com/reel/DcqYsQXuWl1/"
+        },
+        {
+          "ts": "2026-08-30T11:05:32+0000",
+          "format": "reel",
+          "likes": 8,
+          "comm": 0,
+          "accroche": "🚨 🍑 EJAY DÉBARQUE À TOULON POUR LA PREMIERE FOIS 🍑 🚨 ",
+          "caption": "🚨 🍑 EJAY DÉBARQUE À TOULON POUR LA PREMIERE FOIS 🍑 🚨 \n\nLe samedi 15 août, Privilux & Soweto l’esprit s’associe pour la première fois, et vous prépare un Showcase exclusif avec EJAY, DJ officiel d’SDM pour vivre une soirée 100 % Shatta 💥 \n\nAu programme :\n🍑 Une ambiance survoltée\n🎶 Les plus gros sons Shatta, Dancehall, Afro & Urban jusqu’au bout de la nuit.\n\n📍 BOKA CLUB\n3261 Avenue de la Résistance, 83000 Toulon\n 🎟️ Tarifs :\n* ��10€ en prévente (lien en bio)\n* ��15€ sur place\n\nViens avec ton équipe, chauffe le dancefloor et prépare-toi à une nuit qui risque de faire parler d’elle longte",
+          "lien": "https://www.instagram.com/reel/DcqXM3RORFn/"
+        },
+        {
+          "ts": "2026-08-09T19:19:10+0000",
+          "format": "reel",
+          "likes": 21,
+          "comm": 2,
+          "accroche": "🚨 🍑 EJAY débarque à Toulon pour la première fois 🍑 🚨",
+          "caption": "🚨 🍑 EJAY débarque à Toulon pour la première fois 🍑 🚨\n\nLe samedi 15 août, Priviluxx & Soweto l’esprit s’associe pour la première fois, et vous prépare un Showcase exclusif avec EJAY, DJ officiel d’SDM pour vivre une soirée 100 % Shatta 💥\n\nAu programme :\n🍑 Une ambiance survoltée\n🎶 Les plus gros sons Shatta, Dancehall, Afro & Urban jusqu’au bout de la nuit.\n\n📍 BOKA CLUB\n3261 Avenue de la Résistance, 83000 Toulon\n\n🎟 Tarifs :\n• 10€ en prévente (lien en bio) \n• 15€ sur place\n\nViens avec ton équipe, chauffe le dancefloor et prépare-toi à une nuit qui risque de faire parler d’elle longtemps.\n",
+          "lien": "https://www.instagram.com/reel/Db1K9rTu8kG/"
+        },
+        {
+          "ts": "2026-08-03T11:22:44+0000",
+          "format": "reel",
+          "likes": 53,
+          "comm": 0,
+          "accroche": "🎤 BSF débarque au BOKA Club ! 🔥",
+          "caption": "🎤 BSF débarque au BOKA Club ! 🔥\n\nLe samedi 22 août, viens vivre un showcase exceptionnel avec BSF dans une ambiance qui s’annonce électrique. Une seule mission : chanter, danser et profiter jusqu’au bout de la nuit.\n\n📍 BOKA Club - Toulon\n🕛 00h - 05h\n🎧 Mix by DJ Badberone\n\n🎟️ Femme : 15 € | Homme : 20 €\n📞 Réservations : 06 30 38 99 68\n\nLes places sont limitées, alors ne tarde pas. On se retrouve sur le dancefloor. 🚀\n\n#BSF #Showcase #BokaClub #Toulon #SowetoLEsprit",
+          "lien": "https://www.instagram.com/reel/Dbk3fOEhE96/"
+        },
+        {
+          "ts": "2026-07-22T15:03:24+0000",
+          "format": "carrousel",
+          "likes": 11,
+          "comm": 0,
+          "accroche": "🎥 Showcase Tiitof",
+          "caption": "🎥 Showcase Tiitof",
+          "lien": "https://www.instagram.com/p/DbGXh_MDMuX/"
+        },
+        {
+          "ts": "2026-07-22T15:01:05+0000",
+          "format": "carrousel",
+          "likes": 18,
+          "comm": 0,
+          "accroche": "🎥 Showcase Tiitof",
+          "caption": "🎥 Showcase Tiitof",
+          "lien": "https://www.instagram.com/p/DbGXRELjsJ4/"
+        },
+        {
+          "ts": "2026-07-22T14:59:56+0000",
+          "format": "carrousel",
+          "likes": 14,
+          "comm": 0,
+          "accroche": "🎥 Showcase Tiitof",
+          "caption": "🎥 Showcase Tiitof",
+          "lien": "https://www.instagram.com/p/DbGXIpQDlTd/"
+        },
+        {
+          "ts": "2026-07-09T18:19:31+0000",
+          "format": "reel",
+          "likes": 32,
+          "comm": 1,
+          "accroche": "🇯🇲 LA JAMAÏCAINE #3 🇯🇲",
+          "caption": "🇯🇲 LA JAMAÏCAINE #3 🇯🇲\n\nVous l’attendiez… elle est de retour ! 🔥\nAprès deux éditions mémorables, La Jamaïcaine revient pour une 3ᵉ édition encore plus caliente. 🌴💚💛🖤\n\nPréparez-vous à une nuit 100% vibes :\n🎶 Dancehall • Shatta • Afro • Reggae • Kompa\n🎧 DJ KILLA x DJ BAD\n🗓️ Samedi 11 juillet\n🕙 22h - 03h\n📍 Haely’s Café, Six-Fours-les-Plages\n🎟️ Entrée gratuite\n\nViens avec ton meilleur outfit aux couleurs de la Jamaïque 🇯🇲 et laisse le reste au son des basses. Une seule mission : profiter jusqu’au bout de la nuit. 🍹🔥\n\nLa 3ᵉ s’annonce déjà légendaire… Tu connais l’adresse. 😏\n\n#La",
+          "lien": "https://www.instagram.com/reel/DalPmKZueQ7/"
+        }
+      ]
+    },
+    "tetris.owl": {
+      "maj": "2026-11-25T16:34:53.862Z",
+      "abonnes": 11501,
+      "posts": [
+        {
+          "ts": "2026-11-24T12:30:08+0000",
+          "format": "reel",
+          "likes": 128,
+          "comm": 43,
+          "accroche": "Je m'attendais à ce que ce soit incroyable, je ne m'attendais pas à ce que ce soit SI INCROYABLE ",
+          "caption": "Je m'attendais à ce que ce soit incroyable, je ne m'attendais pas à ce que ce soit SI INCROYABLE \n\nVous avez été phenomenaux, avec la No signal, nous sommes ravis de l'engouement que cet événement a eu. Vous avez été très très nombreux et c'était exceptionnel \n\nENORME MERCI aux plus fidèles d'entre vous\nENORME MERCI aux nouveaux qui nous ont découvert ce weekend et nous ont fait confiance \nENORME MERCI AUX 17 DJS qui ont joué le jeu du b2b \nENORME MERCI AU puravida.montpellier pour leur acceuil \n\nJe n'ajouterais qu'une chose : \n\nRENDEZ VOUS EN 2027 ❤️🦉\n\n📹 margot_antoine_\n\nTrack id schrotthag",
+          "lien": "https://www.instagram.com/reel/DgH8rxuIX3j/"
+        },
+        {
+          "ts": "2026-11-19T16:41:23+0000",
+          "format": "carrousel",
+          "likes": 39,
+          "comm": 23,
+          "accroche": "Thailande / part3 / ",
+          "caption": "Thailande / part3 / \n\naether_bkk \ncha.tds \nloadjaxx \nbatlex_",
+          "lien": "https://www.instagram.com/p/Df7iInDiBR4/"
+        },
+        {
+          "ts": "2026-11-16T16:46:03+0000",
+          "format": "carrousel",
+          "likes": 66,
+          "comm": 25,
+          "accroche": "On est biiiiiien là ",
+          "caption": "On est biiiiiien là \n\nBouh\n\nMeilleur soupe de ma vie \n\nMeilleur team cha.tds loadjaxx batlex_ \n\nBouh\n\nRe bouh (oui j'ai zéro inspi ce soir) \n\nNon je ne suis pas riche. C'est juste la thailande qui coûte pas cher. \n\nRiche de mes souvenirs par contre , oui. \n\nEt c'est pas de l'i.a \n\nBangkok by night \n\n🦂🦂 joyeux anniversaire very soon à tous les scorpions ♏️ \n\nSawadi kaaaa \n\nPour vous prouver que j'étais bien là \n\nPour vous prouver que j'étais bien là mais de face \n\n😲",
+          "lien": "https://www.instagram.com/p/Dfz0SPvCDwF/"
+        },
+        {
+          "ts": "2026-11-09T16:31:52+0000",
+          "format": "carrousel",
+          "likes": 61,
+          "comm": 26,
+          "accroche": "Faites pas gaffe, c’est juste moi qui fais mon petit carnet de voyage en postant sur Insta. 🇹🇭",
+          "caption": "Faites pas gaffe, c’est juste moi qui fais mon petit carnet de voyage en postant sur Insta. 🇹🇭\n\nJe suis dans le déni d’être revenue, et c’est ma façon à moi d’y rester.\n\nDans le bouddhisme, \"moha\" désigne l’illusion qui nous empêche de voir la réalité telle qu’elle est.\n\nPersonnellement, depuis Bangkok, j’ai décidé d’en faire un art de vivre. 🙏😂\n\nAlors s’il vous plaît, ne me ramenez pas à la réalité. Laissez-moi dans mon déni. 🌴\n\n🗺 BANGKOK \n\nPetite anecdote sur Bangkok : son nom cérémoniel complet est inscrit au Guinness des records comme l'un des plus longs noms de ville au monde, avec ",
+          "lien": "https://www.instagram.com/p/DfhxGMkiKiQ/"
+        },
+        {
+          "ts": "2026-11-05T18:07:29+0000",
+          "format": "carrousel",
+          "likes": 102,
+          "comm": 32,
+          "accroche": "Je vous ai soûlé avec mes storys en thailande alors j'ai décidé de vous envoyer les photos les plus random que j'ai dans ma pellicule de ces",
+          "caption": "Je vous ai soûlé avec mes storys en thailande alors j'ai décidé de vous envoyer les photos les plus random que j'ai dans ma pellicule de ces 15 derniers jours. \n\n1. Quand j'ai attendu 7 h mon vol apres m'être déjà tapé 7h de vol mais que l'aéroport de Doha est tellement confortable que c'est pas grave en fait \n\nMay your delulu become trululu \n\nAnd your problems goes byelulu\n\nSo you can finally chillulu\n\nQuand tu te disais justement ne pas comprendre pourquoi les gens se COLLENT au carrousel de bagages et empêchent ceux qui voient leur bagage de les recuperer et que ce mec random decide de s'as",
+          "lien": "https://www.instagram.com/p/DfXo29yiFbg/"
+        },
+        {
+          "ts": "2026-10-17T16:00:57+0000",
+          "format": "carrousel",
+          "likes": 100,
+          "comm": 17,
+          "accroche": "Back to boumboum_montpellier night with unknownboy_off ",
+          "caption": "Back to boumboum_montpellier night with unknownboy_off \n\nCan't wait to come back in november for the mor.circle\nSave the date -> 06/11 \n🫠🫠🫠🫠🫠",
+          "lien": "https://www.instagram.com/p/DemfRpGCFjq/"
+        },
+        {
+          "ts": "2026-10-14T16:11:24+0000",
+          "format": "carrousel",
+          "likes": 359,
+          "comm": 99,
+          "accroche": "🦉Everybody supports women until a woman's doing better than you",
+          "caption": "🦉Everybody supports women until a woman's doing better than you\n\nEverybody wants you to love yourself until you actually do\n\nIt was something about her hair, so perfectly fallen\n\nShe was nice, and smart, and funny, and got everything she wanted\n\nAnd she does charity, isn't that the most obnoxious thing you've heard?\n\nHer popularity, she's too pretty for her own good\n\nShe's probably self-centered, we hate her and she's nothing\n\nIf everybody leaves her, then she had it coming\n\nIs there anything you'd like to put on the record\n\nYou know, while everyone is listening?\n\nI would like it to be known ",
+          "lien": "https://www.instagram.com/p/DeeyFgXiCNg/"
+        },
+        {
+          "ts": "2026-10-12T16:49:52+0000",
+          "format": "reel",
+          "likes": 74,
+          "comm": 37,
+          "accroche": "🦉Gotta drop the acid 🦉",
+          "caption": "🦉Gotta drop the acid 🦉\nIf you wanna have some fun😋\nCome with me, ecstasy🤭\n303 101 🚀\n\nenjooyfestival 💜😍\n track id : marievaunt 303 101\n📹 benalavideo",
+          "lien": "https://www.instagram.com/reel/DeZsPg3Iv_2/"
+        },
+        {
+          "ts": "2026-10-08T16:00:01+0000",
+          "format": "carrousel",
+          "likes": 162,
+          "comm": 88,
+          "accroche": "J’ai l’immense absence d’honneur de vous annoncer officiellement que je n'ai PAS été selectionné dans le top 100 DJ MAG 2026 djmagfr 🏆❌",
+          "caption": "J’ai l’immense absence d’honneur de vous annoncer officiellement que je n'ai PAS été selectionné dans le top 100 DJ MAG 2026 djmagfr 🏆❌\n\nAprès des années de travail, des centaines d’heures derrière les platines, des nuits beaucoup trop courtes, des kilomètres, des festivals, des clubs, des drops douteux et un nombre préoccupant d’acouphènes… le résultat est enfin pas là :\n\n#180000 and beyond — 📉 (paraît que nous sommes + de 180000 artistes techno dans le monde )\n\nJe ne pourrais pas être moins fière de moi. 🥹\n\nJe tiens à ne remercier absolument personne pour cette non-récompense.\n\nNi mon pub",
+          "lien": "https://www.instagram.com/p/DePUEQYiMii/"
+        },
+        {
+          "ts": "2026-10-05T17:02:16+0000",
+          "format": "carrousel",
+          "likes": 131,
+          "comm": 31,
+          "accroche": "Ambiance de fou malade au yoka_airport_sttropez pour le closing de la saison à l'aéroport dy golfe de st tropez avec 9h_aoa et eemoz_prz ",
+          "caption": "Ambiance de fou malade au yoka_airport_sttropez pour le closing de la saison à l'aéroport dy golfe de st tropez avec 9h_aoa et eemoz_prz \nC'était une folie et un pur bonheur 🥰\nÉnorme merci à toute la team pour ces 2 dernières soirees au yoka 🥰🥰🥰 \n\nMAINTENANT PLACE À LA nosignal.mtp de samedi au puravida.montpellier !!!!! \n\nget.a.room.events & mor.circle se réunit pour cette soiree amsterdam avec aezrmusic , pika.ctus ,d.spirit_music et moi même.\n\nC'EST MON DERNIER EVENEMENT DU MOIS D'OCTOBRE EN FRANCE. \n(Je vais en thailande, on se laisse pas aller ma brenda) \n\nStart 19h ! JE VOUS VEUX TOU",
+          "lien": "https://www.instagram.com/p/DeHswQoCJrN/"
+        },
+        {
+          "ts": "2026-09-30T16:10:52+0000",
+          "format": "carrousel",
+          "likes": 167,
+          "comm": 42,
+          "accroche": "Before studioclotis shooting with jordan_couche ",
+          "caption": "Before studioclotis shooting with jordan_couche \n📸 smilingflore ❤️\n\n☆~~~~~~~~~~~~~~~~~~~~☆~~~~~~~~~~~~~~~~~~~~☆\n\n-> 02/10 -> boumboum_montpellier X unknownboy_off \n-> 03/10 -> yoka_airport_sttropez X eemoz_prz & 9h_aoa \n-> 10/10 -> nosignal.mtp (get.a.room.events & mor.circle ) puravida.montpellier",
+          "lien": "https://www.instagram.com/p/Dd6u5bOCJk5/"
+        },
+        {
+          "ts": "2026-09-25T16:00:15+0000",
+          "format": "reel",
+          "likes": 507,
+          "comm": 47,
+          "accroche": "enjooyfestival  vous avez encore fait très fort cette année 🙉",
+          "caption": "enjooyfestival  vous avez encore fait très fort cette année 🙉\n12 000 personnes, une énergie de malade, une prog de dingue, du très très lourd du début à la fin.\n\nEt moi au milieu de tout ça, avec 1h pour faire lever des bras… pendant que mes jambes improvisaient un truc qu’aucun chorégraphe n’aurait validé 😭 \n\nÉnorme merci à toute l’équipe d’Enjooy pour votre confiance une nouvelle fois, pour l’accueil, l’énergie et cette édition complètement folle.\n\nEt merci à vous surtout sur la boiler, parce que vous avez rendu ce moment énorme. 🤍\n\nENJOOY 2026, c’était beaucoup trop bien. 🔥\n\nENORME MERC",
+          "lien": "https://www.instagram.com/reel/Ddt0XxMIz3u/"
+        },
+        {
+          "ts": "2026-09-16T17:02:17+0000",
+          "format": "reel",
+          "likes": 198,
+          "comm": 99,
+          "accroche": "J'ai enfin osé demander à aezrmusic de mixer pour la nosignal.mtp le 10 octobre et je vous laisse decouvrir sa réponse.... 🥹",
+          "caption": "J'ai enfin osé demander à aezrmusic de mixer pour la nosignal.mtp le 10 octobre et je vous laisse decouvrir sa réponse.... 🥹\n\nNO SIGNAL investit le puravida.montpellier le 10 octobre pour la première édition en collaboration avec get.a.room.events / onna_music & mor.circle \n\nOn ramene Amsterdam à montpellier \n\nTechno peak time / indie dance / tech house / \nClosing bounce & trance techno \n\npika.ctus \nd.spirit_music \n\nEvent sur shotgun en tapant : NO signal - amsterdam - pura vida, Montpellier\n\nMerci elodie_rtz de nous avoir filmé",
+          "lien": "https://www.instagram.com/reel/DdWxmk5IonT/"
+        },
+        {
+          "ts": "2026-09-15T17:02:04+0000",
+          "format": "carrousel",
+          "likes": 212,
+          "comm": 53,
+          "accroche": "Aussi excitée qu'un pop corn dans une casserole",
+          "caption": "Aussi excitée qu'un pop corn dans une casserole\nAussi excitée qu'un acarien dans le métro \nAussi excitée qu'un labrador qui voit une flaque de boue \nAussi excitee qu'un fetichiste des pieds dans un magasin de tongs \n\nEt toi tu es excité comment à propos d'enjooyfestival ? 🥹🥹🥹🥹\n\n-> 19 /09 enjooy festival - boiler stage \n-> 26 /09 terminus_cruzy\n-> 02/10 boumboum_montpellier \n-> 03/10 yoka_airport_sttropez \n-> 10/10 nosignal.mtp get.a.room.events puravida.montpellier mor.circle \n\n----18/10 -> 1/11 -------> thailande 🇹🇭\n\nPuis de retour pour de nouvelles dates en novembre ❤️\nÀ samedi !\n\n📸 u",
+          "lien": "https://www.instagram.com/p/DdUM1SjCHfT/"
+        },
+        {
+          "ts": "2026-09-09T16:52:57+0000",
+          "format": "carrousel",
+          "likes": 115,
+          "comm": 54,
+          "accroche": "BON... J'AI VACHEMENT TARDÉ À POSTER MAIS C'EST ENFIN FAIT.",
+          "caption": "BON... J'AI VACHEMENT TARDÉ À POSTER MAIS C'EST ENFIN FAIT.\nDE TOUTE FAÇON IL PARAIT QUE ÇA SERT À RIEN D'ÉCRIRE EN LEGENDE ET QUE LES IMAGES SUFFISENT PARCE PLUS PERSONNE NE LIT EN DESSOUS DES IMAGES MAINTENANT. SI TU AS LU JUSQU'ICI C'EST QUE TU N'EST PAS COMME LES AUTRES , PROUVE LE ET ÉCRIT \"J'ADORE LES MARSUPIAUX\" EN COMMENTAIRE.\n\nOUI j'écris en majuscule parce que revoir les images m'ont donné de l'énergie \nCoucou la.punky vous me manquez ❤️🦉",
+          "lien": "https://www.instagram.com/p/DdEvBSbCJQx/"
+        },
+        {
+          "ts": "2026-08-31T16:36:46+0000",
+          "format": "carrousel",
+          "likes": 111,
+          "comm": 97,
+          "accroche": "Tu n'as pas ta place pour enjooyfestival et tu n'as plus de sous parce que tu as trop fait la bringue cet été ? ",
+          "caption": "Tu n'as pas ta place pour enjooyfestival et tu n'as plus de sous parce que tu as trop fait la bringue cet été ? \nJe débarque avec mes 2x1 place à faire gagner 🥰\n\nRaconte moi ta meilleure anecdote de soiree en commentaire et si ton anecdote remporte le + de like, tu gagnes ta place ! \n\nLes 2 commentaires qui auront eu le + de likes gagnent une place pour cet event de dingue le 19 septembre à montpellier avec trinix , mosimann , yann_muller , upsilone_paris , durdenhauer , montrouge.music supermassivemusic , moi même et j'en passe ! \n\nConditions : \n\nTu dois me suivre sur insta, taguer un/une po",
+          "lien": "https://www.instagram.com/p/DctiA0PCPEX/"
+        },
+        {
+          "ts": "2026-08-27T15:51:28+0000",
+          "format": "reel",
+          "likes": 147,
+          "comm": 61,
+          "accroche": "SELF PRESERVATION IS OUT ! ",
+          "caption": "SELF PRESERVATION IS OUT ! \n\nLe public me sort souvent cette phrase en fin de set et en sortant cette nouvelle track \"self Preservation\" ( qui porte un titre assez parlant pour moi), je voulais revenir sur cette fameuse phrase : \" je te souhaite d’exploser en tant qu’artiste.\"\n\nLa vérité assumée est que je n’ai jamais rêvé d’exploser.\n\nParce qu’une explosion, c’est spectaculaire, oui mais c’est aussi brutal, soudain, parfois destructeur et parfois juste éphémère et hypocrite.\nJe n’ai aucune envie de sacrifier ce que j’aime dans la musique pour correspondre à la définition que les autres se fon",
+          "lien": "https://www.instagram.com/reel/DcjJm5ZIuNr/"
+        },
+        {
+          "ts": "2026-08-23T15:42:03+0000",
+          "format": "reel",
+          "likes": 48,
+          "comm": 34,
+          "accroche": "RELEASE DATE : 26/08/2026",
+          "caption": "RELEASE DATE : 26/08/2026\n\nSELF PRESERVATION IS COMING ON ONNA MUSIC LABEL !\n\nSelf Preservation parle de cet instinct qui nous pousse parfois à prendre de la distance pour ne pas nous perdre.\n\nLa chouette qui s’envole n’est pas en train de fuir. \nElle ne s'envole pas par choix, parce qu'elle se préserve, prend de la distance,  quitte ce qui pourrait l’enfermer, et choisit instinctivement l’espace dont elle a besoin pour continuer d’exister librement.\n\nCette track marque une transition dans ma musique. \nPas un changement de direction définitif, ni l’abandon de ce que j’ai fait jusque là. \nPlutô",
+          "lien": "https://www.instagram.com/reel/DcY0lsSIsPW/"
+        },
+        {
+          "ts": "2026-08-15T16:08:55+0000",
+          "format": "reel",
+          "likes": 322,
+          "comm": 188,
+          "accroche": "Spotify PREMIUM could never. ",
+          "caption": "Spotify PREMIUM could never. \n\nConcours du meilleur POV en commentaire 😭\n\nJe commence : \n\n“Qand tu veux aller à Ibiza mais sans budget”\n\n🤣\n\nBest POV contest in the comment ! \n\nStarting with \" when you want to go to ibiza but have no money\" \n\n( Ceci n'est pas un partenariat avec spotifyfrance )",
+          "lien": "https://www.instagram.com/reel/DcERKAqoTHK/"
+        },
+        {
+          "ts": "2026-08-09T11:21:30+0000",
+          "format": "carrousel",
+          "likes": 173,
+          "comm": 69,
+          "accroche": "I’m a little late posting the videos from last weekend’s After Festival at diezewarehouse because 4 hours later I was already on my way to W",
+          "caption": "I’m a little late posting the videos from last weekend’s After Festival at diezewarehouse because 4 hours later I was already on my way to Warsaw 🥹\n\nSo here’s a little throwback to last Saturday’s insane night: full on acid techno, hard trance, psy… basically my ultimate happy place.\n\nI absolutely loved the energy, you were all going OFF and it was so much fun. Huge thank you ❤️\n\n🦉🦉🦉\n\nJe suis un peu en retard pour poster les vidéos de l’After Family du week-end dernier au Dieze parce que 4 heures plus tard, j’étais déjà en route pour Varsovie 🤣\n\nDu coup, petit throwback sur cette soirée c",
+          "lien": "https://www.instagram.com/p/Db0UchXiJ8f/"
+        },
+        {
+          "ts": "2026-07-27T14:58:26+0000",
+          "format": "carrousel",
+          "likes": 156,
+          "comm": 49,
+          "accroche": "NEXT STEP : ",
+          "caption": "NEXT STEP : \n\ndiezewarehouse ce samedi pour l'after festival ❤️\n\nCAN'T WAIT !!!!!! \n\n_tetris_party_\n\nboticka_music \ncoloma.raw \nleko.dj & poisonjoji \ndiezewarehouse \n\nNEXT STEP : \n\ndiezewarehouse ce samedi pour l'after festival ❤️\n\nCAN'T WAIT !!!!!!",
+          "lien": "https://www.instagram.com/p/DbTO8DviOat/"
+        },
+        {
+          "ts": "2026-07-24T16:51:10+0000",
+          "format": "carrousel",
+          "likes": 112,
+          "comm": 55,
+          "accroche": "NEXT 3 WEEKS GIGS JUST WAITING FOR YOU TO SHOW UP ❤️",
+          "caption": "NEXT 3 WEEKS GIGS JUST WAITING FOR YOU TO SHOW UP ❤️\n\nTONIGHT \n\n0:00 - 2:00 -> _tetris_party_ \n\nTOMORROW \n\nClosing -> mor.circle -> viavino , entre vignes \n\n01ER AOUT\n\nAFTER FESTIVAL-> diezewarehouse , MTP\n\n08 AOUT \n\nla.punky festival - Mayans rave -> La Favela, Narbonne \n\n15 AOUT \n\nTo be announced \n\n📸 MALAGA MUSIC MUSEUM",
+          "lien": "https://www.instagram.com/p/DbLtdD2iI7e/"
+        },
+        {
+          "ts": "2026-07-14T16:28:28+0000",
+          "format": "carrousel",
+          "likes": 189,
+          "comm": 73,
+          "accroche": "Je vous présente Self Preservation, mon prochain titre, qui sortira le 26 août sur onna_music",
+          "caption": "Je vous présente Self Preservation, mon prochain titre, qui sortira le 26 août sur onna_music\n\nC’est un morceau un peu à part, presque une introduction. Il ne rentre pas vraiment dans les cases habituelles de ce que je propose depuis le début de ma carrière car il se propose davantage comme une transition, un passage vers autre chose, mais aussi comme une manière d’assumer pleinement que je n’ai pas envie de rentrer dans une case.\n\nSelf Preservation, c’est choisir de rester entière plutôt que de me perdre en essayant d’aller plus loin.\nC'est ce moment où l’on cesse de confondre le mouvement av",
+          "lien": "https://www.instagram.com/p/Dax66C_iKDC/"
+        },
+        {
+          "ts": "2026-07-05T13:36:35+0000",
+          "format": "carrousel",
+          "likes": 100,
+          "comm": 36,
+          "accroche": "Plaisir immense d'être de retour cette année sur la boiler stage pour enjooyfestival 🥹",
+          "caption": "Plaisir immense d'être de retour cette année sur la boiler stage pour enjooyfestival 🥹\n\nPresque un an depuis la dernière, un record de festivaliers, des artistes de dingue sur toutes les scenes, un souvenir impossible à oublier lorsque mosimann a pris le relai derriere moi, l'énergie etait dingue, vous étiez dingues, j'étais dingue, c'était DINGUE \n\ncette année ils font encore tres fort et je ne pourrais etre plus heureuse de revenir defoncer la scene.\n\nÉnorme merci à la team enjooy pour leur confiance 🙏 \n\nRetour en images de mon passage sur enjooy l'an dernier \n\n🦉❤️🩷❤️🩷❤️🩷❤️🩷🦉",
+          "lien": "https://www.instagram.com/p/DaacFSBiBRt/"
+        },
+        {
+          "ts": "2026-07-02T16:21:31+0000",
+          "format": "carrousel",
+          "likes": 65,
+          "comm": 43,
+          "accroche": "Retour en image sur la Conjuration des dames à l' abbayedevalmagne_ 🥰 avec leblanc",
+          "caption": "Retour en image sur la Conjuration des dames à l' abbayedevalmagne_ 🥰 avec leblanc\n\nBonheur \n\n🦉❤️",
+          "lien": "https://www.instagram.com/p/DaTAkoDCKIK/"
+        }
+      ]
+    },
+    "xka_music": {
+      "maj": "2026-11-25T16:34:53.862Z",
+      "abonnes": 32043,
+      "posts": [
+        {
+          "ts": "2026-09-24T17:37:46+0000",
+          "format": "reel",
+          "likes": 0,
+          "comm": 24,
+          "accroche": "No matter what I go through, I’ll always remain a beautiful soul 🤍",
+          "caption": "No matter what I go through, I’ll always remain a beautiful soul 🤍\n\n📸: photographeflorianmathieu33",
+          "lien": "https://www.instagram.com/reel/DdrcAdOhxNd/"
+        },
+        {
+          "ts": "2026-08-13T18:01:45+0000",
+          "format": "reel",
+          "likes": 0,
+          "comm": 54,
+          "accroche": "Thank you for everything ♡ ",
+          "caption": "Thank you for everything ♡ \n\n🎥: _nathandebray_ \n\n#dj #festival #techno #girls #electronicmusıc",
+          "lien": "https://www.instagram.com/reel/Db_VTJ3ha4E/"
+        },
+        {
+          "ts": "2026-08-08T15:46:33+0000",
+          "format": "reel",
+          "likes": 0,
+          "comm": 62,
+          "accroche": "Une énergie incroyable ! J’en veux encore ! ",
+          "caption": "Une énergie incroyable ! J’en veux encore ! \nMERCI ♡ \n\nMerci au best vidéaste : _nathandebray_",
+          "lien": "https://www.instagram.com/reel/DbyNWUZM5FI/"
+        },
+        {
+          "ts": "2026-08-05T10:08:13+0000",
+          "format": "reel",
+          "likes": 134,
+          "comm": 49,
+          "accroche": "MERCI ♡ ",
+          "caption": "MERCI ♡ \nMille merci à tous, une énergie de folie, merci à osmosefest pour l’invitation et l’accueil incroyable ! C’était magique ! ✨ \n\n#festival #techno #rave #dj #djgirl \n\n📹: _nathandebray_",
+          "lien": "https://www.instagram.com/reel/Dbp4zcxBYs5/"
+        },
+        {
+          "ts": "2026-06-30T10:16:57+0000",
+          "format": "carrousel",
+          "likes": 0,
+          "comm": 68,
+          "accroche": "Merci festivalvacarosa pour ce magnifique moment 🩷 une ambiance chaleureuse et tellement festive, vous me manquez déjà ! ♡ ",
+          "caption": "Merci festivalvacarosa pour ce magnifique moment 🩷 une ambiance chaleureuse et tellement festive, vous me manquez déjà ! ♡ \n\nMerci amandiine.soyez pixalis64 coraline33160 pour vos captations 🙏🏼\n\n#festival #landes #vacarosa #techno dj",
+          "lien": "https://www.instagram.com/p/DaNNQx2l09X/"
+        },
+        {
+          "ts": "2026-05-15T09:44:36+0000",
+          "format": "reel",
+          "likes": 199,
+          "comm": 104,
+          "accroche": "Mon remix de « Running Up That Hill » de Kate Bush est enfin disponible ✨",
+          "caption": "Mon remix de « Running Up That Hill » de Kate Bush est enfin disponible ✨\nUne parenthèse émotionnelle que j’avais besoin de créer. Le lien soundcloud est dispo dans ma bio ! ♡ \n\n#festival #techno #dj #music #emotion \n\nTournage effectué à labastidedubonrepos , merci pour l’accueil incroyable ♡\nCaptation : jayh_\nInspi : strangerthings.things",
+          "lien": "https://www.instagram.com/reel/DYWs691Bw7P/"
+        },
+        {
+          "ts": "2026-04-06T18:22:14+0000",
+          "format": "carrousel",
+          "likes": 189,
+          "comm": 65,
+          "accroche": "Merci pour ces moments magiques avec vous, hâte de vous revoir 🦄 poneyclub_festival ! ",
+          "caption": "Merci pour ces moments magiques avec vous, hâte de vous revoir 🦄 poneyclub_festival ! \n\n#festival #dj #techno #guadeloupe #passion",
+          "lien": "https://www.instagram.com/p/DWzNOrol-6-/"
+        },
+        {
+          "ts": "2026-03-17T18:46:33+0000",
+          "format": "reel",
+          "likes": 155,
+          "comm": 47,
+          "accroche": "Mon closing avec vous ! C’était magique ! Merci à tous ! Encore merci à poneyclub_festival pour ce moment magique ! 🔥",
+          "caption": "Mon closing avec vous ! C’était magique ! Merci à tous ! Encore merci à poneyclub_festival pour ce moment magique ! 🔥\nVOS vidéos -> VOTRE énergie -> NOTRE souvenir❤️\n\n#festival #techno #music #dj #vibes",
+          "lien": "https://www.instagram.com/reel/DV_vckFAcRI/"
+        },
+        {
+          "ts": "2026-02-23T17:24:56+0000",
+          "format": "carrousel",
+          "likes": 0,
+          "comm": 84,
+          "accroche": "Starting my set with my own track and seeing you lose yourselves in it… unforgettable.",
+          "caption": "Starting my set with my own track and seeing you lose yourselves in it… unforgettable.\nThank you all 🤍\nBig love to poneyclub_festival for the warm welcome ! \n\n#festival #techno #guadeloupe #dj #foryou",
+          "lien": "https://www.instagram.com/p/DVG9SO2CMhj/"
+        },
+        {
+          "ts": "2026-01-03T19:42:27+0000",
+          "format": "reel",
+          "likes": 197,
+          "comm": 79,
+          "accroche": "This New Year’s Eve… ✨🎶",
+          "caption": "This New Year’s Eve… ✨🎶\nPlaying this incredible festival osmosefest X la.molecule night was absolutely stratospheric. \n\n#NouvelAn\n#NewYearsEve\n#NYE2026\n#Hello2026\n#newyearvibes",
+          "lien": "https://www.instagram.com/reel/DTD4KJhCF5a/"
+        },
+        {
+          "ts": "2025-12-26T16:42:34+0000",
+          "format": "reel",
+          "likes": 164,
+          "comm": 94,
+          "accroche": "« Cradle of the universe » ",
+          "caption": "« Cradle of the universe » \n\n2e track né entre le ciel et la terre,\nentre l’origine de tout… et le retour à l’essentiel.\n\nFerme les yeux, monte le son,\net dis-moi ce que ça te fait ressentir 🤍 \n\nA track born between sky and earth,\nbetween the origin of everything… and the return to what truly matters.\n\nClose your eyes, turn the volume up,\nand tell me how it makes you feel 🤍\n\n📹: _nathandebray_ \n\n#melodictechno\n#newmusicfriday\n#technomusic\n#independentartist\n#electronicmusic",
+          "lien": "https://www.instagram.com/reel/DSu9DNgCDIs/"
+        },
+        {
+          "ts": "2025-12-22T16:27:57+0000",
+          "format": "reel",
+          "likes": 102,
+          "comm": 111,
+          "accroche": "Hâte de vous retrouver pour le nouvel an, au festival osmosefest & la.molecule ! 🥳",
+          "caption": "Hâte de vous retrouver pour le nouvel an, au festival osmosefest & la.molecule ! 🥳\n\n#festival #music #bordeaux #techno #foryou",
+          "lien": "https://www.instagram.com/reel/DSkoqgtCM2m/"
+        },
+        {
+          "ts": "2025-12-12T11:21:45+0000",
+          "format": "reel",
+          "likes": 178,
+          "comm": 52,
+          "accroche": "Nothing beats this feeling 🎶",
+          "caption": "Nothing beats this feeling 🎶\n\n#reels #reelsinstagram #viralreels #musicreels #ᴇxᴘʟᴏʀᴇᴘᴀɢᴇ",
+          "lien": "https://www.instagram.com/reel/DSKVSvaiCrH/"
+        },
+        {
+          "ts": "2025-11-28T10:51:47+0000",
+          "format": "reel",
+          "likes": 203,
+          "comm": 90,
+          "accroche": "My first track, Gaia’s Whisper.",
+          "caption": "My first track, Gaia’s Whisper.\nA vibration from within 💋\n\nOut now on all platforms.\n\n📸 : _nathandebray_ \n\n#newmusic #outnow #melodictechno #femaledj #reelstrending",
+          "lien": "https://www.instagram.com/reel/DRmPBX3CMxi/"
+        },
+        {
+          "ts": "2025-10-06T14:03:52+0000",
+          "format": "reel",
+          "likes": 289,
+          "comm": 90,
+          "accroche": "Cette sensation … ",
+          "caption": "Cette sensation … \nSoon 🤫\n\n📹: klv_production / _nathandebray_ \n📸 : ocean.lrg.studio \n\n#festival #music #passion #onelife #fyp #foryou #techno",
+          "lien": "https://www.instagram.com/reel/DPeG6eeCPby/"
+        },
+        {
+          "ts": "2025-09-23T17:38:57+0000",
+          "format": "carrousel",
+          "likes": 227,
+          "comm": 62,
+          "accroche": "Quand on m’appelle pour casser les codes … ",
+          "caption": "Quand on m’appelle pour casser les codes … \n& que je joue de la melodic techno à lhermitagepyla 🔥 merci pour l’invitation dj.ragen & ces moments de partage avec vous tous, sans oublier les best dj’s du bassin D’arcachon kayme_sessions & lilkevmusic 🫶🏼\n\n🎥 : klv_production \n\n#techno #club #music #passion #festival #foryou #pourtoi #fyp",
+          "lien": "https://www.instagram.com/p/DO9BRBFCCQG/"
+        },
+        {
+          "ts": "2025-09-12T15:07:44+0000",
+          "format": "reel",
+          "likes": 100,
+          "comm": 24,
+          "accroche": "Mercure Angoulême turned into a dance floor last night ✨ Let’s break the traditional hospitality codes together! ",
+          "caption": "Mercure Angoulême turned into a dance floor last night ✨ Let’s break the traditional hospitality codes together! \n\nLe Mercure Angoulême s’est transformé en piste de danse hier soir ✨ Et si on réinventait ensemble les codes de l’hôtellerie !\n\n📹: klv_production \n\n#mercurehotels #dj #goodvibesonly #hostel #atypique",
+          "lien": "https://www.instagram.com/reel/DOgZk9YiJ26/"
+        },
+        {
+          "ts": "2025-09-05T09:57:28+0000",
+          "format": "carrousel",
+          "likes": 0,
+          "comm": 47,
+          "accroche": "Photo ➡️ Vidéo ➡️ Vibes ✨",
+          "caption": "Photo ➡️ Vidéo ➡️ Vibes ✨\n\nChaque instant, chaque drop, chaque sourire était magnifique 🖤 »\n\n📸 ocean.lrg.studio \n🎥 klv_production \n🎵 le180festival",
+          "lien": "https://www.instagram.com/p/DON2JRZCAjX/"
+        },
+        {
+          "ts": "2025-08-04T10:14:17+0000",
+          "format": "reel",
+          "likes": 279,
+          "comm": 43,
+          "accroche": "Première édition de casahinata , ",
+          "caption": "Première édition de casahinata , \nComedy club avec kevadams, très heureuse de vous avoir accompagné en musique pour ce moment Goodvibes & Friendly!\nHâte d’être à la suivante 🤍 \n \nMagnifique lieu oce_co & max_humus \nMerci pour ce magnifique moment 🫶🏼 \n\nVidéaste : klv_production \n\n#music #bordeaux #dj #love #friendly #goodvibe #kevadams",
+          "lien": "https://www.instagram.com/reel/DM7eYGaoJz8/"
+        },
+        {
+          "ts": "2025-02-28T15:35:20+0000",
+          "format": "reel",
+          "likes": 209,
+          "comm": 56,
+          "accroche": "Entre le ciel et la mer,",
+          "caption": "Entre le ciel et la mer,\nEntre le soleil et la lune,\nL’amour vibrera toujours… 💋\n\n#roadtrippers #roadtrip #alone #bestlife #paradiseisland #paradise #sound #music",
+          "lien": "https://www.instagram.com/reel/DGnyZKIhp-U/"
+        },
+        {
+          "ts": "2024-12-12T17:08:30+0000",
+          "format": "image",
+          "likes": 446,
+          "comm": 54,
+          "accroche": "“Il faut avoir une musique en soi pour faire danser le monde.” Nietzsche 💋",
+          "caption": "“Il faut avoir une musique en soi pour faire danser le monde.” Nietzsche 💋\n\n#dj #music #bordeaux #bestlife #goodvibes #smile",
+          "lien": "https://www.instagram.com/p/DDfHOn8Ns7B/"
+        },
+        {
+          "ts": "2022-06-26T17:01:33+0000",
+          "format": "image",
+          "likes": 2660,
+          "comm": 87,
+          "accroche": "Ça y est j’ai 30 ans & je peux dire que je suis une femme épanouie et heureuse ! Je connais la définition du mot « Bonheur » et c’est magnif",
+          "caption": "Ça y est j’ai 30 ans & je peux dire que je suis une femme épanouie et heureuse ! Je connais la définition du mot « Bonheur » et c’est magnifique !\nJe suis fière du chemin que j’ai parcouru, mais surtout fière d’avoir été une femme droite et en accord avec moi-même! \nJe remercie l’univers de m’avoir offert des enfants merveilleux Sans oublier ma famille et mes amis à qui je souhaite l’épanouissement et le bonheur 🙏🤍\n\n#happybirthday #love #chill #smile #epanouissement",
+          "lien": "https://www.instagram.com/tv/CfRp9rPK4HM/"
+        },
+        {
+          "ts": "2022-04-10T14:35:28+0000",
+          "format": "image",
+          "likes": 1779,
+          "comm": 39,
+          "accroche": "Hâte de partir au soleil ☀️ ",
+          "caption": "Hâte de partir au soleil ☀️ \n& vous ?",
+          "lien": "https://www.instagram.com/p/CcLJE3mKUZo/"
+        },
+        {
+          "ts": "2022-01-26T17:37:21+0000",
+          "format": "image",
+          "likes": 1831,
+          "comm": 80,
+          "accroche": "La vie est faite de choix, pour nous emmener vers la vie que nous rêvons ! ",
+          "caption": "La vie est faite de choix, pour nous emmener vers la vie que nous rêvons ! \nDis moi quel est ton rêve ? \n\n#naturelle #loveyou #foryou",
+          "lien": "https://www.instagram.com/p/CZM7EY1qT49/"
+        },
+        {
+          "ts": "2022-01-01T18:43:48+0000",
+          "format": "image",
+          "likes": 2359,
+          "comm": 95,
+          "accroche": "🤍",
+          "caption": "🤍",
+          "lien": "https://www.instagram.com/p/CYMqzLOqDcN/"
+        }
+      ]
+    },
+    "djmvlarosa_officiel": {
+      "maj": "2026-11-25T16:34:53.862Z",
+      "abonnes": 3178,
+      "posts": [
+        {
+          "ts": "2026-10-27T16:36:25+0000",
+          "format": "reel",
+          "likes": 0,
+          "comm": 0,
+          "accroche": "THRILLER : 31 OCTOBRE - AVIGNON 🩸‼️",
+          "caption": "THRILLER : 31 OCTOBRE - AVIGNON 🩸‼️\n- ocargo_avignon : la soirée risque d’être terrible ☠️\n\n#fyp #pourtoi #public #31octobre #avignon",
+          "lien": "https://www.instagram.com/reel/DfASxszAcYj/"
+        },
+        {
+          "ts": "2026-09-24T09:36:30+0000",
+          "format": "reel",
+          "likes": 0,
+          "comm": 2,
+          "accroche": "MV LA ROSA - Pourquoi tu aimes autant mixer en Club‼️🚨 lechatlaid_carcassonne ",
+          "caption": "MV LA ROSA - Pourquoi tu aimes autant mixer en Club‼️🚨 lechatlaid_carcassonne \n\n#fyp #pourtoi #public #soirée #boitedenuit",
+          "lien": "https://www.instagram.com/reel/DdqkhBzAGCD/"
+        },
+        {
+          "ts": "2026-09-23T12:36:38+0000",
+          "format": "reel",
+          "likes": 203,
+          "comm": 0,
+          "accroche": "Partie 1 : TOP 5 - Meilleurs Musiques Club Feria de Nîmes ❤️🤍 ",
+          "caption": "Partie 1 : TOP 5 - Meilleurs Musiques Club Feria de Nîmes ❤️🤍 \n\n#fyp #pourtoi #nimes #club #public",
+          "lien": "https://www.instagram.com/reel/DdoUSn6hhwS/"
+        },
+        {
+          "ts": "2026-09-23T11:11:19+0000",
+          "format": "reel",
+          "likes": 0,
+          "comm": 0,
+          "accroche": "LA FERIA DE NÎMES = Maladie de L’ALCOOL ❤️🤍",
+          "caption": "LA FERIA DE NÎMES = Maladie de L’ALCOOL ❤️🤍\n\ncafe.carre30 honeyy.off julian.tomas_ \n #fyp #pourtoi #public #maladie #dj",
+          "lien": "https://www.instagram.com/reel/DdoKsUSA9rw/"
+        },
+        {
+          "ts": "2026-09-22T14:49:16+0000",
+          "format": "reel",
+          "likes": 227,
+          "comm": 2,
+          "accroche": "VESQUIT LE GOUMIN en Feria de Nîmes ❤️🤍 ",
+          "caption": "VESQUIT LE GOUMIN en Feria de Nîmes ❤️🤍 \n\nmauvaisdjo_undert cafe.carre30 julian.tomas_ honeyy.off \n\n#fyp #pourtoi #feria #nimes public",
+          "lien": "https://www.instagram.com/reel/Ddl-2vvhxbY/"
+        },
+        {
+          "ts": "2026-09-20T11:23:11+0000",
+          "format": "reel",
+          "likes": 260,
+          "comm": 13,
+          "accroche": "Intro MV LA ROSA à la Feria de Nîmes 2026 ! ❤️🤍",
+          "caption": "Intro MV LA ROSA à la Feria de Nîmes 2026 ! ❤️🤍\n#fyp #pourtoi #feria #nimes #intro",
+          "lien": "https://www.instagram.com/reel/DdgdiI7AqzN/"
+        },
+        {
+          "ts": "2026-09-19T11:21:35+0000",
+          "format": "reel",
+          "likes": 0,
+          "comm": 0,
+          "accroche": "On a LEVEL UP à la FERIA DE Nîmes devant 5000 personnes !!! ❤️🤍",
+          "caption": "On a LEVEL UP à la FERIA DE Nîmes devant 5000 personnes !!! ❤️🤍\n\n its_nayte nouvelleecolefr feat. honeyy.off \n\n#fyp #pourtoi #feria #ferianimes #nimes",
+          "lien": "https://www.instagram.com/reel/Ddd4YBpgQHk/"
+        },
+        {
+          "ts": "2026-08-31T19:43:10+0000",
+          "format": "reel",
+          "likes": 0,
+          "comm": 3,
+          "accroche": "Booking DM 📩 -> AFTER MOVIE CLUB 🎥",
+          "caption": "Booking DM 📩 -> AFTER MOVIE CLUB 🎥\n\nMerci à summerrockzlloretdemar 🌶️\nVidéaste : gallodj_ - estelle_pstr \nClub : revolutiondisco \n#fyp #pourtoi #clubs #lloretdemar #mvlarosa",
+          "lien": "https://www.instagram.com/reel/Dct2pmpgWTE/"
+        },
+        {
+          "ts": "2026-08-23T19:40:22+0000",
+          "format": "reel",
+          "likes": 105,
+          "comm": 6,
+          "accroche": "Booking : IL RESTE 5 DATES DE DISPONIBLES jusqu’à fin Janvier 2027 ! 📩 Pourquoi pas chez toi ??",
+          "caption": "Booking : IL RESTE 5 DATES DE DISPONIBLES jusqu’à fin Janvier 2027 ! 📩 Pourquoi pas chez toi ??\n\nLES 3 STADES FRANCE arrivent vite ! ⏳niska_officiel djbens summerrockzlloretdemar \n\nSPEAKER : lakhdar_rahim \n\n#fyp #pourtoi #niska #stadedefrance lloretdemar",
+          "lien": "https://www.instagram.com/reel/DcZQNOHAUxa/"
+        },
+        {
+          "ts": "2026-08-21T19:05:48+0000",
+          "format": "reel",
+          "likes": 105,
+          "comm": 1,
+          "accroche": "La SPECIALE a LLORET de Mar avec 2000 personnes ! 👏🤍 summerrockzlloretdemar sttroplloret ",
+          "caption": "La SPECIALE a LLORET de Mar avec 2000 personnes ! 👏🤍 summerrockzlloretdemar sttroplloret \n#fyp #pourtoi #party #lloretdemar #mvlarosa",
+          "lien": "https://www.instagram.com/reel/DcUC6ZUA3FT/"
+        },
+        {
+          "ts": "2026-08-19T18:59:25+0000",
+          "format": "reel",
+          "likes": 77,
+          "comm": 1,
+          "accroche": "« Je suis qu’une BADDIES » !!! LIVE SHOW 📸🇧🇷",
+          "caption": "« Je suis qu’une BADDIES » !!! LIVE SHOW 📸🇧🇷\n- WAP X SEXY NANA ( MV LA ROSA ) \nsummerrockzlloretdemar youaresunbeam gallodj_ \n#fyp #pourtoi #party #live #dj",
+          "lien": "https://www.instagram.com/reel/DcO4SGwAqBC/"
+        },
+        {
+          "ts": "2026-08-19T14:06:03+0000",
+          "format": "reel",
+          "likes": 0,
+          "comm": 2,
+          "accroche": "CÉLIBATAIRE X LMFAO ! 🪩🕺🕺 On choque les générations ! triangledesbermudes_off ",
+          "caption": "CÉLIBATAIRE X LMFAO ! 🪩🕺🕺 On choque les générations ! triangledesbermudes_off \n\n#fyp #pourtoi #party #mashup #soirée",
+          "lien": "https://www.instagram.com/reel/DcOW4dcNq5Q/"
+        },
+        {
+          "ts": "2026-08-18T18:46:13+0000",
+          "format": "reel",
+          "likes": 0,
+          "comm": 1,
+          "accroche": "Pilé x Let’s Go - MV LA ROSA ! C’est quoi ce remix encore en fin d’été !? ⭐️🌶️",
+          "caption": "Pilé x Let’s Go - MV LA ROSA ! C’est quoi ce remix encore en fin d’été !? ⭐️🌶️",
+          "lien": "https://www.instagram.com/reel/DcMEx0Otm7U/"
+        },
+        {
+          "ts": "2026-08-17T15:30:19+0000",
+          "format": "reel",
+          "likes": 226,
+          "comm": 2,
+          "accroche": "1 an sépare ses deux vidéos - MV LA ROSA 🥵🫢 ",
+          "caption": "1 an sépare ses deux vidéos - MV LA ROSA 🥵🫢 \n#fyp #pourtoi #party #dj #soirée",
+          "lien": "https://www.instagram.com/reel/DcJW7DqtbUs/"
+        },
+        {
+          "ts": "2026-08-16T19:15:35+0000",
+          "format": "carrousel",
+          "likes": 112,
+          "comm": 2,
+          "accroche": "Merci + 5000 personnes présentes ! ⭐️",
+          "caption": "Merci + 5000 personnes présentes ! ⭐️\nMerci pour l’accueil du raid_aventure_pelissanne \n\n📸 : cepiaphotographie \n\n#fyp #pourtoi #raidaventure #mvlarosa #dj",
+          "lien": "https://www.instagram.com/p/DcHMQ-lAMRQ/"
+        },
+        {
+          "ts": "2026-08-13T17:04:58+0000",
+          "format": "image",
+          "likes": 116,
+          "comm": 11,
+          "accroche": "Shooting- Série Black Storm 🏴 ",
+          "caption": "Shooting- Série Black Storm 🏴 \n~ Merci l’accueil studiojean.photographes \n\n#fyp #dj #shooting #pourtoi #mvlarosa",
+          "lien": "https://www.instagram.com/p/Db_OySjAfQe/"
+        },
+        {
+          "ts": "2026-08-09T13:21:22+0000",
+          "format": "reel",
+          "likes": 0,
+          "comm": 0,
+          "accroche": "+ 150 000 vues tu le teste à LLORET DE MAR ! 🌶️ ",
+          "caption": "+ 150 000 vues tu le teste à LLORET DE MAR ! 🌶️ \ntjy972 #fyp #pourtoi #party #lloret",
+          "lien": "https://www.instagram.com/reel/Db0huzMgMb0/"
+        },
+        {
+          "ts": "2026-08-07T19:46:55+0000",
+          "format": "reel",
+          "likes": 134,
+          "comm": 3,
+          "accroche": "J’ai respecté les règles en vrai… paga_lmsa feat. summerrockzlloretdemar ! ⭐️🙏🏼",
+          "caption": "J’ai respecté les règles en vrai… paga_lmsa feat. summerrockzlloretdemar ! ⭐️🙏🏼\n\n#fyp #pourtoi #lloretdemar #paga #mvlarosa",
+          "lien": "https://www.instagram.com/reel/DbwEeLZgCXj/"
+        },
+        {
+          "ts": "2026-08-07T19:13:07+0000",
+          "format": "reel",
+          "likes": 126,
+          "comm": 13,
+          "accroche": "Closing djbens ⭐️ feat summerrockzlloretdemar Devant + 2000 personnes ! 🌶️🌶️",
+          "caption": "Closing djbens ⭐️ feat summerrockzlloretdemar Devant + 2000 personnes ! 🌶️🌶️\n\n#fyp #pourtoi #party #dj #lloretdemar",
+          "lien": "https://www.instagram.com/reel/DbwAoc1gA5Y/"
+        },
+        {
+          "ts": "2026-08-05T16:33:18+0000",
+          "format": "reel",
+          "likes": 375,
+          "comm": 32,
+          "accroche": "Closing adixia + Le Roi de Lloret de Mar à la fin de la vidéo… ⭐️⭐️🌶️ ",
+          "caption": "Closing adixia + Le Roi de Lloret de Mar à la fin de la vidéo… ⭐️⭐️🌶️ \n\n#fyp #pourtoi #dj #soirée #lloretdemar",
+          "lien": "https://www.instagram.com/reel/Dbqki0vti6Y/"
+        },
+        {
+          "ts": "2026-08-02T12:36:52+0000",
+          "format": "reel",
+          "likes": 0,
+          "comm": 1,
+          "accroche": "Envoie à ton/ta pote avec qui tu voudras faire la Trend 👑 mauvaisdjo_undert ",
+          "caption": "Envoie à ton/ta pote avec qui tu voudras faire la Trend 👑 mauvaisdjo_undert \n#fyp #pourtoi #trend #mvlarosa #maladie",
+          "lien": "https://www.instagram.com/reel/Dbibb7QA9vz/"
+        },
+        {
+          "ts": "2026-08-01T12:07:08+0000",
+          "format": "reel",
+          "likes": 0,
+          "comm": 1,
+          "accroche": "Il est déterminé !!! 👊🏽👑",
+          "caption": "Il est déterminé !!! 👊🏽👑\n#fyp #pourtoi #lloretdemar #humour",
+          "lien": "https://www.instagram.com/reel/DbfzMKtA8gK/"
+        },
+        {
+          "ts": "2026-07-26T12:42:46+0000",
+          "format": "reel",
+          "likes": 0,
+          "comm": 0,
+          "accroche": "En vrai viens on y va ?! ☀️🥵 ",
+          "caption": "En vrai viens on y va ?! ☀️🥵 \n#fyp #pourtoi #lloret #amis #voyage",
+          "lien": "https://www.instagram.com/reel/DbQakwCg3AV/"
+        },
+        {
+          "ts": "2026-07-25T18:29:43+0000",
+          "format": "reel",
+          "likes": 0,
+          "comm": 0,
+          "accroche": "Boat Party en Lloret de Mar con summerrockzlloretdemar ⚓️🇪🇸",
+          "caption": "Boat Party en Lloret de Mar con summerrockzlloretdemar ⚓️🇪🇸\n\n#fyp #pourtoi #party",
+          "lien": "https://www.instagram.com/reel/DbOdYlCgDaN/"
+        },
+        {
+          "ts": "2026-07-25T13:00:07+0000",
+          "format": "reel",
+          "likes": 0,
+          "comm": 1,
+          "accroche": "On lance la trend «  GESTU MALADIE » mauvaisdjo_undert sttroplloret ",
+          "caption": "On lance la trend «  GESTU MALADIE » mauvaisdjo_undert sttroplloret \n#fyp #pourtoi #soirée #party",
+          "lien": "https://www.instagram.com/reel/DbN3iW-tgi2/"
         }
       ]
     }
