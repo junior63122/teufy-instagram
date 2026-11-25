@@ -7,6 +7,47 @@
   "evenements": [
     {
       "source": "web",
+      "source_site": "Instagram",
+      "name": "Solly Smith at Twiga Monte Carlo",
+      "start": "2026-11-27T21:00:00.000Z",
+      "venue": "Twiga Monte Carlo",
+      "city": "Monaco",
+      "address": "",
+      "url": "https://www.instagram.com/p/DgKNUtyI8hw/",
+      "image": "https://scontent-ord5-2.cdninstagram.com/v/t51.82787-15/927122302_18659236591026487_2046144416231653064_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=106&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=iTrrf5ufaygQ7kNvwF-MuFr&_nc_oc=Adodg1ubtl1Ymme2UWPnTDQODmQtkFwKNRhqd7sisIipXFKd2TxYQ17mih4OKtL91s0&_nc_zt=23&_nc_ht=scontent-ord5-2.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=6THqdH8_LrYtx3emup7-Bw&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQR6NBGpfeI_CTEdCouX3ax2xoD7YEy7gmEqTVtUs8OgQw&oe=6B0D469A",
+      "price": null,
+      "tags": [
+        "techno",
+        "house",
+        "Deep House",
+        "Afro House",
+        "Club"
+      ],
+      "description": "Le club Twiga Monte Carlo accueille le DJ Solly Smith le vendredi 27 novembre pour une soirée techno‑house qui promet de faire vibrer la Méditerranée. Le line‑up met en avant un son électro percutant, idéal pour les 18‑30 ans qui aiment danser jusqu’au bout de la nuit. L’entrée est réservée aux plus de 18 ans, la porte est stricte et la réservation se fait par téléphone ou mail. Prépare‑toi à vivre une ambiance chic et underground dans le décor glamour de Monte‑Carlo.",
+      "public_cible": 0.9,
+      "confiance": 0.9,
+      "buzz": 0.6,
+      "buzz_raison": "DJ reconnu, lieu prestigieux, date en week‑end, forte visibilité Instagram.",
+      "accroche": "Solly Smith en live à Twiga Monte Carlo le vendredi 27 novembre ! Une nuit techno‑house au cœur de Monaco.",
+      "instagram": [
+        "twigamontecarlo",
+        "twiga_mc",
+        "sollysmith"
+      ],
+      "offres": [
+        {
+          "plateforme": "twigaworld.com",
+          "url": "https://twigaworld.com/montecarlo/calendar/",
+          "prix": null
+        }
+      ],
+      "sources_sites": [
+        "Instagram",
+        "Twiga World"
+      ]
+    },
+    {
+      "source": "web",
       "source_site": "Shotgun",
       "name": "La Java 3",
       "start": "2026-12-05T22:00:00.000Z",
@@ -3611,33 +3652,6 @@
     },
     {
       "source": "web",
-      "source_site": "Twiga World",
-      "name": "Solly Smith au Club Twiga Monte Carlo",
-      "start": "2026-11-27T22:30:00.000Z",
-      "venue": "Twiga Monte-Carlo",
-      "city": "Monaco",
-      "address": "",
-      "url": "https://twigaworld.com/montecarlo/calendar/",
-      "image": "",
-      "price": null,
-      "tags": [
-        "Deep House",
-        "Afro House",
-        "Club"
-      ],
-      "description": "Le Twiga Monte-Carlo t'accueille au deuxième étage du Grimaldi Forum pour une nuit clubbing sélective en bord de mer. Aux platines, Solly Smith prend les commandes pour faire monter la température avec ses sélections deep house et afro house. Le club ouvre ses portes de 23h30 à 05h00 dans un cadre soigné. L'accès se fait sur réservation de table, bouteille ou liste auprès de l'établissement.",
-      "public_cible": 0.75,
-      "confiance": 0.9,
-      "buzz": 0.6,
-      "buzz_raison": "Soirée clubbing dans un spot sélect de Monaco avec Solly Smith.",
-      "accroche": "Set deep et afro house au Twiga Monte-Carlo avec Solly Smith face à la mer.",
-      "instagram": [
-        "twiga_mc",
-        "sollysmith"
-      ]
-    },
-    {
-      "source": "web",
       "source_site": "montecarlosbm.com",
       "name": "Selah Sue and The Gallands / Tyreek McDole - Monte-Carlo Jazz Festival",
       "start": "2026-11-25T19:30:00.000Z",
@@ -6495,5 +6509,5 @@
       ]
     }
   ],
-  "maj_instagram": "2026-11-25T21:12:15.964Z"
+  "maj_instagram": "2026-11-25T22:12:15.694Z"
 }

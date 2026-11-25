@@ -8933,5 +8933,44 @@
    "five",
    "stars"
   ]
+ },
+ "v2|6613f5e7d9b4": {
+  "ok": true,
+  "le": "2026-11-25T22:12:41.146Z",
+  "nom": "Solly Smith at Twiga Monte Carlo",
+  "lu": {
+   "titre": "TWIGA MONTE CARLO",
+   "dates": [
+    "2026-11-27"
+   ],
+   "artistes": [
+    "SOLLY SMITH"
+   ],
+   "lieu": "TWIGA MONTE CARLO"
+  },
+  "commun": [
+   "twiga",
+   "monte",
+   "carlo",
+   "solly",
+   "smith"
+  ]
+ },
+ "v2|ab567834e110": {
+  "ok": true,
+  "le": "2026-11-25T22:13:03.404Z",
+  "nom": "BigFlo & Oli – Karma Tour",
+  "lu": {
+   "titre": "BIGFLO & OLI LA TOURNÉE NOUVEL ALBUM KARMA",
+   "dates": [],
+   "artistes": [
+    "BIGFLO & OLI"
+   ],
+   "lieu": ""
+  },
+  "commun": [
+   "bigflo",
+   "karma"
+  ]
  }
 }

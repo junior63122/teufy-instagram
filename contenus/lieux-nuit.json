@@ -208,7 +208,7 @@
    "score": 0,
    "soirs": [],
    "details": {
-    "le": "2026-11-25T21:20:01.067Z",
+    "le": "2026-11-25T22:19:10.679Z",
     "styles": "DJ résidents (ven–sam après 22h)",
     "dress_code": "",
     "horaires": "lun–dim 10h–2h",
@@ -1433,12 +1433,12 @@
    "site": "https://twigamontecarlo.com/",
    "description": "Restaurant puis club au 2e étage du Grimaldi Forum, avec dîner en soirée et club jusqu'à 4-5 h selon les soirs.",
    "soirees": [
-    "solly-smith-au-club-twiga-monte-carlo-2026-11-27"
+    "solly-smith-at-twiga-monte-carlo-2026-11-27"
    ],
    "prochaines": [
     {
-     "id": "solly-smith-au-club-twiga-monte-carlo-2026-11-27",
-     "nom": "Solly Smith au Club Twiga Monte Carlo"
+     "id": "solly-smith-at-twiga-monte-carlo-2026-11-27",
+     "nom": "Solly Smith at Twiga Monte Carlo"
     }
    ],
    "insta": {
@@ -1471,16 +1471,16 @@
    "soirs": [
     [
      "2026-11-27",
-     "23:30",
-     "solly-smith-au-club-twiga-monte-carlo-2026-11-27",
-     "Solly Smith au Club Twiga Monte Carlo"
+     "22:00",
+     "solly-smith-at-twiga-monte-carlo-2026-11-27",
+     "Solly Smith at Twiga Monte Carlo"
     ]
    ],
    "instagram_non_verifie": "twigamontecarlo",
    "stylesSoirees": [
+    "techno",
     "house",
-    "afro",
-    "latino"
+    "afro"
    ]
   },
   {
