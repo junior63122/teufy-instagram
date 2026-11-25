@@ -238,7 +238,7 @@ jobs:
           git add -A -- $(ls -d historique.json contenus/comptes-verifies.json contenus/budget-ia.json 2>/dev/null) || true # seulement les chemins existants (un seul absent bloquait tout)
           git diff --cached --quiet && exit 0
           git commit -m "Teufy Instagram : publié (${{ steps.choix.outputs.quoi }})"
-          for i in 1 2 3; do git pull --rebase -X theirs --autostash && git push && break; git rebase --abort 2>/dev/null; sleep 5; done
+          bash outils/pousser-historique.sh # fusion en cas de conflit ; échec visible sinon (doublon du 25/11/2026)
 
       # Stories du jour (12/11/2026, directeur : « montrer une vraie présence, inciter la communauté à nous parler ») :
       # soirées de ce soir, offres des partenaires, questions et débats, repost de reels encore utiles, coup de cœur.

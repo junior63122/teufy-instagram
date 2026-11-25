@@ -318,3 +318,11 @@ export async function storiesEnLigne(ig) {
   try { return ((await call('GET', `${ig.user}/stories`, { fields: 'id,timestamp,media_type' }, ig)).data || []).map((s) => s.id); }
   catch { return null; }
 }
+
+/** Publication du profil faite le jour `jour` (heure de Paris), du genre `genre` (CAROUSEL_ALBUM, IMAGE, VIDEO), et absente de
+ *  l'historique (aucune entrée avec ce `media`) : trace d'un envoi dont l'enregistrement s'est perdu (25/11/2026, doublon). */
+export function publicationInconnue(medias = [], hist = [], { genre, jour } = {}) {
+  const connus = new Set(hist.map((h) => String(h.media || '')).filter(Boolean));
+  const jp = (t) => new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Paris' }).format(new Date(t));
+  return medias.find((m) => m.media_type === genre && m.media_product_type !== 'STORY' && !connus.has(String(m.id)) && m.timestamp && jp(m.timestamp) === jour) || null;
+}

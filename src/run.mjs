@@ -21,7 +21,8 @@ import { windowFor, rolling, isoLocal, plage, slotOfDay, daysOfMonth } from './d
 import { isTechno, isUnderground } from './genres.mjs';
 import { captionIncontournables, captionBonPlan, captionDebat, captionReel, captionOrgas, captionExplicatif, rng } from './captions.mjs';
 import { nettoyerComptes, legendeFinale, abonnesDe, comptesConfirmes } from './comptes.mjs';
-import { igConfig, publishCarousel, publishSingle, publishReel, publishStory, permalink, insights, followers, businessDiscovery, compteMedia } from './instagram.mjs';
+import { igConfig, publishCarousel, publishSingle, publishReel, publishStory, permalink, insights, followers, businessDiscovery, compteMedia, publicationInconnue } from './instagram.mjs';
+const jourParisDe = (d) => new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Paris' }).format(d);
 import { TENDANCES, analyserComptes } from './tendances.mjs';
 import { buildModel, chooser, selectBest, eventFeatures, collect, hash, loadData } from './learn.mjs';
 import { filtrerCoherentes, controlePost, choixLibre } from './coherence.mjs';
@@ -558,8 +559,11 @@ async function prepare(slot, now, id) {
     const f = { type: s.type, surtitre: s.post.surtitre.toUpperCase().slice(0, 22), titre: s.post.titre, sous_titre: s.post.sous_titre, faits: s.post.faits.slice(0, 4), source: s.comptes_instagram?.[0] ? `@${s.comptes_instagram[0]} · ${domaine}` : domaine, date: jourH, image };
     if (!existsSync(path.join(STUDIO, 'node_modules'))) spawnSync('npm', ['ci', '--no-audit', '--no-fund'], { cwd: STUDIO, stdio: 'inherit' });
     const fichier = path.join(dir, `flash-${stamp}.jpg`);
+    // 25/11/2026 (directeur : « tu as utilisé 3 fois la même photo sur les 3 derniers posts ») : le post de veille prenait toujours
+    // la photo de foule sans la noter ; il passe maintenant par la même rotation que les autres couvertures (notée dans l'historique).
+    const photoVeille = `decors/da/${photoCouv(s.type === 'actu' ? ['foule', 'danse', 'dj', 'rire'] : ['lasers', 'dj', 'foule'])}.jpg`;
     const B = '/opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell';
-    const rr = spawnSync(path.join(STUDIO, 'node_modules', '.bin', 'remotion'), ['still', 'src/index.ts', 'flash', fichier, `--props=${JSON.stringify((await import('./captions.mjs')).sansEmoji({ f }))}`, '--image-format=jpeg', '--jpeg-quality=92', '--log=error', ...(existsSync(B) ? [`--browser-executable=${B}`] : [])], { cwd: STUDIO, stdio: 'inherit' });
+    const rr = spawnSync(path.join(STUDIO, 'node_modules', '.bin', 'remotion'), ['still', 'src/index.ts', 'flash', fichier, `--props=${JSON.stringify({ ...(await import('./captions.mjs')).sansEmoji({ f }), photo: photoVeille })}`, '--image-format=jpeg', '--jpeg-quality=92', '--log=error', ...(existsSync(B) ? [`--browser-executable=${B}`] : [])], { cwd: STUDIO, stdio: 'inherit' });
     if (rr.status !== 0) throw new Error('Rendu du post de veille impossible');
     pub = { images: [fichier], legende: s.post.legende, titre: s.post.titre, veille: { titre: s.titre, source: s.source_url, importance: s.importance }, tags: [(s.comptes_instagram || []).map((h) => h.replace(/^@/, '')).slice(0, 5)] };
     console.log(`[${id}] post de veille : « ${s.post.titre} » (${s.importance}/100, ${s.source_url})`);
@@ -1007,12 +1011,24 @@ async function publishPrepared(id) {
     : p.images.length === 1
       ? await publishSingle(url(p.images[0]), p.legende, ig, { tags: p.tags, ia, legende: (ok) => legendeFinale(p.legende, p.a_tester, ok) })
       : await publishCarousel(p.images.map(url), p.legende, ig, { tags: p.tags, ia, collabs: config.collaborations?.actif ? p.collabs : [], legende: (ok) => legendeFinale(p.legende, p.a_tester, ok) }));
+  // 25/11/2026 : le carrousel « petits prix » est parti deux fois (17 h 23 puis 19 h 10) : le premier passage avait publié, mais
+  // l'enregistrement de l'historique n'était pas arrivé sur GitHub (conflit), et le passage suivant a republié (légende récrite
+  // par l'IA, donc différente). Avant tout envoi, on relit le profil : une publication du même genre (carrousel, image ou réel),
+  // faite aujourd'hui (heure de Paris) et absente de l'historique, est prise pour celle-ci : on n'envoie rien et on la note.
+  let dejaEnLigne = null;
+  if (!flag('forcer')) {
+    try {
+      const genre = p.video ? 'VIDEO' : p.images.length === 1 ? 'IMAGE' : 'CAROUSEL_ALBUM';
+      dejaEnLigne = publicationInconnue(await compteMedia(ig, 8), hist, { genre, jour: jourParisDe(NOW) });
+      if (dejaEnLigne) console.error(`::warning::[${id}] une publication du même genre est déjà en ligne aujourd'hui sans être dans l'historique (${dejaEnLigne.permalink || dejaEnLigne.id}) : pas de deuxième envoi, elle est notée comme celle-ci.`);
+    } catch (err) { console.error(`[${id}] profil illisible avant publication (${err.message}) : on continue.`); }
+  }
   let res;
   const debutEnvoi = Date.now();
   // Erreur de l'API alors que le post est peut-être parti (réponse perdue, délai dépassé) : on regarde d'abord le profil,
   // pour ne jamais republier en double ni noter « échec » un post qui est en ligne.
   const dejaParti = async () => { try { const { correspondPublication } = await import('./instagram.mjs'); const m = correspondPublication(await compteMedia(ig, 5), p.legende, debutEnvoi); if (m) console.error(`::warning::[${id}] l'API a répondu par une erreur, mais le post est en ligne (${m.permalink || m.id}) : noté publié, pas de second envoi.`); return m ? { id: m.id } : null; } catch { return null; } };
-  try { res = await publier(); } catch (err) {
+  try { res = dejaEnLigne ? { id: dejaEnLigne.id } : await publier(); } catch (err) {
     res = await dejaParti();
     if (res) { /* déjà en ligne */ } else {
     // Instagram n'arrive pas à télécharger les médias depuis teufyparty.com (pare-feu Cloudflare, panne du domaine…) :
