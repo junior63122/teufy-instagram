@@ -2581,47 +2581,47 @@
  },
  "indahouse": {
   "ok": false,
-  "le": "2026-11-12T17:17:13.255Z"
+  "le": "2026-11-25T01:03:55.873Z"
  },
  "inda_house": {
   "ok": false,
-  "le": "2026-11-12T17:17:13.576Z"
+  "le": "2026-11-25T01:03:55.873Z"
  },
  "inda.house": {
   "ok": false,
-  "le": "2026-11-12T17:17:14.128Z"
+  "le": "2026-11-25T01:03:55.873Z"
  },
  "indahouse_officiel": {
   "ok": false,
-  "le": "2026-11-12T17:17:14.692Z"
+  "le": "2026-11-25T01:03:55.873Z"
  },
  "indahouseofficiel": {
   "ok": false,
-  "le": "2026-11-12T17:17:14.906Z"
+  "le": "2026-11-25T01:03:55.873Z"
  },
  "inda_house_officiel": {
   "ok": false,
-  "le": "2026-11-12T17:17:15.521Z"
+  "le": "2026-11-25T01:03:55.873Z"
  },
  "indahouse_official": {
   "ok": false,
-  "le": "2026-11-12T17:17:15.781Z"
+  "le": "2026-11-25T01:03:55.873Z"
  },
  "indahousecarqueiranne": {
   "ok": false,
-  "le": "2026-11-12T17:17:16.126Z"
+  "le": "2026-11-25T01:03:55.873Z"
  },
  "indahouse_carqueiranne": {
   "ok": false,
-  "le": "2026-11-12T17:17:16.339Z"
+  "le": "2026-11-25T01:03:55.873Z"
  },
  "inda_house_carqueiranne": {
   "ok": false,
-  "le": "2026-11-12T17:17:16.549Z"
+  "le": "2026-11-25T01:03:55.873Z"
  },
  "indahouse.carqueiranne": {
   "ok": false,
-  "le": "2026-11-12T17:17:16.857Z"
+  "le": "2026-11-25T01:03:55.873Z"
  },
  "ora": {
   "ok": false,
@@ -4958,5 +4958,329 @@
  "antreelectroacocktailsofficiel": {
   "ok": false,
   "le": "2026-11-24T22:09:10.384Z"
+ },
+ "antreelectroacocktailsnice": {
+  "ok": false,
+  "le": "2026-11-25T01:03:46.605Z"
+ },
+ "antreelectroacocktails_nice": {
+  "ok": false,
+  "le": "2026-11-25T01:03:47.257Z"
+ },
+ "antre_electro_a_cocktails_nice": {
+  "ok": false,
+  "le": "2026-11-25T01:03:47.753Z"
+ },
+ "antreelectroacocktails.nice": {
+  "ok": false,
+  "le": "2026-11-25T01:03:48.289Z"
+ },
+ "lantrebarelectrobaracocktails": {
+  "ok": false,
+  "le": "2026-11-25T01:03:48.674Z"
+ },
+ "villecannes": {
+  "ok": true,
+  "nom": "CANNES",
+  "bio": "Compte officiel de la Ville de Cannes 🌴☀️\nTourisme 👉 @cannesfrance",
+  "site": "http://www.cannes.com/",
+  "abonnes": 155410,
+  "le": "2026-11-25T01:03:49.487Z"
+ },
+ "cannesisyours": {
+  "ok": false,
+  "le": "2026-11-25T01:03:49.892Z"
+ },
+ "baieplagescroisette": {
+  "ok": false,
+  "le": "2026-11-25T01:03:50.331Z"
+ },
+ "baie_plages_croisette": {
+  "ok": false,
+  "le": "2026-11-25T01:03:50.567Z"
+ },
+ "baie.plages.croisette": {
+  "ok": false,
+  "le": "2026-11-25T01:03:51.013Z"
+ },
+ "baieplagescroisette_officiel": {
+  "ok": false,
+  "le": "2026-11-25T01:03:51.198Z"
+ },
+ "baieplagescroisetteofficiel": {
+  "ok": false,
+  "le": "2026-11-25T01:03:51.688Z"
+ },
+ "baie_plages_croisette_officiel": {
+  "ok": false,
+  "le": "2026-11-25T01:03:51.895Z"
+ },
+ "baieplagescroisette_official": {
+  "ok": false,
+  "le": "2026-11-25T01:03:52.464Z"
+ },
+ "baieplagescroisettecannes": {
+  "ok": false,
+  "le": "2026-11-25T01:03:52.956Z"
+ },
+ "baieplagescroisette_cannes": {
+  "ok": false,
+  "le": "2026-11-25T01:03:53.257Z"
+ },
+ "baie_plages_croisette_cannes": {
+  "ok": false,
+  "le": "2026-11-25T01:03:53.893Z"
+ },
+ "baieplagescroisette.cannes": {
+  "ok": false,
+  "le": "2026-11-25T01:03:54.112Z"
+ },
+ "lafouine78": {
+  "ok": true,
+  "nom": "LA FOUINE 78",
+  "bio": "SILENCE RADIO — NOUVEL ALBUM DISPONIBLE MAINTENANT ‼️⚠️",
+  "site": "https://bfan.link/silence-radio",
+  "abonnes": 2516595,
+  "le": "2026-11-25T01:03:54.895Z"
+ },
+ "lafouine78officiel": {
+  "ok": false,
+  "le": "2026-11-25T01:03:55.120Z"
+ },
+ "skyskybeachcasinobeaulieu": {
+  "ok": false,
+  "le": "2026-11-25T01:03:55.309Z"
+ },
+ "sky_sky_beach_casino_beaulieu": {
+  "ok": false,
+  "le": "2026-11-25T01:03:55.309Z"
+ },
+ "sky.sky.beach.casino.beaulieu": {
+  "ok": false,
+  "le": "2026-11-25T01:03:55.309Z"
+ },
+ "esterelcotedazur": {
+  "ok": false,
+  "le": "2026-11-25T01:03:55.309Z"
+ },
+ "nicesallepartenaireshotgun": {
+  "ok": false,
+  "le": "2026-11-25T01:03:55.720Z"
+ },
+ "nice_salle_partenaire_shotgun": {
+  "ok": false,
+  "le": "2026-11-25T01:03:55.720Z"
+ },
+ "nice.salle.partenaire.shotgun": {
+  "ok": false,
+  "le": "2026-11-25T01:03:55.720Z"
+ },
+ "nicesallepartenaireshotgunnice": {
+  "ok": false,
+  "le": "2026-11-25T01:03:55.720Z"
+ },
+ "backtobac": {
+  "ok": false,
+  "le": "2026-11-25T01:03:55.798Z"
+ },
+ "back_to_bac": {
+  "ok": false,
+  "le": "2026-11-25T01:03:55.798Z"
+ },
+ "back.to.bac": {
+  "ok": false,
+  "le": "2026-11-25T01:03:55.798Z"
+ },
+ "backtobac_officiel": {
+  "ok": false,
+  "le": "2026-11-25T01:03:55.798Z"
+ },
+ "backtobacofficiel": {
+  "ok": false,
+  "le": "2026-11-25T01:03:55.798Z"
+ },
+ "back_to_bac_officiel": {
+  "ok": false,
+  "le": "2026-11-25T01:03:55.798Z"
+ },
+ "backtobac_official": {
+  "ok": false,
+  "le": "2026-11-25T01:03:55.798Z"
+ },
+ "backtobac_toulon": {
+  "ok": false,
+  "le": "2026-11-25T01:03:55.798Z"
+ },
+ "back_to_bac_toulon": {
+  "ok": false,
+  "le": "2026-11-25T01:03:55.798Z"
+ },
+ "backtobac.toulon": {
+  "ok": false,
+  "le": "2026-11-25T01:03:55.798Z"
+ },
+ "back.to.bac.toulon": {
+  "ok": false,
+  "le": "2026-11-25T01:03:55.798Z"
+ },
+ "backtobactoulon_officiel": {
+  "ok": false,
+  "le": "2026-11-25T01:03:55.798Z"
+ },
+ "backtobactoulonofficiel": {
+  "ok": false,
+  "le": "2026-11-25T01:03:55.798Z"
+ },
+ "back_to_bac_toulon_officiel": {
+  "ok": false,
+  "le": "2026-11-25T01:03:55.798Z"
+ },
+ "backtobactoulon_official": {
+  "ok": false,
+  "le": "2026-11-25T01:03:55.798Z"
+ },
+ "backtobactoulontoulon": {
+  "ok": false,
+  "le": "2026-11-25T01:03:55.798Z"
+ },
+ "backtobactoulon_toulon": {
+  "ok": false,
+  "le": "2026-11-25T01:03:55.798Z"
+ },
+ "back_to_bac_toulon_toulon": {
+  "ok": false,
+  "le": "2026-11-25T01:03:55.798Z"
+ },
+ "backtobactoulon.toulon": {
+  "ok": false,
+  "le": "2026-11-25T01:03:55.798Z"
+ },
+ "seg_agency": {
+  "ok": false,
+  "le": "2026-11-25T01:03:56.014Z"
+ },
+ "factoryfarlede": {
+  "ok": false,
+  "le": "2026-11-25T01:03:56.086Z"
+ },
+ "factory_farlede": {
+  "ok": false,
+  "le": "2026-11-25T01:03:56.086Z"
+ },
+ "factory.farlede": {
+  "ok": false,
+  "le": "2026-11-25T01:03:56.086Z"
+ },
+ "factoryfarlede_officiel": {
+  "ok": false,
+  "le": "2026-11-25T01:03:56.086Z"
+ },
+ "factoryfarledeofficiel": {
+  "ok": false,
+  "le": "2026-11-25T01:03:56.086Z"
+ },
+ "factory_farlede_officiel": {
+  "ok": false,
+  "le": "2026-11-25T01:03:56.086Z"
+ },
+ "factoryfarlede_official": {
+  "ok": false,
+  "le": "2026-11-25T01:03:56.086Z"
+ },
+ "factoryfarledelafarlede": {
+  "ok": false,
+  "le": "2026-11-25T01:03:56.086Z"
+ },
+ "factoryfarlede_lafarlede": {
+  "ok": false,
+  "le": "2026-11-25T01:03:56.086Z"
+ },
+ "factory_farlede_lafarlede": {
+  "ok": false,
+  "le": "2026-11-25T01:03:56.086Z"
+ },
+ "factoryfarlede.lafarlede": {
+  "ok": false,
+  "le": "2026-11-25T01:03:56.086Z"
+ },
+ "lefactorylafarlede": {
+  "ok": false,
+  "le": "2026-11-25T01:03:56.086Z"
+ },
+ "le_factory_la_farlede": {
+  "ok": false,
+  "le": "2026-11-25T01:03:56.086Z"
+ },
+ "le.factory.la.farlede": {
+  "ok": false,
+  "le": "2026-11-25T01:03:56.086Z"
+ },
+ "lefactorylafarlede_officiel": {
+  "ok": false,
+  "le": "2026-11-25T01:03:56.086Z"
+ },
+ "lefactorylafarledeofficiel": {
+  "ok": false,
+  "le": "2026-11-25T01:03:56.086Z"
+ },
+ "le_factory_la_farlede_officiel": {
+  "ok": false,
+  "le": "2026-11-25T01:03:56.086Z"
+ },
+ "lefactorylafarlede_official": {
+  "ok": false,
+  "le": "2026-11-25T01:03:56.086Z"
+ },
+ "lefactorylafarledelafarlede": {
+  "ok": false,
+  "le": "2026-11-25T01:03:56.086Z"
+ },
+ "lefactorylafarlede_lafarlede": {
+  "ok": false,
+  "le": "2026-11-25T01:03:56.086Z"
+ },
+ "lefactorylafarlede.lafarlede": {
+  "ok": false,
+  "le": "2026-11-25T01:03:56.086Z"
+ },
+ "boilerr": {
+  "ok": false,
+  "le": "2026-11-25T01:03:56.162Z"
+ },
+ "boiler_r": {
+  "ok": false,
+  "le": "2026-11-25T01:03:56.162Z"
+ },
+ "boiler.r": {
+  "ok": false,
+  "le": "2026-11-25T01:03:56.162Z"
+ },
+ "boilerr_officiel": {
+  "ok": false,
+  "le": "2026-11-25T01:03:56.162Z"
+ },
+ "boilerrofficiel": {
+  "ok": false,
+  "le": "2026-11-25T01:03:56.162Z"
+ },
+ "boiler_r_officiel": {
+  "ok": false,
+  "le": "2026-11-25T01:03:56.162Z"
+ },
+ "boilerr_official": {
+  "ok": false,
+  "le": "2026-11-25T01:03:56.162Z"
+ },
+ "boilerrlavaletteduvar": {
+  "ok": false,
+  "le": "2026-11-25T01:03:56.162Z"
+ },
+ "boilerr_lavaletteduvar": {
+  "ok": false,
+  "le": "2026-11-25T01:03:56.162Z"
+ },
+ "boiler_r_lavaletteduvar": {
+  "ok": false,
+  "le": "2026-11-25T01:03:56.162Z"
  }
 }

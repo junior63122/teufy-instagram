@@ -1,52 +1,6 @@
 {
- "le": "2026-11-24T22:19:12.853Z",
+ "le": "2026-11-25T01:13:37.156Z",
  "jours": [
-  {
-   "date": "2026-11-24",
-   "pause": null,
-   "publications": [
-    {
-     "id": "bonplan-a-reserver",
-     "type": "bonplan",
-     "variante": "a-reserver",
-     "heure": "16 h 07",
-     "suite": false,
-     "fait": true,
-     "lien": "https://www.instagram.com/p/DgISQfaFLQC/"
-    },
-    {
-     "id": "reel-tague-ton-pote",
-     "type": "reel",
-     "variante": "tague-ton-pote",
-     "heure": "18 h 07",
-     "suite": false,
-     "fait": true,
-     "lien": "https://www.instagram.com/reel/DgIdnqmDZcw/"
-    }
-   ],
-   "stories": [
-    {
-     "heure": "16 h",
-     "type": "soirees",
-     "cle": null
-    },
-    {
-     "heure": "18 h",
-     "type": "repost",
-     "cle": null
-    },
-    {
-     "heure": "20 h",
-     "type": "question",
-     "cle": null
-    },
-    {
-     "heure": "17 h",
-     "type": "astuce",
-     "cle": null
-    }
-   ]
-  },
   {
    "date": "2026-11-25",
    "pause": null,
@@ -57,8 +11,8 @@
      "variante": "spot-promo",
      "heure": "18 h 07",
      "suite": false,
-     "fait": false,
-     "lien": null
+     "fait": true,
+     "lien": "https://www.instagram.com/reel/DgJLtbMHDGc/"
     }
    ],
    "stories": [
@@ -574,6 +528,52 @@
     {
      "heure": "19 h",
      "type": "videos",
+     "cle": null
+    }
+   ]
+  },
+  {
+   "date": "2026-12-08",
+   "pause": null,
+   "publications": [
+    {
+     "id": "bonplan-a-reserver",
+     "type": "bonplan",
+     "variante": "a-reserver",
+     "heure": "17 h 07",
+     "suite": false,
+     "fait": false,
+     "lien": null
+    },
+    {
+     "id": "reel-tague-ton-pote",
+     "type": "reel",
+     "variante": "tague-ton-pote",
+     "heure": "18 h 07",
+     "suite": false,
+     "fait": false,
+     "lien": null
+    }
+   ],
+   "stories": [
+    {
+     "heure": "16 h",
+     "type": "soirees",
+     "cle": null
+    },
+    {
+     "heure": "18 h",
+     "type": "repost",
+     "cle": null
+    },
+    {
+     "heure": "20 h",
+     "type": "question",
+     "cle": null
+    },
+    {
+     "heure": "17 h",
+     "type": "astuce",
      "cle": null
     }
    ]

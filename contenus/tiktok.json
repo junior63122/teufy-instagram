@@ -148,6 +148,28 @@
     },
     "heure": "19:30"
    }
+  ],
+  "2026-12-01": [
+   {
+    "id": "fete-02-enfin-trouve",
+    "video": "media/tiktok/fete-02-enfin-trouve.mp4",
+    "type": "reel",
+    "legende": "POV : t'as enfin trouvé où sortir ce week-end.\n\nToutes les soirées de la Côte : teufyparty.com (lien en bio)\n\n#soiree #nice #cotedazur #sortiranice #fyp",
+    "couverture": "media/tiktok/couvertures/fete-02-enfin-trouve.jpg",
+    "son": {
+     "titre": "One Kiss - Calvin Harris & Dua Lipa (version longue du Drive)",
+     "depart": "un refrain (le montage suit le tempo, 123 BPM ; dans le fichier du Drive : 3:48)"
+    },
+    "heure": "12:30"
+   },
+   {
+    "id": "tague-ton-pote-2026-11-24",
+    "video": "media/tiktok/tague-ton-pote-2026-11-24.mp4",
+    "type": "reel",
+    "legende": "Les 4 potes qu'on a tous en soirée sur la Côte\n1. Celui qui dit « je rentre tôt »… et finit à l'after à 6 h\n2. Celui qui « connaît le videur »\n\nToutes les soirées de la Côte : teufyparty.com (lien en bio)\n\n#soiree #nice #cotedazur #sortiranice #fyp",
+    "couverture": "media/tiktok/couvertures/tague-ton-pote-2026-11-24.jpg",
+    "heure": "19:30"
+   }
   ]
  },
  "debut": "2026-11-23"
