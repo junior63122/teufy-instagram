@@ -58,5 +58,23 @@
   "source": "@lesaperosartistiques",
   "soiree": "Atelier aquarelle de Noël",
   "le": "2026-11-25T14:55:17.757Z"
+ },
+ "twigamontecarlo|2026-11-27": {
+  "fichier": "site/affiches/5c6809cdaf8c.jpg",
+  "source": "@twigamontecarlo",
+  "soiree": "Solly Smith au Club Twiga Monte Carlo",
+  "le": "2026-11-25T21:09:20.416Z"
+ },
+ "palaisnikaia|2026-12-05": {
+  "fichier": "site/affiches/97f9412d715b.jpg",
+  "source": "@palaisnikaia",
+  "soiree": "Glorious",
+  "le": "2026-11-25T21:09:25.175Z"
+ },
+ "palaisnikaia|2026-12-04": {
+  "fichier": "site/affiches/97f9412d715b.jpg",
+  "source": "@palaisnikaia",
+  "soiree": "Christophe Maé",
+  "le": "2026-11-25T21:09:25.559Z"
  }
 }

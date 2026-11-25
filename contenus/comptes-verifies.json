@@ -57,7 +57,7 @@
  },
  "jedistechno": {
   "ok": false,
-  "le": "2026-11-12T03:44:47.881Z"
+  "le": "2026-11-25T21:09:15.343Z"
  },
  "lantre_nice": {
   "ok": false,
@@ -5646,5 +5646,349 @@
  "magnolia_cafe": {
   "ok": false,
   "le": "2026-11-25T14:54:40.320Z"
+ },
+ "downtown.nice": {
+  "ok": true,
+  "nom": "Down Town Club 🪩 Vieux Nice",
+  "bio": "🪩 Club de l’@uptown.nice\n🥳 22h - 4h30 Jeudi / Vendredi / Samedi\n🍹 Happy Hours 22h - 00h\n📍 25 Rue Benoit Bunico 06300 Nice\n🪩 Réservation ⬇️",
+  "site": "https://linktr.ee/downtown.nice",
+  "abonnes": 2395,
+  "le": "2026-11-25T21:09:08.170Z"
+ },
+ "dakeezoff": {
+  "ok": false,
+  "le": "2026-11-25T21:09:08.384Z"
+ },
+ "le109_nice": {
+  "ok": false,
+  "le": "2026-11-25T21:09:08.627Z"
+ },
+ "unica_culture": {
+  "ok": true,
+  "nom": "Direction de la Culture",
+  "bio": "La culture à @univ_cotedazur\nNos prochains évènements ⬇️",
+  "site": "https://linktr.ee/UCArts",
+  "abonnes": 12261,
+  "le": "2026-11-25T21:09:09.572Z"
+ },
+ "magnolia.cafe": {
+  "ok": false,
+  "le": "2026-11-25T21:09:11.862Z"
+ },
+ "magnoliacafe_officiel": {
+  "ok": false,
+  "le": "2026-11-25T21:09:12.106Z"
+ },
+ "magnoliacafeofficiel": {
+  "ok": false,
+  "le": "2026-11-25T21:09:12.286Z"
+ },
+ "magnolia_cafe_officiel": {
+  "ok": false,
+  "le": "2026-11-25T21:09:12.460Z"
+ },
+ "magnoliacafe_official": {
+  "ok": false,
+  "le": "2026-11-25T21:09:12.647Z"
+ },
+ "magnoliacafe_nice": {
+  "ok": false,
+  "le": "2026-11-25T21:09:12.880Z"
+ },
+ "magnolia_cafe_nice": {
+  "ok": false,
+  "le": "2026-11-25T21:09:13.099Z"
+ },
+ "magnoliacafe.nice": {
+  "ok": false,
+  "le": "2026-11-25T21:09:13.338Z"
+ },
+ "magnolia.cafe.nice": {
+  "ok": false,
+  "le": "2026-11-25T21:09:13.518Z"
+ },
+ "magnoliacafenice_officiel": {
+  "ok": false,
+  "le": "2026-11-25T21:09:13.727Z"
+ },
+ "magnoliacafeniceofficiel": {
+  "ok": false,
+  "le": "2026-11-25T21:09:13.969Z"
+ },
+ "magnolia_cafe_nice_officiel": {
+  "ok": false,
+  "le": "2026-11-25T21:09:14.162Z"
+ },
+ "magnoliacafenice_official": {
+  "ok": false,
+  "le": "2026-11-25T21:09:14.413Z"
+ },
+ "magnoliacafenicenice": {
+  "ok": false,
+  "le": "2026-11-25T21:09:14.661Z"
+ },
+ "magnoliacafenice_nice": {
+  "ok": false,
+  "le": "2026-11-25T21:09:14.856Z"
+ },
+ "magnolia_cafe_nice_nice": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.051Z"
+ },
+ "magnoliacafenice.nice": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.051Z"
+ },
+ "7ruebonaparte": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.196Z"
+ },
+ "7_rue_bonaparte": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.196Z"
+ },
+ "7.rue.bonaparte": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.196Z"
+ },
+ "7ruebonaparte_officiel": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.196Z"
+ },
+ "7ruebonaparteofficiel": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.196Z"
+ },
+ "7_rue_bonaparte_officiel": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.196Z"
+ },
+ "7ruebonaparte_official": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.196Z"
+ },
+ "7ruebonapartenice": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.196Z"
+ },
+ "7ruebonaparte_nice": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.196Z"
+ },
+ "7_rue_bonaparte_nice": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.196Z"
+ },
+ "7ruebonaparte.nice": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.196Z"
+ },
+ "7.rue.bonaparte.nice": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.196Z"
+ },
+ "7ruebonapartenice_officiel": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.196Z"
+ },
+ "7ruebonaparteniceofficiel": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.196Z"
+ },
+ "7_rue_bonaparte_nice_officiel": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.196Z"
+ },
+ "7ruebonapartenice_official": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.196Z"
+ },
+ "7ruebonapartenicenice": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.196Z"
+ },
+ "7ruebonapartenice_nice": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.196Z"
+ },
+ "7_rue_bonaparte_nice_nice": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.196Z"
+ },
+ "7ruebonapartenice.nice": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.196Z"
+ },
+ "goya": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.244Z"
+ },
+ "goya_officiel": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.244Z"
+ },
+ "goyaofficiel": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.244Z"
+ },
+ "goya_official": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.244Z"
+ },
+ "goyanice": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.244Z"
+ },
+ "goya_nice": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.244Z"
+ },
+ "goya.nice": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.244Z"
+ },
+ "goyanice_officiel": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.244Z"
+ },
+ "goyaniceofficiel": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.244Z"
+ },
+ "goya_nice_officiel": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.244Z"
+ },
+ "goyanice_official": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.244Z"
+ },
+ "goyanicenice": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.244Z"
+ },
+ "goyanice_nice": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.244Z"
+ },
+ "goya_nice_nice": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.244Z"
+ },
+ "goyanice.nice": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.244Z"
+ },
+ "siteprincipalafroheat": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.289Z"
+ },
+ "site_principal_afro_heat": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.289Z"
+ },
+ "site.principal.afro.heat": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.289Z"
+ },
+ "siteprincipalafroheat_officiel": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.289Z"
+ },
+ "siteprincipalafroheatofficiel": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.289Z"
+ },
+ "siteprincipalafroheat_official": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.289Z"
+ },
+ "siteprincipalafroheatnice": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.289Z"
+ },
+ "siteprincipalafroheat_nice": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.289Z"
+ },
+ "site_principal_afro_heat_nice": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.289Z"
+ },
+ "siteprincipalafroheat.nice": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.289Z"
+ },
+ "siteprincipaldelafroheatnice": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.289Z"
+ },
+ "ponyponyrunrun": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.342Z"
+ },
+ "alastairlanemusic": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.342Z"
+ },
+ "eventbrite": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.342Z"
+ },
+ "lachapa": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.342Z"
+ },
+ "mamacitaparis": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.342Z"
+ },
+ "honeyclubnice": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.342Z"
+ },
+ "karlzenk": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.342Z"
+ },
+ "nicopac_dj": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.342Z"
+ },
+ "miss_you_club": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.342Z"
+ },
+ "tiwayo": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.342Z"
+ },
+ "tantrum_music": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.342Z"
+ },
+ "cerroneofficial": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.342Z"
+ },
+ "ugopuccinelli": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.342Z"
+ },
+ "ambreballester": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.342Z"
+ },
+ "neonfestivalnice": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.343Z"
+ },
+ "aztek_music": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.343Z"
+ },
+ "clubsonore_frenchriviera": {
+  "ok": false,
+  "le": "2026-11-25T21:09:15.343Z"
  }
 }

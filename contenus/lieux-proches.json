@@ -8574,5 +8574,59 @@
    "nom": "",
    "m": 449
   }
+ },
+ "43.69502,7.27708": {
+  "le": "2026-11-25T21:10:52.536Z",
+  "parkings": [
+   {
+    "nom": "Palais de Justice",
+    "type": "underground",
+    "payant": true,
+    "m": 290
+   },
+   {
+    "nom": "Parking Corvésy",
+    "type": "multi-storey",
+    "payant": true,
+    "m": 441
+   },
+   {
+    "nom": "Parking Sulzer",
+    "type": "underground",
+    "payant": true,
+    "m": 506
+   }
+  ],
+  "transports": [
+   {
+    "nom": "Cours Saleya",
+    "type": "bus",
+    "m": 74,
+    "lignes": "98"
+   },
+   {
+    "nom": "Château / Tour Bellanda",
+    "type": "bus",
+    "m": 206,
+    "lignes": "98"
+   },
+   {
+    "nom": "Cathédrale - Vieille Ville",
+    "type": "tram",
+    "m": 382,
+    "lignes": ""
+   },
+   {
+    "nom": "Opéra - Vieille Ville",
+    "type": "tram",
+    "m": 415,
+    "lignes": ""
+   }
+  ],
+  "velo": {
+   "nom": "",
+   "m": 110
+  },
+  "taxi": null
  }
 }
