@@ -1105,6 +1105,10 @@ function image(base, rel, { alt = '', sizes = '100vw', attrs = '' } = {}) {
 const TAILLES = { carte: '(min-width:980px) 360px, (min-width:640px) 46vw, 92vw' };
 
 // Fichiers calendrier (.ics) : « Ajouter au calendrier » sur chaque page de soirée.
+// « 23 h 59 » des billetteries = minuit (le site l'écrit « minuit ») : dans l'agenda du visiteur, 00:00 (contrôle terrain 23/11/2026).
+export const debutIcs = (iso) => { const t = Date.parse(iso); return new Date(t).toISOString().slice(14, 16) === '59' && /23:59/.test(new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Paris', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).format(new Date(t))) ? t + 60e3 : t; };
+// Lignes de plus de 75 octets repliées (norme iCalendar), sinon certains agendas coupent ou refusent le fichier.
+export const plierIcs = (l) => { const o = []; let cur = '', n = 0; for (const c of Array.from(l)) { const b = Buffer.byteLength(c); if (n + b > (o.length ? 74 : 75)) { o.push(cur); cur = ''; n = 0; } cur += c; n += b; } o.push(cur); return o.map((x, i) => (i ? ` ${x}` : x)).join('\r\n'); };
 async function ics(soirees, compte) {
   const d = path.join(SITE, 'ics');
   await mkdir(d, { recursive: true });
@@ -1114,7 +1118,7 @@ async function ics(soirees, compte) {
   // de contrôle est neutralisé, sinon un nom piégé pourrait injecter une ligne (lien, alarme…) dans l'agenda du visiteur.
   const e = (x) => String(x || '').replace(/[\\,;]/g, (c) => `\\${c}`).replace(/\r\n|[\r\n\u2028\u2029\u0085]/g, '\\n').replace(/[\u0000-\u0008\u000b-\u001f\u007f]/g, '');
   for (const s of soirees) {
-    const t = Date.parse(s.debut);
+    const t = debutIcs(s.debut);
     await writeFile(path.join(d, `${s.id}.ics`), ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Teufy//Agenda//FR', 'CALSCALE:GREGORIAN', 'BEGIN:VEVENT',
       `UID:${s.id}@teufy`, `DTSTAMP:${f(Date.now())}`, `DTSTART:${f(t)}`, `DTEND:${f(t + 5 * 3600e3)}`, `SUMMARY:${e(s.nom)}`,
       `LOCATION:${e([s.lieu, s.adresse, s.ville].filter(Boolean).join(', '))}`, `DESCRIPTION:${e(`${s.accroche ? `${s.accroche}\n` : ''}${s.url ? `Billets : ${s.url}\n` : ''}Via Teufy ${compte}`)}`,
@@ -1122,7 +1126,7 @@ async function ics(soirees, compte) {
       // Rappels (12/11/2026) : la veille au soir (pense à prendre ta place) et 2 h avant (on y va).
       'BEGIN:VALARM', 'ACTION:DISPLAY', 'TRIGGER:-P1D', `DESCRIPTION:${e(`Demain : ${s.nom}`)}`, 'END:VALARM',
       'BEGIN:VALARM', 'ACTION:DISPLAY', 'TRIGGER:-PT2H', `DESCRIPTION:${e(`Dans 2 h : ${s.nom}`)}`, 'END:VALARM',
-      'END:VEVENT', 'END:VCALENDAR', ''].join('\r\n'));
+      'END:VEVENT', 'END:VCALENDAR', ''].map(plierIcs).join('\r\n'));
   }
 }
 
@@ -1135,13 +1139,12 @@ async function fluxIcs(soirees, compte) {
   // Texte d'une soirée dans un fichier agenda : tout retour à la ligne (\r, \n, \r\n, séparateurs Unicode) et tout caractère
   // de contrôle est neutralisé, sinon un nom piégé pourrait injecter une ligne (lien, alarme…) dans l'agenda du visiteur.
   const e = (x) => String(x || '').replace(/[\\,;]/g, (c) => `\\${c}`).replace(/\r\n|[\r\n\u2028\u2029\u0085]/g, '\\n').replace(/[\u0000-\u0008\u000b-\u001f\u007f]/g, '');
-  const plie = (l) => { const c = Array.from(l), o = []; for (let i = 0; i < c.length; i += 70) o.push((i ? " " : "") + c.slice(i, i + 70).join("")); return o.join("\r\n"); };
   const ecrire = (nom, titre, liste) => writeFile(path.join(d, `${nom}.ics`), ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Teufy//Agenda//FR', 'CALSCALE:GREGORIAN', 'METHOD:PUBLISH',
     `X-WR-CALNAME:${e(titre)}`, 'X-WR-TIMEZONE:Europe/Paris', 'REFRESH-INTERVAL;VALUE=DURATION:PT6H', 'X-PUBLISHED-TTL:PT6H',
-    ...liste.flatMap((s) => { const t = Date.parse(s.debut); return ['BEGIN:VEVENT', `UID:${s.id}@teufy`, `DTSTAMP:${f(Date.now())}`, `DTSTART:${f(t)}`, `DTEND:${f(t + 5 * 3600e3)}`, `SUMMARY:${e(s.nom)}`,
+    ...liste.flatMap((s) => { const t = debutIcs(s.debut); return ['BEGIN:VEVENT', `UID:${s.id}@teufy`, `DTSTAMP:${f(Date.now())}`, `DTSTART:${f(t)}`, `DTEND:${f(t + 5 * 3600e3)}`, `SUMMARY:${e(s.nom)}`,
       `LOCATION:${e([s.lieu, s.ville].filter(Boolean).join(', '))}`, `DESCRIPTION:${e(`${s.accroche ? `${s.accroche}\n` : ''}Fiche et billets : ${URL_SITE}soiree/${s.id}/\nVia Teufy ${compte}`)}`, `URL:${URL_SITE}soiree/${s.id}/`,
       'BEGIN:VALARM', 'ACTION:DISPLAY', 'TRIGGER:-PT3H', `DESCRIPTION:${e(`Ce soir : ${s.nom}`)}`, 'END:VALARM', 'END:VEVENT']; }),
-    'END:VCALENDAR', ''].map(plie).join('\r\n'));
+    'END:VCALENDAR', ''].map(plierIcs).join('\r\n'));
   await ecrire('agenda', "Teufy · Soirées Côte d'Azur", soirees);
   for (const k of PAGES_STYLES) await ecrire(`agenda-${k}`, `Teufy · ${STYLES_MUSIQUE.find((x) => x.cle === k)?.nom || k}`, soirees.filter((x) => x.styles.includes(k)));
 }
@@ -1959,7 +1962,7 @@ function pageSoiree({ lang, t, tr, base, compte, T, chemin, s, soirees, maj, lie
   const meme = villeDabord(soirees.filter((x) => x.jour === s.jour && x.id !== s.id && proche(x))).slice(0, 6);
   const style = villeDabord(soirees.filter((x) => x.id !== s.id && x.jour !== s.jour && proche(x) && x.styles.some((k) => s.styles.includes(k)))).slice(0, 6);
   const mini = (l, titre) => (l.length ? `<section class="similaires reveal"><h2>${titre}</h2><div class="grille">${l.map((x) => carte(x, { t, base, lang })).join('')}</div></section>` : '');
-  const offres = s.offres.length ? `<div class="offres"><p class="pied-titre">${esc(t.comparer)}</p>${s.offres.map((o, i) => `<a href="${esc(o.url)}" target="_blank" rel="noopener"><span>${esc(nomPlateforme(o.url))}</span><b>${esc(o.prix == null ? t.prixBillet : prixTexte(o.prix, t))}</b>${i === 0 && o.prix != null ? `<i>${esc(t.meilleurPrix)}</i>` : ''}</a>`).join('')}</div>` : '';
+  const offres = s.offres.length ? `<div class="offres"><p class="pied-titre">${esc(t.comparer)}</p>${s.offres.map((o, i) => `<a href="${esc(o.url)}" target="_blank" rel="noopener"><span>${esc(nomPlateforme(o.url))}</span><b>${esc(o.prix == null ? t.prixBillet : prixTexte(o.prix, t))}</b>${i === 0 && o.prix != null && s.offres.slice(1).some((x) => x.prix != null) && s.offres.slice(1).every((x) => x.prix == null || x.prix > o.prix) ? `<i>${esc(t.meilleurPrix)}</i>` : ''}</a>`).join('')}</div>` : '';
   const img = s.affiche ? image(base, s.affiche, { alt: t.affiche + s.nom, sizes: '(min-width:860px) 460px, 92vw', attrs: `fetchpriority="high"${s.dims ? ` width="${s.dims[0]}" height="${s.dims[1]}"` : ''}${s.dims && s.dims[0] < 560 ? ` class="petite" style="max-width:${s.dims[0]}px"` : ''}` }) : `<div class="affiche-fiche">${vignette(s, base)}</div>`;
   const corps = `<article class="fiche carte-donnees" data-id="${s.id}" data-debut="${esc(s.debut)}">
   <nav class="ariane"><a href="${base}${P}">Teufy</a> › ${s.zone === 'occitanie' ? `<a href="${base}${P}occitanie/">Occitanie</a>` : s.zone === 'france' ? `<a href="${base}${P}france/">${esc(t.franceNav)}</a>` : `<a href="${base}${P}#agenda">${esc(t.agenda)}</a>`} › <span>${esc(s.nom)}</span></nav>
@@ -2554,7 +2557,7 @@ ${hub}
 <section class="bloc-large ce-soir-page" id="soirees-ce-soir" data-rubrique="soirees"><h2>${tr('Les soirées de <em>ce soir</em>')} <span class="compte-ce-soir" data-compte-soir></span></h2>
 <div class="grille ce-soir-liste">${soir.map((s, i) => carte(s, { t, base, lang, prioritaire: i === 0 })).join('')}</div>
 <div id="sugg-source" hidden>${soirees.filter((s) => s.jour > auj && duSoir(s) && Date.parse(`${s.jour}T12:00:00Z`) - now < 8 * 864e5).slice(0, 12).map((s) => carte(s, { t, base, lang })).join('')}</div>
-<p class="vide" data-soir-ville-vide hidden>${esc(tr('Ce soir, aucune soirée annoncée à'))} <b></b>${esc(tr(' : les boîtes et bars ouverts sont juste en dessous, ou choisis une ville voisine.'))}</p>
+<p class="vide" data-soir-ville-vide hidden data-sans-lieux="${esc(tr(' : pas encore de lieu de nuit recensé ici, choisis une ville voisine.'))}">${esc(tr('Ce soir, aucune soirée annoncée à'))} <b></b><span class="suite">${esc(tr(' : les boîtes et bars ouverts sont juste en dessous, ou choisis une ville voisine.'))}</span></p>
 <p class="vide" data-aucune-soiree hidden>${esc(tr("Pas de soirée annoncée ce soir pour l'instant : regarde les lieux ouverts juste en dessous, ou l'agenda des prochains jours."))} <a href="${base}${pre(lang)}#agenda">${esc(t.toutes)}</a></p></section>
 <section class="bloc-large" id="lieux-ouverts" data-rubrique="clubs bars"><h2>${tr('Boîtes de nuit et bars <em>ouverts ce soir</em>')} <span class="compte-ce-soir"><b data-compte-ouverts="lieux-ce-soir">·</b> <span data-accord-ouverts data-un="${esc(({ fr: 'ouvert sur', it: 'aperto su', es: 'abierto de' })[lang] || '')}">${esc(({ fr: 'ouverts sur', en: 'open of', it: 'aperti su', es: 'abiertos de', zh: '营业 / 共', ar: 'مفتوحة من' })[lang] || 'ouverts sur')}</span> <span data-compte-total="lieux-ce-soir">${L.length}</span></span></h2>
 <p class="avert">${esc(tr("Horaires relevés sur les sources officielles des lieux (site, Instagram, fiche Google). Ils peuvent changer, surtout les jours fériés : en cas de doute, vérifie sur leur Instagram avant d'y aller."))}</p>

@@ -128,3 +128,11 @@ test('contrôle qui corrige (24/11) : texte réparé, nom censuré écarté, tit
   assert.deepEqual(r.map((e) => e.name), ['Techno Night']);
   assert.equal(estCorrigee({ name: 'Le Mome & Adame', start: '2026-12-18T22:00:00.000Z' }, [{ nom_cle: 'lemomeadame', nuit: '2026-12-18' }]), true);
 });
+
+test('agenda .ics (restant du 23/11) : 23 h 59 = minuit, lignes repliées à 75 octets', async () => {
+  const { debutIcs, plierIcs } = await import('../src/site.mjs');
+  assert.equal(new Date(debutIcs('2026-11-28T22:59:00.000Z')).toISOString(), '2026-11-28T23:00:00.000Z');
+  assert.equal(debutIcs('2026-11-28T22:00:00.000Z'), Date.parse('2026-11-28T22:00:00.000Z'));
+  const l = plierIcs(`DESCRIPTION:${'é'.repeat(100)}`);
+  for (const x of l.split('\r\n')) assert.ok(Buffer.byteLength(x) <= 75, x);
+});

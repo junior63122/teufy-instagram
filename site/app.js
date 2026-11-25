@@ -366,7 +366,9 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
       const ns = document.querySelector('[data-compte-soir]'); if (ns) ns.textContent = `· ${nb(vis)}`;
       const nomV = v && jc.querySelector(`.jc-villes [data-jc-ville="${v}"]`)?.firstChild?.textContent.trim();
       const vide = document.querySelector('[data-soir-ville-vide]');
-      if (vide) { vide.hidden = !(v && !vis && document.querySelector('.ce-soir-liste .carte:not([hidden])')); vide.querySelector('b').textContent = nomV || ''; }
+      if (vide) { vide.hidden = !(v && !vis && document.querySelector('.ce-soir-liste .carte:not([hidden])')); vide.querySelector('b').textContent = nomV || '';
+        // Ville sans aucun lieu recensé (Draguignan…) : jamais « les lieux sont juste en dessous » (contrôle terrain du 23/11).
+        const suite = vide.querySelector('.suite'); if (suite) { suite.dataset.avec ??= suite.textContent; suite.textContent = v && !compte('', v) && vide.dataset.sansLieux ? vide.dataset.sansLieux : suite.dataset.avec; } }
     }
     const appliquer = () => {
       const r = jc.querySelector('.jc-rubriques .actif')?.dataset.rubrique || '';
@@ -721,7 +723,9 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
     const aucune = document.getElementById('aucune');
     if (aucune) { aucune.hidden = visibles > 0 || !cartes.length; aucune.textContent = etat.q && !visibles ? (T.aucunRes || '').replace('{q}', etat.qBrut) : aucune.dataset.texte || aucune.textContent; }
     autresResultats(etat.qBrut || '', visibles);
-    document.querySelectorAll('.nb-res').forEach((p) => { p.textContent = etat.q ? (T.resultats || '').replace('{n}', visibles).replace('{q}', etat.qBrut) : cartes.length ? nb(visibles) : ''; });
+    // Vue Favoris : les favoris des autres pages comptent aussi (23/11 : « 0 soirées » affiché à côté de favoris listés plus bas).
+    const nbVus = visibles + (typeof horsPage !== 'undefined' ? horsPage.length : 0);
+    document.querySelectorAll('.nb-res').forEach((p) => { p.textContent = etat.q ? (T.resultats || '').replace('{n}', visibles).replace('{q}', etat.qBrut) : cartes.length ? nb(etat.quand === 'favoris' ? nbVus : visibles) : ''; });
     document.querySelectorAll('.ouvrir-filtres .compte, .voir-n').forEach((b) => { b.textContent = cartes.length ? (b.classList.contains('voir-n') ? (T.voirN || '{n}').replace('{n}', visibles) : visibles) : ''; });
     majBoutons();
     trier();
