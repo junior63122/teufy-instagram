@@ -271,5 +271,18 @@
   "avatar": "site/artistes/a-u-r-a-avatar.jpg",
   "photo": "site/artistes/a-u-r-a.jpg",
   "le": "2026-11-25T01:03:44.650Z"
+ },
+ "la-fouine": {
+  "nom": "La Fouine",
+  "compte": "lafouine78",
+  "bio": "SILENCE RADIO — NOUVEL ALBUM DISPONIBLE MAINTENANT ‼️⚠️",
+  "abonnes": 2516246,
+  "soirees": [
+   "Showcase Exclusif : La Fouine|2026-12-05T22:30:00.000Z"
+  ],
+  "site": "https://bfan.link/silence-radio",
+  "avatar": "site/artistes/la-fouine-avatar.jpg",
+  "photo": "site/artistes/la-fouine.jpg",
+  "le": "2026-11-25T14:54:32.549Z"
  }
 }

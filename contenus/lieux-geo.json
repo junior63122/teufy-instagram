@@ -504,7 +504,7 @@
  "la cale seche|toulon": {
   "introuvable": true,
   "v": 2,
-  "le": "2026-11-11T08:09:14.435Z"
+  "le": "2026-11-25T14:55:34.091Z"
  },
  "le swing|nice": {
   "lat": 43.70209,
@@ -2016,5 +2016,30 @@
   "lat": 43.69958,
   "lng": 7.27814,
   "le": "2026-11-25T08:21:21.238Z"
+ },
+ "kosma|nice": {
+  "lat": 43.69861,
+  "lng": 7.25703,
+  "le": "2026-11-25T14:55:19.247Z"
+ },
+ "village de noel, place d’armes|toulon": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-25T14:55:22.160Z"
+ },
+ "goya nice|nice": {
+  "lat": 43.70002,
+  "lng": 7.28457,
+  "le": "2026-11-25T14:55:24.094Z"
+ },
+ "site principal de l'afro heat, nice|nice": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-25T14:55:26.788Z"
+ },
+ "playa chica, mandelieu|mandelieu": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-25T14:55:29.758Z"
  }
 }

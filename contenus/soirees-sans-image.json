@@ -1,5 +1,5 @@
 {
- "le": "2026-11-25T14:12:33.022Z",
+ "le": "2026-11-25T15:04:48.842Z",
  "total": 149,
  "sans_image": [
   {
@@ -19,15 +19,6 @@
    "ville": "Nice",
    "instagram": "",
    "url": "https://www.eventbrite.com/e/foodies-new-friends-nice-tickets-1976266119162"
-  },
-  {
-   "id": "yuksek-et-roxie-2026-11-26",
-   "nom": "Yuksek & Roxie",
-   "jour": "2026-11-26",
-   "lieu": "Le Dix-Huit - Adresse d'Expériences",
-   "ville": "Nice",
-   "instagram": "ledixhuit_nice",
-   "url": "https://shotgun.live/events/yuksek-roxie"
   },
   {
    "id": "the-brand-new-heavies-et-gogo-penguin-monte-carlo-jazz-festi-2026-11-26",
@@ -217,15 +208,6 @@
    "ville": "Roquebrune-sur-Argens",
    "instagram": "",
    "url": "https://shotgun.live/events/origins-invite-boticka-all-night-long"
-  },
-  {
-   "id": "zouk-love-toulon-edition-chic-2026-11-28",
-   "nom": "Zouk Love Toulon Edition Chic",
-   "jour": "2026-11-28",
-   "lieu": "Le Boka Club",
-   "ville": "Toulon",
-   "instagram": "_boka_officiel_",
-   "url": "https://bizouk.com/events/details/zouk-love-toulon-edition-chic/132615"
   },
   {
    "id": "dj-k-net-resident-techno-tribe-2026-11-29",
@@ -444,15 +426,6 @@
    "url": "https://www.grimaldiforum.com/fr/agenda-manifestations-monaco/thursday-live-sessions-dirty-deep"
   },
   {
-   "id": "ben-carter-le-dix-huit-neon-experience-2026-12-17",
-   "nom": "Ben Carter @ Le Dix-Huit (Neon Experience)",
-   "jour": "2026-12-17",
-   "lieu": "Le Dix-Huit - Adresse d'Expériences",
-   "ville": "Nice",
-   "instagram": "ledixhuit_nice",
-   "url": "https://shotgun.live/fr/events/ben-carter-nice"
-  },
-  {
    "id": "le-mome-et-adame-2026-12-18",
    "nom": "LE MOME & ADAME",
    "jour": "2026-12-18",
@@ -584,7 +557,7 @@
    "jour": "2026-12-31",
    "lieu": "KOSMA - Live Club",
    "ville": "Nice",
-   "instagram": "",
+   "instagram": "kosma.liveclub",
    "url": "https://shotgun.live/fr/cities/cote-d-azur"
   },
   {
