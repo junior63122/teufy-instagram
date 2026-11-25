@@ -10,7 +10,11 @@
     "carrousel-03.jpg",
     "carrousel-04.jpg"
   ],
+<<<<<<< Updated upstream
   "legende": "Ton groupe a déjà débattu 47 messages. Nous, on a tranché : les soirées du week-end de Nice à Monaco. Envoie-leur avant le prochain « on verra ».\n- Soirées à Nice et Cannes ce week-end\n\n- La plus attendue : Phaphane À Nice - Amapiano & Afrobeats Lovers, très forte notoriété virale de DJ Phaphane auprès du jeune public.\n\n→ Ven 27 · Phaphane À Nice - Amapiano & Afrobeats Lovers (Amapiano · Afro) · Frigo 16, Nice · 20h00 · 12,1 €\nLa référence amapiano DJ Phaphane débarque au hangar du Frigo 16. @tweltyprod @pandaevents06\n→ Ven 27 · COACHELLITO - HIGH CLUB (Reggaeton · Latino) · High Club, Nice · minuit · 11 €\nAmbiance festival américain sur la Promenade des Anglais avec le DJ niçois MACEW. @highclubnice\n→ Sam 28 · THE SHOW CLUB SONORE × MARAKA × PLAYA CHICA (Techno · Tech house) · Playa Chica & Glass Club Cannes · 20h00 · 10,99 €\nDouble étape festive signée Club Sonore entre plage et club cannois. @glass_club_cannes\n\nLaquelle on fait ensemble ? Enregistre le post pour ne pas oublier. Suis le compte : chaque semaine, les soirées à ne pas rater.\n\n- L'agenda complet, jour par jour : teufyparty.com\n\n#TeufyParty #nicefrance #nice06 #soirée #nightlife",
+=======
+  "legende": "Le physio te regarde, la file avance pas, et ton groupe hésite encore. Voilà où sortir ce week-end de Cannes à Monaco, à envoyer à ceux qui viennent.\n- Soirées à Nice et Cannes ce week-end\n\n- La plus attendue : Phaphane À Nice - Amapiano & Afrobeats Lovers, très forte notoriété virale de DJ Phaphane auprès du jeune public.\n\n→ Ven 27 · Phaphane À Nice - Amapiano & Afrobeats Lovers (Amapiano · Afro) · Frigo 16, Nice · 20h00 · 12,1 €\nLa référence amapiano DJ Phaphane débarque au hangar du Frigo 16. @tweltyprod @pandaevents06\n→ Ven 27 · COACHELLITO - HIGH CLUB (Reggaeton · Latino) · High Club, Nice · minuit · 11 €\nAmbiance festival américain sur la Promenade des Anglais avec le DJ niçois MACEW. @highclubnice\n→ Sam 28 · THE SHOW CLUB SONORE × MARAKA × PLAYA CHICA (Techno · Tech house) · Playa Chica & Glass Club Cannes · 20h00 · 10,99 €\nDouble étape festive signée Club Sonore entre plage et club cannois. @glass_club_cannes\n\nTa préférée, c'est laquelle ? Enregistre le post pour ne pas oublier. Suis le compte : chaque semaine, les soirées à ne pas rater.\n\n- Tu cherches autre chose ? Toutes les soirées sont sur teufyparty.com\n\nEnvoie-le à ton binôme de soirée.\n\n#TeufyParty #cannesnightlife #cannes #nightlife #afrobeats",
+>>>>>>> Stashed changes
   "soirees": [
     {
       "source": "web",
@@ -233,6 +237,7 @@
   "photo": "foule",
   "mise": "cadre",
   "choix": {
+<<<<<<< Updated upstream
     "creneau": "16",
     "seuil-qualite": 0.6,
     "titre-commercial": "140lf6o",
@@ -248,6 +253,23 @@
     "hashtags-commercial": [
       "#soirée",
       "#nightlife"
+=======
+    "creneau": "17",
+    "seuil-qualite": 0.6,
+    "titre-commercial": "5m5xuz",
+    "mise-couverture": "bas",
+    "intro-commercial": "6ueysw",
+    "question-commercial": "1nfynmi",
+    "suivre": "h7y61e",
+    "site": "1p8scyo",
+    "hashtags-local": [
+      "#cannesnightlife",
+      "#cannes"
+    ],
+    "hashtags-commercial": [
+      "#nightlife",
+      "#afrobeats"
+>>>>>>> Stashed changes
     ]
   },
   "features": [
