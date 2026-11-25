@@ -6195,6 +6195,30 @@
       "instagram": [
         "lesaperosartistiques"
       ]
+    },
+    {
+      "source": "web",
+      "source_site": "instagram.com",
+      "via_veille": true,
+      "name": "Afro Heat – Soirée Reggaeton",
+      "start": "2026-11-26T21:00:00.000Z",
+      "venue": "Site principal de l'Afro Heat, Nice",
+      "city": "Nice",
+      "address": "",
+      "url": "https://www.instagram.com/reel/DgKQTXvoS7E/",
+      "image": "",
+      "price": null,
+      "tags": [
+        "Reggaeton",
+        "Latin"
+      ],
+      "description": "",
+      "public_cible": 0.6,
+      "confiance": 0.8,
+      "accroche": "Une soirée reggaeton spéciale au festival Afro Heat à Nice.",
+      "instagram": [
+        "afroheatfestival"
+      ]
     }
   ],
   "maj_instagram": "2026-11-25T10:12:59.353Z",
