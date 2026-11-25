@@ -713,5 +713,22 @@
   "absentes": [],
   "manquantes": [],
   "le": "2026-11-25T18:15:42.648Z"
+ },
+ {
+  "jour": "2026-11-25",
+  "type": "question",
+  "cles": [
+   "d-ia-2026-11-21-19oj49s"
+  ],
+  "ids": [
+   "18141150697644204"
+  ],
+  "faites": [
+   0
+  ],
+  "relue": true,
+  "absentes": [],
+  "manquantes": [],
+  "le": "2026-11-25T19:11:03.134Z"
  }
 ]
