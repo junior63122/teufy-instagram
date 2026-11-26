@@ -7,6 +7,70 @@
   "evenements": [
     {
       "source": "web",
+      "source_site": "shotgun.live",
+      "name": "The Show by Club Sonore x Maraka",
+      "start": "2026-11-28T19:00:00.000Z",
+      "venue": "Playa Chica & Glass Club Cannes",
+      "city": "Cannes",
+      "address": "",
+      "url": "https://shotgun.live/events/the-show-club-sonore-november-28-playachica-glass-club",
+      "image": "https://scontent-sjc3-1.cdninstagram.com/v/t51.82787-15/928442046_18104517656209246_6293833830867341481_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=105&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=JDWETED9xhQQ7kNvwFMqbRn&_nc_oc=Adp9fqyFhJDQxoZtkHp0vFF0GcFDA1z-8WjzYuzEIBn8yf9uRg-b2MpTzOQ4yHg5aPg&_nc_zt=23&_nc_ht=scontent-sjc3-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=uemy4Qpgk36CjUtsNekCSA&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQQKrmsomitWYev418XFlNUHUVwzkQn7FbXcOzrDChVM5Q&oe=6B0DD4B2",
+      "price": 10.99,
+      "tags": [
+        "afro",
+        "afrobeat",
+        "tech house",
+        "deep tech",
+        "dub techno",
+        "house",
+        "Dub Techno",
+        "Deep Tech",
+        "Tech House",
+        "Afro House",
+        "Afrobeat",
+        "House",
+        "électro",
+        "electro",
+        "live",
+        "techno"
+      ],
+      "description": "Le Show Club Sonore débarque le samedi 28 novembre à Playa Chica, 100 avenue du Général de Gaulle, Mandelieu‑la‑Napoule. De 20 h à 2 h, profite d’un dîner festif suivi de performances live : Yori, Dany Bnk en percussions, Axelino en show live et le set électro de Plezy. Ambiance club‑house, son électro‑house et moments improvisés. Réserve via le lien en bio, dress‑code décontracté, entrée libre ou tarif à préciser sur la billetterie. Une soirée idéale pour les 18‑30 ans qui veulent danser et découvrir des artistes du monde entier.",
+      "public_cible": 0.9,
+      "confiance": 0.95,
+      "buzz": 0.7,
+      "buzz_raison": "Forte communauté locale du collectif Club Sonore sur la Côte d'Azur.",
+      "accroche": "Double étape festive signée Club Sonore entre plage et club cannois.",
+      "instagram": [
+        "clubsonore",
+        "playachica_cannes",
+        "glassclubcannes"
+      ],
+      "offres": [
+        {
+          "plateforme": "shotgun.live",
+          "url": "https://shotgun.live/events/the-show-club-sonore-november-28-playachica-glass-club",
+          "prix": 0
+        },
+        {
+          "plateforme": "playa-chica.com",
+          "url": "https://playa-chica.com/le-restaurant-off/",
+          "prix": null
+        }
+      ],
+      "sources_sites": [
+        "shotgun.live",
+        "Shotgun Live",
+        "Shotgun",
+        "playachica_official",
+        "Instagram",
+        "Instagram (playachica_official)"
+      ],
+      "par_le_lieu": true,
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
+    },
+    {
+      "source": "web",
       "source_site": "Instagram",
       "name": "Solly Smith at Twiga Monte Carlo",
       "start": "2026-11-27T21:00:00.000Z",
@@ -352,39 +416,6 @@
     },
     {
       "source": "web",
-      "source_site": "Instagram",
-      "name": "JC VITTO @ Kosma",
-      "start": "2026-11-25T22:00:00.000Z",
-      "venue": "Kosma",
-      "city": "Nice",
-      "address": "",
-      "url": "https://www.instagram.com/p/DgIBi9jBBcG/",
-      "image": "https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/924002302_18584233915078335_39916775359537201_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=105&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=AqI5EPyDxg8Q7kNvwFWLI-8&_nc_oc=AdpIO18XOsPkte7_0mZd0tbCRgFzOjVD1GOisvoG9RWpWYr7j9tjOY1I3-Y2OVA2fxI&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=hxB99MJmbAH1tZQ6uFlxvg&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQSbQ7YXKVxSGhrfVhBzs5DxbacRjgWXI5yCk8RikA3JWA&oe=6B0CAE84",
-      "price": null,
-      "tags": [
-        "house",
-        "techno",
-        "House",
-        "Techno"
-      ],
-      "description": "Le club Kosma te donne rendez‑vous le mercredi 25 novembre à Nice pour une soirée qui démarre à 23 h et se prolonge jusqu’à 5 h du matin. Le DJ JC VITTO, connu pour ses sets house et techno qui font bouger la foule, sera aux platines pour garantir une ambiance électrisante. Le lieu, en plein cœur de Nice, offre une piste de danse spacieuse et une sonorité de qualité. Pas de prix indiqué, pense à vérifier la billetterie ou le dress‑code sur le compte Instagram du club. Prépare‑toi à danser toute la nuit et à profiter d’une atmosphère festive entre amis.",
-      "public_cible": 1,
-      "confiance": 0.85,
-      "buzz": 0.6,
-      "buzz_raison": "DJ reconnu, club populaire, soirée en semaine mais avec bonne visibilité sur Instagram.",
-      "accroche": "JC VITTO enflamme le Kosma à Nice le 25 novembre, de 23 h à 5 h, pour une nuit de good vibes.",
-      "instagram": [
-        "kosma.liveclub"
-      ],
-      "via_veille": true,
-      "offres": [],
-      "sources_sites": [
-        "Instagram",
-        "instagram.com"
-      ]
-    },
-    {
-      "source": "web",
       "source_site": "Instagram sowetolesprit",
       "name": "IVoir 83",
       "start": "2026-12-05T19:00:00.000Z",
@@ -518,30 +549,6 @@
     },
     {
       "source": "web",
-      "source_site": "Instagram",
-      "name": "House Night – Glass Club Cannes",
-      "start": "2026-11-25T23:00:00.000Z",
-      "venue": "Glass Club",
-      "city": "Cannes",
-      "address": "",
-      "url": "https://www.instagram.com/p/DgIFTCWFQbV/",
-      "image": "https://scontent-sjc3-1.cdninstagram.com/v/t39.30808-6/928261814_122271249710255538_1685465914242028776_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=108&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=7N9_7Y1CLwEQ7kNvwG4lTvp&_nc_oc=AdoODDjpd01Sv6Bg4FP0TuaukfTyQJxfEdeHFo2fNDW-GLMxXDLoci_h-Ec9gspWfy8&_nc_zt=23&_nc_ht=scontent-sjc3-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=RWTUYl1JRPPSCI9I68UkJw&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQSvmyr--qhei8KrulLjHeok4dFWzdC3BT_SLS4XGsfkvQ&oe=6B0B7C0C",
-      "price": null,
-      "tags": [
-        "house"
-      ],
-      "description": "Le Glass Club te propose une soirée house de folie du jeudi au samedi, de minuit à 6 h du matin. Le lieu, 6 rue des Frères Pradignac, accueille les meilleurs sons house pour faire vibrer la piste. Pas de dress code imposé, l’ambiance est purement danse et bonne humeur. L’entrée est libre, préviens tes potes et prépare-toi à danser toute la nuit.",
-      "public_cible": 1,
-      "confiance": 0.6,
-      "buzz": 0.5,
-      "buzz_raison": "Première annonce officielle, lieu connu, créneau week‑end, engagement Instagram modéré.",
-      "accroche": "Des house heads prêts à danser jusqu’au petit matin au Glass Club de Cannes !",
-      "instagram": [
-        "glass_club_cannes"
-      ]
-    },
-    {
-      "source": "web",
       "source_site": "shotgun.live",
       "name": "Phaphane À Nice - Amapiano & Afrobeats Lovers",
       "start": "2026-11-27T19:00:00.000Z",
@@ -614,30 +621,6 @@
     },
     {
       "source": "web",
-      "source_site": "instagram",
-      "name": "SHATTA NIGHT @ BOKA CLUB",
-      "start": "2026-11-25T23:00:00.000Z",
-      "venue": "BOKA CLUB",
-      "city": "Toulon",
-      "address": "",
-      "url": "https://www.instagram.com/p/DgF2oSns9c7/",
-      "image": "https://scontent-iad3-2.cdninstagram.com/v/t51.82787-15/925374093_18151836865552654_6815568410360895273_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=106&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=sG9mJM_nzNoQ7kNvwHRtakP&_nc_oc=AdpSPPbspN0p-yfl8piHJfXBb1aUXFpqwVrl4lTRlE5_Pa54P_3biWVR-JNoV0PHv-Q&_nc_zt=23&_nc_ht=scontent-iad3-2.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=IlIUkjoGc1MD9lKTQUwV0g&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQRyOayTcRu2K1u9PDLv6XBukfFrq3ZYBLvIV3m9aLuITw&oe=6B0B46AD",
-      "price": 10,
-      "tags": [
-        "shatta"
-      ],
-      "description": "Le jeudi 26 novembre, le BOKA CLUB propose une soirée 100 % SHATTA avec DJ MITCH aux platines. Lieu : 3261 avenue de la Résistance, Toulon. Horaires : 00h‑05h. Entrée : 10 €. Réserve ta place et prépare‑toi à danser jusqu’au bout de la nuit.",
-      "public_cible": 1,
-      "confiance": 0.9,
-      "buzz": 0.5,
-      "buzz_raison": "Tête d’affiche locale, prix abordable, soirée du jeudi",
-      "accroche": "Soirée 100 % SHATTA ce jeudi 26 novembre à Toulon !",
-      "instagram": [
-        "boka_officiel"
-      ]
-    },
-    {
-      "source": "web",
       "source_site": "shotgun.live",
       "name": "Je Dis Techno (Tous Les Jeudis)",
       "start": "2026-11-26T21:00:00.000Z",
@@ -676,28 +659,6 @@
       "sources_sites": [
         "shotgun.live",
         "instagram"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "Instagram",
-      "name": "Barracuda Cannes Student Party",
-      "start": "2026-11-25T19:00:00.000Z",
-      "venue": "9 Rue du Batéguier - Carré d’Or",
-      "city": "Cannes",
-      "address": "",
-      "url": "https://www.instagram.com/p/DgGCZQyEftd/",
-      "image": "https://scontent-ord5-2.cdninstagram.com/v/t51.82787-15/927867410_17964308448250848_3784470895261804610_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=109&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=O8aSv9pcn4AQ7kNvwE78xgE&_nc_oc=Ado6M7HPt6XcUsd2DwTWAkopVAYfFRq2NmWf3n4hd3VWekMnB_9WcUR2tKcECxZuL9I&_nc_zt=23&_nc_ht=scontent-ord5-2.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=CxdvdDHlPvJD5UrKys_wRw&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQT0ylT-IYU6Htdl6o8hUTQlDfedNT5gZ0XnEk0YG7Ve1A&oe=6B0B39DF",
-      "price": null,
-      "tags": [],
-      "description": "Rendez‑vous à la Rhumerie Barracuda, 9 Rue du Batéguier, pour une soirée étudiante qui dure du mercredi au samedi de 20h à 02h30. Happy‑hour 20h‑22h : un cocktail acheté, le second offert. L’ambiance est festive, décor pirate, idéale pour se détendre entre cours. Entrée libre, dress‑code décontracté, âge minimum 18 ans. Le lieu est central, parfait pour prolonger la nuit sur le Carré d’Or de Cannes.",
-      "public_cible": 0.9,
-      "confiance": 0.7,
-      "buzz": 0.5,
-      "buzz_raison": "Événement récurrent, bonne visibilité locale, happy‑hour attractif, cible étudiante.",
-      "accroche": "Soirée étudiante à la Rhumerie de Cannes, happy‑hour 20h‑22h, ambiance pirate du mercredi au samedi !",
-      "instagram": [
-        "barracuda.cannes"
       ]
     },
     {
@@ -1088,68 +1049,6 @@
         "shotgun.live",
         "Shotgun"
       ],
-      "billetterie_cherchee": true,
-      "offres_cherchees": true
-    },
-    {
-      "source": "web",
-      "source_site": "shotgun.live",
-      "name": "THE SHOW CLUB SONORE × MARAKA × PLAYA CHICA",
-      "start": "2026-11-28T19:00:00.000Z",
-      "venue": "Playa Chica & Glass Club Cannes",
-      "city": "Cannes",
-      "address": "",
-      "url": "https://shotgun.live/events/the-show-club-sonore-november-28-playachica-glass-club",
-      "image": "https://scontent-ord5-1.cdninstagram.com/v/t51.82787-15/928141242_18104241914209246_4497180054367692746_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=108&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=XKDVX9xgWeIQ7kNvwH6zhvb&_nc_oc=Adqrg3Y-3B4T3kMZ5ZSH8XmXZdm_UDXmrmTtiIFLn2mkgro071LCbrMtxbsmU_EHobc&_nc_zt=23&_nc_ht=scontent-ord5-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=3Nfu2Xua14mfwDapeNCiwA&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQQtpqG7J26eY1ZiI6kvxE5f5pMsGUo9vI4dC7ZHxMm1ZQ&oe=6B09D4B4",
-      "price": 10.99,
-      "tags": [
-        "afro",
-        "afrobeat",
-        "tech house",
-        "deep tech",
-        "dub techno",
-        "house",
-        "Dub Techno",
-        "Deep Tech",
-        "Tech House",
-        "Afro House",
-        "Afrobeat",
-        "House",
-        "électro",
-        "electro",
-        "live"
-      ],
-      "description": "Le Show Club Sonore débarque le samedi 28 novembre à Playa Chica, 100 avenue du Général de Gaulle, Mandelieu‑la‑Napoule. De 20 h à 2 h, profite d’un dîner festif suivi de performances live : Yori, Dany Bnk en percussions, Axelino en show live et le set électro de Plezy. Ambiance club‑house, son électro‑house et moments improvisés. Réserve via le lien en bio, dress‑code décontracté, entrée libre ou tarif à préciser sur la billetterie. Une soirée idéale pour les 18‑30 ans qui veulent danser et découvrir des artistes du monde entier.",
-      "public_cible": 0.9,
-      "confiance": 0.95,
-      "buzz": 0.7,
-      "buzz_raison": "Forte communauté locale du collectif Club Sonore sur la Côte d'Azur.",
-      "accroche": "Double étape festive signée Club Sonore entre plage et club cannois.",
-      "instagram": [
-        "clubsonore",
-        "playachica_cannes",
-        "glassclubcannes"
-      ],
-      "offres": [
-        {
-          "plateforme": "shotgun.live",
-          "url": "https://shotgun.live/events/the-show-club-sonore-november-28-playachica-glass-club",
-          "prix": 0
-        },
-        {
-          "plateforme": "playa-chica.com",
-          "url": "https://playa-chica.com/le-restaurant-off/",
-          "prix": null
-        }
-      ],
-      "sources_sites": [
-        "shotgun.live",
-        "Shotgun Live",
-        "Shotgun",
-        "playachica_official",
-        "Instagram"
-      ],
-      "par_le_lieu": true,
       "billetterie_cherchee": true,
       "offres_cherchees": true
     },
@@ -3665,53 +3564,6 @@
     },
     {
       "source": "web",
-      "source_site": "montecarlosbm.com",
-      "name": "Selah Sue and The Gallands / Tyreek McDole - Monte-Carlo Jazz Festival",
-      "start": "2026-11-25T19:30:00.000Z",
-      "venue": "Opéra Garnier de Monte-Carlo",
-      "city": "Monaco",
-      "address": "",
-      "url": "https://www.montecarlosbm.com/fr/spectacles-monaco/monte-carlo-jazz-festival",
-      "image": "https://www.visitmonaco.com/var/visitmonaco/storage/images/_aliases/w621/8/7/9/7/787978-54-fre-FR/ae7d3d2c738f-Academie-de-musique-C-Philip-Ducap.JPG.webp",
-      "price": 83.5,
-      "tags": [
-        "Soul",
-        "Funk",
-        "R&B",
-        "Neo-Soul",
-        "RnB",
-        "Jazz-Funk"
-      ],
-      "description": "Pour le vingtième anniversaire du Monte-Carlo Jazz Festival, la star internationale Selah Sue débarque sur la scène de la mythique Salle Garnier. Accompagnée par The Gallands et le chanteur Tyreek McDole, elle va enflammer Monaco au son de ses hymnes soul, hip-hop et R&B. Rendez-vous à 20h30 dans un cadre grandiose. Pense à soigner ton style car une tenue correcte est exigée à l'entrée.",
-      "public_cible": 0.5,
-      "confiance": 0.95,
-      "buzz": 0.75,
-      "buzz_raison": "Présence de Selah Sue dans le cadre de la 20e édition du festival.",
-      "accroche": "Selah Sue en concert groove soul et funk pour le 20e Monte-Carlo Jazz Festival.",
-      "instagram": [
-        "montecarlosbm",
-        "selahsue",
-        "operademontecarlo"
-      ],
-      "offres": [
-        {
-          "plateforme": "montecarlosbm.com",
-          "url": "https://www.montecarlosbm.com/fr/spectacles-monaco/monte-carlo-jazz-festival",
-          "prix": 83.5
-        },
-        {
-          "plateforme": "visitmonaco.com",
-          "url": "https://www.visitmonaco.com/fr/evenement/festivals/20708/monte-carlo-jazz-festival-2026",
-          "prix": 63.5
-        }
-      ],
-      "sources_sites": [
-        "montecarlosbm.com",
-        "visitmonaco.com"
-      ]
-    },
-    {
-      "source": "web",
       "source_site": "visitmonaco.com",
       "name": "The Brand New Heavies & GoGo Penguin (Monte-Carlo Jazz Festival)",
       "start": "2026-11-26T19:30:00.000Z",
@@ -4809,30 +4661,6 @@
       "sources_sites": [
         "instagram.com",
         "Instagram"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "Instagram",
-      "name": "BLOCK",
-      "start": "2026-11-25T23:00:00.000Z",
-      "venue": "Naho Club",
-      "city": "La Garde",
-      "address": "",
-      "url": "https://www.instagram.com/p/DgDZynaiJIw/",
-      "image": "https://scontent-iad6-1.cdninstagram.com/v/t51.82787-15/919039647_18128945764917771_9138901031061205855_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=107&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0XWltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=dkYZEviVgZkQ7kNvwHPpygy&_nc_oc=Adr8tDA0cvibH3ZUgnDwbbRPf99CaEpdru0vxLpV1JJsXw2gkX7POZkXH1PSxT8mRNI&_nc_zt=23&_nc_ht=scontent-iad6-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=T_5lZboFD5H6P7pDs7sndA&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQQnlCrJl7vz-IbM3gz4pns7y4NtvdKwmGEfSG0SIeujOQ&oe=6B08F4D9",
-      "price": null,
-      "tags": [
-        "rap"
-      ],
-      "description": "Le jeudi 26 novembre, le Naho Club à La Garde ouvre ses portes à minuit pour BLOCK, une édition spéciale rap FR. Le line‑up comprend ___ozenn___ et delviinleak aux platines, prêts à balancer les sons les plus énervés du rap français. L’ambiance street, les grosses basses et le décor sombre promettent une soirée intense jusqu’à 5 h. Réserve ton spot au 06 61 42 26 51, l’entrée est libre mais le lieu se remplit vite, alors arrive tôt. Dress code : street‑wear, ambiance décontractée, 18+.",
-      "public_cible": 1,
-      "confiance": 0.9,
-      "buzz": 0.6,
-      "buzz_raison": "Première édition rap FR du club, post Instagram avec 1529 likes, soirée week‑end.",
-      "accroche": "BLOCK revient le 26 novembre au Naho pour une nuit de rap français brut et des basses qui claquent jusqu’à 5 h du mat’.",
-      "instagram": [
-        "nahoclub"
       ]
     },
     {
@@ -6010,29 +5838,6 @@
       "source": "web",
       "source_site": "instagram.com",
       "via_veille": true,
-      "name": "Soirée Shatta 26 novembre",
-      "start": "2026-11-25T23:00:00.000Z",
-      "venue": "3261 Av. de la Résistance, 83000 Toulon",
-      "city": "Toulon",
-      "address": "",
-      "url": "https://www.instagram.com/p/DgF2oSns9c7/",
-      "image": "https://scontent-iad3-2.cdninstagram.com/v/t51.82787-15/925374093_18151836865552654_6815568410360895273_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=106&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X3VybGdlbi5DMyJ9&_nc_ohc=sG9mJM_nzNoQ7kNvwHxgOGh&_nc_oc=AdpyouxUIQUSZidAKxUItfexUKoiZ2MEoZ--rEq6A0QqddU9XmnFeSd6hgru_YehDag&_nc_zt=23&_nc_ht=scontent-iad3-2.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=RHZIuOuMa_GFtR1SAz1BoA&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQTB9HEqb1V-BualxXn2qUHqOkCyMQQFRM3Cvj3IaGb9XQ&oe=6B0A65AD",
-      "price": 10,
-      "tags": [
-        "Shatta"
-      ],
-      "description": "",
-      "public_cible": 0.6,
-      "confiance": 0.9,
-      "accroche": "Soirée 100% Shatta, 00h-05h, entrée 10€",
-      "instagram": [
-        "_boka_officiel_"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "instagram.com",
-      "via_veille": true,
       "name": "Réveillon du Nouvel An",
       "start": "2026-12-31T17:00:00.000Z",
       "venue": "Magnolia Café, Nice",
@@ -6190,31 +5995,6 @@
       "accroche": "Vendredi 27 : L’Embuscade des Pirates 1 acheté = 1 offert jusqu’à 21h",
       "instagram": [
         "lacalesechetoulon"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "instagram.com",
-      "via_veille": true,
-      "name": "NayaClub Cannes – Soirée du samedi",
-      "start": "2026-11-25T23:00:00.000Z",
-      "venue": "15 Rue des Frères Pradignac, Cannes",
-      "city": "Cannes",
-      "address": "",
-      "url": "https://www.instagram.com/p/DgHtuDlRAc5/",
-      "image": "https://scontent-iad3-2.cdninstagram.com/v/t51.82787-15/927316559_18021056117975157_9028451248625547259_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=107&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=CChIP4eceSoQ7kNvwHAKr4A&_nc_oc=AdpokQlNY29t-y_Bco2ebjYvOJgb2gUeN495yEi9V0K_sWYynC9ZrikN0tcuLbnfMro&_nc_zt=23&_nc_ht=scontent-iad3-2.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=KEQif5tVeZy3CW8Xg7oUcQ&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQS4rwF-vo6ZU6rfgCiXFQWPGyMDY9-9UVbj1nqBJIsW8Q&oe=6B0BA5A7",
-      "price": null,
-      "tags": [
-        "Techno",
-        "House"
-      ],
-      "description": "",
-      "public_cible": 0.6,
-      "confiance": 0.8,
-      "accroche": "NayaClub continue la nuit jusqu’à 5h avec Dj Williamnc.",
-      "instagram": [
-        "nayaclubcannes",
-        "dj_williamnc"
       ]
     },
     {
@@ -6455,30 +6235,6 @@
       "source": "web",
       "source_site": "instagram.com",
       "via_veille": true,
-      "name": "GTA 6 Night",
-      "start": "2026-11-25T19:00:00.000Z",
-      "venue": "High Club Nice",
-      "city": "Nice",
-      "address": "",
-      "url": "https://highclubnice.com/boite/GTA6Night",
-      "image": "",
-      "price": null,
-      "tags": [
-        "Gaming",
-        "Musique"
-      ],
-      "description": "",
-      "public_cible": 0.6,
-      "confiance": 0.8,
-      "accroche": "GTA 6 Night 25 Nov",
-      "instagram": [
-        "highclubnice"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "instagram.com",
-      "via_veille": true,
       "name": "Before Club Damn Peach",
       "start": "2026-12-05T21:00:00.000Z",
       "venue": "Damn Peach, Avenue Marcelin Berthelot, La Valette-du-Var",
@@ -6495,32 +6251,7 @@
       "instagram": [
         "damnpeach__"
       ]
-    },
-    {
-      "source": "web",
-      "source_site": "instagram.com",
-      "via_veille": true,
-      "name": "Julianne & Jeremy DJ Set",
-      "start": "2026-11-25T22:00:00.000Z",
-      "venue": "Downtown Nice",
-      "city": "Nice",
-      "address": "",
-      "url": "https://www.instagram.com/p/DgLKYcijZeu/",
-      "image": "https://scontent-ord5-2.cdninstagram.com/v/t51.82787-15/930142529_18056432765815469_5536421173977830077_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=106&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=ABIiOrmDzNsQ7kNvwGGqQy8&_nc_oc=AdpFdp0jpoRITJUrfT4jEAQGEM1ehJ6CH3CL2-y7i0yCzEInwFYt5UNZto8UKq3liQ4&_nc_zt=23&_nc_ht=scontent-ord5-2.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=8v5W6vthxRDqmdFpT9YpZw&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQR4j7w5QCSO9eygME8B3S76vpZXYHekavDwobfym4A8Tw&oe=6B0D3317",
-      "price": null,
-      "tags": [
-        "DJ",
-        "House",
-        "Techno"
-      ],
-      "description": "",
-      "public_cible": 0.6,
-      "confiance": 0.8,
-      "accroche": "DJ set du 23h au 4h, Happy Hours 22h-0h",
-      "instagram": [
-        "downtown.nice"
-      ]
     }
   ],
-  "maj_instagram": "2026-11-25T22:12:15.694Z"
+  "maj_instagram": "2026-11-26T08:12:33.491Z"
 }

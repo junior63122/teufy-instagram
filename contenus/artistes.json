@@ -1054,5 +1054,411 @@
    "nom": "Shatta",
    "type": "artiste"
   }
- ]
+ ],
+ "9ae3756c917e": [
+  {
+   "nom": "Yuksek",
+   "type": "dj"
+  },
+  {
+   "nom": "Roxie",
+   "type": "artiste"
+  }
+ ],
+ "eec09ddcd74e": [
+  {
+   "nom": "The Brand New Heavies",
+   "type": "groupe"
+  },
+  {
+   "nom": "GoGo Penguin",
+   "type": "groupe"
+  }
+ ],
+ "a2e6c663d9c3": [
+  {
+   "nom": "INSOLENTE",
+   "type": "dj"
+  },
+  {
+   "nom": "BROWSKY",
+   "type": "dj"
+  },
+  {
+   "nom": "ZIAX",
+   "type": "dj"
+  }
+ ],
+ "49c14efdff4f": [
+  {
+   "nom": "DJ Sebb",
+   "type": "dj"
+  }
+ ],
+ "a549a4cf60fb": [
+  {
+   "nom": "Kx DJ",
+   "type": "dj"
+  }
+ ],
+ "417eb2e30bed": [
+  {
+   "nom": "Phaphane",
+   "type": "dj"
+  },
+  {
+   "nom": "senadj_",
+   "type": "artiste"
+  }
+ ],
+ "746b2a7f868d": [
+  {
+   "nom": "Calema",
+   "type": "groupe"
+  }
+ ],
+ "0f97bca67aed": [
+  {
+   "nom": "Les Tambours du Bronx",
+   "type": "groupe"
+  }
+ ],
+ "c695aeb6855a": [
+  {
+   "nom": "Mr Hat",
+   "type": "dj"
+  },
+  {
+   "nom": "Verome",
+   "type": "dj"
+  }
+ ],
+ "3ec26459ead3": [
+  {
+   "nom": "Solly Smith",
+   "type": "dj"
+  }
+ ],
+ "e76222fb0c0e": [
+  {
+   "nom": "Bambam",
+   "type": "groupe"
+  },
+  {
+   "nom": "Alban",
+   "type": "dj"
+  },
+  {
+   "nom": "Casamoro",
+   "type": "dj"
+  },
+  {
+   "nom": "Solis",
+   "type": "dj"
+  }
+ ],
+ "463c7a972f09": [
+  {
+   "nom": "MACEW",
+   "type": "dj"
+  }
+ ],
+ "177ffcb09572": [
+  {
+   "nom": "Ugo Puccinelli",
+   "type": "dj"
+  }
+ ],
+ "fbc5f39e70b7": [
+  {
+   "nom": "Gianni",
+   "type": "dj"
+  },
+  {
+   "nom": "Shaylan",
+   "type": "dj"
+  },
+  {
+   "nom": "Aleks",
+   "type": "dj"
+  }
+ ],
+ "0ad8706d8228": [
+  {
+   "nom": "Da Grow",
+   "type": "dj"
+  }
+ ],
+ "3349e8fa0ccd": [],
+ "9058ef74cb17": [],
+ "d3d6eadbc03f": [],
+ "bd01b7cc83a5": [],
+ "17e447bb3c22": [],
+ "642e7048dbb5": [
+  {
+   "nom": "Yori",
+   "type": "artiste"
+  },
+  {
+   "nom": "Axelino",
+   "type": "artiste"
+  },
+  {
+   "nom": "Plezy",
+   "type": "dj"
+  }
+ ],
+ "f86a7b32e389": [],
+ "f52e825e1b39": [
+  {
+   "nom": "Papeguay",
+   "type": "dj"
+  },
+  {
+   "nom": "Lydia Scarfo",
+   "type": "dj"
+  }
+ ],
+ "e239396bb1eb": [
+  {
+   "nom": "Slip Panther",
+   "type": "groupe"
+  }
+ ],
+ "c2c6ba920048": [
+  {
+   "nom": "Boticka",
+   "type": "dj"
+  },
+  {
+   "nom": "Angel Karel",
+   "type": "dj"
+  },
+  {
+   "nom": "Asil",
+   "type": "dj"
+  },
+  {
+   "nom": "Esilise",
+   "type": "dj"
+  },
+  {
+   "nom": "Nure",
+   "type": "dj"
+  },
+  {
+   "nom": "Soraä",
+   "type": "dj"
+  }
+ ],
+ "ba074b229167": [
+  {
+   "nom": "DJ Feeling",
+   "type": "dj"
+  }
+ ],
+ "48f6cc55765f": [
+  {
+   "nom": "Marwa Loud",
+   "type": "rappeur"
+  }
+ ],
+ "d4e74dfbcff5": [
+  {
+   "nom": "DJ K-Net",
+   "type": "dj"
+  }
+ ],
+ "06a9f8d866e8": [
+  {
+   "nom": "Acid Pauli",
+   "type": "dj"
+  },
+  {
+   "nom": "Emma",
+   "type": "dj"
+  },
+  {
+   "nom": "Legri",
+   "type": "artiste"
+  }
+ ],
+ "1c1a221f46a5": [
+  {
+   "nom": "Tim Lienderss",
+   "type": "dj"
+  }
+ ],
+ "6bec93bab29c": [
+  {
+   "nom": "DJ Jess",
+   "type": "dj"
+  },
+  {
+   "nom": "DJ Aafroo",
+   "type": "dj"
+  },
+  {
+   "nom": "Camille Aura",
+   "type": "artiste"
+  }
+ ],
+ "e25559a3d0b1": [
+  {
+   "nom": "DJ Greenhigh",
+   "type": "dj"
+  }
+ ],
+ "225c79c1b6a4": [
+  {
+   "nom": "ORBE",
+   "type": "dj"
+  },
+  {
+   "nom": "Stella Yme",
+   "type": "dj"
+  },
+  {
+   "nom": "Zahi",
+   "type": "artiste"
+  },
+  {
+   "nom": "Rinato",
+   "type": "artiste"
+  }
+ ],
+ "ec687517ee53": [],
+ "a426097a25a7": [],
+ "1ec080edd007": [],
+ "ccab8ab32669": [],
+ "5837fb069fb6": [],
+ "a2b45765f9ba": [],
+ "0e238cdacdd9": [],
+ "8f320f6d1db3": [],
+ "54bcd014f384": [
+  {
+   "nom": "Carol Nakari Quintet",
+   "type": "groupe"
+  }
+ ],
+ "513094d3c53a": [
+  {
+   "nom": "Dakeez",
+   "type": "chanteur"
+  }
+ ],
+ "f38ce0359b00": [
+  {
+   "nom": "Trvchi",
+   "type": "dj"
+  }
+ ],
+ "5ebfdc7e2658": [],
+ "6e00d6b6094a": [
+  {
+   "nom": "Ohm Family",
+   "type": "groupe"
+  }
+ ],
+ "b1774f14ab73": [
+  {
+   "nom": "Bodru Music",
+   "type": "dj"
+  }
+ ],
+ "db05bbd86db4": [
+  {
+   "nom": "Mamacita",
+   "type": "groupe"
+  },
+  {
+   "nom": "Driver MC",
+   "type": "dj"
+  },
+  {
+   "nom": "Kana J",
+   "type": "dj"
+  },
+  {
+   "nom": "ATNN",
+   "type": "dj"
+  }
+ ],
+ "f45f75bb08c8": [
+  {
+   "nom": "Hug'ette",
+   "type": "artiste"
+  },
+  {
+   "nom": "Ranyo",
+   "type": "artiste"
+  },
+  {
+   "nom": "AlesK",
+   "type": "artiste"
+  }
+ ],
+ "5edfc7c07950": [
+  {
+   "nom": "La Fouine",
+   "type": "rappeur"
+  }
+ ],
+ "35dbaa967395": [],
+ "ba7a8c47d495": [
+  {
+   "nom": "PLK",
+   "type": "rappeur"
+  }
+ ],
+ "96e814ab1db2": [
+  {
+   "nom": "PLK",
+   "type": "rappeur"
+  }
+ ],
+ "e7c49c9707ce": [
+  {
+   "nom": "Bobar",
+   "type": "groupe"
+  }
+ ],
+ "980cad840a4e": [
+  {
+   "nom": "Pony Pony Run Run",
+   "type": "groupe"
+  },
+  {
+   "nom": "Alastair Lane",
+   "type": "artiste"
+  }
+ ],
+ "9a3ba342373a": [],
+ "7c91f0392509": [
+  {
+   "nom": "Brodinski",
+   "type": "dj"
+  },
+  {
+   "nom": "Martynikefly",
+   "type": "dj"
+  },
+  {
+   "nom": "Tobhi.tm",
+   "type": "dj"
+  }
+ ],
+ "d75f42acad7f": [
+  {
+   "nom": "Char Bell",
+   "type": "dj"
+  }
+ ],
+ "72c8700a8772": [
+  {
+   "nom": "Shafro",
+   "type": "rappeur"
+  }
+ ],
+ "4c83de8ccc06": []
 }

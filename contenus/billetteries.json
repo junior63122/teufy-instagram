@@ -1,5 +1,5 @@
 {
- "maj": "2026-11-25T21:13:41.957Z",
+ "maj": "2026-11-26T08:14:00.230Z",
  "evenements": [
   {
    "source": "dice",
@@ -243,21 +243,6 @@
   },
   {
    "source": "eventbrite",
-   "name": "10 People Group Nice: Karao-Quiz Night – Fun Karaoke & Music Quiz Party",
-   "start": "2026-11-25T20:00:00.000Z",
-   "end": "2026-11-25T22:00:00.000Z",
-   "venue": "40 Rue Droite",
-   "city": "Nice",
-   "address": "40 Rue Droite 06300 Nice",
-   "url": "https://www.eventbrite.fr/e/10-people-group-nice-karao-quiz-night-fun-karaoke-music-quiz-party-tickets-2004294467707",
-   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1177936963%2F2149570374853%2F1%2Foriginal.20260219-151539?w=1080&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C80%2C2560%2C1280&s=9b1eaa4587c40fda6a2f5615762ccf1c",
-   "price": 154.69,
-   "tags": [],
-   "description": "Fun karaoke, music quiz night in the heart of Nice. Sing, compete, laugh and enjoy an unforgettable social evening. (group of 10 people max)",
-   "popularite": null
-  },
-  {
-   "source": "eventbrite",
    "name": "New Year’s Eve Bar Crawl Party Nice",
    "start": "2026-12-31T20:00:00.000Z",
    "end": "2027-01-01T00:30:00.000Z",
@@ -449,21 +434,6 @@
    "price": 11.85,
    "tags": [],
    "description": "Tous les dimanches à partir du 8 novembre 2026, de 14h30 à 18h00",
-   "popularite": null
-  },
-  {
-   "source": "eventbrite",
-   "name": "10 People Group Nice: Karao-Quiz Night – Fun Karaoke & Music Quiz Party",
-   "start": "2026-11-25T20:00:00.000Z",
-   "end": "2026-11-25T22:00:00.000Z",
-   "venue": "40 Rue Droite",
-   "city": "Nice",
-   "address": "40 Rue Droite 06300 Nice",
-   "url": "https://www.eventbrite.fr/e/10-people-group-nice-karao-quiz-night-fun-karaoke-music-quiz-party-tickets-2004294467707",
-   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1177936963%2F2149570374853%2F1%2Foriginal.20260219-151539?w=1080&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C80%2C2560%2C1280&s=9b1eaa4587c40fda6a2f5615762ccf1c",
-   "price": 154.69,
-   "tags": [],
-   "description": "Fun karaoke, music quiz night in the heart of Nice. Sing, compete, laugh and enjoy an unforgettable social evening. (group of 10 people max)",
    "popularite": null
   },
   {
@@ -749,21 +719,6 @@
    "price": 0,
    "tags": [],
    "description": "02 // THE CONFIRM",
-   "popularite": null
-  },
-  {
-   "source": "eventbrite",
-   "name": "LUCA TRAMATZU a Genova",
-   "start": "2026-11-25T20:00:00.000Z",
-   "end": "2026-11-25T21:30:00.000Z",
-   "venue": "Music for Peace",
-   "city": "Genova",
-   "address": "60 Via Balleydier 16149 Genova",
-   "url": "https://www.eventbrite.co.uk/e/luca-tramatzu-a-genova-tickets-1993168762423",
-   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1188181253%2F86246910653%2F1%2Foriginal.20260703-220141?crop=focalpoint&fit=crop&w=1080&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=2ac2f13c053b6336ab766caab6417892",
-   "price": 17.18,
-   "tags": [],
-   "description": "BUGINU arriva a Genova il 25 novembre",
    "popularite": null
   },
   {
@@ -1248,21 +1203,6 @@
   },
   {
    "source": "eventbrite",
-   "name": "10 People Group Nice: Karao-Quiz Night – Fun Karaoke & Music Quiz Party",
-   "start": "2026-11-25T20:00:00.000Z",
-   "end": "2026-11-25T22:00:00.000Z",
-   "venue": "40 Rue Droite",
-   "city": "Nice",
-   "address": "40 Rue Droite 06300 Nice",
-   "url": "https://www.eventbrite.fr/e/10-people-group-nice-karao-quiz-night-fun-karaoke-music-quiz-party-tickets-2004294467707",
-   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1177936963%2F2149570374853%2F1%2Foriginal.20260219-151539?w=1080&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C80%2C2560%2C1280&s=9b1eaa4587c40fda6a2f5615762ccf1c",
-   "price": 154.69,
-   "tags": [],
-   "description": "Fun karaoke, music quiz night in the heart of Nice. Sing, compete, laugh and enjoy an unforgettable social evening. (group of 10 people max)",
-   "popularite": null
-  },
-  {
-   "source": "eventbrite",
    "name": "Riviera Bar Crawl Nice’s #1 Social Club for Global Travelers & Party Lovers",
    "start": "2026-11-27T20:00:00.000Z",
    "end": "2026-11-28T01:00:00.000Z",
@@ -1623,21 +1563,6 @@
   },
   {
    "source": "eventbrite",
-   "name": "10 People Group Nice: Karao-Quiz Night – Fun Karaoke & Music Quiz Party",
-   "start": "2026-11-25T20:00:00.000Z",
-   "end": "2026-11-25T22:00:00.000Z",
-   "venue": "40 Rue Droite",
-   "city": "Nice",
-   "address": "40 Rue Droite 06300 Nice",
-   "url": "https://www.eventbrite.fr/e/10-people-group-nice-karao-quiz-night-fun-karaoke-music-quiz-party-tickets-2004294467707",
-   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1177936963%2F2149570374853%2F1%2Foriginal.20260219-151539?w=1080&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C80%2C2560%2C1280&s=9b1eaa4587c40fda6a2f5615762ccf1c",
-   "price": 154.69,
-   "tags": [],
-   "description": "Fun karaoke, music quiz night in the heart of Nice. Sing, compete, laugh and enjoy an unforgettable social evening. (group of 10 people max)",
-   "popularite": null
-  },
-  {
-   "source": "eventbrite",
    "name": "Restaurant of the Week | Foodies + New Friends: Cannes",
    "start": "2026-11-27T18:00:00.000Z",
    "end": "2026-11-27T21:00:00.000Z",
@@ -1739,21 +1664,6 @@
    "price": 12,
    "tags": [],
    "description": "Chaque dernier dimanche du mois, le MCC réunit 7 humoristes pour un plateau unique consacré à l’info, avec des sketchs préparés spécialement",
-   "popularite": null
-  },
-  {
-   "source": "eventbrite",
-   "name": "OPEN MIC – Scène Ouverte Stand-up | Marseille",
-   "start": "2026-11-25T19:45:00.000Z",
-   "end": "2026-11-25T21:00:00.000Z",
-   "venue": "59 Rue de Rome",
-   "city": "Marseille",
-   "address": "59 Rue de Rome 13001 Marseille",
-   "url": "https://www.eventbrite.fr/e/billets-open-mic-scene-ouverte-stand-up-marseille-2002552727114",
-   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1194630995%2F2995537418926%2F1%2Foriginal.20260929-143856?crop=focalpoint&fit=crop&w=1080&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=bd2a4bfe4b740a018a8d76cdfb29710f",
-   "price": 4,
-   "tags": [],
-   "description": "C'est ici que se préparent les spectacles de demain. C'est l'endroit idéal pour assister à la naissance des futures pépites du stand-up.",
    "popularite": null
   },
   {
@@ -2298,23 +2208,20 @@
   }
  ],
  "en_panne": [
-  "https://www.eventbrite.fr/d/france--nice/nightlife/",
   "https://www.eventbrite.fr/d/france--nice/parties/",
-  "https://www.eventbrite.fr/d/france--cannes/parties/",
+  "https://www.eventbrite.fr/d/france--nice/nightlife/",
   "https://shotgun.live/fr/cities/nice",
-  "https://www.eventbrite.fr/d/monaco--monaco/nightlife/",
-  "https://www.eventbrite.fr/d/france--toulon/nightlife/",
-  "https://www.eventbrite.fr/d/france--cannes/parties/",
   "https://www.eventbrite.fr/d/france--antibes/nightlife/",
+  "https://www.eventbrite.fr/d/monaco--monaco/nightlife/",
   "https://www.eventbrite.fr/d/france--nice/music--events/",
+  "https://www.eventbrite.fr/d/france--cannes/music--events/",
   "https://www.eventbrite.fr/d/monaco--monaco/music--events/",
   "https://www.eventbrite.fr/d/france--saint-tropez/events/",
-  "https://www.eventbrite.fr/d/france--antibes/nightlife/",
-  "https://www.eventbrite.fr/d/france--cannes/music--events/",
-  "https://www.eventbrite.fr/d/france--toulon/music--events/",
   "https://www.eventbrite.fr/d/france--frejus/events/",
+  "https://www.eventbrite.fr/d/france--toulon/music--events/",
+  "https://www.eventbrite.fr/d/france--cannes/parties/",
+  "https://www.eventbrite.fr/d/france--toulon/nightlife/",
   "https://allevents.in/nice/all",
-  "https://allevents.in/toulon/all",
-  "https://www.bizouk.com/"
+  "https://allevents.in/toulon/all"
  ]
 }

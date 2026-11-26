@@ -8972,5 +8972,191 @@
    "bigflo",
    "karma"
   ]
+ },
+ "v2|8a564d924894": {
+  "ok": false,
+  "le": "2026-11-26T08:15:14.004Z",
+  "nom": "Soirée tropicale",
+  "lu": {
+   "titre": "",
+   "dates": [
+    "2026-11-27"
+   ],
+   "artistes": [],
+   "lieu": ""
+  },
+  "commun": []
+ },
+ "v2|84fa628c88ff": {
+  "ok": true,
+  "le": "2026-11-26T08:15:15.971Z",
+  "nom": "The Show by Club Sonore x Maraka",
+  "lu": {
+   "titre": "YOU ARE THE SHOW",
+   "dates": [
+    "2026-11-28"
+   ],
+   "artistes": [],
+   "lieu": "Club Sonore & Friends"
+  },
+  "commun": [
+   "show"
+  ]
+ },
+ "v2|eaa509e98a4b": {
+  "ok": false,
+  "le": "2026-11-26T08:15:38.538Z",
+  "nom": "La Rubia, Closing 2026 : Alvama Ice X La Dune Club",
+  "lu": {
+   "titre": "ALVAMAICE",
+   "dates": [
+    "2026-11-28"
+   ],
+   "artistes": [
+    "ALVAMAICE"
+   ],
+   "lieu": "LA DUNE CLUB"
+  },
+  "commun": []
+ },
+ "v2|3a4a93c29cc2": {
+  "ok": false,
+  "le": "2026-11-26T08:15:58.630Z",
+  "nom": "The Glow presents a Christmas night/ La Lueur présente une soirée de Noël",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": [],
+   "lieu": ""
+  },
+  "commun": []
+ },
+ "v2|17d3d5defedd": {
+  "ok": false,
+  "le": "2026-11-26T08:16:18.518Z",
+  "nom": "Hortense De Beauharnais All Night Long",
+  "lu": {
+   "titre": "ALL NIGHT LONG",
+   "dates": [
+    "2026-05-12"
+   ],
+   "artistes": [
+    "HORTENSE DE BEAUHARNAIS"
+   ],
+   "lieu": "DIEZE WAREHOUSE"
+  },
+  "commun": [
+   "long",
+   "hortense",
+   "beauharnais"
+  ]
+ },
+ "v2|b33c158cf7bd": {
+  "ok": true,
+  "le": "2026-11-26T08:16:38.168Z",
+  "nom": "Marta + Baby Berserk + Dab Rozer ... Bazr Festival",
+  "lu": {
+   "titre": "BAZR festival",
+   "dates": [
+    "2026-12-11"
+   ],
+   "artistes": [
+    "Marta",
+    "Baby Berserk",
+    "Dab Rozer",
+    "Cosmic Banana"
+   ],
+   "lieu": ""
+  },
+  "commun": [
+   "bazr",
+   "festival",
+   "marta",
+   "baby",
+   "berserk"
+  ]
+ },
+ "v2|d5f0ebcb1f95": {
+  "ok": false,
+  "le": "2026-11-26T08:16:58.086Z",
+  "nom": "Candlelight : Coldplay et Imagine Dragons",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": [],
+   "lieu": ""
+  },
+  "commun": []
+ },
+ "v2|502998b1213e": {
+  "ok": true,
+  "le": "2026-11-26T08:17:17.703Z",
+  "nom": "Fulu Miziki + Il Est Vilaine + Sarra Wild... Bazr Festival",
+  "lu": {
+   "titre": "BAZR festival",
+   "dates": [
+    "2026-12-12"
+   ],
+   "artistes": [
+    "Fulu Miziki",
+    "II Est Vilaine",
+    "Sarra Wild",
+    "DJ Startup"
+   ],
+   "lieu": ""
+  },
+  "commun": [
+   "bazr",
+   "festival",
+   "fulu",
+   "miziki",
+   "vilaine"
+  ]
+ },
+ "v2|840a6dc7ea2d": {
+  "ok": false,
+  "le": "2026-11-26T08:17:37.159Z",
+  "nom": "Piche",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": [],
+   "lieu": ""
+  },
+  "commun": []
+ },
+ "v2|fb2a1fdfcb12": {
+  "ok": true,
+  "le": "2026-11-26T08:17:56.646Z",
+  "nom": "Benjamin Biolay",
+  "lu": {
+   "titre": "EN TOURNÉE",
+   "dates": [],
+   "artistes": [
+    "BENJAMIN BIOLAY"
+   ],
+   "lieu": ""
+  },
+  "commun": [
+   "benjamin",
+   "biolay"
+  ]
+ },
+ "v2|480d29524d11": {
+  "ok": false,
+  "le": "2026-11-26T08:18:19.275Z",
+  "nom": "Rim'K",
+  "lu": {
+   "titre": "RIM'K",
+   "dates": [],
+   "artistes": [
+    "MOHA LE VAGABOND",
+    "DJ DINO",
+    "DJ BAD",
+    "RAIZO"
+   ],
+   "lieu": ""
+  },
+  "commun": []
  }
 }

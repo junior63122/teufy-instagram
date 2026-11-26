@@ -1,0 +1,26 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:soiree-tropicale-2026-11-26@teufy
+DTSTAMP:20261126T082043Z
+DTSTART:20261126T230000Z
+DTEND:20261127T040000Z
+SUMMARY:Soirée tropicale
+LOCATION:Boka Club\, 3261 avenue de la Résistance\, 83000 Toulon\, Toulon
+DESCRIPTION:Soirée tropicale au Boka Club\, 27 novembre\, 00h-05h.\nBill
+ ets : https://www.instagram.com/p/DgApj3iIGwb/\nVia Teufy @teufy_official
+URL:https://www.instagram.com/p/DgApj3iIGwb/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Soirée tropicale
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Soirée tropicale
+END:VALARM
+END:VEVENT
+END:VCALENDAR

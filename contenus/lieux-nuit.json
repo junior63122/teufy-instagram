@@ -208,7 +208,7 @@
    "score": 0,
    "soirs": [],
    "details": {
-    "le": "2026-11-26T00:50:54.499Z",
+    "le": "2026-11-26T08:18:49.546Z",
     "styles": "DJ résidents (ven–sam après 22h)",
     "dress_code": "",
     "horaires": "lun–dim 10h–2h",
@@ -2045,14 +2045,9 @@
    "site": "https://www.facebook.com/bokaclubdelmagot",
    "description": "Discothèque et club karaoké en haut de la corniche du Mourillon, avec soirées DJ et terrasse.",
    "soirees": [
-    "shatta-night-boka-club-2026-11-26",
     "zouk-love-toulon-edition-chic-2026-11-28"
    ],
    "prochaines": [
-    {
-     "id": "shatta-night-boka-club-2026-11-26",
-     "nom": "SHATTA NIGHT @ BOKA CLUB"
-    },
     {
      "id": "zouk-love-toulon-edition-chic-2026-11-28",
      "nom": "Zouk Love Toulon Edition Chic"
@@ -2062,12 +2057,6 @@
    "slug": "boka-club-del-magot-toulon",
    "score": 0,
    "soirs": [
-    [
-     "2026-11-26",
-     "00:00",
-     "shatta-night-boka-club-2026-11-26",
-     "SHATTA NIGHT @ BOKA CLUB"
-    ],
     [
      "2026-11-28",
      "23:45",
@@ -6239,15 +6228,15 @@
    "couv": null
   },
   "glam.nice": {
-   "le": "2026-11-23T01:36:49.905Z",
+   "le": "2026-11-26T08:12:33.491Z",
    "abonnes": 466,
    "posts21": 0,
    "likes": 0,
    "commentaires": 0,
-   "photo": "https://scontent-sea5-1.xx.fbcdn.net/v/t51.2885-15/145489802_111836054218332_2158457073491034327_n.jpg?_nc_cat=106&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=7d201b&_nc_ohc=ZuSvU5GqXTYQ7kNvwGSwBDX&_nc_oc=Ado7xu8w5j1L1Yf78H8P_MDV9qbaiLHx2gcsyz5OS4zpl_Jau_NwbHGOnHvLveO8vOo&_nc_zt=23&_nc_ht=scontent-sea5-1.xx&edm=AJ-jyNUEAAAA&oh=00_AQTGrICO-IsM8OOYP1MHO2Mwb66ZkJbvSwhpvjuJp5q8Ww&oe=6B095809",
+   "photo": "https://scontent-sjc6-1.xx.fbcdn.net/v/t51.2885-15/145489802_111836054218332_2158457073491034327_n.jpg?_nc_cat=106&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=7d201b&_nc_ohc=HwrKssAChcYQ7kNvwEFq1CR&_nc_oc=AdqkefQabh2JgEz3be4rCXQTuD4bgLqesjo93szgX4-UAWiFyMznYv9TYMERmoSuJpM&_nc_zt=23&_nc_ht=scontent-sjc6-1.xx&edm=AJ-jyNUEAAAA&oh=00_AQT376aRu-xsjyWGNTJA13Ier2uISaSbbPoRXijdd_z_bQ&oe=6B0DBD09",
    "posts": [],
    "couv": {
-    "u": "https://scontent-sea5-1.cdninstagram.com/v/t51.82787-15/626694983_18129342652467338_8680134217849544298_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=106&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=UJwr48Cfk6AQ7kNvwFqnTnc&_nc_oc=AdqRVR1OrWt8Emcxk37_hPRDq_FyjyJChE7EsrY-rcvcd1iT9crqF74g7a8_NbdycHQ&_nc_zt=23&_nc_ht=scontent-sea5-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=-VQ7PbopU6OGFjlHp8DlKw&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQSTk07tvrispViLaUhwGrkIuvB-PGSyrZKJSErko26OsA&oe=6B0964C8",
+    "u": "https://scontent-sjc6-1.cdninstagram.com/v/t51.82787-15/626694983_18129342652467338_8680134217849544298_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=106&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=2iU2fQc4jm0Q7kNvwHR4Uui&_nc_oc=AdqAjz50ep6OB7qO3A2P1hJxVo477zfF6FN4nCFKoiXndbKCx75PMWcdQnorM_6ljSQ&_nc_zt=23&_nc_ht=scontent-sjc6-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=lx0nMjzF9fjxQ3U0QslncA&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQR6etW02yeifs8e0OBmmhfx9nN1t442XBi_N1S6xDnYzA&oe=6B0DC9C8",
     "lien": "https://www.instagram.com/p/DAzCDHgyUXj/"
    }
   },
