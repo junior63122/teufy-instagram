@@ -4943,32 +4943,6 @@
     {
       "source": "web",
       "source_site": "Instagram",
-      "name": "APÉROL PARTY",
-      "start": "2026-11-26T16:00:00.000Z",
-      "venue": "Barrio Chicago – Place de l’Équerre",
-      "city": "Toulon",
-      "address": "",
-      "url": "https://www.instagram.com/p/DfM9OcJMIPa/",
-      "image": "https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/883300158_18180668416444237_4958539333734117332_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=104&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=sduV7ThW2Z0Q7kNvwHA0d8g&_nc_oc=AdpPs5qd2Kgs_uc-TS9gSw0RKcqPdoB6RxmqXnsZ4rmBbAX05RM1iBaTKZp9T1p9iXo&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=VBvO1W3_Q6X6IqkVaHwUyw&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQQ4oOdqJWRKx2YT1NdkqQgqMszfsZIY4qNHpuw1QyQ1Qw&oe=6B0681C0",
-      "price": 0,
-      "tags": [
-        "house"
-      ],
-      "description": "Le Barrio Chicago organise une Apéro Party le 26 novembre, avec des cocktails Spritz, une ambiance chaleureuse et de la musique house. L’événement se déroule dans le club de la Place de l’Équerre et commence à 17h. L’entrée est gratuite, l’événement est destiné aux 17‑30 ans qui cherchent une soirée décontractée et festive. La promotion est faite via Instagram, avec un visuel attractif et un compte de 3 475 abonnés.",
-      "public_cible": 0.8,
-      "confiance": 0.7,
-      "buzz": 0.5,
-      "buzz_raison": "Annonce officielle, lieu connu, ambiance conviviale, date proche.",
-      "accroche": "Apéro Party, Spritz et vibes Dolce Vita à Toulon",
-      "instagram": [
-        "barriochicagotoulon"
-      ],
-      "billetterie_cherchee": true,
-      "offres_cherchees": true
-    },
-    {
-      "source": "web",
-      "source_site": "Instagram",
       "name": "Le Réveillon du Bar Éphémère",
       "start": "2026-12-31T18:00:00.000Z",
       "venue": "Auberge TAO",
@@ -6437,6 +6411,6 @@
       ]
     }
   ],
-  "maj_instagram": "2026-11-26T21:12:35.880Z",
+  "maj_instagram": "2026-11-26T22:12:51.123Z",
   "echec_web": "2026-11-26T17:12:48.899Z"
 }
