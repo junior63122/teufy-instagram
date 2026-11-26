@@ -363,8 +363,10 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
       jc.querySelectorAll('.jc-rubriques [data-rubrique]').forEach((b) => { const k = b.dataset.rubrique; if (!k) return; const n = compte(k, v); const e = b.querySelector('.jc-n'); if (e) e.textContent = n; b.classList.toggle('zero', !n); });
       jc.querySelectorAll('.jc-villes [data-jc-ville]').forEach((b) => { const k = b.dataset.jcVille; if (!k) return; const n = compte(r, k); const e = b.querySelector('small'); if (e) e.textContent = n; b.classList.toggle('zero', !n); });
       const vis = [...document.querySelectorAll('.ce-soir-liste .carte')].filter((c) => !c.hidden && !c.classList.contains('hors-ville')).length;
-      const ns = document.querySelector('[data-compte-soir]'); if (ns) ns.textContent = `· ${nb(vis)}`;
       const nomV = v && jc.querySelector(`.jc-villes [data-jc-ville="${v}"]`)?.firstChild?.textContent.trim();
+      // Ville choisie : le titre le dit, avec le total de la Côte (jamais un « 1 soirée » qui contredit l'accueil).
+      const tot = [...document.querySelectorAll('.ce-soir-liste .carte')].filter((c) => !c.hidden).length;
+      const ns = document.querySelector('[data-compte-soir]'); if (ns) ns.textContent = v && nomV && tot !== vis ? `· ${nb(vis)} ${({ fr: 'à', it: 'a', es: 'en' })[(document.documentElement.lang || 'fr').slice(0, 2)] || 'in'} ${nomV} (${tot} ${({ fr: 'au total', it: 'in tutto', es: 'en total', zh: '共', ar: 'إجمالاً' })[(document.documentElement.lang || 'fr').slice(0, 2)] || 'in total'})` : `· ${nb(vis)}`;
       const vide = document.querySelector('[data-soir-ville-vide]');
       if (vide) { vide.hidden = !(v && !vis && document.querySelector('.ce-soir-liste .carte:not([hidden])')); vide.querySelector('b').textContent = nomV || '';
         // Ville sans aucun lieu recensé (Draguignan…) : jamais « les lieux sont juste en dessous » (contrôle terrain du 23/11).
@@ -384,13 +386,14 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
       majComptesJc(r, v);
       document.querySelectorAll('.lieux-tard').forEach((g) => { const sec = g.closest('section'); if (sec && !sec.hidden && v) sec.classList.toggle('vide-ville', ![...g.children].some((x) => !x.classList.contains('hors-ville'))); });
       document.querySelectorAll('[data-grouper]').forEach(regrouper);
-      try { localStorage.setItem('teufy-jc', JSON.stringify({ r, v })); } catch { /* stockage refusé */ }
     };
     jc.querySelector('.jc-rubriques').addEventListener('click', (e) => { const b = e.target.closest('[data-rubrique]'); if (!b) return; jc.querySelectorAll('.jc-rubriques .puce').forEach((x) => x.classList.toggle('actif', x === b)); appliquer(); });
     jc.querySelector('.jc-voir-plus')?.addEventListener('click', (e) => { jc.classList.add('jc-tout'); e.currentTarget.remove(); });
     setTimeout(() => majComptesJc(jc.querySelector('.jc-rubriques .actif')?.dataset.rubrique || '', choixVille()?.dataset.jcVille || ''), 0);
     jc.querySelector('.jc-villes')?.addEventListener('click', (e) => { const b = e.target.closest('[data-jc-ville]'); if (!b) return; jc.querySelectorAll('.jc-villes .puce').forEach((x) => x.classList.toggle('actif', x === b)); appliquer(); });
-    try { const m = JSON.parse(localStorage.getItem('teufy-jc') || 'null'); if (m) { const bv2 = m.v && jc.querySelector(`.jc-villes [data-jc-ville="${m.v}"]`); if (bv2) jc.querySelectorAll('.jc-villes .puce').forEach((x) => x.classList.toggle('actif', x === bv2)); const b = jc.querySelector(`.jc-rubriques [data-rubrique="${m.r || ''}"]`); if (b) { jc.querySelectorAll('.jc-rubriques .puce').forEach((x) => x.classList.toggle('actif', x === b)); } setTimeout(appliquer, 0); } } catch { /* rien */ }
+    // 26/11/2026 (directeur : « l'accueil dit 10 soirées ce soir et la page Ce soir n'en montre qu'une ») : la ville choisie lors
+    // d'une visite précédente était remise en silence. La page s'ouvre toujours sur « Partout » ; l'ancien choix est effacé.
+    try { localStorage.removeItem('teufy-jc'); } catch { /* stockage refusé */ }
   }
 
   // Filtre Boîtes de nuit / Bars (page Ce soir et annuaire des lieux).
@@ -1255,7 +1258,7 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
   try {
     const N = JSON.parse(document.querySelector('.onglets')?.dataset.notif || '{}');
     const nSoir = (N.soirs || {})[auj] || 0;
-    const pastille = (el, n, cls) => { if (!el || el.querySelector(`.${cls}`)) return; const b = document.createElement('b'); b.className = `nb-notif ${cls}`; b.textContent = n > 9 ? '9+' : n; b.setAttribute('aria-label', n); el.append(b); };
+    const pastille = (el, n, cls) => { if (!el || el.querySelector(`.${cls}`)) return; const b = document.createElement('b'); b.className = `nb-notif ${cls}`; b.textContent = n > 99 ? '99+' : n; b.setAttribute('aria-label', n); el.append(b); };
     if (nSoir) {
       document.querySelectorAll('.nb-soir').forEach((b) => { b.textContent = nSoir > 99 ? '99+' : nSoir; b.hidden = false; });
       document.querySelectorAll('.nav a[href$="ce-soir/"], .menu-complet a[href$="ce-soir/"]').forEach((a) => pastille(a, nSoir, 'n-soir'));

@@ -46,6 +46,13 @@ const B = process.env.BASE || 'http://localhost:8765/';
   await p.goto(B, { waitUntil: 'networkidle' });
   const mauvais = await p.evaluate(() => [...document.querySelectorAll('a.bouton')].filter((a) => /google\.|instagram\.com/.test(a.href) && /^(Billets|Tickets)$/i.test(a.textContent.trim())).length);
   ok('Aucun bouton « Billets » vers Google ou Instagram (accueil)', mauvais === 0, String(mauvais));
+  // 26/11/2026 (directeur) : l'accueil disait 10 soirées ce soir, la page Ce soir 1 (ville gardée d'une visite précédente).
+  { const c = await b.newContext({ viewport: { width: 1280, height: 800 } }); await c.addInitScript(() => { try { localStorage.setItem('teufy-jc', JSON.stringify({ r: '', v: 'cannes' })); } catch {} });
+    const x = await c.newPage(); await x.goto(B, { waitUntil: 'networkidle' });
+    const nAcc = await x.evaluate(() => [...document.querySelectorAll('#ce-soir .carte')].filter((k) => !k.hidden).length);
+    await x.goto(B + 'ce-soir/', { waitUntil: 'networkidle' }); await x.waitForTimeout(300);
+    const nPage = await x.evaluate(() => [...document.querySelectorAll('.ce-soir-liste .carte')].filter((k) => !k.hidden && !k.classList.contains('hors-ville')).length);
+    ok('Ce soir : même nombre de soirées sur l\'accueil et sur la page Ce soir (ancienne ville choisie ignorée)', nAcc === nPage, `${nAcc} / ${nPage}`); await c.close(); }
   console.log(out.join('\n')); await b.close();
   const ko = out.filter((x) => x.startsWith('KO')).length;
   console.log(ko ? `✗ ${ko} scénario(s) en échec.` : `✓ ${out.length} scénarios rejoués, tous bons.`);
