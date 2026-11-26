@@ -7,6 +7,85 @@
   "evenements": [
     {
       "source": "web",
+      "source_site": "Instagram",
+      "name": "SHATTA – Nuit 100 % Shatta",
+      "start": "2026-11-25T23:00:00.000Z",
+      "venue": "116 Av. de Digne",
+      "city": "La Garde",
+      "address": "",
+      "url": "https://www.instagram.com/p/DgLE0VMiOIT/",
+      "image": "https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/920853886_18129188704917771_3376447134495047144_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=108&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=YE60CFnVKcAQ7kNvwEHLcaD&_nc_oc=AdpN-4BxKFO_j7yDDCFdTg48jrzwJm9fl6Zo7COm_kzBZARLWgG8o8cWXOWdFDGs5ds&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=HvxZUugGApdCM2aBm9-mSA&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQSsxdFqZPJkJf9wlW_gBkWuSlNCPWOdlUj1dbj3nT7-sw&oe=6B0DB0BD",
+      "price": null,
+      "tags": [
+        "shatta"
+      ],
+      "description": "Le 26 novembre, la soirée SHATTA débarque à La Garde. Au programme : du shatta à fond les ballons, une ambiance survoltée et des DJs qui font vibrer le dancefloor jusqu’à 5 h du matin. L’entrée est libre, la réservation est possible au 06 61 42 26 51. Dress‑code ? Laisse‑toi porter par le rythme et viens profiter d’une soirée qui promet de faire chauffer la piste. Pas de prix indiqué, donc vérifie rapidement les infos de réservation.",
+      "public_cible": 0.9,
+      "confiance": 0.7,
+      "buzz": 0.5,
+      "buzz_raison": "Première soirée shatta du club, annoncée sur Instagram, date proche du week‑end.",
+      "accroche": "Une nuit 100 % shatta qui fera monter la température sur la piste dès le 26 novembre !",
+      "instagram": [
+        "naho_club"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Instagram",
+      "name": "REVIVAL – ÉDITION TRIX NIGHT",
+      "start": "2026-11-26T17:00:00.000Z",
+      "venue": "Le Swing",
+      "city": "Nice",
+      "address": "",
+      "url": "https://www.instagram.com/p/DgLSNTkNV6d/",
+      "image": "https://scontent-iad6-1.cdninstagram.com/v/t51.82787-15/931330029_18120459914321373_3274871687790835536_n.webp?stp=dst-jpg_e35_tt6&_nc_cat=100&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=UsxsBhItdScQ7kNvwFOxVZ9&_nc_oc=AdrH8vydBB_TnRy3X8kePejYgN-9HXCidpZeGaR4gj3gD96eULv-S1PBXc6tGRDJkR4&_nc_zt=23&_nc_ht=scontent-iad6-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=2SSn3U6q_D1K-HoEtrbJMw&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQT9nOk_6hxkzM0I0ZTShUNY33S-3zJRHBaaBzVuKmVmww&oe=6B0DD6C6",
+      "price": 0,
+      "tags": [
+        "house",
+        "electro"
+      ],
+      "description": "Le 26 novembre, Le Swing à Nice accueille la soirée REVIVAL – ÉDITION TRIX NIGHT. Bad girls Darcy Xxs et Eli Trix Queen prennent le contrôle de la piste, tandis que le DJ résident assure le son house/electro jusqu’à 2 h 30. L’entrée est libre mais la consommation est obligatoire, et le lieu est réservé aux 18 ans et plus. Parking à proximité, tramway Garibaldi à 2 min à pied. Prépare ton look provocateur et viens vivre une nuit sulfureuse.",
+      "public_cible": 0.85,
+      "confiance": 0.8,
+      "buzz": 0.6,
+      "buzz_raison": "Événement thématique avec influence locale, annoncé sur Instagram, date proche du week‑end.",
+      "accroche": "Le jeudi 26 novembre, Le Swing se transforme en scène de bad girls et de beats électro‑house.",
+      "instagram": [
+        "le.swingnice",
+        "darcy.xxs",
+        "eli_trix_queen"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "Instagram",
+      "name": "PSYDIEZE",
+      "start": "2026-11-27T23:00:00.000Z",
+      "venue": "Dieze Warehouse",
+      "city": "Montpellier",
+      "address": "",
+      "url": "https://www.instagram.com/reel/Df47EWDtKyL/",
+      "image": "",
+      "price": null,
+      "tags": [
+        "psytrance",
+        "techno"
+      ],
+      "description": "Le 28 novembre, le Dieze Warehouse de Nice ouvre ses portes pour PSYDIEZE, une nuit dédiée à la psytrance. En tête d’affiche, KALKI, accompagné de LA ROUZ et WILDTRACK, propose des rythmes hypnotiques et des basses puissantes jusqu’à 6 h du matin. L’événement commence à minuit et se poursuit jusqu’à l’aube. Les tarifs ne sont pas précisés, il est recommandé de vérifier rapidement les infos de billetterie. Dress‑code libre, ambiance immersive pour les amateurs de trance psychédélique.",
+      "public_cible": 0.9,
+      "confiance": 0.8,
+      "buzz": 0.6,
+      "buzz_raison": "Line‑up de psytrance reconnu, lieu réputé pour ses soirées underground, date en fin de mois.",
+      "accroche": "Une nuit psytrance explosive avec KALKI, LA ROUZ et WILDTRACK au cœur du Dieze.",
+      "instagram": [
+        "diezewarehouse"
+      ],
+      "offres": [],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
+    },
+    {
+      "source": "web",
       "source_site": "shotgun.live",
       "name": "The Show by Club Sonore x Maraka",
       "start": "2026-11-28T19:00:00.000Z",
@@ -4741,34 +4820,6 @@
     {
       "source": "web",
       "source_site": "Instagram",
-      "name": "PSYDIEZE",
-      "start": "2026-11-27T23:00:00.000Z",
-      "venue": "Dieze Warehouse",
-      "city": "Montpellier",
-      "address": "",
-      "url": "https://www.instagram.com/reel/Df47EWDtKyL/",
-      "image": "",
-      "price": null,
-      "tags": [
-        "psytrance",
-        "techno"
-      ],
-      "description": "Le PSYDIEZE ouvre les portes de la psytrance pour une nuit intense. En tête d’affiche, KALKI vous embarque dans un voyage hypnotique entre basses psychédéliques et sonorités puissantes, accompagné de LA ROUZ et WILDTRACK. Attendez-vous à une énergie explosive, des rythmes hypnotiques et une ambiance qui vous fera vibrer jusqu’au petit matin. L’événement se déroule à 00h00 – 06h00, sans prévente annoncée, mais la billetterie est disponible sur Shotgun.",
-      "public_cible": 0.9,
-      "confiance": 0.8,
-      "buzz": 0.6,
-      "buzz_raison": "Line‑up de psytrance reconnu, lieu réputé pour ses soirées underground, date en fin de mois.",
-      "accroche": "Une nuit psytrance explosive avec KALKI, LA ROUZ et WILDTRACK au cœur du Dieze.",
-      "instagram": [
-        "diezewarehouse"
-      ],
-      "offres": [],
-      "billetterie_cherchee": true,
-      "offres_cherchees": true
-    },
-    {
-      "source": "web",
-      "source_site": "Instagram",
       "name": "Hard Night",
       "start": "2026-12-10T23:00:00.000Z",
       "venue": "Dieze Warehouse",
@@ -6253,5 +6304,5 @@
       ]
     }
   ],
-  "maj_instagram": "2026-11-26T08:12:33.491Z"
+  "maj_instagram": "2026-11-26T09:12:38.268Z"
 }
