@@ -1,22 +1,6 @@
 {
- "maj": "2026-11-26T08:14:00.232Z",
+ "maj": "2026-11-26T14:17:05.851Z",
  "evenements": [
-  {
-   "source": "eventbrite",
-   "name": "Concert d'orgue du midi (entrée libre) par Luc RAGOMAHARISOA",
-   "start": "2026-11-26T11:15:00.000Z",
-   "end": "2026-11-26T12:00:00.000Z",
-   "venue": "Église Protestante Unie de Nice",
-   "city": "Nice",
-   "address": "21 Boulevard Victor Hugo, 06000 Nice",
-   "url": "https://www.eventbrite.fr/e/concert-dorgue-du-midi-entree-libre-par-luc-ragomaharisoa-tickets-2003858097512",
-   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1195887814%2F246664469747%2F1%2Foriginal.20261015-181752?auto=format%2Ccompress&q=75&sharp=10&s=ddbf3c3a54fef5666d14c647b9a53ab9",
-   "price": 0,
-   "tags": [],
-   "description": "Concert d'orgue de 45 mn pour faire découvrir l'orgue baroque du Temple Protestant de Nice. Entrée libre et libre participation aux frais",
-   "popularite": null,
-   "pays": "FR"
-  },
   {
    "source": "eventbrite",
    "name": "L’Homme qui plantait des arbres",
@@ -469,7 +453,7 @@
  "rapport": [
   {
    "source": "eventbrite-api",
-   "evenements": 29
+   "evenements": 28
   },
   {
    "source": "ticketmaster-api",
