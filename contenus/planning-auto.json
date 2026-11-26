@@ -1,15 +1,6 @@
 {
   "extras": [
     {
-      "date": "2026-11-19",
-      "type": "reel",
-      "variante": "spot-promo",
-      "remplace": "reel",
-      "premier": true,
-      "raison": "Directeur (19/11/2026) : le spot « Tu sais jamais où sortir le soir ? » à 18 h aujourd'hui, à la place du reel guide ; l'Édition Tekno passe ensuite.",
-      "cree_le": "2026-11-19T16:58:00Z"
-    },
-    {
       "date": "2026-11-20",
       "type": "pret",
       "variante": "2026-11-19-concours-frigo16",
@@ -81,6 +72,6 @@
     }
   ],
   "_note": "Écrit par le robot (src/reactif.mjs) : suites programmées après un engouement, jours déplacés selon les résultats, journal des changements.",
-  "dernier_controle": "2026-11-26T21:07:50.761Z",
+  "dernier_controle": "2026-11-26T23:44:19.811Z",
   "dernier_replanning": "2026-11-23T01:34:08.878Z"
 }
