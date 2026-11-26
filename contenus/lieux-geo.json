@@ -519,7 +519,7 @@
  "barrio chicago|toulon": {
   "introuvable": true,
   "v": 2,
-  "le": "2026-11-12T08:41:29.842Z"
+  "le": "2026-11-26T14:25:00.893Z"
  },
  "opera de nice|nice": {
   "lat": 43.69542,
@@ -2056,5 +2056,25 @@
   "introuvable": true,
   "v": 2,
   "le": "2026-11-25T21:10:11.446Z"
+ },
+ "avenue marcelin berthelot, 83160 la valette-du-var|la valette-du-var": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-26T14:24:48.654Z"
+ },
+ "l’antre – 22 bis rue benoit bunico – 06300 vieux‑nice|nice": {
+  "lat": 43.69683,
+  "lng": 7.27672,
+  "le": "2026-11-26T14:24:53.042Z"
+ },
+ "le swing nice, 10 rue defly, nice|nice": {
+  "lat": 43.70209,
+  "lng": 7.277,
+  "le": "2026-11-26T14:24:54.435Z"
+ },
+ "lieu a confirmer (probable antibes)|antibes": {
+  "introuvable": true,
+  "v": 2,
+  "le": "2026-11-26T14:24:57.501Z"
  }
 }

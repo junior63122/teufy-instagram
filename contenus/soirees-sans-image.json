@@ -1,5 +1,5 @@
 {
- "le": "2026-11-26T14:12:37.642Z",
+ "le": "2026-11-26T14:34:01.620Z",
  "total": 146,
  "sans_image": [
   {
@@ -264,15 +264,6 @@
    "url": "https://www.eventbrite.fr/e/riviera-bar-crawl-nices-1-social-club-for-global-travelers-party-lovers-tickets-1286313150259"
   },
   {
-   "id": "yard-of-blondes-2026-12-04",
-   "nom": "Yard of Blondes",
-   "jour": "2026-12-04",
-   "lieu": "MJC Picaud / La Tangente",
-   "ville": "Cannes",
-   "instagram": "yardofblondes",
-   "url": "https://www.cannes.com/fr/agenda/annee-2026/decembre/yard-of-blondes.html"
-  },
-  {
    "id": "dub-coast-sound-system-magam-et-lyff-2026-12-04",
    "nom": "Dub Coast Sound System / Magam & Lyff",
    "jour": "2026-12-04",
@@ -415,6 +406,15 @@
    "ville": "Monaco",
    "instagram": "",
    "url": "https://www.grimaldiforum.com/fr/agenda-manifestations-monaco/thursday-live-sessions-dirty-deep"
+  },
+  {
+   "id": "ben-carter-le-dix-huit-neon-experience-2026-12-17",
+   "nom": "Ben Carter @ Le Dix-Huit (Neon Experience)",
+   "jour": "2026-12-17",
+   "lieu": "Le Dix-Huit - Adresse d'Expériences",
+   "ville": "Nice",
+   "instagram": "ledixhuit_nice",
+   "url": "https://shotgun.live/fr/events/ben-carter-nice"
   },
   {
    "id": "le-mome-et-adame-2026-12-18",

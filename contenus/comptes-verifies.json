@@ -5990,5 +5990,37 @@
  "clubsonore_frenchriviera": {
   "ok": false,
   "le": "2026-11-25T21:09:15.343Z"
+ },
+ "darcy.xxs": {
+  "ok": false,
+  "le": "2026-11-26T14:24:00.732Z"
+ },
+ "eli_trix_queen": {
+  "ok": true,
+  "nom": "Eli Trix",
+  "bio": "DRAG QUEEN🌹",
+  "site": "",
+  "abonnes": 122,
+  "le": "2026-11-26T14:24:01.085Z"
+ },
+ "lieuaconfirmerantibes": {
+  "ok": false,
+  "le": "2026-11-26T14:24:02.988Z"
+ },
+ "lieuaconfirmer_antibes": {
+  "ok": false,
+  "le": "2026-11-26T14:24:03.147Z"
+ },
+ "lieu_a_confirmer_antibes": {
+  "ok": false,
+  "le": "2026-11-26T14:24:03.307Z"
+ },
+ "lieuaconfirmer.antibes": {
+  "ok": false,
+  "le": "2026-11-26T14:24:03.455Z"
+ },
+ "lieuaconfirmerprobableantibes": {
+  "ok": false,
+  "le": "2026-11-26T14:24:03.631Z"
  }
 }
