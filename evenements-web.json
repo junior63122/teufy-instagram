@@ -113,7 +113,8 @@
       "price": null,
       "tags": [
         "rap",
-        "RnB"
+        "RnB",
+        "hip‑hop"
       ],
       "description": "Le rappeur PLK, connu pour ses hits « Maman » et « Joker », se produit à Nice le 6 décembre à 20 h au Palais Nikaïa. L’événement promet une ambiance urbaine et festive, avec un son mêlant rap, RnB et hip‑hop. La billetterie est ouverte en prévente, le tarif varie selon les sections. Prépare-toi à vibrer sur les beats de PLK dans un cadre chic et moderne.",
       "public_cible": 0.8,
@@ -123,6 +124,12 @@
       "accroche": "PLK revient à Nice pour un concert électrisant au Palais Nikaïa le 6 décembre.",
       "instagram": [
         "unica_culture"
+      ],
+      "via_veille": true,
+      "offres": [],
+      "sources_sites": [
+        "unica_culture",
+        "instagram.com"
       ]
     },
     {
@@ -144,7 +151,9 @@
         "Electro Pop",
         "Synthpop",
         "pop",
-        "dance"
+        "dance",
+        "pop‑rock",
+        "indie"
       ],
       "description": "Gros plan festif au Stockfish avec un plateau taillé pour la fête étudiante. Les cultes Pony Pony Run Run viennent chanter leurs hymnes électro-pop comme Hey You, suivis par le producteur Alastair Lane et sa sélection nu-disco et house entraînante. La salle niçoise ouvre à 20h00 avec une entrée imbattable à seulement 5 euros. Une opportunité parfaite pour danser sans exploser son budget.",
       "public_cible": 0.9,
@@ -172,8 +181,10 @@
       "sources_sites": [
         "InfoConcert",
         "Portail Étudiants Ville de Nice (etudiants.nice.fr / nice.fr)",
-        "pandaevents06"
-      ]
+        "pandaevents06",
+        "instagram.com"
+      ],
+      "via_veille": true
     },
     {
       "source": "web",
