@@ -1,5 +1,5 @@
 {
- "maj": "2026-11-26T21:17:35.255Z",
+ "maj": "2026-11-26T21:18:03.567Z",
  "evenements": [
   {
    "source": "dice",
@@ -2151,16 +2151,18 @@
   "https://shotgun.live/fr/cities/nice",
   "https://www.eventbrite.fr/d/france--nice/nightlife/",
   "https://www.eventbrite.fr/d/france--nice/parties/",
-  "https://www.eventbrite.fr/d/france--toulon/nightlife/",
-  "https://www.eventbrite.fr/d/france--nice/music--events/",
-  "https://www.eventbrite.fr/d/france--antibes/nightlife/",
   "https://www.eventbrite.fr/d/france--cannes/parties/",
+  "https://www.eventbrite.fr/d/monaco--monaco/nightlife/",
+  "https://www.eventbrite.fr/d/france--nice/music--events/",
+  "https://www.eventbrite.fr/d/france--toulon/nightlife/",
+  "https://www.eventbrite.fr/d/monaco--monaco/music--events/",
   "https://www.eventbrite.fr/d/france--cannes/music--events/",
   "https://www.eventbrite.fr/d/france--saint-tropez/events/",
   "https://www.eventbrite.fr/d/monaco--monaco/music--events/",
   "https://www.eventbrite.fr/d/france--frejus/events/",
-  "https://www.eventbrite.fr/d/monaco--monaco/nightlife/",
   "https://www.eventbrite.fr/d/france--toulon/music--events/",
+  "https://www.eventbrite.fr/d/france--antibes/nightlife/",
+  "https://shotgun.live/fr/cities/nice",
   "https://allevents.in/nice/all",
   "https://allevents.in/toulon/all"
  ]
