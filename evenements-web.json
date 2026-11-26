@@ -7,6 +7,99 @@
   "evenements": [
     {
       "source": "web",
+      "source_site": "shotgun.live",
+      "name": "La Dinette - Santa À La Playa",
+      "start": "2026-12-05T18:00:00.000Z",
+      "venue": "Playa Chica",
+      "city": "Cannes",
+      "address": "",
+      "url": "https://shotgun.live/events/la-dinette-santa-a-la-playa",
+      "image": "https://scontent-sea5-1.cdninstagram.com/v/t51.82787-15/923676901_17999493420027036_6813390177099248803_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=Am_xjkl4n04Q7kNvwEhyM8G&_nc_oc=AdqMohf0zAWI4ZNB4lfFpjUc9Gu3AxwUUc5QzH6-05eaSmdurcWOq_WSUi_v0N6ACH8&_nc_zt=23&_nc_ht=scontent-sea5-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=14nfB_rqiPoMNH7Bp1CiXw&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQRY6TefhdwsUUDFJn2URZjSQnhabF7WlPeWFoCtWu_N5w&oe=6B0926D7",
+      "price": 14.99,
+      "tags": [
+        "hip hop",
+        "rnb",
+        "afro house",
+        "Hip Hop",
+        "R&B",
+        "Afro House",
+        "house",
+        "electro",
+        "pop",
+        "Hip-Hop",
+        "Open Format",
+        "hip-hop",
+        "hits festifs",
+        "House",
+        "Pop festive",
+        "Electro",
+        "généraliste",
+        "hits",
+        "Pop",
+        "Electro House",
+        "Hits Club",
+        "Hits Throwback",
+        "Commercial",
+        "clubbing",
+        "r&b",
+        "funk"
+      ],
+      "description": "Le 5 décembre, la Dinette transforme Playa Chica à Mandelieu en une piste de danse festive pour Noël. DJ Greenhigh assure le gros son avec des house et électro hits, pendant que des jeux, une tombola et des lutins déchaînés animent la soirée. Terrasse couverte, parking gratuit, ambiance décontractée et tenues de Père Noël sont de mise. Les places sont limitées, réservez vite via le lien en bio. Idéal pour les 17‑30 ans qui veulent fêter Noël sous les palmiers.",
+      "public_cible": 0.85,
+      "confiance": 0.95,
+      "buzz": 0.8,
+      "buzz_raison": "Concept original de Noël sur la plage réunissant une communauté festive fidèle.",
+      "accroche": "Esprit de Noël décalé et sons hip hop les pieds dans le sable.",
+      "instagram": [
+        "playachica_cannes",
+        "playachica_mandelieu",
+        "la_dinette__"
+      ],
+      "offres": [
+        {
+          "plateforme": "shotgun.live",
+          "url": "https://shotgun.live/events/la-dinette-santa-a-la-playa",
+          "prix": 14.99
+        }
+      ],
+      "sources_sites": [
+        "shotgun.live",
+        "Shotgun",
+        "Instagram",
+        "instagram.com",
+        "instagram"
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true,
+      "via_veille": true
+    },
+    {
+      "source": "web",
+      "source_site": "instagram",
+      "name": "Noël Party – Laissez‑vous emporter par la magie de Noël",
+      "start": "2026-12-19T18:00:00.000Z",
+      "venue": "Lou Castelet",
+      "city": "Théoule-sur-Mer",
+      "address": "",
+      "url": "https://www.instagram.com/reel/DgNjX6zIRvL/",
+      "image": "",
+      "price": 20,
+      "tags": [
+        "old school",
+        "club"
+      ],
+      "description": "Profitez d’une soirée festive et pleine de bonne humeur à Lou Castelet. DJ JCDALTON vous propose une ambiance Old School Clubbing. Dress code Noël obligatoire, surprises à la clé. Billetterie obligatoire via lien en bio. La soirée est réservée aux adultes à 20 € (tapas & conso).",
+      "public_cible": 1,
+      "confiance": 0.6,
+      "buzz": 0.6,
+      "buzz_raison": "Thème Noël, DJ reconnu, lieu réputé, date proche d’un jour férié.",
+      "accroche": "Soirée Noël Old School Clubbing avec DJ JCDALTON",
+      "instagram": [
+        "nai.bevent"
+      ]
+    },
+    {
+      "source": "web",
       "source_site": "Instagram",
       "name": "REVIVAL – ÉDITION TRIX NIGHT",
       "start": "2026-11-26T17:00:00.000Z",
@@ -1538,71 +1631,6 @@
       ],
       "billetterie_cherchee": true,
       "offres_cherchees": true
-    },
-    {
-      "source": "web",
-      "source_site": "shotgun.live",
-      "name": "La Dinette - Santa À La Playa",
-      "start": "2026-12-05T18:00:00.000Z",
-      "venue": "Playa Chica",
-      "city": "Cannes",
-      "address": "",
-      "url": "https://shotgun.live/events/la-dinette-santa-a-la-playa",
-      "image": "https://scontent-sea5-1.cdninstagram.com/v/t51.82787-15/923676901_17999493420027036_6813390177099248803_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=Am_xjkl4n04Q7kNvwEhyM8G&_nc_oc=AdqMohf0zAWI4ZNB4lfFpjUc9Gu3AxwUUc5QzH6-05eaSmdurcWOq_WSUi_v0N6ACH8&_nc_zt=23&_nc_ht=scontent-sea5-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=14nfB_rqiPoMNH7Bp1CiXw&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQRY6TefhdwsUUDFJn2URZjSQnhabF7WlPeWFoCtWu_N5w&oe=6B0926D7",
-      "price": 14.99,
-      "tags": [
-        "hip hop",
-        "rnb",
-        "afro house",
-        "Hip Hop",
-        "R&B",
-        "Afro House",
-        "house",
-        "electro",
-        "pop",
-        "Hip-Hop",
-        "Open Format",
-        "hip-hop",
-        "hits festifs",
-        "House",
-        "Pop festive",
-        "Electro",
-        "généraliste",
-        "hits",
-        "Pop",
-        "Electro House",
-        "Hits Club",
-        "Hits Throwback",
-        "Commercial",
-        "clubbing"
-      ],
-      "description": "Le 5 décembre, la Dinette transforme Playa Chica à Mandelieu en une piste de danse festive pour Noël. DJ Greenhigh assure le gros son avec des house et électro hits, pendant que des jeux, une tombola et des lutins déchaînés animent la soirée. Terrasse couverte, parking gratuit, ambiance décontractée et tenues de Père Noël sont de mise. Les places sont limitées, réservez vite via le lien en bio. Idéal pour les 17‑30 ans qui veulent fêter Noël sous les palmiers.",
-      "public_cible": 0.85,
-      "confiance": 0.95,
-      "buzz": 0.8,
-      "buzz_raison": "Concept original de Noël sur la plage réunissant une communauté festive fidèle.",
-      "accroche": "Esprit de Noël décalé et sons hip hop les pieds dans le sable.",
-      "instagram": [
-        "playachica_cannes",
-        "playachica_mandelieu",
-        "la_dinette__"
-      ],
-      "offres": [
-        {
-          "plateforme": "shotgun.live",
-          "url": "https://shotgun.live/events/la-dinette-santa-a-la-playa",
-          "prix": 14.99
-        }
-      ],
-      "sources_sites": [
-        "shotgun.live",
-        "Shotgun",
-        "Instagram",
-        "instagram.com"
-      ],
-      "billetterie_cherchee": true,
-      "offres_cherchees": true,
-      "via_veille": true
     },
     {
       "source": "web",
@@ -6388,5 +6416,6 @@
       ]
     }
   ],
-  "maj_instagram": "2026-11-26T13:13:45.600Z"
+  "maj_instagram": "2026-11-26T17:12:48.899Z",
+  "echec_web": "2026-11-26T17:12:48.899Z"
 }
