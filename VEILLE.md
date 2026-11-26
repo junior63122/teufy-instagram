@@ -4,6 +4,20 @@ Journal daté (le plus récent en premier) : changements des prestataires et des
 mises à jour, sources de soirées réparées ou ajoutées, décisions prises. Tenu par la tâche programmée quotidienne
 (demande du directeur du 20/11/2026), à partir de `contenus/veille-technique.json` et des annonces officielles.
 
+## 26/11/2026 : veille quotidienne
+- Relevé technique : celui de 6 h 17 pas encore passé à 7 h 50 (GitHub saute souvent cet horaire ; hier il a tourné à 16 h 37) ;
+  relevé d'hier lu.
+- API Instagram : Meta annonce la v27.0 (en-tête facebook-api-version des réponses). Teufy reste en v26.0, qui fonctionne
+  (publications d'hier relues en ligne et conformes) ; le journal des changements de la v27.0 n'a pas pu être lu depuis la session
+  (site de Meta non joignable d'ici). Bascule seulement après lecture, à la prochaine veille.
+- Failles npm : 0 (racine et studio). Actions GitHub : toutes à jour (checkout v7, setup-node v7, upload-artifact v7, Pages v5,
+  cache v6) ; fichier .well-known/tdmrep.json bien en ligne après le passage en Pages v5.
+- Soirées des 7 prochains jours : 71 (Nice 24, Toulon 13, Cannes 10, Monaco 5, Juan-les-Pins 3, La Garde 3…) ; 18 sans heure,
+  28 sans prix, 9 sans affiche, 2 sans billetterie. Sources muettes inchangées (Shotgun 429, pages Eventbrite 405 : remplacées par
+  l'API officielle Eventbrite ; allevents 404).
+- Rappels des changements d'hier (Instagram) : plus de réel promo, mercredi en carrousel « petits prix », pas de publication hors
+  12 h - 21 h 30, garde-fou anti-doublon (profil relu avant envoi), grille toujours sombre, TikTok en pause.
+
 ## 25/11/2026 : veille quotidienne
 - Relevé technique : celui de 6 h 17 pas encore passé à 7 h (le robot de veille le relance dès 7 h) ; relevé d'hier 19 h 12 lu.
 - DATAtourisme : premier vrai relevé en JSON-LD réussi (9 soirées gardées : Réveillon au Bikini et Kalinka à Toulouse, concerts
