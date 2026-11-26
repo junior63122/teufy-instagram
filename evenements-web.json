@@ -8,30 +8,6 @@
     {
       "source": "web",
       "source_site": "Instagram",
-      "name": "SHATTA – Nuit 100 % Shatta",
-      "start": "2026-11-25T23:00:00.000Z",
-      "venue": "116 Av. de Digne",
-      "city": "La Garde",
-      "address": "",
-      "url": "https://www.instagram.com/p/DgLE0VMiOIT/",
-      "image": "https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/920853886_18129188704917771_3376447134495047144_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=108&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=YE60CFnVKcAQ7kNvwEHLcaD&_nc_oc=AdpN-4BxKFO_j7yDDCFdTg48jrzwJm9fl6Zo7COm_kzBZARLWgG8o8cWXOWdFDGs5ds&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=HvxZUugGApdCM2aBm9-mSA&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQSsxdFqZPJkJf9wlW_gBkWuSlNCPWOdlUj1dbj3nT7-sw&oe=6B0DB0BD",
-      "price": null,
-      "tags": [
-        "shatta"
-      ],
-      "description": "Le 26 novembre, la soirée SHATTA débarque à La Garde. Au programme : du shatta à fond les ballons, une ambiance survoltée et des DJs qui font vibrer le dancefloor jusqu’à 5 h du matin. L’entrée est libre, la réservation est possible au 06 61 42 26 51. Dress‑code ? Laisse‑toi porter par le rythme et viens profiter d’une soirée qui promet de faire chauffer la piste. Pas de prix indiqué, donc vérifie rapidement les infos de réservation.",
-      "public_cible": 0.9,
-      "confiance": 0.7,
-      "buzz": 0.5,
-      "buzz_raison": "Première soirée shatta du club, annoncée sur Instagram, date proche du week‑end.",
-      "accroche": "Une nuit 100 % shatta qui fera monter la température sur la piste dès le 26 novembre !",
-      "instagram": [
-        "naho_club"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "Instagram",
       "name": "REVIVAL – ÉDITION TRIX NIGHT",
       "start": "2026-11-26T17:00:00.000Z",
       "venue": "Le Swing",
@@ -6328,5 +6304,5 @@
       ]
     }
   ],
-  "maj_instagram": "2026-11-26T09:12:38.268Z"
+  "maj_instagram": "2026-11-26T10:14:00.042Z"
 }
