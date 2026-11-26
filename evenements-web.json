@@ -18,7 +18,9 @@
       "price": 0,
       "tags": [
         "house",
-        "electro"
+        "electro",
+        "karaoké",
+        "show"
       ],
       "description": "Le 26 novembre, Le Swing à Nice accueille la soirée REVIVAL – ÉDITION TRIX NIGHT. Bad girls Darcy Xxs et Eli Trix Queen prennent le contrôle de la piste, tandis que le DJ résident assure le son house/electro jusqu’à 2 h 30. L’entrée est libre mais la consommation est obligatoire, et le lieu est réservé aux 18 ans et plus. Parking à proximité, tramway Garibaldi à 2 min à pied. Prépare ton look provocateur et viens vivre une nuit sulfureuse.",
       "public_cible": 0.85,
@@ -30,6 +32,12 @@
         "le.swingnice",
         "darcy.xxs",
         "eli_trix_queen"
+      ],
+      "via_veille": true,
+      "offres": [],
+      "sources_sites": [
+        "Instagram",
+        "instagram.com"
       ]
     },
     {
@@ -6327,6 +6335,31 @@
       "accroche": "After techno avec le resident DJ K‑NET, 05h‑09h le 29/11 à L'Antre.",
       "instagram": [
         "lantretechno"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "instagram.com",
+      "via_veille": true,
+      "name": "Casting DRAG’S LEGACY Saison 5",
+      "start": "2026-11-27T17:00:00.000Z",
+      "venue": "Le Swing Nice, 10 Rue Defly, Nice",
+      "city": "Nice",
+      "address": "",
+      "url": "https://www.instagram.com/p/DgLUCD8tzJ7/",
+      "image": "https://scontent-sea5-1.cdninstagram.com/v/t51.82787-15/930352716_18120460655321373_7920046366943219200_n.webp?stp=dst-jpg_e35_tt6&_nc_cat=111&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=CE0CloYDDpYQ7kNvwF7nr9s&_nc_oc=AdozQvYfxrfRrC8hdVOdz71PBjI56u803hjojn_qCDBD8zg_-X7ZOTgiNGXRpI_hX00&_nc_zt=23&_nc_ht=scontent-sea5-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=bN9rYSk81LoRnjeaRs_brw&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQTn0ok33KLf0QCkpnsW9OMaWQ1-hp4OyAFLyzT-Pg977Q&oe=6B0E0E30",
+      "price": null,
+      "tags": [
+        "drag",
+        "show",
+        "karaoké"
+      ],
+      "description": "",
+      "public_cible": 0.6,
+      "confiance": 0.8,
+      "accroche": "Casting DRAG’S LEGACY Saison 5 – 5 candidates, 4 places à gagner",
+      "instagram": [
+        "le.swingnice"
       ]
     }
   ],
