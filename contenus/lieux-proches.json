@@ -9261,5 +9261,31 @@
   "transports": [],
   "velo": null,
   "taxi": null
+ },
+ "43.77069,7.20077": {
+  "le": "2026-11-26T21:10:09.060Z",
+  "parkings": [],
+  "transports": [
+   {
+    "nom": "Le Castelet",
+    "type": "bus",
+    "m": 45,
+    "lignes": "67;69;C"
+   },
+   {
+    "nom": "La Roseraie",
+    "type": "bus",
+    "m": 345,
+    "lignes": "68;Exp2;Exp4"
+   },
+   {
+    "nom": "Colomars - La Manda",
+    "type": "train",
+    "m": 847,
+    "lignes": ""
+   }
+  ],
+  "velo": null,
+  "taxi": null
  }
 }

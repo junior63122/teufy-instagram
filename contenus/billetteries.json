@@ -1,5 +1,5 @@
 {
- "maj": "2026-11-26T14:17:05.843Z",
+ "maj": "2026-11-26T21:17:35.255Z",
  "evenements": [
   {
    "source": "dice",
@@ -1143,21 +1143,6 @@
   },
   {
    "source": "eventbrite",
-   "name": "Concert d'orgue du midi (entrée libre) par Luc RAGOMAHARISOA",
-   "start": "2026-11-26T11:15:00.000Z",
-   "end": "2026-11-26T12:00:00.000Z",
-   "venue": "Église Protestante Unie de Nice",
-   "city": "Nice",
-   "address": "21 Boulevard Victor Hugo 06000 Nice",
-   "url": "https://www.eventbrite.fr/e/concert-dorgue-du-midi-entree-libre-par-luc-ragomaharisoa-tickets-2003858097512",
-   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1195887814%2F246664469747%2F1%2Foriginal.20261015-181752?crop=focalpoint&fit=crop&w=1080&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.243&fp-y=0.95&s=a26d74e591014f780ff28e8d3d233718",
-   "price": 0,
-   "tags": [],
-   "description": "Concert d'orgue de 45 mn pour faire découvrir l'orgue baroque du Temple Protestant de Nice. Entrée libre et libre participation aux frais",
-   "popularite": null
-  },
-  {
-   "source": "eventbrite",
    "name": "Concert d'orgue du Nouvel An 2027",
    "start": "2027-01-03T15:00:00.000Z",
    "end": "2027-01-03T16:00:00.000Z",
@@ -1499,21 +1484,6 @@
    "price": 22.51,
    "tags": [],
    "description": "Venez découvrir Lillian Palmer au QDP pour une soirée musicale placée sous le signe de l’élégance, de l’émotion et des grands standards US",
-   "popularite": null
-  },
-  {
-   "source": "eventbrite",
-   "name": "Concert d'orgue du midi (entrée libre) par Luc RAGOMAHARISOA",
-   "start": "2026-11-26T11:15:00.000Z",
-   "end": "2026-11-26T12:00:00.000Z",
-   "venue": "Église Protestante Unie de Nice",
-   "city": "Nice",
-   "address": "21 Boulevard Victor Hugo 06000 Nice",
-   "url": "https://www.eventbrite.fr/e/concert-dorgue-du-midi-entree-libre-par-luc-ragomaharisoa-tickets-2003858097512",
-   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1195887814%2F246664469747%2F1%2Foriginal.20261015-181752?crop=focalpoint&fit=crop&w=1080&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.243&fp-y=0.95&s=a26d74e591014f780ff28e8d3d233718",
-   "price": 0,
-   "tags": [],
-   "description": "Concert d'orgue de 45 mn pour faire découvrir l'orgue baroque du Temple Protestant de Nice. Entrée libre et libre participation aux frais",
    "popularite": null
   },
   {
@@ -1893,21 +1863,6 @@
   },
   {
    "source": "eventbrite",
-   "name": "Concert d'orgue du midi (entrée libre) par Luc RAGOMAHARISOA",
-   "start": "2026-11-26T11:15:00.000Z",
-   "end": "2026-11-26T12:00:00.000Z",
-   "venue": "Église Protestante Unie de Nice",
-   "city": "Nice",
-   "address": "21 Boulevard Victor Hugo 06000 Nice",
-   "url": "https://www.eventbrite.fr/e/concert-dorgue-du-midi-entree-libre-par-luc-ragomaharisoa-tickets-2003858097512",
-   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1195887814%2F246664469747%2F1%2Foriginal.20261015-181752?crop=focalpoint&fit=crop&w=1080&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.243&fp-y=0.95&s=a26d74e591014f780ff28e8d3d233718",
-   "price": 0,
-   "tags": [],
-   "description": "Concert d'orgue de 45 mn pour faire découvrir l'orgue baroque du Temple Protestant de Nice. Entrée libre et libre participation aux frais",
-   "popularite": null
-  },
-  {
-   "source": "eventbrite",
    "name": "Lillian Palmer en concert – A Swingin’ Noël",
    "start": "2026-12-06T17:30:00.000Z",
    "end": "2026-12-06T20:00:00.000Z",
@@ -1994,21 +1949,6 @@
    "price": 22.51,
    "tags": [],
    "description": "Experience Nice nightlife through a high-energy pub crawl with great vibes, music and unforgettable party moments across the city.",
-   "popularite": null
-  },
-  {
-   "source": "eventbrite",
-   "name": "Concert d'orgue du midi (entrée libre) par Luc RAGOMAHARISOA",
-   "start": "2026-11-26T11:15:00.000Z",
-   "end": "2026-11-26T12:00:00.000Z",
-   "venue": "Église Protestante Unie de Nice",
-   "city": "Nice",
-   "address": "21 Boulevard Victor Hugo 06000 Nice",
-   "url": "https://www.eventbrite.fr/e/concert-dorgue-du-midi-entree-libre-par-luc-ragomaharisoa-tickets-2003858097512",
-   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1195887814%2F246664469747%2F1%2Foriginal.20261015-181752?crop=focalpoint&fit=crop&w=1080&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.243&fp-y=0.95&s=a26d74e591014f780ff28e8d3d233718",
-   "price": 0,
-   "tags": [],
-   "description": "Concert d'orgue de 45 mn pour faire découvrir l'orgue baroque du Temple Protestant de Nice. Entrée libre et libre participation aux frais",
    "popularite": null
   },
   {
@@ -2208,18 +2148,18 @@
   }
  ],
  "en_panne": [
+  "https://shotgun.live/fr/cities/nice",
   "https://www.eventbrite.fr/d/france--nice/nightlife/",
   "https://www.eventbrite.fr/d/france--nice/parties/",
-  "https://www.eventbrite.fr/d/france--antibes/nightlife/",
-  "https://www.eventbrite.fr/d/monaco--monaco/nightlife/",
-  "https://www.eventbrite.fr/d/france--cannes/parties/",
   "https://www.eventbrite.fr/d/france--toulon/nightlife/",
   "https://www.eventbrite.fr/d/france--nice/music--events/",
+  "https://www.eventbrite.fr/d/france--antibes/nightlife/",
+  "https://www.eventbrite.fr/d/france--cannes/parties/",
   "https://www.eventbrite.fr/d/france--cannes/music--events/",
-  "https://www.eventbrite.fr/d/monaco--monaco/music--events/",
   "https://www.eventbrite.fr/d/france--saint-tropez/events/",
+  "https://www.eventbrite.fr/d/monaco--monaco/music--events/",
   "https://www.eventbrite.fr/d/france--frejus/events/",
-  "https://shotgun.live/fr/cities/nice",
+  "https://www.eventbrite.fr/d/monaco--monaco/nightlife/",
   "https://www.eventbrite.fr/d/france--toulon/music--events/",
   "https://allevents.in/nice/all",
   "https://allevents.in/toulon/all"
