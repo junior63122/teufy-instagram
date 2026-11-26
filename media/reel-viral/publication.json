@@ -1,0 +1,332 @@
+{
+  "id": "reel-viral",
+  "type": "incontournables",
+  "variante": "commercial",
+  "date": "2026-11-26",
+  "images": [
+    "carrousel-00.jpg",
+    "carrousel-01.jpg",
+    "carrousel-02.jpg",
+    "carrousel-03.jpg",
+    "carrousel-04.jpg",
+    "carrousel-05.jpg"
+  ],
+  "legende": "Il dit « j'suis devant ». Il sort de la douche. Les soirées du week-end de Nice à Monaco, à envoyer avant qu'il dise « 5 min ». Tu fais laquelle ? Réponds en com.\n- Soirées à Nice, Le Cannet et Cannes ce week-end\n\n- La plus attendue : Phaphane À Nice - Amapiano & Afrobeats Lovers, très forte notoriété virale de DJ Phaphane auprès du jeune public.\n\n→ Ven 27 · Phaphane À Nice - Amapiano & Afrobeats Lovers (Amapiano · Afro) · Frigo 16, Nice · 20h00 · 12,1 €\nLa référence amapiano DJ Phaphane débarque au hangar du Frigo 16. @tweltyprod @pandaevents06\n→ Ven 27 · CALEMA - TOUR 2026 (Afro · Latino) · La Palestre · 20h30 · 38,5 €\nLe duo Calema pose sa tournée festive et rythmée sur la scène de La Palestre.\n→ Ven 27 · COACHELLITO - HIGH CLUB (Reggaeton · Latino) · High Club, Nice · minuit · 11 €\nAmbiance festival américain sur la Promenade des Anglais avec le DJ niçois MACEW. @highclubnice\n→ Sam 28 · The Show by Club Sonore x Maraka (Techno · Tech house) · Playa Chica & Glass Club Cannes · 20h00 · 10,99 €\nDouble étape festive signée Club Sonore entre plage et club cannois. @glass_club_cannes\n\nTu sors où ce week-end ? Enregistre le post pour ne pas oublier. Suis le compte : chaque semaine, les soirées à ne pas rater.\n\n- Ce soir, ce week-end, gratuit ou techno : tout est sur teufyparty.com\n\nEnvoie-le au pote qui dit toujours « on verra ».\n\n#TeufyParty #sortiracannes #cotedazurfrance #techno #housemusic",
+  "soirees": [
+    {
+      "source": "web",
+      "source_site": "shotgun.live",
+      "name": "Phaphane À Nice - Amapiano & Afrobeats Lovers",
+      "start": "2026-11-27T19:00:00.000Z",
+      "venue": "Frigo 16",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/events/phaphane-a-nice-amapiano-afrobeats-lovers",
+      "image": "evenements/auto/0ba0381de2fe.jpg",
+      "price": 12.1,
+      "tags": [
+        "amapiano",
+        "afrobeat",
+        "Amapiano",
+        "Afrobeats",
+        "afrobeats",
+        "afro house",
+        "Électro",
+        "Club",
+        "Afrobeat",
+        "Afro House",
+        "South African House",
+        "Afropop"
+      ],
+      "description": "Le 27 novembre, le FRIGO 16 de Nice accueille Phaphane, le king de la scène Amapiano, suivi en première partie par senadj_. Le set promet un mix explosif d'Amapiano et d'Afrobeats, idéal pour danser jusqu'au petit matin. L'entrée se fait via la billetterie en bio, stand, food & bar sur place, ambiance club décontractée. Ouvert de 20h à 2h, prépare-toi à vivre une nuit mémorable sur la Côte d'Azur.",
+      "public_cible": 0.95,
+      "confiance": 0.95,
+      "buzz": 0.85,
+      "buzz_raison": "Très forte notoriété virale de DJ Phaphane auprès du jeune public.",
+      "accroche": "La référence amapiano DJ Phaphane débarque au hangar du Frigo 16.",
+      "instagram": [
+        "tweltyprod",
+        "pandaevents06",
+        "frigo.16"
+      ],
+      "offres": [
+        {
+          "plateforme": "shotgun.live",
+          "url": "https://shotgun.live/events/phaphane-a-nice-amapiano-afrobeats-lovers",
+          "prix": 12.1
+        },
+        {
+          "plateforme": "le109.nice.fr",
+          "url": "https://le109.nice.fr/evenement/phaphane-27-11-2026",
+          "prix": 12.1
+        },
+        {
+          "plateforme": "infoconcert.com",
+          "url": "https://www.infoconcert.com/artiste/dj-phaphane-206776/concerts.html",
+          "prix": 12.1
+        },
+        {
+          "plateforme": "my.weezevent.com",
+          "url": "https://my.weezevent.com/phaphane-a-nice-amapiano-afrobeats-lovers",
+          "prix": 12
+        }
+      ],
+      "sources_sites": [
+        "shotgun.live",
+        "le109.nice.fr",
+        "Shotgun Live",
+        "InfoConcert",
+        "Shotgun",
+        "Instagram (tweltyprod)",
+        "instagram.com",
+        "instagram"
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true,
+      "via_veille": true,
+      "enrichi": true
+    },
+    {
+      "source": "web",
+      "source_site": "ticketmaster.fr",
+      "name": "CALEMA - TOUR 2026",
+      "start": "2026-11-27T19:30:00.000Z",
+      "venue": "La Palestre",
+      "city": "Le Cannet",
+      "address": "",
+      "url": "https://www.ticketmaster.fr/fr/manifestation/calema-billet/idmanif/661895",
+      "image": "evenements/auto/e10183210fd9.jpg",
+      "price": 38.5,
+      "tags": [
+        "afrobeat",
+        "kizomba",
+        "pop urbaine",
+        "latino"
+      ],
+      "description": "Le phénomène lusophone Calema arrive à La Palestre au Cannet avec son Tour 2026. Les deux frères António et Fradique Mendes Ferreira t'embarquent dans leur univers mêlant afrobeat, pop urbaine et sonorités kizomba. Connus pour leur hit mondial Te Amo et leurs millions d'écoutes, ils promettent un concert chaleureux et dansant. Le show démarre à 20h30 avec des places assises numérotées dès 38,50 euros. Un parking est accessible directement sur place.",
+      "public_cible": 0.8,
+      "confiance": 0.95,
+      "buzz": 0.8,
+      "buzz_raison": "Duo star aux centaines de millions de streams en tournée des grandes salles",
+      "accroche": "Le duo Calema pose sa tournée festive et rythmée sur la scène de La Palestre.",
+      "instagram": [
+        "vertigoprod",
+        "lapalestre_lecannet"
+      ],
+      "offres": [
+        {
+          "plateforme": "ticketmaster.fr",
+          "url": "https://www.ticketmaster.fr/fr/manifestation/calema-billet/idmanif/661895",
+          "prix": 38.5
+        }
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true,
+      "enrichi": true
+    },
+    {
+      "source": "xceed",
+      "name": "COACHELLITO - HIGH CLUB",
+      "start": "2026-11-27T22:59:00.000Z",
+      "end": "2026-11-28T04:00:00.000Z",
+      "venue": "High Club",
+      "city": "Nice",
+      "address": "45 Prom. des Anglais, 06000 Nice, France Nice",
+      "url": "https://xceed.me/fr/nice/event/coachellito-high-club/251510",
+      "image": "evenements/auto/6974f57bf1c2.jpg",
+      "price": 11,
+      "tags": [
+        "House",
+        "Électro",
+        "Hip-Hop",
+        "electro",
+        "clubbing",
+        "open format",
+        "latino",
+        "reggaeton",
+        "house",
+        "edm",
+        "electro house",
+        "urbain"
+      ],
+      "description": "COACHELLITO & LE HIGH CLUB — NICE PRIVATISATION COMPLÈTE — FRIENDS & FAMILY EDITION LINE-UP : CHAPS B4B SHAYAN B4B CAVALLI B4B MACEW Retour sur le dancefloor de nos premières nuits ! Il y a des lieux qui font partie de notre histoire. Le High Club, c’est un peu celle de toute une génération de Niçois : les premières soirées, les rencontres et les souvenirs qu’on raconte encore. Le temps d’une nuit, COACHELLITO prend les clés de cette boîte mythique pour une édition Friends & Family. L’occasion de se retrouver entre amis, de raviver quelques souvenirs et surtout d’en créer de nouveaux. Nouveau",
+      "popularite": null,
+      "source_site": "highclub.fr",
+      "public_cible": 0.9,
+      "confiance": 0.95,
+      "buzz": 0.75,
+      "buzz_raison": "Grosse boîte de nuit sur la Promenade avec DJ invité local.",
+      "accroche": "Ambiance festival américain sur la Promenade des Anglais avec le DJ niçois MACEW.",
+      "instagram": [
+        "highclubnice",
+        "macewmusic",
+        "coachellito"
+      ],
+      "offres": [
+        {
+          "plateforme": "highclub.fr",
+          "url": "https://www.highclub.fr/agenda/coachellito/",
+          "prix": 11
+        },
+        {
+          "plateforme": "xceed.me",
+          "url": "https://xceed.me/fr/nice/event/coachellito-high-club",
+          "prix": 15
+        }
+      ],
+      "sources_sites": [
+        "highclub.fr",
+        "Xceed"
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true,
+      "sources": [
+        "xceed",
+        "web"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "shotgun.live",
+      "name": "The Show by Club Sonore x Maraka",
+      "start": "2026-11-28T19:00:00.000Z",
+      "venue": "Playa Chica & Glass Club Cannes",
+      "city": "Cannes",
+      "address": "",
+      "url": "https://shotgun.live/events/the-show-club-sonore-november-28-playachica-glass-club",
+      "image": "evenements/auto/a7c4cc511033.jpg",
+      "price": 10.99,
+      "tags": [
+        "afro",
+        "afrobeat",
+        "tech house",
+        "deep tech",
+        "dub techno",
+        "house",
+        "Dub Techno",
+        "Deep Tech",
+        "Tech House",
+        "Afro House",
+        "Afrobeat",
+        "House",
+        "électro",
+        "electro",
+        "live",
+        "techno"
+      ],
+      "description": "Le Show Club Sonore débarque le samedi 28 novembre à Playa Chica, 100 avenue du Général de Gaulle, Mandelieu‑la‑Napoule. De 20 h à 2 h, profite d’un dîner festif suivi de performances live : Yori, Dany Bnk en percussions, Axelino en show live et le set électro de Plezy. Ambiance club‑house, son électro‑house et moments improvisés. Réserve via le lien en bio, dress‑code décontracté, entrée libre ou tarif à préciser sur la billetterie. Une soirée idéale pour les 18‑30 ans qui veulent danser et découvrir des artistes du monde entier.",
+      "public_cible": 0.9,
+      "confiance": 0.95,
+      "buzz": 0.7,
+      "buzz_raison": "Forte communauté locale du collectif Club Sonore sur la Côte d'Azur.",
+      "accroche": "Double étape festive signée Club Sonore entre plage et club cannois.",
+      "instagram": [
+        "clubsonore",
+        "playachica_cannes",
+        "glassclubcannes"
+      ],
+      "offres": [
+        {
+          "plateforme": "shotgun.live",
+          "url": "https://shotgun.live/events/the-show-club-sonore-november-28-playachica-glass-club",
+          "prix": 0
+        },
+        {
+          "plateforme": "playa-chica.com",
+          "url": "https://playa-chica.com/le-restaurant-off/",
+          "prix": null
+        }
+      ],
+      "sources_sites": [
+        "shotgun.live",
+        "Shotgun Live",
+        "Shotgun",
+        "playachica_official",
+        "Instagram",
+        "Instagram (playachica_official)"
+      ],
+      "par_le_lieu": true,
+      "billetterie_cherchee": true,
+      "offres_cherchees": true,
+      "enrichi": true
+    }
+  ],
+  "titre": "6 soirées à ne pas rater",
+  "tags": [
+    [],
+    [
+      "tweltyprod",
+      "pandaevents06",
+      "frigo.16"
+    ],
+    [],
+    [
+      "highclubnice"
+    ],
+    [
+      "glass_club_cannes"
+    ]
+  ],
+  "collabs": [
+    "highclubnice",
+    "pandaevents06",
+    "frigo.16"
+  ],
+  "photo": "terrasse-2",
+  "mise": "centre",
+  "choix": {
+    "creneau": "18",
+    "seuil-qualite": 0.65,
+    "titre-commercial": "5m5xuz",
+    "mise-couverture": "centre",
+    "intro-commercial": "19w3eie",
+    "question-commercial": "zua2ws",
+    "suivre": "h7y61e",
+    "site": "v0kxs6",
+    "hashtags-local": [
+      "#sortiracannes",
+      "#cotedazurfrance"
+    ],
+    "hashtags-commercial": [
+      "#techno",
+      "#housemusic"
+    ]
+  },
+  "features": [
+    "genre:commercial",
+    "source:web",
+    "style:amapiano",
+    "style:afro",
+    "lieu:frigo-16",
+    "ville:nice",
+    "prix:moyen",
+    "horaire:nuit",
+    "genre:commercial",
+    "source:web",
+    "style:afro",
+    "style:latino",
+    "lieu:la-palestre",
+    "ville:le-cannet",
+    "prix:cher",
+    "horaire:nuit",
+    "genre:commercial",
+    "source:xceed",
+    "style:reggaeton",
+    "style:latino",
+    "lieu:high-club",
+    "ville:nice",
+    "prix:moyen",
+    "horaire:nuit",
+    "genre:commercial",
+    "source:web",
+    "style:techno",
+    "style:tech-house",
+    "lieu:playa-chica-glass-club-cannes",
+    "ville:cannes",
+    "prix:moyen",
+    "horaire:nuit"
+  ],
+  "nb_images": 6,
+  "story": "story.jpg",
+  "a_tester": []
+}
