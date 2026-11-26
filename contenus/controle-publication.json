@@ -92,13 +92,15 @@
   },
   {
    "jour": "2026-11-26",
-   "le": "2026-11-26T16:10:23.846Z",
+   "le": "2026-11-26T17:09:42.631Z",
    "ok": [
     "incontournables-techno : en ligne et conforme (https://www.instagram.com/p/DgNgGohlz6W/)",
     "reel-viral : pas encore publié (repris au prochain passage)",
     "story soirees : 3 image(s) en ligne"
    ],
-   "problemes": []
+   "problemes": [
+    "story repost : 1 image(s) pas publiée(s)"
+   ]
   }
  ]
 }
