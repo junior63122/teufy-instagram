@@ -6304,6 +6304,30 @@
       "instagram": [
         "damnpeach__"
       ]
+    },
+    {
+      "source": "web",
+      "source_site": "instagram.com",
+      "via_veille": true,
+      "name": "After techno – DJ K‑NET",
+      "start": "2026-11-29T04:00:00.000Z",
+      "venue": "L’Antre – 22 bis rue Benoît Bunico – 06300 Vieux‑Nice",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/event/lantretechno-2026-11-29",
+      "image": "",
+      "price": 10,
+      "tags": [
+        "techno",
+        "tribe"
+      ],
+      "description": "",
+      "public_cible": 0.6,
+      "confiance": 0.8,
+      "accroche": "After techno avec le resident DJ K‑NET, 05h‑09h le 29/11 à L'Antre.",
+      "instagram": [
+        "lantretechno"
+      ]
     }
   ],
   "maj_instagram": "2026-11-26T11:12:44.722Z"
