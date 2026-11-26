@@ -1,5 +1,5 @@
 {
- "le": "2026-11-26T07:12:52.525Z",
+ "le": "2026-11-26T15:20:49.321Z",
  "instagram": {
   "utilisee": "v26.0",
   "derniere": "v27.0",
@@ -184,23 +184,23 @@
   }
  },
  "sites_clubs": {
-  "maj": "2026-11-25T21:14:42.197Z",
+  "maj": "2026-11-26T10:14:14.860Z",
   "lus": 37,
   "avec_soirees": 0,
   "total": 68
  },
  "donnees": {
-  "semaine": 64,
+  "semaine": 67,
   "sans_heure": 13,
-  "sans_prix": 24,
-  "sans_affiche": 9,
+  "sans_prix": 25,
+  "sans_affiche": 10,
   "sans_billetterie": 2,
   "par_ville": {
-   "Monaco": 4,
-   "Nice": 23,
-   "Toulon": 11,
+   "Nice": 26,
    "Montpellier": 2,
    "Cannes": 7,
+   "Monaco": 4,
+   "Toulon": 11,
    "Juan-les-Pins": 3,
    "Roquebrune-sur-Argens": 2,
    "Le Cannet": 1,
@@ -215,9 +215,9 @@
   }
  },
  "images": {
-  "total": 148,
-  "sans_image": 65,
-  "dans_7_jours": 27
+  "total": 146,
+  "sans_image": 64,
+  "dans_7_jours": 26
  },
  "alertes": [
   {
@@ -226,7 +226,7 @@
   },
   {
    "sujet": "Images",
-   "detail": "27 soirée(s) des 7 prochains jours sans affiche ni photo : Foodies + New Friends: Nice (Restaurant of the Week, 2026-11-26) ; The Brand New Heavies & GoGo Penguin (Monte-Carlo Jazz Festival) (Salle Garnier – Opéra de Monte-Carlo, 2026-11-26) ; BLOCK (Naho Club, 2026-11-26) ; Rencontre d’échecs à Saint-Raphaël · Hôtel Beauséjour (Hôtel Beauséjour, 2026-11-27) ; Restaurant of the Week | Foodies + New Friends: Cannes (Restaurant of the Week, 2026-11-27) ; LES TAMBOURS DU BRONX (Théâtre Lino Ventura, 2026-11-27) ; Skarra Mucci & Manudigital — Ragga Blasta Tour (Centre Culturel Tisot, 2026-11-27) ; Riviera Bar Crawl Nice’s #1 Social Club for Global Travelers & Party Lovers (Hostel Villa Saint Exupery Beach, 2026-11-27) ; Mr Hat Vs Verome : Bass Vs Hard Music (L'Antre Bar Electro, 2026-11-27) ; Nice Orange Bar Crawl – Party Bars, Music, Nightlife & Club Experience (La Chapa, 2026-11-27) ; Bambam At Inda House : 27.11.26 (Inda House, 2026-11-27) ; La Cale Sèche – L’Embuscade des Pirates (La Cale Sèche, Toulon, 2026-11-27) ; Da Grow — UK Bass / Gangsta House (L'Antre Bar Electro, 2026-11-28) ; Language Exchange Rooftop by Event Nice - Free Entry (Hôtel Mercure Nice Centre Notre Dame, 2026-11-28) ; Slip Panther - Glamrock Revival Show (Le Live (Zénith Toulon), 2026-11-28)"
+   "detail": "26 soirée(s) des 7 prochains jours sans affiche ni photo : Foodies + New Friends: Nice (Restaurant of the Week, 2026-11-26) ; The Brand New Heavies & GoGo Penguin (Monte-Carlo Jazz Festival) (Salle Garnier – Opéra de Monte-Carlo, 2026-11-26) ; Rencontre d’échecs à Saint-Raphaël · Hôtel Beauséjour (Hôtel Beauséjour, 2026-11-27) ; Restaurant of the Week | Foodies + New Friends: Cannes (Restaurant of the Week, 2026-11-27) ; LES TAMBOURS DU BRONX (Théâtre Lino Ventura, 2026-11-27) ; Skarra Mucci & Manudigital — Ragga Blasta Tour (Centre Culturel Tisot, 2026-11-27) ; Riviera Bar Crawl Nice’s #1 Social Club for Global Travelers & Party Lovers (Hostel Villa Saint Exupery Beach, 2026-11-27) ; Mr Hat Vs Verome : Bass Vs Hard Music (L'Antre Bar Electro, 2026-11-27) ; Nice Orange Bar Crawl – Party Bars, Music, Nightlife & Club Experience (La Chapa, 2026-11-27) ; Bambam At Inda House : 27.11.26 (Inda House, 2026-11-27) ; La Cale Sèche – L’Embuscade des Pirates (La Cale Sèche, Toulon, 2026-11-27) ; Da Grow — UK Bass / Gangsta House (L'Antre Bar Electro, 2026-11-28) ; Language Exchange Rooftop by Event Nice - Free Entry (Hôtel Mercure Nice Centre Notre Dame, 2026-11-28) ; Slip Panther - Glamrock Revival Show (Le Live (Zénith Toulon), 2026-11-28) ; La Cale Sèche – Soirée Spritz + PSG / Lorient (La Cale Sèche, Toulon, 2026-11-28)"
   }
  ]
 }
