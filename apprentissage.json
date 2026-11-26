@@ -376,7 +376,7 @@
         "theme:fetes",
         "auteur:equipe"
       ],
-      "score": 0.886,
+      "score": 0.885,
       "note": 44
     },
     {
@@ -1248,7 +1248,7 @@
         "theme:debat",
         "auteur:equipe"
       ],
-      "score": 1.215,
+      "score": 1.212,
       "note": 61
     },
     {
@@ -1511,7 +1511,7 @@
         "hashtag:#nicecotedazur",
         "auteur:equipe"
       ],
-      "score": 1.036,
+      "score": 1.033,
       "note": 52
     },
     {
@@ -1778,7 +1778,7 @@
         "hashtag:#soireeentreamis",
         "auteur:equipe"
       ],
-      "score": 1.849,
+      "score": 1.837,
       "note": 92
     },
     {
@@ -1898,7 +1898,7 @@
         "hashtag:#danceallnight",
         "auteur:equipe"
       ],
-      "score": 3.596,
+      "score": 3.586,
       "note": 100
     },
     {
@@ -2031,8 +2031,8 @@
         "theme:gratuit",
         "auteur:equipe"
       ],
-      "score": 1.492,
-      "note": 75
+      "score": 1.484,
+      "note": 74
     },
     {
       "media": "17972983127911232",
@@ -2349,7 +2349,7 @@
         "hashtag:#pote",
         "auteur:equipe"
       ],
-      "score": 2.913,
+      "score": 2.9,
       "note": 100
     },
     {
@@ -2398,7 +2398,7 @@
         "theme:debat",
         "auteur:equipe"
       ],
-      "score": 2.076,
+      "score": 2.07,
       "note": 100
     },
     {
@@ -2438,7 +2438,7 @@
         "theme:debat",
         "auteur:equipe"
       ],
-      "score": 2.98,
+      "score": 2.972,
       "note": 100
     },
     {
@@ -2569,7 +2569,7 @@
         "follows": 0,
         "profile_visits": 2
       },
-      "mesure_le": "2026-11-25T16:35:01.327Z",
+      "mesure_le": "2026-11-26T15:08:05.720Z",
       "score": 2.724
     },
     {
@@ -2675,7 +2675,7 @@
         "follows": 0,
         "profile_visits": 4
       },
-      "mesure_le": "2026-11-25T16:35:01.327Z",
+      "mesure_le": "2026-11-26T15:08:05.720Z",
       "score": 0.779
     },
     {
@@ -2721,8 +2721,8 @@
         "ig_reels_avg_watch_time": 4832,
         "duree": 29.2
       },
-      "mesure_le": "2026-11-25T16:35:01.327Z",
-      "score": 0.396
+      "mesure_le": "2026-11-26T15:08:05.720Z",
+      "score": 0.395
     },
     {
       "media": "18062836039876762",
@@ -2769,7 +2769,7 @@
         "theme:debat",
         "auteur:equipe"
       ],
-      "score": 3.109,
+      "score": 3.102,
       "note": 100
     },
     {
@@ -2957,7 +2957,7 @@
       ],
       "note": 95,
       "metrics": {
-        "reach": 503,
+        "reach": 504,
         "likes": 8,
         "comments": 3,
         "saved": 0,
@@ -2966,8 +2966,8 @@
         "follows": 2,
         "profile_visits": 6
       },
-      "mesure_le": "2026-11-25T16:35:01.327Z",
-      "score": 1.907
+      "mesure_le": "2026-11-26T15:08:05.720Z",
+      "score": 1.903
     },
     {
       "media": "18170367442470235",
@@ -3004,18 +3004,18 @@
       ],
       "note": 51,
       "metrics": {
-        "reach": 863,
+        "reach": 870,
         "likes": 5,
         "comments": 0,
         "saved": 0,
         "shares": 4,
         "total_interactions": 9,
-        "views": 1167,
-        "ig_reels_avg_watch_time": 6787,
+        "views": 1178,
+        "ig_reels_avg_watch_time": 6794,
         "duree": 28.4
       },
-      "mesure_le": "2026-11-25T16:35:01.327Z",
-      "score": 1.024
+      "mesure_le": "2026-11-26T15:08:05.720Z",
+      "score": 1.018
     },
     {
       "media": "18111823247220555",
@@ -3035,7 +3035,7 @@
       "source": "bot",
       "caption": "4 h du matin à Monaco, la boîte ferme et t'as faim. On a la liste 👇\n\n1. Stars ’n’ Bars (Restaurant) · lun–dim 11h–0h\n2. Quai des Artistes (Restaurant) · lun–dim 19h30–23h\n3. Beefbar (Restaurant) · lun–dim 14h30–0h\n4. Buddha-Bar (Restaurant) · mar–sam 18h–2h\n5. Le Cabanon (Restaurant) · lun–dim 9h–23h\n\nHoraires publiés : vérifie avant d'y aller. Toutes les adresses sur teufyparty.com (Manger tard).\n\nEnregistre ce post pour ta prochaine sortie.\n\n#TeufyParty #monaco #cotedazur #nightlife #streetfood",
       "metrics": {
-        "reach": 1119,
+        "reach": 1122,
         "likes": 6,
         "comments": 0,
         "saved": 1,
@@ -3044,7 +3044,7 @@
         "follows": 0,
         "profile_visits": 5
       },
-      "mesure_le": "2026-11-25T16:35:01.327Z",
+      "mesure_le": "2026-11-26T15:08:05.720Z",
       "features_generales": [
         "heure:18h",
         "jour:sam",
@@ -3106,7 +3106,7 @@
         "duree": 22
       },
       "mesure_le": "2026-11-19T15:08:05.190Z",
-      "score": 0.153
+      "score": 0.151
     },
     {
       "media": "18127859321302462",
@@ -3195,7 +3195,7 @@
         "follows": 1,
         "profile_visits": 5
       },
-      "mesure_le": "2026-11-25T16:35:01.327Z",
+      "mesure_le": "2026-11-26T15:08:05.720Z",
       "score": 0.653
     },
     {
@@ -3240,7 +3240,7 @@
         "duree": 12.2
       },
       "mesure_le": "2026-11-25T16:35:01.327Z",
-      "score": 0.615
+      "score": 0.614
     },
     {
       "media": "18179546929453371",
@@ -3260,7 +3260,7 @@
       "source": "bot",
       "caption": "4 h du matin à Nice, la boîte ferme et t'as faim. On a la liste 👇\n\n1. Le Cessole (Pizzeria) · lun–dim 7h–0h\n2. Hippopotamus (Restaurant) · lun–jeu 11h30–23h · ven–sam 11h30–0h · dim 11h30–23h\n3. Le Magnan (Restaurant) · lun–dim 7h–23h\n4. Les Jardins du Capitole (Restaurant) · lun–dim 8h–23h\n5. Don Carlo (Pizzeria) · lun–mar 19h–23h · jeu–sam 19h–23h\n\nHoraires publiés : vérifie avant d'y aller. Toutes les adresses sur teufyparty.com (Manger tard).\n\nEnvoie ça au groupe avant samedi.\n\n#TeufyParty #nice #cotedazur #nightlife #streetfood",
       "metrics": {
-        "reach": 591,
+        "reach": 596,
         "likes": 2,
         "comments": 0,
         "saved": 2,
@@ -3269,7 +3269,7 @@
         "follows": 0,
         "profile_visits": 2
       },
-      "mesure_le": "2026-11-25T16:35:01.327Z",
+      "mesure_le": "2026-11-26T15:08:05.720Z",
       "features_generales": [
         "heure:18h",
         "jour:mar",
@@ -3283,7 +3283,7 @@
         "hashtag:#streetfood",
         "auteur:bot"
       ],
-      "score": 0.505,
+      "score": 0.503,
       "note": 25
     },
     {
@@ -3355,9 +3355,9 @@
         "theme:debat",
         "auteur:bot"
       ],
-      "note": 37,
+      "note": 36,
       "metrics": {
-        "reach": 1434,
+        "reach": 1450,
         "likes": 12,
         "comments": 0,
         "saved": 4,
@@ -3366,8 +3366,8 @@
         "follows": 1,
         "profile_visits": 0
       },
-      "mesure_le": "2026-11-25T16:35:01.327Z",
-      "score": 0.73
+      "mesure_le": "2026-11-26T15:08:05.720Z",
+      "score": 0.729
     },
     {
       "media": "18121666664086611",
@@ -3398,18 +3398,18 @@
       ],
       "note": 14,
       "metrics": {
-        "reach": 438,
+        "reach": 446,
         "likes": 2,
         "comments": 0,
         "saved": 0,
         "shares": 0,
         "total_interactions": 2,
-        "views": 555,
-        "ig_reels_avg_watch_time": 2897,
+        "views": 563,
+        "ig_reels_avg_watch_time": 2889,
         "duree": 16.4
       },
-      "mesure_le": "2026-11-25T16:35:01.327Z",
-      "score": 0.28
+      "mesure_le": "2026-11-26T15:08:05.720Z",
+      "score": 0.279
     },
     {
       "media": "18506192326103484",
@@ -3438,17 +3438,17 @@
       "source": "bot",
       "caption": "Tu sais jamais où sortir le soir ? 👀\n\nTeufy, c'est toutes les soirées de la Côte d'Azur au même endroit :\n🔥 les soirées de ce soir, en un coup d'œil\n📍 les boîtes ouvertes près de toi\n🎧 ton style : techno, house, afro, shatta\n🆓 les soirées gratuites et les bons plans\n🍕 où manger après la boîte, jusqu'à 5 h\n\nDe Toulon à Monaco 🌊 Tout est sur teufyparty.com (lien en bio)\n\nAbonne-toi pour ne rater aucune soirée, et sois là quand l'appli arrive 📲\n\n#TeufyParty #cotedazur #nice #cannes #monaco",
       "metrics": {
-        "reach": 460,
+        "reach": 461,
         "likes": 4,
         "comments": 0,
         "saved": 1,
         "shares": 3,
         "total_interactions": 8,
         "views": 605,
-        "ig_reels_avg_watch_time": 3930,
+        "ig_reels_avg_watch_time": 3920,
         "duree": 18.6
       },
-      "mesure_le": "2026-11-25T16:35:01.327Z",
+      "mesure_le": "2026-11-26T15:08:05.720Z",
       "features_generales": [
         "heure:18h",
         "jour:jeu",
@@ -3465,7 +3465,7 @@
         "theme:gratuit",
         "auteur:bot"
       ],
-      "score": 1.354,
+      "score": 1.35,
       "note": 68
     },
     {
@@ -3494,7 +3494,7 @@
         "follows": 1,
         "profile_visits": 4
       },
-      "mesure_le": "2026-11-25T16:35:01.327Z",
+      "mesure_le": "2026-11-26T15:08:05.720Z",
       "features_generales": [
         "heure:17h",
         "jour:ven",
@@ -3551,18 +3551,18 @@
       ],
       "note": 4,
       "metrics": {
-        "reach": 244,
+        "reach": 250,
         "likes": 0,
         "comments": 0,
         "saved": 0,
         "shares": 0,
         "total_interactions": 0,
-        "views": 298,
-        "ig_reels_avg_watch_time": 3773,
+        "views": 305,
+        "ig_reels_avg_watch_time": 3737,
         "duree": 12.9
       },
-      "mesure_le": "2026-11-25T16:35:01.327Z",
-      "score": 0.085
+      "mesure_le": "2026-11-26T15:08:05.720Z",
+      "score": 0.086
     },
     {
       "media": "17927521158445416",
@@ -3601,20 +3601,20 @@
         "theme:debat",
         "auteur:bot"
       ],
-      "note": 28,
+      "note": 27,
       "metrics": {
-        "reach": 198,
+        "reach": 200,
         "likes": 3,
         "comments": 0,
         "saved": 0,
         "shares": 0,
         "total_interactions": 3,
-        "views": 268,
-        "ig_reels_avg_watch_time": 3955,
+        "views": 272,
+        "ig_reels_avg_watch_time": 3995,
         "duree": 12.8
       },
-      "mesure_le": "2026-11-25T16:35:01.327Z",
-      "score": 0.552
+      "mesure_le": "2026-11-26T15:08:05.720Z",
+      "score": 0.548
     },
     {
       "media": "17932427502429267",
@@ -3687,9 +3687,9 @@
         "theme:gratuit",
         "auteur:bot"
       ],
-      "note": 9,
+      "note": 8,
       "metrics": {
-        "reach": 210,
+        "reach": 223,
         "likes": 2,
         "comments": 0,
         "saved": 0,
@@ -3698,8 +3698,8 @@
         "follows": 0,
         "profile_visits": 0
       },
-      "mesure_le": "2026-11-25T16:35:01.327Z",
-      "score": 0.17
+      "mesure_le": "2026-11-26T15:08:05.720Z",
+      "score": 0.166
     },
     {
       "media": "18132244756860341",
@@ -3755,16 +3755,16 @@
       "source": "bot",
       "caption": "Bon plan : les grosses dates qui arrivent sur la Côte. Prenez vos places avant que ce soit sold out.\n\n→ Ven 4 déc · Ref Session #18 Acid Pauli @ Frigo 16 (Acid · Techno) · Frigo 16, Nice · 20h00 · 12,49 €\nLa légende Acid Pauli en session hypnotique et immersive au 109. @reffestival @pandaevents06\n→ Ven 4 déc · HIGH STUDENTS (Trance · Reggaeton) · High Club, Nice · minuit · 20 €\nLe grand rendez-vous étudiant du vendredi soir sur la Promenade des Anglais. @highclubnice\n→ Sam 19 déc · Zona De Perreo • Frigo 16 Nice (Shatta · Reggaeton) · Frigo 16, Nice · 20h00 · 12 €\nLe temple du perreo et du dembow réinvestit le Frigo 16 avec Latin Addict. @latinaddict @pandaevents06\n\nEnvoie ça à ton groupe avant d'oublier.\n\nBillets sur les pages des soirées (Shotgun, DICE, organisateurs). Envoie-le à ceux avec qui tu sors.\n\n- Toutes les soirées de la Côte, par ville, style et prix : teufyparty.com\n\n#TeufyParty #vieuxnice #nice #nightlife #weekend",
       "metrics": {
-        "reach": 176,
+        "reach": 188,
         "likes": 1,
         "comments": 0,
         "saved": 0,
         "shares": 0,
         "total_interactions": 1,
         "follows": 0,
-        "profile_visits": 1
+        "profile_visits": 2
       },
-      "mesure_le": "2026-11-25T16:35:01.327Z",
+      "mesure_le": "2026-11-26T15:08:05.720Z",
       "features_generales": [
         "heure:16h",
         "jour:mar",
@@ -3780,8 +3780,8 @@
         "theme:techno",
         "auteur:bot"
       ],
-      "score": 0.15,
-      "note": 8
+      "score": 0.18,
+      "note": 9
     },
     {
       "media": "17956741923312024",
@@ -3801,17 +3801,17 @@
       "source": "bot",
       "caption": "Les 4 potes qu'on a tous en soirée sur la Côte\n\n1. Celui qui dit « je rentre tôt »… et finit à l'after à 6 h\n2. Celui qui « connaît le videur »\n3. Celui qui a la dalle à 4 h du mat\n4. Celui qui sait toujours où ça bouge (il a Teufy)\n\nTague-les en commentaire. On sait que t'en as au moins un.\n\nToutes les soirées de la Côte d'Azur : teufyparty.com\n\n#TeufyParty #soiree #cotedazur #nice #nightlife",
       "metrics": {
-        "reach": 161,
+        "reach": 172,
         "likes": 1,
         "comments": 0,
         "saved": 0,
         "shares": 0,
         "total_interactions": 1,
-        "views": 230,
-        "ig_reels_avg_watch_time": 2144,
+        "views": 246,
+        "ig_reels_avg_watch_time": 2121,
         "duree": 13.6
       },
-      "mesure_le": "2026-11-25T16:35:01.327Z",
+      "mesure_le": "2026-11-26T15:08:05.720Z",
       "features_generales": [
         "heure:18h",
         "jour:mar",
@@ -3825,7 +3825,7 @@
         "hashtag:#nightlife",
         "auteur:bot"
       ],
-      "score": 0.226,
+      "score": 0.218,
       "note": 11
     },
     {
@@ -3892,6 +3892,117 @@
         "theme:techno",
         "theme:gratuit",
         "auteur:equipe"
+      ],
+      "note": null
+    },
+    {
+      "media": "18111734258260097",
+      "id": "veille",
+      "type": "veille",
+      "variante": null,
+      "date": "2026-11-25",
+      "choix": {},
+      "features": [],
+      "nb_images": 1,
+      "legende": "- Glorious à Palais Nikaïa le 5 Décembre\nConcert + concours tirage au sort le 1er Déc.\nVous êtes prêts ?\n\n#TeufyParty #Nice #Glorious",
+      "titre": "Glorious 5 Décembre",
+      "publie_le": "2026-11-25T16:57:26.137Z",
+      "source": "bot",
+      "caption": "- Glorious à Palais Nikaïa le 5 Décembre\nConcert + concours tirage au sort le 1er Déc.\nVous êtes prêts ?\n\n#TeufyParty #Nice #Glorious",
+      "metrics": {
+        "reach": 216,
+        "likes": 1,
+        "comments": 0,
+        "saved": 0,
+        "shares": 0,
+        "total_interactions": 1,
+        "follows": 0,
+        "profile_visits": 0
+      },
+      "mesure_le": "2026-11-26T15:08:05.720Z",
+      "features_generales": [
+        "heure:17h",
+        "jour:mer",
+        "format:image",
+        "type:veille",
+        "legende:courte",
+        "hashtag:#teufyparty",
+        "hashtag:#nice",
+        "hashtag:#glorious",
+        "auteur:bot"
+      ],
+      "score": 0.341,
+      "note": 17
+    },
+    {
+      "media": "17964961565998463",
+      "id": "bonplan-petits-prix",
+      "type": "incontournables",
+      "variante": "commercial",
+      "date": "2026-11-25",
+      "choix": {
+        "creneau": "16",
+        "seuil-qualite": 0.6,
+        "titre-commercial": "140lf6o",
+        "mise-couverture": "bas",
+        "intro-commercial": "100m6kb",
+        "question-commercial": "1yehf49",
+        "suivre": "h7y61e",
+        "site": "992dqy",
+        "hashtags-local": [
+          "#nicefrance",
+          "#nice06"
+        ],
+        "hashtags-commercial": [
+          "#soirée",
+          "#nightlife"
+        ]
+      },
+      "features": [
+        "genre:commercial",
+        "source:web",
+        "style:amapiano",
+        "style:afro",
+        "lieu:frigo-16",
+        "ville:nice",
+        "prix:moyen",
+        "horaire:nuit",
+        "genre:commercial",
+        "source:xceed",
+        "style:reggaeton",
+        "style:latino",
+        "lieu:high-club",
+        "ville:nice",
+        "prix:moyen",
+        "horaire:nuit",
+        "genre:commercial",
+        "source:web",
+        "style:techno",
+        "style:tech-house",
+        "lieu:playa-chica-glass-club-cannes",
+        "ville:cannes",
+        "prix:moyen",
+        "horaire:nuit"
+      ],
+      "nb_images": 5,
+      "legende": "Ton groupe a déjà débattu 47 messages. Nous, on a tranché : les soirées du week-end de Nice à Monaco. Envoie-leur avant le prochain « on verra ».\n- Soirées à Nice et Cannes ce week-end\n\n- La plus attendue : Phaphane À Nice - Amapiano & Afrobeats Lovers, très forte notoriété virale de DJ Phaphane auprès du jeune public.\n\n→ Ven 27 · Phaphane À Nice - Amapiano & Afrobeats Lovers (Amapiano · Afro) · Frigo 16, Nice · 20h00 · 12,1 €\nLa référence amapiano DJ Phaphane débarque au hangar du Frigo 16. @tweltyprod @pandaevents06\n→ Ven 27 · COACHELLITO - HIGH CLUB (Reggaeton · Latino) · High Club, Nice · minuit · 11 €\nAmbiance festival américain sur la Promenade des Anglais avec le DJ niçois MACEW. @highclubnice\n→ Sam 28 · THE SHOW CLUB SONORE × MARAKA × PLAYA CHICA (Techno · Tech house) · Playa Chica & Glass Club Cannes · 20h00 · 10,99 €\nDouble étape festive signée Club Sonore entre plage et club cannois. @glass_club_cannes\n\nLaquelle on fait ensemble ? Enregistre le post pour ne pas oublier. Suis le compte : chaque semaine, les soirées à ne pas rater.\n\n- L'agenda complet, jour par jour : teufyparty.com\n\n#TeufyParty #nicefrance #nice06 #soirée #nightlife",
+      "titre": "Où sortir ce week-end",
+      "publie_le": "2026-11-25T18:10:14.260Z",
+      "source": "bot",
+      "caption": "Ton groupe a déjà débattu 47 messages. Nous, on a tranché : les soirées du week-end de Nice à Monaco. Envoie-leur avant le prochain « on verra ».\n- Soirées à Nice et Cannes ce week-end\n\n- La plus attendue : Phaphane À Nice - Amapiano & Afrobeats Lovers, très forte notoriété virale de DJ Phaphane auprès du jeune public.\n\n→ Ven 27 · Phaphane À Nice - Amapiano & Afrobeats Lovers (Amapiano · Afro) · Frigo 16, Nice · 20h00 · 12,1 €\nLa référence amapiano DJ Phaphane débarque au hangar du Frigo 16. @tweltyprod @pandaevents06\n→ Ven 27 · COACHELLITO - HIGH CLUB (Reggaeton · Latino) · High Club, Nice · minuit · 11 €\nAmbiance festival américain sur la Promenade des Anglais avec le DJ niçois MACEW. @highclubnice\n→ Sam 28 · THE SHOW CLUB SONORE × MARAKA × PLAYA CHICA (Techno · Tech house) · Playa Chica & Glass Club Cannes · 20h00 · 10,99 €\nDouble étape festive signée Club Sonore entre plage et club cannois. @glass_club_cannes\n\nLaquelle on fait ensemble ? Enregistre le post pour ne pas oublier. Suis le compte : chaque semaine, les soirées à ne pas rater.\n\n- L'agenda complet, jour par jour : teufyparty.com\n\n#TeufyParty #nicefrance #nice06 #soirée #nightlife",
+      "features_generales": [
+        "heure:19h",
+        "jour:mer",
+        "format:carrousel",
+        "type:incontournables-commercial",
+        "legende:longue",
+        "hashtag:#teufyparty",
+        "hashtag:#nicefrance",
+        "hashtag:#nice06",
+        "hashtag:#soirée",
+        "hashtag:#nightlife",
+        "theme:techno",
+        "auteur:bot"
       ],
       "note": null
     }
@@ -3968,6 +4079,10 @@
     {
       "date": "2026-11-25",
       "n": 14420
+    },
+    {
+      "date": "2026-11-26",
+      "n": 14419
     }
   ]
 }

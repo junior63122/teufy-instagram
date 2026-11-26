@@ -1026,5 +1026,125 @@
     "test_du_partage": "Au pote qui finit toujours en VTC hors de prix : « c'est toi chaque samedi ».",
     "statut": "propose",
     "ajout": "2026-11-25"
+  },
+  {
+    "id": "c-2026-11-26-1nclxsp",
+    "titre": "Lundi 8 h à Valrose, encore à 140 BPM",
+    "format": "POV",
+    "accroche": "POV : lundi 8 h, amphi, ta tête est encore au set",
+    "plans": [
+      {
+        "texte": "Le prof parle. Toi t'entends encore le kick.",
+        "video": "student lecture hall tired morning"
+      },
+      {
+        "texte": "Ton pied tape sous la table, tout seul.",
+        "video": "foot tapping under desk close up"
+      },
+      {
+        "texte": "Samedi 4 h : le drop que t'oublieras jamais.",
+        "video": "techno crowd hands up strobe lights"
+      },
+      {
+        "texte": "Ton voisin te demande si ça va. Non.",
+        "video": "student yawning classroom"
+      },
+      {
+        "texte": "Ton binôme t'envoie déjà la date du prochain.",
+        "video": "phone notification message close up night"
+      },
+      {
+        "texte": "Et tu réponds « vas-y » avant la fin du cours.",
+        "video": "warehouse rave dancing silhouettes"
+      }
+    ],
+    "musique": "hard techno sombre 145 bpm, kick qui démarre dès la 1re seconde",
+    "legende": "Le corps est en cours, la tête est restée au dancefloor. Tague ton binôme de rave qui a la même tête que toi ce matin. #technocotedazur #hardtechno #nice",
+    "cta": "Tague ton binôme qui est encore au set ce matin",
+    "inspire_de": "partiful (reels courts de situations de soirée) https://www.instagram.com/reel/Df-MTyXs-tQ/",
+    "pourquoi_viral": "Mélange les deux cibles les plus engagées (étudiants et techno), situation hyper vécue, aucun lieu ni prix à inventer.",
+    "test_du_partage": "Au binôme de rave en cours avec soi : « c'est trop toi ce matin ».",
+    "statut": "propose",
+    "ajout": "2026-11-26"
+  },
+  {
+    "id": "c-2026-11-26-kuj3pj",
+    "titre": "Ton before trahit où tu finis",
+    "format": "classement",
+    "accroche": "Montre-moi ton before, je te dis où tu finis",
+    "plans": [
+      {
+        "texte": "Enceinte, néons, kick à fond : warehouse jusqu'à 8 h.",
+        "video": "house party speaker neon lights friends"
+      },
+      {
+        "texte": "Trois tenues sur le lit : Cannes ou Monaco.",
+        "video": "outfits on bed getting ready mirror"
+      },
+      {
+        "texte": "Pizza et 15 étudiants dans 12 m² : soirée BDE.",
+        "video": "small apartment party students crowded"
+      },
+      {
+        "texte": "Playlist amapiano et tout le monde danse déjà.",
+        "video": "friends dancing living room afro music"
+      },
+      {
+        "texte": "Tout le monde sur le canap' : « on bouge à quelle heure ? »",
+        "video": "friends sitting couch waiting phones"
+      },
+      {
+        "texte": "Et toi, ton before dit quoi de ta soirée ?",
+        "video": "group friends leaving apartment night street"
+      }
+    ],
+    "musique": "afro house énergique 122 bpm",
+    "legende": "Chaque before annonce la couleur. Le tien, c'est lequel ? Réponds le numéro en com et tague ton groupe de before. #cotedazur #soirée #sortiranice",
+    "cta": "Réponds 1 à 5 en com et tague ton groupe de before",
+    "inspire_de": "partiful « Planning the ultimate pre-game » https://www.instagram.com/p/Df5bWnCm3MJ/",
+    "pourquoi_viral": "Chaque profil de la cible se reconnaît dans un plan, ce qui déclenche le commentaire chiffré et le tag de groupe.",
+    "test_du_partage": "Dans le groupe WhatsApp du samedi : « on est le 5, clairement ».",
+    "statut": "propose",
+    "ajout": "2026-11-26"
+  },
+  {
+    "id": "c-2026-11-26-cgl8ui",
+    "titre": "Si la Côte était ton groupe de potes",
+    "format": "personnage",
+    "accroche": "Si la Côte d'Azur était ton groupe de potes",
+    "plans": [
+      {
+        "texte": "Nice : « on se pose sur la Prom' et on voit ».",
+        "video": "promenade des anglais night friends walking"
+      },
+      {
+        "texte": "Cannes : se change trois fois avant de sortir.",
+        "video": "getting ready mirror outfit change"
+      },
+      {
+        "texte": "Monaco : regarde l'addition sans rien dire.",
+        "video": "luxury night city lights harbour"
+      },
+      {
+        "texte": "Toulon : « chez nous c'est mieux », toute la soirée.",
+        "video": "friends laughing arguing bar terrace"
+      },
+      {
+        "texte": "Juan : disparaît l'hiver, revient en juillet.",
+        "video": "beach party summer sunset crowd"
+      },
+      {
+        "texte": "Sophia : veut venir, mais comment il rentre ?",
+        "video": "empty bus stop night waiting"
+      }
+    ],
+    "musique": "electro pop solaire 120 bpm",
+    "legende": "Chaque groupe a son Nice, son Cannes et son Monaco. T'es lequel ? Défends ta ville en com et tague le pote qui est clairement Sophia. #cotedazur #nice #cannes #toulon #monaco",
+    "cta": "Tague ton pote et dis-lui quelle ville il est",
+    "inspire_de": "partiful « Hosting? Attending? Please locate yourself on the chart » https://www.instagram.com/p/Df40odgm5q-/",
+    "pourquoi_viral": "Fierté locale plus tag direct : chacun défend sa ville en com et attribue une ville à ses potes, sans moquer personne.",
+    "test_du_partage": "Au pote de Sophia sans voiture : « t'es littéralement le dernier plan ».",
+    "statut": "propose",
+    "ajout": "2026-11-26"
   }
 ]

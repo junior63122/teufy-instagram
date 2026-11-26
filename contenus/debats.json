@@ -471,5 +471,21 @@
     "b": "Samedi, sinon c'est pas sortir",
     "legende": "Jeudi pour les malins, samedi pour tout le monde. Ton camp en com, et envoie ça à celui qui dit « jeudi c'est trop tôt ».",
     "ajout": "2026-11-25"
+  },
+  {
+    "id": "ia-2026-11-26-2mmmys",
+    "q": "Le réveillon, tu le passes où ?",
+    "a": "Grosse soirée avec billet",
+    "b": "Appart entre potes",
+    "legende": "Le Nouvel An approche et ton groupe a déjà deux camps. A ou B ? Réponds en com et tague celui qui veut l'inverse de toi.",
+    "ajout": "2026-11-26"
+  },
+  {
+    "id": "ia-2026-11-26-6amft5",
+    "q": "Fin de soirée à 6 h, tu fais quoi ?",
+    "a": "Lever du soleil sur la plage",
+    "b": "Lit direct, sans détour",
+    "legende": "Il y a ceux qui finissent sur les galets et ceux qui disparaissent sans dire au revoir. A ou B ? Tague ton opposé.",
+    "ajout": "2026-11-26"
   }
 ]

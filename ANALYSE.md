@@ -1,48 +1,51 @@
-## Analyse de la semaine du 2026-11-25
+## Analyse de la semaine du 2026-11-26
 
-Semaine faible : la plupart des posts du bot plafonnent entre 4 et 30/100 avec une portée de 160 à 250. Les données restent minces par type de post (souvent 1 ou 2 posts), donc on varie les tests plutôt que de conclure trop vite. Trois choses ressortent nettement : la techno (Édition Tekno 95/100, 8 partages), les annonces de line-up vérifiées (HUGEL aux Plages Électroniques 100/100, 8 partages) et les concours (45/100 cette semaine, 72 à 100 historiquement). À l'inverse, les incontournables commerciaux (6 et 9), les Grands Débats (8 et 31) et les reels « tague ton pote » génériques ne déclenchent aucun partage. Une partie de la veille est douteuse (Teufy cité par @ParisNightLife, hashtag #TeufyVIP « recommandé » par Instagram, refonte visuelle datée de 2026) : on ne s'en sert pas et les règles restent inchangées. Cap sur le Black Friday et l'entrée en décembre avec des formats qu'on s'envoie en message privé.
+Semaine contrastée. Les posts techno et les annonces fortes portent le compte : Édition Tekno (95/100, 8 partages, 3 commentaires) et l'annonce HUGEL aux Plages Électroniques (100/100, 8 partages). Les incontournables commerciaux s'effondrent (8 et 6/100, 0 partage), tout comme les reels POV trop génériques (manger tard : 4/100) et le bon plan « à réserver » au ton publicitaire (9/100). Une vingtaine de posts bot sont notés, mais chaque format n'a que 1 à 3 posts : les écarts restent fragiles, donc on varie les tests. Les concours restent le levier historique le plus sûr (72 à 100/100, jusqu'à 28 commentaires). Attention, la veille mélange blogs et sources Meta, et deux URL Instagram y sont attribuées à deux comptes différents : on ne change aucune règle sans source officielle vérifiée.
 
-**Objectif des prochains posts : 35/100**
+**Objectif des prochains posts : 30/100**
 
 ### Nouveautés Instagram / Meta
-- 🟢 officiel · 2026-11-13 · **Remix étendu aux photos et nouvelles mises en page (écran partagé, incrustation)** : Permet un avant/après simple (salle vide puis foule) sans tournage. À tester sur un reel, date de l'annonce à confirmer. ([source](https://about.instagram.com/fr-fr/blog/announcements/introducing-new-ways-to-collaborate-and-create-with-reels))
-- 🟢 officiel · 2026-11-14 · **Notes Instagram et stories spontanées en test** : Une Note courte du type « On sort où samedi ? » peut générer des réponses en message privé. Gratuit à tester, aucun code promo à promettre. ([source](https://about.instagram.com/fr-fr/blog/announcements/updates-to-instagram-messenger-and-stories))
-- 🟢 officiel · 2026-11-15 · **Épinglage de conversations et de groupes dans les messages** : Utile pour suivre les échanges avec les organisateurs (concours, partenariats). Effet direct sur la note quasi nul. ([source](https://about.instagram.com/fr-fr/blog/announcements/new-dm-improvements))
-- 🟢 officiel · 2026-11-23 · **Reels d'essai (diffusion d'abord aux non-abonnés)** : Fonction déjà existante. Utile pour tester deux accroches d'un même concept sans abîmer la moyenne du compte. ([source](https://about.instagram.com/blog/product?page=3&locale=fr_FR))
-- 🟡 non officiel · 2026-11-23 · **Teufy cité dans un carrousel de @ParisNightLife** : Non vérifié et peu crédible (Teufy n'est pas un club). On ne s'appuie pas dessus. ([source](https://www.instagram.com/p/CxYx9kZJ2qA/))
+- 🟢 officiel · 18/12/2025, rappel nov. 2026 · **Limite de 5 hashtags par post ou reel confirmée** : Règle déjà appliquée. Garder 5 hashtags max et miser sur les mots-clés dans la légende (soirée techno Nice, sortir à Cannes). ([source](Annonce @creators ; https://creatorflow.so/blog/instagram-trends-creators-marketers))
+- 🟡 non officiel · 12/11/2026 · **Trial Reels : test auprès des non-abonnés avant diffusion aux abonnés** : Fonction réelle mais source tierce. Utile pour tester 2 accroches du même reel sans abîmer la note du compte. ([source](https://creatorflow.so/blog/instagram-algorithm))
+- 🟡 non officiel · 12/11/2026 · **Originalité étendue aux photos et carrousels repostés** : Blog tiers, à confirmer. Conforme à notre règle actuelle : chaque visuel recomposé, aucun repost brut. ([source](https://www.usefastlane.ai/blog/instagram-reels-algorithm-2026))
+- 🟡 non officiel · nov. 2026 · **Pénalité de portée pour filigranes d'autres plateformes** : Déjà dans nos règles. Aucun extrait TikTok avec logo dans les reels. ([source](https://jskmarketing.com/blog/instagrams-latest-algorithm-changes))
+- 🟡 non officiel · 12/11/2026 · **Rétention des reels mise en avant (déclaration attribuée à Mosseri)** : Même URL citée ailleurs pour @partyvibesfr : non fiable. Le principe reste valable : accroche forte dès la 1re seconde, reels courts. ([source](https://www.instagram.com/reel/Dfp6swihbc5))
+- 🟡 non officiel · sept. 2026 · **« Your Algorithm » : contrôle des sujets côté utilisateur** : Ce sont les utilisateurs qui choisissent leurs sujets, pas le créateur. Rester très clair sur le thème soirées Côte d'Azur dans chaque légende. ([source](https://help.instagram.com/1013292530224018 (cité, non vérifié)))
 
 ### Pourquoi certains posts marchent mieux
-- **La techno pure fait partager, le commercial non.** (Édition Tekno : 95/100, 8 partages, 3 commentaires, 2 abonnés. Incontournables commerciaux : 9 et 6/100, 0 partage. Traits : #hardtechno +40, #technocotedazur +42, genre commercial -40.) → Garder une Édition Tekno chaque semaine avec #hardtechno et #technocotedazur. Mettre le format commercial en pause une semaine ou le refaire en mode « plan concret pour ton groupe ».
-- **Une info vérifiée qui tombe (line-up) s'envoie au binôme.** (Veille HUGEL aux Plages Électroniques : 100/100, 8 partages. Concours Frigo 16 : 45/100, seul post de la semaine avec commentaires, partage et abonné.) → Publier chaque annonce officielle de line-up dans les 24 h et relancer un concours dès qu'un partenaire donne des places.
-- **Les reels qui posent une vraie question utile marchent, les reels sketch génériques non.** (Reel « Tu sais jamais où sortir le soir ? » : 68/100, 3 partages. « Pourquoi l'entrée est gratuite avant 1h » : 51/100, 4 partages. « Il est 4 h… t'as la dalle » : 4/100. « Les 4 potes qu'on a tous » : 11/100.) → Pour les reels humour, viser des situations très locales et datées (Black Friday, pots de Noël, dernier tram) plutôt que des listes de potes qu'on voit partout.
-- **Les Grands Débats ne prennent pas.** (Pan bagnat : 8/100, 0 interaction. Pré-soirée ou boîte : 31/100, 0 commentaire. Trait reel-grand-debat -39.) → Un seul débat cette semaine, sur un sujet de fierté locale ou de nuit, avec réponse demandée en un mot en commentaire.
-- **Les petits prix ramènent de la portée.** (Bon plan petits prix : 1434 de portée, 4 enregistrements, 3 partages (37/100), meilleure portée du bot.) → Refaire un bon plan petits prix juste avant la paye de fin novembre, à 16 h.
-- **Le créneau 18 h est le plus faible du compte.** (Créneau 18 : 24 de moyenne sur 5 posts, contre 33 à 15 h et 31 à 17 h. Les autres comptes performent fortement à 16 h.) → Retirer 18 h et tester 16 h.
+- **Le carrousel techno curaté est le meilleur post bot ; le commercial au même format ne prend pas.** (Édition Tekno : 95/100, 8 partages, 3 commentaires pour 504 de portée. Incontournables commerciaux : 8 et 6/100, 0 partage. Trait genre:commercial -39, type:incontournables-commercial -51.) → Deux carrousels techno par semaine (tekno, hard techno, trance). Le commercial passe en test unique, réécrit autour d'une situation vécue (physio, file, tenue) plutôt qu'une liste.
+- **Une annonce avec un nom et un enjeu se partage, une simple date non.** (HUGEL aux Plages Électroniques : 100/100, 8 partages. Glorious au Palais Nikaïa : 17/100, 0 partage, accroche réduite à « - Glorious à Palais Nikaïa le 5 Décembre ».) → Accroche de veille = nom + enjeu + destinataire (« Ton binôme est au courant ? »). Jamais de tiret en début d'accroche.
+- **Les reels qui posent le problème de décision marchent mieux que les POV génériques.** (« Tu sais jamais où sortir le soir ? » : 68/100, 3 partages. « Il est 4 h… t'as la dalle » : 4/100, 0 interaction. « Pourquoi l'entrée est gratuite avant 1h » : 51/100, 4 partages.) → Accroches en question qui touchent une vraie galère de sortie ou un « pourquoi » que tout le monde se pose. Abandonner le thème manger tard (2 essais faibles).
+- **Les concours restent le format le plus fort en commentaires et abonnés.** (Concours équipe : 100, 100, 72, 72/100, 18 à 28 commentaires, jusqu'à 8 abonnés gagnés. Concours Frigo 16 bot : 45/100, 1 abonné.) → Un concours toutes les deux semaines avec mécanique « tague le pote avec qui tu y vas », visuel original et date proche.
+- **Le bon plan petits prix touche loin, le bon plan « à réserver » sonne pub.** (Petits prix : 1 450 de portée, 4 enregistrements, 3 partages. « Prenez vos places avant que ce soit sold out » : 9/100. Trait type:bonplan-a-reserver -37.) → Garder petits prix chaque semaine. Réécrire « à réserver » en tutoyant, avec une situation (le before qui fait rater la prévente) au lieu d'une injonction.
+- **Le créneau 18 h UTC sous-performe, 16 h est prometteur.** (Créneau 15 : 33 de moyenne, 17 : 31, 18 : 24 (5 posts). Seul post à 16 h : 45. Autres comptes : score 169,67 à 16 h contre 1,81 à 17 h.) → Tester 16 h UTC sur deux posts forts et sortir 18 h de la rotation.
 
 ### Formats et manières de poster à tester
-- **Concours places à gagner (tague 2 potes + abonne-toi) avec un lieu partenaire** : Le seul format qui fait commenter et gagner des abonnés de façon régulière. Chaque tag est un envoi à un pote. ([source](Données du compte : concours Frigo 16 45/100, LQB 100, Electro Symphony 100, Crossover 100))
-- **Carrousel « place-toi » façon graphique à axes (arrive tôt/tard, rentre tôt/ferme)** : Les carrousels dominent chez les autres comptes. On se tague dans sa case et on commente sa position. ([source](partiful « Please locate yourself on the chart » (https://www.instagram.com/p/Df40odgm5q-/), score carrousel 655 contre 12 pour les reels))
-- **Annonce de line-up en 1 visuel dès qu'une info officielle tombe** : Info fraîche et vérifiée = envoi immédiat au binôme de rave. ([source](Post veille HUGEL 100/100, 8 partages ; dicefm (https://www.instagram.com/p/Dd_qG-Iio-L/)))
-- **Édition techno ciblée (tekno, hard techno, trance) avec question « laquelle tu fais »** : Meilleur score du bot hors veille, commentaires et partages. ([source](Édition Tekno du 12/11 : 95/100, 8 partages))
-- **Reel question utile « où sortir / combien / comment rentrer »** : Les reels qui répondent à une vraie galère se partagent, les sketchs génériques non. ([source](Reel « Tu sais jamais où sortir le soir ? » 68/100 et « entrée gratuite avant 1h » 51/100))
+- **Carrousel techno curaté avec question finale « tu fais laquelle ? »** : Meilleure note bot (95/100, 8 partages) et carrousel = format dominant chez les autres comptes (score 641 contre 12 pour le reel). ([source](Chiffres du compte (Édition Tekno 12/11) + tendances autres comptes))
+- **Concours « tague le pote avec qui tu y vas »** : Historique 72 à 100/100, 18 à 28 commentaires, meilleur gain d'abonnés du compte. ([source](Concours équipe mars à août 2026, Frigo 16 nov. 2026))
+- **Carrousel « place ton groupe sur le tableau » version Côte d'Azur** : Situation où chacun se reconnaît et tague son groupe, envoyé en message privé. ([source](https://www.instagram.com/p/Df40odgm5q-/ (partiful)))
+- **Reel question de 7 à 15 s sur une galère de décision** : « Tu sais jamais où sortir le soir ? » : 68/100, 3 partages ; le « pourquoi entrée gratuite avant 1h » : 4 partages. ([source](Chiffres du compte 13/11 et 19/11))
+- **Trial Reel : même reel, 2 accroches testées auprès des non-abonnés** : Valide l'accroche sans peser sur la portée des abonnés ; utile vu le faible volume par format. ([source](https://creatorflow.so/blog/instagram-algorithm))
 
 ### Concepts de reels inventés cette semaine (à valider)
-- **Black Friday des excuses pour pas sortir** (classement, inspiré de partiful (humour de situation) et le ton des marques type Ryanair) : « Black Friday : ses excuses pour pas sortir, soldées » → Collé à l'actu du week-end, situation que tout le monde reconnaît, chaque excuse appelle un nom précis.
-- **Le calendrier de l'avent du fêtard azuréen** (classement, inspiré de partiful « How early is too early to host your holiday party? ») : « Le calendrier de l'avent du fêtard de la Côte » → Calendrier connu de tous, sorti au bon moment, chaque case est une situation vécue.
-- **Le dernier tram de Nice, s'il pouvait parler** (personnage, inspiré de partiful (objet du quotidien qui parle) et le ton Duolingo) : « Le dernier tram de Nice, s'il pouvait parler » → Galère 100 % niçoise, ton moqueur qui fait rire sans juger, un coupable évident à taguer.
+- **Lundi 8 h à Valrose, encore à 140 BPM** (POV, inspiré de partiful (reels courts de situations de soirée) https://www.instagram.com/reel/Df-MTyXs-tQ/) : « POV : lundi 8 h, amphi, ta tête est encore au set » → Mélange les deux cibles les plus engagées (étudiants et techno), situation hyper vécue, aucun lieu ni prix à inventer.
+- **Ton before trahit où tu finis** (classement, inspiré de partiful « Planning the ultimate pre-game » https://www.instagram.com/p/Df5bWnCm3MJ/) : « Montre-moi ton before, je te dis où tu finis » → Chaque profil de la cible se reconnaît dans un plan, ce qui déclenche le commentaire chiffré et le tag de groupe.
+- **Si la Côte était ton groupe de potes** (personnage, inspiré de partiful « Hosting? Attending? Please locate yourself on the chart » https://www.instagram.com/p/Df40odgm5q-/) : « Si la Côte d'Azur était ton groupe de potes » → Fierté locale plus tag direct : chacun défend sa ville en com et attribue une ville à ses potes, sans moquer personne.
 
 ### Ce que le bot a changé
-- accroche weekend : « Décembre : 4 pots de Noël, 1 seule tenue »
-- accroche weekend : « « On se capte devant. » Réseau : 0 barre. »
-- accroche techno : « Ta prévente est prise. Ton binôme a dit « ouais ouais ». »
-- accroche petits-prix : « Black Friday : la seule promo qui compte, c'est samedi »
-- intro techno : « Kicks lourds, il fait froid dehors, personne s'en rend compte dedans. Les dates qui tapent ce week-end sur la Côte, à envoyer à ton binôme avant qu'il prenne sa prévente sans toi. »
-- intro techno : « Un nom tombe, le groupe rave s'allume. Les soirées techno du week-end de Nice à Toulon. Tu fais laquelle ? Réponds juste le nom en com. »
-- intro commercial : « Pots de Noël, Black Friday, fin de mois : décembre arrive vite. Où sortir ce week-end de Nice à Monaco, avec qui y aller et comment rentrer. Envoie-le à ton groupe. »
-- intro commercial : « Ton groupe a besoin d'un plan, pas d'un sondage. Trois soirées ce week-end sur la Côte, une par ambiance. Réponds 1, 2 ou 3 en com. »
-- débat « Fin de soirée sur la Côte : tu finis où ? »
-- débat « Tu sors plutôt le jeudi ou le samedi ? »
-- sujet de reel « HUGEL ferme les Plages Électroniques 2027 »
-- concept de reel « Black Friday des excuses pour pas sortir » (classement, inspiré de partiful (humour de situation) et le ton des marques type Ryanair)
-- concept de reel « Le calendrier de l'avent du fêtard azuréen » (classement, inspiré de partiful « How early is too early to host your holiday party? »)
-- concept de reel « Le dernier tram de Nice, s'il pouvait parler » (personnage, inspiré de partiful (objet du quotidien qui parle) et le ton Duolingo)
+- accroche weekend : « Nouvel An dans 5 semaines. Le groupe a rien décidé. »
+- accroche techno : « Lundi en amphi, la tête encore dans le set »
+- accroche petits-prix : « Décembre : 4 week-ends, 1 seul salaire »
+- accroche weekend : « Tout le monde a dit oui. Personne a pris sa prévente. »
+- intro commercial : « Le physio regarde ta tenue, ton groupe regarde son téléphone. Les soirées du week-end de Cannes à Monaco, pour arriver prêt. Tague celui qui se change trois fois. »
+- intro commercial : « Premier week-end de décembre, le groupe hésite déjà. Trois ambiances de Nice à Monaco. Réponds 1, 2 ou 3 en com, on verra qui gagne. »
+- intro techno : « Décembre tombe, les line-ups aussi. Les dates qui tapent ce week-end de Nice à Toulon, à envoyer à ton binôme avant qu'il les trouve seul. »
+- intro techno : « Dehors, la Prom' est vide. Dedans, 140 BPM. Les soirées techno du week-end sur la Côte. Tu fais laquelle ? Écris juste le nom en com. »
+- débat « Le réveillon, tu le passes où ? »
+- débat « Fin de soirée à 6 h, tu fais quoi ? »
+- sujet de reel « Plages Électroniques 2027 : le premier nom est tombé »
+- sujet de reel « Glorious au Palais Nikaïa le 5 décembre »
+- heures de publication (UTC) 15, 16, 17 → 15, 16, 17, 19
+- concept de reel « Lundi 8 h à Valrose, encore à 140 BPM » (POV, inspiré de partiful (reels courts de situations de soirée) https://www.instagram.com/reel/Df-MTyXs-tQ/)
+- concept de reel « Ton before trahit où tu finis » (classement, inspiré de partiful « Planning the ultimate pre-game » https://www.instagram.com/p/Df5bWnCm3MJ/)
+- concept de reel « Si la Côte était ton groupe de potes » (personnage, inspiré de partiful « Hosting? Attending? Please locate yourself on the chart » https://www.instagram.com/p/Df40odgm5q-/)

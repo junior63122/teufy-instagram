@@ -199,6 +199,16 @@
         "titre": "« On se capte devant. » Réseau : 0 barre.",
         "sous": "Envoie-le à ton groupe",
         "ajout": "2026-11-25"
+      },
+      {
+        "titre": "Nouvel An dans 5 semaines. Le groupe a rien décidé.",
+        "sous": "Envoie-le à ton groupe",
+        "ajout": "2026-11-26"
+      },
+      {
+        "titre": "Tout le monde a dit oui. Personne a pris sa prévente.",
+        "sous": "Tague celui qui attend",
+        "ajout": "2026-11-26"
       }
     ],
     "techno": [
@@ -297,6 +307,11 @@
         "titre": "Ta prévente est prise. Ton binôme a dit « ouais ouais ».",
         "sous": "Envoie-lui ça",
         "ajout": "2026-11-25"
+      },
+      {
+        "titre": "Lundi en amphi, la tête encore dans le set",
+        "sous": "Tague ton binôme",
+        "ajout": "2026-11-26"
       }
     ],
     "petits-prix": [
@@ -376,6 +391,11 @@
         "titre": "Black Friday : la seule promo qui compte, c'est samedi",
         "sous": "Petits prix · Côte d'Azur",
         "ajout": "2026-11-25"
+      },
+      {
+        "titre": "Décembre : 4 week-ends, 1 seul salaire",
+        "sous": "Petits prix · Côte d'Azur",
+        "ajout": "2026-11-26"
       }
     ]
   },
@@ -416,7 +436,9 @@
       "Le before s'éternise, les préventes ferment. Cette fois, tu choisis avant. Les soirées du week-end de Nice à Monaco, à envoyer à ton groupe.",
       "Décembre, les pots de Noël et la même question : on finit où ? Les soirées du week-end de Cannes à Monaco. Tague celui qui dit « on rentre après celle-là ».",
       "Pots de Noël, Black Friday, fin de mois : décembre arrive vite. Où sortir ce week-end de Nice à Monaco, avec qui y aller et comment rentrer. Envoie-le à ton groupe.",
-      "Ton groupe a besoin d'un plan, pas d'un sondage. Trois soirées ce week-end sur la Côte, une par ambiance. Réponds 1, 2 ou 3 en com."
+      "Ton groupe a besoin d'un plan, pas d'un sondage. Trois soirées ce week-end sur la Côte, une par ambiance. Réponds 1, 2 ou 3 en com.",
+      "Le physio regarde ta tenue, ton groupe regarde son téléphone. Les soirées du week-end de Cannes à Monaco, pour arriver prêt. Tague celui qui se change trois fois.",
+      "Premier week-end de décembre, le groupe hésite déjà. Trois ambiances de Nice à Monaco. Réponds 1, 2 ou 3 en com, on verra qui gagne."
     ],
     "techno": [
       "Les caissons tremblent déjà. Ce week-end, la scène underground du 06 ne fait aucun compromis sur les BPM.",
@@ -441,11 +463,13 @@
       "Les noms tombent un par un. Les dates qui tapent ce week-end sur la Côte, à envoyer à ton binôme avant qu'il te les envoie.",
       "Tekno, hard techno, trance : les soirées du week-end sur la Côte. Laquelle tu fais ? Ton binôme répond en com.",
       "Kicks lourds, il fait froid dehors, personne s'en rend compte dedans. Les dates qui tapent ce week-end sur la Côte, à envoyer à ton binôme avant qu'il prenne sa prévente sans toi.",
-      "Un nom tombe, le groupe rave s'allume. Les soirées techno du week-end de Nice à Toulon. Tu fais laquelle ? Réponds juste le nom en com."
+      "Un nom tombe, le groupe rave s'allume. Les soirées techno du week-end de Nice à Toulon. Tu fais laquelle ? Réponds juste le nom en com.",
+      "Décembre tombe, les line-ups aussi. Les dates qui tapent ce week-end de Nice à Toulon, à envoyer à ton binôme avant qu'il les trouve seul.",
+      "Dehors, la Prom' est vide. Dedans, 140 BPM. Les soirées techno du week-end sur la Côte. Tu fais laquelle ? Écris juste le nom en com."
     ]
   },
-  "objectif_semaine": 35,
-  "derniere_analyse": "2026-11-25T16:34:53.432Z",
+  "objectif_semaine": 30,
+  "derniere_analyse": "2026-11-26T15:07:58.789Z",
   "concurrents": {
     "_note": "Comptes concurrents ou similaires (guides de sorties, médias nightlife). Le bot regarde chaque jour ce qui marche chez eux (formats, accroches, hashtags, heures). Un nom inexistant est simplement ignoré.",
     "liste": [
@@ -469,34 +493,34 @@
   },
   "formats_a_tester": [
     {
-      "format": "Concours places à gagner (tague 2 potes + abonne-toi) avec un lieu partenaire",
-      "pourquoi": "Le seul format qui fait commenter et gagner des abonnés de façon régulière. Chaque tag est un envoi à un pote.",
-      "source": "Données du compte : concours Frigo 16 45/100, LQB 100, Electro Symphony 100, Crossover 100",
-      "ajout": "2026-11-25"
+      "format": "Carrousel techno curaté avec question finale « tu fais laquelle ? »",
+      "pourquoi": "Meilleure note bot (95/100, 8 partages) et carrousel = format dominant chez les autres comptes (score 641 contre 12 pour le reel).",
+      "source": "Chiffres du compte (Édition Tekno 12/11) + tendances autres comptes",
+      "ajout": "2026-11-26"
     },
     {
-      "format": "Carrousel « place-toi » façon graphique à axes (arrive tôt/tard, rentre tôt/ferme)",
-      "pourquoi": "Les carrousels dominent chez les autres comptes. On se tague dans sa case et on commente sa position.",
-      "source": "partiful « Please locate yourself on the chart » (https://www.instagram.com/p/Df40odgm5q-/), score carrousel 655 contre 12 pour les reels",
-      "ajout": "2026-11-25"
+      "format": "Concours « tague le pote avec qui tu y vas »",
+      "pourquoi": "Historique 72 à 100/100, 18 à 28 commentaires, meilleur gain d'abonnés du compte.",
+      "source": "Concours équipe mars à août 2026, Frigo 16 nov. 2026",
+      "ajout": "2026-11-26"
     },
     {
-      "format": "Annonce de line-up en 1 visuel dès qu'une info officielle tombe",
-      "pourquoi": "Info fraîche et vérifiée = envoi immédiat au binôme de rave.",
-      "source": "Post veille HUGEL 100/100, 8 partages ; dicefm (https://www.instagram.com/p/Dd_qG-Iio-L/)",
-      "ajout": "2026-11-25"
+      "format": "Carrousel « place ton groupe sur le tableau » version Côte d'Azur",
+      "pourquoi": "Situation où chacun se reconnaît et tague son groupe, envoyé en message privé.",
+      "source": "https://www.instagram.com/p/Df40odgm5q-/ (partiful)",
+      "ajout": "2026-11-26"
     },
     {
-      "format": "Édition techno ciblée (tekno, hard techno, trance) avec question « laquelle tu fais »",
-      "pourquoi": "Meilleur score du bot hors veille, commentaires et partages.",
-      "source": "Édition Tekno du 12/11 : 95/100, 8 partages",
-      "ajout": "2026-11-25"
+      "format": "Reel question de 7 à 15 s sur une galère de décision",
+      "pourquoi": "« Tu sais jamais où sortir le soir ? » : 68/100, 3 partages ; le « pourquoi entrée gratuite avant 1h » : 4 partages.",
+      "source": "Chiffres du compte 13/11 et 19/11",
+      "ajout": "2026-11-26"
     },
     {
-      "format": "Reel question utile « où sortir / combien / comment rentrer »",
-      "pourquoi": "Les reels qui répondent à une vraie galère se partagent, les sketchs génériques non.",
-      "source": "Reel « Tu sais jamais où sortir le soir ? » 68/100 et « entrée gratuite avant 1h » 51/100",
-      "ajout": "2026-11-25"
+      "format": "Trial Reel : même reel, 2 accroches testées auprès des non-abonnés",
+      "pourquoi": "Valide l'accroche sans peser sur la portée des abonnés ; utile vu le faible volume par format.",
+      "source": "https://creatorflow.so/blog/instagram-algorithm",
+      "ajout": "2026-11-26"
     }
   ],
   "inspirations_internationales": {
