@@ -4,11 +4,11 @@
  "total": {
   "anthropic": 29,
   "gemini": 284,
-  "groq": 1379,
+  "groq": 1389,
   "tavily": 101
  },
  "aujourdhui": {
-  "groq": 109
+  "groq": 119
  },
  "euros_jour": 0,
  "euros_mois": 9.164,
