@@ -1,14 +1,22 @@
 {
-  "jour": "2026-11-25",
+  "jour": "2026-11-26",
   "plan": [
     {
-      "type": "question",
+      "type": "soirees",
       "cles": [
-        "d-ia-2026-11-21-19oj49s"
+        "The Show Club Sonore - Nice",
+        "The Brand New Heavies & GoGo Penguin (Monte-Carlo Jazz Festival)",
+        "Jerrycans Release Party @ Frigo 16"
       ],
       "frames": [
         {
-          "image": "2026-11-25-question.jpg"
+          "image": "2026-11-26-soirees-0.jpg"
+        },
+        {
+          "image": "2026-11-26-soirees-1.jpg"
+        },
+        {
+          "image": "2026-11-26-soirees-2.jpg"
         }
       ]
     }
