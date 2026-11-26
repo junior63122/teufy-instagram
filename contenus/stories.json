@@ -770,5 +770,22 @@
   "absentes": [],
   "manquantes": [],
   "le": "2026-11-26T18:22:55.262Z"
+ },
+ {
+  "jour": "2026-11-26",
+  "type": "question",
+  "cles": [
+   "q-retour"
+  ],
+  "ids": [
+   "18171669775486946"
+  ],
+  "faites": [
+   0
+  ],
+  "relue": true,
+  "absentes": [],
+  "manquantes": [],
+  "le": "2026-11-26T19:11:38.038Z"
  }
 ]
