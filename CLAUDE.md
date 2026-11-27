@@ -120,8 +120,8 @@
   le directeur met le même son, démarré au même endroit, et le son d'origine à 0) + couverture `couverture-reel`. Jamais de
   bouteille ni d'alcool mis en avant, jamais de lieu inventé (les vidéos ne viennent pas forcément de la Côte : accroches
   générales). Musiques du commerce : jamais recopiées dans le dépôt (seulement l'extrait de 13 s du montage) ; vidéos brutes du
-  Drive : jamais dans ce dépôt public ni ses « releases » (visages) ; sauvegarde dans un espace privé seulement, à choisir par
-  le directeur. Seuls les montages finis, destinés à être publiés, vont dans `media/tiktok/`.
+  Drive : jamais dans ce dépôt public ni ses « releases » (visages) ; sauvegarde privée : dossier Drive « Teufy / Sauvegarde vidéos de
+  soirée (Claude) » (`config.json` `drive.sauvegarde`, 27/11/2026), complétée par Claude avec le connecteur Google Drive. Seuls les montages finis, destinés à être publiés, vont dans `media/tiktok/`.
 - **Veille quotidienne** (directeur, 20/11/2026 : « surveille toutes les mises à jour de tout ce qu'on utilise pour ne jamais être
   pris de cours ; une fois par jour ; en cas de souci, répare sans me demander » ; idem pour les règles des réseaux sociaux et pour
   les soirées : « qu'il ne manque jamais d'informations » ; « connecte toutes les billetteries utiles ») : le robot

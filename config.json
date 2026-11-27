@@ -671,7 +671,9 @@
   "_drive": "Dossiers Drive du directeur (22/11/2026) : vidéos de soirée (accord des créateurs obtenu par le directeur) et musiques (repères de rythme). Relevés chaque jour par src/drive.mjs (robot Veille technique).",
   "drive": {
     "videos": "16lDzJQr_L-AQfcmsDEWE3at4hHv-LT7u",
-    "musique": "1r9pcDqHsNDR6ylO2qatsPocWtQygWD4M"
+    "musique": "1r9pcDqHsNDR6ylO2qatsPocWtQygWD4M",
+    "sauvegarde": "14GD5M4WWkPI0l0fUGyou9gIQ1bDat2XG",
+    "_sauvegarde": "27/11/2026 (directeur) : sauvegarde privée des vidéos de soirée, dossier « Sauvegarde vidéos de soirée (Claude) » dans le dossier Drive « Teufy ». Copie faite par Claude avec le connecteur Google Drive (le robot GitHub n'a pas d'accès en écriture au Drive) ; les nouvelles vidéos y sont copiées lors des sessions de Claude (veille quotidienne)."
   },
   "_planning_23_11_2026": "23/11/2026 (directeur : « la dernière publication date d'il y a deux jours, c'est absolument pas normal ») : un post chaque dimanche (créneau libre), et jamais un jour sans publication dans le fil (un jour vide reçoit un post libre).",
   "_planning_24_11_2026": "24/11/2026 (analyse complète des publications, ANALYSE-ENGAGEMENT.md) : 1 seul spot promo par semaine (mercredi) au lieu de 2 ; le samedi passe en reel « tendance » (meilleur reel du robot : 1 140 vues, 6,8 s regardées ; spots promo : 268 à 524 vues, 3 à 4 s sur 13). Carrousel « commercial » : titres concrets (Ton week-end est réglé…) au lieu de « Nos coups de cœur » (355 comptes touchés, le pire) ; en décembre, « Les soirées du Nouvel An » une fois par semaine dès 4 soirées du 31 avec affiche (Nouvel An 2025 : 3 900 comptes touchés, 58 partages).",
