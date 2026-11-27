@@ -1,5 +1,5 @@
 {
- "le": "2026-11-27T13:12:54.475Z",
+ "le": "2026-11-27T14:12:44.449Z",
  "jours": [
   {
    "date": "2026-11-27",
@@ -43,9 +43,9 @@
    "pause": null,
    "publications": [
     {
-     "id": "reel-tendance",
-     "type": "reel",
-     "variante": "tendance",
+     "id": "pret-2026-11-28-reel-samedi",
+     "type": "pret",
+     "variante": "2026-11-28-reel-samedi",
      "heure": "20 h 07",
      "suite": false,
      "fait": false,
