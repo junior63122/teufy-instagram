@@ -12,3 +12,10 @@ test('formats de secours disponibles dès la boucle principale (pas de constante
   assert.match(corps, /const SECOURS = \[/, 'la liste doit être déclarée dans la fonction');
   assert.ok(!/^const SECOURS\b/m.test(s), 'aucune constante SECOURS au niveau du module');
 });
+
+// 27/11/2026 : jamais un format arrêté (spots promo, « Tague ton pote ») en secours.
+test('secours : aucun format arrêté par le directeur', () => {
+  const s = readFileSync(new URL('../src/run.mjs', import.meta.url), 'utf8');
+  const ligne = s.match(/const SECOURS = \[[^\n]*\];/)[0];
+  assert.doesNotMatch(ligne, /spot-promo|tague-ton-pote|promo'/);
+});

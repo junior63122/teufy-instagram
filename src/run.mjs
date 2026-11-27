@@ -440,7 +440,9 @@ async function prepareSecours(j, id, erreur) {
   // 23/11/2026 : la liste était une constante déclarée après la boucle principale (« Cannot access 'SECOURS' before
   // initialization ») : aucun secours ne partait et le post du jour sautait. Elle est maintenant dans la fonction.
   // 25/11/2026 : plus de spot promo en secours (directeur : « on avait dit qu'on arrêtait les réels comme ça »).
-  const SECOURS = [{ type: 'incontournables', variante: 'commercial' }, { type: 'bonplan', variante: 'petits-prix' }, { type: 'reel', variante: 'tague-ton-pote' }];
+  // 27/11/2026 : le carrousel du vendredi n'a pas trouvé 3 affiches officielles et le secours a publié un « Tague ton pote »,
+  // format arrêté le jour même. Plus aucun format arrêté en secours : d'autres carrousels de soirées, puis le guide d'adresses.
+  const SECOURS = [{ type: 'incontournables', variante: 'commercial' }, { type: 'bonplan', variante: 'petits-prix' }, { type: 'bonplan', variante: 'a-reserver' }, { type: 'incontournables', variante: 'techno' }, { type: 'guide' }];
   let derniere = erreur;
   for (const sl of SECOURS) {
     if (sl.type === j.slot.type && sl.variante === j.slot.variante) continue;
