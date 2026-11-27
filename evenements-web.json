@@ -5873,6 +5873,27 @@
       "instagram": [
         "_lestocards_"
       ]
+    },
+    {
+      "source": "web",
+      "source_site": "instagram.com",
+      "via_veille": true,
+      "name": "Ballet Les Quatre Saisons",
+      "start": "2027-03-25T19:00:00.000Z",
+      "venue": "Palais Nikaïa",
+      "city": "Nice",
+      "address": "",
+      "url": "https://www.nikaia.fr",
+      "image": "https://scontent-iad3-2.cdninstagram.com/v/t51.82787-15/930827606_18452680723131431_4271308315983926084_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=108&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=MI0iD0yqKH4Q7kNvwE7Xvas&_nc_oc=AdoIs9I1mNr7a1Mt4p9UQD4OzfkBp9pOOPvl8YIbJ1aaa28TPxNX310XRhVBqyPfc1s&_nc_zt=23&_nc_ht=scontent-iad3-2.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=pxhEavrIkwiWHz8Spi1WlA&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQUxXBC_AVRoRkvkFBTdO6dwapP5YTKLmEXwyH8jD9zCCA&oe=6B0F2CAF",
+      "price": null,
+      "tags": [],
+      "description": "",
+      "public_cible": 0.6,
+      "confiance": 0.8,
+      "accroche": "Ballet inspiré des Quatre Saisons d'Antonio Vivaldi le 25 mars 2027.",
+      "instagram": [
+        "palaisnikaia"
+      ]
     }
   ],
   "maj_instagram": "2026-11-27T11:12:38.628Z",
