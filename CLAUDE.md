@@ -137,7 +137,12 @@
   `outils/PROMPT-PARCOURS-BOTS.md` (parcours clients `outils/tester-clients.cjs` + fiabilisation des bots) : **les trois chaque
   lundi, avec 10 000 parcours clients** (`CLIENTS=10000`, directeur, 27/11/2026). **Un contrôle n'est jamais coupé** (directeur,
   27/11/2026 : « si je te demande quelque chose entre-temps, tu dois continuer le contrôle après ») : répondre, puis reprendre le
-  contrôle là où il en était et le finir jusqu'au rapport. Rapports datés dans `audits/AAAA-MM-JJ.md`, registre maître `audits/REGISTRE.md`. États explicites
+  contrôle là où il en était et le finir jusqu'au rapport.
+  **Outils ajoutés le 27/11/2026** (directeur : « mets en place la veille avec les nouveaux outils utiles et corrige quand ils notent
+  des choses à corriger ») : chaque lundi, compétences `seo-audit:seo-audit`, `seo-audit:technical-seo-code-audit`,
+  `seo-aeo-geo-ultimate:seo-geo`, `claude-site-audit:site-audit`, `design:accessibility-review`, revue de sécurité du code ;
+  le mardi et le vendredi, `marketing:competitive-brief` et `marketing:performance-report` ; chaque matin, connecteur Google Drive
+  (sauvegarde des vidéos). Tout constat est rejoué, puis corrigé avec un test qui l'aurait détecté ; outil absent : le dire. Rapports datés dans `audits/AAAA-MM-JJ.md`, registre maître `audits/REGISTRE.md`. États explicites
   (SUCCESS_VERIFIED, PENDING_VERIFICATION, FAILED, PARTIAL_SUCCESS, UNKNOWN, BLOCKED) ; jamais de note gonflée ; les 1 000 clients
   sont des simulations, pas des tests humains (toujours le dire). Modification importante du site → audit du site ; des bots ou des
   parcours → prompt parcours et bots (au moins la partie concernée). Jamais de publication Instagram pendant un audit.
