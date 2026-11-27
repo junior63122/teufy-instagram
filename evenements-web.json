@@ -6409,6 +6409,54 @@
       "instagram": [
         "phoenixevent06"
       ]
+    },
+    {
+      "source": "web",
+      "source_site": "instagram.com",
+      "via_veille": true,
+      "name": "Slackreb Live Set",
+      "start": "2026-12-12T21:00:00.000Z",
+      "venue": "Green Musik, Antibes",
+      "city": "Antibes",
+      "address": "",
+      "url": "https://www.instagram.com/p/DgNnPcdiHyW/",
+      "image": "https://scontent-ord5-1.cdninstagram.com/v/t51.82787-15/933209981_17958199914300142_3415519293144837644_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=107&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=lpoSuO4RZnQQ7kNvwG6qIoK&_nc_oc=AdrE2sOVVCeBNk_GOWMuOfTpJgK1rVvy5V58KWkFv4K3gumdY9W6xxhOHNRAe3hgiK4&_nc_zt=23&_nc_ht=scontent-ord5-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=xoGCn_aQjm1sc-QuCKk7Yg&_nc_ct=RQosPBUKFQoAAAA&oh=00_AQVlHFyuAkTNIYNC9DlbpGpaLb9DQJMzF2IuPhPcLrMP8Q&oe=6B0F010A",
+      "price": 12,
+      "tags": [
+        "Techno",
+        "Acid"
+      ],
+      "description": "",
+      "public_cible": 0.6,
+      "confiance": 0.8,
+      "accroche": "Slackreb en live au Green Musik d'Antibes le 12 décembre.",
+      "instagram": [
+        "_lestocards_"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "instagram.com",
+      "via_veille": true,
+      "name": "Welcome To DEMAYÄ",
+      "start": "2026-12-11T22:00:00.000Z",
+      "venue": "La Nonchalance, Monaco",
+      "city": "Monaco",
+      "address": "",
+      "url": "https://www.instagram.com/p/DgNlL1fo0av/",
+      "image": "https://scontent-ord5-2.cdninstagram.com/v/t51.82787-15/927983263_18657898396041727_8087104827051796431_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=110&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=zaYdgUJam8MQ7kNvwEykdpC&_nc_oc=AdrxPRxNQUWMOPLCX299M_kmrerYfvhhlhyDqsbPMynnlGjtOgS3rPX6rzKohdJMyxE&_nc_zt=23&_nc_ht=scontent-ord5-2.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=Z6cDI-L50L_f7jFHlnQVyA&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQXAK0nzZygP_xyrb-MzsvRPKJZsHxQYXSGViHUflAMDig&oe=6B0F259C",
+      "price": 15,
+      "tags": [
+        "Techno",
+        "Melodic"
+      ],
+      "description": "",
+      "public_cible": 0.6,
+      "confiance": 0.8,
+      "accroche": "DEMAYÄ, BLACK COFFEE & TWIGA à La Nonchalance le 11 décembre.",
+      "instagram": [
+        "lanonchalance"
+      ]
     }
   ],
   "maj_instagram": "2026-11-26T22:12:51.123Z",
