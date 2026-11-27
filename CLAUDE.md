@@ -133,9 +133,11 @@
 - **Protocoles qualité du directeur** (20/11/2026 : « chaque semaine, applique le prompt 3 ; toutes les semaines, ajoute en
   alternance le prompt 1 puis le prompt 2, en mode récurrent ; après chaque modification importante du site ou des bots, applique
   aussi le prompt concerné ; tu as tous les droits pour les exécuter et mettre en œuvre ce que les analyses diront ») :
-  `outils/PROMPT-VEILLE-HEBDO.md` (veille hebdomadaire, chaque lundi), `outils/PROMPT-AUDIT.md` (audit intégral du site, semaines
-  ISO paires) et `outils/PROMPT-PARCOURS-BOTS.md` (1 000 parcours clients `outils/tester-clients.cjs` + fiabilisation des bots,
-  semaines ISO impaires). Rapports datés dans `audits/AAAA-MM-JJ.md`, registre maître `audits/REGISTRE.md`. États explicites
+  `outils/PROMPT-VEILLE-HEBDO.md` (veille hebdomadaire), `outils/PROMPT-AUDIT.md` (audit intégral du site) et
+  `outils/PROMPT-PARCOURS-BOTS.md` (parcours clients `outils/tester-clients.cjs` + fiabilisation des bots) : **les trois chaque
+  lundi, avec 10 000 parcours clients** (`CLIENTS=10000`, directeur, 27/11/2026). **Un contrôle n'est jamais coupé** (directeur,
+  27/11/2026 : « si je te demande quelque chose entre-temps, tu dois continuer le contrôle après ») : répondre, puis reprendre le
+  contrôle là où il en était et le finir jusqu'au rapport. Rapports datés dans `audits/AAAA-MM-JJ.md`, registre maître `audits/REGISTRE.md`. États explicites
   (SUCCESS_VERIFIED, PENDING_VERIFICATION, FAILED, PARTIAL_SUCCESS, UNKNOWN, BLOCKED) ; jamais de note gonflée ; les 1 000 clients
   sont des simulations, pas des tests humains (toujours le dire). Modification importante du site → audit du site ; des bots ou des
   parcours → prompt parcours et bots (au moins la partie concernée). Jamais de publication Instagram pendant un audit.
