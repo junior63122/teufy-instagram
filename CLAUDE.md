@@ -82,8 +82,8 @@
   2-3 jours vérifie les chiffres, vois ce que font les concurrents et prends des mesures de toi-même ; respecte toujours le design
   de la grille ; ~~minimum 1 réel de promotion de Teufy par semaine~~ (levé le 25/11) ; les soirées tekno fonctionnent ; analyse bien les concurrents »).
   Tâche programmée (mardi et vendredi) : chiffres (`apprentissage.json`, `RAPPORT.md`), comptes comparables (`tendances-auto.json`,
-  `contenus/tendances.json`), décisions écrites dans `ANALYSE-ENGAGEMENT.md` (journal daté), planning dans `config.json`, stock de
-  vidéos prêtes (spots, « Tague ton pote ») tenu à 2 semaines d'avance. Ce qui marche le mieux (20/11) : actus « un nom vient de
+  `contenus/tendances.json`), décisions écrites dans `ANALYSE-ENGAGEMENT.md` (journal daté), planning dans `config.json`, plus de stock de
+  spots ni de « Tague ton pote » (arrêtés les 25 et 27/11, trop peu vus). Ce qui marche le mieux (20/11) : actus « un nom vient de
   tomber », techno / Tekno, concours, posts où l'on se reconnaît et où l'on tague. Légendes sans emoji (`nettoyerLegende`).
 - **Groq** (IA gratuite, secret `GROQ_API_KEY`, 20/11/2026 ; directeur : « aide-toi d'elle sur tout ce qui te semble pertinent,
   sauf les commentaires Instagram ») : secours gratuit de Gemini partout (veille et actus avec recherche web, vérification des

@@ -144,3 +144,26 @@ Décisions :
 2. Le spot 06 est parti à 0 h 55 (passage de GitHub lancé en retard à 23 h 50 UTC) : après minuit, la limite de 21 h 30
    ne bloquait plus. Ajout d'une heure minimale (12 h à Paris) : plus aucune publication la nuit.
 3. « Tague ton pote » (222 vues) reste en observation une semaine : s'il reste sous 400 vues, il est remplacé.
+
+## 27/11/2026 : revue de croissance (mardi/vendredi)
+
+Chiffres (apprentissage.json, comptes touchés) :
+- Abonnés : 14 441 le 19/11, 14 419 le 26/11 (environ 3 de moins par jour, comme avant).
+- La portée de tout le compte baisse : carrousel bon plan du 18/11 1 450, « À réserver » du 24/11 188 ; réels du robot entre 172 et 461.
+- « Tague ton pote » (24/11) : 246 vues, 172 comptes touchés, 2,1 s regardées en moyenne, 0 partage : sous le seuil de 400 vues.
+- Post d'actu « Glorious » (25/11) : 216 comptes touchés. Carrousel « petits prix » du 25/11 et publications du 26/11 : pas encore mesurés.
+- Le doublon du 25/11 apparaît comme une publication « manuel » dans le relevé (non comptée dans les moyennes du robot).
+
+Comptes comparables (tendances-auto.json du 26/11) : le carrousel domine largement (score moyen 642 contre 12 pour les réels,
+sur 195 et 278 publications) ; les clubs de Nice (Down Town, Uptown) publient 1 à 2 fois par semaine, surtout des images et
+carrousels de leurs propres soirées, environ 2 % de j'aime par abonné. Beaucoup de comptes de la liste ne sont plus lisibles par
+l'API (comptes non professionnels) : à remplacer à la prochaine revue.
+
+Hypothèse : trop de publications faibles font baisser la diffusion de tout le compte ; mieux vaut moins de publications, plus utiles.
+
+Mesures prises :
+1. « Tague ton pote » retiré (mardi) : le mardi n'a plus que le carrousel « à réserver ». Plus de « Tague ton pote » à produire.
+2. Restent 3 réels par semaine (lundi et samedi « tendance », jeudi « viral ») et les carrousels bon plan, techno et commercial.
+
+À mesurer mardi 1er/12 : carrousel « petits prix » du 25/11 (objectif : plus de 1 000 comptes touchés), réels du lundi et du samedi
+(s'ils restent sous 400 vues, on passe à 2 réels par semaine), courbe des abonnés.
