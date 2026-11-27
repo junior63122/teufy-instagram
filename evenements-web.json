@@ -7,6 +7,39 @@
   "evenements": [
     {
       "source": "web",
+      "source_site": "Instagram",
+      "name": "Welcome To DEMAYÄ",
+      "start": "2026-12-10T23:00:00.000Z",
+      "venue": "La Nonchalance",
+      "city": "Nice",
+      "address": "",
+      "url": "https://www.instagram.com/p/DgNlL1fo0av/",
+      "image": "https://scontent-ord5-2.cdninstagram.com/v/t51.82787-15/927983263_18657898396041727_8087104827051796431_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=110&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=zaYdgUJam8MQ7kNvwGNIdVi&_nc_oc=AdoNGYNQgmRSrm0rRcwIcmrIcuR_LkHQ8LQVgAK2kFKzw_AaBsHay3L47vfkW8EBMWk&_nc_zt=23&_nc_ht=scontent-ord5-2.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=E7WaOOhzIiV26JeuJGnpDw&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQUvcZ23d9Lrcf14A0G6en-W0PEiabP1kQ3oEZ-D6hMJcw&oe=6B0F259C",
+      "price": 15,
+      "tags": [
+        "techno",
+        "house",
+        "Techno",
+        "Melodic"
+      ],
+      "description": "Le 11 décembre, La Nonchalance à Nice accueille DEMAYÄ, l'artiste qui a séduit les dancefloors du monde avec son track « YOU ARE ». En soutien, Black Coffee et d'autres DJs feront vibrer la piste. Ambiance haut de gamme, son techno/house puissant, et une soirée qui promet d'aller au-delà de l'ordinaire. L'entrée est libre, mais prépare-toi à danser jusqu'au petit matin. Dress code libre, l'âge minimum est de 18 ans.",
+      "public_cible": 0.9,
+      "confiance": 0.8,
+      "buzz": 0.6,
+      "buzz_raison": "Tête d'affiche DEMAYÄ reconnue, soutien de Black Coffee, soirée dans un club réputé de Nice.",
+      "accroche": "DEMAYÄ débarque à La Nonchalance pour une nuit au son signature, soutenu par Black Coffee et plus.",
+      "instagram": [
+        "lanonchalance"
+      ],
+      "via_veille": true,
+      "offres": [],
+      "sources_sites": [
+        "Instagram",
+        "instagram.com"
+      ]
+    },
+    {
+      "source": "web",
       "source_site": "Instagram (lebarathymtoulon)",
       "name": "PROVOK & CHRISTIAN SIMS @ Le Bar à Thym",
       "start": "2026-11-28T22:00:00.000Z",
@@ -5840,32 +5873,8 @@
       "instagram": [
         "_lestocards_"
       ]
-    },
-    {
-      "source": "web",
-      "source_site": "instagram.com",
-      "via_veille": true,
-      "name": "Welcome To DEMAYÄ",
-      "start": "2026-12-11T22:00:00.000Z",
-      "venue": "La Nonchalance, Monaco",
-      "city": "Monaco",
-      "address": "",
-      "url": "https://www.instagram.com/p/DgNlL1fo0av/",
-      "image": "https://scontent-ord5-2.cdninstagram.com/v/t51.82787-15/927983263_18657898396041727_8087104827051796431_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=110&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=zaYdgUJam8MQ7kNvwEykdpC&_nc_oc=AdrxPRxNQUWMOPLCX299M_kmrerYfvhhlhyDqsbPMynnlGjtOgS3rPX6rzKohdJMyxE&_nc_zt=23&_nc_ht=scontent-ord5-2.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=Z6cDI-L50L_f7jFHlnQVyA&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQXAK0nzZygP_xyrb-MzsvRPKJZsHxQYXSGViHUflAMDig&oe=6B0F259C",
-      "price": 15,
-      "tags": [
-        "Techno",
-        "Melodic"
-      ],
-      "description": "",
-      "public_cible": 0.6,
-      "confiance": 0.8,
-      "accroche": "DEMAYÄ, BLACK COFFEE & TWIGA à La Nonchalance le 11 décembre.",
-      "instagram": [
-        "lanonchalance"
-      ]
     }
   ],
-  "maj_instagram": "2026-11-27T10:12:55.858Z",
+  "maj_instagram": "2026-11-27T11:12:38.628Z",
   "echec_web": "2026-11-27T09:12:46.543Z"
 }

@@ -1,5 +1,5 @@
 {
- "le": "2026-11-27T10:12:55.917Z",
+ "le": "2026-11-27T11:12:38.810Z",
  "jours": [
   {
    "date": "2026-11-27",
@@ -166,15 +166,6 @@
      "id": "bonplan-a-reserver",
      "type": "bonplan",
      "variante": "a-reserver",
-     "heure": "20 h 07",
-     "suite": false,
-     "fait": false,
-     "lien": null
-    },
-    {
-     "id": "reel-tague-ton-pote",
-     "type": "reel",
-     "variante": "tague-ton-pote",
      "heure": "20 h 07",
      "suite": false,
      "fait": false,
@@ -453,15 +444,6 @@
      "type": "bonplan",
      "variante": "a-reserver",
      "heure": "17 h 07",
-     "suite": false,
-     "fait": false,
-     "lien": null
-    },
-    {
-     "id": "reel-tague-ton-pote",
-     "type": "reel",
-     "variante": "tague-ton-pote",
-     "heure": "19 h 07",
      "suite": false,
      "fait": false,
      "lien": null
