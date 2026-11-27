@@ -222,7 +222,11 @@ export function nuitDeLAffiche(e, lu = {}) {
   const dates = (lu.dates || []).filter((d) => /^\d{4}-\d{2}-\d{2}$/.test(d)); if (dates.length !== 1) return false;
   const t = Date.parse(e.start); if (!t) return false;
   const p = Object.fromEntries(new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Paris', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', hourCycle: 'h23' }).formatToParts(new Date(t)).map((x) => [x.type, x.value]));
-  if (`${p.year}-${p.month}-${p.day}` !== dates[0] || +p.hour >= 6) return false;
+  // 27/11/2026 (audit) : « minuit » saisi 23h59 la veille de la seule date de l'affiche (« Spicy Saturday », affiche du 28,
+  // fiche au 27 à 23h59) : la soirée est celle de l'affiche.
+  const lendemain = new Date(Date.parse(`${p.year}-${p.month}-${p.day}T12:00:00Z`) + 864e5).toISOString().slice(0, 10);
+  const minuitVeille = p.hour === '23' && new Date(t).getUTCMinutes() === 59 && lendemain === dates[0];
+  if (!minuitVeille && (`${p.year}-${p.month}-${p.day}` !== dates[0] || +p.hour >= 6)) return false;
   const nom = motsAffiche(`${e.name} ${(e.artistes || []).join(' ')}`), titre = motsAffiche([lu.titre, ...(lu.artistes || [])].join(' '));
   for (const m of motsAffiche(`${e.venue || ''} ${e.city || ''}`)) { nom.delete(m); titre.delete(m); }
   return [...titre].some((m) => nom.has(m));
@@ -983,7 +987,7 @@ export async function construireSite({ events, eventsFrance = [], eventsOccitani
   // l'ignorent ne peuvent être bloqués qu'en amont (pare-feu type Cloudflare), pas par GitHub Pages.
   const prives = ['/out/', '/apercus/', '/livrables/', '/tests/', '/studio/', '/veille/', '/tiktok/', '/pilotage/'];
   const CITENT = ['Googlebot', 'Bingbot', 'DuckDuckBot', 'Applebot', 'YandexBot', 'OAI-SearchBot', 'ChatGPT-User', 'Claude-SearchBot', 'Claude-User', 'PerplexityBot', 'Perplexity-User', 'MistralAI-User', 'DuckAssistBot'];
-  const ENTRAINENT = ['GPTBot', 'ClaudeBot', 'anthropic-ai', 'Google-Extended', 'Applebot-Extended', 'CCBot', 'Bytespider', 'meta-externalagent', 'Meta-ExternalAgent', 'FacebookBot', 'cohere-ai', 'cohere-training-data-crawler', 'Diffbot', 'Omgilibot', 'Timpibot', 'ImagesiftBot', 'PetalBot', 'Amazonbot', 'AI2Bot', 'Ai2Bot-Dolma', 'img2dataset', 'Scrapy', 'DataForSeoBot', 'magpie-crawler', 'webzio-extended', 'PanguBot', 'Kangaroo Bot', 'Sidetrade indexer bot', 'SemrushBot-OCOB', 'iaskspider/2.0', 'VelenPublicWebCrawler', 'QualifiedBot', 'TurnitinBot', 'Brightbot 1.0'];
+  const ENTRAINENT = ['GPTBot', 'ClaudeBot', 'anthropic-ai', 'Google-Extended', 'Applebot-Extended', 'CCBot', 'Bytespider', 'meta-externalagent', 'Meta-ExternalAgent', 'FacebookBot', 'cohere-ai', 'cohere-training-data-crawler', 'Diffbot', 'Omgilibot', 'Timpibot', 'ImagesiftBot', 'Amazonbot', 'AI2Bot', 'Ai2Bot-Dolma', 'img2dataset', 'Scrapy', 'DataForSeoBot', 'magpie-crawler', 'webzio-extended', 'PanguBot', 'Kangaroo Bot', 'Sidetrade indexer bot', 'SemrushBot-OCOB', 'iaskspider/2.0', 'VelenPublicWebCrawler', 'QualifiedBot', 'TurnitinBot', 'Brightbot 1.0'];
   await writeFile(path.join(ROOT, 'robots.txt'), [
     '# Teufy : moteurs de recherche et assistants qui citent leurs sources bienvenus ; entraînement d\'IA refusé.',
     ...['*', ...CITENT].map((a) => `User-agent: ${a}\nAllow: /\n${prives.map((d) => `Disallow: ${d}`).join('\n')}\n`),
@@ -1178,8 +1182,12 @@ const GALERIE = [];
 const DIAPORAMA = ['danse', 'rooftop', 'selfie'];
 const nombre = (p, t) => new Intl.NumberFormat(t.locale, { maximumFractionDigits: 2 }).format(p);
 const prixTexte = (p, t) => (p == null ? '' : p === 0 ? t.gratuit : t.des(nombre(Math.round(p * 100) / 100, t)));
+// 27/11/2026 (audit SEO) : hors français, « 00:00 » faisait croire à la nuit d'avant ; le mot « minuit » est traduit.
+// « à Nice » dans les titres des pages lieux (27/11/2026 : « 夜店 à Nice » en chinois).
+const PREP_A = { fr: 'à', en: 'in', it: 'a', es: 'en', zh: '·', ar: 'في' };
+const MINUIT = { fr: 'minuit', en: 'midnight', it: 'mezzanotte', es: 'medianoche', zh: '午夜', ar: 'منتصف الليل' };
 // 23h59 = « minuit » saisi par les billetteries pour rester sur la bonne date : affiché « minuit », jamais 23h59.
-const heure = (d, t) => { const x = t.locale === 'fr-FR' ? paris(d, { hour: '2-digit', minute: '2-digit' }).replace(':', 'h') : paris(d, { hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }, t.locale); return /^23[h:]59$/.test(x) ? (t.minuit || (t.locale === 'fr-FR' ? 'minuit' : '00:00')) : x; };
+const heure = (d, t) => { const x = t.locale === 'fr-FR' ? paris(d, { hour: '2-digit', minute: '2-digit' }).replace(':', 'h') : paris(d, { hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }, t.locale); return /^23[h:]59$/.test(x) ? (t.minuit || MINUIT[String(t.locale).slice(0, 2)] || 'minuit') : x; };
 // Date affichée = la nuit de la soirée, comme le classement de l'agenda (23/11/2026 : « jeu 26 » rangé sous « mercredi 25 »).
 const dateCourte = (d, t) => paris(nuit(d), { weekday: 'short', day: 'numeric', month: 'short' }, t.locale).replace(/\.(?=\s|$)/g, '');
 const dateLongue = (d, t) => { const x = paris(nuit(d), { weekday: 'long', day: 'numeric', month: 'long' }, t.locale); return x.charAt(0).toUpperCase() + x.slice(1); };
@@ -2010,7 +2018,7 @@ ${mini(style, esc(t.memeStyle))}
 <p class="retour"><a class="bouton" href="${base}${P}${s.zone === 'occitanie' ? 'occitanie/' : s.zone === 'france' ? 'france/' : '#agenda'}">${esc(s.zone === 'occitanie' ? tr("Toutes les soirées d'Occitanie") : t.toutes)}</a></p>`;
   const rubriqueNav = s.zone === 'occitanie' ? 'occitanie/' : s.zone === 'france' ? null : `${(VILLES_SEO.find((v) => v.cle === s.filtreVille || v.re.test(s.ville || '')) || { slug: '' }).slug}${VILLES_SEO.some((v) => v.cle === s.filtreVille || v.re.test(s.ville || '')) ? '/' : ''}`;
   return gabarit({ rubriqueNav, lang, t, titre: titreCourt([s.nom, dateCourte(s.debut, t), s.lieu || s.ville]), description: `${s.nom}, ${dateLongue(s.debut, t)} ${heure(s.debut, t)}, ${lieu}. ${s.accroche || ''} ${prixTexte(s.prix, t)}`.trim().slice(0, 300), chemin, base, corps, compte, maj,
-    image: s.affiche || 'site/img/equipe/monaco.jpg', ld: [jsonEvent(s, lang), fil(lang, [['Teufy', ''], s.zone === 'occitanie' ? ['Occitanie', 'occitanie/'] : s.zone === 'france' ? [t.franceNav, 'france/'] : [t.agenda, ''], [s.nom, chemin]])] });
+    image: s.affiche || 'site/img/equipe/monaco.jpg', ld: [jsonEvent(s, lang), fil(lang, [['Teufy', ''], s.zone === 'occitanie' ? ['Occitanie', 'occitanie/'] : s.zone === 'france' ? [t.franceNav, 'france/'] : null, [s.nom, chemin]].filter(Boolean))] });
 }
 
 // « Y aller » : parkings, transports, vélos et taxis autour du lieu (OpenStreetMap), plus un itinéraire en transports.
@@ -2334,8 +2342,8 @@ function pageLieu({ lang, t, tr, base, compte, T, chemin, maj, l, soirees, lieux
     address: { '@type': 'PostalAddress', ...(l.adresse ? { streetAddress: l.adresse } : {}), addressLocality: l.ville, addressCountry: /monaco|monte/i.test(l.ville || '') ? 'MC' : 'FR' },
     ...(H && !H.saison ? { openingHoursSpecification: H.plages.map((p) => ({ '@type': 'OpeningHoursSpecification', dayOfWeek: p.j.map((j) => JOURS_SCHEMA[j - 1]), opens: p.de, closes: p.a })) } : {}),
     sameAs: [l.instagram && `https://www.instagram.com/${l.instagram}/`, l.site].filter(Boolean),
-    ...(soirees.length ? { event: soirees.slice(0, 10).map((x) => ({ '@type': 'Event', name: x.nom, startDate: x.debut, url: `${URL_SITE}${pre(lang)}soiree/${x.id}/` })) } : {}) };
-  return gabarit({ lang, t, titre: titreCourt([l.nom, `${tr(type)} à ${l.ville}`, tr('horaires et soirées')]), description: `${l.nom}${l.ville ? `, ${tr(type).toLowerCase()} à ${l.ville}` : ''} : ${tr('ouvert ce soir ?')} ${[(d.horaires || '').replace(/\b23h5[5-9]\b/g, 'minuit'), d.dress_code, d.entree].filter(Boolean).join(' · ') || tr('horaires, prochaines soirées et accès')}. ${soirees.length ? `${pl(soirees.length, 'soirée')} ${tr('à venir')}.` : ''}`.slice(0, 300), chemin, base, corps, compte, maj, rubriqueNav: 'clubs-bars/',
+    ...(soirees.length ? { event: soirees.slice(0, 10).map((x) => ({ '@type': 'Event', name: x.nom, startDate: x.debut, url: `${URL_SITE}${pre(lang)}soiree/${x.id}/`, eventStatus: 'https://schema.org/EventScheduled', location: { '@type': 'Place', name: l.nom, address: { '@type': 'PostalAddress', ...(l.adresse ? { streetAddress: l.adresse } : {}), addressLocality: l.ville, addressCountry: /monaco|monte/i.test(l.ville || '') ? 'MC' : 'FR' } } })) } : {}) };
+  return gabarit({ lang, t, titre: titreCourt([l.nom, `${tr(type)} ${PREP_A[lang] || 'à'} ${l.ville}`, tr('horaires et soirées')]), description: `${l.nom}${l.ville ? `, ${tr(type).toLowerCase()} ${PREP_A[lang] || 'à'} ${l.ville}` : ''} : ${tr('ouvert ce soir ?')} ${[(d.horaires || '').replace(/\b23h5[5-9]\b/g, 'minuit'), d.dress_code, d.entree].filter(Boolean).join(' · ') || tr('horaires, prochaines soirées et accès')}. ${soirees.length ? `${pl(soirees.length, 'soirée')} ${tr('à venir')}.` : ''}`.slice(0, 300), chemin, base, corps, compte, maj, rubriqueNav: 'clubs-bars/',
     ld: [...ldOrganisation(T, compte, t, lang), ld, fil(lang, [['Teufy', ''], [t.lieuxNav, 'clubs-bars/'], [l.nom, chemin]])] });
 }
 

@@ -136,3 +136,12 @@ test('agenda .ics (restant du 23/11) : 23 h 59 = minuit, lignes repliées à 75 
   const l = plierIcs(`DESCRIPTION:${'é'.repeat(100)}`);
   for (const x of l.split('\r\n')) assert.ok(Buffer.byteLength(x) <= 75, x);
 });
+
+// 27/11/2026 (audit SEO) : « minuit » saisi 23h59 la veille de la date de l'affiche → nuit de l'affiche.
+test('minuit (23h59) la veille de la seule date de l affiche : soirée décalée au jour de l affiche', async () => {
+  const { nuitDeLAffiche } = await import('../src/site.mjs');
+  const e = { name: 'Spicy Saturday', start: '2026-11-27T22:59:00.000Z', venue: 'Honey Club', city: 'Juan-les-Pins' };
+  assert.equal(nuitDeLAffiche(e, { titre: 'Spicy', dates: ['2026-11-28'] }), true);
+  assert.equal(nuitDeLAffiche({ ...e, start: '2026-11-27T21:00:00.000Z' }, { titre: 'Spicy', dates: ['2026-11-28'] }), false);
+  assert.equal(nuitDeLAffiche(e, { titre: 'Autre soirée', dates: ['2026-11-28'] }), false);
+});

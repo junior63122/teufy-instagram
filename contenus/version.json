@@ -2,6 +2,17 @@
  "_note": "Numéro de version affiché en pied de page du site et sur /mises-a-jour/ (directeur, 19/11/2026 : format « 1.13.02 », comme Minecraft). Règle : correction(s) seulement → dernier nombre +1 (1.13.02 → 1.13.03) ; nouvelle fonctionnalité → nombre du milieu +1 et le dernier revient à 01 (1.13.02 → 1.14.01) ; énorme fonctionnalité ou grosse refonte → premier nombre +1 (1.13.02 → 2.01.01). La plus récente en premier. Le site n'affiche que « titre » et « public » : phrases simples pour les visiteurs, sans détail technique ni nom de prestataire (directeur, 20/11/2026). « notes » reste interne. « titre » : 28 caractères au plus (il s'affiche en entier dans le bandeau « Nouveau » sur téléphone).",
  "versions": [
   {
+   "numero": "1.20.04",
+   "date": "2026-11-27",
+   "titre": "Dates et heures plus justes",
+   "public": [
+    "Les soirées qui commencent à minuit affichent « minuit » dans toutes les langues, et une soirée annoncée pour le samedi n'apparaît plus le vendredi."
+   ],
+   "notes": [
+    "Audit SEO du 27/11 (outil seo-audit) : « 00:00 » hors français remplacé par minuit traduit ; « minuit » 23h59 la veille de la seule date de l'affiche → nuit de l'affiche (Spicy Saturday 27 → 28) ; schéma des pages lieux : lieu (location) et statut pour chaque soirée ; titres des pages lieux sans « à » français ; fil d'Ariane des soirées sans niveau en double ; PetalBot (moteur de recherche) autorisé. Restent : dates du plan du site toutes à la date du jour, offres « en stock » d'office, image du schéma des actus."
+   ]
+  },
+  {
    "numero": "1.20.03",
    "date": "2026-11-26",
    "titre": "Ce soir : le bon compte",
