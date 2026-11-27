@@ -4,6 +4,22 @@ Journal daté (le plus récent en premier) : changements des prestataires et des
 mises à jour, sources de soirées réparées ou ajoutées, décisions prises. Tenu par la tâche programmée quotidienne
 (demande du directeur du 20/11/2026), à partir de `contenus/veille-technique.json` et des annonces officielles.
 
+## 27/11/2026 : premier passage des nouveaux outils (directeur : « corrige quand ils notent des choses à corriger »)
+- Référencement et visibilité dans les IA (seo-audit, seo-geo) : 10 constats. Corrigés : « 00:00 » hors français (soirées à minuit
+  affichées la veille) → « minuit » traduit ; « minuit » saisi 23h59 la veille de la date de l'affiche → nuit de l'affiche (Spicy
+  Saturday passée du 27 au 28) ; lieu de chaque soirée dans le schéma des pages lieux ; titres des pages lieux traduits ; fil
+  d'Ariane sans niveau en double ; PetalBot (moteur de recherche) autorisé ; offres plus marquées « en stock » d'office.
+  Restants : dates du plan du site toutes au jour même, image du schéma des actus. Google-Extended reste bloqué (refus de
+  l'entraînement ; peut empêcher Gemini de citer le site, sans effet sur la recherche Google).
+- Accessibilité (accessibility-review, site-audit, axe-core) : 12 constats. Corrigés : feuille des filtres du téléphone sans nom et
+  sans piège du focus (haute) ; Échap dans un filtre perdait le focus ; anneau de focus corail illisible sur les cartes crème
+  (2,2:1) ; mini-carte déclarée « image » alors qu'elle contient des boutons. Restants (basse) : bandeau défilant sans pause,
+  bordure du champ de recherche, bandeau « Nouveau » hors des repères, « Fermer » du menu sans la touche Espace.
+- Sécurité du code : 3 constats, tous corrigés : nom de ville échappé dans la page (app.js), offres du comparateur en https
+  seulement, images vérifiées (signature) et ffmpeg limité aux fichiers locaux. Aucun secret dans le code ni l'historique.
+- Vérifié : npm test (195), 12 scénarios rejoués sur le site reconstruit, test des données piégées (offres piégées ajoutées) :
+  0 faille.
+
 ## 27/11/2026 : veille quotidienne
 - Relevé technique : celui de 6 h 17 pas encore passé à 7 h 50 ; relevé d'hier (16 h 20) lu.
 - API Instagram : v27.0 toujours la plus récente, Teufy reste en v26.0 (publications d'hier relues en ligne et conformes) ;
