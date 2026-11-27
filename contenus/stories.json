@@ -804,5 +804,28 @@
   "absentes": [],
   "manquantes": [],
   "le": "2026-11-26T21:11:22.045Z"
+ },
+ {
+  "jour": "2026-11-27",
+  "type": "soirees",
+  "cles": [
+   "Phaphane À Nice - Amapiano & Afrobeats Lovers",
+   "Solly Smith at Twiga Monte Carlo",
+   "SHATTA"
+  ],
+  "ids": [
+   "17918456715500844",
+   "18204320290378873",
+   "17948685327389449"
+  ],
+  "faites": [
+   0,
+   1,
+   2
+  ],
+  "relue": true,
+  "absentes": [],
+  "manquantes": [],
+  "le": "2026-11-27T15:16:58.477Z"
  }
 ]
