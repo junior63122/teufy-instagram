@@ -5968,6 +5968,30 @@
       "instagram": [
         "frigo.16"
       ]
+    },
+    {
+      "source": "web",
+      "source_site": "instagram.com",
+      "via_veille": true,
+      "name": "Soirée DJ O’Sullivans",
+      "start": "2026-11-30T19:00:00.000Z",
+      "venue": "O’Sullivans Mandelieu, Bar, Restaurant & Hôtel",
+      "city": "Mandelieu",
+      "address": "",
+      "url": "https://www.instagram.com/reel/DgPyi7DNyEe/",
+      "image": "",
+      "price": null,
+      "tags": [
+        "DJ",
+        "Electronic"
+      ],
+      "description": "",
+      "public_cible": 0.6,
+      "confiance": 0.8,
+      "accroche": "DJ chaque jeudi, vendredi et samedi",
+      "instagram": [
+        "osullivans_mandelieu"
+      ]
     }
   ],
   "maj_instagram": "2026-11-27T14:12:44.378Z",
