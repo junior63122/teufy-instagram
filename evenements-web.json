@@ -7,6 +7,135 @@
   "evenements": [
     {
       "source": "web",
+      "source_site": "Instagram",
+      "name": "Showcase de MARWA LOUD",
+      "start": "2026-11-28T21:00:00.000Z",
+      "venue": "High Club",
+      "city": "Nice",
+      "address": "",
+      "url": "https://www.instagram.com/reel/DgM52-yt6CC/",
+      "image": "https://www.highclub.fr/wp-content/uploads/2026/11/EC7B25C2-CB20-4E00-A473-49DB092D736F.png",
+      "price": 20,
+      "tags": [
+        "rap",
+        "R&B",
+        "Rap Français",
+        "Pop Urbaine",
+        "RnB",
+        "rap français",
+        "pop urbaine",
+        "rnb",
+        "clubbing",
+        "hip-hop",
+        "electro",
+        "pop",
+        "edm"
+      ],
+      "description": "Le 28 novembre, le High Club de Nice accueille la star du rap‑pop Marwa Loud pour un showcase exclusif. Le club ouvre ses portes à 22 h et la soirée se poursuit jusqu’au petit matin. Les billets sont en vente en ligne via le lien en bio. Attends‑toi à une ambiance festive, un son puissant et une foule de jeunes prêts à chanter chaque refrain. Dress‑code libre, entrée à partir de 15 €, âge minimum 18 ans.",
+      "public_cible": 1,
+      "confiance": 0.95,
+      "buzz": 0.85,
+      "buzz_raison": "Tête d'affiche reconnue, club populaire, post avec 1 commentaire, bonne visibilité.",
+      "accroche": "Marwa Loud en live au High Club de Nice, une soirée rap‑pop qui promet du lourd.",
+      "instagram": [
+        "highclubnice",
+        "marwa_loud",
+        "marwaloud"
+      ],
+      "offres": [
+        {
+          "plateforme": "highclub.fr",
+          "url": "https://www.highclub.fr/agenda/marwa-loud-showcase/",
+          "prix": 20
+        },
+        {
+          "plateforme": "xceed.me",
+          "url": "https://xceed.me/fr/nice/club/high-club",
+          "prix": 20
+        }
+      ],
+      "sources_sites": [
+        "highclub.fr",
+        "Xceed",
+        "instagram.com"
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true,
+      "via_veille": true
+    },
+    {
+      "source": "web",
+      "source_site": "shotgun.live",
+      "name": "Spicy Saturday",
+      "start": "2026-11-27T22:59:00.000Z",
+      "venue": "Honey Club",
+      "city": "Juan-les-Pins",
+      "address": "",
+      "url": "https://shotgun.live/events/afro-love",
+      "image": "https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/925302218_18112595828255127_3958446131869795175_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=_KLJK9mrqq0Q7kNvwEOu_C2&_nc_oc=AdpmrvlPIesEyJHqzGwdSAjgggB1R9WSzskyrtxkwHczqsHrM4EvxAX1gWKgax25ldI&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=YMePloPBFqB41XNHcPXkLA&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQRP6aBmDvrMrmDAsaGY-UE6-R1Njah0wqfK4IsksvtEFQ&oe=6B09BF4C",
+      "price": 10,
+      "tags": [
+        "afro",
+        "afrobeat",
+        "shatta",
+        "house",
+        "techno",
+        "afro house",
+        "amapiano"
+      ],
+      "description": "Le Honey Club te donne rendez‑vous le 28 novembre pour le Spicy Saturday, une soirée club où les sons brûlants de Gianni, Shaylan et Aleks font monter la température sur le dancefloor. L’entrée est gratuite pour les filles avant 00 h 30, puis le tarif standard s’applique. Le club, situé au 5 av. Georges Gallice à Juan‑les‑Pins, ouvre ses portes à minuit et te promet une ambiance caliente jusqu’au petit matin. Pas de dress‑code imposé, juste l’envie de danser et de sentir la chaleur de la musique. Prépare ta team et viens vivre une nuit épicée sur la Côte d’Azur !",
+      "public_cible": 0.9,
+      "confiance": 0.95,
+      "buzz": 0.6,
+      "buzz_raison": "Club incontournable de la vie nocturne étudiante et jeune à Juan-les-Pins.",
+      "accroche": "Ambiance tropicale bouillante jusqu'à 05h00 au Honey Club.",
+      "instagram": [
+        "honeyclub_juanlespins",
+        "honeyclubjuanlespins"
+      ],
+      "par_le_lieu": true,
+      "offres": [
+        {
+          "plateforme": "shotgun.live",
+          "url": "https://shotgun.live/events/afro-love",
+          "prix": 10
+        }
+      ],
+      "sources_sites": [
+        "shotgun.live",
+        "Instagram (honeyclubjuanlespins)",
+        "Instagram"
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
+    },
+    {
+      "source": "web",
+      "source_site": "Instagram",
+      "name": "New Year Celebration with Cerrone",
+      "start": "2026-12-31T22:00:00.000Z",
+      "venue": "Monte Carlo Bay Resort & Hotel",
+      "city": "Monaco",
+      "address": "",
+      "url": "https://www.instagram.com/p/DgKIBCusUSL/",
+      "image": "https://scontent-ord5-1.cdninstagram.com/v/t51.82787-15/928519419_18656119075032858_2803490088925152076_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=106&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=SyJmuOhQju4Q7kNvwHtIy1U&_nc_oc=Adoj5gIujKtT6DXxpjASIbTVuOnw74b8wrLA-bliDavlXJUBJxYuximNBPMGApV2Sls&_nc_zt=23&_nc_ht=scontent-ord5-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=B7urmdStmPEbU0MiPE43KA&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQUrlYv4uB5iJS55kNutC6rricYI-B3wQe63uKj_S-InKw&oe=6B0F041B",
+      "price": null,
+      "tags": [
+        "electro",
+        "house"
+      ],
+      "description": "Le 31 décembre, le Monte Carlo Bay Resort organise une soirée du Nouvel An avec le légendaire DJ Cerrone. La fête débute à 23 h et se poursuit jusqu’au petit matin, mêlant électro, house et un spectacle pyrotechnique. Les billets sont en vente via la billetterie officielle, avec plusieurs catégories de prix. Dress‑code chic, âge minimum 18 ans, accès réservé aux détenteurs de ticket. Une occasion unique de célébrer le passage à 2027 dans un cadre luxueux.",
+      "public_cible": 1,
+      "confiance": 0.93,
+      "buzz": 0.7,
+      "buzz_raison": "Artiste mondialement connu, événement de Nouvel An, forte interaction (159 likes).",
+      "accroche": "Cerrone en live pour accueillir 2027 au Monte Carlo Bay : électro et feu d’artifice garantis.",
+      "instagram": [
+        "jimmyzmc"
+      ]
+    },
+    {
+      "source": "web",
       "source_site": "shotgun.live",
       "name": "La Dinette - Santa À La Playa",
       "start": "2026-12-05T18:00:00.000Z",
@@ -96,41 +225,6 @@
       "accroche": "Soirée Noël Old School Clubbing avec DJ JCDALTON",
       "instagram": [
         "nai.bevent"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "Instagram",
-      "name": "REVIVAL – ÉDITION TRIX NIGHT",
-      "start": "2026-11-26T17:00:00.000Z",
-      "venue": "Le Swing",
-      "city": "Nice",
-      "address": "",
-      "url": "https://www.instagram.com/p/DgLSNTkNV6d/",
-      "image": "https://scontent-iad6-1.cdninstagram.com/v/t51.82787-15/931330029_18120459914321373_3274871687790835536_n.webp?stp=dst-jpg_e35_tt6&_nc_cat=100&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=UsxsBhItdScQ7kNvwFOxVZ9&_nc_oc=AdrH8vydBB_TnRy3X8kePejYgN-9HXCidpZeGaR4gj3gD96eULv-S1PBXc6tGRDJkR4&_nc_zt=23&_nc_ht=scontent-iad6-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=2SSn3U6q_D1K-HoEtrbJMw&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQT9nOk_6hxkzM0I0ZTShUNY33S-3zJRHBaaBzVuKmVmww&oe=6B0DD6C6",
-      "price": 0,
-      "tags": [
-        "house",
-        "electro",
-        "karaoké",
-        "show"
-      ],
-      "description": "Le 26 novembre, Le Swing à Nice accueille la soirée REVIVAL – ÉDITION TRIX NIGHT. Bad girls Darcy Xxs et Eli Trix Queen prennent le contrôle de la piste, tandis que le DJ résident assure le son house/electro jusqu’à 2 h 30. L’entrée est libre mais la consommation est obligatoire, et le lieu est réservé aux 18 ans et plus. Parking à proximité, tramway Garibaldi à 2 min à pied. Prépare ton look provocateur et viens vivre une nuit sulfureuse.",
-      "public_cible": 0.85,
-      "confiance": 0.8,
-      "buzz": 0.6,
-      "buzz_raison": "Événement thématique avec influence locale, annoncé sur Instagram, date proche du week‑end.",
-      "accroche": "Le jeudi 26 novembre, Le Swing se transforme en scène de bad girls et de beats électro‑house.",
-      "instagram": [
-        "le.swingnice",
-        "darcy.xxs",
-        "eli_trix_queen"
-      ],
-      "via_veille": true,
-      "offres": [],
-      "sources_sites": [
-        "Instagram",
-        "instagram.com"
       ]
     },
     {
@@ -677,34 +771,6 @@
     },
     {
       "source": "web",
-      "source_site": "instagram.com",
-      "name": "VORTEK’S ALL NIGHT LONG",
-      "start": "2026-11-26T23:00:00.000Z",
-      "venue": "Dieze Warehouse",
-      "city": "Montpellier",
-      "address": "",
-      "url": "https://www.instagram.com/reel/DgHm3ewh2gK/",
-      "image": "https://www.instagram.com/reel/DgHm3ewh2gK/",
-      "price": 0,
-      "tags": [
-        "hard techno",
-        "neorave",
-        "hard music"
-      ],
-      "description": "VORTEK’S ALL NIGHT LONG, une nuit de 6h de set non stop, hard techno et neorave, avec un système sonore massif et un light show impressionnant. Fractal et Redmoon organisent l’événement dans le Dieze Warehouse, un lieu emblématique de Montpellier. La soirée est ouverte à tous les majeurs, sans dress code, et se déroule du vendredi 27 novembre de minuit à 6h du matin. Le prix est gratuit, mais l’entrée est réservée aux majeurs. Les organisateurs ont déjà fait parler d’eux grâce à leurs précédentes éditions, ce qui donne un potentiel de buzz élevé.",
-      "public_cible": 0.8,
-      "confiance": 0.6,
-      "buzz": 0.9,
-      "buzz_raison": "Fractal et Redmoon ont déjà organisé des soirées à fort succès, et VORTEK’S est un artiste connu dans la scène hard techno, ce qui crée un fort potentiel de buzz.",
-      "accroche": "VORTEK’S ALL NIGHT LONG, 6h de set non stop de hard techno et neorave à Dieze Warehouse",
-      "instagram": [
-        "diezewarehouse",
-        "fractal__production",
-        "redmoon_festival"
-      ]
-    },
-    {
-      "source": "web",
       "source_site": "shotgun.live",
       "name": "Phaphane À Nice - Amapiano & Afrobeats Lovers",
       "start": "2026-11-27T19:00:00.000Z",
@@ -777,80 +843,6 @@
     },
     {
       "source": "web",
-      "source_site": "shotgun.live",
-      "name": "Je Dis Techno (Tous Les Jeudis)",
-      "start": "2026-11-26T21:00:00.000Z",
-      "venue": "L'Antre Bar Electro",
-      "city": "Nice",
-      "address": "",
-      "url": "https://shotgun.live/events/je-dis-techno-tous-les-jeudis",
-      "image": "https://scontent-iad6-1.cdninstagram.com/v/t51.82787-15/920018501_18077717174766120_4547510483687883969_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=111&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=LRXM_DHjy7MQ7kNvwH9ji-h&_nc_oc=AdoA0Q3ZvWsX5K_a9PBXMJwcFZ2FGIHGzLs9ktjoSw9aptoccPFr9wQvfVYJDe2oBfc&_nc_zt=23&_nc_ht=scontent-iad6-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=AxrYphC4UYDKr7gP9a7myQ&_nc_ct=RQosPBUKFQQAAAA&oh=00_AQR2gwhiJSnHU0uIOtnA4mx8kfm1Id4jnOszYzjXTRP-LA&oe=6B0B31AB",
-      "price": 4,
-      "tags": [
-        "hard techno",
-        "hard bounce",
-        "acid techno",
-        "hard rave",
-        "bounce"
-      ],
-      "description": "Ce jeudi 26 novembre, la soirée JE DIS TECHNO se déroule dans deux lieux à Nice. Avant : l’ANTRE (22h‑02h) avec INSOLENTE, BROWSKY et ZIAX, un mix de hard rave, hard techno et bounce. Full Night : KOSMA (00h‑05h) pour pousser les BPM encore plus haut. Shot offert avant 23h au BEFORE et avant 01h au FULL NIGHT. Entrée via Shotgun, lien en bio. Ambiance ultra‑energiques pour les étudiants et les fans de techno lourde.",
-      "public_cible": 0.9,
-      "confiance": 0.95,
-      "buzz": 0.6,
-      "buzz_raison": "Rendez-vous underground hebdomadaire à prix très bas pour les étudiants.",
-      "accroche": "Gros BPM et ambiance underground à petit prix tous les jeudis à Nice.",
-      "instagram": [
-        "lantre_nice",
-        "je_dis_techno_nice"
-      ],
-      "offres": [
-        {
-          "plateforme": "shotgun.live",
-          "url": "https://shotgun.live/events/je-dis-techno-tous-les-jeudis",
-          "prix": 4
-        }
-      ],
-      "billetterie_cherchee": true,
-      "offres_cherchees": true,
-      "sources_sites": [
-        "shotgun.live",
-        "instagram"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "instagram.com",
-      "via_veille": true,
-      "name": "La Cale Sèche – L’Embuscade des Pirates",
-      "start": "2026-11-26T23:00:00.000Z",
-      "venue": "La Cale Sèche, Toulon",
-      "city": "Toulon",
-      "address": "",
-      "url": "https://www.instagram.com/p/DgGIZohoA8x/",
-      "image": "https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/928552767_18472742122186229_8034317840126112657_n.webp?stp=dst-jpg_e35_tt6&_nc_cat=105&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=4nSRko8AfOUQ7kNvwE1j2I2&_nc_oc=AdqEuTdJiWCypds345EPuFRz8L5YJIH-co-2Q9znQAukmn8mm8lnjokIuzvdGj5NLR8&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=GkJUD4CHcWHYdRvonX6EOg&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQRdRFg6eL-H_FeijjN-81Fk1qaSBHi3jRg4dpCA_3PnVw&oe=6B0B0673",
-      "price": null,
-      "tags": [
-        "promo",
-        "cocktail"
-      ],
-      "description": "Vendredi 27 novembre, La Cale Sèche lance « L’Embuscade des Pirates » : jusqu’à 21 h, chaque boisson achetée donne droit à une seconde offerte (alcools, softs, bouteilles d’arrangés). L’ambiance pirate, les cocktails exotiques et la musique entraînante font de cette soirée un must‑see. Entrée libre, bar ouvert dès 00 h, dress‑code casual. Adresse : 4 place Monsenergue, Toulon.",
-      "public_cible": 0.6,
-      "confiance": 0.9,
-      "accroche": "1 acheté = 1 offert jusqu’à 21h sur alcools et softs",
-      "instagram": [
-        "lacalesechetoulon"
-      ],
-      "buzz": 0.5,
-      "buzz_raison": "Match européen, thème original, visibilité locale.",
-      "par_le_lieu": true,
-      "offres": [],
-      "sources_sites": [
-        "instagram.com",
-        "Instagram – lacalesechetoulon"
-      ]
-    },
-    {
-      "source": "web",
       "source_site": "instagram.com",
       "via_veille": true,
       "name": "La Cale Sèche – Soirée Spritz + PSG / Lorient",
@@ -919,169 +911,6 @@
     {
       "source": "web",
       "source_site": "shotgun.live",
-      "name": "Yuksek & Roxie",
-      "start": "2026-11-26T19:30:00.000Z",
-      "venue": "Le Dix-Huit - Adresse d'Expériences",
-      "city": "Cannes",
-      "address": "",
-      "url": "https://shotgun.live/events/yuksek-roxie",
-      "image": "https://assets.tmassets.fr/image/upload/v1793090826/mediaflows/event%20image%20final/a_676955.jpg",
-      "price": 18,
-      "tags": [
-        "house",
-        "electro",
-        "electro house",
-        "électro",
-        "nu-disco",
-        "french touch",
-        "French House",
-        "Nu-Disco",
-        "Électro",
-        "disco",
-        "Nu-disco",
-        "French Touch",
-        "House",
-        "Electro",
-        "Electro House",
-        "Disco",
-        "Disco-House",
-        "Indie Dance",
-        "Disco House"
-      ],
-      "description": "Viens vibrer au rythme de la French Touch dans le cadre intimiste du club Le Dix-Huit à Nice. Le producteur et DJ rémois Yuksek, patron du label Partyfine, prend les platines pour un set nu-disco et house taillé pour le dancefloor. La soirée commence dès 20h30 en placement libre debout. Les places sont disponibles à partir de 18 euros en prévente. Ne tarde pas à réserver pour profiter de cette session clubbing privilégiée.",
-      "public_cible": 0.85,
-      "confiance": 0.95,
-      "buzz": 0.85,
-      "buzz_raison": "Présence de Yuksek, DJ et producteur français de renommée internationale.",
-      "accroche": "Le producteur culte Yuksek débarque à Cannes pour un set house survitaminé.",
-      "instagram": [
-        "ledixhuitcannes",
-        "directoproductions",
-        "ledixhuitnice"
-      ],
-      "offres": [
-        {
-          "plateforme": "shotgun.live",
-          "url": "https://shotgun.live/events/yuksek-roxie",
-          "prix": 18
-        },
-        {
-          "plateforme": "ticketmaster.fr",
-          "url": "https://www.ticketmaster.fr/fr/manifestation/yuksek-billet/idmanif/676955",
-          "prix": 18
-        },
-        {
-          "plateforme": "infoconcert.com",
-          "url": "https://www.infoconcert.com/artiste/yuksek-28499/concerts.html",
-          "prix": 18
-        }
-      ],
-      "sources_sites": [
-        "shotgun.live",
-        "ticketmaster.fr",
-        "Shotgun",
-        "Shotgun Live",
-        "InfoConcert",
-        "ledixhuit_nice",
-        "Shotgun.live",
-        "instagram.com"
-      ],
-      "billetterie_cherchee": true,
-      "offres_cherchees": true,
-      "via_veille": true
-    },
-    {
-      "source": "web",
-      "source_site": "shotgun.live",
-      "name": "KX DJ / Not So Innocent",
-      "start": "2026-11-26T22:59:00.000Z",
-      "venue": "Glass Club Cannes",
-      "city": "Cannes",
-      "address": "",
-      "url": "https://shotgun.live/events/kx-dj-not-so-innocent",
-      "image": "https://assets.shotgun.live/image/upload/c_limit,w_384,fl_lossy,f_webp,q_5/production/artworks/IMG_2971_gjzwdu.png",
-      "price": 9.99,
-      "tags": [
-        "afro house",
-        "deep house",
-        "house",
-        "tech house",
-        "Afro House",
-        "Deep House",
-        "House"
-      ],
-      "description": "Direction le Carré d'Or de Cannes pour une nuit Not So Innocent au Glass Club. Kx DJ prend les commandes avec des sets deep house, tech house et afro house pour te faire danser jusqu'au bout de la nuit. Le club propose une formule accessible dès 9,99 euros avec une conso offerte entre minuit et 00h30. Ambiance tamisée et pointue au rendez-vous.",
-      "public_cible": 0.85,
-      "confiance": 0.95,
-      "buzz": 0.55,
-      "buzz_raison": "Club cannois réputé pour ses sessions clubbing intimistes.",
-      "accroche": "Session afro house intimiste et bouillante au sous-sol du Glass Club.",
-      "instagram": [
-        "glassclubcannes"
-      ],
-      "offres": [
-        {
-          "plateforme": "shotgun.live",
-          "url": "https://shotgun.live/events/kx-dj-not-so-innocent",
-          "prix": 9.99
-        }
-      ],
-      "sources_sites": [
-        "shotgun.live",
-        "Shotgun Live",
-        "Shotgun"
-      ],
-      "billetterie_cherchee": true,
-      "offres_cherchees": true
-    },
-    {
-      "source": "web",
-      "source_site": "shotgun.live",
-      "name": "DJ Sebb En Show À Juan-Les-Pins",
-      "start": "2026-11-26T22:00:00.000Z",
-      "venue": "La Suite Restaurant Festif",
-      "city": "Juan-les-Pins",
-      "address": "",
-      "url": "https://shotgun.live/events/dj-sebb-en-show-a-juan-les-pins",
-      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto:good/production/artworks/IMG_4667_nvkofb.png",
-      "price": 11,
-      "tags": [
-        "shatta",
-        "afrobeats",
-        "dancehall",
-        "Shatta",
-        "Afrobeats",
-        "Dancehall"
-      ],
-      "description": "Le boss du shatta et du dancehall réunionnais DJ Sebb débarque au Honey Club pour un show explosif. Attends-toi à une ambiance tropicale survoltée, des basses lourdes et les plus gros hits caribéens et de l'océan Indien. Rendez-vous dès 23h00 à Juan-les-Pins pour une session clubbing intense. Préventes disponibles à partir de 11 euros via BumBum.",
-      "public_cible": 0.95,
-      "confiance": 0.95,
-      "buzz": 0.85,
-      "buzz_raison": "DJ Sebb est une figure culte de la scène shatta francophone.",
-      "accroche": "La superstar du son shatta DJ Sebb enflamme Juan-les-Pins en showcase.",
-      "instagram": [
-        "lasuite_antibes",
-        "djsebb_officiel",
-        "lasuiterestaurantfestif"
-      ],
-      "offres": [
-        {
-          "plateforme": "shotgun.live",
-          "url": "https://shotgun.live/events/dj-sebb-en-show-a-juan-les-pins",
-          "prix": 11
-        }
-      ],
-      "sources_sites": [
-        "shotgun.live",
-        "Shotgun Live",
-        "Shotgun"
-      ],
-      "billetterie_cherchee": true,
-      "offres_cherchees": true
-    },
-    {
-      "source": "web",
-      "source_site": "shotgun.live",
       "name": "Ugo Puccinelli / Pretty Little Sins",
       "start": "2026-11-27T22:59:00.000Z",
       "venue": "Glass Club Cannes",
@@ -1115,49 +944,6 @@
         "shotgun.live",
         "Shotgun Live",
         "Shotgun"
-      ],
-      "billetterie_cherchee": true,
-      "offres_cherchees": true
-    },
-    {
-      "source": "web",
-      "source_site": "shotgun.live",
-      "name": "Spicy Saturday",
-      "start": "2026-11-27T22:59:00.000Z",
-      "venue": "Honey Club",
-      "city": "Juan-les-Pins",
-      "address": "",
-      "url": "https://shotgun.live/events/afro-love",
-      "image": "https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/925302218_18112595828255127_3958446131869795175_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=_KLJK9mrqq0Q7kNvwEOu_C2&_nc_oc=AdpmrvlPIesEyJHqzGwdSAjgggB1R9WSzskyrtxkwHczqsHrM4EvxAX1gWKgax25ldI&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=YMePloPBFqB41XNHcPXkLA&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQRP6aBmDvrMrmDAsaGY-UE6-R1Njah0wqfK4IsksvtEFQ&oe=6B09BF4C",
-      "price": 10,
-      "tags": [
-        "afro",
-        "afrobeat",
-        "shatta",
-        "house",
-        "techno"
-      ],
-      "description": "Le Honey Club te donne rendez‑vous le 28 novembre pour le Spicy Saturday, une soirée club où les sons brûlants de Gianni, Shaylan et Aleks font monter la température sur le dancefloor. L’entrée est gratuite pour les filles avant 00 h 30, puis le tarif standard s’applique. Le club, situé au 5 av. Georges Gallice à Juan‑les‑Pins, ouvre ses portes à minuit et te promet une ambiance caliente jusqu’au petit matin. Pas de dress‑code imposé, juste l’envie de danser et de sentir la chaleur de la musique. Prépare ta team et viens vivre une nuit épicée sur la Côte d’Azur !",
-      "public_cible": 0.9,
-      "confiance": 0.95,
-      "buzz": 0.6,
-      "buzz_raison": "Club incontournable de la vie nocturne étudiante et jeune à Juan-les-Pins.",
-      "accroche": "Ambiance tropicale bouillante jusqu'à 05h00 au Honey Club.",
-      "instagram": [
-        "honeyclub_juanlespins",
-        "honeyclubjuanlespins"
-      ],
-      "par_le_lieu": true,
-      "offres": [
-        {
-          "plateforme": "shotgun.live",
-          "url": "https://shotgun.live/events/afro-love",
-          "prix": 10
-        }
-      ],
-      "sources_sites": [
-        "shotgun.live",
-        "Instagram (honeyclubjuanlespins)"
       ],
       "billetterie_cherchee": true,
       "offres_cherchees": true
@@ -3076,62 +2862,6 @@
     },
     {
       "source": "web",
-      "source_site": "highclub.fr",
-      "name": "Marwa Loud Showcase au High Club",
-      "start": "2026-11-28T22:59:00.000Z",
-      "venue": "High Club",
-      "city": "Nice",
-      "address": "",
-      "url": "https://www.highclub.fr/agenda/marwa-loud-showcase/",
-      "image": "https://www.highclub.fr/wp-content/uploads/2026/11/EC7B25C2-CB20-4E00-A473-49DB092D736F.png",
-      "price": 20,
-      "tags": [
-        "Rap Français",
-        "Pop Urbaine",
-        "RnB",
-        "rap français",
-        "pop urbaine",
-        "rnb",
-        "clubbing",
-        "hip-hop",
-        "electro",
-        "pop",
-        "edm"
-      ],
-      "description": "Marwa Loud pose ses valises à Nice pour un showcase exceptionnel en plein clubbing. La rappeuse aux disques de platine et de diamant vient chanter ses plus gros hits comme Fallait pas, Bad Boy et Billet, accompagnée par les DJs résidents. Entrée dès 23h59 avec option coupe-file fast pass disponible. Billets à partir de 20 euros pour une nuit urbaine brûlante.",
-      "public_cible": 0.95,
-      "confiance": 0.95,
-      "buzz": 0.85,
-      "buzz_raison": "Venue d'une artiste rap et pop urbaine cumulant des centaines de millions de streams.",
-      "accroche": "Showcase live exclusif de Marwa Loud sur la Promenade des Anglais pour chanter ses tubes.",
-      "instagram": [
-        "marwa_loud",
-        "highclubnice",
-        "marwaloud"
-      ],
-      "offres": [
-        {
-          "plateforme": "highclub.fr",
-          "url": "https://www.highclub.fr/agenda/marwa-loud-showcase/",
-          "prix": 20
-        },
-        {
-          "plateforme": "xceed.me",
-          "url": "https://xceed.me/fr/nice/club/high-club",
-          "prix": 20
-        }
-      ],
-      "sources_sites": [
-        "highclub.fr",
-        "Xceed",
-        "instagram.com"
-      ],
-      "billetterie_cherchee": true,
-      "offres_cherchees": true,
-      "via_veille": true
-    },
-    {
-      "source": "web",
       "source_site": "HelloAsso",
       "name": "Soirée KART AND ROCK Cannes by Gam'it Racing (2)",
       "start": "2026-11-27T17:00:00.000Z",
@@ -3210,82 +2940,6 @@
         "aperodesfrenchy",
         "allianzriviera"
       ]
-    },
-    {
-      "source": "web",
-      "source_site": "shotgun.live",
-      "name": "Jerrycans Release Party @ Frigo 16",
-      "start": "2026-11-26T19:00:00.000Z",
-      "venue": "Frigo 16 (Le 109)",
-      "city": "Nice",
-      "address": "",
-      "url": "https://shotgun.live/fr/events/jerrycans-release-party-frigo-16",
-      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto:good/production/artworks/FRIGO16-SAISON_sept-dec_2026-cover-3000x1000_qi4spw",
-      "price": 0,
-      "tags": [
-        "Pop",
-        "Italo Disco",
-        "Musiques Actuelles",
-        "Pop-Funk",
-        "Disco",
-        "Italo-Disco",
-        "Groove",
-        "Funk",
-        "Pop-funk",
-        "Italo-disco",
-        "pop-funk",
-        "italo disco",
-        "groove",
-        "pop festive",
-        "Synth-Pop",
-        "Disco Electro",
-        "pop rock",
-        "live",
-        "Synthwave",
-        "Electro Pop",
-        "Indie",
-        "Rock alternati",
-        "Electronic",
-        "hip‑hop",
-        "dance"
-      ],
-      "description": "Le groupe Jerrycans investit la friche culturelle du 109 pour un live taillé pour la fête. Composé de musiciens formés au Conservatoire de Nice, ce quatuor envoie un mélange explosif de basses funk, synthés rétro et sonorités italo-disco. Rendez-vous au Frigo 16 dès 20h00 pour danser sans débourser un centime puisque l entrée est 100% gratuite. Parfait pour commencer ton week-end entre potes.",
-      "public_cible": 0.85,
-      "confiance": 0.95,
-      "buzz": 0.7,
-      "buzz_raison": "Release party en entrée libre avec navettes gratuites.",
-      "accroche": "Release party festive et gratuite du groupe live Jerrycans aux anciens abattoirs de Nice.",
-      "instagram": [
-        "pandaevents",
-        "le109nice",
-        "frigo16_nice"
-      ],
-      "offres": [
-        {
-          "plateforme": "shotgun.live",
-          "url": "https://shotgun.live/fr/events/jerrycans-release-party-frigo-16",
-          "prix": 0
-        },
-        {
-          "plateforme": "le109.nice.fr",
-          "url": "https://le109.nice.fr/evenement/jerrycans-26-11-2026",
-          "prix": 0
-        },
-        {
-          "plateforme": "infoconcert.com",
-          "url": "https://www.infoconcert.com/artiste/jerrycans-206775/concerts.html",
-          "prix": 0
-        }
-      ],
-      "sources_sites": [
-        "shotgun.live",
-        "nice.fr",
-        "InfoConcert",
-        "Shotgun"
-      ],
-      "via_veille": true,
-      "billetterie_cherchee": true,
-      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -3655,35 +3309,6 @@
     },
     {
       "source": "web",
-      "source_site": "visitmonaco.com",
-      "name": "The Brand New Heavies & GoGo Penguin (Monte-Carlo Jazz Festival)",
-      "start": "2026-11-26T19:30:00.000Z",
-      "venue": "Salle Garnier – Opéra de Monte-Carlo",
-      "city": "Monaco",
-      "address": "",
-      "url": "https://www.visitmonaco.com/fr/evenement/festivals/20708/monte-carlo-jazz-festival-2026",
-      "image": "https://www.visitmonaco.com/var/visitmonaco/storage/images/_aliases/w621/8/7/9/7/787978-54-fre-FR/ae7d3d2c738f-Academie-de-musique-C-Philip-Ducap.JPG.webp",
-      "price": 73.5,
-      "tags": [
-        "Acid Jazz",
-        "Funk",
-        "Électro-Jazz",
-        "Breakbeat"
-      ],
-      "description": "Soirée de haut vol à l'Opéra de Monte-Carlo avec un double plateau taillé pour les mélomanes. Les légendes de l'acid jazz The Brand New Heavies s'associent au trio contemporain GoGo Penguin pour fusionner jazz cinématique, funk et rythmiques breakbeat. Le concert démarre à 20h30 dans le décor somptueux de la Salle Garnier, avec des billets à partir de 73,50 euros.",
-      "public_cible": 0.55,
-      "confiance": 0.9,
-      "buzz": 0.65,
-      "buzz_raison": "Double plateau réunissant des pionniers du funk et un trio breakbeat reconnu",
-      "accroche": "Double plateau d'exception entre acid jazz légendaire et breakbeat électro à Monaco.",
-      "instagram": [
-        "gogo_penguin",
-        "thebrandnewheavies",
-        "montecarlosbm"
-      ]
-    },
-    {
-      "source": "web",
       "source_site": "cannes.com",
       "name": "Fête de la Saint-Sylvestre : Drone Show & Nuit du Nouvel An sur la Croisette",
       "start": "2026-12-31T22:30:00.000Z",
@@ -3941,41 +3566,6 @@
           "plateforme": "shotgun.live",
           "url": "https://shotgun.live/events/new-year-s-eve-2026-i-mercredi-31-decembre-i-prohibition-edt",
           "prix": 20
-        }
-      ],
-      "billetterie_cherchee": true,
-      "offres_cherchees": true
-    },
-    {
-      "source": "web",
-      "source_site": "Shotgun",
-      "name": "Concert Live, Les Jeudis Live Back To Bac",
-      "start": "2026-11-26T18:00:00.000Z",
-      "venue": "Back to Bac Toulon",
-      "city": "Toulon",
-      "address": "",
-      "url": "https://shotgun.live/fr/events/concert-live-les-jeudis-live-back-to-bac",
-      "image": "https://assets.shotgun.live/image/upload/c_limit,ar_16:9,w_3840,fl_lossy,f_webp,q_auto:good/production/artworks/WhatsApp_Image_2026-11-23_at_22.28.29_b0tpwe.jpg",
-      "price": 0,
-      "tags": [
-        "pop rock",
-        "acoustique",
-        "indie"
-      ],
-      "description": "Viens lancer ton week-end en douceur au Back to Bac avec le live acoustique de Tom, auteur-compositeur et interprète en formule guitare et voix. La soirée se poursuit ensuite avec une session karaoké. Rendez-vous de 19h à 21h au centre-ville de Toulon dans une ambiance tamisée, avec bar à bières et tapas. L'entrée est gratuite en participation libre.",
-      "public_cible": 0.6,
-      "confiance": 0.95,
-      "buzz": 0.45,
-      "buzz_raison": "Afterwork live intimiste et entrée gratuite en plein centre de Toulon.",
-      "accroche": "Apéro live guitare et voix suivi d'un karaoké en plein centre de Toulon.",
-      "instagram": [
-        "backtobactoulon"
-      ],
-      "offres": [
-        {
-          "plateforme": "shotgun.live",
-          "url": "https://shotgun.live/fr/events/concert-live-les-jeudis-live-back-to-bac",
-          "prix": 0
         }
       ],
       "billetterie_cherchee": true,
@@ -4757,31 +4347,6 @@
     {
       "source": "web",
       "source_site": "Instagram",
-      "name": "EUPHORIA",
-      "start": "2026-11-26T23:00:00.000Z",
-      "venue": "Naho Club",
-      "city": "La Garde",
-      "address": "",
-      "url": "https://www.instagram.com/p/DgDPTgfjZbU/",
-      "image": "https://scontent-iad3-2.cdninstagram.com/v/t51.82787-15/920013267_18128938723917771_6127632472682147198_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=107&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0XWltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=VVlauLazgwEQ7kNvwE1_aU3&_nc_oc=AdoPP3MOnXVuwbIeLKq7lnbJY40iTRCmKU_WtzdYLQYj_DuBPapSO7WHuwWDm-oQnak&_nc_zt=23&_nc_ht=scontent-iad3-2.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=T_5lZboFD5H6P7pDs7sndA&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQTop0--EqPT78OIYhNjdUklP7mRzb0ks7VueaWQwnTnyA&oe=6B08F2E5",
-      "price": null,
-      "tags": [
-        "electro",
-        "house"
-      ],
-      "description": "Le vendredi 27 novembre, le Naho Club accueille EUPHORIA, une soirée dédiée aux sons électro et house qui font vibrer la piste jusqu’à 5 h. Les DJs ___ozenn___ et delviinleak assurent le mix, créant une ambiance lumineuse et énergique. Lieu : 116 Av. de Digne, 83130 La Garde, avec réservations au 06 61 42 26 51. Entrée libre, mais le club se remplit rapidement, alors prévois d’arriver tôt. Dress code : clubbing chic, 18+.",
-      "public_cible": 1,
-      "confiance": 0.9,
-      "buzz": 0.5,
-      "buzz_raison": "Soirée récurrente du club, engagement moyen (34 likes).",
-      "accroche": "Le vendredi 27 novembre, EUPHORIA te plonge dans un univers clubbing électro‑house au Naho.",
-      "instagram": [
-        "nahoclub"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "Instagram",
       "name": "SHATTA",
       "start": "2026-11-27T23:00:00.000Z",
       "venue": "Naho Club",
@@ -4802,31 +4367,6 @@
       "instagram": [
         "nahoclub",
         "dezze_recital"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "instagram",
-      "name": "DJ SEBB – AFROCHELLA à Honey Club",
-      "start": "2026-11-26T22:00:00.000Z",
-      "venue": "Honey Club",
-      "city": "Juan-les-Pins",
-      "address": "",
-      "url": "https://www.instagram.com/reel/DgC4kPZACd6/",
-      "image": "",
-      "price": null,
-      "tags": [
-        "afro",
-        "house"
-      ],
-      "description": "Le jeudi 26 novembre, le club Honey Club accueille DJ SEBB en collaboration avec AFROCHELLA. La soirée commence à 23h et se poursuit jusqu’à 4h du matin, avec des sets d’afro‑house et de la musique de La Réunion. Le club propose des tables réservables et un cadre convivial sur la Côte d’Azur. Idéal pour les 17‑30 ans qui cherchent une nuit de danse et de bonne ambiance.",
-      "public_cible": 1,
-      "confiance": 0.9,
-      "buzz": 0.6,
-      "buzz_raison": "DJ SEBB est connu sur la scène afro‑house locale, et l’événement est annoncé comme une collaboration spéciale avec AFROCHELLA, ce qui augmente l’intérêt.",
-      "accroche": "DJ SEBB en show à Juan‑les‑Pins, soirée afro‑house qui fait vibrer la côte !",
-      "instagram": [
-        "honeyclubjuanlespins"
       ]
     },
     {
@@ -5076,62 +4616,6 @@
         "nayaclubcannes"
       ],
       "offres": [],
-      "billetterie_cherchee": true,
-      "offres_cherchees": true
-    },
-    {
-      "source": "web",
-      "source_site": "Shotgun",
-      "name": "The Show Club Sonore - Nice",
-      "start": "2026-11-26T18:00:00.000Z",
-      "venue": "Mama Shelter Nice",
-      "city": "Nice",
-      "address": "",
-      "url": "https://shotgun.live/fr/events/the-show-club-sonore-nice-novembre-2026",
-      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto/production/artworks/photo-output_116_bjuzgn.png",
-      "price": 0,
-      "tags": [
-        "Nu-Disco",
-        "Disco House",
-        "Afrobeat",
-        "Afro House",
-        "Shatta",
-        "Electro",
-        "Hip Hop",
-        "Deep House",
-        "Melodic Techno",
-        "house",
-        "deep house",
-        "Tech House",
-        "Deep Tech",
-        "Melodic House",
-        "Variété Française",
-        "Afro",
-        "Club"
-      ],
-      "description": "",
-      "public_cible": 0.85,
-      "confiance": 0.95,
-      "buzz": 0.8,
-      "buzz_raison": "Rendez-vous créatif et musical gratuit dans un lieu prisé.",
-      "accroche": "Le collectif Club Sonore réunit les jeunes créatifs au Mama Shelter.",
-      "instagram": [
-        "clubsonore",
-        "mamashelternice",
-        "theshow_clubsonore"
-      ],
-      "sources_sites": [
-        "Shotgun",
-        "Shotgun Live",
-        "shotgun.live"
-      ],
-      "offres": [
-        {
-          "plateforme": "shotgun.live",
-          "url": "https://shotgun.live/fr/events/the-show-club-sonore-nice-novembre-2026",
-          "prix": 0
-        }
-      ],
       "billetterie_cherchee": true,
       "offres_cherchees": true
     },
@@ -5826,57 +5310,6 @@
       "source": "web",
       "source_site": "instagram.com",
       "via_veille": true,
-      "name": "No Sleep Mode",
-      "start": "2026-11-26T21:00:00.000Z",
-      "venue": "Bulldog Pub Pompeï, Nice",
-      "city": "Nice",
-      "address": "",
-      "url": "https://www.instagram.com/p/Df9FM-IoGDc/",
-      "image": "https://scontent-sea5-1.cdninstagram.com/v/t51.82787-15/917616563_18217589902369532_7075822424502167635_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=109&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMiJ9&_nc_ohc=HZbYIXeaVBQQ7kNvwFz_JnM&_nc_oc=AdrVhuJu9zwSlydiTe9UyxNi-0pG0ugOduLV-pZH8Z7zRZoLzZz9wz709VYkUdASbdE&_nc_zt=23&_nc_ht=scontent-sea5-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=si02qzx7GvTj2y1hNmH_7w&_nc_ct=RQgsPBUKFQIAAAA&oh=00_AQR9VX0de_rGsH4Mt3Oq_zWkSnQJsbBdYjzL5qSCVOImOw&oe=6B072710",
-      "price": null,
-      "tags": [
-        "electro",
-        "house"
-      ],
-      "description": "",
-      "public_cible": 0.6,
-      "confiance": 0.9,
-      "accroche": "Tous les vendredis, le Bulldog Pub Pompeï reste ouvert jusqu’au bout de la nuit avec DJ Kenzo.",
-      "instagram": [
-        "bulldogpompeipub"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "instagram.com",
-      "via_veille": true,
-      "name": "Soirée tropicale",
-      "start": "2026-11-26T23:00:00.000Z",
-      "venue": "Boka Club, 3261 avenue de la Résistance, 83000 Toulon",
-      "city": "Toulon",
-      "address": "",
-      "url": "https://www.instagram.com/p/DgApj3iIGwb/",
-      "image": "https://scontent-iad3-1.cdninstagram.com/v/t39.30808-6/914266679_122108830359545622_6820875835762589316_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=101&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=1BJYP6-OeLkQ7kNvwFdAQtP&_nc_oc=Adqxplp4O0n9nXeC00BPzLcfHhOBO0dTdnpKDIh8cdjCFGB_MHZfq0fdLKLZ9P-iA6E&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=U4SBMFJYlT7kKpPWq6etlw&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQRzcug01l6F7RclsZTMLNleNwaO06AeNLDHdICM9n6ppQ&oe=6B07DBE2",
-      "price": 10,
-      "tags": [
-        "Shatta",
-        "Dancehall",
-        "Bouyon"
-      ],
-      "description": "",
-      "public_cible": 0.6,
-      "confiance": 0.9,
-      "accroche": "Soirée tropicale au Boka Club, 27 novembre, 00h-05h.",
-      "instagram": [
-        "boka_officiel",
-        "_boka_officiel_"
-      ],
-      "offres": []
-    },
-    {
-      "source": "web",
-      "source_site": "instagram.com",
-      "via_veille": true,
       "name": "Réveillon du Nouvel An",
       "start": "2026-12-31T17:00:00.000Z",
       "venue": "Magnolia Café, Nice",
@@ -5986,30 +5419,6 @@
       "accroche": "Ladies Night chaque mardi avec happy hour long island et DJ Kenzo.",
       "instagram": [
         "bulldogpompeipub"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "instagram.com",
-      "via_veille": true,
-      "name": "Soirée foot spéciale Ligue Europa",
-      "start": "2026-11-26T20:00:00.000Z",
-      "venue": "La Cale Sèche, Toulon",
-      "city": "Toulon",
-      "address": "",
-      "url": "https://www.instagram.com/p/DgGIZohoA8x/",
-      "image": "https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/928552767_18472742122186229_8034317840126112657_n.webp?stp=dst-jpg_e35_tt6&_nc_cat=105&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X3VybGdlbi5DMyJ9&_nc_ohc=4nSRko8AfOUQ7kNvwHh1YJ1&_nc_oc=AdpwvwDErrVB_Lz4EJm5R_5nXqlEPIZODNhy3_YgFaeITx070H4H8JtX8ufhRzB-R9o&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=n7f0tFRVYtey2EhQqGIDGw&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQSnkuz7tzfd-zq_CRuc_65nwdCKgT-ORtpwzJPABGu-Qg&oe=6B0B76F3",
-      "price": null,
-      "tags": [
-        "bar",
-        "sport"
-      ],
-      "description": "",
-      "public_cible": 0.6,
-      "confiance": 0.8,
-      "accroche": "Jeudi 26 : soirée foot spéciale Ligue Europa",
-      "instagram": [
-        "lacalesechetoulon"
       ]
     },
     {
@@ -6146,30 +5555,6 @@
       "accroche": "Atelier aquarelle le 1er déc. à Goya Nice – créez vos cartes de vœux.",
       "instagram": [
         "lesaperosartistiques"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "instagram.com",
-      "via_veille": true,
-      "name": "Afro Heat – Soirée Reggaeton",
-      "start": "2026-11-26T21:00:00.000Z",
-      "venue": "Site principal de l'Afro Heat, Nice",
-      "city": "Nice",
-      "address": "",
-      "url": "https://www.instagram.com/reel/DgKQTXvoS7E/",
-      "image": "",
-      "price": null,
-      "tags": [
-        "Reggaeton",
-        "Latin"
-      ],
-      "description": "",
-      "public_cible": 0.6,
-      "confiance": 0.8,
-      "accroche": "Une soirée reggaeton spéciale au festival Afro Heat à Nice.",
-      "instagram": [
-        "afroheatfestival"
       ]
     },
     {
@@ -6393,27 +5778,6 @@
       "source": "web",
       "source_site": "instagram.com",
       "via_veille": true,
-      "name": "Speed Dating Phoenix",
-      "start": "2026-11-26T19:00:00.000Z",
-      "venue": "Nice",
-      "city": "Nice",
-      "address": "",
-      "url": "https://www.instagram.com/p/DgNd-_Co-lR/",
-      "image": "https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/932862046_17955851505337189_7414148873160489812_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=106&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=BTol2aOH53YQ7kNvwE7wfAw&_nc_oc=AdpWBn0vkP3cIpAwiLj36cMBgbcOkZcuMyPT326w6M3xfxQaC6oU0tf-YrlBswGlnow&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=rDuWlA0OV8oTgn-lOj-AHg&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQTzwE6idmQyjhtbRaeml0RG-u0PIJ1x3f7xiwVB7CIlmQ&oe=6B0E41DC",
-      "price": null,
-      "tags": [],
-      "description": "",
-      "public_cible": 0.6,
-      "confiance": 0.8,
-      "accroche": "Rencontres rapides et authentiques à Nice",
-      "instagram": [
-        "phoenixevent06"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "instagram.com",
-      "via_veille": true,
       "name": "Slackreb Live Set",
       "start": "2026-12-12T21:00:00.000Z",
       "venue": "Green Musik, Antibes",
@@ -6459,6 +5823,6 @@
       ]
     }
   ],
-  "maj_instagram": "2026-11-26T22:12:51.123Z",
-  "echec_web": "2026-11-26T17:12:48.899Z"
+  "maj_instagram": "2026-11-27T09:12:46.543Z",
+  "echec_web": "2026-11-27T09:12:46.543Z"
 }

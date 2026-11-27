@@ -1,5 +1,5 @@
 {
- "maj": "2026-11-26T21:18:03.567Z",
+ "maj": "2026-11-27T09:15:11.063Z",
  "evenements": [
   {
    "source": "dice",
@@ -104,21 +104,6 @@
    "price": 27.84,
    "tags": [],
    "description": "Experience the best of Nice nightlife with Riviera Bar Crawl Nice. Meet people worldwide, enjoy exclusive deals, create your memories now",
-   "popularite": null
-  },
-  {
-   "source": "eventbrite",
-   "name": "Foodies + New Friends: Nice",
-   "start": "2026-11-26T18:00:00.000Z",
-   "end": "2026-11-26T21:00:00.000Z",
-   "venue": "Restaurant of the Week",
-   "city": "Nice",
-   "address": "Rue Gubernatis 06000 Nice",
-   "url": "https://www.eventbrite.com/e/foodies-new-friends-nice-tickets-1976266119162",
-   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1171943921%2F935412228013%2F1%2Foriginal.20251128-234433?crop=focalpoint&fit=crop&w=1080&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=b368544781f2ecd17881e2ea747044fa",
-   "price": 23.18,
-   "tags": [],
-   "description": "You sign up. We book. Connect with new friends over dinner while supporting locally owned restaurants.",
    "popularite": null
   },
   {
@@ -314,21 +299,6 @@
    "price": 27.84,
    "tags": [],
    "description": "Experience the best of Nice nightlife with Riviera Bar Crawl Nice. Meet people worldwide, enjoy exclusive deals, create your memories now",
-   "popularite": null
-  },
-  {
-   "source": "eventbrite",
-   "name": "Foodies + New Friends: Nice",
-   "start": "2026-11-26T18:00:00.000Z",
-   "end": "2026-11-26T21:00:00.000Z",
-   "venue": "Restaurant of the Week",
-   "city": "Nice",
-   "address": "Rue Gubernatis 06000 Nice",
-   "url": "https://www.eventbrite.com/e/foodies-new-friends-nice-tickets-1976266119162",
-   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1171943921%2F935412228013%2F1%2Foriginal.20251128-234433?crop=focalpoint&fit=crop&w=1080&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=b368544781f2ecd17881e2ea747044fa",
-   "price": 23.18,
-   "tags": [],
-   "description": "You sign up. We book. Connect with new friends over dinner while supporting locally owned restaurants.",
    "popularite": null
   },
   {
@@ -1653,21 +1623,6 @@
   },
   {
    "source": "eventbrite",
-   "name": "Soirée Stand Up au Keg & Can",
-   "start": "2026-11-26T20:00:00.000Z",
-   "end": "2026-11-26T00:00:00.000Z",
-   "venue": "314 Bd du Redon",
-   "city": "Marseille",
-   "address": "314 Boulevard du Redon 13009 Marseille",
-   "url": "https://www.eventbrite.fr/e/billets-soiree-stand-up-au-keg-can-2004882045167",
-   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1198061169%2F1482429491333%2F1%2Foriginal.20261116-100111?crop=focalpoint&fit=crop&w=1080&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=7f1ecfac40a39ddeb92bed2839cf6416",
-   "price": 0,
-   "tags": [],
-   "description": "Jeudi 26 novembre , soirée Stand UP au Keg & Can : 3 humoristes = + d'une heure de blagues ! Réserve ta place !!",
-   "popularite": null
-  },
-  {
-   "source": "eventbrite",
    "name": "Rencontre d’échecs à Marseille · Le Chaperon Rouge",
    "start": "2026-12-03T19:00:00.000Z",
    "end": "2026-12-03T21:00:00.000Z",
@@ -2151,18 +2106,16 @@
   "https://shotgun.live/fr/cities/nice",
   "https://www.eventbrite.fr/d/france--nice/nightlife/",
   "https://www.eventbrite.fr/d/france--nice/parties/",
-  "https://www.eventbrite.fr/d/france--cannes/parties/",
   "https://www.eventbrite.fr/d/monaco--monaco/nightlife/",
-  "https://www.eventbrite.fr/d/france--nice/music--events/",
   "https://www.eventbrite.fr/d/france--toulon/nightlife/",
-  "https://www.eventbrite.fr/d/monaco--monaco/music--events/",
+  "https://www.eventbrite.fr/d/france--nice/music--events/",
   "https://www.eventbrite.fr/d/france--cannes/music--events/",
-  "https://www.eventbrite.fr/d/france--saint-tropez/events/",
   "https://www.eventbrite.fr/d/monaco--monaco/music--events/",
+  "https://www.eventbrite.fr/d/france--saint-tropez/events/",
   "https://www.eventbrite.fr/d/france--frejus/events/",
-  "https://www.eventbrite.fr/d/france--toulon/music--events/",
   "https://www.eventbrite.fr/d/france--antibes/nightlife/",
-  "https://shotgun.live/fr/cities/nice",
+  "https://www.eventbrite.fr/d/france--cannes/parties/",
+  "https://www.eventbrite.fr/d/france--toulon/music--events/",
   "https://allevents.in/nice/all",
   "https://allevents.in/toulon/all"
  ]

@@ -11,7 +11,7 @@
    "description": "Grand club de la Promenade des Anglais réunissant plusieurs salles, dont le Studio 47 (années 80 et disco).",
    "soirees": [
     "coachellito-high-club-2026-11-27",
-    "marwa-loud-showcase-au-high-club-2026-11-28",
+    "showcase-de-marwa-loud-2026-11-28",
     "high-students-2026-12-04",
     "bad-girls-2026-12-05",
     "les-copains-d-abord-2026-12-10",
@@ -25,8 +25,8 @@
      "nom": "COACHELLITO - HIGH CLUB"
     },
     {
-     "id": "marwa-loud-showcase-au-high-club-2026-11-28",
-     "nom": "Marwa Loud Showcase au High Club"
+     "id": "showcase-de-marwa-loud-2026-11-28",
+     "nom": "Showcase de MARWA LOUD"
     },
     {
      "id": "high-students-2026-12-04",
@@ -69,9 +69,9 @@
     ],
     [
      "2026-11-28",
-     "minuit",
-     "marwa-loud-showcase-au-high-club-2026-11-28",
-     "Marwa Loud Showcase au High Club"
+     "22:00",
+     "showcase-de-marwa-loud-2026-11-28",
+     "Showcase de MARWA LOUD"
     ],
     [
      "2026-12-04",
@@ -115,8 +115,8 @@
    "lng": 7.2559561,
    "stylesSoirees": [
     "house",
-    "latino",
     "rap",
+    "latino",
     "commercial"
    ]
   },
@@ -208,7 +208,7 @@
    "score": 0,
    "soirs": [],
    "details": {
-    "le": "2026-11-27T00:57:21.993Z",
+    "le": "2026-11-27T09:17:38.822Z",
     "styles": "DJ résidents (ven–sam après 22h)",
     "dress_code": "",
     "horaires": "lun–dim 10h–2h",
@@ -727,7 +727,6 @@
    "site": "https://glasscannes.com",
    "description": "Bar à cocktails haut de gamme doublé d'un petit club (80 à 90 personnes) à une minute de la Croisette et du Palais des Festivals, tourné vers la house et la deep house.",
    "soirees": [
-    "kx-dj-not-so-innocent-2026-11-26",
     "ugo-puccinelli-pretty-little-sins-2026-11-27",
     "alex-duff-overdrive-2026-11-28",
     "santa-s-house-party-sud-spicious-x-glass-club-2026-12-21",
@@ -735,16 +734,16 @@
    ],
    "prochaines": [
     {
-     "id": "kx-dj-not-so-innocent-2026-11-26",
-     "nom": "KX DJ / Not So Innocent"
-    },
-    {
      "id": "ugo-puccinelli-pretty-little-sins-2026-11-27",
      "nom": "Ugo Puccinelli / Pretty Little Sins"
     },
     {
      "id": "alex-duff-overdrive-2026-11-28",
      "nom": "Alex Duff / Overdrive"
+    },
+    {
+     "id": "santa-s-house-party-sud-spicious-x-glass-club-2026-12-21",
+     "nom": "Santa's House Party — Sud'Spicious X Glass Club"
     }
    ],
    "insta": {
@@ -754,12 +753,6 @@
    "score": 0,
    "photo": "site/lieux/site-ac23a09caae7-176.webp",
    "soirs": [
-    [
-     "2026-11-26",
-     "minuit",
-     "kx-dj-not-so-innocent-2026-11-26",
-     "KX DJ / Not So Innocent"
-    ],
     [
      "2026-11-27",
      "minuit",
@@ -1002,15 +995,10 @@
    "site": "https://honeyclub.fr",
    "description": "Lieu de soirées et de concerts de l'avenue Georges Gallice à Juan-les-Pins.",
    "soirees": [
-    "dj-sebb-afrochella-a-honey-club-2026-11-26",
     "spicy-saturday-2026-11-27",
     "honey-club-x-shafro-france-tour-2026-12-11"
    ],
    "prochaines": [
-    {
-     "id": "dj-sebb-afrochella-a-honey-club-2026-11-26",
-     "nom": "DJ SEBB – AFROCHELLA à Honey Club"
-    },
     {
      "id": "spicy-saturday-2026-11-27",
      "nom": "Spicy Saturday"
@@ -1026,12 +1014,6 @@
    "slug": "honey-club-juan-les-pins",
    "score": 0,
    "soirs": [
-    [
-     "2026-11-26",
-     "23:00",
-     "dj-sebb-afrochella-a-honey-club-2026-11-26",
-     "DJ SEBB – AFROCHELLA à Honey Club"
-    ],
     [
      "2026-11-27",
      "minuit",
@@ -1065,8 +1047,8 @@
    "lng": 7.113293,
    "stylesSoirees": [
     "afro",
-    "house",
     "techno",
+    "house",
     "shatta"
    ]
   },

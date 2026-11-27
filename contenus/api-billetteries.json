@@ -1,38 +1,6 @@
 {
- "maj": "2026-11-26T21:18:03.569Z",
+ "maj": "2026-11-27T09:15:11.066Z",
  "evenements": [
-  {
-   "source": "eventbrite",
-   "name": "L’Homme qui plantait des arbres",
-   "start": "2026-11-26T19:00:00.000Z",
-   "end": "2026-11-26T21:00:00.000Z",
-   "venue": "Le Quartier du Poulpe",
-   "city": "Nice",
-   "address": "34 Boulevard Auguste Raynaud, 06100 Nice",
-   "url": "https://www.eventbrite.com/e/lhomme-qui-plantait-des-arbres-tickets-2005004339954",
-   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1198221779%2F2988009644804%2F1%2Foriginal.20261118-063319?auto=format%2Ccompress&q=75&sharp=10&s=f25f707d5e7a402c1920760448d920b9",
-   "price": 0,
-   "tags": [],
-   "description": "Soirée de contes autour d’un récit de Jean Giono\nLe QDP présente une soirée de contes et de littérature interprétée par François Voisin.",
-   "popularite": null,
-   "pays": "FR"
-  },
-  {
-   "source": "eventbrite",
-   "name": "Riviera Bar Crawl Paris #1 Social Club for Global Travelers & Party Lovers",
-   "start": "2026-11-26T19:30:00.000Z",
-   "end": "2026-11-27T00:30:00.000Z",
-   "venue": "27 Rue de la Huchette",
-   "city": "Paris",
-   "address": "27 Rue de la Huchette, 75005 Paris",
-   "url": "https://www.eventbrite.fr/e/billets-riviera-bar-crawl-paris-1-social-club-for-global-travelers-party-lovers-1286200272639",
-   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F245079809%2F95356021183%2F1%2Foriginal.20220310-180758?auto=format%2Ccompress&q=75&sharp=10&s=fd3253f5237a27442e50b11010243901",
-   "price": 19.32,
-   "tags": [],
-   "description": "Riviera Bar Crawl Paris presents the ultimate bar hopping in Paris Latin Quarter with a group of travelers, expats, and locals. Every Night",
-   "popularite": null,
-   "pays": "FR"
-  },
   {
    "source": "eventbrite",
    "name": "Riviera Bar Crawl Paris #1 Social Club for Global Travelers & Party Lovers",
@@ -206,6 +174,22 @@
    "price": 23.18,
    "tags": [],
    "description": "Meet your next gal pals over dinner with entrepreneurs! Make new connections in your city in fun, laid back environments and amazing food.",
+   "popularite": null,
+   "pays": "FR"
+  },
+  {
+   "source": "eventbrite",
+   "name": "Riviera Bar Crawl Paris #1 Social Club for Global Travelers & Party Lovers",
+   "start": "2026-12-01T19:30:00.000Z",
+   "end": "2026-12-02T00:30:00.000Z",
+   "venue": "27 Rue de la Huchette",
+   "city": "Paris",
+   "address": "27 Rue de la Huchette, 75005 Paris",
+   "url": "https://www.eventbrite.fr/e/billets-riviera-bar-crawl-paris-1-social-club-for-global-travelers-party-lovers-1286200302729",
+   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F245079809%2F95356021183%2F1%2Foriginal.20220310-180758?auto=format%2Ccompress&q=75&sharp=10&s=fd3253f5237a27442e50b11010243901",
+   "price": 19.32,
+   "tags": [],
+   "description": "Riviera Bar Crawl Paris presents the ultimate bar hopping in Paris Latin Quarter with a group of travelers, expats, and locals. Every Night",
    "popularite": null,
    "pays": "FR"
   },
@@ -453,7 +437,7 @@
  "rapport": [
   {
    "source": "eventbrite-api",
-   "evenements": 28
+   "evenements": 27
   },
   {
    "source": "ticketmaster-api",

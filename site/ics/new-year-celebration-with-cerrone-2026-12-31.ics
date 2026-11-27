@@ -1,0 +1,27 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:new-year-celebration-with-cerrone-2026-12-31@teufy
+DTSTAMP:20261127T091924Z
+DTSTART:20261231T220000Z
+DTEND:20270101T030000Z
+SUMMARY:New Year Celebration with Cerrone
+LOCATION:Monte Carlo Bay Resort & Hotel\, Monaco
+DESCRIPTION:Cerrone en live pour accueillir 2027 au Monte Carlo Bay : él
+ ectro et feu d’artifice garantis.\nBillets : https://www.instagram.com/p
+ /DgKIBCusUSL/\nVia Teufy @teufy_official
+URL:https://www.instagram.com/p/DgKIBCusUSL/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : New Year Celebration with Cerrone
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : New Year Celebration with Cerrone
+END:VALARM
+END:VEVENT
+END:VCALENDAR
