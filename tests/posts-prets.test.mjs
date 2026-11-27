@@ -11,7 +11,9 @@ const dossiers = existsSync(D) ? readdirSync(D).filter((x) => /^\d{4}-\d{2}-\d{2
 test('chaque post prêt a 1 à 10 images, une légende propre et au plus 5 hashtags', () => {
   for (const d of dossiers) {
     const imgs = readdirSync(path.join(D, d)).filter((x) => /^\d+[^/]*\.jpe?g$/i.test(x));
-    assert.ok(imgs.length >= 1 && imgs.length <= 10, `${d} : ${imgs.length} images`);
+    // Réel prêt (27/11/2026) : video.mp4 + couverture.jpg à la place des images.
+    if (existsSync(path.join(D, d, 'video.mp4'))) assert.ok(existsSync(path.join(D, d, 'couverture.jpg')), `${d} : réel sans couverture`);
+    else assert.ok(imgs.length >= 1 && imgs.length <= 10, `${d} : ${imgs.length} images`);
     const l = readFileSync(path.join(D, d, 'legende.txt'), 'utf8');
     assert.ok(l.length <= 2200, `${d} : légende trop longue`);
     assert.ok((l.match(/#[\p{L}\p{N}_]+/gu) || []).length <= 5, `${d} : plus de 5 hashtags`);

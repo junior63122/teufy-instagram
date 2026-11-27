@@ -523,6 +523,14 @@ async function prepare(slot, now, id) {
     if (!slot.variante || !existsSync(path.join(src, 'legende.txt'))) throw new Error(`Post prêt introuvable : ${slot.variante}`);
     const meta = existsSync(path.join(src, 'publication.json')) ? JSON.parse(readFileSync(path.join(src, 'publication.json'), 'utf8')) : {};
     if (meta.valide !== true) throw new Error(`Post prêt ${slot.variante} : pas encore validé par le directeur (publication.json « valide »).`);
+    // Réel prêt (27/11/2026 : montage des vraies vidéos de soirée du Drive) : video.mp4 + couverture.jpg dans le dossier.
+    if (existsSync(path.join(src, 'video.mp4'))) {
+      if (!existsSync(path.join(src, 'couverture.jpg'))) throw new Error(`Réel prêt ${slot.variante} : couverture.jpg manquante`);
+      const video = path.join(dir, 'pret-video.mp4'), cover = path.join(dir, 'pret-couverture.jpg');
+      await copyFile(path.join(src, 'video.mp4'), video); await copyFile(path.join(src, 'couverture.jpg'), cover);
+      pub = { video, couverture: cover, legende: readFileSync(path.join(src, 'legende.txt'), 'utf8').trim(), titre: meta.titre || slot.variante, photo: meta.photo || null, ia: meta.ia ?? false, rubrique: meta.rubrique || 'Soirées' };
+      console.log(`[${id}] réel prêt « ${pub.titre} »`);
+    } else {
     const images = [];
     for (const f of readdirSync(src).filter((x) => /^\d+[^/]*\.jpe?g$/i.test(x)).sort()) { const d = path.join(dir, `pret-${f}`); await copyFile(path.join(src, f), d); images.push(d); }
     if (!images.length || images.length > 10) throw new Error(`Post prêt ${slot.variante} : ${images.length} image(s) (1 à 10)`);
@@ -530,6 +538,7 @@ async function prepare(slot, now, id) {
       ...(Array.isArray(meta.tags) ? { tags: meta.tags.slice(0, images.length) } : {}) }; // identifications par image (vérifiées avant publication)
     if (meta.story && existsSync(path.join(src, meta.story))) { await copyFile(path.join(src, meta.story), path.join(dir, 'story-pret.jpg')); pub.storyPrete = 'story-pret.jpg'; }
     console.log(`[${id}] post prêt « ${pub.titre} » (${images.length} images)`);
+    }
   } else if (slot.type === 'veille') {
     // Veille : un post unique tout de suite si une annonce exceptionnelle et vérifiée vient de tomber.
     // Jour de fête (Noël, Nouvel An…) : un post spécial bonus, à l'heure prévue, une seule fois par an.
