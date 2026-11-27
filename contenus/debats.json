@@ -487,5 +487,21 @@
     "b": "Lit direct, sans détour",
     "legende": "Il y a ceux qui finissent sur les galets et ceux qui disparaissent sans dire au revoir. A ou B ? Tague ton opposé.",
     "ajout": "2026-11-26"
+  },
+  {
+    "id": "ia-2026-11-27-dd6l8u",
+    "q": "Nouvel An : on réserve maintenant ou on décide le 31 ?",
+    "a": "Maintenant, prévente prise",
+    "b": "Le 31, on verra bien",
+    "legende": "Il reste 5 semaines. Ton groupe est team A ou team B ? Réponds en com et tague celui qui va encore dire « on verra ».",
+    "ajout": "2026-11-27"
+  },
+  {
+    "id": "ia-2026-11-27-svma0i",
+    "q": "Ce samedi : techno jusqu'au matin ou club jusqu'à 5 h ?",
+    "a": "Techno, after compris",
+    "b": "Club, et on rentre à 5 h",
+    "legende": "Deux camps, une seule nuit. Écris A ou B en com et tague ton binôme pour voir s'il est d'accord.",
+    "ajout": "2026-11-27"
   }
 ]

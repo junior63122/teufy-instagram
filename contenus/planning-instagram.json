@@ -1,5 +1,5 @@
 {
- "le": "2026-11-27T14:21:31.251Z",
+ "le": "2026-11-27T15:10:52.785Z",
  "jours": [
   {
    "date": "2026-11-27",
@@ -9,7 +9,7 @@
      "id": "incontournables-commercial",
      "type": "incontournables",
      "variante": "commercial",
-     "heure": "16 h 07",
+     "heure": "17 h 07",
      "suite": false,
      "fait": false,
      "lien": null
@@ -203,7 +203,7 @@
      "id": "bonplan-petits-prix",
      "type": "bonplan",
      "variante": "petits-prix",
-     "heure": "17 h 07",
+     "heure": "18 h 07",
      "suite": false,
      "fait": false,
      "lien": null
@@ -323,7 +323,7 @@
      "id": "reel-tendance",
      "type": "reel",
      "variante": "tendance",
-     "heure": "19 h 07",
+     "heure": "20 h 07",
      "suite": false,
      "fait": false,
      "lien": null
@@ -397,7 +397,7 @@
      "id": "libre",
      "type": "libre",
      "variante": null,
-     "heure": "17 h 07",
+     "heure": "20 h 07",
      "suite": false,
      "fait": false,
      "lien": null
@@ -406,7 +406,7 @@
      "id": "reel-tendance",
      "type": "reel",
      "variante": "tendance",
-     "heure": "19 h 07",
+     "heure": "20 h 07",
      "suite": false,
      "fait": false,
      "lien": null
@@ -480,7 +480,7 @@
      "id": "bonplan-petits-prix",
      "type": "bonplan",
      "variante": "petits-prix",
-     "heure": "16 h 07",
+     "heure": "17 h 07",
      "suite": false,
      "fait": false,
      "lien": null

@@ -209,6 +209,16 @@
         "titre": "Tout le monde a dit oui. Personne a pris sa prévente.",
         "sous": "Tague celui qui attend",
         "ajout": "2026-11-26"
+      },
+      {
+        "titre": "Il a dit « 5 min ». Ça fait 40 min.",
+        "sous": "Tague-le",
+        "ajout": "2026-11-27"
+      },
+      {
+        "titre": "Marché de Noël à 19 h. Dancefloor à 1 h.",
+        "sous": "Envoie-le à ton groupe",
+        "ajout": "2026-11-27"
       }
     ],
     "techno": [
@@ -312,6 +322,11 @@
         "titre": "Lundi en amphi, la tête encore dans le set",
         "sous": "Tague ton binôme",
         "ajout": "2026-11-26"
+      },
+      {
+        "titre": "Dernier morceau du set. Personne bouge.",
+        "sous": "Techno · Côte d'Azur",
+        "ajout": "2026-11-27"
       }
     ],
     "petits-prix": [
@@ -396,6 +411,11 @@
         "titre": "Décembre : 4 week-ends, 1 seul salaire",
         "sous": "Petits prix · Côte d'Azur",
         "ajout": "2026-11-26"
+      },
+      {
+        "titre": "La paye est tombée. Elle tient jusqu'au 15 ?",
+        "sous": "Petits prix · Côte d'Azur",
+        "ajout": "2026-11-27"
       }
     ]
   },
@@ -438,7 +458,9 @@
       "Pots de Noël, Black Friday, fin de mois : décembre arrive vite. Où sortir ce week-end de Nice à Monaco, avec qui y aller et comment rentrer. Envoie-le à ton groupe.",
       "Ton groupe a besoin d'un plan, pas d'un sondage. Trois soirées ce week-end sur la Côte, une par ambiance. Réponds 1, 2 ou 3 en com.",
       "Le physio regarde ta tenue, ton groupe regarde son téléphone. Les soirées du week-end de Cannes à Monaco, pour arriver prêt. Tague celui qui se change trois fois.",
-      "Premier week-end de décembre, le groupe hésite déjà. Trois ambiances de Nice à Monaco. Réponds 1, 2 ou 3 en com, on verra qui gagne."
+      "Premier week-end de décembre, le groupe hésite déjà. Trois ambiances de Nice à Monaco. Réponds 1, 2 ou 3 en com, on verra qui gagne.",
+      "Marché de Noël à 19 h, dancefloor à 1 h. Les soirées du week-end de Nice à Monaco. Tague celui qui dit « juste un tour et je rentre ».",
+      "Trois soirées, trois ambiances, un seul samedi. Réponds 1, 2 ou 3 en com et envoie-le au groupe : la majorité décide."
     ],
     "techno": [
       "Les caissons tremblent déjà. Ce week-end, la scène underground du 06 ne fait aucun compromis sur les BPM.",
@@ -465,11 +487,13 @@
       "Kicks lourds, il fait froid dehors, personne s'en rend compte dedans. Les dates qui tapent ce week-end sur la Côte, à envoyer à ton binôme avant qu'il prenne sa prévente sans toi.",
       "Un nom tombe, le groupe rave s'allume. Les soirées techno du week-end de Nice à Toulon. Tu fais laquelle ? Réponds juste le nom en com.",
       "Décembre tombe, les line-ups aussi. Les dates qui tapent ce week-end de Nice à Toulon, à envoyer à ton binôme avant qu'il les trouve seul.",
-      "Dehors, la Prom' est vide. Dedans, 140 BPM. Les soirées techno du week-end sur la Côte. Tu fais laquelle ? Écris juste le nom en com."
+      "Dehors, la Prom' est vide. Dedans, 140 BPM. Les soirées techno du week-end sur la Côte. Tu fais laquelle ? Écris juste le nom en com.",
+      "Décembre, les warehouses ouvrent tard et ferment encore plus tard. Les dates qui tapent ce week-end sur la Côte, à envoyer à celui avec qui tu fais toutes tes afters.",
+      "Basses lourdes, mer froide, lever du jour. Les soirées techno du week-end de Nice à Toulon. Tu fais laquelle ? Écris juste le nom en com."
     ]
   },
-  "objectif_semaine": 30,
-  "derniere_analyse": "2026-11-26T15:07:58.789Z",
+  "objectif_semaine": 38,
+  "derniere_analyse": "2026-11-27T15:07:58.834Z",
   "concurrents": {
     "_note": "Comptes concurrents ou similaires (guides de sorties, médias nightlife). Le bot regarde chaque jour ce qui marche chez eux (formats, accroches, hashtags, heures). Un nom inexistant est simplement ignoré.",
     "liste": [
@@ -493,34 +517,34 @@
   },
   "formats_a_tester": [
     {
-      "format": "Carrousel techno curaté avec question finale « tu fais laquelle ? »",
-      "pourquoi": "Meilleure note bot (95/100, 8 partages) et carrousel = format dominant chez les autres comptes (score 641 contre 12 pour le reel).",
-      "source": "Chiffres du compte (Édition Tekno 12/11) + tendances autres comptes",
-      "ajout": "2026-11-26"
+      "format": "Carrousel annonce de nom vérifié (1 nom, 1 date, 1 lieu, une personne à qui l'envoyer)",
+      "pourquoi": "C'est le seul format du bot à 100 avec 8 partages. Il passe le test du « on y va ? ».",
+      "source": "Chiffres du compte : veille HUGEL du 09/11",
+      "ajout": "2026-11-27"
     },
     {
-      "format": "Concours « tague le pote avec qui tu y vas »",
-      "pourquoi": "Historique 72 à 100/100, 18 à 28 commentaires, meilleur gain d'abonnés du compte.",
-      "source": "Concours équipe mars à août 2026, Frigo 16 nov. 2026",
-      "ajout": "2026-11-26"
+      "format": "Concours 2 places avec « tague le pote qui vient »",
+      "pourquoi": "Il produit commentaires, partages et abonnés. Les concours de l'équipe ont noté entre 56 et 100.",
+      "source": "Chiffres du compte : Frigo 16 (45), LQB (100), Crossover (100)",
+      "ajout": "2026-11-27"
     },
     {
-      "format": "Carrousel « place ton groupe sur le tableau » version Côte d'Azur",
-      "pourquoi": "Situation où chacun se reconnaît et tague son groupe, envoyé en message privé.",
-      "source": "https://www.instagram.com/p/Df40odgm5q-/ (partiful)",
-      "ajout": "2026-11-26"
+      "format": "Carrousel « place-toi sur le schéma » pour le Nouvel An",
+      "pourquoi": "Le carrousel est le format le plus fort chez les autres comptes (score 644). Le post Nouvel An 2025 a eu 58 partages.",
+      "source": "https://www.instagram.com/p/Df40odgm5q-/ (partiful) + chiffres du compte",
+      "ajout": "2026-11-27"
     },
     {
-      "format": "Reel question de 7 à 15 s sur une galère de décision",
-      "pourquoi": "« Tu sais jamais où sortir le soir ? » : 68/100, 3 partages ; le « pourquoi entrée gratuite avant 1h » : 4 partages.",
-      "source": "Chiffres du compte 13/11 et 19/11",
-      "ajout": "2026-11-26"
+      "format": "Reel question ouverte de 10 à 15 s avec un plan concret",
+      "pourquoi": "« Tu sais jamais où sortir le soir ? » a obtenu 67 et 3 partages, contre 4 à 14 pour les reels sans info.",
+      "source": "Chiffres du compte, reel du 19/11",
+      "ajout": "2026-11-27"
     },
     {
-      "format": "Trial Reel : même reel, 2 accroches testées auprès des non-abonnés",
-      "pourquoi": "Valide l'accroche sans peser sur la portée des abonnés ; utile vu le faible volume par format.",
-      "source": "https://creatorflow.so/blog/instagram-algorithm",
-      "ajout": "2026-11-26"
+      "format": "Reel d'essai (Trial Reel) avant de pousser un concept humour",
+      "pourquoi": "On teste sur des non-abonnés sans risquer la moyenne du compte.",
+      "source": "https://blog.hubspot.fr/marketing/algorithme-instagram",
+      "ajout": "2026-11-27"
     }
   ],
   "inspirations_internationales": {

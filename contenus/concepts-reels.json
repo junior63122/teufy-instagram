@@ -1146,5 +1146,125 @@
     "test_du_partage": "Au pote de Sophia sans voiture : « t'es littéralement le dernier plan ».",
     "statut": "propose",
     "ajout": "2026-11-26"
+  },
+  {
+    "id": "c-2026-11-27-knvah5",
+    "titre": "Ta galerie photo, de 23 h à 6 h",
+    "format": "avant-apres",
+    "accroche": "Ta galerie photo un samedi, de 23 h à 6 h",
+    "plans": [
+      {
+        "texte": "23 h : selfie parfait, après 14 essais",
+        "video": "friends taking selfie getting ready apartment"
+      },
+      {
+        "texte": "0 h 30 : photo de groupe devant, tout le monde sourit",
+        "video": "group of friends posing outside nightclub night"
+      },
+      {
+        "texte": "2 h : 47 vidéos du DJ, toutes floues",
+        "video": "blurry phone video dj club lights"
+      },
+      {
+        "texte": "4 h : une photo de ton pied. Personne sait pourquoi.",
+        "video": "blurry feet dance floor club lights"
+      },
+      {
+        "texte": "6 h : le lever de soleil sur la Prom', enfin net",
+        "video": "sunrise beach promenade friends"
+      },
+      {
+        "texte": "Lundi : tu tries tout. Tu gardes la floue.",
+        "video": "scrolling phone gallery bed morning"
+      }
+    ],
+    "musique": "house mélodique qui monte, 120 bpm, drop au plan 3",
+    "legende": "Ta galerie un samedi sur la Côte : 14 selfies à 23 h, 47 vidéos floues du DJ à 2 h, et une photo de ton pied à 4 h que personne n'explique. Envoie-le à celui qui filme tout le set. #cotedazur #nightlifecotedazur #sortiranice",
+    "cta": "Envoie-le à celui qui filme tout le set",
+    "inspire_de": "partiful, humour du quotidien des soirées : https://www.instagram.com/p/Df40odgm5q-/",
+    "pourquoi_viral": "Tout le monde a cette galerie. La chute du pied et de la photo floue fait rire, et la Prom' rend le reel local.",
+    "test_du_partage": "Au pote qui filme tout : « c'est trop toi », ou dans le groupe le dimanche matin.",
+    "statut": "propose",
+    "ajout": "2026-11-27"
+  },
+  {
+    "id": "c-2026-11-27-1y41db4",
+    "titre": "5 h, le prix du VTC s'affiche",
+    "format": "reaction",
+    "accroche": "5 h. Tu ouvres l'appli VTC. Le prix s'affiche.",
+    "plans": [
+      {
+        "texte": "Le groupe à 5 h : « on partage un VTC, ça passe »",
+        "video": "friends outside club night street waiting"
+      },
+      {
+        "texte": "Le prix s'affiche. Silence total dans le groupe.",
+        "video": "shocked face looking at phone night"
+      },
+      {
+        "texte": "Celui qui avait promis de conduire : introuvable",
+        "video": "empty parking lot night"
+      },
+      {
+        "texte": "Quelqu'un propose de marcher jusqu'à Sophia",
+        "video": "friends walking empty road night"
+      },
+      {
+        "texte": "Finalement : premier bus du matin, tous ensemble",
+        "video": "friends tired on bus morning"
+      },
+      {
+        "texte": "Tague celui qui avait promis de conduire",
+        "video": "friends laughing pointing at camera"
+      }
+    ],
+    "musique": "son dramatique en ouverture, puis afro house légère 118 bpm",
+    "legende": "5 h, la boîte ferme, l'appli VTC affiche son prix et le groupe devient très silencieux. Et bien sûr, celui qui devait conduire a disparu. Tague-le, il sait. #cotedazur #nightlifecotedazur #sortiranice",
+    "cta": "Tague celui qui avait promis de conduire",
+    "inspire_de": "partiful, reels d'humour sur les soirées : https://www.instagram.com/reel/Df-MTyXs-tQ/",
+    "pourquoi_viral": "La galère du retour est vécue par tous, surtout à Sophia. La réaction de silence est très visuelle, et le tag vise une personne précise.",
+    "test_du_partage": "Au pote qui promet toujours de conduire, ou dans le groupe : « c'est nous samedi dernier ».",
+    "statut": "propose",
+    "ajout": "2026-11-27"
+  },
+  {
+    "id": "c-2026-11-27-rk7lyq",
+    "titre": "Nouvel An : trop tôt pour en parler ?",
+    "format": "classement",
+    "accroche": "Nouvel An : à partir de quand c'est trop tôt ?",
+    "plans": [
+      {
+        "texte": "1er novembre : « on fait quoi le 31 ? »",
+        "video": "friends group chat phone laughing"
+      },
+      {
+        "texte": "Fin novembre : 3 plans, 0 décision",
+        "video": "friends arguing on couch phones"
+      },
+      {
+        "texte": "15 décembre : les préventes partent, le groupe dort",
+        "video": "scrolling event tickets phone night"
+      },
+      {
+        "texte": "28 décembre : « bon, on fait ça chez qui ? »",
+        "video": "messy apartment party preparation"
+      },
+      {
+        "texte": "31, minuit : tout le monde s'en fiche, on danse",
+        "video": "new year countdown crowd confetti club"
+      },
+      {
+        "texte": "Ton groupe en est où ? Réponds en com",
+        "video": "friends dancing club lights slow motion"
+      }
+    ],
+    "musique": "électro festive qui monte vers un compte à rebours, 124 bpm",
+    "legende": "Il reste 5 semaines. Ton groupe en est à quel stade : 3 plans, 0 décision ou déjà la prévente en poche ? Réponds en com et envoie-le à celui qui dit encore « on verra en décembre ». #nouvelan #cotedazur #nightlifecotedazur",
+    "cta": "Envoie-le à celui qui dit « on verra en décembre »",
+    "inspire_de": "partiful, « How early is too early to host your holiday party? » : https://www.instagram.com/p/Df7YQlonBp8/",
+    "pourquoi_viral": "C'est le sujet du moment dans tous les groupes. Le post Nouvel An 2025 a fait 58 partages, et chacun se reconnaît à une étape.",
+    "test_du_partage": "Dans le groupe WhatsApp « Nouvel An » : « on est à l'étape 2, réveillez-vous ».",
+    "statut": "propose",
+    "ajout": "2026-11-27"
   }
 ]
