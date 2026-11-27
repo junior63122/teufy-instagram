@@ -1,6 +1,6 @@
 {
- "le": "2026-11-27T14:21:31.224Z",
- "total": 136,
+ "le": "2026-11-27T16:14:21.461Z",
+ "total": 139,
  "sans_image": [
   {
    "id": "rencontre-d-echecs-a-saint-raphael-hotel-beausejour-2026-11-27",
@@ -201,6 +201,15 @@
    "url": "https://www.eventbrite.com/e/billets-lapero-kanaille-avec-laka-naia-aux-folies-dedmonde-2004689447101"
   },
   {
+   "id": "reading-hour-nice-2026-11-30",
+   "nom": "Reading hour (Nice)",
+   "jour": "2026-11-30",
+   "lieu": "Jardin Albert 1er",
+   "ville": "Nice",
+   "instagram": "",
+   "url": "https://www.eventbrite.co.uk/e/reading-hour-nice-tickets-1995469509018"
+  },
+  {
    "id": "blind-test-aux-folies-d-edmonde-2026-11-30",
    "nom": "Blind Test aux Folies d'Edmonde",
    "jour": "2026-11-30",
@@ -219,13 +228,31 @@
    "url": "https://www.eventbrite.com/e/dinner-with-entrepreneurs-nice-girls-night-out-edition-tickets-1902509921389"
   },
   {
-   "id": "foodies-new-friends-nice-giving-back-edition-2026-12-03",
-   "nom": "Foodies + New Friends: Nice | Giving Back Edition",
+   "id": "rencontre-d-echecs-a-nice-alt-f4-2026-12-01",
+   "nom": "Rencontre d’échecs à Nice · ALT F4",
+   "jour": "2026-12-01",
+   "lieu": "ALT F4",
+   "ville": "Nice",
+   "instagram": "",
+   "url": "https://www.eventbrite.fr/e/rencontre-dechecs-a-nice-alt-f4-tickets-2004718161988"
+  },
+  {
+   "id": "10-people-group-nice-karao-quiz-night-fun-karaoke-et-music-q-2026-12-02",
+   "nom": "10 People Group Nice: Karao-Quiz Night – Fun Karaoke & Music Quiz Party",
+   "jour": "2026-12-02",
+   "lieu": "40 Rue Droite",
+   "ville": "Nice",
+   "instagram": "",
+   "url": "https://www.eventbrite.fr/e/10-people-group-nice-karao-quiz-night-fun-karaoke-music-quiz-party-tickets-2004294468710"
+  },
+  {
+   "id": "foodies-new-friends-nice-2026-12-03",
+   "nom": "Foodies + New Friends: Nice",
    "jour": "2026-12-03",
    "lieu": "Restaurant of the Week",
    "ville": "Nice",
    "instagram": "",
-   "url": "https://www.eventbrite.com/e/foodies-new-friends-nice-giving-back-edition-tickets-1989238521968"
+   "url": "https://www.eventbrite.com/e/foodies-new-friends-nice-tickets-1976266120165"
   },
   {
    "id": "rencontre-d-echecs-a-marseille-le-chaperon-rouge-2026-12-03",

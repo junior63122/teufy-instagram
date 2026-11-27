@@ -1,0 +1,32 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:10-people-group-nice-karao-quiz-night-fun-karaoke-et-music-q-2026-12-02
+ @teufy
+DTSTAMP:20261127T162304Z
+DTSTART:20261202T200000Z
+DTEND:20261203T010000Z
+SUMMARY:10 People Group Nice: Karao-Quiz Night – Fun Karaoke & Music Quiz
+  Party
+LOCATION:40 Rue Droite\, 40 Rue Droite 06300 Nice\, Nice
+DESCRIPTION:Billets : https://www.eventbrite.fr/e/10-people-group-nice-kara
+ o-quiz-night-fun-karaoke-music-quiz-party-tickets-2004294468710\nVia Teufy
+  @teufy_official
+URL:https://www.eventbrite.fr/e/10-people-group-nice-karao-quiz-night-fun-k
+ araoke-music-quiz-party-tickets-2004294468710
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : 10 People Group Nice: Karao-Quiz Night – Fun Karaoke
+  & Music Quiz Party
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : 10 People Group Nice: Karao-Quiz Night – Fun Karao
+ ke & Music Quiz Party
+END:VALARM
+END:VEVENT
+END:VCALENDAR

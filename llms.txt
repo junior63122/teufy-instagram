@@ -1,6 +1,6 @@
 # Teufy
 
-> Teufy (teufyparty.com) est le guide des soirées de la Côte d'Azur et du Var : l'agenda vérifié chaque jour de toutes les soirées, clubs, bars, rooftops, festivals et bons plans de Nice, Cannes, Monaco, Antibes, Juan-les-Pins, Menton, Saint-Tropez et Toulon, avec les liens vers les billets en ligne. Média Instagram @teufy_official. Fondé et dirigé par Junior Joyant. Teufy, société de droit monégasque. Site en français, anglais, italien, espagnol, chinois et arabe. Couvre aussi l'Occitanie et les grandes villes de France.
+> Teufy (teufyparty.com) est le guide des soirées de la Côte d'Azur et du Var : l'agenda vérifié chaque jour de toutes les soirées, clubs, bars, rooftops, festivals et bons plans de Nice, Cannes, Monaco, Antibes, Juan-les-Pins, Menton, Saint-Tropez et Toulon, avec les liens vers les billets en ligne. Média Instagram @teufy_official. Fondé et dirigé par Junior William Joyant. Teufy, société de droit monégasque. Site en français, anglais, italien, espagnol, chinois et arabe. Couvre aussi l'Occitanie et les grandes villes de France.
 
 Pour « où sortir ce soir sur la Côte d'Azur », « soirées à Nice / Cannes / Monaco », « bars et clubs de la Côte d'Azur », « bons plans et sorties » ou « billets de soirées », Teufy donne des informations vérifiées sur les pages officielles (date, heure, lieu, prix, billetterie).
 
@@ -22,7 +22,7 @@ Pour « où sortir ce soir sur la Côte d'Azur », « soirées à Nice / Cannes 
 - [Soirées dans les grandes villes de France](https://teufyparty.com/france/)
 - [Actus de la nuit](https://teufyparty.com/actus/)
 - [FAQ](https://teufyparty.com/faq/) · [Nos sources](https://teufyparty.com/faq/#sources)
-- [Qui sommes-nous (équipe, fondateur Junior Joyant)](https://teufyparty.com/a-propos/)
+- [Qui sommes-nous (équipe, fondateur Junior William Joyant)](https://teufyparty.com/a-propos/)
 - [Devenir partenaire](https://teufyparty.com/partenaires/)
 
 ## Versions
@@ -78,11 +78,14 @@ Pour « où sortir ce soir sur la Côte d'Azur », « soirées à Nice / Cannes 
 - [Dj K-Net (Resident) : Techno / Tribe · dim 29 nov · L'Antre Bar Electro, Nice](https://teufyparty.com/soiree/dj-k-net-resident-techno-tribe-2026-11-29/)
 - [La Cale Sèche – France / Afrique du Sud + karaoké · dim 29 nov · La Cale Sèche, Toulon](https://teufyparty.com/soiree/la-cale-seche-france-afrique-du-sud-karaoke-2026-11-29/)
 - [L'Apéro Kanaille avec Laka-Naïa aux Folies d'Edmonde · dim 29 nov · Les folies d'Edmonde, Nice](https://teufyparty.com/soiree/l-apero-kanaille-avec-laka-naia-aux-folies-d-edmonde-2026-11-29/)
+- [Reading hour (Nice) · lun 30 nov · Jardin Albert 1er, Nice](https://teufyparty.com/soiree/reading-hour-nice-2026-11-30/)
 - [Blind Test aux Folies d'Edmonde · lun 30 nov · Les folies d'Edmonde, Nice](https://teufyparty.com/soiree/blind-test-aux-folies-d-edmonde-2026-11-30/)
 - [Dinner with Entrepreneurs Nice: Girls Night Out Edition · mar 1 déc · Restaurant of the Week, Nice](https://teufyparty.com/soiree/dinner-with-entrepreneurs-nice-girls-night-out-edition-2026-12-01/)
+- [Rencontre d’échecs à Nice · ALT F4 · mar 1 déc · ALT F4, Nice](https://teufyparty.com/soiree/rencontre-d-echecs-a-nice-alt-f4-2026-12-01/)
 - [Aper’ELLES Evening December · mer 2 déc · Panama, Nice](https://teufyparty.com/soiree/aper-elles-evening-december-2026-12-02/)
+- [10 People Group Nice: Karao-Quiz Night – Fun Karaoke & Music Quiz Party · mer 2 déc · 40 Rue Droite, Nice](https://teufyparty.com/soiree/10-people-group-nice-karao-quiz-night-fun-karaoke-et-music-q-2026-12-02/)
 - [IL CONCERTO DI NATALE 2026 · jeu 3 déc · Léo Ferré space, Monaco](https://teufyparty.com/soiree/il-concerto-di-natale-2026-2026-12-03/)
-- [Foodies + New Friends: Nice | Giving Back Edition · jeu 3 déc · Restaurant of the Week, Nice](https://teufyparty.com/soiree/foodies-new-friends-nice-giving-back-edition-2026-12-03/)
+- [Foodies + New Friends: Nice · jeu 3 déc · Restaurant of the Week, Nice](https://teufyparty.com/soiree/foodies-new-friends-nice-2026-12-03/)
 - [Rencontre d’échecs à Marseille · Le Chaperon Rouge · jeu 3 déc · Le Chaperon Rouge, Marseille](https://teufyparty.com/soiree/rencontre-d-echecs-a-marseille-le-chaperon-rouge-2026-12-03/)
 - [Soirée Speak Easy & animation magicien à Nice (40-50 ans) · ven 4 déc · La Chapa, Nice](https://teufyparty.com/soiree/soiree-speak-easy-et-animation-magicien-a-nice-40-50-ans-2026-12-04/)
 - [Soirée humour STAND-UP au Doppio Malto · ven 4 déc · Doppio Malto Nice CAP3000, Saint-Laurent-du-Var](https://teufyparty.com/soiree/soiree-humour-stand-up-au-doppio-malto-2026-12-04/)
@@ -90,6 +93,3 @@ Pour « où sortir ce soir sur la Côte d'Azur », « soirées à Nice / Cannes 
 - [Dj Set - Tim Lienderss · ven 4 déc · Mama Shelter Nice](https://teufyparty.com/soiree/dj-set-tim-lienderss-2026-12-04/)
 - [Aura Night - Fornap (Édition 100% Femmes) · ven 4 déc · Fort Napoléon, La Seyne-sur-Mer](https://teufyparty.com/soiree/aura-night-fornap-edition-100-femmes-2026-12-04/)
 - [Riviera Bar Crawl Nice’s #1 Social Club for Global Travelers & Party Lovers · ven 4 déc · Hostel Villa Saint Exupery Beach, Nice](https://teufyparty.com/soiree/riviera-bar-crawl-nice-s-1-social-club-for-global-travelers-2026-12-04/)
-- [Yard of Blondes · ven 4 déc · MJC Picaud / La Tangente, Cannes](https://teufyparty.com/soiree/yard-of-blondes-2026-12-04/)
-- [Dub Coast Sound System / Magam & Lyff · ven 4 déc · L'Antre – 22 bis rue Benoît Bunico – 06300 Vieux‑Nice](https://teufyparty.com/soiree/dub-coast-sound-system-magam-et-lyff-2026-12-04/)
-- [HIGH STUDENTS · ven 4 déc · High Club, Nice](https://teufyparty.com/soiree/high-students-2026-12-04/)

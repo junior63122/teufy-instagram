@@ -1,5 +1,5 @@
 {
- "maj": "2026-11-27T09:15:11.066Z",
+ "maj": "2026-11-27T16:20:29.082Z",
  "evenements": [
   {
    "source": "eventbrite",
@@ -432,12 +432,28 @@
    "description": "Interprétation d'œuvres d'orgue et de transcriptions orchestrales",
    "popularite": null,
    "pays": "FR"
+  },
+  {
+   "source": "eventbrite",
+   "name": "Le Piume di Morris – Concert live au Quartier du Poulpe",
+   "start": "2027-02-12T19:45:00.000Z",
+   "end": "2027-02-12T22:59:00.000Z",
+   "venue": "Le Quartier du Poulpe",
+   "city": "Nice",
+   "address": "34 boulevard Auguste Raynaud, 06100 Nice",
+   "url": "https://www.eventbrite.com/e/le-piume-di-morris-concert-live-au-quartier-du-poulpe-tickets-2005529462610",
+   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1198776694%2F2988009644804%2F1%2Foriginal.20261127-095349?auto=format%2Ccompress&q=75&sharp=10&s=32c241b51acd2e47d1010146a043a30c",
+   "price": 0,
+   "tags": [],
+   "description": "Entre rock alternatif, poésie sonore et performance artistique, découvrez un duo italien hors des sentiers battus.",
+   "popularite": null,
+   "pays": "FR"
   }
  ],
  "rapport": [
   {
    "source": "eventbrite-api",
-   "evenements": 27
+   "evenements": 28
   },
   {
    "source": "ticketmaster-api",
