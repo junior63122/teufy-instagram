@@ -9229,5 +9229,27 @@
   },
   "commun": []
  },
- "og|https://www.eventbrite.com/e/carol-nakari-quintet-pourquoi-pas-ce-soir-concert-live-tickets-2005397934205": "https://www.eventbrite.com/_next/image?url=https%3A%2F%2Fimg.evbuc.com%2Fhttps%253A%252F%252Fcdn.evbuc.com%252Fimages%252F1198610795%252F2988009644804%252F1%252Foriginal.20261124-144318%3Fw%3D940%26auto%3Dformat%252Ccompress%26q%3D75%26sharp%3D10%26s%3Da86e435979987924d0e2a05c881f9472&w=940&q=75"
+ "og|https://www.eventbrite.com/e/carol-nakari-quintet-pourquoi-pas-ce-soir-concert-live-tickets-2005397934205": "https://www.eventbrite.com/_next/image?url=https%3A%2F%2Fimg.evbuc.com%2Fhttps%253A%252F%252Fcdn.evbuc.com%252Fimages%252F1198610795%252F2988009644804%252F1%252Foriginal.20261124-144318%3Fw%3D940%26auto%3Dformat%252Ccompress%26q%3D75%26sharp%3D10%26s%3Da86e435979987924d0e2a05c881f9472&w=940&q=75",
+ "v2|8bd7dba7049f": {
+  "ok": true,
+  "le": "2026-11-27T17:15:36.080Z",
+  "nom": "Carol Nakari Quintet – Pourquoi pas ce soir ? | Concert live",
+  "lu": {
+   "titre": "Pourquoi pas ce soir?",
+   "dates": [
+    "2026-12-05"
+   ],
+   "artistes": [
+    "Carol Nakari Quintet"
+   ],
+   "lieu": "LE QUARTIER DU POULPE"
+  },
+  "commun": [
+   "pourquoi",
+   "soir",
+   "carol",
+   "nakari",
+   "quintet"
+  ]
+ }
 }
