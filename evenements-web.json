@@ -5867,7 +5867,10 @@
       "price": 12,
       "tags": [
         "Techno",
-        "Acid"
+        "Acid",
+        "techno",
+        "hardance",
+        "acid"
       ],
       "description": "",
       "public_cible": 0.6,
@@ -5875,6 +5878,13 @@
       "accroche": "Slackreb en live au Green Musik d'Antibes le 12 décembre.",
       "instagram": [
         "_lestocards_"
+      ],
+      "offres": [
+        {
+          "plateforme": "lacocardise.com",
+          "url": "https://www.lacocardise.com/agenda",
+          "prix": null
+        }
       ]
     },
     {
