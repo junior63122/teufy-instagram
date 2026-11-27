@@ -8,6 +8,34 @@
     {
       "source": "web",
       "source_site": "Instagram",
+      "name": "SHATTA",
+      "start": "2026-11-27T23:00:00.000Z",
+      "venue": "Naho Club",
+      "city": "La Garde",
+      "address": "",
+      "url": "https://www.instagram.com/p/DgDIcZRiGBk/",
+      "image": "https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/924338698_18128935222917771_1390001883795909525_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=104&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0XWltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=w9mmdJTiQHUQ7kNvwFAvTl2&_nc_oc=AdqE_3A4jtR29AkZ7Wh3Yr1eB4jTr20oKIDLyZbqSSB3uO_h5KoG17vubHog7E19tCk&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=T_5lZboFD5H6P7pDs7sndA&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQQhaBmkdM9anfCG-X8EVQIFilIKsWejYHkyVCVqbnTrzw&oe=6B090C1E",
+      "price": null,
+      "tags": [
+        "shatta",
+        "dancehall"
+      ],
+      "description": "Le Naho Club te propose une soirée Shatta du 28 novembre, de minuit à 5 h du matin, sur le thème des îles des Caraïbes. Au line‑up ___ozenn___ et Dezze Recital, tu vas danser sur du shatta et du dancehall jusqu’à l’aube. Le lieu, 116 Av. de Digne à La Garde, est facilement accessible depuis Toulon. Réserve au 06 61 42 26 51 si besoin. Dress code tropical recommandé, entrée libre mais prépare‑toi à une ambiance très chaude.",
+      "public_cible": 1,
+      "confiance": 0.9,
+      "buzz": 0.6,
+      "buzz_raison": "Première soirée thématique shatta du club, 99 likes, week‑end.",
+      "accroche": "Samedi 28 novembre, le Naho s’enflamme avec une soirée 100 % SHATTA, chaleur et danse garantis.",
+      "instagram": [
+        "nahoclub",
+        "dezze_recital",
+        "naho_club"
+      ],
+      "offres": []
+    },
+    {
+      "source": "web",
+      "source_site": "Instagram",
       "name": "Welcome To DEMAYÄ",
       "start": "2026-12-10T23:00:00.000Z",
       "venue": "La Nonchalance",
@@ -4423,31 +4451,6 @@
     {
       "source": "web",
       "source_site": "Instagram",
-      "name": "SHATTA",
-      "start": "2026-11-27T23:00:00.000Z",
-      "venue": "Naho Club",
-      "city": "La Garde",
-      "address": "",
-      "url": "https://www.instagram.com/p/DgDIcZRiGBk/",
-      "image": "https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/924338698_18128935222917771_1390001883795909525_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=104&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0XWltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=w9mmdJTiQHUQ7kNvwFAvTl2&_nc_oc=AdqE_3A4jtR29AkZ7Wh3Yr1eB4jTr20oKIDLyZbqSSB3uO_h5KoG17vubHog7E19tCk&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=T_5lZboFD5H6P7pDs7sndA&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQQhaBmkdM9anfCG-X8EVQIFilIKsWejYHkyVCVqbnTrzw&oe=6B090C1E",
-      "price": null,
-      "tags": [
-        "shatta"
-      ],
-      "description": "Le samedi 28 novembre, le Naho Club propose une soirée 100 % SHATTA, avec les DJs ___ozenn___ et Dezze Recital aux platines. L’ambiance caliente, le son percutant et le décor du club promettent une nuit de danse endiablée jusqu’à 5 h. Adresse : 116 Av. de Digne, 83130 La Garde, réservations au 06 61 42 26 51. Entrée libre, mais le lieu se remplit vite, alors arrive tôt. Dress code : tenues festives, 18+.",
-      "public_cible": 1,
-      "confiance": 0.9,
-      "buzz": 0.55,
-      "buzz_raison": "Première soirée thématique shatta du club, 99 likes, week‑end.",
-      "accroche": "Samedi 28 novembre, le Naho s’enflamme avec une soirée 100 % SHATTA, chaleur et danse garantis.",
-      "instagram": [
-        "nahoclub",
-        "dezze_recital"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "Instagram",
       "name": "Hard Night",
       "start": "2026-12-10T23:00:00.000Z",
       "venue": "Dieze Warehouse",
@@ -5920,6 +5923,6 @@
       ]
     }
   ],
-  "maj_instagram": "2026-11-27T12:12:55.296Z",
+  "maj_instagram": "2026-11-27T13:12:54.403Z",
   "echec_web": "2026-11-27T09:12:46.543Z"
 }
