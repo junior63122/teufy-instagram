@@ -4,6 +4,15 @@ Journal daté (le plus récent en premier) : changements des prestataires et des
 mises à jour, sources de soirées réparées ou ajoutées, décisions prises. Tenu par la tâche programmée quotidienne
 (demande du directeur du 20/11/2026), à partir de `contenus/veille-technique.json` et des annonces officielles.
 
+## 27/11/2026 : veille quotidienne
+- Relevé technique : celui de 6 h 17 pas encore passé à 7 h 50 ; relevé d'hier (16 h 20) lu.
+- API Instagram : v27.0 toujours la plus récente, Teufy reste en v26.0 (publications d'hier relues en ligne et conformes) ;
+  journal des changements de Meta toujours pas lisible depuis la session.
+- Node : robots en Node 22 (fin de support avril 2027), LTS actuelle 26 : passage prévu à une veille de semaine, hors créneaux.
+- Failles npm : 0. Gemini : gemini-3.8-flash ouvert.
+- Soirées des 7 prochains jours : 67 (Nice 26, Toulon 11, Cannes 7, Monaco 4, Juan-les-Pins 3…) ; 13 sans heure, 25 sans prix,
+  10 sans affiche, 2 sans billetterie. Sources muettes inchangées (Shotgun 429, pages Eventbrite 405 remplacées par l'API).
+
 ## 26/11/2026 : veille quotidienne
 - Relevé technique : celui de 6 h 17 pas encore passé à 7 h 50 (GitHub saute souvent cet horaire ; hier il a tourné à 16 h 37) ;
   relevé d'hier lu.
