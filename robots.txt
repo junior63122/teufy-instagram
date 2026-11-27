@@ -201,9 +201,6 @@ Disallow: /
 User-agent: ImagesiftBot
 Disallow: /
 
-User-agent: PetalBot
-Disallow: /
-
 User-agent: Amazonbot
 Disallow: /
 

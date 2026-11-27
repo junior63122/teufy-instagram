@@ -208,7 +208,7 @@
    "score": 0,
    "soirs": [],
    "details": {
-    "le": "2026-11-27T11:14:01.556Z",
+    "le": "2026-11-27T12:14:12.410Z",
     "styles": "DJ résidents (ven–sam après 22h)",
     "dress_code": "",
     "horaires": "lun–dim 10h–2h",
@@ -995,12 +995,12 @@
    "site": "https://honeyclub.fr",
    "description": "Lieu de soirées et de concerts de l'avenue Georges Gallice à Juan-les-Pins.",
    "soirees": [
-    "spicy-saturday-2026-11-27",
+    "spicy-saturday-2026-11-28",
     "honey-club-x-shafro-france-tour-2026-12-11"
    ],
    "prochaines": [
     {
-     "id": "spicy-saturday-2026-11-27",
+     "id": "spicy-saturday-2026-11-28",
      "nom": "Spicy Saturday"
     },
     {
@@ -1015,9 +1015,9 @@
    "score": 0,
    "soirs": [
     [
-     "2026-11-27",
+     "2026-11-28",
      "minuit",
-     "spicy-saturday-2026-11-27",
+     "spicy-saturday-2026-11-28",
      "Spicy Saturday"
     ],
     [

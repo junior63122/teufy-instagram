@@ -9596,5 +9596,38 @@
    "nom": "",
    "m": 392
   }
+ },
+ "43.10786,5.93162": {
+  "le": "2026-11-27T12:15:14.980Z",
+  "parkings": [
+   {
+    "nom": "Place de la Fosse à Bois",
+    "type": "",
+    "payant": null,
+    "m": 575
+   },
+   {
+    "nom": "Square Président Jaques Boyer",
+    "type": "",
+    "payant": null,
+    "m": 632
+   }
+  ],
+  "transports": [
+   {
+    "nom": "Polygone",
+    "type": "bus",
+    "m": 21,
+    "lignes": "3;23"
+   },
+   {
+    "nom": "Mître",
+    "type": "bus",
+    "m": 256,
+    "lignes": "3;23"
+   }
+  ],
+  "velo": null,
+  "taxi": null
  }
 }
