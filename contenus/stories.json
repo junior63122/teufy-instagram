@@ -844,5 +844,22 @@
   "absentes": [],
   "manquantes": [],
   "le": "2026-11-27T17:41:51.571Z"
+ },
+ {
+  "jour": "2026-11-27",
+  "type": "question",
+  "cles": [
+   "q-faim-nice"
+  ],
+  "ids": [
+   "18113969975460147"
+  ],
+  "faites": [
+   0
+  ],
+  "relue": true,
+  "absentes": [],
+  "manquantes": [],
+  "le": "2026-11-27T19:11:11.301Z"
  }
 ]
