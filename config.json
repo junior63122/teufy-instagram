@@ -466,7 +466,7 @@
   },
   "site": {
     "explication": "Site internet (src/site.mjs). Champs modifiables : directeur, directeur_bio, equipe, partenaires, photo_directeur (chemin d'une photo dans le dépôt), google_verification (code fourni par Google Search Console). Mentions légales : raison_sociale, forme, capital, siret, adresse, email (affichés seulement si remplis).",
-    "directeur": "Junior Joyant",
+    "directeur": "Junior William Joyant",
     "equipe": "une dizaine de personnes",
     "partenaires": "plus de 200",
     "photo_directeur": "site/img/equipe/junior-joyant.jpg",
@@ -509,6 +509,7 @@
       ]
     },
     "directeur_reseaux": {
+      "site": "https://juniorjoyant.com",
       "instagram": "https://www.instagram.com/junior_joyant/",
       "linkedin": "https://mc.linkedin.com/in/junior-joyant-99876622b"
     },
@@ -609,7 +610,10 @@
         "_source": "Formulaire « Propose ton avantage » reçu le 11/11/2026 (formule gratuite)"
       }
     ],
-    "_avantages": "Avantages des partenaires affichés sur la page Avantages (en plus des codes_promo) : {partenaire_nom, instagram, ville, type, titre, description, conditions, jusqu_au (AAAA-MM-JJ)}. Une offre expirée disparaît seule."
+    "_avantages": "Avantages des partenaires affichés sur la page Avantages (en plus des codes_promo) : {partenaire_nom, instagram, ville, type, titre, description, conditions, jusqu_au (AAAA-MM-JJ)}. Une offre expirée disparaît seule.",
+    "fondation": "2021",
+    "adresse": "Monaco",
+    "_identite_27_11_2026": "Directeur (27/11/2026) : nom complet « Junior William Joyant », liens juniorjoyant.com, LinkedIn et Instagram, Teufy créée en 2021, adresse : Monaco."
   },
   "codes_promo": [
     {

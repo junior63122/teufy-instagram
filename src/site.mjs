@@ -1505,7 +1505,7 @@ const fil = (lang, liste) => ({ '@context': 'https://schema.org', '@type': 'Brea
 
 // --- Présentation de Teufy (modifiable dans config.json, rubrique « site ») -------------------------------------
 const TEUFY = {
-  directeur: 'Junior Joyant',
+  directeur: 'Junior William Joyant',
   directeur_bio: '', // vide : texte par défaut (traduit dans chaque langue). Rempli dans config.json : remplace le texte français.
   equipe: 'une dizaine de personnes',
   partenaires: 'plus de 200',
@@ -1676,7 +1676,7 @@ function ldOrganisation(T, compte, t, lang) {
   return [{
     '@context': 'https://schema.org', '@type': 'Organization', '@id': `${URL_SITE}#teufy`, name: 'Teufy', url: URL_SITE, logo: `${URL_SITE}site/img/logo.png`,
     description: t.orgDesc,
-    founder: { '@id': `${URL_SITE}#fondateur` }, alternateName: ['Teufy Party', 'teufyparty', '@teufy_official'], slogan: "Le guide des soirées de la Côte d'Azur",
+    founder: { '@id': `${URL_SITE}#fondateur` }, ...(T.fondation ? { foundingDate: String(T.fondation) } : {}), ...(T.adresse ? { address: { '@type': 'PostalAddress', addressLocality: T.adresse, addressCountry: /monaco/i.test(T.adresse) ? 'MC' : 'FR' } } : {}), alternateName: ['Teufy Party', 'teufyparty', '@teufy_official'], slogan: "Le guide des soirées de la Côte d'Azur",
     knowsAbout: ["Soirées sur la Côte d'Azur", 'Vie nocturne à Nice, Cannes, Monaco et Antibes', 'Clubs, bars et rooftops', 'Festivals', 'Billets de soirées', 'Bons plans sorties'],
     areaServed: ["Côte d'Azur", 'French Riviera', 'Alpes-Maritimes', 'Var', 'Monaco', 'Nice', 'Cannes', 'Antibes', 'Juan-les-Pins', 'Menton', 'Saint-Tropez', 'Toulon', 'Fréjus', 'Saint-Raphaël', 'Occitanie'].map((name) => ({ '@type': 'Place', name })),
     sameAs: [`https://www.instagram.com/${handle}/`, ...(T.reseaux_teufy || [])],
@@ -2883,7 +2883,7 @@ ${blocModele({ tr, T })}
     <p class="etiquette">${esc(t.dirEtiquette)}</p>
     <h2>${esc(T.directeur)}</h2>
     <p>${esc(bio)}</p>
-${T.directeur_reseaux ? `<p class="reseaux">${T.directeur_reseaux.instagram ? `<a class="bouton contour" href="${esc(T.directeur_reseaux.instagram)}" target="_blank" rel="noopener me"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.3" fill="currentColor"/></svg>Instagram</a>` : ''}${T.directeur_reseaux.linkedin ? `<a class="bouton contour" href="${esc(T.directeur_reseaux.linkedin)}" target="_blank" rel="noopener me"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3zm7 0h3.8v1.5h.06c.53-1 1.83-1.8 3.77-1.8 4 0 4.37 2.4 4.37 5.5v5.8h-4v-5.1c0-1.3 0-2.9-1.8-2.9s-2.2 1.4-2.2 2.8v5.2h-4z"/></svg>LinkedIn</a>` : ''}</p>` : ''}
+${T.directeur_reseaux ? `<p class="reseaux">${T.directeur_reseaux.site ? `<a class="bouton contour" href="${esc(T.directeur_reseaux.site)}" target="_blank" rel="noopener me"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18" fill="none" stroke="currentColor" stroke-width="2"/></svg>juniorjoyant.com</a>` : ''}${T.directeur_reseaux.instagram ? `<a class="bouton contour" href="${esc(T.directeur_reseaux.instagram)}" target="_blank" rel="noopener me"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.3" fill="currentColor"/></svg>Instagram</a>` : ''}${T.directeur_reseaux.linkedin ? `<a class="bouton contour" href="${esc(T.directeur_reseaux.linkedin)}" target="_blank" rel="noopener me"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3zm7 0h3.8v1.5h.06c.53-1 1.83-1.8 3.77-1.8 4 0 4.37 2.4 4.37 5.5v5.8h-4v-5.1c0-1.3 0-2.9-1.8-2.9s-2.2 1.4-2.2 2.8v5.2h-4z"/></svg>LinkedIn</a>` : ''}</p>` : ''}
   </div>
 </section>
 ${blocPartenaires(ctx)}

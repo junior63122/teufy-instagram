@@ -2,6 +2,17 @@
  "_note": "Numéro de version affiché en pied de page du site et sur /mises-a-jour/ (directeur, 19/11/2026 : format « 1.13.02 », comme Minecraft). Règle : correction(s) seulement → dernier nombre +1 (1.13.02 → 1.13.03) ; nouvelle fonctionnalité → nombre du milieu +1 et le dernier revient à 01 (1.13.02 → 1.14.01) ; énorme fonctionnalité ou grosse refonte → premier nombre +1 (1.13.02 → 2.01.01). La plus récente en premier. Le site n'affiche que « titre » et « public » : phrases simples pour les visiteurs, sans détail technique ni nom de prestataire (directeur, 20/11/2026). « notes » reste interne. « titre » : 28 caractères au plus (il s'affiche en entier dans le bandeau « Nouveau » sur téléphone).",
  "versions": [
   {
+   "numero": "1.20.05",
+   "date": "2026-11-27",
+   "titre": "Qui sommes-nous complété",
+   "public": [
+    "La page Qui sommes-nous présente le fondateur avec son nom complet et ses liens, et rappelle que Teufy a été créée en 2021 à Monaco. La fenêtre des filtres sur téléphone se manie mieux au clavier."
+   ],
+   "notes": [
+    "Directeur 27/11 : nom complet « Junior William Joyant », liens juniorjoyant.com, LinkedIn, Instagram ; création 2021 ; adresse Monaco (mentions légales, schéma Organization foundingDate + address). Avec : corrections des audits accessibilité et sécurité du jour."
+   ]
+  },
+  {
    "numero": "1.20.04",
    "date": "2026-11-27",
    "titre": "Dates et heures plus justes",

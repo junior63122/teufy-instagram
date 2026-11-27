@@ -130,7 +130,7 @@ export const BDE = {
 export const RE_ETUDIANT = /[ée]tudiant|student|\bbde\b|\bbds\b|erasmus|\besn\b|integ|campus|universit|[ée]cole|skema|edhec|iae|polytech|kedge|ipag|sup de co/i;
 export const RE_FESTIVAL = /festival|open ?air|fest\b|plages [ée]lectroniques|nuits (du sud|carr[ée]es)|jazz [àa] juan/i;
 
-const EDITEUR = (T) => `${T.raison_sociale || 'Teufy'}${T.forme ? `, ${T.forme}` : ''}${T.siren ? `, SIREN ${T.siren}` : T.siret ? `, SIRET ${T.siret}` : ''}${T.adresse ? `, ${T.adresse}` : ''}`;
+const EDITEUR = (T) => `${T.raison_sociale || 'Teufy'}${T.forme ? `, ${T.forme}` : ''}${T.siren ? `, SIREN ${T.siren}` : T.siret ? `, SIRET ${T.siret}` : ''}${T.adresse ? `, ${T.adresse}` : ''}${T.fondation ? `, créée en ${T.fondation}` : ''}`;
 const MAJ = (T) => `Dernière mise à jour : ${T.maj_legales || '2026'}.`;
 
 export const LEGAL = (T, compte) => ({
