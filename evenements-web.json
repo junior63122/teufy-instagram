@@ -5921,6 +5921,53 @@
       "instagram": [
         "phoenixevent06"
       ]
+    },
+    {
+      "source": "web",
+      "source_site": "instagram.com",
+      "via_veille": true,
+      "name": "Dakeez Live",
+      "start": "2026-12-05T19:00:00.000Z",
+      "venue": "Frigo 16, 89 route de Turin, 06300 Nice",
+      "city": "Nice",
+      "address": "",
+      "url": "https://www.instagram.com/p/DgP1BXCBtKJ/",
+      "image": "https://scontent-ord5-1.cdninstagram.com/v/t39.30808-6/932511161_1782489067210745_8791973221044527018_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=102&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=XS0s-yALYxMQ7kNvwFBLSXr&_nc_oc=AdoHbqwKGf3Zi0DX02uhlrp70rd7FBuIhXm7O-Pa0WjYpntxGGeN-KpndAwbQW3jJ4Q&_nc_zt=23&_nc_ht=scontent-ord5-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=3Uv1lwSY8nSbUbqbuNtfrA&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQVDfS51XKjNjb6wIbpdWKNMp0pZ1fmfc80YCf52RrZzxA&oe=6B0F7389",
+      "price": null,
+      "tags": [],
+      "description": "",
+      "public_cible": 0.6,
+      "confiance": 0.8,
+      "accroche": "Concert de Dakeez au Frigo 16 le 5 déc. – Gagne tes places grâce au concours.",
+      "instagram": [
+        "unica_culture",
+        "pandaevents06"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "instagram.com",
+      "via_veille": true,
+      "name": "Mamacita – After Reggaeton",
+      "start": "2026-11-27T22:30:00.000Z",
+      "venue": "Frigo 16, 89 route de Turin, 06300 Nice",
+      "city": "Nice",
+      "address": "",
+      "url": "https://www.instagram.com/reel/DgPil5qtxoR/",
+      "image": "",
+      "price": 5,
+      "tags": [
+        "reggaeton",
+        "perreo",
+        "latine"
+      ],
+      "description": "",
+      "public_cible": 0.6,
+      "confiance": 0.8,
+      "accroche": "After reggaeton & perreo au Frigo 16 le 27 nov. – Entrée 5 €",
+      "instagram": [
+        "frigo.16"
+      ]
     }
   ],
   "maj_instagram": "2026-11-27T13:12:54.403Z",
