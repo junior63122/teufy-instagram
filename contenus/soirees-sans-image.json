@@ -1,6 +1,6 @@
 {
- "le": "2026-11-27T09:12:46.543Z",
- "total": 135,
+ "le": "2026-11-27T10:12:55.858Z",
+ "total": 136,
  "sans_image": [
   {
    "id": "rencontre-d-echecs-a-saint-raphael-hotel-beausejour-2026-11-27",
@@ -154,6 +154,15 @@
    "ville": "Nice",
    "instagram": "lachapanice",
    "url": "https://www.eventbrite.fr/e/nice-orange-pub-crawl-5-shots-party-games-vip-club-entry-tickets-2004292869928"
+  },
+  {
+   "id": "provok-et-christian-sims-le-bar-a-thym-2026-11-28",
+   "nom": "PROVOK & CHRISTIAN SIMS @ Le Bar à Thym",
+   "jour": "2026-11-28",
+   "lieu": "Le Bar à Thym – 32 Bd Dr Cunéo",
+   "ville": "Toulon",
+   "instagram": "lebarathymtoulon",
+   "url": "https://www.instagram.com/reel/DgNj2jFOXxm/"
   },
   {
    "id": "origins-invite-boticka-all-night-long-2026-11-28",

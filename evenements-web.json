@@ -7,6 +7,33 @@
   "evenements": [
     {
       "source": "web",
+      "source_site": "Instagram (lebarathymtoulon)",
+      "name": "PROVOK & CHRISTIAN SIMS @ Le Bar à Thym",
+      "start": "2026-11-28T22:00:00.000Z",
+      "venue": "Le Bar à Thym – 32 Bd Dr Cunéo",
+      "city": "Toulon",
+      "address": "",
+      "url": "https://www.instagram.com/reel/DgNj2jFOXxm/",
+      "image": "",
+      "price": null,
+      "tags": [
+        "house",
+        "techno",
+        "dance"
+      ],
+      "description": "Le samedi 28 novembre, le Bar à Thym à Toulon accueille Christian Sims et Nathan Provok pour un DJ set de trois heures, du rétro des années 90 aux hits actuels. Le programme promet une machine à remonter le temps version dancefloor, avec des tubes incontournables qui font danser toutes les générations. L’entrée se fait de 23 h à 04 h, l’ambiance sera résolument club‑house/techno, idéale pour les 17‑30 ans qui aiment les soirées à thème nostalgique. Pas de prévente annoncée, alors arrive tôt pour profiter de la piste.",
+      "public_cible": 1,
+      "confiance": 0.85,
+      "buzz": 0.6,
+      "buzz_raison": "Tête d’affiche reconnue (Christian Sims), lieu populaire à Toulon, soirée le week‑end, post Instagram avec 39 likes.",
+      "accroche": "Christian Sims et Nathan Provok enflamment le Bar à Thym pour une nuit 90‑2000s qui fait vibrer la Côte d’Azur.",
+      "instagram": [
+        "lebarathymtoulon"
+      ],
+      "par_le_lieu": true
+    },
+    {
+      "source": "web",
       "source_site": "Instagram",
       "name": "Showcase de MARWA LOUD",
       "start": "2026-11-28T21:00:00.000Z",
@@ -5823,6 +5850,6 @@
       ]
     }
   ],
-  "maj_instagram": "2026-11-27T09:12:46.543Z",
+  "maj_instagram": "2026-11-27T10:12:55.858Z",
   "echec_web": "2026-11-27T09:12:46.543Z"
 }

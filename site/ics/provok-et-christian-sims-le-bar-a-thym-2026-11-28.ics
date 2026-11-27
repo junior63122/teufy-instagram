@@ -1,0 +1,27 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:provok-et-christian-sims-le-bar-a-thym-2026-11-28@teufy
+DTSTAMP:20261127T101712Z
+DTSTART:20261128T220000Z
+DTEND:20261129T030000Z
+SUMMARY:PROVOK & CHRISTIAN SIMS @ Le Bar à Thym
+LOCATION:Le Bar à Thym – 32 Bd Dr Cunéo\, Toulon
+DESCRIPTION:Christian Sims et Nathan Provok enflamment le Bar à Thym pour 
+ une nuit 90‑2000s qui fait vibrer la Côte d’Azur.\nBillets : https://
+ www.instagram.com/reel/DgNj2jFOXxm/\nVia Teufy @teufy_official
+URL:https://www.instagram.com/reel/DgNj2jFOXxm/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : PROVOK & CHRISTIAN SIMS @ Le Bar à Thym
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : PROVOK & CHRISTIAN SIMS @ Le Bar à Thym
+END:VALARM
+END:VEVENT
+END:VCALENDAR
