@@ -19,7 +19,9 @@
       "tags": [
         "house",
         "techno",
-        "dance"
+        "dance",
+        "House",
+        "Retro"
       ],
       "description": "Le samedi 28 novembre, le Bar à Thym à Toulon accueille Christian Sims et Nathan Provok pour un DJ set de trois heures, du rétro des années 90 aux hits actuels. Le programme promet une machine à remonter le temps version dancefloor, avec des tubes incontournables qui font danser toutes les générations. L’entrée se fait de 23 h à 04 h, l’ambiance sera résolument club‑house/techno, idéale pour les 17‑30 ans qui aiment les soirées à thème nostalgique. Pas de prévente annoncée, alors arrive tôt pour profiter de la piste.",
       "public_cible": 1,
@@ -30,7 +32,13 @@
       "instagram": [
         "lebarathymtoulon"
       ],
-      "par_le_lieu": true
+      "par_le_lieu": true,
+      "via_veille": true,
+      "offres": [],
+      "sources_sites": [
+        "Instagram (lebarathymtoulon)",
+        "instagram.com"
+      ]
     },
     {
       "source": "web",
@@ -231,27 +239,35 @@
     },
     {
       "source": "web",
-      "source_site": "instagram",
-      "name": "Noël Party – Laissez‑vous emporter par la magie de Noël",
+      "source_site": "instagram.com",
+      "via_veille": true,
+      "name": "Soirée Noël Lou Castelet",
       "start": "2026-12-19T18:00:00.000Z",
-      "venue": "Lou Castelet",
+      "venue": "Lou Castelet – Théoule-sur-Mer",
       "city": "Théoule-sur-Mer",
       "address": "",
       "url": "https://www.instagram.com/reel/DgNjX6zIRvL/",
       "image": "",
       "price": 20,
       "tags": [
+        "Old School",
+        "Club",
         "old school",
         "club"
       ],
       "description": "Profitez d’une soirée festive et pleine de bonne humeur à Lou Castelet. DJ JCDALTON vous propose une ambiance Old School Clubbing. Dress code Noël obligatoire, surprises à la clé. Billetterie obligatoire via lien en bio. La soirée est réservée aux adultes à 20 € (tapas & conso).",
-      "public_cible": 1,
-      "confiance": 0.6,
-      "buzz": 0.6,
-      "buzz_raison": "Thème Noël, DJ reconnu, lieu réputé, date proche d’un jour férié.",
-      "accroche": "Soirée Noël Old School Clubbing avec DJ JCDALTON",
+      "public_cible": 0.6,
+      "confiance": 0.8,
+      "accroche": "DJ JCDALTON, dress code Noël obligatoire, 19 décembre à Lou Castelet.",
       "instagram": [
         "nai.bevent"
+      ],
+      "buzz": 0.6,
+      "buzz_raison": "Thème Noël, DJ reconnu, lieu réputé, date proche d’un jour férié.",
+      "offres": [],
+      "sources_sites": [
+        "instagram.com",
+        "instagram"
       ]
     },
     {
