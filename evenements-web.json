@@ -1,10 +1,897 @@
 {
-  "maj": "2026-11-25T16:39:50.227Z",
-  "du": "2026-11-25",
-  "au": "2027-01-09",
-  "nb_bruts": 7,
+  "maj": "2026-11-27T16:09:13.589Z",
+  "du": "2026-11-27",
+  "au": "2027-01-11",
+  "nb_bruts": 23,
   "recherches_abouties": "23/24",
   "evenements": [
+    {
+      "source": "web",
+      "source_site": "Shotgun.live",
+      "name": "Dj - Trvchi",
+      "start": "2026-11-27T19:30:00.000Z",
+      "venue": "Mama Shelter Nice",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/events/dj-trvchi",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,w_384,fl_lossy,f_webp,q_5/production/artworks/WhatsApp-Image-2026-08-25-at-11.07.53_1_slnmzy.webp",
+      "price": 0,
+      "tags": [
+        "House",
+        "Électro-Pop",
+        "Éclectique",
+        "Hip Hop",
+        "Rap",
+        "Trap",
+        "Club",
+        "house",
+        "tech-house",
+        "techno",
+        "electro"
+      ],
+      "description": "Trvchi, DJ de la Côte d’Azur depuis 18 ans, propose un set éclectique et dynamique qui fait l’unanimité. La soirée se déroule dans le cadre branché du Mama Shelter Nice, un lieu prisé des jeunes. L’ambiance promet de la bonne musique, un décor cosy et une foule jeune. Pas de prix fixe indiqué, mais l’entrée est généralement vendue à la porte. L’événement est prévu pour le 27 novembre à 20 h 30.",
+      "public_cible": 0.8,
+      "confiance": 0.95,
+      "buzz": 0.8,
+      "buzz_raison": "Soirée gratuite avec un DJ localement réputé.",
+      "accroche": "Set électro-pop et house festif en entrée libre au Mama Shelter avec Trvchi.",
+      "instagram": [
+        "mamashelternice",
+        "trvchi.music",
+        "trvchi_official"
+      ],
+      "offres": [
+        {
+          "plateforme": "shotgun.live",
+          "url": "https://shotgun.live/events/dj-trvchi",
+          "prix": 0
+        },
+        {
+          "plateforme": "festscanner.com",
+          "url": "https://festscanner.com/en/event/dj-trvchi-nice-2026-11-27",
+          "prix": null
+        }
+      ],
+      "sources_sites": [
+        "Shotgun.live",
+        "shotgun.live"
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
+    },
+    {
+      "source": "web",
+      "source_site": "Shotgun live",
+      "name": "Phaphane – Amapiano & Afrobeats Lovers",
+      "start": "2026-11-26T19:00:00.000Z",
+      "venue": "Frigo 16",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/fr/events/…",
+      "image": "",
+      "price": 0,
+      "tags": [
+        "Amapiano",
+        "Afrobeats",
+        "afro",
+        "amapiano"
+      ],
+      "description": "DJ Phaphane, artiste actif sur la scène Nice, se produit en live à Frigo 16. Le club, réputé pour ses soirées afro et son ambiance chaleureuse, promet une nuit de rythmes afro‑funk et amapiano. L’événement est prévu le 27 novembre, mais l’heure exacte n’est pas précisée sur la billetterie. Le prix n’est pas indiqué, mais l’entrée est généralement vendue à la porte. La soirée cible les 17‑30 ans qui aiment la musique africaine et les vibes club.",
+      "public_cible": 1,
+      "confiance": 0.9,
+      "buzz": 0.8,
+      "buzz_raison": "Entrée libre, club réputé, genre en vogue.",
+      "accroche": "Soirée Amapiano & Afrobeats à Frigo 16, entrée libre, ambiance chill et dansante.",
+      "instagram": [
+        "frigo.16",
+        "djphaphane",
+        "frigo16nice"
+      ],
+      "offres": [
+        {
+          "plateforme": "shotgun.live",
+          "url": "https://shotgun.live/fr/events/…",
+          "prix": 0
+        },
+        {
+          "plateforme": "jambase.com",
+          "url": "https://www.jambase.com/show/dj-phaphane-frigo-16-20261127",
+          "prix": null
+        },
+        {
+          "plateforme": "r.shotgun.live",
+          "url": "https://r.shotgun.live/events/takeover-tweltyxf16",
+          "prix": 12.1
+        }
+      ],
+      "sources_sites": [
+        "Shotgun live",
+        "Jambase"
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
+    },
+    {
+      "source": "web",
+      "source_site": "Shotgun live",
+      "name": "Mamacita",
+      "start": "2026-11-27T22:30:00.000Z",
+      "venue": "Frigo 16",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/fr/events/mamacita-frigo16-2026",
+      "image": "",
+      "price": 12.49,
+      "tags": [
+        "Afrobeats",
+        "House",
+        "reggaeton",
+        "perreo",
+        "latine"
+      ],
+      "description": "La soirée « Mamacita » à Frigo 16 promet une nuit de rythmes Afrobeats et de house, idéale pour les 17‑30 ans à la recherche d’une ambiance festive. Le club, situé au 89 route de Turin, accueille les participants de 23h30 à 04h00, avec un tarif d’entrée de 12,49€. Le line‑up, bien que non détaillé, est annoncé comme Afrobeats‑themed, garantissant une expérience musicale dynamique et dansante.",
+      "public_cible": 1,
+      "confiance": 0.9,
+      "buzz": 0.7,
+      "buzz_raison": "Thème Afrobeats, club connu, entrée modérée.",
+      "accroche": "Soirée Afrobeats & House à Frigo 16, entrée à 12,49€, ambiance festive.",
+      "instagram": [
+        "frigo.16"
+      ],
+      "via_veille": true,
+      "offres": [
+        {
+          "plateforme": "shotgun.live",
+          "url": "https://shotgun.live/fr/events/mamacita-frigo16-2026",
+          "prix": 12.49
+        }
+      ],
+      "sources_sites": [
+        "Shotgun live",
+        "instagram.com"
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
+    },
+    {
+      "source": "web",
+      "source_site": "ticketmaster.fr",
+      "name": "MUNGO'S HI FI (+ 1ère partie : Red Echoes)",
+      "start": "2026-12-12T19:00:00.000Z",
+      "venue": "Le 109 - Frigo 16",
+      "city": "Nice",
+      "address": "",
+      "url": "https://www.ticketmaster.fr/fr/manifestation/mungo-s-hi-fi-billet/idmanif/677086",
+      "image": "https://assets.tmassets.fr/image/upload/v1781565335/mediaflows/legacy%20import%20folder/a_658986.jpg",
+      "price": 13.7,
+      "tags": [
+        "dub",
+        "reggae sound system",
+        "bass music",
+        "électro rave",
+        "reggae",
+        "sound system",
+        "Dub",
+        "Reggae",
+        "Sound System",
+        "Drum & Bass",
+        "Bass Music",
+        "bass",
+        "dancehall",
+        "Reggae Sound System",
+        "Stepper",
+        "Sound System Culture",
+        "Sound System culture",
+        "Acid Techno",
+        "House"
+      ],
+      "description": "Les maîtres écossais du dub Mungo's Hi Fi débarquent au Frigo 16 pour une session sound system taillée pour les basses lourdes. Les producteurs de Glasgow partageront l'affiche avec Red Echoes pour une soirée oscillant entre bass music, reggae et rave électro. Le rendez-vous est fixé de 20h00 à 02h00 pour danser face aux caissons en placement debout. Les préventes sont affichées au prix de 13,70 euros avec paiement cashless sur place. Navettes gratuites disponibles depuis le centre-ville.",
+      "public_cible": 0.85,
+      "confiance": 0.95,
+      "buzz": 0.85,
+      "buzz_raison": "Référence mondiale de la culture dub sound system venue d'Écosse",
+      "accroche": "Vibrations massives et culture sound system au Frigo 16 avec Mungo's Hi Fi.",
+      "instagram": [
+        "pandaevents",
+        "le109nice",
+        "mungoshifi"
+      ],
+      "offres": [
+        {
+          "plateforme": "ticketmaster.fr",
+          "url": "https://www.ticketmaster.fr/fr/manifestation/mungo-s-hi-fi-billet/idmanif/677086",
+          "prix": 13.7
+        },
+        {
+          "plateforme": "provence-alpes-cotedazur.com",
+          "url": "https://provence-alpes-cotedazur.com/fiche/mungos-hi-fi-8016115/",
+          "prix": 12.49
+        },
+        {
+          "plateforme": "shotgun.live",
+          "url": "https://shotgun.live/events/mungo-s-hifi-frigo-16",
+          "prix": 15
+        },
+        {
+          "plateforme": "le109.nice.fr",
+          "url": "https://le109.nice.fr/agenda",
+          "prix": 18.5
+        },
+        {
+          "plateforme": "infoconcert.com",
+          "url": "https://www.infoconcert.com/artiste/mungos-hifi-46132/concerts.html",
+          "prix": 23.5
+        }
+      ],
+      "sources_sites": [
+        "ticketmaster.fr",
+        "provence-alpes-cotedazur.com",
+        "shotgun.live",
+        "le109.nice.fr",
+        "InfoConcert",
+        "Shotgun",
+        "Shotgun live (Facebook post)"
+      ],
+      "via_veille": true,
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
+    },
+    {
+      "source": "web",
+      "source_site": "shotgun.live",
+      "name": "Roller Disco - Gratuit @ Frigo 16",
+      "start": "2026-12-18T17:00:00.000Z",
+      "venue": "Frigo 16",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/events/roller-disco-gratuit-frigo-16",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,w_384,fl_lossy,f_webp,q_5/production/artworks/ROLLERDISCO26-ANNONCE-cover_knmj7f.jpg",
+      "price": 0,
+      "tags": [
+        "disco",
+        "disco house",
+        "funk",
+        "Disco",
+        "Funk",
+        "House",
+        "Italo Disco",
+        "Nu-Disco",
+        "house",
+        "retro dance",
+        "Disco House",
+        "Groove",
+        "new funk",
+        "R&B",
+        "neo soul",
+        "acid jazz",
+        "hip‑hop",
+        "roller clubbing",
+        "tech house",
+        "hard groove",
+        "soul funk",
+        "itali",
+        "electro rock",
+        "oldschool classics",
+        "italo",
+        "hip‑hop 90’s",
+        "néo‑soul",
+        "acid‑jazz",
+        "Oldschool",
+        "Hard‑Music",
+        "Gabber"
+      ],
+      "description": "Panda Events transforme le Frigo 16 en piste de roller disco géante pour une soirée vintage complètement déjantée. Chausse tes patins et viens danser sous les boules à facettes sur une sélection funky, nu-disco et house assurée par les DJ résidents. L'événement commence à 20h00 et l'accès est entièrement gratuit, idéal pour se détendre entre amis avant les fêtes de fin d'année.",
+      "public_cible": 0.9,
+      "confiance": 0.95,
+      "buzz": 0.8,
+      "buzz_raison": "Format insolite, ultra convivial et entièrement gratuit.",
+      "accroche": "Patins, boules à facettes et son disco gratuit au Frigo 16.",
+      "instagram": [
+        "frigo.16",
+        "pandaevents06",
+        "pandaevents"
+      ],
+      "offres": [
+        {
+          "plateforme": "shotgun.live",
+          "url": "https://shotgun.live/events/roller-disco-gratuit-frigo-16",
+          "prix": 0
+        },
+        {
+          "plateforme": "panda-events.com",
+          "url": "https://www.panda-events.com/agenda/",
+          "prix": 0
+        }
+      ],
+      "sources_sites": [
+        "shotgun.live",
+        "panda-events.com",
+        "Shotgun Live",
+        "Shotgun",
+        "instagram.com",
+        "Shotgun live (Facebook post)"
+      ],
+      "via_veille": true,
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
+    },
+    {
+      "source": "web",
+      "source_site": "shotgun.live",
+      "name": "Zona De Perreo • Frigo 16 Nice",
+      "start": "2026-12-19T19:00:00.000Z",
+      "venue": "Frigo 16",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/events/zona-de-perreo-frigo-16-nice",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto:good/production/artworks/FRIGO16-SAISON_sept-dec_2026-cover-3000x1000_qi4spw",
+      "price": 12,
+      "tags": [
+        "reggaeton",
+        "perreo",
+        "dembow",
+        "Reggaeton",
+        "Perreo",
+        "Shatta",
+        "Dembow",
+        "shatta",
+        "latin urban",
+        "baile funk",
+        "salsa",
+        "bachata",
+        "Neoperreo",
+        "Reggaeton Old School",
+        "Baile Funk",
+        "Salsa Colombienne",
+        "latin club",
+        "Latin Bass",
+        "Electro",
+        "Techno",
+        "Electronic"
+      ],
+      "description": "La Zona De Perreo revient au Frigo 16 pour une édition spéciale de Noël sous haute température. Viens t'ambiancer sur le meilleur du reggaeton, dembow et shatta mixé par les DJ résidents du collectif dans un 109 redécoré pour l'occasion. Le rendez-vous est fixé de 20h00 à 02h00 pour célébrer les vacances de fin d'année. Les préventes sont à chopper dès 12 euros sur Shotgun.",
+      "public_cible": 0.95,
+      "confiance": 0.95,
+      "buzz": 0.85,
+      "buzz_raison": "La référence des soirées perreo et reggaeton à Nice par Latin Addict.",
+      "accroche": "Le temple du perreo et du dembow réinvestit le Frigo 16 avec Latin Addict.",
+      "instagram": [
+        "latinaddict",
+        "pandaevents06",
+        "frigo.16"
+      ],
+      "offres": [
+        {
+          "plateforme": "shotgun.live",
+          "url": "https://shotgun.live/events/zona-de-perreo-frigo-16-nice",
+          "prix": 12
+        }
+      ],
+      "sources_sites": [
+        "shotgun.live",
+        "panda-events.com",
+        "Shotgun Live",
+        "Shotgun",
+        "Shotgun live (Facebook post)"
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
+    },
+    {
+      "source": "web",
+      "source_site": "Shotgun live",
+      "name": "Ref Session #20 (Nick Curly)",
+      "start": "2027-02-19T19:00:00.000Z",
+      "venue": "Frigo 16",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/en/events/ref-session-nickcurly-frigo16",
+      "image": "",
+      "price": null,
+      "tags": [
+        "House",
+        "Grooves",
+        "Electro"
+      ],
+      "description": "La Ref Session #20 à Frigo 16, avec Nick Curly, propose une nuit de house, grooves et electro. Le club accueille les participants du 19 février de 20h à 04h. Le tarif d’entrée n’est pas précisé, mais la présence d’un artiste européen reconnu comme Nick Curly attire les jeunes de 17‑30 ans à la recherche d’une expérience musicale de qualité.",
+      "public_cible": 1,
+      "confiance": 0.9,
+      "buzz": 0.8,
+      "buzz_raison": "Line‑up Nick Curly, club réputé.",
+      "accroche": "Soirée house & grooves à Frigo 16, line‑up Nick Curly.",
+      "instagram": [
+        "frigo.16"
+      ],
+      "offres": [
+        {
+          "plateforme": "shotgun.live",
+          "url": "https://shotgun.live/en/events/ref-session-nickcurly-frigo16",
+          "prix": null
+        }
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
+    },
+    {
+      "source": "web",
+      "source_site": "xceed.me",
+      "name": "Night‑life Party – DJ Set [Unnamed]",
+      "start": "2026-11-21T22:00:00.000Z",
+      "venue": "High Club",
+      "city": "Nice",
+      "address": "",
+      "url": "https://xceed.me/en/nice/venue/high-club",
+      "image": "",
+      "price": 15,
+      "tags": [
+        "Dance",
+        "House",
+        "Techno"
+      ],
+      "description": "Soirée club‑party à la High Club, Nice. Pas de line‑up annoncé, mais l’ambiance promise est de la dance music à 23h. Entrée 15€ sur place, Fast‑Pass 20€. Le club est réputé pour ses soirées nocturnes et la gratuité pour les filles avant 1h.",
+      "public_cible": 1,
+      "confiance": 0.9,
+      "buzz": 0.7,
+      "buzz_raison": "Club réputé, entrée gratuite pour filles avant 1h.",
+      "accroche": "Club‑party à la High Club, 23h, entrée 15€.",
+      "instagram": [
+        "highclubnice"
+      ],
+      "offres": [
+        {
+          "plateforme": "xceed.me",
+          "url": "https://xceed.me/en/nice/venue/high-club",
+          "prix": 15
+        }
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
+    },
+    {
+      "source": "web",
+      "source_site": "instagram.com",
+      "name": "Inter‑Fac – Soirée Étudiante",
+      "start": "2026-11-20T21:00:00.000Z",
+      "venue": "High Club",
+      "city": "Nice",
+      "address": "",
+      "url": "https://www.instagram.com/highclubnice",
+      "image": "",
+      "price": 15,
+      "tags": [
+        "French Urban Rap"
+      ],
+      "description": "Soirée étudiante inter‑fac à la High Club, Nice. Line‑up : Chaps Musik, Shayan Musik, Macew Music, Cavalli DJ. Ambiance freestyle, rap urbain. Entrée 15€ sur place, Fast‑Pass 20€. L’événement cible les étudiants et les jeunes de 17‑30 ans.",
+      "public_cible": 1,
+      "confiance": 0.9,
+      "buzz": 0.6,
+      "buzz_raison": "Têtes d’affiche rap local, cible étudiante.",
+      "accroche": "Soirée étudiante inter‑fac, rap local, 22h.",
+      "instagram": [
+        "highclubnice"
+      ],
+      "offres": [],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
+    },
+    {
+      "source": "web",
+      "source_site": "Instagram",
+      "name": "Showcase de MARWA LOUD",
+      "start": "2026-11-28T21:00:00.000Z",
+      "venue": "High Club",
+      "city": "Nice",
+      "address": "",
+      "url": "https://www.instagram.com/reel/DgM52-yt6CC/",
+      "image": "https://www.highclub.fr/wp-content/uploads/2026/11/EC7B25C2-CB20-4E00-A473-49DB092D736F.png",
+      "price": 20,
+      "tags": [
+        "rap",
+        "R&B",
+        "Rap Français",
+        "Pop Urbaine",
+        "RnB",
+        "rap français",
+        "pop urbaine",
+        "rnb",
+        "clubbing",
+        "hip-hop",
+        "electro",
+        "pop",
+        "edm",
+        "Pop‑Rap"
+      ],
+      "description": "Le 28 novembre, le High Club de Nice accueille la star du rap‑pop Marwa Loud pour un showcase exclusif. Le club ouvre ses portes à 22 h et la soirée se poursuit jusqu’au petit matin. Les billets sont en vente en ligne via le lien en bio. Attends‑toi à une ambiance festive, un son puissant et une foule de jeunes prêts à chanter chaque refrain. Dress‑code libre, entrée à partir de 15 €, âge minimum 18 ans.",
+      "public_cible": 1,
+      "confiance": 0.95,
+      "buzz": 0.85,
+      "buzz_raison": "Tête d'affiche reconnue, club populaire, post avec 1 commentaire, bonne visibilité.",
+      "accroche": "Marwa Loud en live au High Club de Nice, une soirée rap‑pop qui promet du lourd.",
+      "instagram": [
+        "highclubnice",
+        "marwa_loud",
+        "marwaloud"
+      ],
+      "offres": [
+        {
+          "plateforme": "highclub.fr",
+          "url": "https://www.highclub.fr/agenda/marwa-loud-showcase/",
+          "prix": 20
+        },
+        {
+          "plateforme": "xceed.me",
+          "url": "https://xceed.me/fr/nice/club/high-club",
+          "prix": 20
+        }
+      ],
+      "sources_sites": [
+        "highclub.fr",
+        "Xceed",
+        "instagram.com"
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true,
+      "via_veille": true
+    },
+    {
+      "source": "web",
+      "source_site": "highclub.fr",
+      "name": "COACHELLITO - High Club",
+      "start": "2026-11-27T22:59:00.000Z",
+      "venue": "High Club",
+      "city": "Nice",
+      "address": "",
+      "url": "https://www.highclub.fr/agenda/coachellito/",
+      "image": "https://www.highclub.fr/wp-content/uploads/2022/08/193A6968-192B-40EE-9DF0-53122D721470.jpg",
+      "price": 11,
+      "tags": [
+        "House",
+        "Électro",
+        "Hip-Hop",
+        "electro",
+        "clubbing",
+        "open format",
+        "latino",
+        "reggaeton",
+        "house",
+        "edm",
+        "electro house",
+        "urbain",
+        "Techno"
+      ],
+      "description": "Le High Club transforme son dancefloor avec le concept Coachellito, inspiré des grands festivals d'outre-Atlantique. Le producteur et DJ niçois MACEW prend le contrôle de la scène principale aux côtés des DJs résidents pour un cocktail survitaminé de house, électro et touches hip-hop. Deux salles t'accueillent dès 23h59 jusqu'à 05h00 du matin. Billets dès 11 € en ligne.",
+      "public_cible": 0.9,
+      "confiance": 0.95,
+      "buzz": 0.75,
+      "buzz_raison": "Grosse boîte de nuit sur la Promenade avec DJ invité local.",
+      "accroche": "Ambiance festival américain sur la Promenade des Anglais avec le DJ niçois MACEW.",
+      "instagram": [
+        "highclubnice",
+        "macewmusic",
+        "coachellito"
+      ],
+      "offres": [
+        {
+          "plateforme": "highclub.fr",
+          "url": "https://www.highclub.fr/agenda/coachellito/",
+          "prix": 11
+        },
+        {
+          "plateforme": "xceed.me",
+          "url": "https://xceed.me/fr/nice/event/coachellito-high-club",
+          "prix": 15
+        }
+      ],
+      "sources_sites": [
+        "highclub.fr",
+        "Xceed",
+        "xceed.me"
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
+    },
+    {
+      "source": "web",
+      "source_site": "highclub.fr",
+      "name": "High Students",
+      "start": "2026-12-04T22:59:00.000Z",
+      "venue": "High Club",
+      "city": "Nice",
+      "address": "",
+      "url": "https://www.highclub.fr/agenda/high-students/",
+      "image": "https://images.xceed.me/events/banners/high-students-nice-xceed-square-2765.png",
+      "price": 15,
+      "tags": [
+        "Généraliste",
+        "Hip-Hop",
+        "House",
+        "Reggaeton",
+        "house",
+        "electro",
+        "clubbing",
+        "urban",
+        "commercial",
+        "Techno"
+      ],
+      "description": "Rejoins tous les étudiants de la Côte d'Azur pour la soirée High Students dans la boîte incontournable de Nice. Les résidents s'occupent du mix sur deux salles distinctes, entre hits clubbing, bangers hip-hop et reggaeton bouillant. La fête commence à 23h59 pour s'achever au petit matin. Entrée sur place à 15 € ou fast pass coupe-file à 20 € en ligne.",
+      "public_cible": 0.95,
+      "confiance": 0.95,
+      "buzz": 0.7,
+      "buzz_raison": "Grosse affluence étudiante bimensuelle dans le principal club niçois.",
+      "accroche": "Le grand rendez-vous étudiant du vendredi soir sur la Promenade des Anglais.",
+      "instagram": [
+        "highclubnice"
+      ],
+      "billetterie_cherchee": true,
+      "offres": [
+        {
+          "plateforme": "highclub.fr",
+          "url": "https://www.highclub.fr/event/whats-up-nice/",
+          "prix": 15
+        },
+        {
+          "plateforme": "xceed.me",
+          "url": "https://xceed.me/en/nice/venue/high-club",
+          "prix": 15
+        }
+      ],
+      "offres_cherchees": true,
+      "sources_sites": [
+        "highclub.fr",
+        "xceed.me"
+      ]
+    },
+    {
+      "source": "web",
+      "source_site": "casaamor.com",
+      "name": "Nuits de Tropez – Casa Amor",
+      "start": "2026-07-02T22:00:00.000Z",
+      "venue": "5 Rue des Rives",
+      "city": "Saint‑Tropez",
+      "address": "",
+      "url": "https://casaamor.com/saint-tropez",
+      "image": "",
+      "price": 45,
+      "tags": [
+        "Techno",
+        "House",
+        "Electro"
+      ],
+      "description": "Casa Amor, club de plage exclusif à Saint‑Tropez, propose 60 nuits de DJ sets avec des artistes comme Gianni et Kasbi. L’ambiance est électro, techno et house, idéale pour les jeunes qui cherchent une nuit de fête chic. La soirée commence à 23h, le dress‑code est décontracté, et le tarif est à partir de 45 €.",
+      "public_cible": 1,
+      "confiance": 0.9,
+      "buzz": 0.8,
+      "buzz_raison": "Lieu réputé, soirées souvent sold‑out, line‑ups de DJs connus.",
+      "accroche": "Plage, musique électro, vibe boho‑chic – la soirée qui fait vibrer les 17‑30 ans.",
+      "instagram": [
+        "casaamorfr"
+      ],
+      "offres": [
+        {
+          "plateforme": "casaamor.com",
+          "url": "https://casaamor.com/saint-tropez",
+          "prix": 45
+        }
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
+    },
+    {
+      "source": "web",
+      "source_site": "shellona.com",
+      "name": "Nuits de Tropez – Shellona",
+      "start": "2026-07-02T22:00:00.000Z",
+      "venue": "4 Boulevard des Cèdres",
+      "city": "Saint‑Tropez",
+      "address": "",
+      "url": "https://shellona.com",
+      "image": "",
+      "price": 40,
+      "tags": [
+        "Techno",
+        "House"
+      ],
+      "description": "Shellona, club nocturne de Saint‑Tropez, propose 57 nuits de DJ sets avec des artistes comme DJ X. L’ambiance est techno et house, idéale pour les jeunes qui cherchent une nuit de fête. La soirée commence à 23h, le dress‑code est décontracté, et le tarif est à partir de 40 €.",
+      "public_cible": 1,
+      "confiance": 0.9,
+      "buzz": 0.7,
+      "buzz_raison": "Lieu réputé, soirées souvent sold‑out.",
+      "accroche": "Techno, house, nuits de folie à Shellona – le spot qui fait vibrer les 17‑30 ans.",
+      "instagram": [
+        "shellonafrance"
+      ],
+      "offres": [],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
+    },
+    {
+      "source": "web",
+      "source_site": "lillysclub.fr",
+      "name": "Nuits de Tropez – Lilly’s Club",
+      "start": "2026-07-02T22:00:00.000Z",
+      "venue": "12 Rue du Port",
+      "city": "Saint‑Tropez",
+      "address": "",
+      "url": "https://lillysclub.fr",
+      "image": "",
+      "price": 50,
+      "tags": [
+        "Electro",
+        "Techno",
+        "House"
+      ],
+      "description": "Lilly’s Club, club de plage haut de gamme à Saint‑Tropez, propose 48 nuits de DJ sets avec des artistes comme Maxi Meraki. L’ambiance est électro, techno et house, idéale pour les jeunes qui cherchent une nuit de fête. La soirée commence à 23h, le dress‑code est décontracté, et le tarif est à partir de 50 €.",
+      "public_cible": 1,
+      "confiance": 0.9,
+      "buzz": 0.8,
+      "buzz_raison": "Lieu très prisé, soirées souvent épuisées.",
+      "accroche": "Beach‑club haut de gamme, musique électro, soirées qui font vibrer les 17‑30 ans.",
+      "instagram": [
+        "lillysclubfr"
+      ],
+      "offres": [],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
+    },
+    {
+      "source": "web",
+      "source_site": "sanctum.fr",
+      "name": "Nuits de Tropez – Sanctum",
+      "start": "2026-07-02T22:00:00.000Z",
+      "venue": "15 Place du Marché",
+      "city": "Saint‑Tropez",
+      "address": "",
+      "url": "https://sanctum.fr",
+      "image": "",
+      "price": 35,
+      "tags": [
+        "Techno",
+        "House"
+      ],
+      "description": "Sanctum, club de nuit à Saint‑Tropez, propose 43 nuits de DJ sets avec des artistes comme Marten Lou. L’ambiance est techno et house, idéale pour les jeunes qui cherchent une nuit de fête. La soirée commence à 23h, le dress‑code est décontracté, et le tarif est à partir de 35 €.",
+      "public_cible": 1,
+      "confiance": 0.9,
+      "buzz": 0.6,
+      "buzz_raison": "Ambiance nocturne très recherchée.",
+      "accroche": "Club nocturne, techno, house – la nuit qui fait vibrer les 17‑30 ans.",
+      "instagram": [
+        "sanctumfr"
+      ],
+      "offres": [],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
+    },
+    {
+      "source": "web",
+      "source_site": "indiebch.com",
+      "name": "Nuits de Tropez – Indie Beach",
+      "start": "2026-07-02T22:00:00.000Z",
+      "venue": "20 Rue de la Plage",
+      "city": "Saint‑Tropez",
+      "address": "",
+      "url": "https://indiebch.com",
+      "image": "",
+      "price": 40,
+      "tags": [
+        "Electro",
+        "Techno",
+        "House"
+      ],
+      "description": "Indie Beach, club de plage à Saint‑Tropez, propose 36 nuits de DJ sets avec des artistes comme Matteo Diop. L’ambiance est électro, techno et house, idéale pour les jeunes qui cherchent une nuit de fête. La soirée commence à 23h, le dress‑code est décontracté, et le tarif est à partir de 40 €.",
+      "public_cible": 1,
+      "confiance": 0.9,
+      "buzz": 0.6,
+      "buzz_raison": "Lieu réputé, soirées souvent plein.",
+      "accroche": "Beach‑club, musique électro, soirées qui font vibrer les 17‑30 ans.",
+      "instagram": [
+        "indiebch"
+      ],
+      "offres": [],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
+    },
+    {
+      "source": "web",
+      "source_site": "festivalenfrance.com",
+      "name": "Festival du Mas des Escaravatiers – Puget‑sur‑Argens",
+      "start": "2026-07-01T17:30:00.000Z",
+      "venue": "Mas des Escaravatiers",
+      "city": "Puget‑sur‑Argens",
+      "address": "",
+      "url": "https://www.festivalenfrance.com/en/festival/les-concerts-du-mas-des-escaravaters",
+      "image": "",
+      "price": 0,
+      "tags": [
+        "Pop",
+        "Rock",
+        "Jazz",
+        "Electro",
+        "Hip‑hop"
+      ],
+      "description": "Le Festival du Mas des Escaravatiers, à Puget‑sur‑Argens, propose une série de concerts d’été avec des artistes français. Les soirées commencent à 19h30 et la programmation inclut pop, rock, jazz, électro et hip‑hop. L’entrée est gratuite, l’ambiance est conviviale et la scène est idéale pour les jeunes qui aiment la musique live.",
+      "public_cible": 0.7,
+      "confiance": 0.8,
+      "buzz": 0.5,
+      "buzz_raison": "Site attire ~20 k visiteurs par saison.",
+      "accroche": "Concerts d’été en plein air, musique pop, rock, jazz, électro – l’événement qui attire les 17‑30 ans.",
+      "instagram": [
+        "festivalenfr"
+      ],
+      "offres": [
+        {
+          "plateforme": "festivalenfrance.com",
+          "url": "https://www.festivalenfrance.com/en/festival/les-concerts-du-mas-des-escaravaters",
+          "prix": 0
+        }
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
+    },
+    {
+      "source": "web",
+      "source_site": "esterel-cotedazur.com",
+      "name": "Festival du Mas d’Hiver – Puget‑sur‑Argens",
+      "start": "2026-09-22T17:30:00.000Z",
+      "venue": "Mas d’Hiver",
+      "city": "Puget‑sur‑Argens",
+      "address": "",
+      "url": "https://www.esterel-cotedazur.com/en/visit/agenda",
+      "image": "",
+      "price": 0,
+      "tags": [
+        "Pop",
+        "Rock",
+        "Jazz"
+      ],
+      "description": "Le Festival du Mas d’Hiver, à Puget‑sur‑Argens, se déroule du 22 septembre au 15 décembre 2026. Il propose une programmation diversifiée de pop, rock et jazz. Les soirées commencent à 19h30 et l’entrée est gratuite. L’ambiance est conviviale et la scène est idéale pour les jeunes qui aiment la musique live.",
+      "public_cible": 0.6,
+      "confiance": 0.7,
+      "buzz": 0.4,
+      "buzz_raison": "Événement en plein développement.",
+      "accroche": "Festival d’hiver, concerts variés – l’événement qui attire les 17‑30 ans.",
+      "instagram": [],
+      "offres": [
+        {
+          "plateforme": "esterel-cotedazur.com",
+          "url": "https://www.esterel-cotedazur.com/en/visit/agenda",
+          "prix": 0
+        }
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
+    },
+    {
+      "source": "web",
+      "source_site": "esterel-cotedazur.com",
+      "name": "Var Rally – Saint‑Raphaël",
+      "start": "2026-11-27T18:30:00.000Z",
+      "venue": "Route de la Côte d’Azur",
+      "city": "Saint‑Raphaël",
+      "address": "",
+      "url": "https://www.esterel-cotedazur.com/en/visit/agenda",
+      "image": "",
+      "price": 0,
+      "tags": [
+        "Sport",
+        "Music"
+      ],
+      "description": "Le Var Rally se déroule du 27 novembre au 29 novembre 2026 à Saint‑Raphaël. Après la compétition, des soirées sont organisées pour célébrer la fin du rallye. L’entrée est gratuite et la musique de soutien est variée. L’ambiance est festive et attire un public jeune.",
+      "public_cible": 0.5,
+      "confiance": 0.6,
+      "buzz": 0.3,
+      "buzz_raison": "Public jeune, atmosphère festive.",
+      "accroche": "Rallye automobile suivi de soirées – l’événement qui attire les 17‑30 ans.",
+      "instagram": [],
+      "offres": [
+        {
+          "plateforme": "esterel-cotedazur.com",
+          "url": "https://www.esterel-cotedazur.com/en/visit/agenda",
+          "prix": 0
+        }
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
+    },
     {
       "source": "web",
       "source_site": "Instagram",
@@ -31,7 +918,9 @@
         "dezze_recital",
         "naho_club"
       ],
-      "offres": []
+      "offres": [],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -64,7 +953,9 @@
       "sources_sites": [
         "Instagram",
         "instagram.com"
-      ]
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -99,65 +990,9 @@
       "sources_sites": [
         "Instagram (lebarathymtoulon)",
         "instagram.com"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "Instagram",
-      "name": "Showcase de MARWA LOUD",
-      "start": "2026-11-28T21:00:00.000Z",
-      "venue": "High Club",
-      "city": "Nice",
-      "address": "",
-      "url": "https://www.instagram.com/reel/DgM52-yt6CC/",
-      "image": "https://www.highclub.fr/wp-content/uploads/2026/11/EC7B25C2-CB20-4E00-A473-49DB092D736F.png",
-      "price": 20,
-      "tags": [
-        "rap",
-        "R&B",
-        "Rap Français",
-        "Pop Urbaine",
-        "RnB",
-        "rap français",
-        "pop urbaine",
-        "rnb",
-        "clubbing",
-        "hip-hop",
-        "electro",
-        "pop",
-        "edm"
-      ],
-      "description": "Le 28 novembre, le High Club de Nice accueille la star du rap‑pop Marwa Loud pour un showcase exclusif. Le club ouvre ses portes à 22 h et la soirée se poursuit jusqu’au petit matin. Les billets sont en vente en ligne via le lien en bio. Attends‑toi à une ambiance festive, un son puissant et une foule de jeunes prêts à chanter chaque refrain. Dress‑code libre, entrée à partir de 15 €, âge minimum 18 ans.",
-      "public_cible": 1,
-      "confiance": 0.95,
-      "buzz": 0.85,
-      "buzz_raison": "Tête d'affiche reconnue, club populaire, post avec 1 commentaire, bonne visibilité.",
-      "accroche": "Marwa Loud en live au High Club de Nice, une soirée rap‑pop qui promet du lourd.",
-      "instagram": [
-        "highclubnice",
-        "marwa_loud",
-        "marwaloud"
-      ],
-      "offres": [
-        {
-          "plateforme": "highclub.fr",
-          "url": "https://www.highclub.fr/agenda/marwa-loud-showcase/",
-          "prix": 20
-        },
-        {
-          "plateforme": "xceed.me",
-          "url": "https://xceed.me/fr/nice/club/high-club",
-          "prix": 20
-        }
-      ],
-      "sources_sites": [
-        "highclub.fr",
-        "Xceed",
-        "instagram.com"
       ],
       "billetterie_cherchee": true,
-      "offres_cherchees": true,
-      "via_veille": true
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -228,7 +1063,10 @@
       "accroche": "Cerrone en live pour accueillir 2027 au Monte Carlo Bay : électro et feu d’artifice garantis.",
       "instagram": [
         "jimmyzmc"
-      ]
+      ],
+      "offres": [],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -329,7 +1167,9 @@
       "sources_sites": [
         "instagram.com",
         "instagram"
-      ]
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -462,7 +1302,9 @@
       "sources_sites": [
         "Instagram",
         "Twiga World"
-      ]
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -548,7 +1390,9 @@
       "sources_sites": [
         "unica_culture",
         "instagram.com"
-      ]
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -602,7 +1446,9 @@
         "pandaevents06",
         "instagram.com"
       ],
-      "via_veille": true
+      "via_veille": true,
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -766,7 +1612,9 @@
       "sources_sites": [
         "grimaldiforum.com",
         "https://www.grimaldiforum.com/en"
-      ]
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -795,7 +1643,10 @@
       "accroche": "Soirée 100 % ivoirienne au Boka Club : menu, sons afro et vibes tropicales le 5 déc !",
       "instagram": [
         "sowetolesprit"
-      ]
+      ],
+      "offres": [],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -818,7 +1669,10 @@
       "instagram": [
         "lebarathymtoulon"
       ],
-      "par_le_lieu": true
+      "par_le_lieu": true,
+      "offres": [],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -830,7 +1684,7 @@
       "address": "",
       "url": "https://www.instagram.com/p/DgIVeOPjeSW/",
       "image": "https://scontent-ord5-2.cdninstagram.com/v/t51.82787-15/921837236_18448926412179396_4892770375952699829_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=105&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=UzX5rN7eDTIQ7kNvwEt3t3N&_nc_oc=Adr_5KgSS9qoHZkJ4D13qdAb-Xv81U43HAOHR1Od2DvimKG-4qhRhTsb1XZ7frPxGWA&_nc_zt=23&_nc_ht=scontent-ord5-2.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=eRH9ttWEpac0Rm_KbfPaVw&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQT57n-Mzm2JkFrH7uctu84qpuzbPudwvmoQYiJ1xJjK4Q&oe=6B0BC4F9",
-      "price": null,
+      "price": 12.99,
       "tags": [
         "techno",
         "house",
@@ -845,7 +1699,15 @@
       "instagram": [
         "diezewarehouse"
       ],
-      "offres": []
+      "offres": [
+        {
+          "plateforme": "shotgun.live",
+          "url": "https://shotgun.live/en/events/modern-rave-2-yers-birthday-shlomo",
+          "prix": 12.99
+        }
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -857,7 +1719,7 @@
       "address": "",
       "url": "https://www.instagram.com/p/DgIVeOPjeSW/",
       "image": "https://scontent-ord5-2.cdninstagram.com/v/t51.82787-15/921837236_18448926412179396_4892770375952699829_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=105&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=UzX5rN7eDTIQ7kNvwEt3t3N&_nc_oc=Adr_5KgSS9qoHZkJ4D13qdAb-Xv81U43HAOHR1Od2DvimKG-4qhRhTsb1XZ7frPxGWA&_nc_zt=23&_nc_ht=scontent-ord5-2.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=eRH9ttWEpac0Rm_KbfPaVw&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQT57n-Mzm2JkFrH7uctu84qpuzbPudwvmoQYiJ1xJjK4Q&oe=6B0BC4F9",
-      "price": null,
+      "price": 12.99,
       "tags": [
         "techno",
         "house",
@@ -871,7 +1733,16 @@
       "accroche": "Day 3 du NYE rave avec CREEDS (Extended Set) et ASHLEY.",
       "instagram": [
         "diezewarehouse"
-      ]
+      ],
+      "offres": [
+        {
+          "plateforme": "shotgun.live",
+          "url": "https://shotgun.live/en/events/modern-rave-2-yers-birthday-shlomo",
+          "prix": 12.99
+        }
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -976,7 +1847,9 @@
       "sources_sites": [
         "instagram.com",
         "Instagram – lacalesechetoulon"
-      ]
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -1010,7 +1883,9 @@
       "sources_sites": [
         "instagram.com",
         "Instagram – lacalesechetoulon"
-      ]
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -1746,82 +2621,6 @@
     },
     {
       "source": "web",
-      "source_site": "shotgun.live",
-      "name": "Roller Disco - Gratuit @ Frigo 16",
-      "start": "2026-12-18T17:00:00.000Z",
-      "venue": "Frigo 16",
-      "city": "Nice",
-      "address": "",
-      "url": "https://shotgun.live/events/roller-disco-gratuit-frigo-16",
-      "image": "https://assets.shotgun.live/image/upload/c_limit,w_384,fl_lossy,f_webp,q_5/production/artworks/ROLLERDISCO26-ANNONCE-cover_knmj7f.jpg",
-      "price": 0,
-      "tags": [
-        "disco",
-        "disco house",
-        "funk",
-        "Disco",
-        "Funk",
-        "House",
-        "Italo Disco",
-        "Nu-Disco",
-        "house",
-        "retro dance",
-        "Disco House",
-        "Groove",
-        "new funk",
-        "R&B",
-        "neo soul",
-        "acid jazz",
-        "hip‑hop",
-        "roller clubbing",
-        "tech house",
-        "hard groove",
-        "soul funk",
-        "itali",
-        "electro rock",
-        "oldschool classics",
-        "italo",
-        "hip‑hop 90’s",
-        "néo‑soul",
-        "acid‑jazz",
-        "Oldschool"
-      ],
-      "description": "Panda Events transforme le Frigo 16 en piste de roller disco géante pour une soirée vintage complètement déjantée. Chausse tes patins et viens danser sous les boules à facettes sur une sélection funky, nu-disco et house assurée par les DJ résidents. L'événement commence à 20h00 et l'accès est entièrement gratuit, idéal pour se détendre entre amis avant les fêtes de fin d'année.",
-      "public_cible": 0.9,
-      "confiance": 0.95,
-      "buzz": 0.8,
-      "buzz_raison": "Format insolite, ultra convivial et entièrement gratuit.",
-      "accroche": "Patins, boules à facettes et son disco gratuit au Frigo 16.",
-      "instagram": [
-        "frigo.16",
-        "pandaevents06",
-        "pandaevents"
-      ],
-      "offres": [
-        {
-          "plateforme": "shotgun.live",
-          "url": "https://shotgun.live/events/roller-disco-gratuit-frigo-16",
-          "prix": 0
-        },
-        {
-          "plateforme": "panda-events.com",
-          "url": "https://www.panda-events.com/agenda/",
-          "prix": 0
-        }
-      ],
-      "sources_sites": [
-        "shotgun.live",
-        "panda-events.com",
-        "Shotgun Live",
-        "Shotgun",
-        "instagram.com"
-      ],
-      "via_veille": true,
-      "billetterie_cherchee": true,
-      "offres_cherchees": true
-    },
-    {
-      "source": "web",
       "source_site": "Shotgun Live",
       "name": "NŌR - Nights Oriental Rhythms | Édition #2",
       "start": "2026-12-18T18:30:00.000Z",
@@ -1862,64 +2661,6 @@
       "sources_sites": [
         "Shotgun Live",
         "shotgun.live",
-        "Shotgun"
-      ],
-      "billetterie_cherchee": true,
-      "offres_cherchees": true
-    },
-    {
-      "source": "web",
-      "source_site": "shotgun.live",
-      "name": "Zona De Perreo • Frigo 16 Nice",
-      "start": "2026-12-19T19:00:00.000Z",
-      "venue": "Frigo 16",
-      "city": "Nice",
-      "address": "",
-      "url": "https://shotgun.live/events/zona-de-perreo-frigo-16-nice",
-      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto:good/production/artworks/FRIGO16-SAISON_sept-dec_2026-cover-3000x1000_qi4spw",
-      "price": 12,
-      "tags": [
-        "reggaeton",
-        "perreo",
-        "dembow",
-        "Reggaeton",
-        "Perreo",
-        "Shatta",
-        "Dembow",
-        "shatta",
-        "latin urban",
-        "baile funk",
-        "salsa",
-        "bachata",
-        "Neoperreo",
-        "Reggaeton Old School",
-        "Baile Funk",
-        "Salsa Colombienne",
-        "latin club",
-        "Latin Bass"
-      ],
-      "description": "La Zona De Perreo revient au Frigo 16 pour une édition spéciale de Noël sous haute température. Viens t'ambiancer sur le meilleur du reggaeton, dembow et shatta mixé par les DJ résidents du collectif dans un 109 redécoré pour l'occasion. Le rendez-vous est fixé de 20h00 à 02h00 pour célébrer les vacances de fin d'année. Les préventes sont à chopper dès 12 euros sur Shotgun.",
-      "public_cible": 0.95,
-      "confiance": 0.95,
-      "buzz": 0.85,
-      "buzz_raison": "La référence des soirées perreo et reggaeton à Nice par Latin Addict.",
-      "accroche": "Le temple du perreo et du dembow réinvestit le Frigo 16 avec Latin Addict.",
-      "instagram": [
-        "latinaddict",
-        "pandaevents06",
-        "frigo.16"
-      ],
-      "offres": [
-        {
-          "plateforme": "shotgun.live",
-          "url": "https://shotgun.live/events/zona-de-perreo-frigo-16-nice",
-          "prix": 12
-        }
-      ],
-      "sources_sites": [
-        "shotgun.live",
-        "panda-events.com",
-        "Shotgun Live",
         "Shotgun"
       ],
       "billetterie_cherchee": true,
@@ -2437,86 +3178,6 @@
     {
       "source": "web",
       "source_site": "ticketmaster.fr",
-      "name": "MUNGO'S HI FI (+ 1ère partie : Red Echoes)",
-      "start": "2026-12-12T19:00:00.000Z",
-      "venue": "Le 109 - Frigo 16",
-      "city": "Nice",
-      "address": "",
-      "url": "https://www.ticketmaster.fr/fr/manifestation/mungo-s-hi-fi-billet/idmanif/677086",
-      "image": "https://assets.tmassets.fr/image/upload/v1781565335/mediaflows/legacy%20import%20folder/a_658986.jpg",
-      "price": 13.7,
-      "tags": [
-        "dub",
-        "reggae sound system",
-        "bass music",
-        "électro rave",
-        "reggae",
-        "sound system",
-        "Dub",
-        "Reggae",
-        "Sound System",
-        "Drum & Bass",
-        "Bass Music",
-        "bass",
-        "dancehall",
-        "Reggae Sound System",
-        "Stepper",
-        "Sound System Culture",
-        "Sound System culture"
-      ],
-      "description": "Les maîtres écossais du dub Mungo's Hi Fi débarquent au Frigo 16 pour une session sound system taillée pour les basses lourdes. Les producteurs de Glasgow partageront l'affiche avec Red Echoes pour une soirée oscillant entre bass music, reggae et rave électro. Le rendez-vous est fixé de 20h00 à 02h00 pour danser face aux caissons en placement debout. Les préventes sont affichées au prix de 13,70 euros avec paiement cashless sur place. Navettes gratuites disponibles depuis le centre-ville.",
-      "public_cible": 0.85,
-      "confiance": 0.95,
-      "buzz": 0.85,
-      "buzz_raison": "Référence mondiale de la culture dub sound system venue d'Écosse",
-      "accroche": "Vibrations massives et culture sound system au Frigo 16 avec Mungo's Hi Fi.",
-      "instagram": [
-        "pandaevents",
-        "le109nice",
-        "mungoshifi"
-      ],
-      "offres": [
-        {
-          "plateforme": "ticketmaster.fr",
-          "url": "https://www.ticketmaster.fr/fr/manifestation/mungo-s-hi-fi-billet/idmanif/677086",
-          "prix": 13.7
-        },
-        {
-          "plateforme": "provence-alpes-cotedazur.com",
-          "url": "https://provence-alpes-cotedazur.com/fiche/mungos-hi-fi-8016115/",
-          "prix": 12.49
-        },
-        {
-          "plateforme": "shotgun.live",
-          "url": "https://shotgun.live/events/mungo-s-hifi-frigo-16",
-          "prix": 15
-        },
-        {
-          "plateforme": "le109.nice.fr",
-          "url": "https://le109.nice.fr/agenda",
-          "prix": 18.5
-        },
-        {
-          "plateforme": "infoconcert.com",
-          "url": "https://www.infoconcert.com/artiste/mungos-hifi-46132/concerts.html",
-          "prix": 23.5
-        }
-      ],
-      "sources_sites": [
-        "ticketmaster.fr",
-        "provence-alpes-cotedazur.com",
-        "shotgun.live",
-        "le109.nice.fr",
-        "InfoConcert",
-        "Shotgun"
-      ],
-      "via_veille": true,
-      "billetterie_cherchee": true,
-      "offres_cherchees": true
-    },
-    {
-      "source": "web",
-      "source_site": "ticketmaster.fr",
       "name": "LE MOME & ADAME",
       "start": "2026-12-18T19:30:00.000Z",
       "venue": "Le Dix-Huit",
@@ -2661,7 +3322,9 @@
         "provence-alpes-cotedazur.com",
         "InfoConcert",
         "Zénith de Toulon"
-      ]
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -2823,7 +3486,16 @@
       "instagram": [
         "villedebandol",
         "bandoltourismeofficiel"
-      ]
+      ],
+      "offres": [
+        {
+          "plateforme": "provence-alpes-cotedazur.com",
+          "url": "https://provence-alpes-cotedazur.com/fiche/soirees-dj-8041695/",
+          "prix": 0
+        }
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -2851,7 +3523,16 @@
       "instagram": [
         "villedebandol",
         "bandoltourismeofficiel"
-      ]
+      ],
+      "offres": [
+        {
+          "plateforme": "provence-alpes-cotedazur.com",
+          "url": "https://provence-alpes-cotedazur.com/fiche/soirees-dj-8041695/",
+          "prix": 0
+        }
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -2879,7 +3560,16 @@
       "instagram": [
         "villedebandol",
         "bandoltourismeofficiel"
-      ]
+      ],
+      "offres": [
+        {
+          "plateforme": "provence-alpes-cotedazur.com",
+          "url": "https://provence-alpes-cotedazur.com/fiche/soirees-dj-8041695/",
+          "prix": 0
+        }
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -2907,59 +3597,13 @@
       "instagram": [
         "villedebandol",
         "bandoltourismeofficiel"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "highclub.fr",
-      "name": "COACHELLITO - High Club",
-      "start": "2026-11-27T22:59:00.000Z",
-      "venue": "High Club",
-      "city": "Nice",
-      "address": "",
-      "url": "https://www.highclub.fr/agenda/coachellito/",
-      "image": "https://www.highclub.fr/wp-content/uploads/2022/08/193A6968-192B-40EE-9DF0-53122D721470.jpg",
-      "price": 11,
-      "tags": [
-        "House",
-        "Électro",
-        "Hip-Hop",
-        "electro",
-        "clubbing",
-        "open format",
-        "latino",
-        "reggaeton",
-        "house",
-        "edm",
-        "electro house",
-        "urbain"
-      ],
-      "description": "Le High Club transforme son dancefloor avec le concept Coachellito, inspiré des grands festivals d'outre-Atlantique. Le producteur et DJ niçois MACEW prend le contrôle de la scène principale aux côtés des DJs résidents pour un cocktail survitaminé de house, électro et touches hip-hop. Deux salles t'accueillent dès 23h59 jusqu'à 05h00 du matin. Billets dès 11 € en ligne.",
-      "public_cible": 0.9,
-      "confiance": 0.95,
-      "buzz": 0.75,
-      "buzz_raison": "Grosse boîte de nuit sur la Promenade avec DJ invité local.",
-      "accroche": "Ambiance festival américain sur la Promenade des Anglais avec le DJ niçois MACEW.",
-      "instagram": [
-        "highclubnice",
-        "macewmusic",
-        "coachellito"
       ],
       "offres": [
         {
-          "plateforme": "highclub.fr",
-          "url": "https://www.highclub.fr/agenda/coachellito/",
-          "prix": 11
-        },
-        {
-          "plateforme": "xceed.me",
-          "url": "https://xceed.me/fr/nice/event/coachellito-high-club",
-          "prix": 15
+          "plateforme": "provence-alpes-cotedazur.com",
+          "url": "https://provence-alpes-cotedazur.com/fiche/soirees-dj-8041695/",
+          "prix": 0
         }
-      ],
-      "sources_sites": [
-        "highclub.fr",
-        "Xceed"
       ],
       "billetterie_cherchee": true,
       "offres_cherchees": true
@@ -2988,7 +3632,16 @@
       "accroche": "Karting privatisé, buffet et live rock suivi d'un DJ set festif à Cannes.",
       "instagram": [
         "canneskarting"
-      ]
+      ],
+      "offres": [
+        {
+          "plateforme": "helloasso.com",
+          "url": "https://www.helloasso.com/associations/gam-it-racing/evenements/soiree-kart-and-rock-cannes-by-gam-it-racing-2",
+          "prix": 25
+        }
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -3016,7 +3669,10 @@
       "instagram": [
         "lacompilevents",
         "hyattregencynice"
-      ]
+      ],
+      "offres": [],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -3043,7 +3699,10 @@
       "instagram": [
         "aperodesfrenchy",
         "allianzriviera"
-      ]
+      ],
+      "offres": [],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -3090,47 +3749,6 @@
     },
     {
       "source": "web",
-      "source_site": "highclub.fr",
-      "name": "High Students",
-      "start": "2026-12-04T22:59:00.000Z",
-      "venue": "High Club",
-      "city": "Nice",
-      "address": "",
-      "url": "https://www.highclub.fr/agenda/high-students/",
-      "image": "https://images.xceed.me/events/banners/high-students-nice-xceed-square-2765.png",
-      "price": 15,
-      "tags": [
-        "Généraliste",
-        "Hip-Hop",
-        "House",
-        "Reggaeton",
-        "house",
-        "electro",
-        "clubbing",
-        "urban",
-        "commercial"
-      ],
-      "description": "Rejoins tous les étudiants de la Côte d'Azur pour la soirée High Students dans la boîte incontournable de Nice. Les résidents s'occupent du mix sur deux salles distinctes, entre hits clubbing, bangers hip-hop et reggaeton bouillant. La fête commence à 23h59 pour s'achever au petit matin. Entrée sur place à 15 € ou fast pass coupe-file à 20 € en ligne.",
-      "public_cible": 0.95,
-      "confiance": 0.95,
-      "buzz": 0.7,
-      "buzz_raison": "Grosse affluence étudiante bimensuelle dans le principal club niçois.",
-      "accroche": "Le grand rendez-vous étudiant du vendredi soir sur la Promenade des Anglais.",
-      "instagram": [
-        "highclubnice"
-      ],
-      "billetterie_cherchee": true,
-      "offres": [
-        {
-          "plateforme": "highclub.fr",
-          "url": "https://www.highclub.fr/event/whats-up-nice/",
-          "prix": 15
-        }
-      ],
-      "offres_cherchees": true
-    },
-    {
-      "source": "web",
       "source_site": "shotgun.live",
       "name": "Ohm Family @ L'Antre",
       "start": "2026-12-05T21:00:00.000Z",
@@ -3153,7 +3771,16 @@
       "accroche": "Immersion totale dans la techno sombre et percutante avec le crew Ohm Family.",
       "instagram": [
         "lantretechno"
-      ]
+      ],
+      "offres": [
+        {
+          "plateforme": "shotgun.live",
+          "url": "https://shotgun.live/venues/l-antre-bar-electro-bar-a-cocktails",
+          "prix": 5
+        }
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -3220,7 +3847,16 @@
       "accroche": "Nuit décomplexée au High Club pour danser entre potes sur tous les classiques festifs.",
       "instagram": [
         "highclubnice"
-      ]
+      ],
+      "offres": [
+        {
+          "plateforme": "highclub.fr",
+          "url": "https://www.highclub.fr/agenda/les-copains-dabord/",
+          "prix": 0
+        }
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -3245,7 +3881,16 @@
       "accroche": "Grosse teuf de décompression de fin de partiels pour les étudiants niçois au High Club.",
       "instagram": [
         "highclubnice"
-      ]
+      ],
+      "offres": [
+        {
+          "plateforme": "highclub.fr",
+          "url": "https://www.highclub.fr/agenda/soiree-etudiante/",
+          "prix": null
+        }
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -3409,7 +4054,9 @@
       "sources_sites": [
         "Shotgun",
         "shotgun.live"
-      ]
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -3435,7 +4082,16 @@
       "instagram": [
         "villecannes",
         "cannesisyours"
-      ]
+      ],
+      "offres": [
+        {
+          "plateforme": "cannes.com",
+          "url": "https://www.cannes.com/fr/agenda/annee-2026/decembre/feu-d-artifice-du-nouvel-an.html",
+          "prix": 0
+        }
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -3833,7 +4489,9 @@
           "url": "https://shotgun.live/fr/events/shafro-toulon-ep-2-1-st-time-afro-shatta-danceha",
           "prix": 0
         }
-      ]
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -3875,7 +4533,9 @@
           "url": "https://shotgun.live/fr/events/aura-night-fornap",
           "prix": 8
         }
-      ]
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -3912,7 +4572,9 @@
           "url": "https://shotgun.live/fr/events/sisters-of-sand3",
           "prix": 5.99
         }
-      ]
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -3948,7 +4610,9 @@
           "url": "https://shotgun.live/fr/events/afrobbean-bobar",
           "prix": 10
         }
-      ]
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -3972,7 +4636,16 @@
       "buzz": 0.65,
       "buzz_raison": "Configuration DJ booth centrale à 360 degrés façon Boiler Room.",
       "accroche": "Expérience clubbing à 360° inspirée des Boiler Rooms à La Valette.",
-      "instagram": []
+      "instagram": [],
+      "offres": [
+        {
+          "plateforme": "shotgun.live",
+          "url": "https://shotgun.live/fr/events/the-boiler-r",
+          "prix": 12
+        }
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -4014,7 +4687,9 @@
           "url": "https://shotgun.live/fr/events/shafro-toulon-3-afro-shatta-bouyon",
           "prix": 7.99
         }
-      ]
+      ],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -4041,7 +4716,10 @@
       "instagram": [
         "onenightofqueenofficial",
         "zenithdetoulon"
-      ]
+      ],
+      "offres": [],
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -4695,50 +5373,6 @@
         "nayaclubcannes"
       ],
       "offres": [],
-      "billetterie_cherchee": true,
-      "offres_cherchees": true
-    },
-    {
-      "source": "web",
-      "source_site": "Shotgun.live",
-      "name": "Dj - Trvchi",
-      "start": "2026-11-27T19:30:00.000Z",
-      "venue": "Mama Shelter Nice",
-      "city": "Nice",
-      "address": "",
-      "url": "https://shotgun.live/events/dj-trvchi",
-      "image": "https://assets.shotgun.live/image/upload/c_limit,w_384,fl_lossy,f_webp,q_5/production/artworks/WhatsApp-Image-2026-08-25-at-11.07.53_1_slnmzy.webp",
-      "price": 0,
-      "tags": [
-        "House",
-        "Électro-Pop",
-        "Éclectique",
-        "Hip Hop",
-        "Rap",
-        "Trap",
-        "Club"
-      ],
-      "description": "",
-      "public_cible": 0.8,
-      "confiance": 0.95,
-      "buzz": 0.55,
-      "buzz_raison": "Soirée gratuite avec un DJ localement réputé.",
-      "accroche": "Set électro-pop et house festif en entrée libre au Mama Shelter avec Trvchi.",
-      "instagram": [
-        "mamashelternice",
-        "trvchi.music"
-      ],
-      "offres": [
-        {
-          "plateforme": "shotgun.live",
-          "url": "https://shotgun.live/events/dj-trvchi",
-          "prix": 0
-        }
-      ],
-      "sources_sites": [
-        "Shotgun.live",
-        "shotgun.live"
-      ],
       "billetterie_cherchee": true,
       "offres_cherchees": true
     },
@@ -5953,57 +6587,6 @@
         "unica_culture",
         "pandaevents06"
       ]
-    },
-    {
-      "source": "web",
-      "source_site": "instagram.com",
-      "via_veille": true,
-      "name": "Mamacita – After Reggaeton",
-      "start": "2026-11-27T22:30:00.000Z",
-      "venue": "Frigo 16, 89 route de Turin, 06300 Nice",
-      "city": "Nice",
-      "address": "",
-      "url": "https://www.instagram.com/reel/DgPil5qtxoR/",
-      "image": "",
-      "price": 5,
-      "tags": [
-        "reggaeton",
-        "perreo",
-        "latine"
-      ],
-      "description": "",
-      "public_cible": 0.6,
-      "confiance": 0.8,
-      "accroche": "After reggaeton & perreo au Frigo 16 le 27 nov. – Entrée 5 €",
-      "instagram": [
-        "frigo.16"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "instagram.com",
-      "via_veille": true,
-      "name": "Soirée DJ O’Sullivans",
-      "start": "2026-11-30T19:00:00.000Z",
-      "venue": "O’Sullivans Mandelieu, Bar, Restaurant & Hôtel",
-      "city": "Mandelieu",
-      "address": "",
-      "url": "https://www.instagram.com/reel/DgPyi7DNyEe/",
-      "image": "",
-      "price": null,
-      "tags": [
-        "DJ",
-        "Electronic"
-      ],
-      "description": "",
-      "public_cible": 0.6,
-      "confiance": 0.8,
-      "accroche": "DJ chaque jeudi, vendredi et samedi",
-      "instagram": [
-        "osullivans_mandelieu"
-      ]
     }
-  ],
-  "maj_instagram": "2026-11-27T17:13:56.164Z",
-  "echec_web": "2026-11-27T16:14:21.461Z"
+  ]
 }
