@@ -1,6 +1,6 @@
 {
- "le": "2026-11-27T17:13:56.164Z",
- "total": 139,
+ "le": "2026-11-27T18:14:03.917Z",
+ "total": 140,
  "sans_image": [
   {
    "id": "rencontre-d-echecs-a-saint-raphael-hotel-beausejour-2026-11-27",
@@ -64,6 +64,15 @@
    "ville": "Nice",
    "instagram": "lachapanice",
    "url": "https://www.eventbrite.fr/e/nice-orange-bar-crawl-party-bars-music-nightlife-club-experience-tickets-2004294701406"
+  },
+  {
+   "id": "mamacita-2026-11-27",
+   "nom": "Mamacita",
+   "jour": "2026-11-27",
+   "lieu": "Frigo 16",
+   "ville": "Nice",
+   "instagram": "frigo.16",
+   "url": "https://shotgun.live/fr/events/mamacita-frigo16-2026"
   },
   {
    "id": "bambam-at-inda-house-27-11-26-2026-11-27",

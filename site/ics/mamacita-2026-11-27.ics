@@ -1,0 +1,27 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:mamacita-2026-11-27@teufy
+DTSTAMP:20261127T182200Z
+DTSTART:20261127T223000Z
+DTEND:20261128T033000Z
+SUMMARY:Mamacita
+LOCATION:Frigo 16\, Nice
+DESCRIPTION:Soirée Afrobeats & House à Frigo 16\, entrée à 12\,49€\, 
+ ambiance festive.\nBillets : https://shotgun.live/fr/events/mamacita-frigo
+ 16-2026\nVia Teufy @teufy_official
+URL:https://shotgun.live/fr/events/mamacita-frigo16-2026
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Mamacita
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Mamacita
+END:VALARM
+END:VEVENT
+END:VCALENDAR
