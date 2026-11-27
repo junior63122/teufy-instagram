@@ -9,6 +9,8 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
 // le script ne fait que trier, masquer et animer.
 (() => {
   const T = JSON.parse(document.getElementById('teufy-t')?.textContent || '{}');
+  // Texte venu des données (nom de ville…) inséré en HTML : toujours échappé (revue de sécurité du 27/11/2026).
+  const echap = (x) => String(x ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
   const reduit = matchMedia('(prefers-reduced-motion: reduce)').matches;
   // Défilement doux seulement pour les liens dans la page : en arrivant sur une ancre (…/#tarifs), on y est tout de suite.
   if (!reduit) addEventListener('load', () => setTimeout(() => document.documentElement.classList.add('doux'), 50), { once: true });
@@ -282,7 +284,7 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
         const h = document.createElement('h3'); h.className = 'groupe-ville';
         const tous = items.filter((y) => visible(y) && (y.dataset.villeNom || '') === v), fermes = tous.filter((y) => y.dataset.statut === 'ferme').length;
         const sansStatut = !items.some((y) => y.dataset.statut), fr = (document.documentElement.lang || 'fr').startsWith('fr');
-        h.innerHTML = `<span>${v || ({ fr: 'Autres lieux', en: 'Other places', it: 'Altri locali', es: 'Otros lugares', zh: '其他地点', ar: 'أماكن أخرى' })[(document.documentElement.lang || 'fr').slice(0, 2)] || 'Autres lieux'}</span><small${ouverts || sansStatut || fermes < tous.length ? '' : ' class="gris"'}>${sansStatut ? `${tous.length} ${fr ? (tous.length > 1 ? 'adresses' : 'adresse') : (tous.length > 1 ? 'places' : 'place')}` : ouverts ? `${ouverts} ${fr ? (ouverts > 1 ? 'ouverts' : 'ouvert') : 'open'}` : fermes === tous.length ? (fr ? 'fermés ce soir' : 'closed tonight') : `${tous.length} ${fr ? (tous.length > 1 ? 'adresses' : 'adresse') : (tous.length > 1 ? 'places' : 'place')}`}</small>`;
+        h.innerHTML = `<span>${echap(v) || ({ fr: 'Autres lieux', en: 'Other places', it: 'Altri locali', es: 'Otros lugares', zh: '其他地点', ar: 'أماكن أخرى' })[(document.documentElement.lang || 'fr').slice(0, 2)] || 'Autres lieux'}</span><small${ouverts || sansStatut || fermes < tous.length ? '' : ' class="gris"'}>${sansStatut ? `${tous.length} ${fr ? (tous.length > 1 ? 'adresses' : 'adresse') : (tous.length > 1 ? 'places' : 'place')}` : ouverts ? `${ouverts} ${fr ? (ouverts > 1 ? 'ouverts' : 'ouvert') : 'open'}` : fermes === tous.length ? (fr ? 'fermés ce soir' : 'closed tonight') : `${tous.length} ${fr ? (tous.length > 1 ? 'adresses' : 'adresse') : (tous.length > 1 ? 'places' : 'place')}`}</small>`;
         g.append(h); cur = v;
       }
       g.append(x);
@@ -815,7 +817,8 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
     if (dx) p.style.translate = `${Math.round(dx)}px 0`;
   }, true);
   document.addEventListener('click', (e) => { if (feuille || e.target.closest('details.filtre')) return; document.querySelectorAll('details.filtre[open]').forEach((x) => x.removeAttribute('open')); });
-  addEventListener('keydown', (e) => { if (e.key === 'Escape' && !feuille) document.querySelectorAll('details.filtre[open]').forEach((x) => x.removeAttribute('open')); });
+  // Échap ferme le filtre ouvert et rend le focus à son titre (27/11/2026, audit d'accessibilité : le focus se perdait).
+  addEventListener('keydown', (e) => { if (e.key !== 'Escape' || feuille) return; document.querySelectorAll('details.filtre[open]').forEach((x) => { const dedans = x.contains(document.activeElement); x.removeAttribute('open'); if (dedans) x.querySelector('summary')?.focus(); }); });
 
   // --- Recherche -------------------------------------------------------------------------------------------
   const champs = [...document.querySelectorAll('.recherche input')];
@@ -997,6 +1000,7 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
   const mobile = matchMedia('(max-width: 759px)');
   let feuille = null, scrollAvant = 0, etatAvant = '';
   const signature = () => JSON.stringify([etat.quand, etat.date, etat.tri, etat.prix, etat.moment, [...etat.ville], [...etat.style], [...etat.acces], etat.q]);
+  let focusAvant = null;
   const feuilleOuverte = () => !!feuille;
   const ouvrir = () => {
     if (feuille || !filtres) return;
@@ -1007,6 +1011,9 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
     feuille.className = 'feuille-filtres';
     feuille.setAttribute('role', 'dialog');
     feuille.setAttribute('aria-modal', 'true');
+    // 27/11/2026 (audit d'accessibilité) : la feuille a un nom, garde le focus (Tab ne passe plus derrière) et le rend en se fermant.
+    feuille.setAttribute('aria-label', T.filtres || 'Filtres');
+    focusAvant = document.activeElement;
     feuille.innerHTML = `<div class="feuille-fond"></div><div class="feuille-boite"><div class="feuille-poignee"><span></span><button type="button" class="feuille-x" aria-label="${T.fermerX || '×'}">×</button></div><div class="feuille-corps"></div><div class="feuille-pied"><button type="button" class="bouton voir-n"></button></div></div>`;
     feuille.querySelector('.feuille-corps').append(filtres);
     filtres.querySelectorAll('details.filtre').forEach((d) => { d.open = true; });
@@ -1025,6 +1032,16 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
     boite.addEventListener('touchstart', (e) => { if (e.target.closest('.feuille-poignee') && !e.target.closest('.feuille-x')) { y0 = e.touches[0].clientY; dy = 0; } }, { passive: true });
     boite.addEventListener('touchmove', (e) => { if (y0 == null) return; dy = Math.max(0, e.touches[0].clientY - y0); if (dy > 0) boite.style.transform = `translateY(${dy}px)`; }, { passive: true });
     boite.addEventListener('touchend', () => { if (y0 == null) return; y0 = null; boite.style.transform = ''; if (dy > 90) fermer(); });
+    feuille.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') { e.preventDefault(); fermer(); return; }
+      if (e.key !== 'Tab') return;
+      const f = [...feuille.querySelectorAll('a[href], button:not([disabled]), input, select, summary, [tabindex]:not([tabindex="-1"])')].filter((x) => x.offsetParent !== null);
+      if (!f.length) return;
+      const premier = f[0], dernier = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === premier) { e.preventDefault(); dernier.focus(); }
+      else if (!e.shiftKey && document.activeElement === dernier) { e.preventDefault(); premier.focus(); }
+      else if (!feuille.contains(document.activeElement)) { e.preventDefault(); premier.focus(); }
+    });
     appliquer();
     setTimeout(() => feuille?.querySelector('.voir-n')?.focus({ preventScroll: true }), 50);
   };
@@ -1041,6 +1058,10 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
     const cible = document.querySelector('.liste');
     if (signature() !== etatAvant && cible && cible.getBoundingClientRect().top < 0) cible.scrollIntoView({ behavior: reduit ? 'auto' : 'smooth', block: 'start' });
     majFlottant();
+    const liste = document.querySelector('.liste'); if (liste && !liste.hasAttribute('tabindex')) liste.setAttribute('tabindex', '-1');
+    const retour = focusAvant && focusAvant !== document.body && document.contains(focusAvant) && focusAvant.offsetParent !== null ? focusAvant : flottant && !flottant.hidden ? flottant.querySelector('button') : liste;
+    focusAvant = null;
+    retour?.focus?.({ preventScroll: true });
   }
   const majFlottant = () => {
     if (!flottant || !place || feuille) return;

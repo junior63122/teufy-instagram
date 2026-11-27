@@ -84,7 +84,11 @@ async function telecharger(url, f) {
   const tmp = `${f}.src`;
   await writeFile(tmp, Buffer.from(await r.arrayBuffer()));
   // 1080 px de large max (net sur les écrans haute définition) ; le WebP 480 sert les téléphones.
-  const c = spawnSync('ffmpeg', ['-v', 'error', '-y', '-i', tmp, '-vf', "scale='min(1080,iw)':-2", '-q:v', '3', f]);
+  // Revue de sécurité (27/11/2026) : seulement de vraies images (signature JPEG, PNG, WebP, GIF), et ffmpeg limité aux fichiers locaux.
+  const tete = readFileSync(tmp).subarray(0, 12);
+  const image = (tete[0] === 0xff && tete[1] === 0xd8) || tete.subarray(0, 4).toString('hex') === '89504e47' || (tete.subarray(0, 4).toString() === 'RIFF' && tete.subarray(8, 12).toString() === 'WEBP') || tete.subarray(0, 3).toString() === 'GIF';
+  if (!image) { spawnSync('rm', ['-f', tmp]); return false; }
+  const c = spawnSync('ffmpeg', ['-v', 'error', '-y', '-protocol_whitelist', 'file', '-i', tmp, '-vf', "scale='min(1080,iw)':-2", '-q:v', '3', f]);
   spawnSync('rm', ['-f', tmp]);
   return c.status === 0 && existsSync(f);
 }
@@ -804,7 +808,7 @@ export async function construireSite({ events, eventsFrance = [], eventsOccitani
     pris.add(id);
     // Jamais un lien interne de recherche (redirection Google « vertexaisearch ») à la place de la vraie billetterie.
     const url = /^https?:\/\//.test(e.url || '') && !/^https?:\/\/[^/]+\/?$/.test(e.url) && !/vertexaisearch|googleusercontent|google\.[a-z.]+\/(url|search)/i.test(e.url) ? e.url : '';
-    const offres = (e.offres || []).filter((o) => o.url && !PAS_BILLETTERIE.test(nomDomaine(o.url))).sort((a, b) => (a.prix ?? 1e9) - (b.prix ?? 1e9)); // jamais un réseau social
+    const offres = (e.offres || []).filter((o) => /^https:\/\//i.test(o.url || '') && !PAS_BILLETTERIE.test(nomDomaine(o.url))) /* https seulement (revue de sécurité du 27/11/2026) */.sort((a, b) => (a.prix ?? 1e9) - (b.prix ?? 1e9)); // jamais un réseau social
     return {
       // Adresse sans « France » collé par la fusion de deux sources (« …, 06000 Nice, France Nice », 23/11/2026).
       id, zone, nom: e.name, debut: e.start, jour: cle(e.start), lieu: e.venue || '', ville: e.city || '', adresse: String(e.address || '').replace(/,?\s*France\b/gi, '').replace(/\s{2,}/g, ' ').trim(), filtreVille: ville,
@@ -1492,7 +1496,7 @@ function jsonEvent(s, lang) {
     ...(s.accroche ? { description: s.accroche } : {}),
     location: { '@type': 'Place', name: s.lieu || s.ville, address: { '@type': 'PostalAddress', ...(s.adresse ? { streetAddress: s.adresse } : {}), addressLocality: s.ville, ...(s.zone === 'france' ? {} : { addressRegion: s.zone === 'occitanie' ? 'Occitanie' : "Provence-Alpes-Côte d'Azur" }), addressCountry: /monaco|monte/i.test(s.ville) ? 'MC' : 'FR' }, ...(s.approx === false ? { geo: { '@type': 'GeoCoordinates', latitude: s.lat, longitude: s.lng } } : {}) },
     ...(s.affiche ? { image: [URL_SITE + s.affiche] } : {}),
-    ...(offres.length ? { offers: offres.filter((o) => o.prix != null).map((o) => ({ '@type': 'Offer', price: o.prix, priceCurrency: 'EUR', ...(o.url ? { url: o.url } : {}), availability: 'https://schema.org/InStock' })) } : {}),
+    ...(offres.length ? { offers: offres.filter((o) => o.prix != null).map((o) => ({ '@type': 'Offer', price: o.prix, priceCurrency: 'EUR', ...(o.url ? { url: o.url } : {}) })) } : {}),
     ...(s.instagram ? { organizer: { '@type': 'Organization', name: `@${s.instagram}`, url: `https://www.instagram.com/${s.instagram}/` } } : {}),
   };
 }
@@ -2034,7 +2038,7 @@ function yAller(s, t, lieu) {
   return `<div class="y-aller"><p class="pied-titre">${esc(t.yAller)}</p>
     ${parkings.length ? `<p class="y-titre">${esc(t.seGarer)}</p><ul>${parkings.join('')}</ul>` : ''}
     ${trans.length ? `<p class="y-titre">${esc(t.enTransports)}</p><ul>${trans.join('')}</ul>` : ''}
-    ${s.lat && !s.approx ? `<div class="mini-carte" data-lat="${s.lat}" data-lng="${s.lng}" data-nom="${esc(lieu)}" role="img" aria-label="${esc(`${t.yAller} : ${lieu}`)}"></div>` : ''}
+    ${s.lat && !s.approx ? `<div class="mini-carte" data-lat="${s.lat}" data-lng="${s.lng}" data-nom="${esc(lieu)}" role="region" aria-label="${esc(`${t.yAller} : ${lieu}`)}"></div>` : ''}
     <p class="y-liens"><a class="lien" href="https://www.google.com/maps/dir/?api=1&amp;destination=${dest}&amp;travelmode=transit" target="_blank" rel="noopener">${esc(t.itiTransports)}</a></p>
     <p class="y-note">${esc(t.rentrer)}</p></div>`;
 }

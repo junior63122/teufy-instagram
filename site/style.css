@@ -235,6 +235,8 @@ footer a{color:inherit}
 
 /* ===== v3 : recherche, favoris, pages soirée, rubriques ===== */
 :focus-visible{outline:3px solid var(--corail);outline-offset:3px;border-radius:6px}
+/* Sur les fonds clairs (cartes crème), anneau sombre : le corail n'y faisait que 2,2:1 (audit d'accessibilité du 27/11/2026). */
+.carte :focus-visible,.carte:focus-visible,.carte-texte :focus-visible{outline-color:var(--nuit);box-shadow:0 0 0 6px var(--corail)}
 .saut{position:absolute;left:16px;top:-80px;z-index:100;background:var(--creme);color:var(--nuit);padding:10px 16px;border-radius:999px;font-weight:800}
 .saut:focus{top:8px}
 .loupe{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;border:1.5px solid #ffffff33;transition:background .2s}

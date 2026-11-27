@@ -53,6 +53,14 @@ const B = process.env.BASE || 'http://localhost:8765/';
     await x.goto(B + 'ce-soir/', { waitUntil: 'networkidle' }); await x.waitForTimeout(300);
     const nPage = await x.evaluate(() => [...document.querySelectorAll('.ce-soir-liste .carte')].filter((k) => !k.hidden && !k.classList.contains('hors-ville')).length);
     ok('Ce soir : même nombre de soirées sur l\'accueil et sur la page Ce soir (ancienne ville choisie ignorée)', nAcc === nPage, `${nAcc} / ${nPage}`); await c.close(); }
+  // 27/11/2026 (audit d'accessibilité) : la feuille des filtres sur téléphone a un nom, garde le focus et se ferme avec Échap.
+  { const c = await b.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true }); const x = await c.newPage(); await x.goto(B, { waitUntil: 'networkidle' });
+    await x.evaluate(() => { const f = document.querySelector('.flottant'); if (f) { f.hidden = false; f.querySelector('button').click(); } }); await x.waitForTimeout(400);
+    const nom = await x.evaluate(() => document.querySelector('.feuille-filtres')?.getAttribute('aria-label') || '');
+    let dehors = 0; for (let i = 0; i < 40; i++) { await x.keyboard.press('Tab'); if (!(await x.evaluate(() => !!document.activeElement.closest('.feuille-filtres')))) dehors++; }
+    await x.keyboard.press('Escape'); await x.waitForTimeout(300);
+    const ferme = await x.evaluate(() => !document.querySelector('.feuille-filtres') && document.activeElement !== document.body);
+    ok('Feuille des filtres (téléphone) : nommée, Tab reste dedans, Échap ferme et rend le focus', !!nom && dehors === 0 && ferme, `nom « ${nom} », ${dehors} Tab dehors, fermée ${ferme}`); await c.close(); }
   console.log(out.join('\n')); await b.close();
   const ko = out.filter((x) => x.startsWith('KO')).length;
   console.log(ko ? `✗ ${ko} scénario(s) en échec.` : `✓ ${out.length} scénarios rejoués, tous bons.`);

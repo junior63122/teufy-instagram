@@ -20,6 +20,7 @@ const PIEGE = {
   tags: ['techno"><script>alert(6)</script>'], instagram: ['x" onmouseover="alert(7)', '../../etc/passwd'],
   organisateur: '<iframe src=https://evil.example></iframe>', artistes: ['<b>DJ</b> "><svg/onload=alert(8)>'],
   accroche: 'Clique <a href="javascript:alert(9)">ici</a> {{7*7}} ${7*7}', description: '<style>body{display:none}</style>**gras** <meta http-equiv="refresh" content="0;url=https://evil.example">',
+  offres: [{ url: 'javascript:alert(10)', prix: 5 }, { url: 'http://evil.example/billets', prix: 4 }], // 27/11/2026 : comparateur de prix
   confiance: 1,
 };
 const failles = [];
