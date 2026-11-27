@@ -2,21 +2,13 @@
   "jour": "2026-11-27",
   "plan": [
     {
-      "type": "soirees",
+      "type": "offre",
       "cles": [
-        "Phaphane À Nice - Amapiano & Afrobeats Lovers",
-        "Solly Smith at Twiga Monte Carlo",
-        "SHATTA"
+        "av-Le Barathym-1 shooter offert sur présentation de Teufy"
       ],
       "frames": [
         {
-          "image": "2026-11-27-soirees-0.jpg"
-        },
-        {
-          "image": "2026-11-27-soirees-1.jpg"
-        },
-        {
-          "image": "2026-11-27-soirees-2.jpg"
+          "image": "2026-11-27-offre.jpg"
         }
       ]
     }
