@@ -960,7 +960,8 @@
   "angle": "Cette offre permet de faire des économies sur les achats de musique ou d’équipement, mais ne crée pas de changement durable dans la scène nocturne.",
   "resume": "Les Tocards annoncent une promotion Black Friday de 24h, offrant 20 % de réduction sur les commandes via un code promo. La promotion est valable uniquement le jour du Black Friday, sans prolongation.",
   "source": "https://www.instagram.com/p/DgPseV1iNjz/",
-  "importance": 60
+  "importance": 60,
+  "actu_refusee": "non confirmée par la source"
  },
  {
   "id": "idee-hkm68",

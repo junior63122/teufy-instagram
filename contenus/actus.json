@@ -702,5 +702,22 @@
    "Cette date offre aux jeunes de la Côte d'Azur une occasion de découvrir un spectacle éclectique avant la saison hivernale."
   ],
   "ville": "Nice"
+ },
+ {
+  "cle": "idee-hkm68",
+  "date": "2026-11-27T17:12:22.688Z",
+  "ajout": "2026-11-27T18:12:42.377Z",
+  "type": "annonce",
+  "importance": 70,
+  "source": "https://www.instagram.com/p/DgNnPcdiHyW/",
+  "image": "",
+  "titre": "Slackreb en live à La Tocardise le 12 décembre",
+  "chapo": "Slackreb, artiste techno émergente, propose un set mêlant techno bouncy, hardance et une touche d’acid.",
+  "paragraphes": [
+   "L'événement se déroulera le 12 décembre à La Tocardise, un lieu qui accueille des soirées électro sur la Côte d'Azur.",
+   "Le set de Slackreb promet une énergie assumée, avec des kicks percutants, du reverse bass et des sonorités féminines qui feront danser jusqu’au bout de la nuit.",
+   "Cette performance s’adresse aux amateurs de techno qui aiment les ambiances à la fois dynamiques et underground."
+  ],
+  "ville": ""
  }
 ]
