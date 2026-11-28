@@ -94,8 +94,11 @@ export function fusionnerMemeNuit(events) {
 
 /** 6. Ville d'un lieu (24/11/2026, « Je Dis Techno » à L'Antre placée à Antibes) : si au moins 2 autres annonces du même lieu
  *  donnent toutes une même autre ville, c'est elle (une IA qui lit un post peut se tromper de ville, pas plusieurs billetteries). */
+// Communes mal orthographiées par les sources (28/11/2026 : « Tourette » pour Tourrettes, Var 83440, soirée Kontakt Road).
+const ORTHOGRAPHE_VILLES = { tourette: 'Tourrettes' };
 export function corrigerVilles(events) {
   const v = (e) => sansAccent(e.city || '').trim();
+  events = events.map((e) => { const o = ORTHOGRAPHE_VILLES[v(e).toLowerCase()]; return o ? { ...e, city: o, _ville_corrigee: e.city } : e; });
   return events.map((e) => {
     if (!lieuCle(e) || !v(e)) return e;
     const autres = events.filter((x) => x !== e && memeLieu(x, e) && v(x));

@@ -41,7 +41,7 @@ const dort = (ms) => new Promise((r) => setTimeout(r, ms));
 const VILLES = ['Nice', 'Cannes', 'Monaco', 'Antibes'];
 // 23/11/2026 (testeur agenda) : « Saint-Laurent-du-Var » (Alpes-Maritimes) était rangé dans le Var à cause de « var » ;
 // La Garde, La Farlède… étaient « Ailleurs ». Une seule règle pour l'agenda, les filtres et les compteurs.
-const RE_VAR = /toulon|hy[èe]res|fr[ée]jus|saint.?rapha|saint.?tropez|sainte.?maxime|draguignan|la seyne|six.?fours|sanary|bandol|la ciotat|roquebrune.?sur.?argens|puget.?sur.?argens|cogolin|ramatuelle|le lavandou|brignoles|la garde|la farl[èe]de|la valette|le pradet|ollioules|carqueiranne|grimaud|cavalaire|saint.?aygulf|bormes|(?<!du.)\bvar\b|\b83\d{3}\b/i;
+const RE_VAR = /toulon|hy[èe]res|fr[ée]jus|saint.?rapha|saint.?tropez|sainte.?maxime|draguignan|la seyne|six.?fours|sanary|bandol|la ciotat|roquebrune.?sur.?argens|puget.?sur.?argens|cogolin|ramatuelle|le lavandou|brignoles|la garde|la farl[èe]de|la valette|le pradet|ollioules|carqueiranne|tourrettes(?!.?sur.?loup)|grimaud|cavalaire|saint.?aygulf|bormes|(?<!du.)\bvar\b|\b83\d{3}\b/i;
 const zoneCote = (txt) => { const x = String(txt || '');
   if (/juan|antibes|vallauris|\bbiot\b/i.test(x)) return 'antibes';
   if (/mandelieu|napoule|le cannet|th[ée]oule|\bcannes\b/i.test(x)) return 'cannes';
@@ -67,7 +67,7 @@ const CENTRES = [
   [/garde.?freinet/i, 43.317, 6.47], [/la seyne/i, 43.1007, 5.8788], [/la garde\b/i, 43.1246, 6.0106], [/la farl[èe]de/i, 43.1683, 6.0436], [/la valette/i, 43.1375, 5.9831],
   [/six.?fours/i, 43.0939, 5.8395], [/sanary/i, 43.1192, 5.8013], [/bandol/i, 43.1364, 5.7531], [/ollioules/i, 43.1394, 5.8478], [/le pradet/i, 43.1058, 6.0228],
   [/carqueiranne/i, 43.0947, 6.0731], [/lavandou/i, 43.1373, 6.3689], [/bormes/i, 43.1508, 6.3419], [/cavalaire/i, 43.1727, 6.5302], [/ramatuelle/i, 43.216, 6.611],
-  [/grimaud/i, 43.2737, 6.5214], [/cogolin/i, 43.2525, 6.5306], [/saint.?aygulf/i, 43.3911, 6.7246], [/brignoles/i, 43.4058, 6.0614], [/tourrettes.?sur.?loup/i, 43.7167, 7.0597],
+  [/grimaud/i, 43.2737, 6.5214], [/cogolin/i, 43.2525, 6.5306], [/saint.?aygulf/i, 43.3911, 6.7246], [/brignoles/i, 43.4058, 6.0614], [/tourrettes.?sur.?loup/i, 43.7167, 7.0597], [/tourrettes(?!.?sur.?loup)/i, 43.6167, 6.7069],
   [/tourrette.?levens/i, 43.7864, 7.2767], [/cap.?ferrat/i, 43.6886, 7.3328], [/beaulieu/i, 43.7075, 7.3322], [/mougins/i, 43.6, 6.995], [/villeneuve.?loubet/i, 43.6589, 7.1222],
   [/la colle/i, 43.686, 7.104],
   [/sainte.?maxime/i, 43.309, 6.635], [/saint.?tropez/i, 43.2692, 6.6389], [/draguignan/i, 43.536, 6.464], [/hy[èe]res/i, 43.1204, 6.1286], [/toulon/i, 43.1242, 5.928],
@@ -190,7 +190,13 @@ async function verifier(e, fichier, cache) {
   if (e.manuel) return true; // affiche fournie et vérifiée par l'équipe
   if (cache[k]?.lu && nuitDeLAffiche(e, cache[k].lu)) decaler(e);
   if (cache[k]?.lu && dateContredite(e, cache[k].lu)) DATES_CONTREDITES.add(`${e.name}|${e.start}`);
-  if (cache[k]) return cache[k].lu ? jugerAffiche(e, cache[k].lu) : cache[k].ok;
+  // 28/11/2026 (contrôle terrain) : une lecture VIDE de l'affiche (ni titre, ni artiste, ni date : image illisible pour l'IA,
+  // réponse tronquée) était gardée comme un refus définitif (45 affiches, dont Marwa Loud au High Club). Elle compte maintenant
+  // comme « lecture impossible » : même règle que sans IA (affiche de la billetterie ou de l'organisateur acceptée), relue après 2 jours.
+  const lueVide = (lu) => !lu || (!String(lu.titre || '').trim() && !(lu.artistes || []).length && !(lu.dates || []).length);
+  const sansLecture = () => !e.via_veille && (e.source !== 'web' || imageDeLaSource(e));
+  if (cache[k]?.lu && lueVide(cache[k].lu) && Date.now() - Date.parse(cache[k].le || 0) < 2 * 864e5) return sansLecture();
+  if (cache[k] && !(cache[k].lu && lueVide(cache[k].lu))) return cache[k].lu ? jugerAffiche(e, cache[k].lu) : cache[k].ok;
   // Sans IA disponible (ou plus de temps) : ancien verdict s'il existe ; sinon on ne montre une affiche non vérifiée que
   // si elle vient de la billetterie ou de l'organisateur, jamais si c'est la recherche web qui l'a associée (risque
   // d'affiche d'une autre soirée, cas « La Tocardise » / « Noise Protocol » du 11/11/2026).
@@ -198,6 +204,7 @@ async function verifier(e, fichier, cache) {
   const r = await gemini([{ inline_data: { mime_type: 'image/jpeg', data: readFileSync(fichier).toString('base64') } }, { text: 'Lis cette affiche de soirée. Réponds en JSON {"titre":string,"artistes":[string],"lieu":string,"ville":string,"dates":["AAAA-MM-JJ"]}. Recopie seulement ce qui est écrit sur l\'affiche (dates au format AAAA-MM-JJ, année 2026 ou 2027 si elle n\'est pas écrite ; tableau vide si aucune date). Chaîne vide si absent.' }]);
   if (!r || typeof r !== 'object') return ancien ? ancien.ok : !e.via_veille && (e.source !== 'web' || imageDeLaSource(e)); // lecture impossible : même règle (veille : jamais sans lecture)
   const lu = { titre: r.titre, dates: (r.dates || []).filter((d) => /^\d{4}-\d{2}-\d{2}$/.test(d)), artistes: (r.artistes || []).slice(0, 6), lieu: r.lieu || '' };
+  if (lueVide(lu)) { cache[k] = { ok: false, vide: true, le: new Date().toISOString(), nom: e.name, lu, commun: [] }; return sansLecture(); }
   if (nuitDeLAffiche(e, lu)) decaler(e);
   const ok = jugerAffiche(e, lu);
   if (dateContredite(e, lu)) DATES_CONTREDITES.add(`${e.name}|${e.start}`);
@@ -983,8 +990,10 @@ export async function construireSite({ events, eventsFrance = [], eventsOccitani
 
   const jourIso = new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Paris' }).format(now);
   const chemins = [...new Set(pages.map(([d]) => d.replace(/^(en|it|es|zh|ar)\//, '')))];
+  // Date de dernière modification réelle quand on la connaît (audit SEO du 27/11/2026 : toutes les URL avaient la date du jour).
+  const MAJ_PAGE = (c) => { const a = /^actus\/([^/]+)\/$/.exec(c) && actus.find((x) => `actus/${x.id}/` === c); if (a) return String(a.ajout || a.date || '').slice(0, 10); if (/^(mentions-legales|cgu|cgv)\/$/.test(c)) return '2026-11-27'; return ''; };
   const prio = (c) => (!c ? '1.0' : /^soiree\//.test(c) ? '0.6' : /^(actus\/.|mentions)/.test(c) ? '0.5' : '0.8');
-  const urls = LANGUES.flatMap((l) => chemins.map((c) => `  <url><loc>${URL_SITE}${pre(l)}${c}</loc><lastmod>${jourIso}</lastmod><changefreq>daily</changefreq><priority>${prio(c)}</priority>${LANGUES.map((x) => `<xhtml:link rel="alternate" hreflang="${x}" href="${URL_SITE}${pre(x)}${c}"/>`).join('')}<xhtml:link rel="alternate" hreflang="x-default" href="${URL_SITE}${c}"/></url>`));
+  const urls = LANGUES.flatMap((l) => chemins.map((c) => `  <url><loc>${URL_SITE}${pre(l)}${c}</loc><lastmod>${MAJ_PAGE(c) || jourIso}</lastmod><changefreq>daily</changefreq><priority>${prio(c)}</priority>${LANGUES.map((x) => `<xhtml:link rel="alternate" hreflang="${x}" href="${URL_SITE}${pre(x)}${c}"/>`).join('')}<xhtml:link rel="alternate" hreflang="x-default" href="${URL_SITE}${c}"/></url>`));
   await writeFile(path.join(ROOT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls.join('\n')}\n</urlset>\n`);
   // Robots : moteurs de recherche et assistants qui CITENT Teufy (avec lien) autorisés ; robots qui aspirent le site pour
   // ENTRAÎNER des IA refusés (choix du directeur). robots.txt est respecté par les robots sérieux ; les aspirateurs qui
@@ -2223,7 +2232,7 @@ function pageActu({ lang, t, tr, base, compte, chemin, a, actus, maj }) {
 </article>
 ${autres.length ? `<section class="bloc-large reveal"><h2>${esc(t.autresActus)}</h2><div class="actus">${autres.map((x) => `<a class="actu" href="${base}${pre(lang)}actus/${x.id}/"><span class="actu-img${x.visuel ? ' visuel' : ''}">${imageActu(x, { base })}</span><p class="genre">${esc(dateActu(x, t))}</p><h3>${esc(tr(x.titre))}</h3><b>${esc(t.lire)} →</b></a>`).join('')}</div></section>` : ''}`;
   return gabarit({ lang, t, titre: `${tr(a.titre)} · Teufy`, description: tr(a.chapo), chemin, base, corps, compte, maj, image: a.image_site ? `${URL_SITE}${a.image_site}` : undefined,
-    ld: [{ '@context': 'https://schema.org', '@type': 'NewsArticle', headline: tr(a.titre).slice(0, 110), datePublished: a.date, dateModified: a.ajout || a.date, inLanguage: lang, description: tr(a.chapo), isBasedOn: a.source, publisher: { '@type': 'Organization', name: 'Teufy', logo: { '@type': 'ImageObject', url: `${URL_SITE}site/img/logo.png` } }, author: { '@type': 'Organization', name: 'Teufy', url: URL_SITE } }, fil(lang, [['Teufy', ''], [t.actus, 'actus/'], [tr(a.titre), chemin]])] });
+    ld: [{ '@context': 'https://schema.org', '@type': 'NewsArticle', headline: tr(a.titre).slice(0, 110), datePublished: a.date, dateModified: a.ajout || a.date, inLanguage: lang, description: tr(a.chapo), isBasedOn: a.source, ...(a.image_site ? { image: [`${URL_SITE}${a.image_site}`] } : {}), publisher: { '@type': 'Organization', name: 'Teufy', logo: { '@type': 'ImageObject', url: `${URL_SITE}site/img/logo.png` } }, author: { '@type': 'Organization', name: 'Teufy', url: URL_SITE } }, fil(lang, [['Teufy', ''], [t.actus, 'actus/'], [tr(a.titre), chemin]])] });
 }
 
 // Vitrine : les partenaires déjà identifiés (photo, nom, type, ville), triés pour montrer d'abord les lieux.

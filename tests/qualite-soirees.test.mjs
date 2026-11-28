@@ -1,7 +1,7 @@
 // 23/11/2026 : erreurs relevées par le testeur « vérité » sur les soirées de la semaine.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { corrigerNuit, corrigerRecurrence, estJourneeHorsSujet, fusionnerMemeNuit, nettoyerSoirees } from '../src/qualite-soirees.mjs';
+import { corrigerNuit, corrigerRecurrence, corrigerVilles, estJourneeHorsSujet, fusionnerMemeNuit, nettoyerSoirees } from '../src/qualite-soirees.mjs';
 
 test('« le vendredi 27, ouverture à minuit » = nuit du vendredi (samedi 0 h), pas la nuit du jeudi', () => {
   const e = { name: 'EUPHORIA', start: '2026-11-26T23:00:00.000Z', description: 'Le vendredi 27 novembre, le Naho Club accueille EUPHORIA' };
@@ -144,4 +144,9 @@ test('minuit (23h59) la veille de la seule date de l affiche : soirée décalée
   assert.equal(nuitDeLAffiche(e, { titre: 'Spicy', dates: ['2026-11-28'] }), true);
   assert.equal(nuitDeLAffiche({ ...e, start: '2026-11-27T21:00:00.000Z' }, { titre: 'Spicy', dates: ['2026-11-28'] }), false);
   assert.equal(nuitDeLAffiche(e, { titre: 'Autre soirée', dates: ['2026-11-28'] }), false);
+});
+
+test('commune mal orthographiée : « Tourette » → Tourrettes (Var)', () => {
+  const [e] = corrigerVilles([{ name: 'Kontakt Road', city: 'Tourette', venue: 'The Saloon', start: '2026-11-28T19:00:00Z' }]);
+  assert.equal(e.city, 'Tourrettes');
 });
