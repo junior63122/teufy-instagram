@@ -3470,13 +3470,15 @@
   ]
  },
  "v2|0787047ac55c": {
-  "ok": true,
-  "le": "2026-11-10T16:11:08.041Z",
+  "ok": false,
+  "vide": true,
+  "le": "2026-11-28T14:18:39.158Z",
   "nom": "Showcase #5 : Luzula / Venin Carmin / Code 150 / Harfaang",
   "lu": {
    "titre": "",
    "dates": [],
-   "artistes": []
+   "artistes": [],
+   "lieu": ""
   },
   "commun": []
  },
@@ -6692,7 +6694,8 @@
  "og|https://www.infoconcert.com/artiste/rfm-party-80-33307/concerts.html": "",
  "v2|436af7be3b88": {
   "ok": false,
-  "le": "2026-11-24T10:14:52.791Z",
+  "vide": true,
+  "le": "2026-11-28T14:14:38.948Z",
   "nom": "10 People Group Nice: Karao-Quiz Night – Fun Karaoke & Music Quiz Party",
   "lu": {
    "titre": "",
@@ -6722,7 +6725,8 @@
  },
  "v2|3f71c8739373": {
   "ok": false,
-  "le": "2026-11-24T10:15:06.799Z",
+  "vide": true,
+  "le": "2026-11-28T14:15:00.851Z",
   "nom": "Foodies + New Friends: Nice",
   "lu": {
    "titre": "",
@@ -7109,7 +7113,8 @@
  },
  "v2|53132285f798": {
   "ok": false,
-  "le": "2026-11-24T11:16:45.221Z",
+  "vide": true,
+  "le": "2026-11-28T14:12:59.333Z",
   "nom": "Riviera Bar Crawl Nice’s #1 Social Club for Global Travelers & Party Lovers",
   "lu": {
    "titre": "",
@@ -7139,7 +7144,8 @@
  },
  "v2|e884e85bde0c": {
   "ok": false,
-  "le": "2026-11-24T11:17:24.819Z",
+  "vide": true,
+  "le": "2026-11-28T14:13:17.815Z",
   "nom": "Nice Orange Bar Crawl – Party Bars, Music, Nightlife & Club Experience",
   "lu": {
    "titre": "",
@@ -7418,7 +7424,8 @@
  },
  "v2|d8887d90c52a": {
   "ok": false,
-  "le": "2026-11-24T12:18:41.660Z",
+  "vide": true,
+  "le": "2026-11-28T14:13:00.157Z",
   "nom": "Karaoké aux Folies d'Edmonde",
   "lu": {
    "titre": "",
@@ -7430,7 +7437,8 @@
  },
  "v2|da188e328b2d": {
   "ok": false,
-  "le": "2026-11-24T12:19:02.731Z",
+  "vide": true,
+  "le": "2026-11-28T14:16:00.184Z",
   "nom": "Riviera Bar Crawl Nice’s #1 Social Club for Global Travelers & Party Lovers",
   "lu": {
    "titre": "",
@@ -7622,7 +7630,8 @@
  },
  "v2|1810e51a5378": {
   "ok": false,
-  "le": "2026-11-24T13:16:06.479Z",
+  "vide": true,
+  "le": "2026-11-28T14:13:39.637Z",
   "nom": "L'Apéro Kanaille avec Laka-Naïa aux Folies d'Edmonde",
   "lu": {
    "titre": "",
@@ -7689,7 +7698,8 @@
  },
  "v2|eb1eb28e248f": {
   "ok": false,
-  "le": "2026-11-24T13:17:46.352Z",
+  "vide": true,
+  "le": "2026-11-28T14:13:59.437Z",
   "nom": "Blind Test aux Folies d'Edmonde",
   "lu": {
    "titre": "",
@@ -7701,7 +7711,8 @@
  },
  "v2|8838ffb7459f": {
   "ok": false,
-  "le": "2026-11-24T14:14:40.749Z",
+  "vide": true,
+  "le": "2026-11-28T14:14:19.268Z",
   "nom": "Dinner with Entrepreneurs Nice: Girls Night Out Edition",
   "lu": {
    "titre": "",
@@ -7837,7 +7848,8 @@
  },
  "v2|3d8c45632dd9": {
   "ok": false,
-  "le": "2026-11-24T17:14:03.632Z",
+  "vide": true,
+  "le": "2026-11-28T14:15:40.026Z",
   "nom": "Dj Set - Tim Lienderss",
   "lu": {
    "titre": "",
@@ -7868,7 +7880,8 @@
  },
  "v2|85f72ee7cf52": {
   "ok": false,
-  "le": "2026-11-24T17:19:13.016Z",
+  "vide": true,
+  "le": "2026-11-28T14:16:20.080Z",
   "nom": "Dakeez (+ Première Partie)",
   "lu": {
    "titre": "",
@@ -7980,7 +7993,8 @@
  },
  "v2|5dbb4bc02215": {
   "ok": false,
-  "le": "2026-11-24T20:17:28.959Z",
+  "vide": true,
+  "le": "2026-11-28T14:16:39.688Z",
   "nom": "Dj - Trvchi",
   "lu": {
    "titre": "",
@@ -8076,7 +8090,8 @@
  "og|https://www.eventbrite.fr/e/rencontre-dechecs-a-marseille-le-chaperon-rouge-tickets-2004937813973": "https://www.eventbrite.fr/_next/image?url=https%3A%2F%2Fimg.evbuc.com%2Fhttps%253A%252F%252Fcdn.evbuc.com%252Fimages%252F1197697977%252F2827791142421%252F1%252Foriginal.20261110-171959%3Fcrop%3Dfocalpoint%26fit%3Dcrop%26w%3D940%26auto%3Dformat%252Ccompress%26q%3D75%26sharp%3D10%26fp-x%3D0.29%26fp-y%3D0.497%26s%3Da06e2c124598572ca82cf9d9e48915ee&w=940&q=75",
  "v2|2706997b9567": {
   "ok": false,
-  "le": "2026-11-25T08:17:14.720Z",
+  "vide": true,
+  "le": "2026-11-28T14:15:20.690Z",
   "nom": "Rencontre d’échecs à Marseille · Le Chaperon Rouge",
   "lu": {
    "titre": "",
@@ -8108,7 +8123,8 @@
  },
  "v2|b7a46e38c485": {
   "ok": false,
-  "le": "2026-11-25T08:17:52.758Z",
+  "vide": true,
+  "le": "2026-11-28T14:16:59.795Z",
   "nom": "Lillian Palmer en concert – A Swingin’ Noël",
   "lu": {
    "titre": "",
@@ -8137,7 +8153,8 @@
  },
  "v2|fb50a7afcf71": {
   "ok": false,
-  "le": "2026-11-25T08:18:31.859Z",
+  "vide": true,
+  "le": "2026-11-28T14:17:59.169Z",
   "nom": "BRODINSKI (+ Tobhi TM & Friends / Lariate Club)",
   "lu": {
    "titre": "",
@@ -8239,7 +8256,8 @@
  },
  "v2|cf838738e80e": {
   "ok": false,
-  "le": "2026-11-25T08:20:37.407Z",
+  "vide": true,
+  "le": "2026-11-28T14:18:58.464Z",
   "nom": "Thursday Live Sessions - DIRTY DEEP",
   "lu": {
    "titre": "",
@@ -8818,7 +8836,8 @@
  },
  "v2|1c5be2ae0d1e": {
   "ok": false,
-  "le": "2026-11-25T19:14:06.500Z",
+  "vide": true,
+  "le": "2026-11-28T14:17:19.586Z",
   "nom": "Concert PLK – Palais Nikaïa",
   "lu": {
    "titre": "",
@@ -9315,5 +9334,41 @@
   },
   "commun": []
  },
- "og|https://www.eventbrite.fr/e/rencontre-dechecs-a-nice-alt-f4-tickets-2005474205334": "https://www.eventbrite.fr/_next/image?url=https%3A%2F%2Fimg.evbuc.com%2Fhttps%253A%252F%252Fcdn.evbuc.com%252Fimages%252F1197697977%252F2827791142421%252F1%252Foriginal.20261110-171959%3Fcrop%3Dfocalpoint%26fit%3Dcrop%26w%3D940%26auto%3Dformat%252Ccompress%26q%3D75%26sharp%3D10%26fp-x%3D0.29%26fp-y%3D0.497%26s%3Da06e2c124598572ca82cf9d9e48915ee&w=940&q=75"
+ "og|https://www.eventbrite.fr/e/rencontre-dechecs-a-nice-alt-f4-tickets-2005474205334": "https://www.eventbrite.fr/_next/image?url=https%3A%2F%2Fimg.evbuc.com%2Fhttps%253A%252F%252Fcdn.evbuc.com%252Fimages%252F1197697977%252F2827791142421%252F1%252Foriginal.20261110-171959%3Fcrop%3Dfocalpoint%26fit%3Dcrop%26w%3D940%26auto%3Dformat%252Ccompress%26q%3D75%26sharp%3D10%26fp-x%3D0.29%26fp-y%3D0.497%26s%3Da06e2c124598572ca82cf9d9e48915ee&w=940&q=75",
+ "v2|9101c3e9c279": {
+  "ok": false,
+  "vide": true,
+  "le": "2026-11-28T14:17:39.363Z",
+  "nom": "Rencontre d’échecs à Mougins · Ami-Amie",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": [],
+   "lieu": ""
+  },
+  "commun": []
+ },
+ "v2|f3f6a250bbd0": {
+  "ok": true,
+  "le": "2026-11-28T14:18:19.282Z",
+  "nom": "ROOTS REGGAE VIBES – Marcus Davidson & Wax Digga au Quartier du Poulpe",
+  "lu": {
+   "titre": "Roots Reggae Vibes",
+   "dates": [
+    "2026-12-12"
+   ],
+   "artistes": [
+    "Marcus Davidson",
+    "Wax Digga"
+   ],
+   "lieu": "Le quartier du poulp"
+  },
+  "commun": [
+   "roots",
+   "reggae",
+   "vibes",
+   "marcus",
+   "davidson"
+  ]
+ }
 }
