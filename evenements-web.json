@@ -4930,7 +4930,9 @@
       "image": "https://scontent-iad6-1.cdninstagram.com/v/t39.30808-6/923923216_122129510079335208_3258910023942101331_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=Np8i_50Q2F0Q7kNvwERODBE&_nc_oc=AdoIt70tSqQzvW6xnnXuN9t8AS6gtXhC1NuT-uWhhviw5_kuDIDcLb7JO1v9bo6xmXY&_nc_zt=23&_nc_ht=scontent-iad6-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=8fqBNM-zGQ4sok9uW-dZ6A&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQQGCJW7sydHj4vHlDrxyl6cKv1tBgbSnD_TTG8okKu4iA&oe=6B0B4393",
       "price": null,
       "tags": [
-        "jazz"
+        "jazz",
+        "Pop",
+        "Electro"
       ],
       "description": "",
       "public_cible": 0.6,
@@ -4938,7 +4940,8 @@
       "accroche": "Richard Galliano et le Nice Jazz Club – soirée jazz complète.",
       "instagram": [
         "ledixhuit_nice"
-      ]
+      ],
+      "offres": []
     },
     {
       "source": "web",
