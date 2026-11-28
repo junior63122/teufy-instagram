@@ -53,7 +53,7 @@ export function donneesPilotage({ root = ROOT, now = new Date() } = {}) {
   const prets = existsSync(path.join(root, 'media/posts-prets')) ? readdirSync(path.join(root, 'media/posts-prets')).map((d) => {
     const p = lire(path.join(root, 'media/posts-prets', d, 'publication.json'), {});
     // Publié = relu en ligne par l'auto-contrôle (« pret-<nom> : en ligne et conforme (lien) »), jamais supposé.
-    const vu = (controle?.jours || []).flatMap((j) => j.ok || []).find((l) => l.startsWith(`pret-${d} :`));
+    const vu = (controle?.jours || []).flatMap((j) => j.ok || []).find((l) => l.startsWith(`pret-${d} :`) && /en ligne/.test(l)); // « EN RETARD » n'est pas « publié » (27/11/2026)
     return { nom: p.titre || d, valide: p.valide === true, publie: !!vu, lien: vu?.match(/https:\/\/\S+?(?=\))/)?.[0] || '' };
   }) : [];
   return {

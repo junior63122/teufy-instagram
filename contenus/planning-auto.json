@@ -1,85 +1,87 @@
 {
-  "extras": [
-    {
-      "date": "2026-11-20",
-      "type": "pret",
-      "variante": "2026-11-19-concours-frigo16",
-      "remplace": "post",
-      "raison": "Concours Frigo 16 validé par le directeur le 20/11/2026 : publié aujourd'hui entre 16 h et 18 h, à la place du carrousel du week-end.",
-      "cree_le": "2026-11-20T11:30:00Z"
-    },
-    {
-      "date": "2026-11-28",
-      "type": "pret",
-      "variante": "2026-11-28-reel-samedi",
-      "remplace": "reel",
-      "raison": "Premier réel en vraies vidéos de soirée (Drive du directeur) à la place du réel « tendance » du samedi ; publié seulement si validé (publication.json « valide »).",
-      "cree_le": "2026-11-27T12:00:00Z"
-    }
-  ],
-  "jours": {
-    "post": {},
-    "reel": {}
+ "extras": [
+  {
+   "date": "2026-11-20",
+   "type": "pret",
+   "variante": "2026-11-19-concours-frigo16",
+   "remplace": "post",
+   "raison": "Concours Frigo 16 validé par le directeur le 20/11/2026 : publié aujourd'hui entre 16 h et 18 h, à la place du carrousel du week-end.",
+   "cree_le": "2026-11-20T11:30:00Z"
   },
-  "journal": [
-    {
-      "le": "2026-11-16T15:07:44.463Z",
-      "quoi": "suite",
-      "media": "18111823247220555",
-      "texte": "Engouement sur « Où manger à Monaco après la boîte ? » (portée 884 contre 431 d'habitude (×2.1)) → suite programmée le 2026-11-17 (guide)."
-    },
-    {
-      "le": "2026-11-18T20:42:11.402351Z",
-      "quoi": "extra",
-      "texte": "Spot promo « Tu sais jamais où sortir le soir ? » programmé le jeudi 19/11 à la demande du directeur (couverture DA avec bouton lecture)."
-    },
-    {
-      "le": "2026-11-18T22:30:00Z",
-      "quoi": "jour",
-      "texte": "Planning réorganisé (directeur) : le spot « Tu sais jamais où sortir le soir ? » part au créneau promo du vendredi 20/11 au lieu d'une 3e publication le jeudi 19/11."
-    },
-    {
-      "le": "2026-11-19T14:30:00Z",
-      "quoi": "extra",
-      "texte": "Concours Frigo 16 (2 places pour Phaphane le 27/11 et Do You Like… Tekno ? le 28/11) publié le 19/11 à la place du reel guide ; tirage le 25/11 à 18 h."
-    },
-    {
-      "le": "2026-11-19T16:58:00Z",
-      "quoi": "extra",
-      "texte": "Spot « Tu sais jamais où sortir le soir ? » publié le 19/11 vers 18 h (demande du directeur), Édition Tekno ensuite."
-    },
-    {
-      "le": "2026-11-19T18:07:44.551Z",
-      "quoi": "suite-refusee",
-      "media": "18116970512145923",
-      "texte": "Engouement sur « bonplan-petits-prix » (6 partages + enregistrements contre 2 d'habitude), mais déjà 3 suites cette semaine."
-    },
-    {
-      "le": "2026-11-19T20:07:54.635Z",
-      "quoi": "suite-refusee",
-      "media": "18116970512145923",
-      "texte": "Engouement sur « bonplan-petits-prix » (6 partages + enregistrements contre 2 d'habitude), mais déjà 3 suites cette semaine."
-    },
-    {
-      "le": "2026-11-19T22:07:48.880Z",
-      "quoi": "suite-refusee",
-      "media": "18116970512145923",
-      "texte": "Engouement sur « bonplan-petits-prix » (6 partages + enregistrements contre 2 d'habitude), mais déjà 3 suites cette semaine."
-    },
-    {
-      "le": "2026-11-20T15:11:59.582Z",
-      "quoi": "suite-refusee",
-      "media": "18116970512145923",
-      "texte": "Engouement sur « bonplan-petits-prix » (6 partages + enregistrements contre 2 d'habitude), mais déjà 3 suites cette semaine."
-    },
-    {
-      "le": "2026-11-20T17:07:45.345Z",
-      "quoi": "suite-refusee",
-      "media": "18116970512145923",
-      "texte": "Engouement sur « bonplan-petits-prix » (6 partages + enregistrements contre 2 d'habitude), mais déjà 3 suites cette semaine."
-    }
-  ],
-  "_note": "Écrit par le robot (src/reactif.mjs) : suites programmées après un engouement, jours déplacés selon les résultats, journal des changements.",
-  "dernier_controle": "2026-11-27T22:07:54.534Z",
-  "dernier_replanning": "2026-11-23T01:34:08.878Z"
+  {
+   "date": "2026-11-28",
+   "type": "pret",
+   "variante": "2026-11-28-reel-samedi",
+   "remplace": "reel",
+   "raison": "Premier réel en vraies vidéos de soirée (Drive du directeur) à la place du réel « tendance » du samedi ; publié seulement si validé (publication.json « valide »). Avancé au premier créneau de la journée (18 h à Paris (heure_utc 17), 27/11 : la vidéo parle aux gens qui choisissent encore leur soirée).",
+   "cree_le": "2026-11-27T12:00:00Z",
+   "premier": true,
+   "heure_utc": 17
+  }
+ ],
+ "jours": {
+  "post": {},
+  "reel": {}
+ },
+ "journal": [
+  {
+   "le": "2026-11-16T15:07:44.463Z",
+   "quoi": "suite",
+   "media": "18111823247220555",
+   "texte": "Engouement sur « Où manger à Monaco après la boîte ? » (portée 884 contre 431 d'habitude (×2.1)) → suite programmée le 2026-11-17 (guide)."
+  },
+  {
+   "le": "2026-11-18T20:42:11.402351Z",
+   "quoi": "extra",
+   "texte": "Spot promo « Tu sais jamais où sortir le soir ? » programmé le jeudi 19/11 à la demande du directeur (couverture DA avec bouton lecture)."
+  },
+  {
+   "le": "2026-11-18T22:30:00Z",
+   "quoi": "jour",
+   "texte": "Planning réorganisé (directeur) : le spot « Tu sais jamais où sortir le soir ? » part au créneau promo du vendredi 20/11 au lieu d'une 3e publication le jeudi 19/11."
+  },
+  {
+   "le": "2026-11-19T14:30:00Z",
+   "quoi": "extra",
+   "texte": "Concours Frigo 16 (2 places pour Phaphane le 27/11 et Do You Like… Tekno ? le 28/11) publié le 19/11 à la place du reel guide ; tirage le 25/11 à 18 h."
+  },
+  {
+   "le": "2026-11-19T16:58:00Z",
+   "quoi": "extra",
+   "texte": "Spot « Tu sais jamais où sortir le soir ? » publié le 19/11 vers 18 h (demande du directeur), Édition Tekno ensuite."
+  },
+  {
+   "le": "2026-11-19T18:07:44.551Z",
+   "quoi": "suite-refusee",
+   "media": "18116970512145923",
+   "texte": "Engouement sur « bonplan-petits-prix » (6 partages + enregistrements contre 2 d'habitude), mais déjà 3 suites cette semaine."
+  },
+  {
+   "le": "2026-11-19T20:07:54.635Z",
+   "quoi": "suite-refusee",
+   "media": "18116970512145923",
+   "texte": "Engouement sur « bonplan-petits-prix » (6 partages + enregistrements contre 2 d'habitude), mais déjà 3 suites cette semaine."
+  },
+  {
+   "le": "2026-11-19T22:07:48.880Z",
+   "quoi": "suite-refusee",
+   "media": "18116970512145923",
+   "texte": "Engouement sur « bonplan-petits-prix » (6 partages + enregistrements contre 2 d'habitude), mais déjà 3 suites cette semaine."
+  },
+  {
+   "le": "2026-11-20T15:11:59.582Z",
+   "quoi": "suite-refusee",
+   "media": "18116970512145923",
+   "texte": "Engouement sur « bonplan-petits-prix » (6 partages + enregistrements contre 2 d'habitude), mais déjà 3 suites cette semaine."
+  },
+  {
+   "le": "2026-11-20T17:07:45.345Z",
+   "quoi": "suite-refusee",
+   "media": "18116970512145923",
+   "texte": "Engouement sur « bonplan-petits-prix » (6 partages + enregistrements contre 2 d'habitude), mais déjà 3 suites cette semaine."
+  }
+ ],
+ "_note": "Écrit par le robot (src/reactif.mjs) : suites programmées après un engouement, jours déplacés selon les résultats, journal des changements.",
+ "dernier_controle": "2026-11-27T22:07:54.534Z",
+ "dernier_replanning": "2026-11-23T01:34:08.878Z"
 }

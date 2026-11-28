@@ -118,7 +118,7 @@ const slotsFor = (d) => {
   const pretValide = (x) => x.type !== 'pret' || (() => { try { return JSON.parse(readFileSync(path.join(ROOT, 'media', 'posts-prets', String(x.variante).replace(/[^a-z0-9-]/gi, ''), 'publication.json'), 'utf8')).valide === true; } catch { return false; } })();
   const aLaPlace = extrasDu(PLAN, s.date).filter(pretValide).find((x) => ['post', 'reel'].includes(x.remplace));
   if (aLaPlace) {
-    const nouveau = { type: aLaPlace.type, variante: aLaPlace.variante || undefined };
+    const nouveau = { type: aLaPlace.type, variante: aLaPlace.variante || undefined, ...(aLaPlace.heure_utc != null ? { heure_utc: Number(aLaPlace.heure_utc) } : {}) };
     const i = aLaPlace.remplace === 'reel' ? base.findIndex((c) => c.type === 'reel') : base.findIndex((c) => c.type !== 'reel');
     if (i >= 0) base[i] = { ...nouveau, ...(base[i].second ? { second: true } : {}) };
     else if (aLaPlace.remplace === 'post') base.unshift(nouveau); else base.push({ ...nouveau, second: true });
@@ -275,7 +275,8 @@ if (cible === 'auto') {
     if (s && hist.some((h) => h.id === slotId(s) && h.date === slotOfDay(NOW).date)) rep = 'rien'; // déjà publié aujourd'hui
     else if (s && flag('horaire')) {
       const premier = +creneauDuJour(NOW), dernier = Math.max(...CRENEAUX.map(Number));
-      const choisi = s?.second ? Math.min(premier + Number(R.ecart_reel_h ?? 2) * (s.troisieme ? 2 : 1), dernier) : premier;
+      // Heure imposée par le planning (extra « heure_utc », 27/11/2026 : réel du samedi avancé à 18 h à Paris).
+      const choisi = s?.heure_utc != null ? s.heure_utc : s?.second ? Math.min(premier + Number(R.ecart_reel_h ?? 2) * (s.troisieme ? 2 : 1), dernier) : premier;
       if (NOW.getUTCHours() < choisi) { console.error(`Publication prévue vers ${choisi}h UTC.`); rep = 'rien'; }
       // Jamais de post tard le soir (le 11/11, un rattrapage est parti à 22h58) : au-delà de 21h30 à Paris, le post du
       // jour n'est plus publié par les passages de rattrapage (config.instagram.heure_max_paris pour changer).
