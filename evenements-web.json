@@ -8,6 +8,86 @@
     {
       "source": "web",
       "source_site": "shotgun.live",
+      "name": "Roller Disco - Gratuit @ Frigo 16",
+      "start": "2026-12-18T17:00:00.000Z",
+      "venue": "Frigo 16",
+      "city": "Nice",
+      "address": "",
+      "url": "https://shotgun.live/events/roller-disco-gratuit-frigo-16",
+      "image": "https://assets.shotgun.live/image/upload/c_limit,w_384,fl_lossy,f_webp,q_5/production/artworks/ROLLERDISCO26-ANNONCE-cover_knmj7f.jpg",
+      "price": 0,
+      "tags": [
+        "disco",
+        "disco house",
+        "funk",
+        "Disco",
+        "Funk",
+        "House",
+        "Italo Disco",
+        "Nu-Disco",
+        "house",
+        "retro dance",
+        "Disco House",
+        "Groove",
+        "new funk",
+        "R&B",
+        "neo soul",
+        "acid jazz",
+        "hip‑hop",
+        "roller clubbing",
+        "tech house",
+        "hard groove",
+        "soul funk",
+        "itali",
+        "electro rock",
+        "oldschool classics",
+        "italo",
+        "hip‑hop 90’s",
+        "néo‑soul",
+        "acid‑jazz",
+        "Oldschool",
+        "Hard‑Music",
+        "Gabber",
+        "roller"
+      ],
+      "description": "Le vendredi 18 décembre, Frigo 16 te donne rendez‑vous pour une Roller Disco endiablée. Dès 18 h, tu pourras enfiler tes patins et danser sur des sons disco dans une ambiance rétro et festive. L’entrée est gratuite sur inscription, avec bar et food sur place, et le parking est disponible. Le club se situe au 89 route de Turin, 06300 Nice, et la soirée dure jusqu’à 2 h30. N’oublie pas de réserver rapidement, les places partent comme des petits pains !",
+      "public_cible": 0.9,
+      "confiance": 0.95,
+      "buzz": 0.8,
+      "buzz_raison": "Format insolite, ultra convivial et entièrement gratuit.",
+      "accroche": "Patins, boules à facettes et son disco gratuit au Frigo 16.",
+      "instagram": [
+        "frigo.16",
+        "pandaevents06",
+        "pandaevents"
+      ],
+      "offres": [
+        {
+          "plateforme": "shotgun.live",
+          "url": "https://shotgun.live/events/roller-disco-gratuit-frigo-16",
+          "prix": 0
+        },
+        {
+          "plateforme": "panda-events.com",
+          "url": "https://www.panda-events.com/agenda/",
+          "prix": 0
+        }
+      ],
+      "sources_sites": [
+        "shotgun.live",
+        "panda-events.com",
+        "Shotgun Live",
+        "Shotgun",
+        "instagram.com",
+        "Shotgun live (Facebook post)"
+      ],
+      "via_veille": true,
+      "billetterie_cherchee": true,
+      "offres_cherchees": true
+    },
+    {
+      "source": "web",
+      "source_site": "shotgun.live",
       "name": "La Dinette - Santa À La Playa",
       "start": "2026-12-05T18:00:00.000Z",
       "venue": "Playa Chica",
@@ -150,86 +230,6 @@
         "le109.nice.fr",
         "InfoConcert",
         "Shotgun",
-        "Shotgun live (Facebook post)"
-      ],
-      "via_veille": true,
-      "billetterie_cherchee": true,
-      "offres_cherchees": true
-    },
-    {
-      "source": "web",
-      "source_site": "shotgun.live",
-      "name": "Roller Disco - Gratuit @ Frigo 16",
-      "start": "2026-12-18T17:00:00.000Z",
-      "venue": "Frigo 16",
-      "city": "Nice",
-      "address": "",
-      "url": "https://shotgun.live/events/roller-disco-gratuit-frigo-16",
-      "image": "https://assets.shotgun.live/image/upload/c_limit,w_384,fl_lossy,f_webp,q_5/production/artworks/ROLLERDISCO26-ANNONCE-cover_knmj7f.jpg",
-      "price": 0,
-      "tags": [
-        "disco",
-        "disco house",
-        "funk",
-        "Disco",
-        "Funk",
-        "House",
-        "Italo Disco",
-        "Nu-Disco",
-        "house",
-        "retro dance",
-        "Disco House",
-        "Groove",
-        "new funk",
-        "R&B",
-        "neo soul",
-        "acid jazz",
-        "hip‑hop",
-        "roller clubbing",
-        "tech house",
-        "hard groove",
-        "soul funk",
-        "itali",
-        "electro rock",
-        "oldschool classics",
-        "italo",
-        "hip‑hop 90’s",
-        "néo‑soul",
-        "acid‑jazz",
-        "Oldschool",
-        "Hard‑Music",
-        "Gabber",
-        "roller"
-      ],
-      "description": "Panda Events transforme le Frigo 16 en piste de roller disco géante pour une soirée vintage complètement déjantée. Chausse tes patins et viens danser sous les boules à facettes sur une sélection funky, nu-disco et house assurée par les DJ résidents. L'événement commence à 20h00 et l'accès est entièrement gratuit, idéal pour se détendre entre amis avant les fêtes de fin d'année.",
-      "public_cible": 0.9,
-      "confiance": 0.95,
-      "buzz": 0.8,
-      "buzz_raison": "Format insolite, ultra convivial et entièrement gratuit.",
-      "accroche": "Patins, boules à facettes et son disco gratuit au Frigo 16.",
-      "instagram": [
-        "frigo.16",
-        "pandaevents06",
-        "pandaevents"
-      ],
-      "offres": [
-        {
-          "plateforme": "shotgun.live",
-          "url": "https://shotgun.live/events/roller-disco-gratuit-frigo-16",
-          "prix": 0
-        },
-        {
-          "plateforme": "panda-events.com",
-          "url": "https://www.panda-events.com/agenda/",
-          "prix": 0
-        }
-      ],
-      "sources_sites": [
-        "shotgun.live",
-        "panda-events.com",
-        "Shotgun Live",
-        "Shotgun",
-        "instagram.com",
         "Shotgun live (Facebook post)"
       ],
       "via_veille": true,
@@ -5362,5 +5362,5 @@
       ]
     }
   ],
-  "maj_instagram": "2026-11-28T08:12:33.157Z"
+  "maj_instagram": "2026-11-28T09:12:37.391Z"
 }
