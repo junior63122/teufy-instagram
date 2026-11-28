@@ -1,43 +1,6 @@
 {
- "le": "2026-11-27T22:12:40.464Z",
+ "le": "2026-11-28T00:18:41.828Z",
  "jours": [
-  {
-   "date": "2026-11-27",
-   "pause": null,
-   "publications": [
-    {
-     "id": "incontournables-commercial",
-     "type": "incontournables",
-     "variante": "commercial",
-     "heure": "17 h 07",
-     "suite": false,
-     "fait": true,
-     "lien": "https://www.instagram.com/reel/DgQPAM0q6e-/"
-    }
-   ],
-   "stories": [
-    {
-     "heure": "16 h",
-     "type": "soirees",
-     "cle": null
-    },
-    {
-     "heure": "18 h",
-     "type": "offre",
-     "cle": null
-    },
-    {
-     "heure": "20 h",
-     "type": "question",
-     "cle": null
-    },
-    {
-     "heure": "22 h",
-     "type": "coeur",
-     "cle": null
-    }
-   ]
-  },
   {
    "date": "2026-11-28",
    "pause": null,
@@ -541,6 +504,43 @@
     {
      "heure": "18 h",
      "type": "repost",
+     "cle": null
+    },
+    {
+     "heure": "20 h",
+     "type": "question",
+     "cle": null
+    },
+    {
+     "heure": "22 h",
+     "type": "coeur",
+     "cle": null
+    }
+   ]
+  },
+  {
+   "date": "2026-12-11",
+   "pause": null,
+   "publications": [
+    {
+     "id": "incontournables-commercial",
+     "type": "incontournables",
+     "variante": "commercial",
+     "heure": "17 h 07",
+     "suite": false,
+     "fait": false,
+     "lien": null
+    }
+   ],
+   "stories": [
+    {
+     "heure": "16 h",
+     "type": "soirees",
+     "cle": null
+    },
+    {
+     "heure": "18 h",
+     "type": "offre",
      "cle": null
     },
     {

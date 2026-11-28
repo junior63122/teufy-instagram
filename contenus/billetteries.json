@@ -1,5 +1,5 @@
 {
- "maj": "2026-11-27T16:20:29.079Z",
+ "maj": "2026-11-28T00:18:49.415Z",
  "evenements": [
   {
    "source": "dice",
@@ -14,6 +14,51 @@
    "price": 23,
    "tags": [],
    "description": "",
+   "popularite": null
+  },
+  {
+   "source": "xceed",
+   "name": "COACHELLITO - HIGH CLUB",
+   "start": "2026-11-27T22:59:00.000Z",
+   "end": "2026-11-28T04:00:00.000Z",
+   "venue": "High Club",
+   "city": "Nice",
+   "address": "45 Prom. des Anglais, 06000 Nice, France Nice",
+   "url": "https://xceed.me/fr/nice/event/coachellito-high-club/251510",
+   "image": "https://images.xceed.me/events/banners/coachellito-high-club-nice-xceed-square-b905.png?w=1920&ar=16%3A9&fm=auto",
+   "price": 28,
+   "tags": [],
+   "description": "COACHELLITO & LE HIGH CLUB — NICE PRIVATISATION COMPLÈTE — FRIENDS & FAMILY EDITION LINE-UP : CHAPS B4B SHAYAN B4B CAVALLI B4B MACEW Retour sur le dancefloor de nos premières nuits ! Il y a des lieux qui font partie de notre histoire. Le High Club, c’est un peu celle de toute une génération de Niçois : les premières soirées, les rencontres et les souvenirs qu’on raconte encore. Le temps d’une nuit, COACHELLITO prend les clés de cette boîte mythique pour une édition Friends & Family. L’occasion de se retrouver entre amis, de raviver quelques souvenirs et surtout d’en créer de nouveaux. Nouveau ",
+   "popularite": null
+  },
+  {
+   "source": "xceed",
+   "name": "MARWA LOUD TICKETS HIGH CLUB",
+   "start": "2026-11-28T22:59:00.000Z",
+   "end": "2026-11-29T04:00:00.000Z",
+   "venue": "High Club",
+   "city": "Nice",
+   "address": "45 Prom. des Anglais, 06000 Nice, France Nice",
+   "url": "https://xceed.me/fr/nice/event/marwa-loud-tickets-high-club/252164",
+   "image": "https://images.xceed.me/events/banners/marwa-loud-fast-pass-high-club-nice-xceed-square-3947.png?w=1920&ar=16%3A9&fm=auto",
+   "price": 30,
+   "tags": [],
+   "description": "Samedi 28 novembre @ High club - NICE 🤩🤗😍 Saturday November 28th @ High club - NICE ❌ => Ticket 25€ ❌ => Ticket Fast Pass 30€ en ligne / Tickets FAST PASS 30€ online ( fast and priority access )",
+   "popularite": null
+  },
+  {
+   "source": "xceed",
+   "name": "HIGH STUDENTS",
+   "start": "2026-12-04T22:59:00.000Z",
+   "end": "2026-12-05T04:00:00.000Z",
+   "venue": "High Club",
+   "city": "Nice",
+   "address": "45 Prom. des Anglais, 06000 Nice, France Nice",
+   "url": "https://xceed.me/fr/nice/event/high-students/253250",
+   "image": "https://images.xceed.me/events/banners/high-students-nice-xceed-square-2765.png?w=1920&ar=16%3A9&fm=auto",
+   "price": 20,
+   "tags": [],
+   "description": "Vendredi 04 décembre @ High club - NICE 🤩🤗😍 Friday December 04th @ High club - NICE ❌ => HIGH STUDENTS ❌ => Entrée 15€ sur place / Tickets FAST PASS 20€ en ligne ( accès rapide et prioritaire ) ❌ => Entrance fee 15€ on site / Tickets FAST PASS 20€ online ( fast and priority access )",
    "popularite": null
   },
   {
@@ -149,21 +194,6 @@
    "price": 27.84,
    "tags": [],
    "description": "The wildest pub crawl in Nice. 5 party venues, drinking games, 5 free shots and VIP club entry with an international crowd.",
-   "popularite": null
-  },
-  {
-   "source": "eventbrite",
-   "name": "French Riviera: 3 Local Wines & French Charcuterie Tasting",
-   "start": "2026-11-27T16:00:00.000Z",
-   "end": "2026-11-27T17:00:00.000Z",
-   "venue": "LOU'BAR",
-   "city": "Villeneuve-Loubet",
-   "address": "3 Rue des Mesures 06270 Villeneuve-Loubet",
-   "url": "https://www.eventbrite.fr/e/french-riviera-3-local-wines-french-charcuterie-tasting-tickets-2004348149270",
-   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1177927568%2F2149570374853%2F1%2Foriginal.20260219-132432?w=1080&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C724%2C1200%2C600&s=6d5fbd913540e66dba00e9fb76190e6d",
-   "price": 40.64,
-   "tags": [],
-   "description": "Taste 3 local wines from the French Riviera paired with French charcuterie in a guided gourmet experience.",
    "popularite": null
   },
   {
@@ -449,21 +479,6 @@
    "price": 27.84,
    "tags": [],
    "description": "The wildest pub crawl in Nice. 5 party venues, drinking games, 5 free shots and VIP club entry with an international crowd.",
-   "popularite": null
-  },
-  {
-   "source": "eventbrite",
-   "name": "French Riviera: 3 Local Wines & French Charcuterie Tasting",
-   "start": "2026-11-27T16:00:00.000Z",
-   "end": "2026-11-27T17:00:00.000Z",
-   "venue": "LOU'BAR",
-   "city": "Villeneuve-Loubet",
-   "address": "3 Rue des Mesures 06270 Villeneuve-Loubet",
-   "url": "https://www.eventbrite.fr/e/french-riviera-3-local-wines-french-charcuterie-tasting-tickets-2004348149270",
-   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1177927568%2F2149570374853%2F1%2Foriginal.20260219-132432?w=1080&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C724%2C1200%2C600&s=6d5fbd913540e66dba00e9fb76190e6d",
-   "price": 40.64,
-   "tags": [],
-   "description": "Taste 3 local wines from the French Riviera paired with French charcuterie in a guided gourmet experience.",
    "popularite": null
   },
   {
@@ -839,21 +854,6 @@
    "price": 0,
    "tags": [],
    "description": "Échecs gratuits et conviviaux à Nice. Tous niveaux. Inscrivez-vous ici, puis confirmez votre place par e-mail.",
-   "popularite": null
-  },
-  {
-   "source": "eventbrite",
-   "name": "Rencontre d’échecs à Saint-Raphaël · Hôtel Beauséjour",
-   "start": "2026-11-27T18:00:00.000Z",
-   "end": "2026-11-27T20:00:00.000Z",
-   "venue": "Hôtel Beauséjour",
-   "city": "Saint-Raphaël",
-   "address": "149 Prom. René Coty, 83700 Saint-Raphaël, France 83700 Saint-Raphaël",
-   "url": "https://www.eventbrite.fr/e/rencontre-dechecs-a-saint-raphael-hotel-beausejour-tickets-2004895646850",
-   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1197697977%2F2827791142421%2F1%2Foriginal.20261110-171959?crop=focalpoint&fit=crop&w=1080&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.29&fp-y=0.497&s=a06e2c124598572ca82cf9d9e48915ee",
-   "price": 0,
-   "tags": [],
-   "description": "Échecs gratuits et conviviaux à Saint-Raphaël. Tous niveaux. Inscrivez-vous ici, puis confirmez votre place par e-mail.",
    "popularite": null
   },
   {
@@ -1113,21 +1113,6 @@
   },
   {
    "source": "eventbrite",
-   "name": "Rencontre d’échecs à Saint-Raphaël · Hôtel Beauséjour",
-   "start": "2026-11-27T18:00:00.000Z",
-   "end": "2026-11-27T20:00:00.000Z",
-   "venue": "Hôtel Beauséjour",
-   "city": "Saint-Raphaël",
-   "address": "149 Prom. René Coty, 83700 Saint-Raphaël, France 83700 Saint-Raphaël",
-   "url": "https://www.eventbrite.fr/e/rencontre-dechecs-a-saint-raphael-hotel-beausejour-tickets-2004895646850",
-   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1197697977%2F2827791142421%2F1%2Foriginal.20261110-171959?crop=focalpoint&fit=crop&w=1080&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.29&fp-y=0.497&s=a06e2c124598572ca82cf9d9e48915ee",
-   "price": 0,
-   "tags": [],
-   "description": "Échecs gratuits et conviviaux à Saint-Raphaël. Tous niveaux. Inscrivez-vous ici, puis confirmez votre place par e-mail.",
-   "popularite": null
-  },
-  {
-   "source": "eventbrite",
    "name": "Ghetto Boogie",
    "start": "2026-12-12T21:00:00.000Z",
    "end": "2026-12-13T02:00:00.000Z",
@@ -1229,21 +1214,6 @@
    "price": 0,
    "tags": [],
    "description": "Échecs gratuits et conviviaux à Marseille. Tous niveaux. Inscrivez-vous ici, puis confirmez votre place par e-mail.",
-   "popularite": null
-  },
-  {
-   "source": "eventbrite",
-   "name": "Rencontre d’échecs à Saint-Raphaël · Hôtel Beauséjour",
-   "start": "2026-11-27T18:00:00.000Z",
-   "end": "2026-11-27T20:00:00.000Z",
-   "venue": "Hôtel Beauséjour",
-   "city": "Saint-Raphaël",
-   "address": "149 Prom. René Coty, 83700 Saint-Raphaël, France 83700 Saint-Raphaël",
-   "url": "https://www.eventbrite.fr/e/rencontre-dechecs-a-saint-raphael-hotel-beausejour-tickets-2004895646850",
-   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1197697977%2F2827791142421%2F1%2Foriginal.20261110-171959?crop=focalpoint&fit=crop&w=1080&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.29&fp-y=0.497&s=a06e2c124598572ca82cf9d9e48915ee",
-   "price": 0,
-   "tags": [],
-   "description": "Échecs gratuits et conviviaux à Saint-Raphaël. Tous niveaux. Inscrivez-vous ici, puis confirmez votre place par e-mail.",
    "popularite": null
   },
   {
@@ -1604,21 +1574,6 @@
    "price": 0,
    "tags": [],
    "description": "Une soirée musicale entre jazz, pop, world music, compositions originales et reprises incontournables au QDP!",
-   "popularite": null
-  },
-  {
-   "source": "eventbrite",
-   "name": "Rencontre d’échecs à Saint-Raphaël · Hôtel Beauséjour",
-   "start": "2026-11-27T18:00:00.000Z",
-   "end": "2026-11-27T20:00:00.000Z",
-   "venue": "Hôtel Beauséjour",
-   "city": "Saint-Raphaël",
-   "address": "149 Prom. René Coty, 83700 Saint-Raphaël, France 83700 Saint-Raphaël",
-   "url": "https://www.eventbrite.fr/e/rencontre-dechecs-a-saint-raphael-hotel-beausejour-tickets-2004895646850",
-   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1197697977%2F2827791142421%2F1%2Foriginal.20261110-171959?crop=focalpoint&fit=crop&w=1080&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.29&fp-y=0.497&s=a06e2c124598572ca82cf9d9e48915ee",
-   "price": 0,
-   "tags": [],
-   "description": "Échecs gratuits et conviviaux à Saint-Raphaël. Tous niveaux. Inscrivez-vous ici, puis confirmez votre place par e-mail.",
    "popularite": null
   },
   {
@@ -1998,21 +1953,6 @@
   },
   {
    "source": "eventbrite",
-   "name": "Restaurant of the Week | Foodies + New Friends: Cannes",
-   "start": "2026-11-27T18:00:00.000Z",
-   "end": "2026-11-27T21:00:00.000Z",
-   "venue": "Restaurant of the Week",
-   "city": "Cannes",
-   "address": "Rue Félix Faure 06400 Cannes",
-   "url": "https://www.eventbrite.com/e/restaurant-of-the-week-foodies-new-friends-cannes-tickets-1976257866478",
-   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1171939510%2F935412228013%2F1%2Foriginal.20251128-213849?w=1080&auto=format%2Ccompress&q=75&sharp=10&s=ec3e6276a422a83e76e44a6c1cf30b86",
-   "price": 23.18,
-   "tags": [],
-   "description": "You sign up. We book. Make new friends over dinner while supporting local businesses!",
-   "popularite": null
-  },
-  {
-   "source": "eventbrite",
    "name": "Cannes Social Club | Foodies + New Friends",
    "start": "2026-11-28T18:00:00.000Z",
    "end": "2026-11-28T21:00:00.000Z",
@@ -2039,21 +1979,6 @@
    "price": 75,
    "tags": [],
    "description": "",
-   "popularite": null
-  },
-  {
-   "source": "eventbrite",
-   "name": "Restaurant of the Week | Foodies + New Friends: Cannes",
-   "start": "2026-11-27T18:00:00.000Z",
-   "end": "2026-11-27T21:00:00.000Z",
-   "venue": "Restaurant of the Week",
-   "city": "Cannes",
-   "address": "Rue Félix Faure 06400 Cannes",
-   "url": "https://www.eventbrite.com/e/restaurant-of-the-week-foodies-new-friends-cannes-tickets-1976257866478",
-   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1171939510%2F935412228013%2F1%2Foriginal.20251128-213849?w=1080&auto=format%2Ccompress&q=75&sharp=10&s=ec3e6276a422a83e76e44a6c1cf30b86",
-   "price": 23.18,
-   "tags": [],
-   "description": "You sign up. We book. Make new friends over dinner while supporting local businesses!",
    "popularite": null
   },
   {
@@ -2174,51 +2099,6 @@
    "price": 11.85,
    "tags": [],
    "description": "Tous les dimanches à partir du 8 novembre 2026, de 14h30 à 18h00",
-   "popularite": null
-  },
-  {
-   "source": "xceed",
-   "name": "COACHELLITO - HIGH CLUB",
-   "start": "2026-11-27T22:59:00.000Z",
-   "end": "2026-11-28T04:00:00.000Z",
-   "venue": "High Club",
-   "city": "Nice",
-   "address": "45 Prom. des Anglais, 06000 Nice, France Nice",
-   "url": "https://xceed.me/fr/nice/event/coachellito-high-club/251510",
-   "image": "https://images.xceed.me/events/banners/coachellito-high-club-nice-xceed-square-b905.png?w=1920&ar=16%3A9&fm=auto",
-   "price": 11,
-   "tags": [],
-   "description": "COACHELLITO & LE HIGH CLUB — NICE PRIVATISATION COMPLÈTE — FRIENDS & FAMILY EDITION LINE-UP : CHAPS B4B SHAYAN B4B CAVALLI B4B MACEW Retour sur le dancefloor de nos premières nuits ! Il y a des lieux qui font partie de notre histoire. Le High Club, c’est un peu celle de toute une génération de Niçois : les premières soirées, les rencontres et les souvenirs qu’on raconte encore. Le temps d’une nuit, COACHELLITO prend les clés de cette boîte mythique pour une édition Friends & Family. L’occasion de se retrouver entre amis, de raviver quelques souvenirs et surtout d’en créer de nouveaux. Nouveau ",
-   "popularite": null
-  },
-  {
-   "source": "xceed",
-   "name": "MARWA LOUD FAST PASS HIGH CLUB",
-   "start": "2026-11-28T22:59:00.000Z",
-   "end": "2026-11-29T04:00:00.000Z",
-   "venue": "High Club",
-   "city": "Nice",
-   "address": "45 Prom. des Anglais, 06000 Nice, France Nice",
-   "url": "https://xceed.me/fr/nice/event/marwa-loud-fast-pass-high-club/252164",
-   "image": "https://images.xceed.me/events/banners/marwa-loud-fast-pass-high-club-nice-xceed-square-3947.png?w=1920&ar=16%3A9&fm=auto",
-   "price": 30,
-   "tags": [],
-   "description": "Samedi 28 novembre @ High club - NICE 🤩🤗😍 Saturday November 28th @ High club - NICE ❌ => Ticket 25€ ❌ => Ticket Fast Pass 30€ en ligne / Tickets FAST PASS 30€ online ( fast and priority access )",
-   "popularite": null
-  },
-  {
-   "source": "xceed",
-   "name": "HIGH STUDENTS",
-   "start": "2026-12-04T22:59:00.000Z",
-   "end": "2026-12-05T04:00:00.000Z",
-   "venue": "High Club",
-   "city": "Nice",
-   "address": "45 Prom. des Anglais, 06000 Nice, France Nice",
-   "url": "https://xceed.me/fr/nice/event/high-students/253250",
-   "image": "https://images.xceed.me/events/banners/high-students-nice-xceed-square-2765.png?w=1920&ar=16%3A9&fm=auto",
-   "price": 20,
-   "tags": [],
-   "description": "Vendredi 04 décembre @ High club - NICE 🤩🤗😍 Friday December 04th @ High club - NICE ❌ => HIGH STUDENTS ❌ => Entrée 15€ sur place / Tickets FAST PASS 20€ en ligne ( accès rapide et prioritaire ) ❌ => Entrance fee 15€ on site / Tickets FAST PASS 20€ online ( fast and priority access )",
    "popularite": null
   },
   {
@@ -2344,6 +2224,18 @@
  ],
  "en_panne": [
   "https://shotgun.live/fr/cities/nice",
+  "https://www.eventbrite.fr/d/france--nice/nightlife/",
+  "https://www.eventbrite.fr/d/france--nice/parties/",
+  "https://www.eventbrite.fr/d/france--toulon/nightlife/",
+  "https://www.eventbrite.fr/d/france--nice/music--events/",
+  "https://www.eventbrite.fr/d/france--cannes/music--events/",
+  "https://www.eventbrite.fr/d/monaco--monaco/music--events/",
+  "https://www.eventbrite.fr/d/france--saint-tropez/events/",
+  "https://www.eventbrite.fr/d/france--frejus/events/",
+  "https://www.eventbrite.fr/d/france--antibes/nightlife/",
+  "https://www.eventbrite.fr/d/monaco--monaco/nightlife/",
+  "https://www.eventbrite.fr/d/france--cannes/parties/",
+  "https://www.eventbrite.fr/d/france--toulon/music--events/",
   "https://allevents.in/nice/all",
   "https://allevents.in/toulon/all"
  ]
