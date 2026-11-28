@@ -9629,5 +9629,59 @@
   ],
   "velo": null,
   "taxi": null
+ },
+ "43.71177,7.29296": {
+  "le": "2026-11-28T08:14:05.310Z",
+  "parkings": [
+   {
+    "nom": "Parking Saint-Roch",
+    "type": "underground",
+    "payant": true,
+    "m": 106
+   },
+   {
+    "nom": "Parking Saint-Jean d'Angély",
+    "type": "surface",
+    "payant": false,
+    "m": 456
+   },
+   {
+    "nom": "Parcazur Vauban",
+    "type": "multi-storey",
+    "payant": true,
+    "m": 569
+   }
+  ],
+  "transports": [
+   {
+    "nom": "Saint-Roch",
+    "type": "tram",
+    "m": 13,
+    "lignes": ""
+   },
+   {
+    "nom": "Deux Corniches",
+    "type": "bus",
+    "m": 202,
+    "lignes": ""
+   },
+   {
+    "nom": "Parc Boron",
+    "type": "bus",
+    "m": 240,
+    "lignes": ""
+   },
+   {
+    "nom": "Saint-Jean d'Angély Université",
+    "type": "tram",
+    "m": 324,
+    "lignes": ""
+   }
+  ],
+  "velo": {
+   "nom": "",
+   "m": 172
+  },
+  "taxi": null
  }
 }
