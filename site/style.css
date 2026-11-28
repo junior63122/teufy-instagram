@@ -1879,3 +1879,7 @@ button.bouton{font-family:var(--texte)}
 /* Place réservée au statut ouvert/fermé de la fiche d'un lieu (28/11/2026 : décalage de page CLS 0,18 à son arrivée). */
 .lieu-statut.attente{visibility:hidden;min-height:28px;min-width:120px}
 .carte.vedette img{max-width:100%}
+
+/* Bouton « Tout effacer » des filtres (28/11/2026 : il n'avait aucun style). */
+.reinit-filtres{font:inherit;font-weight:700;font-size:14px;color:var(--creme);background:transparent;border:1.5px solid #ffffff55;border-radius:999px;padding:8px 14px;cursor:pointer}
+.reinit-filtres:hover{border-color:var(--corail);color:var(--corail)}

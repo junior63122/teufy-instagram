@@ -648,7 +648,7 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
   }
   const dansQuand = (c) => {
     const j = c.dataset.jour;
-    return (etat.quand === 'date' && j === etat.date) || etat.quand === 'tout' || (etat.quand === 'soir' && j === auj) || (etat.quand === 'favoris' && favoris.has(c.dataset.id)) || (etat.quand === 'liste' && listePartagee.has(c.dataset.id))
+    return (etat.quand === 'date' && j === etat.date) || etat.quand === 'tout' || (etat.quand === 'soir' && j === auj && c.dataset.moment !== 'jour' && maintenant < debut(c) + DUREE) /* 28/11/2026 : comme le bloc Ce soir (pas de journée, pas de soirée finie) */ || (etat.quand === 'favoris' && favoris.has(c.dataset.id)) || (etat.quand === 'liste' && listePartagee.has(c.dataset.id))
       || (etat.quand === 'semaine' && j >= auj && j <= jPlus(6))
       || (etat.quand === 'weekend' && j >= (dow >= 5 || dow === 0 ? auj : vendredi) && j <= dimanche);
   };
@@ -681,13 +681,15 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
   // Filtres gardés pour la session (23/11/2026, testeur agenda : Nice + Techno perdus après « retour » depuis une fiche).
   const CLE_FILTRES = `teufy-filtres:${location.pathname}`;
   const garderFiltres = () => { try { sessionStorage.setItem(CLE_FILTRES, JSON.stringify({ quand: etat.quand, date: etat.date, tri: etat.tri, prix: etat.prix, moment: etat.moment, ville: [...etat.ville], style: [...etat.style], acces: [...etat.acces].filter((a) => a !== 'pres') })); } catch { /* stockage indisponible */ } };
-  const reprendreFiltres = () => { try { const f = JSON.parse(sessionStorage.getItem(CLE_FILTRES) || 'null'); if (!f) return false; Object.assign(etat, { quand: f.quand || 'tout', date: f.date || '', tri: f.tri || 'date', prix: f.prix || 'tout', moment: f.moment || 'tout', ville: new Set(f.ville || []), style: new Set(f.style || []), acces: new Set(f.acces || []) }); return true; } catch { return false; } };
+  const reprendreFiltres = () => { try { const f = JSON.parse(sessionStorage.getItem(CLE_FILTRES) || 'null'); if (!f) return false; if (f.quand === 'date' && (!f.date || f.date < auj)) { f.quand = 'tout'; f.date = ''; } /* 28/11/2026 : date passée gardée = agenda vide */ Object.assign(etat, { quand: f.quand || 'tout', date: f.date || '', tri: f.tri || 'date', prix: f.prix || 'tout', moment: f.moment || 'tout', ville: new Set(f.ville || []), style: new Set(f.style || []), acces: new Set(f.acces || []) }); return true; } catch { return false; } };
   // Bouton « Tout effacer » (23/11/2026, testeur agenda : il fallait remettre les 6 menus à zéro un par un).
   const filtresActifs = () => etat.quand !== 'tout' || etat.prix !== 'tout' || etat.moment !== 'tout' || etat.tri !== 'date' || etat.ville.size || etat.style.size || etat.acces.size || !!etat.q;
   document.addEventListener('click', (e) => {
     if (!e.target.closest('.reinit-filtres')) return;
     Object.assign(etat, { quand: 'tout', date: '', tri: 'date', prix: 'tout', moment: 'tout', ville: new Set(), style: new Set(), acces: new Set(), q: '', qBrut: '' });
     champs.forEach((c) => { c.value = ''; const x = c.parentElement.querySelector('.effacer'); if (x) x.hidden = true; });
+    // 28/11/2026 : la recherche ne revient plus au rechargement (« ?q= » retiré de l'adresse).
+    try { const u = new URL(location.href); if (u.searchParams.has('q')) { u.searchParams.delete('q'); history.replaceState(history.state, '', u.pathname + (u.search || '') + u.hash); } } catch { /* rien */ }
     appliquer();
   });
   const appliquer = () => {

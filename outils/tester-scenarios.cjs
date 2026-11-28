@@ -61,6 +61,12 @@ const B = process.env.BASE || 'http://localhost:8765/';
     await x.keyboard.press('Escape'); await x.waitForTimeout(300);
     const ferme = await x.evaluate(() => !document.querySelector('.feuille-filtres') && document.activeElement !== document.body);
     ok('Feuille des filtres (téléphone) : nommée, Tab reste dedans, Échap ferme et rend le focus', !!nom && dehors === 0 && ferme, `nom « ${nom} », ${dehors} Tab dehors, fermée ${ferme}`); await c.close(); }
+  // 28/11/2026 (contrôle terrain) : à 2 h du matin, la pastille « Ce soir » = soirées encore en cours sur la page Ce soir.
+  { const c = await b.newContext({ viewport: { width: 1280, height: 800 } }); const x = await c.newPage();
+    const nuit = new Date(); nuit.setUTCHours(1, 0, 0, 0); if (nuit < new Date()) nuit.setUTCDate(nuit.getUTCDate() + 1);
+    await x.clock.install({ time: nuit }); await x.goto(B + 'ce-soir/', { waitUntil: 'networkidle' }); await x.waitForTimeout(300);
+    const r = await x.evaluate(() => ({ p: +(document.querySelector('.nav a[href$="ce-soir/"] .nb-notif')?.textContent || 0), n: [...document.querySelectorAll('.ce-soir-liste .carte')].filter((k) => !k.hidden).length }));
+    ok('Pastille « Ce soir » à 2 h = soirées encore visibles sur la page', r.p === r.n, `${r.p} / ${r.n}`); await c.close(); }
   console.log(out.join('\n')); await b.close();
   const ko = out.filter((x) => x.startsWith('KO')).length;
   console.log(ko ? `✗ ${ko} scénario(s) en échec.` : `✓ ${out.length} scénarios rejoués, tous bons.`);
