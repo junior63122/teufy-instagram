@@ -67,7 +67,7 @@ const CENTRES = [
   [/garde.?freinet/i, 43.317, 6.47], [/la seyne/i, 43.1007, 5.8788], [/la garde\b/i, 43.1246, 6.0106], [/la farl[èe]de/i, 43.1683, 6.0436], [/la valette/i, 43.1375, 5.9831],
   [/six.?fours/i, 43.0939, 5.8395], [/sanary/i, 43.1192, 5.8013], [/bandol/i, 43.1364, 5.7531], [/ollioules/i, 43.1394, 5.8478], [/le pradet/i, 43.1058, 6.0228],
   [/carqueiranne/i, 43.0947, 6.0731], [/lavandou/i, 43.1373, 6.3689], [/bormes/i, 43.1508, 6.3419], [/cavalaire/i, 43.1727, 6.5302], [/ramatuelle/i, 43.216, 6.611],
-  [/grimaud/i, 43.2737, 6.5214], [/cogolin/i, 43.2525, 6.5306], [/saint.?aygulf/i, 43.3911, 6.7246], [/brignoles/i, 43.4058, 6.0614], [/tourrettes.?sur.?loup/i, 43.7167, 7.0597], [/tourrettes(?!.?sur.?loup)/i, 43.6167, 6.7069],
+  [/grimaud/i, 43.2737, 6.5214], [/cogolin/i, 43.2525, 6.5306], [/saint.?aygulf/i, 43.3911, 6.7246], [/brignoles/i, 43.4058, 6.0614], [/tourrettes.?sur.?loup/i, 43.7167, 7.0597], [/tourrettes(?!.?sur.?loup)/i, 43.6167, 6.7069], [/marseille/i, 43.2965, 5.3698], [/aix.?en.?provence/i, 43.5297, 5.4474], [/avignon/i, 43.9493, 4.8055], [/montpellier/i, 43.6108, 3.8767], [/toulouse/i, 43.6047, 1.4442], [/n[iî]mes/i, 43.8367, 4.3601], [/perpignan/i, 42.6887, 2.8948],
   [/tourrette.?levens/i, 43.7864, 7.2767], [/cap.?ferrat/i, 43.6886, 7.3328], [/beaulieu/i, 43.7075, 7.3322], [/mougins/i, 43.6, 6.995], [/villeneuve.?loubet/i, 43.6589, 7.1222],
   [/la colle/i, 43.686, 7.104],
   [/sainte.?maxime/i, 43.309, 6.635], [/saint.?tropez/i, 43.2692, 6.6389], [/draguignan/i, 43.536, 6.464], [/hy[èe]res/i, 43.1204, 6.1286], [/toulon/i, 43.1242, 5.928],
@@ -820,7 +820,7 @@ export async function construireSite({ events, eventsFrance = [], eventsOccitani
       // Adresse sans « France » collé par la fusion de deux sources (« …, 06000 Nice, France Nice », 23/11/2026).
       id, zone, nom: e.name, debut: e.start, jour: cle(e.start), lieu: e.venue || '', ville: e.city || '', adresse: String(e.address || '').replace(/,?\s*France\b/gi, '').replace(/\s{2,}/g, ' ').trim(), filtreVille: ville,
       // « dès X € » = le moins cher de tous les prix connus (23/11/2026 : 22,49 € affiché alors qu'une billetterie le vendait 15 €).
-      prix: (() => { const ok = (x) => typeof x === 'number' && isFinite(x) && x >= 0 && x <= 2000; const l = [e.price, ...offres.map((o) => o.prix)].filter(ok); return l.length ? Math.min(...l) : null; })(), /* prix aberrant = inconnu */ styles: styleDe(e), genres: genresList(e, 3).join(' · '), techno: isTechno(e), tags: e.tags || [],
+      prix: (() => { const ok = (x) => typeof x === 'number' && isFinite(x) && x >= 0 && x <= 2000; const l = [e.price, ...offres.map((o) => o.prix)].filter(ok); const payants = l.filter((x) => x > 0); /* 28/11/2026 : un « 0 » d'une billetterie (prévente épuisée, place invitée) ne fait plus « Gratuit » quand un autre prix est connu ou écrit dans le texte */ const prixTexte = /\d+(?:[.,]\d{1,2})?\s?€/.test(`${e.description || ''} ${e.accroche || ''}`) && !/gratuit|free entry|entr[ée]e libre/i.test(`${e.description || ''} ${e.accroche || ''}`); const m = payants.length ? Math.min(...payants) : l.length && !prixTexte ? 0 : null; return m; })(), /* prix aberrant = inconnu */ styles: styleDe(e), genres: genresList(e, 3).join(' · '), techno: isTechno(e), tags: e.tags || [],
       url, affiche, dims, accroche: propreTexte(e.accroche), description: propreTexte(e.description), fin: e.end && !isNaN(Date.parse(e.end)) ? new Date(e.end).toISOString() : '',
       instagram: comptesConfirmes(e)[0] || '', organisateur: e.organisateur || '', artistes: Array.isArray(e.artistes) ? e.artistes.filter((x) => typeof x === 'string' && x.trim()).map((x) => x.trim()) : [], buzz: e.buzz ?? null, offres: offres.length >= 2 ? offres : [],
       festival: RE_FESTIVAL.test(`${e.name} ${(e.tags || []).join(' ')}`), etudiant: RE_ETUDIANT.test(`${e.name} ${(e.tags || []).join(' ')} ${e.public_cible || ''}`),
@@ -967,7 +967,10 @@ export async function construireSite({ events, eventsFrance = [], eventsOccitani
   // Anciennes pages de soirées (passées) : supprimées pour ne pas garder de liens morts dans Google.
   for (const l of LANGUES) {
     const d = path.join(ROOT, pre(l), 'soiree');
-    if (existsSync(d)) for (const x of readdirSync(d)) if (!pris.has(x)) rmSync(path.join(d, x), { recursive: true, force: true });
+    // 28/11/2026 (contrôle terrain) : on garde seulement les fiches vraiment générées ce passage (avant : tout identifiant
+    // réservé, même pour une soirée retirée ensuite, d'où des fiches figées et des .ics en 404 encore en ligne).
+    const faites = new Set(pages.map(([c]) => c.match(/(?:^|\/)soiree\/([^/]+)\/$/)?.[1]).filter(Boolean));
+    if (existsSync(d)) for (const x of readdirSync(d)) if (!faites.has(x)) rmSync(path.join(d, x), { recursive: true, force: true });
     // Pages de villes (France, Occitanie) sans soirée à venir : supprimées elles aussi.
     for (const r of ['france', 'occitanie']) { const dr = path.join(ROOT, pre(l), r); if (existsSync(dr)) for (const x of readdirSync(dr, { withFileTypes: true })) if (x.isDirectory() && !pages.some(([c]) => c === `${pre(l)}${r}/${x.name}/`)) rmSync(path.join(dr, x.name), { recursive: true, force: true }); }
     // Fiches artistes qui n'ont plus de date (ou retirées) : supprimées, comme les soirées passées.
@@ -1495,7 +1498,7 @@ const boutonBillets = (s, t) => (s.url && !RESEAU_SOCIAL.test(s.url)
   ? `<a class="bouton" href="${esc(s.url)}" target="_blank" rel="noopener">${esc(t.billets)}</a>`
   : s.url || s.instagram ? `<a class="bouton" href="${esc(s.url || `https://www.instagram.com/${s.instagram}/`)}" target="_blank" rel="noopener">${esc(t.infos || 'Infos')}</a>`
   // Pas de lien de billetterie connu : même bouton (un seul style sur tout le site, directeur 13/11), « Infos » si l'entrée est gratuite.
-  : `<a class="bouton" href="https://www.google.com/search?q=${encodeURIComponent(`${s.nom} ${s.lieu}`.trim())}" target="_blank" rel="noopener">${esc(t.trouverBillets || t.billets)}</a>`);
+  : `<a class="bouton contour" href="https://www.google.com/search?q=${encodeURIComponent(`${s.nom} ${s.lieu}`.trim())}" target="_blank" rel="noopener nofollow">${esc(t.trouverBillets || t.billets)}</a>`);
 
 function jsonEvent(s, lang) {
   const offres = s.offres.length ? s.offres : s.prix != null ? [{ url: s.url, prix: s.prix }] : [];
