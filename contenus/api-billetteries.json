@@ -1,5 +1,5 @@
 {
- "maj": "2026-11-28T07:14:36.727Z",
+ "maj": "2026-11-28T13:38:03.456Z",
  "evenements": [
   {
    "source": "eventbrite",
@@ -307,6 +307,22 @@
   },
   {
    "source": "eventbrite",
+   "name": "ROOTS REGGAE VIBES – Marcus Davidson & Wax Digga au Quartier du Poulpe",
+   "start": "2026-12-12T19:00:00.000Z",
+   "end": "2026-12-12T23:30:00.000Z",
+   "venue": "Le Quartier du Poulpe",
+   "city": "Nice",
+   "address": "34 boulevard Auguste Raynaud, 06100 Nice",
+   "url": "https://www.eventbrite.com/e/roots-reggae-vibes-marcus-davidson-wax-digga-au-quartier-du-poulpe-tickets-2005563186479",
+   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1198821052%2F2988009644804%2F1%2Foriginal.20261128-091757?auto=format%2Ccompress&q=75&sharp=10&s=239671fd7f86b2e3fd9226fb70fb758f",
+   "price": 11.85,
+   "tags": [],
+   "description": "Une soirée 100 % reggae, entre rythmes jamaïcains, vibrations positives et culture sound system !",
+   "popularite": null,
+   "pays": "FR"
+  },
+  {
+   "source": "eventbrite",
    "name": "Soirée Live Music avec Dolce Farniente",
    "start": "2026-12-13T18:30:00.000Z",
    "end": "2026-12-13T21:00:00.000Z",
@@ -453,7 +469,7 @@
  "rapport": [
   {
    "source": "eventbrite-api",
-   "evenements": 28
+   "evenements": 29
   },
   {
    "source": "ticketmaster-api",

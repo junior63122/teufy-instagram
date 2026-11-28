@@ -1,0 +1,33 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:roots-reggae-vibes-marcus-davidson-et-wax-digga-au-quartier-2026-12-12@
+ teufy
+DTSTAMP:20261128T134036Z
+DTSTART:20261212T190000Z
+DTEND:20261213T000000Z
+SUMMARY:ROOTS REGGAE VIBES – Marcus Davidson & Wax Digga au Quartier du P
+ oulpe
+LOCATION:Le Quartier du Poulpe\, 34 boulevard Auguste Raynaud\, 06100 Nice\
+ , Nice
+DESCRIPTION:Billets : https://www.eventbrite.com/e/roots-reggae-vibes-marcu
+ s-davidson-wax-digga-au-quartier-du-poulpe-tickets-2005563186479\nVia Teuf
+ y @teufy_official
+URL:https://www.eventbrite.com/e/roots-reggae-vibes-marcus-davidson-wax-dig
+ ga-au-quartier-du-poulpe-tickets-2005563186479
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : ROOTS REGGAE VIBES – Marcus Davidson & Wax Digga au 
+ Quartier du Poulpe
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : ROOTS REGGAE VIBES – Marcus Davidson & Wax Digga a
+ u Quartier du Poulpe
+END:VALARM
+END:VEVENT
+END:VCALENDAR

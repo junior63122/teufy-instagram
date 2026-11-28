@@ -1,6 +1,6 @@
 {
- "le": "2026-11-28T10:12:36.546Z",
- "total": 121,
+ "le": "2026-11-28T13:37:32.715Z",
+ "total": 123,
  "sans_image": [
   {
    "id": "slip-panther-glamrock-revival-show-2026-11-28",
@@ -109,15 +109,6 @@
    "ville": "Nice",
    "instagram": "",
    "url": "https://www.eventbrite.com/e/billets-lapero-kanaille-avec-laka-naia-aux-folies-dedmonde-2004689447101"
-  },
-  {
-   "id": "reading-hour-nice-2026-11-30",
-   "nom": "Reading hour (Nice)",
-   "jour": "2026-11-30",
-   "lieu": "Jardin Albert 1er",
-   "ville": "Nice",
-   "instagram": "",
-   "url": "https://www.eventbrite.co.uk/e/reading-hour-nice-tickets-1995469509018"
   },
   {
    "id": "blind-test-aux-folies-d-edmonde-2026-11-30",
@@ -325,6 +316,15 @@
    "ville": "Cannes",
    "instagram": "",
    "url": "https://www.cannes.com/fr/agenda/annee-2026/decembre/showcase-5-luzula-venin-carmin-code-150-harfaang.html"
+  },
+  {
+   "id": "rencontre-d-echecs-a-nice-alt-f4-2026-12-15",
+   "nom": "Rencontre d’échecs à Nice · ALT F4",
+   "jour": "2026-12-15",
+   "lieu": "ALT F4",
+   "ville": "Nice",
+   "instagram": "",
+   "url": "https://www.eventbrite.fr/e/rencontre-dechecs-a-nice-alt-f4-tickets-2005474205334"
   },
   {
    "id": "thursday-live-sessions-dirty-deep-2026-12-17",
