@@ -1,5 +1,5 @@
 {
- "le": "2026-11-28T07:12:42.128Z",
+ "le": "2026-11-28T14:14:47.383Z",
  "instagram": {
   "utilisee": "v26.0",
   "derniere": "v27.0",
@@ -95,52 +95,52 @@
    "soirees": 1
   },
   "https://www.eventbrite.fr/d/france--nice/nightlife/": {
-   "http": 405,
-   "soirees": 0
+   "http": 200,
+   "soirees": 18
   },
   "https://www.eventbrite.fr/d/france--nice/parties/": {
-   "http": 405,
-   "soirees": 0
+   "http": 200,
+   "soirees": 20
   },
   "https://www.eventbrite.fr/d/france--cannes/parties/": {
-   "http": 405,
-   "soirees": 0
+   "http": 200,
+   "soirees": 20
   },
   "https://www.eventbrite.fr/d/france--antibes/nightlife/": {
-   "http": 405,
-   "soirees": 0
+   "http": 200,
+   "soirees": 19
   },
   "https://www.eventbrite.fr/d/monaco--monaco/nightlife/": {
-   "http": 405,
-   "soirees": 0
+   "http": 200,
+   "soirees": 19
   },
   "https://www.eventbrite.fr/d/france--toulon/nightlife/": {
-   "http": 405,
-   "soirees": 0
+   "http": 200,
+   "soirees": 19
   },
   "https://www.eventbrite.fr/d/france--nice/music--events/": {
-   "http": 405,
-   "soirees": 0
+   "http": 200,
+   "soirees": 8
   },
   "https://www.eventbrite.fr/d/france--cannes/music--events/": {
-   "http": 405,
-   "soirees": 0
+   "http": 200,
+   "soirees": 8
   },
   "https://www.eventbrite.fr/d/monaco--monaco/music--events/": {
-   "http": 405,
-   "soirees": 0
+   "http": 200,
+   "soirees": 8
   },
   "https://www.eventbrite.fr/d/france--saint-tropez/events/": {
-   "http": 405,
-   "soirees": 0
+   "http": 200,
+   "soirees": 16
   },
   "https://www.eventbrite.fr/d/france--frejus/events/": {
-   "http": 405,
-   "soirees": 0
+   "http": 200,
+   "soirees": 16
   },
   "https://www.eventbrite.fr/d/france--toulon/music--events/": {
-   "http": 405,
-   "soirees": 0
+   "http": 200,
+   "soirees": 8
   },
   "https://www.bizouk.com/": {
    "http": 200,
@@ -184,19 +184,19 @@
   }
  },
  "sites_clubs": {
-  "maj": "2026-11-27T13:13:07.496Z",
-  "lus": 36,
+  "maj": "2026-11-28T07:15:46.111Z",
+  "lus": 38,
   "avec_soirees": 0,
   "total": 68
  },
  "donnees": {
-  "semaine": 37,
+  "semaine": 36,
   "sans_heure": 5,
   "sans_prix": 13,
   "sans_affiche": 9,
   "sans_billetterie": 1,
   "par_ville": {
-   "Nice": 16,
+   "Nice": 15,
    "Toulon": 5,
    "Cannes": 5,
    "Roquebrune-sur-Argens": 2,
@@ -210,22 +210,22 @@
   }
  },
  "images": {
-  "total": 129,
-  "sans_image": 60,
-  "dans_7_jours": 26
+  "total": 123,
+  "sans_image": 56,
+  "dans_7_jours": 20
  },
  "alertes": [
   {
    "sujet": "Sources",
-   "detail": "22 source(s) sans soirée lue : https://shotgun.live/fr/cities/nice (429) ; https://www.eventbrite.fr/d/france--nice/nightlife/ (405) ; https://www.eventbrite.fr/d/france--nice/parties/ (405) ; https://www.eventbrite.fr/d/france--cannes/parties/ (405) ; https://www.eventbrite.fr/d/france--antibes/nightlife/ (405) ; https://www.eventbrite.fr/d/monaco--monaco/nightlife/ (405) ; https://www.eventbrite.fr/d/france--toulon/nightlife/ (405) ; https://www.eventbrite.fr/d/france--nice/music--events/ (405) ; https://www.eventbrite.fr/d/france--cannes/music--events/ (405) ; https://www.eventbrite.fr/d/monaco--monaco/music--events/ (405) ; https://www.eventbrite.fr/d/france--saint-tropez/events/ (405) ; https://www.eventbrite.fr/d/france--frejus/events/ (405) ; https://www.eventbrite.fr/d/france--toulon/music--events/ (405) ; https://www.bizouk.com/ (200) ; https://allevents.in/nice/all (404) ; https://allevents.in/cannes/all (20"
+   "detail": "10 source(s) sans soirée lue : https://shotgun.live/fr/cities/nice (429) ; https://www.bizouk.com/ (200) ; https://allevents.in/nice/all (404) ; https://allevents.in/cannes/all (200) ; https://allevents.in/antibes/all (200) ; https://allevents.in/toulon/all (404) ; https://allevents.in/saint-tropez/all (200) ; https://allevents.in/frejus/all (200) ; https://xceed.me/fr/cannes/events (200) ; https://xceed.me/fr/monaco/events (200)"
   },
   {
    "sujet": "Soirées",
-   "detail": "seulement 37 soirée(s) dans les 7 prochains jours : sources à renforcer."
+   "detail": "seulement 36 soirée(s) dans les 7 prochains jours : sources à renforcer."
   },
   {
    "sujet": "Images",
-   "detail": "26 soirée(s) des 7 prochains jours sans affiche ni photo : Nice Orange Bar Crawl – Party Bars, Music, Nightlife & Club Experience (La Chapa, 2026-11-27) ; Mamacita (Frigo 16, 2026-11-27) ; Bambam At Inda House : 27.11.26 (Inda House, 2026-11-27) ; Da Grow — UK Bass / Gangsta House (L'Antre Bar Electro, 2026-11-28) ; Language Exchange Rooftop by Event Nice - Free Entry (Hôtel Mercure Nice Centre Notre Dame, 2026-11-28) ; Slip Panther - Glamrock Revival Show (Le Live (Zénith Toulon), 2026-11-28) ; La Cale Sèche – Soirée Spritz + PSG / Lorient (La Cale Sèche, Toulon, 2026-11-28) ; Karaoké aux Folies d'Edmonde (Les folies d'Edmonde, 2026-11-28) ; Riviera Bar Crawl Nice’s #1 Social Club for Global Travelers & Party Lovers (Hostel Villa Saint Exupery Beach, 2026-11-28) ; Vibrance #7 (L'Antre Bar Electro, 2026-11-28) ; Soirée Zouk & Caribbean Vibes (L'Artiste 83, 2026-11-28) ; Nice Orange Pub Crawl – 5 Shots, Party Games & VIP Club Entry (La Chapa, 2026-11-28) ; PROVOK & CHRISTIAN SIMS @ Le Bar à Thym (Le Bar à Thym – 32 Bd Dr Cunéo, 2026-11-28) ; Origins Invite Boticka All Night Long (switch Club, 2026-11-28) ; Dj K-Net (Resident) : Techno / Tribe (L'Antre Bar Electro, 2026-11-29)"
+   "detail": "20 soirée(s) des 7 prochains jours sans affiche ni photo : Slip Panther - Glamrock Revival Show (Le Live (Zénith Toulon), 2026-11-28) ; La Cale Sèche – Soirée Spritz + PSG / Lorient (La Cale Sèche, Toulon, 2026-11-28) ; Riviera Bar Crawl Nice’s #1 Social Club for Global Travelers & Party Lovers (Hostel Villa Saint Exupery Beach, 2026-11-28) ; Karaoké aux Folies d'Edmonde (Les folies d'Edmonde, 2026-11-28) ; Vibrance #7 (L'Antre Bar Electro, 2026-11-28) ; Soirée Zouk & Caribbean Vibes (L'Artiste 83, 2026-11-28) ; Nice Orange Bar Crawl – Party Bars, Music, Nightlife & Club Experience (La Chapa, 2026-11-28) ; PROVOK & CHRISTIAN SIMS @ Le Bar à Thym (Le Bar à Thym – 32 Bd Dr Cunéo, 2026-11-28) ; Origins Invite Boticka All Night Long (switch Club, 2026-11-28) ; Dj K-Net (Resident) : Techno / Tribe (L'Antre Bar Electro, 2026-11-29) ; La Cale Sèche – France / Afrique du Sud + karaoké (La Cale Sèche, Toulon, 2026-11-29) ; L'Apéro Kanaille avec Laka-Naïa aux Folies d'Edmonde (Les folies d'Edmonde, 2026-11-29) ; Blind Test aux Folies d'Edmonde (Les folies d'Edmonde, 2026-11-30) ; Dinner with Entrepreneurs Nice: Girls Night Out Edition (Restaurant of the Week, 2026-12-01) ; Rencontre d’échecs à Nice · ALT F4 (ALT F4, 2026-12-01)"
   }
  ]
 }
