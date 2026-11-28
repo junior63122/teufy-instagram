@@ -4,6 +4,15 @@ Journal daté (le plus récent en premier) : changements des prestataires et des
 mises à jour, sources de soirées réparées ou ajoutées, décisions prises. Tenu par la tâche programmée quotidienne
 (demande du directeur du 20/11/2026), à partir de `contenus/veille-technique.json` et des annonces officielles.
 
+## 28/11/2026 : veille quotidienne
+- Relevé technique : celui de 6 h 17 pas encore passé à 7 h 50 ; relevé d'hier (16 h 08) lu. Failles npm : 0. API Instagram :
+  Teufy en v26.0 (v27.0 disponible, journal des changements toujours pas lisible d'ici).
+- Soirées des 7 prochains jours : 52 (Nice 21, Toulon 7, Cannes 5, Monaco 3…) ; 8 sans heure, 21 sans prix, 10 sans affiche.
+  Baisse par rapport à hier (67) : la fenêtre glisse après le week-end, et peu de soirées commerciales ont une affiche vérifiée
+  (carrousel du vendredi annulé : 1 seule affiche officielle). À creuser au contrôle terrain de ce samedi.
+- Sauvegarde Drive : aucune nouvelle vidéo depuis la copie du 27/11 (73 vidéos sauvegardées).
+- Sources muettes inchangées (Shotgun 429, pages Eventbrite 405 remplacées par l'API).
+
 ## 27/11/2026 : premier passage des nouveaux outils (directeur : « corrige quand ils notent des choses à corriger »)
 - Référencement et visibilité dans les IA (seo-audit, seo-geo) : 10 constats. Corrigés : « 00:00 » hors français (soirées à minuit
   affichées la veille) → « minuit » traduit ; « minuit » saisi 23h59 la veille de la date de l'affiche → nuit de l'affiche (Spicy
