@@ -2340,7 +2340,7 @@ function pageLieu({ lang, t, tr, base, compte, T, chemin, maj, l, soirees, lieux
     <div class="lieu-tete">${l.photo ? `<img class="lieu-logo" src="${base}${esc(l.photo)}" alt="${esc(l.nom)}" width="120" height="120">` : ''}<div>
       <p class="genre">${esc(tr(type))}${l.ville ? ` · ${esc(l.ville)}` : ''}${l.partenaire ? ` <span class="fiche-prix">${esc(t.partenaires)}</span>` : ''}</p>
       <h1>${esc(l.nom)}</h1>
-      <p class="lieu-statut" hidden></p>
+      <p class="lieu-statut attente"${H ? '' : ' hidden'}></p>
       ${(() => { const a = avantageDe(l); return a ? `<a class="av-bandeau-lieu av-grand" href="${base}${pre(lang)}avantages/#${esc(slug(`av-${a.partenaire_nom}`))}"><b>${esc(tr('Avantage Teufy'))}</b> ${esc(tr(a.titre))}${a.conditions ? ` <small>· ${esc(tr(a.conditions))}</small>` : ''}</a>` : ''; })()}
       ${l.description ? `<p class="chapo">${esc(tr(l.description))}</p>` : ''}</div></div>
   </article>
