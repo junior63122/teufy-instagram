@@ -890,7 +890,8 @@ export async function construireSite({ events, eventsFrance = [], eventsOccitani
 
   await assets(soirees);
   NOTIF = { soirs: {}, actus: actus.slice(0, 15).map((a) => Date.parse(a.date)).filter((x) => !isNaN(x)) };
-  for (const x of soirees) if (x.zone !== 'occitanie' && x.zone !== 'france') NOTIF.soirs[x.jour] = (NOTIF.soirs[x.jour] || 0) + 1;
+  // 28/11/2026 (contrôle terrain) : l'heure de début de chaque soirée, pour que la pastille ne compte que celles pas encore finies.
+  for (const x of soirees) if (x.zone !== 'occitanie' && x.zone !== 'france' && duSoir(x)) (NOTIF.soirs[x.jour] ||= []).push(Date.parse(x.debut));
   NOTIF.soirs = Object.fromEntries(Object.entries(NOTIF.soirs).sort().filter(([j]) => j >= cle(new Date(now.getTime() - 864e5).toISOString())).slice(0, 4));
   const compte = config.compte || '@teufy_official';
   const T = { ...TEUFY, ...(config.site || {}) };
@@ -2231,7 +2232,7 @@ function pageActu({ lang, t, tr, base, compte, chemin, a, actus, maj }) {
   ${a.paragraphes.map((p) => `<p>${esc(tr(p))}</p>`).join('\n  ')}
   ${a.soiree ? `<p><a class="bouton" href="${base}${pre(lang)}soiree/${a.soiree}/">${esc(t.voir)}</a></p>` : ''}
   ${a.insta ? `<p><a class="bouton" href="${esc(a.insta)}" target="_blank" rel="noopener">${esc(t.voirInsta)}</a></p>` : ''}
-  <p class="source">${esc(t.source)} : <a href="${esc(a.source)}" target="_blank" rel="noopener nofollow">${esc((() => { try { return new URL(a.source).hostname.replace(/^www\./, ''); } catch { return a.source; } })())}</a></p>
+  <p class="source">${esc(t.source)} : ${(() => { const dom = (() => { try { return new URL(a.source).hostname.replace(/^www\./, ''); } catch { return a.source; } })(); /* 28/11/2026 : un lien vers une image ou la page d'accueil d'un site n'est pas une source : nom du site sans lien */ const vrai = /^https?:\/\//.test(a.source || '') && !/\.(jpe?g|png|webp|gif|avif)(\?|$)/i.test(a.source) && !/^https?:\/\/[^/]+\/?(\?.*)?$/.test(a.source); return vrai ? `<a href="${esc(a.source)}" target="_blank" rel="noopener nofollow">${esc(dom)}</a>` : esc(dom); })()}</p>
 </article>
 ${autres.length ? `<section class="bloc-large reveal"><h2>${esc(t.autresActus)}</h2><div class="actus">${autres.map((x) => `<a class="actu" href="${base}${pre(lang)}actus/${x.id}/"><span class="actu-img${x.visuel ? ' visuel' : ''}">${imageActu(x, { base })}</span><p class="genre">${esc(dateActu(x, t))}</p><h3>${esc(tr(x.titre))}</h3><b>${esc(t.lire)} →</b></a>`).join('')}</div></section>` : ''}`;
   return gabarit({ lang, t, titre: `${tr(a.titre)} · Teufy`, description: tr(a.chapo), chemin, base, corps, compte, maj, image: a.image_site ? `${URL_SITE}${a.image_site}` : undefined,

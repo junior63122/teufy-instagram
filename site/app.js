@@ -334,6 +334,9 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
         g.dataset.pres = '1'; g.dataset.presListe = '1';
         g.querySelectorAll(':scope > .groupe-ville').forEach((h) => h.remove());
         [...g.children].filter((x) => x.dataset).sort((a, c) => (+(a.dataset.dist ?? 1e9)) - (+(c.dataset.dist ?? 1e9))).forEach((x) => g.append(x));
+        // 28/11/2026 (contrôle terrain) : les lieux sans position connue sont en fin de liste, avec un titre qui le dit.
+        const sansPos = [...g.children].find((x) => x.dataset && x.dataset.dist == null && !x.classList.contains('groupe-ville'));
+        if (sansPos) { const h = document.createElement('h3'); h.className = 'groupe-ville'; h.textContent = ({ fr: 'Position non connue : distance inconnue', en: 'Location unknown: distance not available', it: 'Posizione sconosciuta: distanza non disponibile', es: 'Ubicación desconocida: distancia no disponible', zh: '位置未知：无法计算距离', ar: 'الموقع غير معروف: المسافة غير متاحة' })[(document.documentElement.lang || 'fr').slice(0, 2)] || 'Position non connue'; g.insertBefore(h, sansPos); }
       });
       const n = document.querySelector('[data-compte-soir]'); if (n) n.textContent = '';
       { const g = document.getElementById('lieux-ce-soir'); if (g && window.__majCompte) window.__majCompte(g); }
@@ -1278,7 +1281,8 @@ try { console.log('%cStop !', 'color:#ff5a3c;font-size:42px;font-weight:900'); c
   // Pastilles « Ce soir » (nombre de soirées de ce soir) et « Actus » (actus pas encore lues sur cet appareil).
   try {
     const N = JSON.parse(document.querySelector('.onglets')?.dataset.notif || '{}');
-    const nSoir = (N.soirs || {})[auj] || 0;
+    // Seulement les soirées de ce soir pas encore finies, comme la page Ce soir (28/11/2026 : 21 affiché à 2 h pour 13 en cours).
+    const S = (N.soirs || {})[auj]; const nSoir = Array.isArray(S) ? S.filter((t) => maintenant < t + DUREE).length : (S || 0);
     const pastille = (el, n, cls) => { if (!el || el.querySelector(`.${cls}`)) return; const b = document.createElement('b'); b.className = `nb-notif ${cls}`; b.textContent = n > 99 ? '99+' : n; b.setAttribute('aria-label', n); el.append(b); };
     if (nSoir) {
       document.querySelectorAll('.nb-soir').forEach((b) => { b.textContent = nSoir > 99 ? '99+' : nSoir; b.hidden = false; });
