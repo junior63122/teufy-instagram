@@ -9253,5 +9253,66 @@
   ]
  },
  "og|https://festscanner.com/en/event/dj-trvchi-nice-2026-11-27": "",
- "og|https://shotgun.live/fr/events/mamacita-frigo16-2026": ""
+ "og|https://shotgun.live/fr/events/mamacita-frigo16-2026": "",
+ "og|https://www.eventbrite.fr/e/nice-orange-bar-crawl-party-bars-music-nightlife-club-experience-tickets-2004294702409": "https://www.eventbrite.fr/_next/image?url=https%3A%2F%2Fimg.evbuc.com%2Fhttps%253A%252F%252Fcdn.evbuc.com%252Fimages%252F1181883258%252F2149570374853%252F1%252Foriginal.20260410-163304%3Fcrop%3Dfocalpoint%26fit%3Dcrop%26w%3D940%26auto%3Dformat%252Ccompress%26q%3D75%26sharp%3D10%26fp-x%3D0.5%26fp-y%3D0.5%26s%3D14f6bb6da689f7dca5612a1567d18a01&w=940&q=75",
+ "og|https://www.eventbrite.fr/e/riviera-bar-crawl-nices-1-social-club-for-global-travelers-party-lovers-tickets-1286313160289": "https://www.eventbrite.fr/_next/image?url=https%3A%2F%2Fimg.evbuc.com%2Fhttps%253A%252F%252Fcdn.evbuc.com%252Fimages%252F793522169%252F95356021183%252F1%252Foriginal.20240620-202552%3Fw%3D940%26auto%3Dformat%252Ccompress%26q%3D75%26sharp%3D10%26rect%3D0%252C201%252C1920%252C960%26s%3D4cee787775498d4baadbbf0882227f84&w=940&q=75",
+ "v2|16b7be312d3e": {
+  "ok": false,
+  "le": "2026-11-28T07:16:10.407Z",
+  "nom": "Soirée Étudiante High Club",
+  "lu": {
+   "titre": "RED MILL NIGHT",
+   "dates": [],
+   "artistes": [
+    "PP1"
+   ],
+   "lieu": "high"
+  },
+  "commun": []
+ },
+ "og|https://xceed.me/fr/nice/event/high-red-mill-night-students/253973": "",
+ "og|https://www.eventbrite.com/e/billets-afterwork-06-nice-1990733174514": "https://www.eventbrite.com/_next/image?url=https%3A%2F%2Fimg.evbuc.com%2Fhttps%253A%252F%252Fcdn.evbuc.com%252Fimages%252F1186301178%252F2993189208717%252F1%252Foriginal.20260606-131053%3Fcrop%3Dfocalpoint%26fit%3Dcrop%26w%3D940%26auto%3Dformat%252Ccompress%26q%3D75%26sharp%3D10%26fp-x%3D0.013%26fp-y%3D0.755%26s%3Dad60c0592aed55b4ac9c43a73fc0029c&w=940&q=75",
+ "v2|1f8f0cf338d1": {
+  "ok": true,
+  "le": "2026-11-28T07:16:14.300Z",
+  "nom": "AFTERWORK 06 - NICE",
+  "lu": {
+   "titre": "NICE AFTERWORK BUSINESS & VOYAGE",
+   "dates": [],
+   "artistes": [],
+   "lieu": ""
+  },
+  "commun": [
+   "afterwork"
+  ]
+ },
+ "v2|a8652ca04e1c": {
+  "ok": true,
+  "le": "2026-11-28T07:16:25.460Z",
+  "nom": "FAT CAT LIVE – Le retour du groove au Quartier du Poulpe",
+  "lu": {
+   "titre": "FAT CAT LIVE",
+   "dates": [
+    "2026-12-18"
+   ],
+   "artistes": [
+    "FAT CAT"
+   ],
+   "lieu": "LE QDP"
+  },
+  "commun": []
+ },
+ "og|https://www.eventbrite.fr/e/soiree-apres-ski-tickets-2005267477004": "https://www.eventbrite.fr/_next/image?url=https%3A%2F%2Fimg.evbuc.com%2Fhttps%253A%252F%252Fcdn.evbuc.com%252Fimages%252F1198524676%252F2698702644301%252F1%252Foriginal.20261123-112613%3Fcrop%3Dfocalpoint%26fit%3Dcrop%26w%3D940%26auto%3Dformat%252Ccompress%26q%3D75%26sharp%3D10%26fp-x%3D0.5%26fp-y%3D0.5%26s%3D0ecfbf60e7e87d13edb65b7b3292011b&w=940&q=75",
+ "v2|bc76544a68f1": {
+  "ok": false,
+  "le": "2026-11-28T07:16:48.035Z",
+  "nom": "Soirée après-ski:)",
+  "lu": {
+   "titre": "",
+   "dates": [],
+   "artistes": [],
+   "lieu": ""
+  },
+  "commun": []
+ }
 }

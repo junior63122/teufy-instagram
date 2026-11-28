@@ -1,0 +1,31 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:fat-cat-live-le-retour-du-groove-au-quartier-du-poulpe-2026-12-18@teufy
+DTSTAMP:20261128T072005Z
+DTSTART:20261218T193000Z
+DTEND:20261219T003000Z
+SUMMARY:FAT CAT LIVE – Le retour du groove au Quartier du Poulpe
+LOCATION:Le Quartier du Poulpe\, 34 boulevard Auguste Raynaud\, 06100 Nice\
+ , Nice
+DESCRIPTION:Billets : https://www.eventbrite.com/e/fat-cat-live-le-retour-d
+ u-groove-au-quartier-du-poulpe-tickets-2005561705048\nVia Teufy @teufy_off
+ icial
+URL:https://www.eventbrite.com/e/fat-cat-live-le-retour-du-groove-au-quarti
+ er-du-poulpe-tickets-2005561705048
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : FAT CAT LIVE – Le retour du groove au Quartier du Po
+ ulpe
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : FAT CAT LIVE – Le retour du groove au Quartier du 
+ Poulpe
+END:VALARM
+END:VEVENT
+END:VCALENDAR

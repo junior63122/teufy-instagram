@@ -1,0 +1,27 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Teufy//Agenda//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:soiree-apres-ski-2026-12-16@teufy
+DTSTAMP:20261128T072005Z
+DTSTART:20261216T180000Z
+DTEND:20261216T230000Z
+SUMMARY:Soirée après-ski:)
+LOCATION:Condé Toulouse\, 18 Avenue Raymond Badiou 31300 Toulouse\, Toulou
+ se
+DESCRIPTION:Billets : https://www.eventbrite.fr/e/soiree-apres-ski-tickets-
+ 2005267477004\nVia Teufy @teufy_official
+URL:https://www.eventbrite.fr/e/soiree-apres-ski-tickets-2005267477004
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Demain : Soirée après-ski:)
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT2H
+DESCRIPTION:Dans 2 h : Soirée après-ski:)
+END:VALARM
+END:VEVENT
+END:VCALENDAR

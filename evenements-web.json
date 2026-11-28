@@ -75,102 +75,6 @@
     },
     {
       "source": "web",
-      "source_site": "Shotgun.live",
-      "name": "Dj - Trvchi",
-      "start": "2026-11-27T19:30:00.000Z",
-      "venue": "Mama Shelter Nice",
-      "city": "Nice",
-      "address": "",
-      "url": "https://shotgun.live/events/dj-trvchi",
-      "image": "https://assets.shotgun.live/image/upload/c_limit,w_384,fl_lossy,f_webp,q_5/production/artworks/WhatsApp-Image-2026-08-25-at-11.07.53_1_slnmzy.webp",
-      "price": 0,
-      "tags": [
-        "House",
-        "Électro-Pop",
-        "Éclectique",
-        "Hip Hop",
-        "Rap",
-        "Trap",
-        "Club",
-        "house",
-        "tech-house",
-        "techno",
-        "electro"
-      ],
-      "description": "Trvchi, DJ de la Côte d’Azur depuis 18 ans, propose un set éclectique et dynamique qui fait l’unanimité. La soirée se déroule dans le cadre branché du Mama Shelter Nice, un lieu prisé des jeunes. L’ambiance promet de la bonne musique, un décor cosy et une foule jeune. Pas de prix fixe indiqué, mais l’entrée est généralement vendue à la porte. L’événement est prévu pour le 27 novembre à 20 h 30.",
-      "public_cible": 0.8,
-      "confiance": 0.95,
-      "buzz": 0.8,
-      "buzz_raison": "Soirée gratuite avec un DJ localement réputé.",
-      "accroche": "Set électro-pop et house festif en entrée libre au Mama Shelter avec Trvchi.",
-      "instagram": [
-        "mamashelternice",
-        "trvchi.music",
-        "trvchi_official"
-      ],
-      "offres": [
-        {
-          "plateforme": "shotgun.live",
-          "url": "https://shotgun.live/events/dj-trvchi",
-          "prix": 0
-        },
-        {
-          "plateforme": "festscanner.com",
-          "url": "https://festscanner.com/en/event/dj-trvchi-nice-2026-11-27",
-          "prix": null
-        }
-      ],
-      "sources_sites": [
-        "Shotgun.live",
-        "shotgun.live"
-      ],
-      "billetterie_cherchee": true,
-      "offres_cherchees": true
-    },
-    {
-      "source": "web",
-      "source_site": "Shotgun live",
-      "name": "Mamacita",
-      "start": "2026-11-27T22:30:00.000Z",
-      "venue": "Frigo 16",
-      "city": "Nice",
-      "address": "",
-      "url": "https://shotgun.live/fr/events/mamacita-frigo16-2026",
-      "image": "",
-      "price": 12.49,
-      "tags": [
-        "Afrobeats",
-        "House",
-        "reggaeton",
-        "perreo",
-        "latine"
-      ],
-      "description": "La soirée « Mamacita » à Frigo 16 promet une nuit de rythmes Afrobeats et de house, idéale pour les 17‑30 ans à la recherche d’une ambiance festive. Le club, situé au 89 route de Turin, accueille les participants de 23h30 à 04h00, avec un tarif d’entrée de 12,49€. Le line‑up, bien que non détaillé, est annoncé comme Afrobeats‑themed, garantissant une expérience musicale dynamique et dansante.",
-      "public_cible": 1,
-      "confiance": 0.9,
-      "buzz": 0.7,
-      "buzz_raison": "Thème Afrobeats, club connu, entrée modérée.",
-      "accroche": "Soirée Afrobeats & House à Frigo 16, entrée à 12,49€, ambiance festive.",
-      "instagram": [
-        "frigo.16"
-      ],
-      "via_veille": true,
-      "offres": [
-        {
-          "plateforme": "shotgun.live",
-          "url": "https://shotgun.live/fr/events/mamacita-frigo16-2026",
-          "prix": 12.49
-        }
-      ],
-      "sources_sites": [
-        "Shotgun live",
-        "instagram.com"
-      ],
-      "billetterie_cherchee": true,
-      "offres_cherchees": true
-    },
-    {
-      "source": "web",
       "source_site": "ticketmaster.fr",
       "name": "MUNGO'S HI FI (+ 1ère partie : Red Echoes)",
       "start": "2026-12-12T19:00:00.000Z",
@@ -491,63 +395,6 @@
     {
       "source": "web",
       "source_site": "highclub.fr",
-      "name": "COACHELLITO - High Club",
-      "start": "2026-11-27T22:59:00.000Z",
-      "venue": "High Club",
-      "city": "Nice",
-      "address": "",
-      "url": "https://www.highclub.fr/agenda/coachellito/",
-      "image": "https://www.highclub.fr/wp-content/uploads/2022/08/193A6968-192B-40EE-9DF0-53122D721470.jpg",
-      "price": 11,
-      "tags": [
-        "House",
-        "Électro",
-        "Hip-Hop",
-        "electro",
-        "clubbing",
-        "open format",
-        "latino",
-        "reggaeton",
-        "house",
-        "edm",
-        "electro house",
-        "urbain",
-        "Techno"
-      ],
-      "description": "Le High Club transforme son dancefloor avec le concept Coachellito, inspiré des grands festivals d'outre-Atlantique. Le producteur et DJ niçois MACEW prend le contrôle de la scène principale aux côtés des DJs résidents pour un cocktail survitaminé de house, électro et touches hip-hop. Deux salles t'accueillent dès 23h59 jusqu'à 05h00 du matin. Billets dès 11 € en ligne.",
-      "public_cible": 0.9,
-      "confiance": 0.95,
-      "buzz": 0.75,
-      "buzz_raison": "Grosse boîte de nuit sur la Promenade avec DJ invité local.",
-      "accroche": "Ambiance festival américain sur la Promenade des Anglais avec le DJ niçois MACEW.",
-      "instagram": [
-        "highclubnice",
-        "macewmusic",
-        "coachellito"
-      ],
-      "offres": [
-        {
-          "plateforme": "highclub.fr",
-          "url": "https://www.highclub.fr/agenda/coachellito/",
-          "prix": 11
-        },
-        {
-          "plateforme": "xceed.me",
-          "url": "https://xceed.me/fr/nice/event/coachellito-high-club",
-          "prix": 15
-        }
-      ],
-      "sources_sites": [
-        "highclub.fr",
-        "Xceed",
-        "xceed.me"
-      ],
-      "billetterie_cherchee": true,
-      "offres_cherchees": true
-    },
-    {
-      "source": "web",
-      "source_site": "highclub.fr",
       "name": "High Students",
       "start": "2026-12-04T22:59:00.000Z",
       "venue": "High Club",
@@ -595,68 +442,6 @@
         "highclub.fr",
         "xceed.me"
       ]
-    },
-    {
-      "source": "web",
-      "source_site": "esterel-cotedazur.com",
-      "name": "Var Rally – Saint‑Raphaël",
-      "start": "2026-11-27T18:30:00.000Z",
-      "venue": "Route de la Côte d’Azur",
-      "city": "Saint‑Raphaël",
-      "address": "",
-      "url": "https://www.esterel-cotedazur.com/en/visit/agenda",
-      "image": "",
-      "price": 0,
-      "tags": [
-        "Sport",
-        "Music"
-      ],
-      "description": "Le Var Rally se déroule du 27 novembre au 29 novembre 2026 à Saint‑Raphaël. Après la compétition, des soirées sont organisées pour célébrer la fin du rallye. L’entrée est gratuite et la musique de soutien est variée. L’ambiance est festive et attire un public jeune.",
-      "public_cible": 0.5,
-      "confiance": 0.6,
-      "buzz": 0.3,
-      "buzz_raison": "Public jeune, atmosphère festive.",
-      "accroche": "Rallye automobile suivi de soirées – l’événement qui attire les 17‑30 ans.",
-      "instagram": [],
-      "offres": [
-        {
-          "plateforme": "esterel-cotedazur.com",
-          "url": "https://www.esterel-cotedazur.com/en/visit/agenda",
-          "prix": 0
-        }
-      ],
-      "billetterie_cherchee": true,
-      "offres_cherchees": true
-    },
-    {
-      "source": "web",
-      "source_site": "Instagram",
-      "name": "SHATTA",
-      "start": "2026-11-27T23:00:00.000Z",
-      "venue": "Naho Club",
-      "city": "La Garde",
-      "address": "",
-      "url": "https://www.instagram.com/p/DgDIcZRiGBk/",
-      "image": "https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/924338698_18128935222917771_1390001883795909525_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=104&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0XWltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=w9mmdJTiQHUQ7kNvwFAvTl2&_nc_oc=AdqE_3A4jtR29AkZ7Wh3Yr1eB4jTr20oKIDLyZbqSSB3uO_h5KoG17vubHog7E19tCk&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=T_5lZboFD5H6P7pDs7sndA&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQQhaBmkdM9anfCG-X8EVQIFilIKsWejYHkyVCVqbnTrzw&oe=6B090C1E",
-      "price": null,
-      "tags": [
-        "shatta",
-        "dancehall"
-      ],
-      "description": "Le Naho Club te propose une soirée Shatta du 28 novembre, de minuit à 5 h du matin, sur le thème des îles des Caraïbes. Au line‑up ___ozenn___ et Dezze Recital, tu vas danser sur du shatta et du dancehall jusqu’à l’aube. Le lieu, 116 Av. de Digne à La Garde, est facilement accessible depuis Toulon. Réserve au 06 61 42 26 51 si besoin. Dress code tropical recommandé, entrée libre mais prépare‑toi à une ambiance très chaude.",
-      "public_cible": 1,
-      "confiance": 0.9,
-      "buzz": 0.6,
-      "buzz_raison": "Première soirée thématique shatta du club, 99 likes, week‑end.",
-      "accroche": "Samedi 28 novembre, le Naho s’enflamme avec une soirée 100 % SHATTA, chaleur et danse garantis.",
-      "instagram": [
-        "nahoclub",
-        "dezze_recital",
-        "naho_club"
-      ],
-      "offres": [],
-      "billetterie_cherchee": true,
-      "offres_cherchees": true
     },
     {
       "source": "web",
@@ -734,52 +519,6 @@
     },
     {
       "source": "web",
-      "source_site": "shotgun.live",
-      "name": "Spicy Saturday",
-      "start": "2026-11-27T22:59:00.000Z",
-      "venue": "Honey Club",
-      "city": "Juan-les-Pins",
-      "address": "",
-      "url": "https://shotgun.live/events/afro-love",
-      "image": "https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/925302218_18112595828255127_3958446131869795175_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=_KLJK9mrqq0Q7kNvwEOu_C2&_nc_oc=AdpmrvlPIesEyJHqzGwdSAjgggB1R9WSzskyrtxkwHczqsHrM4EvxAX1gWKgax25ldI&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=YMePloPBFqB41XNHcPXkLA&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQRP6aBmDvrMrmDAsaGY-UE6-R1Njah0wqfK4IsksvtEFQ&oe=6B09BF4C",
-      "price": 10,
-      "tags": [
-        "afro",
-        "afrobeat",
-        "shatta",
-        "house",
-        "techno",
-        "afro house",
-        "amapiano"
-      ],
-      "description": "Le Honey Club te donne rendez‑vous le 28 novembre pour le Spicy Saturday, une soirée club où les sons brûlants de Gianni, Shaylan et Aleks font monter la température sur le dancefloor. L’entrée est gratuite pour les filles avant 00 h 30, puis le tarif standard s’applique. Le club, situé au 5 av. Georges Gallice à Juan‑les‑Pins, ouvre ses portes à minuit et te promet une ambiance caliente jusqu’au petit matin. Pas de dress‑code imposé, juste l’envie de danser et de sentir la chaleur de la musique. Prépare ta team et viens vivre une nuit épicée sur la Côte d’Azur !",
-      "public_cible": 0.9,
-      "confiance": 0.95,
-      "buzz": 0.6,
-      "buzz_raison": "Club incontournable de la vie nocturne étudiante et jeune à Juan-les-Pins.",
-      "accroche": "Ambiance tropicale bouillante jusqu'à 05h00 au Honey Club.",
-      "instagram": [
-        "honeyclub_juanlespins",
-        "honeyclubjuanlespins"
-      ],
-      "par_le_lieu": true,
-      "offres": [
-        {
-          "plateforme": "shotgun.live",
-          "url": "https://shotgun.live/events/afro-love",
-          "prix": 10
-        }
-      ],
-      "sources_sites": [
-        "shotgun.live",
-        "Instagram (honeyclubjuanlespins)",
-        "Instagram"
-      ],
-      "billetterie_cherchee": true,
-      "offres_cherchees": true
-    },
-    {
-      "source": "web",
       "source_site": "Instagram",
       "name": "New Year Celebration with Cerrone",
       "start": "2026-12-31T22:00:00.000Z",
@@ -838,34 +577,6 @@
         "instagram.com",
         "instagram"
       ],
-      "billetterie_cherchee": true,
-      "offres_cherchees": true
-    },
-    {
-      "source": "web",
-      "source_site": "Instagram",
-      "name": "PSYDIEZE",
-      "start": "2026-11-27T23:00:00.000Z",
-      "venue": "Dieze Warehouse",
-      "city": "Montpellier",
-      "address": "",
-      "url": "https://www.instagram.com/reel/Df47EWDtKyL/",
-      "image": "",
-      "price": null,
-      "tags": [
-        "psytrance",
-        "techno"
-      ],
-      "description": "Le 28 novembre, le Dieze Warehouse de Nice ouvre ses portes pour PSYDIEZE, une nuit dédiée à la psytrance. En tête d’affiche, KALKI, accompagné de LA ROUZ et WILDTRACK, propose des rythmes hypnotiques et des basses puissantes jusqu’à 6 h du matin. L’événement commence à minuit et se poursuit jusqu’à l’aube. Les tarifs ne sont pas précisés, il est recommandé de vérifier rapidement les infos de billetterie. Dress‑code libre, ambiance immersive pour les amateurs de trance psychédélique.",
-      "public_cible": 0.9,
-      "confiance": 0.8,
-      "buzz": 0.6,
-      "buzz_raison": "Line‑up de psytrance reconnu, lieu réputé pour ses soirées underground, date en fin de mois.",
-      "accroche": "Une nuit psytrance explosive avec KALKI, LA ROUZ et WILDTRACK au cœur du Dieze.",
-      "instagram": [
-        "diezewarehouse"
-      ],
-      "offres": [],
       "billetterie_cherchee": true,
       "offres_cherchees": true
     },
@@ -930,49 +641,6 @@
         "Instagram (playachica_official)"
       ],
       "par_le_lieu": true,
-      "billetterie_cherchee": true,
-      "offres_cherchees": true
-    },
-    {
-      "source": "web",
-      "source_site": "Instagram",
-      "name": "Solly Smith at Twiga Monte Carlo",
-      "start": "2026-11-27T21:00:00.000Z",
-      "venue": "Twiga Monte Carlo",
-      "city": "Monaco",
-      "address": "",
-      "url": "https://www.instagram.com/p/DgKNUtyI8hw/",
-      "image": "https://scontent-ord5-2.cdninstagram.com/v/t51.82787-15/927122302_18659236591026487_2046144416231653064_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=106&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=iTrrf5ufaygQ7kNvwF-MuFr&_nc_oc=Adodg1ubtl1Ymme2UWPnTDQODmQtkFwKNRhqd7sisIipXFKd2TxYQ17mih4OKtL91s0&_nc_zt=23&_nc_ht=scontent-ord5-2.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=6THqdH8_LrYtx3emup7-Bw&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQR6NBGpfeI_CTEdCouX3ax2xoD7YEy7gmEqTVtUs8OgQw&oe=6B0D469A",
-      "price": null,
-      "tags": [
-        "techno",
-        "house",
-        "Deep House",
-        "Afro House",
-        "Club"
-      ],
-      "description": "Le club Twiga Monte Carlo accueille le DJ Solly Smith le vendredi 27 novembre pour une soirée techno‑house qui promet de faire vibrer la Méditerranée. Le line‑up met en avant un son électro percutant, idéal pour les 18‑30 ans qui aiment danser jusqu’au bout de la nuit. L’entrée est réservée aux plus de 18 ans, la porte est stricte et la réservation se fait par téléphone ou mail. Prépare‑toi à vivre une ambiance chic et underground dans le décor glamour de Monte‑Carlo.",
-      "public_cible": 0.9,
-      "confiance": 0.9,
-      "buzz": 0.6,
-      "buzz_raison": "DJ reconnu, lieu prestigieux, date en week‑end, forte visibilité Instagram.",
-      "accroche": "Solly Smith en live à Twiga Monte Carlo le vendredi 27 novembre ! Une nuit techno‑house au cœur de Monaco.",
-      "instagram": [
-        "twigamontecarlo",
-        "twiga_mc",
-        "sollysmith"
-      ],
-      "offres": [
-        {
-          "plateforme": "twigaworld.com",
-          "url": "https://twigaworld.com/montecarlo/calendar/",
-          "prix": null
-        }
-      ],
-      "sources_sites": [
-        "Instagram",
-        "Twiga World"
-      ],
       "billetterie_cherchee": true,
       "offres_cherchees": true
     },
@@ -1320,32 +988,6 @@
     },
     {
       "source": "web",
-      "source_site": "Instagram - lebarathymtoulon",
-      "name": "Le Chalet des Amis – Ouverture officielle",
-      "start": "2026-11-27T17:00:00.000Z",
-      "venue": "Village de Noël, Place d’Armes",
-      "city": "Toulon",
-      "address": "",
-      "url": "https://www.instagram.com/p/DgIbnW_DjWp/",
-      "image": "https://scontent-iad3-2.cdninstagram.com/v/t51.82787-15/924661322_18435214681151135_1627809039411179609_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=106&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=V6rUc_L9w_oQ7kNvwGYWVrF&_nc_oc=AdoxH4so1A7tLSqBlypfXgLw75Vhwan7dKAXVyFDgADOIzANYobDJk3-4sY9qSVaWFo&_nc_zt=23&_nc_ht=scontent-iad3-2.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=pOFkT27pdZTyXMkru67ToA&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQTZb3dYmFUNm3BZ0zXBIFS1BgXPnwzYdRi24DGKfzouAA&oe=6B0C74F8",
-      "price": null,
-      "tags": [],
-      "description": "Le Chalet des Amis revient pour la saison ! Le vendredi 27 novembre, le village de Noël de Toulon (Place d’Armes) accueille l’ouverture officielle du chalet. Au programme : bières de la Brasserie Pietra, vins corses, vin chaud, charcuteries et snacks typiques de Corse. L’ambiance sera conviviale, idéale pour se retrouver entre amis autour d’un feu de bois imaginaire. L’entrée est libre, prévenez‑vous d’arriver tôt pour profiter de la déco et du décor festif. Dress code : casual, esprit Noël.",
-      "public_cible": 0.5,
-      "confiance": 0.9,
-      "buzz": 0.3,
-      "buzz_raison": "Première édition de la saison, événement local sans grosse notoriété.",
-      "accroche": "",
-      "instagram": [
-        "lebarathymtoulon"
-      ],
-      "par_le_lieu": true,
-      "offres": [],
-      "billetterie_cherchee": true,
-      "offres_cherchees": true
-    },
-    {
-      "source": "web",
       "source_site": "Instagram",
       "name": "MODERN RAVE – NYE EXTENDED",
       "start": "2026-12-30T23:00:00.000Z",
@@ -1416,78 +1058,6 @@
     },
     {
       "source": "web",
-      "source_site": "shotgun.live",
-      "name": "Phaphane À Nice - Amapiano & Afrobeats Lovers",
-      "start": "2026-11-27T19:00:00.000Z",
-      "venue": "Frigo 16",
-      "city": "Nice",
-      "address": "",
-      "url": "https://shotgun.live/events/phaphane-a-nice-amapiano-afrobeats-lovers",
-      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto:good/dev/artworks/FORMAT_FB_PHAPHANE_wxp0zf.jpg",
-      "price": 12.1,
-      "tags": [
-        "amapiano",
-        "afrobeat",
-        "Amapiano",
-        "Afrobeats",
-        "afrobeats",
-        "afro house",
-        "Électro",
-        "Club",
-        "Afrobeat",
-        "Afro House",
-        "South African House",
-        "Afropop"
-      ],
-      "description": "Le 27 novembre, le FRIGO 16 de Nice accueille Phaphane, le king de la scène Amapiano, suivi en première partie par senadj_. Le set promet un mix explosif d'Amapiano et d'Afrobeats, idéal pour danser jusqu'au petit matin. L'entrée se fait via la billetterie en bio, stand, food & bar sur place, ambiance club décontractée. Ouvert de 20h à 2h, prépare-toi à vivre une nuit mémorable sur la Côte d'Azur.",
-      "public_cible": 0.95,
-      "confiance": 0.95,
-      "buzz": 0.85,
-      "buzz_raison": "Très forte notoriété virale de DJ Phaphane auprès du jeune public.",
-      "accroche": "La référence amapiano DJ Phaphane débarque au hangar du Frigo 16.",
-      "instagram": [
-        "tweltyprod",
-        "pandaevents06",
-        "frigo.16"
-      ],
-      "offres": [
-        {
-          "plateforme": "shotgun.live",
-          "url": "https://shotgun.live/events/phaphane-a-nice-amapiano-afrobeats-lovers",
-          "prix": 12.1
-        },
-        {
-          "plateforme": "le109.nice.fr",
-          "url": "https://le109.nice.fr/evenement/phaphane-27-11-2026",
-          "prix": 12.1
-        },
-        {
-          "plateforme": "infoconcert.com",
-          "url": "https://www.infoconcert.com/artiste/dj-phaphane-206776/concerts.html",
-          "prix": 12.1
-        },
-        {
-          "plateforme": "my.weezevent.com",
-          "url": "https://my.weezevent.com/phaphane-a-nice-amapiano-afrobeats-lovers",
-          "prix": 12
-        }
-      ],
-      "sources_sites": [
-        "shotgun.live",
-        "le109.nice.fr",
-        "Shotgun Live",
-        "InfoConcert",
-        "Shotgun",
-        "Instagram (tweltyprod)",
-        "instagram.com",
-        "instagram"
-      ],
-      "billetterie_cherchee": true,
-      "offres_cherchees": true,
-      "via_veille": true
-    },
-    {
-      "source": "web",
       "source_site": "instagram.com",
       "via_veille": true,
       "name": "La Cale Sèche – Soirée Spritz + PSG / Lorient",
@@ -1553,92 +1123,6 @@
       "sources_sites": [
         "instagram.com",
         "Instagram – lacalesechetoulon"
-      ],
-      "billetterie_cherchee": true,
-      "offres_cherchees": true
-    },
-    {
-      "source": "web",
-      "source_site": "shotgun.live",
-      "name": "Ugo Puccinelli / Pretty Little Sins",
-      "start": "2026-11-27T22:59:00.000Z",
-      "venue": "Glass Club Cannes",
-      "city": "Cannes",
-      "address": "",
-      "url": "https://shotgun.live/events/ugo-puccinelli-pretty-little-sins",
-      "image": "",
-      "price": 9.99,
-      "tags": [
-        "tech house",
-        "deep house",
-        "house"
-      ],
-      "description": "Passe ton vendredi soir au Glass Club pour la soirée Pretty Little Sins animée par Ugo Puccinelli. Le mix distillera des sonorités tech house, deep house et house pour garder le dancefloor en mouvement jusqu'à l'aube. Début de la nuit à 23h59 dans une ambiance tamisée et branchée. Entrée à 9,99 euros sur Shotgun, événement réservé aux majeurs.",
-      "public_cible": 0.85,
-      "confiance": 0.95,
-      "buzz": 0.55,
-      "buzz_raison": "Soirée de week-end cannoise à moins de 10 euros.",
-      "accroche": "Soirée clubbing tech house feutrée au sous-sol du Glass Club Cannes.",
-      "instagram": [
-        "glassclubcannes"
-      ],
-      "offres": [
-        {
-          "plateforme": "shotgun.live",
-          "url": "https://shotgun.live/events/ugo-puccinelli-pretty-little-sins",
-          "prix": 9.99
-        }
-      ],
-      "sources_sites": [
-        "shotgun.live",
-        "Shotgun Live",
-        "Shotgun"
-      ],
-      "billetterie_cherchee": true,
-      "offres_cherchees": true
-    },
-    {
-      "source": "web",
-      "source_site": "shotgun.live",
-      "name": "Mr Hat Vs Verome : Bass Vs Hard Music",
-      "start": "2026-11-27T20:00:00.000Z",
-      "venue": "L'Antre Bar Electro",
-      "city": "Nice",
-      "address": "",
-      "url": "https://shotgun.live/events/mr-hat-vs-verome-bass-vs-hard-music",
-      "image": "https://assets.shotgun.live/image/upload/c_limit,w_3840,fl_lossy,f_webp,q_auto:good/production/artworks/IMG_1888_ctuzyw.jpg",
-      "price": 5.99,
-      "tags": [
-        "bass music",
-        "hard music",
-        "drum and bass",
-        "dubstep",
-        "Bass Music",
-        "Drum & Bass",
-        "Dubstep",
-        "Hard Music"
-      ],
-      "description": "L'Antre Bar Electro propose un duel sonore avec Mr Hat face à Verome pour un set explosif Bass Vs Hard Music. Attends-toi à une avalanche de dubstep, drum and bass et hard music dans un espace underground convivial. Le son s'active dès 21h00 dans le centre-ville niçois. Le billet démarre à 5,99 euros seulement, avec une capacité limitée sur place.",
-      "public_cible": 0.85,
-      "confiance": 0.95,
-      "buzz": 0.6,
-      "buzz_raison": "Proposition rare de bass music et dubstep en club intimiste à Nice.",
-      "accroche": "Clash musical intense entre bass music et hard music au coeur de Nice.",
-      "instagram": [
-        "lantre_nice",
-        "lantretechno",
-        "lantrebarnice"
-      ],
-      "offres": [
-        {
-          "plateforme": "shotgun.live",
-          "url": "https://shotgun.live/events/mr-hat-vs-verome-bass-vs-hard-music",
-          "prix": 5.99
-        }
-      ],
-      "sources_sites": [
-        "shotgun.live",
-        "Shotgun"
       ],
       "billetterie_cherchee": true,
       "offres_cherchees": true
@@ -2531,151 +2015,6 @@
     },
     {
       "source": "web",
-      "source_site": "eventbrite.fr",
-      "name": "Nice Orange Bar Crawl – Party Bars, Music, Nightlife & Club Experience",
-      "start": "2026-11-27T20:30:00.000Z",
-      "venue": "La Chapa",
-      "city": "Nice",
-      "address": "",
-      "url": "https://www.eventbrite.fr/e/nice-orange-bar-crawl-party-bars-music-nightlife-club-experience-tickets-1181883258",
-      "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1181883258%2F2149570374853%2F1%2Foriginal.20260410-163304?crop=focalpoint&fit=crop&w=1880&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=312d502bb7341c3518224d64a994fe67",
-      "price": 22.51,
-      "tags": [
-        "house",
-        "electro",
-        "hip-hop",
-        "pop"
-      ],
-      "description": "Prépare ton vendredi soir avec ce parcours nocturne qui t'emmène faire la fête dans quatre spots niçois. Des shots sont offerts, des sessions de beer pong sont organisées et la nuit se termine directement sur le dancefloor d'un club partenaire avec accès VIP. Ambiance idéale pour rencontrer des jeunes et des voyageurs sur du son house et hip-hop. Départ à La Chapa dès 21h30 pour 22,51 euros.",
-      "public_cible": 0.9,
-      "confiance": 0.9,
-      "buzz": 0.55,
-      "buzz_raison": "Rendez-vous festif régulier du vendredi soir avec final en boîte de nuit.",
-      "accroche": "Quatre bars, des shots, du beer pong et une entrée VIP en club pour ton vendredi.",
-      "instagram": [
-        "lachapanice"
-      ],
-      "offres": [
-        {
-          "plateforme": "eventbrite.fr",
-          "url": "https://www.eventbrite.fr/e/nice-orange-bar-crawl-party-bars-music-nightlife-club-experience-tickets-1181883258",
-          "prix": 22.51
-        }
-      ],
-      "billetterie_cherchee": true,
-      "offres_cherchees": true
-    },
-    {
-      "source": "web",
-      "source_site": "eventbrite.fr",
-      "name": "Riviera Bar Crawl Nice Nightlife",
-      "start": "2026-11-27T20:00:00.000Z",
-      "venue": "Hostel Villa Saint Exupéry Beach",
-      "city": "Nice",
-      "address": "",
-      "url": "https://www.eventbrite.fr/e/riviera-bar-crawl-nices-1-social-club-for-global-travelers-party-lovers-tickets-793522169",
-      "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F793522169%2F95356021183%2F1%2Foriginal.20240620-202552?w=640&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C201%2C1920%2C960&s=296015ff0e7f696192ccfb28b7a8d497",
-      "price": 27.84,
-      "tags": [
-        "electro",
-        "hip-hop",
-        "latino"
-      ],
-      "description": "Rejoins la communauté du Riviera Bar Crawl pour explorer la nuit niçoise en groupe chaque week-end. Tu profites de shots gratuits, de réductions au bar et d'animations festives avant de basculer en discothèque pour terminer la nuit sur des rythmes électro et latino. Le rendez-vous est donné à l'auberge Villa Saint Exupéry à 21h00. Billet à 27,84 euros réservé aux plus de 18 ans munis d'une pièce d'identité.",
-      "public_cible": 0.9,
-      "confiance": 0.9,
-      "buzz": 0.55,
-      "buzz_raison": "Barathon le plus réputé de la Côte d'Azur pour les étudiants et voyageurs.",
-      "accroche": "La virée nocturne incontournable à Nice avec shots, jeux et accès direct en discothèque.",
-      "instagram": [
-        "rivierabarcrawl",
-        "villasaintexupery"
-      ],
-      "offres": [
-        {
-          "plateforme": "eventbrite.fr",
-          "url": "https://www.eventbrite.fr/e/riviera-bar-crawl-nice-nightlife-soiree-barathon-a-nicefr-tickets",
-          "prix": 17.18
-        }
-      ],
-      "billetterie_cherchee": true,
-      "offres_cherchees": true
-    },
-    {
-      "source": "web",
-      "source_site": "ticketmaster.fr",
-      "name": "CALEMA - TOUR 2026",
-      "start": "2026-11-27T19:30:00.000Z",
-      "venue": "La Palestre",
-      "city": "Le Cannet",
-      "address": "",
-      "url": "https://www.ticketmaster.fr/fr/manifestation/calema-billet/idmanif/661895",
-      "image": "https://assets.tmassets.fr/image/upload/v1784195138/mediaflows/event%20image%20final/n_calema_1066x600.jpg",
-      "price": 38.5,
-      "tags": [
-        "afrobeat",
-        "kizomba",
-        "pop urbaine",
-        "latino"
-      ],
-      "description": "Le phénomène lusophone Calema arrive à La Palestre au Cannet avec son Tour 2026. Les deux frères António et Fradique Mendes Ferreira t'embarquent dans leur univers mêlant afrobeat, pop urbaine et sonorités kizomba. Connus pour leur hit mondial Te Amo et leurs millions d'écoutes, ils promettent un concert chaleureux et dansant. Le show démarre à 20h30 avec des places assises numérotées dès 38,50 euros. Un parking est accessible directement sur place.",
-      "public_cible": 0.8,
-      "confiance": 0.95,
-      "buzz": 0.8,
-      "buzz_raison": "Duo star aux centaines de millions de streams en tournée des grandes salles",
-      "accroche": "Le duo Calema pose sa tournée festive et rythmée sur la scène de La Palestre.",
-      "instagram": [
-        "vertigoprod",
-        "lapalestre_lecannet"
-      ],
-      "offres": [
-        {
-          "plateforme": "ticketmaster.fr",
-          "url": "https://www.ticketmaster.fr/fr/manifestation/calema-billet/idmanif/661895",
-          "prix": 38.5
-        }
-      ],
-      "billetterie_cherchee": true,
-      "offres_cherchees": true
-    },
-    {
-      "source": "web",
-      "source_site": "ticketmaster.fr",
-      "name": "LES TAMBOURS DU BRONX",
-      "start": "2026-11-27T19:30:00.000Z",
-      "venue": "Théâtre Lino Ventura",
-      "city": "Nice",
-      "address": "",
-      "url": "https://www.ticketmaster.fr/fr/manifestation/les-tambours-du-bronx-billet/idmanif/669788",
-      "image": "https://assets.tmassets.fr/image/upload/v1785926467/mediaflows/event%20image%20final/a_669788.jpg",
-      "price": 16.94,
-      "tags": [
-        "métal industriel",
-        "percussions",
-        "électro-rock"
-      ],
-      "description": "Prépare-toi à une claque sonore physique avec Les Tambours du Bronx au Théâtre Lino Ventura. Le célèbre collectif débarque avec ses frappeurs sur bidons industriels pour un live mêlant percussions tribales, métal et électro-rock. L'ambiance s'annonce survoltée avec des vibrations massives dans toute la salle dès 20h30. Les billets démarrent à 16,94 euros en tarif promo pour un placement libre assis ou debout. Une expérience live culte et intense à vivre entre potes.",
-      "public_cible": 0.65,
-      "confiance": 0.95,
-      "buzz": 0.65,
-      "buzz_raison": "Show percussif culte et puissant réputé pour sa performance scénique",
-      "accroche": "La puissance brute des bidons des Tambours du Bronx résonne au Théâtre Lino Ventura.",
-      "instagram": [
-        "theatrelinoventura",
-        "villedenice"
-      ],
-      "offres": [
-        {
-          "plateforme": "ticketmaster.fr",
-          "url": "https://www.ticketmaster.fr/fr/manifestation/les-tambours-du-bronx-billet/idmanif/669788",
-          "prix": 16.94
-        }
-      ],
-      "billetterie_cherchee": true,
-      "offres_cherchees": true
-    },
-    {
-      "source": "web",
       "source_site": "See Tickets",
       "name": "PLK — Tournée des Zéniths 2026",
       "start": "2026-12-06T18:00:00.000Z",
@@ -3273,41 +2612,6 @@
           "plateforme": "provence-alpes-cotedazur.com",
           "url": "https://provence-alpes-cotedazur.com/fiche/soirees-dj-8041695/",
           "prix": 0
-        }
-      ],
-      "billetterie_cherchee": true,
-      "offres_cherchees": true
-    },
-    {
-      "source": "web",
-      "source_site": "HelloAsso",
-      "name": "Soirée KART AND ROCK Cannes by Gam'it Racing (2)",
-      "start": "2026-11-27T17:00:00.000Z",
-      "venue": "Cannes Karting",
-      "city": "Cannes",
-      "address": "",
-      "url": "https://www.helloasso.com/associations/gam-it-racing/evenements/soiree-kart-and-rock-cannes-by-gam-it-racing-2",
-      "image": "https://cdn.helloasso.com/img/photos/evenements/cropped-image-40a444700daa4cc5b412cd40f8e02051.jpeg",
-      "price": 25,
-      "tags": [
-        "rock",
-        "pop",
-        "dance"
-      ],
-      "description": "Gam'it Racing privatise le circuit de Cannes Karting pour mixer vitesse et musique live. Dès 18h, tu profites du buffet et des boissons inclus dans le billet à 25 euros, avant un concert rock en direct de 20h à 23h. La fête continue jusqu'à minuit avec un DJ set énergique. Des sessions de karting de 10 minutes sont aussi disponibles sur place en supplément.",
-      "public_cible": 0.7,
-      "confiance": 0.9,
-      "buzz": 0.6,
-      "buzz_raison": "Concept original mêlant circuit de karting privatisé, buffet et concert rock DJ set.",
-      "accroche": "Karting privatisé, buffet et live rock suivi d'un DJ set festif à Cannes.",
-      "instagram": [
-        "canneskarting"
-      ],
-      "offres": [
-        {
-          "plateforme": "helloasso.com",
-          "url": "https://www.helloasso.com/associations/gam-it-racing/evenements/soiree-kart-and-rock-cannes-by-gam-it-racing-2",
-          "prix": 25
         }
       ],
       "billetterie_cherchee": true,
@@ -3996,42 +3300,6 @@
           "plateforme": "shotgun.live",
           "url": "https://shotgun.live/events/new-year-s-eve-2026-i-mercredi-31-decembre-i-prohibition-edt",
           "prix": 20
-        }
-      ],
-      "billetterie_cherchee": true,
-      "offres_cherchees": true
-    },
-    {
-      "source": "web",
-      "source_site": "Shotgun",
-      "name": "Bambam At Inda House : 27.11.26",
-      "start": "2026-11-27T22:30:00.000Z",
-      "venue": "Inda House",
-      "city": "Carqueiranne",
-      "address": "",
-      "url": "https://shotgun.live/fr/events/bambam-at-inda-house-27-11-26",
-      "image": "",
-      "price": 5.99,
-      "tags": [
-        "house",
-        "tech house",
-        "deep house"
-      ],
-      "description": "Le collectif Bambam prend le contrôle de l'Inda House avec Alban, Casamoro et Solis aux platines. Prépare-toi à une nuit clubbing house et tech-house underground sur le littoral varois. Ça se passe de 23h30 à 05h00 à Carqueiranne. Les places early bird démarrent à 5,99 euros sur billetterie, avec tenue correcte exigée et tables VIP disponibles.",
-      "public_cible": 0.95,
-      "confiance": 0.95,
-      "buzz": 0.65,
-      "buzz_raison": "Nuit clubbing house jusqu'à 5h du matin à tarif très accessible.",
-      "accroche": "Clubbing house et tech-house underground jusqu'à 5h du matin à Carqueiranne.",
-      "instagram": [
-        "bambam_paris_",
-        "indahouseclub"
-      ],
-      "offres": [
-        {
-          "plateforme": "shotgun.live",
-          "url": "https://shotgun.live/fr/events/bambam-at-inda-house-27-11-26",
-          "prix": 5.99
         }
       ],
       "billetterie_cherchee": true,
@@ -5235,34 +4503,6 @@
     },
     {
       "source": "web",
-      "source_site": "Fnac Spectacles",
-      "name": "Skarra Mucci & Manudigital — Ragga Blasta Tour",
-      "start": "2026-11-27T19:30:00.000Z",
-      "venue": "Centre Culturel Tisot",
-      "city": "La Seyne-sur-Mer",
-      "address": "",
-      "url": "https://www.fnacspectacles.com",
-      "image": "https://www.fnacspectacles.com/obj/mam/france/10/71/skarra-mucci-x-manudigital-tickets_554793_4306061_222x222.jpg",
-      "price": 22,
-      "tags": [
-        "Reggae Dancehall",
-        "Dub",
-        "Bass Music"
-      ],
-      "description": "",
-      "public_cible": 0.85,
-      "confiance": 0.95,
-      "buzz": 0.75,
-      "buzz_raison": "Duo très populaire auprès des amateurs de sound system et bass music.",
-      "accroche": "Session explosive entre basses numériques et toasting ragga par deux références du genre.",
-      "instagram": [
-        "manudigital",
-        "skarra_mucci",
-        "centre_culturel_tisot"
-      ]
-    },
-    {
-      "source": "web",
       "source_site": "L'Artiste 83",
       "name": "Soirée Zouk & Caribbean Vibes",
       "start": "2026-11-28T20:00:00.000Z",
@@ -5632,42 +4872,6 @@
       "source": "web",
       "source_site": "instagram.com",
       "via_veille": true,
-      "name": "Duty Party",
-      "start": "2026-11-27T19:00:00.000Z",
-      "venue": "Limone, Marseille",
-      "city": "Marseille",
-      "address": "",
-      "url": "https://shotgun.com/event/afroheat-duty-party-2026",
-      "image": "https://scontent-ord5-2.cdninstagram.com/v/t51.82787-15/915036170_18138193147724712_3381939702776199775_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=109&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=uaZwXw0aDEoQ7kNvwGwBqkG&_nc_oc=AdoSQS4rFeRR6tP6zTc8k2WGJq9R-cIoXW69yhXX03SSLE7NGV782APejcb8A4BPH1k&_nc_zt=23&_nc_ht=scontent-ord5-2.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=NFwnck2SdwbNfCQzzrQ19g&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQRfQsIKLGHiE_wmGSmZaZOsp2VAv0TDfsrlKNELDtcbBA&oe=6B062BE4",
-      "price": 30,
-      "tags": [
-        "Afro",
-        "Dancehall",
-        "Shatta",
-        "Bouyon",
-        "dancehall",
-        "shatta",
-        "bouyon"
-      ],
-      "description": "",
-      "public_cible": 0.6,
-      "confiance": 0.9,
-      "accroche": "Duty Party à Limone, 27 novembre – Afro, dancehall, shatta & bouyon",
-      "instagram": [
-        "afroheatfestival"
-      ],
-      "offres": [
-        {
-          "plateforme": "shotgun.com",
-          "url": "https://shotgun.com/event/afroheat-duty-party-2026",
-          "prix": 30
-        }
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "instagram.com",
-      "via_veille": true,
       "name": "KONTAKT ROAD – SECRET LINE UP",
       "start": "2026-11-28T19:00:00.000Z",
       "venue": "THE SALOON",
@@ -5711,30 +4915,6 @@
       "accroche": "Soirée Nouvel An avec champagne et menu spécial",
       "instagram": [
         "magnoliacafenice"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "instagram.com",
-      "via_veille": true,
-      "name": "Charlie Winston et Medi and The Medicine Show",
-      "start": "2026-11-27T21:00:00.000Z",
-      "venue": "Le Dix-Huit – 18 boulevard Carabacel, Nice",
-      "city": "Nice",
-      "address": "",
-      "url": "https://www.instagram.com/p/DgFymvns-UO/",
-      "image": "https://scontent-iad6-1.cdninstagram.com/v/t39.30808-6/923923216_122129510079335208_3258910023942101331_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=Np8i_50Q2F0Q7kNvwERODBE&_nc_oc=AdoIt70tSqQzvW6xnnXuN9t8AS6gtXhC1NuT-uWhhviw5_kuDIDcLb7JO1v9bo6xmXY&_nc_zt=23&_nc_ht=scontent-iad6-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=8fqBNM-zGQ4sok9uW-dZ6A&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQQGCJW7sydHj4vHlDrxyl6cKv1tBgbSnD_TTG8okKu4iA&oe=6B0B4393",
-      "price": null,
-      "tags": [
-        "pop",
-        "rock"
-      ],
-      "description": "",
-      "public_cible": 0.6,
-      "confiance": 0.8,
-      "accroche": "Charlie Winston en tête d’affiche – soirée déjà complète.",
-      "instagram": [
-        "ledixhuit_nice"
       ]
     },
     {
@@ -5808,30 +4988,6 @@
       "source": "web",
       "source_site": "instagram.com",
       "via_veille": true,
-      "name": "Embuscade pirates 1 acheté = 1 offert",
-      "start": "2026-11-27T20:00:00.000Z",
-      "venue": "La Cale Sèche, Toulon",
-      "city": "Toulon",
-      "address": "",
-      "url": "https://www.instagram.com/p/DgGIZohoA8x/",
-      "image": "https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/928552767_18472742122186229_8034317840126112657_n.webp?stp=dst-jpg_e35_tt6&_nc_cat=105&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X3VybGdlbi5DMyJ9&_nc_ohc=4nSRko8AfOUQ7kNvwHh1YJ1&_nc_oc=AdpwvwDErrVB_Lz4EJm5R_5nXqlEPIZODNhy3_YgFaeITx070H4H8JtX8ufhRzB-R9o&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=n7f0tFRVYtey2EhQqGIDGw&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQSnkuz7tzfd-zq_CRuc_65nwdCKgT-ORtpwzJPABGu-Qg&oe=6B0B76F3",
-      "price": null,
-      "tags": [
-        "bar",
-        "promo"
-      ],
-      "description": "",
-      "public_cible": 0.6,
-      "confiance": 0.8,
-      "accroche": "Vendredi 27 : L’Embuscade des Pirates 1 acheté = 1 offert jusqu’à 21h",
-      "instagram": [
-        "lacalesechetoulon"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "instagram.com",
-      "via_veille": true,
       "name": "Nouvel An au Magnolia Café",
       "start": "2026-12-31T17:00:00.000Z",
       "venue": "7 rue Bonaparte, Nice",
@@ -5868,31 +5024,6 @@
       "accroche": "Soirée techno à Frigo 16, Nice",
       "instagram": [
         "frigo.16"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "instagram.com",
-      "via_veille": true,
-      "name": "DJ set dîner vendredi 27 novembre",
-      "start": "2026-11-27T19:30:00.000Z",
-      "venue": "Twiga Monte Carlo",
-      "city": "Monaco",
-      "address": "",
-      "url": "https://www.instagram.com/p/DgFEcnloRGc/",
-      "image": "https://www.scontent-lga3-3.cdninstagram.com/v/t51.82787-15/924731820_18658631851026487_7872379843694342338_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=105&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0aW1lX3VybGdlbiJ9&_nc_ohc=IQSyHaaxWkMQ7kNvwHyqaxp&_nc_oc=Adp6cggFc1At1p4pkcdEM5rhOdm7deLj5eEuNF4mVZfn8mRzpnxMd0Qyq_SleRlza10&_nc_zt=23&_nc_ht=scontent-lga3-3.cdninstagram.com",
-      "price": null,
-      "tags": [
-        "DJ set",
-        "dîner"
-      ],
-      "description": "",
-      "public_cible": 0.6,
-      "confiance": 0.8,
-      "accroche": "Dîner suivi du DJ set Solly Smith à partir de 20h30/00h30.",
-      "instagram": [
-        "twigamontecarlo",
-        "solly_smith"
       ]
     },
     {
@@ -5965,30 +5096,6 @@
         "le.bar.ephemere"
       ],
       "offres": []
-    },
-    {
-      "source": "web",
-      "source_site": "instagram.com",
-      "via_veille": true,
-      "name": "Afro Heat Reggaeton",
-      "start": "2026-11-27T19:00:00.000Z",
-      "venue": "Limone Rooftop",
-      "city": "Marseille",
-      "address": "",
-      "url": "https://shotgun.com/afro-heat-reggaeton-marseille",
-      "image": "",
-      "price": null,
-      "tags": [
-        "Reggaeton",
-        "Latino"
-      ],
-      "description": "",
-      "public_cible": 0.6,
-      "confiance": 0.8,
-      "accroche": "Afro Heat Reggaeton 27 Nov",
-      "instagram": [
-        "afroheatfestival"
-      ]
     },
     {
       "source": "web",
@@ -6105,31 +5212,6 @@
       "accroche": "After techno avec le resident DJ K‑NET, 05h‑09h le 29/11 à L'Antre.",
       "instagram": [
         "lantretechno"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "instagram.com",
-      "via_veille": true,
-      "name": "Casting DRAG’S LEGACY Saison 5",
-      "start": "2026-11-27T17:00:00.000Z",
-      "venue": "Le Swing Nice, 10 Rue Defly, Nice",
-      "city": "Nice",
-      "address": "",
-      "url": "https://www.instagram.com/p/DgLUCD8tzJ7/",
-      "image": "https://scontent-sea5-1.cdninstagram.com/v/t51.82787-15/930352716_18120460655321373_7920046366943219200_n.webp?stp=dst-jpg_e35_tt6&_nc_cat=111&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=CE0CloYDDpYQ7kNvwF7nr9s&_nc_oc=AdozQvYfxrfRrC8hdVOdz71PBjI56u803hjojn_qCDBD8zg_-X7ZOTgiNGXRpI_hX00&_nc_zt=23&_nc_ht=scontent-sea5-1.cdninstagram.com&edm=AJ-jyNUEAAAA&_nc_gid=bN9rYSk81LoRnjeaRs_brw&_nc_ct=RQosPBUKFQIAAAA&oh=00_AQTn0ok33KLf0QCkpnsW9OMaWQ1-hp4OyAFLyzT-Pg977Q&oe=6B0E0E30",
-      "price": null,
-      "tags": [
-        "drag",
-        "show",
-        "karaoké"
-      ],
-      "description": "",
-      "public_cible": 0.6,
-      "confiance": 0.8,
-      "accroche": "Casting DRAG’S LEGACY Saison 5 – 5 candidates, 4 places à gagner",
-      "instagram": [
-        "le.swingnice"
       ]
     },
     {
@@ -6280,5 +5362,5 @@
       ]
     }
   ],
-  "maj_instagram": "2026-11-27T22:12:40.396Z"
+  "maj_instagram": "2026-11-28T07:12:53.610Z"
 }

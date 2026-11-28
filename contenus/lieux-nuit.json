@@ -10,7 +10,6 @@
    "site": "https://highclub.com/",
    "description": "Grand club de la Promenade des Anglais réunissant plusieurs salles, dont le Studio 47 (années 80 et disco).",
    "soirees": [
-    "coachellito-high-club-2026-11-27",
     "showcase-de-marwa-loud-2026-11-28",
     "high-students-2026-12-04",
     "bad-girls-2026-12-05",
@@ -21,16 +20,16 @@
    ],
    "prochaines": [
     {
-     "id": "coachellito-high-club-2026-11-27",
-     "nom": "COACHELLITO - HIGH CLUB"
-    },
-    {
      "id": "showcase-de-marwa-loud-2026-11-28",
      "nom": "Showcase de MARWA LOUD"
     },
     {
      "id": "high-students-2026-12-04",
      "nom": "HIGH STUDENTS"
+    },
+    {
+     "id": "bad-girls-2026-12-05",
+     "nom": "Bad Girls"
     }
    ],
    "insta": {
@@ -61,12 +60,6 @@
     "relu": "verification 2026-11-13"
    },
    "soirs": [
-    [
-     "2026-11-27",
-     "minuit",
-     "coachellito-high-club-2026-11-27",
-     "COACHELLITO - HIGH CLUB"
-    ],
     [
      "2026-11-28",
      "22:00",
@@ -115,9 +108,9 @@
    "lng": 7.2559561,
    "stylesSoirees": [
     "house",
-    "latino",
     "rap",
-    "commercial"
+    "commercial",
+    "latino"
    ]
   },
   {
@@ -208,7 +201,7 @@
    "score": 0,
    "soirs": [],
    "details": {
-    "le": "2026-11-28T00:21:09.207Z",
+    "le": "2026-11-28T07:17:04.996Z",
     "styles": "DJ résidents (ven–sam après 22h)",
     "dress_code": "",
     "horaires": "lun–dim 10h–2h",
@@ -727,16 +720,11 @@
    "site": "https://glasscannes.com",
    "description": "Bar à cocktails haut de gamme doublé d'un petit club (80 à 90 personnes) à une minute de la Croisette et du Palais des Festivals, tourné vers la house et la deep house.",
    "soirees": [
-    "ugo-puccinelli-pretty-little-sins-2026-11-27",
     "alex-duff-overdrive-2026-11-28",
     "santa-s-house-party-sud-spicious-x-glass-club-2026-12-21",
     "nye-see-you-in-2027-ambre-ballester-b2b-ugo-puccinelli-2026-12-31"
    ],
    "prochaines": [
-    {
-     "id": "ugo-puccinelli-pretty-little-sins-2026-11-27",
-     "nom": "Ugo Puccinelli / Pretty Little Sins"
-    },
     {
      "id": "alex-duff-overdrive-2026-11-28",
      "nom": "Alex Duff / Overdrive"
@@ -744,6 +732,10 @@
     {
      "id": "santa-s-house-party-sud-spicious-x-glass-club-2026-12-21",
      "nom": "Santa's House Party — Sud'Spicious X Glass Club"
+    },
+    {
+     "id": "nye-see-you-in-2027-ambre-ballester-b2b-ugo-puccinelli-2026-12-31",
+     "nom": "Nye See You In 2027 : Ambre Ballester B2B Ugo Puccinelli"
     }
    ],
    "insta": {
@@ -753,12 +745,6 @@
    "score": 0,
    "photo": "site/lieux/site-ac23a09caae7-176.webp",
    "soirs": [
-    [
-     "2026-11-27",
-     "minuit",
-     "ugo-puccinelli-pretty-little-sins-2026-11-27",
-     "Ugo Puccinelli / Pretty Little Sins"
-    ],
     [
      "2026-11-28",
      "minuit",
@@ -981,14 +967,9 @@
    "site": "https://honeyclub.fr",
    "description": "Lieu de soirées et de concerts de l'avenue Georges Gallice à Juan-les-Pins.",
    "soirees": [
-    "spicy-saturday-2026-11-28",
     "honey-club-x-shafro-france-tour-2026-12-11"
    ],
    "prochaines": [
-    {
-     "id": "spicy-saturday-2026-11-28",
-     "nom": "Spicy Saturday"
-    },
     {
      "id": "honey-club-x-shafro-france-tour-2026-12-11",
      "nom": "Honey Club X Shafro - France Tour"
@@ -1000,12 +981,6 @@
    "slug": "honey-club-juan-les-pins",
    "score": 0,
    "soirs": [
-    [
-     "2026-11-28",
-     "minuit",
-     "spicy-saturday-2026-11-28",
-     "Spicy Saturday"
-    ],
     [
      "2026-12-11",
      "minuit",
@@ -1033,8 +1008,6 @@
    "lng": 7.113293,
    "stylesSoirees": [
     "afro",
-    "techno",
-    "house",
     "shatta"
    ]
   },
@@ -1400,15 +1373,8 @@
    "instagram": "twigamontecarlo",
    "site": "https://twigamontecarlo.com/",
    "description": "Restaurant puis club au 2e étage du Grimaldi Forum, avec dîner en soirée et club jusqu'à 4-5 h selon les soirs.",
-   "soirees": [
-    "solly-smith-at-twiga-monte-carlo-2026-11-27"
-   ],
-   "prochaines": [
-    {
-     "id": "solly-smith-at-twiga-monte-carlo-2026-11-27",
-     "nom": "Solly Smith at Twiga Monte Carlo"
-    }
-   ],
+   "soirees": [],
+   "prochaines": [],
    "insta": {
     "abonnes": 86819,
     "likes": 20,
@@ -1416,7 +1382,7 @@
     "posts21": 8
    },
    "slug": "twiga-monte-carlo-monaco",
-   "score": 0.3192307692307692,
+   "score": 0.2692307692307692,
    "photo": "site/lieux/twigamontecarlo-176.webp",
    "details": {
     "le": "2026-11-13T17:38:33.455Z",
@@ -1436,20 +1402,9 @@
     ],
     "relu": "verification 2026-11-13"
    },
-   "soirs": [
-    [
-     "2026-11-27",
-     "22:00",
-     "solly-smith-at-twiga-monte-carlo-2026-11-27",
-     "Solly Smith at Twiga Monte Carlo"
-    ]
-   ],
+   "soirs": [],
    "instagram_non_verifie": "twigamontecarlo",
-   "stylesSoirees": [
-    "techno",
-    "house",
-    "afro"
-   ]
+   "stylesSoirees": []
   },
   {
    "nom": "Sass Café",

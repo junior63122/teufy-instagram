@@ -1,5 +1,5 @@
 {
-  "maj": "2026-11-24T15:13:45.449Z",
+  "maj": "2026-11-28T07:12:53.610Z",
   "evenements": [
     {
       "source": "eventbrite",
@@ -27,75 +27,21 @@
       ]
     },
     {
-      "source": "web",
-      "source_site": "Shotgun",
-      "name": "Nassim X Antirouille",
-      "start": "2026-11-27T19:00:00.000Z",
-      "venue": "L'Antirouille",
-      "city": "Montpellier",
-      "address": "",
-      "url": "https://shotgun.live/events/nassim-x-antirouille",
-      "image": "https://assets.shotgun.live/image/upload/c_limit,w_384,fl_lossy,f_webp,q_5/production/artworks/MTP_bannie%CC%80re_jxxgb9.jpg",
-      "price": 11.99,
-      "tags": [
-        "R&B",
-        "Funk",
-        "Soul"
-      ],
-      "description": "",
-      "public_cible": 0.85,
-      "confiance": 0.95,
-      "verifie": true,
-      "buzz": 0.6,
-      "accroche": "Vibes soul, funk et R&B entraînantes avec Nassim sur la scène de L'Antirouille.",
-      "instagram": []
-    },
-    {
-      "source": "web",
-      "source_site": "Shotgun",
-      "name": "303 Bpm [Psytrance Edition]",
-      "start": "2026-11-27T22:55:00.000Z",
-      "venue": "Mélomane Club",
-      "city": "Montpellier",
-      "address": "",
-      "url": "https://shotgun.live/events/303-bpm-psytrance-edition",
-      "image": "",
-      "price": 10.99,
-      "tags": [
-        "Psytrance",
-        "Dark Psytrance",
-        "Progressive Psytrance"
-      ],
-      "description": "",
-      "public_cible": 0.9,
-      "confiance": 0.95,
-      "verifie": true,
-      "buzz": 0.65,
-      "accroche": "Édition spéciale 303 Bpm explorant la dark psy et la progressive psytrance au Mélomane.",
-      "instagram": []
-    },
-    {
-      "source": "web",
-      "source_site": "Resident Advisor",
-      "name": "Piñata Radio B2B's: Solation x Loukoum, San P & Soraya",
-      "start": "2026-11-27T19:00:00.000Z",
-      "venue": "Piñata Radio",
-      "city": "Montpellier",
-      "address": "",
-      "url": "https://ra.co/events/1990502",
-      "image": "",
+      "source": "eventbrite",
+      "name": "Soirée après-ski:)",
+      "start": "2026-12-16T18:00:00.000Z",
+      "end": "2026-12-16T22:00:00.000Z",
+      "venue": "Condé Toulouse",
+      "city": "Toulouse",
+      "address": "18 Avenue Raymond Badiou 31300 Toulouse",
+      "url": "https://www.eventbrite.fr/e/soiree-apres-ski-tickets-2005267477004",
+      "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1198524676%2F2698702644301%2F1%2Foriginal.20261123-112613?crop=focalpoint&fit=crop&w=1080&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=0ecfbf60e7e87d13edb65b7b3292011b",
       "price": 0,
-      "tags": [
-        "House",
-        "UK Bass",
-        "Breakbeat"
-      ],
-      "description": "",
-      "public_cible": 0.85,
+      "tags": [],
+      "description": "Rendez-vous le 16 décembre pour la soirée après-ski de Condé, histoire de faire la fête avant les vacances. Venez nombreux",
+      "popularite": null,
       "confiance": 0.9,
       "verifie": true,
-      "buzz": 0.6,
-      "accroche": "Série de b2b pointus entre house, breakbeat et UK bass dans les studios de Piñata Radio.",
       "instagram": []
     },
     {
@@ -201,77 +147,6 @@
     {
       "source": "web",
       "source_site": "Shotgun",
-      "name": "Blankka Club* 021 Toulouse : Matalhani * Nizart * Bigkid",
-      "start": "2026-11-26T22:59:00.000Z",
-      "venue": "Blankka Club",
-      "city": "Toulouse",
-      "address": "",
-      "url": "https://shotgun.live/events/blankka-club-021-toulouse-matalhani-nizart-bigkid",
-      "image": "https://assets.shotgun.live/image/upload/c_limit,ar_16:9,w_3840,fl_lossy,f_webp,q_auto/production/artworks/SHOTGUN_l4ykwn.png",
-      "price": 18,
-      "tags": [
-        "Trap",
-        "Hip Hop",
-        "Afrobeat"
-      ],
-      "description": "",
-      "public_cible": 0.9,
-      "confiance": 0.95,
-      "verifie": true,
-      "buzz": 0.6,
-      "accroche": "Trap et afrobeats a fond au Blankka Club avec Matalhani, Nizart et Bigkid.",
-      "instagram": []
-    },
-    {
-      "source": "web",
-      "source_site": "Shotgun",
-      "name": "Les Jeudis Du Cri Inv. Hamslow",
-      "start": "2026-11-26T22:55:00.000Z",
-      "venue": "Le Cri de la Mouette",
-      "city": "Toulouse",
-      "address": "",
-      "url": "https://shotgun.live/events/les-jeudis-du-cri-inv-hamslow-dark-techno-peaktime",
-      "image": "https://assets.shotgun.live/image/upload/c_limit,w_750,fl_lossy,f_webp,q_auto/production/artworks/artists/artist-285229-avatar-1771635543815.avif",
-      "price": 5.69,
-      "tags": [
-        "Dark Techno",
-        "Peak Time Techno"
-      ],
-      "description": "",
-      "public_cible": 0.85,
-      "confiance": 0.95,
-      "verifie": true,
-      "buzz": 0.45,
-      "accroche": "Hamslow apporte sa dark techno et peak time sur la peniche toulousaine.",
-      "instagram": []
-    },
-    {
-      "source": "web",
-      "source_site": "Shotgun",
-      "name": "La Rubia X La Voile Blanche",
-      "start": "2026-11-27T16:00:00.000Z",
-      "venue": "Complexe La Voile Blanche",
-      "city": "Toulouse",
-      "address": "",
-      "url": "https://shotgun.live/events/la-rubia-x-la-voile-blanche",
-      "image": "https://assets.shotgun.live/image/upload/c_limit,w_384,fl_lossy,f_webp,q_5/production/artworks/Banni%C3%A8re_Shotgun-3_bb5bra.png",
-      "price": 0,
-      "tags": [
-        "House",
-        "Deep House",
-        "Club"
-      ],
-      "description": "",
-      "public_cible": 0.8,
-      "confiance": 0.95,
-      "verifie": true,
-      "buzz": 0.55,
-      "accroche": "Format clubbing des 18h a La Voile Blanche avec entree gratuite surShotgun.",
-      "instagram": []
-    },
-    {
-      "source": "web",
-      "source_site": "Shotgun",
       "name": "Five Stars",
       "start": "2026-11-28T22:59:00.000Z",
       "venue": "L'Étoile Club",
@@ -367,122 +242,6 @@
       "verifie": true,
       "buzz": 0.75,
       "accroche": "Deuxième soirée du BAZR avec Fulu Miziki, Il Est Vilaine et Sarra Wild.",
-      "instagram": []
-    },
-    {
-      "source": "web",
-      "source_site": "Paloma Nîmes",
-      "name": "Pierre de Maere",
-      "start": "2026-11-25T19:30:00.000Z",
-      "venue": "Paloma (Grande Salle)",
-      "city": "Nîmes",
-      "address": "",
-      "url": "https://paloma-nimes.fr/agenda/pierre-de-maere/",
-      "image": "https://paloma-nimes.fr/wp-content/uploads/2025/06/at-1-fotomaraalonso-504x605.jpg",
-      "price": 31,
-      "tags": [
-        "pop francophone",
-        "chanson",
-        "pop"
-      ],
-      "description": "",
-      "public_cible": 0.8,
-      "confiance": 0.95,
-      "verifie": true,
-      "buzz": 0.75,
-      "accroche": "La pop flamboyante de Pierre de Maere s'empare de Paloma pour une date immanquable.",
-      "instagram": [],
-      "offres": [
-        {
-          "plateforme": "paloma-nimes.fr",
-          "url": "https://paloma-nimes.fr/agenda/2026-11/pierre-de-maere-2-event-37094/",
-          "prix": 26
-        }
-      ],
-      "sources_sites": [
-        "Paloma Nîmes",
-        "paloma-nimes.fr"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "paloma-nimes.fr",
-      "name": "APÉRO TECHNO (Back to Paloma)",
-      "start": "2026-11-27T18:00:00.000Z",
-      "venue": "Paloma, Patio",
-      "city": "Nîmes",
-      "address": "",
-      "url": "https://paloma-nimes.fr/agenda/2026-11/apero-techno-9-event-37799/",
-      "image": "https://paloma-nimes.fr/wp-content/uploads/2026/09/aperotechno_paloma_2711_igs.jpg",
-      "price": 6,
-      "tags": [
-        "electro",
-        "techno",
-        "électro"
-      ],
-      "description": "",
-      "public_cible": 0.85,
-      "confiance": 0.95,
-      "verifie": true,
-      "buzz": 0.7,
-      "accroche": "Apéro techno au Patio de Paloma dès 6 €, parfait pour lancer le week-end.",
-      "instagram": [],
-      "offres": [
-        {
-          "plateforme": "paloma-nimes.fr",
-          "url": "https://paloma-nimes.fr/agenda/2026-11/apero-techno-9-event-37799/",
-          "prix": 6
-        }
-      ],
-      "sources_sites": [
-        "paloma-nimes.fr",
-        "Paloma Nîmes"
-      ]
-    },
-    {
-      "source": "web",
-      "source_site": "SNEX / Scène des Mondes",
-      "name": "Soirée Concert Metal & Punk",
-      "start": "2026-11-27T19:00:00.000Z",
-      "venue": "Urban Parc",
-      "city": "Alès",
-      "address": "",
-      "url": "https://urbanparc.fr/",
-      "image": "https://img.openagenda.com/main/0a4760325fdb4aec815ec9e698160843.full.image.jpg",
-      "price": 10,
-      "tags": [
-        "punk",
-        "metal"
-      ],
-      "description": "",
-      "public_cible": 0.75,
-      "confiance": 0.9,
-      "verifie": true,
-      "buzz": 0.55,
-      "accroche": "Gros riffs punk et metal en live à l'Urban Parc d'Alès pour une soirée 100% énergie.",
-      "instagram": []
-    },
-    {
-      "source": "web",
-      "source_site": "Ticketmaster",
-      "name": "The Inspector Cluzo + 7 Weeks (Less Is More Worldwide Tour)",
-      "start": "2026-11-26T19:30:00.000Z",
-      "venue": "El Mediator",
-      "city": "Perpignan",
-      "address": "",
-      "url": "https://www.ticketmaster.fr/fr/manifestation/the-inspector-cluzo-billet/idmanif/603120",
-      "image": "https://assets.tmassets.fr/image/upload/v1781565850/mediaflows/legacy%20import%20folder/n_the-inspector-cluzo_720x405.jpg",
-      "price": 24.2,
-      "tags": [
-        "rock",
-        "blues rock"
-      ],
-      "description": "",
-      "public_cible": 0.55,
-      "confiance": 0.85,
-      "verifie": true,
-      "buzz": 0.5,
-      "accroche": "Double affiche rock au Mediator avec The Inspector Cluzo et 7 Weeks",
       "instagram": []
     },
     {
@@ -605,28 +364,6 @@
     {
       "source": "web",
       "source_site": "narbonne-arena.fr",
-      "name": "David Hallyday – Requiem pour un fou",
-      "start": "2026-11-27T19:30:00.000Z",
-      "venue": "Narbonne Arena",
-      "city": "Narbonne",
-      "address": "",
-      "url": "https://www.narbonne-arena.fr/evenement/david-hallyday/",
-      "image": "https://www.narbonne-arena.fr/wp/wp-content/uploads/sites/9/2023/11/40x60-350x524.jpg",
-      "price": 55,
-      "tags": [
-        "rock"
-      ],
-      "description": "",
-      "public_cible": 0.2,
-      "confiance": 0.9,
-      "verifie": true,
-      "buzz": 0.45,
-      "accroche": "David Hallyday en live à la Narbonne Arena un vendredi soir.",
-      "instagram": []
-    },
-    {
-      "source": "web",
-      "source_site": "narbonne-arena.fr",
       "name": "BigFlo & Oli – Karma Tour",
       "start": "2026-11-28T19:00:00.000Z",
       "venue": "Narbonne Arena",
@@ -649,29 +386,6 @@
     {
       "source": "web",
       "source_site": "infoconcert.com",
-      "name": "The Stranglers",
-      "start": "2026-11-27T19:30:00.000Z",
-      "venue": "Zinga Zanga",
-      "city": "Béziers",
-      "address": "",
-      "url": "https://www.zinga-zanga-beziers.fr/the-stranglers-342873.html",
-      "image": "https://www.zinga-zanga-beziers.fr/img/evenement/the-stranglers-.jpg",
-      "price": 36,
-      "tags": [
-        "rock",
-        "punk"
-      ],
-      "description": "",
-      "public_cible": 0.4,
-      "confiance": 0.75,
-      "verifie": false,
-      "buzz": 0.55,
-      "accroche": "Les légendes punk The Stranglers sur la scène du Zinga Zanga.",
-      "instagram": []
-    },
-    {
-      "source": "web",
-      "source_site": "infoconcert.com",
       "name": "Benjamin Biolay",
       "start": "2026-12-15T19:00:00.000Z",
       "venue": "Zinga Zanga",
@@ -689,29 +403,6 @@
       "verifie": false,
       "buzz": 0.55,
       "accroche": "Benjamin Biolay en tournée, escale au Zinga Zanga.",
-      "instagram": []
-    },
-    {
-      "source": "web",
-      "source_site": "Bizouk",
-      "name": "Showcase Kalash",
-      "start": "2026-11-27T22:00:00.000Z",
-      "venue": "L'Etoile",
-      "city": "Toulouse",
-      "address": "",
-      "url": "https://www.bizouk.com/events/details/showcase-kalash/133226",
-      "image": "https://thumb.bizouk.com/t/width=500,height=600,fit=scale-down/events/images/13/32/26/133226_2870b76246d8a5faf1248667bf938817.png?v=2",
-      "price": 20.99,
-      "tags": [
-        "clubbing",
-        "showcase"
-      ],
-      "description": "",
-      "public_cible": 0.85,
-      "confiance": 0.85,
-      "verifie": true,
-      "buzz": 0.8,
-      "accroche": "Kalash en showcase à L'Etoile un vendredi soir",
       "instagram": []
     },
     {

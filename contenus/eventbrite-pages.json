@@ -899,78 +899,6 @@
    "popularite": null
   }
  },
- "https://www.eventbrite.com/e/billets-soiree-speak-easy-animation-magicien-a-nice-40-50-ans-2005071724503": {
-  "le": "2026-11-20T12:47:30.724Z",
-  "d": {
-   "source": "eventbrite",
-   "name": "Soirée Speak Easy & animation magicien à Nice (40-50 ans)",
-   "start": "2026-12-04T18:00:00.000Z",
-   "end": "2026-12-04T22:30:00.000Z",
-   "venue": "La Chapa",
-   "city": "Nice",
-   "address": "73 Quai des États-Unis, 06300 Nice Nice",
-   "url": "https://www.eventbrite.com/e/billets-soiree-speak-easy-animation-magicien-a-nice-40-50-ans-2005071724503",
-   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1196683901%2F1189724529443%2F1%2Foriginal.20261027-142415?crop=focalpoint&fit=crop&w=1080&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.508&fp-y=0.515&s=d888656c04eb346fcb7ce09b73ab4b3f",
-   "price": 19,
-   "tags": [],
-   "description": "Envie de faire de vraies rencontres à Nice ? Participe à notre soirée dédiée aux rencontres entre femmes et hommes célibataires, le 4 déc.",
-   "popularite": null
-  }
- },
- "https://www.eventbrite.com/e/dinner-with-entrepreneurs-nice-girls-night-out-edition-tickets-1902509921389": {
-  "le": "2026-11-17T00:15:34.817Z",
-  "d": {
-   "source": "eventbrite",
-   "name": "Dinner with Entrepreneurs Nice: Girls Night Out Edition",
-   "start": "2026-12-01T18:00:00.000Z",
-   "end": "2026-12-01T21:00:00.000Z",
-   "venue": "Restaurant of the Week",
-   "city": "Nice",
-   "address": "Rue Pastorelli, 06000 Nice Nice",
-   "url": "https://www.eventbrite.com/e/dinner-with-entrepreneurs-nice-girls-night-out-edition-tickets-1902505969569",
-   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1068727843%2F2774186649331%2F1%2Foriginal.20250708-073331?crop=focalpoint&fit=crop&w=1080&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.581151832461&fp-y=0.245210727969&s=612ee99f05c7ce182c2eab755a7d9b2b",
-   "price": 23.18,
-   "tags": [],
-   "description": "Meet your next gal pals over dinner with entrepreneurs! Make new connections in your city in fun, laid back environments and amazing food.",
-   "popularite": null
-  }
- },
- "https://www.eventbrite.fr/e/chilli-no-5-80s-apres-ski-christmas-party-tickets-2003302897895": {
-  "le": "2026-11-17T00:15:34.817Z",
-  "d": {
-   "source": "eventbrite",
-   "name": "Chilli No. 5 - 80s Après-Ski Christmas Party",
-   "start": "2026-12-11T18:00:00.000Z",
-   "end": "2026-12-11T22:30:00.000Z",
-   "venue": "245 Rte des Lucioles",
-   "city": "Valbonne",
-   "address": "245 Route des Lucioles, 06560 Valbonne Valbonne",
-   "url": "https://www.eventbrite.fr/e/chilli-no-5-80s-apres-ski-christmas-party-tickets-2003302897895",
-   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1195695409%2F1015842929213%2F1%2Foriginal.20261013-150448?crop=focalpoint&fit=crop&w=1080&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=7b7dbff27f23ce7af34065dbf1a4721b",
-   "price": 75,
-   "tags": [],
-   "description": "Christmas party! Neon ski suits, big hair, world tapas and DJ Grace, followed by melting raclette, dinner together and karaoke!",
-   "popularite": null
-  }
- },
- "https://www.eventbrite.fr/e/new-years-eve-bar-crawl-party-nice-tickets-2004418564885": {
-  "le": "2026-11-17T00:15:34.817Z",
-  "d": {
-   "source": "eventbrite",
-   "name": "New Year’s Eve Bar Crawl Party Nice",
-   "start": "2026-12-31T20:00:00.000Z",
-   "end": "2027-01-01T00:30:00.000Z",
-   "venue": "Hostel Villa Saint Exupery Beach",
-   "city": "Nice",
-   "address": "6 Rue Sacha Guitry, 06000 Nice Nice",
-   "url": "https://www.eventbrite.fr/e/new-years-eve-bar-crawl-party-nice-tickets-2004418564885",
-   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1197332295%2F95356021183%2F1%2Foriginal.20261105-103228?crop=focalpoint&fit=crop&w=1080&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=3a40e7c972e2838aae32e4024b308de4",
-   "price": 38.5,
-   "tags": [],
-   "description": "Epic NYE 2027 in Nice! VIP entry to 3 bars & 1 club, 4 free shots, massive drink deals, and an international crowd. Book early & save!",
-   "popularite": null
-  }
- },
  "https://www.eventbrite.com/e/foodies-new-friends-nice-tickets-1976266120165": {
   "le": "2026-11-27T16:20:29.081Z",
   "d": {
@@ -986,42 +914,6 @@
    "price": 23.18,
    "tags": [],
    "description": "You sign up. We book. Connect with new friends over dinner while supporting locally owned restaurants.",
-   "popularite": null
-  }
- },
- "https://www.eventbrite.com/e/cannes-social-club-foodies-new-friends-tickets-1994633657965": {
-  "le": "2026-11-17T00:15:34.817Z",
-  "d": {
-   "source": "eventbrite",
-   "name": "Cannes Social Club | Foodies + New Friends",
-   "start": "2026-11-28T18:00:00.000Z",
-   "end": "2026-11-28T21:00:00.000Z",
-   "venue": "Restaurant of the Month",
-   "city": "Cannes",
-   "address": "Rue Bivouac Napoléon, 06400 Cannes Cannes",
-   "url": "https://www.eventbrite.com/e/cannes-social-club-foodies-new-friends-tickets-1994633628878",
-   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1189275566%2F2821698611161%2F1%2Foriginal.20260721-033526?crop=focalpoint&fit=crop&w=1080&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.512&fp-y=0.175&s=62fe5c84459fb1a10c9cbcade8cccc8d",
-   "price": 23.18,
-   "tags": [],
-   "description": "Connect with other locals and support a small business. Make new friends in your town over fun food and a relaxed atmosphere!",
-   "popularite": null
-  }
- },
- "https://www.eventbrite.fr/e/nice-new-years-eve-2026-2027-guaranteed-vip-club-entry-5-free-shots-tickets-2004295126678": {
-  "le": "2026-11-17T00:15:34.817Z",
-  "d": {
-   "source": "eventbrite",
-   "name": "Nice New Year's Eve 2026-2027 — Guaranteed VIP Club Entry & 5 Free Shots",
-   "start": "2026-12-31T20:00:00.000Z",
-   "end": "2027-01-01T03:00:00.000Z",
-   "venue": "La Chapa",
-   "city": "Nice",
-   "address": "73 Quai des États-Unis, 06300 Nice Nice",
-   "url": "https://www.eventbrite.fr/e/nice-new-years-eve-2026-2027-guaranteed-vip-club-entry-5-free-shots-tickets-2004295126678",
-   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1197180661%2F2149570374853%2F1%2Foriginal.20241229-105819?w=1080&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C215%2C2048%2C1024&s=1bdc8299e3c79a502d951eeece84269d",
-   "price": 50,
-   "tags": [],
-   "description": "The biggest NYE party in Nice: 120+ international travelers, 5 free shots and guaranteed VIP club entry when every club is sold out.",
    "popularite": null
   }
  },
@@ -1043,60 +935,6 @@
    "popularite": null
   }
  },
- "https://www.eventbrite.fr/e/billets-soiree-humour-stand-up-au-doppio-malto-2004857459631": {
-  "le": "2026-11-20T12:47:30.724Z",
-  "d": {
-   "source": "eventbrite",
-   "name": "Soirée humour STAND-UP au Doppio Malto",
-   "start": "2026-12-04T19:00:00.000Z",
-   "end": "2026-12-04T21:00:00.000Z",
-   "venue": "Doppio Malto Nice CAP3000",
-   "city": "Saint-Laurent-du-Var",
-   "address": "217 Avenue Eugène Donadeï, 06700 Saint-Laurent-du-Var Saint-Laurent-du-Var",
-   "url": "https://www.eventbrite.fr/e/billets-soiree-humour-stand-up-au-doppio-malto-2004857459631",
-   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1198011034%2F2989515463261%2F1%2Foriginal.20261115-105225?crop=focalpoint&fit=crop&w=1080&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=86e28838dee834d9ba5d6433bc4ff247",
-   "price": 6.52,
-   "tags": [],
-   "description": "Une soirée stand-up au Doppio Malto pour rire, boire un verre et passer un bon moment entre amis !",
-   "popularite": null
-  }
- },
- "https://www.eventbrite.com/e/aperelles-evening-december-tickets-2004949139849": {
-  "le": "2026-11-20T12:47:30.724Z",
-  "d": {
-   "source": "eventbrite",
-   "name": "Aper’ELLES Evening December",
-   "start": "2026-12-02T17:30:00.000Z",
-   "end": "2026-12-02T20:30:00.000Z",
-   "venue": "Panama",
-   "city": "Nice",
-   "address": "11 Place Garibaldi, 06300 Nice Nice",
-   "url": "https://www.eventbrite.com/e/aperelles-evening-december-tickets-2004949139849",
-   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1198153358%2F2994876947766%2F1%2Foriginal.20261117-121437?crop=focalpoint&fit=crop&w=1080&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=c0e30868cd91ef99bebe8ab087f56fef",
-   "price": 0,
-   "tags": [],
-   "description": "Join Internation_Elles evening Aper’Elles for a fun in-person night of chats, laughs, and new global friendships!!",
-   "popularite": null
-  }
- },
- "https://www.eventbrite.fr/e/french-riviera-3-local-wines-french-cheese-tasting-tickets-2004344702962": {
-  "le": "2026-11-20T15:45:25.195Z",
-  "d": {
-   "source": "eventbrite",
-   "name": "French Riviera: 3 Local Wines & French Cheese Tasting",
-   "start": "2027-01-17T12:00:00.000Z",
-   "end": "2027-01-17T13:00:00.000Z",
-   "venue": "LOU'BAR",
-   "city": "Villeneuve-Loubet",
-   "address": "3 Rue des Mesures, 06270 Villeneuve-Loubet Villeneuve-Loubet",
-   "url": "https://www.eventbrite.fr/e/french-riviera-3-local-wines-french-cheese-tasting-tickets-2004295816742",
-   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1177916234%2F2149570374853%2F1%2Foriginal.20260219-094849?w=1080&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C454%2C4596%2C2298&s=004423f1cc1ae0994659830f619de76b",
-   "price": 41.7,
-   "tags": [],
-   "description": "Taste 3 local wines from the French Riviera paired with French cheeses in a guided and intimate tasting experience.",
-   "popularite": null
-  }
- },
  "https://www.eventbrite.fr/e/blind-wine-tasting-of-6-local-wines-nice-experience-tickets-2004355327741": {
   "le": "2026-11-27T16:20:29.081Z",
   "d": {
@@ -1112,24 +950,6 @@
    "price": 65.15,
    "tags": [],
    "description": "Discover 6 local wines in a fun blind tasting experience in the heart of Nice. Learn, taste, and challenge your senses.",
-   "popularite": null
-  }
- },
- "https://www.eventbrite.com/e/michel-orion-ferre-vos-papiers-orion-tes-chansons-tickets-2004957394539": {
-  "le": "2026-11-20T12:47:30.724Z",
-  "d": {
-   "source": "eventbrite",
-   "name": "MICHEL ORION – FERRÉ, VOS PAPIERS ! ORION, TES CHANSONS !",
-   "start": "2026-11-28T19:30:00.000Z",
-   "end": "2026-11-28T22:30:00.000Z",
-   "venue": "Le quartier du poulpe",
-   "city": "Nice",
-   "address": "34 boulevard Auguste Raynaud, 06100 Nice Nice",
-   "url": "https://www.eventbrite.com/e/michel-orion-ferre-vos-papiers-orion-tes-chansons-tickets-2004957394539",
-   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1198168821%2F2988009644804%2F1%2Foriginal.20261117-160227?crop=focalpoint&fit=crop&w=1080&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=668a65ad25e094b6f8032690c7e42c4a",
-   "price": 0,
-   "tags": [],
-   "description": "Un hommage à Léo Ferré, entre poésie, révolte et liberté.",
    "popularite": null
   }
  },
@@ -1151,6 +971,276 @@
    "popularite": null
   }
  },
+ "https://www.eventbrite.fr/e/rencontre-dechecs-a-nice-alt-f4-tickets-2004718161988": {
+  "le": "2026-11-27T16:20:29.081Z",
+  "d": {
+   "source": "eventbrite",
+   "name": "Rencontre d’échecs à Nice · ALT F4",
+   "start": "2026-12-01T18:00:00.000Z",
+   "end": "2026-12-01T20:00:00.000Z",
+   "venue": "ALT F4",
+   "city": "Nice",
+   "address": "20 Rue Jules Bianchi, 06200 Nice, France, 06200 Nice Nice",
+   "url": "https://www.eventbrite.fr/e/rencontre-dechecs-a-nice-alt-f4-tickets-2004718161988",
+   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1197697977%2F2827791142421%2F1%2Foriginal.20261110-171959?crop=focalpoint&fit=crop&w=1080&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.29&fp-y=0.497&s=a06e2c124598572ca82cf9d9e48915ee",
+   "price": 0,
+   "tags": [],
+   "description": "Échecs gratuits et conviviaux à Nice. Tous niveaux. Inscrivez-vous ici, puis confirmez votre place par e-mail.",
+   "popularite": null
+  }
+ },
+ "https://www.eventbrite.com/e/carol-nakari-quintet-pourquoi-pas-ce-soir-concert-live-tickets-2005397934205": {
+  "le": "2026-11-27T16:20:29.081Z",
+  "d": {
+   "source": "eventbrite",
+   "name": "Carol Nakari Quintet – Pourquoi pas ce soir ? | Concert live",
+   "start": "2026-12-05T19:00:00.000Z",
+   "end": "2026-12-05T22:59:00.000Z",
+   "venue": "Le Quartier du Poulpe",
+   "city": "Nice",
+   "address": "34 boulevard Auguste Raynaud, 06100 Nice Nice",
+   "url": "https://www.eventbrite.com/e/carol-nakari-quintet-pourquoi-pas-ce-soir-concert-live-tickets-2005397934205",
+   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1198610795%2F2988009644804%2F1%2Foriginal.20261124-144318?w=1080&auto=format%2Ccompress&q=75&sharp=10&s=a86e435979987924d0e2a05c881f9472",
+   "price": 0,
+   "tags": [],
+   "description": "Une soirée musicale entre jazz, pop, world music, compositions originales et reprises incontournables au QDP!",
+   "popularite": null
+  }
+ },
+ "https://www.eventbrite.com/e/billets-soiree-speak-easy-animation-magicien-a-nice-40-50-ans-2005071724503": {
+  "le": "2026-11-20T12:47:30.724Z",
+  "d": {
+   "source": "eventbrite",
+   "name": "Soirée Speak Easy & animation magicien à Nice (40-50 ans)",
+   "start": "2026-12-04T18:00:00.000Z",
+   "end": "2026-12-04T22:30:00.000Z",
+   "venue": "La Chapa",
+   "city": "Nice",
+   "address": "73 Quai des États-Unis, 06300 Nice Nice",
+   "url": "https://www.eventbrite.com/e/billets-soiree-speak-easy-animation-magicien-a-nice-40-50-ans-2005071724503",
+   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1196683901%2F1189724529443%2F1%2Foriginal.20261027-142415?crop=focalpoint&fit=crop&w=1080&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.508&fp-y=0.515&s=d888656c04eb346fcb7ce09b73ab4b3f",
+   "price": 19,
+   "tags": [],
+   "description": "Envie de faire de vraies rencontres à Nice ? Participe à notre soirée dédiée aux rencontres entre femmes et hommes célibataires, le 4 déc.",
+   "popularite": null
+  }
+ },
+ "https://www.eventbrite.com/e/cannes-social-club-foodies-new-friends-tickets-1994633657965": {
+  "le": "2026-11-17T00:15:34.817Z",
+  "d": {
+   "source": "eventbrite",
+   "name": "Cannes Social Club | Foodies + New Friends",
+   "start": "2026-11-28T18:00:00.000Z",
+   "end": "2026-11-28T21:00:00.000Z",
+   "venue": "Restaurant of the Month",
+   "city": "Cannes",
+   "address": "Rue Bivouac Napoléon, 06400 Cannes Cannes",
+   "url": "https://www.eventbrite.com/e/cannes-social-club-foodies-new-friends-tickets-1994633628878",
+   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1189275566%2F2821698611161%2F1%2Foriginal.20260721-033526?crop=focalpoint&fit=crop&w=1080&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.512&fp-y=0.175&s=62fe5c84459fb1a10c9cbcade8cccc8d",
+   "price": 23.18,
+   "tags": [],
+   "description": "Connect with other locals and support a small business. Make new friends in your town over fun food and a relaxed atmosphere!",
+   "popularite": null
+  }
+ },
+ "https://www.eventbrite.fr/e/riviera-bar-crawl-nices-1-social-club-for-global-travelers-party-lovers-tickets-1286313140229": {
+  "le": "2026-11-28T07:14:36.726Z",
+  "d": {
+   "source": "eventbrite",
+   "name": "Riviera Bar Crawl Nice’s #1 Social Club for Global Travelers & Party Lovers",
+   "start": "2026-11-28T20:00:00.000Z",
+   "end": "2026-11-29T01:00:00.000Z",
+   "venue": "Hostel Villa Saint Exupery Beach",
+   "city": "Nice",
+   "address": "6 Rue Sacha Guitry, 06000 Nice Nice",
+   "url": "https://www.eventbrite.fr/e/riviera-bar-crawl-nices-1-social-club-for-global-travelers-party-lovers-tickets-167342665417",
+   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F793522169%2F95356021183%2F1%2Foriginal.20240620-202552?w=1080&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C201%2C1920%2C960&s=4cee787775498d4baadbbf0882227f84",
+   "price": 27.84,
+   "tags": [],
+   "description": "Experience the best of Nice nightlife with Riviera Bar Crawl Nice. Meet people worldwide, enjoy exclusive deals, create your memories now",
+   "popularite": null
+  }
+ },
+ "https://www.eventbrite.com/e/dinner-with-entrepreneurs-nice-girls-night-out-edition-tickets-1902509921389": {
+  "le": "2026-11-17T00:15:34.817Z",
+  "d": {
+   "source": "eventbrite",
+   "name": "Dinner with Entrepreneurs Nice: Girls Night Out Edition",
+   "start": "2026-12-01T18:00:00.000Z",
+   "end": "2026-12-01T21:00:00.000Z",
+   "venue": "Restaurant of the Week",
+   "city": "Nice",
+   "address": "Rue Pastorelli, 06000 Nice Nice",
+   "url": "https://www.eventbrite.com/e/dinner-with-entrepreneurs-nice-girls-night-out-edition-tickets-1902505969569",
+   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1068727843%2F2774186649331%2F1%2Foriginal.20250708-073331?crop=focalpoint&fit=crop&w=1080&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.581151832461&fp-y=0.245210727969&s=612ee99f05c7ce182c2eab755a7d9b2b",
+   "price": 23.18,
+   "tags": [],
+   "description": "Meet your next gal pals over dinner with entrepreneurs! Make new connections in your city in fun, laid back environments and amazing food.",
+   "popularite": null
+  }
+ },
+ "https://www.eventbrite.fr/e/billets-soiree-humour-stand-up-au-doppio-malto-2004857459631": {
+  "le": "2026-11-20T12:47:30.724Z",
+  "d": {
+   "source": "eventbrite",
+   "name": "Soirée humour STAND-UP au Doppio Malto",
+   "start": "2026-12-04T19:00:00.000Z",
+   "end": "2026-12-04T21:00:00.000Z",
+   "venue": "Doppio Malto Nice CAP3000",
+   "city": "Saint-Laurent-du-Var",
+   "address": "217 Avenue Eugène Donadeï, 06700 Saint-Laurent-du-Var Saint-Laurent-du-Var",
+   "url": "https://www.eventbrite.fr/e/billets-soiree-humour-stand-up-au-doppio-malto-2004857459631",
+   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1198011034%2F2989515463261%2F1%2Foriginal.20261115-105225?crop=focalpoint&fit=crop&w=1080&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=86e28838dee834d9ba5d6433bc4ff247",
+   "price": 6.52,
+   "tags": [],
+   "description": "Une soirée stand-up au Doppio Malto pour rire, boire un verre et passer un bon moment entre amis !",
+   "popularite": null
+  }
+ },
+ "https://www.eventbrite.fr/e/nice-orange-bar-crawl-party-bars-music-nightlife-club-experience-tickets-2004294702409": {
+  "le": "2026-11-28T07:14:36.726Z",
+  "d": {
+   "source": "eventbrite",
+   "name": "Nice Orange Bar Crawl – Party Bars, Music, Nightlife & Club Experience",
+   "start": "2026-11-28T20:30:00.000Z",
+   "end": "2026-11-29T01:00:00.000Z",
+   "venue": "La Chapa",
+   "city": "Nice",
+   "address": "73 Quai des États-Unis, 06300 Nice Nice",
+   "url": "https://www.eventbrite.fr/e/nice-orange-bar-crawl-party-bars-music-nightlife-club-experience-tickets-1987142493691",
+   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1181883258%2F2149570374853%2F1%2Foriginal.20260410-163304?crop=focalpoint&fit=crop&w=1080&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=14f6bb6da689f7dca5612a1567d18a01",
+   "price": 22.51,
+   "tags": [],
+   "description": "Experience Nice nightlife through a high-energy pub crawl with great vibes, music and unforgettable party moments across the city.",
+   "popularite": null
+  }
+ },
+ "https://www.eventbrite.fr/e/new-years-eve-bar-crawl-party-nice-tickets-2004418564885": {
+  "le": "2026-11-17T00:15:34.817Z",
+  "d": {
+   "source": "eventbrite",
+   "name": "New Year’s Eve Bar Crawl Party Nice",
+   "start": "2026-12-31T20:00:00.000Z",
+   "end": "2027-01-01T00:30:00.000Z",
+   "venue": "Hostel Villa Saint Exupery Beach",
+   "city": "Nice",
+   "address": "6 Rue Sacha Guitry, 06000 Nice Nice",
+   "url": "https://www.eventbrite.fr/e/new-years-eve-bar-crawl-party-nice-tickets-2004418564885",
+   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1197332295%2F95356021183%2F1%2Foriginal.20261105-103228?crop=focalpoint&fit=crop&w=1080&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=3a40e7c972e2838aae32e4024b308de4",
+   "price": 38.5,
+   "tags": [],
+   "description": "Epic NYE 2027 in Nice! VIP entry to 3 bars & 1 club, 4 free shots, massive drink deals, and an international crowd. Book early & save!",
+   "popularite": null
+  }
+ },
+ "https://www.eventbrite.fr/e/chilli-no-5-80s-apres-ski-christmas-party-tickets-2003302897895": {
+  "le": "2026-11-17T00:15:34.817Z",
+  "d": {
+   "source": "eventbrite",
+   "name": "Chilli No. 5 - 80s Après-Ski Christmas Party",
+   "start": "2026-12-11T18:00:00.000Z",
+   "end": "2026-12-11T22:30:00.000Z",
+   "venue": "245 Rte des Lucioles",
+   "city": "Valbonne",
+   "address": "245 Route des Lucioles, 06560 Valbonne Valbonne",
+   "url": "https://www.eventbrite.fr/e/chilli-no-5-80s-apres-ski-christmas-party-tickets-2003302897895",
+   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1195695409%2F1015842929213%2F1%2Foriginal.20261013-150448?crop=focalpoint&fit=crop&w=1080&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=7b7dbff27f23ce7af34065dbf1a4721b",
+   "price": 75,
+   "tags": [],
+   "description": "Christmas party! Neon ski suits, big hair, world tapas and DJ Grace, followed by melting raclette, dinner together and karaoke!",
+   "popularite": null
+  }
+ },
+ "https://www.eventbrite.fr/e/nice-yellow-pub-crawl-social-bars-games-new-friends-tickets-2004294525881": {
+  "le": "2026-11-28T07:14:36.726Z",
+  "d": {
+   "source": "eventbrite",
+   "name": "Nice Yellow Pub Crawl – Social Bars, Games & New Friends",
+   "start": "2026-11-28T20:00:00.000Z",
+   "end": "2026-11-29T01:30:00.000Z",
+   "venue": "La Chapa",
+   "city": "Nice",
+   "address": "73 Quai des États-Unis, 06300 Nice Nice",
+   "url": "https://www.eventbrite.fr/e/nice-yellow-pub-crawl-social-bars-games-new-friends-tickets-1987141281064",
+   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1181880528%2F2149570374853%2F1%2Foriginal.20260410-160315?crop=focalpoint&fit=crop&w=1080&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=1953765b2b7fcb2f54379c913b33b1c1",
+   "price": 22.51,
+   "tags": [],
+   "description": "Meet travelers from around the world during Nice’s most social pub crawl. Games, friendly bars, drink deals and VIP club entry.",
+   "popularite": null
+  }
+ },
+ "https://www.eventbrite.fr/e/nice-new-years-eve-2026-2027-guaranteed-vip-club-entry-5-free-shots-tickets-2004295126678": {
+  "le": "2026-11-17T00:15:34.817Z",
+  "d": {
+   "source": "eventbrite",
+   "name": "Nice New Year's Eve 2026-2027 — Guaranteed VIP Club Entry & 5 Free Shots",
+   "start": "2026-12-31T20:00:00.000Z",
+   "end": "2027-01-01T03:00:00.000Z",
+   "venue": "La Chapa",
+   "city": "Nice",
+   "address": "73 Quai des États-Unis, 06300 Nice Nice",
+   "url": "https://www.eventbrite.fr/e/nice-new-years-eve-2026-2027-guaranteed-vip-club-entry-5-free-shots-tickets-2004295126678",
+   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1197180661%2F2149570374853%2F1%2Foriginal.20241229-105819?w=1080&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C215%2C2048%2C1024&s=1bdc8299e3c79a502d951eeece84269d",
+   "price": 50,
+   "tags": [],
+   "description": "The biggest NYE party in Nice: 120+ international travelers, 5 free shots and guaranteed VIP club entry when every club is sold out.",
+   "popularite": null
+  }
+ },
+ "https://www.eventbrite.fr/e/nice-orange-pub-crawl-5-shots-party-games-vip-club-entry-tickets-2004292869928": {
+  "le": "2026-11-28T07:14:36.726Z",
+  "d": {
+   "source": "eventbrite",
+   "name": "Nice Orange Pub Crawl – 5 Shots, Party Games & VIP Club Entry",
+   "start": "2026-11-28T21:00:00.000Z",
+   "end": "2026-11-29T01:00:00.000Z",
+   "venue": "La Chapa",
+   "city": "Nice",
+   "address": "73 Quai des États-Unis, 06300 Nice Nice",
+   "url": "https://www.eventbrite.fr/e/nice-orange-pub-crawl-5-shots-party-games-vip-club-entry-tickets-1982791729438",
+   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1177182143%2F2149570374853%2F1%2Foriginal.20260210-162712?crop=focalpoint&fit=crop&w=1080&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=be7a842a0b1f4a63e396b0190eb8c4c5",
+   "price": 27.84,
+   "tags": [],
+   "description": "The wildest pub crawl in Nice. 5 party venues, drinking games, 5 free shots and VIP club entry with an international crowd.",
+   "popularite": null
+  }
+ },
+ "https://www.eventbrite.com/e/aperelles-evening-december-tickets-2004949139849": {
+  "le": "2026-11-20T12:47:30.724Z",
+  "d": {
+   "source": "eventbrite",
+   "name": "Aper’ELLES Evening December",
+   "start": "2026-12-02T17:30:00.000Z",
+   "end": "2026-12-02T20:30:00.000Z",
+   "venue": "Panama",
+   "city": "Nice",
+   "address": "11 Place Garibaldi, 06300 Nice Nice",
+   "url": "https://www.eventbrite.com/e/aperelles-evening-december-tickets-2004949139849",
+   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1198153358%2F2994876947766%2F1%2Foriginal.20261117-121437?crop=focalpoint&fit=crop&w=1080&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=c0e30868cd91ef99bebe8ab087f56fef",
+   "price": 0,
+   "tags": [],
+   "description": "Join Internation_Elles evening Aper’Elles for a fun in-person night of chats, laughs, and new global friendships!!",
+   "popularite": null
+  }
+ },
+ "https://www.eventbrite.fr/e/french-riviera-3-local-wines-french-charcuterie-tasting-tickets-2004347922592": {
+  "le": "2026-11-28T07:14:36.726Z",
+  "d": {
+   "source": "eventbrite",
+   "name": "French Riviera: 3 Local Wines & French Charcuterie Tasting",
+   "start": "2026-11-28T11:00:00.000Z",
+   "end": "2026-11-28T12:00:00.000Z",
+   "venue": "LOU'BAR",
+   "city": "Villeneuve-Loubet",
+   "address": "3 Rue des Mesures, 06270 Villeneuve-Loubet Villeneuve-Loubet",
+   "url": "https://www.eventbrite.fr/e/french-riviera-3-local-wines-french-charcuterie-tasting-tickets-1983538200152",
+   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1177927568%2F2149570374853%2F1%2Foriginal.20260219-132432?w=1080&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C724%2C1200%2C600&s=6d5fbd913540e66dba00e9fb76190e6d",
+   "price": 40.64,
+   "tags": [],
+   "description": "Taste 3 local wines from the French Riviera paired with French charcuterie in a guided gourmet experience.",
+   "popularite": null
+  }
+ },
  "https://www.eventbrite.com/e/billets-blind-test-aux-folies-dedmonde-2004892530529": {
   "le": "2026-11-17T00:15:34.817Z",
   "d": {
@@ -1169,21 +1259,21 @@
    "popularite": null
   }
  },
- "https://www.eventbrite.com/e/foodies-new-friends-nice-giving-back-edition-tickets-1989238521968": {
-  "le": "2026-11-17T00:15:34.817Z",
+ "https://www.eventbrite.fr/e/french-riviera-3-local-wines-french-cheese-tasting-tickets-2004344702962": {
+  "le": "2026-11-20T15:45:25.195Z",
   "d": {
    "source": "eventbrite",
-   "name": "Foodies + New Friends: Nice | Giving Back Edition",
-   "start": "2026-12-03T18:00:00.000Z",
-   "end": "2026-12-03T21:00:00.000Z",
-   "venue": "Restaurant of the Week",
-   "city": "Nice",
-   "address": "Rue Clément Roassal, 06000 Nice Nice",
-   "url": "https://www.eventbrite.com/e/foodies-new-friends-nice-giving-back-edition-tickets-1989238449752",
-   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1170751990%2F2983062185328%2F1%2Foriginal.20251112-024414?crop=focalpoint&fit=crop&w=1080&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=fc9b4d6340ad68ebc0b212e835d6db37",
-   "price": 17.85,
+   "name": "French Riviera: 3 Local Wines & French Cheese Tasting",
+   "start": "2027-01-17T12:00:00.000Z",
+   "end": "2027-01-17T13:00:00.000Z",
+   "venue": "LOU'BAR",
+   "city": "Villeneuve-Loubet",
+   "address": "3 Rue des Mesures, 06270 Villeneuve-Loubet Villeneuve-Loubet",
+   "url": "https://www.eventbrite.fr/e/french-riviera-3-local-wines-french-cheese-tasting-tickets-2004295816742",
+   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1177916234%2F2149570374853%2F1%2Foriginal.20260219-094849?w=1080&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C454%2C4596%2C2298&s=004423f1cc1ae0994659830f619de76b",
+   "price": 41.7,
    "tags": [],
-   "description": "Join us for a cozy dinner with a new friend, support a local business, and give back! A different restaurant each outing.",
+   "description": "Taste 3 local wines from the French Riviera paired with French cheeses in a guided and intimate tasting experience.",
    "popularite": null
   }
  },
@@ -1223,57 +1313,75 @@
    "popularite": null
   }
  },
- "https://www.eventbrite.co.uk/e/the-biggest-problem-in-the-world-victor-patrascan-in-marseille-tickets-2003206175596": {
-  "le": "2026-11-17T00:38:15.948Z",
+ "https://www.eventbrite.com/e/foodies-new-friends-nice-giving-back-edition-tickets-1989238521968": {
+  "le": "2026-11-17T00:15:34.817Z",
   "d": {
    "source": "eventbrite",
-   "name": "the biggest Problem in the world • Victor Patrascan in Marseille",
-   "start": "2026-11-27T18:30:00.000Z",
-   "end": "2026-11-27T20:00:00.000Z",
-   "venue": "Marseille Comedy Club",
+   "name": "Foodies + New Friends: Nice | Giving Back Edition",
+   "start": "2026-12-03T18:00:00.000Z",
+   "end": "2026-12-03T21:00:00.000Z",
+   "venue": "Restaurant of the Week",
+   "city": "Nice",
+   "address": "Rue Clément Roassal, 06000 Nice Nice",
+   "url": "https://www.eventbrite.com/e/foodies-new-friends-nice-giving-back-edition-tickets-1989238449752",
+   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1170751990%2F2983062185328%2F1%2Foriginal.20251112-024414?crop=focalpoint&fit=crop&w=1080&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=fc9b4d6340ad68ebc0b212e835d6db37",
+   "price": 17.85,
+   "tags": [],
+   "description": "Join us for a cozy dinner with a new friend, support a local business, and give back! A different restaurant each outing.",
+   "popularite": null
+  }
+ },
+ "https://www.eventbrite.fr/e/billets-marseille-comedy-club-plateaux-du-weekend-2002547036092": {
+  "le": "2026-11-28T07:14:36.726Z",
+  "d": {
+   "source": "eventbrite",
+   "name": "MARSEILLE COMEDY CLUB - PLATEAUX DU WEEKEND",
+   "start": "2026-11-28T18:30:00.000Z",
+   "end": "2026-11-28T20:00:00.000Z",
+   "venue": "59 Rue de Rome",
    "city": "Marseille",
    "address": "59 Rue de Rome, 13001 Marseille Marseille",
-   "url": "https://www.eventbrite.co.uk/e/the-biggest-problem-in-the-world-victor-patrascan-in-marseille-tickets-2003206175596",
-   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1196358405%2F124277772125%2F1%2Foriginal.20261022-124934?crop=focalpoint&fit=crop&w=1080&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=82755440aa6aca211785ff917e567b66",
+   "url": "https://www.eventbrite.fr/e/billets-marseille-comedy-club-plateaux-du-weekend-2002542695108",
+   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1194626708%2F2995537418926%2F1%2Foriginal.20260929-135110?crop=focalpoint&fit=crop&w=1080&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=bb321886b4c50e2ab976e53714aaaffa",
    "price": 15,
    "tags": [],
-   "description": "Whether you’re local, an expat, or just existentially lost, this show is a space to laugh at the absurdity of modern life - together.",
+   "description": "Venez passer une soirée explosive avec 5 humoristes sur scène qui vont vous faire rire sans pause !",
    "popularite": null
   }
  },
- "https://www.eventbrite.fr/e/rencontre-dechecs-a-nice-alt-f4-tickets-2004718161988": {
-  "le": "2026-11-27T16:20:29.081Z",
+ "https://www.eventbrite.com/e/billets-afterwork-06-nice-1990733174514": {
+  "le": "2026-11-28T07:14:36.726Z",
   "d": {
    "source": "eventbrite",
-   "name": "Rencontre d’échecs à Nice · ALT F4",
-   "start": "2026-12-01T18:00:00.000Z",
-   "end": "2026-12-01T20:00:00.000Z",
-   "venue": "ALT F4",
+   "name": "AFTERWORK 06 - NICE",
+   "start": "2026-12-16T18:00:00.000Z",
+   "end": "2026-12-16T20:00:00.000Z",
+   "venue": "Casa Barbara Nice",
    "city": "Nice",
-   "address": "20 Rue Jules Bianchi, 06200 Nice, France, 06200 Nice Nice",
-   "url": "https://www.eventbrite.fr/e/rencontre-dechecs-a-nice-alt-f4-tickets-2004718161988",
-   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1197697977%2F2827791142421%2F1%2Foriginal.20261110-171959?crop=focalpoint&fit=crop&w=1080&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.29&fp-y=0.497&s=a06e2c124598572ca82cf9d9e48915ee",
+   "address": "40 Boulevard Saint-Roch, 06300 Nice Nice",
+   "url": "https://www.eventbrite.com/e/billets-afterwork-06-nice-1990732591771",
+   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1186301178%2F2993189208717%2F1%2Foriginal.20260606-131053?crop=focalpoint&fit=crop&w=1080&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.013&fp-y=0.755&s=ad60c0592aed55b4ac9c43a73fc0029c",
    "price": 0,
    "tags": [],
-   "description": "Échecs gratuits et conviviaux à Nice. Tous niveaux. Inscrivez-vous ici, puis confirmez votre place par e-mail.",
+   "description": "​Tu es de Nice ou de ses environs ? Alors cette soirée de réseautage est faite pour toi !",
    "popularite": null
   }
  },
- "https://www.eventbrite.com/e/carol-nakari-quintet-pourquoi-pas-ce-soir-concert-live-tickets-2005397934205": {
-  "le": "2026-11-27T16:20:29.081Z",
+ "https://www.eventbrite.it/e/biglietti-il-paese-degli-zeromatti-2004160548150": {
+  "le": "2026-11-28T07:14:36.726Z",
   "d": {
    "source": "eventbrite",
-   "name": "Carol Nakari Quintet – Pourquoi pas ce soir ? | Concert live",
-   "start": "2026-12-05T19:00:00.000Z",
-   "end": "2026-12-05T22:59:00.000Z",
-   "venue": "Le Quartier du Poulpe",
-   "city": "Nice",
-   "address": "34 boulevard Auguste Raynaud, 06100 Nice Nice",
-   "url": "https://www.eventbrite.com/e/carol-nakari-quintet-pourquoi-pas-ce-soir-concert-live-tickets-2005397934205",
-   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1198610795%2F2988009644804%2F1%2Foriginal.20261124-144318?w=1080&auto=format%2Ccompress&q=75&sharp=10&s=a86e435979987924d0e2a05c881f9472",
-   "price": 0,
+   "name": "IL PAESE DEGLI ZEROMATTI",
+   "start": "2027-04-10T19:00:00.000Z",
+   "end": "2027-04-10T21:56:00.000Z",
+   "venue": "ANFITEATRO FENOGLIO",
+   "city": "LA LOGGIA",
+   "address": "Via della Chiesa 45, 10040 LA LOGGIA LA LOGGIA",
+   "url": "https://www.eventbrite.it/e/biglietti-il-paese-degli-zeromatti-2004160548150",
+   "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1197015232%2F3019846746341%2F1%2Foriginal.20261101-094044?crop=focalpoint&fit=crop&w=1080&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=2d3e9ac87861c8305dd1cfe1ceb887dc",
+   "price": 11.88,
    "tags": [],
-   "description": "Une soirée musicale entre jazz, pop, world music, compositions originales et reprises incontournables au QDP!",
+   "description": "Concerto Tributo a RENATO ZERO degli ZERO IN CONDOTTA",
    "popularite": null
   }
  },
