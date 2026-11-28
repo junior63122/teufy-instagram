@@ -1499,7 +1499,7 @@ const boutonBillets = (s, t) => (s.url && !RESEAU_SOCIAL.test(s.url)
   ? `<a class="bouton" href="${esc(s.url)}" target="_blank" rel="noopener">${esc(t.billets)}</a>`
   : s.url || s.instagram ? `<a class="bouton" href="${esc(s.url || `https://www.instagram.com/${s.instagram}/`)}" target="_blank" rel="noopener">${esc(t.infos || 'Infos')}</a>`
   // Pas de lien de billetterie connu : même bouton (un seul style sur tout le site, directeur 13/11), « Infos » si l'entrée est gratuite.
-  : `<a class="bouton contour" href="https://www.google.com/search?q=${encodeURIComponent(`${s.nom} ${s.lieu}`.trim())}" target="_blank" rel="noopener nofollow">${esc(t.trouverBillets || t.billets)}</a>`);
+  : `<a class="bouton" href="https://www.google.com/search?q=${encodeURIComponent(`${s.nom} ${s.lieu}`.trim())}" target="_blank" rel="noopener nofollow">${esc(t.trouverBillets || t.billets)}</a>`);
 
 function jsonEvent(s, lang) {
   const offres = s.offres.length ? s.offres : s.prix != null ? [{ url: s.url, prix: s.prix }] : [];
